@@ -13,39 +13,23 @@ Runs **natively on Apple Silicon** — no Docker, no VM, no X11 — via
 | Control | `ros2_control` + `gz_ros2_control` |
 | Python | 3.12 (pinned by RoboStack) |
 
-## Setup
-
-Once, to install [pixi](https://pixi.sh):
+## Quick start
 
 ```bash
-curl -fsSL https://pixi.sh/install.sh | bash
-```
-
-Then, in this directory:
-
-```bash
+curl -fsSL https://pixi.sh/install.sh | bash        # once per machine
 pixi install && pixi run colcon build --symlink-install
 ```
 
-## Running
+Then three terminals — the Gazebo server and GUI **must** be separate processes
+on macOS, because Cocoa requires window creation on the main thread:
 
-Three terminals. The Gazebo server and GUI **must** be separate processes on
-macOS — Cocoa requires window creation on the main thread, so a combined
-`gz sim` cannot work here.
+| terminal | command | starts |
+|---|---|---|
+| 1 | `./run/sim.sh` | Gazebo server, the cat, both controllers, gait node |
+| 2 | `./run/gui.sh` | Gazebo GUI window |
+| 3 | `./run/teleop.sh` | arrow-key teleop |
 
-```bash
-./run/sim.sh
-```
-
-```bash
-./run/gui.sh
-```
-
-```bash
-./run/teleop.sh
-```
-
-Then, with the **teleop terminal focused**:
+With the **teleop terminal focused**:
 
 | key | action |
 |---|---|
@@ -54,13 +38,128 @@ Then, with the **teleop terminal focused**:
 | space | stop |
 | `q` | quit |
 
-Arrows combine, so ↑ + ← walks in an arc.
+Arrows combine, so ↑ + ← walks in an arc. To inspect the model on its own — no
+physics, joint sliders in RViz — use `./run/display.sh`.
 
-To inspect the model on its own — no physics, joint sliders in RViz:
+When you are done, kill **all three** process groups:
 
 ```bash
-./run/display.sh
+pkill -f "gz sim"; pkill -f gait_controller; pkill -f "ros2 launch"
 ```
+
+The [Runbook](#runbook) below covers the same ground in depth, including how to
+drive the cat without a keyboard and how to verify it actually walked.
+
+## Runbook
+
+Written for someone — or some agent — arriving at this repo cold on a macOS
+machine. Every command assumes the repo root and **Apple Silicon**.
+
+### 0. Prerequisites
+
+`git` and [pixi](https://pixi.sh). Nothing else: no Homebrew ROS, no Docker,
+no XQuartz, no system Python. Everything lives inside `.pixi/`.
+
+```bash
+curl -fsSL https://pixi.sh/install.sh | bash
+```
+
+`pixi.toml` pins `platforms = ["osx-arm64"]`. On anything else `pixi install`
+fails immediately — add the platform and regenerate the lock first.
+
+### 1. Bootstrap
+
+```bash
+pixi install && pixi run colcon build --symlink-install
+```
+
+First `pixi install` pulls ~2 GB. The build takes well under a minute. Nothing
+is installed outside `.pixi/`, so removing that directory fully undoes it.
+
+### 2. Prove the logic before starting anything heavy
+
+```bash
+pixi run pytest
+```
+
+464 tests in under a second — pure maths, no simulator and no ROS runtime.
+If these fail, do not bother launching Gazebo; the gait or IK is broken.
+
+### 3. Run it
+
+Everything must run inside the pixi environment, and ROS needs its overlay
+sourced on top. That is what the `run/` wrappers exist for:
+
+| terminal | command | what it starts |
+|---|---|---|
+| 1 | `./run/sim.sh` | Gazebo **server**, spawns the cat, both controllers, gait node |
+| 2 | `./run/gui.sh` | Gazebo **GUI** window |
+| 3 | `./run/teleop.sh` | arrow-key teleop — needs to be the focused window |
+
+The server and GUI are deliberately separate processes. macOS requires window
+creation on the main thread, so a combined `gz sim` cannot work here.
+
+### 4. Wait for readiness — do not guess with `sleep`
+
+Startup takes roughly 30–40 s before the controllers are up. Poll instead of
+sleeping:
+
+```bash
+until pixi run bash -c 'source install/setup.bash >/dev/null 2>&1; ros2 control list_controllers 2>/dev/null | grep -q "leg_position_controller.*active"'; do sleep 5; done
+```
+
+Both `leg_position_controller` and `joint_state_broadcaster` must report
+`active`. If `controller_manager` never appears, the `gz_ros2_control` plugin
+failed to load — check `GZ_SIM_SYSTEM_PLUGIN_PATH` under "macOS specifics".
+
+### 5. Driving it without a keyboard
+
+`teleop.sh` reads a real terminal, so it is useless to an automated caller.
+Publish to `/cmd_vel` directly instead — same interface the teleop node uses:
+
+```bash
+pixi run bash -c 'source install/setup.bash && ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.15}, angular: {z: 0.6}}" -r 20'
+```
+
+Stop publishing and the watchdog returns the cat to a stance within 0.5 s.
+
+### 6. Verify it actually walked
+
+Do not trust the viewport — read the pose:
+
+```bash
+pixi run bash -c 'source install/setup.bash && gz model -m robot_cat -p'
+```
+
+A healthy standing cat sits at `z ≈ 0.142` with roll and pitch near zero. To
+confirm motion, sample the pose before and after a `/cmd_vel` burst.
+
+### 7. Shut down properly
+
+```bash
+pkill -f "gz sim"; pkill -f gait_controller; pkill -f "ros2 launch"
+```
+
+**All three.** See the first gotcha below for why.
+
+### Gotchas that will otherwise cost you an hour
+
+- **`pkill -f "ros2 launch"` alone leaves orphans.** It kills the launcher, not
+  its child nodes. Two surviving `gait_controller` processes publish to the same
+  command topic at 100 Hz each, with independent gait phases, and the cat skates
+  across the world looking like a physics bug. Always check
+  `pgrep -fl gait_controller` before diagnosing strange motion.
+- **Never `set -u` before `source install/setup.bash`.** colcon's script reads
+  unset variables and aborts the whole shell.
+- **Parsing `gz model -p`: use `tr -d '[]'`, not `tr -d ' []'`.** Stripping
+  spaces concatenates the three coordinates into one unreadable number.
+- **Yaw wraps at ±π.** A 10 s turn easily exceeds half a revolution, so a
+  "backwards" reading is usually a wrap, not a bug. Measure turn rates with
+  bursts of ~4 s.
+- **Commanded speed is not achieved speed.** The gait is open loop and the paws
+  slip; expect roughly 0.11–0.17 m/s for a 0.15 m/s command, varying run to run.
+- **Top speed is structural**, at `max_stride / cycle_time` = 0.16 m/s. Higher
+  commands are clamped, not obeyed.
 
 ## Layout
 
