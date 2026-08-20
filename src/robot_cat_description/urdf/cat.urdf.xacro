@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_cat">
+
+  <!-- A 12-DOF quadruped "cat": box body, four 3-DOF legs, cosmetic head and
+       tail. Built from primitives so it is easy to swap for real geometry
+       later - replace the <geometry> blocks and the dimensions below. -->
+
+  <xacro:arg name="use_gazebo" default="true"/>
+  <xacro:arg name="controllers_file" default=""/>
+
+  <!-- ==================== dimensions ====================
+       These MUST match LegGeometry in robot_cat_gait/leg_ik.py. If you change
+       a length here, change it there too, or the gait will command feet to
+       places the legs cannot reach. -->
+  <xacro:property name="hip_offset"   value="0.035"/>  <!-- hip roll -> thigh pitch, lateral -->
+  <xacro:property name="thigh_length" value="0.09"/>   <!-- L1 -->
+  <xacro:property name="calf_length"  value="0.09"/>   <!-- L2 -->
+  <xacro:property name="foot_radius"  value="0.012"/>
+
+  <xacro:property name="body_length" value="0.30"/>
+  <xacro:property name="body_width"  value="0.14"/>
+  <xacro:property name="body_height" value="0.09"/>
+
+  <!-- Hip joint placement relative to body centre. -->
+  <xacro:property name="hip_x" value="0.11"/>
+  <xacro:property name="hip_y" value="0.055"/>
+
+  <!-- ==================== masses ==================== -->
+  <xacro:property name="body_mass"  value="2.0"/>
+  <xacro:property name="hip_mass"   value="0.10"/>
+  <xacro:property name="thigh_mass" value="0.12"/>
+  <xacro:property name="calf_mass"  value="0.08"/>
+
+  <!-- ==================== joint properties ====================
+       Ranges are deliberately generous for the pitch joints so the gait has
+       headroom, but the knee is restricted to one bending direction to match
+       the IK branch (knee_sign = -1 in leg_ik.py). -->
+  <xacro:property name="hip_range"      value="0.80"/>
+  <xacro:property name="thigh_lower"    value="-1.20"/>
+  <xacro:property name="thigh_upper"    value="2.60"/>
+  <xacro:property name="calf_lower"     value="-2.70"/>
+  <xacro:property name="calf_upper"     value="-0.10"/>
+  <xacro:property name="joint_effort"   value="20.0"/>
+  <xacro:property name="joint_velocity" value="20.0"/>
+  <xacro:property name="joint_damping"  value="0.05"/>
+  <xacro:property name="joint_friction" value="0.01"/>
+  <xacro:property name="foot_mu"        value="1.2"/>
+
+  <xacro:include filename="$(find robot_cat_description)/urdf/inertia.xacro"/>
+  <xacro:include filename="$(find robot_cat_description)/urdf/leg.xacro"/>
+
+  <material name="cat_fur">    <color rgba="0.45 0.38 0.34 1.0"/></material>
+  <material name="cat_accent"> <color rgba="0.25 0.22 0.20 1.0"/></material>
+  <material name="cat_paw">    <color rgba="0.15 0.15 0.15 1.0"/></material>
+  <material name="cat_nose">   <color rgba="0.85 0.55 0.60 1.0"/></material>
+
+  <!-- ==================== body ==================== -->
+  <link name="base_link">
+    <visual>
+      <geometry><box size="${body_length} ${body_width} ${body_height}"/></geometry>
+      <material name="cat_fur"/>
+    </visual>
+    <collision>
+      <geometry><box size="${body_length} ${body_width} ${body_height}"/></geometry>
+    </collision>
+    <xacro:box_inertia mass="${body_mass}" x="${body_length}" y="${body_width}" z="${body_height}"/>
+  </link>
+
+  <!-- Cosmetic head and tail. Fixed joints, so SDF conversion folds their mass
+       into base_link; they exist to make orientation obvious on screen. -->
+  <joint name="head_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="head_link"/>
+    <origin xyz="${body_length/2 + 0.03} 0 ${body_height/2}" rpy="0 0 0"/>
+  </joint>
+  <link name="head_link">
+    <visual>
+      <geometry><sphere radius="0.05"/></geometry>
+      <material name="cat_fur"/>
+    </visual>
+    <visual>
+      <origin xyz="0.045 0 0" rpy="0 0 0"/>
+      <geometry><sphere radius="0.012"/></geometry>
+      <material name="cat_nose"/>
+    </visual>
+    <!-- ears -->
+    <visual>
+      <origin xyz="-0.01 0.028 0.042" rpy="0 0 0"/>
+      <geometry><box size="0.02 0.012 0.035"/></geometry>
+      <material name="cat_accent"/>
+    </visual>
+    <visual>
+      <origin xyz="-0.01 -0.028 0.042" rpy="0 0 0"/>
+      <geometry><box size="0.02 0.012 0.035"/></geometry>
+      <material name="cat_accent"/>
+    </visual>
+    <xacro:box_inertia mass="0.25" x="0.1" y="0.1" z="0.1"/>
+  </link>
+
+  <joint name="tail_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="tail_link"/>
+    <origin xyz="${-body_length/2 - 0.04} 0 ${body_height/2}" rpy="0 -0.9 0"/>
+  </joint>
+  <link name="tail_link">
+    <visual>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.009" length="0.12"/></geometry>
+      <material name="cat_accent"/>
+    </visual>
+    <xacro:cylinder_inertia mass="0.05" radius="0.009" length="0.12"/>
+  </link>
+
+  <!-- ==================== legs ====================
+       Joint order fl, fr, rl, rr is the contract with the gait node and
+       controllers.yaml. Do not reorder without changing both. -->
+  <xacro:cat_leg prefix="fl" x_sign="1"  y_sign="1"/>
+  <xacro:cat_leg prefix="fr" x_sign="1"  y_sign="-1"/>
+  <xacro:cat_leg prefix="rl" x_sign="-1" y_sign="1"/>
+  <xacro:cat_leg prefix="rr" x_sign="-1" y_sign="-1"/>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <xacro:if value="$(arg use_gazebo)">
+    <xacro:include filename="$(find robot_cat_description)/urdf/cat.ros2_control.xacro"/>
+    <xacro:cat_ros2_control controllers_file="$(arg controllers_file)"/>
+  </xacro:if>
+
+</robot>

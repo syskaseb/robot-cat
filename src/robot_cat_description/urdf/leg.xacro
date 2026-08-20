@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- One 3-DOF leg: hip (roll about X) -> thigh (pitch about Y) -> calf
+       (pitch about Y), with a spherical foot pad at the calf tip.
+
+       The kinematics here must stay in step with LegGeometry in
+       robot_cat_gait/leg_ik.py. The gait solver assumes exactly this chain and
+       these axes.
+
+       prefix  - leg name, one of fl / fr / rl / rr
+       x_sign  - +1 front, -1 rear
+       y_sign  - +1 left,  -1 right -->
+
+  <xacro:macro name="cat_leg" params="prefix x_sign y_sign">
+
+    <!-- hip: abduction / adduction -->
+    <joint name="${prefix}_hip_joint" type="revolute">
+      <parent link="base_link"/>
+      <child link="${prefix}_hip_link"/>
+      <origin xyz="${x_sign * hip_x} ${y_sign * hip_y} 0" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="${-hip_range}" upper="${hip_range}"
+             effort="${joint_effort}" velocity="${joint_velocity}"/>
+      <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+    </joint>
+
+    <link name="${prefix}_hip_link">
+      <visual>
+        <origin xyz="0 ${y_sign * hip_offset / 2.0} 0" rpy="${pi/2} 0 0"/>
+        <geometry><cylinder radius="0.018" length="${hip_offset}"/></geometry>
+        <material name="cat_accent"/>
+      </visual>
+      <xacro:cylinder_inertia mass="${hip_mass}" radius="0.018" length="${hip_offset}"/>
+    </link>
+
+    <!-- thigh: hip pitch -->
+    <joint name="${prefix}_thigh_joint" type="revolute">
+      <parent link="${prefix}_hip_link"/>
+      <child link="${prefix}_thigh_link"/>
+      <origin xyz="0 ${y_sign * hip_offset} 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${thigh_lower}" upper="${thigh_upper}"
+             effort="${joint_effort}" velocity="${joint_velocity}"/>
+      <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+    </joint>
+
+    <link name="${prefix}_thigh_link">
+      <visual>
+        <origin xyz="0 0 ${-thigh_length / 2.0}" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.014" length="${thigh_length}"/></geometry>
+        <material name="cat_fur"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${-thigh_length / 2.0}" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.014" length="${thigh_length}"/></geometry>
+      </collision>
+      <xacro:cylinder_inertia mass="${thigh_mass}" radius="0.014" length="${thigh_length}"/>
+    </link>
+
+    <!-- calf: knee pitch. The foot pad is a sphere on this link rather than a
+         separate fixed-joint link, because SDF conversion lumps fixed-joint
+         children into their parent anyway. Its centre sits at the calf tip, so
+         ground contact is foot_radius below the IK target point. -->
+    <joint name="${prefix}_calf_joint" type="revolute">
+      <parent link="${prefix}_thigh_link"/>
+      <child link="${prefix}_calf_link"/>
+      <origin xyz="0 0 ${-thigh_length}" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${calf_lower}" upper="${calf_upper}"
+             effort="${joint_effort}" velocity="${joint_velocity}"/>
+      <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+    </joint>
+
+    <link name="${prefix}_calf_link">
+      <visual>
+        <origin xyz="0 0 ${-calf_length / 2.0}" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.011" length="${calf_length}"/></geometry>
+        <material name="cat_fur"/>
+      </visual>
+      <visual>
+        <origin xyz="0 0 ${-calf_length}" rpy="0 0 0"/>
+        <geometry><sphere radius="${foot_radius}"/></geometry>
+        <material name="cat_paw"/>
+      </visual>
+      <!-- Only the paw collides. Letting the calf cylinder collide too makes
+           the leg catch on the ground during swing. -->
+      <collision>
+        <origin xyz="0 0 ${-calf_length}" rpy="0 0 0"/>
+        <geometry><sphere radius="${foot_radius}"/></geometry>
+      </collision>
+      <xacro:cylinder_inertia mass="${calf_mass}" radius="0.011" length="${calf_length}"/>
+    </link>
+
+    <!-- Reference frame at the contact point, for debugging in RViz/tf. -->
+    <joint name="${prefix}_foot_joint" type="fixed">
+      <parent link="${prefix}_calf_link"/>
+      <child link="${prefix}_foot"/>
+      <origin xyz="0 0 ${-calf_length - foot_radius}" rpy="0 0 0"/>
+    </joint>
+    <link name="${prefix}_foot"/>
+
+    <!-- Rubber paw: high friction so the cat pushes off instead of skating. -->
+    <gazebo reference="${prefix}_calf_link">
+      <mu1>${foot_mu}</mu1>
+      <mu2>${foot_mu}</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

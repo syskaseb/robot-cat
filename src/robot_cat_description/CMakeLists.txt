@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.16)
+project(robot_cat_description)
+
+find_package(ament_cmake REQUIRED)
+
+install(
+  DIRECTORY urdf config rviz
+  DESTINATION share/${PROJECT_NAME}
+)
+
+ament_package()

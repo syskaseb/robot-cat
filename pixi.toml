@@ -1,0 +1,41 @@
+[workspace]
+authors = ["Sebastian Syska <syska.seb@gmail.com>"]
+channels = ["https://prefix.dev/robostack-jazzy", "conda-forge"]
+name = "ros"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+# This machine's VPN (utun4) claims the whole 224.0.0.0/4 multicast range,
+# including gz-transport's discovery address 239.255.0.7, which makes Gazebo
+# fail with "No route to host". Pinning transport to loopback sidesteps the VPN
+# routing table entirely. Everything here is a single-host simulation, so
+# localhost-only is also the correct security posture - no ROS or Gazebo
+# traffic leaks onto the corporate network.
+[activation.env]
+GZ_IP = "127.0.0.1"
+GZ_PARTITION = "robotcat"
+ROS_AUTOMATIC_DISCOVERY_RANGE = "LOCALHOST"
+ROS_DOMAIN_ID = "42"
+
+# Gazebo only auto-searches $CONDA_PREFIX/lib/gz-sim-8/plugins, but RoboStack
+# installs libgz_ros2_control-system.dylib straight into $CONDA_PREFIX/lib.
+# Without this, gz sim reports "Failed to load system plugin
+# [gz_ros2_control-system]: Could not find shared library" and no
+# controller_manager ever appears.
+GZ_SIM_SYSTEM_PLUGIN_PATH = "$CONDA_PREFIX/lib"
+
+[tasks]
+
+[dependencies]
+ros-jazzy-desktop = ">=0.11.0,<0.12"
+ros-jazzy-ros-gz = ">=1.0.22,<2"
+ros-jazzy-gz-ros2-control = ">=1.2.18,<2"
+ros-jazzy-ros2-controllers = ">=4.40.0,<5"
+ros-jazzy-xacro = ">=2.1.1,<3"
+ros-jazzy-joint-state-publisher-gui = ">=2.4.1,<3"
+compilers = ">=2.0.0,<3"
+cmake = ">=4.4.2,<5"
+ninja = ">=1.13.2,<2"
+pkg-config = ">=0.29.2,<0.30"
+colcon-common-extensions = ">=0.3.0,<0.4"
+ros-jazzy-ros2controlcli = ">=4.45.1,<5"
