@@ -53,9 +53,9 @@ There is no explicit stop key: the body halts by itself within `0.25 s` of the
 arrows being released.
 
 `m` meows. Gazebo has no audio of any kind, so the clip plays through the
-host (`afplay` on macOS) rather than from the simulation. It is synthesised,
-not sampled — see `robot_cat_teleop/sounds/meow.wav` and the commit that
-generated it — so there is no sample licence to worry about.
+host (`afplay` on macOS) rather than from the simulation. The clip is a real cat,
+trimmed from a public-domain Wikimedia Commons recording — provenance in
+`robot_cat_teleop/sounds/SOURCE.md`.
 
 The cat also has eyes now. They are cosmetic, but sited where a stereo pair
 would really go, so camera sensors can later be mounted at the same origins.
@@ -111,7 +111,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-530 tests in under a second — pure maths, no simulator and no ROS runtime.
+531 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it

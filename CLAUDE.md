@@ -67,7 +67,7 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 
 ## Changing things
 
-The gait maths is pure and fully unit tested — `pixi run pytest` is 530 tests in
+The gait maths is pure and fully unit tested — `pixi run pytest` is 531 tests in
 under a second, with no simulator. Run it before launching Gazebo; if it fails,
 the simulator will only obscure the cause.
 

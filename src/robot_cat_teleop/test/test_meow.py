@@ -21,12 +21,12 @@ def test_the_clip_is_a_short_audible_mono_wav():
         assert w.getnchannels() == 1
         assert w.getsampwidth() == 2
         duration = w.getnframes() / w.getframerate()
-    assert 0.2 < duration < 2.0, "a meow, not a drone"
+    assert 0.2 < duration < 2.0, "one meow, not the whole source recording"
 
 
 def test_the_clip_is_neither_silent_nor_clipped():
-    """A synthesised clip is easy to get wrong in both directions - too quiet
-    to hear over a fan, or squared off into buzz."""
+    """Trimming and normalising is easy to get wrong in both directions - too
+    quiet to hear over a fan, or squared off into buzz."""
     import struct
 
     with wave.open(str(SOUND)) as w:
@@ -35,6 +35,17 @@ def test_the_clip_is_neither_silent_nor_clipped():
     peak = max(abs(s) for s in samples)
     assert peak > 16000, "too quiet"
     assert sum(1 for s in samples if abs(s) >= 32700) == 0, "clipped"
+
+
+def test_the_clip_does_not_start_or_end_on_a_click():
+    """A hard cut mid-waveform pops. The clip is faded at both ends."""
+    import struct
+
+    with wave.open(str(SOUND)) as w:
+        n = w.getnframes()
+        samples = struct.unpack(f"<{n}h", w.readframes(n))
+    assert abs(samples[0]) < 500
+    assert abs(samples[-1]) < 500
 
 
 @pytest.fixture
