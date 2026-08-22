@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="apartment_world">
+
+    <physics name="1ms" type="dart">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-contact-system"
+            name="gz::sim::systems::Contact"/>
+
+    <gui fullscreen="0">
+      <plugin filename="MinimalScene" name="3D View">
+        <gz-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.4 0.4 0.4</ambient_light>
+        <background_color>0.75 0.80 0.85</background_color>
+        <camera_pose>-4 -4 4 0 0.5 0.78</camera_pose>
+      </plugin>
+      <plugin filename="GzSceneManager" name="Scene Manager">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="InteractiveViewControl" name="Camera Controls">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="CameraTracking" name="Camera Tracking">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="MarkerManager" name="Marker manager">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="SelectEntities" name="Select Entities">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="EntityContextMenuPlugin" name="Entity context menu">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="VisualizationCapabilities" name="Visualization Capabilities">
+        <gz-gui><property key="resizable" type="bool">false</property>
+        <property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="WorldControl" name="World control">
+        <gz-gui>
+          <title>World control</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">72</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left"/>
+            <line own="bottom" target="bottom"/>
+          </anchors>
+        </gz-gui>
+        <play_pause>true</play_pause>
+        <step>true</step>
+        <start_paused>false</start_paused>
+      </plugin>
+      <plugin filename="WorldStats" name="World stats">
+        <gz-gui>
+          <title>World stats</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">110</property>
+          <property type="double" key="width">290</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="right" target="right"/>
+            <line own="bottom" target="bottom"/>
+          </anchors>
+        </gz-gui>
+        <sim_time>true</sim_time>
+        <real_time>true</real_time>
+        <real_time_factor>true</real_time_factor>
+        <iterations>true</iterations>
+      </plugin>
+      <plugin filename="Screenshot" name="Screenshot">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="height" type="double">50</property>
+          <property key="width" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <anchors target="3D View">
+            <line own="right" target="right"/>
+            <line own="top" target="top"/>
+          </anchors>
+        </gz-gui>
+      </plugin>
+      <plugin filename="TransformControl" name="Transform control">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="height" type="double">50</property>
+          <property key="width" type="double">150</property>
+          <property key="state" type="string">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left"/>
+            <line own="top" target="top"/>
+          </anchors>
+        </gz-gui>
+      </plugin>
+      <plugin filename="EntityTree" name="Entity tree"/>
+      <plugin filename="ComponentInspector" name="Component inspector"/>
+    </gui>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.25 0.25 0.25 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.2 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>100 100</size></plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode><mu>1.0</mu><mu2>1.0</mu2></ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>100 100</size></plane>
+          </geometry>
+          <material>
+            <ambient>0.75 0.75 0.75 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Open-plan kitchen/dining from Gazebo Fuel (OpenRobotics, CC0). Visual
+         mesh only - no collision geometry ships with it - so the cat can walk
+         across its floor without tripping the physics engine on the counter
+         mesh, but also without bumping into the counter. Good enough for
+         "somewhere to walk that isn't a bare plane"; add box collisions here
+         if the cat should actually be stopped by the furniture later. -->
+    <include>
+      <uri>file:///Users/alenagler/.gz/fuel/fuel.gazebosim.org/openrobotics/models/kitchen and dining/3</uri>
+      <name>kitchen_dining</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///Users/alenagler/.gz/fuel/fuel.gazebosim.org/openrobotics/models/sofa/3</uri>
+      <name>living_room_sofa</name>
+      <pose>2 -3 0 0 0 1.5708</pose>
+    </include>
+
+  </world>
+</sdf>

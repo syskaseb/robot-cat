@@ -19,22 +19,22 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, RegisterEventHandler
 from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
-from launch.substitutions import Command, LaunchConfiguration
+from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description() -> LaunchDescription:
     description_share = get_package_share_directory("robot_cat_description")
-    bringup_share = get_package_share_directory("robot_cat_bringup")
 
     xacro_file = os.path.join(description_share, "urdf", "cat.urdf.xacro")
     controllers_file = os.path.join(description_share, "config", "controllers.yaml")
-    world_file = os.path.join(bringup_share, "worlds", "cat_world.sdf")
 
     use_sim_time = LaunchConfiguration("use_sim_time")
     spawn_height = LaunchConfiguration("spawn_height")
     start_gait = LaunchConfiguration("start_gait")
+    world = LaunchConfiguration("world")
 
     args = [
         DeclareLaunchArgument("use_sim_time", default_value="true"),
@@ -50,7 +50,18 @@ def generate_launch_description() -> LaunchDescription:
             description="Set false to drive /leg_position_controller/commands "
             "by hand instead of running the gait node.",
         ),
+        DeclareLaunchArgument(
+            "world",
+            default_value="cat_world.sdf",
+            description="World file name, looked up under "
+            "robot_cat_bringup/worlds/. Try apartment_world.sdf for a living "
+            "room + kitchen the cat can walk around in.",
+        ),
     ]
+
+    world_file = PathJoinSubstitution(
+        [FindPackageShare("robot_cat_bringup"), "worlds", world]
+    )
 
     # ParameterValue(..., value_type=str) is required: without it launch tries
     # to YAML-parse the URDF and dies on the first colon.

@@ -108,6 +108,17 @@ sourced on top. That is what the `run/` wrappers exist for:
 The server and GUI are deliberately separate processes. macOS requires window
 creation on the main thread, so a combined `gz sim` cannot work here.
 
+By default the cat spawns in the bare `cat_world.sdf` test arena. For a living
+room + open kitchen to walk around instead, pass a world argument:
+
+```bash
+./run/sim.sh world:=apartment_world.sdf
+```
+
+The furniture (OpenRobotics' Fuel-hosted "Kitchen and Dining" and "Sofa"
+models, both CC0) is visual only — no collision — so the cat can cross the
+floor freely but will walk through the counter rather than bump it.
+
 ### 4. Wait for readiness — do not guess with `sleep`
 
 Startup is around 10 s on Cyclone (it was 30–40 s on the Fast DDS default,
