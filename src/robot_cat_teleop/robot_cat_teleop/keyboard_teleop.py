@@ -23,8 +23,9 @@ from geometry_msgs.msg import Twist
 from rclpy.node import Node
 from std_msgs.msg import Float64MultiArray
 
+from .camera_view import CameraController, CameraView
 from .head import HeadParams, HeadState
-from .keys import QUIT, TAIL_STEP, decode_keys
+from .keys import CAMERA_CYCLE, QUIT, TAIL_STEP, decode_keys
 from .tail import TailParams, TailState
 
 HELP = """
@@ -35,10 +36,17 @@ robot cat teleop
   w / s         look up / down
   a / d         look left / right
   space         tail one step - reverses at each end
+  v             cycle camera: free / third-person / first-person
   q or Ctrl-C   quit
 
 Hold a key to keep moving. Keep this terminal focused.
 """
+
+_VIEW_LABEL = {
+    CameraView.FREE: "free (mouse control)",
+    CameraView.THIRD_PERSON: "third-person",
+    CameraView.FIRST_PERSON: "first-person (head cam)",
+}
 
 
 
@@ -114,6 +122,7 @@ class KeyboardTeleop(Node):
         self._quit = False
         self._last_tick = self._now()
         self._timer = self.create_timer(1.0 / rate, self._tick)
+        self._camera = CameraController()
 
     def _f(self, name: str) -> float:
         return float(self.get_parameter(name).value)
@@ -128,6 +137,16 @@ class KeyboardTeleop(Node):
             return
         self._last_tail_press = now
         self._tail.press()
+
+    def cycle_camera(self) -> None:
+        view = self._camera.cycle()
+        print(f"camera: {_VIEW_LABEL[view]}")
+
+    def shutdown_camera(self) -> None:
+        try:
+            self._camera.shutdown()
+        except Exception:
+            pass
 
     def request_quit(self) -> None:
         self._quit = True
@@ -212,6 +231,8 @@ def _pump(node: KeyboardTeleop, fd: int, carry: bytes) -> bytes:
             node.request_quit()
         elif event == TAIL_STEP:
             node.step_tail()
+        elif event == CAMERA_CYCLE:
+            node.cycle_camera()
         else:
             node.note_key(event)
     return leftover
@@ -255,6 +276,7 @@ def main(args: list[str] | None = None) -> None:
             node.publish_stop()   # do not leave the cat walking
         except Exception:
             pass
+        node.shutdown_camera()
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()

@@ -5,6 +5,7 @@ import pytest
 
 from robot_cat_teleop.keys import (
     ARROWS,
+    CAMERA_CYCLE,
     HEAD_DOWN,
     HEAD_LEFT,
     HEAD_RIGHT,
@@ -73,6 +74,11 @@ def test_space_steps_the_tail_and_q_quits():
     assert decode_keys(b" ")[0] == [TAIL_STEP]
     assert decode_keys(b"q")[0] == [QUIT]
     assert decode_keys(b"Q")[0] == [QUIT]
+
+
+def test_v_cycles_the_camera_both_cases():
+    assert decode_keys(b"v")[0] == [CAMERA_CYCLE]
+    assert decode_keys(b"V")[0] == [CAMERA_CYCLE]
 
 
 def test_ctrl_c_quits():

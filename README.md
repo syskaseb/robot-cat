@@ -38,6 +38,7 @@ With the **teleop terminal focused**:
 | `w` / `s` | look up / down |
 | `a` / `d` | look left / right |
 | space | tail one step — reverses at each end |
+| `v` | cycle camera: free / third-person / first-person |
 | `q` | quit |
 
 Arrows combine, so ↑ + ← walks in an arc, and the head moves independently of
@@ -49,6 +50,12 @@ in RViz — use `./run/display.sh`.
 
 There is no explicit stop key: the body halts by itself within `0.25 s` of the
 arrows being released.
+
+`v` cycles the viewport camera. Third-person is Gazebo's own follow, parented
+behind the cat. First-person cannot use follow — follow always aims the camera
+*at* its target, so it can never look out through the cat's eyes — and instead
+drives the camera pose directly from the head's world pose at 20 Hz, which
+means W/A/S/D turn the view exactly as they turn the head.
 
 When you are done, kill **all three** process groups:
 
@@ -91,7 +98,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-503 tests in under a second — pure maths, no simulator and no ROS runtime.
+519 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it

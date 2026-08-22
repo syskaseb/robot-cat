@@ -35,6 +35,9 @@ INTRODUCERS: tuple[bytes, ...] = (b"[", b"O")
 TAIL_STEP = "tail_step"
 QUIT = "quit"
 
+#: Cycles the Gazebo camera: free -> third-person -> first-person -> free.
+CAMERA_CYCLE = "camera_cycle"
+
 #: WASD drives the head, not the body, so its events get their own names
 #: rather than reusing "up"/"down"/"left"/"right" from the arrows.
 HEAD_UP = "head_up"
@@ -98,6 +101,8 @@ def decode_keys(data: bytes) -> tuple[list[str], bytes]:
             events.append(TAIL_STEP)
         elif byte in (_CTRL_C, 0x71, 0x51):  # Ctrl-C, q, Q
             events.append(QUIT)
+        elif byte in (0x76, 0x56):  # v, V
+            events.append(CAMERA_CYCLE)
         elif byte in WASD:
             events.append(WASD[byte])
         i += 1
