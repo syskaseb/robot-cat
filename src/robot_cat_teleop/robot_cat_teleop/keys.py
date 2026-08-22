@@ -38,6 +38,9 @@ QUIT = "quit"
 #: Cycles the Gazebo camera: free -> third-person -> first-person -> free.
 CAMERA_CYCLE = "camera_cycle"
 
+#: Plays a meow through the host's speakers - Gazebo itself has no audio.
+MEOW = "meow"
+
 #: WASD drives the head, not the body, so its events get their own names
 #: rather than reusing "up"/"down"/"left"/"right" from the arrows.
 HEAD_UP = "head_up"
@@ -103,6 +106,8 @@ def decode_keys(data: bytes) -> tuple[list[str], bytes]:
             events.append(QUIT)
         elif byte in (0x76, 0x56):  # v, V
             events.append(CAMERA_CYCLE)
+        elif byte in (0x6D, 0x4D):  # m, M
+            events.append(MEOW)
         elif byte in WASD:
             events.append(WASD[byte])
         i += 1

@@ -6,6 +6,10 @@ setup(
     name=package_name,
     version="0.1.0",
     packages=find_packages(exclude=["test"]),
+    # meow.py resolves the clip relative to its own file, so the wav has to
+    # land inside the installed package, not in share/.
+    package_data={package_name: ["sounds/*.wav"]},
+    include_package_data=True,
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
         ("share/" + package_name, ["package.xml"]),

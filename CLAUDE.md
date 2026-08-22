@@ -40,8 +40,11 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
   `RMW_IMPLEMENTATION=rmw_cyclonedds_cpp`; Fast DDS's shared memory is broken
   on this machine and drops traffic silently. See
   `config/cyclonedds_localhost.xml`.
-- **`kill -9` on a `ros2 topic pub` leaves a ghost publisher** in discovery
-  that the next run inherits. Use `kill -INT` and wait.
+- **A backgrounded `ros2 topic pub` outlives `kill -INT $!`.** The pid you
+  captured is the `pixi run` wrapper; the publisher itself is a grandchild
+  python process and keeps driving `/cmd_vel` at 20 Hz, so the cat walks off
+  by itself and later measurements are garbage. Always confirm with
+  `pgrep -fl "ros2 topic pub"` and clear with `pkill -9 -f "ros2 topic pub"`.
 - **`teleop.sh` publishes `/cmd_vel` at 20 Hz even when idle** (zeros). Do not
   run it while driving `/cmd_vel` from the CLI — the two publishers interleave
   and the cat barely moves.
@@ -59,12 +62,12 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 |---|---|
 | `robot_cat_description` | xacro model, `ros2_control` wiring, controller config |
 | `robot_cat_gait` | leg IK and trot generation (ROS-free, unit tested) + the node |
-| `robot_cat_teleop` | arrow-key body teleop, W/A/S/D head, space-stepped tail, `v` camera views; decoding, head easing, tail sweep and the first-person pose maths are pure functions in `keys.py`, `head.py`, `tail.py`, `camera_view.py` |
+| `robot_cat_teleop` | arrow-key body teleop, W/A/S/D head, space-stepped tail, `v` camera views, `m` meow; decoding, head easing, tail sweep and the first-person pose maths are pure functions in `keys.py`, `head.py`, `tail.py`, `camera_view.py` |
 | `robot_cat_bringup` | world, launch files, RViz config |
 
 ## Changing things
 
-The gait maths is pure and fully unit tested — `pixi run pytest` is 519 tests in
+The gait maths is pure and fully unit tested — `pixi run pytest` is 530 tests in
 under a second, with no simulator. Run it before launching Gazebo; if it fails,
 the simulator will only obscure the cause.
 

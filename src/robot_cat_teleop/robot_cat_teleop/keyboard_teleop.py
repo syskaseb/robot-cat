@@ -25,7 +25,8 @@ from std_msgs.msg import Float64MultiArray
 
 from .camera_view import CameraController, CameraView
 from .head import HeadParams, HeadState
-from .keys import CAMERA_CYCLE, QUIT, TAIL_STEP, decode_keys
+from .keys import CAMERA_CYCLE, MEOW, QUIT, TAIL_STEP, decode_keys
+from .meow import Meower
 from .tail import TailParams, TailState
 
 HELP = """
@@ -37,6 +38,7 @@ robot cat teleop
   a / d         look left / right
   space         tail one step - reverses at each end
   v             cycle camera: free / third-person / first-person
+  m             meow
   q or Ctrl-C   quit
 
 Hold a key to keep moving. Keep this terminal focused.
@@ -123,6 +125,7 @@ class KeyboardTeleop(Node):
         self._last_tick = self._now()
         self._timer = self.create_timer(1.0 / rate, self._tick)
         self._camera = CameraController()
+        self._meower = Meower()
 
     def _f(self, name: str) -> float:
         return float(self.get_parameter(name).value)
@@ -141,6 +144,12 @@ class KeyboardTeleop(Node):
     def cycle_camera(self) -> None:
         view = self._camera.cycle()
         print(f"camera: {_VIEW_LABEL[view]}")
+
+    def meow(self) -> None:
+        if not self._meower.available:
+            print("no audio player found - cannot meow")
+            return
+        self._meower.meow(self._now())
 
     def shutdown_camera(self) -> None:
         try:
@@ -233,6 +242,8 @@ def _pump(node: KeyboardTeleop, fd: int, carry: bytes) -> bytes:
             node.step_tail()
         elif event == CAMERA_CYCLE:
             node.cycle_camera()
+        elif event == MEOW:
+            node.meow()
         else:
             node.note_key(event)
     return leftover

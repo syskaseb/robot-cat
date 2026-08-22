@@ -39,6 +39,7 @@ With the **teleop terminal focused**:
 | `a` / `d` | look left / right |
 | space | tail one step — reverses at each end |
 | `v` | cycle camera: free / third-person / first-person |
+| `m` | meow |
 | `q` | quit |
 
 Arrows combine, so ↑ + ← walks in an arc, and the head moves independently of
@@ -50,6 +51,18 @@ in RViz — use `./run/display.sh`.
 
 There is no explicit stop key: the body halts by itself within `0.25 s` of the
 arrows being released.
+
+`m` meows. Gazebo has no audio of any kind, so the clip plays through the
+host (`afplay` on macOS) rather than from the simulation. It is synthesised,
+not sampled — see `robot_cat_teleop/sounds/meow.wav` and the commit that
+generated it — so there is no sample licence to worry about.
+
+The cat also has eyes now. They are cosmetic, but sited where a stereo pair
+would really go, so camera sensors can later be mounted at the same origins.
+Not on this machine though: **Gazebo cannot run camera sensors on macOS**,
+because Cocoa requires render-window creation on the main thread
+(gazebosim/gz-sim#960). Robotic vision means moving the runtime to Linux or
+Docker; the ROS packages port over unchanged.
 
 `v` cycles the viewport camera. Third-person is Gazebo's own follow, parented
 behind the cat. First-person cannot use follow — follow always aims the camera
@@ -98,7 +111,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-519 tests in under a second — pure maths, no simulator and no ROS runtime.
+530 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it
@@ -202,8 +215,13 @@ pkill -f "gz sim"; pkill -f gait_controller; pkill -f "ros2 launch"
   setpoint does not care about a dropped message - that asymmetry is the
   giveaway. The cause was Fast DDS's shared-memory transport; this repo runs
   Cyclone instead, see `config/cyclonedds_localhost.xml`.
-- **Do not `kill -9` a `ros2 topic pub`.** It leaves the publisher in
-  discovery, and the next run inherits the mess. `kill -INT` and wait.
+- **Killing a `ros2 topic pub` is harder than it looks.** Backgrounding
+  `pixi run bash -c '... ros2 topic pub ...'` and sending `kill -INT $!` kills
+  only the wrapper — the real publisher is a *grandchild* python process and
+  survives, quietly driving `/cmd_vel` at 20 Hz forever. The cat then walks
+  off on its own and every later measurement is wrong. Always verify with
+  `pgrep -fl "ros2 topic pub"` afterwards, and clear stragglers with
+  `pkill -9 -f "ros2 topic pub"`.
 
 ## Layout
 

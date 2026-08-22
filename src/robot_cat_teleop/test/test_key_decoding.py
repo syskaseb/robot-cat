@@ -6,6 +6,7 @@ import pytest
 from robot_cat_teleop.keys import (
     ARROWS,
     CAMERA_CYCLE,
+    MEOW,
     HEAD_DOWN,
     HEAD_LEFT,
     HEAD_RIGHT,
@@ -79,6 +80,15 @@ def test_space_steps_the_tail_and_q_quits():
 def test_v_cycles_the_camera_both_cases():
     assert decode_keys(b"v")[0] == [CAMERA_CYCLE]
     assert decode_keys(b"V")[0] == [CAMERA_CYCLE]
+
+
+def test_m_meows_both_cases():
+    assert decode_keys(b"m")[0] == [MEOW]
+    assert decode_keys(b"M")[0] == [MEOW]
+
+
+def test_meow_does_not_collide_with_head_or_arrow_keys():
+    assert MEOW not in set(WASD.values()) | set(ARROWS.values())
 
 
 def test_ctrl_c_quits():

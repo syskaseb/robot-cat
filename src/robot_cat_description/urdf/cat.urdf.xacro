@@ -72,6 +72,8 @@
   <material name="cat_accent"> <color rgba="0.25 0.22 0.20 1.0"/></material>
   <material name="cat_paw">    <color rgba="0.15 0.15 0.15 1.0"/></material>
   <material name="cat_nose">   <color rgba="0.85 0.55 0.60 1.0"/></material>
+  <material name="cat_eye">    <color rgba="0.92 0.90 0.55 1.0"/></material>
+  <material name="cat_pupil">  <color rgba="0.05 0.05 0.05 1.0"/></material>
 
   <!-- ==================== body ==================== -->
   <link name="base_link">
@@ -124,6 +126,32 @@
       <geometry><sphere radius="0.012"/></geometry>
       <material name="cat_nose"/>
     </visual>
+    <!-- Eyes. Cosmetic for now, but placed where a stereo pair would actually
+         go: forward-facing on the head sphere, level, and separated by
+         2*eye_y. When perception moves to Linux, mount the camera sensors at
+         these same origins and the view will match what you see here. Gazebo
+         cannot run camera sensors on macOS at all - Cocoa requires render
+         window creation on the main thread (gazebosim/gz-sim#960). -->
+    <xacro:property name="eye_x" value="0.036"/>
+    <xacro:property name="eye_y" value="0.022"/>
+    <xacro:property name="eye_z" value="0.018"/>
+    <xacro:macro name="cat_eye" params="side y_sign">
+      <visual name="eye_${side}">
+        <origin xyz="${eye_x} ${y_sign * eye_y} ${eye_z}" rpy="0 0 0"/>
+        <geometry><sphere radius="0.010"/></geometry>
+        <material name="cat_eye"/>
+      </visual>
+      <visual name="pupil_${side}">
+        <!-- Sits just proud of the eyeball so it renders in front of it
+             rather than z-fighting with the white. -->
+        <origin xyz="${eye_x + 0.007} ${y_sign * eye_y} ${eye_z}" rpy="0 0 0"/>
+        <geometry><sphere radius="0.005"/></geometry>
+        <material name="cat_pupil"/>
+      </visual>
+    </xacro:macro>
+    <xacro:cat_eye side="left"  y_sign="1"/>
+    <xacro:cat_eye side="right" y_sign="-1"/>
+
     <!-- ears -->
     <visual>
       <origin xyz="-0.01 0.028 0.042" rpy="0 0 0"/>
