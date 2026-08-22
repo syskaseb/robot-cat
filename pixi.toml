@@ -24,6 +24,14 @@ ROS_DOMAIN_ID = "42"
 # controller_manager ever appears.
 GZ_SIM_SYSTEM_PLUGIN_PATH = "$CONDA_PREFIX/lib"
 
+# Fast DDS's shared-memory transport is broken on this machine and drops
+# traffic silently rather than failing, which makes the gait watchdog fire
+# mid-stride and the cat walk lame. Cyclone has no such lock files. The full
+# diagnosis, and why UDP-only Fast DDS is not a way out, is in
+# config/cyclonedds_localhost.xml.
+RMW_IMPLEMENTATION = "rmw_cyclonedds_cpp"
+CYCLONEDDS_URI = "file://$PIXI_PROJECT_ROOT/config/cyclonedds_localhost.xml"
+
 [tasks]
 
 [dependencies]

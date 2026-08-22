@@ -21,15 +21,20 @@ import tty
 import rclpy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
+from std_msgs.msg import Float64MultiArray
 
-from .keys import QUIT, STOP, decode_keys
+from .head import HeadParams, HeadState
+from .keys import QUIT, TAIL_STEP, decode_keys
+from .tail import TailParams, TailState
 
 HELP = """
 robot cat teleop
 ----------------
   up / down     walk forwards / backwards
   left / right  turn left / right
-  space         stop
+  w / s         look up / down
+  a / d         look left / right
+  space         tail one step - reverses at each end
   q or Ctrl-C   quit
 
 Hold a key to keep moving. Keep this terminal focused.
@@ -50,21 +55,79 @@ class KeyboardTeleop(Node):
         self.declare_parameter("publish_rate", 20.0)
         self.declare_parameter("key_hold_timeout", 0.25)
 
+        # --- head (W/A/S/D) tunables - see robot_cat_teleop.head for why a
+        # velocity filter rather than a direct angle makes this look alive.
+        self.declare_parameter("head_pan_range", [-0.6, 0.6])
+        self.declare_parameter("head_tilt_range", [-0.3, 0.5])
+        self.declare_parameter("head_max_rate", 1.4)
+        self.declare_parameter("head_velocity_tau", 0.12)
+        self.declare_parameter("head_command_topic", "/head_position_controller/commands")
+
+        # --- tail (space) tunables - see robot_cat_teleop.tail.
+        self.declare_parameter("tail_range", [-1.2, 0.9])
+        self.declare_parameter("tail_step", 0.3)
+        self.declare_parameter("tail_tau", 0.10)
+        # Autorepeat fires ~30 times a second while space is held, which would
+        # otherwise blur the whole sweep into a flap. One step per interval
+        # turns a held key into a steady sweep and leaves a tap as one step.
+        self.declare_parameter("tail_press_interval", 0.18)
+        self.declare_parameter("tail_command_topic", "/tail_position_controller/commands")
+
         self._lin = float(self.get_parameter("linear_speed").value)
         self._ang = float(self.get_parameter("angular_speed").value)
         self._hold = float(self.get_parameter("key_hold_timeout").value)
         rate = float(self.get_parameter("publish_rate").value)
 
+        pan_lower, pan_upper = self.get_parameter("head_pan_range").value
+        tilt_lower, tilt_upper = self.get_parameter("head_tilt_range").value
+        self._head = HeadState(
+            HeadParams(
+                pan_lower=float(pan_lower),
+                pan_upper=float(pan_upper),
+                tilt_lower=float(tilt_lower),
+                tilt_upper=float(tilt_upper),
+                max_rate=self._f("head_max_rate"),
+                velocity_tau=self._f("head_velocity_tau"),
+            )
+        )
+
+        tail_min, tail_max = self.get_parameter("tail_range").value
+        self._tail = TailState(
+            TailParams(
+                min_angle=float(tail_min),
+                max_angle=float(tail_max),
+                step=self._f("tail_step"),
+                tau=self._f("tail_tau"),
+            )
+        )
+        self._tail_interval = self._f("tail_press_interval")
+        self._last_tail_press = 0.0
+
         self._pub = self.create_publisher(Twist, "/cmd_vel", 10)
+        self._head_pub = self.create_publisher(
+            Float64MultiArray, self.get_parameter("head_command_topic").value, 10
+        )
+        self._tail_pub = self.create_publisher(
+            Float64MultiArray, self.get_parameter("tail_command_topic").value, 10
+        )
         self._pressed: dict[str, float] = {}
         self._quit = False
+        self._last_tick = self._now()
         self._timer = self.create_timer(1.0 / rate, self._tick)
+
+    def _f(self, name: str) -> float:
+        return float(self.get_parameter(name).value)
 
     def note_key(self, key: str) -> None:
         self._pressed[key] = self._now()
 
-    def stop_all(self) -> None:
-        self._pressed.clear()
+    def step_tail(self) -> None:
+        """One space press. Ignored if it lands inside the repeat interval."""
+        now = self._now()
+        if now - self._last_tail_press < self._tail_interval:
+            return
+        self._last_tail_press = now
+        self._tail.press()
 
     def request_quit(self) -> None:
         self._quit = True
@@ -81,6 +144,14 @@ class KeyboardTeleop(Node):
         return last is not None and (self._now() - last) < self._hold
 
     def _tick(self) -> None:
+        now = self._now()
+        dt = now - self._last_tick
+        self._last_tick = now
+        # Guard against a zero or absurd dt on the first tick or a sim-time
+        # jump, same reasoning as gait_controller._tick.
+        if dt <= 0.0 or dt > 0.5:
+            dt = 1.0 / float(self.get_parameter("publish_rate").value)
+
         twist = Twist()
         if self._held("up"):
             twist.linear.x = self._lin
@@ -91,6 +162,26 @@ class KeyboardTeleop(Node):
         elif self._held("right"):
             twist.angular.z = -self._ang
         self._pub.publish(twist)
+
+        pan_dir = 0.0
+        if self._held("head_left"):
+            pan_dir = 1.0
+        elif self._held("head_right"):
+            pan_dir = -1.0
+        tilt_dir = 0.0
+        if self._held("head_up"):
+            tilt_dir = 1.0
+        elif self._held("head_down"):
+            tilt_dir = -1.0
+
+        pan, tilt = self._head.step(dt, pan_dir, tilt_dir)
+        head_msg = Float64MultiArray()
+        head_msg.data = [pan, tilt]
+        self._head_pub.publish(head_msg)
+
+        tail_msg = Float64MultiArray()
+        tail_msg.data = [self._tail.step(dt)]
+        self._tail_pub.publish(tail_msg)
 
     def publish_stop(self) -> None:
         self._pub.publish(Twist())
@@ -119,8 +210,8 @@ def _pump(node: KeyboardTeleop, fd: int, carry: bytes) -> bytes:
     for event in events:
         if event == QUIT:
             node.request_quit()
-        elif event == STOP:
-            node.stop_all()
+        elif event == TAIL_STEP:
+            node.step_tail()
         else:
             node.note_key(event)
     return leftover

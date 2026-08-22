@@ -25,7 +25,7 @@ on macOS, because Cocoa requires window creation on the main thread:
 
 | terminal | command | starts |
 |---|---|---|
-| 1 | `./run/sim.sh` | Gazebo server, the cat, both controllers, gait node |
+| 1 | `./run/sim.sh` | Gazebo server, the cat, all four controllers, gait node |
 | 2 | `./run/gui.sh` | Gazebo GUI window |
 | 3 | `./run/teleop.sh` | arrow-key teleop |
 
@@ -35,11 +35,20 @@ With the **teleop terminal focused**:
 |---|---|
 | ↑ / ↓ | walk forwards / backwards |
 | ← / → | turn left / right |
-| space | stop |
+| `w` / `s` | look up / down |
+| `a` / `d` | look left / right |
+| space | tail one step — reverses at each end |
 | `q` | quit |
 
-Arrows combine, so ↑ + ← walks in an arc. To inspect the model on its own — no
-physics, joint sliders in RViz — use `./run/display.sh`.
+Arrows combine, so ↑ + ← walks in an arc, and the head moves independently of
+the body — you can walk and look around at once. Space is a *stepped* control
+rather than hold-to-move: each press nudges the tail one step, and the sweep
+turns around on reaching either end. The rest pose is tail-up, so the first
+press lowers it. To inspect the model on its own — no physics, joint sliders
+in RViz — use `./run/display.sh`.
+
+There is no explicit stop key: the body halts by itself within `0.25 s` of the
+arrows being released.
 
 When you are done, kill **all three** process groups:
 
@@ -82,7 +91,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-464 tests in under a second — pure maths, no simulator and no ROS runtime.
+503 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it
@@ -92,7 +101,7 @@ sourced on top. That is what the `run/` wrappers exist for:
 
 | terminal | command | what it starts |
 |---|---|---|
-| 1 | `./run/sim.sh` | Gazebo **server**, spawns the cat, both controllers, gait node |
+| 1 | `./run/sim.sh` | Gazebo **server**, spawns the cat, all four controllers, gait node |
 | 2 | `./run/gui.sh` | Gazebo **GUI** window |
 | 3 | `./run/teleop.sh` | arrow-key teleop — needs to be the focused window |
 
@@ -101,14 +110,15 @@ creation on the main thread, so a combined `gz sim` cannot work here.
 
 ### 4. Wait for readiness — do not guess with `sleep`
 
-Startup takes roughly 30–40 s before the controllers are up. Poll instead of
-sleeping:
+Startup is around 10 s on Cyclone (it was 30–40 s on the Fast DDS default,
+when it came up at all). Poll rather than sleeping:
 
 ```bash
 until pixi run bash -c 'source install/setup.bash >/dev/null 2>&1; ros2 control list_controllers 2>/dev/null | grep -q "leg_position_controller.*active"'; do sleep 5; done
 ```
 
-Both `leg_position_controller` and `joint_state_broadcaster` must report
+All four of `joint_state_broadcaster`, `leg_position_controller`,
+`head_position_controller` and `tail_position_controller` must report
 `active`. If `controller_manager` never appears, the `gz_ros2_control` plugin
 failed to load — check `GZ_SIM_SYSTEM_PLUGIN_PATH` under "macOS specifics".
 
@@ -160,13 +170,29 @@ pkill -f "gz sim"; pkill -f gait_controller; pkill -f "ros2 launch"
   slip; expect roughly 0.11–0.17 m/s for a 0.15 m/s command, varying run to run.
 - **Top speed is structural**, at `max_stride / cycle_time` = 0.16 m/s. Higher
   commands are clamped, not obeyed.
+- **A cat that walks lame is a dropped-message problem, not a gait problem.**
+  If it stutters, veers tens of degrees off a straight command, or barely
+  moves while the head and tail still respond perfectly, read the sim log:
+
+  ```bash
+  grep "holding stance" /tmp/<your sim log>
+  ```
+
+  Repeated `no /cmd_vel for 1.7s - holding stance` means the gait watchdog is
+  firing mid-stride because `/cmd_vel` is not arriving, and the legs stop
+  dead. The head and tail keep working throughout, because a plain position
+  setpoint does not care about a dropped message - that asymmetry is the
+  giveaway. The cause was Fast DDS's shared-memory transport; this repo runs
+  Cyclone instead, see `config/cyclonedds_localhost.xml`.
+- **Do not `kill -9` a `ros2 topic pub`.** It leaves the publisher in
+  discovery, and the next run inherits the mess. `kill -INT` and wait.
 
 ## Layout
 
 ```
 src/robot_cat_description/   URDF/xacro model, ros2_control wiring, controller config
 src/robot_cat_gait/          trot gait + leg IK (pure maths) and the ROS node
-src/robot_cat_teleop/        arrow-key teleop
+src/robot_cat_teleop/        arrow-key teleop, head and tail control
 src/robot_cat_bringup/       world, launch files, RViz config
 run/                         thin wrappers around the three commands above
 ```
@@ -183,13 +209,20 @@ pixi run pytest
 
 ```
 arrow keys -> keyboard_teleop -> /cmd_vel -> gait_controller
-                                                  |
-                                    trot phase + per-leg IK
-                                                  |
-                                    /leg_position_controller/commands
+                    |                             |
+                    |               trot phase + per-leg IK
+                    |                             |
+                    |               /leg_position_controller/commands
+   w a s d, space   |                             |
+                    +-> /head_position_controller/commands
+                    +-> /tail_position_controller/commands
                                                   |
                             ros2_control -> gz_ros2_control -> Gazebo
 ```
+
+The head and tail bypass the gait entirely: they are cosmetic joints with
+their own smoothing (`head.py`, `tail.py`), published straight from the teleop
+node at its own 20 Hz, so looking around never perturbs the walk.
 
 `gait_controller` is open loop: it converts a velocity command into foot
 trajectories and joint angles, with no feedback from the robot's actual pose.
@@ -257,6 +290,14 @@ in `[activation.env]` in `pixi.toml`:
    `controller_manager` ever appears.
 3. **`ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`** — same VPN problem for DDS, and
    it keeps ROS traffic off the corporate network.
+
+4. **`RMW_IMPLEMENTATION=rmw_cyclonedds_cpp` plus `CYCLONEDDS_URI`** — Fast
+   DDS, the ROS default, cannot use shared memory here: its lock files under
+   `/tmp/boost_interprocess` go stale whenever a node is killed rather than
+   shut down, and it responds by silently dropping traffic instead of
+   failing. That is what makes the cat walk lame. Forcing Fast DDS onto UDP
+   alone does not help - the same VPN that owns the multicast range breaks
+   its discovery. `config/cyclonedds_localhost.xml` has the full write-up.
 
 `pytest.ini` disables the `launch_testing` plugins: RoboStack's copies are built
 against an older pytest and abort collection on import.

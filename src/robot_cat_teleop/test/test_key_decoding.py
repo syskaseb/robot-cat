@@ -3,7 +3,17 @@ silently - the cat simply ignores you. These tests pin the decoder down."""
 
 import pytest
 
-from robot_cat_teleop.keys import ARROWS, QUIT, STOP, decode_keys
+from robot_cat_teleop.keys import (
+    ARROWS,
+    HEAD_DOWN,
+    HEAD_LEFT,
+    HEAD_RIGHT,
+    HEAD_UP,
+    QUIT,
+    TAIL_STEP,
+    WASD,
+    decode_keys,
+)
 
 
 @pytest.mark.parametrize("introducer", [b"[", b"O"])
@@ -27,7 +37,7 @@ def test_autorepeat_burst_is_not_coalesced():
 def test_several_distinct_keys_in_one_chunk():
     """A single read can contain a whole burst of different keys."""
     events, _ = decode_keys(b"\x1b[A\x1b[D\x1bOB \x1b[C")
-    assert events == ["up", "left", "down", STOP, "right"]
+    assert events == ["up", "left", "down", TAIL_STEP, "right"]
 
 
 # --- the bug that made the arrow keys do nothing ------------------------
@@ -59,8 +69,8 @@ def test_complete_input_leaves_no_carry():
 # --- other keys ---------------------------------------------------------
 
 
-def test_space_stops_and_q_quits():
-    assert decode_keys(b" ")[0] == [STOP]
+def test_space_steps_the_tail_and_q_quits():
+    assert decode_keys(b" ")[0] == [TAIL_STEP]
     assert decode_keys(b"q")[0] == [QUIT]
     assert decode_keys(b"Q")[0] == [QUIT]
 
@@ -84,3 +94,50 @@ def test_unrelated_characters_are_ignored():
 
 def test_arrow_table_covers_all_four_directions():
     assert sorted(ARROWS.values()) == ["down", "left", "right", "up"]
+
+
+# --- WASD: head control --------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "key,expected",
+    [
+        (b"w", HEAD_UP),
+        (b"W", HEAD_UP),
+        (b"s", HEAD_DOWN),
+        (b"S", HEAD_DOWN),
+        (b"a", HEAD_LEFT),
+        (b"A", HEAD_LEFT),
+        (b"d", HEAD_RIGHT),
+        (b"D", HEAD_RIGHT),
+    ],
+)
+def test_wasd_decodes_head_events_both_cases(key, expected):
+    events, leftover = decode_keys(key)
+    assert events == [expected]
+    assert leftover == b""
+
+
+def test_wasd_table_covers_all_four_directions():
+    assert sorted(set(WASD.values())) == sorted(
+        [HEAD_UP, HEAD_DOWN, HEAD_LEFT, HEAD_RIGHT]
+    )
+
+
+def test_wasd_and_arrows_do_not_collide():
+    """W/A/S/D drive the head, arrows drive the body - both must be usable
+    at once, so their event names must be distinct."""
+    assert set(ARROWS.values()).isdisjoint(WASD.values())
+
+
+def test_wasd_burst_mixed_with_arrows_and_space():
+    events, _ = decode_keys(b"w\x1b[Aa d\x1bOBs")
+    assert events == [
+        HEAD_UP,
+        "up",
+        HEAD_LEFT,
+        TAIL_STEP,
+        HEAD_RIGHT,
+        "down",
+        HEAD_DOWN,
+    ]

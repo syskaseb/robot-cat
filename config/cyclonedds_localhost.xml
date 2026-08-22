@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Cyclone DDS, loopback only, no multicast.
+
+  Why not the default Fast DDS: its shared-memory transport cannot work on
+  this machine. Every node logs
+
+      RTPS_TRANSPORT_SHM Error: Failed init_port fastrtps_port7002:
+      open_and_lock_file failed
+
+  because the lock files under /tmp/boost_interprocess go stale whenever a ROS
+  process is killed rather than shut down cleanly, and a stale lock is never
+  reclaimed. Fast DDS does not treat that as fatal - it keeps the participant
+  alive and quietly drops the traffic that should have gone over shared
+  memory. On the cat that surfaces as gait_controller logging
+
+      no /cmd_vel for 1.7s - holding stance
+
+  in the middle of a walk: the cat stutters, veers tens of degrees off course
+  and looks lame, while the head and tail keep working perfectly. That
+  asymmetry is the tell - they are plain position setpoints and do not care
+  about a dropped message, whereas the gait has a 0.5 s watchdog that stops
+  the legs outright.
+
+  Forcing Fast DDS onto UDP alone does not help either: the VPN on this
+  machine claims the whole 224.0.0.0/4 multicast range (the same reason
+  GZ_IP is pinned to loopback), so its discovery cannot get through.
+
+  Cyclone keeps no lock files at all, and its localhost setup is one block:
+  bind to loopback, no multicast, and find peers by unicast on localhost.
+-->
+<CycloneDDS xmlns="https://cdds.io/config">
+  <Domain id="any">
+    <General>
+      <Interfaces>
+        <NetworkInterface address="127.0.0.1"/>
+      </Interfaces>
+      <AllowMulticast>false</AllowMulticast>
+      <EnableMulticastLoopback>false</EnableMulticastLoopback>
+    </General>
+    <Discovery>
+      <ParticipantIndex>auto</ParticipantIndex>
+      <!-- One simulation puts a lot of participants on the host: the Gazebo
+           server with the controller manager and four controllers, the state
+           publisher, the gait node, the teleop, plus any ros2 CLI call. The
+           default ceiling of 9 is not enough headroom. -->
+      <MaxAutoParticipantIndex>60</MaxAutoParticipantIndex>
+      <Peers>
+        <Peer address="localhost"/>
+      </Peers>
+    </Discovery>
+  </Domain>
+</CycloneDDS>

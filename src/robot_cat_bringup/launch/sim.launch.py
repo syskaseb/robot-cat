@@ -6,8 +6,8 @@ and a GUI process. Run the GUI separately::
 
     gz sim -g          # or: ./run/gui.sh
 
-Everything else - robot_state_publisher, the spawn, both controllers and the
-gait node - is started here in the right order.
+Everything else - robot_state_publisher, the spawn, all four controllers and
+the gait node - is started here in the right order.
 """
 
 from __future__ import annotations
@@ -114,6 +114,20 @@ def generate_launch_description() -> LaunchDescription:
         output="screen",
     )
 
+    head_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["head_position_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
+    tail_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["tail_position_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
     gait = Node(
         package="robot_cat_gait",
         executable="gait_controller",
@@ -134,7 +148,8 @@ def generate_launch_description() -> LaunchDescription:
             ),
             RegisterEventHandler(
                 OnProcessExit(
-                    target_action=joint_state_broadcaster, on_exit=[leg_controller]
+                    target_action=joint_state_broadcaster,
+                    on_exit=[leg_controller, head_controller, tail_controller],
                 )
             ),
             RegisterEventHandler(

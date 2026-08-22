@@ -31,8 +31,20 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
   independent gait phases, and the cat skates across the world looking exactly
   like a physics bug. Check `pgrep -fl gait_controller` before diagnosing any
   strange motion.
-- **Startup takes 30–40 s.** Poll until both controllers report `active` rather
-  than sleeping a fixed amount — see Runbook step 4.
+- **Startup takes ~10 s.** Poll until all four controllers report `active`
+  rather than sleeping a fixed amount — see Runbook step 4.
+- **A lame-looking cat is dropped `/cmd_vel`, not a broken gait.** Stuttering,
+  tens of degrees of veer, or barely moving *while the head and tail still
+  respond* means the 0.5 s gait watchdog is firing mid-stride. Check
+  `grep "holding stance"` in the sim log. This is why the repo pins
+  `RMW_IMPLEMENTATION=rmw_cyclonedds_cpp`; Fast DDS's shared memory is broken
+  on this machine and drops traffic silently. See
+  `config/cyclonedds_localhost.xml`.
+- **`kill -9` on a `ros2 topic pub` leaves a ghost publisher** in discovery
+  that the next run inherits. Use `kill -INT` and wait.
+- **`teleop.sh` publishes `/cmd_vel` at 20 Hz even when idle** (zeros). Do not
+  run it while driving `/cmd_vel` from the CLI — the two publishers interleave
+  and the cat barely moves.
 - **You cannot use the keyboard teleop.** It reads an interactive terminal.
   Publish to `/cmd_vel` instead; it is the same interface the teleop node uses.
 - **Verify motion by reading the pose**, not the viewport:
@@ -47,12 +59,12 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 |---|---|
 | `robot_cat_description` | xacro model, `ros2_control` wiring, controller config |
 | `robot_cat_gait` | leg IK and trot generation (ROS-free, unit tested) + the node |
-| `robot_cat_teleop` | arrow-key teleop; decoding is a pure function in `keys.py` |
+| `robot_cat_teleop` | arrow-key body teleop, W/A/S/D head, space-stepped tail; decoding, head easing and tail sweep are pure functions in `keys.py`, `head.py`, `tail.py` |
 | `robot_cat_bringup` | world, launch files, RViz config |
 
 ## Changing things
 
-The gait maths is pure and fully unit tested — `pixi run pytest` is 464 tests in
+The gait maths is pure and fully unit tested — `pixi run pytest` is 503 tests in
 under a second, with no simulator. Run it before launching Gazebo; if it fails,
 the simulator will only obscure the cause.
 
