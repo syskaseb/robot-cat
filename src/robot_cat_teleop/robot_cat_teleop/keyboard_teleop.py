@@ -21,11 +21,11 @@ import tty
 import rclpy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Empty, Float64MultiArray
 
 from .camera_view import CameraController, CameraView
 from .head import HeadParams, HeadState
-from .keys import CAMERA_CYCLE, MEOW, QUIT, TAIL_STEP, decode_keys
+from .keys import CAMERA_CYCLE, LIE_DOWN, MEOW, QUIT, STRETCH, TAIL_STEP, decode_keys
 from .meow import Meower
 from .tail import TailParams, TailState
 
@@ -39,6 +39,8 @@ robot cat teleop
   space         tail one step - reverses at each end
   v             cycle camera: free / third-person / first-person
   m             meow
+  x             stretch
+  p             lie down / stand up
   q or Ctrl-C   quit
 
 Hold a key to keep moving. Keep this terminal focused.
@@ -82,6 +84,8 @@ class KeyboardTeleop(Node):
         # turns a held key into a steady sweep and leaves a tap as one step.
         self.declare_parameter("tail_press_interval", 0.18)
         self.declare_parameter("tail_command_topic", "/tail_position_controller/commands")
+        self.declare_parameter("stretch_topic", "/stretch")
+        self.declare_parameter("lie_down_topic", "/lie_down")
 
         self._lin = float(self.get_parameter("linear_speed").value)
         self._ang = float(self.get_parameter("angular_speed").value)
@@ -120,6 +124,12 @@ class KeyboardTeleop(Node):
         self._tail_pub = self.create_publisher(
             Float64MultiArray, self.get_parameter("tail_command_topic").value, 10
         )
+        self._stretch_pub = self.create_publisher(
+            Empty, self.get_parameter("stretch_topic").value, 10
+        )
+        self._lie_down_pub = self.create_publisher(
+            Empty, self.get_parameter("lie_down_topic").value, 10
+        )
         self._pressed: dict[str, float] = {}
         self._quit = False
         self._last_tick = self._now()
@@ -150,6 +160,18 @@ class KeyboardTeleop(Node):
             print("no audio player found - cannot meow")
             return
         self._meower.meow(self._now())
+
+    def stretch(self) -> None:
+        """Ask the gait node to stretch. It owns the legs; we only request.
+
+        No rate limiting here - the gait node ignores a retrigger while a
+        stretch is already running, which is the right place for that
+        decision since only it knows when the pose has finished."""
+        self._stretch_pub.publish(Empty())
+
+    def toggle_lie_down(self) -> None:
+        """Ask the gait node to toggle lying down / standing up."""
+        self._lie_down_pub.publish(Empty())
 
     def shutdown_camera(self) -> None:
         try:
@@ -244,6 +266,10 @@ def _pump(node: KeyboardTeleop, fd: int, carry: bytes) -> bytes:
             node.cycle_camera()
         elif event == MEOW:
             node.meow()
+        elif event == STRETCH:
+            node.stretch()
+        elif event == LIE_DOWN:
+            node.toggle_lie_down()
         else:
             node.note_key(event)
     return leftover

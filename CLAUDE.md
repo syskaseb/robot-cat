@@ -61,13 +61,13 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 | package | contents |
 |---|---|
 | `robot_cat_description` | xacro model, `ros2_control` wiring, controller config |
-| `robot_cat_gait` | leg IK and trot generation (ROS-free, unit tested) + the node |
-| `robot_cat_teleop` | arrow-key body teleop, W/A/S/D head, space-stepped tail, `v` camera views, `m` meow; decoding, head easing, tail sweep and the first-person pose maths are pure functions in `keys.py`, `head.py`, `tail.py`, `camera_view.py` |
+| `robot_cat_gait` | leg IK, trot generation, the play-bow stretch and the lie-down loaf (all ROS-free, unit tested) + the node, which also owns `/stretch` and `/lie_down` |
+| `robot_cat_teleop` | arrow-key body teleop, W/A/S/D head, space-stepped tail, `v` camera views, `m` meow, `x`/`p` requests to the gait node; decoding, head easing, tail sweep and the first-person pose maths are pure functions in `keys.py`, `head.py`, `tail.py`, `camera_view.py` |
 | `robot_cat_bringup` | world, launch files, RViz config |
 
 ## Changing things
 
-The gait maths is pure and fully unit tested — `pixi run pytest` is 531 tests in
+The gait maths is pure and fully unit tested — `pixi run pytest` is 573 tests in
 under a second, with no simulator. Run it before launching Gazebo; if it fails,
 the simulator will only obscure the cause.
 

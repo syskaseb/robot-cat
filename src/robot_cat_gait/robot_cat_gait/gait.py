@@ -24,6 +24,8 @@ import math
 from dataclasses import dataclass, field
 
 from .leg_ik import LegGeometry, leg_ik
+from .lie_down import LieDownParams
+from .stretch import StretchParams, stretch_offsets
 
 #: Leg names, and the order every 12-element joint vector uses. This is the
 #: contract shared with robot_cat_description/config/controllers.yaml.
@@ -281,6 +283,60 @@ class GaitGenerator:
                 )
             )
 
+        return targets
+
+    def stretch_pose(
+        self, amount: float, params: StretchParams | None = None
+    ) -> list[float]:
+        """Joint targets for the play-bow stretch at ``amount`` (0..1).
+
+        At 0 this is exactly :meth:`stand`, so the caller can hand it a decaying
+        amount and let the cat settle back into its stance with no seam.
+        """
+        params = params or StretchParams()
+        targets: list[float] = []
+        for leg in LEGS:
+            y_sign = Y_SIGN[leg]
+            dx, dz = stretch_offsets(amount, X_SIGN[leg] > 0.0, params)
+            targets.extend(
+                leg_ik(
+                    x=dx,
+                    y=y_sign * self.geom.hip_offset,
+                    z=-self.params.stance_height + dz,
+                    geom=self.geom,
+                    y_sign=y_sign,
+                    knee_sign=self.params.knee_sign,
+                )
+            )
+        return targets
+
+    def lie_pose(self, amount: float, params: LieDownParams | None = None) -> list[float]:
+        """Joint targets for the loaf at ``amount`` (0..1).
+
+        At 0 this is exactly :meth:`stand`, for the same reason
+        :meth:`stretch_pose` matches it at 0: no seam when the amount decays
+        through zero at the end of standing back up.
+
+        All four legs get the same shortened stance height with no x or y
+        offset - unlike the stretch, lying down is symmetric front to back.
+        """
+        params = params or LieDownParams()
+        height = self.params.stance_height + amount * (
+            params.down_stance_height - self.params.stance_height
+        )
+        targets: list[float] = []
+        for leg in LEGS:
+            y_sign = Y_SIGN[leg]
+            targets.extend(
+                leg_ik(
+                    x=0.0,
+                    y=y_sign * self.geom.hip_offset,
+                    z=-height,
+                    geom=self.geom,
+                    y_sign=y_sign,
+                    knee_sign=self.params.knee_sign,
+                )
+            )
         return targets
 
     def stand(self) -> list[float]:

@@ -7,6 +7,8 @@ from robot_cat_teleop.keys import (
     ARROWS,
     CAMERA_CYCLE,
     MEOW,
+    LIE_DOWN,
+    STRETCH,
     HEAD_DOWN,
     HEAD_LEFT,
     HEAD_RIGHT,
@@ -87,6 +89,16 @@ def test_m_meows_both_cases():
     assert decode_keys(b"M")[0] == [MEOW]
 
 
+def test_x_stretches_both_cases():
+    assert decode_keys(b"x")[0] == [STRETCH]
+    assert decode_keys(b"X")[0] == [STRETCH]
+
+
+def test_p_toggles_lie_down_both_cases():
+    assert decode_keys(b"p")[0] == [LIE_DOWN]
+    assert decode_keys(b"P")[0] == [LIE_DOWN]
+
+
 def test_meow_does_not_collide_with_head_or_arrow_keys():
     assert MEOW not in set(WASD.values()) | set(ARROWS.values())
 
@@ -100,8 +112,11 @@ def test_unknown_escape_sequence_is_ignored():
 
 
 def test_bare_escape_is_ignored_not_carried_forever():
-    """A lone ESC followed by ordinary text must not swallow the text."""
-    assert decode_keys(b"\x1bXq")[0] == [QUIT]
+    """A lone ESC followed by ordinary text must not swallow the text.
+
+    The filler byte has to be one nothing is bound to - this test used `X`
+    until `x` became the stretch key."""
+    assert decode_keys(b"\x1bZq")[0] == [QUIT]
 
 
 def test_unrelated_characters_are_ignored():

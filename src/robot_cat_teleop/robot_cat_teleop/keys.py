@@ -41,6 +41,14 @@ CAMERA_CYCLE = "camera_cycle"
 #: Plays a meow through the host's speakers - Gazebo itself has no audio.
 MEOW = "meow"
 
+#: Asks the gait node for a play-bow stretch. The legs belong to the gait
+#: controller, so teleop can only request this, not perform it.
+STRETCH = "stretch"
+
+#: Toggles lying down / standing up. Same reasoning as STRETCH: the legs
+#: belong to the gait controller.
+LIE_DOWN = "lie_down"
+
 #: WASD drives the head, not the body, so its events get their own names
 #: rather than reusing "up"/"down"/"left"/"right" from the arrows.
 HEAD_UP = "head_up"
@@ -108,6 +116,10 @@ def decode_keys(data: bytes) -> tuple[list[str], bytes]:
             events.append(CAMERA_CYCLE)
         elif byte in (0x6D, 0x4D):  # m, M
             events.append(MEOW)
+        elif byte in (0x78, 0x58):  # x, X
+            events.append(STRETCH)
+        elif byte in (0x70, 0x50):  # p, P
+            events.append(LIE_DOWN)
         elif byte in WASD:
             events.append(WASD[byte])
         i += 1

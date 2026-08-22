@@ -14,10 +14,12 @@ import rclpy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
 from rclpy.qos import QoSDurabilityPolicy, QoSHistoryPolicy, QoSProfile, QoSReliabilityPolicy
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Empty, Float64MultiArray
 
 from .gait import JOINT_ORDER, GaitGenerator, GaitParams
 from .leg_ik import LegGeometry
+from .lie_down import LieDownParams, LieDownState
+from .stretch import StretchParams, StretchState
 
 
 class GaitController(Node):
@@ -45,6 +47,19 @@ class GaitController(Node):
         self.declare_parameter("max_linear_speed", 0.0)
         self.declare_parameter("max_angular_speed", 0.0)
         self.declare_parameter("command_topic", "/leg_position_controller/commands")
+        self.declare_parameter("stretch_topic", "/stretch")
+
+        # --- stretch shape and timing - see robot_cat_gait.stretch ---
+        self.declare_parameter("stretch_reach", 0.055)
+        self.declare_parameter("stretch_chest_drop", 0.048)
+        self.declare_parameter("stretch_rear_shift", 0.022)
+        self.declare_parameter("stretch_rear_rise", 0.012)
+        self.declare_parameter("stretch_rise_time", 0.85)
+        self.declare_parameter("stretch_hold_time", 0.90)
+        self.declare_parameter("stretch_fall_time", 1.00)
+        self.declare_parameter("lie_down_topic", "/lie_down")
+        self.declare_parameter("lie_down_stance_height", 0.045)
+        self.declare_parameter("lie_down_tau", 0.6)
 
         geom = LegGeometry(
             hip_offset=self._f("hip_offset"),
@@ -61,6 +76,21 @@ class GaitController(Node):
             knee_sign=self._f("knee_sign"),
         )
         self._gait = GaitGenerator(geom, params)
+        self._stretch_params = StretchParams(
+            reach=self._f("stretch_reach"),
+            chest_drop=self._f("stretch_chest_drop"),
+            rear_shift=self._f("stretch_rear_shift"),
+            rear_rise=self._f("stretch_rear_rise"),
+            rise_time=self._f("stretch_rise_time"),
+            hold_time=self._f("stretch_hold_time"),
+            fall_time=self._f("stretch_fall_time"),
+        )
+        self._stretch = StretchState(self._stretch_params)
+        self._lie_down_params = LieDownParams(
+            down_stance_height=self._f("lie_down_stance_height"),
+            tau=self._f("lie_down_tau"),
+        )
+        self._lie_down = LieDownState(self._lie_down_params)
 
         # Clamp commands to what the gait can physically produce. A leg covers
         # at most one max_stride per cycle, so accepting a higher speed would
@@ -92,6 +122,12 @@ class GaitController(Node):
             Float64MultiArray, self.get_parameter("command_topic").value, qos
         )
         self._sub = self.create_subscription(Twist, "/cmd_vel", self._on_cmd_vel, 10)
+        self._stretch_sub = self.create_subscription(
+            Empty, self.get_parameter("stretch_topic").value, self._on_stretch, 10
+        )
+        self._lie_down_sub = self.create_subscription(
+            Empty, self.get_parameter("lie_down_topic").value, self._on_lie_down, 10
+        )
         self._timer = self.create_timer(1.0 / rate, self._tick)
 
         self.get_logger().info(
@@ -103,6 +139,22 @@ class GaitController(Node):
 
     def _f(self, name: str) -> float:
         return float(self.get_parameter(name).value)
+
+    def _on_stretch(self, _msg: Empty) -> None:
+        if self._lie_down.down or self._lie_down.amount > 0.01:
+            self.get_logger().info("cannot stretch while lying down")
+            return
+        if self._stretch.trigger():
+            self.get_logger().info(
+                f"stretching for {self._stretch_params.duration:.1f}s"
+            )
+
+    def _on_lie_down(self, _msg: Empty) -> None:
+        # Lying down and stretching can't coexist; a toggle to lie down wins
+        # outright and cuts the stretch short rather than queuing behind it.
+        self._stretch.cancel()
+        down = self._lie_down.toggle()
+        self.get_logger().info("lying down" if down else "standing up")
 
     def _on_cmd_vel(self, msg: Twist) -> None:
         self._vx = max(-self._max_v, min(self._max_v, msg.linear.x))
@@ -133,7 +185,22 @@ class GaitController(Node):
             vx, wz = self._vx, self._wz
 
         msg = Float64MultiArray()
-        msg.data = self._gait.step(dt, vx, wz)
+        lie_amount = self._lie_down.step(dt)
+        if self._lie_down.down or lie_amount > 1e-4:
+            # A lying cat is neither walking nor stretching. Reset the gait
+            # phase so standing back up resumes from a planted stance rather
+            # than mid-swing, same reasoning as the stretch branch below.
+            self._gait.reset()
+            msg.data = self._gait.lie_pose(lie_amount, self._lie_down_params)
+        elif self._stretch.active:
+            # A stretching cat is not a walking cat. Suppress the gait for the
+            # duration and reset its phase, so releasing the stretch resumes
+            # from a planted stance rather than mid-swing.
+            amount = self._stretch.step(dt)
+            self._gait.reset()
+            msg.data = self._gait.stretch_pose(amount, self._stretch_params)
+        else:
+            msg.data = self._gait.step(dt, vx, wz)
         self._pub.publish(msg)
 
 

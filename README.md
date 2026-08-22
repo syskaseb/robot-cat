@@ -40,6 +40,8 @@ With the **teleop terminal focused**:
 | space | tail one step — reverses at each end |
 | `v` | cycle camera: free / third-person / first-person |
 | `m` | meow |
+| `x` | stretch (play-bow) |
+| `p` | lie down / stand up |
 | `q` | quit |
 
 Arrows combine, so ↑ + ← walks in an arc, and the head moves independently of
@@ -63,6 +65,14 @@ Not on this machine though: **Gazebo cannot run camera sensors on macOS**,
 because Cocoa requires render-window creation on the main thread
 (gazebosim/gz-sim#960). Robotic vision means moving the runtime to Linux or
 Docker; the ROS packages port over unchanged.
+
+`x` triggers a play-bow stretch: front feet reach forward, chest drops, rear
+legs straighten, held briefly, then eased back to standing. `p` toggles lying
+down — all four legs fold symmetrically into a loaf — and stands back up on
+the next press; a stretch cannot start while lying and pressing `p` mid-stretch
+cancels it outright. Both live in `gait_controller`, not the teleop node -
+the legs already belong to it - and are pure functions in
+`robot_cat_gait/stretch.py` and `robot_cat_gait/lie_down.py`.
 
 `v` cycles the viewport camera. Third-person is Gazebo's own follow, parented
 behind the cat. First-person cannot use follow — follow always aims the camera
@@ -111,7 +121,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-531 tests in under a second — pure maths, no simulator and no ROS runtime.
+573 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it
