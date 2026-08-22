@@ -163,17 +163,132 @@
       </link>
     </model>
 
-    <!-- Open-plan kitchen/dining from Gazebo Fuel (OpenRobotics, CC0). Visual
-         mesh only - no collision geometry ships with it - so the cat can walk
-         across its floor without tripping the physics engine on the counter
-         mesh, but also without bumping into the counter. Good enough for
-         "somewhere to walk that isn't a bare plane"; add box collisions here
-         if the cat should actually be stopped by the furniture later. -->
-    <include>
-      <uri>file:///Users/alenagler/.gz/fuel/fuel.gazebosim.org/openrobotics/models/kitchen and dining/3</uri>
-      <name>kitchen_dining</name>
+    <!-- Open-plan kitchen/dining from Gazebo Fuel (OpenRobotics, CC0).
+         Declared inline rather than <include>d because the upstream model is
+         a visual mesh with no collision at all - the cat walked straight
+         through the counters and the walls.
+
+         The collisions below are boxes, not the mesh. Handing DART the
+         57k-triangle mesh as a collision shape segfaults it outright
+         (dart::collision::CollisionGroup::addShapeFrameImpl), and even if it
+         held, a concave soup is the wrong shape to collide a walking robot
+         against. The boxes are the axis-aligned bounds of the mesh's own
+         sub-objects, keeping only pieces that are either thin (wall panels)
+         or small-footprint and waist-high (furniture) - the bounds of a
+         whole wall assembly are a lie, they enclose the floor between the
+         walls and would seal the cat inside a solid block. -->
+    <model name="kitchen_dining">
+      <static>true</static>
       <pose>0 0 0 0 0 0</pose>
-    </include>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/kitchen and dining/3/files/meshes/kitchen_dining.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <!-- Perimeter, added by hand: the mesh's own outer walls survive
+             filtering only in places, and without a closed boundary the cat
+             walks off the edge of the apartment onto the bare ground plane. -->
+        <collision name="wall_north">
+          <pose>0 7.45 1.5 0 0 0</pose>
+          <geometry><box><size>7.90 0.10 3.00</size></box></geometry>
+        </collision>
+        <collision name="wall_south">
+          <pose>0 -7.45 1.5 0 0 0</pose>
+          <geometry><box><size>7.90 0.10 3.00</size></box></geometry>
+        </collision>
+        <collision name="wall_west">
+          <pose>-3.93 0 1.5 0 0 0</pose>
+          <geometry><box><size>0.10 15.00 3.00</size></box></geometry>
+        </collision>
+        <collision name="wall_east">
+          <pose>3.88 0 1.5 0 0 0</pose>
+          <geometry><box><size>0.10 15.00 3.00</size></box></geometry>
+        </collision>
+        <collision name="c0">
+          <pose>0.265 -2.160 0.470 0 0 0</pose>
+          <geometry><box><size>1.219 3.200 1.029</size></box></geometry>
+        </collision>
+        <collision name="c1">
+          <pose>-3.257 -1.065 0.288 0 0 0</pose>
+          <geometry><box><size>0.784 2.649 0.580</size></box></geometry>
+        </collision>
+        <collision name="c2">
+          <pose>1.086 2.009 0.288 0 0 0</pose>
+          <geometry><box><size>1.300 1.156 0.580</size></box></geometry>
+        </collision>
+        <collision name="c3">
+          <pose>-2.976 6.471 0.472 0 0 0</pose>
+          <geometry><box><size>1.143 1.152 0.630</size></box></geometry>
+        </collision>
+        <collision name="c4">
+          <pose>-0.525 5.138 0.360 0 0 0</pose>
+          <geometry><box><size>1.372 0.889 0.724</size></box></geometry>
+        </collision>
+        <collision name="c5">
+          <pose>-3.337 -2.859 0.309 0 0 0</pose>
+          <geometry><box><size>0.925 0.918 0.752</size></box></geometry>
+        </collision>
+        <collision name="c6">
+          <pose>-0.081 1.770 0.271 0 0 0</pose>
+          <geometry><box><size>1.036 0.613 0.679</size></box></geometry>
+        </collision>
+        <collision name="c7">
+          <pose>-2.127 1.344 0.295 0 0 0</pose>
+          <geometry><box><size>3.044 0.173 0.724</size></box></geometry>
+        </collision>
+        <collision name="c8">
+          <pose>-3.753 -2.194 1.999 0 0 0</pose>
+          <geometry><box><size>0.116 3.764 2.684</size></box></geometry>
+        </collision>
+        <collision name="c9">
+          <pose>-1.470 -4.904 2.131 0 0 0</pose>
+          <geometry><box><size>2.145 0.186 0.697</size></box></geometry>
+        </collision>
+        <collision name="c10">
+          <pose>-1.470 -4.904 1.170 0 0 0</pose>
+          <geometry><box><size>2.145 0.186 0.840</size></box></geometry>
+        </collision>
+        <collision name="c11">
+          <pose>-2.738 6.795 -0.011 0 0 0</pose>
+          <geometry><box><size>0.658 0.560 0.338</size></box></geometry>
+        </collision>
+        <collision name="c12">
+          <pose>-3.261 6.178 -0.011 0 0 0</pose>
+          <geometry><box><size>0.658 0.560 0.338</size></box></geometry>
+        </collision>
+        <collision name="c13">
+          <pose>-1.554 7.226 1.670 0 0 0</pose>
+          <geometry><box><size>2.037 0.126 3.343</size></box></geometry>
+        </collision>
+        <collision name="c14">
+          <pose>-1.554 7.291 1.670 0 0 0</pose>
+          <geometry><box><size>2.037 0.081 3.343</size></box></geometry>
+        </collision>
+        <collision name="c15">
+          <pose>0.724 7.291 1.670 0 0 0</pose>
+          <geometry><box><size>1.974 0.081 3.343</size></box></geometry>
+        </collision>
+        <collision name="c16">
+          <pose>-3.755 4.985 1.670 0 0 0</pose>
+          <geometry><box><size>0.075 1.882 3.343</size></box></geometry>
+        </collision>
+        <collision name="c17">
+          <pose>1.410 -3.181 1.102 0 0 0</pose>
+          <geometry><box><size>0.170 0.443 0.260</size></box></geometry>
+        </collision>
+        <collision name="c18">
+          <pose>1.400 -1.610 1.102 0 0 0</pose>
+          <geometry><box><size>0.170 0.443 0.260</size></box></geometry>
+        </collision>
+        <collision name="c19">
+          <pose>1.440 -2.376 1.102 0 0 0</pose>
+          <geometry><box><size>0.170 0.443 0.260</size></box></geometry>
+        </collision>
+      </link>
+    </model>
 
     <include>
       <uri>file:///Users/alenagler/.gz/fuel/fuel.gazebosim.org/openrobotics/models/sofa/3</uri>
