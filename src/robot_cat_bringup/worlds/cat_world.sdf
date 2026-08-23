@@ -140,6 +140,11 @@
         </gz-gui>
       </plugin>
 
+      <!-- Preset viewpoints - top, front, side, home - plus a button that
+           steps the camera 90 deg around the model. Docked rather than
+           floating: all four corners of the 3D view are already claimed by
+           the world control, stats, screenshot and transform widgets. -->
+      <plugin filename="ViewAngle" name="View angle"/>
       <plugin filename="EntityTree" name="Entity tree"/>
       <plugin filename="ComponentInspector" name="Component inspector"/>
 

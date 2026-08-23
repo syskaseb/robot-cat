@@ -119,6 +119,11 @@
           </anchors>
         </gz-gui>
       </plugin>
+      <!-- Preset viewpoints - top, front, side, home - plus a button that
+           steps the camera 90 deg around the model. Docked rather than
+           floating: all four corners of the 3D view are already claimed by
+           the world control, stats, screenshot and transform widgets. -->
+      <plugin filename="ViewAngle" name="View angle"/>
       <plugin filename="EntityTree" name="Entity tree"/>
       <plugin filename="ComponentInspector" name="Component inspector"/>
     </gui>
@@ -155,9 +160,9 @@
             <plane><normal>0 0 1</normal><size>100 100</size></plane>
           </geometry>
           <material>
-            <ambient>0.75 0.75 0.75 1</ambient>
-            <diffuse>0.85 0.85 0.85 1</diffuse>
-            <specular>0.2 0.2 0.2 1</specular>
+            <ambient>0.45 0.32 0.20 1</ambient>
+            <diffuse>0.55 0.38 0.23 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
           </material>
         </visual>
       </link>
@@ -291,7 +296,7 @@
     </model>
 
     <include>
-      <uri>file:///Users/alenagler/.gz/fuel/fuel.gazebosim.org/openrobotics/models/sofa/3</uri>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/sofa</uri>
       <name>living_room_sofa</name>
       <pose>2 -3 0 0 0 1.5708</pose>
     </include>
