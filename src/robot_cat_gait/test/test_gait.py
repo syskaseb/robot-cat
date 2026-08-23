@@ -111,6 +111,60 @@ def test_commands_stay_within_urdf_joint_limits(vx, wz):
             assert low <= value <= high, f"{JOINT_ORDER[idx]}={value:.3f} outside {low, high}"
 
 
+def _hip_angles(params: GaitParams, ticks: int = 200) -> list[float]:
+    """Every fl_hip_joint value over a stretch of straight walking."""
+    gait = GaitGenerator(params=params)
+    seen = []
+    for _ in range(ticks):
+        seen.append(gait.step(0.005, 0.15, 0.0)[JOINT_ORDER.index("fl_hip_joint")])
+    return seen
+
+
+def test_feet_directly_under_the_hips_leave_the_roll_joints_dead():
+    """The degeneracy stance_width exists to break: with the foot in the
+    plane of its own hip, the roll solution is zero no matter what the rest
+    of the leg does, so four of the twelve motors never move."""
+    angles = _hip_angles(GaitParams(stance_width=0.0))
+    assert max(angles) == pytest.approx(0.0, abs=1e-12)
+    assert min(angles) == pytest.approx(0.0, abs=1e-12)
+
+
+def test_stance_width_puts_the_hip_roll_joints_to_work():
+    """Splaying the feet both holds the hips off zero and makes them sweep -
+    the sweep falls out of the swing lift, which only tilts the leg plane
+    once the foot is outside it."""
+    angles = _hip_angles(GaitParams(stance_width=0.02))
+    assert min(angles) > 0.05, "hips must hold a real splay, not hover near zero"
+    assert max(angles) - min(angles) > 0.01, "hips must move across the stride"
+
+
+def test_stance_width_widens_the_feet_without_lowering_the_body():
+    """Roll stiffness has to come from a wider base, not from a crouch - if
+    this dropped stance height it would be trading one fix for a worse one."""
+    from robot_cat_gait.leg_ik import leg_fk
+
+    narrow, wide = (
+        GaitGenerator(params=GaitParams(stance_width=w)).stand() for w in (0.0, 0.02)
+    )
+    i = JOINT_ORDER.index("fl_hip_joint")
+    geom = GaitGenerator().geom
+    a = leg_fk(*narrow[i : i + 3], geom, y_sign=1.0)
+    b = leg_fk(*wide[i : i + 3], geom, y_sign=1.0)
+    assert b[1] == pytest.approx(a[1] + 0.02, abs=1e-9), "foot 2 cm further out"
+    assert b[2] == pytest.approx(a[2], abs=1e-9), "same height off the hip"
+
+
+@pytest.mark.parametrize("width", [0.0, 0.01, 0.02, 0.035, 0.05])
+def test_stance_width_keeps_every_joint_inside_its_limits(width):
+    """Widening costs reach, so the splay has to stay inside the same URDF
+    limits the rest of the gait is checked against."""
+    gait = GaitGenerator(params=GaitParams(stance_width=width))
+    for _ in range(200):
+        for idx, value in enumerate(gait.step(0.01, 0.15, 0.4)):
+            low, high = LIMITS[idx % 3]
+            assert low <= value <= high, f"{JOINT_ORDER[idx]}={value:.3f} at w={width}"
+
+
 def test_gait_holds_still_when_not_commanded():
     gait = GaitGenerator()
     for _ in range(200):

@@ -35,6 +35,7 @@ class GaitController(Node):
         self.declare_parameter("cycle_time", 0.5)
         self.declare_parameter("duty_factor", 0.65)
         self.declare_parameter("stance_height", 0.13)
+        self.declare_parameter("stance_width", 0.02)
         self.declare_parameter("swing_height", 0.035)
         self.declare_parameter("max_stride", 0.08)
         self.declare_parameter("command_tau", 0.15)
@@ -70,6 +71,7 @@ class GaitController(Node):
             cycle_time=self._f("cycle_time"),
             duty_factor=self._f("duty_factor"),
             stance_height=self._f("stance_height"),
+            stance_width=self._f("stance_width"),
             swing_height=self._f("swing_height"),
             max_stride=self._f("max_stride"),
             command_tau=self._f("command_tau"),

@@ -121,7 +121,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-573 tests in under a second — pure maths, no simulator and no ROS runtime.
+581 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it
@@ -277,7 +277,13 @@ if teleop dies.
 
 ## Measured behaviour
 
-From Gazebo, driving `/cmd_vel` directly (see "Tuning" for what moves these):
+From Gazebo, driving `/cmd_vel` directly (see "Tuning" for what moves these).
+**These figures pre-date `stance_width`** and were taken on macOS with the
+paws directly under the hips; the splay makes the cat noticeably faster, so
+the forward row in particular now reads low. They have not been re-taken on
+that machine — the `stance_width` table in `gait.py` has the numbers that
+motivated the change, measured under Docker where the real-time factor sits
+around 0.6.
 
 | command | result |
 |---|---|
@@ -314,6 +320,11 @@ The ones that matter most, in order:
 - **`cycle_time`** (0.5 s) — one full gait cycle. Shorter is not faster; it
   measurably worsened heading drift.
 - **`stance_height`** (0.13 m) — hip-to-paw distance. Lower is more stable.
+- **`stance_width`** (0.02 m) — how far the paws splay outside the hips. At 0
+  the IK solves every hip roll joint to exactly zero, so four of the twelve
+  motors never move and the cat wallows 8–11° in roll. 0.02 cuts that to 2–4°
+  and, because a steady body slips less, roughly doubles achieved speed. See
+  the measured table in `gait.py`.
 - **`max_stride`** (0.08 m) — caps how far the IK is asked to reach.
 
 If you change a **link length**, change it in *both*

@@ -67,7 +67,7 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 
 ## Changing things
 
-The gait maths is pure and fully unit tested — `pixi run pytest` is 573 tests in
+The gait maths is pure and fully unit tested — `pixi run pytest` is 581 tests in
 under a second, with no simulator. Run it before launching Gazebo; if it fails,
 the simulator will only obscure the cause.
 
@@ -77,6 +77,21 @@ recorded in `gait.py` docstrings. Before "improving" `duty_factor` or
 
 Link lengths are duplicated by design: `cat.urdf.xacro` and `LegGeometry` in
 `leg_ik.py` are not derived from one another. Change one, change the other.
+
+`stance_width` is not cosmetic. Setting it to 0 puts each paw in the plane of
+its own hip, which makes `leg_ik` solve that roll joint to exactly zero for
+every pose — four of the twelve motors stop moving entirely and the cat
+wallows about 8–11° in roll on the diagonal it is standing on. Every lateral
+offset in `GaitGenerator` goes through `_neutral_y()` so that walking,
+standing, stretching and lying down widen together and
+`stretch_pose(0) == stand()` stays true; if you add another pose, use it
+rather than `hip_offset` directly.
+
+All four legs bend the **same** way. An earlier revision mirrored the rear
+knees to be anatomically catlike; that was deliberately reverted to match how
+real quadruped robots (Spot, Unitree) are actually built, with four identical
+legs. `knee_sign` still selects the IK branch, but it is now one value for the
+whole robot.
 
 ## Known limitation
 

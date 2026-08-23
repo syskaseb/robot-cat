@@ -81,6 +81,45 @@ class GaitParams:
     """Hip-to-foot-centre distance when standing, in metres. Ground contact is
     ``foot_radius`` below this."""
 
+    stance_width: float = 0.02
+    """Extra lateral splay of the feet beyond the hips, in metres.
+
+    At 0 every foot sits directly under its own hip roll joint. That geometry
+    is degenerate: ``leg_ik`` solves the roll joint to exactly zero for every
+    pose in the gait, whatever the foot is doing, so four of the twelve motors
+    never move at all and the only thing resisting body roll is the width of
+    the hips themselves. A trot spends most of its cycle balanced on a single
+    diagonal pair, which is a narrow base to roll about, and the cat visibly
+    wallows.
+
+    Splaying the feet outward fixes both halves of that. Measured in
+    ``cat_world`` walking straight at 0.15 m/s, sampling body roll over ~20 s
+    of sim time, repeated runs where shown:
+
+    ==========  =====================  ===============
+    width       roll peak-to-peak      forward speed
+    ==========  =====================  ===============
+    0.000       7.7 / 8.2 / 10.7 deg   0.095 m/s
+    0.010       3.2 deg                -
+    **0.020**   **0.9 - 3.8 deg**      **0.17 m/s**
+    0.028       2.5 deg                -
+    0.035       2.2 deg                -
+    ==========  =====================  ===============
+
+    Anything from 0.01 up lands in the same 2-4 deg band - the spread between
+    those rows is run-to-run noise, not a real optimum, so 0.02 is chosen as
+    the middle of the working range rather than a tuned minimum. What is well
+    outside the noise is the step down from 0: the bands do not overlap.
+
+    The speed roughly doubling is a side effect worth knowing about. The
+    wallowing at width 0 was costing paw grip, so the cat slipped instead of
+    pushing; a stable body converts more of the same stride into travel.
+
+    Costs reach: holding ``stance_height`` at a wider offset makes the leg
+    stretch further, so this trades workspace margin for roll stiffness. At
+    0.02 the roll joint holds about 11 deg and sweeps a further 2.7 deg per
+    stride, well inside the +/-0.80 rad the joint allows."""
+
     swing_height: float = 0.035
     """Peak foot lift during swing, in metres."""
 
@@ -232,6 +271,15 @@ class GaitGenerator:
             strides = {leg: (sx * scale, sy * scale) for leg, (sx, sy) in strides.items()}
         return strides
 
+    def _neutral_y(self, y_sign: float) -> float:
+        """Lateral foot position for one leg, in metres from its hip joint.
+
+        Every pose in this class - walking, standing, stretching, lying down -
+        measures its lateral offset from here, so that ``stance_width`` widens
+        all of them together and ``stretch_pose(0) == stand()`` stays true.
+        """
+        return y_sign * (self.geom.hip_offset + self.params.stance_width)
+
     def step(self, dt: float, vx_cmd: float, wz_cmd: float) -> list[float]:
         """Advance the gait by ``dt`` and return the 12 joint targets.
 
@@ -275,7 +323,7 @@ class GaitGenerator:
             targets.extend(
                 leg_ik(
                     x=dx,
-                    y=y_sign * self.geom.hip_offset + dy,
+                    y=self._neutral_y(y_sign) + dy,
                     z=-self.params.stance_height + dz,
                     geom=self.geom,
                     y_sign=y_sign,
@@ -301,7 +349,7 @@ class GaitGenerator:
             targets.extend(
                 leg_ik(
                     x=dx,
-                    y=y_sign * self.geom.hip_offset,
+                    y=self._neutral_y(y_sign),
                     z=-self.params.stance_height + dz,
                     geom=self.geom,
                     y_sign=y_sign,
@@ -330,7 +378,7 @@ class GaitGenerator:
             targets.extend(
                 leg_ik(
                     x=0.0,
-                    y=y_sign * self.geom.hip_offset,
+                    y=self._neutral_y(y_sign),
                     z=-height,
                     geom=self.geom,
                     y_sign=y_sign,
@@ -347,7 +395,7 @@ class GaitGenerator:
             targets.extend(
                 leg_ik(
                     x=0.0,
-                    y=y_sign * self.geom.hip_offset,
+                    y=self._neutral_y(y_sign),
                     z=-self.params.stance_height,
                     geom=self.geom,
                     y_sign=y_sign,
