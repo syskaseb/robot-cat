@@ -182,7 +182,7 @@ Do not trust the viewport — read the pose:
 pixi run bash -c 'source install/setup.bash && gz model -m robot_cat -p'
 ```
 
-A healthy standing cat sits at `z ≈ 0.142` with roll and pitch near zero. To
+A healthy standing cat sits at `z ≈ 0.172` with roll and pitch near zero. To
 confirm motion, sample the pose before and after a `/cmd_vel` burst.
 
 ### 7. Shut down properly
@@ -319,7 +319,9 @@ The ones that matter most, in order:
   `gait.py`; 0.5 is a textbook trot and drifts 12× more in heading.
 - **`cycle_time`** (0.5 s) — one full gait cycle. Shorter is not faster; it
   measurably worsened heading drift.
-- **`stance_height`** (0.13 m) — hip-to-paw distance. Lower is more stable.
+- **`stance_height`** (0.16 m) — hip-to-paw distance. Lower is more stable, but
+  it is tied to `thigh_length`/`calf_length`: what the gait cares about is how
+  far the knee stays bent, so move all three together or the leg straightens.
 - **`stance_width`** (0.02 m) — how far the paws splay outside the hips. At 0
   the IK solves every hip roll joint to exactly zero, so four of the twelve
   motors never move and the cat wallows 8–11° in roll. 0.02 cuts that to 2–4°

@@ -13,8 +13,14 @@
        a length here, change it there too, or the gait will command feet to
        places the legs cannot reach. -->
   <xacro:property name="hip_offset"   value="0.035"/>  <!-- hip roll -> thigh pitch, lateral -->
-  <xacro:property name="thigh_length" value="0.09"/>   <!-- L1 -->
-  <xacro:property name="calf_length"  value="0.09"/>   <!-- L2 -->
+  <!-- 0.09 made a long, low animal: 18.7 cm at the withers over a 22 cm hip
+       span, a ratio of 0.85. A cat is close to square in profile - it stands
+       about as tall at the shoulder as its trunk is long - so the old figure
+       read as a dachshund. 0.11 puts the withers at 21.7 cm for a ratio of
+       0.99, and holds the standing knee at the same 73% of full reach the
+       0.09 leg had, so the gait keeps its bend and its swing clearance. -->
+  <xacro:property name="thigh_length" value="0.11"/>   <!-- L1 -->
+  <xacro:property name="calf_length"  value="0.11"/>   <!-- L2 -->
   <xacro:property name="foot_radius"  value="0.012"/>
 
   <xacro:property name="body_length" value="0.30"/>
@@ -47,8 +53,10 @@
        a pose, and any wobble here feeds straight back into the trunk. -->
   <xacro:property name="trim_damping" value="0.4"/>
   <xacro:property name="hip_mass"   value="0.10"/>
-  <xacro:property name="thigh_mass" value="0.12"/>
-  <xacro:property name="calf_mass"  value="0.08"/>
+  <!-- Scaled with the 0.09 -> 0.11 lengthening, so the longer links do not
+       quietly become less dense than the ones they replaced. -->
+  <xacro:property name="thigh_mass" value="0.147"/>
+  <xacro:property name="calf_mass"  value="0.098"/>
 
   <!-- ==================== joint properties ====================
        Ranges are deliberately generous for the pitch joints so the gait has

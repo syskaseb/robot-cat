@@ -28,13 +28,13 @@ class GaitController(Node):
 
         # --- geometry: must match robot_cat_description/urdf/cat.urdf.xacro ---
         self.declare_parameter("hip_offset", 0.035)
-        self.declare_parameter("thigh_length", 0.09)
-        self.declare_parameter("calf_length", 0.09)
+        self.declare_parameter("thigh_length", 0.11)
+        self.declare_parameter("calf_length", 0.11)
 
         # --- gait tunables ---
         self.declare_parameter("cycle_time", 0.5)
         self.declare_parameter("duty_factor", 0.65)
-        self.declare_parameter("stance_height", 0.13)
+        self.declare_parameter("stance_height", 0.16)
         self.declare_parameter("stance_width", 0.02)
         self.declare_parameter("swing_height", 0.035)
         self.declare_parameter("max_stride", 0.08)

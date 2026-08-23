@@ -51,7 +51,7 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 - **You cannot use the keyboard teleop.** It reads an interactive terminal.
   Publish to `/cmd_vel` instead; it is the same interface the teleop node uses.
 - **Verify motion by reading the pose**, not the viewport:
-  `gz model -m robot_cat -p`. Standing height is `z ≈ 0.142`. Parse it with
+  `gz model -m robot_cat -p`. Standing height is `z ≈ 0.172`. Parse it with
   `tr -d '[]'` — including a space in that set concatenates the coordinates.
 - **Yaw wraps at ±π.** A "backwards" turn reading after a long spin is almost
   always a wrap. Measure turn rates in bursts of ~4 s.
@@ -76,7 +76,17 @@ recorded in `gait.py` docstrings. Before "improving" `duty_factor` or
 `cycle_time`, read those — a textbook 0.5 trot drifts 12x more in heading.
 
 Link lengths are duplicated by design: `cat.urdf.xacro` and `LegGeometry` in
-`leg_ik.py` are not derived from one another. Change one, change the other.
+`leg_ik.py` are not derived from one another. Change one, change the other —
+and `gait_controller.py` declares them a third time as ROS parameter defaults,
+so that is three files, not two.
+
+The leg is sized for **proportion**, not just reach. Segments are `0.11` and
+the cat stands at `0.16`, which puts the withers at 21.7 cm over a 22 cm hip
+span — near enough square, which is what reads as feline. The earlier `0.09`
+segments at `0.13` gave a ratio of 0.85 and looked like a dachshund. Those two
+numbers move **together**: what the gait actually depends on is the knee
+staying near 73% of full reach, and raising `stance_height` on its own
+straightens it toward a locked leg with no swing clearance.
 
 `stance_width` is not cosmetic. Setting it to 0 puts each paw in the plane of
 its own hip, which makes `leg_ik` solve that roll joint to exactly zero for

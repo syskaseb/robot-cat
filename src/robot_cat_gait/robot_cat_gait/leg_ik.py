@@ -40,10 +40,10 @@ class LegGeometry:
     hip_offset: float = 0.035
     """Lateral distance from the hip (roll) joint to the thigh (pitch) joint."""
 
-    thigh_length: float = 0.09
+    thigh_length: float = 0.11
     """L1 - thigh joint to knee joint."""
 
-    calf_length: float = 0.09
+    calf_length: float = 0.11
     """L2 - knee joint to foot contact point."""
 
     mount_x: float = 0.11

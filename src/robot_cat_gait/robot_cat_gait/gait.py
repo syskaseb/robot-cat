@@ -77,9 +77,17 @@ class GaitParams:
     0.65 is the sweet spot: enough double support to stay straight, without
     shortening the push-off so much that the cat crawls."""
 
-    stance_height: float = 0.13
+    stance_height: float = 0.16
     """Hip-to-foot-centre distance when standing, in metres. Ground contact is
-    ``foot_radius`` below this."""
+    ``foot_radius`` below this.
+
+    Raised 0.13 -> 0.16 alongside the 0.09 -> 0.11 leg segments, to stand the
+    cat at roughly its own trunk length - see the comment on ``thigh_length``
+    in cat.urdf.xacro. Both moved together on purpose: the ratio that matters
+    to the gait is how far the knee is bent, and at 0.16 over a 0.22 m leg
+    that is the same 73% of full reach the shorter leg held at 0.13. Raising
+    this alone would have straightened the knee to 91% and left the leg with
+    no room to swing."""
 
     stance_width: float = 0.02
     """Extra lateral splay of the feet beyond the hips, in metres.
