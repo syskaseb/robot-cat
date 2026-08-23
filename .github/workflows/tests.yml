@@ -1,0 +1,97 @@
+name: tests
+
+# The gait and IK are pure maths with no ROS or Gazebo imports, so most of the
+# suite runs on a bare Python in seconds. The container job exists for the 15
+# tests that import the Gazebo Python bindings, and because it exercises
+# run/docker/ itself - if those scripts break, this is what says so.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  maths:
+    name: gait and IK (no simulator)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"   # what RoboStack pins, and what the image has
+
+      - run: pip install pytest
+
+      # pytest.ini puts src/robot_cat_gait and src/robot_cat_teleop on the
+      # path, so nothing needs building first. test_camera_view is the one
+      # module that reaches for gz.msgs10; the container job covers it.
+      - name: Run the pure-maths suite
+        run: |
+          pytest -c pytest.ini \
+            --ignore=src/robot_cat_teleop/test/test_camera_view.py
+
+  container:
+    name: full suite in the ROS 2 image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The image lands around 5 GB and a stock runner has little room to
+      # spare. Dropping toolchains this project never touches buys enough.
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc
+          df -h /
+
+      - uses: docker/setup-buildx-action@v3
+
+      # Built here rather than through run/docker/build.sh so the layers can
+      # be cached between runs; the tag is the one common.sh defaults to, so
+      # the scripts below find it and skip building again.
+      - name: Build the image
+        uses: docker/build-push-action@v6
+        with:
+          context: run/docker
+          load: true
+          tags: robot-cat:jazzy
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # Runs the real script, so a broken up.sh fails CI rather than being
+      # discovered by the next person to clone the repo. It also does the
+      # colcon build, which catches a bad setup.py or package.xml - those pass
+      # the maths job and fail here.
+      - name: Create the container and build the workspace
+        run: ./run/docker/up.sh
+
+      # The URDF is generated, so a bad xacro edit stays invisible until
+      # Gazebo refuses to spawn anything. xacro needs the built workspace on
+      # the ament path, which is why this comes after up.sh.
+      - name: xacro produces a parsable URDF
+        run: |
+          docker exec robot-cat bash -c '
+            set -e
+            source /opt/ros/jazzy/setup.bash
+            source /ws/install/setup.bash
+            xacro /ws/src/robot_cat_description/urdf/cat.urdf.xacro use_gazebo:=false > /tmp/cat.urdf
+            python3 - /tmp/cat.urdf <<PY
+          import sys, xml.dom.minidom as m
+          d = m.parse(sys.argv[1])
+          joints = d.getElementsByTagName("joint")
+          links = d.getElementsByTagName("link")
+          print(f"URDF parses: {len(joints)} joints, {len(links)} links")
+          assert len(joints) >= 12, "expected at least the twelve leg joints"
+          PY
+          '
+
+      - name: Full suite, including the Gazebo bindings
+        run: ./run/docker/test.sh
+
+      - name: Tear down
+        if: always()
+        run: ./run/docker/down.sh
