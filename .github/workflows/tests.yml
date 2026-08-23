@@ -19,9 +19,9 @@ jobs:
     name: gait and IK (no simulator)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"   # what RoboStack pins, and what the image has
 
@@ -39,7 +39,7 @@ jobs:
     name: full suite in the ROS 2 image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # The image lands around 5 GB and a stock runner has little room to
       # spare. Dropping toolchains this project never touches buys enough.
