@@ -121,7 +121,7 @@ is installed outside `.pixi/`, so removing that directory fully undoes it.
 pixi run pytest
 ```
 
-573 tests in under a second — pure maths, no simulator and no ROS runtime.
+579 tests in under a second — pure maths, no simulator and no ROS runtime.
 If these fail, do not bother launching Gazebo; the gait or IK is broken.
 
 ### 3. Run it

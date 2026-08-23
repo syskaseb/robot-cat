@@ -55,7 +55,12 @@
        headroom, but the knee is restricted to one bending direction to match
        the IK branch (knee_sign = -1 in leg_ik.py). -->
   <xacro:property name="hip_range"      value="0.80"/>
-  <xacro:property name="thigh_lower"    value="-1.20"/>
+  <!-- -1.20 was enough when every leg used the same front-elbow-style knee
+       branch: the rear legs' full lie-down fold now needs the mirrored
+       branch's thigh to swing to -1.318 rad, and -1.20 clipped it by 0.12
+       rad. -1.45 leaves margin over that, the same way down_stance_height in
+       lie_down.py leaves margin over the calf stop rather than sitting on it. -->
+  <xacro:property name="thigh_lower"    value="-1.45"/>
   <xacro:property name="thigh_upper"    value="2.60"/>
   <xacro:property name="calf_lower"     value="-2.70"/>
   <xacro:property name="calf_upper"     value="-0.10"/>
@@ -192,10 +197,14 @@
   <!-- ==================== legs ====================
        Joint order fl, fr, rl, rr is the contract with the gait node and
        controllers.yaml. Do not reorder without changing both. -->
-  <xacro:cat_leg prefix="fl" x_sign="1"  y_sign="1"/>
-  <xacro:cat_leg prefix="fr" x_sign="1"  y_sign="-1"/>
-  <xacro:cat_leg prefix="rl" x_sign="-1" y_sign="1"/>
-  <xacro:cat_leg prefix="rr" x_sign="-1" y_sign="-1"/>
+  <!-- knee_sign picks which way the calf joint's own limit range points -
+       see the comment on it in leg.xacro for why this exists at all: a real
+       quadruped's hind knee bends the opposite way from its front elbow, and
+       without this every leg looked like a front leg. -->
+  <xacro:cat_leg prefix="fl" x_sign="1"  y_sign="1"  knee_sign="-1"/>
+  <xacro:cat_leg prefix="fr" x_sign="1"  y_sign="-1" knee_sign="-1"/>
+  <xacro:cat_leg prefix="rl" x_sign="-1" y_sign="1"  knee_sign="1"/>
+  <xacro:cat_leg prefix="rr" x_sign="-1" y_sign="-1" knee_sign="1"/>
 
   <gazebo reference="base_link">
     <material>Gazebo/Grey</material>

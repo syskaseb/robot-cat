@@ -7,7 +7,7 @@ the cat permanently crouched, and one without a hold reads as a stumble.
 
 import pytest
 
-from robot_cat_gait.gait import JOINT_ORDER, GaitGenerator
+from robot_cat_gait.gait import JOINT_ORDER, LEGS, X_SIGN, GaitGenerator
 from robot_cat_gait.stretch import (
     StretchParams,
     StretchState,
@@ -178,13 +178,25 @@ def test_zero_amount_is_exactly_the_standing_pose():
 
 def test_the_pose_stays_inside_the_joint_limits():
     """These come from cat.urdf.xacro; exceeding them means the controller
-    fights a joint stop and the pose silently comes out wrong."""
-    limits = {"hip": (-0.80, 0.80), "thigh": (-1.20, 2.60), "calf": (-2.70, -0.10)}
+    fights a joint stop and the pose silently comes out wrong. Calf is
+    mirrored for rear legs (see leg.xacro's knee_sign comment) - a real hind
+    knee bends the opposite way from a front elbow."""
+    limits = {
+        "hip": (-0.80, 0.80),
+        "thigh": (-1.45, 2.60),
+        "calf": {"front": (-2.70, -0.10), "rear": (0.10, 2.70)},
+    }
     g = GaitGenerator()
     for i in range(21):
-        for name, value in zip(JOINT_ORDER, g.stretch_pose(i / 20)):
-            lo, hi = limits[name.split("_")[1]]
-            assert lo <= value <= hi, f"{name} at amount {i/20}: {value}"
+        pose = g.stretch_pose(i / 20)
+        for leg_idx, leg in enumerate(LEGS):
+            for j, joint in enumerate(("hip", "thigh", "calf")):
+                value = pose[leg_idx * 3 + j]
+                if joint == "calf":
+                    lo, hi = limits["calf"]["front" if X_SIGN[leg] > 0 else "rear"]
+                else:
+                    lo, hi = limits[joint]
+                assert lo <= value <= hi, f"{leg}_{joint} at amount {i/20}: {value}"
 
 
 def test_the_front_legs_fold_more_than_the_rear():
