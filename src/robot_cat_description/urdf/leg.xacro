@@ -8,25 +8,11 @@
        robot_cat_gait/leg_ik.py. The gait solver assumes exactly this chain and
        these axes.
 
-       prefix     - leg name, one of fl / fr / rl / rr
-       x_sign     - +1 front, -1 rear
-       y_sign     - +1 left,  -1 right
-       knee_sign  - which of the two IK elbow solutions the calf joint's own
-                    range points at: -1 for front (elbow bends toward the
-                    tail, like a real front leg), +1 for rear (knee bends
-                    toward the head, like a real hind leg). Every real
-                    quadruped's hind knee bends the opposite way from its
-                    front elbow; giving all four legs the same calf range
-                    made the rear legs look like front legs grafted on
-                    backwards - anatomically wrong, and it reads as wrong on
-                    sight even without a name for why.
+       prefix  - leg name, one of fl / fr / rl / rr
+       x_sign  - +1 front, -1 rear
+       y_sign  - +1 left,  -1 right -->
 
-                    This must match GaitGenerator's per-leg knee sign in
-                    gait.py (derived the same way, from x_sign), or the IK
-                    solves for a branch the joint cannot physically reach and
-                    the leg locks against its own stop. -->
-
-  <xacro:macro name="cat_leg" params="prefix x_sign y_sign knee_sign">
+  <xacro:macro name="cat_leg" params="prefix x_sign y_sign">
 
     <!-- hip: abduction / adduction -->
     <joint name="${prefix}_hip_joint" type="revolute">
@@ -81,11 +67,7 @@
       <child link="${prefix}_calf_link"/>
       <origin xyz="0 0 ${-thigh_length}" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
-      <!-- Mirrored for knee_sign > 0: same range width, reflected through
-           zero, so a rear leg's calf can only reach the positive angles its
-           forward-bending IK branch actually produces. -->
-      <limit lower="${calf_lower if knee_sign &lt; 0 else -calf_upper}"
-             upper="${calf_upper if knee_sign &lt; 0 else -calf_lower}"
+      <limit lower="${calf_lower}" upper="${calf_upper}"
              effort="${joint_effort}" velocity="${joint_velocity}"/>
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>

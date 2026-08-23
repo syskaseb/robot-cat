@@ -67,7 +67,7 @@ enough — the overlay sits on top of the pixi environment, not instead of it.
 
 ## Changing things
 
-The gait maths is pure and fully unit tested — `pixi run pytest` is 579 tests in
+The gait maths is pure and fully unit tested — `pixi run pytest` is 573 tests in
 under a second, with no simulator. Run it before launching Gazebo; if it fails,
 the simulator will only obscure the cause.
 
@@ -77,16 +77,6 @@ recorded in `gait.py` docstrings. Before "improving" `duty_factor` or
 
 Link lengths are duplicated by design: `cat.urdf.xacro` and `LegGeometry` in
 `leg_ik.py` are not derived from one another. Change one, change the other.
-
-Front and rear legs use **mirrored** calf joint ranges and IK knee signs — a
-real hind knee bends the opposite way from a front elbow, and giving every
-leg the front-leg range made the rear legs look anatomically wrong (see
-`knee_sign` in `leg.xacro` and `knee_sign_for()` in `gait.py`). `thigh_lower`
-is `-1.45`, not the more obvious `-1.20`, because the rear leg's mirrored
-knee needs the thigh to swing further negative to reach the same poses the
-front leg reaches by swinging positive — most visible in `lie_pose()` at full
-amount. If you retune stance height, stride, or either stretch/lie-down pose,
-re-run the joint-limit tests for **both** signs, not just the front one.
 
 ## Known limitation
 

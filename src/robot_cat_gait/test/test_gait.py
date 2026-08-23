@@ -14,25 +14,10 @@ from robot_cat_gait.gait import (
     GaitParams,
     foot_offset,
     is_stance,
-    knee_sign_for,
 )
 
-# Joint limits declared in robot_cat_description/urdf/cat.urdf.xacro. The calf
-# range is mirrored for rear legs (see leg.xacro's knee_sign comment) - a real
-# hind knee bends the opposite way from a front elbow, so front and rear
-# calves cannot share one range.
-HIP_LIMITS = (-0.80, 0.80)
-THIGH_LIMITS = (-1.45, 2.60)
-CALF_LIMITS_FRONT = (-2.70, -0.10)
-CALF_LIMITS_REAR = (0.10, 2.70)
-
-
-def _limits_for(leg: str, joint_index: int) -> tuple[float, float]:
-    if joint_index == 0:
-        return HIP_LIMITS
-    if joint_index == 1:
-        return THIGH_LIMITS
-    return CALF_LIMITS_FRONT if X_SIGN[leg] > 0.0 else CALF_LIMITS_REAR
+# Joint limits declared in robot_cat_description/urdf/cat.urdf.xacro.
+LIMITS = {0: (-0.80, 0.80), 1: (-1.20, 2.60), 2: (-2.70, -0.10)}
 
 
 def test_joint_order_matches_controller_contract():
@@ -122,65 +107,8 @@ def test_commands_stay_within_urdf_joint_limits(vx, wz):
         targets = gait.step(0.01, vx, wz)
         assert len(targets) == 12
         for idx, value in enumerate(targets):
-            leg = LEGS[idx // 3]
-            low, high = _limits_for(leg, idx % 3)
+            low, high = LIMITS[idx % 3]
             assert low <= value <= high, f"{JOINT_ORDER[idx]}={value:.3f} outside {low, high}"
-
-
-def test_knee_sign_mirrors_between_front_and_rear():
-    """The whole fix in one assertion: a hind knee must bend the opposite
-    way from a front elbow, not copy it."""
-    assert knee_sign_for("fl", front_knee_sign=-1.0) == -1.0
-    assert knee_sign_for("fr", front_knee_sign=-1.0) == -1.0
-    assert knee_sign_for("rl", front_knee_sign=-1.0) == 1.0
-    assert knee_sign_for("rr", front_knee_sign=-1.0) == 1.0
-
-
-def test_knee_sign_still_mirrors_if_the_front_convention_flips():
-    """Derived from front_knee_sign, not hardcoded, so retuning the front
-    branch cannot silently leave the rear one pointing the wrong way."""
-    assert knee_sign_for("fl", front_knee_sign=1.0) == 1.0
-    assert knee_sign_for("rl", front_knee_sign=1.0) == -1.0
-
-
-def test_standing_rear_knee_is_ahead_of_the_hip():
-    """Read the anatomy back through forward kinematics rather than raw
-    joint angles, which would just re-encode the fix by hand."""
-    from robot_cat_gait.leg_ik import leg_fk
-
-    gait = GaitGenerator()
-    targets = dict(zip(JOINT_ORDER, gait.stand()))
-    knee_x = -gait.geom.thigh_length * math.sin(targets["rl_thigh_joint"])
-    assert knee_x > 0, "hind knee must point toward the head, not the tail"
-
-
-def test_standing_front_elbow_is_still_behind_the_hip():
-    """The fix must not have touched the front legs, which were already
-    anatomically correct."""
-    gait = GaitGenerator()
-    targets = dict(zip(JOINT_ORDER, gait.stand()))
-    knee_x = -gait.geom.thigh_length * math.sin(targets["fl_thigh_joint"])
-    assert knee_x < 0, "front elbow must point toward the tail"
-
-
-def test_front_and_rear_feet_land_in_the_same_place_despite_the_mirror():
-    """The whole reason this was a safe change: knee_sign only selects which
-    of the two IK branches reaches a target, so the foot's own path through
-    space must be identical to the pre-fix, uniform-knee-sign gait."""
-    from robot_cat_gait.leg_ik import leg_fk
-
-    gait = GaitGenerator()
-    targets = dict(zip(JOINT_ORDER, gait.stand()))
-    front = leg_fk(
-        targets["fl_hip_joint"], targets["fl_thigh_joint"], targets["fl_calf_joint"],
-        gait.geom, y_sign=1.0,
-    )
-    rear = leg_fk(
-        targets["rl_hip_joint"], targets["rl_thigh_joint"], targets["rl_calf_joint"],
-        gait.geom, y_sign=1.0,
-    )
-    assert front[0] == pytest.approx(rear[0], abs=1e-9), "same x offset from hip"
-    assert front[2] == pytest.approx(rear[2], abs=1e-9), "same stance height"
 
 
 def test_gait_holds_still_when_not_commanded():

@@ -4,7 +4,7 @@ cleanly if the second press lands mid-transition.
 
 import pytest
 
-from robot_cat_gait.gait import JOINT_ORDER, LEGS, X_SIGN, GaitGenerator
+from robot_cat_gait.gait import JOINT_ORDER, GaitGenerator
 from robot_cat_gait.lie_down import LieDownParams, LieDownState
 
 P = LieDownParams()
@@ -125,26 +125,12 @@ def test_full_amount_uses_the_down_stance_height():
 
 
 def test_the_pose_stays_inside_the_joint_limits():
-    # Calf is mirrored for rear legs (see leg.xacro's knee_sign comment) - a
-    # real hind knee bends the opposite way from a front elbow.
-    limits = {
-        "hip": (-0.80, 0.80),
-        "thigh": (-1.45, 2.60),
-        "calf": {"front": (-2.70, -0.10), "rear": (0.10, 2.70)},
-    }
+    limits = {"hip": (-0.80, 0.80), "thigh": (-1.20, 2.60), "calf": (-2.70, -0.10)}
     g = GaitGenerator()
     for i in range(21):
-        for leg in LEGS:
-            for name, value in zip(
-                JOINT_ORDER[LEGS.index(leg) * 3 : LEGS.index(leg) * 3 + 3],
-                g.lie_pose(i / 20)[LEGS.index(leg) * 3 : LEGS.index(leg) * 3 + 3],
-            ):
-                joint = name.split("_")[1]
-                if joint == "calf":
-                    lo, hi = limits["calf"]["front" if X_SIGN[leg] > 0 else "rear"]
-                else:
-                    lo, hi = limits[joint]
-                assert lo <= value <= hi, f"{name} at amount {i/20}: {value}"
+        for name, value in zip(JOINT_ORDER, g.lie_pose(i / 20)):
+            lo, hi = limits[name.split("_")[1]]
+            assert lo <= value <= hi, f"{name} at amount {i/20}: {value}"
 
 
 def test_the_pose_leaves_real_margin_to_the_calf_stop():
@@ -156,32 +142,9 @@ def test_the_pose_leaves_real_margin_to_the_calf_stop():
     assert calf > -2.70 + 0.05
 
 
-def test_the_pose_leaves_real_margin_to_the_rear_thigh_stop():
-    """The rear leg's mirrored knee needs the thigh to swing much further
-    negative than the front leg ever does, which is exactly what clipped
-    thigh_lower at -1.20 during development - see the property's comment in
-    cat.urdf.xacro. Guard the margin, not just the limit."""
-    g = GaitGenerator()
-    thigh = g.lie_pose(1.0)[7]  # rl_thigh_joint
-    assert thigh > -1.45 + 0.05
-
-
 def test_all_four_legs_match_at_full_amount():
-    """Symmetric front-to-back is what makes this a loaf and not a stretch -
-    read through forward kinematics, since the joint *angles* legitimately
-    differ front-to-back now (rear knees bend the opposite way), even though
-    the feet land at the same offset from their hips."""
-    from robot_cat_gait.leg_ik import leg_fk
-
+    """Symmetric front-to-back is what makes this a loaf and not a stretch."""
     g = GaitGenerator()
     targets = dict(zip(JOINT_ORDER, g.lie_pose(1.0)))
-    front = leg_fk(
-        targets["fl_hip_joint"], targets["fl_thigh_joint"], targets["fl_calf_joint"],
-        g.geom, y_sign=1.0,
-    )
-    rear = leg_fk(
-        targets["rl_hip_joint"], targets["rl_thigh_joint"], targets["rl_calf_joint"],
-        g.geom, y_sign=1.0,
-    )
-    assert front[0] == pytest.approx(rear[0], abs=1e-9)
-    assert front[2] == pytest.approx(rear[2], abs=1e-9)
+    assert targets["fl_thigh_joint"] == pytest.approx(targets["rl_thigh_joint"])
+    assert targets["fl_calf_joint"] == pytest.approx(targets["rl_calf_joint"])

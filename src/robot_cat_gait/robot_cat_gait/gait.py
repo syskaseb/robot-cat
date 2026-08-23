@@ -46,19 +46,6 @@ Y_SIGN: dict[str, float] = {"fl": 1.0, "rl": 1.0, "fr": -1.0, "rr": -1.0}
 X_SIGN: dict[str, float] = {"fl": 1.0, "fr": 1.0, "rl": -1.0, "rr": -1.0}
 
 
-def knee_sign_for(leg: str, front_knee_sign: float) -> float:
-    """Which IK elbow branch a leg's calf joint can actually reach.
-
-    A real quadruped's hind knee bends the opposite way from its front
-    elbow - see the long comment on ``knee_sign`` in leg.xacro for why that
-    matters here. ``cat.urdf.xacro`` mirrors the rear calf joint's own limit
-    range to match, so this must derive the sign the same way that URDF file
-    does (from which side of the body the leg is on), or the IK solves for a
-    branch the physical joint cannot reach.
-    """
-    return front_knee_sign if X_SIGN[leg] > 0.0 else -front_knee_sign
-
-
 @dataclass
 class GaitParams:
     """Tunables for the trot. The defaults are deliberately conservative -
@@ -292,7 +279,7 @@ class GaitGenerator:
                     z=-self.params.stance_height + dz,
                     geom=self.geom,
                     y_sign=y_sign,
-                    knee_sign=knee_sign_for(leg, self.params.knee_sign),
+                    knee_sign=self.params.knee_sign,
                 )
             )
 
@@ -318,7 +305,7 @@ class GaitGenerator:
                     z=-self.params.stance_height + dz,
                     geom=self.geom,
                     y_sign=y_sign,
-                    knee_sign=knee_sign_for(leg, self.params.knee_sign),
+                    knee_sign=self.params.knee_sign,
                 )
             )
         return targets
@@ -347,7 +334,7 @@ class GaitGenerator:
                     z=-height,
                     geom=self.geom,
                     y_sign=y_sign,
-                    knee_sign=knee_sign_for(leg, self.params.knee_sign),
+                    knee_sign=self.params.knee_sign,
                 )
             )
         return targets
@@ -364,7 +351,7 @@ class GaitGenerator:
                     z=-self.params.stance_height,
                     geom=self.geom,
                     y_sign=y_sign,
-                    knee_sign=knee_sign_for(leg, self.params.knee_sign),
+                    knee_sign=self.params.knee_sign,
                 )
             )
         return targets
