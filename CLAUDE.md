@@ -10,6 +10,13 @@ waste your time.
 
 ## Environment
 
+**Check which platform you are on before running anything.** On macOS the
+project runs through pixi, as below. On Windows or Linux `pixi install` refuses
+outright — `pixi.toml` pins `osx-arm64` — and the way in is
+`run/docker/`, which has its own README. The two paths share every source file,
+so a change made in one has to keep working in the other; nothing
+platform-specific belongs in `src/`.
+
 There is no system ROS. Every command must go through pixi:
 
 ```bash

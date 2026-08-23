@@ -6,6 +6,10 @@ from the laptop's arrow keys.
 Runs **natively on Apple Silicon** — no Docker, no VM, no X11 — via
 [RoboStack](https://robostack.github.io) (ROS 2 as conda packages).
 
+Not on a Mac? `pixi.toml` pins `osx-arm64`, so everything below will refuse to
+install. Use [`run/docker/`](run/docker/README.md) instead — same packages,
+same launch files, same gait, in a Linux container.
+
 | | |
 |---|---|
 | ROS 2 | Jazzy Jalisco (LTS → May 2029) |

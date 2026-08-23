@@ -1,2 +1,9 @@
 # SCM syntax highlighting & preventing 3-way merges
 pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
+
+# Shell scripts must stay LF even when checked out on Windows. Git's autocrlf
+# would otherwise hand them CRLF, and every one of them is executed by bash -
+# in WSL, or inside the Linux container run/docker/ builds - where a trailing
+# \r turns the shebang into "/usr/bin/env bash\r: no such file or directory".
+*.sh text eol=lf
+Dockerfile text eol=lf
