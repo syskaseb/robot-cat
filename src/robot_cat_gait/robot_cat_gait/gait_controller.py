@@ -32,12 +32,12 @@ class GaitController(Node):
         self.declare_parameter("calf_length", 0.11)
 
         # --- gait tunables ---
-        self.declare_parameter("cycle_time", 0.5)
+        self.declare_parameter("cycle_time", 0.3)
         self.declare_parameter("duty_factor", 0.65)
         self.declare_parameter("stance_height", 0.16)
         self.declare_parameter("stance_width", 0.02)
         self.declare_parameter("swing_height", 0.035)
-        self.declare_parameter("max_stride", 0.08)
+        self.declare_parameter("max_stride", 0.16)
         self.declare_parameter("command_tau", 0.15)
         self.declare_parameter("knee_sign", -1.0)
 

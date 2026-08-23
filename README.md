@@ -213,7 +213,7 @@ pkill -f "gz sim"; pkill -f gait_controller; pkill -f "ros2 launch"
   bursts of ~4 s.
 - **Commanded speed is not achieved speed.** The gait is open loop and the paws
   slip; expect roughly 0.11–0.17 m/s for a 0.15 m/s command, varying run to run.
-- **Top speed is structural**, at `max_stride / cycle_time` = 0.16 m/s. Higher
+- **Top speed is structural**, at `max_stride / cycle_time` = 0.53 m/s. Higher
   commands are clamped, not obeyed.
 - **A cat that walks lame is a dropped-message problem, not a gait problem.**
   If it stutters, veers tens of degrees off a straight command, or barely
@@ -305,7 +305,7 @@ Two honest caveats:
   because the paws slip, and it varies between runs — legged contact is
   stochastic. Closing the loop would need odometry or an IMU.
 - **Top speed is structural**: one stride per cycle, so
-  `max_stride / cycle_time` = 0.16 m/s. Commanding more is clamped rather than
+  `max_stride / cycle_time` = 0.53 m/s. Commanding more is clamped rather than
   silently saturated.
 
 ## Tuning
@@ -321,8 +321,11 @@ The ones that matter most, in order:
 - **`duty_factor`** (0.65) — fraction of the cycle each foot is on the ground.
   The single biggest lever on whether the cat walks straight. See the table in
   `gait.py`; 0.5 is a textbook trot and drifts 12× more in heading.
-- **`cycle_time`** (0.5 s) — one full gait cycle. Shorter is not faster; it
-  measurably worsened heading drift.
+- **`cycle_time`** (0.3 s) — one full gait cycle. On the original short legs,
+  anything under 0.5 measurably worsened heading drift; the 0.11 m legs moved
+  that trade, and 0.3 is measured at 0.58–0.64 m/s with the same ~1 °/m drift.
+  Retune it together with `max_stride` — the table in `gait.py` shows why one
+  without the other goes backwards.
 - **`stance_height`** (0.16 m) — hip-to-paw distance. Lower is more stable, but
   it is tied to `thigh_length`/`calf_length`: what the gait cares about is how
   far the knee stays bent, so move all three together or the leg straightens.
@@ -331,7 +334,9 @@ The ones that matter most, in order:
   motors never move and the cat wallows 8–11° in roll. 0.02 cuts that to 2–4°
   and, because a steady body slips less, roughly doubles achieved speed. See
   the measured table in `gait.py`.
-- **`max_stride`** (0.08 m) — caps how far the IK is asked to reach.
+- **`max_stride`** (0.16 m) — caps how far the IK is asked to reach. A longer
+  stride at a slow tempo is *slower* — near full extension the leg shears
+  instead of pushing — so treat this and `cycle_time` as one knob.
 
 If you change a **link length**, change it in *both*
 `robot_cat_description/urdf/cat.urdf.xacro` and `LegGeometry` in

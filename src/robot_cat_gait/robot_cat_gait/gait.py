@@ -52,11 +52,17 @@ class GaitParams:
     short, slow strides and a low stance - because legged contact goes unstable
     long before it looks impressive."""
 
-    cycle_time: float = 0.5
+    cycle_time: float = 0.3
     """Seconds for one full gait cycle (both diagonals step once).
 
-    Shortening this to 0.35 measurably worsened heading drift (24 deg vs 2 deg
-    over 10 s) - the feet get less time to settle before the next swap."""
+    On the original 0.09 m legs, shortening this below 0.5 measurably worsened
+    heading drift (24 deg vs 2 deg over 10 s) - the feet got less time to
+    settle before the next swap - and 0.5 was the documented sweet spot for a
+    long time. The 0.11 m legs changed the trade: re-measured together with
+    ``max_stride`` (see the table there), 0.3 now walks at 0.58-0.64 m/s with
+    the same ~1 deg/m of heading drift the old default had and *less* body
+    roll. The old caution stands if you shorten further - 0.3 is measured,
+    below it is not."""
 
     duty_factor: float = 0.65
     """Fraction of the cycle each foot spends on the ground.
@@ -131,9 +137,31 @@ class GaitParams:
     swing_height: float = 0.035
     """Peak foot lift during swing, in metres."""
 
-    max_stride: float = 0.08
+    max_stride: float = 0.16
     """Cap on stride length, in metres. Prevents the IK from being asked for
-    targets outside the leg's workspace."""
+    targets outside the leg's workspace.
+
+    Retuned with ``cycle_time`` when the legs grew to 0.11 m. Measured in
+    cat_world, commanded well above the cap so the cap binds, one run per
+    cell unless noted - and with **no teleop running**: its idle zeros on
+    /cmd_vel interleave with the test command and corrupt every number.
+
+    ==========  ==========  ==============  =============
+    stride      cycle       achieved        notes
+    ==========  ==========  ==============  =============
+    0.08        0.5         0.168 m/s       old default
+    0.16        0.5         0.090 m/s       slower! slips
+    0.20        0.5         0.034 m/s       leg locked straight
+    0.12        0.3         0.19-0.35 m/s
+    **0.16**    **0.3**     **0.58-0.64**   drift ~0.9 deg/m, roll 1.6 deg
+    ==========  ==========  ==============  =============
+
+    The lesson in the middle rows: a longer stride at the old tempo is
+    *slower*, because near the 0.151 m excursion limit the leg is almost
+    straight and shears instead of pushing. The speed lives in the
+    stride-times-tempo product, not in stride alone. 0.16 does saturate the
+    IK briefly at the stride ends; measurement says that costs nothing at
+    0.3 s, but treat stride and cycle as a pair when retuning."""
 
     command_tau: float = 0.15
     """Time constant of the first-order low-pass on incoming velocity commands.

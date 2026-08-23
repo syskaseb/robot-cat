@@ -62,7 +62,7 @@ class KeyboardTeleop(Node):
         # Just inside what the gait can deliver (0.16 m/s, 1.13 rad/s for the
         # default geometry) so a held key produces steady motion rather than a
         # saturated command.
-        self.declare_parameter("linear_speed", 0.15)
+        self.declare_parameter("linear_speed", 0.5)
         self.declare_parameter("angular_speed", 1.0)
         self.declare_parameter("publish_rate", 20.0)
         self.declare_parameter("key_hold_timeout", 0.25)
