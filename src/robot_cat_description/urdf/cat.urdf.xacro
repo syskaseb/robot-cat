@@ -13,11 +13,23 @@
        multiplied by this; masses go as scale^3 and joint effort as scale^4,
        which is how joint torque actually scales (mass x lever arm).
 
-       1.00 is the 22 cm-at-the-withers cat the gait was tuned on, and 1.87
-       puts the head at the 50 cm the brief asks for. The second one is not a
-       cosmetic choice: the same scaling turns a 3.7 kg animal into a 24 kg
-       one whose joints need roughly 60 Nm, which rules out every servo and
-       most brushless actuators. Changing this picks an actuator class. -->
+       1.00 is a real domestic cat and is the right default: 24.2 cm at the
+       withers against a live cat's 24, and 3.7 kg against 3.6-5.4. Nothing
+       needs multiplying to get there. (An earlier revision briefly defaulted
+       to 1.11 on the strength of a stale 21.7 cm figure, taken before the
+       chest was deepened to cat proportions; deepening the body raised the
+       withers, and 1.11 then overshot to 26.9 cm.)
+
+       Scale is not a cosmetic choice, it picks an actuator class. Measured
+       walking at 0.1 m/s, worst joint, 95th percentile:
+
+           1.00 (real cat, 3.7 kg)    ~5 Nm
+           1.87 (50 cm, 24 kg)        27 Nm
+
+       Torque goes as roughly the 3.5 power of size, so a robot that merely
+       looks bigger costs five times the motor. 1.87 is what "about 50 cm
+       tall" works out to if the animal keeps cat proportions - and at that
+       size a cat-shaped thing is a lynx, which really does weigh 20 kg. -->
   <xacro:arg name="scale" default="1.0"/>
   <xacro:property name="scale" value="$(arg scale)"/>
 

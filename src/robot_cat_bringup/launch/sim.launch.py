@@ -56,11 +56,11 @@ def generate_launch_description() -> LaunchDescription:
             "scale",
             default_value="1.0",
             description="Body size multiplier, applied to the model and the "
-            "gait together. 1.0 is the 22 cm-at-the-withers cat everything was "
-            "tuned on; 1.87 is the 50 cm animal the brief asks for, which the "
-            "same scaling makes 24 kg. This picks an actuator class, not a "
-            "look - see run/docker/README.md and the joint effort limit in "
-            "cat.urdf.xacro.",
+            "gait together. 1.0 is already a real domestic cat - 24.2 cm at "
+            "the withers, 3.7 kg - so leave it alone unless you want a "
+            "different animal. 1.87 is what 'about 50 cm tall' works out to, "
+            "and weighs 24 kg. This picks an actuator class, not a look: "
+            "about 5 Nm per joint against 27 Nm.",
         ),
         DeclareLaunchArgument(
             "mass_scale",
