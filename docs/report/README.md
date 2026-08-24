@@ -1,8 +1,15 @@
-# Raport o doborze napędów
+# Dokumenty projektowe
 
-`../napedy-v4.pdf` powstaje z tych trzech skryptów. Wszystkie liczby w
-dokumencie pochodzą z pomiarów w symulacji — skrypty ich nie liczą, tylko
-składają w dokument, więc po nowej serii pomiarów trzeba je nanieść ręcznie.
+Dwa PDF-y w `../`, oba generowane z tych skryptów:
+
+| plik | co zawiera |
+|---|---|
+| `napedy-v4.pdf` | analiza techniczna: rozmiar, masa, moment, dobór napędu |
+| `plan-zakupowy.pdf` | lista zakupów w dwóch wariantach i decyzja |
+
+Wszystkie liczby pochodzą z pomiarów w symulacji albo ze sprawdzenia ofert —
+skrypty ich nie liczą, tylko składają w dokument. Po nowej serii pomiarów
+trzeba je nanieść ręcznie.
 
 ## Odbudowa
 
@@ -12,7 +19,10 @@ Z katalogu głównego repozytorium:
 python docs/report/charts.py
 python docs/report/chart_decision.py
 python docs/report/make_pdf.py docs/napedy-v4.pdf
+python docs/report/make_plan.py docs/plan-zakupowy.pdf
 ```
+
+`make_plan.py` nie używa wykresów, więc można go uruchomić samodzielnie.
 
 Wymaga `reportlab`, `matplotlib` i `pillow`, oraz czcionki Calibri — czyli
 uruchamia się na Windowsie, nie w kontenerze ROS. Calibri, a nie wbudowane
