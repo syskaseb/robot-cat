@@ -37,7 +37,7 @@ class LegGeometry:
     robot_cat_description/urdf/cat.urdf.xacro.
     """
 
-    hip_offset: float = 0.035
+    hip_offset: float = 0.025
     """Lateral distance from the hip (roll) joint to the thigh (pitch) joint."""
 
     thigh_length: float = 0.11

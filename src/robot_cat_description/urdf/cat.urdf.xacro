@@ -8,28 +8,45 @@
   <xacro:arg name="use_gazebo" default="true"/>
   <xacro:arg name="controllers_file" default=""/>
 
+  <!-- ==================== scale ====================
+       One knob for the whole animal. Every length below is a base dimension
+       multiplied by this; masses go as scale^3 and joint effort as scale^4,
+       which is how joint torque actually scales (mass x lever arm).
+
+       1.00 is the 22 cm-at-the-withers cat the gait was tuned on, and 1.87
+       puts the head at the 50 cm the brief asks for. The second one is not a
+       cosmetic choice: the same scaling turns a 3.7 kg animal into a 24 kg
+       one whose joints need roughly 60 Nm, which rules out every servo and
+       most brushless actuators. Changing this picks an actuator class. -->
+  <xacro:arg name="scale" default="1.0"/>
+  <xacro:property name="scale" value="$(arg scale)"/>
+
   <!-- ==================== dimensions ====================
        These MUST match LegGeometry in robot_cat_gait/leg_ik.py. If you change
        a length here, change it there too, or the gait will command feet to
        places the legs cannot reach. -->
-  <xacro:property name="hip_offset"   value="0.035"/>  <!-- hip roll -> thigh pitch, lateral -->
+  <xacro:property name="hip_offset"   value="${0.025 * scale}"/>  <!-- hip roll -> thigh pitch, lateral -->
   <!-- 0.09 made a long, low animal: 18.7 cm at the withers over a 22 cm hip
        span, a ratio of 0.85. A cat is close to square in profile - it stands
        about as tall at the shoulder as its trunk is long - so the old figure
        read as a dachshund. 0.11 puts the withers at 21.7 cm for a ratio of
        0.99, and holds the standing knee at the same 73% of full reach the
        0.09 leg had, so the gait keeps its bend and its swing clearance. -->
-  <xacro:property name="thigh_length" value="0.11"/>   <!-- L1 -->
-  <xacro:property name="calf_length"  value="0.11"/>   <!-- L2 -->
-  <xacro:property name="foot_radius"  value="0.012"/>
+  <xacro:property name="thigh_length" value="${0.11 * scale}"/>   <!-- L1 -->
+  <xacro:property name="calf_length"  value="${0.11 * scale}"/>   <!-- L2 -->
+  <xacro:property name="foot_radius"  value="${0.012 * scale}"/>
 
-  <xacro:property name="body_length" value="0.30"/>
-  <xacro:property name="body_width"  value="0.14"/>
-  <xacro:property name="body_height" value="0.09"/>
+  <!-- A cat's trunk is deeper than it is wide - chest girth of about
+       38 cm works out near 14 cm deep by 10 cm across - so the box is
+       length : width : depth = 1 : 0.37 : 0.47. The old 1 : 0.47 : 0.30 was
+       the other way round and read as a slab on legs rather than an animal. -->
+  <xacro:property name="body_length" value="${0.30 * scale}"/>
+  <xacro:property name="body_width"  value="${0.111 * scale}"/>
+  <xacro:property name="body_height" value="${0.141 * scale}"/>
 
   <!-- Hip joint placement relative to body centre. -->
-  <xacro:property name="hip_x" value="0.11"/>
-  <xacro:property name="hip_y" value="0.055"/>
+  <xacro:property name="hip_x" value="${0.11 * scale}"/>
+  <xacro:property name="hip_y" value="${0.055 * scale}"/>
 
   <!-- ==================== masses ====================
        The head and tail are cosmetic but no longer fixed joints, so their
@@ -45,18 +62,18 @@
 
        So they carry token mass, damped enough to settle rather than swing,
        and `body_mass` carries what they gave up - total mass is unchanged. -->
-  <xacro:property name="body_mass"  value="2.23"/>
-  <xacro:property name="head_mass"  value="0.06"/>
-  <xacro:property name="neck_mass"  value="0.01"/>
-  <xacro:property name="tail_mass"  value="0.015"/>
+  <xacro:property name="body_mass"  value="${2.23 * scale**3}"/>
+  <xacro:property name="head_mass"  value="${0.06 * scale**3}"/>
+  <xacro:property name="neck_mass"  value="${0.01 * scale**3}"/>
+  <xacro:property name="tail_mass"  value="${0.015 * scale**3}"/>
   <!-- Cosmetic joints only. Far stiffer than the legs: they are meant to hold
        a pose, and any wobble here feeds straight back into the trunk. -->
   <xacro:property name="trim_damping" value="0.4"/>
-  <xacro:property name="hip_mass"   value="0.10"/>
+  <xacro:property name="hip_mass"   value="${0.10 * scale**3}"/>
   <!-- Scaled with the 0.09 -> 0.11 lengthening, so the longer links do not
        quietly become less dense than the ones they replaced. -->
-  <xacro:property name="thigh_mass" value="0.147"/>
-  <xacro:property name="calf_mass"  value="0.098"/>
+  <xacro:property name="thigh_mass" value="${0.147 * scale**3}"/>
+  <xacro:property name="calf_mass"  value="${0.098 * scale**3}"/>
 
   <!-- ==================== joint properties ====================
        Ranges are deliberately generous for the pitch joints so the gait has
@@ -67,7 +84,7 @@
   <xacro:property name="thigh_upper"    value="2.60"/>
   <xacro:property name="calf_lower"     value="-2.70"/>
   <xacro:property name="calf_upper"     value="-0.10"/>
-  <xacro:property name="joint_effort"   value="20.0"/>
+  <xacro:property name="joint_effort"   value="${20.0 * scale**4}"/>
   <xacro:property name="joint_velocity" value="20.0"/>
   <xacro:property name="joint_damping"  value="0.05"/>
   <xacro:property name="joint_friction" value="0.01"/>
@@ -109,13 +126,13 @@
     <dynamics damping="${trim_damping}" friction="${joint_friction}"/>
   </joint>
   <link name="neck_link">
-    <xacro:box_inertia mass="${neck_mass}" x="0.02" y="0.02" z="0.02"/>
+    <xacro:box_inertia mass="${neck_mass}" x="${0.02 * scale}" y="${0.02 * scale}" z="${0.02 * scale}"/>
   </link>
 
   <joint name="head_tilt_joint" type="revolute">
     <parent link="neck_link"/>
     <child link="head_link"/>
-    <origin xyz="0.03 0 0" rpy="0 0 0"/>
+    <origin xyz="${0.03 * scale} 0 0" rpy="0 0 0"/>
     <!-- Axis is -Y, not +Y: with the head extending along local +X, a
          positive rotation about +Y points the nose down, which is backwards
          from "positive tilt = look up" used by the tilt_lower/tilt_upper
@@ -126,12 +143,12 @@
   </joint>
   <link name="head_link">
     <visual>
-      <geometry><sphere radius="0.05"/></geometry>
+      <geometry><sphere radius="${0.05 * scale}"/></geometry>
       <material name="cat_fur"/>
     </visual>
     <visual>
-      <origin xyz="0.045 0 0" rpy="0 0 0"/>
-      <geometry><sphere radius="0.012"/></geometry>
+      <origin xyz="${0.045 * scale} 0 0" rpy="0 0 0"/>
+      <geometry><sphere radius="${0.012 * scale}"/></geometry>
       <material name="cat_nose"/>
     </visual>
     <!-- Eyes. Cosmetic for now, but placed where a stereo pair would actually
@@ -140,20 +157,20 @@
          these same origins and the view will match what you see here. Gazebo
          cannot run camera sensors on macOS at all - Cocoa requires render
          window creation on the main thread (gazebosim/gz-sim#960). -->
-    <xacro:property name="eye_x" value="0.036"/>
-    <xacro:property name="eye_y" value="0.022"/>
-    <xacro:property name="eye_z" value="0.018"/>
+    <xacro:property name="eye_x" value="${0.036 * scale}"/>
+    <xacro:property name="eye_y" value="${0.022 * scale}"/>
+    <xacro:property name="eye_z" value="${0.018 * scale}"/>
     <xacro:macro name="cat_eye" params="side y_sign">
       <visual name="eye_${side}">
         <origin xyz="${eye_x} ${y_sign * eye_y} ${eye_z}" rpy="0 0 0"/>
-        <geometry><sphere radius="0.010"/></geometry>
+        <geometry><sphere radius="${0.010 * scale}"/></geometry>
         <material name="cat_eye"/>
       </visual>
       <visual name="pupil_${side}">
         <!-- Sits just proud of the eyeball so it renders in front of it
              rather than z-fighting with the white. -->
-        <origin xyz="${eye_x + 0.007} ${y_sign * eye_y} ${eye_z}" rpy="0 0 0"/>
-        <geometry><sphere radius="0.005"/></geometry>
+        <origin xyz="${eye_x + 0.007 * scale} ${y_sign * eye_y} ${eye_z}" rpy="0 0 0"/>
+        <geometry><sphere radius="${0.005 * scale}"/></geometry>
         <material name="cat_pupil"/>
       </visual>
     </xacro:macro>
@@ -162,16 +179,16 @@
 
     <!-- ears -->
     <visual>
-      <origin xyz="-0.01 0.028 0.042" rpy="0 0 0"/>
-      <geometry><box size="0.02 0.012 0.035"/></geometry>
+      <origin xyz="${-0.01 * scale} ${0.028 * scale} ${0.042 * scale}" rpy="0 0 0"/>
+      <geometry><box size="${0.02 * scale} ${0.012 * scale} ${0.035 * scale}"/></geometry>
       <material name="cat_accent"/>
     </visual>
     <visual>
-      <origin xyz="-0.01 -0.028 0.042" rpy="0 0 0"/>
-      <geometry><box size="0.02 0.012 0.035"/></geometry>
+      <origin xyz="${-0.01 * scale} ${-0.028 * scale} ${0.042 * scale}" rpy="0 0 0"/>
+      <geometry><box size="${0.02 * scale} ${0.012 * scale} ${0.035 * scale}"/></geometry>
       <material name="cat_accent"/>
     </visual>
-    <xacro:box_inertia mass="${head_mass}" x="0.1" y="0.1" z="0.1"/>
+    <xacro:box_inertia mass="${head_mass}" x="${0.1 * scale}" y="${0.1 * scale}" z="${0.1 * scale}"/>
   </link>
 
   <!-- Tail: one actuated DOF, stepped by the space bar - see
@@ -181,7 +198,7 @@
   <joint name="tail_joint" type="revolute">
     <parent link="base_link"/>
     <child link="tail_link"/>
-    <origin xyz="${-body_length/2 - 0.04} 0 ${body_height/2}" rpy="0 -0.9 0"/>
+    <origin xyz="${-body_length/2 - 0.04 * scale} 0 ${body_height/2}" rpy="0 -0.9 0"/>
     <axis xyz="0 1 0"/>
     <!-- Wider than the sweep TailParams actually uses, so the controller
          settles on its target instead of pushing against the joint stop. -->
@@ -190,11 +207,11 @@
   </joint>
   <link name="tail_link">
     <visual>
-      <origin xyz="0 0 0.04" rpy="0 0 0"/>
-      <geometry><cylinder radius="0.009" length="0.12"/></geometry>
+      <origin xyz="0 0 ${0.04 * scale}" rpy="0 0 0"/>
+      <geometry><cylinder radius="${0.009 * scale}" length="${0.12 * scale}"/></geometry>
       <material name="cat_accent"/>
     </visual>
-    <xacro:cylinder_inertia mass="${tail_mass}" radius="0.009" length="0.12"/>
+    <xacro:cylinder_inertia mass="${tail_mass}" radius="${0.009 * scale}" length="${0.12 * scale}"/>
   </link>
 
   <!-- ==================== legs ====================

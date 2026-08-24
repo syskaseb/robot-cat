@@ -28,10 +28,10 @@
     <link name="${prefix}_hip_link">
       <visual>
         <origin xyz="0 ${y_sign * hip_offset / 2.0} 0" rpy="${pi/2} 0 0"/>
-        <geometry><cylinder radius="0.018" length="${hip_offset}"/></geometry>
+        <geometry><cylinder radius="${0.018 * scale}" length="${hip_offset}"/></geometry>
         <material name="cat_accent"/>
       </visual>
-      <xacro:cylinder_inertia mass="${hip_mass}" radius="0.018" length="${hip_offset}"/>
+      <xacro:cylinder_inertia mass="${hip_mass}" radius="${0.018 * scale}" length="${hip_offset}"/>
     </link>
 
     <!-- thigh: hip pitch -->
@@ -48,14 +48,14 @@
     <link name="${prefix}_thigh_link">
       <visual>
         <origin xyz="0 0 ${-thigh_length / 2.0}" rpy="0 0 0"/>
-        <geometry><cylinder radius="0.014" length="${thigh_length}"/></geometry>
+        <geometry><cylinder radius="${0.014 * scale}" length="${thigh_length}"/></geometry>
         <material name="cat_fur"/>
       </visual>
       <collision>
         <origin xyz="0 0 ${-thigh_length / 2.0}" rpy="0 0 0"/>
-        <geometry><cylinder radius="0.014" length="${thigh_length}"/></geometry>
+        <geometry><cylinder radius="${0.014 * scale}" length="${thigh_length}"/></geometry>
       </collision>
-      <xacro:cylinder_inertia mass="${thigh_mass}" radius="0.014" length="${thigh_length}"/>
+      <xacro:cylinder_inertia mass="${thigh_mass}" radius="${0.014 * scale}" length="${thigh_length}"/>
     </link>
 
     <!-- calf: knee pitch. The foot pad is a sphere on this link rather than a
@@ -75,7 +75,7 @@
     <link name="${prefix}_calf_link">
       <visual>
         <origin xyz="0 0 ${-calf_length / 2.0}" rpy="0 0 0"/>
-        <geometry><cylinder radius="0.011" length="${calf_length}"/></geometry>
+        <geometry><cylinder radius="${0.011 * scale}" length="${calf_length}"/></geometry>
         <material name="cat_fur"/>
       </visual>
       <visual>
@@ -89,7 +89,7 @@
         <origin xyz="0 0 ${-calf_length}" rpy="0 0 0"/>
         <geometry><sphere radius="${foot_radius}"/></geometry>
       </collision>
-      <xacro:cylinder_inertia mass="${calf_mass}" radius="0.011" length="${calf_length}"/>
+      <xacro:cylinder_inertia mass="${calf_mass}" radius="${0.011 * scale}" length="${calf_length}"/>
     </link>
 
     <!-- Reference frame at the contact point, for debugging in RViz/tf. -->

@@ -35,6 +35,7 @@ def generate_launch_description() -> LaunchDescription:
     spawn_height = LaunchConfiguration("spawn_height")
     start_gait = LaunchConfiguration("start_gait")
     world = LaunchConfiguration("world")
+    scale = LaunchConfiguration("scale")
 
     args = [
         DeclareLaunchArgument("use_sim_time", default_value="true"),
@@ -49,6 +50,16 @@ def generate_launch_description() -> LaunchDescription:
             default_value="true",
             description="Set false to drive /leg_position_controller/commands "
             "by hand instead of running the gait node.",
+        ),
+        DeclareLaunchArgument(
+            "scale",
+            default_value="1.0",
+            description="Body size multiplier, applied to the model and the "
+            "gait together. 1.0 is the 22 cm-at-the-withers cat everything was "
+            "tuned on; 1.87 is the 50 cm animal the brief asks for, which the "
+            "same scaling makes 24 kg. This picks an actuator class, not a "
+            "look - see run/docker/README.md and the joint effort limit in "
+            "cat.urdf.xacro.",
         ),
         DeclareLaunchArgument(
             "world",
@@ -67,7 +78,8 @@ def generate_launch_description() -> LaunchDescription:
     # to YAML-parse the URDF and dies on the first colon.
     robot_description = ParameterValue(
         Command(
-            ["xacro ", xacro_file, " use_gazebo:=true controllers_file:=", controllers_file]
+            ["xacro ", xacro_file, " use_gazebo:=true scale:=", scale,
+             " controllers_file:=", controllers_file]
         ),
         value_type=str,
     )
@@ -144,7 +156,7 @@ def generate_launch_description() -> LaunchDescription:
         executable="gait_controller",
         output="screen",
         condition=IfCondition(start_gait),
-        parameters=[{"use_sim_time": use_sim_time}],
+        parameters=[{"use_sim_time": use_sim_time, "scale": scale}],
     )
 
     return LaunchDescription(

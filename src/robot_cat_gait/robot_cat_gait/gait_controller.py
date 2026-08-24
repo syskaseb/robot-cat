@@ -10,6 +10,8 @@ All gait tunables are ROS parameters, so the cat can be retuned live with
 
 from __future__ import annotations
 
+import math
+
 import rclpy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
@@ -26,8 +28,22 @@ class GaitController(Node):
     def __init__(self) -> None:
         super().__init__("gait_controller")
 
+        # Body size, and it has to be the same number cat.urdf.xacro was given
+        # or the gait aims the feet at a leg length the robot does not have.
+        # Every length below is a base dimension for the 22 cm cat and gets
+        # multiplied by this.
+        #
+        # cycle_time is the exception: it scales as sqrt(scale), not scale.
+        # A bigger animal swings its legs more slowly for the same *gait*,
+        # because a leg is a pendulum and its period goes with the square root
+        # of its length. This is the Froude scaling that makes a horse's walk
+        # and a cat's walk the same motion at different sizes; scaling the
+        # period linearly instead would give a big robot a mincing, unnatural
+        # trot it also lacks the torque to hold.
+        self.declare_parameter("scale", 1.0)
+
         # --- geometry: must match robot_cat_description/urdf/cat.urdf.xacro ---
-        self.declare_parameter("hip_offset", 0.035)
+        self.declare_parameter("hip_offset", 0.025)
         self.declare_parameter("thigh_length", 0.11)
         self.declare_parameter("calf_length", 0.11)
 
@@ -62,18 +78,20 @@ class GaitController(Node):
         self.declare_parameter("lie_down_stance_height", 0.045)
         self.declare_parameter("lie_down_tau", 0.6)
 
+        k = self._f("scale")
         geom = LegGeometry(
-            hip_offset=self._f("hip_offset"),
-            thigh_length=self._f("thigh_length"),
-            calf_length=self._f("calf_length"),
+            hip_offset=self._f("hip_offset") * k,
+            thigh_length=self._f("thigh_length") * k,
+            calf_length=self._f("calf_length") * k,
         )
         params = GaitParams(
-            cycle_time=self._f("cycle_time"),
+            # sqrt, not k - see the note on the scale parameter above.
+            cycle_time=self._f("cycle_time") * math.sqrt(k),
             duty_factor=self._f("duty_factor"),
-            stance_height=self._f("stance_height"),
-            stance_width=self._f("stance_width"),
-            swing_height=self._f("swing_height"),
-            max_stride=self._f("max_stride"),
+            stance_height=self._f("stance_height") * k,
+            stance_width=self._f("stance_width") * k,
+            swing_height=self._f("swing_height") * k,
+            max_stride=self._f("max_stride") * k,
             command_tau=self._f("command_tau"),
             knee_sign=self._f("knee_sign"),
         )
