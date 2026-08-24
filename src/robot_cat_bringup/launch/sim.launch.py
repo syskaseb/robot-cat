@@ -36,6 +36,7 @@ def generate_launch_description() -> LaunchDescription:
     start_gait = LaunchConfiguration("start_gait")
     world = LaunchConfiguration("world")
     scale = LaunchConfiguration("scale")
+    mass_scale = LaunchConfiguration("mass_scale")
 
     args = [
         DeclareLaunchArgument("use_sim_time", default_value="true"),
@@ -62,6 +63,14 @@ def generate_launch_description() -> LaunchDescription:
             "cat.urdf.xacro.",
         ),
         DeclareLaunchArgument(
+            "mass_scale",
+            default_value="1.0",
+            description="Construction weight, independent of size. 1.0 keeps "
+            "the geometric scale^3 mass; 0.62 models a hollow frame at the "
+            "same dimensions, which is roughly what Unitree's Go2 weighs for "
+            "its size. Torque tracks mass nearly linearly in a slow walk.",
+        ),
+        DeclareLaunchArgument(
             "world",
             default_value="cat_world.sdf",
             description="World file name, looked up under "
@@ -78,7 +87,7 @@ def generate_launch_description() -> LaunchDescription:
     # to YAML-parse the URDF and dies on the first colon.
     robot_description = ParameterValue(
         Command(
-            ["xacro ", xacro_file, " use_gazebo:=true scale:=", scale,
+            ["xacro ", xacro_file, " use_gazebo:=true scale:=", scale, " mass_scale:=", mass_scale,
              " controllers_file:=", controllers_file]
         ),
         value_type=str,

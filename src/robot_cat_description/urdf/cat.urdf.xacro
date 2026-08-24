@@ -21,6 +21,16 @@
   <xacro:arg name="scale" default="1.0"/>
   <xacro:property name="scale" value="$(arg scale)"/>
 
+  <!-- Construction weight, separate from size. scale^3 assumes the animal is
+       filled with whatever the 3.7 kg original was made of, which is how a
+       22 cm cat becomes a 24 kg robot at scale 1.87. A real build is hollow:
+       Unitree's Go2 is 15 kg at about that size, so mass_scale 0.62 models a
+       lightweight frame at the same dimensions. Torque tracks mass almost
+       linearly in a quasi-static walk, so this is the cheapest lever there
+       is on actuator class - cheaper than shrinking the robot. -->
+  <xacro:arg name="mass_scale" default="1.0"/>
+  <xacro:property name="mass_scale" value="$(arg mass_scale)"/>
+
   <!-- ==================== dimensions ====================
        These MUST match LegGeometry in robot_cat_gait/leg_ik.py. If you change
        a length here, change it there too, or the gait will command feet to
@@ -62,18 +72,18 @@
 
        So they carry token mass, damped enough to settle rather than swing,
        and `body_mass` carries what they gave up - total mass is unchanged. -->
-  <xacro:property name="body_mass"  value="${2.23 * scale**3}"/>
-  <xacro:property name="head_mass"  value="${0.06 * scale**3}"/>
-  <xacro:property name="neck_mass"  value="${0.01 * scale**3}"/>
-  <xacro:property name="tail_mass"  value="${0.015 * scale**3}"/>
+  <xacro:property name="body_mass"  value="${2.23 * scale**3 * mass_scale}"/>
+  <xacro:property name="head_mass"  value="${0.06 * scale**3 * mass_scale}"/>
+  <xacro:property name="neck_mass"  value="${0.01 * scale**3 * mass_scale}"/>
+  <xacro:property name="tail_mass"  value="${0.015 * scale**3 * mass_scale}"/>
   <!-- Cosmetic joints only. Far stiffer than the legs: they are meant to hold
        a pose, and any wobble here feeds straight back into the trunk. -->
   <xacro:property name="trim_damping" value="0.4"/>
-  <xacro:property name="hip_mass"   value="${0.10 * scale**3}"/>
+  <xacro:property name="hip_mass"   value="${0.10 * scale**3 * mass_scale}"/>
   <!-- Scaled with the 0.09 -> 0.11 lengthening, so the longer links do not
        quietly become less dense than the ones they replaced. -->
-  <xacro:property name="thigh_mass" value="${0.147 * scale**3}"/>
-  <xacro:property name="calf_mass"  value="${0.098 * scale**3}"/>
+  <xacro:property name="thigh_mass" value="${0.147 * scale**3 * mass_scale}"/>
+  <xacro:property name="calf_mass"  value="${0.098 * scale**3 * mass_scale}"/>
 
   <!-- ==================== joint properties ====================
        Ranges are deliberately generous for the pitch joints so the gait has
