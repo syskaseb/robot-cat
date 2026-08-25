@@ -382,6 +382,38 @@ def build(path):
         ],
         [34 * mm, 40 * mm, 84 * mm]))
 
+    s.append(para("Chłodzenie", H2))
+    s.append(para(
+        "Obudowa jest zamknięta, a w środku siedzi dwanaście serw i komputer. "
+        "Wentylacji nie da się dorobić po fakcie bez przewiercania gotowego "
+        "wydruku, więc otwory trzeba zaplanować od razu.", Body))
+    s.append(table(
+        ["Źródło ciepła", "Kiedy grzeje", "Uwaga"],
+        [
+            ["Raspberry Pi 4B", "cały czas",
+             "ogranicza wydajność przy <b>80°C</b> — kot zacząłby zwalniać po "
+             "kilkunastu minutach, a objaw wyglądałby na błąd w kodzie"],
+            ["12 serw", "gdy stoi",
+             "obciążenie ciągłe 0,70 Nm na przegub; w ruchu grzeją mniej, bo "
+             "mediana to 0,17 Nm"],
+            [Paragraph("<b>Sam PETG</b>", CellB), "—",
+             "mięknie w okolicach <b>80°C</b>, czyli w tej samej temperaturze, "
+             "przy której ogranicza się Pi — materiał obudowy nie daje tu "
+             "zapasu"],
+        ],
+        [40 * mm, 30 * mm, 88 * mm]))
+    s.append(Spacer(1, 2 * mm))
+    s.append(para(
+        "Minimum: <b>radiator na Pi</b> i otwory nisko oraz wysoko w korpusie, "
+        "żeby ciepłe powietrze uchodziło górą samo. Nie przykręcać Pi "
+        "bezpośrednio do serwa ani do ścianki, o którą opiera się serwo.", Body))
+    s.append(callout(
+        "Tryb snu jest też chłodzeniem",
+        "Leżący kot obciąża napędy praktycznie wcale — 0,09 Nm wobec 0,70 Nm "
+        "w staniu. Kładzenie się, gdy nic nie robi, to nie tylko oszczędność "
+        "baterii: to jedyny moment, w którym serwa naprawdę stygną.",
+        GOOD))
+
     # ------------------------------------------------------ montaz
     s.append(para("4. Kolejność montażu", H1))
     s.append(para(
@@ -508,6 +540,86 @@ def build(path):
         "brak luzu na łożyskach) albo cięższy wydruk niż zakładane 700 g. "
         "Oba są do naprawienia mechanicznie i oba lepiej wykryć na tym etapie "
         "niż po tygodniu chodzenia.", Body))
+
+    # ------------------------------------------------ budzet obliczeniowy
+    s.append(para("6. Co uciągnie Raspberry Pi 4B", H1))
+    s.append(para(
+        "Sterowanie jest obliczeniowo tanie i procesor nie jest tu wąskim "
+        "gardłem. Ograniczeniem jest <b>przepustowość magistrali serw</b> — "
+        "jednego kabla, po którym rozmawia dwanaście napędów.", Body))
+
+    s.append(table(
+        ["Zadanie", "Obciążenie", "Uwaga"],
+        [
+            ["Chód: 12 × kinematyka odwrotna, 100 Hz", "znikome",
+             "czysta trygonometria, mikrosekundy na cykl"],
+            ["IMU BNO085", "znikome",
+             "fuzja czujników dzieje się <b>w samym układzie</b>; Pi odczytuje "
+             "gotowe kąty"],
+            ["Czujnik ToF", "znikome", "64 strefy po I2C"],
+            ["Dźwięk, dotyk", "znikome", ""],
+            ["Podgląd obrazu z kamery", "małe",
+             "Pi 4B ma sprzętowy koder H.264"],
+            [Paragraph("<b>Rozpoznawanie obrazu</b>", CellB),
+             Paragraph('<b><font color="#a3251e">nie w czasie rzeczywistym</font></b>',
+                       CellB),
+             "kilka klatek na sekundę bez akceleratora — dlatego omijanie "
+             "przeszkód oparto na ToF, a nie na kamerze"],
+        ],
+        [56 * mm, 34 * mm, 68 * mm],
+        aligns={1: "CENTER"},
+        highlight=[6]))
+
+    s.append(Spacer(1, 3 * mm))
+    s.append(para("Magistrala serw — tu jest granica", H2))
+    s.append(para(
+        "Magistrala chodzi do <b>1 Mb/s</b> i obsługuje <b>zapis zbiorczy</b>: "
+        "jedna ramka ustawia wszystkie dwanaście serw. Odczyt jest droższy, bo "
+        "każde serwo trzeba zapytać osobno i poczekać na odpowiedź.", Body))
+
+    s.append(table(
+        ["Operacja", "Czas na cykl", "Przy 100 Hz (budżet 10 ms)"],
+        [
+            ["Komendy do 12 serw (zapis zbiorczy)", "ok. 0,5 ms",
+             Paragraph('<font color="#1c6b45">bez problemu</font>', Cell)],
+            [Paragraph("<b>Odczyt z 12 serw (po kolei)</b>", CellB),
+             Paragraph("<b>4–10 ms</b>", CellB),
+             Paragraph('<b><font color="#a3251e">zjada cały cykl</font></b>',
+                       CellB)],
+        ],
+        [62 * mm, 30 * mm, 66 * mm],
+        aligns={1: "CENTER"},
+        highlight=[2]))
+
+    s.append(Spacer(1, 3 * mm))
+    s.append(callout(
+        "Komendy szybko, odczyt wolniej",
+        "Rozwiązanie jest standardowe: <b>komendy 100 Hz, informacja zwrotna "
+        "20–50 Hz</b>. Chód sterowany pozycyjnie i tak nie potrzebuje odczytu "
+        "sto razy na sekundę — a to właśnie odczyt obciążenia ma powiedzieć, "
+        "czy montaż nie stawia oporu. Gdyby okazało się za wolno, pierwszym "
+        "krokiem jest odczyt zbiorczy, jeśli firmware serwa go wspiera.",
+        ACCENT))
+
+    s.append(Spacer(1, 2 * mm))
+    s.append(para(
+        "Czasy powyżej to oszacowanie z długości ramek przy 1 Mb/s, nie pomiar "
+        "— zweryfikować na sprzęcie, bo zależą od opóźnienia odpowiedzi serwa. "
+        "Wynik warto zapisać w tym dokumencie, bo wyznacza maksymalną "
+        "częstotliwość pętli sterowania.", Body))
+
+    s.append(para("Zanim złożysz elektronikę", H2))
+    s.append(table(
+        ["", "Do sprawdzenia"],
+        [
+            ["1", "<b>Ile RAM ma Twoje Pi 4B.</b> Są wersje 2, 4 i 8 GB. ROS 2 "
+                  "z kamerą na 2 GB będzie ciasno; od 4 GB w górę spokojnie"],
+            ["2", "Karta microSD kończy się szybciej niż sprzęt, jeśli system "
+                  "dużo loguje — a logowanie obciążenia serw jest tu zalecane. "
+                  "Warto ograniczyć zapis albo logować na pendrive"],
+        ],
+        [10 * mm, 148 * mm],
+        aligns={0: "CENTER"}))
 
     doc.build(s)
     print("written:", path)
