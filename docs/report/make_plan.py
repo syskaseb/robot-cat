@@ -191,22 +191,23 @@ def build(path):
         "Wersja A buduje chodzącego kota bez wzroku. Wersja B dokłada wzrok: "
         "kamerę widzącą w podczerwieni, doświetlacz w drugim oku i czujnik "
         "odległości. Obie mieszczą się w budżecie 2500 zł, bo Raspberry Pi 4B "
-        "jest już w domu i nie trzeba go kupować — wersja B dokładnie w nim, "
-        "co do grosza.", Sub))
+        "jest już w domu i nie trzeba go kupować. Wersja B wychodzi 7 zł nad "
+        "limit — patrz niżej.", Sub))
     s.append(Spacer(1, 5 * mm))
 
     s.append(callout(
-        "Decyzja: wersja B — ok. 2500 zł",
+        "Decyzja: wersja B — 2506,90 zł",
         "Kamerę <b>kupić teraz, używać później</b>. To dwie różne rzeczy. "
         "Kupno teraz, bo wersja standardowa ma dostawę dopiero pod koniec "
         "października, a szerokokątna jest na stanie — odkładanie zakupu grozi "
         "tym, że blokada wróci wtedy, gdy będzie zatrzymywać gotowy projekt. "
         "Używanie później, bo debugowanie chodu i wizji naraz jest trudniejsze "
-        "niż po kolei — i to jest realny koszt, nie te 282 zł.<br/><br/>"
+        "niż po kolei — i to jest realny koszt, nie te 289 zł.<br/><br/>"
         "Kamera jest w wersji <b>NoIR</b>, a w drugim oku siedzi doświetlacz "
-        "podczerwieni — kot widzi po ciemku. <b>To zjada cały zapas budżetu:</b> "
-        "wersja B wychodzi na 2500 zł co do grosza, wobec 2451 zł bez nocnego "
-        "widzenia.",
+        "podczerwieni — kot widzi po ciemku. <b>To przekracza budżet o 6,90 zł:</b> "
+        "2506,90 zł wobec limitu 2500 zł, przy 2451 zł bez nocnego widzenia. "
+        "Kwota jest w granicach błędu zaokrągleń całej listy, ale zapas zniknął "
+        "— cokolwiek jeszcze dojdzie, dojdzie ponad limit.",
         GOOD))
     s.append(Spacer(1, 5 * mm))
 
@@ -226,7 +227,7 @@ def build(path):
              Paragraph('<font color="#1c6b45">wysyłka 24 h</font>', Cell)],
             [Paragraph("<b>Camera Module 3 NoIR Wide</b>", CellB),
              Paragraph("<b>120°</b>", CellB),
-             Paragraph("<b>~193 zł</b>", CellB),
+             Paragraph("<b>199 zł</b>", CellB),
              Paragraph('<b><font color="#1c6b45">wysyłka 24 h</font></b>', CellB)],
         ],
         [56 * mm, 30 * mm, 28 * mm, 44 * mm],
@@ -321,10 +322,10 @@ def build(path):
         ["Pozycja", "Rola", "Koszt"],
         money_rows(
             [("Wszystko z wersji A", "chód, dotyk, dźwięk, IMU", "2218,10"),
-             ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "~193,10"),
+             ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "199,00"),
              ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90"),
-             ("2 × doświetlacz IR 850 nm 3 W", "drugie oko, nocny wzrok", "~19,35")],
-            "RAZEM", "≈ 2500,45 zł"),
+             ("2 × doświetlacz IR 850 nm 3 W", "drugie oko, nocny wzrok", "19,90")],
+            "RAZEM", "2506,90 zł"),
         [82 * mm, 44 * mm, 32 * mm],
         aligns={2: "RIGHT"},
         highlight=[5]))
@@ -352,7 +353,7 @@ def build(path):
         ["Argument", "Liczba"],
         [
             ["Kamera nie zmienia analizy mechanicznej", "waży 4 g"],
-            ["Mieści się w pierwotnym budżecie", "2500 zł z 2500 zł"],
+            ["Przekracza budżet — nieznacznie", "2507 zł wobec 2500 zł"],
             ["Raspberry Pi z domu finansuje wizję", "oszczędność 268 zł"],
             ["Wersja standardowa wraca dopiero jesienią", "ok. 2 miesiące"],
         ],
@@ -446,10 +447,9 @@ def build(path):
                   "ze źródeł"],
             ["4", "Wersja Wide ma inny obiektyw — jeśli obudowa oczu jest już "
                   "projektowana, sprawdzić wymiary montażowe"],
-            ["5", "Ceny kamery i doświetlacza odczytano z widoku sklepu w euro "
-                  "(€44,90 i €4,50) i przeliczono kursem wynikającym z ceny "
-                  "zwykłej Wide w tym dokumencie — potwierdzić kwoty w "
-                  "złotówkach przed płatnością"],
+            ["5", "Kamera i doświetlacz sprawdzone w Botlandzie w złotówkach: "
+                  "199,00 zł i 19,90 zł, oba „Dostępny, wysyłka 24h”. Ceny "
+                  "potrafią się zmienić — otworzyć linki ponownie"],
             ["6", "Doświetlacz ma 3 W przy 3,3 V, czyli ok. 0,9 A na sztukę. "
                   "<b>Nie zasilać go z pinu 3,3 V Raspberry Pi</b> — ten daje "
                   "kilkadziesiąt miliamperów. Ciągnąć z przetwornicy, przez "
