@@ -264,8 +264,13 @@ def build(path):
              "albo usługa druku — PETG, nie PLA: mniej kruchy przy obciążeniach "
              "udarowych"],
             ["Lutownica", "tak",
-             "do zasilania i wtapiania wkładek gwintowanych; grot stożkowy "
-             "wystarczy"],
+             "do wkładek gwintowanych i drobnych goldpinów wystarczy "
+             "najtańsza. Do <b>XT60</b> już nie: mosiądz i przewód 16 AWG "
+             "wysysają ciepło szybciej, niż 30 W zdąży je oddać, i wychodzi "
+             "zimny lut albo stopiona obudowa złącza. Tam trzeba mocniejszej "
+             "i <b>grotu ściętego</b>, nie cienkiego stożka — albo kupić "
+             "gotowe przewody z wlutowanym XT60 i łączyć już tylko miedź "
+             "z miedzią"],
             ["Ściągacz izolacji i obcinaczki boczne", "tak", ""],
             ["Wkrętaki krzyżowe PH0 i PH1", "tak", "małe śruby serw"],
             ["Multimetr", "tak",
@@ -366,9 +371,62 @@ def build(path):
             ["Biodro → udo, w bok", "25 mm", "oś obrotu roll do osi pitch"],
             ["Udo, oś–oś", "110 mm", "od osi uda do osi kolana"],
             ["Goleń, oś–łapa", "110 mm", "od osi kolana do środka łapy"],
-            ["Promień łapy", "12 mm", "kula styku, warto obłożyć TPU"],
+            ["Promień łapy", "12 mm", "kula styku — <b>musi być obłożona</b>, "
+                                        "patrz niżej"],
         ],
         [46 * mm, 30 * mm, 82 * mm]))
+
+    s.append(para("Łapy — nakładki nie są ozdobą", H2))
+    s.append(para(
+        "Model zakłada <b>gumowe łapy</b>: w pliku stoi współczynnik tarcia "
+        "<font name='Mono' size='8.6'>foot_mu = 1.2</font> z komentarzem, że "
+        "to guma i że dzięki niej kot się odpycha, zamiast ślizgać. Goły PETG "
+        "na panelach ma jakieś 0,3–0,4, czyli trzy razy mniej — a to znaczy, "
+        "że <b>wszystkie zmierzone prędkości i dryf obowiązują tylko z "
+        "nakładkami</b>. Bez nich pomiary z symulacji przestają cokolwiek "
+        "mówić.", Body))
+    s.append(para(
+        "Drugie zadanie jest mniej oczywiste. Raport o napędach dobiera serwa "
+        "95. percentylem momentu, a nie chwilowym szczytem, uzasadniając to "
+        "tym, że szczyty są transjentami kontaktowymi i „w prawdziwym robocie "
+        "amortyzuje je podatność mechaniczna”. <b>Tą podatnością jest miękka "
+        "łapa.</b> Bez niej uderzenie idzie wprost w przekładnię serwa, a "
+        "założenie, na którym oparto wybór ST3215, przestaje obowiązywać.", Body))
+
+    s.append(table(
+        ["Materiał", "Tarcie (orientacyjnie)", "Uwaga"],
+        [
+            ["Goły PETG", "0,3–0,4",
+             Paragraph('<font color="#a3251e">za mało — ślizga się i klika</font>',
+                       Cell)],
+            ["TPU 95A, drukowane", "0,6–0,9",
+             "drukowalne, ale <b>TPU nie ma na liście zakupowej</b>, a drukarka "
+             "musi je ogarniać — z napędem bezpośrednim łatwiej niż z bowdenem"],
+            [Paragraph("<b>Miękki silikon / guma</b>", CellB),
+             Paragraph("<b>1,0–1,5</b>", CellB),
+             "najbliżej założonych 1,2; gotowe stopki meblowe albo opony do "
+             "modeli RC"],
+            ["Guma w płynie (Plasti Dip)", "ok. 1,0",
+             "najtańsze — obleje kulkę samo, bez projektowania nakładki"],
+        ],
+        [40 * mm, 32 * mm, 86 * mm],
+        aligns={1: "CENTER"},
+        highlight=[3]))
+
+    s.append(Spacer(1, 2 * mm))
+    s.append(para(
+        "Na hałas działa dokładnie to samo co na tarcie: twardy plastik o "
+        "podłogę <b>klika</b>, miękka łapa tłumi uderzenie.", Body))
+
+    s.append(callout(
+        "Zaprojektować jako wymienne",
+        "Łapy zużywają się szybciej niż cokolwiek innego w tym robocie — to "
+        "jedyny element, który przez cały czas ociera się o podłogę. Nakładka "
+        "<b>nakręcana albo wciskana, nie klejona na stałe</b>. To decyzja do "
+        "podjęcia teraz, w CAD-zie, bo po wydrukowaniu goleni jest już za "
+        "późno. Wartości tarcia w tabeli są orientacyjne, z literatury — "
+        "jeśli kot będzie się ślizgał mimo nakładek, to pierwszy podejrzany.",
+        GOOD))
 
     s.append(para("Postawa wynikowa", H2))
     s.append(table(
