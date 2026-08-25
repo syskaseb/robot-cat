@@ -537,6 +537,48 @@ def build(path):
         "Kolejność nie jest dowolna: każdy krok kończy się czymś, co da się "
         "sprawdzić, zanim stanie się trudno dostępne.", Body))
 
+    s.append(callout(
+        "Co da się zrobić, zanim cokolwiek zostanie wydrukowane",
+        "Krok 2 zakłada złożoną nogę, więc od niego w dół <b>wszystko jest "
+        "zablokowane projektem obudowy</b> — a tego projektu jeszcze nie ma. "
+        "Nie znaczy to jednak, że do tego czasu nie ma co robić. Bez jednego "
+        "wydrukowanego elementu da się:<br/><br/>"
+        "• <b>zaadresować wszystkie dwanaście serw</b> (krok 1) — potrzeba "
+        "tylko serwa, adaptera i kabla;<br/>"
+        "• <b>zestawić całą elektronikę na stole</b>: Pi, magistrala, IMU, "
+        "ToF, kamera, dźwięk — i sprawdzić, że wszystko się widzi;<br/>"
+        "• <b>uruchomić ROS 2 i węzeł chodu</b> na serwach leżących luzem — "
+        "nogi w powietrzu nie potrzebują obudowy, a to weryfikuje adresację, "
+        "kierunki obrotu i zakresy;<br/>"
+        "• <b>zmierzyć realny czas odczytu z magistrali</b> — liczba, na którą "
+        "czeka rozdział 6, i jedyna, która wyznacza sufit częstotliwości pętli "
+        "sterowania.<br/><br/>"
+        "To pokrywa się z testami 1 i 2 z rozdziału 5. Projektowanie obudowy i "
+        "uruchamianie elektroniki są <b>niezależne</b> — mogą iść równolegle, "
+        "zamiast czekać jedno na drugie.",
+        ACCENT))
+
+    s.append(para("Minimum, które trzeba wydrukować, żeby ruszyć dalej", H2))
+    s.append(table(
+        ["Element", "Stan", "Uwaga"],
+        [
+            ["Uchwyty serw ST3215", "gotowe",
+             "Printables 653674 / Thingiverse 7074577 — najżmudniejsza część "
+             "jest już zrobiona przez społeczność"],
+            ["Segment uda i goleni", "do zaprojektowania",
+             "po 110 mm oś–oś, łączą uchwyty"],
+            ["Nakładka łapy", "do zaprojektowania", "wymienna, patrz rozdział 3"],
+            ["Mocowanie biodra do korpusu", "do zaprojektowania",
+             "wystarczy prowizoryczne, żeby przetestować jedną nogę"],
+        ],
+        [44 * mm, 34 * mm, 80 * mm],
+        aligns={1: "CENTER"}))
+    s.append(Spacer(1, 2 * mm))
+    s.append(para(
+        "Korpus, głowa i pozostałe trzy nogi mogą poczekać. <b>Jedna noga "
+        "wystarczy</b>, żeby sprawdzić uchwyty, długości segmentów i to, czy "
+        "serwa w ogóle mieszczą się tak, jak zakłada projekt.", Body))
+
     s.append(para("Krok 1 — adresacja serw (przed montażem czegokolwiek)", H2))
     s.append(para(
         "Podłączyć <b>jedno</b> serwo do adaptera, nadać adres, opisać "
