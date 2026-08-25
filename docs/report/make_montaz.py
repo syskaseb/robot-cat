@@ -268,6 +268,51 @@ def build(path):
         [52 * mm, 24 * mm, 82 * mm],
         aligns={1: "CENTER"}))
 
+    s.append(para("Co się wpina, a co trzeba przylutować", H2))
+    s.append(para(
+        "Większość tego robota składa się bez lutownicy — cała mechanika i "
+        "wszystkie dwanaście serw to wtyk w wtyk. Lutowanie skupia się w "
+        "jednym miejscu: <b>w zasilaniu</b>.", Body))
+    s.append(table(
+        ["Element", "Jak się łączy"],
+        [
+            ["12 serw, adapter magistrali", "kabelki 3-pin w łańcuch — wtyk"],
+            ["Bateria LiPo", "ma fabryczny XT60 — wtyk"],
+            ["Mikroserwa głowy i ogona → PCA9685", "wtyk"],
+            ["Moduły Grove (PCA9685, dotyk)", "wtyk"],
+            ["Kamera", "taśma FFC — wsuwana"],
+            ["Głośnik", "zwykle listwa na śrubki"],
+            [Paragraph("<b>Przetwornica Pololu D24V50F5</b>", CellB),
+             Paragraph("<b>lutowanie</b> — ma gołe otwory; goldpiny są w "
+                       "zestawie, ale nielutowane", CellB)],
+            [Paragraph("<b>Gniazdo XT60 do ładowania</b>", CellB),
+             Paragraph("<b>lutowanie</b> — kubki lutownicze, przewód 16 AWG", CellB)],
+            ["IMU, wzmacniacz audio",
+             "zwykle goldpiny do wlutowania — <b>sprawdzić w ofercie</b>, "
+             "część wersji bywa gotowa"],
+            ["Wkładki gwintowane M3",
+             "nie lutowanie, ale wtapiane lutownicą"],
+        ],
+        [58 * mm, 100 * mm],
+        highlight=[7, 8]))
+
+    s.append(Spacer(1, 2 * mm))
+    s.append(para(
+        "To lutowanie dla początkującego: grube przewody, duże pola, żadnego "
+        "montażu powierzchniowego. Jedyna uciążliwość to XT60 — mosiądz "
+        "odprowadza ciepło, więc słaba lutownica sobie nie poradzi. Pocynować "
+        "osobno przewód i kubek, potem złączyć.", Body))
+
+    s.append(callout(
+        "Wariant bez lutownicy",
+        "Da się prawie w całości: przejściówkę XT60 → DC <b>kupić gotową</b> "
+        "(jest na liście wyżej), zamiast Pololu wziąć przetwornicę z "
+        "<b>listwą zaciskaną na śrubki</b> — jest ich sporo w tej klasie mocy, "
+        "traci się na kompaktowości — i zrezygnować z ładowania bez wyjmowania "
+        "baterii. Zostają wkładki gwintowane, a te można zastąpić nakrętkami "
+        "zatapianymi w druku.",
+        GOOD))
+
     s.append(callout(
         "O bezpieczeństwie LiPo",
         "Pakiet 3S 2200 mAh potrafi oddać kilkadziesiąt amperów w zwarciu. "
@@ -468,6 +513,48 @@ def build(path):
         "Raspberry Pi <b>musi mieć własną gałąź 5 V</b> z przetwornicy, "
         "odseparowaną od linii serw. Dwanaście serw ruszających jednocześnie "
         "powoduje zapad napięcia, który zresetuje komputer w połowie kroku.", Body))
+
+    s.append(para("Drzewo zasilania", H2))
+    s.append(para(
+        "Osobnego projektu elektroniki ani płytki drukowanej ten robot nie "
+        "wymaga — wszystko to gotowe moduły łączone kablami. Potrzebny jest "
+        "natomiast <b>plan połączeń</b>, bo napięcia są trzy i nie wolno ich "
+        "pomylić:", Body))
+
+    s.append(table(
+        ["Odbiornik", "Napięcie", "Skąd"],
+        [
+            ["12 serw ST3215", "11,1 V", "wprost z pakietu, przez gniazdo DC "
+                                          "adaptera magistrali"],
+            [Paragraph("<b>Raspberry Pi 4B</b>", CellB),
+             Paragraph("<b>5 V</b>", CellB),
+             "<b>własna gałąź</b> z przetwornicy, grubym przewodem, blisko niej"],
+            ["3 mikroserwa (głowa, ogon)", "5–6 V", "z przetwornicy, przez PCA9685"],
+            ["Wzmacniacz audio", "5 V", "z przetwornicy"],
+            ["2 × doświetlacz IR", "3,3 V",
+             "ok. <b>0,9 A na sztukę</b> — <b>nie z pinu 3,3 V w Pi</b>, ten "
+             "daje kilkadziesiąt mA. Własny stabilizator albo rezystor"],
+        ],
+        [46 * mm, 24 * mm, 88 * mm],
+        aligns={1: "CENTER"},
+        highlight=[2]))
+
+    s.append(Spacer(1, 2 * mm))
+    s.append(para(
+        "<b>Masa musi być wspólna dla wszystkiego.</b> Przy adapterze "
+        "magistrali warto dołożyć kondensator elektrolityczny — dwanaście serw "
+        "ruszających naraz pobiera prąd skokowo.", Body))
+
+    s.append(callout(
+        "Dwóch rzeczy nie ma na liście zakupowej",
+        "<b>Wyłącznika i bezpiecznika.</b> Bez wyłącznika jedynym sposobem na "
+        "odcięcie zasilania jest wyszarpanie XT60, co przy każdej zmianie "
+        "czegokolwiek jest uciążliwe i ryzykowne. Bezpiecznik (rzędu 20–30 A, "
+        "szeregowo zaraz za baterią) chroni przed skutkami zwarcia — pakiet "
+        "3S 2200 mAh 25C potrafi oddać kilkadziesiąt amperów w zwarciu i "
+        "stopić przewód, zanim zdążysz zareagować. Oba to koszt rzędu "
+        "kilkunastu złotych.",
+        DANGER))
 
     s.append(para("Krok 4 — złożenie i kalibracja zera", H2))
     s.append(para(
