@@ -23,10 +23,36 @@ from reportlab.platypus import (
     Paragraph, Spacer, Table, TableStyle,
 )
 
-F = r"C:\Windows\Fonts"
-pdfmetrics.registerFont(TTFont("Cal", rf"{F}\calibri.ttf"))
-pdfmetrics.registerFont(TTFont("Cal-B", rf"{F}\calibrib.ttf"))
-pdfmetrics.registerFont(TTFont("Cal-I", rf"{F}\calibrii.ttf"))
+# Calibri on Windows, where these documents are normally built. Carlito is
+# metrically identical to Calibri, so rebuilding on macOS or Linux repaginates
+# to exactly the same pages; DejaVu Sans Mono stands in for Consolas. A font
+# with Polish glyphs is not optional - reportlab's built-in Helvetica has no
+# l-stroke or ogonek and renders every "l", "a" and "e" as a black box.
+_WIN = pathlib.Path(r"C:\Windows\Fonts")
+_MAC = pathlib.Path.home() / "Library" / "Fonts"
+_LIN = pathlib.Path("/usr/share/fonts/truetype")
+
+
+def _font(*candidates):
+    for c in candidates:
+        if pathlib.Path(c).exists():
+            return str(c)
+    raise FileNotFoundError(
+        "no usable font. Install Calibri (Windows) or Carlito "
+        "(brew install --cask font-carlito / apt install fonts-crosextra-carlito). "
+        f"Looked in: {[str(c) for c in candidates]}"
+    )
+
+
+pdfmetrics.registerFont(TTFont("Cal", _font(
+    _WIN / "calibri.ttf", _MAC / "Carlito-Regular.ttf",
+    _LIN / "crosextra/Carlito-Regular.ttf")))
+pdfmetrics.registerFont(TTFont("Cal-B", _font(
+    _WIN / "calibrib.ttf", _MAC / "Carlito-Bold.ttf",
+    _LIN / "crosextra/Carlito-Bold.ttf")))
+pdfmetrics.registerFont(TTFont("Cal-I", _font(
+    _WIN / "calibrii.ttf", _MAC / "Carlito-Italic.ttf",
+    _LIN / "crosextra/Carlito-Italic.ttf")))
 pdfmetrics.registerFontFamily("Cal", normal="Cal", bold="Cal-B", italic="Cal-I")
 
 INK = colors.HexColor("#16191d")
@@ -162,19 +188,25 @@ def build(path):
                      textColor=INK, spaceBefore=2)))
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Wersja A buduje chodzącego kota bez wzroku. Wersja B dokłada kamerę "
-        "i czujnik odległości. Obie mieszczą się w budżecie 2500 zł, bo "
-        "Raspberry Pi 4B jest już w domu i nie trzeba go kupować.", Sub))
+        "Wersja A buduje chodzącego kota bez wzroku. Wersja B dokłada wzrok: "
+        "kamerę widzącą w podczerwieni, doświetlacz w drugim oku i czujnik "
+        "odległości. Obie mieszczą się w budżecie 2500 zł, bo Raspberry Pi 4B "
+        "jest już w domu i nie trzeba go kupować — wersja B dokładnie w nim, "
+        "co do grosza.", Sub))
     s.append(Spacer(1, 5 * mm))
 
     s.append(callout(
-        "Decyzja: wersja B — 2451 zł",
+        "Decyzja: wersja B — ok. 2500 zł",
         "Kamerę <b>kupić teraz, używać później</b>. To dwie różne rzeczy. "
         "Kupno teraz, bo wersja standardowa ma dostawę dopiero pod koniec "
         "października, a szerokokątna jest na stanie — odkładanie zakupu grozi "
         "tym, że blokada wróci wtedy, gdy będzie zatrzymywać gotowy projekt. "
         "Używanie później, bo debugowanie chodu i wizji naraz jest trudniejsze "
-        "niż po kolei — i to jest realny koszt, nie te 233 zł.",
+        "niż po kolei — i to jest realny koszt, nie te 282 zł.<br/><br/>"
+        "Kamera jest w wersji <b>NoIR</b>, a w drugim oku siedzi doświetlacz "
+        "podczerwieni — kot widzi po ciemku. <b>To zjada cały zapas budżetu:</b> "
+        "wersja B wychodzi na 2500 zł co do grosza, wobec 2451 zł bez nocnego "
+        "widzenia.",
         GOOD))
     s.append(Spacer(1, 5 * mm))
 
@@ -190,14 +222,16 @@ def build(path):
         [
             ["Camera Module 3 standard", "76°", "~116 zł",
              Paragraph('<font color="#b3541e">ok. 23.10.2026</font>', Cell)],
-            [Paragraph("<b>Camera Module 3 Wide</b>", CellB),
+            ["Camera Module 3 Wide", "120°", "~163 zł",
+             Paragraph('<font color="#1c6b45">wysyłka 24 h</font>', Cell)],
+            [Paragraph("<b>Camera Module 3 NoIR Wide</b>", CellB),
              Paragraph("<b>120°</b>", CellB),
-             Paragraph("<b>~163 zł</b>", CellB),
+             Paragraph("<b>~193 zł</b>", CellB),
              Paragraph('<b><font color="#1c6b45">wysyłka 24 h</font></b>', CellB)],
         ],
         [56 * mm, 30 * mm, 28 * mm, 44 * mm],
         aligns={1: "CENTER", 2: "CENTER", 3: "CENTER"},
-        highlight=[2]))
+        highlight=[3]))
 
     s.append(Spacer(1, 3 * mm))
     s.append(para(
@@ -206,6 +240,63 @@ def build(path):
         "120° obejmuje niemal wszystko przed kotem bez obracania głowy. Wybór "
         "wersji Wide to więc nie ustępstwo wobec braku towaru — to lepszy "
         "wariant, który akurat jest dostępny.", Body))
+
+    # ------------------------------------------------------- noc
+    s.append(para("Widzenie w ciemności — wariant NoIR", H1))
+    s.append(para(
+        "Kamera jest w wersji <b>NoIR</b>. Nazwa myli: nie znaczy „bez "
+        "podczerwieni”, tylko <i>no IR filter</i> — bez filtra, który w "
+        "zwykłej kamerze podczerwień <b>odcina</b>. Wersja NoIR podczerwień "
+        "więc <b>widzi</b>, a doświetlona diodą IR pokazuje ciemny pokój tak, "
+        "jakby był oświetlony. Kot dostaje nocny wzrok, a przy okazji "
+        "świecące oczy z briefu — dosłownie, bo dioda 850 nm daje słaby "
+        "czerwony poblask.", Body))
+
+    s.append(para(
+        "Drugi oczodół nie marnuje się: siedzi w nim <b>doświetlacz</b>. "
+        "Kamerą jest tylko jedno oko — stereo służy wyłącznie do pomiaru "
+        "odległości, a tę daje tu czujnik ToF (patrz niżej).", Body))
+
+    s.append(table(
+        ["", "Zwykła Wide", "NoIR Wide"],
+        [
+            ["Filtr odcinający podczerwień", "jest", "usunięty"],
+            ["Widzi światło diody IR", "nie", "tak"],
+            ["Kolory w dzień",
+             Paragraph('<font color="#1c6b45">poprawne</font>', Cell),
+             Paragraph('<font color="#b3541e">różowo-wyblakłe</font>', Cell)],
+            [Paragraph("<b>Widzi po ciemku</b>", CellB),
+             Paragraph("<b>nie</b>", CellB),
+             Paragraph('<b><font color="#1c6b45">tak</font></b>', CellB)],
+            ["Wymiary płytki", "25 × 24 × 12,4 mm", "25 × 24 × 12,4 mm"],
+        ],
+        [58 * mm, 50 * mm, 50 * mm],
+        aligns={1: "CENTER", 2: "CENTER"},
+        highlight=[4]))
+
+    s.append(Spacer(1, 3 * mm))
+    s.append(callout(
+        "Dioda musi być 850 nm, nie 940 nm",
+        "Czujnik odległości VL53L5CX pracuje <b>na 940 nm</b>. Doświetlacz "
+        "940 nm świeciłby prosto w jego pasmo, podnosząc mu tło i skracając "
+        "zasięg — dwa elementy tego samego zestawu przeszkadzałyby sobie "
+        "nawzajem. 850 nm leży obok, a ToF ma filtr wąskopasmowy, więc się "
+        "mijają. Wybrany moduł ma <b>100° rozsyłu</b> pod kamerę 120° i "
+        "fotorezystor z progiem, czyli zapala się sam po zmroku.",
+        ACCENT))
+
+    s.append(Spacer(1, 3 * mm))
+    s.append(callout(
+        "Czym się płaci i jak się z tego wycofać",
+        "Brak filtra psuje <b>kolory w dzień</b> — obraz robi się różowawy, bo "
+        "podczerwień z otoczenia zanieczyszcza kanały RGB. Do omijania "
+        "przeszkód i podglądu to bez znaczenia, do ładnych zdjęć — tak.<br/><br/>"
+        "Wyjście awaryjne jest tanie: <b>obie wersje mają identyczną płytkę</b> "
+        "(25 × 24 × 12,4 mm, to samo złącze, ten sam sensor IMX708), więc "
+        "zamiana NoIR na zwykłą to wyjęcie jednej i włożenie drugiej. Obudowy "
+        "ani kodu się nie rusza. Warunek: obudowę projektować pod wariant "
+        "<b>Wide</b> — wersja nie-szerokokątna jest o 0,9 mm płytsza.",
+        MUTED))
 
     # ------------------------------------------------------------ wersja A
     s.append(para("Wersja A — bez wizji", H1))
@@ -230,18 +321,19 @@ def build(path):
         ["Pozycja", "Rola", "Koszt"],
         money_rows(
             [("Wszystko z wersji A", "chód, dotyk, dźwięk, IMU", "2218,10"),
-             ("Camera Module 3 Wide 120°", "wzrok, podgląd w aplikacji", "~163,00"),
-             ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90")],
-            "RAZEM", "≈ 2451,00 zł"),
+             ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "~193,10"),
+             ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90"),
+             ("2 × doświetlacz IR 850 nm 3 W", "drugie oko, nocny wzrok", "~19,35")],
+            "RAZEM", "≈ 2500,45 zł"),
         [82 * mm, 44 * mm, 32 * mm],
         aligns={2: "RIGHT"},
-        highlight=[4]))
+        highlight=[5]))
 
     s.append(Spacer(1, 2 * mm))
     s.append(para(
         "<b>Dochodzi:</b> podgląd obrazu na żywo, świecące oczy z kamerą jak w "
-        "briefie, reaktywne omijanie przeszkód, fundament pod wykrywanie "
-        "człowieka i tryb „chodź za mną”.", Body))
+        "briefie, <b>widzenie po ciemku</b>, reaktywne omijanie przeszkód, "
+        "fundament pod wykrywanie człowieka i tryb „chodź za mną”.", Body))
 
     s.append(callout(
         "Dlaczego czujnik ToF, a nie sama kamera",
@@ -260,7 +352,7 @@ def build(path):
         ["Argument", "Liczba"],
         [
             ["Kamera nie zmienia analizy mechanicznej", "waży 4 g"],
-            ["Mieści się w pierwotnym budżecie", "2451 zł z 2500 zł"],
+            ["Mieści się w pierwotnym budżecie", "2500 zł z 2500 zł"],
             ["Raspberry Pi z domu finansuje wizję", "oszczędność 268 zł"],
             ["Wersja standardowa wraca dopiero jesienią", "ok. 2 miesiące"],
         ],
@@ -313,8 +405,10 @@ def build(path):
              "buja się w pionie podczas chodu — zła geometria dla czworonoga, "
              "do tego ciężki i drogi w tej skali"],
             ["Głębia stereo z dwóch oczu",
-             "wymagałaby synchronizacji dwóch modułów i własnej kalibracji; "
-             "VL53L5CX daje tę samą informację prościej"],
+             "wymagałaby synchronizacji dwóch modułów i własnej kalibracji na "
+             "maszynie, która trzęsie się przy każdym kroku, a Pi 4B ma i tak "
+             "<b>jedno złącze CSI</b>; VL53L5CX daje tę samą informację "
+             "prościej. Drugie oko jest zresztą zajęte przez doświetlacz"],
             ["Akcelerator AI (Hailo-8L)",
              "wymaga Raspberry Pi 5, a w tej wersji jest Pi 4B. Do podglądu "
              "obrazu i omijania przeszkód niepotrzebny"],
@@ -352,6 +446,14 @@ def build(path):
                   "ze źródeł"],
             ["4", "Wersja Wide ma inny obiektyw — jeśli obudowa oczu jest już "
                   "projektowana, sprawdzić wymiary montażowe"],
+            ["5", "Ceny kamery i doświetlacza odczytano z widoku sklepu w euro "
+                  "(€44,90 i €4,50) i przeliczono kursem wynikającym z ceny "
+                  "zwykłej Wide w tym dokumencie — potwierdzić kwoty w "
+                  "złotówkach przed płatnością"],
+            ["6", "Doświetlacz ma 3 W przy 3,3 V, czyli ok. 0,9 A na sztukę. "
+                  "<b>Nie zasilać go z pinu 3,3 V Raspberry Pi</b> — ten daje "
+                  "kilkadziesiąt miliamperów. Ciągnąć z przetwornicy, przez "
+                  "własny stabilizator lub rezystor"],
         ],
         [10 * mm, 148 * mm],
         aligns={0: "CENTER"}))

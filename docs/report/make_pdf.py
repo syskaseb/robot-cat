@@ -26,11 +26,40 @@ from reportlab.platypus import (
     Paragraph, Spacer, Table, TableStyle,
 )
 
-F = r"C:\Windows\Fonts"
-pdfmetrics.registerFont(TTFont("Cal", rf"{F}\calibri.ttf"))
-pdfmetrics.registerFont(TTFont("Cal-B", rf"{F}\calibrib.ttf"))
-pdfmetrics.registerFont(TTFont("Cal-I", rf"{F}\calibrii.ttf"))
-pdfmetrics.registerFont(TTFont("Mono", rf"{F}\consola.ttf"))
+# Calibri on Windows, where these documents are normally built. Carlito is
+# metrically identical to Calibri, so rebuilding on macOS or Linux repaginates
+# to exactly the same pages; DejaVu Sans Mono stands in for Consolas. A font
+# with Polish glyphs is not optional - reportlab's built-in Helvetica has no
+# l-stroke or ogonek and renders every "l", "a" and "e" as a black box.
+_WIN = pathlib.Path(r"C:\Windows\Fonts")
+_MAC = pathlib.Path.home() / "Library" / "Fonts"
+_LIN = pathlib.Path("/usr/share/fonts/truetype")
+
+
+def _font(*candidates):
+    for c in candidates:
+        if pathlib.Path(c).exists():
+            return str(c)
+    raise FileNotFoundError(
+        "no usable font. Install Calibri (Windows) or Carlito "
+        "(brew install --cask font-carlito / apt install fonts-crosextra-carlito). "
+        f"Looked in: {[str(c) for c in candidates]}"
+    )
+
+
+pdfmetrics.registerFont(TTFont("Cal", _font(
+    _WIN / "calibri.ttf", _MAC / "Carlito-Regular.ttf",
+    _LIN / "crosextra/Carlito-Regular.ttf")))
+pdfmetrics.registerFont(TTFont("Cal-B", _font(
+    _WIN / "calibrib.ttf", _MAC / "Carlito-Bold.ttf",
+    _LIN / "crosextra/Carlito-Bold.ttf")))
+pdfmetrics.registerFont(TTFont("Cal-I", _font(
+    _WIN / "calibrii.ttf", _MAC / "Carlito-Italic.ttf",
+    _LIN / "crosextra/Carlito-Italic.ttf")))
+pdfmetrics.registerFont(TTFont("Mono", _font(
+    _WIN / "consola.ttf",
+    pathlib.Path("/System/Library/Fonts/Supplemental/Courier New.ttf"),
+    _LIN / "dejavu/DejaVuSansMono.ttf")))
 pdfmetrics.registerFontFamily("Cal", normal="Cal", bold="Cal-B", italic="Cal-I")
 
 INK = colors.HexColor("#16191d")

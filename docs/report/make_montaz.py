@@ -24,11 +24,40 @@ from reportlab.platypus import (
     Paragraph, Spacer, Table, TableStyle,
 )
 
-F = r"C:\Windows\Fonts"
-pdfmetrics.registerFont(TTFont("Cal", rf"{F}\calibri.ttf"))
-pdfmetrics.registerFont(TTFont("Cal-B", rf"{F}\calibrib.ttf"))
-pdfmetrics.registerFont(TTFont("Cal-I", rf"{F}\calibrii.ttf"))
-pdfmetrics.registerFont(TTFont("Mono", rf"{F}\consola.ttf"))
+# Calibri on Windows, where these documents are normally built. Carlito is
+# metrically identical to Calibri, so rebuilding on macOS or Linux repaginates
+# to exactly the same pages; DejaVu Sans Mono stands in for Consolas. A font
+# with Polish glyphs is not optional - reportlab's built-in Helvetica has no
+# l-stroke or ogonek and renders every "l", "a" and "e" as a black box.
+_WIN = pathlib.Path(r"C:\Windows\Fonts")
+_MAC = pathlib.Path.home() / "Library" / "Fonts"
+_LIN = pathlib.Path("/usr/share/fonts/truetype")
+
+
+def _font(*candidates):
+    for c in candidates:
+        if pathlib.Path(c).exists():
+            return str(c)
+    raise FileNotFoundError(
+        "no usable font. Install Calibri (Windows) or Carlito "
+        "(brew install --cask font-carlito / apt install fonts-crosextra-carlito). "
+        f"Looked in: {[str(c) for c in candidates]}"
+    )
+
+
+pdfmetrics.registerFont(TTFont("Cal", _font(
+    _WIN / "calibri.ttf", _MAC / "Carlito-Regular.ttf",
+    _LIN / "crosextra/Carlito-Regular.ttf")))
+pdfmetrics.registerFont(TTFont("Cal-B", _font(
+    _WIN / "calibrib.ttf", _MAC / "Carlito-Bold.ttf",
+    _LIN / "crosextra/Carlito-Bold.ttf")))
+pdfmetrics.registerFont(TTFont("Cal-I", _font(
+    _WIN / "calibrii.ttf", _MAC / "Carlito-Italic.ttf",
+    _LIN / "crosextra/Carlito-Italic.ttf")))
+pdfmetrics.registerFont(TTFont("Mono", _font(
+    _WIN / "consola.ttf",
+    pathlib.Path("/System/Library/Fonts/Supplemental/Courier New.ttf"),
+    _LIN / "dejavu/DejaVuSansMono.ttf")))
 pdfmetrics.registerFontFamily("Cal", normal="Cal", bold="Cal-B", italic="Cal-I")
 
 INK = colors.HexColor("#16191d")
@@ -295,6 +324,33 @@ def build(path):
         [110 * mm, 48 * mm],
         aligns={1: "CENTER"},
         highlight=[2]))
+
+    s.append(para("Głowa — gniazda kamery i doświetlacza", H2))
+    s.append(para(
+        "Oczy nie są już tylko ozdobą: w jednym siedzi kamera, w drugim "
+        "doświetlacz podczerwieni (patrz plan zakupowy). Pozycje oczu są "
+        "wprost z modelu, liczone od środka kuli głowy.", Body))
+    s.append(table(
+        ["Wymiar", "Wartość", "Uwaga"],
+        [
+            ["Promień kuli głowy", "50 mm", ""],
+            ["Oko — do przodu", "36 mm", "od środka głowy"],
+            ["Oko — w bok", "±22 mm", "rozstaw oczu 44 mm"],
+            ["Oko — w górę", "18 mm", ""],
+            [Paragraph("<b>Płytka kamery</b>", CellB),
+             Paragraph("<b>25 × 24 × 12,4 mm</b>", CellB),
+             "Camera Module 3 <b>Wide</b> — wersja nie-szerokokątna jest "
+             "o 0,9 mm płytsza, więc gniazdo projektować pod Wide"],
+            ["Doświetlacz IR", "moduł 850 nm 3 W", "rozsył 100°, ma fotorezystor"],
+        ],
+        [46 * mm, 40 * mm, 72 * mm]))
+    s.append(para(
+        "Kamera NoIR i zwykła mają <b>identyczną płytkę</b>, więc gniazdo "
+        "zaprojektowane raz obsłuży obie — to celowe wyjście awaryjne, gdyby "
+        "różowe kolory w dzień okazały się nie do przyjęcia. Taśmę FFC "
+        "poprowadzić przez szyję z zapasem na pełny obrót głowy: pan ±0,6 rad "
+        "i tilt od −0,3 do +0,5 rad, więc taśma zgina się przy każdym "
+        "rozejrzeniu i to ona, nie kamera, zużyje się pierwsza.", Body))
 
     s.append(callout(
         "Czego ten dokument nie zawiera i dlaczego",

@@ -173,12 +173,25 @@
       <geometry><sphere radius="${0.012 * scale}"/></geometry>
       <material name="cat_nose"/>
     </visual>
-    <!-- Eyes. Cosmetic for now, but placed where a stereo pair would actually
-         go: forward-facing on the head sphere, level, and separated by
-         2*eye_y. When perception moves to Linux, mount the camera sensors at
-         these same origins and the view will match what you see here. Gazebo
-         cannot run camera sensors on macOS at all - Cocoa requires render
-         window creation on the main thread (gazebosim/gz-sim#960). -->
+    <!-- Eyes. Cosmetic here, but the pair is where the real hardware goes, so
+         keep the origins: one eye is the camera, the other is its infrared
+         illuminator.
+
+         Only one of them is a camera. Stereo exists solely to recover depth,
+         and docs/plan-zakupowy.pdf takes depth from a VL53L5CX time-of-flight
+         sensor instead - two camera modules would need syncing and
+         calibrating on a machine that shakes as it walks, and a Pi 4B has a
+         single CSI port anyway.
+
+         The camera is the *NoIR* variant - no infrared cut filter, so it sees
+         the illuminator and the cat can see in the dark. That costs correct
+         daylight colour, which is the trade being made deliberately.
+
+         Mount only the camera sensor at one of these origins and the
+         simulated view will match the real one. Gazebo cannot run camera
+         sensors on macOS at all - Cocoa requires render window creation on
+         the main thread (gazebosim/gz-sim#960) - so that work happens in the
+         Docker path. -->
     <xacro:property name="eye_x" value="${0.036 * scale}"/>
     <xacro:property name="eye_y" value="${0.022 * scale}"/>
     <xacro:property name="eye_z" value="${0.018 * scale}"/>

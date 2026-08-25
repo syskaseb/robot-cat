@@ -1,6 +1,6 @@
 # Dokumenty projektowe
 
-Dwa PDF-y w `../`, oba generowane z tych skryptów:
+Trzy PDF-y w `../`, wszystkie generowane z tych skryptów:
 
 | plik | co zawiera |
 |---|---|
@@ -31,10 +31,27 @@ python docs/report/make_montaz.py docs/montaz.pdf
 `make_plan.py` i `make_montaz.py` nie używają wykresów, więc można je
 uruchamiać samodzielnie.
 
-Wymaga `reportlab`, `matplotlib` i `pillow`, oraz czcionki Calibri — czyli
-uruchamia się na Windowsie, nie w kontenerze ROS. Calibri, a nie wbudowane
-Helvetica, bo to drugie nie ma polskich znaków i renderuje każde `ł`, `ą`
-i `ę` jako czarny prostokąt.
+Wymaga `reportlab`, `matplotlib` i `pillow` — czyli własnego venva, nie
+środowiska ROS, które `reportlaba` nie ma:
+
+```bash
+python3 -m venv /tmp/pdfenv && /tmp/pdfenv/bin/pip install reportlab pillow matplotlib
+```
+
+Czcionka musi mieć polskie znaki: wbudowana w reportlab Helvetica ich nie ma
+i renderuje każde `ł`, `ą` i `ę` jako czarny prostokąt. Skrypty szukają po
+kolei **Calibri** (Windows, gdzie te dokumenty powstały), potem **Carlito**,
+który ma identyczne metryki — więc dokument złamie się na te same strony
+niezależnie od systemu:
+
+```bash
+brew install --cask font-carlito          # macOS
+apt install fonts-crosextra-carlito       # Debian/Ubuntu
+```
+
+Ostrzeżenie `findfont: Font family 'Calibri' not found` przy generowaniu
+wykresów poza Windowsem jest **oczekiwane** — matplotlib próbuje Calibri
+pierwszej i schodzi do Carlito.
 
 ## Wykresy
 

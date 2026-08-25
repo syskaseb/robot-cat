@@ -11,7 +11,9 @@ INK, ACCENT, WARM, MUTED, GRID = "#16191d", "#0f4c5c", "#b3541e", "#5f6b73", "#d
 GOOD = "#1c6b45"
 
 plt.rcParams.update({
-    "font.family": "Calibri",
+    # Calibri on Windows; Carlito is metric-compatible and is what a macOS or
+    # Linux rebuild picks up, so the charts come out identical either way.
+    "font.family": ["Calibri", "Carlito", "DejaVu Sans"],
     "font.size": 9,
     "axes.edgecolor": MUTED,
     "axes.labelcolor": INK,
