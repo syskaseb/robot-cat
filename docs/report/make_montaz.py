@@ -239,6 +239,17 @@ def build(path):
              "wtapiane lutownicą rozwiązują to raz na zawsze"],
             ["Koszulki termokurczliwe + opaski zaciskowe", "kpl.",
              "kable w nogach muszą przetrwać zginanie przy każdym kroku"],
+            [Paragraph("<b>Wyłącznik główny</b>", CellB), "1",
+             "bez niego jedynym sposobem odcięcia zasilania jest wyszarpanie "
+             "XT60 — uciążliwe i ryzykowne przy każdej zmianie czegokolwiek. "
+             "Musi wytrzymać prąd serw, więc nie byle przełącznik sygnałowy"],
+            [Paragraph("<b>Bezpiecznik 20–30 A + oprawka</b>", CellB), "1",
+             "szeregowo zaraz za baterią. Pakiet 3S 2200 mAh 25C odda w "
+             "zwarciu kilkadziesiąt amperów i stopi przewód, zanim zdążysz "
+             "zareagować"],
+            [Paragraph("<b>Cyna lutownicza</b>", CellB), "1 rolka",
+             "z topnikiem w rdzeniu, 0,7–1,0 mm. Oczywiste, a nie było jej "
+             "nigdzie na liście"],
         ],
         [46 * mm, 14 * mm, 98 * mm],
         aligns={1: "CENTER"},
@@ -262,6 +273,9 @@ def build(path):
              "odwrotna zabija 12 serw naraz"],
             ["Klucze imbusowe 1,5–3 mm", "zwykle", "zależnie od projektu obudowy"],
             ["Pęseta", "wygodnie", "wtyki magistrali w ciasnych miejscach"],
+            ["Trzecia ręka / imadełko", "wygodnie",
+             "XT60 trzeba trzymać nieruchomo, a obie ręce są zajęte grotem "
+             "i cyną"],
             ["Ładowarka LiPo z balanserem", "tak",
              "jest w planie zakupowym (B6AC) — nie ładować LiPo byle czym"],
         ],
@@ -546,14 +560,13 @@ def build(path):
         "ruszających naraz pobiera prąd skokowo.", Body))
 
     s.append(callout(
-        "Dwóch rzeczy nie ma na liście zakupowej",
-        "<b>Wyłącznika i bezpiecznika.</b> Bez wyłącznika jedynym sposobem na "
-        "odcięcie zasilania jest wyszarpanie XT60, co przy każdej zmianie "
-        "czegokolwiek jest uciążliwe i ryzykowne. Bezpiecznik (rzędu 20–30 A, "
-        "szeregowo zaraz za baterią) chroni przed skutkami zwarcia — pakiet "
-        "3S 2200 mAh 25C potrafi oddać kilkadziesiąt amperów w zwarciu i "
-        "stopić przewód, zanim zdążysz zareagować. Oba to koszt rzędu "
-        "kilkunastu złotych.",
+        "Wyłącznik i bezpiecznik nie są opcjonalne",
+        "Oba są na liście części w rozdziale 1, ale warto powiedzieć wprost, "
+        "po co: <b>wyłącznik</b> to jedyny wygodny sposób odcięcia zasilania "
+        "przy każdej przeróbce, a <b>bezpiecznik</b> szeregowo zaraz za "
+        "baterią jest jedyną rzeczą stojącą między zwarciem a stopionym "
+        "przewodem. Razem koszt rzędu kilkunastu złotych — najtańsze "
+        "ubezpieczenie w całym projekcie.",
         DANGER))
 
     s.append(para("Krok 4 — złożenie i kalibracja zera", H2))
