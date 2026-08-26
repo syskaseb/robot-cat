@@ -7,6 +7,13 @@ Trzy PDF-y w `../`, wszystkie generowane z tych skryptów:
 | `napedy-v4.pdf` | analiza techniczna: rozmiar, masa, moment, dobór napędu |
 | `plan-zakupowy.pdf` | lista zakupów w dwóch wariantach i decyzja |
 | `montaz.pdf` | brakujące kable i narzędzia, wymiary obudowy, kolejność montażu i uruchamiania |
+| `uzupelnienie-elektroniki.pdf` | montaż w stawie vs w brzuchu, jeden kompute vs per-noga, porównanie z QDD, płynność chodu |
+| `ekspansja-wizyjna.pdf` | plan dojścia do „idź do pokoju A, zobacz co na stole" — SLAM, Nav2, YOLOv8 na Hailo |
+
+Dwa ostatnie zakładają **Pi 5 + AI HAT+**, których plan zakupowy jeszcze nie
+przewiduje (zakłada Pi 4B z domu). Pi 4B nie ma złącza PCIe, więc akcelerator
+jest z nim fizycznie niemożliwy — to otwarta decyzja budżetowa, oznaczona jako
+taka w obu dokumentach.
 
 `montaz.pdf` bierze wymiary z `cat.urdf.xacro` przy `scale 1.0`. **Ten plik
 jest źródłem prawdy** — po zmianie modelu dokument trzeba wygenerować od nowa,
@@ -26,6 +33,8 @@ python docs/report/chart_decision.py
 python docs/report/make_pdf.py docs/napedy-v4.pdf
 python docs/report/make_plan.py docs/plan-zakupowy.pdf
 python docs/report/make_montaz.py docs/montaz.pdf
+python docs/report/make_uzupelnienie.py docs/uzupelnienie-elektroniki.pdf
+python docs/report/make_wizja.py docs/ekspansja-wizyjna.pdf
 ```
 
 `make_plan.py` i `make_montaz.py` nie używają wykresów, więc można je
@@ -48,6 +57,12 @@ niezależnie od systemu:
 brew install --cask font-carlito          # macOS
 apt install fonts-crosextra-carlito       # Debian/Ubuntu
 ```
+
+`make_uzupelnienie.py` i `make_wizja.py` używają zamiast tego **DejaVu Sans** i
+same jej szukają — kolejno w fontach systemowych, a na końcu w tej dołączonej
+do matplotliba (czyli w środowisku pixi działa bez instalowania czegokolwiek).
+Jeśli nie znajdą, kończą czytelnym komunikatem zamiast rysować czarne prostokąty.
+Skutek uboczny: te dwa dokumenty łamią się na inne strony niż pozostałe trzy.
 
 Ostrzeżenie `findfont: Font family 'Calibri' not found` przy generowaniu
 wykresów poza Windowsem jest **oczekiwane** — matplotlib próbuje Calibri
