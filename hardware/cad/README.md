@@ -78,5 +78,8 @@ zmianie w `params.scad`, zanim wyślesz coś do drukarki.
 ## Druk
 
 Z `montaz.pdf`: PETG, 3–4 obrysy, wypełnienie 30–40%, warstwa 0,2 mm.
-Wkładki gwintowane M3 wtapiane lutownicą we wszystkie `insert_boss` — otwór ma
-już Ø4,2 mm pod typowy wkład termiczny.
+Jedno miejsce w całym projekcie potrzebuje wkładki gwintowanej M3, wtapianej
+lutownicą: koniec `calf_segment.scad` (goleń), tam gdzie przykręca się
+`paw_pad.scad` — otwór ma już Ø4,2 mm pod typowy wkład termiczny. Reszta
+połączeń (orczyk, uchwyt bioder, półka Pi) idzie na zwykłe przelotowe otwory
+pod M3, bez wkładek.
