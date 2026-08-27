@@ -34,13 +34,24 @@ COUNT = {
 
 PETG_DENSITY = 1.27e-3   # g/mm3
 
+# Seconds to allow one part. The structural parts render in seconds; a body
+# panel is a CGAL boolean between two hulls of seven spheres and takes about
+# five minutes, so a whole run is roughly an hour. Do not lower this without
+# checking the slowest part still fits - a timeout here looks exactly like a
+# broken part until you read the traceback.
+RENDER_TIMEOUT = 900
+
 def check(name):
     scad = HERE / f"{name}.scad"
     if not scad.exists():
         return None
     stl = HERE / f"_check_{name}.stl"
-    r = subprocess.run(["openscad", "--render", "-o", str(stl), str(scad)],
-                       capture_output=True, text=True, timeout=120)
+    try:
+        r = subprocess.run(["openscad", "--render", "-o", str(stl), str(scad)],
+                           capture_output=True, text=True,
+                           timeout=RENDER_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return f"TIMED OUT after {RENDER_TIMEOUT}s - raise RENDER_TIMEOUT"
     if r.returncode != 0:
         return f"FAILED TO RENDER: {r.stderr.strip().splitlines()[-1] if r.stderr else 'unknown error'}"
     m = trimesh.load(str(stl))
@@ -61,7 +72,7 @@ if __name__ == "__main__":
         result = check(name)
         if result is None:
             continue
-        if isinstance(result, str):          # render failure
+        if isinstance(result, str):          # render failure or timeout
             print(f"{name:18s} {result}")
             bad = True
             continue
