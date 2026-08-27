@@ -9,8 +9,8 @@
 include <params.scad>
 include <helpers.scad>
 
-spine_w = 12;
-spine_h = 9;
+spine_w = calf_spine[0];
+spine_h = calf_spine[1];
 stub_h = wall * 2;
 
 module calf_segment() {

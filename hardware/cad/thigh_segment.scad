@@ -4,8 +4,8 @@
 include <params.scad>
 include <helpers.scad>
 
-spine_w = 14;
-spine_h = 10;
+spine_w = thigh_spine[0];
+spine_h = thigh_spine[1];
 
 module thigh_segment() {
     union() {

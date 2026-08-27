@@ -72,6 +72,14 @@ case_screw_d = 2.2;        // M2 clearance; the servo's own bore is 1.5 pilot
 // wants all three.
 case_screw_x_used = [4.2, -16.5];
 
+// ---- leg segment spines ----
+// The rectangular bar between a segment's two end plates. Declared here
+// because FOUR files need it and only agreement makes them fit: the segment
+// itself, and the cosmetic fairing that snaps over it. A comment saying
+// "must match" is not a mechanism.
+thigh_spine = [14, 10];
+calf_spine  = [12, 9];
+
 // ---- print structure ----
 wall = 4;             // load-bearing wall thickness in PETG
 insert_d = 4.2;        // M3 brass heat-set insert bore

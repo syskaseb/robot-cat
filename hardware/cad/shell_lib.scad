@@ -1,0 +1,245 @@
+// Shared geometry for the cosmetic skin.
+//
+// Everything organic here is a hull of spheres, for one reason that matters
+// in practice: the inner offset of a hull of spheres is exactly the hull of
+// the same spheres with every radius reduced by the offset. So a shell of
+// constant thickness is two hulls subtracted, with no `offset()`, no
+// `minkowski()` and no mesh-boolean risk - which is what keeps these parts
+// rendering in seconds and coming out watertight.
+//
+// The one wrinkle is the vertical scale that makes the cross-section taller
+// than wide. Scaling the finished hull scales the wall with it, so the skin
+// is `skin` thick at the flanks and `skin * body_z_scale` at the spine and
+// belly. That is the right way round - the top and bottom take the knocks.
+
+include <shell_params.scad>
+
+// ---------------------------------------------------------------- body
+
+// The body as a solid, shrunk uniformly by `inset`. inset=0 is the outer
+// surface; inset=skin is the inner one.
+module body_form(inset = 0) {
+    scale([1, 1, body_z_scale])
+        hull()
+            for (s = body_stations)
+                translate([s[0], 0, s[2] / body_z_scale])
+                    sphere(r = max(s[1] - inset, 0.05));
+}
+
+// Hollow skin, still closed. Panels cut pieces out of this.
+module body_skin() {
+    difference() {
+        body_form(0);
+        body_form(skin);
+    }
+}
+
+// A generous cone-shaped relief where a hip joint leaves the body. The hip
+// axis runs along X at (+/-hip_x, +/-hip_y, 0); the servo collar and the
+// hip_link both swing through here, so the opening is sized off the measured
+// collar rather than guessed.
+hip_relief_d = servo_boss_d + 14;
+
+module hip_reliefs() {
+    for (sx = [-1, 1], sy = [-1, 1])
+        translate([sx * hip_x, sy * hip_y, 0])
+            rotate([90, 0, 0])
+                cylinder(d = hip_relief_d, h = 40, center = true);
+}
+
+// Half-space helpers. `big` only has to swallow the body.
+big = 500;
+
+module above_seam() {
+    translate([-big / 2, -big / 2, flank_seam_z]) cube(big);
+}
+
+module below_seam() {
+    translate([-big / 2, -big / 2, flank_seam_z - big]) cube(big);
+}
+
+module fore_of_split() {
+    translate([body_split_x, -big / 2, -big / 2]) cube(big);
+}
+
+module aft_of_split() {
+    translate([body_split_x - big, -big / 2, -big / 2]) cube(big);
+}
+
+// ---- how the four panels hold together ----
+//
+// Eight M3 screws, four a side, clamp the top and bottom panels together
+// AROUND the ladder frame. That clamshell is what holds the skin on the cat;
+// there is no separate bracket to the frame and none is needed, because the
+// four hip openings key the shell fore and aft against the hip joints. The
+// fore/aft split is a plain butt joint - the frame inside aligns it.
+//
+// Where the tabs can go is decided by two things, both measured rather than
+// eyeballed (measure/fit_check.py prints the profile and re-checks these):
+//
+//   - the hip reliefs occupy x = 92..128 on both ends, so nothing can sit
+//     there. That rules out four of the seven body stations;
+//   - the skin tapers hard past |x| = 90, and a tab needs the wall to be at
+//     least tab_min_hw out or its screw boss lands outside the body.
+//
+// What is left is |x| between about 22 and 90. These four positions sit in
+// the middle of that, two per panel.
+seam_tab_x = [-85, -38, 38, 85];
+tab_min_hw = 45;        // half-width a tab position must have, checked by
+                        // measure/fit_check.py
+tab_w = 12;             // along the body
+tab_rib = 3;
+tab_boss_h = 8;         // enough for a heat-set insert
+tab_y_in = 24;          // rib starts this far out from the centreline
+tab_screw_y = 34;       // screw centre - inboard of tab_min_hw by a margin
+
+// One tab: a rib run out past the widest the skin could possibly be, then
+// trimmed to the body so it meets the wall exactly. Trimming a box against
+// the body is one boolean against a primitive; an earlier version cut one
+// organic hull out of another and came out non-manifold.
+module seam_tab(x, sy, top) {
+    z0 = top ? flank_seam_z : flank_seam_z - tab_rib;
+    intersection() {
+        body_form(0);
+        union() {
+            translate([x - tab_w / 2, sy > 0 ? tab_y_in : -60, z0])
+                cube([tab_w, 60 - tab_y_in, tab_rib]);
+            if (top)
+                translate([x, sy * tab_screw_y, flank_seam_z])
+                    cylinder(d = 9, h = tab_boss_h);
+        }
+    }
+}
+
+module seam_tabs(top, fore) {
+    for (x = seam_tab_x, sy = [-1, 1])
+        if ((x > body_split_x) == fore)
+            difference() {
+                seam_tab(x, sy, top);
+                translate([x, sy * tab_screw_y,
+                           flank_seam_z - (top ? 0.01 : tab_rib + 1)])
+                    cylinder(d = top ? insert_d : 3.4,
+                             h = top ? insert_depth : tab_rib + 2);
+            }
+}
+
+// One of the four body panels. Cutting the closed skin with two half-spaces
+// opens it, which is what makes each piece printable and removable.
+//
+// The seam is inset by seam_gap on the mating faces so four panels actually
+// go together on a real printer instead of fighting for the same 0.2mm. The
+// tabs go on AFTER that shave, deliberately: they run right to the seam
+// plane and meet each other across the gap the skin leaves, which is what
+// gives the screws something solid to pull on.
+module body_panel(top, fore) {
+    union() {
+        difference() {
+            intersection() {
+                body_skin();
+                if (top) above_seam(); else below_seam();
+                if (fore) fore_of_split(); else aft_of_split();
+            }
+            hip_reliefs();
+            if (top)
+                translate([-big / 2, -big / 2, flank_seam_z - big + seam_gap / 2])
+                    cube(big);
+            else
+                translate([-big / 2, -big / 2, flank_seam_z - seam_gap / 2])
+                    cube(big);
+            if (fore)
+                translate([body_split_x - big + seam_gap / 2, -big / 2, -big / 2])
+                    cube(big);
+            else
+                translate([body_split_x - seam_gap / 2, -big / 2, -big / 2])
+                    cube(big);
+        }
+        seam_tabs(top, fore);
+    }
+}
+
+// ---------------------------------------------------------------- head
+
+// The skull, as its own hull of spheres. A cat's head is wide at the cheeks,
+// short in the muzzle and flat across the brow - get those three and it
+// reads as a cat even before the ears go on.
+// Same trap as the body: these are sphere centres, so the skull runs from
+// (x - r) to (x + r). Keeping that inside +/-head_l/2 is what stops the head
+// quietly growing past the size the neck servos were picked for.
+head_stations = [
+    [-15,  0,   -2,  24],   // back of the skull
+    [ -6,  0,    4,  30],   // brow and cheekbones, the widest point
+    [  8,  0,   -1,  25],   // between the eyes
+    [ 22,  0,   -9,  15],   // muzzle
+    [ 29,  0,  -12,  10],   // nose
+];
+
+// The stations below span x = -39 .. +39, so the x scale is head_l/78. All
+// three axes are driven by a parameter; none of head_w, head_h or head_l is
+// decorative.
+head_station_span = 78;
+
+module head_form(inset = 0) {
+    scale([head_l / head_station_span, head_w / 60, head_h / 60])
+        hull()
+            for (s = head_stations)
+                translate([s[0], s[1], s[2]])
+                    sphere(r = max(s[3] - inset, 0.05));
+}
+
+// Where an ear plugs in. head_upper cuts its socket through this transform
+// and cat_assembly places the printed ear through the same one, so the two
+// cannot drift apart - the socket and the plug are the same statement.
+module at_ear(sy) {
+    translate([ear_x, sy * ear_spacing / 2, ear_seat_z])
+        rotate([sy * ear_splay, 0, 0]) children();
+}
+
+// Where each eye sits, and which way it looks. sy = +1 is the cat's left.
+function eye_pos(sy) = [eye_x, sy * eye_spacing / 2, eye_z];
+
+module at_eye(sy) {
+    translate(eye_pos(sy)) rotate([0, 0, sy * eye_toe_in]) children();
+}
+
+// ---------------------------------------------------------------- limbs
+
+// A C-section that snaps over a leg segment's rectangular spine and turns it
+// into the rounded limb the reference image shows. Cross-section is a
+// stadium: fully rounded in the short direction, so the fairing is only
+// (2 * fairing_gap + 2 * skin) fatter than the bar inside it.
+//
+// The mouth is cut narrower than the spine on purpose - that interference is
+// the whole retention. Nothing bolts on, so a fairing can be pulled off to
+// reach a horn screw without touching the joint.
+module limb_fairing(spine_w, spine_h, len) {
+    iw = spine_w + 2 * fairing_gap;
+    ih = spine_h + 2 * fairing_gap;
+    cr = ih / 2;
+    ox = iw / 2 - cr;
+    mouth_w = spine_w * 0.84;
+    difference() {
+        hull() for (sx = [-1, 1])
+            translate([sx * ox, 0, 0]) cylinder(r = cr + skin, h = len);
+        translate([0, 0, -1]) hull() for (sx = [-1, 1])
+            translate([sx * ox, 0, 0]) cylinder(r = cr, h = len + 2);
+        translate([-mouth_w / 2, -(cr + skin + 1), -1])
+            cube([mouth_w, cr + skin + 1 - cr * 0.55, len + 2]);
+    }
+}
+
+// ---------------------------------------------------------------- misc
+
+// A ring of bosses for the magnets or M3 screws that hold a panel on.
+module clip_boss(h = 6) {
+    difference() {
+        cylinder(d = clip_d + 2 * skin, h = h);
+        translate([0, 0, skin]) cylinder(d = clip_d, h = h);
+    }
+}
+
+// Tapered slot grille, for the speaker and the vents. Slots run along X.
+module grille(n, len, pitch, w, depth) {
+    for (i = [0 : n - 1])
+        translate([-len / 2, (i - (n - 1) / 2) * pitch - w / 2, -depth / 2])
+            cube([len, w, depth]);
+}
