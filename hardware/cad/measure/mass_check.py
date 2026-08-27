@@ -15,7 +15,9 @@ quotes.
 import re
 import sys
 
-# g, build mass without any skin - from napedy-v4.pdf
+# g, build mass without any skin - from napedy-v4.pdf. The printed
+# structure is inside this figure already; SKIN below is what the
+# cosmetic layer adds on top, and both come from verify.py.
 BASE = 2000.0
 # Nm, worst joint. 95th percentile at 0.10 m/s, and the standing case.
 WORST, STAND = 1.87, 0.70
@@ -27,10 +29,9 @@ FRESH, EMPTY = 3.08, 2.57
 LEG_PARTS = {"joint_cap", "thigh_fairing", "calf_fairing"}
 
 SKIN = {
-    "shell_back_front": 66.6, "shell_back_rear": 66.0,
-    "shell_belly_front": 65.8, "shell_belly_rear": 56.4,
-    "head_upper": 27.1, "head_lower": 14.2, "ear": 6.4,
-    "neck_collar": 4.8, "tail_segment": 23.3,
+    "shell_back_front": 72.9, "shell_back_rear": 71.9, "shell_belly_front": 70.7,
+    "shell_belly_rear": 60.9, "head_upper": 28.8, "head_lower": 15.3,
+    "ear": 6.4, "neck_collar": 4.8, "tail_segment": 23.3,
     "joint_cap": 13.0, "thigh_fairing": 30.9, "calf_fairing": 26.3,
 }
 

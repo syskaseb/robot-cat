@@ -111,35 +111,37 @@ uruchom ten skrypt ponownie.
 
 ### Ile ta skorupa kosztuje — i to nie w złotówkach
 
-**401 g PETG.** To 20% masy całego robota i najważniejsza liczba w tym
-katalogu, bo momenty na serwach rosną z masą praktycznie liniowo — przy
-0,10 m/s obciążenie jest zdominowane przez grawitację, nie przez
-bezwładność.
+**425 g PETG**, obok 412 g konstrukcji — czyli **837 g na całego kota**.
+Skorupa nie jest doklejonym naddatkiem, tylko drugą połową wydruku, i to
+jest najważniejsza liczba w tym katalogu: moment na serwie rośnie z masą
+praktycznie liniowo, bo przy 0,10 m/s obciążenie jest zdominowane przez
+grawitację, nie bezwładność.
 
 | | bez skorupy | ze skorupą |
 |---|---|---|
-| masa | 2000 g | 2401 g |
-| moment, chód 0,10 m/s (95. percentyl) | 1,87 N·m | 2,24 N·m |
-| **zapas ST3215, bateria pełna** | 65% | **37%** |
-| **zapas ST3215, bateria na wyczerpaniu** | 37% | **14%** |
+| masa robota | 2000 g | 2425 g |
+| moment, chód 0,10 m/s (95. percentyl) | 1,87 N·m | 2,27 N·m |
+| **zapas ST3215, bateria pełna** | 65% | **36%** |
+| **zapas ST3215, bateria na wyczerpaniu** | 37% | **13%** |
 
-Czternaście procent na końcu rozładowania to mało. Nie jest to blokada —
+Trzynaście procent na końcu rozładowania to mało. Nie jest to blokada —
 kot uchodzi — ale zniknął komfort, który był powodem, dla którego ST3215
 wystarczyło zamiast droższego STS3250.
 
 Dwie dźwignie, w tej kolejności:
 
 1. **Ścianka.** `skin = 1.8` w `shell_params.scad` to trzy ścieżki po 0,6.
-   Zejście na 1,4 daje ~312 g i 19% zapasu; na 1,2 (dwie ścieżki, standard
-   dla karoserii RC) ~267 g i 21%. Skorupa niczego nie niesie, więc to
+   Zejście na 1,4 daje ~331 g i 18% zapasu; na 1,2 (dwie ścieżki, standard
+   dla karoserii RC) ~283 g i 20%. Skorupa niczego nie niesie, więc to
    uczciwy kompromis — traci się odporność na obicia, nie nośność.
-2. **Osłony nóg.** Kapturki i osłony to tylko 70 g z 401, ale **to są
+2. **Osłony nóg.** Kapturki i osłony to tylko 70 g z 425, ale **to są
    najgorsze gramy w całym robocie**: wiszą na machającej nodze, więc
    dokładają i do momentu podporowego, i do bezwładności wymachu. Jeśli
    trzeba coś wyciąć jako pierwsze, to je — a kapturki stawów (13 g na
    komplet) zostawić, bo one dają najwięcej wyglądu na gram.
 
-Liczby przelicza `measure/mass_check.py`.
+Liczby przelicza `measure/mass_check.py`, a bierze je wprost z przebiegu
+`verify.py`, więc nie mogą rozjechać się z częściami.
 
 ### Czym to się w ogóle trzyma
 
