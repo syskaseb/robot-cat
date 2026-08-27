@@ -12,26 +12,28 @@ nie mogły się z nimi rozjechać. OpenSCAD, bez zewnętrznych bibliotek.
 | `pi_shelf.scad` | półka pod Raspberry Pi 5 | ×1 |
 | `paw_pad.scad` | nakładka łapy | ×4, materiał do wyboru |
 
-## Zanim wydrukujesz komplet — jedna sztuka, jedna sprawdzana rzecz
+## Wymiary serwa są zmierzone, nie zgadnięte
 
-To jest jedyny krok, którego nie dało się przejść bez fizycznych części w ręku.
-Dwie liczby w `params.scad` są oznaczone `ADJUSTABLE`, bo strony
-Printables/Thingiverse/GrabCAD blokują automatyczny dostęp — nie mogłem ich
-pobrać i zmierzyć tak jak resztę:
+Wcześniejsza wersja tego pliku kazała wydrukować jedną sztukę `hip_link`,
+przyłożyć do fizycznego serwa i poprawić cztery liczby, bo rozstawu śrub nie
+dało się skądkolwiek pobrać. **To już nieaktualne.** Rozstawy zostały
+zmierzone z oficjalnego modelu CAD serwa i potwierdzone drugim źródłem —
+metoda, źródła i surowe liczby są w [measure/README.md](measure/README.md).
 
-- **`bracket_hole_x`, `bracket_hole_y`** — rozstaw śrub, którymi uchwyt
-  Printables 653674 mocuje się od zewnątrz (opis modelu potwierdza, że to
-  zwykłe M3, ale nie podaje rozstawu w mm).
-- **`horn_bolt_r_major`, `horn_bolt_r_minor`** — okrąg śrub orczyka. Nie
-  zgadnięty: **zmierzony z prawdziwego, wydrukowanego pliku STL** innego
-  projektu na tych samych serwach (`github.com/garciamathias/OpenRoboticDog`,
-  plik `hip_x4.stl`) — stąd nietypowa asymetria (3 otwory w 6,7 mm, jeden w
-  5,6 mm; to nie zaokrąglenie, mesh naprawdę tak ma). Realna liczba, nie
-  zgadywana — ale z cudzego uchwytu na orczyk, nie z datasheetu.
+Najkrócej:
 
-**Wydrukuj jeden `hip_link.scad`, przyłóż do prawdziwego uchwytu 653674 i
-serwa, popraw te cztery liczby, dopiero potem drukuj resztę.** Wszystko inne
-w tym katalogu jest zweryfikowane niezależnie i bezpieczne do druku od razu.
+- **orczyk: 4 × Ø2,5 na okręgu Ø14,00**, co 90°, ustawione pod 45°. Ten sam
+  wzór jest po obu stronach, bo serwo jest dwuosiowe.
+- **śruby obudowy: y = ±10,25, x = +4,2 / −16,5 / −20,3** względem środka
+  serwa. Tak mocuje się korpus serwa do ramy — bez żadnego pobieranego
+  uchwytu.
+- **oś wyjściowa leży 10,2 mm od bliższego czoła**, nie w środku. Dlatego
+  płytka mocująca jest chorągiewką w jedną stronę, a nie symetryczną płytą.
+- **obudowa ma 35,4 mm, nie 35,0**, a z czopami całość ma 39,6 mm. Sklepowe
+  „45,2 × 24,7 × 35" opisuje samą obudowę.
+
+Uchwytu z Printables 653674 **nie trzeba już pobierać** — cała niepewność
+wisiała właśnie na nim.
 
 ## Co jest zweryfikowane, a co nie
 
@@ -39,11 +41,9 @@ w tym katalogu jest zweryfikowane niezależnie i bezpieczne do druku od razu.
 |---|---|---|
 | długości segmentów (110/110/25 mm) | `leg_ik.py` / `cat.urdf.xacro` | **pewne** — to własny, testowany model |
 | rozstaw bioder (220×110 mm) | ten sam model | **pewne** |
-| gabaryt ST3215 (45,2×24,7×35 mm) | DFRobot + servodatabase.com, zgodne | **pewne** |
+| gabaryt i rozstawy ST3215 | oficjalny CAD, patrz `measure/` | **pewne** — dopasowanie okręgu z błędem 0,000 mm |
 | wzór montażowy Pi 5 (58×49 mm, Ø2,7) | oficjalny rysunek mechaniczny Raspberry Pi Ltd (RP-008347-DS-1) | **pewne** |
-| rozstaw śrub uchwytu 653674 | — | **do potwierdzenia**, patrz wyżej |
-| okrąg śrub orczyka | zmierzony z cudzego STL, nie z datasheetu servа | **prawdopodobne, nie pewne** |
-| która strona uchwytu styka się z ramą | — | **do sprawdzenia na fizycznej części** — `trunk_frame.scad` zakłada mocowanie od zewnątrz, popraw orientację `corner_pad()`, jeśli uchwyt siada inaczej |
+| orientacja serwa ID1 w narożniku | — | **do sprawdzenia na fizycznej części** — rama zakłada, że wszystkie cztery serwa stoją tak samo, zgodnie z regułą „cztery identyczne nogi" |
 
 ## Czego ten CAD NIE sprawdza
 
