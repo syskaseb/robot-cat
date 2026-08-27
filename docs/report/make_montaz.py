@@ -211,9 +211,10 @@ def build(path):
     s.append(para(
         "Plan zakupowy jawnie pomijał „śrubki, tulejki i przewody specyficzne "
         "dla finalnego CAD-u”. Poniżej to, co trzeba dokupić, żeby dało się "
-        "cokolwiek połączyć. Ceny orientacyjne — to drobnica, w sumie rzędu "
-        "150–250 zł.", Body))
+        "cokolwiek połączyć i przykręcić. Ceny orientacyjne — to drobnica, w "
+        "sumie rzędu 250–400 zł.", Body))
 
+    s.append(para("Zasilanie i okablowanie", H2))
     s.append(table(
         ["Element", "Ile", "Po co"],
         [
@@ -248,12 +249,69 @@ def build(path):
              "zwarciu kilkadziesiąt amperów i stopi przewód, zanim zdążysz "
              "zareagować"],
             [Paragraph("<b>Cyna lutownicza</b>", CellB), "1 rolka",
-             "z topnikiem w rdzeniu, 0,7–1,0 mm. Oczywiste, a nie było jej "
-             "nigdzie na liście"],
+             "z topnikiem w rdzeniu, 0,7–1,0 mm"],
+            ["Przepusty gumowe / koszulka na krawędzie", "kpl.",
+             "wszędzie tam, gdzie kabel przechodzi przez ściankę wydruku. "
+             "Krawędź warstwowa jest ostra i przy każdym kroku piłuje "
+             "izolację"],
         ],
         [46 * mm, 14 * mm, 98 * mm],
         aligns={1: "CENTER"},
         highlight=[1]))
+
+    s.append(para("Mocowanie elektroniki", H2))
+    s.append(para(
+        "Nic w chodzącym robocie nie może leżeć luzem. Każdy moduł ma otwory "
+        "montażowe i każdy musi być przykręcony — inaczej po tygodniu chodzenia "
+        "urwie się kabel albo zewrze płytka o płytkę.", Body))
+    s.append(table(
+        ["Element", "Ile", "Po co"],
+        [
+            [Paragraph("<b>Tulejki dystansowe M2,5 + śruby</b>", CellB), "1 kpl.",
+             "Raspberry Pi ma cztery otwory M2,5 w rozstawie <b>58 × 49 mm</b>. "
+             "Nylonowe lepsze od mosiężnych — nie zewrą niczego pod płytką. "
+             "Dystanse pod AI HAT+ zwykle są w pudełku z HAT-em, sprawdzić "
+             "przed dokupieniem"],
+            ["Tulejki M2,5 / M3 + śruby do modułów", "1 kpl.",
+             "PCA9685, MAX98357A, IMU, obie przetwornice — każdy przykręcony, "
+             "żaden na taśmie dwustronnej"],
+            [Paragraph("<b>Rzep i pasek do baterii</b>", CellB), "1 kpl.",
+             "LiPo <b>się nie klei</b>: musi dać się wyjąć, a z wiekiem puchnie. "
+             "Pasek plus wyprofilowana kieszeń w wydruku"],
+            ["Drukowana taca pod elektronikę", "1",
+             "nie jest to część do kupienia, tylko decyzja projektowa: cała "
+             "elektronika na jednej wyjmowanej płytce. Bez tego każda przeróbka "
+             "to rozbieranie kota"],
+        ],
+        [46 * mm, 14 * mm, 98 * mm],
+        aligns={1: "CENTER"},
+        highlight=[1, 3]))
+
+    s.append(para("Mechanika przegubów i łapy", H2))
+    s.append(table(
+        ["Element", "Ile", "Po co"],
+        [
+            [Paragraph("<b>Łożyska lub śruby pasowane na bierną stronę "
+                       "przegubu</b>", CellB), "12",
+             "serwo trzyma przegub z jednej strony; druga musi być podparta, "
+             "inaczej całe zginanie idzie w wał serwa i jego przekładnię. "
+             "<b>Rozmiar wynika z wybranego uchwytu</b> — sprawdzić w modelu z "
+             "Printables przed zamówieniem"],
+            ["Wkładki gwintowane M3", "60–100",
+             "gwint nacięty w druku wyrywa się po kilku odkręceniach. Na całego "
+             "kota — cztery nogi, korpus, głowa — idzie ich znacznie więcej, "
+             "niż się z początku wydaje"],
+            ["Śruby M3 8/10/12/16 mm + nakrętki samokontrujące", "po ~25",
+             "łączenie segmentów; samokontrujące, bo zwykłe wykręcą się od "
+             "wibracji chodu"],
+            [Paragraph("<b>Nakładki łap</b>", CellB), "4 + zapas",
+             "Plasti Dip albo silikonowe stopki meblowe. <b>Nie są ozdobą</b> — "
+             "patrz rozdział 3: bez nich pomiary z symulacji przestają "
+             "obowiązywać"],
+        ],
+        [46 * mm, 14 * mm, 98 * mm],
+        aligns={1: "CENTER"},
+        highlight=[1, 4]))
 
     # ------------------------------------------------------- narzedzia
     s.append(para("2. Narzędzia do montażu w domu", H1))
@@ -362,7 +420,7 @@ def build(path):
         "elektroniki nie jest problemem — <b>ale tułów jest głębszy niż "
         "szerszy</b> (141 wobec 111 mm) i to trzeba zachować. Kot ma klatkę "
         "pionowo owalną; odwrócenie tych proporcji daje sylwetkę płyty na "
-        "nogach, co było błędem wcześniejszej wersji modelu.", Body))
+        "nogach, a nie zwierzęcia.", Body))
 
     s.append(para("Noga (×4, wszystkie identyczne)", H2))
     s.append(table(
@@ -507,12 +565,15 @@ def build(path):
     s.append(table(
         ["Źródło ciepła", "Kiedy grzeje", "Uwaga"],
         [
-            ["Raspberry Pi 4B", "cały czas",
+            [Paragraph("<b>Raspberry Pi 5 + AI HAT+</b>", CellB), "cały czas",
              "ogranicza wydajność przy <b>80°C</b> — kot zacząłby zwalniać po "
-             "kilkunastu minutach, a objaw wyglądałby na błąd w kodzie"],
+             "kilkunastu minutach, a objaw wyglądałby na błąd w kodzie. Pi 5 "
+             "grzeje się mocniej niż 4B i siedzi <b>pod HAT-em</b>, który "
+             "zasłania mu górę: Active Cooler jest na liście zakupowej i nie "
+             "jest opcjonalny"],
             ["12 serw", "gdy stoi",
-             "obciążenie ciągłe 0,70 Nm na przegub; w ruchu grzeją mniej, bo "
-             "mediana to 0,17 Nm"],
+             "obciążenie ciągłe 0,72 Nm na przegub; w ruchu grzeją mniej, bo "
+             "mediana to 0,18 Nm"],
             [Paragraph("<b>Sam PETG</b>", CellB), "—",
              "mięknie w okolicach <b>80°C</b>, czyli w tej samej temperaturze, "
              "przy której ogranicza się Pi — materiał obudowy nie daje tu "
@@ -521,12 +582,14 @@ def build(path):
         [40 * mm, 30 * mm, 88 * mm]))
     s.append(Spacer(1, 2 * mm))
     s.append(para(
-        "Minimum: <b>radiator na Pi</b> i otwory nisko oraz wysoko w korpusie, "
-        "żeby ciepłe powietrze uchodziło górą samo. Nie przykręcać Pi "
-        "bezpośrednio do serwa ani do ścianki, o którą opiera się serwo.", Body))
+        "Minimum: <b>Active Cooler na Pi</b> i otwory nisko oraz wysoko w "
+        "korpusie, żeby ciepłe powietrze uchodziło górą samo. Nie przykręcać "
+        "Pi bezpośrednio do serwa ani do ścianki, o którą opiera się serwo. "
+        "Zostawić nad wentylatorem kilka milimetrów prześwitu — dmucha w górę, "
+        "w płytkę HAT-a.", Body))
     s.append(callout(
         "Tryb snu jest też chłodzeniem",
-        "Leżący kot obciąża napędy praktycznie wcale — 0,09 Nm wobec 0,70 Nm "
+        "Leżący kot obciąża napędy praktycznie wcale — 0,09 Nm wobec 0,72 Nm "
         "w staniu. Kładzenie się, gdy nic nie robi, to nie tylko oszczędność "
         "baterii: to jedyny moment, w którym serwa naprawdę stygną.",
         GOOD))
@@ -611,11 +674,10 @@ def build(path):
         "wykryty na pierwszej nodze kosztuje jeden wydruk; wykryty na "
         "czwartej — cztery.", Body))
     s.append(para(
-        "Przednie i tylne nogi są <b>identyczne</b>. Wcześniejsza wersja "
-        "modelu miała lustrzane kolana, jak u prawdziwego kota, ale zostało to "
-        "celowo wycofane na rzecz układu, jaki mają prawdziwe roboty "
-        "czworonożne — cztery takie same nogi to jeden wydruk w czterech "
-        "egzemplarzach i jedna część zamienna.", Body))
+        "Wszystkie cztery nogi są <b>identyczne</b> i wszystkie kolana zginają "
+        "się w tę samą stronę — tak, jak w prawdziwych robotach czworonożnych "
+        "(Spot, Unitree). Jeden wydruk w czterech egzemplarzach i jedna część "
+        "zamienna.", Body))
 
     s.append(para("Krok 3 — korpus i elektronika", H2))
     s.append(para(
@@ -624,9 +686,11 @@ def build(path):
         "jedyna rzecz, która może uszkodzić resztę. <b>Zmierzyć polaryzację "
         "multimetrem przed podłączeniem czegokolwiek.</b>", Body))
     s.append(para(
-        "Raspberry Pi <b>musi mieć własną gałąź 5 V</b> z przetwornicy, "
-        "odseparowaną od linii serw. Dwanaście serw ruszających jednocześnie "
-        "powoduje zapad napięcia, który zresetuje komputer w połowie kroku.", Body))
+        "Raspberry Pi <b>musi mieć własną przetwornicę</b>, nie tylko własny "
+        "przewód. Dwanaście serw ruszających jednocześnie powoduje zapad "
+        "napięcia, który zresetuje komputer w połowie kroku — a Pi 5 z "
+        "akceleratorem sam potrafi wziąć blisko tyle, ile daje cała "
+        "D24V50F5.", Body))
 
     s.append(para("Drzewo zasilania", H2))
     s.append(para(
@@ -640,18 +704,33 @@ def build(path):
         [
             ["12 serw ST3215", "11,1 V", "wprost z pakietu, przez gniazdo DC "
                                           "adaptera magistrali"],
-            [Paragraph("<b>Raspberry Pi 4B</b>", CellB),
+            [Paragraph("<b>Raspberry Pi 5 + AI HAT+</b>", CellB),
              Paragraph("<b>5 V</b>", CellB),
-             "<b>własna gałąź</b> z przetwornicy, grubym przewodem, blisko niej"],
-            ["3 mikroserwa (głowa, ogon)", "5–6 V", "z przetwornicy, przez PCA9685"],
-            ["Wzmacniacz audio", "5 V", "z przetwornicy"],
+             "<b>D24V50F5 wyłącznie dla niego</b>, grubym przewodem, blisko "
+             "przetwornicy. Pi 5 chce 5 A, żeby nie ograniczać się samo"],
+            ["3 mikroserwa (głowa, ogon)", "5–6 V",
+             "<b>druga przetwornica</b>, przez PCA9685"],
+            ["Wzmacniacz audio", "5 V", "druga przetwornica"],
             ["2 × doświetlacz IR", "3,3 V",
              "ok. <b>0,9 A na sztukę</b> — <b>nie z pinu 3,3 V w Pi</b>, ten "
-             "daje kilkadziesiąt mA. Własny stabilizator albo rezystor"],
+             "daje kilkadziesiąt mA. Z drugiej przetwornicy, przez własny "
+             "stabilizator lub rezystor"],
         ],
         [46 * mm, 24 * mm, 88 * mm],
         aligns={1: "CENTER"},
         highlight=[2]))
+
+    s.append(Spacer(1, 2 * mm))
+    s.append(callout(
+        "Dlaczego dwie przetwornice, a nie jedna większa",
+        "Sumarycznie wszystko na 5 V mieści się w 5 A tylko na papierze, bez "
+        "żadnego zapasu — a to nie jest kwestia sumy, tylko <b>kształtu "
+        "poboru</b>. Mikroserwo ruszające głową bierze prąd skokowo i "
+        "wywołuje chwilowy zapad na wspólnej szynie; dla Pi 5 taki zapad to "
+        "reset albo cicha redukcja taktowania, której nikt nie powiąże z "
+        "ruchem głowy. Rozdzielenie zasilania jest tańsze niż debugowanie "
+        "tego objawu.",
+        ACCENT))
 
     s.append(Spacer(1, 2 * mm))
     s.append(para(
@@ -696,10 +775,10 @@ def build(path):
              "czy zero jest dobrze skalibrowane i czy nogi ustawiają się "
              "symetrycznie"],
             ["3", "Stanie o własnych siłach",
-             "obciążenie ciągłe 0,70 Nm na przegub — sprawdzić, czy serwa się "
+             "obciążenie ciągłe 0,72 Nm na przegub — sprawdzić, czy serwa się "
              "nie grzeją"],
             ["4", "Chód na uwięzi (ręka nad grzbietem)",
-             "pierwszy ruch; szczyty ok. 1,87 Nm"],
+             "pierwszy ruch; szczyty ok. 1,93 Nm"],
             ["5", "Chód swobodny 0,1 m/s",
              "dopiero teraz robot chodzi sam"],
         ],
@@ -727,9 +806,9 @@ def build(path):
         ["Stan", "Moment na przegub"],
         [
             ["Leży", "0,09 Nm"],
-            ["Stoi", "0,70 Nm"],
-            ["Idzie 0,1 m/s — typowo", "0,17 Nm"],
-            ["Idzie 0,1 m/s — szczyty", "1,87 Nm"],
+            ["Stoi", "0,72 Nm"],
+            ["Idzie 0,1 m/s — typowo", "0,18 Nm"],
+            ["Idzie 0,1 m/s — szczyty", "1,93 Nm"],
         ],
         [110 * mm, 48 * mm],
         aligns={1: "CENTER"}))
@@ -737,12 +816,13 @@ def build(path):
     s.append(para(
         "Jeśli zmierzone wartości będą <b>wyraźnie wyższe</b>, najbardziej "
         "prawdopodobne przyczyny to opory w przegubach (za ciasne uchwyty, "
-        "brak luzu na łożyskach) albo cięższy wydruk niż zakładane 700 g. "
+        "brak luzu na łożyskach) albo cięższy wydruk niż zakładane 700 g — "
+        "wydruk to druga co do wielkości pozycja masy po serwach. "
         "Oba są do naprawienia mechanicznie i oba lepiej wykryć na tym etapie "
         "niż po tygodniu chodzenia.", Body))
 
     # ------------------------------------------------ budzet obliczeniowy
-    s.append(para("6. Co uciągnie Raspberry Pi 4B", H1))
+    s.append(para("6. Co uciągnie Raspberry Pi 5", H1))
     s.append(para(
         "Sterowanie jest obliczeniowo tanie i procesor nie jest tu wąskim "
         "gardłem. Ograniczeniem jest <b>przepustowość magistrali serw</b> — "
@@ -758,13 +838,12 @@ def build(path):
              "gotowe kąty"],
             ["Czujnik ToF", "znikome", "64 strefy po I2C"],
             ["Dźwięk, dotyk", "znikome", ""],
-            ["Podgląd obrazu z kamery", "małe",
-             "Pi 4B ma sprzętowy koder H.264"],
-            [Paragraph("<b>Rozpoznawanie obrazu</b>", CellB),
-             Paragraph('<b><font color="#a3251e">nie w czasie rzeczywistym</font></b>',
-                       CellB),
-             "kilka klatek na sekundę bez akceleratora — dlatego omijanie "
-             "przeszkód oparto na ToF, a nie na kamerze"],
+            ["Podgląd obrazu z kamery", "małe", "kodowanie sprzętowe"],
+            [Paragraph("<b>Rozpoznawanie obrazu (YOLOv8n)</b>", CellB),
+             Paragraph('<b><font color="#1c6b45">~137 FPS</font></b>', CellB),
+             "na akceleratorze Hailo-8L, poza procesorem Pi. Omijanie "
+             "przeszkód i tak oparto na ToF — działa też wtedy, gdy widzenie "
+             "się pomyli"],
         ],
         [56 * mm, 34 * mm, 68 * mm],
         aligns={1: "CENTER"},
@@ -812,8 +891,9 @@ def build(path):
     s.append(table(
         ["", "Do sprawdzenia"],
         [
-            ["1", "<b>Ile RAM ma Twoje Pi 4B.</b> Są wersje 2, 4 i 8 GB. ROS 2 "
-                  "z kamerą na 2 GB będzie ciasno; od 4 GB w górę spokojnie"],
+            ["1", "<b>Kabel CSI do kamery.</b> Pi 5 ma węższe złącze 22-pinowe, "
+                  "a Camera Module 3 przychodzi z kablem 15-pinowym pod Pi 4B. "
+                  "Bez przejściówki kamera nie wepnie się w ogóle"],
             ["2", "Karta microSD kończy się szybciej niż sprzęt, jeśli system "
                   "dużo loguje — a logowanie obciążenia serw jest tu zalecane. "
                   "Warto ograniczyć zapis albo logować na pendrive"],

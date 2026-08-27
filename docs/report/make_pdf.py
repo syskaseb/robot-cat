@@ -1,5 +1,5 @@
-"""Robot Cat v4 - actuator decision, rebuilt after the size and mass questions
-were settled. Every figure is measured in Gazebo unless marked otherwise.
+"""Robot Cat - actuator decision. Every figure is measured in Gazebo unless
+marked otherwise.
 
 Rebuild the whole report from the repo root:
 
@@ -164,7 +164,7 @@ def header_footer(canvas, doc):
     canvas.line(26 * mm, 285 * mm, 184 * mm, 285 * mm)
     canvas.setFont("Cal", 8)
     canvas.setFillColor(MUTED)
-    canvas.drawString(26 * mm, 287.5 * mm, "Robot Cat — dobór napędów, wersja 4")
+    canvas.drawString(26 * mm, 287.5 * mm, "Robot Cat — dobór napędów")
     canvas.drawRightString(184 * mm, 287.5 * mm, "sierpień 2026")
     canvas.line(26 * mm, 17 * mm, 184 * mm, 17 * mm)
     canvas.drawString(26 * mm, 12.5 * mm,
@@ -177,7 +177,7 @@ def build(path):
     doc = BaseDocTemplate(path, pagesize=A4,
                           leftMargin=26 * mm, rightMargin=26 * mm,
                           topMargin=24 * mm, bottomMargin=22 * mm,
-                          title="Robot Cat — dobór napędów v4",
+                          title="Robot Cat — dobór napędów",
                           author="analiza symulacyjna")
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="n")
     doc.addPageTemplates([PageTemplate(id="all", frames=[frame],
@@ -187,76 +187,48 @@ def build(path):
     # ---------------------------------------------------------------- cover
     s.append(Spacer(1, 5 * mm))
     s.append(para("Robot Cat", Title))
-    s.append(para("Dobór napędów — wersja 4, po rozstrzygnięciu rozmiaru i masy",
+    s.append(para("Dobór napędów",
                   st("s2", fontName="Cal-B", fontSize=13.5, leading=17,
                      textColor=INK, spaceBefore=2)))
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Wersja 3 rekomendowała Feetech STS3250 i ostrzegała, że przy większym "
-        "robocie trzeba będzie sięgnąć po napędy bezszczotkowe za kilkanaście "
-        "tysięcy złotych. Obie te rzeczy okazały się <b>niepotrzebne</b>. "
-        "Ten dokument pokazuje, co się zmieniło i dlaczego.", Sub))
+        "Jaki napęd uniesie tego kota, ile naprawdę waży gotowa konstrukcja i "
+        "co się stanie, gdy bateria zacznie siadać.", Sub))
     s.append(Spacer(1, 5 * mm))
 
     s.append(callout(
         "Wnioski",
-        "<b>1.</b> Symulacja zakładała robota o masie <b>3,7 kg</b>. Realna "
-        "konstrukcja — druk z PETG, 12 serw, bateria, elektronika — waży "
-        "<b>2,0 kg</b>. Prawdziwy kot waży 4-5 kg, bo jest z mięsa i kości; "
+        "<b>1.</b> Robot waży <b>2,1 kg</b>: 12 serw, druk z PETG, bateria i "
+        "elektronika. Prawdziwy kot waży 4-5 kg, bo jest z mięsa i kości; "
         "pusty w środku wydruk waży o połowę mniej.<br/><br/>"
-        "<b>2.</b> Przy realnej masie wymagany moment spada z 3,46 do "
-        "<b>1,87 Nm</b>. Najtańsze serwo z półki (<b>Waveshare ST3215</b>, "
-        "109 zł) ma <b>39% zapasu nawet na rozładowanej baterii</b>.<br/><br/>"
-        "<b>3.</b> Zapis w briefie „ok. 50 cm wysokości” to nie jest kot, tylko "
-        "ryś: 24 kg i 28,6 Nm na przegub. Zwykły kot ma 24 cm w kłębie i tyle ma "
-        "model.",
+        "<b>2.</b> Wymagany moment w przegubie to <b>1,93 Nm</b>. Najtańsze "
+        "serwo z półki (<b>Waveshare ST3215</b>, 109 zł) ma <b>33% zapasu "
+        "nawet na rozładowanej baterii</b>.<br/><br/>"
+        "<b>3.</b> Kot ma <b>24,2 cm w kłębie</b> — tyle co żywy kot. Model "
+        "stoi na tej wysokości bez skalowania.",
         ACCENT))
     s.append(Spacer(1, 5 * mm))
 
     # ------------------------------------------------------------ rozmiar
-    s.append(para("1. Rozmiar: co znaczy „kot”", H1))
+    s.append(para("1. Rozmiar", H1))
     s.append(para(
-        "To była pierwsza rzecz do rozstrzygnięcia, bo od niej zależy wszystko "
-        "inne. Brief prosi o zwierzę „ok. 50 cm wysokości”, ale kot o kocich "
-        "proporcjach i takiej wysokości to inne zwierzę.", Body))
+        "Kot ma <b>24,2 cm w kłębie</b>, 30 cm długości tułowia i 29 cm "
+        "wysokości całkowitej — czyli wymiary żywego kota, którego kłąb sięga "
+        "24 cm. Model stoi na tych wymiarach bez skalowania.", Body))
 
-    s.append(table(
-        ["", "Zwykły kot", "Wersja 50 cm"],
-        [
-            ["Wysokość w kłębie", "24,2 cm", "45,3 cm"],
-            ["Długość tułowia", "30 cm", "56 cm"],
-            ["Wysokość całkowita", "29 cm", "55 cm"],
-            ["Masa (proporcjonalnie)", "3,7 kg", "24,2 kg"],
-            [Paragraph("<b>Moment na przegub</b>", CellB),
-             Paragraph('<b><font color="#1c6b45">3,46 Nm</font></b>', CellB),
-             Paragraph('<b><font color="#b3541e">28,6 Nm</font></b>', CellB)],
-            ["Klasa napędu", "serwo hobby, ~110 zł/szt.", "bezszczotkowy, ~1500 zł/szt."],
-        ],
-        [46 * mm, 56 * mm, 56 * mm],
-        aligns={1: "CENTER", 2: "CENTER"},
-        highlight=[5]))
-
-    s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Moment rośnie z <b>3,4 potęgą</b> wymiaru, więc zwierzę dwa razy "
-        "wyższe potrzebuje napędów ośmiokrotnie mocniejszych. Kociokształtne "
+        "Ta liczba nie jest kosmetyczna, bo <b>moment rośnie z 3,4 potęgą "
+        "wymiaru</b>: zwierzę dwa razy wyższe potrzebuje napędów ośmiokrotnie "
+        "mocniejszych, a więc innej i znacznie droższej klasy. Kociokształtne "
         "zwierzę o 40 cm w kłębie istnieje w naturze — to ryś, i faktycznie "
-        "waży ok. 20 kg. Model przy domyślnych ustawieniach ma 24,2 cm w "
-        "kłębie wobec 24 cm żywego kota, więc niczego nie trzeba skalować. "
-        "Punkt porównawczy zmierzono przy skali 1,87, co daje 55 cm wysokości "
-        "całkowitej — czyli mniej więcej to, o co prosi brief.", Body))
-
-    s.append(figure(
-        "chart_scale.png",
-        "Oba punkty zmierzone, krzywa dopasowana do nich. Wersja 50 cm leży w "
-        "paśmie napędów klasy Unitree Go2."))
+        "waży ok. 20 kg. Przy 24 cm cały ten dokument mieści się w serwach po "
+        "109 zł; przy 45 cm nie mieściłby się w żadnych.", Body))
 
     # -------------------------------------------------------------- masa
-    s.append(para("2. Masa realnej konstrukcji", H1))
+    s.append(para("2. Masa konstrukcji", H1))
     s.append(para(
-        "Symulacja liczyła 3,7 kg, bo skalowała gęstość żywego kota. To był "
-        "<b>błąd metodyczny</b>: robot nie jest z mięsa. Budżet masy policzony "
-        "z listy zakupowej:", Body))
+        "Budżet masy policzony z listy zakupowej — to jest liczba, od której "
+        "zależy wymagany moment, i to ona wyznacza klasę napędu:", Body))
 
     s.append(table(
         ["Grupa", "Masa", "Uwaga"],
@@ -267,13 +239,13 @@ def build(path):
             ["Bateria 3S 2200 mAh", "185 g", ""],
             ["Okablowanie", "~125 g", "magistrala + zasilanie"],
             ["Śruby, tulejki, łożyska", "~80 g", ""],
-            ["Raspberry Pi 4B + karta", "47 g", ""],
+            ["Pi 5 + AI HAT+ + chłodzenie + karta", "~101 g", "46 + 35 + 18 g"],
+            ["Elektronika (IMU, PWM, audio, 2 przetwornice)", "~41 g", ""],
             ["3 × mikroserwo (głowa, ogon)", "27 g", ""],
-            ["Elektronika (IMU, PWM, audio, zasilanie)", "~31 g", ""],
-            ["Kamera + czujnik ToF", "~6 g", "bez znaczenia dla wyniku"],
+            ["Kamera, ToF, doświetlacze", "~8 g", "bez znaczenia dla wyniku"],
             [Paragraph("<b>RAZEM</b>", CellB),
-             Paragraph('<b><font color="#1c6b45">≈ 2,0 kg</font></b>', CellB),
-             "widełki 1,9-2,3 kg"],
+             Paragraph('<b><font color="#1c6b45">≈ 2,1 kg</font></b>', CellB),
+             "widełki 2,0-2,4 kg"],
         ],
         [66 * mm, 30 * mm, 62 * mm],
         aligns={1: "CENTER"},
@@ -281,35 +253,31 @@ def build(path):
 
     s.append(Spacer(1, 3 * mm))
     s.append(callout(
-        "Dlaczego to zmienia wszystko",
-        "Przy tej skali moment skaluje się z masą <b>niemal liniowo</b>: "
-        "redukcja masy o 45% dała spadek momentu o 46%. Zmierzone, nie "
-        "założone — i warto to podkreślić, bo przy wersji 50&nbsp;cm było "
-        "<i>inaczej</i>: tam redukcja masy o 38% dała tylko 5%, bo dominował "
-        "artefakt sterowania, a nie ciężar. Wniosek z dużego robota nie "
-        "przenosi się na małego.", GOOD))
+        "Masa jest jedynym pokrętłem, które działa",
+        "Przy tej skali moment skaluje się z masą <b>niemal liniowo</b> — "
+        "zmierzone, nie założone. To czyni każdy gram obudowy realnym kosztem "
+        "napędowym i stawia <b>700 g PETG</b> na drugim miejscu po serwach. "
+        "Cieńsze ścianki i mniejsze wypełnienie są tańszym sposobem na zapas "
+        "momentu niż droższe serwo.", GOOD))
 
     # ------------------------------------------------------------ moment
-    s.append(para("3. Co naprawdę wyznacza wymagany moment", H1))
+    s.append(para("3. Co wyznacza wymagany moment", H1))
     s.append(para(
-        "Zanim padła odpowiedź, sprawdzono i <b>odrzucono</b> trzy hipotezy. "
-        "Każda wydawała się oczywista i każda okazała się nieprawdziwa:", Body))
+        "Decyduje <b>wyłącznie masa</b>. Zmierzona wrażliwość momentu na "
+        "cztery parametry, każdy zmieniany osobno:", Body))
 
     s.append(table(
-        ["Hipoteza", "Test", "Wynik"],
+        ["Parametr", "Zakres pomiaru", "Wpływ na moment"],
         [
-            ["Szybszy chód obciąża bardziej",
-             "0,94 m/s wobec 0,1 m/s",
+            ["Prędkość chodu", "0,1 → 0,94 m/s",
              Paragraph('<font color="#b3541e">bez różnicy</font>', Cell)],
-            ["Twarde lądowanie łapy",
-             "wymach złagodzony 10×",
+            ["Miękkość lądowania łapy", "wymach złagodzony 10×",
              Paragraph('<font color="#b3541e">bez różnicy</font>', Cell)],
-            ["Nogi więżą się przez podłoże",
-             "duty 0,65 wobec 0,50",
+            ["Udział fazy podporu", "duty 0,50 → 0,65",
              Paragraph('<font color="#b3541e">bez różnicy</font>', Cell)],
-            ["Decyduje po prostu ciężar",
-             "3,7 kg wobec 2,03 kg",
-             Paragraph('<b><font color="#1c6b45">−46%</font></b>', CellB)],
+            [Paragraph("<b>Masa robota</b>", CellB), "3,7 → 2,03 kg",
+             Paragraph('<b><font color="#1c6b45">−46%, niemal liniowo</font></b>',
+                       CellB)],
         ],
         [52 * mm, 46 * mm, 60 * mm],
         highlight=[4]))
@@ -337,14 +305,14 @@ def build(path):
         "napięcia, więc realny moment maleje w trakcie pracy.", Body))
 
     s.append(table(
-        ["Stan pakietu 3S", "Napięcie", "ST3215", "Zapas wobec 1,87 Nm"],
+        ["Stan pakietu 3S", "Napięcie", "ST3215", "Zapas wobec 1,93 Nm"],
         [
-            ["Świeżo naładowany", "12,6 V", "3,08 Nm",
-             Paragraph('<font color="#1c6b45">+65%</font>', Cell)],
-            ["Większość rozładowania", "11,8 V", "2,87 Nm",
-             Paragraph('<font color="#1c6b45">+53%</font>', Cell)],
+            ["Świeżo naładowany", "12,6 V", "3,09 Nm",
+             Paragraph('<font color="#1c6b45">+60%</font>', Cell)],
+            ["Większość rozładowania", "11,8 V", "2,89 Nm",
+             Paragraph('<font color="#1c6b45">+50%</font>', Cell)],
             ["Pod koniec / duże obciążenie", "10,5 V", "2,57 Nm",
-             Paragraph('<b><font color="#1c6b45">+39%</font></b>', CellB)],
+             Paragraph('<b><font color="#1c6b45">+33%</font></b>', CellB)],
         ],
         [50 * mm, 26 * mm, 26 * mm, 56 * mm],
         aligns={1: "CENTER", 2: "CENTER", 3: "CENTER"}))
@@ -358,9 +326,9 @@ def build(path):
 
     s.append(figure(
         "chart_decision.png",
-        "Krzywa serwa wobec wymagania. Linia pomarańczowa pokazuje, gdzie "
-        "leżałby próg, gdyby robot faktycznie ważył 3,7 kg — i dlaczego wersja "
-        "3 tego dokumentu wybrała droższe serwo."))
+        "Moment serwa wobec wymagania przez całe rozładowanie pakietu. "
+        "ST3025 dla porównania — czterokrotnie droższy za zapas, którego nie "
+        "ma czym wykorzystać."))
 
     # ------------------------------------------------------------ termika
     s.append(para("5. Przegrzewanie i czas pracy", H1))
@@ -374,16 +342,16 @@ def build(path):
         ["Stan", "Moment", "Uwaga"],
         [
             ["Leży (poza „loaf”)", "0,09 Nm", "spoczywa na podłodze"],
-            ["Stoi", "0,70 Nm", "obciążenie ciągłe"],
-            ["Idzie 0,1 m/s — mediana", "0,17 Nm", "przez większość czasu"],
-            ["Idzie 0,1 m/s — 95. percentyl", "1,87 Nm", "krótkie szczyty"],
+            ["Stoi", "0,72 Nm", "obciążenie ciągłe"],
+            ["Idzie 0,1 m/s — mediana", "0,18 Nm", "przez większość czasu"],
+            ["Idzie 0,1 m/s — 95. percentyl", "1,93 Nm", "krótkie szczyty"],
         ],
         [56 * mm, 30 * mm, 72 * mm],
         aligns={1: "CENTER"}))
 
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Obciążenie ciągłe występuje tylko w <b>staniu</b>, i wynosi 0,70 Nm. "
+        "Obciążenie ciągłe występuje tylko w <b>staniu</b>, i wynosi 0,72 Nm. "
         "Kot leżący nie obciąża napędów praktycznie wcale. Brief i tak zakłada "
         "tryb snu, więc jeśli robot kładzie się, gdy nic nie robi, problem "
         "znika z definicji — a nie przez ograniczenie czasu pracy.", Body))
@@ -424,8 +392,8 @@ def build(path):
     s.append(para("7. Decyzja", H1))
     s.append(callout(
         "Waveshare ST3215 — 12 sztuk, 1308 zł",
-        "Wymaganie 1,87 Nm wobec 2,57 Nm na najgorszym możliwym poziomie "
-        "naładowania. To <b>39% zapasu</b> w najgorszym punkcie i 65% na "
+        "Wymaganie 1,93 Nm wobec 2,57 Nm na najgorszym możliwym poziomie "
+        "naładowania. To <b>33% zapasu</b> w najgorszym punkcie i 60% na "
         "świeżej baterii. Robot zachowuje pełną postawę 24,2 cm — nie trzeba "
         "go przykucać ani zwężać rozstawu łap, choć obie te sztuczki zostały "
         "sprawdzone i działają, gdyby zapas okazał się potrzebny.",
@@ -433,16 +401,10 @@ def build(path):
 
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "<b>Wersja 3 tego dokumentu rekomendowała Feetech STS3250</b>, bo "
-        "liczyła zapotrzebowanie 3,42 Nm dla masy z symulacji. Ta liczba była "
-        "poprawna dla robota ważącego 3,7 kg — tyle że taki robot nie "
-        "powstanie. Rekomendacja STS3250 zostaje <b>wycofana</b>; nie jest "
-        "błędna, jest po prostu policzona dla cięższego zwierzęcia.", Body))
-
-    s.append(para(
         "Gabaryt i magistrala ST3215 i mocniejszych modeli są zgodne, więc "
         "jeśli gotowa konstrukcja okaże się cięższa niż zakładany szacunek, "
-        "wymiana na ST3025 nie wymaga przeprojektowania mechaniki.", Body))
+        "wymiana na ST3025 nie wymaga przeprojektowania mechaniki. To jest "
+        "wyjście awaryjne dla punktu 1 z tabeli niżej.", Body))
 
     s.append(para("Co zostaje otwarte", H2))
     s.append(table(
@@ -450,10 +412,12 @@ def build(path):
         [
             ["1", "Masa wydruku PETG",
              "700 g to szacunek. Zważyć pierwszy wydruk — przy 1,2 kg "
-             "całość rośnie do 2,5 kg, a wymóg do ~2,3 Nm (nadal w ST3215)"],
-            ["2", "Wysokość z briefu",
-             "„ok. 50 cm” kłóci się z „przypominał kota”. Potwierdzić, że "
-             "chodziło o zwykłego kota, a nie o zwierzę wielkości rysia"],
+             "całość rośnie do 2,6 kg, a wymóg do ~2,4 Nm (nadal w ST3215)"],
+            ["2", "Przemierzenie po zmianie rozkładu mas",
+             "model dostał masy z tej listy zamiast skalowanych: nogi "
+             "nieco cięższe, tułów lżejszy przy tej samej sumie. Momenty w "
+             "tabelach są <b>przeliczone liniowo</b> z pomiaru przy 2,03 kg, "
+             "nie zmierzone od nowa — jeden przebieg to domknie"],
             ["3", "IMU i zamknięcie pętli",
              "BNO085 jest na liście zakupowej, ale nie ma go jeszcze w "
              "symulacji — to następny krok programistyczny"],
@@ -473,8 +437,10 @@ def build(path):
         "transjenty kontaktowe, które w prawdziwym robocie amortyzuje "
         "podatność mechaniczna. Odczyty potwierdzono niezależnie: moment w "
         "staniu skaluje się z masą liniowo i zgadza się z ręcznym rachunkiem "
-        "z ciężaru i ramienia sił. Ceny są orientacyjne i pochodzą ze "
-        "sprawdzenia ofert w sierpniu 2026.",
+        "z ciężaru i ramienia sił. Liczby w tabelach odpowiadają masie "
+        "2,10 kg i są przeliczone liniowo z serii przy 2,03 kg — patrz punkt 2 "
+        "wyżej. Ceny są orientacyjne i pochodzą ze sprawdzenia ofert w "
+        "sierpniu 2026.",
         MUTED))
 
     doc.build(s)

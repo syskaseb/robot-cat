@@ -154,21 +154,49 @@ def header_footer(canvas, doc):
     canvas.restoreState()
 
 
-BASE = [
+# Prices checked in August 2026. The ones marked "szac." below are the only
+# estimates - everything else came off a shop page. Re-check every line before
+# paying; this is a snapshot, not a quote.
+PARTS = [
+    ("NAPĘD", None, None),
     ("12 × Waveshare ST3215 + adapter magistrali", "napęd nóg", "1327,90"),
+    ("CZUJNIKI I INTERAKCJA", None, None),
     ("BNO085 — 9-DoF IMU", "równowaga, kurs", "135,00"),
+    ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90"),
     ("3 × mikroserwo + Grove PCA9685", "głowa 2 osie, ogon", "138,60"),
     ("TTP223 + MAX98357A + głośnik YD36", "głaskanie, miauczenie", "47,70"),
+    ("WZROK", None, None),
+    ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "199,00"),
+    ("2 × doświetlacz IR 850 nm 3 W", "drugie oko, nocny wzrok", "19,90"),
+    ("Kabel CSI 22-pin ↔ 15-pin", "Pi 5 ma węższe złącze — szac.", "19,90"),
+    ("KOMPUTER", None, None),
+    ("Raspberry Pi 5 8 GB", "sterowanie i wizja", "829,90"),
+    ("AI HAT+ 13 TOPS (Hailo-8L)", "rozpoznawanie obrazu", "329,00"),
+    ("Active Cooler do Pi 5", "chłodzenie — szac.", "29,90"),
+    ("microSD 64 GB", "system i modele — szac.", "49,00"),
+    ("ZASILANIE", None, None),
     ("Pololu D24V50F5 + LiPo 3S 2200 + ładowarka B6AC", "zasilanie", "449,00"),
-    ("PETG czarny 1 kg + microSD 16 GB", "obudowa, system", "119,90"),
+    ("Druga przetwornica 5 V / 3 A", "gałąź serw i audio — szac.", "49,00"),
+    ("OBUDOWA", None, None),
+    ("PETG czarny 1 kg", "wydruk", "94,90"),
 ]
 
+TOTAL = "3788,60 zł"
 
-def money_rows(items, total_label, total, tone=GOOD):
-    rows = [[a, b, Paragraph(c, Cell)] for a, b, c in items]
-    rows.append([Paragraph(f"<b>{total_label}</b>", CellB), "",
-                 Paragraph(f'<b><font color="{tone.hexval()}">{total}</font></b>', CellB)])
-    return rows
+
+def parts_rows():
+    """Group headers are rows with no price; they render as a band."""
+    rows, bands = [], []
+    for i, (name, role, cost) in enumerate(PARTS, start=1):
+        if cost is None:
+            rows.append([Paragraph(f"<b>{name}</b>", CellB), "", ""])
+            bands.append(len(rows))
+        else:
+            rows.append([name, role, Paragraph(cost, Cell)])
+    rows.append([Paragraph("<b>RAZEM</b>", CellB), "",
+                 Paragraph(f'<b><font color="{ACCENT.hexval()}">{TOTAL}</font></b>',
+                           CellB)])
+    return rows, bands
 
 
 def build(path):
@@ -183,99 +211,111 @@ def build(path):
 
     s.append(Spacer(1, 4 * mm))
     s.append(para("Robot Cat", Title))
-    s.append(para("Plan zakupowy — dwie wersje i decyzja",
+    s.append(para("Plan zakupowy",
                   st("s2", fontName="Cal-B", fontSize=13.5, leading=17,
                      textColor=INK, spaceBefore=2)))
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Wersja A buduje chodzącego kota bez wzroku. Wersja B dokłada wzrok: "
-        "kamerę widzącą w podczerwieni, doświetlacz w drugim oku i czujnik "
-        "odległości. Obie mieszczą się w budżecie 2500 zł, bo Raspberry Pi 4B "
-        "jest już w domu i nie trzeba go kupować. Wersja B wychodzi 7 zł nad "
-        "limit — patrz niżej.", Sub))
+        "Wszystko, co trzeba kupić, żeby kot chodził, widział — także po "
+        "ciemku — i rozpoznawał, co widzi. Ta lista nie obejmuje drobnicy "
+        "montażowej: kabli, śrub, wkładek i narzędzi. Te są w "
+        "<b>montaz.pdf</b>, rozdział 1, i dokładają rzędu 250–400 zł.", Sub))
     s.append(Spacer(1, 5 * mm))
 
     s.append(callout(
-        "Decyzja: wersja B — 2506,90 zł",
-        "Kamerę <b>kupić teraz, używać później</b>. To dwie różne rzeczy. "
-        "Kupno teraz, bo wersja standardowa ma dostawę dopiero pod koniec "
-        "października, a szerokokątna jest na stanie — odkładanie zakupu grozi "
-        "tym, że blokada wróci wtedy, gdy będzie zatrzymywać gotowy projekt. "
-        "Używanie później, bo debugowanie chodu i wizji naraz jest trudniejsze "
-        "niż po kolei — i to jest realny koszt, nie te 289 zł.<br/><br/>"
-        "Kamera jest w wersji <b>NoIR</b>, a w drugim oku siedzi doświetlacz "
-        "podczerwieni — kot widzi po ciemku. <b>To przekracza budżet o 6,90 zł:</b> "
-        "2506,90 zł wobec limitu 2500 zł, przy 2451 zł bez nocnego widzenia. "
-        "Kwota jest w granicach błędu zaokrągleń całej listy, ale zapas zniknął "
-        "— cokolwiek jeszcze dojdzie, dojdzie ponad limit.",
-        GOOD))
+        f"Razem: {TOTAL}",
+        "Budżet wyjściowy wynosił 2500 zł i zakładał, że komputerem będzie "
+        "Raspberry Pi 4B leżące już w domu. <b>Ta lista go przekracza o "
+        "1289 zł</b>, i cała różnica siedzi w jednej decyzji: Pi 5 z "
+        "akceleratorem AI zamiast Pi 4B. Powód jest w następnym rozdziale — "
+        "krótko, Pi 4B nie ma złącza PCIe, więc rozpoznawanie obrazu jest z "
+        "nim nie tyle wolniejsze, co niemożliwe.<br/><br/>"
+        "Reszta listy mieści się w pierwotnym założeniu. Jeśli budżet ma "
+        "zostać dotrzymany, jedynym miejscem, gdzie da się go szukać, jest "
+        "właśnie komputer — nie serwa i nie czujniki.",
+        WARM))
     s.append(Spacer(1, 5 * mm))
 
-    # ------------------------------------------------------------ kamera
-    s.append(para("Dostępność kamery przesądza wybór modelu", H1))
-    s.append(para(
-        "Plan zakładał kamerę Camera Module 3 w wersji standardowej. Ta jest "
-        "obecnie niedostępna — sklep podaje oczekiwaną dostawę na okolice "
-        "23 października. Wersja szerokokątna jest na stanie z wysyłką w 24 h.", Body))
-
+    rows, bands = parts_rows()
     s.append(table(
-        ["Wariant", "Pole widzenia", "Cena", "Dostępność"],
-        [
-            ["Camera Module 3 standard", "76°", "~116 zł",
-             Paragraph('<font color="#b3541e">ok. 23.10.2026</font>', Cell)],
-            ["Camera Module 3 Wide", "120°", "~163 zł",
-             Paragraph('<font color="#1c6b45">wysyłka 24 h</font>', Cell)],
-            [Paragraph("<b>Camera Module 3 NoIR Wide</b>", CellB),
-             Paragraph("<b>120°</b>", CellB),
-             Paragraph("<b>199 zł</b>", CellB),
-             Paragraph('<b><font color="#1c6b45">wysyłka 24 h</font></b>', CellB)],
-        ],
-        [56 * mm, 30 * mm, 28 * mm, 44 * mm],
-        aligns={1: "CENTER", 2: "CENTER", 3: "CENTER"},
-        highlight=[3]))
+        ["Pozycja", "Rola", "Koszt"],
+        rows,
+        [82 * mm, 44 * mm, 32 * mm],
+        aligns={2: "RIGHT"},
+        highlight=bands + [len(rows)]))
 
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Różnica 47 zł kupuje przy okazji <b>szersze pole widzenia</b>, co dla "
-        "robota rozglądającego się po mieszkaniu jest zaletą, nie kompromisem: "
-        "120° obejmuje niemal wszystko przed kotem bez obracania głowy. Wybór "
-        "wersji Wide to więc nie ustępstwo wobec braku towaru — to lepszy "
-        "wariant, który akurat jest dostępny.", Body))
+        "<b>Umie:</b> chodzić i skręcać na czterech łapach, ruszać głową w "
+        "dwóch osiach i ogonem, reagować na głaskanie, miauczeć, wiedzieć że "
+        "się przechyla, omijać przeszkody, patrzeć — także w ciemności — "
+        "rozpoznawać obiekty w czasie rzeczywistym i łączyć się przez Wi-Fi "
+        "oraz Bluetooth (pad PS4).", Body))
 
-    # ------------------------------------------------------- noc
-    s.append(para("Widzenie w ciemności — wariant NoIR", H1))
+    # -------------------------------------------------------- komputer
+    s.append(para("Komputer: Raspberry Pi 5 z akceleratorem", H1))
+    s.append(para(
+        "Rozpoznawanie obrazu na samym procesorze Pi zjada całą moc "
+        "obliczeniową i nic nie zostaje na chód ani na resztę węzłów ROS. "
+        "Akcelerator przenosi sieć neuronową na osobny układ, gdzie widzenie "
+        "działa praktycznie za darmo w tle.", Body))
+
+    s.append(table(
+        ["YOLOv8n, 640×640", "Klatek na sekundę"],
+        [
+            ["Samo CPU Pi 5", "~12"],
+            [Paragraph("<b>Pi 5 + AI HAT+ (Hailo-8L)</b>", CellB),
+             Paragraph('<b><font color="#1c6b45">~137</font></b>', CellB)],
+        ],
+        [110 * mm, 48 * mm],
+        aligns={1: "CENTER"},
+        highlight=[2]))
+
+    s.append(Spacer(1, 3 * mm))
+    s.append(callout(
+        "Dlaczego nie Pi 4B, skoro leży w domu",
+        "<b>Pi 4B nie ma złącza PCIe.</b> Akcelerator Hailo wpina się wyłącznie "
+        "w PCIe, więc z Pi 4B jest nie „wolniejszy”, tylko fizycznie "
+        "niemożliwy — nie ma przejściówki, która by to obeszła. Wybór jest "
+        "binarny: albo Pi 5 i rozpoznawanie obrazu, albo Pi 4B i wzrok "
+        "ograniczony do podglądu plus omijanie przeszkód z czujnika ToF.<br/><br/>"
+        "Przy okazji Pi 5 ma <b>dwa złącza CSI</b> zamiast jednego, więc para "
+        "stereo pozostaje otwarta na przyszłość. Nie jest potrzebna: głębię "
+        "daje VL53L5CX, a drugie oko zajmuje doświetlacz.",
+        ACCENT))
+
+    s.append(para(
+        "Wersja 13 TOPS wystarcza z dużym zapasem — jedna kamera przy "
+        "prędkości 10 cm/s nie zbliża się do tego pułapu. Mocniejsza 26 TOPS "
+        "kosztuje ok. 230 zł więcej i nie ma tu czego przyspieszyć.", Body))
+
+    s.append(callout(
+        "Trzy rzeczy, które Pi 5 dokłada poza swoją ceną",
+        "<b>Chłodzenie.</b> Pi 5 grzeje się bardziej niż 4B i pod HAT-em nie "
+        "ma jak oddać ciepła samo — Active Cooler nie jest opcjonalny.<br/>"
+        "<b>Inny kabel do kamery.</b> Camera Module 3 przychodzi z kablem "
+        "15-pinowym pod Pi 4B; Pi 5 ma węższe złącze 22-pinowe. Bez "
+        "przejściówki kamery nie da się podłączyć.<br/>"
+        "<b>Prąd.</b> Pi 5 z akceleratorem potrafi wziąć blisko tyle, ile daje "
+        "cała przetwornica D24V50F5 — dlatego na liście jest druga, patrz "
+        "rozdział o zasilaniu w montaz.pdf.",
+        WARM))
+
+    # ------------------------------------------------------------ noc
+    s.append(para("Widzenie w ciemności", H1))
     s.append(para(
         "Kamera jest w wersji <b>NoIR</b>. Nazwa myli: nie znaczy „bez "
         "podczerwieni”, tylko <i>no IR filter</i> — bez filtra, który w "
         "zwykłej kamerze podczerwień <b>odcina</b>. Wersja NoIR podczerwień "
         "więc <b>widzi</b>, a doświetlona diodą IR pokazuje ciemny pokój tak, "
         "jakby był oświetlony. Kot dostaje nocny wzrok, a przy okazji "
-        "świecące oczy z briefu — dosłownie, bo dioda 850 nm daje słaby "
-        "czerwony poblask.", Body))
-
+        "świecące oczy — dosłownie, bo dioda 850 nm daje słaby czerwony "
+        "poblask.", Body))
     s.append(para(
-        "Drugi oczodół nie marnuje się: siedzi w nim <b>doświetlacz</b>. "
-        "Kamerą jest tylko jedno oko — stereo służy wyłącznie do pomiaru "
-        "odległości, a tę daje tu czujnik ToF (patrz niżej).", Body))
+        "Kamerą jest tylko jedno oko. Drugi oczodół nie marnuje się: siedzi w "
+        "nim <b>doświetlacz</b>. Pole widzenia 120° obejmuje niemal wszystko "
+        "przed kotem bez obracania głowy.", Body))
 
-    s.append(table(
-        ["", "Zwykła Wide", "NoIR Wide"],
-        [
-            ["Filtr odcinający podczerwień", "jest", "usunięty"],
-            ["Widzi światło diody IR", "nie", "tak"],
-            ["Kolory w dzień",
-             Paragraph('<font color="#1c6b45">poprawne</font>', Cell),
-             Paragraph('<font color="#b3541e">różowo-wyblakłe</font>', Cell)],
-            [Paragraph("<b>Widzi po ciemku</b>", CellB),
-             Paragraph("<b>nie</b>", CellB),
-             Paragraph('<b><font color="#1c6b45">tak</font></b>', CellB)],
-            ["Wymiary płytki", "25 × 24 × 12,4 mm", "25 × 24 × 12,4 mm"],
-        ],
-        [58 * mm, 50 * mm, 50 * mm],
-        aligns={1: "CENTER", 2: "CENTER"},
-        highlight=[4]))
-
-    s.append(Spacer(1, 3 * mm))
     s.append(callout(
         "Dioda musi być 850 nm, nie 940 nm",
         "Czujnik odległości VL53L5CX pracuje <b>na 940 nm</b>. Doświetlacz "
@@ -291,97 +331,23 @@ def build(path):
         "Czym się płaci i jak się z tego wycofać",
         "Brak filtra psuje <b>kolory w dzień</b> — obraz robi się różowawy, bo "
         "podczerwień z otoczenia zanieczyszcza kanały RGB. Do omijania "
-        "przeszkód i podglądu to bez znaczenia, do ładnych zdjęć — tak.<br/><br/>"
-        "Wyjście awaryjne jest tanie: <b>obie wersje mają identyczną płytkę</b> "
-        "(25 × 24 × 12,4 mm, to samo złącze, ten sam sensor IMX708), więc "
-        "zamiana NoIR na zwykłą to wyjęcie jednej i włożenie drugiej. Obudowy "
+        "przeszkód, rozpoznawania obiektów i podglądu to bez znaczenia, do "
+        "ładnych zdjęć — tak.<br/><br/>"
+        "Wyjście awaryjne jest tanie: <b>wersja NoIR i zwykła mają identyczną "
+        "płytkę</b> (25 × 24 × 12,4 mm, to samo złącze, ten sam sensor "
+        "IMX708), więc zamiana to wyjęcie jednej i włożenie drugiej. Obudowy "
         "ani kodu się nie rusza. Warunek: obudowę projektować pod wariant "
         "<b>Wide</b> — wersja nie-szerokokątna jest o 0,9 mm płytsza.",
         MUTED))
 
-    # ------------------------------------------------------------ wersja A
-    s.append(para("Wersja A — bez wizji", H1))
-    s.append(table(
-        ["Pozycja", "Rola", "Koszt"],
-        money_rows(BASE, "RAZEM", "2218,10 zł"),
-        [82 * mm, 44 * mm, 32 * mm],
-        aligns={2: "RIGHT"},
-        highlight=[len(BASE) + 1]))
-
-    s.append(Spacer(1, 2 * mm))
-    s.append(para(
-        "<b>Umie:</b> chodzić i skręcać na czterech łapach, ruszać głową w "
-        "dwóch osiach i ogonem, reagować na głaskanie, miauczeć, wiedzieć że "
-        "się przechyla, łączyć się przez Wi-Fi i Bluetooth (pad PS4).", Body))
-    s.append(para(
-        "<b>Nie umie:</b> widzieć, omijać przeszkód, podchodzić do człowieka.", Body))
-
-    # ------------------------------------------------------------ wersja B
-    s.append(para("Wersja B — z wizją", H1))
-    s.append(table(
-        ["Pozycja", "Rola", "Koszt"],
-        money_rows(
-            [("Wszystko z wersji A", "chód, dotyk, dźwięk, IMU", "2218,10"),
-             ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "199,00"),
-             ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90"),
-             ("2 × doświetlacz IR 850 nm 3 W", "drugie oko, nocny wzrok", "19,90")],
-            "RAZEM", "2506,90 zł"),
-        [82 * mm, 44 * mm, 32 * mm],
-        aligns={2: "RIGHT"},
-        highlight=[5]))
-
-    s.append(Spacer(1, 2 * mm))
-    s.append(para(
-        "<b>Dochodzi:</b> podgląd obrazu na żywo, świecące oczy z kamerą jak w "
-        "briefie, <b>widzenie po ciemku</b>, reaktywne omijanie przeszkód, "
-        "fundament pod wykrywanie człowieka i tryb „chodź za mną”.", Body))
-
     s.append(callout(
         "Dlaczego czujnik ToF, a nie sama kamera",
-        "Pierwszy krok autonomii <b>nie wymaga wcale kamery</b>. VL53L5CX "
-        "zwraca mapę odległości 8×8 stref do 4 m — to wystarcza, żeby robot "
-        "omijał przeszkody, i działa bez rozpoznawania obrazu, bez uczenia "
+        "Omijanie przeszkód <b>nie wymaga wcale kamery</b>. VL53L5CX zwraca "
+        "mapę odległości 8×8 stref do 4 m — to wystarcza, żeby robot nie "
+        "wchodził w ściany, i działa bez rozpoznawania obrazu, bez uczenia "
         "maszynowego i bez obciążania procesora. Za 70 zł to najtańsza "
-        "funkcja w całym zestawie.",
-        ACCENT))
-
-    # ------------------------------------------------------------ decyzja
-    s.append(para("Uzasadnienie decyzji", H1))
-
-    s.append(para("Co przemawia za kupnem teraz", H2))
-    s.append(table(
-        ["Argument", "Liczba"],
-        [
-            ["Kamera nie zmienia analizy mechanicznej", "waży 4 g"],
-            ["Przekracza budżet — nieznacznie", "2507 zł wobec 2500 zł"],
-            ["Raspberry Pi z domu finansuje wizję", "oszczędność 268 zł"],
-            ["Wersja standardowa wraca dopiero jesienią", "ok. 2 miesiące"],
-        ],
-        [110 * mm, 48 * mm],
-        aligns={1: "CENTER"}))
-
-    s.append(para("Co przemawia za używaniem dopiero później", H2))
-    s.append(para(
-        "Pierwsza iteracja ma zweryfikować mechanikę, okablowanie i chód. "
-        "Prawdziwym kosztem wizji nie są pieniądze ani masa, tylko "
-        "<b>uwaga</b>: szukanie przyczyny, gdy robot kuleje i jednocześnie nie "
-        "widzi, jest trudniejsze niż rozwiązanie tych spraw po kolei. Kamera "
-        "może poczekać w pudełku, aż kot będzie pewnie chodził.", Body))
-
-    s.append(callout(
-        "Co się właśnie zmieniło na korzyść wizji",
-        "Dotąd wizja czekała także z powodu technicznego: <b>Gazebo nie "
-        "uruchamia kamer na macOS</b> — Cocoa wymaga tworzenia okna "
-        "renderującego w głównym wątku (gz-sim#960). Ale środowisko "
-        "kontenerowe zbudowane dla Windowsa to Linux z dostępem do GPU, gdzie "
-        "kamery działają. Oczy w modelu są już posadzone tam, gdzie siedziałaby "
-        "para stereo — była to świadoma decyzja podjęta z myślą właśnie o tym "
-        "momencie.<br/><br/>"
-        "Oznacza to, że <b>oprogramowanie wizyjne można rozwijać w symulacji, "
-        "zanim kamera dojedzie</b>, nie zabierając uwagi budowie mechaniki. "
-        "Zastrzeżenie: renderowanie kamer w tym kontenerze nie zostało jeszcze "
-        "sprawdzone pomiarem — to jedyny punkt tego dokumentu oparty na "
-        "przesłance, a nie na teście.",
+        "funkcja w całym zestawie, i jedyna warstwa bezpieczeństwa, która "
+        "działa nawet wtedy, gdy widzenie się pomyli.",
         ACCENT))
 
     # -------------------------------------------------- czego nie ma
@@ -407,12 +373,9 @@ def build(path):
              "do tego ciężki i drogi w tej skali"],
             ["Głębia stereo z dwóch oczu",
              "wymagałaby synchronizacji dwóch modułów i własnej kalibracji na "
-             "maszynie, która trzęsie się przy każdym kroku, a Pi 4B ma i tak "
-             "<b>jedno złącze CSI</b>; VL53L5CX daje tę samą informację "
-             "prościej. Drugie oko jest zresztą zajęte przez doświetlacz"],
-            ["Akcelerator AI (Hailo-8L)",
-             "wymaga Raspberry Pi 5, a w tej wersji jest Pi 4B. Do podglądu "
-             "obrazu i omijania przeszkód niepotrzebny"],
+             "maszynie, która trzęsie się przy każdym kroku; VL53L5CX daje tę "
+             "samą informację prościej, a drugie oko jest zajęte przez "
+             "doświetlacz. Pi 5 ma dwa złącza CSI, więc opcja zostaje otwarta"],
             ["Stacja dokująca",
              "czworonóg musi trafić stopami w styki z dokładnością chodu, "
              "który sam ma dryf — trudniejszy problem sterowania niż samo "
@@ -437,19 +400,21 @@ def build(path):
     s.append(table(
         ["", "Do sprawdzenia"],
         [
-            ["1", "Pakiet LiPo 3S 2200 mAh był oznaczony jako chwilowo "
+            ["1", "Pakiet LiPo 3S 2200 mAh bywał oznaczany jako chwilowo "
                   "niedostępny — potwierdzić stan lub wybrać zamiennik o tych "
                   "samych parametrach (11,1 V, min. 25C)"],
-            ["2", "Ceny i dostępność potrafią się zmienić — otworzyć każdy link "
-                  "ponownie przed płatnością"],
+            ["2", "Cztery pozycje oznaczone „szac.” nie były sprawdzone w "
+                  "sklepie, tylko oszacowane. Reszta pochodzi ze stron ofert, "
+                  "ale ceny się zmieniają — otworzyć każdy link ponownie"],
             ["3", "Kamera wymaga Raspberry Pi OS, nie Ubuntu: obsługa czujnika "
                   "IMX708 jest tam od ręki, na Ubuntu trzeba budować libcamera "
                   "ze źródeł"],
-            ["4", "Wersja Wide ma inny obiektyw — jeśli obudowa oczu jest już "
-                  "projektowana, sprawdzić wymiary montażowe"],
-            ["5", "Kamera i doświetlacz sprawdzone w Botlandzie w złotówkach: "
-                  "199,00 zł i 19,90 zł, oba „Dostępny, wysyłka 24h”. Ceny "
-                  "potrafią się zmienić — otworzyć linki ponownie"],
+            ["4", "<b>Sprawdzić, co jest w pudełku z AI HAT+</b> — dystanse i "
+                  "taśma PCIe zwykle są w zestawie, więc nie trzeba ich "
+                  "dokupywać osobno"],
+            ["5", "Kabel CSI kupić <b>razem z kamerą</b>. Bez niego kamera nie "
+                  "wepnie się w Pi 5, a to najłatwiejsza pozycja do przeoczenia "
+                  "na całej liście"],
             ["6", "Doświetlacz ma 3 W przy 3,3 V, czyli ok. 0,9 A na sztukę. "
                   "<b>Nie zasilać go z pinu 3,3 V Raspberry Pi</b> — ten daje "
                   "kilkadziesiąt miliamperów. Ciągnąć z przetwornicy, przez "

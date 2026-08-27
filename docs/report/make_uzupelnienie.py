@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Regenerate robot-cat-napedy.pdf with the STS3250 decision and mounting section."""
+"""Robot Cat - electronics notes: mounting, control architecture, perception,
+compute, power and an honest read on gait smoothness.
+
+Rebuild from the repo root:
+
+    python docs/report/make_uzupelnienie.py docs/uzupelnienie-elektroniki.pdf
+"""
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -22,7 +28,7 @@ from reportlab.platypus import (
 
 import os
 
-_FONT_CANDIDATES = [
+_FONT_DIRS = [
     os.path.expanduser("~/Library/Fonts"),          # macOS, Homebrew --cask font-dejavu
     "/Library/Fonts",                                # macOS, system-wide
     "/usr/share/fonts/truetype/dejavu",              # Debian/Ubuntu, apt fonts-dejavu-core
@@ -30,31 +36,40 @@ _FONT_CANDIDATES = [
 ]
 
 
-def _find_font_dir():
-    for candidate in _FONT_CANDIDATES:
-        if os.path.exists(os.path.join(candidate, "DejaVuSans.ttf")):
-            return candidate
+def _mpl_font_dir():
     try:
         import matplotlib
-        mpl_dir = os.path.join(os.path.dirname(matplotlib.__file__), "mpl-data", "fonts", "ttf")
-        if os.path.exists(os.path.join(mpl_dir, "DejaVuSans.ttf")):
-            return mpl_dir
     except ImportError:
-        pass
+        return None
+    return os.path.join(os.path.dirname(matplotlib.__file__), "mpl-data", "fonts", "ttf")
+
+
+def _font(filename):
+    """Locate one DejaVu face.
+
+    Each face is resolved on its own rather than picking a directory from
+    DejaVuSans.ttf and assuming the rest are beside it: Debian's
+    fonts-dejavu-core ships the regular and bold weights but not the oblique,
+    so that assumption crashes on a stock Ubuntu. matplotlib bundles the full
+    set, which is the fallback - and the reason this works in the pixi env
+    without installing anything.
+    """
+    for directory in [*_FONT_DIRS, _mpl_font_dir()]:
+        if directory and os.path.exists(os.path.join(directory, filename)):
+            return os.path.join(directory, filename)
     sys.exit(
-        "DejaVu Sans not found - needed for Polish diacritics, which reportlab's "
-        "built-in Helvetica cannot render (they come out as black boxes).\n"
-        "Install it:\n"
+        f"{filename} not found - DejaVu Sans is needed for Polish diacritics, "
+        "which reportlab's built-in Helvetica cannot render (they come out as "
+        "black boxes).\nInstall it:\n"
         "  brew install --cask font-dejavu          # macOS\n"
         "  apt install fonts-dejavu-core            # Debian/Ubuntu\n"
         "or run this from the ROS pixi env, which bundles it via matplotlib."
     )
 
 
-FONT_DIR = _find_font_dir()
-pdfmetrics.registerFont(TTFont("DejaVu", f"{FONT_DIR}/DejaVuSans.ttf"))
-pdfmetrics.registerFont(TTFont("DejaVu-Bold", f"{FONT_DIR}/DejaVuSans-Bold.ttf"))
-pdfmetrics.registerFont(TTFont("DejaVu-Oblique", f"{FONT_DIR}/DejaVuSans-Oblique.ttf"))
+pdfmetrics.registerFont(TTFont("DejaVu", _font("DejaVuSans.ttf")))
+pdfmetrics.registerFont(TTFont("DejaVu-Bold", _font("DejaVuSans-Bold.ttf")))
+pdfmetrics.registerFont(TTFont("DejaVu-Oblique", _font("DejaVuSans-Oblique.ttf")))
 
 TEAL = colors.HexColor("#1B4B5A")
 TEAL_TABLE = colors.HexColor("#1F5C6E")
@@ -223,18 +238,17 @@ def build(path):
             "Ten dokument <b>uzupełnia</b> napedy-v4.pdf, plan-zakupowy.pdf i montaz.pdf notatkami z "
             "rozmowy, które nie miały jeszcze gdzie trafić: dlaczego montaż napędów jest w stawie, nie "
             "w brzuchu; dlaczego kompute jest jeden centralny, nie per-noga; porównanie z napędami QDD; "
-            "i uczciwa ocena płynności chodu. Sekcje 1-8 to skrót ustaleń już opisanych w "
-            "napedy-v4.pdf (STS3250, budżet momentu) — zachowane dla ciągłości, nie duplikują decyzji."
+            "i uczciwa ocena płynności chodu. Sekcje 1-8 to skrót ustaleń opisanych szerzej w "
+            "napedy-v4.pdf — zachowane dla ciągłości, nie duplikują decyzji."
         )
     )
     story.append(Spacer(1, 4))
     story.append(
         callout(
             "Wniosek w jednym zdaniu",
-            "Symulacja deklaruje dziś napędy, których nie da się kupić (20 Nm i 20 rad/s w każdym "
-            "z 12 przegubów). Po nałożeniu realnych ograniczeń kot zwalnia z 0,60 m/s do 0,14 m/s na "
-            "serwach klasy hobby — a różnica między chodzeniem a bieganiem to nie kwestia wymiarów, "
-            "tylko wyłącznie klasy napędu.",
+            "Kot chodzi <b>0,14 m/s</b> i to jest sufit serw pozycyjnych klasy hobby, nie wynik "
+            "słabego strojenia. Różnica między chodzeniem a bieganiem to nie kwestia wymiarów ani "
+            "parametrów chodu, tylko wyłącznie klasy napędu.",
         )
     )
     story.append(Spacer(1, 6))
@@ -252,11 +266,11 @@ def build(path):
             ["Parametr", "Wartość", "Uwaga"],
             [
                 ["Stopnie swobody", "12 (4 nogi × 3)", "biodro 2 DOF + kolano"],
-                ["Masa całkowita", "3,7 kg", "korpus 2,23 kg + nogi"],
+                ["Masa całkowita", "2,10 kg", "korpus 1,04 kg + nogi po 234 g"],
                 ["Segment nogi", "0,11 + 0,11 m", "zasięg 0,22 m"],
-                ["Wysokość w kłębie", "21,7 cm", "rozstaw bioder 22 cm"],
-                ["Sylwetka (kłąb / tułów)", "0,99", "kot ≈ 1,0 (kwadratowa)"],
-                ["Prędkość w symulacji", "0,58–0,64 m/s", "na napędach fikcyjnych"],
+                ["Wysokość w kłębie", "24,2 cm", "biodro 17,2 cm, rozstaw bioder 22 cm"],
+                ["Sylwetka (kłąb / rozstaw)", "1,10", "kot ≈ 1,0 (kwadratowa)"],
+                ["Prędkość w symulacji", "0,14 m/s", "na limitach ST3215"],
                 ["Kołysanie boczne", "1,6°", "międzyszczytowo"],
                 ["Dryf kursu", "≈0,9°/m", "chód otwarty, bez sprzężenia"],
                 ["Testy", "581, CI zielone", "matematyka bez symulatora"],
@@ -266,28 +280,25 @@ def build(path):
     )
     story.append(Spacer(1, 8))
 
-    story.append(p("2. Problem: symulacja ma fikcyjne silniki", "H1"))
+    story.append(p("2. Symulacja ma limity kupionego serwa", "H1"))
     story.append(
         p(
-            "Plik modelu deklaruje w każdym przegubie moment <b>20 Nm</b> i prędkość <b>20 rad/s</b>. "
-            "To wartości wpisane dla wygody, nie odpowiadające żadnemu realnemu napędowi w tej skali. "
-            "Typowe serwo klasy hobby osiąga około 4,8 rad/s bez obciążenia i 2–4 Nm momentu."
-        )
-    )
-    story.append(
-        p(
-            "Konsekwencja jest poważniejsza niż „trochę za optymistycznie”: każda godzina "
-            "strojenia chodu pod te limity to projektowanie robota, który nie może powstać. Dlatego "
-            "zanim cokolwiek kupimy, symulacja musi dostać uczciwe ograniczenia."
+            "Model deklaruje w każdym przegubie nóg moment <b>2,57 Nm</b> i prędkość "
+            "<b>4,7 rad/s</b> — to karta katalogowa ST3215 przy najgorszym stanie pakietu, nie "
+            "wartości dobrane tak, żeby chód wyglądał dobrze. Głowa i ogon dostają 0,20 Nm "
+            "mikroserwa. Dzięki temu każda godzina strojenia chodu dotyczy robota, który da się "
+            "zbudować."
         )
     )
 
     story.append(
         callout(
-            "Znaleziono przy pomiarze",
+            "Uwaga: sam limit w modelu nie wystarczy",
             "Gazebo <b>nie egzekwuje</b> limitu prędkości przy sterowaniu pozycyjnym. Po ustawieniu "
-            "limitu 3,5 rad/s przeguby i tak kręciły 10 rad/s. Uczciwy pomiar wymaga więc ograniczenia "
-            "<i>samego generatora chodu</i> — dokładnie tak, jak zachowa się prawdziwy sterownik.",
+            "limitu 3,5 rad/s przeguby i tak kręciły 10 rad/s. Wpisana wyżej wartość 4,7 rad/s "
+            "dokumentuje więc napęd, ale nie chroni przed zadaniem mu czegoś niewykonalnego — "
+            "uczciwy pomiar wymaga ograniczenia <i>samego generatora chodu</i>, dokładnie tak, jak "
+            "zachowa się prawdziwy sterownik.",
         )
     )
     story.append(Spacer(1, 6))
@@ -352,27 +363,33 @@ def build(path):
 
     story.append(p("4. Moment — druga granica", "H1"))
     story.append(
-        p("Momenty odczytane z interfejsu stanu podczas chodu, ponad 9 tysięcy próbek na konfigurację.")
+        p(
+            "Momenty odczytane z interfejsu stanu, przy masie 2,10 kg. Pełne wyliczenie budżetu masy "
+            "i doboru napędu jest w napedy-v4.pdf — tu tylko liczby, do których odwołują się dalsze "
+            "sekcje."
+        )
     )
     story.append(
         data_table(
-            ["Chód", "Mediana", "95. pct", "99. pct", "Szczyt"],
+            ["Stan", "Moment na przegub", "Uwaga"],
             [
-                ["Szybki (0,16 / 0,3)", "0,07 Nm", "3,35 Nm", "6,2 Nm", "20,1 Nm"],
-                ["Serwowy (0,08 / 0,8)", "0,09 Nm", "3,42 Nm", "3,62 Nm", "20,0 Nm"],
+                ["Leży", "0,09 Nm", "praktycznie bez obciążenia"],
+                ["Stoi", "0,72 Nm", "obciążenie ciągłe"],
+                ["Idzie 0,1 m/s — mediana", "0,18 Nm", "przez większość czasu"],
+                ["Idzie 0,1 m/s — 95. pct", "1,93 Nm", "liczba do doboru napędu"],
             ],
-            [40 * mm, 28 * mm, 28 * mm, 28 * mm, 44 * mm],
+            [50 * mm, 40 * mm, 78 * mm],
         )
     )
 
     story.append(
         callout(
-            "Uwaga metodologiczna — i korekta wcześniejszej rekomendacji",
-            "Szczyty 20 Nm to dokładnie limit z modelu: oba chody go saturują, więc są to transjenty "
-            "kontaktowe, a nie zapotrzebowanie ustalone. Liczbą do doboru napędu jest 95. percentyl, "
-            "czyli ≈3,4 Nm — i to powyżej momentu utyku serwa Feetech STS3215 (2,9 Nm). Zastrzeżenie "
-            "w drugą stronę: masy członów w modelu są orientacyjne, a realna konstrukcja na serwach "
-            "byłaby lżejsza, więc zapotrzebowanie spadłoby.",
+            "Dlaczego 95. percentyl, a nie szczyt",
+            "Chwilowe szczyty to <b>transjenty kontaktowe</b> — uderzenie łapy o podłoże, nie "
+            "zapotrzebowanie ustalone. W prawdziwym robocie amortyzuje je podatność mechaniczna, "
+            "czyli miękka nakładka łapy; dlatego montaz.pdf traktuje ją jako element nośny, a nie "
+            "ozdobę. Liczbą do doboru napędu jest 95. percentyl: <b>1,93 Nm</b> wobec 2,57 Nm, jakie "
+            "ST3215 daje na rozładowanym pakiecie.",
         )
     )
     story.append(Spacer(1, 6))
@@ -387,10 +404,10 @@ def build(path):
     )
     story.append(
         data_table(
-            ["", "Feetech STS3215", "Feetech STS3250", "Dynamixel XM430", "CubeMars AK60-6"],
+            ["", "ST3215 (wybrane)", "Feetech STS3250", "Dynamixel XM430", "CubeMars AK60-6"],
             [
-                ["Prędkość", "~4,8 rad/s", "~7,9 rad/s", "~4,8 rad/s", "~30–60 rad/s"],
-                ["Moment (utyk / ciągły)", "2,9 / ~0,7 Nm", "4,9 / ~2,45 Nm¹", "4,1 / ~1,3 Nm", "9 / 3 Nm"],
+                ["Prędkość", "~4,7 rad/s", "~7,9 rad/s", "~4,8 rad/s", "~30–60 rad/s"],
+                ["Moment (utyk / ciągły)", "2,9 / ~0,7 Nm", "4,9 / ~2,45 Nm", "4,1 / ~1,3 Nm", "9 / 3 Nm"],
                 ["Masa ×12", "0,66 kg", "0,89 kg", "1,0 kg", "4,4 kg"],
                 ["Kot w symulacji", "0,14 m/s", "0,14 m/s", "0,14 m/s", "0,58–0,64 m/s"],
                 ["Bieg (faza lotu)", "niemożliwy", "niemożliwy", "niemożliwy", "realny"],
@@ -407,13 +424,6 @@ def build(path):
             bold_row=3,
         )
     )
-    story.append(
-        p(
-            "¹ wartość ciągła spada dalej przy długo utrzymywanym unieruchomionym obciążeniu — "
-            "patrz zastrzeżenie niżej.",
-            "FootnoteRef",
-        )
-    )
     story.append(Spacer(1, 6))
     story.append(
         p(
@@ -424,33 +434,28 @@ def build(path):
         )
     )
 
-    story.append(p("Decyzja: Feetech STS3250, nie STS3215", "H2"))
+    story.append(p("Decyzja: Feetech ST3215", "H2"))
     story.append(
         p(
-            "STS3215 (2,9 Nm utyku) leży 15% poniżej wymaganego 95. percentyla (3,4 Nm) — pod normalnym "
-            "obciążeniem chodu w 5% chwil brakuje mu siły. STS3250 daje <b>4,9 Nm utyku, 44% "
-            "zapasu</b> ponad tę wartość, przy identycznym gabarycie (45,2×24,7×35 mm) i tej samej "
-            "magistrali szeregowej — to zamiennik w tym samym złączu, nie inna platforma. Jest też "
-            "szybszy (7,9 wobec 4,7 rad/s bez obciążenia), więc wyliczony profil chodu serwowego "
-            "(krok 0,08 m / cykl 0,8 s / wymach 0,012 m, szczyt 2,8 rad/s) przenosi się bez zmian, z "
-            "większym zapasem niż wcześniej. Ciężar — 74,5 g wobec 55 g na sztukę — to jedyny koszt "
-            "tej decyzji."
+            "Wymaganie to <b>1,93 Nm</b> w 95. percentylu przy masie 2,10 kg — pełne wyliczenie w "
+            "napedy-v4.pdf. ST3215 daje 2,94 Nm utyku przy 12 V i 2,57 Nm przy rozładowanym pakiecie "
+            "3S, czyli <b>33% zapasu w najgorszym punkcie</b>. Mocniejsze serwa z tej tabeli kupują "
+            "zapas, którego nie ma czym wykorzystać: prędkość kota ogranicza nie moment, tylko "
+            "quasi-statyczny charakter chodu."
         )
     )
     story.append(
         p(
-            "Zastrzeżenie do sprawdzenia na sprzęcie: testy stołowe pokazują, że przy długo "
-            "utrzymywanym, <b>unieruchomionym</b> obciążeniu zabezpieczenie termiczne ścina moment do "
-            "~25 kg·cm (2,45 Nm) — blisko poziomu STS3215. Dotyczy to stania w miejscu przez dłuższy "
-            "czas oraz póz stretch/lie-down (rzeczywiście statyczne obciążenie), nie samego chodu: "
-            "95. percentyl to krótkie, powtarzalne szczyty w ruchu, nie stojący utyk. Nie blokuje decyzji, "
-            "ale warto zmierzyć na docelowym sprzęcie."
+            "Zastrzeżenie do sprawdzenia na sprzęcie: przy długo utrzymywanym, <b>unieruchomionym</b> "
+            "obciążeniu zabezpieczenie termiczne serw tej klasy ścina moment. Dotyczy to stania w "
+            "miejscu przez dłuższy czas oraz póz stretch/lie-down — nie samego chodu, gdzie 95. "
+            "percentyl to krótkie, powtarzalne szczyty. Stąd tryb leżenia jest w projekcie także "
+            "chłodzeniem: leżący kot obciąża przeguby momentem 0,09 Nm wobec 0,72 Nm w staniu."
         )
     )
     story.append(
         p(
-            "Źródła: servodatabase.com/servo/feetech/sts3250 · "
-            "robonine.com — Feetech STS3250 Smart Actuator: Evaluation of Accuracy, Torque and Backlash",
+            "Źródło: servodatabase.com oraz karta katalogowa Waveshare ST3215 (30 kg·cm przy 12 V).",
             "FootnoteRef",
         )
     )
@@ -504,8 +509,8 @@ def build(path):
     )
     story.append(
         p(
-            "Warto zauważyć: wzorzec galopu można prototypować w symulacji już teraz, na obecnych "
-            "(fikcyjnych) napędach, i mieć go gotowego, zanim silniki zostaną kupione."
+            "Warto zauważyć: wzorzec galopu można prototypować w symulacji już teraz — podnosząc "
+            "limity w modelu do klasy QDD — i mieć go gotowego, zanim takie silniki zostaną kupione."
         )
     )
     story.append(Spacer(1, 6))
@@ -513,9 +518,9 @@ def build(path):
     story.append(p("Dlaczego nie od razu QDD?", "H2"))
     story.append(
         data_table(
-            ["", "STS3250 (wybrane)", "CubeMars AK60-6 (QDD)"],
+            ["", "ST3215 (wybrane)", "CubeMars AK60-6 (QDD)"],
             [
-                ["Koszt, 12 szt.", "~1,5-2 tys. zł", "~6-7 tys. zł (3-4×)"],
+                ["Koszt, 12 szt.", "~1,3 tys. zł", "~6-7 tys. zł (5×)"],
                 ["Kot w symulacji", "0,14 m/s, chód", "0,58-0,64 m/s, bieg realny"],
                 [
                     "Sterowanie",
@@ -584,8 +589,8 @@ def build(path):
                 ],
                 [
                     "2",
-                    "✓ Rozstrzygnięte: Feetech STS3250, patrz sekcja 5",
-                    "domyka się przy realnym budowaniu (patrz zastrzeżenie o masach)",
+                    "✓ Rozstrzygnięte: Feetech ST3215, patrz sekcja 5",
+                    "33% zapasu momentu przy masie 2,10 kg",
                 ],
                 [
                     "3",
@@ -594,9 +599,8 @@ def build(path):
                 ],
                 [
                     "4",
-                    "IMU BNO085 rozstrzygnięte; Pi 5 + Hailo-8L NIE — patrz sekcje 9-11",
-                    "IMU usuwa dryf. Pi 4B (w planie zakupowym) nie ma złącza na akcelerator; "
-                    "upgrade do Pi 5 to osobna, otwarta decyzja budżetowa",
+                    "✓ Rozstrzygnięte: IMU BNO085 oraz Pi 5 + AI HAT+, patrz sekcje 9-11",
+                    "IMU usuwa dryf; akcelerator daje rozpoznawanie obrazu w czasie rzeczywistym",
                 ],
                 [
                     "5",
@@ -628,7 +632,7 @@ def build(path):
     story.append(p("8. Montaż napędów: w stawie, nie w brzuchu", "H1"))
     story.append(
         p(
-            "Każda z 4 nóg dostaje 3 identyczne STS3250 w układzie „klastra biodrowego”, "
+            "Każda z 4 nóg dostaje 3 identyczne ST3215 w układzie „klastra biodrowego”, "
             "odwzorowującym łańcuch z URDF (<i>hip_link → thigh_link → calf_link</i>):"
         )
     )
@@ -752,20 +756,20 @@ def build(path):
     story.append(Spacer(1, 8))
 
     # ---------- 11. Kompute ----------
-    story.append(p("11. Kompute: Pi 4B (w domu) czy Pi 5 + Hailo-8L (do kupienia)?", "H1"))
+    story.append(p("11. Kompute: Raspberry Pi 5 + AI HAT+", "H1"))
     story.append(
         callout(
-            "Nierozstrzygnięte — decyzja budżetowa, nie techniczna",
-            "Plan zakupowy zakłada Pi 4B, bo jest już w domu (0 zł) i zamyka budżet 2500 zł. Pi 4B "
-            "<b>nie ma złącza PCIe</b>, więc akcelerator Hailo jest z nim fizycznie niemożliwy — nie "
-            "gorszy, niemożliwy. Reszta tej sekcji opisuje wariant z Pi 5, na wypadek gdyby budżet "
-            "na to pozwolił: Pi 5 8GB (829,90 zł) + AI HAT+ 13 TOPS (329,00 zł) = 1158,90 zł ponad "
-            "to, co już jest w planie.",
+            "Rozstrzygnięte — kosztem budżetu",
+            "Pi 5 8GB (829,90 zł) + AI HAT+ 13 TOPS (329,00 zł) są na liście zakupowej. Powód jest "
+            "techniczny, nie preferencyjny: Pi 4B <b>nie ma złącza PCIe</b>, więc akcelerator Hailo "
+            "jest z nim fizycznie niemożliwy — nie gorszy, niemożliwy. Ceną jest budżet: cała lista "
+            "wychodzi 3788,60 zł wobec pierwotnych 2500 zł, i to jest jedyne miejsce, gdzie ta "
+            "różnica powstała.",
         )
     )
     story.append(
         p(
-            "System operacyjny — dotyczy obu wariantów: <b>Raspberry Pi OS (64-bit), nie Ubuntu</b> — "
+            "System operacyjny: <b>Raspberry Pi OS (64-bit), nie Ubuntu</b> — "
             "mimo że oficjalne pakiety ROS 2 celują w Ubuntu, to Ubuntu nie ma wbudowanej obsługi "
             "czujnika Camera Module 3 (IMX708) i wymaga budowania forka libcamera ze źródeł. Raspberry "
             "Pi OS ma to od ręki. ROS 2 Jazzy stawiamy przez pixi/RoboStack (ten sam mechanizm co w "
@@ -775,8 +779,8 @@ def build(path):
     )
     story.append(
         p(
-            "<b>Tylko jeśli padnie decyzja o Pi 5:</b> do tego Raspberry Pi AI Kit — moduł Hailo-8L "
-            "(13 TOPS) w oficjalnym M.2 HAT+, wpina się wprost w jedyne złącze PCIe Pi 5."
+            "Akcelerator to <b>AI HAT+ 13 TOPS</b> — moduł Hailo-8L na oficjalnej płytce M.2, "
+            "wpinany wprost w złącze PCIe Pi 5. Dystanse i taśma PCIe są zwykle w pudełku."
         )
     )
     story.append(
@@ -791,13 +795,12 @@ def build(path):
     )
     story.append(
         p(
-            "To ~11× przyspieszenie — ale ważniejsze niż liczba klatek: bez akceleratora cała moc "
-            "obliczeniowa Pi idzie w widzenie, nic nie zostaje na chód i resztę węzłów ROS. Z osobnym "
-            "układem widzenie działa praktycznie za darmo w tle. Jeden moduł wystarcza — Pi 5 ma jedno "
-            "złącze PCIe, a 13 TOPS to zapas o rząd wielkości większy niż potrzebuje jedna kamera przy "
-            "prędkości 10 cm/s. Pierwszy krok autonomii (reaktywne unikanie przeszkód z ToF) w ogóle "
-            "tego nie wymaga — akcelerator jest potrzebny dopiero na etapie rozpoznawania wizyjnego, "
-            "więc decyzję o Pi 5 można odłożyć do tego momentu.",
+            "To ~11× przyspieszenie — ale ważniejsza niż liczba klatek jest ta konsekwencja: bez "
+            "akceleratora cała moc obliczeniowa Pi idzie w widzenie i nic nie zostaje na chód ani "
+            "resztę węzłów ROS. Z osobnym układem widzenie działa praktycznie za darmo w tle. Jeden "
+            "moduł wystarcza: 13 TOPS to zapas o rząd wielkości większy, niż potrzebuje jedna kamera "
+            "przy prędkości 10 cm/s. Kolejność prac to nie zmienia — reaktywne omijanie przeszkód "
+            "opiera się na ToF i działa, zanim ktokolwiek uruchomi sieć neuronową.",
             "FootnoteRef",
         )
     )
@@ -817,8 +820,7 @@ def build(path):
                 [
                     "Miauczenie",
                     "MAX98357A + głośnik",
-                    "wzmacniacz I2S 3W, 34,90 zł w Botlandzie (wcześniejszy odczyt "
-                    "„niedostępny” to był artefakt przekierowania VPN)",
+                    "wzmacniacz I2S 3W, 34,90 zł w Botlandzie",
                 ],
                 [
                     "Kontroler PS4",
@@ -847,7 +849,7 @@ def build(path):
     story.append(p("13. Zasilanie", "H1"))
     story.append(
         p(
-            "<b>3S LiPo</b> (11,1V, pasuje wprost do zakresu napięcia STS3250 bez przetwornicy). "
+            "<b>3S LiPo</b> (11,1V, mieści się w zakresie 6–12,6 V serwa ST3215 bez przetwornicy). "
             "Pojemność celowo z zapasem, „im dłużej tym lepiej” — ale to nie jest darmowy wybór: "
             "pojemność LiPo skaluje się z wagą niemal liniowo, a cięższy robot podbija z powrotem budżet "
             "momentu w stawach z sekcji 4/5. Realny czas pracy trzeba będzie zmierzyć na gotowym "
@@ -887,7 +889,7 @@ def build(path):
     story.append(
         p(
             "Trajektorie są już wygładzone i przetestowane (sinusoidalne uniesienie łapy, filtr "
-            "dolnoprzepustowy na komendach, brak skoków między taktami), a STS3250 ma metalowe "
+            "dolnoprzepustowy na komendach, brak skoków między taktami), a ST3215 ma metalowe "
             "przekładnie — to eliminuje szarpanie typowe dla tanich serw hobby z luźnym plastikowym "
             "osprzętem. Twardy sufit: <b>to są serwa pozycyjne, nie momentowe</b>. Prawdziwy kot chodzi "
             "płynnie, bo jego stawy są podatne — reagują na siłę jak sprężyna, a nie „jedź do kąta X "

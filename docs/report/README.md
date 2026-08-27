@@ -1,19 +1,14 @@
 # Dokumenty projektowe
 
-Trzy PDF-y w `../`, wszystkie generowane z tych skryptów:
+Pięć PDF-ów w `../`, wszystkie generowane z tych skryptów:
 
 | plik | co zawiera |
 |---|---|
-| `napedy-v4.pdf` | analiza techniczna: rozmiar, masa, moment, dobór napędu |
-| `plan-zakupowy.pdf` | lista zakupów w dwóch wariantach i decyzja |
+| `napedy-v4.pdf` | analiza techniczna: rozmiar, masa, moment, dobór napędu — **źródło prawdy dla liczb w pozostałych** |
+| `plan-zakupowy.pdf` | pełna lista zakupów z cenami i sumą |
 | `montaz.pdf` | brakujące kable i narzędzia, wymiary obudowy, kolejność montażu i uruchamiania |
 | `uzupelnienie-elektroniki.pdf` | montaż w stawie vs w brzuchu, jeden kompute vs per-noga, porównanie z QDD, płynność chodu |
 | `ekspansja-wizyjna.pdf` | plan dojścia do „idź do pokoju A, zobacz co na stole" — SLAM, Nav2, YOLOv8 na Hailo |
-
-Dwa ostatnie zakładają **Pi 5 + AI HAT+**, których plan zakupowy jeszcze nie
-przewiduje (zakłada Pi 4B z domu). Pi 4B nie ma złącza PCIe, więc akcelerator
-jest z nim fizycznie niemożliwy — to otwarta decyzja budżetowa, oznaczona jako
-taka w obu dokumentach.
 
 `montaz.pdf` bierze wymiary z `cat.urdf.xacro` przy `scale 1.0`. **Ten plik
 jest źródłem prawdy** — po zmianie modelu dokument trzeba wygenerować od nowa,
@@ -22,6 +17,12 @@ bo inaczej obudowa przestanie pasować do tego, na czym liczono momenty.
 Wszystkie liczby pochodzą z pomiarów w symulacji albo ze sprawdzenia ofert —
 skrypty ich nie liczą, tylko składają w dokument. Po nowej serii pomiarów
 trzeba je nanieść ręcznie.
+
+Dokumenty opisują **stan obecny, bez historii zmian**. Kiedy jakaś wartość
+przestaje obowiązywać, podmienia się ją, a nie dopisuje obok wyjaśnienia, co
+było wcześniej — inaczej dokumenty puchną, a czytelnik musi zgadywać, która
+liczba jest aktualna. Uzasadnienia zostają tylko wtedy, gdy dotyczą decyzji
+wciąż wiążącej.
 
 ## Odbudowa
 

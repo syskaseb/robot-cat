@@ -32,15 +32,12 @@ st3025 = [40.0 * v / 12.0 * 0.0981 for v in volts]
 ax.plot(volts, st3025, "-", color=MUTED, lw=1.6, ls="--", label="ST3025 (415 zł/szt.)")
 ax.plot(volts, st3215, "-o", color=ACCENT, lw=2.4, ms=5, label="ST3215 (109 zł/szt.)")
 
-ax.axhline(1.87, color=GOOD, lw=2.2)
-ax.axhline(3.46, color=WARM, lw=1.6, ls=":")
+ax.axhline(1.93, color=GOOD, lw=2.2)
 
-ax.text(12.55, 2.02, "potrzeba: 1,87 Nm  (realne 2,03 kg)", color=GOOD,
+ax.text(12.55, 2.08, "potrzeba: 1,93 Nm  (2,10 kg)", color=GOOD,
         fontsize=9, fontweight="bold", va="bottom")
-ax.text(12.55, 3.60, "3,46 Nm — gdyby robot ważył 3,7 kg jak w symulacji",
-        color=WARM, fontsize=8.2, va="bottom")
 
-ax.annotate("zapas 39%\nna pustej baterii", xy=(10.5, 2.58), xytext=(10.75, 1.15),
+ax.annotate("zapas 33%\nna pustej baterii", xy=(10.5, 2.58), xytext=(10.75, 1.15),
             fontsize=8.4, color=ACCENT, ha="center",
             arrowprops=dict(arrowstyle="->", color=ACCENT, lw=1.2))
 

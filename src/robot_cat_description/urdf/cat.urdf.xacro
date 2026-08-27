@@ -13,33 +13,26 @@
        multiplied by this; masses go as scale^3 and joint effort as scale^4,
        which is how joint torque actually scales (mass x lever arm).
 
-       1.00 is a real domestic cat and is the right default: 24.2 cm at the
-       withers against a live cat's 24, and 3.7 kg against 3.6-5.4. Nothing
-       needs multiplying to get there. (An earlier revision briefly defaulted
-       to 1.11 on the strength of a stale 21.7 cm figure, taken before the
-       chest was deepened to cat proportions; deepening the body raised the
-       withers, and 1.11 then overshot to 26.9 cm.)
+       1.00 is the robot that gets built: 24.2 cm at the withers against a
+       live cat's 24, and 2.1 kg of servos, printed shell, battery and
+       electronics. Nothing needs multiplying to get there, and the ST3215
+       torque limit below is only true at this scale.
 
-       Scale is not a cosmetic choice, it picks an actuator class. Measured
-       walking at 0.1 m/s, worst joint, 95th percentile:
-
-           1.00 (real cat, 3.7 kg)    ~5 Nm
-           1.87 (50 cm, 24 kg)        27 Nm
-
-       Torque goes as roughly the 3.5 power of size, so a robot that merely
-       looks bigger costs five times the motor. 1.87 is what "about 50 cm
-       tall" works out to if the animal keeps cat proportions - and at that
-       size a cat-shaped thing is a lynx, which really does weigh 20 kg. -->
+       Scale is not a cosmetic choice, it picks an actuator class. Torque
+       goes as roughly the 3.5 power of size, so an animal that merely looks
+       bigger costs several times the motor and leaves the ST3215 class
+       entirely. Anything other than 1.00 needs its own torque measurement
+       before it means anything. -->
   <xacro:arg name="scale" default="1.0"/>
   <xacro:property name="scale" value="$(arg scale)"/>
 
-  <!-- Construction weight, separate from size. scale^3 assumes the animal is
-       filled with whatever the 3.7 kg original was made of, which is how a
-       22 cm cat becomes a 24 kg robot at scale 1.87. A real build is hollow:
-       Unitree's Go2 is 15 kg at about that size, so mass_scale 0.62 models a
-       lightweight frame at the same dimensions. Torque tracks mass almost
-       linearly in a quasi-static walk, so this is the cheapest lever there
-       is on actuator class - cheaper than shrinking the robot. -->
+  <!-- Construction weight, separate from size. The masses below are the
+       parts list, so 1.0 is the robot as specified and needs no correction.
+       The knob exists to ask what a heavier or lighter build would cost in
+       torque: it tracks mass almost linearly in a quasi-static walk, which
+       makes it the cheapest lever there is on actuator class. The obvious
+       use is checking the PETG estimate - the shell is 700 g of the 2.1 kg
+       and is the one figure nobody has weighed yet. -->
   <xacro:arg name="mass_scale" default="1.0"/>
   <xacro:property name="mass_scale" value="$(arg mass_scale)"/>
 
@@ -48,20 +41,20 @@
        a length here, change it there too, or the gait will command feet to
        places the legs cannot reach. -->
   <xacro:property name="hip_offset"   value="${0.025 * scale}"/>  <!-- hip roll -> thigh pitch, lateral -->
-  <!-- 0.09 made a long, low animal: 18.7 cm at the withers over a 22 cm hip
-       span, a ratio of 0.85. A cat is close to square in profile - it stands
-       about as tall at the shoulder as its trunk is long - so the old figure
-       read as a dachshund. 0.11 puts the withers at 21.7 cm for a ratio of
-       0.99, and holds the standing knee at the same 73% of full reach the
-       0.09 leg had, so the gait keeps its bend and its swing clearance. -->
+  <!-- A cat is close to square in profile - it stands about as tall at the
+       shoulder as its trunk is long. 0.11 puts the hip 17.2 cm up and the
+       withers at 24.2 cm over a 22 cm hip span, and holds the standing knee
+       at 73% of full reach, which is what gives the gait its bend and its
+       swing clearance. Segment length and stance_height move together:
+       raising one alone straightens the knee towards a locked leg. -->
   <xacro:property name="thigh_length" value="${0.11 * scale}"/>   <!-- L1 -->
   <xacro:property name="calf_length"  value="${0.11 * scale}"/>   <!-- L2 -->
   <xacro:property name="foot_radius"  value="${0.012 * scale}"/>
 
   <!-- A cat's trunk is deeper than it is wide - chest girth of about
        38 cm works out near 14 cm deep by 10 cm across - so the box is
-       length : width : depth = 1 : 0.37 : 0.47. The old 1 : 0.47 : 0.30 was
-       the other way round and read as a slab on legs rather than an animal. -->
+       length : width : depth = 1 : 0.37 : 0.47. Keep it that way round: a
+       trunk wider than it is deep reads as a slab on legs, not an animal. -->
   <xacro:property name="body_length" value="${0.30 * scale}"/>
   <xacro:property name="body_width"  value="${0.111 * scale}"/>
   <xacro:property name="body_height" value="${0.141 * scale}"/>
@@ -71,31 +64,46 @@
   <xacro:property name="hip_y" value="${0.055 * scale}"/>
 
   <!-- ==================== masses ====================
-       The head and tail are cosmetic but no longer fixed joints, so their
-       mass is a free body hanging off the trunk instead of being lumped into
-       it by SDF conversion. Two things follow, and both showed up as a
-       visibly bouncier trot when the tail was actuated:
+       These are the parts list, not a scaled animal, and they sum to the
+       2.095 kg budget in docs/napedy-v4.pdf. Where each part physically
+       sits decides which link carries it, and the servos dominate: twelve
+       ST3215 at 69 g are 828 g of the total.
 
-       * the trunk lost the parallel-axis share those masses used to
-         contribute to its pitch inertia (0.0263 -> 0.0164, a 38% drop), so
-         it now pitches far more readily each half stride;
-       * whatever mass they keep slops about on a long lever at the very
-         ends of the body, exactly where it disturbs pitch most.
+       The roll servo is bolted to the trunk, so its mass is base_link's.
+       hip_link carries the thigh pitch servo it swings, thigh_link carries
+       the knee servo at the knee, and calf_link is unpowered - printed
+       segment, paw pad and the wiring crossing it. That makes the lower leg
+       light, which is what a swing leg wants.
 
-       So they carry token mass, damped enough to settle rather than swing,
-       and `body_mass` carries what they gave up - total mass is unchanged. -->
-  <xacro:property name="body_mass"  value="${2.23 * scale**3 * mass_scale}"/>
-  <xacro:property name="head_mass"  value="${0.06 * scale**3 * mass_scale}"/>
-  <xacro:property name="neck_mass"  value="${0.01 * scale**3 * mass_scale}"/>
-  <xacro:property name="tail_mass"  value="${0.015 * scale**3 * mass_scale}"/>
-  <!-- Cosmetic joints only. Far stiffer than the legs: they are meant to hold
-       a pose, and any wobble here feeds straight back into the trunk. -->
-  <xacro:property name="trim_damping" value="0.4"/>
-  <xacro:property name="hip_mass"   value="${0.10 * scale**3 * mass_scale}"/>
-  <!-- Scaled with the 0.09 -> 0.11 lengthening, so the longer links do not
-       quietly become less dense than the ones they replaced. -->
-  <xacro:property name="thigh_mass" value="${0.147 * scale**3 * mass_scale}"/>
-  <xacro:property name="calf_mass"  value="${0.098 * scale**3 * mass_scale}"/>
+           base_link  1042 g   4 roll servos, battery, Pi 5 + AI HAT+,
+                               trunk shell, converters, wiring
+           head         80 g   shell, camera, IR illuminator, 2 microservos
+           tail         27 g   shell and its microservo
+           per leg     234 g   88 hip + 109 thigh + 37 calf
+
+       Head and tail are actuated, not fixed, so their mass hangs off the
+       trunk on a long lever instead of being lumped into it by SDF
+       conversion - exactly where it disturbs pitch most. They are damped
+       stiffly below so they settle rather than swing. -->
+  <xacro:property name="body_mass"  value="${1.042 * scale**3 * mass_scale}"/>
+  <xacro:property name="head_mass"  value="${0.080 * scale**3 * mass_scale}"/>
+  <xacro:property name="neck_mass"  value="${0.010 * scale**3 * mass_scale}"/>
+  <xacro:property name="tail_mass"  value="${0.027 * scale**3 * mass_scale}"/>
+  <xacro:property name="hip_mass"   value="${0.088 * scale**3 * mass_scale}"/>
+  <xacro:property name="thigh_mass" value="${0.109 * scale**3 * mass_scale}"/>
+  <xacro:property name="calf_mass"  value="${0.037 * scale**3 * mass_scale}"/>
+
+  <!-- Head and tail joints. Damped far stiffer than the legs: they are meant
+       to hold a pose, and any wobble here feeds straight back into the trunk.
+
+       Effort and velocity are a metal-gear microservo of the class the parts
+       list budgets for - the plan names three of them but not a model, so
+       0.20 Nm is the conservative end of that class rather than a datasheet
+       figure. It is ample either way: the head is 80 g on a 3 cm lever, so
+       holding it up takes 0.024 Nm. -->
+  <xacro:property name="trim_damping"  value="0.4"/>
+  <xacro:property name="trim_effort"   value="${0.20 * scale**4}"/>
+  <xacro:property name="trim_velocity" value="8.0"/>
 
   <!-- ==================== joint properties ====================
        Ranges are deliberately generous for the pitch joints so the gait has
@@ -106,8 +114,27 @@
   <xacro:property name="thigh_upper"    value="2.60"/>
   <xacro:property name="calf_lower"     value="-2.70"/>
   <xacro:property name="calf_upper"     value="-0.10"/>
-  <xacro:property name="joint_effort"   value="${20.0 * scale**4}"/>
-  <xacro:property name="joint_velocity" value="20.0"/>
+
+  <!-- The actuator is a Waveshare ST3215, and these are its numbers, not
+       headroom picked to make the simulation behave.
+
+       Effort is stall torque at the *worst* battery state. The datasheet
+       30 kg.cm is quoted at 12 V and a DC motor's stall torque tracks
+       voltage, so a 3S pack gives 3.08 Nm freshly charged and 2.57 Nm by the
+       time it is nearly flat. Sizing on 2.57 means the cat does not get
+       weaker than the simulation as the battery drains. The walk needs
+       1.93 Nm at the 95th percentile, so this is about 33% margin.
+
+       Velocity is the no-load figure, 0.222 s/60 degrees at 12 V. The gait
+       peaks near 2.8 rad/s, so it fits, but not by so much that a faster
+       cycle time is free.
+
+       Effort keeps the scale^4 factor because required torque scales that
+       way; the ST3215 itself does not, so any scale but 1.00 has left this
+       actuator behind. Velocity is unscaled - a servo turns at the speed it
+       turns regardless of how big the animal around it is. -->
+  <xacro:property name="joint_effort"   value="${2.57 * scale**4}"/>
+  <xacro:property name="joint_velocity" value="4.7"/>
   <xacro:property name="joint_damping"  value="0.05"/>
   <xacro:property name="joint_friction" value="0.01"/>
   <xacro:property name="foot_mu"        value="1.2"/>
@@ -144,7 +171,7 @@
     <child link="neck_link"/>
     <origin xyz="${body_length/2} 0 ${body_height/2}" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-0.6" upper="0.6" effort="5" velocity="6"/>
+    <limit lower="-0.6" upper="0.6" effort="${trim_effort}" velocity="${trim_velocity}"/>
     <dynamics damping="${trim_damping}" friction="${joint_friction}"/>
   </joint>
   <link name="neck_link">
@@ -160,7 +187,7 @@
          from "positive tilt = look up" used by the tilt_lower/tilt_upper
          convention below and by robot_cat_teleop. -->
     <axis xyz="0 -1 0"/>
-    <limit lower="-0.3" upper="0.5" effort="5" velocity="6"/>
+    <limit lower="-0.3" upper="0.5" effort="${trim_effort}" velocity="${trim_velocity}"/>
     <dynamics damping="${trim_damping}" friction="${joint_friction}"/>
   </joint>
   <link name="head_link">
@@ -179,9 +206,10 @@
 
          Only one of them is a camera. Stereo exists solely to recover depth,
          and docs/plan-zakupowy.pdf takes depth from a VL53L5CX time-of-flight
-         sensor instead - two camera modules would need syncing and
-         calibrating on a machine that shakes as it walks, and a Pi 4B has a
-         single CSI port anyway.
+         sensor instead: two camera modules would need syncing and calibrating
+         on a machine that shakes as it walks, and the other socket is spoken
+         for by the illuminator. The Pi 5 does have two CSI ports, so stereo
+         stays physically possible - it is just not what the depth comes from.
 
          The camera is the *NoIR* variant - no infrared cut filter, so it sees
          the illuminator and the cat can see in the dark. That costs correct
@@ -237,7 +265,7 @@
     <axis xyz="0 1 0"/>
     <!-- Wider than the sweep TailParams actually uses, so the controller
          settles on its target instead of pushing against the joint stop. -->
-    <limit lower="-1.4" upper="1.0" effort="5" velocity="6"/>
+    <limit lower="-1.4" upper="1.0" effort="${trim_effort}" velocity="${trim_velocity}"/>
     <dynamics damping="${trim_damping}" friction="${joint_friction}"/>
   </joint>
   <link name="tail_link">

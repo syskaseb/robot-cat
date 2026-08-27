@@ -16,7 +16,7 @@ from reportlab.platypus import (
 
 import os
 
-_FONT_CANDIDATES = [
+_FONT_DIRS = [
     os.path.expanduser("~/Library/Fonts"),          # macOS, Homebrew --cask font-dejavu
     "/Library/Fonts",                                # macOS, system-wide
     "/usr/share/fonts/truetype/dejavu",              # Debian/Ubuntu, apt fonts-dejavu-core
@@ -24,31 +24,40 @@ _FONT_CANDIDATES = [
 ]
 
 
-def _find_font_dir():
-    for candidate in _FONT_CANDIDATES:
-        if os.path.exists(os.path.join(candidate, "DejaVuSans.ttf")):
-            return candidate
+def _mpl_font_dir():
     try:
         import matplotlib
-        mpl_dir = os.path.join(os.path.dirname(matplotlib.__file__), "mpl-data", "fonts", "ttf")
-        if os.path.exists(os.path.join(mpl_dir, "DejaVuSans.ttf")):
-            return mpl_dir
     except ImportError:
-        pass
+        return None
+    return os.path.join(os.path.dirname(matplotlib.__file__), "mpl-data", "fonts", "ttf")
+
+
+def _font(filename):
+    """Locate one DejaVu face.
+
+    Each face is resolved on its own rather than picking a directory from
+    DejaVuSans.ttf and assuming the rest are beside it: Debian's
+    fonts-dejavu-core ships the regular and bold weights but not the oblique,
+    so that assumption crashes on a stock Ubuntu. matplotlib bundles the full
+    set, which is the fallback - and the reason this works in the pixi env
+    without installing anything.
+    """
+    for directory in [*_FONT_DIRS, _mpl_font_dir()]:
+        if directory and os.path.exists(os.path.join(directory, filename)):
+            return os.path.join(directory, filename)
     sys.exit(
-        "DejaVu Sans not found - needed for Polish diacritics, which reportlab's "
-        "built-in Helvetica cannot render (they come out as black boxes).\n"
-        "Install it:\n"
+        f"{filename} not found - DejaVu Sans is needed for Polish diacritics, "
+        "which reportlab's built-in Helvetica cannot render (they come out as "
+        "black boxes).\nInstall it:\n"
         "  brew install --cask font-dejavu          # macOS\n"
         "  apt install fonts-dejavu-core            # Debian/Ubuntu\n"
         "or run this from the ROS pixi env, which bundles it via matplotlib."
     )
 
 
-FONT_DIR = _find_font_dir()
-pdfmetrics.registerFont(TTFont("DejaVu", f"{FONT_DIR}/DejaVuSans.ttf"))
-pdfmetrics.registerFont(TTFont("DejaVu-Bold", f"{FONT_DIR}/DejaVuSans-Bold.ttf"))
-pdfmetrics.registerFont(TTFont("DejaVu-Oblique", f"{FONT_DIR}/DejaVuSans-Oblique.ttf"))
+pdfmetrics.registerFont(TTFont("DejaVu", _font("DejaVuSans.ttf")))
+pdfmetrics.registerFont(TTFont("DejaVu-Bold", _font("DejaVuSans-Bold.ttf")))
+pdfmetrics.registerFont(TTFont("DejaVu-Oblique", _font("DejaVuSans-Oblique.ttf")))
 
 TEAL = colors.HexColor("#1B4B5A")
 TEAL_TABLE = colors.HexColor("#1F5C6E")
@@ -59,7 +68,7 @@ INK = colors.HexColor("#222222")
 
 DOC_TITLE = "Robot Cat — ekspansja wizyjna"
 DOC_DATE = "sierpień 2026"
-FOOTER_NOTE = "Plan na przyszłość, zależny od decyzji Pi 5 — nic tu nie jest jeszcze kupione ani wdrożone"
+FOOTER_NOTE = "Plan na przyszłość — sprzęt jest w planie zakupowym, oprogramowania jeszcze nie ma"
 
 styles = {}
 styles["Title"] = ParagraphStyle("Title", fontName="DejaVu-Bold", fontSize=24, leading=28, textColor=TEAL, spaceAfter=4)
@@ -142,20 +151,17 @@ def build(path):
     story.append(p("Robot Cat", "Title"))
     story.append(p("Ekspansja: mapa domu i rozpoznawanie wizyjne", "Subtitle"))
     story.append(p(
-        "Punkt wyjścia: kamera (Camera Module 3), VL53L5CX i BNO085 są w planie zakupowym. "
-        "<b>Raspberry Pi 5 + Raspberry Pi AI HAT+ 13 TOPS (Hailo-8L) nie są jeszcze zdecydowane</b> "
-        "— plan zakupowy wciąż zakłada Pi 4B bez akceleratora (patrz plan-zakupowy.pdf). Cała "
-        "ekspansja opisana tu wymaga tej zmiany, bo Pi 4B nie ma złącza PCIe na Hailo. Ten "
-        "dokument rozpisuje, czego jeszcze brakuje, żeby dojść od „ma kamerę” do „idź do pokoju A, "
-        "zobacz co jest na stole” — <b>pod warunkiem</b>, że Pi 5 + HAT zostaną kupione."
+        "Punkt wyjścia: cały potrzebny sprzęt jest w planie zakupowym — kamera Camera Module 3, "
+        "VL53L5CX, BNO085 oraz Raspberry Pi 5 z AI HAT+ 13 TOPS (Hailo-8L). Ten dokument rozpisuje, "
+        "czego brakuje po stronie <b>oprogramowania</b>, żeby dojść od „ma kamerę” do „idź do "
+        "pokoju A, zobacz co jest na stole”."
     ))
     story.append(Spacer(1, 4))
     story.append(callout(
         "Wniosek w jednym zdaniu",
         "Brakujące warstwy to mapowanie (SLAM wizyjny), nazwane miejsca na mapie, rozpoznawanie "
-        "obiektów i prosty sekwencer łączący je w jedną komendę — żadna z nich nie wymaga nowego "
-        "sprzętu ponad Pi 5 + Hailo-8L, którego zakup jest osobną, wciąż otwartą decyzją, i żadna "
-        "nie działa w izolacji od reszty.",
+        "obiektów i prosty sekwencer łączący je w jedną komendę — <b>żadna z nich nie wymaga "
+        "sprzętu spoza planu zakupowego</b>, i żadna nie działa w izolacji od reszty.",
     ))
     story.append(Spacer(1, 6))
 
@@ -174,7 +180,7 @@ def build(path):
 
     story.append(p("2. Mapowanie: SLAM wizyjny", "H1"))
     story.append(p(
-        "Bez LiDAR-u (decyzja podjęta wcześniej) mapowanie musi iść z kamery i IMU, które już mamy "
+        "Bez LiDAR-u — patrz plan-zakupowy.pdf — mapowanie idzie z kamery i IMU, które już są "
         "w planie. To dokładnie do czego służy <b>RTAB-Map</b> — pakiet ROS 2 do wizyjnego SLAM-u, z "
         "potwierdzonym wsparciem dla Jazzy. Buduje mapę 3D albo czystą siatkę zajętości 2D (do "
         "nawigacji) z jednej kamery RGB i danych IMU, wykorzystując wykrywanie zamknięć pętli "
