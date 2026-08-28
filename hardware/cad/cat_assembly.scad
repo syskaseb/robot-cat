@@ -55,12 +55,39 @@ module cap_at(sy, out) {
             rotate([sy > 0 ? -90 : 90, 0, 0]) joint_cap();
 }
 
+// Inspection toggles, both off/on so the default render still shows the cat
+// rather than a box of parts. Override from the command line, for example
+//
+//   openscad -D show_skin=false -D show_servos=true ... cat_assembly.scad
+//
+// to check that the structural chain closes and nothing collides.
+show_skin = true;
+show_servos = false;
+servo_col = [0.95, 0.60, 0.10];
+
+// A servo at the current joint. Same frame as servo_pocket() in helpers.scad:
+// the origin is the OUTPUT AXIS, not the case centre, and the body hangs back
+// along -Z behind the horn plate that bolts to it.
+module servo_at() {
+    if (show_servos)
+        color(servo_col, 0.45)
+            translate([-servo_axis_x - servo_l / 2, -servo_w / 2, -servo_h])
+                cube([servo_l, servo_w, servo_h]);
+}
+
 module one_leg(sx, sy) {
     translate([sx * hip_x, sy * hip_y, 0])
         rotate([sy * stand_hip, 0, 0]) {
+            servo_at();
             cap_at(sy, 4);
+            // The lateral bridge from the roll servo's horn to the thigh
+            // servo's case. Without it the thigh appears to float the
+            // hip_offset gap away from the body.
+            color(struct_col)
+                rotate([sy > 0 ? -90 : 90, 0, 0]) hip_link();
             translate([0, sy * hip_offset, 0])
                 rotate([0, stand_thigh, 0]) {
+                    servo_at();
                     // Fairings run along +Z in their own file; the segments
                     // hang downward here, so each is flipped and pulled back
                     // from the end plates the joint caps already cover.
@@ -72,6 +99,7 @@ module one_leg(sx, sy) {
                     translate([0, 0, -thigh_length]) {
                         cap_at(sy, 14);
                         rotate([0, stand_knee, 0]) {
+                            servo_at();
                             color(struct_col)
                                 rotate([0, 180, 0]) calf_segment();
                             color(trim_col)
@@ -109,7 +137,7 @@ module tail_assembly() {
     chain(0);
 }
 
-skin();
+if (show_skin) skin();
 
 // The neck leaves the chest at neck_rise, the collar follows it, and the
 // head is levelled again at the far end and then dropped by head_droop.
