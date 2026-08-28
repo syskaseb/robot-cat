@@ -92,8 +92,10 @@ module one_leg(sx, sy) {
                     // hang downward here, so each is flipped and pulled back
                     // from the end plates the joint caps already cover.
                     // the structural segment, and the fairing over it
+                    // hand = sy keeps the servo plates outboard on both
+                    // sides; the parts are handed, so this is 2+2 prints.
                     color(struct_col)
-                        rotate([0, 180, 0]) thigh_segment();
+                        rotate([0, 180, 0]) thigh_segment(sy);
                     color(trim_col)
                         translate([0, 0, -13]) rotate([0, 180, 0]) thigh_fairing();
                     translate([0, 0, -thigh_length]) {
@@ -101,7 +103,7 @@ module one_leg(sx, sy) {
                         rotate([0, stand_knee, 0]) {
                             servo_at();
                             color(struct_col)
-                                rotate([0, 180, 0]) calf_segment();
+                                rotate([0, 180, 0]) calf_segment(sy);
                             color(trim_col)
                                 translate([0, 0, -16]) rotate([0, 180, 0]) calf_fairing();
                             color([0.06, 0.06, 0.06])

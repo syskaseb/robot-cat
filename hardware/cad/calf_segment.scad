@@ -13,12 +13,18 @@ spine_w = calf_spine[0];
 spine_h = calf_spine[1];
 stub_h = wall * 2;
 
-module calf_segment() {
+// Only one plate here: the knee. Like the thigh, that joint bends about a
+// lateral axis, so the plate faces sideways rather than along the leg - see
+// the note in thigh_segment.scad. The paw stub at the far end is a plain
+// insert boss and keeps its original axis, since nothing rotates there.
+module calf_segment(hand = 1) {
+    ry = hand > 0 ? -90 : 90;
+    off = hand * (spine_h / 2 - 1);   // see the note in thigh_segment.scad
     union() {
-        horn_plate(wall);
+        translate([0, off, 0]) rotate([ry, 0, 0]) horn_plate(wall);
         translate([0, 0, calf_length - stub_h]) insert_boss(stub_h);
-        translate([-spine_w / 2, -spine_h / 2, wall - 1])
-            cube([spine_w, spine_h, calf_length - stub_h - wall + 2]);
+        translate([-spine_w / 2, -spine_h / 2, 0])
+            cube([spine_w, spine_h, calf_length - stub_h + 1]);
     }
 }
 
