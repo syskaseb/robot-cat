@@ -165,30 +165,111 @@ module body_panel(top, fore) {
 // Same trap as the body: these are sphere centres, so the skull runs from
 // (x - r) to (x + r). Keeping that inside +/-head_l/2 is what stops the head
 // quietly growing past the size the neck servos were picked for.
+// Stations in REAL mm, and deliberately NOT scaled along x. Scaling the
+// skull lengthwise made it impossible to say where it ended, and a muzzle
+// whose step you cannot place is a muzzle that fuses into the skull - which
+// is exactly how the first version came out looking like a smooth egg.
 head_stations = [
-    [-15,  0,   -2,  24],   // back of the skull
-    [ -6,  0,    4,  30],   // brow and cheekbones, the widest point
-    [  8,  0,   -1,  25],   // between the eyes
-    [ 22,  0,   -9,  15],   // muzzle
-    [ 29,  0,  -12,  10],   // nose
+    [-16,  0,  -2,  25],   // back of the skull
+    [ -5,  0,   4,  31],   // brow and cheekbones - the widest point
+    [ 10,  0,  -1,  26],   // front of the cranium
 ];
+head_station_w = 62;       // 2 x the largest radius above
 
-// The stations below span x = -39 .. +39, so the x scale is head_l/78. All
-// three axes are driven by a parameter; none of head_w, head_h or head_l is
-// decorative.
-head_station_span = 78;
-
-module head_form(inset = 0) {
-    scale([head_l / head_station_span, head_w / 60, head_h / 60])
+module skull_form(inset = 0) {
+    scale([1, head_w / head_station_w, head_h / head_station_w])
         hull()
             for (s = head_stations)
                 translate([s[0], s[1], s[2]])
                     sphere(r = max(s[3] - inset, 0.05));
 }
 
+// The muzzle as its own rounded volume, sitting PROUD of the cheeks and
+// BELOW the brow. Both of those are the point:
+//
+//   at the junction the skull is about 43mm across and the muzzle 34, so
+//   there is a visible step rather than a taper;
+//   the brow reaches z = +18 while the muzzle tops out near +3, so it
+//   overhangs - which is the single strongest feline cue on a face.
+muzzle_x = 30;             // where the muzzle's own body starts
+muzzle_z = -10;
+
+module muzzle_form(inset = 0) {
+    r = 8 - inset;
+    translate([muzzle_x, 0, muzzle_z])
+        hull() {
+            for (sy = [-1, 1], sz = [-1, 1])
+                translate([0, sy * (muzzle_w / 2 - 8), sz * (muzzle_h / 2 - 8)])
+                    sphere(r = max(r, 0.05));
+            // the nose, carried forward and a touch down
+            translate([muzzle_out + 8, 0, -3]) sphere(r = max(r - 2, 0.05));
+        }
+}
+
+module head_form(inset = 0) {
+    union() {
+        skull_form(inset);
+        muzzle_form(inset);
+    }
+}
+
 // Where an ear plugs in. head_upper cuts its socket through this transform
 // and cat_assembly places the printed ear through the same one, so the two
 // cannot drift apart - the socket and the plug are the same statement.
+// The eye. A ball pushed through the bore FROM INSIDE, seating on a
+// counterbore behind it - the way an eye actually sits in a socket, and the
+// only arrangement where the lens can be bigger than the hole it shows
+// through. Assembled before head_lower goes on, which is why the head splits
+// below the eye line in the first place.
+//
+// It is a separate part because it is the one piece that wants a different
+// material: clear or amber PETG reads as an eye, the same black as the skull
+// reads as a hole.
+// The counterbore floor sits AT the eye centre, so everything below is
+// measured from one plane instead of from the skull surface - which is a
+// hull and has no x I can write down.
+eye_flange_d = 21.4;
+eye_flange_h = 2.4;
+
+module eye_socket_cut() {
+    rotate([0, 90, 0]) {
+        // the bore the ball shows through
+        cylinder(d = eye_d, h = 60, center = true);
+        // the counterbore it seats against, opening inwards to the floor
+        translate([0, 0, -40]) cylinder(d = eye_flange_d, h = 40);
+    }
+}
+
+module eye_lens_blank() {
+    union() {
+        cylinder(d = eye_flange_d - 0.4, h = eye_flange_h);
+        translate([0, 0, eye_flange_h + (eye_d - 0.3) / 2])
+            sphere(d = eye_d - 0.3);
+    }
+}
+
+// The finished lens: the blank trimmed by the skull surface pushed OUT by
+// eye_bulge. Trimming against the head is what makes the protrusion an
+// exact number instead of whatever falls out of the arithmetic - the skull
+// is a hull and there is no x for its surface I could write down. Seat the
+// ball's equator in the bore and it stands proud by its whole radius, which
+// is how the first attempt ended up with golf balls for eyes.
+// Only the BALL is trimmed. Trimming the whole blank cut the flange off the
+// ball and left two loose pieces, because the flange sits well inside the
+// skull and the trim solid stops at its surface.
+module eye_at(sy) {
+    union() {
+        at_eye(sy) rotate([0, 90, 0])
+            cylinder(d = eye_flange_d - 0.4, h = eye_flange_h + 4);
+        intersection() {
+            at_eye(sy) rotate([0, 90, 0])
+                translate([0, 0, eye_flange_h + (eye_d - 0.3) / 2])
+                    sphere(d = eye_d - 0.3);
+            head_form(-eye_bulge);
+        }
+    }
+}
+
 module at_ear(sy) {
     translate([ear_x, sy * ear_spacing / 2, ear_seat_z])
         rotate([sy * ear_splay, 0, 0]) children();
@@ -211,19 +292,59 @@ module at_eye(sy) {
 // The mouth is cut narrower than the spine on purpose - that interference is
 // the whole retention. Nothing bolts on, so a fairing can be pulled off to
 // reach a horn screw without touching the joint.
-module limb_fairing(spine_w, spine_h, len) {
+// A capsule with domed ends that snaps over the spine. Two things matter and
+// both are about separation, not about the tube itself: the ends are DOMED,
+// so a segment reads as its own closed volume, and the capsule is shorter
+// than the joint spacing, so bare spine shows at each end. A fairing that
+// runs the full joint-to-joint distance with flat ends welds the leg into one
+// mass - which is how the first attempt ended up looking like an insect.
+module limb_fairing(spine_w, spine_h, len, d0, d1) {
     iw = spine_w + 2 * fairing_gap;
     ih = spine_h + 2 * fairing_gap;
-    cr = ih / 2;
-    ox = iw / 2 - cr;
     mouth_w = spine_w * 0.84;
     difference() {
-        hull() for (sx = [-1, 1])
-            translate([sx * ox, 0, 0]) cylinder(r = cr + skin, h = len);
+        hull() {
+            translate([0, 0, d0 / 2]) scale([1, 0.72, 1]) sphere(d = d0);
+            translate([0, 0, len - d1 / 2]) scale([1, 0.72, 1]) sphere(d = d1);
+        }
+        // the bore the spine sits in
         translate([0, 0, -1]) hull() for (sx = [-1, 1])
-            translate([sx * ox, 0, 0]) cylinder(r = cr, h = len + 2);
-        translate([-mouth_w / 2, -(cr + skin + 1), -1])
-            cube([mouth_w, cr + skin + 1 - cr * 0.55, len + 2]);
+            translate([sx * (iw / 2 - ih / 2), 0, 0])
+                cylinder(r = ih / 2, h = len + 2);
+        // snap mouth
+        translate([-mouth_w / 2, -(d0 / 2 + 1), -1])
+            cube([mouth_w, d0 / 2 + 1 - ih * 0.28, len + 2]);
+    }
+}
+
+// The barrel over a joint. Structural: it bolts to the servo's idle face and
+// to the segment, closing the yoke so the joint is carried on both sides.
+// Visually it is the thing that separates one limb segment from the next.
+module joint_housing() {
+    difference() {
+        union() {
+            hull() {
+                cylinder(d = housing_d, h = housing_len - housing_d / 4,
+                         center = true);
+                scale([1, 1, 0.5]) sphere(d = housing_d);
+            }
+        }
+        // hollow for the servo
+        hull() {
+            cylinder(d = housing_d - 2 * housing_wall,
+                     h = housing_len - housing_d / 4 - housing_wall,
+                     center = true);
+            scale([1, 1, 0.5]) sphere(d = housing_d - 2 * housing_wall);
+        }
+        // open the side the segment enters from
+        translate([-housing_d, -housing_d / 2, -housing_len])
+            cube([housing_d * 2, housing_d, housing_len]);
+        // the measured idle-face bolt circle
+        for (a = [45, 135, 225, 315]) rotate([0, 0, a])
+            translate([horn_bolt_r, 0, housing_len / 2 - housing_wall - 1])
+                cylinder(d = horn_bolt_d, h = housing_wall + 4);
+        translate([0, 0, housing_len / 2 - housing_wall - 1])
+            cylinder(d = horn_hub_d, h = housing_wall + 4);
     }
 }
 

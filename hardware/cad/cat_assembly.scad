@@ -19,7 +19,8 @@ use <head_upper.scad>
 use <head_lower.scad>
 use <ear.scad>
 use <neck_collar.scad>
-use <joint_cap.scad>
+use <joint_housing.scad>
+use <eye_lens.scad>
 use <thigh_fairing.scad>
 use <calf_fairing.scad>
 use <tail_segment.scad>
@@ -34,10 +35,14 @@ stand_thigh = 43.0;
 stand_knee = -86.0;
 stand_hip = 10.3;
 
-body_col = [0.10, 0.10, 0.11];
-trim_col = [0.17, 0.17, 0.19];
-struct_col = [0.30, 0.30, 0.33];
-eye_col = [0.85, 0.64, 0.13];
+// Everything prints in the same black PETG. The tiny differences below are
+// only so adjacent parts are distinguishable in a render - painting the
+// structure light grey made the legs read as thin sticks with a bright core,
+// which is not what the built cat looks like.
+body_col   = [0.10, 0.10, 0.11];
+trim_col   = [0.13, 0.13, 0.145];
+struct_col = [0.16, 0.16, 0.175];
+eye_col    = [0.85, 0.62, 0.10];
 
 module skin() {
     color(body_col) {
@@ -48,11 +53,12 @@ module skin() {
     }
 }
 
-// A joint cap on the outer face of a joint, facing away from the body.
-module cap_at(sy, out) {
+// The barrel over a joint. Its axis is the joint axis, so it is centred on
+// the joint rather than stuck to one side of it.
+module housing_at(sy) {
     color(trim_col)
-        translate([0, sy * out, 0])
-            rotate([sy > 0 ? -90 : 90, 0, 0]) joint_cap();
+        translate([0, sy * (housing_len / 2 - 6), 0])
+            rotate([sy > 0 ? -90 : 90, 0, 0]) joint_housing();
 }
 
 // Inspection toggles, both off/on so the default render still shows the cat
@@ -79,7 +85,7 @@ module one_leg(sx, sy) {
     translate([sx * hip_x, sy * hip_y, 0])
         rotate([sy * stand_hip, 0, 0]) {
             servo_at();
-            cap_at(sy, 4);
+            housing_at(sy);
             // The lateral bridge from the roll servo's horn to the thigh
             // servo's case. Without it the thigh appears to float the
             // hip_offset gap away from the body.
@@ -97,15 +103,17 @@ module one_leg(sx, sy) {
                     color(struct_col)
                         rotate([0, 180, 0]) thigh_segment(sy);
                     color(trim_col)
-                        translate([0, 0, -13]) rotate([0, 180, 0]) thigh_fairing();
+                        translate([0, 0, -limb_gap - housing_d / 4])
+                            rotate([0, 180, 0]) thigh_fairing();
                     translate([0, 0, -thigh_length]) {
-                        cap_at(sy, 14);
+                        housing_at(sy);
                         rotate([0, stand_knee, 0]) {
                             servo_at();
                             color(struct_col)
                                 rotate([0, 180, 0]) calf_segment(sy);
                             color(trim_col)
-                                translate([0, 0, -16]) rotate([0, 180, 0]) calf_fairing();
+                                translate([0, 0, -limb_gap - housing_d / 4])
+                                    rotate([0, 180, 0]) calf_fairing();
                             color([0.06, 0.06, 0.06])
                                 translate([0, 0, -calf_length]) sphere(r = foot_radius);
                         }
@@ -118,10 +126,7 @@ module head_assembly() {
     color(body_col) { head_upper(); head_lower(); }
     color(trim_col)
         for (sy = [-1, 1]) at_ear(sy) ear();
-    color(eye_col)
-        for (sy = [-1, 1])
-            translate([eye_x + 2, sy * eye_spacing / 2, eye_z])
-                rotate([0, 90, 0]) cylinder(d = eye_d - 2, h = 3);
+    color(eye_col) for (sy = [-1, 1]) eye_at(sy);
 }
 
 module tail_assembly() {

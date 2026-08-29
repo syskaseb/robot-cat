@@ -69,9 +69,7 @@ module head_upper() {
                 }
                 translate([-100, -100, head_split_z]) cube(200);
             }
-            for (sy = [-1, 1])
-                at_eye(sy) rotate([0, 90, 0])
-                    cylinder(d = eye_d, h = 40, center = true);
+            for (sy = [-1, 1]) at_eye(sy) eye_socket_cut();
             ear_socket();
         }
         bulkhead();

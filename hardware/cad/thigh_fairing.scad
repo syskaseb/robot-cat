@@ -8,8 +8,8 @@ include <shell_lib.scad>
 
 spine_w = thigh_spine[0];   // params.scad, shared with the segment
 spine_h = thigh_spine[1];
-fair_len = 84;
+fair_len = (thigh_length) - 2 * limb_gap - housing_d / 2;
 
-module thigh_fairing() { limb_fairing(spine_w, spine_h, fair_len); }
+module thigh_fairing() { limb_fairing(spine_w, spine_h, fair_len, limb_d_thigh[0], limb_d_thigh[1]); }
 
 thigh_fairing();
