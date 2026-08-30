@@ -60,26 +60,30 @@ SECTIONS = [
     #
     # The ends close to a near-point rather than to a small slab. A slab
     # leaves a flat disc for the cap fan to close, which shows up as a
-    # vertical ledge in the silhouette. The last three stations at each end
-    # also keep the SLOPE of the top line changing gently: tripling it over
-    # the final few millimetres creases the back, which is what the first
-    # attempt did.
+    # vertical ledge in the silhouette. The last stations at each end also
+    # keep the SLOPE of the top line changing gently: tripling it over the
+    # final few millimetres creases the back.
+    #
+    # The width is held out to about |x| = 126 and then dropped quickly. A
+    # width that starts falling from the waist gives a cone for a rump; a cat
+    # keeps its haunches full and tucks in late.
     (-150.0,  1.2,  24.0,  20.0, 2.0),   # tail root
-    (-147.0,  8.0,  32.0,   6.0, 2.0),
-    (-141.0, 17.0,  40.0, -10.0, 2.1),
-    (-132.0, 26.0,  46.0, -26.0, 2.3),
-    (-114.0, 38.0,  50.0, -40.0, 2.5),   # rump, over the rear hips
-    (-92.0,  45.0,  52.0, -50.0, 2.6),
+    (-147.0,  7.0,  31.0,   9.0, 2.0),
+    (-143.0, 13.0,  37.0,   0.0, 2.1),
+    (-136.0, 23.0,  44.0, -16.0, 2.2),
+    (-126.0, 34.0,  48.0, -30.0, 2.4),
+    (-114.0, 42.0,  51.0, -42.0, 2.5),   # rump, over the rear hips
+    (-92.0,  46.5,  52.0, -51.0, 2.6),
     (-66.0,  49.5,  54.0, -58.0, 2.6),   # waist - the narrow point
     (-32.0,  52.5,  57.0, -66.0, 2.6),
     (  4.0,  54.5,  61.0, -71.0, 2.6),   # deepest part of the chest
     ( 40.0,  54.5,  63.0, -71.0, 2.6),
-    ( 72.0,  52.0,  62.0, -66.0, 2.5),
-    ( 96.0,  46.0,  59.0, -54.0, 2.4),   # shoulder
-    ( 118.0, 36.0,  54.0, -38.0, 2.3),
-    ( 134.0, 24.0,  47.0, -20.0, 2.2),
-    ( 143.0, 15.0,  40.0,  -2.0, 2.1),
-    ( 147.0,  8.0,  33.0,   8.0, 2.0),
+    ( 72.0,  53.0,  62.0, -66.0, 2.5),
+    ( 96.0,  48.0,  59.0, -54.0, 2.4),   # shoulder
+    ( 118.0, 39.0,  54.0, -38.0, 2.3),
+    ( 132.0, 27.0,  47.0, -20.0, 2.2),
+    ( 142.0, 15.0,  39.0,  -1.0, 2.1),
+    ( 147.0,  7.0,  32.0,   9.0, 2.0),
     ( 150.0,  1.2,  25.0,  21.0, 2.0),   # base of the neck
 ]
 

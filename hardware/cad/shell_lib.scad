@@ -1,16 +1,14 @@
 // Shared geometry for the cosmetic skin.
 //
-// Everything organic here is a hull of spheres, for one reason that matters
-// in practice: the inner offset of a hull of spheres is exactly the hull of
-// the same spheres with every radius reduced by the offset. So a shell of
-// constant thickness is two hulls subtracted, with no `offset()`, no
-// `minkowski()` and no mesh-boolean risk - which is what keeps these parts
-// rendering in seconds and coming out watertight.
+// The BODY is a lofted mesh built by skin/loft.py and imported here. The
+// head, ears and limb parts are still hulls of spheres, which suits them:
+// they are small, convex, and the inner offset of a hull is exactly the same
+// hull with every radius reduced, so a constant-wall shell is two hulls
+// subtracted with no offset(), no minkowski() and no mesh-boolean risk.
 //
-// The one wrinkle is the vertical scale that makes the cross-section taller
-// than wide. Scaling the finished hull scales the wall with it, so the skin
-// is `skin` thick at the flanks and `skin * body_z_scale` at the spine and
-// belly. That is the right way round - the top and bottom take the knocks.
+// The body could not stay that way. A convex hull cannot produce a
+// concavity, and the torso needs several - the tuck behind the ribcage, the
+// hollow ahead of the shoulder, the belly rising towards the rump.
 
 include <shell_params.scad>
 

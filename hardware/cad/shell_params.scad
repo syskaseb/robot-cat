@@ -20,33 +20,16 @@ seam_gap = 0.25;      // clearance on a shell-to-shell mating face
 clip_d = 3.2;         // magnet / M3 boss for holding panels on
 
 // ---- body ----
-// Half-width comes straight from body_width so the skin can never quietly
-// outgrow the box the torque was computed on. The vertical scale turns the
-// circular stations below into the cat's egg-shaped cross-section: taller
-// than wide, which montaz.pdf calls out as the thing to preserve.
+// The body's own shape lives in skin/loft.py, as a table of sections along
+// the spine. It is NOT here and not in shell_lib: a convex hull could not
+// produce the concavities a cat needs, so the skin is a lofted mesh and the
+// section table is the thing to edit.
+//
+//     python3 skin/loft.py        # regenerate after editing it
+//
+// Only the numbers the rest of the cosmetic layer needs are kept here.
 body_hw = body_width / 2;              // 55.5
 body_hh = body_height / 2;             // 70.5
-body_z_scale = body_hh / body_hw;      // 1.27
-
-// Stations along the spine: [x, radius, z-lift]. Radius is in circular
-// space, BEFORE the vertical scale; lift is in real mm, after it. The shape
-// comes mostly from the radius profile - the lifts only tilt the ends up.
-//
-// These are sphere CENTRES, not points on the surface: a station puts skin
-// at x +/- r, not at x. Sizing them as if they were surface points is what
-// makes a 300mm body come out 356mm long, so every station is checked
-// against the box by measure/fit_check.py. Run it after touching this list.
-// The box is 300 x 111 x 141 because that is what the torque budget and the
-// gait were computed on, and the skin has to stay inside it.
-body_stations = [
-    [-124,  26,  12],   // tail root, lifted so the tail leaves upward
-    [-106,  44,   6],   // rump, just behind the rear hips
-    [ -70,  52,   1],   // waist - the shallowest part of the back
-    [   0,  54.5,  0],  // midpoint
-    [  70,  54.5, -1],  // ribcage, the deepest part of a cat
-    [ 102,  47,   2],   // shoulder
-    [ 120,  30,  12],   // base of the neck
-];
 
 // Where the skin is cut into printable pieces. The seam runs along the flank
 // exactly at the hip axis (z=0 in the urdf's base_link). That is the widest
@@ -63,10 +46,10 @@ body_split_x = 0;     // fore/aft print split, keeps each panel under 155mm
 // links attach - neck_mass is deliberately near-zero and the tail is trim.
 // So the real pivots go where the skin actually is, and the numbers are
 // stated here rather than left to be discovered with a printed part in hand.
-neck_pivot = [138, 0, 30];
-neck_rise = 34;       // degrees the neck leaves the chest at
+neck_pivot = [136, 0, 40];
+neck_rise = 28;       // degrees the neck leaves the chest at
 neck_reach = 34;      // pivot to head centre, along that neck axis
-head_droop = 8;       // nose-down at rest, which is how a cat holds it
+head_droop = 3;       // nose-down at rest, which is how a cat holds it
 tail_pivot = [-148, 0, 34];
 tail_rise = 51.6;     // degrees above horizontal, matches the urdf's rpy
 
@@ -143,8 +126,8 @@ housing_wall = 4;
 // gap between joints. The bare spine showing at each end is what separates
 // one segment from the next; a fairing that runs joint to joint welds the
 // whole leg into one blob, which is exactly how the first attempt went wrong.
-limb_d_thigh = [30, 26];   // diameter at the hip end, and at the knee end
-limb_d_calf  = [26, 21];
+limb_d_thigh = [34, 29];   // diameter at the hip end, and at the knee end
+limb_d_calf  = [29, 24];
 limb_gap = 9;              // bare spine left showing at each end of a segment
 
 fairing_gap = 1.2;    // clearance between a fairing and the segment inside it
