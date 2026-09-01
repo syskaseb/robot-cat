@@ -61,6 +61,22 @@ module neck_relief() {
                 cylinder(d = neck_relief_d, h = 90);
 }
 
+// The panel lines. A groove that FOLLOWS the surface, cut as the shell
+// between the outer skin and a copy of it 0.9mm in, clipped to a narrow slab
+// at each station. A plain cylinder or box cut would bite deeper at the
+// flanks than at the spine, because the body is not round.
+module panel_grooves() {
+    for (x = panel_groove_x)
+        intersection() {
+            difference() {
+                body_form(0);
+                import("skin/body_groove.stl");
+            }
+            translate([x - panel_groove_w / 2, -90, -90])
+                cube([panel_groove_w, 180, 180]);
+        }
+}
+
 // Half-space helpers. `big` only has to swallow the body.
 big = 500;
 
@@ -155,6 +171,7 @@ module body_panel(top, fore) {
             }
             hip_reliefs();
             neck_relief();
+            panel_grooves();
             if (top)
                 translate([-big / 2, -big / 2, flank_seam_z - big + seam_gap / 2])
                     cube(big);
@@ -181,6 +198,9 @@ module body_panel(top, fore) {
 module head_form(inset = 0) {
     if (inset == 0) import("skin/head_outer.stl");
     else if (inset < 0) import("skin/head_bulge.stl");
+    // eye_ring_depth is deeper than the wall, which is what tells these
+    // two apart - keyed on the value, not on a magic threshold.
+    else if (inset > skin) import("skin/head_ring.stl");
     else import("skin/head_inner.stl");
 }
 
@@ -208,6 +228,35 @@ module eye_socket_cut() {
         cylinder(d = eye_d, h = 60, center = true);
         // the counterbore it seats against, opening inwards to the floor
         translate([0, 0, -40]) cylinder(d = eye_flange_d, h = 40);
+    }
+}
+
+// The recess the illuminated ring sits in. Cut as the shell between the skin
+// and a copy of it eye_ring_depth in, clipped to a disc - so the recess
+// follows the curve of the face instead of being a flat-bottomed spotface
+// that would break through the cheek on one side.
+module eye_ring_cut(sy) {
+    intersection() {
+        difference() {
+            head_form(0);
+            head_form(eye_ring_depth);
+        }
+        // Forward-only. A centred cylinder runs right through the skull and
+        // takes a second patch out of the far cheek, because the head is
+        // narrower than the bore is long.
+        at_eye(sy) rotate([0, 90, 0])
+            translate([0, 0, -4]) cylinder(d = eye_d + 2 * eye_ring_w, h = 44);
+    }
+}
+
+// The ring itself: the same recess, minus clearance for the eye ball. Print
+// it in something translucent and back-light it, or in a contrasting colour
+// and leave it unlit - either reads far better than a bare bore.
+module eye_ring(sy) {
+    difference() {
+        eye_ring_cut(sy);
+        at_eye(sy) rotate([0, 90, 0])
+            cylinder(d = eye_d + 0.5, h = 80, center = true);
     }
 }
 
@@ -301,6 +350,24 @@ module limb_fairing(spine_w, spine_h, len, d0, d1) {
     }
 }
 
+// The fixed cosmetic wrist. Same construction as a limb fairing - a capsule
+// that snaps onto the spine - plus a small barrel so the break reads as a
+// joint. It does not move: the leg has three servos and none of them is
+// here, and pretending otherwise in the CAD would be a lie a builder finds
+// out about at assembly.
+module ankle_form() {
+    union() {
+        limb_fairing(calf_spine[0], calf_spine[1], ankle_len,
+                     ankle_d[0], ankle_d[1]);
+        translate([0, 0, ankle_len]) rotate([90, 0, 0])
+            intersection() {
+                scale([1, 1, 0.55]) sphere(d = ankle_housing_d);
+                cylinder(d = ankle_housing_d, h = ankle_housing_d,
+                         center = true);
+            }
+    }
+}
+
 // The barrel over a joint. Structural: it bolts to the servo's idle face and
 // to the segment, closing the yoke so the joint is carried on both sides.
 // Visually it is the thing that separates one limb segment from the next.
@@ -333,6 +400,23 @@ module joint_housing() {
 }
 
 // ---------------------------------------------------------------- misc
+
+// The banded neck collar. Rings that overlap and slide past each other as
+// the head turns: a smooth tube has to be either loose enough to look wrong
+// or tight enough to bind.
+module neck_collar_form() {
+    for (i = [0 : neck_rings - 1]) {
+        d = neck_d * (1 - 0.09 * i);
+        h = neck_len / neck_rings;
+        translate([0, 0, i * h * 0.82])
+            difference() {
+                cylinder(d1 = d, d2 = d - 2.5, h = h);
+                translate([0, 0, -0.1])
+                    cylinder(d1 = d - 2 * skin, d2 = d - 2.5 - 2 * skin,
+                             h = h + 0.2);
+            }
+    }
+}
 
 // A ring of bosses for the magnets or M3 screws that hold a panel on.
 module clip_boss(h = 6) {

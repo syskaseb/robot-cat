@@ -21,6 +21,8 @@ use <ear.scad>
 use <neck_collar.scad>
 use <joint_housing.scad>
 use <eye_lens.scad>
+use <eye_ring.scad>
+use <ankle_link.scad>
 use <thigh_fairing.scad>
 use <calf_fairing.scad>
 use <tail_segment.scad>
@@ -42,7 +44,8 @@ stand_hip = 10.3;
 body_col   = [0.10, 0.10, 0.11];
 trim_col   = [0.13, 0.13, 0.145];
 struct_col = [0.16, 0.16, 0.175];
-eye_col    = [0.85, 0.62, 0.10];
+eye_col    = [0.88, 0.66, 0.12];
+ring_col   = [0.96, 0.93, 0.72];
 
 module skin() {
     color(body_col) {
@@ -114,6 +117,11 @@ module one_leg(sx, sy) {
                             color(trim_col)
                                 translate([0, 0, -limb_gap - housing_d / 4])
                                     rotate([0, 180, 0]) calf_fairing();
+                            // the fixed cosmetic wrist, over the last
+                            // stretch of bare calf spine
+                            color(trim_col)
+                                translate([0, 0, -ankle_z - ankle_len])
+                                    rotate([0, 180, 0]) ankle_form();
                             color([0.06, 0.06, 0.06])
                                 translate([0, 0, -calf_length]) sphere(r = foot_radius);
                         }
@@ -127,6 +135,15 @@ module head_assembly() {
     color(trim_col)
         for (sy = [-1, 1]) at_ear(sy) ear();
     color(eye_col) for (sy = [-1, 1]) eye_at(sy);
+    // The ring is IMPORTED, not computed. OpenSCAD's preview renderer draws
+    // intersection() against an imported mesh wrong - it showed the ring as
+    // the whole skull - so the assembly uses the CGAL-baked part instead.
+    // Bake it with:  openscad --render -o skin/eye_ring.stl eye_ring.scad
+    color(ring_col)
+        for (sy = [-1, 1])
+            scale([1, sy, 1])
+                translate([eye_x, eye_spacing / 2, eye_z])
+                    rotate([0, 90, 0]) import("skin/eye_ring.stl");
 }
 
 module tail_assembly() {
@@ -150,7 +167,7 @@ if (show_skin) skin();
 // head is levelled again at the far end and then dropped by head_droop.
 // Without that second rotation the head points at the ceiling.
 translate(neck_pivot) rotate([0, -neck_rise, 0]) {
-    color(trim_col) rotate([0, 90, 0]) neck_collar();
+    color(trim_col) rotate([0, 90, 0]) neck_collar_form();
     translate([neck_reach, 0, 0])
         rotate([0, neck_rise + head_droop, 0]) head_assembly();
 }

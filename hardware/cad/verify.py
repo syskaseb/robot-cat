@@ -19,7 +19,8 @@ PARTS = [
     "shell_back_front", "shell_back_rear",
     "shell_belly_front", "shell_belly_rear",
     "head_upper", "head_lower", "ear", "neck_collar",
-    "joint_housing", "eye_lens", "thigh_fairing", "calf_fairing",
+    "joint_housing", "eye_lens", "eye_ring", "ankle_link",
+    "thigh_fairing", "calf_fairing",
     "tail_segment",
 ]
 
@@ -30,7 +31,8 @@ COUNT = {
     "shell_back_front": 1, "shell_back_rear": 1,
     "shell_belly_front": 1, "shell_belly_rear": 1,
     "head_upper": 1, "head_lower": 1, "ear": 2, "neck_collar": 1,
-    "joint_housing": 8, "eye_lens": 2, "thigh_fairing": 4, "calf_fairing": 4,
+    "joint_housing": 8, "eye_lens": 2, "eye_ring": 2, "ankle_link": 4,
+    "thigh_fairing": 4, "calf_fairing": 4,
     "tail_segment": 11,
 }
 

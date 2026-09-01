@@ -70,14 +70,22 @@ tail_rise = 51.6;     // degrees above horizontal, matches the urdf's rpy
 //
 //     python3 skin/loft.py        // regenerate after editing the tables
 
-eye_d = 19;           // bore the eye ball shows through
-eye_spacing = 44;     // centre to centre - half the head's 88mm width
+// The eyes are the single strongest feature on the concept render - huge,
+// domed, ringed with light. At 19mm they read as a panther's; at 29 on an
+// 88mm head they read the way the concept does. This is the cheapest large
+// change in the whole cosmetic layer.
+eye_d = 29;           // bore the eye ball shows through
+eye_spacing = 46;     // centre to centre. Each eye spans 8.5..37.5 from the
+                      // centreline against a 44mm half-width, so they sit
+                      // wide on the face without breaking its edge.
 eye_x = 22;           // forward of the head centre, on the flat face
 eye_z = 8;            // above the head centre
 eye_toe_in = 8;       // degrees each eye is splayed outward
 eye_bulge = 5.0;      // how far the lens stands proud of the skull. A cat's
                       // eye is a sphere pushing out of the socket, not a
                       // window set into it - flush eyes read as a mask.
+eye_ring_w = 4.5;     // width of the lit ring around each eye
+eye_ring_depth = 2.4; // must match RING in skin/loft.py
 
 // Camera Module 3 board, from the Raspberry Pi mechanical drawing: 25 x 24mm
 // board, 12.5mm lens barrel. It sits behind ONE eye - the other socket takes
@@ -132,6 +140,24 @@ fairing_wall = 2.4;        // the fairing is a SHELL with grip collars at the
 
 fairing_gap = 1.2;    // clearance between a fairing and the segment inside it
 
+// ---- panel lines ----
+// The concept's body is plated: seams break the mass up so it reads as a
+// built object rather than one moulded shell. Two grooves plus the fore/aft
+// split at x = 0 give three lines. They dodge the hip reliefs (x = 92..128)
+// and the seam tabs (+/-38 and +/-85).
+panel_groove_x = [-70, 70];
+panel_groove_w = 1.8;
+
+// ---- ankle ----
+// The concept draws a wrist between calf and paw. We have three servos a
+// leg and no fourth joint to give it, so this is a FIXED cosmetic segment -
+// it makes the limb read as jointed there without pretending to bend. It
+// clips onto the bare calf spine below the calf fairing.
+ankle_d = [26, 21];
+ankle_len = 15;
+ankle_housing_d = 30;
+ankle_z = 92;         // along the calf from the knee; the fairing ends at 91
+
 // ---- tail ----
 // Segments thread onto a single 2mm steel wire or a spring, tapering from
 // root to tip. Eleven of them over 190mm reads as a cat tail; fewer looks
@@ -144,5 +170,9 @@ tail_tip_d = 10;       // as a whip antenna next to a 46mm joint housing
 tail_bore_d = 2.6;    // 2mm wire plus fit
 
 // ---- neck ----
-neck_d = 44;
-neck_len = 30;
+// A banded collar, and deliberately proud of both the body opening and the
+// head. On the concept it is one of the clearest features; hidden under the
+// skull it may as well not be printed.
+neck_d = 54;
+neck_len = 26;
+neck_rings = 3;

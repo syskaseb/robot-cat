@@ -69,7 +69,10 @@ module head_upper() {
                 }
                 translate([-100, -100, head_split_z]) cube(200);
             }
-            for (sy = [-1, 1]) at_eye(sy) eye_socket_cut();
+            for (sy = [-1, 1]) {
+                at_eye(sy) eye_socket_cut();
+                eye_ring_cut(sy);
+            }
             ear_socket();
         }
         bulkhead();

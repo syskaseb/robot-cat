@@ -24,9 +24,13 @@ OpenSCAD layer keeps doing what it did: panel splitting, eye sockets, ear
 sockets, the camera bulkhead.
 
     body_outer.stl / body_inner.stl      outer surface / offset in by WALL
+    body_groove.stl                      offset in by GROOVE - cuts the panel
+                                         lines, which follow the surface
     head_outer.stl / head_inner.stl      likewise
     head_bulge.stl                       offset OUT by BULGE - trims the eye
                                          lens to an exact protrusion
+    head_ring.stl                        offset in by RING - the counterbore
+                                         the illuminated eye ring sits in
 
 Run from hardware/cad:
 
@@ -49,6 +53,8 @@ BOX_L, BOX_W, BOX_H = 300.0, 111.0, 141.0
 
 WALL = 1.8        # cosmetic wall thickness, three 0.6 extrusions
 BULGE = 5.0       # how far the eye lens stands proud of the skull
+RING = 2.4        # depth of the counterbore the illuminated eye ring sits in
+GROOVE = 0.9      # depth of the panel lines cut into the body
 
 # ---------------------------------------------------------------- body
 # Sections are points ON THE SURFACE: x along the body (nose positive),
@@ -194,6 +200,7 @@ def main():
 
     outer = emit("body_outer", loft(BODY, 0.0, n_rings=160, n_points=72))
     inner = emit("body_inner", loft(BODY, WALL, n_rings=160, n_points=72))
+    emit("body_groove", loft(BODY, GROOVE, n_rings=160, n_points=72))
     ext = outer.bounds[1] - outer.bounds[0]
     for name, got, limit in (("length", ext[0], BOX_L),
                              ("width", ext[1], BOX_W),
@@ -207,6 +214,7 @@ def main():
     ho = emit("head_outer", head(0.0))
     hi = emit("head_inner", head(WALL))
     emit("head_bulge", head(-BULGE))
+    emit("head_ring", head(RING))
     hext = ho.bounds[1] - ho.bounds[0]
     print(f"  head {hext[0]:.0f} x {hext[1]:.0f} x {hext[2]:.0f} mm, "
           f"shell {(ho.volume - hi.volume) * 1.27e-3:.0f} g")
