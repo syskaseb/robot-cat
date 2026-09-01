@@ -51,6 +51,16 @@ module hip_reliefs() {
                 cylinder(d = hip_relief_d, h = 40, center = true);
 }
 
+// The opening the head nestles into. A bore along the neck axis, replacing
+// the nose cone the body used to taper to: with the head carried close over
+// the chest the cone only ever collided with the back of the skull.
+module neck_relief() {
+    translate(neck_pivot)
+        rotate([0, 90 - neck_rise, 0])
+            translate([0, 0, -14])
+                cylinder(d = neck_relief_d, h = 90);
+}
+
 // Half-space helpers. `big` only has to swallow the body.
 big = 500;
 
@@ -144,6 +154,7 @@ module body_panel(top, fore) {
                 if (fore) fore_of_split(); else aft_of_split();
             }
             hip_reliefs();
+            neck_relief();
             if (top)
                 translate([-big / 2, -big / 2, flank_seam_z - big + seam_gap / 2])
                     cube(big);
@@ -163,58 +174,14 @@ module body_panel(top, fore) {
 
 // ---------------------------------------------------------------- head
 
-// The skull, as its own hull of spheres. A cat's head is wide at the cheeks,
-// short in the muzzle and flat across the brow - get those three and it
-// reads as a cat even before the ears go on.
-// Same trap as the body: these are sphere centres, so the skull runs from
-// (x - r) to (x + r). Keeping that inside +/-head_l/2 is what stops the head
-// quietly growing past the size the neck servos were picked for.
-// Stations in REAL mm, and deliberately NOT scaled along x. Scaling the
-// skull lengthwise made it impossible to say where it ended, and a muzzle
-// whose step you cannot place is a muzzle that fuses into the skull - which
-// is exactly how the first version came out looking like a smooth egg.
-head_stations = [
-    [-16,  0,  -2,  25],   // back of the skull
-    [ -5,  0,   4,  31],   // brow and cheekbones - the widest point
-    [ 10,  0,  -1,  26],   // front of the cranium
-];
-head_station_w = 62;       // 2 x the largest radius above
-
-module skull_form(inset = 0) {
-    scale([1, head_w / head_station_w, head_h / head_station_w])
-        hull()
-            for (s = head_stations)
-                translate([s[0], s[1], s[2]])
-                    sphere(r = max(s[3] - inset, 0.05));
-}
-
-// The muzzle as its own rounded volume, sitting PROUD of the cheeks and
-// BELOW the brow. Both of those are the point:
-//
-//   at the junction the skull is about 43mm across and the muzzle 34, so
-//   there is a visible step rather than a taper;
-//   the brow reaches z = +18 while the muzzle tops out near +3, so it
-//   overhangs - which is the single strongest feline cue on a face.
-muzzle_x = 30;             // where the muzzle's own body starts
-muzzle_z = -10;
-
-module muzzle_form(inset = 0) {
-    r = 8 - inset;
-    translate([muzzle_x, 0, muzzle_z])
-        hull() {
-            for (sy = [-1, 1], sz = [-1, 1])
-                translate([0, sy * (muzzle_w / 2 - 8), sz * (muzzle_h / 2 - 8)])
-                    sphere(r = max(r, 0.05));
-            // the nose, carried forward and a touch down
-            translate([muzzle_out + 8, 0, -3]) sphere(r = max(r - 2, 0.05));
-        }
-}
-
+// Skull united with muzzle, lofted and booleaned by skin/loft.py. Three
+// meshes cover every inset the cuts ask for: the outer surface, the inner
+// one a wall-thickness in, and one grown OUTWARD by eye_bulge that trims
+// the eye ball to an exact protrusion.
 module head_form(inset = 0) {
-    union() {
-        skull_form(inset);
-        muzzle_form(inset);
-    }
+    if (inset == 0) import("skin/head_outer.stl");
+    else if (inset < 0) import("skin/head_bulge.stl");
+    else import("skin/head_inner.stl");
 }
 
 // Where an ear plugs in. head_upper cuts its socket through this transform
@@ -232,7 +199,7 @@ module head_form(inset = 0) {
 // The counterbore floor sits AT the eye centre, so everything below is
 // measured from one plane instead of from the skull surface - which is a
 // hull and has no x I can write down.
-eye_flange_d = 21.4;
+eye_flange_d = eye_d + 4.4;
 eye_flange_h = 2.4;
 
 module eye_socket_cut() {
@@ -306,10 +273,23 @@ module limb_fairing(spine_w, spine_h, len, d0, d1) {
     iw = spine_w + 2 * fairing_gap;
     ih = spine_h + 2 * fairing_gap;
     mouth_w = spine_w * 0.84;
+    collar = 8;      // solid length at each end that grips the spine
     difference() {
         hull() {
-            translate([0, 0, d0 / 2]) scale([1, 0.72, 1]) sphere(d = d0);
-            translate([0, 0, len - d1 / 2]) scale([1, 0.72, 1]) sphere(d = d1);
+            translate([0, 0, d0 / 2]) scale([1, 0.78, 1]) sphere(d = d0);
+            translate([0, 0, len - d1 / 2]) scale([1, 0.78, 1]) sphere(d = d1);
+        }
+        // Hollow the middle but keep the collars: at 40mm a solid fairing
+        // costs 25g per thigh, and grams on a swinging leg are the expensive
+        // grams. The collars are where it actually grips the spine.
+        intersection() {
+            hull() {
+                translate([0, 0, d0 / 2]) scale([1, 0.78, 1])
+                    sphere(d = d0 - 2 * fairing_wall);
+                translate([0, 0, len - d1 / 2]) scale([1, 0.78, 1])
+                    sphere(d = d1 - 2 * fairing_wall);
+            }
+            translate([-d0, -d0, collar]) cube([2 * d0, 2 * d0, len - 2 * collar]);
         }
         // the bore the spine sits in
         translate([0, 0, -1]) hull() for (sx = [-1, 1])

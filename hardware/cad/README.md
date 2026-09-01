@@ -21,6 +21,10 @@ mogło po cichu zmienić niczego, od czego zależy chód.
 
 ### Skorupa
 
+Kształt tułowia i głowy generuje `skin/loft.py` (loft przez przekroje —
+otoczka wypukła nie umie wklęsłości); pliki `.scad` robią na tych siatkach
+cięcia funkcjonalne. Po edycji tablic przekrojów: `python3 skin/loft.py`.
+
 | plik | co to jest | ile drukować |
 |---|---|---|
 | `shell_back_front.scad` | grzbiet, przód — kłąb i nasada szyi | ×1 |
@@ -31,7 +35,8 @@ mogło po cichu zmienić niczego, od czego zależy chód.
 | `head_lower.scad` | żuchwa i pysk | ×1 |
 | `ear.scad` | ucho | ×2 |
 | `neck_collar.scad` | kołnierz szyi, pierścienie | ×1 |
-| `joint_cap.scad` | krążek na staw — biodra i kolana | ×8 |
+| `joint_housing.scad` | beczka na staw — nośna, skręca z czopem jałowym | ×8 |
+| `eye_lens.scad` | soczewka oka, wciskana od środka | ×2 |
 | `thigh_fairing.scad` | osłona uda, zatrzaskowa | ×4 |
 | `calf_fairing.scad` | osłona goleni | ×4 |
 | `tail_segment.scad` | segment ogona (`-D seg=N`, N=0..10) | ×11 |

@@ -1,26 +1,32 @@
 #!/usr/bin/env python3
-"""Generate the body skin as a lofted mesh, and write it out as two STLs.
+"""Generate the organic skins - body AND head - as lofted meshes.
 
 Why this exists
 ---------------
 The skin used to be a hull of spheres. That is cheap and always watertight,
 but a convex hull cannot produce a concavity, and a cat is mostly
 concavities: the tuck behind the ribcage, the hollow ahead of the shoulder,
-the dip where the neck leaves the chest, the belly rising towards the rump.
-Every attempt with hulls landed on a bulging loaf, because a union of convex
-blobs gives bumps and never hollows.
+the step where the muzzle leaves the cheeks. Every attempt with hulls landed
+on a bulging loaf, because a union of convex blobs gives bumps and never
+hollows.
 
-A loft has no such ceiling. Each station names its own half-width, its top
-and its bottom independently, and the envelope between stations is whatever
-the interpolation does - so the width can dip at the waist and the belly can
-rise at the rear.
+A loft has no such ceiling. Each section names its own half-width, top and
+bottom independently, and the envelope between sections is whatever the
+interpolation does. The head goes further: it is the union of TWO lofts,
+skull and muzzle, and the crease where they meet is exactly the step that
+makes a face read as a cat. The union is a real mesh boolean (manifold), so
+the result is still one watertight solid.
 
 What comes out
 --------------
-Two solids, not a shell: `body_outer.stl` and `body_inner.stl`. shell_lib's
-body_form() imports one or the other, so everything downstream - panel
-splitting, hip reliefs, seam tabs - keeps working exactly as it did against
-the hulls.
+Solids, not shells - shell_lib's body_form()/head_form() import them and the
+OpenSCAD layer keeps doing what it did: panel splitting, eye sockets, ear
+sockets, the camera bulkhead.
+
+    body_outer.stl / body_inner.stl      outer surface / offset in by WALL
+    head_outer.stl / head_inner.stl      likewise
+    head_bulge.stl                       offset OUT by BULGE - trims the eye
+                                         lens to an exact protrusion
 
 Run from hardware/cad:
 
@@ -32,41 +38,29 @@ import pathlib
 import sys
 
 import numpy as np
+import trimesh
 from scipy.interpolate import PchipInterpolator
 
 HERE = pathlib.Path(__file__).resolve().parent
 
-# The box the torque budget and the gait were computed on. The skin has to
-# stay inside it; this file asserts that rather than trusting the table.
+# The box the torque budget and the gait were computed on. The body skin has
+# to stay inside it; this file asserts that rather than trusting a table.
 BOX_L, BOX_W, BOX_H = 300.0, 111.0, 141.0
 
-# Sections along the spine. Unlike the old hull stations these are points ON
-# THE SURFACE, which is the whole reason a loft is easier to reason about:
-# a station says where the skin is, not where a sphere's centre is.
+WALL = 1.8        # cosmetic wall thickness, three 0.6 extrusions
+BULGE = 5.0       # how far the eye lens stands proud of the skull
+
+# ---------------------------------------------------------------- body
+# Sections are points ON THE SURFACE: x along the body (nose positive),
+# half-width, top, bottom, and the superellipse exponent (2 = ellipse,
+# higher = squarer flanks, which gives a panel somewhere to sit).
 #
-#   x        along the body, nose positive
-#   hw       half-width, so the section is 2*hw across at z = 0
-#   top      top of the section
-#   bot      bottom of the section
-#   n        superellipse exponent. 2 is a plain ellipse; higher is squarer.
-#            The middle of the body runs near 2.6 so the flanks flatten
-#            slightly, which is what gives a panel somewhere to sit.
-#
-# The waist is the point of the whole exercise: hw dips from 54.5 at the
-# ribcage to 49 behind it, and the belly line rises from -70 to -44 over the
-# same stretch. Neither is reachable with a convex hull.
-SECTIONS = [
+# The ends close to a near-point. A slab end leaves a flat disc for the cap
+# fan, which reads as a vertical ledge in the silhouette. The width is held
+# out to about |x| = 126 and dropped late: a width that starts falling from
+# the waist gives a cone for a rump, and a cat keeps its haunches full.
+BODY = [
     # x,     hw,   top,   bot,   n
-    #
-    # The ends close to a near-point rather than to a small slab. A slab
-    # leaves a flat disc for the cap fan to close, which shows up as a
-    # vertical ledge in the silhouette. The last stations at each end also
-    # keep the SLOPE of the top line changing gently: tripling it over the
-    # final few millimetres creases the back.
-    #
-    # The width is held out to about |x| = 126 and then dropped quickly. A
-    # width that starts falling from the waist gives a cone for a rump; a cat
-    # keeps its haunches full and tucks in late.
     (-150.0,  1.2,  24.0,  20.0, 2.0),   # tail root
     (-147.0,  7.0,  31.0,   9.0, 2.0),
     (-143.0, 13.0,  37.0,   0.0, 2.1),
@@ -87,104 +81,136 @@ SECTIONS = [
     ( 150.0,  1.2,  25.0,  21.0, 2.0),   # base of the neck
 ]
 
-N_RINGS = 160      # sections generated along the body
-N_POINTS = 72      # points around each section
+# ---------------------------------------------------------------- head
+# Local frame: origin at the head centre, +x towards the nose. The skull is
+# one loft; the muzzle is a second, narrower and lower, driven deep into it.
+# Their union creases where they meet - under the eyes and at the cheek line
+# - and that step is what the hull-based head could never produce.
+SKULL = [
+    # x,    hw,   top,   bot,   n
+    #
+    # The face is FLAT. On the concept render the brow, eyes and muzzle sit
+    # nearly in one vertical plane with the skull's depth behind them - so
+    # the width is held far forward and dropped steeply, instead of tapering
+    # from the cheeks in a long egg-shaped slope.
+    (-48.0,  5.0,  16.0, -12.0, 2.1),   # occiput
+    (-40.0, 22.0,  27.0, -25.0, 2.2),
+    (-28.0, 34.0,  35.0, -33.0, 2.2),
+    (-12.0, 42.0,  39.0, -37.0, 2.2),   # cranium
+    (  2.0,  44.0,  40.0, -36.0, 2.2),  # cheekbones - the widest point
+    ( 14.0,  41.0,  38.0, -30.0, 2.2),  # brow
+    ( 26.0,  36.0,  34.0, -24.0, 2.2),
+    ( 36.0,  27.0,  27.0, -14.0, 2.1),
+    ( 44.0,  14.0,  17.0,  -4.0, 2.05),
+    ( 48.0,   3.0,  10.0,   0.0, 2.0),
+]
+
+MUZZLE = [
+    # x,    hw,   top,   bot,   n
+    #
+    # Short, high, and JOINED to the nose bridge: the muzzle's top line meets
+    # the skull's bottom line at the front, so the bridge flows into the nose
+    # instead of running parallel above it - a parallel gap there reads as an
+    # open beak. The step survives at the SIDES, on the cheek line, which is
+    # where a cat actually has one.
+    (  6.0, 23.0,  10.0, -30.0, 2.4),
+    ( 26.0, 23.0,   8.0, -31.0, 2.5),
+    ( 40.0, 21.0,   6.0, -29.0, 2.4),
+    ( 49.0, 15.0,   2.0, -24.0, 2.2),
+    ( 52.0,  5.0,  -4.0, -17.0, 2.0),
+]
 
 
-def superellipse(hw, top, bot, n, m=N_POINTS):
-    """One closed section, spanning z = bot .. top with its widest line at
-    the midpoint between them.
+def loft(sections, inset=0.0, n_rings=140, n_points=64):
+    """A closed triangle mesh lofted through superelliptic sections.
 
-    The midpoint matters. An earlier version measured both halves from z = 0
-    instead, on the theory that the flank seam wants to sit on the widest
-    line. That silently collapsed every section whose bottom is ABOVE z = 0 -
-    which is both ends of the body, where the tail and neck rise - into a
-    section running from 0 up. The result was a 24mm flat wall at each end
-    that looked like a modelling artefact and was really a units error.
+    Each section is centred between its own top and bottom, NOT on z = 0.
+    Measuring both halves from z = 0 silently collapses any section whose
+    bottom is above zero - both ends of the body, where the tail and neck
+    rise - and leaves a flat wall there that looks like a modelling artefact
+    and is really a units error. That mistake has been made once already.
     """
-    t = np.linspace(0.0, 2.0 * math.pi, m, endpoint=False)
-    c, s = np.cos(t), np.sin(t)
-    p = 2.0 / n
-    zc = (top + bot) / 2.0
-    y = hw * np.sign(c) * np.abs(c) ** p
-    half_h = np.where(s >= 0.0, top - zc, zc - bot)
-    z = zc + half_h * np.sign(s) * np.abs(s) ** p
-    return y, z
-
-
-def resample(inset):
-    """Interpolate the section table, shrunk by `inset` all round."""
-    a = np.array(SECTIONS, dtype=float)
+    a = np.array(sections, dtype=float)
     xs = a[:, 0]
     fs = [PchipInterpolator(xs, a[:, i]) for i in (1, 2, 3, 4)]
-    x = np.linspace(xs[0], xs[-1], N_RINGS)
+    x = np.linspace(xs[0], xs[-1], n_rings)
     hw, top, bot, n = (f(x) for f in fs)
-    # Shrink towards the section's own centre line. Clamped so the nearly
-    # closed ends cannot invert and fold the mesh inside out.
+
+    # Shrink towards each section's own centre line, clamped so the nearly
+    # closed ends cannot invert and fold the mesh inside out. A negative
+    # inset grows the form instead - that is how the eye-bulge trim works.
     hw = np.maximum(hw - inset, 0.05)
     mid = (top + bot) / 2.0
     top = np.maximum(top - inset, mid + 0.05)
     bot = np.minimum(bot + inset, mid - 0.05)
-    return x, hw, top, bot, n
 
-
-def build(inset):
-    """A closed triangle mesh of the body, shrunk by `inset`."""
-    x, hw, top, bot, n = resample(inset)
-    rings = []
-    for i in range(N_RINGS):
-        y, z = superellipse(hw[i], top[i], bot[i], n[i])
-        rings.append(np.column_stack([np.full(N_POINTS, x[i]), y, z]))
-
-    verts = [np.array([x[0], 0.0, (top[0] + bot[0]) / 2.0])]     # tail cap
-    for r in rings:
-        verts.extend(r)
-    verts.append(np.array([x[-1], 0.0, (top[-1] + bot[-1]) / 2.0]))  # nose cap
-    verts = np.array(verts)
+    t = np.linspace(0.0, 2.0 * math.pi, n_points, endpoint=False)
+    c, s = np.cos(t), np.sin(t)
+    verts = [np.array([x[0], 0.0, mid[0]])]
+    for i in range(n_rings):
+        p = 2.0 / n[i]
+        y = hw[i] * np.sign(c) * np.abs(c) ** p
+        half = np.where(s >= 0.0, top[i] - mid[i], mid[i] - bot[i])
+        z = mid[i] + half * np.sign(s) * np.abs(s) ** p
+        verts.append(np.column_stack([np.full(n_points, x[i]), y, z]))
+    verts.append(np.array([x[-1], 0.0, mid[-1]]))
+    verts = np.vstack([v if v.ndim == 2 else v[None, :] for v in verts])
 
     faces = []
-    first, last = 1, 1 + (N_RINGS - 1) * N_POINTS
-    for j in range(N_POINTS):
-        k = (j + 1) % N_POINTS
-        faces.append([0, first + k, first + j])                  # tail fan
-        faces.append([len(verts) - 1, last + j, last + k])        # nose fan
-    for i in range(N_RINGS - 1):
-        a0, b0 = 1 + i * N_POINTS, 1 + (i + 1) * N_POINTS
-        for j in range(N_POINTS):
-            k = (j + 1) % N_POINTS
+    first, last = 1, 1 + (n_rings - 1) * n_points
+    for j in range(n_points):
+        k = (j + 1) % n_points
+        faces.append([0, first + k, first + j])
+        faces.append([len(verts) - 1, last + j, last + k])
+    for i in range(n_rings - 1):
+        a0, b0 = 1 + i * n_points, 1 + (i + 1) * n_points
+        for j in range(n_points):
+            k = (j + 1) % n_points
             faces.append([a0 + j, a0 + k, b0 + k])
             faces.append([a0 + j, b0 + k, b0 + j])
-    return verts, np.array(faces)
+    m = trimesh.Trimesh(vertices=verts, faces=np.array(faces), process=True)
+    m.fix_normals()
+    return m
 
 
-def check(verts):
-    ext = verts.max(axis=0) - verts.min(axis=0)
-    ok = True
+def head(inset):
+    """Skull united with muzzle. A real boolean, so the crease where the
+    muzzle steps off the cheeks survives into one watertight solid."""
+    u = trimesh.boolean.union([loft(SKULL, inset), loft(MUZZLE, inset)])
+    if not u.is_watertight:
+        raise SystemExit("head union came out non-watertight - check overlap")
+    return u
+
+
+def emit(name, mesh):
+    mesh.export(HERE / f"{name}.stl")
+    print(f"{name}: watertight={mesh.is_watertight} "
+          f"bodies={mesh.body_count} volume={mesh.volume:.0f}mm3")
+    return mesh
+
+
+def main():
+    good = True
+
+    outer = emit("body_outer", loft(BODY, 0.0, n_rings=160, n_points=72))
+    inner = emit("body_inner", loft(BODY, WALL, n_rings=160, n_points=72))
+    ext = outer.bounds[1] - outer.bounds[0]
     for name, got, limit in (("length", ext[0], BOX_L),
                              ("width", ext[1], BOX_W),
                              ("height", ext[2], BOX_H)):
         slack = limit - got
-        if slack < -1e-6:
-            ok = False
+        good = good and slack >= -1e-6
         print(f"  {'OK ' if slack >= -1e-6 else 'OVER'} {name:7s} "
               f"{got:6.1f} of {limit:6.1f}  ({slack:+.1f} mm spare)")
-    return ok
+    print(f"  body shell: {(outer.volume - inner.volume) * 1.27e-3:.0f} g")
 
+    ho = emit("head_outer", head(0.0))
+    hi = emit("head_inner", head(WALL))
+    emit("head_bulge", head(-BULGE))
+    hext = ho.bounds[1] - ho.bounds[0]
+    print(f"  head {hext[0]:.0f} x {hext[1]:.0f} x {hext[2]:.0f} mm, "
+          f"shell {(ho.volume - hi.volume) * 1.27e-3:.0f} g")
 
-def main():
-    import trimesh
-    wall = 1.8
-    for name, inset in (("body_outer", 0.0), ("body_inner", wall)):
-        verts, faces = build(inset)
-        m = trimesh.Trimesh(vertices=verts, faces=faces, process=True)
-        m.fix_normals()
-        out = HERE / f"{name}.stl"
-        m.export(out)
-        print(f"{name}: watertight={m.is_watertight} bodies={m.body_count} "
-              f"volume={m.volume:.0f}mm3")
-        if inset == 0.0:
-            good = check(verts)
-    print(f"\nskin volume = {trimesh.load(HERE / 'body_outer.stl').volume - trimesh.load(HERE / 'body_inner.stl').volume:.0f} mm3")
     return 0 if good else 1
 
 

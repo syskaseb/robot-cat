@@ -26,13 +26,16 @@ FRESH, EMPTY = 3.08, 2.57
 
 # Parts that hang on a swinging leg rather than on the trunk. Their grams
 # cost more than trunk grams, because they load swing inertia as well.
-LEG_PARTS = {"joint_cap", "thigh_fairing", "calf_fairing"}
+LEG_PARTS = {"joint_housing", "thigh_fairing", "calf_fairing"}
 
 SKIN = {
-    "shell_back_front": 72.9, "shell_back_rear": 71.9, "shell_belly_front": 70.7,
-    "shell_belly_rear": 60.9, "head_upper": 28.8, "head_lower": 15.3,
-    "ear": 6.4, "neck_collar": 4.8, "tail_segment": 23.3,
-    "joint_cap": 13.0, "thigh_fairing": 30.9, "calf_fairing": 26.3,
+    # panels: body shell 223g from skin/loft.py plus seam tabs, split 4 ways;
+    # pending the full verify.py run - the rest are verified renders
+    "shell_back_front": 61.0, "shell_back_rear": 60.0,
+    "shell_belly_front": 58.0, "shell_belly_rear": 53.0,
+    "head_upper": 35.7, "head_lower": 19.2, "ear": 8.0,
+    "eye_lens": 13.8, "neck_collar": 5.0, "tail_segment": 25.0,
+    "joint_housing": 114.4, "thigh_fairing": 61.2, "calf_fairing": 46.4,
 }
 
 

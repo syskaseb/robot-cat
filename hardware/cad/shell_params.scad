@@ -46,40 +46,36 @@ body_split_x = 0;     // fore/aft print split, keeps each panel under 155mm
 // links attach - neck_mass is deliberately near-zero and the tail is trim.
 // So the real pivots go where the skin actually is, and the numbers are
 // stated here rather than left to be discovered with a printed part in hand.
-neck_pivot = [136, 0, 40];
-neck_rise = 28;       // degrees the neck leaves the chest at
-neck_reach = 34;      // pivot to head centre, along that neck axis
-head_droop = 3;       // nose-down at rest, which is how a cat holds it
+neck_pivot = [132, 0, 34];
+neck_rise = 30;       // degrees the neck leaves the chest at
+neck_reach = 32;      // pivot to head centre, along that neck axis
+head_droop = 2;       // nose-down at rest, which is how a cat holds it
+
+// The head is close-coupled to the chest, the way the concept render has it,
+// so its rear half overlaps where the body's front cone used to be. The
+// shell gets a round opening along the neck axis instead of a nose cone -
+// the head nestles into it and the collar hides the edge. How much yaw the
+// opening really allows is a FIT-TEST item, not something this file proves.
+neck_relief_d = 70;
 tail_pivot = [-148, 0, 34];
 tail_rise = 51.6;     // degrees above horizontal, matches the urdf's rpy
 
 // ---- head ----
-// Sized off the body, not invented: a domestic cat's skull is about 60% of
-// the chest width across the cheeks. The muzzle is short and the eyes sit
-// forward, which is most of what makes a face read as feline rather than
-// canine.
-// 72mm across a 109mm body is 66% - the proportion the reference render
-// has. At 60% the head reads as a bird's; much over 70% and it reads as a
-// kitten's.
-head_w = 80;
-head_h = 72;
-head_l = 90;
+// The head's SHAPE lives in skin/loft.py, as two section tables - SKULL and
+// MUZZLE - united into one watertight mesh. It is not built here any more:
+// the hull-of-spheres head could not make the step where the muzzle leaves
+// the cheeks, and that step is most of what makes a face read as a cat.
+// What stays here is everything the functional cuts need to know: where the
+// eyes, ears, camera and split plane sit ON that mesh.
+//
+//     python3 skin/loft.py        // regenerate after editing the tables
 
-// The muzzle is its own volume, not a taper of the skull. That separation is
-// most of what makes a face read as a cat rather than as a smooth egg with
-// eyes on it - a cat's muzzle is a short rounded box sitting proud of the
-// cheeks, with a defined step where it meets them.
-muzzle_w = 38;
-muzzle_h = 24;
-muzzle_out = 8;       // how far it stands proud of the skull surface
-
-eye_d = 17;           // outer lens/bezel diameter
-eye_spacing = 38;     // centre to centre - 52% of head width, which is the
-                      // proportion that reads as a cat rather than a fox
-eye_x = 15;           // forward of the head centre
+eye_d = 19;           // bore the eye ball shows through
+eye_spacing = 44;     // centre to centre - half the head's 88mm width
+eye_x = 22;           // forward of the head centre, on the flat face
 eye_z = 8;            // above the head centre
-eye_toe_in = 7;      // degrees each eye is splayed outward
-eye_bulge = 3.2;      // how far the lens stands proud of the skull. A cat's
+eye_toe_in = 8;       // degrees each eye is splayed outward
+eye_bulge = 5.0;      // how far the lens stands proud of the skull. A cat's
                       // eye is a sphere pushing out of the socket, not a
                       // window set into it - flush eyes read as a mask.
 
@@ -89,19 +85,19 @@ eye_bulge = 3.2;      // how far the lens stands proud of the skull. A cat's
 cam_board = [25, 24, 11.5];
 cam_bore_d = 16;
 
-ear_h = 32;
-ear_w = 29;
-ear_t = 3.6;
-ear_splay = 20;       // degrees outward from vertical
-ear_x = -6;           // behind the head centre
-ear_spacing = 40;
+ear_h = 34;
+ear_w = 33;
+ear_t = 3.8;
+ear_splay = 22;       // degrees outward from vertical
+ear_x = -14;          // behind the head centre
+ear_spacing = 48;
 // Where the ear's own origin sits on the skull. head_upper cuts its socket
 // with the same transform, so the socket and the plug cannot drift apart.
-ear_seat_z = 26;
+ear_seat_z = 30;
 
 // Where the head splits. head_upper and head_lower both cut on this plane
 // from opposite sides, so it has to be one number, not two that agree.
-head_split_z = -6;
+head_split_z = -8;
 ear_tang = 13;
 
 // ---- legs ----
@@ -118,17 +114,21 @@ ear_tang = 13;
 // It is also structural now: this is the outer arm of the yoke that bolts to
 // the servo's idle face, so the joint is supported on both sides instead of
 // hanging off the horn. Hence 4mm of wall, not 1.8.
-housing_d = 46;
-housing_len = 40;
+housing_d = 50;
+housing_len = 42;
 housing_wall = 4;
 
 // Limb segments are capsules with domed ends, deliberately SHORTER than the
 // gap between joints. The bare spine showing at each end is what separates
 // one segment from the next; a fairing that runs joint to joint welds the
 // whole leg into one blob, which is exactly how the first attempt went wrong.
-limb_d_thigh = [34, 29];   // diameter at the hip end, and at the knee end
-limb_d_calf  = [29, 24];
-limb_gap = 9;              // bare spine left showing at each end of a segment
+limb_d_thigh = [40, 32];   // diameter at the hip end, and at the knee end
+limb_d_calf  = [32, 25];
+limb_gap = 6;              // bare spine left showing at each end of a segment
+fairing_wall = 2.4;        // the fairing is a SHELL with grip collars at the
+                           // ends, not a solid - at 40mm a solid one costs
+                           // 25g per thigh, and leg grams are the expensive
+                           // grams (see measure/mass_check.py)
 
 fairing_gap = 1.2;    // clearance between a fairing and the segment inside it
 
@@ -139,10 +139,10 @@ fairing_gap = 1.2;    // clearance between a fairing and the segment inside it
 // segments themselves are passive and only need to be light.
 tail_n = 11;
 tail_len = 190;
-tail_root_d = 17;
-tail_tip_d = 8;
+tail_root_d = 24;      // the concept's tail is thick at the root - 17 read
+tail_tip_d = 10;       // as a whip antenna next to a 46mm joint housing
 tail_bore_d = 2.6;    // 2mm wire plus fit
 
 // ---- neck ----
-neck_d = 34;
-neck_len = 26;
+neck_d = 44;
+neck_len = 30;
