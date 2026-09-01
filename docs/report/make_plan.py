@@ -164,10 +164,12 @@ PARTS = [
     ("BNO085 — 9-DoF IMU", "równowaga, kurs", "135,00"),
     ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90"),
     ("3 × mikroserwo + Grove PCA9685", "głowa 2 osie, ogon", "138,60"),
-    ("TTP223 + MAX98357A + głośnik YD36", "głaskanie, miauczenie", "47,70"),
+    ("TTP223 + MAX98357A + głośnik 5 W (100×45×21 mm)",
+     "głaskanie, miauczenie, mowa", "60,80"),
+    ("ReSpeaker Lite USB 2-Mic", "słuch — komendy głosowe", "116,00"),
     ("WZROK", None, None),
     ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "199,00"),
-    ("2 × doświetlacz IR 850 nm 3 W", "drugie oko, nocny wzrok", "19,90"),
+    ("Doświetlacz IR 850 nm 3 W — para", "drugie oko, nocny wzrok", "19,90"),
     ("Kabel CSI 22-pin ↔ 15-pin", "Pi 5 ma węższe złącze — szac.", "19,90"),
     ("KOMPUTER", None, None),
     ("Raspberry Pi 5 8 GB", "sterowanie i wizja", "829,90"),
@@ -181,7 +183,7 @@ PARTS = [
     ("PETG czarny 1 kg", "wydruk", "94,90"),
 ]
 
-TOTAL = "3788,60 zł"
+TOTAL = "3917,70 zł"
 
 
 def parts_rows():
@@ -313,8 +315,11 @@ def build(path):
         "poblask.", Body))
     s.append(para(
         "Kamerą jest tylko jedno oko. Drugi oczodół nie marnuje się: siedzi w "
-        "nim <b>doświetlacz</b>. Pole widzenia 120° obejmuje niemal wszystko "
-        "przed kotem bez obracania głowy.", Body))
+        "nim <b>doświetlacz</b>. Moduły są sprzedawane <b>parą</b>, bo "
+        "normalnie flankują obiektyw kamery CCTV z obu stron — tutaj oczodoły "
+        "są dwa i jeden zajmuje kamera, więc <b>drugi doświetlacz zostaje "
+        "zapasem</b>. Pole widzenia 120° obejmuje niemal wszystko przed kotem "
+        "bez obracania głowy.", Body))
 
     s.append(callout(
         "Dioda musi być 850 nm, nie 940 nm",

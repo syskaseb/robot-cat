@@ -23,3 +23,8 @@ __pycache__/
 # The report's charts are regenerated on every build; the PDF itself is
 # tracked (see docs/report/README.md) but the intermediate PNGs are not.
 docs/report/*.png
+
+# CAD scratch: verify.py renders, manual test STLs, verify logs
+hardware/cad/_*
+!hardware/cad/_preview_*.png
+hardware/cad/skin/*.stl
