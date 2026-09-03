@@ -81,9 +81,9 @@ def st(name, **kw):
 Title = st("Title", fontName="Cal-B", fontSize=25, leading=29, textColor=ACCENT)
 Sub = st("Sub", fontSize=12.5, leading=17, textColor=MUTED)
 H1 = st("H1", fontName="Cal-B", fontSize=15.5, leading=19, textColor=ACCENT,
-        spaceBefore=16, spaceAfter=6)
+        spaceBefore=16, spaceAfter=6, keepWithNext=True)
 H2 = st("H2", fontName="Cal-B", fontSize=11.5, leading=15, textColor=INK,
-        spaceBefore=10, spaceAfter=4)
+        spaceBefore=10, spaceAfter=4, keepWithNext=True)
 Body = st("Body", alignment=TA_JUSTIFY, spaceAfter=7)
 Small = st("Small", fontSize=8.7, leading=12, textColor=MUTED)
 Cell = st("Cell", fontSize=9.2, leading=12.5)

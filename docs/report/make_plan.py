@@ -75,9 +75,9 @@ def st(name, **kw):
 Title = st("Title", fontName="Cal-B", fontSize=25, leading=29, textColor=ACCENT)
 Sub = st("Sub", fontSize=12.5, leading=17, textColor=MUTED)
 H1 = st("H1", fontName="Cal-B", fontSize=15.5, leading=19, textColor=ACCENT,
-        spaceBefore=16, spaceAfter=6)
+        spaceBefore=16, spaceAfter=6, keepWithNext=True)
 H2 = st("H2", fontName="Cal-B", fontSize=11.5, leading=15, textColor=INK,
-        spaceBefore=10, spaceAfter=4)
+        spaceBefore=10, spaceAfter=4, keepWithNext=True)
 Body = st("Body", alignment=TA_JUSTIFY, spaceAfter=7)
 Small = st("Small", fontSize=8.7, leading=12, textColor=MUTED)
 Cell = st("Cell", fontSize=9.2, leading=12.5)
@@ -146,7 +146,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Cal", 8)
     canvas.setFillColor(MUTED)
     canvas.drawString(26 * mm, 287.5 * mm, "Robot Cat — plan zakupowy")
-    canvas.drawRightString(184 * mm, 287.5 * mm, "sierpień 2026")
+    canvas.drawRightString(184 * mm, 287.5 * mm, "wrzesień 2026")
     canvas.line(26 * mm, 17 * mm, 184 * mm, 17 * mm)
     canvas.drawString(26 * mm, 12.5 * mm,
                       "Ceny orientacyjne — sprawdzić każdy link przed zapłatą")
@@ -154,36 +154,61 @@ def header_footer(canvas, doc):
     canvas.restoreState()
 
 
-# Prices checked in August 2026. The ones marked "szac." below are the only
+# Prices checked in September 2026. The ones marked "szac." below are the only
 # estimates - everything else came off a shop page. Re-check every line before
 # paying; this is a snapshot, not a quote.
 PARTS = [
-    ("NAPĘD", None, None),
-    ("12 × Waveshare ST3215 + adapter magistrali", "napęd nóg", "1327,90"),
+    ("NAPĘD I MAGISTRALA", None, None),
+    ("12 × Waveshare ST3215 + Bus Servo Adapter (A)",
+     "napęd nóg; USB-UART ↔ TTL, komendy i telemetria", "1327,90"),
+    ("3 × mikroserwo + Grove PCA9685", "głowa 2 osie, ogon", "138,60"),
     ("CZUJNIKI I INTERAKCJA", None, None),
     ("BNO085 — 9-DoF IMU", "równowaga, kurs", "135,00"),
     ("VL53L5CX — ToF 8×8, zasięg 4 m", "omijanie przeszkód", "69,90"),
-    ("3 × mikroserwo + Grove PCA9685", "głowa 2 osie, ogon", "138,60"),
     ("TTP223 + MAX98357A + głośnik 5 W (100×45×21 mm)",
      "głaskanie, miauczenie, mowa", "60,80"),
     ("ReSpeaker Lite USB 2-Mic", "słuch — komendy głosowe", "116,00"),
     ("WZROK", None, None),
     ("Camera Module 3 NoIR Wide 120°", "wzrok, także po ciemku", "199,00"),
     ("Doświetlacz IR 850 nm 3 W — para", "drugie oko, nocny wzrok", "19,90"),
-    ("Kabel CSI 22-pin ↔ 15-pin", "Pi 5 ma węższe złącze — szac.", "19,90"),
-    ("KOMPUTER", None, None),
+    ("microSD 64 GB", "system i modele — szac.", "49,00"),
+    ("KOMPUTER POCZĄTKOWY", None, None),
+    ("Raspberry Pi 4B", "Raspberry Pi OS 64-bit; już posiadany", "0,00"),
+    ("ZASILANIE", None, None),
+    ("LiPo 3S 2200 mAh, min. 30C + ładowarka B6AC",
+     "lekki pakiet bazowy — szac.", "259,00"),
+    ("Botland PLL-02580 — Pololu D24V90F5, 5 V / 9 A",
+     "Pi 4B/Pi 5; złącza ARK trzeba wlutować", "149,00"),
+    ("Druga przetwornica 5 V / 3 A", "z gotowymi zaciskami; mikroserwa i audio - szac.", "49,00"),
+    ("Botland KAB-06897 — listwa zaciskowa 30 A",
+     "zaciski śrubowe prototypowej dystrybucji", "7,40"),
+    ("Botland KAB-05473 — 10 × oprawka bezpiecznika 5×20 mm / 10 A",
+     "4 zabezpieczone gałęzie nóg", "10,60"),
+    ("Botland JUS-22264 — zestaw bezpieczników WTA 5×20 mm",
+     "wkładki 10 A dla gałęzi + zapas", "24,90"),
+    ("Botland KAB-07515 — wtyk XT60 z przewodem 10 cm",
+     "wejście pakietu do instalacji robota", "15,90"),
+    ("Botland NSZ-05375 — zestaw rurek termokurczliwych",
+     "izolacja lutowanych połączeń wiązki", "9,95"),
+    ("4 × para XT30U (wtyk + gniazdo), Kamami 581960",
+     "odłączane zasilanie każdej nogi; 4 × 5,13 zł", "20,52"),
+    ("Wyłącznik i oprawka bezpiecznika głównego 30 A",
+     "wymagane; brak pasującego gotowego kompletu w Botland", "do wyceny"),
+    ("4 × wiązka zasilania nogi z wtryskiem 5264-3P",
+     "przewody i złącza sygnału; XT30U wycenione osobno", "do wyceny"),
+    ("MECHANIKA", None, None),
+    ("PETG czarny 1 kg", "pierwszy komplet wydruków", "94,90"),
+    ("PÓŹNIEJSZA WYMIANA KOMPUTERA", None, None),
     ("Raspberry Pi 5 8 GB", "sterowanie i wizja", "829,90"),
     ("AI HAT+ 13 TOPS (Hailo-8L)", "rozpoznawanie obrazu", "329,00"),
     ("Active Cooler do Pi 5", "chłodzenie — szac.", "29,90"),
-    ("microSD 64 GB", "system i modele — szac.", "49,00"),
-    ("ZASILANIE", None, None),
-    ("Pololu D24V50F5 + LiPo 3S 2200 + ładowarka B6AC", "zasilanie", "449,00"),
-    ("Druga przetwornica 5 V / 3 A", "gałąź serw i audio — szac.", "49,00"),
-    ("OBUDOWA", None, None),
-    ("PETG czarny 1 kg", "wydruk", "94,90"),
+    ("Kabel CSI 22-pin ↔ 15-pin", "kamera po zmianie na Pi 5 — szac.", "19,90"),
 ]
 
-TOTAL = "3917,70 zł"
+PI4_TOTAL = "2757,27 zł"
+PI5_UPGRADE_TOTAL = "1208,70 zł"
+TOTAL = "3965,97 zł"
+WORKSHOP_TOTAL = "308,60 zł"
 
 
 def parts_rows():
@@ -195,8 +220,8 @@ def parts_rows():
             bands.append(len(rows))
         else:
             rows.append([name, role, Paragraph(cost, Cell)])
-    rows.append([Paragraph("<b>RAZEM</b>", CellB), "",
-                 Paragraph(f'<b><font color="{ACCENT.hexval()}">{TOTAL}</font></b>',
+    rows.append([Paragraph("<b>RAZEM PO WYMIANIE NA PI 5 + AI HAT+</b>", CellB), "",
+                 Paragraph(f'<b><font color="{ACCENT.hexval()}">{TOTAL} + pozycje niewycenione</font></b>',
                            CellB)])
     return rows, bands
 
@@ -218,23 +243,23 @@ def build(path):
                      textColor=INK, spaceBefore=2)))
     s.append(Spacer(1, 3 * mm))
     s.append(para(
-        "Wszystko, co trzeba kupić, żeby kot chodził, widział — także po "
-        "ciemku — i rozpoznawał, co widzi. Ta lista nie obejmuje drobnicy "
-        "montażowej: kabli, śrub, wkładek i narzędzi. Te są w "
-        "<b>montaz.pdf</b>, rozdział 1, i dokładają rzędu 250–400 zł.", Sub))
+        "Plan zakupowy robota bez narzuconej kolejności zakupów. Komputerem "
+        "początkowym jest posiadane Raspberry Pi 4B; później zostanie wymienione "
+        "na Pi 5 z AI HAT+. Obie konfiguracje używają Raspberry Pi OS 64-bit. "
+        "Lista nie obejmuje szczegółowych śrub i mocowań, których rozmiary "
+        "wynikną z nowego CAD-u.", Sub))
     s.append(Spacer(1, 5 * mm))
 
     s.append(callout(
-        f"Razem: {TOTAL}",
-        "Budżet wyjściowy wynosił 2500 zł i zakładał, że komputerem będzie "
-        "Raspberry Pi 4B leżące już w domu. <b>Ta lista go przekracza o "
-        "1289 zł</b>, i cała różnica siedzi w jednej decyzji: Pi 5 z "
-        "akceleratorem AI zamiast Pi 4B. Powód jest w następnym rozdziale — "
-        "krótko, Pi 4B nie ma złącza PCIe, więc rozpoznawanie obrazu jest z "
-        "nim nie tyle wolniejsze, co niemożliwe.<br/><br/>"
-        "Reszta listy mieści się w pierwotnym założeniu. Jeśli budżet ma "
-        "zostać dotrzymany, jedynym miejscem, gdzie da się go szukać, jest "
-        "właśnie komputer — nie serwa i nie czujniki.",
+        f"Pi 4B: {PI4_TOTAL}  |  wymiana na Pi 5 + AI HAT+: {PI5_UPGRADE_TOTAL}",
+        f"Suma wszystkich zakupów po wymianie: {TOTAL}. Posiadane Pi 4B ma "
+        "koszt 0 zł. W cenie wymiany są Pi 5, AI HAT+, chłodzenie i właściwy "
+        "kabel CSI. "
+        "Suma obejmuje sześć pozycji zasilania z Botlandu oraz cztery pary XT30U. "
+        "Do wyceny pozostają: główny wyłącznik i oprawka bezpiecznika 30 A, "
+        "przewody i złącza sygnału czterech wiązek nóg oraz elementy montażowe. "
+        "Plan opisuje docelowy komplet, ale nie ustala, w jakiej kolejności "
+        "pozostałe elementy mają zostać zamówione.",
         WARM))
     s.append(Spacer(1, 5 * mm))
 
@@ -248,6 +273,12 @@ def build(path):
 
     s.append(Spacer(1, 3 * mm))
     s.append(para(
+        '<b>XT30U:</b> cztery pary, po jednej na nogę, pozwalają odłączyć jej '
+        'zasilanie od korpusu. Sygnał TTL biegnie osobno. Fabryczne przewody '
+        '5264-3P serw nie zastępują tego rozłączenia. '
+        'Cena pary 5,13 zł, sprawdzona 03.09.2026: '
+        '<link href="https://kamami.pl/zlacza-adaptery/581960-xt30u-zlacze-wysokopradowe-wtyk-gniazdo-5906623459131.html" color="#167d9a">Kamami 581960</link>.', Body))
+    s.append(para(
         "<b>Umie:</b> chodzić i skręcać na czterech łapach, ruszać głową w "
         "dwóch osiach i ogonem, reagować na głaskanie, miauczeć, wiedzieć że "
         "się przechyla, omijać przeszkody, patrzeć — także w ciemności — "
@@ -255,52 +286,73 @@ def build(path):
         "oraz Bluetooth (pad PS4).", Body))
 
     # -------------------------------------------------------- komputer
-    s.append(para("Komputer: Raspberry Pi 5 z akceleratorem", H1))
+    s.append(para("Komputer: Pi 4B teraz, Pi 5 później", H1))
     s.append(para(
-        "Rozpoznawanie obrazu na samym procesorze Pi zjada całą moc "
-        "obliczeniową i nic nie zostaje na chód ani na resztę węzłów ROS. "
-        "Akcelerator przenosi sieć neuronową na osobny układ, gdzie widzenie "
-        "działa praktycznie za darmo w tle.", Body))
+        "Pierwszy robot działa na Raspberry Pi 4B z Raspberry Pi OS 64-bit: "
+        "obsługuje chód, magistralę serw, IMU, ToF, audio i kamerę. Konstrukcja "
+        "od początku dostaje wymienną tackę komputera, dostęp do USB i CSI, "
+        "zapas wysokości na HAT oraz wentylację. Późniejsza zmiana na Pi 5 z "
+        "AI HAT+ zachowuje ten sam system bazowy i ma wymagać przełożenia tacki "
+        "oraz wiązek, nie przebudowy kota.", Body))
 
     s.append(table(
-        ["YOLOv8n, 640×640", "Klatek na sekundę"],
+        ["Konfiguracja", "Zakres"],
         [
-            ["Samo CPU Pi 5", "~12"],
-            [Paragraph("<b>Pi 5 + AI HAT+ (Hailo-8L)</b>", CellB),
-             Paragraph('<b><font color="#1c6b45">~137</font></b>', CellB)],
+            ["Początkowo: Pi 4B", "Raspberry Pi OS 64-bit; sterowanie, sensory, kamera"],
+            [Paragraph("<b>Pi 5 + AI HAT+ 13 TOPS</b>", CellB),
+             Paragraph('<b><font color="#1c6b45">Raspberry Pi OS 64-bit; lokalne rozpoznawanie obrazu</font></b>', CellB)],
         ],
-        [110 * mm, 48 * mm],
-        aligns={1: "CENTER"},
+        [68 * mm, 90 * mm],
         highlight=[2]))
 
     s.append(Spacer(1, 3 * mm))
     s.append(callout(
-        "Dlaczego nie Pi 4B, skoro leży w domu",
-        "<b>Pi 4B nie ma złącza PCIe.</b> Akcelerator Hailo wpina się wyłącznie "
-        "w PCIe, więc z Pi 4B jest nie „wolniejszy”, tylko fizycznie "
-        "niemożliwy — nie ma przejściówki, która by to obeszła. Wybór jest "
-        "binarny: albo Pi 5 i rozpoznawanie obrazu, albo Pi 4B i wzrok "
-        "ograniczony do podglądu plus omijanie przeszkód z czujnika ToF.<br/><br/>"
-        "Przy okazji Pi 5 ma <b>dwa złącza CSI</b> zamiast jednego, więc para "
-        "stereo pozostaje otwarta na przyszłość. Nie jest potrzebna: głębię "
-        "daje VL53L5CX, a drugie oko zajmuje doświetlacz.",
+        "Co musi pozostać wymienne",
+        "Pi 4B i Pi 5 mają inne rozmieszczenie części złączy i inne potrzeby "
+        "chłodzenia. Kamera na Pi 4B używa taśmy 15-pinowej, a po zmianie na "
+        "Pi 5 dostaje przewód 22-pin ↔ 15-pin. Magistrala serw pozostaje na "
+        "USB z oboma komputerami. Pi 5 i HAT wymagają też zapasu przestrzeni nad "
+        "płytką oraz mocniejszej gałęzi 5 V.",
         ACCENT))
 
     s.append(para(
-        "Wersja 13 TOPS wystarcza z dużym zapasem — jedna kamera przy "
-        "prędkości 10 cm/s nie zbliża się do tego pułapu. Mocniejsza 26 TOPS "
-        "kosztuje ok. 230 zł więcej i nie ma tu czego przyspieszyć.", Body))
+        "AI HAT+ 13 TOPS pozostaje docelowym wariantem dla Pi 5. Nie działa z "
+        "Pi 4B, ponieważ wymaga interfejsu PCIe dostępnego w Pi 5. Do czasu "
+        "wymiany komputera omijanie przeszkód realizuje VL53L5CX, a kamera "
+        "służy do podglądu i lżejszych eksperymentów wizyjnych.", Body))
 
     s.append(callout(
-        "Trzy rzeczy, które Pi 5 dokłada poza swoją ceną",
-        "<b>Chłodzenie.</b> Pi 5 grzeje się bardziej niż 4B i pod HAT-em nie "
-        "ma jak oddać ciepła samo — Active Cooler nie jest opcjonalny.<br/>"
-        "<b>Inny kabel do kamery.</b> Camera Module 3 przychodzi z kablem "
-        "15-pinowym pod Pi 4B; Pi 5 ma węższe złącze 22-pinowe. Bez "
-        "przejściówki kamery nie da się podłączyć.<br/>"
-        "<b>Prąd.</b> Pi 5 z akceleratorem potrafi wziąć blisko tyle, ile daje "
-        "cała przetwornica D24V50F5 — dlatego na liście jest druga, patrz "
-        "rozdział o zasilaniu w montaz.pdf.",
+        "Zasilanie przygotowane pod oba komputery",
+        "Pi 4B wymaga mniej prądu, ale główna gałąź komputera od początku ma "
+        "dawać 5 V z zapasem pod Pi 5. Wybieramy Pololu D24V90F5 5 V / 9 A; "
+        "do płytki trzeba wlutować dołączone zaciski śrubowe ARK. Mikroserwa i audio pozostają "
+        "na osobnej gałęzi 5 V, żeby ich skoki prądu nie resetowały komputera. "
+        "Do BOM-u weszły też KAB-06897, KAB-05473, JUS-22264, KAB-07515 i "
+        "NSZ-05375. Listwa wymaga krótkich mostków przewodowych. Poza Botlandem "
+        "trzeba dobrać główny wyłącznik z bezpiecznikiem 30 A oraz złącza i "
+        "przewody do czterech lutowanych wiązek wtrysku 5264-3P.",
+        WARM))
+
+    s.append(callout(
+        "Rola Bus Servo Adapter (A)",
+        "Adapter jest konwerterem USB-UART dla półdupleksowej magistrali TTL "
+        "serw ST3215. Raspberry Pi wylicza ruch i przez adapter wysyła polecenia "
+        "do serw oznaczonych unikalnymi ID; tą samą magistralą odbiera ich "
+        "pozycję, prędkość, obciążenie i napięcie. Adapter działa tak samo z "
+        "Pi 4B i Pi 5, ale nie jest głównym rozdzielaczem prądu napędu. Jego tor "
+        "zasilania ma limit 5 A, więc pakiet 3S zasila cztery osobno zabezpieczone "
+        "gałęzie nóg przez wysokoprądowy rozdzielacz i wspólną masę.<br/><br/>"
+        "Źródła: docs.waveshare.com/Bus_Servo_Adapter_A/FAQ oraz "
+        "raspberrypi.com/documentation/computers/getting-started.html.",
+        ACCENT))
+
+    s.append(callout(
+        "Pakiet bazowy: 3S 2200 mAh",
+        "Napięcie 11,1 V nominalnie i 12,6 V po naładowaniu pasuje bezpośrednio "
+        "do ST3215. Wybieramy markowy pakiet min. 30C z XT60 i projektujemy "
+        "regulowaną kieszeń także pod 3000 mAh. Dwa lekkie pakiety 2200 mAh "
+        "wymieniane kolejno są lepsze niż wożenie jednego ciężkiego 5000 mAh. "
+        "Pakiet musi mieć balanser, bezpiecznik i kontrolę rozładowania.",
         WARM))
 
     # ------------------------------------------------------------ noc
@@ -359,7 +411,7 @@ def build(path):
     s.append(para("Czego świadomie nie ma na liście", H1))
     s.append(para(
         "Kilku rzeczy brakuje nie przez przeoczenie, tylko dlatego, że coś "
-        "innego już je załatwia albo należą do późniejszego etapu.", Body))
+        "innego już je załatwia albo należą do późniejszej rozbudowy.", Body))
 
     s.append(table(
         ["Element", "Dlaczego nie"],
@@ -388,38 +440,25 @@ def build(path):
         ],
         [40 * mm, 118 * mm]))
 
-    s.append(Spacer(1, 3 * mm))
-    s.append(callout(
-        "Kiedy czujniki w łapach zaczną mieć sens",
-        "Gdy chód przestanie być sterowany wyłącznie pozycyjnie. Pomiary "
-        "pokazały, że przy takim sterowaniu nogi <b>napierają na podłoże</b>, "
-        "bo ciało nie porusza się dokładnie tak, jak zakłada plan — i to "
-        "zjawisko odpowiada za większość obciążenia przegubów podczas chodu. "
-        "Lekarstwem jest sprzężenie zwrotne, a pierwszym jego źródłem jest "
-        "IMU, które <b>jest już w koszyku</b>. Dopiero gdyby to nie "
-        "wystarczyło — na przykład przy chodzeniu po nierównym terenie — "
-        "dedykowany czujnik w łapie byłby następnym krokiem.",
-        MUTED))
-
     s.append(para("Zanim klikniesz „zamawiam”", H2))
     s.append(table(
         ["", "Do sprawdzenia"],
         [
-            ["1", "Pakiet LiPo 3S 2200 mAh bywał oznaczany jako chwilowo "
-                  "niedostępny — potwierdzić stan lub wybrać zamiennik o tych "
-                  "samych parametrach (11,1 V, min. 25C)"],
-            ["2", "Cztery pozycje oznaczone „szac.” nie były sprawdzone w "
+            ["1", "Pakiet: 3S 2200 mAh, 11,1 V, min. 30C, XT60. Sprawdzić "
+                  "rzeczywiste wymiary konkretnego modelu przed CAD-em kieszeni"],
+            ["2", "Botland: PLL-02580, KAB-06897, KAB-05473, JUS-22264, "
+                  "KAB-07515 i NSZ-05375. "
+                  "Oddzielnie dobrać główny wyłącznik z bezpiecznikiem 30 A oraz "
+                  "cztery wiązki wtrysku zasilania 5264-3P"],
+            ["3", "Pozycje oznaczone „szac.” nie były sprawdzone w "
                   "sklepie, tylko oszacowane. Reszta pochodzi ze stron ofert, "
                   "ale ceny się zmieniają — otworzyć każdy link ponownie"],
-            ["3", "Kamera wymaga Raspberry Pi OS, nie Ubuntu: obsługa czujnika "
+            ["4", "Instalujemy Raspberry Pi OS 64-bit na Pi 4B i zachowujemy go "
+                  "po zmianie na Pi 5. Kamera wymaga Raspberry Pi OS, nie Ubuntu: obsługa czujnika "
                   "IMX708 jest tam od ręki, na Ubuntu trzeba budować libcamera "
                   "ze źródeł"],
-            ["4", "<b>Sprawdzić, co jest w pudełku z AI HAT+</b> — dystanse i "
-                  "taśma PCIe zwykle są w zestawie, więc nie trzeba ich "
-                  "dokupywać osobno"],
-            ["5", "Kabel CSI kupić <b>razem z kamerą</b>. Bez niego kamera nie "
-                  "wepnie się w Pi 5, a to najłatwiejsza pozycja do przeoczenia "
-                  "na całej liście"],
+            ["5", "Po wymianie Pi 4B na Pi 5 kamera wymaga kabla CSI 22↔15, a "
+                  "AI HAT+ wymaga chłodzenia i miejsca nad płytką"],
             ["6", "Doświetlacz ma 3 W przy 3,3 V, czyli ok. 0,9 A na sztukę. "
                   "<b>Nie zasilać go z pinu 3,3 V Raspberry Pi</b> — ten daje "
                   "kilkadziesiąt miliamperów. Ciągnąć z przetwornicy, przez "
@@ -427,6 +466,60 @@ def build(path):
         ],
         [10 * mm, 148 * mm],
         aligns={0: "CENTER"}))
+
+    s.append(para("Co lutujemy, a co nie", H1))
+    s.append(table(
+        ["Element", "Sposób montażu"],
+        [
+            ["Pololu D24V90F5", "Lutujemy dwa dołączone zaciski ARK do płytki. Przewody przykręcamy, nie lutujemy na stałe."],
+            ["4 pary XT30U", "Lutujemy przewody do obu połówek złączy, izolujemy każdy styk i mocujemy wiązkę przeciw zginaniu przy lucie."],
+            ["Rozgałęzienia wiązek nóg", "Lutujemy przewód-przewód i doprowadzenia do gotowych przewodów 5264-3P. Nie lutujemy do serw ani samych styków 5264."],
+            ["Czujniki i moduł audio", "Wlutowujemy goldpiny/ARK, gdy płytka ma je luzem. Fabrycznych złączy nie ruszamy. Przewody pozostają odłączane."],
+            ["XT60 i LiPo", "Bez lutowania: gotowy przewód KAB-07515 i fabryczne złącze pakietu. Nie przerabiamy przewodów baterii."],
+            ["Listwa, oprawki, wyłącznik", "Bez lutowania: końcówki zaciskane i śruby. Wyłącznik dobieramy ze śrubami lub konektorami, z właściwą obciążalnością DC."],
+            ["Druga przetwornica 5 V", "Wybieramy wersję z fabrycznie zamontowanymi zaciskami śrubowymi."],
+            ["Pi, HAT, kamera, USB, Grove, mikroserwa", "Gotowe przewody i złącza. Niczego nie lutujemy do Raspberry Pi."],
+            ["Głośnik i doświetlacz", "Wersje z przewodem lub złączem. Ewentualne przedłużenie lutujemy w wiązce, nie na elemencie."],
+        ], [52 * mm, 106 * mm]))
+    s.append(Spacer(1, 3 * mm))
+    s.append(para(
+        "<b>Ważne:</b> linek pod śrubami nie pobielamy cyną. Używamy końcówek "
+        "dobranych do zacisku i przewodu oraz właściwej zaciskarki. Rozgałęzienia "
+        "mocujemy poza miejscami zginania. Nie prowadzimy prądu trzech serw przez "
+        "jeden cienki przewód 5264; zasilanie doprowadzamy z wiązki do każdego serwa. "
+        "Pinout sprawdzamy z dokumentacją, nie tylko kolorem przewodów. "
+        "Źródło montażu ARK: "
+        '<link href="https://www.pololu.com/product/2866" color="#167d9a">Pololu D24V90F5</link>.', Body))
+    s.append(para("Czym to polutować", H2))
+    s.append(para(
+        "Jeżeli nie masz jeszcze stanowiska, poniższy zestaw warsztatowy jest "
+        "służy do przetwornicy, XT30U i wiązek. To zakup jednorazowy i "
+        "nie jest wliczony w koszt robota. Poza nim potrzebne są ściągacz izolacji, "
+        "zaciskarka do wybranych końcówek, multimetr i gorące powietrze. "
+        "Końcówki, zaciskarka oraz brakujące przewody nadal wymagają wyceny.", Body))
+    s.append(table(
+        ["Botland", "Zastosowanie", "Koszt"],
+        [
+            ["LUT-06271 — Zhaoxin 936DH 75 W", "stacja z regulacją temperatury", "189,90"],
+            ["LUT-09601 — zestaw grotów 900M", "dłuto dobrane do pola, zwykle 2-3 mm", "29,90"],
+            ["NSZ-03249 — Cynel LC60 1,0 mm", "cyna Sn60Pb40 z topnikiem", "65,90"],
+            ["TRP-16727 — topnik RMA w żelu", "zwilżanie grubych przewodów i pól", "22,90"],
+            [Paragraph("<b>RAZEM, JEŚLI NICZEGO NIE MASZ</b>", CellB), "",
+             Paragraph(f"<b>{WORKSHOP_TOTAL}</b>", CellB)],
+        ],
+        [68 * mm, 58 * mm, 32 * mm],
+        aligns={2: "RIGHT"},
+        highlight=[5]))
+    s.append(Spacer(1, 3 * mm))
+    s.append(callout(
+        "Ustawienia i bezpieczeństwo lutowania",
+        "Sn60Pb40: zacznij od około 340-360°C i dopasowanego grota dłutowego. "
+        "Nie zastępuj właściwego grota długim grzaniem. Dla połączeń lutowanych "
+        "najpierw załóż termokurczkę, pobiel oba elementy, "
+        "zlutuj i obkurcz gorącym powietrzem. Pakiet LiPo musi być odłączony. "
+        "Nie używaj otwartego płomienia przy akumulatorze; zapewnij wentylację, "
+        "nie jedz przy stanowisku i po pracy umyj ręce.",
+        WARM))
 
     doc.build(s)
     print("written:", path)

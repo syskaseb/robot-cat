@@ -1,5 +1,5 @@
-"""Decision chart: what the joints need against what a servo delivers as the
-battery drains. Both curves measured, not taken from a catalogue headline."""
+"""Decision chart: earlier simulation requirement against estimated servo
+stall torque as the battery drains. Curves use catalogue torque values."""
 
 import pathlib
 
@@ -11,8 +11,8 @@ INK, ACCENT, WARM, MUTED, GRID = "#16191d", "#0f4c5c", "#b3541e", "#5f6b73", "#d
 GOOD = "#1c6b45"
 
 plt.rcParams.update({
-    # See charts.py - Carlito is the metric-compatible stand-in off Windows.
-    "font.family": ["Calibri", "Carlito", "DejaVu Sans"], "font.size": 9,
+    # See charts.py - use matplotlib's bundled font consistently.
+    "font.family": "DejaVu Sans", "font.size": 9,
     "axes.edgecolor": MUTED, "axes.labelcolor": INK, "text.color": INK,
     "xtick.color": MUTED, "ytick.color": MUTED,
     "axes.spines.top": False, "axes.spines.right": False,

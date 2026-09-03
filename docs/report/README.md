@@ -65,9 +65,9 @@ do matplotliba (czyli w środowisku pixi działa bez instalowania czegokolwiek).
 Jeśli nie znajdą, kończą czytelnym komunikatem zamiast rysować czarne prostokąty.
 Skutek uboczny: te dwa dokumenty łamią się na inne strony niż pozostałe trzy.
 
-Ostrzeżenie `findfont: Font family 'Calibri' not found` przy generowaniu
-wykresów poza Windowsem jest **oczekiwane** — matplotlib próbuje Calibri
-pierwszej i schodzi do Carlito.
+Wykresy używają dołączonej do matplotliba czcionki **DejaVu Sans**. Jedna
+rodzina na wszystkich systemach zapobiega znikaniu znaków w tytułach,
+legendach i adnotacjach podczas wyboru czcionek zastępczych.
 
 ## Wykresy
 
