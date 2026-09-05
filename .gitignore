@@ -32,3 +32,7 @@ hardware/cad/skin/*.stl
 # FreeCAD automatic backups and interrupted atomic-save files
 *.FCBak
 *.FCStd.*
+
+# FreeCAD/Qt may expand this Windows cache path literally when launched from
+# the repository; never include that machine-local cache in commits.
+%SystemDrive%/

@@ -1,0 +1,415 @@
+"""Interactive WAVEGO kinematic preview for FreeCAD.
+
+Run this macro with the WAVEGO FCStd document open.  The first run rebuilds
+the imported STEP hierarchy into three revolute stages per leg.  Subsequent
+runs are idempotent and only reopen the controller panel.
+
+This is a kinematic visualisation, not a contact/torque simulation.  Dynamic
+validation still belongs in Gazebo after the mechanical ranges are accepted.
+"""
+
+import math
+import os
+
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+
+try:
+    from PySide import QtCore, QtWidgets
+except ImportError:  # pragma: no cover - older FreeCAD packages
+    from PySide2 import QtCore, QtWidgets
+
+
+MOTION_FILE = os.path.normpath(
+    r"C:\Users\Sysq\PycharmProjects\robot-cat\hardware\wavego\WAVEGO_PRO_BETA_v3_motion.FCStd"
+)
+
+# Pivots and directions measured from cylindrical horn faces in the Fusion
+# STEP export.  Coordinates are millimetres in the imported model frame.
+LEGS = {
+    "FR": {
+        "label": "Front right",
+        "phase": 0.0,
+        "connector": "WConnector002",
+        "links": ("LegLink", "LegLink001"),
+        "spacer": "LegSpacer001",
+        "bracket": "Bracket_v002",
+        "servos": ("RobotCat_ST3215_4", "RobotCat_ST3215_6", "RobotCat_ST3215_10"),
+        "pivots": ((130.810, -16.000, 18.510), (146.398, -60.484, 12.258), (196.164, -79.516, -80.071)),
+        "axes": ((-1.0, 0.0, 0.0), (0.0, 0.99027, 0.13917), (0.0, -0.99027, -0.13917)),
+    },
+    "FL": {
+        "label": "Front left",
+        "phase": 0.5,
+        "connector": "WConnector001",
+        "links": ("LegLink002", "LegLink003"),
+        "spacer": "LegSpacer003",
+        "bracket": "Bracket_v003",
+        "servos": ("RobotCat_ST3215_3", "RobotCat_ST3215_8", "RobotCat_ST3215_12"),
+        "pivots": ((130.810, 16.000, 18.510), (146.398, 60.484, 12.258), (196.164, 79.516, -80.071)),
+        "axes": ((-1.0, 0.0, 0.0), (0.0, -0.99027, 0.13917), (0.0, 0.99027, -0.13917)),
+    },
+    "RR": {
+        "label": "Rear right",
+        "phase": 0.5,
+        "connector": "WConnector003",
+        "links": ("LegLink004", "LegLink007"),
+        "spacer": "LegSpacer",
+        "bracket": "Bracket_v2",
+        "servos": ("RobotCat_ST3215_1", "RobotCat_ST3215_5", "RobotCat_ST3215_9"),
+        "pivots": ((-88.810, -16.000, 18.510), (-104.398, -60.484, 12.258), (-54.631, -79.516, -80.071)),
+        "axes": ((1.0, 0.0, 0.0), (0.0, 0.99027, 0.13917), (0.0, -0.99027, -0.13917)),
+    },
+    "RL": {
+        "label": "Rear left",
+        "phase": 0.0,
+        "connector": "WConnector",
+        "links": ("LegLink006", "LegLink005"),
+        "spacer": "LegSpacer002",
+        "bracket": "Bracket_v001",
+        "servos": ("RobotCat_ST3215_2", "RobotCat_ST3215_7", "RobotCat_ST3215_11"),
+        "pivots": ((-88.810, 16.000, 18.510), (-104.398, 60.484, 12.258), (-54.631, 79.516, -80.071)),
+        "axes": ((1.0, 0.0, 0.0), (0.0, -0.99027, 0.13917), (0.0, 0.99027, -0.13917)),
+    },
+}
+
+
+def by_label(doc, label):
+    matches = doc.getObjectsByLabel(label)
+    if len(matches) != 1:
+        raise RuntimeError("Expected one object labelled %r, found %d" % (label, len(matches)))
+    return matches[0]
+
+
+def remove_from_parts(obj):
+    for parent in list(obj.InList):
+        if parent.TypeId == "App::Part" and hasattr(parent, "removeObject"):
+            parent.removeObject(obj)
+
+
+def move_to(obj, parent):
+    if parent in obj.InList:
+        return
+    # Placement is expressed in the coordinate system of the current App::Part.
+    # Preserve the visual/world transform when changing the parent; otherwise
+    # imported horn discs jump away from their servo shafts.
+    world_placement = obj.getGlobalPlacement() if hasattr(obj, "getGlobalPlacement") else None
+    remove_from_parts(obj)
+    parent.addObject(obj)
+    if world_placement is not None and hasattr(obj, "Placement"):
+        obj.Placement = parent.getGlobalPlacement().inverse().multiply(world_placement)
+
+
+def ensure_part(doc, name, label, parent):
+    obj = doc.getObject(name)
+    if obj is None:
+        obj = doc.addObject("App::Part", name)
+        obj.Label = label
+    move_to(obj, parent)
+    return obj
+
+
+def rotation_about(pivot_tuple, axis_tuple, angle_deg):
+    pivot = App.Vector(*pivot_tuple)
+    axis = App.Vector(*axis_tuple)
+    axis.normalize()
+    rotation = App.Rotation(axis, float(angle_deg))
+    translation = pivot - rotation.multVec(pivot)
+    return App.Placement(translation, rotation)
+
+
+def ensure_property(obj, kind, name, group, description, default=None):
+    if name not in obj.PropertiesList:
+        obj.addProperty(kind, name, group, description)
+        if default is not None:
+            setattr(obj, name, default)
+
+
+def ensure_controller(doc, motion_root):
+    controller = doc.getObject("WAVEGO_MotionController")
+    if controller is None:
+        controller = doc.addObject("App::FeaturePython", "WAVEGO_MotionController")
+        controller.Label = "WAVEGO Motion Controller"
+    move_to(controller, motion_root)
+    ensure_property(controller, "App::PropertyEnumeration", "Mode", "Animation", "Current controller mode")
+    controller.Mode = ["Stand", "Trot", "Manual"]
+    ensure_property(controller, "App::PropertyFloatConstraint", "Phase", "Motion", "Normalised gait phase", (0.0, 0.0, 1.0, 0.01))
+    ensure_property(controller, "App::PropertyFloat", "CycleSeconds", "Motion", "Duration of one gait cycle", 2.4)
+    ensure_property(controller, "App::PropertyBool", "Playing", "Motion", "True while the UI timer is running", False)
+    ensure_property(controller, "App::PropertyString", "Instructions", "Documentation", "How to run this preview")
+    controller.Instructions = "Macro > Macros > WAVEGO_Motion.FCMacro. Play runs a kinematic preview only."
+    for leg_code, spec in LEGS.items():
+        group = "Manual - " + spec["label"]
+        ensure_property(controller, "App::PropertyAngle", "Hip_" + leg_code, group, "Hip roll offset", 0.0)
+        ensure_property(controller, "App::PropertyAngle", "Knee_" + leg_code, group, "Knee pitch offset", 0.0)
+        ensure_property(controller, "App::PropertyAngle", "Ankle_" + leg_code, group, "Ankle pitch offset", 0.0)
+    return controller
+
+
+def ensure_axis_marker(doc, axes_root, name, pivot, axis, color):
+    marker = doc.getObject(name)
+    if marker is None:
+        marker = doc.addObject("Part::Feature", name)
+        marker.Label = name.replace("Axis_", "Servo axis ")
+        p = App.Vector(*pivot)
+        v = App.Vector(*axis)
+        v.normalize()
+        marker.Shape = Part.makeCylinder(0.8, 28.0, p - v * 14.0, v)
+        marker.ViewObject.ShapeColor = color
+        marker.ViewObject.LineColor = color
+        marker.ViewObject.Transparency = 10
+    move_to(marker, axes_root)
+    return marker
+
+
+def build_kinematic_tree(doc):
+    roots = doc.getObjectsByLabel("WAVEGO PRO BETA v3")
+    if not roots:
+        raise RuntimeError("The WAVEGO PRO BETA v3 assembly was not found")
+    assembly_root = roots[0]
+    motion_root = ensure_part(doc, "WAVEGO_Kinematics", "WAVEGO kinematics (12 DOF)", assembly_root)
+    axes_root = ensure_part(doc, "WAVEGO_ServoAxes", "Servo axes (diagnostic)", motion_root)
+
+    for leg_code, spec in LEGS.items():
+        hip_group = ensure_part(doc, "Motion_%s_Hip" % leg_code, "%s - hip link" % spec["label"], motion_root)
+        knee_group = ensure_part(doc, "Motion_%s_Knee" % leg_code, "%s - knee link" % spec["label"], hip_group)
+        ankle_group = ensure_part(doc, "Motion_%s_Ankle" % leg_code, "%s - ankle/foot link" % spec["label"], knee_group)
+
+        servo_hip, servo_knee, servo_ankle = [by_label(doc, label) for label in spec["servos"]]
+
+        # A motor body belongs to the proximal link; its two horn discs belong
+        # to the link on the other side of the revolute joint.
+        for horn in [child for child in list(servo_hip.Group) if child.Label.startswith("HornDisc_")]:
+            move_to(horn, hip_group)
+        for horn in [child for child in list(servo_knee.Group) if child.Label.startswith("HornDisc_")]:
+            move_to(horn, knee_group)
+        for horn in [child for child in list(servo_ankle.Group) if child.Label.startswith("HornDisc_")]:
+            move_to(horn, knee_group)
+
+        move_to(by_label(doc, spec["connector"]), hip_group)
+        move_to(servo_knee, hip_group)
+        for link_label in spec["links"]:
+            move_to(by_label(doc, link_label), knee_group)
+        move_to(by_label(doc, spec["spacer"]), knee_group)
+        move_to(servo_ankle, ankle_group)
+        move_to(by_label(doc, spec["bracket"]), ankle_group)
+
+        hip_group.Placement = App.Placement()
+        knee_group.Placement = App.Placement()
+        ankle_group.Placement = App.Placement()
+
+        colors = ((0.90, 0.20, 0.15), (0.20, 0.75, 0.25), (0.15, 0.45, 0.95))
+        for index, (pivot, axis, color) in enumerate(zip(spec["pivots"], spec["axes"], colors), 1):
+            ensure_axis_marker(doc, axes_root, "Axis_%s_%d" % (leg_code, index), pivot, axis, color)
+
+    axes_root.ViewObject.Visibility = False
+    return motion_root, axes_root
+
+
+def angles_from_controller(controller):
+    result = {}
+    for leg_code in LEGS:
+        result[leg_code] = (
+            float(getattr(controller, "Hip_" + leg_code).Value),
+            float(getattr(controller, "Knee_" + leg_code).Value),
+            float(getattr(controller, "Ankle_" + leg_code).Value),
+        )
+    return result
+
+
+def trot_angles(phase):
+    result = {}
+    for leg_code, spec in LEGS.items():
+        theta = 2.0 * math.pi * ((float(phase) + spec["phase"]) % 1.0)
+        fore_aft = math.sin(theta)
+        swing = max(0.0, fore_aft)
+        # Relative offsets from the imported neutral pose.  Conservative
+        # amplitudes keep the printed links clear while making the gait legible.
+        hip = 2.5 * math.sin(2.0 * theta)
+        knee = 13.0 * fore_aft + 9.0 * swing
+        ankle = -18.0 * fore_aft - 12.0 * swing
+        result[leg_code] = (hip, knee, ankle)
+    return result
+
+
+def apply_angles(doc, angles):
+    for leg_code, values in angles.items():
+        spec = LEGS[leg_code]
+        for suffix, pivot, axis, angle in zip(("Hip", "Knee", "Ankle"), spec["pivots"], spec["axes"], values):
+            group = doc.getObject("Motion_%s_%s" % (leg_code, suffix))
+            group.Placement = rotation_about(pivot, axis, angle)
+    doc.recompute()
+    Gui.updateGui()
+
+
+class MotionPanel(QtWidgets.QWidget):
+    def __init__(self, doc, controller, axes_root, parent=None):
+        super(MotionPanel, self).__init__(parent)
+        self.doc = doc
+        self.controller = controller
+        self.axes_root = axes_root
+        self.phase = float(controller.Phase)
+        self._updating = False
+        self.timer = QtCore.QTimer(self)
+        self.timer.setInterval(40)
+        self.timer.timeout.connect(self._tick)
+
+        layout = QtWidgets.QVBoxLayout(self)
+        note = QtWidgets.QLabel("12-DOF kinematic preview. Red/green/blue = hip/knee/ankle axes.")
+        note.setWordWrap(True)
+        layout.addWidget(note)
+
+        controls = QtWidgets.QHBoxLayout()
+        self.play_button = QtWidgets.QPushButton("Play trot")
+        self.play_button.clicked.connect(self.toggle_play)
+        controls.addWidget(self.play_button)
+        reset_button = QtWidgets.QPushButton("Stand")
+        reset_button.clicked.connect(self.stand)
+        controls.addWidget(reset_button)
+        self.axes_box = QtWidgets.QCheckBox("Show servo axes")
+        self.axes_box.toggled.connect(self.show_axes)
+        controls.addWidget(self.axes_box)
+        layout.addLayout(controls)
+
+        phase_row = QtWidgets.QHBoxLayout()
+        phase_row.addWidget(QtWidgets.QLabel("Gait phase"))
+        self.phase_slider = QtWidgets.QSlider(QtCore.Qt.Horizontal)
+        self.phase_slider.setRange(0, 1000)
+        self.phase_slider.setValue(int(self.phase * 1000.0))
+        self.phase_slider.valueChanged.connect(self.phase_changed)
+        phase_row.addWidget(self.phase_slider)
+        layout.addLayout(phase_row)
+
+        speed_row = QtWidgets.QHBoxLayout()
+        speed_row.addWidget(QtWidgets.QLabel("Cycle [s]"))
+        self.speed = QtWidgets.QDoubleSpinBox()
+        self.speed.setRange(0.6, 8.0)
+        self.speed.setSingleStep(0.2)
+        self.speed.setValue(float(controller.CycleSeconds))
+        self.speed.valueChanged.connect(self.speed_changed)
+        speed_row.addWidget(self.speed)
+        speed_row.addStretch(1)
+        layout.addLayout(speed_row)
+
+        manual_box = QtWidgets.QGroupBox("Manual servo offsets [degrees]")
+        manual_layout = QtWidgets.QGridLayout(manual_box)
+        manual_layout.addWidget(QtWidgets.QLabel("Leg"), 0, 0)
+        for column, title in enumerate(("Hip", "Knee", "Ankle"), 1):
+            manual_layout.addWidget(QtWidgets.QLabel(title), 0, column)
+        self.angle_boxes = {}
+        for row, (leg_code, spec) in enumerate(LEGS.items(), 1):
+            manual_layout.addWidget(QtWidgets.QLabel("%s (%s)" % (spec["label"], leg_code)), row, 0)
+            for column, joint in enumerate(("Hip", "Knee", "Ankle"), 1):
+                box = QtWidgets.QDoubleSpinBox()
+                box.setRange(-60.0, 60.0)
+                box.setSingleStep(1.0)
+                box.setSuffix(" deg")
+                box.setValue(float(getattr(controller, joint + "_" + leg_code).Value))
+                box.valueChanged.connect(lambda value, l=leg_code, j=joint: self.manual_changed(l, j, value))
+                manual_layout.addWidget(box, row, column)
+                self.angle_boxes[(leg_code, joint)] = box
+        layout.addWidget(manual_box)
+        layout.addStretch(1)
+
+    def show_axes(self, checked):
+        self.axes_root.ViewObject.Visibility = bool(checked)
+        Gui.updateGui()
+
+    def speed_changed(self, value):
+        self.controller.CycleSeconds = float(value)
+
+    def phase_changed(self, value):
+        if self._updating:
+            return
+        self.stop()
+        self.phase = float(value) / 1000.0
+        self.controller.Phase = self.phase
+        self.controller.Mode = "Trot"
+        apply_angles(self.doc, trot_angles(self.phase))
+
+    def manual_changed(self, leg_code, joint, value):
+        if self._updating:
+            return
+        self.stop()
+        self.controller.Mode = "Manual"
+        setattr(self.controller, joint + "_" + leg_code, float(value))
+        apply_angles(self.doc, angles_from_controller(self.controller))
+
+    def stand(self):
+        self.stop()
+        self._updating = True
+        try:
+            self.phase = 0.0
+            self.controller.Phase = 0.0
+            self.controller.Mode = "Stand"
+            self.phase_slider.setValue(0)
+            for (leg_code, joint), box in self.angle_boxes.items():
+                box.setValue(0.0)
+                setattr(self.controller, joint + "_" + leg_code, 0.0)
+        finally:
+            self._updating = False
+        apply_angles(self.doc, {code: (0.0, 0.0, 0.0) for code in LEGS})
+
+    def toggle_play(self):
+        if self.timer.isActive():
+            self.stop()
+        else:
+            self.controller.Mode = "Trot"
+            self.controller.Playing = True
+            self.play_button.setText("Pause")
+            self.timer.start()
+
+    def stop(self):
+        self.timer.stop()
+        self.controller.Playing = False
+        self.play_button.setText("Play trot")
+
+    def _tick(self):
+        cycle = max(0.1, float(self.controller.CycleSeconds))
+        self.phase = (self.phase + self.timer.interval() / 1000.0 / cycle) % 1.0
+        self.controller.Phase = self.phase
+        self._updating = True
+        try:
+            self.phase_slider.setValue(int(self.phase * 1000.0))
+        finally:
+            self._updating = False
+        apply_angles(self.doc, trot_angles(self.phase))
+
+
+def open_panel(doc, controller, axes_root):
+    main_window = Gui.getMainWindow()
+    old = main_window.findChild(QtWidgets.QDockWidget, "WAVEGO_Motion_Dock")
+    if old is not None:
+        old.close()
+        old.deleteLater()
+    dock = QtWidgets.QDockWidget("WAVEGO Motion", main_window)
+    dock.setObjectName("WAVEGO_Motion_Dock")
+    dock.setAllowedAreas(QtCore.Qt.LeftDockWidgetArea | QtCore.Qt.RightDockWidgetArea)
+    panel = MotionPanel(doc, controller, axes_root, dock)
+    dock.setWidget(panel)
+    main_window.addDockWidget(QtCore.Qt.RightDockWidgetArea, dock)
+    dock.show()
+    dock.raise_()
+    Gui._wavego_motion_dock = dock
+    Gui._wavego_motion_panel = panel
+    return panel
+
+
+doc = App.ActiveDocument
+if doc is None:
+    raise RuntimeError("Open the WAVEGO FCStd document before running this macro")
+
+if os.path.normcase(os.path.normpath(doc.FileName or "")) != os.path.normcase(MOTION_FILE):
+    doc.saveAs(MOTION_FILE)
+doc.Label = "WAVEGO PRO BETA v3 - motion"
+motion_root, axes_root = build_kinematic_tree(doc)
+controller = ensure_controller(doc, motion_root)
+apply_angles(doc, {code: (0.0, 0.0, 0.0) for code in LEGS})
+doc.recompute()
+doc.save()
+panel = open_panel(doc, controller, axes_root)
+Gui.activeDocument().activeView().viewAxonometric()
+Gui.activeDocument().activeView().fitAll()
+panel.toggle_play()
+print("WAVEGO motion ready: %s" % doc.FileName)
