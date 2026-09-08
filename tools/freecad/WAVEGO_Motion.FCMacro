@@ -164,6 +164,13 @@ def ensure_axis_marker(doc, axes_root, name, pivot, axis, color):
 
 
 def build_kinematic_tree(doc):
+    old_panel = getattr(Gui, "_wavego_motion_panel", None)
+    if old_panel is not None:
+        old_panel.stop()
+    for obj in doc.Objects:
+        if obj.Name.startswith("Motion_") and obj.TypeId == "App::Part":
+            obj.Placement = App.Placement()
+    doc.recompute()
     roots = doc.getObjectsByLabel("WAVEGO PRO BETA v3")
     if not roots:
         raise RuntimeError("The WAVEGO PRO BETA v3 assembly was not found")
@@ -178,21 +185,23 @@ def build_kinematic_tree(doc):
 
         servo_hip, servo_knee, servo_ankle = [by_label(doc, label) for label in spec["servos"]]
 
-        # A motor body belongs to the proximal link; its two horn discs belong
-        # to the link on the other side of the revolute joint.
-        for horn in [child for child in list(servo_hip.Group) if child.Label.startswith("HornDisc_")]:
-            move_to(horn, hip_group)
-        for horn in [child for child in list(servo_knee.Group) if child.Label.startswith("HornDisc_")]:
-            move_to(horn, knee_group)
-        for horn in [child for child in list(servo_ankle.Group) if child.Label.startswith("HornDisc_")]:
-            move_to(horn, knee_group)
+        # Both servo cases are rigidly bolted to the LegLinks.
+        # Upper horns attach to WConnector; lower horns attach to the foot.
+        # Resolve horns globally so this also repairs the old hierarchy.
+        for servo, target in ((servo_hip, hip_group),
+                              (servo_knee, hip_group),
+                              (servo_ankle, ankle_group)):
+            number = int(servo.Label.rsplit("_", 1)[1])
+            suffix = "2" if number == 1 else "%03d" % (number - 1)
+            for side in ("Drive", "Idle"):
+                move_to(by_label(doc, "HornDisc_%s_v%s" % (side, suffix)), target)
 
         move_to(by_label(doc, spec["connector"]), hip_group)
-        move_to(servo_knee, hip_group)
+        move_to(servo_knee, knee_group)
         for link_label in spec["links"]:
             move_to(by_label(doc, link_label), knee_group)
-        move_to(by_label(doc, spec["spacer"]), knee_group)
-        move_to(servo_ankle, ankle_group)
+        move_to(by_label(doc, spec["spacer"]), ankle_group)
+        move_to(servo_ankle, knee_group)
         move_to(by_label(doc, spec["bracket"]), ankle_group)
 
         hip_group.Placement = App.Placement()

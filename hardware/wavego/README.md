@@ -29,3 +29,15 @@ belong in the ROS 2 / Gazebo model after the CAD motion is accepted.
 
 The macro is idempotent: running it again reuses the existing kinematic
 groups and reopens the controller panel.
+
+## Rigid servo mount correction
+
+Both servo cases in each leg share a rigid group with its two LegLinks.
+The upper servo horns are fixed to WConnector; the lower servo horns and
+LegSpacer are fixed to the foot bracket. Only the shaft joints articulate.
+The macro also migrates the earlier, incorrect hierarchy at the neutral pose.
+
+Verified in FreeCAD: 32 rigid part pairs over 25 gait phases retained their
+relative transforms (maximum translation error 5.95e-13 mm, rotation 0 degrees).
+Rebuilding from a moving pose also passed. This checks assembly attachment
+integrity; it does not certify the imported hole fit or collision clearance.
