@@ -3,6 +3,19 @@
 `WAVEGO_PRO_BETA_v3.FCStd` is the coloured, non-animated source model.
 `WAVEGO_PRO_BETA_v3_motion.FCStd` is its 12-DOF kinematic working copy.
 
+`WAVEGO_component_layout.FCStd` is a separate component-packaging study,
+with 26 installation envelopes, measured attachment axes and camera FOV.
+See [layout/README.md](layout/README.md) for dimensions, the proposed raised
+back, component provenance and collision-test limits. Its coloured boxes
+and wireframe enclosures are **not printable mechanical parts**.
+
+`WAVEGO_cat_mechanical.FCStd` is the subsequent PETG mechanical prototype,
+with eight new bodies for the enclosure, head, mounts and tail. It is a
+work-in-progress checkpoint, **not released for printing**: known collisions,
+remaining assembly connections and unfinished component mounts are listed in
+[mechanics/README.md](mechanics/README.md). The layout study's clearance results
+do not certify this later mechanical model.
+
 ## Run the motion preview in FreeCAD
 
 1. Open `WAVEGO_PRO_BETA_v3_motion.FCStd`.

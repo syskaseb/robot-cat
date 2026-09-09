@@ -1,0 +1,473 @@
+{
+  "source_parts_unchanged": 126,
+  "geometry": {
+    "CAT_Base_Chassis_Tray": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        -111.0,
+        -76.0,
+        37.02,
+        143.0,
+        76.0,
+        126.52
+      ],
+      "volume_mm3": 254205.69
+    },
+    "CAT_Back_Lid": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        -111.0,
+        -76.0,
+        126.52,
+        143.0,
+        76.0,
+        142.92
+      ],
+      "volume_mm3": 93945.53
+    },
+    "CAT_Head_Shell": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        -186.0,
+        -54.0,
+        139.0,
+        -96.0,
+        54.0,
+        248.0
+      ],
+      "volume_mm3": 120805.58
+    },
+    "CAT_Neck_Load_Frame": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        -147.0,
+        -31.0,
+        39.42,
+        -66.0,
+        31.0,
+        209.0
+      ],
+      "volume_mm3": 55486.12
+    },
+    "CAT_Face_Mask": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        -193.6,
+        -54.0,
+        139.0,
+        -186.0,
+        54.0,
+        221.0
+      ],
+      "volume_mm3": 17558.82
+    },
+    "CAT_Tail_Mount": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        106.0,
+        -31.0,
+        39.42,
+        174.0,
+        31.0,
+        118.42
+      ],
+      "volume_mm3": 30181.6
+    },
+    "CAT_Tail": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        168.1617,
+        -15.3141,
+        97.0,
+        250.7703,
+        15.3141,
+        220.0
+      ],
+      "volume_mm3": 19377.86
+    },
+    "CAT_Camera_Carrier": {
+      "valid": true,
+      "solids": 1,
+      "bbox": [
+        -168.0,
+        0.0,
+        141.4,
+        -110.0,
+        36.0,
+        200.4
+      ],
+      "volume_mm3": 10318.95
+    }
+  },
+  "part_intersections": [
+    [
+      "CAT_Head_Shell",
+      "CAT_Neck_Load_Frame",
+      196.1
+    ],
+    [
+      "CAT_Tail_Mount",
+      "CAT_Tail",
+      5.764
+    ]
+  ],
+  "contact_pairs": [
+    [
+      "CAT_Base_Chassis_Tray",
+      "CAT_Back_Lid",
+      0.0
+    ],
+    [
+      "CAT_Base_Chassis_Tray",
+      "CAT_Neck_Load_Frame",
+      0.0
+    ],
+    [
+      "CAT_Base_Chassis_Tray",
+      "CAT_Tail_Mount",
+      0.0
+    ],
+    [
+      "CAT_Head_Shell",
+      "CAT_Neck_Load_Frame",
+      0.0
+    ],
+    [
+      "CAT_Head_Shell",
+      "CAT_Face_Mask",
+      0.0
+    ],
+    [
+      "CAT_Head_Shell",
+      "CAT_Camera_Carrier",
+      0.0
+    ],
+    [
+      "CAT_Tail_Mount",
+      "CAT_Tail",
+      0.0
+    ]
+  ],
+  "source_hits": [
+    [
+      "CAT_Base_Chassis_Tray",
+      "SidePanel",
+      3088.356
+    ],
+    [
+      "CAT_Base_Chassis_Tray",
+      "SidePanel001",
+      3088.356
+    ]
+  ],
+  "component_envelope_hits": [
+    [
+      "CAT_Base_Chassis_Tray",
+      "RearDisconnects",
+      448.8
+    ],
+    [
+      "CAT_Head_Shell",
+      "PanServo",
+      3110.4
+    ],
+    [
+      "CAT_Camera_Carrier",
+      "PanServo",
+      720.0
+    ]
+  ],
+  "manifest_mismatch": [],
+  "joints": [
+    {
+      "name": "lid to body",
+      "parts": [
+        "CAT_Base_Chassis_Tray",
+        "CAT_Back_Lid"
+      ],
+      "axes": [
+        [
+          -102,
+          -66,
+          122
+        ],
+        [
+          -102,
+          66,
+          122
+        ],
+        [
+          134,
+          -66,
+          122
+        ],
+        [
+          134,
+          66,
+          122
+        ]
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "bore_probe_length": 10,
+      "shaft_diameter": 3.0,
+      "blocked_bores": []
+    },
+    {
+      "name": "neck to front chassis",
+      "parts": [
+        "CAT_Base_Chassis_Tray",
+        "CAT_Neck_Load_Frame"
+      ],
+      "axes": [
+        [
+          -80,
+          -22.5,
+          37.02
+        ],
+        [
+          -80,
+          22.5,
+          37.02
+        ],
+        [
+          -70,
+          -22.5,
+          37.02
+        ],
+        [
+          -70,
+          22.5,
+          37.02
+        ]
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "bore_probe_length": 6.4,
+      "shaft_diameter": 2.5,
+      "blocked_bores": []
+    },
+    {
+      "name": "tail bracket to rear chassis",
+      "parts": [
+        "CAT_Base_Chassis_Tray",
+        "CAT_Tail_Mount"
+      ],
+      "axes": [
+        [
+          112,
+          -22.5,
+          37.02
+        ],
+        [
+          112,
+          22.5,
+          37.02
+        ],
+        [
+          122,
+          -22.5,
+          37.02
+        ],
+        [
+          122,
+          22.5,
+          37.02
+        ]
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "bore_probe_length": 6.4,
+      "shaft_diameter": 2.5,
+      "blocked_bores": []
+    },
+    {
+      "name": "head to neck",
+      "parts": [
+        "CAT_Head_Shell",
+        "CAT_Neck_Load_Frame"
+      ],
+      "axes": [
+        [
+          -107,
+          -23,
+          154
+        ],
+        [
+          -107,
+          -23,
+          207
+        ],
+        [
+          -107,
+          23,
+          154
+        ],
+        [
+          -107,
+          23,
+          207
+        ]
+      ],
+      "axis_direction": [
+        1,
+        0,
+        0
+      ],
+      "bore_probe_length": 17,
+      "shaft_diameter": 3.0,
+      "blocked_bores": []
+    },
+    {
+      "name": "face to head",
+      "parts": [
+        "CAT_Face_Mask",
+        "CAT_Head_Shell"
+      ],
+      "axes": [
+        [
+          -188.4,
+          -47,
+          166
+        ],
+        [
+          -188.4,
+          -47,
+          194
+        ],
+        [
+          -188.4,
+          47,
+          166
+        ],
+        [
+          -188.4,
+          47,
+          194
+        ]
+      ],
+      "axis_direction": [
+        1,
+        0,
+        0
+      ],
+      "bore_probe_length": 14.4,
+      "shaft_diameter": 3.0,
+      "blocked_bores": []
+    },
+    {
+      "name": "camera carrier to head floor",
+      "parts": [
+        "CAT_Camera_Carrier",
+        "CAT_Head_Shell"
+      ],
+      "axes": [
+        [
+          -158,
+          25,
+          139
+        ],
+        [
+          -119,
+          25,
+          139
+        ]
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "bore_probe_length": 5.4,
+      "shaft_diameter": 3.0,
+      "blocked_bores": []
+    },
+    {
+      "name": "tail to bracket",
+      "parts": [
+        "CAT_Tail",
+        "CAT_Tail_Mount"
+      ],
+      "axes": [
+        [
+          169,
+          -9,
+          109
+        ],
+        [
+          169,
+          9,
+          109
+        ]
+      ],
+      "axis_direction": [
+        1,
+        0,
+        0
+      ],
+      "bore_probe_length": 15,
+      "shaft_diameter": 3.0,
+      "blocked_bores": []
+    },
+    {
+      "name": "camera PCB pattern",
+      "parts": [
+        "CAT_Camera_Carrier"
+      ],
+      "axes": [
+        [
+          -168,
+          7.5,
+          174.6
+        ],
+        [
+          -168,
+          7.5,
+          187.1
+        ],
+        [
+          -168,
+          28.5,
+          174.6
+        ],
+        [
+          -168,
+          28.5,
+          187.1
+        ]
+      ],
+      "axis_direction": [
+        1,
+        0,
+        0
+      ],
+      "bore_probe_length": 5.2,
+      "shaft_diameter": 2.0,
+      "blocked_bores": []
+    }
+  ],
+  "gait_phases": 0,
+  "gait_hits": [],
+  "limits": [
+    "Fixed mechanical prototype: neck/tail not actuated.",
+    "PCB envelopes are not purchased-part CAD; unspecified module mounts remain pending.",
+    "Bore probes test void continuity, not thread engagement, strength or tool access.",
+    "No load, mass distribution, thermal, cable fatigue or slicer certification."
+  ]
+}

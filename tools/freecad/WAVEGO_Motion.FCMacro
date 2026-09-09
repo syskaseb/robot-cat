@@ -409,9 +409,18 @@ doc = App.ActiveDocument
 if doc is None:
     raise RuntimeError("Open the WAVEGO FCStd document before running this macro")
 
-if os.path.normcase(os.path.normpath(doc.FileName or "")) != os.path.normcase(MOTION_FILE):
+layout_file = os.path.join(os.path.dirname(MOTION_FILE), "WAVEGO_component_layout.FCStd")
+mechanical_file = os.path.join(os.path.dirname(MOTION_FILE), "WAVEGO_cat_mechanical.FCStd")
+working_files = {
+    os.path.normcase(os.path.normpath(path))
+    for path in (MOTION_FILE, layout_file, mechanical_file)
+}
+# Study/prototype copies have their own components and must never overwrite
+# the accepted motion source when the user opens the gait controls in them.
+if os.path.normcase(os.path.normpath(doc.FileName or "")) not in working_files:
     doc.saveAs(MOTION_FILE)
-doc.Label = "WAVEGO PRO BETA v3 - motion"
+if os.path.normcase(os.path.normpath(doc.FileName or "")) == os.path.normcase(MOTION_FILE):
+    doc.Label = "WAVEGO PRO BETA v3 - motion"
 motion_root, axes_root = build_kinematic_tree(doc)
 controller = ensure_controller(doc, motion_root)
 apply_angles(doc, {code: (0.0, 0.0, 0.0) for code in LEGS})

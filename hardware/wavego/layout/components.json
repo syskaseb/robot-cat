@@ -1,0 +1,589 @@
+{
+  "units": "mm",
+  "purpose": "Packaging study; boxes reserve installed space, not manufacturing models or certified clearances.",
+  "components": [
+    {
+      "id": "Battery",
+      "label": "01 LiPo - selection envelope",
+      "zone": "lower",
+      "size": [
+        120,
+        46,
+        33
+      ],
+      "min": [
+        -29,
+        -23,
+        3
+      ],
+      "nominal": [
+        110,
+        40,
+        30
+      ],
+      "status": "assumed maximum pack; not a selected 2200/3000 mAh product",
+      "source": "docs/adr/0001-prototyp-zasilania-i-modularny-komputer.md",
+      "note": "Removable upward after releasing upper tray; XT60 and balance leads routed to service area. Capacity alone does not guarantee fit."
+    },
+    {
+      "id": "Pololu",
+      "label": "02 Pololu D24V90F5 + ARK",
+      "zone": "lower",
+      "size": [
+        28,
+        52,
+        22
+      ],
+      "min": [
+        96,
+        -26,
+        4
+      ],
+      "nominal": [
+        20.32,
+        40.64,
+        7.62
+      ],
+      "status": "PCB dimensions verified; ARK/wire/height allowance assumed",
+      "source": "https://www.pololu.com/product/2866/specs",
+      "note": "Rotated in plan. Allow screwdriver access by lifting electronics tray."
+    },
+    {
+      "id": "AuxBuck",
+      "label": "03 Auxiliary 5V buck - TBD",
+      "zone": "lower",
+      "size": [
+        28,
+        44,
+        25
+      ],
+      "min": [
+        -62,
+        -22,
+        4
+      ],
+      "status": "module not selected; procurement size limit",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "5 V branch for microservos/audio; connector positions unknown."
+    },
+    {
+      "id": "IMU",
+      "label": "04 BNO085 + connector clearance",
+      "zone": "lower",
+      "size": [
+        30,
+        28,
+        10
+      ],
+      "min": [
+        -65,
+        -14,
+        31
+      ],
+      "nominal": [
+        25.6,
+        22.7,
+        4.6
+      ],
+      "status": "board dimensions verified; installed envelope assumed",
+      "source": "https://www.adafruit.com/product/4754",
+      "note": "Rigid front-frame platform. Offset from body center must be included in sensor transform; magnetic calibration with motor wiring required."
+    },
+    {
+      "id": "Pi",
+      "label": "05 Pi 4 / Pi 5 + HAT + cooling",
+      "zone": "upper",
+      "size": [
+        110,
+        76,
+        42
+      ],
+      "min": [
+        14,
+        -62,
+        43
+      ],
+      "nominal": [
+        85,
+        56,
+        20
+      ],
+      "status": "Pi footprint verified; 42 mm installation envelope is design allowance, not verified stack height",
+      "source": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf",
+      "note": "One interchangeable computer, not two. USB cable allowance 25 mm in -X; side cable allowance 20 mm. AI HAT+ footprint 65x56.5; test exact cooling/PCIe/CSI stack."
+    },
+    {
+      "id": "Speaker",
+      "label": "06 Speaker 5W + clearance",
+      "zone": "upper",
+      "size": [
+        106,
+        51,
+        27
+      ],
+      "min": [
+        -95,
+        -48,
+        43
+      ],
+      "nominal": [
+        100,
+        45,
+        21
+      ],
+      "status": "nominal from BOM; housing/mounting pattern not verified",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "Front chest, grille toward side; keep acoustically separated from microphones."
+    },
+    {
+      "id": "TerminalStrip",
+      "label": "07 Whole 12-way terminal strip + wiring",
+      "zone": "upper",
+      "size": [
+        164,
+        32,
+        25
+      ],
+      "min": [
+        -57,
+        28,
+        43
+      ],
+      "nominal": [
+        154,
+        20.5,
+        15
+      ],
+      "status": "product body dimensions verified; lead allowance assumed",
+      "source": "https://botland.com.pl/produkty-wycofane/6897-kostka-elektryczna-12pin-16mm-30a250v-5904422357825.html",
+      "note": "Preserves full BOM strip; bridges and 4 leg branches not rated by geometry. No implicit substitution with a PCB."
+    },
+    {
+      "id": "Grove",
+      "label": "08 Grove PCA9685 + servo plugs",
+      "zone": "upper",
+      "size": [
+        68,
+        48,
+        25
+      ],
+      "min": [
+        -77,
+        -51,
+        75
+      ],
+      "nominal": [
+        60,
+        40,
+        18
+      ],
+      "status": "board dimensions verified; plug allowance assumed",
+      "source": "https://wiki.seeedstudio.com/Grove-16-Channel_PWM_Driver-PCA9685/",
+      "note": "Three microservo channels; leave disconnectable head/tail wiring."
+    },
+    {
+      "id": "ReSpeaker",
+      "label": "09 ReSpeaker Lite + USB",
+      "zone": "upper",
+      "size": [
+        94,
+        43,
+        16
+      ],
+      "min": [
+        26,
+        -42,
+        90
+      ],
+      "nominal": [
+        86,
+        35,
+        null
+      ],
+      "status": "PCB outline verified; component/plug height allowance assumed",
+      "source": "https://wiki.seeedstudio.com/reSpeaker_usb_v3/",
+      "note": "Roof-mounted microphones; acoustic openings at actual microphone locations require exact board drawing. Not two separate boards in ears."
+    },
+    {
+      "id": "BusAdapter",
+      "label": "10 Bus Servo Adapter A + USB",
+      "zone": "upper",
+      "size": [
+        54,
+        43,
+        24
+      ],
+      "min": [
+        10,
+        16,
+        92
+      ],
+      "nominal": [
+        42,
+        33,
+        null
+      ],
+      "status": "PCB outline verified; connector/height allowance assumed",
+      "source": "https://docs.waveshare.com/Bus_Servo_Adapter_A",
+      "note": "USB-TTL only; servo power injected outside adapter 5 A path."
+    },
+    {
+      "id": "MainPower",
+      "label": "11 Main fuse + switch + XT60 service",
+      "zone": "upper",
+      "size": [
+        70,
+        30,
+        26
+      ],
+      "min": [
+        -78,
+        8,
+        92
+      ],
+      "status": "unselected hardware; combined procurement/handling reserve",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "Externally accessible switch, fuse removable with roof open; actual separate parts and wiring must fit this allocation."
+    },
+    {
+      "id": "Amplifier",
+      "label": "12 MAX98357A + terminals",
+      "zone": "upper",
+      "size": [
+        27,
+        24,
+        13
+      ],
+      "min": [
+        95,
+        35,
+        92
+      ],
+      "status": "breakout variant not selected; provisional envelope",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "Check audio output architecture with ReSpeaker before harness design."
+    },
+    {
+      "id": "FuseRR",
+      "label": "13 RR fuse holder + leads",
+      "zone": "upper",
+      "size": [
+        45,
+        16,
+        16
+      ],
+      "min": [
+        62,
+        43,
+        73
+      ],
+      "status": "provisional holder and lead envelope; 5x20 is fuse size, not holder size",
+      "source": "https://botland.com.pl/bezpieczniki/5473-gniazdo-bezpiecznika-5x20mm-z-przewodami-10szt-5903351245982.html"
+    },
+    {
+      "id": "FuseRL",
+      "label": "14 RL fuse holder + leads",
+      "zone": "upper",
+      "size": [
+        45,
+        16,
+        16
+      ],
+      "min": [
+        11,
+        43,
+        73
+      ],
+      "status": "provisional holder and lead envelope",
+      "source": "docs/plan-zakupowy.pdf"
+    },
+    {
+      "id": "FuseFR",
+      "label": "15 FR fuse holder + leads",
+      "zone": "upper",
+      "size": [
+        45,
+        16,
+        16
+      ],
+      "min": [
+        -40,
+        43,
+        73
+      ],
+      "status": "provisional holder and lead envelope",
+      "source": "docs/plan-zakupowy.pdf"
+    },
+    {
+      "id": "FuseFL",
+      "label": "16 FL fuse holder + leads",
+      "zone": "upper",
+      "size": [
+        45,
+        16,
+        16
+      ],
+      "min": [
+        -91,
+        43,
+        73
+      ],
+      "status": "provisional holder and lead envelope",
+      "source": "docs/plan-zakupowy.pdf"
+    },
+    {
+      "id": "RearDisconnects",
+      "label": "17 Rear XT30 pairs + TTL + cable turns",
+      "zone": "tail",
+      "size": [
+        24,
+        26,
+        22
+      ],
+      "min": [
+        134,
+        -42,
+        44
+      ],
+      "status": "combined allowance for two XT30 pairs and TTL connectors; verify purchased plugs",
+      "source": "docs/adr/0001-prototyp-zasilania-i-modularny-komputer.md"
+    },
+    {
+      "id": "FrontDisconnects",
+      "label": "18 Front XT30 pairs + TTL + cable turns",
+      "zone": "upper",
+      "size": [
+        24,
+        26,
+        22
+      ],
+      "min": [
+        -88,
+        9,
+        44
+      ],
+      "status": "combined allowance for two XT30 pairs and TTL connectors; verify purchased plugs",
+      "source": "docs/adr/0001-prototyp-zasilania-i-modularny-komputer.md"
+    },
+    {
+      "id": "Touch",
+      "label": "19 TTP223 + touch electrode",
+      "zone": "upper",
+      "size": [
+        25,
+        20,
+        8
+      ],
+      "min": [
+        -1,
+        -54,
+        108
+      ],
+      "status": "breakout variant and electrode not selected",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "Under removable PETG roof; verify sensing through chosen wall thickness."
+    },
+    {
+      "id": "BulkCap",
+      "label": "20 Optional bulk capacitor reserve",
+      "zone": "upper",
+      "size": [
+        22,
+        22,
+        28
+      ],
+      "min": [
+        69,
+        37,
+        92
+      ],
+      "status": "optional reserve; value and dimensions depend on power tests",
+      "source": "docs/adr/0001-prototyp-zasilania-i-modularny-komputer.md"
+    },
+    {
+      "id": "PanServo",
+      "label": "21 Neck yaw servo - TBD",
+      "zone": "neck",
+      "size": [
+        36,
+        36,
+        40
+      ],
+      "min": [
+        -135,
+        -18,
+        103
+      ],
+      "status": "microservo and horn not selected; installation reserve",
+      "source": "docs/plan-zakupowy.pdf"
+    },
+    {
+      "id": "TiltServo",
+      "label": "22 Head pitch servo - TBD",
+      "zone": "head",
+      "size": [
+        36,
+        22,
+        40
+      ],
+      "min": [
+        -148,
+        -11,
+        147
+      ],
+      "status": "microservo and horn not selected; installation reserve",
+      "source": "docs/plan-zakupowy.pdf"
+    },
+    {
+      "id": "Camera",
+      "label": "23 Camera Module 3 NoIR Wide",
+      "zone": "head",
+      "size": [
+        12.4,
+        25,
+        24
+      ],
+      "min": [
+        -180.4,
+        5.5,
+        172.6
+      ],
+      "nominal": [
+        12.4,
+        25,
+        24
+      ],
+      "status": "manufacturer bounding dimensions; add camera carrier separately",
+      "source": "https://www.raspberrypi.com/documentation/accessories/camera.html",
+      "note": "Optical direction -X, nominal lens center (-180.4,18,187); 102x67 deg FOV, 120 deg diagonal. Detailed board drawing differs slightly in thickness; use 12.4 bounding allowance."
+    },
+    {
+      "id": "IR",
+      "label": "24 IR 850nm eye + heat/driver reserve",
+      "zone": "head",
+      "size": [
+        18,
+        28,
+        28
+      ],
+      "min": [
+        -181,
+        -36,
+        176
+      ],
+      "status": "exact LED module/thermal design not selected",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "Only one illuminator installed; second is spare. Separate optical cavity from camera, route dedicated supply."
+    },
+    {
+      "id": "ToF",
+      "label": "25 VL53L5CX breakout + optical window",
+      "zone": "head",
+      "size": [
+        14,
+        26,
+        26
+      ],
+      "min": [
+        -180,
+        -13,
+        144
+      ],
+      "status": "breakout variant not selected; sensor chip dimensions are not module dimensions",
+      "source": "docs/plan-zakupowy.pdf",
+      "note": "Nose below eyes; in moving head, publish correct dynamic sensor transform."
+    },
+    {
+      "id": "TailServo",
+      "label": "26 Tail servo - TBD",
+      "zone": "tail",
+      "size": [
+        36,
+        22,
+        40
+      ],
+      "min": [
+        129,
+        -11,
+        43
+      ],
+      "status": "microservo and horn not selected; installation reserve",
+      "source": "docs/plan-zakupowy.pdf"
+    }
+  ],
+  "excluded_from_onboard": [
+    "B6AC charger",
+    "spare IR illuminator",
+    "spare fuses",
+    "second interchangeable battery",
+    "soldering tools",
+    "filament spool"
+  ],
+  "camera": {
+    "optical_origin": [
+      -180.4,
+      18,
+      187
+    ],
+    "horizontal_fov_deg": 102,
+    "vertical_fov_deg": 67,
+    "pan_pivot": [
+      -117,
+      0,
+      123
+    ],
+    "tilt_pivot": [
+      -130,
+      0,
+      166
+    ],
+    "yaw_range_deg": [
+      -45,
+      45
+    ],
+    "pitch_range_deg": [
+      -25,
+      25
+    ],
+    "range_status": "proposed study range; not validated servo limits",
+    "optical_direction": [
+      -1,
+      0,
+      0
+    ],
+    "image_right": [
+      0,
+      1,
+      0
+    ],
+    "tilt_axis": [
+      0,
+      -1,
+      0
+    ],
+    "carrier_plane_x": -168,
+    "mount_hole_centers": [
+      [
+        -168,
+        7.5,
+        174.6
+      ],
+      [
+        -168,
+        28.5,
+        174.6
+      ],
+      [
+        -168,
+        7.5,
+        187.1
+      ],
+      [
+        -168,
+        28.5,
+        187.1
+      ]
+    ]
+  },
+  "coordinate_frame": "mm: -X front, -Y left, +Z up; imported center x=21; corrected to user's indicated front, source chassis unchanged"
+}
