@@ -37,7 +37,10 @@ def presentation(doc, mode='closed'):
             view.LineColor=(0.10,0.12,0.13)
             view.Transparency=0
             view.DisplayMode='Flat Lines'
-            if name in ('CAT_Head_Shell','CAT_Face_Mask'): view.DisplayMode='Shaded'
+            if name in ('CAT_Head_Shell','CAT_Face_Mask'):
+                view.DisplayMode='Shaded'
+                view.Deviation=0.1
+                view.AngularDeflection=10.0
         for prop,value in [('Material','PETG - proposed colour; slicer settings not validated'),
                            ('ReleaseStatus','PROTOTYPE: fixed head/tail; actuator adapters and DFM pending')]:
             if prop not in o.PropertiesList:o.addProperty('App::PropertyString',prop,'Mechanical design')

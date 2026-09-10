@@ -3,7 +3,7 @@
 Otwórz [WAVEGO_electronics_sections.FCStd](WAVEGO_electronics_sections.FCStd).
 To osobny, statyczny plik podglądowy: nie zmienia modelu konstrukcyjnego,
 nie zawiera nowej mechaniki napędów i nie jest źródłem części do druku.
-Migawki odświeżono po korekcie dna, stopek, uszu, wypukłej maski pyska
+Migawki odświeżono po korekcie dna, stopek, uszu, wypukłej maski pyska i poduszeczek wąsów
 i wysokości dwóch rezerw komponentów z 2026-09-10. Zmiany modelu nie aktualizują ich
 automatycznie: jawna funkcja `refresh_from_mechanical()` w skrypcie
 podglądu zachowuje istniejące operacje przekroju i kontroluje ich bryły.

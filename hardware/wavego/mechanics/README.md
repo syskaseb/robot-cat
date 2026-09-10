@@ -78,6 +78,20 @@ lokalnie zerowy, bo dziedziczy układ współrzędnych maski.
 Policzki i nos mają własne szkice i operacje Loft. Uszy mają zamknięte
 profile B-spline zamiast prostych trójkątów; wcześniejszy końcowy fillet R3
 zastąpiono zaokrągleniem wynikającym bezpośrednio z profilu.
+
+Poduszeczki wąsów są teraz wydatnymi, owalnymi wybrzuszeniami po bokach
+otworu ToF. Sześć istniejących szkiców policzków zmieniono na elipsy:
+środki Y=±25 mm, Z=155 mm; półosie kolejnych profili 20×13, 18×11,7
+i 0,8×0,52 mm. Ich lokalne głębokości wynoszą −188,8, −210 i −225 mm.
+Przedni punkt maski w złożeniu jest na X=−224,6 mm (wcześniej −203,6 mm).
+Policzki są integralną częścią maski, nie luźnymi elementami dekoracyjnymi.
+Operację otworów przedłużono do 42 mm od lokalnego Z=−228, bez zmiany
+obrysów portów ani osi śrub. Otwór ToF pozostaje pomiędzy policzkami.
+Wypukłości są pełnymi objętościami CAD; nominalne 2,4 mm skorupy czoła
+nie oznacza jednolitej grubości policzków. Liczbę ścian i wypełnienie PETG
+trzeba ustalić w slicerze. Zmianę odtwarza
+[wavego_whisker_pads.py](../../../tools/freecad/wavego_whisker_pads.py).
+
 [cute-face-validation.json](cute-face-validation.json) sprawdza spójność
 brył, osie śrub, brak przecięcia maski z głową i otwarte środki trzech
 portów optycznych. To nie jest sprawdzenie całego pola widzenia:

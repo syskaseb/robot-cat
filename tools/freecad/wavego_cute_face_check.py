@@ -24,7 +24,7 @@ def check(doc):
         result['geometry'][name] = dict(valid=True, solids=1, volume_mm3=shape.Volume)
     for y in (-47, 47):
         for z in (166, 194):
-            shaft = Part.makeCylinder(1.5, 32, App.Vector(-206, y, z), App.Vector(1, 0, 0))
+            shaft = Part.makeCylinder(1.5, 54, App.Vector(-228, y, z), App.Vector(1, 0, 0))
             for name, shape in shapes.items():
                 assert shaft.common(shape).Volume < 0.001, (name, y, z)
             result['face_screw_axes'].append([y, z])
@@ -38,9 +38,19 @@ def check(doc):
     # These probes check open centres, not off-axis rays or sensor dimensions.
     result['open_optical_centres'] = []
     for label, y, z in [('Camera', 18, 187), ('IR', -22, 190), ('ToF', 0, 157)]:
-        ray = Part.makeCylinder(1, 26, App.Vector(-206, y, z), App.Vector(1, 0, 0))
+        ray = Part.makeCylinder(1, 48, App.Vector(-228, y, z), App.Vector(1, 0, 0))
         assert ray.common(shapes['CAT_Face_Mask']).Volume < 0.001, label
         result['open_optical_centres'].append(label)
+    # Both whisker-pad tips must contain real, fused material ahead of the
+    # forehead (not just a moved or hidden helper feature).
+    result['whisker_pad_tips'] = []
+    mask = shapes['CAT_Face_Mask']
+    for y in (-25, 25):
+        probe = Part.makeSphere(0.5, App.Vector(-222, y, 155))
+        filled = mask.common(probe).Volume
+        assert abs(filled - probe.Volume) < 0.001, ('whisker pad', y)
+        result['whisker_pad_tips'].append([y, 155, -222])
+    result['mask_front_x_mm'] = mask.BoundBox.XMin
     (ROOT / 'hardware/wavego/mechanics/cute-face-validation.json').write_text(
         json.dumps(result, indent=2), encoding='utf-8')
     return result
