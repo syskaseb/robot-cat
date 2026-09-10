@@ -1,0 +1,13 @@
+"""Open the saved electronics cutaway and its layer controls."""
+from pathlib import Path
+import FreeCAD as App
+
+root = Path(__file__).resolve().parents[2]
+path = root / 'hardware/wavego/mechanics/WAVEGO_electronics_sections.FCStd'
+name = 'WAVEGO_electronics_sections'
+if name not in App.listDocuments():
+    App.openDocument(str(path))
+script = root / 'tools/freecad/wavego_sections.py'
+namespace = {'__file__': str(script), '__name__': 'wavego_section_viewer'}
+exec(compile(script.read_text(encoding='utf-8'), str(script), 'exec'), namespace)
+namespace['open_panel']()

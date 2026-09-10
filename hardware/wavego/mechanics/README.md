@@ -4,6 +4,9 @@ Checkpoint na branchu `codex/wavego-component-layout`, 2026-09-09.
 Model: [WAVEGO_cat_mechanical.FCStd](../WAVEGO_cat_mechanical.FCStd).
 **Nie jest jeszcze gotowy do druku ani montażu.**
 
+[Przekroje i warstwy elektroniki](SECTIONS.md) są dostępne w osobnym pliku
+podglądowym i jako opisane zrzuty. Nie zmieniają modelu konstrukcyjnego.
+
 ## Zapisany zakres
 
 Osiem nowych brył: podstawa/nadbudowa korpusu, pokrywa grzbietu,
