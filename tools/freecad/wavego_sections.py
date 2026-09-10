@@ -65,6 +65,46 @@ def prepare():
     return doc
 
 
+def refresh_from_mechanical():
+    """Explicitly refresh existing snapshots; keep cuts, labels and controls.
+
+    Call only after backing up the open presentation. This never edits the
+    construction source and is deliberately not called on every view switch.
+    """
+    source = App.getDocument('WAVEGO_cat_mechanical')
+    doc = App.getDocument(NAME)
+    pending = []
+    for obj in doc.Objects:
+        if 'SourceObject' not in obj.PropertiesList:
+            continue
+        original = source.getObject(obj.SourceObject)
+        assert original is not None, obj.SourceObject
+        shape = original.Shape.copy()
+        shape.Placement = original.getGlobalPlacement()
+        assert not shape.isNull() and shape.isValid(), original.Name
+        pending.append((obj, shape))
+    assert len(pending) == 157, 'Unexpected snapshot structure; inspect first'
+    doc.openTransaction('Refresh electronics presentation from mechanical model')
+    try:
+        for obj, shape in pending:
+            obj.Shape = shape
+        # OCC refinement of the domed face's half-cut creates an invalid
+        # result; the unrefined native Part::Cut is valid (two sections).
+        doc.getObject('Cut_Face').Refine = False
+        doc.recompute()
+        for key in ('Base', 'Lid', 'Head', 'Neck', 'Face', 'CameraCarrier'):
+            cut = doc.getObject('Cut_' + key)
+            # A virtual half-cut may split a one-solid face into disconnected
+            # sections (e.g. the cheek bridge is on the removed side).
+            # Require valid solid geometry, not physical connectivity after cutting.
+            assert cut and cut.Shape.isValid() and len(cut.Shape.Solids) >= 1, key
+        doc.commitTransaction()
+    except Exception:
+        doc.abortTransaction()
+        raise
+    return len(pending)
+
+
 def label(doc, name, lines, point, top=False, height=4.0):
     obj = next((o for o in doc.getObject('ViewLabels').Group
                 if getattr(o, 'SectionLabelKey', '') == name), None)
@@ -259,11 +299,62 @@ def show_whole_cat():
     exec(compile(path.read_text(encoding='utf-8'), str(path), 'exec'), ns)
     ns['presentation'](doc, mode='closed')
     view = Gui.getDocument(name).activeView()
-    view.viewAxonometric()
-    rot = App.Rotation(App.Vector(0, 0, 1), 180).multiply(view.getCameraOrientation())
-    view.getCameraNode().orientation.setValue(*rot.Q)
+    # Explicit world basis: the actual front is -X, not FreeCAD's default
+    # isometric (+X) side. Avoid orientation inherited from another document.
+    view.setCameraOrientation(App.Rotation(App.Vector(0, -1, 0),
+        App.Vector(0, 0, 1), App.Vector(-1, -0.65, 0.45), 'ZXY').Q)
     view.fitAll()
     node = view.getCameraNode()
     if hasattr(node, 'height'):
         node.height.setValue(node.height.getValue() * 0.8)
     Gui.Selection.clearSelection()
+
+
+def export_views():
+    """Capture each explicit document view; MCP's active-view capture can be stale.
+
+    Geometry must already be refreshed. Leave the whole construction model
+    visible, with the actual -X front facing the viewer.
+    """
+    for mode in ('side', 'lower', 'middle', 'upper', 'power', 'head'):
+        show(mode)
+        view = Gui.getDocument(NAME).activeView()
+        if mode == 'side':
+            view.viewFront()
+        else:
+            view.viewTop()
+        view.fitAll()
+        if mode != 'side':
+            zoom()
+        Gui.updateGui()
+        Gui.getDocument(NAME).activeView().saveImage(
+            str(OUT / ('section-' + mode + '.png')), 1600, 1200, 'White')
+    show_whole_cat()
+    Gui.updateGui()
+    Gui.getDocument('WAVEGO_cat_mechanical').activeView().saveImage(
+        str(OUT / 'cat-full.png'), 1600, 1200, 'White')
+    return 7
+
+
+def export_face_details():
+    """CAD close-ups, without representing envelope boxes as real lenses."""
+    doc = App.getDocument('WAVEGO_cat_mechanical')
+    visibility = {o.Name: o.Visibility for o in doc.Objects if hasattr(o, 'Visibility')}
+    try:
+        for obj in doc.Objects:
+            if hasattr(obj, 'Shape') and hasattr(obj, 'Visibility'):
+                obj.Visibility = False
+        for name in ('CAT_Head_Shell', 'CAT_Face_Mask'):
+            obj = doc.getObject(name)
+            obj.Visibility = True
+            obj.Tip.Visibility = True
+        view = Gui.getDocument(doc.Name).activeView()
+        for name, direction in [('front', (-1, 0, 0)), ('detail', (-1, -0.65, 0.35))]:
+            view.setCameraOrientation(App.Rotation(App.Vector(0, -1, 0),
+                App.Vector(0, 0, 1), App.Vector(*direction), 'ZXY').Q)
+            view.fitAll()
+            Gui.updateGui()
+            view.saveImage(str(OUT / ('cute-face-' + name + '.png')), 1200, 1000, 'White')
+    finally:
+        for name, visible in visibility.items():
+            doc.getObject(name).Visibility = visible

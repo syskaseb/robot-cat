@@ -26,23 +26,29 @@ def presentation(doc, mode='closed'):
     data, parts, comp = inputs(doc)
     group = doc.getObject('CatMechanicalParts') or doc.addObject('App::DocumentObjectGroup','CatMechanicalParts')
     group.Label = 'CAT - mechanical prototype / NOT released for printing'
+    group.Visibility = True
     for name,o in parts.items():
         group.addObject(o)
         color = (0.23,0.27,0.30)
-        if name=='CAT_Face_Mask': color=(0.82,0.79,0.70)
+        if name=='CAT_Face_Mask': color=(0.23,0.25,0.28)
         if name in ('CAT_Neck_Load_Frame','CAT_Tail_Mount','CAT_Camera_Carrier'):color=(0.38,0.41,0.44)
         for view in (o.ViewObject,o.Tip.ViewObject):
             view.ShapeColor=color
             view.LineColor=(0.10,0.12,0.13)
             view.Transparency=0
             view.DisplayMode='Flat Lines'
+            if name in ('CAT_Head_Shell','CAT_Face_Mask'): view.DisplayMode='Shaded'
         for prop,value in [('Material','PETG - proposed colour; slicer settings not validated'),
                            ('ReleaseStatus','PROTOTYPE: fixed head/tail; actuator adapters and DFM pending')]:
             if prop not in o.PropertiesList:o.addProperty('App::PropertyString',prop,'Mechanical design')
             setattr(o,prop,value)
         o.Visibility = not (mode=='open' and name in ('CAT_Back_Lid','CAT_Face_Mask'))
+        # Body visibility alone does not restore a Tip hidden for a close-up.
+        o.Tip.Visibility = o.Visibility
     for cid,o in comp.items():
         o.Visibility = mode=='open' or cid in ('Camera','IR','ToF')
+        if getattr(o, 'Tip', None):
+            o.Tip.Visibility = o.Visibility
         if cid in ('Camera','IR','ToF'):
             for v in (o.ViewObject,o.Tip.ViewObject):
                 v.ShapeColor=(0.055,0.07,0.08)
@@ -52,6 +58,8 @@ def presentation(doc, mode='closed'):
             o.Visibility=False
         if o.Name in ('Backpack_envelope___NOT_a_printable_shell','Head_envelope___NOT_a_printable_shell','CameraFOV','CameraMountPattern','StudyMountingAxes'):
             o.Visibility=False
+        if o.Name == 'FelineFaceDome':
+            o.Visibility=False  # Consumed operand, not a second printed face.
     for label in ('TopCover','Part9','Part001'):
         for o in doc.getObjectsByLabel(label):o.Visibility=False
     if hasattr(Gui,'Snapper') and getattr(Gui.Snapper,'grid',None):Gui.Snapper.grid.off()
@@ -88,6 +96,11 @@ def check(doc, gait=False):
     for c in data['components']:
         expected=c['min']+[a+b for a,b in zip(c['min'],c['size'])]
         if any(abs(a-b)>0.01 for a,b in zip(expected,bounds(cs[c['id']]))):mismatch.append(c['id'])
+    component_pairs=[]
+    for i,(a,sa) in enumerate(cs.items()):
+        for b,sb in list(cs.items())[i+1:]:
+            v=overlap(sa,sb)
+            if v>0.001:component_pairs.append([a,b,round(v,3)])
     joints=[]
     def joint(name,targets,points,axis,length,shaft_radius):
         hits=[]
@@ -99,8 +112,8 @@ def check(doc, gait=False):
         joints.append(dict(name=name,parts=targets,axes=points,axis_direction=axis,
                            bore_probe_length=length,shaft_diameter=2*shaft_radius,blocked_bores=hits))
     joint('lid to body',['CAT_Base_Chassis_Tray','CAT_Back_Lid'],[[x,y,122] for x in (-102,134) for y in (-66,66)],(0,0,1),10,1.5)
-    joint('neck to front chassis',['CAT_Base_Chassis_Tray','CAT_Neck_Load_Frame'],[[x,y,37.02] for x in (-80,-70) for y in (-22.5,22.5)],(0,0,1),6.4,1.25)
-    joint('tail bracket to rear chassis',['CAT_Base_Chassis_Tray','CAT_Tail_Mount'],[[x,y,37.02] for x in (112,122) for y in (-22.5,22.5)],(0,0,1),6.4,1.25)
+    joint('neck to front chassis',['CAT_Base_Chassis_Tray','CAT_Neck_Load_Frame'],[[x,y,37.02] for x in (-80,-70) for y in (-22.5,22.5)],(0,0,1),10,1.25)
+    joint('tail bracket to rear chassis',['CAT_Base_Chassis_Tray','CAT_Tail_Mount'],[[x,y,37.02] for x in (112,122) for y in (-22.5,22.5)],(0,0,1),10,1.25)
     joint('head to neck',['CAT_Head_Shell','CAT_Neck_Load_Frame'],[[-107,y,z] for y in (-23,23) for z in (154,207)],(1,0,0),17,1.5)
     joint('face to head',['CAT_Face_Mask','CAT_Head_Shell'],[[-188.4,y,z] for y in (-47,47) for z in (166,194)],(1,0,0),14.4,1.5)
     joint('camera carrier to head floor',['CAT_Camera_Carrier','CAT_Head_Shell'],[[x,25,139] for x in (-158,-119)],(0,0,1),5.4,1.5)
@@ -129,6 +142,7 @@ def check(doc, gait=False):
                         if v>0.001:gait_hits.append([i/25,o.Label,name,round(v,3)])
     result=dict(source_parts_unchanged=source_count,geometry=geometry,part_intersections=pairs,
                 contact_pairs=contact,source_hits=source_hits,component_envelope_hits=component_hits,
+                component_pair_hits=component_pairs,
                 manifest_mismatch=mismatch,joints=joints,gait_phases=25 if gait else 0,gait_hits=gait_hits,
                 limits=['Fixed mechanical prototype: neck/tail not actuated.',
                         'PCB envelopes are not purchased-part CAD; unspecified module mounts remain pending.',

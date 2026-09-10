@@ -3,6 +3,14 @@
 Otwórz [WAVEGO_electronics_sections.FCStd](WAVEGO_electronics_sections.FCStd).
 To osobny, statyczny plik podglądowy: nie zmienia modelu konstrukcyjnego,
 nie zawiera nowej mechaniki napędów i nie jest źródłem części do druku.
+Migawki odświeżono po korekcie dna, stopek, uszu, wypukłej maski pyska
+i wysokości dwóch rezerw komponentów z 2026-09-10. Zmiany modelu nie aktualizują ich
+automatycznie: jawna funkcja `refresh_from_mechanical()` w skrypcie
+podglądu zachowuje istniejące operacje przekroju i kontroluje ich bryły.
+Wirtualny przekrój maski ma dwie oddzielne bryły, bo płaszczyzna usuwa
+łączący je materiał; pełna maska pozostaje jedną bryłą. Dla `Cut_Face`
+wyłączono `Refine`: automatyczne upraszczanie tego przekroju powodowało
+niepoprawny wynik geometryczny. Nie zmienia to modelu do druku.
 
 Uruchom [WAVEGO_Sections.FCMacro](../../../tools/freecad/WAVEGO_Sections.FCMacro),
 aby wyświetlić panel z sześcioma widokami:
@@ -40,8 +48,10 @@ Nie należy utożsamiać możliwości odkręcenia ogona z gotowym modułem napę
 Zamówiona poprawka ma obejmować odłączany moduł z serwem, uchwytem,
 adapterem orczyka, nasadą ogona oraz rozłącznym przewodem, a także właściwe
 połączenie obrotowe w modelu. Nie wykonano jeszcze tej poprawki.
-Źródło aktualnego planu zakupowego (`docs/report/make_plan.py`, lista PARTS)
-podaje tylko „3 × mikroserwo + Grove PCA9685” — dwie osie głowy i ogon.
+Plan zakupowy (`docs/plan-zakupowy.pdf`, strona 1, oraz jego lista PARTS
+w `docs/report/make_plan.py`) podaje tylko „3 × mikroserwo + Grove PCA9685”
+— dwie osie głowy i ogon. `docs/napedy-v4.pdf` podaje 27 g łącznie dla
+trzech mikroserw, ale nie określa ich modelu ani wymiarów orczyka.
 Dokładny model serwa, geometria orczyka i osi wyjściowej nie są określone.
 Potrzebne jest oznaczenie/link od użytkownika albo osobna decyzja o doborze
 serwa; nie wolno dopasowywać uchwytu do zgadywanego gabarytu rezerwy 36×22×40 mm.
