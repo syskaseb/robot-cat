@@ -115,6 +115,7 @@ Stan na tym branchu:
 - kolizje z rezerwami komponentów: 0,17 mm³ (rezerwa IR o czaszkę) — czyli
   praktycznie zero, przy 26 obwiedniach;
 - wszystkie sondy otworów i czopów drożne (`blocked_bores` puste);
+- **25 faz kłusa bez ani jednej kolizji nóg ze skorupą** (`gait_hits` puste);
 - masa PETG wszystkich 12 części: **≈ 497 g** przy gęstości 1,27 g/cm³.
 
 Zostają dwa przecięcia części własnych:
@@ -134,8 +135,10 @@ wynik** i przy przejściu na wersję do druku trzeba to domknąć.
   obcięcia, jeśli serwa okażą się za słabe.
 - Termiki, przewodów, gwintów, długości śrub, tolerancji druku i doboru
   konkretnych serw głowy i ogona.
-- `gait_phases: 0` w raporcie znaczy, że przebiegu chodu nie zapisano w tym
-  pliku; pusta lista `gait_hits` nie jest dowodem braku kolizji w ruchu.
+- Ruchu ciągłego. `gait_phases: 25` to 25 **dyskretnych** póz dotychczasowego
+  podglądu chodu, bez dynamiki, ugięcia nóg pod obciążeniem i bez nowych
+  napędów głowy i ogona; pusta lista `gait_hits` nie wyklucza kolizji między
+  próbkowanymi fazami ani przy innych parametrach chodu.
 
 ## Jak odtworzyć
 
