@@ -1,0 +1,12 @@
+"""Toggle the v18 outer body between closed and open; no geometry is moved."""
+import FreeCAD as App
+import FreeCADGui as Gui
+doc=App.ActiveDocument
+names=('ShellFront18','ShellRear18')
+if doc is None or any(doc.getObject(n) is None for n in names):
+    raise RuntimeError('Open Kot_v18_SKORUPA_DZIELONA.FCStd first')
+show=not any(doc.getObject(n).Visibility for n in names)
+for n in names:
+    doc.getObject(n).Visibility=show
+Gui.activeDocument().activeView().redraw()
+App.Console.PrintMessage('Korpus zamkniety\n' if show else 'Korpus otwarty: widoczne rzeczywiste komponenty i mocowania\n')

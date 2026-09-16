@@ -1,0 +1,65 @@
+"""Create a separate v18 split-shell document after exact geometry validation."""
+from pathlib import Path
+import json,hashlib,shutil
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+
+root=Path(__file__).resolve().parents[3]
+out=root/'hardware/skorupa/v18'
+source=out/'Kot_v18_TRAY_CHECKPOINT.FCStd'
+destination=out/'Kot_v18_SKORUPA_DZIELONA.FCStd'
+if destination.exists():
+    raise RuntimeError('Refusing to overwrite existing split-shell checkpoint')
+report=json.loads((out/'shell-validation.json').read_text(encoding='utf-8'))
+if report['collisions'] or any(abs(v)>0.001 for v in report['checks'].values()):
+    raise RuntimeError('Shell validation failed')
+for entry in report['parts']+report['hardware']:
+    file=out/(entry['name']+'.brep')
+    if hashlib.sha256(file.read_bytes()).hexdigest()!=entry['sha256']:
+        raise RuntimeError('Stale validation: '+entry['name'])
+shutil.copy2(source,destination)
+doc=App.openDocument(str(destination))
+App.setActiveDocument(doc.Name)
+doc.Label='Kot v18 | skorupa dzielona | PROTOTYP PETG'
+group=doc.addObject('App::Part','ShellAssembly18')
+group.Label='PETG | korpus rozbieralny'
+metal=doc.addObject('App::Part','ShellFasteners18')
+metal.Label='Kupne | 4 x M3 + nakretki | obwiednie bez gwintu'
+labels={'ShellFront18':'PETG | korpus PRZOD', 'ShellRear18':'PETG | korpus TYL',
+        'ShellJoinR':'PETG | lacznik prawy | 2 x M3', 'ShellJoinL':'PETG | lacznik lewy | 2 x M3'}
+for entry in report['parts']+report['hardware']:
+    name=entry['name']
+    is_metal=name.startswith(('JoinScrew','JoinNut'))
+    obj=doc.addObject('Part::Feature',name)
+    (metal if is_metal else group).addObject(obj)
+    shape=Part.Shape(); shape.read(str(out/(name+'.brep')))
+    obj.Shape=shape
+    obj.Label=labels.get(name,name+' | M3 uproszczony')
+    obj.ViewObject.ShapeColor=(0.28,0.29,0.31) if is_metal else (0.12,0.13,0.15)
+    obj.ViewObject.LineColor=(0.04,0.04,0.05)
+    obj.ViewObject.DisplayMode='Flat Lines'
+    obj.addProperty('App::PropertyString','SourceGenerator','Manufacturing').SourceGenerator='tools/freecad/skorupa/build18_shell.py'
+    obj.addProperty('App::PropertyString','ReleaseState','Manufacturing').ReleaseState='Prototype: physical fit, wiring and dynamic checks still required'
+group.addProperty('App::PropertyLength','SplitX','Reference').SplitX=report['split_x_mm']
+group.addProperty('App::PropertyLength','SeamGap','Reference').SeamGap=report['seam_gap_mm']
+group.addProperty('App::PropertyString','ConnectionDescription','Reference').ConnectionDescription='2 internal joining plates, 4 M3 screws with captive nuts; Pi tray ties both lower halves'
+for name in ('BackCover','BackCover18','ComputerDeck'):
+    doc.getObject(name).Visibility=False
+for obj in doc.Objects:
+    if obj.TypeId in ('App::Origin','App::Line','App::Plane','App::Point'):
+        obj.Visibility=False
+doc.recompute()
+view=Gui.activeDocument().activeView()
+if hasattr(Gui,'Snapper') and Gui.Snapper.grid:
+    Gui.Snapper.grid.off()
+view.setAxisCross(False)
+view.setCameraType('Orthographic')
+z=App.Vector(-1,-1,0.65); x=App.Vector(1,-1,0)
+view.setCameraOrientation(App.Rotation(x,z.cross(x),z,'ZXY').Q)
+view.fitAll()
+node=view.getCameraNode()
+node.height.setValue(node.height.getValue()*0.85)
+doc.save()
+view.saveImage(str(out/'kot-v18-zlozony.png'),1400,1050,'White')
+print('Saved split-shell checkpoint:',doc.FileName)

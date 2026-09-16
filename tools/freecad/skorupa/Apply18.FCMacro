@@ -1,0 +1,67 @@
+"""Open v17, apply validated v18 tray increment, save a separate native file.
+
+Run this macro from this checkout. No source document is overwritten.
+"""
+from pathlib import Path
+import json, hashlib
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+
+root=Path(__file__).resolve().parents[3]
+out=root/'hardware/skorupa/v18'
+source=root/'hardware/skorupa/Kot_v17_WNETRZE.FCStd'
+destination=out/'Kot_v18_TRAY_CHECKPOINT.FCStd'
+if destination.exists():
+    raise RuntimeError('Checkpoint already exists: preserve it and choose a new filename before rerunning')
+checks=json.loads((out/'static-clearance.json').read_text(encoding='utf-8'))
+if checks['collisions']:
+    raise RuntimeError('Resolve static-clearance.json collisions before applying')
+for name,expected in checks['brep_sha256'].items():
+    if hashlib.sha256((out/(name+'.brep')).read_bytes()).hexdigest()!=expected:
+        raise RuntimeError('Stale validation for '+name)
+tray_report=json.loads((out/'tray-validation.json').read_text(encoding='utf-8'))
+for name,value in tray_report['checks'].items():
+    values=value if isinstance(value,list) else [value]
+    if any(abs(v)>0.001 for v in values):
+        raise RuntimeError('Failed tray check: '+name)
+doc=App.openDocument(str(source))
+doc.saveAs(str(destination))
+doc.Label='Kot v18 - tacka Pi - PROTOTYP'
+group=doc.addObject('App::Part','Mechanical18')
+group.Label='v18 | wymienna tacka Pi i gniazdo'
+for name,label in [('BackCover18','Skorupa | gniazdo wymiennej tacki'),
+                   ('PiTray18','PETG | tacka Pi | 58 x 49 | M2.5')]:
+    obj=doc.addObject('Part::Feature',name)
+    group.addObject(obj)
+    obj.Label=label
+    obj.Shape=Part.Shape()
+    shape=Part.Shape(); shape.read(str(out/(name+'.brep')))
+    obj.Shape=shape
+    obj.addProperty('App::PropertyString','MaterialNote','Manufacturing').MaterialNote='PETG black; prototype - fit test required'
+    obj.addProperty('App::PropertyString','BuildScript','Manufacturing').BuildScript='tools/freecad/skorupa/build18.py'
+    obj.ViewObject.ShapeColor=(0.12,0.13,0.15)
+    obj.ViewObject.LineColor=(0.05,0.05,0.06)
+    obj.ViewObject.DisplayMode='Flat Lines'
+    obj.ViewObject.Visibility=True
+tray=doc.getObject('PiTray18')
+tray.addProperty('App::PropertyLength','MountPitchX','Reference').MountPitchX=58
+tray.addProperty('App::PropertyLength','MountPitchY','Reference').MountPitchY=49
+tray.addProperty('App::PropertyLength','PCBHeight','Reference').PCBHeight=45
+tray.addProperty('App::PropertyLength','ClearanceM25','Reference').ClearanceM25=2.9
+tray.addProperty('App::PropertyLength','ClearanceM3','Reference').ClearanceM3=3.4
+tray.addProperty('App::PropertyLength','TraySideClearance','Reference').TraySideClearance=0.35
+for name in ('BackCover','ComputerDeck'):
+    doc.getObject(name).Visibility=False
+for obj in doc.Objects:
+    if obj.TypeId in ('App::Origin','App::Line','App::Plane','App::Point'):
+        obj.Visibility=False
+doc.recompute()
+camera_z=App.Vector(-1,-1,0.65)
+camera_x=App.Vector(1,-1,0)
+camera_y=camera_z.cross(camera_x)
+Gui.activeDocument().activeView().setCameraOrientation(App.Rotation(camera_x,camera_y,camera_z,'ZXY').Q)
+Gui.activeDocument().activeView().fitAll()
+doc.save()
+Gui.activeDocument().activeView().saveImage(str(out/'kot-v18-whole.png'),1400,1050,'White')
+print('Saved',doc.FileName)

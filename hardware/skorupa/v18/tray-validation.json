@@ -1,0 +1,108 @@
+{
+  "stage": "computer-tray increment; NOT complete print release",
+  "source": "25f4a32d966aa4772e87a36725425d4d7b5f60f2",
+  "material": "PETG",
+  "parts": [
+    {
+      "name": "PiTray18",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10729.12772250769,
+      "bbox_mm": [
+        -22.0,
+        69.0,
+        -41.5,
+        41.5,
+        40.0,
+        47.0
+      ]
+    },
+    {
+      "name": "BackCover18",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 129055.31338738535,
+      "bbox_mm": [
+        -90.00000000000006,
+        148.00000000000003,
+        -89.93054671299149,
+        89.91120613311813,
+        20.10822981396445,
+        151.78700925193797
+      ]
+    }
+  ],
+  "checks": {
+    "tray_shell_overlap_mm3": 0.0,
+    "tray_pi_overlap_mm3": 0.0,
+    "tray_cooling_overlap_mm3": 0.0,
+    "pi_bore_obstructions_mm3": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tray_bore_obstructions_mm3": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "receiver_bore_obstructions_mm3": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "pi_drawing": "https://pip-assets.raspberrypi.com/categories/545-raspberry-pi-4-model-b/documents/RP-008343-DS-1-raspberry-pi-4-mechanical-drawing.pdf",
+  "pi_hole_centres_mm": [
+    [
+      -15.5,
+      -24.5
+    ],
+    [
+      -15.5,
+      24.5
+    ],
+    [
+      42.5,
+      -24.5
+    ],
+    [
+      42.5,
+      24.5
+    ]
+  ],
+  "tray_fixing_centres_mm": [
+    [
+      -12,
+      -36
+    ],
+    [
+      -12,
+      36
+    ],
+    [
+      61,
+      -36
+    ],
+    [
+      61,
+      36
+    ]
+  ],
+  "fasteners": {
+    "pi": "4 x M2.5, captive hex nuts AF5.3 pockets; choose screw length against actual PCB",
+    "tray": "4 x M3x8 with M3 hex nuts; verify physical engagement before assembly"
+  },
+  "pending": [
+    "microservo model and horn interface",
+    "printer build volume",
+    "shell segmentation and lid joints",
+    "remaining electronics mounts and wiring",
+    "chassis/leg dynamic clearances",
+    "tail 3-vs-4-servo reconciliation",
+    "thermal and physical fit tests"
+  ]
+}

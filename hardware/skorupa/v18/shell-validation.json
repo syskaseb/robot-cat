@@ -1,0 +1,251 @@
+{
+  "stage": "split-shell prototype; not a complete print release",
+  "split_x_mm": 30.0,
+  "seam_gap_mm": 0.35,
+  "parts": [
+    {
+      "name": "ShellFront18",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 61155.934553267085,
+      "bbox_mm": [
+        -90.00000000000006,
+        148.00000000000003,
+        -89.93054671299149,
+        89.91120613311813,
+        20.10822981396445,
+        151.78700925193797
+      ],
+      "sha256": "801b5d02b28c3122f0156efa198aadabea33ea2ad3ada4e6914ed30f7b0e2da5"
+    },
+    {
+      "name": "ShellRear18",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 68126.23813841303,
+      "bbox_mm": [
+        -90.00000000000006,
+        148.00000000000003,
+        -89.93054671299149,
+        89.91120613311813,
+        20.10822981396445,
+        151.78700925193797
+      ],
+      "sha256": "61f54801dc3f4b596d9182300bbc432f8344a1fd0babfb16eb480dd73d5c1b45"
+    },
+    {
+      "name": "ShellJoinR",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1514.769329338449,
+      "bbox_mm": [
+        17.96977532322542,
+        41.99352130867185,
+        29.646430973923284,
+        43.07402623138927,
+        104.35698895578444,
+        115.74672672621804
+      ],
+      "sha256": "c1ae386ac902177d2bd3f3c44022d6ed0432f94a9980b7612debc39821919a8a"
+    },
+    {
+      "name": "ShellJoinL",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1514.7693293384496,
+      "bbox_mm": [
+        17.969775334333065,
+        41.99352131109554,
+        -43.07402576968463,
+        -29.6464306255687,
+        104.3569888448345,
+        115.74672732281364
+      ],
+      "sha256": "4dea3356c39f4f5ac091523dfcb82573e44c97709f01f767a1cab035b737895b"
+    }
+  ],
+  "connections": [
+    {
+      "plate": "ShellJoinR",
+      "screw": "M3x12",
+      "nut": "M3 hex AF5.5, height2.4; pocket AF5.8",
+      "hole_axis": [
+        0.003989496532905693,
+        0.5131464850549465,
+        0.8582917736953836
+      ],
+      "plate_outer_hole": [
+        21.993680470131018,
+        37.91604575714004,
+        112.65412659652938
+      ],
+      "head_seat": [
+        22.01060921778362,
+        40.09349528809334,
+        116.29614125410609
+      ],
+      "nut_front": [
+        21.98011618191914,
+        36.171347707953224,
+        109.73593456596508
+      ],
+      "screw_tip_protrusion_mm": 1.9566706693506042
+    },
+    {
+      "plate": "ShellJoinR",
+      "screw": "M3x12",
+      "nut": "M3 hex AF5.5, height2.4; pocket AF5.8",
+      "hole_axis": [
+        0.003989496532905693,
+        0.5131464850549465,
+        0.8582917736953836
+      ],
+      "plate_outer_hole": [
+        37.993553140963684,
+        37.883290358502194,
+        112.5993397276454
+      ],
+      "head_seat": [
+        38.01079290834087,
+        40.10074460612484,
+        116.30826650530152
+      ],
+      "nut_front": [
+        37.9799888527518,
+        36.13859230931538,
+        109.6811476970811
+      ],
+      "screw_tip_protrusion_mm": 1.8787110265693219
+    },
+    {
+      "plate": "ShellJoinL",
+      "screw": "M3x12",
+      "nut": "M3 hex AF5.5, height2.4; pocket AF5.8",
+      "hole_axis": [
+        0.00398949506210856,
+        -0.513146573359171,
+        0.8582917209078101
+      ],
+      "plate_outer_hole": [
+        21.99368047243735,
+        -37.91604561380342,
+        112.65412666920548
+      ],
+      "head_seat": [
+        22.0106092140019,
+        -40.093495539142914,
+        116.29614113570784
+      ],
+      "nut_front": [
+        21.98011618922618,
+        -36.171347264382234,
+        109.73593481811892
+      ],
+      "screw_tip_protrusion_mm": 1.9566706309945232
+    },
+    {
+      "plate": "ShellJoinL",
+      "screw": "M3x12",
+      "nut": "M3 hex AF5.5, height2.4; pocket AF5.8",
+      "hole_axis": [
+        0.00398949506210856,
+        -0.513146573359171,
+        0.8582917209078101
+      ],
+      "plate_outer_hole": [
+        37.9935531433639,
+        -37.88329022160494,
+        112.59933982388952
+      ],
+      "head_seat": [
+        38.010792904396524,
+        -40.100744852253875,
+        116.30826637584084
+      ],
+      "nut_front": [
+        37.97998886015273,
+        -36.13859187218375,
+        109.68114797280296
+      ],
+      "screw_tip_protrusion_mm": 1.8787110237665878
+    }
+  ],
+  "checks": {
+    "front_rear_overlap_mm3": 0.0,
+    "ShellJoinR_front_overlap_mm3": 0.0,
+    "ShellJoinR_rear_overlap_mm3": 0.0,
+    "ShellJoinL_front_overlap_mm3": 0.0,
+    "ShellJoinL_rear_overlap_mm3": 0.0
+  },
+  "collisions": [],
+  "inputs_sha256": {
+    "BackCover18": "be09de811c2066b19df73e34064619bd4664bcc136fd99bdf022f659616dc6fc"
+  },
+  "hardware": [
+    {
+      "name": "JoinScrewR0",
+      "sha256": "6a8e17f8292ad46abcfc6d71acd8acf59fa0fc289b2e6dd2983b12e021891f85"
+    },
+    {
+      "name": "JoinNutR0",
+      "sha256": "739e96d1f20820ad5ee8b92aabd573e293542b2b875f2764d60c58d7e37a5dea"
+    },
+    {
+      "name": "JoinScrewR1",
+      "sha256": "bf64c27770c5a5638a314b050e88b4d1a34e77721fd73f413b5bb48acacd132a"
+    },
+    {
+      "name": "JoinNutR1",
+      "sha256": "8a20c0c032b79d44105bfd51286254e0dac6b3d0d2afc023d0cb78ee63a282f0"
+    },
+    {
+      "name": "JoinScrewL0",
+      "sha256": "614f34044352dd4d151140a02195ffbf55eae9cdfe48d69e0d23a72f5acf45cf"
+    },
+    {
+      "name": "JoinNutL0",
+      "sha256": "e558dd1be30bd98165df1ced781583d30896fc2bbe57b806f3c60cce76b44a13"
+    },
+    {
+      "name": "JoinScrewL1",
+      "sha256": "e52e58d74f12ff11994d2c9c97665c0cf192d5ea9548116f07e116d25db0f7d4"
+    },
+    {
+      "name": "JoinNutL1",
+      "sha256": "62f2ff6dab13e392b477d23135e384f95ee18b549ec7c1e0995840762f1321c6"
+    }
+  ],
+  "separation_proof": {
+    "front_max_x": 29.825000000000006,
+    "rear_min_x": 30.174999999999905,
+    "method": "intersection with disjoint X halfspaces, verified boundary extrema"
+  },
+  "print_placements": {
+    "ShellJoinR": {
+      "base": [
+        29.99361680554735,
+        37.89966805782112,
+        112.62673316208739
+      ],
+      "quaternion": [
+        -0.266177414581592,
+        0.0019227893715956829,
+        -0.0005309590490109563,
+        0.9639219911020704
+      ]
+    },
+    "ShellJoinL": {
+      "base": [
+        29.993616807900626,
+        -37.89966791770418,
+        112.6267332465475
+      ],
+      "quaternion": [
+        0.26617746416621835,
+        0.001922788635410616,
+        0.0005309589521713349,
+        0.9639219774112925
+      ]
+    }
+  }
+}
