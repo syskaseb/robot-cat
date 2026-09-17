@@ -1,0 +1,7 @@
+"""Toggle the continuous shell, without moving any robot parts."""
+import FreeCAD as App
+doc=App.ActiveDocument
+if not doc or not doc.getObject('BackCover18') or 'MountingStatus' not in doc.getObject('BackCover18').PropertiesList:
+    raise RuntimeError('Activate Kot_v19_SKORUPA_PETG_256 first')
+shell=doc.getObject('BackCover18')
+shell.Visibility=not shell.Visibility

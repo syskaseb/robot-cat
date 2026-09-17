@@ -1,0 +1,52 @@
+"""Show v19 in FreeCAD through MCP without modifying existing documents."""
+from pathlib import Path
+import json,hashlib,shutil
+import FreeCAD as App
+import FreeCADGui as Gui
+
+root=Path(__file__).resolve().parents[3]
+out=root/'hardware/skorupa/v19'
+report=json.loads((out/'validation.json').read_text(encoding='utf-8'))
+source=root/report['source']
+destination=out/'Kot_v19_SKORUPA_PETG_256.FCStd'
+assert hashlib.sha256(source.read_bytes()).hexdigest()==report['source_sha256']
+assert report['shell_tray_overlap_mm3']<0.001
+assert all(p['valid'] and p['fits_256_with_8mm_brim'] for p in report['parts'])
+if destination.exists(): raise RuntimeError('Existing v19 document must be preserved')
+shutil.copy2(source,destination)
+doc=App.openDocument(str(destination))
+doc.Label='Kot v19 | ciagla skorupa PETG | 256 mm | PROTOTYP'
+shell=doc.getObject('BackCover18')
+shell.Label='PETG | korpus jednoczesciowy | v19 | bez szwu poprzecznego'
+shell.MaterialNote='PETG black; 256 mm printer; prototype, chassis attachment pending'
+shell.BuildScript='tools/freecad/skorupa/build19.py'
+shell.addProperty('App::PropertyVector','PrinterVolume','Manufacturing').PrinterVolume=App.Vector(256,256,256)
+shell.addProperty('App::PropertyString','MountingStatus','Manufacturing').MountingStatus='Receiver for Pi tray verified; shell-to-WAVEGO attachment still under development'
+doc.getObject('Mechanical18').Label='v19 | ciagla skorupa i wymienna tacka Pi'
+doc.getObject('PiTray18').Label='PETG | wyjmowana tacka Pi | zachowana z v18'
+shell.Visibility=True
+doc.getObject('PiTray18').Visibility=True
+for name in ('BackCover','ComputerDeck'): doc.getObject(name).Visibility=False
+for o in doc.Objects:
+    if o.TypeId in ('App::Origin','App::Line','App::Plane','App::Point'): o.Visibility=False
+doc.recompute()
+App.setActiveDocument(doc.Name)
+view=Gui.getDocument(doc.Name).activeView()
+if hasattr(Gui,'Snapper') and Gui.Snapper.grid: Gui.Snapper.grid.off()
+view.setAxisCross(False); view.setCameraType('Orthographic')
+
+def camera(z,x):
+    view.setCameraOrientation(App.Rotation(x,z.cross(x),z,'ZXY').Q)
+    view.fitAll()
+    node=view.getCameraNode(); node.height.setValue(node.height.getValue()*0.85)
+
+try:
+    shell.Visibility=False
+    camera(App.Vector(-0.8,-1.5,2),App.Vector(1.5,-0.8,0))
+    view.saveImage(str(out/'kot-v19-wnetrze.png'),1400,1050,'White')
+finally:
+    shell.Visibility=True
+    camera(App.Vector(-1,-1,0.65),App.Vector(1,-1,0))
+    doc.save()
+    view.saveImage(str(out/'kot-v19-zlozony.png'),1400,1050,'White')
+print('Saved v19; previous documents and source files preserved:',doc.FileName)

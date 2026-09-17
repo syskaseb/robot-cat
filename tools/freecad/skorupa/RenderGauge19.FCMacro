@@ -1,0 +1,32 @@
+"""Capture the PETG coupon, then restore the complete cat view."""
+from pathlib import Path
+import FreeCAD as App
+import FreeCADGui as Gui
+
+out=Path(__file__).resolve().parents[3]/'hardware/skorupa/v19'
+path=out/'PETG_FitGauge19.FCStd'
+if any(d.FileName and Path(d.FileName).resolve()==path.resolve() for d in App.listDocuments().values()):
+    raise RuntimeError('Gauge already open: preserve that document rather than change its view')
+doc=App.openDocument(str(path))
+try:
+    doc.getObject('Gauge').Visibility=True
+    for o in doc.Objects:
+        if o.Name not in ('Gauge','NutDepth2_8mm'): o.Visibility=False
+    finish=doc.getObject('NutDepth2_8mm'); finish.Visibility=True
+    finish.ViewObject.ShapeColor=(0.25,0.27,0.3)
+    finish.ViewObject.DisplayMode='Flat Lines'
+    App.setActiveDocument(doc.Name)
+    view=Gui.getDocument(doc.Name).activeView()
+    if hasattr(Gui,'Snapper') and Gui.Snapper.grid: Gui.Snapper.grid.off()
+    view.setAxisCross(False)
+    doc.recompute()
+    Gui.updateGui()
+    view.viewTop(); view.fitAll()
+    Gui.updateGui(); view.redraw()
+    view.saveImage(str(out/'petg-probka.png'),700,800,'White')
+    # Persist the usable top-view style for this previously headless file.
+    doc.save()
+finally:
+    App.closeDocument(doc.Name)
+    App.setActiveDocument('Kot_v19_SKORUPA_PETG_256')
+print('Gauge preview saved; whole cat remains active')

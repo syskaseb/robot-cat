@@ -1,0 +1,165 @@
+{
+  "stage": "Continuous PETG shell and fit gauge; NOT complete robot release",
+  "material": "PETG",
+  "printer_mm": [
+    256,
+    256,
+    256
+  ],
+  "source": "hardware/skorupa/v18/Kot_v18_TRAY_CHECKPOINT.FCStd",
+  "source_sha256": "c7507d406a08b61508391dedcc6b7f5a8228e588b39def74f3fc3a8952994453",
+  "parts": [
+    {
+      "name": "ShellContinuous19",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 129055.31338738461,
+      "size_mm": [
+        238.0,
+        112.8225326538086,
+        82.2911605834961
+      ],
+      "triangles": 58710,
+      "non_manifold_edges": 0,
+      "mesh_is_solid": true,
+      "fits_256_with_8mm_brim": true,
+      "source_sha256": "f89b8aa28dc5d14bcd1a795f25488ac3954037cbedd4c3ec904e4412f705bfa9",
+      "stl_sha256": "4576ac9d09cc479d5ed6c7f02a0dba923dcb1474a66895637306725c475338a9"
+    },
+    {
+      "name": "PiTray19",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10729.127722507696,
+      "size_mm": [
+        91.0,
+        83.0,
+        7.0
+      ],
+      "triangles": 3392,
+      "non_manifold_edges": 0,
+      "mesh_is_solid": true,
+      "fits_256_with_8mm_brim": true,
+      "source_sha256": "f321421b48fb38dce83078168e54decc6f1d6ae5a97b0e95d8d2b55482d8272b",
+      "stl_sha256": "daad471993f6e66f391e5c2c7b7967ab97eac54c175f0bfa520c25a38112b193"
+    },
+    {
+      "name": "PETG_FitGauge19",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 21217.906677190997,
+      "size_mm": [
+        56.0,
+        66.0,
+        6.0
+      ],
+      "triangles": 3232,
+      "non_manifold_edges": 0,
+      "mesh_is_solid": true,
+      "fits_256_with_8mm_brim": true,
+      "source_sha256": "70ac1373b9f17a7f5654c2b86f8404dfaac310c29a6368624f668196e07a5f68",
+      "stl_sha256": "b517103cdd86b50416f2995b81c94fe76e3a4d7d755781fdeaa7bd3d933608f2"
+    }
+  ],
+  "shell_tray_overlap_mm3": 0.0,
+  "gauge_samples": [
+    {
+      "x": 12,
+      "y": 12,
+      "kind": "M2.5 clearance",
+      "value_mm": 2.7,
+      "bore_mm": 2.7
+    },
+    {
+      "x": 28,
+      "y": 12,
+      "kind": "M2.5 clearance",
+      "value_mm": 2.9,
+      "bore_mm": 2.9
+    },
+    {
+      "x": 44,
+      "y": 12,
+      "kind": "M2.5 clearance",
+      "value_mm": 3.1,
+      "bore_mm": 3.1
+    },
+    {
+      "x": 12,
+      "y": 26,
+      "kind": "M3 clearance",
+      "value_mm": 3.2,
+      "bore_mm": 3.2
+    },
+    {
+      "x": 28,
+      "y": 26,
+      "kind": "M3 clearance",
+      "value_mm": 3.4,
+      "bore_mm": 3.4
+    },
+    {
+      "x": 44,
+      "y": 26,
+      "kind": "M3 clearance",
+      "value_mm": 3.6,
+      "bore_mm": 3.6
+    },
+    {
+      "x": 12,
+      "y": 40,
+      "kind": "M2.5 nut AF",
+      "value_mm": 5.1,
+      "bore_mm": 2.9
+    },
+    {
+      "x": 28,
+      "y": 40,
+      "kind": "M2.5 nut AF",
+      "value_mm": 5.3,
+      "bore_mm": 2.9
+    },
+    {
+      "x": 44,
+      "y": 40,
+      "kind": "M2.5 nut AF",
+      "value_mm": 5.5,
+      "bore_mm": 2.9
+    },
+    {
+      "x": 12,
+      "y": 54,
+      "kind": "M3 nut AF",
+      "value_mm": 5.6,
+      "bore_mm": 3.4
+    },
+    {
+      "x": 28,
+      "y": 54,
+      "kind": "M3 nut AF",
+      "value_mm": 5.8,
+      "bore_mm": 3.4
+    },
+    {
+      "x": 44,
+      "y": 54,
+      "kind": "M3 nut AF",
+      "value_mm": 6.0,
+      "bore_mm": 3.4
+    }
+  ],
+  "inherited_static_validation": "v18/static-clearance.json applies to unchanged shell receiver and tray",
+  "removed_from_this_variant": [
+    "transverse split",
+    "two joining plates",
+    "four joining screws",
+    "four joining nuts"
+  ],
+  "pending": [
+    "chassis attachment",
+    "remaining electronics mounts",
+    "head and tail interfaces: exact microservo unknown",
+    "three-vs-four auxiliary servo mismatch",
+    "cables, dynamic sweep, strength, thermal, slicer supports, physical fit"
+  ]
+}
