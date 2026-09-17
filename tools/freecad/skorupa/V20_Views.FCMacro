@@ -1,0 +1,6 @@
+"""Toggle v20's shell without moving or hiding its chassis fasteners."""
+import FreeCAD as A
+doc=A.ActiveDocument
+if not doc or not doc.getObject('ShellMounted20'):
+    raise RuntimeError('Activate Kot_v20_MOCOWANIA_PETG first')
+o=doc.getObject('ShellMounted20'); o.Visibility=not o.Visibility

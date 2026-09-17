@@ -1,0 +1,68 @@
+"""Import validated v20 into a separate FreeCAD document through MCP."""
+from pathlib import Path
+import json,hashlib,shutil
+import FreeCAD as A
+import FreeCADGui as G
+import Part
+root=Path(__file__).resolve().parents[3]
+out=root/'hardware/skorupa/v20'
+source=root/'hardware/skorupa/v19/Kot_v19_SKORUPA_PETG_256.FCStd'
+dest=out/'Kot_v20_MOCOWANIA_PETG.FCStd'
+report=json.loads((out/'validation.json').read_text(encoding='utf-8'))
+contacts=json.loads((out/'contact-validation.json').read_text(encoding='utf-8'))
+assert not report['collisions'] and not report['tool_collisions']
+assert all(v<.001 for dz,n,v in report['mount_extraction_checks'])
+assert all(c['bearing_material_fraction']>=.99 for c in contacts['bearings'])
+assert all(c['gap_mm']>=.3 for c in contacts['nearby_clearances'])
+assert all(v<.001 for dz,n,v in contacts['stationary_hardware_lift_samples'])
+assert hashlib.sha256(source.read_bytes()).hexdigest()==report['source_sha256']
+for p in report['parts']+report['hardware']:
+    assert hashlib.sha256((out/(p['name']+'.brep')).read_bytes()).hexdigest()==p['sha256']
+    assert contacts['source_breps'][p['name']]==p['sha256']
+if dest.exists(): raise RuntimeError('Preserve existing v20 native file')
+shutil.copy2(source,dest)
+doc=A.openDocument(str(dest))
+doc.Label='Kot v20 | mocowania skorupy PETG | PROTOTYP'
+group=doc.addObject('App::Part','MountAssembly20'); group.Label='PETG | skorupa i mocowania do ramy'
+fasteners=doc.addObject('App::Part','MountFasteners20'); fasteners.Label='Kupne | sruby i nakretki metalowe'
+for p in report['parts']+report['hardware']:
+    name=p['name']; purchased=p in report['hardware']
+    o=doc.addObject('Part::Feature',name)
+    (fasteners if purchased else group).addObject(o)
+    s=Part.Shape(); s.read(str(out/(name+'.brep'))); o.Shape=s
+    o.Label=('Kupne | ' if purchased else 'PETG | ')+name
+    o.addProperty('App::PropertyString','MaterialNote','Manufacturing').MaterialNote='Steel fastener envelope; thread not modelled' if purchased else 'PETG; prototype; print fit and load verification pending'
+    o.addProperty('App::PropertyString','SourceRecipe','Manufacturing').SourceRecipe='tools/freecad/skorupa/build20.py'
+    o.ViewObject.ShapeColor=(.6,.62,.65) if purchased else (.12,.13,.15)
+    o.ViewObject.LineColor=(.06,.06,.07); o.ViewObject.DisplayMode='Flat Lines'; o.Visibility=True
+for old in report['replacements'].values(): doc.getObject(old).Visibility=False
+for n in ('BackCover','ComputerDeck'): doc.getObject(n).Visibility=False
+for c in report['connections']:
+    o=doc.getObject(c['mount'])
+    o.addProperty('App::PropertyString','Fasteners','Reference').Fasteners=c['side_screw']+' + '+c['frame_screw']+'; metal captive nuts'
+    o.addProperty('App::PropertyVector','FrameAnchor','Reference').FrameAnchor=A.Vector(*c['anchor_mm'])
+    o.addProperty('App::PropertyString','ConnectionNote','Reference').ConnectionNote='Geometric bolted connection; not an Assembly solver joint or certified load rating'
+for o in doc.Objects:
+    if o.TypeId in ('App::Origin','App::Line','App::Plane','App::Point','Sketcher::SketchObject'): o.Visibility=False
+doc.recompute(); A.setActiveDocument(doc.Name)
+view=G.getDocument(doc.Name).activeView()
+if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+view.setAxisCross(False); view.setCameraType('Orthographic')
+def camera(z,x):
+    G.updateGui()
+    view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+    node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.85)
+    G.updateGui(); view.redraw()
+highlight=[doc.getObject(p['name']) for p in report['parts'] if p['name'].startswith(('Mount','NutShoe'))]
+try:
+    doc.getObject('ShellMounted20').Visibility=False
+    for o in highlight: o.ViewObject.ShapeColor=(.95,.48,.12)
+    camera(A.Vector(-.8,-1.5,2),A.Vector(1.5,-.8,0))
+    view.saveImage(str(out/'kot-v20-wnetrze.png'),1400,1050,'White')
+finally:
+    for o in highlight: o.ViewObject.ShapeColor=(.12,.13,.15)
+    doc.getObject('ShellMounted20').Visibility=True
+    camera(A.Vector(-1,-1,.65),A.Vector(1,-1,0))
+    doc.save()
+    view.saveImage(str(out/'kot-v20-zlozony.png'),1400,1050,'White')
+print('Saved v20 with whole cat visible:',doc.FileName)

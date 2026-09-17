@@ -1,0 +1,38 @@
+"""Render a genuine local CAD cutaway of one mount; leave whole cat active."""
+from pathlib import Path
+import FreeCAD as A
+import FreeCADGui as G
+import Part
+
+out=Path(__file__).resolve().parents[3]/'hardware/skorupa/v20'
+main=A.getDocument('Kot_v20_MOCOWANIA_PETG')
+detail=A.newDocument('Mount20_DetailPreview')
+names=('MountFrontL','NutShoeFrontL','FrameFront20','SideLeft20',
+       'FrameScrewFrontL','FrameNutFrontL','ShellScrewFrontL','ShellNutFrontL','ShellMounted20')
+region=Part.makeBox(36,35,40,A.Vector(-85,20,28))
+try:
+    for name in names:
+        s=main.getObject(name).Shape.copy()
+        if name in ('ShellMounted20','MountFrontL'):
+            # Remove the upper half of the local shell seat so its bore and
+            # the actual horizontal screw/nut can be inspected from above.
+            clip=Part.makeBox(36,35,28,A.Vector(-85,20,28))
+            s=s.common(clip)
+        elif name in ('FrameFront20','SideLeft20'):
+            s=s.common(region)
+        if s.isNull() or s.Volume<.001: continue
+        o=detail.addObject('Part::Feature',name); o.Shape=s
+        o.ViewObject.ShapeColor=(.95,.48,.12) if name.startswith(('Mount','NutShoe')) else ((.6,.62,.65) if 'Screw' in name or 'Nut' in name else (.2,.22,.25))
+        o.ViewObject.DisplayMode='Flat Lines'; o.Visibility=True
+    detail.recompute(); A.setActiveDocument(detail.Name)
+    view=G.getDocument(detail.Name).activeView()
+    if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+    view.setAxisCross(False); view.setCameraType('Orthographic')
+    z=A.Vector(-1,1,1.1); x=A.Vector(-1,-1,0)
+    view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q)
+    G.updateGui(); view.fitAll(); G.updateGui(); view.redraw()
+    view.saveImage(str(out/'mocowanie-v20-przekroj.png'),1100,900,'White')
+finally:
+    A.closeDocument(detail.Name)
+    A.setActiveDocument(main.Name)
+print('Local mount cutaway saved; full v20 assembly restored')
