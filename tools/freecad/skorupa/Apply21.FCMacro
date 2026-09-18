@@ -1,0 +1,40 @@
+"""Load validated reinforced rails into a separate copy; preserve v20."""
+from pathlib import Path
+import json,hashlib,shutil
+import FreeCAD as A, FreeCADGui as G
+import Part
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v21'
+SOURCE=ROOT/'hardware/skorupa/v20/Kot_v20_MOCOWANIA_PETG.FCStd'
+DEST=OUT/'Kot_v21_BOKI_PETG.FCStd'
+r=json.loads((OUT/'validation.json').read_text(encoding='utf-8'))
+assert not r['collisions'] and len(r['parts'])==2
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==r['source_sha256']
+for p in r['parts']:
+    assert hashlib.sha256((OUT/(p['name']+'.brep')).read_bytes()).hexdigest()==p['sha256']
+if DEST.exists(): raise RuntimeError('Preserve existing v21')
+shutil.copy2(SOURCE,DEST)
+d=A.openDocument(str(DEST)); d.Label='Kot v21 | wzmocnione boki PETG | PROTOTYP'
+group=d.addObject('App::Part','RailAssembly21'); group.Label='PETG | boki ramy 3 mm, centralny odcinek'
+for p in r['parts']:
+    o=d.addObject('Part::Feature',p['name']); group.addObject(o)
+    s=Part.Shape(); s.read(str(OUT/(p['name']+'.brep'))); o.Shape=s
+    o.Label='PETG | '+p['name']+' | 3 mm srodek'
+    o.addProperty('App::PropertyString','MaterialNote','Manufacturing').MaterialNote='Black PETG; prototype, not load-certified'
+    o.addProperty('App::PropertyLength','MiddleWallThickness','Manufacturing').MiddleWallThickness=3
+    o.addProperty('App::PropertyString','SourceRecipe','Manufacturing').SourceRecipe='tools/freecad/skorupa/build21.py'
+    o.addProperty('App::PropertyString','Limitations','Manufacturing').Limitations='End mounting zones remain legacy thickness; inherited belly/frame interference remains'
+    o.ViewObject.ShapeColor=(.12,.13,.15); o.ViewObject.LineColor=(.06,.06,.07)
+    o.ViewObject.DisplayMode='Flat Lines'; o.Visibility=True
+    d.getObject(p['replaces']).Visibility=False
+note=d.addObject('App::FeaturePython','PrototypeWarning21'); note.Label='UWAGA | brzuch koliduje z rama: do przeprojektowania'
+note.addProperty('App::PropertyString','Status','Validation').Status='No new rail collisions; inherited BellyPod/frame overlaps remain. Do not print as a complete release.'
+d.recompute(); A.setActiveDocument(d.Name)
+view=G.getDocument(d.Name).activeView()
+if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+view.setAxisCross(False); view.setCameraType('Orthographic')
+z=A.Vector(-1,-1,.65); x=A.Vector(1,-1,0)
+G.updateGui(); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q)
+view.fitAll(); node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.85)
+G.updateGui(); view.redraw(); d.save()
+view.saveImage(str(OUT/'kot-v21-zlozony.png'),1400,1050,'White')
+print('Saved',d.FileName)

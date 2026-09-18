@@ -1,0 +1,6 @@
+"""Space-like whole-shell visibility toggle, no change to geometry."""
+import FreeCAD as A, FreeCADGui as G
+d=A.ActiveDocument
+if not d or not d.getObject('SideLeft21'): raise RuntimeError('Open the v21 assembly first')
+o=d.getObject('ShellMounted20'); o.Visibility=not o.Visibility
+G.updateGui()

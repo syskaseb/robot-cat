@@ -1,0 +1,37 @@
+"""Actual CAD rail and section views; restore whole-cat document afterwards."""
+from pathlib import Path
+import FreeCAD as A, FreeCADGui as G
+import Part
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v21'
+main=next(d for d in A.listDocuments().values() if Path(d.FileName)==OUT/'Kot_v21_BOKI_PETG.FCStd')
+preview=A.newDocument('Rail21Preview')
+try:
+    before=preview.addObject('Part::Feature','ExistingRail'); before.Shape=main.getObject('SideLeft20').Shape.copy()
+    # Stored diagnostic delta avoids an unstable near-coincident BRep cut
+    # on reloaded imported rails. This is not an extra printable component.
+    added=preview.addObject('Part::Feature','AddedPETG')
+    s=Part.Shape(); s.read(str(OUT/'SideLeft21Added.brep')); added.Shape=s
+    assert added.Shape.isValid() and abs(added.Shape.Volume-10022.39191696413)<.001
+    before.ViewObject.ShapeColor=(.45,.48,.52); added.ViewObject.ShapeColor=(.98,.47,.10)
+    for o in (before,added):
+        o.ViewObject.DisplayMode='Flat Lines'; o.ViewObject.LineColor=(.08,.08,.08)
+    preview.recompute(); G.updateGui()
+    view=G.getDocument(preview.Name).activeView(); view.setAxisCross(False); view.setCameraType('Orthographic')
+    if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+    def capture(name,z,x,width,height):
+        G.updateGui(); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+        G.updateGui(); view.redraw(); view.saveImage(str(OUT/name),width,height,'White')
+    capture('bok-v21-wzmocnienie.png',A.Vector(-.35,-1,.8),A.Vector(1,-.35,0),1400,800)
+    section=Part.makeBox(1,100,70,A.Vector(20.5,0,-10))
+    before.Shape=before.Shape.common(section); added.Shape=added.Shape.common(section)
+    preview.recompute()
+    capture('bok-v21-przekroj.png',A.Vector(-1,0,0),A.Vector(0,-1,0),900,900)
+finally:
+    A.closeDocument(preview.Name); A.setActiveDocument(main.Name)
+    main.getObject('ShellMounted20').Visibility=True
+    view=G.getDocument(main.Name).activeView()
+    z=A.Vector(-1,-1,.65); x=A.Vector(1,-1,0)
+    G.updateGui(); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+    node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.85)
+    G.updateGui(); view.redraw()
+print('Rail detail rendered; restored whole cat')
