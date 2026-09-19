@@ -1,0 +1,47 @@
+"""True CAD assembly and section previews; leave complete cat active."""
+from pathlib import Path
+import FreeCAD as A,FreeCADGui as G
+import Part,json
+OUT=Path(__file__).resolve().parents[3]/'hardware/skorupa/v23'
+main=next(d for d in A.listDocuments().values() if Path(d.FileName)==OUT/'Kot_v23_AKUMULATOR_PETG.FCStd')
+r=json.loads((OUT/'validation.json').read_text(encoding='utf-8'))
+def world(o):
+    s=o.Shape.copy(); s.Placement=o.getGlobalPlacement().multiply(o.Placement.inverse()).multiply(s.Placement)
+    return s
+detail=A.newDocument('Battery23_Detail')
+try:
+    def add(name,shape,color):
+        o=detail.addObject('Part::Feature',name); o.Shape=shape
+        o.ViewObject.ShapeColor=color; o.ViewObject.LineColor=(.05,.05,.06); o.ViewObject.DisplayMode='Flat Lines'
+        return o
+    for row in r['parts']+r['hardware']:
+        old=main.getObject(row['name']); add(row['name'],world(old),old.ViewObject.ShapeColor)
+    add('Battery',world(main.getObject('Battery')),(.22,.4,.65))
+    view=G.getDocument(detail.Name).activeView(); view.setCameraType('Orthographic')
+    def capture(filename,z,x,width=1200,height=900):
+        detail.recompute(); G.updateGui()
+        if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+        view.setAxisCross(False); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+        node=view.getCameraNode(); node.height.setValue(node.height.getValue()*1.15)
+        G.updateGui(); view.redraw(); view.saveImage(str(OUT/filename),width,height,'White')
+    capture('akumulator-v23-zlozenie.png',A.Vector(-1,-1,1.3),A.Vector(1,-1,0))
+    for o in detail.Objects: o.Visibility=False
+    region=Part.makeBox(7,17,15,A.Vector(1,17,-4))
+    for name,color in [('BatteryCarrier23',(.28,.31,.34)),('Part__Feature005',(.95,.48,.12)),
+                       ('BatteryScrewFrontL',(.7,.72,.75)),('BatteryNutFrontL',(.7,.72,.75)),
+                       ('Battery',(.22,.4,.65)),('BatteryLiner23',(.45,.45,.48))]:
+        shape=world(main.getObject(name)).common(region)
+        assert shape.isValid() and shape.Volume>.001,name
+        add(name+'Section',shape,color)
+    capture('akumulator-v23-przekroj.png',A.Vector(-1,-.35,.35),A.Vector(.35,-1,0),1000,1000)
+finally:
+    A.closeDocument(detail.Name); A.setActiveDocument(main.Name)
+    view=G.getDocument(main.Name).activeView()
+    z=A.Vector(-1,-1,.65); x=A.Vector(1,-1,0)
+    G.updateGui(); view.setAxisCross(False); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+    node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.6)
+    G.updateGui(); view.redraw()
+    main.Label='Kot v23 | mocowanie akumulatora PETG | PROTOTYP'
+    main.save()
+    view.saveImage(str(OUT/'kot-v23-zlozony.png'),1400,1050,'White')
+print('Rendered battery assembly and real section; restored whole v23 cat')
