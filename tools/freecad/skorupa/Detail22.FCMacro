@@ -1,0 +1,38 @@
+"""Render genuine CAD views of the belly and a bolted section, restoring cat."""
+from pathlib import Path
+import FreeCAD as A,FreeCADGui as G
+import Part
+OUT=Path(__file__).resolve().parents[3]/'hardware/skorupa/v22'
+main=next(d for d in A.listDocuments().values() if Path(d.FileName)==OUT/'Kot_v22_BRZUCH_PETG.FCStd')
+detail=A.newDocument('Belly22_Detail')
+try:
+    body=detail.addObject('Part::Feature','BellyPreview'); body.Shape=main.getObject('Belly22').Shape.copy()
+    body.ViewObject.ShapeColor=(.28,.31,.34); body.ViewObject.DisplayMode='Flat Lines'
+    view=G.getDocument(detail.Name).activeView(); view.setCameraType('Orthographic'); view.setAxisCross(False)
+    if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+    def capture(path,z,x,width=1200,height=900):
+        detail.recompute(); G.updateGui()
+        if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+        view.setAxisCross(False)
+        view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+        node=view.getCameraNode(); node.height.setValue(node.height.getValue()*1.15)
+        G.updateGui(); view.redraw(); view.saveImage(str(OUT/path),width,height,'White')
+    capture('brzuch-v22-oslona.png',A.Vector(-.6,-.7,4.5),A.Vector(.7,-.6,0))
+    body.Visibility=False
+    region=Part.makeBox(14,31,32,A.Vector(-35,24,-11))
+    for name,color in [('Belly22',(.28,.31,.34)),('SideLeft22',(.95,.48,.12)),
+                       ('BellyScrewFrontL',(.7,.72,.75)),('BellyNutFrontL',(.7,.72,.75))]:
+        shape=main.getObject(name).Shape.common(region)
+        assert shape.isValid() and shape.Volume>.001,name
+        o=detail.addObject('Part::Feature',name+'Section'); o.Shape=shape
+        o.ViewObject.ShapeColor=color; o.ViewObject.LineColor=(.06,.06,.07); o.ViewObject.DisplayMode='Flat Lines'
+    capture('brzuch-v22-mocowanie-przekroj.png',A.Vector(-1,-.3,.35),A.Vector(.3,-1,0),1000,1000)
+finally:
+    A.closeDocument(detail.Name); A.setActiveDocument(main.Name)
+    main.getObject('ShellMounted20').Visibility=True; main.getObject('Belly22').Visibility=True
+    view=G.getDocument(main.Name).activeView()
+    z=A.Vector(-1,-1,.65); x=A.Vector(1,-1,0)
+    G.updateGui(); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q); view.fitAll()
+    node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.85)
+    G.updateGui(); view.redraw()
+print('Rendered belly and true section; restored whole v22 cat')

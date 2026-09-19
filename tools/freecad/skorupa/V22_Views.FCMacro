@@ -1,0 +1,7 @@
+"""Toggle outer covers for inspection; no geometry or placement changes."""
+import FreeCAD as A,FreeCADGui as G
+d=A.ActiveDocument
+if not d or not d.getObject('Belly22'): raise RuntimeError('Open the v22 assembly first')
+show=not d.getObject('ShellMounted20').Visibility
+for name in ('ShellMounted20','Belly22'): d.getObject(name).Visibility=show
+G.updateGui()

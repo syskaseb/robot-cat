@@ -1,0 +1,50 @@
+"""Validated v22 copy via MCP; never overwrite the source or existing v22."""
+from pathlib import Path
+import json,hashlib,shutil
+import FreeCAD as A,FreeCADGui as G
+import Part
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v22'
+SOURCE=ROOT/'hardware/skorupa/v21/Kot_v21_BOKI_PETG.FCStd'; DEST=OUT/'Kot_v22_BRZUCH_PETG.FCStd'
+r=json.loads((OUT/'validation.json').read_text(encoding='utf-8'))
+c=json.loads((OUT/'assembly-validation.json').read_text(encoding='utf-8'))
+assert not r['collisions'] and not c['nut_insertion_collisions'] and not c['tool_collisions']
+assert len(c['removal_samples'])==19 and all(not row['collisions'] for row in c['removal_samples'])
+assert len(c['bearings'])==16 and all(row['material_fraction']>=.99 for row in c['bearings'])
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==r['source_sha256']
+for p in r['parts']+r['hardware']:
+    assert hashlib.sha256((OUT/(p['name']+'.brep')).read_bytes()).hexdigest()==p['sha256']==c['source_breps'][p['name']]
+if DEST.exists(): raise RuntimeError('Preserve existing v22')
+shutil.copy2(SOURCE,DEST); d=A.openDocument(str(DEST))
+d.Label='Kot v22 | odkrecany brzuch PETG | PROTOTYP'
+printed=d.addObject('App::Part','BellyAssembly22'); printed.Label='PETG | brzuch i boki z gniazdami M3'
+metal=d.addObject('App::Part','BellyFasteners22'); metal.Label='Kupne | 4 M3x16 i 4 nakretki M3'
+for p in r['parts']+r['hardware']:
+    bought=p in r['hardware']; o=d.addObject('Part::Feature',p['name'])
+    (metal if bought else printed).addObject(o)
+    s=Part.Shape(); s.read(str(OUT/(p['name']+'.brep'))); o.Shape=s
+    o.Label=('Stal | ' if bought else 'PETG | ')+p['name']
+    o.addProperty('App::PropertyString','MaterialNote','Manufacturing').MaterialNote='Steel fastener envelope, no threads' if bought else 'Black PETG, prototype, load and print tests pending'
+    o.addProperty('App::PropertyString','SourceRecipe','Manufacturing').SourceRecipe='tools/freecad/skorupa/build22.py'
+    o.ViewObject.ShapeColor=(.6,.62,.65) if bought else (.12,.13,.15)
+    o.ViewObject.LineColor=(.06,.06,.07); o.ViewObject.DisplayMode='Flat Lines'; o.Visibility=True
+for old in r['replacements'].values(): d.getObject(old).Visibility=False
+for side in ('Left','Right'):
+    o=d.getObject('Side'+side+'22')
+    o.addProperty('App::PropertyString','ConnectionNote','Manufacturing').ConnectionNote='Two integral bosses with captive metal M3 nuts; geometric bolted connection, not Assembly solver joint'
+o=d.getObject('Belly22')
+o.addProperty('App::PropertyString','Removal','Manufacturing').Removal='Remove 4 M3x16; down 20, tailward 20, down another 20, tailward another 10, then down another 20 mm. Sampled checks only, not continuous collision proof.'
+o.addProperty('App::PropertyLength','WallThickness','Manufacturing').WallThickness=3
+note=d.getObject('PrototypeWarning21')
+if note:
+    note.Label='Archiwum v21 | stare kolizje brzucha usuniete w v22'
+    note.Status='Original v21 belly replaced in v22. New static and sampled removal checks passed. Full robot still a prototype.'
+d.recompute(); A.setActiveDocument(d.Name)
+view=G.getDocument(d.Name).activeView()
+if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+view.setAxisCross(False); view.setCameraType('Orthographic')
+z=A.Vector(-1,-1,.65); x=A.Vector(1,-1,0)
+G.updateGui(); view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q)
+view.fitAll(); node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.85)
+G.updateGui(); view.redraw(); d.save()
+view.saveImage(str(OUT/'kot-v22-zlozony.png'),1400,1050,'White')
+print('Saved',d.FileName)

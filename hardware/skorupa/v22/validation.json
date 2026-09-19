@@ -1,0 +1,185 @@
+{
+  "source_sha256": "73ac748008bf5d284697e2604d6745fc085cdfa5820a640bdf75fe74bf65ad67",
+  "parts": [
+    {
+      "name": "Belly22",
+      "volume_mm3": 91281.38118396031,
+      "sha256": "a692a2fec49ebaedf4cd04acf7ade9e0fae59460be3a4f639ae0502bac02086b",
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "name": "SideLeft22",
+      "volume_mm3": 32397.37317572622,
+      "sha256": "1ddbb74e85e5a7e6f2275efb266e40c971fd695e8c3e887124db0eb315b9941d",
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "name": "SideRight22",
+      "volume_mm3": 32397.37304806445,
+      "sha256": "4c5867e68ba99896a2347449a413aa9ce2cea22ce9081692efabc9990e64a66e",
+      "valid": true,
+      "solids": 1
+    }
+  ],
+  "hardware": [
+    {
+      "name": "BellyScrewFrontL",
+      "sha256": "27387ced301e022f2b2935154d483eddcfb5c5240345b8bc03cf8a1b63c4dbb6"
+    },
+    {
+      "name": "BellyNutFrontL",
+      "sha256": "80a55df22a81cf406d57e3750838615a2e006740167a79ae9b7c9eebd072b326"
+    },
+    {
+      "name": "BellyScrewFrontR",
+      "sha256": "907c53874956d817333dbc43b633edc9597c5cf2eb373b277c1cfd0a121837e6"
+    },
+    {
+      "name": "BellyNutFrontR",
+      "sha256": "b159e8a240a51f8f4d96a92ed03ed3086b9468791565ecb5803bc8c924c9ac2a"
+    },
+    {
+      "name": "BellyScrewRearL",
+      "sha256": "32fbfad1ba846925099b68c8491781080981c33abdd1e4bc66aa390c6808274a"
+    },
+    {
+      "name": "BellyNutRearL",
+      "sha256": "21532d7f9c44ebcf521ac0e13fed75555774b49fd08f50b765f7921f9f39eed3"
+    },
+    {
+      "name": "BellyScrewRearR",
+      "sha256": "1a8351ffe3b296feb2b209f48e79997260a849185e3f614a75cf8d27afd8a084"
+    },
+    {
+      "name": "BellyNutRearR",
+      "sha256": "400e5de1999311e9f32a5bb1a54ed7e411a8e0bf8f2f7a802dbc5bb826545cc3"
+    }
+  ],
+  "collisions": [],
+  "connections": [
+    {
+      "name": "FrontL",
+      "axis_mm": [
+        -35,
+        40
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "screw": "M3x16",
+      "screw_head_seat_z_mm": -6.5,
+      "nut_floor_z_mm": 6.3,
+      "tip_z_mm": 9.5,
+      "tip_protrusion_mm": 0.8,
+      "printed_bearing_plane_z_mm": -2,
+      "bore_mm": 3.4,
+      "nut_pocket_af_mm": 5.8,
+      "nut_nominal_af_mm": 5.5
+    },
+    {
+      "name": "FrontR",
+      "axis_mm": [
+        -35,
+        -40
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "screw": "M3x16",
+      "screw_head_seat_z_mm": -6.5,
+      "nut_floor_z_mm": 6.3,
+      "tip_z_mm": 9.5,
+      "tip_protrusion_mm": 0.8,
+      "printed_bearing_plane_z_mm": -2,
+      "bore_mm": 3.4,
+      "nut_pocket_af_mm": 5.8,
+      "nut_nominal_af_mm": 5.5
+    },
+    {
+      "name": "RearL",
+      "axis_mm": [
+        80,
+        40
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "screw": "M3x16",
+      "screw_head_seat_z_mm": -6.5,
+      "nut_floor_z_mm": 6.3,
+      "tip_z_mm": 9.5,
+      "tip_protrusion_mm": 0.8,
+      "printed_bearing_plane_z_mm": -2,
+      "bore_mm": 3.4,
+      "nut_pocket_af_mm": 5.8,
+      "nut_nominal_af_mm": 5.5
+    },
+    {
+      "name": "RearR",
+      "axis_mm": [
+        80,
+        -40
+      ],
+      "axis_direction": [
+        0,
+        0,
+        1
+      ],
+      "screw": "M3x16",
+      "screw_head_seat_z_mm": -6.5,
+      "nut_floor_z_mm": 6.3,
+      "tip_z_mm": 9.5,
+      "tip_protrusion_mm": 0.8,
+      "printed_bearing_plane_z_mm": -2,
+      "bore_mm": 3.4,
+      "nut_pocket_af_mm": 5.8,
+      "nut_nominal_af_mm": 5.5
+    }
+  ],
+  "clearances": [
+    {
+      "part": "Belly22",
+      "neighbor": "FrameFront20",
+      "gap_mm": 2.499999999998722
+    },
+    {
+      "part": "Belly22",
+      "neighbor": "FrameRear20",
+      "gap_mm": 2.4999999999965725
+    },
+    {
+      "part": "Belly22",
+      "neighbor": "Battery",
+      "gap_mm": 9.7
+    },
+    {
+      "part": "Belly22",
+      "neighbor": "BatteryTray",
+      "gap_mm": 4.5
+    },
+    {
+      "part": "Belly22",
+      "neighbor": "Part__Feature038",
+      "gap_mm": 23.137640329087784
+    },
+    {
+      "part": "Belly22",
+      "neighbor": "Part__Feature005",
+      "gap_mm": 0.5
+    }
+  ],
+  "replacements": {
+    "Belly22": "BellyPod",
+    "SideLeft22": "SideLeft21",
+    "SideRight22": "SideRight21"
+  },
+  "scope": "Static prototype; not a complete print release, load certification or leg motion check"
+}
