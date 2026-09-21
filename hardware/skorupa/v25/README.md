@@ -2,8 +2,8 @@
 
 Złożenie: [Kot_v25_DOMOWA_OSLONA.FCStd](Kot_v25_DOMOWA_OSLONA.FCStd).
 **Nadal prototyp — nie komplet robota zatwierdzony do druku.**
-Branch pozostaje `codex/obudowa-v18-mechanical`; numer gałęzi nie oznacza
-numeru bieżącego modelu. v24 i wszystkie poprzednie wersje zachowano.
+Branch: `codex/robot-cat-mechanical` — nazwa niezależna od wersji modelu.
+v24 i wszystkie poprzednie wersje zachowano.
 
 ## Co zmieniono
 

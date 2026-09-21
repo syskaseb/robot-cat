@@ -1,7 +1,7 @@
 # v18 — dzielony korpus i wymienna tacka, NIE wydanie do druku
 
 Baza: `feat/obudowa-v1`, commit `25f4a32` (v17 Claude'a na skorupie Oli).
-Praca na `codex/obudowa-v18-mechanical`, osobny worktree; lokalne modele
+Praca na `codex/robot-cat-mechanical`, osobny worktree; lokalne modele
 w pierwotnym katalogu `robot-cat` pozostają nietknięte.
 
 ## Zrobione w tym etapie
