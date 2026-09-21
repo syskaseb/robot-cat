@@ -1,0 +1,20 @@
+"""Read-only world BRep snapshot, avoiding a second native solver on restore."""
+from pathlib import Path
+import json,hashlib,sys
+import FreeCAD as A
+ROOT=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'tools/freecad/skorupa'))
+from probe21 import world
+d=A.getDocument('Kot_v25_DOMOWA_OSLONA')
+assert Path(d.FileName).resolve()==(ROOT/'hardware/skorupa/v25/Kot_v25_DOMOWA_OSLONA.FCStd').resolve()
+wrappers=[o for o in d.Objects if o.Name.startswith('Rigid_') and o.TypeId=='App::Part']
+assert len(wrappers)==238
+assert all(o.Placement.isSame(A.Placement(),1e-6) for o in wrappers),'Restore the saved rest pose before exporting'
+out=ROOT/'hardware/skorupa/v26/shape-cache';out.mkdir(exist_ok=True)
+rows=[]
+for o in d.Objects:
+    if o.isDerivedFrom('Part::Feature') and o.ViewObject.Visibility and not o.Shape.isNull():
+        world(o).exportBrep(str(out/(o.Name+'.brep')));rows.append(o.Name)
+assert len(rows)==238
+(out/'index.json').write_text(json.dumps({'source_sha256':hashlib.sha256(Path(d.FileName).read_bytes()).hexdigest(),'objects':rows},indent=2),encoding='utf-8')
+print('Exported',len(rows),'world shapes; source not saved/modified')
