@@ -1,0 +1,45 @@
+"""Exercise the inherited native simulation after the guard replacement."""
+from pathlib import Path
+import json,math
+import FreeCAD as A,FreeCADGui as G
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v25'
+plan=json.loads((ROOT/'hardware/skorupa/v24/assembly-plan.json').read_text(encoding='utf-8'))
+d=A.getDocument('Kot_v25_DOMOWA_OSLONA');asm=d.getObject('RobotCatAssembly24')
+baseline={'Rigid_'+r['name']:d.getObject('Rigid_'+r['name']).Placement.copy() for r in plan['components']}
+sim=d.getObject('LegConnectionTest24');assert len(sim.Group)==12
+changed=['Belly22']+['BellyScrew'+end+side for end in ['Front','Rear'] for side in ['L','R']]
+def world(o):
+    s=o.Shape.copy();s.Placement=o.getGlobalPlacement()*o.Placement.inverse()*s.Placement;return s
+targets={n:world(d.getObject(n)) for n in changed}
+rows=[];peaks={r['name']:0 for r in plan['joints'] if r['type']=='Revolute'}
+try:
+    asm.generateSimulation(sim);count=asm.numberOfFrames();assert count>=20
+    for frame in range(count):
+        asm.updateForFrame(frame);gap=0.;fixedrot=0.;axiserror=0.;hits=[]
+        for row in plan['joints']:
+            j=d.getObject(row['name']);a=j.Reference1[0].Placement*j.Placement1;b=j.Reference2[0].Placement*j.Placement2
+            gap=max(gap,(a.Base-b.Base).Length)
+            angle=(a.Rotation.inverted()*b.Rotation).Angle
+            if row['type']=='Fixed':fixedrot=max(fixedrot,angle)
+            else:
+                peaks[row['name']]=max(peaks[row['name']],math.degrees(angle))
+                axiserror=max(axiserror,a.Rotation.multVec(A.Vector(0,0,1)).getAngle(b.Rotation.multVec(A.Vector(0,0,1))))
+        for p in plan['components']:
+            if not p['stage'].startswith('Motion_'):continue
+            s=world(d.getObject(p['name']))
+            for n,t in targets.items():
+                if s.BoundBox.intersect(t.BoundBox):
+                    v=s.common(t).Volume
+                    if v>.001:hits.append([p['name'],n,v])
+        rows.append(dict(frame=frame,max_joint_gap_mm=gap,max_fixed_rotation_error_rad=fixedrot,max_axis_error_rad=axiserror,changed_part_collisions=hits))
+        assert gap<1e-5 and fixedrot<1e-5 and axiserror<1e-5 and not hits,rows[-1]
+    assert all(2.8<v<3.2 for v in peaks.values()),peaks
+finally:
+    for n,p in baseline.items():d.getObject(n).Placement=p
+    d.recompute();assert asm.solve()==0
+    for n,p in baseline.items():assert d.getObject(n).Placement.isSame(p,1e-6),n
+    G.updateGui()
+report=dict(frames=count,peaks_deg=peaks,frames_validation=rows,fixed_joints=225,revolute_joints=12,
+    scope='Native +/-3 degree retention and changed guard/screw vs moving legs only. Not full-gait, global-collision, contact, load or strength validation.')
+(OUT/'simulation-validation.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+print(json.dumps(dict(frames=count,max_gap_mm=max(r['max_joint_gap_mm'] for r in rows),changed_part_collisions=sum(len(r['changed_part_collisions']) for r in rows))))

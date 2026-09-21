@@ -1,0 +1,22 @@
+"""Render the actual underside mount section; leave the complete cat active."""
+from pathlib import Path
+import FreeCAD as A,FreeCADGui as G
+import Part
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v25'
+source=A.getDocument('Kot_v25_DOMOWA_OSLONA')
+assert 'Detail25' not in A.listDocuments()
+d=A.newDocument('Detail25')
+mask=Part.makeBox(16,11,32,A.Vector(-43,40,-8))
+for n,color in [('Belly22',(.12,.13,.15)),('SideLeft22',(.85,.42,.12)),('BellyScrewFrontL',(.6,.62,.65)),('BellyNutFrontL',(.6,.62,.65))]:
+    original=source.getObject(n);s=original.Shape.copy()
+    s.Placement=original.getGlobalPlacement()*original.Placement.inverse()*s.Placement
+    o=d.addObject('Part::Feature',n+'Section');o.Shape=s.common(mask)
+    o.ViewObject.ShapeColor=color;o.ViewObject.LineColor=(.08,.08,.08);o.ViewObject.DisplayMode='Flat Lines'
+d.recompute();view=G.getDocument(d.Name).activeView();view.setAxisCross(False);view.viewFront();view.fitAll()
+G.updateGui()
+if hasattr(G,'Snapper') and G.Snapper.grid:G.Snapper.grid.off()
+view.saveImage(str(OUT/'oslona-v25-mocowanie-przekroj.png'),900,850,'White')
+A.setActiveDocument(source.Name);A.closeDocument(d.Name)
+source.Label='Kot v25 | lekka oslona domowa PETG | native Assembly'
+G.Selection.clearSelection();G.updateGui()
+print('Section rendered; whole cat restored')

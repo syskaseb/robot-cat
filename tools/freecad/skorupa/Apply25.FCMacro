@@ -1,0 +1,47 @@
+"""Replace guard and four screw envelopes in a COPY of the native v24 assembly."""
+from pathlib import Path
+import json,hashlib,shutil
+import FreeCAD as A,FreeCADGui as G
+import Part
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v25'
+SOURCE=ROOT/'hardware/skorupa/v24/Kot_v24_ASSEMBLY.FCStd'
+DEST=OUT/'Kot_v25_DOMOWA_OSLONA.FCStd'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+r=json.loads((OUT/'validation.json').read_text(encoding='utf-8'))
+assert sha(SOURCE)==r['source_sha256']
+assert not r['collisions'] and not r['tool_collisions']
+assert all(not row['collisions'] for row in r['removal_samples']+r['motion_samples'])
+assert not DEST.exists(),'Preserve existing v25'
+for row in r['parts']:assert sha(OUT/row['file'])==row['sha256']
+shutil.copy2(SOURCE,DEST);d=A.openDocument(str(DEST))
+d.Label='Kot v25 | lekka oslona domowa PETG | native Assembly'
+for row in r['parts']:
+    n=row['source_name'];o=d.getObject(n);wrapper=d.getObject('Rigid_'+n)
+    assert wrapper.Placement.isSame(A.Placement(),1e-6)
+    s=Part.Shape();s.read(str(OUT/row['file']));o.Shape=s
+    if n=='Belly22':
+        label='Belly25 | PETG | plaska oslona 2.4 mm'
+        note='Black PETG prototype, non-load-bearing guard. Body design: BellyDesign25.FCStd. Retained internal Belly22 ID keeps native joints stable.'
+        o.ViewObject.ShapeColor=(.12,.13,.15)
+    else:
+        label='Stal | '+n+' | M3x16 ISO10642, leb stozkowy'
+        note='Bought M3x16 ISO10642, max-head envelope D6.72 H1.86; length includes head; no modeled thread/socket. Verify actual head fit.'
+        o.ViewObject.ShapeColor=(.6,.62,.65)
+    o.Label=label;wrapper.Label=label
+    o.SourceCheckpoint='v25 / '+row['sha256']
+    for prop,val in [('MaterialNote',note),('SourceRecipe','tools/freecad/skorupa/check25.py; native BellyDesign25.FCStd')]:
+        if prop not in o.PropertiesList:o.addProperty('App::PropertyString',prop,'Manufacturing')
+        setattr(o,prop,val)
+    o.Visibility=True
+    d.getObject('Fix_'+n).Label='Fixed | '+label
+asm=d.getObject('RobotCatAssembly24');asm.Label='RobotCatAssembly25'
+asm.Scope='12 leg DOF; flat indoor guard v25. Head/tail and unfinished physical mounts remain temporarily fixed. Not full collision-free gait or print release.'
+d.recompute();assert asm.solve()==0
+view=G.getDocument(d.Name).activeView();view.setAxisCross(False);view.setCameraType('Orthographic')
+z=A.Vector(-1,-1,.65);x=A.Vector(1,-1,0)
+view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q);view.fitAll()
+node=view.getCameraNode();node.height.setValue(node.height.getValue()*.72)
+G.Selection.clearSelection();G.updateGui()
+if hasattr(G,'Snapper') and G.Snapper.grid:G.Snapper.grid.off()
+d.save();view.saveImage(str(OUT/'kot-v25-zlozony.png'),1400,1050,'White')
+print('Saved',d.Name,d.FileName)
