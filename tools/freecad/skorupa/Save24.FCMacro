@@ -1,0 +1,38 @@
+"""Save the tested native assembly without altering source v23."""
+from pathlib import Path
+import json
+import FreeCAD as A, FreeCADGui as G
+
+ROOT=Path(__file__).resolve().parents[3]
+OUT=ROOT/'hardware/skorupa/v24'
+DEST=OUT/'Kot_v24_ASSEMBLY.FCStd'
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf-8'))
+test=json.loads((OUT/'simulation-validation.json').read_text(encoding='utf-8'))
+assert test['frames']>=20
+assert max(r['max_joint_gap_mm'] for r in test['frames_validation'])<1e-5
+assert not DEST.exists(),'Do not overwrite a saved checkpoint'
+d=A.getDocument('Kot_v24_ASSEMBLY')
+asm=d.getObject('RobotCatAssembly24')
+assert d.getObject('LegConnectionTest24')
+for p in plan['components']:
+    assert d.getObject('Rigid_'+p['name']).Placement.isSame(A.Placement(),1e-6),p['name']
+    d.getObject(p['name']).Visibility=True
+    d.getObject('Rigid_'+p['name']).Visibility=True
+for o in d.Objects:
+    if o.TypeId.startswith('App::Origin') or o.TypeId=='Assembly::JointGroup': o.Visibility=False
+    if o.Name.startswith(('Fix_','Rev_')): o.Visibility=False
+d.Label='Kot v24 | Assembly: 12 osi lap | glowa i ogon zablokowane'
+d.recompute()
+A.setActiveDocument(d.Name)
+view=G.getDocument(d.Name).activeView()
+view.setAxisCross(False); view.setCameraType('Orthographic')
+z=A.Vector(-1,-1,.65); x=A.Vector(1,-1,0)
+G.updateGui()
+if hasattr(G,'Snapper') and G.Snapper.grid: G.Snapper.grid.off()
+view.setCameraOrientation(A.Rotation(x,z.cross(x),z,'ZXY').Q)
+view.fitAll()
+node=view.getCameraNode(); node.height.setValue(node.height.getValue()*.72)
+G.Selection.clearSelection(); G.updateGui(); view.redraw()
+d.saveAs(str(DEST))
+view.saveImage(str(OUT/'kot-v24-zlozony.png'),1400,1050,'White')
+print('Saved',d.FileName)

@@ -1,0 +1,28 @@
+"""Create independent visible-part snapshot, preserving all v23 world shapes."""
+from pathlib import Path
+import json,hashlib,sys
+import FreeCAD as A,FreeCADGui as G
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from appearance24 import copy_appearance
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v24'
+SOURCE=ROOT/'hardware/skorupa/v23/Kot_v23_AKUMULATOR_PETG.FCStd'
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf-8'))
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==plan['source_sha256']
+assert not (OUT/'Kot_v24_ASSEMBLY.FCStd').exists(),'Preserve existing v24'
+assert 'Kot_v24_ASSEMBLY' not in A.listDocuments(),'Do not overwrite an open assembly'
+source=next((d for d in A.listDocuments().values() if Path(d.FileName)==SOURCE),None)
+if source is None: source=A.openDocument(str(SOURCE))
+d=A.newDocument('Kot_v24_ASSEMBLY'); d.Label='Kot v24 | natywne jointy Assembly | PROTOTYP'
+for row in plan['components']:
+    original=source.getObject(row['name']); s=original.Shape.copy()
+    s.Placement=original.getGlobalPlacement().multiply(original.Placement.inverse()).multiply(s.Placement)
+    rigid=d.addObject('App::Part','Rigid_'+original.Name); rigid.Label=original.Label
+    o=rigid.newObject('Part::Feature',original.Name); o.Shape=s; o.Label=original.Label
+    o.addProperty('App::PropertyString','SourceName','Traceability').SourceName=original.Name
+    o.addProperty('App::PropertyString','SourceCheckpoint','Traceability').SourceCheckpoint='v23 / '+plan['source_sha256']
+    o.addProperty('App::PropertyString','RigidStage','Kinematics').RigidStage=row['stage']
+    copy_appearance(original,o)
+    o.Visibility=True
+d.recompute(); A.setActiveDocument(d.Name)
+G.getDocument(d.Name).activeView().viewAxonometric(); G.getDocument(d.Name).activeView().fitAll()
+print('Prepared',d.Name,'components',len(plan['components']))

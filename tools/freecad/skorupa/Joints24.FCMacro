@@ -1,0 +1,45 @@
+"""Native joint connectors at preserved datums; no face-mating displacement.
+
+The MCP face-mating joint tool repositions parts and has no datum/keep-pose
+argument. These custom detached JCS use the installed native JointObject API.
+The native assembly container/ground itself is made by create_assembly MCP.
+"""
+from pathlib import Path
+import json,sys
+import FreeCAD as A,FreeCADGui as G
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly')
+import JointObject
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v24'
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf-8'))
+d=A.getDocument('Kot_v24_ASSEMBLY'); asm=d.getObject('RobotCatAssembly24')
+assert asm and asm.TypeId=='Assembly::AssemblyObject'
+g=next(o for o in asm.Group if o.TypeId=='Assembly::JointGroup')
+assert len(g.Group)==1,'Do not duplicate existing joints'
+asm.Type='Assembly'
+before={'Rigid_'+row['name']:d.getObject('Rigid_'+row['name']).Placement.copy() for row in plan['components']}
+for row in plan['joints']:
+    first=d.getObject('Rigid_'+row['parent']); second=d.getObject('Rigid_'+row['child'])
+    j=g.newObject('App::FeaturePython',row['name']); JointObject.Joint(j,1 if row['type']=='Revolute' else 0)
+    j.Detach1=True; j.Detach2=True
+    j.Reference1=(first,['','']); j.Reference2=(second,['',''])
+    datum=A.Placement()
+    if row['type']=='Revolute': datum=A.Placement(A.Vector(*row['pivot_mm']),A.Rotation(A.Vector(0,0,1),A.Vector(*row['axis'])))
+    j.Placement1=first.Placement.inverse().multiply(datum)
+    j.Placement2=second.Placement.inverse().multiply(datum)
+    j.Label=row['type']+' | '+row.get('label',second.Label)
+    j.addProperty('App::PropertyString','DesignStatus','Traceability').DesignStatus=row['status']
+    JointObject.ViewProviderJoint(j.ViewObject); j.Visibility=False
+d.recompute(); result=asm.solve(); assert result==0,result
+maxshift=0.; maxangle=0.
+for n,p in before.items():
+    q=d.getObject(n).Placement
+    maxshift=max(maxshift,(q.Base-p.Base).Length)
+    maxangle=max(maxangle,(q.Rotation*p.Rotation.inverted()).Angle)
+    assert q.isSame(p,1e-6),(n,str(p),str(q))
+asm.addProperty('App::PropertyString','Scope','Validation').Scope=plan['scope']
+asm.addProperty('App::PropertyInteger','LegDOF','Validation').LegDOF=12
+g.Visibility=False
+result=dict(solver_result=result,component_count=len(plan['components']),fixed_count=plan['fixed_count'],revolute_count=12,
+            max_initial_translation_error_mm=maxshift,max_initial_rotation_error_rad=maxangle,temporary_locks=plan['temporary_locks'])
+(OUT/'initial-solve.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+print(json.dumps(result))

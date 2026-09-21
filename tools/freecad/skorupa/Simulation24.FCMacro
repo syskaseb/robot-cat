@@ -1,0 +1,74 @@
+"""Native Assembly simulation plus measured constraint residuals for every frame."""
+from pathlib import Path
+import json,sys,math
+import FreeCAD as A,FreeCADGui as G
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly')
+import CommandCreateSimulation as CS,UtilsAssembly
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v24'
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf-8'))
+d=A.getDocument('Kot_v24_ASSEMBLY'); asm=d.getObject('RobotCatAssembly24')
+assert asm.solve()==0
+baseline={'Rigid_'+p['name']:d.getObject('Rigid_'+p['name']).Placement.copy() for p in plan['components']}
+sg=UtilsAssembly.getSimulationGroup(asm)
+assert not d.getObject('LegConnectionTest24'),'Preserve existing simulation'
+sim=sg.newObject('App::FeaturePython','LegConnectionTest24'); CS.Simulation(sim); CS.ViewProviderSimulation(sim.ViewObject)
+sim.Label='Test polaczen lap | 12 osi | bez fizyki kontaktu'
+sim.aTimeStart=0; sim.bTimeEnd=1; sim.cTimeStepOutput=.05; sim.jFramesPerSecond=20
+motions=[]
+for row in plan['joints']:
+    if row['type']!='Revolute': continue
+    motion=asm.newObject('App::FeaturePython','Motion_'+row['name'])
+    CS.Motion(motion,'Angular',(d.getObject(row['name']),['']), '0.05*sin(2*pi*time)')
+    CS.ViewProviderMotion(motion.ViewObject)
+    motions.append(motion)
+sim.Group=motions; d.recompute()
+
+def reset():
+    for n,p in baseline.items(): d.getObject(n).Placement=p
+    d.recompute()
+def residuals():
+    translation=0.; fixed_rotation=0.; axis_error=0.; angles={}
+    for row in plan['joints']:
+        j=d.getObject(row['name']); a=d.getObject('Rigid_'+row['parent']).Placement*j.Placement1
+        b=d.getObject('Rigid_'+row['child']).Placement*j.Placement2
+        translation=max(translation,(a.Base-b.Base).Length)
+        if row['type']=='Fixed': fixed_rotation=max(fixed_rotation,(a.Rotation.inverted()*b.Rotation).Angle)
+        else:
+            u=a.Rotation.multVec(A.Vector(0,0,1)); v=b.Rotation.multVec(A.Vector(0,0,1))
+            axis_error=max(axis_error,u.getAngle(v))
+            angles[row['name']]=(a.Rotation.inverted()*b.Rotation).Angle
+    return translation,fixed_rotation,axis_error,angles
+
+try:
+    # Calibrate formula units against actual solver output; no assumption
+    # about degree/radian conventions in this installed native version.
+    asm.generateSimulation(sim); count=asm.numberOfFrames(); assert count>=20,count
+    measured=0.
+    for frame in range(count):
+        asm.updateForFrame(frame)
+        measured=max(measured,max(residuals()[3].values()))
+    assert measured>1e-6,'Simulation did not move the joints'
+    amplitude=.05*math.radians(3)/measured
+    reset()
+    for i,motion in enumerate(motions):
+        sign=1 if any(code in motion.Name for code in ['FR_','RL_']) else -1
+        motion.Formula='%.15g*sin(2*pi*time)'%(sign*amplitude)
+    d.recompute(); asm.generateSimulation(sim); count=asm.numberOfFrames()
+    rows=[]; peaks={j['name']:0. for j in plan['joints'] if j['type']=='Revolute'}
+    for frame in range(count):
+        asm.updateForFrame(frame)
+        t,r,a,angles=residuals()
+        for name,value in angles.items(): peaks[name]=max(peaks[name],math.degrees(value))
+        rows.append(dict(frame=frame,max_joint_gap_mm=t,max_fixed_rotation_error_rad=r,max_axis_angle_error_rad=a))
+        assert t<1e-5 and r<1e-5 and a<1e-5,(frame,t,r,a)
+    assert all(2.8<v<3.2 for v in peaks.values()),peaks
+    report=dict(frames=count,formula_amplitude_for_3deg=amplitude,peak_angles_deg=peaks,frames_validation=rows,
+        fixed_count=plan['fixed_count'],revolute_count=12,
+        scope='Native kinematic constraint retention test only. Not collision, gait, ground contact, strength or motor-load validation.')
+    (OUT/'simulation-validation.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+    print(json.dumps(dict(frames=count,peaks=peaks,max_gap_mm=max(r['max_joint_gap_mm'] for r in rows))))
+finally:
+    reset()
+    assert asm.solve()==0
+    for n,p in baseline.items(): assert d.getObject(n).Placement.isSame(p,1e-6),n
+    d.recompute(); G.updateGui()

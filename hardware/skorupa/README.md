@@ -1,5 +1,11 @@
 # Skorupa kota - v17
 
+**Nowszy checkpoint: [v24 — natywne złożenie FreeCAD i test jointów](v24/README.md).**
+Ma 12 osi nóg, 225 połączeń sztywnych i sprawdzoną krótką animację.
+Głowa, ogon i nieukończone mocowania mają jawne blokady tymczasowe.
+To nadal prototyp, nie zatwierdzony komplet do druku. Poniższy opis dotyczy
+historycznej wersji v17, nie aktualnego stanu mocowań v20–v24.
+
 Nadbudowa "kociego" ciała montowana na oryginalnym podwoziu WAVEGO PRO BETA v3.
 Podwozie zostaje bez zmian; wszystko powyżej niego jest obrócone o 180 stopni
 względem WAVEGO (tam gdzie WAVEGO ma tył, kot ma głowę).
