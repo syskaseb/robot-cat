@@ -30,7 +30,7 @@ def test_part_mass_accounting(geometry):
 
 
 def test_v29_auxiliary_and_fastener_mass_classification(geometry):
-    if REVISION not in ('v29','v30','v31','v32','v33'):pytest.skip('v29+ tail integration only')
+    if REVISION not in ('v29','v30','v31','v32','v33','v34'):pytest.skip('v29+ tail integration only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['MG92BCase29']['mass_kg']+rows['MG92BOutput29']['mass_kg']==pytest.approx(.0138)
     assert not {'TailYawServo','TailLiftServo'} & set(rows)
@@ -41,9 +41,9 @@ def test_v29_auxiliary_and_fastener_mass_classification(geometry):
 
 
 def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
-    if REVISION not in ('v30','v31','v32','v33'):pytest.skip('v30+ IMU mounting only')
+    if REVISION not in ('v30','v31','v32','v33','v34'):pytest.skip('v30+ IMU mounting only')
     rows={r['name']:r for r in mass_budget(geometry)}
-    assert len(geometry['components'])=={'v30':264,'v31':280,'v32':286,'v33':289}[REVISION]
+    assert len(geometry['components'])=={'v30':264,'v31':280,'v32':286,'v33':289,'v34':306}[REVISION]
     assert rows['IMU']['mass_kg']==pytest.approx(.004)
     posts=[r for n,r in rows.items() if n.startswith('IMUPost30_')]
     screws=[r for n,r in rows.items() if n.startswith('IMUBolt30_')]
@@ -56,7 +56,7 @@ def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
 
 
 def test_v31_power_mount_mass_classification(geometry):
-    if REVISION not in ('v31','v32','v33'):pytest.skip('v31+ main regulator mounting only')
+    if REVISION not in ('v31','v32','v33','v34'):pytest.skip('v31+ main regulator mounting only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['Pololu']['mass_kg']==pytest.approx(.0048)
     terminals=[r for n,r in rows.items() if n.startswith('PowerTerminal31_')]
@@ -70,7 +70,7 @@ def test_v31_power_mount_mass_classification(geometry):
 
 
 def test_v32_tof_hardware_and_head_budget(geometry):
-    if REVISION not in ('v32','v33'):pytest.skip('v32+ ToF mounting only')
+    if REVISION not in ('v32','v33','v34'):pytest.skip('v32+ ToF mounting only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['ToF']['mass_kg']==pytest.approx(.0005)
     assert 'manufacturer nominal' in rows['ToF']['basis']
@@ -95,7 +95,7 @@ def test_inverted_hip_mount_ownership(geometry):
 
 
 def test_v33_integral_face_and_purchased_microphone_accounting(geometry):
-    if REVISION!='v33':pytest.skip('v33 integral face and microphone mount only')
+    if REVISION not in ('v33','v34'):pytest.skip('v33+ integral face and microphone mount only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert 'Muzzle' not in rows
     assert rows['Microphones']['mass_kg']==pytest.approx(.020)
@@ -108,8 +108,8 @@ def test_v33_integral_face_and_purchased_microphone_accounting(geometry):
 
 
 def test_v33_microphone_holes_follow_actual_supplier_pose():
-    if REVISION!='v33':pytest.skip('v33 mounting plan only')
-    plan=json.loads((OUT.parents[1]/'skorupa/v33/assembly-plan.json').read_text())
+    if REVISION not in ('v33','v34'):pytest.skip('v33+ mounting plan only')
+    plan=json.loads((OUT.parents[1]/f'skorupa/{REVISION}/assembly-plan.json').read_text())
     mount=plan['microphone_mount']
     source=np.array([[100.44,-105.295,0],[42.73,-76.375,0]])
     rotation=np.array([[0,-1,0],[1,0,0],[0,0,1]])
@@ -120,7 +120,7 @@ def test_v33_microphone_holes_follow_actual_supplier_pose():
 
 
 def test_v33_head_mesh_proof_is_current_and_not_a_release():
-    if REVISION!='v33':pytest.skip('v33 head recovery only')
+    if REVISION not in ('v33','v34'):pytest.skip('v33+ inherited head recovery only')
     import hashlib
     cad=OUT.parents[1]/'skorupa/v33'
     report=json.loads((cad/'mesh-proof.json').read_text())

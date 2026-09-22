@@ -32,7 +32,7 @@ def main():
     balanced=budget(head,head_com,[0,1,0],range(-20,21))
     yaw_parts=head+[byname[n] for n in ('HeadPitchServo','NeckColumn','NeckCollar')]
     yaw=budget(yaw_parts,byname['NeckYawServo']['com_m'],[0,0,1],range(-30,31))
-    if REVISION in ('v29','v30','v31','v32','v33'):
+    if REVISION in ('v29','v30','v31','v32','v33','v34'):
         geometry=json.loads((OUT/'geometry.json').read_text(encoding='utf8'))
         tail_names={p['name'] for p in geometry['components'] if p.get('native_stage')=='Motion_Tail_Yaw'}
         tail=[p for p in parts if p['name'] in tail_names]
@@ -41,6 +41,8 @@ def main():
         tail_pivot=xyz(next(j for j in plan['joints'] if j['name']=='Rev_TailYaw29')['pivot_mm'])
         tail_key='tail_yaw_actual_cad_axis'
         tail_warning='v29 rigid keyed PETG tail: horn and independent output support unresolved. Not print ready.'
+        if REVISION == 'v34':
+            tail_warning='v34 two-608 support modeled; bearing fits, PETG strength and physical horn coupling unresolved. This budget is not a tail-bearing or servo qualification.'
     else:
         tail=[p for p in parts if p['name'].startswith(('TailSegment','TailJoint','TailSocket'))]
         tail_pivot=byname['TailYawServo']['com_m']

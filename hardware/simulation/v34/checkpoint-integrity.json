@@ -1,0 +1,51 @@
+{
+  "source_sha256": "b3b342604b649bde0f2224462c6ea8d241b0b2a4d46479756a4aad8877da7182",
+  "master_sha256": "8d0ab83d3394a19e9d99115eaad3d2e0c0a8742269fde98fcd116da385376c39",
+  "archives_sha256": {
+    "inputs.zip": "6c852edbb26552c53fa6e4de78d168b7699d6ed016340f1023adb57dd4636b73",
+    "meshes.zip": "debed4012d35868e1ce95a1e498fb446f48f5bc53b2de558455bd62eff9ff4ad",
+    "telemetry.zip": "541f398a7746f1ae9a0cc8f6029a42c36b89726c7924ae21464682b8a477a98d"
+  },
+  "provenance_verified": true,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "components": 306,
+  "native_fixed": 292,
+  "native_revolute": 13,
+  "temporary_locks": 30,
+  "native_frames": 22,
+  "inherited_parts_checked": 279,
+  "changed_rest_interferences": 0,
+  "head_and_tail_frozen_in_Gazebo": true,
+  "physical_horn_verified": false,
+  "physical_bearing_fit_verified": false,
+  "in_situ_foot_service_verified": false,
+  "inherited_head_issues_open": true,
+  "trials": [
+    {
+      "file": "trials/20260922-154001-stand-summary.json",
+      "mode": "stand",
+      "mass_case": "nominal",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 800
+    },
+    {
+      "file": "trials/20260922-154022-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "nominal",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 1501
+    },
+    {
+      "file": "trials/20260922-154050-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "upper",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 1501
+    }
+  ],
+  "scope": "Bind v34 native/fit/inheritance and fresh Gazebo evidence, not a release."
+}

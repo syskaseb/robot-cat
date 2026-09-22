@@ -1,0 +1,154 @@
+"""Integrate MCP-authored v34 support without rebuilding printable geometry.
+
+Fallback macro is for snapshot import and datum-preserving native Assembly
+wiring, which the face-mating MCP tool cannot express without repositioning.
+"""
+from pathlib import Path
+import hashlib
+import json
+import shutil
+import sys
+import tempfile
+import FreeCAD as A
+import FreeCADGui as G
+
+ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / 'tools/freecad/skorupa'))
+from support34 import OUT, SOURCE, SOURCE_SHA, MASTER, TARGET, PIVOT, ADDITIONS, REPLACEMENTS, instance
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+assert not TARGET.exists(), 'Never overwrite an existing checkpoint'
+old = json.loads((SOURCE / 'assembly-plan.json').read_text())
+assert sha(SOURCE / old['cad_filename']) == SOURCE_SHA
+audit = json.loads((OUT / 'fit-audit.json').read_text())
+assert audit['geometric_checks_passed'] and audit['master_sha256'] == sha(MASTER)
+assert audit['source_checkpoint_sha256'] == SOURCE_SHA
+master = A.getDocument('TailSupport34')
+assert Path(master.FileName).resolve() == MASTER.resolve()
+# Always integrate saved shapes, not unrecorded GUI changes.
+with tempfile.NamedTemporaryFile(prefix='robot-cat-v34-master-', suffix='.FCStd', delete=False) as fp:
+    snapshot_path = Path(fp.name)
+shutil.copy2(MASTER, snapshot_path)
+assert sha(snapshot_path) == sha(MASTER)
+saved = A.openDocument(str(snapshot_path), hidden=True)
+assert saved.Name != master.Name, 'Need an independent saved snapshot'
+shutil.copy2(SOURCE / old['cad_filename'], TARGET)
+d = A.openDocument(str(TARGET))
+asm = d.getObject('RobotCatAssembly24')
+group = d.getObject('Joints')
+sys.path.insert(0, A.getHomePath() + 'Mod/Assembly')
+import JointObject
+plan = old
+plan.update(source_checkpoint='v33', source_checkpoint_sha256=SOURCE_SHA,
+            cad_filename=TARGET.name, master_filename=MASTER.name,
+            master_sha256=sha(MASTER),
+            scope='v34 development: independent two-608ZZ tail support, retained MG92B and six segments. Horn coupling, actual bearing race fit, strength and protective cover NOT validated. Head and electronics issues inherited. Dynamics evidence, if available, is separate in hardware/simulation/v34.')
+
+def prop(o, name, value):
+    if name not in o.PropertiesList:
+        o.addProperty('App::PropertyString', name, 'Traceability')
+    setattr(o, name, value)
+
+def fixed(name, parent, child, status):
+    j = group.newObject('App::FeaturePython', name)
+    JointObject.Joint(j, 0)
+    JointObject.ViewProviderJoint(j.ViewObject)
+    j.Detach1 = True
+    j.Detach2 = True
+    j.Reference1 = (d.getObject('Rigid_' + parent), ['', ''])
+    j.Reference2 = (d.getObject('Rigid_' + child), ['', ''])
+    j.Placement1 = j.Placement2 = A.Placement()
+    prop(j, 'DesignStatus', status)
+    j.Visibility = False
+    plan['joints'].append(dict(name=name, parent=parent, child=child, type='Fixed', status=status))
+
+status = 'Modeled PETG support with 2x 608ZZ nominal envelopes; retaining shoulders/spacers/cap and real fastener holes. Physical fits, bearing race faces and PETG proof test still required.'
+for name, (source, xyz) in REPLACEMENTS.items():
+    o = d.getObject(name)
+    o.Shape = instance(saved, source, xyz)
+    prop(o, 'ParametricMaster', MASTER.name + ' / ' + source + '; signed snapshot, not live link')
+    prop(o, 'DesignStatus', status)
+    if name.startswith('TailMountBolt'):
+        o.Label = name + ' | M3x16 UP, head under bridge'
+    elif name.startswith('TailMountNut'):
+        o.Label = name + ' | M3 hex nut, captured in PETG foot'
+    elif name == 'MG92BMount29':
+        o.Label = 'MG92BMount29 | v34 integral PETG servo/support base'
+    else:
+        o.Label = 'TailRoot29 | v34 integral PETG bearing journal | horn pending'
+    next(r for r in plan['components'] if r['name'] == name)['label'] = o.Label
+
+for name, (source, parent, moving, material, xyz) in ADDITIONS.items():
+    wrapper = d.addObject('App::Part', 'Rigid_' + name)
+    asm.addObject(wrapper)
+    o = wrapper.newObject('Part::Feature', name)
+    o.Shape = instance(saved, source, xyz)
+    o.Label = name + ' | ' + material
+    stage = 'Motion_Tail_Yaw' if moving else 'Chassis'
+    for k, v in [('RigidStage', stage), ('MaterialSpec', material), ('DesignStatus', status),
+                 ('ParametricMaster', MASTER.name + ' / ' + source + '; signed snapshot')]:
+        prop(o, k, v)
+    o.ViewObject.ShapeColor = (.10, .11, .13) if material == 'PETG' else (.64, .66, .69)
+    o.Visibility = True
+    plan['components'].append(dict(name=name, label=o.Label, stage=stage))
+    fixed('Fix_' + name, parent, name, status)
+
+# Exactly one tail Revolute, anchored on the independently supported journal.
+# Keep its object name so existing animation references remain valid.
+rev = d.getObject('Rev_TailYaw29')
+rev.Reference1 = (d.getObject('Rigid_UpperHousing34'), ['', ''])
+rev.Reference2 = (d.getObject('Rigid_TailRoot29'), ['', ''])
+datum = A.Placement(A.Vector(*PIVOT), A.Rotation())
+rev.Placement1 = rev.Placement2 = datum
+rev.DesignStatus = status
+next(r for r in plan['joints'] if r['name'] == rev.Name).update(
+    parent='UpperHousing34', child='TailRoot29', pivot_mm=PIVOT, axis=[0, 0, 1], status=status)
+d.removeObject('Fix_TailRoot29')
+plan['joints'] = [r for r in plan['joints'] if r['name'] != 'Fix_TailRoot29']
+fixed('Fix_HornCoupling34', 'TailRoot29', 'MG92BOutput29',
+      'TEMPORARY drive coupling: supplied MG92B horn envelope, screw pattern and axial installation unmeasured. No printed spline; not mechanically released.')
+for i in range(4):
+    for stem, parent in [('TailMountNut29_', 'MG92BMount29'), ('TailMountBolt29_', 'TailBridge29')]:
+        name = 'Fix_' + stem + str(i)
+        j = d.getObject(name)
+        j.Reference1 = (d.getObject('Rigid_' + parent), ['', ''])
+        j.DesignStatus = 'M3x16 upwards from bridge Z41; M3 nut captured Z50.6..53, 0.6mm PETG floor backed by original mount. Protrusion4mm; physical proof required.'
+        next(r for r in plan['joints'] if r['name'] == name).update(parent=parent, status=j.DesignStatus)
+plan['fixed_count'] = sum(r['type'] == 'Fixed' for r in plan['joints'])
+plan['revolute_count'] = sum(r['type'] == 'Revolute' for r in plan['joints'])
+plan['temporary_locks'] = sum('TEMP' in r['status'].upper() for r in plan['joints'])
+assert (len(plan['components']), plan['fixed_count'], plan['revolute_count'], plan['temporary_locks']) == (306, 292, 13, 30)
+plan['v34_replaced'] = sorted(REPLACEMENTS)
+plan['v34_added'] = sorted(ADDITIONS)
+plan['v34_fastener_delta'] = {'replace_M3x12_with_M3x16': 4, 'added_M3x30': 1,
+                            'added_M3_nut': 3, 'added_M3x12': 2, 'added_M2x12': 2, 'added_M2_nut': 2}
+plan['inherited_subassembly_fasteners_v33'] = dict(plan['fasteners'])
+plan['fasteners'].update(M2x12=22, M2_nut=26, M3x12=2, M3x16=4, M3x30=1, M3_nut=7)
+plan['fasteners']['scope'] += ' + v34 bearing support; still NOT whole robot BOM'
+plan['tail_support'] = dict(bearing='608ZZ nominal8x22x7', count=2, bore_mm=22.2,
+                           journal_mm=7.9, bearing_z_mm=[[103, 110], [116, 123]],
+                           spacing_between_centres_mm=13, axial_outer_endfloat_mm=.2,
+                           spindle_nut_pocket_AF_mm=5.7, horn_verified=False,
+                           physical_fit_verified=False, print_release=False)
+plan['tail_support']['assembly_sequence'] = 'Integral printed servo/base, removable upper bearing housing; preassemble on detached TailBridge29. Front two foot screws inaccessible from below on complete robot. Supplied horn dimensions/assembly pending.'
+d.recompute()
+assert asm.solve() == 0
+assert all(d.getObject('Rigid_' + r['name']).Placement.isSame(A.Placement(), 1e-6) for r in plan['components'])
+asm.Scope = plan['scope']
+d.Label = 'Kot v34 - podparcie ogona 2x608ZZ - PROTOTYP'
+for row in plan['components']:
+    o = d.getObject(row['name'])
+    o.Visibility = True
+    o.ViewObject.Transparency = 0
+d.recompute()
+d.save()
+plan['source_sha256'] = sha(TARGET)
+(OUT / 'assembly-plan.json').write_text(json.dumps(plan, indent=2), encoding='utf8', newline='\n')
+A.closeDocument(saved.Name)
+snapshot_path.unlink()  # Only this newly-created, verified disposable copy.
+A.setActiveDocument(d.Name)
+G.activeDocument().activeView().viewAxonometric()
+G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(file=d.FileName, components=len(plan['components']), temporary=plan['temporary_locks'])))

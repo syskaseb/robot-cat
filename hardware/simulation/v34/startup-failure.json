@@ -1,0 +1,28 @@
+{
+  "source_sha256": "b3b342604b649bde0f2224462c6ea8d241b0b2a4d46479756a4aad8877da7182",
+  "suite": "baseline",
+  "planned_cases": 3,
+  "completed_cases": 1,
+  "wall_seconds": 1.2224475740003982,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "scope": "Bounded, reproducible Gazebo-only parameter sweep. No hardware interface.\n\nExploratory falls are results, not erased trials. Baseline failures return an\nerror; all stdout, telemetry and configuration remain available for review.\n",
+  "trials": [
+    {
+      "configuration": {
+        "tag": "stand",
+        "mode": "stand",
+        "seconds": 8,
+        "mass": "nominal",
+        "step_seconds": 1,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 1,
+      "stdout": "20260922-153925-stand-runner.log",
+      "result": "runner_error",
+      "screening_completed": false,
+      "summary": null
+    }
+  ]
+}

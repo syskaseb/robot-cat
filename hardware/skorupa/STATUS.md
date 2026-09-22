@@ -1,7 +1,7 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v33](v33/README.md). **Nie jest wydaniem do druku.**
+Ostatnie złożenie: [v34](v34/README.md). **Nie jest wydaniem do druku.**
 [Krótkie podsumowanie poranne](MORNING-2026-09-22.md).
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
@@ -18,7 +18,35 @@ dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. W v33 jest na
 dwóch podporach z M2×12/nakrętkami. Różnica gabarytów względem wiki,
 potwierdzenie rewizji fizycznej, kable i akustyka pozostają otwarte.
 
-## Checkpoint v33 — przód głowy i mikrofony
+## Checkpoint v34 — niezależne podparcie ogona
+
+- Uchwyt serwa i dolna podpora w jednym PETG; odkręcany górny blok,
+  dwa608ZZ, dystanse, czop i zabezpieczenie osi M3×30. Jeden MG92B,
+  sześć wymiennych segmentów zachowane. **Fizyczny orczyk nadal TEMP**;
+  pasowania bieżni i nośność/pełzanie PETG wymagają sprawdzenia.
+- 306 części,292 Fixed +13 Revolute, **30 tymczasowych**. 25 w pełni
+  związanych szkiców. 22 klatki testu natywnego zaliczone; 279 części v33
+  niezmienionych i27 nowych/zmienionych kopii porównanych z masterem.
+- 83 pary spoczynkowe i13 położeń ogona ±30° bez nowych przecięć.
+  Wkładanie serwa wymaga pochylenia/przesunięcia (89 pozycji bez kolizji),
+  nie pionowego wsuwania. Moduł składa się na zdjętym mostku: dwie śruby
+  podstawy niedostępne pod zmontowanym kotem. Przewód/wtyk i pełny montaż
+  orczyka nadal niezweryfikowane; to nie pełna certyfikacja serwisowa.
+- [Sześć małych próbek PETG](v34/coupons/README.md), około8,7 g,
+  zamknięte STL. Nie jest to zestaw wydruków całego robota.
+- [Cały kot](v34/whole-cat.png), [podpora](v34/tail-support.png),
+  [wnętrze podpory](v34/tail-inside.png). `View34.FCMacro` odtwarza widok.
+- Bilans2,502 kg (2,219–2,967), wzrost77,7 g. 632 testy ROS/CAD/narzędzi
+  zaliczone;622 testy wcześniejszego v33 również. [Gazebo v34](../simulation/v34/README.md)
+  jest odrębnym testem nóg, z nieruchomą głową i ogonem. Trzy próby bez
+  upadku: RMS0,563 Nm stanie,0,606/0,681 Nm wolny chód nominalnie/cięższy.
+  Obciążenie wzrosło; nadal brak zatwierdzenia biegu i pracy ciągłej ST3215.
+- Pozostają: orczyk, osłona i próby podpory ogona, dwa napędy głowy,
+  dawne błędy/przenikania skorupy, pozostała elektronika/wiązka, serwis
+  akumulatora, tolerancje i termika. Nie utożsamiać gotowej animacji z
+  zakończonym projektem mechanicznym.
+
+## Poprzedni checkpoint v33 — przód głowy i mikrofony
 
 - Pyszczek i przednia skorupa są jednym ciągłym wydrukiem PETG; nos nadal
   odkręcany. Otwór od środka22×29 R2 jest wycięty przed połączeniem pyszczka.

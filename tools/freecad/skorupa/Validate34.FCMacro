@@ -1,0 +1,108 @@
+"""Native v34 assembly retention; saves at rest and signs evidence/cache.
+
+Kinematic test only, not a validation of the still missing physical horn.
+"""
+from pathlib import Path
+import hashlib
+import json
+import math
+import sys
+import FreeCAD as A
+import FreeCADGui as G
+
+ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / 'tools/freecad/skorupa'))
+from support34 import OUT, MASTER, TARGET, ADDITIONS
+plan = json.loads((OUT / 'assembly-plan.json').read_text())
+plan['scope'] = plan['scope'].replace('No v34 Gazebo trial yet.', 'Dynamics evidence, if available, is separate in hardware/simulation/v34.')
+assert hashlib.sha256(MASTER.read_bytes()).hexdigest() == plan['master_sha256']
+d = next(o for o in A.listDocuments().values() if o.FileName and Path(o.FileName).resolve() == TARGET.resolve())
+asm = d.getObject('RobotCatAssembly24')
+asm.Scope = plan['scope']
+sys.path.insert(0, A.getHomePath() + 'Mod/Assembly')
+import CommandCreateSimulation as CS
+import UtilsAssembly
+
+sim = d.getObject('RobotConnectionTest34')
+if sim is None:
+    sim = UtilsAssembly.getSimulationGroup(asm).newObject('App::FeaturePython', 'RobotConnectionTest34')
+    CS.Simulation(sim)
+    CS.ViewProviderSimulation(sim.ViewObject)
+    motions = []
+    for row in plan['joints']:
+        if row['type'] != 'Revolute':
+            continue
+        motion = asm.newObject('App::FeaturePython', 'Combined34_' + row['name'])
+        formula = '0.523598775598299*sin(2*pi*time)' if row['name'] == 'Rev_TailYaw29' else d.getObject('Motion_' + row['name']).Formula
+        CS.Motion(motion, 'Angular', (d.getObject(row['name']), ['']), formula)
+        CS.ViewProviderMotion(motion.ViewObject)
+        motions.append(motion)
+    sim.Group = motions
+sim.Label = 'v34 | nogi +/-3deg, ogon +/-30deg | podparcie, orczyk nadal TEMP'
+sim.aTimeStart = 0
+sim.bTimeEnd = 1
+sim.cTimeStepOutput = .05
+sim.jFramesPerSecond = 20
+d.recompute()
+baseline = {r['name']: d.getObject('Rigid_' + r['name']).Placement.copy() for r in plan['components']}
+assert all(p.isSame(A.Placement(), 1e-6) for p in baseline.values())
+rows, peaks = [], {}
+try:
+    asm.generateSimulation(sim)
+    assert asm.numberOfFrames() >= 20
+    for i in range(asm.numberOfFrames()):
+        asm.updateForFrame(i)
+        t = r = a = 0.
+        angles = {}
+        for row in plan['joints']:
+            j = d.getObject(row['name'])
+            p = j.Reference1[0].Placement * j.Placement1
+            q = j.Reference2[0].Placement * j.Placement2
+            t = max(t, (p.Base - q.Base).Length)
+            theta = (p.Rotation.inverted() * q.Rotation).Angle
+            if row['type'] == 'Fixed':
+                r = max(r, theta)
+            else:
+                a = max(a, p.Rotation.multVec(A.Vector(0, 0, 1)).getAngle(q.Rotation.multVec(A.Vector(0, 0, 1))))
+                angles[row['name']] = math.degrees(theta)
+                peaks[row['name']] = max(peaks.get(row['name'], 0), math.degrees(theta))
+        assert max(t, r, a) < 1e-5
+        tail = d.getObject('Rigid_TailRoot29').Placement
+        for name, spec in ADDITIONS.items():
+            current = d.getObject('Rigid_' + name).Placement
+            assert (tail.inverse() * current).isSame(A.Placement(), 1e-6) if spec[2] else current.isSame(A.Placement(), 1e-6)
+        assert d.getObject('Rigid_HeadFront').Placement.isSame(A.Placement(), 1e-6)
+        rows.append(dict(frame=i, max_joint_gap_mm=t, max_fixed_error_rad=r,
+                         max_axis_error_rad=a, angles_deg=angles,
+                         support_fixed_and_rotor_retained=True))
+    assert abs(peaks['Rev_TailYaw29'] - 30) < 1e-5
+    assert all(abs(v - 3) < 1e-5 for n, v in peaks.items() if n != 'Rev_TailYaw29')
+finally:
+    for name, p in baseline.items():
+        d.getObject('Rigid_' + name).Placement = p
+    d.recompute()
+    assert asm.solve() == 0
+assert all(d.getObject('Rigid_' + n).Placement.isSame(p, 1e-6) for n, p in baseline.items())
+for row in plan['components']:
+    d.getObject(row['name']).Visibility = True
+    d.getObject(row['name']).ViewObject.Transparency = 0
+d.recompute()
+d.save()
+digest = hashlib.sha256(TARGET.read_bytes()).hexdigest()
+plan['source_sha256'] = digest
+(OUT / 'assembly-plan.json').write_text(json.dumps(plan, indent=2), encoding='utf8', newline='\n')
+cache = OUT / 'shape-cache'
+cache.mkdir(exist_ok=True)
+for row in plan['components']:
+    o = d.getObject(row['name'])
+    s = o.Shape.copy()
+    s.Placement = o.getGlobalPlacement() * o.Placement.inverse() * s.Placement
+    s.exportBrep(str(cache / (o.Name + '.brep')))
+(cache / 'index.json').write_text(json.dumps(dict(source_sha256=digest, objects=list(baseline)), indent=2), encoding='utf8', newline='\n')
+report = dict(source_sha256=digest, master_sha256=plan['master_sha256'], components=len(baseline),
+              fixed=plan['fixed_count'], revolute=plan['revolute_count'], temporary=plan['temporary_locks'],
+              solver_result=0, restored=True, head_actuation_tested=False, physical_horn_verified=False,
+              scope=__doc__, tests=[dict(simulation=sim.Name, frames=rows, peak_angles_deg=peaks)])
+(OUT / 'assembly-validation.json').write_text(json.dumps(report, indent=2), encoding='utf8', newline='\n')
+A.setActiveDocument(d.Name)
+print(json.dumps(dict(file=d.FileName, frames=len(rows), components=len(baseline), temporary=plan['temporary_locks'])))

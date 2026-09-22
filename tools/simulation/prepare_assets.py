@@ -17,7 +17,7 @@ def restore(base,name):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--revision',choices=['v27','v28','v29','v30','v31','v32','v33'],default=REVISION)
+    parser.add_argument('--revision',choices=['v27','v28','v29','v30','v31','v32','v33','v34'],default=REVISION)
     parser.add_argument('--metadata-only',action='store_true')
     parser.add_argument('--history',action='store_true',help='also restore v27 inputs for the incremental cover audit')
     args=parser.parse_args();base=ROOT/'hardware/simulation'/args.revision

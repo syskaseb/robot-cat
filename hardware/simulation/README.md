@@ -1,6 +1,17 @@
-# Aktualny CAD w Gazebo — v33, 22.09.2026
+# Aktualny CAD w Gazebo — v34, 22.09.2026
 
-**Najnowsze wyniki: [v33 — aktualna głowa i regresja nóg](v33/README.md).**
+**Najnowsze wyniki: [v34 — dodatkowa masa podparcia ogona](v34/README.md).**
+306 części, masa2,502 kg (2,219–2,967), wzrost77,7 g względem v33.
+Trzy próby ukończone bez wykrytego upadku: stanie RMS0,563 Nm,
+wolny chód0,606/0,681 Nm nominalnie/cięższy wariant. 632 testy.
+`ROBOT_CAT_CAD_REVISION=v34`, `verify_v34.py`.
+Głowa i ogon są nadal zamrożone w fizyce; test nie zatwierdza fizycznego
+orczyka, pasowań łożysk, PETG ani pracy ciągłej ST3215. Obciążenie nóg
+wzrosło; nadal nie ma zatwierdzenia biegu.
+
+## Poprzedni checkpoint v33 — zachowany porównawczo
+
+**[v33 — aktualna głowa i regresja nóg](v33/README.md).**
 289 części, nominalnie2,424 kg (2,147–2,882). Trzy nowe próby ukończone:
 stanie RMS0,535 Nm, wolny chód0,575/0,651 Nm nominalnie/cięższy wariant.
 622 testy. `ROBOT_CAT_CAD_REVISION=v33`, `verify_v33.py`.

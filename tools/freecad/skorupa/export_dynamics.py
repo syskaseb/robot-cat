@@ -15,7 +15,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'tools/simulation'))
 from cad_model import OUT, REVISION
-CACHE = ROOT / ('hardware/skorupa/'+REVISION+'/shape-cache' if REVISION in ('v28','v29','v30','v31','v32','v33') else 'hardware/skorupa/v26/shape-cache')
+CACHE = ROOT / ('hardware/skorupa/'+REVISION+'/shape-cache' if REVISION in ('v28','v29','v30','v31','v32','v33','v34') else 'hardware/skorupa/v26/shape-cache')
 SOURCE = ROOT / {'v25':'hardware/skorupa/v25/Kot_v25_DOMOWA_OSLONA.FCStd',
                  'v27':'hardware/skorupa/v27/Kot_v27_BIODRA_ASSEMBLY.FCStd',
                  'v28':'hardware/skorupa/v28/Kot_v28_BIODRA_PETG.FCStd',
@@ -23,7 +23,8 @@ SOURCE = ROOT / {'v25':'hardware/skorupa/v25/Kot_v25_DOMOWA_OSLONA.FCStd',
                  'v30':'hardware/skorupa/v30/Kot_v30_ELEKTRONIKA.FCStd',
                  'v31':'hardware/skorupa/v31/Kot_v31_ZASILANIE.FCStd',
                  'v32':'hardware/skorupa/v32/Kot_v32_NOS_TOF.FCStd',
-                 'v33':'hardware/skorupa/v33/Kot_v33_GLOWA_MONTAZ.FCStd'}[REVISION]
+                 'v33':'hardware/skorupa/v33/Kot_v33_GLOWA_MONTAZ.FCStd',
+                 'v34':'hardware/skorupa/v34/Kot_v34_PODPARCIE_OGONA.FCStd'}[REVISION]
 
 
 def main():
@@ -34,7 +35,7 @@ def main():
         assert validation['geometry_unchanged'] and validation['source_sha256']==source_sha
         assert validation['geometry_cache_source_sha256']==index['source_sha256']
     else:assert source_sha == index['source_sha256']
-    plan_revision=REVISION if REVISION in ('v29','v30','v31','v32','v33') else ('v27' if REVISION in ('v27','v28') else 'v24')
+    plan_revision=REVISION if REVISION in ('v29','v30','v31','v32','v33','v34') else ('v27' if REVISION in ('v27','v28') else 'v24')
     plan = json.loads((ROOT / ('hardware/skorupa/'+plan_revision+'/assembly-plan.json')).read_text(encoding='utf8'))
     assert set(index['objects']) == {p['name'] for p in plan['components']}
     OUT.mkdir(parents=True, exist_ok=True)
@@ -44,7 +45,7 @@ def main():
         # The leg experiment remains 13 dynamic links. Carry the new tail's
         # complete mass/inertia/mesh at rest, but make its frozen axis explicit.
         # Do not silently leave this stage out of the base-link inertia.
-        if REVISION in ('v29','v30','v31','v32','v33') and p['stage']=='Motion_Tail_Yaw':
+        if REVISION in ('v29','v30','v31','v32','v33','v34') and p['stage']=='Motion_Tail_Yaw':
             p['native_stage']=p['stage'];p['stage']='Chassis'
         s = Part.Shape()
         s.read(str(CACHE / (p['name'] + '.brep')))
@@ -64,7 +65,7 @@ def main():
                          valid=s.isValid(), solids=len(s.Solids)))
     report = dict(source_sha256=source_sha, geometry_cache_source_sha256=index['source_sha256'], components=rows,
                   axes=plan['axes'], temporary_locks=plan['temporary_locks'],
-                  frozen_native_joints=['Rev_TailYaw29'] if REVISION in ('v29','v30','v31','v32','v33') else [],
+                  frozen_native_joints=['Rev_TailYaw29'] if REVISION in ('v29','v30','v31','v32','v33','v34') else [],
                   physics_scope='Leg load screening; head and tail are fixed at CAD rest. Native tail animation is a separate kinematic test.')
     (OUT / 'geometry.json').write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding='utf8')
     print('Exported',len(rows),'components; source document untouched')
