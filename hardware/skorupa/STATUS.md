@@ -19,16 +19,19 @@ dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. W v33 jest na
 dwóch podporach z M2×12/nakrętkami. Różnica gabarytów względem wiki,
 potwierdzenie rewizji fizycznej, kable i akustyka pozostają otwarte.
 
-## Modułowy pilot AUX — bez zmiany geometrii v35
+## Modułowy CAD — AUX i podparcie ogona
 
 [Złożenie rozwojowe i dowody](../cad/README.md) są w `hardware/cad`, poza
-historycznymi checkpointami. 18 elementów AUX korzysta z odnośników do pięciu
-dokumentów właścicieli i wspólnego dokumentu parametrów. 302 części pozostają
-snapshotami. Zachowano geometrię 320 części oraz natywne połączenia; test
+historycznymi checkpointami. 18 elementów AUX oraz 27 podparcia ogona korzysta
+z odnośników do siedmiu dokumentów właścicieli i wspólnego dokumentu parametrów.
+275 części pozostaje snapshotami. Zachowano geometrię 320 części oraz natywne połączenia; test
 22 klatek i przeniesienie zestawu do innego katalogu są osobnymi dowodami.
 Skille projektu, częściowy BOM/rewizje i kontrola wydań wspierają dalszą pracę.
 Nie zmienia to poniższych braków: 29 TEMP, BOP skorupy i brak zatwierdzenia druku.
-Oba bazowe pliki v35 pozostają bez zmian. Nie utworzono wydania produkcyjnego.
+Oba bazowe pliki v35 i master podpory v34 pozostają bez zmian. Nie utworzono
+wydania produkcyjnego. Podpora ma siedem edytowalnych części PETG, 25 zachowanych
+w pełni związanych szkiców i wspólny parametr gniazd obu 608ZZ. Nie jest to
+nowy fizyczny orczyk ani parametryczny master sześciu segmentów. 652 testy kodu.
 
 ## Checkpoint v35 — mocowanie przetwornicy AUX
 

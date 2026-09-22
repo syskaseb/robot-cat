@@ -1,9 +1,9 @@
 # Modułowe mastery CAD — plan przejścia
 
 Data: 2026-09-22. Branch: `codex/robot-cat-mechanical`.
-Status: **wdrożony pilot AUX; dalsza migracja etapami**. Rzeczywisty zakres,
-dokumenty i dowody są w [cad/README.md](cad/README.md). 18 elementów ma odnośniki;
-302 pozostają snapshotami. Nie przeniesiono całego robota do pełnych masterów.
+Status: **wdrożone AUX i podparcie ogona; dalsza migracja etapami**. Rzeczywisty zakres,
+dokumenty i dowody są w [cad/README.md](cad/README.md). 45 elementów ma odnośniki;
+275 pozostaje snapshotami. Nie przeniesiono całego robota do pełnych masterów.
 
 ## Punkt wyjścia
 

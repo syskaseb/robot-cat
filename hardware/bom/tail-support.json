@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "27 tail-support components only. Excludes existing servo, horn, six segments and their fasteners; excludes bridge already in AUX interface. Not a purchase list or print release.",
+  "readiness": "prototype",
+  "parts": [
+    {"id": "RC-TAILSUP-001", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "ServoSupport34", "assembly_names": ["MG92BMount29"]},
+    {"id": "RC-TAILSUP-002", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "SupportedRoot34", "assembly_names": ["TailRoot29"]},
+    {"id": "RC-TAILSUP-003", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "UpperHousing34", "assembly_names": ["UpperHousing34"]},
+    {"id": "RC-TAILSUP-004", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "BearingCap34", "assembly_names": ["BearingCap34"]},
+    {"id": "RC-TAILSUP-005", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "OuterSpacer34", "assembly_names": ["OuterSpacer34"]},
+    {"id": "RC-TAILSUP-006", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "InnerSpacer34", "assembly_names": ["InnerSpacer34"]},
+    {"id": "RC-TAILSUP-007", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/tail/TailSupport.FCStd", "object": "SpindleCap34", "assembly_names": ["SpindleCap34"]},
+    {"id": "REF-TAIL-608ZZ", "revision": "nominal v34 envelope", "quantity": 2, "material": "bearing steel", "assembly_names": ["BearingLower34", "BearingUpper34"], "description": "8x22x7 envelope, not supplier race-face geometry"},
+    {"id": "REF-TAIL-M3X16", "revision": "nominal v34 envelope", "quantity": 4, "material": "steel", "assembly_names": ["TailMountBolt29_0", "TailMountBolt29_1", "TailMountBolt29_2", "TailMountBolt29_3"]},
+    {"id": "REF-TAIL-M3X30", "revision": "nominal v34 envelope", "quantity": 1, "material": "steel", "assembly_names": ["SpindleBolt34"]},
+    {"id": "REF-TAIL-M3X12", "revision": "nominal v34 envelope", "quantity": 2, "material": "steel", "assembly_names": ["HousingJointBolt34_0", "HousingJointBolt34_1"]},
+    {"id": "REF-TAIL-M2X12", "revision": "nominal v34 envelope", "quantity": 2, "material": "steel", "assembly_names": ["BearingCapBolt34_0", "BearingCapBolt34_1"]},
+    {"id": "REF-TAIL-NUT-M3", "revision": "nominal v34 envelope", "quantity": 7, "material": "steel", "assembly_names": ["TailMountNut29_0", "TailMountNut29_1", "TailMountNut29_2", "TailMountNut29_3", "SpindleNut34", "HousingJointNut34_0", "HousingJointNut34_1"]},
+    {"id": "REF-TAIL-NUT-M2", "revision": "nominal v34 envelope", "quantity": 2, "material": "steel", "assembly_names": ["BearingCapNut34_0", "BearingCapNut34_1"]}
+  ],
+  "mating_parts_not_counted_again": [],
+  "compatibility": "Geometry and placements inherited unchanged from v35/v34. Bearing seats 22.2 mm, nominal journals 7.9 mm; no physical fit approval. Orczyk/horn coupling remains TEMP."
+}
