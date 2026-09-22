@@ -1,0 +1,227 @@
+{
+  "reference_only": true,
+  "integrated_into_cat": false,
+  "mounts_approved": false,
+  "step_sha256": "4a9585d0177dbcfc0efa7d740c8731d0848484c89ee47e4a0cc919afd65d1528",
+  "cat_sha256": "245b261de4b2fdebb111d25d208b604098d907c1439732d998f700521687d9bc",
+  "solid_count": 484,
+  "valid": true,
+  "pcb": {
+    "min_mm": [
+      40.238026,
+      -107.956974764772,
+      0.0
+    ],
+    "max_mm": [
+      122.261974000257,
+      -73.94999999999811,
+      1.51
+    ],
+    "size_mm": [
+      82.02394800025701,
+      34.00697476477389,
+      1.51
+    ]
+  },
+  "complete_step": {
+    "min_mm": [
+      40.238026,
+      -107.956974764772,
+      -2.5850001
+    ],
+    "max_mm": [
+      123.8400001,
+      -73.94999999999811,
+      8.345
+    ],
+    "size_mm": [
+      83.6019741,
+      34.00697476477389,
+      10.9300001
+    ]
+  },
+  "wiki_dimensions_mm": [
+    86,
+    35
+  ],
+  "dimensional_discrepancy_unresolved": true,
+  "mounting_holes": [
+    {
+      "face_index": 30,
+      "diameter_mm": 2.2,
+      "centre_on_bottom_mm": [
+        100.44,
+        -105.295,
+        0
+      ]
+    },
+    {
+      "face_index": 40,
+      "diameter_mm": 2.2,
+      "centre_on_bottom_mm": [
+        42.73,
+        -76.375,
+        0
+      ]
+    }
+  ],
+  "old_microphones_envelope": {
+    "min_mm": [
+      -160.0,
+      -43.0,
+      137.0
+    ],
+    "max_mm": [
+      -125.0,
+      43.0,
+      149.0
+    ],
+    "size_mm": [
+      35.0,
+      86.0,
+      12.0
+    ]
+  },
+  "cases": [
+    {
+      "rotation_z_deg": 90,
+      "base_mm": [
+        -233.45348738238505,
+        -81.25000000012851,
+        139.6
+      ],
+      "pcb_datum_world_mm": [
+        -142.5,
+        0.0,
+        139.6
+      ],
+      "envelope": {
+        "min_mm": [
+          -159.5034873823869,
+          -41.01197400012849,
+          137.0149999
+        ],
+        "max_mm": [
+          -125.49651261761304,
+          42.59000009987155,
+          147.94500000000002
+        ],
+        "size_mm": [
+          34.00697476477387,
+          83.60197410000004,
+          10.93000010000003
+        ]
+      },
+      "mounting_centres_world_mm": [
+        [
+          -128.15848738238503,
+          19.189999999871517,
+          139.6
+        ],
+        [
+          -157.07848738238505,
+          -38.520000000128505,
+          139.6
+        ]
+      ],
+      "envelope_solid_pairs": 6,
+      "potential_interferences": [
+        {
+          "part": "EarL",
+          "envelope_intersection_mm3": 54.687448720717484,
+          "actual_electronic_material_collision_confirmed": false
+        },
+        {
+          "part": "EarInsetL",
+          "envelope_intersection_mm3": 0.6417940100656118,
+          "actual_electronic_material_collision_confirmed": false
+        },
+        {
+          "part": "EarR",
+          "envelope_intersection_mm3": 61.717929075973274,
+          "actual_electronic_material_collision_confirmed": false
+        },
+        {
+          "part": "EarInsetR",
+          "envelope_intersection_mm3": 2.4238988991430306,
+          "actual_electronic_material_collision_confirmed": false
+        }
+      ],
+      "method": "Exact CAD vs conservative whole-STEP AABB, NOT vs 484 electronic solids. Positive hit means unresolved, not a proven material collision."
+    },
+    {
+      "rotation_z_deg": -90,
+      "base_mm": [
+        -51.54651261761494,
+        81.25000000012848,
+        139.6
+      ],
+      "pcb_datum_world_mm": [
+        -142.5,
+        0.0,
+        139.6
+      ],
+      "envelope": {
+        "min_mm": [
+          -159.50348738238696,
+          -42.590000099871496,
+          137.0149999
+        ],
+        "max_mm": [
+          -125.49651261761306,
+          41.0119740001285,
+          147.94500000000002
+        ],
+        "size_mm": [
+          34.0069747647739,
+          83.60197409999999,
+          10.93000010000003
+        ]
+      },
+      "mounting_centres_world_mm": [
+        [
+          -156.84151261761497,
+          -19.18999999987149,
+          139.6
+        ],
+        [
+          -127.92151261761495,
+          38.5200000001285,
+          139.6
+        ]
+      ],
+      "envelope_solid_pairs": 6,
+      "potential_interferences": [
+        {
+          "part": "EarL",
+          "envelope_intersection_mm3": 61.71792907597672,
+          "actual_electronic_material_collision_confirmed": false
+        },
+        {
+          "part": "EarInsetL",
+          "envelope_intersection_mm3": 2.4238988991438353,
+          "actual_electronic_material_collision_confirmed": false
+        },
+        {
+          "part": "EarR",
+          "envelope_intersection_mm3": 54.6874487207134,
+          "actual_electronic_material_collision_confirmed": false
+        },
+        {
+          "part": "EarInsetR",
+          "envelope_intersection_mm3": 0.6417940100665777,
+          "actual_electronic_material_collision_confirmed": false
+        }
+      ],
+      "method": "Exact CAD vs conservative whole-STEP AABB, NOT vs 484 electronic solids. Positive hit means unresolved, not a proven material collision."
+    }
+  ],
+  "caveats": [
+    "Do not scale the STEP to match wiki dimensions.",
+    "484-solid exact fit probe was stopped for cost; this is conservative envelope screening, not completed detailed fit.",
+    "Only two candidate mounting holes; verify actual supplied hardware revision.",
+    "No plugged USB/audio cable, XIAO board or acoustic channels included in fit test.",
+    "Not a mass or thermal model; electronic CAD solids are not all homogeneous PETG.",
+    "No robot document or assembly joint was changed."
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "step_sha256": "4a9585d0177dbcfc0efa7d740c8731d0848484c89ee47e4a0cc919afd65d1528",
+  "cat_sha256": "245b261de4b2fdebb111d25d208b604098d907c1439732d998f700521687d9bc",
+  "envelope_report_sha256": "2506177cf3863d865891e93e6a2138a77c25a4abcbe6a67651bda98439bcf8ff",
+  "integrated": false,
+  "mounts_approved": false,
+  "cases": [
+    {
+      "rotation_z_deg": 90,
+      "contacts": [
+        {
+          "part": "EarL",
+          "exact_solid_pairs": 1,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        },
+        {
+          "part": "EarInsetL",
+          "exact_solid_pairs": 0,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        },
+        {
+          "part": "EarR",
+          "exact_solid_pairs": 6,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        },
+        {
+          "part": "EarInsetR",
+          "exact_solid_pairs": 0,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        }
+      ]
+    },
+    {
+      "rotation_z_deg": -90,
+      "contacts": [
+        {
+          "part": "EarL",
+          "exact_solid_pairs": 21,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        },
+        {
+          "part": "EarInsetL",
+          "exact_solid_pairs": 0,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        },
+        {
+          "part": "EarR",
+          "exact_solid_pairs": 15,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        },
+        {
+          "part": "EarInsetR",
+          "exact_solid_pairs": 0,
+          "volume_mm3": 0.0,
+          "actual_material_collision": false,
+          "colliding_step_solids": []
+        }
+      ]
+    }
+  ],
+  "scope": "Refine only the positive conservative-envelope contacts from Seeed study.\n\nZero envelope intersections are already a conservative exclusion. This\nsecond pass avoids hundreds of slow empty shell vs electronics booleans.\nNo CAD document is edited. It is still not mounting/acoustic approval.\n"
+}

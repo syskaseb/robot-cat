@@ -2,6 +2,7 @@
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 Ostatnie złożenie: [v32](v32/README.md). **Nie jest wydaniem do druku.**
+[Krótkie podsumowanie poranne](MORNING-2026-09-22.md).
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
 Na zlecenie użytkownika rozpoczęto konkretny
@@ -11,6 +12,9 @@ Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
 v30 integruje rzeczywisty BNO085, v31 główne Pololu, v32 ToF w nosie,
 każdy z fizycznym mocowaniem do wskazanej części.
 Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
+Pobrano także [źródłowy ReSpeaker Lite v1.1](../reference/head-electronics-2026-09-22/README.md):
+dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. Nie zintegrowano
+go jeszcze; różnica gabarytów względem wiki, kable i mocowanie pozostają otwarte.
 
 ## Nocny checkpoint v32 — ToF w nosie i 17 prób Gazebo
 
