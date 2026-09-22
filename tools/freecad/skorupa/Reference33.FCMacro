@@ -1,0 +1,55 @@
+"""Import supplier board and signed purchased fastener snapshots; save master.
+
+Does not construct any printable feature. Native PartDesign work is in the
+MCP-authored HeadFace33 feature history.
+"""
+from pathlib import Path
+import hashlib,json
+import FreeCAD as A
+import FreeCADGui as G
+import Part
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/'hardware/skorupa/v33'
+OLD=ROOT/'hardware/skorupa/v32'; d=A.getDocument('HeadDesign33')
+assert not (OUT/'Kot_v33_GLOWA_MONTAZ.FCStd').exists(), 'Do not overwrite an integrated master'
+source=ROOT/'hardware/reference/head-electronics-2026-09-22/ReSpeakerLitev1.1.step'
+assert hashlib.sha256(source.read_bytes()).hexdigest()=='4a9585d0177dbcfc0efa7d740c8731d0848484c89ee47e4a0cc919afd65d1528'
+s=Part.Shape();s.read(str(source));assert len(s.Solids)==484 and s.isValid()
+ref=d.getObject('ReSpeaker33') or d.addObject('Part::Feature','ReSpeaker33');ref.Shape=s
+ref.Placement=A.Placement(A.Vector(-238.453487382385,-81.250000000129,139.6),A.Rotation(A.Vector(0,0,1),90))
+for n in ['SourceSHA256','VariantWarning']:
+    if n not in ref.PropertiesList:ref.addProperty('App::PropertyString',n,'Traceability')
+ref.SourceSHA256=hashlib.sha256(source.read_bytes()).hexdigest()
+ref.VariantWarning='STEP v1.1 ~82x34 mm versus wiki 86x35 mm; no scaling, physical revision must be confirmed'
+ref.ViewObject.ShapeColor=(.25,.27,.29)
+colors=[(.07,.32,.16) if i==483 else (.4,.41,.43) for i,solid in enumerate(s.Solids) for face in solid.Faces]
+assert len(colors)==len(ref.Shape.Faces)
+ref.ViewObject.DiffuseColor=colors
+plan=json.loads((OLD/'assembly-plan.json').read_text())
+assert hashlib.sha256((OLD/plan['cad_filename']).read_bytes()).hexdigest()==plan['source_sha256']
+assert json.loads((OLD/'shape-cache/index.json').read_text())['source_sha256']==plan['source_sha256']
+pose=A.Placement(A.Vector(*plan['tof_mount']['pcb_base_CAD_mm']),A.Rotation(A.Vector(0,1,0),-90))
+down=A.Rotation(A.Vector(0,0,1),A.Vector(0,0,-1))
+for name,src,z in [('BoltM2x12','ToFBolt32_0',5.5),('NutM2','ToFNut32_0',-4)]:
+    shape=Part.Shape();shape.read(str(OLD/'shape-cache'/(src+'.brep')))
+    placement=pose*A.Placement(A.Vector(10.16,2.54,z),down)
+    shape.Placement=placement.inverse()*shape.Placement
+    o=d.getObject(name) or d.addObject('Part::Feature',name);o.Shape=shape;o.Visibility=False
+    if 'DesignStatus' not in o.PropertiesList:o.addProperty('App::PropertyString','DesignStatus','Traceability')
+    o.DesignStatus='Purchased fastener nominal envelope from v32; head/hex/thread geometry not supplier certified'
+for o in d.Objects:
+    if o.TypeId=='Sketcher::SketchObject':assert o.FullyConstrained,o.Name
+    if o.TypeId=='PartDesign::Body':assert o.Shape.isValid() and len(o.Shape.Solids)==1,o.Name
+    if hasattr(o,'Shape'):o.Visibility=False
+# Consumed Boolean bodies are expressed in the containing body's local frame.
+# Their getGlobalPlacement(), not bare Placement, reproduces the intended world
+# position. Leaving world placements on consumed bodies applies them twice.
+assert d.getObject('MuzzleFusion33').getGlobalPlacement().isSame(pose,1e-8)
+assert d.getObject('MicSupport33_A').getGlobalPlacement().isSame(A.Placement(),1e-8)
+assert d.getObject('MicSupport33_B').getGlobalPlacement().isSame(A.Placement(A.Vector(-5,0,0),A.Rotation()),1e-8)
+for n in ['HeadFace33','ReSpeaker33']:d.getObject(n).Visibility=True
+d.getObject('HeadFace33').ViewObject.ShapeColor=(.09,.1,.12)
+d.Label='HeadDesign33 - integral PETG face and ReSpeaker v1.1 - DEVELOPMENT'
+d.recompute();d.saveAs(str(OUT/'HeadDesign33.FCStd'))
+A.setActiveDocument(d.Name);G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(saved=d.FileName,valid=d.getObject('HeadFace33').Shape.isValid(),volume_mm3=d.getObject('HeadFace33').Shape.Volume,
+    tip=d.getObject('HeadFace33').Tip.Name,sketches=[(o.Name,o.FullyConstrained) for o in d.Objects if o.TypeId=='Sketcher::SketchObject'])))

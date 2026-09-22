@@ -1,0 +1,180 @@
+{
+  "source_sha256": "8a6056496a2e4aeb1ad7b7887c94a9a9f4b9419e202aa05c7d2888851dbe07a4",
+  "master_sha256": "b8a1eda49087f6ba0591eecde67fe4959e6789abef1f08832a8e3a58e71eb113",
+  "archives_sha256": {
+    "inputs.zip": "fe1427eb020aa9ad118f2936aeeb4f09afa0544c413321185695de36e515081d",
+    "meshes.zip": "2040a76149e16d7376cc50dfb9cabf776cb4944d91c091e77c13ca0f2e46fe76",
+    "telemetry.zip": "b2777691003adc8f75dbbc6bc0790d5f292d0a4e82a4b286ba2295107bf62be4"
+  },
+  "provenance_verified": true,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "head_actuation_verified": false,
+  "tail_support_verified": false,
+  "components": 289,
+  "native_fixed": 275,
+  "native_revolute": 13,
+  "temporary_locks": 30,
+  "native_frames": 22,
+  "inherited_parts_checked": 283,
+  "new_part_rest_interferences": 0,
+  "inherited_head_interferences": [
+    {
+      "parts": [
+        "HeadFront",
+        "EarL"
+      ],
+      "volume_mm3": 0.09148023019525221,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarR"
+      ],
+      "volume_mm3": 0.09148243314661739,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarInsetL"
+      ],
+      "volume_mm3": 27.121048477389685,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarInsetR"
+      ],
+      "volume_mm3": 27.121111080233526,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EyeRingL"
+      ],
+      "volume_mm3": 601.6685834495398,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EyeRingR"
+      ],
+      "volume_mm3": 355.64012218950927,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "IrIlluminator"
+      ],
+      "volume_mm3": 2.095580319971991,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "NeckColumn"
+      ],
+      "volume_mm3": 602.2613972083002,
+      "status": "OPEN inherited interface; not print-ready"
+    }
+  ],
+  "dynamic_links": 13,
+  "dynamic_leg_axes": 12,
+  "head_and_tail_frozen_in_Gazebo": true,
+  "trials": [
+    {
+      "file": "trials/20260922-102658-stand-summary.json",
+      "mode": "stand",
+      "mass_case": "nominal",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 800
+    },
+    {
+      "file": "trials/20260922-102718-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "nominal",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 1501
+    },
+    {
+      "file": "trials/20260922-102746-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "upper",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 1501
+    }
+  ],
+  "microphone_reference_only": true,
+  "acoustics_and_cables_verified": false,
+  "scope": "Verify v33 evidence without promoting a development checkpoint to release.",
+  "head_mesh_manifold": true,
+  "assembly_service_validated": false,
+  "required_absent_parts_for_microphone_assembly": [
+    "EarL"
+  ],
+  "head_bop_check_messages": [
+    "BOP check found the following errors:",
+    "Error in Vertex: BOPAlgo SelfIntersect",
+    "Error in Vertex: BOPAlgo SelfIntersect",
+    "Error in Edge: BOPAlgo TooSmallEdge",
+    "Error in Edge: BOPAlgo TooSmallEdge",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface"
+  ]
+}

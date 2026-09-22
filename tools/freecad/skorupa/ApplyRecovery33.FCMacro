@@ -1,0 +1,43 @@
+"""Import recovered source topology and wire the existing native feature chain.
+
+MCP has no topology-recovery/import operation. Printable support/sketch/pocket
+construction stays in the structured MCP-authored PartDesign history.
+"""
+from pathlib import Path
+import hashlib,json
+import FreeCAD as A
+import Part
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v33'
+path=OUT/'recovery/HeadShellRecovered33.brep'
+assert hashlib.sha256(path.read_bytes()).hexdigest()=='a99b0efdf86847c5cc693815f7d458ea75ec0b0b8f3bcfe19a967fe88c331c70'
+d=A.getDocument('HeadDesign33');b=d.getObject('HeadFace33');tip=d.getObject('IntegralMicSupport33_B')
+s=Part.Shape();s.read(str(path));assert s.isValid() and len(s.Solids)==1
+assert not s.isInside(A.Vector(-240,0,119),1e-6,True)
+s.Placement=b.Placement.inverse()*s.Placement
+r=d.getObject('HeadShellRecovered33') or b.newObject('PartDesign::Feature','HeadShellRecovered33')
+r.Shape=s;r.BaseFeature=d.getObject('HeadFrontSource32')
+for n,v in [('RecoverySHA256',hashlib.sha256(path.read_bytes()).hexdigest()),
+            ('RecoveryMethod','OCCT8 MakerVolume of original v31 faces; recovered main cell. Old central cell lies within new service pocket. Source32 retained as evidence.'),
+            ('DesignStatus','Topology recovery, not print release; see recovery audit and mesh proof')]:
+    if n not in r.PropertiesList:r.addProperty('App::PropertyString',n,'Traceability')
+    setattr(r,n,v)
+group=[o for o in b.Group if o.Name!=r.Name];group.insert(group.index(d.getObject('HeadFrontSource32'))+1,r);b.Group=group
+# Cut the original shell before the union. Cutting the coincident/organic
+# fused interface in the old order created non-manifold slivers in OCCT.
+d.getObject('NoseNutAndWireAccess33').BaseFeature=r
+d.getObject('IntegralPETGFace33').BaseFeature=d.getObject('NoseNutAndWireAccess33')
+d.getObject('IntegralMicSupport33_A').BaseFeature=d.getObject('IntegralPETGFace33')
+group=[o for o in b.Group if o.Name not in ('NoseServiceOpening33','NoseNutAndWireAccess33')]
+idx=group.index(r)+1
+group[idx:idx]=[d.getObject('NoseServiceOpening33'),d.getObject('NoseNutAndWireAccess33')]
+b.Group=group;b.Tip=tip
+r.Visibility=False;d.getObject('HeadFrontSource32').Visibility=False
+d.recompute()
+states=[]
+for n in ['HeadShellRecovered33','IntegralPETGFace33','NoseNutAndWireAccess33','IntegralMicSupport33_A','IntegralMicSupport33_B']:
+    o=d.getObject(n);states.append(dict(name=n,status=o.getStatusString(),valid=o.Shape.isValid(),solids=len(o.Shape.Solids),volume=o.Shape.Volume))
+b.Visibility=True
+d.Label='HeadDesign33 - odzyskana skorupa i mocowanie mikrofonow - DEVELOPMENT'
+saved=all(r['status']=='Valid' and r['valid'] and r['solids']==1 for r in states)
+if saved:d.save()
+print(json.dumps(dict(saved=saved,volume=b.Shape.Volume,tip=b.Tip.Name,valid=b.Shape.isValid(),states=states)))

@@ -1,6 +1,17 @@
-# Aktualny CAD w Gazebo — v32, 22.09.2026
+# Aktualny CAD w Gazebo — v33, 22.09.2026
 
-**Najnowsze wyniki: [v32 — ToF i granice chodu](v32/README.md).**
+**Najnowsze wyniki: [v33 — aktualna głowa i regresja nóg](v33/README.md).**
+289 części, nominalnie2,424 kg (2,147–2,882). Trzy nowe próby ukończone:
+stanie RMS0,535 Nm, wolny chód0,575/0,651 Nm nominalnie/cięższy wariant.
+622 testy. `ROBOT_CAT_CAD_REVISION=v33`, `verify_v33.py`.
+Głowa i ogon zamrożone w fizyce; nie zatwierdzono biegu ani termiki ST3215.
+Pierwszy szkic v33 odrzucono: otwór mikrofonów i topologia starszej skorupy.
+Jego trzy wcześniejsze próby są osobnym archiwum, nie walidacją aktualnej wersji.
+Nowa siatka głowy jest zamknięta; błędy BOP i inne interfejsy pozostają OPEN.
+
+## Poprzedni checkpoint v32 — zachowany porównawczo
+
+**[v32 — ToF i granice chodu](v32/README.md).**
 286 części, nominalnie2,420 kg (2,144–2,878);17 prób:16 ukończonych,
 1 upadek w rozruchu przy limicie0,65 Nm i cięższym modelu.
 Wolny chód RMS0,575/0,651 Nm; najszybszy crawl cięższego modelu
@@ -49,7 +60,7 @@ v28 dla zgodności wcześniejszego eksperymentu. Szczegółowe komendy w README 
 ## Wcześniejsza dokumentacja v28 — zachowana porównawczo
 
 Poniższe liczby, nazwy plików i cztery stare serwa pomocnicze dotyczą
-wyłącznie **v28**, nie aktualnego modelu v32.
+wyłącznie **v28**, nie aktualnego modelu v33.
 
 **Jest działający model fizyczny, ale nie ma jeszcze zatwierdzenia robota do
 druku ani napędów do pracy ciągłej.** Nie zastępuje dotychczasowego modelu ROS

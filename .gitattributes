@@ -14,3 +14,8 @@ Dockerfile text eol=lf
 # Simulation provenance hashes must survive Windows/Linux checkouts.
 tools/simulation/*.py text eol=lf
 tools/simulation/plugin/* text eol=lf
+
+# v33 evidence is checksummed byte-for-byte. Preserve OCCT's serialized BRep
+# (including kernel whitespace), and keep hashed JSON stable across platforms.
+hardware/skorupa/v33/recovery/*.brep binary
+hardware/skorupa/v33/*.json text eol=lf

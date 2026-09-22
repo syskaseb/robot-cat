@@ -23,8 +23,9 @@ def configurations(suite):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--suite',choices=['baseline','sweep','all'],default='baseline')
     parser.add_argument('--max-wall-seconds',type=float,default=1200)
-    args=parser.parse_args();assert REVISION=='v32'
-    source=ROOT/'hardware/skorupa/v32/Kot_v32_NOS_TOF.FCStd'
+    args=parser.parse_args();assert REVISION in ('v32','v33')
+    cad=ROOT/'hardware/skorupa'/REVISION
+    source=cad/json.loads((cad/'assembly-plan.json').read_text())['cad_filename']
     digest=hashlib.sha256(source.read_bytes()).hexdigest()
     assert json.loads((OUT/'geometry.json').read_text())['source_sha256']==digest
     assert json.loads((OUT/'model.json').read_text())['source_sha256']==digest

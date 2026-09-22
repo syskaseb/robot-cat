@@ -1,7 +1,7 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v32](v32/README.md). **Nie jest wydaniem do druku.**
+Ostatnie złożenie: [v33](v33/README.md). **Nie jest wydaniem do druku.**
 [Krótkie podsumowanie poranne](MORNING-2026-09-22.md).
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
@@ -10,11 +10,38 @@ Na zlecenie użytkownika rozpoczęto konkretny
 Priorytet: Botland, następnie Kamami; maksymalnie 10 dni oczekiwania.
 Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
 v30 integruje rzeczywisty BNO085, v31 główne Pololu, v32 ToF w nosie,
-każdy z fizycznym mocowaniem do wskazanej części.
+każdy z fizycznym mocowaniem do wskazanej części. v33 scala przód głowy
+z pyszczkiem i dodaje mocowanie referencyjnego ReSpeaker Lite v1.1.
 Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
 Pobrano także [źródłowy ReSpeaker Lite v1.1](../reference/head-electronics-2026-09-22/README.md):
-dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. Nie zintegrowano
-go jeszcze; różnica gabarytów względem wiki, kable i mocowanie pozostają otwarte.
+dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. W v33 jest na
+dwóch podporach z M2×12/nakrętkami. Różnica gabarytów względem wiki,
+potwierdzenie rewizji fizycznej, kable i akustyka pozostają otwarte.
+
+## Checkpoint v33 — przód głowy i mikrofony
+
+- Pyszczek i przednia skorupa są jednym ciągłym wydrukiem PETG; nos nadal
+  odkręcany. Otwór od środka22×29 R2 jest wycięty przed połączeniem pyszczka.
+  Rzeczywisty STEP ReSpeaker v1.1 na dwóch integralnych podporach, cztery
+  nowe elementy metalowe. Nie jest to zatwierdzenie innej rewizji płytki.
+- 289 części,275 Fixed +13 Revolute, **30 tymczasowych**. Trzy w pełni
+  związane szkice. 22 klatki testu utrzymują mikrofony i ToF przy głowie;
+  sama głowa nadal zablokowana. 283 pozostałe części zachowane numerycznie.
+- Pierwszy szkic v33 odrzucony i zachowany w archiwum: błędny drugi otwór
+  mikrofonów i odziedziczona topologia starej skorupy. Poprawiono osie otworów,
+  śruby są od spodu; montaż nakrętki przed założeniem lewego ucha. Serwis
+  zmontowanego kota nadal niezatwierdzony.
+- Odzyskana skorupa ma zamkniętą siatkę bez krawędzi non-manifold, weryfikowaną
+  niezależnie od FreeCAD. Błędy BOP (w tym SelfIntersect) i kolizje wkładek/szyi nadal OPEN.
+  Dawne deklaracje kontaktów głowy nie dowodzą poprawności jej topologii.
+- Aktualny bilans2,424 kg (2,147–2,882),622 testy zaliczone. Wyniki świeżych
+  prób Gazebo są opisane w [v33](../simulation/v33/README.md); archiwalne próby
+  pierwszego szkicu nie walidują poprawionej geometrii. Brak zatwierdzenia biegu,
+  momentu ciągłego i wydania do druku.
+- Pełny kot pozostawiony w FreeCAD. `View33.FCMacro` odtwarza widok;
+  [wnętrze głowy](v33/inside-head.png), [zakres i ograniczenia](v33/README.md).
+  Nadal otwarte: napędy głowy, orczyk/podparcie ogona, odziedziczone
+  konflikty wkładek/szyi, pozostała elektronika, serwis akumulatora i termika.
 
 ## Nocny checkpoint v32 — ToF w nosie i 17 prób Gazebo
 
@@ -118,7 +145,7 @@ go jeszcze; różnica gabarytów względem wiki, kable i mocowanie pozostają ot
 - Lista `docs/plan-zakupowy.pdf`, strona 1: **2 serwa głowy + 1 ogona**.
   Nie ma zgody ani potrzeby interpretacyjnej na czwarte serwo pomocnicze.
 - v28 miało 12 natywnych Revolute nóg i 225 Fixed, w tym 64 tymczasowe
-  blokady; v32: 13 Revolute, 272 Fixed, **32 tymczasowe**. Fixed nie
+  blokady; v33: 13 Revolute, 275 Fixed, **30 tymczasowych**. Fixed nie
   zastępuje rzeczywistego wspornika, śruby ani łożyska.
 - Test natywny v28: 22 klatki ±3°, nie pełny chód ani pełne zakresy serw.
 
@@ -151,13 +178,14 @@ go jeszcze; różnica gabarytów względem wiki, kable i mocowanie pozostają ot
 ## Prace do wykonania po zamknięciu interfejsów
 
 - Uchwyt głowy: 2 osie, podparcie obciążeń, orczyki/śruby, mocowania kamery,
-  reszty części twarzy; ToF do pyszczka zamocowany w v32, ale pyszczek do
-  głowy nadal nie. Sprawdzenie przewodów przez całą trajektorię.
+  reszty części twarzy; ToF zamocowany w v32, pyszczek integralny z głową
+  w v33. Sprawdzenie przewodów przez całą trajektorię nadal otwarte.
 - Ogon v29: rozwiązać sprzęgnięcie z dostarczanym orczykiem MG92B,
   niezależne podparcie i osłonę, sprawdzić narzędzia i próby PETG.
   Segmenty i usunięcie nadmiarowego napędu są już wykonane, nie powtarzać.
 - Pozostałe mocowania elektroniki oparte o faktyczne otwory, wtyki,
-  miejsca serwisowe; BNO085 w v30, główne Pololu w v31, ToF w v32. Kalibracja IMU,
+  miejsca serwisowe; BNO085 w v30, główne Pololu w v31, ToF w v32,
+  referencyjny ReSpeaker v1.1 w v33. Kalibracja IMU,
   termika, serwis i testy sprzętowe pozostają otwarte.
   Zweryfikować termikę regulatorów i chłodzenia, nie tylko statyczny obrys.
 - Serwis akumulatora: obecna tacka/paski/nakrętki blokują wyjęcie w dół.

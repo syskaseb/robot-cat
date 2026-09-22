@@ -33,6 +33,9 @@ hardware/cad/skin/*.stl
 *.FCBak
 *.FCStd.*
 
+# Signed CAD files are the source; extracted per-part BReps are reproducible.
+hardware/skorupa/**/shape-cache/
+
 # FreeCAD/Qt may expand this Windows cache path literally when launched from
 # the repository; never include that machine-local cache in commits.
 %SystemDrive%/

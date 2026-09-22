@@ -1,0 +1,299 @@
+{
+  "source_sha256": "33560ae64d9be6e1da314dbdec1994d2ea520d4551434430121db479e5728370",
+  "master_sha256": "9a4a0f710e6cef40782c88f116a0227fafe77ecf0590b90c3a800c19c85beb15",
+  "scope": "Signed v33 head/PCB manufacturing checks, not whole-robot print release.\n\nThe front shell and muzzle are now one part. Inherited intersections with\ninserts/neck remain OPEN. New geometry must not add a collision. Purchased\nboard is checked first with a conservative envelope, then exact subsolids only\nwhere needed; never execute thousands of classifications in the GUI thread.\n",
+  "print_release": false,
+  "new_components": 4,
+  "removed_components": [
+    "Muzzle"
+  ],
+  "changed_existing": [
+    "HeadFront",
+    "Microphones"
+  ],
+  "new_pair_count": 14,
+  "new_interferences": [
+    {
+      "parts": [
+        "MicBolt33_1",
+        "Microphones"
+      ],
+      "volume_mm3": 4.743804906920622
+    }
+  ],
+  "added_support_interferences": [],
+  "pcb_head_clearance_bound": {
+    "method": "Conservative union bound; native head chain only fuses these sources and subtracts the service pocket",
+    "sources": [
+      {
+        "source": "v32_front",
+        "overlap_upper_bound_mm3": 0.0
+      },
+      {
+        "source": "v32_muzzle",
+        "overlap_upper_bound_mm3": 0.0
+      },
+      {
+        "source": "support_A",
+        "overlap_upper_bound_mm3": 0.0
+      },
+      {
+        "source": "support_B",
+        "overlap_upper_bound_mm3": 0.0
+      }
+    ],
+    "total_upper_bound_mm3": 0.0
+  },
+  "inherited_head_interferences": [
+    {
+      "parts": [
+        "HeadFront",
+        "EarL"
+      ],
+      "volume_mm3": 0.09148023019547707,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarR"
+      ],
+      "volume_mm3": 0.09148243314680354,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarInsetL"
+      ],
+      "volume_mm3": 27.121048477391785,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarInsetR"
+      ],
+      "volume_mm3": 27.12111108023684,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EyeRingL"
+      ],
+      "volume_mm3": 601.6685834145627,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EyeRingR"
+      ],
+      "volume_mm3": 355.6712166506487,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "IrIlluminator"
+      ],
+      "volume_mm3": 2.0955803199715977,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "NeckColumn"
+      ],
+      "volume_mm3": 602.2613972083566,
+      "status": "OPEN inherited interface; not print-ready"
+    }
+  ],
+  "native_sketches": [
+    {
+      "name": "NoseServiceOpening33",
+      "fully_constrained": true
+    },
+    {
+      "name": "MicHole33_A",
+      "fully_constrained": true
+    },
+    {
+      "name": "MicHole33_B",
+      "fully_constrained": true
+    }
+  ],
+  "identity_checks": [
+    {
+      "name": "front_source",
+      "valid": true,
+      "residual_volume_mm3": 0.0
+    },
+    {
+      "name": "front_source",
+      "valid": true,
+      "residual_volume_mm3": 0.0
+    },
+    {
+      "name": "muzzle_source",
+      "valid": true,
+      "residual_volume_mm3": 0.0
+    },
+    {
+      "name": "muzzle_source",
+      "valid": true,
+      "residual_volume_mm3": 0.0
+    },
+    {
+      "name": "installed_head",
+      "valid": true,
+      "residual_volume_mm3": 0.0
+    },
+    {
+      "name": "installed_head",
+      "valid": true,
+      "residual_volume_mm3": 0.0
+    },
+    {
+      "name": "installed_pcb",
+      "serialization_equivalent": true,
+      "absolute_tolerance_mm": 1e-09,
+      "relative_tolerance": 1e-12,
+      "byte_identical": false,
+      "changed_numbers": 23882,
+      "max_absolute_delta": 1.0125233984581428e-13
+    }
+  ],
+  "support_contacts": [
+    {
+      "index": 0,
+      "embedded_in_original_shell_mm3": 40.983614608739465
+    },
+    {
+      "index": 1,
+      "embedded_in_original_shell_mm3": 34.3459605732498
+    }
+  ],
+  "pcb_contacts": [
+    {
+      "index": 0,
+      "support_top_area_mm2": 15.111060663768088,
+      "pcb_bottom_area_mm2": 15.111060663768084,
+      "shaft_interference_mm3": 0.0,
+      "clamped_stack_mm": 9.11,
+      "nut_height_mm": 1.6,
+      "protrusion_mm": 1.29
+    },
+    {
+      "index": 1,
+      "support_top_area_mm2": 15.111060663768091,
+      "pcb_bottom_area_mm2": 14.488044903019913,
+      "shaft_interference_mm3": 4.935454625160242,
+      "clamped_stack_mm": 9.11,
+      "nut_height_mm": 1.6,
+      "protrusion_mm": 1.29
+    }
+  ],
+  "nose_access": [
+    {
+      "index": 0,
+      "tool_diameter_mm": 6.5,
+      "depth_mm": 40,
+      "head_obstruction_mm3": 829.5768100885547,
+      "scope": "Front-head subassembly off robot; neck mechanism not certified"
+    },
+    {
+      "index": 1,
+      "tool_diameter_mm": 6.5,
+      "depth_mm": 40,
+      "head_obstruction_mm3": 829.5768100885547,
+      "scope": "Front-head subassembly off robot; neck mechanism not certified"
+    }
+  ],
+  "tool_access": [
+    {
+      "index": 0,
+      "tool": "straight_driver",
+      "blockers": [
+        {
+          "part": "HeadFront",
+          "volume_mm3": 51.450075773299574
+        }
+      ],
+      "scope": "Detached front head; nominal tool reserve, not a purchased tool model"
+    },
+    {
+      "index": 0,
+      "tool": "right_angle_driver_reserve",
+      "blockers": [
+        {
+          "part": "EarR",
+          "volume_mm3": 177.04227432590235
+        }
+      ],
+      "scope": "Detached front head; nominal tool reserve, not a purchased tool model"
+    },
+    {
+      "index": 0,
+      "tool": "bottom_wrench_reserve",
+      "blockers": [],
+      "scope": "Detached front head; nominal tool reserve, not a purchased tool model"
+    },
+    {
+      "index": 1,
+      "tool": "straight_driver",
+      "blockers": [
+        {
+          "part": "HeadFront",
+          "volume_mm3": 61.30830773957722
+        }
+      ],
+      "scope": "Detached front head; nominal tool reserve, not a purchased tool model"
+    },
+    {
+      "index": 1,
+      "tool": "right_angle_driver_reserve",
+      "blockers": [
+        {
+          "part": "EarL",
+          "volume_mm3": 287.25293877154706
+        }
+      ],
+      "scope": "Detached front head; nominal tool reserve, not a purchased tool model"
+    },
+    {
+      "index": 1,
+      "tool": "bottom_wrench_reserve",
+      "blockers": [],
+      "scope": "Detached front head; nominal tool reserve, not a purchased tool model"
+    }
+  ],
+  "optical_reserves": [
+    {
+      "name": "OpticalReserve32",
+      "head_obstruction_mm3": 59641.43407661404
+    },
+    {
+      "name": "ToFWireReserve32",
+      "head_obstruction_mm3": 495.3002801507403
+    }
+  ],
+  "printable_face": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 48352.62808366603,
+    "conservative_bounds_mm": [
+      119.97348953954929,
+      148.3521963054352,
+      116.17100463171761
+    ],
+    "fits_256_cube": true
+  },
+  "limitations": [
+    "Reference PCB revision must be checked against the physical board; wiki dimensions differ.",
+    "USB/audio plugs, full wiring, microphone acoustic ducts and XIAO are not validated.",
+    "Fastener envelopes nominal, torque/creep/printing orientation require PETG coupons.",
+    "Native test leaves head locked; missing head axes and tail support are not cleared."
+  ]
+}

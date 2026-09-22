@@ -1,0 +1,44 @@
+"""Replace only our archived initial v33 head/PCB/hardware snapshot."""
+from pathlib import Path
+import hashlib,json
+import FreeCAD as A
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v33'
+path=OUT/'Kot_v33_GLOWA_MONTAZ.FCStd';master=OUT/'HeadDesign33.FCStd'
+original='33560ae64d9be6e1da314dbdec1994d2ea520d4551434430121db479e5728370'
+assert hashlib.sha256(path.read_bytes()).hexdigest()==original
+assert hashlib.sha256((OUT/'rejected-initial'/path.name).read_bytes()).hexdigest()==original
+d=next(o for o in A.listDocuments().values() if o.FileName and Path(o.FileName).resolve()==path.resolve())
+m=A.getDocument('HeadDesign33');b=m.getObject('HeadFace33')
+assert b.Shape.isValid() and len(b.Shape.Solids)==1
+assert all(o.getStatusString()=='Valid' for o in b.Group if o.TypeId.startswith('PartDesign::') and o.TypeId!='PartDesign::Body')
+plan=json.loads((OUT/'assembly-plan.json').read_text())
+d.getObject('HeadFront').Shape=b.Shape.copy()
+d.getObject('Microphones').Shape=m.getObject('ReSpeaker33').Shape.copy()
+holes=[m.getObject('ReSpeaker33').Placement.multVec(A.Vector(*p)) for p in [(100.44,-105.295,0),(42.73,-76.375,0)]]
+for i,v in enumerate(holes):
+    for prefix,src,z,parent in [('MicBolt33_','BoltM2x12',132,'HeadFront'),('MicNut33_','NutM2',141.11,'Microphones')]:
+        name=prefix+str(i);p=A.Placement(A.Vector(v.x,v.y,z),A.Rotation())
+        s=m.getObject(src).Shape.copy();s.Placement=p*s.Placement;d.getObject(name).Shape=s
+        j=d.getObject('Fix_'+name);j.Reference1=(d.getObject('Rigid_'+parent),['','']);j.Placement1=j.Placement2=p
+        next(r for r in plan['joints'] if r['name']==j.Name)['parent']=parent
+plan['microphone_mount'].update(holes_xy_mm=[[v.x,v.y] for v in holes],
+    screw_direction='Upwards; head under PETG at Z132, nut above PCB at Z141.11',
+    assembly_sequence='Fit microphones before EarL. Left top-wrench corridor requires EarL absent; final detachable ear mounting unresolved.')
+plan['nose_service'].update(opening_local_xy_mm=[22,29],radius_mm=2,depth_mm=40,
+    operation_order='Pocket in recovered head shell BEFORE union with muzzle; not a pocket through the entire fused face')
+plan['head_topology_recovery']=dict(input_revision='v31',
+    input_brep_sha256='cf864082464ced13665d4987df0a58e9bac1633f092d09b50cd883566e0e51ac',
+    recovered_brep_sha256=hashlib.sha256((OUT/'recovery/HeadShellRecovered33.brep').read_bytes()).hexdigest(),
+    method='OCCT8 MakerVolume main cell, native pocket before muzzle union; manifold mesh verified separately',
+    bop_warnings='BOP errors including SelfIntersect/TooSmallEdge/C0/curve-on-surface remain OPEN; mesh and operation checks are not a manufacturing release')
+for name in ['Microphones','MicBolt33_0','MicBolt33_1','MicNut33_0','MicNut33_1']:
+    status='Reference ReSpeaker v1.1: two upward M2x12 through actual STEP holes, PETG posts and nuts above PCB. Assemble before EarL; final ear attachment, tools, cables, acoustics and PETG tests remain unverified.'
+    d.getObject(name).DesignStatus=status
+    j=d.getObject('Fix_'+name);j.DesignStatus=status
+    next(r for r in plan['joints'] if r['name']==j.Name)['status']=status
+asm=d.getObject('RobotCatAssembly24');d.recompute();assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+d.save();plan['source_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+plan['master_sha256']=hashlib.sha256(master.read_bytes()).hexdigest()
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8',newline='\n')
+print(json.dumps(dict(updated=path.name,source_sha256=plan['source_sha256'],master_sha256=plan['master_sha256'])))

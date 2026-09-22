@@ -1,0 +1,321 @@
+{
+  "source_sha256": "8a6056496a2e4aeb1ad7b7887c94a9a9f4b9419e202aa05c7d2888851dbe07a4",
+  "master_sha256": "b8a1eda49087f6ba0591eecde67fe4959e6789abef1f08832a8e3a58e71eb113",
+  "scope": "Signed v33 head/PCB manufacturing checks, not whole-robot print release.\n\nThe front shell and muzzle are now one part. Inherited intersections with\ninserts/neck remain OPEN. New geometry must not add a collision. Purchased\nboard is checked first with a conservative envelope, then exact subsolids only\nwhere needed; never execute thousands of classifications in the GUI thread.\n",
+  "print_release": false,
+  "obsolete_head_source_note": "HeadFrontSource32 is a historical feature, NOT an exact preserved BRep: failed OCCT operations altered tolerance metadata. The original v32 CAD/cache is checksummed and untouched; construction uses the separately recovered shell.",
+  "assembly_service_validated": false,
+  "bop_check_messages": [
+    "BOP check found the following errors:",
+    "Error in Vertex: BOPAlgo SelfIntersect",
+    "Error in Vertex: BOPAlgo SelfIntersect",
+    "Error in Edge: BOPAlgo TooSmallEdge",
+    "Error in Edge: BOPAlgo TooSmallEdge",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Face: BOPAlgo GeomAbs_C0",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface",
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface"
+  ],
+  "mesh_proof_sha256": "4bb5e1704cab7bdc803976b7560f7b0e801440ee0f2b8e44560875e9a34b4867",
+  "new_components": 4,
+  "removed_components": [
+    "Muzzle"
+  ],
+  "changed_existing": [
+    "HeadFront",
+    "Microphones"
+  ],
+  "new_pair_count": 16,
+  "new_interferences": [],
+  "added_support_interferences": [],
+  "pcb_head_clearance_bound": {
+    "method": "Conservative union bound: recovered shell minus service pocket, then original muzzle and two supports",
+    "sources": [
+      {
+        "source": "recovered_front",
+        "overlap_upper_bound_mm3": 0.0
+      },
+      {
+        "source": "v32_muzzle",
+        "overlap_upper_bound_mm3": 0.0
+      },
+      {
+        "source": "support_A",
+        "overlap_upper_bound_mm3": 0.0
+      },
+      {
+        "source": "support_B",
+        "overlap_upper_bound_mm3": 0.0
+      }
+    ],
+    "total_upper_bound_mm3": 0.0
+  },
+  "inherited_head_interferences": [
+    {
+      "parts": [
+        "HeadFront",
+        "EarL"
+      ],
+      "volume_mm3": 0.09148023019525221,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarR"
+      ],
+      "volume_mm3": 0.09148243314661739,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarInsetL"
+      ],
+      "volume_mm3": 27.121048477389685,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EarInsetR"
+      ],
+      "volume_mm3": 27.121111080233526,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EyeRingL"
+      ],
+      "volume_mm3": 601.6685834495398,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "EyeRingR"
+      ],
+      "volume_mm3": 355.64012218950927,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "IrIlluminator"
+      ],
+      "volume_mm3": 2.095580319971991,
+      "status": "OPEN inherited interface; not print-ready"
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "NeckColumn"
+      ],
+      "volume_mm3": 602.2613972083002,
+      "status": "OPEN inherited interface; not print-ready"
+    }
+  ],
+  "native_sketches": [
+    {
+      "name": "NoseServiceOpening33",
+      "fully_constrained": true
+    },
+    {
+      "name": "MicHole33_A",
+      "fully_constrained": true
+    },
+    {
+      "name": "MicHole33_B",
+      "fully_constrained": true
+    }
+  ],
+  "identity_checks": [
+    {
+      "name": "muzzle_source",
+      "serialization_equivalent": true,
+      "absolute_tolerance_mm": 1e-09,
+      "relative_tolerance": 1e-12,
+      "byte_identical": false,
+      "changed_numbers": 184,
+      "max_absolute_delta": 4.728951063202869e-16
+    },
+    {
+      "name": "installed_head",
+      "serialization_equivalent": true,
+      "absolute_tolerance_mm": 1e-09,
+      "relative_tolerance": 1e-12,
+      "byte_identical": false,
+      "changed_numbers": 1152,
+      "max_absolute_delta": 1.0302869668521453e-13
+    },
+    {
+      "name": "installed_pcb",
+      "serialization_equivalent": true,
+      "absolute_tolerance_mm": 1e-09,
+      "relative_tolerance": 1e-12,
+      "byte_identical": false,
+      "changed_numbers": 23882,
+      "max_absolute_delta": 1.0125233984581428e-13
+    }
+  ],
+  "support_contacts": [
+    {
+      "index": 0,
+      "embedded_in_recovered_shell_mm3": 40.98361460873964
+    },
+    {
+      "index": 1,
+      "embedded_in_recovered_shell_mm3": 36.7742434266559
+    }
+  ],
+  "pcb_contacts": [
+    {
+      "index": 0,
+      "support_top_area_mm2": 15.111060663768088,
+      "pcb_bottom_area_mm2": 15.111060663768088,
+      "shaft_interference_mm3": 0.0,
+      "clamped_stack_mm": 9.11,
+      "nut_height_mm": 1.6,
+      "protrusion_mm": 1.29
+    },
+    {
+      "index": 1,
+      "support_top_area_mm2": 15.111060663768091,
+      "pcb_bottom_area_mm2": 15.047871546316877,
+      "shaft_interference_mm3": 0.0,
+      "clamped_stack_mm": 9.11,
+      "nut_height_mm": 1.6,
+      "protrusion_mm": 1.29
+    }
+  ],
+  "nose_access": [
+    {
+      "index": 0,
+      "tool_diameter_mm": 6.5,
+      "depth_mm": 40,
+      "head_obstruction_mm3": 0.0,
+      "scope": "Front-head subassembly off robot; neck mechanism not certified"
+    },
+    {
+      "index": 1,
+      "tool_diameter_mm": 6.5,
+      "depth_mm": 40,
+      "head_obstruction_mm3": 0.0,
+      "scope": "Front-head subassembly off robot; neck mechanism not certified"
+    }
+  ],
+  "tool_access": [
+    {
+      "index": 0,
+      "tool": "bottom_driver",
+      "blockers": [],
+      "before_ear_installation_blockers": [],
+      "required_absent_parts": [],
+      "scope": "Assembly BEFORE ears are installed, detached front head. Ear attachments unfinished: no assembled-cat service approval. Nominal tool reserve only."
+    },
+    {
+      "index": 0,
+      "tool": "top_wrench",
+      "blockers": [],
+      "before_ear_installation_blockers": [],
+      "required_absent_parts": [],
+      "scope": "Assembly BEFORE ears are installed, detached front head. Ear attachments unfinished: no assembled-cat service approval. Nominal tool reserve only."
+    },
+    {
+      "index": 1,
+      "tool": "bottom_driver",
+      "blockers": [],
+      "before_ear_installation_blockers": [],
+      "required_absent_parts": [],
+      "scope": "Assembly BEFORE ears are installed, detached front head. Ear attachments unfinished: no assembled-cat service approval. Nominal tool reserve only."
+    },
+    {
+      "index": 1,
+      "tool": "top_wrench",
+      "blockers": [
+        {
+          "part": "EarL",
+          "volume_mm3": 65.78278435073375
+        }
+      ],
+      "before_ear_installation_blockers": [],
+      "required_absent_parts": [
+        "EarL"
+      ],
+      "scope": "Assembly BEFORE ears are installed, detached front head. Ear attachments unfinished: no assembled-cat service approval. Nominal tool reserve only."
+    }
+  ],
+  "optical_reserves": [
+    {
+      "name": "OpticalReserve32",
+      "head_obstruction_mm3": 0.0
+    },
+    {
+      "name": "ToFWireReserve32",
+      "head_obstruction_mm3": 0.0
+    }
+  ],
+  "printable_face": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 53691.328960114966,
+    "conservative_bounds_mm": [
+      119.97348953954926,
+      148.3521963054352,
+      116.17100463171762
+    ],
+    "fits_256_cube": true
+  },
+  "limitations": [
+    "Reference PCB revision must be checked against the physical board; wiki dimensions differ.",
+    "USB/audio plugs, full wiring, microphone acoustic ducts and XIAO are not validated.",
+    "Fastener envelopes nominal, torque/creep/printing orientation require PETG coupons.",
+    "Native test leaves head locked; missing head axes and tail support are not cleared."
+  ]
+}

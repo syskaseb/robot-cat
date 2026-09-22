@@ -1,0 +1,116 @@
+"""Integrate the MCP-authored single PETG face and reference ReSpeaker mount.
+
+Only snapshot copying, purchased fastener placement and native assembly joint
+wiring are performed here. Do not regenerate printable geometry in this macro.
+"""
+from pathlib import Path
+import hashlib, json, shutil, sys
+import FreeCAD as A
+import FreeCADGui as G
+
+ROOT = Path(__file__).resolve().parents[3]
+OUT = ROOT/'hardware/skorupa/v33'
+SOURCE = ROOT/'hardware/skorupa/v32/Kot_v32_NOS_TOF.FCStd'
+TARGET = OUT/'Kot_v33_GLOWA_MONTAZ.FCStd'
+MASTER = OUT/'HeadDesign33.FCStd'
+assert not TARGET.exists(), 'Preserve saved checkpoints'
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == '245b261de4b2fdebb111d25d208b604098d907c1439732d998f700521687d9bc'
+m = A.getDocument('HeadDesign33')
+assert Path(m.FileName).resolve() == MASTER.resolve()
+assert m.getObject('HeadFace33').Shape.isValid() and len(m.getObject('HeadFace33').Shape.Solids) == 1
+for o in m.Objects:
+    if o.TypeId == 'Sketcher::SketchObject': assert o.FullyConstrained, o.Name
+shutil.copy2(SOURCE, TARGET)
+d = A.openDocument(str(TARGET))
+asm = d.getObject('RobotCatAssembly24'); group = d.getObject('Joints')
+sys.path.insert(0, A.getHomePath()+'Mod/Assembly')
+import JointObject
+plan = json.loads((SOURCE.parent/'assembly-plan.json').read_text())
+plan.update(source_checkpoint='v32', cad_filename=TARGET.name, master_filename=MASTER.name,
+    inherited_master_sha256=plan['master_sha256'],
+    scope='v33 development: one-piece PETG front head/muzzle, internal nose service opening, ReSpeaker Lite v1.1 STEP on two integral supports with M2x12/nuts. Head axes, inherited head interferences, cables/acoustics and variant confirmation remain open.')
+
+def prop(o,n,v):
+    if n not in o.PropertiesList: o.addProperty('App::PropertyString',n,'Traceability')
+    setattr(o,n,v)
+
+face = d.getObject('HeadFront')
+face.Shape = m.getObject('HeadFace33').Shape.copy()
+face.Label = 'HeadFront + integral muzzle | PETG | v33'
+prop(face,'ParametricMaster','HeadDesign33.FCStd / HeadFace33; baked snapshot, not live link')
+prop(face,'DesignStatus','One connected PETG solid; no separate muzzle joint. Head-to-neck and remaining inserts unfinished.')
+next(r for r in plan['components'] if r['name']=='HeadFront')['label'] = face.Label
+for r in plan['joints']:
+    if r['parent']=='Muzzle':
+        j = d.getObject(r['name']); j.Reference1 = (d.getObject('Rigid_HeadFront'),['',''])
+        r['parent'] = 'HeadFront'
+        r['status'] = 'Modeled ToF/nose M2x12 clamped stack on integral PETG face; rear nut access through service opening with detached front head'
+        j.DesignStatus = r['status']
+assert all(r['parent']!='Muzzle' for r in plan['joints'])
+wrapper = d.getObject('Rigid_Muzzle'); origin = wrapper.Origin
+retired = ['Fix_Muzzle','Muzzle',wrapper.Name] + [o.Name for o in origin.OriginFeatures] + [origin.Name]
+for n in retired:
+    if d.getObject(n): d.removeObject(n)
+plan['components'] = [r for r in plan['components'] if r['name']!='Muzzle']
+plan['joints'] = [r for r in plan['joints'] if r['name']!='Fix_Muzzle']
+plan['retired_v33'] = ['Muzzle']
+
+pcb = d.getObject('Microphones'); ref = m.getObject('ReSpeaker33')
+pcb.Shape = ref.Shape.copy(); pcb.Label = 'ReSpeaker Lite v1.1 | supplier STEP | revision confirmation required'
+pcb.ViewObject.ShapeColor = ref.ViewObject.ShapeColor
+pcb.ViewObject.DiffuseColor = ref.ViewObject.DiffuseColor
+prop(pcb,'ParametricMaster','HeadDesign33.FCStd / ReSpeaker33; original supplier geometry rigidly placed, no scaling')
+prop(pcb,'MaterialSpec','Purchased ReSpeaker PCB/electronics; retain unmeasured 20 g mass allowance')
+status = 'Two diagonal M2x12 through actual STEP holes and integral PETG supports, metal nuts. Reference v1.1 only; actual revision, PETG clamp torque and acoustics unverified.'
+prop(pcb,'DesignStatus',status)
+next(r for r in plan['components'] if r['name']=='Microphones')['label'] = pcb.Label
+j = d.getObject('Fix_Microphones'); j.Reference1 = (d.getObject('Rigid_HeadFront'),['','']); j.DesignStatus = status
+next(r for r in plan['joints'] if r['name']=='Fix_Microphones').update(parent='HeadFront',status=status)
+
+def add(src,name,placement,parent):
+    wrapper=d.addObject('App::Part','Rigid_'+name); asm.addObject(wrapper)
+    o=wrapper.newObject('Part::Feature',name)
+    s=m.getObject(src).Shape.copy(); s.Placement=placement*s.Placement; o.Shape=s
+    o.Label=name+' | STEEL nominal'; o.ViewObject.ShapeColor=(.6,.62,.65)
+    for k,v in [('MaterialSpec','STEEL purchased nominal fastener'),('DesignStatus',status),('RigidStage','Chassis'),('ParametricMaster','HeadDesign33.FCStd / '+src)]: prop(o,k,v)
+    j=group.newObject('App::FeaturePython','Fix_'+name); JointObject.Joint(j,0); JointObject.ViewProviderJoint(j.ViewObject)
+    j.Detach1=True; j.Detach2=True
+    j.Reference1=(d.getObject('Rigid_'+parent),['','']); j.Reference2=(wrapper,['',''])
+    j.Placement1=j.Placement2=A.Placement(placement.Base,A.Rotation())
+    prop(j,'DesignStatus',status); j.Visibility=False
+    plan['components'].append(dict(name=name,label=o.Label,stage='Chassis'))
+    plan['joints'].append(dict(name=j.Name,type='Fixed',parent=parent,child=name,status=status))
+
+up=A.Rotation()
+hole_points=[ref.Placement.multVec(A.Vector(*xyz)) for xyz in [(100.44,-105.295,0),(42.73,-76.375,0)]]
+holes=[[v.x,v.y] for v in hole_points]
+for i,(x,y) in enumerate(holes):
+    add('BoltM2x12','MicBolt33_%d'%i,A.Placement(A.Vector(x,y,132),up),'HeadFront')
+    add('NutM2','MicNut33_%d'%i,A.Placement(A.Vector(x,y,141.11),up),'Microphones')
+plan['microphone_mount'] = dict(source='Seeed ReSpeakerLitev1.1.step',
+    source_sha256='4a9585d0177dbcfc0efa7d740c8731d0848484c89ee47e4a0cc919afd65d1528',
+    pcb_base_mm=[-238.453487382385,-81.250000000129,139.6],rotation_z_degrees=90,holes_xy_mm=holes,
+    pcb_thickness_mm=1.51,pcb_hole_mm=2.2,PETG_hole_mm=2.4,post_diameter_mm=5,
+    support_bottom_z_mm=132,pcb_bottom_z_mm=139.6,clamped_stack_mm=9.11,
+    screw_length_mm=12,nut_height_mm=1.6,protrusion_mm=1.29,
+    screw_direction='Upwards; head under PETG at Z132, nut above PCB at Z141.11',
+    assembly_sequence='Fit microphones before EarL. Left top-wrench corridor requires EarL absent; its final detachable mounting remains unresolved.',
+    unverified='Physical board revision differs from wiki dimensions; no plugged USB/XIAO, cable routing, acoustic port or clamp torque approval')
+plan['nose_service'] = dict(opening_local_xy_mm=[22,29],radius_mm=2,pocket_start_z_mm=-5.6,depth_mm=40,
+    frame='Inherited ToF local coordinates, Ry(-90)',service='Access with front head removed; not an assembled-cat service guarantee')
+plan['fasteners']['M2x12'] += 2; plan['fasteners']['M2_nut'] += 2
+plan['fasteners']['scope'] += ' + v33 microphones'
+plan['fixed_count']=sum(r['type']=='Fixed' for r in plan['joints'])
+plan['revolute_count']=sum(r['type']=='Revolute' for r in plan['joints'])
+plan['temporary_locks']=sum('TEMP' in r['status'].upper() for r in plan['joints'])
+assert len(plan['components'])==289 and (plan['fixed_count'],plan['revolute_count'],plan['temporary_locks'])==(275,13,30)
+d.recompute(); assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+asm.Scope=plan['scope']; d.Label='Kot v33 - integralny pyszczek i mocowanie mikrofonow - PROTOTYP'
+for r in plan['components']: d.getObject(r['name']).Visibility=True
+d.recompute(); d.save()
+plan['source_sha256']=hashlib.sha256(TARGET.read_bytes()).hexdigest()
+plan['master_sha256']=hashlib.sha256(MASTER.read_bytes()).hexdigest()
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8',newline='\n')
+A.setActiveDocument(d.Name); G.activeDocument().activeView().viewAxonometric(); G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(saved=d.FileName,parts=len(plan['components']),temporary=plan['temporary_locks'])))

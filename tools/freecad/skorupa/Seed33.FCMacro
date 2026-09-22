@@ -1,0 +1,35 @@
+"""Read-only source import into MCP-created v33 PartDesign bodies.
+
+Feature construction is performed with structured FreeCAD MCP tools. This
+bridge only imports signed, world-coordinate BReps (no structured import tool).
+"""
+from pathlib import Path
+import hashlib, json
+import FreeCAD as A
+import Part
+
+ROOT = Path(__file__).resolve().parents[3]
+SOURCE = ROOT / 'hardware/skorupa/v32'
+plan = json.loads((SOURCE / 'assembly-plan.json').read_text())
+assert hashlib.sha256((SOURCE / plan['cad_filename']).read_bytes()).hexdigest() == plan['source_sha256']
+assert json.loads((SOURCE / 'shape-cache/index.json').read_text())['source_sha256'] == plan['source_sha256']
+d = A.getDocument('HeadDesign33')
+pose = A.Placement(A.Vector(*plan['tof_mount']['pcb_base_CAD_mm']), A.Rotation(A.Vector(0, 1, 0), -90))
+for dst, src in [('HeadFace33', 'HeadFront'), ('MuzzleFusion33', 'Muzzle')]:
+    b = d.getObject(dst)
+    assert b and not b.Group, 'Import only once into an empty body'
+    s = Part.Shape()
+    s.read(str(SOURCE / 'shape-cache' / (src + '.brep')))
+    assert s.isValid() and len(s.Solids) == 1
+    s.Placement = pose.inverse() * s.Placement
+    f = b.newObject('PartDesign::Feature', src + 'Source32')
+    f.Shape = s
+    f.addProperty('App::PropertyString', 'SourceSHA256', 'Traceability').SourceSHA256 = plan['source_sha256']
+    f.addProperty('App::PropertyString', 'SourceComponent', 'Traceability').SourceComponent = src
+    b.Placement = pose
+    b.Tip = f
+    b.ViewObject.ShapeColor = (.09, .10, .12)
+    b.addProperty('App::PropertyString', 'DesignRole', 'Manufacturing').DesignRole = 'PETG'
+    b.addProperty('App::PropertyString', 'DesignStatus', 'Traceability').DesignStatus = 'Development; inherited head interfaces remain incomplete'
+d.recompute()
+print('Signed v32 head and muzzle imported; source file unchanged')

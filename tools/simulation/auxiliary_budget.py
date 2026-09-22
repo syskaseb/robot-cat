@@ -25,14 +25,14 @@ def budget(parts,pivot,axis,angles,acceleration=2.):
 def main():
     model=json.loads((OUT/'model.json').read_text(encoding='utf8'))
     parts=model['components'];byname={p['name']:p for p in parts}
-    prefixes=('HeadFront','HeadRear','Eye','Ear','Muzzle','Nose','ToF')
+    prefixes=('HeadFront','HeadRear','Eye','Ear','Muzzle','Nose','ToF','MicBolt33_','MicNut33_')
     head=[p for p in parts if p['name'].startswith(prefixes) or p['name'] in ('Camera','ToF','Microphones','IrIlluminator')]
     pitch=budget(head,byname['HeadPitchServo']['com_m'],[0,1,0],range(-20,21))
     head_com=combine(head)['com_m']
     balanced=budget(head,head_com,[0,1,0],range(-20,21))
     yaw_parts=head+[byname[n] for n in ('HeadPitchServo','NeckColumn','NeckCollar')]
     yaw=budget(yaw_parts,byname['NeckYawServo']['com_m'],[0,0,1],range(-30,31))
-    if REVISION in ('v29','v30','v31','v32'):
+    if REVISION in ('v29','v30','v31','v32','v33'):
         geometry=json.loads((OUT/'geometry.json').read_text(encoding='utf8'))
         tail_names={p['name'] for p in geometry['components'] if p.get('native_stage')=='Motion_Tail_Yaw'}
         tail=[p for p in parts if p['name'] in tail_names]

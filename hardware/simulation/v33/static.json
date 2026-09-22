@@ -1,0 +1,100 @@
+{
+  "four_foot_equilibrium": true,
+  "normal_forces_N": {
+    "FR": 7.265032084430793,
+    "FL": 7.254395407399403,
+    "RR": 4.631570086588979,
+    "RL": 4.620933409557469
+  },
+  "joint_torques": [
+    {
+      "joint": "motion_fr_hip_joint",
+      "torque_nm": -0.3427496520561264
+    },
+    {
+      "joint": "motion_fr_knee_joint",
+      "torque_nm": -0.23111008248486387
+    },
+    {
+      "joint": "motion_fr_ankle_joint",
+      "torque_nm": 0.5373386906231806
+    },
+    {
+      "joint": "motion_fl_hip_joint",
+      "torque_nm": 0.3421001668003706
+    },
+    {
+      "joint": "motion_fl_knee_joint",
+      "torque_nm": 0.2312040923724631
+    },
+    {
+      "joint": "motion_fl_ankle_joint",
+      "torque_nm": -0.5365402517132625
+    },
+    {
+      "joint": "motion_rr_hip_joint",
+      "torque_nm": 0.18063421687499764
+    },
+    {
+      "joint": "motion_rr_knee_joint",
+      "torque_nm": -0.16321348606126987
+    },
+    {
+      "joint": "motion_rr_ankle_joint",
+      "torque_nm": 0.3396586704289266
+    },
+    {
+      "joint": "motion_rl_hip_joint",
+      "torque_nm": -0.17992561320567965
+    },
+    {
+      "joint": "motion_rl_knee_joint",
+      "torque_nm": 0.16330749594893992
+    },
+    {
+      "joint": "motion_rl_ankle_joint",
+      "torque_nm": -0.33886023151905137
+    }
+  ],
+  "tripods": {
+    "FR": {
+      "static_feasible_without_body_shift": false,
+      "normal_forces_N": [
+        14.519427491829854,
+        11.896602171020112,
+        -2.6440986748733315
+      ]
+    },
+    "FL": {
+      "static_feasible_without_body_shift": false,
+      "normal_forces_N": [
+        14.519427491830532,
+        -2.6228253208111085,
+        11.875328816957216
+      ]
+    },
+    "RR": {
+      "static_feasible_without_body_shift": true,
+      "normal_forces_N": [
+        11.896602171019548,
+        2.622825320810856,
+        9.252503496146227
+      ]
+    },
+    "RL": {
+      "static_feasible_without_body_shift": true,
+      "normal_forces_N": [
+        2.6440986748733266,
+        11.875328816956653,
+        9.252503496146659
+      ]
+    }
+  },
+  "actuator": {
+    "stall_nm": 2.574245625,
+    "no_load_rad_s": 4.127467825662265,
+    "moving_limit_nm": 2.574245625,
+    "screening_25pct_nm": 0.64356140625
+  },
+  "scope": "Quasi-static, flat plane, vertical point reactions; no acceleration/impact/thermal model."
+}
