@@ -12,7 +12,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 REVISION = os.environ.get('ROBOT_CAT_CAD_REVISION','v28')
-assert REVISION in ('v25','v27','v28','v29'), REVISION
+assert REVISION in ('v25','v27','v28','v29','v30'), REVISION
 OUT = ROOT / 'hardware/simulation' / REVISION
 WORLD = 'cad_'+REVISION
 R = np.diag([-1., -1., 1.])  # proper rotation: CAD head -X -> REP103 +X
@@ -108,9 +108,9 @@ def make_model(geometry,**mass_options):
         links.append(dict(name=stage_name(key), stage=key, origin_m=origin.tolist(), **inertia))
     return dict(source_sha256=geometry['source_sha256'], components=rows, links=links, joints=axes,
                 total=combine(rows), warnings=[
-                    (REVISION+' snapshot: head/tail fixed in physics; three auxiliary servos, one supplier tail STEP and two head placeholders; 36 native temporary locks.' if REVISION=='v29' else
+                    (REVISION+f" snapshot: head/tail fixed in physics; three auxiliary servos, one supplier tail STEP and two head placeholders; {geometry['temporary_locks']} native temporary locks." if REVISION in ('v29','v30') else
                      REVISION+' snapshot: head/tail fixed, 4 auxiliary placeholders, 64 temporary locks.'),
-                    'MG92B total nominal 13.8 g; 12.8 g case / 1 g output split is unmeasured.' if REVISION=='v29' else 'Legacy auxiliary envelopes are not actual mount validation.',
+                    'MG92B total nominal 13.8 g; 12.8 g case / 1 g output split is unmeasured.' if REVISION in ('v29','v30') else 'Legacy auxiliary envelopes are not actual mount validation.',
                     'Bought masses and PETG density are assumptions; weigh actual build and slicer results.',
                     'No measured continuous ST3215 torque; stall is not a safe continuous rating.',
                     '10.5 V linear torque/speed scaling is an estimate for the 12 V winding, NOT the 7.4 V variant.',

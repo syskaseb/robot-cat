@@ -30,7 +30,7 @@ def test_part_mass_accounting(geometry):
 
 
 def test_v29_auxiliary_and_fastener_mass_classification(geometry):
-    if REVISION!='v29':pytest.skip('v29 tail integration only')
+    if REVISION not in ('v29','v30'):pytest.skip('v29+ tail integration only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['MG92BCase29']['mass_kg']+rows['MG92BOutput29']['mass_kg']==pytest.approx(.0138)
     assert not {'TailYawServo','TailLiftServo'} & set(rows)
@@ -38,6 +38,21 @@ def test_v29_auxiliary_and_fastener_mass_classification(geometry):
     assert len(bolts)==16 and all(r['basis'].startswith('steel') for r in bolts)
     assert all(r['stage']=='Chassis' for n,r in rows.items() if n.startswith('Tail'))
     assert geometry['frozen_native_joints']==['Rev_TailYaw29']
+
+
+def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
+    if REVISION!='v30':pytest.skip('v30 IMU mounting only')
+    rows={r['name']:r for r in mass_budget(geometry)}
+    assert len(geometry['components'])==264
+    assert rows['IMU']['mass_kg']==pytest.approx(.004)
+    posts=[r for n,r in rows.items() if n.startswith('IMUPost30_')]
+    screws=[r for n,r in rows.items() if n.startswith('IMUBolt30_')]
+    nuts=[r for n,r in rows.items() if n.startswith('IMUNut30_')]
+    assert len(posts)==len(screws)==len(nuts)==4
+    assert all(r['stage']=='Chassis' for r in posts+screws+nuts)
+    assert all(r['basis'].startswith('solid CAD PETG') for r in posts)
+    assert all(r['basis'].startswith('steel') for r in screws+nuts)
+    assert sum(r['mass_kg'] for r in posts)==pytest.approx(4*153.9028541881796*1.27e-6)
 
 
 def test_inverted_hip_mount_ownership(geometry):

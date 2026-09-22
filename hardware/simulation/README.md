@@ -1,6 +1,17 @@
-# Aktualny CAD w Gazebo — v29, 22.09.2026
+# Aktualny CAD w Gazebo — v30, 22.09.2026
 
-**Najnowsze wyniki: [v29 — model z nowym ogonem](v29/README.md).**
+**Najnowsze wyniki: [v30 — rzeczywiste mocowanie IMU](v30/README.md).**
+264 części, masa nominalna 2,419 kg (+3,2 g względem v29).
+Trzy próby bez upadku: stanie RMS max 0,534 Nm, wolny chód 0,574 Nm,
+cięższy wariant 0,650 Nm / 15,4% nasycenia. Nadal 13 ciał i 12 osi nóg;
+głowa/ogon zamrożone w fizyce. Nie zatwierdzono biegu ani termiki serw.
+613 testów zaliczonych, zgodność źródeł sprawdza `verify_v30.py`.
+Ustaw `ROBOT_CAT_CAD_REVISION=v30`; domyślne v28 pozostaje bez zmian.
+[Tabela v30](v30/RESULTS.md), [spójność checkpointu](v30/checkpoint-integrity.json).
+
+## Poprzedni checkpoint v29 — zachowany porównawczo
+
+**[v29 — model z nowym ogonem](v29/README.md).**
 252 części CAD, 2,416 kg nominalnie (2,139–2,875 kg), 13 ciał fizycznych
 i 12 osi nóg. Nowy ogon jest w tym eksperymencie nieruchomy, ale jego
 masa, bezwładność i siatka są w całości uwzględnione. Natywny FreeCAD
@@ -18,7 +29,7 @@ v28 dla zgodności wcześniejszego eksperymentu. Szczegółowe komendy w README 
 ## Wcześniejsza dokumentacja v28 — zachowana porównawczo
 
 Poniższe liczby, nazwy plików i cztery stare serwa pomocnicze dotyczą
-wyłącznie **v28**, nie aktualnego modelu v29.
+wyłącznie **v28**, nie aktualnego modelu v30.
 
 **Jest działający model fizyczny, ale nie ma jeszcze zatwierdzenia robota do
 druku ani napędów do pracy ciągłej.** Nie zastępuje dotychczasowego modelu ROS

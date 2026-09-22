@@ -1,0 +1,104 @@
+"""Integrate native MCP-built IMU mounting in a NEW v30 copy of v29.
+
+No printable feature authoring here: source is ElectronicsDesign30.FCStd.
+Nominal fasteners are copied from the v29 master. This is not print release.
+"""
+from pathlib import Path
+import hashlib,json,shutil,sys
+import FreeCAD as A,FreeCADGui as G
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v30'
+SOURCE=ROOT/'hardware/skorupa/v29/Kot_v29_OGON_PROTOTYP.FCStd'
+TARGET=OUT/'Kot_v30_ELEKTRONIKA.FCStd';MASTER=OUT/'ElectronicsDesign30.FCStd'
+assert not TARGET.exists(),'Preserve saved checkpoints'
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()=='da0de88c98f3f14b400d90afed0ea4c5108ca7c377dfc94d6b7a5ca5ca5eb792'
+m=A.getDocument('ElectronicsDesign30')
+assert Path(m.FileName).resolve()==MASTER.resolve()
+for o in m.Objects:
+    if o.TypeId=='Sketcher::SketchObject':assert o.FullyConstrained,o.Name
+    if o.TypeId=='PartDesign::Body':assert o.Shape.isValid() and len(o.Shape.Solids)==1,o.Name
+shutil.copy2(SOURCE,TARGET)
+d=A.openDocument(str(TARGET));asm=d.getObject('RobotCatAssembly24')
+group=d.getObject('Joints')
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly')
+import JointObject
+plan=json.loads((ROOT/'hardware/skorupa/v29/assembly-plan.json').read_text())
+plan['source_checkpoint']='v29'
+plan['inherited_master_sha256']=plan['master_sha256']
+plan['cad_filename']=TARGET.name;plan['master_filename']=MASTER.name
+plan['scope']='v30: measured BNO085 PCB, four rigid PETG standoffs and through-bolts; shell-floor passages. Other v29 limitations remain. Not print release.'
+plan['fasteners']=dict(M2x12=16,M2_nut=16,M3x12=4,M3_nut=4,supplier_candidate='Botland NSZ-00637; nominal envelopes, not measured head geometry',scope='v29 tail plus v30 IMU additions, not full robot BOM')
+
+def prop(obj,name,value):
+    if name not in obj.PropertiesList:obj.addProperty('App::PropertyString',name,'Traceability')
+    setattr(obj,name,value)
+
+def replace(src,dst):
+    o=d.getObject(dst);o.Shape=m.getObject(src).Shape.copy()
+    prop(o,'ParametricMaster','ElectronicsDesign30.FCStd / '+src+'; baked snapshot, not live link')
+    return o
+
+replace('TopCover30','Part__Feature038')
+replace('ShellClearance30','ShellMounted20')
+imu=replace('BNO085Reference30','IMU')
+imu.Label='BNO085 Adafruit 4754 | supplier STEP'
+prop(imu,'MaterialSpec','Purchased PCB and electronics; not PETG')
+prop(imu,'DesignStatus','Four M2x12 through measured holes, with PETG standoffs and nuts; no magnetic or vibration calibration')
+imu.ViewObject.DiffuseColor=m.getObject('BNO085Reference30').ViewObject.DiffuseColor
+next(r for r in plan['components'] if r['name']=='IMU')['label']=imu.Label
+
+def fixed(name,parent,child,point,status):
+    j=group.newObject('App::FeaturePython',name)
+    JointObject.Joint(j,0);JointObject.ViewProviderJoint(j.ViewObject)
+    j.Detach1=True;j.Detach2=True
+    j.Reference1=(d.getObject('Rigid_'+parent),['','']);j.Reference2=(d.getObject('Rigid_'+child),['',''])
+    j.Placement1=j.Placement2=A.Placement(A.Vector(*point),A.Rotation())
+    prop(j,'DesignStatus',status);j.Visibility=False
+    plan['joints'].append(dict(name=name,type='Fixed',parent=parent,child=child,status=status))
+
+def add(src,name,placement,parent,point,material):
+    wrapper=d.addObject('App::Part','Rigid_'+name);asm.addObject(wrapper)
+    o=wrapper.newObject('Part::Feature',name)
+    s=m.getObject(src).Shape.copy()
+    if placement is not None:s.Placement=placement*s.Placement
+    o.Shape=s;o.Label=name+' | '+material
+    prop(o,'MaterialSpec',material)
+    prop(o,'RigidStage','Chassis')
+    prop(o,'ParametricMaster','ElectronicsDesign30.FCStd / '+src+'; baked snapshot')
+    status='Modeled through-bolted IMU mount; tolerance, PETG creep and tool access require physical trial'
+    prop(o,'DesignStatus',status)
+    o.ViewObject.ShapeColor=(.1,.11,.13) if material=='PETG' else (.62,.64,.65)
+    o.Visibility=True
+    fixed('Fix_'+name,parent,name,point,status)
+    plan['components'].append(dict(name=name,label=o.Label,stage='Chassis'))
+    return o
+
+down=A.Rotation(A.Vector(0,0,1),A.Vector(0,0,-1))
+holes=[(x,y) for x in [-35.68,-53.46] for y in [-22.86,-2.54]]
+for i,(x,y) in enumerate(holes):
+    src='IMUStandoff30' if i==0 else 'IMUStandoff00'+str(i)
+    add(src,'IMUPost30_%d'%i,None,'Part__Feature038',[x,y,38.52],'PETG')
+    add('BoltM2x12','IMUBolt30_%d'%i,A.Placement(A.Vector(x,y,46.57),down),'IMU',[x,y,46.57],'STEEL purchased M2x12 nominal')
+    add('NutM2','IMUNut30_%d'%i,A.Placement(A.Vector(x,y,37.02),down),'Part__Feature038',[x,y,37.02],'STEEL purchased M2 nut nominal')
+j=d.getObject('Fix_IMU');j.Reference1=(d.getObject('Rigid_IMUPost30_0'),['',''])
+j.Placement1=j.Placement2=A.Placement(A.Vector(holes[0][0],holes[0][1],45),A.Rotation())
+status='Four real BNO085 holes on rigid PETG standoffs; M2x12/nuts through deck; shell floor has independent clearance passages'
+j.DesignStatus=status
+row=next(r for r in plan['joints'] if r['name']=='Fix_IMU');row.update(parent='IMUPost30_0',status=status)
+plan['imu_mount']=dict(source_step='bno085-adafruit-4754.step',source_step_sha256='115ae06a3215c4eb6bb0eb5f4aeeaa39f13fe0a76d8be2ef1416dc8a85b804d1',
+    holes_CAD_xy_mm=holes,pcb_datum_CAD_mm=[-33.14,-25.4,45],pcb_rotation_CAD_z_deg=90,
+    pcb_frame_to_REP103_z_deg=-90,pcb_bottom_mm=45,pcb_thickness_mm=1.57,
+    post_radius_mm=3,post_height_mm=6.48,clearance_hole_diameter_mm=2.4,shell_passage_diameter_mm=6.8,
+    screw='4 x M2x12',nuts='4 x M2',keepout_masters=['IMUPlugKeepout30','IMUWireKeepout30'],
+    note='Board frame, not validated sensor-chip output orientation. Cable envelopes are reserved space, not a measured connector/complete harness. Fit nuts with deck removed.')
+plan['fixed_count']=sum(r['type']=='Fixed' for r in plan['joints'])
+plan['revolute_count']=sum(r['type']=='Revolute' for r in plan['joints'])
+plan['temporary_locks']=sum('TEMP' in r['status'].upper() for r in plan['joints'])
+d.recompute();assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+asm.Scope=plan['scope'];d.Label='Kot v30 - sztywny montaz IMU - PROTOTYP'
+d.recompute();d.save()
+plan['source_sha256']=hashlib.sha256(TARGET.read_bytes()).hexdigest()
+plan['master_sha256']=hashlib.sha256(MASTER.read_bytes()).hexdigest()
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+A.setActiveDocument(d.Name);G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(file=d.FileName,document=d.Name,parts=len(plan['components']),fixed=plan['fixed_count'],revolute=plan['revolute_count'],temporary=plan['temporary_locks'])))

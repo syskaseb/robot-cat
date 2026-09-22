@@ -1,14 +1,33 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v29](v29/README.md). **Nie jest wydaniem do druku.**
+Ostatnie złożenie: [v30](v30/README.md). **Nie jest wydaniem do druku.**
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
 Na zlecenie użytkownika rozpoczęto konkretny
 [dobór części i zebranie modeli producentów](../reference/component-selection-2026-09-22/README.md).
 Priorytet: Botland, następnie Kamami; maksymalnie 10 dni oczekiwania.
 Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
-modele elektroniki i dwóch serw głowy czekają na integrację.
+v30 integruje rzeczywisty BNO085 i jego mocowanie. Pozostała elektronika
+i dwa serwa głowy nadal czekają na integrację.
+
+## Nocny checkpoint v30 — IMU
+
+- Rzeczywisty STEP Adafruit 4754 zamiast pudełka; cztery dystanse PETG,
+  cztery M2×12 i nakrętki, przewiercona płyta ramy, przepusty w skorupie.
+  IMU stoi na ramie, nie na zdejmowanej skorupie.
+- Złożenie: 264 części, 250 Fixed + 13 Revolute, **35 tymczasowych**.
+  22 klatki natywne, nogi ±3° i ogon ±30°; IMU pozostaje przy korpusie.
+- Sześć w pełni związanych szkiców; zero przecięć nowych części w 48
+  sprawdzonych parach. Kontakt czterech dystansów i drożność osi M2 potwierdzone.
+  Lokalne rezerwy wtyku/przewodu nie są jeszcze kompletną wiązką.
+- 249 odziedziczonych części porównano z v29: różnice tylko numerycznego
+  zapisu BRep, maksymalnie 1,03×10⁻¹². Wcześniejsze CAD-y zachowane.
+- Gazebo: nominalnie 2,419 kg, trzy próby bez upadku. Stanie RMS 0,534 Nm,
+  wolny chód 0,574 Nm, wariant cięższy 0,650 Nm / 15,4% nasycenia.
+  613 testów zaliczonych. Nie zatwierdzono biegu ani pracy ciągłej serw.
+- Pozostaje kalibracja osi/zakłóceń magnetycznych IMU, próby PETG i serwis.
+  Orczyk/podparcie ogona i mechanizmy głowy nadal są nierozwiązane.
 
 ## Nocny checkpoint v29
 
@@ -60,7 +79,7 @@ modele elektroniki i dwóch serw głowy czekają na integrację.
 - Lista `docs/plan-zakupowy.pdf`, strona 1: **2 serwa głowy + 1 ogona**.
   Nie ma zgody ani potrzeby interpretacyjnej na czwarte serwo pomocnicze.
 - v28 miało 12 natywnych Revolute nóg i 225 Fixed, w tym 64 tymczasowe
-  blokady; v29: 13 Revolute, 238 Fixed, **36 tymczasowych**. Fixed nie
+  blokady; v30: 13 Revolute, 250 Fixed, **35 tymczasowych**. Fixed nie
   zastępuje rzeczywistego wspornika, śruby ani łożyska.
 - Test natywny v28: 22 klatki ±3°, nie pełny chód ani pełne zakresy serw.
 
@@ -97,7 +116,8 @@ modele elektroniki i dwóch serw głowy czekają na integrację.
 - Ogon v29: rozwiązać sprzęgnięcie z dostarczanym orczykiem MG92B,
   niezależne podparcie i osłonę, sprawdzić narzędzia i próby PETG.
   Segmenty i usunięcie nadmiarowego napędu są już wykonane, nie powtarzać.
-- Mocowania elektroniki oparte o faktyczne otwory, wtyki, miejsca serwisowe.
+- Pozostałe mocowania elektroniki oparte o faktyczne otwory, wtyki,
+  miejsca serwisowe; BNO085 wdrożony w v30, kalibracja/testy sprzętowe otwarte.
   Zweryfikować termikę regulatorów i chłodzenia, nie tylko statyczny obrys.
 - Serwis akumulatora: obecna tacka/paski/nakrętki blokują wyjęcie w dół.
   Wąska tacka i mocowania na końcach są kierunkiem do sprawdzenia, nie

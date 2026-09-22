@@ -1,0 +1,202 @@
+{
+  "source_sha256": "eaa115b880b698c729c8c6448b2013ecf5db6a3aea0e6521e8ceb20e23e4c6bc",
+  "scope": "Provisional head sizing and a revision-specific tail budget.\n\nHead servo boxes are still placeholders. Test candidate axes at their centres\nand a balanced head alternative. v29 tail uses the measured supplier STEP\naxis; older revisions use placeholders. None certifies the mounting/load path.\n",
+  "mg92b_5V": {
+    "stall_nm": 0.30400615000000003,
+    "no_load_rad_s": 8.055365778435366,
+    "provisional_25pct_screen_nm": 0.07600153750000001,
+    "source": "https://towerpro.com.tw/product/mg92b/",
+    "continuous_torque": "unknown"
+  },
+  "head_pitch_placeholder_centre": {
+    "parts": [
+      "HeadFront",
+      "HeadRear",
+      "EyeRingL",
+      "EyeLensL",
+      "EyeRingR",
+      "EyeLensR",
+      "Camera",
+      "ToF",
+      "Muzzle",
+      "Nose",
+      "EarL",
+      "EarInsetL",
+      "EarR",
+      "EarInsetR",
+      "Microphones",
+      "IrIlluminator"
+    ],
+    "mass_kg": 0.1840362696353498,
+    "com_m": [
+      0.17070240880550022,
+      0.0007199183817130025,
+      0.12055953434739546
+    ],
+    "candidate_pivot_m": [
+      0.14150000000000001,
+      -9.473903143468004e-20,
+      0.08549
+    ],
+    "candidate_axis": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "angle_range_deg": [
+      -20,
+      20
+    ],
+    "peak_gravity_nm": 0.07117287016418024,
+    "inertia_about_axis_kg_m2": 0.0006461041912938714,
+    "acceleration_rad_s2": 2.0,
+    "gravity_plus_inertia_nm": 0.07246507854676798
+  },
+  "head_pitch_balanced_candidate": {
+    "parts": [
+      "HeadFront",
+      "HeadRear",
+      "EyeRingL",
+      "EyeLensL",
+      "EyeRingR",
+      "EyeLensR",
+      "Camera",
+      "ToF",
+      "Muzzle",
+      "Nose",
+      "EarL",
+      "EarInsetL",
+      "EarR",
+      "EarInsetR",
+      "Microphones",
+      "IrIlluminator"
+    ],
+    "mass_kg": 0.1840362696353498,
+    "com_m": [
+      0.17070240880550022,
+      0.0007199183817130025,
+      0.12055953434739546
+    ],
+    "candidate_pivot_m": [
+      0.17070240880550022,
+      0.0007199183817130025,
+      0.12055953434739546
+    ],
+    "candidate_axis": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "angle_range_deg": [
+      -20,
+      20
+    ],
+    "peak_gravity_nm": 0.0,
+    "inertia_about_axis_kg_m2": 0.0002628205170647711,
+    "acceleration_rad_s2": 2.0,
+    "gravity_plus_inertia_nm": 0.0005256410341295422
+  },
+  "neck_yaw_placeholder_centre": {
+    "parts": [
+      "HeadFront",
+      "HeadRear",
+      "EyeRingL",
+      "EyeLensL",
+      "EyeRingR",
+      "EyeLensR",
+      "Camera",
+      "ToF",
+      "Muzzle",
+      "Nose",
+      "EarL",
+      "EarInsetL",
+      "EarR",
+      "EarInsetR",
+      "Microphones",
+      "IrIlluminator",
+      "HeadPitchServo",
+      "NeckColumn",
+      "NeckCollar"
+    ],
+    "mass_kg": 0.26485732746402996,
+    "com_m": [
+      0.15866907061326396,
+      0.0005002357105862438,
+      0.1049872223098686
+    ],
+    "candidate_pivot_m": [
+      0.095,
+      8.167157882300002e-20,
+      0.04099
+    ],
+    "candidate_axis": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "angle_range_deg": [
+      -30,
+      30
+    ],
+    "peak_gravity_nm": 0.0,
+    "inertia_about_axis_kg_m2": 0.0015687910182313374,
+    "acceleration_rad_s2": 2.0,
+    "gravity_plus_inertia_nm": 0.0031375820364626748
+  },
+  "tail_arbitrary_axis_gravity_upper_bound_nm": 0.05169883058754843,
+  "warnings": [
+    "Bracket, horn and cable loads absent; not approval of mounts or servo.",
+    "Vertical yaw has zero gravity torque only with level chassis; radial bearing loads remain.",
+    "Balance head near COM instead of selecting a larger servo solely by stall torque.",
+    "Mass assumes solid CAD PETG at 1.27 g/cm3 and estimated bought parts.",
+    "v29 rigid keyed PETG tail: horn and independent output support unresolved. Not print ready."
+  ],
+  "tail_yaw_actual_cad_axis": {
+    "parts": [
+      "MG92BOutput29",
+      "TailRoot29",
+      "TailModule29_00",
+      "TailModule29_01",
+      "TailModule29_02",
+      "TailModule29_03",
+      "TailModule29_04",
+      "TailModule29_05",
+      "TailBolt29_00",
+      "TailNut29_00",
+      "TailBolt29_01",
+      "TailNut29_01",
+      "TailBolt29_02",
+      "TailNut29_02",
+      "TailBolt29_03",
+      "TailNut29_03",
+      "TailBolt29_04",
+      "TailNut29_04",
+      "TailBolt29_05",
+      "TailNut29_05"
+    ],
+    "mass_kg": 0.05557905997727069,
+    "com_m": [
+      -0.23008841992964632,
+      0.0059808193270816995,
+      0.1233116889742996
+    ],
+    "candidate_pivot_m": [
+      -0.15,
+      0.006,
+      0.07249
+    ],
+    "candidate_axis": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "angle_range_deg": [
+      -30,
+      30
+    ],
+    "peak_gravity_nm": 0.0,
+    "inertia_about_axis_kg_m2": 0.0004328518651768319,
+    "acceleration_rad_s2": 2.0,
+    "gravity_plus_inertia_nm": 0.0008657037303536638
+  }
+}
