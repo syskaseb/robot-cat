@@ -19,3 +19,10 @@ tools/simulation/plugin/* text eol=lf
 # (including kernel whitespace), and keep hashed JSON stable across platforms.
 hardware/skorupa/v33/recovery/*.brep binary
 hardware/skorupa/v33/*.json text eol=lf
+
+# v35 prototype decisions bind the raw JSON evidence with SHA256 as well as
+# binary CAD. Windows checkout must not invalidate these evidence chains.
+hardware/skorupa/v35/*.json text eol=lf
+hardware/skorupa/v35/rejected/*.json text eol=lf
+hardware/simulation/v35/*.json text eol=lf
+hardware/simulation/v35/trials/*.json text eol=lf

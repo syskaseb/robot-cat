@@ -1,0 +1,25 @@
+{
+  "master_sha256": "2eb5d64a63136815bf6e066ea753a9b96a07deae4db5eb8fdd496dea7200833f",
+  "source_checkpoint_sha256": "b3b342604b649bde0f2224462c6ea8d241b0b2a4d46479756a4aad8877da7182",
+  "evidence_sha256": {
+    "fit-audit.json": "4fcbfb4c0066513733ae541c14cf7b14cbaf6010a8384f928af4225ae8a5f031",
+    "mesh-proof.json": "f8a9bb36974c762744e0b80a06fbc40f9081b2d7f7170c7f162be5012407f480",
+    "shell-source-bop.json": "d9efeb726780f4c86f872feb78f3d2868fa922299bf45b662e77f13fa96da774"
+  },
+  "prototype_integration_allowed": true,
+  "strict_BOP_passed": false,
+  "mechanical_release": false,
+  "new_PETG_spacers_BOP_clean": true,
+  "legacy_shell_error_classes": {
+    "Error in Edge: BOPAlgo GeomAbs_C0": 12,
+    "Error in Face: BOPAlgo GeomAbs_C0": 10,
+    "Error in Edge: BOPAlgo_InvalidCurveOnSurface": 2,
+    "Error in Face: BOPAlgo_InvalidCurveOnSurface": 2
+  },
+  "shell_errors_repaired": false,
+  "identical_error_locations_proven": false,
+  "coarse_shell_mesh_difference_passed": false,
+  "deck_difference_method": "Native coplanar cut returned impossible volume; retained as failure. Independent manifold difference and analytical 2x cylindrical through-hole volume required instead.",
+  "scope": "Separate prototype integration decision; NEVER changes a failed BOP report.\n\nThe inherited shell is not BOP-clean. Matching error-class counts alone is NOT\nproof that error locations are unchanged. Mesh clearance plus no added solid\nvolume only supports this bounded AUX prototype, not manufacturing release.\n",
+  "next_gate": "Repair legacy shell BRep before production; physical PETG, board stress, wiring/heat tests remain mandatory."
+}

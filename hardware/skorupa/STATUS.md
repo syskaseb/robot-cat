@@ -1,8 +1,8 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v34](v34/README.md). **Nie jest wydaniem do druku.**
-[Krótkie podsumowanie poranne](MORNING-2026-09-22.md).
+Ostatnie złożenie: [v35](v35/README.md). **Nie jest wydaniem do druku.**
+[Historyczne podsumowanie poranne](MORNING-2026-09-22.md).
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
 Na zlecenie użytkownika rozpoczęto konkretny
@@ -12,13 +12,42 @@ Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
 v30 integruje rzeczywisty BNO085, v31 główne Pololu, v32 ToF w nosie,
 każdy z fizycznym mocowaniem do wskazanej części. v33 scala przód głowy
 z pyszczkiem i dodaje mocowanie referencyjnego ReSpeaker Lite v1.1.
-Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
+v35 dodaje fizyczne mocowanie drugiej przetwornicy AUX. Pozostała
+elektronika i dwa serwa głowy nadal czekają na integrację.
 Pobrano także [źródłowy ReSpeaker Lite v1.1](../reference/head-electronics-2026-09-22/README.md):
 dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. W v33 jest na
 dwóch podporach z M2×12/nakrętkami. Różnica gabarytów względem wiki,
 potwierdzenie rewizji fizycznej, kable i akustyka pozostają otwarte.
 
-## Checkpoint v34 — niezależne podparcie ogona
+## Checkpoint v35 — mocowanie przetwornicy AUX
+
+- Rzeczywisty STEP drugiej Pololu D24V90F5, cztery dystanse PETG,
+  cztery M2×19/nakrętki. Dwa słupki stoją na płycie ramy, dwa na mostku
+  ogona. Nowe otwory i podcięcie jednego słupka usuwają znalezione kolizje.
+  Tylne śruby wkłada się przed montażem mostka; serwis bez demontażu
+  niezatwierdzony. Zaciski są nominalnymi obwiedniami, wiązka niegotowa.
+- 320 części,306 Fixed +13 Revolute, **29 tymczasowych**. 11 w pełni
+  związanych szkiców;22 klatki natywnego testu bez otwierania złączy.
+  302 odziedziczone części i18 nowych/zmienionych kopii zweryfikowano.
+  51 par spoczynkowych bez nowych przecięć ponad0,01 mm³.
+- **Pełny audyt BOP nadal nie przechodzi**: odziedziczone błędy skorupy
+  nie zostały naprawione. Jej globalna różnica siatek także nie osiągnęła
+  limitu. Niezależne kontrole lokalnych prześwitów i ubytku materiału
+  dopuszczają tylko włączenie AUX do prototypu, nie wydanie do druku.
+- Bilans2,503 kg (2,220–2,968), wzrost1,4 g. **639 testów zaliczonych**;
+  [trzy świeże próby Gazebo](../simulation/v35/README.md) bez wykrytego
+  upadku: RMS0,565 Nm stanie,0,605/0,681 Nm wolny chód nominalny/cięższy.
+  To test nóg z nieruchomą głową i ogonem, nadal bez zatwierdzenia biegu,
+  momentu ciągłego i termiki ST3215/PETG.
+- [Cały kot](v35/whole-cat.png), [mocowanie AUX](v35/aux-mount.png).
+  `ViewAux35.FCMacro` odsłania podzespół przez ukrycie innych części,
+  `View35.FCMacro` przywraca całość. To nie geometryczny przekrój.
+- Nadal otwarte: dwa napędy głowy, fizyczny orczyk ogona, stare błędy
+  skorup, pozostałe mocowania/wiązka, serwis baterii, pasowania i termika.
+  Zakupowy bilans nowych mocowań zawiera22 M2×12; jeden wybrany zestaw
+  ma20, więc sam nie wystarcza. Niczego nie zamówiono.
+
+## Poprzedni checkpoint v34 — niezależne podparcie ogona
 
 - Uchwyt serwa i dolna podpora w jednym PETG; odkręcany górny blok,
   dwa608ZZ, dystanse, czop i zabezpieczenie osi M3×30. Jeden MG92B,

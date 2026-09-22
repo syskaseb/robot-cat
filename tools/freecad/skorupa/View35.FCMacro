@@ -1,0 +1,31 @@
+"""Restore whole-cat or master visibility without changing signed CAD files."""
+from pathlib import Path
+import json
+import FreeCAD as A
+import FreeCADGui as G
+
+root = Path(__file__).resolve().parents[3]
+folder = root / 'hardware/skorupa/v35'
+plan = json.loads((folder / 'assembly-plan.json').read_text())
+path = folder / plan['cad_filename']
+doc = next((d for d in A.listDocuments().values()
+            if d.FileName and Path(d.FileName).resolve() == path.resolve()), None)
+if doc is None:
+    doc = A.openDocument(str(path))
+A.setActiveDocument(doc.Name)
+for row in plan['components']:
+    doc.getObject('Rigid_' + row['name']).Visibility = True
+    part = doc.getObject(row['name'])
+    part.Visibility = True
+    part.ViewObject.Transparency = 0
+for obj in doc.Objects:
+    if hasattr(obj, 'JointType'):
+        obj.Visibility = False
+G.Selection.clearSelection()
+view = G.activeDocument().activeView()
+view.setCameraType('Orthographic')
+direction = A.Vector(-1, -1, .7)
+view.setCameraOrientation(A.Rotation(A.Vector(0, 0, 1).cross(direction), A.Vector(0, 0, 1), direction, 'ZXY').Q)
+view.fitAll()
+G.updateGui()
+# No save: display-only inspection must not invalidate signed evidence.

@@ -12,7 +12,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 REVISION = os.environ.get('ROBOT_CAT_CAD_REVISION','v28')
-assert REVISION in ('v25','v27','v28','v29','v30','v31','v32','v33','v34'), REVISION
+assert REVISION in ('v25','v27','v28','v29','v30','v31','v32','v33','v34','v35'), REVISION
 OUT = ROOT / 'hardware/simulation' / REVISION
 WORLD = 'cad_'+REVISION
 R = np.diag([-1., -1., 1.])  # proper rotation: CAD head -X -> REP103 +X
@@ -29,16 +29,18 @@ BOUGHT_G = dict(Battery=174, Pi=46, PiHatCooling=65, Pololu=12, AuxBuck=12,
                 ChargeSocketXT60=8, MainSwitch=8, BalancerPort=3,
                 BatteryLiner23=2, BatteryStrap123=3, BatteryStrap223=3,
                 MG92BCase29=12.8, MG92BOutput29=1.)
-if REVISION in ('v31','v32','v33','v34'):
+if REVISION in ('v31','v32','v33','v34','v35'):
     # Bare PCB: Pololu 2866 specs, explicitly excluding included hardware.
     # Terminal mass is an engineering allowance, not a manufacturer value.
     BOUGHT_G.update(Pololu=4.8, PowerTerminal31_0=2., PowerTerminal31_1=2.)
-if REVISION in ('v32','v33','v34'):
+if REVISION in ('v32','v33','v34','v35'):
     BOUGHT_G['ToF']=.5  # Pololu3417 bare board, excludes header/wires.
-if REVISION == 'v34':
+if REVISION in ('v34','v35'):
     # Generic 608 nominal allowance; not measured BTC bearing mass. Do NOT
     # treat the solid annular CAD envelope as solid steel, or as PETG.
     BOUGHT_G.update(BearingLower34=13., BearingUpper34=13.)
+if REVISION == 'v35':
+    BOUGHT_G.update(AuxBuck=4.8, AuxTerminal35_0=2., AuxTerminal35_1=2.)
 SERVO_PREFIXES = ('ZK_', 'SG-ZIJI_', 'XG-ZIJI_', 'MOTOR-', 'PCB-CHAZUO_', 'GE_')
 
 
@@ -81,11 +83,13 @@ def mass_budget(geometry, petg_density=1.27, servo_g=69., bought_factor=1., rese
             basis = 'bought mass allowance, not CAD envelope density; verify by weighing'
             if n == 'Battery':
                 basis += '; candidate GEA223S30X6GT manufacturer nominal 174 g, geometry still old'
-            if REVISION in ('v31','v32','v33','v34') and n=='Pololu':
+            if REVISION in ('v31','v32','v33','v34','v35') and n=='Pololu':
                 basis='Pololu 2866 manufacturer nominal 4.8 g bare PCB, without included hardware; inertia uniform CAD approximation'
-            if REVISION in ('v32','v33','v34') and n=='ToF':
+            if REVISION in ('v32','v33','v34','v35') and n=='ToF':
                 basis='Pololu 3417 manufacturer nominal 0.5 g without header pins; wires remain in harness allowance; uniform CAD inertia approximation'
-            if n.startswith('PowerTerminal31_'):
+            if REVISION == 'v35' and n == 'AuxBuck':
+                basis='Pololu 2866 manufacturer nominal 4.8 g bare AUX PCB; not approval of combined current/thermal load'
+            if n.startswith(('PowerTerminal31_', 'AuxTerminal35_')):
                 basis='terminal block mass allowance 2 g each, unmeasured; not PETG density'
             if n in ('BearingLower34', 'BearingUpper34'):
                 basis='608ZZ bought bearing allowance 13 g each, unmeasured; annular inertia envelope, not internal bearing CAD'
@@ -126,9 +130,9 @@ def make_model(geometry,**mass_options):
         links.append(dict(name=stage_name(key), stage=key, origin_m=origin.tolist(), **inertia))
     return dict(source_sha256=geometry['source_sha256'], components=rows, links=links, joints=axes,
                 total=combine(rows), warnings=[
-                    (REVISION+f" snapshot: head/tail fixed in physics; three auxiliary servos, one supplier tail STEP and two head placeholders; {geometry['temporary_locks']} native temporary locks." if REVISION in ('v29','v30','v31','v32','v33','v34') else
+                    (REVISION+f" snapshot: head/tail fixed in physics; three auxiliary servos, one supplier tail STEP and two head placeholders; {geometry['temporary_locks']} native temporary locks." if REVISION in ('v29','v30','v31','v32','v33','v34','v35') else
                      REVISION+' snapshot: head/tail fixed, 4 auxiliary placeholders, 64 temporary locks.'),
-                    'MG92B total nominal 13.8 g; 12.8 g case / 1 g output split is unmeasured.' if REVISION in ('v29','v30','v31','v32','v33','v34') else 'Legacy auxiliary envelopes are not actual mount validation.',
+                    'MG92B total nominal 13.8 g; 12.8 g case / 1 g output split is unmeasured.' if REVISION in ('v29','v30','v31','v32','v33','v34','v35') else 'Legacy auxiliary envelopes are not actual mount validation.',
                     'Bought masses and PETG density are assumptions; weigh actual build and slicer results.',
                     'No measured continuous ST3215 torque; stall is not a safe continuous rating.',
                     '10.5 V linear torque/speed scaling is an estimate for the 12 V winding, NOT the 7.4 V variant.',

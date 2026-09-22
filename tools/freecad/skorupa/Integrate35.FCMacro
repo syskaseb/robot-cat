@@ -1,0 +1,104 @@
+"""Import signed MCP-authored AUX geometry and wire native Assembly datums.
+
+No printable geometry is generated; the fallback is for cross-document
+snapshot import and existing-position JointObject wiring unsupported by MCP.
+"""
+from pathlib import Path
+import hashlib
+import json
+import shutil
+import sys
+import tempfile
+import FreeCAD as A
+import FreeCADGui as G
+
+ROOT=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'tools/freecad/skorupa'))
+from aux35 import SOURCE,SOURCE_SHA,OUT,MASTER,TARGET,HOLES,REPLACEMENTS,ADDITIONS,instance
+
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+
+assert not TARGET.exists(),'Preserve existing checkpoint'
+plan=json.loads((SOURCE/'assembly-plan.json').read_text())
+assert sha(SOURCE/plan['cad_filename'])==SOURCE_SHA
+fit=json.loads((OUT/'fit-audit.json').read_text())
+scope=json.loads((OUT/'prototype-scope.json').read_text())
+assert scope['prototype_integration_allowed'] and not scope['mechanical_release']
+assert scope['master_sha256']==fit['master_sha256']==sha(MASTER)
+assert all(sha(OUT/n)==digest for n,digest in scope['evidence_sha256'].items())
+assert fit['source_checkpoint_sha256']==SOURCE_SHA
+with tempfile.NamedTemporaryFile(prefix='robot-cat-v35-master-',suffix='.FCStd',delete=False) as fp:
+    snapshot=Path(fp.name)
+shutil.copy2(MASTER,snapshot);assert sha(snapshot)==sha(MASTER)
+m=A.openDocument(str(snapshot),hidden=True)
+shutil.copy2(SOURCE/plan['cad_filename'],TARGET)
+d=A.openDocument(str(TARGET));asm=d.getObject('RobotCatAssembly24');group=d.getObject('Joints')
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly');import JointObject
+plan.update(source_checkpoint='v34',source_checkpoint_sha256=SOURCE_SHA,
+    cad_filename=TARGET.name,master_filename=MASTER.name,master_sha256=sha(MASTER),
+    scope='v35 prototype: second Pololu D24V90F5 AUX with actual PCB, nominal terminals, PETG supports and through fasteners. Not a thermal/electrical release; separate outputs. Head/tail horn, inherited head conflicts, other mounts and harness remain OPEN. Gazebo evidence is separate.')
+
+def prop(o,n,v):
+    if n not in o.PropertiesList:o.addProperty('App::PropertyString',n,'Traceability')
+    setattr(o,n,v)
+
+status='M2x19 through actual corner holes and PETG posts: front down to deck, rear up from underside of tail bridge. Front notched post clears old washer. Rear bolts preloaded before bridge/deck assembly; wrench access, physical fit/PCB stress/thermal validation pending.'
+for n,(src,xyz) in REPLACEMENTS.items():
+    o=d.getObject(n);o.Shape=instance(m,src,xyz)
+    prop(o,'ParametricMaster',MASTER.name+' / '+src+'; signed snapshot, not live link')
+    prop(o,'DesignStatus',status)
+    if n=='AuxBuck':
+        o.Label='AUX | Pololu D24V90F5 2866 | supplier PCB, separate 5V branch'
+        prop(o,'MaterialSpec','Purchased PCB/electronics; manufacturer nominal 4.8g bare')
+        o.ViewObject.DiffuseColor=d.getObject('Pololu').ViewObject.DiffuseColor
+    next(r for r in plan['components'] if r['name']==n)['label']=o.Label
+
+def fixed(name,parent,child,desc):
+    j=group.newObject('App::FeaturePython',name);JointObject.Joint(j,0);JointObject.ViewProviderJoint(j.ViewObject)
+    j.Detach1=True;j.Detach2=True
+    j.Reference1=(d.getObject('Rigid_'+parent),['','']);j.Reference2=(d.getObject('Rigid_'+child),['',''])
+    j.Placement1=j.Placement2=A.Placement();prop(j,'DesignStatus',desc);j.Visibility=False
+    plan['joints'].append(dict(name=name,parent=parent,child=child,type='Fixed',status=desc))
+
+for n,(src,parent,material,xyz) in ADDITIONS.items():
+    w=d.addObject('App::Part','Rigid_'+n);asm.addObject(w)
+    o=w.newObject('Part::Feature',n);o.Shape=instance(m,src,xyz);o.Label=n+' | '+material
+    for key,value in [('RigidStage','Chassis'),('MaterialSpec',material),('DesignStatus',status),('ParametricMaster',MASTER.name+' / '+src)]:prop(o,key,value)
+    o.ViewObject.ShapeColor=(.1,.11,.13) if material=='PETG' else ((.08,.35,.15) if n.startswith('AuxTerminal') else (.64,.66,.69))
+    if n.startswith('AuxTerminal35_'):
+        o.ViewObject.DiffuseColor=d.getObject('PowerTerminal31_'+n[-1]).ViewObject.DiffuseColor
+    plan['components'].append(dict(name=n,label=o.Label,stage='Chassis'))
+    desc=status if not n.startswith('AuxTerminal') else 'Drawing-based included terminal envelope; matching pins require soldering, current/heat/strain relief unverified.'
+    fixed('Fix_'+n,parent,n,desc)
+j=d.getObject('Fix_AuxBuck');j.Reference1=(d.getObject('Rigid_AuxPost35_0'),['',''])
+j.Placement1=j.Placement2=A.Placement(A.Vector(91.74,-21.46,52),A.Rotation());j.DesignStatus=status
+next(r for r in plan['joints'] if r['name']=='Fix_AuxBuck').update(parent='AuxPost35_0',status=status)
+plan['fixed_count']=sum(r['type']=='Fixed' for r in plan['joints'])
+plan['revolute_count']=sum(r['type']=='Revolute' for r in plan['joints'])
+plan['temporary_locks']=sum('TEMP' in r['status'].upper() for r in plan['joints'])
+assert (len(plan['components']),plan['fixed_count'],plan['revolute_count'],plan['temporary_locks'])==(320,306,13,29)
+plan['v35_added']=sorted(ADDITIONS);plan['v35_replaced']=sorted(REPLACEMENTS)
+plan['v35_fastener_delta']=dict(M2x19=4,M2_nut=4)
+plan['fasteners']['M2x19']+=4;plan['fasteners']['M2_nut']+=4
+plan['fasteners']['scope']+=' + v35 AUX mount; NOT whole robot BOM'
+plan['aux_mount']=dict(pcb='Pololu D24V90F5 2866, second board, previously documented candidate',
+    base_mm=[89.2,-24,52],holes_xy_mm=HOLES,post_height_mm=[13.48,13.48,8,8],installed_gap_spacers=0,
+    clearance_hole_mm=2.4,post_OD_mm=6,notch_clearance_mm=.2,shell_passage_mm=6.8,
+    clamp_stack_mm=[16.5548,16.5548,12.5748,12.5748],nut_height_mm=1.6,screw_M2_length_mm=19,
+    protrusion_mm=[.8452,.8452,4.8252,4.8252],screw_direction=['down','down','up','up'],
+    rejected_hidden_master_bodies=['Gap35_3','Gap35_001'],front_post_notch=dict(centre_xy_mm=[98.7,0],radius_mm=7.7,depth_mm=1.2),
+    mass_bare_g=4.8,terminal_mass_allowance_g=2,bench_assembly=True,thermal_validated=False,
+    outputs_paralleled=False,scope='Mechanical candidate only, no purchase or electrical/thermal approval')
+plan['legacy_shell_BOP_clean']=False
+plan['prototype_integration_scope_sha256']=sha(OUT/'prototype-scope.json')
+d.recompute();assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+asm.Scope=plan['scope'];d.Label='Kot v35 - mocowanie AUX - PROTOTYP'
+for r in plan['components']:
+    o=d.getObject(r['name']);o.Visibility=True;o.ViewObject.Transparency=0
+d.recompute();d.save();plan['source_sha256']=sha(TARGET)
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8',newline='\n')
+A.closeDocument(m.Name);snapshot.unlink()  # Only our new disposable signed copy.
+A.setActiveDocument(d.Name)
+G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(file=d.FileName,components=len(plan['components']),temporary=plan['temporary_locks'])))

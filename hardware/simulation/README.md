@@ -1,6 +1,17 @@
-# Aktualny CAD w Gazebo — v34, 22.09.2026
+# Aktualny CAD w Gazebo — v35, 22.09.2026
 
-**Najnowsze wyniki: [v34 — dodatkowa masa podparcia ogona](v34/README.md).**
+**Najnowsze wyniki: [v35 — mocowanie zasilania AUX](v35/README.md).**
+320 części, masa2,503 kg (2,220–2,968), wzrost1,4 g względem v34.
+Trzy próby ukończone bez wykrytego upadku: stanie RMS0,565 Nm,
+wolny chód0,605/0,681 Nm nominalnie/cięższy wariant. 639 testów.
+`ROBOT_CAT_CAD_REVISION=v35`, `verify_v35.py`.
+Głowa i ogon nadal nieruchome w fizyce. Wynik nie zatwierdza biegu,
+pracy ciągłej ST3215, termiki PETG/zasilania ani całego montażu.
+Odziedziczone błędy BOP skorupy pozostają jawnie niezaliczone.
+
+## Poprzedni checkpoint v34 — zachowany porównawczo
+
+**[v34 — dodatkowa masa podparcia ogona](v34/README.md).**
 306 części, masa2,502 kg (2,219–2,967), wzrost77,7 g względem v33.
 Trzy próby ukończone bez wykrytego upadku: stanie RMS0,563 Nm,
 wolny chód0,606/0,681 Nm nominalnie/cięższy wariant. 632 testy.
@@ -71,7 +82,7 @@ v28 dla zgodności wcześniejszego eksperymentu. Szczegółowe komendy w README 
 ## Wcześniejsza dokumentacja v28 — zachowana porównawczo
 
 Poniższe liczby, nazwy plików i cztery stare serwa pomocnicze dotyczą
-wyłącznie **v28**, nie aktualnego modelu v33.
+wyłącznie **v28**, nie aktualnego modelu v35.
 
 **Jest działający model fizyczny, ale nie ma jeszcze zatwierdzenia robota do
 druku ani napędów do pracy ciągłej.** Nie zastępuje dotychczasowego modelu ROS

@@ -1,0 +1,84 @@
+{
+  "source_sha256": "11e8c27e496032df6f556736e94699424723cef5fe0192b0ade2d152f810bdc5",
+  "suite": "baseline",
+  "planned_cases": 3,
+  "completed_cases": 3,
+  "wall_seconds": 68.76937106200057,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "scope": "Bounded, reproducible Gazebo-only parameter sweep. No hardware interface.\n\nExploratory falls are results, not erased trials. Baseline failures return an\nerror; all stdout, telemetry and configuration remain available for review.\n",
+  "trials": [
+    {
+      "configuration": {
+        "tag": "stand",
+        "mode": "stand",
+        "seconds": 8,
+        "mass": "nominal",
+        "step_seconds": 1,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-170024-stand-runner.log",
+      "summary": "20260922-170012-stand-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 801,
+      "stale_motor_samples": 1,
+      "max_joint_rms_nm": 0.5646842412252099,
+      "displacement_after_settle_m": [
+        1.825995627514898e-07,
+        2.0166164892003524e-08,
+        -5.789975664471925e-07
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "crawl-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 1,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-170052-crawl-nominal-runner.log",
+      "summary": "20260922-170034-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6049651196379241,
+      "displacement_after_settle_m": [
+        0.08408126059074736,
+        -0.00032646545522560907,
+        -0.0005219734483686289
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "crawl-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 1,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-170120-crawl-upper-runner.log",
+      "summary": "20260922-170102-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6810889276002553,
+      "displacement_after_settle_m": [
+        0.08990796899462455,
+        -0.0011051391615388572,
+        -0.0004949815738906072
+      ]
+    }
+  ]
+}

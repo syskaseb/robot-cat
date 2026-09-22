@@ -1,0 +1,39 @@
+"""Inspection-only AUX cutaway by visibility, not a modified/saved CAD part.
+
+Run View35.FCMacro afterwards to restore every installed component.
+"""
+from pathlib import Path
+import json
+import FreeCAD as A
+import FreeCADGui as G
+
+folder = Path(__file__).resolve().parents[3] / 'hardware/skorupa/v35'
+plan = json.loads((folder / 'assembly-plan.json').read_text())
+path = folder / plan['cad_filename']
+doc = next((d for d in A.listDocuments().values()
+            if d.FileName and Path(d.FileName).resolve() == path.resolve()), None)
+if doc is None:
+    doc = A.openDocument(str(path))
+A.setActiveDocument(doc.Name)
+context = {'AuxBuck', 'Part__Feature038', 'Part__Feature106',
+           'TailBridge29', 'TailRoot29', 'MG92BCase29', 'MG92BMount29'}
+for row in plan['components']:
+    name = row['name']
+    shown = name in context or name.startswith(('AuxPost35_', 'AuxBolt35_',
+            'AuxNut35_', 'AuxTerminal35_', 'TailFrameBolt29_'))
+    doc.getObject('Rigid_' + name).Visibility = True
+    part = doc.getObject(name)
+    part.Visibility = shown
+    part.ViewObject.Transparency = 0
+for obj in doc.Objects:
+    if hasattr(obj, 'JointType'):
+        obj.Visibility = False
+G.Selection.clearSelection()
+view = G.activeDocument().activeView()
+view.setCameraType('Orthographic')
+direction = A.Vector(1, -1.5, 1.5)
+view.setCameraOrientation(A.Rotation(A.Vector(0, 0, 1).cross(direction),
+                                   A.Vector(0, 0, 1), direction, 'ZXY').Q)
+view.fitAll()
+G.updateGui()
+# No save: hide/show is not a new signed mechanical checkpoint.

@@ -1,0 +1,51 @@
+{
+  "source_sha256": "11e8c27e496032df6f556736e94699424723cef5fe0192b0ade2d152f810bdc5",
+  "master_sha256": "2eb5d64a63136815bf6e066ea753a9b96a07deae4db5eb8fdd496dea7200833f",
+  "archives_sha256": {
+    "inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
+    "meshes.zip": "9c65b61cbf338a2c7d315a62448b4dedd6200597cc3c56c6006e83c58929f849",
+    "telemetry.zip": "2796edf15ec5a0321b195b5538602bdb0b16c41f8d5bdf6601f49c215d03676f"
+  },
+  "provenance_verified": true,
+  "components": 320,
+  "native_fixed": 306,
+  "native_revolute": 13,
+  "temporary_locks": 29,
+  "native_frames": 22,
+  "inherited_parts_checked": 302,
+  "changed_rest_interferences": 0,
+  "head_and_tail_frozen_in_Gazebo": true,
+  "strict_shell_BOP_passed": false,
+  "legacy_shell_repaired": false,
+  "thermal_validation": false,
+  "physical_horn_verified": false,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "trials": [
+    {
+      "file": "trials/20260922-170012-stand-summary.json",
+      "mode": "stand",
+      "mass_case": "nominal",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 800
+    },
+    {
+      "file": "trials/20260922-170034-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "nominal",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 1501
+    },
+    {
+      "file": "trials/20260922-170102-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "upper",
+      "screening_completed": true,
+      "result": "duration_completed",
+      "fresh_motor_samples": 1501
+    }
+  ],
+  "scope": "Bind v35 CAD, bounded prototype evidence and fresh Gazebo screening."
+}

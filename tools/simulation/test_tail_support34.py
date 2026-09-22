@@ -100,7 +100,7 @@ def test_every_component_has_one_joint_parent_and_root_is_supported():
 
 def test_bearings_have_purchased_mass_not_petg_density():
     from cad_model import REVISION, BOUGHT_G
-    if REVISION != 'v34':
+    if REVISION not in ('v34', 'v35'):
         pytest.skip('v34 mass budget only')
     assert BOUGHT_G['BearingLower34'] == BOUGHT_G['BearingUpper34'] == 13
 
