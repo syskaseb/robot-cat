@@ -1,6 +1,16 @@
-# Aktualny CAD w Gazebo — v30, 22.09.2026
+# Aktualny CAD w Gazebo — v31, 22.09.2026
 
-**Najnowsze wyniki: [v30 — rzeczywiste mocowanie IMU](v30/README.md).**
+**Najnowsze wyniki: [v31 — mocowanie głównej przetwornicy](v31/README.md).**
+280 części, masa nominalna 2,421 kg (2,144–2,879 kg), 13 ciał / 12 osi nóg.
+Trzy próby bez upadku: RMS max 0,535 Nm stanie, 0,576 Nm wolny chód,
+0,649 Nm cięższy chód i 15,4% nasycenia. Nadal brak zatwierdzenia biegu,
+pracy ciągłej ST3215, termiki PETG oraz pełnych kolizji/serwisu.
+614 testów zaliczonych. `ROBOT_CAT_CAD_REVISION=v31`, `verify_v31.py`.
+[Wyniki v31](v31/RESULTS.md), [spójność źródeł](v31/checkpoint-integrity.json).
+
+## Poprzedni checkpoint v30 — zachowany porównawczo
+
+**[v30 — rzeczywiste mocowanie IMU](v30/README.md).**
 264 części, masa nominalna 2,419 kg (+3,2 g względem v29).
 Trzy próby bez upadku: stanie RMS max 0,534 Nm, wolny chód 0,574 Nm,
 cięższy wariant 0,650 Nm / 15,4% nasycenia. Nadal 13 ciał i 12 osi nóg;
@@ -29,7 +39,7 @@ v28 dla zgodności wcześniejszego eksperymentu. Szczegółowe komendy w README 
 ## Wcześniejsza dokumentacja v28 — zachowana porównawczo
 
 Poniższe liczby, nazwy plików i cztery stare serwa pomocnicze dotyczą
-wyłącznie **v28**, nie aktualnego modelu v30.
+wyłącznie **v28**, nie aktualnego modelu v31.
 
 **Jest działający model fizyczny, ale nie ma jeszcze zatwierdzenia robota do
 druku ani napędów do pracy ciągłej.** Nie zastępuje dotychczasowego modelu ROS

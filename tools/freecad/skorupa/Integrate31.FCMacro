@@ -1,0 +1,97 @@
+"""Integrate MCP-authored Pololu mounting in a new v31 copy, preserving v30."""
+from pathlib import Path
+import hashlib,json,shutil,sys
+import FreeCAD as A,FreeCADGui as G
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v31'
+SOURCE=ROOT/'hardware/skorupa/v30/Kot_v30_ELEKTRONIKA.FCStd'
+TARGET=OUT/'Kot_v31_ZASILANIE.FCStd';MASTER=OUT/'PowerDesign31.FCStd'
+assert not TARGET.exists(),'Preserve checkpoints'
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()=='eaa115b880b698c729c8c6448b2013ecf5db6a3aea0e6521e8ceb20e23e4c6bc'
+m=A.getDocument('PowerDesign31');assert Path(m.FileName).resolve()==MASTER.resolve()
+for o in m.Objects:
+    if o.TypeId=='Sketcher::SketchObject':assert o.FullyConstrained,o.Name
+    if o.TypeId=='PartDesign::Body':assert o.Shape.isValid() and len(o.Shape.Solids)==1,o.Name
+shutil.copy2(SOURCE,TARGET)
+d=A.openDocument(str(TARGET));asm=d.getObject('RobotCatAssembly24');group=d.getObject('Joints')
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly');import JointObject
+plan=json.loads((ROOT/'hardware/skorupa/v30/assembly-plan.json').read_text())
+plan['source_checkpoint']='v30';plan['inherited_master_sha256']=plan['master_sha256']
+plan['cad_filename']=TARGET.name;plan['master_filename']=MASTER.name
+plan['scope']='v31: actual main Pololu PCB, drawing-based terminal envelopes, through-bolted PETG supports including bridge gap spacers. Thermal/service validation remains open; AUX unchanged.'
+plan['fasteners']=dict(M2x12=16,M2x19=4,M2_nut=20,M3x12=4,M3_nut=4,
+    supplier_candidate='Botland NSZ-00637; nominal head/nut envelopes, not measured hardware',scope='v29 tail + v30 IMU + v31 main regulator only; not whole robot BOM')
+
+def prop(o,n,v):
+    if n not in o.PropertiesList:o.addProperty('App::PropertyString',n,'Traceability')
+    setattr(o,n,v)
+
+def replace(src,dst):
+    o=d.getObject(dst);o.Shape=m.getObject(src).Shape.copy()
+    prop(o,'ParametricMaster','PowerDesign31.FCStd / '+src+'; baked snapshot, not live link')
+    return o
+
+replace('TopCover31','Part__Feature038');replace('ShellClearance31','ShellMounted20');replace('TailBridge31','TailBridge29')
+p=replace('PololuReference31','Pololu');p.Label='Pololu D24V90F5 2866 | supplier STEP without terminals'
+prop(p,'MaterialSpec','Purchased PCB/electronics; manufacturer nominal 4.8 g without hardware')
+prop(p,'DesignStatus','Four M2x19/nuts and PETG posts; no thermal approval')
+p.ViewObject.DiffuseColor=m.getObject('PololuReference31').ViewObject.DiffuseColor
+next(r for r in plan['components'] if r['name']=='Pololu')['label']=p.Label
+
+def fixed(name,parent,child,point,status):
+    j=group.newObject('App::FeaturePython',name);JointObject.Joint(j,0);JointObject.ViewProviderJoint(j.ViewObject)
+    j.Detach1=True;j.Detach2=True
+    j.Reference1=(d.getObject('Rigid_'+parent),['','']);j.Reference2=(d.getObject('Rigid_'+child),['',''])
+    j.Placement1=j.Placement2=A.Placement(A.Vector(*point),A.Rotation())
+    prop(j,'DesignStatus',status);j.Visibility=False
+    plan['joints'].append(dict(name=name,type='Fixed',parent=parent,child=child,status=status))
+
+def add(src,name,placement,parent,point,material,status):
+    wrapper=d.addObject('App::Part','Rigid_'+name);asm.addObject(wrapper)
+    o=wrapper.newObject('Part::Feature',name);s=m.getObject(src).Shape.copy()
+    if placement is not None:s.Placement=placement*s.Placement
+    o.Shape=s;o.Label=name+' | '+material
+    prop(o,'MaterialSpec',material);prop(o,'RigidStage','Chassis');prop(o,'DesignStatus',status)
+    prop(o,'ParametricMaster','PowerDesign31.FCStd / '+src+'; baked snapshot')
+    o.ViewObject.ShapeColor=(.1,.11,.13) if material=='PETG' else (.62,.64,.65)
+    if name.startswith('PowerTerminal31_'):o.ViewObject.DiffuseColor=m.getObject(src).ViewObject.DiffuseColor
+    o.Visibility=True;fixed('Fix_'+name,parent,name,point,status)
+    plan['components'].append(dict(name=name,label=o.Label,stage='Chassis'))
+    return o
+
+holes=[(x,y) for x in [88.04,123.6] for y in [.54,15.78]]
+down=A.Rotation(A.Vector(0,0,1),A.Vector(0,0,-1))
+status='Modeled through-bolted stack; PETG thermal/creep/tolerance and full service access require physical validation'
+sources=['PololuTallPost31','PololuTallPost003','PololuShortPost31','PololuShortPost003']
+for i,(x,y) in enumerate(holes):
+    z=38.52 if i<2 else 44;parent='Part__Feature038' if i<2 else 'TailBridge29'
+    add(sources[i],'PowerPost31_%d'%i,None,parent,[x,y,z],'PETG',status)
+    add('BoltM2x12','PowerBolt31_%d'%i,A.Placement(A.Vector(x,y,53.5748),down),'Pololu',[x,y,53.5748],'STEEL M2x19 nominal',status)
+    add('NutM2','PowerNut31_%d'%i,A.Placement(A.Vector(x,y,37.02),down),'Part__Feature038',[x,y,37.02],'STEEL M2 nut nominal',status)
+    if i>=2:
+        src='PololuBridgeSpacer31' if i==2 else 'PololuBridgeSpacer003'
+        add(src,'PowerGapSpacer31_%d'%i,None,'Part__Feature038',[x,y,38.52],'PETG',status)
+for i,src in enumerate(['PowerTerminal31','PowerTerminal003']):
+    add(src,'PowerTerminal31_%d'%i,None,'Pololu',[88.04 if i==0 else 123.6,8.2,53.5748],
+        'PURCHASED terminal plastic and metal; nominal drawing envelope',
+        'Two 1 mm pins at 5 mm pitch soldered to matching PCB pads; solder fillet, current, wire strain relief and tool access not validated')
+j=d.getObject('Fix_Pololu');j.Reference1=(d.getObject('Rigid_PowerPost31_0'),['',''])
+j.Placement1=j.Placement2=A.Placement(A.Vector(88.04,.54,52),A.Rotation())
+j.DesignStatus='Four real corner holes, M2x19 through all layers; bridge gap explicitly supported, not an air clamp; thermal/service validation open'
+next(r for r in plan['joints'] if r['name']=='Fix_Pololu').update(parent='PowerPost31_0',status=j.DesignStatus)
+plan['power_mount']=dict(source_step='d24v90f5-pololu.step',source_step_sha256=hashlib.sha256((ROOT/'hardware/reference/component-selection-2026-09-22/d24v90f5-pololu.step').read_bytes()).hexdigest(),
+    pcb_base_CAD_mm=[85.5,-2,52],pcb_thickness_mm=1.5748,holes_CAD_xy_mm=holes,
+    post_base_z_mm=[38.52,38.52,44,44],post_height_mm=[13.48,13.48,8,8],gap_spacers_mm=2.48,
+    post_OD_mm=6,clearance_hole_diameter_mm=2.4,shell_passage_diameter_mm=6.8,
+    clamped_stack_mm=16.5548,nut_height_mm=1.6,nominal_screw_protrusion_mm=.8452,
+    terminal_source='https://www.pololu.com/product/2440',terminal_dimensions_mm=[7.6,10,10],terminal_pin_diameter_mm=1,
+    terminal_pin_pitch_mm=5,terminal_pin_length_mm=4,terminal_envelope_only=True,
+    note='Main regulator only. AUX unchanged. Bought PCB mass 4.8 g; terminals 2 g each assumed. Wire envelopes local and not routed. Top screwdriver route may require removing overhead distribution module.')
+plan['fixed_count']=sum(r['type']=='Fixed' for r in plan['joints']);plan['revolute_count']=sum(r['type']=='Revolute' for r in plan['joints'])
+plan['temporary_locks']=sum('TEMP' in r['status'].upper() for r in plan['joints'])
+d.recompute();assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+asm.Scope=plan['scope'];d.Label='Kot v31 - montaz glownego Pololu - PROTOTYP';d.recompute();d.save()
+plan['source_sha256']=hashlib.sha256(TARGET.read_bytes()).hexdigest();plan['master_sha256']=hashlib.sha256(MASTER.read_bytes()).hexdigest()
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+A.setActiveDocument(d.Name);G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(file=d.FileName,components=len(plan['components']),fixed=plan['fixed_count'],temporary=plan['temporary_locks'])))

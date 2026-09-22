@@ -1,15 +1,31 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v30](v30/README.md). **Nie jest wydaniem do druku.**
+Ostatnie złożenie: [v31](v31/README.md). **Nie jest wydaniem do druku.**
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
 Na zlecenie użytkownika rozpoczęto konkretny
 [dobór części i zebranie modeli producentów](../reference/component-selection-2026-09-22/README.md).
 Priorytet: Botland, następnie Kamami; maksymalnie 10 dni oczekiwania.
 Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
-v30 integruje rzeczywisty BNO085 i jego mocowanie. Pozostała elektronika
-i dwa serwa głowy nadal czekają na integrację.
+v30 integruje rzeczywisty BNO085, v31 główne Pololu z fizycznymi mocowaniami.
+Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
+
+## Nocny checkpoint v31 — główna przetwornica
+
+- Rzeczywisty STEP Pololu D24V90F5, dwa zaciski według rysunku producenta,
+  sześć dystansów PETG, cztery M2×19/nakrętki. Krótkie dystanse pod mostkiem
+  wypełniają szczelinę, by dokręcanie nie odginało podpory.
+- 280 części, 266 Fixed + 13 Revolute, **34 tymczasowe**. Dziewięć w pełni
+  związanych szkiców; test 22 klatek utrzymał IMU i Pololu przy korpusie.
+- 63 pary bez przecięć >0,01 mm³; kontakty podpór i drożność osi potwierdzone.
+  Dwa dojścia do zacisku blokuje górna obwiednia `PowerDistribution`:
+  trzeba ją zdjąć do obsługi. Nie udajemy pełnej dostępności serwisowej.
+- Gazebo: nominalnie 2,421 kg (2,144–2,879); stanie 0,535 Nm RMS,
+  wolny chód 0,576 Nm, cięższy 0,649 Nm / 15,4% nasycenia. Trzy próby
+  bez upadku; 614 testów ROS/CAD zaliczonych. Wniosek o ST3215 bez zmian.
+- Główna płytka 4,8 g według producenta, zaciski po 2 g jako założenie.
+  AUX i zakupy niezmienione; temperatura regulatora/PETG niezatwierdzona.
 
 ## Nocny checkpoint v30 — IMU
 
@@ -79,7 +95,7 @@ i dwa serwa głowy nadal czekają na integrację.
 - Lista `docs/plan-zakupowy.pdf`, strona 1: **2 serwa głowy + 1 ogona**.
   Nie ma zgody ani potrzeby interpretacyjnej na czwarte serwo pomocnicze.
 - v28 miało 12 natywnych Revolute nóg i 225 Fixed, w tym 64 tymczasowe
-  blokady; v30: 13 Revolute, 250 Fixed, **35 tymczasowych**. Fixed nie
+  blokady; v31: 13 Revolute, 266 Fixed, **34 tymczasowe**. Fixed nie
   zastępuje rzeczywistego wspornika, śruby ani łożyska.
 - Test natywny v28: 22 klatki ±3°, nie pełny chód ani pełne zakresy serw.
 
@@ -117,7 +133,8 @@ i dwa serwa głowy nadal czekają na integrację.
   niezależne podparcie i osłonę, sprawdzić narzędzia i próby PETG.
   Segmenty i usunięcie nadmiarowego napędu są już wykonane, nie powtarzać.
 - Pozostałe mocowania elektroniki oparte o faktyczne otwory, wtyki,
-  miejsca serwisowe; BNO085 wdrożony w v30, kalibracja/testy sprzętowe otwarte.
+  miejsca serwisowe; BNO085 w v30, główne Pololu w v31. Kalibracja IMU,
+  termika, serwis i testy sprzętowe pozostają otwarte.
   Zweryfikować termikę regulatorów i chłodzenia, nie tylko statyczny obrys.
 - Serwis akumulatora: obecna tacka/paski/nakrętki blokują wyjęcie w dół.
   Wąska tacka i mocowania na końcach są kierunkiem do sprawdzenia, nie

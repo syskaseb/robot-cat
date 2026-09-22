@@ -30,7 +30,7 @@ def test_part_mass_accounting(geometry):
 
 
 def test_v29_auxiliary_and_fastener_mass_classification(geometry):
-    if REVISION not in ('v29','v30'):pytest.skip('v29+ tail integration only')
+    if REVISION not in ('v29','v30','v31'):pytest.skip('v29+ tail integration only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['MG92BCase29']['mass_kg']+rows['MG92BOutput29']['mass_kg']==pytest.approx(.0138)
     assert not {'TailYawServo','TailLiftServo'} & set(rows)
@@ -41,9 +41,9 @@ def test_v29_auxiliary_and_fastener_mass_classification(geometry):
 
 
 def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
-    if REVISION!='v30':pytest.skip('v30 IMU mounting only')
+    if REVISION not in ('v30','v31'):pytest.skip('v30+ IMU mounting only')
     rows={r['name']:r for r in mass_budget(geometry)}
-    assert len(geometry['components'])==264
+    assert len(geometry['components'])==(280 if REVISION=='v31' else 264)
     assert rows['IMU']['mass_kg']==pytest.approx(.004)
     posts=[r for n,r in rows.items() if n.startswith('IMUPost30_')]
     screws=[r for n,r in rows.items() if n.startswith('IMUBolt30_')]
@@ -53,6 +53,20 @@ def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
     assert all(r['basis'].startswith('solid CAD PETG') for r in posts)
     assert all(r['basis'].startswith('steel') for r in screws+nuts)
     assert sum(r['mass_kg'] for r in posts)==pytest.approx(4*153.9028541881796*1.27e-6)
+
+
+def test_v31_power_mount_mass_classification(geometry):
+    if REVISION!='v31':pytest.skip('v31 main regulator mounting only')
+    rows={r['name']:r for r in mass_budget(geometry)}
+    assert rows['Pololu']['mass_kg']==pytest.approx(.0048)
+    terminals=[r for n,r in rows.items() if n.startswith('PowerTerminal31_')]
+    assert len(terminals)==2 and all(r['mass_kg']==pytest.approx(.002) for r in terminals)
+    posts=[r for n,r in rows.items() if n.startswith(('PowerPost31_','PowerGapSpacer31_'))]
+    bolts=[r for n,r in rows.items() if n.startswith(('PowerBolt31_','PowerNut31_'))]
+    assert len(posts)==6 and len(bolts)==8
+    assert all(r['stage']=='Chassis' for r in terminals+posts+bolts)
+    assert all(r['basis'].startswith('solid CAD PETG') for r in posts)
+    assert all(r['basis'].startswith('steel') for r in bolts)
 
 
 def test_inverted_hip_mount_ownership(geometry):

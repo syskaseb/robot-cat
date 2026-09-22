@@ -1,0 +1,45 @@
+{
+  "provenance_verified": true,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "full_gait_collision_test": false,
+  "tail_support_verified": false,
+  "IMU_magnetic_calibration": false,
+  "power_thermal_approval": false,
+  "complete_terminal_tool_access": false,
+  "source_sha256": "42ddba034240f02d76a03f3e3ed28a4f58a60be7022fd0ff97d092610fac87d0",
+  "master_sha256": "476ac8f6d4cf28c96b6f6d53818d439b7d4428d1ed95f77bacdde648ec9ddb3a",
+  "archives_sha256": {
+    "inputs.zip": "59c16ccbf8b9777c699f70d2c0590723ad761393150058321763b7a4a11ec84e",
+    "meshes.zip": "6e2ddeb671350b1fcc76a3427456f6eeb6977a68dd43e8ada00f534e84bb1f4e",
+    "telemetry.zip": "378ebfd2ef0ac8b3834cdf3b0c66c66e5a81242b4642ea4bf596c42dec9c1db3"
+  },
+  "components": 280,
+  "native_revolute": 13,
+  "native_fixed": 266,
+  "temporary_locks": 34,
+  "native_frames": 22,
+  "new_part_rest_interferences": 0,
+  "inherited_parts_checked": 260,
+  "dynamic_links": 13,
+  "dynamic_leg_axes": 12,
+  "tail_frozen_in_Gazebo": true,
+  "trials": [
+    {
+      "file": "trials/20260922-031610-stand-summary.json",
+      "mode": "stand",
+      "mass_case": "nominal"
+    },
+    {
+      "file": "trials/20260922-031630-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "nominal"
+    },
+    {
+      "file": "trials/20260922-031657-crawl-summary.json",
+      "mode": "crawl",
+      "mass_case": "upper"
+    }
+  ],
+  "scope": "Verify saved v31 CAD, mounting tests and physics provenance; not print approval."
+}
