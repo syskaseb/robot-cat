@@ -87,5 +87,5 @@ report=dict(reference_only=True,integrated_into_cat=False,mounts_approved=False,
                      'No plugged USB/audio cable, XIAO board or acoustic channels included in fit test.',
                      'Not a mass or thermal model; electronic CAD solids are not all homogeneous PETG.',
                      'No robot document or assembly joint was changed.'])
-(OUT/'measurements.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+(OUT/'measurements.json').write_text(json.dumps(report,indent=2),encoding='utf8',newline='\n')
 print(json.dumps(report,indent=2),flush=True)

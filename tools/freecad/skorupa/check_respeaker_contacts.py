@@ -43,5 +43,5 @@ result=dict(step_sha256=report['step_sha256'],cat_sha256=report['cat_sha256'],
             envelope_report_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
             integrated=False,mounts_approved=False,cases=cases,
             scope=__doc__)
-(OUT/'detailed-contacts.json').write_text(json.dumps(result,indent=2),encoding='utf8')
+(OUT/'detailed-contacts.json').write_text(json.dumps(result,indent=2),encoding='utf8',newline='\n')
 print(json.dumps(result,indent=2),flush=True)
