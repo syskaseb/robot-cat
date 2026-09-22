@@ -1,18 +1,25 @@
 # Dokumenty projektowe
 
+**Uwaga, 22.09.2026:** poniższe PDF-y opisują wcześniejszy uproszczony model
+ROS, nie obecne złożenie FreeCAD. Nie są zatwierdzeniem wymiarów ani napędów
+aktualnej konstrukcji. Nowe obliczenia CAD i ich ograniczenia są w
+[hardware/simulation](../../hardware/simulation/README.md), a mechanika w
+[STATUS](../../hardware/skorupa/STATUS.md). PDF-ów nie przebudowano w tej rewizji.
+Porównanie z momentem zatrzymania nie potwierdza zapasu cieplnego ani momentu
+pracy ciągłej. Wynik 1,93 Nm i budżet 2,095 kg dotyczą starego modelu.
+
 Pięć PDF-ów w `../`, wszystkie generowane z tych skryptów:
 
 | plik | co zawiera |
 |---|---|
-| `napedy-v4.pdf` | analiza techniczna: rozmiar, masa, moment, dobór napędu — **źródło prawdy dla liczb w pozostałych** |
+| `napedy-v4.pdf` | historyczna analiza uproszczonego modelu, nie walidacja bieżącego CAD |
 | `plan-zakupowy.pdf` | pełna lista zakupów z cenami i sumą |
 | `montaz.pdf` | brakujące kable i narzędzia, wymiary obudowy, kolejność montażu i uruchamiania |
 | `uzupelnienie-elektroniki.pdf` | montaż w stawie vs w brzuchu, jeden kompute vs per-noga, porównanie z QDD, płynność chodu |
 | `ekspansja-wizyjna.pdf` | plan dojścia do „idź do pokoju A, zobacz co na stole" — SLAM, Nav2, YOLOv8 na Hailo |
 
-`montaz.pdf` bierze wymiary z `cat.urdf.xacro` przy `scale 1.0`. **Ten plik
-jest źródłem prawdy** — po zmianie modelu dokument trzeba wygenerować od nowa,
-bo inaczej obudowa przestanie pasować do tego, na czym liczono momenty.
+`montaz.pdf` bierze wymiary z historycznego `cat.urdf.xacro` przy `scale 1.0`.
+Nie należy według nich drukować bieżącej obudowy FreeCAD.
 
 Wszystkie liczby pochodzą z pomiarów w symulacji albo ze sprawdzenia ofert —
 skrypty ich nie liczą, tylko składają w dokument. Po nowej serii pomiarów

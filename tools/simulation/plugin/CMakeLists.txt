@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
+project(robot_cat_cad_actuator LANGUAGES CXX)
+find_package(gz-sim8 REQUIRED)
+add_library(robot_cat_cad_actuator SHARED actuator.cc)
+target_compile_features(robot_cat_cad_actuator PRIVATE cxx_std_17)
+target_link_libraries(robot_cat_cad_actuator PRIVATE gz-sim8::gz-sim8)

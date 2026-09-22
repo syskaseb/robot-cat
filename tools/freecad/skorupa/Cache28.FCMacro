@@ -1,0 +1,17 @@
+"""Rebuild ignored world-BRep cache from a saved, resting v28; no CAD edits."""
+from pathlib import Path
+import json,hashlib
+import FreeCAD as A
+
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v28'
+d=A.ActiveDocument
+assert Path(d.FileName).resolve()==(OUT/'Kot_v28_BIODRA_PETG.FCStd').resolve()
+plan=json.loads((ROOT/'hardware/skorupa/v27/assembly-plan.json').read_text(encoding='utf8'))
+assert all(d.getObject('Rigid_'+p['name']).Placement.isSame(A.Placement(),1e-6) for p in plan['components'])
+cache=OUT/'shape-cache';cache.mkdir(exist_ok=True)
+for p in plan['components']:
+    o=d.getObject(p['name']);s=o.Shape.copy()
+    s.Placement=o.getGlobalPlacement()*o.Placement.inverse()*s.Placement
+    s.exportBrep(str(cache/(o.Name+'.brep')))
+(cache/'index.json').write_text(json.dumps(dict(source_sha256=hashlib.sha256(Path(d.FileName).read_bytes()).hexdigest(),objects=[p['name'] for p in plan['components']]),indent=2),encoding='utf8')
+print('238 world shapes cached; source document not modified')

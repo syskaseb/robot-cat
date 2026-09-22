@@ -8,6 +8,13 @@ It covers bootstrap, startup, how to drive the cat without a keyboard, and how
 to verify it actually walked. What follows is only the part most likely to
 waste your time.
 
+For CAD, PETG mechanics or actuator sizing, read `hardware/skorupa/STATUS.md`
+and `hardware/simulation/README.md` first. The current FreeCAD-derived model
+is separate from the historical primitive ROS model; do not reuse its
+2.095 kg budget or stall-torque comparison as approval of current hardware.
+Keep existing checkpoints and use the user's `syskaseb` remote for mechanical
+work; `origin` points to a different owner's repository.
+
 ## Environment
 
 **Check which platform you are on before running anything.** On macOS the

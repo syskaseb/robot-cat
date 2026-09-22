@@ -3,6 +3,11 @@
 A 12-DOF quadruped cat simulated in Gazebo, walking with a trot gait, driven
 from the laptop's arrow keys.
 
+**Current physical CAD work:** see [mechanical status](hardware/skorupa/STATUS.md)
+and the separate [CAD-derived Gazebo experiment](hardware/simulation/README.md).
+The primitive ROS model described below is not dimensional or actuator
+validation of the current FreeCAD assembly.
+
 Runs **natively on Apple Silicon** — no Docker, no VM, no X11 — via
 [RoboStack](https://robostack.github.io) (ROS 2 as conda packages).
 

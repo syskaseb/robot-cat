@@ -1,0 +1,15 @@
+# Generated large text telemetry is preserved in per-revision archives.
+**/trials/*.json
+!**/trials/*-summary.json
+**/trials/*.sdf
+**/trials/*.log
+**/meshes/*.stl
+# Lossless inputs.zip keeps repeated generated numeric arrays out of diffs.
+**/geometry.json
+**/model.json
+**/stance-search.json
+# v25 used incorrect hip case/horn ownership. Keep only archived evidence.
+v25/*
+!v25/README.md
+!v25/superseded.zip
+!v25/superseded.sha256

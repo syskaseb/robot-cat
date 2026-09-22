@@ -1,0 +1,160 @@
+{
+  "mode": "crawl",
+  "result": "duration_completed",
+  "samples": 1501,
+  "stance_offset_m": [
+    -0.03,
+    0,
+    -0.005
+  ],
+  "source_sha256": "1f8e5d1c758056b56342314b99b9def783c5d8200ef78b3fbf99c70a2f1c0fa0",
+  "hard_joint_velocity_limit": false,
+  "mass_kg": 2.447904078672196,
+  "configuration": {
+    "mode": "crawl",
+    "seconds": 15.0,
+    "stance_x": -0.03,
+    "stance_z": -0.005,
+    "mass": "nominal",
+    "torque_cap": 1.0,
+    "friction": 0.4,
+    "step_seconds": 1.0
+  },
+  "code_sha256": {
+    "run_cad_gazebo.py": "2185f95693927521bd809b6152121288903f23202771a52c668b479a5ef2a392",
+    "cad_model.py": "ff992f43d499b908975188937b038a30f083b2f26fcb4eaf4a6d6d0294c61291",
+    "cad_kinematics.py": "450c9d30341aee90d4e7506c985bd5db3e9a8b1a2517d95d2052309873a25978",
+    "actuator.cc": "0513619f8da816547a187842227316d974d13797aa6b84f5f4af9ccd8dd26011"
+  },
+  "caveats": [
+    "v28 snapshot: head/tail fixed, 4 auxiliary placeholders, 64 temporary locks.",
+    "Bought masses and PETG density are assumptions; weigh actual build and slicer results.",
+    "No measured continuous ST3215 torque; stall is not a safe continuous rating.",
+    "10.5 V linear torque/speed scaling is an estimate for the 12 V winding, NOT the 7.4 V variant.",
+    "Foot friction, collisions and joint ranges are provisional; not print release."
+  ],
+  "test": "1 kHz effort PD + estimated 10.5 V torque-speed envelope; torque is motor command, NOT sensor feedback",
+  "stale_motor_samples": 0,
+  "last_pose": [
+    0.11055973169166979,
+    0.00017292693734768022,
+    0.1906875738489732
+  ],
+  "last_rpy": [
+    0.00025559255276427924,
+    0.0006054030108491407,
+    -0.012424322936314059
+  ],
+  "displacement_after_settle_m": [
+    0.07829165273283793,
+    -0.00015986655392778156,
+    -0.00047954716362744176
+  ],
+  "mean_x_speed_m_s": 0.006524304394403161,
+  "joints": {
+    "motion_fr_hip_joint": {
+      "peak_nm": 0.5424939076469831,
+      "rms_nm": 0.24462740000340555,
+      "peak_speed_rad_s": 0.26191777249025006,
+      "max_error_rad": 0.017771168545699212,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_fr_knee_joint": {
+      "peak_nm": 0.7257941269891707,
+      "rms_nm": 0.27868633529410425,
+      "peak_speed_rad_s": 0.7812654041355573,
+      "max_error_rad": 0.026003007030694775,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_fr_ankle_joint": {
+      "peak_nm": 1.0,
+      "rms_nm": 0.579857415469126,
+      "peak_speed_rad_s": 5.244209385970781,
+      "max_error_rad": 0.04869089316239207,
+      "saturation_fraction": 0.030745580322828592,
+      "torque_speed_violations": 0
+    },
+    "motion_fl_hip_joint": {
+      "peak_nm": 0.5507000147003616,
+      "rms_nm": 0.2429317008378404,
+      "peak_speed_rad_s": 0.24607601872336266,
+      "max_error_rad": 0.01816190171061268,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_fl_knee_joint": {
+      "peak_nm": 0.44834358140400654,
+      "rms_nm": 0.19420753617409417,
+      "peak_speed_rad_s": 0.9449111208165574,
+      "max_error_rad": 0.019351835181847826,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_fl_ankle_joint": {
+      "peak_nm": 1.0,
+      "rms_nm": 0.5217359121829651,
+      "peak_speed_rad_s": 1.9621251448718224,
+      "max_error_rad": 0.04441723557335004,
+      "saturation_fraction": 0.042275172943889314,
+      "torque_speed_violations": 0
+    },
+    "motion_rr_hip_joint": {
+      "peak_nm": 0.5792861896720616,
+      "rms_nm": 0.21042052116201446,
+      "peak_speed_rad_s": 0.2794566147063704,
+      "max_error_rad": 0.01932973812290115,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_rr_knee_joint": {
+      "peak_nm": 0.5445549650604441,
+      "rms_nm": 0.22573535897162206,
+      "peak_speed_rad_s": 0.8163715006855817,
+      "max_error_rad": 0.021886305525579602,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_rr_ankle_joint": {
+      "peak_nm": 0.7842735618666348,
+      "rms_nm": 0.4089758130714441,
+      "peak_speed_rad_s": 4.702291601486227,
+      "max_error_rad": 0.026024024074540915,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_rl_hip_joint": {
+      "peak_nm": 0.5501815882158059,
+      "rms_nm": 0.20812758281622917,
+      "peak_speed_rad_s": 0.25917706627147546,
+      "max_error_rad": 0.018416425786220467,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_rl_knee_joint": {
+      "peak_nm": 0.607350387392733,
+      "rms_nm": 0.23408377521110812,
+      "peak_speed_rad_s": 0.8401930913964688,
+      "max_error_rad": 0.021297401811041505,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    },
+    "motion_rl_ankle_joint": {
+      "peak_nm": 0.784976819875939,
+      "rms_nm": 0.4152485499475296,
+      "peak_speed_rad_s": 5.83277742269218,
+      "max_error_rad": 0.02603191297219909,
+      "saturation_fraction": 0.0,
+      "torque_speed_violations": 0
+    }
+  },
+  "actuator_commands_nonzero": true,
+  "peak_abs_roll_pitch_rad": [
+    0.02330942447074351,
+    0.01461605016523287
+  ],
+  "max_joint_rms_nm": 0.579857415469126,
+  "above_provisional_25pct_screen": [],
+  "screening_completed": true
+}

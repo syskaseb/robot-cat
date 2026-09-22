@@ -1,0 +1,79 @@
+"""Repair inverted hip ownership, preserving every solid and world pose.
+
+Uses detached native joint datums, unavailable in the face-mating MCP tool.
+Run only on the isolated v27 copy, never on v25.
+"""
+from pathlib import Path
+import json, hashlib, math
+import FreeCAD as A, FreeCADGui as G
+
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v27'
+d=A.getDocument('Kot_v27_BIODRA_ASSEMBLY')
+assert Path(d.FileName).resolve()==(OUT/'Kot_v27_BIODRA_ASSEMBLY.FCStd').resolve()
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf8'))
+changes=json.loads((OUT/'ownership-changes.json').read_text())
+asm=d.getObject('RobotCatAssembly24')
+before={p['name']:(d.getObject('Rigid_'+p['name']).Placement.copy(),
+                   d.getObject(p['name']).getGlobalPlacement().copy(),
+                   d.getObject(p['name']).Shape.Volume) for p in plan['components']}
+assert len(d.Objects)==2642 and len(before)==238
+d.openTransaction('Correct inverted hip servo mounts')
+try:
+    for c in changes:
+        j=d.getObject('Fix_'+c['name'])
+        assert j.Reference1[0].Name=='Rigid_'+c['old_parent'], c
+        assert j.Reference2[0].Name=='Rigid_'+c['name'], c
+        datum=j.Reference1[0].Placement*j.Placement1
+        parent=d.getObject('Rigid_'+c['new_parent'])
+        j.Detach1=True;j.Detach2=True
+        j.Reference1=(parent,['',''])
+        j.Placement1=parent.Placement.inverse()*datum
+        j.DesignStatus='Hip case fixed to WConnector at matching M2 axes; horn fixed to chassis'
+    d.recompute();assert asm.solve()==0
+    for n,(p,world,volume) in before.items():
+        assert d.getObject('Rigid_'+n).Placement.isSame(p,1e-6),n
+        assert d.getObject(n).getGlobalPlacement().isSame(world,1e-6),n
+        assert abs(d.getObject(n).Shape.Volume-volume)<1e-6,n
+    asm.Scope=plan['scope']
+    d.commitTransaction()
+except Exception:
+    d.abortTransaction()
+    for n,(p,_,_) in before.items():d.getObject('Rigid_'+n).Placement=p
+    d.recompute()
+    raise
+
+# Exercise the actual native solver, not a parallel JSON animation.
+sim=d.getObject('LegConnectionTest24');assert len(sim.Group)==12
+rows=[];peaks={p['name']:0. for p in plan['joints'] if p['type']=='Revolute'}
+try:
+    asm.generateSimulation(sim);frames=asm.numberOfFrames();assert frames>=20
+    for frame in range(frames):
+        asm.updateForFrame(frame);gap=angle_error=axis_error=0.
+        for p in plan['joints']:
+            j=d.getObject(p['name'])
+            a=j.Reference1[0].Placement*j.Placement1;b=j.Reference2[0].Placement*j.Placement2
+            gap=max(gap,(a.Base-b.Base).Length)
+            angle=(a.Rotation.inverted()*b.Rotation).Angle
+            if p['type']=='Fixed':angle_error=max(angle_error,angle)
+            else:
+                peaks[p['name']]=max(peaks[p['name']],math.degrees(angle))
+                axis_error=max(axis_error,a.Rotation.multVec(A.Vector(0,0,1)).getAngle(b.Rotation.multVec(A.Vector(0,0,1))))
+        assert max(gap,angle_error,axis_error)<1e-5,(frame,gap,angle_error,axis_error)
+        rows.append(dict(frame=frame,max_gap_mm=gap,max_fixed_angle_rad=angle_error,max_axis_angle_rad=axis_error))
+    assert all(2.8<v<3.2 for v in peaks.values()),peaks
+finally:
+    for n,(p,_,_) in before.items():d.getObject('Rigid_'+n).Placement=p
+    d.recompute();assert asm.solve()==0
+    for n,(p,_,_) in before.items():assert d.getObject('Rigid_'+n).Placement.isSame(p,1e-6),n
+
+d.Label='Kot v27 - poprawione mocowanie bioder'
+G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll()
+d.recompute();d.save();G.updateGui()
+report=dict(source_sha256=hashlib.sha256(Path(d.FileName).read_bytes()).hexdigest(),
+    geometry_cache_source_sha256=plan['source_sha256'],geometry_unchanged=True,
+    changed_fixed_parents=32,object_count=len(d.Objects),components=238,
+    fixed_joints=225,revolute_joints=12,temporary_locks=64,solver_result=0,
+    native_frames=rows,peaks_deg=peaks,
+    scope='Native +/-3 degree connector retention, all shapes and initial world poses unchanged. Not strength or full-gait clearance approval.')
+(OUT/'assembly-validation.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+print(json.dumps(dict(saved=d.FileName,frames=len(rows),max_gap_mm=max(r['max_gap_mm'] for r in rows),changed_fixed_parents=32)))

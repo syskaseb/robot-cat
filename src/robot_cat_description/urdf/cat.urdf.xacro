@@ -5,6 +5,14 @@
        tail. Built from primitives so it is easy to swap for real geometry
        later - replace the <geometry> blocks and the dimensions below. -->
 
+  <!-- LEGACY MODEL, NOT CURRENT CAD (2026-09-22).
+       Preserved for the existing ROS gait tests and demos. Dimensions,
+       component ownership, 2.095 kg budget and independent stall / no-load
+       limits below do NOT validate the current FreeCAD robot.
+       See hardware/simulation/README.md for the separate CAD-derived model.
+       In WAVEGO the first hip servo CASE moves with the hip yoke; its horns
+       attach to the frame, unlike the historical assumptions below. -->
+
   <xacro:arg name="use_gazebo" default="true"/>
   <xacro:arg name="controllers_file" default=""/>
 
@@ -13,7 +21,7 @@
        multiplied by this; masses go as scale^3 and joint effort as scale^4,
        which is how joint torque actually scales (mass x lever arm).
 
-       1.00 is the robot that gets built: 24.2 cm at the withers against a
+       1.00 is the original conceptual robot: 24.2 cm at the withers against a
        live cat's 24, and 2.1 kg of servos, printed shell, battery and
        electronics. Nothing needs multiplying to get there, and the ST3215
        torque limit below is only true at this scale.
@@ -118,12 +126,13 @@
   <!-- The actuator is a Waveshare ST3215, and these are its numbers, not
        headroom picked to make the simulation behave.
 
-       Effort is stall torque at the *worst* battery state. The datasheet
+       Historical effort cap is an estimated stall torque, NOT a continuous
+       capability or a torque-speed curve. The datasheet
        30 kg.cm is quoted at 12 V and a DC motor's stall torque tracks
        voltage, so a 3S pack gives 3.08 Nm freshly charged and 2.57 Nm by the
-       time it is nearly flat. Sizing on 2.57 means the cat does not get
-       weaker than the simulation as the battery drains. The walk needs
-       1.93 Nm at the 95th percentile, so this is about 33% margin.
+       time it is nearly flat under a linear voltage assumption. Comparing
+       the old walk's 1.93 Nm percentile to that cap does NOT prove margin:
+       motor speed, heating and the changed CAD mass allocation matter.
 
        Velocity is the no-load figure, 0.222 s/60 degrees at 12 V. The gait
        peaks near 2.8 rad/s, so it fits, but not by so much that a faster

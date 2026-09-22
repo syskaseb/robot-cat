@@ -1,0 +1,60 @@
+"""Install the MCP-built cover candidate into a new assembly checkpoint."""
+from pathlib import Path
+import json,hashlib,math
+import FreeCAD as A,FreeCADGui as G
+
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v28'
+OUT.mkdir(exist_ok=True)
+assert not (OUT/'Kot_v28_BIODRA_PETG.FCStd').exists(),'Refusing to overwrite an existing v28 checkpoint'
+d=A.getDocument('Kot_v27_BIODRA_ASSEMBLY');asm=d.getObject('RobotCatAssembly24')
+assert Path(d.FileName).resolve()==(ROOT/'hardware/skorupa/v27/Kot_v27_BIODRA_ASSEMBLY.FCStd').resolve()
+plan=json.loads((ROOT/'hardware/skorupa/v27/assembly-plan.json').read_text(encoding='utf8'))
+source=hashlib.sha256(Path(d.FileName).read_bytes()).hexdigest()
+master=A.getDocument('FrontCoverClearance27').getObject('Front_cover_PETG_clearance')
+replacement=master.Tip.Shape.copy();assert replacement.isValid() and len(replacement.Solids)==1
+o=d.getObject('Part__Feature');parent=o.getGlobalPlacement()*o.Placement.inverse()
+replacement.Placement=parent.inverse()*replacement.Placement
+old=o.Shape.copy();original_volume=old.Volume
+rest={p['name']:d.getObject('Rigid_'+p['name']).Placement.copy() for p in plan['components']}
+assert all(p.isSame(A.Placement(),1e-6) for p in rest.values())
+o.Shape=replacement
+o.addProperty('App::PropertyString','ParametricMaster','Traceability').ParametricMaster='../v27/FrontCoverClearance27.FCStd / Front_cover_PETG_clearance; baked assembly snapshot, regenerate after editing master'
+o.addProperty('App::PropertyString','DesignStatus','Traceability').DesignStatus='PETG, original M3 mounting lands retained; case clearance +/-10deg sampled. Strength unvalidated.'
+d.recompute();assert asm.solve()==0
+sim=d.getObject('LegConnectionTest24');rows=[];peak={r['name']:0. for r in plan['joints'] if r['type']=='Revolute'}
+def world(obj):
+    s=obj.Shape.copy();s.Placement=obj.getGlobalPlacement()*obj.Placement.inverse()*s.Placement;return s
+try:
+    asm.generateSimulation(sim);count=asm.numberOfFrames();assert count>=20
+    for frame in range(count):
+        asm.updateForFrame(frame);gap=rot=axis=0.
+        for row in plan['joints']:
+            j=d.getObject(row['name']);a=j.Reference1[0].Placement*j.Placement1;b=j.Reference2[0].Placement*j.Placement2
+            gap=max(gap,(a.Base-b.Base).Length);angle=(a.Rotation.inverted()*b.Rotation).Angle
+            if row['type']=='Fixed':rot=max(rot,angle)
+            else:
+                peak[row['name']]=max(peak[row['name']],math.degrees(angle))
+                axis=max(axis,a.Rotation.multVec(A.Vector(0,0,1)).getAngle(b.Rotation.multVec(A.Vector(0,0,1))))
+        overlaps={n:world(o).common(world(d.getObject(n))).Volume for n in ['Part__Feature008','Part__Feature016']}
+        assert max(gap,rot,axis)<1e-5 and max(overlaps.values())<1e-5
+        rows.append(dict(frame=frame,max_gap_mm=gap,max_fixed_error_rad=rot,max_axis_error_rad=axis,case_overlaps_mm3=overlaps))
+    assert all(2.8<p<3.2 for p in peak.values())
+finally:
+    for n,p in rest.items():d.getObject('Rigid_'+n).Placement=p
+    d.recompute();assert asm.solve()==0
+for n,p in rest.items():assert d.getObject('Rigid_'+n).Placement.isSame(p,1e-6)
+assert len(d.Objects)==2642
+d.Label='Kot v28 - biodra i luz oslony PETG'
+d.saveAs(str(OUT/'Kot_v28_BIODRA_PETG.FCStd'))
+digest=hashlib.sha256(Path(d.FileName).read_bytes()).hexdigest()
+# All shapes are now exported directly from the saved native model.
+cache=OUT/'shape-cache';cache.mkdir(exist_ok=True)
+for row in plan['components']:world(d.getObject(row['name'])).exportBrep(str(cache/(row['name']+'.brep')))
+(cache/'index.json').write_text(json.dumps(dict(source_sha256=digest,objects=[r['name'] for r in plan['components']]),indent=2),encoding='utf8')
+report=dict(source_sha256=digest,previous_source_sha256=source,changed_components=['Part__Feature'],
+    removed_mm3=original_volume-o.Shape.Volume,object_count=2642,components=238,fixed_joints=225,revolute_joints=12,
+    temporary_locks=64,solver_result=0,native_frames=rows,
+    scope='Installed cover candidate and native +/-3deg retention/case clearance. Not whole gait, strength, head/tail completion or print release.')
+(OUT/'assembly-validation.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll();G.updateGui()
+print(json.dumps(dict(saved=d.FileName,source_sha256=digest,frames=count,removed_mm3=report['removed_mm3'])))
