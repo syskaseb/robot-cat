@@ -4,6 +4,9 @@
   "readiness": "prototype",
   "baseline_commit": "6033edca1519dcc0cfa9e9dce4bf6cb1bc08f964",
   "scope": "45 linked components: 18 AUX + 27 tail support; 275 inherited snapshots. No print approval or new hardware tag.",
+  "standalone_studies_not_installed": [
+    "hardware/releases/tail-service-study.json"
+  ],
   "files": [
     {
       "path": "hardware/cad/parameters/RobotParameters.FCStd",
@@ -71,7 +74,7 @@
     },
     {
       "path": "hardware/cad/validation/tests.json",
-      "sha256": "3475013bbdf45f15472e4377aa22f48293d78b01a392e9276590a2edaf1e30e6"
+      "sha256": "e1f233d103e24fc98ec4e2cb235a5970f0966beeec05fc1f6847c7603f9e1494"
     },
     {
       "path": "hardware/cad/validation/whole-cat.png",
@@ -127,7 +130,7 @@
     },
     {
       "path": ".gitattributes",
-      "sha256": "c28107e40435f052da9c91401dd58ebcc49a6ac39d31a8f8ac3efce42ddbb7b2"
+      "sha256": "5546bf31ff13815523a8dd7dcf1c10c12a0234c25294e74e0e4cb3cbfdb6d4d0"
     },
     {
       "path": "tools/cad/addon_smoke.py",
@@ -135,7 +138,7 @@
     },
     {
       "path": "tools/cad/package_pilot.py",
-      "sha256": "b550e352c20fc8e95d77d820b57310173f48ff55665d33fb270a300e5408bec0"
+      "sha256": "cf0ebcd9395d6b873d255d5f49946036f4f32c510189d8af101fc6139bcdfc4a"
     },
     {
       "path": "tools/cad/pilot.py",
@@ -154,12 +157,20 @@
       "sha256": "468873b18f5450cb787b5e2a3aab2d080125cbb64a4d87254dc465028011761e"
     },
     {
+      "path": "tools/cad/tail_service_study.py",
+      "sha256": "f453e00557fe12ae2cd79cd71dec7bd4770e33fe60e04dac4a5e3d67ed674c2a"
+    },
+    {
       "path": "tools/cad/test_module_contract.py",
       "sha256": "f7eee990e04bdcbd70419286839f5bab29a70bb7c713500f94b485f30f38bcab"
     },
     {
       "path": "tools/cad/test_release_check.py",
       "sha256": "88ce1895a1d0c208997e7895f41571afa9b7a4f25c536a6b7a3a1fb845a2916a"
+    },
+    {
+      "path": "tools/cad/test_tail_service_study.py",
+      "sha256": "95d4627d1681fdff12549d21c1a3750225029502065e788ea8e2f6d268e633a0"
     },
     {
       "path": ".agents/skills/robot-cat-assembly-audit/SKILL.md",
@@ -180,6 +191,30 @@
     {
       "path": ".agents/skills/robot-cat-release/SKILL.md",
       "sha256": "b213deb0e86dc8606dc2fdf6d4baffa340ab0cd679e7b50f5be6b6a33cff7871"
+    },
+    {
+      "path": "hardware/releases/tail-service-study.json",
+      "sha256": "3debc7ac767f49bf8a9d4ae31f2509c43256afeb9c0bd53a2ba1582e6c8cab85"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/TailCouplingService.FCStd",
+      "sha256": "4d8a65d4c9a69025c695531ded86f8c7deb0d311d490dc58d8a2a89246664838"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/service-audit.json",
+      "sha256": "a77cc6459fdbc5537e142ecd2fb307f122611ac4358d02eff369d525c30b2191"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/README.md",
+      "sha256": "a04dfc66e62c0cf23bdee05e29b507a94b008ee7052a27eb2c5144df064c441c"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/service-root.png",
+      "sha256": "08a02939da6de1d9a80cdf3b3a4f809cd7d3b33ef36f8ee40f5ece997bb7b49b"
+    },
+    {
+      "path": "hardware/cad/validation/before-tail-coupling.png",
+      "sha256": "9d53922c1a50c71c49b09163d86ff314398d82c7f9eef6714f238fd12f3ee141"
     }
   ],
   "checks": {

@@ -93,7 +93,7 @@ od obiektów Fasteners; próbna śruba służy wyłącznie sprawdzeniu działani
   dziewięć dokumentów z nowego katalogu, solver oraz zmiany obu parametrów poprzez
   odnośnik do złożenia. Nie korzystano z oryginalnych ścieżek plików CAD.
 - [Fasteners](validation/fasteners-smoke.json) i [widok kota](validation/whole-cat.png).
-- [Testy ROS/narzędzi](validation/tests.json): 652 zaliczone dla v35,
+- [Testy ROS/narzędzi](validation/tests.json): 656 zaliczone dla v35,
   bez pominiętych; trzy istniejące ostrzeżenia bibliotek.
 
 Uruchom pełne testy z `ROBOT_CAT_CAD_REVISION=v35`; domyślne v28 pomija testy
@@ -102,3 +102,13 @@ i położenia są zachowane, a to zadanie dotyczy organizacji CAD i narzędzi.
 
 Manifest [modular-pilot.json](../releases/modular-pilot.json) przypina konkretne
 pliki. Kontrola integralności ma przejść, `--require-print-ready` ma odmówić.
+
+## Oddzielne studia konstrukcyjne
+
+[Boczny dostęp do nakrętki ogona](studies/tail-coupling/README.md) jest
+niezależnym wariantem nasady, **nie zmianą złożenia**. Ma własny audyt i manifest.
+Nie zamyka brakującego orczyka MG92B, TEMP ani wymagań wytrzymałościowych PETG.
+Aktualny [PNG całego kota](validation/before-tail-coupling.png) pochodzi
+bezpośrednio z FreeCAD, przed pracą nad tym wariantem.
+Zestaw 656 testów obejmuje cztery kontrole dowodów tego studium. Manifest
+modułowy przypina też jego osobny manifest, bez włączania części do złożenia.

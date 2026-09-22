@@ -33,6 +33,18 @@ wydania produkcyjnego. Podpora ma siedem edytowalnych części PETG, 25 zachowan
 w pełni związanych szkiców i wspólny parametr gniazd obu 608ZZ. Nie jest to
 nowy fizyczny orczyk ani parametryczny master sześciu segmentów. 652 testy kodu.
 
+### Niezintegrowane studium serwisu ogona
+
+[Boczna kieszeń nakrętki czopa](../cad/studies/tail-coupling/README.md): nowy
+w pełni związany szkic, jedna bryła poprawna w ścisłej kontroli BOP; 39 próbek wsuwania samej
+nakrętki bez kolizji po usunięciu śruby osi, zachowane oparcie 17,118 mm².
+Główne dziewięć plików CAD niezmienione. To **koncepcja niezainstalowana**:
+osłabienie kołnierza, pasowanie PETG i narzędzia niezatwierdzone. Model wałka
+MG92B nie zawiera fabrycznego orczyka; jego wymiary i śruba nadal potrzebne.
+Nie zamknięto TEMP i nie dodano nowych wyników Gazebo.
+Pełny zestaw kodu po dodaniu czterech kontroli studium: 656 zaliczonych,
+bez pominięć, trzy istniejące ostrzeżenia bibliotek.
+
 ## Checkpoint v35 — mocowanie przetwornicy AUX
 
 - Rzeczywisty STEP drugiej Pololu D24V90F5, cztery dystanse PETG,

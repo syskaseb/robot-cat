@@ -37,6 +37,14 @@ def main():
     files += [ROOT / "hardware/bom/aux-pilot.json", ROOT / "hardware/bom/tail-support.json", ROOT / ".gitattributes"]
     files += sorted((ROOT / "tools/cad").glob("*.py"))
     files += sorted((ROOT / ".agents/skills").glob("*/SKILL.md"))
+    # Current code tests include an isolated study. Pin its inputs without
+    # changing the assembly's 45-link scope or treating the study as installed.
+    study_manifest = ROOT / "hardware/releases/tail-service-study.json"
+    study = json.loads(study_manifest.read_text())
+    assert verify(ROOT, study)["integrity_ok"]
+    assert study["readiness"] == "concept"
+    files += [study_manifest] + [ROOT / row["path"] for row in study["files"]]
+    files = list(dict.fromkeys(files))
     bom = json.loads((ROOT / "hardware/bom/aux-pilot.json").read_text())
     instances = bom_instances(bom)
     tail_instances = bom_instances(json.loads((ROOT / "hardware/bom/tail-support.json").read_text()))
@@ -81,6 +89,7 @@ def main():
         "schema_version": 1, "checkpoint": "modular-aux-tail-support", "readiness": "prototype",
         "baseline_commit": "6033edca1519dcc0cfa9e9dce4bf6cb1bc08f964",
         "scope": "45 linked components: 18 AUX + 27 tail support; 275 inherited snapshots. No print approval or new hardware tag.",
+        "standalone_studies_not_installed": [study_manifest.relative_to(ROOT).as_posix()],
         "files": [{"path": p.relative_to(ROOT).as_posix(), "sha256": sha256(p)} for p in files],
         "checks": {"linked_parts": 45, "compared_parts": 320, "native_frames": len(native["frames"]),
                    "parameter_test": "AUX 2.4 to 2.6 mm; bearing seats 22.2 to 22.4 mm; both restored",

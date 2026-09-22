@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "checkpoint": "tail-spindle-nut-service-study",
+  "readiness": "concept",
+  "baseline_commit": "98f466ef5628614f0e66a8cec9990869e173a9a5",
+  "scope": "Standalone modified root only, NOT integrated; robot CAD unchanged; no physical horn approval",
+  "files": [
+    {
+      "path": "hardware/cad/parameters/RobotParameters.FCStd",
+      "sha256": "9202dbe8f46f7185fa68d061495f723b6b752dcb5ad118550fd7988f0ee5ea74"
+    },
+    {
+      "path": "hardware/cad/assembly/RobotCat.FCStd",
+      "sha256": "c8ee1484a1679b2dba4fae267e840a995bdba21719fb495ec324251b059490c7"
+    },
+    {
+      "path": "hardware/cad/modules/chassis/Chassis.FCStd",
+      "sha256": "4284b8f61cc3dd393c2f08499143c228d2f19acf9dec1a8bfaf4db49229d3ea0"
+    },
+    {
+      "path": "hardware/cad/modules/shell/Shell.FCStd",
+      "sha256": "20d7a1a5058cbe03e0c748938533b0cb58b2fb17159c11dd79533b8bf1e1a9d7"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailMount.FCStd",
+      "sha256": "6e6f4a4f94c1db3aea4e3693d87e7c2f3a0ffd04792b7044ac03e41993a2fb77"
+    },
+    {
+      "path": "hardware/cad/modules/electronics/PowerMounts.FCStd",
+      "sha256": "6922296b07fcaecd1a5fd72be1717469def7eb42c5fcfa1e79ddc2a8ba47dd31"
+    },
+    {
+      "path": "hardware/cad/modules/electronics/AuxPurchased.FCStd",
+      "sha256": "c604be01b9b2d1efb000148e439e941ddd214edd0f1310ccb841d06a6537d3ad"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailSupport.FCStd",
+      "sha256": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailPurchased.FCStd",
+      "sha256": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/TailCouplingService.FCStd",
+      "sha256": "4d8a65d4c9a69025c695531ded86f8c7deb0d311d490dc58d8a2a89246664838"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/service-audit.json",
+      "sha256": "a77cc6459fdbc5537e142ecd2fb307f122611ac4358d02eff369d525c30b2191"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/README.md",
+      "sha256": "a04dfc66e62c0cf23bdee05e29b507a94b008ee7052a27eb2c5144df064c441c"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/service-root.png",
+      "sha256": "08a02939da6de1d9a80cdf3b3a4f809cd7d3b33ef36f8ee40f5ece997bb7b49b"
+    },
+    {
+      "path": "hardware/cad/validation/before-tail-coupling.png",
+      "sha256": "9d53922c1a50c71c49b09163d86ff314398d82c7f9eef6714f238fd12f3ee141"
+    },
+    {
+      "path": "hardware/cad/toolchain.json",
+      "sha256": "4e00a1a26d7a11a482b73c62032c1eead2d4dba43dc6efcca25455253b711a29"
+    },
+    {
+      "path": "hardware/skorupa/v35/assembly-plan.json",
+      "sha256": "20553ac584c8f943d2557433d7493351ae58c8e89d34693e100505736272fe48"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "5546bf31ff13815523a8dd7dcf1c10c12a0234c25294e74e0e4cb3cbfdb6d4d0"
+    },
+    {
+      "path": "tools/cad/tail_service_study.py",
+      "sha256": "f453e00557fe12ae2cd79cd71dec7bd4770e33fe60e04dac4a5e3d67ed674c2a"
+    },
+    {
+      "path": "tools/cad/pilot.py",
+      "sha256": "305c80ec3196480296d3309e31229ee7784566bd0824dd0abc695ee7ebc9bee0"
+    },
+    {
+      "path": "tools/cad/tail_module.py",
+      "sha256": "468873b18f5450cb787b5e2a3aab2d080125cbb64a4d87254dc465028011761e"
+    },
+    {
+      "path": "tools/cad/release_check.py",
+      "sha256": "4be4549285fc0185d5b7e16e90709326f69e68d83f2764e9f84a3f347a92bfd4"
+    },
+    {
+      "path": "tools/cad/test_tail_service_study.py",
+      "sha256": "95d4627d1681fdff12549d21c1a3750225029502065e788ea8e2f6d268e633a0"
+    }
+  ],
+  "gates": {
+    "geometry": {
+      "status": "pass",
+      "reason": "Study root only: one strict-valid solid, intended subtraction, standalone reopen. Not the robot shell.",
+      "evidence": [
+        "hardware/cad/studies/tail-coupling/service-audit.json"
+      ]
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Not installed. Measured horn and new native joint/motion checks missing."
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Nominal M3 nut and 0.25 mm sampled path only; physical nut/PETG fit unmeasured."
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Printer profile, supports, slot bridging and orientation trials missing."
+    },
+    "loads": {
+      "status": "open",
+      "reason": "Side slot weakens collar; layer strength and creep not approved."
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "Servo/horn/screw and cable service envelopes incomplete."
+    },
+    "service": {
+      "status": "open",
+      "reason": "Nut-only path, axial bolt removed; no tool/hand/swept-volume/full assembly proof."
+    }
+  }
+}

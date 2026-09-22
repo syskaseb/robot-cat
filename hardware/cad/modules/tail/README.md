@@ -72,3 +72,7 @@ pod złożonym kotem jest ograniczony; serwo wkłada się po pochylonej trajekto
 Otwory, luzy, opory przewodu, mocowanie orczyka i osłona wymagają dalszych prac.
 Pasowania łożysk/czopa, warstwy PETG, docisk i pełzanie trzeba sprawdzić fizycznie.
 Próbki z `hardware/skorupa/v34/coupons` pozostają punktem wyjścia, nie zatwierdzeniem.
+
+Osobno przygotowano [studium bocznego dostępu do nakrętki czopa](../../studies/tail-coupling/README.md).
+Nie jest zainstalowane w tym module ani zatwierdzone do druku. Fizyczny orczyk
+nadal wymaga wymiarów; nominalna droga nakrętki nie jest jego mocowaniem.
