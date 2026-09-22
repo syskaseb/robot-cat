@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "freecad": {"version": "1.1.3", "python": "3.11", "tested_platform": "Windows x86_64"},
+  "addons": [
+    {
+      "name": "FreeCAD AI",
+      "version": "0.23.1-alpha",
+      "role": "Existing MCP and built-in construction skills"
+    },
+    {
+      "name": "Fasteners Workbench",
+      "version": "0.5.67",
+      "repository": "https://github.com/shaise/FreeCAD_FastenersWB",
+      "commit": "fddd07af422b7d3a69098b32333711c5eeae184c",
+      "role": "Standard fastener authoring; not required to open the AUX pilot",
+      "install_scope": "FreeCAD versioned user Mod directory",
+      "default_thread_model": "simple"
+    }
+  ],
+  "deferred": {
+    "KiCad and StepUp": "No authoritative project PCB/schematic yet; use supplier references for purchased boards.",
+    "Curves": "Not needed for an interface migration; evaluate when rebuilding the head or shell surfaces.",
+    "FEM": "Geometry repair, PETG material assumptions and load cases required before credible analysis.",
+    "CAM": "Current manufacturing is FDM, not CNC."
+  }
+}

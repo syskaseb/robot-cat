@@ -15,6 +15,16 @@ is separate from the historical primitive ROS model; do not reuse its
 Keep existing checkpoints and use the user's `syskaseb` remote for mechanical
 work; `origin` points to a different owner's repository.
 
+For CAD architecture/refactoring, also read `hardware/MODULAR_DESIGN.md`.
+It describes staged migration: the AUX pilot is implemented, not the whole
+assembly. Preserve the v35 baseline and inspect pilot evidence before extending it.
+
+Project skills live in `.agents/skills/`: `robot-cat-module` for CAD changes,
+`robot-cat-petg` for print design, `robot-cat-assembly-audit` for joints/mounts,
+`robot-cat-electronics` for electrical integration, and `robot-cat-release` for
+hardware checkpoints. Read the relevant SKILL.md before applying its workflow.
+Use `hardware/cad/README.md` for the actual migration scope and validation paths.
+
 ## Environment
 
 **Check which platform you are on before running anything.** On macOS the

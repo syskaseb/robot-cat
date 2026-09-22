@@ -26,3 +26,14 @@ hardware/skorupa/v35/*.json text eol=lf
 hardware/skorupa/v35/rejected/*.json text eol=lf
 hardware/simulation/v35/*.json text eol=lf
 hardware/simulation/v35/trials/*.json text eol=lf
+
+# The modular hardware manifest hashes these sources byte-for-byte.
+.gitattributes text eol=lf
+*.FCStd binary
+.agents/skills/**/SKILL.md text eol=lf
+tools/cad/*.py text eol=lf
+tools/freecad/skorupa/aux35.py text eol=lf
+tools/freecad/skorupa/inheritance30.py text eol=lf
+hardware/cad/**/*.json text eol=lf
+hardware/bom/*.json text eol=lf
+hardware/releases/*.json text eol=lf

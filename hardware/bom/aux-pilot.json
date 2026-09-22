@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "scope": "AUX pilot only, not the complete robot BOM. No purchase or print approval.",
+  "readiness": "prototype",
+  "parts": [
+    {"id": "RC-AUX-001", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/electronics/PowerMounts.FCStd", "object": "Post35_0", "assembly_names": ["AuxPost35_0"]},
+    {"id": "RC-AUX-002", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/electronics/PowerMounts.FCStd", "object": "Post35_001", "assembly_names": ["AuxPost35_1"]},
+    {"id": "RC-AUX-003", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/electronics/PowerMounts.FCStd", "object": "Post35_2", "assembly_names": ["AuxPost35_2"]},
+    {"id": "RC-AUX-004", "revision": "A", "quantity": 1, "material": "PETG", "master": "hardware/cad/modules/electronics/PowerMounts.FCStd", "object": "Post35_002", "assembly_names": ["AuxPost35_3"]},
+    {"id": "BUY-POLOLU-2866", "revision": "supplier reference from v35", "quantity": 1, "material": "PCB/electronics", "assembly_names": ["AuxBuck"], "description": "Second Pololu D24V90F5, separate AUX 5V output"},
+    {"id": "REF-AUX-TERMINAL", "revision": "nominal envelope v35", "quantity": 2, "material": "purchased terminal", "assembly_names": ["AuxTerminal35_0", "AuxTerminal35_1"], "description": "Included-terminal envelopes, not a new confirmed supplier item"},
+    {"id": "REF-M2X19", "revision": "nominal envelope v35", "quantity": 4, "material": "steel", "assembly_names": ["AuxBolt35_0", "AuxBolt35_1", "AuxBolt35_2", "AuxBolt35_3"], "description": "Head standard/vendor not requalified by Fasteners smoke test"},
+    {"id": "REF-NUT-M2", "revision": "nominal envelope v35", "quantity": 4, "material": "steel", "assembly_names": ["AuxNut35_0", "AuxNut35_1", "AuxNut35_2", "AuxNut35_3"]}
+  ],
+  "mating_parts_not_counted_again": ["Part__Feature038", "TailBridge29", "ShellMounted20"],
+  "compatibility": "Baseline v35 hole layout and 2.4 mm clearance. A diameter change requires a new fit review; no PCB pitch redesign supported."
+}

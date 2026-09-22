@@ -1,11 +1,9 @@
 # Skorupa kota - v17
 
-**Nowszy checkpoint: [v25 — lekka osłona do domu i natywne złożenie FreeCAD](v25/README.md).**
-Ma płaską dolną osłonę PETG, 12 osi nóg, 225 połączeń sztywnych
-i sprawdzoną krótką animację.
-Głowa, ogon i nieukończone mocowania mają jawne blokady tymczasowe.
+**Aktualny stan i najnowszy checkpoint: [STATUS.md](STATUS.md).**
+Plan dalszej organizacji CAD: [modułowe mastery](../MODULAR_DESIGN.md).
 To nadal prototyp, nie zatwierdzony komplet do druku. Poniższy opis dotyczy
-historycznej wersji v17, nie aktualnego stanu mocowań v20–v25.
+historycznej wersji v17, nie aktualnego stanu konstrukcji.
 
 Nadbudowa "kociego" ciała montowana na oryginalnym podwoziu WAVEGO PRO BETA v3.
 Podwozie zostaje bez zmian; wszystko powyżej niego jest obrócone o 180 stopni

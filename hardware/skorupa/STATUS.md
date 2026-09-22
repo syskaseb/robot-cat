@@ -19,6 +19,17 @@ dwa otwory Ø2,2, dwa ustawienia bez nominalnych przecięć. W v33 jest na
 dwóch podporach z M2×12/nakrętkami. Różnica gabarytów względem wiki,
 potwierdzenie rewizji fizycznej, kable i akustyka pozostają otwarte.
 
+## Modułowy pilot AUX — bez zmiany geometrii v35
+
+[Złożenie rozwojowe i dowody](../cad/README.md) są w `hardware/cad`, poza
+historycznymi checkpointami. 18 elementów AUX korzysta z odnośników do pięciu
+dokumentów właścicieli i wspólnego dokumentu parametrów. 302 części pozostają
+snapshotami. Zachowano geometrię 320 części oraz natywne połączenia; test
+22 klatek i przeniesienie zestawu do innego katalogu są osobnymi dowodami.
+Skille projektu, częściowy BOM/rewizje i kontrola wydań wspierają dalszą pracę.
+Nie zmienia to poniższych braków: 29 TEMP, BOP skorupy i brak zatwierdzenia druku.
+Oba bazowe pliki v35 pozostają bez zmian. Nie utworzono wydania produkcyjnego.
+
 ## Checkpoint v35 — mocowanie przetwornicy AUX
 
 - Rzeczywisty STEP drugiej Pololu D24V90F5, cztery dystanse PETG,
