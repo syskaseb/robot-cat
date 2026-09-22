@@ -1,0 +1,117 @@
+{
+  "source_sha256": "42ddba034240f02d76a03f3e3ed28a4f58a60be7022fd0ff97d092610fac87d0",
+  "pcb_base_CAD_mm": [
+    -200.2,
+    -8.789181,
+    106.932374
+  ],
+  "pcb_rotation": "Ry(-90)",
+  "holes_local_xy_mm": [
+    [
+      10.16,
+      2.54
+    ],
+    [
+      10.16,
+      15.24
+    ]
+  ],
+  "broadphase_pairs": 29,
+  "rest_interferences": [
+    {
+      "parts": [
+        "EyeRingL",
+        "Muzzle"
+      ],
+      "volume_mm3": 372.79342150447553
+    },
+    {
+      "parts": [
+        "EyeRingR",
+        "Muzzle"
+      ],
+      "volume_mm3": 235.9910694724049
+    },
+    {
+      "parts": [
+        "HeadFront",
+        "Muzzle"
+      ],
+      "volume_mm3": 977.1166460592312
+    },
+    {
+      "parts": [
+        "IrIlluminator",
+        "Muzzle"
+      ],
+      "volume_mm3": 0.5233157085022005
+    },
+    {
+      "parts": [
+        "Muzzle",
+        "ToF"
+      ],
+      "volume_mm3": 0.7927890000000034
+    }
+  ],
+  "optical_interferences": [],
+  "optical_assumption": "Full package top bounding rectangle enlarged by about 0.3 mm on every side; 45 deg full FOV; 60 mm frontward probe. Geometry only, not crosstalk/range certification.",
+  "shapes": [
+    {
+      "name": "Muzzle",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11084.843535933383
+    },
+    {
+      "name": "Nose",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 885.5442390377452
+    },
+    {
+      "name": "ToF",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 263.2503653498363
+    },
+    {
+      "name": "ToFSpacer32_0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 60.44424265506761
+    },
+    {
+      "name": "ToFBolt32_0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 65.40795904773948
+    },
+    {
+      "name": "ToFNut32_0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 21.781707282815347
+    },
+    {
+      "name": "ToFSpacer32_1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 60.44424265506761
+    },
+    {
+      "name": "ToFBolt32_1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 65.4079590477395
+    },
+    {
+      "name": "ToFNut32_1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 21.781707282815347
+    }
+  ],
+  "print_release": false,
+  "scope": "Candidate geometry only: ToF mount / conservative optical clearance.\n\nProduction geometry is to be authored with native MCP PartDesign features.\n"
+}

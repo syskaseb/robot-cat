@@ -1,0 +1,344 @@
+{
+  "source_sha256": "245b261de4b2fdebb111d25d208b604098d907c1439732d998f700521687d9bc",
+  "suite": "sweep",
+  "planned_cases": 14,
+  "completed_cases": 14,
+  "wall_seconds": 442.770930355,
+  "mechanical_release": false,
+  "continuous_torque_certified": false,
+  "scope": "Bounded, reproducible Gazebo-only parameter sweep. No hardware interface.\n\nExploratory falls are results, not erased trials. Baseline failures return an\nerror; all stdout, telemetry and configuration remain available for review.\n",
+  "trials": [
+    {
+      "configuration": {
+        "tag": "speed-0.75-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 0.75,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042047-speed-0.75-nominal-runner.log",
+      "summary": "20260922-042018-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 1,
+      "max_joint_rms_nm": 0.600214012300713,
+      "displacement_after_settle_m": [
+        0.1307426331255571,
+        -0.0001470035057884013,
+        -2.688624753716118e-05
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.75-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 0.75,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042123-speed-0.75-upper-runner.log",
+      "summary": "20260922-042101-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6855409255616253,
+      "displacement_after_settle_m": [
+        0.13142025612003588,
+        -0.0017629819163723361,
+        8.069534092025599e-05
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.5-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 0.5,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042150-speed-0.5-nominal-runner.log",
+      "summary": "20260922-042132-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6263112652710326,
+      "displacement_after_settle_m": [
+        0.17170991535045618,
+        -0.012999279703890065,
+        -0.0005202715931023616
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.5-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 0.5,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042217-speed-0.5-upper-runner.log",
+      "summary": "20260922-042159-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.7097453705972191,
+      "displacement_after_settle_m": [
+        0.15456067032834203,
+        -0.021271392998444678,
+        -0.0009201562482102077
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.25-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 0.25,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042244-speed-0.25-nominal-runner.log",
+      "summary": "20260922-042226-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6034515192441339,
+      "displacement_after_settle_m": [
+        0.38272038197562275,
+        -0.012120580815185375,
+        -0.0004503833632872323
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.25-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 0.25,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042322-speed-0.25-upper-runner.log",
+      "summary": "20260922-042253-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6977961349096307,
+      "displacement_after_settle_m": [
+        0.3752383592796707,
+        -0.04312865952688946,
+        -0.0008096619404880934
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.15-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 0.15,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042404-speed-0.15-nominal-runner.log",
+      "summary": "20260922-042333-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 1,
+      "max_joint_rms_nm": 0.6851165690536594,
+      "displacement_after_settle_m": [
+        0.9114315048766848,
+        -0.008376069745504979,
+        -0.0012859549473807907
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "speed-0.15-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 0.15,
+        "friction": 0.4,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042442-speed-0.15-upper-runner.log",
+      "summary": "20260922-042420-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.7413477949537658,
+      "displacement_after_settle_m": [
+        0.5973157074875802,
+        0.023299795949739677,
+        -0.0011686358093448423
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "friction-0.25-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 0.5,
+        "friction": 0.25,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042517-friction-0.25-nominal-runner.log",
+      "summary": "20260922-042451-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.5697569655973697,
+      "displacement_after_settle_m": [
+        0.13222450362566981,
+        -0.011830105031361908,
+        -0.0005634669942483905
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "friction-0.25-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 0.5,
+        "friction": 0.25,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042549-friction-0.25-upper-runner.log",
+      "summary": "20260922-042527-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.6606864059329481,
+      "displacement_after_settle_m": [
+        0.1484590153152926,
+        -0.014423575739248648,
+        -0.0006143574437094401
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "friction-0.6-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 0.5,
+        "friction": 0.6,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042615-friction-0.6-nominal-runner.log",
+      "summary": "20260922-042557-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.597453399745787,
+      "displacement_after_settle_m": [
+        0.08715383537319744,
+        0.0038480133447669107,
+        -0.00018617357714831306
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "friction-0.6-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 0.5,
+        "friction": 0.6,
+        "torque_cap": 1
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042642-friction-0.6-upper-runner.log",
+      "summary": "20260922-042624-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.7163803165427681,
+      "displacement_after_settle_m": [
+        0.052505662206334736,
+        -0.008325142430058975,
+        -0.00036652225594505095
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "cap-0.65-nominal",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "nominal",
+        "step_seconds": 1,
+        "friction": 0.4,
+        "torque_cap": 0.65
+      },
+      "exit_code": 0,
+      "stdout": "20260922-042709-cap-0.65-nominal-runner.log",
+      "summary": "20260922-042651-crawl-summary.json",
+      "result": "duration_completed",
+      "screening_completed": true,
+      "samples": 1501,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": 0.5028980725557177,
+      "displacement_after_settle_m": [
+        0.0830272985414702,
+        -0.0019208869208089505,
+        0.00047066258664563154
+      ]
+    },
+    {
+      "configuration": {
+        "tag": "cap-0.65-upper",
+        "mode": "crawl",
+        "seconds": 15,
+        "mass": "upper",
+        "step_seconds": 1,
+        "friction": 0.4,
+        "torque_cap": 0.65
+      },
+      "exit_code": 1,
+      "stdout": "20260922-042721-cap-0.65-upper-runner.log",
+      "summary": "20260922-042718-crawl-summary.json",
+      "result": "fell_or_tilted",
+      "screening_completed": false,
+      "samples": 101,
+      "stale_motor_samples": 0,
+      "max_joint_rms_nm": null,
+      "displacement_after_settle_m": null
+    }
+  ]
+}

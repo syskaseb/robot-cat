@@ -1,0 +1,22 @@
+"""Refresh only the in-development v32 from its native master; rerun all reports."""
+from pathlib import Path
+import hashlib,json
+import FreeCAD as A
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v32'
+plan=json.loads((OUT/'assembly-plan.json').read_text())
+assert hashlib.sha256((OUT/plan['cad_filename']).read_bytes()).hexdigest()==plan['source_sha256']
+d=next(o for o in A.listDocuments().values() if o.FileName and Path(o.FileName).resolve()==(OUT/plan['cad_filename']).resolve())
+m=A.getDocument('OpticsDesign32');assert Path(m.FileName).resolve()==(OUT/'OpticsDesign32.FCStd').resolve()
+pose=A.Placement(A.Vector(-200.2,-8.789181,106.932374),A.Rotation(A.Vector(0,1,0),-90))
+assert all(m.getObject(n).Placement.Rotation.isSame(pose.Rotation,1e-9) for n in ['Muzzle32','Nose32','Part__Feature','ToFRearSpacer32','ToFRearSpacer003','OpticalReserve32','ToFWireReserve32','HeadFrontCable32'])
+for n,src in [('Muzzle','Muzzle32'),('Nose','Nose32'),('ToF','Part__Feature'),('ToFSpacer32_0','ToFRearSpacer32'),('ToFSpacer32_1','ToFRearSpacer003'),('HeadFront','HeadFrontCable32')]:
+    d.getObject(n).Shape=m.getObject(src).Shape.copy()
+    o=d.getObject(n)
+    if 'ParametricMaster' not in o.PropertiesList:o.addProperty('App::PropertyString','ParametricMaster','Traceability')
+    o.ParametricMaster='OpticsDesign32.FCStd / '+src+'; baked snapshot, not live link'
+d.recompute();assert d.getObject('RobotCatAssembly24').solve()==0;d.save()
+plan['source_sha256']=hashlib.sha256((OUT/plan['cad_filename']).read_bytes()).hexdigest()
+plan['master_sha256']=hashlib.sha256((OUT/'OpticsDesign32.FCStd').read_bytes()).hexdigest()
+plan['tof_mount']['cable_passage']=dict(host='HeadFront',width_mm=22,height_mm=7,radius_mm=3.5,pocket_depth_mm=14,local_sketch_z_mm=-.1)
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+print('Refreshed v32; old cache/reports are INVALID until Validate32, audit32, inheritance32 and all physics are rerun.')

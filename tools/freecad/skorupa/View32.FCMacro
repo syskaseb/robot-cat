@@ -1,0 +1,29 @@
+"""Restore the full v32 view without changing geometry or saving signed CAD."""
+import json
+from pathlib import Path
+import FreeCAD as App
+import FreeCADGui as Gui
+
+root=Path(__file__).resolve().parents[3]
+folder=root/'hardware/skorupa/v32'
+path=folder/'Kot_v32_NOS_TOF.FCStd'
+doc=next((d for d in App.listDocuments().values()
+          if d.FileName and Path(d.FileName).resolve()==path.resolve()),None)
+if doc is None:
+    doc=App.openDocument(str(path))
+App.setActiveDocument(doc.Name)
+plan=json.loads((folder/'assembly-plan.json').read_text(encoding='utf8'))
+for part in plan['components']:
+    obj=doc.getObject(part['name'])
+    assert obj is not None,part['name']
+    obj.Visibility=True
+doc.getObject('Muzzle').ViewObject.Transparency=0
+Gui.Selection.clearSelection()
+view=Gui.activeDocument().activeView()
+view.setCameraType('Orthographic')
+# The cat faces CAD -X; a standard isometric view looks at its back.
+direction=App.Vector(-1,-1,.7)
+view.setCameraOrientation(App.Rotation(App.Vector(0,0,1).cross(direction),
+                                      App.Vector(0,0,1),direction,'ZXY').Q)
+view.fitAll()
+print('Whole v32 shown; no geometry changes, no save, signed file unchanged.')

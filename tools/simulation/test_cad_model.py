@@ -30,7 +30,7 @@ def test_part_mass_accounting(geometry):
 
 
 def test_v29_auxiliary_and_fastener_mass_classification(geometry):
-    if REVISION not in ('v29','v30','v31'):pytest.skip('v29+ tail integration only')
+    if REVISION not in ('v29','v30','v31','v32'):pytest.skip('v29+ tail integration only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['MG92BCase29']['mass_kg']+rows['MG92BOutput29']['mass_kg']==pytest.approx(.0138)
     assert not {'TailYawServo','TailLiftServo'} & set(rows)
@@ -41,9 +41,9 @@ def test_v29_auxiliary_and_fastener_mass_classification(geometry):
 
 
 def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
-    if REVISION not in ('v30','v31'):pytest.skip('v30+ IMU mounting only')
+    if REVISION not in ('v30','v31','v32'):pytest.skip('v30+ IMU mounting only')
     rows={r['name']:r for r in mass_budget(geometry)}
-    assert len(geometry['components'])==(280 if REVISION=='v31' else 264)
+    assert len(geometry['components'])=={'v30':264,'v31':280,'v32':286}[REVISION]
     assert rows['IMU']['mass_kg']==pytest.approx(.004)
     posts=[r for n,r in rows.items() if n.startswith('IMUPost30_')]
     screws=[r for n,r in rows.items() if n.startswith('IMUBolt30_')]
@@ -56,7 +56,7 @@ def test_v30_imu_parts_are_rigidly_accounted_for(geometry):
 
 
 def test_v31_power_mount_mass_classification(geometry):
-    if REVISION!='v31':pytest.skip('v31 main regulator mounting only')
+    if REVISION not in ('v31','v32'):pytest.skip('v31+ main regulator mounting only')
     rows={r['name']:r for r in mass_budget(geometry)}
     assert rows['Pololu']['mass_kg']==pytest.approx(.0048)
     terminals=[r for n,r in rows.items() if n.startswith('PowerTerminal31_')]
@@ -67,6 +67,21 @@ def test_v31_power_mount_mass_classification(geometry):
     assert all(r['stage']=='Chassis' for r in terminals+posts+bolts)
     assert all(r['basis'].startswith('solid CAD PETG') for r in posts)
     assert all(r['basis'].startswith('steel') for r in bolts)
+
+
+def test_v32_tof_hardware_and_head_budget(geometry):
+    if REVISION!='v32':pytest.skip('v32 ToF mounting only')
+    rows={r['name']:r for r in mass_budget(geometry)}
+    assert rows['ToF']['mass_kg']==pytest.approx(.0005)
+    assert 'manufacturer nominal' in rows['ToF']['basis']
+    spacers=[r for n,r in rows.items() if n.startswith('ToFSpacer32_')]
+    steel=[r for n,r in rows.items() if n.startswith(('ToFBolt32_','ToFNut32_'))]
+    assert len(spacers)==2 and len(steel)==4
+    assert all(r['stage']=='Chassis' for r in spacers+steel)
+    assert all(r['basis'].startswith('solid CAD PETG') for r in spacers)
+    assert all(r['basis'].startswith('steel') for r in steel)
+    report=json.loads((OUT/'auxiliary-budget.json').read_text())
+    assert {r['name'] for r in spacers+steel} <= set(report['head_pitch_placeholder_centre']['parts'])
 
 
 def test_inverted_hip_mount_ownership(geometry):

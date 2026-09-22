@@ -1,15 +1,34 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v31](v31/README.md). **Nie jest wydaniem do druku.**
+Ostatnie złożenie: [v32](v32/README.md). **Nie jest wydaniem do druku.**
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
 Na zlecenie użytkownika rozpoczęto konkretny
 [dobór części i zebranie modeli producentów](../reference/component-selection-2026-09-22/README.md).
 Priorytet: Botland, następnie Kamami; maksymalnie 10 dni oczekiwania.
 Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
-v30 integruje rzeczywisty BNO085, v31 główne Pololu z fizycznymi mocowaniami.
+v30 integruje rzeczywisty BNO085, v31 główne Pololu, v32 ToF w nosie,
+każdy z fizycznym mocowaniem do wskazanej części.
 Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
+
+## Nocny checkpoint v32 — ToF w nosie i 17 prób Gazebo
+
+- Rzeczywisty STEP Pololu3417, integralne mostki PETG w pyszczku,
+  osobny nos z otwartym oknem, dwa M2×12, dystanse i nakrętki.
+  Rzeczywisty przepust przewodów22×7 w skorupie głowy. Pole widzenia
+  i lokalna rezerwa lutowanych przewodów bez przeszkód; optyka wymaga próby.
+- 286 części, 272 Fixed +13 Revolute, **32 tymczasowe**. 7 pełni związanych
+  szkiców; 22 klatki utrzymują ToF/nos przy pyszczku. Pyszczek do głowy
+  nadal TEMP. 45 par audytu, brak nowych przecięć; **12 starych przecięć
+  głowy nadal OPEN**. 276 odziedziczonych części niezmienionych numerycznie.
+- Gazebo:2,420 kg (2,144–2,878),17 prób. Stanie RMS0,535 Nm, wolny chód
+  0,575/0,651 Nm nominalnie/cięższy. Najszybszy crawl:0,741 Nm i41,4%
+  nasycenia dla cięższego modelu. **Limit0,65 Nm, cięższy wariant:
+  upadek już w rozruchu przy1,002 s.** Nie zatwierdzono biegu ani termiki.
+- 619 testów ROS/CAD/narzędzi. Wszystkie17 prób zachowane, w tym nieudana;
+  wczesny brak RMS oznaczony jako brak danych, nie zero. Pełny kot widoczny
+  w FreeCAD; `View32.FCMacro` odtwarza widok bez zmiany podpisanego pliku.
 
 ## Nocny checkpoint v31 — główna przetwornica
 
@@ -95,7 +114,7 @@ Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
 - Lista `docs/plan-zakupowy.pdf`, strona 1: **2 serwa głowy + 1 ogona**.
   Nie ma zgody ani potrzeby interpretacyjnej na czwarte serwo pomocnicze.
 - v28 miało 12 natywnych Revolute nóg i 225 Fixed, w tym 64 tymczasowe
-  blokady; v31: 13 Revolute, 266 Fixed, **34 tymczasowe**. Fixed nie
+  blokady; v32: 13 Revolute, 272 Fixed, **32 tymczasowe**. Fixed nie
   zastępuje rzeczywistego wspornika, śruby ani łożyska.
 - Test natywny v28: 22 klatki ±3°, nie pełny chód ani pełne zakresy serw.
 
@@ -128,12 +147,13 @@ Pozostała elektronika i dwa serwa głowy nadal czekają na integrację.
 ## Prace do wykonania po zamknięciu interfejsów
 
 - Uchwyt głowy: 2 osie, podparcie obciążeń, orczyki/śruby, mocowania kamery,
-  czujnika i reszty części twarzy; sprawdzenie przewodów przez całą trajektorię.
+  reszty części twarzy; ToF do pyszczka zamocowany w v32, ale pyszczek do
+  głowy nadal nie. Sprawdzenie przewodów przez całą trajektorię.
 - Ogon v29: rozwiązać sprzęgnięcie z dostarczanym orczykiem MG92B,
   niezależne podparcie i osłonę, sprawdzić narzędzia i próby PETG.
   Segmenty i usunięcie nadmiarowego napędu są już wykonane, nie powtarzać.
 - Pozostałe mocowania elektroniki oparte o faktyczne otwory, wtyki,
-  miejsca serwisowe; BNO085 w v30, główne Pololu w v31. Kalibracja IMU,
+  miejsca serwisowe; BNO085 w v30, główne Pololu w v31, ToF w v32. Kalibracja IMU,
   termika, serwis i testy sprzętowe pozostają otwarte.
   Zweryfikować termikę regulatorów i chłodzenia, nie tylko statyczny obrys.
 - Serwis akumulatora: obecna tacka/paski/nakrętki blokują wyjęcie w dół.

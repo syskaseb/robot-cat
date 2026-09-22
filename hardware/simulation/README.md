@@ -1,6 +1,16 @@
-# Aktualny CAD w Gazebo — v31, 22.09.2026
+# Aktualny CAD w Gazebo — v32, 22.09.2026
 
-**Najnowsze wyniki: [v31 — mocowanie głównej przetwornicy](v31/README.md).**
+**Najnowsze wyniki: [v32 — ToF i granice chodu](v32/README.md).**
+286 części, nominalnie2,420 kg (2,144–2,878);17 prób:16 ukończonych,
+1 upadek w rozruchu przy limicie0,65 Nm i cięższym modelu.
+Wolny chód RMS0,575/0,651 Nm; najszybszy crawl cięższego modelu
+0,741 Nm i41,4% nasycenia. Nie zatwierdzono biegu ani termiki ST3215.
+619 testów. `ROBOT_CAT_CAD_REVISION=v32`, `verify_v32.py`.
+[Wyniki v32](v32/RESULTS.md), [spójność źródeł](v32/checkpoint-integrity.json).
+
+## Poprzedni checkpoint v31 — zachowany porównawczo
+
+**[v31 — mocowanie głównej przetwornicy](v31/README.md).**
 280 części, masa nominalna 2,421 kg (2,144–2,879 kg), 13 ciał / 12 osi nóg.
 Trzy próby bez upadku: RMS max 0,535 Nm stanie, 0,576 Nm wolny chód,
 0,649 Nm cięższy chód i 15,4% nasycenia. Nadal brak zatwierdzenia biegu,
@@ -39,7 +49,7 @@ v28 dla zgodności wcześniejszego eksperymentu. Szczegółowe komendy w README 
 ## Wcześniejsza dokumentacja v28 — zachowana porównawczo
 
 Poniższe liczby, nazwy plików i cztery stare serwa pomocnicze dotyczą
-wyłącznie **v28**, nie aktualnego modelu v31.
+wyłącznie **v28**, nie aktualnego modelu v32.
 
 **Jest działający model fizyczny, ale nie ma jeszcze zatwierdzenia robota do
 druku ani napędów do pracy ciągłej.** Nie zastępuje dotychczasowego modelu ROS

@@ -1,0 +1,88 @@
+"""New v32 copy: supplier ToF and MCP-authored physical nose mounting."""
+from pathlib import Path
+import hashlib,json,shutil,sys
+import FreeCAD as A,FreeCADGui as G
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v32'
+SOURCE=ROOT/'hardware/skorupa/v31/Kot_v31_ZASILANIE.FCStd'
+TARGET=OUT/'Kot_v32_NOS_TOF.FCStd';MASTER=OUT/'OpticsDesign32.FCStd'
+assert not TARGET.exists(),'Preserve existing checkpoint'
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()=='42ddba034240f02d76a03f3e3ed28a4f58a60be7022fd0ff97d092610fac87d0'
+m=A.getDocument('OpticsDesign32');assert Path(m.FileName).resolve()==MASTER.resolve()
+expected_rotation=A.Rotation(A.Vector(0,1,0),-90)
+assert all(m.getObject(n).Placement.Rotation.isSame(expected_rotation,1e-9) for n in ['Muzzle32','Nose32','Part__Feature','ToFRearSpacer32','ToFRearSpacer003','OpticalReserve32','ToFWireReserve32','HeadFrontCable32'])
+for o in m.Objects:
+    if o.TypeId=='Sketcher::SketchObject':assert o.FullyConstrained,o.Name
+    if o.TypeId=='PartDesign::Body':assert o.Shape.isValid() and len(o.Shape.Solids)==1,o.Name
+shutil.copy2(SOURCE,TARGET)
+d=A.openDocument(str(TARGET));asm=d.getObject('RobotCatAssembly24');group=d.getObject('Joints')
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly');import JointObject
+plan=json.loads((ROOT/'hardware/skorupa/v31/assembly-plan.json').read_text())
+plan['source_checkpoint']='v31';plan['inherited_master_sha256']=plan['master_sha256']
+plan['cad_filename']=TARGET.name;plan['master_filename']=MASTER.name
+plan['scope']='v32: actual Pololu3417, open optical window, two through-bolted PETG muzzle supports and rear spacers. Muzzle-to-head attachment and inherited head clashes remain unresolved.'
+plan['fasteners'].update(M2x12=18,M2_nut=22,scope='v29 tail + v30 IMU + v31 main regulator + v32 ToF; not whole robot BOM')
+pose=A.Placement(A.Vector(-200.2,-8.789181,106.932374),A.Rotation(A.Vector(0,1,0),-90))
+down=A.Rotation(A.Vector(0,0,1),A.Vector(0,0,-1))
+
+def prop(o,n,v):
+    if n not in o.PropertiesList:o.addProperty('App::PropertyString',n,'Traceability')
+    setattr(o,n,v)
+
+def replace(src,dst):
+    o=d.getObject(dst);o.Shape=m.getObject(src).Shape.copy()
+    prop(o,'ParametricMaster','OpticsDesign32.FCStd / '+src+'; baked snapshot, not live link')
+    return o
+
+replace('Muzzle32','Muzzle');nose=replace('Nose32','Nose');nose.ViewObject.ShapeColor=(.055,.06,.07)
+replace('HeadFrontCable32','HeadFront')
+p=replace('Part__Feature','ToF');p.Label='Pololu3417 VL53L5CX | supplier STEP | no header'
+p.ViewObject.DiffuseColor=m.getObject('Part__Feature').ViewObject.DiffuseColor
+prop(p,'MaterialSpec','Purchased PCB/electronics; manufacturer nominal 0.5 g without pins')
+prop(p,'DesignStatus','Two real M2 holes; PETG support reliefs around SMD; open aperture. Range/crosstalk not certified.')
+next(r for r in plan['components'] if r['name']=='ToF')['label']=p.Label
+status='Modeled M2x12 through-bolted stack with metal nuts; PCB/PETG clamp torque and printing tolerances need physical test'
+
+def fixed(name,parent,child,point):
+    j=group.newObject('App::FeaturePython',name);JointObject.Joint(j,0);JointObject.ViewProviderJoint(j.ViewObject)
+    j.Detach1=True;j.Detach2=True;j.Reference1=(d.getObject('Rigid_'+parent),['','']);j.Reference2=(d.getObject('Rigid_'+child),['',''])
+    j.Placement1=j.Placement2=A.Placement(point,A.Rotation());prop(j,'DesignStatus',status);j.Visibility=False
+    plan['joints'].append(dict(name=name,type='Fixed',parent=parent,child=child,status=status))
+
+def add(src,name,placement,parent,point,material):
+    wrapper=d.addObject('App::Part','Rigid_'+name);asm.addObject(wrapper)
+    o=wrapper.newObject('Part::Feature',name);s=m.getObject(src).Shape.copy()
+    if placement is not None:s.Placement=placement*s.Placement
+    o.Shape=s;o.Label=name+' | '+material
+    for key,value in [('MaterialSpec',material),('RigidStage','Chassis'),('DesignStatus',status),('ParametricMaster','OpticsDesign32.FCStd / '+src+'; baked snapshot')]:prop(o,key,value)
+    o.ViewObject.ShapeColor=(.09,.1,.12) if material=='PETG' else (.6,.62,.65);o.Visibility=True
+    fixed('Fix_'+name,parent,name,pose.multVec(A.Vector(*point)))
+    plan['components'].append(dict(name=name,label=o.Label,stage='Chassis'))
+
+holes=[(10.16,2.54),(10.16,15.24)]
+for i,(x,y) in enumerate(holes):
+    add('ToFRearSpacer32' if i==0 else 'ToFRearSpacer003','ToFSpacer32_%d'%i,None,'ToF',[x,y,0],'PETG')
+    add('BoltM2x12','ToFBolt32_%d'%i,pose*A.Placement(A.Vector(x,y,5.5),down),'Nose',[x,y,5.5],'STEEL M2x12 nominal')
+    add('NutM2','ToFNut32_%d'%i,pose*A.Placement(A.Vector(x,y,-4),down),'ToFSpacer32_%d'%i,[x,y,-4],'STEEL M2 nut nominal')
+for name,z in [('Nose',3),('ToF',1.016)]:
+    j=d.getObject('Fix_'+name);j.Reference1=(d.getObject('Rigid_Muzzle'),['',''])
+    j.Placement1=j.Placement2=A.Placement(pose.multVec(A.Vector(10.16,2.54,z)),A.Rotation())
+    j.DesignStatus=status+'; muzzle-to-head interface still unresolved'
+    next(r for r in plan['joints'] if r['name']=='Fix_'+name).update(parent='Muzzle',status=j.DesignStatus)
+plan['tof_mount']=dict(source_step='vl53l5cx-pololu-3417.step',source_step_sha256=hashlib.sha256((ROOT/'hardware/reference/component-selection-2026-09-22/vl53l5cx-pololu-3417.step').read_bytes()).hexdigest(),
+    pcb_base_CAD_mm=list(pose.Base),pcb_rotation='Ry(-90 degrees)',holes_local_xy_mm=holes,
+    pcb_thickness_mm=1.016,through_clearance_mm=2.4,rear_spacer_OD_mm=5,rear_spacer_height_mm=4,
+    nose_thickness_mm=2.5,nose_outline_mm=[26,17],nose_corner_radius_mm=4,optical_window_mm=[6.5,10],
+    clamped_stack_mm=9.5,nut_height_mm=1.6,screw_length_mm=12,protrusion_mm=.9,
+    typical_fov_full_degrees=45,optical_proof='Conservative full package-top rectangle plus about 0.3 mm, expanded at 22.5 degree half-angle to local z=60; no protective glass, no optical certification',
+    harness='Direct soldered wires with local keepout only, no header or full routed cable',
+    cable_passage=dict(host='HeadFront',width_mm=22,height_mm=7,radius_mm=3.5,pocket_depth_mm=14,local_sketch_z_mm=-.1),
+    inherited_head_interferences='Must be reported separately from new mounting collisions; do not infer full head clearance')
+plan['fixed_count']=sum(r['type']=='Fixed' for r in plan['joints']);plan['revolute_count']=sum(r['type']=='Revolute' for r in plan['joints'])
+plan['temporary_locks']=sum('TEMP' in r['status'].upper() for r in plan['joints'])
+d.recompute();assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+asm.Scope=plan['scope'];d.Label='Kot v32 - nos i rzeczywisty ToF - PROTOTYP';d.recompute();d.save()
+plan['source_sha256']=hashlib.sha256(TARGET.read_bytes()).hexdigest();plan['master_sha256']=hashlib.sha256(MASTER.read_bytes()).hexdigest()
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+A.setActiveDocument(d.Name);G.activeDocument().activeView().viewAxonometric();G.activeDocument().activeView().fitAll()
+print(json.dumps(dict(file=d.FileName,components=len(plan['components']),fixed=plan['fixed_count'],temporary=plan['temporary_locks'])))
