@@ -1,15 +1,39 @@
 # Stan mechaniki — 2026-09-22
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
-Ostatnie złożenie: [v28](v28/README.md). **Nie jest wydaniem do druku.**
+Ostatnie złożenie: [v29](v29/README.md). **Nie jest wydaniem do druku.**
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
 serwisowego; nie zastępuje ukończonym modelem brakujących mechanizmów.
 Na zlecenie użytkownika rozpoczęto konkretny
 [dobór części i zebranie modeli producentów](../reference/component-selection-2026-09-22/README.md).
 Priorytet: Botland, następnie Kamami; maksymalnie 10 dni oczekiwania.
-Pobrano i sprawdzono cztery modele STEP, ale nie wdrożono ich w złożeniu.
+Pobrano i sprawdzono modele STEP. W v29 wdrożono MG92B ogona;
+modele elektroniki i dwóch serw głowy czekają na integrację.
 
-## Wykonane teraz: więzy oraz Gazebo
+## Nocny checkpoint v29
+
+- Sześć wymiennych segmentów PETG, wpusty/gniazda i rzeczywiste otwory
+  na M2×12 z nakrętkami. Po skręceniu ogon jest sztywnym łukiem, nie
+  łańcuchem sześciu aktywnych przegubów.
+- Jeden rzeczywisty model MG92B ogona, uchwyt na uszy 27,5 mm,
+  mostek do istniejących otworów ramy, 32 zamodelowane elementy śrubowe.
+  Z v29 usunięto nadmiarowy napęd ogona; v28 pozostaje nienaruszone.
+- Edytowalny master ma 56 faktycznie w pełni związanych szkiców.
+  Nowe części PETG mieszczą się w 256³ mm; mocowania wymagają prób PETG.
+- Złożenie: 252 części, 238 Fixed + 13 Revolute, 36 blokad tymczasowych.
+  Natywne 22 klatki: nogi ±3°, ogon ±30°, połączenia zachowane.
+- Audyt: brak przecięć >0,01 mm³ nowych części z pozostałymi w spoczynku
+  oraz w 13 próbkach obrotu ogona. To nie pełny ciągły test całego chodu.
+- Ruchomy ogon około 55,6 g, obliczeniowe zginanie wałka 0,0437 Nm.
+  **Orczyk i niezależne podparcie wyjścia nadal nierozwiązane** — dlatego
+  jedno mocowanie ogona jawnie pozostaje tymczasowe.
+- Gazebo v29: pełne 252 bryły, masa nominalna 2,416 kg (2,139–2,875 kg),
+  ogon zamrożony w pozycji CAD. Próby stania i wolnego chodu bez upadku:
+  RMS max 0,534 / 0,573 Nm, cięższy chód 0,650 Nm i 15,3% nasycenia.
+  To nie zatwierdzenie biegu ani momentu ciągłego.
+- Źródła, zakres testów i dalsza kolejność: [nocny dziennik](NIGHT-2026-09-22.md).
+
+## Wcześniejsze etapy v27–v28: więzy oraz Gazebo
 
 - v27 naprawia 32 mocowania: obudowy pierwszych serw biodrowych poruszają
   się z WConnector, orczyki pozostają przy ramie. Geometria i 12 osi bez zmian.
@@ -35,8 +59,9 @@ Pobrano i sprawdzono cztery modele STEP, ale nie wdrożono ich w złożeniu.
 - Robot do domu; spodnia osłona nie jest wanną ani podporą akumulatora.
 - Lista `docs/plan-zakupowy.pdf`, strona 1: **2 serwa głowy + 1 ogona**.
   Nie ma zgody ani potrzeby interpretacyjnej na czwarte serwo pomocnicze.
-- Złożenie ma 12 natywnych Revolute nóg i 225 Fixed, w tym **64 tymczasowe**
-  blokady. Fixed nie zastępuje rzeczywistego wspornika, śruby ani łożyska.
+- v28 miało 12 natywnych Revolute nóg i 225 Fixed, w tym 64 tymczasowe
+  blokady; v29: 13 Revolute, 238 Fixed, **36 tymczasowych**. Fixed nie
+  zastępuje rzeczywistego wspornika, śruby ani łożyska.
 - Test natywny v28: 22 klatki ±3°, nie pełny chód ani pełne zakresy serw.
 
 ## Blokady wymagające konkretnych części / decyzji zakupowej
@@ -69,10 +94,9 @@ Pobrano i sprawdzono cztery modele STEP, ale nie wdrożono ich w złożeniu.
 
 - Uchwyt głowy: 2 osie, podparcie obciążeń, orczyki/śruby, mocowania kamery,
   czujnika i reszty części twarzy; sprawdzenie przewodów przez całą trajektorię.
-- Ogon: 1 napęd, wymienne segmenty i rzeczywiste połączenia. Stare bryły
-  „elastyczny przegub” nie dowodzą poprawnego przegubu z PETG.
-- Usunąć z nowej rewizji nadmiarowy napęd ogona po ustaleniu mechanizmu;
-  zachować poprzedni checkpoint jako dokumentację, nie jako BOM zakupowy.
+- Ogon v29: rozwiązać sprzęgnięcie z dostarczanym orczykiem MG92B,
+  niezależne podparcie i osłonę, sprawdzić narzędzia i próby PETG.
+  Segmenty i usunięcie nadmiarowego napędu są już wykonane, nie powtarzać.
 - Mocowania elektroniki oparte o faktyczne otwory, wtyki, miejsca serwisowe.
   Zweryfikować termikę regulatorów i chłodzenia, nie tylko statyczny obrys.
 - Serwis akumulatora: obecna tacka/paski/nakrętki blokują wyjęcie w dół.

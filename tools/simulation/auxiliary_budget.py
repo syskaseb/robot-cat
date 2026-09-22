@@ -1,12 +1,12 @@
-"""Provisional head/tail sizing, explicitly NOT measured output-shaft axes.
+"""Provisional head sizing and a revision-specific tail budget.
 
-Current CAD has placeholder boxes, not the selected MG92B installed. Test
-candidate axes at their centres and a balanced head alternative. Keep the
-assumptions separate from the 12 measured WAVEGO output axes.
+Head servo boxes are still placeholders. Test candidate axes at their centres
+and a balanced head alternative. v29 tail uses the measured supplier STEP
+axis; older revisions use placeholders. None certifies the mounting/load path.
 """
 import json,math
 import numpy as np
-from cad_model import OUT,combine,KGFCM_TO_NM
+from cad_model import ROOT,OUT,REVISION,combine,KGFCM_TO_NM,xyz
 from cad_kinematics import rotation
 
 
@@ -32,22 +32,36 @@ def main():
     balanced=budget(head,head_com,[0,1,0],range(-20,21))
     yaw_parts=head+[byname[n] for n in ('HeadPitchServo','NeckColumn','NeckCollar')]
     yaw=budget(yaw_parts,byname['NeckYawServo']['com_m'],[0,0,1],range(-30,31))
-    tail=[p for p in parts if p['name'].startswith(('TailSegment','TailJoint','TailSocket'))]
-    tail_yaw=budget(tail,byname['TailYawServo']['com_m'],[0,0,1],range(-30,31))
+    if REVISION=='v29':
+        geometry=json.loads((OUT/'geometry.json').read_text(encoding='utf8'))
+        tail_names={p['name'] for p in geometry['components'] if p.get('native_stage')=='Motion_Tail_Yaw'}
+        tail=[p for p in parts if p['name'] in tail_names]
+        plan=json.loads((ROOT/'hardware/skorupa/v29/assembly-plan.json').read_text())
+        assert plan['source_sha256']==model['source_sha256']==geometry['source_sha256']
+        tail_pivot=xyz(next(j for j in plan['joints'] if j['name']=='Rev_TailYaw29')['pivot_mm'])
+        tail_key='tail_yaw_actual_cad_axis'
+        tail_warning='v29 rigid keyed PETG tail: horn and independent output support unresolved. Not print ready.'
+    else:
+        tail=[p for p in parts if p['name'].startswith(('TailSegment','TailJoint','TailSocket'))]
+        tail_pivot=byname['TailYawServo']['com_m']
+        tail_key='tail_yaw_placeholder_centre'
+        tail_warning='Legacy tail flexure shapes are placeholders, not validated PETG hinges. Use 1 tail servo, not 2.'
+    tail_yaw=budget(tail,tail_pivot,[0,0,1],range(-30,31))
     # Robust upper bound for a tilted chassis / alternative tail hinge axis.
-    tail_gravity=combine(tail)['mass_kg']*9.80665*np.linalg.norm(np.array(combine(tail)['com_m'])-byname['TailYawServo']['com_m'])
+    tail_gravity=combine(tail)['mass_kg']*9.80665*np.linalg.norm(np.array(combine(tail)['com_m'])-tail_pivot)
     report=dict(source_sha256=model['source_sha256'],scope=__doc__,
                 mg92b_5V=dict(stall_nm=3.1*KGFCM_TO_NM,no_load_rad_s=math.pi/3/.13,
                     provisional_25pct_screen_nm=3.1*KGFCM_TO_NM*.25,
                     source='https://towerpro.com.tw/product/mg92b/',continuous_torque='unknown'),
                 head_pitch_placeholder_centre=pitch,head_pitch_balanced_candidate=balanced,
-                neck_yaw_placeholder_centre=yaw,tail_yaw_placeholder_centre=tail_yaw,
+                neck_yaw_placeholder_centre=yaw,
                 tail_arbitrary_axis_gravity_upper_bound_nm=float(tail_gravity),
                 warnings=['Bracket, horn and cable loads absent; not approval of mounts or servo.',
                     'Vertical yaw has zero gravity torque only with level chassis; radial bearing loads remain.',
                     'Balance head near COM instead of selecting a larger servo solely by stall torque.',
                     'Mass assumes solid CAD PETG at 1.27 g/cm3 and estimated bought parts.',
-                    'Tail flexure shapes are placeholders, not validated PETG hinges. Use 1 tail servo, not 2.'])
+                    tail_warning])
+    report[tail_key]=tail_yaw
     (OUT/'auxiliary-budget.json').write_text(json.dumps(report,indent=2),encoding='utf8')
     print(json.dumps(report,indent=2))
 

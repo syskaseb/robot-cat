@@ -20,12 +20,24 @@ def test_right_handed_frame():
 
 def test_part_mass_accounting(geometry):
     rows=mass_budget(geometry)
-    assert len(rows)==239 and len({r['name'] for r in rows})==239
+    expected=len(geometry['components'])+1
+    assert len(rows)==expected and len({r['name'] for r in rows})==expected
     servos=[r for r in rows if r['basis'].startswith('ST3215 body')]
     assert len(servos)==72
     assert sum(r['mass_kg'] for r in servos)==pytest.approx(12*.069)
     assert next(r for r in rows if r['name']=='Battery')['mass_kg']==pytest.approx(.174)
     assert next(r for r in rows if r['name']=='Pi')['mass_kg']==pytest.approx(.046)
+
+
+def test_v29_auxiliary_and_fastener_mass_classification(geometry):
+    if REVISION!='v29':pytest.skip('v29 tail integration only')
+    rows={r['name']:r for r in mass_budget(geometry)}
+    assert rows['MG92BCase29']['mass_kg']+rows['MG92BOutput29']['mass_kg']==pytest.approx(.0138)
+    assert not {'TailYawServo','TailLiftServo'} & set(rows)
+    bolts=[r for n,r in rows.items() if n.startswith(('TailBolt29','TailFrameBolt29','TailMountBolt29','TailEarBolt29'))]
+    assert len(bolts)==16 and all(r['basis'].startswith('steel') for r in bolts)
+    assert all(r['stage']=='Chassis' for n,r in rows.items() if n.startswith('Tail'))
+    assert geometry['frozen_native_joints']==['Rev_TailYaw29']
 
 
 def test_inverted_hip_mount_ownership(geometry):

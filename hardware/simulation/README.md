@@ -1,4 +1,24 @@
-# Aktualny CAD w Gazebo — v28, 22.09.2026
+# Aktualny CAD w Gazebo — v29, 22.09.2026
+
+**Najnowsze wyniki: [v29 — model z nowym ogonem](v29/README.md).**
+252 części CAD, 2,416 kg nominalnie (2,139–2,875 kg), 13 ciał fizycznych
+i 12 osi nóg. Nowy ogon jest w tym eksperymencie nieruchomy, ale jego
+masa, bezwładność i siatka są w całości uwzględnione. Natywny FreeCAD
+osobno testuje 13 ruchomych osi: nogi ±3° i ogon ±30°.
+
+Trzy nowe próby: stanie RMS max 0,534 Nm; wolny chód 79,0 mm/12 s
+i 0,573 Nm; cięższy wariant 0,650 Nm i nasycenie do 15,3%.
+Nie zatwierdzono pracy ciągłej ani biegu. Fizyczny orczyk i podparcie
+ogona oraz mechanizmy głowy nadal wymagają projektu.
+Wyniki: [tabela v29](v29/RESULTS.md), [weryfikacja źródeł](v29/checkpoint-integrity.json).
+
+W narzędziach ustaw **`ROBOT_CAT_CAD_REVISION=v29`**; domyślnie zachowano
+v28 dla zgodności wcześniejszego eksperymentu. Szczegółowe komendy w README v29.
+
+## Wcześniejsza dokumentacja v28 — zachowana porównawczo
+
+Poniższe liczby, nazwy plików i cztery stare serwa pomocnicze dotyczą
+wyłącznie **v28**, nie aktualnego modelu v29.
 
 **Jest działający model fizyczny, ale nie ma jeszcze zatwierdzenia robota do
 druku ani napędów do pracy ciągłej.** Nie zastępuje dotychczasowego modelu ROS

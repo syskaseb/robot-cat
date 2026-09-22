@@ -1,0 +1,167 @@
+"""Integrate MCP-built tail masters into an isolated copy of v28.
+
+Only datum-preserving assembly operations, STEP subsolid separation and
+snapshot copies live here. All new printable features were built through
+structured FreeCAD MCP tools in TailDesign29.FCStd. Horn/bearing interface
+is deliberately NOT asserted to be mechanically complete.
+"""
+from pathlib import Path
+import hashlib, json, math, shutil, sys
+import FreeCAD as A, FreeCADGui as G, Part
+
+ROOT = Path(__file__).resolve().parents[3]
+OUT = ROOT / 'hardware/skorupa/v29'
+SOURCE = ROOT / 'hardware/skorupa/v28/Kot_v28_BIODRA_PETG.FCStd'
+TARGET = OUT / 'Kot_v29_OGON_PROTOTYP.FCStd'
+MASTER = OUT / 'TailDesign29.FCStd'
+if TARGET.exists():
+    # A failed run before the first save leaves an untouched v28 byte-copy.
+    # Only that exact incomplete target is retryable, never a saved v29.
+    assert TARGET.read_bytes() == SOURCE.read_bytes(), 'Never overwrite an existing integration checkpoint'
+    for opened in list(A.listDocuments().values()):
+        if opened.FileName and Path(opened.FileName).resolve() == TARGET.resolve():
+            A.closeDocument(opened.Name)
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == '1f8e5d1c758056b56342314b99b9def783c5d8200ef78b3fbf99c70a2f1c0fa0'
+m = A.getDocument('TailDesign29')
+assert Path(m.FileName).resolve() == MASTER.resolve()
+m.recompute()
+for o in m.Objects:
+    if o.TypeId == 'Sketcher::SketchObject':
+        assert o.FullyConstrained, o.Name
+    if o.TypeId == 'PartDesign::Body':
+        assert o.Shape.isValid() and len(o.Shape.Solids) == 1, o.Name
+m.save()
+shutil.copy2(SOURCE, TARGET)
+d = A.openDocument(str(TARGET))
+asm = d.getObject('RobotCatAssembly24')
+group = next(o for o in asm.Group if o.TypeId == 'Assembly::JointGroup')
+sys.path.insert(0, A.getHomePath() + 'Mod/Assembly')
+import JointObject, CommandCreateSimulation as CS, UtilsAssembly
+
+plan = json.loads((ROOT/'hardware/skorupa/v27/assembly-plan.json').read_text())
+retired = [r['name'] for r in plan['components'] if r['name'].startswith('Tail')]
+assert len(retired) == 29, retired
+retired_joints = [r['name'] for r in plan['joints'] if r['child'] in retired]
+assert len(retired_joints) == 29
+assert not any(r['parent'] in retired and r['child'] not in retired for r in plan['joints'])
+for n in retired_joints:
+    d.removeObject(n)
+for n in retired:
+    wrapper = d.getObject('Rigid_' + n)
+    origin = wrapper.Origin
+    origin_name = origin.Name
+    origin_features = [o.Name for o in origin.OriginFeatures]
+    d.removeObject(n)
+    d.removeObject(wrapper.Name)
+    for child in origin_features:
+        if d.getObject(child): d.removeObject(child)
+    if d.getObject(origin_name): d.removeObject(origin_name)
+plan['components'] = [r for r in plan['components'] if r['name'] not in retired]
+plan['joints'] = [r for r in plan['joints'] if r['name'] not in retired_joints]
+
+def shape_of(name):
+    return m.getObject(name).Shape.copy()
+
+def add(name, shape, parent, status, stage='Chassis', color=(.09,.10,.12), material='PETG'):
+    assert not d.getObject(name), name
+    wrapper = d.addObject('App::Part', 'Rigid_' + name)
+    asm.addObject(wrapper)
+    obj = wrapper.newObject('Part::Feature', name)
+    obj.Shape = shape
+    obj.Label = name + (' | PETG' if material == 'PETG' else ' | bought')
+    obj.addProperty('App::PropertyString', 'MaterialSpec', 'Manufacturing').MaterialSpec = material
+    obj.addProperty('App::PropertyString', 'DesignStatus', 'Traceability').DesignStatus = status
+    obj.addProperty('App::PropertyString', 'ParametricMaster', 'Traceability').ParametricMaster = 'TailDesign29.FCStd; baked snapshot, not a live link'
+    obj.addProperty('App::PropertyString', 'RigidStage', 'Kinematics').RigidStage = stage
+    obj.ViewObject.ShapeColor = color
+    obj.Visibility = True
+    plan['components'].append(dict(name=name,label=obj.Label,stage=stage))
+    if parent: joint('Fix_'+name, parent, name, status)
+    return obj
+
+def joint(name, parent, child, status, revolute=False, point=None):
+    first=d.getObject('Rigid_'+parent); second=d.getObject('Rigid_'+child)
+    j=group.newObject('App::FeaturePython',name)
+    JointObject.Joint(j, 1 if revolute else 0)
+    j.Detach1=True; j.Detach2=True
+    j.Reference1=(first,['','']); j.Reference2=(second,['',''])
+    datum=A.Placement(A.Vector(*(point or [0,0,0])),A.Rotation())
+    j.Placement1=first.Placement.inverse()*datum
+    j.Placement2=second.Placement.inverse()*datum
+    j.addProperty('App::PropertyString','DesignStatus','Traceability').DesignStatus=status
+    JointObject.ViewProviderJoint(j.ViewObject); j.Visibility=False
+    row=dict(name=name,parent=parent,child=child,type='Revolute' if revolute else 'Fixed',status=status)
+    if revolute: row.update(pivot_mm=point,axis=[0,0,1])
+    plan['joints'].append(row)
+    return j
+
+add('TailBridge29',shape_of('TailBridge29'),'FrameRear20','Four M2x12 through existing frame and top-cover holes; 2.48 mm spacers, 1 mm head recess')
+add('MG92BMount29',shape_of('MG92BMount29'),'TailBridge29','Four M3x12 and nuts on 32 x 32 mm pattern')
+servo=shape_of('MG92BReference29')
+assert len(servo.Solids)==6
+add('MG92BCase29',Part.makeCompound(servo.Solids[:5]),'MG92BMount29','Two M2x12 through measured 27.5 mm ear pattern',material='Purchased MG92B, Adafruit STEP reference',color=(.13,.13,.15))
+add('MG92BOutput29',servo.Solids[5],None,'Measured STEP output spline axis; not a printed spline',stage='Motion_Tail_Yaw',material='Purchased servo output spline',color=(.55,.50,.30))
+rev=joint('Rev_TailYaw29','MG92BCase29','MG92BOutput29','Measured MG92B shaft axis; bench range/loads not validated',True,[171,-6,91])
+add('TailRoot29',shape_of('TailRoot29'),'MG92BOutput29','TEMPORARY coupling: supplied horn dimensions and independent bearing/support unresolved; NOT print-ready',stage='Motion_Tail_Yaw')
+modules=[]
+for i in range(6):
+    src='TailModule00' if i==0 else 'TailModule00'+str(i)
+    name='TailModule29_%02d'%i
+    parent=modules[-1] if modules else 'TailRoot29'
+    add(name,shape_of(src),parent,'6 mm keyed spigot, 6.5 mm socket, transverse M2x12 + nut, 0.3 mm seam; 1.75 mm minimum socket wall needs PETG coupon',stage='Motion_Tail_Yaw')
+    modules.append(name)
+
+def fastener(master,name,placement,parent,stage='Chassis'):
+    s=shape_of(master); s.Placement=placement*s.Placement
+    return add(name,s,parent,'Nominal purchased fastener envelope; threads/hex/socket omitted; head dimensions not supplied for NSZ-00637; verify by measurement',stage,(.60,.62,.64),'STEEL purchased '+master)
+
+for i,name in enumerate(modules):
+    body=m.getObject('TailModule00' if i==0 else 'TailModule00'+str(i))
+    p=body.Placement
+    axis=A.Rotation(A.Vector(0,0,1),A.Vector(0,1,0))
+    fastener('BoltM2x12','TailBolt29_%02d'%i,p*A.Placement(A.Vector(0,-5,4),axis),name,'Motion_Tail_Yaw')
+    fastener('NutM2','TailNut29_%02d'%i,p*A.Placement(A.Vector(0,5,4),axis),name,'Motion_Tail_Yaw')
+down=A.Rotation(A.Vector(0,0,1),A.Vector(0,0,-1))
+for i,(x,y) in enumerate((x,y) for x in [112,122] for y in [-22.5,22.5]):
+    fastener('BoltM2x12','TailFrameBolt29_%d'%i,A.Placement(A.Vector(x,y,43),down),'TailBridge29')
+    fastener('NutM2','TailFrameNut29_%d'%i,A.Placement(A.Vector(x,y,35.52),down),'FrameRear20')
+for i,(x,y) in enumerate((x,y) for x in [155,187] for y in [-16,16]):
+    fastener('BoltM3x12','TailMountBolt29_%d'%i,A.Placement(A.Vector(x,y,50),down),'MG92BMount29')
+    fastener('NutM3','TailMountNut29_%d'%i,A.Placement(A.Vector(x,y,41),down),'TailBridge29')
+for i,y in enumerate([-14.5,13]):
+    fastener('BoltM2x12','TailEarBolt29_%d'%i,A.Placement(A.Vector(171,y,79),down),'MG92BCase29')
+    fastener('NutM2','TailEarNut29_%d'%i,A.Placement(A.Vector(171,y,74),down),'MG92BMount29')
+
+shell=d.getObject('ShellMounted20')
+s=shape_of('ShellTailOutlet29')
+s.Placement=(shell.getGlobalPlacement()*shell.Placement.inverse()).inverse()*s.Placement
+shell.Shape=s
+shell.addProperty('App::PropertyString','ParametricMaster','Traceability').ParametricMaster='TailDesign29.FCStd / ShellTailOutlet29, baked snapshot'
+d.recompute(); assert asm.solve()==0
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+
+sg=UtilsAssembly.getSimulationGroup(asm)
+sim=sg.newObject('App::FeaturePython','TailConnectionTest29')
+CS.Simulation(sim); CS.ViewProviderSimulation(sim.ViewObject)
+sim.Label='Ogon +/-30deg | kinematyka, nie walidacja napedu'
+sim.aTimeStart=0;sim.bTimeEnd=1;sim.cTimeStepOutput=.05;sim.jFramesPerSecond=20
+motion=asm.newObject('App::FeaturePython','Motion_TailYaw29')
+CS.Motion(motion,'Angular',(rev,['']),'0.523598775598299*sin(2*pi*time)')
+CS.ViewProviderMotion(motion.ViewObject);sim.Group=[motion]
+plan['scope']='v29 development tail: real segment fasteners and MG92B mounts; horn coupling/support unfinished. Not print release or Gazebo update.'
+plan['source_checkpoint']='v28'
+plan['retired_components']=retired
+plan['fixed_count']=sum(j['type']=='Fixed' for j in plan['joints'])
+plan['revolute_count']=sum(j['type']=='Revolute' for j in plan['joints'])
+plan['temporary_locks']=sum('TEMP' in j['status'].upper() for j in plan['joints'])
+asm.Scope=plan['scope']
+d.Label='Kot v29 - ogon modulowy PETG - PROTOTYP'
+d.recompute();d.save()
+plan['source_sha256']=hashlib.sha256(TARGET.read_bytes()).hexdigest()
+plan['master_sha256']=hashlib.sha256(MASTER.read_bytes()).hexdigest()
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+A.setActiveDocument(d.Name)
+v=G.activeDocument().activeView();v.viewAxonometric()
+v.setCameraOrientation((A.Rotation(A.Vector(0,0,1),180)*v.getCameraOrientation()).Q)
+v.fitAll();G.updateGui()
+print(json.dumps(dict(document=d.Name,file=str(TARGET),components=len(plan['components']),fixed=plan['fixed_count'],revolute=plan['revolute_count'],temporary=plan['temporary_locks'])))

@@ -1,0 +1,85 @@
+"""Actual native tail simulation and saved world-shape cache, not animation guesses."""
+from pathlib import Path
+import hashlib,json,math,sys
+import FreeCAD as A,FreeCADGui as G
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v29'
+target=OUT/'Kot_v29_OGON_PROTOTYP.FCStd'
+d=next(x for x in A.listDocuments().values() if x.FileName and Path(x.FileName).resolve()==target.resolve())
+asm=d.getObject('RobotCatAssembly24')
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf8'))
+assert hashlib.sha256((OUT/'TailDesign29.FCStd').read_bytes()).hexdigest()==plan['master_sha256']
+sys.path.insert(0,A.getHomePath()+'Mod/Assembly')
+import CommandCreateSimulation as CS, UtilsAssembly
+# Exercise all 13 axes together in one test. Keep the individual test objects
+# too; do not move/re-parent their motions into this group.
+sim=d.getObject('RobotConnectionTest29')
+if sim is None:
+    sim=UtilsAssembly.getSimulationGroup(asm).newObject('App::FeaturePython','RobotConnectionTest29')
+    CS.Simulation(sim);CS.ViewProviderSimulation(sim.ViewObject)
+    motions=[]
+    for row in plan['joints']:
+        if row['type']!='Revolute':continue
+        motion=asm.newObject('App::FeaturePython','Combined29_'+row['name'])
+        if row['name']=='Rev_TailYaw29':formula='0.523598775598299*sin(2*pi*time)'
+        else:formula=d.getObject('Motion_'+row['name']).Formula
+        CS.Motion(motion,'Angular',(d.getObject(row['name']),['']),formula)
+        CS.ViewProviderMotion(motion.ViewObject);motions.append(motion)
+    sim.Group=motions
+sim.Label='Lapy +/-3deg i ogon +/-30deg | test polaczen'
+sim.aTimeStart=0;sim.bTimeEnd=1;sim.cTimeStepOutput=.05;sim.jFramesPerSecond=20
+d.getObject('Motion_TailYaw29').Formula='0.523598775598299*sin(2*pi*time)'
+d.recompute()
+baseline={r['name']:d.getObject('Rigid_'+r['name']).Placement.copy() for r in plan['components']}
+assert all(p.isSame(A.Placement(),1e-6) for p in baseline.values())
+
+def restore():
+    for n,p in baseline.items():d.getObject('Rigid_'+n).Placement=p
+    d.recompute();assert asm.solve()==0
+
+def residuals():
+    t=r=a=0.;angles={}
+    for row in plan['joints']:
+        j=d.getObject(row['name'])
+        p=j.Reference1[0].Placement*j.Placement1;q=j.Reference2[0].Placement*j.Placement2
+        t=max(t,(p.Base-q.Base).Length)
+        theta=(p.Rotation.inverted()*q.Rotation).Angle
+        if row['type']=='Fixed':r=max(r,theta)
+        else:
+            a=max(a,p.Rotation.multVec(A.Vector(0,0,1)).getAngle(q.Rotation.multVec(A.Vector(0,0,1))))
+            angles[row['name']]=math.degrees(theta)
+    return dict(max_joint_gap_mm=t,max_fixed_error_rad=r,max_axis_error_rad=a,angles_deg=angles)
+
+report=dict(scope='Native constraint retention only. Tail horn and independent output bearing unresolved; no load/print certification.',tests=[])
+try:
+    # Native formulas use radians. Values are checked below, not assumed passed.
+    # Leading zero is mandatory: '.1' silently produces zero frames in 1.1.3.
+    for simname in ['RobotConnectionTest29']:
+        restore();sim=d.getObject(simname);asm.generateSimulation(sim);assert asm.numberOfFrames()>=20;rows=[];peaks={}
+        for i in range(asm.numberOfFrames()):
+            asm.updateForFrame(i);row=residuals();row['frame']=i;rows.append(row)
+            assert max(row['max_joint_gap_mm'],row['max_fixed_error_rad'],row['max_axis_error_rad'])<1e-5
+            for n,v in row['angles_deg'].items():peaks[n]=max(peaks.get(n,0),v)
+        assert 29.8<peaks['Rev_TailYaw29']<30.2
+        assert all(2.8<v<3.2 for n,v in peaks.items() if n!='Rev_TailYaw29')
+        report['tests'].append(dict(simulation=simname,frames=rows,peak_angles_deg=peaks))
+finally:
+    restore()
+assert all(d.getObject('Rigid_'+n).Placement.isSame(p,1e-6) for n,p in baseline.items())
+for row in plan['components']:
+    obj=d.getObject(row['name'])
+    assert obj.Shape.isValid() and obj.Shape.Solids,row['name']
+d.recompute();d.save()
+sha=hashlib.sha256(target.read_bytes()).hexdigest()
+plan['source_sha256']=sha
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+cache=OUT/'shape-cache';cache.mkdir(exist_ok=True)
+for row in plan['components']:
+    obj=d.getObject(row['name']);s=obj.Shape.copy()
+    s.Placement=obj.getGlobalPlacement()*obj.Placement.inverse()*s.Placement
+    s.exportBrep(str(cache/(row['name']+'.brep')))
+(cache/'index.json').write_text(json.dumps(dict(source_sha256=sha,objects=[r['name'] for r in plan['components']]),indent=2),encoding='utf8')
+report.update(source_sha256=sha,master_sha256=plan['master_sha256'],components=len(plan['components']),fixed=plan['fixed_count'],revolute=plan['revolute_count'],temporary=plan['temporary_locks'],solver_result=0,restored=True)
+(OUT/'assembly-validation.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+A.setActiveDocument(d.Name);v=G.activeDocument().activeView();v.viewAxonometric()
+v.setCameraOrientation((A.Rotation(A.Vector(0,0,1),180)*v.getCameraOrientation()).Q);v.fitAll();G.updateGui()
+print(json.dumps(dict(saved=d.FileName,tests=[dict(name=t['simulation'],frames=len(t['frames']),peaks=t['peak_angles_deg']) for t in report['tests']])))

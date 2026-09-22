@@ -1,0 +1,667 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <world name="cad_v29">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics" />
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <gravity>0 0 -9.80665</gravity>
+    <model name="ground">
+      <static>true</static>
+      <link name="ground">
+        <collision name="plane_collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="plane_visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <direction>-0.3 0.2 -1</direction>
+    </light>
+    <model name="robot_cat_cad">
+      <pose>0 0 0.188829013 0 0 0</pose>
+      <self_collide>false</self_collide>
+      <link name="base_link">
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <mass>1.4413583085251895</mass>
+          <pose>0.009227204998 6.023503936e-05 0.04636134935 0 0 0</pose>
+          <inertia>
+            <ixx>0.004308680987282729</ixx>
+            <iyy>0.017735651244273516</iyy>
+            <izz>0.015471866485169402</izz>
+            <ixy>3.3029355197761664e-05</ixy>
+            <ixz>-0.001446341082380809</ixz>
+            <iyz>-4.174819806224954e-05</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/base_link.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+        <collision name="fall_stop_proxy">
+          <pose>0 0 .025 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.25 0.09 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="motion_fr_hip">
+        <pose>-0.1098095665 0.016 1.993072374e-15 0 0 0</pose>
+        <inertial>
+          <mass>0.07493395599888408</mass>
+          <pose>-0.01568162832 0.01683475301 -0.002220036615 0 0 0</pose>
+          <inertia>
+            <ixx>2.3290225273053574e-05</ixx>
+            <iyy>9.134060840083645e-06</iyy>
+            <izz>2.5139110300619252e-05</izz>
+            <ixy>1.676563881740977e-07</ixy>
+            <ixz>-2.700079528323441e-09</ixz>
+            <iyz>2.1970058375814443e-06</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_fr_hip.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_fr_knee">
+        <pose>-0.1253975665 0.06048409974 -0.006251832509 0 0 0</pose>
+        <inertial>
+          <mass>0.1425231118816089</mass>
+          <pose>-0.0282696011 0.009733189063 -0.04461734071 0 0 0</pose>
+          <inertia>
+            <ixx>0.00017189739411369606</ixx>
+            <iyy>0.00021896998159660644</iyy>
+            <izz>7.463791007251078e-05</izz>
+            <ixy>-1.1949937275122222e-05</ixy>
+            <ixz>-8.915180895056753e-05</ixz>
+            <iyz>-1.961688197029885e-05</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_fr_knee.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_fr_ankle">
+        <pose>-0.1751643297 0.07951564588 -0.09858050433 0 0 0</pose>
+        <inertial>
+          <mass>0.026242128365665633</mass>
+          <pose>0.03142611978 0.000276666908 -0.03051981566 0 0 0</pose>
+          <inertia>
+            <ixx>1.997078933171034e-05</ixx>
+            <iyy>4.0043596825093215e-05</iyy>
+            <izz>2.4458443149259376e-05</izz>
+            <ixy>2.9451258613616395e-07</ixy>
+            <ixz>1.886799109397343e-05</ixz>
+            <iyz>9.789716230814659e-08</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_fr_ankle.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+        <collision name="provisional_petg_foot">
+          <pose>0.07580239817 -0.001944605734 -0.08224850843 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.006</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+      <link name="motion_fl_hip">
+        <pose>-0.1098095665 -0.016 1.939781669e-15 0 0 0</pose>
+        <inertial>
+          <mass>0.07493395599888408</mass>
+          <pose>-0.01568162832 -0.01679452825 -0.002506250647 0 0 0</pose>
+          <inertia>
+            <ixx>2.32902252730728e-05</ixx>
+            <iyy>9.185823992973032e-06</iyy>
+            <izz>2.5087347147586148e-05</izz>
+            <ixy>-1.619059081099443e-07</ixy>
+            <ixz>-4.361688064032574e-08</ixz>
+            <iyz>-2.3775254048479714e-06</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_fl_hip.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_fl_knee">
+        <pose>-0.1253975665 -0.06048409974 -0.006251832509 0 0 0</pose>
+        <inertial>
+          <mass>0.1425231118816089</mass>
+          <pose>-0.02853566196 -0.009750455743 -0.0444944819 0 0 0</pose>
+          <inertia>
+            <ixx>0.0001723849289132087</ixx>
+            <iyy>0.00021976918684989613</iyy>
+            <izz>7.497822099616715e-05</izz>
+            <ixy>1.1980570203613695e-05</ixy>
+            <ixz>-8.931048911645884e-05</ixz>
+            <iyz>1.9701081838301777e-05</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_fl_knee.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_fl_ankle">
+        <pose>-0.1751643297 -0.07951564588 -0.09858050433 0 0 0</pose>
+        <inertial>
+          <mass>0.02624212836566563</mass>
+          <pose>0.03142611977 -0.0002766669097 -0.03051981566 0 0 0</pose>
+          <inertia>
+            <ixx>1.9970789333389578e-05</ixx>
+            <iyy>4.0043596836759765e-05</iyy>
+            <izz>2.4458443156547498e-05</izz>
+            <ixy>-2.9451258498308233e-07</ixy>
+            <ixz>1.8867991099022077e-05</ixz>
+            <iyz>-9.789716777162324e-08</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_fl_ankle.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+        <collision name="provisional_petg_foot">
+          <pose>0.07580239817 0.001944605734 -0.08224850843 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.006</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+      <link name="motion_rr_hip">
+        <pose>0.1098095665 0.016 -3.197442311e-17 0 0 0</pose>
+        <inertial>
+          <mass>0.07493395599888408</mass>
+          <pose>0.01568162832 0.01679452826 -0.00250625064 0 0 0</pose>
+          <inertia>
+            <ixx>2.329022527315476e-05</ixx>
+            <iyy>9.1858239895559e-06</iyy>
+            <izz>2.5087347151347584e-05</izz>
+            <ixy>-1.61905897518428e-07</ixy>
+            <ixz>4.361687926175235e-08</ixz>
+            <iyz>2.377525392168999e-06</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_rr_hip.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_rr_knee">
+        <pose>0.1253975665 0.06048409974 -0.006251832509 0 0 0</pose>
+        <inertial>
+          <mass>0.1425231118816089</mass>
+          <pose>-0.0282696011 0.009733189063 -0.04461734071 0 0 0</pose>
+          <inertia>
+            <ixx>0.00017189739411368967</ixx>
+            <iyy>0.0002189699815966037</iyy>
+            <izz>7.463791007251554e-05</izz>
+            <ixy>-1.1949937275123921e-05</ixy>
+            <ixz>-8.915180895056916e-05</ixz>
+            <iyz>-1.9616881970300646e-05</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_rr_knee.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_rr_ankle">
+        <pose>0.07563080321 0.07951564588 -0.09858050433 0 0 0</pose>
+        <inertial>
+          <mass>0.026242128365665644</mass>
+          <pose>0.03142611978 0.000276666908 -0.03051981566 0 0 0</pose>
+          <inertia>
+            <ixx>1.997078933171228e-05</ixx>
+            <iyy>4.004359682509261e-05</iyy>
+            <izz>2.4458443149256926e-05</izz>
+            <ixy>2.9451258613716705e-07</ixy>
+            <ixz>1.8867991093973347e-05</ixz>
+            <iyz>9.789716230745456e-08</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_rr_ankle.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+        <collision name="provisional_petg_foot">
+          <pose>0.07580239817 -0.001944605734 -0.08224850843 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.006</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+      <link name="motion_rl_hip">
+        <pose>0.1098095665 -0.016 2.131628207e-16 0 0 0</pose>
+        <inertial>
+          <mass>0.07493395599888408</mass>
+          <pose>0.01568162832 -0.01683475301 -0.002220036622 0 0 0</pose>
+          <inertia>
+            <ixx>2.3290225273264112e-05</ixx>
+            <iyy>9.134060843928548e-06</iyy>
+            <izz>2.5139110297001293e-05</izz>
+            <ixy>1.676563776097017e-07</ixy>
+            <ixz>2.7000779485726364e-09</ixz>
+            <iyz>-2.197005850219629e-06</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_rl_hip.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_rl_knee">
+        <pose>0.1253975665 -0.06048409974 -0.006251832509 0 0 0</pose>
+        <inertial>
+          <mass>0.1425231118816089</mass>
+          <pose>-0.02853566196 -0.009750455743 -0.0444944819 0 0 0</pose>
+          <inertia>
+            <ixx>0.0001723849289132154</ixx>
+            <iyy>0.00021976918684989556</iyy>
+            <izz>7.497822099616051e-05</izz>
+            <ixy>1.1980570203612885e-05</ixy>
+            <ixz>-8.931048911645571e-05</ixz>
+            <iyz>1.9701081838302157e-05</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_rl_knee.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="motion_rl_ankle">
+        <pose>0.07563080321 -0.07951564588 -0.09858050433 0 0 0</pose>
+        <inertial>
+          <mass>0.026242128365665626</mass>
+          <pose>0.03142611977 -0.0002766669097 -0.03051981566 0 0 0</pose>
+          <inertia>
+            <ixx>1.99707893333882e-05</ixx>
+            <iyy>4.004359683675979e-05</iyy>
+            <izz>2.445844315654907e-05</izz>
+            <ixy>-2.94512584982713e-07</ixy>
+            <ixz>1.886799109902193e-05</ixz>
+            <iyz>-9.789716777191123e-08</iyz>
+          </inertia>
+        </inertial>
+        <visual name="cad_mesh">
+          <geometry>
+            <mesh>
+              <uri>meshes/motion_rl_ankle.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.08 0.085 0.095 1</diffuse>
+            <ambient>0.1 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+        <collision name="provisional_petg_foot">
+          <pose>0.07580239817 0.001944605734 -0.08224850843 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.006</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+      <joint name="motion_fr_hip_joint" type="revolute">
+        <parent>base_link</parent>
+        <child>motion_fr_hip</child>
+        <axis>
+          <xyz>1 1.711439251e-15 -6.967952937e-15</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_fr_knee_joint" type="revolute">
+        <parent>motion_fr_hip</parent>
+        <child>motion_fr_knee</child>
+        <axis>
+          <xyz>-1.03786037e-14 -0.9902680687 0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_fr_ankle_joint" type="revolute">
+        <parent>motion_fr_knee</parent>
+        <child>motion_fr_ankle</child>
+        <axis>
+          <xyz>-1.608917577e-14 0.9902680687 -0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_fl_hip_joint" type="revolute">
+        <parent>base_link</parent>
+        <child>motion_fl_hip</child>
+        <axis>
+          <xyz>1 2.817057225e-15 -4.089840385e-15</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_fl_knee_joint" type="revolute">
+        <parent>motion_fl_hip</parent>
+        <child>motion_fl_knee</child>
+        <axis>
+          <xyz>1.522889054e-14 0.9902680687 0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_fl_ankle_joint" type="revolute">
+        <parent>motion_fl_knee</parent>
+        <child>motion_fl_ankle</child>
+        <axis>
+          <xyz>1.611693135e-14 -0.9902680687 -0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_rr_hip_joint" type="revolute">
+        <parent>base_link</parent>
+        <child>motion_rr_hip</child>
+        <axis>
+          <xyz>-1 -2.204965787e-15 1.302906714e-14</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_rr_knee_joint" type="revolute">
+        <parent>motion_rr_hip</parent>
+        <child>motion_rr_knee</child>
+        <axis>
+          <xyz>-1.097039126e-14 -0.9902680687 0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_rr_ankle_joint" type="revolute">
+        <parent>motion_rr_knee</parent>
+        <child>motion_rr_ankle</child>
+        <axis>
+          <xyz>-1.694959862e-14 0.9902680687 -0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_rl_hip_joint" type="revolute">
+        <parent>base_link</parent>
+        <child>motion_rl_hip</child>
+        <axis>
+          <xyz>-1 8.414065622e-15 -3.912825548e-14</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_rl_knee_joint" type="revolute">
+        <parent>motion_rl_hip</parent>
+        <child>motion_rl_knee</child>
+        <axis>
+          <xyz>1.595648024e-14 0.9902680687 0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="motion_rl_ankle_joint" type="revolute">
+        <parent>motion_rl_knee</parent>
+        <child>motion_rl_ankle</child>
+        <axis>
+          <xyz>1.10280216e-14 -0.9902680687 -0.139173101</xyz>
+          <limit>
+            <lower>-0.5</lower>
+            <upper>0.5</upper>
+            <effort>1.0</effort>
+          </limit>
+          <dynamics>
+            <damping>0.015</damping>
+          </dynamics>
+        </axis>
+      </joint>
+      <plugin filename="robot_cat_cad_actuator" name="robot_cat::Actuator">
+        <joint_name>motion_fr_hip_joint</joint_name>
+        <joint_name>motion_fr_knee_joint</joint_name>
+        <joint_name>motion_fr_ankle_joint</joint_name>
+        <joint_name>motion_fl_hip_joint</joint_name>
+        <joint_name>motion_fl_knee_joint</joint_name>
+        <joint_name>motion_fl_ankle_joint</joint_name>
+        <joint_name>motion_rr_hip_joint</joint_name>
+        <joint_name>motion_rr_knee_joint</joint_name>
+        <joint_name>motion_rr_ankle_joint</joint_name>
+        <joint_name>motion_rl_hip_joint</joint_name>
+        <joint_name>motion_rl_knee_joint</joint_name>
+        <joint_name>motion_rl_ankle_joint</joint_name>
+        <motion_fr_hip_joint_d_gain>0.3037079796087725</motion_fr_hip_joint_d_gain>
+        <motion_fr_knee_joint_d_gain>0.24452182691522847</motion_fr_knee_joint_d_gain>
+        <motion_fr_ankle_joint_d_gain>0.07256018231446494</motion_fr_ankle_joint_d_gain>
+        <motion_fl_hip_joint_d_gain>0.3036087508791305</motion_fl_hip_joint_d_gain>
+        <motion_fl_knee_joint_d_gain>0.24469672391347783</motion_fl_knee_joint_d_gain>
+        <motion_fl_ankle_joint_d_gain>0.07256018231446497</motion_fl_ankle_joint_d_gain>
+        <motion_rr_hip_joint_d_gain>0.3037079796087547</motion_rr_hip_joint_d_gain>
+        <motion_rr_knee_joint_d_gain>0.2445218269152303</motion_rr_knee_joint_d_gain>
+        <motion_rr_ankle_joint_d_gain>0.07256018231446397</motion_rr_ankle_joint_d_gain>
+        <motion_rl_hip_joint_d_gain>0.3036087508791245</motion_rl_hip_joint_d_gain>
+        <motion_rl_knee_joint_d_gain>0.24469672391347855</motion_rl_knee_joint_d_gain>
+        <motion_rl_ankle_joint_d_gain>0.07256018231446529</motion_rl_ankle_joint_d_gain>
+        <effort_cap>1.0</effort_cap>
+        <stall_torque>2.574245625</stall_torque>
+        <no_load_speed>4.127467825662265</no_load_speed>
+        <p_gain>30</p_gain>
+        <d_gain>0.5</d_gain>
+      </plugin>
+      <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+        <update_rate>100</update_rate>
+      </plugin>
+    </model>
+  </world>
+</sdf>

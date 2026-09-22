@@ -12,7 +12,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 REVISION = os.environ.get('ROBOT_CAT_CAD_REVISION','v28')
-assert REVISION in ('v25','v27','v28'), REVISION
+assert REVISION in ('v25','v27','v28','v29'), REVISION
 OUT = ROOT / 'hardware/simulation' / REVISION
 WORLD = 'cad_'+REVISION
 R = np.diag([-1., -1., 1.])  # proper rotation: CAD head -X -> REP103 +X
@@ -27,7 +27,8 @@ BOUGHT_G = dict(Battery=174, Pi=46, PiHatCooling=65, Pololu=12, AuxBuck=12,
                 TailYawServo=13.8, TailLiftServo=13.8, Camera=6, ToF=2,
                 Microphones=20, PWMControllerUnplaced=15, IrIlluminator=10,
                 ChargeSocketXT60=8, MainSwitch=8, BalancerPort=3,
-                BatteryLiner23=2, BatteryStrap123=3, BatteryStrap223=3)
+                BatteryLiner23=2, BatteryStrap123=3, BatteryStrap223=3,
+                MG92BCase29=12.8, MG92BOutput29=1.)
 SERVO_PREFIXES = ('ZK_', 'SG-ZIJI_', 'XG-ZIJI_', 'MOTOR-', 'PCB-CHAZUO_', 'GE_')
 
 
@@ -70,7 +71,7 @@ def mass_budget(geometry, petg_density=1.27, servo_g=69., bought_factor=1., rese
             basis = 'bought mass allowance, not CAD envelope density; verify by weighing'
             if n == 'Battery':
                 basis += '; candidate GEA223S30X6GT manufacturer nominal 174 g, geometry still old'
-        elif 'Screw' in n or ('Nut' in n and not n.startswith('NutShoe')):
+        elif 'Screw' in n or 'Bolt' in n or ('Nut' in n and not n.startswith('NutShoe')):
             mass, basis = vol*7.85e-6, 'steel fastener envelope, density assumption 7.85 g/cm3'
         elif label.startswith('HornDisc'):
             mass, basis = vol*2.70e-6, 'aluminium horn density assumption 2.70 g/cm3'
@@ -107,7 +108,9 @@ def make_model(geometry,**mass_options):
         links.append(dict(name=stage_name(key), stage=key, origin_m=origin.tolist(), **inertia))
     return dict(source_sha256=geometry['source_sha256'], components=rows, links=links, joints=axes,
                 total=combine(rows), warnings=[
-                    REVISION+' snapshot: head/tail fixed, 4 auxiliary placeholders, 64 temporary locks.',
+                    (REVISION+' snapshot: head/tail fixed in physics; three auxiliary servos, one supplier tail STEP and two head placeholders; 36 native temporary locks.' if REVISION=='v29' else
+                     REVISION+' snapshot: head/tail fixed, 4 auxiliary placeholders, 64 temporary locks.'),
+                    'MG92B total nominal 13.8 g; 12.8 g case / 1 g output split is unmeasured.' if REVISION=='v29' else 'Legacy auxiliary envelopes are not actual mount validation.',
                     'Bought masses and PETG density are assumptions; weigh actual build and slicer results.',
                     'No measured continuous ST3215 torque; stall is not a safe continuous rating.',
                     '10.5 V linear torque/speed scaling is an estimate for the 12 V winding, NOT the 7.4 V variant.',

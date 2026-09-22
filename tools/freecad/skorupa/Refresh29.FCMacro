@@ -1,0 +1,70 @@
+"""Refresh v29 baked assembly from native MCP masters; no feature authoring.
+
+Run in FreeCAD GUI with the two v29 files already open, then Validate29.
+This deliberately invalidates old reports until validation is run again.
+"""
+from pathlib import Path
+import hashlib,json
+import FreeCAD as A
+
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'hardware/skorupa/v29'
+masterpath=OUT/'TailDesign29.FCStd';target=OUT/'Kot_v29_OGON_PROTOTYP.FCStd'
+m=next(d for d in A.listDocuments().values() if d.FileName and Path(d.FileName).resolve()==masterpath.resolve())
+d=next(d for d in A.listDocuments().values() if d.FileName and Path(d.FileName).resolve()==target.resolve())
+plan=json.loads((OUT/'assembly-plan.json').read_text(encoding='utf8'))
+assert all(d.getObject('Rigid_'+r['name']).Placement.isSame(A.Placement(),1e-6) for r in plan['components'])
+m.recompute()
+for obj in m.Objects:
+    if obj.TypeId=='Sketcher::SketchObject':assert obj.FullyConstrained,obj.Name
+    if obj.TypeId=='PartDesign::Body':assert obj.Shape.isValid() and len(obj.Shape.Solids)==1,obj.Name
+
+def copy_shape(src,dst,placement=None):
+    s=m.getObject(src).Shape.copy()
+    if placement is not None:s.Placement=placement*s.Placement
+    o=d.getObject(dst)
+    s.Placement=(o.getGlobalPlacement()*o.Placement.inverse()).inverse()*s.Placement
+    o.Shape=s
+    return o
+
+for n in ['TailBridge29','MG92BMount29','TailRoot29']:copy_shape(n,n)
+copy_shape('ShellTailOutlet29','ShellMounted20')
+axis=A.Rotation(A.Vector(0,0,1),A.Vector(0,1,0))
+fasteners=[]
+for i in range(6):
+    src='TailModule00' if i==0 else 'TailModule00'+str(i)
+    p=m.getObject(src).Placement
+    copy_shape(src,'TailModule29_%02d'%i)
+    fasteners.extend([('BoltM2x12','TailBolt29_%02d'%i,p*A.Placement(A.Vector(0,-5,4),axis)),
+                      ('NutM2','TailNut29_%02d'%i,p*A.Placement(A.Vector(0,5,4),axis))])
+down=A.Rotation(A.Vector(0,0,1),A.Vector(0,0,-1))
+for i,(x,y) in enumerate((x,y) for x in [112,122] for y in [-22.5,22.5]):
+    fasteners.extend([('BoltM2x12','TailFrameBolt29_%d'%i,A.Placement(A.Vector(x,y,43),down)),
+                      ('NutM2','TailFrameNut29_%d'%i,A.Placement(A.Vector(x,y,35.52),down))])
+for i,(x,y) in enumerate((x,y) for x in [155,187] for y in [-16,16]):
+    fasteners.extend([('BoltM3x12','TailMountBolt29_%d'%i,A.Placement(A.Vector(x,y,50),down)),
+                      ('NutM3','TailMountNut29_%d'%i,A.Placement(A.Vector(x,y,41),down))])
+for i,y in enumerate([-14.5,13]):
+    fasteners.extend([('BoltM2x12','TailEarBolt29_%d'%i,A.Placement(A.Vector(171,y,79),down)),
+                      ('NutM2','TailEarNut29_%d'%i,A.Placement(A.Vector(171,y,74),down))])
+for src,dst,p in fasteners:
+    o=copy_shape(src,dst,p)
+    o.MaterialSpec='STEEL purchased '+src
+    o.DesignStatus='Nominal purchased envelope; no threads/socket/hex; NSZ-00637 kit head dimensions must be measured'
+
+for row in plan['joints']:
+    status=row['status'].replace('M2x14','M2x12').replace('M2x10','M2x12').replace('M2x8','M2x12')
+    if row['child'].startswith('TailModule29_'):
+        status+='; 1.75 mm minimum socket sidewall requires PETG coupon'
+    if row['child'] in {n for _,n,_ in fasteners}:status=d.getObject(row['child']).DesignStatus
+    row['status']=status
+    d.getObject(row['name']).DesignStatus=status
+    if hasattr(d.getObject(row['child']),'DesignStatus'):d.getObject(row['child']).DesignStatus=status
+m.Label='Ogon v29 - parametry PETG - PROTOTYP'
+d.Label='Kot v29 - ogon modulowy PETG - PROTOTYP'
+m.recompute();m.save()
+d.recompute();d.save()
+plan['source_sha256']=hashlib.sha256(target.read_bytes()).hexdigest()
+plan['master_sha256']=hashlib.sha256(masterpath.read_bytes()).hexdigest()
+plan['fasteners']=dict(M2x12=12,M2_nut=12,M3x12=4,M3_nut=4,supplier_candidate='Botland NSZ-00637; geometry envelopes, not dimensioned manufacturer models')
+(OUT/'assembly-plan.json').write_text(json.dumps(plan,indent=2),encoding='utf8')
+print(json.dumps(dict(saved=d.FileName,master=m.FileName,components=len(plan['components']),next='Re-run Validate29, audit29 and tail_budget29; earlier reports are stale')))
