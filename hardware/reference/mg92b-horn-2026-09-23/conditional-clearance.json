@@ -1,0 +1,527 @@
+{
+  "reference_sha256": "364542873cd77c393f1d3fc182dee153c527a0ff9224cd7036a52a1d051ad017",
+  "tool_sha256": "e937d093225351480aa325a257b5cfe343d2731bc121e1e3d77df03305dc9a60",
+  "unchanged_robot_files": {
+    "hardware/cad/parameters/RobotParameters.FCStd": "9202dbe8f46f7185fa68d061495f723b6b752dcb5ad118550fd7988f0ee5ea74",
+    "hardware/cad/assembly/RobotCat.FCStd": "c8ee1484a1679b2dba4fae267e840a995bdba21719fb495ec324251b059490c7",
+    "hardware/cad/modules/chassis/Chassis.FCStd": "4284b8f61cc3dd393c2f08499143c228d2f19acf9dec1a8bfaf4db49229d3ea0",
+    "hardware/cad/modules/shell/Shell.FCStd": "20d7a1a5058cbe03e0c748938533b0cb58b2fb17159c11dd79533b8bf1e1a9d7",
+    "hardware/cad/modules/tail/TailMount.FCStd": "6e6f4a4f94c1db3aea4e3693d87e7c2f3a0ffd04792b7044ac03e41993a2fb77",
+    "hardware/cad/modules/electronics/PowerMounts.FCStd": "6922296b07fcaecd1a5fd72be1717469def7eb42c5fcfa1e79ddc2a8ba47dd31",
+    "hardware/cad/modules/electronics/AuxPurchased.FCStd": "c604be01b9b2d1efb000148e439e941ddd214edd0f1310ccb841d06a6537d3ad",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/modules/tail/TailPurchased.FCStd": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f"
+  },
+  "installed_in_robot": false,
+  "print_ready": false,
+  "proves_actual_horn_fit": false,
+  "source_axis_point_mm": [
+    6,
+    33.4,
+    6
+  ],
+  "target_axis_point_mm": [
+    171,
+    -6,
+    91
+  ],
+  "alignment": "ASSUMPTION: align community shaft tip to Adafruit shaft tip; cyclic XYZ -> YZX. Not a measured installed horn height.",
+  "height_offsets_mm": [
+    -1.8,
+    0,
+    1.8
+  ],
+  "height_offset_basis": "Sensitivity scenarios, not tolerance bounds; 1.8 mm is the existing 36.8 vs 35 mm discrepancy between servo CAD and datasheet.",
+  "scope": "Only seven PETG tail support parts; 24 clocking samples, not a sweep or whole-robot clearance proof.",
+  "rows": [
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 15,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 30,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 45,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 60,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 75,
+      "intersections_mm3": {
+        "ServoSupport34": 3.626202447520167
+      }
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 90,
+      "intersections_mm3": {
+        "ServoSupport34": 8.190000000000001
+      }
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 105,
+      "intersections_mm3": {
+        "ServoSupport34": 3.626202447520194
+      }
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 120,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 135,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 150,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 165,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 180,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 195,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 210,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 225,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 240,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 255,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 270,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 285,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 300,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 315,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 330,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": -1.8,
+      "clocking_deg": 345,
+      "intersections_mm3": {}
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 0,
+      "intersections_mm3": {
+        "SupportedRoot34": 23.843781438918466
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 15,
+      "intersections_mm3": {
+        "SupportedRoot34": 24.794945500060425
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 30,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.279052778198682
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 45,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.55443113306861
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 60,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.16853930633662
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 75,
+      "intersections_mm3": {
+        "ServoSupport34": 3.6262024475201673,
+        "SupportedRoot34": 24.074862354074458
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 90,
+      "intersections_mm3": {
+        "ServoSupport34": 8.190000000000001,
+        "SupportedRoot34": 22.190181438920405
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 105,
+      "intersections_mm3": {
+        "ServoSupport34": 3.229002702162543,
+        "SupportedRoot34": 24.07486235407518
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 120,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.168539306336758
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 135,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.554431133068803
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 150,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.279052778198633
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 165,
+      "intersections_mm3": {
+        "SupportedRoot34": 24.794945500060393
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 180,
+      "intersections_mm3": {
+        "SupportedRoot34": 23.84378143891865
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 195,
+      "intersections_mm3": {
+        "SupportedRoot34": 24.794945500060667
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 210,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.2790527781993
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 225,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.61037731462707
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 240,
+      "intersections_mm3": {
+        "SupportedRoot34": 27.57428170524899
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 255,
+      "intersections_mm3": {
+        "SupportedRoot34": 25.74162488447201
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 270,
+      "intersections_mm3": {
+        "SupportedRoot34": 23.856943969318348
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 285,
+      "intersections_mm3": {
+        "SupportedRoot34": 25.741624884472518
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 300,
+      "intersections_mm3": {
+        "SupportedRoot34": 27.57428170524849
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 315,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.610377314628092
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 330,
+      "intersections_mm3": {
+        "SupportedRoot34": 26.279052778198828
+      }
+    },
+    {
+      "height_offset_mm": 0,
+      "clocking_deg": 345,
+      "intersections_mm3": {
+        "SupportedRoot34": 24.794945500060525
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 0,
+      "intersections_mm3": {
+        "SupportedRoot34": 214.66428900096764
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 15,
+      "intersections_mm3": {
+        "SupportedRoot34": 228.7854169856272
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 30,
+      "intersections_mm3": {
+        "SupportedRoot34": 250.8187019611263
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 45,
+      "intersections_mm3": {
+        "SupportedRoot34": 254.9070113834303
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 60,
+      "intersections_mm3": {
+        "SupportedRoot34": 249.17800195578536
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 75,
+      "intersections_mm3": {
+        "ServoSupport34": 3.6262024475201677,
+        "SupportedRoot34": 218.09495181830266
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 90,
+      "intersections_mm3": {
+        "ServoSupport34": 8.190000000000001,
+        "SupportedRoot34": 190.11468900096827
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 105,
+      "intersections_mm3": {
+        "ServoSupport34": 2.940769258629017,
+        "SupportedRoot34": 218.09495181830383
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 120,
+      "intersections_mm3": {
+        "SupportedRoot34": 249.1780019557862
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 135,
+      "intersections_mm3": {
+        "SupportedRoot34": 254.90701138343223
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 150,
+      "intersections_mm3": {
+        "SupportedRoot34": 250.81870196112797
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 165,
+      "intersections_mm3": {
+        "SupportedRoot34": 228.78541698562682
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 180,
+      "intersections_mm3": {
+        "SupportedRoot34": 214.66428900096813
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 195,
+      "intersections_mm3": {
+        "SupportedRoot34": 228.78541698562842
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 210,
+      "intersections_mm3": {
+        "SupportedRoot34": 250.8187019611284
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 225,
+      "intersections_mm3": {
+        "SupportedRoot34": 255.73759700195018
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 240,
+      "intersections_mm3": {
+        "SupportedRoot34": 270.04786987809916
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 255,
+      "intersections_mm3": {
+        "SupportedRoot34": 242.83996476961397
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 270,
+      "intersections_mm3": {
+        "SupportedRoot34": 214.85970195227975
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 285,
+      "intersections_mm3": {
+        "SupportedRoot34": 242.83996476961485
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 300,
+      "intersections_mm3": {
+        "SupportedRoot34": 270.04786987809854
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 315,
+      "intersections_mm3": {
+        "SupportedRoot34": 255.73759700194933
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 330,
+      "intersections_mm3": {
+        "SupportedRoot34": 250.8187019611281
+      }
+    },
+    {
+      "height_offset_mm": 1.8,
+      "clocking_deg": 345,
+      "intersections_mm3": {
+        "SupportedRoot34": 228.78541698562762
+      }
+    }
+  ],
+  "diagnostic_sha256": "1c120263e2ca79b7d1253de5fbfcc1b5d761a1fa4026f336c43859cf72c95b17",
+  "summary": [
+    {
+      "height_offset_mm": -1.8,
+      "samples": 24,
+      "samples_with_intersection": 3,
+      "max_overlap_mm3": 8.190000000000001
+    },
+    {
+      "height_offset_mm": 0,
+      "samples": 24,
+      "samples_with_intersection": 24,
+      "max_overlap_mm3": 27.57428170524899
+    },
+    {
+      "height_offset_mm": 1.8,
+      "samples": 24,
+      "samples_with_intersection": 24,
+      "max_overlap_mm3": 270.04786987809916
+    }
+  ]
+}

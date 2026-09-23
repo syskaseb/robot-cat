@@ -1,5 +1,14 @@
 # Geometria producentów — źródła do audytu, nie części do druku
 
+## Nowa referencja społecznościowa MG92B — 23.09.2026
+
+[Orczyk z projektu Dtto i kontrola miejsca przy ogonie](mg92b-horn-2026-09-23/README.md):
+znaleziony model FreeCAD, wyodrębnione dwie bryły, pomiary i 72 warunkowe
+próby położenia. To uproszczony model autora, **nie dokumentacja producenta**.
+Nie zmieniono złożenia kota ani nie zatwierdzono sprzęgnięcia.
+
+## Wcześniejsze źródła producentów
+
 Pobrano 2026-09-21. Oryginalne archiwa zachowane bez zmian; rozpakowane
 pliki są ignorowane w Git. Nazwy produktów i pliki należą do ich producentów.
 

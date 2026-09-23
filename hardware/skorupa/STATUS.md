@@ -1,6 +1,24 @@
-# Stan mechaniki — 2026-09-22
+# Stan mechaniki — 2026-09-23
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
+
+## Uzupełnienie 23.09 — źródła i diagnostyka bez zmiany złożenia
+
+- [Badanie korpusu](../cad/studies/shell-repair/README.md): dwa warianty
+  naprawy na obu bryłach odrzucone; dokładnie zlokalizowane błędy krzywych.
+  Główne FCStd pozostają bez zmian, brak zgody do druku.
+- [Znaleziony orczyk MG92B](../reference/mg92b-horn-2026-09-23/README.md):
+  referencja z FreeCAD projektu Dtto, krzyż 28 × 16,7 mm, ramiona grubości
+  1,95 mm. Model uproszczony bez otworów/wieloklinu, nie pomiar dostarczonej
+  części. 72 próby warunkowego ustawienia: nominalnie konflikt z nasadą we
+  wszystkich 24 kątach. Potrzebny wymienny adapter i dostęp do śruby;
+  nie zamknięto TEMP na podstawie przybliżonego modelu.
+- Dalsze dobory i poszukiwania prowadzimy samodzielnie zgodnie z poleceniem
+  użytkownika; nie odkładamy kwerendy do czasu otrzymania od niego pomiarów.
+  Próby fizyczne, parametry niepotwierdzone i różnice rewizji nadal oznaczamy jawnie.
+
+## Złożenie bazowe i wcześniejsze etapy
+
 Ostatnie złożenie: [v35](v35/README.md). **Nie jest wydaniem do druku.**
 [Historyczne podsumowanie poranne](MORNING-2026-09-22.md).
 [v26](v26/README.md) zawiera kolejny audyt części rzeczywistych i dostępu
