@@ -25,6 +25,8 @@ Shared project procedures are in `.agents/skills/`: `robot-cat-module` for CAD,
 hardware checkpoints. Read the relevant SKILL.md directly; these are the same
 sources used by Codex, not a second independent set of Claude procedures.
 Use `hardware/cad/README.md` for the actual migration scope and validation paths.
+Follow `hardware/cad/SESSION_HYGIENE.md`: keep only the active assembly and its
+dependencies open; run expensive experiments in disposable worker processes.
 
 ## Environment
 

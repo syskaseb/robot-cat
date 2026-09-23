@@ -24,6 +24,8 @@ Project skills live in `.agents/skills/`: `robot-cat-module` for CAD changes,
 `robot-cat-electronics` for electrical integration, and `robot-cat-release` for
 hardware checkpoints. Read the relevant SKILL.md before applying its workflow.
 Use `hardware/cad/README.md` for the actual migration scope and validation paths.
+Follow `hardware/cad/SESSION_HYGIENE.md`: keep only the active assembly and its
+dependencies open; run expensive experiments in disposable worker processes.
 
 ## Environment
 

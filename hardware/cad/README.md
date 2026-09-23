@@ -21,6 +21,10 @@ Zestaw liczy dziewięć dokumentów. Zakres podparcia, interfejsy i ograniczenia
 opisuje [moduł ogona](modules/tail/README.md). Pierwszy pilot AUX jest zachowany
 w historii Git (`92e7312`); pliki historycznych checkpointów v34/v35 są niezmienione.
 
+[Zasady sesji i pamięci](SESSION_HYGIENE.md) obowiązują Codexa i Claude'a:
+nie gromadzić otwartych wersji, nie zamykać niezabezpieczonych zmian,
+ciężkie próby uruchamiać poza głównym oknem FreeCAD.
+
 Nie utożsamiać tych częściowych dokumentów z ukończonymi masterami całej ramy,
 głowy czy ogona. Bazy płyty/mostka/skorupy pozostają odziedziczonymi bryłami;
 przenoszona jest ich istniejąca historia otworów, nie wymyślona historia WAVEGO.
@@ -104,6 +108,9 @@ Manifest [modular-pilot.json](../releases/modular-pilot.json) przypina konkretne
 pliki. Kontrola integralności ma przejść, `--require-print-ready` ma odmówić.
 
 ## Oddzielne studia konstrukcyjne
+
+[Diagnostyka skorupy](studies/shell-repair/README.md) lokalizuje błędy BOP
+i dokumentuje odrzucone próby naprawy. Nie podmieniono żadnej części złożenia.
 
 [Boczny dostęp do nakrętki ogona](studies/tail-coupling/README.md) jest
 niezależnym wariantem nasady, **nie zmianą złożenia**. Ma własny audyt i manifest.
