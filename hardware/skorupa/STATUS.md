@@ -4,6 +4,11 @@ Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 
 ## Uzupełnienie 23.09 — źródła i diagnostyka bez zmiany złożenia
 
+- [Adapter orczyka R1](../cad/studies/tail-cartridge/README.md): dwie nowe części
+  PETG i zmieniona nasada, 17 w pełni związanych szkiców, cztery nominalne M2×10.
+  Osobna koncepcja, nie instalacja: pełna kolejność montażu/serwisu, lokalne cienkie
+  ścianki, rzeczywisty orczyk i nowe jointy pozostają otwarte. Odrzucony R0
+  zachowany z raportem kolizji. Nie zmieniono głównego robota ani statusu TEMP.
 - [Badanie korpusu](../cad/studies/shell-repair/README.md): dwa warianty
   naprawy na obu bryłach odrzucone; dokładnie zlokalizowane błędy krzywych.
   Główne FCStd pozostają bez zmian, brak zgody do druku.

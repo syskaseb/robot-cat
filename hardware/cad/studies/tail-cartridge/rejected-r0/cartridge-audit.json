@@ -1,0 +1,316 @@
+{
+  "study_sha256": "9d1d1e1ff3f9c0a214d0f7890f96e90a456751869543b702a6c55953515240ab",
+  "tool_sha256": "6c0738ba971e1905d5fdd02484a092cd3ab50210d44db9c9d109f8a2002836ea",
+  "reference_sha256": "364542873cd77c393f1d3fc182dee153c527a0ff9224cd7036a52a1d051ad017",
+  "unchanged_robot_files": {
+    "hardware/cad/parameters/RobotParameters.FCStd": "9202dbe8f46f7185fa68d061495f723b6b752dcb5ad118550fd7988f0ee5ea74",
+    "hardware/cad/assembly/RobotCat.FCStd": "c8ee1484a1679b2dba4fae267e840a995bdba21719fb495ec324251b059490c7",
+    "hardware/cad/modules/chassis/Chassis.FCStd": "4284b8f61cc3dd393c2f08499143c228d2f19acf9dec1a8bfaf4db49229d3ea0",
+    "hardware/cad/modules/shell/Shell.FCStd": "20d7a1a5058cbe03e0c748938533b0cb58b2fb17159c11dd79533b8bf1e1a9d7",
+    "hardware/cad/modules/tail/TailMount.FCStd": "6e6f4a4f94c1db3aea4e3693d87e7c2f3a0ffd04792b7044ac03e41993a2fb77",
+    "hardware/cad/modules/electronics/PowerMounts.FCStd": "6922296b07fcaecd1a5fd72be1717469def7eb42c5fcfa1e79ddc2a8ba47dd31",
+    "hardware/cad/modules/electronics/AuxPurchased.FCStd": "c604be01b9b2d1efb000148e439e941ddd214edd0f1310ccb841d06a6537d3ad",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/modules/tail/TailPurchased.FCStd": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f"
+  },
+  "installed_in_robot": false,
+  "print_ready": false,
+  "cad_saved_by_audit": false,
+  "native_joints_tested": false,
+  "physical_fit_proven": false,
+  "scope": "Three new/revised PETG parts and nominal cartridge fasteners vs existing robot, sampled rigid tail rotation; NOT native solver or continuous sweep.",
+  "geometry": {
+    "LowerRetainerPETG": {
+      "strict_bop_passed": true,
+      "solids": 1,
+      "volume_mm3": 1111.9662905796924,
+      "bbox_mm": [
+        27.0,
+        32.5,
+        2.0
+      ]
+    },
+    "UpperCarrierPETG": {
+      "strict_bop_passed": true,
+      "solids": 1,
+      "volume_mm3": 1883.9474848742173,
+      "bbox_mm": [
+        27.0,
+        32.5,
+        4.000000000000014
+      ]
+    },
+    "SupportedRoot34": {
+      "strict_bop_passed": true,
+      "solids": 1,
+      "volume_mm3": 4665.001265649386,
+      "bbox_mm": [
+        49.39940455621996,
+        28.000000000000004,
+        31.0
+      ]
+    }
+  },
+  "fully_constrained_sketches": [
+    "LowerDiscSketch",
+    "LowerExtensionSketch",
+    "LowerBoresSketch",
+    "UpperDiscSketch",
+    "UpperExtensionSketch",
+    "LongArmPocketSketch",
+    "ShortArmPocketSketch",
+    "UpperBoresSketch",
+    "SpindleNutAccess34",
+    "SpindleM3Clearance34",
+    "RootReinforceSketch",
+    "RootUndercutSketch",
+    "RootBoresSketch"
+  ],
+  "relocation": {
+    "documents_loaded": 1,
+    "external_links": 0,
+    "fresh_worker": true
+  },
+  "parameter_change_removed_mm3": {
+    "LowerRetainerPETG": 6.28318530717911,
+    "UpperCarrierPETG": 12.566370614378684,
+    "SupportedRoot34": 12.566370614362313
+  },
+  "horn_intersections_mm3": {
+    "LowerRetainerPETG": 0.0,
+    "UpperCarrierPETG": 0.0,
+    "SupportedRoot34": 0.0
+  },
+  "horn_clearances_mm": {
+    "LowerRetainerPETG": 0.1799999999999926,
+    "UpperCarrierPETG": 0.19999999999998863,
+    "SupportedRoot34": 1.0699999999999932
+  },
+  "internal_intersections": [],
+  "co_rotated_existing_parts": [
+    "InnerSpacer34",
+    "MG92BOutput29",
+    "SpindleBolt34",
+    "SpindleCap34",
+    "SpindleNut34",
+    "TailBolt29_00",
+    "TailBolt29_01",
+    "TailBolt29_02",
+    "TailBolt29_03",
+    "TailBolt29_04",
+    "TailBolt29_05",
+    "TailModule29_00",
+    "TailModule29_01",
+    "TailModule29_02",
+    "TailModule29_03",
+    "TailModule29_04",
+    "TailModule29_05",
+    "TailNut29_00",
+    "TailNut29_01",
+    "TailNut29_02",
+    "TailNut29_03",
+    "TailNut29_04",
+    "TailNut29_05",
+    "TailRoot29"
+  ],
+  "motion_samples": [
+    {
+      "angle_deg": -30,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.522276476465528
+        },
+        {
+          "new_part": "CartridgeNut0",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 1.215956135348806
+        }
+      ]
+    },
+    {
+      "angle_deg": -25,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.522276476465787
+        },
+        {
+          "new_part": "CartridgeNut0",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 0.8786596528998872
+        }
+      ]
+    },
+    {
+      "angle_deg": -20,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646582
+        },
+        {
+          "new_part": "CartridgeNut0",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 0.3400175197333851
+        }
+      ]
+    },
+    {
+      "angle_deg": -15,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646555
+        }
+      ]
+    },
+    {
+      "angle_deg": -10,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.522276476465613
+        }
+      ]
+    },
+    {
+      "angle_deg": -5,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.522276476465585
+        }
+      ]
+    },
+    {
+      "angle_deg": 0,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646562
+        }
+      ]
+    },
+    {
+      "angle_deg": 5,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.522276476465635
+        }
+      ]
+    },
+    {
+      "angle_deg": 10,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646554
+        }
+      ]
+    },
+    {
+      "angle_deg": 15,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646564
+        }
+      ]
+    },
+    {
+      "angle_deg": 20,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646565
+        },
+        {
+          "new_part": "CartridgeNut1",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 0.3400175197333849
+        }
+      ]
+    },
+    {
+      "angle_deg": 25,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.522276476465578
+        },
+        {
+          "new_part": "CartridgeNut1",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 0.8786596528998866
+        }
+      ]
+    },
+    {
+      "angle_deg": 30,
+      "intersections": [
+        {
+          "new_part": "SupportedRoot34",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 19.52227647646529
+        },
+        {
+          "new_part": "CartridgeNut1",
+          "existing_part": "MG92BMount29",
+          "overlap_mm3": 1.215956135348803
+        }
+      ]
+    }
+  ],
+  "existing_parts_with_bbox_overlap": [
+    "BearingCapBolt34_0",
+    "BearingCapBolt34_1",
+    "BearingCapNut34_0",
+    "BearingCapNut34_1",
+    "BearingLower34",
+    "BearingUpper34",
+    "InnerSpacer34",
+    "MG92BCase29",
+    "MG92BMount29",
+    "MG92BOutput29",
+    "OuterSpacer34",
+    "SpindleBolt34",
+    "SpindleCap34",
+    "SpindleNut34",
+    "TailBolt29_00",
+    "TailModule29_00",
+    "TailNut29_00",
+    "UpperHousing34"
+  ],
+  "conditional_nominal_fit_passed": false,
+  "fastener_stack_mm": {
+    "lower_retainer": 2,
+    "upper_carrier": 4,
+    "root_seat": 4,
+    "nominal_nut": 1.6,
+    "bolt_length": 12,
+    "protrusion": 0.4
+  },
+  "open_gates": [
+    "Actual horn geometry, installed height and central screw",
+    "Spindle M3 nut insertion and assembly order after new annular pad",
+    "Complete tool-access paths",
+    "New native joints and solver motion",
+    "PETG print/profile/fit coupon, clamp creep and strength",
+    "Whole-robot legacy shell strict BOP failure",
+    "Supplier-specific cartridge screws/nuts"
+  ]
+}
