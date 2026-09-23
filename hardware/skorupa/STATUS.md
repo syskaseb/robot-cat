@@ -4,6 +4,12 @@ Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 
 ## Uzupełnienie 23.09 — źródła i diagnostyka bez zmiany złożenia
 
+- [Zintegrowany adapter R3](../cad/studies/tail-cartridge-integrated/README.md):
+  górna obejma i nasada połączone w jeden wydruk PETG, dolna płytka nadal
+  odkręcana. Dach pod kanałem 3,55 mm zamiast 1,65; usunięty cienki kołnierz
+  przy łbach M2. Pozostaje przegroda 0,9 mm i niepotwierdzona śruba orczyka.
+  Osobny model z 9 Fixed/10 częściami, nie instalacja w głównym robocie;
+  szczegółowy zakres kontroli i otwarte bramki w dokumentacji studium.
 - [Serwis adaptera R2](../cad/studies/tail-cartridge-service/README.md): boczny
   kanał nakrętki ku +Y, 73 próbki drogi, warunkowy dostęp wkrętaka Ø2,5/3.
   Natywny stos 11 części z 10 Fixed przeszedł test odtwarzania pozycji. Orczyk
