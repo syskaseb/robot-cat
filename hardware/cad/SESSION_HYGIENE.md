@@ -6,7 +6,11 @@ tylko po to, żeby odzyskać połączenie MCP.
 
 ## Zwykły zakres sesji
 
-Po integracji R4 aktywny punkt wejścia wskazuje `current-assembly.json`:
+Po zmianie uszu E1 `current-assembly.json` wskazuje `RobotCatEars.FCStd`:
+jedenaście dokumentów, czyli poniższe dziesięć zależności R4 oraz nowy
+`HeadEars`. Nadal otwieramy jeden cały kot, nie poprzednika obok niego.
+
+Po integracji R4 poprzedni punkt wejścia wskazywał:
 `assembly/RobotCatTailCartridge.FCStd`, dziesięć dokumentów (jeden robot,
 osiem wcześniejszych zależności i nowy `TailCartridge`). Poniższe dziewięć
 dotyczy zachowanego poprzednika. Nie otwierać poprzednika obok bieżącego kota.
@@ -31,6 +35,16 @@ zależności musi wynikać z jawnej zmiany architektury, nie z kolejnych prób.
   nie obiekty bibliotek OCCT. Nie instalować pakietów do Pythona aplikacji.
 
 ## Kontrola zasobów
+
+**MCP execute_code a odnośniki:** FreeCAD AI 0.23.1 robi tymczasowe SaveAs
+obsługiwanego dokumentu. Nawet po przywróceniu FileName zależne PropertyXLink
+mogą zachować ścieżkę `AppData/.../FreeCADAI/backups/*.ai-backup.FCStd`.
+Migrację/zapis całego złożenia wykonywać z MCP przypiętym do pustego,
+niezależnego dokumentu roboczego, nie do jednego z podłączonych modułów.
+Przed zapisem sprawdzić/zresetować dotknięte odnośniki do kanonicznych
+właścicieli; po zapisie sprawdzić XLink w Document.xml i świeże przeniesione
+otwarcie. Pusty dokument roboczy zamknąć na końcu. Nie nadpisywać w tym celu
+historycznych modułów ani nie zapisywać ich kopii AI jako nowych masterów.
 
 Na początku, po ciężkich etapach i na końcu sprawdzać liczbę procesów GUI,
 liczbę dokumentów, WorkingSet (fizyczny RAM), PrivateMemory (prywatną pamięć

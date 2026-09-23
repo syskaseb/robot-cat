@@ -1,10 +1,12 @@
 # Modułowy CAD — AUX i podparcie ogona
 
-**Aktualny cały kot: [RobotCatTailCartridge.FCStd](assembly/RobotCatTailCartridge.FCStd).**
-R4 adaptera i pokrywy jest zintegrowane: 329 części, 54 odnośniki, 10 dokumentów;
-[zakres i dowody](validation/tail-cartridge-integration/README.md).
+**Aktualny cały kot: [RobotCatEars.FCStd](assembly/RobotCatEars.FCStd).**
+Uszy E1: obłe małżowiny, dopasowane nasady i modelowane mocowania M2;
+335 części, 65 odnośników, 11 dokumentów. [Zakres i dowody](validation/ears/README.md).
+Poprzednik R4 adaptera i pokrywy pozostaje zachowany bez zmian CAD:
+[dowody R4](validation/tail-cartridge-integration/README.md).
 `current-assembly.json` wskazuje aktywny punkt wejścia. Poniższe liczby 320/45/9
-i narzędzia pilotażu opisują zachowany poprzednik `RobotCat.FCStd`, nie bieżące R4.
+i narzędzia pilotażu opisują zachowany poprzednik `RobotCat.FCStd`, nie bieżące E1.
 Nie uruchamiać historycznych migratorów na aktualnym złożeniu.
 
 To etap migracji, **nie nowa konstrukcja całego kota i nie wydanie do druku**.

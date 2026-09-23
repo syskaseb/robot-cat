@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "revision": "E1 prototype",
+  "entry": "hardware/cad/assembly/RobotCatEars.FCStd",
+  "replaces_assembly_instances": ["EarL", "EarR", "HeadRear"],
+  "removes_assembly_instances": ["EarInsetL", "EarInsetR"],
+  "parts": [
+    {"id": "PETG-EAR-L", "revision": "E1", "quantity": 1, "material": "PETG", "assembly_names": ["EarL"], "action": "replace"},
+    {"id": "PETG-EAR-R", "revision": "E1", "quantity": 1, "material": "PETG", "assembly_names": ["EarR"], "action": "replace"},
+    {"id": "PETG-HEAD-REAR", "revision": "E1", "quantity": 1, "material": "PETG", "assembly_names": ["HeadRear"], "action": "replace", "note": "Inherited shell defects remain; four bearing seats and holes added"},
+    {"id": "NOMINAL-M2X12-EAR", "quantity": 4, "material": "steel", "assembly_names": ["EarBoltL0", "EarBoltL1", "EarBoltR0", "EarBoltR1"], "action": "add", "note": "Supplier/recess unconfirmed; not a purchase instruction"},
+    {"id": "NOMINAL-M2-NUT-EAR", "quantity": 4, "material": "steel", "assembly_names": ["EarNutL0", "EarNutL1", "EarNutR0", "EarNutR1"], "action": "add", "note": "AF4, height 1.6 nominal; supplier and real fit unconfirmed"}
+  ],
+  "print_ready": false
+}

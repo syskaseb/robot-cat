@@ -2,7 +2,22 @@
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 
-## Integracja R4 — bieżące złożenie
+## Uszy E1 — bieżące złożenie
+
+[Kot z obłymi uszami](../cad/assembly/RobotCatEars.FCStd),
+[zakres i ograniczenia](../cad/validation/ears/README.md).
+Małżowiny PETG mają wklęsłe wnętrze i zaokrąglone czubki. Dopasowane
+nasady, cztery M2x12 i cztery nakrętki zastępują prowizoryczne mocowanie
+uszu i oddzielnych wkładek. Nowe Fixed prowadzą uszy do HeadRear.
+335 części, 321 Fixed + 13 Revolute, 65 odnośników, 11 dokumentów.
+Pozostaje 25 TEMP, w tym odziedziczone mocowanie głowy. Stare błędy BOP
+półskorupy nadal blokują wydanie do druku; dokładne łączniki, ścianki,
+profil PETG, momenty śrub i fizyczny montaż są niezatwierdzone.
+Nie zmieniano geometrii pyska ani nie przeprowadzano nowej próby Gazebo.
+79 testów CAD i 22 klatki natywne zaliczone. Przeniesione otwarcie 11
+dokumentów i 65 odnośników sprawdzone; 324 pozostałe części zachowane.
+
+## Integracja R4 — zachowany poprzednik
 
 [Cały kot z R4](../cad/assembly/RobotCatTailCartridge.FCStd),
 [zakres i dowody](../cad/validation/tail-cartridge-integration/README.md).

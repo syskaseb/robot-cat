@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "name": "robot-cat-rounded-ears-e1",
+  "readiness": "prototype",
+  "installed_in_robot": true,
+  "entry": "hardware/cad/assembly/RobotCatEars.FCStd",
+  "freecad": "1.1.3",
+  "occt": "7.8.1",
+  "freecad_ai": "0.23.1-alpha",
+  "checks": {
+    "components": 335,
+    "fixed": 321,
+    "revolute": 13,
+    "temporary": 25,
+    "linked_parts": 65,
+    "documents": 11,
+    "native_frames": 22
+  },
+  "files": [
+    {
+      "path": "hardware/releases/tail-cartridge-installation.json",
+      "sha256": "172cc3a2e3a9bb70b72e66ff634ef089c27004bb6c0065985e9f7030e49354a6"
+    },
+    {
+      "path": "hardware/releases/modular-pilot.json",
+      "sha256": "95338765e7e54884ae1ada7c00f46d56654440b2cc25215ae24da4a7016d556c"
+    },
+    {
+      "path": "hardware/cad/parameters/RobotParameters.FCStd",
+      "sha256": "9202dbe8f46f7185fa68d061495f723b6b752dcb5ad118550fd7988f0ee5ea74"
+    },
+    {
+      "path": "hardware/cad/assembly/RobotCat.FCStd",
+      "sha256": "c8ee1484a1679b2dba4fae267e840a995bdba21719fb495ec324251b059490c7"
+    },
+    {
+      "path": "hardware/cad/modules/chassis/Chassis.FCStd",
+      "sha256": "4284b8f61cc3dd393c2f08499143c228d2f19acf9dec1a8bfaf4db49229d3ea0"
+    },
+    {
+      "path": "hardware/cad/modules/shell/Shell.FCStd",
+      "sha256": "20d7a1a5058cbe03e0c748938533b0cb58b2fb17159c11dd79533b8bf1e1a9d7"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailMount.FCStd",
+      "sha256": "6e6f4a4f94c1db3aea4e3693d87e7c2f3a0ffd04792b7044ac03e41993a2fb77"
+    },
+    {
+      "path": "hardware/cad/modules/electronics/PowerMounts.FCStd",
+      "sha256": "6922296b07fcaecd1a5fd72be1717469def7eb42c5fcfa1e79ddc2a8ba47dd31"
+    },
+    {
+      "path": "hardware/cad/modules/electronics/AuxPurchased.FCStd",
+      "sha256": "c604be01b9b2d1efb000148e439e941ddd214edd0f1310ccb841d06a6537d3ad"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailSupport.FCStd",
+      "sha256": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailPurchased.FCStd",
+      "sha256": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f"
+    },
+    {
+      "path": "hardware/cad/validation/geometry.json",
+      "sha256": "c68e1c6a1bca7d03a3bc71e1ed8b1e6fe07a64230de8c3c03e01ebcb7c00461e"
+    },
+    {
+      "path": "hardware/cad/validation/native-motion.json",
+      "sha256": "9280f8a35a863909f1b998e145f43a062975880f1812611e7b3bb94640a4445b"
+    },
+    {
+      "path": "hardware/cad/validation/parameter-update.json",
+      "sha256": "03ed419cbd9aefbf8a8a91f22dc55834fe4aaf51f439a80ac7e7a5b89e04a10e"
+    },
+    {
+      "path": "hardware/cad/validation/relocation.json",
+      "sha256": "d722b5aa4d3ad5282a9316a2b22d975b92ffbe00b6e59a5d7df55d4f3bca707e"
+    },
+    {
+      "path": "hardware/cad/validation/fasteners-smoke.json",
+      "sha256": "caafd1b9caff59843572cca1a5685b872bb94c3fe2cd92e105fc273e79d012d0"
+    },
+    {
+      "path": "hardware/cad/validation/link-map.json",
+      "sha256": "25f280f798c38aae5c3255169b8601f7a756d9491df9fca0c8e73ee4157cce7a"
+    },
+    {
+      "path": "hardware/cad/validation/display.json",
+      "sha256": "21e5e3c0b6243247be0756500f171108c1deec3292561b65e26af6d66a7a3f80"
+    },
+    {
+      "path": "hardware/cad/validation/tests.json",
+      "sha256": "e1f233d103e24fc98ec4e2cb235a5970f0966beeec05fc1f6847c7603f9e1494"
+    },
+    {
+      "path": "hardware/cad/validation/whole-cat.png",
+      "sha256": "e4baa1b5c01a1221e2dbebaa6dd15a63ca752806c69cc4d5c93cb42bf996b9f8"
+    },
+    {
+      "path": "hardware/cad/validation/tail-parameter-update.json",
+      "sha256": "3a3533a941933b0f74be208a9b03e4b2eb502240571a137d323a409d27932672"
+    },
+    {
+      "path": "hardware/cad/validation/tail-owners.json",
+      "sha256": "8da137619643f2a7d6c31566bd1654048cce43f573bac56da81e0d7db8d6f4f7"
+    },
+    {
+      "path": "hardware/cad/toolchain.json",
+      "sha256": "4e00a1a26d7a11a482b73c62032c1eead2d4dba43dc6efcca25455253b711a29"
+    },
+    {
+      "path": "tools/freecad/skorupa/aux35.py",
+      "sha256": "97f87c450d508a92dd3ac28e4394ddbcd7f4bcc25f34b2adb82020d4d4980f9f"
+    },
+    {
+      "path": "tools/freecad/skorupa/inheritance30.py",
+      "sha256": "5a734f8d6868e34f8ecbbac344adfb9070cd15e9fd8fb29e8b379cc753ba3c58"
+    },
+    {
+      "path": "tools/freecad/skorupa/support34.py",
+      "sha256": "293017ae1fb44e0065667cffd2863916269f523403110cf3b6b08e9aa70e1459"
+    },
+    {
+      "path": "hardware/skorupa/v34/TailSupport34.FCStd",
+      "sha256": "8d0ab83d3394a19e9d99115eaad3d2e0c0a8742269fde98fcd116da385376c39"
+    },
+    {
+      "path": "hardware/skorupa/v35/assembly-plan.json",
+      "sha256": "20553ac584c8f943d2557433d7493351ae58c8e89d34693e100505736272fe48"
+    },
+    {
+      "path": "hardware/skorupa/v35/Kot_v35_ZASILANIE_AUX.FCStd",
+      "sha256": "11e8c27e496032df6f556736e94699424723cef5fe0192b0ade2d152f810bdc5"
+    },
+    {
+      "path": "hardware/skorupa/v35/AuxPower35.FCStd",
+      "sha256": "2eb5d64a63136815bf6e066ea753a9b96a07deae4db5eb8fdd496dea7200833f"
+    },
+    {
+      "path": "hardware/bom/aux-pilot.json",
+      "sha256": "9c66e76b5aa18564dd22f6059aafa4d9ec2458a4d499d40b19aab0bdc624defe"
+    },
+    {
+      "path": "hardware/bom/tail-support.json",
+      "sha256": "045a92978ca3780babe6a90d2206f5a4b0f4113deaadea4e3562385d0649eaa7"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "5546bf31ff13815523a8dd7dcf1c10c12a0234c25294e74e0e4cb3cbfdb6d4d0"
+    },
+    {
+      "path": "tools/cad/addon_smoke.py",
+      "sha256": "1eadafa408ac39f932fbb7f3892c343dea3be91d6b4ea040ca424b0283d6e8ba"
+    },
+    {
+      "path": "tools/cad/package_pilot.py",
+      "sha256": "cf0ebcd9395d6b873d255d5f49946036f4f32c510189d8af101fc6139bcdfc4a"
+    },
+    {
+      "path": "tools/cad/pilot.py",
+      "sha256": "305c80ec3196480296d3309e31229ee7784566bd0824dd0abc695ee7ebc9bee0"
+    },
+    {
+      "path": "tools/cad/probe_links.py",
+      "sha256": "84324d0f70fe3651e7edd9fbd1e97e294792ac5c0bfb5bb08b64f31ea4823a36"
+    },
+    {
+      "path": "tools/cad/release_check.py",
+      "sha256": "4be4549285fc0185d5b7e16e90709326f69e68d83f2764e9f84a3f347a92bfd4"
+    },
+    {
+      "path": "tools/cad/tail_module.py",
+      "sha256": "468873b18f5450cb787b5e2a3aab2d080125cbb64a4d87254dc465028011761e"
+    },
+    {
+      "path": "tools/cad/tail_service_study.py",
+      "sha256": "f453e00557fe12ae2cd79cd71dec7bd4770e33fe60e04dac4a5e3d67ed674c2a"
+    },
+    {
+      "path": "tools/cad/test_module_contract.py",
+      "sha256": "f7eee990e04bdcbd70419286839f5bab29a70bb7c713500f94b485f30f38bcab"
+    },
+    {
+      "path": "tools/cad/test_release_check.py",
+      "sha256": "88ce1895a1d0c208997e7895f41571afa9b7a4f25c536a6b7a3a1fb845a2916a"
+    },
+    {
+      "path": "tools/cad/test_tail_service_study.py",
+      "sha256": "95d4627d1681fdff12549d21c1a3750225029502065e788ea8e2f6d268e633a0"
+    },
+    {
+      "path": ".agents/skills/robot-cat-assembly-audit/SKILL.md",
+      "sha256": "7ad883c2a475e02ec6dda996823377b2304f079ac910815911f5b32c7973cd9e"
+    },
+    {
+      "path": ".agents/skills/robot-cat-electronics/SKILL.md",
+      "sha256": "be8cae23b8e9d8458c2b3e7fb9c31bc089b7f7955a5606f05efd4280de81363b"
+    },
+    {
+      "path": ".agents/skills/robot-cat-module/SKILL.md",
+      "sha256": "99e50e8c43716aaf78a6a4aec0845c4a31e329ffdce289d6e17acf3be1c844f1"
+    },
+    {
+      "path": ".agents/skills/robot-cat-petg/SKILL.md",
+      "sha256": "91a7135db57591a0d04529c382acde51fbbb31be9b8be800bbc91d7b946cf5cc"
+    },
+    {
+      "path": ".agents/skills/robot-cat-release/SKILL.md",
+      "sha256": "b213deb0e86dc8606dc2fdf6d4baffa340ab0cd679e7b50f5be6b6a33cff7871"
+    },
+    {
+      "path": "hardware/releases/tail-service-study.json",
+      "sha256": "3debc7ac767f49bf8a9d4ae31f2509c43256afeb9c0bd53a2ba1582e6c8cab85"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/TailCouplingService.FCStd",
+      "sha256": "4d8a65d4c9a69025c695531ded86f8c7deb0d311d490dc58d8a2a89246664838"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/service-audit.json",
+      "sha256": "a77cc6459fdbc5537e142ecd2fb307f122611ac4358d02eff369d525c30b2191"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/README.md",
+      "sha256": "a04dfc66e62c0cf23bdee05e29b507a94b008ee7052a27eb2c5144df064c441c"
+    },
+    {
+      "path": "hardware/cad/studies/tail-coupling/service-root.png",
+      "sha256": "08a02939da6de1d9a80cdf3b3a4f809cd7d3b33ef36f8ee40f5ece997bb7b49b"
+    },
+    {
+      "path": "hardware/cad/validation/before-tail-coupling.png",
+      "sha256": "9d53922c1a50c71c49b09163d86ff314398d82c7f9eef6714f238fd12f3ee141"
+    },
+    {
+      "path": "hardware/releases/tail-cartridge-clearance.json",
+      "sha256": "3d3fea9d967690b0f1e8b5af573ac8a7eeb401ab345545dd28b15ebc6c3d7ef3"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/.gitattributes",
+      "sha256": "992acd04b504ce0efd09c4d11f45bf7dde5bde35e0426219124593b757cfa5f0"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/TailHornCartridge.FCStd",
+      "sha256": "24204e59139c084330c7d7b2ea5fca1a1007774dc2d7d98eb6793426538a7326"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/README.md",
+      "sha256": "9f2f9ce747b038fdbe2627681f623cf578c87e63244ba750e8f2d67d4e21fd61"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/cartridge-audit.json",
+      "sha256": "d918c4b2235b29be473d348f8cefd907f5ee60bbd5d0251cb9c697ee07a70d1d"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/cartridge-details.json",
+      "sha256": "57251629509cea2a73cb6d195598f8f639e4b592dba61c5f707f09b865ecd934"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/cartridge-assembled.png",
+      "sha256": "68f913683439a9d03c2da073b65294ac8aa9d98b442350662094197175001d37"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/cartridge-exploded.png",
+      "sha256": "d9b81166d875de5882bd96cc7665a1c57a6e6b46426b918cfdd537c1c9d75c57"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/rejected-r0/TailHornCartridge.FCStd",
+      "sha256": "9d1d1e1ff3f9c0a214d0f7890f96e90a456751869543b702a6c55953515240ab"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/rejected-r0/cartridge-audit.json",
+      "sha256": "020f96b97546f000c1ba20c9f9afb77dd9005b4d64f0d960431cfe1548eca3e9"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/rejected-r0/cartridge-assembled.png",
+      "sha256": "75b8b5508e864ee359a7544c2af9e3672c0d797ced1a67d8f7f5ad7c8e472625"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge/rejected-r0/tail_cartridge_study.py",
+      "sha256": "6c0738ba971e1905d5fdd02484a092cd3ab50210d44db9c9d109f8a2002836ea"
+    },
+    {
+      "path": "hardware/reference/mg92b-horn-2026-09-23/MG92BCommunityReference.FCStd",
+      "sha256": "364542873cd77c393f1d3fc182dee153c527a0ff9224cd7036a52a1d051ad017"
+    },
+    {
+      "path": "hardware/reference/mg92b-horn-2026-09-23/README.md",
+      "sha256": "391bb3c36793686cce205880c011d5abe346bd558710c61b0dad921643213f93"
+    },
+    {
+      "path": "hardware/reference/mg92b-horn-2026-09-23/measurements.json",
+      "sha256": "7b5e6288c16dae1088980a2acccf0c15b0ca1756d7e3e44fb3ef5244b06e8b62"
+    },
+    {
+      "path": "hardware/reference/mg92b-horn-2026-09-23/LICENSE-Dtto.txt",
+      "sha256": "fd5524ce899b86f8a02c8de7005a6d22113f465a8262fd8b86e0e1d28c0f6f45"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_study.py",
+      "sha256": "0c4f4185f4b620e84c86c470382a0ec53dbc90b2774bc664ae5fdf77b24a8d31"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_details.py",
+      "sha256": "c2b6399eadf2d8bc4d3f9445c058898f2eed7845569783cdeb6f4b35b2c8775c"
+    },
+    {
+      "path": "tools/cad/test_tail_cartridge.py",
+      "sha256": "20436bfe0ea84363f3a79af65f25486041d54127f2e4f77ec7337ca76320b77e"
+    },
+    {
+      "path": "tools/cad/package_tail_cartridge.py",
+      "sha256": "88d0eaf01d8da4439d3d1bde1fd56e299e514a7d3f49ed37ac2c42b4c6cf3a48"
+    },
+    {
+      "path": "hardware/releases/tail-cartridge-study.json",
+      "sha256": "2d8424ad5f1d1ddd2988ad8537bcb1f08a6de856df3286a3e84ca0415a93cdb5"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-service/TailCartridgeService.FCStd",
+      "sha256": "97e885a38ae3ba15dd3d77e2579f9c1b05834f11a0a86e07f97a6ad3d599313d"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-service/README.md",
+      "sha256": "ca130ee179510eb08083a293fcfc375a014da2ab88b6a077390ae1d07cf728ef"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-service/service-channel.png",
+      "sha256": "bc1a73a637a4afd77bde9b88485f4301d2e43a30fcfeda2fedfbd40c91e41da9"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-service/service-audit.json",
+      "sha256": "f8c12547a4c907b7efb8b10ba1a302a3f5f96c5ae2c99bb99b840f6ffa54b7f5"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-service/joint-audit.json",
+      "sha256": "941adbb928c2099e57e09643bc4e4eaf57b7fbf211a0b5b5e1e19227baf174bf"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-service/installation-audit.json",
+      "sha256": "173b53e042199892ab8b941439fa592a4857a66a2f24062ae5364569b6e9c2be"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_service.py",
+      "sha256": "0d7fe956302ab7d1bc3169748d930c3a9f1950768764d9f50dfb100768df74bf"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_joints.py",
+      "sha256": "003d207dc5fcb1cb76d52857e3dbf923c47adaf81d932a4c9e2ca676956a7ce3"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_installation.py",
+      "sha256": "b979958c2f84126ab7583589383bcbf85aff65dd9f1a1529272d7c646fadccf1"
+    },
+    {
+      "path": "tools/cad/test_tail_cartridge_service.py",
+      "sha256": "03ae69817d69a86e6e6f4ad7d8cd0950152965f20a8cc61107fdc44b243eb277"
+    },
+    {
+      "path": "tools/cad/package_tail_cartridge_service.py",
+      "sha256": "61cd23ae8db7bd273ec0e88f4ecf9b7493f202c426c35121978c3c683719c820"
+    },
+    {
+      "path": "hardware/releases/tail-cartridge-service.json",
+      "sha256": "7ea7f066d55ffa359afd8f702340b9485edae1de66ec4affa933896220674ac9"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/TailCartridgeIntegrated.FCStd",
+      "sha256": "dce007d49c2c2ce63aa629316524d9a6e0aa79ed5b271aab97f380206f02e924"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/README.md",
+      "sha256": "07e71d297b2eee69972e403c82efa6da05e4be6a9c38c85682c70913b5b3fdc7"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/audit.json",
+      "sha256": "7421d498a28b6367c95a844d60b1ce864cec1ffc5c5c87892cbef74885eb792a"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/integrated-cartridge.png",
+      "sha256": "21f4a857f42d7af00dae4a89c63acb5c08eaced9b9fd8756ec6bc556082ac618"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/horn-fastener-research.md",
+      "sha256": "16998e401a192b3903875fb8d1b845fe0db53c276dac760a847f8f009cb3ae7f"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/.gitattributes",
+      "sha256": "d2eb1a317920a1e2fd04a1b7352ef04bfb1f0b9f4d0594f4dc395a87ce2ccfba"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/rejected-short-channel/TailCartridgeIntegrated.FCStd",
+      "sha256": "f69f1b781f58fff1e74ed6b20409c0df8d6eef5e11ba4f771f28ddc6a77e5558"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/rejected-short-channel/audit.json",
+      "sha256": "0ec818d3e72deec9217ff93539261c60368e275f5260dd2d790ddb495941d3e3"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/rejected-short-channel/tail_cartridge_integrated.py",
+      "sha256": "77fa377fca17b3f3ae09a39a586a69e438eaf2eb07ed9bd317c52cfc683b0c0b"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-integrated/rejected-short-channel/.gitattributes",
+      "sha256": "86013e6b9434810158ab594bbfd2d77f64b030a5eac5f27fc17afd2f474d561e"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_integrated.py",
+      "sha256": "4a1f82786ba59d11a9116d849c1518a7ed4054b70829896d75d054998372ad45"
+    },
+    {
+      "path": "tools/cad/package_tail_cartridge_integrated.py",
+      "sha256": "fb11f31e13b6015f3af2e15ada7067cefacfa03455d955312972f3b9462d4b82"
+    },
+    {
+      "path": "tools/cad/test_tail_cartridge_integrated.py",
+      "sha256": "feab3528eab8ddf8f7dbfa3dee89962ba52fae4d83686342f3d9fb0cf72b9177"
+    },
+    {
+      "path": "hardware/releases/tail-cartridge-integrated.json",
+      "sha256": "509d3163be4adda87c7620856d9464bd4455a3f3db476d45d7e7df474fe1e25b"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/TailCartridgeClearance.FCStd",
+      "sha256": "7ca21b46eed5e05e1c4a34797dbf2067bdb786b13ec9275834b951b816b0a4fe"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/TailBearingLidService.FCStd",
+      "sha256": "8353639cf70c9d6c097c1196b9e513f182bf4381527cfc9f5e2a4134400c51f8"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/README.md",
+      "sha256": "0ee57f52b5c29fd440119580f39d0e90153cc9af810666bf77ab18d0d61f9c09"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/audit.json",
+      "sha256": "47e53d7d198eb88f5fe1c21fa82524709c26ba495c1d3eb5b62f0825cecf2495"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/housing-installation.json",
+      "sha256": "fec82b8083594048b3fadc327867d58811f48808237f5b6063850da803e242df"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/bearing-preassembly.json",
+      "sha256": "b81bbd53d85ae453102606e1401a75ad777322f6cf476578a62bbc8bdc34989d"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/underside-clearance.png",
+      "sha256": "b62dbe8fa397f691e08874d20e17817177de8d9e4038782492f8b3b3d5ccd562"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/lid-service-ports.png",
+      "sha256": "151382225a3e1032564d87982febcfde3d059a14a4a33e90add65279525cda54"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/superseded-open-lid-sequence/housing-installation.json",
+      "sha256": "bd4f5e209a4d23d1e2f4619e27c85be8021ae2b9df3b2a58246588a8e4a8aaed"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/superseded-open-lid-sequence/tail_housing_installation.py",
+      "sha256": "3c455fd8f297e83c88d83f3a8ad4e192fa8349e62c50db34c32c9fa0cbbbd8dc"
+    },
+    {
+      "path": "hardware/cad/studies/tail-cartridge-clearance/superseded-open-lid-sequence/.gitattributes",
+      "sha256": "86013e6b9434810158ab594bbfd2d77f64b030a5eac5f27fc17afd2f474d561e"
+    },
+    {
+      "path": "tools/cad/tail_cartridge_clearance.py",
+      "sha256": "5d3bbd3cf23357b0d700ac4e0a09f66fca882505735f7bc629b52ca568976d83"
+    },
+    {
+      "path": "tools/cad/tail_housing_installation.py",
+      "sha256": "39f062889239b63fe032551825c7320989ef8a7bd3e196994a1037c16d7e1851"
+    },
+    {
+      "path": "tools/cad/tail_bearing_preassembly.py",
+      "sha256": "92880e0e2e757f581bacbc2f696edba4e257668a757f9d5b543f7a9b29b09025"
+    },
+    {
+      "path": "tools/cad/package_tail_cartridge_clearance.py",
+      "sha256": "fab9f92ea96923c44a4883a425d173b5e72a2638af2bf8a88d36db90dc0401e1"
+    },
+    {
+      "path": "tools/cad/test_tail_cartridge_clearance.py",
+      "sha256": "6db9b4196841df87ed4fe4b08e1e02295abfeb82001a8383a216a1a0c60844e6"
+    },
+    {
+      "path": "hardware/cad/assembly/RobotCatTailCartridge.FCStd",
+      "sha256": "741c43d449e0a0991e667ac261d52d66eec49cab9d91b09fd08c561cac7c7ced"
+    },
+    {
+      "path": "hardware/cad/modules/tail/TailCartridge.FCStd",
+      "sha256": "443863a99774468f24c40dcc1aff02128c0fab5e0414fd9d9d0dc27a1bf60b50"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/README.md",
+      "sha256": "203e9b6256a90dd501367793e4bdce9555ed0868a0aa02d483f7e0fdeaaa4cd9"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/.gitattributes",
+      "sha256": "1b27bfe22551d4ca2595e25f27688c7cb69d9e9eae56017969d043878d853509"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/migration.json",
+      "sha256": "c25a3a3f02550c6321aa697f91935f4f80f137fcd4963d4d93308b3e354263d0"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/geometry.json",
+      "sha256": "88c75a195ec6744f067295c60ed2f0395f603beef8f2b8ad49e5061f4fe86e4f"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/relocation-native.json",
+      "sha256": "bae60ef390a56a3e7a93b9495683b40ccb3c96ae22aa9fee83a5f7aac1f3fbe4"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/assembly-plan.json",
+      "sha256": "6268bac4dcd04506542fe907ec914c8a7aa447b66a7800787fb0b90b6646b497"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/whole-cat.png",
+      "sha256": "c3521996c16586ca77ec2ded22cbe80b1fbb56536a2d3698be809cf76e4ec3aa"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/tail-installed.png",
+      "sha256": "bd3ec1ca2ff842e56a8db04fbae076cb9d001b1f1df4fbf8b8dd482a820ed27b"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/tests.json",
+      "sha256": "5bae1ce21d0318089659e3cb114b6e6b44ed5e5a117eeb18404bd564217ba342"
+    },
+    {
+      "path": "tools/cad/integrate_tail_cartridge.py",
+      "sha256": "a12d11cf6b48c888a532562dac551af6d3309ce1c660278c49fc550cdbb77b3c"
+    },
+    {
+      "path": "tools/cad/validate_tail_integration.py",
+      "sha256": "4176c20f573f745dcdea510f309839a533ff53ffe0a92b0db1d098f71143f34c"
+    },
+    {
+      "path": "tools/cad/package_tail_installation.py",
+      "sha256": "d7cca2cdc07a68f1d556dc2f2359b1e007209807dfb92e4ecfdb3acf32b1c388"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/checkpoint/test_tail_installation.py.snapshot",
+      "sha256": "0e2cfa2761f610e810da7e8aa319c73ead8da4d7cd0e87e6a827104b8011d7d5"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/checkpoint/current-assembly.json",
+      "sha256": "e536c9419e7d2027736c779497c6155c11243dc8510131e54f8adf4e923a06bc"
+    },
+    {
+      "path": "hardware/bom/tail-cartridge-installation.json",
+      "sha256": "7c9cdcbb949169e5b952e182fb22e8b04a6deedd44b5214e3fef3c6a3f0c22a3"
+    },
+    {
+      "path": "hardware/cad/modules/head/HeadEars.FCStd",
+      "sha256": "ec57297bf40b7ba2b851b9d782cfa2185aef13607e65651941f755e58eb141d1"
+    },
+    {
+      "path": "hardware/cad/assembly/RobotCatEars.FCStd",
+      "sha256": "af9038468d28cf6c8ec372e59e0a59dae2ae71f534d87a44fce0dc8d568f48da"
+    },
+    {
+      "path": "hardware/cad/validation/ears/.gitattributes",
+      "sha256": "1b27bfe22551d4ca2595e25f27688c7cb69d9e9eae56017969d043878d853509"
+    },
+    {
+      "path": "hardware/cad/validation/ears/README.md",
+      "sha256": "41d0ddd08da33b970a6fb68e3cbe7e9d8784d3a4e079b4581617eb3cb0d09e52"
+    },
+    {
+      "path": "hardware/cad/validation/ears/module.json",
+      "sha256": "89ae749e2f092b60687e21117aa3562ba13be2d28af90cea1a02af4b569b1aba"
+    },
+    {
+      "path": "hardware/cad/validation/ears/assembly.json",
+      "sha256": "6e58d436c150024d06b65835d4f14409226783cb0789e374aea34b84c0d27054"
+    },
+    {
+      "path": "hardware/cad/validation/ears/migration.json",
+      "sha256": "c8c56b0321af5a2248ad1bd949cb6eefdf22c89fd94a1e9086ce7b8d42da18f3"
+    },
+    {
+      "path": "hardware/cad/validation/ears/assembly-plan.json",
+      "sha256": "6a5be14016bd80256d7bed7ee46e79558480ceb6843c37ea1545560992dac039"
+    },
+    {
+      "path": "hardware/cad/validation/ears/checkpoint-entry.json",
+      "sha256": "a5d1eac88aa96a5949855bf133a5dcbbe23e0e3271e3fa85ad110f7e2e3f0a67"
+    },
+    {
+      "path": "hardware/cad/validation/ears/head-ears.png",
+      "sha256": "cfc2ea14af21e30613168673861a1e0d8b69cb7ad08f8e2705235d704b94875c"
+    },
+    {
+      "path": "hardware/cad/validation/ears/robot-ears.png",
+      "sha256": "250bc595b35045578b4a48321c56787e16446a880bc995340053a691ac6c6d23"
+    },
+    {
+      "path": "hardware/cad/validation/tail-cartridge-integration/checkpoint/.gitattributes",
+      "sha256": "f9a97dc32f81030811f688993ffceaddd9ff7ee6d7e33aba6830e48a420192cd"
+    },
+    {
+      "path": "tools/cad/author_ears.py",
+      "sha256": "4191f33d126b5a198fb1d86729e6b074002887c6fe82853dd3788cc3f79e4bb6"
+    },
+    {
+      "path": "tools/cad/validate_ears.py",
+      "sha256": "657ce3c1563f003cb41bd689a5679c84855e9ec52aa8240b44d7be58167c1260"
+    },
+    {
+      "path": "tools/cad/validate_ear_assembly.py",
+      "sha256": "144af0bc123a40b5e9628efdb636dee1f71d21c76ebaa62ec5a7e37e1b86b9e1"
+    },
+    {
+      "path": "tools/cad/package_ears.py",
+      "sha256": "69857b8fd965e6651bf3b76dc3e131921a23de2e1138017eef19744d8c2a0e8a"
+    },
+    {
+      "path": "tools/cad/test_ears.py",
+      "sha256": "316dcf5af04197c5ef7bba01ffe85f90b1f215e203bcdadbe047bf6af89b0cf8"
+    },
+    {
+      "path": "tools/cad/test_tail_installation.py",
+      "sha256": "e0cf6e9195ad5c3c61b0b8890289309b7bea9fdee87df075626b98e4beeb2ba6"
+    },
+    {
+      "path": "hardware/bom/ears-e1.json",
+      "sha256": "a259500db126a678f84a4849f4a3139353d6af59100857fc2dcb9b2a3b631929"
+    }
+  ],
+  "gates": {
+    "geometry": {
+      "status": "fail",
+      "reason": "FAIL inherited head BOP errors. New ears strict BOP pass; parameter restoration uses documented sampled surface comparison, not exact Boolean proof."
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Native 22 frames / 335 parts tested; 25 inherited TEMP locks remain, including head-to-neck; no new Gazebo validation."
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Nominal M2x12/nuts only. Exact supplier, thread/recess, tolerances and physical fit not verified."
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Fits 256 cubed nominally. Wall/rim audit, slicer, supports, nozzle/layer settings and coupons remain unapproved."
+    },
+    "loads": {
+      "status": "open",
+      "reason": "PETG layer strength, ear impact, clamp torque and creep not tested."
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "Earlier electronics and harness/thermal integration gates remain open."
+    },
+    "service": {
+      "status": "open",
+      "reason": "Sampled nut insertion / nominal driver paths clear. Physical tool, cable and assembled-head servicing not approved."
+    }
+  }
+}

@@ -83,7 +83,8 @@ class TailInstallationTests(unittest.TestCase):
         self.assertEqual(sum(p['quantity'] for p in b['parts'] if p['action']=='add'),9)
 
     def test_current_entry_and_readiness_fail_closed(self):
-        entry=json.loads((pilot.CAD/'current-assembly.json').read_text())
+        # Historical checkpoint tests must not pin the mutable active selector.
+        entry=json.loads((task.OUT/'checkpoint/current-assembly.json').read_text())
         self.assertEqual(pilot.ROOT/entry['entry'],task.TARGET)
         m=json.loads((pilot.ROOT/entry['manifest']).read_text())
         self.assertTrue(verify(pilot.ROOT,m)['integrity_ok'])
