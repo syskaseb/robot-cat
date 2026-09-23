@@ -4,6 +4,11 @@ Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 
 ## Uzupełnienie 23.09 — źródła i diagnostyka bez zmiany złożenia
 
+- [Serwis adaptera R2](../cad/studies/tail-cartridge-service/README.md): boczny
+  kanał nakrętki ku +Y, 73 próbki drogi, warunkowy dostęp wkrętaka Ø2,5/3.
+  Natywny stos 11 części z 10 Fixed przeszedł test odtwarzania pozycji. Orczyk
+  nadal referencyjny, nie sprzęgnięty z napędem. Cienkie ścianki, pełna kolejność
+  montażu i nośność pozostają otwarte; główne złożenie niezmienione.
 - [Adapter orczyka R1](../cad/studies/tail-cartridge/README.md): dwie nowe części
   PETG i zmieniona nasada, 17 w pełni związanych szkiców, cztery nominalne M2×10.
   Osobna koncepcja, nie instalacja: pełna kolejność montażu/serwisu, lokalne cienkie
