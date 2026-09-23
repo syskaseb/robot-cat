@@ -1,0 +1,757 @@
+{
+  "study_sha256": "7ca21b46eed5e05e1c4a34797dbf2067bdb786b13ec9275834b951b816b0a4fe",
+  "tool_sha256": "3c455fd8f297e83c88d83f3a8ad4e192fa8349e62c50db34c32c9fa0cbbbd8dc",
+  "unchanged_robot_files": {
+    "hardware/cad/parameters/RobotParameters.FCStd": "9202dbe8f46f7185fa68d061495f723b6b752dcb5ad118550fd7988f0ee5ea74",
+    "hardware/cad/assembly/RobotCat.FCStd": "c8ee1484a1679b2dba4fae267e840a995bdba21719fb495ec324251b059490c7",
+    "hardware/cad/modules/chassis/Chassis.FCStd": "4284b8f61cc3dd393c2f08499143c228d2f19acf9dec1a8bfaf4db49229d3ea0",
+    "hardware/cad/modules/shell/Shell.FCStd": "20d7a1a5058cbe03e0c748938533b0cb58b2fb17159c11dd79533b8bf1e1a9d7",
+    "hardware/cad/modules/tail/TailMount.FCStd": "6e6f4a4f94c1db3aea4e3693d87e7c2f3a0ffd04792b7044ac03e41993a2fb77",
+    "hardware/cad/modules/electronics/PowerMounts.FCStd": "6922296b07fcaecd1a5fd72be1717469def7eb42c5fcfa1e79ddc2a8ba47dd31",
+    "hardware/cad/modules/electronics/AuxPurchased.FCStd": "c604be01b9b2d1efb000148e439e941ddd214edd0f1310ccb841d06a6537d3ad",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/modules/tail/TailPurchased.FCStd": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f"
+  },
+  "cad_saved": false,
+  "print_ready": false,
+  "initially_absent": [
+    "BearingCap34",
+    "BearingCapBolt34_0",
+    "BearingCapBolt34_1",
+    "BearingCapNut34_0",
+    "BearingCapNut34_1",
+    "BearingLower34",
+    "BearingUpper34",
+    "HousingJointBolt34_0",
+    "HousingJointBolt34_1",
+    "InnerSpacer34",
+    "OuterSpacer34",
+    "SpindleBolt34",
+    "SpindleCap34",
+    "SpindleNut34",
+    "TailBolt29_00",
+    "TailBolt29_01",
+    "TailBolt29_02",
+    "TailBolt29_03",
+    "TailBolt29_04",
+    "TailBolt29_05",
+    "TailModule29_00",
+    "TailModule29_01",
+    "TailModule29_02",
+    "TailModule29_03",
+    "TailModule29_04",
+    "TailModule29_05",
+    "TailNut29_00",
+    "TailNut29_01",
+    "TailNut29_02",
+    "TailNut29_03",
+    "TailNut29_04",
+    "TailNut29_05",
+    "TailRoot29",
+    "UpperHousing34"
+  ],
+  "initially_present": [
+    "AudioAmp",
+    "AuxBolt35_0",
+    "AuxBolt35_1",
+    "AuxBolt35_2",
+    "AuxBolt35_3",
+    "AuxBuck",
+    "AuxNut35_0",
+    "AuxNut35_1",
+    "AuxNut35_2",
+    "AuxNut35_3",
+    "AuxPost35_0",
+    "AuxPost35_1",
+    "AuxPost35_2",
+    "AuxPost35_3",
+    "AuxTerminal35_0",
+    "AuxTerminal35_1",
+    "BalancerPort",
+    "Battery",
+    "BatteryCarrier23",
+    "BatteryLiner23",
+    "BatteryNutFrontL",
+    "BatteryNutFrontR",
+    "BatteryNutRearL",
+    "BatteryNutRearR",
+    "BatteryScrewFrontL",
+    "BatteryScrewFrontR",
+    "BatteryScrewRearL",
+    "BatteryScrewRearR",
+    "BatteryStrap123",
+    "BatteryStrap223",
+    "Belly22",
+    "BellyNutFrontL",
+    "BellyNutFrontR",
+    "BellyNutRearL",
+    "BellyNutRearR",
+    "BellyScrewFrontL",
+    "BellyScrewFrontR",
+    "BellyScrewRearL",
+    "BellyScrewRearR",
+    "BusAdapter",
+    "Camera",
+    "CartridgeBolt0",
+    "CartridgeBolt1",
+    "CartridgeBolt2",
+    "CartridgeBolt3",
+    "CartridgeNut0",
+    "CartridgeNut1",
+    "CartridgeNut2",
+    "CartridgeNut3",
+    "ChargeSocketXT60",
+    "CommunityHornEnvelope",
+    "EarInsetL",
+    "EarInsetR",
+    "EarL",
+    "EarR",
+    "EyeLensL",
+    "EyeLensR",
+    "EyeRingL",
+    "EyeRingR",
+    "FrameFront20",
+    "FrameNutFrontL",
+    "FrameNutFrontR",
+    "FrameNutRearL",
+    "FrameNutRearR",
+    "FrameRear20",
+    "FrameScrewFrontL",
+    "FrameScrewFrontR",
+    "FrameScrewRearL",
+    "FrameScrewRearR",
+    "HeadFront",
+    "HeadPitchServo",
+    "HeadRear",
+    "HousingJointNut34_0",
+    "HousingJointNut34_1",
+    "IMU",
+    "IMUBolt30_0",
+    "IMUBolt30_1",
+    "IMUBolt30_2",
+    "IMUBolt30_3",
+    "IMUNut30_0",
+    "IMUNut30_1",
+    "IMUNut30_2",
+    "IMUNut30_3",
+    "IMUPost30_0",
+    "IMUPost30_1",
+    "IMUPost30_2",
+    "IMUPost30_3",
+    "IrIlluminator",
+    "LowerRetainerPETG",
+    "MG92BCase29",
+    "MG92BMount29",
+    "MG92BOutput29",
+    "MainSwitch",
+    "MicBolt33_0",
+    "MicBolt33_1",
+    "MicNut33_0",
+    "MicNut33_1",
+    "Microphones",
+    "MountFrontL",
+    "MountFrontR",
+    "MountRearL",
+    "MountRearR",
+    "NeckBridge",
+    "NeckCollar",
+    "NeckColumn",
+    "NeckYawServo",
+    "Nose",
+    "NutShoeFrontL",
+    "NutShoeFrontR",
+    "NutShoeRearL",
+    "NutShoeRearR",
+    "PWMControllerUnplaced",
+    "Part__Feature",
+    "Part__Feature001",
+    "Part__Feature004",
+    "Part__Feature005",
+    "Part__Feature006",
+    "Part__Feature007",
+    "Part__Feature008",
+    "Part__Feature009",
+    "Part__Feature010",
+    "Part__Feature011",
+    "Part__Feature012",
+    "Part__Feature013",
+    "Part__Feature014",
+    "Part__Feature015",
+    "Part__Feature016",
+    "Part__Feature017",
+    "Part__Feature018",
+    "Part__Feature019",
+    "Part__Feature020",
+    "Part__Feature021",
+    "Part__Feature022",
+    "Part__Feature023",
+    "Part__Feature024",
+    "Part__Feature025",
+    "Part__Feature026",
+    "Part__Feature027",
+    "Part__Feature028",
+    "Part__Feature029",
+    "Part__Feature030",
+    "Part__Feature031",
+    "Part__Feature032",
+    "Part__Feature033",
+    "Part__Feature034",
+    "Part__Feature035",
+    "Part__Feature036",
+    "Part__Feature037",
+    "Part__Feature038",
+    "Part__Feature039",
+    "Part__Feature040",
+    "Part__Feature041",
+    "Part__Feature042",
+    "Part__Feature043",
+    "Part__Feature044",
+    "Part__Feature045",
+    "Part__Feature046",
+    "Part__Feature047",
+    "Part__Feature048",
+    "Part__Feature049",
+    "Part__Feature050",
+    "Part__Feature051",
+    "Part__Feature052",
+    "Part__Feature053",
+    "Part__Feature054",
+    "Part__Feature055",
+    "Part__Feature056",
+    "Part__Feature057",
+    "Part__Feature058",
+    "Part__Feature059",
+    "Part__Feature060",
+    "Part__Feature061",
+    "Part__Feature062",
+    "Part__Feature063",
+    "Part__Feature064",
+    "Part__Feature065",
+    "Part__Feature066",
+    "Part__Feature067",
+    "Part__Feature068",
+    "Part__Feature069",
+    "Part__Feature070",
+    "Part__Feature071",
+    "Part__Feature072",
+    "Part__Feature073",
+    "Part__Feature074",
+    "Part__Feature075",
+    "Part__Feature076",
+    "Part__Feature077",
+    "Part__Feature078",
+    "Part__Feature079",
+    "Part__Feature080",
+    "Part__Feature081",
+    "Part__Feature082",
+    "Part__Feature083",
+    "Part__Feature084",
+    "Part__Feature085",
+    "Part__Feature086",
+    "Part__Feature087",
+    "Part__Feature088",
+    "Part__Feature089",
+    "Part__Feature090",
+    "Part__Feature091",
+    "Part__Feature092",
+    "Part__Feature093",
+    "Part__Feature094",
+    "Part__Feature095",
+    "Part__Feature096",
+    "Part__Feature097",
+    "Part__Feature098",
+    "Part__Feature099",
+    "Part__Feature100",
+    "Part__Feature101",
+    "Part__Feature102",
+    "Part__Feature103",
+    "Part__Feature104",
+    "Part__Feature105",
+    "Part__Feature106",
+    "Part__Feature107",
+    "Part__Feature108",
+    "Part__Feature109",
+    "Part__Feature110",
+    "Part__Feature113",
+    "Part__Feature114",
+    "Part__Feature115",
+    "Part__Feature116",
+    "Part__Feature117",
+    "Part__Feature118",
+    "Part__Feature119",
+    "Part__Feature120",
+    "Part__Feature121",
+    "Part__Feature122",
+    "Part__Feature123",
+    "Part__Feature124",
+    "Part__Feature125",
+    "Pi",
+    "PiHatCooling",
+    "PiTray18",
+    "Pololu",
+    "PowerBolt31_0",
+    "PowerBolt31_1",
+    "PowerBolt31_2",
+    "PowerBolt31_3",
+    "PowerDistribution",
+    "PowerGapSpacer31_2",
+    "PowerGapSpacer31_3",
+    "PowerNut31_0",
+    "PowerNut31_1",
+    "PowerNut31_2",
+    "PowerNut31_3",
+    "PowerPost31_0",
+    "PowerPost31_1",
+    "PowerPost31_2",
+    "PowerPost31_3",
+    "PowerTerminal31_0",
+    "PowerTerminal31_1",
+    "ShellMounted20",
+    "ShellNutFrontL",
+    "ShellNutFrontR",
+    "ShellNutRearL",
+    "ShellNutRearR",
+    "ShellScrewFrontL",
+    "ShellScrewFrontR",
+    "ShellScrewRearL",
+    "ShellScrewRearR",
+    "SideLeft22",
+    "SideRight22",
+    "Speaker",
+    "SpindleNut34",
+    "SupportedRoot34",
+    "TailBridge29",
+    "TailEarBolt29_0",
+    "TailEarBolt29_1",
+    "TailEarNut29_0",
+    "TailEarNut29_1",
+    "TailFrameBolt29_0",
+    "TailFrameBolt29_1",
+    "TailFrameBolt29_2",
+    "TailFrameBolt29_3",
+    "TailFrameNut29_0",
+    "TailFrameNut29_1",
+    "TailFrameNut29_2",
+    "TailFrameNut29_3",
+    "TailMountBolt29_0",
+    "TailMountBolt29_1",
+    "TailMountBolt29_2",
+    "TailMountBolt29_3",
+    "TailMountNut29_0",
+    "TailMountNut29_1",
+    "TailMountNut29_2",
+    "TailMountNut29_3",
+    "ToF",
+    "ToFBolt32_0",
+    "ToFBolt32_1",
+    "ToFNut32_0",
+    "ToFNut32_1",
+    "ToFSpacer32_0",
+    "ToFSpacer32_1",
+    "Touch"
+  ],
+  "preloaded_support_nuts": [
+    "HousingJointNut34_0",
+    "HousingJointNut34_1"
+  ],
+  "preloaded_axial_nut": "SpindleNut34",
+  "stages": [
+    {
+      "name": "bearing_block",
+      "moving": [
+        "UpperHousing34",
+        "BearingLower34",
+        "BearingUpper34",
+        "OuterSpacer34",
+        "InnerSpacer34",
+        "BearingCapNut34_0",
+        "BearingCapNut34_1"
+      ],
+      "fixed_count": 298,
+      "samples": [
+        {
+          "height_mm": 32,
+          "intersections": []
+        },
+        {
+          "height_mm": 30,
+          "intersections": []
+        },
+        {
+          "height_mm": 28,
+          "intersections": []
+        },
+        {
+          "height_mm": 26,
+          "intersections": []
+        },
+        {
+          "height_mm": 24,
+          "intersections": []
+        },
+        {
+          "height_mm": 22,
+          "intersections": []
+        },
+        {
+          "height_mm": 20,
+          "intersections": []
+        },
+        {
+          "height_mm": 18,
+          "intersections": []
+        },
+        {
+          "height_mm": 16,
+          "intersections": []
+        },
+        {
+          "height_mm": 14,
+          "intersections": []
+        },
+        {
+          "height_mm": 12,
+          "intersections": []
+        },
+        {
+          "height_mm": 10,
+          "intersections": []
+        },
+        {
+          "height_mm": 8,
+          "intersections": []
+        },
+        {
+          "height_mm": 6,
+          "intersections": []
+        },
+        {
+          "height_mm": 4,
+          "intersections": []
+        },
+        {
+          "height_mm": 2,
+          "intersections": []
+        },
+        {
+          "height_mm": 0,
+          "intersections": []
+        }
+      ],
+      "internal_intersections": [],
+      "clear": true
+    },
+    {
+      "name": "housing_screws",
+      "moving": [
+        "HousingJointBolt34_0",
+        "HousingJointBolt34_1"
+      ],
+      "fixed_count": 305,
+      "samples": [
+        {
+          "height_mm": 20,
+          "intersections": []
+        },
+        {
+          "height_mm": 18,
+          "intersections": []
+        },
+        {
+          "height_mm": 16,
+          "intersections": []
+        },
+        {
+          "height_mm": 14,
+          "intersections": []
+        },
+        {
+          "height_mm": 12,
+          "intersections": []
+        },
+        {
+          "height_mm": 10,
+          "intersections": []
+        },
+        {
+          "height_mm": 8,
+          "intersections": []
+        },
+        {
+          "height_mm": 6,
+          "intersections": []
+        },
+        {
+          "height_mm": 4,
+          "intersections": []
+        },
+        {
+          "height_mm": 2,
+          "intersections": []
+        },
+        {
+          "height_mm": 0,
+          "intersections": []
+        }
+      ],
+      "internal_intersections": [],
+      "clear": true
+    },
+    {
+      "name": "spindle_cap",
+      "moving": [
+        "SpindleCap34"
+      ],
+      "fixed_count": 307,
+      "samples": [
+        {
+          "height_mm": 20,
+          "intersections": []
+        },
+        {
+          "height_mm": 18,
+          "intersections": []
+        },
+        {
+          "height_mm": 16,
+          "intersections": []
+        },
+        {
+          "height_mm": 14,
+          "intersections": []
+        },
+        {
+          "height_mm": 12,
+          "intersections": []
+        },
+        {
+          "height_mm": 10,
+          "intersections": []
+        },
+        {
+          "height_mm": 8,
+          "intersections": []
+        },
+        {
+          "height_mm": 6,
+          "intersections": []
+        },
+        {
+          "height_mm": 4,
+          "intersections": []
+        },
+        {
+          "height_mm": 2,
+          "intersections": []
+        },
+        {
+          "height_mm": 0,
+          "intersections": []
+        }
+      ],
+      "internal_intersections": [],
+      "clear": true
+    },
+    {
+      "name": "bearing_lid",
+      "moving": [
+        "BearingCap34"
+      ],
+      "fixed_count": 308,
+      "samples": [
+        {
+          "height_mm": 20,
+          "intersections": []
+        },
+        {
+          "height_mm": 18,
+          "intersections": []
+        },
+        {
+          "height_mm": 16,
+          "intersections": []
+        },
+        {
+          "height_mm": 14,
+          "intersections": []
+        },
+        {
+          "height_mm": 12,
+          "intersections": []
+        },
+        {
+          "height_mm": 10,
+          "intersections": []
+        },
+        {
+          "height_mm": 8,
+          "intersections": []
+        },
+        {
+          "height_mm": 6,
+          "intersections": []
+        },
+        {
+          "height_mm": 4,
+          "intersections": []
+        },
+        {
+          "height_mm": 2,
+          "intersections": []
+        },
+        {
+          "height_mm": 0,
+          "intersections": []
+        }
+      ],
+      "internal_intersections": [],
+      "clear": true
+    },
+    {
+      "name": "lid_screws",
+      "moving": [
+        "BearingCapBolt34_0",
+        "BearingCapBolt34_1"
+      ],
+      "fixed_count": 309,
+      "samples": [
+        {
+          "height_mm": 20,
+          "intersections": []
+        },
+        {
+          "height_mm": 18,
+          "intersections": []
+        },
+        {
+          "height_mm": 16,
+          "intersections": []
+        },
+        {
+          "height_mm": 14,
+          "intersections": []
+        },
+        {
+          "height_mm": 12,
+          "intersections": []
+        },
+        {
+          "height_mm": 10,
+          "intersections": []
+        },
+        {
+          "height_mm": 8,
+          "intersections": []
+        },
+        {
+          "height_mm": 6,
+          "intersections": []
+        },
+        {
+          "height_mm": 4,
+          "intersections": []
+        },
+        {
+          "height_mm": 2,
+          "intersections": []
+        },
+        {
+          "height_mm": 0,
+          "intersections": []
+        }
+      ],
+      "internal_intersections": [],
+      "clear": true
+    },
+    {
+      "name": "axial_screw",
+      "moving": [
+        "SpindleBolt34"
+      ],
+      "fixed_count": 311,
+      "samples": [
+        {
+          "height_mm": 32,
+          "intersections": []
+        },
+        {
+          "height_mm": 30,
+          "intersections": []
+        },
+        {
+          "height_mm": 28,
+          "intersections": []
+        },
+        {
+          "height_mm": 26,
+          "intersections": []
+        },
+        {
+          "height_mm": 24,
+          "intersections": []
+        },
+        {
+          "height_mm": 22,
+          "intersections": []
+        },
+        {
+          "height_mm": 20,
+          "intersections": []
+        },
+        {
+          "height_mm": 18,
+          "intersections": []
+        },
+        {
+          "height_mm": 16,
+          "intersections": []
+        },
+        {
+          "height_mm": 14,
+          "intersections": []
+        },
+        {
+          "height_mm": 12,
+          "intersections": []
+        },
+        {
+          "height_mm": 10,
+          "intersections": []
+        },
+        {
+          "height_mm": 8,
+          "intersections": []
+        },
+        {
+          "height_mm": 6,
+          "intersections": []
+        },
+        {
+          "height_mm": 4,
+          "intersections": []
+        },
+        {
+          "height_mm": 2,
+          "intersections": []
+        },
+        {
+          "height_mm": 0,
+          "intersections": []
+        }
+      ],
+      "internal_intersections": [],
+      "clear": true
+    }
+  ],
+  "final_tail_segments_installed": false,
+  "physical_assembly_proven": false,
+  "all_sampled_stages_clear": true,
+  "not_checked": [
+    "Bench insertion of bearings/spacers and cap nuts into upper housing",
+    "Initial insertion of support M3 nuts",
+    "Hands, tools, cable and shell removal access",
+    "Real bearing press-fit, axial preload, screw rotation and engagement",
+    "Attachment of tail segments and full assembly/revolute solver",
+    "Continuous swept volume between sampled heights"
+  ]
+}

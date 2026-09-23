@@ -4,6 +4,14 @@ Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 
 ## Uzupełnienie 23.09 — źródła i diagnostyka bez zmiany złożenia
 
+- [Adapter i pokrywa R4](../cad/studies/tail-cartridge-clearance/README.md):
+  cztery przegrody 1,4 zamiast 0,9 mm, parametryczne słupki/gniazda i zachowane
+  nominalne oparcia łbów M2. Osobna pokrywa z dwoma przejściami Ø6,6 usuwa
+  konflikt kolejności: blok można najpierw skręcić na stole z dostępem do
+  nakrętek od spodu, następnie założyć na adapter i dokręcić śruby przez pokrywę.
+  Nominalne próby drogi części i obwiedni narzędzi zaliczone, 61 testów CAD.
+  Mniejszy przekrój słupków i wybrania pokrywy wymagają prób PETG; śruba
+  orczyka, rzeczywiste pasowania i pełna integracja nadal otwarte. Główne CAD bez zmian.
 - [Zintegrowany adapter R3](../cad/studies/tail-cartridge-integrated/README.md):
   górna obejma i nasada połączone w jeden wydruk PETG, dolna płytka nadal
   odkręcana. Dach pod kanałem 3,55 mm zamiast 1,65; usunięty cienki kołnierz
