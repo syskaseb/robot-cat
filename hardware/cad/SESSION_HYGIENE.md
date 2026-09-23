@@ -6,6 +6,11 @@ tylko po to, żeby odzyskać połączenie MCP.
 
 ## Zwykły zakres sesji
 
+Po integracji R4 aktywny punkt wejścia wskazuje `current-assembly.json`:
+`assembly/RobotCatTailCartridge.FCStd`, dziesięć dokumentów (jeden robot,
+osiem wcześniejszych zależności i nowy `TailCartridge`). Poniższe dziewięć
+dotyczy zachowanego poprzednika. Nie otwierać poprzednika obok bieżącego kota.
+
 `assembly/RobotCat.FCStd` wczytuje obecnie dziewięć dokumentów: złożenie,
 parametry oraz siedem modułów. To jeden robot, nie dziewięć wersji robota.
 Listę kontrolować przez MCP `list_documents` przed i po pracy; wzrost liczby

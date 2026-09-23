@@ -7,26 +7,21 @@ pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
 # \r turns the shebang into "/usr/bin/env bash\r: no such file or directory".
 *.sh text eol=lf
 Dockerfile text eol=lf
-
 # Generated PDFs are binary even when their first block contains no NUL byte.
 *.pdf binary
-
 # Simulation provenance hashes must survive Windows/Linux checkouts.
 tools/simulation/*.py text eol=lf
 tools/simulation/plugin/* text eol=lf
-
 # v33 evidence is checksummed byte-for-byte. Preserve OCCT's serialized BRep
 # (including kernel whitespace), and keep hashed JSON stable across platforms.
 hardware/skorupa/v33/recovery/*.brep binary
 hardware/skorupa/v33/*.json text eol=lf
-
 # v35 prototype decisions bind the raw JSON evidence with SHA256 as well as
 # binary CAD. Windows checkout must not invalidate these evidence chains.
 hardware/skorupa/v35/*.json text eol=lf
 hardware/skorupa/v35/rejected/*.json text eol=lf
 hardware/simulation/v35/*.json text eol=lf
 hardware/simulation/v35/trials/*.json text eol=lf
-
 # The modular hardware manifest hashes these sources byte-for-byte.
 .gitattributes text eol=lf
 *.FCStd binary
@@ -39,3 +34,4 @@ hardware/cad/**/*.json text eol=lf
 hardware/cad/studies/**/README.md text eol=lf
 hardware/bom/*.json text eol=lf
 hardware/releases/*.json text eol=lf
+hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

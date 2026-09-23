@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "scope": "Delta against tail-support.json, not an additional duplicate set. Replace two parts, add nine. Factory MG92B horn and center screw remain unconfirmed and are not counted as fitted.",
+  "assembly": "hardware/cad/assembly/RobotCatTailCartridge.FCStd",
+  "module": "hardware/cad/modules/tail/TailCartridge.FCStd",
+  "replaces_assembly_instances": ["TailRoot29", "BearingCap34"],
+  "parts": [
+    {"id": "RC-TAILSUP-002", "revision": "B-R4 prototype", "quantity": 1, "material": "PETG", "object": "SupportedRoot34", "assembly_names": ["TailRoot29"], "action": "replace rev A"},
+    {"id": "RC-TAILSUP-004", "revision": "B-R4 prototype", "quantity": 1, "material": "PETG", "object": "BearingCap34", "assembly_names": ["BearingCap34"], "action": "replace rev A"},
+    {"id": "RC-TAIL-CARTRIDGE-LOWER", "revision": "A-R4 prototype", "quantity": 1, "material": "PETG", "object": "LowerRetainerPETG", "assembly_names": ["TailLowerRetainer"], "action": "add"},
+    {"id": "REF-TAIL-CARTRIDGE-M2X10", "revision": "nominal R4", "quantity": 4, "material": "steel", "assembly_names": ["TailCartridgeBolt0", "TailCartridgeBolt1", "TailCartridgeBolt2", "TailCartridgeBolt3"], "action": "add", "note": "M2x10, modeled head radius 2.1 mm. Supplier geometry/clamp torque unverified."},
+    {"id": "REF-TAIL-CARTRIDGE-NUT-M2", "revision": "nominal R4", "quantity": 4, "material": "steel", "assembly_names": ["TailCartridgeNut0", "TailCartridgeNut1", "TailCartridgeNut2", "TailCartridgeNut3"], "action": "add", "note": "Nominal 1.6 mm thickness; actual fit requires a PETG coupon."}
+  ],
+  "compatibility": "Existing tail axis, bearing block interface, lid fastener axes and 319 joints retained. R4 root requires the matching R4 lower retainer and four M2x10 pairs. Consumed UpperCarrierPETG is feature history, not another print. Old root/lid remain in the predecessor master, but are not instanced in the active robot.",
+  "petg": {
+    "bed_mm": [256, 256, 256],
+    "orientations": {"TailLowerRetainer": "Z88 plane on bed", "TailRoot29": "Z90 plane on bed, spindle upright", "BearingCap34": "Z123.2 plane on bed, bosses up"},
+    "profile_nozzle_layer": "unconfirmed",
+    "supports": "candidate orientations only; root overhangs/channel and spindle layer loading require slicing and physical tests",
+    "fit_strength_creep_approved": false
+  }
+}

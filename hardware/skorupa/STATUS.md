@@ -2,6 +2,22 @@
 
 Branch: **`codex/robot-cat-mechanical`**, repo **syskaseb/robot-cat**.
 
+## Integracja R4 — bieżące złożenie
+
+[Cały kot z R4](../cad/assembly/RobotCatTailCartridge.FCStd),
+[zakres i dowody](../cad/validation/tail-cartridge-integration/README.md).
+Adapter i poprawiona pokrywa są już w złożeniu; dodano dolną płytkę i osiem
+łączników z dziewięcioma natywnymi Fixed. 329 części, 315 Fixed + 13 Revolute,
+54 odnośniki, dziesięć dokumentów. Poprzednie dziewięć plików CAD zachowane.
+Natywne 22 klatki (nogi ±3°, ogon ±30°), otwarcie z innego katalogu
+i trzy zmiany parametrów przez odnośniki z przywróceniem przeszły kontrolę.
+318 niezmienionych części porównano z poprzednikiem, 11 nowych/zmienionych
+ze studium R4. Brak nowych przecięć w spoczynku i 13 próbkach ogona ±30°;
+to nie globalny audyt całego chodu. 70 testów CAD zaliczonych.
+Nadal 29 TEMP, niepotwierdzony orczyk/śruba, błędy skorupy i otwarte próby PETG.
+Nie jest to wydanie do druku ani nowa walidacja Gazebo. Wpisy poniżej opisują
+poprzednie etapy — „niezintegrowane R4” dotyczy stanu przed tą integracją.
+
 ## Uzupełnienie 23.09 — źródła i diagnostyka bez zmiany złożenia
 
 - [Adapter i pokrywa R4](../cad/studies/tail-cartridge-clearance/README.md):
