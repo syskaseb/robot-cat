@@ -1,0 +1,17 @@
+{
+  "status": "MANUFACTURER_DIGITAL_PINOUT_VERIFIED_PHYSICAL_POLARITY_NOT_TESTED",
+  "exact_part": "ST L78L05ACZ, TO-92 (bag), 5 V",
+  "source": "https://www.st.com/resource/en/datasheet/l78l.pdf",
+  "source_figure": "DS0424 Rev 30, Figure 2, page 3: pin connection, bottom view for TO-92",
+  "source_order_row": "DS0424 Rev 30, Table 29, page 34: L78L05ACZ listed in TO-92 (Bag), 5 V",
+  "saved_pin_figure": "hardware/reference/l78l05acz-2026-09-26/pin-configuration-page3.png",
+  "saved_pin_figure_sha256": "9aa9e4065c289c50f12a7305e9438eaa44541f2eb259a897b5331bc8f7b3e69d",
+  "saved_order_figure": "hardware/reference/l78l05acz-2026-09-26/order-codes-page34.png",
+  "saved_order_figure_sha256": "3efa5ec98b7a04ddd50a24036cfe2710ff42356514422d2954ba485ca39c2de7",
+  "view_rule": "Number the three leads 1-2-3 left to right only when looking at the underside of the TO-92 body as in the manufacturer's bottom-view drawing. Mirroring it from the flat/front side is a wiring error.",
+  "pins": {"1": "VOUT PWM5", "2": "GND to G_TAIL.3 via XP03", "3": "VIN from F_PWM.out via XP02"},
+  "unchanged_circuit": "XP01 P_REAR.4 -> F_PWM.in; XP02 F_PWM.out -> U_PWM pin3 VIN; XP03 U_PWM pin2 GND -> G_TAIL.3; U_PWM pin1 -> PWM5 local logic only.",
+  "remaining_checks": ["Confirm delivered marking and body orientation before soldering", "Unpowered continuity and polarity test after mounting", "Thermal/startup behavior on controlled bench before motors"],
+  "physical_pass": false,
+  "energize_approved": false
+}

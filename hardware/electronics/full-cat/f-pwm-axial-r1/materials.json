@@ -1,0 +1,91 @@
+{
+  "status": "EXACT_MATERIAL_SELECTION_ASSEMBLED_ROUTE_STILL_OPEN",
+  "reviewed_utc": "2026-09-29",
+  "new_stl_count": 0,
+  "physical_pass": false,
+  "energize_approved": false,
+  "parts": [
+    {
+      "id": "sleeve:5052942064",
+      "sku": "RNF-100-3/32-0-STK",
+      "manufacturer": "TE Connectivity",
+      "name": "RNF-100 2.4/1.2 mm black, individual fuse joint insulation",
+      "manufacturer_url": "https://www.te.com/en/product-5052942064.html",
+      "supplier_url": "https://www.tme.eu/pl/details/rnf-100-3_32-0-stk/rurki-termokurczliwe/te-connectivity/",
+      "expanded_min_id_mm": 2.4,
+      "recovered_max_id_mm": 1.2,
+      "recovered_wall_nominal_mm": 0.5,
+      "wall_tolerance_mm": 0.2,
+      "temperature_c": [-55, 135],
+      "rated_voltage_v": 600,
+      "manufacturer_stick_mm": 1220,
+      "installed_segments": 2,
+      "preparation_cut_mm_each": 20,
+      "minimum_after_shrink_overlap_onto_wire_insulation_mm": 5,
+      "maximum_joint_od_design_mm": 2.2,
+      "planning_quantity": 6,
+      "unit": "m",
+      "quantity_basis": "TME listing: 1.2m pieces, 5 pieces/package, ordering multiple6m. This is purchase packaging, not installed consumption. Recheck commercial unit in phase2."
+    },
+    {
+      "id": "sleeve:5053042067",
+      "sku": "RNF-100-3/16-0-STK",
+      "manufacturer": "TE Connectivity",
+      "name": "RNF-100 4.8/2.4 mm black, outer fuse insulation",
+      "manufacturer_url": "https://www.te.com/en/product-5053042067.html",
+      "supplier_url": "https://www.tme.eu/pl/details/rnf-100-3_16-0-stk/rurki-termokurczliwe/te-connectivity/",
+      "expanded_min_id_mm": 4.8,
+      "recovered_max_id_mm": 2.4,
+      "recovered_wall_nominal_mm": 0.5,
+      "wall_tolerance_mm": 0.2,
+      "temperature_c": [-55, 135],
+      "rated_voltage_v": 600,
+      "manufacturer_stick_mm": 1220,
+      "installed_segments": 1,
+      "preparation_cut_mm_each": 50,
+      "minimum_after_shrink_overlap_onto_inner_sleeve_mm": 5,
+      "planning_quantity": 6,
+      "unit": "m",
+      "quantity_basis": "Polish TME page read29Sep: minimum6m, multiple6m, stated1.2m pieces. Manufacturer nominal1220mm differs from distributor rounded1.2m; neither is a cut instruction. Recheck packaging in phase2."
+    },
+    {
+      "id": "tie:111-01910",
+      "sku": "111-01910",
+      "manufacturer": "HellermannTyton",
+      "name": "T18R-PA66-BK 100 x 2.5 mm ties, replaces generic P0 2.5x100 allowance",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18r/111-01910",
+      "supplier_reference": "TME symbol T18R-BK; current local stock/delivery not qualified",
+      "length_mm": 100,
+      "width_mm": 2.5,
+      "thickness_mm": 1.0,
+      "head_length_mm": 4.8,
+      "head_width_mm": 4.45,
+      "head_height_mm": null,
+      "bundle_diameter_mm": [1.5, 22],
+      "temperature_c": [-40, 85],
+      "planning_quantity": 100,
+      "unit": "pcs",
+      "quantity_basis": "One manufacturer bag100 replaces, not supplements, generic P0 allowance50. Reserve4 for F_PWM:2 body anchors plus2 independent wire restraints. Remaining46 beyond P0+F_PWM provisional allowances is not a complete installed tie census.",
+      "not_qualified": "Head height is not inferred from webpage H=1.0. Strap fits nominal4x2 slot; head cannot pass through it. Full loop, fixed anchor and head clearance still require layout."
+    }
+  ],
+  "assembly_design": [
+    "Assemble on the bench with every power source disconnected and the PETG parts removed from the heating area. Slide both inner sleeves and the outer sleeve onto wires before soldering.",
+    "XP01 and XP02 remain selected0.5mm2 wire, nominal insulation OD1.8mm. Each smooth solder joint must fit the design OD<=2.2mm without cutting strands. If not, revise this replaceable pigtail and its sleeve selection; never force the sleeve.",
+    "Insulate the two joints separately. The20mm inner and50mm outer cuts are preparation allowances, not verified finished lengths. After shrinking require >=5mm overlap on wire insulation and >=5mm outer overlap over inner sleeves, with no exposed conductive path.",
+    "Heat-shrink outside the robot. TE specifies95C minimum shrink and121C recovery. These are sleeve data, not a hot-air gun setting, a PETG rating or an approved fuse solder profile.",
+    "Reserve two dedicated ties for the sleeved body and two separate restraints on insulated conductors. Keep tie locks outside4x2 slots. Do not bend fuse leads to hold wire load or treat a heat-shrink sleeve as an independent strain relief.",
+    "Do not install this assembly inside the old10mm-long nominal fuse box: that box represented the body only. Route the complete sleeved pigtail, joints, tie locks and XP01 before declaring mountability. XP01<=50mm includes the unfused fuse lead and all bends; no30mm service allowance before fuse."
+  ],
+  "source_limitations": [
+    "TE product pages and current manufacturer drawing were read through web retrieval; PDF visual extraction was not available. Use the broader webpage wall0.5+/-0.2mm for conservative planning, not a guessed thinner catalogue value.",
+    "Direct local manufacturer downloads returned Access Denied. Mouser URLs returned an HTML denial which PyMuPDF rendered; those files are named access-denied and are NOT datasheets or dimensional evidence.",
+    "Datasheet source for existing fuse: https://www.littelfuse.com/assetdocs/fuse-242-datasheet?assetguid=6bb278dd-0465-4cc6-8eb1-e0bef73415c4 . Nominal body3.02x8.40mm is not the full insulated assembly.",
+    "Supplier prices, stock and delivery are phase2 refreshes; no purchase performed. TME ordering multiple6m selected for each RNF100 size."
+  ],
+  "remaining_phase1": [
+    "Complete assembled pigtail position, tie loop/head geometry and both actual fixed conductor anchors.",
+    "Complete XP01 route from actual P_REAR.4 cavity and analyze F0/source/fuse coordination/startup.",
+    "Select solder/flux and all remaining generic P0 consumables/tools with quantities and consistent connector crimps."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "CURRENT_F_PWM_SITE_REJECTED_FOR_XP01_50MM",
+  "source_sha256": {
+    "hardware/electronics/power-platform/open-deck-p0/layout.json": "6f43605939bf89efde2152b49ee5f0c77e2d389de463b4b9ee158dcc1dc07e06",
+    "hardware/cad/studies/open-deck-p0/r1/support-checks.json": "4d3e991c949a87ae5415c0529b1b7adeccc854d651f89820e05364578039a3f6",
+    "hardware/electronics/full-cat/f-pwm-axial-r1/card.json": "a222eff40b41e190f62f19aacfdebd6f073e5b572af63e74b2f2421f3fea7b1e",
+    "tools/cad/open_deck_p0_plate.py": "6d97143f5e71c77adb75ec5ffe9823330cd60538e0ab4d2053281430b16d3596",
+    "tools/cad/upper_cover_mount_r1.py": "c000723a7ffaa962b6fa48f38e9b3fc5243e3f1a15a69bed58e89038b94b7160"
+  },
+  "checker_sha256": "ccd3fa4fefe20be1efd4e476f55ce10ffdae4c384bf834393109d576510f5229",
+  "old_side_layout_p_rear_bbox_NOT_CURRENT_mm": [
+    114,
+    -38.5,
+    75,
+    136,
+    -1.5,
+    86
+  ],
+  "current_open_deck_p_rear_reservation_mm": [
+    2.5,
+    -11.0,
+    109,
+    39.5,
+    11.0,
+    120
+  ],
+  "selected_f_pwm_reservation_mm": [
+    107,
+    -10,
+    97,
+    115,
+    0,
+    104
+  ],
+  "axis_separations_mm": [
+    67.5,
+    0,
+    5
+  ],
+  "straight_distance_lower_bound_mm": 67.68493185340442,
+  "maximum_unfused_path_mm": 50,
+  "minimum_excess_mm": 17.68493185340442,
+  "meaning": "Even the closest points of these generous reservations exceed50mm. Bends/terminations cannot shorten this bound. Bare axial lead before fuse counts as unfused path, not a bypass of the budget.",
+  "limits": "Planning owner/frame evidence, not actual purchased cavity position or complete CAD collision verification. Current reservation follows selected plate/cover sources. It does not imply all historical fuse positions fail.",
+  "decision": "Keep existing files as diagnostic parents. Reposition F_PWM near current P_REAR on a new selected Deck revision, with whole insulated pigtail and four anchors; do not lengthen XP01 or relocate P0 silently.",
+  "next_source": "hardware/cad/studies/deck-f-pwm-axial-r1/DeckP10AxialFPWM.FCStd",
+  "new_stl_count": 0,
+  "physical_pass": false,
+  "energize_approved": false
+}

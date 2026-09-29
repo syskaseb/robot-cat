@@ -1,0 +1,128 @@
+{
+  "status": "DESIGN_REQUIREMENTS_NOT_DELIVERED_DIMENSIONS",
+  "source_sha256": {
+    "deck": "137c21db0e233974f83ab90960b90a230fee8d49e4e8c36eef82b3020bdf9426",
+    "cover": "547f18861129160d2666a4d0c62c099ddc278335c998c6e8f62a6077f4f0b050",
+    "carrier": "7d178d769ad6ce558901240a9abd0db3ebc74b2ec2a690c7c121c2be8d2d4bd0",
+    "layout": "5f3d4800dff45e86ee3e07f60e40929454c87cf8e0892cc97d1a52551a367304"
+  },
+  "replacements": {
+    "F_HP": {
+      "bbox": [
+        0,
+        -10.6,
+        93,
+        20,
+        10.6,
+        105
+      ],
+      "tie_slots": [],
+      "existing_slots_reused": [
+        [
+          4,
+          -12.5
+        ],
+        [
+          4,
+          12.5
+        ],
+        [
+          16,
+          -12.5
+        ],
+        [
+          16,
+          12.5
+        ]
+      ],
+      "meaning": "Move existing FHAC body below Deck instead of occupying P_REAR above it; reuse existing four strap slots. Underside robot parts and full leads still require final installation check."
+    },
+    "F_PWM": {
+      "bbox": [
+        25,
+        -26,
+        99,
+        75,
+        -20,
+        105
+      ],
+      "tie_slots": [
+        [
+          28,
+          -28
+        ],
+        [
+          28,
+          -18
+        ],
+        [
+          44,
+          -28
+        ],
+        [
+          44,
+          -18
+        ],
+        [
+          56,
+          -28
+        ],
+        [
+          56,
+          -18
+        ],
+        [
+          72,
+          -28
+        ],
+        [
+          72,
+          -18
+        ]
+      ],
+      "meaning": "Whole50x6x6 insulated pigtail DESIGN allowance. Two body ties x44/56, independent wires x28/72. Fuse centred50,-23,102; cylindrical shape conservatively boxed. Four strap loops require eight slots, not four."
+    }
+  },
+  "top_tie_lock_design_boxes": [
+    [
+      25.5,
+      -27,
+      109,
+      30.5,
+      -19,
+      115
+    ],
+    [
+      41.5,
+      -27,
+      109,
+      46.5,
+      -19,
+      115
+    ],
+    [
+      53.5,
+      -27,
+      109,
+      58.5,
+      -19,
+      115
+    ],
+    [
+      69.5,
+      -27,
+      109,
+      74.5,
+      -19,
+      115
+    ]
+  ],
+  "limitations": [
+    "Tie lock height6mm is a design allocation, not manufacturer measurement.",
+    "Actual WAGO wire exit/near cavity, full bends and <=50mm path remain to be specified.",
+    "No native slots cut and no new print created by this script.",
+    "FHAC leads, installed board headers and exact bought hardware are not represented."
+  ],
+  "new_stl_count": 0,
+  "physical_pass": false
+}

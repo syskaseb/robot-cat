@@ -1,0 +1,59 @@
+{
+  "status": "TERMINATION_DEFINED_ROUTE_NOT_COMPLETE",
+  "source_sha256": {
+    "hardware/cad/studies/battery-p0/current-cassette-service-r1/checks.json": "8a97a2b4f0eb63ad28c8c80c51433c8456d67eb91e41954b9b03e7d97bd647cd",
+    "hardware/cad/studies/fuse-layout-repair-r1/plan.json": "198c7679351d3d3f3df468fcf3b2ba75f8c47a5a693613a17a5b9d5281615180",
+    "hardware/reference/power-distribution-2026-09-23/WAGO-221-615.pdf": "fa0c8a23c9823e904324b059d28548d61ddcb04a8538f74d23e7c40f83c6e05b",
+    "hardware/reference/power-distribution-2026-09-23/WAGO-221-615-page-1.png": "f9faef253455baaa1b42b324fadbdb1f7f89be8f143d32684fe46d7c9c928580",
+    "hardware/reference/power-distribution-2026-09-23/WAGO-221-615-page-2.png": "6100219bc9d10eb433edc33d40791b2df7af63071e9f18ae91ee2635355be6d8",
+    "tools/manufacturing/prepare_pwm_wire_entry.py": "6dbfcdf8e0387a20805036c9dd95cc53724ea171f726ec5f4703e0eccc9d36c6"
+  },
+  "wago": {
+    "sku": "221-615",
+    "terminal_count": 5,
+    "potential_count": 1,
+    "manufacturer_stranded_copper_mm2": [
+      0.5,
+      6
+    ],
+    "strip_mm": [
+      12,
+      14
+    ],
+    "side_entry": true,
+    "width_depth_height_mm": [
+      36.7,
+      21.1,
+      10.1
+    ],
+    "evidence": "Existing manufacturer PDF dated30Jun2022, pages1/2 visually read again. No cavity pitch/centre inferred from photo."
+  },
+  "xp01_termination": {
+    "wire": "Selected0.5mm2 copper stranded XP01, no change of wire family",
+    "terminal": "One directly inserted stripped conductor in one WAGO lever cage; no new lug or ferrule added to BOM",
+    "preparation": "Disconnect all supplies. Strip12-14mm without strand damage, open lever, insert all strands fully, close lever. No exposed copper outside housing; inspect and pull-check after assembly. Do not insert the fuse lead directly in WAGO or put two wires in one cage.",
+    "logical_port": "P_REAR.4, same common potential as all five cavities",
+    "physical_cavity": "Choose nearest available physical cage only after preserving P0 assignments; physical cage number is not established by the old logical label",
+    "orientation_design_decision": "Width along worldX, lever up, wire openings toward world-Y. This is chosen installation orientation, not proof from an existing imported WAGO solid.",
+    "unfused_budget": "Conservatively budget<=50mm for conductor from clamped end to fuse body including inserted copper, exit bend, soldered joint and bare fuse lead before body; no generic30mm service slack."
+  },
+  "battery_saved_rigid_envelope": [
+    -31.25,
+    -26.25,
+    -40.0,
+    85.25,
+    26.25,
+    28.700000000000003
+  ],
+  "continuous_vertical_separation_to_battery_mm": {
+    "F_HP": 64.3,
+    "F_PWM": 70.3
+  },
+  "battery_scope": "Existing enlarged battery+tray downward envelope only. NOT all chassis, retainers, straps, electrical leads or full underside clearance.",
+  "missing_geometric_interface": "P_REAR is above DeckZ109, fused pigtail belowZ105. The new eight4x2 tie slots are occupied by ties and are NOT a qualified wire feedthrough. Add one separate edge-protected passage/route before selecting this Deck.",
+  "next_step": "Use the saved working Deck, resolve one dedicated wire passage and radiused path from the chosen near cage to pigtail; include installed insertion length and fuse lead in50mm, then inspect chassis and complete underside contents. Do not stretch cable through an occupied tie slot.",
+  "new_stl_count": 0,
+  "route_qualified": false,
+  "physical_pass": false,
+  "energize_approved": false
+}

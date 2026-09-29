@@ -1,0 +1,828 @@
+{
+  "status": "CURRENT_FRAME_LAYOUT_RECONCILED_NOT_ACTUAL_COMPONENT_COLLISION_PASS",
+  "source_sha256": {
+    "layout": "6f43605939bf89efde2152b49ee5f0c77e2d389de463b4b9ee158dcc1dc07e06",
+    "fuses": "4dafdb29a7da1859f7285cea73e9bebcbba9cb6c989d8cd8aa58461404cd1abd",
+    "pwm": "a222eff40b41e190f62f19aacfdebd6f073e5b572af63e74b2f2421f3fea7b1e"
+  },
+  "checker_sha256": "0a0ccd21aa44398a8bad1fd35fcb61754e7ba42ededf6b2ca4053cb80dc835e4",
+  "current_wago_world_reservations": {
+    "P_SYS": [
+      -87.5,
+      -11.0,
+      109,
+      -50.5,
+      11.0,
+      120
+    ],
+    "P_FRONT": [
+      -42.5,
+      -11.0,
+      109,
+      -5.5,
+      11.0,
+      120
+    ],
+    "P_REAR": [
+      2.5,
+      -11.0,
+      109,
+      39.5,
+      11.0,
+      120
+    ],
+    "G1": [
+      47.5,
+      -11.0,
+      109,
+      84.5,
+      11.0,
+      120
+    ],
+    "G2": [
+      96.0,
+      -9.5,
+      109,
+      126.0,
+      9.5,
+      118
+    ],
+    "FL_P": [
+      -84.0,
+      30.5,
+      109,
+      -54.0,
+      49.5,
+      118
+    ],
+    "FL_G": [
+      -48.0,
+      30.5,
+      109,
+      -18.0,
+      49.5,
+      118
+    ],
+    "FR_P": [
+      -84.0,
+      -49.5,
+      109,
+      -54.0,
+      -30.5,
+      118
+    ],
+    "FR_G": [
+      -48.0,
+      -49.5,
+      109,
+      -18.0,
+      -30.5,
+      118
+    ],
+    "RL_P": [
+      24.0,
+      30.5,
+      109,
+      54.0,
+      49.5,
+      118
+    ],
+    "RL_G": [
+      60.0,
+      30.5,
+      109,
+      90.0,
+      49.5,
+      118
+    ],
+    "RR_P": [
+      24.0,
+      -49.5,
+      109,
+      54.0,
+      -30.5,
+      118
+    ],
+    "RR_G": [
+      60.0,
+      -49.5,
+      109,
+      90.0,
+      -30.5,
+      118
+    ],
+    "D_FL": [
+      -12.0,
+      30.5,
+      109,
+      18.0,
+      49.5,
+      118
+    ],
+    "D_FR": [
+      -12.0,
+      -49.5,
+      109,
+      18.0,
+      -30.5,
+      118
+    ],
+    "D_RR": [
+      96.0,
+      -49.5,
+      109,
+      126.0,
+      -30.5,
+      118
+    ],
+    "D_RL": [
+      96.0,
+      30.5,
+      109,
+      126.0,
+      49.5,
+      118
+    ]
+  },
+  "fuse_world_reservations": {
+    "F_COIL": [
+      -60.0,
+      -50.6,
+      93.0,
+      -40.0,
+      -29.4,
+      105.0
+    ],
+    "F_AUX": [
+      80.0,
+      -40.6,
+      93.0,
+      100.0,
+      -19.4,
+      105.0
+    ],
+    "F_HY": [
+      0.0,
+      -85.6,
+      109.0,
+      20.0,
+      -64.4,
+      121.0
+    ],
+    "F_HP": [
+      0.0,
+      -10.6,
+      109.0,
+      20.0,
+      10.6,
+      121.0
+    ],
+    "F_TY": [
+      0.0,
+      64.4,
+      109.0,
+      20.0,
+      85.6,
+      121.0
+    ],
+    "F_PWM": [
+      107,
+      -10,
+      97,
+      115,
+      0,
+      104
+    ]
+  },
+  "pairs_checked": 102,
+  "conflicts": [
+    {
+      "fuse": "F_HP",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 4081.0,
+      "planning_gap_mm": 0.0
+    }
+  ],
+  "p_rear_unfused_distance_lower_bounds_mm": {
+    "F_PWM": 67.68493185340442,
+    "F_AUX": 41.55490344111029
+  },
+  "rows": [
+    {
+      "fuse": "F_COIL",
+      "wago": "P_SYS",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 18.82976367350371
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "P_FRONT",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 18.82976367350371
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 46.48451355021369
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "G1",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 89.50312843694347
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "G2",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 137.50639985106147
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "FL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 60.033407366232346
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "FL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 60.033407366232346
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "FR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 4.0
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "FR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 4.0
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "RL_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 87.74970085419095
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "RL_G",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 116.63622936292137
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "RR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 64.1248781675256
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "RR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 100.07996802557443
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "D_FL",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 66.2420561275086
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "D_FR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 28.284271247461902
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "D_RR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 136.0588108135596
+    },
+    {
+      "fuse": "F_COIL",
+      "wago": "D_RL",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 148.66072110682094
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "P_SYS",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 130.83122715926805
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "P_FRONT",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 86.00470917339352
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 41.55490344111029
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "G1",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 9.303762679690404
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "G2",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 10.67754653466797
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "FL_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 143.04548227749103
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "FL_G",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 110.04549059366313
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "FR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 134.05968819895114
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "FR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 98.08159868191383
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "RL_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 56.40930774260574
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "RL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 50.060063923251235
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "RR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 26.30589287593181
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "RR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 4.0
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "D_FL",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 79.68694999810195
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "D_FR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 62.12889826803627
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "D_RR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 4.0
+    },
+    {
+      "fuse": "F_AUX",
+      "wago": "D_RL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 50.060063923251235
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "P_SYS",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 73.49700674177147
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "P_FRONT",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 53.68249249056903
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 53.400000000000006
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "G1",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 60.06504807290177
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "G2",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 93.75505319714773
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "FL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 109.1879572114068
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "FL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 96.5919768924935
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "FR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 56.017943553829255
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "FR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 23.36685687036235
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "RL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 94.9842618542672
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "RL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 102.98548441406682
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "RR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 15.427572718998935
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "RR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 42.685009078129525
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "D_FL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 94.9
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "D_FR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 14.900000000000006
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "D_RR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 77.44682046410944
+    },
+    {
+      "fuse": "F_HY",
+      "wago": "D_RL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 121.58128967896334
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "P_SYS",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 50.5
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "P_FRONT",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 5.5
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 4081.0,
+      "planning_gap_mm": 0.0
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "G1",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 27.5
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "G2",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 76.0
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "FL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 57.55006516069291
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "FL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 26.833002068348595
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "FR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 57.55006516069291
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "FR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 26.833002068348595
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "RL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 20.29802946100926
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "RL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 44.67672772260744
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "RR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 20.29802946100926
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "RR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 44.67672772260744
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "D_FL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 19.9
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "D_FR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 19.9
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "D_RR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 78.56214100952188
+    },
+    {
+      "fuse": "F_HP",
+      "wago": "D_RL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 78.56214100952188
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "P_SYS",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 73.49700674177147
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "P_FRONT",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 53.68249249056903
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 53.400000000000006
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "G1",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 60.06504807290177
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "G2",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 93.75505319714773
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "FL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 56.017943553829255
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "FL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 23.36685687036235
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "FR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 109.1879572114068
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "FR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 96.5919768924935
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "RL_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 15.427572718998935
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "RL_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 42.685009078129525
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "RR_P",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 94.9842618542672
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "RR_G",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 102.98548441406682
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "D_FL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 14.900000000000006
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "D_FR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 94.9
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "D_RR",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 121.58128967896334
+    },
+    {
+      "fuse": "F_TY",
+      "wago": "D_RL",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 77.44682046410944
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "P_SYS",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 157.57934509319423
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "P_FRONT",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 112.61105629555207
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "P_REAR",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 67.68493185340442
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "G1",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 23.04886114323222
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "G2",
+      "planning_overlap_mm3": 0.0,
+      "planning_gap_mm": 5.0
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "FL_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 163.9397755274784
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "FL_G",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 128.76431959203606
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "FR_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 162.37687643257584
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "FR_G",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 126.76848977565363
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "RL_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 61.35348400865268
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "RL_G",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 35.27392804891454
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "RR_P",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 57.04603404269222
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "RR_G",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 27.097047809678457
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "D_FL",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 94.21385248465323
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "D_FR",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 91.46720723844147
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "D_RR",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 21.10094784600919
+    },
+    {
+      "fuse": "F_PWM",
+      "wago": "D_RL",
+      "planning_overlap_mm3": 0,
+      "planning_gap_mm": 30.907118921051183
+    }
+  ],
+  "decision": "Old fixed-zones WAGO-clear statements do not qualify this open-deck layout. Relocate conflicted fuse reservations and F_PWM/F_AUX as one coherent layout before cutting another Deck. Keep P0 WAGO unchanged.",
+  "scope_limits": "Rounded purchased-component planning boxes, not exact BRep. No installed connector, lever, conductor, tie or full robot collision qualification. Clear rows do not imply full assembly PASS. F_COIL inherited name is not authority to reintroduce GUARD.",
+  "new_stl_count": 0,
+  "physical_pass": false
+}

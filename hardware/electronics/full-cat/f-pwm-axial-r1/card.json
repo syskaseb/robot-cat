@@ -1,0 +1,48 @@
+{
+  "status": "F_PWM_SITE_REJECTED_CURRENT_FRAME_XP01_EXCEEDS_50MM",
+  "current_frame_evidence": "hardware/electronics/full-cat/f-pwm-axial-r1/current-frame.json",
+  "mount_rejection": "Old P_REAR bbox below is historical side-layout, not current open-deck. Current planning box [2.5,-11,109,39.5,11,120] gives minimum67.684932mm to fuse reservation. Reposition F_PWM before using this mount; do not extend unfused XP01.",
+  "purpose": "Replace only the R4 F_PWM 372/570/575 panel fuse with a higher-DC-interrupt axial fuse; retain the PWM5 circuit, P0, AUX6 and all 15 drives.",
+  "manufacturer_source": "https://www.littelfuse.com/assetdocs/fuse-242-datasheet?assetguid=6bb278dd-0465-4cc6-8eb1-e0bef73415c4",
+  "fuse": {
+    "maker": "Littelfuse",
+    "family": "242 Barrier Fuse",
+    "sku_candidate": "0242.100UAT1",
+    "rating_a": 0.1,
+    "interrupt_a_at_250_vdc": 4000,
+    "nominal_cold_ohm": 3.6,
+    "nominal_melting_i2t_a2s": 0.000977,
+    "manufacturer_opening_time": "at 300% rated current <=10s; at 1000% <=0.002s",
+    "type": "axial leaded, soldered into replaceable fixed pigtail; NOT a TR5 cartridge",
+    "installed_quantity": 1,
+    "planning_purchase_quantity_including_spares": 3
+  },
+  "circuit_unchanged": "P_REAR.4 after F0/S1 -> XP01 -> F_PWM 0.1A -> XP02 -> L78L05ACZ VIN; XP03 return to G_TAIL.3. PWM5 powers only U1 logic, not MG92B motors.",
+  "selected_deck_candidate": "hardware/cad/studies/deck-f-pwm-axial-r1/DeckP10_axial_f_pwm_candidate_x1.stl",
+  "regulator_pinout_source": "hardware/electronics/full-cat/f-pwm-axial-r1/regulator-pinout.json",
+  "exact_insulation_and_tie_selection": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+  "mount_plan_world_mm": {
+    "under_deck_sleeved_fuse_planning_bbox": [107, -10, 97, 115, 0, 104],
+    "tie_slot_centers_xy": [[111, -14], [111, 4]],
+    "deck_bottom_z": 105,
+    "p_rear_planning_bbox": [114, -38.5, 75, 136, -1.5, 86],
+    "meaning": "Planning clearance only; sleeve, tie head, solder joints, cavity and actual wire bend are not modeled."
+  },
+  "assembly_sequence": [
+    "With every source disconnected, solder the 242 into one replaceable 0.5 mm2 fixed pigtail; separately insulate both joints and the fuse assembly with appropriately rated sleeves chosen for the actual diameters.",
+    "Anchor the sleeved body against the underside of the selected P10 at the two dedicated 4x2 mm slots with an existing 2.5 mm tie; restrain both conductors independently so no wire force reaches either fuse lead.",
+    "Terminate XP01 in the nearer physically available P_REAR.4 cavity. Its entire unfused length from cavity to fuse lead, including insulation exits, bend and slack, must be <=50 mm; do not add a 30 mm service allowance before the fuse.",
+    "Route XP02 to the existing fixed PWM carrier input. Do not connect the signal ground as the motor-current return; preserve existing JPWM and U1 wiring.",
+    "For service, remove battery and other supplies, lift the removable E6 cover, disconnect fixed Deck wiring, lift Deck and replace the fused pigtail as a unit. No live fuse replacement."
+  ],
+  "not_to_buy_for_this_variant": ["37201000411", "57000000001", "57500000001", "F_PWM570 three-hole fit coupon"],
+  "before_first_power": [
+    "Verify the actual battery/source prospective short current and upstream F0 interruption/coordination; 30C is not a short-circuit current measurement.",
+    "Check regulator startup and normal current against 242 time-current and ambient derating; the existing circuit has only 0.33uF input capacitance in its draft, but populated hardware is not measured.",
+    "Confirm fuse SKU, sleeve dielectric/thermal suitability, solder workmanship, cover clearance, conductor strain relief and actual XP01 <=50 mm route.",
+    "Verify polarity, continuity, insulation, switch-off and temperature on the assembled unpowered/controlled bench before enabling any motors."
+  ],
+  "physical_pass": false,
+  "purchase_authorized": false,
+  "energize_approved": false
+}
