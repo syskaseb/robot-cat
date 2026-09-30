@@ -1,0 +1,58 @@
+{
+  "status": "SELECTED_JR_AND_FACTORY_LEAD_INTERFACES",
+  "replacement_stls": 2,
+  "new_installed_printed_parts": 0,
+  "new_screws": 0,
+  "new_skus": 0,
+  "new_ties_from_existing_bag100": 5,
+  "ties_total_installed_allowance": 42,
+  "ownership": "C_HP on integral UpperFork, same yaw frame as pitch servo, not detachable pitch shell. Supersedes Carrier-only location.",
+  "JR_design_bbox_mm": [
+    -158,
+    82,
+    136,
+    -146,
+    112,
+    146
+  ],
+  "JR_bbox_is_provisional": true,
+  "factory_lead": {
+    "cut": false,
+    "nominal_length_mm": 250,
+    "reserved_centerline_mm": 224.88600091120466,
+    "nominal_residual_mm": 25.11399908879534,
+    "provisional_flat_profile_mm": [
+      3.5,
+      1.8
+    ],
+    "minimum_design_bend_mm": 22,
+    "coil_upper_center_mm": [
+      -143,
+      114,
+      186.769728648
+    ],
+    "scope": "sampled yaw/pitch geometry, not actual wire stiffness or continuous motion qualification"
+  },
+  "ends": {
+    "V+": "XB22 F_HP.out -> C_HP red,HELU23302 0.5mm2,AUX6V behind1A F_HP",
+    "GND": "XB23 G_AUX.4 -> C_HP brown/black,HELU23301 0.5mm2,power return not signal ground",
+    "PWM": "XS23 U1/R2.2 -> C_HP yellow,Kamami1178401 candidate0.12mm2,never used as servo power return"
+  },
+  "connector": "Existing selected Kamami586761 JR/Futaba30cm22AWG mating lead. Factory connector and250mm cable unchanged. Verify actual view/pin order; no keyed-unique claim.",
+  "assembly": [
+    "Only two replacement prints; keep R21 front-right relief and cover passage.",
+    "Install Carrier and lay factory lead before head closure; S-exit uses the new low windows, never the journal.",
+    "Place JR pair on shelf;two ties atY86/108,independent insulated-end tiesY76/118. Keep contacts/solder uncompressed.",
+    "Keep factory coil outside the pitch shell; one loose tie through upper guard slots. No preloading, no bend at connector crimp.",
+    "Ordinary T18I are cut and replaced for removal; deburr slot/window edges0.5mm.",
+    "Retain nominal25.114mm factory residual as a fit allowance, not extra purchased wire. Do not cut factory lead."
+  ],
+  "remaining": [
+    "Both complete custom yaw-loop end transitions and fixed yaw feed",
+    "Remaining harness/SKUs/source protection",
+    "Actual factory exit/length/profile,pinout and PETG journal-window/guard fit after delivery"
+  ],
+  "next_step": "Construct both custom loop end transitions/restraints plus fixed yaw motor feed as one complete head-harness stage.",
+  "physical_pass": false,
+  "phase1_complete": false
+}

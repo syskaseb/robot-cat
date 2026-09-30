@@ -83,4 +83,20 @@ tools/cad/head_wire_support_finish_r1.py text eol=lf
 tools/electronics/select_head_wire_support_r21.py text eol=lf
 tools/electronics/head_external_yaw_loop_r1.py text eol=lf
 tools/electronics/head_external_yaw_loop_r2.py text eol=lf
+# R22 raw-byte CAD and evidence must retain their pinned hashes on Windows.
+hardware/cad/studies/head-jr-support-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/head-jr-support-r*/*.brep binary
+hardware/electronics/full-cat/head-factory-lead-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/head-factory-lead-*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r22/** -text -eol whitespace=cr-at-eol
+tools/cad/head_jr_support_r1.py text eol=lf
+tools/cad/head_jr_support_r5.py text eol=lf
+tools/electronics/head_factory_lead_storage_r1.py text eol=lf
+tools/electronics/head_factory_lead_storage_r2.py text eol=lf
+tools/electronics/head_factory_lead_storage_r3.py text eol=lf
+tools/electronics/head_factory_lead_local_profiles.py text eol=lf
+tools/electronics/head_factory_lead_guard_r5_check.py text eol=lf
+tools/electronics/head_jr_support_package.py text eol=lf
+tools/electronics/head_jr_support_preview.py text eol=lf
+tools/electronics/select_head_jr_factory_r22.py text eol=lf
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,66 @@
+{
+  "status": "SOURCE_BEFORE_RIGID_YAW_JR_HOLDER",
+  "parent_files_sha256": {
+    "hardware\\cad\\studies\\head-external-wire-support-r1\\UpperForkWireArmSlotted.FCStd": "c4f1481e465b8f4d8b279251119d863b470cdb209a9014a9231562c5df3c7114",
+    "hardware\\cad\\studies\\head-external-wire-support-r1\\FrontRightWirePassage.brep": "e1faee58d908c4afdcfa310e278f5ded644970cbce66aff039da4b7248c14ba0",
+    "hardware\\cad\\studies\\head-external-wire-support-r1\\CoverHeadWirePassage.brep": "2738524d7721f9cd117af225d2e207db6b10556ae4b5ccc30a41c91b1259afc4",
+    "hardware\\electronics\\full-cat\\head-external-yaw-loop-r1\\Pitch_Carrier_REST.brep": "11557fc55bf838570024bc88fcdda1823931b14bdc1548fc07e2a823e810be6b"
+  },
+  "ownership": "C_HP on integral UpperFork holder, same rigid yaw frame as pitch Carrier; not removable pitch shell. This explicitly supersedes the older Carrier-only connector location.",
+  "connector_design_bbox_mm": [
+    -158,
+    82,
+    136,
+    -146,
+    112,
+    146
+  ],
+  "connector_dimensions_basis": "30x12x10 conservative mating-pair reservation, NOT actual measured JR housing",
+  "carrier_exit_cutter_mm": [
+    -156,
+    4,
+    127.25,
+    -145,
+    23,
+    129.65
+  ],
+  "fork_wire_windows_mm": [
+    [
+      -153,
+      20.5,
+      127.25,
+      -138,
+      32,
+      129.65
+    ],
+    [
+      -136,
+      58,
+      127.25,
+      -132,
+      63,
+      129.65
+    ]
+  ],
+  "load_path_note": "Low cable windows do not cut the journal axis/bore. Their upperZ129.65 remains0.85mm below a conservative R5.5 bore bound atZ136. This is a geometric ligament only, not PETG strength/load qualification.",
+  "factory_lead_design_thin_exit_mm": [
+    3.5,
+    1.8
+  ],
+  "factory_lead_basis": "Provisional flat3-wire profile only for Carrier exit; actual wire width/thickness and pad/exit orientation verify on delivered MG92B. Factory250mm cable never cut.",
+  "print": "Two replacements PETG x1, no net installed-part increase; Fork broad side, Carrier open side up. Supports/profile in phase2, brim5 within256.",
+  "fasteners": "No additional screws; two T18I through paired slots around JR housing, one tie each on insulated ends. Ordinary ties are cut and replaced for removal, not releasable. Five additional ties from existing bag100, not a new SKU.",
+  "assembly": [
+    "Fit revised bare Carrier before servo and head closure.",
+    "Lay factory lead through opened +Y exit; do not force JR housing through thin slot.",
+    "Fit mating JR pair in side cradle; label ground/center6V/PWM and verify disconnected pinout.",
+    "Two loose releasable ties retain housing; independently restrain insulation at both ends. No tie on solder/bare contact.",
+    "Route excess factory lead outside shell in generous loose curve before tightening. Coil/storage and two complete end transitions still to be constructed."
+  ],
+  "new_stls": 2,
+  "new_skus": 0,
+  "new_screws": 0,
+  "new_ties": 5,
+  "physical_pass": false,
+  "phase1_complete": false
+}
