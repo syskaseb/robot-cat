@@ -1,0 +1,50 @@
+{
+  "status": "SELECTED_CHANGED_HEAD_INTERFACES_ONLY",
+  "new_stls": 3,
+  "replacement_parts": 3,
+  "new_fasteners": 0,
+  "new_skus": 0,
+  "loop": {
+    "bundle_design_OD_mm": 5,
+    "length_mm": 180,
+    "plane_z_mm": 124,
+    "yaw_sample_deg": [
+      -15,
+      0,
+      15
+    ],
+    "pitch_sample_deg": [
+      -10,
+      0,
+      5
+    ],
+    "radius_sample_mm": [
+      32.58807256287926,
+      35.98270821672221,
+      39.74072598648466
+    ],
+    "continuous_sweep": false,
+    "end_tangents_and_storage_complete": false
+  },
+  "wires": [
+    "XB22 F_HP.out->C_HP.V+ redHELU23302 0.5mm2",
+    "XB23 G_AUX.4->C_HP.GND blackHELU23301 0.5mm2",
+    "XS23 R2.2->C_HP.PWM yellowKamami1178401 supplier0.12mm2"
+  ],
+  "PWM": "Verified candidate SKU; no cyclic-life certification, no WAGO minimum0.14mm2 termination. Staggered local JR adapter joints still to construct; factory250mm servo lead unchanged.",
+  "assembly": [
+    "Use only three replacement parts, not old prints alongside them.",
+    "Bare fork/front relief first, servo factory lead exits its Carrier before shell closure.",
+    "Cover exit clears retained M2 screw land; retain all existing brackets/bolts.",
+    "JR location/extra lead restraint/end support still open: do not pretend this is complete wiring."
+  ],
+  "phase2": [
+    "Spline/shaft and central screw fit",
+    "PETG fit/edge deburring0.5mm",
+    "Unpowered head/loop hand sweep and pinout",
+    "No power before full electrical checks"
+  ],
+  "next_step": "Complete factory JR lead storage, stationary-to-moving transitions and two end restraints as one useful head harness. Then fixed yaw feed and remainder/source protection.",
+  "physical_pass": false,
+  "phase1_complete": false
+}

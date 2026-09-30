@@ -1,0 +1,44 @@
+{
+  "status": "SOURCE_BEFORE_CONSTANT_LENGTH_EXTERNAL_LOOP",
+  "wires": [
+    "XB22 F_HP.out->C_HP.V+ HELU23302 red0.5mm2 OD2.1",
+    "XB23 C_HP.GND->G_AUX.4 HELU23301 black0.5mm2 OD2.1",
+    "XS23 U1/R2 output->C_HP.PWM Kamami1178401 yellow26AWG supplier0.12mm2 OD1.25"
+  ],
+  "PWM_source": "https://kamami.pl/przewody-jednozylowe/1178401-zestaw-przewodow-jednozylowych-silikonowych-26awg-5906623468454.html",
+  "PWM_condition": "Silicone stranded hobby candidate, no supplier cyclic-life/minimum-radius certificate; use R>=31.5mm and inspect during phase2. Not0.14mm2; do not put undersized lead in a terminal requiring0.14 minimum.",
+  "power_radius_mm": {
+    "fixed": 12.6,
+    "moving": 31.5
+  },
+  "bundle_envelope_OD_mm": 5,
+  "packing": "Two OD2.1 centers(-1.05,0)/(1.05,0), OD1.25 center(0,1.31), inside a5mm circle; no braid sleeve adding unaccounted diameter.",
+  "loop_length_mm": 210,
+  "plane": "Chord with outward-left normal tilted30deg down; avoids adding a moving wire through journal/bearing.",
+  "moving_anchor_rest_mm": [
+    -133,
+    10.5,
+    119
+  ],
+  "fixed_anchor_mm": [
+    -90,
+    60,
+    119
+  ],
+  "anchor_basis": "Cable at +Y outside existing side bar Y8, radius2.5 gives centerY10.5. Existing fixed Deck tie outsidepost. Actual angle/tie pressure and all end transitions still require construction.",
+  "frames": "Pitch servo housing/Carrier follows yaw only. Head shell follows pitch then yaw; fixed yaw servo housing never receives moving loop.",
+  "sampled_yaw_deg": [
+    -15,
+    0,
+    15
+  ],
+  "sampled_pitch_deg": [
+    -10,
+    0,
+    5
+  ],
+  "scope": "New external loop only, not whole harness or continuous physical sweep. Constant arc length and radius solved perpose; factory250mm lead/JR splice and end transitions remain separate.",
+  "new_stls": 0,
+  "phase1_complete": false,
+  "physical_pass": false
+}
