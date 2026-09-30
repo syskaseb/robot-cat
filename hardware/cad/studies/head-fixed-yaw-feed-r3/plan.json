@@ -1,0 +1,198 @@
+{
+  "status": "SOURCE_BEFORE_COMPLETE_STATIONARY_JR_FEED",
+  "source_sha256": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
+  "factory_length_mm": 250,
+  "reserved_centerline_length_mm": 220,
+  "uncut_fit_budget_mm": 30,
+  "factory_flat_profile_mm": [
+    1.8,
+    3.5
+  ],
+  "factory_route_radius_mm": 22,
+  "start_mm": [
+    -112.2,
+    -12.8,
+    60.2
+  ],
+  "end_mm": [
+    -135,
+    -56.8,
+    60.2
+  ],
+  "U_turn_x_mm": -199.04248081051227,
+  "factory_basis": "250mm manufacturer nominal lead length, flat3.5x1.8 and takeoff position provisional from saved servo/Carrier CAD. Reserve220mm centerline plus30mm end/slack budget; not factory fit or exact connector-end length claim.",
+  "JR_bbox_mm": [
+    -135,
+    -62.8,
+    55.2,
+    -105,
+    -50.8,
+    65.2
+  ],
+  "JR_basis": "Same30x12x10 provisional mating-pair reservation as selected pitch; permanent yaw frame, not rotating horn.",
+  "wires": [
+    "XB12 F_HY.out -> C_HY.V+ redHELU23302 0.5 AUX6",
+    "XB13 G_AUX.3 -> C_HY.GND blackHELU23301 0.5 power return",
+    "XS13 U1/R1.2 -> C_HY.PWM yellowHELU23308 0.5 PWM5"
+  ],
+  "additions_mm": [
+    [
+      -123,
+      -18,
+      49,
+      -119,
+      -14,
+      55.2
+    ],
+    [
+      -123,
+      -50,
+      52.2,
+      -119,
+      -14,
+      55.2
+    ],
+    [
+      -143,
+      -68,
+      52.2,
+      -97,
+      -45.6,
+      55.2
+    ],
+    [
+      -149,
+      -61.8,
+      55.2,
+      -139,
+      -51.8,
+      57.5
+    ],
+    [
+      -105,
+      -66,
+      52.2,
+      -65,
+      -47.6,
+      56.2
+    ],
+    [
+      -75,
+      -61,
+      56.2,
+      -65,
+      -52.6,
+      57.2
+    ],
+    [
+      -149,
+      -68,
+      52.2,
+      -139,
+      -45.6,
+      55.2
+    ]
+  ],
+  "cuts_mm": [
+    [
+      -131,
+      -68,
+      51.5,
+      -129,
+      -64,
+      56
+    ],
+    [
+      -131,
+      -49.6,
+      51.5,
+      -129,
+      -45.6,
+      56
+    ],
+    [
+      -109,
+      -68,
+      51.5,
+      -107,
+      -64,
+      56
+    ],
+    [
+      -109,
+      -49.6,
+      51.5,
+      -107,
+      -45.6,
+      56
+    ],
+    [
+      -145,
+      -66,
+      51.5,
+      -143,
+      -62,
+      58
+    ],
+    [
+      -145,
+      -51.6,
+      51.5,
+      -143,
+      -47.6,
+      58
+    ],
+    [
+      -71,
+      -65,
+      51.5,
+      -69,
+      -61,
+      58
+    ],
+    [
+      -71,
+      -51,
+      51.5,
+      -69,
+      -47,
+      58
+    ]
+  ],
+  "assembly": [
+    "Install modified Carrier on existing yaw base before head/body closure.",
+    "Slide servo from -X with lead lying through existing side-open channel; do not force plug through thin channel.",
+    "Lay factory250mm in the specified stationary U before fitting JR pair into integral seat.",
+    "Label GND/center6V/PWM and verify delivered pinout unpowered. Retain JR housing with two T18I through paired holes; do not crush contacts.",
+    "Keep all later extension-tail splices on rigid insulation supports, never factory lead cutting."
+  ],
+  "service": "Disconnect JR and cut replaceable housing ties before side-removing servo; unchanged M2/M3 recipe. Check whole route and hand access after delivery.",
+  "print": "One replacementYawCarrier x1 PETG, foot on bed, brim5. No net part increase/new screws. Native nominal geometry not strength qualification.",
+  "new_ties": 4,
+  "new_stls": 1,
+  "physical_pass": false,
+  "phase1_complete": false,
+  "risk": "Long stationary factory U extends forwards beyond head silhouette; verify floor/leg/snags unpowered. Not autonomous/home-tested.",
+  "splices": {
+    "centerline_start_mm": [
+      -104,
+      -56.8,
+      60.2
+    ],
+    "length_mm": 28,
+    "max_bundle_OD_mm": 7,
+    "three_staggered_lap_joints_x_mm": [
+      -100,
+      -92,
+      -84
+    ],
+    "each_insulated_joint_max_length_mm": 8,
+    "description": "Separate insulated 22AWGJR extension-tail to0.5 SiF transitions; never cut factory lead. Rigid seat, not free cable span."
+  },
+  "tie_stations": "Two JR housing ties atX-130/-108, independent factory-insulation tieX-144, SiF-insulation tieX-70;4T18I from existingbag100.",
+  "existing_slots": "Original Carrier base and ear fastener geometry retained. Nativeaddition outside original servo path; opening both small end restraints avoids clamping joints.",
+  "remaining": [
+    "CentralF_HY/G_AUX/U1 feed ends from(-70,-56.8,60.2)",
+    "Actual factory slack/insulation/pinout/holding after delivery"
+  ]
+}
