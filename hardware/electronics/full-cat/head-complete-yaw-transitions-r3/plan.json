@@ -1,0 +1,34 @@
+{
+  "status": "SOURCE_BEFORE_FULL_END_TRANSITIONS",
+  "new_stls": 0,
+  "wires": [
+    "XB22 F_HP.out -> C_HP.V+ HELU23302 0.5mm2 OD2.1 AUX6V/F_HP1A",
+    "XB23 G_AUX.4 -> C_HP.GND HELU23301 0.5mm2 OD2.1 power return",
+    "XS23 U1/R2.2 -> C_HP.PWM provisional silicone26AWG0.12mm2 OD1.25"
+  ],
+  "bundle_OD_mm": 5,
+  "fixed_radius_mm": 12.6,
+  "moving_min_radius_mm": 31.5,
+  "moving_anchor_rest_mm": [
+    -177.2,
+    130,
+    141
+  ],
+  "fixed_anchor_mm": [
+    -10,
+    136,
+    141
+  ],
+  "flexible_length_mm": 260,
+  "rigid_moving_start_mm": [
+    -152,
+    76,
+    141
+  ],
+  "rationale": "Replace incomplete180mm arc with a constant-length clamped-tangent loop. Both complete end transitions included; anchors must be constructed only after the full changed route clears.",
+  "JR": "R22 provisional mating pair; retained factory250mm and independent insulation stationY76",
+  "physical_pass": false,
+  "selected": false,
+  "phase1_complete": false,
+  "scope": "Changed whole pitch feed geometry, sampled poses. Fixed yaw-servo feed still separate; no old repeated matrix."
+}

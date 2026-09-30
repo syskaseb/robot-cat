@@ -1,0 +1,78 @@
+{
+  "status": "SELECTED_PROTOTYPE_BOTH_YAW_END_TRANSITIONS",
+  "moving_anchor_rest_mm": [
+    -177.2,
+    130,
+    141
+  ],
+  "fixed_cover_anchor_mm": [
+    -10,
+    136,
+    141
+  ],
+  "free_moving_length_mm": 260,
+  "min_sampled_radius_mm": 32.94781436582678,
+  "tangent_continuity_all_sampled": true,
+  "rigid_transition_radius_mm": 12.6,
+  "outside_loop_max_y_mm": 240.29997605375135,
+  "rigid_moving_reserved_length_mm": 93.58406743523142,
+  "rigid_fixed_reserved_length_mm": 65.95730073435432,
+  "wires": [
+    "XB22 F_HP.out -> C_HP.V+ HELU23302 0.5mm2 OD2.1 AUX6V/F_HP1A",
+    "XB23 G_AUX.4 -> C_HP.GND HELU23301 0.5mm2 OD2.1 power return",
+    "XS23 U1/R2.2 -> C_HP.PWM provisional silicone26AWG0.12mm2 OD1.25"
+  ],
+  "JR_factory_lead_cut": false,
+  "splices": {
+    "status": "SOURCE_BEFORE_RIGID_SPLICE_POCKET",
+    "pocket_mm": [
+      -181.5,
+      95.5,
+      137,
+      -172.9,
+      123.5,
+      139
+    ],
+    "reservation": "Three staggered individually insulated lap splices, centersY100/108/116 on rigid yaw arm; joint/sleeve length reservation<=8mm each and assembled bundleOD<=7mm. No solder joint in the260mm flex zone or under ties.",
+    "JR_extension": "Retain one Kamami586761 mating end. Cut only extension tails after dry-fit; factory servo250mm remains intact. Factory crimp to rigid anchor budget about100mm; splice takeoffs staggered before that anchor.",
+    "ends": [
+      "JR pin1 GND -> HELU23301 black0.5mm2",
+      "JR center pin2 AUX6V -> HELU23302 red0.5mm2",
+      "JR pin3 PWM -> silicone0.12mm2 candidate"
+    ],
+    "insulation": "Existing P0 heatshrink assortment; choose loose bore that slides over actual lap joint and recovered bore that grips insulation. Exact contents/SKU unresolved in complete-phase1 ledger; no new purchase or manufactured sleeve assumed.",
+    "assembly": [
+      "Fit cover and Fork unpowered with head open.",
+      "Lay JR extension around two rigid R12.6 arcs, then over rigid arm.",
+      "Stagger solder jointsY100/108/116; heatshrink each separately, no common sleeve adding unknown diameter.",
+      "One ordinary T18I holds moving insulation atY130 and another holds fixed insulation atY136. Cut ties and unplug JR before cover removal.",
+      "Deburr slots and pocket0.5mm; route flexible zone outside all shells; no journal/bearing cable.",
+      "Preserve260mm free moving length plus fit allowance; do not pull taut."
+    ],
+    "source_sha256": {
+      "hardware/cad/studies/head-yaw-end-restraints-r1/ForkYawEndSeat.brep": "af1cf2f3acc83e83b2f167cf4bff13d07a06791931c80ee1dfde7e681f7e2703",
+      "hardware/cad/studies/head-yaw-end-restraints-r1/CoverYawEndSeat.brep": "a0be8dcb28bf6be68073b96bb5aeabda9ec647e9353083014550ff6ab9965a46",
+      "hardware/electronics/full-cat/head-complete-yaw-transitions-r3/checks.json": "2fbe126571bbd83a2aa0a5843cde98b55c251c44c0c3dfae819aafecef21fe5f"
+    },
+    "new_stls": 1,
+    "replacement_only": true,
+    "physical_pass": false,
+    "phase1_complete": false
+  },
+  "quantity_delta": {
+    "replacement_STL": 2,
+    "installed_parts": 0,
+    "additional_ties_from_existing_bag100": 2,
+    "additional_screws": 0,
+    "new_SKU": 0
+  },
+  "cover_removal": "Unplug C_HP and cut both ordinary seat ties before lifting cover. Fixed rest anchor is part of cover, not Deck; no pulling servo lead or lifting tensioned loop.",
+  "remaining": [
+    "Central fixed feed from the existing wire endpoint(-10,76,124) to F_HP/G_AUX/R2",
+    "Complete fixed yaw-servo feed",
+    "Exact moving PWM/heatshrink SKU and remaining source/protection/harness"
+  ],
+  "sample_pose_scope": "Yaw−15/0/+15,pitch−10/0/+5; separate component intersections, not continuous sweep.",
+  "physical_pass": false,
+  "phase1_complete": false
+}

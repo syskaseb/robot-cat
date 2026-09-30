@@ -99,4 +99,15 @@ tools/electronics/head_factory_lead_guard_r5_check.py text eol=lf
 tools/electronics/head_jr_support_package.py text eol=lf
 tools/electronics/head_jr_support_preview.py text eol=lf
 tools/electronics/select_head_jr_factory_r22.py text eol=lf
+# R23 exact-byte construction, exported meshes and route evidence.
+hardware/cad/studies/head-yaw-end-restraints-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/head-yaw-end-restraints-r*/*.brep binary
+hardware/electronics/full-cat/head-complete-yaw-transitions-r*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/head-complete-yaw-transitions-r*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r23/** -text -eol whitespace=cr-at-eol
+tools/electronics/head_complete_yaw_transitions_r1.py text eol=lf
+tools/electronics/head_complete_yaw_transitions_r2.py text eol=lf
+tools/electronics/head_complete_yaw_transitions_r3.py text eol=lf
+tools/electronics/head_yaw_end_splices_r1.py text eol=lf
+tools/electronics/select_head_yaw_ends_r23.py text eol=lf
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
