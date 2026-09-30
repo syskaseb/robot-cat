@@ -1,0 +1,23 @@
+{
+  "status": "SELECTED_LOCAL_PROTOTYPE_REQUIRES_DELIVERY_DRY_FIT",
+  "rail": "AUX6 before F_HY1A",
+  "electrical": "P_AUX.2 -> HELU23502 red1mm2 -> WAGO221-412 cageA -> factory16AWG F_HY input -> F_HY. Both221 cages are XB11, never GND. Identify input/output by labels, not the identical color of holder leads",
+  "parts": {"AuxSpliceShelfR2_PETG":1,"WAGO221-412":1,"additional_T18I_from_bag100":4,"new_bolts":0,"new_nuts":0},
+  "mount": "Reuses F_HY two existing T18I and Deck four slots. Plate3mm below Deck lowers F_HY3mm; do not mount old holder at93..105 simultaneously. Four extra ties: two hold WAGO, one links insulated factory lead near exit to holder mounting tie, one links insulated extension before cage to WAGO mounting tie",
+  "strain_relief_override": "This supersedes provisional rail-anchor prose in plan.json. No additional unstated holes exist. Interlinked ties use existing mount-tie loops; trim tails outside window, cable eyes and levers. A tie around wire alone without attachment to mount is not strain relief",
+  "order": [
+    "Battery disconnected; put bare Deck upside down and align shelf four slots to F_HY slots",
+    "Thread existing holder ties through Deck and shelf; place F_HY below shelf at90..102Z; do not capture fuse lid or wire in a holder tie",
+    "Seat WAGO upright on shelf over open notch. Leave two connector ties loose; strip11mm of XB11 extension and selected factory input lead, insert each into separate cage, close levers and label bothXB11",
+    "Shape the two local leads through26x12window with provisionalS bend R15. Remove sharp PETG edges before routing. Factory exit/OD/port position are measured at delivery; keep full lead until this step",
+    "Secure WAGO with two ties without twisting body. Link one restraint to holder tie and one to WAGO tie around insulated wire, never bare copper; do not over-tighten silicone",
+    "Provide service slack without touching legs/servo shafts. WholeP_AUX-to-shelf path must be planned separately before powering; localS bend is not that full route",
+    "Before closing upper cover check wire pulls are taken by restraints, not cages; tug each conductor and verify polarity/continuity without power"
+  ],
+  "service": "Disconnect battery; release bare Deck for access; cut only WAGO and wire-restraint ties to open connector. Leave holder ties unless holder must be removed. Refit fresh ties from bag100",
+  "cable_lengths": "Local design34.331837mm plus11mm strip fits nominalminimum84.5mm leaving39.168163mm; NOT an actual cut-length/lead-exit claim. Retain service allowance; cut after fitting",
+  "provisional_inputs": ["FHAC exit and OD<=3mm assumption", "WAGO cageY centers and entryheight", "Factory lead minimum bend radius and true free length", "Actual fit of interlinked ties and corner guards"],
+  "open": ["Full upstream XB11 route and its anchors", "Actual source fault-current/thermal coordination", "PETG cantilever and tie-pressure checks after delivery"],
+  "physical_pass": false,
+  "phase1_complete": false
+}

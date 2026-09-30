@@ -1,0 +1,91 @@
+{
+  "status": "NOMINAL_SHELF_SCREEN_CLEAR_NOT_FULL_ROUTE",
+  "plan_sha256": "894a758f66e819de54dca09177ddcdf27b0b5595567f417ebb3d4aae42491513",
+  "valid_single_solid": true,
+  "strict_bop_errors": 0,
+  "fully_constrained_sketches": 2,
+  "volume_mm3": 5543.519999999999,
+  "thickness_probe_volume_mm3": 5913.0880000000025,
+  "new_stls": 1,
+  "print_bbox_mm": [
+    74.0,
+    30.0,
+    3.0
+  ],
+  "quantity": 1,
+  "physical_pass": false,
+  "phase1_complete": false,
+  "relocated_reopen_ok": true,
+  "deck_intersection_mm3": 0.0,
+  "deck_contact_area_mm2": 0.0,
+  "deck_slot_void_samples": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "e6_positive_hits": {
+    "shelf": [],
+    "shifted_F_HY": [],
+    "WAGO_closed": [],
+    "WAGO_lever_design": [],
+    "WAGO_mouth_design": []
+  },
+  "e6_sha256": "4aa7036d9a2cd993d07dd607f01cad4bdcffcb3e063bdc444fec819ca8f283db",
+  "nominal_clear": true,
+  "model_sha256": "9ef04a3898a312ea87c8c2a8d7c539a794f4bea20692dae67c097ed214a58d4e",
+  "stl_sha256": "06e98b137e0513f5b6ed85df09f3a9137105f3541b8e640ae2d6f90a094587f3",
+  "export_bed_correction": {
+    "initial_min_z_mm": -1.0,
+    "corrected_min_z_mm": 0.0,
+    "native_source_unchanged": true,
+    "reason": "R2 plate102..105, inherited R1 export used minus103; corrected derived mesh only"
+  },
+  "contact_positive_offset_probe": {
+    "offset_mm": 0.01,
+    "area_estimate_mm2": 744.4400000003805,
+    "not_clamp_or_load_test": true
+  },
+  "local_wire_design_checks": [
+    {
+      "name": "factory16AWG_DESIGN",
+      "od_design_mm": 3,
+      "centerline_radius_mm": 15,
+      "length_to_connector_face_mm": 34.33183661368063,
+      "strip_allowance_mm": 11,
+      "minimum_factory_lead_length_mm": 84.5,
+      "factory_available_after_route_and_strip_mm": 39.16816338631937,
+      "local_positive_hits_mm3": {
+        "shelf": 0,
+        "F_HY_design": 0,
+        "WAGO_closed_design": 0
+      },
+      "actual_factory_exit_and_connector_port_confirmed": false
+    },
+    {
+      "name": "HELU23502_DESIGN",
+      "od_design_mm": 2.5,
+      "centerline_radius_mm": 15,
+      "length_to_connector_face_mm": 34.33183661368063,
+      "strip_allowance_mm": 11,
+      "minimum_factory_lead_length_mm": null,
+      "factory_available_after_route_and_strip_mm": null,
+      "local_positive_hits_mm3": {
+        "shelf": 0,
+        "F_HY_design": 0,
+        "WAGO_closed_design": 0
+      },
+      "actual_factory_exit_and_connector_port_confirmed": false
+    }
+  ],
+  "shelf_inner_window_mm": [
+    26,
+    12
+  ],
+  "local_wire_actual_pass": false,
+  "source_sha256": {
+    "tools/cad/aux_splice_shelf_finish.py": "971db1dc21f2aef6a6aeb19a453f8f3e356ccc490346b72bf1b65a444e06c5d4",
+    "tools/cad/aux_splice_shelf_r1.py": "35ab64ec80083b5911295b39b8470afedfc752ca3a6a2825abf73cfbcfc82130",
+    "tools/cad/aux_splice_shelf_r2.py": "d0474eef0e800c3cb232dd1d730d03a72248b58dd1afce1722bc5e117b39e149"
+  }
+}
