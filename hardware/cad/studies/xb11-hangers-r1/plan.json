@@ -1,0 +1,73 @@
+{
+  "status": "SOURCE_BEFORE_CONSTRUCTION",
+  "source_deck_sha256": "563831ce323c11e7388f8a7426d9043e9b80deda59205d68f715314a8c52ebbc",
+  "route_sha256": "feda39c3a8d7ffc8554e58c217fb0b59f685afa662c926a83b986f8bdd223bd9",
+  "hangers_quantity": 2,
+  "sites_y_mm": [
+    50.5,
+    -50.5
+  ],
+  "mount_holes_x_mm": [
+    5,
+    15
+  ],
+  "mount_hole_diameter_mm": 2.4,
+  "top_plate_bbox_local_mm": [
+    2,
+    -3,
+    102,
+    19,
+    3,
+    105
+  ],
+  "vertical_web_bbox_local_mm": [
+    16,
+    -3,
+    74.75,
+    19,
+    3,
+    105
+  ],
+  "bottom_rail_bbox_local_mm": [
+    -29,
+    -3,
+    74.75,
+    19,
+    3,
+    77.75
+  ],
+  "tie_slot_centers_local_xy_mm": [
+    [
+      -26.5,
+      0
+    ],
+    [
+      -19.5,
+      0
+    ]
+  ],
+  "tie_slot_size_xy_mm": [
+    2,
+    4
+  ],
+  "wire_center_xz_mm": [
+    -23,
+    79
+  ],
+  "fasteners": "4 M2x10 DIN912 + 4 M2 DIN934 AF4 + 4 washers OD5/ID2.2/t0.3",
+  "fastener_stack_mm": 8.9,
+  "fastener_nominal_protrusion_mm": 1.1,
+  "additional_ties": "2 T18I, one per hanger, from existing bag100",
+  "material": "PETG",
+  "physical_pass": false,
+  "phase1_complete": false,
+  "print_orientation": "hanger top plate on bed (invert world Z), web vertical; rail cantilever needs slicer supports in phase2",
+  "wiring": "P_AUX.2 red HELU23502 1mm2 AUX6 -> XB11 cageA; unchanged factory F_HY lead to cageB. R15 full path supported at Y+/-50.5. Source and connector restraints remain R17; no moving duty.",
+  "assembly": [
+    "bare replacement Deck: insert four M2 nuts beneath hanger top plates; use washers beneath screw heads above Deck",
+    "bolt both hangers under Deck before WAGO, fuse holders, PCB or side covers",
+    "remove burrs and round cable-contact edges before fitting; place XB11 route onto bottom rails and tie around insulated cable through paired slots",
+    "leave source and XB11 restraints loose until full route shaped; cut after fitting with service allowance, then tighten without crushing silicone",
+    "battery disconnected: continuity/polarity/tug inspection, ensure no trapped insulation; fit upper cover last"
+  ]
+}

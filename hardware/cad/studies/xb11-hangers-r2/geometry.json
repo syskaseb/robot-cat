@@ -1,0 +1,451 @@
+{
+  "status": "NOMINAL_MOUNTED_XB11_CANDIDATE",
+  "plan_sha256": "4349b11bf6a1c0b2732473524526714b3b32d5821083a562590f7e5b56d0d167",
+  "source_sha256": {
+    "hardware/cad/assembly/RobotCatNarrowRimEars.FCStd": "4aa7036d9a2cd993d07dd607f01cad4bdcffcb3e063bdc444fec819ca8f283db",
+    "hardware/cad/studies/xb11-hangers-r1/XB11Hanger.FCStd": "3bd31746d22c1cad0d849151895169d98dcbcaf30f98134e10a33a3e7b9663de",
+    "hardware/cad/modules/electronics/AuxPurchased.FCStd": "c604be01b9b2d1efb000148e439e941ddd214edd0f1310ccb841d06a6537d3ad",
+    "hardware/cad/modules/head/HeadNarrowRimEars.FCStd": "19183fae36199cd3b145306fac0041c869189fa21c19b242b1fbdeb908b66728",
+    "hardware/cad/modules/tail/TailMount.FCStd": "6e6f4a4f94c1db3aea4e3693d87e7c2f3a0ffd04792b7044ac03e41993a2fb77",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/modules/tail/TailCartridge.FCStd": "443863a99774468f24c40dcc1aff02128c0fab5e0414fd9d9d0dc27a1bf60b50",
+    "hardware/cad/modules/tail/TailPurchased.FCStd": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f",
+    "hardware/cad/modules/electronics/PowerMounts.FCStd": "6922296b07fcaecd1a5fd72be1717469def7eb42c5fcfa1e79ddc2a8ba47dd31"
+  },
+  "deck_source_unchanged": true,
+  "hanger_mesh": {
+    "stl": "XB11_hanger_candidate_x2.stl",
+    "sha256": "33dac48f5364346cc1c8efd03871a7738a84fcbcef53da746216bced5d68b8de",
+    "bbox_mm": [
+      48.0,
+      6.0,
+      30.25
+    ],
+    "closed": true,
+    "components": 1
+  },
+  "deck_mesh": {
+    "stl": "Deck_XB11_hangers_candidate_x1.stl",
+    "sha256": "a5303c716ecc8fcbd15d552600502d50e36f5cef792eb03fa763f3ddd04cecd0",
+    "bbox_mm": [
+      230.0,
+      190.0,
+      4.0
+    ],
+    "closed": true,
+    "components": 1
+  },
+  "removed_deck_mm3": 72.38229473870877,
+  "exact_pairs": [
+    {
+      "target": "hanger_50.5",
+      "obstacle": "replacementDeck",
+      "volume_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "target": "hanger_50.5",
+      "obstacle": "XB11_DESIGN",
+      "volume_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "target": "hanger_-50.5",
+      "obstacle": "replacementDeck",
+      "volume_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "target": "hanger_-50.5",
+      "obstacle": "XB11_DESIGN",
+      "volume_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "target": "hanger_50.5",
+      "obstacle": "F_HY_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_-50.5",
+      "obstacle": "F_HY_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_50.5",
+      "obstacle": "P_AUX_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_-50.5",
+      "obstacle": "P_AUX_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_50.5",
+      "obstacle": "F_TY_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_-50.5",
+      "obstacle": "F_TY_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_50.5",
+      "obstacle": "G_TAIL_design",
+      "volume_mm3": 0
+    },
+    {
+      "target": "hanger_-50.5",
+      "obstacle": "G_TAIL_design",
+      "volume_mm3": 0
+    }
+  ],
+  "hardware_pairs": [
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "nut_AF4",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "washer_OD5",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": 50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "nut_AF4",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "washer_OD5",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": 50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "nut_AF4",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "washer_OD5",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 5,
+      "y": -50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "nut_AF4",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "nut_AF4",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "shaft_M2x10",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "head_DIN912_design",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "washer_OD5",
+      "obstacle": "Deck",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_50.5",
+      "volume_mm3": 0
+    },
+    {
+      "x": 13,
+      "y": -50.5,
+      "part": "washer_OD5",
+      "obstacle": "hanger_-50.5",
+      "volume_mm3": 0
+    }
+  ],
+  "inherited_unchanged_pairs": [],
+  "hits": [],
+  "new_stls": 2,
+  "new_installed_petg_parts": 2,
+  "replacement_deck_not_additional": true,
+  "physical_pass": false,
+  "phase1_complete": false,
+  "relocated_recompute_ok": true
+}

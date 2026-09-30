@@ -1,0 +1,28 @@
+{
+  "status": "CONDITIONAL_FIXED_XB11_INTERFACE_SELECTED",
+  "from_endpoint": "P_AUX.2",
+  "to_endpoint": "XB11 WAGO221-412 cageA",
+  "rail": "AUX6 before F_HY branch fuse",
+  "wire_sku": "HELU23502 red1mm2 OD2.5",
+  "nominal_axis_length_mm": 272.7097245096173,
+  "fixed_radius_mm": 15,
+  "support_y_mm": [
+    50.5,
+    -50.5
+  ],
+  "route_plan": "hardware/electronics/full-cat/xb11-upstream-route-r3/plan.json",
+  "mount_plan": "hardware/cad/studies/xb11-hangers-r2/plan.json",
+  "source_restraint": "Insulated lead linked to existing P_AUX connector mounting tie; no pull on cage",
+  "sink_restraint": "R17 interlinked restraint ahead of XB11 WAGO; factory F_HY input unchanged",
+  "cut_length": "Cut after fitting; nominal route272.710 + service30mm at each disconnectable end +11mm strip per WAGO end =354.710mm planning minimum. Round working blank to0.40m, not a measured cut length.",
+  "procurement": "Existing red1mm2 stock; retain25% overall procurement reserve. Do not add a new roll solely for this route.",
+  "edge_guards": "On clear open passage, no body-wall feedthrough. Deburr printed rail contact faces and round edges before tying; do not route against screw/nut edges.",
+  "service": "Battery disconnected; remove raised cover, release source/cage and cut two hanger ties; hangers remain bolted. Replace cut ties; no splice under belly.",
+  "exclusions": "No servo-motion duty for this fixed wire; no signal ground carrying servo current; no MAIN/AUX output merge",
+  "provisional": [
+    "Exact WAGO cage centers and wire exit need delivered dry fit; preserved minimum radius",
+    "Whole selected harness interference and source/AUX fault coordination remain open"
+  ],
+  "physical_pass": false,
+  "new_stls": 2
+}
