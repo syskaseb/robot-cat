@@ -37,4 +37,19 @@ hardware/releases/*.json text eol=lf
 # These saved CAD diagnostics hash exact JSON bytes, including their line endings.
 hardware/cad/studies/fuse-layout-repair-r1/*.json -text -eol
 hardware/cad/studies/battery-p0/current-cassette-service-r1/checks.json -text -eol
+# R17/R18 raw-byte manifests: preserve saved evidence across checkouts.
+hardware/cad/studies/aux-splice-shelf-r2/** -text -eol
+hardware/electronics/full-cat/xb11-upstream-route-r1/** -text -eol
+hardware/electronics/full-cat/xb11-upstream-route-r2/** -text -eol
+hardware/manufacturing/one-batch-prototype-r17/** -text -eol
+hardware/manufacturing/one-batch-prototype-r18/** -text -eol
+hardware/cad/studies/aux-splice-shelf-r2/*.brep binary
+hardware/electronics/full-cat/xb11-upstream-route-r1/*.brep binary
+hardware/electronics/full-cat/xb11-upstream-route-r2/*.brep binary
+tools/electronics/aux_splice_wire_e6.py text eol=lf
+tools/electronics/select_aux_splice_r17.py text eol=lf
+tools/electronics/select_fixed_logic_r18.py text eol=lf
+tools/electronics/xb11_upstream_route.py text eol=lf
+tools/electronics/xb11_upstream_raise.py text eol=lf
+tools/electronics/finalize_xb11_route_screen.py text eol=lf
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
