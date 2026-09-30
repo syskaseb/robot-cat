@@ -1,0 +1,39 @@
+{
+  "status": "SELECTED_MG92B_SIGNAL_WIRE_23308",
+  "sku": "HELU23308 / TME SIF0.50-Y",
+  "section_mm2": 0.5,
+  "colour": "yellow",
+  "planning_quantity_m": 6,
+  "replaces": "wire:moving-PWM-0.14:SKU_OPEN",
+  "signal_paths": [
+    "XS13 U1/R1.2 -> C_HY.PWM",
+    "XS23 U1/R2.2 -> C_HP.PWM",
+    "XS33 U1/R3.2 -> C_TY.PWM"
+  ],
+  "electrical": "PWM5 logic signal only; not AUX6 power. Separate black0.5 power return, red0.5 AUX6 behind the selected branch fuse. Rigid local U1 adapter leads remain0.14mm2 <=50mm.",
+  "transitions": "Keep factory250mm and premade JR22AWG end. Cut extension tails after fit, join to red/black/yellow0.5 with three separately insulated staggered lap joints on rigid seats, never in free-moving span. Do not crimp0.5 into contacts intended for22..26AWG.",
+  "packing": {
+    "wire_count": 3,
+    "individual_OD_approx_mm": 2.1,
+    "triangular_bundle_radius_mm": 2.2624355652982144,
+    "existing_route_envelope_radius_mm": 2.5,
+    "radial_margin_nominal_mm": 0.23756443470178557,
+    "max_equal_individual_OD_for_envelope_mm": 2.320508075688773,
+    "geometry_basis": "Three equal circular wires tangent in triangular packing. No sheath/spiral wrap in the OD5 free span; loose retainers only at end seats. Actual combined OD <=5mm required after delivery."
+  },
+  "bending": {
+    "fixed_mm": 12.6,
+    "moving_mm": 31.5,
+    "min_sampled_existing_head_radius_mm": 32.94781436582678,
+    "proof": "All three selected wires share the same OD and bend requirements. Existing OD5 swept envelope is unchanged; no route-matrix rerun. Other routes still require their own construction."
+  },
+  "phase2": [
+    "Measure actual insulation/bundle and adjust replaceable seats if OD>5mm.",
+    "Unpowered fit/pinout, radius, joint insulation, strain relief and movement checks.",
+    "Refresh stock, meter-sale quantity, price and delivery for one order."
+  ],
+  "new_stls": 0,
+  "net_quantity_lines": 0,
+  "physical_pass": false,
+  "phase1_complete": false
+}
