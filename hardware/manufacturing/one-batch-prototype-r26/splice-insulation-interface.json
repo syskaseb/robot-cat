@@ -1,0 +1,77 @@
+{
+  "status": "SELECTED_EXACT_MG92B_SPLICE_INSULATION",
+  "sku": "TE RNF-100-1/8-9-STK white, TME",
+  "procurement_m": 6,
+  "procurement_note": "Current supplier minimum increment6m = five nominal1.2m sticks; preserve existingP0 assortment for larger power joints. No ordering; recheck increment in phase2.",
+  "installed_sleeves": 9,
+  "head_selected_sleeves": 6,
+  "tail_reserved_sleeves": 3,
+  "trial_spares": 9,
+  "total_trial_stock_use_under_m": 0.25,
+  "sleeve_cut_nominal_mm": 11.5,
+  "manual_cut_tolerance_mm": 0.2,
+  "final_length_design_max_mm": 12,
+  "soldered_contact_design_max_length_mm": 4,
+  "min_nominal_insulation_overlap_each_end_mm": 3.3674999999999997,
+  "bare_joint_max_OD_mm": 2.1,
+  "finished_individual_sleeved_joint_design_max_OD_mm": 3.4,
+  "head_joint_centres": {
+    "pitch_y": [
+      101.5,
+      109.5,
+      117.5
+    ],
+    "yaw_x": [
+      -98,
+      -90,
+      -82
+    ]
+  },
+  "unchanged_rigid_reserved_axial_bounds_mm": {
+    "pitch_y": [
+      95.5,
+      123.5
+    ],
+    "yaw_x": [
+      -104,
+      -76
+    ]
+  },
+  "packing": {
+    "raw_wire_OD_mm": 2.1,
+    "max_overlapping_sleeved_joints": 2,
+    "finished_large_OD_mm": 3.4,
+    "circle_centres_mm": [
+      [
+        -1.7,
+        0
+      ],
+      [
+        1.7,
+        0
+      ],
+      [
+        0,
+        2.1615966321217286
+      ]
+    ],
+    "bound_radius_mm": 3.4,
+    "existing_seat_reserved_radius_mm": 3.5,
+    "radial_nominal_margin_mm": 0.10000000000000009,
+    "proof": "Two OD3.4 sleeves side-by-side plus one OD2.1 unsleeved insulated wire fit within unchanged OD7 envelope.12mm sleeves staggered8mm prevent triple sleeve overlap; no common overwrap adding diameter."
+  },
+  "supersedes": "R23/R25 joint-length <=8mm reservation and centres only. R26 uses <=12mm finished sleeves and shifted centres, still wholly contained in the same28mm/OD7 BRep reservations. No STL/source geometry change or old matrix rerun.",
+  "assembly": [
+    "Battery absent; preserve factory servo250mm. Slide separate sleeve onto each premade JR extension tail before joining to0.5 SiF.",
+    "Keep bare lap joint <=4mm axial and <=2.1mm diameter; cut12mm envelope sleeve blank11.5+/-0.2 and center it over joint. Remove burrs/stray strands; no bare copper outside sleeve.",
+    "Heat outside PETG cradle and away from battery/servo until snug; manufacturer recovery121C, do not melt nearby printed supports. No flame.",
+    "Verify continuous sleeve coverage at least3mm onto sound insulation at each side and finished individual OD<=3.4, length<=12. Otherwise remake joint before installation.",
+    "Place three joints at the assigned rigid head centres. Separate end ties act on intact insulation, not solder/sleeve. No joints in260mm moving zone. Label GND/V+/PWM despite white sleeves.",
+    "Tail uses same three sleeve blanks, but its actual joint seat/placement remains the tail construction input, not approved by head packing."
+  ],
+  "checks_not_physical": "Dimensions/packing/source arithmetic only. Actual shrink, solder continuity, polarity, tug and thermal quality in phase2.",
+  "new_stls": 0,
+  "new_SKUs": 1,
+  "physical_pass": false,
+  "phase1_complete": false
+}
