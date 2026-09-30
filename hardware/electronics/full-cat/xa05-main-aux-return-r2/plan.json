@@ -1,0 +1,47 @@
+{
+  "endpoints": [
+    "P0G2.5",
+    "G_AUX.1"
+  ],
+  "rail": "power ground shared AUX/PWM return; NOT Pi or signal-only ground",
+  "wire": "HELU23501 black1mm2 OD2.5 fixedR15",
+  "waypoints_mm": [
+    [
+      123,
+      9.5,
+      113.5
+    ],
+    [
+      123,
+      40,
+      113.5
+    ],
+    [
+      90,
+      40,
+      113.5
+    ],
+    [
+      90,
+      -57,
+      113.5
+    ],
+    [
+      110.5,
+      -57,
+      113.5
+    ]
+  ],
+  "G2_registration": "Selected Deck center+21,0 world, top109. Retain WAGO221415 footprintX96..126/Y-9.5..9.5; choose+Y entry and cage5 atX123. Dry-fit delivered body orientation.",
+  "G_AUX_cage_assignment": "Logical labels on unnumbered mouths, negative-to-positiveY: cage4 -81, cage2 -75, cage5 -69, cage3 -63, cage1 -57. XA04/XA06 remain unchanged; head return cage4 is not yet routed.",
+  "planning_cage_pitch_mm": 6,
+  "actual_cage_pitch_verified": false,
+  "restraints": "Two releasable T18I interlinked to existing G2 and G_AUX mounting ties; middle route lies above Deck, never trapped under Carrier spacers. Additional midspan anchor remains to be fitted if sag approaches other wires.",
+  "cut": "Dry-fit then cut with30mm allowance per detachable end plus11mm strip per WAGO end;25percent procurement reserve. No energized fit check.",
+  "new_stls": 0,
+  "new_fasteners": 0,
+  "additional_ties": 2,
+  "physical_pass": false,
+  "phase1_complete": false,
+  "excluded_legacy_owner": "Speaker is an old E6 audio electronics reference, not a selected print/purchased part. Approved hobby scope explicitly has no audio; not an installed obstacle waiver."
+}

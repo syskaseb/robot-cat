@@ -1,0 +1,165 @@
+{
+  "status": "SELECTED_CONDITIONAL_FIXED_AUX_INTERFACE",
+  "routes": {
+    "XA02": {
+      "sku": "HELU23502",
+      "color": "red",
+      "section_mm2": 1,
+      "OD_mm": 2.5,
+      "fixed_R_mm": 15,
+      "nominal_centerline_mm": 288.71146941154063,
+      "cut_rule": "Dry-fit actual joints/cages first.30mm service at each detachable end;11mm stripping per WAGO end. Board solder end: only exposed length needed on pad, no long bare strand.",
+      "conservative_working_blank_m": 0.4,
+      "procurement": "Included in existing5m red/5m black stock, retain25percent overall reserve; not a second purchase line."
+    },
+    "XA03": {
+      "sku": "HELU23502",
+      "color": "red",
+      "section_mm2": 1,
+      "OD_mm": 2.5,
+      "fixed_R_mm": 15,
+      "nominal_centerline_mm": 184.5675796076938,
+      "cut_rule": "Dry-fit actual joints/cages first.30mm service at each detachable end;11mm stripping per WAGO end. Board solder end: only exposed length needed on pad, no long bare strand.",
+      "conservative_working_blank_m": 0.30000000000000004,
+      "procurement": "Included in existing5m red/5m black stock, retain25percent overall reserve; not a second purchase line."
+    },
+    "XA04": {
+      "sku": "HELU23501",
+      "color": "black",
+      "section_mm2": 1,
+      "OD_mm": 2.5,
+      "fixed_R_mm": 15,
+      "nominal_centerline_mm": 314.9765717643542,
+      "cut_rule": "Dry-fit actual joints/cages first.30mm service at each detachable end;11mm stripping per WAGO end. Board solder end: only exposed length needed on pad, no long bare strand.",
+      "conservative_working_blank_m": 0.45,
+      "procurement": "Included in existing5m red/5m black stock, retain25percent overall reserve; not a second purchase line."
+    },
+    "XA05": {
+      "sku": "HELU23501",
+      "color": "black",
+      "section_mm2": 1,
+      "OD_mm": 2.5,
+      "fixed_R_mm": 15,
+      "nominal_centerline_mm": 161.68583470577036,
+      "cut_rule": "Dry-fit actual joints/cages first.30mm service at each detachable end;11mm stripping per WAGO end. Board solder end: only exposed length needed on pad, no long bare strand.",
+      "conservative_working_blank_m": 0.30000000000000004,
+      "procurement": "Included in existing5m red/5m black stock, retain25percent overall reserve; not a second purchase line."
+    },
+    "XA06": {
+      "sku": "HELU23501",
+      "color": "black",
+      "section_mm2": 1,
+      "OD_mm": 2.5,
+      "fixed_R_mm": 15,
+      "nominal_centerline_mm": 128.70188713095965,
+      "cut_rule": "Dry-fit actual joints/cages first.30mm service at each detachable end;11mm stripping per WAGO end. Board solder end: only exposed length needed on pad, no long bare strand.",
+      "conservative_working_blank_m": 0.25,
+      "procurement": "Included in existing5m red/5m black stock, retain25percent overall reserve; not a second purchase line."
+    }
+  },
+  "endpoints": {
+    "XA02": [
+      "F_AUX.out",
+      "4092.VIN"
+    ],
+    "XA03": [
+      "4092.VOUT",
+      "P_AUX.1"
+    ],
+    "XA04": [
+      "4092.GND",
+      "G_AUX.2"
+    ],
+    "XA05": [
+      "P0G2.5",
+      "G_AUX.1"
+    ],
+    "XA06": [
+      "G_AUX.5",
+      "G_TAIL.1"
+    ]
+  },
+  "rails": "BAT_SW before converter, AUX6 after converter, separate power-return conductors; never tie MAIN/AUX positive rails or use signal GND for motor return.",
+  "converter_pad_registration": {
+    "dxf": "hardware\\reference\\aux4092-2026-09-26\\reg24d-drill.dxf",
+    "sha256": "a7f7e8bf86711d23db3a8412be6123e966e2f83d51eadfb37edd208eaf624985",
+    "supplier": "https://www.pololu.com/product/4092",
+    "top_labels": "https://a.pololu-files.com/picture/0J10742.1200.png?72ba56c9b0ea605456cc74a75e63010e",
+    "bottom_dimension_image": "https://a.pololu-files.com/picture/0J10740.1200.jpg?b5e894b2ac43935199c4281dd6fc0aa9",
+    "registration": "DXF bottom-view x,y reflected to component top y,x. Three-hole pattern preserved; electrical labels distinguish mirror. Origin world(16,-12.7), PCB bottom154, planning thickness1.6002.",
+    "image_remote_not_locally_hash_pinned": true,
+    "delivered_revision_verified": false
+  },
+  "pads_world_mm": {
+    "VIN": [
+      17.27,
+      -1.2699999999999996,
+      155.6002
+    ],
+    "GND": [
+      17.27,
+      1.2700000000000014,
+      155.6002
+    ],
+    "VOUT": [
+      17.27,
+      6.349999999999998,
+      155.6002
+    ]
+  },
+  "unnumbered_WAGO_logical_cages": {
+    "G_AUX_negative_to_positive_Y": [
+      {
+        "label": 4,
+        "y": -81
+      },
+      {
+        "label": 2,
+        "y": -75
+      },
+      {
+        "label": 5,
+        "y": -69
+      },
+      {
+        "label": 3,
+        "y": -63
+      },
+      {
+        "label": 1,
+        "y": -57
+      }
+    ],
+    "P_AUX_cage1_Y": 66,
+    "P_AUX_cage2_Y": 72,
+    "G_TAIL_cage1_Y": -72,
+    "rule": "Apply these wire labels yourself; not manufacturer cavity numbers. Remaining mouths allocated only when their routes are made.6mm cage pitch planning, dry-fit real exits."
+  },
+  "restraints": {
+    "Carrier": "Three port ties and three board-end ties; source plan describes supports and release order.",
+    "XA02_middle": "One T18I around insulated wire(10,48,132), interlinked to existing P_AUX mounting tie at(10,55.5,109); approx24mm offset, no new hole or fastener.",
+    "XA05_middle": "One T18I interlinked to existing G1 right Deck slot/mount tie at(86,-8.5,109), holding wire(90,-8.5,113.5). Nominal4mm lateral offset; support independent of G1 electric cage.",
+    "WAGO_ends": "Separate insulated-lead ties to mounted connector ties. XA05 two ends; XA06 two ends; XA03/XA04 one WAGO end each; XA02 cassette output restraint already exists."
+  },
+  "guards": "No wire against fastener edge; round/deburr all three Carrier5mm passages and strap slots before fitting. Wire remains fixed and centered; no dynamic duty through holes. Change guard/print if delivered sleeve or tie makes contact.",
+  "assembly": "Bare Deck/hangers first, WAGO mounted, bare revised Carrier and loose support ties, then populated PCBs and shaped wiring. Solder with battery absent, sleeve joints, inspect bare bridges and polarity. Cover last.",
+  "service": "Battery absent. Remove cover, loosen connector restraints and WAGO levers, release six Carrier wire ties before lifting cassette. No tugging on solder pads; retain at least30mm service reserve at detachable ends. Replace cut ties.",
+  "rejection_history": "r2/r3 converter leads hit selected cover and each other; r4 XA04 hit XA06; r5 rerouted and requires native Carrier now supplied. XA05r1 hit old audio reference and XA06. r2 retains no audio as already approved scope and uses a different unused G_AUX logical mouth; actual selected cover remains tested.",
+  "open": [
+    "Moving head/yaw/PWM harness and complete remaining fixed harness",
+    "Source and branch DC fault/current/thermal sizing",
+    "Unresolved commercial SKU rows, actual terminations and final assembly consolidation"
+  ],
+  "phase2": [
+    "Delivered PCB revision/pads, solder quality/no bridges",
+    "Actual WAGO entry/pitch and tie pressure/sleeve clearance",
+    "PETG holes/flatness and cover fit",
+    "Disconnected continuity/polarity/tug checks before electrical tests"
+  ],
+  "additional_ties": 14,
+  "new_stls": 1,
+  "new_fasteners": 0,
+  "new_skus": 0,
+  "phase1_complete": false,
+  "physical_pass": false
+}

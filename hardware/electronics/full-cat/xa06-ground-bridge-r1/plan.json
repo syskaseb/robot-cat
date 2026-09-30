@@ -1,0 +1,51 @@
+{
+  "from_endpoint": "G_TAIL.1",
+  "to_endpoint": "G_AUX.5",
+  "electrical_direction": "G_AUX.5 -> G_TAIL.1 (geometry built in reverse)",
+  "wire": "HELU23501 black1mm2 OD2.5",
+  "rail": "power GND; NOT signal-only return",
+  "fixed_radius_mm": 15,
+  "waypoints_mm": [
+    [
+      19.5,
+      -72,
+      113.5
+    ],
+    [
+      45,
+      -72,
+      113.5
+    ],
+    [
+      45,
+      -72,
+      145
+    ],
+    [
+      80,
+      -72,
+      145
+    ],
+    [
+      80,
+      -72,
+      113.5
+    ],
+    [
+      95,
+      -72,
+      113.5
+    ]
+  ],
+  "final": "two opposite R15 arcs from X95/Y-72 to Y-69, then straight to X110.5/Y-69/Z113.5",
+  "source_cage_positions_provisional": true,
+  "restraints": "Two new T18I around insulated leads immediately outside terminal mouths, interlinked to existing G_TAIL/G_AUX mounting ties. No unsupported standalone wire tie.",
+  "support": "91mm mouth-to-mouth span shaped as a raised fixed arch; restrained at both terminal bodies. Keep arch away from PCB/covers; delivered silicone springback/sag dry-fit before power.",
+  "protection": "Combined tail/PWM return; positive AUX6/PWM5 never joined. Return ampacity and source/branch fault coordination still require closure.",
+  "new_stls": 0,
+  "new_fcstd": 0,
+  "new_skus": 0,
+  "additional_ties": 2,
+  "physical_pass": false,
+  "phase1_complete": false
+}

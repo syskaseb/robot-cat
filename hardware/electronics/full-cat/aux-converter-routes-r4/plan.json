@@ -1,0 +1,187 @@
+{
+  "status": "SOURCE_SAVED_BEFORE_REPAIRING_TWO_DEMONSTRATED_CONFLICTS",
+  "routes": {
+    "XA02": {
+      "endpoints": [
+        "F_AUX.out",
+        "4092.VIN"
+      ],
+      "color": "red",
+      "points": [
+        [
+          96,
+          17.6,
+          132
+        ],
+        [
+          116,
+          17.6,
+          132
+        ],
+        [
+          116,
+          48,
+          132
+        ],
+        [
+          -20,
+          48,
+          132
+        ],
+        [
+          -20,
+          48,
+          171
+        ],
+        [
+          -20,
+          -1.27,
+          171
+        ],
+        [
+          17.27,
+          -1.27,
+          171
+        ],
+        [
+          17.27,
+          -1.27,
+          155.6002
+        ]
+      ]
+    },
+    "XA03": {
+      "endpoints": [
+        "4092.VOUT",
+        "P_AUX.1"
+      ],
+      "color": "red",
+      "points": [
+        [
+          17.27,
+          6.349999999999998,
+          155.6002
+        ],
+        [
+          17.27,
+          6.35,
+          176
+        ],
+        [
+          -25,
+          6.35,
+          176
+        ],
+        [
+          -25,
+          66,
+          176
+        ],
+        [
+          -25,
+          66,
+          113.5
+        ],
+        [
+          0.5,
+          66,
+          113.5
+        ]
+      ]
+    },
+    "XA04": {
+      "endpoints": [
+        "4092.GND",
+        "G_AUX.2"
+      ],
+      "color": "black",
+      "points": [
+        [
+          17.27,
+          1.27,
+          155.6002
+        ],
+        [
+          17.27,
+          1.27,
+          176
+        ],
+        [
+          -35,
+          1.27,
+          176
+        ],
+        [
+          -35,
+          -44,
+          176
+        ],
+        [
+          -35,
+          -44,
+          132
+        ],
+        [
+          80,
+          -44,
+          132
+        ],
+        [
+          80,
+          -75,
+          132
+        ]
+      ],
+      "end": "R15 opposite arcs drop18.5mm, then straight to G_AUX.2(110.5,-75,113.5)"
+    }
+  },
+  "pads_world_mm": {
+    "VIN": [
+      17.27,
+      -1.2699999999999996,
+      155.6002
+    ],
+    "GND": [
+      17.27,
+      1.2700000000000014,
+      155.6002
+    ],
+    "VOUT": [
+      17.27,
+      6.349999999999998,
+      155.6002
+    ]
+  },
+  "pad_basis": {
+    "dxf": "hardware\\reference\\aux4092-2026-09-26\\reg24d-drill.dxf",
+    "sha256": "a7f7e8bf86711d23db3a8412be6123e966e2f83d51eadfb37edd208eaf624985",
+    "supplier": "https://www.pololu.com/product/4092",
+    "top_labels": "https://a.pololu-files.com/picture/0J10742.1200.png?72ba56c9b0ea605456cc74a75e63010e",
+    "bottom_dimension_image": "https://a.pololu-files.com/picture/0J10740.1200.jpg?b5e894b2ac43935199c4281dd6fc0aa9",
+    "registration": "DXF bottom-view x,y reflected to component top y,x. Three-hole pattern preserved; electrical labels distinguish mirror. Origin world(16,-12.7), PCB bottom154, planning thickness1.6002.",
+    "image_remote_not_locally_hash_pinned": true,
+    "delivered_revision_verified": false
+  },
+  "wire": "HELU23502 red /23501 black 1mm2 OD2.5; fixed R15",
+  "pad_termination": "Component-side direct solder, wire normal to pad then R15 away from parts. Bare tinned end restricted to pad, no threading whole strand bundle through \u00d81.02 drill. Sleeve up to pad; no VIN/GND/VOUT bridges. VRP/EN/PG unused.",
+  "solder_clearance": "Adjacent VIN/GND holes2.54mm apart versus OD2.5 gives only0.04mm insulation gap. Route is candidate, not solder/thermal PASS; actual pad land, sleeve and workmanship must fit. Do not enlarge bare joints.",
+  "restraints": "Board-end three insulated legs secured via releasable T18I interlinked to existing Carrier x11 tie pair; tie clear of components/pads. Existing cassette restraint x82 at input; WAGO mounting-tie end restraints at P_AUX and G_AUX. Intermediate raised routes need fixed restraint locations after interference check.",
+  "terminal_cages": "P_AUX.1 Y66 and G_AUX.2 Y-75 are provisional cage centers, not delivered pin pitch qualification.",
+  "component_reservations": "Conservative PCB/parts boxes excluding photographed pad strip; not manufacturer full3D CAD.",
+  "new_stls": 0,
+  "physical_pass": false,
+  "phase1_complete": false,
+  "carrier_ports_world_xy_mm": [
+    [
+      -20,
+      48
+    ],
+    [
+      -35,
+      -44
+    ]
+  ],
+  "carrier_port_diameter_mm": 5,
+  "carrier_revision_required": "Two dedicated vertical wire clearance holes; no wire through existing servo tool port. This diagnostic cuts cached Carrier only; native source/export must follow before selection.",
+  "parent_checks_sha256": "3d0c7b25a41a0a168c4c4ea4d0f9fddd310659deac5449fd56da6b0c33fd83c4"
+}

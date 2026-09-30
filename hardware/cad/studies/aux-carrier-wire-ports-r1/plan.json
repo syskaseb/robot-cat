@@ -1,0 +1,47 @@
+{
+  "source_sha256": "6bb28d36b3519f6251a681eec748d169305232e573775c8762e6ee59f1a63ab4",
+  "frame": "Carrier local XY -> world+21,0,144",
+  "wire_ports_world_xy_mm": [
+    [
+      -20,
+      48
+    ],
+    [
+      -35,
+      -44
+    ],
+    [
+      -25,
+      66
+    ]
+  ],
+  "port_diameter_mm": 5,
+  "tie_slots": "Two2x4mm slots per port at world Xcenter+/-5, sameY",
+  "added_north_wing_world_bbox_mm": [
+    -35,
+    56.5,
+    144,
+    -15,
+    72,
+    148
+  ],
+  "purpose": "Fixed XA02/XA04 through no sharp shared tool opening; XA03 north-edge wing supports insulated vertical lead.",
+  "material": "PETG",
+  "quantity": 1,
+  "print": "Carrier bottom localZ0 on bed; all holes vertical. Deburr/round contact edges0.5mm manually; no slicer in phase1.",
+  "assembly": [
+    "Fit new bare Carrier on unchanged spacers; no new screws or PCB spacers.",
+    "Fit three T18I through paired slots before populated PCBs; leave loose.",
+    "Route XA02/XA03/XA04 through dedicated5mm holes, shape R15 and restrain insulated vertical legs without crushing.",
+    "Three further releasable board-end ties interlinked to existing Carrier X11 pair restrain rising pad legs; no ties on bare solder or components.",
+    "Solder marked pads with battery disconnected, sleeves up to joints, inspect bridges. Fit converter only after continuity/polarity inspection.",
+    "Cassette and terminal-end restraints stay in place; remove board-end ties before lifting Carrier, do not pull pads. Cut after full dry-fit."
+  ],
+  "new_stls": 1,
+  "replacement": "CarrierServicePorts_candidate_x1; do not print both",
+  "new_fasteners": 0,
+  "additional_ties": 6,
+  "cables": "XA02 F_AUX->VIN red1mm2 BAT_SW, XA03 VOUT->P_AUX red1mm2 AUX6, XA04 GND->G_AUX black1mm2 return. HELU23502/23501 OD2.5 fixedR15.",
+  "physical_pass": false,
+  "phase1_complete": false
+}
