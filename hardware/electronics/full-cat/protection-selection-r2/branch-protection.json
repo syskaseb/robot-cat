@@ -1,0 +1,1266 @@
+{
+  "status": "EXACT_FUSE_DATA_RECONCILED_SOURCE_COORDINATION_OPEN",
+  "rows": [
+    {
+      "ref": "F0",
+      "sku": "0287030.PXCN",
+      "rating_a": 30,
+      "dc_rating_v": 32,
+      "holder": "FHAC0002ZXJ",
+      "supply": "XT60H-M BAT+",
+      "downstream": "S0/P_SYS/whole robot",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "main": 4
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 20,
+      "scenario_basis": "Project whole-robot continuous ceiling; NOT enforced current limiting.",
+      "fraction_of_fuse_rating": 0.6666666666666666,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 23,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 18000
+    },
+    {
+      "ref": "F_FL",
+      "sku": "MTA MINIVAL10A / supplier AMFM-10A",
+      "rating_a": 10,
+      "dc_rating_v": 32,
+      "holder": "MTA0100335",
+      "supply": "P_FRONT",
+      "downstream": "three ST3215 branches",
+      "wire_area_design_mm2": {
+        "trunk": 4,
+        "short_servo_prefuse": 3.31
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "MINIVAL",
+      "source": "https://www.tme.eu/Document/38439f1a8d3b50ce6254df476b91dadd/MTA_miniVAL_Technical_Data_Sheet.pdf",
+      "scenario_A": 8.1,
+      "scenario_basis": "Three times manufacturer 2.7A stall reference; NOT allowed continuous stall.",
+      "fraction_of_fuse_rating": 0.8099999999999999,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": null,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 120
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.04,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": 0.02,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 2000
+    },
+    {
+      "ref": "F_FL1",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "FL_P",
+      "downstream": "FL1.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_FL2",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "FL_P",
+      "downstream": "FL2.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_FL3",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "FL_P",
+      "downstream": "FL3.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_FR",
+      "sku": "MTA MINIVAL10A / supplier AMFM-10A",
+      "rating_a": 10,
+      "dc_rating_v": 32,
+      "holder": "MTA0100335",
+      "supply": "P_FRONT",
+      "downstream": "three ST3215 branches",
+      "wire_area_design_mm2": {
+        "trunk": 4,
+        "short_servo_prefuse": 3.31
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "MINIVAL",
+      "source": "https://www.tme.eu/Document/38439f1a8d3b50ce6254df476b91dadd/MTA_miniVAL_Technical_Data_Sheet.pdf",
+      "scenario_A": 8.1,
+      "scenario_basis": "Three times manufacturer 2.7A stall reference; NOT allowed continuous stall.",
+      "fraction_of_fuse_rating": 0.8099999999999999,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": null,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 120
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.04,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": 0.02,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 2000
+    },
+    {
+      "ref": "F_FR1",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "FR_P",
+      "downstream": "FR1.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_FR2",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "FR_P",
+      "downstream": "FR2.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_FR3",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "FR_P",
+      "downstream": "FR3.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_RL",
+      "sku": "MTA MINIVAL10A / supplier AMFM-10A",
+      "rating_a": 10,
+      "dc_rating_v": 32,
+      "holder": "MTA0100335",
+      "supply": "P_REAR",
+      "downstream": "three ST3215 branches",
+      "wire_area_design_mm2": {
+        "trunk": 4,
+        "short_servo_prefuse": 3.31
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "MINIVAL",
+      "source": "https://www.tme.eu/Document/38439f1a8d3b50ce6254df476b91dadd/MTA_miniVAL_Technical_Data_Sheet.pdf",
+      "scenario_A": 8.1,
+      "scenario_basis": "Three times manufacturer 2.7A stall reference; NOT allowed continuous stall.",
+      "fraction_of_fuse_rating": 0.8099999999999999,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": null,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 120
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.04,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": 0.02,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 2000
+    },
+    {
+      "ref": "F_RL1",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "RL_P",
+      "downstream": "RL1.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_RL2",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "RL_P",
+      "downstream": "RL2.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_RL3",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "RL_P",
+      "downstream": "RL3.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_RR",
+      "sku": "MTA MINIVAL10A / supplier AMFM-10A",
+      "rating_a": 10,
+      "dc_rating_v": 32,
+      "holder": "MTA0100335",
+      "supply": "P_REAR",
+      "downstream": "three ST3215 branches",
+      "wire_area_design_mm2": {
+        "trunk": 4,
+        "short_servo_prefuse": 3.31
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "MINIVAL",
+      "source": "https://www.tme.eu/Document/38439f1a8d3b50ce6254df476b91dadd/MTA_miniVAL_Technical_Data_Sheet.pdf",
+      "scenario_A": 8.1,
+      "scenario_basis": "Three times manufacturer 2.7A stall reference; NOT allowed continuous stall.",
+      "fraction_of_fuse_rating": 0.8099999999999999,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": null,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 120
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.04,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": 0.02,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 2000
+    },
+    {
+      "ref": "F_RR1",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "RR_P",
+      "downstream": "RR1.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_RR2",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "RR_P",
+      "downstream": "RR2.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_RR3",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "MTA0300330",
+      "supply": "RR_P",
+      "downstream": "RR3.ST3215.V",
+      "wire_area_design_mm2": {
+        "prefuse": 3.31,
+        "factory_after_fuse": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.7,
+      "scenario_basis": "Single ST3215 manufacturer stall reference, not guaranteed running current or fault limit.",
+      "fraction_of_fuse_rating": 0.675,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_PI",
+      "sku": "0287003.PXCN",
+      "rating_a": 3,
+      "dc_rating_v": 32,
+      "holder": "FHAC0001ZXJ",
+      "supply": "P_SYS.2",
+      "downstream": "MAIN4853.VIN",
+      "wire_area_design_mm2": {
+        "holder": 1.31,
+        "post_splice": 0.823
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.1766666666666667,
+      "scenario_basis": "3A/5.2V output, assumed efficiency0.8, VIN9V and10mA allowance.",
+      "fraction_of_fuse_rating": 0.7255555555555556,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 180
+    },
+    {
+      "ref": "F_AUX",
+      "sku": "0287004.PXCN",
+      "rating_a": 4,
+      "dc_rating_v": 32,
+      "holder": "FHAC0001ZXJ",
+      "supply": "P_REAR.5 after S1.5/6",
+      "downstream": "AUX4092.VIN",
+      "wire_area_design_mm2": {
+        "holder": 1.31,
+        "extension": 1
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": 2.6099999999999994,
+      "scenario_basis": "3A/6.24V output, assumed efficiency0.8, VIN9V and10mA allowance.",
+      "fraction_of_fuse_rating": 0.6524999999999999,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 3,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.75,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.15,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.08,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 320
+    },
+    {
+      "ref": "F_HY",
+      "sku": "0287001.PXCN",
+      "rating_a": 1,
+      "dc_rating_v": 32,
+      "holder": "FHAC0001ZXJ",
+      "supply": "P_AUX.2 AUX6",
+      "downstream": "head yaw",
+      "wire_area_design_mm2": {
+        "holder": 1.31,
+        "extension": 0.5,
+        "factory": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": null,
+      "scenario_basis": "Manufacturer page does not provide MG92B current or wire gauge. Do not use SG90 data.",
+      "fraction_of_fuse_rating": null,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 1,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.35,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.1,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.02,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 20
+    },
+    {
+      "ref": "F_HP",
+      "sku": "0287001.PXCN",
+      "rating_a": 1,
+      "dc_rating_v": 32,
+      "holder": "FHAC0001ZXJ",
+      "supply": "P_AUX.3 AUX6",
+      "downstream": "head pitch",
+      "wire_area_design_mm2": {
+        "holder": 1.31,
+        "extension": 0.5,
+        "factory": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": null,
+      "scenario_basis": "Manufacturer page does not provide MG92B current or wire gauge. Do not use SG90 data.",
+      "fraction_of_fuse_rating": null,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 1,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.35,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.1,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.02,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 20
+    },
+    {
+      "ref": "F_TY",
+      "sku": "0287001.PXCN",
+      "rating_a": 1,
+      "dc_rating_v": 32,
+      "holder": "FHAC0001ZXJ",
+      "supply": "P_AUX.4 AUX6",
+      "downstream": "tail yaw",
+      "wire_area_design_mm2": {
+        "holder": 1.31,
+        "extension": 0.5,
+        "factory": null
+      },
+      "dc_interrupt_a": 1000,
+      "physical_pass": false,
+      "family": "ATOF",
+      "source": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "scenario_A": null,
+      "scenario_basis": "Manufacturer page does not provide MG92B current or wire gauge. Do not use SG90 data.",
+      "fraction_of_fuse_rating": null,
+      "factory_wire_required": true,
+      "factory_wire_qualified": false,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": 1,
+      "opening_table_s": {
+        "1.10": {
+          "min": 360000,
+          "max": null
+        },
+        "1.35": {
+          "min": 0.35,
+          "max": 600
+        },
+        "1.60": {
+          "min": 0.25,
+          "max": 50
+        },
+        "2.00": {
+          "min": 0.1,
+          "max": 5
+        },
+        "3.50": {
+          "min": 0.02,
+          "max": 0.5
+        },
+        "6.00": {
+          "min": null,
+          "max": 0.1
+        }
+      },
+      "constant_2x_current_time_envelope_A2s_not_clearing_guarantee": 20
+    },
+    {
+      "ref": "F_PWM",
+      "sku": "0242.100UAT1",
+      "rating_a": 0.1,
+      "dc_rating_v": 250,
+      "holder": "axial sleeved/restraint assembly, no separate holder",
+      "supply": "P_REAR.4 after S1.5/6",
+      "downstream": "U_PWM.pin3 via JPWM_IN.1",
+      "wire_area_design_mm2": {
+        "prefuse": 0.5,
+        "factory_crimp_lead": 0.518
+      },
+      "dc_interrupt_a": 4000,
+      "physical_pass": false,
+      "family": "242",
+      "source": "https://www.littelfuse.com/assetdocs/fuse-242-datasheet?assetguid=6bb278dd-0465-4cc6-8eb1-e0bef73415c4",
+      "scenario_A": 0.02,
+      "scenario_basis": "Retained E2 project input budget, not measured.",
+      "fraction_of_fuse_rating": 0.19999999999999998,
+      "factory_wire_required": false,
+      "factory_wire_qualified": null,
+      "wire_thermal_fault_coordination": "OPEN; no guaranteed lead ampacity or total-clearing proof",
+      "nominal_selection_status": "conditional_hobby_candidate_not_energize_approval",
+      "typical_65C_load_A_not_guarantee": null,
+      "opening_table_s": {
+        "3.00": {
+          "max": 10
+        },
+        "10.00": {
+          "max": 0.002
+        }
+      }
+    }
+  ],
+  "blockers": [
+    {
+      "id": "SOURCE",
+      "affected": [
+        "F0",
+        "F0",
+        "F_FL",
+        "F_FL1",
+        "F_FL2",
+        "F_FL3",
+        "F_FR",
+        "F_FR1",
+        "F_FR2",
+        "F_FR3",
+        "F_RL",
+        "F_RL1",
+        "F_RL2",
+        "F_RL3",
+        "F_RR",
+        "F_RR1",
+        "F_RR2",
+        "F_RR3",
+        "F_PI",
+        "F_AUX",
+        "F_HY",
+        "F_HP",
+        "F_TY"
+      ],
+      "missing": "Guaranteed prospective source fault current or defensible minimum complete-loop impedance.",
+      "known": "Selected pack manufacturer gives30C, no fault-current upper bound. At12.6V,1000A comparison needs>=0.0126ohm.",
+      "next": "Obtain exact pack source bound; analyze each protected loop with guaranteed data. Do not short pack or infer from charger IR."
+    },
+    {
+      "id": "SERVO_LEADS",
+      "affected": [
+        "F_FL1",
+        "F_FL2",
+        "F_FL3",
+        "F_FR1",
+        "F_FR2",
+        "F_FR3",
+        "F_RL1",
+        "F_RL2",
+        "F_RL3",
+        "F_RR1",
+        "F_RR2",
+        "F_RR3",
+        "F_HY",
+        "F_HP",
+        "F_TY"
+      ],
+      "missing": "Exact delivered factory lead copper area, insulation limit and connector contact evidence.",
+      "next": "Identify documented cable/contact revision or revise to documented replacement harness; ISO test cable size is not a cable certificate."
+    },
+    {
+      "id": "PREFUSE",
+      "affected": [
+        "F_PI",
+        "F_AUX",
+        "F_PWM"
+      ],
+      "missing": "F0 clearing/let-through versus thinner branch before its own fuse.",
+      "known": "Insulated short/restrained routing and<=50mm rule preserved, not thermal qualification.",
+      "next": "Use source bound plus guaranteed total-clearing data and wire limit; evaluate physical assembly with current-limited supply, never deliberate LiPo short."
+    },
+    {
+      "id": "SWITCH_CONVERTERS",
+      "affected": [
+        "S1",
+        "MAIN4853",
+        "AUX4092"
+      ],
+      "missing": "Actual DC switched servo/SMPS inrush and reverse-energy behavior; guaranteed output fault-current envelope.",
+      "next": "Retain manualS1 and separate rails; cannot transfer S821D or AC motor rating to S821. No invented limiter/clamp."
+    }
+  ],
+  "installed_fuses": 23,
+  "installed_inline_FHAC0001ZXJ": 5,
+  "E3_complete": false,
+  "physical_pass": false,
+  "new_STL": 0
+}

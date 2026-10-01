@@ -1,0 +1,131 @@
+{
+  "retrieved_utc": "2026-10-01T21:54:10.799679+00:00",
+  "downloads": [
+    {
+      "url": "https://www.tme.eu/Document/38439f1a8d3b50ce6254df476b91dadd/MTA_miniVAL_Technical_Data_Sheet.pdf",
+      "saved": true,
+      "path": "hardware/electronics/full-cat/protection-selection-r2/minival.pdf",
+      "sha256": "25102a63aa125b9b787e120535479f7a222a6b22452f57fa99c54fdd5836997b"
+    },
+    {
+      "url": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+      "saved": false,
+      "error": "HTTP Error 403: Forbidden",
+      "web_tool_read": true
+    },
+    {
+      "url": "https://www.nkkswitches.com/pdf/stoggleshighcap.pdf",
+      "saved": false,
+      "error": "HTTP Error 403: Forbidden",
+      "web_tool_read": true
+    },
+    {
+      "url": "https://www.nkkswitches.com/pdf/ElectricalRatings.pdf",
+      "saved": false,
+      "error": "HTTP Error 403: Forbidden",
+      "web_tool_read": true
+    },
+    {
+      "url": "https://www.feetechrc.com/Data/feetechrc/upload/file/20260622/6391772519923113075854851.pdf",
+      "saved": true,
+      "path": "hardware/electronics/full-cat/protection-selection-r2/feetech-st3215-c018.pdf",
+      "sha256": "d0a735a8ddc23585dd7fef40bf7ed87359b6234436103e00bb6e992b5ffe9f39"
+    }
+  ],
+  "minival": {
+    "url": "https://www.tme.eu/Document/38439f1a8d3b50ce6254df476b91dadd/MTA_miniVAL_Technical_Data_Sheet.pdf",
+    "revision": "version00 PRELIMINARY November2018",
+    "exact_supplier": "https://www.tme.eu/en/details/amfm-10a/miniature-automotive-fuses/mta/minival-10a/",
+    "previous_evidence": "hardware/reference/protection-sourcing-2026-09-23/README.md",
+    "conclusion": "Resolves missing MINIVAL source field in R30; no new physical data.",
+    "dc_v": 32,
+    "breaking_A": 1000,
+    "ten_amp_test_cable_mm2": 1,
+    "opening_at_135percent_max_s": 120,
+    "test_ambient_C": 23,
+    "typical_I2t_not_guaranteed_total_clearing": true
+  },
+  "atof": {
+    "url": "https://www.littelfuse.com/assetdocs/littelfuse_datasheet_287_atof_r2.7.pdf?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+    "revision": "02/04/2025 as printed",
+    "dc_v": 32,
+    "breaking_A": 1000,
+    "opening_at_135percent_max_s": 600,
+    "test_cable_mm2": {
+      "1": 0.35,
+      "3": 0.35,
+      "4": 0.35,
+      "30": 4
+    },
+    "typical_load_at65C_A": {
+      "1": 1,
+      "3": 3,
+      "4": 3,
+      "30": 23
+    },
+    "test_cable_is_not_project_ampacity_approval": true
+  },
+  "s821": {
+    "url": "https://www.nkkswitches.com/pdf/stoggleshighcap.pdf",
+    "page_1based": 2,
+    "exact_model": "S821, NOT S821D",
+    "contacts_on": [
+      [
+        "2",
+        "3"
+      ],
+      [
+        "5",
+        "6"
+      ]
+    ],
+    "dc_resistive_A": 30,
+    "dc_resistive_V": 30,
+    "DC_inductive_or_motor_rating_in_exact_table": null,
+    "AC_motor_750W_NOT_DC_rating": true,
+    "no_parallel_poles": true
+  },
+  "battery": {
+    "url": "https://gensace.de/products/gens-ace-g-tech-soaring-2200mah-11-1v-30c-3s1p-lipo-battery-pack-with-xt60-plug",
+    "exact_sku": "GEA223S30X6GT",
+    "capacity_Ah": 2.2,
+    "discharge_C": 30,
+    "manufacturer_fault_current_upper_A": null,
+    "manufacturer_impedance_lower_ohm": null
+  },
+  "factory_wires": {
+    "st3215": "https://www.waveshare.com/wiki/ST3215_Servo",
+    "mg92b": "https://towerpro.com.tw/product/mg92b/",
+    "manufacturer_cross_section_mm2": null,
+    "manufacturer_insulation_temperature_C": null
+  },
+  "feetech_reference": {
+    "url": "https://www.feetechrc.com/Data/feetechrc/upload/file/20260622/6391772519923113075854851.pdf",
+    "model": "ST-3215-C018",
+    "edition": "A/0",
+    "product_url": "https://www.feetechrc.com/525603.html",
+    "page_1based": 4,
+    "connector": "5264-3P",
+    "cable_length_cm": 15,
+    "pin_table": {
+      "1": "GND",
+      "2": "Vcc",
+      "3": "Signal/TTL"
+    },
+    "wire_area_mm2": null,
+    "insulation_temperature_C": null,
+    "same_delivered_Waveshare_revision_NOT_verified": true,
+    "pin_table_NOT_transferred_without_view_orientation": true
+  },
+  "converter": {
+    "main": "https://www.pololu.com/product/4853",
+    "aux": "https://www.pololu.com/product/4092",
+    "known": "Manufacturer over-current/short-circuit/thermal features; not a specified wire-protection threshold.",
+    "output_fault_current_guaranteed_upper_A": null,
+    "reverse_input_protection_NOT_output_reverse_energy_proof": true
+  },
+  "pwm": {
+    "evidence": "hardware/electronics/full-cat/pwm-complete-e2-r1/electrical-design.json",
+    "url": "https://www.littelfuse.com/assetdocs/fuse-242-datasheet?assetguid=6bb278dd-0465-4cc6-8eb1-e0bef73415c4"
+  }
+}

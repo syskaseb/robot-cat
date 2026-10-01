@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R33, zamienne PiTray/Deck/Carrier oraz nowy BUSBracket; pozostałe67 pozycjiR32 zachowane. 71 zadań, 110 części PETG i 4 próbki.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R34 zachowuje dokładnie wszystkie wydruki i ilości R33; zmienia tylko dowody doboru zabezpieczeń. 71 zadań, 110 części PETG i 4 próbki.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -54,9 +54,31 @@ nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
 
-01.10 — zatwierdzone okno dwóch checkpointów, do 22:00 Warszawy albo
+01.10,23:59:38 Warszawy — E3 DOBÓR NOMINALNY ZAPISANY, NIE ZAMKNIĘTY.
+Wybrany R34: wszystkie71wydruki/110PETG/4próbki/113pozycjiR33 bez zmian,
+0nowychSTL;3135/3135hashy CLI,3118piny rodzica zachowane,12/12regresji.
+protection-selection-r2: jedna karta23wkładek, dokładne źródła MiniVAL/ATOF,
+F_PWM i S821; przywrócony dowód MTA z referencji23.09, bez nowego układu.
+E3OPEN: brak górnej granicy zwarcia pakietu dlaF0, obciążalności15fabrycznych
+doprowadzeń, ochrony cieńszych końców przed wkładkami oraz danych obciążenia
+DC/inrush/regeneracji S821/przetwornic. TypowyI²t,30C i długość50mm NIE
+zamykają tych braków; nie przenosić ich na fazę2 jako rzekomej kwalifikacji.
+13/20=65%,+0pp. START21:42:32Z/END kontroli21:59:38Z=17min06s ścienne;
+instrukcje/kwerenda/generowanie/weryfikacja razem, commit następuje później.
+Hook rzeczywiście wznowił tę turę21:42:23Z: manual_test=false,
+work_continuation_emitted w tej sesji. Okno wstrzymane z enabled=false:
+Pi ukończony1/2, E3 zablokowany danymi; nie rozpoczynać E4 bez wznowienia.
+Limit21:58Z:6%zużyte/94%pozostałe; brak oddzielnego kosztu zadania.
+NEXT decyzja: pozyskać brakujące dane E3 albo wznowić niezależny E4
+(pełny schemat/pinout15napędów), szacunek1–2h, model6.1SolHigh.
+Nie tworzono harmonogramu ani WORK_HANDOFF. Poniższe wpisy są historią.
+
+01.10 — aktualne okno Pi→E3: do 02.10 01:58:50 Warszawy albo
 ukończenia obu, zależnie co nastąpi wcześniej. Model użytkownika: 6.1 Sol High.
 CP_PI_20261001=done
+Pi zapisany lokalnie: commit33902c5,75plików;71przypiętych plików sprawdzonych
+w indeksie bez różnic SHA256. Bez pushu; wcześniejsze niezależne zmiany
+i pochodne cache pozostają na dysku, commit nie jest samodzielnym release.
 01.10,23:34:32 Warszawy — CHECKPOINT Pi WYBRANY, R33.
 71zadań/110PETG/4próbki,113pozycji ilości;3118/3118hashy CLI,1771pinyR32
 zachowane. Cztery wybrane STL (3zamienne/1nowy BUSBracket), 0nowych eksportów
