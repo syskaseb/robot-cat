@@ -1,0 +1,42 @@
+{
+  "source": "hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.sch",
+  "sha256": "9cdc47fae6932675cbc9b747cc76a05ee85997f3a48f51b199567190109be053",
+  "outputs": [
+    {
+      "channel": 0,
+      "header": "JP2",
+      "pad": "10",
+      "onboard_resistor": {
+        "part": "R13",
+        "gate": "G$4",
+        "pin": "1"
+      },
+      "source_net": "N$9"
+    },
+    {
+      "channel": 1,
+      "header": "JP2",
+      "pad": "7",
+      "onboard_resistor": {
+        "part": "R13",
+        "gate": "G$3",
+        "pin": "1"
+      },
+      "source_net": "N$8"
+    },
+    {
+      "channel": 2,
+      "header": "JP2",
+      "pad": "4",
+      "onboard_resistor": {
+        "part": "R13",
+        "gate": "G$2",
+        "pin": "1"
+      },
+      "source_net": "N$7"
+    }
+  ],
+  "source_channel_identity": "IC PWM0/1/2 -> onboardR13 gates4/3/2 -> JP2pads10/7/4",
+  "rejected_working_sheet": "JP1pads1/4/7 are PWM7/6/5, NOT CH0/1/2",
+  "physical_pass": false
+}

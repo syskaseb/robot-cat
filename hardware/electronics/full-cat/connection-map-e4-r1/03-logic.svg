@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1294" viewBox="0 0 1600 1294">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<text x="28" y="48" font-family="Arial" font-size="28" font-weight="bold">E4 / 3 LOGIC + LOCAL PASSIVES / no custom etched PCB</text>
+<rect x="22" y="78" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="113" font-family="monospace" font-size="21">PiH1 -&gt; XL01 -&gt; LOGIC3V3 -&gt; PCA JP3.2 VCC + U1.1VCCA + U1.2DIR</text>
+<rect x="22" y="145" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="180" font-family="monospace" font-size="21">PiH3 BCM2 -&gt; XL05 -&gt; PCA JP3.3 SDA; PiH5 BCM3 -&gt; XL06 -&gt; PCA JP3.4 SCL</text>
+<rect x="22" y="212" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="247" font-family="monospace" font-size="21">PiH6 -&gt; XL10 -&gt; G_LOGIC; PCA JP3.6 -&gt; XL08 -&gt; G_LOGIC; localG -&gt; G_TAIL.4</text>
+<rect x="22" y="279" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="314" font-family="monospace" font-size="21">PiH11 BCM17 -&gt; XL07 -&gt; U1.22 /OE; R15 10k to3V3 =&gt; default DISABLED</text>
+<rect x="22" y="346" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="381" font-family="monospace" font-size="21">PCA JP3.5 OE NC(factory pulldown); JP3.1 V+ NC; JP4 externally unused</text>
+<rect x="22" y="413" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="448" font-family="monospace" font-size="21">CH0 JP2.10 -&gt; XS11 -&gt; U1.3 A1 / U1.21 B1 -&gt; XS12 -&gt; R1 -&gt; XS13 -&gt; HY</text>
+<rect x="22" y="480" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="515" font-family="monospace" font-size="21">CH1 JP2.7 -&gt; XS21 -&gt; U1.4 A2 / U1.20 B2 -&gt; XS22 -&gt; R2 -&gt; XS23 -&gt; HP</text>
+<rect x="22" y="547" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="582" font-family="monospace" font-size="21">CH2 JP2.4 -&gt; XS31 -&gt; U1.5 A3 / U1.19 B3 -&gt; XS32 -&gt; R3 -&gt; XS33 -&gt; TY</text>
+<rect x="22" y="614" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="649" font-family="monospace" font-size="21">R4/5/6 10k: A1/2/3 -&gt; GND; A4..8 pins6..10 -&gt; GND; GND pins11/12/13</text>
+<rect x="22" y="681" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="716" font-family="monospace" font-size="21">B4..8 pins18..14 -&gt; R10..14 10k -&gt; GND; no direct short toground</text>
+<rect x="22" y="748" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="783" font-family="monospace" font-size="21">C1 100nF VCCA-GND / C2 100nF VCCB-GND; R16 10k PWM5-GND</text>
+<rect x="22" y="815" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="850" font-family="monospace" font-size="21">L78L05ACZ: C_IN330nF VIN-GND; C_OUT100nF OUT-GND; R_LOAD2.2k OUT-GND</text>
+<rect x="22" y="882" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="917" font-family="monospace" font-size="21">U1 PW TOP-view: notchup left1..12 / right24..13; adapter0.65mm side</text>
+<rect x="22" y="949" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="984" font-family="monospace" font-size="21">U_PWM TO92 BOTTOM flatup: 1OUT /2GND /3IN; opposite view3/2/1</text>
+<rect x="22" y="1016" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="1051" font-family="monospace" font-size="21">PiUSB2-A &lt;factory Lanberg500mm&gt; BUSUSB-C; switchB; USB powers ONLY adapterlogic</text>
+<rect x="22" y="1083" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="1118" font-family="monospace" font-size="21">PiJ8 housing1992: 5xPololu1871 600mm; 5Vpins2/4 EMPTY; markpin1</text>
+<rect x="22" y="1150" width="1556" height="55" rx="7" fill="white" stroke="#bccadd"/><text x="34" y="1185" font-family="monospace" font-size="21">MOTORON requires fresh frame + deliberateenable; S1ON is NOT automatic START</text>
+<text x="28" y="1272" font-family="monospace" font-size="19">NOMINAL PROTOTYPE | exact wire/pad rows: connections.csv + pinouts.csv | no physical PASS; E3/W5 OPEN</text></svg>

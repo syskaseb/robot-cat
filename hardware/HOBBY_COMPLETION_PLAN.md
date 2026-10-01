@@ -3,7 +3,7 @@
 ## Stały licznik fazy 1 — baza 30.09.2026, R26
 
 Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
-Obecnie 13/20 = 65%. To licznik dostarczonych rezultatów przygotowania,
+Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 Nie zaliczać częściowo wykonanego rezultatu, kolejnych testów ani wariantów.
 Nie zmieniać mianownika bez jawnej zmiany zakresu przez użytkownika.
@@ -28,7 +28,7 @@ Elektronika (4 rezultaty):
 - [x] E1 Wybrana sztywna kasetka konwersji PWM z lokalnymi leadami/mostkami.
 - [x] E2 R32: F_PWM/XP01≤50mm, połączenia/izolacja/odciążenia, nominalny dobór i wykonalne rozpięcie po uwolnieniu źródłowych końców. Próby prądowe/termiczne w fazie2; całe źródło/F0 nadal E3.
 - [ ] E3 Domknięta ochrona źródła i dobór zabezpieczeń wszystkich gałęzi.
-- [ ] E4 Kompletny zgodny schemat zasilania/sygnałów i pinoutów dla 15 napędów.
+- [x] E4 R35: scalony nominalny schemat zasilania/sygnałów i pinoutów15napędów;375połączeń/115pinów i ról,65kontroli grafu+6wykrywanych błędów syntetycznych,8testów. Konkretny Adafruit815 revC CH0/1/2=JP2.10/.7/.4, poprawione robocze błędneJP1. Nie zamyka E3/W5 ani fizycznych prób.
 
 Wiązka (5 rezultatów):
 - [x] W1 Wybrane stałe drogi XA02–XA06 i XB11 wraz z mocowaniami/zakończeniami R19/R20.
@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R34 zachowuje dokładnie wszystkie wydruki i ilości R33; zmienia tylko dowody doboru zabezpieczeń. 71 zadań, 110 części PETG i 4 próbki.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R35 zachowuje dokładnie wszystkie wydruki i ilości R34/R33; dołącza scalony schemat E4. 71 zadań, 110 części PETG i 4 próbki.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,25 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,00:29:34 Warszawy — E4 UKOŃCZONY NOMINALNIE, R35 WYBRANY.
+3172/3172hashy, wszystkie3135pinyR34 zachowane;71zadań/110PETG/4próbki
+i113pozycji ilości bez zmian.0nowychSTL. connection-map-e4-r1:375połączeń,
+115pinów/ról,3obejrzane arkuszeSVG/PNG,21elementów pasywnych;
+65kontroli/6wykrywanych błędów syntetycznych/8testów,bez fizycznegoPASS.
+Źródłowy schemat815:CH0/1/2 przezR13G4/G3/G2 doJP2.10/.7/.4;
+błędne roboczeJP1.1/.4/.7 (PWM7/6/5) odrzucone. GPIO1871/1992,
+USBPi→BUSmodeB,JPWM4fabryczneMolex,wybranePi/E2/głowaR28/ogonR29 scalone.
+P309 dokładnytył minus/1S/2S/3S opisany; kolejności odczepów/ID G-Tech
+NIE zgadnięto: fizyczne połączenie balansu nadalW5. E3/W5/K2/K3/A2/A3OPEN.
+14/20=70%,+5pp. START01.10 22:02:39Z/ENDkontroli22:29:34Z=26min55s;
+plik czasu do zapisu pakietu25min58s, końcowe hashowanie później;commit pozaetapem.
+OknoE4 zakończone po jednym celu,enabled=false;bez harmonogramu.
+Model użytkownika6.1SolHigh;limit22:28Z7%zużyte/93%pozostałe,bez kosztuzadania.
+NEXT: W5 komplet pozostałej wiązki korpusu/nóg/źródła/balansu,
+końce/trasy/długości/złącza/odciążenia;estymata2–4h,bez gwarancji.
+Proponowane kolejne okno do04:30Warszawy NIE jest uzbrojeniem hooka.
+E3 pozostaje oddzielnym brakującym doborem;nie przywracać WORK_HANDOFF.
 
 01.10,23:59:38 Warszawy — E3 DOBÓR NOMINALNY ZAPISANY, NIE ZAMKNIĘTY.
 Wybrany R34: wszystkie71wydruki/110PETG/4próbki/113pozycjiR33 bez zmian,

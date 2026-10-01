@@ -1,0 +1,206 @@
+{
+  "checks": {
+    "state_False_False_15drive_supplies": true,
+    "state_False_False_Pi": true,
+    "state_False_False_PWM5": true,
+    "state_False_False_BUSlogic": true,
+    "state_False_True_15drive_supplies": true,
+    "state_False_True_Pi": true,
+    "state_False_True_PWM5": true,
+    "state_False_True_BUSlogic": true,
+    "state_True_False_15drive_supplies": true,
+    "state_True_False_Pi": true,
+    "state_True_False_PWM5": true,
+    "state_True_False_BUSlogic": true,
+    "state_True_True_15drive_supplies": true,
+    "state_True_True_Pi": true,
+    "state_True_True_PWM5": true,
+    "state_True_True_BUSlogic": true,
+    "cut_F0": true,
+    "cut_F0_Pi": true,
+    "cut_F0_PWM": true,
+    "cut_F_FL": true,
+    "cut_F_FL1": true,
+    "cut_F_FL2": true,
+    "cut_F_FL3": true,
+    "cut_F_FR": true,
+    "cut_F_FR1": true,
+    "cut_F_FR2": true,
+    "cut_F_FR3": true,
+    "cut_F_RL": true,
+    "cut_F_RL1": true,
+    "cut_F_RL2": true,
+    "cut_F_RL3": true,
+    "cut_F_RR": true,
+    "cut_F_RR1": true,
+    "cut_F_RR2": true,
+    "cut_F_RR3": true,
+    "cut_F_PI": true,
+    "cut_F_PI_Pi": true,
+    "cut_F_AUX": true,
+    "cut_F_HY": true,
+    "cut_F_HP": true,
+    "cut_F_TY": true,
+    "cut_F_PWM": true,
+    "cut_F_PWM_PWM": true,
+    "23fuses": true,
+    "15power_returns": true,
+    "12DATA": true,
+    "DATA_isolated_from_V_G": true,
+    "4positive_domains_separate": true,
+    "Pi_binding": true,
+    "PCA_outputs_follow_chip_and_resistor": true,
+    "U1_24pins": true,
+    "U1_enable_and_dual_supply_pinout": true,
+    "drive45ports": true,
+    "21passives": true,
+    "no_unused_B_direct_ground": true,
+    "unique_edges": true,
+    "JPWM_correct_polarity": true,
+    "JPWM_two_nets_separate": true,
+    "OE_not_PCA_OE": true,
+    "Pi_GPIO_edges_5_exact": true,
+    "no_synthetic_hardware_claims": true,
+    "regulator_NOT_AUX_motor_supply": true,
+    "PWM_path_HY": true,
+    "PWM_path_HP": true,
+    "PWM_path_TY": true
+  },
+  "tests_passed": 65,
+  "negative_injections_detected": {
+    "MAIN_AUX_bridge": true,
+    "wrong_JPWM_polarity": true,
+    "ST_second_socket_power_bypass": true,
+    "OE_tied_to_PCA": true,
+    "motor_power_on_PCA": true,
+    "wrong_PCA_channel_socket": true
+  },
+  "states": [
+    {
+      "S0": false,
+      "S1": false,
+      "drive_supplies": 0,
+      "Pi": false,
+      "PWM5": false
+    },
+    {
+      "S0": false,
+      "S1": true,
+      "drive_supplies": 0,
+      "Pi": false,
+      "PWM5": false
+    },
+    {
+      "S0": true,
+      "S1": false,
+      "drive_supplies": 0,
+      "Pi": true,
+      "PWM5": false
+    },
+    {
+      "S0": true,
+      "S1": true,
+      "drive_supplies": 15,
+      "Pi": true,
+      "PWM5": true
+    }
+  ],
+  "fuse_cut_removed_drives": {
+    "F0": [
+      "C_HP.V+",
+      "C_HY.V+",
+      "C_TY.V+",
+      "FL1.V",
+      "FL2.V",
+      "FL3.V",
+      "FR1.V",
+      "FR2.V",
+      "FR3.V",
+      "RL1.V",
+      "RL2.V",
+      "RL3.V",
+      "RR1.V",
+      "RR2.V",
+      "RR3.V"
+    ],
+    "F_FL": [
+      "FL1.V",
+      "FL2.V",
+      "FL3.V"
+    ],
+    "F_FL1": [
+      "FL1.V"
+    ],
+    "F_FL2": [
+      "FL2.V"
+    ],
+    "F_FL3": [
+      "FL3.V"
+    ],
+    "F_FR": [
+      "FR1.V",
+      "FR2.V",
+      "FR3.V"
+    ],
+    "F_FR1": [
+      "FR1.V"
+    ],
+    "F_FR2": [
+      "FR2.V"
+    ],
+    "F_FR3": [
+      "FR3.V"
+    ],
+    "F_RL": [
+      "RL1.V",
+      "RL2.V",
+      "RL3.V"
+    ],
+    "F_RL1": [
+      "RL1.V"
+    ],
+    "F_RL2": [
+      "RL2.V"
+    ],
+    "F_RL3": [
+      "RL3.V"
+    ],
+    "F_RR": [
+      "RR1.V",
+      "RR2.V",
+      "RR3.V"
+    ],
+    "F_RR1": [
+      "RR1.V"
+    ],
+    "F_RR2": [
+      "RR2.V"
+    ],
+    "F_RR3": [
+      "RR3.V"
+    ],
+    "F_PI": [],
+    "F_AUX": [
+      "C_HP.V+",
+      "C_HY.V+",
+      "C_TY.V+"
+    ],
+    "F_HY": [
+      "C_HY.V+"
+    ],
+    "F_HP": [
+      "C_HP.V+"
+    ],
+    "F_TY": [
+      "C_TY.V+"
+    ],
+    "F_PWM": []
+  },
+  "rows": 375,
+  "ports": 115,
+  "physical_pass": false,
+  "scope": "Graph/pinout source reconciliation only; not transient/fault simulation or KiCadERC",
+  "E4_complete": true,
+  "phase1_percent": 70,
+  "new_STL": 0
+}
