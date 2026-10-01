@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R35 zachowuje dokładnie wszystkie wydruki i ilości R34/R33; dołącza scalony schemat E4. 71 zadań, 110 części PETG i 4 próbki.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R36 zachowuje dokładnie wszystkie wydruki i ilości R35/R34/R33; dołącza kartę końców W5 do schematu E4. 71 zadań, 110 części PETG i 4 próbki.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,34 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,00:50:05 Warszawy — W5 KARTA KOŃCÓW, R36 WYBRANY; W5 NADAL OPEN.
+3192/3192piny, wszystkie3172pinyR35 zachowane;71zadań/110PETG/4próbki
+i113pozycji ilości bez zmian.0nowychSTL. body-harness-w5-r1:
+80etykiet/160recept zakończeń zgodnych z E4,8testów;36żył=12wiązek nóg,
+W002/W003 jeden34171, W079/W080 jedenK1474, W077/W078 jedna spoina,
+W061 jeden mostek G1–G2 mimo odwrotnych wierszy grafu. Starylimit250mm
+Pi unieważniony wybranym R33: granica nominalna290,249mm; bez nowego pomiaru.
+MetadaneR36 naprawiają stare65% manifestuR35 do zgodnych z planem70%.
+Nie przyznano punktów za kartę:14/20=70%,+0pp; E3/W5/K2/K3/A2/A3OPEN.
+Nie zatwierdzono starych nominałów mostków dla nowegoDeck: osobna kolumna
+legacy_nominal_NOT_verified. FabrycznyAWG/izolacja ST/BUS nadal warunkowe,
+nie zgadnięto odczepów/ID G-Tech; brak fizycznegoPASS i nowych wynikówCAD.
+START01.10 22:41:52Z/ENDzapisu22:49:37Z=7min45s ścienne;
+instrukcje/źródła/karta/regresja/zapis razem, końcowe hashe później.
+Hook uzbrojony w tej sesji do02.10 09:00Warszawy/07:00Z; bez harmonogramu,
+kontynuuje W5→K2/K3→A2/A3, E3 tylko na rzeczywistych danych.
+Wyłączenie po wszystkich20rezultatach, terminie albo wyczerpaniu bezpiecznej
+niezależnej pracy. Test konfiguracji14/20 i daty/parsowania poprawny;
+nowe rzeczywisteStop tego okna jeszcze nie wystąpiło, stary dowód21:42Z
+nie jest dowodem nowego okna. Model6.1SolHigh;limit22:47Z7%użyte/93%pozostałe.
+NEXT: W5 trasy korpusu/nóg względem faktycznie wybranegoDeckR4/nativePi,
+nie starej wysokiej płyty. Związać porty17WAGO P0 z ich aktualnymi pozycjami,
+poprowadzić38stałych nie-Pi odcinków i12ruchomych wiązek wraz z kotwami;
+sprawdzić tylko dotknięte geometrie/ruchy, ustalić zakresy długości i zapasy.
+Nie powtarzać Pi/głowy/ogona/PWM; karta końców już jest. BalansG-Tech jako
+oddzielny interfejs, nie wypełniać nieznanych pinów. EstymataW5 2–4h,
+bez gwarancji; po lokalnej blokadzie niezależne K2/K3/montaż w tym samym oknie.
 
 02.10,00:29:34 Warszawy — E4 UKOŃCZONY NOMINALNIE, R35 WYBRANY.
 3172/3172hashy, wszystkie3135pinyR34 zachowane;71zadań/110PETG/4próbki

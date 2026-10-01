@@ -1,0 +1,3293 @@
+{
+  "schema_version": 1,
+  "parent": "R35",
+  "W5_complete": false,
+  "phase1_percent": 70,
+  "physical_pass": false,
+  "new_STL": 0,
+  "scope": "80 P0 conductor labels /160 end recipes; not80 bought cables or E4 graph rows",
+  "conductors": [
+    {
+      "id": "W001",
+      "a": "BAT.minus",
+      "b": "G1.1",
+      "net": "G_SYS",
+      "group": "BATTERY_INLET",
+      "material": "factory F0 leads + LAPP0107001 black 12 AWG",
+      "route_policy": "cut_to_fit",
+      "route_intent": "F0 and S0 at front battery inlet; restrain before branches.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 150,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "solder_to_robot_side_XT60_marked_polarity",
+          "sku": "AMASS XT60H-M Kamami581961",
+          "strip_mm": null,
+          "must_disconnect_battery": true,
+          "battery_factory_plug_unchanged": true,
+          "source": "hardware/electronics/power-platform/BATTERY-INLET-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W002",
+      "a": "BUS.D",
+      "b": "D_FL.1",
+      "net": "BUS_DATA",
+      "group": "BUS_PIGTAIL",
+      "material": "one Waveshare34171 factory 300 mm D/G cable",
+      "route_policy": "trim_after_dry_fit",
+      "route_intent": "Remove/insulate V; strain-relieve beside BUS and D_FL/G2.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_34171_connector_remove_V_contact",
+          "sku": "Waveshare34171 one300mm cable",
+          "role": "D",
+          "physical_adapter_pad": "H3.1",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/ADAPTER-PIGTAIL-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W003",
+      "a": "BUS.G",
+      "b": "G2.4",
+      "net": "G_SYS",
+      "group": "BUS_PIGTAIL",
+      "material": "one Waveshare34171 factory 300 mm D/G cable",
+      "route_policy": "trim_after_dry_fit",
+      "route_intent": "Remove/insulate V; strain-relieve beside BUS and D_FL/G2.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_34171_connector_remove_V_contact",
+          "sku": "Waveshare34171 one300mm cable",
+          "role": "G",
+          "physical_adapter_pad": "H3.3",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/ADAPTER-PIGTAIL-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W004",
+      "a": "D_FL.2",
+      "b": "FL1.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FL1"
+    },
+    {
+      "id": "W005",
+      "a": "D_FL.3",
+      "b": "FL2.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FL2"
+    },
+    {
+      "id": "W006",
+      "a": "D_FL.4",
+      "b": "FL3.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FL3"
+    },
+    {
+      "id": "W007",
+      "a": "D_FL.5",
+      "b": "D_FR.1",
+      "net": "BUS_DATA",
+      "group": "DATA_FIXED_BRIDGES",
+      "material": "LiY4126002S 0.25 mm2 blue",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck only; route under edge clips, away from fuse terminals.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 140,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W008",
+      "a": "D_FR.2",
+      "b": "FR1.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FR1"
+    },
+    {
+      "id": "W009",
+      "a": "D_FR.3",
+      "b": "FR2.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FR2"
+    },
+    {
+      "id": "W010",
+      "a": "D_FR.4",
+      "b": "FR3.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FR3"
+    },
+    {
+      "id": "W011",
+      "a": "D_FR.5",
+      "b": "D_RR.1",
+      "net": "BUS_DATA",
+      "group": "DATA_FIXED_BRIDGES",
+      "material": "LiY4126002S 0.25 mm2 blue",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck only; route under edge clips, away from fuse terminals.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 160,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W012",
+      "a": "D_RL.1",
+      "b": "D_RR.5",
+      "net": "BUS_DATA",
+      "group": "DATA_FIXED_BRIDGES",
+      "material": "LiY4126002S 0.25 mm2 blue",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck only; route under edge clips, away from fuse terminals.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 140,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W013",
+      "a": "D_RL.2",
+      "b": "RL1.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL1"
+    },
+    {
+      "id": "W014",
+      "a": "D_RL.3",
+      "b": "RL2.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL2"
+    },
+    {
+      "id": "W015",
+      "a": "D_RL.4",
+      "b": "RL3.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL3"
+    },
+    {
+      "id": "W016",
+      "a": "D_RR.2",
+      "b": "RR1.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR1"
+    },
+    {
+      "id": "W017",
+      "a": "D_RR.3",
+      "b": "RR2.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR2"
+    },
+    {
+      "id": "W018",
+      "a": "D_RR.4",
+      "b": "RR3.D",
+      "net": "BUS_DATA",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "D",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR3"
+    },
+    {
+      "id": "W019",
+      "a": "FL1.G",
+      "b": "FL_G.2",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FL1"
+    },
+    {
+      "id": "W020",
+      "a": "FL1.V",
+      "b": "F_FL1.out",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ],
+      "harness_id": "FL1"
+    },
+    {
+      "id": "W021",
+      "a": "FL2.G",
+      "b": "FL_G.3",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FL2"
+    },
+    {
+      "id": "W022",
+      "a": "FL2.V",
+      "b": "F_FL2.out",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ],
+      "harness_id": "FL2"
+    },
+    {
+      "id": "W023",
+      "a": "FL3.G",
+      "b": "FL_G.4",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FL3"
+    },
+    {
+      "id": "W024",
+      "a": "FL3.V",
+      "b": "F_FL3.out",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ],
+      "harness_id": "FL3"
+    },
+    {
+      "id": "W025",
+      "a": "FL_G.1",
+      "b": "G1.3",
+      "net": "G_SYS",
+      "group": "GROUND_4MM2",
+      "material": "TKD2500125 black 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck; minimum bend radius 21 mm, bend after termination.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 160,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W026",
+      "a": "FL_P.1",
+      "b": "F_FL.out",
+      "net": "FL_P",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W027",
+      "a": "FL_P.2",
+      "b": "F_FL1.in",
+      "net": "FL_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W028",
+      "a": "FL_P.3",
+      "b": "F_FL2.in",
+      "net": "FL_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W029",
+      "a": "FL_P.4",
+      "b": "F_FL3.in",
+      "net": "FL_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W030",
+      "a": "FR1.G",
+      "b": "FR_G.2",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FR1"
+    },
+    {
+      "id": "W031",
+      "a": "FR1.V",
+      "b": "F_FR1.out",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ],
+      "harness_id": "FR1"
+    },
+    {
+      "id": "W032",
+      "a": "FR2.G",
+      "b": "FR_G.3",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FR2"
+    },
+    {
+      "id": "W033",
+      "a": "FR2.V",
+      "b": "F_FR2.out",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ],
+      "harness_id": "FR2"
+    },
+    {
+      "id": "W034",
+      "a": "FR3.G",
+      "b": "FR_G.4",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "FR3"
+    },
+    {
+      "id": "W035",
+      "a": "FR3.V",
+      "b": "F_FR3.out",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ],
+      "harness_id": "FR3"
+    },
+    {
+      "id": "W036",
+      "a": "FR_G.1",
+      "b": "G1.4",
+      "net": "G_SYS",
+      "group": "GROUND_4MM2",
+      "material": "TKD2500125 black 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck; minimum bend radius 21 mm, bend after termination.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 160,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W037",
+      "a": "FR_P.1",
+      "b": "F_FR.out",
+      "net": "FR_P",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W038",
+      "a": "FR_P.2",
+      "b": "F_FR1.in",
+      "net": "FR_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W039",
+      "a": "FR_P.3",
+      "b": "F_FR2.in",
+      "net": "FR_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W040",
+      "a": "FR_P.4",
+      "b": "F_FR3.in",
+      "net": "FR_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W041",
+      "a": "F_FL.in",
+      "b": "P_FRONT.2",
+      "net": "P_FRONT",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W042",
+      "a": "F_FR.in",
+      "b": "P_FRONT.3",
+      "net": "P_FRONT",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W043",
+      "a": "F_PI.in",
+      "b": "P_SYS.2",
+      "net": "P_SYS",
+      "group": "PI_BRANCH",
+      "material": "FHAC0001ZXJ leads + K-1474 18 AWG cable",
+      "route_policy": "factory_and_trim_after_dry_fit",
+      "route_intent": "W079/W080 are one equal-length USB-C cable; W077/W078 meet at one insulated splice.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 50,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "FHAC0001ZXJ",
+          "nominal_awg": 16,
+          "source": "hardware/electronics/power-platform/WIRING-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W044",
+      "a": "F_RL.in",
+      "b": "P_REAR.2",
+      "net": "P_REAR",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W045",
+      "a": "F_RL.out",
+      "b": "RL_P.1",
+      "net": "RL_P",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W046",
+      "a": "F_RL1.in",
+      "b": "RL_P.2",
+      "net": "RL_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W047",
+      "a": "F_RL1.out",
+      "b": "RL1.V",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL1"
+    },
+    {
+      "id": "W048",
+      "a": "F_RL2.in",
+      "b": "RL_P.3",
+      "net": "RL_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W049",
+      "a": "F_RL2.out",
+      "b": "RL2.V",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL2"
+    },
+    {
+      "id": "W050",
+      "a": "F_RL3.in",
+      "b": "RL_P.4",
+      "net": "RL_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W051",
+      "a": "F_RL3.out",
+      "b": "RL3.V",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL3"
+    },
+    {
+      "id": "W052",
+      "a": "F_RR.in",
+      "b": "P_REAR.3",
+      "net": "P_REAR",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W053",
+      "a": "F_RR.out",
+      "b": "RR_P.1",
+      "net": "RR_P",
+      "group": "LEG_INLINE_HOLDER_LEADS",
+      "material": "factory MTA0100335 4 mm2 leads",
+      "route_policy": "trim_factory_lead_after_dry_fit",
+      "route_intent": "Four holders in deck zones; do not splice merely to hit a nominal number.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "MTA0100335",
+          "nominal_mm2": 4,
+          "source": "hardware/electronics/power-platform/LEG-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W054",
+      "a": "F_RR1.in",
+      "b": "RR_P.2",
+      "net": "RR_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W055",
+      "a": "F_RR1.out",
+      "b": "RR1.V",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR1"
+    },
+    {
+      "id": "W056",
+      "a": "F_RR2.in",
+      "b": "RR_P.3",
+      "net": "RR_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W057",
+      "a": "F_RR2.out",
+      "b": "RR2.V",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR2"
+    },
+    {
+      "id": "W058",
+      "a": "F_RR3.in",
+      "b": "RR_P.4",
+      "net": "RR_P",
+      "group": "SERVO_FUSE_INPUTS",
+      "material": "LAPP0107001 black 12 AWG, red marking both ends",
+      "route_policy": "cut_to_fit_max_100",
+      "route_intent": "Twelve fixed-body branches, each <=100 mm.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100.0,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp",
+          "sku": "TE4-520448-2",
+          "wire_sku": "LAPP0107001 AWG12",
+          "tools": [
+            "TE69710-1",
+            "TE224027-2"
+          ],
+          "strip_mm": [
+            7.54,
+            8.3
+          ],
+          "marking": "red + at BOTH ends of black AWG12",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W059",
+      "a": "F_RR3.out",
+      "b": "RR3.V",
+      "net": "SERVO_V_FUSED",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "fully_insulated_FASTON_crimp_conditional_factory_wire",
+          "sku": "TE2-520184-2",
+          "copper_range_mm2": [
+            0.32,
+            0.82
+          ],
+          "tool": "TE58628-1",
+          "delivered_wire_mm2": null,
+          "condition": "Check actual copper/insulation; no fold/tinning/strand removal",
+          "source": "hardware/electronics/power-platform/servo-terminations-p0.json"
+        },
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "V",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR3"
+    },
+    {
+      "id": "W060",
+      "a": "G1.2",
+      "b": "MAIN.GND",
+      "net": "G_SYS",
+      "group": "PI_BRANCH",
+      "material": "black18AWG leftover of SAME K1474",
+      "route_policy": "factory_and_trim_after_dry_fit",
+      "route_intent": "W079/W080 are one equal-length USB-C cable; W077/W078 meet at one insulated splice.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 300,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "direct_solder_to_named_large_MAIN_pad",
+          "sku": "Pololu4853",
+          "role": "GND",
+          "strip_mm": null,
+          "supplied_2444_terminal_blocks": "NOT installed",
+          "source": "hardware/electronics/power-platform/MAIN-INPUT-P0.md"
+        }
+      ],
+      "shared_stock_id": "K1474_1000mm"
+    },
+    {
+      "id": "W061",
+      "a": "G1.5",
+      "b": "G2.1",
+      "net": "G_SYS",
+      "group": "GROUND_4MM2",
+      "material": "TKD2500125 black 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck; minimum bend radius 21 mm, bend after termination.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 80,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W062",
+      "a": "G2.2",
+      "b": "RL_G.1",
+      "net": "G_SYS",
+      "group": "GROUND_4MM2",
+      "material": "TKD2500125 black 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck; minimum bend radius 21 mm, bend after termination.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 100,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W063",
+      "a": "G2.3",
+      "b": "RR_G.1",
+      "net": "G_SYS",
+      "group": "GROUND_4MM2",
+      "material": "TKD2500125 black 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed deck; minimum bend radius 21 mm, bend after termination.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 100,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W064",
+      "a": "P_FRONT.1",
+      "b": "S1.3",
+      "net": "P_FRONT",
+      "group": "S0_S1_POSITIVE_4MM2",
+      "material": "HELU23802 red 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed body; minimum bend radius 25.2 mm. W066 remains generous for front S0.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 220,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "insulated_ring_crimp_under_original_switch_screw",
+          "sku": "TE130171",
+          "tool": "TE58433-3 chamber Y",
+          "strip_mm": [
+            7.94,
+            8.73
+          ],
+          "screw": "original NKK S821 M4.5; not an M5 replacement",
+          "source": "hardware/electronics/power-platform/switch-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W065",
+      "a": "P_REAR.1",
+      "b": "S1.6",
+      "net": "P_REAR",
+      "group": "S0_S1_POSITIVE_4MM2",
+      "material": "HELU23802 red 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed body; minimum bend radius 25.2 mm. W066 remains generous for front S0.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 180,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "insulated_ring_crimp_under_original_switch_screw",
+          "sku": "TE130171",
+          "tool": "TE58433-3 chamber Y",
+          "strip_mm": [
+            7.94,
+            8.73
+          ],
+          "screw": "original NKK S821 M4.5; not an M5 replacement",
+          "source": "hardware/electronics/power-platform/switch-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W066",
+      "a": "P_SYS.1",
+      "b": "S0.out",
+      "net": "P_SYS",
+      "group": "S0_S1_POSITIVE_4MM2",
+      "material": "HELU23802 red 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed body; minimum bend radius 25.2 mm. W066 remains generous for front S0.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 300,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "insulated_ring_crimp_under_original_switch_terminal",
+          "sku": "TE130207",
+          "tool": "TE58433-3 chamber Y",
+          "source": "hardware/electronics/power-platform/switch-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W067",
+      "a": "P_SYS.3",
+      "b": "S1.2",
+      "net": "P_SYS",
+      "group": "S0_S1_POSITIVE_4MM2",
+      "material": "HELU23802 red 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed body; minimum bend radius 25.2 mm. W066 remains generous for front S0.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 260,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "insulated_ring_crimp_under_original_switch_screw",
+          "sku": "TE130171",
+          "tool": "TE58433-3 chamber Y",
+          "strip_mm": [
+            7.94,
+            8.73
+          ],
+          "screw": "original NKK S821 M4.5; not an M5 replacement",
+          "source": "hardware/electronics/power-platform/switch-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W068",
+      "a": "P_SYS.4",
+      "b": "S1.5",
+      "net": "P_SYS",
+      "group": "S0_S1_POSITIVE_4MM2",
+      "material": "HELU23802 red 4 mm2",
+      "route_policy": "nominal_then_trim",
+      "route_intent": "Fixed body; minimum bend radius 25.2 mm. W066 remains generous for front S0.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": 260,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-615",
+          "strip_mm": [
+            12,
+            14
+          ],
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.5,
+            6
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        },
+        {
+          "method": "insulated_ring_crimp_under_original_switch_screw",
+          "sku": "TE130171",
+          "tool": "TE58433-3 chamber Y",
+          "strip_mm": [
+            7.94,
+            8.73
+          ],
+          "screw": "original NKK S821 M4.5; not an M5 replacement",
+          "source": "hardware/electronics/power-platform/switch-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W069",
+      "a": "RL1.G",
+      "b": "RL_G.2",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL1"
+    },
+    {
+      "id": "W070",
+      "a": "RL2.G",
+      "b": "RL_G.3",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL2"
+    },
+    {
+      "id": "W071",
+      "a": "RL3.G",
+      "b": "RL_G.4",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RL3"
+    },
+    {
+      "id": "W072",
+      "a": "RR1.G",
+      "b": "RR_G.2",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR1"
+    },
+    {
+      "id": "W073",
+      "a": "RR2.G",
+      "b": "RR_G.3",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR2"
+    },
+    {
+      "id": "W074",
+      "a": "RR3.G",
+      "b": "RR_G.4",
+      "net": "G_SYS",
+      "group": "MOVING_SERVO_LOOMS",
+      "material": "factory servo leads / verified flexible replacements",
+      "route_policy": "retain_factory_servo_plug_then_cut_after_full_range_dry_fit",
+      "route_intent": "Set full joint range first; add service loop, then cut. Never infer from rest-pose CAD.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_factory_servo_end_5264_keyed",
+          "sku": "included lead of Waveshare22414 ST3215 12V",
+          "role": "G",
+          "do_not_assign_left_right_cavities": true,
+          "second_parallel_socket": "NC",
+          "delivered_wire_mm2": null,
+          "source": "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+        },
+        {
+          "method": "bare_stranded_copper_one_per_port",
+          "sku": "221-415",
+          "strip_mm": null,
+          "strip_rule": "221-615:12–14mm;221-415:marking on delivered housing",
+          "copper_range_mm2": [
+            0.14,
+            4
+          ],
+          "tin_allowed": false,
+          "double_wire_allowed": false,
+          "source": "hardware/electronics/power-platform/CENTRAL-HARNESS-P0.md"
+        }
+      ],
+      "harness_id": "RR3"
+    },
+    {
+      "id": "W075",
+      "a": "BAT.plus",
+      "b": "F0.in",
+      "net": "BAT_RAW",
+      "group": "BATTERY_INLET",
+      "material": "factory F0 leads + LAPP0107001 black 12 AWG",
+      "route_policy": "cut_to_fit",
+      "route_intent": "F0 and S0 at front battery inlet; restrain before branches.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 50,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "solder_to_robot_side_XT60_marked_polarity",
+          "sku": "AMASS XT60H-M Kamami581961",
+          "strip_mm": null,
+          "must_disconnect_battery": true,
+          "battery_factory_plug_unchanged": true,
+          "source": "hardware/electronics/power-platform/BATTERY-INLET-P0.md"
+        },
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "FHAC0002ZXJ",
+          "nominal_awg": 12,
+          "source": "hardware/electronics/power-platform/WIRING-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W076",
+      "a": "F0.out",
+      "b": "S0.in",
+      "net": "BAT_FUSED",
+      "group": "BATTERY_INLET",
+      "material": "factory F0 leads + LAPP0107001 black 12 AWG",
+      "route_policy": "cut_to_fit",
+      "route_intent": "F0 and S0 at front battery inlet; restrain before branches.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "FHAC0002ZXJ",
+          "nominal_awg": 12,
+          "source": "hardware/electronics/power-platform/WIRING-P0.md"
+        },
+        {
+          "method": "insulated_ring_crimp_under_original_switch_terminal",
+          "sku": "TE130207",
+          "tool": "TE58433-3 chamber Y",
+          "source": "hardware/electronics/power-platform/switch-terminations-p0.json"
+        }
+      ]
+    },
+    {
+      "id": "W077",
+      "a": "F_PI.out",
+      "b": "SPLICE_PI.16",
+      "net": "MAIN_INPUT_FUSED",
+      "group": "PI_BRANCH",
+      "material": "FHAC0001ZXJ leads + K-1474 18 AWG cable",
+      "route_policy": "factory_and_trim_after_dry_fit",
+      "route_intent": "W079/W080 are one equal-length USB-C cable; W077/W078 meet at one insulated splice.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 100,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "preserve_inline_holder_factory_lead",
+          "sku": "FHAC0001ZXJ",
+          "nominal_awg": 16,
+          "source": "hardware/electronics/power-platform/WIRING-P0.md"
+        },
+        {
+          "method": "single_insulated_16_to_18AWG_solder_joint",
+          "joint_id": "MAIN_INPUT_SPLICE",
+          "tools": [
+            "soldering_station"
+          ],
+          "strain_relief": "both intact insulation sides; no solder neck bending",
+          "source": "hardware/electronics/power-platform/MAIN-INPUT-P0.md"
+        }
+      ]
+    },
+    {
+      "id": "W078",
+      "a": "SPLICE_PI.18",
+      "b": "MAIN.VIN",
+      "net": "MAIN_INPUT_FUSED",
+      "group": "PI_BRANCH",
+      "material": "red18AWG leftover of SAME K1474",
+      "route_policy": "factory_and_trim_after_dry_fit",
+      "route_intent": "W079/W080 are one equal-length USB-C cable; W077/W078 meet at one insulated splice.",
+      "current_R35_route_checked": false,
+      "legacy_nominal_mm": null,
+      "limit_mm": 150,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "single_insulated_16_to_18AWG_solder_joint",
+          "joint_id": "MAIN_INPUT_SPLICE",
+          "tools": [
+            "soldering_station"
+          ],
+          "strain_relief": "both intact insulation sides; no solder neck bending",
+          "source": "hardware/electronics/power-platform/MAIN-INPUT-P0.md"
+        },
+        {
+          "method": "direct_solder_to_named_large_MAIN_pad",
+          "sku": "Pololu4853",
+          "role": "VIN",
+          "strip_mm": null,
+          "supplied_2444_terminal_blocks": "NOT installed",
+          "source": "hardware/electronics/power-platform/MAIN-INPUT-P0.md"
+        }
+      ],
+      "shared_stock_id": "K1474_1000mm"
+    },
+    {
+      "id": "W079",
+      "a": "MAIN.VOUT",
+      "b": "PI_USB_C.VBUS",
+      "net": "PI_5V1",
+      "group": "PI_BRANCH",
+      "material": "JoyITK1474EAN4250236828305",
+      "route_policy": "factory_and_trim_after_dry_fit",
+      "route_intent": "W079/W080 are one equal-length USB-C cable; W077/W078 meet at one insulated splice.",
+      "current_R35_route_checked": true,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "direct_solder_to_named_large_MAIN_pad",
+          "sku": "Pololu4853",
+          "role": "VOUT",
+          "strip_mm": 5,
+          "supplied_2444_terminal_blocks": "NOT installed",
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+        },
+        {
+          "method": "preserve_shared_factory_USB_C_power_plug",
+          "sku": "JoyIT K1474 EAN4250236828305",
+          "cable_id": "K1474_PI_POWER",
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+        }
+      ],
+      "shared_cable_id": "K1474_PI_POWER",
+      "nominal_cut_bound_mm": 290.24916022252154,
+      "route_source": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json",
+      "override": "Old250mm maximum superseded by selected R33 power route.",
+      "shared_stock_id": "K1474_1000mm"
+    },
+    {
+      "id": "W080",
+      "a": "MAIN.GND_OUT",
+      "b": "PI_USB_C.GND",
+      "net": "G_SYS",
+      "group": "PI_BRANCH",
+      "material": "JoyITK1474EAN4250236828305",
+      "route_policy": "factory_and_trim_after_dry_fit",
+      "route_intent": "W079/W080 are one equal-length USB-C cable; W077/W078 meet at one insulated splice.",
+      "current_R35_route_checked": true,
+      "legacy_nominal_mm": null,
+      "limit_mm": null,
+      "actual_cut_mm": null,
+      "source_labels": "hardware/electronics/power-platform/wiring-p0.json",
+      "ends": [
+        {
+          "method": "direct_solder_to_named_large_MAIN_pad",
+          "sku": "Pololu4853",
+          "role": "GND",
+          "strip_mm": 5,
+          "supplied_2444_terminal_blocks": "NOT installed",
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+        },
+        {
+          "method": "preserve_shared_factory_USB_C_power_plug",
+          "sku": "JoyIT K1474 EAN4250236828305",
+          "cable_id": "K1474_PI_POWER",
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+        }
+      ],
+      "shared_cable_id": "K1474_PI_POWER",
+      "nominal_cut_bound_mm": 290.24916022252154,
+      "route_source": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json",
+      "override": "Old250mm maximum superseded by selected R33 power route.",
+      "shared_stock_id": "K1474_1000mm"
+    }
+  ],
+  "already_selected_interfaces": {
+    "Pi": "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json",
+    "head": "hardware/manufacturing/one-batch-prototype-r28/head-local-interface.json",
+    "tail": "hardware/manufacturing/one-batch-prototype-r29/tail-wiring-interface.json",
+    "PWM": "hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json",
+    "fixed_aux": "R19/R20 selected in R35, no replacement"
+  },
+  "shared_items": {
+    "K1474": "ONE1000mm two-conductor cable, not4cables",
+    "BUS": "ONE34171 cable for W002/W003; V removed, five kit cables spare",
+    "MAIN_INPUT_SPLICE": "ONE solder joint for W077/W078, not2 bought connectors",
+    "G1_G2": "ONE W061 physical bridge; E4 reciprocal rows are not2 wires",
+    "legs": "12 factory three-conductor harnesses, not36 three-conductor cables"
+  },
+  "balance": {
+    "roles": {
+      "BAT.B0": "P309.minus",
+      "BAT.B1": "P309.1S",
+      "BAT.B2": "P309.2S",
+      "BAT.B3": "P309.3S"
+    },
+    "exact_GTech_cavity_mapping": null,
+    "ID_contact": "NEVER connect to cell input",
+    "live_with_S0_off": true,
+    "route_checked": false,
+    "blocker": "Exact delivered GEA223S30X6GT tap/ID interface not assigned"
+  },
+  "open_design": [
+    "Current R35 Deck/cover body routing and restraint datums for38 nonmoving nonPi conductors",
+    "12 leg harnesses: whole chosen joint range, anchors, stock length and route-to-fuse/body",
+    "Battery/F0/S0 restraint, alarm mount and balance physical interface",
+    "Factory ST/BUS wire section: no evidence it meets selected FASTON/WAGO; conditional recipe only",
+    "Final stock/installed lengths and insulation/tie ledger for K3; E3 protection remains separate"
+  ],
+  "source_bindings": {
+    "hardware/electronics/power-platform/wiring-p0.json": "935f894555a3f71c132303b6197f77a2ef6d9f900de7b36bc53dd3d41ef0e1ec",
+    "hardware/electronics/power-platform/p0-routes.json": "556734374d21812412e7052ad92274e96758afca7ec87d662a80e1a2a1c8f067",
+    "hardware/electronics/power-platform/servo-terminations-p0.json": "076bd3aee68e22733a3a0b69b4c4d64bcdc3b820d3a260f2366658e3c5c1eaf9",
+    "hardware/electronics/power-platform/switch-terminations-p0.json": "c14de6a2c3fd21571481943ef17a9afb664da9a9af6b2da196570a5969e00bcf",
+    "hardware/electronics/power-platform/MAIN-INPUT-P0.md": "f076d95a2a32944c3c3f330b7c2b0a87cba6817137182dcf1f324462cdaa9d4c",
+    "hardware/electronics/power-platform/DATA-HARNESS-P0.md": "61d3fd76bd4b772baa53fc615ed1b6f9bebbca3c7a7da1809c6dbc0bed705469",
+    "hardware/electronics/power-platform/BATTERY-INLET-P0.md": "30fcd9cf1ac11cf5eb6a1cb953fa500bef3ad835629fbbb8d84f7a6239a2d540",
+    "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
+    "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json": "c4432f2ed29355a19b80f513ae5693abe74a1a8c3054485d7cacbdce07ae7008",
+    "hardware/reference/power-distribution-2026-09-23/README.md": "371959aded0387c70164427475af1af51baead9325feb0d71f9e5f6076cbe2b3",
+    "hardware/reference/p0-kit-2026-09-25/SIGNAL-CABLES.md": "3627a1dd381f65e39e1342ebc31fcfc2daced3676a96aeacd74bae4ee6fb8894",
+    "hardware/manufacturing/one-batch-prototype-r28/head-local-interface.json": "58db6ba2fde21e88e75d938a07a0ae956e5c33923fc5fe37fb50bd06a916cd11",
+    "hardware/manufacturing/one-batch-prototype-r29/tail-wiring-interface.json": "6d001a2fe5e5f7dde8b9668e8d6abb547e597c5eba84d8c76debeb5a81ec8c45"
+  }
+}
