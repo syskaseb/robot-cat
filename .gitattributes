@@ -135,4 +135,9 @@ hardware/manufacturing/one-batch-prototype-r35/** -text -eol whitespace=cr-at-eo
 tools/electronics/connection_map_e4_r1.py text eol=lf
 tools/electronics/e4_source_probe.py text eol=lf
 tools/electronics/test_connection_map_e4_r1.py text eol=lf
+# R36 physical harness recipes and evidence retain their hashed bytes.
+hardware/electronics/full-cat/body-harness-w5-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r36/** -text -eol whitespace=cr-at-eol
+tools/electronics/body_harness_w5_r1.py text eol=lf
+tools/electronics/test_body_harness_w5_r1.py text eol=lf
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
