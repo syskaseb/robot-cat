@@ -1,0 +1,54 @@
+{
+  "status": "SOURCE_BEFORE_WHOLE_GPIO_ROUTING",
+  "parent_selection": "one-batch-prototype-r31",
+  "scope": "Five complete Pi-to-cassette paths; power/USB and insulation anchors to integrate before checkpoint",
+  "endpoints_mm": {
+    "XL01": [
+      91.54,
+      13.97,
+      155.6002
+    ],
+    "XL10": [
+      104.24,
+      -19.05,
+      155.6002
+    ],
+    "XL07": [
+      91.54,
+      -8.89,
+      155.6002
+    ],
+    "XL05": [
+      -57.095,
+      -1.142999999999999,
+      155.6
+    ],
+    "XL06": [
+      -57.095,
+      1.3970000000000002,
+      155.6
+    ]
+  },
+  "GPIO_pins": [
+    1,
+    6,
+    11,
+    3,
+    5
+  ],
+  "wire": "Pololu1871 brown26AWG600mm",
+  "design_wire_OD_assumption_mm": 1.4,
+  "design_radius_mm": 10,
+  "cut_rule": "Dry-fit, preserve Pi factory crimp. +30mm at one removable Pi end, +6mm board strip/trim. Do not count two detachable ends.",
+  "actual_OD_and_insert_height_phase2": true,
+  "new_stls": 0,
+  "selected": false,
+  "physical_pass": false,
+  "CP_PI_complete": false,
+  "remaining": [
+    "Routes/clearance/length",
+    "Two insulation restraints per branch",
+    "Power and USB",
+    "Selection and quantities"
+  ]
+}

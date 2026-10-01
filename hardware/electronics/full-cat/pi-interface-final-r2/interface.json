@@ -1,0 +1,71 @@
+{
+  "parent": "R32",
+  "native": "pi-complete-native-r2",
+  "corrected_datums": {
+    "Pi_board_bottom_z_mm": 52,
+    "J8_housing_bottom_assumed_z_mm": 55.6,
+    "J8_wire_exit_assumed_z_mm": 69.6,
+    "J8_top_reserve_z_mm": 69.85
+  },
+  "previous_diagnostic_metadata_not_authoritative": [
+    "pi-wiring-complete-r13/gpio-datums.json fixed original Z metadata",
+    "pi-bus-mount-r3/plan.json washer OD4.3 / additional nuts",
+    "pi-power-usb-r4/checks.json old fan formula",
+    "pi-cable-caddy-r3/plan.json one park tie text"
+  ],
+  "mounting": {
+    "Pi": "4 M2.5x16, existing four nuts and washers reused; 7mm integral rise",
+    "BUS": "4 M2x12,4 nuts AF4 H1.6,4 DIN125 washers ID2.2 OD5 H0.3; native posts OD4.9, platform Ymax34",
+    "north_tray": "2 M3x10 replace 2 M3x8; reuse existing clamp nuts/washers",
+    "south_tray": "2 M3x8 unchanged"
+  },
+  "sleeve_materials": {
+    "GPIO": "TE5052942064 RNF1003/32 black; expanded2.4, conservative project finishedOD2.5 includes wall reserve; 5 blanks15mm, 6mm insulation overlap, end Z153.8 below PCB underside154",
+    "MAIN": "Two RNF1003/32 inner sleeves on separate2mm bare necks, outer OD2.2; one COMMON RNF1003/8 black expanded9.5/recovered4.8 boot over both insulated leads, conservative capsule width7.6. One15mm outer blank with6mm intact-insulation overlap; NOT two interfering3/16 sleeves."
+  },
+  "solder": "GPIO preserve Pi factory crimp, trim cassette end only. MAIN strip5mm:3mm through pad plus2mm exposed upper neck. Shrink off PETG before final fastening, strain on insulation not pad. Actual wall/insert dimensions phase2.",
+  "minimum_bends_mm": {
+    "GPIO_insulated": 10,
+    "GPIO_short_solder_takeoff": 2,
+    "power": 18,
+    "power_black_return": 21.2,
+    "USB": 24
+  },
+  "conservative_fan_radius_bounds_mm": {
+    "GPIO_start": 10.169388989715667,
+    "GPIO_OE": 44.44444444444444,
+    "power_red": 19.800910125142206,
+    "power_black_first": 19.66672297297297,
+    "power_black_last": 45.01874999999999,
+    "USB_first": 24.225260416666664,
+    "USB_last": 147.20715838121868
+  },
+  "tie_allocation": {
+    "GPIO": 6,
+    "Pi_power_USB_and_MAIN": 4,
+    "USB_loose_park": 2
+  },
+  "tools": "Tray screws before wiring; unplug Pi power and release both power-wire ties before removal, move free lead out of key corridor. Tool clearance below is against fixed parts, not the obstructing still-fixed Pi lead.",
+  "E2_route_override": "XP02 module loop shifted+3mm at north return withR11.1 preserved; first34.7mm/bundle/boardtakeoff unchanged. Actual150mm factory budget recomputed here. R32 original routes immutable.",
+  "provisional": [
+    "Pi populated connector height, factory plug bounding reserves and wire ODs",
+    "Shrink fitted OD/wall",
+    "PETG/fastener delivered fit",
+    "USB surplus is loose storage reserve, not exact connected coil path"
+  ],
+  "physical_pass": false,
+  "new_stls": 0,
+  "CP_PI_complete": false,
+  "E2_override_budget": {
+    "factory_min_mm": 145,
+    "new_module_insulated_mm": 117.10778291245481,
+    "required_mm": 137.7787792392548,
+    "margin_mm": 7.2212207607452115,
+    "fan_radius_bounds_mm": [
+      15.063011559376768
+    ],
+    "return_arc_radius_mm": 11.1,
+    "bare_end_unchanged": true,
+    "service_slack_embedded_not_added_twice": true
+  }
+}

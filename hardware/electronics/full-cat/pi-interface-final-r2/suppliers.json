@@ -1,0 +1,22 @@
+{
+  "scope": "Pi nominal interface; no purchases or stock/delivery promises",
+  "GPIO": {
+    "housing": {"sku": "Pololu1992", "pack": 5, "used": 1, "url": "https://www.pololu.com/product/1992", "keyed": false, "mark_pin1": true},
+    "wire": {"sku": "Pololu1871", "packs": 2, "pack": 5, "used": 5, "colour": "brown", "gauge": "26AWG", "area_nominal_mm2": 0.129, "factory_length_nominal_mm": 600, "url": "https://www.pololu.com/product/1871", "note": "Retain Pi factory female crimp; strip/trim cassette end only. Conservative CAD copper envelope0.14mm2 is not the actual wire gauge."}
+  },
+  "power": {"sku": "Joy-IT K-1474", "EAN": "4250236828305", "gauge": "18AWG", "length_mm": 1000, "quantity": 1, "used_shared": "MAINinput<=300mm plus Pi output nominal<=291mm including36mm ends/reserve", "source": "hardware/build-readiness/p0-order-cart.json"},
+  "USB": {"sku": "Lanberg CA-USBO-10CU-0005-BK", "EAN": "5901969416237", "length_mm": 500, "quantity": 1, "cut": false, "source": "hardware/build-readiness/p0-order-cart.json"},
+  "fasteners": [
+    {"sku": "M2.5X16/D912-A2", "maker": "KRAFTBERG", "installed": 4, "spares": 2, "url": "https://www.tme.eu/pl/details/m2.5x16_d912-a2/sruby/kraftberg/", "head_diameter_mm": 4.5, "head_height_mm": 2.5, "key_mm": 2},
+    {"sku": "SKL000622", "supplier": "BEJMET2058", "size": "M3x10DIN912A2", "installed": 2, "spares": 2, "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x10/2058", "head_diameter_mm": 5.5, "head_height_mm": 3, "key_mm": 2.5},
+    {"sku": "SKL000595", "supplier": "BEJMET2039", "size": "M2x12DIN912A2", "installed": 4, "spares": 2, "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M2x12/2039", "head_diameter_mm": 3.8, "head_height_mm": 2, "key_mm": 1.5},
+    {"sku": "SKL000381", "supplier": "BEJMET1762", "size": "M2DIN934", "installed_delta": 4, "AF_mm": 4, "height_mm": 1.6, "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-2/1762"},
+    {"sku": "ART00125202", "size": "M2DIN125", "installed_delta": 4, "ID_mm": 2.2, "OD_mm": 5, "thickness_mm": 0.3, "url": "https://www.art-nierdzewne.pl/din-125-plaska/38-m2-din-125-a2-podkladka-plaska-nierdzewna.html"}
+  ],
+  "insulation": {
+    "GPIO_and_MAIN_inner": {"sku": "RNF-100-3/32-0-STK", "source": "existing R32 stock", "GPIO_blanks_mm": [15,15,15,15,15], "MAIN_inner_blanks_mm": [4,4]},
+    "MAIN_common_outer": {"sku": "RNF-100-3/8-0-STK", "TE_part": "5053142077", "expanded_ID_mm": 9.5, "recovered_ID_mm": 4.8, "nominal_stock_length_mm": 1200, "blank_mm": 15, "quantity_used": 1, "planning_stock_m": 6, "url": "https://www.tme.eu/pl/details/rnf-100-3_8-0-stk/rurki-termokurczliwe/te-connectivity/", "maker_url": "https://www.te.com/en/product-5053142077.html", "note": "One common boot, not two overlapping individual outer sleeves. Supplier pack/minimum and availability refresh in phase2; no lifetime availability guarantee."}
+  },
+  "restraints": {"sku": "HellermannTyton111-02370 T18I", "additional": 12, "working_total": 81, "pack": 100, "existing_package_retained": true},
+  "assumptions": ["Mated J8 height and cable/plug ODs are explicit project reserves, not verified delivered dimensions", "Shrink wall/fitted profile and PCB populated height need phase2 fitting", "No signal-ground servo current or MAIN/AUX output bridging"]
+}

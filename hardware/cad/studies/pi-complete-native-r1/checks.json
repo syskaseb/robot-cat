@@ -1,0 +1,118 @@
+{
+  "status": "NATIVE_PRINT_GEOMETRY_AVAILABLE",
+  "new_stls": 4,
+  "parts": {
+    "PiTray": {
+      "native_object": "FinishedPiTray",
+      "valid": true,
+      "single_solid": true,
+      "strict_BOP_errors": 0,
+      "volumes": [
+        36500.72946960665,
+        36518.06477786914,
+        36500.72946960665
+      ],
+      "STL": "hardware/cad/studies/pi-complete-native-r1/PiTray_x1.stl",
+      "sha256": "ceb22f4a31b66a081ed8b0cd90e918c3e1a7f98ddcf46f94d970d48d3248aa10",
+      "closed": true,
+      "components": 1,
+      "dimensions_mm": [
+        124.5,
+        137.5,
+        26.0
+      ],
+      "quantity": 1,
+      "orientation": "World+Zup, original bottom on bed; brim5 geometrically fits256; slicer/support/PETG phase2"
+    },
+    "Deck": {
+      "native_object": "FinishedDeck",
+      "valid": true,
+      "single_solid": true,
+      "strict_BOP_errors": 0,
+      "volumes": [
+        138313.47914080677,
+        138313.47914080677,
+        138313.47914080677
+      ],
+      "STL": "hardware/cad/studies/pi-complete-native-r1/Deck_x1.stl",
+      "sha256": "e33519b79fa611af1cbde35258182b2ceb69bc0bcd5917339f39c6bc1c925ed3",
+      "closed": true,
+      "components": 1,
+      "dimensions_mm": [
+        230.0,
+        190.0,
+        47.55000305175781
+      ],
+      "quantity": 1,
+      "orientation": "World+Zup, original bottom on bed; brim5 geometrically fits256; slicer/support/PETG phase2"
+    },
+    "Carrier": {
+      "native_object": "FinishedCarrier",
+      "valid": true,
+      "single_solid": true,
+      "strict_BOP_errors": 0,
+      "volumes": [
+        99973.08396720205,
+        99953.90142381511,
+        99973.08396720205
+      ],
+      "STL": "hardware/cad/studies/pi-complete-native-r1/Carrier_x1.stl",
+      "sha256": "905562ff6b45fbe9ce19f988d685026d7015b8dc2040081ffa94f5c1c106b28e",
+      "closed": true,
+      "components": 1,
+      "dimensions_mm": [
+        230.0,
+        148.0,
+        12.550003051757812
+      ],
+      "quantity": 1,
+      "orientation": "World+Zup, original bottom on bed; brim5 geometrically fits256; slicer/support/PETG phase2"
+    },
+    "BUSBracket": {
+      "native_object": "FinishedBUSBracket",
+      "valid": true,
+      "single_solid": true,
+      "strict_BOP_errors": 0,
+      "volumes": [
+        7571.407465422653,
+        7571.407465422653,
+        7571.407465422653
+      ],
+      "STL": "hardware/cad/studies/pi-complete-native-r1/BUSBracket_x1.stl",
+      "sha256": "6e8c8dd2508863b8bdbc54585cc9dbe55958a5f085cf6a2b951e09e3373ad664",
+      "closed": true,
+      "components": 1,
+      "dimensions_mm": [
+        134.0,
+        79.0,
+        12.16952133178711
+      ],
+      "quantity": 1,
+      "orientation": "World+Zup, original bottom on bed; brim5 geometrically fits256; slicer/support/PETG phase2"
+    }
+  },
+  "fully_constrained_hex_sketches": 4,
+  "reopen_recompute": true,
+  "BUS_correction": {
+    "platform_Ymax": 34,
+    "post_OD": 4.9,
+    "mount_axes_unchanged": true,
+    "reason": "Previously platform/beam touched along one edge giving 4incident mesh faces; posts overhung by13um at source Y2.499987. Genuine solid shape correction, not mesh hole filling.",
+    "before_volume_mm3": 7465.312691987501,
+    "after_volume_mm3": 7571.407465422653
+  },
+  "physical_pass": false,
+  "selected": false,
+  "remaining": [
+    "Final sleeves/stacks/lift",
+    "Single selected print/quantity set"
+  ],
+  "inherited_source_SHA256": {
+    "hardware/cad/studies/pwm-branch-restraints-r4/DeckPWMGroundTerminal.brep": "2f4d1071e3582bf17bfbe386cbec8501aad510cbdce59557c8e5fd5cc6883044",
+    "hardware/cad/studies/pwm-board-end-restraint-r1/CarrierPWMService_WORLD.brep": "1188c21522a8de9ec714af5efb9cb611dd6ea9254a5f51d3fd1a4c1ed40b0977"
+  },
+  "source_scripts": {
+    "tools/cad/pi_complete_native_r1.py": "9ef7b0c1a35e0a2fa1658f60f3a6967a10266fe927f741b5c61eedd0d148520f",
+    "tools/cad/pi_complete_native_finish_r1.py": "0712c81accd1e554eb76e4d4ddef74332a25735871392aca14367fa25c35fea2"
+  }
+}
