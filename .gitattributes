@@ -165,4 +165,14 @@ hardware/electronics/full-cat/assembly-materials-k3-r1/** -text -eol whitespace=
 hardware/manufacturing/one-batch-prototype-r39/** -text -eol whitespace=cr-at-eol
 tools/electronics/package_assembly_materials_r39.py -text -eol
 tools/electronics/test_assembly_materials_r39.py -text -eol
+# R40 W060 source-preserving native interfaces and provisional soft contact.
+hardware/electronics/full-cat/main-input-return*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/main-input-return*/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r40/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/main-input-return*/**/*.brep binary
+hardware/cad/studies/main-input-return*/**/*.stl binary
+hardware/electronics/full-cat/main-input-return*/**/*.brep binary
+tools/electronics/main_input_return*.py -text -eol
+tools/electronics/test_main_input_return.py -text -eol
+tools/electronics/package_main_input_return_r40.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

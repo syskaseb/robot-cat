@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R38 zachowuje ilości R37, zastępuje tylko DeckP10 płytą z zachowanymi sześcioma siodełkami DATA oraz trzema podparciami W061. 71 zadań, 110 części PETG i 4 próbki; karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R40 zastępuje tylko Deck i uchwyt MAIN dla W060; zachowane DATA/W061 i pozostałe 69 wydruków. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,33 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,06:27 Warszawy — W060 G1.2→MAIN.input_GND DOMKNIĘTY WARUNKOWO, R40 WYBRANY.
+Jedna trasa178,669mm/blank220mm czarnej18AWG ze wspólnegoK-1474;
+trzy podparcia, przeloty Deck, dwa końce i izolacja.3opaski ze wspólnego
+100szt, roboczo93. Pozostaje489,751mm czarnej żyły po rezerwie Pi;
+czerwonyW078 nadal rezerwa150mm bez wybranej trasy. Nie kupować drugiego kabla.
+Deck+uchwytMAIN zamienneSTL, zachowaneP0/DATA/W061,71zadań/110PETG/
+4próbki/114wierszy ilości. Natywne szkice/parametry, zmiana i powrót,
+ponowne otwarcie/strictBOP, zamknięte siatki1części, obejrzanyPNG.
+Eksport odrzucił styczny rowekR1,7; R1,8 daje skończone otwarteU i dno2,9mm.
+103par zmienionych interfejsów:0sztywnych blokad, JAWNE miękkie zetknięcie
+osłonyW060 z izolacją wyjściaPi0,177340mm³. Bramka geometriiOPEN,
+NIE bezkolizyjny model/fizycznyPASS. Trimblanków4/15mm pozaPCB do rzeczywistych
+miejsc (nominalnie2/8,01mm), ≥6mm zakład na izolacji; w fazie2 przymiarkaOD/
+ścianki i rozdzielenie izolowanych żył przed opaską, bez gięcia na lutowaniu.
+Recepta: main-input-return-finish-r3/interface.json iREADME; nie wybierać
+odrzuconychR1–R3 korytarzy ani nie powtarzać napraw siatki bez zmiany źródła.
+3578/3578piny, wszystkie3431R39 zachowane;37/37testów.14/20=70%,+0pp.
+E3/W5/K2/K3/A2/A3OPEN: pozostałe masy/zasilanie/źródło,12wiązek nóg,
+balans, dokładne narzędzia/pełny spis materiałów i wspólny montaż/uzgodnienie.
+START03:21:43Z/ENDpakietu04:27:22Z=1h05min39s ścienne, nie ciągłyCPU.
+Limit04:27Z:13%użyte/87%pozostałe, zwykłe użycie dostępne, kredyty0.
+Hook enabled, rzeczywistyStop03:21:34Z/manual_test=false/zgodna sesja;
+deadline08:30Z/10:30Warszawy, bez harmonogramu. GPT-6.1SolHigh pozostaje
+wyborem użytkownika. NEXT: komplet pozostałych stałych powrotów/zasilania
+W5 na aktualnymR40, bez ponawiania kolizyjnych korytarzyW036; checkpoint
+szacunkowo60–120min w istniejącym oknie, nie obietnica ukończenia całej fazy.
 
 02.10,05:19 Warszawy — KONKRETNY ZESTAW MATERIAŁÓW MONTAŻOWYCH, R39 WYBRANY.
 Pięć ogólnych kategoriiP0 zastąpione sześcioma dokładnymiSKU: dużeopaski

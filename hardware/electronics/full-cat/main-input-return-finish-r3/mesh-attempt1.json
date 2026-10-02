@@ -1,0 +1,12 @@
+{
+  "status": "EXPORT_REJECTED",
+  "part": "Deck",
+  "native_shape_valid_one_solid_BOP_checked": true,
+  "mesh_isSolid_and_one_component_assertion": false,
+  "verified_cause": "G1 groove radius1.7 at centreZ113.5 is tangent to seat topZ115.2. Two boundary faces meet on a zero-width line; one mesh edge has4 incident facets.",
+  "bad_edge_xyz_mm": [[81,14.5,115.19999694824219],[81,11.5,115.19999694824219]],
+  "rejected_mesh_repairs": ["exact vertex weld", "duplicate facet removal", "normal harmonization", "removeSplitter did not close the mesh"],
+  "source_correction": "Set native groove radius1.8 to create a finite open U mouth, regenerate and verify mesh. No deleting mesh faces or accepting nonmanifold export.",
+  "selected": false,
+  "physical_pass": false
+}

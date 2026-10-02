@@ -1,0 +1,61 @@
+{
+  "parent": "one-batch-prototype-r39",
+  "wire": "W060",
+  "source": "G1.2",
+  "destination": "MAIN.input_GND",
+  "route_source": "hardware/electronics/full-cat/main-input-return-r4",
+  "nominal_blank_mm": 220,
+  "material": "Black18AWG0.823mm2 from shared Joy-IT K-1474 offcut, not another cable",
+  "strip_mm": {
+    "G1.2": [
+      12,
+      14
+    ],
+    "MAIN": 5
+  },
+  "bare_neck_above_MAIN_mm": 2,
+  "geometric_radius_mm": 6,
+  "radius_and_OD_are_project_allowances": true,
+  "restraints": {
+    "SKU": "111-02370",
+    "new_installed": 3,
+    "prior_working": 90,
+    "new_working": 93,
+    "shared_bag": 100
+  },
+  "stock": {
+    "one_K1474_factory_mm": 1000,
+    "selected_Pi_bound_mm": 290.24916022252154,
+    "black_W060_blank_mm": 220,
+    "red_W078_still_unrouted_allowance_mm": 150,
+    "black_after_Pi_and_return_mm": 489.75083977747846,
+    "red_after_Pi_and_input_allowance_mm": 559.7508397774784,
+    "no_double_count": "Cable contains two parallel conductors; do not add red+black against one1m length"
+  },
+  "new_separate_parts": 0,
+  "changed_print_jobs": [
+    "DeckP10",
+    "MAINMount"
+  ],
+  "physical_pass": false,
+  "selected": false,
+  "W5_complete": false,
+  "started_utc": "2026-10-02T03:47:52.564838+00:00",
+  "status": "REJECTED",
+  "restraints_complete": false,
+  "new_STL": 0,
+  "insulation": {
+    "inner_SKU": "TE5052942064 RNF-100-3/32-0-STK",
+    "inner_blank_mm": 4,
+    "outer_SKU": "TE5053042067 RNF-100-3/16-0-STK",
+    "outer_blank_mm": 15,
+    "placed_intact_overlap_mm": 6.009999999998991,
+    "finished_outer_OD_reserve_mm": 4.2,
+    "note": "Existing shared stock; shrink off PETG. Actual shrink/diameter and dry fit in phase2."
+  },
+  "recovery": "R1 source saved; deleted Sketch.Document proxy caused check failure, not a failed CAD geometry assertion.",
+  "native_sources": {
+    "Deck": "hardware/cad/studies/main-input-return-finish-r2/DeckMainInput.FCStd",
+    "MAIN": "hardware/cad/studies/main-input-return-finish-r2/MainInputMount.FCStd"
+  }
+}
