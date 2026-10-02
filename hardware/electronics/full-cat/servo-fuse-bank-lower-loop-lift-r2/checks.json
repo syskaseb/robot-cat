@@ -1,0 +1,107 @@
+{
+  "status": "CONSERVATIVE_CONTINUOUS_BANK_LIFT_OVER_R4_INPUTS_CLEAR",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "relative_module_lift_mm": 100,
+  "stationary_input_configuration": "R4 release fraction1; upper WAGO ends remain fixed, inputs released5.5mm inward.",
+  "conservative_enclosure": "Each exact circular edge split8ways; endpoint AABB enlarged by radius1.55+sagitta+.05 and swept continuously100mm downwards relative to module.",
+  "rows": [
+    {
+      "wire": "release_1.0_W027_CENTERLINE",
+      "enclosing_segments": 62,
+      "path_mm": 187.42858574382686
+    },
+    {
+      "wire": "release_1.0_W028_CENTERLINE",
+      "enclosing_segments": 62,
+      "path_mm": 197.91950572169006
+    },
+    {
+      "wire": "release_1.0_W029_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 225.84400115217204
+    },
+    {
+      "wire": "release_1.0_W038_CENTERLINE",
+      "enclosing_segments": 62,
+      "path_mm": 187.42858574382686
+    },
+    {
+      "wire": "release_1.0_W039_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 200.82708093180455
+    },
+    {
+      "wire": "release_1.0_W040_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 219.87608133750996
+    },
+    {
+      "wire": "release_1.0_W046_CENTERLINE",
+      "enclosing_segments": 62,
+      "path_mm": 183.42858574382694
+    },
+    {
+      "wire": "release_1.0_W048_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 200.82708093180452
+    },
+    {
+      "wire": "release_1.0_W050_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 219.8760813375097
+    },
+    {
+      "wire": "release_1.0_W054_CENTERLINE",
+      "enclosing_segments": 62,
+      "path_mm": 187.42858574382697
+    },
+    {
+      "wire": "release_1.0_W056_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 200.82708093180452
+    },
+    {
+      "wire": "release_1.0_W058_CENTERLINE",
+      "enclosing_segments": 63,
+      "path_mm": 219.8760813375097
+    }
+  ],
+  "segments": 751,
+  "pairs": 583,
+  "hits": [],
+  "errors": [],
+  "rigid_TE_ends_inherited": "servo-fuse-bank-service-r3/checks.json",
+  "open": [
+    "Flexible-wire transition remains five R4 samples, not continuous deformation.",
+    "Output full leg routes and parent-carrier/module shared lift are not checked by this limited result.",
+    "ATO/holders removed, ties cut and actual latch coupon remains phase2."
+  ],
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/checks.json": "5645903c0ed4e14d116aafcc9f404412f475ca498f8ad50ffd4dd33a0202c4df",
+    "hardware/electronics/full-cat/servo-fuse-bank-service-r3/checks.json": "706a9bc9e66e82f2d9a2e49a8e6e7bcc18f9500a44be38fb8066a20ee50e9de4",
+    "hardware/cad/studies/servo-fuse-bank-clip-access-r1/LeftClipAccessFinished_WORLD.brep": "ca3db4b7a18f33af681ce55e2bbd5e54a824a650f28fdca732fcec837a04af1b",
+    "hardware/cad/studies/servo-fuse-bank-clip-access-r1/RightClipAccessFinished_WORLD.brep": "6d6a9cbdd73f199190b9dff4d80fc0334a5071068ad5074fb59ccdea1b03ad6f",
+    "hardware/cad/studies/servo-fuse-cover-native-r4/Cover_WORLD.brep": "14db50c82d060d616583f7205e268eeb73252349b6e4b8aab9c0f10335d38c8a",
+    "hardware/electronics/full-cat/servo-fuse-cover-native-r4/checks.json": "79300f8249204d9da565a837a58c9a8d5466ca23f14805f6f73bb553b54847e2",
+    "tools/electronics/servo_fuse_bank_lower_loop_lift_r1.py": "bdb19162374c59d01add2e4228a1867cd92b1c33a2ba2c5d851b40917ab77d4b",
+    "hardware/electronics/full-cat/servo-fuse-bank-lower-loop-lift-r1/checks.json": "98ea79b81e6b4fdda7a93c4ef366b1cf29de4192e9aebcf6b4482bb5bf6b0222",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W027_CENTERLINE.brep": "f693ee843be37a35bc34286bee8fa246621109ae511b0058bed2eb5fe2e91e4c",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W028_CENTERLINE.brep": "2c86d8a2147b7b1f8f44dc38f0b54cb92d78efc3c0f977c202684cd85ebefec4",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W029_CENTERLINE.brep": "f6fc211aded7660263cd24fb4afe800ec473864db7fe389663e7c2ac507601b8",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W038_CENTERLINE.brep": "6a78e81ee56d171d670353e12a5cf6b944917f287d25a4b7be08b170743f8313",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W039_CENTERLINE.brep": "5126d8bddd151aa16a1b8b7a0e18140a017088e3d3515b6d461588f5d9c2e161",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W040_CENTERLINE.brep": "8d30439e2e9347488992f3011ff2dfd283b6f9a3a95922f3aa70d5188b2fd07b",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W046_CENTERLINE.brep": "40486099a35cd8370a3e88a4359cd0332b87129f79e9bca0deee031ad35a8fa4",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W048_CENTERLINE.brep": "d23949e0015f8a6c1d16660ed25d3357f198287b32f5812cf7b08857def56e0e",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W050_CENTERLINE.brep": "ad74b8bf9ad891d66d31393c0a0785e02896a984b66ff0fb6c0079bcaab31681",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W054_CENTERLINE.brep": "778a72ec0371d62c059f0416da5871094c352a4f7a4879260193259845587467",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W056_CENTERLINE.brep": "917e749413a2bc7202989a9dcb6389c6bdd71dfa5e9689c5560e3b6db0d265b5",
+    "hardware/electronics/full-cat/servo-fuse-bank-connected-release-r4/release_1.0_W058_CENTERLINE.brep": "fe3b4996e3d552884c41496c3d0ad4715029c4bd95fb612d4c671f10999454e6"
+  },
+  "script_sha256": "a27f253b3da0b696ef541626368cef0c9e911872b3c5d9b32321a10e6fb6d7a0",
+  "started_utc": "2026-10-02T23:15:28.850210+00:00",
+  "finished_utc": "2026-10-02T23:18:56.706556+00:00",
+  "worker_wall_seconds": 207.856346
+}

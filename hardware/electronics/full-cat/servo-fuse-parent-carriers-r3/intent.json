@@ -1,0 +1,138 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "started_utc": "2026-10-02T22:58:52.131911+00:00",
+  "routes": [
+    {
+      "leg": "FL",
+      "wire": "W026",
+      "upstream_wire": "W041",
+      "cx": -90.0,
+      "side": 1,
+      "WAGO_mm": [
+        -82.5,
+        49.5,
+        113.5
+      ],
+      "holder_out_mm": [
+        -90.0,
+        98,
+        131.5
+      ],
+      "holder_in_mm": [
+        -90.0,
+        133,
+        131.5
+      ],
+      "path_mm": 55.46061647211049,
+      "provisional_factory_out_required_mm": 80,
+      "assumed_available_each_lead_mm": 100,
+      "actual_cut_mm": null,
+      "actual_available_mm": null,
+      "upstream_route_complete": false
+    },
+    {
+      "leg": "FR",
+      "wire": "W037",
+      "upstream_wire": "W042",
+      "cx": -90.0,
+      "side": -1,
+      "WAGO_mm": [
+        -82.5,
+        -49.5,
+        113.5
+      ],
+      "holder_out_mm": [
+        -90.0,
+        -98,
+        131.5
+      ],
+      "holder_in_mm": [
+        -90.0,
+        -133,
+        131.5
+      ],
+      "path_mm": 55.46061647211049,
+      "provisional_factory_out_required_mm": 80,
+      "assumed_available_each_lead_mm": 100,
+      "actual_cut_mm": null,
+      "actual_available_mm": null,
+      "upstream_route_complete": false
+    },
+    {
+      "leg": "RL",
+      "wire": "W045",
+      "upstream_wire": "W044",
+      "cx": 18.0,
+      "side": 1,
+      "WAGO_mm": [
+        25.5,
+        49.5,
+        113.5
+      ],
+      "holder_out_mm": [
+        18.0,
+        98,
+        131.5
+      ],
+      "holder_in_mm": [
+        18.0,
+        133,
+        131.5
+      ],
+      "path_mm": 55.46061647211049,
+      "provisional_factory_out_required_mm": 80,
+      "assumed_available_each_lead_mm": 100,
+      "actual_cut_mm": null,
+      "actual_available_mm": null,
+      "upstream_route_complete": false
+    },
+    {
+      "leg": "RR",
+      "wire": "W053",
+      "upstream_wire": "W052",
+      "cx": 18.0,
+      "side": -1,
+      "WAGO_mm": [
+        25.5,
+        -49.5,
+        113.5
+      ],
+      "holder_out_mm": [
+        18.0,
+        -98,
+        131.5
+      ],
+      "holder_in_mm": [
+        18.0,
+        -133,
+        131.5
+      ],
+      "path_mm": 55.46061647211049,
+      "provisional_factory_out_required_mm": 80,
+      "assumed_available_each_lead_mm": 100,
+      "actual_cut_mm": null,
+      "actual_available_mm": null,
+      "upstream_route_complete": false
+    }
+  ],
+  "assumptions": {
+    "MTA_body_mm": [
+      16,
+      35,
+      22
+    ],
+    "lead_OD_mm": 5,
+    "R_mm": 20,
+    "each_free_factory_lead_mm": 100,
+    "all_project_not_supplier": true
+  },
+  "part_ownership": "Two mirrored carrier prints x2 each, eight M2x12 Deck fasteners; bank/cover removal leaves carriers stationary.",
+  "manufacturing": "PETG; proposed pad-down with sacrificial support under cantilever/tower, +10mm brim allowance; actual nozzle/profile/strength/creep unverified.",
+  "assembly": "Power absent. Fasten carriers to BARE removed Deck before source/electronics/wiring; only then add source assembly. Prewire loose P-WAGOs then close levers. Mount holders with two ties each, heads below pads. Source-side factory lead exits reserved only; exact routes/lengths remain open.",
+  "open": [
+    "Source-side four leads must reach their actual P_FRONT/P_REAR ports, not merely free exit reserves.",
+    "Native Deck bores and cover reliefs required only after shared fit accepted.",
+    "Eight M2 tool approaches and bank/cover removal must be qualified."
+  ]
+}
