@@ -1,0 +1,3501 @@
+{
+  "status": "PHASE1_INCOMPLETE_QUANTITY_LEDGER_NOT_ORDER_RELEASE",
+  "phase1_complete": false,
+  "selected_prints": "hardware/manufacturing/one-batch-prototype-r47/selection.json",
+  "owned_and_excluded": [
+    "Raspberry Pi 4B"
+  ],
+  "lines": [
+    {
+      "id": "p0:BUS-USB-CABLE-P0",
+      "name": "Lanberg USB-A / USB-C 2.0, 0.5 m, tylko Pi do adaptera BUS",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "Pi USB2 to BUS USB-C,500mm factory cable NOT CUT; nominal route308.0703mm+60service+40bodies<=500. Loose excess storage atR>=24; service slack and stored excess are not counted twice.",
+      "manufacturer_sku": "CA-USBO-10CU-0005-BK",
+      "EAN": "5901969416237",
+      "product_binding": {
+        "quantity_id": "p0:BUS-USB-CABLE-P0",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Lanberg",
+        "manufacturer_part": "CA-USBO-10CU-0005-BK",
+        "supplier": "Botland",
+        "supplier_sku": "14824",
+        "supplier_url": "https://botland.com.pl/przewody-usb-c/14824-przewod-lanberg-usb-a-20-usb-c-czarny-05m-5901969416237.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:CHARGER",
+      "name": "SkyRC iMAX B6AC v2 SK-100008, Botland AKC-06103",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:CHARGER",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "SkyRC",
+        "manufacturer_part": "SK-100008",
+        "supplier": "Botland",
+        "supplier_sku": "6103",
+        "supplier_url": "https://botland.com.pl/ladowarki-lipo/6103-ladowarka-li-polli-hvli-ionli-feni-cdni-mh-z-balanserem-skyrc-imax-b6ac-v2-usb-z-wbudowanym-zasilaczem-6930460000040.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:BATTERY-MONITOR",
+      "name": "P309 1â€“8S z buzzerem, Botland MOD-05015 â€” wyÅ‚Ä…cznie alarm",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:BATTERY-MONITOR",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": null,
+        "manufacturer_part": null,
+        "supplier": "Botland",
+        "supplier_sku": "5015",
+        "supplier_url": "https://botland.com.pl/wskazniki-rozladowania/5015-wskaznik-napiecia-li-pol-1-8s-z-buzzerem-p309-5904422333270.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:HEATSHRINK",
+      "name": "Zestaw100 rurek termokurczliwych 1,5-13 mm, rÃ³Å¼ne kolory",
+      "planning_quantity": 1,
+      "unit": "zestaw",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:HEATSHRINK",
+        "planning_quantity": 1,
+        "unit": "zestaw",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": null,
+        "manufacturer_part": null,
+        "supplier": "Botland",
+        "supplier_sku": "5375",
+        "supplier_url": "https://botland.com.pl/rurki-termokurczliwe/5375-zestaw-rurek-termokurczliwych-100szt-rozne-kolory-5901969414615.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:DATA-BRIDGE-WIRE-P0",
+      "name": "LiY 4126002S, niebieska linka Cu 0.25 mm2, trzy staÅ‚e mostki D",
+      "planning_quantity": 7,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list R37: three200mm blanks (=600mm); actual nominal exposed path lengths in fixed_DATA_bridges interface. Includes28mm cut/strip reserve plus30mm rework allowance. Actual stripping by delivered221-415 marking. Remaining purchase stock stays outside the robot.",
+      "product_binding": {
+        "quantity_id": "p0:DATA-BRIDGE-WIRE-P0",
+        "planning_quantity": 7,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "LAPP",
+        "manufacturer_part": "4126002S",
+        "supplier": "Conrad",
+        "supplier_sku": "607974",
+        "supplier_url": "https://www.conrad.pl/pl/p/przewod-linka-lapp-4126002s-liy-liy-1-x-0-25-mm-niebieski-produkty-w-metrach-biezacych-607974.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:PI-POWER-CABLE",
+      "name": "Joy-IT K-1474 USB-C18AWG1m5A; output nominal<=291mm after dry-fit, not old25cm",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "One cable shared: MAIN input<=300mm, Pi output<=291mm nominal including36mm ends/slack, >409mm leftover. Cut only after fitting; no second cable. R40 W060 black nominal220mm blank after178.669mm route, not a second cable. Black leftover489.751mm after Pi reserve290.249mm; redW078 still unrouted<=150mm. Parallel conductors are not summed against one1m cable. R44 supersedes old unrouted red150mm: W078 nominal210mm, W060black220mm retained. Per colour Pi290.249+input, redleft499.751/blackleft489.751mm; same single cable.",
+      "manufacturer_sku": "K-1474",
+      "EAN": "4250236828305",
+      "product_binding": {
+        "quantity_id": "p0:PI-POWER-CABLE",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Joy-IT",
+        "manufacturer_part": "K-1474",
+        "supplier": "Conrad",
+        "supplier_sku": "3304684",
+        "supplier_url": "https://www.conrad.pl/pl/p/kabel-zasilajacy-joy-it-k-1474-1-szt-3304684.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:TERMINAL-SERVO-OUT-P0",
+      "name": "TE Connectivity 2-520184-2 FASTON 6,35x0,81 mm, 0,3-0,9 mm2",
+      "planning_quantity": 20,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:TERMINAL-SERVO-OUT-P0",
+        "planning_quantity": 20,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "2-520184-2",
+        "supplier": "Farnell Polska",
+        "supplier_sku": "488306",
+        "supplier_url": "https://pl.farnell.com/amp-te-connectivity/2-520184-2/crimp-terminal-female-6-3x0-8mm/dp/488306",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:MAIN-SWITCH",
+      "name": "S0: HELLA 6EK 002 843-002 â€” gÅ‚Ã³wny wyÅ‚Ä…cznik baterii",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:MAIN-SWITCH",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "HELLA",
+        "manufacturer_part": "6EK002843-002",
+        "supplier": "Inter Cars",
+        "supplier_sku": "256550",
+        "supplier_url": "https://intercars.pl/produkty/256550-glowny-wylacznik-pradu-akumulator-6ek002-843-002",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:BUS-PIGTAIL-P0",
+      "name": "Waveshare34171: zestaw6 kabli5264 300mm, jeden na przewÃ³d D/G adaptera",
+      "planning_quantity": 1,
+      "unit": "zestaw6",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:BUS-PIGTAIL-P0",
+        "planning_quantity": 1,
+        "unit": "zestaw6",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Waveshare",
+        "manufacturer_part": "34171",
+        "supplier": "Kamami",
+        "supplier_sku": "1204981",
+        "supplier_url": "https://kamami.pl/przewody-do-serw/1204981-5264-3pin-servo-cable-6pcs-options-for-300mm-900mm-lengths-compatible-with-st-sc-cf-series.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:DRIVE-12",
+      "name": "ST3215 12 V â€” Waveshare 22414",
+      "planning_quantity": 12,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:DRIVE-12",
+        "planning_quantity": 12,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Waveshare",
+        "manufacturer_part": "22414",
+        "supplier": "Kamami",
+        "supplier_sku": "1181056",
+        "supplier_url": "https://kamami.pl/serwa-standard/1181056-st3215-servo-programowalne-serwo-z-interfejsem-uart-5906623438952.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:BUS",
+      "name": "Waveshare Bus Servo Adapter (A), 25514",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:BUS",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Waveshare",
+        "manufacturer_part": "25514",
+        "supplier": "Kamami",
+        "supplier_sku": "1187948",
+        "supplier_url": "https://kamami.pl/sterowniki-serw/1187948-serial-bus-servo-driver-board-integrates-servo-power-supply-and-control-circuit-applicable-for-st-5906623428014.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:REG-MAIN",
+      "name": "Pololu D30V33MAL 4853 dla Pi, nastawa projektowa 5.10 V",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:REG-MAIN",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Pololu",
+        "manufacturer_part": "4853",
+        "supplier": "Kamami",
+        "supplier_sku": "1196574",
+        "supplier_url": "https://kamami.pl/step-down/1196574-1-4-7v-3-8a-fine-adjust-step-down-voltage-regulator-d30v33mal-5906623499946.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:DISTRIBUTION",
+      "name": "P0: WAGO 221-615, P_SYS/P_FRONT/P_REAR/G1",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:DISTRIBUTION",
+        "planning_quantity": 4,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "WAGO",
+        "manufacturer_part": "221-615",
+        "supplier": "Kamami",
+        "supplier_sku": "1180756",
+        "supplier_url": "https://kamami.pl/szybkozlacza/1180756-zlaczka-instalacyjna-compact-5-przewodow-6mm-221-615-5906623436811.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:XT60",
+      "name": "P0 AMASS XT60H-M+F+osÅ‚ony, zestaw Kamami581961",
+      "planning_quantity": 1,
+      "unit": "zestaw",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:XT60",
+        "planning_quantity": 1,
+        "unit": "zestaw",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "AMASS",
+        "manufacturer_part": "XT60H-M/F with covers",
+        "supplier": "Kamami",
+        "supplier_sku": "581961",
+        "supplier_url": "https://kamami.pl/zlacza-adaptery/581961-xt60-zlacze-wysokopradowe-wtyk-gniazdo-oslonki-5906623459148.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:SD",
+      "name": "Karta microSD 64 GB Class 10 z Raspberry Pi OS i adapterem",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:SD",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": null,
+        "manufacturer_part": null,
+        "supplier": "Kamami",
+        "supplier_sku": "1188166",
+        "supplier_url": "https://kamami.pl/karty-pamieci-do-raspberry-pi/1188166-raspberry-pi-os-microsd-64gb-klasa-10-dawny-raspbian-5906623481682.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:BATTERY",
+      "name": "Gens Ace G-Tech Soaring GEA223S30X6GT, LiPo 3S 2200 mAh 30C XT60",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:BATTERY",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Gens Ace",
+        "manufacturer_part": "GEA223S30X6GT",
+        "supplier": "RC Planeta",
+        "supplier_sku": "1570",
+        "supplier_url": "https://rc-planeta.pl/pl/3s-111v/1570-li-po-gens-ace-2200mah-111v--5297773122427.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:BATTERY-STRAPS-P0",
+      "name": "Pasek baterii iFlight 15x200 mm z metalowÄ… sprzÄ…czkÄ…",
+      "planning_quantity": 2,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:BATTERY-STRAPS-P0",
+        "planning_quantity": 2,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": null,
+        "manufacturer_part": null,
+        "supplier": "RCManiak",
+        "supplier_sku": "4982",
+        "supplier_url": "https://rcmaniak.pl/pl/p/Battery-Strap-15x200mm-Opaska-rzep-szyta-z-met.-szprzaczka/4982",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:MOTOR-STOP-MANUAL-P0",
+      "name": "S1 P0: NKK S821 / S-821 DPST ON-OFF, dwa oddzielne banki po 6 serw",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:MOTOR-STOP-MANUAL-P0",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "NKK",
+        "manufacturer_part": "S821",
+        "supplier": "RS Polska",
+        "supplier_sku": "354-3235",
+        "supplier_url": "https://pl.rs-online.com/web/p/przelacznik-migowy-przechylny/3543235",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:MAIN-FUSE",
+      "name": "F0 P0: Littelfuse 0287030.PXCN 30A/32VDC, wkÅ‚adka",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:MAIN-FUSE",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "0287030.PXCN",
+        "supplier": "TME",
+        "supplier_sku": "0287030.PXCN",
+        "supplier_url": "https://www.tme.eu/pl/details/0287030.pxcn/bezpieczniki-samochodowe-standardowe/littelfuse/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:MAIN-FUSE-HOLDER",
+      "name": "F0 P0: Littelfuse FHAC0002ZXJ 30A/32VDC, 12AWG",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:MAIN-FUSE-HOLDER",
+        "planning_quantity": 1,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "FHAC0002ZXJ",
+        "supplier": "TME",
+        "supplier_sku": "FHAC0002ZXJ",
+        "supplier_url": "https://www.tme.eu/pl/details/fhac0002zxj/gniazda-bezpiecznikowe-samochodowe/littelfuse/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:FUSES",
+      "name": "MTA miniVAL 32 V DC, kandydat AMFM-10A zamiast zestawu WTA JUS-22264",
+      "planning_quantity": 10,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:FUSES",
+        "planning_quantity": 10,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "MTA",
+        "manufacturer_part": "MINIVAL10A",
+        "supplier": "TME",
+        "supplier_sku": "AMFM-10A",
+        "supplier_url": "https://www.tme.eu/pl/details/amfm-10a/bezpieczniki-samochodowe-mini/mta/minival-10a/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:FUSE-HOLDERS",
+      "name": "MTA 0100335 / TME MTA-MINI-HOLDER, oprawki MINIVAL gaÅ‚Ä™zi zamiast KAB-05473",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list; MTA catalog editions list 0100335 with L120 or L140 mm. Confirm delivered revision/lead side before final cut; unrelated CHE YEN drawing is not substituted.",
+      "product_binding": {
+        "quantity_id": "p0:FUSE-HOLDERS",
+        "planning_quantity": 4,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "MTA",
+        "manufacturer_part": "0100335",
+        "supplier": "TME",
+        "supplier_sku": "MTA-MINI-HOLDER",
+        "supplier_url": "https://www.tme.eu/pl/details/mta-mini-holder/gniazda-bezpiecznikowe-samochodowe/mta/0100335/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:SERVO-HOLDERS-P0",
+      "name": "12 oprawek panelowych serw MTA0300330 ze stykami, bez PCB",
+      "planning_quantity": 12,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:SERVO-HOLDERS-P0",
+        "planning_quantity": 12,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "MTA",
+        "manufacturer_part": "0300330",
+        "supplier": "TME",
+        "supplier_sku": "0300330",
+        "supplier_url": "https://www.tme.eu/pl/details/0300330/gniazda-bezpiecznikowe-samochodowe/mta/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:WIRE-INLET-BLACK12-P0",
+      "name": "P0 LAPP0107001 12AWG: minus baterii i 12 czerwono oznaczonych wejÅ›Ä‡ wkÅ‚adek",
+      "planning_quantity": 2,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:WIRE-INLET-BLACK12-P0",
+        "planning_quantity": 2,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "LAPP",
+        "manufacturer_part": "0107001",
+        "supplier": "TME",
+        "supplier_sku": "HEAT260SC-12BK",
+        "supplier_url": "https://www.tme.eu/pl/details/heat260sc-12bk/przewody-odporne-na-temperature/lapp/0107001/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:WIRE-RED4-P0",
+      "name": "P0 staÅ‚a wiÄ…zka: HELU 23802 SiF 4mm2 czerwony",
+      "planning_quantity": 2,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:WIRE-RED4-P0",
+        "planning_quantity": 2,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "HELU",
+        "manufacturer_part": "23802",
+        "supplier": "TME",
+        "supplier_sku": "SIF4.00-R",
+        "supplier_url": "https://www.tme.eu/pl/details/sif4.00-r/przewody-silikonowe-jednozylowe/helu/23802/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:WIRE-BLACK4-P0",
+      "name": "P0 staÅ‚a wiÄ…zka: TKD 2500125 SiF 4mm2 czarny",
+      "planning_quantity": 2,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list R38 W061 one240mm blank from shared2m stock. Nominal exposed181.575mm; reserve28mm plus30mm rework is not stripping. G1.5 strip12-14mm, G2.1 strip11mm; confirm delivered markings. Other grounds/stock balance OPEN.",
+      "product_binding": {
+        "quantity_id": "p0:WIRE-BLACK4-P0",
+        "planning_quantity": 2,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "TKD",
+        "manufacturer_part": "2500125",
+        "supplier": "TME",
+        "supplier_sku": "TKD-2500125",
+        "supplier_url": "https://www.tme.eu/pl/details/tkd-2500125/przewody-silikonowe-jednozylowe/tkd/2500125/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:TERMINAL-S0-P0",
+      "name": "Oczko izolowane TE Connectivity 130207 M10, 12-10 AWG",
+      "planning_quantity": 2,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:TERMINAL-S0-P0",
+        "planning_quantity": 2,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "130207",
+        "supplier": "TME",
+        "supplier_sku": "130207",
+        "supplier_url": "https://www.tme.eu/pl/details/130207/konektory-izolowane/te-connectivity/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:TERMINAL-S1-P0",
+      "name": "Oczko izolowane TE Connectivity 130171 M5, 3-6 mm2",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:TERMINAL-S1-P0",
+        "planning_quantity": 4,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "130171",
+        "supplier": "TME",
+        "supplier_sku": "130171",
+        "supplier_url": "https://www.tme.eu/pl/details/130171/konektory-izolowane/te-connectivity/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:TERMINAL-SERVO-IN-P0",
+      "name": "TE Connectivity 4-520448-2 FASTON 6,3x0,8 mm, 3-6 mm2",
+      "planning_quantity": 12,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:TERMINAL-SERVO-IN-P0",
+        "planning_quantity": 12,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "4-520448-2",
+        "supplier": "TME",
+        "supplier_sku": "4-520448-2",
+        "supplier_url": "https://www.tme.eu/pl/details/4-520448-2/konektory-izolowane/te-connectivity/",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "p0:BATTERY-PAD-P0",
+      "name": "Pianka PE 1 mm na podkÅ‚adkÄ™ baterii 107x36 mm",
+      "planning_quantity": 1,
+      "unit": "arkusz",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+      "product_binding": {
+        "quantity_id": "p0:BATTERY-PAD-P0",
+        "planning_quantity": 1,
+        "unit": "arkusz",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "Rolfoam",
+        "manufacturer_part": "PE TR PYR white1mm100x100cm",
+        "supplier": "mikrogumasklep.pl / Rolfoam",
+        "supplier_sku": "pianka-polietylenowa-pe-1-mm-biala",
+        "supplier_url": "https://mikrogumasklep.pl/pianka-polietylenowa-pe-1-mm-biala",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "sleeve:5052942064",
+      "name": "RNF-100 2.4/1.2 mm black, individual fuse joint insulation",
+      "planning_quantity": 6,
+      "unit": "m",
+      "source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "note": "TME listing: 1.2m pieces, 5 pieces/package, ordering multiple6m. This is purchase packaging, not installed consumption. Recheck commercial unit in phase2. R33 Pi:3/32 supplies5 GPIO15mm blanks and2 MAIN inner neck sleeves;3/16 no longer used as two interfering MAIN outer sleeves. Existing stock unchanged. W060 adds one4mm inner blank; trim to actual2mm neck offPCB. R44 adds7mm red inner blank, retained black inner; actual neck fit/trim offPCB.",
+      "manufacturer_part": "RNF-100-3/32-0-STK",
+      "manufacturer_url": "https://www.te.com/en/product-5052942064.html",
+      "product_binding": {
+        "quantity_id": "sleeve:5052942064",
+        "planning_quantity": 6,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "RNF-100-3/32-0-STK",
+        "supplier": "TME",
+        "supplier_sku": "RNF-100-3/32-0-STK",
+        "supplier_url": "https://www.tme.eu/pl/details/rnf-100-3_32-0-stk/rurki-termokurczliwe/te-connectivity/",
+        "product_evidence": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "sleeve:5053042067",
+      "name": "RNF-100 4.8/2.4 mm black, outer fuse insulation",
+      "planning_quantity": 6,
+      "unit": "m",
+      "source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "note": "Polish TME page read29Sep: minimum6m, multiple6m, stated1.2m pieces. Manufacturer nominal1220mm differs from distributor rounded1.2m; neither is a cut instruction. Recheck packaging in phase2. R33 Pi:3/32 supplies5 GPIO15mm blanks and2 MAIN inner neck sleeves;3/16 no longer used as two interfering MAIN outer sleeves. Existing stock unchanged. W060 adds one15mm outer blank allowance, trimmed offPCB to nominal8.01mm placement and at least6mm intact overlap. R44 removes W060-only15mm outer allowance and adds20mm splice outer; shared MAIN input uses existing3/8 stock.",
+      "manufacturer_part": "RNF-100-3/16-0-STK",
+      "manufacturer_url": "https://www.te.com/en/product-5053042067.html",
+      "product_binding": {
+        "quantity_id": "sleeve:5053042067",
+        "planning_quantity": 6,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "RNF-100-3/16-0-STK",
+        "supplier": "TME",
+        "supplier_sku": "RNF-100-3/16-0-STK",
+        "supplier_url": "https://www.tme.eu/pl/details/rnf-100-3_16-0-stk/rurki-termokurczliwe/te-connectivity/",
+        "product_evidence": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "tie:111-01910",
+      "name": "T18R-PA66-BK 100 x 2.5 mm ties, replaces generic P0 2.5x100 allowance",
+      "planning_quantity": 100,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "note": "One manufacturer bag100 replaces, not supplements, generic P0 allowance50. Reserve4 for F_PWM:2 body anchors plus2 independent wire restraints. Remaining46 beyond P0+F_PWM provisional allowances is not a complete installed tie census.",
+      "manufacturer_part": "111-01910",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18r/111-01910",
+      "product_binding": {
+        "quantity_id": "tie:111-01910",
+        "planning_quantity": 100,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+        "manufacturer": "HellermannTyton",
+        "manufacturer_part": "111-01910",
+        "supplier": "TME",
+        "supplier_sku": "111-01910",
+        "supplier_url": null,
+        "product_evidence": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "fuse:FHAC0001ZXJ",
+      "name": "F_PI, F_AUX, F_HY, F_HP, F_TY inline ATO holders",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+      "note": "Whole installed total5, including existing P0 F_PI; no obsolete F_COIL, no speculative holder spares.",
+      "product_binding": {
+        "quantity_id": "fuse:FHAC0001ZXJ",
+        "planning_quantity": 5,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "FHAC0001ZXJ",
+        "supplier": "TME",
+        "supplier_sku": "FHAC0001ZXJ",
+        "supplier_url": "https://www.tme.eu/pl/details/fhac0001zxj/gniazda-bezpiecznikowe-samochodowe/littelfuse/",
+        "product_evidence": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "fuse:0287001.PXCN",
+      "name": "F_HY, F_HP, F_TY 1 A ATO",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+      "note": "Three installed plus two spares; no F_COIL. max(ceil1.25*3,3+2)=5.",
+      "product_binding": {
+        "quantity_id": "fuse:0287001.PXCN",
+        "planning_quantity": 5,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "0287001.PXCN",
+        "supplier": "TME",
+        "supplier_sku": "0287001.PXCN",
+        "supplier_url": "https://www.tme.eu/pl/details/0287001.pxcn/bezpieczniki-samochodowe-standardowe/littelfuse/",
+        "product_evidence": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Exact TME page read2026-10-02,1A32VDC ATOF; no circuit approval"
+      }
+    },
+    {
+      "id": "fuse:0287004.PXCN",
+      "name": "12 ST3215 branches plus F_AUX, 4 A ATO",
+      "planning_quantity": 17,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+      "note": "Whole-cat count with spares, not additional_to_p0",
+      "product_binding": {
+        "quantity_id": "fuse:0287004.PXCN",
+        "planning_quantity": 17,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "0287004.PXCN",
+        "supplier": "TME",
+        "supplier_sku": "0287004.PXCN",
+        "supplier_url": "https://www.tme.eu/pl/details/0287004.pxcn/bezpieczniki-samochodowe-standardowe/littelfuse/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "fuse:0287003.PXCN",
+      "name": "F_PI 3 A ATO",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+      "note": "Whole-cat count with spares, not additional_to_p0",
+      "product_binding": {
+        "quantity_id": "fuse:0287003.PXCN",
+        "planning_quantity": 3,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "0287003.PXCN",
+        "supplier": "TME",
+        "supplier_sku": "0287003.PXCN",
+        "supplier_url": "https://www.tme.eu/pl/details/0287003.pxcn/bezpieczniki-samochodowe-standardowe/littelfuse/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "fuse:0242.100UAT1",
+      "name": "F_PWM axial 0.1 A, separately sleeved fixed pigtail",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+      "note": "Whole-cat count with spares, not additional_to_p0",
+      "product_binding": {
+        "quantity_id": "fuse:0242.100UAT1",
+        "planning_quantity": 3,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+        "manufacturer": "Littelfuse",
+        "manufacturer_part": "0242.100UAT1",
+        "supplier": "TME",
+        "supplier_sku": "0242.100UAT1",
+        "supplier_url": "https://www.tme.eu/pl/details/0242.100uat1/bezpieczniki-osiowe-szybkie/littelfuse/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+        "retail_minimum": 1,
+        "retail_multiple": 1,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:AUX-SERVO-MG92B",
+      "name": "TowerPro MG92B positional, Botland DNG-24409",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:AUX-SERVO-MG92B",
+        "planning_quantity": 3,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "TowerPro",
+        "manufacturer_part": "MG92B positional",
+        "supplier": "Botland",
+        "supplier_sku": "24409",
+        "supplier_url": "https://botland.com.pl/serwa-typu-standard/24409-towerpro-mg92b-serwomechanizm-cyfrowy-z-metalowa-przekladnia.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:MG92B-JR-EXTENSION",
+      "name": "Kamami 586761, JR/Futaba male-female 30 cm 22 AWG",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:MG92B-JR-EXTENSION",
+        "planning_quantity": 3,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": null,
+        "manufacturer_part": null,
+        "supplier": "Kamami",
+        "supplier_sku": "586761",
+        "supplier_url": "https://kamami.pl/przewody-do-serw/586761-przedluzacz-do-serw-30cm-5906623462995.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:AUX6-REGULATOR",
+      "name": "Pololu 4092 D36V50F6, Kamami 586583",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:AUX6-REGULATOR",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "Pololu",
+        "manufacturer_part": "4092",
+        "supplier": "Kamami",
+        "supplier_sku": "586583",
+        "supplier_url": "https://kamami.pl/step-down/586583-modul-przetwornicy-6v-step-down-55a-d36v50f6-pololu-4092-5906623413102.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:PWM-CONTROLLER",
+      "name": "Adafruit 815 PCA9685, Kamami 199856",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:PWM-CONTROLLER",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "Adafruit",
+        "manufacturer_part": "815 revC",
+        "supplier": "Kamami",
+        "supplier_sku": "199856",
+        "supplier_url": "https://kamami.pl/sterowniki-serw/199856-adafruit-pca9685-modul-16-kanalowego-sterownika-serw-z-interfejsem-i2c-5906623402557.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:PWM-U1-ADAPTER",
+      "name": "Kamami 575070 SOP24/DIP24 adapter",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:PWM-U1-ADAPTER",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": null,
+        "manufacturer_part": null,
+        "supplier": "Kamami",
+        "supplier_sku": "575070",
+        "supplier_url": "https://kamami.pl/przejsciowki-smd---dip/575070-adapter-pcb-sop24-na-dip24-5906623456895.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:PWM-LEVEL-TRANSLATOR",
+      "name": "TI SN74LVC8T245PW TSSOP24, TME",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:PWM-LEVEL-TRANSLATOR",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "Texas Instruments",
+        "manufacturer_part": "SN74LVC8T245PW",
+        "supplier": "TME",
+        "supplier_sku": "SN74LVC8T245PW",
+        "supplier_url": "https://www.tme.eu/pl/details/sn74lvc8t245pw/konwertery-logiczne/texas-instruments/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:PWM5-REGULATOR",
+      "name": "ST L78L05ACZ TO92, TME",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:PWM5-REGULATOR",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "STMicroelectronics",
+        "manufacturer_part": "L78L05ACZ",
+        "supplier": "TME",
+        "supplier_sku": "L78L05ACZ",
+        "supplier_url": "https://www.tme.eu/pl/details/l78l05acz/stabilizatory-napiecia-nieregulowane/stmicroelectronics/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "additional:PWM-PROTOTYPE-BOARD",
+      "name": "Adafruit 1608, Conrad 1516556",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current",
+      "product_binding": {
+        "quantity_id": "additional:PWM-PROTOTYPE-BOARD",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "Adafruit",
+        "manufacturer_part": "1608",
+        "supplier": "Conrad",
+        "supplier_sku": "1516556",
+        "supplier_url": "https://www.conrad.pl/pl/p/plytka-bez-wyposazenia-adafruit-1608-1-szt-1516556.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "passive:KEMET C320C334K5R5TA",
+      "name": "330nF 50V X7R 10%, radial, 2.54mm pitch",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current",
+      "product_binding": {
+        "quantity_id": "passive:KEMET C320C334K5R5TA",
+        "planning_quantity": 3,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "KEMET",
+        "manufacturer_part": "C320C334K5R5TA",
+        "supplier": "DigiKey",
+        "supplier_sku": "product page 14681348",
+        "supplier_url": "https://www.digikey.com/en/products/detail/kemet/C320C334K5R5TA/14681348",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "passive:KEMET C315C104K5R5TA",
+      "name": "100nF 50V X7R 10%, radial, 2.54mm pitch",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current",
+      "product_binding": {
+        "quantity_id": "passive:KEMET C315C104K5R5TA",
+        "planning_quantity": 5,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "KEMET",
+        "manufacturer_part": "C315C104K5R5TA",
+        "supplier": "DigiKey Poland",
+        "supplier_sku": "product page 12701330",
+        "supplier_url": "https://www.digikey.pl/pl/products/detail/kemet/C315C104K5R5TA/12701330",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "passive:Vishay MRS16000C2201FCT00",
+      "name": "2.2kohm 1% 0.4W axial, 3.6mm body",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current",
+      "product_binding": {
+        "quantity_id": "passive:Vishay MRS16000C2201FCT00",
+        "planning_quantity": 3,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "Vishay",
+        "manufacturer_part": "MRS16000C2201FCT00",
+        "supplier": "DigiKey",
+        "supplier_sku": "product page 7351361",
+        "supplier_url": "https://www.digikey.com/en/products/detail/vishay-beyschlag-draloric-bc-components/MRS16000C2201FCT00/7351361",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "passive:Vishay MRS16000C2200FCT00",
+      "name": "220ohm 1% 0.4W axial, 3.6mm body",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current",
+      "product_binding": {
+        "quantity_id": "passive:Vishay MRS16000C2200FCT00",
+        "planning_quantity": 5,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "Vishay",
+        "manufacturer_part": "MRS16000C2200FCT00",
+        "supplier": "DigiKey Poland",
+        "supplier_sku": "product page 7350454",
+        "supplier_url": "https://www.digikey.pl/pl/products/detail/vishay-beyschlag-draloric-bc-components/MRS16000C2200FCT00/7350454",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "passive:Vishay MRS16000C1002FCT00",
+      "name": "10kohm 1% 0.4W axial, 3.6mm body",
+      "planning_quantity": 17,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current",
+      "product_binding": {
+        "quantity_id": "passive:Vishay MRS16000C1002FCT00",
+        "planning_quantity": 17,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "Vishay",
+        "manufacturer_part": "MRS16000C1002FCT00",
+        "supplier": "DigiKey",
+        "supplier_sku": "product page 5063734",
+        "supplier_url": "https://www.digikey.com/en/products/detail/vishay-beyschlag-draloric-bc-components/MRS16000C1002FCT00/5063734",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "connector:430250200",
+      "name": "JPWM_IN two-pole power service connector only; no AUX6/3V3 duplicate",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus two spare contacts where applicable; orientation/crimp open",
+      "product_binding": {
+        "quantity_id": "connector:430250200",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "Molex",
+        "manufacturer_part": "430250200",
+        "supplier": "DigiKey",
+        "supplier_sku": "WM1783-ND",
+        "supplier_url": "https://www.digikey.pl/pl/products/detail/molex/0430250200/252496",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "connector:430200201",
+      "name": "JPWM_IN two-pole power service connector only; no AUX6/3V3 duplicate",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus two spare contacts where applicable; orientation/crimp open",
+      "product_binding": {
+        "quantity_id": "connector:430200201",
+        "planning_quantity": 1,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "manufacturer": "Molex",
+        "manufacturer_part": "430200201",
+        "supplier": null,
+        "supplier_sku": null,
+        "supplier_url": null,
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "wire:HELU23502:red",
+      "name": "HELU SiF 1x1mm2 red, 2.5mm OD",
+      "planning_quantity": 5,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+      "note": "5m planning allowance of each color, cut after dry fit; approximate AWG18 not 17. Actual current, pad solder, routed bend and stock still open.",
+      "manufacturer_sku": "23502",
+      "supplier": "TME",
+      "supplier_sku": "SIF1.00-R",
+      "url": "https://www.tme.eu/pl/details/sif1.00-r/przewody-silikonowe-jednozylowe/helu/23502/",
+      "nominal_section_mm2": 1.0,
+      "approximate_od_mm": 2.5,
+      "product_binding": {
+        "quantity_id": "wire:HELU23502:red",
+        "planning_quantity": 5,
+        "unit": "m",
+        "inherited_quantity_source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+        "manufacturer": "HELU",
+        "manufacturer_part": "23502",
+        "supplier": "TME",
+        "supplier_sku": "SIF1.00-R",
+        "supplier_url": "https://www.tme.eu/pl/details/sif1.00-r/przewody-silikonowe-jednozylowe/helu/23502/",
+        "product_evidence": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "wire:HELU23501:black",
+      "name": "HELU SiF 1x1mm2 black, 2.5mm OD",
+      "planning_quantity": 5,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+      "note": "5m planning allowance of each color, cut after dry fit; approximate AWG18 not 17. Actual current, pad solder, routed bend and stock still open.",
+      "manufacturer_sku": "23501",
+      "supplier": "TME",
+      "supplier_sku": "SIF1.00-B",
+      "url": "https://www.tme.eu/pl/details/sif1.00-b/przewody-silikonowe-jednozylowe/helukabel/23501/",
+      "nominal_section_mm2": 1.0,
+      "approximate_od_mm": 2.5,
+      "product_binding": {
+        "quantity_id": "wire:HELU23501:black",
+        "planning_quantity": 5,
+        "unit": "m",
+        "inherited_quantity_source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+        "manufacturer": "HELU",
+        "manufacturer_part": "23501",
+        "supplier": "TME",
+        "supplier_sku": "SIF1.00-B",
+        "supplier_url": "https://www.tme.eu/pl/details/sif1.00-b/przewody-silikonowe-jednozylowe/helukabel/23501/",
+        "product_evidence": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "wire:HELU23302:red",
+      "name": "HELU SiF 1x0.5mm2 red, nominal OD2.1mm",
+      "planning_quantity": 12,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+      "note": "Existing total planning allowance retained, not a cut length; confirm continuous-length sale and availability in phase2. 31.5mm minimum bend for loose flexing wire is not drag-chain lifetime qualification.",
+      "manufacturer_sku": "23302",
+      "supplier": "TME",
+      "supplier_sku": "SIF0.50-R",
+      "url": "https://www.tme.eu/pl/details/sif0.50-r/przewody-silikonowe-jednozylowe/helu/23302/",
+      "nominal_section_mm2": 0.5,
+      "approximate_od_mm": 2.1,
+      "minimum_fixed_bend_radius_mm": 12.6,
+      "minimum_flexible_bend_radius_mm": 31.5,
+      "product_binding": {
+        "quantity_id": "wire:HELU23302:red",
+        "planning_quantity": 12,
+        "unit": "m",
+        "inherited_quantity_source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+        "manufacturer": "HELU",
+        "manufacturer_part": "23302",
+        "supplier": "TME",
+        "supplier_sku": "SIF0.50-R",
+        "supplier_url": "https://www.tme.eu/pl/details/sif0.50-r/przewody-silikonowe-jednozylowe/helu/23302/",
+        "product_evidence": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Exact TME page read2026-10-02;0.5mm2/red/OD2.1.100m manufacturer package is not inferred as retail minimum"
+      }
+    },
+    {
+      "id": "wire:HELU23301:black",
+      "name": "HELU SiF 1x0.5mm2 black, nominal OD2.1mm",
+      "planning_quantity": 8,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+      "note": "Existing total planning allowance retained, not a cut length; confirm continuous-length sale and availability in phase2. 31.5mm minimum bend for loose flexing wire is not drag-chain lifetime qualification.",
+      "manufacturer_sku": "23301",
+      "supplier": "TME",
+      "supplier_sku": "SIF0.50-B",
+      "url": "https://www.tme.eu/pl/details/sif0.50-b/przewody-silikonowe-jednozylowe/helu/23301/",
+      "nominal_section_mm2": 0.5,
+      "approximate_od_mm": 2.1,
+      "minimum_fixed_bend_radius_mm": 12.6,
+      "minimum_flexible_bend_radius_mm": 31.5,
+      "product_binding": {
+        "quantity_id": "wire:HELU23301:black",
+        "planning_quantity": 8,
+        "unit": "m",
+        "inherited_quantity_source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+        "manufacturer": "HELU",
+        "manufacturer_part": "23301",
+        "supplier": "TME",
+        "supplier_sku": "SIF0.50-B",
+        "supplier_url": "https://www.tme.eu/pl/details/sif0.50-b/przewody-silikonowe-jednozylowe/helu/23301/",
+        "product_evidence": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Exact TME page read2026-10-02;0.5mm2/black/OD2.1.100m manufacturer package is not inferred as retail minimum"
+      }
+    },
+    {
+      "id": "wire:fixed:Donau-118-0",
+      "name": "Donau118-0 red LiY0.14mm2, fixed cassette ONLY",
+      "planning_quantity": 1,
+      "unit": "roll10m",
+      "source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+      "note": "One ordinary10m roll, not500m industrial spool. Fixed local logic/PWM supply and signal return ONLY, no servo power or moving loop. Cut after bench fitting; this is not a10m harness. Phase2 refresh stock/price/delivery.",
+      "manufacturer_sku": "118-0",
+      "supplier": "TME",
+      "supplier_sku": "D-118-0",
+      "url": "https://www.tme.eu/pl/details/d-118-0/przewody-jednozylowe-linka/donau-elektronik/118-0/",
+      "contained_length_m": 10,
+      "product_binding": {
+        "quantity_id": "wire:fixed:Donau-118-0",
+        "planning_quantity": 1,
+        "unit": "roll10m",
+        "inherited_quantity_source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+        "manufacturer": "Donau Elektronik",
+        "manufacturer_part": "118-0",
+        "supplier": "TME",
+        "supplier_sku": "D-118-0",
+        "supplier_url": "https://www.tme.eu/pl/details/d-118-0/przewody-jednozylowe-linka/donau-elektronik/118-0/",
+        "product_evidence": "https://donau-elektronik.de/artikel/kabel-litzen/",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Existing selected R18 fixed-logic-wire.json,red10m roll; not moving wiring"
+      }
+    },
+    {
+      "id": "wire:fixed:Donau-118-3",
+      "name": "Donau118-3 yellow LiY0.14mm2, fixed cassette ONLY",
+      "planning_quantity": 1,
+      "unit": "roll10m",
+      "source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+      "note": "One ordinary10m roll, not500m industrial spool. Fixed local logic/PWM supply and signal return ONLY, no servo power or moving loop. Cut after bench fitting; this is not a10m harness. Phase2 refresh stock/price/delivery.",
+      "manufacturer_sku": "118-3",
+      "supplier": "TME",
+      "supplier_sku": "D-118-3",
+      "url": "https://www.tme.eu/pl/details/d-118-3/przewody-jednozylowe-linka/donau-elektronik/118-3/",
+      "contained_length_m": 10,
+      "product_binding": {
+        "quantity_id": "wire:fixed:Donau-118-3",
+        "planning_quantity": 1,
+        "unit": "roll10m",
+        "inherited_quantity_source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+        "manufacturer": "Donau Elektronik",
+        "manufacturer_part": "118-3",
+        "supplier": "TME",
+        "supplier_sku": "D-118-3",
+        "supplier_url": "https://www.tme.eu/pl/details/d-118-3/przewody-jednozylowe-linka/donau-elektronik/118-3/",
+        "product_evidence": "https://donau-elektronik.de/artikel/kabel-litzen/",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Existing selected R18 fixed-logic-wire.json,yellow10m roll; not moving wiring"
+      }
+    },
+    {
+      "id": "wire:fixed:Donau-118-1",
+      "name": "Donau118-1 black LiY0.14mm2, fixed cassette ONLY",
+      "planning_quantity": 1,
+      "unit": "roll10m",
+      "source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+      "note": "One ordinary10m roll, not500m industrial spool. Fixed local logic/PWM supply and signal return ONLY, no servo power or moving loop. Cut after bench fitting; this is not a10m harness. Phase2 refresh stock/price/delivery.",
+      "manufacturer_sku": "118-1",
+      "supplier": "TME",
+      "supplier_sku": "D-118-1",
+      "url": "https://www.tme.eu/pl/details/d-118-1/przewody-jednozylowe-linka/donau-elektronik/118-1/",
+      "contained_length_m": 10,
+      "product_binding": {
+        "quantity_id": "wire:fixed:Donau-118-1",
+        "planning_quantity": 1,
+        "unit": "roll10m",
+        "inherited_quantity_source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+        "manufacturer": "Donau Elektronik",
+        "manufacturer_part": "118-1",
+        "supplier": "TME",
+        "supplier_sku": "D-118-1",
+        "supplier_url": "https://www.tme.eu/pl/details/d-118-1/przewody-jednozylowe-linka/donau-elektronik/118-1/",
+        "product_evidence": "https://donau-elektronik.de/artikel/kabel-litzen/",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Existing selected R18 fixed-logic-wire.json,black10m roll; not moving wiring"
+      }
+    },
+    {
+      "id": "filament:Sunlu PETG 1.75mm 1kg Black, Botland SLU-24167; same SKU already in P0 cart",
+      "name": "Sunlu PETG 1.75mm 1kg Black, Botland SLU-24167; same SKU already in P0 cart",
+      "planning_quantity": 3,
+      "unit": "1kg spool",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Includes the P0 spool; provisional reserve, actual slicer consumption in Phase 2",
+      "product_binding": {
+        "quantity_id": "filament:Sunlu PETG 1.75mm 1kg Black, Botland SLU-24167; same SKU already in P0 cart",
+        "planning_quantity": 3,
+        "unit": "1kg spool",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "manufacturer": "Sunlu",
+        "manufacturer_part": "PETG1.75mm1kgBlack",
+        "supplier": "Botland",
+        "supplier_sku": "24167",
+        "supplier_url": "https://botland.com.pl/filamenty-petg/24167-filament-sunlu-petg-175mm-1kg-black.html",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "tie:111-02370",
+      "name": "HellermannTyton T18I-PA66-BK 145x2.5",
+      "manufacturer_sku": "111-02370",
+      "supplier_sku": "T18I-PA66-BK",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18i/111-02370",
+      "supplier_url": "https://www.tme.eu/pl/details/t18i-pa66-bk/opaski-zaciskowe/hellermanntyton/111-02370/",
+      "installed": 95,
+      "planning_quantity": 100,
+      "unit": "pcs",
+      "pack": 100,
+      "dimensions_mm": {
+        "length": 145,
+        "width": 2.5,
+        "thickness": 1.2,
+        "head_length": 4.8,
+        "head_width": 4.5,
+        "height_H": 3.5
+      },
+      "note": "One bag100, not100 installed. Working allowance: 1 P_REAR + 10 inline-holder + 6 AUX WAGO ties = 17. Actual tie routing/retention after delivery; no second bag selected. R17 adds four working ties for XB11:two connector and two interlinked insulated-wire restraints, from existing bag100. Not a whole-robot tie census. R19 adds two wire-support ties, one per hanger, using existing bag100. R20 adds14:6 Carrier pad/port restraints,2 converter-WAGO ends,1 XA02 middle support,3 XA05 endpoints/midspan and2 XA06 endpoints. Existing bag100 covers37 installed. R22 adds5 for C_HP:two housing straps,two insulated ends andone loose factory-coil guard. Bag100 unchanged; ordinary ties cut/replaced for removal. R23 adds2 independent moving/fixed insulation-seat ties, cut and replaced for cover removal. R25 adds4 fixed yaw:2 JR housing,1 factory insulation and1 extension insulation. Existingbag100 sufficient; cut/replace for removal. R27 adds8 centralhead ties:2FHAC insulation,2G_AUX return insulation,2lowerpitchreturn supports,1PWMCarrier,1yawDeckentry. Existing bag100 retained; one-use ties cut/replaced for disassembly. R29 adds5localtail ties/looseguard and2centralend ties. One bag100 unchanged; no externalU support/tie. R30: two formerly reserved F_COIL holder ties are not installed. Old working-count history is not a current census; existing100pc bag remains unchanged. R32 E2 adds six housing/source/module/ground/board-end ties; 69 working installed, bag100 unchanged. R33 adds6 GPIO,4 power/USB/MAIN,2 loose-USB-park ties;81 working installed, bag100 unchanged. R37 adds six insulation-seat ties for W007/W011/W012, two per stationary DATA bridge. Working installed87 from the same100pc bag. Not yet the final whole-robot K3 census. R38 adds three W061 insulation restraints from the same100pc bag. Working90, not the final K3 census. R40 W060 adds3 insulation seats/ties. Working93 from the same100pc bag; fullW5/K3 census remains open. R44: replace2 oldF_PI small loops with1T30L; add4small splice/portal/MAIN loops. Working95, same100bag; full census OPEN.",
+      "source": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json",
+      "product_binding": {
+        "quantity_id": "tie:111-02370",
+        "planning_quantity": 100,
+        "unit": "pcs",
+        "inherited_quantity_source": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json",
+        "manufacturer": "HellermannTyton",
+        "manufacturer_part": "111-02370",
+        "supplier": "TME",
+        "supplier_sku": "T18I-PA66-BK",
+        "supplier_url": "https://www.tme.eu/pl/details/t18i-pa66-bk/opaski-zaciskowe/hellermanntyton/111-02370/",
+        "product_evidence": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json",
+        "retail_minimum": 100,
+        "retail_multiple": 100,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Existing selected rear-fuse-cassette-r2 materials-delta,bag100; no second bag"
+      }
+    },
+    {
+      "id": "connector:2147612113",
+      "name": "Molex Micro-Fit3.0 female factory20AWG225+/-5mm red, source XP02/XP03",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+      "note": "R32 replaces old150mm source, one installed+one spare; not an added splice. Trim factory tin before WAGO. Supplier/stock/order phase2.",
+      "manufacturer_sku": "2147612113",
+      "product_binding": {
+        "quantity_id": "connector:2147612113",
+        "planning_quantity": 2,
+        "unit": "pcs",
+        "inherited_quantity_source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+        "manufacturer": "Molex",
+        "manufacturer_part": "2147612113",
+        "supplier": "DigiKey",
+        "supplier_sku": "900-2147612113-ND",
+        "supplier_url": "https://www.digikey.com/en/products/detail/molex/2147612113/12352891",
+        "product_evidence": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "supplier_constraint": "Main DigiKey offer shows3000 minimum and no distributor stock; marketplace is not validated for2pieces. Do not order3000 or assert near-term availability."
+      }
+    },
+    {
+      "id": "connector:2147611113",
+      "name": "Molex Micro-Fit3.0 female factory20AWG225+/-5mm black, source XP02/XP03",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+      "note": "R32 replaces old150mm source, one installed+one spare; not an added splice. Trim factory tin before WAGO. Supplier/stock/order phase2.",
+      "manufacturer_sku": "2147611113",
+      "product_binding": {
+        "quantity_id": "connector:2147611113",
+        "planning_quantity": 2,
+        "unit": "pcs",
+        "inherited_quantity_source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+        "manufacturer": "Molex",
+        "manufacturer_part": "2147611113",
+        "supplier": "DigiKey",
+        "supplier_sku": "900-2147611113-ND",
+        "supplier_url": "https://www.digikey.com/en/products/detail/molex/2147611113/12352926",
+        "product_evidence": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "supplier_constraint": "DigiKey page shows0 stock and20weeks manufacturer lead time; find exact local alternative, not a different length/contact."
+      }
+    },
+    {
+      "id": "connector:2147632112",
+      "name": "Molex Micro-Fit 3.0 factory-crimped male-to-pigtail, 20 AWG, 150±5 mm, red; XP02.board to PWM_REG_IN",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+      "note": "1 fitted + 1 spare; actual supplier stock, housing cavity, reach, bend and termination still require confirmation",
+      "product_binding": {
+        "quantity_id": "connector:2147632112",
+        "planning_quantity": 2,
+        "unit": "pcs",
+        "inherited_quantity_source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+        "manufacturer": "Molex",
+        "manufacturer_part": "2147632112",
+        "supplier": null,
+        "supplier_sku": null,
+        "supplier_url": null,
+        "product_evidence": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "connector:2147631112",
+      "name": "Molex Micro-Fit 3.0 factory-crimped male-to-pigtail, 20 AWG, 150±5 mm, black; XP03.board to G_SYS",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+      "note": "1 fitted + 1 spare; actual supplier stock, housing cavity, reach, bend and termination still require confirmation",
+      "product_binding": {
+        "quantity_id": "connector:2147631112",
+        "planning_quantity": 2,
+        "unit": "pcs",
+        "inherited_quantity_source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+        "manufacturer": "Molex",
+        "manufacturer_part": "2147631112",
+        "supplier": "DigiKey",
+        "supplier_sku": "900-2147631112-ND",
+        "supplier_url": "https://www.digikey.co.uk/en/products/detail/molex/2147631112/12353007",
+        "product_evidence": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "splice:WAGO221-412",
+      "name": "WAGO221-412 two-conductor lever splice for XB11 only",
+      "manufacturer_sku": "221-412",
+      "supplier": "Kamami",
+      "supplier_sku": "1188364",
+      "planning_quantity": 2,
+      "installed": 1,
+      "unit": "pcs",
+      "url": "https://kamami.pl/szybkozlacza/1188364-wago-221-412-zlaczka-instalacyjna-2-przewody-4mm-5902186324565.html",
+      "source": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+      "note": "1 installed +1 spare; exact voltage/section family fits6V,1mm2 and16AWG. Refresh stock/price/delivery in phase2, not ordered; no crimper required.",
+      "product_binding": {
+        "quantity_id": "splice:WAGO221-412",
+        "planning_quantity": 2,
+        "unit": "pcs",
+        "inherited_quantity_source": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+        "manufacturer": "WAGO",
+        "manufacturer_part": "221-412",
+        "supplier": "Kamami",
+        "supplier_sku": "1188364",
+        "supplier_url": "https://kamami.pl/szybkozlacza/1188364-wago-221-412-zlaczka-instalacyjna-2-przewody-4mm-5902186324565.html",
+        "product_evidence": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "evidence": "Exact redirected product page read2026-10-02; same XB11 two-port connector"
+      }
+    },
+    {
+      "id": "wire:moving-PWM-HELU23308",
+      "name": "HELU23308 SiF yellow0.5mm2 OD2.1, TME SIF0.50-Y",
+      "planning_quantity": 6,
+      "unit": "m",
+      "source": "hardware/manufacturing/one-batch-prototype-r24/wire-sources.json",
+      "note": "6m existing planning allowance, cut after fit, +30mm per detachable end and25% purchasing allowance already reserved. Rigid local U1 leads0.14 unchanged; JR22AWG tails joined outside motion. Flexible minimum31.5mm/fixed12.6. Meter listing, procurement refresh phase2; not ordered.",
+      "product_binding": {
+        "quantity_id": "wire:moving-PWM-HELU23308",
+        "planning_quantity": 6,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r24/wire-sources.json",
+        "manufacturer": "HELU",
+        "manufacturer_part": "23308",
+        "supplier": "TME",
+        "supplier_sku": "SIF0.50-Y",
+        "supplier_url": "https://www.tme.eu/pl/details/sif0.50-y/przewody-silikonowe-jednozylowe/helu/23308/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r24/wire-sources.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "insulation:RNF-100-1/8-9-STK",
+      "name": "TE RNF-100 white1/8 sleeve3.17->1.57mm",
+      "planning_quantity": 6,
+      "unit": "m",
+      "installed_sleeves": 12,
+      "source": "hardware/manufacturing/one-batch-prototype-r26/insulation-sources.json",
+      "note": "Current TME minimum6m/five1.2m sticks;9installed+9trialspares consume<0.25m. Exact insulation for smallMG92B joints; retain P0 assortment for largerpower joints. Procurement refresh phase2, not ordered. R29 R9 uses3additional14/32/30mm rough blanks, overlap body/lead and existing PWM/GND joint sleeves; total12installed +12trialspares, existing6m unchanged. R32 E2 adds two15mm module-board sleeves from existing stock; no extra package.",
+      "product_binding": {
+        "quantity_id": "insulation:RNF-100-1/8-9-STK",
+        "planning_quantity": 6,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r26/insulation-sources.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "5053032136",
+        "supplier": "TME",
+        "supplier_sku": "RNF-100-1/8-9-STK",
+        "supplier_url": "https://www.tme.eu/pl/details/rnf-100-1_8-9-stk/rurki-termokurczliwe/te-connectivity/",
+        "product_evidence": "hardware/manufacturing/one-batch-prototype-r26/insulation-sources.json",
+        "retail_minimum": 6,
+        "retail_multiple": 6,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "Pi:J8_housing_1992",
+      "name": "Pololu1992 2x20 female crimp housing",
+      "manufacturer_sku": "1992",
+      "planning_quantity": 1,
+      "unit": "pack5",
+      "installed": 1,
+      "spares": 4,
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+      "product_binding": {
+        "quantity_id": "Pi:J8_housing_1992",
+        "planning_quantity": 1,
+        "unit": "pack5",
+        "inherited_quantity_source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+        "manufacturer": "Pololu",
+        "manufacturer_part": "1992",
+        "supplier": "Pololu",
+        "supplier_sku": "Pololu1992",
+        "supplier_url": "https://www.pololu.com/product/1992",
+        "product_evidence": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+        "retail_minimum": 1,
+        "retail_multiple": 1,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "pack_contents": 5
+      }
+    },
+    {
+      "id": "Pi:GPIO_brown_1871",
+      "name": "Pololu1871 brown26AWG600mm female-female factory-crimp lead",
+      "manufacturer_sku": "1871",
+      "planning_quantity": 2,
+      "unit": "pack5",
+      "installed": 5,
+      "spares": 5,
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+      "product_binding": {
+        "quantity_id": "Pi:GPIO_brown_1871",
+        "planning_quantity": 2,
+        "unit": "pack5",
+        "inherited_quantity_source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+        "manufacturer": "Pololu",
+        "manufacturer_part": "1871",
+        "supplier": "Pololu",
+        "supplier_sku": "Pololu1871",
+        "supplier_url": "https://www.pololu.com/product/1871",
+        "product_evidence": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+        "retail_minimum": 1,
+        "retail_multiple": 1,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+        "pack_contents": 5
+      }
+    },
+    {
+      "id": "insulation:Pi:RNF-100-3/8-0-STK",
+      "name": "TE RNF1003/8 black9.5/4.8mm COMMON MAIN input/output boots",
+      "manufacturer_sku": "RNF-100-3/8-0-STK",
+      "planning_quantity": 6,
+      "unit": "m",
+      "installed_blanks": 2,
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+      "note": "Five1.2m sticks conservative purchase allowance; supplier minimum/availability refreshedphase2. One common boot around both already independently insulated pad necks, not two separate overlapping sleeves. R44 adds ONE20mm shared MAIN INPUT outer blank; retained output15mm commonboot unchanged. Do not add a second stock purchase.",
+      "blank_lengths_mm": [
+        15,
+        20
+      ],
+      "product_binding": {
+        "quantity_id": "insulation:Pi:RNF-100-3/8-0-STK",
+        "planning_quantity": 6,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+        "manufacturer": "TE Connectivity",
+        "manufacturer_part": "5053142077",
+        "supplier": "TME",
+        "supplier_sku": "RNF-100-3/8-0-STK",
+        "supplier_url": "https://www.tme.eu/pl/details/rnf-100-3_8-0-stk/rurki-termokurczliwe/te-connectivity/",
+        "product_evidence": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:p0:1",
+      "name": "HellermannTyton T30L-PA66-BK,111-03410, opaski3,5mm",
+      "planning_quantity": 100,
+      "unit": "szt.",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "111-03410",
+      "supplier_sku": "TME:T30L-BK",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t30l/111-03410",
+      "supplier_url": "https://www.tme.com/us/en-us/details/t30l-bk/cable-ties/hellermanntyton/111-03410/",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 100,
+      "stock_unit": "szt.",
+      "existing_working_allowance": 21,
+      "unallocated_stock": 79,
+      "note": "Zastępuje ogólne3,6×200, nie małe111-02370. Źródła różnią długość190/198mm: dla przymiarki przyjmować190mm, sprawdzić rewizję dostawy. Oprawki/F0/P309 i większe wiązki: wolny opas albo istniejąca droga o potwierdzonej szerokości; nie wciskać3,5mm w szczeliny dla2,5mm. Nie zmieniono żadnego wybranego mocowania CAD; końcowy spis użycia w W5/K3 pozostaje otwarty. R44 adds1 explicitF_PI holder strap to the prior20 working allowance;21+79=100, same bag. Actual head6x6x4 is a project fit reserve, not supplier measurement.",
+      "product_binding": {
+        "quantity_id": "consumable:p0:1",
+        "planning_quantity": 100,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "manufacturer": "HellermannTyton",
+        "manufacturer_part": "111-03410",
+        "supplier": "TME",
+        "supplier_sku": "TME:T30L-BK",
+        "supplier_url": "https://www.tme.com/us/en-us/details/t30l-bk/cable-ties/hellermanntyton/111-03410/",
+        "product_evidence": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:p0:2",
+      "name": "tesa On&Off55224-00000-02, samoprzylepny komplet rzepa20mm×1m czarny",
+      "planning_quantity": 1,
+      "unit": "komplet",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "55224-00000-02",
+      "supplier_sku": "TME:TESA-55224-20-1",
+      "manufacturer_url": "https://www.tesa.com/de-de/files/download/11555752%2C2%2Ctesa-consumerkatalog-2024-online.pdf",
+      "supplier_url": "https://www.tme.com/us/en-us/details/tesa-55224-20-1/fixing-tapes/tesa/55224-00000-02/",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 1,
+      "stock_unit": "m sparowanych powierzchni",
+      "existing_working_allowance": 0.5,
+      "unallocated_stock": 0.5,
+      "note": "Jeden zestaw obu powierzchni, nie dwie dodatkowo liczone rolki. Lekkie moduły/P309, dodatkowo mechaniczne zabezpieczenie opaską. Nie zastępuje dwóch pasków baterii P0. Grubość dostawy nie jest potwierdzona: nie wykorzystano jej do ogłoszenia pasowania aktualnego CAD.",
+      "product_binding": {
+        "quantity_id": "consumable:p0:2",
+        "planning_quantity": 1,
+        "unit": "komplet",
+        "inherited_quantity_source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "manufacturer": "tesa",
+        "manufacturer_part": "55224-00000-02",
+        "supplier": "TME",
+        "supplier_sku": "TME:TESA-55224-20-1",
+        "supplier_url": "https://www.tme.com/us/en-us/details/tesa-55224-20-1/fixing-tapes/tesa/55224-00000-02/",
+        "product_evidence": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:p0:3",
+      "name": "HellermannTyton HEGP06-PET-BK170-10600, oplotPET, rolkaRS5m",
+      "planning_quantity": 5,
+      "unit": "m",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "170-10600",
+      "supplier_sku": "RS:187-4638",
+      "manufacturer_url": "https://www.hellermanntyton.com/in/products/open-woven-sleeves/hegp06/170-10600",
+      "supplier_url": "https://pl.rs-online.com/web/p/tuleje-kablowe/1874638",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 5,
+      "stock_unit": "m",
+      "existing_working_allowance": 3,
+      "unallocated_stock": 2,
+      "note": "Wybrany odcinek dystrybutora5m zamiast fabrycznej rolki100m. Nie mylić ze170-10617, gotowym krótkim odcinkiem. Cztery wiązki nóg: założyć przed końcami, nie zakładać oplotu na już zamknięte feedy głowy bez ponownej kontroli. Dokładne cięcia/średnice i zakończenia będą przypisane w W5;3m pozostaje zapasem planistycznym, nie pomiarem trasy.",
+      "product_binding": {
+        "quantity_id": "consumable:p0:3",
+        "planning_quantity": 5,
+        "unit": "m",
+        "inherited_quantity_source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "manufacturer": "HellermannTyton",
+        "manufacturer_part": "170-10600",
+        "supplier": "RS",
+        "supplier_sku": "RS:187-4638",
+        "supplier_url": "https://pl.rs-online.com/web/p/tuleje-kablowe/1874638",
+        "product_evidence": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:p0:4",
+      "name": "Henkel LOCTITEEA3430, IDH242865, podwójna strzykawka24ml",
+      "planning_quantity": 1,
+      "unit": "strzykawka24ml",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "242865",
+      "supplier_sku": "Farnell:1769530",
+      "manufacturer_url": "https://next.henkel-adhesives.com/ca/en/products/industrial-adhesives/central-pdp.html/loctite-ea-3430/1000396/variation/242865.html",
+      "supplier_url": "https://pl.farnell.com/loctite/3430-24ml/loctite-3430-24ml/dp/1769530",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 24,
+      "stock_unit": "ml mieszaniny",
+      "existing_working_allowance": null,
+      "unallocated_stock": null,
+      "note": "Tylko zewnętrzny obwód czterech uchwytówR6 po próbie na rzeczywistymPETG. Żadna deklaracja producenta nie kwalifikuje tego drukowanegoPETG. Punktowe zatrzymanie nieobciążonego uchwytu, bez kleju na stalowej drodze docisku, podkładkach, gwintach, śrubach.15min nie oznacza pełnego utwardzenia.",
+      "product_binding": {
+        "quantity_id": "consumable:p0:4",
+        "planning_quantity": 1,
+        "unit": "strzykawka24ml",
+        "inherited_quantity_source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "manufacturer": "Henkel",
+        "manufacturer_part": "242865",
+        "supplier": "Farnell",
+        "supplier_sku": "Farnell:1769530",
+        "supplier_url": "https://pl.farnell.com/loctite/3430-24ml/loctite-3430-24ml/dp/1769530",
+        "product_evidence": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:p0:5:abrasive",
+      "name": "Bosch2609256A53, papierP240delta93mm,5szt, do ręcznego matowania",
+      "planning_quantity": 1,
+      "unit": "opakowanie5szt.",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "2609256A53",
+      "supplier_sku": "Bosch2609256A53 / EAN3165140614696",
+      "manufacturer_url": "https://www.bosch-diy.com/de/de/p/schleifblatt-set-5-teilig-2762738",
+      "supplier_url": "https://allegro.pl/produkt/bosch-papier-scierny-rzep-93mm-p240-finish-5-szt-0c96d3a0-0328-4419-ab78-560a0dc64680",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 5,
+      "stock_unit": "szt.",
+      "existing_working_allowance": 1,
+      "unallocated_stock": 4,
+      "note": "Małe opakowanie5arkuszy zamiast50arkuszy PS8A; nie wymaga kupowania szlifierki. URL katalogu ofert nie wybiera sprzedawcy: przed zamówieniem sprawdzić dokładnyEAN,5szt i dostawę. Ręcznie zmatowić tylko obwód klejenia; nie zmieniać wymiarów kieszeni ani powierzchni pod stalową podkładką.",
+      "product_binding": {
+        "quantity_id": "consumable:p0:5:abrasive",
+        "planning_quantity": 1,
+        "unit": "opakowanie5szt.",
+        "inherited_quantity_source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "manufacturer": "Bosch",
+        "manufacturer_part": "2609256A53",
+        "supplier": "Allegro, exact EAN product",
+        "supplier_sku": "Bosch2609256A53 / EAN3165140614696",
+        "supplier_url": "https://allegro.pl/produkt/bosch-papier-scierny-rzep-93mm-p240-finish-5-szt-0c96d3a0-0328-4419-ab78-560a0dc64680",
+        "product_evidence": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:p0:5:IPA",
+      "name": "AGTermoPasty KontaktIPAPlus ART.AGT-002,100ml z aplikatorem",
+      "planning_quantity": 1,
+      "unit": "butelka100ml",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "ART.AGT-002",
+      "supplier_sku": "Gotronik:AGT-002",
+      "manufacturer_url": "https://termopasty.com/produkty/kontakt-ipa-plus/",
+      "supplier_url": "https://www.gotronik.pl/kontakt-ipa-plus-100ml-oliwiarka-p-207.html",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 100,
+      "stock_unit": "ml",
+      "existing_working_allowance": null,
+      "unallocated_stock": null,
+      "note": "Po próbie materiałowej: czyścić miejscowo obwód pustych częściPETG i całkowicie wysuszyć. Nie stosować na ogniwa/etykietęLiPo ani zamiast izolacji. Sklep równocześnie pokazuje dostępność i tekst niedostępności: nie potwierdza zapasu; odświeżyć w fazie2.",
+      "product_binding": {
+        "quantity_id": "consumable:p0:5:IPA",
+        "planning_quantity": 1,
+        "unit": "butelka100ml",
+        "inherited_quantity_source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "manufacturer": "AG TermoPasty",
+        "manufacturer_part": "ART.AGT-002",
+        "supplier": "Gotronik",
+        "supplier_sku": "Gotronik:AGT-002",
+        "supplier_url": "https://www.gotronik.pl/kontakt-ipa-plus-100ml-oliwiarka-p-207.html",
+        "product_evidence": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "id": "consumable:solder:T0051402499",
+      "name": "Weller WSW SAC M1 1.0mm100g, T0051402499",
+      "manufacturer": "Weller",
+      "manufacturer_sku": "T0051402499",
+      "planning_quantity": 1,
+      "unit": "spool100g",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 100,
+      "stock_unit": "g",
+      "alloy": "Sn96.5Ag3.0Cu0.5",
+      "diameter_mm": 1,
+      "flux_percent": 3.5,
+      "flux": "No-Clean core",
+      "verified_consumption_g": null,
+      "no_separate_flux_required_in_default_set": true,
+      "source": "https://www.weller-tools.com/us/en/industrial-soldering/products/soldering-wire/wsw-sac-m1-10mm-100g-sn30ag05cu35",
+      "note": "Jeden wspólny zapas do wszystkich lutów, nie jedna rolka na moduł.100g to wybrany standardowy rozmiar opakowania, nie pomiar zużycia. Rdzeń jest topnikiem; nie dokładać osobnej butelki bez potrzeby procesu. Pożyczenie materiału zamiast zakupu dopuszczalne.",
+      "product_binding": {
+        "quantity_id": "consumable:solder:T0051402499",
+        "planning_quantity": 1,
+        "unit": "spool100g",
+        "inherited_quantity_source": "https://www.weller-tools.com/us/en/industrial-soldering/products/soldering-wire/wsw-sac-m1-10mm-100g-sn30ag05cu35",
+        "manufacturer": "Weller",
+        "manufacturer_part": "T0051402499",
+        "supplier": null,
+        "supplier_sku": null,
+        "supplier_url": null,
+        "product_evidence": "https://www.weller-tools.com/us/en/industrial-soldering/products/soldering-wire/wsw-sac-m1-10mm-100g-sn30ag05cu35",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      }
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x6"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X006VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x6-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 6,
+        "b": 6,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X006VISK",
+      "name": "0912A2-M020X006VISK",
+      "unit": "pcs",
+      "planning_quantity": 10,
+      "retail_order_quantity": 10,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x6",
+          "planning_quantity": 10,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x8"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X008VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x8-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 8,
+        "b": 8,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X008VISK",
+      "name": "0912A2-M020X008VISK",
+      "unit": "pcs",
+      "planning_quantity": 6,
+      "retail_order_quantity": 6,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x8",
+          "planning_quantity": 6,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x10"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X010VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x10-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 10,
+        "b": 10,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X010VISK",
+      "name": "0912A2-M020X010VISK",
+      "unit": "pcs",
+      "planning_quantity": 14,
+      "retail_order_quantity": 14,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x10",
+          "planning_quantity": 14,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack R19 adds 4 installed for two XB11 under-deck hangers."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x12",
+        "fastener:Pi:BUS_M2x12"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X012VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x12-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 12,
+        "b": 12,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X012VISK",
+      "name": "0912A2-M020X012VISK",
+      "unit": "pcs",
+      "planning_quantity": 24,
+      "retail_order_quantity": 24,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x12",
+          "planning_quantity": 18,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        },
+        {
+          "id": "fastener:Pi:BUS_M2x12",
+          "planning_quantity": 6,
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+          "note": ""
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x14"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X014VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x14-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 14,
+        "b": 14,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X014VISK",
+      "name": "0912A2-M020X014VISK",
+      "unit": "pcs",
+      "planning_quantity": 20,
+      "retail_order_quantity": 20,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x14",
+          "planning_quantity": 20,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x16"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X016VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x16-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 16,
+        "b": 16,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X016VISK",
+      "name": "0912A2-M020X016VISK",
+      "unit": "pcs",
+      "planning_quantity": 12,
+      "retail_order_quantity": 12,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x16",
+          "planning_quantity": 12,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x18"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M020X018TISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M2x18-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 18,
+        "b": 16,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M020X018TISK",
+      "name": "0912A2-M020X018TISK",
+      "unit": "pcs",
+      "planning_quantity": 4,
+      "retail_order_quantity": 4,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x18",
+          "planning_quantity": 4,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M2x22"
+      ],
+      "supplier": "VueloVerde",
+      "supplier_sku": "VV0763",
+      "url": "https://vueloverde.com/en/socket-head-cap-screw-stainless-a2-din-912/4656-tornillo-m2x22-cabeza-cilindrica-allen-inoxidable-a2-din-912-10uds.html",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 22,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4,
+        "b_nominal_family": 16
+      },
+      "retail_minimum_pieces": 10,
+      "retail_multiple_pieces": 10,
+      "evidence": "Exact A2 DIN912 M2x22 offer: 10 pieces. b=16 is nominal family comparison from Fabory51050.020.022, not VueloVerde's certified thread length. P0 nut interval17.98..19.58mm lies after nominal6mm shank; verify delivered fastener in phase2.",
+      "physical_pass": false,
+      "id": "supplier:VueloVerde:VV0763",
+      "name": "VV0763",
+      "unit": "pcs",
+      "planning_quantity": 6,
+      "retail_order_quantity": 10,
+      "pack_excess_quantity": 4,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M2x22",
+          "planning_quantity": 6,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:M5:M3x8"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M030X008VISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M3x8-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 8,
+        "b": 8,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M030X008VISK",
+      "name": "0912A2-M030X008VISK",
+      "unit": "pcs",
+      "planning_quantity": 4,
+      "retail_order_quantity": 4,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:M5:M3x8",
+          "planning_quantity": 4,
+          "source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json",
+          "note": "New whole-cat row: four installed plus two spares; not purchase approval. Check supplier pack/availability later. R33 replaces installed Pi/north-tray screws only; two previous spare screws retained."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x10",
+        "fastener:Pi:M3x10"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000622",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x10/2058",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 10,
+        "b": 10,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000622",
+      "name": "SKL000622",
+      "unit": "pcs",
+      "planning_quantity": 14,
+      "retail_order_quantity": 14,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x10",
+          "planning_quantity": 10,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        },
+        {
+          "id": "fastener:Pi:M3x10",
+          "planning_quantity": 4,
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+          "note": ""
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x12"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000623",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x12/2059",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 12,
+        "b": 12,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000623",
+      "name": "SKL000623",
+      "unit": "pcs",
+      "planning_quantity": 22,
+      "retail_order_quantity": 22,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x12",
+          "planning_quantity": 22,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 4 installed; previous spare allowance preserved."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x14"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000624",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x14/2060",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 14,
+        "b": 14,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000624",
+      "name": "SKL000624",
+      "unit": "pcs",
+      "planning_quantity": 4,
+      "retail_order_quantity": 4,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x14",
+          "planning_quantity": 4,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x16"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000625",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x16/2061",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 16,
+        "b": 16,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000625",
+      "name": "SKL000625",
+      "unit": "pcs",
+      "planning_quantity": 10,
+      "retail_order_quantity": 10,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x16",
+          "planning_quantity": 10,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x25"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M030X025TISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M3x25-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 25,
+        "b": 18,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written partial thread18mm. Preserve head/shaft outer envelope. Nominal nut engagement must be checked against the selected stack, not assumed from overall length.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M030X025TISK",
+      "name": "0912A2-M030X025TISK",
+      "unit": "pcs",
+      "planning_quantity": 3,
+      "retail_order_quantity": 3,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x25",
+          "planning_quantity": 3,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x30"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M030X030TISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M3x30-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 30,
+        "b": 18,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written partial thread18mm. Preserve head/shaft outer envelope. Nominal nut engagement must be checked against the selected stack, not assumed from overall length.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M030X030TISK",
+      "name": "0912A2-M030X030TISK",
+      "unit": "pcs",
+      "planning_quantity": 3,
+      "retail_order_quantity": 3,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x30",
+          "planning_quantity": 3,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x50"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M030X050TISK",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M3x50-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 50,
+        "b": 18,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written partial thread18mm. Preserve head/shaft outer envelope. Nominal nut engagement must be checked against the selected stack, not assumed from overall length.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M030X050TISK",
+      "name": "0912A2-M030X050TISK",
+      "unit": "pcs",
+      "planning_quantity": 6,
+      "retail_order_quantity": 6,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x50",
+          "planning_quantity": 6,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:ART-INOX:912202025"
+      ],
+      "supplier": "ART-INOX",
+      "supplier_sku": "912202025",
+      "url": "https://www.art-inox.com.pl/pl/p/M2x25-sruba-nierdzewna-imbusowa-DIN-912A2/5256",
+      "dimensions_mm": {
+        "d": 2,
+        "L": 25,
+        "head_d": 3.8,
+        "head_h": 2,
+        "key": 1.5,
+        "pitch": 0.4
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Retained R6 supplier SKU/quantity. Actual thread length was not certified by supplier; do not upgrade historical qualification.",
+      "physical_pass": false,
+      "id": "supplier:ART-INOX:912202025",
+      "name": "912202025",
+      "unit": "pcs",
+      "planning_quantity": 3,
+      "retail_order_quantity": 3,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:ART-INOX:912202025",
+          "planning_quantity": 3,
+          "source": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json",
+          "note": "2 installed+1 spare. Vendor identifies nominal standard/size/material; no certified actual-thread or torque claim. Stock page contains conflicting available/unavailable text; price and availability must be refreshed in phase2."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:Pi:M2.5x16"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M025X016V",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M25x16-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2.5,
+        "L": 16,
+        "head_d": 4.5,
+        "head_h": 2.5,
+        "key": 2,
+        "pitch": 0.45,
+        "b": 16
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Same nominal Pi4 size/head/key and full16mm thread. Source allocation replaces KRAFTBERG offer requiring100pieces; retains4installed+2spares and unchanged CAD.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M025X016V",
+      "name": "0912A2-M025X016V",
+      "unit": "pcs",
+      "planning_quantity": 6,
+      "retail_order_quantity": 6,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:Pi:M2.5x16",
+          "planning_quantity": 6,
+          "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+          "note": ""
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "added:FASTENER-M2P5X12-P0"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0912A2-M025X012V",
+      "url": "https://www.normreich.de/1x-Zylinderschraube-M25x12-DIN-912-A2",
+      "dimensions_mm": {
+        "d": 2.5,
+        "L": 12,
+        "b": 12,
+        "head_d": 4.5,
+        "head_h": 2.5,
+        "key": 2,
+        "pitch": 0.45
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0912A2-M025X012V",
+      "name": "0912A2-M025X012V",
+      "unit": "pcs",
+      "planning_quantity": 6,
+      "retail_order_quantity": 6,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "added:FASTENER-M2P5X12-P0",
+          "planning_quantity": 6,
+          "source": "hardware/build-readiness/p0-order-cart.json",
+          "note": ""
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN934 nuts:M2 DIN934 AF4"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000381",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-2/1762",
+      "dimensions_mm": {
+        "d": 2,
+        "AF": 4,
+        "H": 1.6
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000381",
+      "name": "SKL000381",
+      "unit": "pcs",
+      "planning_quantity": 99,
+      "retail_order_quantity": 99,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN934 nuts:M2 DIN934 AF4",
+          "planning_quantity": 99,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R6 cassette adds2 installed, previous spare allowance retained. R19 adds 4 installed for two XB11 under-deck hangers. R33 adds4 BUS bracket nuts SKL000381; no extra tray nuts."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN934 nuts:M2.5 DIN934"
+      ],
+      "supplier": "NORMREICH",
+      "supplier_sku": "0934A2-M025",
+      "url": "https://www.normreich.de/1x-Sechskantmutter-M25-DIN-934-A2",
+      "dimensions_mm": {
+        "d": 2.5,
+        "AF": 5,
+        "H": 2,
+        "e_min": 5.45,
+        "pitch": 0.45
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:NORMREICH:0934A2-M025",
+      "name": "0934A2-M025",
+      "unit": "pcs",
+      "planning_quantity": 10,
+      "retail_order_quantity": 10,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN934 nuts:M2.5 DIN934",
+          "planning_quantity": 10,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 4 installed; previous spare allowance preserved. Original four nuts are P0 frames, not reusable Pi nuts. Now4frames+4Pi+2existing spares=10."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN934 nuts:M3 DIN934"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000383",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-3/1764",
+      "dimensions_mm": {
+        "d": 3,
+        "AF": 5.5,
+        "H": 2.4,
+        "e_min": 6.01
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000383",
+      "name": "SKL000383",
+      "unit": "pcs",
+      "planning_quantity": 51,
+      "retail_order_quantity": 51,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN934 nuts:M3 DIN934",
+          "planning_quantity": 51,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 8 installed; previous spare allowance preserved."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:washers:P0 M2 DIN125 OD5/ID2.2/t0.3",
+        "fastener:washers:electronics bottom metal M2"
+      ],
+      "supplier": "ART-NIERDZEWNE",
+      "supplier_sku": "00125202",
+      "url": "https://www.art-nierdzewne.pl/din-125-plaska/38-m2-din-125-a2-podkladka-plaska-nierdzewna.html",
+      "dimensions_mm": {
+        "ID": 2.2,
+        "OD": 5,
+        "t": 0.3
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Published index00125202, not historical internal aliasART00125202. Seven R5 PCB bottom washers plus two R6 bottom washers share5/2.2/.3, verified from R5README and R6/Perma isolation stack.",
+      "physical_pass": false,
+      "id": "supplier:ART-NIERDZEWNE:00125202",
+      "name": "00125202",
+      "unit": "pcs",
+      "planning_quantity": 74,
+      "retail_order_quantity": 74,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:washers:P0 M2 DIN125 OD5/ID2.2/t0.3",
+          "planning_quantity": 62,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R6 cassette adds4 installed, previous spare allowance retained. R19 adds 4 installed for two XB11 under-deck hangers. R33 adds4 BUS washers ART00125202; reuse existing tray/Pi washers."
+        },
+        {
+          "id": "fastener:washers:electronics bottom metal M2",
+          "planning_quantity": 12,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:washers:head M2 DIN433 OD4.5"
+      ],
+      "supplier": "BOSSARD / TME",
+      "supplier_sku": "1755994",
+      "url": "https://www.tme.eu/en/details/b2_bn1414/washers/bossard/1755994/",
+      "dimensions_mm": {
+        "ID": 2.2,
+        "OD": 4.5,
+        "t": 0.3
+      },
+      "retail_minimum_pieces": 100,
+      "retail_multiple_pieces": 100,
+      "evidence": "TME symbolB2/BN1414; written manufacturer1755994; minimum/multiple100. 15 planned uses/spares, 100retail pieces, 85pack excess, not installed washers.",
+      "physical_pass": false,
+      "id": "supplier:BOSSARD / TME:1755994",
+      "name": "1755994",
+      "unit": "pcs",
+      "planning_quantity": 15,
+      "retail_order_quantity": 100,
+      "pack_excess_quantity": 85,
+      "roles": [
+        {
+          "id": "fastener:washers:head M2 DIN433 OD4.5",
+          "planning_quantity": 15,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:washers:electronics top nylon"
+      ],
+      "supplier": "Essentra / DigiKey",
+      "supplier_sku": "16M02050080",
+      "url": "https://www.digikey.com/en/products/detail/essentra-components/16M02050080/10299172",
+      "dimensions_mm": {
+        "ID_mfr_nominal": 2.2,
+        "ID_supplier_listing": 2.15,
+        "OD": 5,
+        "t": 0.8
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "DigiKeyRPC10276-ND bulk minimum1. Nylon6/6. Manufacturer nominal2.2 versus supplier2.15; delivered bore/tolerance check remains phase2; only two installed1608 top washers, four planned.",
+      "physical_pass": false,
+      "id": "supplier:Essentra / DigiKey:16M02050080",
+      "name": "16M02050080",
+      "unit": "pcs",
+      "planning_quantity": 4,
+      "retail_order_quantity": 4,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:washers:electronics top nylon",
+          "planning_quantity": 4,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:washers:P0 M3 DIN125",
+        "fastener:washers:head M3 OD7"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL001158",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Podkladka-plaska-nierdzewna-DIN-125-A2-M3/1456",
+      "dimensions_mm": {
+        "ID": 3.2,
+        "OD": 7,
+        "t": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL001158",
+      "name": "SKL001158",
+      "unit": "pcs",
+      "planning_quantity": 63,
+      "retail_order_quantity": 63,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:washers:P0 M3 DIN125",
+          "planning_quantity": 38,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 8 installed; previous spare allowance preserved."
+        },
+        {
+          "id": "fastener:washers:head M3 OD7",
+          "planning_quantity": 25,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:washers:head journal M3 OD9/ID3.2/thickness0.8"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL001221",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Podkladka-szeroka-nierdzewna-DIN-9021-A2-M3/1998",
+      "dimensions_mm": {
+        "ID": 3.2,
+        "OD": 9,
+        "t": 0.8
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL001221",
+      "name": "SKL001221",
+      "unit": "pcs",
+      "planning_quantity": 4,
+      "retail_order_quantity": 4,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:washers:head journal M3 OD9/ID3.2/thickness0.8",
+          "planning_quantity": 4,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:M5:M2.5_DIN125"
+      ],
+      "supplier": "ART-NIERDZEWNE",
+      "supplier_sku": "001252025",
+      "url": "https://www.art-nierdzewne.pl/din-125-plaska/39-m2-5-din-125-a2-podkladka-plaska-nierdzewna.html",
+      "dimensions_mm": {
+        "ID": 2.7,
+        "OD": 6,
+        "t": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:ART-NIERDZEWNE:001252025",
+      "name": "001252025",
+      "unit": "pcs",
+      "planning_quantity": 6,
+      "retail_order_quantity": 6,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:M5:M2.5_DIN125",
+          "planning_quantity": 6,
+          "source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json",
+          "note": "New whole-cat row: four installed plus two spares; not purchase approval. Check supplier pack/availability later."
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:bearings:608ZZ"
+      ],
+      "supplier": "SKF / TME",
+      "supplier_sku": "608-2Z",
+      "url": "https://www.tme.eu/pl/details/skf608-2z/lozyska-toczne/skf/608-2z-skf/",
+      "dimensions_mm": {
+        "ID": 8,
+        "OD": 22,
+        "B": 7
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "TME SKF608-2Z, double metal shields and normal clearance, not608-2RSH/C3/W608. Manufacturer carton10 is not retail minimum: supplier multiples1. Existing bearing seats/ journals remain nominal phase2 fits.",
+      "physical_pass": false,
+      "id": "supplier:SKF / TME:608-2Z",
+      "name": "608-2Z",
+      "unit": "pcs",
+      "planning_quantity": 4,
+      "retail_order_quantity": 4,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:bearings:608ZZ",
+          "planning_quantity": 4,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "id": "supplier:Kamami:1188363",
+      "name": "WAGO221-415",
+      "unit": "pcs",
+      "planning_quantity": 16,
+      "product_binding": {
+        "quantity_id": "p0:DATA-JUNCTIONS-P0",
+        "planning_quantity": 4,
+        "unit": "szt.",
+        "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+        "manufacturer": "WAGO",
+        "manufacturer_part": "221-415",
+        "supplier": "Kamami",
+        "supplier_sku": "1188363",
+        "supplier_url": "https://kamami.pl/szybkozlacza/1188363-wago-221-415-zlaczka-instalacyjna-5-przewodow-4mm-5902186324558.html",
+        "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+        "retail_minimum": null,
+        "retail_multiple": null,
+        "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+      },
+      "roles": [
+        {
+          "id": "p0:DATA-JUNCTIONS-P0",
+          "name": "WAGO221-415: cztery bloki wyÅ‚Ä…cznie DATA dla12serw",
+          "planning_quantity": 4,
+          "unit": "szt.",
+          "source": "hardware/build-readiness/p0-order-cart.json",
+          "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+          "product_binding": {
+            "quantity_id": "p0:DATA-JUNCTIONS-P0",
+            "planning_quantity": 4,
+            "unit": "szt.",
+            "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+            "manufacturer": "WAGO",
+            "manufacturer_part": "221-415",
+            "supplier": "Kamami",
+            "supplier_sku": "1188363",
+            "supplier_url": "https://kamami.pl/szybkozlacza/1188363-wago-221-415-zlaczka-instalacyjna-5-przewodow-4mm-5902186324558.html",
+            "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+            "retail_minimum": null,
+            "retail_multiple": null,
+            "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+          }
+        },
+        {
+          "id": "p0:DISTRIBUTION-G2-P0",
+          "name": "P0: WAGO 221-415, masa tylna i BUS.G",
+          "planning_quantity": 1,
+          "unit": "szt.",
+          "source": "hardware/build-readiness/p0-order-cart.json",
+          "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+          "product_binding": {
+            "quantity_id": "p0:DISTRIBUTION-G2-P0",
+            "planning_quantity": 1,
+            "unit": "szt.",
+            "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+            "manufacturer": "WAGO",
+            "manufacturer_part": "221-415",
+            "supplier": "Kamami",
+            "supplier_sku": "1188363",
+            "supplier_url": "https://kamami.pl/szybkozlacza/1188363-wago-221-415-zlaczka-instalacyjna-5-przewodow-4mm-5902186324558.html",
+            "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+            "retail_minimum": null,
+            "retail_multiple": null,
+            "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+          }
+        },
+        {
+          "id": "p0:DISTRIBUTION-LEGS-P0",
+          "name": "P0: osiem WAGO221-415, plus/masa czterech nÃ³g w korpusie",
+          "planning_quantity": 8,
+          "unit": "szt.",
+          "source": "hardware/build-readiness/p0-order-cart.json",
+          "note": "P0 base quantity; old price/stock deliberately not carried into this list",
+          "product_binding": {
+            "quantity_id": "p0:DISTRIBUTION-LEGS-P0",
+            "planning_quantity": 8,
+            "unit": "szt.",
+            "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+            "manufacturer": "WAGO",
+            "manufacturer_part": "221-415",
+            "supplier": "Kamami",
+            "supplier_sku": "1188363",
+            "supplier_url": "https://kamami.pl/szybkozlacza/1188363-wago-221-415-zlaczka-instalacyjna-5-przewodow-4mm-5902186324558.html",
+            "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+            "retail_minimum": null,
+            "retail_multiple": null,
+            "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+          }
+        },
+        {
+          "id": "additional:AUX-GROUND-DISTRIBUTION",
+          "name": "Kamami 1188363 WAGO 221-415 five-port, same SKU as P0 distribution",
+          "planning_quantity": 3,
+          "unit": "pcs",
+          "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+          "note": "Additional-to-P0 where stated; exact old price/stock not current",
+          "product_binding": {
+            "quantity_id": "additional:AUX-GROUND-DISTRIBUTION",
+            "planning_quantity": 3,
+            "unit": "pcs",
+            "inherited_quantity_source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+            "manufacturer": "WAGO",
+            "manufacturer_part": "221-415",
+            "supplier": "Kamami",
+            "supplier_sku": "1188363",
+            "supplier_url": "https://kamami.pl/szybkozlacza/1188363-wago-221-415-zlaczka-instalacyjna-5-przewodow-4mm-5902186324558.html",
+            "product_evidence": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+            "retail_minimum": null,
+            "retail_multiple": null,
+            "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+          }
+        }
+      ],
+      "source": "hardware/manufacturing/nonfastener-catalog-r1/catalog.json"
+    }
+  ],
+  "line_count": 109,
+  "required_tools_buy_or_borrow": [
+    {
+      "tool": "UNI-T UT33D+",
+      "role": "DC_voltage_and_continuity",
+      "status": "Zapewnić dostęp do posiadanego/pożyczonego odpowiednika; nic nie zakupiono.",
+      "required_for": "Faza2: polaryzacja/napięcie; ciągłość tylko bez napięcia. COM/VΩ, nigdy wejścieA do szeregowego pomiaru całego kota. Żadnego uruchamiania teraz; nie stosować do instalacji sieciowej.",
+      "recipe": "hardware/electronics/full-cat/assembly-tools-k3-r2/tools.json"
+    },
+    {
+      "tool": "Weller T0053298699",
+      "role": "solder_station",
+      "status": "Zapewnić dostęp do posiadanego/pożyczonego odpowiednika; nic nie zakupiono.",
+      "required_for": "Pola MAIN/PWM, stałe splices i XT60; nie lutować baterii. Moc nominalna nie dowodzi czasu nagrzania złącza4mm².",
+      "recipe": "hardware/electronics/full-cat/assembly-tools-k3-r2/tools.json"
+    },
+    {
+      "tool": "Bosch 06032A6100",
+      "role": "heat_shrink",
+      "status": "Zapewnić dostęp do posiadanego/pożyczonego odpowiednika; nic nie zakupiono.",
+      "required_for": "Koszulki grzać na odłączonych przewodach poza PETG i baterią. Nastawa dyszy NIE jest temperaturą materiału; przymierzyć na próbce wg karty wybranej koszulki. Bez płomienia.",
+      "recipe": "hardware/electronics/full-cat/assembly-tools-k3-r2/tools.json"
+    },
+    {
+      "tool": "KNIPEX 12 40 200",
+      "role": "wire_strip_and_cut",
+      "status": "Zapewnić dostęp do posiadanego/pożyczonego odpowiednika; nic nie zakupiono.",
+      "required_for": "Pokrywa0,14..4mm² i zatwierdzone odizolowania7..14mm. Stara i nowa rewizja mają inne ograniczniki; wspólny zakres wystarcza. Dobrać głębokość do dostarczonej izolacji, nie przecinać drucików.",
+      "recipe": "hardware/electronics/full-cat/assembly-tools-k3-r2/tools.json"
+    },
+    {
+      "tool": "TE69710-1+224027-2; TE58628-1; współdzielonyTE58433-3 z58423-1",
+      "status": "Konkretny dostęp lub zgodna usługa przed montażem; nie zakładać posiadania. Dokładne role i warunki w termination-tools-k3-r1/tools.json.",
+      "required_for": "30 zakończeń mocy. Przewód fabryczny OUT i F0 wymaga sprawdzenia; żadnego fizycznego PASS ani zalecenia zakupu wszystkich drogich narzędzi."
+    },
+    {
+      "tool": "WiertÅ‚a2.4/3/6.5mm, stopniowe24mm i gratownik",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "WykoÅ„czenie ram, szczelin i pÅ‚ytki S0 na pustych czÄ™Å›ciach."
+    },
+    {
+      "tool": "Imbusy1,5/2/2,5mm; nasadki4/5/5,5mm; fabrycznePH00/PH0/PH1 wg dostawy",
+      "role": "hex_socket_screws",
+      "status": "Zapewnić dostęp do posiadanego/pożyczonego odpowiednika; nic nie zakupiono.",
+      "required_for": "DIN912M2/M2,5/M3:1,5/2/2,5mm. Zestaw jest przykładem dostępu; posiadane trzy zgodne klucze wystarczą. Używać prostego końca do końcowego docisku, nie wkrętarki w PETG.",
+      "recipe": "hardware/electronics/full-cat/assembly-tools-k3-r2/tools.json"
+    },
+    {
+      "tool": "Bahco 1150D",
+      "role": "caliper",
+      "status": "Zapewnić dostęp do posiadanego/pożyczonego odpowiednika; nic nie zakupiono.",
+      "required_for": "Przymiarka wydruków/wałka/łączników. Rozdzielczość0,01 NIE jest dokładnością0,01 ani potwierdzeniem profilu zębów wieloklinu.",
+      "recipe": "hardware/electronics/full-cat/assembly-tools-k3-r2/tools.json"
+    },
+    {
+      "tool": "CÄ™gowy miernik DC >=40A",
+      "status": "zalecany do prÃ³b, niekonieczny do samego skÅ‚adania",
+      "required_for": "PrÄ…d caÅ‚ej platformy bez rozpinania toru; moÅ¼na poÅ¼yczyÄ‡."
+    }
+  ],
+  "tools_quantity_rule": "Four exact crimp tool SKUs are access requirements, not presumed owned, not component purchase rows.58433-3 includes58423-1; no duplicate die. Other general tools and fullK3 remainOPEN.",
+  "f_pwm_material_selection": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+  "missing_for_phase1": [
+    "Five generic P0 material categories now have six exact SKU rows. Whole W5/tool compatibility/material census remains OPEN.",
+    "R32 closed nominal F_PWM ends; source protection E3 and remaining W5 are not closed by a material kit.",
+    "Resolve remaining generic K2 items and consolidate stock after all routes; no order release or physical PASS."
+  ],
+  "phase2_commercial_refresh": "Current full-quantity stock, tax, price, pack multiples, shipping and combined delivery, followed by user approval and one order.",
+  "required_before_energizing": "Actual source and F0/242 behavior, XP01 route, insulation, crimp pull, polarity and thermal checks; no physical PASS from this ledger.",
+  "no_auto_order": true,
+  "physical_pass": false,
+  "cassette_material_delta": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json",
+  "cassette_ties_used_from_existing_bag100": 8,
+  "inline_holder_ties_used_from_existing_bag100": 8,
+  "aux_wago_ties_used_from_existing_bag100": 6,
+  "head_JR_ties_used_from_existing_bag100": 5,
+  "obsolete_F_COIL_tie_allowance_removed": 2,
+  "protection_reconciliation": "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json",
+  "M5_fastener_delta": "hardware/manufacturing/one-batch-prototype-r31/fastener-delta.json",
+  "electrical_connection_map": "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json",
+  "fixed_DATA_bridges": "hardware/electronics/full-cat/body-data-bridges-r7/interface.json",
+  "fixed_DATA_ties_from_existing_bag100": 6,
+  "fixed_ground_bridge": "hardware/electronics/full-cat/body-ground-bridge-finish-r5/interface.json",
+  "fixed_ground_ties_from_existing_bag100": 3,
+  "assembly_materials": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+  "K3_complete": false,
+  "W5_complete": false,
+  "main_input_return": "hardware/electronics/full-cat/main-input-return-finish-r3/interface.json",
+  "main_input_ties_from_existing_bag100": 3,
+  "G1_exit_restraints": "hardware/electronics/full-cat/g1-exit-restraints-finish-r1/interface.json",
+  "G1_net_extra_ties": 0,
+  "exact_crimp_tool_requirements": [
+    {
+      "sku": "69710-1",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "frame",
+      "used_by": [
+        "4-520448-2 IN ×12"
+      ],
+      "requires": [
+        "224027-2"
+      ]
+    },
+    {
+      "sku": "224027-2",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "12AWG die",
+      "used_by": [
+        "4-520448-2 IN ×12"
+      ],
+      "requires": [
+        "69710-1"
+      ]
+    },
+    {
+      "sku": "58628-1",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "complete hand tool",
+      "used_by": [
+        "2-520184-2 OUT ×12 conditional on delivered wire"
+      ]
+    },
+    {
+      "sku": "58433-3",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "complete frame354940-1 with die58423-1",
+      "used_by": [
+        "130171 S1 ×4",
+        "130207 S0 ×2"
+      ],
+      "included": [
+        "58423-1"
+      ]
+    }
+  ],
+  "crimp_process_recipe": "hardware/electronics/full-cat/termination-tools-k3-r1/tools.json",
+  "exact_workshop_access_requirements": [
+    {
+      "role": "solder_station",
+      "maker": "Weller",
+      "sku": "T0053298699",
+      "quantity": 1,
+      "model": "WE1010 Set 230V with WEP70/PH70",
+      "iron_power_W": 70,
+      "supply_V": 230,
+      "tip_family": "ET",
+      "source": "https://www.weller-tools.com/eu/gb/industrial-soldering/products/soldering-stations/we1010-set-230v",
+      "use": "Pola MAIN/PWM, stałe splices i XT60; nie lutować baterii. Moc nominalna nie dowodzi czasu nagrzania złącza4mm²."
+    },
+    {
+      "role": "solder_tip_large",
+      "maker": "Weller",
+      "sku": "4ETD-1",
+      "quantity": 1,
+      "width_mm": 4.6,
+      "thickness_mm": 0.8,
+      "compatible_iron": "WEP70",
+      "source": "https://www.weller-tools.com/mea/gb/industrial-soldering/products/soldering-tips/et-d",
+      "use": "XT60 i większe końce; geometria grotu nie zastępuje próby lutowania na odłączonej próbce."
+    },
+    {
+      "role": "solder_tip_board",
+      "maker": "Weller",
+      "sku": "4ETB-1",
+      "quantity": 1,
+      "width_mm": 2.4,
+      "thickness_mm": 0.8,
+      "compatible_iron": "WEP70",
+      "source": "https://www.weller-tools.com/mea/gb/industrial-soldering/products/soldering-tips/et-b",
+      "use": "Pola płytki i małe końce; sprawdzić zawartość pożyczonego zestawu, nie liczyć posiadanego grotu drugi raz."
+    },
+    {
+      "role": "wire_strip_and_cut",
+      "maker": "KNIPEX",
+      "sku": "12 40 200",
+      "quantity": 1,
+      "EAN": "4003773026662",
+      "wire_area_mm2": [
+        0.03,
+        10
+      ],
+      "stranded_cut_max_mm2": 10,
+      "old_stop_range_mm": [
+        3,
+        18
+      ],
+      "current_stop_range_mm": [
+        3,
+        22
+      ],
+      "project_stop_range_mm": [
+        3,
+        18
+      ],
+      "source": "https://assets.knipex.net/1240200_en.pdf",
+      "local_source": "Knipex-1240200.pdf",
+      "use": "Pokrywa0,14..4mm² i zatwierdzone odizolowania7..14mm. Stara i nowa rewizja mają inne ograniczniki; wspólny zakres wystarcza. Dobrać głębokość do dostarczonej izolacji, nie przecinać drucików."
+    },
+    {
+      "role": "heat_shrink",
+      "maker": "Bosch",
+      "sku": "06032A6100",
+      "quantity": 1,
+      "model": "UniversalHeat600 EU",
+      "nozzle_settings_C": [
+        50,
+        300,
+        600
+      ],
+      "source": "https://www.bosch-diy.com/de/de/p/universalheat-600-06032a6100",
+      "use": "Koszulki grzać na odłączonych przewodach poza PETG i baterią. Nastawa dyszy NIE jest temperaturą materiału; przymierzyć na próbce wg karty wybranej koszulki. Bez płomienia."
+    },
+    {
+      "role": "DC_voltage_and_continuity",
+      "maker": "UNI-T",
+      "sku": "UT33D+",
+      "quantity": 1,
+      "DC_range_for_cat_V": 20,
+      "continuity": true,
+      "included": [
+        "test leads",
+        "2×R03"
+      ],
+      "source": "https://meters.uni-trend.com/product/ut33plus-series/",
+      "use": "Faza2: polaryzacja/napięcie; ciągłość tylko bez napięcia. COM/VΩ, nigdy wejścieA do szeregowego pomiaru całego kota. Żadnego uruchamiania teraz; nie stosować do instalacji sieciowej."
+    },
+    {
+      "role": "caliper",
+      "maker": "Bahco",
+      "sku": "1150D",
+      "quantity": 1,
+      "range_mm": [
+        0,
+        150
+      ],
+      "resolution_mm": 0.01,
+      "catalog_accuracy_mm": 0.03,
+      "source": "https://www.bahco.com/int_en/precision-measuring-digital-callipers-with-lcd-screen-pb_1150d_.html",
+      "use": "Przymiarka wydruków/wałka/łączników. Rozdzielczość0,01 NIE jest dokładnością0,01 ani potwierdzeniem profilu zębów wieloklinu."
+    },
+    {
+      "role": "hex_socket_screws",
+      "maker": "Wera",
+      "sku": "05133163001",
+      "quantity": 1,
+      "model": "950/9 Hex-Plus3",
+      "required_sizes_mm": [
+        1.5,
+        2,
+        2.5
+      ],
+      "included_sizes_mm": [
+        1.5,
+        2,
+        2.5,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05133163001.pdf",
+      "local_source": "Wera-950-9.pdf",
+      "use": "DIN912M2/M2,5/M3:1,5/2/2,5mm. Zestaw jest przykładem dostępu; posiadane trzy zgodne klucze wystarczą. Używać prostego końca do końcowego docisku, nie wkrętarki w PETG."
+    },
+    {
+      "role": "nut_M2",
+      "maker": "Wera",
+      "sku": "05118120001",
+      "quantity": 1,
+      "model": "2069 Micro",
+      "AF_mm": 4,
+      "catalog_shank_diameter_mm": 5.7,
+      "blade_length_mm": 60,
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05118120001.pdf",
+      "local_source": "Wera-2069.pdf",
+      "use": "Nakrętki dostępne przed zamknięciem korpusu; kieszenie zatrzymujące nakrętki nie wymagają wkładania nasadki. Średnica katalogowej klingi nie dowodzi prześwitu całej główki. Nie rozwiercać kieszeni pod nasadkę."
+    },
+    {
+      "role": "nut_M2.5",
+      "maker": "Wera",
+      "sku": "05118124001",
+      "quantity": 1,
+      "model": "2069 Micro",
+      "AF_mm": 5,
+      "catalog_shank_diameter_mm": 7,
+      "blade_length_mm": 60,
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05118120001.pdf",
+      "local_source": "Wera-2069.pdf",
+      "use": "Nakrętki dostępne przed zamknięciem korpusu; kieszenie zatrzymujące nakrętki nie wymagają wkładania nasadki. Średnica katalogowej klingi nie dowodzi prześwitu całej główki. Nie rozwiercać kieszeni pod nasadkę."
+    },
+    {
+      "role": "nut_M3",
+      "maker": "Wera",
+      "sku": "05118126001",
+      "quantity": 1,
+      "model": "2069 Micro",
+      "AF_mm": 5.5,
+      "catalog_shank_diameter_mm": 7.8,
+      "blade_length_mm": 60,
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05118120001.pdf",
+      "local_source": "Wera-2069.pdf",
+      "use": "Nakrętki dostępne przed zamknięciem korpusu; kieszenie zatrzymujące nakrętki nie wymagają wkładania nasadki. Średnica katalogowej klingi nie dowodzi prześwitu całej główki. Nie rozwiercać kieszeni pod nasadkę."
+    },
+    {
+      "role": "factory_screw_PH00",
+      "maker": "Wera",
+      "sku": "05118020001",
+      "quantity": 1,
+      "model": "2050PH Micro",
+      "tip": "PH00",
+      "source": "https://www.wera.de/en/tools/2050-ph-screwdriver-for-phillips-screws-for-electronic-applications",
+      "use": "Dostęp do małych wkrętów dostawy. Nie zakładać gniazda MG92B z samej średnicy śruby; wybrać pasujący profil przy przymiarce, nie wciskać PH1. PH0 tego SKU jest modyfikowany wg JCIS0."
+    },
+    {
+      "role": "factory_screw_PH0/JCIS0",
+      "maker": "Wera",
+      "sku": "05118022001",
+      "quantity": 1,
+      "model": "2050PH Micro",
+      "tip": "PH0/JCIS0",
+      "source": "https://www.wera.de/en/tools/2050-ph-screwdriver-for-phillips-screws-for-electronic-applications",
+      "use": "Dostęp do małych wkrętów dostawy. Nie zakładać gniazda MG92B z samej średnicy śruby; wybrać pasujący profil przy przymiarce, nie wciskać PH1. PH0 tego SKU jest modyfikowany wg JCIS0."
+    },
+    {
+      "role": "factory_screw_PH1",
+      "maker": "Wera",
+      "sku": "05118024001",
+      "quantity": 1,
+      "model": "2050PH Micro",
+      "tip": "PH1",
+      "source": "https://www.wera.de/en/tools/2050-ph-screwdriver-for-phillips-screws-for-electronic-applications",
+      "use": "Dostęp do małych wkrętów dostawy. Nie zakładać gniazda MG92B z samej średnicy śruby; wybrać pasujący profil przy przymiarce, nie wciskać PH1. PH0 tego SKU jest modyfikowany wg JCIS0."
+    }
+  ],
+  "workshop_access_rule": "To jedna lista ról i katalogowych przykładów. Użyć posiadanego/pożyczonego funkcjonalnego odpowiednika o wymaganym zakresie; nie kupować całego warsztatu. Zaciskarki TE nadal według R42, bez przypadkowego zamiennika matrycy.",
+  "general_workshop_requirements": [
+    {
+      "role": "printed_part_finishing",
+      "required": "Wiertła2,4/3/6,5mm, stopniowe do24mm oraz gratownik; przymiarka na pustych częściach, średnica tylko wg wybranego interfejsu. Nie wiercić przy zamontowanych przewodach/PCB.",
+      "catalog_SKU_selected": false
+    },
+    {
+      "role": "holding_and_trim",
+      "required": "Małe szczypce/pęseta, izolowane miękkie szczęki lub trzecia ręka, nożyczki/obcinaczki do opasek i oplotu. Nie trzymać przewodów kombinerkami za druciki.",
+      "catalog_SKU_selected": false
+    },
+    {
+      "role": "solder_workspace",
+      "required": "Niepalna podstawka, odciąg oparów/wentylacja, okulary i osłona sąsiednich powierzchni; wszystko poza robotem i odłączoną baterią.",
+      "catalog_SKU_selected": false
+    }
+  ],
+  "fixed_fastener_cart": "hardware/manufacturing/fixed-fastener-skus-r1/cart.json",
+  "K2_complete": false,
+  "nonfastener_catalog": "hardware/manufacturing/nonfastener-catalog-r1/catalog.json"
+}

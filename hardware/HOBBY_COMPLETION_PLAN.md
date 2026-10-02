@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R46 zachowuje wszystkie71STL i kartę cięć R45/R44; uzgadnia29 ofert osprzętu, dodaje brakujące4M2,5×12 ramP0+2zapasowe. R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 110 części PETG i4próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R47 zachowuje wszystkie71STL i kartę cięć R45/R44; zachowuje29 ofert osprzętu R46, w tym4M2,5×12 ramP0+2zapasowe. R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 110 części PETG i4próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,34 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,15:59:44 Warszawy — R47: UZGODNIONE TOŻSAMOŚCI POZOSTAŁYCH CZĘŚCI.
+83role poza osprzętem mają dokładny model/SKU albo jawnie niemarkową
+konkretną ofertę sklepu; bez wymyślania producenta dla P309/karty/adaptera.
+WAGO221-415 czterech ról scalone4+1+8+3=16, źródła/ról nie utracono.
+109rzeczywistych wierszy zamiast112; naprawiony stary line_count114.
+miniVAL10A i MTA0100335 NIE są starym wariantem: E4 nadal ma F_FL/FR/RL/RR,
+więc zachowane10wkładek/4oprawki. Zachowane12ST3215+3MG92B, wszystkie71STL,
+110PETG+4próbki i29ofert stałego osprzętu.12testów wykonanych przez unittest,
+bez instalacji; pytest nieobecny, nie zaliczono dwóch nieudanych wywołań.
+K2 nadalOPEN: sześć niedomkniętych ofert w nonfastener-catalog-r1/catalog.json:
+T18R111-01910, Molex430200201/2147612113/2147611113/2147632112 i lutWeller.
+Dokładne żeńskie225mm nie zastąpione150mm; czerwony główny katalogDigiKey
+ma minimum3000, czarny0stock/20tygodni w odczytanym crawl. To blocker tej
+oferty, nie dowód nieistnienia innego dostawcy. Nie kupować3000 i nie
+ponawiać bezowocnych ogólnych kwerend bez nowego tropu.
+W5 nadal80żył/10wybranych blanków. Nie wybrano odrzuconych oprawek R1–R3
+ani ich dodatkowego zapasu LAPP.14/20=70%,+0pp; E3/W5/K2/K3/A2/A3OPEN.
+NEXT W5: jeden nowy wykonalny interfejs F0/XT60/S0 z mocowaniem, kompletnymi
+końcami, odciążeniem i trasą; używać zapisanych źródeł, jawnego warunku S0
+oraz dokładnego FHAC0002ZXJ, nie odtwarzać tych samych oprawek nóg R1–R3.
+Potem zintegrowany nowy układ12oprawek ze wszystkimi24końcówkami i wiązką,
+nie kolejna sama kontrola wejść. Estymata90–120min na interfejs źródła,
+nie obietnica domknięcia W5 ani75%; lokalna blokada nie kończy okna.
+Pomiar13:38:24–13:59:44Z=21min20s ścienne; publikacja/commit potem nie doliczone.
+GPT-6.1SolHigh; limit20%użyte/80%pozostałe, zwykłe użycie dostępne, kredyty0.
+Hookenabled=true bez terminu, bieżące automatyczne wznowienie potwierdzone;
+bez harmonogramu. Cel15/20 nadal nieosiągnięty, mailpending/niewysłany.
 
 02.10,15:32:59 Warszawy — R46: JEDEN WYKAZ STAŁEGO OSPRZĘTU.
 33role R45/P0 przypisane do29ofert; cztery pary identycznychSKU scalone
