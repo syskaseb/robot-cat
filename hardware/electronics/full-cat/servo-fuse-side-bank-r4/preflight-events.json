@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-10-02T17:24:34Z",
+  "failed_preflight": "Tail alias comparison used OCC hashCode across independent BREP reads. This is a topology identity hash, not geometric equality. Worker exited1 before route construction.",
+  "fix": "Compare volume and symmetric geometric difference before removing an identical alias. Do not remove a different obstacle.",
+  "geometry_test_not_run": true,
+  "second_preflight_observed_utc": "2026-10-02T17:25:38Z",
+  "second_preflight": "First cubic route had radius lower bound0.446mm, below LAPP12.4mm; worker stopped before constructing a wire or collision screen. No geometry approval.",
+  "route_fix": "Replace the uncontrolled cubic turnaround with tangent circular S-shifts and quarter turns, all exactR12.4. No changed terminal or supplier dimension inferred.",
+  "selected": false,
+  "physical_pass": false
+}

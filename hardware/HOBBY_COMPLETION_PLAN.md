@@ -3,7 +3,7 @@
 ## Stały licznik fazy 1 — baza 30.09.2026, R26
 
 Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
-Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
+Obecnie 15/20 = 75%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 Nie zaliczać częściowo wykonanego rezultatu, kolejnych testów ani wariantów.
 Nie zmieniać mianownika bez jawnej zmiany zakresu przez użytkownika.
@@ -39,7 +39,7 @@ Wiązka (5 rezultatów):
 
 Komplet do wykonania (3 rezultaty):
 - [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R49 zastępuje Deck dopasowaniem S0/W066 i dodaje jeden uchwyt S0; 73STL,112PETG i4próbki,34 oferty stałego osprzętu. R48 F0/XT60, R44 MAIN i pozostałe wydruki zachowane. Warunki miękkiej izolacji R44 i montażu źródła na zdjętej płycie przed wiązką/osłoną pozostają jawne; nie twierdzić, że model całego robota jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
-- [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
+- [x] K2 R51: obecny koszyk ma83role nieśrubowe i34oferty/44role śrubowe, bez nieprzypisanego SKU. Czerwony męski2147632112 zastąpiony fabrycznym2147632113/225mm, ten sam styk430310001 i20AWG; wolny koniec skrócić do zachowanej roboczej drogi150mm. Potrzeba1+1zapas, zakup10/nadmiar8. K3/W5 nadalOPEN; jeśli późniejszy wybrany interfejs wprowadzi brakującą część, cofnąć K2 do uzgodnienia. Odświeżenie dostaw/cen i przymiarka faza2.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
 Montaż i zamknięcie (3 rezultaty):
@@ -53,6 +53,33 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,19:45:22 Warszawy — CHECKPOINT75%: R51 WYBRANY, K2 zamknięte,
+15/20=75%,+5pp; E3/W5/K3/A2/A3 nadalOPEN. Brak zakupów/fizycznegoPASS.
+Dokładny fabryczny czerwony męski225mm2147632113/Farnell3526384
+zastępuje niedostępny150mm; wspólny styk430310001 potwierdzony rysunkiem
+MolexA1. Zachowany roboczy odcinek150mm, nadmiar odciąć tylko od wolnego
+końca po przymiarce; nie dokładać pętli75mm ani zaciskać luźnego styku.
+1montowany+1zapas, oferta minimum/wielokrotność10, nadmiar8.
+83role nieśrubowe/114wierszy ilości i34oferty/44role śrubowe bez brakujących
+ofert; 6testów OK,4441/4441pinów integralne. 73STL/112PETG/4próbki bez zmian.
+W5: boczny bankR4 miał31kolizji. Poprawiony ten sam układR5:6wewnętrznych
+kolizji (4pary przewodów oraz W056↔ShelfPWMGroundTerminal,
+W058↔XB13_5),16kontaktów ze starą osłoną jawnie niezaakceptowane.
+24zakończenia nie kolidują z wnętrzem; pełne przeloty Deck i przesunięte
+stopy omijają źródło. R5 NIE WYBRANY, brak natywnej osłony/mocowania,
+wyjść/odciążeń; nie zaliczać W5. R4/R5zachowane jako ślady konstrukcyjne,
+nie jako dodatkowe wydruki. NIE ponawiać niezmienionej geometrii.
+NEXT: domknąć ten interfejs12oprawek/24zakończeń, rozdzielając powrotne
+drogi czterech par i omijając dwa wskazane stałe elementy; potem natywne
+mocowanie, potrzebna osłona i wyjścia/odciążenia. Estymata lokalnego
+podzespołu2–4h, nie obietnica całegoW5/80%. ModelGPT-6.1SolHigh.
+Czas tego wznowienia17:02:35–17:45:22Z=42min47s ścienne do weryfikacji,
+obejmuje R50 iR4/R5/R51; wcześniejszych czasów nie dodawać drugi raz.
+Hook WYŁĄCZONY po75%, bez harmonogramu;mail przygotowywany.
+Limit24%użyte/76%pozostałe, zwykłe użycie dostępne. Lokalny commit poniżej
+potwierdzany historią Git. Odziedziczone2855pinów nadal nieśledzone,
+odtworzenie całego robota z czystego klonu nadalA3OPEN.
 
 02.10,19:16:14 Warszawy — R50 WYBRANY: 5/6 brakujących ofert uzupełnione,
 bez zmian CAD, sieci i wymaganych ilości R49; 73STL/112PETG/4próbki.

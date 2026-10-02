@@ -1,0 +1,59 @@
+{
+  "review_date_utc": "2026-10-02",
+  "scope": "Finish the remaining retail binding using a longer factory lead, trimmed only at its free solder end. No order or physical approval.",
+  "old_quantity_id": "connector:2147632112",
+  "new_quantity_id": "connector:2147632113",
+  "manufacturer": "Molex",
+  "manufacturer_part": "2147632113",
+  "supplier": "Farnell",
+  "supplier_sku": "3526384",
+  "supplier_url": "https://dk.farnell.com/en-DK/molex/214763-2113/cable-assy-crimp-pin-free-end/dp/3526384",
+  "retail_minimum": 10,
+  "retail_multiple": 10,
+  "offer_evidence": "Exact indexed primary distributor page: red male-to-free-end225mm, minimum10/multiple10,280 shown in stock. Direct reopen returned Internal Error; indexed stock is not a current delivery commitment. Refresh price, Poland checkout and delivery in phase2.",
+  "manufacturer_drawing": {
+    "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+    "document": "2147631111 PSD000 A1, one sheet",
+    "old_part": "2147632112",
+    "new_part": "2147632113",
+    "old_length_L_mm": [145,155],
+    "purchased_length_L_mm": [220,230],
+    "same_terminal": "430310001",
+    "same_wire": "20AWG discrete SR-PVC red UL10002",
+    "same_contact_finish": "Tin",
+    "free_end_tinning_length_mm": [4,6],
+    "free_end_tinning_diameter_max_mm": 1.25,
+    "evidence": "Manufacturer table differs only in length for these two red leads. The common bill-of-materials terminal is430310001. Drawing L is from the contact datum shown to the free end, not from the housing exterior. No loose contact crimp or changed mating cavity."
+  },
+  "role": "XP02.board to PWM_REG_IN, existing protected PWM input",
+  "planning_quantity": 2,
+  "installed_quantity": 1,
+  "spare_quantity": 1,
+  "retail_order_quantity": 10,
+  "pack_excess_quantity": 8,
+  "trim_recipe": {
+    "nominal_finished_L_mm": 150,
+    "actual_cut_mm": null,
+    "nominal_offcut_mm": 75,
+    "offcut_interval_at_nominal_finished_L_mm": [70,80],
+    "steps": [
+      "With battery disconnected, identify the exact red225mm male factory lead and preserve its430310001 crimp and strain relief. Do not cut at the contact end.",
+      "Dry-fit the existing selected XP02.board to PWM_REG_IN route and insulation/restraints using the retained150mm nominal working length and the drawing contact datum. Measure the delivered lead; do not subtract75mm blindly.",
+      "Trim excess only at the free end outside the robot. Do not store a new75mm loop inside the cassette. The extra length is purchased stock, not a new geometric routing assumption.",
+      "Prepare the free solder end to the existing joint recipe, preserving its strip/overlap and insulation allowances. The manufacturer free-end tinning datum is5+/-1mm, maximum diameter1.25mm. No tinned conductor may be clamped into WAGO.",
+      "Retain the existing joint sleeves, restraints, connector polarity and unpowered continuity checks. Actual cut and delivered fit are recorded in phase2. No new crimp tool or terminal purchase."
+    ]
+  },
+  "supersedes": "Only the purchased red male150mm role in the latest selection; older R17/R32 evidence remains historical. Black male150mm and female leads are unchanged.",
+  "rejected_or_unresolved_offers": [
+    "Farnell3526383 exact150mm:29week stated manufacturer lead time.",
+    "Farnell partner-stock4230403 exact150mm: first indexed tier80, not selected instead of a ten-piece longer lead.",
+    "RS2045054 exact150mm: primary French page says unavailable and not stocked again.",
+    "DigiKey900-2147632112-ND: primary page shows base stock0 and WEC marketplace300, but marketplace small-order terms not exposed; not confused with base MOQ1.",
+    "Master/Onlinecomponents search returned only the old aggregate, no primary offer. Radioduo direct read Internal Error. Do not repeat these unchanged queries."
+  ],
+  "new_crimp_tool_SKU": 0,
+  "new_STL": 0,
+  "physical_pass": false,
+  "purchase_authorized": false
+}
