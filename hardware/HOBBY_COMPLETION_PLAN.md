@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R48 zastępuje jeden Deck dopasowaniem F0/G1.1 i dodaje jeden uchwyt F0/XT60; 72STL,111PETG i4próbki,29 ofert stałego osprzętu. R44 MAIN i pozostałe wydruki zachowane. Warunki miękkiej izolacji R44 i montażu uchwytu przed wiązką pozostają jawne; nie twierdzić, że model całego robota jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R49 zastępuje Deck dopasowaniem S0/W066 i dodaje jeden uchwyt S0; 73STL,112PETG i4próbki,34 oferty stałego osprzętu. R48 F0/XT60, R44 MAIN i pozostałe wydruki zachowane. Warunki miękkiej izolacji R44 i montażu źródła na zdjętej płycie przed wiązką/osłoną pozostają jawne; nie twierdzić, że model całego robota jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,43 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,18:54:50 Warszawy — R49 WYBRANY: kompletny lokalny S0,
+uchwyt mount-finish-r4 + Deck-native-r3, W07680/W066330/W04340mm,
+dwa odciążenia W066, nominalne łączniki i kolejność montażu na zdjętej płycie.
+P_SYS fizycznie .1/.2 zamienione razem z trasą W043; sieci/80końców zachowane.
+73STL/112PETG/4próbki; 114wierszy ilości,34oferty/44role śrubowe,
+104opaski T18I w robocie/200planowane. Dwa TE130207 już były na liście,
+nie doliczone ponownie. HELU330mm ZASTĘPUJE rezerwę300mm; inne trasy OPEN.
+Native Deck:535,60s, jeden solid, zamknięty STL230×190×55,5,
+parametr/odtworzenie i przeniesione otwarcie OK.4testy kontraktu OK;
+4425/4425pinów integralne;119/119haszowanych własnych plików identyczne
+w indeksie Git. Etap przygotowany do lokalnego commitu; ID w historii Git.
+Kontrola Git:2855odziedziczonych pinów R49 nieśledzonych w indeksie,
+m.in. E6 i BottomPlateP0; są na dysku, lecz odtworzenie CAŁEGO zestawu
+z czystego klonu niepotwierdzone. Nie dodawać hurtowo cudzych plików.
+A3 musi uzgodnić śledzone wymagane źródła i odziedziczone artefakty.
+14/20=70%,+0pp;14/80blanków wybrane,66pozostałych nie zaliczone.
+NEXT:12oprawek/24zakończenia i pozostałe W5; nie wracać do odrzuconych stóp.
+Hookenabled do75%, mailpending;23%użyte/77%pozostałe, użycie dostępne.
+Czas wznowienia16:48:40–16:59:30Z=10min50s ścienne do kontroli indeksu;
+worker rozpoczęty wcześniej, jego czasu nie dodawać do tego okna.
+
+02.10,18:47:50 Warszawy — S0: układ R6 i odciążenia R2 bez kolizji;
+natywny uchwyt mount-finish-r4, nowe osie M2(-79,5,92)/(-29,92)
+omijają słupki i F_FL2. Assembly-finish-r3 sprawdza śruby/przewody;
+montaż na zdjętej płycie, przed osłoną i wiązką. Cztery testy OK.
+Deck-native-r1 ukończony; trwa worker deck-native-r3 (sesja53627),
+uzgadniający nowe otwory. NIE dublować; najpierw odebrać jego wynik.
+Native-r2 zatrzymano jako nieaktualny po kolizji wysuniętej stopy z F_FL2;
+nie jest dowodem gotowości. R48 nadal jedynym wyborem; 14/20=70%,+0pp.
+NEXT: odebrać native-r3, wykonać source_switch_interface_r1.py,
+utrwalić własny kompletny etap w commicie, potem scalić wybór/ilości R49.
+W07680/W066330/W04340mm są nominalne; dwa nowe blanki dają dopiero14/80,
+nie15/20 rezultatów. Hookenabled do75%, mailpending; limit77%pozostałe.
+Czas tego wznowienia16:02:09–16:47:50Z=45min41s ścienne; worker DeckR1
+462,71s zawarty, R3 jeszcze trwa. Obudowa może być lokalnie dopasowana
+zgodnie z decyzją użytkownika; dotąd nie była potrzebna jej zmiana.
 
 02.10,17:25 Warszawy — R48 WYBRANY lokalny F0/XT60 + powrót W001 doG1.1.
 Dwa zgodne otwory Deck/uchwytu(-10,53)/(61,53), 2M2×12/4podkładki/2nakrętki,

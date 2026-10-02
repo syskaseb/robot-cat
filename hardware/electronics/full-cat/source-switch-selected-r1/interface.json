@@ -1,0 +1,124 @@
+{
+  "status": "SELECTED_NOMINAL_LOCAL_SOURCE_SWITCH_ONLY",
+  "selected": true,
+  "current_selected_batch": "one-batch-prototype-r49",
+  "W5_complete": false,
+  "E3_complete": false,
+  "physical_pass": false,
+  "native_deck": "hardware/cad/studies/source-switch-deck-native-r3/DeckSourceSwitch.FCStd",
+  "native_mount": "hardware/cad/studies/source-switch-mount-finish-r4/SourceSwitchMount.FCStd",
+  "STLs": [
+    "hardware/cad/studies/source-switch-deck-native-r3/Deck_x1.stl",
+    "hardware/cad/studies/source-switch-mount-finish-r4/Mount_x1.stl"
+  ],
+  "deck_bolt_xy": [
+    [
+      -79.5,
+      92
+    ],
+    [
+      -29,
+      92
+    ]
+  ],
+  "nominal_wire_blanks_mm": {
+    "W076": 80,
+    "W066": 330,
+    "W043": 40
+  },
+  "actual_cut_mm": null,
+  "selected_blanks_retained": 12,
+  "prospective_blanks": 14,
+  "total_body_blanks": 80,
+  "W076_material": "Intact original F0 FHAC0002ZXJ orange12AWG lead; not extra LAPP or a new splice.",
+  "W066_material": "HELU23802 red4mm2, static radius25.2mm; nominal330mm replaces old unverified300mm planning reserve.",
+  "W043_material": "Intact FHAC0001ZXJ16AWG factory lead;40mm retained with replaced route.",
+  "P_SYS_labels_plus_X": [
+    ".1",
+    ".2",
+    ".3",
+    ".4",
+    ".5"
+  ],
+  "endpoints_preserved": true,
+  "assembly_order": [
+    "Battery disconnected. Keep Deck removed from P0. Trial exact switch against provisional casing/stud/flange datums.",
+    "Mount S0 with two M6x20, four M6 washers and two M6 nuts BEFORE fitting ring terminals.",
+    "Attach mount to removed Deck with two M2x12, four M2 washers and two M2 nuts; tighten before wires and upper cover.",
+    "Pre-thread two W066 T18I through integral cradles; P_SYS tunnel remains above Deck. Do not cinch empty cradles.",
+    "Keep F0 W076 factory lead intact, trim only after measuring its delivered length and trial routing. Fit TE130207 IN.",
+    "Fit TE130207 OUT to HELU23802 W066. Strip/crimp per pinned TE instructions, not guessed conductor dimensions.",
+    "Fit two M10 washers/nuts and tighten on removed Deck BEFORE P0/BUS installation; actual torque/creep test in phase2.",
+    "Route W066 through both cradles to P_SYS.1 atX-84. Keep W04340mm to P_SYS.2 atX-76.5 and tied F_PI housing.",
+    "Relabel physical P_SYS ports .1,.2,.3,.4,.5 west-to-east together with W043 replacement; verify net labels before closing.",
+    "Restore existing F0 relief and secure W066 ties without crushing insulation. Install Deck/P0/BUS/cover only afterwards.",
+    "For removal: disconnect battery, open cover and detach relevant source leads before undoing obstructed mount hardware."
+  ],
+  "prototype_conditions": [
+    "Ring seatY70 and flange4mm MUST be compared with delivered exact S0; not manufacturer-defined datums.",
+    "Switch family cylinder includes own casing/studs; own casing-to-tools access is not proved by this envelope.",
+    "Key family reserve extends toY161.5 outside DeckY95. No shell aperture or unchanged full robot outline claim.",
+    "Nut torque, PETG creep and actual tool fit remain phase2. No hardware ordered or supplied nuts credited.",
+    "W07680/W066330/W04340 are nominal trial blanks, NOT delivered measurements or physical cut instructions.",
+    "Preserved R48 remains selected; no new Deck/mount or wire allocation selected by this report.",
+    "No additional lower-shell cut is established by current family reserve checks. Check delivered key/body before phase2 closure."
+  ],
+  "new_quantities_to_allocate": {
+    "installed_PETG_mount": 1,
+    "replace_Deck_STL": 1,
+    "M2": {
+      "screws_M2x12": 2,
+      "washers_DIN125_M2": 4,
+      "nuts_DIN934_M2": 2
+    },
+    "M6_M10": [
+      {
+        "sku": "0912A2-M060X020VISK",
+        "quantity": 2,
+        "d": 6,
+        "L": 20,
+        "head_d": 10,
+        "head_h": 6,
+        "key": 5,
+        "url": "https://www.normreich.de/1x-Zylinderschraube-M6x20-DIN-912-A2"
+      },
+      {
+        "sku": "0934A2-M060",
+        "quantity": 2,
+        "AF": 10,
+        "h": 5,
+        "url": "https://www.normreich.de/1x-Sechskantmutter-M6-DIN-934-A2"
+      },
+      {
+        "sku": "0125A2-A060",
+        "quantity": 4,
+        "OD": 12,
+        "ID": 6.4,
+        "t": 1.6,
+        "url": "https://www.normreich.de/1x-Unterlegscheibe-M6-O64-DIN-125-Form-A-A2"
+      },
+      {
+        "sku": "0934A2-M100",
+        "quantity": 2,
+        "AF": 17,
+        "h": 8,
+        "url": "https://www.normreich.de/1x-Sechskantmutter-M10-DIN-934-A2"
+      },
+      {
+        "sku": "0125A2-A100",
+        "quantity": 2,
+        "OD": 20,
+        "ID": 10.5,
+        "t": 2,
+        "url": "https://www.normreich.de/1x-Unterlegscheibe-M10-O105-DIN-125-Form-A-A2"
+      }
+    ],
+    "T18I": 2,
+    "extra_ring_terminals": 0
+  },
+  "ring_allocation": "Use two already-required TE130207 source rings; do not count them twice.",
+  "remaining": [
+    "Complete remaining66 unselected body blanks, twelve fuse holders/24 ends and leg/source restraints to close W5.",
+    "E3/K2/K3/A2/A3 remain open. This local interface awards no phase1 points."
+  ]
+}

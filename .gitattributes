@@ -279,4 +279,13 @@ tools/electronics/source_switch_layout_r2.py -text -eol
 tools/electronics/battery_feed_coverage_sync_r1.py -text -eol
 hardware/electronics/full-cat/source-switch-layout-r2/** -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/source-switch-layout-r2/*.brep binary
+tools/electronics/source_switch_*.py -text -eol
+tools/electronics/test_source_switch_interface_r1.py -text -eol
+hardware/electronics/full-cat/source-switch-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/source-switch-*/*.brep binary
+hardware/cad/studies/source-switch-*/** -text -eol
+hardware/cad/studies/source-switch-*/*.brep binary
+hardware/cad/studies/source-switch-*/*.stl binary
+tools/electronics/package_source_switch_r49.py -text -eol
+hardware/manufacturing/one-batch-prototype-r49/** -text -eol whitespace=cr-at-eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
