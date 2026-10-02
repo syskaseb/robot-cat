@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R43 zachowuje wszystkie wydruki R41 (Deck dla dwóch niezależnych odciążeń G1); uchwyt MAIN R40, DATA/W061/W060 i pozostałe 70 wydruków zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,44 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,09:50 Warszawy — R44 WYBRANY: KOMPLET NOMINALNEGO WEJŚCIA MAIN.
+F_PI/W043/W077/W078 na poprawionych Deck i MAIN: oprawka w górnym
+kanale, wspornik izolowanego złączenia, dwa odciążenia, pełny przelot,
+osobna opaska czerwonego wejścia. Blanki40/80/210mm; katalogowe minimum
+fabrycznej żyły84,5mm. Zakładka8mm, koszulka20mm/6mm izolacji na stronę;
+jedna wspólna koszulka wejść zamiast dwóch nakładających się osłon.
+Bez drugiegoK1474;95małych/21dużych opasek z tych samych worków100.
+R8:191par bez kolizji sztywnych, miękka rezerwa przyPiGND0,177473mm³
+do przymiarki, nie fizycznyPASS. R7 odrzucono za dokładne styczności
+siatki; wybrane otwarte rowki2,2/1,8mm, bez wypełniania otworów STL.
+Natywne szkice/zmiana-powrót/przeniesione otwarcie/strictBOP zaliczone;
+dwie zamknięte siatki po1części, obejrzanyPNG.3986/3986piny, wszystkie
+3874R43 zachowane;72/72testów. Dwa zastąpione STL,69pozostałych,
+71zadań/110PETG/4próbki/115wierszy części, bez nowego zakupu.
+START06:30:06Z/END07:49:58,612531Z=79min52,612531s ścienne, nieCPU;
+estymata45–75min przekroczona przez błędy skryptu i styczności eksportu.
+14/20=70%,+0pp. E3/W5/K2/K3/A2/A3 nadalOPEN; MAIN nie jest całymW5.
+NEXT W5: reszta przewodów źródła/balansu/korpusu/nóg i ich końce/
+mocowania; nie ponawiać odrzuconegoW036. Jeden kolejny interfejs45–75min,
+nie obietnica końca fazy; nowe prace kończą się10:30Warszawy.
+Hookenabled do08:30Z/10:30, bez harmonogramu, GPT-6.1SolHigh.
+Limit07:38Z:16%użyte/84%pozostałe, zwykłe użycie dostępne,kredyty0.
+
+02.10,09:47 Warszawy — W5 MAIN W TOKU, R43 nadal wybrany.
+Nowy pełny F_PI/W043/W077/W078: nominalne blanki40/80/210mm,
+oprawka nadDeck, dwa odciążenia połączenia, pełny przelot i osobne
+odciążenie czerwonego wejścia MAIN. R8:191par bez sztywnych kolizji,
+jawna miękka przymiarka0,177473mm³ przyPiGND. R7 nie wybrano:
+dwie dokładne styczności rowków dawały niepoprawne krawędzie STL;
+R8 otwiera je promieniami2,2/1,8mm. Nie wypełniać siatki.
+Źródła: main-positive-complete-r8; natywny worker main_positive_native_r3
+buduje w main-positive-native-r2, jeszcze bez zaliczonego eksportu.
+Karta main-positive-wiring-card-r1:7testów, jeden K1474,95T18I/21T30L
+z dotychczasowych worków; nie zaliczaćW5/K3 ani nie wybieraćR44 przed
+ukończeniem modelu, eksportu i uzgodnienia pakietu.
+START06:30:06Z; czas końcowy dopiero po zakończeniu etapu.
+14/20=70%,+0pp; hookenabled do08:30Z/10:30Warszawy, bez harmonogramu.
 
 02.10,08:27 Warszawy — R43: JEDEN KOMPLET DOSTĘPU WARSZTATOWEGO.
 14katalogowychSKU narzędzi jako przykłady posiadanego/pożyczonego dostępu,

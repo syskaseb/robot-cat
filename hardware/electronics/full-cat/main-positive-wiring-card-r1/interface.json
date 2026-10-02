@@ -1,0 +1,165 @@
+{
+  "status": "NOMINAL_MAIN_POSITIVE_INTERFACE_COMPLETE_WITH_PHASE2_FITS",
+  "parent": "one-batch-prototype-r43",
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "collision_free": false,
+  "rows": [
+    {
+      "wire": "W043",
+      "source": "P_SYS.2",
+      "destination": "F_PI.in",
+      "material": "FHAC0001ZXJ factory black16AWG",
+      "route_to_datum_mm": 17.676386669828,
+      "nominal_blank_mm": 40,
+      "prepared_end": "Trim factory tinned tip; fresh12..14mm strip, ONE untinned wire in WAGO221-615",
+      "required_bound_mm": 39.676386669828
+    },
+    {
+      "wire": "W077",
+      "source": "F_PI.out",
+      "destination": "SPLICE_PI.16",
+      "material": "FHAC0001ZXJ factory black16AWG",
+      "route_to_datum_mm": 71.05993552866298,
+      "nominal_blank_mm": 80,
+      "prepared_end": "Fresh8mm strip, solder overlap8mm with W078, off PETG",
+      "required_bound_mm": 79.05993552866298
+    },
+    {
+      "wire": "W078",
+      "source": "SPLICE_PI.18",
+      "destination": "MAIN.VIN",
+      "material": "Red18AWG0.823mm2 from SAME K-1474 cable used for Pi and W060",
+      "route_to_datum_mm": 187.26466871017902,
+      "nominal_blank_mm": 210,
+      "prepared_end": "Splice8mm strip; MAIN8mm strip =5mm exposed individually insulated neck +3mm insertion allowance, trim at real pad",
+      "required_bound_mm": 206.26466871017902
+    }
+  ],
+  "holder": "LittelfuseFHAC0001ZXJ, fuse0287003.PXCN3A; E3 remains OPEN, not power authorization",
+  "confirmed_factory_lead_minimum_mm": 84.5,
+  "confirmed_closed_body_including_reliefs_mm": [
+    49,
+    51
+  ],
+  "closed_height_22mm_and_factory_OD3p4_are_project_reserves": true,
+  "minimum_geometric_radius_mm": 6,
+  "P_SYS_cage_X_mm": [
+    -84,
+    -76.5,
+    -69,
+    -61.5,
+    -54
+  ],
+  "P_SYS_labels_plus_X": [
+    ".2",
+    ".1",
+    ".3",
+    ".4",
+    ".5"
+  ],
+  "cage_rule": "First two labelled physical cages exchange roles on the same common potential. Electrical graph unchanged; source/BAT full route still OPEN. Not an additional connection.",
+  "splice": {
+    "axis_yz_mm": [
+      -30,
+      130
+    ],
+    "solder_overlap_X_mm": [
+      36,
+      44
+    ],
+    "bare_overlap_mm": 8,
+    "maximum_joint_OD_project_mm": 2.8,
+    "outer_sleeve": "RNF-100-3/16-0-STK",
+    "blank_and_nominal_placement_mm": 20,
+    "sleeve_X_mm": [
+      30,
+      50
+    ],
+    "intact_overlap_each_side_mm": 6,
+    "finished_OD_project_mm": 4.2,
+    "no_terminal_or_extra_splice": true,
+    "restraints": "Two independent T18I loopsX31/49 on the integral above-WAGO beam, not around an exposed solder joint"
+  },
+  "MAIN_input_insulation": {
+    "red_inner": "RNF-100-3/32-0-STK7mm blank trimmed to5mm bare neck",
+    "black_inner": "Retained RNF3/32 individual2mm bare neck; no change to W060",
+    "outer": "ONE RNF-100-3/8-0-STK20mm blank, shared over two individually insulated input necks; replaces single W0603/16 outer boot, not another overlapping sleeve",
+    "intact_overlap_each_wire_minimum_mm": 6,
+    "red_nominal_path_placement_mm": 11.01,
+    "no_claim_blank_shrinks_to_placement": true,
+    "actual_profile_and_wall_phase2": true
+  },
+  "retention": {
+    "large_SKU": "111-03410",
+    "source_holder_large_installed": 1,
+    "source_holder_small_replaced": 2,
+    "small_SKU": "111-02370",
+    "new_small_installed": 4,
+    "new_small_roles": [
+      "splice left",
+      "splice right",
+      "red Deck portal",
+      "red MAIN seat"
+    ],
+    "prior_small_working": 93,
+    "small_working_after": 95,
+    "shared_small_bag": 100,
+    "full_K3_census_complete": false,
+    "prior_large_working_allowance": 20,
+    "large_working_after": 21,
+    "shared_large_bag": 100,
+    "large_loop_bound_mm": 170.8,
+    "large_minimum_length_mm": 190,
+    "small_loop_bounds_mm": {
+      "splice": 47.0,
+      "Deck": 43.4,
+      "MAIN": 54.6
+    },
+    "small_minimum_length_mm": 145,
+    "retained_W060_MAIN_strap": true
+  },
+  "stock": {
+    "one_K1474_factory_conductor_length_mm": 1000,
+    "Pi_conductor_bound_mm": 290.24916022252154,
+    "red_W078_mm": 210,
+    "black_W060_mm": 220,
+    "red_remaining_mm": 499.7508397774784,
+    "black_remaining_mm": 489.7508397774784,
+    "parallel_conductors_not_summed": true,
+    "no_second_K1474": true
+  },
+  "source_complete": true,
+  "positive_input_complete_nominal": true,
+  "remaining_W5": [
+    "BAT/source/balance routes",
+    "other body and leg ends/routes",
+    "W025/W036 and other unfinished returns"
+  ],
+  "native_final_objects": {
+    "Deck": "MainPositiveDeck",
+    "MAIN": "MainPositiveAdapter"
+  },
+  "soft_contacts": [
+    {
+      "part": "MAIN_input_common_boot",
+      "owner": "hardware/electronics/full-cat/pi-power-usb-r4/PI_GND_0_DESIGN.brep",
+      "solid": 0,
+      "owner_solid": 0,
+      "hit_mm3": 0.17747328753580094
+    }
+  ],
+  "physical_conditions": [
+    "Delivered FHAC closed cap/height, OD, T30L head (6x6x4 project reserve) and source cage mouth: trim40/80mm only after dry fitting, never tension holder.",
+    "Delivered splice wall/finishedOD:4.2mm is a PROJECT allowance, not a supplier guaranteed OD. Adjust parametricSpliceGrooveRadius and reprint only that Deck if needed.",
+    "Shared input outer boot9.5mm expanded must fit the actual assembled pair. Keep individual copper insulation; shrink/trim off PETG, adjust local profile without treating nominal soft contact as PASS.",
+    "No power until E3 protection and phase2 electrical checks. Current/thermal tests not fabricated."
+  ],
+  "source_sha256": {
+    "hardware/electronics/full-cat/main-positive-complete-r8/checks.json": "5c2a342c4b41a26acbdfdb11a27937dc104087798372ff2313851fe5c14218fe",
+    "hardware/electronics/full-cat/main-positive-native-r2/checks.json": "5abfa363f27656b22ad828c15bdf2805fb70eabd76f485557c0ab6503e74ed4a",
+    "hardware/reference/fhac0001zxj-2026-10-02/README.md": "a317471ff028b1ee1b2550769003619a7d061ce98244ce1e516e1a19bba21f2c",
+    "tools/electronics/main_positive_wiring_card_r1.py": "affe1673cb22f61d571d95f6db0b041c210a6af73d1895009142d3adbe5f78c9"
+  }
+}

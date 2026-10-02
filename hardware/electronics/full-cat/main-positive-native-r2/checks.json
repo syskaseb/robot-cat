@@ -1,0 +1,76 @@
+{
+  "status": "NATIVE_COMPLETE_WITH_SOFT_FIT_CONDITION",
+  "native_checks": {
+    "Deck": {
+      "strict_BOP_errors": 0,
+      "constrained_new_sketches": 6,
+      "parameter_probe_volumes_mm3": [
+        142517.10524699185,
+        142484.62762194936,
+        142517.10524699185
+      ],
+      "relocated_reopen": true,
+      "candidate_volume_delta_mm3": 2.499602851457894e-05,
+      "candidate_bbox_delta_mm": 2.842170943040401e-14,
+      "comparison_scope": "Retained native parent + identical changed native feature dimensions; volume/bbox invariants. No full-Deck symmetric-difference claim.",
+      "final_object": "MainPositiveDeck",
+      "changed_seat_symmetric_difference_mm3": null,
+      "aggregate_volume_tolerance_mm3": 0.0001,
+      "closed": true,
+      "components": 1,
+      "dimensions_mm": [
+        230.0,
+        190.0,
+        55.5
+      ]
+    },
+    "MAIN": {
+      "strict_BOP_errors": 0,
+      "constrained_new_sketches": 3,
+      "parameter_probe_volumes_mm3": [
+        5989.443542173771,
+        5996.108443534844,
+        5989.443542173771
+      ],
+      "relocated_reopen": true,
+      "candidate_volume_delta_mm3": 0.0006851700782135595,
+      "candidate_bbox_delta_mm": 0.0,
+      "comparison_scope": "Retained native parent + identical changed native feature dimensions; volume/bbox invariants. No full-Deck symmetric-difference claim.",
+      "final_object": "MainPositiveAdapter",
+      "changed_seat_symmetric_difference_mm3": [
+        0.0,
+        0.0
+      ],
+      "aggregate_volume_tolerance_mm3": 0.001,
+      "closed": true,
+      "components": 1,
+      "dimensions_mm": [
+        60.0,
+        33.65999984741211,
+        37.0
+      ]
+    }
+  },
+  "source_sha256": {
+    "hardware/cad/studies/main-positive-native-r1/DeckMainPositive.FCStd": "9a591e95373e48758d7a0f4a3e803ff7dd4e74b5762436c72390d5d1263194f2",
+    "hardware/cad/studies/main-input-return-finish-r2/MainInputMount.FCStd": "7e61cc4e964ada098543f119c1f7db5f103088a803ad85d6d517d7931464f61d"
+  },
+  "candidate_checks_sha256": "5c2a342c4b41a26acbdfdb11a27937dc104087798372ff2313851fe5c14218fe",
+  "script_sha256": "b92564a98f1f529d8811bf189f615189ef8071cc7b58b0a0652e5696187d3093",
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "collision_free": false,
+  "soft_contacts": [
+    {
+      "part": "MAIN_input_common_boot",
+      "owner": "hardware/electronics/full-cat/pi-power-usb-r4/PI_GND_0_DESIGN.brep",
+      "solid": 0,
+      "owner_solid": 0,
+      "hit_mm3": 0.17747328753580094
+    }
+  ],
+  "started_utc": "2026-10-02T07:42:12.711890+00:00",
+  "finished_utc": "2026-10-02T07:49:20.543386+00:00",
+  "worker_wall_seconds": 427.831496
+}
