@@ -253,4 +253,26 @@ hardware/manufacturing/nonfastener-catalog-r1/** -text -eol whitespace=cr-at-eol
 hardware/manufacturing/one-batch-prototype-r47/** -text -eol whitespace=cr-at-eol
 tools/manufacturing/nonfastener_catalog_r1.py -text -eol
 tools/manufacturing/test_nonfastener_catalog_r1.py -text -eol
+# R48 source feed: keep manifest hashes stable on Windows checkouts.
+hardware/cad/studies/battery-feed-bridge-r1/** -text -eol
+hardware/cad/studies/battery-feed-return-finish-r2/** -text -eol
+hardware/cad/studies/battery-feed-mount-finish-r2/** -text -eol
+hardware/cad/studies/battery-feed-pair-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-bridge-r1/** -text -eol
+hardware/electronics/full-cat/battery-feed-return-finish-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-mount-finish-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-pair-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-access-finish-r1/** -text -eol
+hardware/electronics/full-cat/battery-feed-selected-r1/** -text -eol
+hardware/manufacturing/one-batch-prototype-r48/** -text -eol
+tools/electronics/battery_feed_*.py -text -eol
+tools/electronics/package_battery_feed_r48.py -text -eol
+tools/electronics/test_battery_feed_selection_r1.py -text -eol
+hardware/cad/studies/battery-feed-*/**/*.brep binary
+hardware/cad/studies/battery-feed-*/*.brep binary
+hardware/cad/studies/battery-feed-*/*.stl binary
+hardware/electronics/full-cat/battery-feed-*/*.brep binary
+hardware/electronics/full-cat/battery-feed-*/*.json -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r48/*.json -text -eol whitespace=cr-at-eol
+tools/electronics/finalize_battery_feed_ledger_r1.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

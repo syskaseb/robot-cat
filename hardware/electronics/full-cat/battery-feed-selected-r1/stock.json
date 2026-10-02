@@ -1,0 +1,91 @@
+{
+  "parent": "one-batch-prototype-r47",
+  "stock": [
+    {
+      "stock_id": "JoyIT K-1474",
+      "purchase_quantity": 1,
+      "unit": "one1000mm_two_colour_cable",
+      "allocation_per_colour_mm": {
+        "red": {
+          "Pi": 290.24916022252154,
+          "W078": 210
+        },
+        "black": {
+          "Pi": 290.24916022252154,
+          "W060": 220
+        }
+      },
+      "remaining_per_colour_mm": {
+        "red": 499.7508397774784,
+        "black": 489.7508397774784
+      },
+      "allocation_status": "SELECTED_NOMINAL_COLOUR_BUDGET",
+      "cable_bought_twice": false
+    },
+    {
+      "stock_id": "LiY 4126002S",
+      "purchase_quantity": 7,
+      "unit": "m",
+      "selected_allocations_mm": {
+        "W007": 200,
+        "W011": 200,
+        "W012": 200
+      },
+      "known_selected_mm": 600,
+      "unallocated_mm": 6400,
+      "unallocated_is_not_final_spare": true,
+      "allocation_status": "PARTIAL_NOT_ALL_BLUE_WIRE"
+    },
+    {
+      "stock_id": "LAPP 0107001",
+      "purchase_quantity": 2,
+      "unit": "m",
+      "selected_input_allocations_mm": null,
+      "battery_legacy_reserve_mm": 0,
+      "legacy_input_maximum_mm": 1200,
+      "failed_candidate_mm": 2320,
+      "failed_candidate_with_BAT_overrun_mm": 470,
+      "allocation_status": "PARTIAL_W001_SELECTED_OTHER_INPUTS_OPEN",
+      "selected_BAT_allocation_mm": 140,
+      "unallocated_input_budget_mm": 1860,
+      "note": "140 replaces legacy150 reserve, not added to it. Failed2320 trial remains historical only; not allocated."
+    },
+    {
+      "stock_id": "Original FHAC0002ZXJ leads",
+      "purchase_quantity": 0,
+      "unit": "included_with_F0",
+      "selected_allocations_mm": {
+        "W075": 40
+      },
+      "W076_allocation_mm": null,
+      "allocation_status": "W076_OPEN_NO_ADDED_LAPP"
+    }
+  ],
+  "complete": false,
+  "no_quantity_change": true,
+  "physical_pass": false,
+  "source_bindings": {
+    "hardware/electronics/power-platform/wiring-p0.json": "935f894555a3f71c132303b6197f77a2ef6d9f900de7b36bc53dd3d41ef0e1ec",
+    "hardware/electronics/power-platform/p0-routes.json": "556734374d21812412e7052ad92274e96758afca7ec87d662a80e1a2a1c8f067",
+    "hardware/electronics/power-platform/servo-terminations-p0.json": "076bd3aee68e22733a3a0b69b4c4d64bcdc3b820d3a260f2366658e3c5c1eaf9",
+    "hardware/electronics/power-platform/switch-terminations-p0.json": "c14de6a2c3fd21571481943ef17a9afb664da9a9af6b2da196570a5969e00bcf",
+    "hardware/electronics/power-platform/MAIN-INPUT-P0.md": "f076d95a2a32944c3c3f330b7c2b0a87cba6817137182dcf1f324462cdaa9d4c",
+    "hardware/electronics/power-platform/DATA-HARNESS-P0.md": "61d3fd76bd4b772baa53fc615ed1b6f9bebbca3c7a7da1809c6dbc0bed705469",
+    "hardware/electronics/power-platform/BATTERY-INLET-P0.md": "30fcd9cf1ac11cf5eb6a1cb953fa500bef3ad835629fbbb8d84f7a6239a2d540",
+    "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
+    "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json": "c4432f2ed29355a19b80f513ae5693abe74a1a8c3054485d7cacbdce07ae7008",
+    "hardware/reference/power-distribution-2026-09-23/README.md": "371959aded0387c70164427475af1af51baead9325feb0d71f9e5f6076cbe2b3",
+    "hardware/reference/p0-kit-2026-09-25/SIGNAL-CABLES.md": "3627a1dd381f65e39e1342ebc31fcfc2daced3676a96aeacd74bae4ee6fb8894",
+    "hardware/manufacturing/one-batch-prototype-r28/head-local-interface.json": "58db6ba2fde21e88e75d938a07a0ae956e5c33923fc5fe37fb50bd06a916cd11",
+    "hardware/manufacturing/one-batch-prototype-r29/tail-wiring-interface.json": "6d001a2fe5e5f7dde8b9668e8d6abb547e597c5eba84d8c76debeb5a81ec8c45",
+    "hardware/electronics/full-cat/body-harness-w5-r1/interface.json": "75361df4beb94b5ba252324e0f7dbe2c7431bb52d29404e4537f3bb50bc24a44",
+    "hardware/electronics/full-cat/body-data-bridges-r7/interface.json": "57672330dd2a97fd6c1e2de12044c4623b6e53b653626a88c117b22e295444c3",
+    "hardware/electronics/full-cat/body-ground-bridge-finish-r5/interface.json": "ecc5316aba5a1fb4ec70378c1528e788c511a3f19c8fbe4f188fe41c04fa92aa",
+    "hardware/electronics/full-cat/main-input-return-finish-r3/interface.json": "6738b31227473fc75ee6552546f49be645e906e4dcdacc43bdf90cfc343b037c",
+    "hardware/electronics/full-cat/main-positive-wiring-card-r1/interface.json": "eeb9d8af5f34e9400c316dfeb7246c3bb2fd28cddfbbb58a27dd5ebcf8b45535",
+    "hardware/electronics/full-cat/servo-fuse-inputs-r1/checks.json": "55526707ac66814b7c308d37e063f28382015e28e9a1ecef833411575aa02621",
+    "hardware/manufacturing/one-batch-prototype-r44/one-order-quantities.json": "e51fb12ac2eddd9bc3cd4a1742936894d9510a522f02f1799ef209363c945e5f",
+    "hardware/manufacturing/one-batch-prototype-r44/selection.json": "a24209190a1b31793e7018b3ca89fd75ca05412aa36d9e219102eef2e14ec7b3"
+  },
+  "local_source_feed": "hardware/electronics/full-cat/battery-feed-selected-r1/interface.json"
+}

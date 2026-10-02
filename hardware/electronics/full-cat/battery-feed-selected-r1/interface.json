@@ -1,0 +1,55 @@
+{
+  "status": "SELECTED_NOMINAL_LOCAL_FEED_ONLY",
+  "parent": "one-batch-prototype-r47",
+  "source_checks": "hardware/electronics/full-cat/battery-feed-access-finish-r1/checks.json",
+  "source_checks_sha256": "b41e9839bc25d14704b3ffbee643f4c451345186cf2e3312ae2bbb8d6705b7a8",
+  "source_mount_xy": [
+    [
+      -10,
+      53
+    ],
+    [
+      61,
+      53
+    ]
+  ],
+  "source_ties": 7,
+  "fasteners": {
+    "M2x12": 2,
+    "DIN125M2": 4,
+    "DIN934M2": 2
+  },
+  "wire_blanks_mm": {
+    "W001": 140,
+    "W075": 40
+  },
+  "actual_cut_mm": null,
+  "W075_material": "Original LittelfuseFHAC0002ZXJ orange12AWG GXL lead; not an added LAPP conductor.",
+  "W001_material": "LAPP0107001 black12AWG PTFE; one conductor per G1.1 port.",
+  "prototype_assumptions": [
+    "F0 body51x17.7x22, lead axis10 and OD4.5/R10 not supplier dimensions.",
+    "Robot XT60 cup pitch7 provisional; actual marked polarity controls soldering, not left/right coordinates.",
+    "XT60 solder strip5mm is a fitting allowance, NOT a manufacturer solder-process specification.",
+    "Nut/socket tool clearances are modeled reserves, not an exact supplied-tool model."
+  ],
+  "assembly": [
+    "Disconnect battery; install the bridge and prethread its six ties while Deck underside is accessible.",
+    "Align bridge and Deck holes at(-10,53)/(61,53);2DIN912M2x12,4DIN125M2,2DIN934M2. Hold lower nuts; no PETG torque invented.",
+    "Install and tighten bridge before routing XB22/XB23 head feeds and W061. Both W061 segments3/4 cross the right tool corridor. Later access requires disconnected battery and released/parked affected stationary wires; restore all selected routes and ties. No installed-wire tool clearance claimed.",
+    "Fix F0 body with two ties atX-2/24; robot-side XT60 with its body tie. Restrain all three intact insulated leads separately.",
+    "Check actual F0 lead length before trimming W075 to nominal40mm; direct robotXT60 plus to F0, no pre-fuse intermediate joint.",
+    "W001 nominal140mm includes14mm G1 strip,5mm solder allowance and10mm fitting margin. Check reach and delivered markings before cutting.",
+    "Prethread independent G1BAT tie through full Deck slots; terminate W001 inG1.1/X51 without tinning or double-wire stuffing. Grip insulation by hand.",
+    "W076 free switch lead is only parked/retained, not cut to a selected length. S0/W066 and whole battery mate/reach remain open."
+  ],
+  "conditions": [
+    "Install and tighten bridge before routing XB22/XB23 head feeds and W061. Both W061 segments3/4 cross the right tool corridor. Later access requires disconnected battery and released/parked affected stationary wires; restore all selected routes and ties. No installed-wire tool clearance claimed.",
+    "Existing R44 soft insulation contact condition is retained; not whole-robot collision freedom.",
+    "Factory F0 minimum lead tolerance/OD, actual grip, battery mate/reach, electrical/thermal tests are phase2, not performed.",
+    "Complete source needs S0 location and both remaining routes; this local selection does not close W5 or E3."
+  ],
+  "selected": true,
+  "W5_complete": false,
+  "E3_complete": false,
+  "physical_pass": false
+}

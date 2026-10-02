@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R47 zachowuje wszystkie71STL i kartę cięć R45/R44; zachowuje29 ofert osprzętu R46, w tym4M2,5×12 ramP0+2zapasowe. R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 110 części PETG i4próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R48 zastępuje jeden Deck dopasowaniem F0/G1.1 i dodaje jeden uchwyt F0/XT60; 72STL,111PETG i4próbki,29 ofert stałego osprzętu. R44 MAIN i pozostałe wydruki zachowane. Warunki miękkiej izolacji R44 i montażu uchwytu przed wiązką pozostają jawne; nie twierdzić, że model całego robota jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,47 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,17:25 Warszawy — R48 WYBRANY lokalny F0/XT60 + powrót W001 doG1.1.
+Dwa zgodne otwory Deck/uchwytu(-10,53)/(61,53), 2M2×12/4podkładki/2nakrętki,
+7nowych opasek; edytowalne Deck i uchwyt, test parametru/odtworzenia,
+przeniesionego otwarcia i zamknięte STL zachowane w przypiętych dowodach.
+Uchwyt99×60×48; Deck230×190×55,5. Nie przebudowano E6/P0.
+111 porównań geometrii bez kontaktów fizycznych nowych części; 5 kontaktów
+TYMCZASOWEGO klucza z XB22/XB23/W061 rozstrzygnięte kolejnością montażu:
+dokręcić przed przewodami; przy serwisie odłączyć baterię i uwolnić/przywrócić
+te nieruchome przewody. Nie udawać dostępu z już ułożoną wiązką.
+R2 REJECTED zachowane; osobny access-finish-r1 powtórnie mierzy brakujący
+segment W061_3 i dziedziczy przypiętą kontrolę niezmienionych części.
+W07540mm(fabryczny F0,nie dodatkowyLAPP), W001140mm; 12/80blanków wybrane.
+72STL/111PETG/4próbki,109wierszy ilości,29ofert osprzętu; opaski T18I102
+w robocie wymagają2×100szt., nie jednej paczki. Sześć testów zaliczonych;
+4306/4306pinów R48,4205pinów rodzica zachowane. Aktualna tabela cięcia12/80;
+W001140mm ZASTĘPUJE starą rezerwę150mm; pozostały budżet LAPP1860mm,
+reszta wejść nadalOPEN. Fizyczne próby nie wykonane.
+14/20=70%,+0pp. W5/E3/K2/K3/A2/A3 nadalOPEN, S0/W076/W066 nie ukończone.
+NEXT: jeden nowy układ S0 z pełnymi W076/W066, odciążeniem i dostępem;
+potem12oprawek/24końce i reszta W5, bez ponawiania odrzuconych układów.
+Hookenabled do75%, automatyczne wznowienie potwierdzone, mailpending.
+Odczyt limitu15:22Z:22%użyte/78%pozostałe, zwykłe użycie dostępne.
+Czas poprzedniego okna14:38:08–15:21:35Z=43min27s ścienne; worker Deck486,47s,
+para R1 554,09s/R2 105,22s zawarte w oknie; nie sumować ich jako dodatkowej pracy.
+Bieżące wznowienie15:22:20–15:29:22Z=7min02s ścienne do kontroli indeksu;
+późniejszego zapisu/commitu nie doliczono do tego pomiaru.
+
+02.10,16:36:53 Warszawy — F0/XT60: zapisany edytowalny uchwyt i STL99×55×48mm
+w battery-feed-bridge-r1; 21 zamkniętych szkiców, jeden solid, poprawna siatka,
+zmiana/przywrócenie parametru i otwarcie przeniesionej kopii sprawdzone.
+Stopy poprawione do rzeczywistego Deck105..109; dwa M2×12, cztery podkładki,
+dwie nakrętki i sześć opasek źródła. Uchwyt i W07540mm bez raportowanych kolizji
+z wybranymi właścicielami. W001140mm trafia w chłodzenie Pi w dwóch segmentach:
+układ NIE WYBRANY; nie zaliczać pełnego źródła ani W5. S0 z poprzedniej próby
+source-inlet-complete-r1 odrzucony wskutek rzeczywistych kolizji, bez ponawiania.
+NEXT: przesunąć pionowy odcinek W001 z Y26 poza chłodzenie (kandydatY31),
+domknąć odciążenie G1.1 i natywny Deck; zachować ukończony uchwyt bez przebudowy.
+14/20=70%,+0pp; mailpending, hookenabled do75%, bez harmonogramu.
+Czas ścienny tego wznowienia14:03:25–14:36:53Z=33min28s;
+worker uchwytu74,960887s, wcześniejszy worker źródła96,918885s zawarte w oknie.
 
 02.10,15:59:44 Warszawy — R47: UZGODNIONE TOŻSAMOŚCI POZOSTAŁYCH CZĘŚCI.
 83role poza osprzętem mają dokładny model/SKU albo jawnie niemarkową
