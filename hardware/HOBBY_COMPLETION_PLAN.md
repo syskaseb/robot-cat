@@ -54,6 +54,15 @@ nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
 
+- [ ] LOCAL_12_FUSE_BANK Lokalny checkpoint:12oprawek/24zakończenia, wejścia i wyjścia, odciążenia, natywne mocowania, potrzebna osłona, montaż, wybrany eksport i lokalny commit. To nie dodatkowy punkt licznika20 ani pełneW5.
+
+02.10,21:09:31 Warszawy —18:03:05–19:09:31Z=1h06min26s tego wznowienia do zapisu konstrukcji, nie suma workerów.15/20=75%,+0pp; R51 nadal wybrany.
+Konstrukcja NIE WYBRANA: servo-fuse-construction-checkpoint-r1/manifest.json; R9:12wejść/24końce bez kolizji wewnętrznych,1800mm roboczych blanków; nie zachowano starego limitu100mm/żyłę.
+Natywny bankR5: cztery śruby na pełnym pierścieniu płyty, omija wszystkie4faktyczne wsporniki osłony (wcześniej brakowały w cache); R3 miał stopy poza Deck, R4 niepełne podparcie — odrzucone.
+Wyjścia:12lokalnych odcinków OD2.4/R10 jawnie prowizorycznych, nie całe ruchome przewody nóg; bank-restraints-r2 ma12integralnych odciążeń. Cover-native-r3 zachowuje głowę/mocowania, ma jeden tylny mostek;127zmienionych par bez kontaktów w pozycji montażowej. Odrzucony niezależny pionowy demontaż osłonyR1 pozostaje błędem, nie PASS.
+NEXT: proste odcinki pod chwyt izolacji12wejść i natywne odciążenia; wszystkie5portów obróconych P-WAGO, wykonalne odpięcie/zdejmowanie podzespołu, natywny Deck, ilości/stock i jeden wybrany eksport. Lokalnego markera nie zaznaczać przed całością. E3/W5/K3/A2/A3OPEN.
+Hook enabled bez terminu do lokalnego rezultatu;5izolowanych testówOK nie są nowym rzeczywistymStop. ModelGPT-6.1SolHigh; limit26%użyte/74%pozostałe. Mail75%wysłany wcześniej, nie ponawiać. Bez fizycznegoPASS.
+
 02.10,19:45:22 Warszawy — CHECKPOINT75%: R51 WYBRANY, K2 zamknięte,
 15/20=75%,+5pp; E3/W5/K3/A2/A3 nadalOPEN. Brak zakupów/fizycznegoPASS.
 Dokładny fabryczny czerwony męski225mm2147632113/Farnell3526384
