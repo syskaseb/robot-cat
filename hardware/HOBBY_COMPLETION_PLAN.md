@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R36 zachowuje dokładnie wszystkie wydruki i ilości R35/R34/R33; dołącza kartę końców W5 do schematu E4. 71 zadań, 110 części PETG i 4 próbki.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R37 zachowuje ilości R36, zastępuje tylko DeckP10 płytą z sześcioma integralnymi siodełkami i przelotami opasek DATA. 71 zadań, 110 części PETG i 4 próbki; karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,46 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,03:19 Warszawy — TRZY STAŁE MOSTKI DATA DOMKNIĘTE NOMINALNIE, R37 WYBRANY.
+3303/3303piny, wszystkie3192pinyR36 zachowane;10/10testów,
+native/recompute/ponowne otwarcie, zamknięta siatka1części i obejrzanyPNG.
+W007/W011/W012: trzy blanki200mm ze wspólnego7m zakupu, sześć opasek
+111-02370 ze wspólnego100szt (roboczo87), sześć integralnych podparć,
+12pełnych przelotów Deck.1nowySTL zamienny, bez nowego zadania drukowego;
+71zadań/110PETG/4próbki/113wierszy ilości bez zmian. Otwór chłodzenia Pi
+i P0 zachowane. Końce/komory według body-data-bridges-r7/interface.json;
+D_RR kolejność global+X [.3,.2,.1,.4,.5], D_RL pierwotna [.1,.2,.3,.4,.5].
+251sprawdzonych par,0kolizji w aktualnym nominalnym modelu;162właścicieli
+korpusu z kontrolą zmienionych interfejsów i zachowanymi dowodami bez zmian.
+R1–R6 niewybrane diagnostyczne: kolizje/ślepe przeloty/starycache/odwrócony
+szkic/podpory wykryto i poprawiono, nie uznano za PASS. R7 zachowuje trasy
+i P0: północna kotwaY24, źródłowaY−29 i tylko jej siodełko krótsze2,5mm.
+WAGO221-415 nominalny strip11mm; rzeczywiste wymiary komór i pasowanie
+PETG pozostają przymiarką fazy2, nie udawanym pomiarem.
+14/20=70%,+0pp: W5 nadal OPEN, podobnie E3/K2/K3/A2/A3.
+START01.10 22:59:16Z/ENDpakietu02.10 01:18:29Z=2h19min13s ścienne;
+obejmuje przerwania wiadomościami użytkownika i sprawdzenie modelu/konta,
+nie jest pomiarem ciągłej pracy CAD ani sumą oddzielnych faz. Końcowe Git później.
+Model/effort potwierdzony w bieżącym turn_context: GPT-6.1Sol/high.
+Limit01:17Z:9%użyte/91%pozostałe. Rzeczywisty Stop22:59:07Z:
+manual_test=false, work_continuation_emitted, zgodna sesja. Hook enabled,
+na nowe polecenie użytkownika przedłużony do02.10 10:30Warszawy/08:30Z;
+bez harmonogramu. Techniczny znacznik końca ROBOT_CAT_0900_DONE zachowany
+dla istniejącego skryptu; NIE oznacza już terminu09:00.
+NEXT: W5 wspólne odcinki zasilania korpusu/źródła, ich końce i odciążenia,
+następnie12ruchomych wiązek nóg i balans. Nie powtarzać Pi/głowy/ogona/DATA.
+Następny użyteczny checkpoint korpusu szacunkowo60–120min, bez gwarancji;
+pozostałe rezultaty osobno. Przy rzeczywistej blokadzie niezależne K2/K3
+w tym samym oknie. Kontynuować bez czekania na zgodę, bez WORK_HANDOFF.
+
+02.10,00:58:37 Warszawy — R36 zapisany lokalnie: f0e1a84 (karta),
+2b5aceb/8fac9f4 (zachowanie dokładnych bajtów artefaktów w Git).
+Końcowa kontrola:3192/3192 plików roboczych i12/12 własnych pinów HEAD
+zgodnych; release_check integrity_ok=true, readiness=prototype.
+Kontrola/naprawa zapisu Git START22:57:14Z/END22:58:37Z=83s;
+0nowychSTL, bez nowych punktów i fizycznegoPASS. Limit22:57Z:8%użyte,
+92%pozostałe; hook nadal enabled do09:00. Następny krok W5 bez zmian.
 
 02.10,00:50:05 Warszawy — W5 KARTA KOŃCÓW, R36 WYBRANY; W5 NADAL OPEN.
 3192/3192piny, wszystkie3172pinyR35 zachowane;71zadań/110PETG/4próbki

@@ -140,4 +140,13 @@ hardware/electronics/full-cat/body-harness-w5-r1/** -text -eol whitespace=cr-at-
 hardware/manufacturing/one-batch-prototype-r36/** -text -eol whitespace=cr-at-eol
 tools/electronics/body_harness_w5_r1.py text eol=lf
 tools/electronics/test_body_harness_w5_r1.py text eol=lf
+# R37 supported DATA geometry and exact-byte construction evidence.
+hardware/electronics/full-cat/body-data-bridges-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/body-data-bridges-r*/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r37/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/body-data-bridges-r*/*.brep binary
+hardware/cad/studies/body-data-bridges-r*/*.brep binary
+tools/electronics/body_data_bridges*.py text eol=lf
+tools/electronics/test_body_data_bridges_r3.py text eol=lf
+tools/electronics/package_body_data_bridges_r37.py text eol=lf
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
