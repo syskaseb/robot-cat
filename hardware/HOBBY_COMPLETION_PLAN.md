@@ -54,6 +54,34 @@ nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
 
+02.10,05:19 Warszawy — KONKRETNY ZESTAW MATERIAŁÓW MONTAŻOWYCH, R39 WYBRANY.
+Pięć ogólnych kategoriiP0 zastąpione sześcioma dokładnymiSKU: dużeopaski
+111-03410, rzep55224-00000-02, oplot170-10600/RS5m, klejEA3430/242865,
+papier2609256A53/5szt iIPAART.AGT-002/100ml. Opakowania, źródła,
+zapasy i receptaR6 w assembly-materials-k3-r1/materials.json.
+Klej tylko zatrzymuje cztery nieobciążone uchwyty, bez gwintów i stalowej
+drogi docisku. Oplot nie zastępuje odciążeń. Nie dobrano50arkuszy ani100m
+oplotu. Opaski mają źródłową różnicę190/198mm; brać190mm do przymiarki.
+3431/3431piny, wszystkie3364R38 zachowane;27/27testów.71zadań,
+110PETG/4próbki bez zmian;0nowychSTL,114wierszy ilości zamiast113.
+Małe111-02370 nadal jeden worek100, roboczo90; duże20 i oplot3m są
+przydziałami planistycznymi, nie końcowym spisem wykorzystaniaW5/K3.
+Dwie ograniczone próbyW036 względem aktualnegoR38 ODRZUCONE: pełne
+bezpieczniki/P_FRONT, w drugiej także opaskaW061. Nie wybrano zmiany
+kolejności komórG1 ani żadnej nowej drogi/przewodu. Zachowane źródła,
+checks i rejected-W036.json; nie powtarzać tych korytarzy bez nowego
+rozwiązania. KolejnyW5 wymaga zmiany korytarza/zakotwienia.
+14/20=70%,+0pp. E3/W5/K2/K3/A2/A3OPEN; dokładne narzędzia, PE baterii,
+pozostałe przewody/końce/odciążenia i spis wykorzystania nadal do zrobienia.
+START02:57:02Z/ENDpakietu03:19:09Z=22min07s ścienne, nie ciągłyCPU.
+Limit03:19Z:12%użyte/88%pozostałe, zwykłe użycie dostępne.
+Hook enabled, rzeczywistyStop02:56:53Z,manual_test=false,zgodna sesja;
+deadline08:30Z/10:30Warszawy, bez harmonogramu. GPT-6.1SolHigh pozostaje
+wyborem użytkownika. NEXT: bezpieczne domknięcie pozostałych dokładnych
+materiałów/narzędziK2/K3 albo nowy niekolizyjny korytarzW5; checkpoint
+użytecznego podzespołu szacunkowo60–90min, nie obietnica całej fazy.
+Kontynuować w tym samym oknie hooka. Bez fizycznegoPASS i zakupów.
+
 02.10,04:49 Warszawy — PODPARTY MOSTEK MASY G1–G2 DOMKNIĘTY NOMINALNIE, R38 WYBRANY.
 3364/3364 piny, wszystkie3303 pinyR37 zachowane;19/19 testów.
 W061 jeden przewód TKD2500125 SiF4mm², OD4,2mm/R≥21mm: nominalna
