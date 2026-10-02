@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R41 zastępuje tylko Deck dla dwóch niezależnych odciążeń G1; uchwyt MAIN R40, DATA/W061/W060 i pozostałe 70 wydruków zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R42 zachowuje wszystkie wydruki R41 (Deck dla dwóch niezależnych odciążeń G1); uchwyt MAIN R40, DATA/W061/W060 i pozostałe 70 wydruków zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,33 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,08:05 Warszawy — KATALOGOWE NARZĘDZIA ZACISKOWE, R42 WYBRANY.
+30końców:12IN69710-1+224027-2,12OUT58628-1 warunkowo dla rzeczywistej
+żyły,4S1+2S0 współdzielą58433-3 ze58423-1. CzterySKU, nie dodatkowa
+matryca ani zakup/usługa. Strony9/10TEK8 obejrzane;0,326mm² nie jest
+700CMA±5%, OUT nadal wymaga rzeczywistego przewodu/próbki. Inne narzędzia
+otwarte.3855/3855piny,3757R41 zachowane,57/57testów.71wydruków/110PETG/
+4próbki/114wierszy komponentów bez zmian.14/20=70%,+0pp;6rezultatówOPEN.
+Nowy producentowski rysunek FHAC0001ZXJ:50±1mm oprawka z odgiętkami,
+89,5±5mm na każdy fabryczny16AWG, baretip6,35±2 NIE średnica. Zapisany
+obejrzany katalogPDF; dokładnyrevL odczytWWW, pobranieAccessDenied.
+StareF_PI/P_SYS ma dolną granicę85,652mmXY>50mmW043. Dwie nowe trasy:
+R1 odrzuconaDATA/PWM/Deck;R2 omija sztywneDATA/PWM, ale wymaga nowego
+przelotu i rozdzielenia miękkiej osłony W060. Mocowanie źródła ODRZUCONE:
+opaska i jej dolny pas przecinają P0Support0. Nie zbudowano native/STL,
+NIE wybrano F_PI, nowych długości ani zamiany etykiet P_SYS. Dokładny
+blocker/snapshot w main-positive-source-review-r1/validation.json;
+nie ponawiać takiego samego podplate'owego pasa bez nowego mocowania.
+R2 odzyskano z zapisanych centerline:40/80/210mm są tylko kandydatem,
+stare nieużywane Beziery/180mm w emitterze nie są rzeczywistą geometrią.
+START05:19:01Z/ENDpakietu06:05:52,046Z=46min51,046s ścienne, nieCPU.
+Limit06:00Z:14%użyte/86%pozostałe,kredyty0,zwykłe użycie dostępne.
+Hookenabled, rzeczywistyStop05:18:50Z/zgodna sesja/manual_test=false;
+deadline08:30Z/10:30Warszawy, bez harmonogramu. GPT-6.1SolHigh.
+NEXT bezpieczneK3: jeden konkretny komplet lutowania/grzania/cięcia/
+pomiarów/kluczy i materiałów lutowniczych; bez zakupów, nowej trasy ani
+powtarzania kolizyjnegoF_PI. Szacunkowo45–75min, nie cała faza.
 
 02.10,07:14 Warszawy — NIEZALEŻNE MOCOWANIA G1 DOMKNIĘTE, R41 WYBRANY.
 Dwa węższe siodełka W061/G1.5 i W060/G1.2, główki opasek pod własną

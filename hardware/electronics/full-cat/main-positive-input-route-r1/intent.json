@@ -1,0 +1,124 @@
+{
+  "parent": "one-batch-prototype-r41",
+  "source": "P_SYS.2",
+  "destination": "MAIN.VIN",
+  "source_mm": [
+    -76.5,
+    -11,
+    113.5
+  ],
+  "holder_bbox_mm": [
+    -65.5,
+    -29.85,
+    109,
+    -14.5,
+    -12.15,
+    131
+  ],
+  "pad_mm": [
+    114.869,
+    4.91,
+    62.5748
+  ],
+  "splice_centre_mm": [
+    52.5,
+    -21,
+    122
+  ],
+  "poles_mm": {
+    "prefuse": [
+      [
+        -76.5,
+        -13,
+        113.5
+      ],
+      [
+        -76.5,
+        -17.4182779986,
+        113.5
+      ],
+      [
+        -72.9182779986,
+        -21,
+        115
+      ],
+      [
+        -68.5,
+        -21,
+        115
+      ]
+    ],
+    "factory_rise": [
+      [
+        -11.5,
+        -21,
+        115
+      ],
+      [
+        -3.5,
+        -21,
+        115
+      ],
+      [
+        4.5,
+        -21,
+        122
+      ],
+      [
+        12.5,
+        -21,
+        122
+      ]
+    ],
+    "MAIN_fan": [
+      [
+        129,
+        -5.9,
+        95
+      ],
+      [
+        129,
+        -5.9,
+        84.8582666667
+      ],
+      [
+        114.869,
+        4.91,
+        74.7165333333
+      ],
+      [
+        114.869,
+        4.91,
+        64.5748
+      ]
+    ]
+  },
+  "radius_bounds_mm": {
+    "prefuse": 7.495037043719268,
+    "factory_rise": 13.714225789382311,
+    "MAIN_fan": 8.671472299064826
+  },
+  "allowances": {
+    "factory_OD_mm": 3.4,
+    "red_OD_mm": 3,
+    "minimum_radius_mm": 6,
+    "closed_holder_height_mm": 22
+  },
+  "limits": {
+    "W043_blank_mm": 40,
+    "W077_blank_mm": 80,
+    "W078_blank_mm": 180,
+    "total_blank_mm": 300
+  },
+  "conditions": [
+    "OD/static-radius and closed-cover height are project reserves, not supplier ratings.",
+    "Factory lead minimum84.5mm includes its bare tip; final solder/WAGO ends must be trimmed to actual delivered wire.",
+    "Do not use delivered6.35mm bare tip as WAGO strip12..14mm. Prepare a fresh untinned end.",
+    "No PCB terminal installed; solder only off PETG. E3 remains open."
+  ],
+  "physical_pass": false,
+  "selected": false,
+  "W5_complete": false,
+  "restraints_complete": false,
+  "started_utc": "2026-10-02T05:33:33.618905+00:00"
+}

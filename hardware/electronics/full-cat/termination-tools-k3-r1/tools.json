@@ -1,0 +1,183 @@
+{
+  "status": "CATALOG_TOOLING_REQUIREMENTS_NOT_PURCHASE_OR_PHYSICAL_APPROVAL",
+  "parent": "one-batch-prototype-r41",
+  "phase1_complete": false,
+  "K3_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "tools": [
+    {
+      "sku": "69710-1",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "frame",
+      "used_by": [
+        "4-520448-2 IN ×12"
+      ],
+      "requires": [
+        "224027-2"
+      ]
+    },
+    {
+      "sku": "224027-2",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "12AWG die",
+      "used_by": [
+        "4-520448-2 IN ×12"
+      ],
+      "requires": [
+        "69710-1"
+      ]
+    },
+    {
+      "sku": "58628-1",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "complete hand tool",
+      "used_by": [
+        "2-520184-2 OUT ×12 conditional on delivered wire"
+      ]
+    },
+    {
+      "sku": "58433-3",
+      "manufacturer": "TE Connectivity",
+      "quantity_required": 1,
+      "kind": "complete frame354940-1 with die58423-1",
+      "used_by": [
+        "130171 S1 ×4",
+        "130207 S0 ×2"
+      ],
+      "included": [
+        "58423-1"
+      ]
+    }
+  ],
+  "no_additional_die_purchase": [
+    "58423-1 already included in58433-3",
+    "224027-1 AWG10 not used"
+  ],
+  "processes": [
+    {
+      "terminal": "4-520448-2",
+      "ends": 12,
+      "wire": "LAPP0107001 single12AWG3.31mm2",
+      "tool": "69710-1 +224027-2",
+      "strip_mm": [
+        7.54,
+        8.3
+      ],
+      "CMA_target": 6500,
+      "CMA_tolerance_fraction": 0.05,
+      "wire_area_nominal_mm2": 3.31,
+      "wire_area_CMA_nominal": 6532.368549000851,
+      "table_range_nominal_consistent": true,
+      "maximum_insulation_guide_mm": 8.13,
+      "guide_is_not_grip_qualification": true,
+      "source": "hardware/reference/servo-holder-p0-2026-09-24/114-2123-current-TE.pdf",
+      "page": 10,
+      "revision": "K8/21SEP2026"
+    },
+    {
+      "terminal": "2-520184-2",
+      "ends": 12,
+      "wire": "Delivered ST3215 factory positive; actual copper/OD unverified",
+      "tool": "58628-1",
+      "strip_single_mm": [
+        6.76,
+        7.52
+      ],
+      "source": "hardware/reference/servo-holder-p0-2026-09-24/114-2123-current-TE.pdf",
+      "page": 9,
+      "single_wire_CMA_rows": [
+        700,
+        1000,
+        1600
+      ],
+      "table_AWG_labels": [
+        22,
+        20,
+        18
+      ],
+      "CMA_tolerance_fraction": 0.05,
+      "maximum_insulation_guide_mm": 3.43,
+      "guide_is_not_grip_qualification": true,
+      "prior_AWG22_area_assumption_mm2": 0.326,
+      "prior_assumption_CMA": 643.3692286931351,
+      "prior_assumption_within700CMA_row": false,
+      "condition": "Tool/terminal family match is catalogued. Do not equate nominal AWG22/.326mm2 with measured700CMA±5%; confirm actual delivered copper and insulation/sample. No fake acceptance.",
+      "delivered_wire_qualified": false
+    },
+    {
+      "terminal": "130171",
+      "ends": 4,
+      "wire": "HELU23802 red4mm2, nominalOD4.2",
+      "tool": "58433-3",
+      "die": "58423-1",
+      "cavity": "Y",
+      "strip_mm": [
+        7.94,
+        8.73
+      ],
+      "tool_wire_area_mm2": [
+        2.62,
+        6.64
+      ],
+      "tool_insulation_OD_max_mm": 6.35,
+      "source": "hardware/reference/manual-stop-p0-2026-09-24/408-9252-N.pdf",
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "exact_terminal_evidence": "hardware/reference/manual-stop-p0-2026-09-24/PIDG-QRG.pdf",
+      "evidence_page": 5
+    },
+    {
+      "terminal": "130207",
+      "ends": 2,
+      "wire": "S0 outputHELU23802 and F0 factory12AWG; factoryOD unknown",
+      "tool": "58433-3",
+      "die": "58423-1",
+      "cavity": "Y",
+      "strip_mm": [
+        7.94,
+        8.73
+      ],
+      "tool_wire_area_mm2": [
+        2.62,
+        6.64
+      ],
+      "tool_insulation_OD_max_mm": 6.35,
+      "source": "hardware/reference/manual-stop-p0-2026-09-24/408-9252-N.pdf",
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "exact_terminal_evidence": "hardware/reference/manual-stop-p0-2026-09-24/130207-product-TE-mirror.pdf",
+      "evidence_page": 3,
+      "condition": "Terminal drawing OD max6.4 is not permission to exceed tool6.35; measure delivered F0 insulation. No assumption fromAWG alone."
+    }
+  ],
+  "not_manually_crimped": [
+    "Molex2147612112/2147632112/2147611112/2147631112 factory leads",
+    "Pololu1871 factory female leads"
+  ],
+  "WAGO_rule": "Single untinned stranded copper per cage. No ferrule crimper added; do not use PIDG or UltraFast die on WAGO ends.",
+  "access_rule": "Prepare exact tool access by borrowing or equivalent documented external service before assembly. Ownership/availability unknown; no service booked and no tools bought. This is not a recommendation to buy all expensive TE tools.",
+  "sample_rule": "In phase2 follow tool maintenance/locator instructions, prepare off-robot sample for each actual wire/terminal, inspect copper/insulation retention and required tests. Never substitute pliers, solder-fill a rejected crimp, or transfer a solder-slug calibration dimension to the insulated terminal.",
+  "open_other_tools": [
+    "Exact soldering/heating/stripping/cutting/measuring/fastener tools and solder/flux SKU remain K3.",
+    "Whole harness cut/stock/tie census remains W5/K3; this matrix does not close either."
+  ],
+  "source_sha256": {
+    "hardware/reference/manual-stop-p0-2026-09-24/130207-product-TE-mirror.pdf": "43f4d6f8971976460523915f6123404bcd010fdbcb870fab9a61735ad1f08228",
+    "hardware/reference/manual-stop-p0-2026-09-24/408-9252-N.pdf": "405003ccae6796fa5a6be064589e6b4ff517fcb38b9ab93a31847468cbd42274",
+    "hardware/reference/manual-stop-p0-2026-09-24/PIDG-QRG.pdf": "1e25eeb5e5d4dbb950ee9d1fea1d241af7a4b8822a24819205d2077772e79078",
+    "hardware/reference/servo-holder-p0-2026-09-24/114-2123-current-TE.pdf": "b9f4604878a45b8d7ba0dac2b89230511ec32a321b7e4bdc55cb10cc0baf37cc"
+  },
+  "script_sha256": "d5eac7f98adb68caeab6df2867fee44c3dae10d993534bf0a627755e39663112",
+  "started_utc": "2026-10-02T06:03:39.815360+00:00",
+  "finished_utc": "2026-10-02T06:03:39.904445+00:00"
+}

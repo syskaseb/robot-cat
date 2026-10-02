@@ -184,4 +184,15 @@ hardware/manufacturing/one-batch-prototype-r41/** -text -eol whitespace=cr-at-eo
 tools/electronics/g1_exit_restraints*.py -text -eol
 tools/electronics/test_g1_exit_restraints.py -text -eol
 tools/electronics/package_g1_exit_restraints_r41.py -text -eol
+# R42 exact-byte tooling and explicitly unselected positive-input evidence.
+hardware/electronics/full-cat/main-positive*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive*/*.brep binary
+hardware/electronics/full-cat/termination-tools-k3-r1/** -text -eol whitespace=cr-at-eol
+hardware/reference/fhac0001zxj-2026-10-02/** -text -eol
+hardware/manufacturing/one-batch-prototype-r42/** -text -eol whitespace=cr-at-eol
+tools/electronics/main_positive*.py -text -eol
+tools/electronics/verify_main_positive_input_evidence.py -text -eol
+tools/electronics/termination_tools_k3_r1.py -text -eol
+tools/electronics/test_termination_tools_k3_r1.py -text -eol
+tools/electronics/package_termination_tools_r42.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
