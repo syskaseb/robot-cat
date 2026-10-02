@@ -76,9 +76,12 @@ mocowanie, potrzebna osłona i wyjścia/odciążenia. Estymata lokalnego
 podzespołu2–4h, nie obietnica całegoW5/80%. ModelGPT-6.1SolHigh.
 Czas tego wznowienia17:02:35–17:45:22Z=42min47s ścienne do weryfikacji,
 obejmuje R50 iR4/R5/R51; wcześniejszych czasów nie dodawać drugi raz.
-Hook WYŁĄCZONY po75%, bez harmonogramu;mail przygotowywany.
-Limit24%użyte/76%pozostałe, zwykłe użycie dostępne. Lokalny commit poniżej
-potwierdzany historią Git. Odziedziczone2855pinów nadal nieśledzone,
+Do potwierdzenia commitu17:48:03Z=45min28s tego samego wznowienia;
+nie sumować z42min47s do weryfikacji.
+Hook WYŁĄCZONY po75%, bez harmonogramu;mail WYSŁANY na wskazany adres,
+Gmailmessage_id1a0fdbbaeab07445, etykietaSENT potwierdzona; nie ponawiać.
+Limit24%użyte/76%pozostałe, zwykłe użycie dostępne. Lokalny commitce825b1
+zawiera własny etapR51 i nie wybrane źródła R4/R5. Odziedziczone2855pinów nadal nieśledzone,
 odtworzenie całego robota z czystego klonu nadalA3OPEN.
 
 02.10,19:16:14 Warszawy — R50 WYBRANY: 5/6 brakujących ofert uzupełnione,
