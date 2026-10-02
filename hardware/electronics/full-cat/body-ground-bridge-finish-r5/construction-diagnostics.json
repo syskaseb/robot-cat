@@ -1,0 +1,16 @@
+{
+  "selected_trials": false,
+  "physical_pass": false,
+  "discarded_for_selection": [
+    {"trial": "body-ground-routes-r1", "result": "five-route intent rejected by 26 current-body/cross-wire intersections; do not reuse opposite WAGO entry faces"},
+    {"trial": "body-ground-bridge-r2", "result": "G2 entry intersects the existing north DATA restraint"},
+    {"trial": "body-ground-bridge-r3", "result": "route clear but G1 BAT nearest cage would move; superseded without selection"},
+    {"trial": "body-ground-bridge-r4", "result": "did not include conservative whole-fuse height above flange; superseded by route-r5"},
+    {"trial": "body-ground-bridge-finish-r1", "result": "new sketch planes reset to z0 during full recompute; four disconnected solids; native saved before failure"},
+    {"trial": "body-ground-bridge-finish-r2", "result": "planes corrected but middle foot over existing open window; two disconnected solids"},
+    {"trial": "body-ground-bridge-finish-r3", "result": "one strict native solid and parameter/reopen check; middle seat cuts the curved route by0.0969171125mm3 and floor only0.7mm; no STL selected; final recipe generation also exposed a local variable-shadowing error"},
+    {"trial": "body-ground-bridge-finish-r4", "result": "floor increased; full recompute reached one solid, then worker stopped because the known curved-seat intersection was not yet corrected; source retained, no completion claim"}
+  ],
+  "current_design": "route-r5 unchanged; finish-r5 puts middle seat at X84 on straight route, leaves existing window open with post at X80,Y60, floor2.2mm, slot sidewalls4.4mm; preflight actual route clear",
+  "record_rule": "No fabricated physical measurement or measured duration for unfinished trials. Selected native/endpoints/current-body proof is separate checks.json."
+}

@@ -149,4 +149,15 @@ hardware/cad/studies/body-data-bridges-r*/*.brep binary
 tools/electronics/body_data_bridges*.py text eol=lf
 tools/electronics/test_body_data_bridges_r3.py text eol=lf
 tools/electronics/package_body_data_bridges_r37.py text eol=lf
+# R38 fixed ground bridge: preserve CAD/JSON hashes byte-for-byte.
+hardware/electronics/full-cat/body-ground*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/body-ground*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/body-ground*/*.brep binary
+hardware/cad/studies/body-ground*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r38/** -text -eol whitespace=cr-at-eol
+tools/electronics/body_ground*.py -text -eol
+tools/electronics/complete_body_ground_bridge_checks_r3.py -text -eol
+tools/electronics/test_body_ground_bridge.py -text -eol
+tools/electronics/package_body_ground_bridge_r38.py -text -eol
+hardware/electronics/power-platform/open-deck-p0/layout.json -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

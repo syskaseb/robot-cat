@@ -1,0 +1,63 @@
+{
+  "parent": "one-batch-prototype-r37",
+  "specs": {
+    "W061": [
+      "G1.5",
+      [
+        58.5,
+        11,
+        113.5
+      ],
+      1,
+      "G2.1",
+      [
+        111,
+        9.5,
+        113.5
+      ],
+      1,
+      136.5,
+      75
+    ]
+  },
+  "sourced_static_radius_mm": 21.0,
+  "wire_OD_mm": 4.2,
+  "wire_SKU": "TKD2500125",
+  "straight_insulated_exit_mm": 2.0,
+  "prototype_entry_height_mm": 4.5,
+  "prototype_615_cage_pitch_mm": 7.5,
+  "prototype_415_pitch_mm": 6.75,
+  "cage_labels": {
+    "G1": [
+      ".1",
+      ".5",
+      ".3",
+      ".4",
+      ".2"
+    ],
+    "G2": [
+      ".2",
+      ".3",
+      ".1",
+      ".4",
+      ".5"
+    ]
+  },
+  "remap_rule": "Equal-potential cage labels only. G1.1 BAT original nearest51; G1.2 MAIN input logical role now physical81 and its open W060 route must adopt it. G2.4 BUS/G2.5 XA05 retained.",
+  "physical_pass": false,
+  "selected": false,
+  "restraints_complete": false,
+  "W5_complete": false,
+  "source": "POWER-WIRE-P0.md exact TKD2500125 4mm2: OD4.2; stationary R5xOD=21. Manufacturer PDF cached.",
+  "started_utc": "2026-10-02T01:57:44.284699+00:00",
+  "scope": "W061 only. Four ground returns and other body/source/leg routes remain open.",
+  "fuse_height_reserve": {
+    "MTA_flange_top_mm": 111,
+    "whole_287_height_mm": 18.8,
+    "conservative_top_mm": 129.8,
+    "why": "Conservatively put the entire fuse ABOVE flange instead of guessing inserted depth.",
+    "source_drawing": "hardware/reference/servo-holder-p0-2026-09-24/0300330.png",
+    "manufacturer_url": "https://www.littelfuse.com/assetdocs/littelfuse-datasheet-287-atof?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+    "verified_date_utc": "2026-10-02"
+  }
+}

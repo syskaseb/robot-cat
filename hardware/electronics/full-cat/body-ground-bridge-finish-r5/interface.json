@@ -1,0 +1,171 @@
+{
+  "parent": "one-batch-prototype-r37",
+  "specs": {
+    "W061": [
+      "G1.5",
+      [
+        58.5,
+        11,
+        113.5
+      ],
+      1,
+      "G2.1",
+      [
+        111,
+        9.5,
+        113.5
+      ],
+      1,
+      136.5,
+      75
+    ]
+  },
+  "sourced_static_radius_mm": 21.0,
+  "wire_OD_mm": 4.2,
+  "wire_SKU": "TKD2500125",
+  "straight_insulated_exit_mm": 2.0,
+  "prototype_entry_height_mm": 4.5,
+  "prototype_615_cage_pitch_mm": 7.5,
+  "prototype_415_pitch_mm": 6,
+  "cage_labels": {
+    "G1": [
+      ".1",
+      ".5",
+      ".3",
+      ".4",
+      ".2"
+    ],
+    "G2": [
+      ".2",
+      ".3",
+      ".1",
+      ".4",
+      ".5"
+    ]
+  },
+  "remap_rule": "Equal-potential cage labels only. G1.1 BAT original nearest51; G1.2 MAIN input logical role now physical81 and its open W060 route must adopt it. G2.4 BUS/G2.5 XA05 retained.",
+  "physical_pass": false,
+  "selected": false,
+  "restraints_complete": true,
+  "W5_complete": false,
+  "source": "POWER-WIRE-P0.md exact TKD2500125 4mm2: OD4.2; stationary R5xOD=21. Manufacturer PDF cached.",
+  "started_utc": "2026-10-02T01:57:44.284699+00:00",
+  "scope": "W061 only. Four ground returns and other body/source/leg routes remain open.",
+  "fuse_height_reserve": {
+    "MTA_flange_top_mm": 111,
+    "whole_287_height_mm": 18.8,
+    "conservative_top_mm": 129.8,
+    "why": "Conservatively put the entire fuse ABOVE flange instead of guessing inserted depth.",
+    "source_drawing": "hardware/reference/servo-holder-p0-2026-09-24/0300330.png",
+    "manufacturer_url": "https://www.littelfuse.com/assetdocs/littelfuse-datasheet-287-atof?assetguid=43dcdce8-8ca2-426f-8998-7e566f048d40",
+    "verified_date_utc": "2026-10-02"
+  },
+  "status": "SUPPORTED_GROUND_BRIDGE_COMPLETE",
+  "route_source": "hardware/electronics/full-cat/body-ground-bridge-r5",
+  "anchors": [
+    {
+      "id": "G1_end",
+      "x": 58.5,
+      "y": 12.5,
+      "z": 113.5,
+      "rotation": 0,
+      "width": 8,
+      "length": 2.5
+    },
+    {
+      "id": "G2_end",
+      "x": 111,
+      "y": 11,
+      "z": 113.5,
+      "rotation": 0,
+      "width": 8,
+      "length": 2.5
+    },
+    {
+      "id": "Middle",
+      "x": 84,
+      "y": 75,
+      "z": 136.5,
+      "rotation": 90,
+      "width": 12,
+      "length": 22.5
+    }
+  ],
+  "groove_radius_mm": 2.3,
+  "radial_prototype_play_mm": 0.2,
+  "restraints": {
+    "sku": "Hellermann111-02370 T18I",
+    "quantity": 3,
+    "width_mm": 2.5,
+    "thickness_mm": 1.2,
+    "head_design_box_mm": [
+      6,
+      5,
+      4
+    ],
+    "new_separate_parts": 0,
+    "integral_Deck_seats": 3,
+    "strip_rule": "G1 221-61512-14mm; G2 221-41511mm. Confirm delivered markings; reserve28 is NOT a strip length.",
+    "passages": "Four through Deck105..109, two through middle beam132..138.2; existing open window retained.",
+    "middle_post_root_xy_mm": [
+      78,
+      58,
+      82,
+      62
+    ],
+    "middle_beam_xy_mm": [
+      78,
+      60,
+      90,
+      82.5
+    ]
+  },
+  "assembly": [
+    "Before populated electronics, thread two endpoint T18I through four Deck passages and the middle T18I through two elevated beam passages; heads underneath their supporting surfaces.",
+    "Place MTA holders/fuses before W061 loop; retain the original BAT-side G1.1 cage. Label equal-potential cages according to this interface.",
+    "Form one TKD2500125 blank using at least R21, no loop kink. Insert one untinned conductor per G1.5/G2.1 cage and seat insulation in all three grooves.",
+    "Tighten ties by hand without crushing silicone. Keep elevated U loop above the capped fuses and below Carrier; do not coil unused stock inside robot.",
+    "For obstructed fuse removal: battery disconnected first, remove upper Carrier as prescribed, cut/replace these three ties, unlatch both W061 ends and lift the loop before extracting a fuse. Do not yank through the installed wire."
+  ],
+  "source_time_utc": "2026-10-02T02:37:12.883899+00:00",
+  "new_STL": 1,
+  "pending": "Selection/package after inspected preview",
+  "lengths": {
+    "W061": {
+      "external_length_mm": 181.5746575805628,
+      "trim_and_rework_mm": 30,
+      "provisional_blank_mm": 240,
+      "actual_strip": "Read delivered housing; never tin WAGO wire ends",
+      "nominal_strip_by_end_mm": {
+        "G1.5": [
+          12,
+          14
+        ],
+        "G2.1": 11
+      },
+      "reserve_28mm_is_not_stripping_instruction": true
+    }
+  },
+  "native": "hardware/cad/studies/body-ground-bridge-finish-r5/DeckGroundBridgeSupported.FCStd",
+  "cage_x_mm": {
+    "G1": [
+      51,
+      58.5,
+      66,
+      73.5,
+      81
+    ],
+    "G2": [
+      99,
+      105,
+      111,
+      117,
+      123
+    ]
+  },
+  "entry_face": {
+    "G1": "+Y11; all five mouths share this face",
+    "G2": "+Y9.5; retained XA05 atX123"
+  },
+  "cage_datum_note": "Prototype registration, not measured WAGO pitch. Selected XA05 G2.5 coordinate retained; only same-potential cage labels changed. Do not reuse rejected drafts' opposite entry faces."
+}

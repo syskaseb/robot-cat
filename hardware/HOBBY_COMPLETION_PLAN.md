@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R37 zachowuje ilości R36, zastępuje tylko DeckP10 płytą z sześcioma integralnymi siodełkami i przelotami opasek DATA. 71 zadań, 110 części PETG i 4 próbki; karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R38 zachowuje ilości R37, zastępuje tylko DeckP10 płytą z zachowanymi sześcioma siodełkami DATA oraz trzema podparciami W061. 71 zadań, 110 części PETG i 4 próbki; karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,43 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,04:49 Warszawy — PODPARTY MOSTEK MASY G1–G2 DOMKNIĘTY NOMINALNIE, R38 WYBRANY.
+3364/3364 piny, wszystkie3303 pinyR37 zachowane;19/19 testów.
+W061 jeden przewód TKD2500125 SiF4mm², OD4,2mm/R≥21mm: nominalna
+zewnętrzna trasa181,575mm, blank240mm ze wspólnego2m. G1.5 strip12–14mm,
+G2.1 strip11mm;28mm rezerwy NIE jest instrukcją odizolowania.
+Trzy integralne podparcia, cztery przeloty Deck i dwa w wysuniętym siodełku;
+postX80,Y60 zachowuje otwarte okno, siodełkoX84 na prostym przewodzie.
+Dno rowka2,2mm i boki otworów4,4mm. Trzy opaski111-02370: roboczo90
+ze wspólnego100szt, bez zamknięcia K3. Jeden zamienny STL, bez nowych
+zadań/części:71zadań/110PETG/4próbki/113wierszy ilości bez zmian.
+Native ze szkicami i parametrami,1bryła/strictBOP, rzeczywista zmiana
+parametru i powrót, ponowne otwarcie, zamknięta siatka i obejrzany PNG.
+86par zmienionych interfejsów+1uzupełniająca para AUX/PWM:0kolizji.
+Pełny bezpiecznikLittelfuse28718,8mm zarezerwowany nad kołnierzem111mm,
+bez zgadywania zagłębienia; środki przewodu136,5mm. To rezerwa projektu,
+nie pomiar dostawy. G1+X [.1,.5,.3,.4,.2], X=[51,58.5,66,73.5,81];
+G2+X [.2,.3,.1,.4,.5], X=[99,105,111,117,123]. Oba złącza wejściem+Y;
+G1.1 BAT i wybrany XA05/G2.5X123 zachowane. W060/G1.2 MAIN input
+pozostaje OPEN, musi użyćX81. Pierwszeństwo ma finalny
+body-ground-bridge-finish-r5/interface.json, nie diagnostyczne rzuty komór.
+Recepta obejmuje włożenie opasek/bezpieczników przed przewodem oraz
+rozpięcie i uniesienie pętli po odłączeniu baterii, gdy zasłania wyjęcie
+bezpiecznika. Wszystkie odrzucone próby zachowane jako niewybrane;
+nie powtarzać przecięcia0,096917mm³ ani szkiców naZ0/otwartym oknie.
+14/20=70%,+0pp. E3/W5/K2/K3/A2/A3 OPEN. Cztery pozostałe powroty masy,
+pozostałe zasilanie/źródło,12ruchomych wiązek nóg i balans nadal otwarte.
+START02.10 01:22:36Z/ENDpakietu02:49:16Z=1h26min40s ścienne;
+nie jest pomiarem ciągłego czasu CPU ani samych zapisów. Bez fizycznegoPASS.
+Limit02:49Z:11%użyte/89%pozostałe, zwykłe użycie dostępne. GPT-6.1SolHigh
+pozostaje wyborem użytkownika. Hook enabled, rzeczywista kontynuacjaStop
+01:22:26Z (manual_test=false, zgodna sesja); deadline08:30Z/10:30Warszawy,
+bez harmonogramu. NEXT: pozostałe stałe powroty/zasilanie W5, zgodne
+strony wejścia i wspólne aktualne przeszkody R38, potem wiązki nóg/balans.
+Kolejny użyteczny checkpoint W5 szacunkowo90–150min, nie obietnica
+ukończenia całegoW5/fazy. Przy rzeczywistej blokadzie niezależne K2/K3.
+Kontynuować w tym samym oknie hooka bez czekania na zgodę.
 
 02.10,03:19 Warszawy — TRZY STAŁE MOSTKI DATA DOMKNIĘTE NOMINALNIE, R37 WYBRANY.
 3303/3303piny, wszystkie3192pinyR36 zachowane;10/10testów,

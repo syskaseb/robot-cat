@@ -1,0 +1,723 @@
+{
+  "variant": "P0_OPEN_TOP_REMOVABLE_DISTRIBUTION_DECK",
+  "user_approved_open_top": true,
+  "authorization": "2026-09-25: user replied Ok to open-top/removable-plate proposal",
+  "scope": "17 WAGO, 12 servo fuse holders and five flexible inline-holder zones",
+  "frame": "LOCAL mm, origin deck centre; front -X, left +Y; Z/transform to robot unset",
+  "deck_outline_mm": [
+    230,
+    190
+  ],
+  "outline_is_proposal": true,
+  "components": [
+    {
+      "id": "P_SYS",
+      "kind": "WAGO",
+      "sku": "221-615",
+      "net": "P_SYS",
+      "center_xy_mm": [
+        -90,
+        0
+      ],
+      "footprint_xyxy_mm": [
+        -108.5,
+        -11.0,
+        -71.5,
+        11.0
+      ],
+      "planning_height_mm": 11,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "P_FRONT",
+      "kind": "WAGO",
+      "sku": "221-615",
+      "net": "P_FRONT",
+      "center_xy_mm": [
+        -45,
+        0
+      ],
+      "footprint_xyxy_mm": [
+        -63.5,
+        -11.0,
+        -26.5,
+        11.0
+      ],
+      "planning_height_mm": 11,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "P_REAR",
+      "kind": "WAGO",
+      "sku": "221-615",
+      "net": "P_REAR",
+      "center_xy_mm": [
+        0,
+        0
+      ],
+      "footprint_xyxy_mm": [
+        -18.5,
+        -11.0,
+        18.5,
+        11.0
+      ],
+      "planning_height_mm": 11,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "G1",
+      "kind": "WAGO",
+      "sku": "221-615",
+      "net": "G_SYS",
+      "center_xy_mm": [
+        45,
+        0
+      ],
+      "footprint_xyxy_mm": [
+        26.5,
+        -11.0,
+        63.5,
+        11.0
+      ],
+      "planning_height_mm": 11,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "G2",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "G_SYS",
+      "center_xy_mm": [
+        90,
+        0
+      ],
+      "footprint_xyxy_mm": [
+        75.0,
+        -9.5,
+        105.0,
+        9.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "FL_P",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "FL_P",
+      "center_xy_mm": [
+        -90,
+        40
+      ],
+      "footprint_xyxy_mm": [
+        -105.0,
+        30.5,
+        -75.0,
+        49.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "FL_G",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "G_SYS",
+      "center_xy_mm": [
+        -54,
+        40
+      ],
+      "footprint_xyxy_mm": [
+        -69.0,
+        30.5,
+        -39.0,
+        49.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "FR_P",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "FR_P",
+      "center_xy_mm": [
+        -90,
+        -40
+      ],
+      "footprint_xyxy_mm": [
+        -105.0,
+        -49.5,
+        -75.0,
+        -30.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "FR_G",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "G_SYS",
+      "center_xy_mm": [
+        -54,
+        -40
+      ],
+      "footprint_xyxy_mm": [
+        -69.0,
+        -49.5,
+        -39.0,
+        -30.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "RL_P",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "RL_P",
+      "center_xy_mm": [
+        18,
+        40
+      ],
+      "footprint_xyxy_mm": [
+        3.0,
+        30.5,
+        33.0,
+        49.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "RL_G",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "G_SYS",
+      "center_xy_mm": [
+        54,
+        40
+      ],
+      "footprint_xyxy_mm": [
+        39.0,
+        30.5,
+        69.0,
+        49.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "RR_P",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "RR_P",
+      "center_xy_mm": [
+        18,
+        -40
+      ],
+      "footprint_xyxy_mm": [
+        3.0,
+        -49.5,
+        33.0,
+        -30.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "RR_G",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "G_SYS",
+      "center_xy_mm": [
+        54,
+        -40
+      ],
+      "footprint_xyxy_mm": [
+        39.0,
+        -49.5,
+        69.0,
+        -30.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "D_FL",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "BUS_DATA",
+      "center_xy_mm": [
+        -18,
+        40
+      ],
+      "footprint_xyxy_mm": [
+        -33.0,
+        30.5,
+        -3.0,
+        49.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "D_FR",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "BUS_DATA",
+      "center_xy_mm": [
+        -18,
+        -40
+      ],
+      "footprint_xyxy_mm": [
+        -33.0,
+        -49.5,
+        -3.0,
+        -30.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "D_RR",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "BUS_DATA",
+      "center_xy_mm": [
+        90,
+        -40
+      ],
+      "footprint_xyxy_mm": [
+        75.0,
+        -49.5,
+        105.0,
+        -30.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "D_RL",
+      "kind": "WAGO",
+      "sku": "221-415",
+      "net": "BUS_DATA",
+      "center_xy_mm": [
+        90,
+        40
+      ],
+      "footprint_xyxy_mm": [
+        75.0,
+        30.5,
+        105.0,
+        49.5
+      ],
+      "planning_height_mm": 9,
+      "entry_face_orientation_confirmed": false
+    },
+    {
+      "id": "F_FL1",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        -90,
+        75
+      ],
+      "footprint_xyxy_mm": [
+        -97.75,
+        60.75,
+        -82.25,
+        89.25
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_FL2",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        -64,
+        75
+      ],
+      "footprint_xyxy_mm": [
+        -71.75,
+        60.75,
+        -56.25,
+        89.25
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_FL3",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        -38,
+        75
+      ],
+      "footprint_xyxy_mm": [
+        -45.75,
+        60.75,
+        -30.25,
+        89.25
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_FR1",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        -90,
+        -75
+      ],
+      "footprint_xyxy_mm": [
+        -97.75,
+        -89.25,
+        -82.25,
+        -60.75
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_FR2",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        -64,
+        -75
+      ],
+      "footprint_xyxy_mm": [
+        -71.75,
+        -89.25,
+        -56.25,
+        -60.75
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_FR3",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        -38,
+        -75
+      ],
+      "footprint_xyxy_mm": [
+        -45.75,
+        -89.25,
+        -30.25,
+        -60.75
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_RL1",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        18,
+        75
+      ],
+      "footprint_xyxy_mm": [
+        10.25,
+        60.75,
+        25.75,
+        89.25
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_RL2",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        44,
+        75
+      ],
+      "footprint_xyxy_mm": [
+        36.25,
+        60.75,
+        51.75,
+        89.25
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_RL3",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        70,
+        75
+      ],
+      "footprint_xyxy_mm": [
+        62.25,
+        60.75,
+        77.75,
+        89.25
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_RR1",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        18,
+        -75
+      ],
+      "footprint_xyxy_mm": [
+        10.25,
+        -89.25,
+        25.75,
+        -60.75
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_RR2",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        44,
+        -75
+      ],
+      "footprint_xyxy_mm": [
+        36.25,
+        -89.25,
+        51.75,
+        -60.75
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    },
+    {
+      "id": "F_RR3",
+      "kind": "servo_fuse",
+      "sku": "MTA 0300330",
+      "center_xy_mm": [
+        70,
+        -75
+      ],
+      "footprint_xyxy_mm": [
+        62.25,
+        -89.25,
+        77.75,
+        -60.75
+      ],
+      "aperture_xy_mm": [
+        11.3,
+        22.2
+      ],
+      "local_panel_thickness_mm": 2,
+      "terminals": "below deck; seated depth UNKNOWN",
+      "whole_assembly_envelope_known": false
+    }
+  ],
+  "inline_holder_zones": [
+    {
+      "id": "F_LEG_FL",
+      "kind": "flexible_inline_holder_zone",
+      "center_xy_mm": [
+        -76,
+        20
+      ],
+      "footprint_xyxy_mm": [
+        -93.5,
+        12.0,
+        -58.5,
+        28.0
+      ],
+      "mounting": "two cable ties through plate slots; final slot spacing after dry fit",
+      "exact_holder_envelope_known": false
+    },
+    {
+      "id": "F_LEG_FR",
+      "kind": "flexible_inline_holder_zone",
+      "center_xy_mm": [
+        -38,
+        20
+      ],
+      "footprint_xyxy_mm": [
+        -55.5,
+        12.0,
+        -20.5,
+        28.0
+      ],
+      "mounting": "two cable ties through plate slots; final slot spacing after dry fit",
+      "exact_holder_envelope_known": false
+    },
+    {
+      "id": "F_PI",
+      "kind": "flexible_inline_holder_zone",
+      "center_xy_mm": [
+        0,
+        20
+      ],
+      "footprint_xyxy_mm": [
+        -17.5,
+        12.0,
+        17.5,
+        28.0
+      ],
+      "mounting": "two cable ties through plate slots; final slot spacing after dry fit",
+      "exact_holder_envelope_known": false
+    },
+    {
+      "id": "F_LEG_RL",
+      "kind": "flexible_inline_holder_zone",
+      "center_xy_mm": [
+        38,
+        20
+      ],
+      "footprint_xyxy_mm": [
+        20.5,
+        12.0,
+        55.5,
+        28.0
+      ],
+      "mounting": "two cable ties through plate slots; final slot spacing after dry fit",
+      "exact_holder_envelope_known": false
+    },
+    {
+      "id": "F_LEG_RR",
+      "kind": "flexible_inline_holder_zone",
+      "center_xy_mm": [
+        76,
+        20
+      ],
+      "footprint_xyxy_mm": [
+        58.5,
+        12.0,
+        93.5,
+        28.0
+      ],
+      "mounting": "two cable ties through plate slots; final slot spacing after dry fit",
+      "exact_holder_envelope_known": false
+    }
+  ],
+  "mounted_elsewhere": {
+    "S1": "plate R2 native holes at local [102,70]",
+    "F0": "front battery inlet bundle, before all branches; BAT+ lead <=50 mm",
+    "S0": "front fixed-frame service position, reachable with robot standing",
+    "P309": "hook-and-loop/tie mount beside battery balance lead; exact reach after delivery"
+  },
+  "fuse_pitch_mm": 26,
+  "retained_below_deck": [
+    "Pi 4B",
+    "BUS 25514",
+    "MAIN 4853 with R5 candidate mount",
+    "battery"
+  ],
+  "not_yet_placed": [],
+  "chassis_transform": null,
+  "mounting_holes": null,
+  "supports": null,
+  "deck_structural_thickness_mm": null,
+  "actual_cut_lengths": null,
+  "wire_routes_verified": false,
+  "lever_access_verified": false,
+  "seated_fuse_depth_mm": null,
+  "chassis_motion_clearance_verified": false,
+  "integrated": false,
+  "print_approved": false,
+  "physical_tests_performed": false,
+  "no_new_electrical_parts": true,
+  "checks": {
+    "footprint_count": 29,
+    "inline_holder_zone_count": 5,
+    "checked_pairs": 406,
+    "footprint_overlaps": 0,
+    "minimum_outline_margin_mm": 5.75,
+    "outline_with_5mm_brim_mm": [
+      240,
+      200
+    ],
+    "fits_256mm_bed_outline_only": true,
+    "note": "2D body/flange packaging only; excludes cables, terminals, levers, supports and moving legs"
+  },
+  "harness_fingerprint": "cd8fd02b768b",
+  "source_sha256": {
+    "hardware/electronics/power-platform/p0-kit.json": "1449d77304f362356d3645367fda6b102c28a26c7c49352512c1f47971963735",
+    "hardware/build-readiness/procurement.json": "d4af7ba284498de6b496be0afed7a96742ddd953adc6901b82d60b4f8ef44f30",
+    "hardware/electronics/power-platform/manual-stop-p0.json": "f063270ce595c96eb1f40f77d2b720f5625de1ceb2b09780bb949103f8d50710",
+    "hardware/electronics/power-platform/leg-distribution-p0.json": "b984e7c979db16d65f55c128a947018421b91d16e8d75b33879fcd7add3cce83",
+    "hardware/electronics/power-platform/servo-terminations-p0.json": "076bd3aee68e22733a3a0b69b4c4d64bcdc3b820d3a260f2366658e3c5c1eaf9",
+    "hardware/electronics/power-platform/platform.json": "f170bbca87a21805e50db6d78d049368524f06040cdf841ac6b88a42f12537ec",
+    "hardware/electronics/power-platform/main-input-p0.json": "ca676a811d143c44e06d6ea1de1d423a3965c7173379a2a85ba3d8d40b24f0ed",
+    "hardware/electronics/power-platform/data-harness-p0.json": "51168ea14d24cc1536a373bc44ab03924249a87709f5fe0479a01069bf1bcaa8",
+    "tools/electronics/p0_labels.py": "6e6dd1766eb0ccf022a03d557a18108b9416b5ee01b702d80119c3f24868328f",
+    "tools/electronics/p0_build_card.py": "69c27b2dc80553ea7df24b19279a9e5934954390761a057305194b545a252a31",
+    "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91",
+    "hardware/reference/servo-holder-p0-2026-09-24/ENVELOPE.md": "e567c62a51eca23b75452d92dfca75167c92f4b2cf5318f756dc54686fbb136f",
+    "hardware/electronics/power-platform/SERVO-HOLDERS-P0.md": "ac6ac18ce1dd30c9c4e6a43f83752b4b59177c23063bf10ec4b0a97f3f5fd7bc",
+    "tools/electronics/p0_open_deck.py": "e4f64630025e37404a47544fc0140b3043acc289b5b14543d436badd25d5d76b"
+  }
+}
