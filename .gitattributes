@@ -195,4 +195,11 @@ tools/electronics/verify_main_positive_input_evidence.py -text -eol
 tools/electronics/termination_tools_k3_r1.py -text -eol
 tools/electronics/test_termination_tools_k3_r1.py -text -eol
 tools/electronics/package_termination_tools_r42.py -text -eol
+# R43 workshop set: keep source PDFs, generated recipe and package hashes exact.
+hardware/electronics/full-cat/assembly-tools-k3-r2/** -text -eol whitespace=cr-at-eol
+hardware/reference/assembly-tools-2026-10-02/** -text -eol
+hardware/manufacturing/one-batch-prototype-r43/** -text -eol whitespace=cr-at-eol
+tools/electronics/assembly_tools_k3_r2.py -text -eol
+tools/electronics/test_assembly_tools_k3_r2.py -text -eol
+tools/electronics/package_assembly_tools_r43.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

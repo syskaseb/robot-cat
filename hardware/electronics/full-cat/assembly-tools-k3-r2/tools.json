@@ -1,0 +1,283 @@
+{
+  "status": "SELECTED_WORKSHOP_ACCESS_AND_ONE_SOLDER_STOCK_NOT_WHOLE_K3",
+  "parent": "one-batch-prototype-r42",
+  "phase1_percent": 70,
+  "K3_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "no_purchase": true,
+  "no_power": true,
+  "tools": [
+    {
+      "role": "solder_station",
+      "maker": "Weller",
+      "sku": "T0053298699",
+      "quantity": 1,
+      "model": "WE1010 Set 230V with WEP70/PH70",
+      "iron_power_W": 70,
+      "supply_V": 230,
+      "tip_family": "ET",
+      "source": "https://www.weller-tools.com/eu/gb/industrial-soldering/products/soldering-stations/we1010-set-230v",
+      "use": "Pola MAIN/PWM, stałe splices i XT60; nie lutować baterii. Moc nominalna nie dowodzi czasu nagrzania złącza4mm²."
+    },
+    {
+      "role": "solder_tip_large",
+      "maker": "Weller",
+      "sku": "4ETD-1",
+      "quantity": 1,
+      "width_mm": 4.6,
+      "thickness_mm": 0.8,
+      "compatible_iron": "WEP70",
+      "source": "https://www.weller-tools.com/mea/gb/industrial-soldering/products/soldering-tips/et-d",
+      "use": "XT60 i większe końce; geometria grotu nie zastępuje próby lutowania na odłączonej próbce."
+    },
+    {
+      "role": "solder_tip_board",
+      "maker": "Weller",
+      "sku": "4ETB-1",
+      "quantity": 1,
+      "width_mm": 2.4,
+      "thickness_mm": 0.8,
+      "compatible_iron": "WEP70",
+      "source": "https://www.weller-tools.com/mea/gb/industrial-soldering/products/soldering-tips/et-b",
+      "use": "Pola płytki i małe końce; sprawdzić zawartość pożyczonego zestawu, nie liczyć posiadanego grotu drugi raz."
+    },
+    {
+      "role": "wire_strip_and_cut",
+      "maker": "KNIPEX",
+      "sku": "12 40 200",
+      "quantity": 1,
+      "EAN": "4003773026662",
+      "wire_area_mm2": [
+        0.03,
+        10
+      ],
+      "stranded_cut_max_mm2": 10,
+      "old_stop_range_mm": [
+        3,
+        18
+      ],
+      "current_stop_range_mm": [
+        3,
+        22
+      ],
+      "project_stop_range_mm": [
+        3,
+        18
+      ],
+      "source": "https://assets.knipex.net/1240200_en.pdf",
+      "local_source": "Knipex-1240200.pdf",
+      "use": "Pokrywa0,14..4mm² i zatwierdzone odizolowania7..14mm. Stara i nowa rewizja mają inne ograniczniki; wspólny zakres wystarcza. Dobrać głębokość do dostarczonej izolacji, nie przecinać drucików."
+    },
+    {
+      "role": "heat_shrink",
+      "maker": "Bosch",
+      "sku": "06032A6100",
+      "quantity": 1,
+      "model": "UniversalHeat600 EU",
+      "nozzle_settings_C": [
+        50,
+        300,
+        600
+      ],
+      "source": "https://www.bosch-diy.com/de/de/p/universalheat-600-06032a6100",
+      "use": "Koszulki grzać na odłączonych przewodach poza PETG i baterią. Nastawa dyszy NIE jest temperaturą materiału; przymierzyć na próbce wg karty wybranej koszulki. Bez płomienia."
+    },
+    {
+      "role": "DC_voltage_and_continuity",
+      "maker": "UNI-T",
+      "sku": "UT33D+",
+      "quantity": 1,
+      "DC_range_for_cat_V": 20,
+      "continuity": true,
+      "included": [
+        "test leads",
+        "2×R03"
+      ],
+      "source": "https://meters.uni-trend.com/product/ut33plus-series/",
+      "use": "Faza2: polaryzacja/napięcie; ciągłość tylko bez napięcia. COM/VΩ, nigdy wejścieA do szeregowego pomiaru całego kota. Żadnego uruchamiania teraz; nie stosować do instalacji sieciowej."
+    },
+    {
+      "role": "caliper",
+      "maker": "Bahco",
+      "sku": "1150D",
+      "quantity": 1,
+      "range_mm": [
+        0,
+        150
+      ],
+      "resolution_mm": 0.01,
+      "catalog_accuracy_mm": 0.03,
+      "source": "https://www.bahco.com/int_en/precision-measuring-digital-callipers-with-lcd-screen-pb_1150d_.html",
+      "use": "Przymiarka wydruków/wałka/łączników. Rozdzielczość0,01 NIE jest dokładnością0,01 ani potwierdzeniem profilu zębów wieloklinu."
+    },
+    {
+      "role": "hex_socket_screws",
+      "maker": "Wera",
+      "sku": "05133163001",
+      "quantity": 1,
+      "model": "950/9 Hex-Plus3",
+      "required_sizes_mm": [
+        1.5,
+        2,
+        2.5
+      ],
+      "included_sizes_mm": [
+        1.5,
+        2,
+        2.5,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05133163001.pdf",
+      "local_source": "Wera-950-9.pdf",
+      "use": "DIN912M2/M2,5/M3:1,5/2/2,5mm. Zestaw jest przykładem dostępu; posiadane trzy zgodne klucze wystarczą. Używać prostego końca do końcowego docisku, nie wkrętarki w PETG."
+    },
+    {
+      "role": "nut_M2",
+      "maker": "Wera",
+      "sku": "05118120001",
+      "quantity": 1,
+      "model": "2069 Micro",
+      "AF_mm": 4,
+      "catalog_shank_diameter_mm": 5.7,
+      "blade_length_mm": 60,
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05118120001.pdf",
+      "local_source": "Wera-2069.pdf",
+      "use": "Nakrętki dostępne przed zamknięciem korpusu; kieszenie zatrzymujące nakrętki nie wymagają wkładania nasadki. Średnica katalogowej klingi nie dowodzi prześwitu całej główki. Nie rozwiercać kieszeni pod nasadkę."
+    },
+    {
+      "role": "nut_M2.5",
+      "maker": "Wera",
+      "sku": "05118124001",
+      "quantity": 1,
+      "model": "2069 Micro",
+      "AF_mm": 5,
+      "catalog_shank_diameter_mm": 7,
+      "blade_length_mm": 60,
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05118120001.pdf",
+      "local_source": "Wera-2069.pdf",
+      "use": "Nakrętki dostępne przed zamknięciem korpusu; kieszenie zatrzymujące nakrętki nie wymagają wkładania nasadki. Średnica katalogowej klingi nie dowodzi prześwitu całej główki. Nie rozwiercać kieszeni pod nasadkę."
+    },
+    {
+      "role": "nut_M3",
+      "maker": "Wera",
+      "sku": "05118126001",
+      "quantity": 1,
+      "model": "2069 Micro",
+      "AF_mm": 5.5,
+      "catalog_shank_diameter_mm": 7.8,
+      "blade_length_mm": 60,
+      "source": "https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05118120001.pdf",
+      "local_source": "Wera-2069.pdf",
+      "use": "Nakrętki dostępne przed zamknięciem korpusu; kieszenie zatrzymujące nakrętki nie wymagają wkładania nasadki. Średnica katalogowej klingi nie dowodzi prześwitu całej główki. Nie rozwiercać kieszeni pod nasadkę."
+    },
+    {
+      "role": "factory_screw_PH00",
+      "maker": "Wera",
+      "sku": "05118020001",
+      "quantity": 1,
+      "model": "2050PH Micro",
+      "tip": "PH00",
+      "source": "https://www.wera.de/en/tools/2050-ph-screwdriver-for-phillips-screws-for-electronic-applications",
+      "use": "Dostęp do małych wkrętów dostawy. Nie zakładać gniazda MG92B z samej średnicy śruby; wybrać pasujący profil przy przymiarce, nie wciskać PH1. PH0 tego SKU jest modyfikowany wg JCIS0."
+    },
+    {
+      "role": "factory_screw_PH0/JCIS0",
+      "maker": "Wera",
+      "sku": "05118022001",
+      "quantity": 1,
+      "model": "2050PH Micro",
+      "tip": "PH0/JCIS0",
+      "source": "https://www.wera.de/en/tools/2050-ph-screwdriver-for-phillips-screws-for-electronic-applications",
+      "use": "Dostęp do małych wkrętów dostawy. Nie zakładać gniazda MG92B z samej średnicy śruby; wybrać pasujący profil przy przymiarce, nie wciskać PH1. PH0 tego SKU jest modyfikowany wg JCIS0."
+    },
+    {
+      "role": "factory_screw_PH1",
+      "maker": "Wera",
+      "sku": "05118024001",
+      "quantity": 1,
+      "model": "2050PH Micro",
+      "tip": "PH1",
+      "source": "https://www.wera.de/en/tools/2050-ph-screwdriver-for-phillips-screws-for-electronic-applications",
+      "use": "Dostęp do małych wkrętów dostawy. Nie zakładać gniazda MG92B z samej średnicy śruby; wybrać pasujący profil przy przymiarce, nie wciskać PH1. PH0 tego SKU jest modyfikowany wg JCIS0."
+    }
+  ],
+  "solder": {
+    "id": "consumable:solder:T0051402499",
+    "name": "Weller WSW SAC M1 1.0mm100g, T0051402499",
+    "manufacturer": "Weller",
+    "manufacturer_sku": "T0051402499",
+    "planning_quantity": 1,
+    "unit": "spool100g",
+    "purchase_pack_count": 1,
+    "stock_per_pack": 100,
+    "stock_unit": "g",
+    "alloy": "Sn96.5Ag3.0Cu0.5",
+    "diameter_mm": 1,
+    "flux_percent": 3.5,
+    "flux": "No-Clean core",
+    "verified_consumption_g": null,
+    "no_separate_flux_required_in_default_set": true,
+    "source": "https://www.weller-tools.com/us/en/industrial-soldering/products/soldering-wire/wsw-sac-m1-10mm-100g-sn30ag05cu35",
+    "note": "Jeden wspólny zapas do wszystkich lutów, nie jedna rolka na moduł.100g to wybrany standardowy rozmiar opakowania, nie pomiar zużycia. Rdzeń jest topnikiem; nie dokładać osobnej butelki bez potrzeby procesu. Pożyczenie materiału zamiast zakupu dopuszczalne."
+  },
+  "requires_exact_brand_purchase": false,
+  "tool_access_confirmed": false,
+  "access_rule": "To jedna lista ról i katalogowych przykładów. Użyć posiadanego/pożyczonego funkcjonalnego odpowiednika o wymaganym zakresie; nie kupować całego warsztatu. Zaciskarki TE nadal według R42, bez przypadkowego zamiennika matrycy.",
+  "workshop_requirements": [
+    {
+      "role": "printed_part_finishing",
+      "required": "Wiertła2,4/3/6,5mm, stopniowe do24mm oraz gratownik; przymiarka na pustych częściach, średnica tylko wg wybranego interfejsu. Nie wiercić przy zamontowanych przewodach/PCB.",
+      "catalog_SKU_selected": false
+    },
+    {
+      "role": "holding_and_trim",
+      "required": "Małe szczypce/pęseta, izolowane miękkie szczęki lub trzecia ręka, nożyczki/obcinaczki do opasek i oplotu. Nie trzymać przewodów kombinerkami za druciki.",
+      "catalog_SKU_selected": false
+    },
+    {
+      "role": "solder_workspace",
+      "required": "Niepalna podstawka, odciąg oparów/wentylacja, okulary i osłona sąsiednich powierzchni; wszystko poza robotem i odłączoną baterią.",
+      "catalog_SKU_selected": false
+    }
+  ],
+  "optional_phase2_DC_clamp": "Pożyczony miernik cęgowy DC≥40A do prób napędów; nie jest częścią potrzebną do samego składania, nie dodano go jako obowiązkowego zakupu.",
+  "unselected_flux_review": {
+    "old": "MG836-P discontinued; not selected",
+    "current": "MG836LFNC-P10ml valid alternate, not selected/not extra stock",
+    "source": "https://mgchemicals.com/downloads/tds/tds-836lfnc-p.pdf",
+    "local_source": "MG-836LFNC-P-TDS.pdf",
+    "condition": "No-Clean marketing and recommended cleaning in TDS coexist; do not treat arbitrary IPA as verified remover. Core solder avoids a default extra chemistry choice."
+  },
+  "process_sequence": [
+    "Zasilanie odłączone: przymierzyć trasy i końce; założyć koszulki przed wykonaniem końca.",
+    "Ściągnąć izolację wg konkretnego końca R42/W5, nie jedną długością dla WAGO, zacisku i lutowania. Próbka dostarczonej linki bez naciętych drucików.",
+    "Lutować moduły/splices poza wydrukiem; stały uchwyt, właściwy grot i czyste pola. Temperatura/czas na próbce, nie zgadywany limit dla wszystkich złącz.",
+    "Osobno izolować polaryzacje, odciążyć izolację za końcem; nie zalewać lutem zacisków/WAGO. Grot/koszulka nie mogą naruszać sąsiednich pól.",
+    "Po ostygnięciu oględziny, ciągłość i brak zwarć bez napięcia. Dopiero później osadzić we wcześniej przygotowanym mocowaniu; uruchomienie dopiero w fazie2."
+  ],
+  "remaining": [
+    "W5: rzeczywiste wybrane trasy i odciążenia wszystkich końców, w tym odrzucone MAIN-positive i W036 oraz12wiązek nóg/balans.",
+    "K3: pełny spis cięć/izolacji/opasek i wspólny bilans stanów; ogólne wykończenie/utrzymanie nadal opisane wymaganiami, nie katalogowym kompletem.",
+    "K2/E3/A2/A3 nadal otwarte; karta narzędzi nie jest zamknięciem fazy."
+  ],
+  "source_sha256": {
+    "hardware/reference/assembly-tools-2026-10-02/Knipex-1240200.pdf": "3321c954d3ba020a6566184ffb8c7aecd6c6ef092a9b70f6fc6d0641e053618e",
+    "hardware/reference/assembly-tools-2026-10-02/MG-836LFNC-P-TDS.pdf": "083d4ecce12cfaaf9a05ba99b1bc0891c22538b5cd78a4d4646736b707f4c5c0",
+    "hardware/reference/assembly-tools-2026-10-02/MG-836LFNC-P-TDS.png": "26bcee6df6da5c95e01821a5515903b46651509814099b8bacc349cbe248a2c7",
+    "hardware/reference/assembly-tools-2026-10-02/README.md": "818f90e9ff98368a232d524bc6b835102ae1581fbb8eaab1f07362c2c8109979",
+    "hardware/reference/assembly-tools-2026-10-02/Wera-2069-table.png": "e93f98a0c9e58ee6ce78d0f13aa9a18bc62fc8928d50b6f76540f31a36bc4cc8",
+    "hardware/reference/assembly-tools-2026-10-02/Wera-2069.pdf": "f2b0b56fe14d52511b2ae1d42e97b4ec7214ff64f8c20c14f05e27dbe8c385d9",
+    "hardware/reference/assembly-tools-2026-10-02/Wera-950-9-table.png": "5dcf3c7333e338cf7a09a734b665de47034d314cf1e4cdb3d2fcd28c9ae2677a",
+    "hardware/reference/assembly-tools-2026-10-02/Wera-950-9.pdf": "03cc5932af61a11d062cff7bf772b005530fb0bbe94886c0bd33a0cc0dd3ddd7"
+  },
+  "script_sha256": "ea5a8ab71e4fdb4f1ed34c3ed2c75a77f7af561ec0373c5a92df7b582643b904",
+  "checked_date": "2026-10-02",
+  "work_start_utc": "2026-10-02T06:11:42+00:00",
+  "generated_utc": "2026-10-02T06:25:20.906015+00:00"
+}

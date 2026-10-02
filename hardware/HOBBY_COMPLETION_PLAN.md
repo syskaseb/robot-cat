@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R42 zachowuje wszystkie wydruki R41 (Deck dla dwóch niezależnych odciążeń G1); uchwyt MAIN R40, DATA/W061/W060 i pozostałe 70 wydruków zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R43 zachowuje wszystkie wydruki R41 (Deck dla dwóch niezależnych odciążeń G1); uchwyt MAIN R40, DATA/W061/W060 i pozostałe 70 wydruków zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,28 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,08:27 Warszawy — R43: JEDEN KOMPLET DOSTĘPU WARSZTATOWEGO.
+14katalogowychSKU narzędzi jako przykłady posiadanego/pożyczonego dostępu,
+nie obowiązkowy zakup; zaciskarkiTE R42 zachowane. Nasadka5mmM2,5/Pi
+uzupełniona; KNIPEX1240200 strip+cut pokrywa0,14..4mm² bez drugiego
+obcinacza mocy. WE1010/WEP70 zETB/ETD, jedna rolkaSAC3051mm100g:
+topnik w rdzeniu, bez dodatkowej chemii. AktualnyKnipex3–22 vs starszy3–18,
+użyto wspólnego zakresu; tabeleWera iTDS obejrzane. Suwmiarka0,01mm
+ma katalogowe±0,03mm, nie dowodzi profilu wieloklinu ani fizycznegoPASS.
+3874/3874piny,3855R42 zachowane,65/65testów;0nowychSTL/71zadań/
+110PETG/4próbki.114wierszy zachowanych,115łącznie po jednej wspólnej
+rolce spoiwa;100g to rozmiar opakowania, nie wyliczone zużycie.
+START06:11:42Z/END06:27:36,750704Z=15min54,750704s ścienne, nieCPU.
+14/20=70%,+0pp. NadalE3/W5/K2/K3/A2/A3OPEN: pełny bilans cięć,
+izolacji/opasek, końce/trasy nóg/balansu i źródła oraz wspólny montaż.
+Limit06:27:15%użyte/85%pozostałe,zwykłe użycie dostępne,kredyty0.
+Hookenabled, deadline08:30Z/10:30Warszawy, bez harmonogramu;Sol6.1High.
+NEXT W5 MAIN: jeden nowy pełny interfejs F_PI/W043/W077/W078,
+mocowanie nadDeck zamiast odrzuconego pasa podDeck/P0Support0,
+wykonalne odciążenia/przelot i rozdzielenie przy miękkiej osłonieW060.
+Nie ponawiać starego korytarza/opaski ani wybierać niezamocowanegoF_PI.
+Estymata45–75min, nie gwarancja; zatrzymać nowe prace o10:30.
 
 02.10,08:05 Warszawy — KATALOGOWE NARZĘDZIA ZACISKOWE, R42 WYBRANY.
 30końców:12IN69710-1+224027-2,12OUT58628-1 warunkowo dla rzeczywistej
