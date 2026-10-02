@@ -243,4 +243,9 @@ hardware/cad/studies/main-positive-native-r1/*.brep binary
 hardware/cad/studies/main-positive-native-r2/*.brep binary
 hardware/cad/studies/main-positive-native-r2/*.stl binary
 hardware/electronics/full-cat/main-positive-complete-r8/*.brep binary
+# R46 fixed-fastener supplier allocation: preserve hashed source bytes.
+hardware/manufacturing/fixed-fastener-skus-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r46/** -text -eol whitespace=cr-at-eol
+tools/manufacturing/fixed_fastener_skus_r1.py -text -eol
+tools/manufacturing/test_fixed_fastener_skus_r1.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

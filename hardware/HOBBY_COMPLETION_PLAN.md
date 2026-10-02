@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R45 zachowuje wszystkie STL/ilości R44 i wybiera bieżącą kartę cięć/zapasu W5. R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Schemat E4 zachowany.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R46 zachowuje wszystkie71STL i kartę cięć R45/R44; uzgadnia29 ofert osprzętu, dodaje brakujące4M2,5×12 ramP0+2zapasowe. R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 110 części PETG i4próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Schemat E4 zachowany; K2 nadalOPEN.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,66 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,15:32:59 Warszawy — R46: JEDEN WYKAZ STAŁEGO OSPRZĘTU.
+33role R45/P0 przypisane do29ofert; cztery pary identycznychSKU scalone
+z zachowaniem ilości/zapasu i źródła każdej roli. Naprawiona pominięta
+pozycja ramP0:4M2,5×12+2zapasowe, odrębna od6M2,5×16Pi.
+Podkładki M2DIN125=74, M3DIN125=63; małeDIN433, szerokieDIN9021
+i nylon pozostają odrębne. Jawne minimum100DIN433 i10M2×22;
+PiM2,5×16 kupowane pojedynczo zamiast minimum100KRAFTBERG.
+Źródła i nominalne przedziały nakrętek długich śrub,10/10testów;
+4188/4188pinów,4171pinówR45 zachowanych,71STL bez zmian,
+112wierszy ilości zamiast115 po scaleniu i dodaniu brakującej pozycji.
+Nie jest to gotowy koszyk całego robota:14/20=70%,+0pp;K2/W5/E3/K3/A2/A3OPEN.
+Dokładny rysunek Molex190070040 i oba aktualne manuale zaciskarek obejrzane.
+64001-8800 zastępuje historyczne64001-2800 dla wejść;64001-4100 dla wyjść.
+Obrót12oprawek z24kątowymi końcówkami R3 ODRZUCONY:121trafień/534pary,
+18trafień zastąpionych starych oprawek,103pozostałe raportowane, w tym
+6przecięć nowych przewodów. Nie są to103unikalne fizyczne kontakty.
+Nie wybrano R1/R2/R3 ani nie zmieniono głowy/P0/STL wskutek tej próby.
+NEXT K2: przypisać pozostałe83role poza osprzętem do dokładnych ofert,
+usunąć wyłącznie potwierdzone nieprzypisane historyczne warianty i scalić
+identyczneSKU. Sprawdzić przypisanie miniVAL/ich oprawek do bieżącegoE4
+przed utrzymaniem lub usunięciem; nie zgadywać. Estymata60–90min,
+nie obietnica75%. DlaW5 potrzebny nowy wykonalny układ oprawek,
+nie kolejna próba R1/R2/R3. R45/R46 mają ten sam wybrany częściowyW5.
+START12:23:44Z/END13:32:59Z=69min15s ścienne, nieCPU;
+worker geometrii R3 osobno331,801236s, zawarty w tym oknie.
+GPT-6.1SolHigh; limit20%użyte/80%pozostałe, zwykłe użycie dostępne.
+Hookenabled=true, bez terminu, rzeczywistyStop12:23:34Z wznowił pracę;
+bez harmonogramu. Cel nadal15/20;checkpoint_email=pending, mail niewysłany.
+
+02.10,14:22:22 Warszawy — NOWE OKNO DO75%, BEZ TERMINU GODZINOWEGO.
+Hookenabled=true, target15/20, trzy testy izolowanego skryptu zaliczone;
+rzeczywiste wznowienie tego nowego okna potwierdzi następny Stop/log, nie test.
+Po rzeczywistym75% wyłączyć hook i wysłać jeden polski mail na
+syska.seb@gmail.com; checkpoint_email=pending, mail nie został wysłany.
+R45 pozostaje wybrany,14/20=70%,+0pp. R2 wejść12oprawek odrzucony:
+35przecięć/240porównań, worker190,125175s. PrzesunięteP kolidują z F_PI,
+XL07 i złączem MAIN; stałe końcówki kolidują z PiTray/wiązką głowy.
+Nie ponawiać R1/R2 ani wybierać krótszych blanków jako rozwiązania kolizji.
+Zapis servo-fuse-inputs-r2/decision.json. Nowy trop: katalogowa kątowa
+Molex0190070040 i przypisana64001-2800, źródła producenta w
+reference/servo-holder-flag-2026-10-02/candidate.json. NIE WYBRANA:
+brak obejrzanego rysunku/obrysu i kompletnego uzgodnienia zacisku LAPP.
+Bez kolejnych prób tych samych zablokowanych pobrań; przy braku nowej
+drogi dostępu wykonać niezależne mocowanie/trasy F0/XT60/S0.
+NEXT jeden kompletny interfejs oprawka/końcówki/przewody/odciążenia,
+albo niezależne wejście źródła;90–120min to estymata interfejsu, nie całegoW5.
+Od uzbrojenia11:54:47Z do12:22:22Z=27min35s ścienne, nieCPU;
+wcześniejszego odczytu stanu nie doliczono bez dokładnego początku.
+GPT-6.1SolHigh; limit18%użyte/82%pozostałe, zwykłe użycie dostępne.
+Bez harmonogramu, aktywnego workera, nowego wybranegoSTL i fizycznegoPASS.
+
+02.10,10:30 Warszawy — OKNO ZAKOŃCZONE o deadline08:30Z.
+Zegar08:30:19Z; enabled=false w root robot-cat-work-window.json.
+Bez nowego etapu po terminie; bez harmonogramu i aktywnego własnego workera.
+R45 wybrany, commit410f13d; korektaF0 af85f15 zapisana do dalszego montażu.
+14/20=70%,+0pp w ostatnich dwóch kontynuacjach. BrakiE3/W5/K2/K3/A2/A3;
+NEXT krótsze wejścia oprawek z końcówkami/odciążeniem90–120min.
+Zalecenie GPT-6.1SolHigh; ostatni odczyt limitu17%użyte/83%pozostałe.
+To checkpoint przygotowania prototypu, bez fizycznegoPASS ani zwolnienia zakupów.
 
 02.10,10:28 Warszawy — KOREKTA DANYCH F0, R45 nadal wybrany.
 DokładnyFHAC0002ZXJ: pomarańczowe12AWG/GXL, nominalnie3,524cala=
