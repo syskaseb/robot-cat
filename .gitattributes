@@ -323,4 +323,21 @@ hardware/electronics/full-cat/servo-fuse-side-bank-r[6789]/*.json -text -eol whi
 hardware/electronics/full-cat/servo-fuse-bank-*/*.json -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/servo-fuse-cover-*/*.json -text -eol whitespace=cr-at-eol
 hardware/electronics/full-cat/servo-fuse-construction-*/*.json -text -eol whitespace=cr-at-eol
+# Current owned input grips, route correction and changed local interfaces.
+tools/electronics/servo_fuse_side_bank_r1[01].py -text -eol
+tools/electronics/servo_fuse_deck_native_r1.py -text -eol
+tools/electronics/servo_fuse_wago_map_r1.py -text -eol
+tools/electronics/servo_fuse_holder_release_r1.py -text -eol
+tools/electronics/servo_fuse_ato_access_r1.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r2.py -text -eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r1[01]/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r1[01]/*.brep binary
+hardware/electronics/full-cat/servo-fuse-deck-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-wago-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-holder-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-ato-*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/servo-fuse-deck-*/** -text -eol
+hardware/cad/studies/servo-fuse-deck-*/*.FCStd binary
+hardware/cad/studies/servo-fuse-deck-*/*.brep binary
+hardware/cad/studies/servo-fuse-deck-*/*.stl binary
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text
