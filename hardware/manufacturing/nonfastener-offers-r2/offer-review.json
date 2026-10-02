@@ -1,0 +1,59 @@
+{
+  "review_date_utc": "2026-10-02",
+  "scope": "Supplier identity and practical retail pack only. No purchase, stock reservation, delivery or physical fit approval.",
+  "resolved": [
+    {
+      "quantity_id": "tie:111-01910", "manufacturer_part": "111-01910",
+      "supplier": "TME", "supplier_sku": "T18R-BK",
+      "supplier_url": "https://www.tme.eu/gb/details/t18r-bk/cable-ties/hellermanntyton/111-01910/",
+      "retail_minimum": 100, "retail_multiple": 100,
+      "evidence": "Exact supplier page: black100x2.5mm, manufacturer111-01910, retail multiple100. Manufacturer bag100; not a second allowance. Polish checkout/stock refreshed in phase2."
+    },
+    {
+      "quantity_id": "connector:430200201", "manufacturer_part": "430200201",
+      "supplier": "Micros", "supplier_sku": "Z MX-0430200201",
+      "supplier_url": "https://www.micros.com.pl/en/product/z-mx-0430200201,116523.html",
+      "retail_minimum": 3, "retail_multiple": 1,
+      "evidence": "Exact distributor116523,43020-0201 without panel ears; minimum priced tier3, retail multiple1. Manufacturer package1000 is NOT order minimum. No contacts or crimp tool substituted."
+    },
+    {
+      "quantity_id": "connector:2147612113", "manufacturer_part": "2147612113",
+      "supplier": "Farnell", "supplier_sku": "3526339",
+      "supplier_url": "https://de.farnell.com/molex/214761-2113/konf-kabel-crimpbuchse-fr-ende/dp/3526339",
+      "retail_minimum": 10, "retail_multiple": 10,
+      "evidence": "Exact indexed supplier offer3526339: red225mm female factory lead, minimum/multiple10, not old DigiKey minimum3000. Needed2; order planning10/excess8. Regional checkout and delivery refreshed in phase2.",
+      "fresh_read_limitation": "Indexed supplier page available; direct reopen returned Internal Error. No claim of live stock verification."
+    },
+    {
+      "quantity_id": "connector:2147611113", "manufacturer_part": "2147611113",
+      "supplier": "Farnell", "supplier_sku": "3526316",
+      "supplier_url": "https://de.farnell.com/molex/214761-1113/konf-kabel-crimpbuchse-fr-ende/dp/3526316",
+      "retail_minimum": 1, "retail_multiple": 1,
+      "evidence": "Exact indexed supplier offer3526316: black225mm female factory lead, minimum/multiple1. Needed2. Ireland offer10 is NOT substituted for this region's minimum. Checkout/delivery refreshed in phase2."
+    },
+    {
+      "quantity_id": "consumable:solder:T0051402499", "manufacturer_part": "T0051402499",
+      "supplier": "RS", "supplier_sku": "244-1546",
+      "supplier_url": "https://pl.rs-online.com/web/p/lutowie/2441546",
+      "retail_minimum": 1, "retail_multiple": 1,
+      "evidence": "Exact Polish supplier page: one100g spool, diameter1mm, WellerT0051402499. Live page confirms3%Ag matching existing SAC alloy, not older erroneous0%Ag listing. Existing manufacturer/process selection retained."
+    }
+  ],
+  "pending": [
+    {
+      "quantity_id": "connector:2147632112", "manufacturer_part": "2147632112",
+      "candidate_supplier": "Farnell", "candidate_supplier_sku": "3526383",
+      "candidate_url": "https://dk.farnell.com/en-DK/molex/214763-2112/cable-assy-crimp-pin-free-end/dp/3526383",
+      "candidate_minimum": 1, "candidate_multiple": 1,
+      "constraint": "Exact red150mm male factory lead, available to order with stated29week manufacturer lead time, not presently a practical stocked two-piece offer. Keep K2 open; no substitute150mm female lead or unverified loose-contact crimp.",
+      "unverified_new_lead": "Mymectronic aggregate listed300 at Master Electronics/Onlinecomponents. No primary seller offer or small-order terms obtained; do not treat aggregate as stock confirmation."
+    }
+  ],
+  "failed_reads": [
+    "Guessed Polish Farnell links for3526339/3526316/3526383 returned Internal Error; do not repeat unchanged URLs.",
+    "TME Polish category link returned Internal Error; exact GB supplier page provided part and pack identity.",
+    "Direct Mymectronic reopen returned Internal Error; aggregator does not release the male lead."
+  ],
+  "W5_local_blocker": "Existing rejected servo-fuse R2/R3 show fixed terminal/head-feed/tail-support conflicts. No rerun, new CAD or routing approval in this offer stage. A future complete fuse interface must change geometry, retain current R49 owners and remove replaced old fuse reserves explicitly.",
+  "K2_complete": false, "W5_complete": false, "physical_pass": false
+}

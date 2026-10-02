@@ -54,6 +54,29 @@ nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
 
+02.10,19:16:14 Warszawy — R50 WYBRANY: 5/6 brakujących ofert uzupełnione,
+bez zmian CAD, sieci i wymaganych ilości R49; 73STL/112PETG/4próbki.
+T18R111-01910→TME T18R-BK100szt; obudowa430200201→Micros116523,
+potrzeba1/order3/nadmiar2; czerwony żeński225mm2147612113→Farnell3526339,
+potrzeba2/order10/nadmiar8; czarny225mm2147611113→Farnell3526316,order2;
+WellerT0051402499→RS244-1546,1rolka100g. Nie zamówiono niczego.
+Pozostał czerwony MĘSKI150mm2147632112: dokładna ofertaFarnell3526383
+ma29tygodni, nie traktowana jako praktyczny dostępny komplet2szt.
+Nowy trop agregatora Master/Onlinecomponents300szt bez pierwotnej oferty
+i małego minimum NIE jest potwierdzeniem. Zapisane błędy odczytu nie do powtarzania.
+Katalog83role zsynchronizowany z aktualnym T18I200,114wierszy ilości;
+6testów OK,4433/4433pinów integralne,8/8własnych pinów identyczne
+w indeksie Git. K2/W5 pozostająOPEN,14/20=70%,+0pp.
+R2/R3 bezpieczników odrzucone: kolizje terminali z wiązką głowy i podporą
+ogona nie znikają po usunięciu starych rezerw. Nie wykonano ponownej próby.
+NEXT: jeden nowy kompletny interfejs oprawek z zakończeniami i odciążeniami,
+z aktualnym R49 Deck/S0 i jawnie usuniętymi zastępowanymi starymi ownerami;
+dopuszczalna potrzebna lokalna zmiana obudowy, bez podmiany15napędów/P0.
+Źródło koszyka:one-batch-prototype-r50; geometria pozostałaR49.
+Czas wznowienia17:02:35–17:16:14Z=13min39s ścienne do kontroli indeksu;
+worker pakowania w osobnym work-time.json, nie dodawać drugi raz.
+Hookenabled do75%,mailpending;24%użyte/76%pozostałe; bez harmonogramu.
+
 02.10,18:54:50 Warszawy — R49 WYBRANY: kompletny lokalny S0,
 uchwyt mount-finish-r4 + Deck-native-r3, W07680/W066330/W04340mm,
 dwa odciążenia W066, nominalne łączniki i kolejność montażu na zdjętej płycie.
