@@ -1,0 +1,84 @@
+{
+  "parent": "one-batch-prototype-r40",
+  "wire": "W036",
+  "spec": [
+    "G1.4",
+    [
+      73.5,
+      11,
+      113.5
+    ],
+    1,
+    "FR_G.1",
+    [
+      -46.5,
+      -30.5,
+      113.5
+    ],
+    1,
+    124.5,
+    62.5
+  ],
+  "source_lift_radius_mm": 21,
+  "destination_and_plan_radius_mm": 21,
+  "wire_OD_mm": 4.2,
+  "wire_SKU": "TKD2500125",
+  "strip_by_end_mm": {
+    "G1.4": [
+      12,
+      14
+    ],
+    "FR_G.1": 11
+  },
+  "changed_reason": "R3 hit XA02; R4 slow lift hit RL_G and laneY89 hit head support. R5 uses Z124.5/Y62.5 below XA02 and before fuse cap Y65.45. Independent narrow G1 saddles replace crowded wider seats, no mixed-diameter common clamp.",
+  "replaces_G1_restraints": [
+    "W061/G1_end",
+    "W060/G1_input"
+  ],
+  "G1_individual_saddles": [
+    [
+      "W061",
+      58.5,
+      2.3,
+      2.1
+    ],
+    [
+      "W036",
+      73.5,
+      2.3,
+      2.1
+    ],
+    [
+      "W060",
+      81,
+      1.8,
+      1.5
+    ]
+  ],
+  "tie_SKU": "111-02370 T18I",
+  "ties_replaced": 2,
+  "ties_selected": 5,
+  "net_extra_ties": 3,
+  "tie_head_reserve_mm": [
+    6,
+    5,
+    4
+  ],
+  "tie_head_is_measured": false,
+  "G1_preserved_reserved_mouths": {
+    "BAT": [
+      51,
+      11,
+      113.5
+    ],
+    "W025": [
+      66,
+      11,
+      113.5
+    ]
+  },
+  "W5_complete": false,
+  "physical_pass": false,
+  "selected": false,
+  "started_utc": "2026-10-02T04:56:59.100388+00:00"
+}

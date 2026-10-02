@@ -1,0 +1,1157 @@
+{
+  "status": "PHASE1_INCOMPLETE_QUANTITY_LEDGER_NOT_ORDER_RELEASE",
+  "phase1_complete": false,
+  "selected_prints": "hardware/manufacturing/one-batch-prototype-r41/selection.json",
+  "owned_and_excluded": [
+    "Raspberry Pi 4B"
+  ],
+  "lines": [
+    {
+      "id": "p0:BUS-USB-CABLE-P0",
+      "name": "Lanberg USB-A / USB-C 2.0, 0.5 m, tylko Pi do adaptera BUS",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "Pi USB2 to BUS USB-C,500mm factory cable NOT CUT; nominal route308.0703mm+60service+40bodies<=500. Loose excess storage atR>=24; service slack and stored excess are not counted twice.",
+      "manufacturer_sku": "CA-USBO-10CU-0005-BK",
+      "EAN": "5901969416237"
+    },
+    {
+      "id": "p0:CHARGER",
+      "name": "SkyRC iMAX B6AC v2 SK-100008, Botland AKC-06103",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:BATTERY-MONITOR",
+      "name": "P309 1â€“8S z buzzerem, Botland MOD-05015 â€” wyÅ‚Ä…cznie alarm",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:HEATSHRINK",
+      "name": "Zestaw100 rurek termokurczliwych 1,5-13 mm, rÃ³Å¼ne kolory",
+      "planning_quantity": 1,
+      "unit": "zestaw",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:DATA-BRIDGE-WIRE-P0",
+      "name": "LiY 4126002S, niebieska linka Cu 0.25 mm2, trzy staÅ‚e mostki D",
+      "planning_quantity": 7,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list R37: three200mm blanks (=600mm); actual nominal exposed path lengths in fixed_DATA_bridges interface. Includes28mm cut/strip reserve plus30mm rework allowance. Actual stripping by delivered221-415 marking. Remaining purchase stock stays outside the robot."
+    },
+    {
+      "id": "p0:PI-POWER-CABLE",
+      "name": "Joy-IT K-1474 USB-C18AWG1m5A; output nominal<=291mm after dry-fit, not old25cm",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "One cable shared: MAIN input<=300mm, Pi output<=291mm nominal including36mm ends/slack, >409mm leftover. Cut only after fitting; no second cable. R40 W060 black nominal220mm blank after178.669mm route, not a second cable. Black leftover489.751mm after Pi reserve290.249mm; redW078 still unrouted<=150mm. Parallel conductors are not summed against one1m cable.",
+      "manufacturer_sku": "K-1474",
+      "EAN": "4250236828305"
+    },
+    {
+      "id": "p0:TERMINAL-SERVO-OUT-P0",
+      "name": "TE Connectivity 2-520184-2 FASTON 6,35x0,81 mm, 0,3-0,9 mm2",
+      "planning_quantity": 20,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:MAIN-SWITCH",
+      "name": "S0: HELLA 6EK 002 843-002 â€” gÅ‚Ã³wny wyÅ‚Ä…cznik baterii",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:BUS-PIGTAIL-P0",
+      "name": "Waveshare34171: zestaw6 kabli5264 300mm, jeden na przewÃ³d D/G adaptera",
+      "planning_quantity": 1,
+      "unit": "zestaw6",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:DATA-JUNCTIONS-P0",
+      "name": "WAGO221-415: cztery bloki wyÅ‚Ä…cznie DATA dla12serw",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:DRIVE-12",
+      "name": "ST3215 12 V â€” Waveshare 22414",
+      "planning_quantity": 12,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:BUS",
+      "name": "Waveshare Bus Servo Adapter (A), 25514",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:REG-MAIN",
+      "name": "Pololu D30V33MAL 4853 dla Pi, nastawa projektowa 5.10 V",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:DISTRIBUTION",
+      "name": "P0: WAGO 221-615, P_SYS/P_FRONT/P_REAR/G1",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:DISTRIBUTION-G2-P0",
+      "name": "P0: WAGO 221-415, masa tylna i BUS.G",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:DISTRIBUTION-LEGS-P0",
+      "name": "P0: osiem WAGO221-415, plus/masa czterech nÃ³g w korpusie",
+      "planning_quantity": 8,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:XT60",
+      "name": "P0 AMASS XT60H-M+F+osÅ‚ony, zestaw Kamami581961",
+      "planning_quantity": 1,
+      "unit": "zestaw",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:SD",
+      "name": "Karta microSD 64 GB Class 10 z Raspberry Pi OS i adapterem",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:BATTERY",
+      "name": "Gens Ace G-Tech Soaring GEA223S30X6GT, LiPo 3S 2200 mAh 30C XT60",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:BATTERY-STRAPS-P0",
+      "name": "Pasek baterii iFlight 15x200 mm z metalowÄ… sprzÄ…czkÄ…",
+      "planning_quantity": 2,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:MOTOR-STOP-MANUAL-P0",
+      "name": "S1 P0: NKK S821 / S-821 DPST ON-OFF, dwa oddzielne banki po 6 serw",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:MAIN-FUSE",
+      "name": "F0 P0: Littelfuse 0287030.PXCN 30A/32VDC, wkÅ‚adka",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:MAIN-FUSE-HOLDER",
+      "name": "F0 P0: Littelfuse FHAC0002ZXJ 30A/32VDC, 12AWG",
+      "planning_quantity": 1,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:FUSES",
+      "name": "MTA miniVAL 32 V DC, kandydat AMFM-10A zamiast zestawu WTA JUS-22264",
+      "planning_quantity": 10,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:FUSE-HOLDERS",
+      "name": "MTA 0100335 / TME MTA-MINI-HOLDER, oprawki MINIVAL gaÅ‚Ä™zi zamiast KAB-05473",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list; MTA catalog editions list 0100335 with L120 or L140 mm. Confirm delivered revision/lead side before final cut; unrelated CHE YEN drawing is not substituted."
+    },
+    {
+      "id": "p0:SERVO-HOLDERS-P0",
+      "name": "12 oprawek panelowych serw MTA0300330 ze stykami, bez PCB",
+      "planning_quantity": 12,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:WIRE-INLET-BLACK12-P0",
+      "name": "P0 LAPP0107001 12AWG: minus baterii i 12 czerwono oznaczonych wejÅ›Ä‡ wkÅ‚adek",
+      "planning_quantity": 2,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:WIRE-RED4-P0",
+      "name": "P0 staÅ‚a wiÄ…zka: HELU 23802 SiF 4mm2 czerwony",
+      "planning_quantity": 2,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:WIRE-BLACK4-P0",
+      "name": "P0 staÅ‚a wiÄ…zka: TKD 2500125 SiF 4mm2 czarny",
+      "planning_quantity": 2,
+      "unit": "m",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list R38 W061 one240mm blank from shared2m stock. Nominal exposed181.575mm; reserve28mm plus30mm rework is not stripping. G1.5 strip12-14mm, G2.1 strip11mm; confirm delivered markings. Other grounds/stock balance OPEN."
+    },
+    {
+      "id": "p0:TERMINAL-S0-P0",
+      "name": "Oczko izolowane TE Connectivity 130207 M10, 12-10 AWG",
+      "planning_quantity": 2,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:TERMINAL-S1-P0",
+      "name": "Oczko izolowane TE Connectivity 130171 M5, 3-6 mm2",
+      "planning_quantity": 4,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:TERMINAL-SERVO-IN-P0",
+      "name": "TE Connectivity 4-520448-2 FASTON 6,3x0,8 mm, 3-6 mm2",
+      "planning_quantity": 12,
+      "unit": "szt.",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "p0:BATTERY-PAD-P0",
+      "name": "Pianka PE 1 mm na podkÅ‚adkÄ™ baterii 107x36 mm",
+      "planning_quantity": 1,
+      "unit": "arkusz",
+      "source": "hardware/build-readiness/p0-order-cart.json",
+      "note": "P0 base quantity; old price/stock deliberately not carried into this list"
+    },
+    {
+      "id": "sleeve:5052942064",
+      "name": "RNF-100 2.4/1.2 mm black, individual fuse joint insulation",
+      "planning_quantity": 6,
+      "unit": "m",
+      "source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "note": "TME listing: 1.2m pieces, 5 pieces/package, ordering multiple6m. This is purchase packaging, not installed consumption. Recheck commercial unit in phase2. R33 Pi:3/32 supplies5 GPIO15mm blanks and2 MAIN inner neck sleeves;3/16 no longer used as two interfering MAIN outer sleeves. Existing stock unchanged. W060 adds one4mm inner blank; trim to actual2mm neck offPCB.",
+      "manufacturer_part": "RNF-100-3/32-0-STK",
+      "manufacturer_url": "https://www.te.com/en/product-5052942064.html"
+    },
+    {
+      "id": "sleeve:5053042067",
+      "name": "RNF-100 4.8/2.4 mm black, outer fuse insulation",
+      "planning_quantity": 6,
+      "unit": "m",
+      "source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "note": "Polish TME page read29Sep: minimum6m, multiple6m, stated1.2m pieces. Manufacturer nominal1220mm differs from distributor rounded1.2m; neither is a cut instruction. Recheck packaging in phase2. R33 Pi:3/32 supplies5 GPIO15mm blanks and2 MAIN inner neck sleeves;3/16 no longer used as two interfering MAIN outer sleeves. Existing stock unchanged. W060 adds one15mm outer blank allowance, trimmed offPCB to nominal8.01mm placement and at least6mm intact overlap.",
+      "manufacturer_part": "RNF-100-3/16-0-STK",
+      "manufacturer_url": "https://www.te.com/en/product-5053042067.html"
+    },
+    {
+      "id": "tie:111-01910",
+      "name": "T18R-PA66-BK 100 x 2.5 mm ties, replaces generic P0 2.5x100 allowance",
+      "planning_quantity": 100,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "note": "One manufacturer bag100 replaces, not supplements, generic P0 allowance50. Reserve4 for F_PWM:2 body anchors plus2 independent wire restraints. Remaining46 beyond P0+F_PWM provisional allowances is not a complete installed tie census.",
+      "manufacturer_part": "111-01910",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18r/111-01910"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x10",
+      "name": "M2x10",
+      "planning_quantity": 14,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack R19 adds 4 installed for two XB11 under-deck hangers."
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x12",
+      "name": "M2x12",
+      "planning_quantity": 18,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x14",
+      "name": "M2x14",
+      "planning_quantity": 20,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x16",
+      "name": "M2x16",
+      "planning_quantity": 12,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x18",
+      "name": "M2x18",
+      "planning_quantity": 4,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x22",
+      "name": "M2x22",
+      "planning_quantity": 6,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x6",
+      "name": "M2x6",
+      "planning_quantity": 10,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M2x8",
+      "name": "M2x8",
+      "planning_quantity": 6,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x10",
+      "name": "M3x10",
+      "planning_quantity": 10,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x12",
+      "name": "M3x12",
+      "planning_quantity": 22,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 4 installed; previous spare allowance preserved.",
+      "M5_dimensions_source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x14",
+      "name": "M3x14",
+      "planning_quantity": 4,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x16",
+      "name": "M3x16",
+      "planning_quantity": 10,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x25",
+      "name": "M3x25",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x30",
+      "name": "M3x30",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN912 socket screws, nominal sizes:M3x50",
+      "name": "M3x50",
+      "planning_quantity": 6,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:DIN934 nuts:M2 DIN934 AF4",
+      "name": "M2 DIN934 AF4",
+      "planning_quantity": 99,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R6 cassette adds2 installed, previous spare allowance retained. R19 adds 4 installed for two XB11 under-deck hangers. R33 adds4 BUS bracket nuts SKL000381; no extra tray nuts."
+    },
+    {
+      "id": "fastener:DIN934 nuts:M2.5 DIN934",
+      "name": "M2.5 DIN934",
+      "planning_quantity": 10,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 4 installed; previous spare allowance preserved. Original four nuts are P0 frames, not reusable Pi nuts. Now4frames+4Pi+2existing spares=10.",
+      "M5_dimensions_source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json"
+    },
+    {
+      "id": "fastener:DIN934 nuts:M3 DIN934",
+      "name": "M3 DIN934",
+      "planning_quantity": 51,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 8 installed; previous spare allowance preserved.",
+      "M5_dimensions_source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json"
+    },
+    {
+      "id": "fastener:washers:P0 M2 DIN125 OD5/ID2.2/t0.3",
+      "name": "P0 M2 DIN125 OD5/ID2.2/t0.3",
+      "planning_quantity": 62,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R6 cassette adds4 installed, previous spare allowance retained. R19 adds 4 installed for two XB11 under-deck hangers. R33 adds4 BUS washers ART00125202; reuse existing tray/Pi washers."
+    },
+    {
+      "id": "fastener:washers:head M2 DIN433 OD4.5",
+      "name": "head M2 DIN433 OD4.5",
+      "planning_quantity": 15,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:washers:electronics bottom metal M2",
+      "name": "electronics bottom metal M2",
+      "planning_quantity": 12,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:washers:electronics top nylon",
+      "name": "electronics top nylon",
+      "planning_quantity": 4,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:washers:P0 M3 DIN125",
+      "name": "P0 M3 DIN125",
+      "planning_quantity": 38,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 8 installed; previous spare allowance preserved.",
+      "M5_dimensions_source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json"
+    },
+    {
+      "id": "fastener:washers:head M3 OD7",
+      "name": "head M3 OD7",
+      "planning_quantity": 25,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:washers:head journal M3 OD9/ID3.2/thickness0.8",
+      "name": "head journal M3 OD9/ID3.2/thickness0.8",
+      "planning_quantity": 4,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fastener:bearings:608ZZ",
+      "name": "608ZZ",
+      "planning_quantity": 4,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+      "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+    },
+    {
+      "id": "fuse:FHAC0001ZXJ",
+      "name": "F_PI, F_AUX, F_HY, F_HP, F_TY inline ATO holders",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+      "note": "Whole installed total5, including existing P0 F_PI; no obsolete F_COIL, no speculative holder spares."
+    },
+    {
+      "id": "fuse:0287001.PXCN",
+      "name": "F_HY, F_HP, F_TY 1 A ATO",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/protection-selection-r1/branch-protection.json",
+      "note": "Three installed plus two spares; no F_COIL. max(ceil1.25*3,3+2)=5."
+    },
+    {
+      "id": "fuse:0287004.PXCN",
+      "name": "12 ST3215 branches plus F_AUX, 4 A ATO",
+      "planning_quantity": 17,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+      "note": "Whole-cat count with spares, not additional_to_p0"
+    },
+    {
+      "id": "fuse:0287003.PXCN",
+      "name": "F_PI 3 A ATO",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+      "note": "Whole-cat count with spares, not additional_to_p0"
+    },
+    {
+      "id": "fuse:0242.100UAT1",
+      "name": "F_PWM axial 0.1 A, separately sleeved fixed pigtail",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r5/fuse-order-minima.json",
+      "note": "Whole-cat count with spares, not additional_to_p0"
+    },
+    {
+      "id": "additional:AUX-SERVO-MG92B",
+      "name": "TowerPro MG92B positional, Botland DNG-24409",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:MG92B-JR-EXTENSION",
+      "name": "Kamami 586761, JR/Futaba male-female 30 cm 22 AWG",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:AUX6-REGULATOR",
+      "name": "Pololu 4092 D36V50F6, Kamami 586583",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:PWM-CONTROLLER",
+      "name": "Adafruit 815 PCA9685, Kamami 199856",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:PWM-U1-ADAPTER",
+      "name": "Kamami 575070 SOP24/DIP24 adapter",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:AUX-GROUND-DISTRIBUTION",
+      "name": "Kamami 1188363 WAGO 221-415 five-port, same SKU as P0 distribution",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:PWM-LEVEL-TRANSLATOR",
+      "name": "TI SN74LVC8T245PW TSSOP24, TME",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:PWM5-REGULATOR",
+      "name": "ST L78L05ACZ TO92, TME",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "additional:PWM-PROTOTYPE-BOARD",
+      "name": "Adafruit 1608, Conrad 1516556",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Additional-to-P0 where stated; exact old price/stock not current"
+    },
+    {
+      "id": "passive:KEMET C320C334K5R5TA",
+      "name": "330nF 50V X7R 10%, radial, 2.54mm pitch",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current"
+    },
+    {
+      "id": "passive:KEMET C315C104K5R5TA",
+      "name": "100nF 50V X7R 10%, radial, 2.54mm pitch",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current"
+    },
+    {
+      "id": "passive:Vishay MRS16000C2201FCT00",
+      "name": "2.2kohm 1% 0.4W axial, 3.6mm body",
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current"
+    },
+    {
+      "id": "passive:Vishay MRS16000C2200FCT00",
+      "name": "220ohm 1% 0.4W axial, 3.6mm body",
+      "planning_quantity": 5,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current"
+    },
+    {
+      "id": "passive:Vishay MRS16000C1002FCT00",
+      "name": "10kohm 1% 0.4W axial, 3.6mm body",
+      "planning_quantity": 17,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus provisional spares; old stock not current"
+    },
+    {
+      "id": "connector:430250200",
+      "name": "JPWM_IN two-pole power service connector only; no AUX6/3V3 duplicate",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus two spare contacts where applicable; orientation/crimp open"
+    },
+    {
+      "id": "connector:430200201",
+      "name": "JPWM_IN two-pole power service connector only; no AUX6/3V3 duplicate",
+      "planning_quantity": 1,
+      "unit": "pcs",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/electronics-small-parts.json",
+      "note": "Installed count plus two spare contacts where applicable; orientation/crimp open"
+    },
+    {
+      "id": "wire:HELU23502:red",
+      "name": "HELU SiF 1x1mm2 red, 2.5mm OD",
+      "planning_quantity": 5,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+      "note": "5m planning allowance of each color, cut after dry fit; approximate AWG18 not 17. Actual current, pad solder, routed bend and stock still open.",
+      "manufacturer_sku": "23502",
+      "supplier": "TME",
+      "supplier_sku": "SIF1.00-R",
+      "url": "https://www.tme.eu/pl/details/sif1.00-r/przewody-silikonowe-jednozylowe/helu/23502/",
+      "nominal_section_mm2": 1.0,
+      "approximate_od_mm": 2.5
+    },
+    {
+      "id": "wire:HELU23501:black",
+      "name": "HELU SiF 1x1mm2 black, 2.5mm OD",
+      "planning_quantity": 5,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_FR_FR.pdf",
+      "note": "5m planning allowance of each color, cut after dry fit; approximate AWG18 not 17. Actual current, pad solder, routed bend and stock still open.",
+      "manufacturer_sku": "23501",
+      "supplier": "TME",
+      "supplier_sku": "SIF1.00-B",
+      "url": "https://www.tme.eu/pl/details/sif1.00-b/przewody-silikonowe-jednozylowe/helukabel/23501/",
+      "nominal_section_mm2": 1.0,
+      "approximate_od_mm": 2.5
+    },
+    {
+      "id": "wire:HELU23302:red",
+      "name": "HELU SiF 1x0.5mm2 red, nominal OD2.1mm",
+      "planning_quantity": 12,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+      "note": "Existing total planning allowance retained, not a cut length; confirm continuous-length sale and availability in phase2. 31.5mm minimum bend for loose flexing wire is not drag-chain lifetime qualification.",
+      "manufacturer_sku": "23302",
+      "supplier": "TME",
+      "supplier_sku": "SIF0.50-R",
+      "url": "https://www.tme.eu/pl/details/sif0.50-r/przewody-silikonowe-jednozylowe/helu/23302/",
+      "nominal_section_mm2": 0.5,
+      "approximate_od_mm": 2.1,
+      "minimum_fixed_bend_radius_mm": 12.6,
+      "minimum_flexible_bend_radius_mm": 31.5
+    },
+    {
+      "id": "wire:HELU23301:black",
+      "name": "HELU SiF 1x0.5mm2 black, nominal OD2.1mm",
+      "planning_quantity": 8,
+      "unit": "m",
+      "source": "https://assets-cdn.helukabel.com/suppliers/Helukabel/documents/db/HELUKABEL_M23201_EN_GB.pdf",
+      "note": "Existing total planning allowance retained, not a cut length; confirm continuous-length sale and availability in phase2. 31.5mm minimum bend for loose flexing wire is not drag-chain lifetime qualification.",
+      "manufacturer_sku": "23301",
+      "supplier": "TME",
+      "supplier_sku": "SIF0.50-B",
+      "url": "https://www.tme.eu/pl/details/sif0.50-b/przewody-silikonowe-jednozylowe/helu/23301/",
+      "nominal_section_mm2": 0.5,
+      "approximate_od_mm": 2.1,
+      "minimum_fixed_bend_radius_mm": 12.6,
+      "minimum_flexible_bend_radius_mm": 31.5
+    },
+    {
+      "id": "wire:fixed:Donau-118-0",
+      "name": "Donau118-0 red LiY0.14mm2, fixed cassette ONLY",
+      "planning_quantity": 1,
+      "unit": "roll10m",
+      "source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+      "note": "One ordinary10m roll, not500m industrial spool. Fixed local logic/PWM supply and signal return ONLY, no servo power or moving loop. Cut after bench fitting; this is not a10m harness. Phase2 refresh stock/price/delivery.",
+      "manufacturer_sku": "118-0",
+      "supplier": "TME",
+      "supplier_sku": "D-118-0",
+      "url": "https://www.tme.eu/pl/details/d-118-0/przewody-jednozylowe-linka/donau-elektronik/118-0/",
+      "contained_length_m": 10
+    },
+    {
+      "id": "wire:fixed:Donau-118-3",
+      "name": "Donau118-3 yellow LiY0.14mm2, fixed cassette ONLY",
+      "planning_quantity": 1,
+      "unit": "roll10m",
+      "source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+      "note": "One ordinary10m roll, not500m industrial spool. Fixed local logic/PWM supply and signal return ONLY, no servo power or moving loop. Cut after bench fitting; this is not a10m harness. Phase2 refresh stock/price/delivery.",
+      "manufacturer_sku": "118-3",
+      "supplier": "TME",
+      "supplier_sku": "D-118-3",
+      "url": "https://www.tme.eu/pl/details/d-118-3/przewody-jednozylowe-linka/donau-elektronik/118-3/",
+      "contained_length_m": 10
+    },
+    {
+      "id": "wire:fixed:Donau-118-1",
+      "name": "Donau118-1 black LiY0.14mm2, fixed cassette ONLY",
+      "planning_quantity": 1,
+      "unit": "roll10m",
+      "source": "https://donau-elektronik.de/artikel/kabel-litzen/",
+      "note": "One ordinary10m roll, not500m industrial spool. Fixed local logic/PWM supply and signal return ONLY, no servo power or moving loop. Cut after bench fitting; this is not a10m harness. Phase2 refresh stock/price/delivery.",
+      "manufacturer_sku": "118-1",
+      "supplier": "TME",
+      "supplier_sku": "D-118-1",
+      "url": "https://www.tme.eu/pl/details/d-118-1/przewody-jednozylowe-linka/donau-elektronik/118-1/",
+      "contained_length_m": 10
+    },
+    {
+      "id": "filament:Sunlu PETG 1.75mm 1kg Black, Botland SLU-24167; same SKU already in P0 cart",
+      "name": "Sunlu PETG 1.75mm 1kg Black, Botland SLU-24167; same SKU already in P0 cart",
+      "planning_quantity": 3,
+      "unit": "1kg spool",
+      "source": "hardware/manufacturing/one-batch-prototype-r1/batch-plan.json",
+      "note": "Includes the P0 spool; provisional reserve, actual slicer consumption in Phase 2"
+    },
+    {
+      "id": "fastener:ART-INOX:912202025",
+      "name": "M2x25 DIN912 A2",
+      "supplier": "ART-INOX",
+      "supplier_sku": "912202025",
+      "url": "https://www.art-inox.com.pl/pl/p/M2x25-sruba-nierdzewna-imbusowa-DIN-912A2/5256",
+      "installed": 2,
+      "planning_quantity": 3,
+      "unit": "pcs",
+      "note": "2 installed+1 spare. Vendor identifies nominal standard/size/material; no certified actual-thread or torque claim. Stock page contains conflicting available/unavailable text; price and availability must be refreshed in phase2.",
+      "source": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json"
+    },
+    {
+      "id": "tie:111-02370",
+      "name": "HellermannTyton T18I-PA66-BK 145x2.5",
+      "manufacturer_sku": "111-02370",
+      "supplier_sku": "T18I-PA66-BK",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18i/111-02370",
+      "supplier_url": "https://www.tme.eu/pl/details/t18i-pa66-bk/opaski-zaciskowe/hellermanntyton/111-02370/",
+      "installed": 93,
+      "planning_quantity": 100,
+      "unit": "pcs",
+      "pack": 100,
+      "dimensions_mm": {
+        "length": 145,
+        "width": 2.5,
+        "thickness": 1.2,
+        "head_length": 4.8,
+        "head_width": 4.5,
+        "height_H": 3.5
+      },
+      "note": "One bag100, not100 installed. Working allowance: 1 P_REAR + 10 inline-holder + 6 AUX WAGO ties = 17. Actual tie routing/retention after delivery; no second bag selected. R17 adds four working ties for XB11:two connector and two interlinked insulated-wire restraints, from existing bag100. Not a whole-robot tie census. R19 adds two wire-support ties, one per hanger, using existing bag100. R20 adds14:6 Carrier pad/port restraints,2 converter-WAGO ends,1 XA02 middle support,3 XA05 endpoints/midspan and2 XA06 endpoints. Existing bag100 covers37 installed. R22 adds5 for C_HP:two housing straps,two insulated ends andone loose factory-coil guard. Bag100 unchanged; ordinary ties cut/replaced for removal. R23 adds2 independent moving/fixed insulation-seat ties, cut and replaced for cover removal. R25 adds4 fixed yaw:2 JR housing,1 factory insulation and1 extension insulation. Existingbag100 sufficient; cut/replace for removal. R27 adds8 centralhead ties:2FHAC insulation,2G_AUX return insulation,2lowerpitchreturn supports,1PWMCarrier,1yawDeckentry. Existing bag100 retained; one-use ties cut/replaced for disassembly. R29 adds5localtail ties/looseguard and2centralend ties. One bag100 unchanged; no externalU support/tie. R30: two formerly reserved F_COIL holder ties are not installed. Old working-count history is not a current census; existing100pc bag remains unchanged. R32 E2 adds six housing/source/module/ground/board-end ties; 69 working installed, bag100 unchanged. R33 adds6 GPIO,4 power/USB/MAIN,2 loose-USB-park ties;81 working installed, bag100 unchanged. R37 adds six insulation-seat ties for W007/W011/W012, two per stationary DATA bridge. Working installed87 from the same100pc bag. Not yet the final whole-robot K3 census. R38 adds three W061 insulation restraints from the same100pc bag. Working90, not the final K3 census. R40 W060 adds3 insulation seats/ties. Working93 from the same100pc bag; fullW5/K3 census remains open.",
+      "source": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json"
+    },
+    {
+      "id": "connector:2147612113",
+      "name": "Molex Micro-Fit3.0 female factory20AWG225+/-5mm red, source XP02/XP03",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+      "note": "R32 replaces old150mm source, one installed+one spare; not an added splice. Trim factory tin before WAGO. Supplier/stock/order phase2.",
+      "manufacturer_sku": "2147612113"
+    },
+    {
+      "id": "connector:2147611113",
+      "name": "Molex Micro-Fit3.0 female factory20AWG225+/-5mm black, source XP02/XP03",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147611114_sd.pdf",
+      "note": "R32 replaces old150mm source, one installed+one spare; not an added splice. Trim factory tin before WAGO. Supplier/stock/order phase2.",
+      "manufacturer_sku": "2147611113"
+    },
+    {
+      "id": "connector:2147632112",
+      "name": "Molex Micro-Fit 3.0 factory-crimped male-to-pigtail, 20 AWG, 150±5 mm, red; XP02.board to PWM_REG_IN",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+      "note": "1 fitted + 1 spare; actual supplier stock, housing cavity, reach, bend and termination still require confirmation"
+    },
+    {
+      "id": "connector:2147631112",
+      "name": "Molex Micro-Fit 3.0 factory-crimped male-to-pigtail, 20 AWG, 150±5 mm, black; XP03.board to G_SYS",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "source": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631111_sd.pdf",
+      "note": "1 fitted + 1 spare; actual supplier stock, housing cavity, reach, bend and termination still require confirmation"
+    },
+    {
+      "id": "splice:WAGO221-412",
+      "name": "WAGO221-412 two-conductor lever splice for XB11 only",
+      "manufacturer_sku": "221-412",
+      "supplier": "Kamami",
+      "supplier_sku": "1188364",
+      "planning_quantity": 2,
+      "installed": 1,
+      "unit": "pcs",
+      "url": "https://kamami.pl/szybkozlacza/1188364-wago-221-412-zlaczka-instalacyjna-2-przewody-4mm-5902186324565.html",
+      "source": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+      "note": "1 installed +1 spare; exact voltage/section family fits6V,1mm2 and16AWG. Refresh stock/price/delivery in phase2, not ordered; no crimper required."
+    },
+    {
+      "id": "wire:moving-PWM-HELU23308",
+      "name": "HELU23308 SiF yellow0.5mm2 OD2.1, TME SIF0.50-Y",
+      "planning_quantity": 6,
+      "unit": "m",
+      "source": "hardware/manufacturing/one-batch-prototype-r24/wire-sources.json",
+      "note": "6m existing planning allowance, cut after fit, +30mm per detachable end and25% purchasing allowance already reserved. Rigid local U1 leads0.14 unchanged; JR22AWG tails joined outside motion. Flexible minimum31.5mm/fixed12.6. Meter listing, procurement refresh phase2; not ordered."
+    },
+    {
+      "id": "insulation:RNF-100-1/8-9-STK",
+      "name": "TE RNF-100 white1/8 sleeve3.17->1.57mm",
+      "planning_quantity": 6,
+      "unit": "m",
+      "installed_sleeves": 12,
+      "source": "hardware/manufacturing/one-batch-prototype-r26/insulation-sources.json",
+      "note": "Current TME minimum6m/five1.2m sticks;9installed+9trialspares consume<0.25m. Exact insulation for smallMG92B joints; retain P0 assortment for largerpower joints. Procurement refresh phase2, not ordered. R29 R9 uses3additional14/32/30mm rough blanks, overlap body/lead and existing PWM/GND joint sleeves; total12installed +12trialspares, existing6m unchanged. R32 E2 adds two15mm module-board sleeves from existing stock; no extra package."
+    },
+    {
+      "id": "fastener:M5:M3x8",
+      "name": "DIN912 A2 M3x8, BEJMET2057",
+      "planning_quantity": 4,
+      "unit": "pcs",
+      "source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json",
+      "supplier_reference": "BEJMET2057",
+      "installed_M5_quantity": 2,
+      "spare_quantity": 2,
+      "note": "New whole-cat row: four installed plus two spares; not purchase approval. Check supplier pack/availability later. R33 replaces installed Pi/north-tray screws only; two previous spare screws retained."
+    },
+    {
+      "id": "fastener:M5:M2.5_DIN125",
+      "name": "DIN125 A2 M2.5 ID2.7 OD6 t0.5, ART001252025",
+      "planning_quantity": 6,
+      "unit": "pcs",
+      "source": "hardware/cad/studies/pi4-mount-complete-r1/sources.json",
+      "supplier_reference": "ART001252025",
+      "installed_M5_quantity": 4,
+      "spare_quantity": 2,
+      "note": "New whole-cat row: four installed plus two spares; not purchase approval. Check supplier pack/availability later."
+    },
+    {
+      "id": "fastener:Pi:M2.5x16",
+      "name": "KRAFTBERG DIN912 A2 M2.5x16",
+      "manufacturer_sku": "M2.5X16/D912-A2",
+      "planning_quantity": 6,
+      "installed": 4,
+      "spares": 2,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json"
+    },
+    {
+      "id": "fastener:Pi:M3x10",
+      "name": "BEJMET DIN912 A2 M3x10",
+      "manufacturer_sku": "SKL000622",
+      "planning_quantity": 4,
+      "installed": 2,
+      "spares": 2,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json"
+    },
+    {
+      "id": "fastener:Pi:BUS_M2x12",
+      "name": "BEJMET DIN912 A2 M2x12",
+      "manufacturer_sku": "SKL000595",
+      "planning_quantity": 6,
+      "installed": 4,
+      "spares": 2,
+      "unit": "pcs",
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json"
+    },
+    {
+      "id": "Pi:J8_housing_1992",
+      "name": "Pololu1992 2x20 female crimp housing",
+      "manufacturer_sku": "1992",
+      "planning_quantity": 1,
+      "unit": "pack5",
+      "installed": 1,
+      "spares": 4,
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json"
+    },
+    {
+      "id": "Pi:GPIO_brown_1871",
+      "name": "Pololu1871 brown26AWG600mm female-female factory-crimp lead",
+      "manufacturer_sku": "1871",
+      "planning_quantity": 2,
+      "unit": "pack5",
+      "installed": 5,
+      "spares": 5,
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json"
+    },
+    {
+      "id": "insulation:Pi:RNF-100-3/8-0-STK",
+      "name": "TE RNF1003/8 black9.5/4.8mm COMMON MAIN output boot",
+      "manufacturer_sku": "RNF-100-3/8-0-STK",
+      "planning_quantity": 6,
+      "unit": "m",
+      "installed_blanks": 1,
+      "blank_mm": 15,
+      "source": "hardware/electronics/full-cat/pi-interface-final-r2/suppliers.json",
+      "note": "Five1.2m sticks conservative purchase allowance; supplier minimum/availability refreshedphase2. One common boot around both already independently insulated pad necks, not two separate overlapping sleeves."
+    },
+    {
+      "id": "consumable:p0:1",
+      "name": "HellermannTyton T30L-PA66-BK,111-03410, opaski3,5mm",
+      "planning_quantity": 100,
+      "unit": "szt.",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "111-03410",
+      "supplier_sku": "TME:T30L-BK",
+      "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t30l/111-03410",
+      "supplier_url": "https://www.tme.com/us/en-us/details/t30l-bk/cable-ties/hellermanntyton/111-03410/",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 100,
+      "stock_unit": "szt.",
+      "existing_working_allowance": 20,
+      "unallocated_stock": 80,
+      "note": "Zastępuje ogólne3,6×200, nie małe111-02370. Źródła różnią długość190/198mm: dla przymiarki przyjmować190mm, sprawdzić rewizję dostawy. Oprawki/F0/P309 i większe wiązki: wolny opas albo istniejąca droga o potwierdzonej szerokości; nie wciskać3,5mm w szczeliny dla2,5mm. Nie zmieniono żadnego wybranego mocowania CAD; końcowy spis użycia w W5/K3 pozostaje otwarty."
+    },
+    {
+      "id": "consumable:p0:2",
+      "name": "tesa On&Off55224-00000-02, samoprzylepny komplet rzepa20mm×1m czarny",
+      "planning_quantity": 1,
+      "unit": "komplet",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "55224-00000-02",
+      "supplier_sku": "TME:TESA-55224-20-1",
+      "manufacturer_url": "https://www.tesa.com/de-de/files/download/11555752%2C2%2Ctesa-consumerkatalog-2024-online.pdf",
+      "supplier_url": "https://www.tme.com/us/en-us/details/tesa-55224-20-1/fixing-tapes/tesa/55224-00000-02/",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 1,
+      "stock_unit": "m sparowanych powierzchni",
+      "existing_working_allowance": 0.5,
+      "unallocated_stock": 0.5,
+      "note": "Jeden zestaw obu powierzchni, nie dwie dodatkowo liczone rolki. Lekkie moduły/P309, dodatkowo mechaniczne zabezpieczenie opaską. Nie zastępuje dwóch pasków baterii P0. Grubość dostawy nie jest potwierdzona: nie wykorzystano jej do ogłoszenia pasowania aktualnego CAD."
+    },
+    {
+      "id": "consumable:p0:3",
+      "name": "HellermannTyton HEGP06-PET-BK170-10600, oplotPET, rolkaRS5m",
+      "planning_quantity": 5,
+      "unit": "m",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "170-10600",
+      "supplier_sku": "RS:187-4638",
+      "manufacturer_url": "https://www.hellermanntyton.com/in/products/open-woven-sleeves/hegp06/170-10600",
+      "supplier_url": "https://pl.rs-online.com/web/p/tuleje-kablowe/1874638",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 5,
+      "stock_unit": "m",
+      "existing_working_allowance": 3,
+      "unallocated_stock": 2,
+      "note": "Wybrany odcinek dystrybutora5m zamiast fabrycznej rolki100m. Nie mylić ze170-10617, gotowym krótkim odcinkiem. Cztery wiązki nóg: założyć przed końcami, nie zakładać oplotu na już zamknięte feedy głowy bez ponownej kontroli. Dokładne cięcia/średnice i zakończenia będą przypisane w W5;3m pozostaje zapasem planistycznym, nie pomiarem trasy."
+    },
+    {
+      "id": "consumable:p0:4",
+      "name": "Henkel LOCTITEEA3430, IDH242865, podwójna strzykawka24ml",
+      "planning_quantity": 1,
+      "unit": "strzykawka24ml",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "242865",
+      "supplier_sku": "Farnell:1769530",
+      "manufacturer_url": "https://next.henkel-adhesives.com/ca/en/products/industrial-adhesives/central-pdp.html/loctite-ea-3430/1000396/variation/242865.html",
+      "supplier_url": "https://pl.farnell.com/loctite/3430-24ml/loctite-3430-24ml/dp/1769530",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 24,
+      "stock_unit": "ml mieszaniny",
+      "existing_working_allowance": null,
+      "unallocated_stock": null,
+      "note": "Tylko zewnętrzny obwód czterech uchwytówR6 po próbie na rzeczywistymPETG. Żadna deklaracja producenta nie kwalifikuje tego drukowanegoPETG. Punktowe zatrzymanie nieobciążonego uchwytu, bez kleju na stalowej drodze docisku, podkładkach, gwintach, śrubach.15min nie oznacza pełnego utwardzenia."
+    },
+    {
+      "id": "consumable:p0:5:abrasive",
+      "name": "Bosch2609256A53, papierP240delta93mm,5szt, do ręcznego matowania",
+      "planning_quantity": 1,
+      "unit": "opakowanie5szt.",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "2609256A53",
+      "supplier_sku": "Bosch2609256A53 / EAN3165140614696",
+      "manufacturer_url": "https://www.bosch-diy.com/de/de/p/schleifblatt-set-5-teilig-2762738",
+      "supplier_url": "https://allegro.pl/produkt/bosch-papier-scierny-rzep-93mm-p240-finish-5-szt-0c96d3a0-0328-4419-ab78-560a0dc64680",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 5,
+      "stock_unit": "szt.",
+      "existing_working_allowance": 1,
+      "unallocated_stock": 4,
+      "note": "Małe opakowanie5arkuszy zamiast50arkuszy PS8A; nie wymaga kupowania szlifierki. URL katalogu ofert nie wybiera sprzedawcy: przed zamówieniem sprawdzić dokładnyEAN,5szt i dostawę. Ręcznie zmatowić tylko obwód klejenia; nie zmieniać wymiarów kieszeni ani powierzchni pod stalową podkładką."
+    },
+    {
+      "id": "consumable:p0:5:IPA",
+      "name": "AGTermoPasty KontaktIPAPlus ART.AGT-002,100ml z aplikatorem",
+      "planning_quantity": 1,
+      "unit": "butelka100ml",
+      "source": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+      "manufacturer_sku": "ART.AGT-002",
+      "supplier_sku": "Gotronik:AGT-002",
+      "manufacturer_url": "https://termopasty.com/produkty/kontakt-ipa-plus/",
+      "supplier_url": "https://www.gotronik.pl/kontakt-ipa-plus-100ml-oliwiarka-p-207.html",
+      "purchase_pack_count": 1,
+      "stock_per_pack": 100,
+      "stock_unit": "ml",
+      "existing_working_allowance": null,
+      "unallocated_stock": null,
+      "note": "Po próbie materiałowej: czyścić miejscowo obwód pustych częściPETG i całkowicie wysuszyć. Nie stosować na ogniwa/etykietęLiPo ani zamiast izolacji. Sklep równocześnie pokazuje dostępność i tekst niedostępności: nie potwierdza zapasu; odświeżyć w fazie2."
+    }
+  ],
+  "line_count": 114,
+  "required_tools_buy_or_borrow": [
+    {
+      "tool": "Multimetr z testem ciÄ…gÅ‚oÅ›ci i napiÄ™cia DC",
+      "status": "sprawdziÄ‡ posiadanie; najnowszy zakres potwierdza tylko Pi4B, wiÄ™c kupiÄ‡ lub poÅ¼yczyÄ‡ przed montaÅ¼em",
+      "required_for": "Polaryzacja, brak zwarÄ‡, cele baterii i nastawa MAIN; nie mierzyÄ‡ nim szeregowo caÅ‚ego prÄ…du napÄ™dÃ³w."
+    },
+    {
+      "tool": "Lutownica 60-80W z grotem do XT60/4mm2, cyna i topnik",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "XT60, przejÅ›cie16â†’18AWG i pola MAIN; wykonaÄ‡ szybko bez grzania baterii."
+    },
+    {
+      "tool": "Opalarka do termokurczu",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "Izolacja; nie uÅ¼ywaÄ‡ pÅ‚omienia przy LiPo/PETG."
+    },
+    {
+      "tool": "ÅšciÄ…gacz izolacji0.25-4mm2 i obcinaczki",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "Przewody danych i mocy bez nacinania Å¼yÅ‚."
+    },
+    {
+      "tool": "Zaciskanie zgodne z rzeczywistymi TE130171/130207/520448/520184",
+      "status": "matrycÄ™ dobraÄ‡ po fizycznym pasowaniu albo zleciÄ‡ zaciski",
+      "required_for": "Nie kupowaÄ‡ kilku drogich zaciskarek przed potwierdzeniem koÅ„cÃ³wek; poÅ‚Ä…czeÅ„ mocy nie zgniataÄ‡ kombinerkami."
+    },
+    {
+      "tool": "WiertÅ‚a2.4/3/6.5mm, stopniowe24mm i gratownik",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "WykoÅ„czenie ram, szczelin i pÅ‚ytki S0 na pustych czÄ™Å›ciach."
+    },
+    {
+      "tool": "Klucze imbusowe1.5/2/2.5mm, nasadki4/5.5mm i maÅ‚e szczypce",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "M2/M3, uchwyty R6 i montaÅ¼ pÅ‚yty."
+    },
+    {
+      "tool": "Suwmiarka",
+      "status": "sprawdziÄ‡ posiadanie",
+      "required_for": "PrÃ³by kieszeni, panelu oprawek i poÅ‚oÅ¼enia szczelin przed wierceniem."
+    },
+    {
+      "tool": "CÄ™gowy miernik DC >=40A",
+      "status": "zalecany do prÃ³b, niekonieczny do samego skÅ‚adania",
+      "required_for": "PrÄ…d caÅ‚ej platformy bez rozpinania toru; moÅ¼na poÅ¼yczyÄ‡."
+    }
+  ],
+  "tools_quantity_rule": "Tools are requirements, not assumed owned and not duplicate component lines. Exact tool compatibility/SKU selection remains phase1 work.",
+  "f_pwm_material_selection": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+  "missing_for_phase1": [
+    "Five generic P0 material categories now have six exact SKU rows. Whole W5/tool compatibility/material census remains OPEN.",
+    "R32 closed nominal F_PWM ends; source protection E3 and remaining W5 are not closed by a material kit.",
+    "Resolve remaining generic K2 items and consolidate stock after all routes; no order release or physical PASS."
+  ],
+  "phase2_commercial_refresh": "Current full-quantity stock, tax, price, pack multiples, shipping and combined delivery, followed by user approval and one order.",
+  "required_before_energizing": "Actual source and F0/242 behavior, XP01 route, insulation, crimp pull, polarity and thermal checks; no physical PASS from this ledger.",
+  "no_auto_order": true,
+  "physical_pass": false,
+  "cassette_material_delta": "hardware/cad/studies/rear-fuse-cassette-r2/materials-delta.json",
+  "cassette_ties_used_from_existing_bag100": 8,
+  "inline_holder_ties_used_from_existing_bag100": 8,
+  "aux_wago_ties_used_from_existing_bag100": 6,
+  "head_JR_ties_used_from_existing_bag100": 5,
+  "obsolete_F_COIL_tie_allowance_removed": 2,
+  "protection_reconciliation": "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json",
+  "M5_fastener_delta": "hardware/manufacturing/one-batch-prototype-r31/fastener-delta.json",
+  "electrical_connection_map": "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json",
+  "fixed_DATA_bridges": "hardware/electronics/full-cat/body-data-bridges-r7/interface.json",
+  "fixed_DATA_ties_from_existing_bag100": 6,
+  "fixed_ground_bridge": "hardware/electronics/full-cat/body-ground-bridge-finish-r5/interface.json",
+  "fixed_ground_ties_from_existing_bag100": 3,
+  "assembly_materials": "hardware/electronics/full-cat/assembly-materials-k3-r1/materials.json",
+  "K3_complete": false,
+  "W5_complete": false,
+  "main_input_return": "hardware/electronics/full-cat/main-input-return-finish-r3/interface.json",
+  "main_input_ties_from_existing_bag100": 3,
+  "G1_exit_restraints": "hardware/electronics/full-cat/g1-exit-restraints-finish-r1/interface.json",
+  "G1_net_extra_ties": 0
+}

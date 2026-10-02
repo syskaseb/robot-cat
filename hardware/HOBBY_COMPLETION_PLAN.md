@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R40 zastępuje tylko Deck i uchwyt MAIN dla W060; zachowane DATA/W061 i pozostałe 69 wydruków. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R41 zastępuje tylko Deck dla dwóch niezależnych odciążeń G1; uchwyt MAIN R40, DATA/W061/W060 i pozostałe 70 wydruków zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej izolacji W060 do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,28 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,07:14 Warszawy — NIEZALEŻNE MOCOWANIA G1 DOMKNIĘTE, R41 WYBRANY.
+Dwa węższe siodełka W061/G1.5 i W060/G1.2, główki opasek pod własną
+pętlą, cztery pełne przeloty. Bez zmiany tras, końców, długości i ilości:
+71zadań/110PETG/4próbki/114wierszy, nadal93małe opaski z worka100.
+Jeden zamiennyDeck;70innych wydruków i wszystkie3578pinyR40 zachowane,
+3757/3757pinyR41,47/47testów. Natywne3szkice/parametry, zmiana i powrót,
+ponowne otwarcie/strictBOP, zamknięta siatka1części, obejrzanyPNG;
+58par zmienionych interfejsów bez kolizji. Nie oznacza globalnegoPASS:
+warunek izolacji W060 z R40 nadalOPEN, rezerwyBAT/W025/W036 to tylko wyjścia.
+W036 trzy NOWE korytarze ODRZUCONE: R3 XA02/P_AUX, R4 RL_G/mocowanie
+głowy, R5 XB22/XB23/XS23. Nie wybrano ich ani nie zbudowano ich native;
+checks/rejected-W036.json zachowane. Nie ponawiać bez nowego układu.
+14/20=70%,+0pp;E3/W5/K2/K3/A2/A3 nadalOPEN. Wynik niezależny od W036.
+START04:30:06Z/END05:14:41.827Z=44min35,827s ścienne, nie ciągłyCPU.
+Limit05:14Z:14%użyte/86%pozostałe,zwykłe użycie dostępne,kredyty0.
+Hook enabled;rzeczywistyStop04:29:54Z/manual_test=false/zgodna sesja,
+deadline08:30Z/10:30Warszawy, bez harmonogramu. Wybór GPT-6.1SolHigh.
+NEXT: W5 zasilanie MAIN — W078/F_PI.out→MAIN.VIN, rzeczywiste źródłowe
+końce/oprawka, trasa/izolacja/odciążenia i wspólny K-1474; nie obchodzić E3
+ani zgadywać znamionowych danych. Przy lokalnej blokadzie bezpieczne K2/K3.
+Checkpoint szacunkowo60–120min w obecnym oknie, nie obietnica całej fazy.
 
 02.10,06:27 Warszawy — W060 G1.2→MAIN.input_GND DOMKNIĘTY WARUNKOWO, R40 WYBRANY.
 Jedna trasa178,669mm/blank220mm czarnej18AWG ze wspólnegoK-1474;

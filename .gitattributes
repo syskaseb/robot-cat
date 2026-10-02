@@ -175,4 +175,13 @@ hardware/electronics/full-cat/main-input-return*/**/*.brep binary
 tools/electronics/main_input_return*.py -text -eol
 tools/electronics/test_main_input_return.py -text -eol
 tools/electronics/package_main_input_return_r40.py -text -eol
+# R41 independent G1 restraints: exact source bytes, no CAD mesh text conversion.
+hardware/electronics/full-cat/g1-exit-restraints*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/g1-exit-restraints*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/g1-exit-restraints*/*.brep binary
+hardware/cad/studies/g1-exit-restraints*/*.stl binary
+hardware/manufacturing/one-batch-prototype-r41/** -text -eol whitespace=cr-at-eol
+tools/electronics/g1_exit_restraints*.py -text -eol
+tools/electronics/test_g1_exit_restraints.py -text -eol
+tools/electronics/package_g1_exit_restraints_r41.py -text -eol
 hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/Phase1CurrentPayload.zip filter=lfs diff=lfs merge=lfs -text

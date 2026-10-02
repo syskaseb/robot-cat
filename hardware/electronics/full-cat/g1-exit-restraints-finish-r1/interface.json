@@ -1,0 +1,93 @@
+{
+  "status": "G1_INDEPENDENT_RESTRAINTS_COMPLETE",
+  "parent": "one-batch-prototype-r40",
+  "native": "hardware/cad/studies/g1-exit-restraints-finish-r1/DeckG1ExitRestraints.FCStd",
+  "affected_routes": [
+    "W061/G1.5",
+    "W060/G1.2"
+  ],
+  "unchanged_electrical_endpoints": true,
+  "G1_labels_plus_X": [
+    ".1",
+    ".5",
+    ".3",
+    ".4",
+    ".2"
+  ],
+  "G1_cage_X_mm": [
+    51,
+    58.5,
+    66,
+    73.5,
+    81
+  ],
+  "replaced_restraints": [
+    "W061/G1_end",
+    "W060/G1_input"
+  ],
+  "retained_restraints": [
+    "W061/G2_end",
+    "W061/Middle",
+    "W060/Deck_input",
+    "W060/MAIN_input"
+  ],
+  "pending_G1_routes": [
+    "BAT/G1.1",
+    "W025/G1.3",
+    "W036/G1.4"
+  ],
+  "new_routes_selected": [],
+  "ties": {
+    "SKU": "111-02370",
+    "replaces": 2,
+    "selected": 2,
+    "net_added": 0,
+    "bag": 100,
+    "working_total": 93,
+    "band_width_mm": 2.5,
+    "band_thickness_mm": 1.2,
+    "head_prototype_reserve_mm": [
+      6,
+      5,
+      4
+    ]
+  },
+  "cradles": [
+    {
+      "wire": "W061",
+      "x": 58.5,
+      "radius_mm": 2.3,
+      "prototype_OD_mm": 4.2
+    },
+    {
+      "wire": "W060",
+      "x": 81,
+      "radius_mm": 1.8,
+      "prototype_OD_mm": 3
+    }
+  ],
+  "strap_side_offsets_mm": [
+    -3,
+    3
+  ],
+  "strap_head_location": "centred under each own Deck loop; not beside neighbouring cage",
+  "assembly": [
+    "Disconnect battery. Before populated electronics, prethread two T18I ties through the four new full Deck passages; heads centred underneath the corresponding wire cradle.",
+    "Reinstall the same W061 and W060 wires in their unchanged G1.5/X58.5 and G1.2/X81 cages. Retain wire lengths, stripping and routes from R38/R40. Never tin WAGO conductor ends.",
+    "Seat intact insulation in the two independent shallow cradles and tighten each tie by hand without crushing the cable. Confirm grip and actual head clearances after delivery.",
+    "Do not thread these ties through the old wider passage pairs. Those unused historical openings are retained; they are not additional restraints.",
+    "For removal, disconnect battery first, cut and replace only the affected tie and release its own G1 wire. Other G1 cages and retained supports are unchanged."
+  ],
+  "conditions": [
+    "Cage centres and W060 OD remain provisional datums. Narrow strap reserves free neighbouring mouth exit stubs, not their full future cable routes.",
+    "Two separate straps retain different cable diameters; no mixed-diameter common cap/clamp.",
+    "R40 sleeve-to-Pi cable soft-contact condition remains OPEN. This stage does not certify whole assembly collision freedom.",
+    "W036 R3/R4/R5 rejected corridors are NOT selected. W5 and stock/tool/assembly completion remain OPEN."
+  ],
+  "source_start_utc": "2026-10-02T05:01:39.390438+00:00",
+  "W5_complete": false,
+  "physical_pass": false,
+  "selected": false,
+  "native_export": true,
+  "restraints_complete": true
+}
