@@ -1,0 +1,43 @@
+{
+  "status": "EXACT_SKU_SOURCE_CORRECTION_NOT_A_COMPLETE_F0_INTERFACE",
+  "parent": "one-batch-prototype-r45",
+  "part_number": "FHAC0002ZXJ",
+  "roles": {"W075": "BAT.plus -> F0.in", "W076": "F0.out -> S0.in"},
+  "wire_AWG": 12,
+  "factory_insulation_colour": "orange",
+  "insulation_family": "GXL",
+  "factory_each_lead_nominal_inch": 3.524,
+  "factory_each_lead_nominal_mm": 89.5096,
+  "factory_each_end_strip_nominal_inch": 0.25,
+  "factory_each_end_strip_nominal_mm": 6.35,
+  "length_tolerance_mm": null,
+  "guaranteed_minimum_each_lead_mm": null,
+  "strip_is_not_WAGO_or_ring_process": true,
+  "holder_catalogue_rating_A": 30,
+  "holder_catalogue_rating_VDC": 32,
+  "rating_is_not_selected_F0_fuse_or_E3_approval": true,
+  "source": {
+    "manufacturer": "Littelfuse",
+    "document": "ATO FHAC SERIES, 062923-B, copyright2023, page1 ordering table",
+    "url": "https://www.littelfuse.com/assetdocs/littelfuse-fuse-holder-ato-fhac-datasheet-rd1?assetguid=272e0b1a-a576-4173-8740-c1eb469efd79",
+    "retrieval": "Read manufacturer PDF through web tool 2026-10-02; no local PDF copy or fabricated hash. Exact row FHAC0002ZXJ, not ZXJA.",
+    "historical_local_comparison": "hardware/reference/fhac0001zxj-2026-10-02/Littelfuse-FHAC-datasheet-mirror.pdf"
+  },
+  "corrections": [
+    "Historical wiring-p0 W075 detail calls the lead red. Exact ZXJ row is orange; red long-lead ZXJA is a different SKU.",
+    "Historical family catalogue102mm must not substitute for modern exact SKU nominal89.5096mm.",
+    "Do not transfer FHAC0001ZXJ89.5+/-5mm tolerance or guaranteed84.5mm minimum to FHAC0002ZXJ without its own drawing."
+  ],
+  "construction_constraints": [
+    "W075 robot-side positive remains project maximum50mm beforeF0; shorten only after unpowered dry fit, never the battery factory plug.",
+    "W076 must fit the delivered factory lead or an explicitly designed insulated extension. No extra splice is selected here.",
+    "Label both orange leads W075/W076 and polarity; do not identify input/output from colour alone.",
+    "Body restraint, XT60 strain relief, route/blank, S0 ring process and E3 remain separate open work."
+  ],
+  "selected_cut_lengths_mm": null,
+  "new_STL": 0,
+  "purchases_changed": false,
+  "W5_complete": false,
+  "E3_complete": false,
+  "physical_pass": false
+}

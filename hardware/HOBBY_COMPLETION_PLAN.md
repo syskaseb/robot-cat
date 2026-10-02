@@ -54,6 +54,23 @@ nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
 
+02.10,10:28 Warszawy — KOREKTA DANYCH F0, R45 nadal wybrany.
+DokładnyFHAC0002ZXJ: pomarańczowe12AWG/GXL, nominalnie3,524cala=
+89,5096mm na żyłę i0,25cala=6,35mm fabrycznego odkrycia. Karta producenta
+062923-B/2023, dokładny wierszZXJ; czerwonyZXJA jest innymSKU.
+Nie używać historycznej rodziny102mm ani tolerancji/minimumFHAC0001
+jako gwarancji długościF0. Aktualna tolerancja/minimum i komplet mocowania/
+trasW075/W076 sąOPEN; fabryczny strip nie jest procedurą oczka/WAGO.
+Zapis f0-factory-leads-r1/interface.json koryguje historyczny opis koloru
+w wiring-p0, bez zmiany topologii/zakupów i bez gotowego cięcia.
+3/3testy;START08:23:10Z/END08:28:13Z=303s ścienne, nieCPU.
+R45:4171pinów,85testów poprzedniego pakietu, lokalnycommit410f13d.
+14/20=70%,+0pp. E3/W5/K2/K3/A2/A3 nadalOPEN. Przed następnym
+etapem używać tej korektyF0; krótsze wejścia12oprawek/odciążenia90–120min
+pozostają kolejnym większym checkpointem, nie obietnicą zakończeniaW5.
+GPT-6.1SolHigh; ostatni limit17%użyte/83%pozostałe, bez harmonogramu.
+Okno pracy kończy się08:30Z/10:30; stan enabled sprawdzić przy zamknięciu.
+
 02.10,10:20 Warszawy — R45 WYBRANY: BIEŻĄCA KARTA CIĘĆ I ZAPASU W5.
 80 fizycznych etykiet/160 zakończeń; 10 nominalnych blanków ma przypisane
 wybrane źródło, 70 w tej karcie pozostaje jawnie pustych. Osobne karty
