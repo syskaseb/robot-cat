@@ -38,7 +38,7 @@ Wiązka (5 rezultatów):
 - [ ] W5 Pozostała wiązka robota: wszystkie końce, trasy, złącza, długości do przymiarki i odciążenia.
 
 Komplet do wykonania (3 rezultaty):
-- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Karta końców W5 i schemat E4 zachowane.
+- [x] K1 Jeden wybrany zestaw STL/ilości/orientacji: R45 zachowuje wszystkie STL/ilości R44 i wybiera bieżącą kartę cięć/zapasu W5. R44 zastępuje Deck i uchwyt MAIN pełnym nominalnym wejściem F_PI/W043/W077/W078; 69 pozostałych wydruków, G1/DATA/PWM/W061/W060 zachowane. 71 zadań, 110 części PETG i 4 próbki. Jawny warunek miękkiej wspólnej izolacji wejściowej do przymiarki fazy2; nie twierdzić, że model jest bezkolizyjny. Schemat E4 zachowany.
 - [ ] K2 Komplet wszystkich części kupowanych: dokładne SKU, ilości, bez brakujących pozycji.
 - [ ] K3 Komplet materiałów montażowych/przewodów/izolacji/narzędzi, bez podwójnego liczenia wariantów.
 
@@ -53,6 +53,27 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+02.10,10:20 Warszawy — R45 WYBRANY: BIEŻĄCA KARTA CIĘĆ I ZAPASU W5.
+80 fizycznych etykiet/160 zakończeń; 10 nominalnych blanków ma przypisane
+wybrane źródło, 70 w tej karcie pozostaje jawnie pustych. Osobne karty
+głowy/PWM zachowane; to nie procent całegoW5. W078=210mm zamiast starej
+rezerwy150; W060=220, W043=40, W077=80, W061=240, DATA3×200.
+JedenK1474: reszta czerwonego499,751/czarnego489,751mm, bez sumowania
+równoległych żył jako drugiego zakupu. Ilości/71STL/110PETG/4próbki/115
+wierszyR44 zachowane.4171/4171pinów,3986R44 zachowane,85/85testów.
+Jedna nowa próba12wejść oprawek z24końcówkami ODRZUCONA:81przecięć
+w293porównaniach. Parametry nasunięciae=0/osi±7mm są prowizoryczne,
+nie katalogowe. Blanki190/190/200na nogę;2320mmLAPP+150BAT dawałoby
+brak470mm w starych2m. Nie wybrano tej trasy ani nie zwiększono zakupów;
+nie dowodzi to, że wszystkie możliwe trasy wymagają takich długości.
+Źródła: servo-fuse-inputs-r1 oraz body-harness-w5-r2; bez nowegoSTL.
+START07:55:28Z/END08:19:16,071774Z=23min48,071774s ścienne, nieCPU.
+14/20=70%,+0pp; E3/W5/K2/K3/A2/A3OPEN. Następny duży rezultat: zmienić
+interfejs/trasy wejść oprawek, zapewnić końcówki i odciążenia bez przejścia
+przezPi/podpory; szacunek90–120min, nie obietnica ukończeniaW5.
+Hookenabled do08:30Z/10:30, bez harmonogramu; GPT-6.1SolHigh.
+Limit08:20Z:17%użyte/83%pozostałe, zwykłe użycie dostępne,kredyty0.
 
 02.10,09:50 Warszawy — R44 WYBRANY: KOMPLET NOMINALNEGO WEJŚCIA MAIN.
 F_PI/W043/W077/W078 na poprawionych Deck i MAIN: oprawka w górnym
