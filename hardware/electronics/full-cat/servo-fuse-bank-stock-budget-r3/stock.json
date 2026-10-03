@@ -1,0 +1,190 @@
+{
+  "status": "CURRENT_LOCAL_BANK_LEDGER_WHOLE_STOCK_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "K3_complete": false,
+  "E3_complete": false,
+  "W5_complete": false,
+  "replaces": "stock-r2 superseded:20 geometric feed-tie pieces were incorrectly counted as20 ties; four complete physical loops. Replace stock-r1 old1080mm totals too, never add revisions.",
+  "HELU23802": {
+    "quantity_id": "p0:WIRE-RED4-P0",
+    "unique_roles": [
+      {
+        "id": "W026_extension",
+        "blank_mm": 100
+      },
+      {
+        "id": "W037_extension",
+        "blank_mm": 100
+      },
+      {
+        "id": "W042_extension",
+        "blank_mm": 380
+      },
+      {
+        "id": "W044_extension",
+        "blank_mm": 120
+      },
+      {
+        "id": "W045_extension",
+        "blank_mm": 170
+      },
+      {
+        "id": "W052_extension",
+        "blank_mm": 160
+      },
+      {
+        "id": "W053_extension",
+        "blank_mm": 160
+      },
+      {
+        "id": "W066",
+        "blank_mm": 330
+      }
+    ],
+    "qualified_nominal_blank_subtotal_mm": 1520,
+    "unchecked_source_roles": [
+      {
+        "id": "W064",
+        "legacy_reserve_mm": 220
+      },
+      {
+        "id": "W065",
+        "legacy_reserve_mm": 180
+      },
+      {
+        "id": "W067",
+        "legacy_reserve_mm": 260
+      },
+      {
+        "id": "W068",
+        "legacy_reserve_mm": 260
+      }
+    ],
+    "legacy_reserve_mm": 920,
+    "provisional_stock_need_mm": 2440,
+    "candidate_stock_m": 3,
+    "selected_R51_stock_m": 2,
+    "whole_robot_stock_qualified": false
+  },
+  "LAPP0107001": {
+    "quantity_id": "p0:WIRE-INLET-BLACK12-P0",
+    "input_blanks_mm": 2880,
+    "W001_blank_mm": 140,
+    "nominal_total_mm": 3020,
+    "candidate_stock_m": 4,
+    "selected_R51_stock_m": 2
+  },
+  "WAGO221412": {
+    "quantity_id": "splice:WAGO221-412",
+    "installed_roles": [
+      "XB11",
+      "W026_output",
+      "W037_output",
+      "W045_output",
+      "W053_output"
+    ],
+    "installed": 5,
+    "spare": 1,
+    "candidate_quantity": 6,
+    "selected_R51_quantity": 2,
+    "exact_binding": {
+      "quantity_id": "splice:WAGO221-412",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "inherited_quantity_source": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+      "manufacturer": "WAGO",
+      "manufacturer_part": "221-412",
+      "supplier": "Kamami",
+      "supplier_sku": "1188364",
+      "supplier_url": "https://kamami.pl/szybkozlacza/1188364-wago-221-412-zlaczka-instalacyjna-2-przewody-4mm-5902186324565.html",
+      "product_evidence": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+      "retail_minimum": null,
+      "retail_multiple": null,
+      "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+      "evidence": "Exact redirected product page read2026-10-02; same XB11 two-port connector"
+    }
+  },
+  "TE_RNF100_3_8": {
+    "quantity_id": "insulation:Pi:RNF-100-3/8-0-STK",
+    "new_source_joint_roles": [
+      "W042",
+      "W044",
+      "W052"
+    ],
+    "new_26mm_blanks": 3,
+    "new_nominal_mm": 78,
+    "trial_spare_mm": 78,
+    "selected_stock_m": 6,
+    "no_second_package": true,
+    "remaining_existing_sleeve_roles_retained": true
+  },
+  "T18I": {
+    "quantity_id": "tie:111-02370",
+    "local_groups": [
+      {
+        "role": "bank_TE_insulation",
+        "installed": 24,
+        "removal_replacements": 24
+      },
+      {
+        "role": "fixed_lower_input_feeds",
+        "installed": 4,
+        "removal_replacements": 0
+      },
+      {
+        "role": "main_MTA_FL_FR_RL_bodies",
+        "installed": 6,
+        "removal_replacements": 0
+      },
+      {
+        "role": "FR_RL_RR_source_insulation",
+        "installed": 6,
+        "removal_replacements": 0
+      },
+      {
+        "role": "FR_RL_RR_output_cage_and_two_insulated_ends",
+        "installed": 9,
+        "removal_replacements": 0
+      }
+    ],
+    "local_installed_known": 49,
+    "feed_tie_BRep_fragments": 20,
+    "feed_tie_physical_loops": 4,
+    "local_removal_replacement_allowance": 24,
+    "RR_MTA_body_ties": 0,
+    "RR_MTA_integral_clips": 4,
+    "fixed_RR_output_ties_cut_for_bank_removal": 0,
+    "retained_R51_stock": 200,
+    "old_inline_holder_roles_must_be_replaced_not_added": true,
+    "missing_groups": [
+      "Final native P-WAGO wire restraints if changed."
+    ],
+    "whole_robot_installed_census_qualified": false
+  },
+  "fixed_RR_mount": {
+    "additional_prints": 0,
+    "fasteners": 0,
+    "wires": 0,
+    "straps": 0,
+    "replacement": "Deck"
+  },
+  "open": [
+    "Whole-source routes W064/W065/W067/W068 remain outside this local ledger.",
+    "Select the final bank export only after assembly/removal and remaining WAGO grips.",
+    "E3 current, temperature, fuse/source interruption assumptions remain their own gate."
+  ],
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r51/one-order-quantities.json": "834a46192a2e923666c327f3fa94741775c53bf53e4e5a454f495e77f423f891",
+    "hardware/electronics/full-cat/servo-fuse-main-feeds-materials-r1/materials.json": "9f8581e55f5a5d7ab1c98c139badd756b7d3865ff0c5778cdab31cb16c345b04",
+    "hardware/electronics/full-cat/servo-fuse-lower-loop-materials-r1/materials.json": "a5a651ec745c167d274280c5820dd31df8b02d831e55e73f4abd00106eaa745d",
+    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6",
+    "hardware/electronics/full-cat/servo-fuse-rr-fixed-station-native-r1/checks.json": "b8a1aa3b3cba1d03eaa6e6d5f431291c62ed90bcc2811439ef011a439893459e",
+    "tools/electronics/servo_fuse_bank_stock_budget_r2.py": "b7c19aa2a567a6d64f77c48e142c15de81b781273992367b8ec3da975309fcab",
+    "hardware/electronics/full-cat/servo-fuse-parent-feed-grips-native-r2/checks.json": "888f41296f65d4f9298c1bea50f862a3ffeb80a6b459abd9f3e4de8fb1838b75"
+  },
+  "script_sha256": "2a60757a0c6daba25b17fd053082b96d5df4e2319566bc763eb7f4a9cc0128db",
+  "started_utc": "2026-10-03T14:12:10.637414+00:00",
+  "finished_utc": "2026-10-03T14:12:10.650170+00:00",
+  "worker_wall_seconds": 0.012756
+}
