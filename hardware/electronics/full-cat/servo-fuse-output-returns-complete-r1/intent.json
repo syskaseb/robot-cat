@@ -1,0 +1,286 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "routes": [
+    {
+      "id": "W037_factory",
+      "leg": "FR",
+      "kind": "MTA_factory",
+      "path_mm": 50.41592653589793,
+      "OD_mm": 5,
+      "radii_mm": [
+        20
+      ],
+      "endpoints_mm": [
+        [
+          -79.5,
+          -72.0,
+          126.0
+        ],
+        [
+          -99.5,
+          -111.0,
+          126.0
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 71.41592653589794,
+      "stock_blank_mm": 80,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": true
+    },
+    {
+      "id": "W037_extension",
+      "leg": "FR",
+      "kind": "HELU23802",
+      "path_mm": 70.80211593656367,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        25.2,
+        25.2
+      ],
+      "endpoints_mm": [
+        [
+          -82.5,
+          -49.5,
+          113.5
+        ],
+        [
+          -99.5,
+          -111.0,
+          132.5
+        ]
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 105.80211593656367,
+      "stock_blank_mm": 110,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    },
+    {
+      "id": "W045_factory",
+      "leg": "RL",
+      "kind": "MTA_factory",
+      "path_mm": 76.19997865934171,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          16.5,
+          72.0,
+          130.0
+        ],
+        [
+          -7.5,
+          120.0,
+          156.46434624714726
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 97.19997865934171,
+      "stock_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": true
+    },
+    {
+      "id": "W045_extension",
+      "leg": "RL",
+      "kind": "HELU23802",
+      "path_mm": 103.40256809124438,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        31,
+        31
+      ],
+      "endpoints_mm": [
+        [
+          25.5,
+          49.5,
+          113.5
+        ],
+        [
+          -7.5,
+          120.0,
+          162.96434624714726
+        ]
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 138.40256809124438,
+      "stock_blank_mm": 140,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    },
+    {
+      "id": "W053_factory",
+      "leg": "RR",
+      "kind": "MTA_factory",
+      "path_mm": 44.31596067742433,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          28.5,
+          -86.0,
+          121.50000000000001
+        ],
+        [
+          8.5,
+          -117.0,
+          131.16969722017663
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 65.31596067742433,
+      "stock_blank_mm": 70,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": true
+    },
+    {
+      "id": "W053_extension",
+      "leg": "RR",
+      "kind": "HELU23802",
+      "path_mm": 79.28698126797613,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        25.2,
+        25.2
+      ],
+      "endpoints_mm": [
+        [
+          25.5,
+          -49.5,
+          113.5
+        ],
+        [
+          8.5,
+          -117.0,
+          137.66969722017663
+        ]
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 114.28698126797613,
+      "stock_blank_mm": 120,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    }
+  ],
+  "joints": [
+    {
+      "id": "W037",
+      "leg": "FR",
+      "kind": "WAGO221-412",
+      "SKU": "221-412",
+      "ports_mm": [
+        [
+          -99.5,
+          -111,
+          126.0
+        ],
+        [
+          -99.5,
+          -111,
+          132.5
+        ]
+      ],
+      "body_bounds_mm": [
+        -103.5,
+        -129.3,
+        122.75,
+        -95.35,
+        -111.00000000000001,
+        135.75
+      ],
+      "strip_mm": 11,
+      "grip_straight_extension_mm": 11.683269920602655,
+      "dimensions_source": "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json",
+      "native_grips": "OPEN: two independent insulation seats and housing retention after full shared fit.",
+      "recipe": "Removed unpowered Deck: one UNTINNED4mm2 bare end per separate same-face cage; close levers before fixing. Factory and extension cage assignment is coupled to these routes, not a new electrical net.",
+      "assumptions": "Nominal manufacturer envelope, project cage positions; rolled lower factory/upper extension, not delivered motion or tolerance."
+    },
+    {
+      "id": "W045",
+      "leg": "RL",
+      "kind": "WAGO221-412",
+      "SKU": "221-412",
+      "ports_mm": [
+        [
+          -7.5,
+          120,
+          156.46434624714726
+        ],
+        [
+          -7.5,
+          120,
+          162.96434624714726
+        ]
+      ],
+      "body_bounds_mm": [
+        -11.5,
+        120,
+        153.21434624714726,
+        -3.3499999999999996,
+        138.3,
+        166.21434624714726
+      ],
+      "strip_mm": 11,
+      "grip_straight_extension_mm": 4.551971629087433,
+      "dimensions_source": "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json",
+      "native_grips": "OPEN: two independent insulation seats and housing retention after full shared fit.",
+      "recipe": "Removed unpowered Deck: one UNTINNED4mm2 bare end per separate same-face cage; close levers before fixing. Factory and extension cage assignment is coupled to these routes, not a new electrical net.",
+      "assumptions": "Nominal manufacturer envelope, project cage positions; rolled lower factory/upper extension, not delivered motion or tolerance."
+    },
+    {
+      "id": "W053",
+      "leg": "RR",
+      "kind": "WAGO221-412",
+      "SKU": "221-412",
+      "ports_mm": [
+        [
+          8.5,
+          -117,
+          131.16969722017663
+        ],
+        [
+          8.5,
+          -117,
+          137.66969722017663
+        ]
+      ],
+      "body_bounds_mm": [
+        4.5,
+        -135.3,
+        127.91969722017663,
+        12.65,
+        -117.00000000000001,
+        140.91969722017663
+      ],
+      "strip_mm": 11,
+      "grip_straight_extension_mm": 15.615170518496626,
+      "dimensions_source": "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json",
+      "native_grips": "OPEN: two independent insulation seats and housing retention after full shared fit.",
+      "recipe": "Removed unpowered Deck: one UNTINNED4mm2 bare end per separate same-face cage; close levers before fixing. Factory and extension cage assignment is coupled to these routes, not a new electrical net.",
+      "assumptions": "Nominal manufacturer envelope, project cage positions; rolled lower factory/upper extension, not delivered motion or tolerance."
+    }
+  ],
+  "factory_failures": [],
+  "unchanged": "Four MTA bodies/front sources/rear sources/nativeRL_R5/nativeRR_R4/FRGuard; unchanged FL output retained by hashes.",
+  "assumptions": "Factory100mm/OD5/R20 and HELUOD4.2/radius>=25.2 remain project assumptions. Native mounts and casing must follow shared contacts, not bbox-only decisions."
+}

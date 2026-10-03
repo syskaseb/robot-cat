@@ -1,0 +1,117 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "routes": [
+    {
+      "id": "W037_factory",
+      "leg": "FR",
+      "kind": "MTA_factory",
+      "path_mm": 49.430995587866974,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          -79.5,
+          -72.0,
+          125.99999999999999
+        ],
+        [
+          -99.5,
+          -109.0,
+          119.07878402833892
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 70.43099558786697,
+      "stock_blank_mm": 80,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": true
+    },
+    {
+      "id": "W037_extension",
+      "leg": "FR",
+      "kind": "HELU23802",
+      "path_mm": 64.42491967003286,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        25.2,
+        25.2
+      ],
+      "endpoints_mm": [
+        [
+          -82.5,
+          -49.5,
+          113.5
+        ],
+        [
+          -99.5,
+          -109.0,
+          112.57878402833892
+        ]
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 99.42491967003286,
+      "stock_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    }
+  ],
+  "joints": [
+    {
+      "id": "W037",
+      "leg": "FR",
+      "kind": "WAGO221-412",
+      "SKU": "221-412",
+      "ports_mm": [
+        [
+          -99.5,
+          -109.0,
+          119.07878402833892
+        ],
+        [
+          -99.5,
+          -109.0,
+          112.57878402833892
+        ]
+      ],
+      "approach_normals": [
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "shared_face_axis": "Y",
+      "same_face_and_tangents_asserted": true,
+      "body_bounds_mm": [
+        -103.5,
+        -127.3,
+        109.32878402833892,
+        -95.35,
+        -109.0,
+        122.32878402833892
+      ],
+      "strip_mm": 11,
+      "grip_straight_extension_mm": 15.734069831815361,
+      "dimensions_source": "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json",
+      "native_grips": "OPEN",
+      "recipe": "Separate UNTINNED cages, nominal11mm strip. Upper factory/lower extension, both approach the same south-facing normal. Casing/retention only after actual shared check.",
+      "assumptions": "Supplier nominal housing, project cage datums and factory100mm; not delivered fit or lever sweep."
+    }
+  ],
+  "factory_failures": [],
+  "unchanged": "Four MTA bodies/all accepted sources/nativeRL_R5/nativeRR_R4/FRGuard/FL output retained. RL/RR outputs retained as unselected failed R1 obstacles; not qualified.",
+  "assumptions": "Factory100mm/OD5/R20 and HELUOD4.2/radius>=25.2 remain project assumptions. Native mounts and casing must follow shared contacts, not bbox-only decisions."
+}
