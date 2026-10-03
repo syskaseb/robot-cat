@@ -1,0 +1,33 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "connector": "P_FRONT",
+  "SKU": "221-615",
+  "same_net": "P_FRONT",
+  "topology_changed": false,
+  "one_conductor_per_cage": true,
+  "manufacturer_cage_numbers": false,
+  "changes": [
+    {
+      "wire": "W041",
+      "prior_label": "P_FRONT.2",
+      "candidate_label": "P_FRONT.3",
+      "entry_mm": [
+        -24,
+        11,
+        113.5
+      ]
+    },
+    {
+      "wire": "W042",
+      "prior_label": "P_FRONT.3",
+      "candidate_label": "P_FRONT.2",
+      "entry_mm": [
+        -31.5,
+        11,
+        113.5
+      ]
+    }
+  ],
+  "selection_rule": "Relabel both endpoints/assembly ledger together ONLY when the entire bank candidate is selected. R51 and its original ledger remain unchanged now."
+}
