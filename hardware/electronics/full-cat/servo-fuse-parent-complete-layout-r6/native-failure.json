@@ -1,0 +1,12 @@
+{
+  "status": "REJECTED_NATIVE_BOP",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "observed_terminated_utc": "2026-10-03T01:08:45Z",
+  "worker": {"session_id": 81667, "pid": 3832, "started_utc": "2026-10-03T00:34:18.352891Z", "exit_code": 1},
+  "error": "Final deck.check(True) raised ValueError: BOPAlgo GeomAbs_C0; Edge and Face BOPAlgo_InvalidCurveOnSurface.",
+  "preserved": "Native FCStd, STL, BREP, 12 wire paths and 98 HIT witness BREPs. The STL is REJECTED, not selected.",
+  "missing": "The final checks.json was never written. Pair identities/counts and strict BOP success must not be inferred from the 98 witness files.",
+  "next": "R7 unions the overlapping tie-cut boxes instead of cutting with an overlapping Compound; disables new automatic Refine operations. Save strict native result before shared fit, and checkpoint contact identities during the fit. Hypothesis, not verified repair."
+}
