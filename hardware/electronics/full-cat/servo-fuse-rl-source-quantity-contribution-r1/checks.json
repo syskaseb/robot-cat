@@ -1,0 +1,94 @@
+{
+  "status": "RL_ADDITIVE_CANDIDATE_CONTRIBUTION_COMPLETE",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-rl-source-station-native-r5/checks.json": "51eec140cf30a0e6c0ec98d20665d44c51fa5e64fe19bdf753b2566305d2c950",
+    "hardware/electronics/full-cat/servo-fuse-rl-source-complete-r2/checks.json": "d16f7359a5c4db89b53f0fbcf2c707bcf101a2323077b441ef7dee420cae1c72",
+    "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json": "a70fe7ed076c96436648f94fdce775003961748ddc017ea96246596d7a7217f9",
+    "hardware/manufacturing/one-batch-prototype-r51/one-order-quantities.json": "834a46192a2e923666c327f3fa94741775c53bf53e4e5a454f495e77f423f891"
+  },
+  "script_sha256": "f65a7456ff5ccec91d532031e9d1974be1a754192fd21292dceb417022723eb8",
+  "additional_T18I_installed": 2,
+  "tie_SKU": "111-02370",
+  "tie_stock_length_mm": 145,
+  "HELU23802": {
+    "role": "W044_extension",
+    "old_blank_mm": 110,
+    "replacement_blank_mm": 120,
+    "delta_blank_mm": 10,
+    "no_additional_duplicate_wire": true
+  },
+  "factory": {
+    "SKU": "MTA0100335",
+    "installed_holder_unchanged": true,
+    "nominal_need_mm": 83.30046235885513,
+    "usable_length_PROJECT_assumption_mm": 100,
+    "nominal_margin_to_assumption_mm": 16.69953764114487,
+    "actual_cut_mm": null
+  },
+  "shrink": {
+    "SKU": "RNF-100-3/8-0-STK",
+    "retained_installed_pieces": 1,
+    "blank_mm": 26,
+    "additional_installed_pieces": 0
+  },
+  "solder": {
+    "SKU": "T0051402499",
+    "retained_lap_joint": 1,
+    "additional_laps": 0
+  },
+  "prints": {
+    "exports": [
+      {
+        "tag": "Deck",
+        "file": "hardware/cad/studies/servo-fuse-rl-source-station-native-r5/DeckRLSourceStation.FCStd",
+        "final": "RLSourceStationFinished",
+        "single_solid": true,
+        "strict_BOP_errors": 0,
+        "closed_STL": true,
+        "relocated_reopen": true,
+        "dimensions_mm": [
+          230.0,
+          193.5,
+          55.5
+        ]
+      },
+      {
+        "tag": "Cover",
+        "file": "hardware/cad/studies/servo-fuse-rr-source-station-native-r4/CoverRRSourceStation.FCStd",
+        "final": "RRSourceCoverFinished",
+        "single_solid": true,
+        "strict_BOP_errors": 0,
+        "closed_STL": true,
+        "relocated_reopen": true,
+        "dimensions_mm": [
+          238.0,
+          242.0,
+          81.0
+        ],
+        "inherited_unchanged": true
+      }
+    ],
+    "additional_prints": 0,
+    "additional_fasteners": 0,
+    "rule": "Replace the candidate Deck only; inherit verified RR Cover if unchanged. Do not print both old and new Deck."
+  },
+  "terminations": [
+    {
+      "role": "Factory holder",
+      "recipe": "Preserve factory MTA connection; no extra crimp."
+    },
+    {
+      "role": "Lap",
+      "recipe": "Opposed8mm bare ends;26mm RNF100 with9mm intact overlap each side; separate4mm native insulation seats/T18I."
+    },
+    {
+      "role": "P_REAR.2",
+      "recipe": "One bare4mm2 conductor per221-615 cage;12..14mm strip from delivered marking; no tin/no doubled cage."
+    }
+  ],
+  "selection_rule": "Merge this and RR contributions ONCE at full-bank selection. Reconcile installed/spares/stock then; R51 is not mutated.",
+  "phase2": "Delivered MTA length/OD, sleeve profile, tie insertion, pull/creep/current/heat remain real prototype trials.100mm is a PROJECT assumption, not supplier guarantee."
+}
