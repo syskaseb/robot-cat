@@ -1,0 +1,68 @@
+{
+  "status": "RR_ADDITIVE_CANDIDATE_CONTRIBUTION_COMPLETE",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-rr-source-station-native-r4/checks.json": "935fc0426924ff08b1a649f5b198111201493f39bb6c3b667f25d7e47ab5f4aa",
+    "hardware/electronics/full-cat/servo-fuse-rr-source-complete-r8/checks.json": "f6375249a3fdbca0fb3e5dac37527f540079fdc4c71e20826d658f3530adf0ce",
+    "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json": "a70fe7ed076c96436648f94fdce775003961748ddc017ea96246596d7a7217f9",
+    "hardware/manufacturing/one-batch-prototype-r51/one-order-quantities.json": "834a46192a2e923666c327f3fa94741775c53bf53e4e5a454f495e77f423f891"
+  },
+  "script_sha256": "5a77475d56edba4e217c4e0607d0126911dd4ccfa624f8970e3abef881afcdba",
+  "additional_T18I_installed": 2,
+  "tie_SKU": "111-02370",
+  "tie_stock_length_mm": 145,
+  "HELU23802": {
+    "role": "W052_extension",
+    "old_blank_mm": 130,
+    "replacement_blank_mm": 160,
+    "delta_blank_mm": 30,
+    "no_additional_duplicate_wire": true
+  },
+  "factory": {
+    "SKU": "MTA0100335",
+    "installed_holder_unchanged": true,
+    "nominal_need_mm": 99.90593328820623,
+    "usable_length_PROJECT_assumption_mm": 100,
+    "nominal_margin_to_assumption_mm": 0.09406671179377213,
+    "actual_cut_mm": null
+  },
+  "shrink": {
+    "SKU": "RNF-100-3/8-0-STK",
+    "retained_installed_pieces": 1,
+    "blank_mm": 26,
+    "additional_installed_pieces": 0
+  },
+  "solder": {
+    "SKU": "T0051402499",
+    "retained_lap_joint": 1,
+    "additional_laps": 0
+  },
+  "prints": {
+    "replace_candidate_Deck": "hardware/cad/studies/servo-fuse-rr-source-station-native-r4/Deck_UNSELECTED.stl",
+    "replace_candidate_Cover": "hardware/cad/studies/servo-fuse-rr-source-station-native-r4/Cover_UNSELECTED.stl",
+    "additional_prints": 0,
+    "additional_fasteners": 0
+  },
+  "terminations": [
+    {
+      "role": "MTA output of source-side lead",
+      "recipe": "Preserve factory connection to same RR holder, no extra crimp."
+    },
+    {
+      "role": "Factory lap end",
+      "recipe": "8mm stripped copper,9mm intact insulation sleeve overlap,4mm native insulation grip/T18I."
+    },
+    {
+      "role": "HELU lap end",
+      "recipe": "Opposed8mm bare lap,9mm intact overlap, separate4mm native grip/T18I, RNF100 fitted after solder inspection."
+    },
+    {
+      "role": "P_REAR.3",
+      "recipe": "One bare4mm2 conductor per221-615 cage,12..14mm strip from delivered marking, no tin/no doubled cage."
+    }
+  ],
+  "selection_rule": "Merge this contribution ONCE with other bank roles at full selection;200-piece tie stock is not a free new purchase and installed/spares/remaining stock must be reconciled. No selected R51 mutation now.",
+  "phase2": "Actual MTA length/OD, radius, stripping/shrink profile, pull/creep/current/heat remain real delivery/prototype checks. Nominal100mm is not a supplier guarantee."
+}
