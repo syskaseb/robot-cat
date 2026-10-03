@@ -1,0 +1,261 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "routes": [
+    {
+      "id": "W045_factory",
+      "leg": "RL",
+      "kind": "MTA_factory",
+      "path_mm": 76.40346627905708,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          16.5,
+          72.0,
+          130.0
+        ],
+        [
+          -55.0,
+          82.0,
+          118.0
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 97.40346627905708,
+      "stock_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": true
+    },
+    {
+      "id": "W045_extension",
+      "leg": "RL",
+      "kind": "HELU23802",
+      "path_mm": 156.70988760159423,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2
+      ],
+      "endpoints_mm": [
+        [
+          25.5,
+          49.5,
+          113.5
+        ],
+        [
+          -55.0,
+          82.0,
+          111.5
+        ]
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 191.70988760159423,
+      "stock_blank_mm": 200,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    },
+    {
+      "id": "W053_factory",
+      "leg": "RR",
+      "kind": "MTA_factory",
+      "path_mm": 79.26922602961237,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          28.5,
+          -86.0,
+          121.5
+        ],
+        [
+          -47.0,
+          -94.0,
+          111.0
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 100.26922602961237,
+      "stock_blank_mm": 110,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": false
+    },
+    {
+      "id": "W053_extension",
+      "leg": "RR",
+      "kind": "HELU23802",
+      "path_mm": 141.89441320824406,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2
+      ],
+      "endpoints_mm": [
+        [
+          25.5,
+          -49.5,
+          113.5
+        ],
+        [
+          -47.0,
+          -94.0,
+          104.5
+        ]
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 176.89441320824406,
+      "stock_blank_mm": 180,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    }
+  ],
+  "joints": [
+    {
+      "id": "W045",
+      "leg": "RL",
+      "kind": "WAGO221-412",
+      "SKU": "221-412",
+      "ports_mm": [
+        [
+          -55.0,
+          82.0,
+          118.0
+        ],
+        [
+          -55.0,
+          82.0,
+          111.5
+        ]
+      ],
+      "approach_normals": [
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "shared_face_axis": "X",
+      "same_face_and_tangents_asserted": true,
+      "body_bounds_mm": [
+        -73.3,
+        78,
+        108.25,
+        -55,
+        86.15,
+        121.25
+      ],
+      "strip_mm": 11,
+      "grip_straight_extension_mm": 6.900923826681179,
+      "dimensions_source": "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json",
+      "native_grips": "OPEN: matching below-Deck clearance, housing seats and independent insulation restraints.",
+      "recipe": "Both UNTINNED ends on east face, approach west. Prewire unpowered removed Deck, supplier11mm strip. No side-face insertion. Retain four MTA/source assemblies.",
+      "assumptions": "Supplier nominal envelope, project cage datums, OD/radii and100mm factory usable lead, not delivered fit/lever sweep."
+    },
+    {
+      "id": "W053",
+      "leg": "RR",
+      "kind": "WAGO221-412",
+      "SKU": "221-412",
+      "ports_mm": [
+        [
+          -47.0,
+          -94.0,
+          111.0
+        ],
+        [
+          -47.0,
+          -94.0,
+          104.5
+        ]
+      ],
+      "approach_normals": [
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "shared_face_axis": "X",
+      "same_face_and_tangents_asserted": true,
+      "body_bounds_mm": [
+        -65.3,
+        -98,
+        101.25,
+        -47,
+        -89.85,
+        114.25
+      ],
+      "strip_mm": 11,
+      "grip_straight_extension_mm": 4.47433731250527,
+      "dimensions_source": "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json",
+      "native_grips": "OPEN: matching below-Deck clearance, housing seats and independent insulation restraints.",
+      "recipe": "Both UNTINNED ends on east face, approach west. Prewire unpowered removed Deck, supplier11mm strip. No side-face insertion. Retain four MTA/source assemblies.",
+      "assumptions": "Supplier nominal envelope, project cage datums, OD/radii and100mm factory usable lead, not delivered fit/lever sweep."
+    }
+  ],
+  "factory_failures": [
+    {
+      "id": "W053_factory",
+      "leg": "RR",
+      "kind": "MTA_factory",
+      "path_mm": 79.26922602961237,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          28.5,
+          -86.0,
+          121.5
+        ],
+        [
+          -47.0,
+          -94.0,
+          111.0
+        ]
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 100.26922602961237,
+      "stock_blank_mm": 110,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_PROJECT_assumption_mm": 100,
+      "within_factory_assumption": false
+    }
+  ],
+  "unchanged": "Four MTA bodies/all accepted sources/nativeRL_R5/nativeRR_R4/FRGuard/FR R3/FL output retained; rear native matched casing/grips remain OPEN.",
+  "assumptions": "Factory100mm/OD5/R20 and HELUOD4.2/radius>=25.2 remain project assumptions. Native mounts and casing must follow shared contacts, not bbox-only decisions."
+}

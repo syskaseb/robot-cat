@@ -1,0 +1,119 @@
+{
+  "status": "OUTPUT_REPLACEMENT_LEDGER_COMPLETE_CONSTRUCTION_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json": "a70fe7ed076c96436648f94fdce775003961748ddc017ea96246596d7a7217f9",
+    "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r3/checks.json": "f72345670e29200884cfc9ebd52d851b75026d2147d0414ad886a42a6efc868e",
+    "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r8/checks.json": "8e3cefd4a0d0ea222b9dd7a56a9d40c6af9ba705e38b830044d4257afd998f0f",
+    "hardware/electronics/full-cat/servo-fuse-fr-output-station-native-r5/checks.json": "50e04574de2ab381499cca19182c80b88bb4a43ce4acdd0b3f38ea0c5ba49d8f",
+    "hardware/manufacturing/one-batch-prototype-r51/one-order-quantities.json": "834a46192a2e923666c327f3fa94741775c53bf53e4e5a454f495e77f423f891"
+  },
+  "script_sha256": "43f5a02f131b714a30a8f65b0143af759e78e1f70ac454560d6f36998f80147e",
+  "recorded_utc": "2026-10-03T10:21:12.195371+00:00",
+  "HELU23802": {
+    "roles": [
+      {
+        "id": "W026_extension",
+        "old_blank_mm": 100,
+        "replacement_blank_mm": 100,
+        "delta_blank_mm": 0,
+        "actual_cut_mm": null,
+        "source": "front-source-ports-r2 unchanged"
+      },
+      {
+        "id": "W037_extension",
+        "old_blank_mm": 110,
+        "replacement_blank_mm": 100,
+        "delta_blank_mm": -10,
+        "actual_cut_mm": null,
+        "source": "output-returns-complete-r3"
+      },
+      {
+        "id": "W045_extension",
+        "old_blank_mm": 120,
+        "replacement_blank_mm": 170,
+        "delta_blank_mm": 50,
+        "actual_cut_mm": null,
+        "source": "output-returns-complete-r8"
+      },
+      {
+        "id": "W053_extension",
+        "old_blank_mm": 110,
+        "replacement_blank_mm": 160,
+        "delta_blank_mm": 50,
+        "actual_cut_mm": null,
+        "source": "output-returns-complete-r8"
+      }
+    ],
+    "previous_four_output_blank_mm": 440,
+    "replacement_four_output_blank_mm": 530,
+    "delta_blank_mm": 90,
+    "no_duplicate_previous_wires": true,
+    "whole_robot_stock_m": null,
+    "rule": "Replace these four roles exactly once. Retained source contributions are separate IDs. Do not infer total stock from this partial ledger."
+  },
+  "factory_assumptions": [
+    {
+      "id": "W037_factory",
+      "nominal_need_mm": 70.43099558786697,
+      "project_available_mm": 100,
+      "margin_to_assumption_mm": 29.569004412133026,
+      "supplier_length_verified": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W045_factory",
+      "nominal_need_mm": 90.95185680189073,
+      "project_available_mm": 100,
+      "margin_to_assumption_mm": 9.048143198109273,
+      "supplier_length_verified": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W053_factory",
+      "nominal_need_mm": 99.3495036803292,
+      "project_available_mm": 100,
+      "margin_to_assumption_mm": 0.6504963196707934,
+      "supplier_length_verified": false,
+      "actual_cut_mm": null
+    }
+  ],
+  "additional_FR_T18I_roles": [
+    {
+      "role": "HousingTie",
+      "SKU": "111-02370",
+      "installed": 1
+    },
+    {
+      "role": "ExtensionTie",
+      "SKU": "111-02370",
+      "installed": 1
+    },
+    {
+      "role": "FactoryTie",
+      "SKU": "111-02370",
+      "installed": 1
+    }
+  ],
+  "additional_FR_T18I": 3,
+  "additional_FR_fasteners": 0,
+  "additional_FR_prints": 0,
+  "FR_print_replacement": "FRGuardOutputStation replaces FRReturnGuard, not an additional part.",
+  "WAGO221412": {
+    "retain_four_output_joints": true,
+    "additional_from_this_replacement": 0,
+    "final_installed_and_spares": "OPEN: merge all main source/output joints and existing XB11 once at bank selection."
+  },
+  "terminations": [
+    "Each 221412: two separate untinned bare ends,11mm nominal strip, one conductor per cage.",
+    "HELU output allowance25mm =11mm splice plus14mm P-leg end;10mm retained trim reserve, not a delivered measurement.",
+    "P-leg221615: one bare4mm2 conductor per mapped cage,12..14mm from marking; no tin/folding/doubled cage.",
+    "MTA factory side is retained, not an extra crimp or extra purchased extension."
+  ],
+  "open": [
+    "Rear native channels/grips, lever/assembly release and whole stock/E3 remain open.",
+    "No selected quantity/order-cart mutation. Check delivery100mm assumption and actual strip/tie/pull/heat in phase2."
+  ]
+}
