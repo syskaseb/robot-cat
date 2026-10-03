@@ -1,0 +1,214 @@
+{
+  "status": "EIGHT_MAIN_FEED_MATERIAL_ROLES_MERGED_OTHER_ROBOT_STOCK_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "K3_complete": false,
+  "E3_complete": false,
+  "recorded_utc": "2026-10-03T10:48:57.317493+00:00",
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json": "a70fe7ed076c96436648f94fdce775003961748ddc017ea96246596d7a7217f9",
+    "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r3/checks.json": "f72345670e29200884cfc9ebd52d851b75026d2147d0414ad886a42a6efc868e",
+    "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r8/checks.json": "8e3cefd4a0d0ea222b9dd7a56a9d40c6af9ba705e38b830044d4257afd998f0f",
+    "hardware/electronics/full-cat/servo-fuse-rl-source-complete-r2/checks.json": "d16f7359a5c4db89b53f0fbcf2c707bcf101a2323077b441ef7dee420cae1c72",
+    "hardware/electronics/full-cat/servo-fuse-rr-source-complete-r8/checks.json": "f6375249a3fdbca0fb3e5dac37527f540079fdc4c71e20826d658f3530adf0ce",
+    "hardware/manufacturing/one-batch-prototype-r51/one-order-quantities.json": "834a46192a2e923666c327f3fa94741775c53bf53e4e5a454f495e77f423f891"
+  },
+  "script_sha256": "f1ec91d61bfd7a88dd97a27b515d05405b1a2d319b598b7ce5acec451140b972",
+  "HELU23802": {
+    "extensions": [
+      {
+        "id": "W026_extension",
+        "nominal_blank_mm": 100,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json",
+        "replaces_prior_same_role": true
+      },
+      {
+        "id": "W037_extension",
+        "nominal_blank_mm": 100,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r3/checks.json",
+        "replaces_prior_same_role": true
+      },
+      {
+        "id": "W042_extension",
+        "nominal_blank_mm": 380,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json",
+        "replaces_prior_same_role": true
+      },
+      {
+        "id": "W044_extension",
+        "nominal_blank_mm": 120,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-rl-source-complete-r2/checks.json",
+        "replaces_prior_same_role": true
+      },
+      {
+        "id": "W045_extension",
+        "nominal_blank_mm": 170,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r8/checks.json",
+        "replaces_prior_same_role": true
+      },
+      {
+        "id": "W052_extension",
+        "nominal_blank_mm": 160,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-rr-source-complete-r8/checks.json",
+        "replaces_prior_same_role": true
+      },
+      {
+        "id": "W053_extension",
+        "nominal_blank_mm": 160,
+        "actual_cut_mm": null,
+        "source": "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r8/checks.json",
+        "replaces_prior_same_role": true
+      }
+    ],
+    "unique_extension_count": 7,
+    "nominal_blank_mm": 1190,
+    "retained_W066_nominal_blank_mm": 330,
+    "partial_reserved_total_mm": 1520,
+    "selected_R51_stock_mm": 2000,
+    "unallocated_after_partial_reservations_mm": 480,
+    "unresolved_remaining_roles": [
+      "W064",
+      "W065",
+      "W067",
+      "W068"
+    ],
+    "whole_robot_stock_complete": false,
+    "rule": "1190mm replaces ALL older seven extension lists, not an additive1190mm purchase.330mmW066 remains one separate role.480mm is leftover capacity, NOT proof it covers the four unresolved source roles."
+  },
+  "factory": [
+    {
+      "id": "W026_factory",
+      "nominal_need_with_strip_and_reserve_mm": 73.41592653589794,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 26.58407346410206,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json"
+    },
+    {
+      "id": "W037_factory",
+      "nominal_need_with_strip_and_reserve_mm": 70.43099558786697,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 29.569004412133026,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r3/checks.json"
+    },
+    {
+      "id": "W041_factory_direct",
+      "nominal_need_with_strip_and_reserve_mm": 92.93471652684406,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 7.065283473155944,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json"
+    },
+    {
+      "id": "W042_factory",
+      "nominal_need_with_strip_and_reserve_mm": 96.83185307179585,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 3.168146928204152,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-front-source-ports-r2/checks.json"
+    },
+    {
+      "id": "W044_factory",
+      "nominal_need_with_strip_and_reserve_mm": 83.30046235885513,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 16.69953764114487,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-rl-source-complete-r2/checks.json"
+    },
+    {
+      "id": "W045_factory",
+      "nominal_need_with_strip_and_reserve_mm": 90.95185680189073,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 9.048143198109273,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r8/checks.json"
+    },
+    {
+      "id": "W052_factory",
+      "nominal_need_with_strip_and_reserve_mm": 99.90593328820623,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 0.09406671179377213,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-rr-source-complete-r8/checks.json"
+    },
+    {
+      "id": "W053_factory",
+      "nominal_need_with_strip_and_reserve_mm": 99.3495036803292,
+      "usable_factory_PROJECT_mm": 100,
+      "manufacturer_usable_length_verified": false,
+      "margin_to_assumption_mm": 0.6504963196707934,
+      "actual_cut_mm": null,
+      "source": "hardware/electronics/full-cat/servo-fuse-output-returns-complete-r8/checks.json"
+    }
+  ],
+  "splice221412": {
+    "installed_roles": [
+      {
+        "role": "XB11",
+        "installed": 1,
+        "manufacturer_part": "221-412"
+      },
+      {
+        "role": "W026_output",
+        "installed": 1,
+        "manufacturer_part": "221-412"
+      },
+      {
+        "role": "W037_output",
+        "installed": 1,
+        "manufacturer_part": "221-412"
+      },
+      {
+        "role": "W045_output",
+        "installed": 1,
+        "manufacturer_part": "221-412"
+      },
+      {
+        "role": "W053_output",
+        "installed": 1,
+        "manufacturer_part": "221-412"
+      }
+    ],
+    "installed_total": 5,
+    "retained_R51_spares": 1,
+    "candidate_planning_quantity": 6,
+    "selected_R51_planning_quantity": 2,
+    "supplier_SKU": "1188364",
+    "supplier_url": "https://kamami.pl/szybkozlacza/1188364-wago-221-412-zlaczka-instalacyjna-2-przewody-4mm-5902186324565.html",
+    "retail_multiple_unverified": true,
+    "role_replacements": "Retain XB11 once; add four output joints once. Source laps do not add221412."
+  },
+  "source_laps": {
+    "roles": [
+      "W042_source",
+      "W044_source",
+      "W052_source"
+    ],
+    "count": 3,
+    "source_FL": "W041 factory direct, no added HELU, solder lap, sleeve or221412.",
+    "retained_RNF100_pieces_per_lap": 1,
+    "nominal_blank_mm_each": 26,
+    "qualification": "Existing source construction pins the sleeves and separate insulation seats. Delivery, solder/wall fit and pull/heat remain phase2."
+  },
+  "grips": "FR three ties accepted; RL/RR six ties and native seats still under construction. Do not add proposed ties to installed census before receiving result.",
+  "open": [
+    "Whole red-wire/source stock and all-bank installed/spare strap census.",
+    "Native rear seats, lever/assembly/removal, selected one export and E3."
+  ],
+  "no_selected_quantity_mutation": true
+}
