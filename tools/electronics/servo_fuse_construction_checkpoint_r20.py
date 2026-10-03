@@ -26,8 +26,13 @@ def main():
     assert {r['tag'] for r in j['exports']}=={'Deck','BankRight','Cover','BankLeft'}
     for row in j['exports']:
         assert row['single_solid'] and row['closed_STL'] and row['relocated_reopen'] and row['strict_BOP_errors']==0
+        gp=ROOT/row['file'];add(gp)
+        for suffix in ('_WORLD.brep','_UNSELECTED.stl'):add(gp.parent/(row['tag']+suffix))
     assert len(j['stations'])==2 and len(j['ties'])==6 and sum(r['installed'] for r in j['ties'])==6
     add(native)
+    if 'recovery' in j:
+        recovery=j['recovery'];writer=ROOT/recovery['writer']
+        assert sha(writer)==recovery['writer_sha256'];add(writer)
     for rel,h in j['source_sha256'].items():assert sha(ROOT/rel)==h,rel;add(ROOT/rel)
     for p in (ROOT/'hardware/cad/studies/servo-fuse-rear-output-stations-native-r3').iterdir():
         if p.suffix in ('.json','.brep','.FCStd','.stl'):add(p)

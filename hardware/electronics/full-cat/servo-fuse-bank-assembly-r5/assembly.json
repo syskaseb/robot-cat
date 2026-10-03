@@ -1,0 +1,121 @@
+{
+  "status": "ONE_CURRENT_CONDITIONAL_SEQUENCE_SHARED_RELEASE_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "assembly_complete": false,
+  "bench_P_ports": 20,
+  "occupied_P_ports": 16,
+  "empty_P_ports": 4,
+  "terminal_ends": 24,
+  "factory_feeds": 8,
+  "HELU_extensions": 7,
+  "rear_output_restraints": 6,
+  "part_ownership": {
+    "RL_output_station": "Deck",
+    "RR_output_station": "BankRight"
+  },
+  "assembly": [
+    {
+      "id": "bench",
+      "after": [],
+      "action": "Battery absent. Label the 20 project slots of the four P blocks; prewire their 16 occupied cages on the bench, leaving the four port5 cages empty. Use the pinned map, not manufacturer cage numbers. Do not tin conductors."
+    },
+    {
+      "id": "main",
+      "after": [
+        "bench"
+      ],
+      "action": "On removed Deck assemble the four fixed MTA bodies in main-joint-layout-r3 orientations, their integral saddles and recorded straps/clips. Build all eight factory feeds: seven HELU extensions, FL W041 direct, three insulated source laps, four output221-412 cages. Both exits of every holder must be present."
+    },
+    {
+      "id": "fixed",
+      "after": [
+        "main"
+      ],
+      "action": "Install the prewired P blocks, front guard and fixed FL/FR/RL source/output insulation grips. RL output cage is integral with Deck. Do not re-use the old flat-Deck support or an older rear-output shell."
+    },
+    {
+      "id": "bank",
+      "after": [
+        "fixed"
+      ],
+      "action": "Fit the twelve mini holders and twenty-four TE ends with their retained lower input loops and output axes. Install the matched left/right bank and current Cover. RR output cage and both insulation seats belong to RIGHT BANK, not Deck."
+    },
+    {
+      "id": "rear",
+      "after": [
+        "bank"
+      ],
+      "action": "Place RL/RR output housings into their matched open trays. Restrain housing and each insulated lead separately using the six specified T18I. Keep the exact R8 wire paths and the existing W038/W039 passage; do not pull a bare end through a restraint."
+    },
+    {
+      "id": "close",
+      "after": [
+        "rear"
+      ],
+      "action": "Complete fasteners and head JR last. The final seating/removal interface still requires the common check; this ordering is a conditional construction recipe, not an accepted assembled robot."
+    }
+  ],
+  "removal": [
+    {
+      "id": "isolate",
+      "requires": [],
+      "action": "Disconnect/remove battery and release the head JR. Do not separate Cover vertically from the bank; that independent motion was rejected."
+    },
+    {
+      "id": "rr_output",
+      "requires": [
+        "isolate"
+      ],
+      "action": "Release the THREE RR output straps and BOTH RR output221-412 cages before moving the bank. Park the housing and freed insulated leads clear of its tray. Lever/finger/tool clearance and this parking motion are OPEN, so do not call this step qualified."
+    },
+    {
+      "id": "holders",
+      "requires": [
+        "rr_output"
+      ],
+      "action": "Remove twelve ATOs, release the twenty-four nominal holder clip slots, raise each holder10mm and unmate the TE ends. Release/cut the twenty-four bank strain ties, not the fixed source insulation ties."
+    },
+    {
+      "id": "park",
+      "requires": [
+        "holders"
+      ],
+      "action": "Move the twelve input TE ends5.5mm inward using retained connected loops; retain the twelve output TE axes. Never pull TE down through the bank backers. Existing loop/rigid-end evidence is inherited only, not proof against the new rear stations."
+    },
+    {
+      "id": "lift",
+      "requires": [
+        "park"
+      ],
+      "action": "Release bank fasteners and raise bank+Cover as one module over the parked ends. The nominal100mm motion against the CURRENT fixed Deck/RL station/guard and freed RR cage needs a joint test. Four RR MTA clip tools also remain OPEN."
+    },
+    {
+      "id": "restore",
+      "requires": [
+        "lift"
+      ],
+      "action": "Reassemble in reverse; replace each cut tie and restore all wire roles and isolation. All physical fit, latch/strap pull, PETG load and continuity/current trials belong to phase2."
+    }
+  ],
+  "invalidated_prior_claim": "AssemblyR4 cannot establish common removal with the new RR cage/grips attached to BankRight.",
+  "actual_lever_motion_qualified": false,
+  "shared_release_qualified": false,
+  "replacement_ties": {
+    "bank_terminal_ties_if_cut": 24,
+    "RR_output_ties_if_cut": 3,
+    "rule": "Count once in final installed/spare stock; these are replacement consumables, not extra installed ties."
+  },
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r20/manifest.json": "e90c88836f95259d1376eb8960d920ed799fa5734db4b1eaf0821bcc8d04450a",
+    "hardware/electronics/full-cat/servo-fuse-rear-output-stations-parameter-r4/checks.json": "8096347a1d50db9e8cc07ee61abd03741af98e386522d7a0d4448a9dab707204",
+    "hardware/electronics/full-cat/servo-fuse-rear-output-stations-native-r3/checks.json": "a7520ef33d33ee994633d791a94e95c99c223de267a12f767b2b238092470424",
+    "hardware/electronics/full-cat/servo-fuse-wago-map-r1/interface.json": "f320120e6d33d28c09628c86e80dd4843bc3acb0a229ca5a090e0fbdcc9e913c",
+    "hardware/electronics/full-cat/servo-fuse-bank-service-r3/checks.json": "706a9bc9e66e82f2d9a2e49a8e6e7bcc18f9500a44be38fb8066a20ee50e9de4",
+    "hardware/electronics/full-cat/servo-fuse-main-feeds-materials-r1/materials.json": "9f8581e55f5a5d7ab1c98c139badd756b7d3865ff0c5778cdab31cb16c345b04"
+  },
+  "script_sha256": "21c9d625321aafce73deac5f2be76026e401c6a42cf5abbfb23da781fcb45d88",
+  "started_utc": "2026-10-03T11:47:33.923269+00:00",
+  "finished_utc": "2026-10-03T11:47:33.942958+00:00"
+}

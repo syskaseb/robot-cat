@@ -29,7 +29,8 @@ def main():
         d=A.openDocument(str(gp));dest=CAD/gp.name
         try:
             before=d.RearOutputStationsFinished.Shape.copy();volume=before.Volume
-            tools=d.RearGripTools.Shapes;assert tools and all(o.TypeId=='Part::Box' for o in tools)
+            tools=d.RearGripTools.Shapes if 'Shapes' in d.RearGripTools.PropertiesList else d.RearGripTools.Links
+            assert tools and all(o.TypeId=='Part::Box' for o in tools)
             for o in tools:
                 length=float(o.Length);o.setExpression('Length',f'{length-.2} mm + RearGripParameters.Clearance')
             d.recompute();f=d.RearOutputStationsFinished
