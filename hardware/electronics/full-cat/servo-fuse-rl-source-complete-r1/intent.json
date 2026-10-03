@@ -1,0 +1,113 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "routes": [
+    {
+      "id": "W044_factory",
+      "leg": "RL",
+      "kind": "MTA_factory",
+      "path_mm": 76.8162528916532,
+      "OD_mm": 5,
+      "radii_mm": [
+        20,
+        20,
+        20
+      ],
+      "endpoints_mm": [
+        [
+          51.5,
+          72.0,
+          130.0
+        ],
+        [
+          99.77323810350646,
+          42.0,
+          119.00000000000001
+        ]
+      ],
+      "strip_allowance_mm": 8,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 94.8162528916532,
+      "stock_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "factory_usable_assumption_mm": 100,
+      "within_factory_assumption": true
+    },
+    {
+      "id": "W044_extension",
+      "leg": "RL",
+      "kind": "HELU23802",
+      "path_mm": 99.92315359623755,
+      "OD_mm": 4.2,
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2
+      ],
+      "endpoints_mm": [
+        [
+          32.0,
+          -6.8,
+          129.0
+        ],
+        [
+          99.77323810350646,
+          34.0,
+          119.00000000000001
+        ]
+      ],
+      "strip_allowance_mm": 22,
+      "trim_reserve_mm": 10,
+      "minimum_blank_mm": 131.92315359623757,
+      "stock_blank_mm": 140,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    }
+  ],
+  "joints": [
+    {
+      "id": "W044",
+      "leg": "RL",
+      "centre_mm": [
+        99.77323810350646,
+        38.0,
+        119.00000000000001
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "factory_insulation_end_mm": [
+        99.77323810350646,
+        42.0,
+        119.00000000000001
+      ],
+      "extension_insulation_end_mm": [
+        99.77323810350646,
+        34.0,
+        119.00000000000001
+      ],
+      "factory_grip_centre_mm": [
+        99.77323810350646,
+        54.0,
+        119.00000000000001
+      ],
+      "extension_grip_centre_mm": [
+        99.77323810350646,
+        22.0,
+        119.00000000000001
+      ],
+      "grip_length_mm": 4,
+      "bare_each_mm": 8,
+      "sleeve_blank_mm": 26,
+      "intact_insulation_overlap_each_mm": 9,
+      "sleeve_SKU": "RNF-100-3/8-0-STK",
+      "solder_SKU": "T0051402499",
+      "native_grips": "PENDING_SHARED_ROUTE_FIT"
+    }
+  ],
+  "assumptions": "MTA35x22x16,OD5,R20,usable100mm per side; HELU4.2/R25.2;8mm solder lap/26mm sleeve OD9. Not delivered measurements.",
+  "unchanged_front": "front-source-ports-r2 + FRJointStation + FRGuardR3; no new front routing"
+}
