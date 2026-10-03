@@ -9,6 +9,9 @@ pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
 Dockerfile text eol=lf
 # Generated PDFs are binary even when their first block contains no NUL byte.
 *.pdf binary
+# STL byte hashes are pinned by the selected prototype manifest, including
+# historical ASCII exports. Never normalize their bytes or merge as prose.
+/hardware/**/*.stl binary -eol
 # Simulation provenance hashes must survive Windows/Linux checkouts.
 tools/simulation/*.py text eol=lf
 tools/simulation/plugin/* text eol=lf

@@ -1,0 +1,217 @@
+{
+  "status": "CURRENT_LOCAL_BANK_LEDGER_NOMINAL_SERVICE_ACCEPTED_WHOLE_STOCK_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "K3_complete": false,
+  "E3_complete": false,
+  "W5_complete": false,
+  "replaces": "stock-r6 superseded only by current local service49loops, not33;53installed unchanged. Never add variants or call historical global104an actual census.",
+  "HELU23802": {
+    "quantity_id": "p0:WIRE-RED4-P0",
+    "unique_roles": [
+      {
+        "id": "W026_extension",
+        "blank_mm": 100
+      },
+      {
+        "id": "W037_extension",
+        "blank_mm": 100
+      },
+      {
+        "id": "W042_extension",
+        "blank_mm": 380
+      },
+      {
+        "id": "W044_extension",
+        "blank_mm": 120
+      },
+      {
+        "id": "W045_extension",
+        "blank_mm": 170
+      },
+      {
+        "id": "W052_extension",
+        "blank_mm": 160
+      },
+      {
+        "id": "W053_extension",
+        "blank_mm": 160
+      },
+      {
+        "id": "W066",
+        "blank_mm": 330
+      }
+    ],
+    "qualified_nominal_blank_subtotal_mm": 1520,
+    "unchecked_source_roles": [
+      {
+        "id": "W064",
+        "legacy_reserve_mm": 220
+      },
+      {
+        "id": "W065",
+        "legacy_reserve_mm": 180
+      },
+      {
+        "id": "W067",
+        "legacy_reserve_mm": 260
+      },
+      {
+        "id": "W068",
+        "legacy_reserve_mm": 260
+      }
+    ],
+    "legacy_reserve_mm": 920,
+    "provisional_stock_need_mm": 2440,
+    "candidate_stock_m": 3,
+    "selected_R51_stock_m": 2,
+    "whole_robot_stock_qualified": false
+  },
+  "LAPP0107001": {
+    "quantity_id": "p0:WIRE-INLET-BLACK12-P0",
+    "input_blanks_mm": 2880,
+    "W001_blank_mm": 140,
+    "nominal_total_mm": 3020,
+    "candidate_stock_m": 4,
+    "selected_R51_stock_m": 2
+  },
+  "WAGO221412": {
+    "quantity_id": "splice:WAGO221-412",
+    "installed_roles": [
+      "XB11",
+      "W026_output",
+      "W037_output",
+      "W045_output",
+      "W053_output"
+    ],
+    "installed": 5,
+    "spare": 1,
+    "candidate_quantity": 6,
+    "selected_R51_quantity": 2,
+    "exact_binding": {
+      "quantity_id": "splice:WAGO221-412",
+      "planning_quantity": 2,
+      "unit": "pcs",
+      "inherited_quantity_source": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+      "manufacturer": "WAGO",
+      "manufacturer_part": "221-412",
+      "supplier": "Kamami",
+      "supplier_sku": "1188364",
+      "supplier_url": "https://kamami.pl/szybkozlacza/1188364-wago-221-412-zlaczka-instalacyjna-2-przewody-4mm-5902186324565.html",
+      "product_evidence": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+      "retail_minimum": null,
+      "retail_multiple": null,
+      "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise.",
+      "evidence": "Exact redirected product page read2026-10-02; same XB11 two-port connector"
+    }
+  },
+  "TE_RNF100_3_8": {
+    "quantity_id": "insulation:Pi:RNF-100-3/8-0-STK",
+    "new_source_joint_roles": [
+      "W042",
+      "W044",
+      "W052"
+    ],
+    "new_26mm_blanks": 3,
+    "new_nominal_mm": 78,
+    "trial_spare_mm": 78,
+    "selected_stock_m": 6,
+    "no_second_package": true,
+    "remaining_existing_sleeve_roles_retained": true
+  },
+  "T18I": {
+    "quantity_id": "tie:111-02370",
+    "local_groups": [
+      {
+        "role": "bank_TE_insulation",
+        "installed": 24,
+        "removal_replacements": 24
+      },
+      {
+        "role": "fixed_lower_input_feeds",
+        "installed": 4,
+        "removal_replacements": 0
+      },
+      {
+        "role": "main_MTA_FL_FR_RL_bodies",
+        "installed": 6,
+        "removal_replacements": 6
+      },
+      {
+        "role": "FR_RL_RR_source_insulation",
+        "installed": 6,
+        "removal_replacements": 6
+      },
+      {
+        "role": "FR_RL_RR_output_cage_and_two_insulated_ends",
+        "installed": 9,
+        "removal_replacements": 9
+      },
+      {
+        "role": "four_native_slot_P_WAGO_bodies",
+        "installed": 4,
+        "removal_replacements": 4,
+        "replaces_existing_global_four_P_block_tie_roles": true
+      }
+    ],
+    "local_installed_known": 53,
+    "feed_tie_BRep_fragments": 20,
+    "feed_tie_physical_loops": 4,
+    "local_removal_replacement_allowance": 49,
+    "output_loops_reoriented_not_added": 12,
+    "FR_source_loops_cut": 2,
+    "RR_MTA_body_ties": 0,
+    "RR_MTA_integral_clips": 4,
+    "fixed_RR_output_ties_cut_for_bank_removal": 3,
+    "retained_R51_stock": 200,
+    "old_inline_holder_roles_must_be_replaced_not_added": true,
+    "missing_groups": [],
+    "whole_robot_installed_census_qualified": false,
+    "output_cage_and_insulation_ties_cut": 9,
+    "P_WAGO_body_ties_cut_for_bank_removal": 4,
+    "service_allowance_status": "NOMINAL_SHARED_SAMPLED_SEQUENCE_ACCEPTED_PHYSICAL_PHASE2",
+    "all_source_loops_cut": 6,
+    "main_MTA_body_ties_cut_for_bank_removal": 6,
+    "local_installed_plus_one_removal": 102
+  },
+  "fixed_RR_mount": {
+    "additional_prints": 0,
+    "fasteners": 0,
+    "wires": 0,
+    "straps": 0,
+    "replacement": "Deck"
+  },
+  "open": [
+    "Whole-source routes W064/W065/W067/W068 remain outside this local ledger.",
+    "Select the final bank export only after assembly/removal and remaining WAGO grips.",
+    "E3 current, temperature, fuse/source interruption assumptions remain their own gate."
+  ],
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r6/stock.json": "40bd492568470882395fe8c1b2e366da74f8b2b0896d29e063773ed44e88594d",
+    "hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r22/checks.json": "5d074e69297c3311130d5d64369d354485e0f29411d4abbf33a72e14ef5b2f5f",
+    "hardware/electronics/full-cat/servo-fuse-guard-fixed-deck-native-r1/checks.json": "1dfddf96bb17fdb184bd3d585568a306089c2944bac6850a8e923e80a3f399a6"
+  },
+  "script_sha256": "82e37eba0d104fcaed0522b4fa807113a01444704794e856ba7319a145a39a81",
+  "started_utc": "2026-10-03T22:35:03.518146+00:00",
+  "finished_utc": "2026-10-03T22:35:03.543218+00:00",
+  "worker_wall_seconds": 0.003211,
+  "fixed_FR_guard": {
+    "owner": "Deck",
+    "additional_prints": 0,
+    "additional_fasteners": 0,
+    "existing_M3x8": 2,
+    "existing_M3nuts": 2,
+    "new_axes_xz_mm": [
+      [
+        -110.25,
+        155
+      ],
+      [
+        -104.25,
+        155
+      ]
+    ],
+    "fasteners_horizontal": true,
+    "Deck_total_brim_allowance_mm": 6
+  }
+}

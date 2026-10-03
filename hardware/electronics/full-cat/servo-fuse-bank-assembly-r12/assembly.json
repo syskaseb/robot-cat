@@ -1,0 +1,169 @@
+{
+  "status": "ONE_NOMINAL_LOCAL_SEQUENCE_SAMPLED_RELEASE_COMPLETE",
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "assembly_complete": true,
+  "whole_robot_A2_complete": false,
+  "bench_P_ports": 20,
+  "occupied_P_ports": 16,
+  "empty_P_ports": 4,
+  "terminal_ends": 24,
+  "factory_feeds": 8,
+  "bank_mount_axes_xy_mm": [
+    [
+      -51,
+      92.5
+    ],
+    [
+      128,
+      -92.5
+    ],
+    [
+      128,
+      92.5
+    ],
+    [
+      -60,
+      -108.5
+    ]
+  ],
+  "bank_mount_hardware": {
+    "M2x12": 4,
+    "M2nuts": 4,
+    "OD5washers": 8
+  },
+  "cover_mount_native_source": "hardware/electronics/full-cat/servo-fuse-cover-offset-mount-native-r3/checks.json",
+  "cover_bracket_quantities": {
+    "standard": 3,
+    "offset_front_left": 1
+  },
+  "front_left_Cover_axis_mm": [
+    -88,
+    -91,
+    116
+  ],
+  "unchanged_front_left_Deck_axis_mm": [
+    -84,
+    -91,
+    109
+  ],
+  "part_ownership": {
+    "Guard": "Deck",
+    "FR_output": "Deck/Guard",
+    "RL_output": "Deck",
+    "RR_output": "Deck"
+  },
+  "assembly": [
+    {
+      "id": "bench",
+      "after": [],
+      "action": "Battery absent. Label20project ports and24TE ends. Cut the12input blanks and7HELU extensions once from current electrical/materials receipts. FourP-WAGO port5 remain empty. Crimp the exact TE terminal/one lead with pinned die and strip; do not tin WAGO conductors."
+    },
+    {
+      "id": "fixed_guard",
+      "after": [
+        "bench"
+      ],
+      "action": "On bare removed Deck mount the fixed side channel/output cage using the two horizontal M3x8 and2M3nuts, heads inside its open cavity. Do this BEFORE routing wires; fit three standard Cover brackets plus the offset front-left bracket; its Deck screw remains(-84,-91), Cover side screw moves to(-88,-91,116)."
+    },
+    {
+      "id": "main",
+      "after": [
+        "fixed_guard"
+      ],
+      "action": "Prewire the four MAIN MTA holders/source laps and output splices on the bench with both factory exits. Lay the exact8routes, mount bodies at native seats, install6MTA body straps and4RR clips; source/output insulation grips and cages remain on Deck, including FRGuard and RRoutput."
+    },
+    {
+      "id": "p_wago",
+      "after": [
+        "main"
+      ],
+      "action": "Prewire the four P-WAGO blocks on the bench using the pinned20port/16lead map; close levers before positioning. Fit bodies into existing Deck seats, install four recorded body straps through8native slots, then dress the crossing wires. No lever motion on a strapped crowded board is assumed."
+    },
+    {
+      "id": "bank_cover",
+      "after": [
+        "p_wago"
+      ],
+      "action": "Bring left/right bank and Cover down together over the parked24ends, as the reverse of the shared removal path. Do not independently drop the Cover around a fully seated bank. Seat the four native mounts/brackets and install4M2x12/4M2nuts/8washers (one washer at each head and nut); use the changed left axis(-51,92.5) from the current native pair, not the obsolete left hole(-63,92.5); retain all Cover mount hardware; use front-left sideaxis(-88,-91,116), other three Cover axes unchanged. Do not fit four generic brackets plus the offset bracket."
+    },
+    {
+      "id": "terminals",
+      "after": [
+        "bank_cover"
+      ],
+      "action": "Reverse the5.5mm input-end release, reconnect keyed24TE ends, restore24terminal restraints with the recorded bottom-open upperkeepers. Fit12mini holders and12ATOs last; headJR last. This is a nominal prototype order, not power authorization or whole-robotA2 closure."
+    }
+  ],
+  "removal": [
+    {
+      "id": "isolate",
+      "after": [],
+      "action": "Disconnect and remove battery, disconnect headJR. Keep bank and Cover together; do not independently raise Cover."
+    },
+    {
+      "id": "holders",
+      "after": [
+        "isolate"
+      ],
+      "action": "Remove12ATOs. Use the recorded24clip-slot tools to release12holders, unplug24TE ends, cut their24insulation straps."
+    },
+    {
+      "id": "free_loops",
+      "after": [
+        "holders"
+      ],
+      "action": "Cut9output,6source,6MTA-body and4P-WAGO-body straps:49in total includingTE. Keep the four lower input feed straps. Closed WAGO bodies and all insulation/wires stay at recorded Deck-supported positions; no cage opening or wire parking required."
+    },
+    {
+      "id": "park",
+      "after": [
+        "free_loops"
+      ],
+      "action": "Move12input TE ends5.5mm inward along recorded connected loops;12output TE axes stay fixed. Do not push TE terminals through backers."
+    },
+    {
+      "id": "lift",
+      "after": [
+        "park"
+      ],
+      "action": "Undo4bank and4Cover screws. Lift bank+Cover together100mm nominally, leaving Deck, channel,2GuardM3fasteners, source/output cages and all wires stationary. Shared verification is sampled at2/5/10/30/60/100mm, NOT a claimed continuous sweep or physical test."
+    },
+    {
+      "id": "main_service",
+      "after": [
+        "lift"
+      ],
+      "action": "Once bank+Cover are removed, the four RR body clip tools have the recorded clearance. No P-WAGO cage opening is necessary for this module removal. Optional whole-Deck rewiring is outside the qualified local removal sequence; do not infer clear wired-block translation or in-situ lever motion from bench prewiring."
+    },
+    {
+      "id": "restore",
+      "after": [
+        "main_service"
+      ],
+      "action": "Reverse sequence; replace all49cut loops, preserving exact wire/terminal labels and isolation. Perform phase2 fit/latch/strap-pull/PETG stiffness/polarity/continuity/current/thermal trials before power."
+    }
+  ],
+  "replacement_ties": 49,
+  "actual_lever_motion_qualified": false,
+  "in_situ_lever_motion_required": false,
+  "sampled_shared_release_clear": true,
+  "continuous_withdrawal_qualified": false,
+  "nominal_clip_deflection_requires_phase2": true,
+  "source_sha256": {
+    "hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r22/checks.json": "5d074e69297c3311130d5d64369d354485e0f29411d4abbf33a72e14ef5b2f5f",
+    "hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r13/stock.json": "844cf4dbda5930ff9aee52e8ccb453e8db61eb742200e05f6049372c06546a51",
+    "hardware/electronics/full-cat/servo-fuse-wago-map-r1/interface.json": "f320120e6d33d28c09628c86e80dd4843bc3acb0a229ca5a090e0fbdcc9e913c",
+    "hardware/electronics/full-cat/servo-fuse-bank-electrical-r2/interface.json": "ea569bf411dc746c1ede714fe5c6f0800fb0d6b5d4fe31a3b03ad4e46e7282a9",
+    "hardware/electronics/full-cat/servo-fuse-guard-fixed-deck-native-r1/checks.json": "1dfddf96bb17fdb184bd3d585568a306089c2944bac6850a8e923e80a3f399a6",
+    "hardware/electronics/full-cat/servo-fuse-guard-fixed-service-r1/checks.json": "f8d48527b2b7746b4f753cc314a2e6dc5f0470d43ba11202e79ef7d27def9750",
+    "hardware/electronics/full-cat/servo-fuse-left-mount-service-native-r7/checks.json": "03edecc8f2e32a3b1064176d91454deec0c05d4164a2d9f44e84845f2c323292",
+    "hardware/electronics/full-cat/servo-fuse-cover-offset-mount-native-r3/checks.json": "4d8500969003706c1182137db06307118b91c23611136116dbb585de1b02fb14",
+    "hardware/electronics/full-cat/servo-fuse-bank-inner-feed-service-r1/checks.json": "ade736c7a3de7123233fd771251c17b26405e203a15e4245645d771c1ff27235",
+    "hardware/electronics/full-cat/servo-fuse-rr-clip-approach-r2/checks.json": "cbd2755d4f14b3fe10180c1298dbcd70b16fc2308c11399404e3d49d48913bcd"
+  },
+  "script_sha256": "82e37eba0d104fcaed0522b4fa807113a01444704794e856ba7319a145a39a81",
+  "started_utc": "2026-10-03T22:35:03.556910+00:00",
+  "finished_utc": "2026-10-03T22:35:03.582665+00:00"
+}
