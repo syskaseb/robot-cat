@@ -1,0 +1,85 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "K3_complete": false,
+  "E3_complete": false,
+  "scope": "Changed bank materials only; unresolved source wires are not passed or selected.",
+  "HELU23802": {
+    "quantity_id": "p0:WIRE-RED4-P0",
+    "selected_R51_m": 2,
+    "retained_W066_blank_mm": 330,
+    "new_four_extensions_blank_mm": 1080,
+    "known_blank_plans_mm": 1410,
+    "legacy_unchecked_source_reserve_mm": 920,
+    "provisional_total_mm": 2330,
+    "candidate_m": 3,
+    "unresolved": [
+      {
+        "wire": "W064",
+        "legacy_mm": 220,
+        "checked": false
+      },
+      {
+        "wire": "W065",
+        "legacy_mm": 180,
+        "checked": false
+      },
+      {
+        "wire": "W067",
+        "legacy_mm": 260,
+        "checked": false
+      },
+      {
+        "wire": "W068",
+        "legacy_mm": 260,
+        "checked": false
+      }
+    ],
+    "rule": "330 replaces legacyW066300;1080 is additional once.3m is a planning candidate, not approved stock until four source routes and full census close."
+  },
+  "LAPP0107001": {
+    "quantity_id": "p0:WIRE-INLET-BLACK12-P0",
+    "selected_R51_m": 2,
+    "twelve_inputs_mm": 2880,
+    "W001_return_mm": 140,
+    "total_mm": 3020,
+    "candidate_m": 4
+  },
+  "WAGO221412": {
+    "quantity_id": "splice:WAGO221-412",
+    "selected_R51_order": 2,
+    "retained_installed": 1,
+    "new_front_installed": 2,
+    "retained_spare": 1,
+    "candidate_order": 4,
+    "rule": "Replace order2 by4; do not add another XB11 spare or a new duplicate SKU."
+  },
+  "TE5053142077": {
+    "quantity_id": "insulation:Pi:RNF-100-3/8-0-STK",
+    "selected_stock_m": 6,
+    "new_joint_blanks_mm": 52,
+    "new_trial_spares_mm": 52,
+    "new_package_required": false,
+    "rule": "Use already selected TE3/8 sleeve, not unverified assortment13mm. Whole sleeve census remains open."
+  },
+  "ties": {
+    "quantity_id": "tie:111-02370",
+    "selected_R51_order": 200,
+    "known_candidate_bank_input": 12,
+    "known_candidate_bank_output": 12,
+    "fixed_parent_feeds": 4,
+    "fixed_main_bodies": 8,
+    "bank_removal_replacement_allowance": 24,
+    "open": "Native front WAGO/rear joint/source insulation grips and old-holder replacement accounting still need exact census; do not announce final installed total."
+  },
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r51/one-order-quantities.json": "834a46192a2e923666c327f3fa94741775c53bf53e4e5a454f495e77f423f891",
+    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6",
+    "hardware/electronics/full-cat/servo-fuse-parent-extension-materials-r2/materials.json": "5d19a203e8f9afe277aabded9c37f2eaea49cee27fb6bb6194938520fa67ef92",
+    "hardware/electronics/full-cat/servo-fuse-lower-loop-materials-r1/materials.json": "a5a651ec745c167d274280c5820dd31df8b02d831e55e73f4abd00106eaa745d"
+  },
+  "script_sha256": "cd6b4011cad1da1413f078afeecbd53f6c4a81eeb126508d91c4760d498f03ed",
+  "started_utc": "2026-10-03T01:25:43.893453+00:00",
+  "finished_utc": "2026-10-03T01:25:43.904232+00:00",
+  "worker_wall_seconds": 0.010779
+}

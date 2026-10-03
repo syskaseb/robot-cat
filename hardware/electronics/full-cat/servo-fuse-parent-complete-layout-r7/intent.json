@@ -1,0 +1,464 @@
+{
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "old_layouts": "R2/R3/R4 rejected; do not repeat",
+  "holders": {
+    "axis": "X",
+    "front_cx": -18.5,
+    "rear_cx": 90.5,
+    "y_abs": 87.5,
+    "z": 122.5
+  },
+  "assumptions": {
+    "MTA_mm": [
+      35,
+      16,
+      22
+    ],
+    "MTA_OD_mm": 5,
+    "MTA_radius_mm": 20,
+    "MTA_usable_each_lead_mm": 100,
+    "HELU23802_OD_mm": 4.2,
+    "HELU_design_radius_mm": 25.2,
+    "front_mouths": [
+      [
+        -31.5,
+        11,
+        113.5
+      ],
+      [
+        -24,
+        11,
+        113.5
+      ]
+    ],
+    "front_mouths_are_project_labels_not_manufacturer": true
+  },
+  "routes": [
+    {
+      "id": "W026",
+      "leg": "FL",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 78.00072648818201,
+      "start_mm": [
+        -82.5,
+        49.5,
+        113.5
+      ],
+      "end_mm": [
+        -36.0,
+        87.5,
+        122.5
+      ],
+      "radii_mm": [
+        20,
+        20,
+        20
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W041_factory",
+      "leg": "FL",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 51.0,
+      "start_mm": [
+        -1.0,
+        87.5,
+        122.5
+      ],
+      "end_mm": [
+        50.0,
+        87.5,
+        122.5
+      ],
+      "radii_mm": [],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 80,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W041_extension",
+      "leg": "FL",
+      "kind": "HELU23802_SIF4.00-R",
+      "OD_mm": 4.2,
+      "path_mm": 164.74841193897316,
+      "start_mm": [
+        -31.5,
+        11.0,
+        113.5
+      ],
+      "end_mm": [
+        50.0,
+        94.0,
+        122.5
+      ],
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 200,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    },
+    {
+      "id": "W037",
+      "leg": "FR",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 78.00072648818201,
+      "start_mm": [
+        -82.5,
+        -49.5,
+        113.5
+      ],
+      "end_mm": [
+        -36.0,
+        -87.5,
+        122.5
+      ],
+      "radii_mm": [
+        20,
+        20,
+        20
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W042_factory",
+      "leg": "FR",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 65.76543021622714,
+      "start_mm": [
+        -1.0,
+        -87.5,
+        122.5
+      ],
+      "end_mm": [
+        25.0,
+        -40.0,
+        127.5
+      ],
+      "radii_mm": [
+        20,
+        20,
+        20
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 90,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W042_extension",
+      "leg": "FR",
+      "kind": "HELU23802_SIF4.00-R",
+      "OD_mm": 4.2,
+      "path_mm": 495.23331747526464,
+      "start_mm": [
+        -24.0,
+        11.0,
+        113.5
+      ],
+      "end_mm": [
+        31.5,
+        -40.0,
+        127.5
+      ],
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2,
+        25.2
+      ],
+      "strip_allowance_mm": 25,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 540,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    },
+    {
+      "id": "W045",
+      "leg": "RL",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 79.00072648818202,
+      "start_mm": [
+        25.5,
+        49.5,
+        113.5
+      ],
+      "end_mm": [
+        73.0,
+        87.5,
+        122.5
+      ],
+      "radii_mm": [
+        20,
+        20,
+        20
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 9,
+      "rough_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W044_factory",
+      "leg": "RL",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 61.6008821280518,
+      "start_mm": [
+        108.0,
+        87.5,
+        122.5
+      ],
+      "end_mm": [
+        135.2,
+        44.0,
+        122.5
+      ],
+      "radii_mm": [
+        21.2
+      ],
+      "strip_allowance_mm": 8,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 80,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W044_extension",
+      "leg": "RL",
+      "kind": "HELU23802_SIF4.00-R",
+      "OD_mm": 4.2,
+      "path_mm": 136.30651718620925,
+      "start_mm": [
+        32.0,
+        -6.8,
+        129.0
+      ],
+      "end_mm": [
+        135.2,
+        36.0,
+        122.5
+      ],
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2
+      ],
+      "strip_allowance_mm": 22,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 170,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    },
+    {
+      "id": "W053",
+      "leg": "RR",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 79.00072648818202,
+      "start_mm": [
+        25.5,
+        -49.5,
+        113.5
+      ],
+      "end_mm": [
+        73.0,
+        -87.5,
+        122.5
+      ],
+      "radii_mm": [
+        20,
+        20,
+        20
+      ],
+      "strip_allowance_mm": 11,
+      "trim_reserve_mm": 9,
+      "rough_blank_mm": 100,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W052_factory",
+      "leg": "RR",
+      "kind": "MTA0100335_factory_4mm2",
+      "OD_mm": 5,
+      "path_mm": 61.6008821280518,
+      "start_mm": [
+        108.0,
+        -87.5,
+        122.5
+      ],
+      "end_mm": [
+        135.2,
+        -44.0,
+        122.5
+      ],
+      "radii_mm": [
+        21.2
+      ],
+      "strip_allowance_mm": 8,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 80,
+      "actual_cut_mm": null,
+      "physical_pass": false,
+      "assumed_usable_factory_lead_mm": 100,
+      "within_assumed_factory_length": true
+    },
+    {
+      "id": "W052_extension",
+      "leg": "RR",
+      "kind": "HELU23802_SIF4.00-R",
+      "OD_mm": 4.2,
+      "path_mm": 136.30651718620925,
+      "start_mm": [
+        32.0,
+        6.8,
+        129.0
+      ],
+      "end_mm": [
+        135.2,
+        -36.0,
+        122.5
+      ],
+      "radii_mm": [
+        25.2,
+        25.2,
+        25.2
+      ],
+      "strip_allowance_mm": 22,
+      "trim_reserve_mm": 10,
+      "rough_blank_mm": 170,
+      "actual_cut_mm": null,
+      "physical_pass": false
+    }
+  ],
+  "joints": [
+    {
+      "leg": "FL",
+      "kind": "WAGO221-412",
+      "existing_quantity_id": "splice:WAGO221-412",
+      "added_installed": 1,
+      "end_recipe": "4mm2 factory and HELU bare ends each in separate cage,11mm strip,no tin,no doubled cage",
+      "mouth_datums_mm": [
+        [
+          50,
+          87.5,
+          122.5
+        ],
+        [
+          50,
+          94,
+          122.5
+        ]
+      ],
+      "dimensions_source": "selected commercial221412 envelope18.3x13x8.15; mouth centres project datums"
+    },
+    {
+      "leg": "FR",
+      "kind": "WAGO221-412",
+      "existing_quantity_id": "splice:WAGO221-412",
+      "added_installed": 1,
+      "end_recipe": "4mm2 factory and HELU bare ends each in separate cage,11mm strip,no tin,no doubled cage",
+      "mouth_datums_mm": [
+        [
+          25,
+          -40,
+          127.5
+        ],
+        [
+          31.5,
+          -40,
+          127.5
+        ]
+      ],
+      "dimensions_source": "same selected221412 envelope rotated90deg; cage datums provisional"
+    },
+    {
+      "leg": "RL",
+      "kind": "Supported_solder_lap",
+      "existing_solder": "T0051402499",
+      "existing_shrink": "TE5053142077 RNF-100-3/8-0-STK, selected6m stock, expanded9.5/recovered4.8mm;52mm blanks+52mm trialspares candidate, no extra package",
+      "joint_centre_mm": [
+        135.2,
+        40,
+        122.5
+      ],
+      "strip_each_mm": 8,
+      "outer_blank_mm": 26,
+      "outer_overlap_each_mm": 9,
+      "conservative_envelope_OD_mm": 9,
+      "recipe": "Dry-fit on unpowered removed Deck. Slide selected TE3/8 sleeve first;8mm opposing bare copper lap, solder with existing Weller wire, inspect, shrink with9mm intact overlap both sides. Independent insulation grips both sides; no solder at WAGO ends.",
+      "assumptions": "Lap/envelope/strip/thermal process are prototype design assumptions, not manufacturer joint qualification; delivery current/pull/temperature trial phase2"
+    },
+    {
+      "leg": "RR",
+      "kind": "Supported_solder_lap",
+      "existing_solder": "T0051402499",
+      "existing_shrink": "TE5053142077 RNF-100-3/8-0-STK, selected6m stock, expanded9.5/recovered4.8mm;52mm blanks+52mm trialspares candidate, no extra package",
+      "joint_centre_mm": [
+        135.2,
+        -40,
+        122.5
+      ],
+      "strip_each_mm": 8,
+      "outer_blank_mm": 26,
+      "outer_overlap_each_mm": 9,
+      "conservative_envelope_OD_mm": 9,
+      "recipe": "Dry-fit on unpowered removed Deck. Slide selected TE3/8 sleeve first;8mm opposing bare copper lap, solder with existing Weller wire, inspect, shrink with9mm intact overlap both sides. Independent insulation grips both sides; no solder at WAGO ends.",
+      "assumptions": "Lap/envelope/strip/thermal process are prototype design assumptions, not manufacturer joint qualification; delivery current/pull/temperature trial phase2"
+    }
+  ],
+  "stock_contribution": {
+    "HELU23802_additional_blank_mm": 1080,
+    "WAGO221412_extra_installed": 2,
+    "solder_joints": 2,
+    "shrink_TE3_8_blank_mm": 52,
+    "body_ties": 8
+  },
+  "assembly": "Before power: Deck removed, fit four holders and two WAGO/joint mounts, prewire source WAGOs, then P-leg ends; each end one cage. Main holders fixed to Deck during bank+cover removal. Source/WAGO/splice grips, native cover and full disconnect still require fit below.",
+  "started_utc": "2026-10-03T01:10:01.549391+00:00"
+}
