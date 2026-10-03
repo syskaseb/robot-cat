@@ -1,0 +1,454 @@
+{
+  "geometry": {
+    "valid_solids": 5,
+    "fully_constrained_sketches": 10,
+    "strict_bop_errors": 0,
+    "volumes_mm3": {
+      "Deck": 138716.19826709433,
+      "PanelFL": 4794.5231889245015,
+      "PanelFR": 4794.5231889245015,
+      "PanelRL": 4794.5231889245015,
+      "PanelRR": 4794.5231889245015
+    }
+  },
+  "parameter_test": {
+    "deck_thickness_mm": [
+      4,
+      5,
+      4
+    ],
+    "restored": true,
+    "panels_remain_2mm": true
+  },
+  "interfaces": {
+    "coaxial_mount_probes": 4,
+    "deck_support_intersections": 0,
+    "deck_panel_intersections": 0,
+    "panel_pair_intersections": 0,
+    "analytic_volumes_match": true,
+    "wago_tie_slot_count": 34,
+    "servo_aperture_count": 12,
+    "panel_screw_pairs": 4,
+    "scope": "New deck/panels and saved support interface only; not whole robot or wire/lever clearance"
+  },
+  "panels": [
+    {
+      "id": "FL",
+      "center_xy_mm": [
+        -64.0,
+        75
+      ],
+      "outline_mm": [
+        88,
+        36,
+        2
+      ],
+      "window_mm": [
+        72,
+        30
+      ]
+    },
+    {
+      "id": "FR",
+      "center_xy_mm": [
+        -64.0,
+        -75
+      ],
+      "outline_mm": [
+        88,
+        36,
+        2
+      ],
+      "window_mm": [
+        72,
+        30
+      ]
+    },
+    {
+      "id": "RL",
+      "center_xy_mm": [
+        44.0,
+        75
+      ],
+      "outline_mm": [
+        88,
+        36,
+        2
+      ],
+      "window_mm": [
+        72,
+        30
+      ]
+    },
+    {
+      "id": "RR",
+      "center_xy_mm": [
+        44.0,
+        -75
+      ],
+      "outline_mm": [
+        88,
+        36,
+        2
+      ],
+      "window_mm": [
+        72,
+        30
+      ]
+    }
+  ],
+  "wago_ties": [
+    {
+      "id": "P_SYS",
+      "slot_centers_xy_mm": [
+        [
+          -110.0,
+          -8.0
+        ],
+        [
+          -70.0,
+          -8.0
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "P_FRONT",
+      "slot_centers_xy_mm": [
+        [
+          -65.0,
+          -8.0
+        ],
+        [
+          -25.0,
+          -8.0
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "P_REAR",
+      "slot_centers_xy_mm": [
+        [
+          -20.0,
+          -8.0
+        ],
+        [
+          20.0,
+          -8.0
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "G1",
+      "slot_centers_xy_mm": [
+        [
+          25.0,
+          -8.0
+        ],
+        [
+          65.0,
+          -8.0
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "G2",
+      "slot_centers_xy_mm": [
+        [
+          73.5,
+          -6.5
+        ],
+        [
+          106.5,
+          -6.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "FL_P",
+      "slot_centers_xy_mm": [
+        [
+          -106.5,
+          33.5
+        ],
+        [
+          -73.5,
+          33.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "FL_G",
+      "slot_centers_xy_mm": [
+        [
+          -70.5,
+          33.5
+        ],
+        [
+          -37.5,
+          33.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "FR_P",
+      "slot_centers_xy_mm": [
+        [
+          -106.5,
+          -46.5
+        ],
+        [
+          -73.5,
+          -46.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "FR_G",
+      "slot_centers_xy_mm": [
+        [
+          -70.5,
+          -46.5
+        ],
+        [
+          -37.5,
+          -46.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "RL_P",
+      "slot_centers_xy_mm": [
+        [
+          1.5,
+          33.5
+        ],
+        [
+          34.5,
+          33.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "RL_G",
+      "slot_centers_xy_mm": [
+        [
+          37.5,
+          33.5
+        ],
+        [
+          70.5,
+          33.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "RR_P",
+      "slot_centers_xy_mm": [
+        [
+          1.5,
+          -46.5
+        ],
+        [
+          34.5,
+          -46.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "RR_G",
+      "slot_centers_xy_mm": [
+        [
+          37.5,
+          -46.5
+        ],
+        [
+          70.5,
+          -46.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "D_FL",
+      "slot_centers_xy_mm": [
+        [
+          -34.5,
+          33.5
+        ],
+        [
+          -1.5,
+          33.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "D_FR",
+      "slot_centers_xy_mm": [
+        [
+          -34.5,
+          -46.5
+        ],
+        [
+          -1.5,
+          -46.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "D_RR",
+      "slot_centers_xy_mm": [
+        [
+          73.5,
+          -46.5
+        ],
+        [
+          106.5,
+          -46.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    },
+    {
+      "id": "D_RL",
+      "slot_centers_xy_mm": [
+        [
+          73.5,
+          33.5
+        ],
+        [
+          106.5,
+          33.5
+        ]
+      ],
+      "slot_xy_mm": [
+        2,
+        4
+      ],
+      "installed_tie_path_verified": false,
+      "lever_access_verified": false
+    }
+  ],
+  "deck_world_origin_mm": [
+    21,
+    0,
+    105
+  ],
+  "deck_outline_mm": [
+    230,
+    190,
+    4
+  ],
+  "deck_with_5mm_brim_mm": [
+    240,
+    200,
+    4
+  ],
+  "physical_tests_performed": false,
+  "integrated": false,
+  "print_approved": false,
+  "structural_strength_verified": false,
+  "complete_electronics_mount": false,
+  "seated_fuse_depth_mm": null,
+  "source_sha256": {
+    "hardware/electronics/power-platform/open-deck-p0/layout.json": "4a2ba8c2e0e11e386ed6b8c2b9f0cf9a3af26284b89add6a18405c4cadd2c8e5",
+    "hardware/cad/studies/open-deck-p0/r1/support-checks.json": "4d3e991c949a87ae5415c0529b1b7adeccc854d651f89820e05364578039a3f6",
+    "hardware/cad/studies/open-deck-p0/r1/OpenDeckSupports.FCStd": "f911e6ac173825ae286fa0b5bcc3af7b3d1cbd9f8d6dbe589c7818088b5e37f7",
+    "tools/cad/open_deck_p0_plate.py": "6d97143f5e71c77adb75ec5ffe9823330cd60538e0ab4d2053281430b16d3596",
+    "tools/cad/open_deck_p0_supports.py": "436357b24c3bf126a627b2cc0880d964788b04e3eb21a04b47cd746b5e27151b"
+  },
+  "model_sha256": "6abeda141d944c7b0c5c4b08ff91ae8a86f9fd3805af6b33a3f02d50469e8f2c"
+}
