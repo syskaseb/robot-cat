@@ -36,6 +36,7 @@ def main():
     paths += sorted(folder.glob('w5-source-carrier-native-r*/checks.json'))
     paths += sorted(folder.glob('w5-source-bank-passage-native-r*/checks.json'))
     paths += sorted(folder.glob('w5-source-cover-passages-native-r*/checks.json'))
+    paths += sorted(folder.glob('w5-source-received-interface-r*/checks.json'))
     paths += sorted(folder.glob('w5-source-platform-native-r*/execution-observation.json'))
     paths += sorted(folder.glob('w5-source-platform-assembly-r*/assembly.json'))
     paths += sorted((ROOT / 'hardware/reference').glob('source-terminal-*/received.json'))

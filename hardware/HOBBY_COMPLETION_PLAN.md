@@ -6,17 +6,23 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 12:25 Warszawy: sourceR8 odebrany,127par/10kontaktów
-WYŁĄCZNIE z PETG(2BankLeft/8Cover),0kontaktów z kupnymi/P0/przewodami,
-0errors,243,384593s procesu. R7 ODRZUCONY123par/11kontaktów/213,473577s
-(kupna RL2 i wzajemny W064), bez ponawiania. R8 zachowuje5mouths/TEentries,
-2390mm4S1+40mmXA01 kandydat. NativeBankPassageR1 ukończony:
-4par/0kontaktów/0errors/59,572399s; otwarty na krawędźY90 przelot,
-1solid/BOP0/parametr/zamkniętySTL/reopen; cztery mounty zachowane,
-44,943508mm³ usunięte tylko z PETG,1zamiennybank/0nowychśrub.
-Worker50449/PID11524 oblicza natywną Cover ze ścisłymi cylinder/torus
-przelotami, nie bbox; nie duplikować. Nadal otwarte zewnętrzna ochrona,
-gripy/cały montaż-demontaż/stock przed wyborem całej rodziny.
+Bieżące W5, 04.10 12:28:38 Warszawy: pięć pełnych tras sourceR8 odebranych
+z trzema natywnymi zamiennikami Carrier/BankLeft/Cover jest STATYCZNIE
+BEZKONTAKTOWE. Proof: w5-source-received-interface-r1/checks.json.
+R8:127par, ostatnie10PETG kontaktów usunięte dokładnymi przelotami;
+zero kontaktów kupnych/P0/wzajemnych, nie powtarzano starych par.
+Carrier62,784176s, Bank59,572399s/4par0hits, Cover132,455319s/33par0hits;
+każdy1solid/BOP0/zamkniętySTL/parametr/przeniesione reopen. Bank otwarty
+na krawędźY90 zachowuje mounty, Cover zachowuje cały dół poniżejZ125.
+R7 odrzucony (RL2/W064), nie ponawiać. 2390mm4S1+40mmXA01 kandydat,
+1zamiennyCarrier+1zamiennyBank+1zamiennaCover,0dodatkowych części/śrub.
+Brak wyboru: NEXT pełny wspólny układ gripów/odciążeń źródła i rzeczywista
+ochrona powyżej Cover, potem montaż-demontaż/stock. Samo wycięcie NIE
+osłania zewnętrznych kolumn doZ215,2. R53 pozostaje wybrany. Żaden worker
+nie trwa; nie powtarzać sourceR8 ani ukończonych przelotów.
+66testów/73receipts/1144pinów zgodne. Ta kontynuacja09:22:49Z→10:28:38Z
+=65min49s ścienne, nie suma CPU. Limit36%zużyty/64%pozostałe, hookenabled.
+14/20=70%,+0pp. W1XA05access oraz W5 nadal otwarte; brak fizycznegoPASS.
 
 Poprzedni lokalny wynik 04.10 12:10 Warszawy: cztery natywne pełne przeloty Carrier
 ukończone lokalnie, parametr0,7→0,8→0,7mm/1solid/BOP0/zamkniętySTL/
