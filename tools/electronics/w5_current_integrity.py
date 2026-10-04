@@ -20,6 +20,8 @@ def main():
     paths += sorted(folder.glob('w5-g1-passage-native-r*/execution-observation.json'))
     paths += sorted(folder.glob('w5-g1-saved-*/checks.json'))
     paths += sorted(folder.glob('w5-fl-return-r52-r*/checks.json'))
+    paths += sorted(folder.glob('w5-bus-pair-r52-r*/checks.json'))
+    paths += sorted(folder.glob('w5-bus-native-grips-r*/checks.json'))
     pins, mismatches = {}, []
     for path in paths:
         receipt = json.loads(path.read_text(encoding='utf-8'))
