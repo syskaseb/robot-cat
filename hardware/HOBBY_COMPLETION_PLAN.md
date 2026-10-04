@@ -19,14 +19,18 @@ Pełny spis21przewodów/26końców obejmuje takżeW003 iW060;XA06 nie jest
 przyłączony do tych bloków i pozostaje sąsiadem. Cztery .5 nóg pozostająNC.
 G1/G2 rejestracja7,5/6mm z otrzymanego interface; pozostałe6mm to NOWA
 siatka prototypu w30mm obrysach, nie pomiar katalogowych klatek.
-Aktualnie worker ground-entries-r1,session23072/PID3208:26rzeczywistych
-wyjść R21/R15 lub oznaczonych prototypowychR10 i pełny mostekW061;
-pozostałe20pełnych tras/gripy/natywne mocowania/stock/serwis nadalOPEN.
-Najpierw odbierz wynik; nie uruchamiaj kolejnej rodziny ani duplikatu.
-Wszystkie nowe końce sprawdzane wspólnie, stare zależne kontakty nie są
-pomijane. Po wyniku domknij jedną wspólną wiązkę i jej natywne podpory.
-105testów przechodzi;96receipts/1372pins/0rozbieżności przed wynikiem
-ground-entries. Hookenabled do wyniku,bez deadline/schedule/maila.
+Ground-entries-r1 odebrany:26końców+pełnyW061,496par/75kontaktów/0błędów,
+764,308682s procesu. ODRZUCONY:34kontakty z pozostałym osprzętem/wiązką,
+25ze starymi zależnymi przewodami/chwytami i16zPETG; nie traktować jako75
+niezależnych problemów ani kompletnej wiązki. Pozostałe20pełnych tras,
+gripy/natywne mocowania/stock/serwis nadalOPEN. Żaden worker nie trwa.
+NEXT jeden wspólny układ wyjść i całych tras masy, z podziałem przestrzeni
+od grubych źródeł/danych/Pi, zamiast lokalnego przesuwania pojedynczych
+łuków. Zachować R4 korpusów jako punkt wyjścia, nie jako wybrany podzespół;
+nie ponawiać ground-entries-r1. Otwarty W1/XA05 także potrzebny do80%.
+105testów;97receipts/1432pins/0rozbieżności. Zmierzony odcinek bieżącego
+okna14:21:46Z→15:15:47Z=54min01s ścienne, nie suma aktywnego czasu etapu.
+14/20=70%,+0pp. Hookenabled do wyniku,bez deadline/schedule/maila.
 
 Poprzedni W5, 04.10 16:17:05 Warszawy: R53 wybrany,14/20=70%,+0pp.
 Joint-source-layout-r1 odebrany:36tras/936par/153kontaktów/0błędów,
