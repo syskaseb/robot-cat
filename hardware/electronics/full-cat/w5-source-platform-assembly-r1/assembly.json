@@ -1,0 +1,139 @@
+{
+  "status": "SOURCE_INLET_LOCAL_ASSEMBLY_READY_UNSELECTED",
+  "hits": [],
+  "errors": [],
+  "pairs": 4,
+  "lower_nut_tool_allowance": {
+    "diameter_mm": 9,
+    "start_z_mm": 80,
+    "end_z_mm": 102.1,
+    "nominal_project_reserve": true,
+    "actual_workshop_tool_verified": false
+  },
+  "omitted_wire_owners_before_assembly": [
+    "source-switch-layout-r6/W066_0_DESIGN",
+    "source-switch-layout-r6/W066_1_DESIGN",
+    "source-switch-layout-r6/W066_2_DESIGN",
+    "source-switch-layout-r6/W066_3_DESIGN",
+    "source-switch-layout-r6/W066_4_DESIGN",
+    "source-switch-layout-r6/W066_5_DESIGN",
+    "source-switch-layout-r6/W066_6_DESIGN",
+    "source-switch-layout-r6/W066_7_DESIGN",
+    "source-switch-layout-r6/W066_8_DESIGN"
+  ],
+  "sequence": [
+    "On the bare Deck fit lower washers/nuts and the platform; use M3x12 and upper washers.",
+    "Only then install W066, P_SYS, W043 and the independent body/shared-inlet straps.",
+    "Carrier and Cover fit after the mounting screws. Lever operation precedes strap tightening.",
+    "Disconnect source and cut both straps before later body/inlet removal. Whole source removal remains open."
+  ],
+  "allocations": [
+    {
+      "role": "sourcePlatform:M3x12",
+      "quantity": 2,
+      "supplier_id": "supplier:BEJMET:SKL000623",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 12,
+        "b": 12,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x12/2059",
+      "selected": false
+    },
+    {
+      "role": "sourcePlatform:M3nut",
+      "quantity": 2,
+      "supplier_id": "supplier:BEJMET:SKL000383",
+      "dimensions_mm": {
+        "d": 3,
+        "AF": 5.5,
+        "H": 2.4,
+        "e_min": 6.01
+      },
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-3/1764",
+      "selected": false
+    },
+    {
+      "role": "sourcePlatform:M3washer",
+      "quantity": 4,
+      "supplier_id": "supplier:BEJMET:SKL001158",
+      "dimensions_mm": {
+        "ID": 3.2,
+        "OD": 7,
+        "t": 0.5
+      },
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Podkladka-plaska-nierdzewna-DIN-125-A2-M3/1456",
+      "selected": false
+    },
+    {
+      "role": "sourcePlatform:T18I",
+      "installed": 2,
+      "service_replacements": 2,
+      "supplier_sku": "T18I-PA66-BK",
+      "existing_shared_stock": 300,
+      "net_stock_delta_not_resolved": true,
+      "selected": false
+    }
+  ],
+  "stock_rule": "Replace obsolete P_SYS/seat strap roles at eventual whole-source selection; do not add old and new variants. No cart change here.",
+  "prints": {
+    "additional_platform": 1,
+    "replacement_Deck": 1,
+    "selected": false
+  },
+  "four_S1_routes_qualified": false,
+  "W5_complete": false,
+  "selected": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep": "8cdc89370c4fd80af9ee419dbe6b109bc1800450e72839e5e75bf6c52b52aa21",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/intent.json": "3871a33ecfc762259704e473a2433b9bdbc24c7c5a832cc94351f891cc59bfe7",
+    "hardware/cad/studies/pi-complete-native-r2/Carrier_x1.stl": "ea73e4896f613a48d18db5d31cfa9c3341283703691e2e3a67496f5fd5a72855",
+    "tools/electronics/w5_r53_owners.py": "d275bbe32d6637bf57fb9ebf0c242c72227b9162a97a3d3579f151788aeb8579",
+    "tools/electronics/w5_selected_owners_r52.py": "976498794dffefe4330243cb4d3fc161dcf74eb2b792b07546ef21f4bbdfc03d",
+    "tools/electronics/w5_bus_restraints_r3.py": "61588fa00b29f26dd43572486cf3b334a5d10baca19581c343c986d62e330d07",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd",
+    "tools/electronics/w5_source_platform_assembly_r1.py": "a36061444c04cae0193ac7e22f5da542ce10dadea13df3c382e350c70b8be398",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/checks.json": "29d9be1160fac8242bbe6e0cc8d0a7ffd07ee4713cac7d5d5edb5f1f7a797170",
+    "hardware/manufacturing/one-batch-prototype-r53/fixed-fastener-cart.json": "091c841477fc6f8f6512305862353ab6253ffaff9a218eb58fc2aa7727957cac",
+    "hardware/manufacturing/one-batch-prototype-r53/one-order-quantities.json": "edc6b7d3099d076110269fd48c1335b9def96bd966b48fc96c49dad1102e0715",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/BodyTieBottom_WORLD.brep": "4394360a5aeef18d726e9883ab9188d30f706f4b169564445374b550d6740681",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/BodyTieHead_WORLD.brep": "0cf5fee8f7a2e79feaaaf8a0945509f84f5d0fd49e41f52fb4d60d3fe089d1a7",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/BodyTieNorth_WORLD.brep": "99e54afa13a0dec97a78c17caf6e97283a8fc91148168178f75e9602e76abf89",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/BodyTieSouth_WORLD.brep": "94d7649d8b9431c4e04797e0fb5f9f3f24d46fc1f8d2c07b252e928429514d1a",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/BodyTieTop_WORLD.brep": "dfe0d7594f6fb468715c73c5e325b07fb02def0ff74fbb947d65a59ecf6bb9f4",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Bolt0_DRIVER_ALLOWANCE.brep": "9ca11be1f8249558ab56131f2cd672e863649bab7610a1b08c164fb6c6ef43f6",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Bolt0_WORLD.brep": "0fcb541a1c2591f47f64aa2dc1f5763d934ee485129589baf49c93faea86e08a",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Bolt1_DRIVER_ALLOWANCE.brep": "406f4e75f9249e059cf03e183ba86e0812e9ccb4e7c04f96f4332bdb3ba3a4b4",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Bolt1_WORLD.brep": "902ba0fa6dcdc045d97de82657325c83432b5ef20d27b714da99b36d10834df5",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/DeckBearingPad_WORLD.brep": "fd46bcfc48d465788cf530c69050cf1de820fc013987347b49348a42c0f3494a",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/InletTieBottom_WORLD.brep": "4468d5185d8eb2d50da2855743c0e50a10e4812bdc440c269e6e3563eeb1b9bb",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/InletTieEast_WORLD.brep": "9ceb993d3145ed32047dee1944f9742e2e83fa4e3c72a966dbeb5a2daebc1765",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/InletTieHead_WORLD.brep": "597820e9411fb483a8ae5d7cc0094d2910b3eda4575ee5944d25dcf74b9301e2",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/InletTieTop_WORLD.brep": "fc1f20d80e1e80f57a08d6d934e0b127d5b962b3f90c1d9bfc4ea3bc6bd6d10e",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/InletTieWest_WORLD.brep": "4d069ea5fe92f6659801a19507b97ac9b940cdc8637979697a629c2857955465",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Nut0_WORLD.brep": "7f2afdcf72e71f358358bbd09254e0c723f66bccf83864263938acdf8f28866b",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Nut1_WORLD.brep": "1b9f70a1a23936b333c0d01238bde7b261798a80f8444835bd32841c0aa7797e",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Platform_WORLD.brep": "96d83fed82ec8e218d0c33bb186bd1ce1df706877d7ef2ddc25320527bed5478",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Washers0_WORLD.brep": "87c8379d36558798d085883f6509f0eeb7d16fba54095dc6ef2403b4a896e3ec",
+    "hardware/electronics/full-cat/w5-source-platform-native-r4/Washers1_WORLD.brep": "145825e769d87cb1f6fdf7fe7dcfdcfe5d786f981ba5de0097c785cbc78d9ef2",
+    "hardware/cad/studies/w5-source-platform-native-r4/SourceInletPlatform.FCStd": "29fd7f572ddc76d14a6b461684eeb890a1c888868cfa781ad72cf187c82c801a",
+    "hardware/cad/studies/w5-source-platform-native-r4/Deck_WORLD.brep": "0772a504891b6ab66fb1f7860aeb03f3bfc7221bc2356f9cde39c5009b1ca513",
+    "hardware/cad/studies/w5-source-platform-native-r4/Platform_WORLD.brep": "adac2bd0a00e551afb9e49a5484b4f861a7b377057ac7ff3ebeabb7e2db2f3ca",
+    "hardware/cad/studies/w5-source-platform-native-r4/Deck_UNSELECTED_x1.stl": "a5e23e7c6bfe5a537f098208f17e57c14481d736263756ad7f02ce749027f5de",
+    "hardware/cad/studies/w5-source-platform-native-r4/Platform_UNSELECTED_x1.stl": "72cdc1d1c046074df4f074e2832eb7df6d9cbd172e308466ad1671b1909115e2"
+  },
+  "files": {
+    "hardware/electronics/full-cat/w5-source-platform-assembly-r1/LowerNut0_ALLOWANCE.brep": "d871f0636b9726e6287921f16fb1485c7de7a10624167c67aa0b8dd1737c8b81",
+    "hardware/electronics/full-cat/w5-source-platform-assembly-r1/LowerNut1_ALLOWANCE.brep": "493ee727a11a0743692c91b4d218d33b4f1c932778c690c4378064355eb967b2"
+  },
+  "started_utc": "2026-10-04T09:16:07.022193+00:00",
+  "finished_utc": "2026-10-04T09:16:34.677821+00:00",
+  "worker_wall_seconds": 27.655628
+}

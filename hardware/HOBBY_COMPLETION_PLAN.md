@@ -6,16 +6,20 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 10:39 Warszawy: źródłowy układ R3 odebrany,
-209 par/51 kontaktów/0 błędów, 241,131 s procesu. P_SYS i W066 są
-statycznie bezkontaktowe; cztery trasy S1 odrzucone, nie wybierać ich stocku.
-F_PI inlet R1 odrzucony tylko na dwóch kontaktach z W066 (61,410 s).
-R2 rozdziela oba wejścia bez zmiany zacisków i bez przedłużenia fabrycznego
-przewodu: 27 par/0 kontaktów/0 błędów, 60,788 s. Nominalnie 80 mm przy
-minimum dostawcy 84,5 mm; OD i promień nadal założeniami prototypu.
-49 testów, 53 receipts/1006 przypięć zgodne. Dalej wspólna retencja P_SYS,
-odciążenia obu wejść i cztery pełne trasy S1. R53 pozostaje wybrany;
-XA05 access nadal otwarte, W1 nie przywrócono. 70%, zmiana 0 pp.
+Bieżące W5, 04.10 11:17:08 Warszawy: native source-platform R4 ukończony
+lokalnie, 119 par/0 kontaktów/0 błędów, 750,0771 s procesu. Edytowalne
+P_SYS/oba inlet grips/C-frame/Deck, parametr/2 zamknięte STL/przeniesione
+reopen zgodne. Platform52,2×45×26,3mm, Deck249,5×209×77,941mm;
+2M3x12/2nuts/4washers/2T18I na istniejących SKU. AssemblyR1: dolne dojście
+przed W066, 4 pary/0 kontaktów/0 błędów, 27,655628 s; role/stock i lokalna
+kolejność zapisane. Nie dodawać starych i nowych opasek; bilans K3 otwarty.
+R1/R2/R3 odrzucone i zachowane, bez ich ponawiania. Oba wejścia inletR2
+zachowane, bez przedłużenia fabrycznego F_PI. Podzespół NIE WYBRANY:
+cztery pełne trasy S1 nadal odrzucone; domknąć je wspólnie z terminalami,
+podporami i osłoną, dopiero potem wybór całej rodziny źródła. R53 zachowany,
+XA05 access otwarte/W1 nie przywrócono. 53 testy, 58 receipts/1084 przypięcia
+zgodne. Ta kontynuacja08:43:57Z→09:17:08Z=33min11s ścienne, nie suma CPU.
+70%, +0pp; hook włączony do całego W5, brak deadline/schedule/maila.
 Nie zaliczać częściowo wykonanego rezultatu, kolejnych testów ani wariantów.
 Nie zmieniać mianownika bez jawnej zmiany zakresu przez użytkownika.
 Wykazany konflikt unieważniający rezultat odbiera jego punkty.
