@@ -1,0 +1,79 @@
+{
+  "status": "XA05_OUTER_JOINT_REJECTED",
+  "hits": [
+    {
+      "part": "XA05",
+      "owner": "OuterBracket",
+      "mm3": 30.986774088312483,
+      "bounds_mm": [
+        151.74753780757595,
+        -5.235685689754676,
+        113.56724470537876,
+        154.25000011954043,
+        6.271840925594386,
+        123.26972504263642
+      ]
+    }
+  ],
+  "errors": [],
+  "pairs": 113,
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep": "8cdc89370c4fd80af9ee419dbe6b109bc1800450e72839e5e75bf6c52b52aa21",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/intent.json": "3871a33ecfc762259704e473a2433b9bdbc24c7c5a832cc94351f891cc59bfe7",
+    "hardware/cad/studies/pi-complete-native-r2/Carrier_x1.stl": "ea73e4896f613a48d18db5d31cfa9c3341283703691e2e3a67496f5fd5a72855",
+    "tools/electronics/w5_r53_owners.py": "d275bbe32d6637bf57fb9ebf0c242c72227b9162a97a3d3579f151788aeb8579",
+    "tools/electronics/w5_selected_owners_r52.py": "976498794dffefe4330243cb4d3fc161dcf74eb2b792b07546ef21f4bbdfc03d",
+    "tools/electronics/w5_bus_restraints_r3.py": "61588fa00b29f26dd43572486cf3b334a5d10baca19581c343c986d62e330d07",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd",
+    "tools/electronics/w5_xa05_outer_support_r4.py": "418a1ec807a7df6dae392cb146a16b911dd6bdf319d03e9f262e0ee4db8187d1",
+    "tools/electronics/w5_xa05_outer_support_r5.py": "a64367412e9e88b6018dbc7e45c02ccfdf7033c353c3ec24dbd518153bdfd4ff",
+    "tools/electronics/w5_xa05_joint_repair_r1.py": "7ec52e18074ee573d4bb21962eee4570a032305107dbf8b214a3b2f7cd18e204",
+    "tools/electronics/w5_s1_source_layout_r2.py": "004c68c147c6c5f040277f6823097832bc61bf473270362a94267490b5fc6a11",
+    "tools/electronics/w5_s1_source_layout_r1.py": "a0a8288501895a98f342aa4916a3c19bed24258973b1b13052a18e7c1b295fbf",
+    "hardware/electronics/full-cat/w5-xa05-joint-repair-r3/checks.json": "eb7562a07a6c869f3d8fd42021574fc895bd9808dfab65952fb8c01ce8644dd9"
+  },
+  "files": {
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/intent.json": "72f970c50525b88b4420ac42d8db951ef15b6ec03ce33dddba3eb6376cda0fdc",
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/XA05_WORLD.brep": "a73aef06c1bf791335c5aab360bd1febf6ef950685c81bf58ff6bc97d5169226",
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/CENTERLINE_WORLD.brep": "8861df361812ae7a1d69b2a585497369ccb75fb79191f6240a2696be7e260676",
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/DECK_CANDIDATE_WORLD.brep": "2b70e16a3185079148af5516cddd99a19f3c42312f90fec7ad5c9ea559af4303",
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/OUTRIGGER_WORLD.brep": "aa460aa876ed9593322050e262f68a8705c1d6056febd7dd49b0450c9efa6677",
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/ADDITIONS_WORLD.brep": "da4e37c8aa645df2b61a3a9445842148dcc586fdbacf2a7cf642e2c240814eda"
+  },
+  "new_ties": 2,
+  "tie_SKU": "111-02370 T18I-PA66-BK",
+  "new_M3x12": 2,
+  "new_M3_nuts": 2,
+  "new_M3_washers": 4,
+  "new_prints": 1,
+  "one_replacement_Deck": true,
+  "hardware_stack_mm": {
+    "Deck": 4,
+    "foot": 3,
+    "top_washer": 0.5,
+    "under_washer": 0.5,
+    "nut": 2.4,
+    "nominal_thread_protrusion": 1.6
+  },
+  "omitted_retired_carrier_aliases": [
+    "hardware/electronics/full-cat/tail-ground-direct-r1/CarrierTailPWMEntry_DESIGN.brep",
+    "hardware/electronics/full-cat/tail-central-routes-r3/CarrierTailPWMEntry_DESIGN.brep",
+    "hardware/electronics/full-cat/head-connected-feeds-r8/CarrierPWMEntry_DESIGN.brep",
+    "hardware/electronics/full-cat/aux-converter-routes-r5/Carrier_TWO_PORTS_DIAGNOSTIC.brep"
+  ],
+  "native_ready": false,
+  "selected": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "open": [
+    "Qualify both endpoint restraints and WAGO lever/driver sequence.",
+    "Native Deck/Outrigger/any necessary Cover port, closed STL and retained mounting access.",
+    "One package and stock reconciliation;5m HELU23501 remains planning allowance, not a cut list."
+  ],
+  "started_utc": "2026-10-04T07:12:16.699463+00:00",
+  "finished_utc": "2026-10-04T07:14:48.989454+00:00",
+  "worker_wall_seconds": 152.289991
+}

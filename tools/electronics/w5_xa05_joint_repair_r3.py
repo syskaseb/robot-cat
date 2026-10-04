@@ -6,6 +6,7 @@ the x93 gap. Two low grips atY+/-20 avoid the ground blocks and centre fuses.
 """
 from pathlib import Path
 import w5_xa05_joint_repair_r2 as J
+BASE=J.BASE
 source=J.source
 
 
