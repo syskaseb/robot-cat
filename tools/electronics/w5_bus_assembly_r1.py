@@ -14,8 +14,8 @@ sys.path.insert(0, str(ROOT / 'tools/electronics'))
 from servo_fuse_inputs_r1 import save, sha
 import w5_bus_restraints_r3 as layout
 OUT = ROOT / 'hardware/electronics/full-cat/w5-bus-assembly-r1'
-NATIVE = ROOT / 'hardware/electronics/full-cat/w5-bus-native-grips-r3/checks.json'
-CAD = ROOT / 'hardware/cad/studies/w5-bus-native-grips-r3/BusSharedGrips.FCStd'
+NATIVE = ROOT / 'hardware/electronics/full-cat/w5-bus-native-grips-r4/checks.json'
+CAD = ROOT / 'hardware/cad/studies/w5-bus-native-grips-r4/BusStrapSlots.FCStd'
 ROUTES = ROOT / 'hardware/electronics/full-cat/w5-bus-pair-r52-r4'
 
 
@@ -25,7 +25,7 @@ def main():
     from w5_selected_owners_r52 import cached
     begin = datetime.now(timezone.utc)
     proof = json.loads(NATIVE.read_text(encoding='utf-8'))
-    assert proof['status'] == 'SHARED_BUS_NATIVE_STATIC_COMPLETE_UNSELECTED'
+    assert proof['status'] == 'BUS_SLOTS_STATIC_COMPLETE_UNSELECTED'
     assert not proof['hits'] and not proof['errors']
     assert proof['closed_STL'] and proof['relocated_reopen']
     assert all(sha(ROOT / rel) == value for rel, value in proof['files'].items())
@@ -37,10 +37,11 @@ def main():
     assert not service['hits'] and not service['errors']
     assert service['module'] == ['BankRight', 'BankLeft', 'Cover']
     intent = json.loads((ROUTES / 'intent.json').read_text(encoding='utf-8'))
-    sx = intent['source_lead_datums']['W003'][0]
+    sx = sum(intent['source_lead_datums'][w][0] for w in ('W002', 'W003')) / 2
     # Open saved cached native geometry without forcing inherited recompute.
     doc = A.openDocument(str(CAD))
-    fixed = {name: Part.makeBox(b[3]-b[0], b[4]-b[1], b[5]-b[2], A.Vector(*b[:3])).cut(doc.BusClearanceTools.Shape)
+    oldtools = doc.BusR3Deck.LinkedObject.Document.BusClearanceTools.Shape
+    fixed = {name: Part.makeBox(b[3]-b[0], b[4]-b[1], b[5]-b[2], A.Vector(*b[:3])).cut(oldtools).cut(doc.StrapPocketTools.Shape)
              for name, b in layout.supports(sx)}
     fixed.update(layout.restraints(A, Part, sx))
     fixed.update({wire: Part.read(str(ROUTES / (wire + '_DESIGN.brep'))) for wire in ('W002', 'W003')})
@@ -85,8 +86,8 @@ def main():
                     reused_W061_installed=1, W061_replacement_already_existing_role=True,
                     whole_robot_census_pending=True), new_screws=0, new_separate_prints=0),
         deck_replacement=dict(identity='electronics:DeckP10-cover-mount', quantity=1,
-            native=CAD.relative_to(ROOT).as_posix(), final_object='BusDeckFinished',
-            stl='hardware/cad/studies/w5-bus-native-grips-r3/BusSharedGrips_UNSELECTED_x1.stl'),
+            native=CAD.relative_to(ROOT).as_posix(), final_object='BusStrapSlotsFinished',
+            stl='hardware/cad/studies/w5-bus-native-grips-r4/BusStrapSlots_UNSELECTED_x1.stl'),
         assembly=[
             'With battery/USB/all sources absent, prepare Deck before mounting purchased blocks. Retain bank mounts, the G1 passage and all unchanged parts.',
             'Identify factory cable D/V/G by schematic and unpowered continuity. Retain one factory plug, remove V contact/lead without damaging D/G. Never use colours as pin identification.',

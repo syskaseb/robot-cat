@@ -28,11 +28,11 @@ def main():
     cart = read(parent + '/fixed-fastener-cart.json')
     assembly_rel = 'hardware/electronics/full-cat/w5-bus-assembly-r1/assembly.json'
     assembly = read(assembly_rel)
-    proof_rel = 'hardware/electronics/full-cat/w5-bus-native-grips-r3/checks.json'
+    proof_rel = 'hardware/electronics/full-cat/w5-bus-native-grips-r4/checks.json'
     proof = read(proof_rel)
     assert assembly['status'] == 'BUS_LOCAL_READY_FOR_SELECTION'
     assert not assembly['hits'] and not assembly['errors']
-    assert proof['status'] == 'SHARED_BUS_NATIVE_STATIC_COMPLETE_UNSELECTED'
+    assert proof['status'] == 'BUS_SLOTS_STATIC_COMPLETE_UNSELECTED'
     assert not proof['hits'] and not proof['errors']
     assert proof['closed_STL'] and proof['relocated_reopen']
     for receipt in (assembly, proof):
@@ -50,7 +50,7 @@ def main():
     shutil.copy2(ROOT / stl_rel, dest)
     deck.update(stl=dest.relative_to(ROOT).as_posix(), sha256=sha(dest),
         native=assembly['deck_replacement']['native'], native_file=assembly['deck_replacement']['native'],
-        native_final='BusDeckFinished', recipe=assembly_rel, dimensions_mm=proof['dimensions_mm'],
+        native_final='BusStrapSlotsFinished', recipe=assembly_rel, dimensions_mm=proof['dimensions_mm'],
         total_brim_allowance_mm=6, supports='Phase2: inspect native BUS channel skin/grips and inherited supports. No slicer/strength PASS.')
     deck.pop('print_size_mm_including_5mm_brim', None)
     ties = next(r for r in quantity['lines'] if r['id'] == 'tie:111-02370')
@@ -70,7 +70,7 @@ def main():
     selection.update(parent_selection=parent + '/selection.json', parent_selection_sha256=pins[parent+'/selection.json'],
         phase1_percent=75, phase1_complete=False, W5_complete=False, BUS_local_complete=True,
         BUS_wiring_recipe=assembly_rel, BUS_native_proof=proof_rel,
-        current_deck_world='hardware/cad/studies/w5-bus-native-grips-r3/Deck_WORLD.brep',
+        current_deck_world='hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep',
         local_precedence='R53 replaces only the R52 Deck print/native and adds BUS D/G/3strap recipes. BankR47 and all unchanged interfaces retained; fullW5 remains open.',
         fixed_fastener_cart=(OUT/'fixed-fastener-cart.json').relative_to(ROOT).as_posix(),
         nonfastener_catalog=(OUT/'nonfastener-catalog.json').relative_to(ROOT).as_posix(), source_sha256=pins)
