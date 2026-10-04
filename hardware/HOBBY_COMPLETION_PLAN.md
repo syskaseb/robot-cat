@@ -6,22 +6,28 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10: cztery integralne gripy źródła i dopasowane przejścia
-Cover ukończone lokalnie: w5-source-grips-native-r2/checks.json,100par/0hit/
-0error,1solid/BOP0/parametry/2zamknięteSTL/przeniesione reopen. Zamienny
-Carrier230×148×31mm i Cover,0dodatkowych wydruków/śrub,4opaski+4serwisowe.
-R1 odrzucony7kontaktów; R2 odebrany ze ZAPISANEGO modelu po NameError,
-320,279670s udanego procesu odbioru, nie całego etapu. Nie ponawiać R1.
-source-material-contribution-r1/stock.json:3910mmHELU23802, kandydat5m
-z791mm jawnego zapasu; stare920mm ZASTĄPIONE, nie dodane. E3 ma nowe
-wejścia długości1320mmFRONT/1070mmREAR, nie odziedziczoną kwalifikację.
-R53 nadal wybrany; sourceR8/BankPassageR1/PlatformR4 zachowane. NEXT:
-rzeczywista zdejmowana ochrona nadCover dla źródła, wspólny montaż-demontaż
-i jeden wybór; same przeloty/gripy NIE osłaniają kolumn doZ215,2.
-Potem odrzucone fanouty nógR5/pozostałeW5/XA05access.73testy/76receipts/
-1167pinów zgodne.14/20=70%,+0pp; bez fizycznegoPASS. Hookenabled do całegoW5.
-Zmierzony odcinek tej kontynuacji10:32:13Z→10:59:20Z=27min7s ścienne,
-nie suma CPU ani czas nieprzerwanej pracy przez całą noc. Limit37%zużyty/63%pozostałe.
+Bieżące W5, 04.10 13:42:56 Warszawy: zdejmowana ochrona źródła ukończona
+LOKALNIE, w5-source-roof-native-r5/checks.json:390par/0kontaktów/0błędów,
+parametr/BOP0/zamknięteSTL/przeniesione reopen. Cover238×242×115,5mm,
+West159×190×41mm, East168,4×190×164,5mm; każde z10mm zapasu obrysu mieści
+się w256³. Dwie nowe połówki + jeden ZAMIENNY Cover, nie trzy dodatkowe
+części;4M3×16/4nuts/8washers na istniejących SKU, jeszcze nie alokowane.
+service-r1:70par/0kontaktów, ciągłe wsunięcie4nakrętek i nominalne dojście
+narzędzia; service-r2:740par/0kontaktów, East w pozycjach0/40/100/160mm,
+West0/10/30/60mm odziedziczone. To próbki, NIE ciągły proof ruchu/fizycznyPASS.
+R1 odrzucony C0 i3solidCover; R2 odrzucony2kontakty zCover; R4 błędnie
+obcinał kurtynę oknemZ180 mimo parametruZ62. R5 poprawia to okno i sprawdza
+RZECZYWISTE ZMin62. Nie ponawiać tych geometrii. RoofR3/serviceR1 zachowane
+jako źródło niezmienionych mocowań/West; żaden wcześniejszy wariant nie wybrany.
+sourceR8/gripyCarrierR2/BankPassageR1/PlatformR4 zachowane; R53 nadal wybrany.
+stock-r1:3910mmHELU23802, kandydat5m/791mm zapasu; stare920mm ZASTĄPIONE.
+E3 nowe pary1320mmFRONT/1070mmREAR nadal niezakwalifikowane. NEXT: wspólny
+montaż-demontaż całego źródła/Carrier/Bank/Cover, jeden wybór/stock; potem
+odrzucone fanouty nógR5,12moving/4TKDreturn oraz W1XA05access. Osłona nie
+jest szczelną obudową terminali: dół/boki przyS1 otwarte.77testów/82receipts/
+1239pinów zgodne.14/20=70%,+0pp; do80% wymagane W5 ORAZ przywrócenieW1.
+Zmierzony odcinek11:01:23Z→11:42:56Z=41min33s ścienne, nie sumaCPU.
+Limit38%zużyty/62%pozostałe. Hookenabled do całegoW5, bez deadline/schedule.
 
 Poprzedni lokalny wynik 04.10 12:10 Warszawy: cztery natywne pełne przeloty Carrier
 ukończone lokalnie, parametr0,7→0,8→0,7mm/1solid/BOP0/zamkniętySTL/

@@ -38,6 +38,8 @@ def main():
     paths += sorted(folder.glob('w5-source-cover-passages-native-r*/checks.json'))
     paths += sorted(folder.glob('w5-source-received-interface-r*/checks.json'))
     paths += sorted(folder.glob('w5-source-grips-native-r*/checks.json'))
+    paths += sorted(folder.glob('w5-source-roof-native-r*/checks.json'))
+    paths += sorted(folder.glob('w5-source-roof-service-r*/assembly.json'))
     paths += sorted(folder.glob('w5-source-material-contribution-r*/stock.json'))
     paths += sorted(folder.glob('w5-source-platform-native-r*/execution-observation.json'))
     paths += sorted(folder.glob('w5-source-platform-assembly-r*/assembly.json'))
