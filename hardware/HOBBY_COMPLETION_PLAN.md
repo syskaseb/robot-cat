@@ -6,7 +6,19 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 12:10 Warszawy: cztery natywne pełne przeloty Carrier
+Bieżące W5, 04.10 12:25 Warszawy: sourceR8 odebrany,127par/10kontaktów
+WYŁĄCZNIE z PETG(2BankLeft/8Cover),0kontaktów z kupnymi/P0/przewodami,
+0errors,243,384593s procesu. R7 ODRZUCONY123par/11kontaktów/213,473577s
+(kupna RL2 i wzajemny W064), bez ponawiania. R8 zachowuje5mouths/TEentries,
+2390mm4S1+40mmXA01 kandydat. NativeBankPassageR1 ukończony:
+4par/0kontaktów/0errors/59,572399s; otwarty na krawędźY90 przelot,
+1solid/BOP0/parametr/zamkniętySTL/reopen; cztery mounty zachowane,
+44,943508mm³ usunięte tylko z PETG,1zamiennybank/0nowychśrub.
+Worker50449/PID11524 oblicza natywną Cover ze ścisłymi cylinder/torus
+przelotami, nie bbox; nie duplikować. Nadal otwarte zewnętrzna ochrona,
+gripy/cały montaż-demontaż/stock przed wyborem całej rodziny.
+
+Poprzedni lokalny wynik 04.10 12:10 Warszawy: cztery natywne pełne przeloty Carrier
 ukończone lokalnie, parametr0,7→0,8→0,7mm/1solid/BOP0/zamkniętySTL/
 przeniesione reopen zgodne; 62,784176s procesu. Jedna zamienna płyta
 230×148×12,55mm, nie dodatkowa część. TE130171 revL STEP odebrany:
