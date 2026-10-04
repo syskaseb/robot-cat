@@ -26,6 +26,7 @@ def main():
     quantity = read(parent + '/one-order-quantities.json')
     catalog = read(parent + '/nonfastener-catalog.json')
     cart = read(parent + '/fixed-fastener-cart.json')
+    body = read('hardware/electronics/full-cat/w5-body-selected-r52/interface.json')
     assembly_rel = 'hardware/electronics/full-cat/w5-bus-assembly-r1/assembly.json'
     assembly = read(assembly_rel)
     proof_rel = 'hardware/electronics/full-cat/w5-bus-native-grips-r4/checks.json'
@@ -67,9 +68,23 @@ def main():
     assert len({p['identity'] for p in selection['prints']}) == 77
     assert sum(p['quantity'] for p in selection['prints'] if p['purpose'] == 'installed_candidate') == 115
     assert len(quantity['lines']) == 114
+    assert body['current_body_route_rows_prepared'] == 34
+    for wire, bound, source, end in [('W002',170,'BUS.D','D_FL.1'),('W003',300,'BUS.G','G2.4')]:
+        row = next(r for r in body['conductors'] if r['id']==wire)
+        assert not row['full_route_prepared'] and (row['a'],row['b'])==(source,end)
+        row.update(full_route_prepared=True, nominal_blank_mm=bound, route_recipe=assembly_rel,
+                   stock_identity='p0:BUS-PIGTAIL-P0', factory_material='one shared34171 D/G cable',
+                   delivered_usable_length_verified=False)
+    body.update(status='R53_BUS_MERGED_WHOLE_W5_OPEN', selected_parent='one-batch-prototype-r53',
+        current_body_route_rows_prepared=36,
+        route_rows_pending=[r['id'] for r in body['conductors'] if not r['full_route_prepared']],
+        source_sha256=copy.deepcopy(pins), W5_complete=False, physical_pass=False)
+    assert len(body['route_rows_pending'])==44
+    body_rel=(OUT/'body-route-status.json').relative_to(ROOT).as_posix()
     selection.update(parent_selection=parent + '/selection.json', parent_selection_sha256=pins[parent+'/selection.json'],
         phase1_percent=75, phase1_complete=False, W5_complete=False, BUS_local_complete=True,
         BUS_wiring_recipe=assembly_rel, BUS_native_proof=proof_rel,
+        W5_body_status=body_rel,
         current_deck_world='hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep',
         local_precedence='R53 replaces only the R52 Deck print/native and adds BUS D/G/3strap recipes. BankR47 and all unchanged interfaces retained; fullW5 remains open.',
         fixed_fastener_cart=(OUT/'fixed-fastener-cart.json').relative_to(ROOT).as_posix(),
@@ -86,9 +101,9 @@ def main():
         if 'product_binding' in row:
             assert row['planning_quantity'] == row['product_binding']['planning_quantity'], row['id']
     for name, obj in [('selection.json',selection), ('one-order-quantities.json',quantity),
-                      ('fixed-fastener-cart.json',cart), ('nonfastener-catalog.json',catalog)]:
+                      ('fixed-fastener-cart.json',cart), ('nonfastener-catalog.json',catalog), ('body-route-status.json',body)]:
         save(OUT/name, obj)
-    paths = [OUT/n for n in ('selection.json','one-order-quantities.json','fixed-fastener-cart.json','nonfastener-catalog.json')] + [dest, Path(__file__)]
+    paths = [OUT/n for n in ('selection.json','one-order-quantities.json','fixed-fastener-cart.json','nonfastener-catalog.json','body-route-status.json')] + [dest, Path(__file__)]
     end = datetime.now(timezone.utc)
     save(OUT/'BUS-reconciliation.json', dict(status='ONE_R53_BUS_SELECTED_WHOLE_W5_OPEN',
         phase1_completed_count=15, phase1_total=20, physical_pass=False, W5_complete=False,
