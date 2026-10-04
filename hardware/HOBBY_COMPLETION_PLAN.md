@@ -3,7 +3,7 @@
 ## Stały licznik fazy 1 — baza 30.09.2026, R26
 
 Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
-Obecnie 15/20 = 75%. To licznik dostarczonych rezultatów przygotowania,
+Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 Nie zaliczać częściowo wykonanego rezultatu, kolejnych testów ani wariantów.
 Nie zmieniać mianownika bez jawnej zmiany zakresu przez użytkownika.
@@ -31,7 +31,7 @@ Elektronika (4 rezultaty):
 - [x] E4 R35: scalony nominalny schemat zasilania/sygnałów i pinoutów15napędów;375połączeń/115pinów i ról,65kontroli grafu+6wykrywanych błędów syntetycznych,8testów. Konkretny Adafruit815 revC CH0/1/2=JP2.10/.7/.4, poprawione robocze błędneJP1. Nie zamyka E3/W5 ani fizycznych prób.
 
 Wiązka (5 rezultatów):
-- [x] W1 Wybrane stałe drogi XA02–XA06 i XB11 wraz z mocowaniami/zakończeniami R19/R20.
+- [ ] W1 Ponownie otwarte: zapisane XA05 przecina nominalne korpusy RL_G/RR_G w wybranym modelu. Korekta wspólnego mocowania i ponowna kwalifikacja wymagane; R19/R20 zachowane jako źródła.
 - [x] W2 R28: komplet lokalnych żył obu osi głowy, pętla o stałych długościach, izolowane połączenia, odciążenia i połączenia do R27; zakres yaw±15/pitch−10..+5 sprawdzony w próbkowanych modelach. Fizyczne próby w fazie2.
 - [x] W3 Centralne feedy obu osi głowy do F_HY/F_HP/G_AUX/B1-B2, zakończenia i odciążenia wybrane w R27; pasowania/próby dostawy w fazie2.
 - [x] W4 R29: nieruchoma fabryczna wiązka/JR, trzy izolowane zakończenia i feedy F_TY/G_TAIL.2/B3, R9 przy serwie, odciążenia i pasujące przeloty obu płyt. Fizyczne pasowania/próby w fazie2.
@@ -53,6 +53,8 @@ przy poprawkach zamiennych STL tylko jeśli istnieje jeden aktualny wybór;
 nie oznacza, że nigdy nie powstanie kolejny wydruk.
 
 ## Aktualna granica prac: faza 1 przygotowanie (30.09.2026)
+
+04.10,08:15:40 Warszawy — 14/20=70%,−5pp: preflight-platform-r1 wykazał wcześniejsze kontakty XA05/RL_G0,096661 i XA05/RR_G37,625776mm³ także w ORYGINALNYCH, nieobróconych blokach; W1 cofnięte, nie fizyczny pomiar. 04:53:52Z→06:15:40Z=81min48s ścienne tej kontynuacji. R5nogi:36tras/102zewnętrzne kontakty/0błędów,1186,852368s; wzajemnie36żył BEZ kontaktów, nie ponawiać tego zakresu. S1R2:31kontaktów/0błędów,102,940903s; niższyP_SYS uderza P0Support0/1, wariant odrzucony bez cięciaP0. Jedyny nowy kandydat P_SYS+22Z:4pary/0kontaktów/0błędów,14,840517s; samo położenie, jeszcze BEZ podpory/sześciu przewodów/dźwigni. W043/W066 i czteryS1 wymagają wspólnego przygotowania, nie wybierać stocku1800mm z odrzuconegoR2. R53/bankR47 zachowane, historyczne36prepared/44OPEN nie kwalifikują nowych zmian.33testy i41receipts/934piny zgodne; źródła do5ffd10f zabezpieczone. NEXT: wspólna podpora P_SYS i6lead-family, korekta XA05↔tylneG, pełne chwyty/ruch12wiązek i4powroty; hookenabled do pełnegoW5, bez deadline/schedule/fizycznegoPASS.
 
 04.10,08:03:21 Warszawy — 15/20=75%,+0pp. Od04:53:52Z do06:03:21Z=69min29s ścienne tego wznowienia; źródła/proofy zabezpieczone01e7f85. RecoveryR4:36tras/72kontaktów/1Nullshape,329,110621s, ODRZUCONY; nie odbudowano tras. Cztery przesunięteG kolidują z P_AUX/G_TAIL/G_AUX; dwa przesunięcia DATA wX były POPRZECZNE do żyłyY, więc niewykonalne. R5 zachowuje footprintyG i wszystkie DATAopaski, zmienia orientacjęG oraz24rozploty/oddzielone poziomy; session58806/PID21392 PENDING, nie wybrany. S1R1:46kontaktów/0błędów,129,037228s, ODRZUCONY. Zidentyfikowano dwie realne przyczyny: F_PI blokuje P_SYS.3/.4 przy samym wyjściu, a P_REAR−13,6 należy już do PWM.4. Wspólny źródłowyR2: P_SYS niżej11mm w NOWEJ kieszeni, cztery pierścienieS1 skierowane na zewnątrzY, P_REAR.1 na wolnym+13,6; cztery pełne analityczne trasy/1800mm blanków. To wymaga ponownego opracowania OBYDWU W043/W066 i ich chwytów, zanim zmieni się wybór lub licznik przygotowanych przewodów; nic nie wybrano. CheckerR2 gotowy po odbiorzeR5.33testyOK;38receipty/919pinów zgodne. NEXT: odbierzR5, wspólny rzeczywisty układ24D/G z chwytami/pętlami/ruchami, oraz cały źródłowy6lead-family, potem4powroty i jedno uzgodnienieW5. R53/bankR47 bez zmian; hookenabled do całegoW5,69% tygodniowego limitu pozostaje (odczyt05:44:25Z), bez fizycznegoPASS.
 
