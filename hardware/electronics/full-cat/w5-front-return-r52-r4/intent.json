@@ -1,0 +1,29 @@
+{
+  "wire": "W036",
+  "endpoints": {
+    "G1.4": [
+      73.5,
+      11,
+      113.5
+    ],
+    "FR_G.1": [
+      -19.5,
+      -49.5,
+      113.5
+    ]
+  },
+  "material": "TKD2500125",
+  "diameter_mm": 4.2,
+  "radius_mm": 21,
+  "corridor_height_mm": 75.5,
+  "corridor_y_mm": 78,
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "parent_selection": "one-batch-prototype-r52",
+  "reason": "R3 lower corridor only hit Deck and F_PI at north FR_G mouths. Rotate FR_G 180deg toward south, preserving common net/body/stock; one complete fixed below-Deck path, exact passages and restraints required",
+  "next": "After clear complete path, add endpoint and middle restraints on current Deck, then native/export/selection",
+  "label_change": "FR_G 180deg: south mouths Y-49.5, project labels west-to-east [.5,.4,.3,.2,.1], feed .1 X-19.5. Electrical graph unchanged; three moving G ends open, no selected wire removed",
+  "catalogue_cavity_numbers_claimed": false,
+  "new_passages_and_underdeck_restraints_required": true
+}

@@ -16,8 +16,10 @@ def main():
     paths = [folder / 'w5-body-selected-r52/manifest.json',
              folder / 'w5-installed-r52/owners.json']
     paths += sorted(folder.glob('w5-front-return-r52-r*/checks.json'))
-    native = folder / 'w5-g1-passage-native-r1/checks.json'
-    if native.exists(): paths.append(native)
+    paths += sorted(folder.glob('w5-g1-passage-native-r*/checks.json'))
+    paths += sorted(folder.glob('w5-g1-passage-native-r*/execution-observation.json'))
+    paths += sorted(folder.glob('w5-g1-saved-*/checks.json'))
+    paths += sorted(folder.glob('w5-fl-return-r52-r*/checks.json'))
     pins, mismatches = {}, []
     for path in paths:
         receipt = json.loads(path.read_text(encoding='utf-8'))

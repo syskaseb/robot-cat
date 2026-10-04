@@ -1,0 +1,28 @@
+{
+  "wire": "W036",
+  "endpoints": {
+    "G1.4": [
+      73.5,
+      11,
+      113.5
+    ],
+    "FR_G.1": [
+      -19.5,
+      -30.5,
+      113.5
+    ]
+  },
+  "material": "TKD2500125",
+  "diameter_mm": 4.2,
+  "radius_mm": 21,
+  "corridor_height_mm": 128.5,
+  "corridor_y_mm": 67.5,
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "parent_selection": "one-batch-prototype-r52",
+  "reason": "R1 crosses both MTA bodies and F_PI. Use free east mouth of same FR_G common-potential block; shorter whole path, not repeated height/position search",
+  "next": "After clear complete path, add endpoint and middle restraints on current Deck, then native/export/selection",
+  "label_change": "Swap project FR_G.1/feed and FR_G.5/NC physical labels only; FR_G.2/.3/.4 unchanged; no electrical net or WAGO body change",
+  "catalogue_cavity_numbers_claimed": false
+}

@@ -1,0 +1,28 @@
+{
+  "status": "R2_EXIT1_AFTER_SAVED_PARAMETER_ROUND_TRIP_NOT_COMPLETE",
+  "worker_session_id": 61942,
+  "worker_pid": 20884,
+  "failure_observed_utc": "2026-10-04T01:43:14Z",
+  "failure": "AssertionError at expanded line84: absolute volume identity tolerance1e-5mm3",
+  "observed_console_markers": [
+    "G1_NATIVE_SAVED_BEFORE_RECOMPUTE",
+    "G1_NEW_CUT_RECOMPUTED",
+    "G1_NEW_CUT_BOP_CHECKED",
+    "G1_PARAMETER_RESTORED",
+    "G1_CHANGED_DEPARTURE_CLEAR"
+  ],
+  "successful_assertions_before_later_failure": {
+    "nominal_valid_one_solid_strict_BOP_no_errors": true,
+    "width6_reduces_volume_then_width5p8_restores_volume": true,
+    "one_witnessed_G1_departure_clear": true
+  },
+  "parameter_probe_volume_not_persisted": true,
+  "initial_native_export_and_relocation_not_reached": true,
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "tools/electronics/w5_g1_passage_native_r1.py": "759100b38040795d33ca7d7b6e0e4465f18fd4405b80d4bde13a84dee72e68ea",
+    "tools/electronics/w5_g1_passage_native_r2.py": "dbca61499387ac3c7c9494af68185b027067bec51d7e27b8afb07e03dc6272b1"
+  }
+}
