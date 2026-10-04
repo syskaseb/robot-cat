@@ -1,0 +1,32 @@
+{
+  "wire": "W025",
+  "endpoints": {
+    "G1.3": [
+      66,
+      11,
+      113.5
+    ],
+    "FL_G.1": [
+      -46.5,
+      30.5,
+      113.5
+    ]
+  },
+  "material": "TKD2500125",
+  "diameter_mm": 4.2,
+  "radius_mm": 21,
+  "corridor_height_mm": 75.5,
+  "corridor_y_mm": 106,
+  "selected": false,
+  "physical_pass": false,
+  "W5_complete": false,
+  "parent_selection": "one-batch-prototype-r52",
+  "reason": "Whole source R21 lateral S at Z113.5 shifts X66→72 above retained bridge, then descends east of Xmax67; full lower corridor Y106/Z75.5. No repeated height search or P0 cut",
+  "next": "After clear complete path, add endpoint and middle restraints on current Deck, then native/export/selection",
+  "label_change": "No block rotation or electrical relabelling. G1.3 X66,Y11 and FL_G.1 X-46.5,Y30.5 are existing project datums, not measured catalogue cavities",
+  "catalogue_cavity_numbers_claimed": false,
+  "new_passages_and_underdeck_restraints_required": true,
+  "source_lateral_offset_mm": 6,
+  "source_bend_radius_mm": 21,
+  "bridge_original_geometry_preserved": true
+}
