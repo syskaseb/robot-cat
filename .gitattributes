@@ -27,6 +27,7 @@ hardware/simulation/v35/*.json text eol=lf
 hardware/simulation/v35/trials/*.json text eol=lf
 # The modular hardware manifest hashes these sources byte-for-byte.
 .gitattributes text eol=lf
+/tools/electronics/w5_r53_owners.py -text -eol
 *.FCStd binary
 .agents/skills/**/SKILL.md text eol=lf
 tools/cad/*.py text eol=lf
@@ -545,6 +546,10 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /hardware/electronics/full-cat/w5-leg-corridors-r*/** -text -eol
 /hardware/reference/leg-cable-2026-10-04/** -text -eol
 /tools/electronics/w5_leg_fanouts_r*.py -text -eol
+/tools/electronics/w5_leg_fanout_layout.py -text -eol
+/tools/electronics/w5_s1_source_*.py -text -eol
+/hardware/electronics/full-cat/w5-s1-source-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-s1-source-*/*.brep binary -eol
 /tools/electronics/w5_leg_end_preparation_r*.py -text -eol
 /tools/electronics/w5_rounded_path.py -text -eol
 /hardware/electronics/full-cat/w5-leg-fanouts-r*/** -text -eol whitespace=cr-at-eol

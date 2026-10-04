@@ -29,6 +29,8 @@ def main():
     paths += sorted(folder.glob('w5-leg-corridors-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-fanouts-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-end-preparation-r*/interface.json'))
+    paths += sorted(folder.glob('w5-s1-source-layout-r*/intent.json'))
+    paths += sorted(folder.glob('w5-s1-source-check-r*/checks.json'))
     paths += sorted((ROOT / 'hardware/manufacturing').glob('one-batch-prototype-r53/BUS-reconciliation.json'))
     pins, mismatches = {}, []
     for path in paths:
