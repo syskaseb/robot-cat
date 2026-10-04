@@ -6,7 +6,29 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 16:17:05 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 04.10 16:58:17 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Wspólny ground-joint-preflight-r4:6korpusów/51par/0błędów,
+0kontaktów z niezmienianymi przewodami/kupnymi korpusami,190,669432s procesu.
+G1/G2 bez podnoszenia, obrócone wyjściami+X i wspólnie przesunięteY5,5;
+cztery bloki nóg wyjściami na zewnątrz. Y5,5 wynika ze środka dostępnego
+korytarza między opaskami W011/W012 (nominalnie1,9mm od obu).
+17kontaktów ZACHOWANYCH:15 starej zmienianej wiązki/odciążeń oraz2Deck.
+To nie kompletne mocowania, nie wybór i nie całeW5. R1 podniesienie
+odrzucone przez grube feedy;R2 przezW011;R3 przez opaskęW012. Nie ponawiać.
+Pełny spis21przewodów/26końców obejmuje takżeW003 iW060;XA06 nie jest
+przyłączony do tych bloków i pozostaje sąsiadem. Cztery .5 nóg pozostająNC.
+G1/G2 rejestracja7,5/6mm z otrzymanego interface; pozostałe6mm to NOWA
+siatka prototypu w30mm obrysach, nie pomiar katalogowych klatek.
+Aktualnie worker ground-entries-r1,session23072/PID3208:26rzeczywistych
+wyjść R21/R15 lub oznaczonych prototypowychR10 i pełny mostekW061;
+pozostałe20pełnych tras/gripy/natywne mocowania/stock/serwis nadalOPEN.
+Najpierw odbierz wynik; nie uruchamiaj kolejnej rodziny ani duplikatu.
+Wszystkie nowe końce sprawdzane wspólnie, stare zależne kontakty nie są
+pomijane. Po wyniku domknij jedną wspólną wiązkę i jej natywne podpory.
+105testów przechodzi;96receipts/1372pins/0rozbieżności przed wynikiem
+ground-entries. Hookenabled do wyniku,bez deadline/schedule/maila.
+
+Poprzedni W5, 04.10 16:17:05 Warszawy: R53 wybrany,14/20=70%,+0pp.
 Joint-source-layout-r1 odebrany:36tras/936par/153kontaktów/0błędów,
 1251,269814s procesu, ODRZUCONY. Nie ponawiać tej rodziny ani poprzednich
 escape/down/outward geometrii. W064 ma640mm nominalnego blanku;

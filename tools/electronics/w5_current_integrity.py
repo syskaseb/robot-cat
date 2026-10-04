@@ -35,6 +35,8 @@ def main():
     paths += sorted(folder.glob('w5-joint-source-carrier-native-r*/checks.json'))
     paths += sorted(folder.glob('w5-four-ground-returns-plan-r*/intent.json'))
     paths += sorted(folder.glob('w5-four-ground-returns-check-r*/checks.json'))
+    paths += sorted(folder.glob('w5-ground-joint-preflight-r*/checks.json'))
+    paths += sorted(folder.glob('w5-ground-entries-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-end-preparation-r*/interface.json'))
     paths += sorted(folder.glob('w5-s1-source-layout-r*/intent.json'))
     paths += sorted(folder.glob('w5-s1-source-check-r*/checks.json'))
