@@ -33,6 +33,7 @@ def main():
     paths += sorted(folder.glob('w5-s1-source-check-r*/checks.json'))
     paths += sorted(folder.glob('w5-psys-platform-preflight-r*/checks.json'))
     paths += sorted(folder.glob('w5-xa05-joint-repair-r*/checks.json'))
+    paths += sorted(folder.glob('w5-xa05-native-r*/checks.json'))
     paths += sorted((ROOT / 'hardware/manufacturing').glob('one-batch-prototype-r53/BUS-reconciliation.json'))
     pins, mismatches = {}, []
     for path in paths:
