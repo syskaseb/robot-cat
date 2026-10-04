@@ -1,4 +1,5 @@
 import unittest
+import math
 from w5_rounded_path import corner_offsets
 
 
@@ -19,6 +20,14 @@ class CornerConsumptionTests(unittest.TestCase):
         self.assertAlmostEqual(cuts[1],10*(2**.5-1))
         with self.assertRaisesRegex(AssertionError,'Reverse'):
             corner_offsets([[0,0,0],[30,0,0],[0,0,0]],10)
+
+    def test_new_entry_lifts_before_existing_inner_data_bridge(self):
+        # R10 first corner atY14.5/Z113.5: arc centreY24.5/Z123.5.
+        # The selected horizontal bridge crossesY17.5/Z113.5. Distance
+        # to the quarter-circle exceeds nominal OD2.4/OD1.3 half-sum.
+        gap=math.hypot(24.5-17.5,123.5-113.5)-10
+        self.assertGreater(gap,(2.4+1.3)/2)
+        self.assertAlmostEqual(30.5-14.5-10,6)
 
 
 if __name__=='__main__':unittest.main()
