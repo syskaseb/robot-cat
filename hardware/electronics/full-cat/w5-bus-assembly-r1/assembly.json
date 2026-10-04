@@ -1,0 +1,93 @@
+{
+  "status": "BUS_LOCAL_READY_FOR_SELECTION",
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "sampled_service_lifts_mm": [
+    0,
+    2,
+    5,
+    10,
+    30,
+    60,
+    100
+  ],
+  "continuous_service_verified": false,
+  "hits": [],
+  "errors": [],
+  "changed_pairs": 60,
+  "retained_bank_sequence": "Disconnect battery/head. Remove12ATOs/holders, release24TE ends/ties; input inward5.5mm, output axes unchanged. Cut9output,6source,6MTA-body and4P-WAGO-body straps after24TE straps. Keep closed purchased bodies and insulation on their Deck support surfaces; ALL output cages and the Guard stay supported by Deck;2Guard M3 fasteners remain untouched. Unbolt4bank+4Cover mounts. Lift bank+Cover together while all closed splice bodies/wires AND Guard remain fixed on Deck; all49released loops absent. Replace49ties after assembly. No WAGO opening or relocated wire route.",
+  "changed_fixed_geometry": "Four native seats, three new straps, one reused shared W061 strap, complete D/G paths",
+  "wiring": [
+    {
+      "wire": "W002",
+      "source": "H3.1 D schematic role",
+      "end": "D_FL.1",
+      "nominal_trim_mm": 170
+    },
+    {
+      "wire": "W003",
+      "source": "H3.3 G schematic role",
+      "end": "G2.4",
+      "nominal_trim_mm": 300
+    }
+  ],
+  "no_physical_cavity_order_inferred": true,
+  "V_contact_removed": true,
+  "stock": {
+    "factory34171": {
+      "pack_count": 1,
+      "factory_cables_installed": 1,
+      "pack_spares": 5,
+      "replaces_existing_BUS_cable_role": true,
+      "extra_packs": 0
+    },
+    "tie11102370": {
+      "new_installed": 3,
+      "new_service_replacements": 3,
+      "reused_W061_installed": 1,
+      "W061_replacement_already_existing_role": true,
+      "whole_robot_census_pending": true
+    },
+    "new_screws": 0,
+    "new_separate_prints": 0
+  },
+  "deck_replacement": {
+    "identity": "electronics:DeckP10-cover-mount",
+    "quantity": 1,
+    "native": "hardware/cad/studies/w5-bus-native-grips-r4/BusStrapSlots.FCStd",
+    "final_object": "BusStrapSlotsFinished",
+    "stl": "hardware/cad/studies/w5-bus-native-grips-r4/BusStrapSlots_UNSELECTED_x1.stl"
+  },
+  "assembly": [
+    "With battery/USB/all sources absent, prepare Deck before mounting purchased blocks. Retain bank mounts, the G1 passage and all unchanged parts.",
+    "Identify factory cable D/V/G by schematic and unpowered continuity. Retain one factory plug, remove V contact/lead without damaging D/G. Never use colours as pin identification.",
+    "With W061 free at G2, thread its reused strap through retained left105.5/11 and new right120.2/11 slot. Retain its head and unused old right slot; do not add a second overlapping strap.",
+    "Lay complete D and G routes in open channels; source seat supports the insulation above H3. Fit three new straps: source, D with west-facing head, G middle atX98.",
+    "Fit one BUS plug without force. Dry-fit entire cable before any cut: nominal D170/G300 are independent core trim bounds, NOT two cables and NOT usable-length measurements.",
+    "Remove far plug only after confirming adequate delivered G length. Mark D/G, strip11mm or delivered221-415 marking, one untinned Cu strand per port; verify actual copper .14..4mm2. If not compatible do not insert.",
+    "Connect D_FL.1 and G2.4, then tension open-seat straps gently against insulation, with slack at plug and bare ends. The shared G2 strap supports W061 and BUS G without pulling either clamp.",
+    "Retain R52 bank assembly/removal order. For BUS removal disconnect D/G and H3 with power absent, support cable, cut three BUS straps and shared W061 strap before lifting its bracket; renew only affected roles."
+  ],
+  "phase2_conditions": [
+    "Delivered factory copper area, connector revision, usable G length and lead exit remain unmeasured. If G is shorter than needed revise route/material before assembly, never stretch it.",
+    "OD2mm/R10/plugprojection8mm are replaceable prototype assumptions. Confirm grip fit, actual bend limits, pull relief and insulation damage.",
+    "Local nominal channel skin .8mm requires PETG/profile/strength review in phase2; no physical or full-final strictBOP PASS.",
+    "Verify D continuity, G continuity, absence of V and D/G short with devices unplugged before hardware power."
+  ],
+  "source_sha256": {
+    "tools/electronics/w5_bus_assembly_r1.py": "445b2354953e4b6f20de5ed6e1fb8646cd400916fe9b65d6110c317023609b84",
+    "tools/electronics/w5_bus_restraints_r3.py": "61588fa00b29f26dd43572486cf3b334a5d10baca19581c343c986d62e330d07",
+    "hardware/electronics/full-cat/w5-bus-native-grips-r4/checks.json": "09baeef19b570a52353a9093971455c03881449da86b14b022e68b8a11951189",
+    "hardware/cad/studies/w5-bus-native-grips-r4/BusStrapSlots.FCStd": "85003353485d1158a6f126cf7b63077b17addee186f03a1ea87e287ce5d81926",
+    "hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r22/checks.json": "5d074e69297c3311130d5d64369d354485e0f29411d4abbf33a72e14ef5b2f5f",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/checks.json": "67ce950e70a62e293926c26deae32b4b03de82ef72d89223539cc5f5be5b4f85",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/intent.json": "3871a33ecfc762259704e473a2433b9bdbc24c7c5a832cc94351f891cc59bfe7",
+    "hardware/electronics/power-platform/ADAPTER-PIGTAIL-P0.md": "09636eadacac495b9d40343d04db5b9384a264b5f70ae60fc6c867026fedc23e",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd"
+  },
+  "started_utc": "2026-10-04T03:48:40.220248+00:00",
+  "finished_utc": "2026-10-04T03:50:37.958398+00:00",
+  "worker_wall_seconds": 117.73815
+}

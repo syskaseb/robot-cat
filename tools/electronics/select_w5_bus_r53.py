@@ -98,7 +98,15 @@ def main():
     for row in selection['prints']:
         assert sha(ROOT / row['stl']) == row['sha256'], row['identity']
     for row in quantity['lines']:
-        if 'product_binding' in row:
+        if row.get('roles'):
+            # Consolidated SKU rows retain a representative binding for one
+            # role; the ordered total is the sum of all roles, not that sample.
+            assert row['planning_quantity'] == sum(r['planning_quantity'] for r in row['roles']), row['id']
+            for role in row['roles']:
+                if 'product_binding' in row:
+                    assert role['planning_quantity'] == role['product_binding']['planning_quantity'], role['id']
+                    assert role['product_binding']['supplier_sku'] == row['product_binding']['supplier_sku'], row['id']
+        elif 'product_binding' in row:
             assert row['planning_quantity'] == row['product_binding']['planning_quantity'], row['id']
     for name, obj in [('selection.json',selection), ('one-order-quantities.json',quantity),
                       ('fixed-fastener-cart.json',cart), ('nonfastener-catalog.json',catalog), ('body-route-status.json',body)]:
