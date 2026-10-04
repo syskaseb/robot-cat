@@ -6,24 +6,23 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 15:36:23 Warszawy: R53 wybrany, 14/20=70%, +0pp.
-EscapeR1 ukończony/ODRZUCONY:36tras/716par/196kontaktów/0błędów,
-1255,094721s procesu. OutwardR1 przerwany po potwierdzonym kontakcie P0:
-4trasy/112par/23kontakty,420,796875sCPU; zapis execution-observation.
-OutwardR2 ukończony/ODRZUCONY:36tras/957par/147kontaktów/0błędów,
-1131,884315s procesu; P0 bez kontaktów, lecz DATA/MTA/źródło/PETG kolidują.
-NOW joint-source-layout-r1: pionowe R10 pętle/1mm nominalnego wyjścia,
-unoszenie przed poprzecznym przelotem; W064 do wolnej fizycznej klatki4
-tego samego P_FRONT, bez zmiany sieci i obu przyłączy MTA. W064 nowy przelot
-i podparcie Carrier nadal OPEN. Worker session16375; odbierz, nie duplikuj.
-Four-ground-returns-plan-r1:4właściwe sieci/R21/styczne, W061 bez zmian;
-to wyłącznie plan, NIE pasowanie/odciążenia/stock.96testów przechodzi;
-89receipts/1308hashpins bez rozbieżności. Źródło/cage-access i W1XA05 nadal
-OPEN; odziedziczone lokalne wyniki są w receiptach i commicie01a9fb6.
-Zmierzony odcinek12:48:08Z→13:36:23Z=48min15s ścienne, nie sumaCPU.
-Limit40%zużyty/60%pozostałe. Hookenabled do całego W5, bez deadline/schedule.
-NEXT wynik wspólnej rodziny nóg/źródła, natywne gripy/ruch/4returns,
-source service i W1XA05. Do80% wymagane W5 ORAZ przywrócenie W1.
+Bieżące W5, 04.10 16:06:37 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Joint-source-layout-r1 odebrany:36tras/936par/153kontaktów/0błędów,
+1251,269814s procesu, ODRZUCONY. Nie ponawiać tej rodziny ani poprzednich
+escape/down/outward geometrii. W064 ma640mm nominalnego blanku;
+zmiana klatki nadal wymaga Cover/XA02 i wspólnej wiązki, nie jest wyborem.
+Joint-source-carrier-native-r1 ukończony LOKALNIE:109par/0kontaktów/0błędów,
+nowy przelot/podejście i chwytW064, pozostałe3chwyty/windows zachowane,
+bez zdublowanego starego chwytu.1zamienna tacka230×148×31mm,+0śrub;
+1solid/BOP0/parametr/zamkniętySTL/przeniesione reopen,264,971377s procesu.
+NEXT odbierz four-ground-returns-check-r1 session66580/PID15008 (start
+14:05:48Z).4właściwe sieci/R21, W061 bez zmian; CAD/kontakty pending,
+gripy/montaż/stock OPEN. Nie duplikować. Następnie wspólny układ pozostałej
+wiązki z uwzględnieniem faktycznych kontaktów,source service i W1XA05.
+97testów/91receipts/1326hashpins bez rozbieżności. Do80% wymagane W5 i W1.
+Zmierzony odcinek13:41:15Z→14:06:37Z=25min22s ścienne, nie sumaCPU.
+Limit40%zużyty/60%pozostałe. Hookenabled do wyniku,bez deadline/schedule;
+źródło/rodzina nóg nadal NIE WYBRANE, brak fizycznegoPASS.
 
 Poprzedni W5, 04.10 13:42:56 Warszawy: zdejmowana ochrona źródła ukończona
 LOKALNIE, w5-source-roof-native-r5/checks.json:390par/0kontaktów/0błędów,
