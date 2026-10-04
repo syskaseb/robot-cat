@@ -6,23 +6,22 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 12:28:38 Warszawy: pięć pełnych tras sourceR8 odebranych
-z trzema natywnymi zamiennikami Carrier/BankLeft/Cover jest STATYCZNIE
-BEZKONTAKTOWE. Proof: w5-source-received-interface-r1/checks.json.
-R8:127par, ostatnie10PETG kontaktów usunięte dokładnymi przelotami;
-zero kontaktów kupnych/P0/wzajemnych, nie powtarzano starych par.
-Carrier62,784176s, Bank59,572399s/4par0hits, Cover132,455319s/33par0hits;
-każdy1solid/BOP0/zamkniętySTL/parametr/przeniesione reopen. Bank otwarty
-na krawędźY90 zachowuje mounty, Cover zachowuje cały dół poniżejZ125.
-R7 odrzucony (RL2/W064), nie ponawiać. 2390mm4S1+40mmXA01 kandydat,
-1zamiennyCarrier+1zamiennyBank+1zamiennaCover,0dodatkowych części/śrub.
-Brak wyboru: NEXT pełny wspólny układ gripów/odciążeń źródła i rzeczywista
-ochrona powyżej Cover, potem montaż-demontaż/stock. Samo wycięcie NIE
-osłania zewnętrznych kolumn doZ215,2. R53 pozostaje wybrany. Żaden worker
-nie trwa; nie powtarzać sourceR8 ani ukończonych przelotów.
-66testów/73receipts/1144pinów zgodne. Ta kontynuacja09:22:49Z→10:28:38Z
-=65min49s ścienne, nie suma CPU. Limit36%zużyty/64%pozostałe, hookenabled.
-14/20=70%,+0pp. W1XA05access oraz W5 nadal otwarte; brak fizycznegoPASS.
+Bieżące W5, 04.10: cztery integralne gripy źródła i dopasowane przejścia
+Cover ukończone lokalnie: w5-source-grips-native-r2/checks.json,100par/0hit/
+0error,1solid/BOP0/parametry/2zamknięteSTL/przeniesione reopen. Zamienny
+Carrier230×148×31mm i Cover,0dodatkowych wydruków/śrub,4opaski+4serwisowe.
+R1 odrzucony7kontaktów; R2 odebrany ze ZAPISANEGO modelu po NameError,
+320,279670s udanego procesu odbioru, nie całego etapu. Nie ponawiać R1.
+source-material-contribution-r1/stock.json:3910mmHELU23802, kandydat5m
+z791mm jawnego zapasu; stare920mm ZASTĄPIONE, nie dodane. E3 ma nowe
+wejścia długości1320mmFRONT/1070mmREAR, nie odziedziczoną kwalifikację.
+R53 nadal wybrany; sourceR8/BankPassageR1/PlatformR4 zachowane. NEXT:
+rzeczywista zdejmowana ochrona nadCover dla źródła, wspólny montaż-demontaż
+i jeden wybór; same przeloty/gripy NIE osłaniają kolumn doZ215,2.
+Potem odrzucone fanouty nógR5/pozostałeW5/XA05access.73testy/76receipts/
+1167pinów zgodne.14/20=70%,+0pp; bez fizycznegoPASS. Hookenabled do całegoW5.
+Zmierzony odcinek tej kontynuacji10:32:13Z→10:59:20Z=27min7s ścienne,
+nie suma CPU ani czas nieprzerwanej pracy przez całą noc. Limit37%zużyty/63%pozostałe.
 
 Poprzedni lokalny wynik 04.10 12:10 Warszawy: cztery natywne pełne przeloty Carrier
 ukończone lokalnie, parametr0,7→0,8→0,7mm/1solid/BOP0/zamkniętySTL/
