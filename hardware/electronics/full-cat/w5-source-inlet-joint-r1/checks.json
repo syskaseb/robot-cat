@@ -1,0 +1,218 @@
+{
+  "status": "SOURCE_INLET_PAIR_REJECTED",
+  "W043": {
+    "wire": "W043",
+    "a": "F_PI.in",
+    "b": "P_SYS.2",
+    "edges": [
+      {
+        "kind": "line",
+        "start": [
+          -73,
+          -21,
+          115
+        ],
+        "end": [
+          -75.5,
+          -21,
+          115
+        ],
+        "length_mm": 2.5
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -75.5,
+          -21,
+          115
+        ],
+        "mid": [
+          -79.74264068711929,
+          -21.0,
+          116.75735931288071
+        ],
+        "end": [
+          -81.5,
+          -21.0,
+          121.0
+        ],
+        "radius_mm": 6,
+        "angle_rad": 1.5707963267948966,
+        "length_mm": 9.42477796076938
+      },
+      {
+        "kind": "line",
+        "start": [
+          -81.5,
+          -21.0,
+          121.0
+        ],
+        "end": [
+          -81.5,
+          -21,
+          129.5
+        ],
+        "length_mm": 8.5
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -81.5,
+          -21,
+          129.5
+        ],
+        "mid": [
+          -81.5,
+          -19.242640687119284,
+          133.7426406871193
+        ],
+        "end": [
+          -81.5,
+          -15.0,
+          135.5
+        ],
+        "radius_mm": 6,
+        "angle_rad": 1.5707963267948966,
+        "length_mm": 9.42477796076938
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -81.5,
+          -15.0,
+          135.5
+        ],
+        "mid": [
+          -80.83853912601566,
+          -12.261387212474169,
+          135.5
+        ],
+        "end": [
+          -79.0,
+          -10.126602827595518,
+          135.5
+        ],
+        "radius_mm": 6,
+        "angle_rad": 0.9479697413828938,
+        "length_mm": 5.687818448297363
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -79.0,
+          -10.126602827595518,
+          135.5
+        ],
+        "mid": [
+          -77.16146087398434,
+          -7.991818442716866,
+          135.5
+        ],
+        "end": [
+          -76.5,
+          -5.253205655191035,
+          135.5
+        ],
+        "radius_mm": 6,
+        "angle_rad": 0.9479697413828938,
+        "length_mm": 5.687818448297363
+      },
+      {
+        "kind": "line",
+        "start": [
+          -76.5,
+          -5.253205655191035,
+          135.5
+        ],
+        "end": [
+          -76.5,
+          7,
+          135.5
+        ],
+        "length_mm": 12.253205655191035
+      }
+    ],
+    "start": [
+      -73,
+      -21,
+      115
+    ],
+    "end": [
+      -76.5,
+      7,
+      135.5
+    ],
+    "OD_mm": 3.4,
+    "minimum_static_radius_mm": 6,
+    "exposed_path_mm": 53.47839847332452,
+    "nominal_trial_blank_mm": 80,
+    "factory_minimum_mm": 84.5,
+    "strip_allowance_mm": 14,
+    "trial_reserve_mm": 10,
+    "actual_cut_mm": null,
+    "prototype_assumptions": [
+      "FHAC0001ZXJ end-face lead direction -X; compare the exact delivered holder before cutting.",
+      "OD3.4/R6 inherited project allowances, not measured supplier tolerances."
+    ],
+    "selected": false,
+    "physical_pass": false
+  },
+  "W066_reused_from": "hardware/electronics/full-cat/w5-s1-source-check-r3/checks.json",
+  "hits": [
+    {
+      "edge": 3,
+      "owner": "jointSource/W066",
+      "mm3": 8.096422296782409,
+      "bounds_mm": [
+        -86.85940182335437,
+        -22.447306763829985,
+        131.43045574920743,
+        -81.5,
+        -14.535152907203809,
+        137.83441994225143
+      ]
+    },
+    {
+      "edge": 4,
+      "owner": "jointSource/W066",
+      "mm3": 5.972582538456913,
+      "bounds_mm": [
+        -86.13291112270404,
+        -15.431485880445765,
+        133.18626026326749,
+        -80.4870703346514,
+        -10.366013903815858,
+        137.565968809052
+      ]
+    }
+  ],
+  "errors": [],
+  "pairs": 28,
+  "reused_scope": "Only received W066/P_SYS body clear pairs; four S1 routes and their rings remain rejected, not selected.",
+  "native_supports_ready": false,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep": "8cdc89370c4fd80af9ee419dbe6b109bc1800450e72839e5e75bf6c52b52aa21",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/intent.json": "3871a33ecfc762259704e473a2433b9bdbc24c7c5a832cc94351f891cc59bfe7",
+    "hardware/cad/studies/pi-complete-native-r2/Carrier_x1.stl": "ea73e4896f613a48d18db5d31cfa9c3341283703691e2e3a67496f5fd5a72855",
+    "tools/electronics/w5_r53_owners.py": "d275bbe32d6637bf57fb9ebf0c242c72227b9162a97a3d3579f151788aeb8579",
+    "tools/electronics/w5_selected_owners_r52.py": "976498794dffefe4330243cb4d3fc161dcf74eb2b792b07546ef21f4bbdfc03d",
+    "tools/electronics/w5_bus_restraints_r3.py": "61588fa00b29f26dd43572486cf3b334a5d10baca19581c343c986d62e330d07",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd",
+    "tools/electronics/w5_source_inlet_joint_r1.py": "48aac8b35260cf2ba11030e9d3cd82b715283d0be042559c51f17dd3f1215418",
+    "hardware/electronics/full-cat/w5-s1-source-check-r3/checks.json": "7f21afc3d30769a3e90b1815ac8c264cfbb1ce0210f80c044362294740e12fc2",
+    "tools/electronics/w5_s1_source_layout_r2.py": "004c68c147c6c5f040277f6823097832bc61bf473270362a94267490b5fc6a11",
+    "tools/electronics/w5_s1_source_layout_r1.py": "a0a8288501895a98f342aa4916a3c19bed24258973b1b13052a18e7c1b295fbf"
+  },
+  "files": {
+    "hardware/electronics/full-cat/w5-source-inlet-joint-r1/W043_WORLD.brep": "02a56bf3549435548b233e0637ab243784296941bec96a9899373dffa55f1ad0",
+    "hardware/electronics/full-cat/w5-source-inlet-joint-r1/W043_CENTERLINE.brep": "2b51518b51b33eb2024877eb40ba5508dc6b1267d17f2e1056641003ff57c5f0"
+  },
+  "started_utc": "2026-10-04T08:29:58.730034+00:00",
+  "finished_utc": "2026-10-04T08:31:00.140179+00:00",
+  "worker_wall_seconds": 61.410145
+}

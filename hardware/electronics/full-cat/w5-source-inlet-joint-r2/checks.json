@@ -1,0 +1,194 @@
+{
+  "status": "SOURCE_INLET_PAIR_STATIC_CLEAR_SUPPORTS_OPEN",
+  "W043": {
+    "wire": "W043",
+    "a": "F_PI.in",
+    "b": "P_SYS.2",
+    "edges": [
+      {
+        "kind": "line",
+        "start": [
+          -73,
+          -21,
+          115
+        ],
+        "end": [
+          -73.5,
+          -21,
+          115
+        ],
+        "length_mm": 0.5
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -73.5,
+          -21,
+          115
+        ],
+        "mid": [
+          -77.74264068711929,
+          -21.0,
+          116.75735931288071
+        ],
+        "end": [
+          -79.5,
+          -21.0,
+          121.0
+        ],
+        "radius_mm": 6,
+        "angle_rad": 1.5707963267948966,
+        "length_mm": 9.42477796076938
+      },
+      {
+        "kind": "line",
+        "start": [
+          -79.5,
+          -21.0,
+          121.0
+        ],
+        "end": [
+          -79.5,
+          -21,
+          129.5
+        ],
+        "length_mm": 8.5
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -79.5,
+          -21,
+          129.5
+        ],
+        "mid": [
+          -79.5,
+          -19.242640687119284,
+          133.7426406871193
+        ],
+        "end": [
+          -79.5,
+          -15.0,
+          135.5
+        ],
+        "radius_mm": 6,
+        "angle_rad": 1.5707963267948966,
+        "length_mm": 9.42477796076938
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -79.5,
+          -15.0,
+          135.5
+        ],
+        "mid": [
+          -79.1124860801609,
+          -12.878679656440358,
+          135.5
+        ],
+        "end": [
+          -78.0,
+          -11.031373033403113,
+          135.5
+        ],
+        "radius_mm": 6,
+        "angle_rad": 0.7227342478134157,
+        "length_mm": 4.336405486880494
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -78.0,
+          -11.031373033403113,
+          135.5
+        ],
+        "mid": [
+          -76.8875139198391,
+          -9.184066410365869,
+          135.5
+        ],
+        "end": [
+          -76.5,
+          -7.062746066806227,
+          135.5
+        ],
+        "radius_mm": 6,
+        "angle_rad": 0.7227342478134157,
+        "length_mm": 4.336405486880494
+      },
+      {
+        "kind": "line",
+        "start": [
+          -76.5,
+          -7.062746066806227,
+          135.5
+        ],
+        "end": [
+          -76.5,
+          7,
+          135.5
+        ],
+        "length_mm": 14.062746066806227
+      }
+    ],
+    "start": [
+      -73,
+      -21,
+      115
+    ],
+    "end": [
+      -76.5,
+      7,
+      135.5
+    ],
+    "OD_mm": 3.4,
+    "minimum_static_radius_mm": 6,
+    "exposed_path_mm": 50.585112962105974,
+    "nominal_trial_blank_mm": 80,
+    "factory_minimum_mm": 84.5,
+    "strip_allowance_mm": 14,
+    "trial_reserve_mm": 10,
+    "actual_cut_mm": null,
+    "prototype_assumptions": [
+      "FHAC0001ZXJ end-face lead direction -X; compare the exact delivered holder before cutting.",
+      "OD3.4/R6 inherited project allowances, not measured supplier tolerances."
+    ],
+    "selected": false,
+    "physical_pass": false
+  },
+  "W066_reused_from": "hardware/electronics/full-cat/w5-s1-source-check-r3/checks.json",
+  "hits": [],
+  "errors": [],
+  "pairs": 27,
+  "reused_scope": "Only received W066/P_SYS body clear pairs; four S1 routes and their rings remain rejected, not selected.",
+  "native_supports_ready": false,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep": "8cdc89370c4fd80af9ee419dbe6b109bc1800450e72839e5e75bf6c52b52aa21",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/intent.json": "3871a33ecfc762259704e473a2433b9bdbc24c7c5a832cc94351f891cc59bfe7",
+    "hardware/cad/studies/pi-complete-native-r2/Carrier_x1.stl": "ea73e4896f613a48d18db5d31cfa9c3341283703691e2e3a67496f5fd5a72855",
+    "tools/electronics/w5_r53_owners.py": "d275bbe32d6637bf57fb9ebf0c242c72227b9162a97a3d3579f151788aeb8579",
+    "tools/electronics/w5_selected_owners_r52.py": "976498794dffefe4330243cb4d3fc161dcf74eb2b792b07546ef21f4bbdfc03d",
+    "tools/electronics/w5_bus_restraints_r3.py": "61588fa00b29f26dd43572486cf3b334a5d10baca19581c343c986d62e330d07",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd",
+    "tools/electronics/w5_source_inlet_joint_r1.py": "48aac8b35260cf2ba11030e9d3cd82b715283d0be042559c51f17dd3f1215418",
+    "hardware/electronics/full-cat/w5-s1-source-check-r3/checks.json": "7f21afc3d30769a3e90b1815ac8c264cfbb1ce0210f80c044362294740e12fc2",
+    "tools/electronics/w5_s1_source_layout_r2.py": "004c68c147c6c5f040277f6823097832bc61bf473270362a94267490b5fc6a11",
+    "tools/electronics/w5_s1_source_layout_r1.py": "a0a8288501895a98f342aa4916a3c19bed24258973b1b13052a18e7c1b295fbf",
+    "tools/electronics/w5_source_inlet_joint_r2.py": "d384e769030a5728df4613eaa42141d3dd174e4174dcad483d2d155a77684d1a",
+    "hardware/electronics/full-cat/w5-source-inlet-joint-r1/checks.json": "440713e8b4a21a153cae19dfadcafb32f0c1c938a28f2e474dd41d47023ea796"
+  },
+  "files": {
+    "hardware/electronics/full-cat/w5-source-inlet-joint-r2/W043_WORLD.brep": "e5d42dc40aa3c1b2e88ade346a6bc1ff92a6eb4233d04088cd0f36716e8b087c",
+    "hardware/electronics/full-cat/w5-source-inlet-joint-r2/W043_CENTERLINE.brep": "99e00b2826194c443dd6c968ad35c4f80b2e99a2220ff4d76f259bbb9fa9cac4"
+  },
+  "started_utc": "2026-10-04T08:36:39.002473+00:00",
+  "finished_utc": "2026-10-04T08:37:39.790863+00:00",
+  "worker_wall_seconds": 60.78839,
+  "changed_interface": "W043 riser/upper bend east of the received W066 crossing; no terminal relocation or extension."
+}

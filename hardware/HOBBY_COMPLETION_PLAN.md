@@ -5,6 +5,17 @@
 Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
+
+Bieżące W5, 04.10 10:39 Warszawy: źródłowy układ R3 odebrany,
+209 par/51 kontaktów/0 błędów, 241,131 s procesu. P_SYS i W066 są
+statycznie bezkontaktowe; cztery trasy S1 odrzucone, nie wybierać ich stocku.
+F_PI inlet R1 odrzucony tylko na dwóch kontaktach z W066 (61,410 s).
+R2 rozdziela oba wejścia bez zmiany zacisków i bez przedłużenia fabrycznego
+przewodu: 27 par/0 kontaktów/0 błędów, 60,788 s. Nominalnie 80 mm przy
+minimum dostawcy 84,5 mm; OD i promień nadal założeniami prototypu.
+49 testów, 53 receipts/1006 przypięć zgodne. Dalej wspólna retencja P_SYS,
+odciążenia obu wejść i cztery pełne trasy S1. R53 pozostaje wybrany;
+XA05 access nadal otwarte, W1 nie przywrócono. 70%, zmiana 0 pp.
 Nie zaliczać częściowo wykonanego rezultatu, kolejnych testów ani wariantów.
 Nie zmieniać mianownika bez jawnej zmiany zakresu przez użytkownika.
 Wykazany konflikt unieważniający rezultat odbiera jego punkty.
