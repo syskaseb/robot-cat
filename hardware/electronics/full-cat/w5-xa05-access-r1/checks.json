@@ -1,0 +1,117 @@
+{
+  "status": "XA05_LOCAL_ASSEMBLY_ACCESS_REJECTED",
+  "hits": [
+    {
+      "action": "G_AUX.1_continuous_lever_allowance",
+      "owner": "RRSource/W052_Sleeve_DESIGN",
+      "mm3": 32.51808942218311,
+      "bounds_mm": [
+        110.40068520134402,
+        -59.5,
+        129.6,
+        116.52363583496572,
+        -54.5,
+        131.2
+      ]
+    },
+    {
+      "action": "G_AUX.1_continuous_lever_allowance",
+      "owner": "NativeDeck",
+      "mm3": 94.51131980563605,
+      "bounds_mm": [
+        112.51219587405599,
+        -59.5,
+        126.1,
+        117.71219587405601,
+        -54.5,
+        130.95638784538292
+      ]
+    },
+    {
+      "action": "G_AUX.1_continuous_lever_allowance",
+      "owner": "XA05",
+      "mm3": 0.10688613266709004,
+      "bounds_mm": [
+        99.77129091474066,
+        -60.08486946324385,
+        116.86485596534142,
+        101.3460118460355,
+        -58.10865867491996,
+        117.70336603460926
+      ]
+    },
+    {
+      "action": "G_AUX.1_above_lever_approach",
+      "owner": "RRSource/W052_factory_DESIGN",
+      "mm3": 49.003658017582,
+      "bounds_mm": [
+        110.71219587405628,
+        -59.99248607532825,
+        131.59372977055534,
+        113.5,
+        -54.00751392467174,
+        136.60639684076227
+      ]
+    },
+    {
+      "action": "G_AUX.1_above_lever_approach",
+      "owner": "RRSource/W052_Sleeve_DESIGN",
+      "mm3": 96.56110251825902,
+      "bounds_mm": [
+        108.71219587405628,
+        -60.003334382621965,
+        131.2,
+        113.5,
+        -53.996710906779555,
+        138.0
+      ]
+    }
+  ],
+  "errors": [],
+  "pairs": 13,
+  "assumptions": {
+    "pivot_inside_mouth_mm": 4,
+    "pivot_z_mm": 117.2,
+    "radius_mm": 14,
+    "width_mm": 5,
+    "angle_deg": 110,
+    "finger_diameter_mm": 6,
+    "finger_approach_top_z_mm": 138,
+    "basis": "Project allowance from existing WAGO family installation direction; no measured hinge or finger qualification"
+  },
+  "omitted_for_documented_assembly_phase": [
+    "hardware/cad/studies/pi-complete-native-r2/Carrier_WORLD.brep",
+    "Cover"
+  ],
+  "not_an_installed_obstacle_waiver": true,
+  "inherited_other_scope": "Only changed XA05 terminal actions; not qualification of all Carrier removal/wholeW5.",
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/cad/studies/w5-bus-native-grips-r4/Deck_WORLD.brep": "8cdc89370c4fd80af9ee419dbe6b109bc1800450e72839e5e75bf6c52b52aa21",
+    "hardware/electronics/full-cat/w5-bus-pair-r52-r4/intent.json": "3871a33ecfc762259704e473a2433b9bdbc24c7c5a832cc94351f891cc59bfe7",
+    "hardware/cad/studies/pi-complete-native-r2/Carrier_x1.stl": "ea73e4896f613a48d18db5d31cfa9c3341283703691e2e3a67496f5fd5a72855",
+    "tools/electronics/w5_r53_owners.py": "d275bbe32d6637bf57fb9ebf0c242c72227b9162a97a3d3579f151788aeb8579",
+    "tools/electronics/w5_selected_owners_r52.py": "976498794dffefe4330243cb4d3fc161dcf74eb2b792b07546ef21f4bbdfc03d",
+    "tools/electronics/w5_bus_restraints_r3.py": "61588fa00b29f26dd43572486cf3b334a5d10baca19581c343c986d62e330d07",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd",
+    "hardware/electronics/full-cat/w5-xa05-native-r2/checks.json": "d585f066ef67836b94832fbe54d81386d455f41bbd183a8929c43a05b2450b30",
+    "tools/electronics/w5_xa05_access_r1.py": "9a34cd3d044ac2c868c5d8912a8ac3eb606ab36f6d92e5823cc1284c1b73970c",
+    "hardware/electronics/full-cat/w5-xa05-outer-support-r5/checks.json": "cbcba7bce0a5cce57f0c1b888463fe5055f9a5e885c131718360c52390adcffa",
+    "hardware/manufacturing/one-batch-prototype-r20/fixed-aux-interface.json": "5ba43d94f85b19275a9e9e0a39e1f0d140351fc8ce9d6c0d5c93a52359746757"
+  },
+  "files": {
+    "hardware/electronics/full-cat/w5-xa05-access-r1/P0G2_5_LEVER_ALLOWANCE.brep": "ed23745760866bcf9a932a7907b4d1e222a2d404b79501ded24fecda42101a31",
+    "hardware/electronics/full-cat/w5-xa05-access-r1/P0G2_5_FINGER_ALLOWANCE.brep": "a25e82e7d3f4aa4b2ecddcb0512d2b66738d10e4ced835a4cbb97261a9ebfb51",
+    "hardware/electronics/full-cat/w5-xa05-access-r1/G_AUX_1_LEVER_ALLOWANCE.brep": "8c569aee4e383acf4b00386a8a5d87ef091f8be11b114d502bde48bc2d75b80a",
+    "hardware/electronics/full-cat/w5-xa05-access-r1/G_AUX_1_FINGER_ALLOWANCE.brep": "e80a0f83d71bab5da101dc00e835c4958565cfde139526874c752e9f1c48ea92",
+    "hardware/electronics/full-cat/w5-xa05-access-r1/interface.json": "2cb546b1f2933843fe61c6dbbde3ac6f728575c0efb8e2d8f7fa876ef68d8ea2"
+  },
+  "selected": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "started_utc": "2026-10-04T08:04:59.583196+00:00",
+  "finished_utc": "2026-10-04T08:06:06.972031+00:00",
+  "worker_wall_seconds": 67.388835
+}

@@ -1,0 +1,59 @@
+{
+  "endpoints": [
+    "P0G2.5",
+    "G_AUX.1"
+  ],
+  "net": "power ground, never Pi signal-only return",
+  "continuous_wire": "HELU23501 black1mm2 OD2.5,Rfixed15",
+  "centreline_mm": 227.345310129943,
+  "nominal_trial_blank_mm": 310,
+  "actual_cut_mm": null,
+  "strip_mm_each": 11,
+  "supports": [
+    {
+      "name": "OuterTie",
+      "role": "G2-side insulation retention",
+      "centre_mm": [
+        153,
+        -14,
+        121
+      ]
+    },
+    {
+      "name": "InnerTie",
+      "role": "G_AUX-side insulation retention",
+      "centre_mm": [
+        134,
+        -33,
+        121
+      ]
+    }
+  ],
+  "historical_XA05_ties_superseded": 3,
+  "new_XA05_installed_ties": 2,
+  "net_installed_tie_change": -1,
+  "no_separate_unmodelled_endpoint_ties": true,
+  "assembly": [
+    "Disconnect battery/USB; assemble on bare Deck before upper Carrier/Cover.",
+    "Bolt separate outrigger on Deck:2M3x12,2M3nuts,4washers; nominal stack/clearance proved by native receipt.",
+    "Thread twoT18I through the actual native tunnels. Leave loose during fit.",
+    "Open only P0G2.5 andG_AUX.1. Dry-fit310mm continuous black blank and mark final ends; do not stuff82mm reserve into this route.",
+    "Final cut after delivery trial. Strip11mm per end, fully seat both ends, close levers, then retain insulation with OuterTie/InnerTie.",
+    "Fit upper Carrier and Cover only after all lower fixed connections; wiring of other circuits remainsW5."
+  ],
+  "disassembly": [
+    "Disconnect battery andUSB. Remove Cover, then the upper Carrier assembly by its existing procedure before terminal access.",
+    "Support XA05, cut/release both insulation straps without nicking the wire, open the same two levers and withdraw the ends.",
+    "If delivering an upper assembly cannot be removed as prescribed, keep this service claim open; no pull-through under installed Pi."
+  ],
+  "phase2": [
+    "Actual WAGO mouth/lever, usable blank, tie gripping pressure and printed rail stiffness.",
+    "Unpowered tug, insulation clearance and continuity; no energizing beforeE3 and fullassembly checks."
+  ],
+  "actual_lever_measurements_verified": false,
+  "in_situ_under_Carrier_access_claimed": false,
+  "selected": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false
+}
