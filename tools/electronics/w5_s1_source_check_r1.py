@@ -69,10 +69,12 @@ def main():
     # a rejected candidate never supersedes selected R53 objects in this proof.
     leg_folder=ROOT/'hardware/electronics/full-cat/w5-leg-fanouts-r4'
     leg_file=leg_folder/'checks.json';leg=json.loads(leg_file.read_text(encoding='utf-8'))
-    assert len(leg['routes'])==36 and not leg['errors']
+    assert len(leg['routes'])==36
     assert all(sha(ROOT/k)==v for k,v in {**leg['source_sha256'],**leg['files']}.items())
     neighbours={}
-    for r,s in zip(leg['routes'],Part.read(str(leg_folder/'FANOUTS_WORLD.brep')).childShapes()):neighbours[r['wire']]=s
+    leg_shapes=Part.read(str(leg_folder/'FANOUTS_WORLD.brep')).childShapes()
+    assert len(leg_shapes)==36 and all(s.isValid() for s in leg_shapes)
+    for r,s in zip(leg['routes'],leg_shapes):neighbours[r['wire']]=s
     for name,s in zip(leg['changed_mounts'],Part.read(str(leg_folder/'RELOCATED_OWNERS_WORLD.brep')).childShapes()):neighbours[name]=s
     for row,s in zip(intent['routes'],geometries):
         for key,t in neighbours.items():check(row['wire'],s,'legR4/'+key,t,'UNSELECTED_leg_R4')
@@ -84,7 +86,7 @@ def main():
     pins=owner_pins+[source,selected_file,deck,bus_file,leg_file,leg_folder/'FANOUTS_WORLD.brep',leg_folder/'RELOCATED_OWNERS_WORLD.brep',Path(__file__),
           ROOT/'hardware/electronics/full-cat/w5-installed-r52/owners.json',ROOT/'hardware/electronics/full-cat/w5-installed-r52/installed.brep']
     save(OUT/'checks.json',dict(status='SOURCE_ROUTES_REJECTED' if fixed or errors else 'SOURCE_STATIC_ROUTES_ONLY_RESTRAINTS_OPEN',
-        hits=hits,errors=errors,pairs=pairs,leg_candidate_status=leg['status'],
+        hits=hits,errors=errors,pairs=pairs,leg_candidate_status=leg['status'],leg_candidate_errors=leg['errors'],
         omitted_retired_carrier_aliases=omitted,
         source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in pins},files={p.relative_to(ROOT).as_posix():sha(p) for p in files},
         nominal_trial_total_mm=intent['new_nominal_trial_total_mm'],native_supports_ready=False,
