@@ -6,7 +6,25 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 11:17:08 Warszawy: native source-platform R4 ukończony
+Bieżące W5, 04.10 12:10 Warszawy: cztery natywne pełne przeloty Carrier
+ukończone lokalnie, parametr0,7→0,8→0,7mm/1solid/BOP0/zamkniętySTL/
+przeniesione reopen zgodne; 62,784176s procesu. Jedna zamienna płyta
+230×148×12,55mm, nie dodatkowa część. TE130171 revL STEP odebrany:
+blaszka0,9779mm/wejście2,8067mm nad nią, nie fizyczny pomiar.
+R4/R5/R6 source odrzucone:41/24/15kontaktów,130,487465/173,912839/
+239,000436s procesów. R6:13PETG+2wzajemne przewody; XA01 jawnie
+objęty i bezkontaktowy. R7 rozdziela całe zejściaW067/W068, zachowuje
+pozostałe3trasy/5mouths/TEentries,2380mm4S1+40mmXA01 kandydat.
+Worker85410/PID20328 odbiera wspólny wynik z nowym Carrier, PENDING.
+Następnie wspólna osłona/bankrelief/gripy/montaż/stock, nie wybór półrodziny.
+NKK S821 CAD wymaga logowania; bez konta i zgadywania kieszeni.
+KOREKTA skrótu nóg: rzeczywisty R5 jest ODRZUCONY,742par/102kontakty,
+nie "bezkontaktowy". Najpierw wspólna korekta tych tras, dopiero gripy/ruch.
+14/20=70%,+0pp; hook włączony do pełnego W5, bez deadline/schedule/maila.
+Ta kontynuacja09:22:49Z→10:10:07Z=47min18s ścienne, nie suma CPU.
+64testy/67receipts/1117pinów zgodne; limit36%zużyty/64%pozostałe.
+
+Poprzedni lokalny wynik 04.10 11:17:08 Warszawy: native source-platform R4 ukończony
 lokalnie, 119 par/0 kontaktów/0 błędów, 750,0771 s procesu. Edytowalne
 P_SYS/oba inlet grips/C-frame/Deck, parametr/2 zamknięte STL/przeniesione
 reopen zgodne. Platform52,2×45×26,3mm, Deck249,5×209×77,941mm;
