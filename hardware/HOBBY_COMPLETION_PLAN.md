@@ -6,7 +6,7 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 16:06:37 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 04.10 16:17:05 Warszawy: R53 wybrany,14/20=70%,+0pp.
 Joint-source-layout-r1 odebrany:36tras/936par/153kontaktów/0błędów,
 1251,269814s procesu, ODRZUCONY. Nie ponawiać tej rodziny ani poprzednich
 escape/down/outward geometrii. W064 ma640mm nominalnego blanku;
@@ -15,13 +15,21 @@ Joint-source-carrier-native-r1 ukończony LOKALNIE:109par/0kontaktów/0błędów
 nowy przelot/podejście i chwytW064, pozostałe3chwyty/windows zachowane,
 bez zdublowanego starego chwytu.1zamienna tacka230×148×31mm,+0śrub;
 1solid/BOP0/parametr/zamkniętySTL/przeniesione reopen,264,971377s procesu.
-NEXT odbierz four-ground-returns-check-r1 session66580/PID15008 (start
-14:05:48Z).4właściwe sieci/R21, W061 bez zmian; CAD/kontakty pending,
-gripy/montaż/stock OPEN. Nie duplikować. Następnie wspólny układ pozostałej
-wiązki z uwzględnieniem faktycznych kontaktów,source service i W1XA05.
-97testów/91receipts/1326hashpins bez rozbieżności. Do80% wymagane W5 i W1.
-Zmierzony odcinek13:41:15Z→14:06:37Z=25min22s ścienne, nie sumaCPU.
-Limit40%zużyty/60%pozostałe. Hookenabled do wyniku,bez deadline/schedule;
+Four-ground-returns-check-r1 odebrany:4trasy/R21/337par/83kontakty/0błędów,
+388,994822s procesu, ODRZUCONY. Zderzenia obejmują G1/RL_G, kupny F_PI/ATO,
+Pi XL01/XL07, grube źródła i prowizoryczne fanouty; nie tylko PETG.
+Nominalne blanki610/740/580/670mm są odrzuconym kandydatem, NIE stockiem.
+Żaden worker nie trwa. NEXT jeden wspólny układ bloków masy i WSZYSTKICH
+przyłączonych końców, zamiast dalszych podmian samych łuków: najpierw
+sprawdź kupne korpusy/podparcia w nowym układzie, potem wspólne wyjścia,
+trasy i gripy (W001/W061/XA05/XA06 i4powroty/12G; D/pozostałe źródła
+uwzględnić jako rzeczywiste przeszkody). Zachowaj sieci, P0 i promienie
+z otrzymanych danych. Dopasowanie obudowy dozwolone; nie traktuj zmian
+bloków jako ukończonego interfejsu zanim wszystkie jego przewody i mocowania
+nie zostaną uzgodnione. Source service/W1XA05 nadalOPEN.
+97testów przechodzi. Do80% wymagane W5 i W1; R53 pozostaje bez zmian.
+Zmierzony odcinek13:41:15Z→14:17:05Z=35min50s ścienne, nie sumaCPU.
+Limit41%zużyty/59%pozostałe. Hookenabled do wyniku,bez deadline/schedule;
 źródło/rodzina nóg nadal NIE WYBRANE, brak fizycznegoPASS.
 
 Poprzedni W5, 04.10 13:42:56 Warszawy: zdejmowana ochrona źródła ukończona
