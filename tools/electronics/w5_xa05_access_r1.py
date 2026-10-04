@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'tools/electronics')]
 from servo_fuse_inputs_r1 import save,sha
 OUT=ROOT/'hardware/electronics/full-cat/w5-xa05-access-r1'
-FIT=ROOT/'hardware/electronics/full-cat/w5-xa05-native-r1/checks.json'
+FIT=ROOT/'hardware/electronics/full-cat/w5-xa05-native-r2/checks.json'
 
 
 def main():
@@ -27,7 +27,7 @@ def main():
     assert not (OUT/'checks.json').exists();OUT.mkdir(parents=True,exist_ok=True)
     owners,pins,omitted=installed(A,Part)
     owners.pop('CandidateDeck');owners.pop('hardware/electronics/full-cat/xa05-main-aux-return-r2/XA05_DESIGN.brep')
-    cad=ROOT/'hardware/cad/studies/w5-xa05-native-r1'
+    cad=ROOT/'hardware/cad/studies/w5-xa05-native-r2'
     for n in ('Deck','Outrigger'):
         owners['Native'+n]=Part.read(str(cad/(n+'_WORLD.brep')))
     raw=ROOT/'hardware/electronics/full-cat/w5-xa05-outer-support-r5'

@@ -21,7 +21,7 @@ def main():
     selection=read(parent+'/selection.json');quantity=read(parent+'/one-order-quantities.json')
     catalog=read(parent+'/nonfastener-catalog.json');cart=read(parent+'/fixed-fastener-cart.json')
     body=read(parent+'/body-route-status.json')
-    native_rel='hardware/electronics/full-cat/w5-xa05-native-r1/checks.json'
+    native_rel='hardware/electronics/full-cat/w5-xa05-native-r2/checks.json'
     access_rel='hardware/electronics/full-cat/w5-xa05-access-r1/checks.json'
     native=read(native_rel);access=read(access_rel)
     interface_rel='hardware/electronics/full-cat/w5-xa05-access-r1/interface.json';interface=read(interface_rel)
@@ -36,7 +36,7 @@ def main():
     assert interface['nominal_trial_blank_mm']==310 and interface['actual_cut_mm'] is None
     assert selection['local_fuse_bank_complete'] and selection['BUS_local_complete'] and not selection['W5_complete']
     assert not (OUT/'selection.json').exists();OUT.mkdir(parents=True,exist_ok=True)
-    cad='hardware/cad/studies/w5-xa05-native-r1'
+    cad='hardware/cad/studies/w5-xa05-native-r2'
     nativefile=cad+'/XA05JointSupports.FCStd'
     dests=[]
     for name in ('Deck','Outrigger'):
