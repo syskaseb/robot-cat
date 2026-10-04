@@ -1,0 +1,306 @@
+{
+  "status": "SOURCE_MATERIAL_CONTRIBUTION_CANDIDATE_WHOLE_SELECTION_OPEN",
+  "HELU23802": {
+    "unique_roles": {
+      "W026_extension": 100,
+      "W037_extension": 100,
+      "W042_extension": 380,
+      "W044_extension": 120,
+      "W045_extension": 170,
+      "W052_extension": 160,
+      "W053_extension": 160,
+      "W066": 330,
+      "W064": 620,
+      "W065": 480,
+      "W067": 700,
+      "W068": 590
+    },
+    "legacy920mm_removed_not_added": true,
+    "nominal_total_mm": 3910,
+    "prototype_retermination_allowance_mm": 400,
+    "prototype_fitting_allowance_mm": 391,
+    "total_with_allowance_mm": 4701,
+    "candidate_stock_m": 5,
+    "remaining_candidate_mm": 299,
+    "stock_reason": "4m leaves only90mm over nominal3910mm;5m accommodates declared prototype fitting/retermination budget.",
+    "selected": false,
+    "supplier_cut_length_or_price_not_refreshed": true
+  },
+  "HELU23502_XA01": {
+    "unique_role": "XA01",
+    "nominal_trial_blank_mm": 40,
+    "charge_existing_shared_stock_only": true,
+    "prefuse_internal_holder_length_unknown": true,
+    "must_not_claim_complete_prefuse_50mm_until_internal_path_received": true
+  },
+  "T18I145": {
+    "unique_roles": [
+      {
+        "role": "SourcePlatform_body_and_inlet",
+        "installed": 2,
+        "service_replacements": 2
+      },
+      {
+        "role": "Carrier_four_S1_insulation_grips",
+        "installed": 4,
+        "service_replacements": 4
+      }
+    ],
+    "installed": 6,
+    "one_service_replacement_allowance": 6,
+    "older_P_SYS_tie_retired": true,
+    "unchanged_W066_middle_tie_retained": true,
+    "shared_stock_quantity": 300,
+    "final_robot_census_open": true,
+    "rule": "Replace old inlet/S1 restraint roles at selection; do not add historic allowances to these12 loops."
+  },
+  "prints": {
+    "roles": [
+      {
+        "identity": "electronics:DeckP10-cover-mount",
+        "action": "replace",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-platform-native-r4",
+        "export": "Deck_UNSELECTED_x1.stl",
+        "native_file": "SourceInletPlatform.FCStd",
+        "native_final": "SourcePlatformDeckFinished",
+        "material": "PETG",
+        "stl_sha256": "a5e23e7c6bfe5a537f098208f17e57c14481d736263756ad7f02ce749027f5de",
+        "native_sha256": "29fd7f572ddc76d14a6b461684eeb890a1c888868cfa781ad72cf187c82c801a"
+      },
+      {
+        "identity": "electronics:Carrier service ports",
+        "action": "replace",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-grips-native-r2",
+        "export": "Carrier_UNSELECTED_x1.stl",
+        "native_file": "SourceCarrierInsulationGrips.FCStd",
+        "native_final": "SourceGripsFinished",
+        "material": "PETG",
+        "stl_sha256": "cdacd19f30a9911844529ca5ccfa6a4269f0f15128a31bde635d0c2a4e95f6f2",
+        "native_sha256": "b9c0d3673005afa7f70acfd0a7ff66f98df5d0ba66185268eac2d8cc17320009"
+      },
+      {
+        "identity": "electronics:servo-fuse-bank-left",
+        "action": "replace",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-bank-passage-native-r1",
+        "export": "BankLeft_UNSELECTED_x1.stl",
+        "native_file": "SourceBankEdgePassage.FCStd",
+        "native_final": "SourceBankLeftFinished",
+        "material": "PETG",
+        "stl_sha256": "05aa579b4fbccd8bda341ba7d134fb5d8dc694c001da0afd9293ea36ea6fa646",
+        "native_sha256": "b23460741200d59b5a3e0ae549c37a42782dc2f989f3a59d211d61f4ebc57dbc"
+      },
+      {
+        "identity": "body:raised-upper-cover-mount",
+        "action": "replace",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-roof-native-r5",
+        "export": "Cover_UNSELECTED_x1.stl",
+        "native_file": "SourceProtectiveHoods.FCStd",
+        "native_final": "SourceRoofCoverFinished",
+        "material": "PETG",
+        "stl_sha256": "e7b4c0bd363841339c3b37b5ce39720aaf2607b927bb0e6910d3feb8026c7889",
+        "native_sha256": "e4113e925abb429524759e5978ce018d2532ffa627986b1e896e0b838c729de7"
+      },
+      {
+        "identity": "electronics:source-inlet-platform",
+        "action": "add",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-platform-native-r4",
+        "export": "Platform_UNSELECTED_x1.stl",
+        "native_file": "SourceInletPlatform.FCStd",
+        "native_final": "PlatformFinished",
+        "material": "PETG",
+        "stl_sha256": "72cdc1d1c046074df4f074e2832eb7df6d9cbd172e308466ad1671b1909115e2",
+        "native_sha256": "29fd7f572ddc76d14a6b461684eeb890a1c888868cfa781ad72cf187c82c801a"
+      },
+      {
+        "identity": "body:source-hood-west",
+        "action": "add",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-roof-native-r5",
+        "export": "WestHood_UNSELECTED_x1.stl",
+        "native_file": "SourceProtectiveHoods.FCStd",
+        "native_final": "WestHoodFinished",
+        "material": "PETG",
+        "stl_sha256": "92eaec9e6748228b9f2468b8c8d9a878e0b1379790aa3ed9541268504e9edf6a",
+        "native_sha256": "e4113e925abb429524759e5978ce018d2532ffa627986b1e896e0b838c729de7"
+      },
+      {
+        "identity": "body:source-hood-east",
+        "action": "add",
+        "quantity": 1,
+        "cad_folder": "hardware/cad/studies/w5-source-roof-native-r5",
+        "export": "EastHood_UNSELECTED_x1.stl",
+        "native_file": "SourceProtectiveHoods.FCStd",
+        "native_final": "EastHoodFinished",
+        "material": "PETG",
+        "stl_sha256": "9a1af1708d28ae5fa6cf2159a2894f3867f1c3459d97e36f8e6a0ec3605020c2",
+        "native_sha256": "e4113e925abb429524759e5978ce018d2532ffa627986b1e896e0b838c729de7"
+      }
+    ],
+    "replaced": 4,
+    "additional": 3,
+    "source_family_installed_parts": 7,
+    "old_R53_jobs": 77,
+    "candidate_jobs": 80,
+    "right_bank_and_P0_E6_head_ears_unchanged": true,
+    "no_old_and_new_Cover_or_Carrier_or_Deck_counted_together": true
+  },
+  "E3_changed_length_inputs": {
+    "FRONT_red_source_pair_roles": [
+      "W067",
+      "W064"
+    ],
+    "FRONT_nominal_mm": 1320,
+    "FRONT_legacy_mm": 480,
+    "FRONT_delta_mm": 840,
+    "REAR_red_source_pair_roles": [
+      "W068",
+      "W065"
+    ],
+    "REAR_nominal_mm": 1070,
+    "REAR_legacy_mm": 440,
+    "REAR_delta_mm": 630,
+    "need_actual_wire_resistance_and_branch_current_for_drop": true,
+    "source_or_fuse_electrical_qualification_claimed": false
+  },
+  "additional_fasteners": {
+    "allocations": [
+      {
+        "role": "sourcePlatform:M3x12",
+        "quantity": 2,
+        "supplier_id": "supplier:BEJMET:SKL000623",
+        "dimensions_mm": {
+          "d": 3,
+          "L": 12,
+          "b": 12,
+          "head_d": 5.5,
+          "head_h": 3,
+          "key": 2.5,
+          "pitch": 0.5
+        },
+        "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x12/2059",
+        "selected": false
+      },
+      {
+        "role": "sourcePlatform:M3nut",
+        "quantity": 2,
+        "supplier_id": "supplier:BEJMET:SKL000383",
+        "dimensions_mm": {
+          "d": 3,
+          "AF": 5.5,
+          "H": 2.4,
+          "e_min": 6.01
+        },
+        "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-3/1764",
+        "selected": false
+      },
+      {
+        "role": "sourcePlatform:M3washer",
+        "quantity": 4,
+        "supplier_id": "supplier:BEJMET:SKL001158",
+        "dimensions_mm": {
+          "ID": 3.2,
+          "OD": 7,
+          "t": 0.5
+        },
+        "url": "https://bejmet-nierdzewne.pl/pl/p/Podkladka-plaska-nierdzewna-DIN-125-A2-M3/1456",
+        "selected": false
+      },
+      {
+        "role": "sourceRoof:M3x16",
+        "quantity": 4,
+        "supplier_id": "supplier:BEJMET:SKL000625",
+        "dimensions_mm": {
+          "d": 3,
+          "L": 16,
+          "b": 16,
+          "head_d": 5.5,
+          "head_h": 3,
+          "key": 2.5,
+          "pitch": 0.5
+        },
+        "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x16/2061"
+      },
+      {
+        "role": "sourceRoof:M3nut",
+        "quantity": 4,
+        "supplier_id": "supplier:BEJMET:SKL000383",
+        "dimensions_mm": {
+          "d": 3,
+          "AF": 5.5,
+          "H": 2.4,
+          "e_min": 6.01
+        },
+        "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-3/1764"
+      },
+      {
+        "role": "sourceRoof:M3washer",
+        "quantity": 8,
+        "supplier_id": "supplier:BEJMET:SKL001158",
+        "dimensions_mm": {
+          "ID": 3.2,
+          "OD": 7,
+          "t": 0.5
+        },
+        "url": "https://bejmet-nierdzewne.pl/pl/p/Podkladka-plaska-nierdzewna-DIN-125-A2-M3/1456"
+      }
+    ],
+    "consolidated_existing_supplier_ids": {
+      "supplier:BEJMET:SKL000623": 2,
+      "supplier:BEJMET:SKL000383": 6,
+      "supplier:BEJMET:SKL001158": 12,
+      "supplier:BEJMET:SKL000625": 4
+    },
+    "installed_bolts": 6,
+    "installed_nuts": 6,
+    "installed_washers": 12,
+    "obsolete_source_mounts_not_removed_or_double_counted": true
+  },
+  "selection_changed": false,
+  "K3_complete": false,
+  "E3_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "whole_source_assembly_complete": false,
+  "open_selection_gate": "Receive whole source assembly/removal, including cage access and Carrier threading; keep R53 selected meanwhile.",
+  "supplier_model_note": {
+    "url": "https://wago-embedded.customer-domain.wago.com/3d-cad-models/?info=wago/pg07/serie221/0221-0615_0999-0962.prj",
+    "observed_dimensions_mm": [
+      36.5,
+      21.3,
+      9.8
+    ],
+    "older_local_datasheet_dimensions_mm": [
+      36.7,
+      21.1,
+      10.1
+    ],
+    "open_lever_dimensions_available": false,
+    "rule": "SameSKU but closed model metadata differ from saved datasheet. Neither gives dimensioned hinge movement; do not replace prototype body/port datums from this table alone."
+  },
+  "source_sha256": {
+    "tools/electronics/w5_source_material_contribution_r2.py": "d2efe1fe4022fb9f44fddcf090d134bde2c7c8e2526f7d7b17f7e8a3d13978f6",
+    "hardware/electronics/full-cat/w5-source-material-contribution-r1/stock.json": "609928614730500d476a5f0cdede9b95d5c98569e15a272681681b8fc0aab72a",
+    "hardware/electronics/full-cat/w5-source-platform-assembly-r1/assembly.json": "21c08a3c4a5371ad1cdf6be7e62523e330865b06447fff0a00f4ade74313e193",
+    "hardware/electronics/full-cat/w5-source-roof-service-r2/assembly.json": "b335baec5607ef754630e48c70d3bdb74b3fdab77ef3f1888284685e7303a2bf",
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/cad/studies/w5-source-platform-native-r4/Deck_UNSELECTED_x1.stl": "a5e23e7c6bfe5a537f098208f17e57c14481d736263756ad7f02ce749027f5de",
+    "hardware/cad/studies/w5-source-platform-native-r4/SourceInletPlatform.FCStd": "29fd7f572ddc76d14a6b461684eeb890a1c888868cfa781ad72cf187c82c801a",
+    "hardware/cad/studies/w5-source-grips-native-r2/Carrier_UNSELECTED_x1.stl": "cdacd19f30a9911844529ca5ccfa6a4269f0f15128a31bde635d0c2a4e95f6f2",
+    "hardware/cad/studies/w5-source-grips-native-r2/SourceCarrierInsulationGrips.FCStd": "b9c0d3673005afa7f70acfd0a7ff66f98df5d0ba66185268eac2d8cc17320009",
+    "hardware/cad/studies/w5-source-bank-passage-native-r1/BankLeft_UNSELECTED_x1.stl": "05aa579b4fbccd8bda341ba7d134fb5d8dc694c001da0afd9293ea36ea6fa646",
+    "hardware/cad/studies/w5-source-bank-passage-native-r1/SourceBankEdgePassage.FCStd": "b23460741200d59b5a3e0ae549c37a42782dc2f989f3a59d211d61f4ebc57dbc",
+    "hardware/cad/studies/w5-source-roof-native-r5/Cover_UNSELECTED_x1.stl": "e7b4c0bd363841339c3b37b5ce39720aaf2607b927bb0e6910d3feb8026c7889",
+    "hardware/cad/studies/w5-source-roof-native-r5/SourceProtectiveHoods.FCStd": "e4113e925abb429524759e5978ce018d2532ffa627986b1e896e0b838c729de7",
+    "hardware/cad/studies/w5-source-platform-native-r4/Platform_UNSELECTED_x1.stl": "72cdc1d1c046074df4f074e2832eb7df6d9cbd172e308466ad1671b1909115e2",
+    "hardware/cad/studies/w5-source-roof-native-r5/WestHood_UNSELECTED_x1.stl": "92eaec9e6748228b9f2468b8c8d9a878e0b1379790aa3ed9541268504e9edf6a",
+    "hardware/cad/studies/w5-source-roof-native-r5/EastHood_UNSELECTED_x1.stl": "9a1af1708d28ae5fa6cf2159a2894f3867f1c3459d97e36f8e6a0ec3605020c2"
+  },
+  "started_utc": "2026-10-04T12:06:52.208238+00:00",
+  "finished_utc": "2026-10-04T12:06:52.633750+00:00",
+  "worker_wall_seconds": 0.425512
+}

@@ -6,7 +6,35 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 13:42:56 Warszawy: zdejmowana ochrona źródła ukończona
+Bieżące W5, 04.10 14:43:50 Warszawy: source-family-service-r2/assembly.json:
+213par/0kontaktów/0błędów; S1 nominalne dolne dojście wolne. Bank+Cover
+po jawnym rozłączeniu5sourceleads/4Carrierstraps/TErings w pozycjach
+2/5/10/30/60/100mm bezkontaktowe; Carrier zostaje. Niezmieniony core R22
+odziedziczony, nowe dodatki i zmienione fixed owners sprawdzone rzeczywiście.
+422,550675s procesu. R1 zatrzymany po793,890625sCPU w pierwszym dużym
+starymbank/DeckBool, BEZ bankowego wyniku; nie powtarzać tej pary.
+Stock-r2:4zamienne+3nowe printy,6bolts/6nuts/12washers istniejąceSKU,
+5mHELU/3910mm, legacy920mm zastąpione.82testy/84receipts/1286pins zgodne.
+Cage-access-r1:167par/30kontaktów/0błędów,339,495339s: dostęp po złożeniu
+ODRZUCONY, konflikty z8przewodami/W068/opaskąP_SYS, nie zPETG.
+Assembly-receive-r1: tylko montaż PRZED tymi wiązkami,2zamienne native
+Carrier/Cover, zamknięteSTL/przeniesione reopen,28,909369s. Zachowano
+obydwie oceny osobno; nie udaje dostępu serwisowego po złożeniu.
+Lowerfanout-r1 przerwany po7trasach/106parach/29kontaktach/0błędów:
+kontakt zniezmienianymP0Support1 iPiHatCooling wyklucza ten układ.
+Tylko własnyPID21024 zatrzymany,273,92sCPU; nie ponawiać dolnych przelotów.
+Teraz escape-fanout-r1:24D/G wyjścia na wysokości zacisków, uniesienie
+poza środkową płytą; groundbloki bez obrotu,12V zachowane. Wynik PENDING;
+worker98698/PID11928. Nowe hoods/4roofbolts jawnie objęte kontrolą.
+R53 nadal wybrany; źródło NIE WYBRANE do wspólnego dojścia i kolejności.
+Nominalne sektory/ręka nie są wymiarami producenta; deliveredS1/lever/flex
+w fazie2.86testów/86receipts/1295pins zgodne.14/20=70%,+0pp;
+limit39%zużyty/61%pozostałe, hookenabled. Zmierzony odcinek
+11:47:12Z→12:43:50Z=56min38s ścienne, nie sumaCPU.
+NEXT odbierz escape-fanouts, cały układ/gripy/ruch/4returns; source service
+iW1XA05access nadalOPEN. Nie wybierać niekompletnej rodziny źródła.
+
+Poprzedni W5, 04.10 13:42:56 Warszawy: zdejmowana ochrona źródła ukończona
 LOKALNIE, w5-source-roof-native-r5/checks.json:390par/0kontaktów/0błędów,
 parametr/BOP0/zamknięteSTL/przeniesione reopen. Cover238×242×115,5mm,
 West159×190×41mm, East168,4×190×164,5mm; każde z10mm zapasu obrysu mieści
