@@ -107,6 +107,8 @@ def main():
     paths += sorted(folder.glob('w5-remote-end-layout-r*/execution-observation.json'))
     paths += sorted(folder.glob('w5-remote-end-native-r*/checks.json'))
     paths += sorted(folder.glob('w5-prototype-preparation-r*/preparation.json'))
+    paths += sorted(folder.glob('w5-motion-length-screen-r*/screen.json'))
+    paths += sorted(folder.glob('w5-common-service-delta-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-length-ledger-r*/ledger.json'))
     paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
     paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))
