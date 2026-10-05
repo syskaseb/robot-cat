@@ -14,7 +14,7 @@ from servo_fuse_inputs_r1 import save,sha
 
 ROOT=C.ROOT;OUT=C.R.N.BASE/'w5-side-retention-native-r1'
 CAD=ROOT/'hardware/cad/studies/w5-side-retention-native-r1'
-RECEIVED=C.R.N.BASE/'w5-side-retention-received-r1/checks.json'
+RECEIVED=C.R.N.BASE/'w5-side-retention-received-r2/checks.json'
 PARENT=ROOT/'hardware/cad/studies/w5-harness-passages-qualified-r1/WholeHarnessPassages.FCStd'
 
 
