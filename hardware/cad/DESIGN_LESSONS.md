@@ -1,0 +1,80 @@
+# Wnioski z projektowania 3D robot-cat
+
+Aktualizacja: 06.10.2026. Krótka pamięć projektowa, nie dziennik wykonanych prób.
+Czytać przed zmianą układu robota, planowaniem dłuższego etapu lub po dwóch
+nieudanych próbach tego samego interfejsu. Dopisywać tylko nowe wnioski,
+które zmieniają sposób pracy. Bieżący stan pozostaje w HOBBY_COMPLETION_PLAN.md.
+
+## Co się nie sprawdziło
+
+- **Dopasowywanie wnętrza do odziedziczonej skorupy.** Powstawały kolejne
+  wycięcia, podpory i trudne trasy. Najpierw zestawić rzeczywiste moduły,
+  przewody, narzędzia i ruch w jednym układzie. Dopiero potem ustalić obrys
+  tułowia. Powiększenie obudowy może pomóc, ale samo nie naprawi kolejności
+  montażu ani dostępu do śrub.
+- **Seria lokalnych poprawek bez wspólnej geometrii.** Usunięcie jednego
+  kontaktu potrafiło stworzyć następny. Planować cały związany interfejs:
+  obie strony złącza, wszystkie wyjścia, izolację, opaski, sąsiednie przewody
+  i podpory. Po dwóch nieudanych próbach wrócić do przyczyny i układu;
+  kolejna próba wymaga nowego założenia, nie samej zmiany przesunięcia.
+- **Demontaż zaczynający się od podzespołu już na stole.** Górny moduł dawał
+  się unosić w próbach, ale śruby wyjmowania całej kasety były zasłonięte.
+  Rozpisać drogę od zmontowanego kota do stołu, z dostępem do każdego
+  mocowania i rozłączeniem przewodów. Zależność kołowa zatrzymuje ten układ.
+- **Mieszanie wersji.** Widok E6 miał właściwe uszy, lecz starszy tułów;
+  wybór R53 i późniejsze kandydaty W1/W5 nie tworzyły jednego aktualnego
+  złożenia. Każdy podgląd musi wskazywać źródła, zastąpione części i status.
+  Nie pokazywać historycznego kota jako aktualnego projektu całości.
+- **Zbyt optymistyczne estymaty.** Kolejne poprawki geometrii wydłużały etap
+  poza zapowiedziane godziny. Estymować do konkretnego wyniku, oddzielać
+  czas obliczeń od pracy i przerw. Po nieudanej bramce aktualizować estymatę.
+  Procent ukończenia nie jest procentem czasu.
+- **Nadmiar raportów i wariantów zamiast wybranego wyniku.** Zachowanie
+  odrzuconej próby może być użyteczne, ale nie jest ukończonym podzespołem.
+  Używać jednego katalogu bieżącej pracy, krótkiego zestawienia wyników
+  i jednego wybranego eksportu. Nie ponawiać zamkniętych kontroli bez zmiany.
+
+## Co się sprawdziło i warto powtarzać
+
+- **Zachowanie gotowych modułów i ich interfejsów.** Traktować ukończony
+  podzespół jako całość, dopóki wspólny układ nie wymaga jego zmiany.
+  Własność części oraz punkty mocowania muszą być jawne.
+- **Czytanie zapisanych brył bez przebudowy całego złożenia.** Do pomiarów
+  i planowania używać istniejących źródeł, sprawdzonych położeń i dowodów.
+  Ciężkie obliczenia prowadzić w jednym osobnym procesie, odbierać jego
+  wynik przed następnym startem i zachowywać źródła bez nadpisania.
+- **Sprawdzenie przestrzeni przed tworzeniem szczegółowego CAD.** Wspólny
+  układ i rezerwacje wykrywają niewykonalne kierunki taniej niż budowa
+  pełnych historii operacji. Rezerwacja ma podaną podstawę i zapas;
+  nie udaje wymiaru producenta ani sprawdzonego ruchu.
+- **Rozróżnienie obwiedni, bryły i siatki.** Przecięcie bbox wybiera parę
+  do kontroli, nie dowodzi kolizji. Bbox splajnu może być konserwatywny.
+  Rzeczywisty kontakt sprawdzać na poprawnych BRep; obraz, tessellacja
+  i próbki ruchu mają ograniczony zakres. Zachować błędy obliczeń jako błędy.
+- **Jeden układ współrzędnych.** Przed łączeniem źródeł ustalić, czy bryła
+  jest lokalna czy już zapisana w położeniu całego robota. Sprawdzić znany
+  punkt lub oś po transformacji; nie nakładać położenia rodzica drugi raz.
+  Gabaryty obejmują także integralne podpory i wyjścia, nie tylko główny korpus.
+- **Natywna historia i próba parametru.** Nowy detal powinien mieć użyteczne
+  szkice/operacje. Zmienić istotny parametr, sprawdzić współpracujące części,
+  przywrócić go i potwierdzić zapis oraz ponowne otwarcie. STL jest eksportem.
+- **Weryfikacja proporcjonalna do zmiany.** Korzystać z dotychczasowych
+  wyników niezmienionych interfejsów. Sprawdzać nowe i naruszone połączenia,
+  a pełne uzgodnienie wykonać przy wyborze kompletu. Lokalny sukces nie
+  zamyka całej wiązki, montażu ani fazy 1.
+
+## Przed rozpoczęciem etapu
+
+1. Nazwać wynik i kryterium ukończenia. Wskazać jeden zestaw źródeł.
+2. Ustalić obrys modułów, ruch, wyjścia kabli, narzędzia i drogę montażu.
+3. Sprawdzić wspólny układ, a następnie budować szczegóły CAD.
+4. Przy niepowodzeniu zmienić przyczynę; zapisać, czego nie ponawiać.
+5. Zakończyć etap wybranym wynikiem, istotną kontrolą i krótkim checkpointem.
+
+Faza 1 przygotowuje kompletny prototyp do montażu. Pasowania MG92B pozostają
+wymienne i prowizoryczne do pomiaru dostarczonych serw. Próby wydruku,
+materiału i sprzętu należą do fazy 2; nie są powodem do bezterminowego
+polerowania projektu ani podstawą do deklarowania fizycznego PASS.
+
+To lokalne wnioski z tego projektu, nie uniwersalny regulamin CAD. Aktualizować
+je po nowym sprawdzonym doświadczeniu, nie dopisywać historii każdego testu.

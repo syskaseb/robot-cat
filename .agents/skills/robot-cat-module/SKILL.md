@@ -8,6 +8,9 @@ description: Design or migrate a robot-cat FreeCAD subassembly with shared mount
 Resolve the repository from the current worktree; never hard-code a user's path.
 Read `hardware/MODULAR_DESIGN.md`, `hardware/cad/README.md` if present, and
 `hardware/skorupa/STATUS.md` before choosing the current source. Check Git status.
+For a new whole-robot layout, a long CAD stage or two failed attempts at the
+same interface, also read `hardware/cad/DESIGN_LESSONS.md`. Apply its shared
+space and assembly-order checks before creating another local variant.
 
 - Preserve released/checkpoint files; use a new module or development document.
 - Identify the owner of each physical part. A power mount must not own private
