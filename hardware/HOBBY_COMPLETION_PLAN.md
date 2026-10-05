@@ -6,7 +6,39 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 18:30:29UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 18:55:35UTC: R53/14/20=70%,+0pp.
+CZTERY HIPGRIPS ODEBRANE STATYCZNIE: source-hip-grips-r3,74par/0kontaktów;
+harness-interface-r1,26par/0kontaktów względem49przewodów/12wiązek/
+10nativefixedparts/40materiałów odebranych8link. P0/trasy bez zmiany.
+Hip-native-r1:1model29edytowalnych obiektów/4kopie/1solid/BOP0;
+parametr0,2→0,3→0,2,1zamkniętySTL i relokowanyreopen;5,155s workera.
+Wymiary31,756×63,620×39,050mm; +6mm zapasu mieści się w256mm.
+Pas opaskiX12,006 wynika ze wspólnej alokacji, nie przesuwania kopii.
+Własny WConnector przenosi mocowanie; osobna pokrywa korpusu nieobjęta.
+Wejście kabla6,1mm zachowuje ciągłość, kanał opaski ma boki1,25mm.
+Wytrzymałość/pasowanie nadal do prób fazy2.4T18L+4T18I kandydat.
+NEXT:5remoteends, potem wspólny ruch/montaż/stock/wybór; W1/W5 OPEN.
+Integralność194receipts/2160pinów/0niezgodności. Hookenabled do80%,
+limit31%18:55:35UTC. Kontynuacja18:50:00→18:55:35=335s ściennych
+do tej kontroli, nie czas całegoW5. Bez fizycznegoPASS.
+
+Poprzedni W1/W5,05.10 18:49:21UTC: R53/14/20=70%,+0pp.
+Hip-mount-plan-r1 ustalił własność: tylna FrontRearCover należy do korpusu,
+NIE do grupy biodra; wspólna opaska z serwem niedopuszczalna.
+Hip-grips-r1 ODRZUCONY:16kontaktów (rama/bok/opaska/główka kabla).
+Root-section-r1 zachował rzeczywiste świadki; band-lane-plan-r1 wyznaczył
+wspólny pas osiX10,663..13,350mm i środek12,006mm,46par/15,865s.
+Nowy root-r2 obejmuje własny WConnector i most nad pokrywą, ale builder
+zatrzymał się na assert poprawności/jednej bryły PRZED kontrolą kontaktów.
+Brak checks.json R2 oznacza brak odbioru; nie zaliczać tego projektu.
+NEXT: naprawić połączenie/operację bryły R2 z zachowaniem wyznaczonego
+pasa, potem wspólna statyka z49przewodami/12wiązkami/8link i natywny
+eksport. Nie wracać do odrzuconego korzenia R1. P0/przewody/8link zachowane.
+Kontynuacja18:33:29→18:49:21UTC=952s ściennych do tego zapisu;
+żaden worker nie trwa, hookenabled; limit31%18:48:10UTC.
+W1/W5 i cały ruch/montaż/stock/wybór nadal OPEN. Bez fizycznegoPASS.
+
+Poprzedni W1/W5,05.10 18:30:29UTC: R53/14/20=70%,+0pp.
 Fixed-loom-native-r1 UKOŃCZONY:4nowe ramy+integralnyDeck+EastHood,
 6części1solid/BOP0, zgodność z odebraną geometrią, parametr0,2→0,3→0,2,
 6zamkniętychSTL i relokowanyreopen. Worker17:15:41→18:10:49UTC,

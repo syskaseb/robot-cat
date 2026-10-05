@@ -1,0 +1,298 @@
+{
+  "specification": {
+    "root_boxes_mm": {
+      "TopJaw": [
+        9.306367079669112,
+        -29.9,
+        15.05,
+        14.70636707966911,
+        10.12,
+        16.55
+      ],
+      "BottomJaw": [
+        9.306367079669112,
+        -29.9,
+        -16.55,
+        14.70636707966911,
+        10.12,
+        -15.05
+      ],
+      "BackJaw": [
+        9.306367079669112,
+        8.62,
+        -16.55,
+        14.70636707966911,
+        10.12,
+        16.55
+      ],
+      "BridgeRiser": [
+        10.506367079669111,
+        -26.8,
+        15.05,
+        13.506367079669111,
+        -25,
+        22.5
+      ],
+      "CoverBridge": [
+        -9,
+        -26.8,
+        19.5,
+        14.70636707966911,
+        -25,
+        22.5
+      ],
+      "LongCoverBridge": [
+        -9,
+        -50.5,
+        19.5,
+        -6,
+        -25,
+        22.5
+      ],
+      "SourcePost": [
+        -9,
+        -53.5,
+        -7,
+        -6,
+        -47.5,
+        22.5
+      ],
+      "SaddleBeam": [
+        -15.55,
+        -53.5,
+        -7,
+        -5,
+        -47.5,
+        1
+      ]
+    },
+    "root_case_gap_mm": 0.2,
+    "root_wall_mm": 1.5,
+    "root_lane_x_mm": [
+      -4.7,
+      -1.7
+    ],
+    "source_saddle_center_in_PCB_frame_mm": [
+      -11.55,
+      -50.5,
+      5
+    ],
+    "saddle_axis_local": [
+      0,
+      1,
+      0
+    ],
+    "saddle_radii_mm": [
+      3.05,
+      5.5
+    ],
+    "saddle_length_mm": 6,
+    "tie_corner_slots_mm": [
+      [
+        -18.5,
+        -52.0,
+        3.55,
+        -14.100000000000001,
+        -49.0,
+        5.25
+      ],
+      [
+        -9.0,
+        -52.0,
+        3.55,
+        -4.6000000000000005,
+        -49.0,
+        5.25
+      ]
+    ],
+    "body_band_boxes_mm": [
+      [
+        10.756367079669111,
+        -29.9,
+        16.55,
+        13.256367079669111,
+        10.12,
+        17.75
+      ],
+      [
+        10.756367079669111,
+        -29.9,
+        -17.75,
+        13.256367079669111,
+        10.12,
+        -16.55
+      ],
+      [
+        10.756367079669111,
+        -31.099999999999998,
+        -16.55,
+        13.256367079669111,
+        -29.9,
+        16.55
+      ],
+      [
+        10.756367079669111,
+        8.62,
+        -16.55,
+        13.256367079669111,
+        9.82,
+        16.55
+      ]
+    ],
+    "body_head_box_mm": [
+      9.756367079669111,
+      -12.4,
+      17.150000000000002,
+      14.256367079669111,
+      -7.6,
+      21.05
+    ],
+    "cable_head_box_mm": [
+      -5.750000000000001,
+      -52.75,
+      2.6,
+      -2.25,
+      -48.25,
+      7.4
+    ],
+    "body_aperture_diagonal_mm": 51.934674351535115,
+    "nominal_rectangular_body_band_perimeter_mm": 146.23999999999998,
+    "beam_section_mm": [
+      3,
+      6
+    ],
+    "cable_root_pullout_and_PETG_creep_unknown": true,
+    "assembly": "Fit the root to the hip WConnector before its final body installation, then fit T18L through the rear root window. Keep FrontRearCover separate. Seat the unchanged factory source lead at the unchanged saddle and fit T18I. Full joint motion and shared mounting still pending.",
+    "model_band_closure_and_case_conformity_provisional": true,
+    "rear_band_window_mm": [
+      10.556367079669112,
+      8.52,
+      -16.650000000000002,
+      13.45636707966911,
+      9.92,
+      16.650000000000002
+    ],
+    "body_tie_SKU": "111-02189",
+    "cable_tie_SKU": "111-02370",
+    "bridge_floor_mm": 19.5,
+    "root_capture": "Own WConnector rigidly fixed to hip servo; PCB and separate body cover untouched.",
+    "strength_pullout_and_actual_tightening_unknown": true,
+    "common_allocated_band_axis_x_PCB_mm": 12.006367079669111,
+    "rear_side_web_mm": 1.25,
+    "rear_lane_allocation": "hardware/electronics/full-cat/w5-hip-band-lane-plan-r1/plan.json",
+    "source_post_head_gap_mm": 0.25,
+    "open_cable_entry_width_mm": 6.1,
+    "geometry_repair": "Previous12mm entry severed the offset SourcePost (two solids). Use the6.1mm cable mouth, matching the existing6.1mm bore and preserving the side post. No route/station change."
+  },
+  "roles": [
+    "FL1Clip",
+    "FL1BodyBand",
+    "FL1BodyHead",
+    "FL1CableBand",
+    "FL1CableHead",
+    "FR1Clip",
+    "FR1BodyBand",
+    "FR1BodyHead",
+    "FR1CableBand",
+    "FR1CableHead",
+    "RL1Clip",
+    "RL1BodyBand",
+    "RL1BodyHead",
+    "RL1CableBand",
+    "RL1CableHead",
+    "RR1Clip",
+    "RR1BodyBand",
+    "RR1BodyHead",
+    "RR1CableBand",
+    "RR1CableHead"
+  ],
+  "rows": [
+    {
+      "loom": "FL1",
+      "root_case": "Part__Feature014",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -145.5575664610456,
+        29.118374054145868,
+        11.617194897902362
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "FR1",
+      "root_case": "Part__Feature006",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -145.5575664610506,
+        -30.51010506374865,
+        21.519875585315003
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RL1",
+      "root_case": "Part__Feature022",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        187.5575664610457,
+        30.5101050637223,
+        21.519875585313414
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RR1",
+      "root_case": "Part__Feature030",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        187.55756646104066,
+        -29.118374054170374,
+        11.617194897897903
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    }
+  ],
+  "new_print_identity": "SourceClipHip",
+  "print_quantity": 4,
+  "T18I_installed": 4,
+  "selected": false,
+  "native_complete": false,
+  "source_harness_and_joint_motion_pending": true,
+  "physical_pass": false,
+  "T18L_installed": 4,
+  "fixed_component_capture": [
+    {
+      "loom": "FL1",
+      "carrier": "Part__Feature039",
+      "same_fixed_component": true,
+      "body_cover_not_captured": true
+    },
+    {
+      "loom": "FR1",
+      "carrier": "Part__Feature122",
+      "same_fixed_component": true,
+      "body_cover_not_captured": true
+    },
+    {
+      "loom": "RL1",
+      "carrier": "Part__Feature120",
+      "same_fixed_component": true,
+      "body_cover_not_captured": true
+    },
+    {
+      "loom": "RR1",
+      "carrier": "Part__Feature121",
+      "same_fixed_component": true,
+      "body_cover_not_captured": true
+    }
+  ],
+  "bridge_basis": "hardware/electronics/full-cat/w5-hip-source-mount-plan-r1/plan.json"
+}
