@@ -6,7 +6,7 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 18:11:47UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 18:30:29UTC: R53/14/20=70%,+0pp.
 Fixed-loom-native-r1 UKOŃCZONY:4nowe ramy+integralnyDeck+EastHood,
 6części1solid/BOP0, zgodność z odebraną geometrią, parametr0,2→0,3→0,2,
 6zamkniętychSTL i relokowanyreopen. Worker17:15:41→18:10:49UTC,
@@ -16,17 +16,26 @@ z założonym6mm zapasu mieści się w256mm. Model288edytowalnych obiektów;
 wspólny demontaż/ruch/stock/wybór OPEN. Nie zaliczać całegoW1/W5.
 Source-grip-common-r1 ODRZUCONY: pominiętoSG/XG/MOTOR. Zachowano
 pełne profile12serw, nie ponawiać starego korzenia ani notchowaniaP0.
-Nowa rodzina8link-grips-r1: części drukowane bez kontaktów zP0;
-4opaski korpusu przy napędach2 dotykają sąsiednich wsporników bioder,
-2,497mm³ każda;252par/4kontakty/0błędów/34,190s wrappera. NIE WYBRANA.
+Link-r1 ODRZUCONY:4opaski dotykały wsporników bioder. Wspólna alokacja
+band-space-r1:404par/47świadków/0błędów/52,348s; brak wolnej wspólnej
+płaszczyzny zewnętrznej opaski. Nie przesuwać ich po jednej.
+Link-r2: tylne okno korzenia i poszerzone szyny zachowują boki2,4/0,9mm;
+8kopii/254par/0kontaktówP0/0błędów/35,339s wrappera. Harness-interface-r1:
+12wiązek/49pełnych przewodów/10aktualnych części stałych,54par/0kontaktów.
+Link-native-r1 UKOŃCZONY:1edytowalny model27obiektów/8kopii/1solid/BOP0,
+parametr0,2→0,3→0,2,1zamkniętySTL i relokowanyreopen;6,771s workera.
+Wymiary15,750×62,826×28,177mm. Statyka nie kwalifikuje ruchu/montażu
+ani sztywności0,9mm boku. Wszystkie te części nadal NIE WYBRANE.
 Jedna długaT18L111-02189/205mm mocuje kompletny korpus/korzeń,
 krótkaT18I izolację przewodu. Obie z wymiarami producenta, bez zakupu.
-Najpierw wyznaczyć wspólną wolną płaszczyznę opaski na pełnych sąsiadach,
-potem zintegrować jej podparcie; nie przesuwać4opasek po jednej.
-Nadal4hipgrips/8nieodebranychlinkgrips/5remoteends/ruch/montaż/stock/
+NEXT: jedna wspólna rodzina4hipgrips na pełnym profilu korpusu i pokrywy;
+ramię musi przejść nad FrontRearCover, nie przez nią. Nie notchowaćP0.
+Zachować odebrane8linkgrips i6nativefixedparts. Potem5remoteends i wspólne
+ruch/montaż/stock/wybór. Nadal4hipgrips/5remoteends/ruch/montaż/stock/
 wybór OPEN.37tras/R47/P0 zachowane. Żaden worker nie trwa.
-Kontynuacja18:03:57→18:11:47UTC=470s ściennych; hookenabled do80%,
-limit32%18:11:47UTC. Bez fizycznegoPASS.
+Kontynuacja18:03:57→18:30:29UTC=1592s ściennych; hookenabled do80%,
+limit32%18:30:29UTC. Integralność186receipts/2131pinów/0niezgodności.
+Bez fizycznegoPASS. To nie czas całegoW5.
 
 Poprzedni W1/W5,05.10 17:15:17UTC: R53/14/20=70%,+0pp.
 MountR2 zakończył assertowane bryły/kontakty/podparcie16pierścieni;
