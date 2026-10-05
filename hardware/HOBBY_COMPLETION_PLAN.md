@@ -6,7 +6,7 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10 14:40:13UTC: wspólny plan side-retention-plan-r2 obejmuje
+Bieżący W5,05.10 14:59:12UTC: wspólny plan side-retention-plan-r2 obejmuje
 8bocznych bloków/35użytych końców (D_RL.5 oraz4portyG.5 sąNC), bez zmiany
 37odebranych tras. Wszystkie35chwytów wiążą się z rzeczywistymi prostymi6mm.
 4integralne podpory należą do stałegoCarrier, nie zdejmowanych osłon/banku;
@@ -17,13 +17,23 @@ podpory/półki/ograniczniki/8opasek bloków/35opasek izolacji/główki/sloty,
 naprzemienne stacje grubych/cienkich końców, 8korpusów i wszystkie rzeczywiste
 obiekty. Dopiero po tym wyniku zmieniać natywnyCarrier/Cover/osłony.
 Geometryczny eksport planu będzie jednym plikiem z mapą ról, nie35kopiami.
-NativeDeck session99382/PID10180 nadal trwa: nominalny1solid/BOP0,
-próba rowka0,2→0,3 zmieniła objętość161255,126→161234,312mm³;
-odtworzenie0,2/eksport/reopen PENDING. ReceivedR4/qualified5parts zachowane;
-odbierz workera bez duplikowania, potem wspólna kontrola bocznego planu.
-Integralność161receipts/2022pinów/0niezgodności. R53/14/20=70%,+0pp;
-limit36%14:38:36UTC, hookenabled do80%. Kontynuacja14:19:35→14:40:13UTC
-=1238s ściennych do zapisu; aktywna kwalifikacja trwa. Bez fizycznegoPASS.
+NativeDeck ukończony:1solid/BOP0, rowek0,2→0,3→0,2 z odtworzeniem,
+zamkniętySTL i przeniesione ponowne otwarcie. Czas procesu1918,799s;
+commitfd70c18 zawiera tylko3plikiCAD/eksportu i2receipts tego etapu.
+ReceivedR4/qualified5parts zachowane. Integralność162receipts/2026pinów/
+0niezgodności. Wspólny side-retention-preflight-r1 trwa(session23861);
+odbierz wynik bez duplikowania przed zmianą natywnegoCarrier.
+Wynik częściowy:420par/36kontaktów/0błędów;30dotyczyCover,6zewnętrznej
+półki/ogranicznika/gniazdaFR_G względem zachowanej opaski/ochronyW042.
+Nie wyciągać końcowego wniosku przed końcem całej kontroli, w tym opasek
+wzajemnie oraz8korpusów. Jedna wspólna korekta do zaplanowania po wyniku:
+zewnętrzną krawędź półkiFR skrócić, ogranicznik przenieść na wolną stronę,
+chwytFR_G.2 i jego dolną opaskę podnieść nad istniejącą główkę; wspólnie
+dopasowaćCover do całego zamrożonego układu. Nie zmieniać przewodów ani
+odrzuconych geometrii. Kontynuacja14:44:45→14:59:12UTC=867s ściennych
+do zapisu, worker nadal aktywny. R53/14/20=70%,+0pp;
+limit35%14:56:55UTC, hookenabled do80%.
+Bez fizycznegoPASS; pozostałe mocowania/montaż/ruch/stock/wybór otwarte.
 
 Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
 orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.
