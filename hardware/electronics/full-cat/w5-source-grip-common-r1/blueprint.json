@@ -1,0 +1,379 @@
+{
+  "specification": {
+    "root_boxes_mm": {
+      "TopJaw": [
+        -4.7,
+        -18.56,
+        12.5617039077231,
+        -1.7,
+        0.507228358954493,
+        14.0617039077231
+      ],
+      "BottomJaw": [
+        -4.7,
+        -18.56,
+        -14.0617039077231,
+        -1.7,
+        0.507228358954493,
+        -12.5617039077231
+      ],
+      "BackJaw": [
+        -4.7,
+        -0.992771641045507,
+        -14.0617039077231,
+        -1.7,
+        0.507228358954493,
+        14.0617039077231
+      ],
+      "RootStem": [
+        -4.7,
+        -22,
+        -13.3,
+        -1.7,
+        -17.2,
+        -1
+      ],
+      "SourceArm": [
+        -4.7,
+        -50.5,
+        -7,
+        -1.7,
+        -21,
+        -1
+      ],
+      "SaddleBeam": [
+        -15.55,
+        -53.5,
+        -7,
+        -1.7,
+        -47.5,
+        1
+      ]
+    },
+    "root_case_gap_mm": 0.2,
+    "root_wall_mm": 1.5,
+    "root_lane_x_mm": [
+      -4.7,
+      -1.7
+    ],
+    "source_saddle_center_in_PCB_frame_mm": [
+      -11.55,
+      -50.5,
+      5
+    ],
+    "saddle_axis_local": [
+      0,
+      1,
+      0
+    ],
+    "saddle_radii_mm": [
+      3.05,
+      5.5
+    ],
+    "saddle_length_mm": 6,
+    "tie_corner_slots_mm": [
+      [
+        -18.5,
+        -52.0,
+        3.55,
+        -14.100000000000001,
+        -49.0,
+        5.25
+      ],
+      [
+        -9.0,
+        -52.0,
+        3.55,
+        -4.6000000000000005,
+        -49.0,
+        5.25
+      ]
+    ],
+    "body_band_boxes_mm": [
+      [
+        -4.65,
+        -18.56,
+        14.0617039077231,
+        -2.15,
+        0.507228358954493,
+        15.2617039077231
+      ],
+      [
+        -4.65,
+        -18.56,
+        -15.2617039077231,
+        -2.15,
+        0.507228358954493,
+        -14.0617039077231
+      ],
+      [
+        -4.65,
+        -19.759999999999998,
+        -14.0617039077231,
+        -2.15,
+        -18.56,
+        14.0617039077231
+      ],
+      [
+        -4.65,
+        0.507228358954493,
+        -14.0617039077231,
+        -2.15,
+        1.707228358954493,
+        14.0617039077231
+      ]
+    ],
+    "body_head_box_mm": [
+      -6,
+      -12.4,
+      14.6617039077231,
+      -1.5,
+      -7.6,
+      18.1617039077231
+    ],
+    "cable_head_box_mm": [
+      -5.750000000000001,
+      -52.75,
+      2.6,
+      -2.25,
+      -48.25,
+      7.4
+    ],
+    "body_aperture_diagonal_mm": 33.97771717532564,
+    "nominal_rectangular_body_band_perimeter_mm": 94.38127234880139,
+    "beam_section_mm": [
+      3,
+      6
+    ],
+    "cable_root_pullout_and_PETG_creep_unknown": true,
+    "assembly": "Before assembling the servo into P0, slip the U-root onto its case in the planned free lane. Fit one case/root strap, plug the unchanged factory lead, lay its insulation in the open saddle and fit one cable strap. Inspect PCB/shaft clearance and actual fit in phase2.",
+    "model_band_closure_and_case_conformity_provisional": true
+  },
+  "roles": [
+    "FL1Clip",
+    "FL1BodyBand",
+    "FL1BodyHead",
+    "FL1CableBand",
+    "FL1CableHead",
+    "FL2Clip",
+    "FL2BodyBand",
+    "FL2BodyHead",
+    "FL2CableBand",
+    "FL2CableHead",
+    "FL3Clip",
+    "FL3BodyBand",
+    "FL3BodyHead",
+    "FL3CableBand",
+    "FL3CableHead",
+    "FR1Clip",
+    "FR1BodyBand",
+    "FR1BodyHead",
+    "FR1CableBand",
+    "FR1CableHead",
+    "FR2Clip",
+    "FR2BodyBand",
+    "FR2BodyHead",
+    "FR2CableBand",
+    "FR2CableHead",
+    "FR3Clip",
+    "FR3BodyBand",
+    "FR3BodyHead",
+    "FR3CableBand",
+    "FR3CableHead",
+    "RL1Clip",
+    "RL1BodyBand",
+    "RL1BodyHead",
+    "RL1CableBand",
+    "RL1CableHead",
+    "RL2Clip",
+    "RL2BodyBand",
+    "RL2BodyHead",
+    "RL2CableBand",
+    "RL2CableHead",
+    "RL3Clip",
+    "RL3BodyBand",
+    "RL3BodyHead",
+    "RL3CableBand",
+    "RL3CableHead",
+    "RR1Clip",
+    "RR1BodyBand",
+    "RR1BodyHead",
+    "RR1CableBand",
+    "RR1CableHead",
+    "RR2Clip",
+    "RR2BodyBand",
+    "RR2BodyHead",
+    "RR2CableBand",
+    "RR2CableHead",
+    "RR3Clip",
+    "RR3BodyBand",
+    "RR3BodyHead",
+    "RR3CableBand",
+    "RR3CableHead"
+  ],
+  "rows": [
+    {
+      "loom": "FL1",
+      "root_case": "Part__Feature014",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -145.5575664610456,
+        29.118374054145868,
+        11.617194897902362
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "FL2",
+      "root_case": "Part__Feature056",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -99.26090152151289,
+        114.74529009565772,
+        -9.404609316731168
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "FL3",
+      "root_case": "Part__Feature088",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -61.97723405265356,
+        25.1110472830428,
+        -59.428130206434105
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "FR1",
+      "root_case": "Part__Feature006",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -145.5575664610506,
+        -30.51010506374865,
+        21.519875585315003
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "FR2",
+      "root_case": "Part__Feature040",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -91.60045709033452,
+        -115.63987754463847,
+        -3.0392888681788026
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "FR3",
+      "root_case": "Part__Feature072",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        -52.129156522540065,
+        -25.35271883665544,
+        -57.70854775104695
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RL1",
+      "root_case": "Part__Feature022",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        187.5575664610457,
+        30.5101050637223,
+        21.519875585313414
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RL2",
+      "root_case": "Part__Feature064",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        151.5342314005779,
+        114.74529009563399,
+        -9.404609316733286
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RL3",
+      "root_case": "Part__Feature096",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        188.81789886943983,
+        25.111047283018813,
+        -59.42813020643491
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RR1",
+      "root_case": "Part__Feature030",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        187.55756646104066,
+        -29.118374054170374,
+        11.617194897897903
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RR2",
+      "root_case": "Part__Feature048",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        159.1946758317617,
+        -115.63987754466604,
+        -3.039288868179664
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    },
+    {
+      "loom": "RR3",
+      "root_case": "Part__Feature080",
+      "printed_part": "SourceClipUniversal",
+      "source_grip_world_mm": [
+        198.6659763995546,
+        -25.35271883668417,
+        -57.708547751050254
+      ],
+      "same_received_straight_lead": true,
+      "body_straps": 1,
+      "insulation_straps": 1
+    }
+  ],
+  "new_print_identity": "SourceClipUniversal",
+  "print_quantity": 12,
+  "T18I_installed": 24,
+  "selected": false,
+  "native_complete": false,
+  "source_harness_and_joint_motion_pending": true,
+  "physical_pass": false
+}

@@ -6,20 +6,23 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 17:30:41UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 18:01:48UTC: R53/14/20=70%,+0pp.
 Native-fixed-loom session60217/PID23336 AKTYWNY, nie duplikować:
-4ramy nominalnie1solid/BOP0 i zgodne z odebraną geometrią. Deck/Hood,
-param.0,2→0,3→0,2,STL i relokowany reopen PENDING. Montaż na stole
-przed wejściami banku zachowany; demontaż wspólny jeszcze niezaliczony.
-Nowy moving-grip-space-plan-r1:12obudów/PCB/wsporników w zgodnych
-grupach sztywnych, rzeczywiste płaszczyzny/cylindry i datumy chwytów na
-odebranych prostych odcinkach; żadnej zmiany P0/przewodów. Plan3,745s,
-nie gotowe chwyty. Konstrukcja musi mieć fizyczną retencję, nie mocować
-do PCB/wtyczki ani dodawać grubości pod śruby P0 bez sprawdzenia stosu.
-178receipts/2088pinów zgodne. Nadal12movinggrips/5remoteends/ruch/
-montaż/stock/wybór W1W5 OPEN.37tras/R47 zachowane, commit9a9018a.
-Kontynuacja17:19:58→17:30:41UTC=643s ściennych; hookenabled do80%,
-limit33%17:30:41UTC. Bez fizycznegoPASS.
+6części nominalnie1solid/BOP0 i zgodne z odebraną geometrią; zmiana
+luzu0,2→0,3 obniża objętość wszystkich5części z otworami. Przywrócenie
+0,2/końcowyBOP/STL/relokowanyreopen PENDING. Montaż na stole przed
+wejściami banku zachowany; demontaż wspólny jeszcze niezaliczony.
+Source-grip-common-r1 ODRZUCONY w całości:368par/98kontaktów/0błędów,
+50,575s. Błędnie oparto korzeń na samejZK, pomijającSG/XG/MOTOR;
+12chwytów i opasek narusza kompletne serwa, tylne ramiona także Cover003.
+Mount-full-profile-r1 zapisuje4rzeczywiste bryły i przekrój każdego z12serw
+w datumiePCB,11,712s. Nie ponawiać starego korzenia ani notchowaniaP0.
+Najpierw retencja/montaż względem pełnego profilu i sąsiednich osłon,
+potem jedna wspólna konstrukcja; nie mocować do PCB/wtyczki.
+Nadal12sourcegrips/5remoteends/ruch/montaż/stock/wybór W1W5 OPEN.
+37tras/R47/P0 zachowane. Plan datumów commitbc80536; chwyty NIE WYBRANE.
+Kontynuacja17:19:58→18:01:48UTC=2510s ściennych; hookenabled do80%,
+limit32%18:01:48UTC. Bez fizycznegoPASS.
 
 Poprzedni W1/W5,05.10 17:15:17UTC: R53/14/20=70%,+0pp.
 MountR2 zakończył assertowane bryły/kontakty/podparcie16pierścieni;
