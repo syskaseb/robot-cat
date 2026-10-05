@@ -6,7 +6,20 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5,05.10 14:30:16 Warszawy: central-received-joint-r2 odbiera
+Bieżąca konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
+orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.
+Obowiązki dotyczą jednego zestawu Deck/Carrier/Cover/WestHood/EastHood;
+portal/splice pozostają integralnymi podcechamiDeck, nie osobnymi drukami.
+Native-passages-r1: zapisany edytowalny WholeHarnessPassages.FCStd,
+5części/33narzędzia; recompute/BOP/proof jeszczePENDING(session13673/PID21868).
+Nie duplikować. KieszenieG1/G2 usuwają stare chwyty ponad podparciemZ109.
+Po wyniku: parametr/reopen/ciągłośćścian, wspólne mocowania/odciążenia,
+montaż/ruch/stock/wybór; same przejścia nie zamykająW1/W5.
+9centralnych tras zachowane w commicieaaf3be0.154receipts/1833pinów zgodne.
+Kontynuacja11:57:45→12:52:07UTC=3262s ściennych do zapisu, praca trwa.
+R53/14/20=70%,+0pp, limit38%12:49:19UTC;bez fizycznegoPASS.
+
+Poprzednie W5,05.10 14:30:16 Warszawy: central-received-joint-r2 odbiera
 wszystkie9pełnych tras,0kontaktów6nowych par; zachowane28pozostałych tras.
 Nowe W025/W036:nominalnie424,722/469,222mm, blank460/500mm;
 W060:172,254mm, blank210mm, zachowane otulenieMAIN/pad i końcowyBezier.
