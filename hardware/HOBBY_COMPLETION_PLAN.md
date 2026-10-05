@@ -6,21 +6,24 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10 14:13:41UTC: central-retention-layout-r4 odebrany,
-0kontaktów/0błędów/16zmienionych par,127,551254s procesu. Dziedziczy pełny
-R3(703,649324s/179par):16dodatnich połączeń podpór zDeckiem,37tras zachowane,
-41dawnych przelotów bez kontaktów. Korekta obejmuje tylko4główki; pozostałe
-bryły i dowody bez powtórki.12opasek nominalnych(2bloki+10izolacja),
-0nowych śrub i0osobnych wydruków; nie jest fizyczną kwalifikacją chwytu.
-Qualified5części/commit4feb094 i checkpointcaace31 zachowane.
-Native session99382/PID10180 uruchomiony: w5_central_retention_native.py,
-jeden edytowalnyDeck z16integralnymi podporami/ogranicznikami,
-10parametrycznymi rowkami i29przelotami. Recompute/parametr/eksport/reopen
-PENDING; odbierz bez duplikowania. Źródło wymaga zielonego receivedR4,
-nie odrzuconego R3. Następnie pozostałe chwyty/ściany/montaż/ruch/stock
-oraz jeden wybór całegoW1/W5; nie trasować ponownie odebranych37przewodów.
-R53/14/20=70%,+0pp; limit37%14:09:13UTC, hookenabled do80%.
-Kontynuacja13:58:42→14:13:41UTC=899s ściennych do zapisu. Bez fizycznegoPASS.
+Bieżący W5,05.10 14:40:13UTC: wspólny plan side-retention-plan-r2 obejmuje
+8bocznych bloków/35użytych końców (D_RL.5 oraz4portyG.5 sąNC), bez zmiany
+37odebranych tras. Wszystkie35chwytów wiążą się z rzeczywistymi prostymi6mm.
+4integralne podpory należą do stałegoCarrier, nie zdejmowanych osłon/banku;
+3mają rzeczywisty kontakt64mm³, RL wymaga stopy z kontaktem16mm³.
+To tylko wykonalność zakotwienia, nie kontrola sąsiednich części/wytrzymałości.
+Przygotowany w5_side_retention_preflight.py obejmuje JEDEN cały układ:
+podpory/półki/ograniczniki/8opasek bloków/35opasek izolacji/główki/sloty,
+naprzemienne stacje grubych/cienkich końców, 8korpusów i wszystkie rzeczywiste
+obiekty. Dopiero po tym wyniku zmieniać natywnyCarrier/Cover/osłony.
+Geometryczny eksport planu będzie jednym plikiem z mapą ról, nie35kopiami.
+NativeDeck session99382/PID10180 nadal trwa: nominalny1solid/BOP0,
+próba rowka0,2→0,3 zmieniła objętość161255,126→161234,312mm³;
+odtworzenie0,2/eksport/reopen PENDING. ReceivedR4/qualified5parts zachowane;
+odbierz workera bez duplikowania, potem wspólna kontrola bocznego planu.
+Integralność161receipts/2022pinów/0niezgodności. R53/14/20=70%,+0pp;
+limit36%14:38:36UTC, hookenabled do80%. Kontynuacja14:19:35→14:40:13UTC
+=1238s ściennych do zapisu; aktywna kwalifikacja trwa. Bez fizycznegoPASS.
 
 Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
 orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.
