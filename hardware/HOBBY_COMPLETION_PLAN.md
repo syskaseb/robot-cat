@@ -6,10 +6,28 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 16:36:10UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 16:41:47UTC: R53/14/20=70%,+0pp.
+Wspólny układ4ram/12siodeł i integralnych lądowań Deck STATYCZNIE ODEBRANY:
+frames-received-r1,7,10s,4części1solid/BOP0.57wcześniejszych par zachowane,
+2rzeczywiste zmienione pary zW027/W038 mają0mm³ wspólnej objętości.
+Po podniesieniu belek nieużywane dolne7,2mm słupków odjęto, nie przetrasowano
+żadnego przewodu; lądowania nadal mają rzeczywiste połączenie zDeck.
+R3 przejścieRL w pasywnejEastHood zachowane.37tras/bankR47 zamrożone.
+NEXT: najpierw osprzęt/narzędzia i chwyt opaskami, potem natywne części.
+Plan osiM3 należy obrócić zX±5 naY±5 przy zachowanym korzeniu: główka
+starej osi od strony słupka zajęłaby jego bok. Nie przenosić całych ram.
+Natywny builder ma wypełnić stare otwory i wyciąć właściwe; sprawdzić tylko
+materiał wypełnień i nowe śruby/nakrętki/narzędzia, nie powtarzać57par.
+Nadal12movinggrips/5remoteends/ruch/montaż/stock/wybór W1+W5 OPEN;
+brak pełnej kwalifikacji montażu, nośności i fizycznegoPASS.
+175receipts/2077pinów zgodne; źródła i wyniki lokalnie commitowane.
+Kontynuacja15:46:20→16:41:47UTC=3327s ściennych do zapisu.
+Żaden worker nie trwa. Hookenabled do80%,limit34%16:41:47UTC.
+
+Poprzedni W1/W5,05.10 16:36:10UTC: R53/14/20=70%,+0pp.
 Wspólny census49tras/98końców i36ciągłych przejść12nóg zachowany.
-Common-layout-r1 ukończony77par/30kontaktów/0błędów/257,681s.
-Cały outboard-r2:61par/15kontaktów/0błędów/213,117s, nie wybrany;
+Common-layout-r1 ukończony77par/30kontaktów/0błędów/257,68s.
+Cały outboard-r2:61par/15kontaktów/0błędów/213,12s, nie wybrany;
 cztery integralne lądowania łączą się rzeczywiście zDeck44/156/52/52mm³.
 Nie wycinać input-tie/hood w belkach, bo odcięłoby to ramię od korzenia.
 Jedna korektaR3: wszystkie belki/przęsłaZ84,2..90,2 ponad opaskami,

@@ -87,6 +87,7 @@ def main():
     paths += sorted(folder.glob('w5-loom-attachment-plan-r*/plan.json'))
     paths += sorted(folder.glob('w5-loom-bearing-regions-r*/plan.json'))
     paths += sorted(folder.glob('w5-loom-common-layout-r*/checks.json'))
+    paths += sorted(folder.glob('w5-loom-frames-received-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-length-ledger-r*/ledger.json'))
     paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
     paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))

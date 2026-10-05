@@ -1,0 +1,95 @@
+{
+  "status": "FOUR_FIXED_FRAMES_AND_LANDINGS_STATIC_RECEIVED_NATIVE_PENDING",
+  "input_changed_pairs": [
+    {
+      "proposal": "FLFixedFrame",
+      "owner": "InputR4/release_0.0_W027_DESIGN",
+      "actual_common_mm3": 0.0,
+      "prior_common_mm3": 33.432848209951004,
+      "source": "unchanged installed R52 actual body"
+    },
+    {
+      "proposal": "FRFixedFrame",
+      "owner": "InputR4/release_0.0_W038_DESIGN",
+      "actual_common_mm3": 0.0,
+      "prior_common_mm3": 33.4328612408476,
+      "source": "unchanged installed R52 actual body"
+    }
+  ],
+  "reused_clear_pair_count": 57,
+  "modified_parts": {
+    "FLFixedFrame": {
+      "before_mm3": 16373.168588949442,
+      "after_mm3": 15912.368588949459,
+      "solid_count": 1,
+      "BOP_errors": 0,
+      "new_post_base_mm": 84.2,
+      "beam_base_mm": 84.2
+    },
+    "FRFixedFrame": {
+      "before_mm3": 16416.108786500903,
+      "after_mm3": 15955.30878650091,
+      "solid_count": 1,
+      "BOP_errors": 0,
+      "new_post_base_mm": 84.2,
+      "beam_base_mm": 84.2
+    },
+    "RLFixedFrame": {
+      "before_mm3": 15676.542967750589,
+      "after_mm3": 15215.742967750582,
+      "solid_count": 1,
+      "BOP_errors": 0,
+      "new_post_base_mm": 84.2,
+      "beam_base_mm": 84.2
+    },
+    "RRFixedFrame": {
+      "before_mm3": 15141.43100393373,
+      "after_mm3": 14680.631003933757,
+      "solid_count": 1,
+      "BOP_errors": 0,
+      "new_post_base_mm": 84.2,
+      "beam_base_mm": 84.2
+    }
+  },
+  "receipt_scope": "Four fixed frames/landings and R3 passive hood passage only; not all cat or moving range.",
+  "all_received_pairs_clear": true,
+  "material_subtraction_only": true,
+  "actual_Deck_joins_mm3": {
+    "FL": 39.25000000801492,
+    "FR": 151.67158802125354,
+    "RL": 52.000000074817436,
+    "RR": 51.99999999999987
+  },
+  "proposal_roles": [
+    "FLDeckLanding",
+    "FLFixedFrame",
+    "FRDeckLanding",
+    "FRFixedFrame",
+    "RLDeckLanding",
+    "RLFixedFrame",
+    "RRDeckLanding",
+    "RRFixedFrame"
+  ],
+  "native_complete": false,
+  "fasteners_tools_ties_moving_grips_pending": true,
+  "selected": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "started_utc": "2026-10-05T16:41:09.351779+00:00",
+  "finished_utc": "2026-10-05T16:41:16.449749+00:00",
+  "worker_wall_seconds": 7.09797,
+  "source_sha256": {
+    "tools/electronics/w5_loom_frames_receive.py": "c4828382527a67b6e51af816c122d05062ae4fc9792fedb63089c11b2b9336ae",
+    "hardware/electronics/full-cat/w5-loom-common-layout-r3/checks.json": "784b4e36af57c8ec9e2f8bfb59fdeb542e7079b677895276be1bd14fa4f3e887",
+    "hardware/electronics/full-cat/w5-loom-common-layout-r3/FOUR_FRAMES_AND_LANDINGS_PROPOSED_WORLD.brep": "6f1f442bc294b10904c806c6f25daca20b79eb727d1fcad24ff77abd0d3c6ce2",
+    "hardware/electronics/full-cat/w5-loom-common-layout-r3/plan.json": "eda73dfe7a7f9af73f2511bf559840a5cbbfc3afb945ba3470c39337a55fb2ea",
+    "hardware/electronics/full-cat/w5-loom-common-layout-r3/coupled-blueprint.json": "499bac1d4cdfb78968036b66956606c367dcd8421c512d42644548c624eab834",
+    "hardware/electronics/full-cat/w5-installed-r52/owners.json": "b7377437b2ca6d23c645adf6f4ef50b338f4bb84fec8db462e85e74764c87d06",
+    "hardware/electronics/full-cat/w5-installed-r52/installed.brep": "61f0a66df3187728fd20a7de75ba5ef8f25b2ddf8fff83bbb1c4e25c375c87fd"
+  },
+  "files": {
+    "hardware/electronics/full-cat/w5-loom-frames-received-r1/FOUR_FRAMES_AND_LANDINGS_RECEIVED_WORLD.brep": "e020983836715b6fbb1e678973697f185a90d76a6900200ead73f3c50bab0241",
+    "hardware/electronics/full-cat/w5-loom-frames-received-r1/native-blueprint.json": "4f59816b18cc0c0236840cb2a3446ebb452a1dac9ef020d6684c311bde5c09df"
+  }
+}
