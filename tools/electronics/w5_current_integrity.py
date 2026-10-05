@@ -112,6 +112,7 @@ def main():
     paths += sorted(folder.glob('w5-source-grip-motion-r*/checks.json'))
     paths += sorted(folder.glob('w5-shared-retention-service-r*/checks.json'))
     paths += sorted(folder.glob('w5-final-print-set-candidate-r*/manifest.json'))
+    paths += sorted(folder.glob('w5-current-order-contribution-r*/stock.json'))
     paths += sorted(folder.glob('w5-leg-length-ledger-r*/ledger.json'))
     paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
     paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))

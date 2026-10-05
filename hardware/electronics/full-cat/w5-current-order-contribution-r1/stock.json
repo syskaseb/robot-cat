@@ -1,0 +1,410 @@
+{
+  "status": "CURRENT_CHANGED_ORDER_ROLES_RECONCILED_FULL_TIE_CENSUS_OPEN",
+  "selected": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "K3_complete": false,
+  "physical_pass": false,
+  "fastener_rows": [
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x12"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000623",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x12/2059",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 12,
+        "b": 12,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000623",
+      "name": "SKL000623",
+      "unit": "pcs",
+      "planning_quantity": 24,
+      "retail_order_quantity": 24,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x12",
+          "planning_quantity": 22,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 4 installed; previous spare allowance preserved."
+        },
+        {
+          "id": "sourcePlatform:M3x12",
+          "planning_quantity": 2,
+          "source": "Current verified W5 native mounting allocation"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN912 socket screws, nominal sizes:M3x16"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000625",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M3x16/2061",
+      "dimensions_mm": {
+        "d": 3,
+        "L": 16,
+        "b": 16,
+        "head_d": 5.5,
+        "head_h": 3,
+        "key": 2.5,
+        "pitch": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000625",
+      "name": "SKL000625",
+      "unit": "pcs",
+      "planning_quantity": 22,
+      "retail_order_quantity": 22,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN912 socket screws, nominal sizes:M3x16",
+          "planning_quantity": 10,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        },
+        {
+          "id": "sourceRoof:M3x16",
+          "planning_quantity": 4,
+          "source": "Current verified W5 native mounting allocation"
+        },
+        {
+          "id": "W5:fourFixedFrames:M3x16",
+          "planning_quantity": 8,
+          "source": "Current verified W5 native mounting allocation"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:DIN934 nuts:M3 DIN934",
+        "fastener:local-fuse:fixedGuard:M3nuts"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL000383",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-3/1764",
+      "dimensions_mm": {
+        "d": 3,
+        "AF": 5.5,
+        "H": 2.4,
+        "e_min": 6.01
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL000383",
+      "name": "SKL000383",
+      "unit": "pcs",
+      "planning_quantity": 67,
+      "retail_order_quantity": 67,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:DIN934 nuts:M3 DIN934",
+          "planning_quantity": 51,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 8 installed; previous spare allowance preserved."
+        },
+        {
+          "id": "fastener:local-fuse:fixedGuard:M3nuts",
+          "planning_quantity": 2,
+          "source": "hardware/electronics/full-cat/servo-fuse-bank-assembly-r12/assembly.json",
+          "note": "New installed local bank/Guard role; parent spares unchanged, not counted twice."
+        },
+        {
+          "id": "sourcePlatform:M3nut",
+          "planning_quantity": 2,
+          "source": "Current verified W5 native mounting allocation"
+        },
+        {
+          "id": "sourceRoof:M3nut",
+          "planning_quantity": 4,
+          "source": "Current verified W5 native mounting allocation"
+        },
+        {
+          "id": "W5:fourFixedFrames:M3nut",
+          "planning_quantity": 8,
+          "source": "Current verified W5 native mounting allocation"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    },
+    {
+      "quantity_ids": [
+        "fastener:washers:P0 M3 DIN125",
+        "fastener:washers:head M3 OD7"
+      ],
+      "supplier": "BEJMET",
+      "supplier_sku": "SKL001158",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Podkladka-plaska-nierdzewna-DIN-125-A2-M3/1456",
+      "dimensions_mm": {
+        "ID": 3.2,
+        "OD": 7,
+        "t": 0.5
+      },
+      "retail_minimum_pieces": 1,
+      "retail_multiple_pieces": 1,
+      "evidence": "Written supplier nominal dimensions; delivered tolerances and fit are phase2 checks.",
+      "physical_pass": false,
+      "id": "supplier:BEJMET:SKL001158",
+      "name": "SKL001158",
+      "unit": "pcs",
+      "planning_quantity": 75,
+      "retail_order_quantity": 75,
+      "pack_excess_quantity": 0,
+      "roles": [
+        {
+          "id": "fastener:washers:P0 M3 DIN125",
+          "planning_quantity": 38,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack; R31 M5 adds 8 installed; previous spare allowance preserved."
+        },
+        {
+          "id": "fastener:washers:head M3 OD7",
+          "planning_quantity": 25,
+          "source": "hardware/manufacturing/one-batch-prototype-r2/fastener-purchase-counts.json",
+          "note": "Net whole-cat count with spares; includes P0, check size/material and supplier pack"
+        },
+        {
+          "id": "sourcePlatform:M3washer",
+          "planning_quantity": 4,
+          "source": "Current verified W5 native mounting allocation"
+        },
+        {
+          "id": "sourceRoof:M3washer",
+          "planning_quantity": 8,
+          "source": "Current verified W5 native mounting allocation"
+        }
+      ],
+      "source": "hardware/manufacturing/fixed-fastener-skus-r1/allocation.json"
+    }
+  ],
+  "new_installed_fastener_roles": [
+    {
+      "role": "sourcePlatform:M3x12",
+      "supplier_id": "supplier:BEJMET:SKL000623",
+      "quantity": 2,
+      "owner": "Platform"
+    },
+    {
+      "role": "sourcePlatform:M3nut",
+      "supplier_id": "supplier:BEJMET:SKL000383",
+      "quantity": 2,
+      "owner": "Platform"
+    },
+    {
+      "role": "sourcePlatform:M3washer",
+      "supplier_id": "supplier:BEJMET:SKL001158",
+      "quantity": 4,
+      "owner": "Platform"
+    },
+    {
+      "role": "sourceRoof:M3x16",
+      "supplier_id": "supplier:BEJMET:SKL000625",
+      "quantity": 4,
+      "owner": "Roof"
+    },
+    {
+      "role": "sourceRoof:M3nut",
+      "supplier_id": "supplier:BEJMET:SKL000383",
+      "quantity": 4,
+      "owner": "Roof"
+    },
+    {
+      "role": "sourceRoof:M3washer",
+      "supplier_id": "supplier:BEJMET:SKL001158",
+      "quantity": 8,
+      "owner": "Roof"
+    },
+    {
+      "role": "W5:fourFixedFrames:M3x16",
+      "supplier_id": "supplier:BEJMET:SKL000625",
+      "quantity": 8,
+      "owner": "FourFixedFrames"
+    },
+    {
+      "role": "W5:fourFixedFrames:M3nut",
+      "supplier_id": "supplier:BEJMET:SKL000383",
+      "quantity": 8,
+      "owner": "FourFixedFrames"
+    }
+  ],
+  "retained_unmodified_fastener_rows": 30,
+  "retained_parent_spares": true,
+  "material_overrides": [
+    {
+      "quantity_id": "p0:WIRE-INLET-BLACK12-P0",
+      "planning_quantity": 4,
+      "unit": "m",
+      "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+      "manufacturer": "LAPP",
+      "manufacturer_part": "0107001",
+      "supplier": "TME",
+      "supplier_sku": "HEAT260SC-12BK",
+      "supplier_url": "https://www.tme.eu/pl/details/heat260sc-12bk/przewody-odporne-na-temperature/lapp/0107001/",
+      "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+      "retail_minimum": null,
+      "retail_multiple": null,
+      "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+    },
+    {
+      "quantity_id": "p0:WIRE-RED4-P0",
+      "planning_quantity": 5,
+      "unit": "m",
+      "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+      "manufacturer": "HELU",
+      "manufacturer_part": "23802",
+      "supplier": "TME",
+      "supplier_sku": "SIF4.00-R",
+      "supplier_url": "https://www.tme.eu/pl/details/sif4.00-r/przewody-silikonowe-jednozylowe/helu/23802/",
+      "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+      "retail_minimum": null,
+      "retail_multiple": null,
+      "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+    },
+    {
+      "quantity_id": "p0:WIRE-BLACK4-P0",
+      "planning_quantity": 3,
+      "unit": "m",
+      "inherited_quantity_source": "hardware/build-readiness/p0-order-cart.json",
+      "manufacturer": "TKD",
+      "manufacturer_part": "2500125",
+      "supplier": "TME",
+      "supplier_sku": "TKD-2500125",
+      "supplier_url": "https://www.tme.eu/pl/details/tkd-2500125/przewody-silikonowe-jednozylowe/tkd/2500125/",
+      "product_evidence": "hardware/build-readiness/p0-order-cart.json",
+      "retail_minimum": null,
+      "retail_multiple": null,
+      "commercial_refresh": "Phase2 before one purchase; no current price/stock/delivery promise."
+    }
+  ],
+  "material_stock_basis": {
+    "LAPP0107001": {
+      "roles": [
+        "W027",
+        "W028",
+        "W029",
+        "W038",
+        "W039",
+        "W040",
+        "W046",
+        "W048",
+        "W050",
+        "W054",
+        "W056",
+        "W058",
+        "W001"
+      ],
+      "nominal_mm": 3050,
+      "candidate_stock_m": 4
+    },
+    "TKD2500125": {
+      "roles": [
+        "W025",
+        "W036",
+        "W061",
+        "W062",
+        "W063"
+      ],
+      "nominal_mm": 1900,
+      "fitting_allowance_mm": 200,
+      "candidate_stock_m": 3
+    },
+    "HELU23802": {
+      "unique_roles": {
+        "W026_extension": 100,
+        "W037_extension": 100,
+        "W042_extension": 380,
+        "W044_extension": 120,
+        "W045_extension": 170,
+        "W052_extension": 160,
+        "W053_extension": 160,
+        "W066": 330,
+        "W064": 620,
+        "W065": 480,
+        "W067": 700,
+        "W068": 590
+      },
+      "legacy920mm_removed_not_added": true,
+      "nominal_total_mm": 3910,
+      "prototype_retermination_allowance_mm": 400,
+      "prototype_fitting_allowance_mm": 391,
+      "total_with_allowance_mm": 4701,
+      "candidate_stock_m": 5,
+      "remaining_candidate_mm": 299,
+      "stock_reason": "4m leaves only90mm over nominal3910mm;5m accommodates declared prototype fitting/retermination budget.",
+      "selected": false,
+      "supplier_cut_length_or_price_not_refreshed": true
+    },
+    "legacy_source920mm_not_added": true,
+    "all_other_shared_stock_requires_one_final_global_census": true
+  },
+  "old920mm_not_added": true,
+  "old_BUS300mm_not_added": true,
+  "shared_factory_looms": "Retain12physical34172/900mm from two packs6, not36pieces.",
+  "additional_long_tie_order": {
+    "quantity_id": "W5:tie:111-02189",
+    "manufacturer": "HellermannTyton",
+    "manufacturer_part": "111-02189",
+    "installed": 12,
+    "manufacturer_package_quantity": 100,
+    "planning_packages": 1,
+    "planning_quantity": 100,
+    "unit": "pcs",
+    "supplier_offer_not_received": true,
+    "commercial_refresh_phase2": true
+  },
+  "new_T18I_roles": {
+    "fixed_frames": 12,
+    "moving_insulation": 12,
+    "remote_AUX": 1,
+    "side_body": 8,
+    "side_insulation": 35,
+    "central_body": 2,
+    "central_insulation": 10,
+    "source_carrier": 4,
+    "platform": 2
+  },
+  "new_T18I_installed_subtotal": 86,
+  "inherited_T18I_planning_quantity": 300,
+  "alias_not_added_twice": "The12body split straps ARE the12fixed-frame straps, not another12installed ties.",
+  "open": [
+    "Sum retained and current T18I service replacement roles before claiming complete stock.",
+    "Bind these overrides to one selected whole-prototype package after shared service/loop preparation.",
+    "Refresh retailer packaging/availability in phase2, no purchase or price promise."
+  ],
+  "source_sha256": {
+    "hardware/manufacturing/one-batch-prototype-r53/fixed-fastener-cart.json": "091c841477fc6f8f6512305862353ab6253ffaff9a218eb58fc2aa7727957cac",
+    "hardware/manufacturing/one-batch-prototype-r53/nonfastener-catalog.json": "d11e50c191ebcb67b7f952c0e4ba6521f6b57a52c3a5c1135ac667d135d6f3fe",
+    "hardware/electronics/full-cat/w5-prototype-preparation-r2/preparation.json": "6d768aeadbf64e5567353365f2bb01c8041e45074cd760e00d2e60f635b0d065",
+    "hardware/electronics/full-cat/w5-source-platform-assembly-r1/assembly.json": "21c08a3c4a5371ad1cdf6be7e62523e330865b06447fff0a00f4ade74313e193",
+    "hardware/electronics/full-cat/w5-source-roof-service-r2/assembly.json": "b335baec5607ef754630e48c70d3bdb74b3fdab77ef3f1888284685e7303a2bf",
+    "hardware/electronics/full-cat/w5-loom-mount-hardware-r2/checks.json": "a032277795d53081c89c0aeb8662824cfda3085961ef0e266687063082e9c3e9",
+    "hardware/reference/hellermann-11102189-2026-10-05/dimensions.json": "28b771c3ac4dd2fb8b96006c5bd09ae64d62072b743f9f0c0f2109b7e677686e",
+    "hardware/electronics/full-cat/w5-side-retention-native-r1/checks.json": "080e6734bd64b5afebaa7437f2723124e7020dff77425dacd29f856ffe33e257",
+    "hardware/electronics/full-cat/w5-central-retention-native-r1/checks.json": "534365f75145c1d97f924b12b1fc1de589075ad64263449ca89b7907a37d0a8b",
+    "tools/electronics/w5_current_order_contribution.py": "f81a35bb5d382eeb36acdef9f066450d87a76afc0ae00202b7270965e53ff85b"
+  },
+  "started_utc": "2026-10-05T20:19:16.463827+00:00",
+  "finished_utc": "2026-10-05T20:19:16.490080+00:00",
+  "worker_wall_seconds": 0.026253
+}

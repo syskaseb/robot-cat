@@ -6,28 +6,26 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 19:54:40UTC: R53/14/20=70%,+0pp.
-Common-service-delta-r1:4nowe ramy względem aktualnych3części banku,
-pozycje0/2/5/10/30/60/100mm,16par/0kontaktów/0błędów,32,328s.
-To odbiór zmienionego interfejsu ram, nie ciągły sweep ani cały demontaż.
-Motion-length-screen-r2: rzeczywiste łańcuchy12chwytów (4jednoosiowe,
-8dwuosiowych), bez limitów z Gazebo. Konserwatywna granica odległości
-końców pokryta obecną długością swobodną dla8wiązek. FL2/FR2/RL2/RR2
-wymagają planowania dodatkowego zapasu:81,9/81,4/101,6/114,7mm
-do pokrycia tej granicy; nominalnie wolne320/320/230/380mm z900mm.
-Nie ciąć tych kabli przed przymiarką. Ujemny margines granicy NIE dowodzi
-braku pasowania ani kolizji. Przestrzeń/ruch pętli i skręcanie nadal otwarte.
-4testy matematyczne OK;201receipts/2178pinów/0niezgodności.
-Zachowane preparation-r2:80P0/6AUX/12kabli, pełne role cięcia, bankR47,
-head/tail/Pi. Kandydaci stockLAPP4m/HELU5m/TKD3m;920mm nie dublować.
-Native17obiektów session34282/PID15652 nadal PENDING: oba rodzice
-odebrane statycznie, parametr/eksport/reopen liczone. Nie duplikować.
-NEXT: odebrać native; zachować16grip/frame części i odebrane pary,
-domknąć pozostały wspólny serwis/przestrzeń ruchu, stock/jeden eksport.
-T18L111-02189×12 wymaga uwzględnienia jednego opakowania100 przy wyborze.
-W1/W5/A2/K3 NIE zaliczone. Hookenabled,limit29%19:54:40UTC.
-Kontynuacja19:41:00→19:54:40=820s ściennych do zapisu; nie czasCPU
-ani całegoW5. Bez fizycznegoPASS.
+Bieżący W1/W5,05.10 20:20:18UTC: R53/14/20=70%,+0pp.
+Remote-native-r1 ukończony:17obiektów,2zamknięteSTL/1solid/BOP0,
+parametr/reopen,2083,656s workera; pięć końców BAT/BUS/MAIN/AUX zachowane.
+Source-grip-motion-r1:12wiązek/60materiałów,8pozycji hip/knee ±15°,
+1903par/0kontaktów/0błędów,793,968s workera. To SCREEN, nie limit
+serwa, pełny zakres ani dowód ruchu elastycznego kabla. P0 niezmienione.
+Jedna mapa final-print-set-candidate-r1:86zadań/134PETG,
+5zastąpionych+19nowych części,72zadania niezmienione; NIE WYBRANA.
+Commit2976831 zabezpiecza native/eksport/ruch/mapę. Order-contribution-r1:
+HELU5m/LAPP4m/TKD3m zastępują stare subtotale; bez dodawania920mm.
+M3x12=24/M3x16=22/nuts67/washers75;86nowychT18I,12T18L/bag100.
+12opasek split TO12opasek ramek, nie dodatkowe12. Cały stock OPEN.
+6testów OK;205receipts/2193pinów/0niezgodności.
+NEXT: NAJPIERW odbierz shared-retention-service-r1 session54763/PID6572,
+bez duplikatu; 2mm/83par/0kontaktów odebrane, pozostałe pozycje pending.
+Potem jedno przygotowanie ruchomych pętli/pełny stock i wybór pakietu.
+Zachowaj preparation-r2/common-service-delta-r1/motion-length-screen-r2,
+bankR47 oraz głowę/ogon/Pi. W1/W5/A2/K3 niezaliczone; bez fizycznegoPASS.
+Okno odbioru19:56:35→20:20:18=1423s ściennych, nie czas całegoW5/CPU.
+Hookenabled;28%limit20:19:16UTC. Bez harmonogramu.
 
 Poprzedni W1/W5,05.10 18:49:21UTC: R53/14/20=70%,+0pp.
 Hip-mount-plan-r1 ustalił własność: tylna FrontRearCover należy do korpusu,
