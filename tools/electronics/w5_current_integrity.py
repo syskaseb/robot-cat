@@ -51,6 +51,8 @@ def main():
     paths += sorted(folder.glob('w5-data-outward-r*/checks.json'))
     paths += sorted(folder.glob('w5-coupled-corridors-r*/checks.json'))
     paths += sorted(folder.glob('w5-central-space-solver-r*/checks.json'))
+    paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
+    paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-end-preparation-r*/interface.json'))
     paths += sorted(folder.glob('w5-s1-source-layout-r*/intent.json'))
     paths += sorted(folder.glob('w5-s1-source-check-r*/checks.json'))

@@ -6,7 +6,22 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 05.10 03:43 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 05.10 04:09 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Wspólny plan24wyjść branch-space-plan-r1 oraz branch-joint-routes-r3
+domknęły statycznie wszystkie24gałęzieD/G do nóg i4backboneDATA+XA05:
+29pełnych tras kandydata,0nierozwiązanych w tym lokalnym zakresie,
+0błędów. Sześć wcześniejszych gałęzi rozwiązane; dodatkowo ponownie
+poprowadzoneW007/W014/W034, reszta odziedziczona z zapisanych dowodów.
+Podejścia końcowe oddzielone wysokością od górnych przewodów; końce,
+promienie i limit900mm gałęzi zachowane. Rezerwy przestrzeni nie są
+twierdzeniem o fizycznej kolizji.13testówPASS. Nadal nie wybór produkcyjny.
+NEXT5centralnychW025/W036/W062/W063/W060 oraz zależneW001/W003/W061:
+planować wspólnie z otrzymanymi29trasami, nie ponawiać odrzuconych
+położeń central-space-r2/r3/r4. Potem PETG/odciążenia/montaż/ruch/stock.
+Okno nadal aktywne do06:00UTC albo40%pozostałe;02:09:34UTC limit44%.
+Czas tej kontynuacji01:58:15→02:09:34UTC=679s ściennych, nieCPU.
+
+Poprzedni checkpoint:
 coupled-corridors-r3:23/34 zmienianych tras bez kontaktów w sprawdzonym
 wspólnym zakresie,11nierozwiązanych,0błędów;435,024934s procesu.
 Cały zakres49=21G+12V+16DATA.20klatekDATA,19podłączonych;D_RL.5=NC.
