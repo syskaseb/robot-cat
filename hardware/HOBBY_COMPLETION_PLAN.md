@@ -6,7 +6,22 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 17:15:17UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 17:30:41UTC: R53/14/20=70%,+0pp.
+Native-fixed-loom session60217/PID23336 AKTYWNY, nie duplikować:
+4ramy nominalnie1solid/BOP0 i zgodne z odebraną geometrią. Deck/Hood,
+param.0,2→0,3→0,2,STL i relokowany reopen PENDING. Montaż na stole
+przed wejściami banku zachowany; demontaż wspólny jeszcze niezaliczony.
+Nowy moving-grip-space-plan-r1:12obudów/PCB/wsporników w zgodnych
+grupach sztywnych, rzeczywiste płaszczyzny/cylindry i datumy chwytów na
+odebranych prostych odcinkach; żadnej zmiany P0/przewodów. Plan3,745s,
+nie gotowe chwyty. Konstrukcja musi mieć fizyczną retencję, nie mocować
+do PCB/wtyczki ani dodawać grubości pod śruby P0 bez sprawdzenia stosu.
+178receipts/2088pinów zgodne. Nadal12movinggrips/5remoteends/ruch/
+montaż/stock/wybór W1W5 OPEN.37tras/R47 zachowane, commit9a9018a.
+Kontynuacja17:19:58→17:30:41UTC=643s ściennych; hookenabled do80%,
+limit33%17:30:41UTC. Bez fizycznegoPASS.
+
+Poprzedni W1/W5,05.10 17:15:17UTC: R53/14/20=70%,+0pp.
 MountR2 zakończył assertowane bryły/kontakty/podparcie16pierścieni;
 wyjątek sha(str) w końcowym writerze uniemożliwił zapis liczbowych wierszy
 i czasu workera. Zachowano geometrię/blueprint, błąd i hash wykonanej wersji;
