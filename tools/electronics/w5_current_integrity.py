@@ -93,6 +93,7 @@ def main():
     paths += sorted(folder.glob('w5-moving-grip-space-plan-r*/plan.json'))
     paths += sorted(folder.glob('w5-source-grip-common-r*/checks.json'))
     paths += sorted(folder.glob('w5-source-mount-full-profile-r*/plan.json'))
+    paths += sorted(folder.glob('w5-source-link-grips-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-length-ledger-r*/ledger.json'))
     paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
     paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))

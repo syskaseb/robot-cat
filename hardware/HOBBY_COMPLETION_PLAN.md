@@ -6,23 +6,27 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 18:01:48UTC: R53/14/20=70%,+0pp.
-Native-fixed-loom session60217/PID23336 AKTYWNY, nie duplikować:
-6części nominalnie1solid/BOP0 i zgodne z odebraną geometrią; zmiana
-luzu0,2→0,3 obniża objętość wszystkich5części z otworami. Przywrócenie
-0,2/końcowyBOP/STL/relokowanyreopen PENDING. Montaż na stole przed
-wejściami banku zachowany; demontaż wspólny jeszcze niezaliczony.
-Source-grip-common-r1 ODRZUCONY w całości:368par/98kontaktów/0błędów,
-50,575s. Błędnie oparto korzeń na samejZK, pomijającSG/XG/MOTOR;
-12chwytów i opasek narusza kompletne serwa, tylne ramiona także Cover003.
-Mount-full-profile-r1 zapisuje4rzeczywiste bryły i przekrój każdego z12serw
-w datumiePCB,11,712s. Nie ponawiać starego korzenia ani notchowaniaP0.
-Najpierw retencja/montaż względem pełnego profilu i sąsiednich osłon,
-potem jedna wspólna konstrukcja; nie mocować do PCB/wtyczki.
-Nadal12sourcegrips/5remoteends/ruch/montaż/stock/wybór W1W5 OPEN.
-37tras/R47/P0 zachowane. Plan datumów commitbc80536; chwyty NIE WYBRANE.
-Kontynuacja17:19:58→18:01:48UTC=2510s ściennych; hookenabled do80%,
-limit32%18:01:48UTC. Bez fizycznegoPASS.
+Bieżący W1/W5,05.10 18:11:47UTC: R53/14/20=70%,+0pp.
+Fixed-loom-native-r1 UKOŃCZONY:4nowe ramy+integralnyDeck+EastHood,
+6części1solid/BOP0, zgodność z odebraną geometrią, parametr0,2→0,3→0,2,
+6zamkniętychSTL i relokowanyreopen. Worker17:15:41→18:10:49UTC,
+3307,470s ściennych; to nie czas całegoW5. Deck249,5×232×77,941mm,
+z założonym6mm zapasu mieści się w256mm. Model288edytowalnych obiektów;
+8M3x16/8nuts/12T18I nadal kandydat. Montaż przed wejściami banku;
+wspólny demontaż/ruch/stock/wybór OPEN. Nie zaliczać całegoW1/W5.
+Source-grip-common-r1 ODRZUCONY: pominiętoSG/XG/MOTOR. Zachowano
+pełne profile12serw, nie ponawiać starego korzenia ani notchowaniaP0.
+Nowa rodzina8link-grips-r1: części drukowane bez kontaktów zP0;
+4opaski korpusu przy napędach2 dotykają sąsiednich wsporników bioder,
+2,497mm³ każda;252par/4kontakty/0błędów/34,190s wrappera. NIE WYBRANA.
+Jedna długaT18L111-02189/205mm mocuje kompletny korpus/korzeń,
+krótkaT18I izolację przewodu. Obie z wymiarami producenta, bez zakupu.
+Najpierw wyznaczyć wspólną wolną płaszczyznę opaski na pełnych sąsiadach,
+potem zintegrować jej podparcie; nie przesuwać4opasek po jednej.
+Nadal4hipgrips/8nieodebranychlinkgrips/5remoteends/ruch/montaż/stock/
+wybór OPEN.37tras/R47/P0 zachowane. Żaden worker nie trwa.
+Kontynuacja18:03:57→18:11:47UTC=470s ściennych; hookenabled do80%,
+limit32%18:11:47UTC. Bez fizycznegoPASS.
 
 Poprzedni W1/W5,05.10 17:15:17UTC: R53/14/20=70%,+0pp.
 MountR2 zakończył assertowane bryły/kontakty/podparcie16pierścieni;
