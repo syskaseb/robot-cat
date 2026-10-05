@@ -1,0 +1,14 @@
+{
+  "session_id": 60555,
+  "pid": 18280,
+  "exit_code": 1,
+  "observed_utc": "2026-10-05T17:13:24Z",
+  "executed_source": "tools/electronics/w5_loom_mount_receive.py",
+  "executed_source_sha256": "870715bf932c38ef219f40ee4e3f8a4dd819b6a313f682055bddc6c8a0125319",
+  "failure_stage": "source_sha256_in_final_checks_writer",
+  "traceback_tail": "w5_loom_mount_receive.py line115 source_sha256 comprehension calls sha(p); servo_fuse_inputs_r1.py line12 p.read_bytes raises AttributeError: 'str' object has no attribute 'read_bytes'",
+  "observed_output": ["FLFixedFrame single_solid_BOP0", "FRFixedFrame single_solid_BOP0", "RLFixedFrame single_solid_BOP0", "RRFixedFrame single_solid_BOP0"],
+  "saved_after_assertions": ["FRAMES_AND_COMPLETE_DECK_RECEIVED_WORLD.brep", "native-blueprint.json"],
+  "worker_start_or_finish_exact_time_available": false,
+  "physical_pass": false
+}

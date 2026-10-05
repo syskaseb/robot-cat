@@ -6,7 +6,35 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 16:41:47UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 17:15:17UTC: R53/14/20=70%,+0pp.
+MountR2 zakończył assertowane bryły/kontakty/podparcie16pierścieni;
+wyjątek sha(str) w końcowym writerze uniemożliwił zapis liczbowych wierszy
+i czasu workera. Zachowano geometrię/blueprint, błąd i hash wykonanej wersji;
+receipt odzyskany bez powtarzania geometrii, bez wymyślania czasu/liczb.
+177receipts/2087pinów zgodne. Klucz nadal kwalifikowany tylko przed bankiem.
+Native6części PENDING session60217/PID23336:4ramy+Deck+EastHood,
+nominal/parametr/eksport/reopen. Wciąż12movinggrips/5remoteends/ruch/
+demontaż/stock/wybór OPEN.37tras i R47 zachowane, W1/W5 niezaliczone.
+Kontynuacja16:45:30→17:15:17UTC=1787s ściennych; hookenabled,
+limit33%17:15:17UTC. Bez fizycznegoPASS.
+
+Poprzedni W1/W5,05.10 17:11:16UTC: R53/14/20=70%,+0pp.
+Mount-hardware-r1 odebrany:158par/20kontaktów/0błędów/395,548s.
+Wszystkie kontakty ujęte w jednym planie:12frontowych kanałów opasek,
+4kieszenie główek, FR kieszeń/drop nakrętki przez pełną unię Deck+padów.
+Klucz FL/FR koliduje zW027/W038 po podłączeniu banku: ramy przykręcić
+na stole PRZED wejściami banku; demontaż wymaga usunięcia tych przeszkód.
+To nie zalicza dostępu narzędzi w kompletnym robocie ani całego W1/W5.
+8M3x16/8DIN934, bez nowych SKU; efektywny zacisk do dna nakrętki11,3mm,
+nie14mm wysokości całego stopka/pad. Pełne zazębienie2,4mm/tip2,3mm.
+Mount-receive-r2 PENDING session60555/PID18280:4ramy1solid/BOP0,
+pełny Deck/24elementy opasek/łożyskowanie śrub jeszcze liczone.
+Native builder6części przygotowany, NIE uruchomiony przed wynikiem.
+Wciąż12movinggrips/5remoteends/ruch/montaż/stock/wybór OPEN.
+Kontynuacja16:45:30→17:11:16UTC=1546s ściennych; praca trwa,
+hookenabled do80%,limit33%17:05:31UTC. Bez fizycznegoPASS.
+
+Poprzedni W1/W5,05.10 16:41:47UTC: R53/14/20=70%,+0pp.
 Wspólny układ4ram/12siodeł i integralnych lądowań Deck STATYCZNIE ODEBRANY:
 frames-received-r1,7,10s,4części1solid/BOP0.57wcześniejszych par zachowane,
 2rzeczywiste zmienione pary zW027/W038 mają0mm³ wspólnej objętości.
