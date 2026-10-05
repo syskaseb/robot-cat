@@ -1,6 +1,6 @@
 """Integrate received central retention into ONE editable linked Deck.
 
-Run only after the complete R3 actual-material receipt is clear. Supplier
+Run only after the complete received layout actual-material receipt is clear. Supplier
 ties remain nominal envelopes. This does not close whole W1/W5 or physical fit.
 """
 from pathlib import Path
@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import json
 import shutil
 import tempfile
-import w5_central_retention_layout_r3 as R
+import w5_central_retention_receive as R
 from servo_fuse_inputs_r1 import sha, save
 
 ROOT = R.N.ROOT

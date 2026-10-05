@@ -6,22 +6,21 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10 13:56:37UTC: qualified-r1/commit4feb094 zachowuje
-5natywnych części/parametr/5zamkniętychSTL/przeniesione otwarcie; native-r1
-chroniony e967f82. Retention-r2 ukończony:1130,334509s procesu,
-557par/0błędów; wszystkie41unikalnych par dawnych przelotów bez kontaktów.
-R2ODRZUCONY:13kontaktów opasek z W060/P0,25kontaktów z surowymi podporami
-oraz1wzajemna para opasek. R1 miał błąd wspólnych nazw ról; zachowany
-jako nieukończona obserwacja, nie wynik geometryczny.
-R3session88748/PID22472: jeden wspólny układ chwytów, bez zmiany37tras.
-G2opaskaX98, pięć dolnych opasekZ108,2/główki na górze; podpory zakotwione
-obok kanałów na otrzymanych6mm prostych; W061_Achwyt na4,5mm prostej.
-Sloty odejmowane również od podpór.2testy konstrukcjiPASS; pasowaniePENDING.
-Odbierz R3bez duplikowania; tylko przy braku kontaktów uruchom przygotowany
-w5_central_retention_native.py: jeden edytowalny Deck, parametr/eksport/reopen.
-Potem pozostałe chwyty/ściany/montaż/ruch/stock/jeden wybór. W1/W5OPEN,
-R53/14/20=70%,+0pp, bez fizycznegoPASS. Limit37%13:55:05UTC,
-hookenabled do80%. Kontynuacja13:48:23→13:56:37UTC=494s ściennych do zapisu.
+Bieżący W5,05.10 14:13:41UTC: central-retention-layout-r4 odebrany,
+0kontaktów/0błędów/16zmienionych par,127,551254s procesu. Dziedziczy pełny
+R3(703,649324s/179par):16dodatnich połączeń podpór zDeckiem,37tras zachowane,
+41dawnych przelotów bez kontaktów. Korekta obejmuje tylko4główki; pozostałe
+bryły i dowody bez powtórki.12opasek nominalnych(2bloki+10izolacja),
+0nowych śrub i0osobnych wydruków; nie jest fizyczną kwalifikacją chwytu.
+Qualified5części/commit4feb094 i checkpointcaace31 zachowane.
+Native session99382/PID10180 uruchomiony: w5_central_retention_native.py,
+jeden edytowalnyDeck z16integralnymi podporami/ogranicznikami,
+10parametrycznymi rowkami i29przelotami. Recompute/parametr/eksport/reopen
+PENDING; odbierz bez duplikowania. Źródło wymaga zielonego receivedR4,
+nie odrzuconego R3. Następnie pozostałe chwyty/ściany/montaż/ruch/stock
+oraz jeden wybór całegoW1/W5; nie trasować ponownie odebranych37przewodów.
+R53/14/20=70%,+0pp; limit37%14:09:13UTC, hookenabled do80%.
+Kontynuacja13:58:42→14:13:41UTC=899s ściennych do zapisu. Bez fizycznegoPASS.
 
 Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
 orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.
