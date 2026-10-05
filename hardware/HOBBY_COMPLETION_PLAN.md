@@ -6,7 +6,23 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5,05.10 13:54:21 Warszawy: hook do16/20=80%, bez starego
+Bieżące W5,05.10 14:30:16 Warszawy: central-received-joint-r2 odbiera
+wszystkie9pełnych tras,0kontaktów6nowych par; zachowane28pozostałych tras.
+Nowe W025/W036:nominalnie424,722/469,222mm, blank460/500mm;
+W060:172,254mm, blank210mm, zachowane otulenieMAIN/pad i końcowyBezier.
+BUSW003:289,310mm bryły/blank370mm, cały fabryczny kabel900mmSKU34172,
+0kontaktów; W002 i wtyk zachowane.3paczki po6 dla13kabli są kandydatem
+stock, nie wyborem ani zakupem. PrzelotBUS148,6mm między materiałami
+AUX146,75/head150,45 daje nominalnie0,85mm przy założonymOD2mm;
+rzeczywistyOD/promień/użyteczna długość i próbka pozostają fazą2.
+R53/14/20=70%,+0pp; W1/W5OPEN. NEXT jeden wspólny natywny układ
+mocowańG1/G2, podpór/odciążeń9tras oraz niezbędnych przejśćPETG,
+następnie montaż/ruch/stock/wybór. Nie ponawiać trasowania odebranej9.
+Kontynuacja11:57:45→12:30:16UTC=1951s ściennych do tego zapisu;
+153receipts/1831pinów zgodne,6testówPASS; limit38%pozostałe12:26:23UTC.
+Hook automatycznie wznowił sesję11:57:31UTC,enabled bez deadline/progu40%.
+
+Poprzednie W5,05.10 13:54:21 Warszawy: hook do16/20=80%, bez starego
 terminu/progu40%. central-received-joint-r1 odbiera5pełnych tras:
 W001 zachowany; nowy południowy W061; niskieW062/W063 i wspólnyXA05R3.
 KońcowyXA05:0kontaktów/293,872mm; zastępuje kolizje starego końcaAUX
