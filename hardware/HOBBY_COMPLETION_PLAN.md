@@ -6,26 +6,31 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 20:20:18UTC: R53/14/20=70%,+0pp.
-Remote-native-r1 ukończony:17obiektów,2zamknięteSTL/1solid/BOP0,
-parametr/reopen,2083,656s workera; pięć końców BAT/BUS/MAIN/AUX zachowane.
-Source-grip-motion-r1:12wiązek/60materiałów,8pozycji hip/knee ±15°,
-1903par/0kontaktów/0błędów,793,968s workera. To SCREEN, nie limit
-serwa, pełny zakres ani dowód ruchu elastycznego kabla. P0 niezmienione.
-Jedna mapa final-print-set-candidate-r1:86zadań/134PETG,
-5zastąpionych+19nowych części,72zadania niezmienione; NIE WYBRANA.
-Commit2976831 zabezpiecza native/eksport/ruch/mapę. Order-contribution-r1:
-HELU5m/LAPP4m/TKD3m zastępują stare subtotale; bez dodawania920mm.
-M3x12=24/M3x16=22/nuts67/washers75;86nowychT18I,12T18L/bag100.
-12opasek split TO12opasek ramek, nie dodatkowe12. Cały stock OPEN.
-6testów OK;205receipts/2193pinów/0niezgodności.
-NEXT: NAJPIERW odbierz shared-retention-service-r1 session54763/PID6572,
-bez duplikatu; 2mm/83par/0kontaktów odebrane, pozostałe pozycje pending.
-Potem jedno przygotowanie ruchomych pętli/pełny stock i wybór pakietu.
-Zachowaj preparation-r2/common-service-delta-r1/motion-length-screen-r2,
-bankR47 oraz głowę/ogon/Pi. W1/W5/A2/K3 niezaliczone; bez fizycznegoPASS.
-Okno odbioru19:56:35→20:20:18=1423s ściennych, nie czas całegoW5/CPU.
-Hookenabled;28%limit20:19:16UTC. Bez harmonogramu.
+Bieżący W1/W5,05.10 20:52:04UTC: R53/14/20=70%,+0pp.
+Zachowane: native remote2części,12ruchomych chwytów i SCREEN1903par/0kontaktów,
+mapa86zadań/134PETG (NIE WYBRANA), bankR47, głowa/ogon/Pi/P0.
+Shared-serviceR1/R2 odebrane: prawdziwe2kontakty nowych SouthRim zAKTUALNYM
+Deck przy10mm (2,0/1,575mm³). Nie wolno ignorować ich jako bbox/aliasów.
+Oba obejścia poziome odrzucone: bridgeR1 stykaDeck; laneR1 stykaFR1/FR2.
+High-arch-r1 też odrzucony:9kontaktów tylko zW042/opaskami. Nie budować
+natywnie tych trzech wariantów ani ponawiać ich mikroprzesunięć.
+Loop-preparation-r1:12fabrycznych900mm zachować bez cięcia do przymiarki;
+RR2+10mm rezerwy, suma nominalnych prób8080mm/max880mm; ±15°to SCREEN,
+nie zakres eksploatacyjny ani dowód ruchu kabla. Faza2: beznapięciowe dopasowanie.
+One-order-candidate-r1:115unikalnych pozycji, HELU5m/LAPP4m/TKD3m,
+400T18I (konserwatywny stock384, NIE384zainstalowane),100T18L.
+Dokładny Mouser329-T18L9C2=111-02189; oferta do odświeżenia w fazie2.
+JEDEN Waveshare34172/900mm:3paczki6,13wiązek (12nóg+1wspólnyBUS)/5zapasów.
+Zastępuje stary BUS34171/300mm; nie dublować zakupu ani żył920mm.
+Poprawiono odziedziczone ilości w górnych bindingach zbiorczych dostawców,
+zachowując ich role. 3nowe testy OK;212receipts/2233piny/0niezgodności.
+NEXT: odebrać analizę pełnego przelotu SouthRim przez aktualnyDeck
+(session27229), ustalić utratę materiału/podparcia PRZED natywną zmianą.
+Jeśli ten prosty przelot zachowuje mocowania, jeden natywnyDeck i wspólny
+demontaż; inaczej zmienić kolejność zdejmowania całego modułu, nie wracać
+do poziomych mostków. W1/W5/A2/K3 nadal OPEN, bez fizycznegoPASS.
+Kontynuacja20:22:14→20:52:04=1790s ściennych do tego zapisu, nie czas całegoW5.
+Hookenabled;28%limit20:47:01UTC. Bez harmonogramu.
 
 Poprzedni W1/W5,05.10 18:49:21UTC: R53/14/20=70%,+0pp.
 Hip-mount-plan-r1 ustalił własność: tylna FrontRearCover należy do korpusu,
