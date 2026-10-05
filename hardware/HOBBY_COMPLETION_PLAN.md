@@ -6,7 +6,7 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10 15:34:11UTC:37odebranych tras/bankR47 ZAMROŻONE.
+Bieżący W5,05.10 15:43:25UTC:37odebranych tras/bankR47 ZAMROŻONE.
 Centralny nativeDeck kompletny,commitfd70c18. Cały boczny preflight:
 915par/56kontaktów/0błędów,848,490s. Wszystkie kontakty ujęte wspólnie:
 Cover,półka/chwytFR_G,6główekDATA. Coupled-r1:328zmienionych par,
@@ -19,15 +19,20 @@ zDeckiem16mm³ — ODRZUCONY. Received-r2 ZALICZONY:8zmienionych par,
 połączenie14mm³, wszystkie wyspy/mocowania zachowane. Commit832b443.
 Podpory8bloków,
 35chwytów/43opaski i bank nie są przetrasowywane;0nowychśrub/druków.
-NativeCarrier+Cover uruchomione po clear-receipt-r2:session12691/PID18424;
-zapisane64natywne korzenie/164narzędzia/4okna i4łączące prostopadłościany.
-Recompute/parametry/closedSTL/reopen PENDING; odbierz, nie duplikuj.
-Nie uznawać samego zapisu drzewa za kwalifikację CAD.
+NativeCarrier+Cover KOMPLETNE,commit7f51f3c,worker zakończony.
+64natywne korzenie/164narzędzia/4okna i4łączące prostopadłościany.
+Obie części:1solid/BOP0, parametr/restore, zamknięteSTL i przeniesione
+reopen zgodne;268,785s procesu. Carrier230×179×39,5mm,
+Cover238×242×115,5mm; mieszczą się nominalnie w256mm z6mm zapasu.
+0nowychśrub/oddzielnychdruków; kwalifikacja cyfrowa, nie próba fizyczna.
 Źródła/dowody zabezpieczone7513991,a9cb596,2154604.
-Integralność166receipts/2044pinów/0niezgodności. Kontynuacja
-15:01:08→15:34:11UTC=1983s ściennych do zapisu, praca trwa.
-R53/14/20=70%,+0pp; limit35%15:33:07UTC, hookenabled do80%.
-Pozostałe końce/odciążenia/montaż/ruch/stock/wybór W1/W5 nadalOPEN.
+Integralność167receipts/2051pinów/0niezgodności. Kontynuacja
+15:01:08→15:43:25UTC=2537s ściennych do zapisu, praca trwa.
+R53/14/20=70%,+0pp; limit35%15:43UTC, hookenabled do80%.
+NEXT wspólny plan pozostałych odciążeń i montażu całej wiązki:
+końce zdalne, przęsła, ruchome wiązki nóg, bank/osłona i dostęp złączy;
+potem jeden uzgodniony CAD/zmienione interfejsy/stock/wybór W1/W5.
+CentralDeck i nowe Carrier/Cover zachować; żaden worker nie trwa.
 Bez fizycznegoPASS ani zatwierdzenia nośności PETG.
 
 Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
