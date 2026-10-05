@@ -6,20 +6,22 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10: qualified-r1 ukończony13:26:37,492UTC,
-1057,516172s procesu. Wszystkie5części1solid/BOP0; parametr0,4→0,5→0,4mm
-działa i przywraca nominalną bryłę;5zamkniętychSTL mieszczą się w256mm
-z6mm zapasu, przeniesione otwarcie/recompute odtwarza bryły i lokalne
-zależności. Originalnative-r1 zachowany w commiciee967f82. Nie jest
-to gotowy montaż, fizyczna kwalifikacja ścian ani wybór całegoW5.
-Kontrola central-retention-layout-r1 trwa66224/PID22344:2opaski bloków,
-6ograniczników,10chwytów izolacji/10opasek/24sloty i zmienione kontakty
-przelotów. Dziesięć brył podpór poprawnych w próbie konstrukcyjnej;
-pasowanie wspólne, podparcie i natywna integracja wciążOPEN.
-NEXT odebrać kontrolę bez duplikowania, zintegrować jeden wspólny Deck
-i odciążenia odebranych9tras, potem pozostałe podpory/montaż/ruch/stock
-i jeden wybór. Nie trasować ponownie odebranych37przewodów.
-R53/14/20=70%,+0pp. Limit37%13:25:57UTC; hookenabled do80%;bez fizycznegoPASS.
+Bieżący W5,05.10 13:56:37UTC: qualified-r1/commit4feb094 zachowuje
+5natywnych części/parametr/5zamkniętychSTL/przeniesione otwarcie; native-r1
+chroniony e967f82. Retention-r2 ukończony:1130,334509s procesu,
+557par/0błędów; wszystkie41unikalnych par dawnych przelotów bez kontaktów.
+R2ODRZUCONY:13kontaktów opasek z W060/P0,25kontaktów z surowymi podporami
+oraz1wzajemna para opasek. R1 miał błąd wspólnych nazw ról; zachowany
+jako nieukończona obserwacja, nie wynik geometryczny.
+R3session88748/PID22472: jeden wspólny układ chwytów, bez zmiany37tras.
+G2opaskaX98, pięć dolnych opasekZ108,2/główki na górze; podpory zakotwione
+obok kanałów na otrzymanych6mm prostych; W061_Achwyt na4,5mm prostej.
+Sloty odejmowane również od podpór.2testy konstrukcjiPASS; pasowaniePENDING.
+Odbierz R3bez duplikowania; tylko przy braku kontaktów uruchom przygotowany
+w5_central_retention_native.py: jeden edytowalny Deck, parametr/eksport/reopen.
+Potem pozostałe chwyty/ściany/montaż/ruch/stock/jeden wybór. W1/W5OPEN,
+R53/14/20=70%,+0pp, bez fizycznegoPASS. Limit37%13:55:05UTC,
+hookenabled do80%. Kontynuacja13:48:23→13:56:37UTC=494s ściennych do zapisu.
 
 Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
 orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.

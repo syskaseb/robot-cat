@@ -10,7 +10,7 @@ import w5_harness_passages_native as N
 import w5_received_central_scope as received
 from servo_fuse_inputs_r1 import save, sha
 
-OUT = N.BASE / 'w5-central-retention-layout-r1'
+OUT = N.BASE / 'w5-central-retention-layout-r2'
 TIE = N.ROOT / 'hardware/reference/hellermann-11102370-2026-10-04/dimensions.json'
 
 
@@ -21,12 +21,12 @@ def layout():
         dict(name='G1', x=68.25, y0=-5.5, y1=16.5, top=120, bottom=103.8),
         dict(name='G2', x=105, y0=-9.5, y1=20.5, top=118, bottom=103.8)],
         stops=[
-            ('G1West', [51.5,-3,108.8,53.1,3,112]),
-            ('G1East', [90.9,-3,108.8,92.9,3,112]),
-            ('G1South', [55,-7.5,108.8,59,-5.9,112]),
-            ('G2West', [93.1,-3,108.8,95.1,3,112]),
-            ('G2South', [97,-11.5,108.8,100,-9.9,112]),
-            ('G2North', [97,20.9,108.8,100,22.5,112])],
+            ('G1WestStop', [51.5,-3,108.8,53.1,3,112]),
+            ('G1EastStop', [90.9,-3,108.8,92.9,3,112]),
+            ('G1SouthStop', [55,-7.5,108.8,59,-5.9,112]),
+            ('G2WestStop', [93.1,-3,108.8,95.1,3,112]),
+            ('G2SouthStop', [97,-11.5,108.8,100,-9.9,112]),
+            ('G2NorthStop', [97,20.9,108.8,100,22.5,112])],
         new_body_ties=2, new_screws=0, new_separate_prints=0,
         bearing_plane_mm=109, selected=False)
 
@@ -111,10 +111,13 @@ def main():
     bands,stops,slots=geometry(A,Part,spec)
     end_bands,end_seats,end_slots,end_recipes=endpoint_geometry(A,Part,family)
     bands.update(end_bands);stops.update(end_seats);slots.update(end_slots)
+    assert not (set(bands)&set(stops)), 'Physical roles must not overwrite each other'
+    assert (len(bands),len(stops),len(slots))==(60,16,24)
     tool=Part.makeCompound([Part.makeBox(v[3]-v[0],v[4]-v[1],v[5]-v[2],A.Vector(*v[:3])) for v in slots.values()])
     hits=[];errors=[];joins={};pairs=0
     def check(label,s,owner,t):
         nonlocal pairs
+        if not s.Solids or not t.Solids:return
         if not s.BoundBox.intersect(t.BoundBox):return
         for a in s.Solids:
             for b in t.Solids:
@@ -141,6 +144,8 @@ def main():
             else:check(label,s,owner,t)
         s.exportBrep(str(OUT/(label+'_WORLD.brep')))
         print('CENTRAL_RETENTION',label,len(hits),len(errors),flush=True)
+        save(OUT/'progress.json',dict(last_part=label,hits=hits,errors=errors,joins=joins,pairs=pairs,
+             started_utc=begin.isoformat(),updated_utc=datetime.now(timezone.utc).isoformat()))
     for label,s in bands.items():
         for owner,t in stops.items():check(label,s,owner,t)
     labels=list(bands)
