@@ -6,7 +6,32 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 05.10 02:25:48 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 05.10 03:02 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Plan całej wiązki obejmuje49żył:21G,12V,12D nóg oraz4połączenia DATA
+(W002/W007/W011/W012). Wcześniejszy zakres45 traktował ostatnie4 jako zachowane.
+Zapisano kontrakty12kabli/36żył, pełne końce i długości. Ground-facing-r1:
+odwrócona G2 i zamiana dwóch klatek G1 dają prosty W061=24,5mm.
+Central-ground-r2: W001=140,856mm, W003=251,867mm nominalnie;
+3trasy bez kontaktów z zachowanymi kupnymi częściami/przewodami, PETG otwarte.
+Upper-rail-r1:4blokiG/16wyjść bez kontaktów w sprawdzonym zakresie,
+ale NIE kwalifikuje pełnych tras, podpór ani sylwetki E6.
+Joint-upper-harness-r1:45żył/65kontaktów/0błędów,73,99s procesu:
+18kontaktów G,47 kontaktów wykrytych przy D. To odrzucony układ, NIE wybór.
+Data-outward-r1 obejmuje wszystkie16D i20klatek po obrocie4bloków.
+69kontaktów/0błędów: obrót na zewnątrz NIE rozwiązał wspólnego układu.
+W002 potrzebuje197,19mm nominalnie, więcej niż dotychczasowe170mm;
+mieści się z30mm rezerwą w300mm, ale nie zmienia wybranego zestawu.
+NEXT: nie powtarzać tej geometrii ani przesuwać pojedynczych śrub.
+Wyznaczyć wspólne rozdzielone korytarze D/G od20klatek i26końców G,
+uwzględniając kupne AUX/TAIL, głowę, RRfeed i wzajemne skrzyżowania.
+Najpierw wykonalna geometria całych49żył, dopiero nowe podpory/osłony.
+Podniesione G pozostają kandydatem, nie zamrożoną przeszkodą; zachować bankR47.
+Pełne PETG/ruch/montaż/stock i W1/W5 otwarte. Wyniki w odpowiednich checks.json.
+Odcinek kontynuacji00:28:52Z–01:03:24Z=2072s czasu ściennego (34min32s),
+nie czas CPU ani wykonania fizycznego.111receipts/1605pinów bez rozbieżności;
+5testów geometrii OK. Limit o01:03:24Z:49%użyte/51%pozostałe; prógSTOP40%.
+
+Poprzedni W5, 05.10 02:25:48 Warszawy: R53 wybrany,14/20=70%,+0pp.
 Nocne okno od00:22:59Z do06:00:00Z lub40%POZOSTAŁEGO limitu.
 Odczyt startowy43%użyte/57%pozostałe. Hook zaktualizowany;10testówOK.
 Ground-network-r1 odebrany:21tras/867par/161kontaktów/0błędów,
