@@ -6,21 +6,26 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 18:55:35UTC: R53/14/20=70%,+0pp.
-CZTERY HIPGRIPS ODEBRANE STATYCZNIE: source-hip-grips-r3,74par/0kontaktów;
-harness-interface-r1,26par/0kontaktów względem49przewodów/12wiązek/
-10nativefixedparts/40materiałów odebranych8link. P0/trasy bez zmiany.
-Hip-native-r1:1model29edytowalnych obiektów/4kopie/1solid/BOP0;
-parametr0,2→0,3→0,2,1zamkniętySTL i relokowanyreopen;5,155s workera.
-Wymiary31,756×63,620×39,050mm; +6mm zapasu mieści się w256mm.
-Pas opaskiX12,006 wynika ze wspólnej alokacji, nie przesuwania kopii.
-Własny WConnector przenosi mocowanie; osobna pokrywa korpusu nieobjęta.
-Wejście kabla6,1mm zachowuje ciągłość, kanał opaski ma boki1,25mm.
-Wytrzymałość/pasowanie nadal do prób fazy2.4T18L+4T18I kandydat.
-NEXT:5remoteends, potem wspólny ruch/montaż/stock/wybór; W1/W5 OPEN.
-Integralność194receipts/2160pinów/0niezgodności. Hookenabled do80%,
-limit31%18:55:35UTC. Kontynuacja18:50:00→18:55:35=335s ściennych
-do tej kontroli, nie czas całegoW5. Bez fizycznegoPASS.
+Bieżący W1/W5,05.10 19:38:05UTC: R53/14/20=70%,+0pp.
+JEDNA RECEPTA PRZYGOTOWANIA: w5-prototype-preparation-r2/preparation.json
+wiąże80P0/6AUX/12fabrycznych wiązek;0nieprzypisanych ról cięcia.
+Zachowane pinouty, bankR47 i head/tail/Pi;12kabli, nie36zakupów żył.
+BUS34171 jeden900mm zastępuje stare300mm; inputy banku2880mm,
+W001170mm, LAPP3050mm/4m kandydat. HELU3910mm+791mm zapasu/5m;
+stare920mm NIE dodane. TKD1900mm+200mm zapasu/3m kandydat.
+W07680mm z oryginalnego F0; W041 zachowany fabryczny, bez wymyślania
+wolnej długości.7przedłużeń mają osobne role, nie nowy pełny kabel.
+4testy recepty OK;198receipts/2175pinów/0niezgodności. Builder0,026435s.
+Remote-layout-r2:287,245669s/34par/4kontakty tylko z własnymi niewyciętymi
+siodełkami;0błędów i0zewnętrznych kontaktów nowych elementów.
+Native17obiektów PENDING session34282/PID15652 od19:24:03UTC;
+SourceBridge odebrany statycznie, Deck/parametr/eksport/reopen liczone.
+Nie ponawiać906materiałów ani przetrasowywać przewodów.8link/4hip/6fixed
+zachowane. NEXT: odebrać remote-native, wspólny montaż i nominalny ruch,
+jedna selekcja/stock, w tym12T18L111-02189 na mocowanie sourcegrips.
+PełneW1/W5/A2/K3 i fizyczne próby NIE zaliczone. Hookenabled do80%,
+limit29%19:35:35UTC. Ta kontynuacja19:21:17→19:38:05=1008s ściennych
+do zapisu, nie czas całegoW5 ani czasCPU. Bez fizycznegoPASS.
 
 Poprzedni W1/W5,05.10 18:49:21UTC: R53/14/20=70%,+0pp.
 Hip-mount-plan-r1 ustalił własność: tylna FrontRearCover należy do korpusu,

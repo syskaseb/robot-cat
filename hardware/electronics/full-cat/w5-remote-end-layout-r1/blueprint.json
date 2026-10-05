@@ -1,0 +1,129 @@
+{
+  "status": "FIVE_REMOTE_ENDS_SAVED_BEFORE_MATERIAL_CHECK",
+  "groups": {
+    "BAT": {
+      "wire": "W001",
+      "logical_end": "BAT.minus",
+      "station_mm": [
+        55.5,
+        72,
+        70
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "OD_mm": 3.1,
+      "owner": "Fixed/Source/Bridge",
+      "root_box_mm": [
+        52.8,
+        70.6,
+        58.8,
+        58.2,
+        73.4,
+        70
+      ],
+      "groove_radius_mm": 1.75,
+      "groove_start_mm": [
+        55.5,
+        70.5,
+        70
+      ],
+      "groove_height_mm": 3,
+      "tie_local_mm": {
+        "across": 2.05,
+        "bottom": 55.8,
+        "top": 71.55
+      },
+      "replace": "Source/ReturnWireTie_DESIGN",
+      "new_ties": 0
+    },
+    "AUX": {
+      "wire": "XA05",
+      "logical_end": "G_AUX.1",
+      "station_mm": [
+        107.5,
+        -57,
+        113.5
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "OD_mm": 2.5,
+      "owner": "CompleteDeck",
+      "root_box_mm": [
+        106.1,
+        -59.45,
+        108.8,
+        108.9,
+        -54.55,
+        113.5
+      ],
+      "groove_radius_mm": 1.45,
+      "groove_start_mm": [
+        106,
+        -57,
+        113.5
+      ],
+      "groove_height_mm": 3,
+      "tie_local_mm": {
+        "across": 1.75,
+        "bottom": 103.8,
+        "top": 114.75
+      },
+      "replace": "obsolete XA05 outrigger/ties from prior route, not selected again",
+      "new_ties": 1
+    },
+    "BUS": {
+      "wires": [
+        "W002",
+        "W003"
+      ],
+      "logical_ends": [
+        "BUS.D",
+        "BUS.G"
+      ],
+      "station_z_mm": 85.75,
+      "source_xy_mm": [
+        [
+          -44.53188896810009,
+          30.285041680133354
+        ],
+        [
+          -42.53188896810009,
+          30.285041680133354
+        ]
+      ],
+      "owner": "CompleteDeck",
+      "reuse": "w5-bus-restraints-r3/Plug",
+      "new_ties": 0,
+      "source_plug_factory": true,
+      "terminal_OD_mm": 2,
+      "assembly": "Thread existing plug strap before Deck is populated; keep V contact removed and identify D/G by continuity."
+    },
+    "MAIN": {
+      "wire": "W060",
+      "logical_end": "MAIN.GND",
+      "reuse": "Input/MAIN_input_tie_0..4",
+      "owner": "existing MAIN native mounting adapter",
+      "new_ties": 0,
+      "unchanged_tail": "w5-main-ground-low-return-r3 retains main_input_return_r4 cubic tail and bare pad",
+      "assembly": "Retain insulated tail, two inner sleeves and common outer boot. Tighten existing MAIN strap only on insulation, not solder."
+    }
+  },
+  "prepared_ends": 5,
+  "changed_native_owners": [
+    "Source/Bridge",
+    "CompleteDeck"
+  ],
+  "no_new_splices": true,
+  "no_new_connector_SKUs": true,
+  "net_new_ties": 1,
+  "selected": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false
+}
