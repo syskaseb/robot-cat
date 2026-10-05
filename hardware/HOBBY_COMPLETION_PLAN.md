@@ -6,7 +6,40 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 04.10 16:58:17 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 05.10 02:25:48 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Nocne okno od00:22:59Z do06:00:00Z lub40%POZOSTAŁEGO limitu.
+Odczyt startowy43%użyte/57%pozostałe. Hook zaktualizowany;10testówOK.
+Ground-network-r1 odebrany:21tras/867par/161kontaktów/0błędów,
+1228,949027s procesu; ODRZUCONY, nie ponawiać. Mapa949właścicieli
+uzupełniona o komplet36żył D/V/G. Allocation proponujące podniesienie
+6bloków nie kwalifikuje konstrukcji:26nakładań obrysów rozstrzygnięto
+na zapisanych bryłach,18zajętych rezerwacji/8pozornych,10,93s procesu.
+To kontrola obwiedni bloków, nie ich końcowej geometrii. Przeszkody
+obejmują zachowane feedyW041/W042/W044/W052 i XA02/XA04/przewody głowy.
+NEXT: zachować bankR47 i zweryfikowane położenia blokówR4 jako bazę;
+rozplanować wspólnie całe wyjścia/36DVG i źródło. Odrzucone podniesienie
+bloków nie może stać się podstawą kolejnego routeCAD. Uzgodnić korytarze,
+promienie i długości przed konstrukcją; podpory/osłony zmieniać wspólnie.
+W5 i W1 nadalOPEN; razem potrzebne do80%. Brak aktywnego workera.
+Zmierzony odcinek00:22:59Z–00:25:48Z=169s ścienne, bez przypisywania
+nocnej przerwy do aktywnej pracy. reservations.json zachowuje dowody.
+
+Poprzedni W5, 04.10 17:48 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Ground-network-r1: WSZYSTKIE21trasy masy/26końców wygenerowane,
+109testówPASS; jeden worker session92125/PID6836 rozpoczęty15:34:14Z,
+kontakty pending, nie duplikować. W001 poprawione z błędnego TKD4,2/R21
+na wybrany LAPP0107001 Ø3,1/R12,4. Nominalne149,011mm z zakończeniami
+mieści się w projektowych150mm;160mm blank tylko do przycięcia, nie trasa.
+W003 wymaga332,387mm nominalnie przed30mm rezerwą, przekracza otrzymane
+300mm; dwanaście G nóg ma zapas do900mm, D/V i ruch nadal niezamknięte.
+G1 etykiety bez zmian; cała G2 podniesiona6mm, natywne mocowanie OPEN.
+Pełna próba już ma kontakty z innymi przewodami i PETG, więc nie kwalifikuje
+wyboru; odebrać checks.json i zaplanować wspólny rozdział przestrzeni,
+nie powtarzać lokalnych przesunięć łuków. layout-review.png to schemat
+kontrolnych polilinii, NIE dowód pasowania. W5/W1 nadalOPEN.
+Zegar kontynuacji od15:18:12Z; końcowy zmierzony czas po odbiorze.
+
+Poprzedni W5, 04.10 16:58:17 Warszawy: R53 wybrany,14/20=70%,+0pp.
 Wspólny ground-joint-preflight-r4:6korpusów/51par/0błędów,
 0kontaktów z niezmienianymi przewodami/kupnymi korpusami,190,669432s procesu.
 G1/G2 bez podnoszenia, obrócone wyjściami+X i wspólnie przesunięteY5,5;
