@@ -75,6 +75,8 @@ def main():
     paths += sorted(folder.glob('w5-bus-factory900-r*/checks.json'))
     paths += sorted(folder.glob('w5-harness-construction-plan-r*/plan.json'))
     paths += sorted(folder.glob('w5-harness-passages-native-r*/checks.json'))
+    paths += sorted(folder.glob('w5-harness-passages-qualified-r*/checks.json'))
+    paths += sorted(folder.glob('w5-central-retention-layout-r*/checks.json'))
     paths += sorted(folder.glob('w5-leg-length-ledger-r*/ledger.json'))
     paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
     paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))

@@ -108,7 +108,7 @@ def main():
     checks=[]
     for owner,final in finals.items():
         shape=final.Shape;valid=not shape.isNull() and shape.isValid()
-        errors=shape.check(True) if valid else ['Null/invalid native result']
+        errors=(shape.check(True) or []) if valid else ['Null/invalid native result']
         row=dict(owner=owner,valid=valid,solids=len(shape.Solids),BOP_errors=errors,
             original_mm3=initial[owner],remaining_mm3=shape.Volume)
         checks.append(row);print('HARNESS_NATIVE_PART',owner,valid,len(shape.Solids),len(errors),flush=True)

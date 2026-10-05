@@ -6,7 +6,20 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżąca konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
+Bieżący W5,05.10: native-passages-r1 odebrany13:03:15,921UTC bez
+ponawiania wycięć: wszystkie5części valid/1solid/BOP0,457,665707s procesu.
+Edytowalny WholeHarnessPassages.FCStd i5BRep zachowane. Przeloty mają
+parametr luzu0,4mm; podparcieG1/G2 naZ109 zachowane. Nie jest to gotowy
+montaż ani wybór. Osobna kopia qualified-r1: próba0,4→0,5→0,4mm,
+zamknięteSTL i przeniesione otwarcie w toku93026/PID20948 od13:08:59,976UTC.
+Wspólny central-retention-layout-r1 przygotowuje2opaski obu bloków,
+ograniczniki i rzeczywiste przelotyDeck; kontrola materiałowa jeszczeOPEN.
+NEXT odebrać kwalifikację bez duplikowania, wykonać wspólne mocowania
+i odciążenia odebranych9tras, następnie montaż/ruch/stock/jeden wybór.
+Nie trasować ponownie odebranych37przewodów. R53/14/20=70%,+0pp.
+Limit38%13:10:06UTC; hookenabled do80%;bez fizycznegoPASS.
+
+Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
 orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.
 Obowiązki dotyczą jednego zestawu Deck/Carrier/Cover/WestHood/EastHood;
 portal/splice pozostają integralnymi podcechamiDeck, nie osobnymi drukami.
