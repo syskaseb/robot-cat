@@ -1,0 +1,238 @@
+{
+  "accepted": [
+    {
+      "wire": "XA05",
+      "a_end": "G2.5",
+      "b_end": "G_AUX.1",
+      "a_datum": {
+        "point_mm": [
+          101.5,
+          17.5,
+          113.5
+        ],
+        "outward_axis": [
+          -1,
+          0,
+          0
+        ],
+        "physical_cage_before_rotation": 5,
+        "provisional": true
+      },
+      "radius_mm": 15,
+      "b_datum": {
+        "point_mm": [
+          110.5,
+          -57,
+          113.5
+        ],
+        "outward_axis": [
+          -1,
+          0,
+          0
+        ]
+      },
+      "a": {
+        "edges": [
+          {
+            "kind": "line",
+            "start": [
+              101.5,
+              17.5,
+              113.5
+            ],
+            "end": [
+              95.5,
+              17.5,
+              113.5
+            ],
+            "length_mm": 6.0
+          },
+          {
+            "kind": "arc",
+            "start": [
+              95.5,
+              17.5,
+              113.5
+            ],
+            "mid": [
+              84.89339828220179,
+              17.5,
+              117.89339828220179
+            ],
+            "end": [
+              80.5,
+              17.5,
+              128.5
+            ],
+            "radius_mm": 15,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 23.561944901923447
+          },
+          {
+            "kind": "line",
+            "start": [
+              80.5,
+              17.5,
+              128.5
+            ],
+            "end": [
+              80.5,
+              17.5,
+              134.5
+            ],
+            "length_mm": 6.0
+          }
+        ],
+        "tip": [
+          80.5,
+          17.5,
+          134.5
+        ],
+        "tangent": [
+          -6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "option": "up"
+      },
+      "b": {
+        "edges": [
+          {
+            "kind": "line",
+            "start": [
+              110.5,
+              -57,
+              113.5
+            ],
+            "end": [
+              104.5,
+              -57,
+              113.5
+            ],
+            "length_mm": 6.0
+          },
+          {
+            "kind": "arc",
+            "start": [
+              104.5,
+              -57,
+              113.5
+            ],
+            "mid": [
+              93.89339828220179,
+              -57.0,
+              117.89339828220179
+            ],
+            "end": [
+              89.5,
+              -57.0,
+              128.5
+            ],
+            "radius_mm": 15,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 23.561944901923447
+          },
+          {
+            "kind": "line",
+            "start": [
+              89.5,
+              -57.0,
+              128.5
+            ],
+            "end": [
+              89.5,
+              -57.0,
+              134.5
+            ],
+            "length_mm": 6.0
+          }
+        ],
+        "tip": [
+          89.5,
+          -57.0,
+          134.5
+        ],
+        "tangent": [
+          -6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "option": "up"
+      },
+      "middle": [
+        [
+          80.5,
+          17.5,
+          134.5
+        ],
+        [
+          80.5,
+          17.5,
+          226
+        ],
+        [
+          89.5,
+          -57.0,
+          226
+        ],
+        [
+          89.5,
+          -57.0,
+          134.5
+        ]
+      ],
+      "body_mm": 316.289434706712,
+      "attempted": 3,
+      "native_pending": [
+        "SourceEastHood",
+        "SourceCarrier",
+        "SourceDeck",
+        "SourceCover"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "wire": "W025",
+      "attempted": 9,
+      "rejection_counts": {
+        "hardware/electronics/full-cat/pi-wiring-complete-r13/XL10_insulated_9_DESIGN.brep": 9
+      }
+    },
+    {
+      "wire": "W036",
+      "attempted": 9,
+      "rejection_counts": {
+        "hardware/electronics/full-cat/pi-wiring-complete-r13/XL10_insulated_9_DESIGN.brep": 9
+      }
+    },
+    {
+      "wire": "W062",
+      "attempted": 45,
+      "rejection_counts": {
+        "RLSource/W044_extension_DESIGN": 9,
+        "P0Support2": 3,
+        "hardware/electronics/full-cat/pi-wiring-complete-r13/XL01_insulated_7_DESIGN.brep": 3,
+        "hardware/cad/studies/pwm-branch-restraints-r4/ShelfPWMGroundTerminal.brep": 9,
+        "P_REAR_selected_raised_design": 9,
+        "hardware/electronics/full-cat/aux-converter-routes-r5/XA04_DESIGN.brep": 9,
+        "G1_NEW_BODY": 3
+      }
+    },
+    {
+      "wire": "W063",
+      "attempted": 45,
+      "rejection_counts": {
+        "RLSource/W044_extension_DESIGN": 9,
+        "MAIN/SupplierFamilyReference": 3,
+        "Selected_tail_support": 3,
+        "hardware/electronics/full-cat/pi-wiring-complete-r13/XL10_insulated_7_DESIGN.brep": 9,
+        "hardware/electronics/full-cat/aux-converter-routes-r5/XA02_DESIGN.brep": 9,
+        "hardware/electronics/full-cat/aux-converter-routes-r5/XA04_DESIGN.brep": 3,
+        "G1_NEW_BODY": 9
+      }
+    }
+  ],
+  "errors": [],
+  "exact_pairs": 256
+}

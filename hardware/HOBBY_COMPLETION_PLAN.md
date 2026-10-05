@@ -6,7 +6,35 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 05.10 03:02 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 05.10 03:43 Warszawy: R53 wybrany,14/20=70%,+0pp.
+coupled-corridors-r3:23/34 zmienianych tras bez kontaktów w sprawdzonym
+wspólnym zakresie,11nierozwiązanych,0błędów;435,024934s procesu.
+Cały zakres49=21G+12V+16DATA.20klatekDATA,19podłączonych;D_RL.5=NC.
+R1 zatrzymany na W067/obwiedniD_FR;R2 przerwany po częściowym wyniku
+z powodu powtarzania zablokowanych końców;R3 pamięta ich wyniki.
+R4 północna paraG1/G2 ODRZUCONA: wyjścieF_RL1 i CoverBracket_106_1.
+central-space-solver-r1 znalazł oba bloki/mostek/8wspólnie wolnych wyjść,
+ale to nie pełne przewody. R2 sprawdził456położeń/obie orientacje i
+pełnyW001 z zachowanym początkiemXT60: brak wybranego rozwiązania,
+znaleziony układ przekracza150mm. Nie powtarzać tych samych położeń.
+central-space-solver-r3 przerwany: kosztowne bryły powstawały przed
+odrzuceniem długości W001. Częściowe wyniki zachowane, bez wyboru.
+R4 zakończony:91/1625nowych położeń,3846par,0błędów,486,323176s;
+brak rozwiązania przed ograniczeniem czasu. Nie jest to dowód globalnej
+niewykonalności. Długość odrzucana analitycznie przed kosztownymi bryłami.
+Nie ponawiać tego przeszukiwania. NEXT: wspólny plan6otwartych gałęzi
+W005/W006/W009/W010/W015/W071, rezerwacja wszystkich pionowych wyjść
+przed przekątnymi; ponownie otworzyć wyłącznie trasy przecinające rezerwy.
+Checkpoint 05.10 01:56:15UTC: od01:04:58 upłynęło3077s czasu ściennego
+tej kontynuacji, nie czasuCPU.10testówPASS,117receipts/1676pinów zgodne.
+Limit54%zużyte/46%pozostałe. Bez zmiany14/20=70%.
+Zachowane22niezmieniane trasy z coupled-r3;W001/W003/mostek oraz
+6pozostałychDATA/G nadal wymagają wspólnego domknięcia. Pełne PETG,
+podpory, ruch, montaż i stock są otwarte. Żadnego fizycznegoPASS.
+7testów zakresuOK;116receipts/1671pinów bez rozbieżności przed wynikiemR3.
+Limit01:42:36Z:53%użyte/47%pozostałe. STOP06:00Z lub40%pozostałe.
+
+Poprzedni W5, 05.10 03:02 Warszawy: R53 wybrany,14/20=70%,+0pp.
 Plan całej wiązki obejmuje49żył:21G,12V,12D nóg oraz4połączenia DATA
 (W002/W007/W011/W012). Wcześniejszy zakres45 traktował ostatnie4 jako zachowane.
 Zapisano kontrakty12kabli/36żył, pełne końce i długości. Ground-facing-r1:
