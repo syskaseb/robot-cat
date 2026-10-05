@@ -6,7 +6,7 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W1/W5,05.10 20:52:04UTC: R53/14/20=70%,+0pp.
+Bieżący W1/W5,05.10 21:18:26UTC: R53/14/20=70%,+0pp.
 Zachowane: native remote2części,12ruchomych chwytów i SCREEN1903par/0kontaktów,
 mapa86zadań/134PETG (NIE WYBRANA), bankR47, głowa/ogon/Pi/P0.
 Shared-serviceR1/R2 odebrane: prawdziwe2kontakty nowych SouthRim zAKTUALNYM
@@ -24,13 +24,21 @@ JEDEN Waveshare34172/900mm:3paczki6,13wiązek (12nóg+1wspólnyBUS)/5zapasów.
 Zastępuje stary BUS34171/300mm; nie dublować zakupu ani żył920mm.
 Poprawiono odziedziczone ilości w górnych bindingach zbiorczych dostawców,
 zachowując ich role. 3nowe testy OK;212receipts/2233piny/0niezgodności.
-NEXT: odebrać analizę pełnego przelotu SouthRim przez aktualnyDeck
-(session27229), ustalić utratę materiału/podparcia PRZED natywną zmianą.
-Jeśli ten prosty przelot zachowuje mocowania, jeden natywnyDeck i wspólny
-demontaż; inaczej zmienić kolejność zdejmowania całego modułu, nie wracać
-do poziomych mostków. W1/W5/A2/K3 nadal OPEN, bez fizycznegoPASS.
-Kontynuacja20:22:14→20:52:04=1790s ściennych do tego zapisu, nie czas całegoW5.
-Hookenabled;28%limit20:47:01UTC. Bez harmonogramu.
+Pełny przelot wDeck ODRZUCONY:485,606mm³ wycina dwa mocowania,
+wynik3bryły. Nie budować tej płyty. Zamiast tego górne PRZEDNIE połączenie
+Cover zachowuje3fragmenty poprzez rzeczywiste styki160,116/122,6/327,315mm³;
+przelotyW008/W009 i boczne żebro3,039mm:10par/0kontaktów/0błędów.
+Native-upper-front-r1 UKOŃCZONY:1bryła/BOP0/zamkniętySTL/parametr/reopen,
+238×242×115,5mm,94,732s workera. Bez zmianyDeck/przewodów/śrub/ilości wydruków.
+Bare tails W008/W009 przewlec PRZED zakuciemTE; wyjmować je przedbankiem.
+NEXT: odebrać shared-serviceR3 session56568/PID1748, bez duplikatu.
+2/5/10mm już0kontaktów;30/60/100pending. Po całym czystym wyniku jeden
+wybór aktualnych86zadań/115linii zakupowych/preparation doW1+W5.
+NIE używać starego select_w5_xa05_r54.py(227mm/outrigger); aktualneXA05
+ma315,872mm, integralne chwyty i remoteDeck. W1/W5/A2/K3 nadalOPEN.
+3nowe testy połączeniaOK;216receipts/2244piny/0niezgodności. Bez fizycznegoPASS.
+Kontynuacja20:56:07→21:18:26=1339s ściennych do tego zapisu, nie czas całegoW5.
+Hookenabled;27%limit21:16:50UTC. Bez harmonogramu.
 
 Poprzedni W1/W5,05.10 18:49:21UTC: R53/14/20=70%,+0pp.
 Hip-mount-plan-r1 ustalił własność: tylna FrontRearCover należy do korpusu,

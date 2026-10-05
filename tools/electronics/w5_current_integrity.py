@@ -118,6 +118,8 @@ def main():
     paths += sorted(folder.glob('w5-cover-withdrawal-bridge-r*/checks.json'))
     paths += sorted(folder.glob('w5-cover-withdrawal-lane-plan-r*/plan.json'))
     paths += sorted(folder.glob('w5-cover-overdeck-plan-r*/plan.json'))
+    paths += sorted(folder.glob('w5-deck-service-relief-r*/allocation.json'))
+    paths += sorted(folder.glob('w5-cover-upper-front-*/checks.json'))
     paths += sorted(folder.glob('w5-leg-length-ledger-r*/ledger.json'))
     paths += sorted(folder.glob('w5-branch-space-plan-r*/checks.json'))
     paths += sorted(folder.glob('w5-branch-joint-routes-r*/checks.json'))
