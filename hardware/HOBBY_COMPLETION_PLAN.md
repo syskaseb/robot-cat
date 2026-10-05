@@ -6,34 +6,29 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10 14:59:12UTC: wspólny plan side-retention-plan-r2 obejmuje
-8bocznych bloków/35użytych końców (D_RL.5 oraz4portyG.5 sąNC), bez zmiany
-37odebranych tras. Wszystkie35chwytów wiążą się z rzeczywistymi prostymi6mm.
-4integralne podpory należą do stałegoCarrier, nie zdejmowanych osłon/banku;
-3mają rzeczywisty kontakt64mm³, RL wymaga stopy z kontaktem16mm³.
-To tylko wykonalność zakotwienia, nie kontrola sąsiednich części/wytrzymałości.
-Przygotowany w5_side_retention_preflight.py obejmuje JEDEN cały układ:
-podpory/półki/ograniczniki/8opasek bloków/35opasek izolacji/główki/sloty,
-naprzemienne stacje grubych/cienkich końców, 8korpusów i wszystkie rzeczywiste
-obiekty. Dopiero po tym wyniku zmieniać natywnyCarrier/Cover/osłony.
-Geometryczny eksport planu będzie jednym plikiem z mapą ról, nie35kopiami.
-NativeDeck ukończony:1solid/BOP0, rowek0,2→0,3→0,2 z odtworzeniem,
-zamkniętySTL i przeniesione ponowne otwarcie. Czas procesu1918,799s;
-commitfd70c18 zawiera tylko3plikiCAD/eksportu i2receipts tego etapu.
-ReceivedR4/qualified5parts zachowane. Integralność162receipts/2026pinów/
-0niezgodności. Wspólny side-retention-preflight-r1 trwa(session23861);
-odbierz wynik bez duplikowania przed zmianą natywnegoCarrier.
-Wynik częściowy:420par/36kontaktów/0błędów;30dotyczyCover,6zewnętrznej
-półki/ogranicznika/gniazdaFR_G względem zachowanej opaski/ochronyW042.
-Nie wyciągać końcowego wniosku przed końcem całej kontroli, w tym opasek
-wzajemnie oraz8korpusów. Jedna wspólna korekta do zaplanowania po wyniku:
-zewnętrzną krawędź półkiFR skrócić, ogranicznik przenieść na wolną stronę,
-chwytFR_G.2 i jego dolną opaskę podnieść nad istniejącą główkę; wspólnie
-dopasowaćCover do całego zamrożonego układu. Nie zmieniać przewodów ani
-odrzuconych geometrii. Kontynuacja14:44:45→14:59:12UTC=867s ściennych
-do zapisu, worker nadal aktywny. R53/14/20=70%,+0pp;
-limit35%14:56:55UTC, hookenabled do80%.
-Bez fizycznegoPASS; pozostałe mocowania/montaż/ruch/stock/wybór otwarte.
+Bieżący W5,05.10 15:34:11UTC:37odebranych tras/bankR47 ZAMROŻONE.
+Centralny nativeDeck kompletny,commitfd70c18. Cały boczny preflight:
+915par/56kontaktów/0błędów,848,490s. Wszystkie kontakty ujęte wspólnie:
+Cover,półka/chwytFR_G,6główekDATA. Coupled-r1:328zmienionych par,
+258,748s; usunął kontaktyCover, ale rozdzielił go na3bryły — ODRZUCONY.
+Received-r1: integralny powrót dolnego mocowania i mostek słupka osłony
+przywróciły1solid/BOP0, bez usuwania wysp; zachowane4łożyskowania śrub
+i górne interfejsy osłon.25par/227,047s; jedyny kontakt nowego mostka
+zDeckiem16mm³ — ODRZUCONY. Received-r2 ZALICZONY:8zmienionych par,
+0kontaktów/0błędów/1solid/BOP0,162,035s; uskok0,5mm odDecku,
+połączenie14mm³, wszystkie wyspy/mocowania zachowane. Commit832b443.
+Podpory8bloków,
+35chwytów/43opaski i bank nie są przetrasowywane;0nowychśrub/druków.
+NativeCarrier+Cover uruchomione po clear-receipt-r2:session12691/PID18424;
+zapisane64natywne korzenie/164narzędzia/4okna i4łączące prostopadłościany.
+Recompute/parametry/closedSTL/reopen PENDING; odbierz, nie duplikuj.
+Nie uznawać samego zapisu drzewa za kwalifikację CAD.
+Źródła/dowody zabezpieczone7513991,a9cb596,2154604.
+Integralność166receipts/2044pinów/0niezgodności. Kontynuacja
+15:01:08→15:34:11UTC=1983s ściennych do zapisu, praca trwa.
+R53/14/20=70%,+0pp; limit35%15:33:07UTC, hookenabled do80%.
+Pozostałe końce/odciążenia/montaż/ruch/stock/wybór W1/W5 nadalOPEN.
+Bez fizycznegoPASS ani zatwierdzenia nośności PETG.
 
 Poprzednia konstrukcja W5,05.10 14:52:07 Warszawy: wspólna mapa37tras
 orazG1/G2 ukończona:42rzeczywiste kontaktyPETG,0błędów,991,948174s procesu.
