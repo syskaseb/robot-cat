@@ -6,7 +6,27 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 05.10 04:09 Warszawy: R53 wybrany,14/20=70%,+0pp.
+Bieżące W5, 05.10 04:33:50 Warszawy: STOP przy40%pozostałego limitu.
+Hook wyłączony, brak aktywnego workera. R53 wybrany,14/20=70%,+0pp.
+Kontynuacja02:11:33→02:33:50UTC=1337s ściennych, nieCPU.
+Zapisano ledger12wiązek/36żył: w5-leg-length-ledger-r1/ledger.json;
+nominalne odcinki520–880mm, minimum20mm do900mm (FR3), kandydat2paczki
+Waveshare34172 po6, bez wyboru/zakupu; długość poza wtyczką niepotwierdzona.
+W centralnym planie poprawiono zależności starych opasekW001/W060:
+ich wymiana i odpowiednie podparcia pozostają obowiązkiem, nie pominięciem
+w końcowym montażu. Oddzielne podcechyPETG portal/splice należą do Deck.
+central-bridge-low-arc-r1/received-family.json zachowuje sprawdzony W001
+nominalnie105,265823mm (limit150), R12,4, oba proste6mm i niezmienionyXT60,
+oraz wzajemnie wolne przygotowania końców nowej paryG1[72,5.5]/90°,
+G2[105,5.5]/180°. To kandydat, nie wybrany natywny montaż.
+MostekW061 nadal koliduje z XL01_insulated_7 z pi-wiring-complete-r13;
+nie ponawiać tych samych mostków/położeń. NEXT po nowej zgodzie:
+wspólny korytarz mostka i XL01 z zachowaniem odebranegoW001/końców,
+potem pełneW025/W036/W062/W063/W060/W003/XA05 i mocowania/stock.
+Zachowane28pozostałych tras; XA05 otwiera się ponownie wraz z nową G2.
+131receipts/1750pinów zgodne;16testówPASS. Bez fizycznegoPASS.
+
+Poprzedni checkpoint 04:09:
 Wspólny plan24wyjść branch-space-plan-r1 oraz branch-joint-routes-r3
 domknęły statycznie wszystkie24gałęzieD/G do nóg i4backboneDATA+XA05:
 29pełnych tras kandydata,0nierozwiązanych w tym lokalnym zakresie,
