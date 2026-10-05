@@ -6,7 +6,24 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżący W5,05.10 15:43:25UTC:37odebranych tras/bankR47 ZAMROŻONE.
+Bieżący W1/W5,05.10 16:23:24UTC: R53/14/20=70%,+0pp.
+Census49tras/98końców i36ciągłych przejść żył12nóg ukończony,
+commit7731496; nie przetrasowywać. Nadal5zdalnych końców stałych,
+12chwytów ruchomych i wspólne podparcie12splitów wymagają domknięcia.
+LandingR1:5/8osi w materiale,178,786s; R2:7/8, ale tylko tył
+ma wspólne płaszczyzny. Bearing-regions-r1,14,361s: przednia stopka
+26×18mm nie mieści się na wspólnej płaszczyźnie; bez kolejnych zgadywanych osi.
+Wspólny common-layout-r1:4integralne lądowania Deck i4oddzielne ramy
+z12otwartymi siodłami,8osiM3; preflight PENDING session18429/PID7180.
+Pierwsza powierzchniaFL ma3rzeczywiste kontakty ze śrubą/podkładkąM2
+i wspornikiem osłony; nie wybrana. Odbierz cały wynik przed wspólną korektą,
+nie duplikuj procesu. Natywnych ram jeszcze nie budowano. CentralDeck,
+SideCarrier/Cover,37tras i bankR47 zachowane. Ruch/osprzęt/montaż/stock/
+wybór W1+W5 OPEN; bez fizycznegoPASS. Hookenabled do80%,limit34%16:19:59UTC.
+Ta kontynuacja15:46:20→16:23:24UTC=2224s ściennych do zapisu, praca trwa.
+Integralność171receipts/2059pinów/0niezgodności przed wynikiem common-layout.
+
+Poprzedni W5,05.10 15:43:25UTC:37odebranych tras/bankR47 ZAMROŻONE.
 Centralny nativeDeck kompletny,commitfd70c18. Cały boczny preflight:
 915par/56kontaktów/0błędów,848,490s. Wszystkie kontakty ujęte wspólnie:
 Cover,półka/chwytFR_G,6główekDATA. Coupled-r1:328zmienionych par,
