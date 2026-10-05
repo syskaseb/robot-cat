@@ -6,7 +6,24 @@ Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
 Obecnie 14/20 = 70%. To licznik dostarczonych rezultatów przygotowania,
 nie procent czasu, kosztu ani potwierdzonej fizycznej sprawności.
 
-Bieżące W5, 05.10 04:33:50 Warszawy: STOP przy40%pozostałego limitu.
+Bieżące W5,05.10 13:54:21 Warszawy: hook do16/20=80%, bez starego
+terminu/progu40%. central-received-joint-r1 odbiera5pełnych tras:
+W001 zachowany; nowy południowy W061; niskieW062/W063 i wspólnyXA05R3.
+KońcowyXA05:0kontaktów/293,872mm; zastępuje kolizje starego końcaAUX
+z oboma tylnymi powrotami. Zachowane28pozostałych tras oraz bankR47.
+Nadal4centralneOPEN:W025/W036/W060/W003; PETG, odciążenia, wspólny
+montaż/ruch/stock i jeden wybór teżOPEN. R53/14/20=70%,+0pp, bez fizycznegoPASS.
+Nie ponawiać odrzuconego frontu low-returns-r1, mostków północnych ani
+45górnychXA05. BUS low-S ma5kontaktów z chłodzeniemPi/XL/wtyczką;
+nominalna długość290mm nie kwalifikuje tego wariantu. Front wymaga jednej
+wspólnej konstrukcji z rzeczywistymRL_P(X24..54/Y30,5..49,5/Z109..118)
+oraz bankiem/wejściami, nie samych pionowych podejść przezXL01.
+NEXT pełneW025/W036, potemW060+BUS z zachowaniem odebranej piątki;
+natywne mocowania/odciążenia/montaż/stock/wybór. W5+W1 dopiero daje80%.
+Kontynuacja11:12:11→11:54:21UTC=2530s ściennych, nieCPU.
+143receipts/1794pinów zgodne;9nowych testówPASS; limit39%pozostałe.
+
+Poprzednie W5, 05.10 04:33:50 Warszawy: STOP przy40%pozostałego limitu.
 Hook wyłączony, brak aktywnego workera. R53 wybrany,14/20=70%,+0pp.
 Kontynuacja02:11:33→02:33:50UTC=1337s ściennych, nieCPU.
 Zapisano ledger12wiązek/36żył: w5-leg-length-ledger-r1/ledger.json;
