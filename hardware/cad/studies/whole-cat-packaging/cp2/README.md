@@ -246,6 +246,43 @@ jest tylko kandydatem, nie zakupem ani zmianą wybranego R53.
 
 Slicer, druk i próby należą do fazy2. Brak fizycznego PASS.
 
+## Bieżący nominalny stos12ATO/24TE, 06.10.2026
+
+`ATOStackCandidate.FCStd` jest JEDNYM osobnym kandydatem planowania, nie
+zestawem wydruków. Zachowuje pozostały CP2; nie zastępuje R53 ani bazowego
+`WholeCatInterior.FCStd`. Zamiast12 pełnych pudełek28×26×64 ma osobne
+12 obwiedni korpusów,12 wkładek,24 końcówki i12 budżetów dostępu. To nadal
+obwiednie nominalne, NIE dokładny plastik/zatrzaski/zmierzone wsunięcie TE.
+
+Wspólny datum kołnierzaZ126: panel-top124/underside122, dół korpusu97,5,
+końce izolacji IN73,370/OUT75,402; górny ATO144,8, budżet wyciągania do189,8
+po zdjęciu górnej osłony. Korpus28×15×28,5 i wymiary TE pochodzą z ENVELOPE.md;
+e=0, osie±7mm i wystawanie ATO18,8 są jawnymi założeniami prototypu.
+24 wyjścia izolacji mają dokładne ID przewodów i końce z wybranego R53;
+9mm prostej pod chwyt jest wymaganiem projektowym, nie wykonanym odciążeniem.
+
+63 pary BRep:0 przecięć rezerwacji,0 wyjść obwiedni z zapasem2,4mm,
+0 błędów. Pozostałe265 brył zachowane, bez ponawiania ich wzajemnych kontroli.
+FlangeTop126→127 przemieszcza wszystkie60 nowych pudełek+1Z; przywrócono126.
+Świeży proces odczytał kopię z `tmp/ato-stack-reopen`:60 poprawnych brył,
+24 jednoznaczne końce. CAD52,766s; pierwszy przebieg przerwał się przez brak
+jednostek mm w wyrażeniach, nie dostarczył poprawnego CAD i nie jest dowodem.
+
+Wymiana12ATO zakłada WAGO podłączone; nie dowodzi jeszcze ruchu dostarczonej
+wkładki, chwytaka, zatrzasków ani pełnego montażu. Trasy24końców/podpory
+muszą korzystać z tych datumów we wspólnym planie wraz z8MTA i źródłem.
+Nie zmniejszać rezerwacji do rzekomej rzeczywistej bryły ani nie odtwarzać
+odrzuconego source-bay. R53/14z20=70%, W1/W5 OPEN, bez fizycznegoPASS.
+
+WAGO221-2411 jest kandydatem przeciwległych wejść, nie wybraną częścią:
+`hardware/reference/wago-inline-2212411/source.json` i karta producenta2022.
+Przewód drobnożyłowy0,2..4mm², wielodrutowy0,2..2,5mm²; klasa fabrycznej
+żyły MTA OPEN. Cztery istniejące złącza wyjściowe zastąpić, nie dublować;
+cztery ewentualne wejściowe dodać jawnie do przyszłego stocku. Ruch dźwigni,
+rzeczywiste oba wyjścia MTA/L140, pełne8tras, mocowania i E3 nadal OPEN.
+cad-layout-planning: wspólny stos i24przypisane końce przed podporami;
+PDF: sprawdzony rysunek i instrukcja producenta, bez zakupu.
+
 ## Korekta przypisań złączy 221-412
 
 R53 przewiduje pięć złączy zamontowanych i jedną sztukę zapasową, nie sześć
