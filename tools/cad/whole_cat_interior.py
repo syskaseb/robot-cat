@@ -135,8 +135,18 @@ def main():
                 box('G1_CP2',[-56.1,-39.5,125.5],size,'wago',
                     '221-615 DOWN entry; nominal port1 local[5.5,22,5.5]; G1.1 battery role retained, physical datums provisional',
                     rotation=A.Rotation(A.Vector(1,0,0),-90))
+            elif name=='P_FRONT':
+                box('P_FRONT_CP2',[-58.5,33,130.2],size,'wago',
+                    '221-615 entries DOWN at108.2; nominal port1[5.5,22,5.5]; shared S1 output approach, all physical datums provisional',
+                    rotation=A.Rotation(A.Vector(1,0,0),-90))
+            elif name=='P_REAR':
+                box('P_REAR_CP2',[50.5,38.5,110],size,'wago',
+                    '221-615 entries+X; nominal port1[5.5,22,5.5]; common S1 rear return, no old mount qualification',
+                    rotation=A.Rotation(A.Vector(0,0,1),-90))
             else:
                 by=-16 if name=='D_RR' else 0 if name in ['P_REAR','G2'] else y
+                if name=='D_RL':x=94;by=0
+                if name=='G2':x=129
                 box(name+'_CP2',[x-size[0]/2,by-size[1]/2,110],size,'wago',
                     'SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route')
     for y, prefix in [(55,'L'),(-55,'R')]:
@@ -430,6 +440,39 @@ def main():
             ring_wire_entry_mm=list(tips[key]),wago_entry_mm=list(source),actual_cut_length_mm=None,
             supersedes_unqualified_legacy_blank=True)
 
+    # BOTH output routes in the same model as the four terminals and inputs.
+    # Front outlet uses the clear Z73/Y33..38.5 corridor above Pi/monitor,
+    # beneath central WAGO. Rear outlet turns beside (not through) the tail,
+    # then returns below FHAC through Y20; one diagonal transition preserves R.
+    front=d.getObject('P_FRONT_CP2').Placement.multVec(A.Vector(5.5,22,5.5))
+    rear=d.getObject('P_REAR_CP2').Placement.multVec(A.Vector(5.5,22,5.5))
+    a=tips['3']-X*9
+    shifted,b=s_shift(a,-X,A.Vector(0,front.y-a.y,0),R)
+    lower=A.Vector(front.x+R,front.y,tips['3'].z)
+    turn,c=quarter(lower,-X,Z,R)
+    assert (lower-b).dot(-X)>0 and front.z-c.z>=9
+    routed_wire('W064','S1.3','P_FRONT.1',
+        [Part.makeLine(tips['3'],a)]+shifted+[Part.makeLine(b,lower),turn,Part.makeLine(c,front)],
+        4.2,['S1_body_CP2','P_FRONT_CP2'],14.452+14,None,
+        'HELU23802/OD4.2/staticR25.2; existing TE130171 barrel14.452 incl crimp strip+14 WAGO; provisional endpoints; replaces legacy220 blank',
+        entry_strip=(front,Z,14,math.sqrt(4/math.pi)))
+    wires[-1]['metadata'].update(bend_radius_min_mm=R,ring_insulation_straight_mm=9,
+        wago_insulation_straight_mm=front.z-c.z,ring_wire_entry_mm=list(tips['3']),
+        wago_entry_mm=list(front),actual_cut_length_mm=None,supersedes_unqualified_legacy_blank=True)
+    a=tips['6']+X*9;outbend,b=quarter(a,X,Z,R)
+    backbend,c=quarter(b,Z,-X,R)
+    inside,e=s_shift(c,-X,A.Vector(0,-13,0),R)
+    aligned,f=s_shift(e,-X,A.Vector(0,rear.y-e.y,rear.z-e.z),R)
+    assert (rear-f).dot(-X)>=9 and (rear-f).cross(X).Length<1e-6
+    routed_wire('W065','S1.6','P_REAR.1',
+        [Part.makeLine(tips['6'],a),outbend,backbend]+inside+aligned+[Part.makeLine(f,rear)],
+        4.2,['S1_body_CP2','P_REAR_CP2'],14.452+14,None,
+        'HELU23802/OD4.2/staticR25.2; same two factory screw/ring exits retained;14.452 TE barrel incl crimp strip+14 WAGO; replaces legacy180 blank',
+        entry_strip=(rear,-X,14,math.sqrt(4/math.pi)))
+    wires[-1]['metadata'].update(bend_radius_min_mm=R,ring_insulation_straight_mm=9,
+        wago_insulation_straight_mm=(rear-f).Length,ring_wire_entry_mm=list(tips['6']),
+        wago_entry_mm=list(rear),actual_cut_length_mm=None,supersedes_unqualified_legacy_blank=True)
+
     s1_group=d.addObject('App::DocumentObjectGroup','S1TerminalCandidates')
     s1_parts={};s1_port={};drivers=[]
     for key,centre in s1_centres.items():
@@ -463,8 +506,10 @@ def main():
         rings='Four existing TE130171 allocations; no extra ring quantity',
         screws='Four original M4.5x6; headOD8/h3 ASSUMED, not M4 replacements',
         mounting='M12P1 bushing12/lever22; panel max4.5, opening12.5/antirot key; native panel/support OPEN',
-        input_routes=['W067','W068'],output_routes_open=['W064','W065'],
-        output_entry_straights_radii_stock_unqualified=True,
+        input_routes=['W067','W068'],output_routes_nominal=['W064','W065'],
+        output_routes_open=[],physical_entry_datums_and_stock_unqualified=True,
+        shared_output_receivers=dict(P_FRONT='DOWN entry108.2',P_REAR='+X entry72.5,33,115.5',D_RL='centre94,0',G2='centre129,0'),
+        strain_reliefs_mounts_full_service_open=True,
         service='Four assumed straight driver budgets after removable side-cover access, not full assembly/removal qualification',
         selected=False,physical_pass=False)
 
@@ -586,7 +631,7 @@ def main():
             if not c0.isValid():errors.append(dict(pair=[name,other_name],error='Invalid S1 terminal Boolean'))
             elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[name,other_name],volume_mm3=c0.Volume))
         for wire in wires:
-            own={'2':'W067','5':'W068'}.get(s1_port[name])==wire['metadata']['id']
+            own={'2':'W067','5':'W068','3':'W064','6':'W065'}.get(s1_port[name])==wire['metadata']['id']
             if own or not broad(shape,wire['shape']):continue
             checked+=1;c0=shape.common(wire['shape'])
             if not c0.isValid():errors.append(dict(pair=[name,wire['metadata']['id']],error='Invalid S1 wire Boolean'))
@@ -652,14 +697,14 @@ def main():
     assert all(o.Shape.isValid() for o in d.getObject('S0TerminalCandidates').Group)
     assert len(d.getObject('S1TerminalCandidates').Group)==16
     assert all(o.Shape.isValid() for o in d.getObject('S1TerminalCandidates').Group)
-    ob=d.getObject('S1_body_CP2');h=ob.Height.Value;w=ob.Shape.BoundBox.ZLength
-    ob.Height=h+1;d.recompute()
-    assert abs(ob.Shape.BoundBox.ZLength-w-1)<1e-6
-    ob.Height=h;d.recompute();A.closeDocument(d.Name)
+    ob=d.getObject('P_REAR_CP2');h=ob.Width.Value;w=ob.Shape.BoundBox.XLength
+    ob.Width=h+1;d.recompute()
+    assert abs(ob.Shape.BoundBox.XLength-w-1)<1e-6
+    ob.Width=h;d.recompute();A.closeDocument(d.Name)
     checks.update(native_reopen=True,box_parameter_roundtrip=True,
-                  parameter_test='S1 body Height+1 -> world Z footprint+1; restored; cables/rings are builder-owned snapshots')
+                  parameter_test='P_REAR Width+1 -> world X footprint+1; restored; cables/rings are builder-owned snapshots')
     checks['previous_preflight_history_git']='9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json'
-    checks['shared_revision']='Joint side-facing S1/all four terminal directions/two input paths/driver budgets, left fuse pitch30 and G2Y0; S0/source retained. Output wires/mounts/restraints/full assembly OPEN.'
+    checks['shared_revision']='All four nominal S1 wires/terminals/driver budgets; common DOWN P_FRONT/+X P_REAR/D_RL/G2 receiver plan. Existing source/input routes retained. MTA/mounts/restraints/full assembly OPEN.'
     assert all(digest(ROOT/p)==h for p,h in pins.items()),'Reference source was modified'
     save('checks.json',checks)
     plan=dict(status=checks['status'],selected=False,source_sha256=pins,components=rows,
@@ -675,10 +720,10 @@ def main():
                                'Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.',
                                'Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.',
                                'Rotated XT60/F0 in front-side source bay: W075 and W001 full nominal paths modeled with changed MAIN/front splice/G1. Mate/release/actual marked polarity and W076 switch lead still OPEN.',
-                               'Eight horizontal central WAGO Z110..121, up-entry P_SYS Z95..117 and down-entry G1 Z103.5..125.5; five FHAC Z125..147. Eight source-wire pieces modeled including S1 inputs; S1 outputs/4MTA/restraints OPEN.'],
+                               'Central WAGO include DOWN P_FRONT108.2..130.2, +X P_REAR110..121, P_SYS UP95..117 and G1 DOWN103.5..125.5; five FHAC125..147. Ten source-wire pieces incl all four S1 wires modeled;4MTA/restraints OPEN.'],
               not_qualified=['Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half',
                              'S0 stud/lug/tool access and exact delivered SKU',
-                             'S1 nominal four ring/screw approaches and two inputs modeled; physical pockets, bushing support, aperture, both output routes and actual tool still OPEN',
+                             'S1 nominal four ring/screw approaches and four routes modeled; physical pockets, bushing support, aperture, restraints/stock and actual tool still OPEN',
                              'All full wire solids, 24 ends, bend radii, usable lengths and stock',
                              'Structural supports/fasteners, shell walls and motion sweeps',
                              'Assembly/removal swept volumes and actual connector release'],
@@ -767,6 +812,31 @@ def complete_service_plan():
         next_shared_plan='Direct ATO access with WAGO retained:12 extraction and5 lid/tool budgets in native model. Next actual full wires, four MTA both exits, lever access and supports together. No full service qualification from empty-space checks.',
         release_sweeps_strain_relief_and_parked_ends_open=True,
         connector_SKUs_not_invented=True,removal_qualified=False)
+    # Replacement contribution only: never add old nominal cuts to CP2 cuts.
+    legacy_path=ROOT/'hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json'
+    assert digest(legacy_path)==data['source_sha256'][legacy_path.relative_to(ROOT).as_posix()]
+    legacy={c['id']:c for c in json.loads(legacy_path.read_text(encoding='utf-8'))['conductors']}
+    cuts=[]
+    for w in data['nominal_source_wires']:
+        if w['id'] not in ['W064','W065','W067','W068']:continue
+        old=legacy[w['id']]
+        assert {old['a'],old['b']}=={w['a'],w['b']},'Conductor identity changed'
+        cuts.append(dict(id=w['id'],legacy_nominal_mm=old['legacy_nominal_mm'],
+                         replacement_nominal_mm=w['nominal_blank_mm'],actual_cut_mm=None,
+                         selected_in_R53=False,material='HELU23802 red4mm2'))
+    assert len(cuts)==4
+    subtotal=sum(c['replacement_nominal_mm'] for c in cuts)
+    oldsum=sum(c['legacy_nominal_mm'] for c in cuts)
+    red_ids=['W076_EXTENSION','W066','W064','W065','W067','W068']
+    redsum=sum(w['nominal_blank_mm'] for w in data['nominal_source_wires'] if w['id'] in red_ids)
+    data['source_stock_contribution']=dict(status='CANDIDATE_REPLACEMENTS_NOT_FULL_STOCK_SELECTION',
+        selected=False,physical_pass=False,units='mm',S1_replacements=cuts,
+        S1_legacy_subtotal_mm=oldsum,S1_replacement_subtotal_mm=subtotal,S1_delta_mm=subtotal-oldsum,
+        modeled_HELU_subset_ids=red_ids,modeled_HELU_subset_subtotal_mm=redsum,
+        bought_HELU_metre_quantity_not_selected=True,other_red_wires_and_trim_stock_open=True,
+        factory_F0_W075_and_W076_FACTORY_not_extra_bought_HELU=True,
+        TE130171_qty=4,TE130207_qty=2,ring_quantities_existing_allocations_not_extra=True,
+        W1_complete=False,W5_complete=False,K3_complete=False)
     save('interfaces.json',data)
     print('WAGO service:',len(external),'external disconnects,',len(internal),'internal wires; routine unclamping rejected',flush=True)
 
@@ -776,14 +846,14 @@ def verify_changed_native():
     import FreeCAD as A
     started=time.monotonic();d=A.openDocument(str(OUT/'WholeCatInterior.FCStd'))
     wires=d.getObject('HarnessCandidate').Group
-    assert len(wires)==14 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
+    assert len(wires)==18 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
     terminals=d.getObject('S0TerminalCandidates').Group
     assert len(terminals)==8 and all(o.Shape.isValid() for o in terminals)
     s1=d.getObject('S1TerminalCandidates').Group
     assert len(s1)==16 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in s1)
-    g=d.getObject('S1_body_CP2');h=g.Height.Value;width=g.Shape.BoundBox.ZLength
-    g.Height=h+1;d.recompute();assert abs(g.Shape.BoundBox.ZLength-width-1)<1e-6
-    g.Height=h;d.recompute();assert abs(g.Shape.BoundBox.ZLength-width)<1e-6
+    g=d.getObject('P_REAR_CP2');h=g.Width.Value;width=g.Shape.BoundBox.XLength
+    g.Width=h+1;d.recompute();assert abs(g.Shape.BoundBox.XLength-width-1)<1e-6
+    g.Width=h;d.recompute();assert abs(g.Shape.BoundBox.XLength-width)<1e-6
     checks=json.loads((OUT/'checks.json').read_text(encoding='utf-8'))
     for row in checks['nominal_source_wires']:
         name='W043_FPI_CP2' if row['id']=='W043' else row['id']+'_CP2'
@@ -792,9 +862,9 @@ def verify_changed_native():
     torso=d.getObject('TorsoEnvelope').Shape
     assert all(o.Shape.cut(torso).Volume<1e-5 for o in terminals+s1)
     A.closeDocument(d.Name)
-    checks['changed_source_native_check']=dict(wires_and_strips=14,S0_terminal_parts=8,S1_terminal_and_tool_parts=16,valid_single_wire_solids=True,
+    checks['changed_source_native_check']=dict(wires_and_strips=18,S0_terminal_parts=8,S1_terminal_and_tool_parts=16,valid_single_wire_solids=True,
         cable_volume_matches_paths=True,terminals_inside_torso_without_extra_margin=True,
-        parameter='S1 body Height+1 -> world Z+1; restored without saving; wire snapshots do NOT auto-update',
+        parameter='P_REAR Width+1 -> world X+1; restored without saving; wire snapshots do NOT auto-update',
         wall_seconds=round(time.monotonic()-started,3))
     save('checks.json',checks);print('Changed saved source wires/terminals:',checks['changed_source_native_check'],flush=True)
 

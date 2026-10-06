@@ -47,7 +47,7 @@
     "hardware/reference/manual-stop-p0-2026-09-24/130171-RS.pdf": "0c0923267984a4e87de6ce08cbdbb2882d3b48ef561087d43467d8061260b9fb"
   },
   "wall_clearance_reserve_mm": 2.4,
-  "exact_brep_intersections_after_bbox_filter": 58,
+  "exact_brep_intersections_after_bbox_filter": 83,
   "outside": [],
   "contacts": [],
   "retained_contacts": [],
@@ -528,6 +528,64 @@
       ],
       "actual_cut_length_mm": null,
       "supersedes_unqualified_legacy_blank": true
+    },
+    {
+      "id": "W064",
+      "a": "S1.3",
+      "b": "P_FRONT.1",
+      "centerline_length_mm": 176.33200267915845,
+      "termination_allowance_in_blank_mm": 28.451999999999998,
+      "nominal_blank_mm": 204.78400267915845,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802/OD4.2/staticR25.2; existing TE130171 barrel14.452 incl crimp strip+14 WAGO; provisional endpoints; replaces legacy220 blank",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true,
+      "bend_radius_min_mm": 25.2,
+      "ring_insulation_straight_mm": 9,
+      "wago_insulation_straight_mm": 9.999999999999986,
+      "ring_wire_entry_mm": [
+        98.077,
+        33.0,
+        73.0
+      ],
+      "wago_entry_mm": [
+        -53.0,
+        38.49999999999999,
+        108.19999999999999
+      ],
+      "actual_cut_length_mm": null,
+      "supersedes_unqualified_legacy_blank": true
+    },
+    {
+      "id": "W065",
+      "a": "S1.6",
+      "b": "P_REAR.1",
+      "centerline_length_mm": 186.3671161372022,
+      "termination_allowance_in_blank_mm": 28.451999999999998,
+      "nominal_blank_mm": 214.8191161372022,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802/OD4.2/staticR25.2; same two factory screw/ring exits retained;14.452 TE barrel incl crimp strip+14 WAGO; replaces legacy180 blank",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true,
+      "bend_radius_min_mm": 25.2,
+      "ring_insulation_straight_mm": 9,
+      "wago_insulation_straight_mm": 20.95547871068186,
+      "ring_wire_entry_mm": [
+        154.32299999999998,
+        33.0,
+        73.0
+      ],
+      "wago_entry_mm": [
+        72.5,
+        32.99999999999999,
+        115.5
+      ],
+      "actual_cut_length_mm": null,
+      "supersedes_unqualified_legacy_blank": true
     }
   ],
   "S0_terminal_contacts": [],
@@ -670,11 +728,19 @@
       "W067",
       "W068"
     ],
-    "output_routes_open": [
+    "output_routes_nominal": [
       "W064",
       "W065"
     ],
-    "output_entry_straights_radii_stock_unqualified": true,
+    "output_routes_open": [],
+    "physical_entry_datums_and_stock_unqualified": true,
+    "shared_output_receivers": {
+      "P_FRONT": "DOWN entry108.2",
+      "P_REAR": "+X entry72.5,33,115.5",
+      "D_RL": "centre94,0",
+      "G2": "centre129,0"
+    },
+    "strain_reliefs_mounts_full_service_open": true,
     "service": "Four assumed straight driver budgets after removable side-cover access, not full assembly/removal qualification",
     "selected": false,
     "physical_pass": false
@@ -713,6 +779,14 @@
     "W068": [
       "P_SYS_CP2",
       "S1_body_CP2"
+    ],
+    "W064": [
+      "S1_body_CP2",
+      "P_FRONT_CP2"
+    ],
+    "W065": [
+      "S1_body_CP2",
+      "P_REAR_CP2"
     ]
   },
   "reused_unchanged_component_names": [
@@ -720,7 +794,6 @@
     "BUS_CP2",
     "D_FL_CP2",
     "D_FR_CP2",
-    "D_RL_CP2",
     "D_RR_CP2",
     "F0_CP2",
     "FL_G_CP2",
@@ -731,6 +804,11 @@
     "F_HP_CP2",
     "F_HY_CP2",
     "F_L1_CP2",
+    "F_L2_CP2",
+    "F_L3_CP2",
+    "F_L4_CP2",
+    "F_L5_CP2",
+    "F_L6_CP2",
     "F_PI_CP2",
     "F_PWM_CP2",
     "F_R1_CP2",
@@ -752,8 +830,6 @@
     "PWM1608_CP2",
     "PWM9685_CP2",
     "P_AUX_CP2",
-    "P_FRONT_CP2",
-    "P_REAR_CP2",
     "P_SYS_CP2",
     "Pi4_CP2",
     "PostF0Splice_CP2",
@@ -764,6 +840,8 @@
     "S0_body_CP2",
     "S0_key_CP2",
     "S0_neck_CP2",
+    "S1_body_CP2",
+    "S1_control_CP2",
     "Splice_L1_CP2",
     "Splice_L2_CP2",
     "Splice_L3_CP2",
@@ -898,17 +976,17 @@
   ],
   "native_reopen": true,
   "box_parameter_roundtrip": true,
-  "parameter_test": "S1 body Height+1 -> world Z footprint+1; restored; cables/rings are builder-owned snapshots",
+  "parameter_test": "P_REAR Width+1 -> world X footprint+1; restored; cables/rings are builder-owned snapshots",
   "previous_preflight_history_git": "9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json",
-  "shared_revision": "Joint side-facing S1/all four terminal directions/two input paths/driver budgets, left fuse pitch30 and G2Y0; S0/source retained. Output wires/mounts/restraints/full assembly OPEN.",
+  "shared_revision": "All four nominal S1 wires/terminals/driver budgets; common DOWN P_FRONT/+X P_REAR/D_RL/G2 receiver plan. Existing source/input routes retained. MTA/mounts/restraints/full assembly OPEN.",
   "changed_source_native_check": {
-    "wires_and_strips": 14,
+    "wires_and_strips": 18,
     "S0_terminal_parts": 8,
     "S1_terminal_and_tool_parts": 16,
     "valid_single_wire_solids": true,
     "cable_volume_matches_paths": true,
     "terminals_inside_torso_without_extra_margin": true,
-    "parameter": "S1 body Height+1 -> world Z+1; restored without saving; wire snapshots do NOT auto-update",
-    "wall_seconds": 7.656
+    "parameter": "P_REAR Width+1 -> world X+1; restored without saving; wire snapshots do NOT auto-update",
+    "wall_seconds": 7.578
   }
 }

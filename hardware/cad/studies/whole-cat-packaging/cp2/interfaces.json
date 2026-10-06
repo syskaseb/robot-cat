@@ -1266,11 +1266,19 @@
       "W067",
       "W068"
     ],
-    "output_routes_open": [
+    "output_routes_nominal": [
       "W064",
       "W065"
     ],
-    "output_entry_straights_radii_stock_unqualified": true,
+    "output_routes_open": [],
+    "physical_entry_datums_and_stock_unqualified": true,
+    "shared_output_receivers": {
+      "P_FRONT": "DOWN entry108.2",
+      "P_REAR": "+X entry72.5,33,115.5",
+      "D_RL": "centre94,0",
+      "G2": "centre129,0"
+    },
+    "strain_reliefs_mounts_full_service_open": true,
     "service": "Four assumed straight driver budgets after removable side-cover access, not full assembly/removal qualification",
     "selected": false,
     "physical_pass": false
@@ -1487,6 +1495,125 @@
       ],
       "actual_cut_length_mm": null,
       "supersedes_unqualified_legacy_blank": true
+    },
+    {
+      "id": "W064",
+      "a": "S1.3",
+      "b": "P_FRONT.1",
+      "centerline_length_mm": 176.33200267915845,
+      "termination_allowance_in_blank_mm": 28.451999999999998,
+      "nominal_blank_mm": 204.78400267915845,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802/OD4.2/staticR25.2; existing TE130171 barrel14.452 incl crimp strip+14 WAGO; provisional endpoints; replaces legacy220 blank",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true,
+      "bend_radius_min_mm": 25.2,
+      "ring_insulation_straight_mm": 9,
+      "wago_insulation_straight_mm": 9.999999999999986,
+      "ring_wire_entry_mm": [
+        98.077,
+        33.0,
+        73.0
+      ],
+      "wago_entry_mm": [
+        -53.0,
+        38.49999999999999,
+        108.19999999999999
+      ],
+      "actual_cut_length_mm": null,
+      "supersedes_unqualified_legacy_blank": true
+    },
+    {
+      "id": "W065",
+      "a": "S1.6",
+      "b": "P_REAR.1",
+      "centerline_length_mm": 186.3671161372022,
+      "termination_allowance_in_blank_mm": 28.451999999999998,
+      "nominal_blank_mm": 214.8191161372022,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802/OD4.2/staticR25.2; same two factory screw/ring exits retained;14.452 TE barrel incl crimp strip+14 WAGO; replaces legacy180 blank",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true,
+      "bend_radius_min_mm": 25.2,
+      "ring_insulation_straight_mm": 9,
+      "wago_insulation_straight_mm": 20.95547871068186,
+      "ring_wire_entry_mm": [
+        154.32299999999998,
+        33.0,
+        73.0
+      ],
+      "wago_entry_mm": [
+        72.5,
+        32.99999999999999,
+        115.5
+      ],
+      "actual_cut_length_mm": null,
+      "supersedes_unqualified_legacy_blank": true
     }
-  ]
+  ],
+  "source_stock_contribution": {
+    "status": "CANDIDATE_REPLACEMENTS_NOT_FULL_STOCK_SELECTION",
+    "selected": false,
+    "physical_pass": false,
+    "units": "mm",
+    "S1_replacements": [
+      {
+        "id": "W067",
+        "legacy_nominal_mm": 260,
+        "replacement_nominal_mm": 200.09375161197613,
+        "actual_cut_mm": null,
+        "selected_in_R53": false,
+        "material": "HELU23802 red4mm2"
+      },
+      {
+        "id": "W068",
+        "legacy_nominal_mm": 260,
+        "replacement_nominal_mm": 231.15616167932083,
+        "actual_cut_mm": null,
+        "selected_in_R53": false,
+        "material": "HELU23802 red4mm2"
+      },
+      {
+        "id": "W064",
+        "legacy_nominal_mm": 220,
+        "replacement_nominal_mm": 204.78400267915845,
+        "actual_cut_mm": null,
+        "selected_in_R53": false,
+        "material": "HELU23802 red4mm2"
+      },
+      {
+        "id": "W065",
+        "legacy_nominal_mm": 180,
+        "replacement_nominal_mm": 214.8191161372022,
+        "actual_cut_mm": null,
+        "selected_in_R53": false,
+        "material": "HELU23802 red4mm2"
+      }
+    ],
+    "S1_legacy_subtotal_mm": 920,
+    "S1_replacement_subtotal_mm": 850.8530321076576,
+    "S1_delta_mm": -69.14696789234245,
+    "modeled_HELU_subset_ids": [
+      "W076_EXTENSION",
+      "W066",
+      "W064",
+      "W065",
+      "W067",
+      "W068"
+    ],
+    "modeled_HELU_subset_subtotal_mm": 1305.1866118958953,
+    "bought_HELU_metre_quantity_not_selected": true,
+    "other_red_wires_and_trim_stock_open": true,
+    "factory_F0_W075_and_W076_FACTORY_not_extra_bought_HELU": true,
+    "TE130171_qty": 4,
+    "TE130207_qty": 2,
+    "ring_quantities_existing_allocations_not_extra": true,
+    "W1_complete": false,
+    "W5_complete": false,
+    "K3_complete": false
+  }
 }
