@@ -1,0 +1,1078 @@
+{
+  "status": "SHARED_DIMENSIONS_RECONCILED_PARTIAL_PORT_PLAN_NOT_WIRING",
+  "selected": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/WholeCatLayout.FCStd": "ea1e1218dfd2846f5b16e4ed5c85dfe6f16bfdf0593d1a668b27442a260bf49b",
+    "hardware/cad/studies/whole-cat-packaging/layout.json": "dd725a89effe6093bad428add7b6ecbffa2c38f3cfbdf7b293c6ead4f7574149",
+    "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c",
+    "hardware/reference/u1-adapter-2026-09-26/source.json": "96f4f6cfadf3bc03a9207be4826de54ef09a20eec1e3560bbd0e5336ae0631b4",
+    "hardware/reference/xt60-p0-2026-09-24/README.md": "8a77b87b4ef3023c5bf96cf015698e577f083f81cc93708f30c34947e9142777",
+    "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039"
+  },
+  "BUS": {
+    "sku": "Waveshare25514",
+    "actual_vendor_solids": 117,
+    "vendor_compound_valid": false,
+    "contact_test": "Conservative full bounds; vendor compound not repaired or used for exact qualification",
+    "usb_mouth_mm": [
+      103.81628928,
+      11.1220508043,
+      45.7695251897
+    ],
+    "usb_direction": [
+      1,
+      0,
+      0
+    ],
+    "usb_plug_and_service_open": true,
+    "mount_pitch_mm": [
+      37,
+      28
+    ],
+    "fourth_hole_x_deviation_mm": 0.012,
+    "supplier": "https://www.waveshare.com/bus-servo-adapter-a.htm"
+  },
+  "U1": {
+    "sku": "575070",
+    "owner": "PWM1608_CP2",
+    "footprint_mm": [
+      30.48,
+      17.78
+    ],
+    "world_xy_mm": [
+      76.35,
+      3.81,
+      106.83,
+      21.59
+    ],
+    "extra_separate_board": false,
+    "pcb_thickness_pad_coordinates_open": true
+  },
+  "P309": {
+    "supplier_dimensions_mm": [
+      41,
+      25,
+      12
+    ],
+    "balance_roles": [
+      "BAT.B0",
+      "BAT.B1",
+      "BAT.B2",
+      "BAT.B3"
+    ],
+    "permanently_live_when_S0_off": true,
+    "alarm_only": true,
+    "physical_pin_exit_datums_open": true,
+    "supplier": "https://botland.com.pl/wskazniki-rozladowania/5015-wskaznik-napiecia-li-pol-1-8s-z-buzzerem-p309-5904422333270.html"
+  },
+  "FHAC": {
+    "source": "https://www.littelfuse.com/assetdocs/fhac0001zxj-2d-print?assetguid=3959eb51-0df1-4ffd-a2a6-c64b8e165c85",
+    "drawing": "OL-FHAC0001ZXJ revL2019",
+    "length_max_mm": 51,
+    "width_max_mm": 20.25,
+    "thickness_budget_mm": 22,
+    "thickness_supplier_verified": false,
+    "factory_lead_mm": [
+      84.5,
+      94.5
+    ],
+    "strip_mm": [
+      4.35,
+      8.35
+    ],
+    "lead_length_includes_strip": true,
+    "lead_OD_budget_mm": 3.4,
+    "bend_radius_budget_mm": 6,
+    "OD_radius_supplier_verified": false,
+    "branches": [
+      {
+        "role": "F_PI",
+        "origin_mm": [
+          -45,
+          14,
+          75
+        ],
+        "input_exit_direction": [
+          0,
+          0,
+          1
+        ],
+        "output_exit_direction": [
+          0,
+          0,
+          -1
+        ]
+      },
+      {
+        "role": "F_AUX",
+        "origin_mm": [
+          29,
+          14,
+          75
+        ],
+        "input_exit_direction": [
+          0,
+          0,
+          1
+        ],
+        "output_exit_direction": [
+          0,
+          0,
+          -1
+        ]
+      },
+      {
+        "role": "F_HY",
+        "origin_mm": [
+          -18,
+          -36,
+          75
+        ],
+        "input_exit_direction": [
+          0,
+          0,
+          1
+        ],
+        "output_exit_direction": [
+          0,
+          0,
+          -1
+        ]
+      },
+      {
+        "role": "F_HP",
+        "origin_mm": [
+          9,
+          -36,
+          75
+        ],
+        "input_exit_direction": [
+          0,
+          0,
+          1
+        ],
+        "output_exit_direction": [
+          0,
+          0,
+          -1
+        ]
+      },
+      {
+        "role": "F_TY",
+        "origin_mm": [
+          35,
+          -36,
+          75
+        ],
+        "input_exit_direction": [
+          0,
+          0,
+          1
+        ],
+        "output_exit_direction": [
+          0,
+          0,
+          -1
+        ]
+      }
+    ],
+    "supply_roles": {
+      "F_PI": "P_SYS.2",
+      "F_AUX": "P_REAR.5",
+      "F_HY": "P_AUX.2",
+      "F_HP": "P_AUX.3",
+      "F_TY": "P_AUX.4"
+    },
+    "complete_lead_routes_open": true
+  },
+  "F_PWM": {
+    "sku": "0242.100UAT1",
+    "assembly": "axial sleeved/restraint, no separate holder",
+    "supply": "P_REAR.4",
+    "output": "JPWM_IN.1",
+    "assembly_bounds_assumed": true
+  },
+  "F0": {
+    "sku": "FHAC0002ZXJ",
+    "housing_axis": [
+      0,
+      1,
+      0
+    ],
+    "both_factory_exits_retained": true,
+    "housing_origin_mm": [
+      -60,
+      -25.5,
+      15
+    ],
+    "prefuse_full_route_open": true
+  },
+  "XT60": {
+    "own_half": "XT60H-M",
+    "own_housing_mm": [
+      23.9,
+      16.4,
+      9.2
+    ],
+    "mate_housing_mm": [
+      25,
+      16.4,
+      9.2
+    ],
+    "mated_length_not_sum": true,
+    "mated_envelope_and_withdrawal_open": true,
+    "prefuse_limit_mm": 50,
+    "prefuse_full_route_open": true
+  },
+  "WAGO": {
+    "role_count": 20,
+    "sku_map_retained": true,
+    "leg_power_ground": "221-415 NOT221-615",
+    "port_face_and_lever_motion_open": true
+  },
+  "service_boundary": {
+    "graph_scope": "Existing netlist only, not newly routed wires or certified physical pin positions",
+    "upper_tray_owners": [
+      "D_FL",
+      "D_FR",
+      "D_RL",
+      "D_RR",
+      "FL_G",
+      "FL_P",
+      "FR_G",
+      "FR_P",
+      "G1",
+      "G2",
+      "G_AUX",
+      "G_TAIL",
+      "P_AUX",
+      "P_FRONT",
+      "P_REAR",
+      "P_SYS",
+      "RL_G",
+      "RL_P",
+      "RR_G",
+      "RR_P"
+    ],
+    "unique_attached_wire_pairs": 80,
+    "populated_ports": 86,
+    "NC_ports": 14,
+    "lower_boundary_wires": [
+      {
+        "ends": [
+          "AUX.GND",
+          "G_AUX.2"
+        ],
+        "graph_edge_aliases": [
+          "XA04"
+        ],
+        "tray_port": "G_AUX.2"
+      },
+      {
+        "ends": [
+          "AUX.VOUT",
+          "P_AUX.1"
+        ],
+        "graph_edge_aliases": [
+          "XA03"
+        ],
+        "tray_port": "P_AUX.1"
+      },
+      {
+        "ends": [
+          "BAT.minus",
+          "G1.1"
+        ],
+        "graph_edge_aliases": [
+          "W_G1.1"
+        ],
+        "tray_port": "G1.1"
+      },
+      {
+        "ends": [
+          "BUS.D",
+          "D_FL.1"
+        ],
+        "graph_edge_aliases": [
+          "D_BUS"
+        ],
+        "tray_port": "D_FL.1"
+      },
+      {
+        "ends": [
+          "BUS.G",
+          "G2.4"
+        ],
+        "graph_edge_aliases": [
+          "W_G2.4"
+        ],
+        "tray_port": "G2.4"
+      },
+      {
+        "ends": [
+          "C_HP.GND",
+          "G_AUX.4"
+        ],
+        "graph_edge_aliases": [
+          "XB23"
+        ],
+        "tray_port": "G_AUX.4"
+      },
+      {
+        "ends": [
+          "C_HY.GND",
+          "G_AUX.3"
+        ],
+        "graph_edge_aliases": [
+          "XB13"
+        ],
+        "tray_port": "G_AUX.3"
+      },
+      {
+        "ends": [
+          "C_TY.GND",
+          "G_TAIL.2"
+        ],
+        "graph_edge_aliases": [
+          "XB33"
+        ],
+        "tray_port": "G_TAIL.2"
+      },
+      {
+        "ends": [
+          "D_FL.2",
+          "FL1.D"
+        ],
+        "graph_edge_aliases": [
+          "D_FL1"
+        ],
+        "tray_port": "D_FL.2"
+      },
+      {
+        "ends": [
+          "D_FL.3",
+          "FL2.D"
+        ],
+        "graph_edge_aliases": [
+          "D_FL2"
+        ],
+        "tray_port": "D_FL.3"
+      },
+      {
+        "ends": [
+          "D_FL.4",
+          "FL3.D"
+        ],
+        "graph_edge_aliases": [
+          "D_FL3"
+        ],
+        "tray_port": "D_FL.4"
+      },
+      {
+        "ends": [
+          "D_FR.2",
+          "FR1.D"
+        ],
+        "graph_edge_aliases": [
+          "D_FR1"
+        ],
+        "tray_port": "D_FR.2"
+      },
+      {
+        "ends": [
+          "D_FR.3",
+          "FR2.D"
+        ],
+        "graph_edge_aliases": [
+          "D_FR2"
+        ],
+        "tray_port": "D_FR.3"
+      },
+      {
+        "ends": [
+          "D_FR.4",
+          "FR3.D"
+        ],
+        "graph_edge_aliases": [
+          "D_FR3"
+        ],
+        "tray_port": "D_FR.4"
+      },
+      {
+        "ends": [
+          "D_RL.2",
+          "RL1.D"
+        ],
+        "graph_edge_aliases": [
+          "D_RL1"
+        ],
+        "tray_port": "D_RL.2"
+      },
+      {
+        "ends": [
+          "D_RL.3",
+          "RL2.D"
+        ],
+        "graph_edge_aliases": [
+          "D_RL2"
+        ],
+        "tray_port": "D_RL.3"
+      },
+      {
+        "ends": [
+          "D_RL.4",
+          "RL3.D"
+        ],
+        "graph_edge_aliases": [
+          "D_RL3"
+        ],
+        "tray_port": "D_RL.4"
+      },
+      {
+        "ends": [
+          "D_RR.2",
+          "RR1.D"
+        ],
+        "graph_edge_aliases": [
+          "D_RR1"
+        ],
+        "tray_port": "D_RR.2"
+      },
+      {
+        "ends": [
+          "D_RR.3",
+          "RR2.D"
+        ],
+        "graph_edge_aliases": [
+          "D_RR2"
+        ],
+        "tray_port": "D_RR.3"
+      },
+      {
+        "ends": [
+          "D_RR.4",
+          "RR3.D"
+        ],
+        "graph_edge_aliases": [
+          "D_RR3"
+        ],
+        "tray_port": "D_RR.4"
+      },
+      {
+        "ends": [
+          "FL.GND_RETURN",
+          "FL_G.1"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_G.1"
+        ],
+        "tray_port": "FL_G.1"
+      },
+      {
+        "ends": [
+          "FL.GND_RETURN",
+          "G1.3"
+        ],
+        "graph_edge_aliases": [
+          "W_G1.3"
+        ],
+        "tray_port": "G1.3"
+      },
+      {
+        "ends": [
+          "FL1.G",
+          "FL_G.2"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_G.2"
+        ],
+        "tray_port": "FL_G.2"
+      },
+      {
+        "ends": [
+          "FL2.G",
+          "FL_G.3"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_G.3"
+        ],
+        "tray_port": "FL_G.3"
+      },
+      {
+        "ends": [
+          "FL3.G",
+          "FL_G.4"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_G.4"
+        ],
+        "tray_port": "FL_G.4"
+      },
+      {
+        "ends": [
+          "FL_P.1",
+          "F_FL.out"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_P.1"
+        ],
+        "tray_port": "FL_P.1"
+      },
+      {
+        "ends": [
+          "FL_P.2",
+          "F_FL1.in"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_P.2"
+        ],
+        "tray_port": "FL_P.2"
+      },
+      {
+        "ends": [
+          "FL_P.3",
+          "F_FL2.in"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_P.3"
+        ],
+        "tray_port": "FL_P.3"
+      },
+      {
+        "ends": [
+          "FL_P.4",
+          "F_FL3.in"
+        ],
+        "graph_edge_aliases": [
+          "W_FL_P.4"
+        ],
+        "tray_port": "FL_P.4"
+      },
+      {
+        "ends": [
+          "FR.GND_RETURN",
+          "FR_G.1"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_G.1"
+        ],
+        "tray_port": "FR_G.1"
+      },
+      {
+        "ends": [
+          "FR.GND_RETURN",
+          "G1.4"
+        ],
+        "graph_edge_aliases": [
+          "W_G1.4"
+        ],
+        "tray_port": "G1.4"
+      },
+      {
+        "ends": [
+          "FR1.G",
+          "FR_G.2"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_G.2"
+        ],
+        "tray_port": "FR_G.2"
+      },
+      {
+        "ends": [
+          "FR2.G",
+          "FR_G.3"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_G.3"
+        ],
+        "tray_port": "FR_G.3"
+      },
+      {
+        "ends": [
+          "FR3.G",
+          "FR_G.4"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_G.4"
+        ],
+        "tray_port": "FR_G.4"
+      },
+      {
+        "ends": [
+          "FR_P.1",
+          "F_FR.out"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_P.1"
+        ],
+        "tray_port": "FR_P.1"
+      },
+      {
+        "ends": [
+          "FR_P.2",
+          "F_FR1.in"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_P.2"
+        ],
+        "tray_port": "FR_P.2"
+      },
+      {
+        "ends": [
+          "FR_P.3",
+          "F_FR2.in"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_P.3"
+        ],
+        "tray_port": "FR_P.3"
+      },
+      {
+        "ends": [
+          "FR_P.4",
+          "F_FR3.in"
+        ],
+        "graph_edge_aliases": [
+          "W_FR_P.4"
+        ],
+        "tray_port": "FR_P.4"
+      },
+      {
+        "ends": [
+          "F_AUX.in",
+          "P_REAR.5"
+        ],
+        "graph_edge_aliases": [
+          "XA01"
+        ],
+        "tray_port": "P_REAR.5"
+      },
+      {
+        "ends": [
+          "F_FL.in",
+          "P_FRONT.2"
+        ],
+        "graph_edge_aliases": [
+          "W_P_FRONT.2"
+        ],
+        "tray_port": "P_FRONT.2"
+      },
+      {
+        "ends": [
+          "F_FR.in",
+          "P_FRONT.3"
+        ],
+        "graph_edge_aliases": [
+          "W_P_FRONT.3"
+        ],
+        "tray_port": "P_FRONT.3"
+      },
+      {
+        "ends": [
+          "F_HP.in",
+          "P_AUX.3"
+        ],
+        "graph_edge_aliases": [
+          "XB21"
+        ],
+        "tray_port": "P_AUX.3"
+      },
+      {
+        "ends": [
+          "F_HY.in",
+          "P_AUX.2"
+        ],
+        "graph_edge_aliases": [
+          "XB11"
+        ],
+        "tray_port": "P_AUX.2"
+      },
+      {
+        "ends": [
+          "F_PI.in",
+          "P_SYS.2"
+        ],
+        "graph_edge_aliases": [
+          "W_P_SYS.2"
+        ],
+        "tray_port": "P_SYS.2"
+      },
+      {
+        "ends": [
+          "F_PWM.in",
+          "P_REAR.4"
+        ],
+        "graph_edge_aliases": [
+          "XP01"
+        ],
+        "tray_port": "P_REAR.4"
+      },
+      {
+        "ends": [
+          "F_RL.in",
+          "P_REAR.2"
+        ],
+        "graph_edge_aliases": [
+          "W_P_REAR.2"
+        ],
+        "tray_port": "P_REAR.2"
+      },
+      {
+        "ends": [
+          "F_RL.out",
+          "RL_P.1"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_P.1"
+        ],
+        "tray_port": "RL_P.1"
+      },
+      {
+        "ends": [
+          "F_RL1.in",
+          "RL_P.2"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_P.2"
+        ],
+        "tray_port": "RL_P.2"
+      },
+      {
+        "ends": [
+          "F_RL2.in",
+          "RL_P.3"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_P.3"
+        ],
+        "tray_port": "RL_P.3"
+      },
+      {
+        "ends": [
+          "F_RL3.in",
+          "RL_P.4"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_P.4"
+        ],
+        "tray_port": "RL_P.4"
+      },
+      {
+        "ends": [
+          "F_RR.in",
+          "P_REAR.3"
+        ],
+        "graph_edge_aliases": [
+          "W_P_REAR.3"
+        ],
+        "tray_port": "P_REAR.3"
+      },
+      {
+        "ends": [
+          "F_RR.out",
+          "RR_P.1"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_P.1"
+        ],
+        "tray_port": "RR_P.1"
+      },
+      {
+        "ends": [
+          "F_RR1.in",
+          "RR_P.2"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_P.2"
+        ],
+        "tray_port": "RR_P.2"
+      },
+      {
+        "ends": [
+          "F_RR2.in",
+          "RR_P.3"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_P.3"
+        ],
+        "tray_port": "RR_P.3"
+      },
+      {
+        "ends": [
+          "F_RR3.in",
+          "RR_P.4"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_P.4"
+        ],
+        "tray_port": "RR_P.4"
+      },
+      {
+        "ends": [
+          "F_TY.in",
+          "P_AUX.4"
+        ],
+        "graph_edge_aliases": [
+          "XB31"
+        ],
+        "tray_port": "P_AUX.4"
+      },
+      {
+        "ends": [
+          "G1.2",
+          "MAIN.GND"
+        ],
+        "graph_edge_aliases": [
+          "W_G1.2"
+        ],
+        "tray_port": "G1.2"
+      },
+      {
+        "ends": [
+          "G2.2",
+          "RL.GND_RETURN"
+        ],
+        "graph_edge_aliases": [
+          "W_G2.2"
+        ],
+        "tray_port": "G2.2"
+      },
+      {
+        "ends": [
+          "G2.3",
+          "RR.GND_RETURN"
+        ],
+        "graph_edge_aliases": [
+          "W_G2.3"
+        ],
+        "tray_port": "G2.3"
+      },
+      {
+        "ends": [
+          "G_TAIL.3",
+          "JPWM_SOURCE.2"
+        ],
+        "graph_edge_aliases": [
+          "XP03.source"
+        ],
+        "tray_port": "G_TAIL.3"
+      },
+      {
+        "ends": [
+          "G_TAIL.4",
+          "LOCAL.GND"
+        ],
+        "graph_edge_aliases": [
+          "XL09"
+        ],
+        "tray_port": "G_TAIL.4"
+      },
+      {
+        "ends": [
+          "P_FRONT.1",
+          "S1.3"
+        ],
+        "graph_edge_aliases": [
+          "W_P_FRONT.1"
+        ],
+        "tray_port": "P_FRONT.1"
+      },
+      {
+        "ends": [
+          "P_REAR.1",
+          "S1.6"
+        ],
+        "graph_edge_aliases": [
+          "W_P_REAR.1"
+        ],
+        "tray_port": "P_REAR.1"
+      },
+      {
+        "ends": [
+          "P_SYS.1",
+          "S0.out"
+        ],
+        "graph_edge_aliases": [
+          "W_P_SYS.1"
+        ],
+        "tray_port": "P_SYS.1"
+      },
+      {
+        "ends": [
+          "P_SYS.3",
+          "S1.2"
+        ],
+        "graph_edge_aliases": [
+          "W_P_SYS.3"
+        ],
+        "tray_port": "P_SYS.3"
+      },
+      {
+        "ends": [
+          "P_SYS.4",
+          "S1.5"
+        ],
+        "graph_edge_aliases": [
+          "W_P_SYS.4"
+        ],
+        "tray_port": "P_SYS.4"
+      },
+      {
+        "ends": [
+          "RL.GND_RETURN",
+          "RL_G.1"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_G.1"
+        ],
+        "tray_port": "RL_G.1"
+      },
+      {
+        "ends": [
+          "RL1.G",
+          "RL_G.2"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_G.2"
+        ],
+        "tray_port": "RL_G.2"
+      },
+      {
+        "ends": [
+          "RL2.G",
+          "RL_G.3"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_G.3"
+        ],
+        "tray_port": "RL_G.3"
+      },
+      {
+        "ends": [
+          "RL3.G",
+          "RL_G.4"
+        ],
+        "graph_edge_aliases": [
+          "W_RL_G.4"
+        ],
+        "tray_port": "RL_G.4"
+      },
+      {
+        "ends": [
+          "RR.GND_RETURN",
+          "RR_G.1"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_G.1"
+        ],
+        "tray_port": "RR_G.1"
+      },
+      {
+        "ends": [
+          "RR1.G",
+          "RR_G.2"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_G.2"
+        ],
+        "tray_port": "RR_G.2"
+      },
+      {
+        "ends": [
+          "RR2.G",
+          "RR_G.3"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_G.3"
+        ],
+        "tray_port": "RR_G.3"
+      },
+      {
+        "ends": [
+          "RR3.G",
+          "RR_G.4"
+        ],
+        "graph_edge_aliases": [
+          "W_RR_G.4"
+        ],
+        "tray_port": "RR_G.4"
+      }
+    ],
+    "internal_tray_wires": [
+      {
+        "ends": [
+          "D_FL.5",
+          "D_FR.1"
+        ],
+        "graph_edge_aliases": [
+          "D_BRIDGE_FLFR"
+        ]
+      },
+      {
+        "ends": [
+          "D_FR.5",
+          "D_RR.1"
+        ],
+        "graph_edge_aliases": [
+          "D_BRIDGE_FRRR"
+        ]
+      },
+      {
+        "ends": [
+          "D_RL.1",
+          "D_RR.5"
+        ],
+        "graph_edge_aliases": [
+          "D_BRIDGE_RRRL"
+        ]
+      },
+      {
+        "ends": [
+          "G1.5",
+          "G2.1"
+        ],
+        "graph_edge_aliases": [
+          "W_G1.5",
+          "W_G2.1"
+        ]
+      },
+      {
+        "ends": [
+          "G2.5",
+          "G_AUX.1"
+        ],
+        "graph_edge_aliases": [
+          "XA05"
+        ]
+      },
+      {
+        "ends": [
+          "G_AUX.5",
+          "G_TAIL.1"
+        ],
+        "graph_edge_aliases": [
+          "XA06"
+        ]
+      }
+    ],
+    "unclamping_only_option": {
+      "disconnections": 74,
+      "extra_connector_SKUs": 0,
+      "status": "REJECTED_AS_ROUTINE_ATO_ACCESS; excessive disconnect/reconnect burden"
+    },
+    "next_shared_plan": "Reserve direct ATO tool/lid space with upper WAGO kept connected, or one genuinely removable connected module with existing/explicitly selected boundary connectors. Plan all four MTA exits and housing together before CAD supports.",
+    "release_sweeps_strain_relief_and_parked_ends_open": true,
+    "connector_SKUs_not_invented": true,
+    "removal_qualified": false
+  },
+  "progress": {
+    "completed": 14,
+    "total": 20,
+    "W1_complete": false,
+    "W5_complete": false
+  }
+}

@@ -5,7 +5,11 @@
     "hardware/cad/studies/whole-cat-packaging/WholeCatLayout.FCStd": "ea1e1218dfd2846f5b16e4ed5c85dfe6f16bfdf0593d1a668b27442a260bf49b",
     "hardware/cad/studies/whole-cat-packaging/layout.json": "dd725a89effe6093bad428add7b6ecbffa2c38f3cfbdf7b293c6ead4f7574149",
     "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
-    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1"
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c",
+    "hardware/reference/u1-adapter-2026-09-26/source.json": "96f4f6cfadf3bc03a9207be4826de54ef09a20eec1e3560bbd0e5336ae0631b4",
+    "hardware/reference/xt60-p0-2026-09-24/README.md": "8a77b87b4ef3023c5bf96cf015698e577f083f81cc93708f30c34947e9142777",
+    "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039"
   },
   "components": [
     {
@@ -43,33 +47,33 @@
     {
       "name": "BUS_CP2",
       "origin_mm": [
-        70,
-        -11,
-        41
+        70.0,
+        -21.0,
+        41.0
       ],
       "size_mm": [
-        30,
-        22,
-        24
+        33.81628927999111,
+        42.02417808,
+        14.599999818597645
       ],
       "group": "logic",
-      "dimension_basis": "SPACE BUDGET ONLY: R53 575070 adapter/carrier must be reconciled",
+      "dimension_basis": "Waveshare25514 full vendor envelope rotated90Z; cached117-solid compound invalid, envelope only NOT exact fit",
       "require_internal_shell": true
     },
     {
       "name": "Monitor_CP2",
       "origin_mm": [
-        -55,
-        17,
-        43
+        -44,
+        30,
+        50
       ],
       "size_mm": [
-        35,
+        41,
         25,
-        11
+        12
       ],
       "group": "logic",
-      "dimension_basis": "SPACE BUDGET ONLY: exact P309 populated bounds still required",
+      "dimension_basis": "P309 supplier41x25x12; pin exits/clip/lead still provisional",
       "require_internal_shell": true
     },
     {
@@ -793,99 +797,115 @@
       "require_internal_shell": true
     },
     {
-      "name": "FHAC_branch1_CP2",
+      "name": "F_PI_CP2",
       "origin_mm": [
-        -60.5,
-        71,
-        47
+        -45,
+        14,
+        75
       ],
       "size_mm": [
-        35,
-        16,
-        16
+        20.25,
+        22,
+        51
       ],
       "group": "inline",
-      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "dimension_basis": "FHAC0001ZXJ length50+/-1,width20+/-0.25; vertical; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2",
       "require_internal_shell": true
     },
     {
-      "name": "FHAC_branch2_CP2",
+      "name": "F_AUX_CP2",
       "origin_mm": [
-        -17.5,
-        71,
-        47
+        29,
+        14,
+        75
       ],
       "size_mm": [
-        35,
-        16,
-        16
+        20.25,
+        22,
+        51
       ],
       "group": "inline",
-      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "dimension_basis": "FHAC0001ZXJ length50+/-1,width20+/-0.25; vertical; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2",
       "require_internal_shell": true
     },
     {
-      "name": "FHAC_branch3_CP2",
+      "name": "F_HY_CP2",
       "origin_mm": [
-        25.5,
-        71,
-        47
+        -18,
+        -36,
+        75
       ],
       "size_mm": [
-        35,
-        16,
-        16
+        20.25,
+        22,
+        51
       ],
       "group": "inline",
-      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "dimension_basis": "FHAC0001ZXJ length50+/-1,width20+/-0.25; vertical; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2",
       "require_internal_shell": true
     },
     {
-      "name": "FHAC_branch4_CP2",
+      "name": "F_HP_CP2",
       "origin_mm": [
-        -60.5,
-        -87,
-        47
+        9,
+        -36,
+        75
       ],
       "size_mm": [
-        35,
-        16,
-        16
+        20.25,
+        22,
+        51
       ],
       "group": "inline",
-      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "dimension_basis": "FHAC0001ZXJ length50+/-1,width20+/-0.25; vertical; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2",
       "require_internal_shell": true
     },
     {
-      "name": "FHAC_branch5_CP2",
+      "name": "F_TY_CP2",
       "origin_mm": [
-        -17.5,
-        -87,
-        47
+        35,
+        -36,
+        75
       ],
       "size_mm": [
-        35,
-        16,
-        16
+        20.25,
+        22,
+        51
       ],
       "group": "inline",
-      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "dimension_basis": "FHAC0001ZXJ length50+/-1,width20+/-0.25; vertical; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2",
       "require_internal_shell": true
     },
     {
       "name": "F0_CP2",
       "origin_mm": [
-        -55,
-        -38,
-        42
+        -60,
+        -25.5,
+        15
       ],
       "size_mm": [
-        35,
-        18,
-        16
+        20.25,
+        51,
+        22
       ],
       "group": "inline",
-      "dimension_basis": "FHAC0002ZXJ SPACE BUDGET ONLY; <=50mm battery-to-fuse lead NOT yet routed",
+      "dimension_basis": "FHAC0002ZXJ transverse Y-axis ahead of battery; length51max/width20.25max; thickness22 ASSUMED; <=50mm prefuse route pending",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_PWM_CP2",
+      "origin_mm": [
+        66,
+        15,
+        112
+      ],
+      "size_mm": [
+        28,
+        8,
+        9
+      ],
+      "group": "inline",
+      "dimension_basis": "0242.100UAT1 axial fuse with insulation/strain relief;28x8x9 assembly budget NOT catalog dimension; no separate holder",
       "require_internal_shell": true
     },
     {
@@ -896,12 +916,12 @@
         38
       ],
       "size_mm": [
-        30,
-        18,
-        18
+        23.9,
+        16.4,
+        9.2
       ],
       "group": "inline",
-      "dimension_basis": "SPACE BUDGET ONLY: housing+exit; colocated with front F0; source pin and <=50mm prefuse path still require routing",
+      "dimension_basis": "AMASS XT60H-M own housing23.9x16.4x9.2 only; mate/withdrawal/lead route NOT qualified",
       "require_internal_shell": true
     },
     {
@@ -996,14 +1016,14 @@
     "P0 legs/frame and battery cradle stay; new removable shell/wall apertures not fabricated yet."
   ],
   "wire_space_plan": [
-    "Central low-voltage lanes between PCB edgeY25.4 and fuse-panel bands innerY37 (11.6mm).",
+    "Shared signal plane X=-39..114,Y=-10..10,Z112..122; above PCB reserves, between vertical FHAC. Previous side lanes superseded.",
     "Power lanes between fuse bands outerY63 and inline bands innerY73 (10mm); radius25.2 turns require separate X/Z bays.",
     "Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.",
     "XT60 and F0 in front source bay: no long unfused route to rear. Exact pins/factory leads and <=50mm route NOT yet qualified.",
     "20 upper WAGO blocks have4mm X gaps; lever access requires open dorsal cover, not a guessed closed-cover sector."
   ],
   "not_qualified": [
-    "SKU-specific BUS/P309/FHAC/XT60 dimensions and port exits",
+    "Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half",
     "S0 stud/lug/tool access and exact delivered SKU",
     "S1 four terminals, bushing, panel aperture and hand access",
     "All full wire solids, 24 ends, bend radii, usable lengths and stock",
@@ -1019,7 +1039,7 @@
     "PiTray",
     "4 fixed loom frames"
   ],
-  "started_utc": "2026-10-06T00:36:51.754047+00:00",
-  "finished_utc": "2026-10-06T00:37:51.411207+00:00",
-  "worker_wall_seconds": 59.657
+  "started_utc": "2026-10-06T01:02:43.817431+00:00",
+  "finished_utc": "2026-10-06T01:03:57.078944+00:00",
+  "worker_wall_seconds": 73.265
 }
