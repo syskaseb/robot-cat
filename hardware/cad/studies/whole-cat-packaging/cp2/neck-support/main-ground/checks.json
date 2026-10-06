@@ -1,0 +1,185 @@
+{
+  "status": "STATIC_MAIN_GROUND_CLEAR",
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/BoardDatumCandidate.FCStd": "8f790a53aafffe97c039c21438565d78291fd35e3461c6fe6d501897a295cf10",
+    "hardware/cad/studies/whole-cat-packaging/cp2/whole-harness-board-plan.json": "060beac29cf9b00fb9aae94902e2ca5c01727076de39c6c8f456c906b75bd90a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/NeckMainMount.FCStd": "2e2a810418157f39f305a8869a784692597414f4c3ab6e0178f623be12e56988",
+    "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/checks.json": "98d4b31f7480aff833156603de4f3e3d9248fb1e03bbaa4a159e0422fdc54c05",
+    "tools/cad/whole_cat_main_ground.py": "13a70d71ff56319181b8b28bb9ca50492bd8b55bc24793659f89a912a44699f8",
+    "tools/cad/whole_cat_source_bay_plan.py": "ace58022c5bf10db72c96bb63f99f6bbfc0b464aabe3097e62f0562dd38e57be",
+    "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json": "c4432f2ed29355a19b80f513ae5693abe74a1a8c3054485d7cacbdce07ae7008"
+  },
+  "recipe": {
+    "id": "W060",
+    "start_mm": [
+      -41.68000000000001,
+      21.289000000000016,
+      48.094800000000006
+    ],
+    "OD_mm": 3,
+    "minimum_radius_mm": 18,
+    "termination_allowance_mm": 22,
+    "electrical_ends": [
+      "MAIN.GND",
+      "G1.2"
+    ],
+    "segments": [
+      {
+        "kind": "line",
+        "start_mm": [
+          -41.68000000000001,
+          21.289000000000016,
+          48.094800000000006
+        ],
+        "end_mm": [
+          -41.68000000000001,
+          21.289000000000016,
+          57.094800000000006
+        ],
+        "tangent": [
+          0,
+          0,
+          1
+        ],
+        "length_mm": 9
+      },
+      {
+        "kind": "arc",
+        "start_mm": [
+          -41.68000000000001,
+          21.289000000000016,
+          57.094800000000006
+        ],
+        "mid_mm": [
+          -41.81535934434848,
+          16.0186600072657,
+          69.82272206135787
+        ],
+        "end_mm": [
+          -42.14214570926849,
+          3.2949337184891974,
+          75.0948
+        ],
+        "start_tangent": [
+          0,
+          0,
+          1
+        ],
+        "end_tangent": [
+          -0.02567476162602694,
+          -0.9996703489728235,
+          0
+        ],
+        "radius_mm": 18,
+        "angle_rad": 1.5707963267948966,
+        "length_mm": 28.274333882308138
+      },
+      {
+        "kind": "line",
+        "start_mm": [
+          -42.14214570926849,
+          3.2949337184891974,
+          75.0948
+        ],
+        "end_mm": [
+          -42.63785429073152,
+          -16.005933718489178,
+          75.0948
+        ],
+        "tangent": [
+          -0.02567476162602694,
+          -0.9996703489728235,
+          0
+        ],
+        "length_mm": 19.30723208586742
+      },
+      {
+        "kind": "arc",
+        "start_mm": [
+          -42.63785429073152,
+          -16.005933718489178,
+          75.0948
+        ],
+        "mid_mm": [
+          -42.96464065565153,
+          -28.729660007265686,
+          80.36687793864215
+        ],
+        "end_mm": [
+          -43.1,
+          -34.0,
+          93.0948
+        ],
+        "start_tangent": [
+          -0.02567476162602694,
+          -0.9996703489728235,
+          0
+        ],
+        "end_tangent": [
+          0,
+          0,
+          1
+        ],
+        "radius_mm": 18,
+        "angle_rad": 1.5707963267948966,
+        "length_mm": 28.274333882308138
+      },
+      {
+        "kind": "line",
+        "start_mm": [
+          -43.1,
+          -34.0,
+          93.0948
+        ],
+        "end_mm": [
+          -43.1,
+          -34.0,
+          103.5
+        ],
+        "tangent": [
+          0,
+          0,
+          1
+        ],
+        "length_mm": 10.405199999999994
+      }
+    ],
+    "end_mm": [
+      -43.1,
+      -34.0,
+      103.5
+    ],
+    "end_tangent": [
+      0,
+      0,
+      1
+    ],
+    "centreline_mm": 95.26109985048369,
+    "nominal_blank_mm": 117.26109985048369,
+    "entry_strip": 14,
+    "first_straight_mm": 9,
+    "last_straight_mm": 10.405199999999994
+  },
+  "datum_basis": [
+    "MAIN inherited prototype pad, NOT delivered4853 pin",
+    "SKU envelope and provisional port pitch; not supplier pin datum"
+  ],
+  "OD_and_radius_basis": "K1474 project OD3/R18, inherited Pi recipe; actual cable phase2",
+  "termination": "MAIN8mm blank/trim at pad; G1 fresh untinned12..14mm, no tinned WAGO entry",
+  "length_basis": "Nominal centreline+8mm MAIN+14mm G1; trim only after phase2 dry fit",
+  "native_restraints_complete": false,
+  "G1_lever_and_wire_insertion_qualified": false,
+  "other_MAIN_routes": "W078 splice and W079/W080 USB datums still OPEN",
+  "started_utc": "2026-10-06T22:40:27.872894+00:00",
+  "exact_pairs_tested": 3,
+  "contacts": [],
+  "errors": [],
+  "mounts_are_references_not_new_prints": true,
+  "native_sha256": "de9c0a8be5fa1f05d82d2d4f9c6ee2aa566526649bcb5ff90acbaae8f60cb2ac",
+  "reopen_verified": true,
+  "finished_utc": "2026-10-06T22:40:57.363749+00:00",
+  "worker_wall_seconds": 29.485
+}

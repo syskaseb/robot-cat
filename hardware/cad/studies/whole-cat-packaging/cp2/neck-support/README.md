@@ -31,6 +31,19 @@ NEXT: cztery końce MAIN z `main-mount-sequence/checks.json` i pozostałe
 końce SPLICE_PI/USB (jeszcze OPEN_DATUM), pełne trasy/odciążenia, ruch głowy,
 wspólny montaż i wybór/stock. Nie zaliczać M2 ani W5 za ten lokalny detal.
 
+### Pierwsza kompletna nominalna trasa MAIN, bez zaliczania całego przewodu
+
+`main-ground/MainGroundCandidate.FCStd`: W060 MAIN.GND→G1.2,95,2611mm
+linii z dwoma łukami R18;117,2611mm nominalnego odcinka z zapasem8+14mm
+na zakończenia.3pary w zmienionym zakresie/0przecięć/0błędów, zapis/reopen.
+Przejęte OD3/R18 i punkty płytki/WAGO są jawnie prowizoryczne. Nowe podpory
+w tym pliku są referencjami, nie kolejnymi projektami wydruków.
+To kontrola statycznej trasy, NIE odciążeń, izolacji końca przy płytce,
+ruchu dźwigni ani wsuwania żyły w WAGO. Pierwszy prosty9mm zawiera strefę
+zakończenia; nie traktować go jako9mm chwytu samej izolacji. Chwyt należy
+zaplanować razem z właściwą długością odsłoniętego końca, przed nowym CAD.
+W078/W079/W080 nie otrzymały wymyślonych punktów SPLICE_PI/USB.
+
 ## Zachowana wcześniejsza baza podpór
 
 Otwórz `coupled/NeckRisers.FCStd`. Dwa natywne PartDesign Bodies, po8w pełni
