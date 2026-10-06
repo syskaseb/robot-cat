@@ -10,7 +10,8 @@
     "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c",
     "hardware/reference/u1-adapter-2026-09-26/source.json": "96f4f6cfadf3bc03a9207be4826de54ef09a20eec1e3560bbd0e5336ae0631b4",
     "hardware/reference/xt60-p0-2026-09-24/README.md": "8a77b87b4ef3023c5bf96cf015698e577f083f81cc93708f30c34947e9142777",
-    "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039"
+    "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039",
+    "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91"
   },
   "BUS": {
     "sku": "Waveshare25514",
@@ -91,92 +92,97 @@
       {
         "role": "F_PI",
         "origin_mm": [
-          -45,
-          14,
-          75
+          -58.5,
+          4.875,
+          125
         ],
         "input_exit_direction": [
+          -1,
           0,
-          0,
-          1
+          0
         ],
         "output_exit_direction": [
+          1,
           0,
-          0,
-          -1
-        ]
+          0
+        ],
+        "exit_datum_provisional": true
       },
       {
         "role": "F_AUX",
         "origin_mm": [
-          29,
-          14,
-          75
+          61.5,
+          4.875,
+          125
         ],
         "input_exit_direction": [
+          -1,
           0,
-          0,
-          1
+          0
         ],
         "output_exit_direction": [
+          1,
           0,
-          0,
-          -1
-        ]
+          0
+        ],
+        "exit_datum_provisional": true
       },
       {
         "role": "F_HY",
         "origin_mm": [
-          -18,
-          -36,
-          75
+          -58.5,
+          -25.125,
+          125
         ],
         "input_exit_direction": [
+          -1,
           0,
-          0,
-          1
+          0
         ],
         "output_exit_direction": [
+          1,
           0,
-          0,
-          -1
-        ]
+          0
+        ],
+        "exit_datum_provisional": true
       },
       {
         "role": "F_HP",
         "origin_mm": [
-          9,
-          -36,
-          75
+          1.5,
+          -25.125,
+          125
         ],
         "input_exit_direction": [
+          -1,
           0,
-          0,
-          1
+          0
         ],
         "output_exit_direction": [
+          1,
           0,
-          0,
-          -1
-        ]
+          0
+        ],
+        "exit_datum_provisional": true
       },
       {
         "role": "F_TY",
         "origin_mm": [
-          35,
-          -36,
-          75
+          61.5,
+          -25.125,
+          125
         ],
         "input_exit_direction": [
+          -1,
           0,
-          0,
-          1
+          0
         ],
         "output_exit_direction": [
+          1,
           0,
-          0,
-          -1
-        ]
+          0
+        ],
+        "exit_datum_provisional": true
       }
     ],
     "supply_roles": {
@@ -235,7 +241,7 @@
   },
   "service_boundary": {
     "graph_scope": "Existing netlist only, not newly routed wires or certified physical pin positions",
-    "upper_tray_owners": [
+    "distribution_owners": [
       "D_FL",
       "D_FR",
       "D_RL",
@@ -1064,7 +1070,7 @@
       "extra_connector_SKUs": 0,
       "status": "REJECTED_AS_ROUTINE_ATO_ACCESS; excessive disconnect/reconnect burden"
     },
-    "next_shared_plan": "Reserve direct ATO tool/lid space with upper WAGO kept connected, or one genuinely removable connected module with existing/explicitly selected boundary connectors. Plan all four MTA exits and housing together before CAD supports.",
+    "next_shared_plan": "Direct ATO access with WAGO retained:12 extraction and5 lid/tool budgets in native model. Next actual full wires, four MTA both exits, lever access and supports together. No full service qualification from empty-space checks.",
     "release_sweeps_strain_relief_and_parked_ends_open": true,
     "connector_SKUs_not_invented": true,
     "removal_qualified": false

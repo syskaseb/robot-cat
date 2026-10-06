@@ -37,7 +37,8 @@ def main():
              ROOT/'hardware/manufacturing/one-batch-prototype-r53/selection.json', BUS,
              ROOT/'hardware/reference/u1-adapter-2026-09-26/source.json',
              ROOT/'hardware/reference/xt60-p0-2026-09-24/README.md',
-             ROOT/'hardware/electronics/full-cat/protection-selection-r2/branch-protection.json']}
+             ROOT/'hardware/electronics/full-cat/protection-selection-r2/branch-protection.json',
+             ROOT/'hardware/cad/studies/wago-p0/r1/dimensions.json']}
     d = A.openDocument(str(BASE/'WholeCatLayout.FCStd'))
     torso = d.getObject('TorsoEnvelope').Shape.copy()
     assert torso.isValid() and len(torso.Solids) == 1
@@ -53,39 +54,49 @@ def main():
     g = d.addObject('App::DocumentObjectGroup', 'InteriorReservations')
     g.Label = 'CP2: wspólny układ, bryły rezerwacji NIE części do druku'
 
-    def box(name, origin, size, group, basis, shell=True):
+    def box(name, origin, size, group, basis, shell=True, rotation=None):
         o = d.addObject('Part::Box', name)
         o.Length, o.Width, o.Height = size
         o.Placement.Base = A.Vector(*origin)
+        if rotation is not None:o.Placement.Rotation=rotation
         g.addObject(o)
         o.addProperty('App::PropertyString', 'DimensionBasis'); o.DimensionBasis = basis
         o.addProperty('App::PropertyString', 'Role'); o.Role = name
         d.recompute()
         shapes[name] = o.Shape.copy()
-        rows.append(dict(name=name, origin_mm=origin, size_mm=size, group=group,
+        bb=o.Shape.BoundBox
+        rows.append(dict(name=name, origin_mm=[bb.XMin,bb.YMin,bb.ZMin],
+                         size_mm=[bb.XLength,bb.YLength,bb.ZLength],group=group,
+                         local_size_mm=size,placement_base_mm=origin,
+                         rotation_quaternion=list(o.Placement.Rotation.Q),
                          dimension_basis=basis, require_internal_shell=shell))
 
     box('Pi4_CP2', [-19,-28,42], [85,56,22], 'logic', '85x56 PCB; populated height22 prototype reserve')
     box('MAIN4853_CP2', [-61,-12,42], [30.5,24,12], 'logic', '22.9x30.5x7.7 supplier board + solder reserve')
     # Actual Waveshare vendor geometry, NOT the unrelated U1 SSOP/DIP adapter.
-    bs = Part.Shape(); bs.read(str(BUS))
-    assert len(bs.Solids) == 117
-    bus_reference_valid = bs.isValid()
-    # Cached vendor compound has one invalid child. Preserve it; do not quietly
-    # repair/drop a component or qualify intersections from an invalid BRep.
-    bs.Placement = A.Placement(A.Vector(103.0120752,-20.98790452,44.60000348467585),
-                               A.Rotation(A.Vector(0,0,1),90))
-    bb = bs.BoundBox
-    box('BUS_CP2', [bb.XMin,bb.YMin,bb.ZMin], [bb.XLength,bb.YLength,bb.ZLength], 'logic',
+    old_layout=json.loads((OUT/'layout.json').read_text(encoding='utf-8'))
+    bus_key=BUS.relative_to(ROOT).as_posix()
+    if prior and prior['source_sha256'].get(bus_key)==pins[bus_key]:
+        # Source and placement unchanged: reuse bounded evidence, not a costly
+        # repeat of the same invalid vendor compound check.
+        bus_reference_valid=prior['BUS_vendor_compound_valid']
+        br=next(r for r in old_layout['components'] if r['name']=='BUS_CP2')
+        bus_origin,bus_size=br['origin_mm'],br['size_mm']
+    else:
+        bs=Part.Shape();bs.read(str(BUS));assert len(bs.Solids)==117
+        bus_reference_valid=bs.isValid()
+        bs.Placement=A.Placement(A.Vector(103.0120752,-20.98790452,44.60000348467585),A.Rotation(A.Vector(0,0,1),90))
+        bb=bs.BoundBox;bus_origin=[bb.XMin,bb.YMin,bb.ZMin];bus_size=[bb.XLength,bb.YLength,bb.ZLength]
+    box('BUS_CP2',bus_origin,bus_size, 'logic',
         'Waveshare25514 full vendor envelope rotated90Z; cached117-solid compound invalid, envelope only NOT exact fit')
     box('Monitor_CP2', [-44,30,50], [41,25,12], 'logic', 'P309 supplier41x25x12; pin exits/clip/lead still provisional')
     box('PWM9685_CP2', [-39,-12.7,78], [62.5,25.4,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
     box('AUX4092_CP2', [35,-12.7,78], [18.8,25.4,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
     box('PWM1608_CP2', [70,-25.4,78], [43.18,50.8,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
     # Panel flange + TE assemblies + bend space are ONE envelope, not fictitious catalog depth.
-    for side, y in [('L',50), ('R',-50)]:
+    for side, y in [('L',58), ('R',-58)]:
         for i, x in enumerate([-53,-21,11,43,75,107], 1):
-            box(f'F_{side}{i}_CP2', [x-14,y-13,63], [28,26,64], 'fuses',
+            box(f'F_{side}{i}_CP2', [x-14,y-13,70], [28,26,64], 'fuses',
                 'MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; '
                 'engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit')
     names = [['FL_P','FL_G','D_FL','RL_P','RL_G'],
@@ -94,10 +105,16 @@ def main():
              ['D_RL','D_RR','P_AUX','G_AUX','G_TAIL']]
     wanted = {e['b'] for e in json.loads(NET.read_text(encoding='utf-8'))['edges'] if e['kind']=='internal_bus'}
     assert wanted == {n for r in names for n in r}, 'Every logical bus must have exactly one place'
-    for y, ns in zip([49,-49,17,-17], names):
-        for x, name in zip([-40,1,42,83,124], ns):
-            box(name+'_CP2', [x-18.5,y-11,130], [37,22,11], 'wago',
-                '37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615')
+    for y,ns in zip([79.5,-79.5],names[:2]):
+        for x,name in zip([-45,-10,25,60,95],ns):
+            box(name+'_CP2',[x-15,y-4.5,75],[30,19,9],'wago',
+                '221-41530x19x9 planning bounds; rotate-90X: both wire entries point DOWN; lever face needs side-cover access',
+                rotation=A.Rotation(A.Vector(1,0,0),-90))
+    for y,ns in zip([22,-22],names[2:]):
+        for x,name in zip([-40,0,40,80,120],ns):
+            size=[37,22,11] if name in ['P_SYS','P_FRONT','P_REAR','G1'] else [30,19,9]
+            box(name+'_CP2',[x-size[0]/2,y-size[1]/2,110],size,'wago',
+                'SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO')
     for y, prefix in [(55,'L'),(-55,'R')]:
         for i, x in enumerate([-43,0,43],1):
             box(f'Splice_{prefix}{i}_CP2', [x-15,y-9.5,40], [30,19,9], 'splices',
@@ -105,16 +122,17 @@ def main():
     for name,x,y in [('FL',-35,84),('RL',55,84),('FR',-35,-84),('RR',55,-84)]:
         box('MTA_'+name+'_CP2', [x-17.5,y-11,80], [35,22,16], 'inline',
             '0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown')
-    # Treat all five branches together: vertical housing axes, both factory exits.
+    # Protection is the highest central layer. Both factory exits retained;
+    # no WAGO tray must be removed merely to reach an ATO or inline cover.
     # Supplier51 max length/20.25 max width; thickness22 is an explicit prototype budget.
-    fhac_sites = [('F_PI',-45,14),('F_AUX',29,14),('F_HY',-18,-36),
-                  ('F_HP',9,-36),('F_TY',35,-36)]
+    fhac_sites = [('F_PI',-58.5,4.875),('F_AUX',61.5,4.875),
+                  ('F_HY',-58.5,-25.125),('F_HP',1.5,-25.125),('F_TY',61.5,-25.125)]
     for name,x,y in fhac_sites:
-        box(name+'_CP2', [x,y,75], [20.25,22,51], 'inline',
-            'FHAC0001ZXJ length50+/-1,width20+/-0.25; vertical; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2')
+        box(name+'_CP2', [x,y,125], [51,20.25,22], 'inline',
+            'FHAC0001ZXJ length50+/-1,width20+/-0.25; horizontal X-axis lid UP; thickness22 ASSUMED; both leads89.5+/-5 incl strip6.35+/-2')
     box('F0_CP2', [-60,-25.5,15], [20.25,51,22], 'inline',
         'FHAC0002ZXJ transverse Y-axis ahead of battery; length51max/width20.25max; thickness22 ASSUMED; <=50mm prefuse route pending')
-    box('F_PWM_CP2', [66,15,112], [28,8,9], 'inline',
+    box('F_PWM_CP2', [15,8,128], [28,8,9], 'inline',
         '0242.100UAT1 axial fuse with insulation/strain relief;28x8x9 assembly budget NOT catalog dimension; no separate holder')
     box('XT60_CP2', [-95,-15,38], [23.9,16.4,9.2], 'inline',
         'AMASS XT60H-M own housing23.9x16.4x9.2 only; mate/withdrawal/lead route NOT qualified')
@@ -137,6 +155,24 @@ def main():
                      dimension_basis='22mm lever + +/-28deg conservative cylinder; shell aperture/tool still required',
                      require_internal_shell=False))
     print('Shared layout:',len(rows),'modules;20 buses,12 holders/24 ends,6 splices,4 MTA,5 branch FHAC+F0+axial F_PWM',flush=True)
+
+    access=[]
+    ag=d.addObject('App::DocumentObjectGroup','ServiceReservations')
+    ag.Label='CP2: nominalne przestrzenie narzędzi, NIE ruch zmierzony producenta'
+    def service(name,target,origin,size,basis):
+        o=d.addObject('Part::Box',name);o.Length,o.Width,o.Height=size
+        o.Placement.Base=A.Vector(*origin);ag.addObject(o);d.recompute()
+        o.addProperty('App::PropertyString','DimensionBasis');o.DimensionBasis=basis
+        access.append(dict(name=name,target=target,origin_mm=origin,size_mm=size,
+                           dimension_basis=basis,supplier_motion_verified=False))
+    for r in rows:
+        if r['group']=='fuses':
+            x,y,z=r['origin_mm'];dx,dy,dz=r['size_mm']
+            service('Access_'+r['name'],r['name'],[x,y,z+dz],[dx,dy,45],
+                    '45mm straight upward extraction/tool planning reserve above complete fuse envelope; cover removed')
+    for name,x,y in fhac_sites:
+        service('Access_'+name,name+'_CP2',[x-2,y-2,147],[55,24.25,40],
+                '40mm top access with2mm lateral budget; NOT exact supplier lid hinge or hand model')
 
     def broad(a,b):
         return a.BoundBox.intersect(b.BoundBox)
@@ -173,12 +209,24 @@ def main():
                 if not c.isValid():raise RuntimeError('Invalid retained-part intersection')
                 if c.Volume>1e-5:chassis_hits.append(dict(pair=[name,rn],volume_mm3=c.Volume,category=cat))
             except Exception as e:errors.append(dict(pair=[name,rn],error=str(e)))
-    clean=not (errors or outside or contacts or chassis_hits)
+    access_hits=[]
+    for r in access:
+        s=d.getObject(r['name']).Shape
+        for name,other in list(shapes.items())+[(n,s) for n,s,cat in refs]:
+            if name==r['target'] or not broad(s,other):continue
+            try:
+                checked+=1;c=s.common(other)
+                if not c.isValid():raise RuntimeError('Invalid service intersection')
+                if c.Volume>1e-5:access_hits.append(dict(pair=[r['name'],name],volume_mm3=c.Volume))
+            except Exception as e:errors.append(dict(pair=[r['name'],name],error=str(e)))
+    clean=not (errors or outside or contacts or chassis_hits or access_hits)
     checks=dict(status='COARSE_SHARED_RESERVATIONS_CLEAR' if clean else 'LAYOUT_PREFLIGHT_REQUIRES_CHANGE',
                 selected=False,physical_pass=False,W1_complete=False,W5_complete=False,
                 count=len(rows),bus_roles_sorted=sorted(wanted),source_sha256=pins,
                 wall_clearance_reserve_mm=wall,exact_brep_intersections_after_bbox_filter=checked,
-                outside=outside,contacts=contacts,retained_contacts=chassis_hits,errors=errors)
+                outside=outside,contacts=contacts,retained_contacts=chassis_hits,errors=errors,
+                service_reservations=access,service_contacts=access_hits,
+                service_motion_supplier_verified=False)
     checks['BUS_vendor_compound_valid'] = bus_reference_valid
     checks['BUS_contact_test_basis'] = 'full vendor bounding reservation, NOT invalid compound'
     if prior and prior.get('rejected_preflights'):
@@ -187,7 +235,7 @@ def main():
         checks.setdefault('rejected_preflights', []).append(
             {k:prior[k] for k in ['outside','contacts','retained_contacts','errors']})
     save('checks.json',checks)
-    print('Preflight:',checks['status'],'outside',outside,'contacts',contacts,'retained',chassis_hits,'errors',errors,flush=True)
+    print('Preflight:',checks['status'],'outside',outside,'contacts',contacts,'retained',chassis_hits,'service',access_hits,'errors',errors,flush=True)
     colors={'logic':(.18,.53,.69),'fuses':(.72,.37,.22),'wago':(.96,.65,.14),
             'splices':(.65,.51,.15),'inline':(.52,.37,.64),'switch':(.35,.55,.40)}
     for row in rows:
@@ -205,28 +253,31 @@ def main():
     d=A.openDocument(str(target));d.recompute()
     assert len(d.getObject('InteriorReservations').Group)==len(rows)
     assert all(d.getObject(r['name']).Shape.isValid() for r in rows)
+    assert len(d.getObject('ServiceReservations').Group)==17
+    assert all(d.getObject(r['name']).Shape.isValid() for r in access)
     # Native box parameter roundtrip, without modifying the saved candidate.
     ob=d.getObject('Pi4_CP2');h=ob.Height.Value;ob.Height=h+1;d.recompute()
     assert abs(ob.Shape.BoundBox.ZLength-h-1)<1e-6
     ob.Height=h;d.recompute();A.closeDocument(d.Name)
     checks.update(native_reopen=True,box_parameter_roundtrip=True)
     checks['previous_preflight_history_git']='9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json'
-    checks['shared_revision']='Supplier reconciliation: Waveshare full bounds (cached BRep invalid), P309 size, all5 vertical FHAC and transverse F0 full housing length; axial F_PWM included; U1 belongs to PWM1608.'
+    checks['shared_revision']='Direct nominal ATO access:12 side holders,10 lower outer/down-entry WAGO,10 central WAGO,5 top horizontal FHAC;17 assumed service reserves. Wiring and actual supplier lid/lever sweeps remain OPEN.'
     assert all(digest(ROOT/p)==h for p,h in pins.items()),'Reference source was modified'
     save('checks.json',checks)
     plan=dict(status=checks['status'],selected=False,source_sha256=pins,components=rows,
               phase1_result_count=14,phase1_denominator=20,
               removal_strategy=['Disconnect every source, open dorsal cover before operating clamps.',
-                               'Upper distribution plate Z128..130 and two fuse panels assembled on the bench; four mount axes X=-65/131,Y=+/-75.',
-                               'Outer WAGO rows are above ATOs: upper distribution plate must be removable BEFORE replacing fuses. Do not claim direct fuse access.',
-                               'Do NOT reuse49-cut-tie removal. Design labeled detachable boundary first; actual joints/ports pending.',
-                               'Lift only after boundary disconnection; lower PCBs/Pi reached after upper module removal.',
+                               'ATO access: dorsal cover off,12 straight assumed extraction reserves clear; WAGO stay connected. Actual gripper/holder extraction must still be qualified.',
+                               'Five horizontal FHAC branches have top access budgets; exact lid hinge, fingers and leads still open.',
+                               'Lower outer WAGO need side-cover access; no whole-tray74-disconnection procedure for routine fuse service.',
+                               'Complete module removal and lower PCB/Pi access still OPEN; supports must follow one shared wiring/assembly plan.',
                                'P0 legs/frame and battery cradle stay; new removable shell/wall apertures not fabricated yet.'],
-              wire_space_plan=['Shared signal plane X=-39..114,Y=-10..10,Z112..122; above PCB reserves, between vertical FHAC. Previous side lanes superseded.',
-                               'Power lanes between fuse bands outerY63 and inline bands innerY73 (10mm); radius25.2 turns require separate X/Z bays.',
+              wire_space_plan=['Proposed signal plane Z66..76: above Pi reserve64 and below PCB78; route actual endpoints before allocating supports.',
+                               'Outer WAGO wire entries DOWN atZ56; straight9mm plus R12.4 loop needs a lower turn bay, not a zero-radius vertical route.',
+                               'Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.',
                                'Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.',
                                'XT60 and F0 in front source bay: no long unfused route to rear. Exact pins/factory leads and <=50mm route NOT yet qualified.',
-                               '20 upper WAGO blocks have4mm X gaps; lever access requires open dorsal cover, not a guessed closed-cover sector.'],
+                               '10 central WAGO Z110..121 and five FHAC Z125..147: model stripped ends and both leads together; F_PI<=50mm input route is a constraint, not yet proven.'],
               not_qualified=['Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half',
                              'S0 stud/lug/tool access and exact delivered SKU',
                              'S1 four terminals, bushing, panel aperture and hand access',
@@ -256,8 +307,8 @@ def main():
                   thickness_budget_mm=22,thickness_supplier_verified=False,
                   factory_lead_mm=[84.5,94.5],strip_mm=[4.35,8.35],lead_length_includes_strip=True,
                   lead_OD_budget_mm=3.4,bend_radius_budget_mm=6,OD_radius_supplier_verified=False,
-                  branches=[dict(role=n,origin_mm=[x,y,75],input_exit_direction=[0,0,1],
-                                 output_exit_direction=[0,0,-1]) for n,x,y in fhac_sites],
+                  branches=[dict(role=n,origin_mm=[x,y,125],input_exit_direction=[-1,0,0],
+                                 output_exit_direction=[1,0,0],exit_datum_provisional=True) for n,x,y in fhac_sites],
                   supply_roles={'F_PI':'P_SYS.2','F_AUX':'P_REAR.5','F_HY':'P_AUX.2','F_HP':'P_AUX.3','F_TY':'P_AUX.4'},
                   complete_lead_routes_open=True),
         F_PWM=dict(sku='0242.100UAT1',assembly='axial sleeved/restraint, no separate holder',
@@ -269,8 +320,8 @@ def main():
                   mated_envelope_and_withdrawal_open=True,prefuse_limit_mm=50,prefuse_full_route_open=True),
         WAGO=dict(role_count=20,sku_map_retained=True,leg_power_ground='221-415 NOT221-615',
                   port_face_and_lever_motion_open=True),
-        service_boundary=dict(strategy='Upper WAGO tray removable before ATO access; isolate source and unplug module boundary first.',
-                              candidate_boundary='Keep WAGO and inline protection on upper tray; detachable branch/output boundary required.',
+        service_boundary=dict(strategy='Direct nominal ATO access after dorsal cover removal; WAGO stay connected.',
+                              candidate_boundary='No routine tray removal; complete module boundaries still open.',
                               connector_SKUs_and_swept_release_open=True,
                               invalid='Do not claim removal with connected rigid leads or cut49ties.'),
         progress=dict(completed=14,total=20,W1_complete=False,W5_complete=False)))
@@ -302,12 +353,12 @@ def complete_service_plan():
     assert len(used)==sum(1 for ends in wires for p in ends if p in ports)
     data['service_boundary']=dict(
         graph_scope='Existing netlist only, not newly routed wires or certified physical pin positions',
-        upper_tray_owners=sorted(set(ports.values())),
+        distribution_owners=sorted(set(ports.values())),
         unique_attached_wire_pairs=len(wires),populated_ports=len(used),NC_ports=len(ports)-len(used),
         lower_boundary_wires=external,internal_tray_wires=internal,
         unclamping_only_option=dict(disconnections=len(external),extra_connector_SKUs=0,
                                   status='REJECTED_AS_ROUTINE_ATO_ACCESS; excessive disconnect/reconnect burden'),
-        next_shared_plan='Reserve direct ATO tool/lid space with upper WAGO kept connected, or one genuinely removable connected module with existing/explicitly selected boundary connectors. Plan all four MTA exits and housing together before CAD supports.',
+        next_shared_plan='Direct ATO access with WAGO retained:12 extraction and5 lid/tool budgets in native model. Next actual full wires, four MTA both exits, lever access and supports together. No full service qualification from empty-space checks.',
         release_sweeps_strain_relief_and_parked_ends_open=True,
         connector_SKUs_not_invented=True,removal_qualified=False)
     save('interfaces.json',data)
@@ -323,15 +374,15 @@ def render(rows,checks,colors):
     fig,axes=plt.subplots(3,1,figsize=(15,13),constrained_layout=True)
     for level,(ax,title) in enumerate(zip(axes,[
             'Dół: akumulator, Pi, źródło i złącza (Z15–65mm; BUS: obwiednia producenta)',
-            'Środek: sterowniki / dwie listwy po6 bezpieczników (listwy Z63–127mm)',
-            'Góra:20 bloków WAGO (Z130–141mm) / dostęp po zdjęciu grzbietu'])):
+            'Środek: sterowniki,12 oprawek Z70–134,10 bocznych WAGO Z56–75',
+            'Góra:10 centralnych WAGO Z110–121 /5 FHAC Z125–147 / dostęp od grzbietu'])):
         xs=[s[0] for s in body];ys=[s[1] for s in body]
         ax.plot(xs,ys,color='#555555');ax.plot(xs,[-y for y in ys],color='#555555')
         for row in rows:
             x,y,z=row['origin_mm'];dx,dy,dz=row['size_mm']
             if level==0 and not (row['group']=='splices' or row['group'] in ['logic','inline'] and z<75):continue
-            if level==1 and not (row['group']=='fuses' or row['group'] in ['logic','inline'] and z>=75 or row['name'] in ['S0_body_CP2','S1_body_CP2']):continue
-            if level==2 and not (row['group']=='wago' or row['name'] in ['S0_key_CP2','S1_control_CP2']):continue
+            if level==1 and not (row['group']=='fuses' or row['group']=='wago' and z<100 or row['group'] in ['logic','inline'] and 75<=z<120 or row['name'] in ['S0_body_CP2','S1_body_CP2']):continue
+            if level==2 and not (row['group']=='wago' and z>=100 or row['group']=='inline' and z>=120 or row['name'] in ['S0_key_CP2','S1_control_CP2']):continue
             name=row['name'].replace('_CP2','')
             bad=any(q.get('name')==row['name'] for q in checks['outside']) or any(row['name'] in q['pair'] for q in checks['contacts']+checks['retained_contacts'])
             ax.add_patch(Rectangle((x,y),dx,dy,facecolor=colors[row['group']],alpha=.40,
