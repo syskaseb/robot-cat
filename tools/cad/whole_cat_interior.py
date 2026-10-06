@@ -42,7 +42,10 @@ def main():
              ROOT/'hardware/electronics/full-cat/protection-selection-r2/branch-protection.json',
              ROOT/'hardware/cad/studies/wago-p0/r1/dimensions.json',
              ROOT/'hardware/electronics/power-platform/PI-BRANCH.md',
-             ROOT/'hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json']}
+             ROOT/'hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json',
+             OUT/'post-f0-splice-source.json',
+             ROOT/'tools/electronics/source_switch_layout_r6.py',
+             ROOT/'tools/electronics/source_switch_mount_finish_r4.py']}
     d = A.openDocument(str(BASE/'WholeCatLayout.FCStd'))
     torso = d.getObject('TorsoEnvelope').Shape.copy()
     assert torso.isValid() and len(torso.Solids) == 1
@@ -129,14 +132,17 @@ def main():
                     '221-615 DOWN entry; nominal port1 local[5.5,22,5.5]; G1.1 battery role retained, physical datums provisional',
                     rotation=A.Rotation(A.Vector(1,0,0),-90))
             else:
-                by=-16 if name=='D_RR' else y
+                by=-16 if name=='D_RR' else 0 if name=='P_REAR' else y
                 box(name+'_CP2',[x-size[0]/2,by-size[1]/2,110],size,'wago',
                     'SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route')
     for y, prefix in [(55,'L'),(-55,'R')]:
         for i, x in enumerate([-43,0,43],1):
-            origin=([-94,-25,40] if i==1 else [-55,-12,40]) if prefix=='R' and i in [1,2] else [x-15,y-9.5,40]
+            origin=([-94,-25,40] if i==1 else [-55,-12,40]) if prefix=='R' and i in [1,2] else [70,-64.5,40] if prefix=='R' and i==3 else [x-15,y-9.5,40]
             box(f'Splice_{prefix}{i}_CP2', origin, [30,19,9], 'splices',
                 '221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension')
+    box('PostF0Splice_CP2',[51.5,-54.3,12],[14,19,9],'splices',
+        'Additional candidate221-412 AFTER F0; catalogue13x18.3x8.15/strip11; entriesUP; port/pitch/lever datums provisional',
+        rotation=A.Rotation(A.Vector(1,0,0),90))
     for name,x,y in [('FL',-35,84),('RL',55,84),('FR',-35,-84),('RR',55,-84)]:
         box('MTA_'+name+'_CP2', [x-17.5,y-11,80], [35,22,16], 'inline',
             '0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown')
@@ -156,13 +162,13 @@ def main():
         'AMASS own housing only, rotated90X; cups atworldX-73/Y-58.8/Z50,57 are PROVISIONAL pitch7. Read marked polarity; mate/release still OPEN',
         rotation=A.Rotation(A.Vector(1,0,0),90))
     # S0 family model includes stud space, NOT exact HELLA SKU casing.
-    for name,z,r,h,shell in [('S0_body_CP2',57,28.5,40,True),
-                              ('S0_neck_CP2',97,11,3,True),
-                              ('S0_key_CP2',100,15,63.5,False)]:
+    for name,z,r,h,shell in [('S0_body_CP2',65,28.5,40,True),
+                              ('S0_neck_CP2',105,11,3,True),
+                              ('S0_key_CP2',108,15,63.5,False)]:
         o=d.addObject('Part::Cylinder', name);o.Radius=r;o.Height=h
-        o.Placement.Base=A.Vector(-77,0,z);g.addObject(o);d.recompute()
+        o.Placement.Base=A.Vector(-77,16,z);g.addObject(o);d.recompute()
         shapes[name]=o.Shape.copy()
-        rows.append(dict(name=name,origin_mm=[-77-r,-r,z],size_mm=[2*r,2*r,h],group='switch',
+        rows.append(dict(name=name,origin_mm=[-77-r,16-r,z],size_mm=[2*r,2*r,h],group='switch',
                          dimension_basis='Existing HELLA family reserve rotated vertical; studs/lugs/opening conditional',
                          require_internal_shell=shell))
     box('S1_body_CP2', [137,26,75], [42,24,37], 'switch',
@@ -173,7 +179,7 @@ def main():
     rows.append(dict(name=o.Name,origin_mm=[144,24,112],size_mm=[28,28,32],group='switch',
                      dimension_basis='22mm lever + +/-28deg conservative cylinder; shell aperture/tool still required',
                      require_internal_shell=False))
-    print('Shared layout:',len(rows),'modules;20 buses,12 holders/24 ends,6 splices,4 MTA,5 branch FHAC+F0+axial F_PWM',flush=True)
+    print('Shared layout:',len(rows),'modules;20 buses,12 holders/24 ends,6 existing+1 candidate post-F0 splice,4 MTA,5 branch FHAC+F0+axial F_PWM',flush=True)
 
     access=[]
     ag=d.addObject('App::DocumentObjectGroup','ServiceReservations')
@@ -230,24 +236,31 @@ def main():
                   exact_arcs_not_curvature_samples=True,physical_pass=False,
                   start_mm=list(start),entry_mm=list(entry),native_geometry='builder-owned snapshots')
 
-    wires=[dict(metadata=fpi_wire,shape=lead,targets=['F_PI_CP2','P_SYS_CP2'])]
+    envelope=path.makePipeShell([Part.Wire([Part.makeCircle(od/2+2.4,start,A.Vector(1,0,0))])],True,False)
+    wires=[dict(metadata=fpi_wire,shape=lead,enclosure_reserve=envelope,targets=['F_PI_CP2','P_SYS_CP2'])]
     def routed_wire(identifier,role_a,role_b,edges,diameter,targets,extra,limit,basis,entry_strip=None):
         p=Part.Wire(edges);point=edges[0].Vertexes[0].Point
-        profile=Part.Wire([Part.makeCircle(diameter/2,point,A.Vector(1,0,0))])
+        for one,two in zip(edges,edges[1:]):
+            assert (one.valueAt(one.LastParameter)-two.valueAt(two.FirstParameter)).Length<1e-6
+            assert (one.tangentAt(one.LastParameter)-two.tangentAt(two.FirstParameter)).Length<1e-6
+        profile=Part.Wire([Part.makeCircle(diameter/2,point,edges[0].tangentAt(edges[0].FirstParameter))])
         shape=p.makePipeShell([profile],True,False)
         assert shape.isValid() and len(shape.Solids)==1
-        length=p.Length+extra;assert length<=limit
+        length=p.Length+extra
+        if limit is not None:assert length<=limit
         ob=d.addObject('Part::Feature',identifier+'_CP2');ob.Shape=shape;hg.addObject(ob)
         ob.addProperty('App::PropertyString','Status');ob.Status=basis
         if entry_strip:
-            location,direction,mm=entry_strip
+            location,direction,mm,*radii=entry_strip
             ob=d.addObject('Part::Feature',identifier+'_strip_CP2')
-            ob.Shape=Part.makeCylinder(1.02,mm,location,direction);hg.addObject(ob)
+            ob.Shape=Part.makeCylinder(radii[0] if radii else 1.02,mm,location,direction);hg.addObject(ob)
         meta=dict(id=identifier,a=role_a,b=role_b,centerline_length_mm=p.Length,
                   termination_allowance_in_blank_mm=extra,nominal_blank_mm=length,limit_mm=limit,
                   OD_mm=diameter,dimension_basis=basis,physical_pass=False,
                   geometry='builder-owned snapshot',factory_polarity_from_markings_not_left_right=True)
-        wires.append(dict(metadata=meta,shape=shape,targets=targets))
+        envelope=p.makePipeShell([Part.Wire([Part.makeCircle(diameter/2+2.4,point,edges[0].tangentAt(edges[0].FirstParameter))])],True,False)
+        assert envelope.isValid() and len(envelope.Solids)==1
+        wires.append(dict(metadata=meta,shape=shape,enclosure_reserve=envelope,targets=targets))
     plus=A.Vector(-73,-58.8,50);f0=A.Vector(-48,-58.8,50)
     assert abs(d.getObject('F0_CP2').Shape.BoundBox.XMin-f0.x)<1e-6
     routed_wire('W075','BAT.plus','F0.in',[Part.makeLine(plus,f0)],
@@ -264,6 +277,109 @@ def main():
         Part.makeLine(n3,ground)],3.1,['XT60_CP2','G1_CP2'],19,150,
         'LAPP0107001 supplierOD3.1/staticR12.4;14mm WAGO strip+5mm solder allowance; mouth/cup datums provisional;9+mm final insulation straight',
         entry_strip=(ground,A.Vector(0,0,1),14))
+
+    # One common source-switch plan. Existing supplier/assumed distinction is
+    # retained: family stud pitch24 and ring seating15mm above tips are NOT
+    # verified HELLA datums. Additional splice is protected by F0, never before it.
+    R=25.2
+    def quarter(begin,u,v,radius):
+        end=begin+(u+v)*radius
+        mid=begin+u*(radius/math.sqrt(2))+v*(radius*(1-1/math.sqrt(2)))
+        return Part.Arc(begin,mid,end).toShape(),end
+    def s_shift(begin,axis,shift,radius):
+        h=shift.Length;unit=shift/h;theta=math.acos(1-h/(2*radius))
+        def point(t):
+            if t<=theta:return begin+axis*(radius*math.sin(t))+unit*(radius*(1-math.cos(t)))
+            q=t-theta
+            return begin+axis*(2*radius*math.sin(theta)-radius*math.sin(theta-q))+unit*(radius*(1+math.cos(theta-q)-2*math.cos(theta)))
+        return [Part.Arc(point(0),point(theta/2),point(theta)).toShape(),
+                Part.Arc(point(theta),point(1.5*theta),point(2*theta)).toShape()],point(2*theta)
+    X,Y,Z=A.Vector(1,0,0),A.Vector(0,1,0),A.Vector(0,0,1)
+    splice=d.getObject('PostF0Splice_CP2')
+    sin=splice.Placement.multVec(A.Vector(5.5,19,4.5))
+    sout=splice.Placement.multVec(A.Vector(12.25,19,4.5))
+    source=A.Vector(3,-58.8,50);a=A.Vector(sin.x-10,source.y,source.z)
+    bend,b=quarter(a,X,-Z,10)
+    assert (sin-b).dot(-Z)>=9-1e-6 and (sin-b).cross(Z).Length<1e-6
+    routed_wire('W076_FACTORY','F0.out','POST_F0.1',
+        [Part.makeLine(source,a),bend,Part.makeLine(b,sin)],4.5,
+        ['F0_CP2','PostF0Splice_CP2'],11,84.5,
+        'Original FHAC0002ZXJ12AWG; shortest supplied84.5 inclstrip; strip11 at221-412; OD4.5/R10/exitdatum provisional',
+        entry_strip=(sin,-Z,11))
+    # Second gate identified a crossing of the unchanged W001 riser. Change
+    # the physical clocking of BOTH S0 terminals, not scalar wire offsets:
+    # left IN/right OUT,24mm family pitch. S0 casing axis stays vertical.
+    s0in=A.Vector(-89,16,80);s0out=A.Vector(-65,16,80)
+    incoming=A.Vector(-.5,math.sqrt(3)/2,0)
+    outgoing=A.Vector(math.sqrt(3)/2,.5,0)
+    intip=s0in-incoming*26.9;outtip=s0out+outgoing*26.9
+    a=sout+Z*9;arc,b=quarter(a,Z,-X,R)
+    # Lower central corridor: turn below the fuse reserves atZ65.2; move
+    # inside Y-40 BEFORE rising. No loop through outer leg WAGO atY-79.5.
+    shifted,q=s_shift(b,-X,A.Vector(0,-40-b.y,0),R)
+    raised,q2=s_shift(q,-X,A.Vector(0,0,intip.z-q.z),R)
+    theta=math.pi/3
+    final_straight=(intip.y-q2.y-R*(1-math.cos(theta)))/math.sin(theta)
+    assert final_straight>=9
+    arc_end=intip-incoming*final_straight
+    corner=arc_end+A.Vector(R*math.sin(theta),-R*(1-math.cos(theta)),0)
+    assert (corner-q2).dot(-X)>0 and abs(corner.y-q2.y)<1e-6
+    def turn_point(t):return corner-X*(R*math.sin(t))+Y*(R*(1-math.cos(t)))
+    turn=Part.Arc(corner,turn_point(theta/2),arc_end).toShape()
+    routed_wire('W076_EXTENSION','POST_F0.2','S0.in',
+        [Part.makeLine(sout,a),arc]+shifted+raised+[Part.makeLine(q2,corner),turn,Part.makeLine(arc_end,intip)],
+        4.2,['PostF0Splice_CP2','S0_body_CP2'],11+15,None,
+        'HELU23802 red4mm2/staticR25.2;11mm splice strip+15mm ring barrel allowance; ring/pitch/OD4.2 provisional; AFTER F0')
+    target=d.getObject('P_SYS_CP2').Placement.multVec(A.Vector(5.5,22,5.5))
+    # Ring-width gate: an axial OUT tongue touched the PCB reservation even
+    # though its narrower wire was clear. Clock the entire barrel/lead30deg.
+    angle=math.pi/6
+    def flatten_point(t):
+        return outtip+X*(R*(math.sin(angle)-math.sin(angle-t)))+Y*(R*(math.cos(angle-t)-math.cos(angle)))
+    flat=flatten_point(angle)
+    flatten=Part.Arc(outtip,flatten_point(angle/2),flat).toShape()
+    transverse,aligned=s_shift(flat,X,A.Vector(0,target.y-flat.y,0),R)
+    lower=A.Vector(target.x+2*R-R,target.y,outtip.z)
+    rise,riser=quarter(lower,X,Z,R)
+    top=riser+Z*(target.z+9-riser.z)
+    high=top-X*R+Z*R;down=top-X*(2*R)
+    assert abs((aligned-target).dot(Y))<1e-6 and (lower-aligned).dot(X)>0
+    routed_wire('W066','S0.out','P_SYS.1',
+        [flatten]+transverse+[Part.makeLine(aligned,lower),rise,Part.makeLine(riser,top),
+         Part.Arc(top,high,down).toShape(),Part.makeLine(down,target)],
+        4.2,['S0_body_CP2','P_SYS_CP2'],15+14,330,
+        'HELU23802 red4mm2/staticR25.2;15mm TE130207 barrel+14mm WAGO strip; ring seating80/pitch24/OD4.2 provisional',
+        entry_strip=(target,-Z,14,math.sqrt(4/math.pi)))
+    # Purchased terminal/hardware snapshots, not fabricated print geometry.
+    terminal_group=d.addObject('App::DocumentObjectGroup','S0TerminalCandidates')
+    terminal_parts={}
+    def terminal(name,shape):
+        assert shape.isValid() and shape.Solids
+        ob=d.addObject('Part::Feature',name);ob.Shape=shape;terminal_group.addObject(ob)
+        terminal_parts[name]=shape
+    def cylinder(point,radius,height):return Part.makeCylinder(radius,height,point,Z)
+    for name,centre,direction in [('IN',s0in,-incoming),('OUT',s0out,outgoing)]:
+        cross=Z.cross(direction)
+        vertices=[centre+direction*u+cross*v-Z*1.05 for u,v in [(-6.9,-6.75),(26.9,-6.75),(26.9,6.75),(-6.9,6.75)]]
+        tongue=Part.Face(Part.makePolygon(vertices+[vertices[0]])).extrude(Z*1.05)
+        tongue=tongue.cut(cylinder(centre-Z*1.15,5.02,1.25))
+        barrel=Part.makeCylinder(3.2,15,centre+direction*11.9,direction)
+        terminal('S0_ring_'+name,tongue.fuse(barrel))
+        terminal('S0_stud_'+name,cylinder(centre-Z*15,5,15))
+        terminal('S0_washer_'+name,cylinder(centre-Z*3.05,10,2).cut(cylinder(centre-Z*3.15,5.25,2.2)))
+        vertices=[centre+A.Vector(17/math.sqrt(3)*math.cos(k*math.pi/3),17/math.sqrt(3)*math.sin(k*math.pi/3),-11.05) for k in range(6)]
+        nut=Part.Face(Part.makePolygon(vertices+[vertices[0]])).extrude(Z*8)
+        terminal('S0_nut_'+name,nut.cut(cylinder(centre-Z*11.15,5,8.2)))
+    source_switch_plan=dict(stud_centres_mm=[list(s0in),list(s0out)],stud_pitch_mm=24,
+        clocking='IN left/OUT right; common terminal clocking changed to avoid W001 riser, NOT supplier datum',
+        ring_barrel_directions=[list(-incoming),list(outgoing)],
+        lug_seating_above_tip_mm=15,datums_supplier_verified=False,
+        rings='Two existing TE130207 allocations, not extra rings',
+        hardware='Two existing M10 nutsAF17/h8 and washersOD20/ID10.5/t2',
+        W076_split='One logical W076, factory+protected extension, NOT two extra netlist nets',
+        post_F0_splice_additional_candidate_qty=1,HELU_extension_selection_stock_open=True,
+        access='Nut tool and switch mount assembly/removal still OPEN; no socket-down access claim over front frame',
+        no_prefuse_joint=True,selected=False,physical_pass=False)
 
     def broad(a,b):
         return a.BoundBox.intersect(b.BoundBox)
@@ -342,9 +458,10 @@ def main():
                 if c0.Volume>1e-5:wire_hits.append(dict(pair=[wn,name],volume_mm3=c0.Volume))
             except Exception as ex:errors.append(dict(pair=[wn,name],error=str(ex)))
         try:
-            wbb=ws.BoundBox
-            clearance=Part.makeBox(wbb.XLength+2*wall,wbb.YLength+2*wall,wbb.ZLength+2*wall,
-                                  A.Vector(wbb.XMin-wall,wbb.YMin-wall,wbb.ZMin-wall)).cut(torso)
+            # A loop's axis-aligned box encloses empty space and cannot prove
+            # that the actual wire exits a rounded belly. Test the enlarged
+            # swept pipe itself. End-face margin remains a stated open detail.
+            clearance=wire['enclosure_reserve'].cut(torso)
             if not clearance.isValid():raise RuntimeError('Invalid cable enclosure check')
             if clearance.Volume>1e-5:outside.append(dict(name=wn,outside_mm3=clearance.Volume))
         except Exception as ex:errors.append(dict(pair=[wn,'Torso'],error=str(ex)))
@@ -353,7 +470,27 @@ def main():
         checked+=1;c0=wa['shape'].common(wb['shape'])
         if not c0.isValid():errors.append(dict(pair=[wa['metadata']['id'],wb['metadata']['id']],error='Invalid wire-wire Boolean'))
         elif c0.Volume>1e-5:wire_hits.append(dict(pair=[wa['metadata']['id'],wb['metadata']['id']],volume_mm3=c0.Volume))
-    clean=not (errors or outside or contacts or chassis_hits or access_hits or wire_hits)
+    terminal_hits=[]
+    for name,shape in terminal_parts.items():
+        for other_name,other in list(shapes.items())+[(n,s) for n,s,cat in refs]+[(r['name'],d.getObject(r['name']).Shape) for r in access]:
+            # Family cylinder explicitly includes its OWN studs/rings, not an
+            # exact case. This is not an exclusion for unrelated components.
+            if other_name.startswith('S0_') or not broad(shape,other):continue
+            checked+=1;c0=shape.common(other)
+            if not c0.isValid():errors.append(dict(pair=[name,other_name],error='Invalid terminal Boolean'))
+            elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[name,other_name],volume_mm3=c0.Volume))
+        for wire in wires:
+            own=(name.endswith('IN') and wire['metadata']['id']=='W076_EXTENSION') or (name.endswith('OUT') and wire['metadata']['id']=='W066')
+            if own or not broad(shape,wire['shape']):continue
+            checked+=1;c0=shape.common(wire['shape'])
+            if not c0.isValid():errors.append(dict(pair=[name,wire['metadata']['id']],error='Invalid terminal-wire Boolean'))
+            elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[name,wire['metadata']['id']],volume_mm3=c0.Volume))
+    for one,two in itertools.combinations(terminal_parts,2):
+        if one.endswith('IN')==two.endswith('IN') or not broad(terminal_parts[one],terminal_parts[two]):continue
+        checked+=1;c0=terminal_parts[one].common(terminal_parts[two])
+        if not c0.isValid():errors.append(dict(pair=[one,two],error='Invalid IN/OUT terminal Boolean'))
+        elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[one,two],volume_mm3=c0.Volume))
+    clean=not (errors or outside or contacts or chassis_hits or access_hits or wire_hits or terminal_hits)
     checks=dict(status='COARSE_SHARED_RESERVATIONS_CLEAR' if clean else 'LAYOUT_PREFLIGHT_REQUIRES_CHANGE',
                 selected=False,physical_pass=False,W1_complete=False,W5_complete=False,
                 count=len(rows),bus_roles_sorted=sorted(wanted),source_sha256=pins,
@@ -362,6 +499,8 @@ def main():
                 service_reservations=access,service_contacts=access_hits,
                 service_motion_supplier_verified=False,W043_nominal_route=fpi_wire,
                 nominal_source_wires=[w['metadata'] for w in wires],
+                S0_terminal_contacts=terminal_hits,S0_joint_plan=source_switch_plan,
+                wire_enclosure_test='Actual swept pipe OD+2x2.4mm cut from torso, NOT its enclosing bbox; cap axial margin not qualified',
                 wire_contacts=wire_hits,wire_termination_target_bodies_excluded={w['metadata']['id']:w['targets'] for w in wires},
                 reused_unchanged_component_names=sorted(unchanged),
                 reused_reference_basis='Prior clear proof + unchanged CP1 reference hashes and exact box coordinates/rotation; changed interfaces and new wire checked')
@@ -371,9 +510,9 @@ def main():
         checks['rejected_preflights'] = prior['rejected_preflights']
     if prior and prior['status']=='LAYOUT_PREFLIGHT_REQUIRES_CHANGE':
         checks.setdefault('rejected_preflights', []).append(
-            {k:prior[k] for k in ['outside','contacts','retained_contacts','errors']})
+            {k:prior.get(k,[]) for k in ['outside','contacts','retained_contacts','service_contacts','wire_contacts','S0_terminal_contacts','errors']})
     save('checks.json',checks)
-    print('Preflight:',checks['status'],'outside',outside,'contacts',contacts,'retained',chassis_hits,'service',access_hits,'wire',wire_hits,'errors',errors,flush=True)
+    print('Preflight:',checks['status'],'outside',outside,'contacts',contacts,'retained',chassis_hits,'service',access_hits,'wire',wire_hits,'terminals',terminal_hits,'errors',errors,flush=True)
     colors={'logic':(.18,.53,.69),'fuses':(.72,.37,.22),'wago':(.96,.65,.14),
             'splices':(.65,.51,.15),'inline':(.52,.37,.64),'switch':(.35,.55,.40)}
     for row in rows:
@@ -393,17 +532,19 @@ def main():
     assert all(d.getObject(r['name']).Shape.isValid() for r in rows)
     assert len(d.getObject('ServiceReservations').Group)==17
     assert all(d.getObject(r['name']).Shape.isValid() for r in access)
-    assert len(d.getObject('HarnessCandidate').Group)==5
+    assert len(d.getObject('HarnessCandidate').Group)==len(wires)+sum(1 for o in d.getObject('HarnessCandidate').Group if '_strip_' in o.Name)
     assert all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in d.getObject('HarnessCandidate').Group)
-    # Changed up-entry box parameter, not an unrelated unchanged Pi retest.
-    ob=d.getObject('P_SYS_CP2');h=ob.Height.Value;w=ob.Shape.BoundBox.YLength
+    assert len(d.getObject('S0TerminalCandidates').Group)==8
+    assert all(o.Shape.isValid() for o in d.getObject('S0TerminalCandidates').Group)
+    # Newly introduced post-F0 splice parameter; no unchanged Pi/P_SYS retest.
+    ob=d.getObject('PostF0Splice_CP2');h=ob.Height.Value;w=ob.Shape.BoundBox.YLength
     ob.Height=h+1;d.recompute()
     assert abs(ob.Shape.BoundBox.YLength-w-1)<1e-6
     ob.Height=h;d.recompute();A.closeDocument(d.Name)
     checks.update(native_reopen=True,box_parameter_roundtrip=True,
-                  parameter_test='P_SYS local Height+1 -> world Y footprint+1; restored; cable is explicitly builder-owned snapshot')
+                  parameter_test='PostF0Splice local Height+1 -> world Y footprint+1; restored; cables/rings are explicitly builder-owned snapshots')
     checks['previous_preflight_history_git']='9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json'
-    checks['shared_revision']='Joint XT60/F0/negative return/F_PI/MAIN/front splice and central source layout; W001/W075/W043 modeled;17 access reserves retained. Source-switch and remaining full wiring OPEN.'
+    checks['shared_revision']='Joint S0/terminal pair/protected post-F0 extension/W066/shifted P_REAR and Splice_R3; existing W001/W075/W043 retained. Mounts/tools and remaining full wiring OPEN.'
     assert all(digest(ROOT/p)==h for p,h in pins.items()),'Reference source was modified'
     save('checks.json',checks)
     plan=dict(status=checks['status'],selected=False,source_sha256=pins,components=rows,
@@ -419,7 +560,7 @@ def main():
                                'Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.',
                                'Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.',
                                'Rotated XT60/F0 in front-side source bay: W075 and W001 full nominal paths modeled with changed MAIN/front splice/G1. Mate/release/actual marked polarity and W076 switch lead still OPEN.',
-                               'Nine central WAGO Z110..121 plus up-entry P_SYS Z95..117; five FHAC Z125..147. F_PI nominal input modeled; remaining sources/grounds/4MTA/outputs OPEN.'],
+                               'Eight horizontal central WAGO Z110..121, up-entry P_SYS Z95..117 and down-entry G1 Z103.5..125.5; five FHAC Z125..147. Three source-wire paths modeled; switch/4MTA/outputs OPEN.'],
               not_qualified=['Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half',
                              'S0 stud/lug/tool access and exact delivered SKU',
                              'S1 four terminals, bushing, panel aperture and hand access',
@@ -469,6 +610,10 @@ def main():
                               invalid='Do not claim removal with connected rigid leads or cut49ties.'),
         progress=dict(completed=14,total=20,W1_complete=False,W5_complete=False)))
     interface=json.loads((OUT/'interfaces.json').read_text(encoding='utf-8'))
+    interface['S0_joint_plan']=source_switch_plan
+    interface['F0']['output_to_S0_open']=True
+    interface['F0']['output_nominal_candidate_routed']=True
+    interface['post_F0_splice']=json.loads((OUT/'post-f0-splice-source.json').read_text(encoding='utf-8'))
     interface['nominal_source_wires']=[w['metadata'] for w in wires];save('interfaces.json',interface)
     complete_service_plan()
     render(rows,checks,colors)
@@ -511,20 +656,29 @@ def complete_service_plan():
 
 
 def verify_changed_native():
-    """Only newly introduced saved source wires/G1, no layout collision rerun."""
+    """Only newly introduced source pair/splice/terminals, no collision rerun."""
     import FreeCAD as A
     started=time.monotonic();d=A.openDocument(str(OUT/'WholeCatInterior.FCStd'))
     wires=d.getObject('HarnessCandidate').Group
-    assert len(wires)==5 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
-    g=d.getObject('G1_CP2');h=g.Height.Value;width=g.Shape.BoundBox.YLength
+    assert len(wires)==10 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
+    terminals=d.getObject('S0TerminalCandidates').Group
+    assert len(terminals)==8 and all(o.Shape.isValid() for o in terminals)
+    g=d.getObject('PostF0Splice_CP2');h=g.Height.Value;width=g.Shape.BoundBox.YLength
     g.Height=h+1;d.recompute();assert abs(g.Shape.BoundBox.YLength-width-1)<1e-6
     g.Height=h;d.recompute();assert abs(g.Shape.BoundBox.YLength-width)<1e-6
-    A.closeDocument(d.Name)
     checks=json.loads((OUT/'checks.json').read_text(encoding='utf-8'))
-    checks['changed_source_native_check']=dict(wires_and_strips=5,valid_single_solids=True,
-        parameter='G1 Height+1 -> world Y+1; restored without saving; wire snapshots do NOT auto-update',
+    for row in checks['nominal_source_wires']:
+        name='W043_FPI_CP2' if row['id']=='W043' else row['id']+'_CP2'
+        expected_volume=row['centerline_length_mm']*math.pi*(row['OD_mm']/2)**2
+        assert abs(d.getObject(name).Shape.Volume-expected_volume)<1e-3,(name,'native cable volume/path')
+    torso=d.getObject('TorsoEnvelope').Shape
+    assert all(o.Shape.cut(torso).Volume<1e-5 for o in terminals)
+    A.closeDocument(d.Name)
+    checks['changed_source_native_check']=dict(wires_and_strips=10,terminal_parts=8,valid_single_wire_solids=True,
+        cable_volume_matches_paths=True,terminals_inside_torso_without_extra_margin=True,
+        parameter='PostF0Splice Height+1 -> world Y+1; restored without saving; wire snapshots do NOT auto-update',
         wall_seconds=round(time.monotonic()-started,3))
-    save('checks.json',checks);print('Changed saved source wires/G1:',checks['changed_source_native_check'],flush=True)
+    save('checks.json',checks);print('Changed saved source wires/terminals:',checks['changed_source_native_check'],flush=True)
 
 
 def render(rows,checks,colors):
@@ -536,8 +690,8 @@ def render(rows,checks,colors):
     fig,axes=plt.subplots(3,1,figsize=(15,13),constrained_layout=True)
     for level,(ax,title) in enumerate(zip(axes,[
             'Dół: akumulator, Pi, źródło i złącza (Z15–65mm; BUS: obwiednia producenta)',
-            'Środek: sterowniki,12 oprawek Z70–134,10 bocznych WAGO Z56–75',
-            'Góra:10 centralnych WAGO Z110–121 /5 FHAC Z125–147 / dostęp od grzbietu'])):
+            'Środek: sterowniki,12 oprawek Z70–134,10 bocznych WAGO oraz P_SYS wejściami w górę',
+            'Góra:8 poziomych WAGO, G1 wejściami w dół /5 FHAC Z125–147 / dostęp od grzbietu'])):
         xs=[s[0] for s in body];ys=[s[1] for s in body]
         ax.plot(xs,ys,color='#555555');ax.plot(xs,[-y for y in ys],color='#555555')
         for row in rows:

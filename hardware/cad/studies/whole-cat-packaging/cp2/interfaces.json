@@ -13,7 +13,10 @@
     "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039",
     "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91",
     "hardware/electronics/power-platform/PI-BRANCH.md": "c319a6fc4f44f093353d4b13f3b049f875a373414e3a83cea57529d3c3e1410b",
-    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6"
+    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/post-f0-splice-source.json": "186fdfaed239db2473e63475788f65d13c12be9f1e431aa305cbf07d1ecfc488",
+    "tools/electronics/source_switch_layout_r6.py": "d9c1ac3a3a19e7a21fac5f2e9588736df96b573cd72f15e0a46598b797acc4f0",
+    "tools/electronics/source_switch_mount_finish_r4.py": "bf9e2b82603d1a0ee29083bc75c950c3f44a55735ee4182a3f8a21fc69980c6c"
   },
   "BUS": {
     "sku": "Waveshare25514",
@@ -254,7 +257,8 @@
     ],
     "prefuse_nominal_route_modeled": true,
     "exit_OD_radius_datums_provisional": true,
-    "output_to_S0_open": true
+    "output_to_S0_open": true,
+    "output_nominal_candidate_routed": true
   },
   "XT60": {
     "own_half": "XT60H-M",
@@ -1121,6 +1125,93 @@
     "W1_complete": false,
     "W5_complete": false
   },
+  "S0_joint_plan": {
+    "stud_centres_mm": [
+      [
+        -89.0,
+        16.0,
+        80.0
+      ],
+      [
+        -65.0,
+        16.0,
+        80.0
+      ]
+    ],
+    "stud_pitch_mm": 24,
+    "clocking": "IN left/OUT right; common terminal clocking changed to avoid W001 riser, NOT supplier datum",
+    "ring_barrel_directions": [
+      [
+        0.5,
+        -0.8660254037844386,
+        -0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ]
+    ],
+    "lug_seating_above_tip_mm": 15,
+    "datums_supplier_verified": false,
+    "rings": "Two existing TE130207 allocations, not extra rings",
+    "hardware": "Two existing M10 nutsAF17/h8 and washersOD20/ID10.5/t2",
+    "W076_split": "One logical W076, factory+protected extension, NOT two extra netlist nets",
+    "post_F0_splice_additional_candidate_qty": 1,
+    "HELU_extension_selection_stock_open": true,
+    "access": "Nut tool and switch mount assembly/removal still OPEN; no socket-down access claim over front frame",
+    "no_prefuse_joint": true,
+    "selected": false,
+    "physical_pass": false
+  },
+  "post_F0_splice": {
+    "checked_utc": "2026-10-06T02:06:08Z",
+    "selected": false,
+    "sku": "WAGO 221-412",
+    "supplier": "https://wago-embedded.customer-domain.wago.com/3d-cad-models/221-412-splicing-connector-with-levers-for-all-conductor-types-max-4-mm-2-conductor-transparent-housing-surrounding-air-temperature-max-85-c-t85-wago?info=wago%2Fpg07%2Fserie221%2F0221-0412_0999-0962.prj",
+    "verified_identity": {
+      "BESTNR": "221-412",
+      "FILENAME": "221-412"
+    },
+    "catalogue_dimensions_width_depth_height_mm": [
+      13.0,
+      18.3,
+      8.15
+    ],
+    "planning_reservation_mm": [
+      14,
+      19,
+      9
+    ],
+    "catalogue_strip_mm": 11,
+    "fine_stranded_range_mm2": [
+      0.14,
+      4
+    ],
+    "catalogue_current_A": 32,
+    "source_fuse_nominal_A": 30,
+    "source_fuse_sku": "0287030.PXCN",
+    "protection_comparison": "30A nominal fuse below32A catalogue connector; NOT time/current/let-through, thermal derating or E3 qualification",
+    "not_a_source_protection_validation": true,
+    "nominal_port_local_mm": [
+      [
+        5.5,
+        19,
+        4.5
+      ],
+      [
+        12.25,
+        19,
+        4.5
+      ]
+    ],
+    "port_pitch_and_lever_motion_supplier_verified": false,
+    "candidate_quantity_delta": 1,
+    "net": "F0.out to S0.in only; no joint before F0",
+    "extension_material": "HELU23802 red4mm2, staticR25.2, existing selected wire SKU",
+    "ring": "One of the two already allocated TE130207, not an extra ring",
+    "selection_and_stock_allocation_open": true
+  },
   "nominal_source_wires": [
     {
       "id": "W043",
@@ -1182,6 +1273,48 @@
       "limit_mm": 150,
       "OD_mm": 3.1,
       "dimension_basis": "LAPP0107001 supplierOD3.1/staticR12.4;14mm WAGO strip+5mm solder allowance; mouth/cup datums provisional;9+mm final insulation straight",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    },
+    {
+      "id": "W076_FACTORY",
+      "a": "F0.out",
+      "b": "POST_F0.1",
+      "centerline_length_mm": 68.70796326794897,
+      "termination_allowance_in_blank_mm": 11,
+      "nominal_blank_mm": 79.70796326794897,
+      "limit_mm": 84.5,
+      "OD_mm": 4.5,
+      "dimension_basis": "Original FHAC0002ZXJ12AWG; shortest supplied84.5 inclstrip; strip11 at221-412; OD4.5/R10/exitdatum provisional",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    },
+    {
+      "id": "W076_EXTENSION",
+      "a": "POST_F0.2",
+      "b": "S0.in",
+      "centerline_length_mm": 188.5683782852292,
+      "termination_allowance_in_blank_mm": 26,
+      "nominal_blank_mm": 214.5683782852292,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802 red4mm2/staticR25.2;11mm splice strip+15mm ring barrel allowance; ring/pitch/OD4.2 provisional; AFTER F0",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    },
+    {
+      "id": "W066",
+      "a": "S0.out",
+      "b": "P_SYS.1",
+      "centerline_length_mm": 210.7652015030087,
+      "termination_allowance_in_blank_mm": 29,
+      "nominal_blank_mm": 239.7652015030087,
+      "limit_mm": 330,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802 red4mm2/staticR25.2;15mm TE130207 barrel+14mm WAGO strip; ring seating80/pitch24/OD4.2 provisional",
       "physical_pass": false,
       "geometry": "builder-owned snapshot",
       "factory_polarity_from_markings_not_left_right": true

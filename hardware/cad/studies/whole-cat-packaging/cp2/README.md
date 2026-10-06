@@ -5,7 +5,10 @@ Nie jest zestawem części do druku ani zamknięciem W1/W5. R53 i14/20=70%
 pozostają bez zmiany; hook aktywny do06.10.2026 09:00Warszawy, bez harmonogramu.
 
 `WholeCatInterior.FCStd` zawiera zachowane rzeczywiste referencje P0,
-przesuniętą głowę/ogon CP1 oraz62 edytowalne rezerwacje modułów i17 dostępu.
+przesuniętą głowę/ogon CP1 oraz63 edytowalne rezerwacje modułów i17 dostępu.
+Aktualny układ ma sześć nominalnych brył przewodów, cztery końce odkryte
+i osiem brył kupnych pierścieni/osprzętu S0. To snapshoty z buildera,
+nie automatycznie aktualizowana pełna wiązka ani drukowane mocowania.
 Stara kaseta została usunięta z tej propozycji, nie z wybranego robota.
 Źródło: `tools/cad/whole_cat_interior.py`; wynik i ograniczenia: `layout.json`;
 kontrola nominalnego rozmieszczenia: `checks.json`; wymiary, wyjścia i granica
@@ -22,7 +25,37 @@ Uwzględniono12 MTA0300330/24 zakończenia,20 bloków WAGO,6 splices,
 4 MTA0100335,5 FHAC0001ZXJ i1 F0 FHAC0002ZXJ, XT60, osiowy F_PWM
 0242.100UAT1 (bez osobnej oprawki) oraz układy sterowania.
 Zgodność dokładnego zestawu20 nazw szyn z istniejącym netlist jest sprawdzana
-automatycznie. Nie zmieniono topologii, SKU ani przydziału pinów.
+automatycznie. Wybrana topologia/SKU pozostaje R53. Nowy kandydat dodaje
+jedno221-412 ZA F0, dzielące fizyczny W076 na fabryczny koniec i przedłużenie;
+nie dodaje połączenia przed F0 ani nowego potencjału. Wybór/stock jeszcze otwarte.
+
+## Bieżące obie strony S0, 06.10.2026
+
+Zaciski S0 rozplanowane razem: IN z lewej, OUT z prawej, oba podejścia
+TE130207 i istniejące dwie nakrętki/podkładki M10. Rozstaw24 i płaszczyzna
+pierścieni80mm to rodzina/prototyp, NIE pomiar dostarczonego HELLA.
+W076: fabryczny odcinek79,708mm<=84,5mm (minimum z rysunku, z11mm strip),
+potem HELU23802 214,568mm z R25,2 i zakończeniami. W066239,765mm<=330mm,
+R25,2,9mm prostego końca przy P_SYS. Nie wydawać polecenia cięcia przed
+przymiarką. Nowe długości zastąpią stare, nie dublować żył/pierścieni.
+Źródło nowego221-412 i rozdzielenie katalogu/założeń: `post-f0-splice-source.json`.
+F0 nominalnie30A, złącze katalogowo32A; to NIE koordynacja zabezpieczenia,
+dobór termiczny ani zamknięcie E3. HELU/odciążenia/stock pozostają otwarte.
+
+P_REAR przesunięto do Y0, Splice_R3 dalej wzdłużX, S0 podniesiono8mm
+i przesunięto16mmY; stare mocowanie nie jest zakwalifikowane w tej pozycji.
+Trzy wcześniejsze trasy W001/W075/W043 zachowane.57 modułów ma niezmienione
+dowody; nowe i zmienione interfejsy sprawdzone z zachowanymi rzeczywistymi bryłami.
+Przewody, końcówki i17 rezerw dostępu bez kontaktów; obwiednia przewodu z
+marginesem2,4mm sprawdzona jako swept pipe, NIE prostokąt obejmujący pętlę.
+Reopen10 brył przewodów/strip i8 końcówek, objętości zgodne z długościami,
+parametr nowego221-412 i przywrócenie sprawdzone. CAD42,125s, odbiór6,094s.
+
+Odrzucono boczną pętlę przez WAGO nóg, korytarz krzyżujący W001 i osiowe
+wyjście pierścienia OUT zahaczające rezerwację PCB. Zmieniono wspólną
+orientację zacisków/podejścia, nie P0 ani obrys kota. Nie powtarzać tych prób.
+W1/W5 nadal OPEN: narzędzia/mocowanie S0, W067/W068/S1, obie strony4MTA,
+pozostałe przewody, odciążenia, skorupa, montaż i wybór. R53/14z20=70%.
 
 Historycznie pierwsze dwie kontrole wykazały brak wspólnego warunku wysokości nad
 mocowaniami nóg. Rozwiązanie: cały poziom oprawek oraz WAGO przesunięty
@@ -118,6 +151,7 @@ Odrzucono rutynową wymianę ATO wymagającą74 rozłączeń. Nowy plan bezpośr
 dostępu ma17 sprawdzonych rezerwacji, nie gotowy serwis. PRZED podporami
 domknąć wspólne przewody/dźwignie, obie strony4MTA oraz krótkie wejścia F0/F_PI;
 potem mocowania, stock i jeden wybrany eksport. Nie przesuwać samej płyty.
-Ruch/dźwignie/parkowanie końców nie zostały zakwalifikowane. Nie dodano SKU.
+Ruch/dźwignie/parkowanie końców nie zostały zakwalifikowane. Nowy221-412
+jest tylko kandydatem, nie zakupem ani zmianą wybranego R53.
 
 Slicer, druk i próby należą do fazy2. Brak fizycznego PASS.
