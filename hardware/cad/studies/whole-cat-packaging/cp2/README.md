@@ -245,3 +245,26 @@ Ruch/dźwignie/parkowanie końców nie zostały zakwalifikowane. Nowy221-412
 jest tylko kandydatem, nie zakupem ani zmianą wybranego R53.
 
 Slicer, druk i próby należą do fazy2. Brak fizycznego PASS.
+
+## Korekta przypisań złączy 221-412
+
+R53 przewiduje pięć złączy zamontowanych i jedną sztukę zapasową, nie sześć
+zamontowanych. Źródło: wybrane stock-r13 i katalog R53, ilość6 bez zmiany.
+XB11 łączy W077/W078 (Pi/main); pozostałe cztery są połączeniami wyjść
+W026/W037/W045/W053. Ich nowe przypisania do dotychczas anonimowych pól
+CP2 są w `interfaces.json/splice_inventory`, nie dowodzą gotowych przewodów.
+Rezerwacja 221-412 to14×19×9mm wobec katalogowych13×18,3×8,15mm.
+Szósty nieprzypisany prostokąt usunięto; zapas pozostaje poza robotem.
+
+Dwie odrzucone próby MTA dublowały cztery role wyjściowe, zachowując sześć
+anonimowych rezerwacji obok ośmiu nowych złączy. Zachowane kolizje tamtej
+geometrii nie dyskwalifikują poprawionej liczby elementów. Nie powtarzać
+tamtych prób. Ewentualne cztery złącza przedłużeń źródłowych są dodatkowe,
+natomiast cztery wyjściowe zastępują istniejące role. Z kandydatem post-F0
+oznacza to10 zamontowanych +1 zapas =11 kandydatów, NIE wybrany koszyk.
+Bez tych czterech przedłużeń:6 zamontowanych +1 zapas =7 kandydatów.
+
+Kontrola zmiany: pięć nowych brył mieści się w poprzednich bryłach, pozostała
+geometria natywna i18 brył przewodów/odizolowań pozostaje identyczna.
+Test zmiennej długości14→15→14 i ponowne otwarcie dotyczą zmienionych złączy.
+Nie powtarzano niezmienionych kontroli tras. W1/W5/stock/mocowania nadal OPEN.

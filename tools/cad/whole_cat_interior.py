@@ -32,6 +32,50 @@ def save(name, data):
     (OUT / name).write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 
 
+def splice_inventory():
+    """Resolve installed roles vs spare from R53; never occupy spare stock."""
+    selection_path=ROOT/'hardware/manufacturing/one-batch-prototype-r53/selection.json'
+    selected=json.loads(selection_path.read_text(encoding='utf-8'))
+    stock_path=ROOT/selected['local_fuse_stock']
+    catalog_path=selection_path.parent/'nonfastener-catalog.json'
+    body_path=ROOT/selected['body_harness']
+    stock=json.loads(stock_path.read_text(encoding='utf-8'))['WAGO221412']
+    row=next(r for r in json.loads(catalog_path.read_text(encoding='utf-8'))['rows']
+             if r['quantity_id']=='splice:WAGO221-412')
+    expected={'XB11','W026_output','W037_output','W045_output','W053_output'}
+    assert set(stock['installed_roles'])==expected and stock['installed']==5
+    assert stock['spare']==1 and row['planning_quantity']==stock['installed']+stock['spare']==6
+    assert row['manufacturer_part']=='221-412'
+    wires={w['id']:w for w in json.loads(body_path.read_text(encoding='utf-8'))['conductors']}
+    assert wires['W077']['b']=='SPLICE_PI.16' and wires['W078']['a']=='SPLICE_PI.18'
+    slots=[('Splice_L1_CP2','XB11',['W077','W078']),
+           ('Splice_L2_CP2','W026_output',['W026']),
+           ('Splice_L3_CP2','W045_output',['W045']),
+           ('Splice_R1_CP2','W037_output',['W037']),
+           ('Splice_R2_CP2','W053_output',['W053'])]
+    baseline=[]
+    for slot,role,ids in slots:
+        baseline.append(dict(native_slot=slot,electrical_role=role,sku='221-412',
+            wires=[dict(id=i,a=wires[i]['a'],b=wires[i]['b']) for i in ids],
+            allocation_basis='NEW CP2 identity allocation, old six boxes had NO circuit identity',
+            old_mount_or_complete_wiring_qualified=False))
+    return dict(status='R53_INSTALLED_ROLES_RECONCILED_CP2_NOT_SELECTED',selected=False,
+        physical_pass=False,R53_quantity=6,R53_installed=5,R53_spare=1,
+        spare_location='OFF_ROBOT; no native space reservation',
+        removed_unbound_slot='Splice_R3_CP2',baseline=baseline,
+        catalogue_dimensions_mm=[13,18.3,8.15],planning_reservation_mm=[14,19,9],
+        ports_and_levers_supplier_verified=False,
+        extra_post_F0_candidate=1,normal_CP2_installed_candidates=6,
+        normal_CP2_quantity_candidate_including_spare=7,
+        with_four_MTA_source_extensions_installed_candidate=10,
+        with_four_MTA_source_extensions_quantity_candidate_including_spare=11,
+        four_MTA_output_joints_are_replacements_not_additional=True,
+        extra_source_joints_not_selected_purchase=True,full_stock_selection_open=True,
+        source_sha256={p.relative_to(ROOT).as_posix():digest(p)
+                       for p in [selection_path,stock_path,catalog_path,body_path]},
+        W1_complete=False,W5_complete=False,K3_complete=False)
+
+
 def main():
     import FreeCAD as A
     import Part
@@ -157,11 +201,21 @@ def main():
                 if name=='G2':x=129
                 box(name+'_CP2',[x-size[0]/2,by-size[1]/2,110],size,'wago',
                     'SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route')
+    splice_roles=splice_inventory()
+    pins.update(splice_roles['source_sha256'])
+    allocations={r['native_slot']:r for r in splice_roles['baseline']}
     for y, prefix in [(55,'L'),(-55,'R')]:
         for i, x in enumerate([-43,0,43],1):
+            name=f'Splice_{prefix}{i}_CP2'
+            if name not in allocations:continue # Sixth purchased item is a spare.
+            if MTA_REPACK and allocations[name]['electrical_role']!='XB11':continue # Output joints replace these roles.
             origin=([-94,-25,40] if i==1 else [-55,-12,40]) if prefix=='R' and i in [1,2] else [70,-64.5,40] if prefix=='R' and i==3 else [x-15,y-9.5,40]
-            box(f'Splice_{prefix}{i}_CP2', origin, [30,19,9], 'splices',
-                '221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension')
+            origin=[origin[0]+8,origin[1],origin[2]]
+            box(name,origin,[14,19,9],'splices',
+                '221-412 catalogue13x18.3x8.15, planning14x19x9; '+allocations[name]['electrical_role']+
+                '; allocation NEW, full leads/old mount NOT qualified')
+            ob=d.getObject(name);ob.Label=allocations[name]['electrical_role']+' CP2'
+            ob.addProperty('App::PropertyString','ElectricalRole');ob.ElectricalRole=allocations[name]['electrical_role']
     box('PostF0Splice_CP2',[51.5,-54.3,12],[14,19,9],'splices',
         'Additional candidate221-412 AFTER F0; catalogue13x18.3x8.15/strip11; entriesUP; port/pitch/lever datums provisional',
         rotation=A.Rotation(A.Vector(1,0,0),90))
@@ -845,13 +899,14 @@ def main():
     interface=json.loads((OUT/'interfaces.json').read_text(encoding='utf-8'))
     interface['S0_joint_plan']=source_switch_plan
     interface['S1_joint_plan']=s1_plan
+    interface['splice_inventory']=splice_roles
     interface['MTA_joint_plan']=dict(holders=mta_plan,selected=False,physical_pass=False,
         complete_factory_source_output_pairs=False,full_extensions_complete=False,
         status='REJECTED_EXPERIMENT_NOT_CURRENT_NATIVE',rejected_report='mta-preflight-rejected.json',
         catalogue='MTA page75 MINI0100335 4mm2 L140, length interpretation unresolved',
         factory_OD_radius_length_and_exit_datums_supplier_verified=False,
         factory_pair_needs_not_qualified_by_ambiguous_L140=True,
-        joint_roles_and_old_six_splice_identity_reconciliation_open=True,
+        joint_roles_and_old_six_splice_identity_reconciliation_open=False,
         joint_candidates=8,new_purchase_quantity_not_selected=True,
         native_mounts_and_restraints_open=True,W1_complete=False,W5_complete=False)
     interface['F0']['output_to_S0_open']=True
@@ -861,6 +916,121 @@ def main():
     complete_service_plan()
     render(rows,checks,colors)
     print('Saved native candidate/reopen; worker',plan['worker_wall_seconds'],'seconds',flush=True)
+
+
+def reconcile_splice_native():
+    """Focused subset correction; unchanged wire/contact proofs are not rerun."""
+    import FreeCAD as A
+    started=datetime.now(timezone.utc);tick=time.monotonic()
+    inventory=splice_inventory()
+    checks=json.loads((OUT/'checks.json').read_text(encoding='utf-8'))
+    plan=json.loads((OUT/'layout.json').read_text(encoding='utf-8'))
+    interface=json.loads((OUT/'interfaces.json').read_text(encoding='utf-8'))
+    assert checks['status']=='COARSE_SHARED_RESERVATIONS_CLEAR'
+    assert all(digest(ROOT/p)==h for p,h in checks['source_sha256'].items())
+    target=OUT/'WholeCatInterior.FCStd'
+    baseline_arg=next((x.split('=',1)[1] for x in sys.argv if x.startswith('--splice-baseline=')),None)
+    baseline=Path(baseline_arg) if baseline_arg else target
+    before_digest=digest(baseline)
+    d=A.openDocument(str(baseline));d.recompute()
+    changed={r['native_slot'] for r in inventory['baseline']}
+    removed=inventory['removed_unbound_slot']
+    assert len(d.getObject('InteriorReservations').Group)==63
+    old={o.Name:o.Shape.copy() for o in d.Objects if 'Shape' in o.PropertiesList}
+    original_breps={o.Name:o.Shape.exportBrepToString() for o in d.Objects if 'Shape' in o.PropertiesList}
+    if baseline!=target:
+        A.closeDocument(d.Name);d=A.openDocument(str(target));d.recompute()
+    victim=d.getObject(removed)
+    assert victim is None or victim.TypeId=='Part::Box' and {o.Name for o in victim.InList}=={'InteriorReservations'}
+    # It was an unbound planning reservation, not a referenced purchased part.
+    if victim:d.removeObject(removed)
+    subset=[]
+    for role in inventory['baseline']:
+        o=d.getObject(role['native_slot'])
+        assert o.TypeId=='Part::Box' and o.Length.Value in [14,30] and [o.Width.Value,o.Height.Value]==[19,9]
+        if o.Length.Value==30:o.Length=14;o.Placement.Base.x+=8
+        o.Label=role['electrical_role']+' CP2'
+        o.DimensionBasis='221-412 catalogue13x18.3x8.15; reserve14x19x9; '+role['electrical_role']+'; mount/ports OPEN'
+        if 'ElectricalRole' not in o.PropertiesList:o.addProperty('App::PropertyString','ElectricalRole')
+        o.ElectricalRole=role['electrical_role'];d.recompute()
+        cut=o.Shape.cut(old[o.Name]);assert cut.isValid() and cut.Volume<1e-5
+        assert o.Shape.isValid() and len(o.Shape.Solids)==1
+        subset.append(dict(name=o.Name,new_minus_old_volume_mm3=cut.Volume,valid_cut=True))
+        row=next(r for r in plan['components'] if r['name']==o.Name)
+        b=o.Shape.BoundBox
+        row.update(origin_mm=[b.XMin,b.YMin,b.ZMin],size_mm=[b.XLength,b.YLength,b.ZLength],
+                   local_size_mm=[14,19,9],placement_base_mm=list(o.Placement.Base),
+                   dimension_basis=o.DimensionBasis,electrical_role=o.ElectricalRole)
+    retained={n:s for n,s in old.items() if n not in changed|{removed}}
+    serialization_fallbacks={}
+    def unchanged_geometry(doc):
+        for name,shape in retained.items():
+            # Shape.copy() has a different topology handle; isSame tests that
+            # handle, not geometric equality. Compare the serialized geometry.
+            o=doc.getObject(name)
+            assert o,(name,'missing geometry')
+            if o.Shape.exportBrepToString()!=original_breps[name]:
+                # OCC renormalizes direction floats on reload (~1e-16).
+                # Compare the complete BRep token structure/curve parameters,
+                # NOT bbox or an invalid coincident-shape Boolean difference.
+                a=original_breps[name].split();b=o.Shape.exportBrepToString().split()
+                assert len(a)==len(b),(name,'BRep structure changed')
+                max_delta=0.;numeric_changes=0
+                for p,q in zip(a,b):
+                    if p==q:continue
+                    delta=abs(float(p)-float(q)) # nonnumeric changes fail
+                    assert math.isfinite(delta) and delta<=1e-10,(name,p,q)
+                    max_delta=max(max_delta,delta);numeric_changes+=1
+                serialization_fallbacks[name]=dict(numeric_tokens_changed=numeric_changes,max_numeric_delta=max_delta)
+    unchanged_geometry(d)
+    # A meaningful test of a changed native box, not another P_REAR audit.
+    o=d.getObject('Splice_L1_CP2');width=o.Shape.BoundBox.XLength
+    o.Length=15;d.recompute();assert abs(o.Shape.BoundBox.XLength-width-1)<1e-6
+    o.Length=14;d.recompute();unchanged_geometry(d)
+    d.saveAs(str(target));A.closeDocument(d.Name)
+    d=A.openDocument(str(target));d.recompute()
+    assert d.getObject(removed) is None
+    assert len(d.getObject('InteriorReservations').Group)==62
+    assert len(d.getObject('HarnessCandidate').Group)==18
+    # Reopened topology has new handles: compare deterministic shape exports.
+    unchanged_geometry(d)
+    for role in inventory['baseline']:
+        o=d.getObject(role['native_slot'])
+        assert [o.Length.Value,o.Width.Value,o.Height.Value]==[14,19,9]
+        assert o.ElectricalRole==role['electrical_role'] and o.Shape.isValid()
+    A.closeDocument(d.Name)
+    plan['components']=[r for r in plan['components'] if r['name']!=removed]
+    proof=dict(status='FIVE_INSTALLED_ONE_OFF_ROBOT_SPARE_RECONCILED_NOT_SELECTED',
+        started_utc=started.isoformat(),finished_utc=datetime.now(timezone.utc).isoformat(),
+        worker_wall_seconds=round(time.monotonic()-tick,3),prior_native_sha256=before_digest,
+        native_sha256=digest(target),changed_reservations=sorted(changed),removed_unbound_reservation=removed,
+        new_shapes_subset_of_old=subset,unchanged_native_shapes=len(retained),
+        serialization_normalization_full_BRep_tokens=serialization_fallbacks,
+        serialization_numeric_absolute_tolerance=1e-10,
+        unchanged_geometry_after_reopen=True,parameter_test='Splice_L1 Length14->15: X+1; restored14',
+        no_new_contact_possible_for_subset_geometry=True,
+        proof_scope='Inherited clear geometric reservations only; NEW circuit identities do NOT qualify missing routes/mounts/stock',
+        physical_pass=False,W1_complete=False,W5_complete=False)
+    for data in [checks,plan,interface]:
+        data['source_sha256'].update(inventory['source_sha256'])
+        data['splice_inventory']=inventory
+        data['splice_native_reconciliation']=proof
+    # Persist validated gates before optional legacy metadata normalization.
+    save('checks.json',checks)
+    checks['count']=62
+    checks['reused_unchanged_component_names']=[n for n in checks['reused_unchanged_component_names'] if n not in changed|{removed}]
+    checks['shared_revision']='Five221-412 installed roles + one OFF_ROBOT spare; PostF0 additional candidate. All10 source wire pieces/8strips unchanged. Full4MTA paths/mounts/W1/W5 OPEN.'
+    interface.setdefault('MTA_joint_plan',dict(selected=False,physical_pass=False,
+        complete_factory_source_output_pairs=False,full_extensions_complete=False,
+        native_mounts_and_restraints_open=True,W1_complete=False,W5_complete=False))
+    interface['MTA_joint_plan']['joint_roles_and_old_six_splice_identity_reconciliation_open']=False
+    interface['MTA_joint_plan']['rejected_inventory_scope']='Old six anonymous boxes plus eight extra joints double-counted four output roles and reserved a spare. Negative geometry is not rejection of the reconciled inventory.'
+    assert all(digest(ROOT/p)==h for p,h in checks['source_sha256'].items())
+    save('checks.json',checks);save('layout.json',plan);save('interfaces.json',interface)
+    render(plan['components'],checks,{'logic':(.18,.53,.69),'fuses':(.72,.37,.22),
+        'wago':(.96,.65,.14),'splices':(.65,.51,.15),'inline':(.52,.37,.64),'switch':(.35,.55,.40)})
+    print('Splice reconciliation:',len(subset),'subsets; unchanged shapes',len(retained),
+          'reopen/parameter OK; worker',proof['worker_wall_seconds'],'seconds',flush=True)
 
 
 def complete_service_plan():
@@ -969,7 +1139,7 @@ def render(rows,checks,colors):
             if level==0 and not (row['group']=='splices' or row['group'] in ['logic','inline'] and z<75):continue
             if level==1 and not (row['group']=='fuses' or row['group']=='wago' and z<100 or row['group'] in ['logic','inline'] and 75<=z<120 or row['name'] in ['S0_body_CP2','S1_body_CP2']):continue
             if level==2 and not (row['group']=='wago' and z>=100 or row['group']=='inline' and z>=120 or row['name'] in ['S0_key_CP2','S1_control_CP2']):continue
-            name=row['name'].replace('_CP2','')
+            name=row.get('electrical_role',row['name'].replace('_CP2',''))
             bad=any(q.get('name')==row['name'] for q in checks['outside']) or any(row['name'] in q['pair'] for q in checks['contacts']+checks['retained_contacts'])
             ax.add_patch(Rectangle((x,y),dx,dy,facecolor=colors[row['group']],alpha=.40,
                                    edgecolor='red' if bad else '#444444',linewidth=1.3))
@@ -985,7 +1155,9 @@ def render(rows,checks,colors):
 
 if __name__=='__main__':
     import sys
-    if '--verify-changed-native' in sys.argv:
+    if '--reconcile-splice-native' in sys.argv:
+        reconcile_splice_native()
+    elif '--verify-changed-native' in sys.argv:
         verify_changed_native()
     elif '--service-plan-only' in sys.argv:
         complete_service_plan()

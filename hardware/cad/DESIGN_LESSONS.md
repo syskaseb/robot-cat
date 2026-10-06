@@ -78,3 +78,12 @@ polerowania projektu ani podstawą do deklarowania fizycznego PASS.
 
 To lokalne wnioski z tego projektu, nie uniwersalny regulamin CAD. Aktualizować
 je po nowym sprawdzonym doświadczeniu, nie dopisywać historii każdego testu.
+
+Przed rezerwacją przestrzeni przypisać każdą kupną część do obwodu i odróżnić
+ilość zamontowaną od zapasu. R53 ma5 zamontowanych221-412 +1 zapas; cztery
+zamontowane to już wyjściowe złącza MTA. Dodanie ich ponownie wraz z zapasem
+tworzy fałszywy problem przestrzeni. Nowe wyjścia mają zastępować te role,
+nie mnożyć anonimowe prostokąty. Po zapisaniu FreeCAD może renormalizować
+kierunki o około1e-16: identyczność tekstu BRep nie jest konieczna do zachowania
+geometrii; porównać pełną strukturę i parametry z jawną małą tolerancją.
+Nie uznawać nieprawidłowego odejmowania nakładających się brył za dowód zmiany.
