@@ -1,0 +1,64 @@
+{
+  "status": "INWARD_LID_APPROACH_REQUIRES_SHARED_CHANGE",
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/BoardDatumCandidate.FCStd": "8f790a53aafffe97c039c21438565d78291fd35e3461c6fe6d501897a295cf10",
+    "tools/cad/whole_cat_fpi_service_plan.py": "9b334da706055fb9674e8d31ab34ad0aad624500b16fd9cad054665c0891f54d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/branch-source-static-checks.json": "3de8fdca229cb46f8b6cfdca5a20701f3f2055f86c90d0ddde7e3797808c763f"
+  },
+  "body_rotation_z_delta_deg": -90,
+  "unchanged_exit_points_mm": [
+    [
+      -24.0,
+      41.25,
+      104.0
+    ],
+    [
+      -24.000000000000014,
+      41.25,
+      53.0
+    ]
+  ],
+  "unchanged_short_input": true,
+  "unchanged_output_solder_topology": true,
+  "new_connectors": 0,
+  "exact_pairs_tested": 5,
+  "contacts": [
+    {
+      "pair": [
+        "Access_F_PI",
+        "Pi4_CP2"
+      ],
+      "volume_mm3": 3589.2187500000023
+    },
+    {
+      "pair": [
+        "Access_F_PI",
+        "PWM9685_CP2"
+      ],
+      "volume_mm3": 15922.549999999996
+    }
+  ],
+  "errors": [],
+  "mutually_exclusive_service_budgets": [],
+  "nominal_opening_direction": [
+    -5.551115123125783e-17,
+    -1.0,
+    -2.220446049250313e-16
+  ],
+  "cause_change": "Lid opens inward in place, NOT vertical/side removal of oprawka past fixed MTA/S0",
+  "actual_supplier_hinge_motion_OPEN": true,
+  "cover_removal_and_native_mount_OPEN": true,
+  "own_input_wire_contact_NOT_waived": true,
+  "remaining": [
+    "Exact or explicit replaceable lid/clip tool approach",
+    "Full output and other branch leads",
+    "Native supports/restraints and common assembly/stock"
+  ],
+  "started_utc": "2026-10-06T06:53:08.422149+00:00",
+  "finished_utc": "2026-10-06T06:53:17.398830+00:00",
+  "worker_wall_seconds": 8.984
+}

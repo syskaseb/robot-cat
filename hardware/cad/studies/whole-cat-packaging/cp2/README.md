@@ -356,3 +356,27 @@ unieważnia jawnie odpowiednie dotychczasowe trasy; droga przed F0 nadal≤50mm.
 Pełne przedłużenia, fizyczne wyjścia/L140, mocowania, odciążenia, montaż
 i stock pozostają OPEN. Nawet brak kontaktów samych ośmiu fabrycznych końców
 nie zamknąłby W1/W5. Skrypt blokuje ponowienie niezmienionej odrzuconej recepty.
+
+## F_PI: trzy odrzucone hipotezy serwisu, 06.10 rano
+
+Źródło nadal `BoardDatumCandidate.FCStd`, NIE WYBRANE; R53 i14/20=70% bez zmiany.
+`fpi-two-release-plan.json`: pionowe wyjęcie blokują rama i MTA; proponowane
+złącze przecina ramę. `fpi-side-first-plan.json`: ruch najpierw30mm w bok,
+potem60mm w górę blokują S0/rama/złącze FL; złącze Pi przecina XB11.
+Oba nominalne wyjścia fabryczne mieszczą się w84,5mm (45,425/56,850mm),
+ale dalsza żyła do MAIN, parkowanie końców, klipsy i mocowania są OPEN.
+Żaden dodatkowy WAGO ani zapisany model tej hipotezy nie został wybrany.
+
+Po dwóch niepowodzeniach zmieniono przyczynę: `fpi-inward-lid-plan.json`
+obraca kierunek otwierania do środka przy zachowaniu obu wyjść, krótkiego
+wejścia i pierwotnego połączenia lutowanego. Prowizoryczny budżet dostępu
+przecina rezerwacje Pi/PWM. To NIE dowód kontaktu rzeczywistej pokrywy:
+wymiarowany ruch producenta nadal OPEN. Oddzielne rezerwacje serwisowe
+nie są traktowane jak jednocześnie istniejące części.
+
+Nie ponawiać tych recept ani mikroprzesunięć. Następny plan ma rozstrzygnąć
+wspólną strefę źródła i logiki oraz obsługę F_PI, na podstawie podpartego
+ruchu pokrywy/narzędzi, zanim powstaną mocowania. W1/W5/stock/eksport OPEN.
+Pierwsze dwa raporty przypinają historyczną wersję skryptu; ostatni aktualną.
+Zapisane negatywne modele pozostają lokalnymi kandydatami, nie zestawem druku.
+Obliczenia ostatniej hipotezy8,984s; cały fragment kontynuacji zaczął się06:39:56UTC.
