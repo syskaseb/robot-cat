@@ -11,7 +11,9 @@
     "hardware/reference/u1-adapter-2026-09-26/source.json": "96f4f6cfadf3bc03a9207be4826de54ef09a20eec1e3560bbd0e5336ae0631b4",
     "hardware/reference/xt60-p0-2026-09-24/README.md": "8a77b87b4ef3023c5bf96cf015698e577f083f81cc93708f30c34947e9142777",
     "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039",
-    "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91"
+    "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91",
+    "hardware/electronics/power-platform/PI-BRANCH.md": "c319a6fc4f44f093353d4b13f3b049f875a373414e3a83cea57529d3c3e1410b",
+    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6"
   },
   "BUS": {
     "sku": "Waveshare25514",
@@ -97,12 +99,12 @@
           125
         ],
         "input_exit_direction": [
-          -1,
+          1,
           0,
           0
         ],
         "output_exit_direction": [
-          1,
+          -1,
           0,
           0
         ],
@@ -192,7 +194,43 @@
       "F_HP": "P_AUX.3",
       "F_TY": "P_AUX.4"
     },
-    "complete_lead_routes_open": true
+    "complete_lead_routes_open": true,
+    "F_PI_input_nominal": {
+      "id": "W043",
+      "a": "F_PI.in",
+      "b": "P_SYS.2",
+      "input_factory_side": "right+X",
+      "centerline_length_mm": 34.849555921538766,
+      "maximum_strip_mm": 14.0,
+      "nominal_blank_mm": 48.849555921538766,
+      "limit_mm": 50,
+      "insulated_entry_straight_mm": 12.0,
+      "holder_exit_straight_mm": 3.0,
+      "bend_radii_mm": [
+        6.0,
+        6.0
+      ],
+      "OD_mm": 3.4,
+      "radius_OD_exit_height_port_coordinates_assumed": true,
+      "supplier_verified_wago_strip_mm": [
+        12,
+        14
+      ],
+      "factory_lead_includes_strip": true,
+      "exact_arcs_not_curvature_samples": true,
+      "physical_pass": false,
+      "start_mm": [
+        -7.5,
+        15.0,
+        135.0
+      ],
+      "entry_mm": [
+        1.5000000000000036,
+        28.0,
+        117.0
+      ],
+      "native_geometry": "builder-owned snapshots"
+    }
   },
   "F_PWM": {
     "sku": "0242.100UAT1",

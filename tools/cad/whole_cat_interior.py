@@ -9,6 +9,7 @@ import json
 import hashlib
 import itertools
 import time
+import math
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / 'hardware/cad/studies/whole-cat-packaging'
@@ -38,7 +39,9 @@ def main():
              ROOT/'hardware/reference/u1-adapter-2026-09-26/source.json',
              ROOT/'hardware/reference/xt60-p0-2026-09-24/README.md',
              ROOT/'hardware/electronics/full-cat/protection-selection-r2/branch-protection.json',
-             ROOT/'hardware/cad/studies/wago-p0/r1/dimensions.json']}
+             ROOT/'hardware/cad/studies/wago-p0/r1/dimensions.json',
+             ROOT/'hardware/electronics/power-platform/PI-BRANCH.md',
+             ROOT/'hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json']}
     d = A.openDocument(str(BASE/'WholeCatLayout.FCStd'))
     torso = d.getObject('TorsoEnvelope').Shape.copy()
     assert torso.isValid() and len(torso.Solids) == 1
@@ -110,11 +113,18 @@ def main():
             box(name+'_CP2',[x-15,y-4.5,75],[30,19,9],'wago',
                 '221-41530x19x9 planning bounds; rotate-90X: both wire entries point DOWN; lever face needs side-cover access',
                 rotation=A.Rotation(A.Vector(1,0,0),-90))
-    for y,ns in zip([22,-22],names[2:]):
-        for x,name in zip([-40,0,40,80,120],ns):
+    central=[(22,[(-40,'P_FRONT'),(7,'P_SYS'),(47,'P_REAR'),(84,'D_RL'),(120,'G2')]),
+             (-22,[(-40,'G1'),(0,'D_RR'),(40,'P_AUX'),(80,'G_AUX'),(120,'G_TAIL')])]
+    for y,sites in central:
+        for x,name in sites:
             size=[37,22,11] if name in ['P_SYS','P_FRONT','P_REAR','G1'] else [30,19,9]
-            box(name+'_CP2',[x-size[0]/2,y-size[1]/2,110],size,'wago',
-                'SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO')
+            if name=='P_SYS':
+                box('P_SYS_CP2',[-11.5,33.5,95],size,'wago',
+                    '221-615 rotate+90X entries UP; nominal port2 local[13,22,5.5], NOT supplier pin datum',
+                    rotation=A.Rotation(A.Vector(1,0,0),90))
+            else:
+                box(name+'_CP2',[x-size[0]/2,y-size[1]/2,110],size,'wago',
+                    'SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route')
     for y, prefix in [(55,'L'),(-55,'R')]:
         for i, x in enumerate([-43,0,43],1):
             box(f'Splice_{prefix}{i}_CP2', [x-15,y-9.5,40], [30,19,9], 'splices',
@@ -174,14 +184,63 @@ def main():
         service('Access_'+name,name+'_CP2',[x-2,y-2,147],[55,24.25,40],
                 '40mm top access with2mm lateral budget; NOT exact supplier lid hinge or hand model')
 
+    # Solve the short branch before creating supports. Exact two quarter arcs,
+    # not sampled spline curvature or a bounding-box clearance claim.
+    wg=d.getObject('P_SYS_CP2')
+    entry=wg.Placement.multVec(A.Vector(13,22,5.5))
+    fb=d.getObject('F_PI_CP2').Shape.BoundBox
+    start=A.Vector(fb.XMax,(fb.YMin+fb.YMax)/2,fb.ZMin+10)
+    radius=6.; first=3.; grip=12.; strip=14.; od=3.4
+    assert abs(entry.x-start.x-first-radius)<1e-6
+    assert abs(start.z-entry.z-grip-radius)<1e-6
+    a=start+A.Vector(first,0,0)
+    b=a+A.Vector(radius,radius,0)
+    c=A.Vector(entry.x,entry.y-radius,start.z)
+    e=A.Vector(entry.x,entry.y,entry.z+grip)
+    assert c.y>b.y, 'A straight between bend planes must be positive'
+    q=radius/math.sqrt(2)
+    arc1=Part.Arc(a,A.Vector(a.x+q,a.y+radius-q,a.z),b).toShape()
+    arc2=Part.Arc(c,A.Vector(c.x,c.y+q,c.z-radius+q),e).toShape()
+    path=Part.Wire([Part.makeLine(start,a),arc1,Part.makeLine(b,c),arc2,Part.makeLine(e,entry)])
+    circle=Part.Wire([Part.makeCircle(od/2,start,A.Vector(1,0,0))])
+    lead=path.makePipeShell([circle],True,False)
+    assert lead.isValid() and len(lead.Solids)==1
+    blank=path.Length+strip
+    assert blank<=50 and abs(path.Length-(first+math.pi*radius+(c-b).Length+grip))<1e-6
+    hg=d.addObject('App::DocumentObjectGroup','HarnessCandidate')
+    ob=d.addObject('Part::Feature','W043_FPI_CP2');ob.Shape=lead;hg.addObject(ob)
+    ob.addProperty('App::PropertyString','Status');ob.Status='Nominal cable snapshot; physical lead/port/OD/R not measured'
+    copper=d.addObject('Part::Feature','W043_strip_CP2')
+    copper.Shape=Part.makeCylinder(.646,strip,entry,A.Vector(0,0,-1));hg.addObject(copper)
+    fpi_wire=dict(id='W043',a='F_PI.in',b='P_SYS.2',input_factory_side='right+X',
+                  centerline_length_mm=path.Length,maximum_strip_mm=strip,
+                  nominal_blank_mm=blank,limit_mm=50,insulated_entry_straight_mm=grip,
+                  holder_exit_straight_mm=first,bend_radii_mm=[radius,radius],OD_mm=od,
+                  radius_OD_exit_height_port_coordinates_assumed=True,
+                  supplier_verified_wago_strip_mm=[12,14],factory_lead_includes_strip=True,
+                  exact_arcs_not_curvature_samples=True,physical_pass=False,
+                  start_mm=list(start),entry_mm=list(entry),native_geometry='builder-owned snapshots')
+
     def broad(a,b):
         return a.BoundBox.intersect(b.BoundBox)
 
+    reuse = bool(prior and prior['status']=='COARSE_SHARED_RESERVATIONS_CLEAR'
+                 and all(prior['source_sha256'].get(p)==pins[p] for p in
+                         [BASE.joinpath('WholeCatLayout.FCStd').relative_to(ROOT).as_posix(),
+                          BASE.joinpath('layout.json').relative_to(ROOT).as_posix()]))
+    old_rows={r['name']:r for r in old_layout['components']}
+    def same_geometry(r):
+        old=old_rows.get(r['name'])
+        return bool(old and all(len(old.get(k,[]))==len(r.get(k,[])) and
+                    all(abs(a-b)<1e-7 for a,b in zip(old.get(k,[]),r.get(k,[])))
+                    for k in ['origin_mm','size_mm','rotation_quaternion']))
+    unchanged={r['name'] for r in rows if reuse and same_geometry(r)}
+    old_access={r['name']:r for r in prior.get('service_reservations',[])} if reuse else {}
     errors, outside, contacts, chassis_hits = [], [], [], []
     wall = 2.4
     for row in rows:
         name=row['name'];s=shapes[name]
-        if row['require_internal_shell']:
+        if row['require_internal_shell'] and name not in unchanged:
             p=row['origin_mm'];v=row['size_mm']
             reserve=Part.makeBox(*(a+2*wall for a in v), A.Vector(*(a-wall for a in p)))
             try:
@@ -191,6 +250,7 @@ def main():
             except Exception as e:errors.append(dict(pair=[name,'Torso'],error=str(e)))
     checked=0
     for na,nb in itertools.combinations(shapes,2):
+        if na in unchanged and nb in unchanged:continue
         if na.startswith('S0_') and nb.startswith('S0_'):continue
         if na.startswith('S1_') and nb.startswith('S1_'):continue
         a,b=shapes[na],shapes[nb]
@@ -202,6 +262,7 @@ def main():
         except Exception as e:errors.append(dict(pair=[na,nb],error=str(e)))
     # Check genuine retained shapes, not their bounding boxes. No inherited cassette in this test.
     for name,s in shapes.items():
+        if name in unchanged:continue
         for rn,rs,cat in refs:
             if not broad(s,rs):continue
             try:
@@ -212,21 +273,41 @@ def main():
     access_hits=[]
     for r in access:
         s=d.getObject(r['name']).Shape
+        reused_access=old_access.get(r['name'])==r
         for name,other in list(shapes.items())+[(n,s) for n,s,cat in refs]:
+            if reused_access and (name in unchanged or name not in shapes):continue
             if name==r['target'] or not broad(s,other):continue
             try:
                 checked+=1;c=s.common(other)
                 if not c.isValid():raise RuntimeError('Invalid service intersection')
                 if c.Volume>1e-5:access_hits.append(dict(pair=[r['name'],name],volume_mm3=c.Volume))
             except Exception as e:errors.append(dict(pair=[r['name'],name],error=str(e)))
-    clean=not (errors or outside or contacts or chassis_hits or access_hits)
+    wire_hits=[]
+    for name,other in list(shapes.items())+[(n,s) for n,s,cat in refs]+[(r['name'],d.getObject(r['name']).Shape) for r in access]:
+        if name in ['F_PI_CP2','P_SYS_CP2'] or not broad(lead,other):continue
+        try:
+            checked+=1;c0=lead.common(other)
+            if not c0.isValid():raise RuntimeError('Invalid cable intersection')
+            if c0.Volume>1e-5:wire_hits.append(dict(pair=['W043_FPI_CP2',name],volume_mm3=c0.Volume))
+        except Exception as ex:errors.append(dict(pair=['W043_FPI_CP2',name],error=str(ex)))
+    try:
+        wbb=lead.BoundBox
+        clearance=Part.makeBox(wbb.XLength+2*wall,wbb.YLength+2*wall,wbb.ZLength+2*wall,
+                              A.Vector(wbb.XMin-wall,wbb.YMin-wall,wbb.ZMin-wall)).cut(torso)
+        if not clearance.isValid():raise RuntimeError('Invalid cable enclosure check')
+        if clearance.Volume>1e-5:outside.append(dict(name='W043_FPI_CP2',outside_mm3=clearance.Volume))
+    except Exception as ex:errors.append(dict(pair=['W043_FPI_CP2','Torso'],error=str(ex)))
+    clean=not (errors or outside or contacts or chassis_hits or access_hits or wire_hits)
     checks=dict(status='COARSE_SHARED_RESERVATIONS_CLEAR' if clean else 'LAYOUT_PREFLIGHT_REQUIRES_CHANGE',
                 selected=False,physical_pass=False,W1_complete=False,W5_complete=False,
                 count=len(rows),bus_roles_sorted=sorted(wanted),source_sha256=pins,
                 wall_clearance_reserve_mm=wall,exact_brep_intersections_after_bbox_filter=checked,
                 outside=outside,contacts=contacts,retained_contacts=chassis_hits,errors=errors,
                 service_reservations=access,service_contacts=access_hits,
-                service_motion_supplier_verified=False)
+                service_motion_supplier_verified=False,W043_nominal_route=fpi_wire,
+                wire_contacts=wire_hits,wire_termination_target_bodies_excluded=['F_PI_CP2','P_SYS_CP2'],
+                reused_unchanged_component_names=sorted(unchanged),
+                reused_reference_basis='Prior clear proof + unchanged CP1 reference hashes and exact box coordinates/rotation; changed interfaces and new wire checked')
     checks['BUS_vendor_compound_valid'] = bus_reference_valid
     checks['BUS_contact_test_basis'] = 'full vendor bounding reservation, NOT invalid compound'
     if prior and prior.get('rejected_preflights'):
@@ -235,7 +316,7 @@ def main():
         checks.setdefault('rejected_preflights', []).append(
             {k:prior[k] for k in ['outside','contacts','retained_contacts','errors']})
     save('checks.json',checks)
-    print('Preflight:',checks['status'],'outside',outside,'contacts',contacts,'retained',chassis_hits,'service',access_hits,'errors',errors,flush=True)
+    print('Preflight:',checks['status'],'outside',outside,'contacts',contacts,'retained',chassis_hits,'service',access_hits,'wire',wire_hits,'errors',errors,flush=True)
     colors={'logic':(.18,.53,.69),'fuses':(.72,.37,.22),'wago':(.96,.65,.14),
             'splices':(.65,.51,.15),'inline':(.52,.37,.64),'switch':(.35,.55,.40)}
     for row in rows:
@@ -255,13 +336,16 @@ def main():
     assert all(d.getObject(r['name']).Shape.isValid() for r in rows)
     assert len(d.getObject('ServiceReservations').Group)==17
     assert all(d.getObject(r['name']).Shape.isValid() for r in access)
-    # Native box parameter roundtrip, without modifying the saved candidate.
-    ob=d.getObject('Pi4_CP2');h=ob.Height.Value;ob.Height=h+1;d.recompute()
-    assert abs(ob.Shape.BoundBox.ZLength-h-1)<1e-6
+    assert d.getObject('W043_FPI_CP2').Shape.isValid() and d.getObject('W043_strip_CP2').Shape.isValid()
+    # Changed up-entry box parameter, not an unrelated unchanged Pi retest.
+    ob=d.getObject('P_SYS_CP2');h=ob.Height.Value;w=ob.Shape.BoundBox.YLength
+    ob.Height=h+1;d.recompute()
+    assert abs(ob.Shape.BoundBox.YLength-w-1)<1e-6
     ob.Height=h;d.recompute();A.closeDocument(d.Name)
-    checks.update(native_reopen=True,box_parameter_roundtrip=True)
+    checks.update(native_reopen=True,box_parameter_roundtrip=True,
+                  parameter_test='P_SYS local Height+1 -> world Y footprint+1; restored; cable is explicitly builder-owned snapshot')
     checks['previous_preflight_history_git']='9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json'
-    checks['shared_revision']='Direct nominal ATO access:12 side holders,10 lower outer/down-entry WAGO,10 central WAGO,5 top horizontal FHAC;17 assumed service reserves. Wiring and actual supplier lid/lever sweeps remain OPEN.'
+    checks['shared_revision']='Source-aware shared layout: up-entry P_SYS, front G1, F_PI right input with exact R6 arcs and<=50mm blank including14mm strip.17 service reserves retained. Only W043 modeled; full wiring remains OPEN.'
     assert all(digest(ROOT/p)==h for p,h in pins.items()),'Reference source was modified'
     save('checks.json',checks)
     plan=dict(status=checks['status'],selected=False,source_sha256=pins,components=rows,
@@ -277,7 +361,7 @@ def main():
                                'Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.',
                                'Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.',
                                'XT60 and F0 in front source bay: no long unfused route to rear. Exact pins/factory leads and <=50mm route NOT yet qualified.',
-                               '10 central WAGO Z110..121 and five FHAC Z125..147: model stripped ends and both leads together; F_PI<=50mm input route is a constraint, not yet proven.'],
+                               'Nine central WAGO Z110..121 plus up-entry P_SYS Z95..117; five FHAC Z125..147. F_PI nominal input modeled; remaining sources/grounds/4MTA/outputs OPEN.'],
               not_qualified=['Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half',
                              'S0 stud/lug/tool access and exact delivered SKU',
                              'S1 four terminals, bushing, panel aperture and hand access',
@@ -307,10 +391,10 @@ def main():
                   thickness_budget_mm=22,thickness_supplier_verified=False,
                   factory_lead_mm=[84.5,94.5],strip_mm=[4.35,8.35],lead_length_includes_strip=True,
                   lead_OD_budget_mm=3.4,bend_radius_budget_mm=6,OD_radius_supplier_verified=False,
-                  branches=[dict(role=n,origin_mm=[x,y,125],input_exit_direction=[-1,0,0],
-                                 output_exit_direction=[1,0,0],exit_datum_provisional=True) for n,x,y in fhac_sites],
+                  branches=[dict(role=n,origin_mm=[x,y,125],input_exit_direction=[1,0,0] if n=='F_PI' else [-1,0,0],
+                                 output_exit_direction=[-1,0,0] if n=='F_PI' else [1,0,0],exit_datum_provisional=True) for n,x,y in fhac_sites],
                   supply_roles={'F_PI':'P_SYS.2','F_AUX':'P_REAR.5','F_HY':'P_AUX.2','F_HP':'P_AUX.3','F_TY':'P_AUX.4'},
-                  complete_lead_routes_open=True),
+                  complete_lead_routes_open=True,F_PI_input_nominal=fpi_wire),
         F_PWM=dict(sku='0242.100UAT1',assembly='axial sleeved/restraint, no separate holder',
                    supply='P_REAR.4',output='JPWM_IN.1',assembly_bounds_assumed=True),
         F0=dict(sku='FHAC0002ZXJ',housing_axis=[0,1,0],both_factory_exits_retained=True,

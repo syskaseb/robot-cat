@@ -35,6 +35,19 @@ udawane jako zamknięte pod skorupą. Ponowne otwarcie i parametr Pi sprawdzone.
 
 ## Uzgodnienie gabarytów i dostępu 06.10.2026
 
+Aktualizacja źródeł: P_SYS wejściami w górę Z95..117, P_FRONT/P_REAR/D_RL
+przełożone razem, G1 bliżej przodu. W043 F_PI.in→P_SYS.2 ma dwa dokładne
+łuki R6, prosty odciążany koniec12mm i nominalny blank48,850mm obejmujący
+14mm odizolowania, poniżej50mm. Wymodelowany przewód ma poprawną bryłę,
+nie przecina sąsiadów/rezerw dostępu i mieści się w obrysie. Wyjście oprawki,
+OD3,4/R6 i fizyczny punkt portu są prowizoryczne; nie oznacza to pomiaru
+pasowania ani bezpiecznej koordynacji F0. Styki wewnątrz docelowych oprawek
+wyłączono z kontroli rezerwacji korpusów, bo końcówki należą do tych korpusów.
+Sprawdzono zmianę parametru P_SYS, nie ponowiono parametru niezmienionego Pi;
+57 niezmienionych modułów korzysta z wcześniejszego dowodu i zgodnych hashy.
+Pozostała wiązka nadal OPEN. W043 to jawny snapshot przewodu z buildera,
+nie parametryczne zależności całej wiązki. Przebieg CAD35,625s.
+
 Nowy wspólny układ:10 bocznych WAGO niżej,10 centralnych WAGO pod pięcioma
 poziomymi FHAC,12 ATO po bokach. WAGO pozostają podłączone przy nominalnym
 dostępie do ATO. Sprawdzono razem12 prostych korytarzy wyciągania/narzędzia

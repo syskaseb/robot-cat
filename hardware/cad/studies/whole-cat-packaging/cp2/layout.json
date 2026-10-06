@@ -10,7 +10,9 @@
     "hardware/reference/u1-adapter-2026-09-26/source.json": "96f4f6cfadf3bc03a9207be4826de54ef09a20eec1e3560bbd0e5336ae0631b4",
     "hardware/reference/xt60-p0-2026-09-24/README.md": "8a77b87b4ef3023c5bf96cf015698e577f083f81cc93708f30c34947e9142777",
     "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039",
-    "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91"
+    "hardware/cad/studies/wago-p0/r1/dimensions.json": "ceb5912176a4d468c8305b40608ce869c27c371476414d31792ae9225fabdb91",
+    "hardware/electronics/power-platform/PI-BRANCH.md": "c319a6fc4f44f093353d4b13f3b049f875a373414e3a83cea57529d3c3e1410b",
+    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6"
   },
   "components": [
     {
@@ -942,7 +944,7 @@
       "require_internal_shell": true
     },
     {
-      "name": "P_SYS_CP2",
+      "name": "P_FRONT_CP2",
       "origin_mm": [
         -58.5,
         11.0,
@@ -970,20 +972,20 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
-      "name": "P_FRONT_CP2",
+      "name": "P_SYS_CP2",
       "origin_mm": [
-        -18.5,
-        11.0,
-        110.0
+        -11.5,
+        22.499999999999993,
+        95.0
       ],
       "size_mm": [
-        37.0,
-        22.0,
-        11.0
+        37.00000000000001,
+        11.000000000000007,
+        22.0
       ],
       "group": "wago",
       "local_size_mm": [
@@ -992,23 +994,23 @@
         11
       ],
       "placement_base_mm": [
-        -18.5,
-        11.0,
-        110
+        -11.5,
+        33.5,
+        95
       ],
       "rotation_quaternion": [
+        0.7071067811865476,
         0.0,
         0.0,
-        0.0,
-        1.0
+        0.7071067811865476
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "221-615 rotate+90X entries UP; nominal port2 local[13,22,5.5], NOT supplier pin datum",
       "require_internal_shell": true
     },
     {
       "name": "P_REAR_CP2",
       "origin_mm": [
-        21.5,
+        28.5,
         11.0,
         110.0
       ],
@@ -1024,7 +1026,7 @@
         11
       ],
       "placement_base_mm": [
-        21.5,
+        28.5,
         11.0,
         110
       ],
@@ -1034,30 +1036,30 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
-      "name": "G1_CP2",
+      "name": "D_RL_CP2",
       "origin_mm": [
-        61.5,
-        11.0,
+        69.0,
+        12.5,
         110.0
       ],
       "size_mm": [
-        37.0,
-        22.0,
-        11.0
+        30.0,
+        19.0,
+        9.0
       ],
       "group": "wago",
       "local_size_mm": [
-        37,
-        22,
-        11
+        30,
+        19,
+        9
       ],
       "placement_base_mm": [
-        61.5,
-        11.0,
+        69.0,
+        12.5,
         110
       ],
       "rotation_quaternion": [
@@ -1066,7 +1068,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
@@ -1098,30 +1100,30 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
-      "name": "D_RL_CP2",
+      "name": "G1_CP2",
       "origin_mm": [
-        -55.0,
-        -31.5,
+        -58.5,
+        -33.0,
         110.0
       ],
       "size_mm": [
-        30.0,
-        19.0,
-        9.0
+        37.0,
+        22.0,
+        11.0
       ],
       "group": "wago",
       "local_size_mm": [
-        30,
-        19,
-        9
+        37,
+        22,
+        11
       ],
       "placement_base_mm": [
-        -55.0,
-        -31.5,
+        -58.5,
+        -33.0,
         110
       ],
       "rotation_quaternion": [
@@ -1130,7 +1132,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
@@ -1162,7 +1164,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
@@ -1194,7 +1196,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
@@ -1226,7 +1228,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
@@ -1258,7 +1260,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; central fixed row, NOT overhead of ATO",
+      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
       "require_internal_shell": true
     },
     {
@@ -1950,7 +1952,7 @@
     "Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.",
     "Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.",
     "XT60 and F0 in front source bay: no long unfused route to rear. Exact pins/factory leads and <=50mm route NOT yet qualified.",
-    "10 central WAGO Z110..121 and five FHAC Z125..147: model stripped ends and both leads together; F_PI<=50mm input route is a constraint, not yet proven."
+    "Nine central WAGO Z110..121 plus up-entry P_SYS Z95..117; five FHAC Z125..147. F_PI nominal input modeled; remaining sources/grounds/4MTA/outputs OPEN."
   ],
   "not_qualified": [
     "Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half",
@@ -1969,7 +1971,7 @@
     "PiTray",
     "4 fixed loom frames"
   ],
-  "started_utc": "2026-10-06T01:28:33.240421+00:00",
-  "finished_utc": "2026-10-06T01:29:39.385112+00:00",
-  "worker_wall_seconds": 66.14
+  "started_utc": "2026-10-06T01:41:08.207520+00:00",
+  "finished_utc": "2026-10-06T01:41:43.835900+00:00",
+  "worker_wall_seconds": 35.625
 }
