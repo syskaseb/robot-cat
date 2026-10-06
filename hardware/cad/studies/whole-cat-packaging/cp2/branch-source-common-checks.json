@@ -1,0 +1,512 @@
+{
+  "status": "TWO_SHORT_INPUTS_SHARED_REQUIRES_CHANGE",
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/MTAHorizontalCandidate.FCStd": "15e204f343e701df134842202e709c54389b4e2a6b540efef7ed30966db372f9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/whole-harness-shared-plan.json": "c50c72d42a46f877cb224df91ff69bee8b0c952182017fe916ce10dde2f7afd4",
+    "tools/cad/whole_cat_branch_source.py": "c04760fa77f06f237a7c437c73bc8c52393d5e12ec9c8617f31f9588e026fb6f",
+    "tools/cad/whole_cat_source_bay_plan.py": "ace58022c5bf10db72c96bb63f99f6bbfc0b464aabe3097e62f0562dd38e57be",
+    "tools/cad/whole_cat_interior.py": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998"
+  },
+  "recipe": {
+    "F_PI": {
+      "exit_mm": [
+        -24,
+        40,
+        104
+      ],
+      "length": 51,
+      "rotation": "Rz180*Ry-90: input+Z, output-Z, lid+X"
+    },
+    "F_AUX": {
+      "exit_mm": [
+        102.5,
+        -12,
+        124
+      ],
+      "origin_mm": [
+        102.5,
+        -22.125,
+        114
+      ],
+      "output_exit_mm": [
+        153.5,
+        -12,
+        124
+      ]
+    },
+    "P_FRONT": {
+      "origin_mm": [
+        -26.5,
+        -11,
+        129.5
+      ],
+      "entry": "+Y",
+      "centre_mm": [
+        -8,
+        0,
+        135
+      ]
+    },
+    "G2": {
+      "origin_mm": [
+        114,
+        -9.5,
+        61
+      ],
+      "centre_mm": [
+        129,
+        0,
+        65.5
+      ]
+    },
+    "routes": [
+      {
+        "id": "W043",
+        "start_mm": [
+          -24,
+          40,
+          104
+        ],
+        "OD_mm": 3.4,
+        "minimum_radius_mm": 6,
+        "termination_allowance_mm": 14,
+        "electrical_ends": [
+          "F_PI.in",
+          "P_SYS.2"
+        ],
+        "segments": [
+          {
+            "kind": "line",
+            "start_mm": [
+              -24,
+              40,
+              104
+            ],
+            "end_mm": [
+              -24,
+              40,
+              113
+            ],
+            "tangent": [
+              0,
+              0,
+              1
+            ],
+            "length_mm": 9
+          },
+          {
+            "kind": "arc",
+            "start_mm": [
+              -24,
+              40,
+              113
+            ],
+            "mid_mm": [
+              -24.0,
+              38.242640687119284,
+              117.24264068711929
+            ],
+            "end_mm": [
+              -24.0,
+              34.0,
+              119.0
+            ],
+            "start_tangent": [
+              0,
+              0,
+              1
+            ],
+            "end_tangent": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 9.42477796076938
+          },
+          {
+            "kind": "line",
+            "start_mm": [
+              -24.0,
+              34.0,
+              119.0
+            ],
+            "end_mm": [
+              -24.0,
+              23.5,
+              119.0
+            ],
+            "tangent": [
+              0,
+              -1,
+              0
+            ],
+            "length_mm": 10.5
+          }
+        ],
+        "end_mm": [
+          -24.0,
+          23.5,
+          119.0
+        ],
+        "end_tangent": [
+          0,
+          -1,
+          0
+        ],
+        "centreline_mm": 28.92477796076938,
+        "nominal_blank_mm": 42.924777960769376,
+        "entry_strip": null,
+        "first_straight_mm": 9,
+        "last_straight_mm": 10.5
+      },
+      {
+        "id": "XA01",
+        "start_mm": [
+          102.5,
+          -12,
+          124
+        ],
+        "OD_mm": 3.4,
+        "minimum_radius_mm": 6,
+        "termination_allowance_mm": 14,
+        "electrical_ends": [
+          "F_AUX.in",
+          "P_REAR.5"
+        ],
+        "segments": [
+          {
+            "kind": "line",
+            "start_mm": [
+              102.5,
+              -12,
+              124
+            ],
+            "end_mm": [
+              93.30792086185338,
+              -12.0,
+              124.0
+            ],
+            "tangent": [
+              -1,
+              0,
+              0
+            ],
+            "length_mm": 9.192079138146621
+          },
+          {
+            "kind": "arc",
+            "start_mm": [
+              93.30792086185338,
+              -12.0,
+              124.0
+            ],
+            "mid_mm": [
+              89.46184335451073,
+              -12.707201539058705,
+              122.7977573836002
+            ],
+            "end_mm": [
+              87.40396043092669,
+              -14.5,
+              119.75
+            ],
+            "start_tangent": [
+              -1,
+              0,
+              0
+            ],
+            "end_tangent": [
+              -0.1782048781951659,
+              -0.4989044608189531,
+              -0.8481375833922203
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.3916345010352735,
+            "length_mm": 8.349807006211641
+          },
+          {
+            "kind": "arc",
+            "start_mm": [
+              87.40396043092669,
+              -14.5,
+              119.75
+            ],
+            "mid_mm": [
+              85.34607750734264,
+              -16.292798460941295,
+              116.7022426163998
+            ],
+            "end_mm": [
+              81.5,
+              -17.0,
+              115.5
+            ],
+            "start_tangent": [
+              -0.1782048781951659,
+              -0.4989044608189531,
+              -0.8481375833922203
+            ],
+            "end_tangent": [
+              -1,
+              0,
+              0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.3916345010352735,
+            "length_mm": 8.349807006211641
+          },
+          {
+            "kind": "line",
+            "start_mm": [
+              81.5,
+              -17.0,
+              115.5
+            ],
+            "end_mm": [
+              72.5,
+              -17.0,
+              115.5
+            ],
+            "tangent": [
+              -1,
+              0,
+              0
+            ],
+            "length_mm": 9
+          }
+        ],
+        "end_mm": [
+          72.5,
+          -17.0,
+          115.5
+        ],
+        "end_tangent": [
+          -1,
+          0,
+          0
+        ],
+        "centreline_mm": 34.89169315056991,
+        "nominal_blank_mm": 48.89169315056991,
+        "entry_strip": null,
+        "first_straight_mm": 9.192079138146621,
+        "last_straight_mm": 9
+      }
+    ],
+    "assumptions": "FHAC exits/OD3.4/R6 and WAGO port pitch provisional; physical cut after fit",
+    "constraints": "F_PI/XA01 <=50mm includes14mm entry strip; no extra prefuse splice",
+    "pending_outputs": [
+      "F_PI.out -> insulated Pi solder splice -> MAIN.VIN",
+      "F_AUX.out -> AUX.VIN; actual pad and factory lead budget required"
+    ]
+  },
+  "exact_BRep_pairs_tested": 9,
+  "contacts": [
+    {
+      "pair": [
+        "Access_F_PI",
+        "Pi4_CP2"
+      ],
+      "volume_mm3": 65.00000000000189,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "F_AUX_CP2",
+        "P0_MG92BMount29"
+      ],
+      "volume_mm3": 150.6954719163295,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "F_AUX_CP2",
+        "P0_UpperHousing34"
+      ],
+      "volume_mm3": 1392.0981857525571,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "F_AUX_CP2",
+        "D_RL_CP2"
+      ],
+      "volume_mm3": 247.81249999999994,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "Access_F_AUX",
+        "P0_UpperHousing34"
+      ],
+      "volume_mm3": 218.61755319987353,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "Access_F_AUX",
+        "P0_BearingCap34"
+      ],
+      "volume_mm3": 188.61147882759138,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "G2_CP2",
+        "S1_driver_3"
+      ],
+      "volume_mm3": 38.230500083457116,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    },
+    {
+      "pair": [
+        "G2_CP2",
+        "S1_driver_6"
+      ],
+      "volume_mm3": 38.23050008345633,
+      "basis": "Actual pipe/retained shape versus named provisional reservation, not supplier material fit"
+    }
+  ],
+  "outside": [],
+  "errors": [],
+  "changed_parts": [
+    "Access_F_AUX",
+    "Access_F_PI",
+    "F_AUX_CP2",
+    "F_PI_CP2",
+    "G2_CP2",
+    "P_FRONT_CP2",
+    "W043_SHORT_CP2",
+    "W043_SHORT_STRIP_CP2",
+    "XA01_SHORT_CP2",
+    "XA01_SHORT_STRIP_CP2"
+  ],
+  "retained_MTA_and_ATO_not_rerun": true,
+  "current_splice_identity": {
+    "status": "R53_INSTALLED_ROLES_RECONCILED_CP2_NOT_SELECTED",
+    "selected": false,
+    "physical_pass": false,
+    "R53_quantity": 6,
+    "R53_installed": 5,
+    "R53_spare": 1,
+    "spare_location": "OFF_ROBOT; no native space reservation",
+    "removed_unbound_slot": "Splice_R3_CP2",
+    "baseline": [
+      {
+        "native_slot": "Splice_L1_CP2",
+        "electrical_role": "XB11",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "XB11",
+            "a": "P_AUX.2",
+            "b": "F_HY.in"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_L2_CP2",
+        "electrical_role": "W026_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W026",
+            "a": "FL_P.1",
+            "b": "F_FL.out"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_L3_CP2",
+        "electrical_role": "W045_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W045",
+            "a": "F_RL.out",
+            "b": "RL_P.1"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_R1_CP2",
+        "electrical_role": "W037_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W037",
+            "a": "FR_P.1",
+            "b": "F_FR.out"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_R2_CP2",
+        "electrical_role": "W053_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W053",
+            "a": "F_RR.out",
+            "b": "RR_P.1"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      }
+    ],
+    "catalogue_dimensions_mm": [
+      13,
+      18.3,
+      8.15
+    ],
+    "planning_reservation_mm": [
+      14,
+      19,
+      9
+    ],
+    "ports_and_levers_supplier_verified": false,
+    "extra_post_F0_candidate": 1,
+    "normal_CP2_installed_candidates": 6,
+    "normal_CP2_quantity_candidate_including_spare": 7,
+    "with_four_MTA_source_extensions_installed_candidate": 10,
+    "with_four_MTA_source_extensions_quantity_candidate_including_spare": 11,
+    "four_MTA_output_joints_are_replacements_not_additional": true,
+    "extra_source_joints_not_selected_purchase": true,
+    "full_stock_selection_open": true,
+    "source_sha256": {
+      "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+      "hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r13/stock.json": "844cf4dbda5930ff9aee52e8ccb453e8db61eb742200e05f6049372c06546a51",
+      "hardware/manufacturing/one-batch-prototype-r53/nonfastener-catalog.json": "d11e50c191ebcb67b7f952c0e4ba6521f6b57a52c3a5c1135ac667d135d6f3fe",
+      "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6",
+      "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415"
+    },
+    "W1_complete": false,
+    "W5_complete": false,
+    "K3_complete": false
+  },
+  "outputs_and_all_other_wires_remain_OPEN": true,
+  "invalidated_routes": [
+    "W041/W042/W064 target P_FRONT changed",
+    "W003/W061/W062/W063 and AUX references to G2 changed",
+    "W077/W078 and XA02 output factory leads changed"
+  ],
+  "native_supports_and_grips_OPEN": true,
+  "entry_levers_and_fuse_lid_motion_provisional": true,
+  "started_utc": "2026-10-06T06:15:32.719023+00:00",
+  "finished_utc": "2026-10-06T06:15:45.955336+00:00",
+  "worker_wall_seconds": 13.234
+}

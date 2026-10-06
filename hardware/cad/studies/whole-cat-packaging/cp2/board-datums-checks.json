@@ -1,0 +1,228 @@
+{
+  "status": "AUX_FOOTPRINT_CORRECTED_MAIN_DATUMS_BOUND",
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/BranchSourceCandidate.FCStd": "1fb8e7e9d23c9be81cee49fd11f66d278328341e6ecbdd230ea582faef69f061",
+    "hardware/cad/studies/main-p0-mount/r5/MainP0Mount.FCStd": "fbed974e2432a6efe11c8d69ff258174504a0654dfdeb60cf78731aae26130e1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/whole-harness-current-plan.json": "331c4860525b2156d62fd226303ce940289116f1ed2b546ba1c4e3dba55da977",
+    "tools/cad/whole_cat_board_datums.py": "3a30303c52a157705aee37f439e001b89c3fddb9ad3a521f01d8a528f2b8cd31",
+    "tools/electronics/main_input_return_r1.py": "d7baacc85e871fdd2e81db75d50cadaa7d1acad91ece2b9ff34cc188e422c54e",
+    "tools/electronics/main_positive_input_route_common_r2.py": "43b75ca5075fad73374f68a347bba818de824b91f2c41b30b9501ec38ae551de",
+    "tools/electronics/pi_power_usb_r1.py": "f7d1caa6f1763e45b36d37af93ecf19c767cbc6b7d106e055e707a71a8cca9b5",
+    "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd",
+    "hardware/reference/aux4092-2026-09-26/reg24d-drill.dxf": "a7f7e8bf86711d23db3a8412be6123e966e2f83d51eadfb37edd208eaf624985"
+  },
+  "candidate_native_sha256": "8f790a53aafffe97c039c21438565d78291fd35e3461c6fe6d501897a295cf10",
+  "AUX": {
+    "old": {
+      "length_mm": 18.8,
+      "volume_mm3": 14325.599999999999,
+      "placement": "Placement [Pos=(35,-12.7,78), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    "corrected_board_XY_mm": [
+      25.4,
+      25.4
+    ],
+    "retained_height_reserve_mm": 30,
+    "source": "https://www.pololu.com/product/4092",
+    "electrical_pad_orientation_OPEN": true,
+    "native_mount_OPEN": true
+  },
+  "exact_changed_pairs_tested": 1,
+  "contacts": [],
+  "errors": [],
+  "outside": false,
+  "MAIN_frame": {
+    "source_native": "hardware\\cad\\studies\\main-p0-mount\\r5\\MainP0Mount.FCStd",
+    "mounted_family_bbox_min_mm": [
+      -17.240000000000002,
+      -9.43,
+      9.0
+    ],
+    "size_mm": [
+      30.48,
+      22.86,
+      7.674799999999998
+    ],
+    "transformation": "old_world - old_mount_origin - mounted_family_min, then CP2 local placement",
+    "source_copper_pads_provisional": true,
+    "target_holes_mm": [
+      [
+        -68.159,
+        23.32100000000001,
+        42.0
+      ],
+      [
+        -86.70100000000001,
+        23.32100000000001,
+        42.0
+      ]
+    ],
+    "supports_not_created": true
+  },
+  "MAIN_datums": {
+    "MAIN.VIN": {
+      "native": "MAIN4853_CP2",
+      "point_mm": [
+        -72.18,
+        21.289000000000016,
+        43.5748
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_world_mm": [
+        114.869,
+        4.91,
+        62.5748
+      ],
+      "local_family_footprint_mm": [
+        26.28900000000001,
+        6.18,
+        1.5748000000000033
+      ],
+      "basis": "Inherited R53 prototype pad, normalized mounted R5 family footprint then current CP2 placement; NOT exact delivered4853 pad",
+      "route_restraint_and_lever_qualified": false
+    },
+    "MAIN.GND": {
+      "native": "MAIN4853_CP2",
+      "point_mm": [
+        -75.68,
+        21.289000000000016,
+        43.5748
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_world_mm": [
+        114.869,
+        8.41,
+        62.5748
+      ],
+      "local_family_footprint_mm": [
+        26.28900000000001,
+        9.68,
+        1.5748000000000033
+      ],
+      "basis": "Inherited R53 prototype pad, normalized mounted R5 family footprint then current CP2 placement; NOT exact delivered4853 pad",
+      "route_restraint_and_lever_qualified": false
+    },
+    "MAIN.VOUT": {
+      "native": "MAIN4853_CP2",
+      "point_mm": [
+        -82.68,
+        21.289000000000016,
+        43.5748
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_world_mm": [
+        114.869,
+        15.41,
+        62.5748
+      ],
+      "local_family_footprint_mm": [
+        26.28900000000001,
+        16.68,
+        1.5748000000000033
+      ],
+      "basis": "Inherited R53 prototype pad, normalized mounted R5 family footprint then current CP2 placement; NOT exact delivered4853 pad",
+      "route_restraint_and_lever_qualified": false
+    },
+    "MAIN.GND_OUT": {
+      "native": "MAIN4853_CP2",
+      "point_mm": [
+        -79.18,
+        21.289000000000016,
+        43.5748
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_world_mm": [
+        114.869,
+        11.91,
+        62.5748
+      ],
+      "local_family_footprint_mm": [
+        26.28900000000001,
+        13.18,
+        1.5748000000000033
+      ],
+      "basis": "Inherited R53 prototype pad, normalized mounted R5 family footprint then current CP2 placement; NOT exact delivered4853 pad",
+      "route_restraint_and_lever_qualified": false
+    },
+    "MAIN.GND_IN": {
+      "native": "MAIN4853_CP2",
+      "point_mm": [
+        -75.68,
+        21.289000000000016,
+        43.5748
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_world_mm": [
+        114.869,
+        8.41,
+        62.5748
+      ],
+      "local_family_footprint_mm": [
+        26.28900000000001,
+        9.68,
+        1.5748000000000033
+      ],
+      "basis": "Inherited R53 prototype pad, normalized mounted R5 family footprint then current CP2 placement; NOT exact delivered4853 pad",
+      "route_restraint_and_lever_qualified": false
+    },
+    "MAIN.VIN_SW": {
+      "native": "MAIN4853_CP2",
+      "point_mm": [
+        -72.18,
+        21.289000000000016,
+        43.5748
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "source_world_mm": [
+        114.869,
+        4.91,
+        62.5748
+      ],
+      "local_family_footprint_mm": [
+        26.28900000000001,
+        6.18,
+        1.5748000000000033
+      ],
+      "basis": "Inherited R53 prototype pad, normalized mounted R5 family footprint then current CP2 placement; NOT exact delivered4853 pad",
+      "route_restraint_and_lever_qualified": false
+    }
+  },
+  "saved_reopen": true,
+  "parameter_restored": true,
+  "receipt_recovery_from_saved_native": true,
+  "recovery_reason": "First run saved native after parameter restore, but dereferenced deleted aux object after close; changed AUX gate recovered, no native rewrite",
+  "retained_F_PI_service_conflict_NOT_waived": true,
+  "old_CP2_AUX18p8_envelope_evidence_invalid_for_AUX_neighbours": true,
+  "unchanged_pairs_not_rerun": true,
+  "started_utc": "2026-10-06T06:33:26.537179+00:00",
+  "finished_utc": "2026-10-06T06:33:38.506703+00:00",
+  "worker_wall_seconds": 11.969
+}

@@ -48,7 +48,13 @@ def splice_inventory():
     assert row['manufacturer_part']=='221-412'
     wires={w['id']:w for w in json.loads(body_path.read_text(encoding='utf-8'))['conductors']}
     assert wires['W077']['b']=='SPLICE_PI.16' and wires['W078']['a']=='SPLICE_PI.18'
-    slots=[('Splice_L1_CP2','XB11',['W077','W078']),
+    # XB11 is the AUX6 -> F_HY input extension, not the Pi16/18AWG
+    # solder neck W077/W078. Bind by circuit endpoints, never similar labels.
+    net=json.loads(NET.read_text(encoding='utf-8'))
+    xb11=next(e for e in net['edges'] if e['id']=='XB11')
+    assert {xb11['a'],xb11['b']}=={'P_AUX.2','F_HY.in'}
+    physical_roles=dict(wires, XB11=xb11)
+    slots=[('Splice_L1_CP2','XB11',['XB11']),
            ('Splice_L2_CP2','W026_output',['W026']),
            ('Splice_L3_CP2','W045_output',['W045']),
            ('Splice_R1_CP2','W037_output',['W037']),
@@ -56,7 +62,7 @@ def splice_inventory():
     baseline=[]
     for slot,role,ids in slots:
         baseline.append(dict(native_slot=slot,electrical_role=role,sku='221-412',
-            wires=[dict(id=i,a=wires[i]['a'],b=wires[i]['b']) for i in ids],
+            wires=[dict(id=i,a=physical_roles[i]['a'],b=physical_roles[i]['b']) for i in ids],
             allocation_basis='NEW CP2 identity allocation, old six boxes had NO circuit identity',
             old_mount_or_complete_wiring_qualified=False))
     return dict(status='R53_INSTALLED_ROLES_RECONCILED_CP2_NOT_SELECTED',selected=False,
@@ -72,7 +78,7 @@ def splice_inventory():
         four_MTA_output_joints_are_replacements_not_additional=True,
         extra_source_joints_not_selected_purchase=True,full_stock_selection_open=True,
         source_sha256={p.relative_to(ROOT).as_posix():digest(p)
-                       for p in [selection_path,stock_path,catalog_path,body_path]},
+                       for p in [selection_path,stock_path,catalog_path,body_path,NET]},
         W1_complete=False,W5_complete=False,K3_complete=False)
 
 

@@ -1,5 +1,35 @@
 # CP2: wspólne rozmieszczenie wnętrza
 
+## Bieżący kandydat wejść i punktów połączeń, 06.10.2026
+
+`BoardDatumCandidate.FCStd` i `whole-harness-board-plan.json` są bieżącą
+niewybraną parą. Bazują na `BranchSourceCandidate.FCStd`: W04344,175mm
+i XA0129mm, oba poniżej50mm; izolacja/końce nominalne, bez mocowań.
+`branch-source-static-checks.json` zachowuje otwarty konflikt rezerwacji
+dostępu F_PI z F_L3_OUT. Nie jest dowodem fizycznego kontaktu ani serwisu.
+Nie rozwiązywać go kolejnym skalarnym przesunięciem.
+
+`board-datums-checks.json` koryguje AUX4092 z18,8 na25,4×25,4mm według
+zapisanego rysunku reg24d i https://www.pololu.com/product/4092.
+Wysokość30mm pozostaje rezerwą prototypu. Zmieniona rezerwacja:1para BRep,
+0kontaktów/0błędów/0wyjść; parametr25,4→24,4→25,4 i zapis/reopen.
+Pierwszy zapis ukończony, raport przerwał odczyt usuniętego obiektu po close;
+raport odzyskany z zapisanej kopii, bez jej nadpisania. To nie ukończony detal.
+
+MAIN:4zachowane prowizoryczne punkty lutownicze przeniesiono z ramy R5
+przez jawny początek obrysu rodziny do aktualnego CP2. Otwory18,542mm
+zachowują rozstaw, ale nowe podpory i rzeczywista płytka4853 nadal otwarte.
+XB11 to P_AUX.2→F_HY.in; W077/W078 mają osobny izolowany lut, nie WAGO.
+Mapa ma80żył korpusu/160końców,118nominalnie związanych końców; nie jest
+gotową wiązką ani licznikiem postępu. Obie strony4MTA zachowane; aktualne
+cele P_FRONT/P_REAR są w mapie, stare cele z prób tras nieaktualne.
+
+NEXT: dostęp serwisowy F_PI,3pozostałe wejścia/5wyjść FHAC, rzeczywiste
+lub jawnie prowizoryczne końce AUX/głowy/ogona/nóg/USB, wspólne trasy,
+odciążenia i kolejność montażu, potem jeden wybrany eksport/stock.
+Nie powtarzać negatywnych układów ani nie uznawać braku ścieżki w ograniczonym
+wyszukiwaniu za niemożliwość fizyczną. R53/14z20=70% bez zmian.
+
 Niewybrana propozycja w zaakceptowanym obrysie CP1, tułów325×200×160mm.
 Nie jest zestawem części do druku ani zamknięciem W1/W5. R53 i14/20=70%
 pozostają bez zmiany; hook aktywny do06.10.2026 09:00Warszawy, bez harmonogramu.
