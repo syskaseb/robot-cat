@@ -6,8 +6,10 @@ pozostają bez zmiany; hook aktywny do06.10.2026 09:00Warszawy, bez harmonogramu
 
 `WholeCatInterior.FCStd` zawiera zachowane rzeczywiste referencje P0,
 przesuniętą głowę/ogon CP1 oraz63 edytowalne rezerwacje modułów i17 dostępu.
-Aktualny układ ma sześć nominalnych brył przewodów, cztery końce odkryte
-i osiem brył kupnych pierścieni/osprzętu S0. To snapshoty z buildera,
+Aktualny układ ma osiem nominalnych brył przewodów, sześć końców odkrytych,
+osiem brył kupnych pierścieni/osprzętu S0 oraz16 brył S1 (cztery pierścienie,
+cztery śruby, cztery warunkowe pola podparcia i cztery budżety narzędzia).
+To snapshoty z buildera,
 nie automatycznie aktualizowana pełna wiązka ani drukowane mocowania.
 Stara kaseta została usunięta z tej propozycji, nie z wybranego robota.
 Źródło: `tools/cad/whole_cat_interior.py`; wynik i ograniczenia: `layout.json`;
@@ -19,7 +21,7 @@ serwisowa: `interfaces.json`. Wcześniejszy plan61 rezerwacji zastąpiony.
 | Dół | Akumulator pozostaje; Pi42..64mm, MAIN obrócony przy przodzie, BUS41..55,6mm, monitor50..62mm; para XT60/F0 w przedniej bocznej strefie i6 splices |
 | Środek/boki | Sterowniki78..108mm;12 oprawek70..134mm;4 MTA80..96mm;10 bocznych WAGO56..75mm z wejściami w dół |
 | Góra/środek | 8 poziomych centralnych WAGO110..121mm, P_SYS95..117 wejściami w górę, G1 103,5..125,5 wejściami w dół;5 poziomych FHAC125..147mm; ATO nie pod WAGO |
-| Źródło/wyłączniki | S0 z kluczem pionowo w przedniej strefie, S1 po prawej stronie ogona; otwory/osprzęt jeszcze do zaprojektowania |
+| Źródło/wyłączniki | S0 z kluczem pionowo w przedniej strefie, S1 z osią +Y obok tylnej strefy; otwory/osprzęt jeszcze do zaprojektowania |
 
 Uwzględniono12 MTA0300330/24 zakończenia,20 bloków WAGO,6 splices,
 4 MTA0100335,5 FHAC0001ZXJ i1 F0 FHAC0002ZXJ, XT60, osiowy F_PWM
@@ -29,7 +31,43 @@ automatycznie. Wybrana topologia/SKU pozostaje R53. Nowy kandydat dodaje
 jedno221-412 ZA F0, dzielące fizyczny W076 na fabryczny koniec i przedłużenie;
 nie dodaje połączenia przed F0 ani nowego potencjału. Wybór/stock jeszcze otwarte.
 
-## Bieżące obie strony S0, 06.10.2026
+## Bieżące wejścia i cztery końce S1, 06.10.2026
+
+Jeden wspólny plan: korpus S1 [114,2;37;64], rezerwa24×37×42mm,
+sterowanie ku +Y. Katalogowe24×42/axial34, rozstaw12 oraz M4,5×6;
+dodatkowe3mm głębokości, płaszczyzna końcówekY33 i główkiØ8×3 są
+założeniami, nie pomiarem kieszeni. Osobny zewnętrzny budżet dźwigni
+nie poszerza tułowia; otwór, podparcie gwintu i zdejmowany bok nadal OPEN.
+Zaciski2/5 nominalnie Z85,3/6 Z73; oznaczenia i orientację sprawdzić na
+dostarczonym S821. Cztery TE130171 już były przydzielone, nie dublować SKU.
+Wejścia skierowane w+Z, wyjścia3/6 w−X/+X, zamiast nad mocowaniami nóg.
+
+W067 P_SYS.3→S1.2 nominalnie200,09mm, W068 P_SYS.4→S1.5 231,16mm.
+HELU23802 OD4,2/R25,2; każdy blank obejmuje14mm WAGO i14,452mm barrel
+TE (strip do zacisku mieści się w tej ostatniej wartości, nie dodawać drugi raz).
+Proste izolowane końce odpowiednio9/12,86 i10,3/10,67mm. To długości
+do przymiarki, nie polecenie cięcia ani dodatkowe stare260mm odcinki.
+Dwie górne trasy idą przeciwnymi korytarzami Y41 i około−0,3, następnie
+schodzą doY33. Pierwsze wspólnie biegnące wejścia przecięły W066/siebie;
+odrzucono je bez nadpisania dobrego modelu. Zmieniono kierunki korytarzy
+i cały poziom S1, nie kolejne mikroprzesunięcia samych przewodów.
+
+Lewy bank ATO ma teraz nominalny pitch30 (flange28+2 przerwy), prawy
+pozostaje32; G2 przesunięte doY0.55 niezmienionych modułów używa wcześniejszego
+dowodu. Przewody, pierścienie, śruby i cztery proste budżety śrubokrętaØ8/L30
+nie przecinają reszty układu; to założone narzędzie, NIE katalogowy ruch.
+0 przecięć/wyjść w sprawdzeniu brył. CAD51,532s; świeży reopen14 wire/strip,
+8S0/16S1, objętości tras i parametr S1Z+1/przywrócenie:7,656s.
+Kontrola obrysu przewodów używa swept pipe+2,4mm, nie bbox całej pętli.
+Końcówki/narzędzia mieszczą się nominalnie bez dodatkowej tolerancji obrysu.
+
+W064/W065 (oba wyjścia S1), oba wyjścia4MTA, odciążenia, pozostała wiązka,
+mocowanie, pełny montaż/serwis i stock nadal OPEN. To niewybrany CP2,
+nie komplet S1 ani zamknięcie W1/W5. R53/14z20=70%, bez fizycznegoPASS.
+Wykorzystano cad-layout-planning: wspólne podejścia czterech końców przed
+projektowaniem podpór, rozdział danych katalogowych i założeń, jedna propozycja.
+
+## Zachowane obie strony S0, 06.10.2026
 
 Zaciski S0 rozplanowane razem: IN z lewej, OUT z prawej, oba podejścia
 TE130207 i istniejące dwie nakrętki/podkładki M10. Rozstaw24 i płaszczyzna

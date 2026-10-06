@@ -16,7 +16,10 @@
     "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6",
     "hardware/cad/studies/whole-cat-packaging/cp2/post-f0-splice-source.json": "186fdfaed239db2473e63475788f65d13c12be9f1e431aa305cbf07d1ecfc488",
     "tools/electronics/source_switch_layout_r6.py": "d9c1ac3a3a19e7a21fac5f2e9588736df96b573cd72f15e0a46598b797acc4f0",
-    "tools/electronics/source_switch_mount_finish_r4.py": "bf9e2b82603d1a0ee29083bc75c950c3f44a55735ee4182a3f8a21fc69980c6c"
+    "tools/electronics/source_switch_mount_finish_r4.py": "bf9e2b82603d1a0ee29083bc75c950c3f44a55735ee4182a3f8a21fc69980c6c",
+    "hardware/electronics/power-platform/switch-terminations-p0.json": "c14de6a2c3fd21571481943ef17a9afb664da9a9af6b2da196570a5969e00bcf",
+    "hardware/reference/manual-stop-p0-2026-09-24/toggle_S.pdf": "e6e7eb8738c36e2359bf813d0e5833a4ce2159ca371d6b97df57c222a12e8307",
+    "hardware/reference/manual-stop-p0-2026-09-24/130171-RS.pdf": "0c0923267984a4e87de6ce08cbdbb2882d3b48ef561087d43467d8061260b9fb"
   },
   "BUS": {
     "sku": "Waveshare25514",
@@ -1164,6 +1167,114 @@
     "selected": false,
     "physical_pass": false
   },
+  "S1_joint_plan": {
+    "body_axis": [
+      0,
+      1,
+      0
+    ],
+    "body_origin_mm": [
+      114.2,
+      37,
+      64
+    ],
+    "body_budget_mm": [
+      24,
+      37,
+      42
+    ],
+    "axis_centre_mm": [
+      126.2,
+      74,
+      85
+    ],
+    "terminal_centres_mm": {
+      "2": [
+        120.2,
+        33.0,
+        85.0
+      ],
+      "5": [
+        132.2,
+        33.0,
+        85.0
+      ],
+      "3": [
+        120.2,
+        33.0,
+        73.0
+      ],
+      "6": [
+        132.2,
+        33.0,
+        73.0
+      ]
+    },
+    "barrel_directions": {
+      "2": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "5": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "3": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "6": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ring_wire_entries_mm": {
+      "2": [
+        120.2,
+        33.0,
+        107.123
+      ],
+      "5": [
+        132.2,
+        33.0,
+        107.123
+      ],
+      "3": [
+        98.077,
+        33.0,
+        73.0
+      ],
+      "6": [
+        154.32299999999998,
+        33.0,
+        73.0
+      ]
+    },
+    "body_axial_supplier_mm": 34,
+    "body_extra_axial_budget_mm": 3,
+    "terminal_pitch_supplier_mm": 12,
+    "bearing_offset_budget_mm": 4,
+    "bearing_datum_and_terminal_indexing_verified": false,
+    "rings": "Four existing TE130171 allocations; no extra ring quantity",
+    "screws": "Four original M4.5x6; headOD8/h3 ASSUMED, not M4 replacements",
+    "mounting": "M12P1 bushing12/lever22; panel max4.5, opening12.5/antirot key; native panel/support OPEN",
+    "input_routes": [
+      "W067",
+      "W068"
+    ],
+    "output_routes_open": [
+      "W064",
+      "W065"
+    ],
+    "output_entry_straights_radii_stock_unqualified": true,
+    "service": "Four assumed straight driver budgets after removable side-cover access, not full assembly/removal qualification",
+    "selected": false,
+    "physical_pass": false
+  },
   "post_F0_splice": {
     "checked_utc": "2026-10-06T02:06:08Z",
     "selected": false,
@@ -1318,6 +1429,64 @@
       "physical_pass": false,
       "geometry": "builder-owned snapshot",
       "factory_polarity_from_markings_not_left_right": true
+    },
+    {
+      "id": "W067",
+      "a": "P_SYS.3",
+      "b": "S1.2",
+      "centerline_length_mm": 171.64175161197613,
+      "termination_allowance_in_blank_mm": 28.451999999999998,
+      "nominal_blank_mm": 200.09375161197613,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802 4mm2/OD4.2/staticR25.2;14 WAGO strip+14.452 TE130171 barrel allowance incl crimp strip; physical port/bearing datums conditional",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true,
+      "bend_radius_min_mm": 25.2,
+      "source_insulation_straight_mm": 9,
+      "ring_insulation_straight_mm": 12.858109840615768,
+      "ring_wire_entry_mm": [
+        120.2,
+        33.0,
+        107.123
+      ],
+      "wago_entry_mm": [
+        9.000000000000004,
+        28.0,
+        117.0
+      ],
+      "actual_cut_length_mm": null,
+      "supersedes_unqualified_legacy_blank": true
+    },
+    {
+      "id": "W068",
+      "a": "P_SYS.4",
+      "b": "S1.5",
+      "centerline_length_mm": 202.70416167932083,
+      "termination_allowance_in_blank_mm": 28.451999999999998,
+      "nominal_blank_mm": 231.15616167932083,
+      "limit_mm": null,
+      "OD_mm": 4.2,
+      "dimension_basis": "HELU23802 4mm2/OD4.2/staticR25.2;14 WAGO strip+14.452 TE130171 barrel allowance incl crimp strip; physical port/bearing datums conditional",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true,
+      "bend_radius_min_mm": 25.2,
+      "source_insulation_straight_mm": 10.3,
+      "ring_insulation_straight_mm": 10.67294269472373,
+      "ring_wire_entry_mm": [
+        132.2,
+        33.0,
+        107.123
+      ],
+      "wago_entry_mm": [
+        16.500000000000007,
+        28.0,
+        117.0
+      ],
+      "actual_cut_length_mm": null,
+      "supersedes_unqualified_legacy_blank": true
     }
   ]
 }

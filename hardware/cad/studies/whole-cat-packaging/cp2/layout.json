@@ -15,7 +15,10 @@
     "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6",
     "hardware/cad/studies/whole-cat-packaging/cp2/post-f0-splice-source.json": "186fdfaed239db2473e63475788f65d13c12be9f1e431aa305cbf07d1ecfc488",
     "tools/electronics/source_switch_layout_r6.py": "d9c1ac3a3a19e7a21fac5f2e9588736df96b573cd72f15e0a46598b797acc4f0",
-    "tools/electronics/source_switch_mount_finish_r4.py": "bf9e2b82603d1a0ee29083bc75c950c3f44a55735ee4182a3f8a21fc69980c6c"
+    "tools/electronics/source_switch_mount_finish_r4.py": "bf9e2b82603d1a0ee29083bc75c950c3f44a55735ee4182a3f8a21fc69980c6c",
+    "hardware/electronics/power-platform/switch-terminations-p0.json": "c14de6a2c3fd21571481943ef17a9afb664da9a9af6b2da196570a5969e00bcf",
+    "hardware/reference/manual-stop-p0-2026-09-24/toggle_S.pdf": "e6e7eb8738c36e2359bf813d0e5833a4ce2159ca371d6b97df57c222a12e8307",
+    "hardware/reference/manual-stop-p0-2026-09-24/130171-RS.pdf": "0c0923267984a4e87de6ce08cbdbb2882d3b48ef561087d43467d8061260b9fb"
   },
   "components": [
     {
@@ -277,7 +280,7 @@
     {
       "name": "F_L2_CP2",
       "origin_mm": [
-        -35.0,
+        -37.0,
         45.0,
         70.0
       ],
@@ -293,7 +296,7 @@
         64
       ],
       "placement_base_mm": [
-        -35,
+        -37,
         45,
         70
       ],
@@ -309,7 +312,7 @@
     {
       "name": "F_L3_CP2",
       "origin_mm": [
-        -3.0,
+        -7.0,
         45.0,
         70.0
       ],
@@ -325,7 +328,7 @@
         64
       ],
       "placement_base_mm": [
-        -3,
+        -7,
         45,
         70
       ],
@@ -341,7 +344,7 @@
     {
       "name": "F_L4_CP2",
       "origin_mm": [
-        29.0,
+        23.0,
         45.0,
         70.0
       ],
@@ -357,7 +360,7 @@
         64
       ],
       "placement_base_mm": [
-        29,
+        23,
         45,
         70
       ],
@@ -373,7 +376,7 @@
     {
       "name": "F_L5_CP2",
       "origin_mm": [
-        61.0,
+        53.0,
         45.0,
         70.0
       ],
@@ -389,7 +392,7 @@
         64
       ],
       "placement_base_mm": [
-        61,
+        53,
         45,
         70
       ],
@@ -405,7 +408,7 @@
     {
       "name": "F_L6_CP2",
       "origin_mm": [
-        93.0,
+        83.0,
         45.0,
         70.0
       ],
@@ -421,7 +424,7 @@
         64
       ],
       "placement_base_mm": [
-        93,
+        83,
         45,
         70
       ],
@@ -1078,7 +1081,7 @@
       "name": "G2_CP2",
       "origin_mm": [
         105.0,
-        12.5,
+        -9.5,
         110.0
       ],
       "size_mm": [
@@ -1094,7 +1097,7 @@
       ],
       "placement_base_mm": [
         105.0,
-        12.5,
+        -9.5,
         110
       ],
       "rotation_quaternion": [
@@ -1925,25 +1928,25 @@
     {
       "name": "S1_body_CP2",
       "origin_mm": [
-        137.0,
-        26.0,
-        75.0
+        114.2,
+        37.0,
+        64.0
       ],
       "size_mm": [
-        42.0,
-        24.0,
-        37.0
+        23.999999999999986,
+        37.0,
+        42.0
       ],
       "group": "switch",
       "local_size_mm": [
-        42,
         24,
-        37
+        37,
+        42
       ],
       "placement_base_mm": [
-        137,
-        26,
-        75
+        114.2,
+        37,
+        64
       ],
       "rotation_quaternion": [
         0.0,
@@ -1951,23 +1954,29 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "NKK S821 body24x42x34 +3 axial budget; rotated90deg; terminals not qualified",
+      "dimension_basis": "NKK S821 body24x42 with axial34+3 budget, axis+Y; terminal bearing offset4 ASSUMED, panel aperture OPEN",
       "require_internal_shell": true
     },
     {
       "name": "S1_control_CP2",
       "origin_mm": [
-        144,
-        24,
-        112
+        112.2,
+        74,
+        71
       ],
       "size_mm": [
         28,
-        28,
-        32
+        34,
+        28
       ],
       "group": "switch",
-      "dimension_basis": "22mm lever + +/-28deg conservative cylinder; shell aperture/tool still required",
+      "rotation_quaternion": [
+        0.7071067811865476,
+        0.0,
+        0.0,
+        -0.7071067811865475
+      ],
+      "dimension_basis": "12mm bushing+22mm lever, +/-28deg conservative cylinder axis+Y; external operator/aperture OPEN, NOT wider belly",
       "require_internal_shell": false
     }
   ],
@@ -1987,12 +1996,12 @@
     "Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.",
     "Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.",
     "Rotated XT60/F0 in front-side source bay: W075 and W001 full nominal paths modeled with changed MAIN/front splice/G1. Mate/release/actual marked polarity and W076 switch lead still OPEN.",
-    "Eight horizontal central WAGO Z110..121, up-entry P_SYS Z95..117 and down-entry G1 Z103.5..125.5; five FHAC Z125..147. Three source-wire paths modeled; switch/4MTA/outputs OPEN."
+    "Eight horizontal central WAGO Z110..121, up-entry P_SYS Z95..117 and down-entry G1 Z103.5..125.5; five FHAC Z125..147. Eight source-wire pieces modeled including S1 inputs; S1 outputs/4MTA/restraints OPEN."
   ],
   "not_qualified": [
     "Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half",
     "S0 stud/lug/tool access and exact delivered SKU",
-    "S1 four terminals, bushing, panel aperture and hand access",
+    "S1 nominal four ring/screw approaches and two inputs modeled; physical pockets, bushing support, aperture, both output routes and actual tool still OPEN",
     "All full wire solids, 24 ends, bend radii, usable lengths and stock",
     "Structural supports/fasteners, shell walls and motion sweeps",
     "Assembly/removal swept volumes and actual connector release"
@@ -2006,7 +2015,7 @@
     "PiTray",
     "4 fixed loom frames"
   ],
-  "started_utc": "2026-10-06T02:16:26.432459+00:00",
-  "finished_utc": "2026-10-06T02:17:08.564797+00:00",
-  "worker_wall_seconds": 42.125
+  "started_utc": "2026-10-06T02:47:35.764681+00:00",
+  "finished_utc": "2026-10-06T02:48:27.300706+00:00",
+  "worker_wall_seconds": 51.532
 }

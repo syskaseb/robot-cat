@@ -45,7 +45,10 @@ def main():
              ROOT/'hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json',
              OUT/'post-f0-splice-source.json',
              ROOT/'tools/electronics/source_switch_layout_r6.py',
-             ROOT/'tools/electronics/source_switch_mount_finish_r4.py']}
+             ROOT/'tools/electronics/source_switch_mount_finish_r4.py',
+             ROOT/'hardware/electronics/power-platform/switch-terminations-p0.json',
+             ROOT/'hardware/reference/manual-stop-p0-2026-09-24/toggle_S.pdf',
+             ROOT/'hardware/reference/manual-stop-p0-2026-09-24/130171-RS.pdf']}
     d = A.openDocument(str(BASE/'WholeCatLayout.FCStd'))
     torso = d.getObject('TorsoEnvelope').Shape.copy()
     assert torso.isValid() and len(torso.Solids) == 1
@@ -103,7 +106,8 @@ def main():
     box('PWM1608_CP2', [70,-25.4,78], [43.18,50.8,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
     # Panel flange + TE assemblies + bend space are ONE envelope, not fictitious catalog depth.
     for side, y in [('L',58), ('R',-58)]:
-        for i, x in enumerate([-53,-21,11,43,75,107], 1):
+        centres=[-53,-23,7,37,67,97] if side=='L' else [-53,-21,11,43,75,107]
+        for i, x in enumerate(centres, 1):
             box(f'F_{side}{i}_CP2', [x-14,y-13,70], [28,26,64], 'fuses',
                 'MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; '
                 'engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit')
@@ -132,7 +136,7 @@ def main():
                     '221-615 DOWN entry; nominal port1 local[5.5,22,5.5]; G1.1 battery role retained, physical datums provisional',
                     rotation=A.Rotation(A.Vector(1,0,0),-90))
             else:
-                by=-16 if name=='D_RR' else 0 if name=='P_REAR' else y
+                by=-16 if name=='D_RR' else 0 if name in ['P_REAR','G2'] else y
                 box(name+'_CP2',[x-size[0]/2,by-size[1]/2,110],size,'wago',
                     'SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route')
     for y, prefix in [(55,'L'),(-55,'R')]:
@@ -171,13 +175,14 @@ def main():
         rows.append(dict(name=name,origin_mm=[-77-r,16-r,z],size_mm=[2*r,2*r,h],group='switch',
                          dimension_basis='Existing HELLA family reserve rotated vertical; studs/lugs/opening conditional',
                          require_internal_shell=shell))
-    box('S1_body_CP2', [137,26,75], [42,24,37], 'switch',
-        'NKK S821 body24x42x34 +3 axial budget; rotated90deg; terminals not qualified')
-    o=d.addObject('Part::Cylinder','S1_control_CP2');o.Radius=14;o.Height=32
-    o.Placement.Base=A.Vector(158,38,112);g.addObject(o);d.recompute()
+    box('S1_body_CP2', [114.2,37,64], [24,37,42], 'switch',
+        'NKK S821 body24x42 with axial34+3 budget, axis+Y; terminal bearing offset4 ASSUMED, panel aperture OPEN')
+    o=d.addObject('Part::Cylinder','S1_control_CP2');o.Radius=14;o.Height=34
+    o.Placement=A.Placement(A.Vector(126.2,74,85),A.Rotation(A.Vector(1,0,0),-90));g.addObject(o);d.recompute()
     shapes[o.Name]=o.Shape.copy()
-    rows.append(dict(name=o.Name,origin_mm=[144,24,112],size_mm=[28,28,32],group='switch',
-                     dimension_basis='22mm lever + +/-28deg conservative cylinder; shell aperture/tool still required',
+    rows.append(dict(name=o.Name,origin_mm=[112.2,74,71],size_mm=[28,34,28],group='switch',
+                     rotation_quaternion=list(o.Placement.Rotation.Q),
+                     dimension_basis='12mm bushing+22mm lever, +/-28deg conservative cylinder axis+Y; external operator/aperture OPEN, NOT wider belly',
                      require_internal_shell=False))
     print('Shared layout:',len(rows),'modules;20 buses,12 holders/24 ends,6 existing+1 candidate post-F0 splice,4 MTA,5 branch FHAC+F0+axial F_PWM',flush=True)
 
@@ -381,6 +386,88 @@ def main():
         access='Nut tool and switch mount assembly/removal still OPEN; no socket-down access claim over front frame',
         no_prefuse_joint=True,selected=False,physical_pass=False)
 
+    # Common S1 plan: two upper supply routes, all four ring directions and
+    # screw access BEFORE any supports. Output routes remain explicitly OPEN.
+    # A sideways switch keeps its driver axes away from the rear hip bracket.
+    # Manufacturer pitch/body are known; bearing/pocket and indexing are not.
+    def arc_turn(begin,tangent,normal,theta,radius):
+        def point(t):return begin+tangent*(radius*math.sin(t))+normal*(radius*(1-math.cos(t)))
+        return Part.Arc(begin,point(theta/2),point(theta)).toShape(),point(theta)
+    s1_centres={'2':A.Vector(120.2,33,85),'5':A.Vector(132.2,33,85),
+                '3':A.Vector(120.2,33,73),'6':A.Vector(132.2,33,73)}
+    s1_directions={'2':Z,'5':Z,'3':-X,'6':X}
+    tips={key:centre+s1_directions[key]*22.123 for key,centre in s1_centres.items()}
+    def lateral_angle(offset):return math.pi/4+math.asin((offset/R-1)/math.sqrt(2))
+    # Rejected co-running inputs crossed W066 and each other. Opposed upper
+    # corridors (Y41 and Y-0.3) change the routing cause, not a tiny offset.
+    for identifier,port,key,rise_mm,angle in [('W067',3,'2',9,math.radians(25)),
+                                           ('W068',4,'5',10.3,math.radians(-50))]:
+        source=wg.Placement.multVec(A.Vector(5.5+(port-1)*7.5,22,5.5))
+        a=source+Z*rise_mm;n=X*math.cos(angle)+Y*math.sin(angle)
+        turn,b=quarter(a,Z,n,R)
+        sign=1 if angle>0 else -1
+        flatten,c=arc_turn(b,n,(X*math.sin(angle)-Y*math.cos(angle))*sign,abs(angle),R)
+        corner=A.Vector(tips[key].x-R,c.y,c.z)
+        assert (corner-c).dot(X)>0
+        if abs(c.y-tips[key].y)<1e-6:
+            descent,end=quarter(corner,X,-Z,R);last=[descent]
+        else:
+            side=1 if tips[key].y>c.y else -1
+            beta=lateral_angle(abs(c.y-tips[key].y))
+            downward=Y*(side*math.sin(beta))-Z*math.cos(beta)
+            descent,e=quarter(corner,X,downward,R)
+            straighten,end=arc_turn(e,downward,-Y*(side*math.cos(beta))-Z*math.sin(beta),beta,R)
+            last=[descent,straighten]
+        assert abs(end.y-tips[key].y)<1e-6 and abs(end.x-tips[key].x)<1e-6
+        assert end.z-tips[key].z>=9
+        routed_wire(identifier,f'P_SYS.{port}',f'S1.{key}',
+            [Part.makeLine(source,a),turn,flatten,Part.makeLine(c,corner)]+last+[Part.makeLine(end,tips[key])],
+            4.2,['P_SYS_CP2','S1_body_CP2'],14+14.452,None,
+            'HELU23802 4mm2/OD4.2/staticR25.2;14 WAGO strip+14.452 TE130171 barrel allowance incl crimp strip; physical port/bearing datums conditional',
+            entry_strip=(source,-Z,14,math.sqrt(4/math.pi)))
+        wires[-1]['metadata'].update(bend_radius_min_mm=R,
+            source_insulation_straight_mm=rise_mm,ring_insulation_straight_mm=end.z-tips[key].z,
+            ring_wire_entry_mm=list(tips[key]),wago_entry_mm=list(source),actual_cut_length_mm=None,
+            supersedes_unqualified_legacy_blank=True)
+
+    s1_group=d.addObject('App::DocumentObjectGroup','S1TerminalCandidates')
+    s1_parts={};s1_port={};drivers=[]
+    for key,centre in s1_centres.items():
+        direction=s1_directions[key];cross=Y.cross(direction)
+        vertices=[centre+direction*u+cross*v-Y*1.042 for u,v in
+                  [(-5.563,-4.7625),(22.123,-4.7625),(22.123,4.7625),(-5.563,4.7625)]]
+        tongue=Part.Face(Part.makePolygon(vertices+[vertices[0]])).extrude(Y*1.042)
+        tongue=tongue.cut(Part.makeCylinder(2.667,1.242,centre-Y*1.142,Y))
+        barrel=Part.makeCylinder(3.175,14.452,centre+direction*7.671,direction)
+        ring=tongue.fuse(barrel)
+        screw=Part.makeCylinder(2.25,6,centre-Y*1.042,Y).fuse(
+              Part.makeCylinder(4,3,centre-Y*4.042,Y))
+        # Four millimetre terminal-bearing stand-off is conditional, not a
+        # claimed exact NKK casing shape or a manufactured extra component.
+        seat=Part.makeCylinder(5,4,centre,Y)
+        for kind,shape in [('ring',ring),('screw',screw),('seat_budget',seat)]:
+            name=f'S1_{kind}_{key}';assert shape.isValid() and len(shape.Solids)==1
+            ob=d.addObject('Part::Feature',name);ob.Shape=shape;s1_group.addObject(ob)
+            s1_parts[name]=shape;s1_port[name]=key
+        name='S1_driver_'+key
+        ob=d.addObject('Part::Cylinder',name);ob.Radius=4;ob.Height=30
+        ob.Placement=A.Placement(centre-Y*34.042,A.Rotation(X,-90));s1_group.addObject(ob);d.recompute()
+        drivers.append(dict(name=name,shape=ob.Shape.copy(),port=key,
+                            basis='Generic assumed30mm straight driver/OD8, NOT a selected tool or measured screw actuation'))
+    s1_plan=dict(body_axis=[0,1,0],body_origin_mm=[114.2,37,64],body_budget_mm=[24,37,42],
+        axis_centre_mm=[126.2,74,85],terminal_centres_mm={k:list(v) for k,v in s1_centres.items()},
+        barrel_directions={k:list(v) for k,v in s1_directions.items()},
+        ring_wire_entries_mm={k:list(v) for k,v in tips.items()},
+        body_axial_supplier_mm=34,body_extra_axial_budget_mm=3,terminal_pitch_supplier_mm=12,
+        bearing_offset_budget_mm=4,bearing_datum_and_terminal_indexing_verified=False,
+        rings='Four existing TE130171 allocations; no extra ring quantity',
+        screws='Four original M4.5x6; headOD8/h3 ASSUMED, not M4 replacements',
+        mounting='M12P1 bushing12/lever22; panel max4.5, opening12.5/antirot key; native panel/support OPEN',
+        input_routes=['W067','W068'],output_routes_open=['W064','W065'],
+        output_entry_straights_radii_stock_unqualified=True,
+        service='Four assumed straight driver budgets after removable side-cover access, not full assembly/removal qualification',
+        selected=False,physical_pass=False)
+
     def broad(a,b):
         return a.BoundBox.intersect(b.BoundBox)
 
@@ -490,6 +577,32 @@ def main():
         checked+=1;c0=terminal_parts[one].common(terminal_parts[two])
         if not c0.isValid():errors.append(dict(pair=[one,two],error='Invalid IN/OUT terminal Boolean'))
         elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[one,two],volume_mm3=c0.Volume))
+    # Only intended seating/head/ring contacts of ONE port are excluded.
+    # S1 may not exclude unrelated S0, retained parts or other-port geometry.
+    for name,shape in s1_parts.items():
+        for other_name,other in list(shapes.items())+[(n,s) for n,s,cat in refs]+[(r['name'],d.getObject(r['name']).Shape) for r in access]+list(terminal_parts.items()):
+            if other_name in ['S1_body_CP2','S1_control_CP2'] or not broad(shape,other):continue
+            checked+=1;c0=shape.common(other)
+            if not c0.isValid():errors.append(dict(pair=[name,other_name],error='Invalid S1 terminal Boolean'))
+            elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[name,other_name],volume_mm3=c0.Volume))
+        for wire in wires:
+            own={'2':'W067','5':'W068'}.get(s1_port[name])==wire['metadata']['id']
+            if own or not broad(shape,wire['shape']):continue
+            checked+=1;c0=shape.common(wire['shape'])
+            if not c0.isValid():errors.append(dict(pair=[name,wire['metadata']['id']],error='Invalid S1 wire Boolean'))
+            elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[name,wire['metadata']['id']],volume_mm3=c0.Volume))
+    for one,two in itertools.combinations(s1_parts,2):
+        if s1_port[one]==s1_port[two] or not broad(s1_parts[one],s1_parts[two]):continue
+        checked+=1;c0=s1_parts[one].common(s1_parts[two])
+        if not c0.isValid():errors.append(dict(pair=[one,two],error='Invalid S1 port pair Boolean'))
+        elif c0.Volume>1e-5:terminal_hits.append(dict(pair=[one,two],volume_mm3=c0.Volume))
+    for driver in drivers:
+        for name,other in list(shapes.items())+[(n,s) for n,s,cat in refs]+list(terminal_parts.items())+list(s1_parts.items())+[(w['metadata']['id'],w['shape']) for w in wires]+[(r['name'],d.getObject(r['name']).Shape) for r in access]:
+            if name.startswith('S1_') and (name in shapes or s1_port.get(name)==driver['port']):continue
+            if not broad(driver['shape'],other):continue
+            checked+=1;c0=driver['shape'].common(other)
+            if not c0.isValid():errors.append(dict(pair=[driver['name'],name],error='Invalid driver Boolean'))
+            elif c0.Volume>1e-5:access_hits.append(dict(pair=[driver['name'],name],volume_mm3=c0.Volume))
     clean=not (errors or outside or contacts or chassis_hits or access_hits or wire_hits or terminal_hits)
     checks=dict(status='COARSE_SHARED_RESERVATIONS_CLEAR' if clean else 'LAYOUT_PREFLIGHT_REQUIRES_CHANGE',
                 selected=False,physical_pass=False,W1_complete=False,W5_complete=False,
@@ -499,7 +612,8 @@ def main():
                 service_reservations=access,service_contacts=access_hits,
                 service_motion_supplier_verified=False,W043_nominal_route=fpi_wire,
                 nominal_source_wires=[w['metadata'] for w in wires],
-                S0_terminal_contacts=terminal_hits,S0_joint_plan=source_switch_plan,
+                S0_terminal_contacts=terminal_hits,terminal_contacts=terminal_hits,
+                S0_joint_plan=source_switch_plan,S1_joint_plan=s1_plan,
                 wire_enclosure_test='Actual swept pipe OD+2x2.4mm cut from torso, NOT its enclosing bbox; cap axial margin not qualified',
                 wire_contacts=wire_hits,wire_termination_target_bodies_excluded={w['metadata']['id']:w['targets'] for w in wires},
                 reused_unchanged_component_names=sorted(unchanged),
@@ -536,15 +650,16 @@ def main():
     assert all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in d.getObject('HarnessCandidate').Group)
     assert len(d.getObject('S0TerminalCandidates').Group)==8
     assert all(o.Shape.isValid() for o in d.getObject('S0TerminalCandidates').Group)
-    # Newly introduced post-F0 splice parameter; no unchanged Pi/P_SYS retest.
-    ob=d.getObject('PostF0Splice_CP2');h=ob.Height.Value;w=ob.Shape.BoundBox.YLength
+    assert len(d.getObject('S1TerminalCandidates').Group)==16
+    assert all(o.Shape.isValid() for o in d.getObject('S1TerminalCandidates').Group)
+    ob=d.getObject('S1_body_CP2');h=ob.Height.Value;w=ob.Shape.BoundBox.ZLength
     ob.Height=h+1;d.recompute()
-    assert abs(ob.Shape.BoundBox.YLength-w-1)<1e-6
+    assert abs(ob.Shape.BoundBox.ZLength-w-1)<1e-6
     ob.Height=h;d.recompute();A.closeDocument(d.Name)
     checks.update(native_reopen=True,box_parameter_roundtrip=True,
-                  parameter_test='PostF0Splice local Height+1 -> world Y footprint+1; restored; cables/rings are explicitly builder-owned snapshots')
+                  parameter_test='S1 body Height+1 -> world Z footprint+1; restored; cables/rings are builder-owned snapshots')
     checks['previous_preflight_history_git']='9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json'
-    checks['shared_revision']='Joint S0/terminal pair/protected post-F0 extension/W066/shifted P_REAR and Splice_R3; existing W001/W075/W043 retained. Mounts/tools and remaining full wiring OPEN.'
+    checks['shared_revision']='Joint side-facing S1/all four terminal directions/two input paths/driver budgets, left fuse pitch30 and G2Y0; S0/source retained. Output wires/mounts/restraints/full assembly OPEN.'
     assert all(digest(ROOT/p)==h for p,h in pins.items()),'Reference source was modified'
     save('checks.json',checks)
     plan=dict(status=checks['status'],selected=False,source_sha256=pins,components=rows,
@@ -560,10 +675,10 @@ def main():
                                'Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.',
                                'Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.',
                                'Rotated XT60/F0 in front-side source bay: W075 and W001 full nominal paths modeled with changed MAIN/front splice/G1. Mate/release/actual marked polarity and W076 switch lead still OPEN.',
-                               'Eight horizontal central WAGO Z110..121, up-entry P_SYS Z95..117 and down-entry G1 Z103.5..125.5; five FHAC Z125..147. Three source-wire paths modeled; switch/4MTA/outputs OPEN.'],
+                               'Eight horizontal central WAGO Z110..121, up-entry P_SYS Z95..117 and down-entry G1 Z103.5..125.5; five FHAC Z125..147. Eight source-wire pieces modeled including S1 inputs; S1 outputs/4MTA/restraints OPEN.'],
               not_qualified=['Factory exit datums except vendor BUS USB; FHAC thickness22 prototype assumption, P309 pins/clips, XT60 mating half',
                              'S0 stud/lug/tool access and exact delivered SKU',
-                             'S1 four terminals, bushing, panel aperture and hand access',
+                             'S1 nominal four ring/screw approaches and two inputs modeled; physical pockets, bushing support, aperture, both output routes and actual tool still OPEN',
                              'All full wire solids, 24 ends, bend radii, usable lengths and stock',
                              'Structural supports/fasteners, shell walls and motion sweeps',
                              'Assembly/removal swept volumes and actual connector release'],
@@ -611,6 +726,7 @@ def main():
         progress=dict(completed=14,total=20,W1_complete=False,W5_complete=False)))
     interface=json.loads((OUT/'interfaces.json').read_text(encoding='utf-8'))
     interface['S0_joint_plan']=source_switch_plan
+    interface['S1_joint_plan']=s1_plan
     interface['F0']['output_to_S0_open']=True
     interface['F0']['output_nominal_candidate_routed']=True
     interface['post_F0_splice']=json.loads((OUT/'post-f0-splice-source.json').read_text(encoding='utf-8'))
@@ -656,27 +772,29 @@ def complete_service_plan():
 
 
 def verify_changed_native():
-    """Only newly introduced source pair/splice/terminals, no collision rerun."""
+    """Fresh reopen of new S1 pair/terminals, no collision rerun."""
     import FreeCAD as A
     started=time.monotonic();d=A.openDocument(str(OUT/'WholeCatInterior.FCStd'))
     wires=d.getObject('HarnessCandidate').Group
-    assert len(wires)==10 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
+    assert len(wires)==14 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
     terminals=d.getObject('S0TerminalCandidates').Group
     assert len(terminals)==8 and all(o.Shape.isValid() for o in terminals)
-    g=d.getObject('PostF0Splice_CP2');h=g.Height.Value;width=g.Shape.BoundBox.YLength
-    g.Height=h+1;d.recompute();assert abs(g.Shape.BoundBox.YLength-width-1)<1e-6
-    g.Height=h;d.recompute();assert abs(g.Shape.BoundBox.YLength-width)<1e-6
+    s1=d.getObject('S1TerminalCandidates').Group
+    assert len(s1)==16 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in s1)
+    g=d.getObject('S1_body_CP2');h=g.Height.Value;width=g.Shape.BoundBox.ZLength
+    g.Height=h+1;d.recompute();assert abs(g.Shape.BoundBox.ZLength-width-1)<1e-6
+    g.Height=h;d.recompute();assert abs(g.Shape.BoundBox.ZLength-width)<1e-6
     checks=json.loads((OUT/'checks.json').read_text(encoding='utf-8'))
     for row in checks['nominal_source_wires']:
         name='W043_FPI_CP2' if row['id']=='W043' else row['id']+'_CP2'
         expected_volume=row['centerline_length_mm']*math.pi*(row['OD_mm']/2)**2
         assert abs(d.getObject(name).Shape.Volume-expected_volume)<1e-3,(name,'native cable volume/path')
     torso=d.getObject('TorsoEnvelope').Shape
-    assert all(o.Shape.cut(torso).Volume<1e-5 for o in terminals)
+    assert all(o.Shape.cut(torso).Volume<1e-5 for o in terminals+s1)
     A.closeDocument(d.Name)
-    checks['changed_source_native_check']=dict(wires_and_strips=10,terminal_parts=8,valid_single_wire_solids=True,
+    checks['changed_source_native_check']=dict(wires_and_strips=14,S0_terminal_parts=8,S1_terminal_and_tool_parts=16,valid_single_wire_solids=True,
         cable_volume_matches_paths=True,terminals_inside_torso_without_extra_margin=True,
-        parameter='PostF0Splice Height+1 -> world Y+1; restored without saving; wire snapshots do NOT auto-update',
+        parameter='S1 body Height+1 -> world Z+1; restored without saving; wire snapshots do NOT auto-update',
         wall_seconds=round(time.monotonic()-started,3))
     save('checks.json',checks);print('Changed saved source wires/terminals:',checks['changed_source_native_check'],flush=True)
 
