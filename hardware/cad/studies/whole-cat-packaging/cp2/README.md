@@ -380,3 +380,30 @@ ruchu pokrywy/narzędzi, zanim powstaną mocowania. W1/W5/stock/eksport OPEN.
 Pierwsze dwa raporty przypinają historyczną wersję skryptu; ostatni aktualną.
 Zapisane negatywne modele pozostają lokalnymi kandydatami, nie zestawem druku.
 Obliczenia ostatniej hipotezy8,984s; cały fragment kontynuacji zaczął się06:39:56UTC.
+
+## Wspólna strefa obsługi, checkpoint dzienny 06.10
+
+Hook wyłączony; ręczne okno rozpoczęte18:11:36UTC, najwyżej45min.
+`service-zone-inventory.json` odczytuje natywny BoardDatum bez zapisu źródła.
+`service-zone-gate.json`: jedna alokacja całych banków i10bocznych WAGO,
+z24prostymi końcami/łukami R12,4;97par/2kontakty zW076/7wyjść poza tułów.
+Podnoszenie prawego banku i obniżanie lewych WAGO odrzucone jako wspólny układ,
+nie poprawiać tego samymi przesunięciami. [Przekroje BRep i rezerwacji](service-zone-sections.png).
+
+Zmiana przyczyny: `service-zone-canted-gate.json` obraca oba banki30°,
+przydziela laneY±48/flangeZ138, WAGO niżej10mm i oba wyjścia dwóch przednich MTA.
+137par/0wyjść poza tułów/18przecięć rezerwacji: przede wszystkim F_HP/F_TY,
+MTA_FL/W043 oraz S0 i F_AUX w strefach obsługi.0błędów Boolean w obu kontrolach.
+Kąt rozwiązuje sam obrys, NIE wspólny montaż ani wiązkę. Nie budować mocowań
+żadnej z tych propozycji i nie ponawiać ich bez zmiany związanych stref.
+Obie kontrole CAD19,610+20,641=40,251s; nie są pełnymi trasami ani fizycznymPASS.
+Nie zapisano nowego modelu CAD ani wybranego eksportu; R53/14z20=70% zachowane.
+Pierwszy raport przypina wcześniejszą wersję helpera (sprzed dodania drugiej,
+innej rodziny układu); to historyczny pin, nie zgodność z najnowszym helperem.
+Drugi raport przypina bieżący helper. Pozostałe źródła pozostają przypięte.
+
+NEXT: jeden plan WSZYSTKICH oprawek (także F_HP/F_TY), obu wyjść4MTA,
+W043 i źródła/S0 z bankami; nie następny lokalny offset F_PI. Odizolować
+strefę głowy/ogona od korytarza końców banku przed CAD mocowań.
+Każdy docelowy druk mieści256³ z zapasem; tułów325mm będzie segmentowany,
+nie jednym wydrukiem. Wybrany bankR47 nie został zmieniony przez kandydaty.

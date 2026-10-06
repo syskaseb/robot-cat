@@ -1,0 +1,1769 @@
+{
+  "status": "SHARED_ZONING_GATE_REJECTED",
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "plan": {
+    "left_bank_shift_y_mm": 2.5,
+    "right_bank_raise_z_mm": 12,
+    "left_wago_lower_z_mm": 21,
+    "right_wago_lower_z_mm": 10,
+    "F_PI_access_unchanged": true,
+    "wire_OD_budget_mm": 3.1,
+    "wire_radius_budget_mm": 12.4,
+    "straight_grip_mm": 9,
+    "left_output_straight_mm": 19,
+    "right_output_straight_mm": 9,
+    "derivation": {
+      "left_service_gap_mm": 1.3945000000000007,
+      "left_input_elbow_floor_mm": 50.42000000000001,
+      "left_wago_top_mm": 49,
+      "right_input_elbow_floor_mm": 62.42000000000001,
+      "F0_top_mm": 61
+    },
+    "preserved": [
+      "F_PI and both exits",
+      "W043 short input",
+      "Pi solder topology",
+      "source/S0/S1",
+      "Pi and all controller boards",
+      "4 MTA branch holders",
+      "P0/E6 and torso325x200x160"
+    ],
+    "invalidated": [
+      "12 left ATO terminal endpoints and their routes/supports",
+      "12 right ATO terminal endpoints and their routes/supports",
+      "all10 side WAGO ports/routes/supports",
+      "ATO supports/shell clearance and bank mounting"
+    ],
+    "no_whole_harness_claim": true,
+    "exact_supplier_lid_motion_OPEN": true
+  },
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/BoardDatumCandidate.FCStd": "8f790a53aafffe97c039c21438565d78291fd35e3461c6fe6d501897a295cf10",
+    "tools/cad/whole_cat_service_zone.py": "80ca60b86f5ae9f5e68bdb554e7480c30da550164478f4b101e6c46c6002f3f3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/ato-stack-checks.json": "6f1520cb7ee24cefa4f0aa40fb781f5434248424ef8a662e39911913a9b8e01d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/service-zone-inventory.json": "c10294f7c01f2e0bed3194f1c0d4cbf21b5c6d6844850795b43fda0dd8543308",
+    "hardware/cad/studies/whole-cat-packaging/cp2/whole-harness-board-plan.json": "060beac29cf9b00fb9aae94902e2ca5c01727076de39c6c8f456c906b75bd90a"
+  },
+  "changed_names": [
+    "Access_F_L1_CP2",
+    "Access_F_L2_CP2",
+    "Access_F_L3_CP2",
+    "Access_F_L4_CP2",
+    "Access_F_L5_CP2",
+    "Access_F_L6_CP2",
+    "Access_F_R1_CP2",
+    "Access_F_R2_CP2",
+    "Access_F_R3_CP2",
+    "Access_F_R4_CP2",
+    "Access_F_R5_CP2",
+    "Access_F_R6_CP2",
+    "D_FL_CP2",
+    "D_FR_CP2",
+    "FL_G_CP2",
+    "FL_P_CP2",
+    "FR_G_CP2",
+    "FR_P_CP2",
+    "F_L1_CP2_ATO",
+    "F_L1_CP2_Housing",
+    "F_L1_CP2_IN",
+    "F_L1_CP2_OUT",
+    "F_L2_CP2_ATO",
+    "F_L2_CP2_Housing",
+    "F_L2_CP2_IN",
+    "F_L2_CP2_OUT",
+    "F_L3_CP2_ATO",
+    "F_L3_CP2_Housing",
+    "F_L3_CP2_IN",
+    "F_L3_CP2_OUT",
+    "F_L4_CP2_ATO",
+    "F_L4_CP2_Housing",
+    "F_L4_CP2_IN",
+    "F_L4_CP2_OUT",
+    "F_L5_CP2_ATO",
+    "F_L5_CP2_Housing",
+    "F_L5_CP2_IN",
+    "F_L5_CP2_OUT",
+    "F_L6_CP2_ATO",
+    "F_L6_CP2_Housing",
+    "F_L6_CP2_IN",
+    "F_L6_CP2_OUT",
+    "F_R1_CP2_ATO",
+    "F_R1_CP2_Housing",
+    "F_R1_CP2_IN",
+    "F_R1_CP2_OUT",
+    "F_R2_CP2_ATO",
+    "F_R2_CP2_Housing",
+    "F_R2_CP2_IN",
+    "F_R2_CP2_OUT",
+    "F_R3_CP2_ATO",
+    "F_R3_CP2_Housing",
+    "F_R3_CP2_IN",
+    "F_R3_CP2_OUT",
+    "F_R4_CP2_ATO",
+    "F_R4_CP2_Housing",
+    "F_R4_CP2_IN",
+    "F_R4_CP2_OUT",
+    "F_R5_CP2_ATO",
+    "F_R5_CP2_Housing",
+    "F_R5_CP2_IN",
+    "F_R5_CP2_OUT",
+    "F_R6_CP2_ATO",
+    "F_R6_CP2_Housing",
+    "F_R6_CP2_IN",
+    "F_R6_CP2_OUT",
+    "RL_G_CP2",
+    "RL_P_CP2",
+    "RR_G_CP2",
+    "RR_P_CP2",
+    "W020_EscapeBudget",
+    "W022_EscapeBudget",
+    "W024_EscapeBudget",
+    "W027_EscapeBudget",
+    "W028_EscapeBudget",
+    "W029_EscapeBudget",
+    "W031_EscapeBudget",
+    "W033_EscapeBudget",
+    "W035_EscapeBudget",
+    "W038_EscapeBudget",
+    "W039_EscapeBudget",
+    "W040_EscapeBudget",
+    "W046_EscapeBudget",
+    "W047_EscapeBudget",
+    "W048_EscapeBudget",
+    "W049_EscapeBudget",
+    "W050_EscapeBudget",
+    "W051_EscapeBudget",
+    "W054_EscapeBudget",
+    "W055_EscapeBudget",
+    "W056_EscapeBudget",
+    "W057_EscapeBudget",
+    "W058_EscapeBudget",
+    "W059_EscapeBudget"
+  ],
+  "terminal_escapes": [
+    {
+      "wire_id": "W027",
+      "terminal": "F_L1_CP2_IN",
+      "a": "FL_P.2",
+      "b": "F_FL1.in",
+      "mouth_mm": [
+        -53.0,
+        71.5,
+        73.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -53.0,
+            71.5,
+            73.37
+          ],
+          "end_mm": [
+            -53.0,
+            71.5,
+            64.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -53.0,
+            71.5,
+            64.37
+          ],
+          "mid_mm": [
+            -53.0,
+            67.8681240867132,
+            55.60187591328682
+          ],
+          "end_mm": [
+            -53.0,
+            59.1,
+            51.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W020",
+      "terminal": "F_L1_CP2_OUT",
+      "a": "FL1.V",
+      "b": "F_FL1.out",
+      "mouth_mm": [
+        -53.0,
+        57.5,
+        75.402
+      ],
+      "straight_mm": 19,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -53.0,
+            57.5,
+            75.402
+          ],
+          "end_mm": [
+            -53.0,
+            57.5,
+            56.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 19
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -53.0,
+            57.5,
+            56.402
+          ],
+          "mid_mm": [
+            -53.0,
+            53.86812408671319,
+            47.633875913286815
+          ],
+          "end_mm": [
+            -53.0,
+            45.1,
+            44.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W028",
+      "terminal": "F_L2_CP2_IN",
+      "a": "FL_P.3",
+      "b": "F_FL2.in",
+      "mouth_mm": [
+        -23.0,
+        71.5,
+        73.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -23.0,
+            71.5,
+            73.37
+          ],
+          "end_mm": [
+            -23.0,
+            71.5,
+            64.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -23.0,
+            71.5,
+            64.37
+          ],
+          "mid_mm": [
+            -23.0,
+            67.8681240867132,
+            55.60187591328682
+          ],
+          "end_mm": [
+            -23.0,
+            59.1,
+            51.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W022",
+      "terminal": "F_L2_CP2_OUT",
+      "a": "FL2.V",
+      "b": "F_FL2.out",
+      "mouth_mm": [
+        -23.0,
+        57.5,
+        75.402
+      ],
+      "straight_mm": 19,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -23.0,
+            57.5,
+            75.402
+          ],
+          "end_mm": [
+            -23.0,
+            57.5,
+            56.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 19
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -23.0,
+            57.5,
+            56.402
+          ],
+          "mid_mm": [
+            -23.0,
+            53.86812408671319,
+            47.633875913286815
+          ],
+          "end_mm": [
+            -23.0,
+            45.1,
+            44.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W029",
+      "terminal": "F_L3_CP2_IN",
+      "a": "FL_P.4",
+      "b": "F_FL3.in",
+      "mouth_mm": [
+        7.0,
+        71.5,
+        73.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            7.0,
+            71.5,
+            73.37
+          ],
+          "end_mm": [
+            7.0,
+            71.5,
+            64.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            7.0,
+            71.5,
+            64.37
+          ],
+          "mid_mm": [
+            7.0,
+            67.8681240867132,
+            55.60187591328682
+          ],
+          "end_mm": [
+            7.0,
+            59.1,
+            51.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W024",
+      "terminal": "F_L3_CP2_OUT",
+      "a": "FL3.V",
+      "b": "F_FL3.out",
+      "mouth_mm": [
+        7.0,
+        57.5,
+        75.402
+      ],
+      "straight_mm": 19,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            7.0,
+            57.5,
+            75.402
+          ],
+          "end_mm": [
+            7.0,
+            57.5,
+            56.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 19
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            7.0,
+            57.5,
+            56.402
+          ],
+          "mid_mm": [
+            7.0,
+            53.86812408671319,
+            47.633875913286815
+          ],
+          "end_mm": [
+            7.0,
+            45.1,
+            44.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W046",
+      "terminal": "F_L4_CP2_IN",
+      "a": "F_RL1.in",
+      "b": "RL_P.2",
+      "mouth_mm": [
+        37.0,
+        71.5,
+        73.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            37.0,
+            71.5,
+            73.37
+          ],
+          "end_mm": [
+            37.0,
+            71.5,
+            64.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            37.0,
+            71.5,
+            64.37
+          ],
+          "mid_mm": [
+            37.0,
+            67.8681240867132,
+            55.60187591328682
+          ],
+          "end_mm": [
+            37.0,
+            59.1,
+            51.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W047",
+      "terminal": "F_L4_CP2_OUT",
+      "a": "F_RL1.out",
+      "b": "RL1.V",
+      "mouth_mm": [
+        37.0,
+        57.5,
+        75.402
+      ],
+      "straight_mm": 19,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            37.0,
+            57.5,
+            75.402
+          ],
+          "end_mm": [
+            37.0,
+            57.5,
+            56.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 19
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            37.0,
+            57.5,
+            56.402
+          ],
+          "mid_mm": [
+            37.0,
+            53.86812408671319,
+            47.633875913286815
+          ],
+          "end_mm": [
+            37.0,
+            45.1,
+            44.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W048",
+      "terminal": "F_L5_CP2_IN",
+      "a": "F_RL2.in",
+      "b": "RL_P.3",
+      "mouth_mm": [
+        67.0,
+        71.5,
+        73.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            67.0,
+            71.5,
+            73.37
+          ],
+          "end_mm": [
+            67.0,
+            71.5,
+            64.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            67.0,
+            71.5,
+            64.37
+          ],
+          "mid_mm": [
+            67.0,
+            67.8681240867132,
+            55.60187591328682
+          ],
+          "end_mm": [
+            67.0,
+            59.1,
+            51.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W049",
+      "terminal": "F_L5_CP2_OUT",
+      "a": "F_RL2.out",
+      "b": "RL2.V",
+      "mouth_mm": [
+        67.0,
+        57.5,
+        75.402
+      ],
+      "straight_mm": 19,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            67.0,
+            57.5,
+            75.402
+          ],
+          "end_mm": [
+            67.0,
+            57.5,
+            56.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 19
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            67.0,
+            57.5,
+            56.402
+          ],
+          "mid_mm": [
+            67.0,
+            53.86812408671319,
+            47.633875913286815
+          ],
+          "end_mm": [
+            67.0,
+            45.1,
+            44.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W050",
+      "terminal": "F_L6_CP2_IN",
+      "a": "F_RL3.in",
+      "b": "RL_P.4",
+      "mouth_mm": [
+        97.0,
+        71.5,
+        73.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            97.0,
+            71.5,
+            73.37
+          ],
+          "end_mm": [
+            97.0,
+            71.5,
+            64.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            97.0,
+            71.5,
+            64.37
+          ],
+          "mid_mm": [
+            97.0,
+            67.8681240867132,
+            55.60187591328682
+          ],
+          "end_mm": [
+            97.0,
+            59.1,
+            51.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W051",
+      "terminal": "F_L6_CP2_OUT",
+      "a": "F_RL3.out",
+      "b": "RL3.V",
+      "mouth_mm": [
+        97.0,
+        57.5,
+        75.402
+      ],
+      "straight_mm": 19,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            97.0,
+            57.5,
+            75.402
+          ],
+          "end_mm": [
+            97.0,
+            57.5,
+            56.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 19
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            97.0,
+            57.5,
+            56.402
+          ],
+          "mid_mm": [
+            97.0,
+            53.86812408671319,
+            47.633875913286815
+          ],
+          "end_mm": [
+            97.0,
+            45.1,
+            44.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            -1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W038",
+      "terminal": "F_R1_CP2_IN",
+      "a": "FR_P.2",
+      "b": "F_FR1.in",
+      "mouth_mm": [
+        -53.0,
+        -69.0,
+        85.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -53.0,
+            -69.0,
+            85.37
+          ],
+          "end_mm": [
+            -53.0,
+            -69.0,
+            76.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -53.0,
+            -69.0,
+            76.37
+          ],
+          "mid_mm": [
+            -53.0,
+            -65.3681240867132,
+            67.60187591328682
+          ],
+          "end_mm": [
+            -53.0,
+            -56.6,
+            63.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W031",
+      "terminal": "F_R1_CP2_OUT",
+      "a": "FR1.V",
+      "b": "F_FR1.out",
+      "mouth_mm": [
+        -53.0,
+        -55.0,
+        87.402
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -53.0,
+            -55.0,
+            87.402
+          ],
+          "end_mm": [
+            -53.0,
+            -55.0,
+            78.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -53.0,
+            -55.0,
+            78.402
+          ],
+          "mid_mm": [
+            -53.0,
+            -51.36812408671319,
+            69.63387591328681
+          ],
+          "end_mm": [
+            -53.0,
+            -42.6,
+            66.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W039",
+      "terminal": "F_R2_CP2_IN",
+      "a": "FR_P.3",
+      "b": "F_FR2.in",
+      "mouth_mm": [
+        -21.0,
+        -69.0,
+        85.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -21.0,
+            -69.0,
+            85.37
+          ],
+          "end_mm": [
+            -21.0,
+            -69.0,
+            76.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -21.0,
+            -69.0,
+            76.37
+          ],
+          "mid_mm": [
+            -21.0,
+            -65.3681240867132,
+            67.60187591328682
+          ],
+          "end_mm": [
+            -21.0,
+            -56.6,
+            63.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W033",
+      "terminal": "F_R2_CP2_OUT",
+      "a": "FR2.V",
+      "b": "F_FR2.out",
+      "mouth_mm": [
+        -21.0,
+        -55.0,
+        87.402
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            -21.0,
+            -55.0,
+            87.402
+          ],
+          "end_mm": [
+            -21.0,
+            -55.0,
+            78.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            -21.0,
+            -55.0,
+            78.402
+          ],
+          "mid_mm": [
+            -21.0,
+            -51.36812408671319,
+            69.63387591328681
+          ],
+          "end_mm": [
+            -21.0,
+            -42.6,
+            66.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W040",
+      "terminal": "F_R3_CP2_IN",
+      "a": "FR_P.4",
+      "b": "F_FR3.in",
+      "mouth_mm": [
+        11.0,
+        -69.0,
+        85.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            11.0,
+            -69.0,
+            85.37
+          ],
+          "end_mm": [
+            11.0,
+            -69.0,
+            76.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            11.0,
+            -69.0,
+            76.37
+          ],
+          "mid_mm": [
+            11.0,
+            -65.3681240867132,
+            67.60187591328682
+          ],
+          "end_mm": [
+            11.0,
+            -56.6,
+            63.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W035",
+      "terminal": "F_R3_CP2_OUT",
+      "a": "FR3.V",
+      "b": "F_FR3.out",
+      "mouth_mm": [
+        11.0,
+        -55.0,
+        87.402
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            11.0,
+            -55.0,
+            87.402
+          ],
+          "end_mm": [
+            11.0,
+            -55.0,
+            78.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            11.0,
+            -55.0,
+            78.402
+          ],
+          "mid_mm": [
+            11.0,
+            -51.36812408671319,
+            69.63387591328681
+          ],
+          "end_mm": [
+            11.0,
+            -42.6,
+            66.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W054",
+      "terminal": "F_R4_CP2_IN",
+      "a": "F_RR1.in",
+      "b": "RR_P.2",
+      "mouth_mm": [
+        43.0,
+        -69.0,
+        85.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            43.0,
+            -69.0,
+            85.37
+          ],
+          "end_mm": [
+            43.0,
+            -69.0,
+            76.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            43.0,
+            -69.0,
+            76.37
+          ],
+          "mid_mm": [
+            43.0,
+            -65.3681240867132,
+            67.60187591328682
+          ],
+          "end_mm": [
+            43.0,
+            -56.6,
+            63.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W055",
+      "terminal": "F_R4_CP2_OUT",
+      "a": "F_RR1.out",
+      "b": "RR1.V",
+      "mouth_mm": [
+        43.0,
+        -55.0,
+        87.402
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            43.0,
+            -55.0,
+            87.402
+          ],
+          "end_mm": [
+            43.0,
+            -55.0,
+            78.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            43.0,
+            -55.0,
+            78.402
+          ],
+          "mid_mm": [
+            43.0,
+            -51.36812408671319,
+            69.63387591328681
+          ],
+          "end_mm": [
+            43.0,
+            -42.6,
+            66.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W056",
+      "terminal": "F_R5_CP2_IN",
+      "a": "F_RR2.in",
+      "b": "RR_P.3",
+      "mouth_mm": [
+        75.0,
+        -69.0,
+        85.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            75.0,
+            -69.0,
+            85.37
+          ],
+          "end_mm": [
+            75.0,
+            -69.0,
+            76.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            75.0,
+            -69.0,
+            76.37
+          ],
+          "mid_mm": [
+            75.0,
+            -65.3681240867132,
+            67.60187591328682
+          ],
+          "end_mm": [
+            75.0,
+            -56.6,
+            63.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W057",
+      "terminal": "F_R5_CP2_OUT",
+      "a": "F_RR2.out",
+      "b": "RR2.V",
+      "mouth_mm": [
+        75.0,
+        -55.0,
+        87.402
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            75.0,
+            -55.0,
+            87.402
+          ],
+          "end_mm": [
+            75.0,
+            -55.0,
+            78.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            75.0,
+            -55.0,
+            78.402
+          ],
+          "mid_mm": [
+            75.0,
+            -51.36812408671319,
+            69.63387591328681
+          ],
+          "end_mm": [
+            75.0,
+            -42.6,
+            66.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W058",
+      "terminal": "F_R6_CP2_IN",
+      "a": "F_RR3.in",
+      "b": "RR_P.4",
+      "mouth_mm": [
+        107.0,
+        -69.0,
+        85.37
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            107.0,
+            -69.0,
+            85.37
+          ],
+          "end_mm": [
+            107.0,
+            -69.0,
+            76.37
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            107.0,
+            -69.0,
+            76.37
+          ],
+          "mid_mm": [
+            107.0,
+            -65.3681240867132,
+            67.60187591328682
+          ],
+          "end_mm": [
+            107.0,
+            -56.6,
+            63.970000000000006
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    },
+    {
+      "wire_id": "W059",
+      "terminal": "F_R6_CP2_OUT",
+      "a": "F_RR3.out",
+      "b": "RR3.V",
+      "mouth_mm": [
+        107.0,
+        -55.0,
+        87.402
+      ],
+      "straight_mm": 9,
+      "segments": [
+        {
+          "kind": "line",
+          "start_mm": [
+            107.0,
+            -55.0,
+            87.402
+          ],
+          "end_mm": [
+            107.0,
+            -55.0,
+            78.402
+          ],
+          "tangent": [
+            0,
+            0,
+            -1
+          ],
+          "length_mm": 9
+        },
+        {
+          "kind": "arc",
+          "start_mm": [
+            107.0,
+            -55.0,
+            78.402
+          ],
+          "mid_mm": [
+            107.0,
+            -51.36812408671319,
+            69.63387591328681
+          ],
+          "end_mm": [
+            107.0,
+            -42.6,
+            66.002
+          ],
+          "start_tangent": [
+            0,
+            0,
+            -1
+          ],
+          "end_tangent": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 12.4,
+          "angle_rad": 1.5707963267948966,
+          "length_mm": 19.477874452256717
+        }
+      ],
+      "full_route_qualified": false
+    }
+  ],
+  "exact_pairs_tested": 97,
+  "contacts": [
+    {
+      "pair": [
+        "W035_EscapeBudget",
+        "W076_EXTENSION_CP2"
+      ],
+      "volume_mm3": 16.24270896559809,
+      "basis": "Reservation conflict, NOT measured supplier material collision"
+    },
+    {
+      "pair": [
+        "W054_EscapeBudget",
+        "W076_EXTENSION_CP2"
+      ],
+      "volume_mm3": 27.98266913508415,
+      "basis": "Reservation conflict, NOT measured supplier material collision"
+    }
+  ],
+  "errors": [],
+  "outside": [
+    {
+      "name": "F_R1_CP2_ATO",
+      "volume_mm3": 457.3576708382266
+    },
+    {
+      "name": "F_R2_CP2_ATO",
+      "volume_mm3": 457.35767083822776
+    },
+    {
+      "name": "F_R3_CP2_ATO",
+      "volume_mm3": 457.35767083822805
+    },
+    {
+      "name": "F_R4_CP2_ATO",
+      "volume_mm3": 457.3576708382297
+    },
+    {
+      "name": "F_R5_CP2_ATO",
+      "volume_mm3": 493.2540470275821
+    },
+    {
+      "name": "F_R6_CP2_ATO",
+      "volume_mm3": 724.6955306058528
+    },
+    {
+      "name": "RL_G_CP2",
+      "volume_mm3": 22.683445938838464
+    }
+  ],
+  "mutually_exclusive_access_overlaps": [],
+  "remaining": [
+    "Complete all24 wires to actual receivers, not just necessary elbows",
+    "All other branch/source/logic leads and connector access",
+    "FHAC tethered cover motion and tool access remain prototype assumptions",
+    "Native supports/strain relief and assembled service sequence",
+    "One selected stock/export; each printed part fits256cube with margins"
+  ],
+  "started_utc": "2026-10-06T18:31:04.578275+00:00",
+  "finished_utc": "2026-10-06T18:31:24.193121+00:00",
+  "worker_wall_seconds": 19.61
+}
