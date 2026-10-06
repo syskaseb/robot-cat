@@ -1,0 +1,199 @@
+{
+  "status": "COUPLED_MAIN_MOUNT_CLEAR",
+  "selected": false,
+  "M2_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/BoardDatumCandidate.FCStd": "8f790a53aafffe97c039c21438565d78291fd35e3461c6fe6d501897a295cf10",
+    "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/coupled/NeckRisers.FCStd": "b6d27df22d0058d1d3d1a48ee43310703f0f006b2ae413a31e8419b4c0bcf102",
+    "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/coupled/checks.json": "3e822ce0264565ebbc9b61f78167a96ca0ee472f1128b89a27c3d2a67a5ccadf",
+    "hardware/cad/studies/main-p0-mount/r5/MainP0Mount.FCStd": "fbed974e2432a6efe11c8d69ff258174504a0654dfdeb60cf78731aae26130e1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/board-datums-checks.json": "0a61064cf73fa3aaa59d2563d1e8b598cfffcc1094771b93b9539d399cdaf4fa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/whole-harness-board-plan.json": "060beac29cf9b00fb9aae94902e2ca5c01727076de39c6c8f456c906b75bd90a",
+    "hardware/manufacturing/one-batch-prototype-r53/fixed-fastener-cart.json": "091c841477fc6f8f6512305862353ab6253ffaff9a218eb58fc2aa7727957cac",
+    "tools/cad/whole_cat_neck_main_mount.py": "9bdfd74c307bcb4cb00fe161498ab22bf5e154b28b8661c0a5df0300ceb629d9"
+  },
+  "main_translation_from_board_datum_mm": [
+    34,
+    0,
+    4.52
+  ],
+  "geometry": {
+    "volume_mm3": 7546.340615477923,
+    "fully_constrained_sketches": 11
+  },
+  "exact_pairs_tested": 33,
+  "contacts": [],
+  "errors": [],
+  "hardware": [
+    {
+      "axis_mm": [
+        -52.701,
+        23.321
+      ],
+      "screw": "0912A2-M020X012VISK",
+      "L_mm": 12,
+      "underhead_z_mm": 48.394800000000004,
+      "tip_z_mm": 36.394800000000004,
+      "nut_thread_length_mm": 1.6,
+      "protrusion_mm": 1.2251999999999938
+    },
+    {
+      "axis_mm": [
+        -34.159,
+        23.321
+      ],
+      "screw": "0912A2-M020X012VISK",
+      "L_mm": 12,
+      "underhead_z_mm": 48.394800000000004,
+      "tip_z_mm": 36.394800000000004,
+      "nut_thread_length_mm": 1.6,
+      "protrusion_mm": 1.2251999999999938
+    }
+  ],
+  "lower_washer_bearing_fractions": [
+    1.0,
+    1.0
+  ],
+  "tool_checks": [
+    {
+      "id": "0_top_driver",
+      "contacts": []
+    },
+    {
+      "id": "0_nut_socket_below",
+      "contacts": []
+    },
+    {
+      "id": "1_top_driver",
+      "contacts": []
+    },
+    {
+      "id": "1_nut_socket_below",
+      "contacts": []
+    }
+  ],
+  "tool_budget_basis": "D3x35 driver and D6 socket below before wiring/S0; design allowance, not physical tool qualification",
+  "assembly": [
+    "Risers on bare P0 frame; MAIN pre-soldered on bench",
+    "Place MAIN on integral posts; M2x12/washer from above, washer/nut/socket from below",
+    "Install S0 only after MAIN bolts; retain MAIN leads clear of driver until tightening",
+    "Whole robot sequence and S0 access remain OPEN"
+  ],
+  "S0_intentionally_absent_during_top_driver": true,
+  "affected_main_ends": [
+    {
+      "id": "W060",
+      "role": "MAIN.GND",
+      "old_point_mm": [
+        -75.68,
+        21.289000000000016,
+        43.5748
+      ],
+      "point_mm": [
+        -41.68000000000001,
+        21.289000000000016,
+        48.094800000000006
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "route_restraint_status": "OPEN"
+    },
+    {
+      "id": "W078",
+      "role": "MAIN.VIN",
+      "old_point_mm": [
+        -72.18,
+        21.289000000000016,
+        43.5748
+      ],
+      "point_mm": [
+        -38.18000000000001,
+        21.289000000000016,
+        48.094800000000006
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "route_restraint_status": "OPEN"
+    },
+    {
+      "id": "W079",
+      "role": "MAIN.VOUT",
+      "old_point_mm": [
+        -82.68,
+        21.289000000000016,
+        43.5748
+      ],
+      "point_mm": [
+        -48.68000000000001,
+        21.289000000000016,
+        48.094800000000006
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "route_restraint_status": "OPEN"
+    },
+    {
+      "id": "W080",
+      "role": "MAIN.GND_OUT",
+      "old_point_mm": [
+        -79.18,
+        21.289000000000016,
+        43.5748
+      ],
+      "point_mm": [
+        -45.18000000000001,
+        21.289000000000016,
+        48.094800000000006
+      ],
+      "departure": [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ],
+      "route_restraint_status": "OPEN"
+    }
+  ],
+  "parameter_roundtrip_mm": [
+    4,
+    5,
+    4
+  ],
+  "board_follows_gap_parameter": true,
+  "stock_delta_candidates": {
+    "M2x12": 2,
+    "M2_nuts": 2,
+    "OD5_washers": 4,
+    "additional_prints": 0,
+    "replaced_left_riser": 1
+  },
+  "remaining": [
+    "Full 4 MAIN routes and native strain relief",
+    "Full head motion/wiring and current selection",
+    "Actual PCB component population and measured PETG fit/load/thermal tests phase2"
+  ],
+  "started_utc": "2026-10-06T22:34:21.611489+00:00",
+  "native_sha256": "2e2a810418157f39f305a8869a784692597414f4c3ab6e0178f623be12e56988",
+  "stl": {
+    "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/LeftRiserWithMain_candidate.stl",
+    "sha256": "27a3cd9fb61bd53303b40fb19e3869e15dbae92d8a9b4740dff2b7b1fc3be06e",
+    "print_size_with_5mm_brim_mm": [
+      108.0,
+      20.0,
+      29.0
+    ]
+  },
+  "saved_reopen_verified": true,
+  "finished_utc": "2026-10-06T22:35:06.126687+00:00",
+  "worker_wall_seconds": 44.515
+}

@@ -14,7 +14,8 @@ import time
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT/'hardware/cad/studies/whole-cat-packaging/cp2'
 NECK = BASE/'neck-support/coupled'
-OUT = BASE/'neck-support/main-mount'
+SEQUENCE = '--assembly-sequence' in sys.argv
+OUT = BASE/('neck-support/main-mount-sequence' if SEQUENCE else 'neck-support/main-mount')
 SOURCE = BASE/'BoardDatumCandidate.FCStd'
 FAMILY = ROOT/'hardware/cad/studies/main-p0-mount/r5/MainP0Mount.FCStd'
 
@@ -139,10 +140,12 @@ def main():
         for i,(x,y) in enumerate(axes):
             # Applied before wires; head driver vertical and nut key from +Y.
             probes=[('top_driver',Part.makeCylinder(1.5,35,A.Vector(x,y,underhead+2))),
-                    ('nut_key_side',Part.makeBox(6,32,1.8,A.Vector(x-3,y,37.52)))]
+                    ('nut_socket_below',Part.makeCylinder(3,17.62,A.Vector(x,y,20)))
+                    if SEQUENCE else ('nut_key_side',Part.makeBox(6,32,1.8,A.Vector(x-3,y,37.52)))]
             for label,probe in probes:
                 hits=[]
                 for n,t in {**material,'LeftRiserWithMain':left.Shape,'MainSupplierFamily':ref}.items():
+                    if SEQUENCE and label=='top_driver' and n=='S0_body_CP2':continue
                     if not probe.BoundBox.intersect(t.BoundBox):continue
                     hit=probe.common(t);assert hit.isValid()
                     if hit.Volume>1e-5:hits.append(dict(part=n,volume_mm3=hit.Volume))
@@ -158,7 +161,12 @@ def main():
             selected=False,M2_complete=False,W5_complete=False,physical_pass=False,source_sha256=pins,
             main_translation_from_board_datum_mm=[34,0,4.52],geometry=baseline,exact_pairs_tested=tested,
             contacts=contacts,errors=errors,hardware=hardware_meta,lower_washer_bearing_fractions=bearing,
-            tool_checks=tools,tool_budget_basis='D3x35 driver and6x1.8 side-key design allowance, not physical tool qualification',
+            tool_checks=tools,tool_budget_basis='D3x35 driver and D6 socket below before wiring/S0; design allowance, not physical tool qualification' if SEQUENCE else 'D3x35 driver and6x1.8 side-key design allowance, not physical tool qualification',
+            assembly=['Risers on bare P0 frame; MAIN pre-soldered on bench',
+                      'Place MAIN on integral posts; M2x12/washer from above, washer/nut/socket from below',
+                      'Install S0 only after MAIN bolts; retain MAIN leads clear of driver until tightening',
+                      'Whole robot sequence and S0 access remain OPEN'],
+            S0_intentionally_absent_during_top_driver=SEQUENCE,
             affected_main_ends=ends,parameter_roundtrip_mm=[4,5,4],
             board_follows_gap_parameter=True,
             stock_delta_candidates={'M2x12':2,'M2_nuts':2,'OD5_washers':4,'additional_prints':0,'replaced_left_riser':1},

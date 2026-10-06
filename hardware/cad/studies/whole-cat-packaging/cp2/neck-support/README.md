@@ -1,6 +1,37 @@
 # Podparcie przesuniętej szyi: lokalny kandydat
 
-06.10.2026. Niewybrane; M2 i pełne złożenie nadal OPEN. Bez fizycznego PASS.
+07.10.2026. Niewybrane; M2 i pełne złożenie nadal OPEN. Bez fizycznego PASS.
+
+## Aktualny kandydat: szyja z integralnym mocowaniem MAIN
+
+`main-mount-sequence/NeckMainMount.FCStd`: lewa podpora zastępuje poprzednią,
+prawa pozostaje z `coupled/RightRiser_candidate.stl`. Nie drukować starej lewej
+razem z nową. Nowy lewy STL ma108×20×29mm z5mmbrim,11pełnych szkiców,
+1solid/BOP0/zamkniętą siatkę; zapis/reopen i parametr MainGap4→5→4 zgodne.
+Zmiana parametru przemieszcza także referencję płytki.0dodatkowych wydruków.
+
+MAIN+34X/+4,52Z względem BoardDatum;2M2x12/2nuts/4washers dodatkowo
+to kandydat stock. Podparcie dolnych podkładek100%nominalnie, pełne1,6mm
+gwintu nakrętki i1,2252mm wystającego końca śruby.33par/0przecięć/0błędów;
+4budżety narzędzi bez kontaktów. Referencja rodziny producenta, NIE dokładny
+obrys komponentów dostarczonego SKU4853. Obliczenia44,515s.
+
+MAIN wstępnie lutowany na stole, podpory na gołej P0, śruby od góry,
+podkładki/nakrętki i nasadka od dołu; dopiero potem S0. D3×35mm wkrętak
+iD6mm nasadka to budżety projektowe, nie zakwalifikowane fizyczne narzędzia.
+Pierwszy test `main-mount/checks.json` odrzucił kolejność/narzędzia: S0
+blokował wkrętak, bok P0 blokował boczny klucz. Geometrii nie przesuwano;
+zmieniono kolejność i dostęp od spodu. Cały montaż robota pozostaje OPEN.
+
+`mount-check-corrected.json`:8stosów osprzętu szyi/0błędów i wolne budżety
+narzędzi w sprawdzonym zakresie. Pierwszy `mount-check.json` miał za wysoką
+obwiednię wkładania nakrętki; korekta sondy, nie zmiana części.
+
+NEXT: cztery końce MAIN z `main-mount-sequence/checks.json` i pozostałe
+końce SPLICE_PI/USB (jeszcze OPEN_DATUM), pełne trasy/odciążenia, ruch głowy,
+wspólny montaż i wybór/stock. Nie zaliczać M2 ani W5 za ten lokalny detal.
+
+## Zachowana wcześniejsza baza podpór
 
 Otwórz `coupled/NeckRisers.FCStd`. Dwa natywne PartDesign Bodies, po8w pełni
 ograniczonych szkiców. VarSet HeadForward42/HeadRaise25/FootThickness4.
@@ -36,7 +67,5 @@ Na gołej ramie: dolne śruby od spodu, podkładki/nakrętki bocznymi kieszeniam
 następnie górne nakrętki/podkładki, foundation i górne śruby; potem yaw.
 Ta recepta nie zamyka całej kolejności montażu robota.
 
-NEXT: górny osprzęt względem rzeczywistych części głowy i dojście narzędzia;
-nowe mocowanieMAIN oraz4trasy we wspólnej rezerwacji; ruch głowy/korpus,
-pełna wiązka, wspólny wybór/stock. Obciążenie/pełzanie i fizyczne pasowania PETG
+Obciążenie/pełzanie i fizyczne pasowania PETG
 w fazie2. Nie ponawiać odrzuconego układu ani regenerować istniejących plików.

@@ -1,10 +1,11 @@
 # CP2: wspólne rozmieszczenie wnętrza
 
-## Bieżący ręczny detal szyi,06.10 wieczorem
+## Bieżący ręczny detal szyi i MAIN,07.10
 
-Hook wyłączony, bez harmonogramu. `neck-support/coupled/NeckRisers.FCStd`
-zawiera2natywne parametryczne podpory na zachowanych osiachP0 oraz referencję
-MAIN przesuniętą+34X. `neck-support/README.md` opisuje dowody i otwarte bramki.
+Hook wyłączony, bez harmonogramu. `neck-support/main-mount-sequence/NeckMainMount.FCStd`
+zawiera podpory na zachowanych osiachP0; lewa ma integralne mocowanie MAIN.
+MAIN przesunięty względem BoardDatum o+34X/+4,52Z, bez poszerzenia tułowia.
+`neck-support/README.md` opisuje dowody i otwarte bramki.
 To niewybrany detal, nie ukończoneM2 ani wiązka. Dane wcześniejszego
 BoardDatumCandidate pozostają bazą, nie zawierają tej zmiany MAIN.
 R53/70% poniżej to historia starego zestawu. Nowe złożenie:3/20 potwierdzone
