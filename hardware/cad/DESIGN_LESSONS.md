@@ -94,3 +94,9 @@ Przy podmianie fizycznego odcinka użyć istniejącej nazwy natywnej: logiczne
 W076_EXT zastępuje W076_EXTENSION_CP2, nie tworzy drugiego przewodu.
 Blokadę ponownej próby wiązać z geometrią przepisu, nie czasem raportu lub
 hashem całego skryptu; zmiana metadanych nie uzasadnia ponownego CAD.
+
+Przy rozszerzaniu zapisanej historii PartDesign jawnie aktualizować Tip.
+W wyrażeniach długości dodawać jednostki stałym (`4 mm + Parameters.Gap`).
+Sprawdzać stan operacji, jej rzeczywistą bryłę i obliczony wymiar, nie tylko
+Body.Shape: cache ostatniego poprawnego wyniku może zasłonić nieprzeliczoną
+operację. Próba parametru musi przesunąć również współpracującą referencję.

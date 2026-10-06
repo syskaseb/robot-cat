@@ -8,12 +8,15 @@ from pathlib import Path
 import hashlib
 import json
 import math
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / 'hardware/cad/studies/whole-cat-packaging/cp2'
 NECK = BASE / 'neck-support/coupled'
-OUT = BASE / 'neck-support/mount-check.json'
+CORRECT_PACKET = '--correct-nut-packet' in sys.argv
+OUT = BASE / ('neck-support/mount-check-corrected.json' if CORRECT_PACKET
+              else 'neck-support/mount-check.json')
 
 
 def sha(path):
@@ -99,7 +102,9 @@ def main():
                     # A 6x2.4 mm nominal nut/washer packet from outside Y.
                     start_y=y-3 if y>0 else -55
                     travel=55-y+3 if y>0 else y+3+55
-                    packet=Part.makeBox(5.6,travel,2.2,A.Vector(x-2.8,start_y,washer_z))
+                    packet_z=min(nut_z,washer_z) if CORRECT_PACKET else washer_z
+                    packet_height=max(nut_z+1.6,washer_z+.3)-packet_z if CORRECT_PACKET else 2.2
+                    packet=Part.makeBox(5.6,travel,packet_height,A.Vector(x-2.8,start_y,packet_z))
                     check(target+'_lateral_nut_before_head',packet,
                           upper_pre if role=='upper' else [n for n in parts if not n.startswith('Head_')],tools)
         assembled=[r for r in results if r['contacts']]
@@ -108,12 +113,15 @@ def main():
         report=dict(status='NECK_STACK_SEQUENCE_CLEAR' if not(assembled or pre or errors)
                     else 'NECK_STACK_SEQUENCE_REJECTED', selected=False,M2_complete=False,physical_pass=False,
                     source_sha256=pins,stacks=stack,hardware_checks=results,tool_checks=tools,
+                    corrected_packet=CORRECT_PACKET,
+                    original_probe_issue='Upper packet started at washer rather than nut; reports false contact above real nut/washer stack' if CORRECT_PACKET else None,
                     assembled_hardware_failures=assembled,assembly_tool_failures=pre,
                     completed_head_service_blockers=post,errors=errors,
                     tool_budget={'basis':'Design allowance, NOT supplied actual tool',
                                  'upper_driver_d_mm':3,'upper_driver_length_mm':35,
                                  'lower_key_d_mm':3,'lower_key_inside_frame_z_mm':[10,33.22],
-                                 'nut_packet_xz_mm':[5.6,2.2]},
+                                 'nut_packet_xz_mm':[5.6,1.9 if CORRECT_PACKET else 2.2],
+                                 'nut_packet_calibrated_allowance':False},
                     excluded_scope=['Leg and body shell installation/removal','All wiring','Moving head',
                                     'Physical tool/washer/nut tolerances and PETG load tests'],
                     started_utc=started,finished_utc=datetime.now(timezone.utc).isoformat(),
