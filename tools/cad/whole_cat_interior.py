@@ -920,6 +920,7 @@ def main():
 
 def mta_shared_plan():
     """One diagonal four-holder/eight-factory-end plan; selected CP2 preserved."""
+    raise RuntimeError('Retired rejected diagonal recipe: wrong FL/FR circuit IDs and two failed layouts. Use a newly reconciled shared plan, not this experiment.')
     import FreeCAD as A
     import Part
     started=datetime.now(timezone.utc);tick=time.monotonic()
