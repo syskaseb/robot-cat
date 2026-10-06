@@ -50,13 +50,13 @@
     {
       "name": "MAIN4853_CP2",
       "origin_mm": [
-        -61.0,
-        -12.0,
+        -90.00000000000001,
+        -5.000000000000005,
         42.0
       ],
       "size_mm": [
-        30.5,
-        24.0,
+        24.000000000000014,
+        30.500000000000014,
         12.0
       ],
       "group": "logic",
@@ -66,17 +66,17 @@
         12
       ],
       "placement_base_mm": [
-        -61,
-        -12,
+        -66,
+        -5,
         42
       ],
       "rotation_quaternion": [
         0.0,
         0.0,
-        0.0,
-        1.0
+        0.7071067811865476,
+        0.7071067811865476
       ],
-      "dimension_basis": "22.9x30.5x7.7 supplier board + solder reserve",
+      "dimension_basis": "22.9x30.5x7.7 supplier board + solder reserve; rotated90Z beside source bay",
       "require_internal_shell": true
     },
     {
@@ -1106,14 +1106,14 @@
     {
       "name": "G1_CP2",
       "origin_mm": [
-        -58.5,
-        -33.0,
-        110.0
+        -56.1,
+        -39.50000000000001,
+        103.5
       ],
       "size_mm": [
         37.0,
-        22.0,
-        11.0
+        11.000000000000007,
+        22.0
       ],
       "group": "wago",
       "local_size_mm": [
@@ -1122,24 +1122,24 @@
         11
       ],
       "placement_base_mm": [
-        -58.5,
-        -33.0,
-        110
+        -56.1,
+        -39.5,
+        125.5
       ],
       "rotation_quaternion": [
+        0.7071067811865476,
         0.0,
         0.0,
-        0.0,
-        1.0
+        -0.7071067811865475
       ],
-      "dimension_basis": "SKU-specific221-615/415 planning bounds; G1 moved to front for battery minus; not an old qualified route",
+      "dimension_basis": "221-615 DOWN entry; nominal port1 local[5.5,22,5.5]; G1.1 battery role retained, physical datums provisional",
       "require_internal_shell": true
     },
     {
       "name": "D_RR_CP2",
       "origin_mm": [
         -15.0,
-        -31.5,
+        -25.5,
         110.0
       ],
       "size_mm": [
@@ -1155,7 +1155,7 @@
       ],
       "placement_base_mm": [
         -15.0,
-        -31.5,
+        -25.5,
         110
       ],
       "rotation_quaternion": [
@@ -1362,8 +1362,8 @@
     {
       "name": "Splice_R1_CP2",
       "origin_mm": [
-        -58.0,
-        -64.5,
+        -94.0,
+        -25.0,
         40.0
       ],
       "size_mm": [
@@ -1378,8 +1378,8 @@
         9
       ],
       "placement_base_mm": [
-        -58,
-        -64.5,
+        -94,
+        -25,
         40
       ],
       "rotation_quaternion": [
@@ -1394,8 +1394,8 @@
     {
       "name": "Splice_R2_CP2",
       "origin_mm": [
-        -15.0,
-        -64.5,
+        -55.0,
+        -12.0,
         40.0
       ],
       "size_mm": [
@@ -1410,8 +1410,8 @@
         9
       ],
       "placement_base_mm": [
-        -15,
-        -64.5,
+        -55,
+        -12,
         40
       ],
       "rotation_quaternion": [
@@ -1746,25 +1746,25 @@
     {
       "name": "F0_CP2",
       "origin_mm": [
-        -60.0,
-        -25.5,
-        15.0
+        -48.0,
+        -68.925,
+        39.0
       ],
       "size_mm": [
-        20.25,
         51.0,
+        20.25,
         22.0
       ],
       "group": "inline",
       "local_size_mm": [
-        20.25,
         51,
+        20.25,
         22
       ],
       "placement_base_mm": [
-        -60,
-        -25.5,
-        15
+        -48,
+        -68.925,
+        39
       ],
       "rotation_quaternion": [
         0.0,
@@ -1772,7 +1772,7 @@
         0.0,
         1.0
       ],
-      "dimension_basis": "FHAC0002ZXJ transverse Y-axis ahead of battery; length51max/width20.25max; thickness22 ASSUMED; <=50mm prefuse route pending",
+      "dimension_basis": "FHAC0002ZXJ horizontalX source bay; length51max/width20.25max; thickness22/lead11mm above floor/R10/OD4.5 ASSUMED",
       "require_internal_shell": true
     },
     {
@@ -1810,14 +1810,14 @@
     {
       "name": "XT60_CP2",
       "origin_mm": [
-        -95.0,
-        -15.0,
-        38.0
+        -96.9,
+        -63.40000000000001,
+        45.3
       ],
       "size_mm": [
         23.900000000000006,
-        16.4,
-        9.200000000000003
+        9.20000000000001,
+        16.400000000000006
       ],
       "group": "inline",
       "local_size_mm": [
@@ -1826,17 +1826,17 @@
         9.2
       ],
       "placement_base_mm": [
-        -95,
-        -15,
-        38
+        -96.9,
+        -54.2,
+        45.3
       ],
       "rotation_quaternion": [
+        0.7071067811865476,
         0.0,
         0.0,
-        0.0,
-        1.0
+        0.7071067811865476
       ],
-      "dimension_basis": "AMASS XT60H-M own housing23.9x16.4x9.2 only; mate/withdrawal/lead route NOT qualified",
+      "dimension_basis": "AMASS own housing only, rotated90X; cups atworldX-73/Y-58.8/Z50,57 are PROVISIONAL pitch7. Read marked polarity; mate/release still OPEN",
       "require_internal_shell": true
     },
     {
@@ -1951,7 +1951,7 @@
     "Outer WAGO wire entries DOWN atZ56; straight9mm plus R12.4 loop needs a lower turn bay, not a zero-radius vertical route.",
     "Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.",
     "Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.",
-    "XT60 and F0 in front source bay: no long unfused route to rear. Exact pins/factory leads and <=50mm route NOT yet qualified.",
+    "Rotated XT60/F0 in front-side source bay: W075 and W001 full nominal paths modeled with changed MAIN/front splice/G1. Mate/release/actual marked polarity and W076 switch lead still OPEN.",
     "Nine central WAGO Z110..121 plus up-entry P_SYS Z95..117; five FHAC Z125..147. F_PI nominal input modeled; remaining sources/grounds/4MTA/outputs OPEN."
   ],
   "not_qualified": [
@@ -1971,7 +1971,7 @@
     "PiTray",
     "4 fixed loom frames"
   ],
-  "started_utc": "2026-10-06T01:41:08.207520+00:00",
-  "finished_utc": "2026-10-06T01:41:43.835900+00:00",
-  "worker_wall_seconds": 35.625
+  "started_utc": "2026-10-06T01:52:36.602166+00:00",
+  "finished_utc": "2026-10-06T01:53:14.291491+00:00",
+  "worker_wall_seconds": 37.688
 }

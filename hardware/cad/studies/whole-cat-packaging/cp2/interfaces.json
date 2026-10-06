@@ -242,17 +242,19 @@
   "F0": {
     "sku": "FHAC0002ZXJ",
     "housing_axis": [
-      0,
       1,
+      0,
       0
     ],
     "both_factory_exits_retained": true,
     "housing_origin_mm": [
-      -60,
-      -25.5,
-      15
+      -48,
+      -68.925,
+      39
     ],
-    "prefuse_full_route_open": true
+    "prefuse_nominal_route_modeled": true,
+    "exit_OD_radius_datums_provisional": true,
+    "output_to_S0_open": true
   },
   "XT60": {
     "own_half": "XT60H-M",
@@ -1118,5 +1120,71 @@
     "total": 20,
     "W1_complete": false,
     "W5_complete": false
-  }
+  },
+  "nominal_source_wires": [
+    {
+      "id": "W043",
+      "a": "F_PI.in",
+      "b": "P_SYS.2",
+      "input_factory_side": "right+X",
+      "centerline_length_mm": 34.849555921538766,
+      "maximum_strip_mm": 14.0,
+      "nominal_blank_mm": 48.849555921538766,
+      "limit_mm": 50,
+      "insulated_entry_straight_mm": 12.0,
+      "holder_exit_straight_mm": 3.0,
+      "bend_radii_mm": [
+        6.0,
+        6.0
+      ],
+      "OD_mm": 3.4,
+      "radius_OD_exit_height_port_coordinates_assumed": true,
+      "supplier_verified_wago_strip_mm": [
+        12,
+        14
+      ],
+      "factory_lead_includes_strip": true,
+      "exact_arcs_not_curvature_samples": true,
+      "physical_pass": false,
+      "start_mm": [
+        -7.5,
+        15.0,
+        135.0
+      ],
+      "entry_mm": [
+        1.5000000000000036,
+        28.0,
+        117.0
+      ],
+      "native_geometry": "builder-owned snapshots"
+    },
+    {
+      "id": "W075",
+      "a": "BAT.plus",
+      "b": "F0.in",
+      "centerline_length_mm": 25.0,
+      "termination_allowance_in_blank_mm": 5,
+      "nominal_blank_mm": 30.0,
+      "limit_mm": 50,
+      "OD_mm": 4.5,
+      "dimension_basis": "Intact F0 factory12AWG; OD4.5/R10/exitheight11/pitch7 and solder allowance5 provisional; no prefuse intermediate joint",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    },
+    {
+      "id": "W001",
+      "a": "BAT.minus",
+      "b": "G1.1",
+      "centerline_length_mm": 83.05574890451344,
+      "termination_allowance_in_blank_mm": 19,
+      "nominal_blank_mm": 102.05574890451344,
+      "limit_mm": 150,
+      "OD_mm": 3.1,
+      "dimension_basis": "LAPP0107001 supplierOD3.1/staticR12.4;14mm WAGO strip+5mm solder allowance; mouth/cup datums provisional;9+mm final insulation straight",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    }
+  ]
 }

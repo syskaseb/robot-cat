@@ -41,7 +41,7 @@
     "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6"
   },
   "wall_clearance_reserve_mm": 2.4,
-  "exact_brep_intersections_after_bbox_filter": 0,
+  "exact_brep_intersections_after_bbox_filter": 3,
   "outside": [],
   "contacts": [],
   "retained_contacts": [],
@@ -358,6 +358,72 @@
     ],
     "native_geometry": "builder-owned snapshots"
   },
+  "nominal_source_wires": [
+    {
+      "id": "W043",
+      "a": "F_PI.in",
+      "b": "P_SYS.2",
+      "input_factory_side": "right+X",
+      "centerline_length_mm": 34.849555921538766,
+      "maximum_strip_mm": 14.0,
+      "nominal_blank_mm": 48.849555921538766,
+      "limit_mm": 50,
+      "insulated_entry_straight_mm": 12.0,
+      "holder_exit_straight_mm": 3.0,
+      "bend_radii_mm": [
+        6.0,
+        6.0
+      ],
+      "OD_mm": 3.4,
+      "radius_OD_exit_height_port_coordinates_assumed": true,
+      "supplier_verified_wago_strip_mm": [
+        12,
+        14
+      ],
+      "factory_lead_includes_strip": true,
+      "exact_arcs_not_curvature_samples": true,
+      "physical_pass": false,
+      "start_mm": [
+        -7.5,
+        15.0,
+        135.0
+      ],
+      "entry_mm": [
+        1.5000000000000036,
+        28.0,
+        117.0
+      ],
+      "native_geometry": "builder-owned snapshots"
+    },
+    {
+      "id": "W075",
+      "a": "BAT.plus",
+      "b": "F0.in",
+      "centerline_length_mm": 25.0,
+      "termination_allowance_in_blank_mm": 5,
+      "nominal_blank_mm": 30.0,
+      "limit_mm": 50,
+      "OD_mm": 4.5,
+      "dimension_basis": "Intact F0 factory12AWG; OD4.5/R10/exitheight11/pitch7 and solder allowance5 provisional; no prefuse intermediate joint",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    },
+    {
+      "id": "W001",
+      "a": "BAT.minus",
+      "b": "G1.1",
+      "centerline_length_mm": 83.05574890451344,
+      "termination_allowance_in_blank_mm": 19,
+      "nominal_blank_mm": 102.05574890451344,
+      "limit_mm": 150,
+      "OD_mm": 3.1,
+      "dimension_basis": "LAPP0107001 supplierOD3.1/staticR12.4;14mm WAGO strip+5mm solder allowance; mouth/cup datums provisional;9+mm final insulation straight",
+      "physical_pass": false,
+      "geometry": "builder-owned snapshot",
+      "factory_polarity_from_markings_not_left_right": true
+    }
+  ],
   "wire_contacts": [],
   "wire_termination_target_bodies_excluded": [
     "F_PI_CP2",
@@ -368,8 +434,7 @@
     "BUS_CP2",
     "D_FL_CP2",
     "D_FR_CP2",
-    "D_RR_CP2",
-    "F0_CP2",
+    "D_RL_CP2",
     "FL_G_CP2",
     "FL_P_CP2",
     "FR_G_CP2",
@@ -395,7 +460,6 @@
     "G2_CP2",
     "G_AUX_CP2",
     "G_TAIL_CP2",
-    "MAIN4853_CP2",
     "MTA_FL_CP2",
     "MTA_FR_CP2",
     "MTA_RL_CP2",
@@ -404,6 +468,9 @@
     "PWM1608_CP2",
     "PWM9685_CP2",
     "P_AUX_CP2",
+    "P_FRONT_CP2",
+    "P_REAR_CP2",
+    "P_SYS_CP2",
     "Pi4_CP2",
     "RL_G_CP2",
     "RL_P_CP2",
@@ -417,10 +484,7 @@
     "Splice_L1_CP2",
     "Splice_L2_CP2",
     "Splice_L3_CP2",
-    "Splice_R1_CP2",
-    "Splice_R2_CP2",
-    "Splice_R3_CP2",
-    "XT60_CP2"
+    "Splice_R3_CP2"
   ],
   "reused_reference_basis": "Prior clear proof + unchanged CP1 reference hashes and exact box coordinates/rotation; changed interfaces and new wire checked",
   "BUS_vendor_compound_valid": false,
@@ -440,11 +504,52 @@
         }
       ],
       "errors": []
+    },
+    {
+      "outside": [
+        {
+          "name": "XT60_CP2",
+          "outside_mm3": 4.043752306707307
+        }
+      ],
+      "contacts": [
+        {
+          "pair": [
+            "Splice_R1_CP2",
+            "F0_CP2"
+          ],
+          "volume_mm3": 192.375
+        },
+        {
+          "pair": [
+            "F0_CP2",
+            "S0_body_CP2"
+          ],
+          "volume_mm3": 1384.3196028818782
+        }
+      ],
+      "retained_contacts": [
+        {
+          "pair": [
+            "F0_CP2",
+            "P0_MountFrontR"
+          ],
+          "volume_mm3": 986.981646357638,
+          "category": "chassis"
+        }
+      ],
+      "errors": []
     }
   ],
   "native_reopen": true,
   "box_parameter_roundtrip": true,
   "parameter_test": "P_SYS local Height+1 -> world Y footprint+1; restored; cable is explicitly builder-owned snapshot",
   "previous_preflight_history_git": "9d04972:hardware/cad/studies/whole-cat-packaging/cp2/checks.json",
-  "shared_revision": "Source-aware shared layout: up-entry P_SYS, front G1, F_PI right input with exact R6 arcs and<=50mm blank including14mm strip.17 service reserves retained. Only W043 modeled; full wiring remains OPEN."
+  "shared_revision": "Joint XT60/F0/negative return/F_PI/MAIN/front splice and central source layout; W001/W075/W043 modeled;17 access reserves retained. Source-switch and remaining full wiring OPEN.",
+  "changed_source_native_check": {
+    "wires_and_strips": 5,
+    "valid_single_solids": true,
+    "parameter": "G1 Height+1 -> world Y+1; restored without saving; wire snapshots do NOT auto-update",
+    "wall_seconds": 5.328
+  }
 }
