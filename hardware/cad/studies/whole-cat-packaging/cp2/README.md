@@ -31,6 +31,29 @@ automatycznie. Wybrana topologia/SKU pozostaje R53. Nowy kandydat dodaje
 jedno221-412 ZA F0, dzielące fizyczny W076 na fabryczny koniec i przedłużenie;
 nie dodaje połączenia przed F0 ani nowego potencjału. Wybór/stock jeszcze otwarte.
 
+## Plan obu wyjść4MTA: dwie próby odrzucone, 06.10.2026
+
+`mta-preflight-rejected.json` przechowuje dwa negatywne wyniki i wspólne
+ograniczenia. Dolny plan Z31 wszedł w P0 SideLeft/Right22 (doZ38,52),
+nutshoe i połączenie zaF0. Plan nad ramą Z50, z przełożonym Pi/BUS/monitorem
+i bocznymi WAGO, naruszył sześć starych splices, F0 oraz trasy W001/W076
+i Pi. To nie problem pojedynczej śruby ani dowód gotowej wiązki.
+
+Żadna próba nie zastąpiła dobrego `WholeCatInterior.FCStd`, `layout.json`
+ani widoku. `checks.json` przywrócony do odpowiadającego dobremu modelowi
+dowodu9beb81c; negatywny wynik osobno, bez mieszania wersji. Domyślny builder
+zachowuje układ S1. Opcja `--mta-candidate-rejected` przechowuje odrzuconą
+receptę do diagnozy, NIE do powtórki bez zmiany wspólnego planu.
+
+Osiem kandydatów221-412 i trasy fabryczne nie są wybranym stockiem.
+Katalogowe L140 NIE dowodzi100mm na każdą stronę. Przed trzecią próbą
+przypisać sześć starych splices do rzeczywistych obwodów i zaplanować je
+wraz z pełnymi niezmienionymi trasami źródła i ośmioma końcamiMTA.
+Nie powtarzać obu układów ani kompensować ich mikroprzesunięciami.
+70% bez zmiany, W1/W5 OPEN, brak fizycznegoPASS.
+cad-layout-planning: po dwóch porażkach wrócono do wspólnej przyczyny,
+zachowano jedną dobrą propozycję zamiast mnożyć części do druku.
+
 ## Bieżące cztery pełne trasy S1, 06.10.2026
 
 W064 S1.3→P_FRONT.1 ma nominalny blank204,784mm, W065 S1.6→P_REAR.1

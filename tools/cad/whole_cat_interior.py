@@ -11,6 +11,11 @@ import itertools
 import time
 import math
 import subprocess
+import sys
+
+# Preserve two failed shared MTA plans for diagnosis only. Default builds
+# retain the good S1 candidate; do not rerun this flag unchanged.
+MTA_REPACK = '--mta-candidate-rejected' in sys.argv
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / 'hardware/cad/studies/whole-cat-packaging'
@@ -48,7 +53,9 @@ def main():
              ROOT/'tools/electronics/source_switch_mount_finish_r4.py',
              ROOT/'hardware/electronics/power-platform/switch-terminations-p0.json',
              ROOT/'hardware/reference/manual-stop-p0-2026-09-24/toggle_S.pdf',
-             ROOT/'hardware/reference/manual-stop-p0-2026-09-24/130171-RS.pdf']}
+             ROOT/'hardware/reference/manual-stop-p0-2026-09-24/130171-RS.pdf',
+             ROOT/'hardware/reference/leg-distribution-p0-2026-09-24/README.md',
+             ROOT/'hardware/reference/leg-distribution-p0-2026-09-24/MTA-catalogue.pdf']}
     d = A.openDocument(str(BASE/'WholeCatLayout.FCStd'))
     torso = d.getObject('TorsoEnvelope').Shape.copy()
     assert torso.isValid() and len(torso.Solids) == 1
@@ -81,7 +88,7 @@ def main():
                          rotation_quaternion=list(o.Placement.Rotation.Q),
                          dimension_basis=basis, require_internal_shell=shell))
 
-    box('Pi4_CP2', [-19,-28,42], [85,56,22], 'logic', '85x56 PCB; populated height22 prototype reserve')
+    box('Pi4_CP2', [-31 if MTA_REPACK else -19,-28,42], [85,56,22], 'logic', '85x56 PCB; populated height22 prototype reserve; experimental move not mount qualification')
     box('MAIN4853_CP2', [-66,-5,42], [30.5,24,12], 'logic', '22.9x30.5x7.7 supplier board + solder reserve; rotated90Z beside source bay',
         rotation=A.Rotation(A.Vector(0,0,1),90))
     # Actual Waveshare vendor geometry, NOT the unrelated U1 SSOP/DIP adapter.
@@ -98,9 +105,10 @@ def main():
         bus_reference_valid=bs.isValid()
         bs.Placement=A.Placement(A.Vector(103.0120752,-20.98790452,44.60000348467585),A.Rotation(A.Vector(0,0,1),90))
         bb=bs.BoundBox;bus_origin=[bb.XMin,bb.YMin,bb.ZMin];bus_size=[bb.XLength,bb.YLength,bb.ZLength]
+    if MTA_REPACK:bus_origin=[110,bus_origin[1],bus_origin[2]]
     box('BUS_CP2',bus_origin,bus_size, 'logic',
         'Waveshare25514 full vendor envelope rotated90Z; cached117-solid compound invalid, envelope only NOT exact fit')
-    box('Monitor_CP2', [-44,30,50], [41,25,12], 'logic', 'P309 supplier41x25x12; pin exits/clip/lead still provisional')
+    box('Monitor_CP2', [-4 if MTA_REPACK else -44,30,50], [41,25,12], 'logic', 'P309 supplier41x25x12; pin exits/clip/lead still provisional')
     box('PWM9685_CP2', [-39,-12.7,78], [62.5,25.4,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
     box('AUX4092_CP2', [35,-12.7,78], [18.8,25.4,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
     box('PWM1608_CP2', [70,-25.4,78], [43.18,50.8,30], 'logic', 'CP1 PCB footprint; height30 replaceable assembly reserve')
@@ -119,7 +127,7 @@ def main():
     assert wanted == {n for r in names for n in r}, 'Every logical bus must have exactly one place'
     for y,ns in zip([79.5,-79.5],names[:2]):
         for x,name in zip([-45,-10,25,60,95],ns):
-            box(name+'_CP2',[x-15,y-4.5,75],[30,19,9],'wago',
+            box(name+'_CP2',[x-15,y-4.5,111 if MTA_REPACK else 75],[30,19,9],'wago',
                 '221-41530x19x9 planning bounds; rotate-90X: both wire entries point DOWN; lever face needs side-cover access',
                 rotation=A.Rotation(A.Vector(1,0,0),-90))
     central=[(22,[(-40,'P_FRONT'),(7,'P_SYS'),(47,'P_REAR'),(84,'D_RL'),(120,'G2')]),
@@ -157,9 +165,16 @@ def main():
     box('PostF0Splice_CP2',[51.5,-54.3,12],[14,19,9],'splices',
         'Additional candidate221-412 AFTER F0; catalogue13x18.3x8.15/strip11; entriesUP; port/pitch/lever datums provisional',
         rotation=A.Rotation(A.Vector(1,0,0),90))
-    for name,x,y in [('FL',-35,84),('RL',55,84),('FR',-35,-84),('RR',55,-84)]:
-        box('MTA_'+name+'_CP2', [x-17.5,y-11,80], [35,22,16], 'inline',
-            '0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown')
+    mta_sites=[('FL',-45,38),('RL',70,38),('FR',-45,-38),('RR',70,-38)] if MTA_REPACK else []
+    for name,x,y in mta_sites:
+        box('MTA_'+name+'_CP2', [x+11,y-17.5,42], [35,22,16], 'inline',
+            '0100335 family35x22x16 rotated90Z; BOTH exits alongY, centreZ50. '
+            'Lower pair corridors beside battery; catalogue L140 is NOT100mm per side; original mounts unqualified',
+            rotation=A.Rotation(A.Vector(0,0,1),90))
+    if not MTA_REPACK:
+        for name,x,y in [('FL',-35,84),('RL',55,84),('FR',-35,-84),('RR',55,-84)]:
+            box('MTA_'+name+'_CP2',[x-17.5,y-11,80],[35,22,16],'inline',
+                '0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown')
     # Protection is the highest central layer. Both factory exits retained;
     # no WAGO tray must be removed merely to reach an ATO or inline cover.
     # Supplier51 max length/20.25 max width; thickness22 is an explicit prototype budget.
@@ -473,6 +488,63 @@ def main():
         wago_insulation_straight_mm=(rear-f).Length,ring_wire_entry_mm=list(tips['6']),
         wago_entry_mm=list(rear),actual_cut_length_mm=None,supersedes_unqualified_legacy_blank=True)
 
+    # Eight factory ends planned TOGETHER before any mount. Inward ends use
+    # opposing offsets below populated boards; outward ends turn upward
+    # outside leg WAGO. 100mm/side remains ASSUMED, not catalogue L140.
+    mta_plan=[]
+    for leg,x,y in mta_sites:
+        side=1 if y>0 else -1
+        inward=-Y*side;outward=Y*side
+        in_id,out_id=dict(FL=('W041','W026'),FR=('W042','W037'),
+                          RL=('W044','W045'),RR=('W052','W053'))[leg]
+        source=A.Vector(x,y-side*17.5,50)
+        a=source+inward*9
+        bend,b=s_shift(a,inward,A.Vector(-20*side,0,8),R)
+        entry=b+inward*9
+        joint=in_id+'_Joint_CP2'
+        rotation=None if side==1 else A.Rotation(Z,180)
+        base=[entry.x-5.5,entry.y-19,entry.z-4.5] if side==1 else [entry.x+5.5,entry.y+19,entry.z-4.5]
+        box(joint,base,[14,19,9],'splices',
+            'Candidate221-412 source extension;14x19x9 family envelope/port provisional; '
+            'not selected purchase; source extension/quantity reconciliation OPEN',rotation=rotation)
+        assert (d.getObject(joint).Placement.multVec(A.Vector(5.5,19,4.5))-entry).Length<1e-6
+        routed_wire(in_id+'_FACTORY','F_'+leg+'.in',joint+'.1',
+            [Part.makeLine(source,a)]+bend+[Part.makeLine(b,entry)],4.2,
+            ['MTA_'+leg+'_CP2',joint],11,100,
+            'Factory MTA4mm2; OD4.2/R25.2 reserve and100mm/side PROVISIONAL. '
+            'CatalogueL140 ambiguous, NOT guaranteed length;11mm joint strip included; extension OPEN',
+            entry_strip=(entry,inward,11,math.sqrt(4/math.pi)))
+        wires[-1]['metadata'].update(bend_radius_min_mm=R,holder_straight_mm=9,
+            joint_straight_mm=9,catalogue_length_interpretation_unverified=True,
+            factory_allowance_mm=100,factory_allowance_is_assumption=True,
+            actual_cut_length_mm=None,selected=False)
+        input_blank=wires[-1]['metadata']['nominal_blank_mm']
+        source=A.Vector(x,y+side*17.5,50)
+        a=source+outward*9;arc,b=quarter(a,outward,Z,R);entry=b+Z*9
+        output_joint=out_id+'_Joint_CP2'
+        box(output_joint,[entry.x-5.5,entry.y-4.5,entry.z+19],[14,19,9],'splices',
+            'Candidate221-412 output extension; replaces old output joint at selection, '
+            'not extra purchased qty yet; DOWN entry, provisional port/grip/lever',
+            rotation=A.Rotation(X,-90))
+        assert (d.getObject(output_joint).Placement.multVec(A.Vector(5.5,19,4.5))-entry).Length<1e-6
+        routed_wire(out_id+'_FACTORY','F_'+leg+'.out',output_joint+'.1',
+            [Part.makeLine(source,a),arc,Part.makeLine(b,entry)],4.2,
+            ['MTA_'+leg+'_CP2',output_joint],11,100,
+            'Factory MTA4mm2; OD4.2/R25.2 reserve and100mm/side PROVISIONAL. '
+            'CatalogueL140 NOT two100mm leads;11mm joint strip included; output extension OPEN',
+            entry_strip=(entry,Z,11,math.sqrt(4/math.pi)))
+        wires[-1]['metadata'].update(bend_radius_min_mm=R,holder_straight_mm=9,
+            joint_straight_mm=9,catalogue_length_interpretation_unverified=True,
+            factory_allowance_mm=100,factory_allowance_is_assumption=True,
+            actual_cut_length_mm=None,selected=False)
+        mta_plan.append(dict(leg=leg,centre_mm=[x,y,50],both_exit_axes='opposite Y',
+            source_wire=in_id,output_wire=out_id,source_joint=joint,output_joint=output_joint,
+            source_factory_blank_mm=input_blank,
+            output_factory_blank_mm=wires[-1]['metadata']['nominal_blank_mm'],
+            source_extension_to=dict(FL='P_FRONT.2',FR='P_FRONT.3',RL='P_REAR.2',RR='P_REAR.3')[leg],
+            output_extension_to=leg+'_P.1',full_extensions_open=True,
+            lengths_not_guaranteed_by_L140=True,native_mounts_open=True,stock_reconciliation_open=True))
+
     s1_group=d.addObject('App::DocumentObjectGroup','S1TerminalCandidates')
     s1_parts={};s1_port={};drivers=[]
     for key,centre in s1_centres.items():
@@ -658,7 +730,7 @@ def main():
                 service_motion_supplier_verified=False,W043_nominal_route=fpi_wire,
                 nominal_source_wires=[w['metadata'] for w in wires],
                 S0_terminal_contacts=terminal_hits,terminal_contacts=terminal_hits,
-                S0_joint_plan=source_switch_plan,S1_joint_plan=s1_plan,
+                S0_joint_plan=source_switch_plan,S1_joint_plan=s1_plan,MTA_joint_plan=mta_plan,
                 wire_enclosure_test='Actual swept pipe OD+2x2.4mm cut from torso, NOT its enclosing bbox; cap axial margin not qualified',
                 wire_contacts=wire_hits,wire_termination_target_bodies_excluded={w['metadata']['id']:w['targets'] for w in wires},
                 reused_unchanged_component_names=sorted(unchanged),
@@ -717,7 +789,8 @@ def main():
                                'P0 legs/frame and battery cradle stay; new removable shell/wall apertures not fabricated yet.'],
               wire_space_plan=['Proposed signal plane Z66..76: above Pi reserve64 and below PCB78; route actual endpoints before allocating supports.',
                                'Outer WAGO wire entries DOWN atZ56; straight9mm plus R12.4 loop needs a lower turn bay, not a zero-radius vertical route.',
-                               'Four main MTA atY+/-84,Z80..96 retain BOTH factory exits; trunk radius25.2 needs explicit X/Z turns.',
+                               ('REJECTED MTA repack experiment: all eight paths/joints still collide; see mta-preflight-rejected.json.' if MTA_REPACK else
+                                'Four main MTA original reservations atY+/-84,Z80..96; full both-exit routes/stock/mounts OPEN. Two lower plans rejected, do not reuse.'),
                                'Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.',
                                'Rotated XT60/F0 in front-side source bay: W075 and W001 full nominal paths modeled with changed MAIN/front splice/G1. Mate/release/actual marked polarity and W076 switch lead still OPEN.',
                                'Central WAGO include DOWN P_FRONT108.2..130.2, +X P_REAR110..121, P_SYS UP95..117 and G1 DOWN103.5..125.5; five FHAC125..147. Ten source-wire pieces incl all four S1 wires modeled;4MTA/restraints OPEN.'],
@@ -736,7 +809,7 @@ def main():
         source_sha256=pins,
         BUS=dict(sku='Waveshare25514',actual_vendor_solids=117,vendor_compound_valid=bus_reference_valid,
                  contact_test='Conservative full bounds; vendor compound not repaired or used for exact qualification',
-                 usb_mouth_mm=[103.81628928,11.1220508043,45.7695251897],usb_direction=[1,0,0],
+                 usb_mouth_mm=[143.81628928 if MTA_REPACK else 103.81628928,11.1220508043,45.7695251897],usb_direction=[1,0,0],
                  usb_plug_and_service_open=True, mount_pitch_mm=[37,28],fourth_hole_x_deviation_mm=0.012,
                  supplier='https://www.waveshare.com/bus-servo-adapter-a.htm'),
         U1=dict(sku='575070',owner='PWM1608_CP2',footprint_mm=[30.48,17.78],
@@ -772,6 +845,15 @@ def main():
     interface=json.loads((OUT/'interfaces.json').read_text(encoding='utf-8'))
     interface['S0_joint_plan']=source_switch_plan
     interface['S1_joint_plan']=s1_plan
+    interface['MTA_joint_plan']=dict(holders=mta_plan,selected=False,physical_pass=False,
+        complete_factory_source_output_pairs=False,full_extensions_complete=False,
+        status='REJECTED_EXPERIMENT_NOT_CURRENT_NATIVE',rejected_report='mta-preflight-rejected.json',
+        catalogue='MTA page75 MINI0100335 4mm2 L140, length interpretation unresolved',
+        factory_OD_radius_length_and_exit_datums_supplier_verified=False,
+        factory_pair_needs_not_qualified_by_ambiguous_L140=True,
+        joint_roles_and_old_six_splice_identity_reconciliation_open=True,
+        joint_candidates=8,new_purchase_quantity_not_selected=True,
+        native_mounts_and_restraints_open=True,W1_complete=False,W5_complete=False)
     interface['F0']['output_to_S0_open']=True
     interface['F0']['output_nominal_candidate_routed']=True
     interface['post_F0_splice']=json.loads((OUT/'post-f0-splice-source.json').read_text(encoding='utf-8'))
@@ -846,12 +928,12 @@ def verify_changed_native():
     import FreeCAD as A
     started=time.monotonic();d=A.openDocument(str(OUT/'WholeCatInterior.FCStd'))
     wires=d.getObject('HarnessCandidate').Group
-    assert len(wires)==18 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
+    assert len(wires)==(34 if MTA_REPACK else 18) and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in wires)
     terminals=d.getObject('S0TerminalCandidates').Group
     assert len(terminals)==8 and all(o.Shape.isValid() for o in terminals)
     s1=d.getObject('S1TerminalCandidates').Group
     assert len(s1)==16 and all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in s1)
-    g=d.getObject('P_REAR_CP2');h=g.Width.Value;width=g.Shape.BoundBox.XLength
+    g=d.getObject('MTA_RL_CP2' if MTA_REPACK else 'P_REAR_CP2');h=g.Width.Value;width=g.Shape.BoundBox.XLength
     g.Width=h+1;d.recompute();assert abs(g.Shape.BoundBox.XLength-width-1)<1e-6
     g.Width=h;d.recompute();assert abs(g.Shape.BoundBox.XLength-width)<1e-6
     checks=json.loads((OUT/'checks.json').read_text(encoding='utf-8'))
@@ -862,9 +944,9 @@ def verify_changed_native():
     torso=d.getObject('TorsoEnvelope').Shape
     assert all(o.Shape.cut(torso).Volume<1e-5 for o in terminals+s1)
     A.closeDocument(d.Name)
-    checks['changed_source_native_check']=dict(wires_and_strips=18,S0_terminal_parts=8,S1_terminal_and_tool_parts=16,valid_single_wire_solids=True,
+    checks['changed_source_native_check']=dict(wires_and_strips=len(wires),S0_terminal_parts=8,S1_terminal_and_tool_parts=16,valid_single_wire_solids=True,
         cable_volume_matches_paths=True,terminals_inside_torso_without_extra_margin=True,
-        parameter='P_REAR Width+1 -> world X+1; restored without saving; wire snapshots do NOT auto-update',
+        parameter=g.Name+' Width+1 -> world X+1; restored without saving; wire snapshots do NOT auto-update',
         wall_seconds=round(time.monotonic()-started,3))
     save('checks.json',checks);print('Changed saved source wires/terminals:',checks['changed_source_native_check'],flush=True)
 
