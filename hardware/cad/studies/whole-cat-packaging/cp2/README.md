@@ -1,5 +1,15 @@
 # CP2: wspólne rozmieszczenie wnętrza
 
+## Bieżący ręczny detal szyi,06.10 wieczorem
+
+Hook wyłączony, bez harmonogramu. `neck-support/coupled/NeckRisers.FCStd`
+zawiera2natywne parametryczne podpory na zachowanych osiachP0 oraz referencję
+MAIN przesuniętą+34X. `neck-support/README.md` opisuje dowody i otwarte bramki.
+To niewybrany detal, nie ukończoneM2 ani wiązka. Dane wcześniejszego
+BoardDatumCandidate pozostają bazą, nie zawierają tej zmiany MAIN.
+R53/70% poniżej to historia starego zestawu. Nowe złożenie:3/20 potwierdzone
+minimum,11wyników do ponownej kwalifikacji; nie pełna estymata postępu.
+
 ## Bieżący kandydat wejść i punktów połączeń, 06.10.2026
 
 `BoardDatumCandidate.FCStd` i `whole-harness-board-plan.json` są bieżącą
@@ -32,7 +42,7 @@ wyszukiwaniu za niemożliwość fizyczną. R53/14z20=70% bez zmian.
 
 Niewybrana propozycja w zaakceptowanym obrysie CP1, tułów325×200×160mm.
 Nie jest zestawem części do druku ani zamknięciem W1/W5. R53 i14/20=70%
-pozostają bez zmiany; hook aktywny do06.10.2026 09:00Warszawy, bez harmonogramu.
+pozostają historycznym stanem starego zestawu; poprzednie okno hooka zakończone.
 
 `WholeCatInterior.FCStd` zawiera zachowane rzeczywiste referencje P0,
 przesuniętą głowę/ogon CP1 oraz63 edytowalne rezerwacje modułów i17 dostępu.

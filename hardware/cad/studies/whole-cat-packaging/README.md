@@ -1,7 +1,9 @@
 # Cały kot: checkpoint 1, propozycja układu
 
 06.10.2026. Model do oceny proporcji i przestrzeni, **nie zestaw do druku**.
-Wybrany pakiet nadal R53; faza 1 nadal 14/20 = 70%. Ten checkpoint nie zamyka
+Wybrany pakiet nadal R53; jego historyczny licznik to14/20=70%, NIE postęp
+nowego złożenia. Bieżące kwalifikacje: hardware/HOBBY_COMPLETION_PLAN.md.
+Ten checkpoint nie zamyka
 W1/W5 ani nie zatwierdza montażu, zakresu ruchu czy pasowań fizycznych.
 
 ## Co otworzyć

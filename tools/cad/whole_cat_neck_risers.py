@@ -8,11 +8,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 import hashlib
 import json
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT/'hardware/cad/studies/whole-cat-packaging/cp2'
 OUT = BASE/'neck-support'
+COUPLED = '--move-main-with-neck' in sys.argv
+if COUPLED:
+    OUT = OUT/'coupled'
 SOURCE = BASE/'BoardDatumCandidate.FCStd'
 
 
@@ -32,7 +36,8 @@ def main():
     assert not OUT.exists(), 'Preserve result; do not repeat an unchanged candidate'
     source_files = [SOURCE, Path(__file__), BASE.parent/'layout.json',
         ROOT/'hardware/manufacturing/one-batch-prototype-r53/fixed-fastener-cart.json',
-        ROOT/'hardware/cad/studies/head-p7/base-r1/checks.json']
+        ROOT/'hardware/cad/studies/head-p7/base-r1/checks.json',
+        BASE/'whole-harness-board-plan.json']
     pins = {p.relative_to(ROOT).as_posix(): digest(p) for p in source_files}
     layout = json.loads(source_files[2].read_text(encoding='utf-8'))
     assert layout['params_mm']['HeadForward'] == 42 and layout['params_mm']['HeadRaise'] == 25
@@ -41,6 +46,21 @@ def main():
     src = A.openDocument(str(SOURCE))
     doc = A.newDocument('WholeCatNeckRisers')
     try:
+        moved_ends=[]
+        if COUPLED:
+            # Keep load-bearing P0 axes: the conflicting logic board, not the frame,
+            # moves into the gap before Pi. All four electrical datums move with it.
+            src.getObject('MAIN4853_CP2').Placement.Base.x += 34
+            graph=json.loads(source_files[5].read_text(encoding='utf-8'))
+            for wire in graph['body_conductors']:
+                for end in wire['ends']:
+                    if end.get('native')=='MAIN4853_CP2':
+                        point=end['point_mm']
+                        moved_ends.append(dict(id=wire['id'],role=end['role'],
+                            old_point_mm=point,new_point_mm=[point[0]+34,*point[1:]],
+                            departure=end['departure'],route_mount_restraint_status='INVALIDATED'))
+            assert {r['id'] for r in moved_ends}=={'W060','W078','W079','W080'}
+            src.recompute()
         params = doc.addObject('App::VarSet','Parameters')
         for name, value in [('HeadForward',42),('HeadRaise',25),('FootThickness',4)]:
             params.addProperty('App::PropertyLength',name); setattr(params,name,value)
@@ -119,6 +139,17 @@ def main():
                     if common.Volume>1e-5:
                         contacts.append(dict(part=body.Name,neighbor=ob.Name,volume_mm3=common.Volume))
                 except Exception as err: errors.append(dict(part=body.Name,neighbor=ob.Name,error=str(err)))
+        if COUPLED:
+            main=src.getObject('MAIN4853_CP2')
+            for ob in material:
+                if ob==main or not main.Shape.BoundBox.intersect(ob.Shape.BoundBox):continue
+                tested+=1
+                try:
+                    assert ob.Shape.isValid(),'Invalid neighbor BRep'
+                    common=main.Shape.common(ob.Shape);assert common.isValid()
+                    if common.Volume>1e-5:
+                        contacts.append(dict(part=main.Name,neighbor=ob.Name,volume_mm3=common.Volume))
+                except Exception as err:errors.append(dict(part=main.Name,neighbor=ob.Name,error=str(err)))
         # Verify nominal washer support and all eight shank/nut spaces on the new material.
         washer_bearing=[]; hardware=[]
         for body,y in zip(bodies,[22.5,-22.5]):
@@ -143,15 +174,18 @@ def main():
                     hardware.append(dict(role=role,axis_mm=[px,y],tip_z_mm=tip,
                         screw='M2x10 retained' if role=='lower' else 'M2x12 candidate'))
                     washer_bearing.append(dict(role=role,axis_mm=[px,y],fraction=fraction))
-        OUT.mkdir()
+        OUT.mkdir(parents=True)
         report=dict(status='LOCAL_NECK_RISERS_CLEAR' if not(contacts or errors)
                            else 'LOCAL_NECK_RISERS_REJECTED',
             selected=False,physical_pass=False,M2_complete=False,source_sha256=pins,
             parts=baseline,contacts=contacts,errors=errors,exact_pairs_tested=tested,
+            MAIN_translation_mm=[34,0,0] if COUPLED else [0,0,0],
+            affected_MAIN_ends=moved_ends,complete_MAIN_routes=False,
             parameter_roundtrip_mm=[42,43,42],hardware=hardware,washer_bearing=washer_bearing,
             lower_anchor_plane_mm=38.52,upper_foundation_plane_mm=67.52,
             installed_candidate_changes={'PETG_risers':2,'additional_M2x12':4,'additional_M2_nuts':4,
-                'additional_OD5_washers':8,'lower_M2x10':4,'removed_old_front_cassette_feet':2},
+                'additional_OD5_washers':8,'lower_M2x10_replaces_M2x14':4,
+                'removed_old_front_cassette_feet':2},
             stock_not_selected=True,
             assembly=['Bare P0 frame: lower bolts from below, washers/nuts through side pockets',
                 'Upper nuts/washers through side pockets, then shifted foundation and M2x12 from above',
@@ -163,7 +197,7 @@ def main():
             worker_wall_seconds=round(time.monotonic()-tick,3))
         if not(contacts or errors):
             group=doc.addObject('App::DocumentObjectGroup','RetainedReferences')
-            for name in ('P0_FrameFront20','Head_Foundation'):
+            for name in ('P0_FrameFront20','Head_Foundation','MAIN4853_CP2'):
                 ref=doc.addObject('Part::Feature',name);ref.Shape=src.getObject(name).Shape.copy();group.addObject(ref)
                 if ref.ViewObject: ref.ViewObject.ShapeColor=(.35,.55,.70)
             doc.saveAs(str(OUT/'NeckRisers.FCStd'))
@@ -183,7 +217,10 @@ def main():
             report['meshes']=meshes
             A.closeDocument(doc.Name);doc=A.openDocument(str(OUT/'NeckRisers.FCStd'))
             bodies=[doc.getObject(n) for n in ('LeftRiser','RightRiser')];params=doc.Parameters
-            assert validate()==baseline
+            fresh=validate()
+            assert all(abs(a['volume_mm3']-b['volume_mm3'])<1e-6
+                and max(abs(x-y) for x,y in zip(a['bounds_mm'],b['bounds_mm']))<1e-7
+                for a,b in zip(fresh,baseline))
             report['saved_reopen_verified']=True
         assert all(digest(ROOT/p)==h for p,h in pins.items())
         (OUT/'checks.json').write_text(json.dumps(report,ensure_ascii=False,separators=(',',':'))+'\n',
