@@ -407,3 +407,32 @@ W043 i źródła/S0 z bankami; nie następny lokalny offset F_PI. Odizolować
 strefę głowy/ogona od korytarza końców banku przed CAD mocowań.
 Każdy docelowy druk mieści256³ z zapasem; tułów325mm będzie segmentowany,
 nie jednym wydrukiem. Wybrany bankR47 nie został zmieniony przez kandydaty.
+
+## Wspólna alokacja i zależności końców, 06.10 wieczorem
+
+`joint-service-layout.json` zachowuje krótki W043 i przenosi F_AUX/P_REAR/XA01
+razem (XA01 nadal29mm). Jedna kontrola wszystkich oprawek, banków i obu stron
+4MTA:155par/36zgłoszeń/2wyjścia poza obrys/0błędów Boolean,29,156s.
+Układ ODRZUCONY; `JointServiceLayoutCandidate.FCStd` nie powstał.
+BoardDatum i R53 nie zmieniły się. Nie ponawiać tej recepty ani budować mocowań.
+
+`joint-service-preflight.json` uzgadnia receptę z mapą80żył, bez kolejnego CAD:
+przeniesienia unieważniają końce59żył i8starych złączy MTA. Położenia oraz
+kierunki wyjść propagowane razem, w jednej ramie świata; pełne trasy/mocowania
+NIE są przez to naprawione. Spośród36zgłoszeń:4 dotyczą starych złączy,
+1 to zamierzone wsunięcie XA01 do P_REAR,31 to nadal nierozwiązane przecięcia
+rezerwacji. To nie31 potwierdzonych kolizji rzeczywistych części producenta.
+F_TY i jego wyjście nadal wystają poza obrys; układ nie staje się poprawny
+po odfiltrowaniu błędnych zgłoszeń.6testów recepty/mapy PASS, nie test montażu.
+
+Wejścia MTA W041/W042/W044/W052 mają najpierw łączyć się z P_FRONT/P_REAR;
+4dodatkowych złączy źródłowych nie wolno zakładać bez potrzeby rzeczywistego
+przedłużenia i danych długości fabrycznej. Cztery złącza wyjściowe zastępują
+istniejące role R53, nie są dodatkowymi kopiami. XB11 pozostaje połączeniem
+P_AUX.2→F_HY.in; Pi ma połączenie lutowane W077/W078, nie XB11.
+
+NEXT: przed następnym CAD uzgodnić pełne komórki oprawka + oba końce + realne
+złącza, wspólnie ze źródłem/logiką. Przenieść wszystkie związane datums lub
+jawnie unieważnić ich trasy, nie mieszać starych końców z nową bryłą.
+Pozostałe brakujące końce, fabryczne długości, serwis, odciążenia, stock,
+segmentowany eksport i W1/W5 nadal OPEN. R53/14z20=70%; hook wyłączony.
