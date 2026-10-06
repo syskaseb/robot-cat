@@ -1,0 +1,708 @@
+{
+  "status": "SHARED_DIAGONAL_PLAN_REQUIRES_CHANGE",
+  "builder_sha256": "e9a95a93e759953be13762fe3928ba592260a963e5fd8441ee5a87353caa2aef",
+  "builder_binding_note": "After the second check only the unchanged-recipe guard was added; geometry recipe unchanged; no CAD rerun",
+  "selected": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/WholeCatInterior.FCStd": "ad08e22a4cd9c9908f43be363bc03ef1b7301cc4607ff991d5cb356b526b93e5",
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+    "hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r13/stock.json": "844cf4dbda5930ff9aee52e8ccb453e8db61eb742200e05f6049372c06546a51",
+    "hardware/manufacturing/one-batch-prototype-r53/nonfastener-catalog.json": "d11e50c191ebcb67b7f952c0e4ba6521f6b57a52c3a5c1135ac667d135d6f3fe",
+    "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6"
+  },
+  "retained_source_wire_pieces": 10,
+  "changed_components": [
+    "D_FL_CP2",
+    "D_FR_CP2",
+    "FL_G_CP2",
+    "FL_P_CP2",
+    "FR_G_CP2",
+    "FR_P_CP2",
+    "MTA_FL_CP2",
+    "MTA_FL_SOURCE_joint",
+    "MTA_FR_CP2",
+    "MTA_FR_SOURCE_joint",
+    "MTA_RL_CP2",
+    "MTA_RL_SOURCE_joint",
+    "MTA_RR_CP2",
+    "MTA_RR_SOURCE_joint",
+    "RL_G_CP2",
+    "RL_P_CP2",
+    "RR_G_CP2",
+    "RR_P_CP2",
+    "Splice_L2_CP2",
+    "Splice_L3_CP2",
+    "Splice_R1_CP2",
+    "Splice_R2_CP2",
+    "W025_FACTORY_candidate",
+    "W025_strip_candidate",
+    "W026_FACTORY_candidate",
+    "W026_strip_candidate",
+    "W036_FACTORY_candidate",
+    "W036_strip_candidate",
+    "W037_FACTORY_candidate",
+    "W037_strip_candidate",
+    "W044_FACTORY_candidate",
+    "W044_strip_candidate",
+    "W045_FACTORY_candidate",
+    "W045_strip_candidate",
+    "W052_FACTORY_candidate",
+    "W052_strip_candidate",
+    "W053_FACTORY_candidate",
+    "W053_strip_candidate"
+  ],
+  "routes": [
+    {
+      "id": "W025",
+      "leg": "FL",
+      "kind": "source",
+      "start_mm": [
+        -47.37436867076458,
+        82.0,
+        68.62563132923542
+      ],
+      "entry_mm": [
+        -88.6574205873445,
+        57.81694808342008,
+        61.54257941265549
+      ],
+      "centreline_mm": 57.584067435231375,
+      "nominal_factory_requirement_mm": 68.58406743523138,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W026",
+      "leg": "FL",
+      "kind": "output",
+      "start_mm": [
+        -22.625631329235418,
+        82.0,
+        93.37436867076458
+      ],
+      "entry_mm": [
+        25.74047250392443,
+        82.0,
+        93.37436867076458
+      ],
+      "centreline_mm": 57.584067435231375,
+      "nominal_factory_requirement_mm": 68.58406743523138,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W044",
+      "leg": "RL",
+      "kind": "source",
+      "start_mm": [
+        52.62563132923542,
+        82.0,
+        93.37436867076458
+      ],
+      "entry_mm": [
+        4.259527496075572,
+        82.0,
+        93.37436867076458
+      ],
+      "centreline_mm": 57.58406743523139,
+      "nominal_factory_requirement_mm": 68.58406743523139,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W045",
+      "leg": "RL",
+      "kind": "output",
+      "start_mm": [
+        77.37436867076458,
+        82.0,
+        68.62563132923542
+      ],
+      "entry_mm": [
+        101.5574205873445,
+        47.8,
+        44.44257941265549
+      ],
+      "centreline_mm": 57.58406743523139,
+      "nominal_factory_requirement_mm": 68.58406743523139,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W036",
+      "leg": "FR",
+      "kind": "source",
+      "start_mm": [
+        -47.37436867076458,
+        -82.0,
+        68.62563132923542
+      ],
+      "entry_mm": [
+        -88.6574205873445,
+        -57.81694808342008,
+        61.54257941265549
+      ],
+      "centreline_mm": 57.584067435231375,
+      "nominal_factory_requirement_mm": 68.58406743523138,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W037",
+      "leg": "FR",
+      "kind": "output",
+      "start_mm": [
+        -22.625631329235418,
+        -82.0,
+        93.37436867076458
+      ],
+      "entry_mm": [
+        25.74047250392443,
+        -82.0,
+        93.37436867076458
+      ],
+      "centreline_mm": 57.584067435231375,
+      "nominal_factory_requirement_mm": 68.58406743523138,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W052",
+      "leg": "RR",
+      "kind": "source",
+      "start_mm": [
+        52.62563132923542,
+        -82.0,
+        93.37436867076458
+      ],
+      "entry_mm": [
+        4.259527496075572,
+        -82.0,
+        93.37436867076458
+      ],
+      "centreline_mm": 57.58406743523139,
+      "nominal_factory_requirement_mm": 68.58406743523139,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    },
+    {
+      "id": "W053",
+      "leg": "RR",
+      "kind": "output",
+      "start_mm": [
+        77.37436867076458,
+        -82.0,
+        68.62563132923542
+      ],
+      "entry_mm": [
+        101.5574205873445,
+        -47.8,
+        44.44257941265549
+      ],
+      "centreline_mm": 57.58406743523139,
+      "nominal_factory_requirement_mm": 68.58406743523139,
+      "first_and_last_straight_mm": 9,
+      "bend_radius_mm": 25.2,
+      "OD_mm": 4.2,
+      "factory_DATUM_OD_radius_length_supplier_verified": false
+    }
+  ],
+  "joints": [
+    {
+      "name": "MTA_FL_SOURCE_joint",
+      "leg": "FL",
+      "kind": "source",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        -88.6574205873445,
+        57.81694808342008,
+        61.54257941265549
+      ],
+      "extension_entry_mm": [
+        -93.4303913603537,
+        57.81694808342008,
+        56.76960863964629
+      ],
+      "extension_exit_direction": [
+        0.5,
+        0.7071067811865475,
+        -0.5
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "Splice_L2_CP2",
+      "leg": "FL",
+      "kind": "output",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        25.74047250392443,
+        82.0,
+        93.37436867076458
+      ],
+      "extension_entry_mm": [
+        20.967501730915235,
+        82.0,
+        88.60139789775539
+      ],
+      "extension_exit_direction": [
+        -0.7071067811865475,
+        -0.0,
+        0.7071067811865475
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "MTA_RL_SOURCE_joint",
+      "leg": "RL",
+      "kind": "source",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        4.259527496075572,
+        82.0,
+        93.37436867076458
+      ],
+      "extension_entry_mm": [
+        9.032498269084769,
+        82.0,
+        88.60139789775539
+      ],
+      "extension_exit_direction": [
+        0.7071067811865475,
+        -0.0,
+        0.7071067811865475
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "Splice_L3_CP2",
+      "leg": "RL",
+      "kind": "output",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        101.5574205873445,
+        47.8,
+        44.44257941265549
+      ],
+      "extension_entry_mm": [
+        94.8074205873445,
+        47.8,
+        44.44257941265549
+      ],
+      "extension_exit_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "MTA_FR_SOURCE_joint",
+      "leg": "FR",
+      "kind": "source",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        -88.6574205873445,
+        -57.81694808342008,
+        61.54257941265549
+      ],
+      "extension_entry_mm": [
+        -93.4303913603537,
+        -57.81694808342008,
+        56.76960863964629
+      ],
+      "extension_exit_direction": [
+        0.5,
+        -0.7071067811865475,
+        -0.5
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "Splice_R1_CP2",
+      "leg": "FR",
+      "kind": "output",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        25.74047250392443,
+        -82.0,
+        93.37436867076458
+      ],
+      "extension_entry_mm": [
+        20.967501730915235,
+        -82.0,
+        88.60139789775539
+      ],
+      "extension_exit_direction": [
+        -0.7071067811865475,
+        -0.0,
+        0.7071067811865475
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "MTA_RR_SOURCE_joint",
+      "leg": "RR",
+      "kind": "source",
+      "factory_port": 2,
+      "factory_entry_mm": [
+        4.259527496075572,
+        -82.0,
+        93.37436867076458
+      ],
+      "extension_entry_mm": [
+        9.032498269084769,
+        -82.0,
+        88.60139789775539
+      ],
+      "extension_exit_direction": [
+        0.7071067811865475,
+        -0.0,
+        0.7071067811865475
+      ],
+      "extension_full_route_open": true
+    },
+    {
+      "name": "Splice_R2_CP2",
+      "leg": "RR",
+      "kind": "output",
+      "factory_port": 1,
+      "factory_entry_mm": [
+        101.5574205873445,
+        -47.8,
+        44.44257941265549
+      ],
+      "extension_entry_mm": [
+        108.3074205873445,
+        -47.8,
+        44.44257941265549
+      ],
+      "extension_exit_direction": [
+        -0.0,
+        -1.0,
+        -0.0
+      ],
+      "extension_full_route_open": true
+    }
+  ],
+  "contacts": [
+    {
+      "pair": [
+        "W036_FACTORY_candidate",
+        "XT60_CP2"
+      ],
+      "volume_mm3": 100.75664672859374
+    },
+    {
+      "pair": [
+        "MTA_FR_SOURCE_joint",
+        "XT60_CP2"
+      ],
+      "volume_mm3": 268.17585555816925
+    },
+    {
+      "pair": [
+        "W036_strip_candidate",
+        "XT60_CP2"
+      ],
+      "volume_mm3": 2.353074047894655
+    },
+    {
+      "pair": [
+        "Splice_R2_CP2",
+        "P0_MountRearR"
+      ],
+      "volume_mm3": 51.23995480879946
+    },
+    {
+      "pair": [
+        "W026_FACTORY_candidate",
+        "W044_FACTORY_candidate"
+      ],
+      "volume_mm3": 54.79334876093101
+    },
+    {
+      "pair": [
+        "W037_FACTORY_candidate",
+        "W052_FACTORY_candidate"
+      ],
+      "volume_mm3": 54.79346496138108
+    }
+  ],
+  "outside": [
+    {
+      "name": "MTA_FL_SOURCE_joint",
+      "outside_mm3": 0.6429773545065095
+    },
+    {
+      "name": "MTA_FR_SOURCE_joint",
+      "outside_mm3": 0.6429773551222512
+    }
+  ],
+  "errors": [],
+  "exact_BRep_pairs_tested": 58,
+  "ATO_service_reservations_included": true,
+  "inventory": {
+    "status": "R53_INSTALLED_ROLES_RECONCILED_CP2_NOT_SELECTED",
+    "selected": false,
+    "physical_pass": false,
+    "R53_quantity": 6,
+    "R53_installed": 5,
+    "R53_spare": 1,
+    "spare_location": "OFF_ROBOT; no native space reservation",
+    "removed_unbound_slot": "Splice_R3_CP2",
+    "baseline": [
+      {
+        "native_slot": "Splice_L1_CP2",
+        "electrical_role": "XB11",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W077",
+            "a": "F_PI.out",
+            "b": "SPLICE_PI.16"
+          },
+          {
+            "id": "W078",
+            "a": "SPLICE_PI.18",
+            "b": "MAIN.VIN"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_L2_CP2",
+        "electrical_role": "W026_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W026",
+            "a": "FL_P.1",
+            "b": "F_FL.out"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_L3_CP2",
+        "electrical_role": "W045_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W045",
+            "a": "F_RL.out",
+            "b": "RL_P.1"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_R1_CP2",
+        "electrical_role": "W037_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W037",
+            "a": "FR_P.1",
+            "b": "F_FR.out"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      },
+      {
+        "native_slot": "Splice_R2_CP2",
+        "electrical_role": "W053_output",
+        "sku": "221-412",
+        "wires": [
+          {
+            "id": "W053",
+            "a": "F_RR.out",
+            "b": "RR_P.1"
+          }
+        ],
+        "allocation_basis": "NEW CP2 identity allocation, old six boxes had NO circuit identity",
+        "old_mount_or_complete_wiring_qualified": false
+      }
+    ],
+    "catalogue_dimensions_mm": [
+      13,
+      18.3,
+      8.15
+    ],
+    "planning_reservation_mm": [
+      14,
+      19,
+      9
+    ],
+    "ports_and_levers_supplier_verified": false,
+    "extra_post_F0_candidate": 1,
+    "normal_CP2_installed_candidates": 6,
+    "normal_CP2_quantity_candidate_including_spare": 7,
+    "with_four_MTA_source_extensions_installed_candidate": 10,
+    "with_four_MTA_source_extensions_quantity_candidate_including_spare": 11,
+    "four_MTA_output_joints_are_replacements_not_additional": true,
+    "extra_source_joints_not_selected_purchase": true,
+    "full_stock_selection_open": true,
+    "source_sha256": {
+      "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1",
+      "hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r13/stock.json": "844cf4dbda5930ff9aee52e8ccb453e8db61eb742200e05f6049372c06546a51",
+      "hardware/manufacturing/one-batch-prototype-r53/nonfastener-catalog.json": "d11e50c191ebcb67b7f952c0e4ba6521f6b57a52c3a5c1135ac667d135d6f3fe",
+      "hardware/electronics/full-cat/source-switch-selected-r1/body-harness.json": "b79a888ee8d7861670b1fcfd549c0675288cc15bc6017ae96d21a26f4e3052c6"
+    },
+    "W1_complete": false,
+    "W5_complete": false,
+    "K3_complete": false
+  },
+  "side_WAGO_entry_faces_changed_to_Z51": true,
+  "full_leg_routes_and_native_mounts_open": true,
+  "axes": "Front+X/+Z45, rear+X/-Z45; both exits retained. Front source bends forward/inward; rear output bends inward below bank. Upper exits fold longitudinally outside ATO banks.",
+  "chosen_full_extension_routes": false,
+  "full_assembly_and_stock_complete": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "started_utc": "2026-10-06T03:59:13.516266+00:00",
+  "finished_utc": "2026-10-06T03:59:40.001431+00:00",
+  "worker_wall_seconds": 26.484,
+  "current_CP2_native_replaced": false,
+  "prior_rejected_plan": {
+    "axes": "Four diagonal +X/+Z45deg, both exits retained; source turns inward below bank, output folds longitudinally outside ATO bank",
+    "contacts": [
+      {
+        "pair": [
+          "FR_P_CP2",
+          "F0_CP2"
+        ],
+        "volume_mm3": 1156.4999999999993
+      },
+      {
+        "pair": [
+          "FR_G_CP2",
+          "F0_CP2"
+        ],
+        "volume_mm3": 1798.9999999999989
+      },
+      {
+        "pair": [
+          "MTA_FL_SOURCE_joint",
+          "P0_MountFrontL"
+        ],
+        "volume_mm3": 224.05502181049198
+      },
+      {
+        "pair": [
+          "Splice_L3_CP2",
+          "S1_control_CP2"
+        ],
+        "volume_mm3": 1022.0505470093749
+      },
+      {
+        "pair": [
+          "W045_strip_candidate",
+          "S1_control_CP2"
+        ],
+        "volume_mm3": 24.816965243802084
+      },
+      {
+        "pair": [
+          "W036_FACTORY_candidate",
+          "XT60_CP2"
+        ],
+        "volume_mm3": 1.3023225274470234
+      },
+      {
+        "pair": [
+          "MTA_FR_SOURCE_joint",
+          "P0_MountFrontR"
+        ],
+        "volume_mm3": 224.08107817893736
+      },
+      {
+        "pair": [
+          "FL_P_CP2",
+          "MTA_FL_CP2"
+        ],
+        "volume_mm3": 24.719047877173423
+      },
+      {
+        "pair": [
+          "D_FL_CP2",
+          "MTA_RL_CP2"
+        ],
+        "volume_mm3": 5.637626584708373
+      },
+      {
+        "pair": [
+          "RL_P_CP2",
+          "MTA_RL_CP2"
+        ],
+        "volume_mm3": 4.6520202535533475
+      },
+      {
+        "pair": [
+          "FR_P_CP2",
+          "MTA_FR_CP2"
+        ],
+        "volume_mm3": 24.719047877173463
+      },
+      {
+        "pair": [
+          "D_FR_CP2",
+          "MTA_RR_CP2"
+        ],
+        "volume_mm3": 5.637626584708378
+      },
+      {
+        "pair": [
+          "RR_P_CP2",
+          "MTA_RR_CP2"
+        ],
+        "volume_mm3": 4.652020253553351
+      },
+      {
+        "pair": [
+          "Splice_L2_CP2",
+          "MTA_RL_CP2"
+        ],
+        "volume_mm3": 187.4741828454936
+      },
+      {
+        "pair": [
+          "Splice_R1_CP2",
+          "MTA_RR_CP2"
+        ],
+        "volume_mm3": 187.4741828454936
+      }
+    ],
+    "outside": [
+      {
+        "name": "Splice_L3_CP2",
+        "outside_mm3": 0.024326967153502497
+      },
+      {
+        "name": "Splice_R2_CP2",
+        "outside_mm3": 0.024326967153467435
+      }
+    ],
+    "errors": [],
+    "worker_wall_seconds": 26.016
+  }
+}

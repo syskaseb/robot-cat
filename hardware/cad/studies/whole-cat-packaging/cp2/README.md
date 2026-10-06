@@ -268,3 +268,24 @@ Kontrola zmiany: pięć nowych brył mieści się w poprzednich bryłach, pozost
 geometria natywna i18 brył przewodów/odizolowań pozostaje identyczna.
 Test zmiennej długości14→15→14 i ponowne otwarcie dotyczą zmienionych złączy.
 Nie powtarzano niezmienionych kontroli tras. W1/W5/stock/mocowania nadal OPEN.
+
+## Wspólny plan ośmiu końców MTA: odrzucony
+
+`mta-shared-plan.json` obejmuje cztery skośne oprawki i oba końce każdej,
+osiem przypisanych złączy, zmienione odbiorniki nóg oraz wszystkie zachowane
+bryły źródła/narzędzi/dostępu. Nie używa ponownie sześciu anonimowych splices.
+Pierwszy plan:15 kontaktów/2 wyjścia poza obrys,26,016s obliczeń. Drugi
+zmienia wspólnie kierunki tylnych oprawek, przednich źródeł i parę FR_P/G:
+6 kontaktów/2 wyjścia poza obrys,26,484s; błędów Boolean0 w obu kontrolach.
+Pozostałe przyczyny: FR source z XT60, RR output z P0_MountRearR,
+przecinające się pary fabrycznych przewodów FL/RL oraz FR/RR,
+rezerwacje przednich złączy poza obrysem z zapasem2,4mm. Nie akceptowano
+układu ani nie zapisano go zamiast dobrego `WholeCatInterior.FCStd`.
+
+Nie uruchamiać kolejnego niezmienionego planu ani drobnych przesunięć.
+Następny wspólny plan musi przydzielić rozdzielone korytarze obu oprawek
+i rozwiązać front z XT60/F0 jako całą strefę źródła. Jeśli ją przenosi,
+unieważnia jawnie odpowiednie dotychczasowe trasy; droga przed F0 nadal≤50mm.
+Pełne przedłużenia, fizyczne wyjścia/L140, mocowania, odciążenia, montaż
+i stock pozostają OPEN. Nawet brak kontaktów samych ośmiu fabrycznych końców
+nie zamknąłby W1/W5. Skrypt blokuje ponowienie niezmienionej odrzuconej recepty.

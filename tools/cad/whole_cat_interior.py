@@ -918,6 +918,151 @@ def main():
     print('Saved native candidate/reopen; worker',plan['worker_wall_seconds'],'seconds',flush=True)
 
 
+def mta_shared_plan():
+    """One diagonal four-holder/eight-factory-end plan; selected CP2 preserved."""
+    import FreeCAD as A
+    import Part
+    started=datetime.now(timezone.utc);tick=time.monotonic()
+    native=OUT/'WholeCatInterior.FCStd';pins={native.relative_to(ROOT).as_posix():digest(native)}
+    old_report=json.loads((OUT/'mta-shared-plan.json').read_text(encoding='utf-8')) if (OUT/'mta-shared-plan.json').exists() else None
+    if old_report and old_report.get('builder_sha256')==digest(Path(__file__)) and old_report['status']=='SHARED_DIAGONAL_PLAN_REQUIRES_CHANGE':
+        raise RuntimeError('Unchanged rejected shared plan: change joint source-bay/lane architecture before another CAD run')
+    inventory=splice_inventory();pins.update(inventory['source_sha256'])
+    d=A.openDocument(str(native));d.recompute();torso=d.getObject('TorsoEnvelope').Shape
+    group=d.addObject('App::DocumentObjectGroup','MTAFactoryCandidate')
+    X,Y,Z=A.Vector(1,0,0),A.Vector(0,1,0),A.Vector(0,0,1)
+    axis=A.Vector(1,0,1)/math.sqrt(2);R=25.2
+    changed={};bounds={};excluded={};routes=[];joints=[]
+    def add_box(name,base,size,rotation,role):
+        ob=d.getObject(name) or d.addObject('Part::Box',name)
+        ob.Length,ob.Width,ob.Height=size;ob.Placement=A.Placement(base,rotation)
+        ob.Label=role+' candidate';group.addObject(ob);d.recompute()
+        changed[name]=ob.Shape.copy()
+        local=Part.makeBox(*(v+4.8 for v in size),A.Vector(-2.4,-2.4,-2.4))
+        local.Placement=ob.Placement;bounds[name]=local
+        return ob
+    # Move all ten outer WAGO together, not isolated receivers. Their complete
+    # leg routes/mounts become OPEN; existing ten source wire pieces stay.
+    for row in json.loads((OUT/'layout.json').read_text(encoding='utf-8'))['components']:
+        if row['name'].split('_CP2')[0] not in ['FL_P','FL_G','D_FL','RL_P','RL_G','FR_P','FR_G','D_FR','RR_P','RR_G']:continue
+        ob=d.getObject(row['name']);s=1 if ob.Placement.Base.y>0 else -1
+        base=ob.Placement.Base;base.y=s*66-4.5;base.z=70
+        # Two front negative receivers belong beside the source core, not
+        # inside its F0 housing. Allocate the pair together, mounts still OPEN.
+        if ob.Name in ['FR_P_CP2','FR_G_CP2']:
+            base.x=-90 if ob.Name=='FR_P_CP2' else -55;base.y=-24
+        add_box(ob.Name,base,[30,19,9],ob.Placement.Rotation,ob.Name)
+    # Inherited four output roles are relocated, never duplicated.
+    slots={r['electrical_role']:r['native_slot'] for r in inventory['baseline']}
+    for leg,cx,side,in_id,out_id in [('FL',-35,1,'W025','W026'),('RL',65,1,'W044','W045'),
+                                   ('FR',-35,-1,'W036','W037'),('RR',65,-1,'W052','W053')]:
+        centre=A.Vector(cx,side*82,81)
+        rear=leg in ['RL','RR']
+        holder_axis=A.Vector(1,0,-1)/math.sqrt(2) if rear else axis
+        rot=A.Rotation(Y,45 if rear else -45)
+        # Rotation maps local +X to +X/+Z. Width remains transverse Y.
+        base=centre-rot.multVec(A.Vector(17.5,11,8))
+        holder=add_box('MTA_'+leg+'_CP2',base,[35,22,16],rot,'MTA_'+leg)
+        for kind,wire_id,sign in [('source',in_id,-1),('output',out_id,1)]:
+            u=holder_axis*sign
+            lower=(u.z<0)
+            if not rear and lower:
+                # New common front-source clocking stays FORWARD of P0 mounts
+                # and lifts connector bodies, rather than parking over a mount.
+                v=A.Vector(-.5,-side/math.sqrt(2),.5)
+            elif lower:v=Y*(-side)
+            else:v=A.Vector(-1 if rear else 1,0,-1)/math.sqrt(2)
+            begin=centre+u*17.5;a=begin+u*9
+            finish=a+(u+v)*R
+            arc=Part.Arc(a,a+u*(R/math.sqrt(2))+v*(R*(1-1/math.sqrt(2))),finish).toShape()
+            entry=finish+v*9
+            edges=[Part.makeLine(begin,a),arc,Part.makeLine(finish,entry)]
+            name=wire_id+'_FACTORY_candidate'
+            path=Part.Wire(edges)
+            shape=path.makePipeShell([Part.Wire([Part.makeCircle(2.1,begin,u)])],True,False)
+            assert shape.isValid() and len(shape.Solids)==1
+            ob=d.addObject('Part::Feature',name);ob.Shape=shape;group.addObject(ob)
+            changed[name]=shape
+            bounds[name]=path.makePipeShell([Part.Wire([Part.makeCircle(4.5,begin,u)])],True,False)
+            joint_name=('MTA_'+leg+'_SOURCE_joint' if kind=='source' else slots[wire_id+'_output'])
+            if not rear and lower:
+                ex=axis;ey=-v;ez=ex.cross(ey);factory_port=2
+            elif lower:
+                ex=X;ey=Y*side;ez=Z*side
+                # RR factory occupies port1 to keep its body beyond F0 X=3.
+                factory_port=1 if leg=='RR' else 2
+            else:
+                ex=A.Vector(-1 if rear else 1,0,1)/math.sqrt(2);ey=-v;ez=ex.cross(ey)
+                factory_port=2
+            jrot=A.Rotation(ex,ey,ez,'ZXY')
+            local_port=A.Vector(5.5 if factory_port==1 else 12.25,19,4.5)
+            jb=entry-jrot.multVec(local_port)
+            add_box(joint_name,jb,[14,19,9],jrot,wire_id+'_joint')
+            strip_name=wire_id+'_strip_candidate'
+            strip=Part.makeCylinder(math.sqrt(4/math.pi),11,entry,v)
+            ob=d.addObject('Part::Feature',strip_name);ob.Shape=strip;group.addObject(ob)
+            changed[strip_name]=strip;bounds[strip_name]=strip
+            excluded[name]={holder.Name,joint_name,strip_name}
+            excluded[strip_name]={joint_name,name}
+            # Both ports are assigned. Full extensions beyond this second port
+            # MUST be designed before mounts/stock/selection, not assumed clear.
+            other=A.Vector(12.25 if factory_port==1 else 5.5,19,4.5)
+            joints.append(dict(name=joint_name,leg=leg,kind=kind,factory_port=factory_port,
+                factory_entry_mm=list(entry),extension_entry_mm=list(jrot.multVec(other)+jb),
+                extension_exit_direction=list(-v),extension_full_route_open=True))
+            routes.append(dict(id=wire_id,leg=leg,kind=kind,start_mm=list(begin),entry_mm=list(entry),
+                centreline_mm=path.Length,nominal_factory_requirement_mm=path.Length+11,
+                first_and_last_straight_mm=9,bend_radius_mm=R,OD_mm=4.2,
+                factory_DATUM_OD_radius_length_supplier_verified=False))
+    d.recompute()
+    fixed={o.Name:o.Shape.copy() for o in d.getObject('InteriorReservations').Group if o.Name not in changed}
+    for name in ['HarnessCandidate','S0TerminalCandidates','S1TerminalCandidates','ServiceReservations']:
+        fixed.update({o.Name:o.Shape.copy() for o in d.getObject(name).Group if 'Shape' in o.PropertiesList})
+    fixed.update({o.Name:o.Shape.copy() for o in d.Objects if 'Category' in o.PropertiesList
+                  and o.Category!='electronics' and o.Name!='BatteryNominal'})
+    contacts=[];outside=[];errors=[];tested=0
+    def intersect(na,a,nb,b):
+        nonlocal tested
+        if not a.BoundBox.intersect(b.BoundBox):return
+        tested+=1
+        try:
+            c=a.common(b)
+            if not c.isValid():raise RuntimeError('Invalid common')
+            if c.Volume>1e-5:contacts.append(dict(pair=[na,nb],volume_mm3=c.Volume))
+        except Exception as e:errors.append(dict(pair=[na,nb],error=str(e)))
+    for name,shape in changed.items():
+        for other,static in fixed.items():
+            if other not in excluded.get(name,set()):intersect(name,shape,other,static)
+        try:
+            cut=bounds[name].cut(torso)
+            if not cut.isValid():raise RuntimeError('Invalid enclosure cut')
+            if cut.Volume>1e-5:outside.append(dict(name=name,outside_mm3=cut.Volume))
+        except Exception as e:errors.append(dict(pair=[name,'Torso'],error=str(e)))
+    for na,nb in itertools.combinations(changed,2):
+        if nb in excluded.get(na,set()) or na in excluded.get(nb,set()):continue
+        intersect(na,changed[na],nb,changed[nb])
+    clean=not(contacts or outside or errors)
+    report=dict(status='EIGHT_FACTORY_END_PLAN_CLEAR_NOT_FULL_WIRING' if clean else 'SHARED_DIAGONAL_PLAN_REQUIRES_CHANGE',
+        builder_sha256=digest(Path(__file__)),
+        selected=False,physical_pass=False,source_sha256=pins,retained_source_wire_pieces=10,
+        changed_components=sorted(changed),routes=routes,joints=joints,contacts=contacts,outside=outside,errors=errors,
+        exact_BRep_pairs_tested=tested,ATO_service_reservations_included=True,
+        inventory=inventory,side_WAGO_entry_faces_changed_to_Z51=True,full_leg_routes_and_native_mounts_open=True,
+        axes='Front+X/+Z45, rear+X/-Z45; both exits retained. Front source bends forward/inward; rear output bends inward below bank. Upper exits fold longitudinally outside ATO banks.',
+        chosen_full_extension_routes=False,full_assembly_and_stock_complete=False,W1_complete=False,W5_complete=False,
+        started_utc=started.isoformat(),finished_utc=datetime.now(timezone.utc).isoformat(),
+        worker_wall_seconds=round(time.monotonic()-tick,3),current_CP2_native_replaced=False)
+    assert all(digest(ROOT/p)==h for p,h in pins.items())
+    if old_report and old_report['status']=='SHARED_DIAGONAL_PLAN_REQUIRES_CHANGE':
+        report['prior_rejected_plan']={k:old_report[k] for k in ['axes','contacts','outside','errors','worker_wall_seconds']}
+    save('mta-shared-plan.json',report)
+    print('MTA shared plan:',report['status'],'pairs',tested,'contacts',len(contacts),'outside',len(outside),'errors',len(errors),flush=True)
+    if clean:
+        d.saveAs(str(OUT/'MTAFactoryPlan.FCStd'))
+        report['candidate_native']='MTAFactoryPlan.FCStd';save('mta-shared-plan.json',report)
+    A.closeDocument(d.Name)
+
+
 def reconcile_splice_native():
     """Focused subset correction; unchanged wire/contact proofs are not rerun."""
     import FreeCAD as A
@@ -1155,7 +1300,9 @@ def render(rows,checks,colors):
 
 if __name__=='__main__':
     import sys
-    if '--reconcile-splice-native' in sys.argv:
+    if '--mta-shared-plan' in sys.argv:
+        mta_shared_plan()
+    elif '--reconcile-splice-native' in sys.argv:
         reconcile_splice_native()
     elif '--verify-changed-native' in sys.argv:
         verify_changed_native()
