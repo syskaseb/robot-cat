@@ -1,0 +1,146 @@
+{
+  "status": "COARSE_SHARED_RESERVATIONS_CLEAR",
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "count": 61,
+  "bus_roles_sorted": [
+    "D_FL",
+    "D_FR",
+    "D_RL",
+    "D_RR",
+    "FL_G",
+    "FL_P",
+    "FR_G",
+    "FR_P",
+    "G1",
+    "G2",
+    "G_AUX",
+    "G_TAIL",
+    "P_AUX",
+    "P_FRONT",
+    "P_REAR",
+    "P_SYS",
+    "RL_G",
+    "RL_P",
+    "RR_G",
+    "RR_P"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/WholeCatLayout.FCStd": "ea1e1218dfd2846f5b16e4ed5c85dfe6f16bfdf0593d1a668b27442a260bf49b",
+    "hardware/cad/studies/whole-cat-packaging/layout.json": "dd725a89effe6093bad428add7b6ecbffa2c38f3cfbdf7b293c6ead4f7574149",
+    "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1"
+  },
+  "wall_clearance_reserve_mm": 2.4,
+  "exact_brep_intersections_after_bbox_filter": 3,
+  "outside": [],
+  "contacts": [],
+  "retained_contacts": [],
+  "errors": [],
+  "native_reopen": true,
+  "box_parameter_roundtrip": true,
+  "rejected_preflights": [
+    {
+      "outside": [
+        {
+          "name": "MTA_RL_CP2",
+          "outside_mm3": 5.125766040261325
+        },
+        {
+          "name": "MTA_RR_CP2",
+          "outside_mm3": 5.12576608815056
+        }
+      ],
+      "contacts": [
+        {
+          "pair": [
+            "Splice_R2_CP2",
+            "XT60_CP2"
+          ],
+          "volume_mm3": 675.0
+        }
+      ],
+      "retained_contacts": [
+        {
+          "pair": [
+            "BUS_CP2",
+            "P0_Part__Feature106"
+          ],
+          "volume_mm3": 107.75920409484122,
+          "category": "chassis"
+        },
+        {
+          "pair": [
+            "XT60_CP2",
+            "P0_SideRight22"
+          ],
+          "volume_mm3": 876.7813328439852,
+          "category": "chassis"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "outside": [
+        {
+          "name": "XT60_CP2",
+          "outside_mm3": 83.43548082939253
+        }
+      ],
+      "contacts": [
+        {
+          "pair": [
+            "F_R1_CP2",
+            "F0_CP2"
+          ],
+          "volume_mm3": 63.999999999999986
+        },
+        {
+          "pair": [
+            "F_R2_CP2",
+            "F0_CP2"
+          ],
+          "volume_mm3": 60.0
+        }
+      ],
+      "retained_contacts": [
+        {
+          "pair": [
+            "F_L1_CP2",
+            "P0_MountFrontL"
+          ],
+          "volume_mm3": 45.93663778490038,
+          "category": "chassis"
+        },
+        {
+          "pair": [
+            "F_L6_CP2",
+            "P0_MountRearL"
+          ],
+          "volume_mm3": 63.0,
+          "category": "chassis"
+        },
+        {
+          "pair": [
+            "F_R1_CP2",
+            "P0_MountFrontR"
+          ],
+          "volume_mm3": 45.867069793512975,
+          "category": "chassis"
+        },
+        {
+          "pair": [
+            "F_R6_CP2",
+            "P0_MountRearR"
+          ],
+          "volume_mm3": 62.999999999999986,
+          "category": "chassis"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "shared_revision": "Two preflights exposed missing common chassis-height constraint. Raise ALL fuse assemblies above61mm P0 hips and ALL upper WAGO correspondingly; narrow upper outer rows for curved roof; front source connector colocated with F0, not rear. No cassette cutouts."
+}

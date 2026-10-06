@@ -1,0 +1,1025 @@
+{
+  "status": "COARSE_SHARED_RESERVATIONS_CLEAR",
+  "selected": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/WholeCatLayout.FCStd": "ea1e1218dfd2846f5b16e4ed5c85dfe6f16bfdf0593d1a668b27442a260bf49b",
+    "hardware/cad/studies/whole-cat-packaging/layout.json": "dd725a89effe6093bad428add7b6ecbffa2c38f3cfbdf7b293c6ead4f7574149",
+    "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
+    "hardware/manufacturing/one-batch-prototype-r53/selection.json": "8c295e4050d9e652bf7285d695d2cdad19cf48779acc372081f538d28152adc1"
+  },
+  "components": [
+    {
+      "name": "Pi4_CP2",
+      "origin_mm": [
+        -19,
+        -28,
+        42
+      ],
+      "size_mm": [
+        85,
+        56,
+        22
+      ],
+      "group": "logic",
+      "dimension_basis": "85x56 PCB; populated height22 prototype reserve",
+      "require_internal_shell": true
+    },
+    {
+      "name": "MAIN4853_CP2",
+      "origin_mm": [
+        -61,
+        -12,
+        42
+      ],
+      "size_mm": [
+        30.5,
+        24,
+        12
+      ],
+      "group": "logic",
+      "dimension_basis": "22.9x30.5x7.7 supplier board + solder reserve",
+      "require_internal_shell": true
+    },
+    {
+      "name": "BUS_CP2",
+      "origin_mm": [
+        70,
+        -11,
+        41
+      ],
+      "size_mm": [
+        30,
+        22,
+        24
+      ],
+      "group": "logic",
+      "dimension_basis": "SPACE BUDGET ONLY: R53 575070 adapter/carrier must be reconciled",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Monitor_CP2",
+      "origin_mm": [
+        -55,
+        17,
+        43
+      ],
+      "size_mm": [
+        35,
+        25,
+        11
+      ],
+      "group": "logic",
+      "dimension_basis": "SPACE BUDGET ONLY: exact P309 populated bounds still required",
+      "require_internal_shell": true
+    },
+    {
+      "name": "PWM9685_CP2",
+      "origin_mm": [
+        -39,
+        -12.7,
+        78
+      ],
+      "size_mm": [
+        62.5,
+        25.4,
+        30
+      ],
+      "group": "logic",
+      "dimension_basis": "CP1 PCB footprint; height30 replaceable assembly reserve",
+      "require_internal_shell": true
+    },
+    {
+      "name": "AUX4092_CP2",
+      "origin_mm": [
+        35,
+        -12.7,
+        78
+      ],
+      "size_mm": [
+        18.8,
+        25.4,
+        30
+      ],
+      "group": "logic",
+      "dimension_basis": "CP1 PCB footprint; height30 replaceable assembly reserve",
+      "require_internal_shell": true
+    },
+    {
+      "name": "PWM1608_CP2",
+      "origin_mm": [
+        70,
+        -25.4,
+        78
+      ],
+      "size_mm": [
+        43.18,
+        50.8,
+        30
+      ],
+      "group": "logic",
+      "dimension_basis": "CP1 PCB footprint; height30 replaceable assembly reserve",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_L1_CP2",
+      "origin_mm": [
+        -67,
+        37,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_L2_CP2",
+      "origin_mm": [
+        -35,
+        37,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_L3_CP2",
+      "origin_mm": [
+        -3,
+        37,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_L4_CP2",
+      "origin_mm": [
+        29,
+        37,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_L5_CP2",
+      "origin_mm": [
+        61,
+        37,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_L6_CP2",
+      "origin_mm": [
+        93,
+        37,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_R1_CP2",
+      "origin_mm": [
+        -67,
+        -63,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_R2_CP2",
+      "origin_mm": [
+        -35,
+        -63,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_R3_CP2",
+      "origin_mm": [
+        -3,
+        -63,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_R4_CP2",
+      "origin_mm": [
+        29,
+        -63,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_R5_CP2",
+      "origin_mm": [
+        61,
+        -63,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F_R6_CP2",
+      "origin_mm": [
+        93,
+        -63,
+        63
+      ],
+      "size_mm": [
+        28,
+        26,
+        64
+      ],
+      "group": "fuses",
+      "dimension_basis": "MTA0300330 flange28x15, below panel24.5; TE-IN23.749/OUT21.717; engagement e=0 provisional; remaining height is ATO/bend budget, NOT measured fit",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FL_P_CP2",
+      "origin_mm": [
+        -58.5,
+        38,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FL_G_CP2",
+      "origin_mm": [
+        -17.5,
+        38,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "D_FL_CP2",
+      "origin_mm": [
+        23.5,
+        38,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "RL_P_CP2",
+      "origin_mm": [
+        64.5,
+        38,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "RL_G_CP2",
+      "origin_mm": [
+        105.5,
+        38,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FR_P_CP2",
+      "origin_mm": [
+        -58.5,
+        -60,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FR_G_CP2",
+      "origin_mm": [
+        -17.5,
+        -60,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "D_FR_CP2",
+      "origin_mm": [
+        23.5,
+        -60,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "RR_P_CP2",
+      "origin_mm": [
+        64.5,
+        -60,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "RR_G_CP2",
+      "origin_mm": [
+        105.5,
+        -60,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "P_SYS_CP2",
+      "origin_mm": [
+        -58.5,
+        6,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "P_FRONT_CP2",
+      "origin_mm": [
+        -17.5,
+        6,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "P_REAR_CP2",
+      "origin_mm": [
+        23.5,
+        6,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "G1_CP2",
+      "origin_mm": [
+        64.5,
+        6,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "G2_CP2",
+      "origin_mm": [
+        105.5,
+        6,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "D_RL_CP2",
+      "origin_mm": [
+        -58.5,
+        -28,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "D_RR_CP2",
+      "origin_mm": [
+        -17.5,
+        -28,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "P_AUX_CP2",
+      "origin_mm": [
+        23.5,
+        -28,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "G_AUX_CP2",
+      "origin_mm": [
+        64.5,
+        -28,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "G_TAIL_CP2",
+      "origin_mm": [
+        105.5,
+        -28,
+        130
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "group": "wago",
+      "dimension_basis": "37x22x11 planning max of221-615/415; role SKU/port map retained, not changed to615",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Splice_L1_CP2",
+      "origin_mm": [
+        -58,
+        45.5,
+        40
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "group": "splices",
+      "dimension_basis": "221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Splice_L2_CP2",
+      "origin_mm": [
+        -15,
+        45.5,
+        40
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "group": "splices",
+      "dimension_basis": "221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Splice_L3_CP2",
+      "origin_mm": [
+        28,
+        45.5,
+        40
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "group": "splices",
+      "dimension_basis": "221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Splice_R1_CP2",
+      "origin_mm": [
+        -58,
+        -64.5,
+        40
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "group": "splices",
+      "dimension_basis": "221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Splice_R2_CP2",
+      "origin_mm": [
+        -15,
+        -64.5,
+        40
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "group": "splices",
+      "dimension_basis": "221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension",
+      "require_internal_shell": true
+    },
+    {
+      "name": "Splice_R3_CP2",
+      "origin_mm": [
+        28,
+        -64.5,
+        40
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "group": "splices",
+      "dimension_basis": "221-412 role, intentionally oversized415 planning reserve; not catalog412 dimension",
+      "require_internal_shell": true
+    },
+    {
+      "name": "MTA_FL_CP2",
+      "origin_mm": [
+        -52.5,
+        73,
+        80
+      ],
+      "size_mm": [
+        35,
+        22,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown",
+      "require_internal_shell": true
+    },
+    {
+      "name": "MTA_RL_CP2",
+      "origin_mm": [
+        37.5,
+        73,
+        80
+      ],
+      "size_mm": [
+        35,
+        22,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown",
+      "require_internal_shell": true
+    },
+    {
+      "name": "MTA_FR_CP2",
+      "origin_mm": [
+        -52.5,
+        -95,
+        80
+      ],
+      "size_mm": [
+        35,
+        22,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown",
+      "require_internal_shell": true
+    },
+    {
+      "name": "MTA_RR_CP2",
+      "origin_mm": [
+        37.5,
+        -95,
+        80
+      ],
+      "size_mm": [
+        35,
+        22,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "0100335 rolled family budget35x22x16; BOTH exit faces retained; exact L140 length unknown",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FHAC_branch1_CP2",
+      "origin_mm": [
+        -60.5,
+        71,
+        47
+      ],
+      "size_mm": [
+        35,
+        16,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FHAC_branch2_CP2",
+      "origin_mm": [
+        -17.5,
+        71,
+        47
+      ],
+      "size_mm": [
+        35,
+        16,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FHAC_branch3_CP2",
+      "origin_mm": [
+        25.5,
+        71,
+        47
+      ],
+      "size_mm": [
+        35,
+        16,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FHAC_branch4_CP2",
+      "origin_mm": [
+        -60.5,
+        -87,
+        47
+      ],
+      "size_mm": [
+        35,
+        16,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "require_internal_shell": true
+    },
+    {
+      "name": "FHAC_branch5_CP2",
+      "origin_mm": [
+        -17.5,
+        -87,
+        47
+      ],
+      "size_mm": [
+        35,
+        16,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "FHAC0001ZXJ SPACE BUDGET ONLY; factory housing/lead bounds require reconciliation",
+      "require_internal_shell": true
+    },
+    {
+      "name": "F0_CP2",
+      "origin_mm": [
+        -55,
+        -38,
+        42
+      ],
+      "size_mm": [
+        35,
+        18,
+        16
+      ],
+      "group": "inline",
+      "dimension_basis": "FHAC0002ZXJ SPACE BUDGET ONLY; <=50mm battery-to-fuse lead NOT yet routed",
+      "require_internal_shell": true
+    },
+    {
+      "name": "XT60_CP2",
+      "origin_mm": [
+        -95,
+        -15,
+        38
+      ],
+      "size_mm": [
+        30,
+        18,
+        18
+      ],
+      "group": "inline",
+      "dimension_basis": "SPACE BUDGET ONLY: housing+exit; colocated with front F0; source pin and <=50mm prefuse path still require routing",
+      "require_internal_shell": true
+    },
+    {
+      "name": "S0_body_CP2",
+      "origin_mm": [
+        -105.5,
+        -28.5,
+        57
+      ],
+      "size_mm": [
+        57.0,
+        57.0,
+        40
+      ],
+      "group": "switch",
+      "dimension_basis": "Existing HELLA family reserve rotated vertical; studs/lugs/opening conditional",
+      "require_internal_shell": true
+    },
+    {
+      "name": "S0_neck_CP2",
+      "origin_mm": [
+        -88,
+        -11,
+        97
+      ],
+      "size_mm": [
+        22,
+        22,
+        3
+      ],
+      "group": "switch",
+      "dimension_basis": "Existing HELLA family reserve rotated vertical; studs/lugs/opening conditional",
+      "require_internal_shell": true
+    },
+    {
+      "name": "S0_key_CP2",
+      "origin_mm": [
+        -92,
+        -15,
+        100
+      ],
+      "size_mm": [
+        30,
+        30,
+        63.5
+      ],
+      "group": "switch",
+      "dimension_basis": "Existing HELLA family reserve rotated vertical; studs/lugs/opening conditional",
+      "require_internal_shell": false
+    },
+    {
+      "name": "S1_body_CP2",
+      "origin_mm": [
+        137,
+        26,
+        75
+      ],
+      "size_mm": [
+        42,
+        24,
+        37
+      ],
+      "group": "switch",
+      "dimension_basis": "NKK S821 body24x42x34 +3 axial budget; rotated90deg; terminals not qualified",
+      "require_internal_shell": true
+    },
+    {
+      "name": "S1_control_CP2",
+      "origin_mm": [
+        144,
+        24,
+        112
+      ],
+      "size_mm": [
+        28,
+        28,
+        32
+      ],
+      "group": "switch",
+      "dimension_basis": "22mm lever + +/-28deg conservative cylinder; shell aperture/tool still required",
+      "require_internal_shell": false
+    }
+  ],
+  "phase1_result_count": 14,
+  "phase1_denominator": 20,
+  "removal_strategy": [
+    "Disconnect every source, open dorsal cover before operating clamps.",
+    "Upper distribution plate Z128..130 and two fuse panels assembled on the bench; four mount axes X=-65/131,Y=+/-75.",
+    "Outer WAGO rows are above ATOs: upper distribution plate must be removable BEFORE replacing fuses. Do not claim direct fuse access.",
+    "Do NOT reuse49-cut-tie removal. Design labeled detachable boundary first; actual joints/ports pending.",
+    "Lift only after boundary disconnection; lower PCBs/Pi reached after upper module removal.",
+    "P0 legs/frame and battery cradle stay; new removable shell/wall apertures not fabricated yet."
+  ],
+  "wire_space_plan": [
+    "Central low-voltage lanes between PCB edgeY25.4 and fuse-panel bands innerY37 (11.6mm).",
+    "Power lanes between fuse bands outerY63 and inline bands innerY73 (10mm); radius25.2 turns require separate X/Z bays.",
+    "Crossings only through assigned between-level risers; full wire radii/straight ends/straps must be modeled together.",
+    "XT60 and F0 in front source bay: no long unfused route to rear. Exact pins/factory leads and <=50mm route NOT yet qualified.",
+    "20 upper WAGO blocks have4mm X gaps; lever access requires open dorsal cover, not a guessed closed-cover sector."
+  ],
+  "not_qualified": [
+    "SKU-specific BUS/P309/FHAC/XT60 dimensions and port exits",
+    "S0 stud/lug/tool access and exact delivered SKU",
+    "S1 four terminals, bushing, panel aperture and hand access",
+    "All full wire solids, 24 ends, bend radii, usable lengths and stock",
+    "Structural supports/fasteners, shell walls and motion sweeps",
+    "Assembly/removal swept volumes and actual connector release"
+  ],
+  "old_supports_superseded": [
+    "Deck",
+    "Carrier",
+    "Cover",
+    "BankLeft",
+    "BankRight",
+    "PiTray",
+    "4 fixed loom frames"
+  ],
+  "started_utc": "2026-10-06T00:36:51.754047+00:00",
+  "finished_utc": "2026-10-06T00:37:51.411207+00:00",
+  "worker_wall_seconds": 59.657
+}
