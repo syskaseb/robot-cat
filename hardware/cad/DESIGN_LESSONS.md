@@ -87,3 +87,10 @@ nie mnożyć anonimowe prostokąty. Po zapisaniu FreeCAD może renormalizować
 kierunki o około1e-16: identyczność tekstu BRep nie jest konieczna do zachowania
 geometrii; porównać pełną strukturę i parametry z jawną małą tolerancją.
 Nie uznawać nieprawidłowego odejmowania nakładających się brył za dowód zmiany.
+
+Przed generowaniem przewodów uzgodnić ID z końcami i siecią w wybranej wiązce,
+nie z kolejnością numerów. W025/W036 są masami, wejścia MTA FL/FR to W041/W042.
+Przy podmianie fizycznego odcinka użyć istniejącej nazwy natywnej: logiczne
+W076_EXT zastępuje W076_EXTENSION_CP2, nie tworzy drugiego przewodu.
+Blokadę ponownej próby wiązać z geometrią przepisu, nie czasem raportu lub
+hashem całego skryptu; zmiana metadanych nie uzasadnia ponownego CAD.

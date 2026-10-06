@@ -1,0 +1,113 @@
+{
+  "status": "SOURCE_BAY_REQUIRES_CHANGE",
+  "geometry_recipe_sha256": "895362da860d24d93162ce55d73d3cf95c82e6493ec9179a212d8607322916ea",
+  "builder_sha256_at_run": "f28a7543d4d8ff5bac5994ad410cf9969ad1bfa7d33181331a77b31eeea27658",
+  "known_validation_error": "W076_EXT_CP2 was added instead of replacing W076_EXTENSION_CP2. The F0 access contact with the old extension is artificial; do not accept it as a retained physical wire. Original observations preserved, no rerun.",
+  "independent_rejection_remains": "XT60/Monitor, F0 access/other holders/G1, ground/F_R1, changed factory/extension pair, head carrier and enclosure remain unresolved. Not clear and not selected.",
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "plan_sha256": "95e85a8e8f9e39600c7bb3ce3afcff5a9ebe7c7cf4d48ac89af157f9142a5f1e",
+  "original_native_sha256": "ad08e22a4cd9c9908f43be363bc03ef1b7301cc4607ff991d5cb356b526b93e5",
+  "changed_parts": [
+    "F0_CP2",
+    "F0_upward_access_candidate",
+    "PostF0Splice_CP2",
+    "S0_ring_IN",
+    "W001_CP2",
+    "W001_strip_CP2",
+    "W075_CP2",
+    "W076_EXT_CP2",
+    "W076_FACTORY_CP2",
+    "W076_FACTORY_strip_CP2",
+    "XT60_CP2",
+    "XT60_mate_access_candidate"
+  ],
+  "unchanged_parts_count": 280,
+  "contacts": [
+    {
+      "pair": [
+        "XT60_CP2",
+        "Monitor_CP2"
+      ],
+      "volume_mm3": 259.7759999999999
+    },
+    {
+      "pair": [
+        "W001_CP2",
+        "F_R1_CP2"
+      ],
+      "volume_mm3": 188.35006875721325
+    },
+    {
+      "pair": [
+        "W076_EXT_CP2",
+        "Head_YawCarrier"
+      ],
+      "volume_mm3": 10.366774802515167
+    },
+    {
+      "pair": [
+        "F0_upward_access_candidate",
+        "F_R1_CP2"
+      ],
+      "volume_mm3": 2329.8750000000014
+    },
+    {
+      "pair": [
+        "F0_upward_access_candidate",
+        "F_R2_CP2"
+      ],
+      "volume_mm3": 11563.874999999998
+    },
+    {
+      "pair": [
+        "F0_upward_access_candidate",
+        "G1_CP2"
+      ],
+      "volume_mm3": 1002.375
+    },
+    {
+      "pair": [
+        "F0_upward_access_candidate",
+        "W076_EXTENSION_CP2"
+      ],
+      "volume_mm3": 295.1627718879223
+    },
+    {
+      "pair": [
+        "XT60_mate_access_candidate",
+        "Monitor_CP2"
+      ],
+      "volume_mm3": 2446.224
+    },
+    {
+      "pair": [
+        "XT60_mate_access_candidate",
+        "Splice_L1_CP2"
+      ],
+      "volume_mm3": 138.99200000000008
+    },
+    {
+      "pair": [
+        "W076_FACTORY_CP2",
+        "W076_EXT_CP2"
+      ],
+      "volume_mm3": 9.738749913549857
+    }
+  ],
+  "outside": [
+    {
+      "name": "W076_EXT_CP2",
+      "outside_mm3": 1663.2447136181606
+    }
+  ],
+  "errors": [],
+  "exact_BRep_pairs_tested": 46,
+  "mating_and_F0_service_reservations_included": true,
+  "full_MTA_plan_and_mounts_still_open": true,
+  "started_utc": "2026-10-06T04:20:35.507619+00:00",
+  "finished_utc": "2026-10-06T04:20:50.489026+00:00",
+  "worker_wall_seconds": 14.984
+}

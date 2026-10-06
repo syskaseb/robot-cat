@@ -200,6 +200,9 @@ def main():
         builder_sha256=sha(Path(__file__)), started_utc=started.isoformat(),
         finished_utc=datetime.now(timezone.utc).isoformat(),
         worker_wall_seconds=round(time.monotonic()-tick, 6))
+    report['geometry_recipe_sha256'] = hashlib.sha256(json.dumps(
+        dict(source_bay=report['source_bay'], routes=report['routes']),
+        sort_keys=True, separators=(',', ':')).encode('utf-8')).hexdigest()
     OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     print(report['status'])
     for row in routes:
@@ -220,7 +223,8 @@ def cad_preflight():
     report_path = OUT.parent/'source-bay-preflight.json'
     if report_path.exists():
         prior = json.loads(report_path.read_text(encoding='utf-8'))
-        assert prior['plan_sha256'] != sha(OUT), 'Already checked recipe: do not repeat unchanged'
+        assert prior.get('geometry_recipe_sha256') != plan['geometry_recipe_sha256'], \
+            'Already checked geometry: new timestamps/code do not authorize a repeat'
     d = A.openDocument(str(native)); d.recompute()
     changed, bounds, excluded = {}, {}, {}
     def box(name, base, size, rot):
@@ -262,7 +266,9 @@ def cad_preflight():
         def pipe(radius):
             return path.makePipeShell([Part.Wire([Part.makeCircle(radius,
                 A.Vector(*row['start_mm']), edges[0].tangentAt(edges[0].FirstParameter))])], True, False)
-        name = row['id']+'_CP2'
+        # Logical segment ID differs from the preserved native object's name.
+        # Replace it, never leave both old and candidate W076 extensions.
+        name = 'W076_EXTENSION_CP2' if row['id'] == 'W076_EXT' else row['id']+'_CP2'
         ob = d.getObject(name) or d.addObject('Part::Feature', name)
         ob.Shape = pipe(row['OD_mm']/2); changed[name] = ob.Shape.copy()
         bounds[name] = pipe(row['OD_mm']/2+2.4)
@@ -323,6 +329,7 @@ def cad_preflight():
     report = dict(status='SOURCE_BAY_CANDIDATE_CLEAR_NOT_SELECTED' if clear else 'SOURCE_BAY_REQUIRES_CHANGE',
         selected=False, physical_pass=False, W1_complete=False, W5_complete=False,
         plan_sha256=sha(OUT), original_native_sha256=sha(native),
+        geometry_recipe_sha256=plan['geometry_recipe_sha256'], builder_sha256_at_run=sha(Path(__file__)),
         changed_parts=sorted(changed), unchanged_parts_count=len(fixed),
         contacts=contacts, outside=outside, errors=errors, exact_BRep_pairs_tested=tested,
         mating_and_F0_service_reservations_included=True,
