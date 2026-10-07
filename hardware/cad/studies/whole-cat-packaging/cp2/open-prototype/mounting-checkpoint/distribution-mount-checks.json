@@ -1,0 +1,124 @@
+{
+  "status": "SHARED_DISTRIBUTION_MOUNTS_LOCAL_CLEAR",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMountAssembly.FCStd": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-hardware-checks.json": "5fdb1f0176ef10d721723d53c32dc3e04b1c1d4bfb27af35372c7c4daabe2b07",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-rear-tool-checks.json": "5089b9af36bf3c2a1d55665b33d63a66074f450faff35e8619026778cbaf2ee9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c",
+    "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+    "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd",
+    "hardware/electronics/full-cat/pi-power-usb-r1/plan.json": "530b14d08be9ed53278985bd02fa49bfe692b6ebc0c6cc85e2e819d8114a7254",
+    "tools/cad/open_prototype_distribution_mounts.py": "8bc3e93476656f4da0a2ba612313319d7f50f59971569793c83c8927eaeb02fe"
+  },
+  "native_sha256": "82dbd47f7be12a4bfbde38a5a414f9fa9f761d2e1307ec36f676eaf86ab40de8",
+  "started_utc": "2026-10-07T22:17:50.834396+00:00",
+  "finished_utc": "2026-10-07T22:22:04.530140+00:00",
+  "worker_wall_seconds": 253.687,
+  "exact_candidate_pairs": 88,
+  "material_contacts": [],
+  "errors": [],
+  "nominal_reservation_contacts": [],
+  "invalid_BUS_solids": [],
+  "valid_BUS_solid_count": 117,
+  "restored_parameter_mm": [
+    32,
+    33,
+    32
+  ],
+  "relocated_reopen": true,
+  "baseline_volumes_mm3": {
+    "LowerCarrier": 36656.00079501875,
+    "SideDistributionRail": 39280.9318886423,
+    "SideRailSpacer": 423.3949551984192
+  },
+  "distribution_role_count": 20,
+  "exports": [
+    {
+      "part": "LowerCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerCarrierIntegrated.stl",
+      "sha256": "b029370a3a06906d455d4466d4badffa203788b413401773bf6e546cfa16a8b8",
+      "bounds_with_5mm_brim_mm": [
+        194.0,
+        191.4999939845502,
+        9.000003814697266
+      ]
+    },
+    {
+      "part": "SideDistributionRail",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/SideDistributionRailIntegrated.stl",
+      "sha256": "0a0e902ea35e0863a0c31ee123210452bd8e7c31de6870a9bbf48408d988c4dc",
+      "bounds_with_5mm_brim_mm": [
+        217.0,
+        39.5,
+        35.0
+      ]
+    },
+    {
+      "part": "SideRailSpacer",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/SideRailSpacerIntegrated.stl",
+      "sha256": "e708c144b71ac73f03fd07d4d1338c07d1a198c80235c389514cc1d3b4cd5440",
+      "bounds_with_5mm_brim_mm": [
+        17.995027685072273,
+        17.9975136135472,
+        10.279999732971191
+      ]
+    }
+  ],
+  "side_tools": [
+    {
+      "id": "SideMount1Driver",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount1NutSocket",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount2Driver",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount2NutSocket",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount3Driver",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount3NutSocket",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount4Driver",
+      "clear": true,
+      "nominal_allowance": true
+    },
+    {
+      "id": "SideMount4NutSocket",
+      "clear": true,
+      "nominal_allowance": true
+    }
+  ],
+  "stage_completed": false,
+  "selected": false,
+  "physical_pass": false,
+  "known_bounds": [
+    "BUS116valid source solids checked individually; invalid component excluded only when no mount bounds overlap",
+    "Other nominal PCBs retain supplier holes; underside population/thermal/actual tool and plug fit remain phase2",
+    "WAGO flat casing budgets and relocated slots are nominal, not actual lever/cable qualification",
+    "No old wire route/endpoint/stock credit after distribution/monitor changes"
+  ],
+  "next": "Receive whole result, resolve only changed failed interface; then insulation/fixture/one selection. No wiring stage or deadline extension"
+}

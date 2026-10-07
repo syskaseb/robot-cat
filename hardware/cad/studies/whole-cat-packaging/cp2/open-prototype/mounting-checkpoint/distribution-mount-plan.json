@@ -1,0 +1,471 @@
+{
+  "status": "SHARED_DISTRIBUTION_MOUNT_PLAN_NOT_SELECTED",
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMountAssembly.FCStd": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-hardware-checks.json": "5fdb1f0176ef10d721723d53c32dc3e04b1c1d4bfb27af35372c7c4daabe2b07",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-rear-tool-checks.json": "5089b9af36bf3c2a1d55665b33d63a66074f450faff35e8619026778cbaf2ee9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c",
+    "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+    "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd",
+    "hardware/electronics/full-cat/pi-power-usb-r1/plan.json": "530b14d08be9ed53278985bd02fa49bfe692b6ebc0c6cc85e2e819d8114a7254",
+    "tools/cad/open_prototype_distribution_mounts.py": "8bc3e93476656f4da0a2ba612313319d7f50f59971569793c83c8927eaeb02fe"
+  },
+  "rail_centres_y_mm": [
+    84.75,
+    -84.75
+  ],
+  "rail_extent_x_mm": [
+    -96,
+    111
+  ],
+  "width_mm": 29.5,
+  "lower_board_bottom_z_mm": {
+    "Pi4": 47.72,
+    "BUS": 48.72000414467585,
+    "PWM9685": 82.72,
+    "AUX4092": 82.72,
+    "PWM1608": 82.72
+  },
+  "monitor_y_mm": [
+    -25,
+    0
+  ],
+  "reason": "Monitor leaves BUS USB-C body/withdrawal budget; side distribution avoids central PCB/ATO access",
+  "arm_and_side_column_axes_xy_mm": [
+    [
+      -13,
+      -84.75
+    ],
+    [
+      -13,
+      84.75
+    ],
+    [
+      71,
+      -84.75
+    ],
+    [
+      71,
+      84.75
+    ]
+  ],
+  "arm_plate_mm": 3,
+  "rib_and_foot_height_mm": 8,
+  "side_column_base_z_mm": 47.72,
+  "side_spacer_height_mm": 10.28,
+  "rail_base_z_mm": 58,
+  "upper_rail_z_mm": 90,
+  "distribution": [
+    {
+      "role": "FL_P",
+      "native": "FL_P_CP2",
+      "side": "L",
+      "level": 0,
+      "centre_xy_mm": [
+        -76,
+        84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "FL_G",
+      "native": "FL_G_CP2",
+      "side": "L",
+      "level": 0,
+      "centre_xy_mm": [
+        -34,
+        84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "D_FL",
+      "native": "D_FL_CP2",
+      "side": "L",
+      "level": 0,
+      "centre_xy_mm": [
+        8,
+        84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "RL_P",
+      "native": "RL_P_CP2",
+      "side": "L",
+      "level": 0,
+      "centre_xy_mm": [
+        50,
+        84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "RL_G",
+      "native": "RL_G_CP2",
+      "side": "L",
+      "level": 0,
+      "centre_xy_mm": [
+        92,
+        84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "P_SYS",
+      "native": "P_SYS_CP2",
+      "side": "L",
+      "level": 1,
+      "centre_xy_mm": [
+        -76,
+        84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "sku": "221-615",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "P_FRONT",
+      "native": "P_FRONT_CP2",
+      "side": "L",
+      "level": 1,
+      "centre_xy_mm": [
+        -34,
+        84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "sku": "221-615",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "P_REAR",
+      "native": "P_REAR_CP2",
+      "side": "L",
+      "level": 1,
+      "centre_xy_mm": [
+        8,
+        84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "sku": "221-615",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "D_RL",
+      "native": "D_RL_CP2",
+      "side": "L",
+      "level": 1,
+      "centre_xy_mm": [
+        50,
+        84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "G2",
+      "native": "G2_CP2",
+      "side": "L",
+      "level": 1,
+      "centre_xy_mm": [
+        92,
+        84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "FR_P",
+      "native": "FR_P_CP2",
+      "side": "R",
+      "level": 0,
+      "centre_xy_mm": [
+        -76,
+        -84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "FR_G",
+      "native": "FR_G_CP2",
+      "side": "R",
+      "level": 0,
+      "centre_xy_mm": [
+        -34,
+        -84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "D_FR",
+      "native": "D_FR_CP2",
+      "side": "R",
+      "level": 0,
+      "centre_xy_mm": [
+        8,
+        -84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "RR_P",
+      "native": "RR_P_CP2",
+      "side": "R",
+      "level": 0,
+      "centre_xy_mm": [
+        50,
+        -84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "RR_G",
+      "native": "RR_G_CP2",
+      "side": "R",
+      "level": 0,
+      "centre_xy_mm": [
+        92,
+        -84.75
+      ],
+      "base_z_mm": 61,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "G1",
+      "native": "G1_CP2",
+      "side": "R",
+      "level": 1,
+      "centre_xy_mm": [
+        -76,
+        -84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "sku": "221-615",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "D_RR",
+      "native": "D_RR_CP2",
+      "side": "R",
+      "level": 1,
+      "centre_xy_mm": [
+        -34,
+        -84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "P_AUX",
+      "native": "P_AUX_CP2",
+      "side": "R",
+      "level": 1,
+      "centre_xy_mm": [
+        8,
+        -84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "G_AUX",
+      "native": "G_AUX_CP2",
+      "side": "R",
+      "level": 1,
+      "centre_xy_mm": [
+        50,
+        -84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    },
+    {
+      "role": "G_TAIL",
+      "native": "G_TAIL_CP2",
+      "side": "R",
+      "level": 1,
+      "centre_xy_mm": [
+        92,
+        -84.75
+      ],
+      "base_z_mm": 93,
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "sku": "221-415",
+      "tie_quantity": 2,
+      "orientation": "Flat lever-up; entries toward centre; nominal supplier casing budget, not delivered model"
+    }
+  ],
+  "quantity20_no_added_logical_buses": true,
+  "fasteners_added": {
+    "M3x30": 4,
+    "M3_washer": 8,
+    "M3_nut": 4
+  },
+  "distribution_ties": 40,
+  "preserved": [
+    "P0",
+    "R47 bank geometry",
+    "MAIN worldZ46.52",
+    "4MTA and both factory exit directions",
+    "P0/E6/15 drives/MG92B"
+  ],
+  "invalidated": [
+    "Old WAGO placement/short-lead/lever/strain-relief proofs; endpoints and source lengths rebind in next wiring stage",
+    "Monitor old position/tie geometry"
+  ],
+  "assembly": [
+    "Seat captive lower PCB nuts, then clamp carrier before Pi",
+    "Fit side spacers/rails before side WAGO; side bolts reachable through upper rail driver apertures",
+    "Pi/BUS and negative-Y monitor before upper PCB carrier; rear frame nuts by lateral AF5.5 spanner",
+    "Bench dress buses; lower WAGO before upper WAGO; two replaceable ties per body, levers open before ties",
+    "R47 bank/4MTA retained; route all leads later, no independent cassette lift or74routine disconnects"
+  ],
+  "tools_and_fit": "Nominal budgets, actual tools/PETG/tie/connector/temperature checks are phase2",
+  "selected": false,
+  "stage_completed": false
+}
