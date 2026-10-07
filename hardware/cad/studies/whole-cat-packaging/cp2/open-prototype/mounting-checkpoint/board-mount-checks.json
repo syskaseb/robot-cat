@@ -1,13 +1,13 @@
 {
-  "status": "COMMON_BOARD_MOUNT_REQUIRES_LAYOUT_CHANGE",
+  "status": "COMMON_BOARD_MOUNT_LOCAL_CHECKS_CLEAR",
   "selected": false,
   "stage_completed": false,
   "W1_complete": false,
   "W5_complete": false,
   "physical_pass": false,
-  "started_utc": "2026-10-07T21:33:37.451770+00:00",
-  "finished_utc": "2026-10-07T21:34:02.966523+00:00",
-  "worker_wall_seconds": 25.515,
+  "started_utc": "2026-10-07T21:48:17.574019+00:00",
+  "finished_utc": "2026-10-07T21:48:48.580282+00:00",
+  "worker_wall_seconds": 31.016,
   "source_sha256": {
     "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd",
     "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
@@ -16,13 +16,15 @@
     "hardware/reference/pi-interface-2026-10-01/pi4-mechanical.pdf": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
     "hardware/reference/permaproto1608-2026-09-26/quarterbreadboard.brd": "b329d14973c2eb572492f387ae6f7c2a6c35cb5a517b88785b4b7b79083cb617",
     "tools/cad/whole_cat_interior.py": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998",
-    "tools/cad/open_prototype_board_mounts.py": "a97bf3285af913825317ec652cb6603f052d433b2df91421f8d64976a3a86e28"
+    "tools/cad/open_prototype_board_mounts.py": "52b3144cefc86f30d28f3e863cb79d735c95b96ea2c842c9054cf2010632b2e7"
   },
-  "native_sha256": "67f32ffb9b22c3b8f2a4d0a74b77876f4fe74b5957f83c843cfafec2427127d2",
+  "native_sha256": "5945c1d89ec4fbaf4d47e00da9cb36fe432915d253e9098f985abe1dfa32775d",
   "baseline_volumes_mm3": {
-    "LowerCarrier": 33576.414301515695,
-    "UpperCarrier": 35525.0233168453,
-    "UpperSpacer": 1172.9852455302512
+    "LowerCarrier": 23210.34405284801,
+    "UpperCarrier": 27160.943402570894,
+    "UpperSpacer": 1317.96095003399,
+    "TopClampPad": 151.1049566773506,
+    "LowerClampJaw": 377.76239169337646
   },
   "parameter_roundtrip_mm": [
     5,
@@ -30,52 +32,73 @@
     5
   ],
   "relocated_reopen": true,
-  "three_editable_masters_four_spacer_links": true,
-  "exact_changed_context_pairs": 13,
-  "contacts": [
+  "editable_master_count": 5,
+  "physical_link_count": 12,
+  "exact_changed_context_pairs": 22,
+  "contacts": [],
+  "errors": [],
+  "exports": [
     {
-      "a": "LowerCarrier",
-      "b": "P0_Part__Feature105",
-      "volume_mm3": 69.71059217572056
+      "part": "LowerCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerCarrier.stl",
+      "sha256": "2028581a8a4100d52367fe6815c052230b6983205982ddbdbfd05d2f4e57fde9",
+      "bounds_with_5mm_brim_mm": [
+        194.0,
+        81.99571083742194,
+        9.000003814697266
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
     },
     {
-      "a": "LowerCarrier",
-      "b": "P0_Part__Feature106",
-      "volume_mm3": 141.5157350876766
+      "part": "UpperCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperCarrier.stl",
+      "sha256": "5b1f905a911d25ca82735a6cdf927af878a1d7f535e93cc5df214b8e417de881",
+      "bounds_with_5mm_brim_mm": [
+        199.0,
+        81.99879650841467,
+        8.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
     },
     {
-      "a": "LowerCarrier",
-      "b": "P0_MountFrontL",
-      "volume_mm3": 396.4344043374823
+      "part": "UpperSpacer",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperSpacer.stl",
+      "sha256": "4d8eed4e8a8e889339c09353504ff6805119f93347353c92b346bd57cc2b3e5b",
+      "bounds_with_5mm_brim_mm": [
+        17.995027685072273,
+        17.9975136135472,
+        32.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
     },
     {
-      "a": "LowerCarrier",
-      "b": "P0_MountFrontR",
-      "volume_mm3": 396.1721154606819
+      "part": "TopClampPad",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/TopClampPad.stl",
+      "sha256": "925bbcfaa452a3afdf749094ed63b3cda654c5c6b357b8218de79c68e7e7fd95",
+      "bounds_with_5mm_brim_mm": [
+        20.0,
+        23.5,
+        1.2000000476837158
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
     },
     {
-      "a": "LowerCarrier",
-      "b": "P0_MountRearL",
-      "volume_mm3": 519.5844043374827
-    },
-    {
-      "a": "LowerCarrier",
-      "b": "P0_MountRearR",
-      "volume_mm3": 531.7945975459033
-    },
-    {
-      "a": "Spacer3",
-      "b": "P0_MountRearR",
-      "volume_mm3": 12.461092464542107
-    },
-    {
-      "a": "Spacer4",
-      "b": "P0_MountRearL",
-      "volume_mm3": 12.461071156148458
+      "part": "LowerClampJaw",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerClampJaw.stl",
+      "sha256": "540011318755f484f1f7fb5988b13228130ae37b06f54293064d0f2b93e95ae2",
+      "bounds_with_5mm_brim_mm": [
+        20.0,
+        23.5,
+        3.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
     }
   ],
-  "errors": [],
-  "exports": [],
   "no_cached_vendor_BUS_BOP": true,
   "full_populated_board_and_harness_contacts_OPEN": true,
   "pending": [

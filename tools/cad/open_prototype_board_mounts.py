@@ -11,6 +11,7 @@ import math
 import time
 import tempfile
 import shutil
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / 'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype'
@@ -33,8 +34,8 @@ def read_plan(A,Part):
                    and abs(f.Surface.Radius-1.25)<1e-5]
     assert len(mount_faces)==4
     # Reuse the exact world placement from whole_cat_interior, then one explicit
-    # +4.52 Z datum change. The cached compound is invalid: datums only, no BOP.
-    transform = A.Placement(A.Vector(103.0120752,-20.98790452,49.12000348467585),
+    # +5.72 Z datum change. The cached compound is invalid: datums only, no BOP.
+    transform = A.Placement(A.Vector(103.0120752,-20.98790452,50.32000348467585),
                             A.Rotation(A.Vector(0,0,1),90))
     bus_axes = [list(transform.multVec(f.Surface.Center))[:2] for f in mount_faces]
     patterns = {'Pi4':[(x,y) for x in (-15.5,42.5) for y in (-24.5,24.5)],
@@ -52,13 +53,18 @@ def read_plan(A,Part):
     return dict(status='SHARED_TWO_LEVEL_MOUNT_PLAN_NOT_SELECTED',selected=False,physical_pass=False,
         source_sha256=pins,source_native= str((BASE/'OpenPrototypePlan.FCStd').relative_to(ROOT)),
         board_hole_axes_world_xy_mm=patterns,
-        pcb_bottom_planes_mm={'Pi4':46.52,'BUS':47.52000414467585,'PWM9685':78.,'AUX4092':78.,'PWM1608':78.},
-        lower_plate_bottom_z_mm=38.52,plate_thickness_mm=3.,upper_plate_bottom_z_mm=70.,
+        pcb_bottom_planes_mm={'Pi4':47.72,'BUS':48.72000414467585,'PWM9685':82.72,'AUX4092':82.72,'PWM1608':82.72},
+        lower_plate_bottom_z_mm=39.72,plate_thickness_mm=3.,upper_plate_bottom_z_mm=74.72,
         pcb_standoff_height_mm={'Pi4':5.,'BUS':6.00000414467585,'upper':5.},
-        lower_chassis_axes_xy_mm=[[-70,-31.5],[-70,31.5],[112,-31.5],[112,31.5]],
-        upper_column_axes_xy_mm=[[-24,-22],[-24,22],[132,-30],[132,30]],
-        upper_spacer_height_mm=28.48,upper_spacer_od_mm=8.,upper_spacer_bore_mm=3.4,
-        explicit_frame_changes={'Pi4_CP2':[0,0,4.52],'BUS_CP2':[0,0,4.52],'Monitor_CP2':[0,0,4.52]},
+        lower_chassis_axes_xy_mm=[[x,y] for x in (0,90) for y in (-24.5,24.5)],
+        upper_column_axes_xy_mm=[[-24,-22],[-24,22],[138,-30],[138,30]],
+        upper_spacer_height_mm=32.,upper_spacer_od_mm=8.,upper_spacer_bore_mm=3.4,
+        rail_clamp=dict(frame_unchanged=True,measured_flange_y_mm=[27,35.4738],
+            measured_flange_z_mm=[37.02,38.52],pad_thickness_mm=1.2,jaw_thickness_mm=3.,
+            nominal_bearing_each_mm2=65.,bolt_axis_outside_rail=True,
+            rejected_foundation_preserved_commit='a63866f',free_span_x_mm=[0,90]),
+        explicit_frame_changes={'Pi4_CP2':[0,0,5.72],'BUS_CP2':[0,0,5.72],'Monitor_CP2':[0,0,5.72],
+            'PWM9685_CP2':[0,0,4.72],'AUX4092_CP2':[0,0,4.72],'PWM1608_CP2':[0,0,4.72]},
         affected_wire_endpoints_must_rebind_in_stage3=True,old_wire_routes_not_requalified=True,
         retained=['MAIN/neck repaired master','bank R47','all four MTA with both exits','P0/E6 and 15 drives'],
         supplier_vs_assumption={
@@ -70,14 +76,14 @@ def read_plan(A,Part):
             'Monitor':'No invented holes. Four insulating edge supports and two removable ties; delivered underside/lead exits OPEN',
             'gaps_tools':'5/6mm insulation gaps, D3 driver/D6 nut socket are design allowances, not delivered/tool measurements'},
         nominal_fasteners={
-            'chassis':'4 M2x8,8 OD4.3/ID2.2/t0.3 washers,4 AF4/h1.6 nuts',
+            'chassis':'4 M3x14,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts; clamp friction/creep is phase2',
             'pcb':'17 M2x14,34 OD4.3/ID2.2/t0.3 washers,17 AF4/h1.6 nuts; PCB thickness1.6 nominal except1608=1.6002',
-            'upper_frame':'4 M3x40,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts',
+            'upper_frame':'4 M3x45,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts',
             'monitor':'2 T18I ties, removable; quantity/stock candidate until final integration'},
         assembly=['Battery/P0 and MAIN on empty frame; MAIN tightened before S0',
-            'Lower carrier on four P0 axes; hold nuts below upper flanges before remaining harness',
+            'Clamp lower carrier on four free rail spans; pads above flange/jaws below, bolts inboard; no P0 drilling',
             'Lower PCB screws/nuts, Pi/BUS and monitor ties before upper carrier',
-            'Upper carrier with four spacers/M3x40; upper PCB mounting before cable insertion',
+            'Upper carrier with four spacers/M3x45; upper PCB mounting before cable insertion',
             'Fit distribution rails/bank next; route both ends of MTA and harness in stage3',
             'Service with source disconnected: remove upper carrier if lower PCB tools need its space; no routine74WAGO disconnections'],
         upper_posts_avoid_narrow_MAIN_PI_and_USB_corridors=True,
@@ -91,27 +97,37 @@ def main():
     from open_deck_p0_plate import rect,circle
     tick=time.monotonic(); started=datetime.now(timezone.utc).isoformat()
     native=OUT/'BoardMounts.FCStd'; proof=OUT/'board-mount-checks.json'
-    assert not native.exists() and not proof.exists(), 'Recover existing model; do not repeat unchanged construction'
+    if native.exists() or proof.exists():
+        assert '--replace-rejected' in sys.argv, 'Recover existing model; do not repeat unchanged construction'
+        prior=json.loads(proof.read_text(encoding='utf-8'))
+        assert prior['status']=='COMMON_BOARD_MOUNT_REQUIRES_LAYOUT_CHANGE'
+        assert sha(native)==prior['native_sha256']
+        assert prior['contacts'], 'Replacement requires actual rejected foundation'
     plan=read_plan(A,Part)
     (OUT/'board-mount-plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     d=A.newDocument('OpenPrototypeBoardMounts')
     context=None
     try:
         p=d.addObject('App::VarSet','Parameters')
-        for n,v in [('PlateThickness',3),('LowerBase',38.52),('UpperBase',70),('PcbGap',5),
-                    ('BusGap',6.00000414467585),('SpacerHeight',28.48),('PcbBore',2.4)]:
+        for n,v in [('PlateThickness',3),('LowerBase',39.72),('UpperBase',74.72),('PcbGap',5),
+                    ('BusGap',6.00000414467585),('SpacerHeight',32),('PcbBore',2.4),
+                    ('ClampPadThickness',1.2),('ClampJawThickness',3)]:
             p.addProperty('App::PropertyLength',n); setattr(p,n,v)
         lower=d.addObject('PartDesign::Body','LowerCarrier')
-        sk=sketch(lower,'LowerMainPlan','Parameters.LowerBase');rect(sk,-29,-35.5,184,71)
+        sk=sketch(lower,'LowerMainPlan','Parameters.LowerBase');rect(sk,-29,-26.85,184,53.7)
         lower.Tip=feature(lower,'Pad','LowerMain',sk,'Parameters.PlateThickness')
-        sk=sketch(lower,'FrontArmsPlan','Parameters.LowerBase')
-        rect(sk,-76,28,47.5,7.5);rect(sk,-76,-35.5,47.5,7.5)
-        lower.Tip=feature(lower,'Pad','FrontArms',sk,'Parameters.PlateThickness')
+        sk=sketch(lower,'ClampBossPlan','Parameters.LowerBase')
+        for x in (0,90):
+            rect(sk,x-5,20,10,13.5);rect(sk,x-5,-33.5,10,13.5)
+        lower.Tip=feature(lower,'Pad','ClampBosses',sk,'Parameters.PlateThickness')
+        sk=sketch(lower,'LowerRearColumnPlan','Parameters.LowerBase')
+        circles(sk,[[138,-30],[138,30]],12)
+        lower.Tip=feature(lower,'Pad','LowerRearColumnBosses',sk,'Parameters.PlateThickness')
         sk=sketch(lower,'LowerVentPlan','Parameters.LowerBase+Parameters.PlateThickness')
         rect(sk,-9,-17,68,34);rect(sk,78,-12,17,24)
         lower.Tip=feature(lower,'Pocket','LowerVentWindows',sk,'Parameters.PlateThickness')
         sk=sketch(lower,'LowerFrameBores','Parameters.LowerBase+Parameters.PlateThickness')
-        circles(sk,plan['lower_chassis_axes_xy_mm'],2.4)
+        circles(sk,plan['lower_chassis_axes_xy_mm'],3.4)
         circles(sk,plan['upper_column_axes_xy_mm'],3.4)
         lower.Tip=feature(lower,'Pocket','LowerFrameClearance',sk,'Parameters.PlateThickness')
         sk=sketch(lower,'PiPostPlan','Parameters.LowerBase+Parameters.PlateThickness')
@@ -127,12 +143,15 @@ def main():
         circles(sk,[(112,2.5),(145,2.5),(112,22.5),(145,22.5)],4.5)
         lower.Tip=feature(lower,'Pad','MonitorInsulatingSeats',sk,'Parameters.PcbGap')
         sk=sketch(lower,'MonitorTieSlots','Parameters.LowerBase+Parameters.PlateThickness')
-        for x in (118,139):
-            for y in (-4,25.5):rect(sk,x-1.4,y,2.8,3.5)
+        for y in (6,19):
+            for x in (104,149.5):rect(sk,x,y-1.4,3.5,2.8)
         lower.Tip=feature(lower,'Pocket','MonitorTieWindows',sk,'Parameters.PlateThickness')
         upper=d.addObject('PartDesign::Body','UpperCarrier')
-        sk=sketch(upper,'UpperMainPlan','Parameters.UpperBase');rect(sk,-45,-36,183,72)
+        sk=sketch(upper,'UpperMainPlan','Parameters.UpperBase');rect(sk,-45,-27,189,54)
         upper.Tip=feature(upper,'Pad','UpperMain',sk,'Parameters.PlateThickness')
+        sk=sketch(upper,'UpperRearColumnPlan','Parameters.UpperBase')
+        circles(sk,[[138,-30],[138,30]],12)
+        upper.Tip=feature(upper,'Pad','UpperRearColumnBosses',sk,'Parameters.PlateThickness')
         sk=sketch(upper,'UpperVentPlan','Parameters.UpperBase+Parameters.PlateThickness')
         for x,y,w,h in [(-33,-6,51,12),(41,-6,14,12),(78,-12,27,24)]:rect(sk,x,y,w,h)
         upper.Tip=feature(upper,'Pocket','UpperVentWindows',sk,'Parameters.PlateThickness')
@@ -152,17 +171,31 @@ def main():
         instances=[]
         for i,(x,y) in enumerate(plan['upper_column_axes_xy_mm']):
             ob=d.addObject('App::Link',f'Spacer{i+1}');ob.setLink(spacer)
-            ob.LinkPlacement.Base=A.Vector(x,y,41.52)
+            ob.LinkPlacement.Base=A.Vector(x,y,42.72)
             instances.append(ob)
+        clamp_masters=[]
+        for name,length in [('TopClampPad','Parameters.ClampPadThickness'),('LowerClampJaw','Parameters.ClampJawThickness')]:
+            body=d.addObject('PartDesign::Body',name)
+            sk=sketch(body,name+'Plan',0);rect(sk,-5,20,10,13.5)
+            body.Tip=feature(body,'Pad',name+'Plate',sk,length)
+            sk=sketch(body,name+'Bore',length);circle(sk,0,24.5,3.4)
+            body.Tip=feature(body,'Pocket',name+'Clearance',sk,length)
+            clamp_masters.append(body)
+            z=38.52 if name=='TopClampPad' else 34.02
+            for i,(x,y) in enumerate(plan['lower_chassis_axes_xy_mm']):
+                ob=d.addObject('App::Link',name+str(i+1));ob.setLink(body)
+                ob.LinkPlacement=A.Placement(A.Vector(x,0,z),A.Rotation(A.Vector(0,0,1),180 if y<0 else 0))
+                instances.append(ob)
+        masters=[lower,upper,spacer]+clamp_masters
         def validate():
             d.recompute()
             sketches=[o for o in d.Objects if o.TypeId=='Sketcher::SketchObject']
             assert all(s.FullyConstrained and s.solve()==0 for s in sketches)
-            for b in (lower,upper,spacer):
+            for b in masters:
                 assert b.Tip.Shape.isValid() and len(b.Tip.Shape.Solids)==1,b.Name
                 assert not b.Tip.Shape.check(True),b.Name
                 assert all('Invalid' not in o.State and 'Touched' not in o.State for o in b.Group),b.Name
-            return {b.Name:b.Tip.Shape.Volume for b in (lower,upper,spacer)}
+            return {b.Name:b.Tip.Shape.Volume for b in masters}
         baseline=validate()
         d.saveAs(str(native)) # recoverable module before expensive contact/export checks
         p.PcbGap=5.5; changed=validate();assert changed['LowerCarrier']>baseline['LowerCarrier'] and changed['UpperCarrier']>baseline['UpperCarrier']
@@ -182,9 +215,17 @@ def main():
                     hit=s.common(t);assert hit.isValid()
                     if hit.Volume>1e-5:contacts.append(dict(a=name,b=other,volume_mm3=hit.Volume))
                 except Exception as exc:errors.append(dict(a=name,b=other,error=str(exc)))
+        from itertools import combinations
+        for (name,s),(other,t) in combinations(targets.items(),2):
+            if not s.BoundBox.intersect(t.BoundBox):continue
+            tested+=1
+            try:
+                hit=s.common(t);assert hit.isValid()
+                if hit.Volume>1e-5:contacts.append(dict(a=name,b=other,volume_mm3=hit.Volume))
+            except Exception as exc:errors.append(dict(a=name,b=other,error=str(exc)))
         exports=[]
         if not contacts and not errors:
-            for ob,qty in ((lower,1),(upper,1),(spacer,4)):
+            for ob,qty in ((lower,1),(upper,1),(spacer,4),(clamp_masters[0],4),(clamp_masters[1],4)):
                 s=ob.Shape.copy();b=s.BoundBox;s.translate(A.Vector(-b.XMin,-b.YMin,-b.ZMin))
                 path=OUT/(ob.Name+'.stl')
                 MeshPart.meshFromShape(Shape=s,LinearDeflection=.08,AngularDeflection=.2,Relative=False).write(str(path))
@@ -193,23 +234,26 @@ def main():
                 assert max(size)<256
                 exports.append(dict(part=ob.Name,quantity=qty,path=path.relative_to(ROOT).as_posix(),
                     sha256=sha(path),bounds_with_5mm_brim_mm=size,orientation='Flat base +Z; PETG; physical coupon/profile/support assessment OPEN'))
-        for body in (lower,upper,spacer):
+        for body in masters:
             for o in body.Group:
                 if o.ViewObject:o.Visibility=False
             if body.ViewObject:body.Visibility=True
+        for body in [spacer]+clamp_masters:
+            if body.ViewObject:body.Visibility=False
         d.save()
         A.closeDocument(context.Name);context=None
         A.closeDocument(d.Name)
         with tempfile.TemporaryDirectory(prefix='robot-cat-mount-reopen-') as temp:
             relocated=Path(temp)/native.name;shutil.copy2(native,relocated)
             d=A.openDocument(str(relocated));lower=d.LowerCarrier;upper=d.UpperCarrier;spacer=d.UpperSpacer;p=d.Parameters
+            masters=[d.getObject(n) for n in baseline]
             fresh=validate();assert all(abs(fresh[n]-v)<1e-6 for n,v in baseline.items())
-            assert len([o for o in d.Objects if o.TypeId=='App::Link'])==4
+            assert len([o for o in d.Objects if o.TypeId=='App::Link'])==12
         result=dict(status='COMMON_BOARD_MOUNT_LOCAL_CHECKS_CLEAR' if not(contacts or errors) else 'COMMON_BOARD_MOUNT_REQUIRES_LAYOUT_CHANGE',
             selected=False,stage_completed=False,W1_complete=False,W5_complete=False,physical_pass=False,
             started_utc=started,finished_utc=datetime.now(timezone.utc).isoformat(),worker_wall_seconds=round(time.monotonic()-tick,3),
             source_sha256=plan['source_sha256'],native_sha256=sha(native),baseline_volumes_mm3=baseline,
-            parameter_roundtrip_mm=[5,5.5,5],relocated_reopen=True,three_editable_masters_four_spacer_links=True,
+            parameter_roundtrip_mm=[5,5.5,5],relocated_reopen=True,editable_master_count=5,physical_link_count=12,
             exact_changed_context_pairs=tested,contacts=contacts,errors=errors,exports=exports,
             no_cached_vendor_BUS_BOP=True,full_populated_board_and_harness_contacts_OPEN=True,
             pending=['Fastener bearing/shaft/nut/tool checks','Distribution rail/support/insulation integration',

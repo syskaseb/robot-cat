@@ -10,7 +10,7 @@
     "hardware/reference/pi-interface-2026-10-01/pi4-mechanical.pdf": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
     "hardware/reference/permaproto1608-2026-09-26/quarterbreadboard.brd": "b329d14973c2eb572492f387ae6f7c2a6c35cb5a517b88785b4b7b79083cb617",
     "tools/cad/whole_cat_interior.py": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998",
-    "tools/cad/open_prototype_board_mounts.py": "a97bf3285af913825317ec652cb6603f052d433b2df91421f8d64976a3a86e28"
+    "tools/cad/open_prototype_board_mounts.py": "52b3144cefc86f30d28f3e863cb79d735c95b96ea2c842c9054cf2010632b2e7"
   },
   "source_native": "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\OpenPrototypePlan.FCStd",
   "board_hole_axes_world_xy_mm": {
@@ -94,15 +94,15 @@
     ]
   },
   "pcb_bottom_planes_mm": {
-    "Pi4": 46.52,
-    "BUS": 47.52000414467585,
-    "PWM9685": 78.0,
-    "AUX4092": 78.0,
-    "PWM1608": 78.0
+    "Pi4": 47.72,
+    "BUS": 48.72000414467585,
+    "PWM9685": 82.72,
+    "AUX4092": 82.72,
+    "PWM1608": 82.72
   },
-  "lower_plate_bottom_z_mm": 38.52,
+  "lower_plate_bottom_z_mm": 39.72,
   "plate_thickness_mm": 3.0,
-  "upper_plate_bottom_z_mm": 70.0,
+  "upper_plate_bottom_z_mm": 74.72,
   "pcb_standoff_height_mm": {
     "Pi4": 5.0,
     "BUS": 6.00000414467585,
@@ -110,20 +110,20 @@
   },
   "lower_chassis_axes_xy_mm": [
     [
-      -70,
-      -31.5
+      0,
+      -24.5
     ],
     [
-      -70,
-      31.5
+      0,
+      24.5
     ],
     [
-      112,
-      -31.5
+      90,
+      -24.5
     ],
     [
-      112,
-      31.5
+      90,
+      24.5
     ]
   ],
   "upper_column_axes_xy_mm": [
@@ -136,32 +136,67 @@
       22
     ],
     [
-      132,
+      138,
       -30
     ],
     [
-      132,
+      138,
       30
     ]
   ],
-  "upper_spacer_height_mm": 28.48,
+  "upper_spacer_height_mm": 32.0,
   "upper_spacer_od_mm": 8.0,
   "upper_spacer_bore_mm": 3.4,
+  "rail_clamp": {
+    "frame_unchanged": true,
+    "measured_flange_y_mm": [
+      27,
+      35.4738
+    ],
+    "measured_flange_z_mm": [
+      37.02,
+      38.52
+    ],
+    "pad_thickness_mm": 1.2,
+    "jaw_thickness_mm": 3.0,
+    "nominal_bearing_each_mm2": 65.0,
+    "bolt_axis_outside_rail": true,
+    "rejected_foundation_preserved_commit": "a63866f",
+    "free_span_x_mm": [
+      0,
+      90
+    ]
+  },
   "explicit_frame_changes": {
     "Pi4_CP2": [
       0,
       0,
-      4.52
+      5.72
     ],
     "BUS_CP2": [
       0,
       0,
-      4.52
+      5.72
     ],
     "Monitor_CP2": [
       0,
       0,
-      4.52
+      5.72
+    ],
+    "PWM9685_CP2": [
+      0,
+      0,
+      4.72
+    ],
+    "AUX4092_CP2": [
+      0,
+      0,
+      4.72
+    ],
+    "PWM1608_CP2": [
+      0,
+      0,
+      4.72
     ]
   },
   "affected_wire_endpoints_must_rebind_in_stage3": true,
@@ -182,16 +217,16 @@
     "gaps_tools": "5/6mm insulation gaps, D3 driver/D6 nut socket are design allowances, not delivered/tool measurements"
   },
   "nominal_fasteners": {
-    "chassis": "4 M2x8,8 OD4.3/ID2.2/t0.3 washers,4 AF4/h1.6 nuts",
+    "chassis": "4 M3x14,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts; clamp friction/creep is phase2",
     "pcb": "17 M2x14,34 OD4.3/ID2.2/t0.3 washers,17 AF4/h1.6 nuts; PCB thickness1.6 nominal except1608=1.6002",
-    "upper_frame": "4 M3x40,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts",
+    "upper_frame": "4 M3x45,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts",
     "monitor": "2 T18I ties, removable; quantity/stock candidate until final integration"
   },
   "assembly": [
     "Battery/P0 and MAIN on empty frame; MAIN tightened before S0",
-    "Lower carrier on four P0 axes; hold nuts below upper flanges before remaining harness",
+    "Clamp lower carrier on four free rail spans; pads above flange/jaws below, bolts inboard; no P0 drilling",
     "Lower PCB screws/nuts, Pi/BUS and monitor ties before upper carrier",
-    "Upper carrier with four spacers/M3x40; upper PCB mounting before cable insertion",
+    "Upper carrier with four spacers/M3x45; upper PCB mounting before cable insertion",
     "Fit distribution rails/bank next; route both ends of MTA and harness in stage3",
     "Service with source disconnected: remove upper carrier if lower PCB tools need its space; no routine74WAGO disconnections"
   ],
