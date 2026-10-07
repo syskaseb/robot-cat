@@ -1,0 +1,55 @@
+{
+  "status": "U1_SHARED_MOUNT_PLAN_PROVISIONAL_DELIVERED_MAP_OPEN",
+  "stage_completed": false,
+  "selected": false,
+  "physical_pass": false,
+  "source_scope": "Mounting Stage2; local lead SPACE budget, not full wiring or stock",
+  "retain": ["MountsCurrent/7e1e64f known mounts", "WAGO underbody retention/332c22c", "P0", "MAIN46.52", "R47", "4MTA/both exits", "15 drives", "MG92B", "325x200x160", "256cube"],
+  "cause_change": "First candidate Y42 is too far for50mm local links. Supplier photo also does not support assuming7.62mm total row separation. Allocate board height, support/hardware, wider pad rows and local lead allowance together before CAD",
+  "supplier": {
+    "reference": "hardware/reference/u1-adapter-2026-09-26/source.json",
+    "photo": "hardware/reference/u1-adapter-2026-09-26/adapter-side-b.jpg",
+    "outline_mm": [30.48,17.78],
+    "pitch_mm": 2.54,
+    "true_hole_pad_thickness_coordinates_known": false
+  },
+  "project_geometry": {
+    "centre_world_xy_mm": [94.59,33],
+    "external_pad_orientation_deg": 180,
+    "board_thickness_mm": 1.6,
+    "photo_consistent_row_half_spacing_assumption_mm": 7.62,
+    "hole_half_spacing_assumptions_xy_mm": [12.7,3.81],
+    "replace_or_regenerate_after_delivered_measurement": true,
+    "board_bottom_z_mm": 87.22,
+    "platform_top_z_mm": 80.22,
+    "support_height_mm": 7,
+    "support_outer_diameter_mm": 4.5,
+    "clearance_bore_mm": 2.4,
+    "top_insulator_mm": {"od":4.5,"id":2.4,"thickness":1},
+    "foot_rectangle_world_xywh_mm": [76.59,24,36,29],
+    "platform_rectangle_world_xywh_mm": [76.59,26,36,21],
+    "fasteners_added": {"M2x20":2,"M2_nut_AF4_height1.6":2},
+    "printed_parts_added": {"U1InsulatingSpacer":2,"U1TopInsulator":2},
+    "steel_top_washer": false,
+    "washer_pad_clearance_is_assumed_not_measured": true
+  },
+  "local_space_screen": {
+    "pattern_is_NOT_delivered_pad_map": true,
+    "maximum_straight_pad_distance_mm": 45.174,
+    "z_difference_assumed_mm": 4.5,
+    "extra_planning_reserve_mm": 3,
+    "project_max_local_length_mm": 50,
+    "actual_routes_bend_end_allowance_and_map_qualified": false,
+    "rule": "Use wider photo-consistent pad row assumption for screen. Never call lower bound a cut length or proof of routing. Actual bends/insulation/solder ends and pin mapping remain separate qualification; do not silently relax50mm"
+  },
+  "assembly": [
+    "Retain known carrier/PCB/clamp/side-rail sequence and lateral rear nut access",
+    "Fit actual bare adapter hole coordinates in CAD and verify both faces/pads before printing local attachment; no drilling the supplied PCB or edge-clamping pad rows",
+    "Two spacer feet supported on enlarged low side platform. Fit insulated spacers and adapter through verified holes, then two insulating top washers andM2x20 screws with nuts under platform",
+    "Finger support during nut tightening, only light controlled clamp load; no load on solder or pads",
+    "Support each soldered lead separately on the SAME carrier after actual local path qualification; do not transfer cable forces to adapter",
+    "Disconnect power/label local ends, support body and remove two accessible screws before taking adapter to bench"
+  ],
+  "delivery_gates": ["Actual holes/diameter/thickness and unchanged supplier revision", "Both-side no-pad/solder bearing regions at all spacers/insulators", "Actual pad mapping and every local connection within50mm with bends/ends", "PETG coupon/creep/insulation and actual tools", "No energizing while any electrical safety gate OPEN"],
+  "scope_does_not_include": ["Full wiring", "stock selection", "physical PASS", "purchase", "ROS", "next stage"]
+}
