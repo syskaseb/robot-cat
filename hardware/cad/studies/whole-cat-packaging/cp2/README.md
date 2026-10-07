@@ -1,5 +1,16 @@
 # CP2: wspólne rozmieszczenie wnętrza
 
+## Bieżąca robocza kopia otwartego prototypu,07.10
+
+`open-prototype/README.md`, `OpenPrototype.FCStd` i `layout.json` łączą tę bazę
+z aktualną szyją/MAIN, nazwanymi końcami Pi i jednym lutem F_PI. Zachowują
+połączenia80żył;122/160końców nominalnie związane,38otwartych. Grupy tras
+są planem, nie gotową wiązką. Pierwsze próby bez górnej kosmetycznej osłony,
+proste mocowania; wolno zdejmować sąsiedni moduł lub wymieniać opaski do serwisu.
+14testów PASS, native zapis/reopen, zmieniony W077:2pary/0przecięć/0błędów.
+Brak nowych wydruków/wyboru/pełnegoW1/W5. Minimum nadal3/20=15%; hook wyłączony.
+Szczegóły/otwarte bramki i pełne widoki w pakiecie; poniżej zachowana historia.
+
 ## Bieżący ręczny detal szyi i MAIN,07.10
 
 Hook wyłączony, bez harmonogramu. `neck-support/main-mount-sequence/NeckMainMount.FCStd`
