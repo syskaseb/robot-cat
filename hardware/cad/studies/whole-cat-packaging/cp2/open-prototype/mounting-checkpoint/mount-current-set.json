@@ -1,0 +1,140 @@
+{
+  "status": "BOARD_MOUNT_LOCAL_CANDIDATE_CURRENT_SET_NOT_STAGE_RELEASE",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "current_native": "BoardMountAssembly.FCStd",
+  "native_sha256": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823",
+  "inherited_main_native": "Mounts.FCStd",
+  "current_print_parts": [
+    {
+      "part": "LowerCarrier",
+      "quantity": 1,
+      "replaces": "LowerCarrier.stl",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerCarrierAssembly.stl",
+      "sha256": "f5c2b9a83c70e939f5c3df68556533e259a1fdb0757405550f84fd801f921d29",
+      "bounds_with_5mm_brim_mm": [
+        194.0,
+        81.99571083742194,
+        9.000003814697266
+      ]
+    },
+    {
+      "part": "UpperCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperCarrier.stl",
+      "sha256": "5b1f905a911d25ca82735a6cdf927af878a1d7f535e93cc5df214b8e417de881",
+      "bounds_with_5mm_brim_mm": [
+        199.0,
+        81.99879650841467,
+        8.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
+    },
+    {
+      "part": "UpperSpacer",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperSpacer.stl",
+      "sha256": "4d8eed4e8a8e889339c09353504ff6805119f93347353c92b346bd57cc2b3e5b",
+      "bounds_with_5mm_brim_mm": [
+        17.995027685072273,
+        17.9975136135472,
+        32.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
+    },
+    {
+      "part": "TopClampPad",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/TopClampPad.stl",
+      "sha256": "925bbcfaa452a3afdf749094ed63b3cda654c5c6b357b8218de79c68e7e7fd95",
+      "bounds_with_5mm_brim_mm": [
+        20.0,
+        23.5,
+        1.2000000476837158
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
+    },
+    {
+      "part": "LowerClampJaw",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerClampJaw.stl",
+      "sha256": "540011318755f484f1f7fb5988b13228130ae37b06f54293064d0f2b93e95ae2",
+      "bounds_with_5mm_brim_mm": [
+        20.0,
+        23.5,
+        3.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
+    }
+  ],
+  "print_quantity_total": 14,
+  "unique_print_geometries": 5,
+  "excluded_from_current_prints": [
+    "LowerCarrier.stl (replaced by captive-nut carrier)"
+  ],
+  "quantities": {
+    "M3x14": 4,
+    "M3x45": 4,
+    "M3_washer": 16,
+    "M3_nut": 8,
+    "M2x12": 8,
+    "M2x14": 9,
+    "M2_washer": 26,
+    "M2_nut": 17,
+    "monitor_T18I": 2
+  },
+  "assembly": [
+    "Seat8 M2 nuts in AF4.3 underside pockets; temporary removable tape retains nuts only, not structural",
+    "Install lower carrier/pads/jaws; tighten rail clamps before Pi; no frame drilling",
+    "Install Pi/BUS M2x12 into captive nuts; monitor2ties; upper spacers/carrierM3x45",
+    "Upper9PCB boltsM2x14/nuts before harness; remove upper carrier to service lower board screws"
+  ],
+  "rear_nut_tool": [
+    {
+      "id": "UpperFrame7NutToolStage",
+      "replaces": "D7 axial socket from below",
+      "new_approach": "AF5.5 flat open-end spanner from rear +X",
+      "continuous_entry_distance_mm": 40,
+      "nominal_tool_thickness_mm": 1.5,
+      "outer_width_mm": 9,
+      "z_mm": [
+        37.27,
+        38.77
+      ],
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "prerequisite": "Source isolated; fit upper plate nuts before connectors/harness; rear approach unoccupied",
+      "real_tool_and_clearance_coupon_in_phase2": true
+    },
+    {
+      "id": "UpperFrame8NutToolStage",
+      "replaces": "D7 axial socket from below",
+      "new_approach": "AF5.5 flat open-end spanner from rear +X",
+      "continuous_entry_distance_mm": 40,
+      "nominal_tool_thickness_mm": 1.5,
+      "outer_width_mm": 9,
+      "z_mm": [
+        37.27,
+        38.77
+      ],
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "prerequisite": "Source isolated; fit upper plate nuts before connectors/harness; rear approach unoccupied",
+      "real_tool_and_clearance_coupon_in_phase2": true
+    }
+  ],
+  "remaining_stage2": [
+    "Populated supplier boards/underside/components versus mounts and connectors",
+    "Distribution supports/insulation/actual attachment/assembly integration",
+    "One common integrated native/export selection for this stage"
+  ],
+  "result_count": 3,
+  "result_denominator": 20,
+  "result_percent": 15,
+  "no_M5_W1_W5_or_whole_phase_credit": true
+}

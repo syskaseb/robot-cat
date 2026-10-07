@@ -1,0 +1,77 @@
+{
+  "status": "LATERAL_REAR_NUT_ACCESS_CLEAR",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMountAssembly.FCStd": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-hardware-checks.json": "5fdb1f0176ef10d721723d53c32dc3e04b1c1d4bfb27af35372c7c4daabe2b07",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "tools/cad/open_prototype_rear_nut_access.py": "0f63ce5d1cca66d6a03b62a9ea2031e452d1a50c17fad75f72be1b65380b6e4e"
+  },
+  "started_utc": "2026-10-07T21:58:11.389807+00:00",
+  "finished_utc": "2026-10-07T21:58:18.348967+00:00",
+  "worker_wall_seconds": 6.968,
+  "exact_changed_pairs": 0,
+  "contacts": [],
+  "errors": [],
+  "tool_paths": [
+    {
+      "id": "UpperFrame7NutToolStage",
+      "replaces": "D7 axial socket from below",
+      "new_approach": "AF5.5 flat open-end spanner from rear +X",
+      "continuous_entry_distance_mm": 40,
+      "nominal_tool_thickness_mm": 1.5,
+      "outer_width_mm": 9,
+      "z_mm": [
+        37.27,
+        38.77
+      ],
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "prerequisite": "Source isolated; fit upper plate nuts before connectors/harness; rear approach unoccupied",
+      "real_tool_and_clearance_coupon_in_phase2": true
+    },
+    {
+      "id": "UpperFrame8NutToolStage",
+      "replaces": "D7 axial socket from below",
+      "new_approach": "AF5.5 flat open-end spanner from rear +X",
+      "continuous_entry_distance_mm": 40,
+      "nominal_tool_thickness_mm": 1.5,
+      "outer_width_mm": 9,
+      "z_mm": [
+        37.27,
+        38.77
+      ],
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "prerequisite": "Source isolated; fit upper plate nuts before connectors/harness; rear approach unoccupied",
+      "real_tool_and_clearance_coupon_in_phase2": true
+    }
+  ],
+  "exports": [
+    {
+      "part": "LowerCarrier",
+      "quantity": 1,
+      "replaces": "LowerCarrier.stl",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerCarrierAssembly.stl",
+      "sha256": "f5c2b9a83c70e939f5c3df68556533e259a1fdb0757405550f84fd801f921d29",
+      "bounds_with_5mm_brim_mm": [
+        194.0,
+        81.99571083742194,
+        9.000003814697266
+      ]
+    }
+  ],
+  "retains_all_other_hardware_checks": true,
+  "old_socket_contacts_retained": true,
+  "unchanged_geometry_checks_not_repeated": true,
+  "physical_pass": false,
+  "stage_completed": false,
+  "open": [
+    "PCB populated fit",
+    "Distribution supports and joint integration",
+    "Delivered tools/PETG fit and load in phase2"
+  ]
+}
