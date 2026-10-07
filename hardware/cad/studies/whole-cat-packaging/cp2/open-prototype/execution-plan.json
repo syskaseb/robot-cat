@@ -1,0 +1,1724 @@
+{
+  "status": "STAGE1_PLAN_FROZEN_NOT_FULL_PHASE_RELEASE",
+  "window_id": "open-prototype-layout-20261007",
+  "started_utc": "2026-10-07T18:25:05Z",
+  "deadline_utc": "2026-10-07T20:25:05Z",
+  "scope": "Stage1 only: shared space/assembly plan, preserved evidence and affected interfaces,E3 data check,estimate. No detailed mount stage or full-phase release.",
+  "base_commit": "51733c2",
+  "source_sha256": {
+    "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/layout.json": "42790e785001e01ea39a293a5751dab088a0ffe592055f3821712f16be29519b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/checks.json": "98d4b31f7480aff833156603de4f3e3d9248fb1e03bbaa4a159e0422fdc54c05",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototype.FCStd": "19bf2ea51e2d2c6deb6c0416c1290fd9e04c29453ce58be38edcd63663bbd6c1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/interfaces.json": "76704ef3fce6033663f6167730bbfa70a8c4b7a854b38d25cbd2a67850c3391b",
+    "tools/cad/inspect_open_prototype_for_plan.py": "8a746e5fae7c4931d2cfdfc6139548f0bffde24df0b0828969239389bdd48f0a",
+    "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json": "8f1be89404a237130f9bb42318de591dcf04ba7c5e1790df291cd7cd7d70d039",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/reference-frame-correction.json": "dd8f4db231a8f6d2aa1ff4e29db22ee3f4fa12d02ea2555711cc0e3dcadb015e",
+    "tools/cad/correct_open_prototype_plan_reference.py": "56db879d0bbf940f6c7623d975d30eb39f7e12a0273c2f93860fbd998ead7c88",
+    "tools/cad/verify_open_prototype_execution_plan.py": "d176b6347df7a254f89061449e2919c600212c08915f5e7433238815cdc3ac86"
+  },
+  "source_digest_modes": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/reference-frame-correction.json": "utf8_lf"
+  },
+  "selected": false,
+  "physical_pass": false,
+  "W1_complete": false,
+  "W5_complete": false,
+  "E3_complete": false,
+  "confirmed_result_ids": [
+    "M1",
+    "E4",
+    "A1"
+  ],
+  "result_count": 3,
+  "result_denominator": 20,
+  "result_percent": 15,
+  "result_dispositions": [
+    {
+      "id": "M1",
+      "status": "retained",
+      "basis": "P0 frame/legs and retained prints; pinned CP1 compatibility unchanged"
+    },
+    {
+      "id": "M2",
+      "status": "requalify",
+      "basis": "Neck risers/MAIN mount local proofs retained; whole head mounting and wire motion open"
+    },
+    {
+      "id": "M3",
+      "status": "requalify",
+      "basis": "Tail local support retained; raised bridge+15Z and body attachment open"
+    },
+    {
+      "id": "M4",
+      "status": "requalify",
+      "basis": "Open-top scope approved; only necessary underside/local protective covers and access, not cosmetic upper body"
+    },
+    {
+      "id": "M5",
+      "status": "requalify",
+      "basis": "Pi and distribution mounts at CP2 datums instead of the old cassette"
+    },
+    {
+      "id": "E1",
+      "status": "requalify",
+      "basis": "PWM local parts/pinout retained; CP2 support and interconnects open"
+    },
+    {
+      "id": "E2",
+      "status": "requalify",
+      "basis": "F_PWM selected part and short-wire recipe retained; current placement/ends/grips/access open"
+    },
+    {
+      "id": "E3",
+      "status": "blocked_data",
+      "basis": "Four recorded electrical data gaps; no safety acceptance inferred from routing or trial plan"
+    },
+    {
+      "id": "E4",
+      "status": "retained",
+      "basis": "Unchanged nominal 15-drive netlist; no electrical topology revision"
+    },
+    {
+      "id": "W1",
+      "status": "open",
+      "basis": "Common AUX/case wiring interface and restraints; legacy XA05 contact evidence not waived"
+    },
+    {
+      "id": "W2",
+      "status": "requalify",
+      "basis": "Local head module/ranges retained; CP2 integration and body connection not qualified"
+    },
+    {
+      "id": "W3",
+      "status": "requalify",
+      "basis": "Head feeds to relocated module and current receivers"
+    },
+    {
+      "id": "W4",
+      "status": "requalify",
+      "basis": "Local tail module retained; +15Z requires new body feeds and restraints"
+    },
+    {
+      "id": "W5",
+      "status": "open",
+      "basis": "80 body conductors,38 unbound roles,remaining full routes/ends/restraints and source stock"
+    },
+    {
+      "id": "K1",
+      "status": "requalify",
+      "basis": "One current selected print set incl split parts; historical R53 not current release"
+    },
+    {
+      "id": "K2",
+      "status": "requalify",
+      "basis": "Selected SKU identities retained where unchanged; CP2 hardware quantities/roles not reconciled"
+    },
+    {
+      "id": "K3",
+      "status": "open",
+      "basis": "Whole materials,wire/sleeve/ties/tools ledger; do not double-count variants or spare parts"
+    },
+    {
+      "id": "A1",
+      "status": "retained",
+      "basis": "Phase1 vs physical phase2/ROS phase3 distinction; provisional replaceable MG92B"
+    },
+    {
+      "id": "A2",
+      "status": "open",
+      "basis": "One whole-robot assembly sequence with all electrical/mechanical dependencies"
+    },
+    {
+      "id": "A3",
+      "status": "open",
+      "basis": "One reconciled source/export/netlist/BOM/wiring/assembly package"
+    }
+  ],
+  "body_conductor_count": 80,
+  "bound_body_end_count": 122,
+  "body_end_count": 160,
+  "missing_body_endpoint_roles": [
+    "BUS.D",
+    "BUS.G",
+    "FL1.D",
+    "FL1.G",
+    "FL1.V",
+    "FL2.D",
+    "FL2.G",
+    "FL2.V",
+    "FL3.D",
+    "FL3.G",
+    "FL3.V",
+    "FR1.D",
+    "FR1.G",
+    "FR1.V",
+    "FR2.D",
+    "FR2.G",
+    "FR2.V",
+    "FR3.D",
+    "FR3.G",
+    "FR3.V",
+    "RL1.D",
+    "RL1.G",
+    "RL1.V",
+    "RL2.D",
+    "RL2.G",
+    "RL2.V",
+    "RL3.D",
+    "RL3.G",
+    "RL3.V",
+    "RR1.D",
+    "RR1.G",
+    "RR1.V",
+    "RR2.D",
+    "RR2.G",
+    "RR2.V",
+    "RR3.D",
+    "RR3.G",
+    "RR3.V"
+  ],
+  "distribution_boundary_pair_count": 80,
+  "external_boundary_pair_count": 22,
+  "mechanical_constraints": {
+    "torso_mm": [
+      325,
+      200,
+      160
+    ],
+    "torso_is_not_one_print": true,
+    "print_field_mm": [
+      256,
+      256,
+      256
+    ],
+    "upper_cosmetic_body_not_required": true,
+    "side_widening": false,
+    "drive_count": 15,
+    "retained_modules": "P0/E6/R47/local head/tail,replaceable provisional MG92B"
+  },
+  "spatial_allocations": {
+    "FL": [
+      -70,
+      56,
+      150,
+      -10,
+      68,
+      170
+    ],
+    "FR": [
+      -70,
+      -68,
+      150,
+      -10,
+      -56,
+      170
+    ],
+    "RL": [
+      42,
+      56,
+      150,
+      112,
+      68,
+      170
+    ],
+    "RR": [
+      42,
+      -68,
+      150,
+      112,
+      -56,
+      170
+    ],
+    "LOGIC_AUX": [
+      -45,
+      -10,
+      153,
+      112,
+      10,
+      171
+    ],
+    "MAIN_PI": [
+      -65,
+      -48,
+      65,
+      70,
+      -30,
+      75
+    ],
+    "HEAD": [
+      -124,
+      -60,
+      125,
+      -106,
+      -20,
+      145
+    ],
+    "TAIL": [
+      138,
+      -12,
+      145,
+      158,
+      12,
+      165
+    ],
+    "USB_BUS": [
+      68,
+      -46,
+      65,
+      125,
+      -30,
+      77
+    ],
+    "AUX_BRANCHES": [
+      -45,
+      76,
+      110,
+      110,
+      92,
+      130
+    ],
+    "SOURCE_SWITCH": [
+      -108,
+      -72,
+      38,
+      144,
+      44,
+      125
+    ]
+  },
+  "wire_groups": {
+    "SOURCE_SWITCH": [
+      "W001",
+      "W064",
+      "W065",
+      "W066",
+      "W067",
+      "W068",
+      "W075",
+      "W076"
+    ],
+    "FL": [
+      "W002",
+      "W004",
+      "W005",
+      "W006",
+      "W007",
+      "W019",
+      "W020",
+      "W021",
+      "W022",
+      "W023",
+      "W024",
+      "W025",
+      "W026",
+      "W027",
+      "W028",
+      "W029",
+      "W041"
+    ],
+    "USB_BUS": [
+      "W003"
+    ],
+    "FR": [
+      "W008",
+      "W009",
+      "W010",
+      "W011",
+      "W030",
+      "W031",
+      "W032",
+      "W033",
+      "W034",
+      "W035",
+      "W036",
+      "W037",
+      "W038",
+      "W039",
+      "W040",
+      "W042"
+    ],
+    "RL": [
+      "W012",
+      "W013",
+      "W014",
+      "W015",
+      "W044",
+      "W045",
+      "W046",
+      "W047",
+      "W048",
+      "W049",
+      "W050",
+      "W051",
+      "W062",
+      "W069",
+      "W070",
+      "W071"
+    ],
+    "RR": [
+      "W016",
+      "W017",
+      "W018",
+      "W052",
+      "W053",
+      "W054",
+      "W055",
+      "W056",
+      "W057",
+      "W058",
+      "W059",
+      "W063",
+      "W072",
+      "W073",
+      "W074"
+    ],
+    "AUX_BRANCHES": [
+      "W043"
+    ],
+    "MAIN_PI": [
+      "W060",
+      "W077",
+      "W078",
+      "W079",
+      "W080"
+    ],
+    "LOGIC_AUX": [
+      "W061"
+    ]
+  },
+  "corridor_rules": [
+    "Shared corridors are planning spines plus endpoint tails,not completed tubes or clearance PASS",
+    "Upper four leg bundles are replaceable-tie bundles above their bank; release ties and support bundle aside for ATO service,not routine74WAGO disconnections",
+    "Do not route bare copper or insulation grips through an insertion strip. Keep each MTA's both factory exits and preserve real extension/SKU/stock if needed",
+    "Four MAIN lead approaches and solder sleeve share one support/strain-relief plan; current pad positions are provisional,not manufacturer pad certification",
+    "Factory USB stays intact; excess receives its own supported loop,not a cut/splice",
+    "Head/tail/leg exits require free moving slack and protection at edges; actual route/range qualification remains subsequent work",
+    "Hot boards mounted by actual holes with insulating standoffs; do not screw through a reservation rectangle or new active IC position",
+    "Whole-assembly wire quantity ledger separates installed wire,trim allowance,factory cables and stocked spare"
+  ],
+  "measured_current_inventory": [
+    {
+      "name": "Pi4_CP2",
+      "bounds_mm": [
+        -19,
+        -28,
+        42,
+        66,
+        28,
+        64
+      ],
+      "origin_mm": [
+        -19,
+        -28,
+        42
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "BUS_CP2",
+      "bounds_mm": [
+        70,
+        -21,
+        41,
+        103.81628927999111,
+        21.02417808,
+        55.599999818597645
+      ],
+      "origin_mm": [
+        70,
+        -21,
+        41
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "Monitor_CP2",
+      "bounds_mm": [
+        108,
+        0,
+        42,
+        149,
+        25,
+        54
+      ],
+      "origin_mm": [
+        108,
+        0,
+        42
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "PWM9685_CP2",
+      "bounds_mm": [
+        -39,
+        -12.7,
+        78,
+        23.5,
+        12.7,
+        108
+      ],
+      "origin_mm": [
+        -39,
+        -12.7,
+        78
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "AUX4092_CP2",
+      "bounds_mm": [
+        35,
+        -12.7,
+        78,
+        60.4,
+        12.7,
+        108
+      ],
+      "origin_mm": [
+        35,
+        -12.7,
+        78
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "PWM1608_CP2",
+      "bounds_mm": [
+        70,
+        -25.4,
+        78,
+        113.18,
+        25.4,
+        108
+      ],
+      "origin_mm": [
+        70,
+        -25.4,
+        78
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "FL_P_CP2",
+      "bounds_mm": [
+        -60,
+        70,
+        61,
+        -30,
+        89,
+        70
+      ],
+      "origin_mm": [
+        -30,
+        89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        1,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "FL_G_CP2",
+      "bounds_mm": [
+        -25,
+        70,
+        61,
+        5.000000000000002,
+        89,
+        70
+      ],
+      "origin_mm": [
+        5.000000000000002,
+        89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        1,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "D_FL_CP2",
+      "bounds_mm": [
+        10,
+        70,
+        61,
+        40,
+        89,
+        70
+      ],
+      "origin_mm": [
+        40,
+        89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        1,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "RL_P_CP2",
+      "bounds_mm": [
+        45,
+        70,
+        61,
+        75,
+        89,
+        70
+      ],
+      "origin_mm": [
+        75,
+        89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        1,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "RL_G_CP2",
+      "bounds_mm": [
+        80,
+        70,
+        61,
+        110,
+        89,
+        70
+      ],
+      "origin_mm": [
+        110,
+        89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        1,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "FR_P_CP2",
+      "bounds_mm": [
+        -60,
+        -89,
+        61,
+        -30,
+        -70,
+        70
+      ],
+      "origin_mm": [
+        -60,
+        -89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "FR_G_CP2",
+      "bounds_mm": [
+        -25,
+        -89,
+        61,
+        5,
+        -70,
+        70
+      ],
+      "origin_mm": [
+        -25,
+        -89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "D_FR_CP2",
+      "bounds_mm": [
+        10,
+        -89,
+        61,
+        40,
+        -70,
+        70
+      ],
+      "origin_mm": [
+        10,
+        -89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "RR_P_CP2",
+      "bounds_mm": [
+        45,
+        -89,
+        61,
+        75,
+        -70,
+        70
+      ],
+      "origin_mm": [
+        45,
+        -89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "RR_G_CP2",
+      "bounds_mm": [
+        80,
+        -89,
+        61,
+        110,
+        -70,
+        70
+      ],
+      "origin_mm": [
+        80,
+        -89,
+        61
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "P_FRONT_CP2",
+      "bounds_mm": [
+        -26.5,
+        -11,
+        129.5,
+        10.5,
+        11,
+        140.5
+      ],
+      "origin_mm": [
+        -26.5,
+        -11,
+        129.5
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "P_SYS_CP2",
+      "bounds_mm": [
+        -37,
+        1.5,
+        113.5,
+        0,
+        23.5,
+        124.5
+      ],
+      "origin_mm": [
+        -37,
+        1.5,
+        113.5
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "P_REAR_CP2",
+      "bounds_mm": [
+        50.5,
+        -18.5,
+        132,
+        72.5,
+        18.5,
+        143
+      ],
+      "origin_mm": [
+        50.5,
+        18.5,
+        132
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0.7071067811865476,
+        -0.7071067811865475
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "D_RL_CP2",
+      "bounds_mm": [
+        79,
+        -9.5,
+        110,
+        109,
+        9.5,
+        119
+      ],
+      "origin_mm": [
+        79,
+        -9.5,
+        110
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "G2_CP2",
+      "bounds_mm": [
+        114,
+        -9.5,
+        110,
+        144,
+        9.5,
+        119
+      ],
+      "origin_mm": [
+        114,
+        -9.5,
+        110
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "G1_CP2",
+      "bounds_mm": [
+        -56.1,
+        -39.5,
+        103.5,
+        -19.1,
+        -28.5,
+        125.5
+      ],
+      "origin_mm": [
+        -56.1,
+        -39.5,
+        125.5
+      ],
+      "rotation_xyzw": [
+        0.7071067811865476,
+        0,
+        0,
+        -0.7071067811865475
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "D_RR_CP2",
+      "bounds_mm": [
+        -15,
+        -25.5,
+        110,
+        15,
+        -6.5,
+        119
+      ],
+      "origin_mm": [
+        -15,
+        -25.5,
+        110
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "P_AUX_CP2",
+      "bounds_mm": [
+        -89,
+        -31.5,
+        130.5,
+        -59,
+        -12.5,
+        139.5
+      ],
+      "origin_mm": [
+        -89,
+        -31.5,
+        130.5
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "G_AUX_CP2",
+      "bounds_mm": [
+        -89,
+        -31.5,
+        115.5,
+        -59,
+        -12.5,
+        124.5
+      ],
+      "origin_mm": [
+        -89,
+        -31.5,
+        115.5
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "G_TAIL_CP2",
+      "bounds_mm": [
+        123,
+        -62.5,
+        110,
+        153,
+        -43.5,
+        119
+      ],
+      "origin_mm": [
+        123,
+        -62.5,
+        110
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "Splice_L1_CP2",
+      "bounds_mm": [
+        -50,
+        45.5,
+        40,
+        -36,
+        64.5,
+        49
+      ],
+      "origin_mm": [
+        -50,
+        45.5,
+        40
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "PostF0Splice_CP2",
+      "bounds_mm": [
+        51.5,
+        -63.3,
+        12,
+        65.5,
+        -54.3,
+        31
+      ],
+      "origin_mm": [
+        51.5,
+        -54.3,
+        12
+      ],
+      "rotation_xyzw": [
+        0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "MTA_FL_CP2",
+      "bounds_mm": [
+        -32.5,
+        25.6,
+        132.6,
+        2.5,
+        47.6,
+        148.6
+      ],
+      "origin_mm": [
+        -32.5,
+        25.6,
+        132.6
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "MTA_RL_CP2",
+      "bounds_mm": [
+        72.5,
+        25.6,
+        107,
+        107.5,
+        47.6,
+        123
+      ],
+      "origin_mm": [
+        72.5,
+        25.6,
+        107
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "MTA_FR_CP2",
+      "bounds_mm": [
+        -32.5,
+        -47.6,
+        132.6,
+        2.5,
+        -25.6,
+        148.6
+      ],
+      "origin_mm": [
+        -32.5,
+        -47.6,
+        132.6
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "MTA_RR_CP2",
+      "bounds_mm": [
+        72.5,
+        -47.6,
+        107,
+        107.5,
+        -25.6,
+        123
+      ],
+      "origin_mm": [
+        72.5,
+        -47.6,
+        107
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F_PI_CP2",
+      "bounds_mm": [
+        -34.000000000000014,
+        31.125,
+        53,
+        -12.000000000000014,
+        51.375,
+        104
+      ],
+      "origin_mm": [
+        -34.000000000000014,
+        51.375,
+        53
+      ],
+      "rotation_xyzw": [
+        -0.7071067811865476,
+        0,
+        -0.7071067811865475,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F_AUX_CP2",
+      "bounds_mm": [
+        87.5,
+        -27.125,
+        127.5,
+        138.5,
+        -6.875,
+        149.5
+      ],
+      "origin_mm": [
+        87.5,
+        -27.125,
+        127.5
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F_HY_CP2",
+      "bounds_mm": [
+        -106,
+        -52.125,
+        64.5,
+        -84,
+        -31.875,
+        115.5
+      ],
+      "origin_mm": [
+        -84,
+        -52.125,
+        64.5
+      ],
+      "rotation_xyzw": [
+        0,
+        0.7071067811865476,
+        0,
+        -0.7071067811865475
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F_HP_CP2",
+      "bounds_mm": [
+        -55.5,
+        -97.125,
+        80,
+        -4.5,
+        -76.875,
+        102
+      ],
+      "origin_mm": [
+        -55.5,
+        -97.125,
+        80
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F_TY_CP2",
+      "bounds_mm": [
+        -2.5,
+        -97.125,
+        80,
+        48.5,
+        -76.875,
+        102
+      ],
+      "origin_mm": [
+        -2.5,
+        -97.125,
+        80
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F0_CP2",
+      "bounds_mm": [
+        -48,
+        -68.925,
+        39,
+        3,
+        -48.675,
+        61
+      ],
+      "origin_mm": [
+        -48,
+        -68.925,
+        39
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "F_PWM_CP2",
+      "bounds_mm": [
+        15,
+        8,
+        128,
+        43,
+        16,
+        137
+      ],
+      "origin_mm": [
+        15,
+        8,
+        128
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "XT60_CP2",
+      "bounds_mm": [
+        -96.9,
+        -63.400000000000006,
+        45.3,
+        -73,
+        -54.2,
+        61.699999999999996
+      ],
+      "origin_mm": [
+        -96.9,
+        -54.2,
+        45.3
+      ],
+      "rotation_xyzw": [
+        0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "S0_body_CP2",
+      "bounds_mm": [
+        -105.5,
+        -12.5,
+        65,
+        -48.5,
+        44.5,
+        105
+      ],
+      "origin_mm": [
+        -77,
+        16,
+        65
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "S0_neck_CP2",
+      "bounds_mm": [
+        -88,
+        5,
+        105,
+        -66,
+        27,
+        108
+      ],
+      "origin_mm": [
+        -77,
+        16,
+        105
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "S0_key_CP2",
+      "bounds_mm": [
+        -92,
+        1,
+        108,
+        -62,
+        31,
+        171.5
+      ],
+      "origin_mm": [
+        -77,
+        16,
+        108
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "S1_body_CP2",
+      "bounds_mm": [
+        114.2,
+        37,
+        64,
+        138.2,
+        74,
+        106
+      ],
+      "origin_mm": [
+        114.2,
+        37,
+        64
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "S1_control_CP2",
+      "bounds_mm": [
+        112.2,
+        74,
+        71,
+        140.2,
+        108,
+        99
+      ],
+      "origin_mm": [
+        126.2,
+        74,
+        85
+      ],
+      "rotation_xyzw": [
+        0.7071067811865476,
+        0,
+        0,
+        -0.7071067811865475
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "LeftRiserWithMain",
+      "bounds_mm": [
+        -128,
+        17.5,
+        38.52,
+        -30,
+        27.5,
+        67.52000000000001
+      ],
+      "origin_mm": [
+        0,
+        0,
+        38.52
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "RightRiser",
+      "bounds_mm": [
+        -128,
+        -27.5,
+        38.52,
+        -60,
+        -17.5,
+        67.52000000000001
+      ],
+      "origin_mm": [
+        0,
+        0,
+        38.52
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    },
+    {
+      "name": "MainSupplierFamily",
+      "bounds_mm": [
+        -54.86000000000001,
+        -4.9999999999999964,
+        46.52,
+        -32.00000000000001,
+        25.480000000000004,
+        54.1948
+      ],
+      "origin_mm": [
+        -32.00000000000001,
+        25.480000000000004,
+        46.52
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        1,
+        6.123233995736766e-17
+      ],
+      "basis": "Saved current geometry; commercial shape may be a reservation"
+    }
+  ],
+  "main_reference_frame_gate": {
+    "saved_reference_z_min_mm": 0,
+    "expected_board_plane_mm": 46.52,
+    "independent_derivations": "underhead48.3948 minus PCB1.5748 minus washer0.3; nominal pad48.0948 minus PCB1.5748",
+    "intended_bbox_mm": [
+      -54.86,
+      -5,
+      46.52,
+      -32,
+      25.48,
+      54.1948
+    ],
+    "required_reference_translation_mm": [
+      0,
+      0,
+      46.52
+    ],
+    "transformed_reference_valid": true,
+    "all_four_nominal_pads_inside_bounds": true,
+    "cause": "The native supplier reference's Placement.Base.z expression MainGap-4 overwrote its transformed world Z. Earlier contact checks used a separate correct ref,not that saved object's shape.",
+    "disposition": "Reference frame corrected in one planning copy; mount parts/wires/source files preserved. Save/reopen and all362 other BRep structures/placements verified; 41 text roundtrip changes <=2.220446049250313e-16. This is not delivered-board or whole-assembly qualification.",
+    "saved_reference_qualified": true,
+    "rebuild_master_caution": "Historical neck mount builder still has the lost absolute world-Z expression. Before regenerating it in stage2 fix absolute world base plus gap delta, then qualify affected interfaces; do not copy that saved reference back into the plan."
+  },
+  "evidence_reuse": [
+    "Existing native/source SHA gate and14 pure contract tests passed on18:30UTC",
+    "MAIN local contact report used world-correct independent ref; valid as local design evidence,not proof of saved supplier-object placement",
+    "W077 exact two-pair static proof and84.5mm factory minimum remain local evidence; neither grips nor full MAIN qualification",
+    "Pi/AUX/PWM drill/source records retained; freeze board revision/local frames before stage2 holes",
+    "BUS vendor compound has known BRep error: no zero-contact inference from cached model or bbox",
+    "Saved MAIN reference-frame repaired only in OpenPrototypePlan.FCStd. Actual pad/SKU qualification remains open; no full assembly collision claim."
+  ],
+  "assembly_order": [
+    "Disconnect and remove battery source,including permanently-live monitor/balance feed; S0 off alone is not a service isolation claim",
+    "Bare P0 structure with battery support and neck/tail supports. MAIN bench-soldered/insulated and bolted before S0; access bolt nuts from below",
+    "Install lower actual-hole board supports/Pi/BUS/monitor before upper boards and bank. Mount source F0/XT60/S0/manualS1 with terminal/short-lead protection",
+    "Fit PWM/AUX boards and distribution tie rails on actual attachment axes; preserve hot-board clearance and connector access",
+    "Install R47 bank and both sides of fourMTA. Bench-prepare ends,wire connected groups,leave labelled slack and access for securing ties",
+    "Install upper soft bundles with replaceable ties; fit head/tail/leg cable exits and exercise prescribed digital ranges after final wire geometry",
+    "Fit only necessary local/lower guards. For repair remove neighbour module or replace ties,not independent complete-cassette removal",
+    "Phase2 print/dry-fit/trim/polarity and controlled electrical acceptance after E3 selection. No energizing in this task"
+  ],
+  "electrical_data_check": {
+    "source": "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json",
+    "installed_fuses": 23,
+    "E3_complete": false,
+    "blockers": [
+      {
+        "id": "SOURCE",
+        "affected": [
+          "F0",
+          "F_FL",
+          "F_FL1",
+          "F_FL2",
+          "F_FL3",
+          "F_FR",
+          "F_FR1",
+          "F_FR2",
+          "F_FR3",
+          "F_RL",
+          "F_RL1",
+          "F_RL2",
+          "F_RL3",
+          "F_RR",
+          "F_RR1",
+          "F_RR2",
+          "F_RR3",
+          "F_PI",
+          "F_AUX",
+          "F_HY",
+          "F_HP",
+          "F_TY"
+        ],
+        "missing": "Guaranteed prospective source fault current or defensible minimum complete-loop impedance.",
+        "known": "Selected pack manufacturer gives30C, no fault-current upper bound. At12.6V,1000A comparison needs>=0.0126ohm.",
+        "next": "Obtain exact pack source bound; analyze each protected loop with guaranteed data. Do not short pack or infer from charger IR."
+      },
+      {
+        "id": "SERVO_LEADS",
+        "affected": [
+          "F_FL1",
+          "F_FL2",
+          "F_FL3",
+          "F_FR1",
+          "F_FR2",
+          "F_FR3",
+          "F_RL1",
+          "F_RL2",
+          "F_RL3",
+          "F_RR1",
+          "F_RR2",
+          "F_RR3",
+          "F_HY",
+          "F_HP",
+          "F_TY"
+        ],
+        "missing": "Exact delivered factory lead copper area, insulation limit and connector contact evidence.",
+        "next": "Identify documented cable/contact revision or revise to documented replacement harness; ISO test cable size is not a cable certificate."
+      },
+      {
+        "id": "PREFUSE",
+        "affected": [
+          "F_PI",
+          "F_AUX",
+          "F_PWM"
+        ],
+        "missing": "F0 clearing/let-through versus thinner branch before its own fuse.",
+        "known": "Insulated short/restrained routing and<=50mm rule preserved, not thermal qualification.",
+        "next": "Use source bound plus guaranteed total-clearing data and wire limit; evaluate physical assembly with current-limited supply, never deliberate LiPo short."
+      },
+      {
+        "id": "SWITCH_CONVERTERS",
+        "affected": [
+          "S1",
+          "MAIN4853",
+          "AUX4092"
+        ],
+        "missing": "Actual DC switched servo/SMPS inrush and reverse-energy behavior; guaranteed output fault-current envelope.",
+        "next": "Retain manualS1 and separate rails; cannot transfer S821D or AC motor rating to S821. No invented limiter/clamp."
+      }
+    ],
+    "decision": "Continue independent mechanical and wiring preparation; do not invent guaranteed fault-current,wire ampacity,total-clearing/inrush data or count E3 complete",
+    "no_new_supplier_search_loop": true
+  },
+  "stage1_gates": {
+    "scope_and_result_mapping_recorded": true,
+    "saved_source_integrity_checked": true,
+    "all_wire_groups_and_open_roles_recorded": true,
+    "E3_blockers_checked": true,
+    "saved_MAIN_reference_matches_plan": true,
+    "plan_frozen_and_estimate_reviewed": true
+  },
+  "remaining_phase1_estimate_hours": [
+    12,
+    24
+  ],
+  "estimate_confidence": "Planning range,not a deadline promise: 9–16h independent implementation/reconciliation plus 3–8h integration reserve =12–24h active work. Supplier-data wait excluded;100% cannot be promised while E3 is blocked.",
+  "next_action": "After new user approval,stage2 one common mount/support set at frozen current datums,including correction of the retained MAIN master expression before regeneration. Do not start stage2 in this closed hook window.",
+  "later_milestones": [
+    {
+      "stage": 2,
+      "hours": [
+        3,
+        5
+      ],
+      "result": "one complete current mounting/support set"
+    },
+    {
+      "stage": 3,
+      "hours": [
+        3,
+        5
+      ],
+      "result": "all remaining ends/routes/restraints,length/stock"
+    },
+    {
+      "stage": 4,
+      "hours": [
+        1,
+        2
+      ],
+      "result": "protection-data reconciliation plus current power/mass/COM"
+    },
+    {
+      "stage": 5,
+      "hours": [
+        2,
+        4
+      ],
+      "result": "one current selected package/assembly/export/relocation"
+    }
+  ],
+  "hook": {
+    "enabled_at_record": false,
+    "mode": "bounded_stage",
+    "tests_passed": 14,
+    "tests_isolated_from_live_state": true,
+    "actual_Stop_for_this_new_window_confirmed": false,
+    "next_stage_requires_user_approval": true,
+    "close_reason": "Stage1 plan complete before max2h; originating user turn completed before any real Stop continuation was observed."
+  },
+  "measured_time": {
+    "setup_started_utc": "2026-10-07T18:16:21Z",
+    "armed_utc": "2026-10-07T18:25:05Z",
+    "first_saved_native_inventory_seconds": 9.234,
+    "reference_diagnosis_seconds": 7.156,
+    "elapsed_work_not_continuous_cpu": true,
+    "reference_correction_verification_seconds": 33.875,
+    "reference_correction_initial_gate": "Literal BRep hash gate rejected roundtrip text; diagnostic showed unchanged placements/metrics. Recovery compared full record structure+every numeric token at1e-10 tolerance,actual max2.22e-16; no geometry retry or new target file.",
+    "finished_utc": "2026-10-07T18:57:33Z",
+    "elapsed_since_setup_seconds": 2472,
+    "bounded_window_elapsed_seconds": 1948,
+    "measurement_boundary": "Through saved stage1 plan and verification, before local commit; not continuous CPU time."
+  },
+  "planning_native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+  "estimate_basis": {
+    "implementation_hours": [
+      9,
+      16
+    ],
+    "integration_reserve_hours": [
+      3,
+      8
+    ],
+    "external_data_wait_included": false,
+    "next_stage_hours": [
+      3,
+      5
+    ],
+    "two_failures_rule": "Change root cause/layout after two failed attempts on the same interface; do not consume the reserve with offset loops."
+  },
+  "last_account_usage": {
+    "checked_utc": "2026-10-07T18:57:33Z",
+    "weekly_used_percent": 2,
+    "weekly_remaining_percent": 98,
+    "ordinary_usage_allowed": true
+  }
+}

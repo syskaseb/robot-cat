@@ -1,4 +1,47 @@
-# Otwarty prototyp — pierwszy checkpoint, 07.10.2026
+# Otwarty prototyp — plan wykonawczy, 07.10.2026
+
+## Zamknięty etap 1: wspólny plan i granice kwalifikacji
+
+Aktualne współrzędne modułów, przypisanie wszystkich80żył, brakujące38końców,
+korytarze, kolejność montażu i rozdzielenie20rezultatów zapisano w
+`execution-plan.json`. Aktualną kopią odniesienia planu jest
+`OpenPrototypePlan.FCStd`; poprzedni `OpenPrototype.FCStd` i źródła zachowano.
+Nie jest to wybrany komplet wydruków ani zakwalifikowana pełna wiązka.
+
+Wykryto przyczynę błędu odniesienia MAIN: wyrażenie `MainGap-4` nadpisało
+absolutne położenie Z w zapisanym modelu, choć wcześniejszy raport kontaktów
+sprawdzał osobną poprawną bryłę. Tylko kopię odniesienia podniesiono o46,52mm.
+Nie zmieniono mocowań ani przewodów. Zapis/reopen potwierdza cztery nominalne
+pady i zachowanie położeń/struktury BRep pozostałych362obiektów.41różnic
+tekstowego zapisu to zaokrąglenia maksymalnie2,22e-16, nie zmienione części.
+Przed regeneracją historycznego mastera w etapie2 trzeba poprawić jego
+wyrażenie o absolutną bazę świata; nie kopiować ponownie błędnego odniesienia.
+
+E3 pozostaje otwarte: brak gwarantowanej granicy prądu zwarcia źródła,
+danych fabrycznych przewodów serw, uzgodnienia F0 z cieńszymi odcinkami
+przed bezpiecznikami oraz danych DC/inrush/prądów awaryjnych przetwornic.
+Nie zamyka się tych braków obrysem CAD ani obietnicą próby fizycznej.
+Nie prowadzono kolejnej bezowocnej pętli kwerend producentów.
+
+Pozostałe przygotowanie fazy1: **12–24h pracy** (9–16h etapów +3–8h rezerwy
+integracyjnej), bez czasu oczekiwania na dane E3. To estymacja, nie termin
+gwarantowanego100%. Następny checkpoint: jedna wspólna paczka mocowań,
+podpór i izolacji,3–5h; pełne trasy/odciążenia i stock są kolejnym etapem.
+Minimum nadal **3/20=15%, zmiana0**. Nie zaliczono W1/W5 ani fizycznegoPASS.
+
+Hook ograniczono do etapu1/maksymalnie2h i wyłączono po zapisaniu planu.
+14testów izolowanych przypadków hooka PASS;14testów kontraktu starego pakietu
+i obie kontrole integralności PASS. Nie zaobserwowano rzeczywistej nowej
+kontynuacji Stop: etap ukończono w inicjującym turnie użytkownika.
+Etap2 wymaga nowej zgody; bez harmonogramu ani zmiany ustawień modelu.
+Przypięte źródła sprawdza `tools/cad/verify_open_prototype_execution_plan.py`.
+Czas do zapisania i weryfikacji etapu1:18:16:21..18:57:33UTC=41min12s;
+samo okno hooka18:25:05..18:57:33UTC=32min28s. To czas zegarowy pracy,
+nie ciągłeCPU. Limit18:57:33UTC:2%użyto,98%pozostało; bez resetów/zakupów.
+Reguły skilla planowania CAD zastosowano do wspólnej przestrzeni i kolejności
+montażu, a błąd odniesienia usunięto u źródła rozbieżności, nie przesuwaniem tras.
+
+## Zachowany pierwszy checkpoint
 
 `OpenPrototype.FCStd` jest jedną roboczą kopią aktualnego wnętrza CP2,
 z nową lewą podporą szyi/MAIN i zachowaną prawą. Źródła pozostają bez zmian.
