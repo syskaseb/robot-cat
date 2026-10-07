@@ -1,0 +1,136 @@
+{
+  "status": "ABSOLUTE_MAIN_DATUM_AND_EDITABLE_MASTER_REPAIRED",
+  "selected": false,
+  "stage2_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "started_utc": "2026-10-07T21:18:53.635518+00:00",
+  "finished_utc": "2026-10-07T21:19:07.683198+00:00",
+  "worker_wall_seconds": 14.047,
+  "source": "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\neck-support\\main-mount-sequence\\NeckMainMount.FCStd",
+  "source_sha256": "2e2a810418157f39f305a8869a784692597414f4c3ab6e0178f623be12e56988",
+  "native": "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\mounting-checkpoint\\Mounts.FCStd",
+  "native_sha256": "7fb4c3cdbf51333ce07b06364a2e8bea83f2ea8ef9007a86ac81b59eb5e9cfd8",
+  "script_sha256": "7a098bd7756dcb4a230e3d8890d6302d1928ab9a3977961f73d4967e63558c9e",
+  "previous_base_z_mm": {
+    "MainSupplierFamily": 0.0,
+    "MAIN4853_CP2": 0.0
+  },
+  "absolute_parameter_test": [
+    {
+      "gap_mm": 4.0,
+      "board_base_z_mm": 46.52,
+      "mount_volume_mm3": 7546.34061547792,
+      "fully_constrained_sketches": 11
+    },
+    {
+      "gap_mm": 5.0,
+      "board_base_z_mm": 47.52,
+      "mount_volume_mm3": 7588.5636207421685,
+      "fully_constrained_sketches": 11
+    },
+    {
+      "gap_mm": 4.0,
+      "board_base_z_mm": 46.52,
+      "mount_volume_mm3": 7546.34061547792,
+      "fully_constrained_sketches": 11
+    }
+  ],
+  "reopened": {
+    "gap_mm": 4.0,
+    "board_base_z_mm": 46.52,
+    "mount_volume_mm3": 7546.34061547792,
+    "fully_constrained_sketches": 11
+  },
+  "expressions": {
+    "MainSupplierFamily": [
+      [
+        ".Placement.Base.z",
+        "46.52 mm + Parameters.MainGap - 4 mm"
+      ]
+    ],
+    "MAIN4853_CP2": [
+      [
+        ".Placement.Base.z",
+        "46.52 mm + Parameters.MainGap - 4 mm"
+      ]
+    ]
+  },
+  "unchanged_shapes_and_placements": 4,
+  "maximum_BRep_roundtrip_error": 0.0,
+  "compound_wrapper_metadata_changes": [],
+  "final_physical_bodies_geometry_checks": [
+    {
+      "object": "LeftRiser",
+      "symmetric_difference_mm3": [
+        0.0,
+        0.0
+      ],
+      "vertices": 82,
+      "placement_unchanged": true
+    },
+    {
+      "object": "RightRiser",
+      "symmetric_difference_mm3": [
+        0.0,
+        0.0
+      ],
+      "vertices": 66,
+      "placement_unchanged": true
+    }
+  ],
+  "intermediate_feature_caches_regenerated_not_independent_parts": [
+    "LeftFoot",
+    "LeftFootPlan",
+    "LeftInclinedWeb",
+    "LeftLowerBoltClearance",
+    "LeftLowerBores",
+    "LeftLowerNutAccess",
+    "LeftLowerNutPockets",
+    "LeftUpperBoltClearance",
+    "LeftUpperBores",
+    "LeftUpperFoot",
+    "LeftUpperFootPlan",
+    "LeftUpperNutAccess",
+    "LeftUpperNutPockets",
+    "LeftWebBottom",
+    "LeftWebTop",
+    "MainBoltBores",
+    "MainBoltClearance",
+    "MainCantilever",
+    "MainCantileverPlan",
+    "MainPosts",
+    "MainPostsPlan",
+    "RightFoot",
+    "RightFootPlan",
+    "RightInclinedWeb",
+    "RightLowerBoltClearance",
+    "RightLowerBores",
+    "RightLowerNutAccess",
+    "RightLowerNutPockets",
+    "RightUpperBoltClearance",
+    "RightUpperBores",
+    "RightUpperFoot",
+    "RightUpperFootPlan",
+    "RightUpperNutAccess",
+    "RightUpperNutPockets",
+    "RightWebBottom",
+    "RightWebTop"
+  ],
+  "retained_export": {
+    "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/LeftRiserWithMain_candidate.stl",
+    "sha256": "27a3cd9fb61bd53303b40fb19e3869e15dbae92d8a9b4740dff2b7b1fc3be06e",
+    "print_size_with_5mm_brim_mm": [
+      108.0,
+      20.0,
+      29.0
+    ]
+  },
+  "no_mount_geometry_change": true,
+  "no_repeated_contact_or_export_tests": true,
+  "source_unchanged": true,
+  "remaining": [
+    "Common PCB supports and distribution tie rails",
+    "Fasteners, tool/assembly access and required new printable exports"
+  ]
+}
