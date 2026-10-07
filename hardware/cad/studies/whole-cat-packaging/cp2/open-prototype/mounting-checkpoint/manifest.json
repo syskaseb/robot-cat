@@ -11,7 +11,7 @@
   "retained_bank": "R47/ed3580a",
   "tasks": {
     "absolute_main_editable_master": "VERIFIED_ABSOLUTE_4_5_4_AND_REOPEN",
-    "common_pcb_hole_mounts": "PENDING",
+    "common_pcb_hole_mounts": "FIRST_FOUNDATION_REJECTED_EXISTING_MOUNTS_OCCUPY_HOLES",
     "distribution_supports_and_insulation": "PENDING",
     "fasteners_tools_assembly": "PENDING",
     "required_print_exports": "PENDING"
@@ -21,7 +21,12 @@
   "main_final_bodies_symmetric_difference_mm3": 0,
   "main_unchanged_retained_export": "../../neck-support/main-mount-sequence/LeftRiserWithMain_candidate.stl",
   "next": "Shared support plan using current P0 side-rail axes and supplier PCB hole patterns; then one native carrier. Commercial CP2 blocks have no hole geometry: use vendor sources, never their bbox corners. MAIN is done, do not repeat.",
-  "last_work_utc": "2026-10-07T21:19:13Z",
+  "last_work_utc": "2026-10-07T21:38:32Z",
+  "actual_hook_continuation": {"utc":"2026-10-07T21:23:05.5602237+00:00","event":"Stop","manual_test":false,"outcome":"bounded_work_continuation_emitted","session":"01a06387-fc76-7860-a238-447156b60d2c","window_id":"open-prototype-mounts-20261007"},
+  "board_mount_plan": "board-mount-plan.json",
+  "board_mount_checks": "board-mount-checks.json",
+  "rejected_foundation_reason": "Existing four shell mounts occupy chosen P0 hole sites and rise toZ61; central retained washers rise toZ39.52. Eight exact contacts, no exports. Do not cut these retained parts.",
+  "changed_foundation": "Four clamp stations on free rail spans x0/90, inner boltY±24.5 outside rail material; measured flangeY27..35.4738,Z37.02..38.52. Carrier on1.2mm pads above retained washers; rear upper columns outside mountX130. Re-plan both levels and endpoint datums together.",
   "elapsed_window_seconds_at_main_checkpoint": 529,
   "verification_note": "Historical intermediate feature caches rebuild on recompute. Final left and right bodies have zero bidirectional solid difference; all other independent saved shapes and placements unchanged. Failed cache-equality diagnostics were not mount redesigns.",
   "no_partial_result_credit": true

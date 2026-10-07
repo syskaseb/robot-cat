@@ -1,0 +1,205 @@
+{
+  "status": "SHARED_TWO_LEVEL_MOUNT_PLAN_NOT_SELECTED",
+  "selected": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd",
+    "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+    "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/reference/pi-interface-2026-10-01/pi4-mechanical.pdf": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
+    "hardware/reference/permaproto1608-2026-09-26/quarterbreadboard.brd": "b329d14973c2eb572492f387ae6f7c2a6c35cb5a517b88785b4b7b79083cb617",
+    "tools/cad/whole_cat_interior.py": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998",
+    "tools/cad/open_prototype_board_mounts.py": "a97bf3285af913825317ec652cb6603f052d433b2df91421f8d64976a3a86e28"
+  },
+  "source_native": "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\OpenPrototypePlan.FCStd",
+  "board_hole_axes_world_xy_mm": {
+    "Pi4": [
+      [
+        -15.5,
+        -24.5
+      ],
+      [
+        -15.5,
+        24.5
+      ],
+      [
+        42.5,
+        -24.5
+      ],
+      [
+        42.5,
+        24.5
+      ]
+    ],
+    "BUS": [
+      [
+        100.51208782,
+        -18.48791714
+      ],
+      [
+        72.51208285999999,
+        -18.48791714
+      ],
+      [
+        100.51208782,
+        18.512085060000004
+      ],
+      [
+        72.51208285999999,
+        18.524084020000004
+      ]
+    ],
+    "PWM9685": [
+      [
+        -35.825,
+        9.525000000000002
+      ],
+      [
+        -35.825,
+        -9.524999999999999
+      ],
+      [
+        20.055,
+        9.525000000000002
+      ],
+      [
+        20.055,
+        -9.524999999999999
+      ]
+    ],
+    "AUX4092": [
+      [
+        37.159,
+        -10.541
+      ],
+      [
+        37.159,
+        10.541
+      ],
+      [
+        58.241,
+        -10.541
+      ]
+    ],
+    "PWM1608": [
+      [
+        73.81,
+        0.0
+      ],
+      [
+        109.37,
+        0.0
+      ]
+    ]
+  },
+  "pcb_bottom_planes_mm": {
+    "Pi4": 46.52,
+    "BUS": 47.52000414467585,
+    "PWM9685": 78.0,
+    "AUX4092": 78.0,
+    "PWM1608": 78.0
+  },
+  "lower_plate_bottom_z_mm": 38.52,
+  "plate_thickness_mm": 3.0,
+  "upper_plate_bottom_z_mm": 70.0,
+  "pcb_standoff_height_mm": {
+    "Pi4": 5.0,
+    "BUS": 6.00000414467585,
+    "upper": 5.0
+  },
+  "lower_chassis_axes_xy_mm": [
+    [
+      -70,
+      -31.5
+    ],
+    [
+      -70,
+      31.5
+    ],
+    [
+      112,
+      -31.5
+    ],
+    [
+      112,
+      31.5
+    ]
+  ],
+  "upper_column_axes_xy_mm": [
+    [
+      -24,
+      -22
+    ],
+    [
+      -24,
+      22
+    ],
+    [
+      132,
+      -30
+    ],
+    [
+      132,
+      30
+    ]
+  ],
+  "upper_spacer_height_mm": 28.48,
+  "upper_spacer_od_mm": 8.0,
+  "upper_spacer_bore_mm": 3.4,
+  "explicit_frame_changes": {
+    "Pi4_CP2": [
+      0,
+      0,
+      4.52
+    ],
+    "BUS_CP2": [
+      0,
+      0,
+      4.52
+    ],
+    "Monitor_CP2": [
+      0,
+      0,
+      4.52
+    ]
+  },
+  "affected_wire_endpoints_must_rebind_in_stage3": true,
+  "old_wire_routes_not_requalified": true,
+  "retained": [
+    "MAIN/neck repaired master",
+    "bank R47",
+    "all four MTA with both exits",
+    "P0/E6 and 15 drives"
+  ],
+  "supplier_vs_assumption": {
+    "Pi4": "Supplier 58x49 holes at3.5mm PCB edge, design orientation USB/Ethernet+X",
+    "BUS": "Four actual R1.25 cylinder axes from vendor source; whole vendor compound invalid",
+    "PWM9685": "Adafruit815 revC holes; delivered revision not confirmed",
+    "AUX4092": "Supplier reg24d three holes; electrical orientation/population remains OPEN",
+    "PWM1608": "Supplier Eagle two holes and1.6002mm PCB; circuit population retained",
+    "Monitor": "No invented holes. Four insulating edge supports and two removable ties; delivered underside/lead exits OPEN",
+    "gaps_tools": "5/6mm insulation gaps, D3 driver/D6 nut socket are design allowances, not delivered/tool measurements"
+  },
+  "nominal_fasteners": {
+    "chassis": "4 M2x8,8 OD4.3/ID2.2/t0.3 washers,4 AF4/h1.6 nuts",
+    "pcb": "17 M2x14,34 OD4.3/ID2.2/t0.3 washers,17 AF4/h1.6 nuts; PCB thickness1.6 nominal except1608=1.6002",
+    "upper_frame": "4 M3x40,8 OD7/ID3.2/t0.5 washers,4 AF5.5/h2.4 nuts",
+    "monitor": "2 T18I ties, removable; quantity/stock candidate until final integration"
+  },
+  "assembly": [
+    "Battery/P0 and MAIN on empty frame; MAIN tightened before S0",
+    "Lower carrier on four P0 axes; hold nuts below upper flanges before remaining harness",
+    "Lower PCB screws/nuts, Pi/BUS and monitor ties before upper carrier",
+    "Upper carrier with four spacers/M3x40; upper PCB mounting before cable insertion",
+    "Fit distribution rails/bank next; route both ends of MTA and harness in stage3",
+    "Service with source disconnected: remove upper carrier if lower PCB tools need its space; no routine74WAGO disconnections"
+  ],
+  "upper_posts_avoid_narrow_MAIN_PI_and_USB_corridors": true,
+  "open": [
+    "Full harness and moving access",
+    "Delivered PCB/PETG fit, load/creep and temperature in phase2",
+    "Monitor underside and lead exits",
+    "Distribution rail integration, stock and common assembly"
+  ]
+}
