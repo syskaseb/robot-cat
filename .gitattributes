@@ -573,6 +573,9 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r29/** -text -eol
 /tools/electronics/servo_fuse_bank_select_r2.py -text -eol
 /hardware/manufacturing/one-batch-prototype-r52/** -text -eol
+# Stage2 mounting evidence pins raw bytes, including Windows-generated JSON.
+# Preserve these serialized reports; autocrlf would break their SHA256 chain.
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/*.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # This bounded study pins its builder bytes as well as native CAD.
 /tools/cad/whole_cat_neck_risers.py -text -eol
 /tools/electronics/w5_shared_retention_service*.py -text -eol

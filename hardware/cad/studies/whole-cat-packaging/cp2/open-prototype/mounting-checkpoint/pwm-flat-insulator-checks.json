@@ -1,0 +1,45 @@
+{
+  "status": "FLAT_INSULATING_WASHERS_NOMINAL_CLEAR",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/InsulatedMounts.FCStd": "24b5348e8fe6f05f1468f4e7eee67ea54e8b65f668e7ee24e30b2667f27308f0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/pwm-mount-isolation-checks.json": "34d631aad3f92353255e13d86371a85aeee926c2b67175d505a769624c391482",
+    "tools/cad/open_prototype_pwm_flat_insulators.py": "7e2f97e467b8a8fa5ac022f179e9c80083c1fa016fb15f87014569da1f1b54ad"
+  },
+  "native_sha256": "c218aecd10cfdee6c9e3cb5137de7ca0a9fc0c4b0a01b210c7a8269274b09c35",
+  "started_utc": "2026-10-07T22:31:53.473901+00:00",
+  "finished_utc": "2026-10-07T22:32:34.500758+00:00",
+  "worker_wall_seconds": 41.031,
+  "added_volume_mm3": 0.0,
+  "removed_volume_mm3": 4.072013017062255,
+  "minimum_radial_wall_mm": 1.3,
+  "head_to_pcb_nominal_gap_mm": 1.0,
+  "parameter_roundtrip_mm": [
+    1,
+    1.2,
+    1
+  ],
+  "relocated_reopen": true,
+  "inherited_contact_proof": "pwm-mount-isolation-checks.json; removed material only, screws/positions unchanged",
+  "replaced_print": "PwmInsulatingShoulderWasher.stl; rejected unnecessary thin neck, not current",
+  "exports": [
+    {
+      "part": "PwmInsulatingWasher",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/PwmInsulatingWasher.stl",
+      "sha256": "01f961afada7fac56d5a92eca90a5937a9674bab6263008ec5e72fa8e08c9977",
+      "bounds_with_5mm_brim_mm": [
+        15.0,
+        15.0,
+        1.0
+      ],
+      "orientation": "Flat on bed +Z, PETG; actual printer/nozzle/profile unknown; fit/creep/insulation coupon required"
+    }
+  ],
+  "stage_completed": false,
+  "selected": false,
+  "physical_pass": false,
+  "limitations": [
+    "No centering claim; hole/washer play retained. Flange separates metal head from PCB by nominal1mm",
+    "No material certification or energizing authority; fit, no crush, insulation and creep physically untested"
+  ]
+}

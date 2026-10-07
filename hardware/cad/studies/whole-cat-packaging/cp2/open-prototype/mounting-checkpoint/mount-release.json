@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "stage_completed": false,
+  "physical_pass": false,
+  "scope": "Current Stage2 mounting development checkpoint, not full-phase/print handoff",
+  "tools": {
+    "FreeCAD": "1.1.3 Windows x86_64 py311",
+    "execution": "Versioned scripts; structured PartDesign bodies/owned prints and supplier snapshots"
+  },
+  "gates": {
+    "geometry": {
+      "status": "open",
+      "reason": "Known mounting geometry has local proofs; whole U1 support/populated fit remains open"
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Known mounts have staged tools and fastener stacks; adapter and WAGO retention not completed"
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Actual printer/nozzle/profile/parts/USB/tools not physically fitted"
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Layer/support/creep/insulating washer coupons not tested; no slicer run"
+    },
+    "loads": {
+      "status": "open",
+      "reason": "No physical bearing, torque or creep/load acceptance"
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "Unpowered prototype only, no insulation/thermal/branch qualification"
+    },
+    "service": {
+      "status": "open",
+      "reason": "ATO/R47 retained; current tie/lever motion and full wiring still open"
+    }
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "00abb528719a6237dabe1c53c3d5b98aec9b56495dcd8c7f8cfeb325f319b0a4"
+    },
+    {
+      "path": "hardware/cad/studies/full-cat-board-carrier/r6/isolation.json",
+      "sha256": "a36efbde9165421a6b24b8f51fef17c4db29e8ce11c4a341e94f0767104073bc"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/NeckMainMount.FCStd",
+      "sha256": "2e2a810418157f39f305a8869a784692597414f4c3ab6e0178f623be12e56988"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+      "sha256": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMountAssembly.FCStd",
+      "sha256": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMounts.FCStd",
+      "sha256": "5945c1d89ec4fbaf4d47e00da9cb36fe432915d253e9098f985abe1dfa32775d"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/DistributionMounts.FCStd",
+      "sha256": "82dbd47f7be12a4bfbde38a5a414f9fa9f761d2e1307ec36f676eaf86ab40de8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/InsulatedMounts.FCStd",
+      "sha256": "24b5348e8fe6f05f1468f4e7eee67ea54e8b65f668e7ee24e30b2667f27308f0"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerCarrierIntegrated.stl",
+      "sha256": "b029370a3a06906d455d4466d4badffa203788b413401773bf6e546cfa16a8b8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerClampJaw.stl",
+      "sha256": "540011318755f484f1f7fb5988b13228130ae37b06f54293064d0f2b93e95ae2"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/Mounts.FCStd",
+      "sha256": "7fb4c3cdbf51333ce07b06364a2e8bea83f2ea8ef9007a86ac81b59eb5e9cfd8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/MountsCurrent.FCStd",
+      "sha256": "c218aecd10cfdee6c9e3cb5137de7ca0a9fc0c4b0a01b210c7a8269274b09c35"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/PwmInsulatingWasher.stl",
+      "sha256": "01f961afada7fac56d5a92eca90a5937a9674bab6263008ec5e72fa8e08c9977"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/README.md",
+      "sha256": "35c8b04ac46bef00a52d98c41f5804491d15690b41c3c2c70be06252a331ec41"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/SideDistributionRailIntegrated.stl",
+      "sha256": "0a0e902ea35e0863a0c31ee123210452bd8e7c31de6870a9bbf48408d988c4dc"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/SideRailSpacerIntegrated.stl",
+      "sha256": "e708c144b71ac73f03fd07d4d1338c07d1a198c80235c389514cc1d3b4cd5440"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/TopClampPad.stl",
+      "sha256": "925bbcfaa452a3afdf749094ed63b3cda654c5c6b357b8218de79c68e7e7fd95"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperCarrier.stl",
+      "sha256": "5b1f905a911d25ca82735a6cdf927af878a1d7f535e93cc5df214b8e417de881"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperSpacer.stl",
+      "sha256": "4d8eed4e8a8e889339c09353504ff6805119f93347353c92b346bd57cc2b3e5b"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-hardware-checks.json",
+      "sha256": "5fdb1f0176ef10d721723d53c32dc3e04b1c1d4bfb27af35372c7c4daabe2b07"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-checks.json",
+      "sha256": "a18eed6fc8e34086ff0aa57c68d430cf8c014dbb0491cf226c7366f93bf95827"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json",
+      "sha256": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-rear-tool-checks.json",
+      "sha256": "5089b9af36bf3c2a1d55665b33d63a66074f450faff35e8619026778cbaf2ee9"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/distribution-mount-checks.json",
+      "sha256": "5c5a6d1d44dc9c46f86b31aef23b321734a9bde95691e35fde5a2aec846147bc"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/distribution-mount-plan.json",
+      "sha256": "dbff461dd2a157f454122afa0d6afee6d3d079fdeb878b1fbde46ea8c1a74a5a"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/main-expression-checks.json",
+      "sha256": "2b05581bb191c9b99fcf7963c4fbf96d88801320c4da4d9968c306b135307c73"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/mount-current-set.json",
+      "sha256": "b098ee8f7e440fef657c019ed3fbfef0971180e688362eb8c952a2957c9f50ad"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/pwm-flat-insulator-checks.json",
+      "sha256": "f270522323ab0d35fe64984db4e719add9000e3f037533d48be18f62b4360095"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/pwm-mount-isolation-checks.json",
+      "sha256": "34d631aad3f92353255e13d86371a85aeee926c2b67175d505a769624c391482"
+    },
+    {
+      "path": "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json",
+      "sha256": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep",
+      "sha256": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pi-power-usb-r1/plan.json",
+      "sha256": "530b14d08be9ed53278985bd02fa49bfe692b6ebc0c6cc85e2e819d8114a7254"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pwm-carrier-r3/population.json",
+      "sha256": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793"
+    },
+    {
+      "path": "hardware/reference/permaproto1608-2026-09-26/quarterbreadboard.brd",
+      "sha256": "b329d14973c2eb572492f387ae6f7c2a6c35cb5a517b88785b4b7b79083cb617"
+    },
+    {
+      "path": "hardware/reference/pi-interface-2026-10-01/pi4-mechanical.pdf",
+      "sha256": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809"
+    },
+    {
+      "path": "hardware/reference/wago-221415-access-2026-10-02/221-415-WAGO-2021.pdf",
+      "sha256": "a345da25212a1201f7022cbb4ca292f090a5f25d34efcc83a4f5293cb399f082"
+    },
+    {
+      "path": "hardware/reference/wago-221415-access-2026-10-02/source.json",
+      "sha256": "61c4316a94545998f1c67f0c05fb1d29b5822c49f07057a4f70c6e4f2b5656eb"
+    },
+    {
+      "path": "tools/cad/open_prototype_board_hardware.py",
+      "sha256": "204a7f3b1cdd82de9ca19bc49f0afc1291ab0a583fa2b6093d4aaec6765a50d9"
+    },
+    {
+      "path": "tools/cad/open_prototype_board_mounts.py",
+      "sha256": "52b3144cefc86f30d28f3e863cb79d735c95b96ea2c842c9054cf2010632b2e7"
+    },
+    {
+      "path": "tools/cad/open_prototype_distribution_mounts.py",
+      "sha256": "8bc3e93476656f4da0a2ba612313319d7f50f59971569793c83c8927eaeb02fe"
+    },
+    {
+      "path": "tools/cad/open_prototype_mounts.py",
+      "sha256": "7a098bd7756dcb4a230e3d8890d6302d1928ab9a3977961f73d4967e63558c9e"
+    },
+    {
+      "path": "tools/cad/open_prototype_pwm_flat_insulators.py",
+      "sha256": "7e2f97e467b8a8fa5ac022f179e9c80083c1fa016fb15f87014569da1f1b54ad"
+    },
+    {
+      "path": "tools/cad/open_prototype_pwm_mount_isolation.py",
+      "sha256": "e073ae62a569ad95cac91d1ac14a059fe53266afe1b825d160a10634c2beca7e"
+    },
+    {
+      "path": "tools/cad/open_prototype_rear_nut_access.py",
+      "sha256": "0f63ce5d1cca66d6a03b62a9ea2031e452d1a50c17fad75f72be1b65380b6e4e"
+    },
+    {
+      "path": "tools/cad/release_check.py",
+      "sha256": "4be4549285fc0185d5b7e16e90709326f69e68d83f2764e9f84a3f347a92bfd4"
+    },
+    {
+      "path": "tools/cad/verify_open_prototype_integrated_mounts.py",
+      "sha256": "63dc3d7f7387777baaf22089ca3b7ef0a5260702e2d46ae5c09b7dcee44352be"
+    },
+    {
+      "path": "tools/cad/whole_cat_interior.py",
+      "sha256": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998"
+    }
+  ],
+  "current_set": "mount-current-set.json",
+  "blockers": [
+    {
+      "id": "U1_SUPPORT",
+      "status": "OPEN",
+      "component": "Kamami575070/SN74LVC8T245PW",
+      "known": "30.48x17.78mm outline, nominal2.54mm header pitch; reservation above upper passives only",
+      "missing": "Delivered PCB thickness, both-side pad/solder and keepout map, safe supported bearing/retention sites",
+      "impact": "No complete rigid PWM/U1 module mounting; cannot close whole stage2",
+      "evidence": "hardware/electronics/full-cat/pwm-carrier-r3/population.json:adapter_stack/u1_integration",
+      "source_checked_date_utc": "2026-10-07",
+      "source_url": "https://kamami.pl/en/Adapters-SMD-DIP/575070-sop24-pcb-adapter-for-dip24-5906623456895.html",
+      "source_result": "Product description confirms outline/pitch only; no support/thickness/pad drawing. No alternative product substituted."
+    },
+    {
+      "id": "DISTRIBUTION_RETENTION",
+      "status": "OPEN",
+      "known": "20 nominal WAGO bodies in two accessible side rails,40 tie slots/roles,8 nominal side tools clear",
+      "missing": "Tie paths/support bearing against actual casing and lever keepouts; two ties per body is a recipe, not verified retention",
+      "impact": "Side rails are development geometry; not certified mount or lever-service proof"
+    },
+    {
+      "id": "POPULATED_FIT",
+      "status": "OPEN",
+      "known": "117 placed BUS solids checked separately, supplier mounting-hole patterns,19 PWM component maximum-case reservations",
+      "missing": "Delivered underside solder/projections, actual USB/tool and AUX populated-side fit; nominal allowances explicit",
+      "impact": "Physical fit conditions, no energized or physical PASS"
+    }
+  ]
+}

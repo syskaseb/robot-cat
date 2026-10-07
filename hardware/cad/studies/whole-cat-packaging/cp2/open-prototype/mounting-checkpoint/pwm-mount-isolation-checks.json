@@ -1,0 +1,101 @@
+{
+  "status": "PWM_MOUNT_ISOLATION_NOMINAL_CLEAR",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "started_utc": "2026-10-07T22:29:53.342883+00:00",
+  "finished_utc": "2026-10-07T22:30:49.292969+00:00",
+  "worker_wall_seconds": 55.953,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/DistributionMounts.FCStd": "82dbd47f7be12a4bfbde38a5a414f9fa9f761d2e1307ec36f676eaf86ab40de8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/distribution-mount-checks.json": "5c5a6d1d44dc9c46f86b31aef23b321734a9bde95691e35fde5a2aec846147bc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-hardware-checks.json": "5fdb1f0176ef10d721723d53c32dc3e04b1c1d4bfb27af35372c7c4daabe2b07",
+    "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+    "hardware/cad/studies/full-cat-board-carrier/r6/isolation.json": "a36efbde9165421a6b24b8f51fef17c4db29e8ce11c4a341e94f0767104073bc",
+    "tools/cad/open_prototype_pwm_mount_isolation.py": "e073ae62a569ad95cac91d1ac14a059fe53266afe1b825d160a10634c2beca7e"
+  },
+  "native_sha256": "24b5348e8fe6f05f1468f4e7eee67ea54e8b65f668e7ee24e30b2667f27308f0",
+  "changed_pairs": 16,
+  "material_contacts": [],
+  "component_case_reservation_contacts": [],
+  "errors": [],
+  "population_cases": 19,
+  "parameter_roundtrip_mm": [
+    1,
+    1.2,
+    1
+  ],
+  "relocated_reopen": true,
+  "stacks": [
+    {
+      "id": "PWM160824",
+      "axis_xy_mm": [
+        73.81,
+        0.0
+      ],
+      "length_mm": 14,
+      "underhead_z_mm": 85.3202,
+      "tip_z_mm": 71.3202,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 1.4998000000000076,
+      "metal_head_above_copper_plane_mm": 1.0,
+      "shoulder_od_mm": 3.0,
+      "pcb_hole_mm": 3.2,
+      "bore_mm": 2.4,
+      "insulator_od_mm": 5.0
+    },
+    {
+      "id": "PWM160825",
+      "axis_xy_mm": [
+        109.37,
+        0.0
+      ],
+      "length_mm": 14,
+      "underhead_z_mm": 85.3202,
+      "tip_z_mm": 71.3202,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 1.4998000000000076,
+      "metal_head_above_copper_plane_mm": 1.0,
+      "shoulder_od_mm": 3.0,
+      "pcb_hole_mm": 3.2,
+      "bore_mm": 2.4,
+      "insulator_od_mm": 5.0
+    }
+  ],
+  "replaced_metal_top_washers": 2,
+  "own_replaceable_petg_insulators": 2,
+  "exports": [
+    {
+      "part": "PwmInsulatingShoulderWasher",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/PwmInsulatingShoulderWasher.stl",
+      "sha256": "d4bb6588b6a0bf60b8d6a2fe18986a7d12ad7ec3dd893a1b1179d2c48a9f2db1",
+      "bounds_with_5mm_brim_mm": [
+        15.0,
+        15.0,
+        2.6001999378204346
+      ]
+    }
+  ],
+  "assembly": "Replace ONLY two upper PWM1608 steel washers; shoulder enters PCB hole, flange above copper. Verify coupon/fit/no crush/creep with isolated source before physical assembly.",
+  "limitations": [
+    "Own nominal design, no vendor SKU or insulation certification; 0.3mm radial neck wall requires physical print/fit assessment",
+    "Actual solder-side height/insulated wire paths and temperature remain phase2 conditions; no energizing authority",
+    "U1 adapter575070 still has no qualified support: exact thickness/pad locations absent. Do not guess copper-free clip sites"
+  ],
+  "adapter_stack": {
+    "minimum_bottom_design_z_mm": 8.0,
+    "exact_board_thickness": null,
+    "pad_positions": null,
+    "insulated_support_accepted": false,
+    "note": "Only stack reservation above upper passives; no guessed holes, no clip over copper"
+  }
+}
