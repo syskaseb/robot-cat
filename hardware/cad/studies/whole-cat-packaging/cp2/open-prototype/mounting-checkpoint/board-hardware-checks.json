@@ -1,0 +1,807 @@
+{
+  "status": "BOARD_HARDWARE_REQUIRES_ASSEMBLY_CHANGE",
+  "stage_completed": false,
+  "selected": false,
+  "physical_pass": false,
+  "started_utc": "2026-10-07T21:53:40.952270+00:00",
+  "finished_utc": "2026-10-07T21:55:25.751049+00:00",
+  "worker_wall_seconds": 104.813,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMounts.FCStd": "5945c1d89ec4fbaf4d47e00da9cb36fe432915d253e9098f985abe1dfa32775d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-checks.json": "a18eed6fc8e34086ff0aa57c68d430cf8c014dbb0491cf226c7366f93bf95827",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe",
+    "tools/cad/open_prototype_board_hardware.py": "204a7f3b1cdd82de9ca19bc49f0afc1291ab0a583fa2b6093d4aaec6765a50d9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f"
+  },
+  "native_sha256": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823",
+  "changed_lower_volume_mm3": 23137.98079801836,
+  "parameter_roundtrip_nut_depth_mm": [
+    1.8,
+    2.0,
+    1.8
+  ],
+  "relocated_reopen": true,
+  "exact_changed_pairs": 113,
+  "contacts": [
+    {
+      "a": "UpperFrame7NutToolStage",
+      "b": "P0_Part__Feature030",
+      "volume_mm3": 71.59273426541185
+    },
+    {
+      "a": "UpperFrame7NutToolStage",
+      "b": "P0_Part__Feature031",
+      "volume_mm3": 108.49539928217273
+    },
+    {
+      "a": "UpperFrame8NutToolStage",
+      "b": "P0_Part__Feature022",
+      "volume_mm3": 71.59273430189344
+    },
+    {
+      "a": "UpperFrame8NutToolStage",
+      "b": "P0_Part__Feature023",
+      "volume_mm3": 108.49540036223145
+    }
+  ],
+  "errors": [],
+  "clamp_bearings": [
+    {
+      "station": 1,
+      "bearing_area_mm2": 65.000000075342,
+      "axis_inboard_no_drill": true
+    },
+    {
+      "station": 2,
+      "bearing_area_mm2": 65.00000008103584,
+      "axis_inboard_no_drill": true
+    },
+    {
+      "station": 3,
+      "bearing_area_mm2": 65.0000001278483,
+      "axis_inboard_no_drill": true
+    },
+    {
+      "station": 4,
+      "bearing_area_mm2": 65.00000013955716,
+      "axis_inboard_no_drill": true
+    }
+  ],
+  "fasteners": [
+    {
+      "id": "RailClamp1",
+      "role": "RailClamp",
+      "axis_xy_mm": [
+        0,
+        -24.5
+      ],
+      "diameter_mm": 3,
+      "length_mm": 14,
+      "nut_z_mm": [
+        31.12,
+        33.52
+      ],
+      "underhead_z_mm": 43.22,
+      "tip_z_mm": 29.22,
+      "nominal_nut_engagement_mm": 2.400000000000002,
+      "protrusion_mm": 1.9000000000000021,
+      "captive": false
+    },
+    {
+      "id": "RailClamp2",
+      "role": "RailClamp",
+      "axis_xy_mm": [
+        0,
+        24.5
+      ],
+      "diameter_mm": 3,
+      "length_mm": 14,
+      "nut_z_mm": [
+        31.12,
+        33.52
+      ],
+      "underhead_z_mm": 43.22,
+      "tip_z_mm": 29.22,
+      "nominal_nut_engagement_mm": 2.400000000000002,
+      "protrusion_mm": 1.9000000000000021,
+      "captive": false
+    },
+    {
+      "id": "RailClamp3",
+      "role": "RailClamp",
+      "axis_xy_mm": [
+        90,
+        -24.5
+      ],
+      "diameter_mm": 3,
+      "length_mm": 14,
+      "nut_z_mm": [
+        31.12,
+        33.52
+      ],
+      "underhead_z_mm": 43.22,
+      "tip_z_mm": 29.22,
+      "nominal_nut_engagement_mm": 2.400000000000002,
+      "protrusion_mm": 1.9000000000000021,
+      "captive": false
+    },
+    {
+      "id": "RailClamp4",
+      "role": "RailClamp",
+      "axis_xy_mm": [
+        90,
+        24.5
+      ],
+      "diameter_mm": 3,
+      "length_mm": 14,
+      "nut_z_mm": [
+        31.12,
+        33.52
+      ],
+      "underhead_z_mm": 43.22,
+      "tip_z_mm": 29.22,
+      "nominal_nut_engagement_mm": 2.400000000000002,
+      "protrusion_mm": 1.9000000000000021,
+      "captive": false
+    },
+    {
+      "id": "UpperFrame5",
+      "role": "UpperFrame",
+      "axis_xy_mm": [
+        -24,
+        -22
+      ],
+      "diameter_mm": 3,
+      "length_mm": 45,
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "underhead_z_mm": 78.22,
+      "tip_z_mm": 33.22,
+      "nominal_nut_engagement_mm": 2.3999999999999986,
+      "protrusion_mm": 3.6000000000000014,
+      "captive": false
+    },
+    {
+      "id": "UpperFrame6",
+      "role": "UpperFrame",
+      "axis_xy_mm": [
+        -24,
+        22
+      ],
+      "diameter_mm": 3,
+      "length_mm": 45,
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "underhead_z_mm": 78.22,
+      "tip_z_mm": 33.22,
+      "nominal_nut_engagement_mm": 2.3999999999999986,
+      "protrusion_mm": 3.6000000000000014,
+      "captive": false
+    },
+    {
+      "id": "UpperFrame7",
+      "role": "UpperFrame",
+      "axis_xy_mm": [
+        138,
+        -30
+      ],
+      "diameter_mm": 3,
+      "length_mm": 45,
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "underhead_z_mm": 78.22,
+      "tip_z_mm": 33.22,
+      "nominal_nut_engagement_mm": 2.3999999999999986,
+      "protrusion_mm": 3.6000000000000014,
+      "captive": false
+    },
+    {
+      "id": "UpperFrame8",
+      "role": "UpperFrame",
+      "axis_xy_mm": [
+        138,
+        30
+      ],
+      "diameter_mm": 3,
+      "length_mm": 45,
+      "nut_z_mm": [
+        36.82,
+        39.22
+      ],
+      "underhead_z_mm": 78.22,
+      "tip_z_mm": 33.22,
+      "nominal_nut_engagement_mm": 2.3999999999999986,
+      "protrusion_mm": 3.6000000000000014,
+      "captive": false
+    },
+    {
+      "id": "Pi49",
+      "role": "Pi4",
+      "axis_xy_mm": [
+        -15.5,
+        -24.5
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 49.62,
+      "tip_z_mm": 37.62,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 2.3000000000000043,
+      "captive": true
+    },
+    {
+      "id": "Pi410",
+      "role": "Pi4",
+      "axis_xy_mm": [
+        -15.5,
+        24.5
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 49.62,
+      "tip_z_mm": 37.62,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 2.3000000000000043,
+      "captive": true
+    },
+    {
+      "id": "Pi411",
+      "role": "Pi4",
+      "axis_xy_mm": [
+        42.5,
+        -24.5
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 49.62,
+      "tip_z_mm": 37.62,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 2.3000000000000043,
+      "captive": true
+    },
+    {
+      "id": "Pi412",
+      "role": "Pi4",
+      "axis_xy_mm": [
+        42.5,
+        24.5
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 49.62,
+      "tip_z_mm": 37.62,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 2.3000000000000043,
+      "captive": true
+    },
+    {
+      "id": "BUS13",
+      "role": "BUS",
+      "axis_xy_mm": [
+        100.51208782,
+        -18.48791714
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 50.620004144675846,
+      "tip_z_mm": 38.620004144675846,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 1.2999958553241555,
+      "captive": true
+    },
+    {
+      "id": "BUS14",
+      "role": "BUS",
+      "axis_xy_mm": [
+        72.51208285999999,
+        -18.48791714
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 50.620004144675846,
+      "tip_z_mm": 38.620004144675846,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 1.2999958553241555,
+      "captive": true
+    },
+    {
+      "id": "BUS15",
+      "role": "BUS",
+      "axis_xy_mm": [
+        100.51208782,
+        18.512085060000004
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 50.620004144675846,
+      "tip_z_mm": 38.620004144675846,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 1.2999958553241555,
+      "captive": true
+    },
+    {
+      "id": "BUS16",
+      "role": "BUS",
+      "axis_xy_mm": [
+        72.51208285999999,
+        18.524084020000004
+      ],
+      "diameter_mm": 2,
+      "length_mm": 12,
+      "nut_z_mm": [
+        39.92,
+        41.52
+      ],
+      "underhead_z_mm": 50.620004144675846,
+      "tip_z_mm": 38.620004144675846,
+      "nominal_nut_engagement_mm": 1.6000000000000014,
+      "protrusion_mm": 1.2999958553241555,
+      "captive": true
+    },
+    {
+      "id": "PWM968517",
+      "role": "PWM9685",
+      "axis_xy_mm": [
+        -35.825,
+        9.525000000000002
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "PWM968518",
+      "role": "PWM9685",
+      "axis_xy_mm": [
+        -35.825,
+        -9.524999999999999
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "PWM968519",
+      "role": "PWM9685",
+      "axis_xy_mm": [
+        20.055,
+        9.525000000000002
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "PWM968520",
+      "role": "PWM9685",
+      "axis_xy_mm": [
+        20.055,
+        -9.524999999999999
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "AUX409221",
+      "role": "AUX4092",
+      "axis_xy_mm": [
+        37.159,
+        -10.541
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "AUX409222",
+      "role": "AUX4092",
+      "axis_xy_mm": [
+        37.159,
+        10.541
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "AUX409223",
+      "role": "AUX4092",
+      "axis_xy_mm": [
+        58.241,
+        -10.541
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.61999999999999,
+      "tip_z_mm": 70.61999999999999,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.200000000000017,
+      "captive": false
+    },
+    {
+      "id": "PWM160824",
+      "role": "PWM1608",
+      "axis_xy_mm": [
+        73.81,
+        0.0
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.6202,
+      "tip_z_mm": 70.6202,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.1998000000000104,
+      "captive": false
+    },
+    {
+      "id": "PWM160825",
+      "role": "PWM1608",
+      "axis_xy_mm": [
+        109.37,
+        0.0
+      ],
+      "diameter_mm": 2,
+      "length_mm": 14,
+      "nut_z_mm": [
+        72.82000000000001,
+        74.42
+      ],
+      "underhead_z_mm": 84.6202,
+      "tip_z_mm": 70.6202,
+      "nominal_nut_engagement_mm": 1.5999999999999943,
+      "protrusion_mm": 2.1998000000000104,
+      "captive": false
+    }
+  ],
+  "tools": [
+    {
+      "id": "RailClamp1DriverStage",
+      "assembly_stage": "Before PCB/upper carrier",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "RailClamp1NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "RailClamp2DriverStage",
+      "assembly_stage": "Before PCB/upper carrier",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "RailClamp2NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "RailClamp3DriverStage",
+      "assembly_stage": "Before PCB/upper carrier",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "RailClamp3NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "RailClamp4DriverStage",
+      "assembly_stage": "Before PCB/upper carrier",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "RailClamp4NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame5DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame5NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame6DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame6NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame7DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame7NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": false
+    },
+    {
+      "id": "UpperFrame8DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "UpperFrame8NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": false
+    },
+    {
+      "id": "Pi49DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "Pi410DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "Pi411DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "Pi412DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "BUS13DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "BUS14DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "BUS15DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "BUS16DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM968517DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM968517NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "PWM968518DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM968518NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "PWM968519DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM968519NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "PWM968520DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM968520NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "AUX409221DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "AUX409221NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "AUX409222DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "AUX409222NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "AUX409223DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "AUX409223NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "PWM160824DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM160824NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    },
+    {
+      "id": "PWM160825DriverStage",
+      "assembly_stage": "Before connectors/harness",
+      "allowance": "D3 vertical driver, nominal design allowance",
+      "clear": true
+    },
+    {
+      "id": "PWM160825NutToolStage",
+      "allowance": "D7 M3 / D6 M2 socket; final user tool not measured",
+      "clear": true
+    }
+  ],
+  "exports": [],
+  "quantities": {
+    "M3x14": 4,
+    "M3x45": 4,
+    "M3_washer": 16,
+    "M3_nut": 8,
+    "M2x12": 8,
+    "M2x14": 9,
+    "M2_washer": 26,
+    "M2_nut": 17,
+    "monitor_T18I": 2
+  },
+  "installation": [
+    "Seat8 M2 nuts in AF4.3 underside pockets; temporary removable tape retains nuts only, not structural",
+    "Install lower carrier/pads/jaws; tighten rail clamps before Pi; no frame drilling",
+    "Install Pi/BUS M2x12 into captive nuts; monitor2ties; upper spacers/carrierM3x45",
+    "Upper9PCB boltsM2x14/nuts before harness; remove upper carrier to service lower board screws"
+  ],
+  "limits": [
+    "Nominal fastener/nut/tool dimensions; delivered lengths and fit need phase2 coupon",
+    "PCB underside/populated vendor checks and distribution mounting still stage2 OPEN",
+    "Full cable routes/strain relief/stock remain stage3; no complete M5/W1/W5 credit"
+  ]
+}
