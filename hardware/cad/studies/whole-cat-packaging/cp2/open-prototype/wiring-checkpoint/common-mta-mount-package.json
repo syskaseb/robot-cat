@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "gates": {
+    "assembly":{"status":"open","reason":"Local mount sequence only; whole wired installation/removal open"},
+    "electrical":{"status":"open","reason":"Full8tails/terminations/insulation/materials/E3 open"},
+    "fit":{"status":"open","reason":"Delivered casing/ties/lead dimensions and no-crush/no-slip fit"},
+    "geometry":{"status":"open","reason":"Changed static mount interfaces qualified; full routes not included"},
+    "loads":{"status":"open","reason":"Retained bolt load path/cantilever/vibration trial open"},
+    "petg":{"status":"open","reason":"Profile/support removal/bridges/layers/creep trial open"},
+    "service":{"status":"open","reason":"Actual ATO lid motion and connected wiring service open"}
+  },
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "status": "COMMON4MTA_NATIVE_MOUNTS_PREPARED_FULL8TAILS_AND_WIRING_OPEN",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonSourcePlatform.FCStd": "6cffe2b99b14847404360624f540c906c456e7447d2d9ee3fcb9fd1086dae17f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/common-mta-support-plan.json": "d1b43f532960fe76ddd4d83944d8068f3ae3987905cf5f88d13b6dc3287f1ae7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-plan.json": "eb89ebf220cb8cfafd772dc90ddec4cd543a23a7a4b0064ef940802e6d7273d5",
+    "tools/cad/open_prototype_common_mta_mounts.py": "3264b5e210cd3d25ce54a1a8a95b8be60f05e3e1cd094bed48d4e945543b0d92"
+  },
+  "model_sha256": "ce13e801ac7398707591653108a4d04f818249e9b747ba78c487387cc35cb99f",
+  "reused_changed_interface_proof": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/common-mta-mount-checks.json",
+  "tested_pairs": 87,
+  "contacts": [],
+  "errors": [],
+  "outside_torso": [],
+  "native_geometry": {
+    "valid_bodies": 4,
+    "strict_bop_errors": 0,
+    "fully_constrained_sketches": 61,
+    "volumes_mm3": {
+      "UpperCarrier": 29456.013403577224,
+      "CommonSourcePlatform": 40315.51411184553,
+      "LeftDistributionCarrier": 32965.85440359688,
+      "RightDistributionCarrier": 33021.354403597
+    }
+  },
+  "assembly": [
+    "Fit side rails with integral rear MTA seats using retained4rail bolts before WAGO",
+    "Fit common source platform and integral front MTA arms before restraints",
+    "Fit purchased4MTA,independent both-side lead grips and replaceable body ties; no lead extension invented"
+  ],
+  "load_path": "Front source floor; rear paired rail integral overhead roots,retained rail bolt stack; not low posts through S1 tool",
+  "new_hardware_candidate": {
+    "rear_M3x10": 0,
+    "rear_washers": 0,
+    "rear_nuts": 0,
+    "body_T18I": 8
+  },
+  "physical_gates": [
+    "PETG column/bridge/cantilever/creep/profile/support removal",
+    "T18I delivered fit/casing no-crush/locking and pull"
+  ],
+  "remaining": [
+    "All8fullMTA leads/extensions/joints/restraints and stock",
+    "Actual delivered factory lead/L140/body/ATO motion",
+    "Whole fanouts/head/tail/S1/PWM/body/legs/service"
+  ],
+  "fresh_relocated_reopen_parameter_restore": true,
+  "parameter_test": {
+    "rear_post_diameter_mm": [
+      8,
+      9,
+      8
+    ],
+    "restored": true,
+    "integral_root_width_follows": true
+  },
+  "exports": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/UpperCarrierMtaCurrent.stl",
+      "sha256": "200a0a98c2cb2a549403726c2c231a82967ac2a4db6831d7e197882fa4c68e17",
+      "dimensions_mm": [
+        189.0,
+        81.0,
+        15.299999999999997
+      ],
+      "closed": true,
+      "selected": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonSourcePlatformMtaCurrent.stl",
+      "sha256": "36a5af9b295c03a4797a2261e4ffa70d91ac725bc4910c9af32a845812651863",
+      "dimensions_mm": [
+        149.0,
+        104.25,
+        54.879999999999995
+      ],
+      "closed": true,
+      "selected": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LeftDistributionCarrierMtaCurrent.stl",
+      "sha256": "80b4ae2086fb3e789a53f0165378d0a5827322ad842f2b90c5d265c41d5e6d78",
+      "dimensions_mm": [
+        216.5,
+        87.75,
+        83.0
+      ],
+      "closed": true,
+      "selected": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/RightDistributionCarrierMtaCurrent.stl",
+      "sha256": "700c1367cb03d22608b7b0b8ae674990e6469f0410bbe802d5892e4be75e48ad",
+      "dimensions_mm": [
+        216.5,
+        87.75,
+        83.0
+      ],
+      "closed": true,
+      "selected": false
+    }
+  ],
+  "files": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonMtaMounts.FCStd",
+      "sha256": "ce13e801ac7398707591653108a4d04f818249e9b747ba78c487387cc35cb99f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/common-mta-mount-checks.json",
+      "sha256": "74101962cdff4f7c46fbe5c582869fd47581b8cfa58080dfa82d677b7011e869"
+    },
+    {
+      "path": "tools/cad/open_prototype_common_mta_finish.py",
+      "sha256": "77331b012d6cd241f1afac228e6275d486cbd135f23b8e3e3e8f04a589b92862"
+    },
+    {
+      "path": "tools/cad/open_prototype_common_mta_mounts.py",
+      "sha256": "3264b5e210cd3d25ce54a1a8a95b8be60f05e3e1cd094bed48d4e945543b0d92"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/UpperCarrierMtaCurrent.stl",
+      "sha256": "200a0a98c2cb2a549403726c2c231a82967ac2a4db6831d7e197882fa4c68e17"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonSourcePlatformMtaCurrent.stl",
+      "sha256": "36a5af9b295c03a4797a2261e4ffa70d91ac725bc4910c9af32a845812651863"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LeftDistributionCarrierMtaCurrent.stl",
+      "sha256": "80b4ae2086fb3e789a53f0165378d0a5827322ad842f2b90c5d265c41d5e6d78"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/RightDistributionCarrierMtaCurrent.stl",
+      "sha256": "700c1367cb03d22608b7b0b8ae674990e6469f0410bbe802d5892e4be75e48ad"
+    }
+  ],
+  "worker_seconds": 30.875,
+  "finished_utc": "2026-10-08T20:38:37.936509+00:00"
+}
