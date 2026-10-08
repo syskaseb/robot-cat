@@ -3,6 +3,16 @@ import open_prototype_distribution_allocation as D
 
 
 class SharedAllocation(unittest.TestCase):
+    def test_lower_row_and_all_inputs_planned_before_cad(self):
+        p=D.build_plan()
+        lower=[r for r in p['distribution'] if r['centre_mm'][2]<100]
+        self.assertEqual(len(lower),10)
+        self.assertLessEqual(max(r['centre_mm'][0]+r['size_mm'][0]/2 for r in lower),101)
+        self.assertEqual(len(p['input_recipes']),5)
+        self.assertFalse(any(r['exceeds_limit'] for r in p['input_recipes']))
+        south=[r for r in p['holders'] if r['axis'][1]>0]
+        self.assertEqual([r['holder'] for r in sorted(south,key=lambda r:r['input_mm'][0])],['F_HY','F_HP','F_TY'])
+
     def test_all_twenty_stations_are_unique_and_same_roles(self):
         p=D.build_plan()
         old=D.read(D.BASE/'mounting-checkpoint/distribution-mount-plan.json')['distribution']

@@ -80,21 +80,25 @@ def save_input_length_preflight():
 
 def build_plan():
     rows = read(BASE/'mounting-checkpoint/distribution-mount-plan.json')['distribution']
-    slots = dict(G_TAIL=1, D_RR=4)
+    # Reorder equal615 roles together with source roles. AUX then reaches
+    # P_REAR without an overlong prefuse run; the three southern inputs remain
+    # in target-port order rather than crossing an entire holder bay.
+    slots = dict(G_TAIL=1, D_RR=4, P_REAR=1, P_FRONT=2)
     distribution = []
     for i, row in enumerate(rows):
         level = (i % 10) // 5
         slot = slots.get(row['role'], i % 5)
         sign = 1 if row['side']=='L' else -1
         y = (75 if not level else (20 if slot==4 else UPPER_Y))*sign
-        distribution.append(dict(row, centre_mm=[-47+40*slot,y,120 if level else 67.99]))
+        x=-47+40*slot if level else -62+37*slot
+        distribution.append(dict(row, centre_mm=[x,y,120 if level else 67.99]))
     # Five parallel holders, alternating input sides. The outputs descend
     # outside the board perimeter. Existing broad carrier edges must be
     # redesigned together if they occupy these reserved output corridors.
     holders = []
     for name, x, sign, port in [('F_PI',-40,1,'P_SYS.2'),
-            ('F_AUX',35,1,'P_REAR.3'),('F_HY',10,-1,'P_AUX.2'),
-            ('F_HP',60,-1,'P_AUX.3'),('F_TY',-15,-1,'P_AUX.4')]:
+            ('F_AUX',-15,1,'P_REAR.3'),('F_HY',10,-1,'P_AUX.2'),
+            ('F_HP',35,-1,'P_AUX.3'),('F_TY',60,-1,'P_AUX.4')]:
         holders.append(dict(holder=name,input_mm=[x,25.5*sign,125],
             output_mm=[x,-25.5*sign,125],axis=[0,-sign,0],target=port,
             factory_radius_assumption_mm=6,output_first_straight_mm=3,
@@ -103,11 +107,28 @@ def build_plan():
     # Apply to original logical ports, not the already-permuted old proof.
     permutation={'P_REAR.2':'P_REAR.5','P_REAR.3':'P_REAR.2','P_REAR.5':'P_REAR.3'}
     loads=occupancy(read(OUT/'routing-scope-plan.json'),permutation)
+    input_rows=[]
+    for holder in holders:
+        role,number=holder['target'].rsplit('.',1)
+        block=next(r for r in distribution if r['role']==role)
+        centre=block['centre_mm'];width,depth,_=block['size_mm']
+        target=[centre[0]-width/2+5.5+(int(number)-1)*(width-11)/4,
+            centre[1]+(-depth/2 if block['side']=='L' else depth/2),centre[2]]
+        recipe=input_recipe(holder['input_mm'],target,V.mul(holder['axis'],-1))
+        strip=14 if holder['holder'] in ('F_PI','F_AUX') else 11
+        limit=50 if strip==14 else 84.5
+        total=recipe['centreline_mm']+strip
+        input_rows.append(dict(holder=holder['holder'],target=holder['target'],
+            target_mm=target,recipe=recipe,strip_allowance_mm=strip,
+            required_blank_mm=total,limit_mm=limit,exceeds_limit=total>limit))
     paths=[MOUNTS,CONTEXT,OUT/'TailLocalCurrent.FCStd',
         BASE/'mounting-checkpoint/distribution-mount-plan.json',
-        OUT/'source-layout-plan.json',OUT/'routing-scope-plan.json',__file__]
+        OUT/'source-layout-plan.json',OUT/'routing-scope-plan.json',__file__,Path(V.__file__)]
     return dict(status='SHARED_CASE_AND_EXIT_ALLOCATION_HYPOTHESIS',
         distribution=distribution,holders=holders,same_bus_permutation=permutation,
+        input_recipes=input_rows,
+        allocation_cause_change='Whole lower ten-case row uses37mm pitch and lastcaseXMax101<S1XMin114.2. Equal P_FRONT/P_REAR roles exchange upper slots; five source roles follow their port order. No new parts/splice or individual wire offset. Full five tangent input routes now part of joint gate, not a third bare-casing trial.',
+        previous_geometry_snapshot_commit='eeca478',
         occupied_ports=loads,selected=False,stage_completed=False,physical_pass=False,
         mts=[dict(native='MTA_'+leg+'_CP2',centre_mm=centre,
                   both_factory_tail_reservations_mm=100,tail_length_not_catalog=True)
@@ -140,15 +161,16 @@ def main():
     import FreeCAD as A
     import Part
     tick=time.monotonic();plan=build_plan()
+    assert not any(r['exceeds_limit'] for r in plan['input_recipes']), 'Reject full bent blank BEFORE CAD'
     previous=OUT/'shared-allocation-checks.json'
     if previous.exists():
         old_gate=read(previous)
         plan['previous_gate']=old_gate.get('previous_gate',old_gate)
-        plan['previous_gate_disposition']='Baseline: rear MTA level occupied new upper ports; exits crossed entry stems. F_HP old source-plan input frame inconsistent with saved casing: its transformed body result invalidated, other contacts retained. This revision changes shared corridors and ALL4 MTA stations, not individual wire offsets.'
+        plan['previous_gate_disposition']='First baseline retained, with invalid F_HP old-frame result. Second joint geometry snapshot eeca478 is preserved in Git:5 RL_G/S1 contacts,0outside/0errors. This gate changes whole lower row AND equal upper role/source assignment and includes ALL5 full input curves; no third bare-case/offset attempt.'
     docs=[A.openDocument(str(p)) for p in (MOUNTS,CONTEXT,OUT/'TailLocalCurrent.FCStd')]
     mount,ctx,tail=docs
     result=dict(status='PENDING',contacts=[],support_changes=[],outside_torso=[],
-        errors=[],tested_pairs=0,ports=[],input_necessary_bounds=[],
+        errors=[],tested_pairs=0,ports=[],input_necessary_bounds=[],factory_input_rows=[],
         source_sha256=plan['source_sha256'],selected=False,stage_completed=False,
         physical_pass=False,full_routes_and_supports_open=True)
     if 'previous_gate' in plan:result['previous_gate']=plan['previous_gate']
@@ -161,6 +183,7 @@ def main():
             centre=A.Vector((b.XMin+b.XMax)/2,(b.YMin+b.YMax)/2,(b.ZMin+b.ZMax)/2)
             s.translate(A.Vector(*row['centre_mm'])-centre);new[row['native']]=s
             b=s.BoundBox
+            assert all(abs(v-w)<1e-6 for v,w in zip((b.XLength,b.YLength,b.ZLength),row['size_mm'])), 'Distribution reservation frame mismatch'
             for port in range(1,6):
                 p=[b.XMin+5.5+(port-1)*(row['size_mm'][0]-11)/4,
                     b.YMin if row['side']=='L' else b.YMax,(b.ZMin+b.ZMax)/2]
@@ -207,6 +230,26 @@ def main():
             new[name+'/factory_output']=path.makePipeShell([circle],True,False)
             new[name+'/sleeve']=Part.makeCylinder(3,26.5,cut+A.Vector(0,0,14),A.Vector(0,0,-1))
             new[name+'/new_grip']=Part.makeCylinder(1.05,21.5,cut,A.Vector(0,0,-1))
+            inlet=next(r for r in plan['input_recipes'] if r['holder']==name)
+            assert math.dist(inlet['target_mm'],next(r['point_mm'] for r in result['ports'] if r['role']==inlet['target']))<1e-7
+            inlet_edges=[]
+            for segment in inlet['recipe']['segments']:
+                a,b=A.Vector(*segment['start']),A.Vector(*segment['end'])
+                inlet_edges.append(Part.makeLine(a,b) if segment['kind']=='line' else Part.Arc(a,A.Vector(*segment['mid']),b).toShape())
+            for a,b in zip(inlet_edges,inlet_edges[1:]):
+                assert (a.valueAt(a.LastParameter)-b.valueAt(b.FirstParameter)).Length<1e-7
+                assert a.tangentAt(a.LastParameter).dot(b.tangentAt(b.FirstParameter))>1-1e-7
+            actual_radii=[e.Curve.Radius for e in inlet_edges if isinstance(e.Curve,Part.Circle)]
+            assert min(actual_radii)>=6-1e-7
+            wire=Part.Wire(inlet_edges)
+            assert abs(wire.Length-inlet['recipe']['centreline_mm'])<1e-6
+            new[name+'/factory_input']=wire.makePipeShell([
+                Part.Wire([Part.makeCircle(2,A.Vector(*row['input_mm']),-axis)])],True,False)
+            result['factory_input_rows'].append(dict(holder=name,target=inlet['target'],
+                actual_centreline_mm=wire.Length,minimum_actual_radius_mm=min(actual_radii),
+                required_blank_mm=inlet['required_blank_mm'],limit_mm=inlet['limit_mm'],
+                first_straight_mm=inlet['recipe']['first_straight_mm'],last_grip_straight_mm=9,
+                target_mm=inlet['target_mm'],factory_bend_and_OD_are_assumptions=True))
             target=next(r for r in result['ports'] if r['role']==row['target'])
             strip=14 if row['holder'] in ('F_PI','F_AUX') else 11
             lower=math.dist(row['input_mm'],target['point_mm'])+strip
@@ -246,6 +289,9 @@ def main():
         for i,(n,s) in enumerate(items):
             for m,t in items[i+1:]:
                 if n.split('/')[0]==m.split('/')[0]:continue
+                # Factory input occupies its own intended port straight.
+                holder_inputs={r['holder']+'/factory_input':'entry/'+r['target'] for r in plan['input_recipes']}
+                if holder_inputs.get(n)==m or holder_inputs.get(m)==n:continue
                 if n.startswith('entry/') and m.startswith('entry/'):continue
                 if n==native_by_role.get(m.removeprefix('entry/').rsplit('.',1)[0]):continue
                 check(n,s,m,t,'contacts')
@@ -261,4 +307,9 @@ def main():
 
 if __name__=='__main__':
     if '--input-length-plan' in sys.argv:save_input_length_preflight()
+    elif '--proposed-input-plan' in sys.argv:
+        p=build_plan()
+        compact={k:p[k] for k in ('status','distribution','holders','input_recipes','allocation_cause_change','previous_geometry_snapshot_commit','source_sha256','selected','stage_completed','physical_pass')}
+        (OUT/'shared-allocation-input-plan.json').write_text(json.dumps(compact,indent=2)+'\n',encoding='utf-8')
+        print(json.dumps(dict(inputs=[{k:r[k] for k in ('holder','required_blank_mm','limit_mm','exceeds_limit')} for r in p['input_recipes']],allocation=p['allocation_cause_change'])),flush=True)
     else:main()
