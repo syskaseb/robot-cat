@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "status": "SOURCE_PLATFORM_FINISH_HAS_OPEN_INTERFACES",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "prior_geometry_snapshot_commit": "4ab9057",
+  "prior_interface_pairs": 235,
+  "prior_contact_rechecked_not_waived": [
+    {
+      "a": "UpperCarrier",
+      "b": "F_TY_OutputTie1",
+      "volume_mm3": 4.374999999999959
+    }
+  ],
+  "contacts": [
+    {
+      "a": "NorthInputTie0",
+      "b": "CommonSourcePlatform",
+      "volume_mm3": 8.399999999999961
+    },
+    {
+      "a": "NorthInputTie1",
+      "b": "CommonSourcePlatform",
+      "volume_mm3": 8.399999999999986
+    }
+  ],
+  "errors": [],
+  "outside_torso": [],
+  "tested_pairs": 73,
+  "changed_straps": [
+    "NorthInputTie0",
+    "NorthInputTie1",
+    "F_PI_OutputTie0",
+    "F_PI_OutputTie1",
+    "F_AUX_OutputTie0",
+    "F_AUX_OutputTie1",
+    "F_HY_OutputTie0",
+    "F_HY_OutputTie1",
+    "F_HP_OutputTie0",
+    "F_HP_OutputTie1",
+    "F_TY_OutputTie0",
+    "F_TY_OutputTie1"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
+    "hardware/reference/hellermann-11102370-2026-10-04/dimensions.json": "5aa13c21ca221d162eb9483b37bf75b9e4fa5d5ad0fec918f8abe8c270bdad0d",
+    "tools/cad/open_prototype_source_platform_finish.py": "7efe9a87abed548b08e9fdbf75f007d5f24d891236a2ccba00ef60c40fee5c40",
+    "tools/cad/open_prototype_common_source_platform.py": "a6af8f815c229c9deca43f956056eca902be5142e1879381820e48ad6d6ed3b5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-plan.json": "eb89ebf220cb8cfafd772dc90ddec4cd543a23a7a4b0064ef940802e6d7273d5"
+  },
+  "assembly": [
+    "Insert captive platform nuts from underside before carrier placement",
+    "Bench mate platform to UpperCarrier and tighten4underside screws before Pi/boards; do NOT claim driver access through installed Pi",
+    "Install board/upper carrier module then source holders; independently restrain inputs and output insulation",
+    "ATO access stays above; no routine rail/platform removal or74WAGO disconnects",
+    "Fit10 replaceable holder-body ties; cut only2 on affected holder for delivered ATO lid trial",
+    "Four independent input ties stay in place during ATO service; comb each-wire no-slip needs dry fit"
+  ],
+  "new_hardware_candidate": {
+    "M3x10": 4,
+    "M3_washer": 4,
+    "M3_nut": 4,
+    "T18I_body": 10,
+    "T18I_input": 4,
+    "T18I_output": 10
+  },
+  "manufacturing": {
+    "material": "PETG",
+    "orientation": "Plate flat, columns up (world-Z inverted); underside ribs and grip arms support review phase2",
+    "printer_cube_mm": [
+      256,
+      256,
+      256
+    ],
+    "total_margin_mm": 10,
+    "nozzle_layer_profile": "UNSET"
+  },
+  "open_gates": [
+    "Full output-to-load routes/fixed head-tail station supports are NOT included",
+    "Full MTA/S1/PWM/body/legs/stock not qualified",
+    "Delivered nut/tie/casing/lid/OD/R6/no-crush/individual wire shims/each comb wire retention",
+    "PETG ribs/cantilever/layers/bearing/creep and support removal"
+  ],
+  "fixed_station_disposition": "Do NOT copy obsolete pitch post through P_SYS; pitch atZ166 is head interface,not torso internal. Tail fixed station needs independent current load path with full new fanout. Both remain OPEN.",
+  "tie_length_screen": [
+    {
+      "role": "body",
+      "quantity": 10,
+      "inner_rectangle_mm": [
+        20.25,
+        24
+      ],
+      "perimeter_plus_project_lock_tail25_mm": 113.5,
+      "stock_length_mm": 145,
+      "installed_curvature_lock_and_pull_test_open": true
+    },
+    {
+      "role": "north5port",
+      "quantity": 2,
+      "inner_rectangle_mm": [
+        40,
+        9.3
+      ],
+      "perimeter_plus_project_lock_tail25_mm": 123.6,
+      "stock_length_mm": 145,
+      "installed_curvature_lock_and_pull_test_open": true
+    },
+    {
+      "role": "south5port",
+      "quantity": 2,
+      "inner_rectangle_mm": [
+        33,
+        9.3
+      ],
+      "perimeter_plus_project_lock_tail25_mm": 109.6,
+      "stock_length_mm": 145,
+      "installed_curvature_lock_and_pull_test_open": true
+    },
+    {
+      "role": "output",
+      "quantity": 10,
+      "inner_rectangle_mm": [
+        18,
+        5.1
+      ],
+      "perimeter_plus_project_lock_tail25_mm": 71.2,
+      "stock_length_mm": 145,
+      "installed_curvature_lock_and_pull_test_open": true
+    }
+  ],
+  "shared_grip_gate": "Each wire OD/soft shims/no-crush/no-slip to dry-fit; not assumption that one strap grips different OD wires equally. 9mm seats/two row straps at differentY retained. Adhesive NOT strain relief.",
+  "ATO_access_scope": "22x10x35 project tool budget fromZ137; cut2ties on target body, independent wire grips left. Not measured supplier lid motion; open roof, not torso-contained tool.",
+  "native_geometry": {
+    "valid_bodies": 2,
+    "strict_bop_errors": 0,
+    "volumes_mm3": {
+      "UpperCarrier": 29456.013403577224,
+      "CommonSourcePlatform": 35320.71567758952
+    },
+    "fully_constrained_sketches": 25
+  },
+  "parameter_test": {
+    "nut_seat_depth_mm": [
+      2.6,
+      2.8,
+      2.6
+    ],
+    "corresponding_four_nuts_follow": true,
+    "restored": true
+  },
+  "print_dimensions_mm": {
+    "UpperCarrier": [
+      189.0,
+      81.0,
+      15.299999999999997
+    ],
+    "CommonSourcePlatform": [
+      149.0,
+      104.0,
+      40.08
+    ]
+  },
+  "worker_seconds": 47.39100000006147,
+  "finished_utc": "2026-10-08T20:14:36.162044+00:00"
+}
