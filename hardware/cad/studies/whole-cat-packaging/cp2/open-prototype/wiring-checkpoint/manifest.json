@@ -161,8 +161,10 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T14:03:45Z",
-    "window_elapsed_seconds": 12045,
+    "saved_utc": "2026-10-08T14:32:16Z",
+    "window_elapsed_seconds": 13756,
+    "local_feed_planning_since_previous_seconds": 1711,
+    "local_feed_geometry_worker_seconds": [35.75,34.328],
     "four_branch_outputs_checkpoint_seconds_since_previous": 1841,
     "branch_output_worker_seconds": 100.766,
     "output_relief_worker_seconds": 115.484,
@@ -239,10 +241,33 @@
     "selected": false,
     "physical_pass": false
   },
-  "next": "Keep OutputReliefsAssembly, four checked factory output guides/current replacement carriers and TailLocalCurrent. Group all HELU load/return/PWM paths to9local boundaries with current chosen1608 copper landings; adapt pitch fixed anchor because oldCover is absent. Remaining80body/leg/source920mm independent restraints, common mount/service/lengths/stock and final current native choice are OPEN. No retry of source inputs, four factory loops or unchanged carriers. UnknownAUX/U1 deliveredpadmap stays gate, not guessed pins.",
+  "local_feed_preflight": {
+    "plan": "local-feeds-plan.json",
+    "proof": "local-feeds-checks.json",
+    "status": "REJECTED_NOT_NATIVE_OR_ROUTE_SELECTION",
+    "first_rejected_commit": "d476574",
+    "first_contacts_pairs": [39,260],
+    "second_contacts_pairs": [14,258],
+    "errors_in_completed_geometry_checks": 0,
+    "software_retry": "Missing nominal CP2 casings from obstacle selector caused KeyError before geometry; corrected selector includes casings and excludes only replaced invalid BUS cache. No acceptance from failed run.",
+    "second_proposal_only": ["G_AUX same casing/ports rotated+90 and centre58,-84.75", "G_TAIL same casing/ports rotated-90 at92,-84.75", "Tail fixed entry26mm higher", "PWM insulation departure horizontal after nominal covered solder transition"],
+    "proposal_supports_not_built_or_selected": true,
+    "two_attempt_rule": "No third independently filleted-wire candidate. Change cause: common bundle spine and transported packing before another geometry run.",
+    "next_shared_plan": [
+      "One spine per HY/HP/TY fixed bundle, with exact transported triangular packing through bends; centreR15.1 leaves individualR>=12.6. Existing head offset mathematics is the reference, not per-wire scalar nudges.",
+      "Separate source fanouts from shared bundle sections; check tangent/packing and adjacent bend consumption before CAD.",
+      "Reserve one common outlet for all3 PWM copper landings at the actual upper-carrier lip; covered solder transitions and new carrier channel still require preparation.",
+      "Pitch path must go outside Pi ATO budget and get a new fixed anchor; tail inlet adaptation must preserve existing factory/JR route and support, not merely move a point.",
+      "Only after route preflight, regenerate two changed WAGO underside pad/retention footprints and all their occupied port datums, actual tail anchor and PWM outlet. Preserve other18 frames and source inputs/outputs."
+    ],
+    "whole_stage_open": true,
+    "contract_tests_passed": 58,
+    "physical_pass": false
+  },
+  "next": "Change routing cause after two rejected9-wire layouts: one exact transported3wire bundle spine per HY/HP/TY, separate source fanouts, single current PWM outlet, Pi ATO avoidance and real pitch/tail anchors. G_AUX/G_TAIL rigid pose changes and tail+26 are proposals only, not current native mounts. Keep checked OutputReliefsAssembly/factory loops/input grips and TailLocalCurrent sources unchanged. Then remaining80body/legs/legacy920mm/AUX, independent restraints/mount/service/lengths/stock and one current native/export choice. UnknownAUX/U1 deliveredpadmap gate stays open.",
   "estimate_review": "Shared5holder/input fixture checkpoint recorded52min24 after previous save (45-90min provisional). Whole Stage3 still OPEN at2h28min07; original3-5h cannot be promised for remaining4outputs/full body-leg-local/source920mm/restraints/stock. Next use known endpoint evidence and one grouped harness plan, not another placement search or expensive check of unchanged fixtures.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T14:03:45Z",
+    "checked_utc": "2026-10-08T14:32:16Z",
     "weekly_used_percent": 10,
     "weekly_remaining_percent": 90,
     "ordinary_usage_allowed": true

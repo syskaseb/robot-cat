@@ -21,25 +21,34 @@ SOURCE = OUT/'OutputReliefsAssembly.FCStd'
 
 
 def route_points(start, direction, end, group, index):
-    height = 180 + 3*index
-    first = [x+35*a for x,a in zip(start,direction)]
+    height = {'HY':178,'HP':186,'TY':194}[group] + 2*index
+    lead = 21.6 if direction in ([1,0,0],[-1,0,0]) and start[1]<-75 else 35
+    if group=='TY' and index==0:
+        lead=start[0]+10  # Opposite side of final column; a real wide return, not narrow U.
+    first = [x+lead*a for x,a in zip(start,direction)]
     points = [start, first]
     if direction == [0,0,1]:
         points.append([first[0],first[1]+35,first[2]])
         first = points[-1]
     points.append([first[0], first[1], height])
     trunk_y = {'HY':-10, 'HP':-75, 'TY':10}[group]
-    points.append([first[0],trunk_y,height])
+    if abs(first[1]-trunk_y)<25.2:
+        trunk_y=first[1]  # No tiny redundant jog between adjacent large-radius bends.
+    else:
+        points.append([first[0],trunk_y,height])
     if group == 'HY':
-        column_x = end[0]+35+5*index
+        normal=[-1.05/math.sqrt(3),-1.05/math.sqrt(3),2*1.05/math.sqrt(3)][index]
+        column_x = -76-normal
         points += [[column_x,trunk_y,height],[column_x,end[1],height],
                    [column_x,end[1],end[2]],end]
     elif group == 'HP':
-        column_y = end[1]-40-5*index
+        normal=[-1.05/math.sqrt(3),-1.05/math.sqrt(3),2*1.05/math.sqrt(3)][index]
+        column_y = 36+normal
         points += [[end[0],trunk_y,height],[end[0],column_y,height],
                    [end[0],column_y,end[2]],end]
     else:
-        column_x = -10-5*index
+        normal=[2*1.05/math.sqrt(3),-1.05/math.sqrt(3),-1.05/math.sqrt(3)][index]
+        column_x = 32-normal
         points += [[column_x,trunk_y,height],[column_x,end[1],height],
                    [column_x,end[1],end[2]],end]
     return points
@@ -63,30 +72,40 @@ def build_plan():
             # Individual packing inside the retained seven-mm splice seat.
             side, normal = [(-1.05,-n),(1.05,-n),(0,2*n)][index]
             end[1] += side; end[2] += normal
+        if group == 'TY':
+            # One proposed stationary tail-entry level above source tie/casing
+            # budgets. Existing local support must be adapted before acceptance.
+            end[2] += 26
         if index == 0:
             source = ends[role.split('.')[0]]
             start, direction = source['end_mm'],source['end_departure']
             origin = 'New checked factory-tail insulation boundary; covered lap joint still OPEN'
         elif index == 1:
             source = ports[role]
-            start, direction = source['point_mm'],source['departure']
-            origin = 'Current WAGO envelope-derived entry; delivery pitch/strip qualification OPEN'
+            old=source['point_mm'];centre=50 if group!='TY' else 92
+            angle=90 if group!='TY' else -90
+            # ALL ports of each casing receive the same rigid transformation;
+            # no net/pin permutation and no per-wire scalar position search.
+            start=[48.5,-84.75+(old[0]-centre),old[2]] if angle==90 else [101.5,-84.75-(old[0]-centre),old[2]]
+            direction=[-1,0,0] if angle==90 else [1,0,0]
+            origin = 'Proposed rigid G_AUX58/+90deg or G_TAIL92/-90deg, same ports; new underside pad/retention not yet built'
         else:
             source = pwm[role]
-            start, direction = source['current_nominal_pad_top_mm'],[0,0,1]
-            origin = source['chosen_physical_landing']+' on known1608 copper group; vertical solder departure'
+            pad=source['current_nominal_pad_top_mm']
+            start=[pad[0],28.4,pad[2]+1.05];direction=[0,1,0]
+            origin = source['chosen_physical_landing']+' on known1608 copper; reserved formed/covered solder transition to insulation outside PCB+3mm. Local bare/core/cover/strain proof OPEN, not a new pin'
         points = route_points(start,direction,end,group,index)
         cuts, _ = corner_offsets(points,12.6)
         first_free = math.dist(points[0],points[1])-cuts[1]
         last_free = math.dist(points[-2],points[-1])-cuts[-2]
-        assert first_free >= 9 and last_free >= 9,(wire,first_free,last_free)
+        assert first_free >= 9-1e-8 and last_free >= 9-1e-8,(wire,first_free,last_free)
         length = rounded_length(points,12.6)
         rows.append(dict(wire=wire,logical_source=role,group=group,
             material=local_row['material'],area_mm2=.5,insulation_OD_mm=2.1,
             minimum_fixed_radius_mm=12.6,points_mm=points,length_mm=length,
             first_intact_straight_mm=first_free,last_intact_straight_mm=last_free,
             source_basis=origin,endpoint_is_local_insulation_boundary_not_servo_pin=True,
-            current_pitch_anchor_open=group=='HP',
+            current_pitch_anchor_open=group=='HP',current_tail_entry_support_open=group=='TY',
             nominal_fit_blank_mm=None,actual_cut_mm=None,route_qualified=False))
     inputs = (SOURCE,OUT/'branch-output-plan.json',OUT/'endpoint-plan.json',
               OUT/'local-boundary-plan.json',OUT/'TailLocalCurrent.FCStd',
@@ -94,7 +113,13 @@ def build_plan():
               ROOT/'tools/electronics/w5_rounded_path.py',ROOT/'tools/electronics/w5_path_length.py')
     return dict(status='NINE_LOCAL_FIXED_FEEDS_SHARED_PROPOSAL',rows=rows,
         source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in inputs},
-        shared_plan='Three separated high lanes180/183/186, separate end columns and preserved local packing. No new connector or factory-lead cut. Remain outside central ATO and below nominal upper body allowance.',
+        shared_plan='Separated group layers HY178..182/HP186..190/TY194..198; transported triangular packing at final bends, not staggered colliding corner columns. Reorient two mass casings, leave all source inputs/output guides unchanged. No new connector or factory-lead cut.',
+        proposed_WAGO_frame_changes=[dict(native='G_AUX_CP2',old_centre_xy_mm=[50,-84.75],new_centre_xy_mm=[58,-84.75],yaw_delta_degrees=90),
+            dict(native='G_TAIL_CP2',old_centre_xy_mm=[92,-84.75],new_centre_xy_mm=[92,-84.75],yaw_delta_degrees=-90)],
+        all_other18_WAGO_frames_retained=True,
+        proposed_tail_entry_raise_mm=26,
+        support_changes_not_built_or_selected=True,
+        previous_rejected_geometry_commit='d476574',
         assembly=['Keep source grips installed; lay loose fixed feed bundles before populated boards.',
             'Keep motor returns on dedicated G_AUX/G_TAIL, not PCB signal ground.',
             'Provide covered factory-tail joins and independent9mm insulation grips before powering.',
@@ -121,13 +146,22 @@ def main():
         targets={}
         for ob in d.Objects:
             if 'Shape' not in ob.PropertiesList or ob.Shape.isNull():continue
-            if ob.TypeId in ('PartDesign::Body','App::Link') or ob.Name.endswith(('_CurrentReference','NominalPCB')) or ob.Name.startswith('BUSsupplier'):
+            if ob.Name=='BUS_CP2':
+                continue  # Invalid historical cache; actual supplier PCB/reference below.
+            if ob.TypeId in ('PartDesign::Body','App::Link') or ob.Name.endswith(('_CurrentReference','NominalPCB','_CP2')) or ob.Name.startswith('BUSsupplier'):
                 targets['mount/'+ob.Name]=ob.Shape
         for ob in ctx.Objects:
             if 'Shape' in ob.PropertiesList and not ob.Shape.isNull() and ob.Name.startswith(('P0_','Head_','TailBridge')):
                 if ob.Name=='P0_MG92BMount29':continue
                 targets['context/'+ob.Name]=ob.Shape
         targets['tail/CurrentTailSupport']=tail.CurrentTailSupport.Shape
+        for change in plan['proposed_WAGO_frame_changes']:
+            key='mount/'+change['native'];s=targets[key].copy()
+            before=change['old_centre_xy_mm'];after=change['new_centre_xy_mm']
+            s.rotate(A.Vector(*before,0),A.Vector(0,0,1),change['yaw_delta_degrees'])
+            s.translate(A.Vector(after[0]-before[0],after[1]-before[1],0))
+            assert s.isValid()
+            targets[key]=s
         pipes={}
         for row in plan['rows']:
             path=rounded(A,Part,[A.Vector(*p) for p in row['points_mm']],12.6)
@@ -150,11 +184,16 @@ def main():
             for m,t in list(pipes.items())[i+1:]:check(n,s,m,t)
         result.update(status='NINE_FIXED_FEEDS_GEOMETRY_PREFLIGHT_CLEAR' if not result['contacts'] and not result['errors'] else 'NINE_FIXED_FEEDS_SHARED_LAYOUT_CHANGE_REQUIRED',
             rows=len(pipes),radius_mm=12.6,native_wire_histories_not_claimed=True,
-            restraints_joints_pitch_motion_and_whole_wiring_open=True)
+            restraints_joints_pitch_motion_and_whole_wiring_open=True,
+            WAGO_boxes_rigidly_transformed_for_proposal_only=True,
+            proposed_tail_entry_support_not_built=True,
+            PWM_local_formed_solder_and_insulation_transition_open=True)
         if not result['contacts'] and not result['errors']:
             for n,s in pipes.items():
                 ob=d.addObject('Part::Feature',n+'_FixedFeedReservation');ob.Shape=s
                 ob.addProperty('App::PropertyString','Qualification');ob.Qualification='Fixed route reservation, not editable wire history or restraint/motion acceptance'
+            for change in plan['proposed_WAGO_frame_changes']:
+                d.getObject(change['native']).Shape=targets['mount/'+change['native']]
             d.saveAs(str(OUT/'LocalFeedsPreflight.FCStd'))
             result['preview_sha256']=sha(OUT/'LocalFeedsPreflight.FCStd')
     finally:

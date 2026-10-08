@@ -16,8 +16,8 @@ class LocalFeedPlan(unittest.TestCase):
     def test_all_minimum_bends_and_grips_preserved(self):
         for r in self.p['rows']:
             F.corner_offsets(r['points_mm'],12.6)
-            self.assertGreaterEqual(r['first_intact_straight_mm'],9)
-            self.assertGreaterEqual(r['last_intact_straight_mm'],9)
+            self.assertGreaterEqual(r['first_intact_straight_mm'],9-1e-8)
+            self.assertGreaterEqual(r['last_intact_straight_mm'],9-1e-8)
             self.assertAlmostEqual(r['length_mm'],F.rounded_length(r['points_mm'],12.6))
 
     def test_distinct_yaw_packing_not_three_coincident_paths(self):
