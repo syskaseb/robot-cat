@@ -161,10 +161,10 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T17:35:02Z",
-    "window_elapsed_seconds": 24722,
+    "saved_utc": "2026-10-08T18:01:20Z",
+    "window_elapsed_seconds": 26300,
     "current_continuation_started_utc": "2026-10-08T16:18:00Z",
-    "current_continuation_elapsed_seconds": 4622,
+    "current_continuation_elapsed_seconds": 6200,
     "low_XY_source_trial_worker_seconds": [62.187,66.672],
     "legacy_source_worker_seconds": 19.938,
     "source_approach_and_material_fragment_seconds": 1996,
@@ -352,10 +352,10 @@
   "low_factory_exit_source_preflight": {"plan":"source-layout-plan-current.json","proof":"source-layout-checks-current.json","status":"REJECTED_TWO_LOW_XY_ATTEMPTS_NO_THIRD_OFFSET_TRIAL","contacts":10,"tested_pairs":291,"errors":0,"changed_material_outside_torso":1,"worker_seconds":66.672,"first_trial_preserved_in_commit":"491124b","pure_tests_passed":74,"native_exports_rebuilt":0,"selected":false,"physical_pass":false,"cause":"Moved G_AUX occupies D_RR; both west ground approaches intersect G1; moved G_TAIL intersects retained tail support. Both casings and10port datums included. XB13 outside actual torso. No native/export changed."},
   "current_legacy_source_preflight": {"plan":"legacy-source-plan.json","proof":"legacy-source-checks.json","contacts":1,"tested_pairs":30,"errors":0,"outside_actual_torso":0,"worker_seconds":19.938,"source_pins_verified":9,"scope":"W075/W076_FACTORY/W076_EXTENSION/current_W001; not the S1_920mm subtotal","static_clear_in_this_scope":["W075","W076_FACTORY","W001"],"nominal_fit_blanks_mm":{"W075":30,"W076_FACTORY":80,"W076_EXTENSION":215,"W001":168},"conditional_blocker":"W076_EXTENSION intersects S0_body77.775mm3. Nominal S0 rings/studs are atZ80 inside retained casingZ65..105. Reassess BOTH external terminal interfaces/casing basis before another wire route; no waiver or guessed delivered stud datum.","independent_restraints_and_stock_open":true,"selected":false,"physical_pass":false},
   "legacy_920mm_scope_correction": {"source":"hardware/cad/studies/whole-cat-packaging/cp2/interfaces.json/source_stock_contribution","correct_scope":"S1 four HELU23802 wires, NOT BAT_0/BAT_1","ids":["W067","W068","W064","W065"],"historical_blanks_mm":[260,260,220,180],"historical_total_mm":920,"CP2_previous_candidates_total_mm":850.8530321076576,"previous_candidates_not_current_flat_WAGO_routes":true,"routing_scope_corrected":true,"current_groups":{"S1_920mm":4,"battery_F0":2,"other_body_distribution":88},"graph_edges_still":129,"physical_pairs_still":128,"five_scope_source_pins_verified":true,"old_local_boundary_and_legacy_proof_scope_snapshot_commit":"1274de4","scope_correction_is_not_a_geometry_change_or_stock_selection":true},
-  "next": "No worker pending. Current routing scope corrected:920mm is four S1 wires W064/W065/W067/W068; BAT_0/BAT_1 separate. Prepare four S1 wires as one shared source/distribution interface, including all affected port exits, source holders and PWM departures BEFORE another CAD. Do not independently fillet four paths through the same lane or move two ground casings into occupied row slots. Retained legacy proof1274de4 has3clear pieces/1 nominal S0-casing contact: establish BOTH external S0 terminal/casing definitions, not a wire detour; family budget overlap does not prove a delivered physical defect.20WAGO/mounts stay the baseline; required coupled changes must be planned jointly. Body/leg/end/stock preparation remains safe independent work; Stage3 OPEN.",
+  "next": "All workers received. No third lowXY or50deg-angle offset. Joint20case body fit showed8 nominal casings outside actual rounded torso; old20coordinates are NOT body-fit acceptance. One shared allocation of ALL20case roles, fiveFHAC/both exits, fourS1 and PWM/board/support space before native changes. Explicitly rebind every changed port and requalify affected mounts; preserve counts/nets/P0/MAIN46.52/torso325x200x160, not blind inherited rail slots. Historical pitch transition contacts are unselected donor geometry; do not call them current accepted torso-aware routes. S0 external terminals provisional gate, independent body/leg/end/stock remains safe; Stage3OPEN.",
   "estimate_review": "Stage3 OPEN after6h32min54 elapsed, not continuousCPU. Original3-5h estimate exceeded. No credible completion-time promise while whole source/distribution layout and nominal S0 external terminal plane remain unresolved. Counts of tests/files are not complete results.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T17:47:33Z",
+    "checked_utc": "2026-10-08T18:01:20Z",
     "weekly_used_percent": 13,
     "weekly_remaining_percent": 87,
     "ordinary_usage_allowed": true
@@ -375,6 +375,44 @@
     "case_ports": ["P_SYS.4","P_FRONT.1","P_FRONT.2","P_FRONT.3","G_AUX.1","G_AUX.2","G_AUX.3","G_AUX.4","G_AUX.5"],
     "native_carrier_ports": ["P_SYS.2","P_REAR.2","P_AUX.1","P_AUX.2","P_AUX.3","P_AUX.5"],
     "native_export_or_route_selected": false,
+    "physical_pass": false,
+    "proof_source_snapshot_commit": "6017388"
+  },
+  "coupled_source_direction": {
+    "plan": "coupled-source-plan.json",
+    "proof": "coupled-source-checks.json",
+    "status": "REJECTED_DIRECTION_NOT_SELECTED",
+    "worker_seconds": 29.906,
+    "tested_pairs": 36,
+    "errors": 0,
+    "entry_chamber_overlaps": 1,
+    "outside_torso_pieces": 5,
+    "unselected_donor_pitch_transition_overlaps": 3,
+    "do_not_repeat": "No angle/height scalar offsets; true rounded torso and WHOLE distribution space must change the shared allocation first",
+    "native_exports_rebuilt": 0,
+    "physical_pass": false
+  },
+  "retained_distribution_body_fit": {
+    "scope": "20 nominal valid casing BReps versus actual TorsoEnvelope; not supplier delivered defect or mounting failure",
+    "worker_seconds": 11.547,
+    "errors": 0,
+    "casings": 20,
+    "outside_torso": [
+      {"native":"FL_P_CP2","outside_volume_mm3":1015.5826867225243},
+      {"native":"RL_G_CP2","outside_volume_mm3":48.40785566345162},
+      {"native":"P_SYS_CP2","outside_volume_mm3":2324.850772541118},
+      {"native":"G2_CP2","outside_volume_mm3":66.17290933200144},
+      {"native":"FR_P_CP2","outside_volume_mm3":1015.582689413477},
+      {"native":"RR_G_CP2","outside_volume_mm3":48.40785571520461},
+      {"native":"G1_CP2","outside_volume_mm3":2324.8507726670287},
+      {"native":"G_TAIL_CP2","outside_volume_mm3":66.17291224256697}
+    ],
+    "source_sha256": {
+      "LocalStationsAssembly.FCStd":"8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+      "OpenPrototypePlan.FCStd":"ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f"
+    },
+    "preserve_case_roles_counts_not_blind_slot_coordinates": true,
+    "selected": false,
     "physical_pass": false
   }
 }

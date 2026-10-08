@@ -31,5 +31,28 @@ class EntryChambers(unittest.TestCase):
         self.assertFalse(p['selected']);self.assertFalse(p['physical_pass'])
         self.assertFalse(p['stage_completed'])
 
+    def test_joint_inclination_derives_both_input_datums(self):
+        p=E.recovery_plan()
+        self.assertEqual(sum(r['changed'] for r in p['source_plan']),2)
+        for r in p['source_plan']:
+            if not r['changed']:continue
+            q=r['input_recipe'];u=r['input_departure'];v=q['quarter_arc_direction']
+            end=[r['input_exit_mm'][i]+9*u[i]+(6+q['entry_straight_mm'])*v[i] for i in range(3)]
+            self.assertLess(E.math.dist(end,r['target_entry_mm']),1e-7)
+            self.assertGreaterEqual(q['entry_straight_mm'],9)
+            self.assertLess(r['necessary_ZMax_mm']+1,158)
+            self.assertTrue(r['native_load_path_not_inherited'])
+            self.assertTrue(r['full_output_to_load_route_not_inherited'])
+
+    def test_unchanged_holders_are_not_silently_replaced(self):
+        p=E.recovery_plan()
+        old={r['holder']:r for r in E.read(E.OUT/'source-layout-plan.json')['source_plan']}
+        for r in p['source_plan']:
+            if r['changed']:continue
+            self.assertEqual(r['input_exit_mm'],old[r['holder']]['input_exit_mm'])
+            self.assertEqual(r['output_exit_mm'],old[r['holder']]['output_exit_mm'])
+        self.assertTrue(p['retained20_WAGO_positions'])
+        self.assertFalse(p['selected'])
+
 
 if __name__=='__main__':unittest.main()
