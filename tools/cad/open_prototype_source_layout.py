@@ -45,13 +45,36 @@ def build_plan():
     centre_parts=B.segments(head['centre_points_mm'])
     head['rows']=[dict(wire=n,segments=B.offsets(centre_parts,[0,1,0],s,h))
                   for n,s,h in [('XB12',-1.05,-B.N),('XB13',1.05,-B.N),('XS13',0,2*B.N)]]
+    pitch=next(g for g in groups if g['group']=='HP')
+    pitch['centre_points_mm']=[[20,-50,149],[-52,-50,149],[-52,26,149]]
+    pitch['rows']=[dict(wire=n,segments=B.offsets(B.segments(pitch['centre_points_mm']),[1,0,0],s,h))
+                  for n,s,h in [('XB22',-1.05,-B.N),('XB23',1.05,-B.N),('XS23',0,2*B.N)]]
     # Tail intake is a subset of the clear first straight, eliminating the
     # previous rearwards overrun. All three terminal packing frames stay fixed.
     tail=next(g for g in groups if g['group']=='TY')
     tail['centre_points_mm'][0][0]=40
     for row in tail['rows']:row['segments'][0]['start'][0]=40
-    ground={'HY':[50,-75.25,99.99],'HP':[54.75,-75.25,99.99],
-            'TY':[87.25,-75.25,99.99]}
+    poses=[dict(native='G_AUX_CP2',old=[50,-84.75],new=[-45,-80],angle=90),
+           dict(native='G_TAIL_CP2',old=[92,-84.75],new=[107,-75],angle=0)]
+    ep=read(OUT/'endpoint-plan.json')
+    endpoints=[e for r in ep['body_conductors'] for e in r['ends']]
+    endpoints += [e for r in ep['distribution_boundary'] for e in r['resolved_datums'].values()]
+    rebound={}
+    for pose in poses:
+        for e in endpoints:
+            if e.get('native')!=pose['native']:continue
+            xy=e['point_mm'][:2];local=[xy[i]-pose['old'][i] for i in (0,1)]
+            a=math.radians(pose['angle']);c,s=math.cos(a),math.sin(a)
+            point=[pose['new'][0]+c*local[0]-s*local[1],
+                   pose['new'][1]+s*local[0]+c*local[1],e['point_mm'][2]]
+            d=e['departure'];direction=[c*d[0]-s*d[1],s*d[0]+c*d[1],d[2]]
+            rebound[e['role']]=dict(point_mm=point,departure=direction,
+                supplier_pin_claim=False,native_mount_and_body_routes_requalification_open=True)
+    assert len(rebound)==9,'All nine occupied/end roles of both5port casings must be rebound'
+    rebound['G_TAIL.5']=dict(point_mm=[116.5,-65.5,99.99],departure=[0,1,0],
+        status='NC_NO_WIRE',supplier_pin_claim=False,
+        basis='Same provisional4.75mm pitch, whole-casing translation; not manufacturer pin datum')
+    ground={g:rebound[r]['point_mm'] for g,r in [('HY','G_AUX.3'),('HP','G_AUX.4'),('TY','G_TAIL.2')]}
     signal={'HY':81.43,'HP':83.97,'TY':86.51}
     factory=[];sleeves=[];rows=[];pwm=[]
     for holder,cut in cuts.items():
@@ -73,7 +96,8 @@ def build_plan():
                 cut=cuts['F_'+group['group']]
                 origin=cut['point_mm'];direction=cut['departure'];straight=material['minimum_new_wire_straight_after_cut_mm']
             elif name.startswith('XB'):
-                origin=ground[group['group']];direction=[0,1,0];straight=9
+                role={'HY':'G_AUX.3','HP':'G_AUX.4','TY':'G_TAIL.2'}[group['group']]
+                origin=ground[group['group']];direction=rebound[role]['departure'];straight=9
             else:
                 x=signal[group['group']];origin=[x,65,105];direction=[0,0,1];straight=9
                 pwm.append(dict(wire=name,points_mm=[[x,30.5,85.3702],[x,65,85.3702],origin],radius_mm=12.6))
@@ -82,20 +106,32 @@ def build_plan():
                 # Power begins west of the intake. One planned central-bay
                 # traverse resolves both tangents; a single cubic cannot do so
                 # with its curvature bound. Full corners are checked first.
-                via_y=start[1]+35
+                via_y=10
                 curve=B.segments([start,[start[0],via_y,start[2]],
-                    [40,via_y,end[2]],[40,end[1],end[2]],end],13)
+                    [15,via_y,end[2]],[15,end[1],end[2]],end],13)
+            elif name=='XB13':
+                # The low direct cross-bank traverse intersects the FHAC/ATO
+                # volumes. Rise in the west bay, then traverse north of them.
+                curve=B.segments([start,[-83,start[1],start[2]],
+                    [-83,start[1],131],[-83,30,131],[15,30,end[2]],
+                    [15,end[1],end[2]],end],13)
+            elif name=='XB23':
+                # A separate west lane keeps both ground approaches away from
+                # holders and their access budgets, not merely above casings.
+                curve=B.segments([start,[-88,start[1],start[2]],
+                    [-88,0,start[2]],[-88,0,end[2]],[75,0,end[2]],
+                    [75,end[1],end[2]],end],13)
             elif name=='XB22':
                 curve=B.segments([start,[start[0],50,start[2]],
-                    [start[0],50,end[2]],[start[0],end[1],end[2]],end],13)
+                    [130,50,end[2]],[130,end[1],end[2]],end],13)
             elif name=='XB32':
                 curve=B.segments([start,[start[0],45,start[2]],
                     [100,45,end[2]],[100,end[1],end[2]],end],13)
-            elif name=='XB23':
-                # Ground's final cross-lane stays west of power's X83
-                # descending lane; otherwise same-height crossings are certain.
-                curve=B.segments([start,[start[0],30,start[2]],
-                    [75,30,end[2]],[75,end[1],end[2]],end],13)
+            elif name=='XS23':
+                # Signal climbs above the TY signal before heading south;
+                # power ascends in the separate X130 bay, not through this path.
+                curve=B.segments([start,[start[0],start[1],end[2]],
+                    [start[0],end[1],end[2]],end],13)
             elif name=='XS33':
                 # Rotate toward the central bay, not rearwards toward P0.
                 # The remaining transverse span sets two exact R>=13 turns.
@@ -116,14 +152,15 @@ def build_plan():
     aux=cuts['F_AUX'];end=B.add(aux['point_mm'],B.mul(aux['departure'],21.5))
     sources=[SOURCE,BASE/'OpenPrototypePlan.FCStd',OUT/'TailLocalCurrent.FCStd',
         OUT/'source-layout-recovery-plan.json',OUT/'covered-joint-material-plan.json',
-        OUT/'branch-output-plan.json',OUT/'shared-space-checks.json',
+        OUT/'branch-output-plan.json',OUT/'shared-space-checks.json',OUT/'endpoint-plan.json',
         Path(__file__),Path(F.__file__),Path(S.__file__),Path(B.__file__)]
     return dict(status='LOW_FACTORY_EXITS_AND_SHARED_SOURCE_APPROACHES_NOT_SELECTED',
         rows=rows,groups=groups,factory_paths=factory,sleeves=sleeves,
         AUX_insulated_stub=dict(name='F_AUX_NewWireStub',OD_mm=2.1,
             segments=[dict(kind='line',start=aux['point_mm'],end=end)],
             unknown_U1_not_connected=True),common_PWM=pwm,
-        ground_casing_frames_unchanged=True,
+        ground_casing_frames_unchanged=False,ground_casing_poses=poses,
+        all_changed_ground_port_frames=rebound,
         replacing_wire_reservations=[h+'_OutputGuide' for h in cuts],
         source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in sources},
         native_restraints_and_assembly_open=True,selected=False,
@@ -149,6 +186,13 @@ def main():
         for o in ctx.Objects:
             if 'Shape' in o.PropertiesList and not o.Shape.isNull() and o.Name.startswith(('P0_','Head_','TailBridge')) and o.Name!='P0_MG92BMount29':targets['context/'+o.Name]=o.Shape
         targets['tail/CurrentTailSupport']=tail.CurrentTailSupport.Shape
+        moved={}
+        for pose in plan['ground_casing_poses']:
+            shape=targets.pop('mount/'+pose['native']).copy()
+            shape.rotate(A.Vector(*pose['old'],0),A.Vector(0,0,1),pose['angle'])
+            shape.translate(A.Vector(pose['new'][0]-pose['old'][0],pose['new'][1]-pose['old'][1],0))
+            assert shape.isValid() and not shape.check(True)
+            moved[pose['native']+'_MovedCasing']=shape
         def sweep(parts,diameter):
             if isinstance(parts,Part.Wire):path=parts
             else:
@@ -179,10 +223,11 @@ def main():
         for row in plan['common_PWM']:
             path=rounded(A,Part,[A.Vector(*p) for p in row['points_mm']],row['radius_mm'])
             _,shape=sweep(path,2.1);new[row['wire']+'_CommonPWM']=shape
+        new.update(moved)
         # The whole HY intake changed, so it does not inherit the old core
         # clearance. HP is unchanged; TY first straight is only shortened.
         for n,s in core.items():
-            if n[2]!='1':continue
+            if n[2] not in '12':continue
             for m,t in targets.items():
                 if s.BoundBox.intersect(t.BoundBox):
                     result['tested_pairs']+=1
@@ -191,7 +236,7 @@ def main():
                         if hit.Volume>1e-5:result['contacts'].append(dict(a=n+'_Core',b=m,volume_mm3=hit.Volume,bounds_mm=bounds(hit)))
                     except Exception as e:result['errors'].append(dict(a=n+'_Core',b=m,error=str(e)))
             for m,t in core.items():
-                if m[2]!='1' and s.BoundBox.intersect(t.BoundBox):
+                if m[2] not in '12' and s.BoundBox.intersect(t.BoundBox):
                     result['tested_pairs']+=1
                     hit=s.common(t);assert hit.isValid()
                     if hit.Volume>1e-5:result['contacts'].append(dict(a=n+'_Core',b=m+'_Core',volume_mm3=hit.Volume,bounds_mm=bounds(hit)))

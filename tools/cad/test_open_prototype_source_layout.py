@@ -12,7 +12,8 @@ class SourceLayout(unittest.TestCase):
             self.assertEqual(len(r['segments']),3)
             self.assertAlmostEqual(math.dist(r['segments'][-1]['start'],r['segments'][-1]['end']),15)
         self.assertFalse(p['selected'])
-        self.assertTrue(p['ground_casing_frames_unchanged'])
+        self.assertFalse(p['ground_casing_frames_unchanged'])
+        self.assertEqual(len(p['all_changed_ground_port_frames']),10)
         self.assertTrue(p['AUX_insulated_stub']['unknown_U1_not_connected'])
 
     def test_whole_source_scope_and_covered_grips(self):
