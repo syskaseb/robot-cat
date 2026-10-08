@@ -82,6 +82,11 @@ def build(mount):
         for y in (-12,12):
             for sx in (-1,1):rect(sk,x+sx*10.725-.85,y-1.75,1.7,3.5)
     body.Tip=feature(body,'Pocket','BodyTieSlots',sk,2)
+    # Two5port north groups need a real central strap passage through the
+    # shared80mm seat. The gap is between port groups, not through wires.
+    sk=sketch(body,'NorthRowSeparationPlan',117.8)
+    rect(sk,-28.3,42.25,2.6,9)
+    body.Tip=feature(body,'Pocket','NorthRowStrapPassage',sk,4.8)
     refs={};nuts=[]
     for i,(x,y) in enumerate(AXES,1):
         stack={
@@ -102,9 +107,9 @@ def build(mount):
             shape=ring(A,Part,1,2.5,[x-11.325,y-1.25,111.8,x+11.325,y+1.25,138.2],
                 [x-2.4,y-2.25,108.3,x+2.4,y+2.25,112.8])
             ob=doc.addObject('Part::Feature',name+'_BodyTie'+str(i));ob.Shape=shape;refs[ob.Name]=ob
-    for i,y in enumerate((44.5,49)):
-        shape=ring(A,Part,1,2.5,[-68.2,y-1.25,111.8,14.2,y+1.25,123.5],
-            [-44.9,y-2.25,108.3,-40.1,y+2.25,112.8])
+    for i,(cx,y) in enumerate(((-47,44.5),(-7,49))):
+        shape=ring(A,Part,1,2.5,[cx-21.2,y-1.25,111.8,cx+21.2,y+1.25,123.5],
+            [cx-2.4,y-2.25,108.3,cx+2.4,y+2.25,112.8])
         ob=doc.addObject('Part::Feature','NorthInputTie'+str(i));ob.Shape=shape;refs[ob.Name]=ob
     for i,y in enumerate((-50.5,-46)):
         shape=ring(A,Part,1,2.5,[15.3,y-1.25,111.8,50.7,y+1.25,123.5],
@@ -116,7 +121,9 @@ def build(mount):
             # side-post is inside this same load-bearing backer, not a new
             # hidden band collision. 4.5mm head centres do not overlap.
             box=[x-7.2,32.25,z-1.25,x+13.2,39.75,z+1.25]
-            head=[x+12,35.75,z-2.25,x+17.5,39.25,z+2.25]
+            # Lock on the back return above the OWN backer, not on the
+            # right flank beside U1. All five share the same ownership rule.
+            head=[x+3,38.55,z-2.25,x+7.8,42.05,z+2.25]
             if sign<0:
                 box[1],box[4]=-box[4],-box[1]
                 head[1],head[4]=-head[4],-head[1]

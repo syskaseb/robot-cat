@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "readiness": "prototype",
-  "status": "SOURCE_PLATFORM_FINISH_HAS_OPEN_INTERFACES",
+  "status": "COMMON_SOURCE_LOCAL_MOUNTS_INPUT_OUTPUT_RESTRAINTS_PREPARED_FULL_WIRING_OPEN",
   "selected": false,
   "stage_completed": false,
   "physical_pass": false,
@@ -14,18 +14,7 @@
       "volume_mm3": 4.374999999999959
     }
   ],
-  "contacts": [
-    {
-      "a": "NorthInputTie0",
-      "b": "CommonSourcePlatform",
-      "volume_mm3": 8.399999999999961
-    },
-    {
-      "a": "NorthInputTie1",
-      "b": "CommonSourcePlatform",
-      "volume_mm3": 8.399999999999986
-    }
-  ],
+  "contacts": [],
   "errors": [],
   "outside_torso": [],
   "tested_pairs": 73,
@@ -48,8 +37,8 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
     "hardware/reference/hellermann-11102370-2026-10-04/dimensions.json": "5aa13c21ca221d162eb9483b37bf75b9e4fa5d5ad0fec918f8abe8c270bdad0d",
-    "tools/cad/open_prototype_source_platform_finish.py": "7efe9a87abed548b08e9fdbf75f007d5f24d891236a2ccba00ef60c40fee5c40",
-    "tools/cad/open_prototype_common_source_platform.py": "a6af8f815c229c9deca43f956056eca902be5142e1879381820e48ad6d6ed3b5",
+    "tools/cad/open_prototype_source_platform_finish.py": "608c409e77e3ac7786de544e56ebd59ebdc6ba30ecaf2a0f45b805c4f28a417b",
+    "tools/cad/open_prototype_common_source_platform.py": "3181fd037780b93926df56af80ee7ae38f01b8d2c7a905c29a0e58a263035067",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-plan.json": "eb89ebf220cb8cfafd772dc90ddec4cd543a23a7a4b0064ef940802e6d7273d5"
   },
   "assembly": [
@@ -86,6 +75,19 @@
     "PETG ribs/cantilever/layers/bearing/creep and support removal"
   ],
   "fixed_station_disposition": "Do NOT copy obsolete pitch post through P_SYS; pitch atZ166 is head interface,not torso internal. Tail fixed station needs independent current load path with full new fanout. Both remain OPEN.",
+  "printed_seat_cause_change": {
+    "previous_gate_commit": "754ddab",
+    "cause": "Shared two-group seat lacked central strap passage. Split its entire9mm grip strip BETWEEN port groups, not a wire offset or waived band/material intersection.",
+    "slot_xywh_mm": [
+      -28.3,
+      42.25,
+      2.6,
+      9
+    ],
+    "removed_mm3": 65.5199999999999,
+    "added_mm3": 0.0,
+    "unchanged_collision_evidence_reused_by_valid_subset": true
+  },
   "tie_length_screen": [
     {
       "role": "body",
@@ -139,9 +141,9 @@
     "strict_bop_errors": 0,
     "volumes_mm3": {
       "UpperCarrier": 29456.013403577224,
-      "CommonSourcePlatform": 35320.71567758952
+      "CommonSourcePlatform": 35255.19567758952
     },
-    "fully_constrained_sketches": 25
+    "fully_constrained_sketches": 26
   },
   "parameter_test": {
     "nut_seat_depth_mm": [
@@ -164,6 +166,68 @@
       40.08
     ]
   },
-  "worker_seconds": 47.39100000006147,
-  "finished_utc": "2026-10-08T20:14:36.162044+00:00"
+  "fresh_relocated_reopen_parameter_restore": true,
+  "exports": {
+    "UpperCarrierCurrent.stl": "200a0a98c2cb2a549403726c2c231a82967ac2a4db6831d7e197882fa4c68e17",
+    "CommonSourcePlatformCurrent.stl": "4c308e392b295a64d87d857e4dc8d21390dc4b68181d481d8e2eae8671a88d6a"
+  },
+  "model_sha256": "6cffe2b99b14847404360624f540c906c456e7447d2d9ee3fcb9fd1086dae17f",
+  "files": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonSourcePlatform.FCStd",
+      "sha256": "6cffe2b99b14847404360624f540c906c456e7447d2d9ee3fcb9fd1086dae17f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/common-source-platform-checks.json",
+      "sha256": "e35310d4f73ca9449a39ccd97eaf3cf409ae0efe582ea566bd0d4d87895c44a5"
+    },
+    {
+      "path": "tools/cad/open_prototype_source_platform_finish.py",
+      "sha256": "608c409e77e3ac7786de544e56ebd59ebdc6ba30ecaf2a0f45b805c4f28a417b"
+    },
+    {
+      "path": "tools/cad/open_prototype_common_source_platform.py",
+      "sha256": "3181fd037780b93926df56af80ee7ae38f01b8d2c7a905c29a0e58a263035067"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/UpperCarrierCurrent.stl",
+      "sha256": "200a0a98c2cb2a549403726c2c231a82967ac2a4db6831d7e197882fa4c68e17"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonSourcePlatformCurrent.stl",
+      "sha256": "4c308e392b295a64d87d857e4dc8d21390dc4b68181d481d8e2eae8671a88d6a"
+    }
+  ],
+  "gates": {
+    "fit": {
+      "status": "open",
+      "reason": "Delivered casing/terminal/tie/nut/individual wire shim and no-slip test"
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Profile/support removal/bridges/bearing/layers/creep"
+    },
+    "loads": {
+      "status": "open",
+      "reason": "Cantilever and vibration dry-fit tests"
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Local install plan, not full wired robot install/removal"
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "Full routes/insulation/E3 remain open"
+    },
+    "geometry": {
+      "status": "open",
+      "reason": "Head/tail station load paths and full output fanouts/mounts not included"
+    },
+    "service": {
+      "status": "open",
+      "reason": "Actual lid motion delivery gate"
+    }
+  },
+  "worker_seconds": 76.01500000001397,
+  "finished_utc": "2026-10-08T20:18:21.269155+00:00"
 }

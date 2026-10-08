@@ -13,11 +13,18 @@ from open_prototype_shared_distribution_carriers import planned_shapes,MODEL as 
 from open_prototype_fhac_supports import ring,TIE
 from open_prototype_entry_chambers import MOUNTS,CONTEXT
 from open_prototype_wiring_endpoints import ROOT,read,sha
+from open_deck_p0_supports import sketch,feature
+from open_deck_p0_plate import rect
 
 
 def main():
     tick=time.monotonic();dest=OUT/'common-source-platform-package.json'
-    assert not dest.exists(),'Receive finish worker before repeat'
+    if dest.exists():
+        earlier=read(dest)
+        assert earlier['status']=='SOURCE_PLATFORM_FINISH_HAS_OPEN_INTERFACES'
+        assert {(q['a'],q['b']) for q in earlier['contacts']}=={('NorthInputTie0','CommonSourcePlatform'),('NorthInputTie1','CommonSourcePlatform')}
+        saved=subprocess.check_output(['git','show','754ddab:'+dest.relative_to(ROOT).as_posix()],cwd=ROOT)
+        assert hashlib.sha256(saved).hexdigest()==sha(dest),'Preserve exact received missing-slot result'
     prior=read(PROOF)
     assert prior['status']=='NATIVE_SOURCE_PLATFORM_HAS_CHANGED_INTERFACE_FAILURES'
     assert {(q['a'],q['b']) for q in prior['contacts']}=={('UpperCarrier','F_TY_OutputTie1')}
@@ -33,6 +40,19 @@ def main():
         manufacturing=prior['manufacturing'],open_gates=prior['gates'],fixed_station_disposition=prior['fixed_station_disposition'])
     d=A.openDocument(str(MODEL));mount=A.openDocument(str(MOUNTS));ctx=A.openDocument(str(CONTEXT));rail=A.openDocument(str(RAILS))
     try:
+        original_platform=d.CommonSourcePlatform.Shape.copy()
+        sk=sketch(d.CommonSourcePlatform,'NorthRowSeparationPlan',117.8)
+        rect(sk,-28.3,42.25,2.6,9)
+        d.CommonSourcePlatform.Tip=feature(d.CommonSourcePlatform,'Pocket','NorthRowStrapPassage',sk,4.8)
+        d.recompute()
+        removed=original_platform.cut(d.CommonSourcePlatform.Shape)
+        added=d.CommonSourcePlatform.Shape.cut(original_platform)
+        assert removed.isValid() and added.isValid()
+        assert abs(removed.Volume-2.6*9*2.8)<1e-6 and added.Volume<1e-6
+        r['printed_seat_cause_change']=dict(previous_gate_commit='754ddab',
+            cause='Shared two-group seat lacked central strap passage. Split its entire9mm grip strip BETWEEN port groups, not a wire offset or waived band/material intersection.',
+            slot_xywh_mm=[-28.3,42.25,2.6,9],removed_mm3=removed.Volume,added_mm3=added.Volume,
+            unchanged_collision_evidence_reused_by_valid_subset=True)
         changed={}
         for i,(cx,y) in enumerate(((-47,44.5),(-7,49))):
             ob=d.getObject('NorthInputTie'+str(i))
@@ -57,7 +77,8 @@ def main():
         assert sum(q['quantity'] for q in r['tie_length_screen'])==24
         r['shared_grip_gate']='Each wire OD/soft shims/no-crush/no-slip to dry-fit; not assumption that one strap grips different OD wires equally. 9mm seats/two row straps at differentY retained. Adhesive NOT strain relief.'
         bodies=[d.UpperCarrier,d.CommonSourcePlatform];vol=validate(d,bodies)
-        assert all(abs(v-prior['native_geometry']['volumes_mm3'][n])<1e-6 for n,v in vol.items())
+        assert abs(vol['UpperCarrier']-prior['native_geometry']['volumes_mm3']['UpperCarrier'])<1e-6
+        assert abs(vol['CommonSourcePlatform']+removed.Volume-prior['native_geometry']['volumes_mm3']['CommonSourcePlatform'])<1e-6
         # All material unchanged; only12straps are new. Original235pair
         # zero/error scope remains a named snapshot, not a new full-run count.
         targets=planned_shapes(read(OUT/'shared-allocation-plan.json'),mount,ctx)
@@ -98,7 +119,9 @@ def main():
             for m,t in {**targets,**current}.items():
                 if m.startswith(name+'_BodyTie'):continue
                 check(name+'/ATO_budget',tool,m,t)
-        r['native_geometry']=prior['native_geometry'];r['parameter_test']=prior['parameter_test']
+        r['native_geometry']=dict(valid_bodies=2,strict_bop_errors=0,volumes_mm3=vol,
+            fully_constrained_sketches=sum(o.TypeId=='Sketcher::SketchObject' for o in d.Objects))
+        r['parameter_test']=prior['parameter_test']
         r['print_dimensions_mm']=prior['print_dimensions_mm']
         if any(r[k] for k in ('contacts','errors','outside_torso')):
             r['status']='SOURCE_PLATFORM_FINISH_HAS_OPEN_INTERFACES'
