@@ -1,0 +1,218 @@
+{
+  "status": "FOUR_FACTORY_OUTPUTS_SHARED_RECIPE_NOT_FULL_WIRING",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceFixturesAssembly.FCStd": "bd023ca7f6194a207d3104625a9869567c83c36eecf2255be58a0fa04cb99277",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/fhac-mount-plan.json": "f340860e24092e84f287fe4e47ef8cadefb70139991694b7f2a7eea1a2e13fa6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/local-boundary-plan.json": "bbd481bb6deabbbd342dfb802b9cb2b53eb7d850cad93c2fabeac136cb047eeb",
+    "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe",
+    "tools/cad/open_prototype_branch_outputs.py": "6be7e2f441d19ebff90e8f189fcaced2c8142311d45d9a5a9101ed8003459f64"
+  },
+  "output_recipes": [
+    {
+      "holder": "F_AUX",
+      "logical_output_role": "F_AUX.out",
+      "start_mm": [
+        61.5,
+        52.75,
+        100.99
+      ],
+      "start_departure": [
+        1,
+        0,
+        0
+      ],
+      "end_mm": [
+        55.5,
+        52.75,
+        152.49
+      ],
+      "end_departure": [
+        -1,
+        0,
+        0
+      ],
+      "insulation_grip_straight_mm": 9,
+      "terminal_straight_mm": 15.0,
+      "bare_lap_allowance_on_terminal_mm": 8,
+      "guide_length_mm": 82.34955592153875,
+      "nominal_factory_blank_mm": 83,
+      "factory_minimum_available_mm": 84.5,
+      "minimum_length_margin_mm": 2.1504440784612484,
+      "target": "AUX.VIN",
+      "route_only": true,
+      "independent_output_grip_and_load_route_open": true
+    },
+    {
+      "holder": "F_HY",
+      "logical_output_role": "F_HY.out",
+      "start_mm": [
+        -56.75,
+        -53.75,
+        99.99
+      ],
+      "start_departure": [
+        -1,
+        0,
+        0
+      ],
+      "end_mm": [
+        -50.75,
+        -53.75,
+        151.49
+      ],
+      "end_departure": [
+        1,
+        0,
+        0
+      ],
+      "insulation_grip_straight_mm": 9,
+      "terminal_straight_mm": 15.0,
+      "bare_lap_allowance_on_terminal_mm": 8,
+      "guide_length_mm": 82.34955592153875,
+      "nominal_factory_blank_mm": 83,
+      "factory_minimum_available_mm": 84.5,
+      "minimum_length_margin_mm": 2.1504440784612484,
+      "target": "C_HY.V+",
+      "route_only": true,
+      "independent_output_grip_and_load_route_open": true
+    },
+    {
+      "holder": "F_HP",
+      "logical_output_role": "F_HP.out",
+      "start_mm": [
+        68,
+        -31.25,
+        99.99
+      ],
+      "start_departure": [
+        1,
+        0,
+        0
+      ],
+      "end_mm": [
+        62.0,
+        -31.25,
+        151.49
+      ],
+      "end_departure": [
+        -1,
+        0,
+        0
+      ],
+      "insulation_grip_straight_mm": 9,
+      "terminal_straight_mm": 15.0,
+      "bare_lap_allowance_on_terminal_mm": 8,
+      "guide_length_mm": 82.34955592153875,
+      "nominal_factory_blank_mm": 83,
+      "factory_minimum_available_mm": 84.5,
+      "minimum_length_margin_mm": 2.1504440784612484,
+      "target": "C_HP.V+",
+      "route_only": true,
+      "independent_output_grip_and_load_route_open": true
+    },
+    {
+      "holder": "F_TY",
+      "logical_output_role": "F_TY.out",
+      "start_mm": [
+        77.5,
+        -59.725,
+        99.99
+      ],
+      "start_departure": [
+        1,
+        0,
+        0
+      ],
+      "end_mm": [
+        71.5,
+        -59.725,
+        151.49
+      ],
+      "end_departure": [
+        -1,
+        0,
+        0
+      ],
+      "insulation_grip_straight_mm": 9,
+      "terminal_straight_mm": 15.0,
+      "bare_lap_allowance_on_terminal_mm": 8,
+      "guide_length_mm": 82.34955592153875,
+      "nominal_factory_blank_mm": 83,
+      "factory_minimum_available_mm": 84.5,
+      "minimum_length_margin_mm": 2.1504440784612484,
+      "target": "C_TY.V+",
+      "route_only": true,
+      "independent_output_grip_and_load_route_open": true
+    }
+  ],
+  "chosen_PWM_landings": [
+    {
+      "logical_role": "R1.2",
+      "chosen_physical_landing": "B1.out",
+      "net": "PWM_HEAD_YAW_OUT",
+      "copper_group": "N$60",
+      "local_xy_mm": [
+        -10.16,
+        13.97
+      ],
+      "current_nominal_pad_top_mm": [
+        81.43,
+        13.97,
+        84.3202
+      ],
+      "isolated_from_unknown_U1_external_padmap": true,
+      "solder_and_current_population_fit_phase2": true
+    },
+    {
+      "logical_role": "R2.2",
+      "chosen_physical_landing": "B2.out",
+      "net": "PWM_HEAD_PITCH_OUT",
+      "copper_group": "N$58",
+      "local_xy_mm": [
+        -7.62,
+        13.97
+      ],
+      "current_nominal_pad_top_mm": [
+        83.97,
+        13.97,
+        84.3202
+      ],
+      "isolated_from_unknown_U1_external_padmap": true,
+      "solder_and_current_population_fit_phase2": true
+    },
+    {
+      "logical_role": "R3.2",
+      "chosen_physical_landing": "B3.out",
+      "net": "PWM_TAIL_YAW_OUT",
+      "copper_group": "N$57",
+      "local_xy_mm": [
+        -5.08,
+        13.97
+      ],
+      "current_nominal_pad_top_mm": [
+        86.51,
+        13.97,
+        84.3202
+      ],
+      "isolated_from_unknown_U1_external_padmap": true,
+      "solder_and_current_population_fit_phase2": true
+    }
+  ],
+  "quarter_radius_mm": 6.0,
+  "factory_OD_design_allowance_mm": 4,
+  "radius_and_OD_not_supplier_guarantee": true,
+  "shared_layout": "One vertical side loop per existing outlet. Return terminal above beside, not above central ATO tool zone. Existing input/holder layout unchanged.",
+  "new_print_parts": 0,
+  "new_electrical_connectors": 0,
+  "assembly": [
+    "Power disconnected; keep bankR47 and source-input reliefs installed.",
+    "Lay four factory tails to side loops with9mm straight intact-insulation seats.",
+    "Leave ATO central tool zones clear; do not tie outputs to removable lids.",
+    "Provide independent common-rail restraints and covered terminal joins before load wiring.",
+    "AUX end remains insulated/unpowered until delivered padmap/polarity identified."
+  ],
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false
+}

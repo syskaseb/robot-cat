@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "STAGE3_FIVE_SOURCE_FIXTURES_AND_CURRENT_PI_PATH_PREPARED_REMAINING_WIRING_OPEN",
+  "status": "STAGE3_FIVE_SOURCES_FOUR_OUTPUT_GUIDES_AND_RELIEFS_PREPARED_BODY_WIRING_OPEN",
   "stage_completed": false,
   "selected": false,
   "physical_pass": false,
@@ -161,8 +161,11 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T13:33:04Z",
-    "window_elapsed_seconds": 10204,
+    "saved_utc": "2026-10-08T14:03:45Z",
+    "window_elapsed_seconds": 12045,
+    "four_branch_outputs_checkpoint_seconds_since_previous": 1841,
+    "branch_output_worker_seconds": 100.766,
+    "output_relief_worker_seconds": 115.484,
     "local_boundary_and_tail_checkpoint_seconds_since_previous": 1317,
     "tail_native_worker_seconds": 24.266,
     "initial_tail_proof_write_failure": "Native checked/saved, then unsupported getExternalLinks call and closed-document cleanup failed; no acceptance from failed attempt",
@@ -198,12 +201,50 @@
     "factory_lead_uncut_mm": 250,
     "whole_body_routes_and_final_combined_assembly_not_qualified": true
   },
-  "next": "Use one shared local-boundary plan for80body rows/9local tails/legacy920mm source. Keep SourceFixturesAssembly and checked replacementTailLocalCurrent, no input/holder/tail-shape retry. Bind PWM physical chosen1608 pads to current board frame under logicalR1.2/R2.2/R3.2 (not staleB1.out drawing aliases). Adapt pitch fixed flexible-loop anchor because oldCover is absent; do not merely translate oldfixedCover supports. Finish4FHAC load feeds, shared body-leg independent insulation restraints and common mount/service/stock/current export. UnknownAUX/U1 deliveredpadmap stays gate, not guessed pins. No point for this local subassembly.",
+  "current_four_branch_output_preparation": {
+    "plan": "branch-output-plan.json",
+    "guide_proof": "branch-output-checks.json",
+    "relief_plan": "output-relief-plan.json",
+    "relief_proof": "output-relief-checks.json",
+    "native_candidate": "OutputReliefsAssembly.FCStd",
+    "native_sha256": "56901bae24063993c984121334ca7edcd11f2e6e8a11f589defe830b082c07d2",
+    "holders": ["F_AUX", "F_HY", "F_HP", "F_TY"],
+    "guide_length_mm": 82.34955592153875,
+    "nominal_factory_fit_blank_mm": 83,
+    "catalogue_minimum_factory_mm": 84.5,
+    "factory_OD4_R6_are_delivery_allowances": true,
+    "insulation_grip_length_mm": 9,
+    "full_depth_slots": 8,
+    "added_T18I": 4,
+    "source_fixture_scope_T18I_total": 24,
+    "tail_scope_T18I_separate": 5,
+    "whole_stock_open": true,
+    "extra_parts_screws_connectors": 0,
+    "replacement_exports": ["LoadSourceLeftCarrier.stl", "LoadSourceRightCarrier.stl"],
+    "do_not_install_older_SourceLeftCarrier_SourceRightCarrier_in_addition": true,
+    "print_pose": "Existing flat carrier base; small cantilever support/coupon qualification in phase2",
+    "print_margin_mm": 10,
+    "tested_guide_relief_pairs": [10, 27],
+    "contacts_and_errors": 0,
+    "native_editable_parameter_restore_and_relocated_reopen_checked": true,
+    "pure_contract_tests_passed": 52,
+    "PWM_physical_landings": {
+      "logical_roles": ["R1.2", "R2.2", "R3.2"],
+      "chosen_landings": ["B1.out", "B2.out", "B3.out"],
+      "shared_copper_groups": ["N$60", "N$58", "N$57"],
+      "same_copper_not_same_coordinates": true,
+      "world_top_mm": [[81.43,13.97,84.3202], [83.97,13.97,84.3202], [86.51,13.97,84.3202]]
+    },
+    "remaining_HELU_load_routes_covered_joints_and_whole_stock_open": true,
+    "selected": false,
+    "physical_pass": false
+  },
+  "next": "Keep OutputReliefsAssembly, four checked factory output guides/current replacement carriers and TailLocalCurrent. Group all HELU load/return/PWM paths to9local boundaries with current chosen1608 copper landings; adapt pitch fixed anchor because oldCover is absent. Remaining80body/leg/source920mm independent restraints, common mount/service/lengths/stock and final current native choice are OPEN. No retry of source inputs, four factory loops or unchanged carriers. UnknownAUX/U1 deliveredpadmap stays gate, not guessed pins.",
   "estimate_review": "Shared5holder/input fixture checkpoint recorded52min24 after previous save (45-90min provisional). Whole Stage3 still OPEN at2h28min07; original3-5h cannot be promised for remaining4outputs/full body-leg-local/source920mm/restraints/stock. Next use known endpoint evidence and one grouped harness plan, not another placement search or expensive check of unchanged fixtures.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T13:33:04Z",
-    "weekly_used_percent": 9,
-    "weekly_remaining_percent": 91,
+    "checked_utc": "2026-10-08T14:03:45Z",
+    "weekly_used_percent": 10,
+    "weekly_remaining_percent": 90,
     "ordinary_usage_allowed": true
   }
 }

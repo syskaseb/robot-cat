@@ -1,0 +1,171 @@
+{
+  "status": "FOUR_SHARED_INTEGRAL_OUTPUT_SEATS_PLAN",
+  "rows": [
+    {
+      "holder": "F_AUX",
+      "native": "SourceLeftCarrier",
+      "start_mm": [
+        61.5,
+        52.75,
+        100.99
+      ],
+      "floor_x_mm": [
+        61.5,
+        70.5
+      ],
+      "floor_y_mm": [
+        46.25,
+        59.25
+      ],
+      "wire_axis_z_mm": 100.99,
+      "floor_top_z_mm": 98.99,
+      "carrier_bottom_z_mm": 88.99,
+      "carrier_top_z_mm": 90.99,
+      "slot_centres_mm": [
+        [
+          66.0,
+          49.15
+        ],
+        [
+          66.0,
+          56.35
+        ]
+      ],
+      "straight_insulation_grip_mm": 9,
+      "slot_width_mm": 3.5,
+      "slot_y_depth_mm": 1.7,
+      "intact_factory_insulation_only": true
+    },
+    {
+      "holder": "F_HY",
+      "native": "SourceRightCarrier",
+      "start_mm": [
+        -56.75,
+        -53.75,
+        99.99
+      ],
+      "floor_x_mm": [
+        -65.75,
+        -56.75
+      ],
+      "floor_y_mm": [
+        -60.25,
+        -47.25
+      ],
+      "wire_axis_z_mm": 99.99,
+      "floor_top_z_mm": 97.99,
+      "carrier_bottom_z_mm": 87.99,
+      "carrier_top_z_mm": 89.99,
+      "slot_centres_mm": [
+        [
+          -61.25,
+          -57.35
+        ],
+        [
+          -61.25,
+          -50.15
+        ]
+      ],
+      "straight_insulation_grip_mm": 9,
+      "slot_width_mm": 3.5,
+      "slot_y_depth_mm": 1.7,
+      "intact_factory_insulation_only": true
+    },
+    {
+      "holder": "F_HP",
+      "native": "SourceRightCarrier",
+      "start_mm": [
+        68,
+        -31.25,
+        99.99
+      ],
+      "floor_x_mm": [
+        68,
+        77
+      ],
+      "floor_y_mm": [
+        -37.75,
+        -24.75
+      ],
+      "wire_axis_z_mm": 99.99,
+      "floor_top_z_mm": 97.99,
+      "carrier_bottom_z_mm": 87.99,
+      "carrier_top_z_mm": 89.99,
+      "slot_centres_mm": [
+        [
+          72.5,
+          -34.85
+        ],
+        [
+          72.5,
+          -27.65
+        ]
+      ],
+      "straight_insulation_grip_mm": 9,
+      "slot_width_mm": 3.5,
+      "slot_y_depth_mm": 1.7,
+      "intact_factory_insulation_only": true
+    },
+    {
+      "holder": "F_TY",
+      "native": "SourceRightCarrier",
+      "start_mm": [
+        77.5,
+        -59.725,
+        99.99
+      ],
+      "floor_x_mm": [
+        77.5,
+        86.5
+      ],
+      "floor_y_mm": [
+        -66.225,
+        -53.225
+      ],
+      "wire_axis_z_mm": 99.99,
+      "floor_top_z_mm": 97.99,
+      "carrier_bottom_z_mm": 87.99,
+      "carrier_top_z_mm": 89.99,
+      "slot_centres_mm": [
+        [
+          82.0,
+          -63.325
+        ],
+        [
+          82.0,
+          -56.125
+        ]
+      ],
+      "straight_insulation_grip_mm": 9,
+      "slot_width_mm": 3.5,
+      "slot_y_depth_mm": 1.7,
+      "intact_factory_insulation_only": true
+    }
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/BranchOutputsAssembly.FCStd": "f1e725856df7e4dec52a79e4f286059d71c47ab89d300992f46878708dc1a42d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/branch-output-plan.json": "0c2480656799e2a4ce4c0ecb57a4064bd3be8e9c767f6d9cb2ed3d2b17d5bfa3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/branch-output-checks.json": "5fc2d331dd564ae96dc3f2648a868beb4900cf979f4764370f814a96651c5876",
+    "tools/cad/open_prototype_output_reliefs.py": "0c088cc416d58c4b0548b7bf24f3aaf98b29cf74d925ed2381b341a730aa830b"
+  },
+  "additional_ties": 4,
+  "tie_sku": "11102370",
+  "additional_print_parts": 0,
+  "replaces_two_source_carrier_prints": true,
+  "additional_screws_connectors": 0,
+  "assembly": [
+    "Install same two source carriers on retained rail ties; new seats are integral.",
+    "Lay the four output tails on9mm straight intact-insulation seats before bending.",
+    "Pass one T18I through two full-depth slots per output; head beside insulation, not over ATO lid.",
+    "With source isolated, ATO service cuts only holder body ties. Leave output and input insulation ties installed.",
+    "Full carrier removal releases4 output restraint ties and load connections, then existing input/rail ties; whole-wiring recipe remains OPEN."
+  ],
+  "physical_gates": [
+    "Delivered OD and strap bend/slot fit",
+    "No crush/pull/creep",
+    "Covered joints and full load routes"
+  ],
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false
+}

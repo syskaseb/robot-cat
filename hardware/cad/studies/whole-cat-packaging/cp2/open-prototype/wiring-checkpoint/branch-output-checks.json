@@ -1,0 +1,85 @@
+{
+  "status": "FOUR_BRANCH_OUTPUT_GUIDES_NOMINAL_PREPARATION_CHECKED",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceFixturesAssembly.FCStd": "bd023ca7f6194a207d3104625a9869567c83c36eecf2255be58a0fa04cb99277",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/fhac-mount-plan.json": "f340860e24092e84f287fe4e47ef8cadefb70139991694b7f2a7eea1a2e13fa6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/local-boundary-plan.json": "bbd481bb6deabbbd342dfb802b9cb2b53eb7d850cad93c2fabeac136cb047eeb",
+    "hardware/electronics/full-cat/pwm-carrier-r3/population.json": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe",
+    "tools/cad/open_prototype_branch_outputs.py": "6be7e2f441d19ebff90e8f189fcaced2c8142311d45d9a5a9101ed8003459f64"
+  },
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "contacts": [],
+  "errors": [],
+  "tested_pairs": 10,
+  "output_count": 4,
+  "new_print_parts": 0,
+  "native_editable_sketch_pipes": true,
+  "profile_parameter_trial": "BranchOutputOD4->3.8->4 across all4 pipes",
+  "guide_lengths_mm": [
+    82.34955592153875,
+    82.34955592153875,
+    82.34955592153875,
+    82.34955592153875
+  ],
+  "PWM_landings": [
+    {
+      "logical_role": "R1.2",
+      "chosen_physical_landing": "B1.out",
+      "net": "PWM_HEAD_YAW_OUT",
+      "copper_group": "N$60",
+      "local_xy_mm": [
+        -10.16,
+        13.97
+      ],
+      "current_nominal_pad_top_mm": [
+        81.43,
+        13.97,
+        84.3202
+      ],
+      "isolated_from_unknown_U1_external_padmap": true,
+      "solder_and_current_population_fit_phase2": true
+    },
+    {
+      "logical_role": "R2.2",
+      "chosen_physical_landing": "B2.out",
+      "net": "PWM_HEAD_PITCH_OUT",
+      "copper_group": "N$58",
+      "local_xy_mm": [
+        -7.62,
+        13.97
+      ],
+      "current_nominal_pad_top_mm": [
+        83.97,
+        13.97,
+        84.3202
+      ],
+      "isolated_from_unknown_U1_external_padmap": true,
+      "solder_and_current_population_fit_phase2": true
+    },
+    {
+      "logical_role": "R3.2",
+      "chosen_physical_landing": "B3.out",
+      "net": "PWM_TAIL_YAW_OUT",
+      "copper_group": "N$57",
+      "local_xy_mm": [
+        -5.08,
+        13.97
+      ],
+      "current_nominal_pad_top_mm": [
+        86.51,
+        13.97,
+        84.3202
+      ],
+      "isolated_from_unknown_U1_external_padmap": true,
+      "solder_and_current_population_fit_phase2": true
+    }
+  ],
+  "independent_output_grips_and_full_body_routes_open": true,
+  "native_sha256": "f1e725856df7e4dec52a79e4f286059d71c47ab89d300992f46878708dc1a42d",
+  "relocated_reopen": true,
+  "worker_wall_seconds": 100.76600000006147,
+  "finished_utc": "2026-10-08T13:47:57.925738+00:00"
+}
