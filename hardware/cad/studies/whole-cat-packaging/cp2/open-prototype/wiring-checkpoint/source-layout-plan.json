@@ -1,0 +1,250 @@
+{
+  "status": "ONE_SHARED_SOURCE_LAYOUT_PLANNED_NOT_SELECTED",
+  "selected": false,
+  "physical_pass": false,
+  "stage_completed": false,
+  "endpoint_source_sha256": "a4b096210597425ee75b1366177eeb5352392d9e5c31bdc62d771ff52d5b9523",
+  "source_plan": [
+    {
+      "holder": "F_PI",
+      "target": "P_SYS.2",
+      "proposed_body_bounds_mm": [
+        -73.5,
+        46.625,
+        90.99,
+        -22.5,
+        66.875,
+        112.99
+      ],
+      "input_exit_mm": [
+        -73.5,
+        56.75,
+        100.99
+      ],
+      "output_exit_mm": [
+        -22.5,
+        56.75,
+        100.99
+      ],
+      "input_departure": [
+        -1,
+        0,
+        0
+      ],
+      "output_departure": [
+        1,
+        0,
+        0
+      ],
+      "nominal_input_blank_mm": 37.424777960769376,
+      "input_recipe": {
+        "exit_straight_mm": 3,
+        "quarter_radius_mm": 6,
+        "entry_straight_mm": 11,
+        "basis": "Project wire geometry, not delivered bend specification"
+      },
+      "factory_nominal_minimum_margin_mm": 47.075222039230624,
+      "both_output_route_and_independent_load_path_pending": true
+    },
+    {
+      "holder": "F_AUX",
+      "target": "P_REAR.2",
+      "proposed_body_bounds_mm": [
+        10.5,
+        42.625,
+        90.99,
+        61.5,
+        62.875,
+        112.99
+      ],
+      "input_exit_mm": [
+        10.5,
+        52.75,
+        100.99
+      ],
+      "output_exit_mm": [
+        61.5,
+        52.75,
+        100.99
+      ],
+      "input_departure": [
+        -1,
+        0,
+        0
+      ],
+      "output_departure": [
+        1,
+        0,
+        0
+      ],
+      "nominal_input_blank_mm": 41.424777960769376,
+      "input_recipe": {
+        "exit_straight_mm": 3,
+        "quarter_radius_mm": 6,
+        "entry_straight_mm": 15,
+        "basis": "Project wire geometry, not delivered bend specification"
+      },
+      "factory_nominal_minimum_margin_mm": 43.075222039230624,
+      "both_output_route_and_independent_load_path_pending": true
+    },
+    {
+      "holder": "F_HY",
+      "target": "P_AUX.2",
+      "proposed_body_bounds_mm": [
+        -56.75,
+        -63.875,
+        89.99,
+        -5.75,
+        -43.625,
+        111.99
+      ],
+      "input_exit_mm": [
+        -5.75,
+        -53.75,
+        99.99
+      ],
+      "output_exit_mm": [
+        -56.75,
+        -53.75,
+        99.99
+      ],
+      "input_departure": [
+        1,
+        0,
+        0
+      ],
+      "output_departure": [
+        -1,
+        0,
+        0
+      ],
+      "nominal_input_blank_mm": 38.924777960769376,
+      "input_recipe": {
+        "exit_straight_mm": 3,
+        "quarter_radius_mm": 6,
+        "entry_straight_mm": 15.5,
+        "basis": "Project wire geometry, not delivered bend specification"
+      },
+      "factory_nominal_minimum_margin_mm": 45.575222039230624,
+      "both_output_route_and_independent_load_path_pending": true
+    },
+    {
+      "holder": "F_HP",
+      "target": "P_AUX.3",
+      "proposed_body_bounds_mm": [
+        -52.0,
+        -41.375,
+        89.99,
+        -1.0,
+        -21.125,
+        111.99
+      ],
+      "input_exit_mm": [
+        -1.0,
+        -31.25,
+        99.99
+      ],
+      "output_exit_mm": [
+        -52.0,
+        -31.25,
+        99.99
+      ],
+      "input_departure": [
+        1,
+        0,
+        0
+      ],
+      "output_departure": [
+        -1,
+        0,
+        0
+      ],
+      "nominal_input_blank_mm": 61.424777960769376,
+      "input_recipe": {
+        "exit_straight_mm": 3,
+        "quarter_radius_mm": 6,
+        "entry_straight_mm": 38,
+        "basis": "Project wire geometry, not delivered bend specification"
+      },
+      "factory_nominal_minimum_margin_mm": 23.075222039230624,
+      "both_output_route_and_independent_load_path_pending": true
+    },
+    {
+      "holder": "F_TY",
+      "target": "P_AUX.4",
+      "proposed_body_bounds_mm": [
+        -47.25,
+        -19.125,
+        89.99,
+        3.75,
+        1.125,
+        111.99
+      ],
+      "input_exit_mm": [
+        3.75,
+        -9.0,
+        99.99
+      ],
+      "output_exit_mm": [
+        -47.25,
+        -9.0,
+        99.99
+      ],
+      "input_departure": [
+        1,
+        0,
+        0
+      ],
+      "output_departure": [
+        -1,
+        0,
+        0
+      ],
+      "nominal_input_blank_mm": 83.67477796076938,
+      "input_recipe": {
+        "exit_straight_mm": 3,
+        "quarter_radius_mm": 6,
+        "entry_straight_mm": 60.25,
+        "basis": "Project wire geometry, not delivered bend specification"
+      },
+      "factory_nominal_minimum_margin_mm": 0.8252220392306242,
+      "both_output_route_and_independent_load_path_pending": true
+    }
+  ],
+  "proposed_same_bus_port_permutation": {
+    "P_REAR.2": "P_REAR.5",
+    "P_REAR.5": "P_REAR.2"
+  },
+  "affected_connections": [
+    "W044/F_RL.in",
+    "F_AUX.in/XA01"
+  ],
+  "electrical_nets_or_installed_holder_counts_changed": false,
+  "candidate_self_bbox_pairs": [],
+  "possible_context_pairs": [
+    {
+      "holder": "F_TY",
+      "target": "PWM9685_CP2",
+      "disposition": "BBOX_CANDIDATE_PAIR_ONLY; actual valid BRep check required"
+    }
+  ],
+  "retained": [
+    "MAIN46.52",
+    "current mounting set",
+    "20WAGO body positions",
+    "R47",
+    "4MTA"
+  ],
+  "output_plan": [
+    "F_PI protected solder splice may move; keep one8mm overlap and separate insulation grips",
+    "Bind F_AUX/F_HY/F_HP outputs to existing documented joints/boards before choosing lead blanks",
+    "No thin pre-fuse extension to evade50mm; reconcile factory leads/extension elements and stock"
+  ],
+  "plan_changes_before_CAD": [
+    "PI upper+Y approach17mm avoids S0 allowance by2.125mm",
+    "HP/TY old bays overlap newly raised WAGO; allocate all three AUX branch bodies jointly instead of preserving invalid bays",
+    "TY minimum margin below1mm is not delivered acceptance; keep extension/trim gate explicit"
+  ],
+  "next": "Validate coherent source bodies against mount and context BRep; then full input/output paths and load-bearing seats together",
+  "created_utc": "2026-10-08T11:03:38.122873+00:00"
+}

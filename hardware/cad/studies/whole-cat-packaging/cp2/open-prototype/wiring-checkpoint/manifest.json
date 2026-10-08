@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "STAGE3_CURRENT_ENDPOINTS_AND_SHARED_SOURCE_LAYOUT_PENDING",
+  "stage_completed": false,
+  "selected": false,
+  "physical_pass": false,
+  "window_id": "open-prototype-wiring-20261008",
+  "started_utc": "2026-10-08T10:43:00Z",
+  "base_commit": "12a7908",
+  "source_native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+  "source_native_sha256": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+  "retained_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/execution-plan.json",
+  "confirmed_result_ids": [
+    "M1",
+    "E4",
+    "A1"
+  ],
+  "result_count": 3,
+  "result_denominator": 20,
+  "result_percent": 15,
+  "deadline_utc": null,
+  "estimate_hours": [
+    3,
+    5
+  ],
+  "integration_reserve_up_to_hours": 6,
+  "estimate_not_a_deadline": true,
+  "inventory": {
+    "body_conductors": 80,
+    "body_ends": 160,
+    "previously_bound_body_ends": 122,
+    "unbound_roles_count": 38,
+    "unbound_groups": [
+      "BUS.D/G",
+      "12leg_connectors.V/G/D"
+    ],
+    "previous_binding_not_current_route_approval": true
+  },
+  "changed_interfaces": [
+    "20WAGO endpointZ: paired underside pad nominal2.49mm/project allowance3mm",
+    "U1 centre88,28/orientation270/provisional pad positions, not a delivered padmap",
+    "wire strain relief independent of WAGO adhesive",
+    "legacy source920mm and both exits of4MTA must be reconciled"
+  ],
+  "sequence": [
+    "Bind endpoints to current mounting source; source identity/material/termination and measured vs assumed data",
+    "Allocate all related power/data/USB/head/tail/leg paths, exits/bends/service parking/strain load paths together",
+    "One coherent native routing/restraint set; validate affected actual geometry, access and useful parameters/reopen",
+    "Freeze nominal fit lengths, distinguish factory leads/installed wire/trim/stock/spare, local own commit"
+  ],
+  "completion_checks": {
+    "all_remaining_end_roles_recorded": false,
+    "current_routes_and_bends_prepared": false,
+    "independent_restraints_and_attachment_prepared": false,
+    "assembly_sequence_feasible": false,
+    "nominal_lengths_and_stock_reconciled": false,
+    "current_native_export_and_integrity_checked": false
+  },
+  "blockers": [
+    {
+      "id": "U1_DELIVERED_PADMAP",
+      "scope": "external adapter contact connectivity and regenerated local mount",
+      "disposition": "Unknown; do not invent. Preserve delivery measurement gate. Does not block independent body power/leg preparation."
+    }
+  ],
+  "notification": "Report in this chat; no new email authorized",
+  "hook_tests": {
+    "isolated_passed": 25,
+    "actual_Stop_new_window_confirmed": true,
+    "actual_Stop_utc": "2026-10-08T10:44:45.1234556Z",
+    "manual_test": false,
+    "outcome": "result_work_continuation_emitted"
+  },
+  "current_endpoint_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json",
+  "shared_source_layout_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json",
+  "planning_result": {
+    "body_net_identities_preserved": 80,
+    "current_leg_frames_retained": 12,
+    "leg_exit_reservations_not_individual_pin_points": 36,
+    "missing_native_roles": 0,
+    "point_bound_ends": 122,
+    "WAGO_entries_rederived_from_current_flat_casings": true,
+    "WAGO_port_pitch_provisional_not_manufacturer_data": true,
+    "old_route_lengths_removed_from_current_cut_list": true,
+    "old_prefuse_length_bounds_mm": {"F_PI": 78.98925361578527, "F_AUX": 130.28268089623265},
+    "planned_prefuse_input_blanks_mm": {"F_PI": 37.424777960769376, "F_AUX": 41.424777960769376},
+    "planned_body_self_bbox_pairs": 0,
+    "remaining_bbox_candidate": "F_TY/PWM9685_CP2; reservation overlap is not proof of actual material collision",
+    "source_output_routes_and_native_seats_open": true,
+    "TY_factory_minimum_margin_mm": 0.8252220392306242,
+    "TY_small_margin_not_delivered_acceptance": true,
+    "endpoint_worker_seconds": 13.609
+  },
+  "measured_time": {
+    "saved_utc": "2026-10-08T11:03:50Z",
+    "window_elapsed_seconds": 1250,
+    "includes_analysis_compute_and_user_notification_question_not_continuous_CPU": true
+  },
+  "next": "Resolve one joint5holder layout versus actual mount/PWM material, then both sides/output connections and native strain load paths. Preserve current board mounts; no isolated offset loop. Do not rerun old bank or inherited stale route lengths.",
+  "last_account_usage": {
+    "checked_utc": "2026-10-08T11:03:50Z",
+    "weekly_used_percent": 6,
+    "weekly_remaining_percent": 94,
+    "ordinary_usage_allowed": true
+  }
+}
