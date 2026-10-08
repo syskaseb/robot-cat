@@ -100,3 +100,9 @@ W wyrażeniach długości dodawać jednostki stałym (`4 mm + Parameters.Gap`).
 Sprawdzać stan operacji, jej rzeczywistą bryłę i obliczony wymiar, nie tylko
 Body.Shape: cache ostatniego poprawnego wyniku może zasłonić nieprzeliczoną
 operację. Próba parametru musi przesunąć również współpracującą referencję.
+
+Sprawdzić rzeczywiste world-Z obrysu, nie dodawać do jego wysokości poziomu
+płyty montażowej. Otwarty prototyp nie wymaga górnej osłony, ale lokalne
+0kontaktów nie dowodzi zmieszczenia w zaakceptowanym tułowiu. Wspólny plan
+poziomów ma uwzględniać średnicę całej upakowanej wiązki i zapas, nie tylko
+odległość osi. Wyjścia do głowy/ogona jawnie oddzielić od tras wewnętrznych.
