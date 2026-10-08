@@ -161,8 +161,12 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T14:32:16Z",
-    "window_elapsed_seconds": 13756,
+    "saved_utc": "2026-10-08T15:15:06Z",
+    "window_elapsed_seconds": 16326,
+    "shared_trunks_and_stations_elapsed_since_previous_seconds": 2570,
+    "shared_trunk_worker_seconds": 30.031,
+    "local_station_full_attempt_worker_seconds": [139.765,142.844,158.953],
+    "first_local_station_slot_assertion_failure_not_timed": true,
     "local_feed_planning_since_previous_seconds": 1711,
     "local_feed_geometry_worker_seconds": [35.75,34.328],
     "four_branch_outputs_checkpoint_seconds_since_previous": 1841,
@@ -241,6 +245,74 @@
     "selected": false,
     "physical_pass": false
   },
+  "current_shared_trunk_preparation": {
+    "plan": "bundle-spines-plan.json",
+    "proof": "bundle-spines-checks.json",
+    "preview": "BundleSpinesPreflight.FCStd",
+    "preview_sha256": "0dd70014aeb932e120d59952c4a76a6bd52b7bd3816b0a2e07d2e82a0d7f6cb0",
+    "exact_transported_triangular_packing": true,
+    "groups": 3,
+    "wires": 9,
+    "centre_radius_mm": 15.1,
+    "actual_minimum_arc_radius_mm": 13.88756443470177,
+    "contacts": 0,
+    "errors": 0,
+    "tested_changed_pairs": 59,
+    "worker_seconds": 30.031000000075437,
+    "route_reference_only_not_native_printed_parts": true,
+    "source_fanouts_covered_joins_restraints_and_moving_loops_open": true,
+    "whole_stage_completed": false,
+    "selected": false,
+    "physical_pass": false
+  },
+  "current_local_station_preparation": {
+    "plan": "local-stations-plan.json",
+    "proof": "local-stations-checks.json",
+    "native_candidate": "LocalStationsAssembly.FCStd",
+    "native_sha256": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "exports": {
+      "StationSourceLeftCarrier.stl": "9794fb428ca4650118c83974c37ce2cef8665cc135700e0a9ead82fe611ab338",
+      "StationSourceRightCarrier.stl": "ed5246c454ad81ba657c2a2d399b2df0214b42eed3d5ba4a23714f09e8972e6f"
+    },
+    "replaces_same_two_source_carriers": true,
+    "do_not_install_older_carrier_variants_in_addition": true,
+    "new_print_parts_screws_connectors": 0,
+    "additional_T18I": 2,
+    "source_fixture_tie_subtotal": 26,
+    "tail_local_retained_ties_separate": 5,
+    "fixed_pitch_transition_length_mm": 65.74215592761061,
+    "pitch_fixed_anchor_centre_mm": [
+      -52,
+      86,
+      166
+    ],
+    "pitch_insulation_seat_y_mm": [
+      77,
+      86
+    ],
+    "tail_insulation_seat_region_x_mm": [
+      47.5,
+      56.5
+    ],
+    "tail_strap_plane_x_mm": 51.5,
+    "contacts": 0,
+    "errors": 0,
+    "tested_changed_pairs": 44,
+    "full_depth_slots": 4,
+    "native_parameter_restored_and_relocated_reopen": true,
+    "closed_STL_print_margin_mm": 10,
+    "worker_seconds": 158.9529999999795,
+    "three_wire_trunks_and_fixed_pitch_only": true,
+    "moving_loop_tail_continuations_source_fanouts_and_whole_stock_open": true,
+    "physical_pass": false,
+    "selected": false,
+    "stage_completed": false,
+    "rejected_cause_summary": [
+      "First blind tail slot could not pass probe; no accepted result.",
+      "7 rows/44 pairs/139.765s: flat pitch arm under bend, tail strap shared holder/upright plane.",
+      "3 rows/45 pairs/142.844s: strap assumed2mm rather than4mm stack; inward tail head blockedHP ATO. Changed strap construction/side, no wire nudge."
+    ]
+  },
   "local_feed_preflight": {
     "plan": "local-feeds-plan.json",
     "proof": "local-feeds-checks.json",
@@ -264,12 +336,12 @@
     "contract_tests_passed": 58,
     "physical_pass": false
   },
-  "next": "Change routing cause after two rejected9-wire layouts: one exact transported3wire bundle spine per HY/HP/TY, separate source fanouts, single current PWM outlet, Pi ATO avoidance and real pitch/tail anchors. G_AUX/G_TAIL rigid pose changes and tail+26 are proposals only, not current native mounts. Keep checked OutputReliefsAssembly/factory loops/input grips and TailLocalCurrent sources unchanged. Then remaining80body/legs/legacy920mm/AUX, independent restraints/mount/service/lengths/stock and one current native/export choice. UnknownAUX/U1 deliveredpadmap gate stays open.",
-  "estimate_review": "Shared5holder/input fixture checkpoint recorded52min24 after previous save (45-90min provisional). Whole Stage3 still OPEN at2h28min07; original3-5h cannot be promised for remaining4outputs/full body-leg-local/source920mm/restraints/stock. Next use known endpoint evidence and one grouped harness plan, not another placement search or expensive check of unchanged fixtures.",
+  "next": "Keep accepted shared3wire trunks and LocalStationsAssembly8cc93580,2replacement carriers/0newparts-screws-connectors/+2T18I/fixed pitch65.742mm/newanchor[-52,86,166]. Source/input/factoryoutput geometry retained. NEXT all9 source fanouts and covered joins/PWM outlet together; extend common transported packing through last approach bends, not independent fillets of adjacent wires. Two WAGO rotations are still unbuilt proposals. Pitch movingloop and tail continuations still OPEN. Then remaining80body/legs/legacy920mm/restraints/mount-service/lengths-stock/one selected package. Do not recheck unchanged trunks/seats or retry rejected strap/bridge construction.",
+  "estimate_review": "Stage3 OPEN after4h32 elapsed,not continuousCPU. Previous3-5h is not a remaining-time promise. Next nine source/PWM approaches and covered transitions: provisional1-2h, update after actual outlet/source gates. Moving pitch/tail/body80/legs/source920mm and stock are additional work.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T14:32:16Z",
-    "weekly_used_percent": 10,
-    "weekly_remaining_percent": 90,
+    "checked_utc": "2026-10-08T15:15:06Z",
+    "weekly_used_percent": 11,
+    "weekly_remaining_percent": 89,
     "ordinary_usage_allowed": true
   }
 }

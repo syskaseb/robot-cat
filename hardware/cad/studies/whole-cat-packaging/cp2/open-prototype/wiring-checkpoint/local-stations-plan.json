@@ -1,0 +1,276 @@
+{
+  "status": "CURRENT_TWO_INTEGRAL_SEATS_AND_PITCH_TRANSITION_PLAN",
+  "stations": [
+    {
+      "name": "PitchFixed",
+      "owner": "SourceLeftCarrier",
+      "floor_z_mm": 164.34378221735088,
+      "base_z_mm": 90.99,
+      "post_xywh_mm": [
+        -54,
+        68,
+        4,
+        4
+      ],
+      "bridge_xywh_mm": [
+        -60,
+        70,
+        16,
+        19
+      ],
+      "seat_xywh_mm": [
+        -60,
+        77,
+        16,
+        9
+      ],
+      "slot_centres_mm": [
+        [
+          -56.3,
+          81.5
+        ],
+        [
+          -47.7,
+          81.5
+        ]
+      ],
+      "tie_axis": 1,
+      "tie_centre_mm": -52,
+      "strap_structure_depth_mm": 4,
+      "straight_insulation_length_mm": 9,
+      "wire_names": [
+        "XB22",
+        "XB23",
+        "XS23"
+      ]
+    },
+    {
+      "name": "TailFixed",
+      "owner": "SourceRightCarrier",
+      "floor_z_mm": 115.7375644347018,
+      "base_z_mm": 89.99,
+      "post_xywh_mm": [
+        64,
+        -43.375,
+        4,
+        2
+      ],
+      "seat_xywh_mm": [
+        47.5,
+        -51,
+        20.5,
+        13
+      ],
+      "grip_region_x_mm": [
+        47.5,
+        56.5
+      ],
+      "strap_plane_x_mm": 51.5,
+      "slot_centres_mm": [
+        [
+          51.5,
+          -49.3
+        ],
+        [
+          51.5,
+          -40.7
+        ]
+      ],
+      "tie_axis": 0,
+      "tie_centre_mm": -45,
+      "strap_structure_depth_mm": 2,
+      "straight_insulation_length_mm": 9,
+      "wire_names": [
+        "XB32",
+        "XB33",
+        "XS33"
+      ]
+    }
+  ],
+  "pitch_parts": [
+    {
+      "kind": "line",
+      "start": [
+        -52,
+        26,
+        149
+      ],
+      "end": [
+        -52,
+        44.49075041633252,
+        149.0
+      ],
+      "t0": [
+        0,
+        1,
+        0
+      ],
+      "t1": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "kind": "arc",
+      "start": [
+        -52,
+        44.49075041633252,
+        149.0
+      ],
+      "end": [
+        -52,
+        55.16806281224939,
+        153.42268760408314
+      ],
+      "t0": [
+        0,
+        1,
+        0
+      ],
+      "t1": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "mid": [
+        -52.0,
+        50.26927024504538,
+        150.14941905907958
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "angle": 0.7853981633974483
+    },
+    {
+      "kind": "line",
+      "start": [
+        -52,
+        55.16806281224939,
+        153.42268760408314
+      ],
+      "end": [
+        -52,
+        63.32268760408313,
+        161.57731239591686
+      ],
+      "t0": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "t1": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ]
+    },
+    {
+      "kind": "arc",
+      "start": [
+        -52,
+        63.32268760408313,
+        161.57731239591686
+      ],
+      "end": [
+        -52,
+        74,
+        166
+      ],
+      "t0": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "t1": [
+        0,
+        1,
+        0
+      ],
+      "mid": [
+        -52.0,
+        68.22148017128714,
+        164.85058094092042
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "angle": 0.7853981633974483
+    },
+    {
+      "kind": "line",
+      "start": [
+        -52,
+        74,
+        166
+      ],
+      "end": [
+        -52,
+        86,
+        166
+      ],
+      "t0": [
+        0,
+        1,
+        0
+      ],
+      "t1": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "replaces_same_two_carriers": true,
+  "added_print_parts": 0,
+  "added_screws_connectors": 0,
+  "added_T18I": 2,
+  "source_fixture_ties_subtotal": 26,
+  "tail_local_existing_ties": 5,
+  "whole_stock_open": true,
+  "changed_cause_after_failed_seats": "Pitch seat occupies last9mm straight with stepped structural bridge; strap must wrap the complete4mm structure, NOT the2mm seat alone. Tail strap has freeX51.5 bay and outward-facing head between the two ATO access lanes, not inward into HP tool. Wire paths/ends unchanged.",
+  "previous_failed_gates": [
+    {
+      "rows": 7,
+      "pairs": 44,
+      "errors": 0,
+      "seconds": 139.765,
+      "cause": "Full/addition duplicates included: pitch flat arm under curved wires; tail return in old holder strap plane/under upright."
+    },
+    {
+      "rows": 3,
+      "pairs": 45,
+      "errors": 0,
+      "seconds": 142.844,
+      "cause": "Duplicated pitch-band contact: assumed2mm wrap under4mm stepped structure; tail inward head blocksHPATO tool."
+    }
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/BundleSpinesPreflight.FCStd": "0dd70014aeb932e120d59952c4a76a6bd52b7bd3816b0a2e07d2e82a0d7f6cb0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/bundle-spines-checks.json": "510acd2b3505fdf9f7ca14f5161cc4c7db726c157d6a02f5c69d28cd665fcba3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "tools/cad/open_prototype_local_stations.py": "4a788c4775696b3c1404a5a692b412673929e4f418bfa48ad16fecca1e5c7a05",
+    "tools/cad/open_prototype_bundle_spines.py": "fe542ac9f924b46a169b08f3906d712b94329f488158cc4edc75437419ab6e04"
+  },
+  "assembly": [
+    "Install same source carriers before routing; integral posts are not detachable extra brackets.",
+    "Lay three pitch wires on fixed9mm seat Y77..86, continuous insulation and one replaceable strap.",
+    "Lay three tail wires on straight grip region X47.5..56.5, continuous insulation; strap planeX51.5 is independent of existing holder straps.",
+    "Do not transfer strain to WAGO adhesive, factory holder leads or PCB solder joints.",
+    "Pitch strap goes through4mm structure and returns below low bridge, not between bridge and seat; tail head faces outward in gap between HP and TY ATO lanes.",
+    "Pitch moving loop, tail local continuations, full fanouts and common removal recipe remain OPEN."
+  ],
+  "delivery_gates": [
+    "T18I bend/fit and no-crush/pull/creep of each wire",
+    "PETG upright stiffness and print support coupon, not structural approval"
+  ],
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false
+}
