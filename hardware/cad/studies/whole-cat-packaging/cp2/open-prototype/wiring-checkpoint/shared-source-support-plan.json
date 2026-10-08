@@ -1,67 +1,61 @@
 {
-  "status": "COMMON_PLATFORM_PLAN_REQUIRES_SHARED_CHANGE",
+  "status": "COMMON_PLATFORM_LOAD_PATH_PREFLIGHT_CLEAR_NATIVE_RESTRAINTS_OPEN",
   "selected": false,
   "stage_completed": false,
   "physical_pass": false,
-  "contacts": [
-    {
-      "a": "CommonPillar1",
-      "b": "S0_ring_OUT",
-      "volume_mm3": 1.8028518452647067
-    }
-  ],
+  "contacts": [],
   "errors": [],
   "outside_torso": [],
-  "tested_pairs": 24,
+  "tested_pairs": 28,
   "bearing": [
     {
       "xy_mm": [
-        -35,
+        -14,
         -20
       ],
-      "covered_fraction": 1.0,
+      "covered_fraction": 1,
       "area_mm2": 113.09733552923042
     },
     {
       "xy_mm": [
-        -35,
+        -14,
         20
       ],
-      "covered_fraction": 1.0,
+      "covered_fraction": 1,
       "area_mm2": 113.09733552923042
     },
     {
       "xy_mm": [
-        30,
+        65,
         -20
       ],
-      "covered_fraction": 1.0,
+      "covered_fraction": 1,
       "area_mm2": 113.09733552923042
     },
     {
       "xy_mm": [
-        30,
+        65,
         20
       ],
-      "covered_fraction": 1.0,
+      "covered_fraction": 1,
       "area_mm2": 113.09733552923042
     }
   ],
   "new_printed_carrier_holes_xy_mm": [
     [
-      -35,
+      -14,
       -20
     ],
     [
-      -35,
+      -14,
       20
     ],
     [
-      30,
+      65,
       -20
     ],
     [
-      30,
+      65,
       20
     ]
   ],
@@ -76,6 +70,8 @@
   ],
   "pillar_OD_mm": 8,
   "foot_OD_mm": 12,
+  "previous_preflight_snapshot_commit": "b1ffd6f",
+  "load_path_cause_change": "Use free receiving-plate cells separated from source AND existing frame bolt axesX-25/Y20, with two underside ribs. Old anchors were not free because existing bore/bolt footprint was omitted. No changed cases/routes; no claim that a bbox is a collision verdict.",
   "rejected_pre_detail_anchor_plan": {
     "rows_y_mm": [
       -23,
@@ -156,8 +152,262 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-plan.json": "eb89ebf220cb8cfafd772dc90ddec4cd543a23a7a4b0064ef940802e6d7273d5",
-    "tools/cad/open_prototype_shared_source_support_plan.py": "af1ef07775e56d0220b0678b6902f360275bbea9d8abe01472ae432cd5d59bdc"
+    "tools/cad/open_prototype_shared_source_support_plan.py": "82d605865363e9420e5309eca27562b71eb8d18be1dc3956bf631375f62ca9a2"
   },
-  "worker_seconds": 17.906000000075437,
-  "finished_utc": "2026-10-08T19:36:36.618765+00:00"
+  "worker_seconds": 19.98499999998603,
+  "finished_utc": "2026-10-08T19:47:16.556050+00:00",
+  "rejected_preflight_summaries": [
+    {
+      "status": "REJECTED_ANCHOR_PLAN_BEFORE_DETAIL",
+      "axes_xy_mm": [
+        [
+          -25,
+          -20
+        ],
+        [
+          -25,
+          20
+        ],
+        [
+          30,
+          -20
+        ],
+        [
+          30,
+          20
+        ]
+      ],
+      "contacts": [],
+      "errors": [
+        {
+          "anchor": [
+            -25,
+            -20
+          ],
+          "error": "Retained actual plate face does not support whole foot; shared anchor layout needs change"
+        },
+        {
+          "anchor": [
+            -25,
+            20
+          ],
+          "error": "Retained actual plate face does not support whole foot; shared anchor layout needs change"
+        }
+      ],
+      "bearing": [
+        {
+          "xy_mm": [
+            -25,
+            -20
+          ],
+          "covered_fraction": 0.9197222222222252,
+          "area_mm2": 104.01813276035642
+        },
+        {
+          "xy_mm": [
+            -25,
+            20
+          ],
+          "covered_fraction": 0.9197222222222252,
+          "area_mm2": 104.01813276035642
+        },
+        {
+          "xy_mm": [
+            30,
+            -20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            30,
+            20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        }
+      ]
+    },
+    {
+      "status": "COMMON_PLATFORM_PLAN_REQUIRES_SHARED_CHANGE",
+      "axes_xy_mm": [
+        [
+          -35,
+          -20
+        ],
+        [
+          -35,
+          20
+        ],
+        [
+          65,
+          -20
+        ],
+        [
+          65,
+          20
+        ]
+      ],
+      "contacts": [
+        {
+          "a": "CommonPillar1",
+          "b": "S0_ring_OUT",
+          "volume_mm3": 1.8028518452647067
+        }
+      ],
+      "errors": [],
+      "bearing": [
+        {
+          "xy_mm": [
+            -35,
+            -20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            -35,
+            20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            65,
+            -20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            65,
+            20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        }
+      ]
+    },
+    {
+      "status": "COMMON_PLATFORM_PLAN_REQUIRES_SHARED_CHANGE",
+      "axes_xy_mm": [
+        [
+          -35,
+          -20
+        ],
+        [
+          -35,
+          20
+        ],
+        [
+          30,
+          -20
+        ],
+        [
+          30,
+          20
+        ]
+      ],
+      "contacts": [
+        {
+          "a": "CommonPillar1",
+          "b": "S0_ring_OUT",
+          "volume_mm3": 1.8028518452647067
+        }
+      ],
+      "errors": [],
+      "bearing": [
+        {
+          "xy_mm": [
+            -35,
+            -20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            -35,
+            20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            30,
+            -20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        },
+        {
+          "xy_mm": [
+            30,
+            20
+          ],
+          "covered_fraction": 1,
+          "area_mm2": 113.09733552923042
+        }
+      ]
+    }
+  ],
+  "native_build_contract": {
+    "anchors_xy_mm": [
+      [
+        -14,
+        -20
+      ],
+      [
+        -14,
+        20
+      ],
+      [
+        65,
+        -20
+      ],
+      [
+        65,
+        20
+      ]
+    ],
+    "lower_support_surface_z_mm": 77.72,
+    "platform_plate_z_mm": [
+      113,
+      115
+    ],
+    "underside_ribs": [
+      {
+        "xywh_mm": [
+          -62,
+          -18,
+          144,
+          4
+        ],
+        "z_mm": [
+          109,
+          113
+        ]
+      },
+      {
+        "xywh_mm": [
+          -62,
+          14,
+          144,
+          4
+        ],
+        "z_mm": [
+          109,
+          113
+        ]
+      }
+    ],
+    "roles_and_full_factory_inputs": "Freeze337b6c6. No new casing/source moves. Nominal frame holes are in printed UpperCarrier, not supplier PCB.",
+    "next": "ONE coherent native receiving carrier/platform/5body restraints/independent input+output grips and current fixed stations. Check their shared load paths/access before building, including both outputs and above-body head interface ownership; do not blindly copy old SourceLeft/RightCarrier.",
+    "open": "No native source-platform selection, final wiring/stock/service or physical acceptance from this28pair plan."
+  }
 }

@@ -16,15 +16,26 @@ OUT=BASE/'wiring-checkpoint'
 
 
 def main():
-    dest=OUT/'shared-source-support-plan.json';assert not dest.exists(),'Receive existing result before a new allocation'
+    dest=OUT/'shared-source-support-plan.json'
+    previous=read(dest) if dest.exists() else None
+    if previous:
+        assert previous['status']=='REJECTED_ANCHOR_PLAN_BEFORE_DETAIL'
+        assert {tuple(r['anchor']) for r in previous['errors']}=={(-25,-20),(-25,20)}
     tick=time.monotonic();allocation=read(OUT/'shared-allocation-plan.json')
     doc=A.openDocument(str(MOUNTS));ctx=A.openDocument(str(CONTEXT));rail=A.openDocument(str(RAILS))
     # Actual upperplate is Y±27, not its bosses' wider bbox. Put BOTH
     # foot rows inside that material with1mm edge allowance, BEFORE native CAD.
-    axes=[(x,y) for x in (-35,30) for y in (-20,20)]
+    # Derive whole support cells from source AND retained column/hole areas.
+    # Existing frame bolts are atX-25/Y±20, not free mounting material.
+    # LeftX-14 separates12mm feet from those heads; rightX65 is between AUX
+    # and PWM footprints. Under-plate ribs support the longer left cantilever.
+    axes=[(x,y) for x in (-14,65) for y in (-20,20)]
     r=dict(status='PENDING',selected=False,stage_completed=False,physical_pass=False,contacts=[],errors=[],outside_torso=[],tested_pairs=0,bearing=[],
         new_printed_carrier_holes_xy_mm=axes,new_holes_NOT_supplier_PCB_holes=True,
         source_plate_bounds_mm=[-62,-27.5,113,82,27.5,115],pillar_OD_mm=8,foot_OD_mm=12,
+        previous_preflight_snapshot_commit='b1ffd6f',
+        previous_gate=previous,
+        load_path_cause_change='Use free receiving-plate cells separated from source AND existing frame bolt axesX-25/Y20, with two underside ribs. Old anchors were not free because existing bore/bolt footprint was omitted. No changed cases/routes; no claim that a bbox is a collision verdict.',
         rejected_pre_detail_anchor_plan=dict(rows_y_mm=[-23,23],cause='12mm feet exceeded actual54mm plate width; bbox includes unrelated bosses',
             next_cause_change='Whole pair of foot rows uses actual plate material and1mm edge margin; source/wire allocation unchanged'),
         pillar_bottom_top_mm=[77.72,113],captured_nut_bottom_top_mm=[77.72,80.12],
@@ -43,6 +54,8 @@ def main():
         source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in (MOUNTS,CONTEXT,RAILS,OUT/'shared-allocation-plan.json',Path(__file__))})
     try:
         new={'CommonPlatformPlate':Part.makeBox(144,55,2,A.Vector(-62,-27.5,113))}
+        for i,y in enumerate((-18,14)):
+            new['CommonPlatformRib'+str(i)]=Part.makeBox(144,4,4,A.Vector(-62,y,109))
         for i,(x,y) in enumerate(axes):
             post=Part.makeCylinder(4,35.28,A.Vector(x,y,77.72));foot=Part.makeCylinder(6,5,A.Vector(x,y,77.72))
             new['CommonPillar'+str(i)]=post.fuse(foot).cut(Part.makeCylinder(1.7,40,A.Vector(x,y,77.72)))
@@ -59,7 +72,13 @@ def main():
         targets.update({b.Name:b.Shape for b in rail.Objects if b.TypeId=='PartDesign::Body' and b.Name!='DistributionSpacer'})
         for o in doc.Objects:
             if 'Shape' not in o.PropertiesList or o.Shape.isNull() or o.Name=='BUS_CP2':continue
-            if o.Name.endswith('NominalPCB') or o.Name.startswith('BUSsupplier') or o.Name in ('U1BoardAllowance','LowerCarrier','UpperCarrier'):targets[o.Name]=o.Shape
+            superseded=o.Name.startswith(('SourceLeftCarrier','SourceRightCarrier','SideRail','SideColumn','SideDistributionRail','F_PI_','F_AUX_','F_HY_','F_HP_','F_TY_'))
+            if superseded or o.Name.endswith('_CurrentReference'):continue
+            if o.TypeId in ('PartDesign::Body','App::Link') or o.Name.endswith('NominalPCB') or o.Name.startswith('BUSsupplier'):targets[o.Name]=o.Shape
+        for group in doc.Objects:
+            if 'Group' in group.PropertiesList and 'Hardware' in group.Name and group.Name!='SideMountHardware':
+                for o in group.Group:
+                    if 'Shape' in o.PropertiesList and not o.Shape.isNull():targets['hardware/'+o.Name]=o.Shape
         for o in ctx.Objects:
             if 'Shape' in o.PropertiesList and not o.Shape.isNull() and o.Name.startswith(('P0_','S0_','S1_')) and o.Name!='P0_MG92BMount29':targets[o.Name]=o.Shape
         for n,s in new.items():
