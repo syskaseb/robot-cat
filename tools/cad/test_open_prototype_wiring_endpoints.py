@@ -171,5 +171,87 @@ class EndpointContract(unittest.TestCase):
         for a,b in zip(verified['initial_volumes_mm3'],verified['restored_volumes_mm3']):self.assertAlmostEqual(a,b,places=5)
 
 
+class SourceFixturePlanTests(unittest.TestCase):
+    def test_current_joint_fixture_evidence_and_exports_are_pinned(self):
+        folder=E.BASE/'wiring-checkpoint'
+        proof=E.read(folder/'fhac-mount-checks.json')
+        self.assertEqual(proof['status'],'FIVE_HOLDER_FIXTURES_NOMINAL_PREPARATION_CHECKED')
+        self.assertFalse(proof['contacts']);self.assertFalse(proof['errors'])
+        for path,digest in proof['source_sha256'].items():
+            self.assertEqual(E.sha(E.ROOT/path),digest,path)
+        self.assertEqual(E.sha(folder/'SourceFixturesAssembly.FCStd'),proof['native_sha256'])
+        for path,digest in proof['exports'].items():self.assertEqual(E.sha(folder/path),digest,path)
+        self.assertEqual(proof['this_source_scope_ties'],20)
+        self.assertEqual(len(proof['native_bodies']),3)
+        self.assertFalse(proof['stage_completed']);self.assertFalse(proof['physical_pass'])
+
+    def test_current_pi_service_route_keeps_one_joint_and_factory_length(self):
+        p=E.read(E.BASE/'wiring-checkpoint/source-service-route.json')
+        self.assertEqual(p['new_connector_or_splice_count'],0)
+        self.assertEqual(p['bare_overlap_mm'],8)
+        self.assertEqual(p['descent_y_mm'],56.75)
+        self.assertTrue(p['return_inward_above_WAGO'])
+        for wire in ('W077','W078'):
+            self.assertLess(p[wire]['required_blank_mm'],p[wire]['nominal_fit_blank_mm'])
+        self.assertLessEqual(p['W077']['nominal_fit_blank_mm'],p['W077']['factory_minimum_mm'])
+        self.assertTrue(p['wire_OD_R6_and_pull_creep_gate'])
+        self.assertFalse(p['physical_pass']);self.assertFalse(p['selected'])
+
+    def test_current_fixture_relocated_reopen_restores_mating_dimensions(self):
+        p=E.read(E.BASE/'wiring-checkpoint/fhac-mount-verification.json')
+        self.assertEqual(p['status'],'CURRENT_SOURCE_FIXTURES_RELOCATED_NATIVE_REOPEN_CHECKED')
+        self.assertTrue(p['relocated_fresh_process']);self.assertTrue(p['source_unchanged'])
+        for path,digest in p['source_sha256'].items():self.assertEqual(E.sha(E.ROOT/path),digest,path)
+        for initial,changed,restored in zip(p['initial_volumes_mm3'],p['changed_volumes_mm3'],p['restored_volumes_mm3']):
+            self.assertGreater(changed,initial)
+            self.assertAlmostEqual(initial,restored,places=5)
+        self.assertFalse(p['stage_completed']);self.assertFalse(p['selected'])
+
+    def test_only_hp_allocation_moves_and_no_input_blank_changes(self):
+        from open_prototype_fhac_supports import build_plan
+        before=E.read(E.BASE/'wiring-checkpoint/source-layout-plan.json')['source_plan']
+        after=build_plan()['source_plan']
+        self.assertEqual(len(after),5)
+        for a,b in zip(before,after):
+            self.assertEqual(a['holder'],b['holder'])
+            self.assertEqual(a['target_entry_mm'],b['target_entry_mm'])
+            self.assertEqual(a['nominal_input_blank_mm'],b['nominal_input_blank_mm'])
+            if a['holder']!='F_HP':self.assertEqual(a,b)
+        hp=next(r for r in after if r['holder']=='F_HP')
+        self.assertEqual(hp['input_departure'],[-1,0,0])
+        self.assertEqual(hp['output_departure'],[1,0,0])
+        self.assertEqual(hp['output_exit_mm'],[68,-31.25,99.99])
+
+    def test_hp_nominal_ato_budget_clears_front_mta_in_plan(self):
+        from open_prototype_fhac_supports import build_plan
+        hp=next(r for r in build_plan()['source_plan'] if r['holder']=='F_HP')
+        b=hp['proposed_body_bounds_mm'];cx=(b[0]+b[3])/2
+        front=E.read(E.OUT)['components']['MTA_FR_CP2']['bounds_mm']
+        self.assertGreater(cx-11,front[3])
+
+    def test_right_comb_grips_intact_straights_not_wago_glue(self):
+        from open_prototype_fhac_supports import build_plan
+        p=build_plan();lo,hi=p['independent_right_inputs']['seat_y_mm']
+        self.assertAlmostEqual(hi-lo,9)
+        for r in p['source_plan']:
+            if r['holder'] not in p['independent_right_inputs']['holders']:continue
+            end=r['target_entry_mm'][1];start=end+r['input_recipe']['entry_straight_mm']
+            self.assertGreaterEqual(lo,end)
+            self.assertLessEqual(hi,start)
+        self.assertTrue(p['independent_right_inputs']['delivered_casing_and_wire_tolerance_gate'])
+        self.assertFalse(p['physical_pass']);self.assertFalse(p['stage_completed'])
+
+    def test_local_fixture_quantities_do_not_multiply_existing_pi_ties(self):
+        from open_prototype_fhac_supports import build_plan
+        p=build_plan();q=p['local_added_ties']
+        self.assertEqual(sum(q[k] for k in ('holder','input','rail_attachment')),18)
+        self.assertEqual(p['total_this_source_scope_ties'],18+2)
+        self.assertEqual(p['removed_Pi_rail_ties'],2)
+        self.assertEqual(p['local_added_screws'],0)
+        self.assertEqual(p['electrical_connectors_added'],0)
+        self.assertEqual(p['tie_sku'],'111-02370')
+        self.assertIn('NOT supplier lid trajectory',p['access_basis'])
+
+
 if __name__ == '__main__':
     unittest.main()
