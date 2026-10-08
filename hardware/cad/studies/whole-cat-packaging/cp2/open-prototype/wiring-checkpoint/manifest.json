@@ -161,10 +161,11 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T18:20:34Z",
-    "window_elapsed_seconds": 27454,
-    "current_continuation_started_utc": "2026-10-08T16:18:00Z",
-    "current_continuation_elapsed_seconds": 7354,
+    "saved_utc": "2026-10-08T18:48:17Z",
+    "window_elapsed_seconds": 29117,
+    "current_continuation_started_utc": "2026-10-08T18:22:56Z",
+    "current_continuation_elapsed_seconds": 1521,
+    "shared_allocation_worker_seconds": [173.093,190.438],
     "distribution_entry_worker_seconds": 128.031,
     "coupled_source_direction_worker_seconds": 29.906,
     "whole_distribution_body_fit_worker_seconds": 11.547,
@@ -357,10 +358,10 @@
   "low_factory_exit_source_preflight": {"plan":"source-layout-plan-current.json","proof":"source-layout-checks-current.json","status":"REJECTED_TWO_LOW_XY_ATTEMPTS_NO_THIRD_OFFSET_TRIAL","contacts":10,"tested_pairs":291,"errors":0,"changed_material_outside_torso":1,"worker_seconds":66.672,"first_trial_preserved_in_commit":"491124b","pure_tests_passed":74,"native_exports_rebuilt":0,"selected":false,"physical_pass":false,"cause":"Moved G_AUX occupies D_RR; both west ground approaches intersect G1; moved G_TAIL intersects retained tail support. Both casings and10port datums included. XB13 outside actual torso. No native/export changed."},
   "current_legacy_source_preflight": {"plan":"legacy-source-plan.json","proof":"legacy-source-checks.json","contacts":1,"tested_pairs":30,"errors":0,"outside_actual_torso":0,"worker_seconds":19.938,"source_pins_verified":9,"scope":"W075/W076_FACTORY/W076_EXTENSION/current_W001; not the S1_920mm subtotal","static_clear_in_this_scope":["W075","W076_FACTORY","W001"],"nominal_fit_blanks_mm":{"W075":30,"W076_FACTORY":80,"W076_EXTENSION":215,"W001":168},"conditional_blocker":"W076_EXTENSION intersects S0_body77.775mm3. Nominal S0 rings/studs are atZ80 inside retained casingZ65..105. Reassess BOTH external terminal interfaces/casing basis before another wire route; no waiver or guessed delivered stud datum.","independent_restraints_and_stock_open":true,"selected":false,"physical_pass":false},
   "legacy_920mm_scope_correction": {"source":"hardware/cad/studies/whole-cat-packaging/cp2/interfaces.json/source_stock_contribution","correct_scope":"S1 four HELU23802 wires, NOT BAT_0/BAT_1","ids":["W067","W068","W064","W065"],"historical_blanks_mm":[260,260,220,180],"historical_total_mm":920,"CP2_previous_candidates_total_mm":850.8530321076576,"previous_candidates_not_current_flat_WAGO_routes":true,"routing_scope_corrected":true,"current_groups":{"S1_920mm":4,"battery_F0":2,"other_body_distribution":88},"graph_edges_still":129,"physical_pairs_still":128,"five_scope_source_pins_verified":true,"old_local_boundary_and_legacy_proof_scope_snapshot_commit":"1274de4","scope_correction_is_not_a_geometry_change_or_stock_selection":true},
-  "next": "Both shared-allocation workers received. Current joint20cases/5FHAC/both output joint-grip budgets/4MTA both first exits/100ports have0 outside torso and0 BRep errors. Five contacts are ONLY lower RL_G/its3port stems versus S1 body/control. Replace the whole lower-row allocation around S1, not a single ground-case offset. Before another heavy/native run derive and jointly qualify ALL5 factory input bends, strips and minimum84.5mm/prefuse50mm limits; straight-distance bounds do not qualify routes. All changed20mounts/4MTA tails/body routes remain open. Two prior allocation gates preserved; F_HP first-gate body frame invalidated, not its genuine other contacts. No third bare casing/angle trial. S0/U1 delivered datum gates remain; Stage3OPEN3/20=15%.",
+  "next": "Both shared-allocation workers received; geometry snapshot eeca478,0outside/0errors,5 contacts ONLY lower RL_G/3stems versus S1. ALL5 tangent factory input recipes derived BEFORE another heavy run:PI48.996/AUX41.581/HY52.022/HP60.559/TY86.086mm including strip,9mm grip and3mm minimum exit. TY exceeds84.5mm; straight-distance screen falsely appeared feasible. NEXT one whole lower-row spatial allocation around S1 AND southern source role/order/full input curve separation; no automatic factory extension/stock increase, no scalar offset/third bare-casing gate. Four passing input lengths are NOT mutual clearance. Rebind all100ports/4MTA tails/changed mounts and complete body routes after the shared gate. S0/U1 delivered datum gates remain, safe independent work remains; Stage3OPEN3/20=15%.",
   "estimate_review": "Stage3 OPEN after6h32min54 elapsed, not continuousCPU. Original3-5h estimate exceeded. No credible completion-time promise while whole source/distribution layout and nominal S0 external terminal plane remain unresolved. Counts of tests/files are not complete results.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T18:43:09Z",
+    "checked_utc": "2026-10-08T18:48:17Z",
     "weekly_used_percent": 14,
     "weekly_remaining_percent": 86,
     "ordinary_usage_allowed": true
@@ -400,6 +401,7 @@
   "shared_distribution_allocation": {
     "plan": "shared-allocation-plan.json",
     "proof": "shared-allocation-checks.json",
+    "proof_source_snapshot_commit": "eeca4787ec6dd2b06a2d59fe12da2cafaa2bbb23",
     "status": "SHARED_ALLOCATION_HAS_OPEN_CONSTRAINTS",
     "casings": 20,
     "holders_with_both_exits": 5,
@@ -418,6 +420,19 @@
     "tests_passed": 86,
     "changed_native_mounts_or_selected_exports": 0,
     "full_input_routes_and_MTA_tails_qualified": false,
+    "selected": false,
+    "physical_pass": false
+  },
+  "shared_input_length_preflight": {
+    "plan": "shared-input-length-plan.json",
+    "status": "LENGTH_ALLOCATION_REQUIRES_SHARED_CHANGE",
+    "recipe": "Closed-form3D tangent S-bends,assumedR6/OD4,3mm minimum factory exit,9mm independent insulation grip,strip allowances14/11mm",
+    "required_blanks_mm": {"F_PI":48.99573597042673,"F_AUX":41.58122286043791,"F_HY":52.02209539170502,"F_HP":60.55861635703072,"F_TY":86.08599286534542},
+    "blocking_holder": "F_TY",
+    "assumed_factory_minimum_mm": 84.5,
+    "new_extension_or_stock_selected": false,
+    "mutual_clearance_and_supplier_bend_qualified": false,
+    "tests_passed": 89,
     "selected": false,
     "physical_pass": false
   },

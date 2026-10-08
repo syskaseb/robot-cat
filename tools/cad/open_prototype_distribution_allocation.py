@@ -7,12 +7,75 @@ from datetime import datetime, timezone
 from pathlib import Path
 import json
 import math
+import sys
 import time
+import open_prototype_bundle_spines as V
 from open_prototype_wiring_endpoints import ROOT, BASE, read, sha, bounds
 from open_prototype_entry_chambers import MOUNTS, CONTEXT, occupancy
 
 OUT = BASE/'wiring-checkpoint'
 UPPER_Y = 62.25
+
+
+def input_recipe(start, end, direction, radius=6):
+    """Two exact tangent arcs, with3mm factory exit and9mm insulation grip.
+
+    A length preflight, NOT joint clearance or a supplier bend qualification.
+    Smaller transverse shifts use shallow arcs; large shifts add one straight.
+    """
+    delta=V.sub(end,start);along=V.dot(delta,direction)
+    lateral=V.sub(delta,V.mul(direction,along))
+    shift=math.sqrt(V.dot(lateral,lateral))
+    assert shift>1e-8 and abs(V.dot(direction,direction)-1)<1e-8
+    side=V.mul(lateral,1/shift)
+    angle=math.acos(1-shift/(2*radius)) if shift<2*radius else math.pi/2
+    middle=max(0,shift-2*radius)
+    first=along-2*radius*math.sin(angle)-9
+    if first<3-1e-8:raise ValueError('No space for both exit and insulation grip before CAD')
+    a=V.add(start,V.mul(direction,first));centre=V.add(a,V.mul(side,radius))
+    radial=V.sub(V.mul(direction,math.sin(angle)),V.mul(side,math.cos(angle)))
+    b=V.add(centre,V.mul(radial,radius))
+    m1=V.add(centre,V.mul(V.sub(V.mul(direction,math.sin(angle/2)),V.mul(side,math.cos(angle/2))),radius))
+    c=V.add(b,V.mul(side,middle));centre2=V.add(c,V.mul(radial,radius))
+    q=V.add(centre2,V.mul(side,radius))
+    m2=V.add(centre2,V.mul(V.add(V.mul(direction,-math.sin(angle/2)),V.mul(side,math.cos(angle/2))),radius))
+    assert math.dist(V.add(q,V.mul(direction,9)),end)<1e-7
+    parts=[dict(kind='line',start=start,end=a),dict(kind='arc',start=a,mid=m1,end=b)]
+    if middle>1e-8:parts.append(dict(kind='line',start=b,end=c))
+    parts.extend([dict(kind='arc',start=c,mid=m2,end=q),dict(kind='line',start=q,end=end)])
+    return dict(segments=parts,centreline_mm=first+9+2*radius*angle+middle,
+        first_straight_mm=first,grip_straight_mm=9,radius_assumption_mm=radius,
+        arc_angle_deg=angle*180/math.pi,OD_assumption_mm=4,
+        supplier_bend_or_mutual_clearance_qualified=False)
+
+
+def save_input_length_preflight():
+    allocation=read(OUT/'shared-allocation-plan.json')
+    ports={r['role']:r for r in read(OUT/'shared-allocation-checks.json')['ports']}
+    rows=[]
+    for row in allocation['holders']:
+        target=ports[row['target']]
+        d=V.mul(row['axis'],-1)
+        assert V.dot(d,target['departure'])<-1+1e-8
+        r=input_recipe(row['input_mm'],target['point_mm'],d)
+        strip=14 if row['holder'] in ('F_PI','F_AUX') else 11
+        limit=50 if strip==14 else 84.5
+        total=r['centreline_mm']+strip
+        rows.append(dict(holder=row['holder'],target=row['target'],recipe=r,
+            strip_allowance_mm=strip,required_blank_mm=total,
+            nominal_fit_blank_mm=math.ceil(total),limit_mm=limit,
+            exceeds_limit=total>limit,limit_not_a_route_or_thermal_acceptance=True))
+    p=dict(status='LENGTH_ALLOCATION_REQUIRES_SHARED_CHANGE' if any(r['exceeds_limit'] for r in rows) else 'INPUT_LENGTHS_FIT_JOINT_GEOMETRY_STILL_OPEN',
+        rows=rows,selected=False,stage_completed=False,physical_pass=False,
+        constraints=['Preserve all five inputs and both exits; no automatic extension or stock increase',
+            'Resolve lower-row S1 occupation AND source role/order/full input routes together before next heavy run',
+            'No third casing-only gate; mutual input clearance and all changed endpoints still open'],
+        geometry_gate_source_snapshot_commit='eeca478',
+        source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in (
+            OUT/'shared-allocation-plan.json',OUT/'shared-allocation-checks.json',
+            Path(__file__),Path(V.__file__))},finished_utc=datetime.now(timezone.utc).isoformat())
+    (OUT/'shared-input-length-plan.json').write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
+    print(json.dumps(dict(status=p['status'],rows=[{k:r[k] for k in ('holder','required_blank_mm','limit_mm','exceeds_limit')} for r in rows])),flush=True)
 
 
 def build_plan():
@@ -196,4 +259,6 @@ def main():
     print(json.dumps({k:result[k] for k in ('status','contacts','outside_torso','errors','input_necessary_bounds','tested_pairs','worker_seconds')}),flush=True)
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    if '--input-length-plan' in sys.argv:save_input_length_preflight()
+    else:main()

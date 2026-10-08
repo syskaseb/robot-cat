@@ -37,5 +37,28 @@ class SharedAllocation(unittest.TestCase):
         self.assertTrue(all(r['both_factory_tail_reservations_mm']==100 for r in p['mts']))
         self.assertTrue(all(r['tail_length_not_catalog'] for r in p['mts']))
 
+    def test_exact_three_dimensional_factory_dogleg(self):
+        r=D.input_recipe([-40,25.5,125],[-53.5,51.25,120],[0,1,0])
+        self.assertGreaterEqual(r['first_straight_mm'],3)
+        self.assertEqual(r['grip_straight_mm'],9)
+        self.assertLess(r['centreline_mm']+14,50)
+        parts=r['segments']
+        self.assertEqual(parts[0]['start'],[-40,25.5,125])
+        self.assertEqual(parts[-1]['end'],[-53.5,51.25,120])
+        for a,b in zip(parts,parts[1:]):self.assertLess(D.math.dist(a['end'],b['start']),1e-7)
+
+    def test_straight_distance_can_pass_while_full_bent_blank_fails(self):
+        a=[-15,-25.5,125];b=[37.75,-52.75,120]
+        self.assertLess(D.math.dist(a,b)+11,84.5)
+        r=D.input_recipe(a,b,[0,-1,0])
+        self.assertGreater(r['centreline_mm']+11,84.5)
+        self.assertFalse(r['supplier_bend_or_mutual_clearance_qualified'])
+
+    def test_small_shift_uses_shallow_arcs_without_negative_middle(self):
+        r=D.input_recipe([35,25.5,125],[33,51.25,120],[0,1,0])
+        self.assertLess(r['arc_angle_deg'],90)
+        self.assertEqual(len(r['segments']),4)
+        with self.assertRaises(ValueError):D.input_recipe([0,0,0],[20,15,0],[0,1,0])
+
 
 if __name__=='__main__':unittest.main()
