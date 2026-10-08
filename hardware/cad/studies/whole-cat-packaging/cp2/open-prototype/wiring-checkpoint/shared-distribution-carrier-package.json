@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "original_contacts_retained": [
+    {
+      "a": "LeftDistributionCarrier",
+      "b": "retained/SourceLeftCarrier",
+      "volume_mm3": 141.4270000000066
+    },
+    {
+      "a": "LeftDistributionCarrier",
+      "b": "retained/F_AUX_OutputGuide",
+      "volume_mm3": 25.132741228718327
+    },
+    {
+      "a": "RightDistributionCarrier",
+      "b": "retained/F_TY_OutputGuide",
+      "volume_mm3": 34.77871049473784
+    }
+  ],
+  "contacts_with_replacements_are_NOT_waived": true,
+  "replacement_scope": "All5source placements/restraints invalidated by shared-allocation-plan;3old interfaces must be replaced before integration",
+  "contacts": [],
+  "errors": [],
+  "tested_pairs": 6,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-distribution-carrier-checks.json": "e989d489dd0bb359085cd7d8c8ae5a2a451061c9474dfa0e77e5bc54374adee0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "tools/cad/open_prototype_distribution_carrier_finish.py": "587badb37a3301565738eee454345a4ffe562fd94b7a6fb319840fab14d1e9e6"
+  },
+  "quantities": {
+    "LeftDistributionCarrier": 1,
+    "RightDistributionCarrier": 1,
+    "DistributionSpacer": 4
+  },
+  "hardware_added": {
+    "M3x30": 0,
+    "M3_washer": 0,
+    "M3_nut": 0
+  },
+  "assembly": [
+    "Fit shorter four spacers and paired carriers; tighten four recessed bolts BEFORE adhesive WAGO installation",
+    "Install lower WAGO then upper WAGO at retained2.49mm retention offset; adhesive is NOT wire strain relief",
+    "Rail service requires local adhesive release of obscuring cases; not a claim of driver access through installed WAGO",
+    "Routine ATO service must not require rail removal or74 WAGO disconnections"
+  ],
+  "nominal_stack": {
+    "spacer_bottom_z_mm": 47.72,
+    "spacer_height_mm": 8.28,
+    "boss_bottom_z_mm": 56,
+    "well_floor_z_mm": 58,
+    "washer_z_mm": [
+      58,
+      58.5
+    ],
+    "underhead_z_mm": 58.5,
+    "head_top_z_mm": 61.5,
+    "screw_tip_z_mm": 28.5,
+    "nut_z_mm": [
+      36.82,
+      39.22
+    ],
+    "thread_protrusion_mm": 8.32,
+    "bearing_floor_mm": 2
+  },
+  "manufacturing": {
+    "material": "PETG",
+    "orientation": "WorldZ up after bed translation; upper bridge undersides need removable supports review in phase2",
+    "printer_cube_mm": [
+      256,
+      256,
+      256
+    ],
+    "total_reserved_margin_mm": 10,
+    "nozzle_layer_profile": "UNSET",
+    "physical_gates": [
+      "Bearing/creep/upper bridge stiffness",
+      "Delivered fastener/adhesive fit coupons",
+      "Support removal/electrical isolation"
+    ]
+  },
+  "fresh_relocated_reopen": true,
+  "driver_scope": "Four nominalOD3/40mm install budgets BEFORE WAGO/source wiring; not routine access through installed blocks",
+  "status": "CONDITIONAL_CARRIER_EXPORTS_SOURCE_REPLACEMENT_OPEN",
+  "exports": {
+    "LeftDistributionCarrier.stl": "eb4660d565f6b1ed3fa06d097e9f0dc886a98dfab3aa2a5607bd7427c399d21d",
+    "RightDistributionCarrier.stl": "3d12ab15aa35143c2e7a084d2778310cc1523599b853a6bbae1b9d3ddece95e7",
+    "DistributionSpacer.stl": "ddd48eefe15578b88d64d92b6b0d912645e559bf38990ed0565fb5daaacaf78f"
+  },
+  "print_dimensions_mm": {
+    "LeftDistributionCarrier": [
+      205.0,
+      84.25,
+      57.010000000000005
+    ],
+    "RightDistributionCarrier": [
+      205.0,
+      84.25,
+      57.010000000000005
+    ],
+    "DistributionSpacer": [
+      8.0,
+      8.0,
+      8.28
+    ]
+  },
+  "files": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd",
+      "sha256": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-distribution-carrier-checks.json",
+      "sha256": "e989d489dd0bb359085cd7d8c8ae5a2a451061c9474dfa0e77e5bc54374adee0"
+    },
+    {
+      "path": "tools/cad/open_prototype_distribution_carrier_finish.py",
+      "sha256": "587badb37a3301565738eee454345a4ffe562fd94b7a6fb319840fab14d1e9e6"
+    },
+    {
+      "path": "tools/cad/open_prototype_shared_distribution_carriers.py",
+      "sha256": "fca62f68c7f033f2084052bc8ea61f9d6c0177f4ec379985ebae1146739bacc5"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LeftDistributionCarrier.stl",
+      "sha256": "eb4660d565f6b1ed3fa06d097e9f0dc886a98dfab3aa2a5607bd7427c399d21d"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/RightDistributionCarrier.stl",
+      "sha256": "3d12ab15aa35143c2e7a084d2778310cc1523599b853a6bbae1b9d3ddece95e7"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/DistributionSpacer.stl",
+      "sha256": "ddd48eefe15578b88d64d92b6b0d912645e559bf38990ed0565fb5daaacaf78f"
+    }
+  ],
+  "gates": {
+    "geometry": {
+      "status": "open",
+      "reason": "3old source interfaces require coherent replacement integration"
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Full wired assembly/removal open"
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Delivered hardware/adhesive/connector coupons phase2"
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Support/bearing/creep/profile not physically qualified"
+    },
+    "loads": {
+      "status": "open",
+      "reason": "Prototype stiffness/creep gate remains"
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "Wiring/insulation/protection remain open"
+    },
+    "service": {
+      "status": "open",
+      "reason": "Full source access remains"
+    }
+  },
+  "worker_seconds": 19.280999999959022,
+  "finished_utc": "2026-10-08T19:27:57.769180+00:00"
+}

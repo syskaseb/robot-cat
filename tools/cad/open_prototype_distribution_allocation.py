@@ -78,6 +78,79 @@ def save_input_length_preflight():
     print(json.dumps(dict(status=p['status'],rows=[{k:r[k] for k in ('holder','required_blank_mm','limit_mm','exceeds_limit')} for r in rows])),flush=True)
 
 
+def hardware_gate():
+    """Only newly relevant purchased mount hardware; reuse337b6c6 geometry gate.
+
+    Replay the frozen recipes, not a second whole-layout audit. No casing-only
+    retries or blanket clearance from an omitted hardware group.
+    """
+    import FreeCAD as A
+    import Part
+    tick=time.monotonic();plan=read(OUT/'shared-allocation-plan.json')
+    proof=read(OUT/'shared-allocation-checks.json')
+    assert not any(proof[k] for k in ('contacts','outside_torso','errors'))
+    assert sha(MOUNTS)==proof['source_sha256'][MOUNTS.relative_to(ROOT).as_posix()]
+    assert sha(CONTEXT)==proof['source_sha256'][CONTEXT.relative_to(ROOT).as_posix()]
+    docs=[A.openDocument(str(p)) for p in (MOUNTS,CONTEXT)]
+    mount,ctx=docs;new={};targets={};groups=[]
+    result=dict(status='PENDING',contacts=[],errors=[],tested_pairs=0,
+        previous_case_and_input_geometry_snapshot='337b6c6',selected=False,
+        stage_completed=False,physical_pass=False,
+        source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in (
+            MOUNTS,CONTEXT,OUT/'shared-allocation-plan.json',OUT/'shared-allocation-checks.json',Path(__file__))})
+    try:
+        for r in plan['distribution']+plan['mts']:
+            o=mount.getObject(r['native']) or ctx.getObject(r['native'])
+            s=o.Shape.copy();b=s.BoundBox
+            c=A.Vector((b.XMin+b.XMax)/2,(b.YMin+b.YMax)/2,(b.ZMin+b.ZMax)/2)
+            s.translate(A.Vector(*r['centre_mm'])-c);new[r['native']]=s
+        def tube(parts,diameter):
+            edges=[Part.makeLine(A.Vector(*p['start']),A.Vector(*p['end'])) if p['kind']=='line' else
+                Part.Arc(A.Vector(*p['start']),A.Vector(*p['mid']),A.Vector(*p['end'])).toShape() for p in parts]
+            first=edges[0]
+            return Part.Wire(edges).makePipeShell([Part.Wire([Part.makeCircle(diameter/2,first.valueAt(first.FirstParameter),first.tangentAt(first.FirstParameter))])],True,False)
+        for r in plan['holders']:
+            name=r['holder'];axis=A.Vector(*r['axis']);p=A.Vector(*r['input_mm'])
+            s=mount.getObject(name+'_body_budget_CurrentReference').Shape.copy();b=s.BoundBox
+            c=A.Vector((b.XMin+b.XMax)/2,(b.YMin+b.YMax)/2,(b.ZMin+b.ZMax)/2)
+            s.translate(-c);rot=A.Rotation(A.Vector(1,0,0),axis)
+            s.rotate(A.Vector(0,0,0),rot.Axis,rot.Angle*180/math.pi)
+            s.translate(p+axis*25.5+A.Vector(0,0,1));new[name+'/case']=s
+            inlet=next(q for q in plan['input_recipes'] if q['holder']==name)
+            new[name+'/input']=tube(inlet['recipe']['segments'],4)
+            p=A.Vector(*r['output_mm']);a=p+axis*3;c=a+A.Vector(0,0,-6)
+            b=c+axis*6;mid=c+(axis+A.Vector(0,0,1))*(6/math.sqrt(2));cut=b+A.Vector(0,0,-15)
+            new[name+'/output']=tube([dict(kind='line',start=list(p),end=list(a)),
+                dict(kind='arc',start=list(a),mid=list(mid),end=list(b)),
+                dict(kind='line',start=list(b),end=list(cut))],4)
+            new[name+'/sleeve']=Part.makeCylinder(3,26.5,cut+A.Vector(0,0,14),A.Vector(0,0,-1))
+            new[name+'/new_grip']=Part.makeCylinder(1.05,21.5,cut,A.Vector(0,0,-1))
+        for group in mount.Objects:
+            if 'Group' not in group.PropertiesList or 'Hardware' not in group.Name:continue
+            members=[o for o in group.Group if 'Shape' in o.PropertiesList and not o.Shape.isNull()]
+            groups.append(dict(group=group.Name,parts=[o.Name for o in members]))
+            targets.update({o.Name:o.Shape for o in members})
+        assert {'NominalMountHardware','SideMountHardware','U1NominalMountHardware'}.issubset({g['group'] for g in groups})
+        assert targets,'Missing retained hardware is not clearance'
+        for n,s in new.items():
+            assert s.isValid() and len(s.Solids)==1 and not s.check(True),n
+            for m,t in targets.items():
+                if not s.BoundBox.intersect(t.BoundBox):continue
+                result['tested_pairs']+=1
+                try:
+                    assert t.isValid();hit=s.common(t);assert hit.isValid()
+                    if hit.Volume>1e-5:result['contacts'].append(dict(a=n,b=m,volume_mm3=hit.Volume))
+                except Exception as e:result['errors'].append(dict(a=n,b=m,error=str(e)))
+        result.update(hardware_groups=groups,hardware_part_count=len(targets),
+            status='RETAINED_HARDWARE_REQUIRES_SHARED_MOUNT_CHANGE' if result['contacts'] or result['errors'] else 'RETAINED_HARDWARE_CLEAR_NEW_SUPPORTS_STILL_OPEN')
+    finally:
+        for doc in docs:A.closeDocument(doc.Name)
+    assert all(sha(ROOT/p)==h for p,h in result['source_sha256'].items())
+    result.update(worker_seconds=time.monotonic()-tick,finished_utc=datetime.now(timezone.utc).isoformat())
+    (OUT/'retained-hardware-interface-checks.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+    print(json.dumps({k:result[k] for k in ('status','hardware_part_count','tested_pairs','contacts','errors','worker_seconds')}),flush=True)
+
+
 def build_plan():
     rows = read(BASE/'mounting-checkpoint/distribution-mount-plan.json')['distribution']
     # Reorder equal615 roles together with source roles. AUX then reaches
@@ -306,7 +379,8 @@ def main():
 
 
 if __name__=='__main__':
-    if '--input-length-plan' in sys.argv:save_input_length_preflight()
+    if '--hardware-gate' in sys.argv:hardware_gate()
+    elif '--input-length-plan' in sys.argv:save_input_length_preflight()
     elif '--proposed-input-plan' in sys.argv:
         p=build_plan()
         compact={k:p[k] for k in ('status','distribution','holders','input_recipes','allocation_cause_change','previous_geometry_snapshot_commit','source_sha256','selected','stage_completed','physical_pass')}

@@ -1,0 +1,93 @@
+{
+  "status": "NATIVE_CARRIERS_HAVE_OPEN_INTERFACES",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-plan.json": "eb89ebf220cb8cfafd772dc90ddec4cd543a23a7a4b0064ef940802e6d7273d5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-checks.json": "12ac62b5763222800488b89a85d5ae0258441e318798a97137507b1520ce7c36",
+    "tools/cad/open_prototype_shared_distribution_carriers.py": "fca62f68c7f033f2084052bc8ea61f9d6c0177f4ec379985ebae1146739bacc5"
+  },
+  "reused_geometry_snapshot": "337b6c6",
+  "contacts": [
+    {
+      "a": "LeftDistributionCarrier",
+      "b": "retained/SourceLeftCarrier",
+      "volume_mm3": 141.4270000000066
+    },
+    {
+      "a": "LeftDistributionCarrier",
+      "b": "retained/F_AUX_OutputGuide",
+      "volume_mm3": 25.132741228718327
+    },
+    {
+      "a": "RightDistributionCarrier",
+      "b": "retained/F_TY_OutputGuide",
+      "volume_mm3": 34.77871049473784
+    }
+  ],
+  "errors": [],
+  "outside_torso": [],
+  "tested_pairs": 203,
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "hardware_quantity_change": {
+    "M3x30": 0,
+    "M3_washer": 0,
+    "M3_nut": 0
+  },
+  "assembly": [
+    "Fit shorter four spacers and paired carriers; tighten four recessed bolts BEFORE adhesive WAGO installation",
+    "Install lower WAGO then upper WAGO at retained2.49mm retention offset; adhesive is NOT wire strain relief",
+    "Rail service requires local adhesive release of obscuring cases; not a claim of driver access through installed WAGO",
+    "Routine ATO service must not require rail removal or74 WAGO disconnections"
+  ],
+  "open_gates": [
+    "Independent wire restraints/full outputs/MTA mounts/tails/S1/PWM/stock remain open",
+    "PETG print/bearing/creep and nominal bolt/adhesive fit need phase2",
+    "Supplier pad/cavity dimensions remain delivery gates"
+  ],
+  "parameter_test": {
+    "depth_mm": [
+      3,
+      2.5,
+      3
+    ],
+    "matching_bolt_and_washer_moved": true,
+    "restored": true
+  },
+  "native_geometry": {
+    "valid_solids": 3,
+    "strict_bop_errors": 0,
+    "volumes_mm3": {
+      "LeftDistributionCarrier": 29811.985479442963,
+      "RightDistributionCarrier": 29867.48547944305,
+      "DistributionSpacer": 341.0223958212949
+    },
+    "fully_constrained_sketches": 27,
+    "bearing_floor_mm": 2,
+    "nominal_head_case_gap_mm": 1.99,
+    "short_spacer_mm": 8.28
+  },
+  "print_dimensions_mm": {
+    "LeftDistributionCarrier": [
+      205.0,
+      84.25,
+      57.010000000000005
+    ],
+    "RightDistributionCarrier": [
+      205.0,
+      84.25,
+      57.010000000000005
+    ],
+    "DistributionSpacer": [
+      8.0,
+      8.0,
+      8.28
+    ]
+  },
+  "reopen_geometry_restored": true,
+  "model_sha256": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
+  "worker_seconds": 139.56300000008196,
+  "finished_utc": "2026-10-08T19:24:36.787699+00:00"
+}
