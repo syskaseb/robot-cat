@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "stage_completed": true,
+  "physical_pass": false,
+  "current_set": "mount-current-set.json",
+  "scope": "Stage2 only; user-authorized adjustable/regeneratable attachment with delivered fit gate",
+  "delivery_gates": [
+    {
+      "id": "DELIVERED_U1",
+      "status": "OPEN",
+      "required_before": "Print/assemble provisional local attachment",
+      "checks": [
+        "Actual holes/diameter/thickness and unchanged supplier revision",
+        "Both-side no-pad/solder bearing regions at all spacers/insulators",
+        "Actual pad mapping and every local connection within50mm with bends/ends",
+        "PETG coupon/creep/insulation and actual tools",
+        "No energizing while any electrical safety gate OPEN"
+      ]
+    },
+    {
+      "id": "WAGO_BOND_AND_LEVERS",
+      "status": "OPEN",
+      "required_before": "Use body retention",
+      "checks": [
+        "Delivered exact tape revision/thickness and usable casing underside bonding area",
+        "PETG and connector substrate bond, peel/shear/creep at intended temperature, unpowered first",
+        "Actual lever/test-port operation and wire entry remain free; operator holds casing",
+        "Actual cable loads retained independently, no wire-pull load accepted from nominal adhesive area",
+        "No prototype use if bond/casing support fails; replace local retention without repeating baseline mounts"
+      ]
+    },
+    {
+      "id": "POPULATED_FIT",
+      "status": "OPEN",
+      "required_before": "Physical acceptance",
+      "checks": [
+        "Delivered spines/solder/USB/AUX/actual tools",
+        "PETG coupon, insulation, bearing/creep/torque",
+        "Assembly order: U1 before above MTA; full screw extraction requires MTA absent"
+      ]
+    },
+    {
+      "id": "LATER_WIRING",
+      "status": "OUTSIDE_STAGE2",
+      "required_before": "Powered prototype",
+      "checks": [
+        "Actual adapter continuity/pin map and every local route <=50mm including ends/bends",
+        "Independent wire strain relief, all wire endpoints reflect WAGO rise2.49..3mm",
+        "Full wiring/stock/E3 and connected service remain unqualified"
+      ]
+    }
+  ],
+  "gates": {
+    "geometry": {
+      "status": "open",
+      "reason": "Changed local geometry clear; delivered adapter pad/support map is still unknown"
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Nominal hardware/staged tools complete; delivered tools and U1 bearing fit untested"
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Delivered adapter/casings/solder/USB fit gates OPEN; do not print guessed local attachment before measuring"
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Layer/support/creep/insulating coupon and actual profile OPEN; no slicer"
+    },
+    "loads": {
+      "status": "open",
+      "reason": "No physical bond/peel/creep/torque qualification"
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "No power; E3 and actual adapter continuity/map OPEN"
+    },
+    "service": {
+      "status": "open",
+      "reason": "Nominal key sector clear; full connected harness/service and actual lever operation OPEN"
+    }
+  },
+  "files": [
+    {
+      "path": "hardware/cad/studies/full-cat-board-carrier/r6/isolation.json",
+      "sha256": "a36efbde9165421a6b24b8f51fef17c4db29e8ce11c4a341e94f0767104073bc"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/NeckMainMount.FCStd",
+      "sha256": "2e2a810418157f39f305a8869a784692597414f4c3ab6e0178f623be12e56988"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+      "sha256": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMountAssembly.FCStd",
+      "sha256": "e2078561889257e643ed74e6f0d3e4f9114d7537501005ca1365866b19966823"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/BoardMounts.FCStd",
+      "sha256": "5945c1d89ec4fbaf4d47e00da9cb36fe432915d253e9098f985abe1dfa32775d"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/DistributionMounts.FCStd",
+      "sha256": "82dbd47f7be12a4bfbde38a5a414f9fa9f761d2e1307ec36f676eaf86ab40de8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/InsulatedMounts.FCStd",
+      "sha256": "24b5348e8fe6f05f1468f4e7eee67ea54e8b65f668e7ee24e30b2667f27308f0"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerCarrierIntegrated.stl",
+      "sha256": "b029370a3a06906d455d4466d4badffa203788b413401773bf6e546cfa16a8b8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerClampJaw.stl",
+      "sha256": "540011318755f484f1f7fb5988b13228130ae37b06f54293064d0f2b93e95ae2"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/Mounts.FCStd",
+      "sha256": "7fb4c3cdbf51333ce07b06364a2e8bea83f2ea8ef9007a86ac81b59eb5e9cfd8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/MountsCurrent.FCStd",
+      "sha256": "c218aecd10cfdee6c9e3cb5137de7ca0a9fc0c4b0a01b210c7a8269274b09c35"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/PwmInsulatingWasher.stl",
+      "sha256": "01f961afada7fac56d5a92eca90a5937a9674bab6263008ec5e72fa8e08c9977"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/README.md",
+      "sha256": "ab6dfc884aa7265afc2f0e6a409e00b0f9abfd45052bedef8941fbea02100e9d"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+      "sha256": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsCandidate.FCStd",
+      "sha256": "fc06910570c642ff7ea15e2dc41eac7e51bf6895e2ad8142b9cb48f07c1d5035"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/SideDistributionRailIntegrated.stl",
+      "sha256": "0a0e902ea35e0863a0c31ee123210452bd8e7c31de6870a9bbf48408d988c4dc"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/SideRailSpacerIntegrated.stl",
+      "sha256": "e708c144b71ac73f03fd07d4d1338c07d1a198c80235c389514cc1d3b4cd5440"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/TopClampPad.stl",
+      "sha256": "925bbcfaa452a3afdf749094ed63b3cda654c5c6b357b8218de79c68e7e7fd95"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1InsulatingSpacerRetention.stl",
+      "sha256": "98d4a5b4dbbfbf90852a3c24d023bc370e2aaf996dc5adbab5505c61ca078ee4"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1SideSupportCandidate.FCStd",
+      "sha256": "f6b67945a9586a65bf0e57b8e614e9eaf63a9d446dcced7e609ea4b301004523"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1TopInsulatorRetention.stl",
+      "sha256": "7e696355c6a8efebd2f9c89dabfc7ebadb6c74f93a30a6e76c597459af6fa231"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperCarrierRetention.stl",
+      "sha256": "d9fdcd06770906c3ea208987d32970cdc4fdcd0716aa163ac752964275579a6f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperSpacer.stl",
+      "sha256": "4d8eed4e8a8e889339c09353504ff6805119f93347353c92b346bd57cc2b3e5b"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-hardware-checks.json",
+      "sha256": "5fdb1f0176ef10d721723d53c32dc3e04b1c1d4bfb27af35372c7c4daabe2b07"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-checks.json",
+      "sha256": "a18eed6fc8e34086ff0aa57c68d430cf8c014dbb0491cf226c7366f93bf95827"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-mount-plan.json",
+      "sha256": "1252ec7e92d84763d626d6cd9f1bfe5b36319840a2b3093b01acc22d569b5abe"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/board-rear-tool-checks.json",
+      "sha256": "5089b9af36bf3c2a1d55665b33d63a66074f450faff35e8619026778cbaf2ee9"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/distribution-mount-checks.json",
+      "sha256": "5c5a6d1d44dc9c46f86b31aef23b321734a9bde95691e35fde5a2aec846147bc"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/distribution-mount-plan.json",
+      "sha256": "dbff461dd2a157f454122afa0d6afee6d3d079fdeb878b1fbde46ea8c1a74a5a"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/main-expression-checks.json",
+      "sha256": "2b05581bb191c9b99fcf7963c4fbf96d88801320c4da4d9968c306b135307c73"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/mount-current-set.json",
+      "sha256": "90610110ca9c08bf90e27419d2e6bc405c4d31cba9937eba3ea373c7960f24df"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/pwm-flat-insulator-checks.json",
+      "sha256": "f270522323ab0d35fe64984db4e719add9000e3f037533d48be18f62b4360095"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/pwm-mount-isolation-checks.json",
+      "sha256": "34d631aad3f92353255e13d86371a85aeee926c2b67175d505a769624c391482"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/retention-plan.json",
+      "sha256": "c008519439086d59db15ff542391391656a679277dd25d87a7b44c78a0a50f64"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/shared-retention-mount-checks.json",
+      "sha256": "5a605d2a1fb620bd95ba06c8b30c9fb6a9750cfba23431508389945ef03566c6"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/u1-shared-mount-plan.json",
+      "sha256": "2535703ef6c27a31a8da4223f3a3499acba794dc985b03223932192ca5994f5a"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/u1-side-support-checks.json",
+      "sha256": "e7bd9ea47376fbb86acf2b2ae7b9ca68a84ba5cb3074f200fbe9fbdd408a1dea"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/wago-retention-checks.json",
+      "sha256": "373b41be5096108328907273be3e0fa89dcae95da890d0dfd74723b438c9c64f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/wago-retention-plan.json",
+      "sha256": "ae39156ece56e636ef98f59bab84c568e46df14106e4ff08251c90b177592452"
+    },
+    {
+      "path": "hardware/electronics/full-cat/board-interfaces-r1/interfaces.json",
+      "sha256": "74e1b7e490a0805dc8143d4eff6d7c1e8f56a6fab0a0fcc56cd6a96770d0fabd"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pi-bus-primary-r1/PCB.brep",
+      "sha256": "6c15a9ea300e60980d76cb829ee2c0d77632328ca9a7bdb4950771ddb0d0042c"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pi-power-usb-r1/plan.json",
+      "sha256": "530b14d08be9ed53278985bd02fa49bfe692b6ebc0c6cc85e2e819d8114a7254"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pwm-carrier-r3/population.json",
+      "sha256": "fb128428d64701c7d317682218c4a909b70c8eff2339dd36ff2ddaebe929f793"
+    },
+    {
+      "path": "hardware/reference/permaproto1608-2026-09-26/quarterbreadboard.brd",
+      "sha256": "b329d14973c2eb572492f387ae6f7c2a6c35cb5a517b88785b4b7b79083cb617"
+    },
+    {
+      "path": "hardware/reference/pi-interface-2026-10-01/pi4-mechanical.pdf",
+      "sha256": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809"
+    },
+    {
+      "path": "hardware/reference/u1-adapter-2026-09-26/source.json",
+      "sha256": "96f4f6cfadf3bc03a9207be4826de54ef09a20eec1e3560bbd0e5336ae0631b4"
+    },
+    {
+      "path": "tools/cad/open_deck_p0_plate.py",
+      "sha256": "6d97143f5e71c77adb75ec5ffe9823330cd60538e0ab4d2053281430b16d3596"
+    },
+    {
+      "path": "tools/cad/open_deck_p0_supports.py",
+      "sha256": "436357b24c3bf126a627b2cc0880d964788b04e3eb21a04b47cd746b5e27151b"
+    },
+    {
+      "path": "tools/cad/open_prototype_board_hardware.py",
+      "sha256": "204a7f3b1cdd82de9ca19bc49f0afc1291ab0a583fa2b6093d4aaec6765a50d9"
+    },
+    {
+      "path": "tools/cad/open_prototype_board_mounts.py",
+      "sha256": "52b3144cefc86f30d28f3e863cb79d735c95b96ea2c842c9054cf2010632b2e7"
+    },
+    {
+      "path": "tools/cad/open_prototype_distribution_mounts.py",
+      "sha256": "8bc3e93476656f4da0a2ba612313319d7f50f59971569793c83c8927eaeb02fe"
+    },
+    {
+      "path": "tools/cad/open_prototype_mounts.py",
+      "sha256": "7a098bd7756dcb4a230e3d8890d6302d1928ab9a3977961f73d4967e63558c9e"
+    },
+    {
+      "path": "tools/cad/open_prototype_pwm_flat_insulators.py",
+      "sha256": "7e2f97e467b8a8fa5ac022f179e9c80083c1fa016fb15f87014569da1f1b54ad"
+    },
+    {
+      "path": "tools/cad/open_prototype_pwm_mount_isolation.py",
+      "sha256": "e073ae62a569ad95cac91d1ac14a059fe53266afe1b825d160a10634c2beca7e"
+    },
+    {
+      "path": "tools/cad/open_prototype_rear_nut_access.py",
+      "sha256": "0f63ce5d1cca66d6a03b62a9ea2031e452d1a50c17fad75f72be1b65380b6e4e"
+    },
+    {
+      "path": "tools/cad/open_prototype_shared_retention_mounts.py",
+      "sha256": "2c18d47a7e0abb84aa23bb7ad5fd492de901768cbe6ef26bfa93f9c6248778fa"
+    },
+    {
+      "path": "tools/cad/open_prototype_u1_side_support.py",
+      "sha256": "f2739d954b85c7267dac9270c362d0084931a66484e348703001c3957ab02484"
+    },
+    {
+      "path": "tools/cad/open_prototype_wago_retention.py",
+      "sha256": "6e73ec61e56e098fbb80bde90547f5a475b3a6729e2ea20c280e7a1a73f441d9"
+    },
+    {
+      "path": "tools/cad/package_open_prototype_retention.py",
+      "sha256": "b58bbfd32ee7ef187f9e1024148763139906e3693d1bd6051d2dc39db6fe3eeb"
+    },
+    {
+      "path": "tools/cad/release_check.py",
+      "sha256": "4be4549285fc0185d5b7e16e90709326f69e68d83f2764e9f84a3f347a92bfd4"
+    },
+    {
+      "path": "tools/cad/whole_cat_interior.py",
+      "sha256": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998"
+    }
+  ]
+}

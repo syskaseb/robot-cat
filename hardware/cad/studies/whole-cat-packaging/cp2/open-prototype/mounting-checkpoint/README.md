@@ -1,13 +1,41 @@
 # Bieżące mocowania otwartego prototypu, etap 2
 
-Aktualna kopia rozwojowa: **MountsCurrent.FCStd**. Jedyna bieżąca lista
-wydruków jest w `mount-current-set.json`: **8 geometrii / 22 sztuki**, nie
-wszystkie historyczne STL w katalogu. To mocowania tego modułu, nie liczba
-części całego kota. 29 śrub; 2 górne metalowe podkładki PWM1608 zastąpione
-własnymi płaskimi izolatorami PETG Ø5/Ø2,4 × 1 mm. Nie kupowano osprzętu.
+Aktualna kopia: **RetentionMountsAssembly.FCStd**. Jedyna bieżąca lista
+wydruków w `mount-current-set.json`: **10 geometrii / 26 sztuk**, nie
+wszystkie historyczne STL w katalogu. To mocowania modułu, nie cały kot.
+31 śrub, w tym2M2×10 dla U1;20par/40kawałków20×10mm SJ4570 jako kandydat
+retencji WAGO od spodu.40opasek przez dźwignie nie należy do tego zestawu.
+Monitor zachowuje2opaski. Nie kupowano osprzętu ani materiałów.
 
-Stan: **etap 2 OPEN, bez gotowości do druku i bez fizycznego PASS**.
+Stan: **przygotowanie prowizorycznych mocowań etapu2 kompletne**, zgodnie
+z jawną zgodą na regulowany/wymienny uchwyt i bramkę po dostawie. Nadal
+**bez gotowości do druku i bez fizycznego PASS**. Dopasowanie U1, klejenie
+WAGO i rzeczywiste obciążenia NIE są zatwierdzone. Przed drukiem lokalnego
+mocowania U1 należy zmierzyć dostarczony adapter i dopasować parametry.
 Minimum zweryfikowanej fazy 1 nadal 3/20 = 15%, bez punktów za fragmenty.
+
+### Aktualna retencja i kolejność
+
+U1 obrócony270°, środekX88/Y28. Integralna wąska podniesiona półka
+X77..97/Y11..45/Z87,52..90,02, dystanse4mm,2wpuszczane nakrętki od góry.
+Cały zaprojektowany pierścień oparcia obu stóp ma podparcie; otwarta
+kieszeń nakrętki pozostawia74,882997% nominalnego pierścienia. Nie jest
+to ocena wytrzymałości. Krótki nominalny L-klucz ma wspólną obwiednię
+60°/3mm unoszenia przy osadzonych śrubach; brak kontaktów z otoczeniem.
+**U1 montować przed MTA nad nim; pełne wykręcenie śrub wymaga zdjęcia MTA.**
+Nie dowodzi to serwisu już połączonej wiązki ani konkretnego kupnego klucza.
+
+`shared-retention-mount-checks.json`:30zmienionych par,0kontaktów/0błędów,
+parametry otworów/wysokości i przeniesione otwarcie poprawne,3zamknięteSTL
+z brimem5mm mieszczą się w256³. S1 i4MTA pozostają na miejscu. Wariant
+boczny z kontaktem rzeczywistych końcówekS1 odrzucony, zapisany wGit
+`a813d8a`; nie wybierać go ani nie drukować.
+
+WAGO zachowują istniejące listwy i XY;20podkładek ma nominalne pełne
+200mm² podparcia. Typowe2,49mm z karty3M2024, projektowy limit miejsca3mm,
+nie tolerancja producenta. Położenia końców przewodów muszą uwzględnić
+podniesienie korpusów w następnym etapie. Klej NIE zastępuje odciążenia
+przewodów. Dokładne bramki/montaż są w aktualnej liście i planach U1/WAGO.
 
 ## Co rzeczywiście sprawdzono
 
@@ -39,7 +67,13 @@ Mocowania mają własne mastery i linki; odniesienia płyt/sprzętu to zapisane
 bryły dostawcy lub jawne rezerwacje. Nie jest to migracja całego robota do
 natywnych więzów solvera. P0, R47, E6, 15 napędów i MG92B zachowane.
 
-## Dlaczego nie zamykamy etapu
+## Zachowane historyczne blokady i ich obecna dyspozycja
+
+Poniższy opis dotyczył zestawu `MountsCurrent/7e1e64f`. Karta/mapa U1
+nie pojawiła się magicznie: nieznane dane pozostają bramkami dostawy.
+Do przygotowania prowizorycznego prototypu użytkownik zatwierdził uchwyt
+parametryczny. Retencję przez dźwignie zastąpiono podkładkami od spodu.
+Nie traktować poniższych dawnych recept jako aktualnych części do druku.
 
 1. **U1/Kamami575070**: obrys30,48×17,78 i raster2,54 są podane przez
    [dostawcę](https://kamami.pl/en/Adapters-SMD-DIP/575070-sop24-pcb-adapter-for-dip24-5906623456895.html).
@@ -60,21 +94,20 @@ natywnych więzów solvera. P0, R47, E6, 15 napędów i MG92B zachowane.
    Pełna wiązka/długości/stock i elektryczne bramki należą do innych prac,
    nie służą do sztucznego wypełnienia tego okna.
 
-Następny użyteczny checkpoint: rozwiązać **retencję U1 i WAGO**, zachowując
-sprawdzone mocowania płyt. Najpierw wiarygodne mapy/model obudowy i montażu
-albo jawnie zatwierdzony prosty, wymienny wariant; potem jeden wspólny
-układ i tylko zmienione kontrole. Nie ponawiać MAIN, fundacji, tylnej nasadki
-ani geometrii ramion/listw. Bez danych nie podajemy czasu ukończenia;
-po uzyskaniu wejść pierwszy ograniczony blok planu/mocowania45–90 min,
-nie obietnica zamknięcia całej fazy.
+Następny checkpoint wymaga osobnej zgody: **etap3 wiązki**, rzeczywista
+mapa U1/krótkie końce, niezależne odciążenia, pełne trasy/długości/stock.
+Nie ponawiać MAIN, fundacji, tylnej nasadki ani niezmienionych listw.
+Zmiany U1/WAGO unieważniają dawne wysokości końców, nie całe zachowane CAD.
 
 ## Integralność i wydanie
 
-`tools/cad/verify_open_prototype_integrated_mounts.py` sprawdza57 przypięć
-źródeł; `mount-release.json` wiąże47 plików. Kontrola integralności
-checkpointu przechodzi, `--require-print-ready` prawidłowo odmawia.
-Nie uruchamiać starego weryfikatora lokalnych pięciu wydruków jako wyboru
-aktualnego zestawu; wygenerowałby listę sprzed dołożenia dystrybucji.
+Aktualne wydanie: `retention-release.json`; kontrola pakietu
+`tools/cad/package_open_prototype_retention.py`, wynik w
+`retention-integrity-checks.json`. Kontrola integralności musi przejść,
+`--require-print-ready` nadal musi odmówić. `mount-release.json`, poprzedni
+README/lista i ich47pinów pozostają historycznym snapshotem7e1e64f wGit.
+Nie uruchamiać starego weryfikatora jako wyboru obecnego zestawu: cofnąłby
+listę do8geometrii i opasek przez dźwignie. Historyczne CAD zachowano.
 
 Historyczne kopie i odrzucona tulejka są dowodami, nie dodatkowymi częściami
 do druku. Źródła historyczne zachowane; bez pushów, maila i resetu limitu.

@@ -1,25 +1,17 @@
 {
-  "status": "INTEGRATED_DEVELOPMENT_MOUNTS_STAGE2_BLOCKED_NOT_PRINT_READY",
+  "status": "STAGE2_PROVISIONAL_MOUNT_PREPARATION_COMPLETE_DELIVERY_GATES_OPEN",
   "current": true,
   "selected": false,
-  "stage_completed": false,
+  "selected_for_provisional_mount_preparation": true,
+  "stage_completed": true,
   "physical_pass": false,
-  "current_native": "MountsCurrent.FCStd",
-  "native_sha256": "c218aecd10cfdee6c9e3cb5137de7ca0a9fc0c4b0a01b210c7a8269274b09c35",
-  "inherited_main_native": "Mounts.FCStd",
+  "print_approved": false,
+  "scope": "Stage2 only; user-authorized adjustable/regeneratable attachment with delivered fit gate",
+  "current_native": "RetentionMountsAssembly.FCStd",
+  "native_sha256": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+  "retained_historical_native": "MountsCurrent.FCStd",
+  "retained_baseline_commit": "7e1e64f",
   "current_print_parts": [
-    {
-      "part": "UpperCarrier",
-      "quantity": 1,
-      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperCarrier.stl",
-      "sha256": "5b1f905a911d25ca82735a6cdf927af878a1d7f535e93cc5df214b8e417de881",
-      "bounds_with_5mm_brim_mm": [
-        199.0,
-        81.99879650841467,
-        8.0
-      ],
-      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN"
-    },
     {
       "part": "UpperSpacer",
       "quantity": 4,
@@ -103,15 +95,43 @@
         1.0
       ],
       "orientation": "Flat on bed +Z, PETG; actual printer/nozzle/profile unknown; fit/creep/insulation coupon required"
+    },
+    {
+      "part": "UpperCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperCarrierRetention.stl",
+      "sha256": "d9fdcd06770906c3ea208987d32970cdc4fdcd0716aa163ac752964275579a6f",
+      "bounds_with_5mm_brim_mm": [
+        199.0,
+        91.0,
+        15.300000190734863
+      ]
+    },
+    {
+      "part": "U1InsulatingSpacer",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1InsulatingSpacerRetention.stl",
+      "sha256": "98d4a5b4dbbfbf90852a3c24d023bc370e2aaf996dc5adbab5505c61ca078ee4",
+      "bounds_with_5mm_brim_mm": [
+        18.0,
+        18.0,
+        4.0
+      ]
+    },
+    {
+      "part": "U1TopInsulator",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1TopInsulatorRetention.stl",
+      "sha256": "7e696355c6a8efebd2f9c89dabfc7ebadb6c74f93a30a6e76c597459af6fa231",
+      "bounds_with_5mm_brim_mm": [
+        14.5,
+        14.5,
+        1.0
+      ]
     }
   ],
-  "print_quantity_total": 22,
-  "unique_print_geometries": 8,
-  "excluded_from_current_prints": [
-    "LowerCarrier.stl",
-    "LowerCarrierAssembly.stl",
-    "PwmInsulatingShoulderWasher.stl (unnecessary thin centering neck removed)"
-  ],
+  "print_quantity_total": 26,
+  "unique_print_geometries": 10,
   "quantities": {
     "M3x14": 4,
     "M3x45": 4,
@@ -120,22 +140,85 @@
     "M2x12": 8,
     "M2x14": 9,
     "M2_washer": 24,
-    "M2_nut": 17,
+    "M2_nut": 19,
     "monitor_T18I": 2,
     "M3x30": 4,
     "printed_PETG_insulating_washer": 2,
-    "distribution_T18I": 40
+    "distribution_T18I": 0,
+    "M2x10": 2,
+    "U1_printed_spacer": 2,
+    "U1_printed_top_insulator": 2,
+    "WAGO_underbody_pairs": 20,
+    "WAGO_underbody_cut_pieces": 40
   },
-  "fastener_total": 29,
+  "fastener_total": 31,
   "assembly": [
-    "Seat captive lower PCB nuts, then clamp carrier before Pi",
-    "Fit side spacers/rails before side WAGO; side bolts reachable through upper rail driver apertures",
-    "Pi/BUS and negative-Y monitor before upper PCB carrier; rear frame nuts by lateral AF5.5 spanner",
-    "Bench dress buses; lower WAGO before upper WAGO; two replaceable ties per body, levers open before ties",
-    "R47 bank/4MTA retained; route all leads later, no independent cassette lift or74routine disconnects",
-    "Fit two FLAT PETG washers OD5/bore2.4/thickness1 above PWM1608 copper; no centering shoulder. M2x14 underhead85.3202, original lower nuts unchanged. Isolated source; fit/no crush/creep/insulation coupons required.",
-    "Do not install U1 on guessed pads or close stage2 until explicit adapter support/retention is resolved"
+    "Physically disconnect/remove source including monitor feed; S0 off alone is not isolation. No power in this preparation.",
+    "Fit captive lower PCB nuts, then P0 frame clamps/lower carrier and side-rail supports before Pi. Retain known bearing surfaces.",
+    "Fit side spacers/rails and their staged bolts before WAGO; then Pi/BUS and negative-Y monitor before upper carrier.",
+    "Bench mount PWM/AUX on upper carrier. Two retained flat PWM insulating washers, original M2x14/nuts; no metal washer on copper.",
+    "Measure delivered U1 hole/pad map FIRST and regenerate provisional hole pattern/spacers if needed. No drilling supplied PCB or clamping unknown pad rows.",
+    "Top-load U1 captive nuts, foot/stem spacers, measured adapter, top insulators and two M2x10 screws BEFORE above MTA/bank. Only light controlled clamp load.",
+    "Fit upper carrier/frame nuts using retained lateral AF5.5 access. Nominal short AF1.5 U1 L-key uses negativeY60degree sector and3mm seated-screw indexing lift; delivered tool fit OPEN.",
+    "After unpowered bond qualification, fit lower WAGO then upper WAGO on20 underbody SJ4570 pairs.40pieces20x10, no ties/adhesive on levers/ports. Hold body while operating; independent wire strain relief belongs to next stage.",
+    "Retain R47/4MTA and both exits; place above MTA only AFTER U1. Full routes/stock and actual local<=50mm leads require separate next-stage authorization.",
+    "For full U1 screw/board removal first isolate source and remove above MTA module, then adapter. No claim of independent connected service/74routine disconnects.",
+    "Stop before physical/powered use unless delivered fit, PETG, adhesion, insulation and electrical gates have passed."
   ],
+  "delivery_gates": [
+    {
+      "id": "DELIVERED_U1",
+      "status": "OPEN",
+      "required_before": "Print/assemble provisional local attachment",
+      "checks": [
+        "Actual holes/diameter/thickness and unchanged supplier revision",
+        "Both-side no-pad/solder bearing regions at all spacers/insulators",
+        "Actual pad mapping and every local connection within50mm with bends/ends",
+        "PETG coupon/creep/insulation and actual tools",
+        "No energizing while any electrical safety gate OPEN"
+      ]
+    },
+    {
+      "id": "WAGO_BOND_AND_LEVERS",
+      "status": "OPEN",
+      "required_before": "Use body retention",
+      "checks": [
+        "Delivered exact tape revision/thickness and usable casing underside bonding area",
+        "PETG and connector substrate bond, peel/shear/creep at intended temperature, unpowered first",
+        "Actual lever/test-port operation and wire entry remain free; operator holds casing",
+        "Actual cable loads retained independently, no wire-pull load accepted from nominal adhesive area",
+        "No prototype use if bond/casing support fails; replace local retention without repeating baseline mounts"
+      ]
+    },
+    {
+      "id": "POPULATED_FIT",
+      "status": "OPEN",
+      "required_before": "Physical acceptance",
+      "checks": [
+        "Delivered spines/solder/USB/AUX/actual tools",
+        "PETG coupon, insulation, bearing/creep/torque",
+        "Assembly order: U1 before above MTA; full screw extraction requires MTA absent"
+      ]
+    },
+    {
+      "id": "LATER_WIRING",
+      "status": "OUTSIDE_STAGE2",
+      "required_before": "Powered prototype",
+      "checks": [
+        "Actual adapter continuity/pin map and every local route <=50mm including ends/bends",
+        "Independent wire strain relief, all wire endpoints reflect WAGO rise2.49..3mm",
+        "Full wiring/stock/E3 and connected service remain unqualified"
+      ]
+    }
+  ],
+  "local_lead_routes_qualified": false,
+  "result_count": 3,
+  "result_denominator": 20,
+  "result_percent": 15,
+  "no_M5_W1_W5_or_whole_phase_credit": true,
+  "mount_hardware_nominal_not_stock_selection": true,
+  "WAGO_candidate_product": "SJ4570;20pairs/40pieces20x10mm, not bought/adhesion-approved",
+  "tool_scope": "Continuous nominal60degree sector plus3mm lift at seated screws; actual SKU/torque OPEN. Install U1 before above MTA, remove MTA before full U1 screw extraction. Connected service not qualified.",
   "rear_nut_tool": [
     {
       "id": "UpperFrame7NutToolStage",
@@ -216,38 +299,10 @@
       "insulator_od_mm": 5.0
     }
   ],
-  "blockers": [
-    {
-      "id": "U1_SUPPORT",
-      "status": "OPEN",
-      "component": "Kamami575070/SN74LVC8T245PW",
-      "known": "30.48x17.78mm outline, nominal2.54mm header pitch; reservation above upper passives only",
-      "missing": "Delivered PCB thickness, both-side pad/solder and keepout map, safe supported bearing/retention sites",
-      "impact": "No complete rigid PWM/U1 module mounting; cannot close whole stage2",
-      "evidence": "hardware/electronics/full-cat/pwm-carrier-r3/population.json:adapter_stack/u1_integration",
-      "source_checked_date_utc": "2026-10-07",
-      "source_url": "https://kamami.pl/en/Adapters-SMD-DIP/575070-sop24-pcb-adapter-for-dip24-5906623456895.html",
-      "source_result": "Product description confirms outline/pitch only; no support/thickness/pad drawing. No alternative product substituted."
-    },
-    {
-      "id": "DISTRIBUTION_RETENTION",
-      "status": "OPEN",
-      "known": "20 nominal WAGO bodies in two accessible side rails,40 tie slots/roles,8 nominal side tools clear",
-      "missing": "Tie paths/support bearing against actual casing and lever keepouts; two ties per body is a recipe, not verified retention",
-      "impact": "Side rails are development geometry; not certified mount or lever-service proof"
-    },
-    {
-      "id": "POPULATED_FIT",
-      "status": "OPEN",
-      "known": "117 placed BUS solids checked separately, supplier mounting-hole patterns,19 PWM component maximum-case reservations",
-      "missing": "Delivered underside solder/projections, actual USB/tool and AUX populated-side fit; nominal allowances explicit",
-      "impact": "Physical fit conditions, no energized or physical PASS"
-    }
+  "replaced_exports": [
+    "UpperCarrier.stl",
+    "UpperCarrierU1Candidate.stl",
+    "U1InsulatingSpacerU1Candidate.stl"
   ],
-  "proof_scope": "Inherited unchanged interfaces pinned; only changed parts/stack checks added. No full wiring/stock/lever credit.",
-  "BUS_note_correction": "distribution-mount-checks.json known_bounds literal116 is stale; numerical valid_BUS_solid_count=117 with no invalid placed solids. Raw vendor compound remains invalid, never used as one BOP operand.",
-  "result_count": 3,
-  "result_denominator": 20,
-  "result_percent": 15,
-  "no_M5_W1_W5_or_whole_phase_credit": true
+  "historical_releases": "mount-release.json/current-set from7e1e64f are historical; use retention-release.json now"
 }
