@@ -106,3 +106,10 @@ płyty montażowej. Otwarty prototyp nie wymaga górnej osłony, ale lokalne
 0kontaktów nie dowodzi zmieszczenia w zaakceptowanym tułowiu. Wspólny plan
 poziomów ma uwzględniać średnicę całej upakowanej wiązki i zapas, nie tylko
 odległość osi. Wyjścia do głowy/ogona jawnie oddzielić od tras wewnętrznych.
+
+Akceptacja lokalnych mocowań nie kwalifikuje ich zachowanych położeń wobec
+nowego obrysu. Przed trasami zmienionej wiązki sprawdzić wspólnie wpisanie
+kupnych rezerwacji w rzeczywistą bryłę tułowia, nie tylko wysokość Z. W CP2
+08.10 osiem z20 rezerwacji WAGO przekraczało obrys; dalsze chronienie ich
+współrzędnych wymuszałoby kolejne obejścia. Zachować obwody/liczby części,
+a naruszone położenia i mocowania ponownie uzgodnić w jednym układzie.
