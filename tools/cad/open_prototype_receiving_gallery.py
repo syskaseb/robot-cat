@@ -106,11 +106,12 @@ def build():
         source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in pins})
 
 
-def main():
+def main(plan_override=None, plan_path=PLAN, proof_path=PROOF, reuse=None, changed_names=None):
     import FreeCAD as A
     import Part
-    assert not PLAN.exists() and not PROOF.exists(), 'Receive existing result; no unchanged rerun'
-    tick=time.monotonic();plan=build();PLAN.write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8')
+    assert not plan_path.exists() and not proof_path.exists(), 'Receive existing result; no unchanged rerun'
+    tick=time.monotonic();plan=plan_override or build()
+    plan_path.write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8',newline='\n')
     docs=[A.openDocument(str(p)) for p in (MOUNTS,CONTEXT,OUT/'CommonMtaMounts.FCStd')]
     mount,ctx,native=docs;items={};owners={};actual={}
     result=dict(status='PENDING',selected=False,stage_completed=False,physical_pass=False,
@@ -166,6 +167,7 @@ def main():
         for o in ctx.Objects:
             if 'Shape' in o.PropertiesList and not o.Shape.isNull() and o.Name.startswith(('P0_','Head_','TailBridge','S0_','S1_')) and o.Name!='P0_MG92BMount29':actual[o.Name]=o.Shape
         def check(n,s,m,t):
+            if reuse is not None and n not in changed_names and m not in changed_names:return
             if not s.BoundBox.intersect(t.BoundBox):return
             result['pairs']+=1
             try:
@@ -177,7 +179,7 @@ def main():
         entries.update({r['id']+'/entry9mm':r['target'].split('.')[0]+'_CP2' for r in plan['S1']})
         pairs=list(items.items())
         for i,(n,s) in enumerate(pairs):
-            if not n.endswith('/ATO_tool_budget'):
+            if not n.endswith('/ATO_tool_budget') and (reuse is None or n in changed_names):
                 outside=s.cut(ctx.TorsoEnvelope.Shape);assert outside.isValid()
                 if outside.Volume>1e-5:result['outside'].append(dict(part=n,volume_mm3=outside.Volume,bounds_mm=bounds(outside)))
             for m,t in actual.items():
@@ -189,15 +191,23 @@ def main():
                 check(n,s,m,t)
         # Changed casing pairs must never be hidden by the unchanged-pair reuse.
         changed={r['native'] for r in plan['distribution'] if r['rotation_z_deg']}
+        if changed_names:changed.update(changed_names)
         casings=[(n,s) for n,s in pairs if n.endswith('_CP2')]
         for i,(n,s) in enumerate(casings):
             for m,t in casings[i+1:]:
                 if n in changed or m in changed:check(n,s,m,t)
+        if reuse is not None:
+            result['reused_contacts']=[r for r in reuse['contacts'] if r['a'] not in changed_names and r['b'] not in changed_names]
+            result['contacts'].extend(result['reused_contacts'])
+            result['outside'].extend(r for r in reuse['outside'] if r['part'] not in changed_names)
+            result['errors'].extend(r for r in reuse['errors'] if r['a'] not in changed_names and r['b'] not in changed_names)
+            result['reuse_snapshot']='e3ddcac:receiving-gallery-checks.json; unchanged inputs verified by caller'
+            result['changed_names']=sorted(changed_names)
         result['status']='RECEIVING_GALLERY_REQUIRES_CAUSE_CHANGE' if any(result[k] for k in ('contacts','outside','errors')) else 'RECEIVING_GALLERY_SOURCE_ENDS_CLEAR_FULL_MAIN_ROUTES_AND_MOUNTS_OPEN'
     finally:
         for d in docs:A.closeDocument(d.Name)
         result.update(worker_seconds=time.monotonic()-tick,finished_utc=datetime.now(timezone.utc).isoformat())
-        PROOF.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+        proof_path.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     assert all(sha(ROOT/p)==h for p,h in result['source_sha256'].items())
     print(json.dumps({k:result[k] for k in ('status','pairs','contacts','outside','errors','worker_seconds')}),flush=True)
 
