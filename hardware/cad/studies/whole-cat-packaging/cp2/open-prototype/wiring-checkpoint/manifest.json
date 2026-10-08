@@ -1,5 +1,46 @@
 {
   "schema_version": 1,
+  "routing_space_planning_map": {
+    "file": "routing-space-map.json",
+    "status": "CAD_SECTION_PLANNING_MAP_NOT_ROUTE_ACCEPTANCE",
+    "grid_sections": 70,
+    "station_footprints": 24,
+    "worker_seconds": 158.297,
+    "errors": 0,
+    "ownership_separated": ["retained_P0_or_control","movable_carrier_redesign_requires_load_path","service_tool","retained_board_reference","U1_delivery_allowance"],
+    "rejected_shifted_upper_case_maximum_sampled_centre_z_mm": {"P_SYS":140.05414,"P_FRONT":134.78731,"P_REAR":139.8921,"P_AUX":137.68626},
+    "samples_do_not_qualify_whole_footprints_or_routes": true,
+    "native_files_changed": 0,
+    "selected": false,
+    "physical_pass": false
+  },
+  "whole_main_feed_macro_preflight": {
+    "plan": "complete-main-space-plan.json",
+    "proof": "complete-main-space-checks.json",
+    "status": "MACRO_LAYOUT_REQUIRES_CAUSE_CHANGE",
+    "scope": "all8complete factory/joint/HELU paths, both4MTA exits,5sourcecases/fullinputs,100port same-net map",
+    "pure_plan_assertions": 10,
+    "pairs": 251,
+    "contacts": 47,
+    "outside_torso": 4,
+    "errors": 0,
+    "worker_seconds": 78.344,
+    "factory_blanks_mm_range": [56.83,92.78],
+    "factory100mm_is_assumption_not_catalog": true,
+    "Pi_AUX_prefuse_required_mm": 35.42,
+    "prefuse_project_limits_exceeded": 0,
+    "root_causes": [
+      "Raised145mm galleries exceed curved torso, not the160mm bbox",
+      "Vertical south sources intersect carrier and retained P0 on output side",
+      "Main source/output lifts share front MTA space and intersect each other",
+      "Rear MTA bodies and factory tails conflict with retained P0 tail mechanism",
+      "FL output receiving bend still intersects S0; longer routing is not a clearance solution"
+    ],
+    "native_rebuilds": 0,
+    "new_stock_selected": false,
+    "selected": false,
+    "physical_pass": false
+  },
   "main_feed_receiving_space_preflight": {
     "plan":"main-entry-space-plan.json",
     "proof":"main-entry-space-checks.json",
