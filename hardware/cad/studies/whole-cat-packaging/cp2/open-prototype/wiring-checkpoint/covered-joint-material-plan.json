@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "MATERIAL_CANDIDATE_WITH_ROUTE_AND_DELIVERY_GATES",
+  "selected_whole_wiring": false,
+  "physical_pass": false,
+  "scope": ["F_AUX load extension", "F_HY load extension", "F_HP load extension", "F_TY load extension"],
+  "installed_joint_count": 4,
+  "extra_electrical_connectors": 0,
+  "candidate": {
+    "manufacturer": "TE Connectivity / Raychem",
+    "part": "RNF-3000-6/2-0-STK",
+    "TE_internal": "5677572005",
+    "alias": "2-1194494-1",
+    "stock_length_mm": 1220,
+    "expanded_ID_min_mm": 6,
+    "recovered_ID_max_mm": 2,
+    "recovered_wall_nominal_mm": 0.65,
+    "recovered_wall_tolerance_mm": 0.1,
+    "longitudinal_change_percent": [-10, 0],
+    "single_wall_nonadhesive": true,
+    "no_purchase_or_availability_claim": true
+  },
+  "primary_sources": [
+    {
+      "kind": "current product page",
+      "url": "https://www.te.com/en/product-5677572005.html"
+    },
+    {
+      "document": "RNF-3000_STANDARD_SIZES",
+      "revision": "A3",
+      "date": "2025-06-10",
+      "url": "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocFormat=pdf&DocLang=English&DocNm=RNF-3000_STANDARD_SIZES&DocType=Customer+Drawing&PartCntxt=5677572005",
+      "drawing_precedes_old_catalogue": true
+    },
+    {
+      "document": "114-120022",
+      "revision": "A",
+      "date": "2023-03",
+      "url": "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocFormat=pdf&DocLang=English&DocNm=114-120022&DocType=Specification+Or+Standard&PartCntxt=5677572005"
+    }
+  ],
+  "project_recipe": {
+    "bare_overlap_mm": 8,
+    "minimum_intact_insulation_cover_each_side_mm": 6,
+    "minimum_finished_sleeve_length_mm": 20,
+    "nominal_blank_mm": 25,
+    "conservative_cut_tolerance_each_way_mm": 1.5,
+    "minimum_finished_length_mm": 21.15,
+    "maximum_finished_length_mm": 26.5,
+    "factory_cut_datum_mm": 0,
+    "factory_sleeve_end_datum_mm": -14,
+    "new_wire_sleeve_end_range_mm": [7.15, 12.5],
+    "independent_new_wire_grip_length_mm": 9,
+    "minimum_new_wire_straight_after_cut_mm": 21.5,
+    "factory_last_straight_mm": 15,
+    "factory_sleeve_end_fits_last_straight": true,
+    "asymmetric_position_is_project_requirement_not_manufacturer_geometry": true,
+    "grip_begins_after_actual_sleeve_edge_not_on_joint": true,
+    "previous_15mm_new_wire_prefix_is_insufficient_for_this_sleeve": true,
+    "planned_factory_wire_OD_allowance_mm": 4,
+    "HELU_wire_nominal_OD_mm": 2.1,
+    "provisional_joint_outer_budget_mm": 6,
+    "dimensions_do_not_prove_joint_ampacity_or_wire_heat_compatibility": true
+  },
+  "local_stock_only": {
+    "nominal_installed_blank_total_mm": 100,
+    "nominal_stock_remainder_mm_before_trim_and_coupons": 1120,
+    "no_fit_coupon_count_selected": true,
+    "not_whole_K3_stock_selection": true,
+    "not_four_extra_wires_or_eight_installed_joints": true
+  },
+  "phase2_delivery_and_bench_gates": [
+    "Confirm actual factory lead diameter, insulation heat compatibility and conductor area; no electrical rating inferred from shrink tube.",
+    "Confirm completed bare joint slides into expanded tube without force; joint bulge must fit, otherwise change sleeve and route budget together.",
+    "Fit the sleeve over loose unpowered leads before joining; mark factory cover6mm and check actual finished cover on both sides.",
+    "Heat on the loose bench before PETG assembly, following TE application instructions with ventilation and appropriate protection; do not use product-specimen oven temperatures as assembly instructions.",
+    "Inspect uniform recovery, undamaged insulation and no exposed copper; mechanical restraint is separate and does not clamp the solder overlap.",
+    "Qualify joint and independent no-crush grip on a specimen; this record is preparation, not a performed physical test."
+  ],
+  "integration_open": [
+    "Use21.5mm straight departure and a6mm sleeve budget in the next shared source/PWM/tail layout; current rejected fanout plan used only15mm.",
+    "Reconcile sleeve and joint placement with actual source guide, body routes, independent grips and final nominal cuts.",
+    "U1 delivered pad map and source/fault/copper data remain open; this candidate does not close E3 or W5."
+  ]
+}

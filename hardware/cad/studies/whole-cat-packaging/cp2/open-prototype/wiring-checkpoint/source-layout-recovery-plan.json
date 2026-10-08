@@ -1,0 +1,47 @@
+{
+  "status": "SHARED_CAUSE_CHANGE_BEFORE_NEXT_CAD_NOT_SELECTED",
+  "selected": false,
+  "physical_pass": false,
+  "stage_completed": false,
+  "rejected_proof": "source-fanouts-checks.json",
+  "cause": "Long vertical factory return loops reverse power departure and consume the top routing layers. Rotated ground entries point into neighbouring G_TAIL. Tail fanout reversals overshoot into P0 and the torso taper. Independent shortest curves do not assign shared noncrossing lanes.",
+  "preserve": ["BankR47", "P0 and E6", "All15drives and replaceableMG92B", "Body325x200x160", "Five source inputs and their independent grips", "ATO hand-service recipe without WAGO disconnection", "Four FHAC casings and first9mm output grips", "Actual PWM copper landings, no external U1 padmap"],
+  "one_proposed_factory_exit_recipe": {
+    "first_intact_grip_mm": 9,
+    "quarter_radius_design_allowance_mm": 6,
+    "quarter_plane": "XY, not high XZ return loop",
+    "last_straight_mm": 15,
+    "factory_fit_blank_target_mm": 34,
+    "path_length_mm": 33.424777960769376,
+    "catalogue_minimum_available_mm": 84.5,
+    "trim_is_phase2_after_actual_fit_not_performed": true,
+    "keep_8mm_bare_lap_and_6mm_intact_sleeve_cover_on_factory_terminal": true,
+    "new_wire_straight_after_cut_mm": 21.5,
+    "independent_new_wire_grip_mm": 9,
+    "wire_diameter_radius_and_copper_remain_delivery_gates": true,
+    "proposed_cut_datums": [
+      {"holder":"F_HY","point_mm":[-71.75,-38.75,99.99],"departure":[0,1,0]},
+      {"holder":"F_HP","point_mm":[83,-16.25,99.99],"departure":[0,1,0]},
+      {"holder":"F_TY","point_mm":[92.5,-44.725,99.99],"departure":[0,1,0]},
+      {"holder":"F_AUX","point_mm":[76.5,37.75,100.99],"departure":[0,-1,0]}
+    ],
+    "not_a_geometric_clearance_result": true,
+    "old83mm_high_return_guides_stay_historical_not_installed_with_replacements": true
+  },
+  "shared_ground_and_signal_policy": [
+    "Use original lever-up G_AUX/G_TAIL casing frames as planning start; do not reuse rejected sideways entries pointing into G_TAIL. Do not move just one occupied port.",
+    "Assign all source approaches and their full sleeve/grip sections to shared lanes before curves. Preserve net identity and include every occupied port if a casing must change.",
+    "Keep the three PWM signals in a common parallel outlet until a documented separated branch section; independent Bezier choices previously crossed.",
+    "Tail fanout must approach from the middle bay toward its intake, not overshoot rearwards and return through P0. Current trunk's first straight can be trimmed as a subset only after mating tangents/grips are planned together.",
+    "Existing three torso-aware core proofs are local only. If a mouth changes, recheck the changed section and adjacent wires, not unchanged head/core geometry.",
+    "AUX end stays insulated and unpowered pending actual delivered U1 connectivity; no inferred external pad point."
+  ],
+  "next_gate_order": [
+    "Plan factory exits, four sleeves, nine source approaches, shared PWM split and all independent9mm grips together; cheap tangent/radius/full-cross-section checks before CAD.",
+    "One actual-geometry preflight of all changed factory tails, covered joints and source approaches against the current boards/casings/ATO/P0/torso and each other. Bbox is only a candidate selector.",
+    "If the shared topology fails twice, change the shared cause rather than search scalar wire offsets. Do not rebuild a native carrier while route preparation is rejected.",
+    "Only with a qualified common layout, rebuild the necessary same carriers/PWM outlet supports, useful parameters/reopen/print-margin exports and assembly recipe.",
+    "Continue the remaining body/legs/legacy920mm, moving head loop, all restraints and one final nominal material/cut reconciliation."
+  ],
+  "no_whole_wiring_or_restraint_stock_acceptance": true
+}

@@ -161,8 +161,11 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T15:38:55Z",
-    "window_elapsed_seconds": 17755,
+    "saved_utc": "2026-10-08T16:15:19Z",
+    "window_elapsed_seconds": 19939,
+    "source_approach_and_material_fragment_seconds": 1996,
+    "source_approach_worker_seconds": 41.672,
+    "native_parts_or_exports_rebuilt_this_fragment": 0,
     "torso_aware_plan_fragment_elapsed_seconds": 1208,
     "torso_aware_workers_seconds": [24.938,24.953],
     "shared_trunks_and_stations_elapsed_since_previous_seconds": 2570,
@@ -339,12 +342,15 @@
     "physical_pass": false
   },
   "current_torso_aware_routing": {"plan":"shared-space-plan.json","proof":"shared-space-checks.json","levels_mm":{"HY":134,"HP":149,"TY":142},"actual_torso_bounds_mm":[-120,-100,-2,205,100,158],"wire_count":9,"contacts":0,"errors":0,"tested_changed_pairs":69,"worker_seconds":24.953,"head_exit_containment_open":true,"no_other_trunk_material_outside_torso":true,"whole_stage_completed":false,"selected":false,"physical_pass":false,"history":"Old Z178/186/194 trunks locally clear, not enclosure-qualified. First lower topology had4 HP/TY contacts at3mm layer gap; current plan enforces full bundle diameter+2mm before CAD."},
-  "next": "Use shared-space-plan/checks: torso world roof158, common levels HY134/HP149/TY142, 9sweeps/69pairs/0contacts-errors, actual valid TorsoEnvelope subtraction; three HY exits outside need head transition classification. Old high Z178/186/194 proof is local only, not torso containment or selected feeds. LocalStationsAssembly remains unselected; pitchanchor166/movingloop and source/PWM fanouts need one shared reconciliation before more native work. Preserve source/input/factoryoutput geometry; do not rerun unchanged pairs. Plan all nine actual fanouts+covered joins+PWM outlet together using complete cross-section clearances, not independent fillets/scalar nudges; resolve straight grip lengths and approach tangents before CAD. Then remaining80body/legs/legacy920mm/restraints/assembly/length-stock/one selected package.",
-  "estimate_review": "Stage3 OPEN after4h32 elapsed,not continuousCPU. Previous3-5h is not a remaining-time promise. Next nine source/PWM approaches and covered transitions: provisional1-2h, update after actual outlet/source gates. Moving pitch/tail/body80/legs/source920mm and stock are additional work.",
+  "current_source_approach_preflight": {"plan":"source-fanouts-plan.json","proof":"source-fanouts-checks.json","status":"REJECTED_SHARED_SOURCE_LAYOUT_CHANGE_REQUIRED","contacts":13,"tested_changed_pairs":255,"errors":0,"outside_actual_torso":["XB33"],"worker_wall_seconds":41.672,"native_parts_or_exports_rebuilt":0,"selected":false,"physical_pass":false,"whole_stage_completed":false,"old_new_wire_15mm_prefix_superseded_by_material_plan":true,"cause_changes_required":["Power source and ground departure directions together, not single wire offsets","Common PWM branches remain together until a physically separated shared split","Tail intake must not turn into P0 bearing stack or beyond torso taper"],"pure_contract_tests_passed":72},
+  "covered_joint_material_preparation": {"plan":"covered-joint-material-plan.json","installed_joints":4,"candidate":"RNF-3000-6/2-0-STK","blank_mm":25,"new_wire_straight_minimum_mm":21.5,"independent_grip_mm":9,"manufacturer_drawing":"RNF-3000_STANDARD_SIZES A3 /10JUN2025","selected_whole_stock":false,"physical_pass":false},
+  "source_layout_recovery_plan": "source-layout-recovery-plan.json",
+  "next": "Follow source-layout-recovery-plan.json before another CAD: jointly replace four high-return factory output guides with proposed XY quarter exits33.4248mm/34mm fit blanks, original ground casing frames, a shared noncrossing PWM split and middle-bay tail intake. Inputs, FHAC casings and first9mm grips retained; geometry NOT qualified. Reserve covered-joint-material-plan TE6/2 sleeves25mm and21.5mm new-wire straight before9mm independent grip. Current source-fanouts rejected13contacts/255pairs/0errors/XB33 outside torso,41.672s; do not retry hairpins or scalar offsets. Plan all nine source approaches and full sleeve/grip sections together, then one changed actual-geometry preflight before native rebuild. Remaining pitch loop/3HY exits/80body/legs/source920mm/assembly/stock/one selected package still open.",
+  "estimate_review": "Stage3 OPEN after5h32min19 elapsed, not continuousCPU. Original3-5h estimate exceeded. Material and one shared cause-change plan saved, not route acceptance. No credible whole-stage remaining-time estimate until the proposed source/PWM/tail layout passes one common preflight.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T15:38:55Z",
-    "weekly_used_percent": 11,
-    "weekly_remaining_percent": 89,
+    "checked_utc": "2026-10-08T16:15:19Z",
+    "weekly_used_percent": 12,
+    "weekly_remaining_percent": 88,
     "ordinary_usage_allowed": true
   }
 }
