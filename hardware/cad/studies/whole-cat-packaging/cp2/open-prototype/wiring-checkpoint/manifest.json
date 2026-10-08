@@ -161,10 +161,10 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T17:15:54Z",
-    "window_elapsed_seconds": 23574,
+    "saved_utc": "2026-10-08T17:35:02Z",
+    "window_elapsed_seconds": 24722,
     "current_continuation_started_utc": "2026-10-08T16:18:00Z",
-    "current_continuation_elapsed_seconds": 3474,
+    "current_continuation_elapsed_seconds": 4622,
     "low_XY_source_trial_worker_seconds": [62.187,66.672],
     "legacy_source_worker_seconds": 19.938,
     "source_approach_and_material_fragment_seconds": 1996,
@@ -355,9 +355,26 @@
   "next": "No worker pending. Current routing scope corrected:920mm is four S1 wires W064/W065/W067/W068; BAT_0/BAT_1 separate. Prepare four S1 wires as one shared source/distribution interface, including all affected port exits, source holders and PWM departures BEFORE another CAD. Do not independently fillet four paths through the same lane or move two ground casings into occupied row slots. Retained legacy proof1274de4 has3clear pieces/1 nominal S0-casing contact: establish BOTH external S0 terminal/casing definitions, not a wire detour; family budget overlap does not prove a delivered physical defect.20WAGO/mounts stay the baseline; required coupled changes must be planned jointly. Body/leg/end/stock preparation remains safe independent work; Stage3 OPEN.",
   "estimate_review": "Stage3 OPEN after6h32min54 elapsed, not continuousCPU. Original3-5h estimate exceeded. No credible completion-time promise while whole source/distribution layout and nominal S0 external terminal plane remain unresolved. Counts of tests/files are not complete results.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T17:20:50Z",
+    "checked_utc": "2026-10-08T17:47:33Z",
     "weekly_used_percent": 13,
     "weekly_remaining_percent": 87,
     "ordinary_usage_allowed": true
+  },
+  "distribution_entry_space_constraints": {
+    "plan": "entry-chambers-plan.json",
+    "proof": "entry-chambers-checks.json",
+    "casings": 20,
+    "ports": 100,
+    "occupied_ports": 86,
+    "duplicate_occupied_ports": 0,
+    "tested_pairs": 121,
+    "errors": 0,
+    "worker_seconds": 128.031,
+    "interpretation": "9mm straight/OD4.2 worst-case reservations, NOT actual wire collisions. Five retained own input wires legitimately occupy their own chambers; do not classify them as blockers. Strap budgets need delivered/actual-section qualification. Native SourceLeft/RightCarrier and F_PI/F_TY case allowances require coupled allocation, not another low-XY ground-case shift.",
+    "native_or_case_overlaps": 15,
+    "case_ports": ["P_SYS.4","P_FRONT.1","P_FRONT.2","P_FRONT.3","G_AUX.1","G_AUX.2","G_AUX.3","G_AUX.4","G_AUX.5"],
+    "native_carrier_ports": ["P_SYS.2","P_REAR.2","P_AUX.1","P_AUX.2","P_AUX.3","P_AUX.5"],
+    "native_export_or_route_selected": false,
+    "physical_pass": false
   }
 }

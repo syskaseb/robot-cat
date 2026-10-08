@@ -1,0 +1,3303 @@
+{
+  "status": "SHARED_ENTRY_CHAMBERS_REQUIRE_COUPLED_LAYOUT_CHANGE",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/distribution-mount-plan.json": "dbff461dd2a157f454122afa0d6afee6d3d079fdeb878b1fbde46ea8c1a74a5a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json": "cf76b5186a292ba41a2acd84da826b616fbd06dfb898bf4914f21a251d30ad73",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-scope-plan.json": "32b14c5f38eb85e6200d93ba3ee31b2d87f491c0f9b40a96eef5ea0ac51c850e",
+    "tools/cad/open_prototype_entry_chambers.py": "a07469c9cad54663783053462d4f5dcb3c60884dd469d19803274f4e98ff08b2"
+  },
+  "rows": [
+    {
+      "role": "FL_P.1",
+      "point_mm": [
+        -85.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL_P.1",
+            "F_FL.out"
+          ],
+          "graph_ids": [
+            "W_FL_P.1"
+          ],
+          "physical_role": "FL_P.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_P.2",
+      "point_mm": [
+        -80.75,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL_P.2",
+            "F_FL1.in"
+          ],
+          "graph_ids": [
+            "W_FL_P.2"
+          ],
+          "physical_role": "FL_P.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_P.3",
+      "point_mm": [
+        -76.0,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL_P.3",
+            "F_FL2.in"
+          ],
+          "graph_ids": [
+            "W_FL_P.3"
+          ],
+          "physical_role": "FL_P.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_P.4",
+      "point_mm": [
+        -71.25,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL_P.4",
+            "F_FL3.in"
+          ],
+          "graph_ids": [
+            "W_FL_P.4"
+          ],
+          "physical_role": "FL_P.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_P.5",
+      "point_mm": [
+        -66.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_G.1",
+      "point_mm": [
+        -43.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL.GND_RETURN",
+            "FL_G.1"
+          ],
+          "graph_ids": [
+            "W_FL_G.1"
+          ],
+          "physical_role": "FL_G.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_G.2",
+      "point_mm": [
+        -38.75,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL1.G",
+            "FL_G.2"
+          ],
+          "graph_ids": [
+            "W_FL_G.2"
+          ],
+          "physical_role": "FL_G.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_G.3",
+      "point_mm": [
+        -34.0,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL2.G",
+            "FL_G.3"
+          ],
+          "graph_ids": [
+            "W_FL_G.3"
+          ],
+          "physical_role": "FL_G.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_G.4",
+      "point_mm": [
+        -29.25,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL3.G",
+            "FL_G.4"
+          ],
+          "graph_ids": [
+            "W_FL_G.4"
+          ],
+          "physical_role": "FL_G.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FL_G.5",
+      "point_mm": [
+        -24.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FL.1",
+      "point_mm": [
+        -1.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "BUS.D",
+            "D_FL.1"
+          ],
+          "graph_ids": [
+            "D_BUS"
+          ],
+          "physical_role": "D_FL.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FL.2",
+      "point_mm": [
+        3.25,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FL.2",
+            "FL1.D"
+          ],
+          "graph_ids": [
+            "D_FL1"
+          ],
+          "physical_role": "D_FL.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FL.3",
+      "point_mm": [
+        8.0,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FL.3",
+            "FL2.D"
+          ],
+          "graph_ids": [
+            "D_FL2"
+          ],
+          "physical_role": "D_FL.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FL.4",
+      "point_mm": [
+        12.75,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FL.4",
+            "FL3.D"
+          ],
+          "graph_ids": [
+            "D_FL3"
+          ],
+          "physical_role": "D_FL.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FL.5",
+      "point_mm": [
+        17.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FL.5",
+            "D_FR.1"
+          ],
+          "graph_ids": [
+            "D_BRIDGE_FLFR"
+          ],
+          "physical_role": "D_FL.5"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_P.1",
+      "point_mm": [
+        40.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RL.out",
+            "RL_P.1"
+          ],
+          "graph_ids": [
+            "W_RL_P.1"
+          ],
+          "physical_role": "RL_P.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_P.2",
+      "point_mm": [
+        45.25,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RL1.in",
+            "RL_P.2"
+          ],
+          "graph_ids": [
+            "W_RL_P.2"
+          ],
+          "physical_role": "RL_P.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_P.3",
+      "point_mm": [
+        50.0,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RL2.in",
+            "RL_P.3"
+          ],
+          "graph_ids": [
+            "W_RL_P.3"
+          ],
+          "physical_role": "RL_P.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_P.4",
+      "point_mm": [
+        54.75,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RL3.in",
+            "RL_P.4"
+          ],
+          "graph_ids": [
+            "W_RL_P.4"
+          ],
+          "physical_role": "RL_P.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_P.5",
+      "point_mm": [
+        59.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_G.1",
+      "point_mm": [
+        82.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RL.GND_RETURN",
+            "RL_G.1"
+          ],
+          "graph_ids": [
+            "W_RL_G.1"
+          ],
+          "physical_role": "RL_G.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_G.2",
+      "point_mm": [
+        87.25,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RL1.G",
+            "RL_G.2"
+          ],
+          "graph_ids": [
+            "W_RL_G.2"
+          ],
+          "physical_role": "RL_G.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_G.3",
+      "point_mm": [
+        92.0,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RL2.G",
+            "RL_G.3"
+          ],
+          "graph_ids": [
+            "W_RL_G.3"
+          ],
+          "physical_role": "RL_G.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_G.4",
+      "point_mm": [
+        96.75,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RL3.G",
+            "RL_G.4"
+          ],
+          "graph_ids": [
+            "W_RL_G.4"
+          ],
+          "physical_role": "RL_G.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RL_G.5",
+      "point_mm": [
+        101.5,
+        75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "P_SYS.1",
+      "point_mm": [
+        -89.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "P_SYS.1",
+            "S0.out"
+          ],
+          "graph_ids": [
+            "W_P_SYS.1"
+          ],
+          "physical_role": "P_SYS.1"
+        }
+      ],
+      "blocked_by": [
+        "mount/PI_input_tie_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_SYS.2",
+      "point_mm": [
+        -82.5,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_PI.in",
+            "P_SYS.2"
+          ],
+          "graph_ids": [
+            "W_P_SYS.2"
+          ],
+          "physical_role": "P_SYS.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/SourceLeftCarrier",
+        "mount/F_PI_input_CurrentReference",
+        "mount/PI_input_tie_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_SYS.3",
+      "point_mm": [
+        -76.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "P_SYS.3",
+            "S1.2"
+          ],
+          "graph_ids": [
+            "W_P_SYS.3"
+          ],
+          "physical_role": "P_SYS.3"
+        }
+      ],
+      "blocked_by": [
+        "mount/PI_input_tie_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_SYS.4",
+      "point_mm": [
+        -69.5,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "P_SYS.4",
+            "S1.5"
+          ],
+          "graph_ids": [
+            "W_P_SYS.4"
+          ],
+          "physical_role": "P_SYS.4"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference",
+        "mount/left_rail_tie0_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_SYS.5",
+      "point_mm": [
+        -63.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference",
+        "mount/F_PI_body_tie0_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_FRONT.1",
+      "point_mm": [
+        -47.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "P_FRONT.1",
+            "S1.3"
+          ],
+          "graph_ids": [
+            "W_P_FRONT.1"
+          ],
+          "physical_role": "P_FRONT.1"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_FRONT.2",
+      "point_mm": [
+        -40.5,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_FL.in",
+            "P_FRONT.2"
+          ],
+          "graph_ids": [
+            "W_P_FRONT.2"
+          ],
+          "physical_role": "P_FRONT.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_FRONT.3",
+      "point_mm": [
+        -34.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_FR.in",
+            "P_FRONT.3"
+          ],
+          "graph_ids": [
+            "W_P_FRONT.3"
+          ],
+          "physical_role": "P_FRONT.3"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference",
+        "mount/F_PI_body_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_FRONT.4",
+      "point_mm": [
+        -27.5,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_FRONT.5",
+      "point_mm": [
+        -21.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": [
+        "mount/F_PI_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_REAR.1",
+      "point_mm": [
+        -5.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "P_REAR.1",
+            "S1.6"
+          ],
+          "graph_ids": [
+            "W_P_REAR.1"
+          ],
+          "physical_role": "P_REAR.1"
+        }
+      ],
+      "blocked_by": [
+        "mount/AUX_input_tie_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_REAR.2",
+      "point_mm": [
+        1.5,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_AUX.in",
+            "P_REAR.5"
+          ],
+          "graph_ids": [
+            "XA01"
+          ],
+          "physical_role": "P_REAR.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/SourceLeftCarrier",
+        "mount/F_AUX_input_CurrentReference",
+        "mount/AUX_input_tie_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_REAR.3",
+      "point_mm": [
+        8.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RR.in",
+            "P_REAR.3"
+          ],
+          "graph_ids": [
+            "W_P_REAR.3"
+          ],
+          "physical_role": "P_REAR.3"
+        }
+      ],
+      "blocked_by": [
+        "mount/AUX_input_tie_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_REAR.4",
+      "point_mm": [
+        14.5,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_PWM.in",
+            "P_REAR.4"
+          ],
+          "graph_ids": [
+            "XP01"
+          ],
+          "physical_role": "P_REAR.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "P_REAR.5",
+      "point_mm": [
+        21.0,
+        73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RL.in",
+            "P_REAR.2"
+          ],
+          "graph_ids": [
+            "W_P_REAR.2"
+          ],
+          "physical_role": "P_REAR.5"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RL.1",
+      "point_mm": [
+        40.5,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RL.1",
+            "D_RR.5"
+          ],
+          "graph_ids": [
+            "D_BRIDGE_RRRL"
+          ],
+          "physical_role": "D_RL.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RL.2",
+      "point_mm": [
+        45.25,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RL.2",
+            "RL1.D"
+          ],
+          "graph_ids": [
+            "D_RL1"
+          ],
+          "physical_role": "D_RL.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/left_rail_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "D_RL.3",
+      "point_mm": [
+        50.0,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RL.3",
+            "RL2.D"
+          ],
+          "graph_ids": [
+            "D_RL2"
+          ],
+          "physical_role": "D_RL.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RL.4",
+      "point_mm": [
+        54.75,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RL.4",
+            "RL3.D"
+          ],
+          "graph_ids": [
+            "D_RL3"
+          ],
+          "physical_role": "D_RL.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RL.5",
+      "point_mm": [
+        59.5,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "G2.1",
+      "point_mm": [
+        82.5,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G1.5",
+            "G2.1"
+          ],
+          "graph_ids": [
+            "W_G1.5",
+            "W_G2.1"
+          ],
+          "physical_role": "G2.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G2.2",
+      "point_mm": [
+        87.25,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G2.2",
+            "RL.GND_RETURN"
+          ],
+          "graph_ids": [
+            "W_G2.2"
+          ],
+          "physical_role": "G2.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G2.3",
+      "point_mm": [
+        92.0,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G2.3",
+            "RR.GND_RETURN"
+          ],
+          "graph_ids": [
+            "W_G2.3"
+          ],
+          "physical_role": "G2.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G2.4",
+      "point_mm": [
+        96.75,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "BUS.G",
+            "G2.4"
+          ],
+          "graph_ids": [
+            "W_G2.4"
+          ],
+          "physical_role": "G2.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G2.5",
+      "point_mm": [
+        101.5,
+        75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G2.5",
+            "G_AUX.1"
+          ],
+          "graph_ids": [
+            "XA05"
+          ],
+          "physical_role": "G2.5"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_P.1",
+      "point_mm": [
+        -85.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR_P.1",
+            "F_FR.out"
+          ],
+          "graph_ids": [
+            "W_FR_P.1"
+          ],
+          "physical_role": "FR_P.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_P.2",
+      "point_mm": [
+        -80.75,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR_P.2",
+            "F_FR1.in"
+          ],
+          "graph_ids": [
+            "W_FR_P.2"
+          ],
+          "physical_role": "FR_P.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_P.3",
+      "point_mm": [
+        -76.0,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR_P.3",
+            "F_FR2.in"
+          ],
+          "graph_ids": [
+            "W_FR_P.3"
+          ],
+          "physical_role": "FR_P.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_P.4",
+      "point_mm": [
+        -71.25,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR_P.4",
+            "F_FR3.in"
+          ],
+          "graph_ids": [
+            "W_FR_P.4"
+          ],
+          "physical_role": "FR_P.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_P.5",
+      "point_mm": [
+        -66.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_G.1",
+      "point_mm": [
+        -43.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR.GND_RETURN",
+            "FR_G.1"
+          ],
+          "graph_ids": [
+            "W_FR_G.1"
+          ],
+          "physical_role": "FR_G.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_G.2",
+      "point_mm": [
+        -38.75,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR1.G",
+            "FR_G.2"
+          ],
+          "graph_ids": [
+            "W_FR_G.2"
+          ],
+          "physical_role": "FR_G.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_G.3",
+      "point_mm": [
+        -34.0,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR2.G",
+            "FR_G.3"
+          ],
+          "graph_ids": [
+            "W_FR_G.3"
+          ],
+          "physical_role": "FR_G.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_G.4",
+      "point_mm": [
+        -29.25,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR3.G",
+            "FR_G.4"
+          ],
+          "graph_ids": [
+            "W_FR_G.4"
+          ],
+          "physical_role": "FR_G.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "FR_G.5",
+      "point_mm": [
+        -24.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FR.1",
+      "point_mm": [
+        -1.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FL.5",
+            "D_FR.1"
+          ],
+          "graph_ids": [
+            "D_BRIDGE_FLFR"
+          ],
+          "physical_role": "D_FR.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FR.2",
+      "point_mm": [
+        3.25,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FR.2",
+            "FR1.D"
+          ],
+          "graph_ids": [
+            "D_FR1"
+          ],
+          "physical_role": "D_FR.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FR.3",
+      "point_mm": [
+        8.0,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FR.3",
+            "FR2.D"
+          ],
+          "graph_ids": [
+            "D_FR2"
+          ],
+          "physical_role": "D_FR.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FR.4",
+      "point_mm": [
+        12.75,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FR.4",
+            "FR3.D"
+          ],
+          "graph_ids": [
+            "D_FR3"
+          ],
+          "physical_role": "D_FR.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_FR.5",
+      "point_mm": [
+        17.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FR.5",
+            "D_RR.1"
+          ],
+          "graph_ids": [
+            "D_BRIDGE_FRRR"
+          ],
+          "physical_role": "D_FR.5"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_P.1",
+      "point_mm": [
+        40.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RR.out",
+            "RR_P.1"
+          ],
+          "graph_ids": [
+            "W_RR_P.1"
+          ],
+          "physical_role": "RR_P.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_P.2",
+      "point_mm": [
+        45.25,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RR1.in",
+            "RR_P.2"
+          ],
+          "graph_ids": [
+            "W_RR_P.2"
+          ],
+          "physical_role": "RR_P.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_P.3",
+      "point_mm": [
+        50.0,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RR2.in",
+            "RR_P.3"
+          ],
+          "graph_ids": [
+            "W_RR_P.3"
+          ],
+          "physical_role": "RR_P.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_P.4",
+      "point_mm": [
+        54.75,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_RR3.in",
+            "RR_P.4"
+          ],
+          "graph_ids": [
+            "W_RR_P.4"
+          ],
+          "physical_role": "RR_P.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_P.5",
+      "point_mm": [
+        59.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_G.1",
+      "point_mm": [
+        82.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RR.GND_RETURN",
+            "RR_G.1"
+          ],
+          "graph_ids": [
+            "W_RR_G.1"
+          ],
+          "physical_role": "RR_G.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_G.2",
+      "point_mm": [
+        87.25,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RR1.G",
+            "RR_G.2"
+          ],
+          "graph_ids": [
+            "W_RR_G.2"
+          ],
+          "physical_role": "RR_G.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_G.3",
+      "point_mm": [
+        92.0,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RR2.G",
+            "RR_G.3"
+          ],
+          "graph_ids": [
+            "W_RR_G.3"
+          ],
+          "physical_role": "RR_G.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_G.4",
+      "point_mm": [
+        96.75,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "RR3.G",
+            "RR_G.4"
+          ],
+          "graph_ids": [
+            "W_RR_G.4"
+          ],
+          "physical_role": "RR_G.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "RR_G.5",
+      "point_mm": [
+        101.5,
+        -75.25,
+        67.99000000000001
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": []
+    },
+    {
+      "role": "G1.1",
+      "point_mm": [
+        -89.0,
+        -73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "BAT.minus",
+            "G1.1"
+          ],
+          "graph_ids": [
+            "W_G1.1"
+          ],
+          "physical_role": "G1.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G1.2",
+      "point_mm": [
+        -82.5,
+        -73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G1.2",
+            "MAIN.GND"
+          ],
+          "graph_ids": [
+            "W_G1.2"
+          ],
+          "physical_role": "G1.2"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G1.3",
+      "point_mm": [
+        -76.0,
+        -73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FL.GND_RETURN",
+            "G1.3"
+          ],
+          "graph_ids": [
+            "W_G1.3"
+          ],
+          "physical_role": "G1.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G1.4",
+      "point_mm": [
+        -69.5,
+        -73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "FR.GND_RETURN",
+            "G1.4"
+          ],
+          "graph_ids": [
+            "W_G1.4"
+          ],
+          "physical_role": "G1.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G1.5",
+      "point_mm": [
+        -63.0,
+        -73.75,
+        100.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G1.5",
+            "G2.1"
+          ],
+          "graph_ids": [
+            "W_G1.5",
+            "W_G2.1"
+          ],
+          "physical_role": "G1.5"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RR.1",
+      "point_mm": [
+        -43.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_FR.5",
+            "D_RR.1"
+          ],
+          "graph_ids": [
+            "D_BRIDGE_FRRR"
+          ],
+          "physical_role": "D_RR.1"
+        }
+      ],
+      "blocked_by": [
+        "mount/right_rail_tie0_CurrentReference"
+      ]
+    },
+    {
+      "role": "D_RR.2",
+      "point_mm": [
+        -38.75,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RR.2",
+            "RR1.D"
+          ],
+          "graph_ids": [
+            "D_RR1"
+          ],
+          "physical_role": "D_RR.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/right_rail_tie0_CurrentReference"
+      ]
+    },
+    {
+      "role": "D_RR.3",
+      "point_mm": [
+        -34.0,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RR.3",
+            "RR2.D"
+          ],
+          "graph_ids": [
+            "D_RR2"
+          ],
+          "physical_role": "D_RR.3"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RR.4",
+      "point_mm": [
+        -29.25,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RR.4",
+            "RR3.D"
+          ],
+          "graph_ids": [
+            "D_RR3"
+          ],
+          "physical_role": "D_RR.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "D_RR.5",
+      "point_mm": [
+        -24.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "D_RL.1",
+            "D_RR.5"
+          ],
+          "graph_ids": [
+            "D_BRIDGE_RRRL"
+          ],
+          "physical_role": "D_RR.5"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "P_AUX.1",
+      "point_mm": [
+        -1.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "AUX.VOUT",
+            "P_AUX.1"
+          ],
+          "graph_ids": [
+            "XA03"
+          ],
+          "physical_role": "P_AUX.1"
+        }
+      ],
+      "blocked_by": [
+        "mount/SourceRightCarrier",
+        "mount/right_comb_tie0_CurrentReference",
+        "mount/right_comb_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_AUX.2",
+      "point_mm": [
+        3.25,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_HY.in",
+            "P_AUX.2"
+          ],
+          "graph_ids": [
+            "XB11"
+          ],
+          "physical_role": "P_AUX.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/SourceRightCarrier",
+        "mount/F_HY_input_CurrentReference",
+        "mount/right_comb_tie0_CurrentReference",
+        "mount/right_comb_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_AUX.3",
+      "point_mm": [
+        8.0,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_HP.in",
+            "P_AUX.3"
+          ],
+          "graph_ids": [
+            "XB21"
+          ],
+          "physical_role": "P_AUX.3"
+        }
+      ],
+      "blocked_by": [
+        "mount/SourceRightCarrier",
+        "mount/F_HP_input_CurrentReference",
+        "mount/right_comb_tie0_CurrentReference",
+        "mount/right_comb_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_AUX.4",
+      "point_mm": [
+        12.75,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": [
+        "mount/SourceRightCarrier",
+        "mount/right_comb_tie0_CurrentReference",
+        "mount/right_comb_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "P_AUX.5",
+      "point_mm": [
+        17.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "F_TY.in",
+            "P_AUX.4"
+          ],
+          "graph_ids": [
+            "XB31"
+          ],
+          "physical_role": "P_AUX.5"
+        }
+      ],
+      "blocked_by": [
+        "mount/SourceRightCarrier",
+        "mount/F_TY_input_CurrentReference",
+        "mount/right_comb_tie0_CurrentReference",
+        "mount/right_comb_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_AUX.1",
+      "point_mm": [
+        40.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G2.5",
+            "G_AUX.1"
+          ],
+          "graph_ids": [
+            "XA05"
+          ],
+          "physical_role": "G_AUX.1"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_TY_body_budget_CurrentReference",
+        "mount/F_TY_body_tie0_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_AUX.2",
+      "point_mm": [
+        45.25,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "AUX.GND",
+            "G_AUX.2"
+          ],
+          "graph_ids": [
+            "XA04"
+          ],
+          "physical_role": "G_AUX.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_TY_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_AUX.3",
+      "point_mm": [
+        50.0,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "C_HY.GND",
+            "G_AUX.3"
+          ],
+          "graph_ids": [
+            "XB13"
+          ],
+          "physical_role": "G_AUX.3"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_TY_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_AUX.4",
+      "point_mm": [
+        54.75,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "C_HP.GND",
+            "G_AUX.4"
+          ],
+          "graph_ids": [
+            "XB23"
+          ],
+          "physical_role": "G_AUX.4"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_TY_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_AUX.5",
+      "point_mm": [
+        59.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G_AUX.5",
+            "G_TAIL.1"
+          ],
+          "graph_ids": [
+            "XA06"
+          ],
+          "physical_role": "G_AUX.5"
+        }
+      ],
+      "blocked_by": [
+        "mount/F_TY_body_budget_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_TAIL.1",
+      "point_mm": [
+        82.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G_AUX.5",
+            "G_TAIL.1"
+          ],
+          "graph_ids": [
+            "XA06"
+          ],
+          "physical_role": "G_TAIL.1"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G_TAIL.2",
+      "point_mm": [
+        87.25,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "C_TY.GND",
+            "G_TAIL.2"
+          ],
+          "graph_ids": [
+            "XB33"
+          ],
+          "physical_role": "G_TAIL.2"
+        }
+      ],
+      "blocked_by": [
+        "mount/right_rail_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_TAIL.3",
+      "point_mm": [
+        92.0,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G_TAIL.3",
+            "JPWM_SOURCE.2"
+          ],
+          "graph_ids": [
+            "XP03.source"
+          ],
+          "physical_role": "G_TAIL.3"
+        }
+      ],
+      "blocked_by": [
+        "mount/right_rail_tie1_CurrentReference"
+      ]
+    },
+    {
+      "role": "G_TAIL.4",
+      "point_mm": [
+        96.75,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": true,
+      "load_edges": [
+        {
+          "logical_ends": [
+            "G_TAIL.4",
+            "LOCAL.GND"
+          ],
+          "graph_ids": [
+            "XL09"
+          ],
+          "physical_role": "G_TAIL.4"
+        }
+      ],
+      "blocked_by": []
+    },
+    {
+      "role": "G_TAIL.5",
+      "point_mm": [
+        101.5,
+        -75.25,
+        99.99
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "occupied": false,
+      "load_edges": [],
+      "blocked_by": [
+        "tail/CurrentTailSupport"
+      ]
+    }
+  ],
+  "blocked_required_space": [
+    {
+      "port": "P_SYS.1",
+      "target": "mount/PI_input_tie_CurrentReference",
+      "reserved_space_overlap_mm3": 44.11640786614832,
+      "bounds_mm": [
+        -91.1,
+        65.0,
+        98.91153903091734,
+        -87.49999999999997,
+        69.5,
+        103.06846096908265
+      ]
+    },
+    {
+      "port": "P_SYS.2",
+      "target": "mount/SourceLeftCarrier",
+      "reserved_space_overlap_mm3": 0.600530096416541,
+      "bounds_mm": [
+        -83.1403124237432,
+        64.75,
+        98.89,
+        -81.8596875762568,
+        71.75,
+        98.99
+      ]
+    },
+    {
+      "port": "P_SYS.2",
+      "target": "mount/F_PI_input_CurrentReference",
+      "reserved_space_overlap_mm3": 113.09733552923245,
+      "bounds_mm": [
+        -84.5,
+        64.75,
+        98.99,
+        -80.5,
+        73.75,
+        102.99
+      ]
+    },
+    {
+      "port": "P_SYS.2",
+      "target": "mount/PI_input_tie_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501265,
+      "bounds_mm": [
+        -83.14031242374328,
+        66.0,
+        102.99,
+        -81.85968757625672,
+        68.5,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_SYS.3",
+      "target": "mount/PI_input_tie_CurrentReference",
+      "reserved_space_overlap_mm3": 11.143621809435476,
+      "bounds_mm": [
+        -77.50000000000003,
+        66.0,
+        98.91153903091734,
+        -76.3,
+        68.5,
+        103.06846096908265
+      ]
+    },
+    {
+      "port": "P_SYS.4",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 29.440650154953374,
+      "bounds_mm": [
+        -71.6,
+        64.75,
+        98.89,
+        -67.4,
+        66.875,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_SYS.4",
+      "target": "mount/left_rail_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 8.42604915402109,
+      "bounds_mm": [
+        -71.15707573755755,
+        69.0,
+        98.89,
+        -67.84292426244245,
+        73.5,
+        99.70000000000027
+      ]
+    },
+    {
+      "port": "P_FRONT.1",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 29.440650154953374,
+      "bounds_mm": [
+        -49.1,
+        64.75,
+        98.89,
+        -44.9,
+        66.875,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_FRONT.2",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 29.440650154953374,
+      "bounds_mm": [
+        -42.6,
+        64.75,
+        98.89,
+        -38.4,
+        66.875,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_FRONT.3",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 29.440650154953374,
+      "bounds_mm": [
+        -36.1,
+        64.75,
+        98.89,
+        -31.9,
+        66.875,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_FRONT.3",
+      "target": "mount/F_PI_body_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 4.614623474196259,
+      "bounds_mm": [
+        -36.1,
+        66.875,
+        99.02849547540619,
+        -34.74999999999983,
+        68.075,
+        102.9515045245938
+      ]
+    },
+    {
+      "port": "P_REAR.1",
+      "target": "mount/AUX_input_tie_CurrentReference",
+      "reserved_space_overlap_mm3": 44.11640786615249,
+      "bounds_mm": [
+        -7.1,
+        65.0,
+        98.91153903091734,
+        -3.4999999999999654,
+        69.5,
+        103.06846096908265
+      ]
+    },
+    {
+      "port": "P_REAR.2",
+      "target": "mount/SourceLeftCarrier",
+      "reserved_space_overlap_mm3": 0.600530096417776,
+      "bounds_mm": [
+        0.8596875762568033,
+        64.75,
+        98.89,
+        2.1403124237431967,
+        71.75,
+        98.99
+      ]
+    },
+    {
+      "port": "P_REAR.2",
+      "target": "mount/F_AUX_input_CurrentReference",
+      "reserved_space_overlap_mm3": 113.0973355292325,
+      "bounds_mm": [
+        -0.5,
+        64.75,
+        98.99,
+        3.5,
+        73.75,
+        102.99
+      ]
+    },
+    {
+      "port": "P_REAR.2",
+      "target": "mount/AUX_input_tie_CurrentReference",
+      "reserved_space_overlap_mm3": 0.2144750344350142,
+      "bounds_mm": [
+        0.859687576256715,
+        66.0,
+        102.99,
+        2.140312423743285,
+        68.5,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_REAR.3",
+      "target": "mount/AUX_input_tie_CurrentReference",
+      "reserved_space_overlap_mm3": 11.14362180943545,
+      "bounds_mm": [
+        6.499999999999966,
+        66.0,
+        98.91153903091734,
+        7.700000000000001,
+        68.5,
+        103.06846096908265
+      ]
+    },
+    {
+      "port": "D_RL.2",
+      "target": "mount/left_rail_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 25.70892399483779,
+      "bounds_mm": [
+        43.17012019578037,
+        69.0,
+        97.89,
+        47.32987980421963,
+        73.5,
+        99.70000000000003
+      ]
+    },
+    {
+      "port": "D_RR.1",
+      "target": "mount/right_rail_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 4.3921047757580824,
+      "bounds_mm": [
+        -42.400000000000226,
+        -73.5,
+        98.20114561799966,
+        -41.42012019578037,
+        -69.0,
+        99.70000000000003
+      ]
+    },
+    {
+      "port": "D_RR.2",
+      "target": "mount/right_rail_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 21.650529356625874,
+      "bounds_mm": [
+        -40.82987980421981,
+        -73.5,
+        97.89,
+        -37.6,
+        -69.0,
+        99.70000000000005
+      ]
+    },
+    {
+      "port": "P_AUX.1",
+      "target": "mount/SourceRightCarrier",
+      "reserved_space_overlap_mm3": 0.5648780548856974,
+      "bounds_mm": [
+        -1.7500000000001084,
+        -74.725,
+        97.89,
+        -0.8596875762568031,
+        -66.25,
+        97.99
+      ]
+    },
+    {
+      "port": "P_AUX.1",
+      "target": "mount/right_comb_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 17.592079250386828,
+      "bounds_mm": [
+        -3.6,
+        -74.95,
+        97.90493405380069,
+        -0.8596875762567149,
+        -70.45,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.1",
+      "target": "mount/right_comb_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 11.457057568792294,
+      "bounds_mm": [
+        -2.95,
+        -70.55,
+        97.90493405380069,
+        -0.8596875762567149,
+        -68.05,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.2",
+      "target": "mount/SourceRightCarrier",
+      "reserved_space_overlap_mm3": 0.7270703667343723,
+      "bounds_mm": [
+        2.6096875762568033,
+        -74.725,
+        97.89,
+        3.8903124237431967,
+        -66.25,
+        97.99
+      ]
+    },
+    {
+      "port": "P_AUX.2",
+      "target": "mount/F_HY_input_CurrentReference",
+      "reserved_space_overlap_mm3": 113.09733552923248,
+      "bounds_mm": [
+        1.25,
+        -75.25,
+        97.99,
+        5.25,
+        -66.25,
+        101.99
+      ]
+    },
+    {
+      "port": "P_AUX.2",
+      "target": "mount/right_comb_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501437,
+      "bounds_mm": [
+        2.609687576256715,
+        -73.95,
+        101.99,
+        3.890312423743285,
+        -71.45,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.2",
+      "target": "mount/right_comb_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501434,
+      "bounds_mm": [
+        2.609687576256715,
+        -70.55,
+        101.99,
+        3.890312423743285,
+        -68.05,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.3",
+      "target": "mount/SourceRightCarrier",
+      "reserved_space_overlap_mm3": 0.7270703667343734,
+      "bounds_mm": [
+        7.359687576256803,
+        -74.725,
+        97.89,
+        8.640312423743197,
+        -66.25,
+        97.99
+      ]
+    },
+    {
+      "port": "P_AUX.3",
+      "target": "mount/F_HP_input_CurrentReference",
+      "reserved_space_overlap_mm3": 113.09733552923247,
+      "bounds_mm": [
+        6.0,
+        -75.25,
+        97.99,
+        10.0,
+        -66.25,
+        101.99
+      ]
+    },
+    {
+      "port": "P_AUX.3",
+      "target": "mount/right_comb_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501348,
+      "bounds_mm": [
+        7.35968757625502,
+        -73.95,
+        101.9899999999995,
+        8.64031242374498,
+        -71.45,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.3",
+      "target": "mount/right_comb_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 0.2144750344350135,
+      "bounds_mm": [
+        7.35968757625502,
+        -70.55,
+        101.9899999999995,
+        8.64031242374498,
+        -68.05,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.5",
+      "target": "mount/SourceRightCarrier",
+      "reserved_space_overlap_mm3": 0.7270703667343745,
+      "bounds_mm": [
+        16.859687576256803,
+        -74.725,
+        97.89,
+        18.140312423743197,
+        -66.25,
+        97.99
+      ]
+    },
+    {
+      "port": "P_AUX.5",
+      "target": "mount/F_TY_input_CurrentReference",
+      "reserved_space_overlap_mm3": 113.09733552923247,
+      "bounds_mm": [
+        15.5,
+        -75.25,
+        97.99,
+        19.5,
+        -66.25,
+        101.99
+      ]
+    },
+    {
+      "port": "P_AUX.5",
+      "target": "mount/right_comb_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501345,
+      "bounds_mm": [
+        16.859687576256118,
+        -73.95,
+        101.98999999999982,
+        18.140312423743882,
+        -71.45,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.5",
+      "target": "mount/right_comb_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501342,
+      "bounds_mm": [
+        16.859687576256118,
+        -70.55,
+        101.98999999999982,
+        18.140312423743882,
+        -68.05,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_AUX.1",
+      "target": "mount/F_TY_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 49.875924968391516,
+      "bounds_mm": [
+        38.4,
+        -69.85,
+        97.89,
+        42.6,
+        -66.25,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_AUX.1",
+      "target": "mount/F_TY_body_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 11.348956173537768,
+      "bounds_mm": [
+        38.74999999999961,
+        -71.05,
+        97.89,
+        41.25000000000017,
+        -69.85,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_AUX.2",
+      "target": "mount/F_TY_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 49.875924968391516,
+      "bounds_mm": [
+        43.15,
+        -69.85,
+        97.89,
+        47.35,
+        -66.25,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_AUX.3",
+      "target": "mount/F_TY_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 49.875924968391516,
+      "bounds_mm": [
+        47.9,
+        -69.85,
+        97.89,
+        52.1,
+        -66.25,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_AUX.4",
+      "target": "mount/F_TY_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 49.875924968391516,
+      "bounds_mm": [
+        52.65,
+        -69.85,
+        97.89,
+        56.85,
+        -66.25,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_AUX.5",
+      "target": "mount/F_TY_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 49.875924968391516,
+      "bounds_mm": [
+        57.4,
+        -69.85,
+        97.89,
+        61.6,
+        -66.25,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_TAIL.2",
+      "target": "mount/right_rail_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 10.019088941147928,
+      "bounds_mm": [
+        87.6,
+        -73.5,
+        97.91937207591513,
+        89.32987980422085,
+        -69.0,
+        99.70000000000019
+      ]
+    },
+    {
+      "port": "G_TAIL.3",
+      "target": "mount/right_rail_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 16.089478821096602,
+      "bounds_mm": [
+        89.92012019577808,
+        -73.5,
+        97.89,
+        92.4,
+        -69.0,
+        99.70000000000034
+      ]
+    }
+  ],
+  "blocked_NC_space": [
+    {
+      "port": "P_SYS.5",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 29.440650154953374,
+      "bounds_mm": [
+        -65.1,
+        64.75,
+        98.89,
+        -60.9,
+        66.875,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_SYS.5",
+      "target": "mount/F_PI_body_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 0.6617286750643586,
+      "bounds_mm": [
+        -61.250000000000384,
+        66.875,
+        99.82918132337477,
+        -60.9,
+        68.075,
+        102.15081867662522
+      ]
+    },
+    {
+      "port": "P_FRONT.4",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 29.440650154953367,
+      "bounds_mm": [
+        -29.6,
+        64.75,
+        98.89,
+        -25.4,
+        66.875,
+        103.08999999999999
+      ]
+    },
+    {
+      "port": "P_FRONT.5",
+      "target": "mount/F_PI_body_budget_CurrentReference",
+      "reserved_space_overlap_mm3": 2.57988176656187,
+      "bounds_mm": [
+        -23.1,
+        64.75,
+        99.52030615433009,
+        -22.5,
+        66.875,
+        102.4596938456699
+      ]
+    },
+    {
+      "port": "P_AUX.4",
+      "target": "mount/SourceRightCarrier",
+      "reserved_space_overlap_mm3": 0.7270703667343743,
+      "bounds_mm": [
+        12.109687576256803,
+        -74.725,
+        97.89,
+        13.390312423743197,
+        -66.25,
+        97.99
+      ]
+    },
+    {
+      "port": "P_AUX.4",
+      "target": "mount/right_comb_tie0_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501414,
+      "bounds_mm": [
+        12.109687576255586,
+        -73.95,
+        101.98999999999967,
+        13.390312423744414,
+        -71.45,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "P_AUX.4",
+      "target": "mount/right_comb_tie1_CurrentReference",
+      "reserved_space_overlap_mm3": 0.21447503443501414,
+      "bounds_mm": [
+        12.109687576255586,
+        -70.55,
+        101.98999999999967,
+        13.390312423744414,
+        -68.05,
+        102.08999999999999
+      ]
+    },
+    {
+      "port": "G_TAIL.5",
+      "target": "tail/CurrentTailSupport",
+      "reserved_space_overlap_mm3": 19.661096368225497,
+      "bounds_mm": [
+        101.98409919573419,
+        -75.25,
+        97.94655977119723,
+        103.5932485600542,
+        -66.25,
+        99.82174285800896
+      ]
+    }
+  ],
+  "errors": [],
+  "tested_pairs": 121,
+  "reservation_is_not_wire": true,
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "worker_seconds": 128.03099999995902,
+  "finished_utc": "2026-10-08T17:43:17.415874+00:00"
+}
