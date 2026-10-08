@@ -1,67 +1,28 @@
 {
-  "status": "COMMON4MTA_PLAN_REQUIRES_CAUSE_CHANGE_BEFORE_NATIVE",
+  "status": "COMMON4MTA_LOAD_PATH_PREFLIGHT_CLEAR_NATIVE_AND8TAILS_OPEN",
   "selected": false,
   "stage_completed": false,
   "physical_pass": false,
-  "contacts": [
-    {
-      "a": "RLPost0",
-      "b": "S1_driver_5",
-      "volume_mm3": 110.15659604395341
-    },
-    {
-      "a": "RLFoot0",
-      "b": "S1_driver_5",
-      "volume_mm3": 37.896291779728145
-    },
-    {
-      "a": "RLPost1",
-      "b": "S1_driver_5",
-      "volume_mm3": 110.15659613510516
-    },
-    {
-      "a": "RLFoot1",
-      "b": "S1_driver_5",
-      "volume_mm3": 37.8962917809369
-    }
-  ],
+  "contacts": [],
   "errors": [],
   "outside_torso": [],
   "bearing": [
     {
-      "xy_mm": [
-        134,
-        13
-      ],
-      "area_mm2": 50.26548245743574,
-      "coverage": 1.0
+      "owner": "LeftDistributionCarrier",
+      "integral_root_overlap_mm3": 63.99999999999999,
+      "receiving_bolts_retained": true,
+      "solid_post_OD_mm": 8,
+      "union_valid_1solid": true
     },
     {
-      "xy_mm": [
-        134,
-        23
-      ],
-      "area_mm2": 50.26548245743574,
-      "coverage": 1.0
-    },
-    {
-      "xy_mm": [
-        134,
-        -23
-      ],
-      "area_mm2": 50.26548245743574,
-      "coverage": 1.0
-    },
-    {
-      "xy_mm": [
-        134,
-        -13
-      ],
-      "area_mm2": 50.26548245743574,
-      "coverage": 1.0
+      "owner": "RightDistributionCarrier",
+      "integral_root_overlap_mm3": 63.99999999999999,
+      "receiving_bolts_retained": true,
+      "solid_post_OD_mm": 8,
+      "union_valid_1solid": true
     }
   ],
-  "tested_pairs": 34,
+  "tested_pairs": 4,
   "frozen_allocation_commit": "337b6c6",
   "native_source_commit": "57afce2",
   "changed_mount_roles": [
@@ -79,17 +40,19 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonSourcePlatform.FCStd": "6cffe2b99b14847404360624f540c906c456e7447d2d9ee3fcb9fd1086dae17f",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/shared-allocation-plan.json": "eb89ebf220cb8cfafd772dc90ddec4cd543a23a7a4b0064ef940802e6d7273d5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/common-source-platform-package.json": "76cb84660ba60f791a657414d1344d4f538a0daaef3500ab34de63f787dfc7fc",
-    "tools/cad/open_prototype_common_mta_support_plan.py": "eed57ed808edf60c705fd5c4799927d8cebf2d6787994cd971cb753ea3903228"
+    "tools/cad/open_prototype_common_mta_support_plan.py": "d26d35efef8a9e35b9f31e757d84a07cbf97a370bbd0e12eca35b999bae668ba"
   },
+  "previous_preflight_snapshot_commit": "cbdbb4e",
+  "cause_change": "Rear load path roots on current paired side rails ABOVE S1 driver,not tall receiving-plate columns through its horizontal access. Integral8mm solid posts need no4new screws; unchanged front allocation checks reused.",
   "assembly": [
-    "Prepare rear captive nuts/receiving holes on bench before boards",
+    "Fit side rails with integral rear MTA seats using retained4rail bolts before WAGO",
     "Fit common source platform and integral front MTA arms before restraints",
     "Fit purchased4MTA,independent both-side lead grips and replaceable body ties; no lead extension invented"
   ],
   "new_hardware_candidate": {
-    "rear_M3x10": 4,
-    "rear_M3_washer": 4,
-    "rear_M3_nut": 4,
+    "rear_M3x10": 0,
+    "rear_M3_washer": 0,
+    "rear_M3_nut": 0,
     "body_T18I": 8
   },
   "factory_lead_basis": "Both9mm first exit reservations only;100mm/side is PROJECT assumption,not catalogueL140 guarantee",
@@ -98,25 +61,19 @@
     "MTA body bands and delivered casing/lid fit",
     "Full head/tail/source/S1/PWM/body/legs and removal"
   ],
-  "load_path": "Front integral arms on existing common source floor; rear shared support uses full receiving cells atX134,Y+-13/23 outside PWM board. Not supplierPCB holes.",
+  "load_path": "Front integral arms on common source floor; rear integral roots on paired distribution carriersX126..138,Y+-18 atZ109.01..113.01,solidOD8posts to137/seat137..139. No low rear carrier holes or addedbolts.",
   "planned_rear_axes_xy_mm": [
     [
       134,
-      -23
+      -18
     ],
     [
       134,
-      -13
-    ],
-    [
-      134,
-      13
-    ],
-    [
-      134,
-      23
+      18
     ]
   ],
-  "worker_seconds": 39.79700000002049,
-  "finished_utc": "2026-10-08T20:22:35.566425+00:00"
+  "fore_unchanged_evidence": "cbdbb4e contains no FL/FR mount contacts/errors/outside; do NOT repeat their unchanged checks",
+  "print_bound_after_rear_integration_max_x_mm": 139.5,
+  "worker_seconds": 18.844000000040978,
+  "finished_utc": "2026-10-08T20:26:34.689393+00:00"
 }
