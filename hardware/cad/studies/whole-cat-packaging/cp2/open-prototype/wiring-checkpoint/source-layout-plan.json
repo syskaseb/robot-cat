@@ -3,7 +3,7 @@
   "selected": false,
   "physical_pass": false,
   "stage_completed": false,
-  "endpoint_source_sha256": "a4b096210597425ee75b1366177eeb5352392d9e5c31bdc62d771ff52d5b9523",
+  "endpoint_source_sha256": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
   "source_plan": [
     {
       "holder": "F_PI",
@@ -15,6 +15,11 @@
         -22.5,
         66.875,
         112.99
+      ],
+      "target_entry_mm": [
+        -82.5,
+        73.75,
+        100.99
       ],
       "input_exit_mm": [
         -73.5,
@@ -41,6 +46,8 @@
         "exit_straight_mm": 3,
         "quarter_radius_mm": 6,
         "entry_straight_mm": 11,
+        "quarter_arc_count": 1,
+        "vertical_straight_mm": 0,
         "basis": "Project wire geometry, not delivered bend specification"
       },
       "factory_nominal_minimum_margin_mm": 47.075222039230624,
@@ -56,6 +63,11 @@
         61.5,
         62.875,
         112.99
+      ],
+      "target_entry_mm": [
+        1.5,
+        73.75,
+        100.99
       ],
       "input_exit_mm": [
         10.5,
@@ -82,6 +94,8 @@
         "exit_straight_mm": 3,
         "quarter_radius_mm": 6,
         "entry_straight_mm": 15,
+        "quarter_arc_count": 1,
+        "vertical_straight_mm": 0,
         "basis": "Project wire geometry, not delivered bend specification"
       },
       "factory_nominal_minimum_margin_mm": 43.075222039230624,
@@ -97,6 +111,11 @@
         -5.75,
         -43.625,
         111.99
+      ],
+      "target_entry_mm": [
+        3.25,
+        -75.25,
+        99.99
       ],
       "input_exit_mm": [
         -5.75,
@@ -123,6 +142,8 @@
         "exit_straight_mm": 3,
         "quarter_radius_mm": 6,
         "entry_straight_mm": 15.5,
+        "quarter_arc_count": 1,
+        "vertical_straight_mm": 0,
         "basis": "Project wire geometry, not delivered bend specification"
       },
       "factory_nominal_minimum_margin_mm": 45.575222039230624,
@@ -138,6 +159,11 @@
         -1.0,
         -21.125,
         111.99
+      ],
+      "target_entry_mm": [
+        8.0,
+        -75.25,
+        99.99
       ],
       "input_exit_mm": [
         -1.0,
@@ -164,6 +190,8 @@
         "exit_straight_mm": 3,
         "quarter_radius_mm": 6,
         "entry_straight_mm": 38,
+        "quarter_arc_count": 1,
+        "vertical_straight_mm": 0,
         "basis": "Project wire geometry, not delivered bend specification"
       },
       "factory_nominal_minimum_margin_mm": 23.075222039230624,
@@ -171,63 +199,69 @@
     },
     {
       "holder": "F_TY",
-      "target": "P_AUX.4",
+      "target": "P_AUX.5",
       "proposed_body_bounds_mm": [
-        -47.25,
-        -19.125,
+        26.5,
+        -69.85,
         89.99,
-        3.75,
-        1.125,
+        77.5,
+        -49.6,
         111.99
       ],
+      "target_entry_mm": [
+        17.5,
+        -75.25,
+        99.99
+      ],
       "input_exit_mm": [
-        3.75,
-        -9.0,
+        26.5,
+        -59.725,
         99.99
       ],
       "output_exit_mm": [
-        -47.25,
-        -9.0,
+        77.5,
+        -59.725,
         99.99
       ],
       "input_departure": [
-        1,
-        0,
-        0
-      ],
-      "output_departure": [
         -1,
         0,
         0
       ],
-      "nominal_input_blank_mm": 83.67477796076938,
+      "output_departure": [
+        1,
+        0,
+        0
+      ],
+      "nominal_input_blank_mm": 32.94977796076938,
       "input_recipe": {
         "exit_straight_mm": 3,
         "quarter_radius_mm": 6,
-        "entry_straight_mm": 60.25,
+        "entry_straight_mm": 9.525,
+        "quarter_arc_count": 1,
+        "vertical_straight_mm": 0,
         "basis": "Project wire geometry, not delivered bend specification"
       },
-      "factory_nominal_minimum_margin_mm": 0.8252220392306242,
+      "factory_nominal_minimum_margin_mm": 51.55022203923062,
       "both_output_route_and_independent_load_path_pending": true
     }
   ],
   "proposed_same_bus_port_permutation": {
     "P_REAR.2": "P_REAR.5",
-    "P_REAR.5": "P_REAR.2"
+    "P_REAR.5": "P_REAR.2",
+    "P_AUX.4": "P_AUX.5",
+    "P_AUX.5": "P_AUX.4"
   },
   "affected_connections": [
     "W044/F_RL.in",
-    "F_AUX.in/XA01"
+    "F_AUX.in/XA01",
+    "F_TY.in/XB31; P_AUX.4 becomes unused"
   ],
   "electrical_nets_or_installed_holder_counts_changed": false,
+  "input_wire_diameter_design_allowance_mm": 4.0,
+  "factory_OD_and_R6_are_delivery_gates_not_manufacturer_specs": true,
   "candidate_self_bbox_pairs": [],
-  "possible_context_pairs": [
-    {
-      "holder": "F_TY",
-      "target": "PWM9685_CP2",
-      "disposition": "BBOX_CANDIDATE_PAIR_ONLY; actual valid BRep check required"
-    }
-  ],
+  "possible_context_pairs": [],
   "retained": [
     "MAIN46.52",
     "current mounting set",
@@ -243,8 +277,10 @@
   "plan_changes_before_CAD": [
     "PI upper+Y approach17mm avoids S0 allowance by2.125mm",
     "HP/TY old bays overlap newly raised WAGO; allocate all three AUX branch bodies jointly instead of preserving invalid bays",
-    "TY minimum margin below1mm is not delivered acceptance; keep extension/trim gate explicit"
+    "TY upper-tier attempt intersects front MTA reservation; rejected without mounting investment",
+    "TY inwardY alternative crosses HP input wire envelope; rejected before native mount creation",
+    "TY port5/right-of-inputs allocation: inlet laneX17.5, bodyX26.5..77.5, rear MTA Ygap2mm; all5 inlet paths checked together"
   ],
   "next": "Validate coherent source bodies against mount and context BRep; then full input/output paths and load-bearing seats together",
-  "created_utc": "2026-10-08T11:03:38.122873+00:00"
+  "created_utc": "2026-10-08T11:23:49.861727+00:00"
 }

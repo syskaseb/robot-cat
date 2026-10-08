@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "STAGE3_CURRENT_ENDPOINTS_AND_SHARED_SOURCE_LAYOUT_PENDING",
+  "status": "STAGE3_SHARED_FIVE_INPUT_PREPARATION_CHECKED_OUTPUTS_AND_MOUNTS_OPEN",
   "stage_completed": false,
   "selected": false,
   "physical_pass": false,
@@ -34,7 +34,10 @@
       "BUS.D/G",
       "12leg_connectors.V/G/D"
     ],
-    "previous_binding_not_current_route_approval": true
+    "previous_binding_not_current_route_approval": true,
+    "circuit_wire_edges_including_local_interconnects": 129,
+    "distinct_unordered_logical_wire_pairs": 128,
+    "graph_counts_are_not_stock_quantities": true
   },
   "changed_interfaces": [
     "20WAGO endpointZ: paired underside pad nominal2.49mm/project allowance3mm",
@@ -73,6 +76,8 @@
   },
   "current_endpoint_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json",
   "shared_source_layout_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json",
+  "shared_source_layout_proof": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-fit.json",
+  "whole_stage_routing_scope": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-scope-plan.json",
   "planning_result": {
     "body_net_identities_preserved": 80,
     "current_leg_frames_retained": 12,
@@ -85,22 +90,33 @@
     "old_prefuse_length_bounds_mm": {"F_PI": 78.98925361578527, "F_AUX": 130.28268089623265},
     "planned_prefuse_input_blanks_mm": {"F_PI": 37.424777960769376, "F_AUX": 41.424777960769376},
     "planned_body_self_bbox_pairs": 0,
-    "remaining_bbox_candidate": "F_TY/PWM9685_CP2; reservation overlap is not proof of actual material collision",
+    "remaining_bbox_candidate": null,
     "source_output_routes_and_native_seats_open": true,
-    "TY_factory_minimum_margin_mm": 0.8252220392306242,
-    "TY_small_margin_not_delivered_acceptance": true,
-    "endpoint_worker_seconds": 13.609
+    "TY_factory_minimum_margin_mm": 51.55022203923062,
+    "TY_reallocated_right_of_input_lanes_using_unused_P_AUX_port5": true,
+    "both_port_permutations_proposed_not_selected": ["P_REAR.2/5", "P_AUX.4/5 including unused port"],
+    "MTA_all8_exits_rederived_from_current_body_faces": true,
+    "old_front_MTA115mm_not_current140_6mm": true,
+    "five_input_nominal_blanks_mm": [37.424777960769376,41.424777960769376,38.924777960769376,61.424777960769376,32.94977796076938],
+    "five_input_sweeps_valid_single_solids": true,
+    "input_self_material_reservation_contacts": 0,
+    "candidate_commercial_body_budgets_not_measured_supplier_BRep": true,
+    "factory_OD4mm_allowance_and_R6_are_delivery_gates": true,
+    "stock_and_actual_cut_not_selected": true,
+    "endpoint_worker_seconds": 14.172,
+    "joint_input_worker_seconds": 14.047,
+    "pure_contract_tests_passed": 12
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T11:03:50Z",
-    "window_elapsed_seconds": 1250,
+    "saved_utc": "2026-10-08T11:28:21Z",
+    "window_elapsed_seconds": 2721,
     "includes_analysis_compute_and_user_notification_question_not_continuous_CPU": true
   },
-  "next": "Resolve one joint5holder layout versus actual mount/PWM material, then both sides/output connections and native strain load paths. Preserve current board mounts; no isolated offset loop. Do not rerun old bank or inherited stale route lengths.",
+  "next": "Keep checked5input allocation. Plan all5output destinations and independent native strain load paths jointly, then supports/assembly and remaining scope/stock. Current scope includes4moved outputs/29local interconnect pairs, plus legacy920mm. Do not repeat source placement search or old bank. Unknown U1/AUX electrical pad mapping stays a gate, not an invented datum.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T11:03:50Z",
-    "weekly_used_percent": 6,
-    "weekly_remaining_percent": 94,
+    "checked_utc": "2026-10-08T11:28:21Z",
+    "weekly_used_percent": 7,
+    "weekly_remaining_percent": 93,
     "ordinary_usage_allowed": true
   }
 }

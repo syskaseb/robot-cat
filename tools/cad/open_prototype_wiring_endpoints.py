@@ -104,6 +104,25 @@ def main():
                 return
             before = old.getObject(name)
             after = current.getObject(name) or context.getObject(name)
+            if name and name.startswith('MTA_') and after is not None:
+                # Some inherited points were never expressed in this body's
+                # source frame: equal placements cannot repair stale baked data.
+                # Both exit reservations derive from the CURRENT body, not a
+                # nominal transform roundtrip that would preserve a wrong point.
+                b = bounds(after.Shape)
+                original = end['point_mm']
+                end.update(point_mm=[b[0] if end['role'].endswith('.in') else b[3],
+                    (b[1]+b[4])/2, (b[2]+b[5])/2],
+                    departure=[-1 if end['role'].endswith('.in') else 1,0,0],
+                    basis='Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum',
+                    datum_is_not_manufacturer_pin=True, current_frame_bound=True,
+                    frame_source=context_path.relative_to(ROOT).as_posix())
+                if 'extension_port_mm' in end:
+                    end['obsolete_extension_port_mm'] = end.pop('extension_port_mm')
+                    end['extension_placement_status'] = 'Reallocate with both current exits; old inline location not selected'
+                changed.append(dict(role=end['role'],native=name,old_mm=original,current_mm=end['point_mm'],
+                    reason='Re-derived both MTA exits from current native budget faces'))
+                return
             if name in distribution:
                 spec = distribution[name]
                 port = int(end['role'].rsplit('.', 1)[1])

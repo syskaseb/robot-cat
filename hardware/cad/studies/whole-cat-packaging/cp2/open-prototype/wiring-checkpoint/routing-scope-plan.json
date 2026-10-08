@@ -1,0 +1,6245 @@
+{
+  "status": "WHOLE_STAGE3_WIRE_SCOPE_PLAN_NOT_ROUTE_ACCEPTANCE",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json": "cf76b5186a292ba41a2acd84da826b616fbd06dfb898bf4914f21a251d30ad73",
+    "tools/cad/open_prototype_wiring_scope.py": "84492fdc29c05a96003d89b90023fc34f61d9b9a3bc6a876994fdb82401c9248"
+  },
+  "circuit_wire_edges": 129,
+  "distinct_unordered_wire_pairs": 128,
+  "scopes": {
+    "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN": 92,
+    "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN": 2,
+    "ONE_PHYSICAL_SPLIT_W077_W078_WITH_PROTECTED_SPLICE; NOT_EXTRA_PARALLEL_WIRE": 1,
+    "FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN": 4,
+    "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED": 29
+  },
+  "physical_pair_groups": [
+    {
+      "ends": [
+        "P_SYS.1",
+        "S0.out"
+      ],
+      "graph_ids": [
+        "W_P_SYS.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "P_SYS.1": {
+          "native": "P_SYS_CP2",
+          "point_mm": [
+            -89.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_SYS.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "S0.out": {
+          "native": "S0_ring_OUT",
+          "point_mm": [
+            -41.703916638198606,
+            29.45,
+            80.0
+          ],
+          "departure": [
+            0.8660254037844386,
+            0.5,
+            0.0
+          ],
+          "basis": "Nominal TE barrel end; bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "S0.out",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_PI.in",
+        "P_SYS.2"
+      ],
+      "graph_ids": [
+        "W_P_SYS.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_PI.in": {
+          "role": "F_PI.in",
+          "point_mm": [
+            -73.5,
+            56.75,
+            100.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "P_SYS.2": {
+          "native": "P_SYS_CP2",
+          "point_mm": [
+            -82.5,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_SYS.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "P_SYS.3",
+        "S1.2"
+      ],
+      "graph_ids": [
+        "W_P_SYS.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "P_SYS.3": {
+          "native": "P_SYS_CP2",
+          "point_mm": [
+            -76.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_SYS.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "S1.2": {
+          "native": "S1_ring_2",
+          "point_mm": [
+            98.07699999999988,
+            33.0,
+            85.00000000000001
+          ],
+          "departure": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "basis": "Nominal TE barrel end; bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "S1.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "P_SYS.4",
+        "S1.5"
+      ],
+      "graph_ids": [
+        "W_P_SYS.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "P_SYS.4": {
+          "native": "P_SYS_CP2",
+          "point_mm": [
+            -69.5,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_SYS.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "S1.5": {
+          "native": "S1_ring_5",
+          "point_mm": [
+            154.32299999999998,
+            33.0,
+            84.99999999999989
+          ],
+          "departure": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "basis": "Nominal TE barrel end; bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "S1.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "P_FRONT.1",
+        "S1.3"
+      ],
+      "graph_ids": [
+        "W_P_FRONT.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "P_FRONT.1": {
+          "native": "P_FRONT_CP2",
+          "point_mm": [
+            -47.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_FRONT.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "S1.3": {
+          "native": "S1_ring_3",
+          "point_mm": [
+            98.077,
+            33.0,
+            73.0
+          ],
+          "departure": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "basis": "Nominal TE barrel end; bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "S1.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_FL.in",
+        "P_FRONT.2"
+      ],
+      "graph_ids": [
+        "W_P_FRONT.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_FL.in": {
+          "native": "MTA_FL_CP2",
+          "point_mm": [
+            -32.5,
+            36.6,
+            140.6
+          ],
+          "departure": [
+            -1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_FL_SOURCE",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FL.in",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            -77.0,
+            36.6,
+            140.6
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        },
+        "P_FRONT.2": {
+          "native": "P_FRONT_CP2",
+          "point_mm": [
+            -40.5,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_FRONT.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_FR.in",
+        "P_FRONT.3"
+      ],
+      "graph_ids": [
+        "W_P_FRONT.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_FR.in": {
+          "native": "MTA_FR_CP2",
+          "point_mm": [
+            -32.5,
+            -36.6,
+            140.6
+          ],
+          "departure": [
+            -1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_FR_SOURCE",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FR.in",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            -77.0,
+            -36.6,
+            140.6
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        },
+        "P_FRONT.3": {
+          "native": "P_FRONT_CP2",
+          "point_mm": [
+            -34.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_FRONT.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "P_REAR.1",
+        "S1.6"
+      ],
+      "graph_ids": [
+        "W_P_REAR.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "P_REAR.1": {
+          "native": "P_REAR_CP2",
+          "point_mm": [
+            -5.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_REAR.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "S1.6": {
+          "native": "S1_ring_6",
+          "point_mm": [
+            154.32299999999998,
+            33.0,
+            73.0
+          ],
+          "departure": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "basis": "Nominal TE barrel end; bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "S1.6",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL.in",
+        "P_REAR.2"
+      ],
+      "graph_ids": [
+        "W_P_REAR.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RL.in": {
+          "native": "MTA_RL_CP2",
+          "point_mm": [
+            72.5,
+            36.6,
+            115.0
+          ],
+          "departure": [
+            -1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_RL_SOURCE",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RL.in",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            28.0,
+            36.6,
+            115.0
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        },
+        "P_REAR.2": {
+          "native": "P_REAR_CP2",
+          "point_mm": [
+            1.5,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_REAR.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR.in",
+        "P_REAR.3"
+      ],
+      "graph_ids": [
+        "W_P_REAR.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RR.in": {
+          "native": "MTA_RR_CP2",
+          "point_mm": [
+            72.5,
+            -36.6,
+            115.0
+          ],
+          "departure": [
+            -1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_RR_SOURCE",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RR.in",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            28.0,
+            -36.6,
+            115.0
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        },
+        "P_REAR.3": {
+          "native": "P_REAR_CP2",
+          "point_mm": [
+            8.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_REAR.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "BAT.minus",
+        "G1.1"
+      ],
+      "graph_ids": [
+        "W_G1.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "BAT.minus": {
+          "native": "XT60_CP2",
+          "point_mm": [
+            -72.99999999999994,
+            -58.79999999999997,
+            56.999999999999986
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "role": "BAT.minus",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        },
+        "G1.1": {
+          "native": "G1_CP2",
+          "point_mm": [
+            -89.0,
+            -73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G1.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "G1.2",
+        "MAIN.GND"
+      ],
+      "graph_ids": [
+        "W_G1.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "G1.2": {
+          "native": "G1_CP2",
+          "point_mm": [
+            -82.5,
+            -73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G1.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "MAIN.GND": {
+          "point_mm": [
+            -41.68000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "departure": [
+            0,
+            0,
+            1
+          ],
+          "basis": "Retained MAIN prototype pad at current neck mount; delivered4853 pad OPEN",
+          "role": "MAIN.GND"
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL.GND_RETURN",
+        "G1.3"
+      ],
+      "graph_ids": [
+        "W_G1.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "G1.3": {
+          "native": "G1_CP2",
+          "point_mm": [
+            -76.0,
+            -73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G1.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [
+        "FL.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR.GND_RETURN",
+        "G1.4"
+      ],
+      "graph_ids": [
+        "W_G1.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "G1.4": {
+          "native": "G1_CP2",
+          "point_mm": [
+            -69.5,
+            -73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G1.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [
+        "FR.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "G1.5",
+        "G2.1"
+      ],
+      "graph_ids": [
+        "W_G1.5",
+        "W_G2.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "G1.5": {
+          "native": "G1_CP2",
+          "point_mm": [
+            -63.0,
+            -73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G1.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        },
+        "G2.1": {
+          "native": "G2_CP2",
+          "point_mm": [
+            82.5,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G2.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "G2.2",
+        "RL.GND_RETURN"
+      ],
+      "graph_ids": [
+        "W_G2.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "G2.2": {
+          "native": "G2_CP2",
+          "point_mm": [
+            87.25,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G2.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "RL.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "G2.3",
+        "RR.GND_RETURN"
+      ],
+      "graph_ids": [
+        "W_G2.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "G2.3": {
+          "native": "G2_CP2",
+          "point_mm": [
+            92.0,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G2.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "RR.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "BUS.G",
+        "G2.4"
+      ],
+      "graph_ids": [
+        "W_G2.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "BUS.G": {
+          "role": "BUS.G",
+          "status": "OPEN_DATUM",
+          "basis": "No current pin/mating datum; never use bbox centre"
+        },
+        "G2.4": {
+          "native": "G2_CP2",
+          "point_mm": [
+            96.75,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G2.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL_P.1",
+        "F_FL.out"
+      ],
+      "graph_ids": [
+        "W_FL_P.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL_P.1": {
+          "native": "FL_P_CP2",
+          "point_mm": [
+            -85.5,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_P.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FL.out": {
+          "native": "MTA_FL_CP2",
+          "point_mm": [
+            2.5,
+            36.6,
+            140.6
+          ],
+          "departure": [
+            1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_FL_OUTPUT",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FL.out",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            47.0,
+            36.6,
+            140.6
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL_P.2",
+        "F_FL1.in"
+      ],
+      "graph_ids": [
+        "W_FL_P.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL_P.2": {
+          "native": "FL_P_CP2",
+          "point_mm": [
+            -80.75,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_P.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FL1.in": {
+          "native": "F_L1_CP2_IN",
+          "point_mm": [
+            -53.0,
+            69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FL1.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL_P.3",
+        "F_FL2.in"
+      ],
+      "graph_ids": [
+        "W_FL_P.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL_P.3": {
+          "native": "FL_P_CP2",
+          "point_mm": [
+            -76.0,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_P.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FL2.in": {
+          "native": "F_L2_CP2_IN",
+          "point_mm": [
+            -23.0,
+            69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FL2.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL_P.4",
+        "F_FL3.in"
+      ],
+      "graph_ids": [
+        "W_FL_P.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL_P.4": {
+          "native": "FL_P_CP2",
+          "point_mm": [
+            -71.25,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_P.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FL3.in": {
+          "native": "F_L3_CP2_IN",
+          "point_mm": [
+            7.0,
+            69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FL3.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL.GND_RETURN",
+        "FL_G.1"
+      ],
+      "graph_ids": [
+        "W_FL_G.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL_G.1": {
+          "native": "FL_G_CP2",
+          "point_mm": [
+            -43.5,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_G.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "FL.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL1.G",
+        "FL_G.2"
+      ],
+      "graph_ids": [
+        "W_FL_G.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL1.G": {
+          "role": "FL1.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL1",
+          "current_pcb_native": "P0_Part__Feature018",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -115.55756646104562,
+              29.11837405414557,
+              11.617194897901069
+            ],
+            [
+              -115.55756646104518,
+              30.510105063746217,
+              21.519875585316772
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.0,
+            9.943434964299058e-15,
+            4.311828671887952e-14
+          ]
+        },
+        "FL_G.2": {
+          "native": "FL_G_CP2",
+          "point_mm": [
+            -38.75,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_G.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL2.G",
+        "FL_G.3"
+      ],
+      "graph_ids": [
+        "W_FL_G.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL2.G": {
+          "role": "FL2.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL2",
+          "current_pcb_native": "P0_Part__Feature060",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -99.26090152151339,
+              85.0372480334106,
+              -5.229416287929212
+            ],
+            [
+              -91.60045709032335,
+              85.93183548239827,
+              1.1359041606234843
+            ]
+          ],
+          "cable_exit_axis": [
+            1.67019176267047e-14,
+            0.9902680687415706,
+            -0.13917310096006522
+          ]
+        },
+        "FL_G.3": {
+          "native": "FL_G_CP2",
+          "point_mm": [
+            -34.0,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_G.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL3.G",
+        "FL_G.4"
+      ],
+      "graph_ids": [
+        "W_FL_G.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FL3.G": {
+          "role": "FL3.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL3",
+          "current_pcb_native": "P0_Part__Feature092",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -61.97723405265389,
+              54.819089345289825,
+              -63.60332323523676
+            ],
+            [
+              -52.12915652253169,
+              55.06076089890959,
+              -61.883740779850214
+            ]
+          ],
+          "cable_exit_axis": [
+            1.1296519275560968e-14,
+            -0.9902680687415674,
+            0.1391731009600884
+          ]
+        },
+        "FL_G.4": {
+          "native": "FL_G_CP2",
+          "point_mm": [
+            -29.25,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FL_G.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR_P.1",
+        "F_FR.out"
+      ],
+      "graph_ids": [
+        "W_FR_P.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR_P.1": {
+          "native": "FR_P_CP2",
+          "point_mm": [
+            -85.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_P.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FR.out": {
+          "native": "MTA_FR_CP2",
+          "point_mm": [
+            2.5,
+            -36.6,
+            140.6
+          ],
+          "departure": [
+            1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_FR_OUTPUT",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FR.out",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            47.0,
+            -36.6,
+            140.6
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR_P.2",
+        "F_FR1.in"
+      ],
+      "graph_ids": [
+        "W_FR_P.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR_P.2": {
+          "native": "FR_P_CP2",
+          "point_mm": [
+            -80.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_P.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FR1.in": {
+          "native": "F_R1_CP2_IN",
+          "point_mm": [
+            -53.0,
+            -69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FR1.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR_P.3",
+        "F_FR2.in"
+      ],
+      "graph_ids": [
+        "W_FR_P.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR_P.3": {
+          "native": "FR_P_CP2",
+          "point_mm": [
+            -76.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_P.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FR2.in": {
+          "native": "F_R2_CP2_IN",
+          "point_mm": [
+            -21.0,
+            -69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FR2.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR_P.4",
+        "F_FR3.in"
+      ],
+      "graph_ids": [
+        "W_FR_P.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR_P.4": {
+          "native": "FR_P_CP2",
+          "point_mm": [
+            -71.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_P.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "F_FR3.in": {
+          "native": "F_R3_CP2_IN",
+          "point_mm": [
+            11.0,
+            -69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_FR3.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR.GND_RETURN",
+        "FR_G.1"
+      ],
+      "graph_ids": [
+        "W_FR_G.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR_G.1": {
+          "native": "FR_G_CP2",
+          "point_mm": [
+            -43.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_G.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "FR.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR1.G",
+        "FR_G.2"
+      ],
+      "graph_ids": [
+        "W_FR_G.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR1.G": {
+          "role": "FR1.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR1",
+          "current_pcb_native": "P0_Part__Feature010",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -115.5575664610506,
+              -30.510105063748558,
+              21.519875585315237
+            ],
+            [
+              -115.55756646105053,
+              -29.118374054147907,
+              11.617194897899534
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.0,
+            -3.0531133177191805e-15,
+            -7.868705687030797e-15
+          ]
+        },
+        "FR_G.2": {
+          "native": "FR_G_CP2",
+          "point_mm": [
+            -38.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_G.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR2.G",
+        "FR_G.3"
+      ],
+      "graph_ids": [
+        "W_FR_G.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR2.G": {
+          "role": "FR2.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR2",
+          "current_pcb_native": "P0_Part__Feature044",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -91.60045709033417,
+              -85.93183548239138,
+              1.1359041606234488
+            ],
+            [
+              -99.26090152152386,
+              -85.03724803340339,
+              -5.22941628792963
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.1025902413308586e-14,
+            -0.990268068741569,
+            -0.13917310096007507
+          ]
+        },
+        "FR_G.3": {
+          "native": "FR_G_CP2",
+          "point_mm": [
+            -34.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_G.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR3.G",
+        "FR_G.4"
+      ],
+      "graph_ids": [
+        "W_FR_G.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "FR3.G": {
+          "role": "FR3.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR3",
+          "current_pcb_native": "P0_Part__Feature076",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -52.12915652253956,
+              -55.060760898902615,
+              -61.883740779848516
+            ],
+            [
+              -61.97723405266167,
+              -54.8190893452831,
+              -63.60332323523563
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.6708856520608606e-14,
+            0.9902680687415724,
+            0.13917310096005203
+          ]
+        },
+        "FR_G.4": {
+          "native": "FR_G_CP2",
+          "point_mm": [
+            -29.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "FR_G.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL.out",
+        "RL_P.1"
+      ],
+      "graph_ids": [
+        "W_RL_P.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RL.out": {
+          "native": "MTA_RL_CP2",
+          "point_mm": [
+            107.5,
+            36.6,
+            115.0
+          ],
+          "departure": [
+            1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_RL_OUTPUT",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RL.out",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            152.0,
+            36.6,
+            115.0
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        },
+        "RL_P.1": {
+          "native": "RL_P_CP2",
+          "point_mm": [
+            40.5,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_P.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL1.in",
+        "RL_P.2"
+      ],
+      "graph_ids": [
+        "W_RL_P.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RL1.in": {
+          "native": "F_L4_CP2_IN",
+          "point_mm": [
+            37.0,
+            69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RL1.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RL_P.2": {
+          "native": "RL_P_CP2",
+          "point_mm": [
+            45.25,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_P.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL2.in",
+        "RL_P.3"
+      ],
+      "graph_ids": [
+        "W_RL_P.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RL2.in": {
+          "native": "F_L5_CP2_IN",
+          "point_mm": [
+            67.0,
+            69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RL2.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RL_P.3": {
+          "native": "RL_P_CP2",
+          "point_mm": [
+            50.0,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_P.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL3.in",
+        "RL_P.4"
+      ],
+      "graph_ids": [
+        "W_RL_P.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RL3.in": {
+          "native": "F_L6_CP2_IN",
+          "point_mm": [
+            97.0,
+            69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RL3.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RL_P.4": {
+          "native": "RL_P_CP2",
+          "point_mm": [
+            54.75,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_P.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RL.GND_RETURN",
+        "RL_G.1"
+      ],
+      "graph_ids": [
+        "W_RL_G.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RL_G.1": {
+          "native": "RL_G_CP2",
+          "point_mm": [
+            82.5,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_G.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "RL.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RL1.G",
+        "RL_G.2"
+      ],
+      "graph_ids": [
+        "W_RL_G.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RL1.G": {
+          "role": "RL1.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL1",
+          "current_pcb_native": "P0_Part__Feature026",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              157.5575664610457,
+              30.510105063722296,
+              21.5198755853137
+            ],
+            [
+              157.5575664610456,
+              29.118374054121638,
+              11.617194897897996
+            ]
+          ],
+          "cable_exit_axis": [
+            1.0,
+            1.1102230246251565e-16,
+            -9.506284648352903e-15
+          ]
+        },
+        "RL_G.2": {
+          "native": "RL_G_CP2",
+          "point_mm": [
+            87.25,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_G.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RL2.G",
+        "RL_G.3"
+      ],
+      "graph_ids": [
+        "W_RL_G.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RL2.G": {
+          "role": "RL2.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL2",
+          "current_pcb_native": "P0_Part__Feature068",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              151.53423140057748,
+              85.03724803338687,
+              -5.2294162879313175
+            ],
+            [
+              159.1946758317673,
+              85.9318354823746,
+              1.1359041606216351
+            ]
+          ],
+          "cable_exit_axis": [
+            1.4710455076283324e-14,
+            0.9902680687415704,
+            -0.13917310096006555
+          ]
+        },
+        "RL_G.3": {
+          "native": "RL_G_CP2",
+          "point_mm": [
+            92.0,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_G.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RL3.G",
+        "RL_G.4"
+      ],
+      "graph_ids": [
+        "W_RL_G.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RL3.G": {
+          "role": "RL3.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL3",
+          "current_pcb_native": "P0_Part__Feature100",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              188.81789886943938,
+              54.81908934526582,
+              -63.60332323523761
+            ],
+            [
+              198.66597639956152,
+              55.06076089888569,
+              -61.883740779850726
+            ]
+          ],
+          "cable_exit_axis": [
+            1.594557819117881e-14,
+            -0.990268068741567,
+            0.13917310096009
+          ]
+        },
+        "RL_G.4": {
+          "native": "RL_G_CP2",
+          "point_mm": [
+            96.75,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RL_G.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR.out",
+        "RR_P.1"
+      ],
+      "graph_ids": [
+        "W_RR_P.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RR.out": {
+          "native": "MTA_RR_CP2",
+          "point_mm": [
+            107.5,
+            -36.6,
+            115.0
+          ],
+          "departure": [
+            1,
+            0,
+            0
+          ],
+          "inline_connector": "Joint_RR_OUTPUT",
+          "factory_cut_required_mm": 20,
+          "available_factory_length_confirmed": false,
+          "basis": "Current MTA budget opposite-face exit reservation; NOT measured supplier lead datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RR.out",
+          "datum_is_not_manufacturer_pin": true,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+          "obsolete_extension_port_mm": [
+            152.0,
+            -36.6,
+            115.0
+          ],
+          "extension_placement_status": "Reallocate with both current exits; old inline location not selected"
+        },
+        "RR_P.1": {
+          "native": "RR_P_CP2",
+          "point_mm": [
+            40.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_P.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR1.in",
+        "RR_P.2"
+      ],
+      "graph_ids": [
+        "W_RR_P.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RR1.in": {
+          "native": "F_R4_CP2_IN",
+          "point_mm": [
+            43.0,
+            -69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RR1.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RR_P.2": {
+          "native": "RR_P_CP2",
+          "point_mm": [
+            45.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_P.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR2.in",
+        "RR_P.3"
+      ],
+      "graph_ids": [
+        "W_RR_P.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RR2.in": {
+          "native": "F_R5_CP2_IN",
+          "point_mm": [
+            75.0,
+            -69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RR2.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RR_P.3": {
+          "native": "RR_P_CP2",
+          "point_mm": [
+            50.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_P.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR3.in",
+        "RR_P.4"
+      ],
+      "graph_ids": [
+        "W_RR_P.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "F_RR3.in": {
+          "native": "F_R6_CP2_IN",
+          "point_mm": [
+            107.0,
+            -69.0,
+            73.37
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "role": "F_RR3.in",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RR_P.4": {
+          "native": "RR_P_CP2",
+          "point_mm": [
+            54.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_P.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RR.GND_RETURN",
+        "RR_G.1"
+      ],
+      "graph_ids": [
+        "W_RR_G.1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RR_G.1": {
+          "native": "RR_G_CP2",
+          "point_mm": [
+            82.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_G.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "RR.GND_RETURN"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RR1.G",
+        "RR_G.2"
+      ],
+      "graph_ids": [
+        "W_RR_G.2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RR1.G": {
+          "role": "RR1.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR1",
+          "current_pcb_native": "P0_Part__Feature034",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              157.55756646104066,
+              -29.118374054170474,
+              11.617194897898143
+            ],
+            [
+              157.55756646104075,
+              -30.510105063771128,
+              21.519875585313848
+            ]
+          ],
+          "cable_exit_axis": [
+            1.0,
+            3.2439329000766293e-15,
+            -7.979727989493313e-15
+          ]
+        },
+        "RR_G.2": {
+          "native": "RR_G_CP2",
+          "point_mm": [
+            87.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_G.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RR2.G",
+        "RR_G.3"
+      ],
+      "graph_ids": [
+        "W_RR_G.3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RR2.G": {
+          "role": "RR2.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR2",
+          "current_pcb_native": "P0_Part__Feature052",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              159.19467583176203,
+              -85.93183548241895,
+              1.1359041606223244
+            ],
+            [
+              151.53423140057217,
+              -85.03724803343104,
+              -5.2294162879305865
+            ]
+          ],
+          "cable_exit_axis": [
+            -9.867107131356079e-15,
+            -0.9902680687415703,
+            -0.1391731009600663
+          ]
+        },
+        "RR_G.3": {
+          "native": "RR_G_CP2",
+          "point_mm": [
+            92.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_G.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "RR3.G",
+        "RR_G.4"
+      ],
+      "graph_ids": [
+        "W_RR_G.4"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/leg-distribution-p0.json"
+      ],
+      "current_datums": {
+        "RR3.G": {
+          "role": "RR3.G",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR3",
+          "current_pcb_native": "P0_Part__Feature084",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              198.66597639955506,
+              -55.06076089893137,
+              -61.88374077985159
+            ],
+            [
+              188.81789886943292,
+              -54.81908934531189,
+              -63.60332323523858
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.5404344466674047e-14,
+            0.9902680687415732,
+            0.13917310096004473
+          ]
+        },
+        "RR_G.4": {
+          "native": "RR_G_CP2",
+          "point_mm": [
+            96.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "RR_G.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "BAT.plus",
+        "F0.in"
+      ],
+      "graph_ids": [
+        "BAT_0"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "BAT.plus": {
+          "role": "BAT.plus",
+          "native": "XT60_CP2",
+          "point_mm": [
+            -72.99999999999994,
+            -58.79999999999997,
+            49.999999999999986
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        },
+        "F0.in": {
+          "role": "F0.in",
+          "native": "F0_CP2",
+          "point_mm": [
+            -48.0,
+            -58.8,
+            50.0
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN"
+    },
+    {
+      "ends": [
+        "F0.out",
+        "S0.in"
+      ],
+      "graph_ids": [
+        "BAT_1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F0.out": {
+          "role": "F0.out",
+          "native": "F0_CP2",
+          "point_mm": [
+            3.0,
+            -58.8,
+            50.0
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        },
+        "S0.in": {
+          "role": "S0.in",
+          "native": "S0_ring_IN",
+          "point_mm": [
+            -75.55,
+            -7.296083361801397,
+            80.0
+          ],
+          "departure": [
+            0.5,
+            -0.8660254037844386,
+            0.0
+          ],
+          "basis": "Retained nominal S0 barrel, bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN"
+    },
+    {
+      "ends": [
+        "F_PI.out",
+        "MAIN.VIN"
+      ],
+      "graph_ids": [
+        "PI_VIN"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_PI.out": {
+          "role": "F_PI.out",
+          "point_mm": [
+            -22.5,
+            56.75,
+            100.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "MAIN.VIN": {
+          "role": "MAIN.VIN",
+          "point_mm": [
+            -38.18000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "departure": [
+            0,
+            0,
+            1
+          ],
+          "basis": "Retained MAIN prototype pad at current neck mount; delivered4853 pad OPEN"
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "ONE_PHYSICAL_SPLIT_W077_W078_WITH_PROTECTED_SPLICE; NOT_EXTRA_PARALLEL_WIRE"
+    },
+    {
+      "ends": [
+        "FL1.V",
+        "F_FL1.out"
+      ],
+      "graph_ids": [
+        "FL1_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "FL1.V": {
+          "role": "FL1.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL1",
+          "current_pcb_native": "P0_Part__Feature018",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -115.55756646104562,
+              29.11837405414557,
+              11.617194897901069
+            ],
+            [
+              -115.55756646104518,
+              30.510105063746217,
+              21.519875585316772
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.0,
+            9.943434964299058e-15,
+            4.311828671887952e-14
+          ]
+        },
+        "F_FL1.out": {
+          "role": "F_FL1.out",
+          "native": "F_L1_CP2_OUT",
+          "point_mm": [
+            -53.0,
+            55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL2.V",
+        "F_FL2.out"
+      ],
+      "graph_ids": [
+        "FL2_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "FL2.V": {
+          "role": "FL2.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL2",
+          "current_pcb_native": "P0_Part__Feature060",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -99.26090152151339,
+              85.0372480334106,
+              -5.229416287929212
+            ],
+            [
+              -91.60045709032335,
+              85.93183548239827,
+              1.1359041606234843
+            ]
+          ],
+          "cable_exit_axis": [
+            1.67019176267047e-14,
+            0.9902680687415706,
+            -0.13917310096006522
+          ]
+        },
+        "F_FL2.out": {
+          "role": "F_FL2.out",
+          "native": "F_L2_CP2_OUT",
+          "point_mm": [
+            -23.0,
+            55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FL3.V",
+        "F_FL3.out"
+      ],
+      "graph_ids": [
+        "FL3_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "FL3.V": {
+          "role": "FL3.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL3",
+          "current_pcb_native": "P0_Part__Feature092",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -61.97723405265389,
+              54.819089345289825,
+              -63.60332323523676
+            ],
+            [
+              -52.12915652253169,
+              55.06076089890959,
+              -61.883740779850214
+            ]
+          ],
+          "cable_exit_axis": [
+            1.1296519275560968e-14,
+            -0.9902680687415674,
+            0.1391731009600884
+          ]
+        },
+        "F_FL3.out": {
+          "role": "F_FL3.out",
+          "native": "F_L3_CP2_OUT",
+          "point_mm": [
+            7.0,
+            55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR1.V",
+        "F_FR1.out"
+      ],
+      "graph_ids": [
+        "FR1_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "FR1.V": {
+          "role": "FR1.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR1",
+          "current_pcb_native": "P0_Part__Feature010",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -115.5575664610506,
+              -30.510105063748558,
+              21.519875585315237
+            ],
+            [
+              -115.55756646105053,
+              -29.118374054147907,
+              11.617194897899534
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.0,
+            -3.0531133177191805e-15,
+            -7.868705687030797e-15
+          ]
+        },
+        "F_FR1.out": {
+          "role": "F_FR1.out",
+          "native": "F_R1_CP2_OUT",
+          "point_mm": [
+            -53.0,
+            -55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR2.V",
+        "F_FR2.out"
+      ],
+      "graph_ids": [
+        "FR2_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "FR2.V": {
+          "role": "FR2.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR2",
+          "current_pcb_native": "P0_Part__Feature044",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -91.60045709033417,
+              -85.93183548239138,
+              1.1359041606234488
+            ],
+            [
+              -99.26090152152386,
+              -85.03724803340339,
+              -5.22941628792963
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.1025902413308586e-14,
+            -0.990268068741569,
+            -0.13917310096007507
+          ]
+        },
+        "F_FR2.out": {
+          "role": "F_FR2.out",
+          "native": "F_R2_CP2_OUT",
+          "point_mm": [
+            -21.0,
+            -55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "FR3.V",
+        "F_FR3.out"
+      ],
+      "graph_ids": [
+        "FR3_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "FR3.V": {
+          "role": "FR3.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR3",
+          "current_pcb_native": "P0_Part__Feature076",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -52.12915652253956,
+              -55.060760898902615,
+              -61.883740779848516
+            ],
+            [
+              -61.97723405266167,
+              -54.8190893452831,
+              -63.60332323523563
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.6708856520608606e-14,
+            0.9902680687415724,
+            0.13917310096005203
+          ]
+        },
+        "F_FR3.out": {
+          "role": "F_FR3.out",
+          "native": "F_R3_CP2_OUT",
+          "point_mm": [
+            11.0,
+            -55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL1.out",
+        "RL1.V"
+      ],
+      "graph_ids": [
+        "RL1_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RL1.out": {
+          "role": "F_RL1.out",
+          "native": "F_L4_CP2_OUT",
+          "point_mm": [
+            37.0,
+            55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RL1.V": {
+          "role": "RL1.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL1",
+          "current_pcb_native": "P0_Part__Feature026",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              157.5575664610457,
+              30.510105063722296,
+              21.5198755853137
+            ],
+            [
+              157.5575664610456,
+              29.118374054121638,
+              11.617194897897996
+            ]
+          ],
+          "cable_exit_axis": [
+            1.0,
+            1.1102230246251565e-16,
+            -9.506284648352903e-15
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL2.out",
+        "RL2.V"
+      ],
+      "graph_ids": [
+        "RL2_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RL2.out": {
+          "role": "F_RL2.out",
+          "native": "F_L5_CP2_OUT",
+          "point_mm": [
+            67.0,
+            55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RL2.V": {
+          "role": "RL2.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL2",
+          "current_pcb_native": "P0_Part__Feature068",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              151.53423140057748,
+              85.03724803338687,
+              -5.2294162879313175
+            ],
+            [
+              159.1946758317673,
+              85.9318354823746,
+              1.1359041606216351
+            ]
+          ],
+          "cable_exit_axis": [
+            1.4710455076283324e-14,
+            0.9902680687415704,
+            -0.13917310096006555
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RL3.out",
+        "RL3.V"
+      ],
+      "graph_ids": [
+        "RL3_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RL3.out": {
+          "role": "F_RL3.out",
+          "native": "F_L6_CP2_OUT",
+          "point_mm": [
+            97.0,
+            55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RL3.V": {
+          "role": "RL3.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL3",
+          "current_pcb_native": "P0_Part__Feature100",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              188.81789886943938,
+              54.81908934526582,
+              -63.60332323523761
+            ],
+            [
+              198.66597639956152,
+              55.06076089888569,
+              -61.883740779850726
+            ]
+          ],
+          "cable_exit_axis": [
+            1.594557819117881e-14,
+            -0.990268068741567,
+            0.13917310096009
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR1.out",
+        "RR1.V"
+      ],
+      "graph_ids": [
+        "RR1_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RR1.out": {
+          "role": "F_RR1.out",
+          "native": "F_R4_CP2_OUT",
+          "point_mm": [
+            43.0,
+            -55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RR1.V": {
+          "role": "RR1.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR1",
+          "current_pcb_native": "P0_Part__Feature034",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              157.55756646104066,
+              -29.118374054170474,
+              11.617194897898143
+            ],
+            [
+              157.55756646104075,
+              -30.510105063771128,
+              21.519875585313848
+            ]
+          ],
+          "cable_exit_axis": [
+            1.0,
+            3.2439329000766293e-15,
+            -7.979727989493313e-15
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR2.out",
+        "RR2.V"
+      ],
+      "graph_ids": [
+        "RR2_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RR2.out": {
+          "role": "F_RR2.out",
+          "native": "F_R5_CP2_OUT",
+          "point_mm": [
+            75.0,
+            -55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RR2.V": {
+          "role": "RR2.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR2",
+          "current_pcb_native": "P0_Part__Feature052",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              159.19467583176203,
+              -85.93183548241895,
+              1.1359041606223244
+            ],
+            [
+              151.53423140057217,
+              -85.03724803343104,
+              -5.2294162879305865
+            ]
+          ],
+          "cable_exit_axis": [
+            -9.867107131356079e-15,
+            -0.9902680687415703,
+            -0.1391731009600663
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_RR3.out",
+        "RR3.V"
+      ],
+      "graph_ids": [
+        "RR3_V"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/manual-stop-p0.json"
+      ],
+      "current_datums": {
+        "F_RR3.out": {
+          "role": "F_RR3.out",
+          "native": "F_R6_CP2_OUT",
+          "point_mm": [
+            107.0,
+            -55.0,
+            75.402
+          ],
+          "departure": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "straight_grip_design_mm": 9,
+          "basis": "Nominal TE mouth; seating/axes provisional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "RR3.V": {
+          "role": "RR3.V",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR3",
+          "current_pcb_native": "P0_Part__Feature084",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              198.66597639955506,
+              -55.06076089893137,
+              -61.88374077985159
+            ],
+            [
+              188.81789886943292,
+              -54.81908934531189,
+              -63.60332323523858
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.5404344466674047e-14,
+            0.9902680687415732,
+            0.13917310096004473
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FL.2",
+        "FL1.D"
+      ],
+      "graph_ids": [
+        "D_FL1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FL.2": {
+          "native": "D_FL_CP2",
+          "point_mm": [
+            3.25,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FL.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "FL1.D": {
+          "role": "FL1.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL1",
+          "current_pcb_native": "P0_Part__Feature018",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -115.55756646104562,
+              29.11837405414557,
+              11.617194897901069
+            ],
+            [
+              -115.55756646104518,
+              30.510105063746217,
+              21.519875585316772
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.0,
+            9.943434964299058e-15,
+            4.311828671887952e-14
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FL.3",
+        "FL2.D"
+      ],
+      "graph_ids": [
+        "D_FL2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FL.3": {
+          "native": "D_FL_CP2",
+          "point_mm": [
+            8.0,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FL.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "FL2.D": {
+          "role": "FL2.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL2",
+          "current_pcb_native": "P0_Part__Feature060",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -99.26090152151339,
+              85.0372480334106,
+              -5.229416287929212
+            ],
+            [
+              -91.60045709032335,
+              85.93183548239827,
+              1.1359041606234843
+            ]
+          ],
+          "cable_exit_axis": [
+            1.67019176267047e-14,
+            0.9902680687415706,
+            -0.13917310096006522
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FL.4",
+        "FL3.D"
+      ],
+      "graph_ids": [
+        "D_FL3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FL.4": {
+          "native": "D_FL_CP2",
+          "point_mm": [
+            12.75,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FL.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "FL3.D": {
+          "role": "FL3.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FL3",
+          "current_pcb_native": "P0_Part__Feature092",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -61.97723405265389,
+              54.819089345289825,
+              -63.60332323523676
+            ],
+            [
+              -52.12915652253169,
+              55.06076089890959,
+              -61.883740779850214
+            ]
+          ],
+          "cable_exit_axis": [
+            1.1296519275560968e-14,
+            -0.9902680687415674,
+            0.1391731009600884
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FR.2",
+        "FR1.D"
+      ],
+      "graph_ids": [
+        "D_FR1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FR.2": {
+          "native": "D_FR_CP2",
+          "point_mm": [
+            3.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FR.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "FR1.D": {
+          "role": "FR1.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR1",
+          "current_pcb_native": "P0_Part__Feature010",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -115.5575664610506,
+              -30.510105063748558,
+              21.519875585315237
+            ],
+            [
+              -115.55756646105053,
+              -29.118374054147907,
+              11.617194897899534
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.0,
+            -3.0531133177191805e-15,
+            -7.868705687030797e-15
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FR.3",
+        "FR2.D"
+      ],
+      "graph_ids": [
+        "D_FR2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FR.3": {
+          "native": "D_FR_CP2",
+          "point_mm": [
+            8.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FR.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "FR2.D": {
+          "role": "FR2.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR2",
+          "current_pcb_native": "P0_Part__Feature044",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -91.60045709033417,
+              -85.93183548239138,
+              1.1359041606234488
+            ],
+            [
+              -99.26090152152386,
+              -85.03724803340339,
+              -5.22941628792963
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.1025902413308586e-14,
+            -0.990268068741569,
+            -0.13917310096007507
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FR.4",
+        "FR3.D"
+      ],
+      "graph_ids": [
+        "D_FR3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FR.4": {
+          "native": "D_FR_CP2",
+          "point_mm": [
+            12.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FR.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "FR3.D": {
+          "role": "FR3.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "FR3",
+          "current_pcb_native": "P0_Part__Feature076",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              -52.12915652253956,
+              -55.060760898902615,
+              -61.883740779848516
+            ],
+            [
+              -61.97723405266167,
+              -54.8190893452831,
+              -63.60332323523563
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.6708856520608606e-14,
+            0.9902680687415724,
+            0.13917310096005203
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RR.2",
+        "RR1.D"
+      ],
+      "graph_ids": [
+        "D_RR1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RR.2": {
+          "native": "D_RR_CP2",
+          "point_mm": [
+            -38.75,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RR.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "RR1.D": {
+          "role": "RR1.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR1",
+          "current_pcb_native": "P0_Part__Feature034",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              157.55756646104066,
+              -29.118374054170474,
+              11.617194897898143
+            ],
+            [
+              157.55756646104075,
+              -30.510105063771128,
+              21.519875585313848
+            ]
+          ],
+          "cable_exit_axis": [
+            1.0,
+            3.2439329000766293e-15,
+            -7.979727989493313e-15
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RR.3",
+        "RR2.D"
+      ],
+      "graph_ids": [
+        "D_RR2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RR.3": {
+          "native": "D_RR_CP2",
+          "point_mm": [
+            -34.0,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RR.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "RR2.D": {
+          "role": "RR2.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR2",
+          "current_pcb_native": "P0_Part__Feature052",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              159.19467583176203,
+              -85.93183548241895,
+              1.1359041606223244
+            ],
+            [
+              151.53423140057217,
+              -85.03724803343104,
+              -5.2294162879305865
+            ]
+          ],
+          "cable_exit_axis": [
+            -9.867107131356079e-15,
+            -0.9902680687415703,
+            -0.1391731009600663
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RR.4",
+        "RR3.D"
+      ],
+      "graph_ids": [
+        "D_RR3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RR.4": {
+          "native": "D_RR_CP2",
+          "point_mm": [
+            -29.25,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RR.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "RR3.D": {
+          "role": "RR3.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RR3",
+          "current_pcb_native": "P0_Part__Feature084",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              198.66597639955506,
+              -55.06076089893137,
+              -61.88374077985159
+            ],
+            [
+              188.81789886943292,
+              -54.81908934531189,
+              -63.60332323523858
+            ]
+          ],
+          "cable_exit_axis": [
+            -1.5404344466674047e-14,
+            0.9902680687415732,
+            0.13917310096004473
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RL.2",
+        "RL1.D"
+      ],
+      "graph_ids": [
+        "D_RL1"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RL.2": {
+          "native": "D_RL_CP2",
+          "point_mm": [
+            45.25,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RL.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "RL1.D": {
+          "role": "RL1.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL1",
+          "current_pcb_native": "P0_Part__Feature026",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              157.5575664610457,
+              30.510105063722296,
+              21.5198755853137
+            ],
+            [
+              157.5575664610456,
+              29.118374054121638,
+              11.617194897897996
+            ]
+          ],
+          "cable_exit_axis": [
+            1.0,
+            1.1102230246251565e-16,
+            -9.506284648352903e-15
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RL.3",
+        "RL2.D"
+      ],
+      "graph_ids": [
+        "D_RL2"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RL.3": {
+          "native": "D_RL_CP2",
+          "point_mm": [
+            50.0,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RL.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "RL2.D": {
+          "role": "RL2.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL2",
+          "current_pcb_native": "P0_Part__Feature068",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              151.53423140057748,
+              85.03724803338687,
+              -5.2294162879313175
+            ],
+            [
+              159.1946758317673,
+              85.9318354823746,
+              1.1359041606216351
+            ]
+          ],
+          "cable_exit_axis": [
+            1.4710455076283324e-14,
+            0.9902680687415704,
+            -0.13917310096006555
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RL.4",
+        "RL3.D"
+      ],
+      "graph_ids": [
+        "D_RL3"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RL.4": {
+          "native": "D_RL_CP2",
+          "point_mm": [
+            54.75,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RL.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "RL3.D": {
+          "role": "RL3.D",
+          "status": "CABLE_EXIT_RESERVATION",
+          "basis": "Inherited provisional cable exit reservation, NOT individual D/V/G pin position",
+          "physical_loom": "RL3",
+          "current_pcb_native": "P0_Part__Feature100",
+          "pin_cavity_order_known": false,
+          "source_world_frame_retained": true,
+          "factory_plugs_installed": 1,
+          "second_socket": "NC",
+          "connector_reservations_mm": [
+            [
+              188.81789886943938,
+              54.81908934526582,
+              -63.60332323523761
+            ],
+            [
+              198.66597639956152,
+              55.06076089888569,
+              -61.883740779850726
+            ]
+          ],
+          "cable_exit_axis": [
+            1.594557819117881e-14,
+            -0.990268068741567,
+            0.13917310096009
+          ]
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "BUS.D",
+        "D_FL.1"
+      ],
+      "graph_ids": [
+        "D_BUS"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "BUS.D": {
+          "role": "BUS.D",
+          "status": "OPEN_DATUM",
+          "basis": "No current pin/mating datum; never use bbox centre"
+        },
+        "D_FL.1": {
+          "native": "D_FL_CP2",
+          "point_mm": [
+            -1.5,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FL.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FL.5",
+        "D_FR.1"
+      ],
+      "graph_ids": [
+        "D_BRIDGE_FLFR"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FL.5": {
+          "native": "D_FL_CP2",
+          "point_mm": [
+            17.5,
+            75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FL.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "D_FR.1": {
+          "native": "D_FR_CP2",
+          "point_mm": [
+            -1.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FR.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_FR.5",
+        "D_RR.1"
+      ],
+      "graph_ids": [
+        "D_BRIDGE_FRRR"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_FR.5": {
+          "native": "D_FR_CP2",
+          "point_mm": [
+            17.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_FR.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "D_RR.1": {
+          "native": "D_RR_CP2",
+          "point_mm": [
+            -43.5,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RR.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "D_RL.1",
+        "D_RR.5"
+      ],
+      "graph_ids": [
+        "D_BRIDGE_RRRL"
+      ],
+      "source_files": [
+        "hardware/electronics/power-platform/DATA-HARNESS-P0.md"
+      ],
+      "current_datums": {
+        "D_RL.1": {
+          "native": "D_RL_CP2",
+          "point_mm": [
+            40.5,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RL.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "D_RR.5": {
+          "native": "D_RR_CP2",
+          "point_mm": [
+            -24.5,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "D_RR.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_AUX.in",
+        "P_REAR.5"
+      ],
+      "graph_ids": [
+        "XA01"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_AUX.in": {
+          "role": "F_AUX.in",
+          "point_mm": [
+            10.5,
+            52.75,
+            100.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "P_REAR.5": {
+          "native": "P_REAR_CP2",
+          "point_mm": [
+            21.0,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_REAR.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "AUX.VIN",
+        "F_AUX.out"
+      ],
+      "graph_ids": [
+        "XA02"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_AUX.out": {
+          "role": "F_AUX.out",
+          "point_mm": [
+            61.5,
+            52.75,
+            100.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [
+        "AUX.VIN"
+      ],
+      "current_route_selected": false,
+      "scope": "FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "AUX.VOUT",
+        "P_AUX.1"
+      ],
+      "graph_ids": [
+        "XA03"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "P_AUX.1": {
+          "native": "P_AUX_CP2",
+          "point_mm": [
+            -1.5,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_AUX.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "AUX.VOUT"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "AUX.GND",
+        "G_AUX.2"
+      ],
+      "graph_ids": [
+        "XA04"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G_AUX.2": {
+          "native": "G_AUX_CP2",
+          "point_mm": [
+            45.25,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_AUX.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "AUX.GND"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "G2.5",
+        "G_AUX.1"
+      ],
+      "graph_ids": [
+        "XA05"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G2.5": {
+          "native": "G2_CP2",
+          "point_mm": [
+            101.5,
+            75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G2.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "G_AUX.1": {
+          "native": "G_AUX_CP2",
+          "point_mm": [
+            40.5,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_AUX.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "G_AUX.5",
+        "G_TAIL.1"
+      ],
+      "graph_ids": [
+        "XA06"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G_AUX.5": {
+          "native": "G_AUX_CP2",
+          "point_mm": [
+            59.5,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_AUX.5",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        },
+        "G_TAIL.1": {
+          "native": "G_TAIL_CP2",
+          "point_mm": [
+            82.5,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_TAIL.1",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_HY.in",
+        "P_AUX.2"
+      ],
+      "graph_ids": [
+        "XB11"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_HY.in": {
+          "role": "F_HY.in",
+          "point_mm": [
+            -5.75,
+            -53.75,
+            99.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "P_AUX.2": {
+          "native": "P_AUX_CP2",
+          "point_mm": [
+            3.25,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_AUX.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "C_HY.V+",
+        "F_HY.out"
+      ],
+      "graph_ids": [
+        "XB12"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_HY.out": {
+          "role": "F_HY.out",
+          "point_mm": [
+            -56.75,
+            -53.75,
+            99.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [
+        "C_HY.V+"
+      ],
+      "current_route_selected": false,
+      "scope": "FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "C_HY.GND",
+        "G_AUX.3"
+      ],
+      "graph_ids": [
+        "XB13"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G_AUX.3": {
+          "native": "G_AUX_CP2",
+          "point_mm": [
+            50.0,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_AUX.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "C_HY.GND"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_HP.in",
+        "P_AUX.3"
+      ],
+      "graph_ids": [
+        "XB21"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_HP.in": {
+          "role": "F_HP.in",
+          "point_mm": [
+            -1.0,
+            -31.25,
+            99.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "P_AUX.3": {
+          "native": "P_AUX_CP2",
+          "point_mm": [
+            8.0,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_AUX.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "C_HP.V+",
+        "F_HP.out"
+      ],
+      "graph_ids": [
+        "XB22"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_HP.out": {
+          "role": "F_HP.out",
+          "point_mm": [
+            -52.0,
+            -31.25,
+            99.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [
+        "C_HP.V+"
+      ],
+      "current_route_selected": false,
+      "scope": "FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "C_HP.GND",
+        "G_AUX.4"
+      ],
+      "graph_ids": [
+        "XB23"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G_AUX.4": {
+          "native": "G_AUX_CP2",
+          "point_mm": [
+            54.75,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_AUX.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "C_HP.GND"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_TY.in",
+        "P_AUX.4"
+      ],
+      "graph_ids": [
+        "XB31"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_TY.in": {
+          "role": "F_TY.in",
+          "point_mm": [
+            26.5,
+            -59.725,
+            99.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        },
+        "P_AUX.4": {
+          "native": "P_AUX_CP2",
+          "point_mm": [
+            12.75,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_AUX.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "C_TY.V+",
+        "F_TY.out"
+      ],
+      "graph_ids": [
+        "XB32"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "F_TY.out": {
+          "role": "F_TY.out",
+          "point_mm": [
+            77.5,
+            -59.725,
+            99.99
+          ],
+          "status": "UNSELECTED_FHAC_BODY_EXIT_RESERVATION_NOT_SUPPLIER_PIN",
+          "datum_is_not_manufacturer_pin": true
+        }
+      },
+      "missing_current_roles": [
+        "C_TY.V+"
+      ],
+      "current_route_selected": false,
+      "scope": "FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "C_TY.GND",
+        "G_TAIL.2"
+      ],
+      "graph_ids": [
+        "XB33"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G_TAIL.2": {
+          "native": "G_TAIL_CP2",
+          "point_mm": [
+            87.25,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_TAIL.2",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "C_TY.GND"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "F_PWM.in",
+        "P_REAR.4"
+      ],
+      "graph_ids": [
+        "XP01"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "P_REAR.4": {
+          "native": "P_REAR_CP2",
+          "point_mm": [
+            14.5,
+            73.75,
+            100.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "insertion_strip_max_mm": 14,
+          "insertion_strip_min_mm": 12,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "P_REAR.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 6.5
+        }
+      },
+      "missing_current_roles": [
+        "F_PWM.in"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "LOCAL.PWM5",
+        "U_PWM.1"
+      ],
+      "graph_ids": [
+        "XP04A"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.PWM5",
+        "U_PWM.1"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.PWM5",
+        "U1.23"
+      ],
+      "graph_ids": [
+        "XP04B"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.PWM5",
+        "U1.23"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.PWM5",
+        "U1.24"
+      ],
+      "graph_ids": [
+        "XP04C"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.PWM5",
+        "U1.24"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "PCA.CH0.S",
+        "U1.3"
+      ],
+      "graph_ids": [
+        "XS11"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "PCA.CH0.S",
+        "U1.3"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "R1.1",
+        "U1.21"
+      ],
+      "graph_ids": [
+        "XS12"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "R1.1",
+        "U1.21"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "C_HY.PWM",
+        "R1.2"
+      ],
+      "graph_ids": [
+        "XS13"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "C_HY.PWM",
+        "R1.2"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "PCA.CH1.S",
+        "U1.4"
+      ],
+      "graph_ids": [
+        "XS21"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "PCA.CH1.S",
+        "U1.4"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "R2.1",
+        "U1.20"
+      ],
+      "graph_ids": [
+        "XS22"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "R2.1",
+        "U1.20"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "C_HP.PWM",
+        "R2.2"
+      ],
+      "graph_ids": [
+        "XS23"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "C_HP.PWM",
+        "R2.2"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "PCA.CH2.S",
+        "U1.5"
+      ],
+      "graph_ids": [
+        "XS31"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "PCA.CH2.S",
+        "U1.5"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "R3.1",
+        "U1.19"
+      ],
+      "graph_ids": [
+        "XS32"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "R3.1",
+        "U1.19"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "C_TY.PWM",
+        "R3.2"
+      ],
+      "graph_ids": [
+        "XS33"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "C_TY.PWM",
+        "R3.2"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.LOGIC3V3",
+        "PI.H1"
+      ],
+      "graph_ids": [
+        "XL01"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.LOGIC3V3",
+        "PI.H1"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.LOGIC3V3",
+        "PCA.JP3.2"
+      ],
+      "graph_ids": [
+        "XL02"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.LOGIC3V3",
+        "PCA.JP3.2"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.LOGIC3V3",
+        "U1.1"
+      ],
+      "graph_ids": [
+        "XL03"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.LOGIC3V3",
+        "U1.1"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.LOGIC3V3",
+        "U1.2"
+      ],
+      "graph_ids": [
+        "XL04"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.LOGIC3V3",
+        "U1.2"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "PCA.JP3.3",
+        "PI.H3"
+      ],
+      "graph_ids": [
+        "XL05"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "PCA.JP3.3",
+        "PI.H3"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "PCA.JP3.4",
+        "PI.H5"
+      ],
+      "graph_ids": [
+        "XL06"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "PCA.JP3.4",
+        "PI.H5"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "PI.H11",
+        "U1.22"
+      ],
+      "graph_ids": [
+        "XL07"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "PI.H11",
+        "U1.22"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.GND",
+        "PCA.JP3.6"
+      ],
+      "graph_ids": [
+        "XL08"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.GND",
+        "PCA.JP3.6"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "G_TAIL.4",
+        "LOCAL.GND"
+      ],
+      "graph_ids": [
+        "XL09"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {
+        "G_TAIL.4": {
+          "native": "G_TAIL_CP2",
+          "point_mm": [
+            96.75,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_TAIL.4",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "LOCAL.GND"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "LOCAL.GND",
+        "PI.H6"
+      ],
+      "graph_ids": [
+        "XL10"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.GND",
+        "PI.H6"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.GND",
+        "U1.11"
+      ],
+      "graph_ids": [
+        "XL11"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.GND",
+        "U1.11"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.GND",
+        "U1.12"
+      ],
+      "graph_ids": [
+        "XL12"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.GND",
+        "U1.12"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "LOCAL.GND",
+        "U1.13"
+      ],
+      "graph_ids": [
+        "XL13"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/harness-r1/wires.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "LOCAL.GND",
+        "U1.13"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "MAIN.VOUT",
+        "PI.USB_C.V"
+      ],
+      "graph_ids": [
+        "PI_POWER"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {
+        "MAIN.VOUT": {
+          "role": "MAIN.VOUT",
+          "point_mm": [
+            -48.68000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "departure": [
+            0,
+            0,
+            1
+          ],
+          "basis": "Retained MAIN prototype pad at current neck mount; delivered4853 pad OPEN"
+        }
+      },
+      "missing_current_roles": [
+        "PI.USB_C.V"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "MAIN.GND",
+        "PI.USB_C.G"
+      ],
+      "graph_ids": [
+        "PI_POWER_G"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json"
+      ],
+      "current_datums": {
+        "MAIN.GND": {
+          "point_mm": [
+            -41.68000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "departure": [
+            0,
+            0,
+            1
+          ],
+          "basis": "Retained MAIN prototype pad at current neck mount; delivered4853 pad OPEN",
+          "role": "MAIN.GND"
+        }
+      },
+      "missing_current_roles": [
+        "PI.USB_C.G"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "F_PWM.out",
+        "JPWM_SOURCE.1"
+      ],
+      "graph_ids": [
+        "XP02.source"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "F_PWM.out",
+        "JPWM_SOURCE.1"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "JPWM_MODULE.1",
+        "U_PWM.3"
+      ],
+      "graph_ids": [
+        "XP02.module"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "JPWM_MODULE.1",
+        "U_PWM.3"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    },
+    {
+      "ends": [
+        "G_TAIL.3",
+        "JPWM_SOURCE.2"
+      ],
+      "graph_ids": [
+        "XP03.source"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json"
+      ],
+      "current_datums": {
+        "G_TAIL.3": {
+          "native": "G_TAIL_CP2",
+          "point_mm": [
+            92.0,
+            -75.25,
+            99.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "insertion_strip_max_mm": 11,
+          "insertion_strip_min_mm": 11,
+          "basis": "Current flat lever-up casing; inward entry; project5.5mm edge/equal-pitch allowance, NOT manufacturer datum",
+          "route_restraint_and_lever_qualified": false,
+          "role": "G_TAIL.3",
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": true,
+          "provisional_pitch_mm": 4.75
+        }
+      },
+      "missing_current_roles": [
+        "JPWM_SOURCE.2"
+      ],
+      "current_route_selected": false,
+      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+    },
+    {
+      "ends": [
+        "JPWM_MODULE.2",
+        "U_PWM.2"
+      ],
+      "graph_ids": [
+        "XP03.module"
+      ],
+      "source_files": [
+        "hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json"
+      ],
+      "current_datums": {},
+      "missing_current_roles": [
+        "JPWM_MODULE.2",
+        "U_PWM.2"
+      ],
+      "current_route_selected": false,
+      "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
+    }
+  ],
+  "graph_edge_count_not_wire_stock_quantity": true,
+  "internal_bus_module_local_links_not_added_to_wire_stock": true,
+  "open": [
+    "Unknown U1 delivered padmap; no invention",
+    "AUX electrical orientation/pad positions not certified by mounting-hole drawing",
+    "Both FHAC/MTA outputs, native independent load paths, current complete stock remain open"
+  ]
+}

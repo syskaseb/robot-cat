@@ -81,8 +81,49 @@ class EndpointContract(unittest.TestCase):
         plan = build()
         mapping = plan['proposed_same_bus_port_permutation']
         self.assertEqual(set(mapping), set(mapping.values()))
-        self.assertTrue(all(p.startswith('P_REAR.') for p in mapping))
+        self.assertTrue(all(a.split('.')[0] == b.split('.')[0] for a,b in mapping.items()))
         self.assertFalse(plan['electrical_nets_or_installed_holder_counts_changed'])
+
+    def test_all_mta_exit_reservations_lie_on_current_body_faces(self):
+        ends = [e for r in self.plan['distribution_boundary'] for e in r['resolved_datums'].values()
+            if e.get('native','').startswith('MTA_')]
+        self.assertEqual(len(ends), 8)
+        for e in ends:
+            b = self.plan['components'][e['native']]['bounds_mm']
+            p = e['point_mm']
+            self.assertAlmostEqual(p[0], b[0] if e['role'].endswith('.in') else b[3])
+            self.assertAlmostEqual(p[1], (b[1]+b[4])/2)
+            self.assertAlmostEqual(p[2], (b[2]+b[5])/2)
+            self.assertNotIn('extension_port_mm', e)
+
+    def test_shared_five_input_proof_is_current_not_physical_acceptance(self):
+        proof = E.read(E.BASE / 'wiring-checkpoint/source-layout-fit.json')
+        for path,digest in proof['source_sha256'].items():
+            self.assertEqual(E.sha(E.ROOT/path),digest,path)
+        self.assertFalse(proof['material_intersections'])
+        self.assertFalse(proof['reservation_intersections'])
+        self.assertFalse(proof['self_intersections'])
+        self.assertFalse(proof['errors'])
+        self.assertFalse(proof['selected'])
+        self.assertFalse(proof['physical_pass'])
+        self.assertEqual(len(proof['five_current_input_routes']),5)
+        for r in proof['five_current_input_routes']:
+            self.assertTrue(r['swept_solid_valid'])
+            self.assertTrue(r['factory_OD_and_R6_not_measured'])
+            self.assertGreaterEqual(r['insulated_entry_grip_straight_mm'],9)
+
+    def test_scope_covers_every_wire_edge_and_keeps_four_outputs_open(self):
+        from open_prototype_wiring_scope import build
+        scope = build()
+        source = E.read(E.ROOT/'hardware/electronics/full-cat/connection-map-e4-r1/netlist.json')
+        expected = {e['id'] for e in source['edges'] if e['kind']=='wire'}
+        covered = {i for r in scope['physical_pair_groups'] for i in r['graph_ids']}
+        self.assertEqual(expected,covered)
+        self.assertEqual(scope['circuit_wire_edges'],129)
+        self.assertEqual(scope['distinct_unordered_wire_pairs'],128)
+        self.assertEqual(scope['scopes']['FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN'],4)
+        self.assertEqual(scope['scopes']['LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'],2)
+        self.assertFalse(scope['stage_completed'])
 
 
 if __name__ == '__main__':
