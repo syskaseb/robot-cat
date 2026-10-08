@@ -1,5 +1,20 @@
 {
   "schema_version": 1,
+  "current_full_power_preflight": {
+    "plan":"power-harness-plan.json",
+    "proof":"power-harness-checks.json",
+    "status":"REJECTED_COUPLED_ROUTE_HYPOTHESIS",
+    "main_full_routes":8,"S1_full_routes":4,"source_inputs":5,
+    "pairs":652,"contacts":84,"outside":0,"errors":0,
+    "worker_seconds":210.531,
+    "factory_blanks_mm_range":[63.895,99.418],
+    "factory_100mm_is_delivery_assumption":true,
+    "HELU4_nominal_manufacturer_fixed_radius_mm":25.2,
+    "scope_defects":["48F_L/F_R bank references omitted","F_PWM omitted","CurrentTailSupport omitted","U1 board allowance is not the complete delivered module"],
+    "native_files_changed":0,"stock_selected":false,
+    "selected":false,"stage_completed":false,"physical_pass":false,
+    "next":"Bind complete canonical obstacle scope, separate retained P0/boards/bank from replaceable supports, allocate free corridors before another full route proposal"
+  },
   "current_receiving_gallery_preflight": {
     "plan":"receiving-gallery-recovery-plan.json",
     "proof":"receiving-gallery-recovery-checks.json",

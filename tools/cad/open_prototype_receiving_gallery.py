@@ -117,8 +117,9 @@ def main(plan_override=None, plan_path=PLAN, proof_path=PROOF, reuse=None, chang
     result=dict(status='PENDING',selected=False,stage_completed=False,physical_pass=False,
         contacts=[],errors=[],outside=[],pairs=0,paths=[],source_sha256=dict(plan['source_sha256'],
             **{(OUT/'CommonMtaMounts.FCStd').relative_to(ROOT).as_posix():sha(OUT/'CommonMtaMounts.FCStd')}))
-    def put(n,s,owner):
-        assert s.isValid() and len(s.Solids)==1 and not s.check(True), n
+    def put(n,s,owner,allow_compound=False):
+        assert s.isValid() and len(s.Solids)>=1 and not s.check(True), n
+        assert len(s.Solids)==1 or allow_compound, n
         items[n]=s;owners[n]=owner
     def pipe(n,parts,od,owner):
         edges=[Part.makeLine(A.Vector(*p['start']),A.Vector(*p['end'])) if p['kind']=='line'
@@ -128,7 +129,10 @@ def main(plan_override=None, plan_path=PLAN, proof_path=PROOF, reuse=None, chang
             assert a.tangentAt(a.LastParameter).dot(b.tangentAt(b.FirstParameter))>1-1e-7
         e=edges[0];w=Part.Wire(edges)
         put(n,w.makePipeShell([Part.Wire([Part.makeCircle(od/2,e.valueAt(e.FirstParameter),e.tangentAt(e.FirstParameter))])],True,False),owner)
-        result['paths'].append(dict(name=n,centreline_mm=w.Length))
+        radii=[e.Curve.Radius for e in edges if isinstance(e.Curve,Part.Circle)]
+        if plan.get('feeds') and (n.endswith('/extension') or n.endswith('/full')):
+            assert not radii or min(radii)>=25.2-1e-7,n
+        result['paths'].append(dict(name=n,centreline_mm=w.Length,min_radius_mm=min(radii) if radii else None))
     try:
         for row in plan['distribution']+plan['mts']:
             o=mount.getObject(row['native']) or ctx.getObject(row['native']);s=o.Shape.copy();b=s.BoundBox
@@ -144,15 +148,29 @@ def main(plan_override=None, plan_path=PLAN, proof_path=PROOF, reuse=None, chang
             put(n+'/case',s,n+'/case');pipe(n+'/input',row['input_parts'],4,n+'/input')
             pipe(n+'/output',row['output_parts'],4,n+'/output')
             cut=A.Vector(*row['cut_mm'])
-            put(n+'/sleeve',Part.makeCylinder(3,26.5,cut+A.Vector(0,0,14),A.Vector(0,0,-1)),n+'/output')
-            put(n+'/new_insulation',Part.makeCylinder(1.05,21.5,cut,A.Vector(0,0,-1)),n+'/output')
+            put(n+'/sleeve',Part.makeCylinder(3,row.get('sleeve_mm',26.5),
+                cut+A.Vector(0,0,row.get('sleeve_factory_mm',14)),A.Vector(0,0,-1)),n+'/output')
+            put(n+'/new_insulation',Part.makeCylinder(1.05,row.get('new_insulation_mm',21.5),cut,A.Vector(0,0,-1)),n+'/output')
             b=s.BoundBox
             put(n+'/ATO_tool_budget',Part.makeBox(22,10,35,A.Vector((b.XMin+b.XMax)/2-11,(b.YMin+b.YMax)/2-5,b.ZMax)),n+'/tool')
         ports={p['role']:p for p in plan['ports']}
-        for n,role in plan['main_targets'].items():
+        for feed in plan.get('feeds',[]):
+            n=feed['id'];pipe(n+'/factory',feed['factory_parts'],4,n)
+            pipe(n+'/extension',feed['extension_parts'],4.2,n)
+            j=feed['joint']
+            if j['kind']=='solder_lap':
+                cut=A.Vector(*j['centreline_cut_mm']);axis=A.Vector(*j['axis'])
+                put(n+'/sleeve',Part.makeCylinder(j['maximum_expanded_OD_mm']/2,j['sleeve_mm'],
+                    cut-axis*j['factory_sleeve_mm'],axis),n)
+            else:
+                x,y,z=(j[k] for k in ('case_x_mm','case_y_mm','case_z_mm'))
+                put(n+'/joint',Part.makeBox(x[1]-x[0],y[1]-y[0],z[1]-z[0],A.Vector(x[0],y[0],z[0])),n)
+        for n,role in ([] if plan.get('feeds') else plan['main_targets'].items()):
             p=ports[role];a=add(p['point_mm'],mul(p['departure'],9))
             pipe(n+'/entry9mm',[line(a,p['point_mm'])],4.2,n)
         for row in plan['S1']:
+            if row.get('full_parts'):
+                pipe(row['id']+'/full',row['full_parts'],4.2,row['id']);continue
             p=row['ring'];a=p['point_mm'];b=add(a,mul(p['departure'],9))
             pipe(row['id']+'/ring9mm',[line(a,b)],4.2,row['id'])
             p=ports[row['target']];a=add(p['point_mm'],mul(p['departure'],9))
@@ -166,6 +184,11 @@ def main(plan_override=None, plan_path=PLAN, proof_path=PROOF, reuse=None, chang
                 actual.update({p.Name:p.Shape for p in o.Group if 'Shape' in p.PropertiesList and not p.Shape.isNull()})
         for o in ctx.Objects:
             if 'Shape' in o.PropertiesList and not o.Shape.isNull() and o.Name.startswith(('P0_','Head_','TailBridge','S0_','S1_')) and o.Name!='P0_MG92BMount29':actual[o.Name]=o.Shape
+        for row in plan.get('S1_ring_rotation',[]):
+            n=row['native'];s=actual.pop(n).copy()
+            rot=A.Rotation(A.Vector(*row['old_departure']),A.Vector(*row['new_departure']))
+            s.rotate(A.Vector(*row['pivot']),rot.Axis,rot.Angle*180/math.pi)
+            put(n,s,row['wire'],allow_compound=True)
         def check(n,s,m,t):
             if reuse is not None and n not in changed_names and m not in changed_names:return
             if not s.BoundBox.intersect(t.BoundBox):return
@@ -177,12 +200,15 @@ def main(plan_override=None, plan_path=PLAN, proof_path=PROOF, reuse=None, chang
         entries={r['holder']+'/input':r['target'].split('.')[0]+'_CP2' for r in plan['holders']}
         entries.update({n+'/entry9mm':role.split('.')[0]+'_CP2' for n,role in plan['main_targets'].items()})
         entries.update({r['id']+'/entry9mm':r['target'].split('.')[0]+'_CP2' for r in plan['S1']})
+        entries.update({r['id']+'/extension':r['target'].split('.')[0]+'_CP2' for r in plan.get('feeds',[])})
+        entries.update({r['id']+'/full':r['target'].split('.')[0]+'_CP2' for r in plan['S1']})
         pairs=list(items.items())
         for i,(n,s) in enumerate(pairs):
             if not n.endswith('/ATO_tool_budget') and (reuse is None or n in changed_names):
                 outside=s.cut(ctx.TorsoEnvelope.Shape);assert outside.isValid()
                 if outside.Volume>1e-5:result['outside'].append(dict(part=n,volume_mm3=outside.Volume,bounds_mm=bounds(outside)))
             for m,t in actual.items():
+                if n.startswith('S1_ring_') and m.startswith('S1_') and m.endswith('_'+n.split('_')[-1]):continue # retained matching bearing/contact, still delivery gate
                 if n.endswith('/ring9mm') and m==next(r['ring']['native'] for r in plan['S1'] if r['id']==n.split('/')[0]):continue
                 check(n,s,m,t)
             for m,t in pairs[i+1:]:
