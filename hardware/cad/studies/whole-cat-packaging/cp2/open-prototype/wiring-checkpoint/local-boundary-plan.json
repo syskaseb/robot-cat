@@ -1,0 +1,3707 @@
+{
+  "status": "ONE_SHARED_LOCAL_BOUNDARY_PLAN_NOT_ROUTE_ACCEPTANCE",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/layout.json": "dd725a89effe6093bad428add7b6ecbffa2c38f3cfbdf7b293c6ead4f7574149",
+    "hardware/cad/studies/whole-cat-packaging/inventory.json": "0857d8a9e2fe0f5ed4a9d4736ecfb386293234723ba6fcff978ab9e2e8068743",
+    "hardware/cad/studies/head-fixed-yaw-feed-r3/plan.json": "700c3df8c24bea4e6daa5b24c38588a26e08d7c3c2b104735a06ad979e4d1df9",
+    "hardware/electronics/full-cat/head-fixed-pitch-conductors-r1/checks.json": "06c1fdba746d96124579e6566f1c1c1864394dd7e9328644a4f14b6151766fb6",
+    "tools/electronics/tail_central_routes_r1.py": "eb809cc0128ea6ddb795c8fa59c73223d0b6bd8090009d287679567e462d2420",
+    "hardware/electronics/full-cat/tail-local-finish-r2/README.md": "050db66cb592dd2042b724bfcdf00ca026a7a1c630e5c206d5f8d375f2c267be",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/fhac-mount-plan.json": "f340860e24092e84f287fe4e47ef8cadefb70139991694b7f2a7eea1a2e13fa6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/layout.json": "42790e785001e01ea39a293a5751dab088a0ffe592055f3821712f16be29519b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-scope-plan.json": "994a2f1d3ef2baef32b6d0409cfb2cf8778d088ef48f0ea17a6906913a04569f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "tools/cad/open_prototype_local_boundaries.py": "63148e3cfdff65b6ad7d14d88b794876da8ea362c35e60fd80fa32c2537de248"
+  },
+  "rows": [
+    {
+      "wire": "XB12",
+      "body_role": "F_HY.out",
+      "local_boundary_original_mm": [
+        -70,
+        -56.8,
+        60.2
+      ],
+      "local_boundary_current_candidate_mm": [
+        -112.0,
+        -56.8,
+        85.2
+      ],
+      "shift_mm": [
+        -42.0,
+        0,
+        25.0
+      ],
+      "native_owner": "Head_YawCarrier",
+      "boundary_kind": "Existing stationary yaw insulated-tail boundary; individual packing to be retained from local harness",
+      "outward_from_module": [
+        1,
+        0,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/studies/head-fixed-yaw-feed-r3/YawCarrierJRSeat.brep"
+      },
+      "body_source_mm": [
+        -56.75,
+        -53.75,
+        99.99
+      ],
+      "necessary_straight_length_mm": 57.27660167991812,
+      "material": "HELU23302 red",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": true,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XB13",
+      "body_role": "G_AUX.3",
+      "local_boundary_original_mm": [
+        -70,
+        -56.8,
+        60.2
+      ],
+      "local_boundary_current_candidate_mm": [
+        -112.0,
+        -56.8,
+        85.2
+      ],
+      "shift_mm": [
+        -42.0,
+        0,
+        25.0
+      ],
+      "native_owner": "Head_YawCarrier",
+      "boundary_kind": "Existing stationary yaw insulated-tail boundary; individual packing to be retained from local harness",
+      "outward_from_module": [
+        1,
+        0,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/studies/head-fixed-yaw-feed-r3/YawCarrierJRSeat.brep"
+      },
+      "body_source_mm": [
+        50.0,
+        -75.25,
+        99.99
+      ],
+      "necessary_straight_length_mm": 163.71666561471378,
+      "material": "HELU23301 black",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": true,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XS13",
+      "body_role": "R1.2",
+      "local_boundary_original_mm": [
+        -70,
+        -56.8,
+        60.2
+      ],
+      "local_boundary_current_candidate_mm": [
+        -112.0,
+        -56.8,
+        85.2
+      ],
+      "shift_mm": [
+        -42.0,
+        0,
+        25.0
+      ],
+      "native_owner": "Head_YawCarrier",
+      "boundary_kind": "Existing stationary yaw insulated-tail boundary; individual packing to be retained from local harness",
+      "outward_from_module": [
+        1,
+        0,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/studies/head-fixed-yaw-feed-r3/YawCarrierJRSeat.brep"
+      },
+      "body_source_mm": null,
+      "necessary_straight_length_mm": null,
+      "material": "HELU23308 yellow",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": true,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XB22",
+      "body_role": "F_HP.out",
+      "local_boundary_original_mm": [
+        -11.05,
+        76.0,
+        123.39378221735089
+      ],
+      "local_boundary_current_candidate_mm": [
+        -53.05,
+        76.0,
+        148.3937822173509
+      ],
+      "shift_mm": [
+        -42.0,
+        0,
+        25.0
+      ],
+      "native_owner": "Head_PitchCarrier",
+      "boundary_kind": "Historical fixed-cover transition; current fixed support and moving-loop adaptation OPEN",
+      "outward_from_module": [
+        0,
+        -1,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/studies/head-jr-support-r5/PitchCarrierThroughLeadExit.brep"
+      },
+      "body_source_mm": [
+        68,
+        -31.25,
+        99.99
+      ],
+      "necessary_straight_length_mm": 168.81525740567625,
+      "material": "HELU23302 red",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": false,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XB23",
+      "body_role": "G_AUX.4",
+      "local_boundary_original_mm": [
+        -8.95,
+        76.0,
+        123.39378221735089
+      ],
+      "local_boundary_current_candidate_mm": [
+        -50.95,
+        76.0,
+        148.3937822173509
+      ],
+      "shift_mm": [
+        -42.0,
+        0,
+        25.0
+      ],
+      "native_owner": "Head_PitchCarrier",
+      "boundary_kind": "Historical fixed-cover transition; current fixed support and moving-loop adaptation OPEN",
+      "outward_from_module": [
+        0,
+        -1,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/studies/head-jr-support-r5/PitchCarrierThroughLeadExit.brep"
+      },
+      "body_source_mm": [
+        54.75,
+        -75.25,
+        99.99
+      ],
+      "necessary_straight_length_mm": 190.76681743150388,
+      "material": "HELU23301 black",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": false,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XS23",
+      "body_role": "R2.2",
+      "local_boundary_original_mm": [
+        -10.0,
+        76.0,
+        125.21243556529821
+      ],
+      "local_boundary_current_candidate_mm": [
+        -52.0,
+        76.0,
+        150.21243556529822
+      ],
+      "shift_mm": [
+        -42.0,
+        0,
+        25.0
+      ],
+      "native_owner": "Head_PitchCarrier",
+      "boundary_kind": "Historical fixed-cover transition; current fixed support and moving-loop adaptation OPEN",
+      "outward_from_module": [
+        0,
+        -1,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/studies/head-jr-support-r5/PitchCarrierThroughLeadExit.brep"
+      },
+      "body_source_mm": null,
+      "necessary_straight_length_mm": null,
+      "material": "HELU23308 yellow",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": false,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XB32",
+      "body_role": "F_TY.out",
+      "local_boundary_original_mm": [
+        68,
+        -45,
+        75.78756443470179
+      ],
+      "local_boundary_current_candidate_mm": [
+        68,
+        -45,
+        90.78756443470179
+      ],
+      "shift_mm": [
+        0,
+        0,
+        15.0
+      ],
+      "native_owner": "P0_MG92BMount29",
+      "boundary_kind": "TailLocalCompleteSupportR2 insulation boundary; current native uses older P0 support, replacement integration OPEN",
+      "outward_from_module": [
+        -1,
+        0,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/assembly/RobotCatNarrowRimEars.FCStd",
+        "object": "MG92BMount29",
+        "wrapper": "Rigid_MG92BMount29",
+        "label": "Rigid_MG92BMount29"
+      },
+      "body_source_mm": [
+        77.5,
+        -59.725,
+        99.99
+      ],
+      "necessary_straight_length_mm": 19.79293927979029,
+      "material": "HELU23302 red",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": false,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XB33",
+      "body_role": "G_TAIL.2",
+      "local_boundary_original_mm": [
+        68,
+        -43.95,
+        77.60621778264911
+      ],
+      "local_boundary_current_candidate_mm": [
+        68,
+        -43.95,
+        92.60621778264911
+      ],
+      "shift_mm": [
+        0,
+        0,
+        15.0
+      ],
+      "native_owner": "P0_MG92BMount29",
+      "boundary_kind": "TailLocalCompleteSupportR2 insulation boundary; current native uses older P0 support, replacement integration OPEN",
+      "outward_from_module": [
+        -1,
+        0,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/assembly/RobotCatNarrowRimEars.FCStd",
+        "object": "MG92BMount29",
+        "wrapper": "Rigid_MG92BMount29",
+        "label": "Rigid_MG92BMount29"
+      },
+      "body_source_mm": [
+        87.25,
+        -75.25,
+        99.99
+      ],
+      "necessary_straight_length_mm": 37.48029802220451,
+      "material": "HELU23301 black",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": false,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    },
+    {
+      "wire": "XS33",
+      "body_role": "R3.2",
+      "local_boundary_original_mm": [
+        68,
+        -46.05,
+        77.60621778264911
+      ],
+      "local_boundary_current_candidate_mm": [
+        68,
+        -46.05,
+        92.60621778264911
+      ],
+      "shift_mm": [
+        0,
+        0,
+        15.0
+      ],
+      "native_owner": "P0_MG92BMount29",
+      "boundary_kind": "TailLocalCompleteSupportR2 insulation boundary; current native uses older P0 support, replacement integration OPEN",
+      "outward_from_module": [
+        -1,
+        0,
+        0
+      ],
+      "original_native_source": {
+        "file": "hardware/cad/assembly/RobotCatNarrowRimEars.FCStd",
+        "object": "MG92BMount29",
+        "wrapper": "Rigid_MG92BMount29",
+        "label": "Rigid_MG92BMount29"
+      },
+      "body_source_mm": null,
+      "necessary_straight_length_mm": null,
+      "material": "HELU23308 yellow",
+      "conductor_area_mm2": 0.5,
+      "insulation_OD_mm": 2.1,
+      "minimum_fixed_radius_mm": 12.6,
+      "terminal_pin_invented": false,
+      "known_current_attachment": false,
+      "actual_cut_mm": null,
+      "route_qualified": false
+    }
+  ],
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "body_rows": [
+    {
+      "id": "W001",
+      "a": "BAT.minus",
+      "b": "G1.1",
+      "net": "G_SYS",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "BAT.minus",
+          "point_mm": [
+            -72.99999999999994,
+            -58.79999999999997,
+            56.999999999999986
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "G1.1",
+          "point_mm": [
+            -89.0,
+            -73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W002",
+      "a": "BUS.D",
+      "b": "D_FL.1",
+      "net": "BUS_DATA",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "BUS.D",
+          "point_mm": null,
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        },
+        {
+          "role": "D_FL.1",
+          "point_mm": [
+            -1.5,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W003",
+      "a": "BUS.G",
+      "b": "G2.4",
+      "net": "G_SYS",
+      "corridor": "USB_BUS",
+      "ends": [
+        {
+          "role": "BUS.G",
+          "point_mm": null,
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        },
+        {
+          "role": "G2.4",
+          "point_mm": [
+            96.75,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W004",
+      "a": "D_FL.2",
+      "b": "FL1.D",
+      "net": "BUS_DATA",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "D_FL.2",
+          "point_mm": [
+            3.25,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "FL1.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -115.55756646104562,
+              29.11837405414557,
+              11.617194897901069
+            ],
+            [
+              -115.55756646104518,
+              30.510105063746217,
+              21.519875585316772
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL1",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W005",
+      "a": "D_FL.3",
+      "b": "FL2.D",
+      "net": "BUS_DATA",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "D_FL.3",
+          "point_mm": [
+            8.0,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "FL2.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -99.26090152151339,
+              85.0372480334106,
+              -5.229416287929212
+            ],
+            [
+              -91.60045709032335,
+              85.93183548239827,
+              1.1359041606234843
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL2",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W006",
+      "a": "D_FL.4",
+      "b": "FL3.D",
+      "net": "BUS_DATA",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "D_FL.4",
+          "point_mm": [
+            12.75,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "FL3.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -61.97723405265389,
+              54.819089345289825,
+              -63.60332323523676
+            ],
+            [
+              -52.12915652253169,
+              55.06076089890959,
+              -61.883740779850214
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL3",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W007",
+      "a": "D_FL.5",
+      "b": "D_FR.1",
+      "net": "BUS_DATA",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "D_FL.5",
+          "point_mm": [
+            17.5,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "D_FR.1",
+          "point_mm": [
+            -1.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W008",
+      "a": "D_FR.2",
+      "b": "FR1.D",
+      "net": "BUS_DATA",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "D_FR.2",
+          "point_mm": [
+            3.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "FR1.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -115.5575664610506,
+              -30.510105063748558,
+              21.519875585315237
+            ],
+            [
+              -115.55756646105053,
+              -29.118374054147907,
+              11.617194897899534
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR1",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W009",
+      "a": "D_FR.3",
+      "b": "FR2.D",
+      "net": "BUS_DATA",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "D_FR.3",
+          "point_mm": [
+            8.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "FR2.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -91.60045709033417,
+              -85.93183548239138,
+              1.1359041606234488
+            ],
+            [
+              -99.26090152152386,
+              -85.03724803340339,
+              -5.22941628792963
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR2",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W010",
+      "a": "D_FR.4",
+      "b": "FR3.D",
+      "net": "BUS_DATA",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "D_FR.4",
+          "point_mm": [
+            12.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "FR3.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -52.12915652253956,
+              -55.060760898902615,
+              -61.883740779848516
+            ],
+            [
+              -61.97723405266167,
+              -54.8190893452831,
+              -63.60332323523563
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR3",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W011",
+      "a": "D_FR.5",
+      "b": "D_RR.1",
+      "net": "BUS_DATA",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "D_FR.5",
+          "point_mm": [
+            17.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "D_RR.1",
+          "point_mm": [
+            -43.5,
+            -75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W012",
+      "a": "D_RL.1",
+      "b": "D_RR.5",
+      "net": "BUS_DATA",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "D_RL.1",
+          "point_mm": [
+            40.5,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "D_RR.5",
+          "point_mm": [
+            -24.5,
+            -75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W013",
+      "a": "D_RL.2",
+      "b": "RL1.D",
+      "net": "BUS_DATA",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "D_RL.2",
+          "point_mm": [
+            45.25,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL1.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              157.5575664610457,
+              30.510105063722296,
+              21.5198755853137
+            ],
+            [
+              157.5575664610456,
+              29.118374054121638,
+              11.617194897897996
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL1",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W014",
+      "a": "D_RL.3",
+      "b": "RL2.D",
+      "net": "BUS_DATA",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "D_RL.3",
+          "point_mm": [
+            50.0,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL2.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              151.53423140057748,
+              85.03724803338687,
+              -5.2294162879313175
+            ],
+            [
+              159.1946758317673,
+              85.9318354823746,
+              1.1359041606216351
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL2",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W015",
+      "a": "D_RL.4",
+      "b": "RL3.D",
+      "net": "BUS_DATA",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "D_RL.4",
+          "point_mm": [
+            54.75,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL3.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              188.81789886943938,
+              54.81908934526582,
+              -63.60332323523761
+            ],
+            [
+              198.66597639956152,
+              55.06076089888569,
+              -61.883740779850726
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL3",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W016",
+      "a": "D_RR.2",
+      "b": "RR1.D",
+      "net": "BUS_DATA",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "D_RR.2",
+          "point_mm": [
+            -38.75,
+            -75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR1.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              157.55756646104066,
+              -29.118374054170474,
+              11.617194897898143
+            ],
+            [
+              157.55756646104075,
+              -30.510105063771128,
+              21.519875585313848
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR1",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W017",
+      "a": "D_RR.3",
+      "b": "RR2.D",
+      "net": "BUS_DATA",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "D_RR.3",
+          "point_mm": [
+            -34.0,
+            -75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR2.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              159.19467583176203,
+              -85.93183548241895,
+              1.1359041606223244
+            ],
+            [
+              151.53423140057217,
+              -85.03724803343104,
+              -5.2294162879305865
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR2",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W018",
+      "a": "D_RR.4",
+      "b": "RR3.D",
+      "net": "BUS_DATA",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "D_RR.4",
+          "point_mm": [
+            -29.25,
+            -75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR3.D",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              198.66597639955506,
+              -55.06076089893137,
+              -61.88374077985159
+            ],
+            [
+              188.81789886943292,
+              -54.81908934531189,
+              -63.60332323523858
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR3",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W019",
+      "a": "FL1.G",
+      "b": "FL_G.2",
+      "net": "G_SYS",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL1.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -115.55756646104562,
+              29.11837405414557,
+              11.617194897901069
+            ],
+            [
+              -115.55756646104518,
+              30.510105063746217,
+              21.519875585316772
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL1",
+          "current_frame_bound": false
+        },
+        {
+          "role": "FL_G.2",
+          "point_mm": [
+            -38.75,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W020",
+      "a": "FL1.V",
+      "b": "F_FL1.out",
+      "net": "SERVO_V_FUSED",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL1.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -115.55756646104562,
+              29.11837405414557,
+              11.617194897901069
+            ],
+            [
+              -115.55756646104518,
+              30.510105063746217,
+              21.519875585316772
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL1",
+          "current_frame_bound": false
+        },
+        {
+          "role": "F_FL1.out",
+          "point_mm": [
+            -53.0,
+            55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W021",
+      "a": "FL2.G",
+      "b": "FL_G.3",
+      "net": "G_SYS",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL2.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -99.26090152151339,
+              85.0372480334106,
+              -5.229416287929212
+            ],
+            [
+              -91.60045709032335,
+              85.93183548239827,
+              1.1359041606234843
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL2",
+          "current_frame_bound": false
+        },
+        {
+          "role": "FL_G.3",
+          "point_mm": [
+            -34.0,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W022",
+      "a": "FL2.V",
+      "b": "F_FL2.out",
+      "net": "SERVO_V_FUSED",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL2.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -99.26090152151339,
+              85.0372480334106,
+              -5.229416287929212
+            ],
+            [
+              -91.60045709032335,
+              85.93183548239827,
+              1.1359041606234843
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL2",
+          "current_frame_bound": false
+        },
+        {
+          "role": "F_FL2.out",
+          "point_mm": [
+            -23.0,
+            55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W023",
+      "a": "FL3.G",
+      "b": "FL_G.4",
+      "net": "G_SYS",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL3.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -61.97723405265389,
+              54.819089345289825,
+              -63.60332323523676
+            ],
+            [
+              -52.12915652253169,
+              55.06076089890959,
+              -61.883740779850214
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL3",
+          "current_frame_bound": false
+        },
+        {
+          "role": "FL_G.4",
+          "point_mm": [
+            -29.25,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W024",
+      "a": "FL3.V",
+      "b": "F_FL3.out",
+      "net": "SERVO_V_FUSED",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL3.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -61.97723405265389,
+              54.819089345289825,
+              -63.60332323523676
+            ],
+            [
+              -52.12915652253169,
+              55.06076089890959,
+              -61.883740779850214
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FL3",
+          "current_frame_bound": false
+        },
+        {
+          "role": "F_FL3.out",
+          "point_mm": [
+            7.0,
+            55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W025",
+      "a": "FL_G.1",
+      "b": "G1.3",
+      "net": "G_SYS",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL_G.1",
+          "point_mm": [
+            -43.5,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "G1.3",
+          "point_mm": [
+            -76.0,
+            -73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W026",
+      "a": "FL_P.1",
+      "b": "F_FL.out",
+      "net": "FL_P",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL_P.1",
+          "point_mm": [
+            -85.5,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FL.out",
+          "point_mm": [
+            2.5,
+            36.6,
+            140.6
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W027",
+      "a": "FL_P.2",
+      "b": "F_FL1.in",
+      "net": "FL_P",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL_P.2",
+          "point_mm": [
+            -80.75,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FL1.in",
+          "point_mm": [
+            -53.0,
+            69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W028",
+      "a": "FL_P.3",
+      "b": "F_FL2.in",
+      "net": "FL_P",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL_P.3",
+          "point_mm": [
+            -76.0,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FL2.in",
+          "point_mm": [
+            -23.0,
+            69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W029",
+      "a": "FL_P.4",
+      "b": "F_FL3.in",
+      "net": "FL_P",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "FL_P.4",
+          "point_mm": [
+            -71.25,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FL3.in",
+          "point_mm": [
+            7.0,
+            69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W030",
+      "a": "FR1.G",
+      "b": "FR_G.2",
+      "net": "G_SYS",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR1.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -115.5575664610506,
+              -30.510105063748558,
+              21.519875585315237
+            ],
+            [
+              -115.55756646105053,
+              -29.118374054147907,
+              11.617194897899534
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR1",
+          "current_frame_bound": false
+        },
+        {
+          "role": "FR_G.2",
+          "point_mm": [
+            -38.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W031",
+      "a": "FR1.V",
+      "b": "F_FR1.out",
+      "net": "SERVO_V_FUSED",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR1.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -115.5575664610506,
+              -30.510105063748558,
+              21.519875585315237
+            ],
+            [
+              -115.55756646105053,
+              -29.118374054147907,
+              11.617194897899534
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR1",
+          "current_frame_bound": false
+        },
+        {
+          "role": "F_FR1.out",
+          "point_mm": [
+            -53.0,
+            -55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W032",
+      "a": "FR2.G",
+      "b": "FR_G.3",
+      "net": "G_SYS",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR2.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -91.60045709033417,
+              -85.93183548239138,
+              1.1359041606234488
+            ],
+            [
+              -99.26090152152386,
+              -85.03724803340339,
+              -5.22941628792963
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR2",
+          "current_frame_bound": false
+        },
+        {
+          "role": "FR_G.3",
+          "point_mm": [
+            -34.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W033",
+      "a": "FR2.V",
+      "b": "F_FR2.out",
+      "net": "SERVO_V_FUSED",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR2.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -91.60045709033417,
+              -85.93183548239138,
+              1.1359041606234488
+            ],
+            [
+              -99.26090152152386,
+              -85.03724803340339,
+              -5.22941628792963
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR2",
+          "current_frame_bound": false
+        },
+        {
+          "role": "F_FR2.out",
+          "point_mm": [
+            -21.0,
+            -55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W034",
+      "a": "FR3.G",
+      "b": "FR_G.4",
+      "net": "G_SYS",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR3.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -52.12915652253956,
+              -55.060760898902615,
+              -61.883740779848516
+            ],
+            [
+              -61.97723405266167,
+              -54.8190893452831,
+              -63.60332323523563
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR3",
+          "current_frame_bound": false
+        },
+        {
+          "role": "FR_G.4",
+          "point_mm": [
+            -29.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W035",
+      "a": "FR3.V",
+      "b": "F_FR3.out",
+      "net": "SERVO_V_FUSED",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR3.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              -52.12915652253956,
+              -55.060760898902615,
+              -61.883740779848516
+            ],
+            [
+              -61.97723405266167,
+              -54.8190893452831,
+              -63.60332323523563
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "FR3",
+          "current_frame_bound": false
+        },
+        {
+          "role": "F_FR3.out",
+          "point_mm": [
+            11.0,
+            -55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W036",
+      "a": "FR_G.1",
+      "b": "G1.4",
+      "net": "G_SYS",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR_G.1",
+          "point_mm": [
+            -43.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "G1.4",
+          "point_mm": [
+            -69.5,
+            -73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W037",
+      "a": "FR_P.1",
+      "b": "F_FR.out",
+      "net": "FR_P",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR_P.1",
+          "point_mm": [
+            -85.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FR.out",
+          "point_mm": [
+            2.5,
+            -36.6,
+            140.6
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W038",
+      "a": "FR_P.2",
+      "b": "F_FR1.in",
+      "net": "FR_P",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR_P.2",
+          "point_mm": [
+            -80.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FR1.in",
+          "point_mm": [
+            -53.0,
+            -69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W039",
+      "a": "FR_P.3",
+      "b": "F_FR2.in",
+      "net": "FR_P",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR_P.3",
+          "point_mm": [
+            -76.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FR2.in",
+          "point_mm": [
+            -21.0,
+            -69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W040",
+      "a": "FR_P.4",
+      "b": "F_FR3.in",
+      "net": "FR_P",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "FR_P.4",
+          "point_mm": [
+            -71.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F_FR3.in",
+          "point_mm": [
+            11.0,
+            -69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W041",
+      "a": "F_FL.in",
+      "b": "P_FRONT.2",
+      "net": "P_FRONT",
+      "corridor": "FL",
+      "ends": [
+        {
+          "role": "F_FL.in",
+          "point_mm": [
+            -32.5,
+            36.6,
+            140.6
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "P_FRONT.2",
+          "point_mm": [
+            -40.5,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W042",
+      "a": "F_FR.in",
+      "b": "P_FRONT.3",
+      "net": "P_FRONT",
+      "corridor": "FR",
+      "ends": [
+        {
+          "role": "F_FR.in",
+          "point_mm": [
+            -32.5,
+            -36.6,
+            140.6
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "P_FRONT.3",
+          "point_mm": [
+            -34.0,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W043",
+      "a": "F_PI.in",
+      "b": "P_SYS.2",
+      "net": "P_SYS",
+      "corridor": "AUX_BRANCHES",
+      "ends": [
+        {
+          "role": "F_PI.in",
+          "point_mm": [
+            -24.0,
+            41.25,
+            104.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "P_SYS.2",
+          "point_mm": [
+            -82.5,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W044",
+      "a": "F_RL.in",
+      "b": "P_REAR.2",
+      "net": "P_REAR",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL.in",
+          "point_mm": [
+            72.5,
+            36.6,
+            115.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "P_REAR.2",
+          "point_mm": [
+            1.5,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W045",
+      "a": "F_RL.out",
+      "b": "RL_P.1",
+      "net": "RL_P",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL.out",
+          "point_mm": [
+            107.5,
+            36.6,
+            115.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL_P.1",
+          "point_mm": [
+            40.5,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W046",
+      "a": "F_RL1.in",
+      "b": "RL_P.2",
+      "net": "RL_P",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL1.in",
+          "point_mm": [
+            37.0,
+            69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL_P.2",
+          "point_mm": [
+            45.25,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W047",
+      "a": "F_RL1.out",
+      "b": "RL1.V",
+      "net": "SERVO_V_FUSED",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL1.out",
+          "point_mm": [
+            37.0,
+            55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL1.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              157.5575664610457,
+              30.510105063722296,
+              21.5198755853137
+            ],
+            [
+              157.5575664610456,
+              29.118374054121638,
+              11.617194897897996
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL1",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W048",
+      "a": "F_RL2.in",
+      "b": "RL_P.3",
+      "net": "RL_P",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL2.in",
+          "point_mm": [
+            67.0,
+            69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL_P.3",
+          "point_mm": [
+            50.0,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W049",
+      "a": "F_RL2.out",
+      "b": "RL2.V",
+      "net": "SERVO_V_FUSED",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL2.out",
+          "point_mm": [
+            67.0,
+            55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL2.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              151.53423140057748,
+              85.03724803338687,
+              -5.2294162879313175
+            ],
+            [
+              159.1946758317673,
+              85.9318354823746,
+              1.1359041606216351
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL2",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W050",
+      "a": "F_RL3.in",
+      "b": "RL_P.4",
+      "net": "RL_P",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL3.in",
+          "point_mm": [
+            97.0,
+            69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL_P.4",
+          "point_mm": [
+            54.75,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W051",
+      "a": "F_RL3.out",
+      "b": "RL3.V",
+      "net": "SERVO_V_FUSED",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "F_RL3.out",
+          "point_mm": [
+            97.0,
+            55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL3.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              188.81789886943938,
+              54.81908934526582,
+              -63.60332323523761
+            ],
+            [
+              198.66597639956152,
+              55.06076089888569,
+              -61.883740779850726
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL3",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W052",
+      "a": "F_RR.in",
+      "b": "P_REAR.3",
+      "net": "P_REAR",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR.in",
+          "point_mm": [
+            72.5,
+            -36.6,
+            115.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "P_REAR.3",
+          "point_mm": [
+            8.0,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W053",
+      "a": "F_RR.out",
+      "b": "RR_P.1",
+      "net": "RR_P",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR.out",
+          "point_mm": [
+            107.5,
+            -36.6,
+            115.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR_P.1",
+          "point_mm": [
+            40.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W054",
+      "a": "F_RR1.in",
+      "b": "RR_P.2",
+      "net": "RR_P",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR1.in",
+          "point_mm": [
+            43.0,
+            -69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR_P.2",
+          "point_mm": [
+            45.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W055",
+      "a": "F_RR1.out",
+      "b": "RR1.V",
+      "net": "SERVO_V_FUSED",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR1.out",
+          "point_mm": [
+            43.0,
+            -55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR1.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              157.55756646104066,
+              -29.118374054170474,
+              11.617194897898143
+            ],
+            [
+              157.55756646104075,
+              -30.510105063771128,
+              21.519875585313848
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR1",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W056",
+      "a": "F_RR2.in",
+      "b": "RR_P.3",
+      "net": "RR_P",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR2.in",
+          "point_mm": [
+            75.0,
+            -69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR_P.3",
+          "point_mm": [
+            50.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W057",
+      "a": "F_RR2.out",
+      "b": "RR2.V",
+      "net": "SERVO_V_FUSED",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR2.out",
+          "point_mm": [
+            75.0,
+            -55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR2.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              159.19467583176203,
+              -85.93183548241895,
+              1.1359041606223244
+            ],
+            [
+              151.53423140057217,
+              -85.03724803343104,
+              -5.2294162879305865
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR2",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W058",
+      "a": "F_RR3.in",
+      "b": "RR_P.4",
+      "net": "RR_P",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR3.in",
+          "point_mm": [
+            107.0,
+            -69.0,
+            73.37
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR_P.4",
+          "point_mm": [
+            54.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W059",
+      "a": "F_RR3.out",
+      "b": "RR3.V",
+      "net": "SERVO_V_FUSED",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "F_RR3.out",
+          "point_mm": [
+            107.0,
+            -55.0,
+            75.402
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR3.V",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              198.66597639955506,
+              -55.06076089893137,
+              -61.88374077985159
+            ],
+            [
+              188.81789886943292,
+              -54.81908934531189,
+              -63.60332323523858
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR3",
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W060",
+      "a": "G1.2",
+      "b": "MAIN.GND",
+      "net": "G_SYS",
+      "corridor": "MAIN_PI",
+      "ends": [
+        {
+          "role": "G1.2",
+          "point_mm": [
+            -82.5,
+            -73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "MAIN.GND",
+          "point_mm": [
+            -41.68000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W061",
+      "a": "G1.5",
+      "b": "G2.1",
+      "net": "G_SYS",
+      "corridor": "LOGIC_AUX",
+      "ends": [
+        {
+          "role": "G1.5",
+          "point_mm": [
+            -63.0,
+            -73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "G2.1",
+          "point_mm": [
+            82.5,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W062",
+      "a": "G2.2",
+      "b": "RL_G.1",
+      "net": "G_SYS",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "G2.2",
+          "point_mm": [
+            87.25,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RL_G.1",
+          "point_mm": [
+            82.5,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W063",
+      "a": "G2.3",
+      "b": "RR_G.1",
+      "net": "G_SYS",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "G2.3",
+          "point_mm": [
+            92.0,
+            75.25,
+            99.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "RR_G.1",
+          "point_mm": [
+            82.5,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W064",
+      "a": "P_FRONT.1",
+      "b": "S1.3",
+      "net": "P_FRONT",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "P_FRONT.1",
+          "point_mm": [
+            -47.0,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "S1.3",
+          "point_mm": [
+            98.077,
+            33.0,
+            73.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W065",
+      "a": "P_REAR.1",
+      "b": "S1.6",
+      "net": "P_REAR",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "P_REAR.1",
+          "point_mm": [
+            -5.0,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "S1.6",
+          "point_mm": [
+            154.32299999999998,
+            33.0,
+            73.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W066",
+      "a": "P_SYS.1",
+      "b": "S0.out",
+      "net": "P_SYS",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "P_SYS.1",
+          "point_mm": [
+            -89.0,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "S0.out",
+          "point_mm": [
+            -41.703916638198606,
+            29.45,
+            80.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W067",
+      "a": "P_SYS.3",
+      "b": "S1.2",
+      "net": "P_SYS",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "P_SYS.3",
+          "point_mm": [
+            -76.0,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "S1.2",
+          "point_mm": [
+            98.07699999999988,
+            33.0,
+            85.00000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W068",
+      "a": "P_SYS.4",
+      "b": "S1.5",
+      "net": "P_SYS",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "P_SYS.4",
+          "point_mm": [
+            -69.5,
+            73.75,
+            100.99
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "S1.5",
+          "point_mm": [
+            154.32299999999998,
+            33.0,
+            84.99999999999989
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W069",
+      "a": "RL1.G",
+      "b": "RL_G.2",
+      "net": "G_SYS",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "RL1.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              157.5575664610457,
+              30.510105063722296,
+              21.5198755853137
+            ],
+            [
+              157.5575664610456,
+              29.118374054121638,
+              11.617194897897996
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL1",
+          "current_frame_bound": false
+        },
+        {
+          "role": "RL_G.2",
+          "point_mm": [
+            87.25,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W070",
+      "a": "RL2.G",
+      "b": "RL_G.3",
+      "net": "G_SYS",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "RL2.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              151.53423140057748,
+              85.03724803338687,
+              -5.2294162879313175
+            ],
+            [
+              159.1946758317673,
+              85.9318354823746,
+              1.1359041606216351
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL2",
+          "current_frame_bound": false
+        },
+        {
+          "role": "RL_G.3",
+          "point_mm": [
+            92.0,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W071",
+      "a": "RL3.G",
+      "b": "RL_G.4",
+      "net": "G_SYS",
+      "corridor": "RL",
+      "ends": [
+        {
+          "role": "RL3.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              188.81789886943938,
+              54.81908934526582,
+              -63.60332323523761
+            ],
+            [
+              198.66597639956152,
+              55.06076089888569,
+              -61.883740779850726
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RL3",
+          "current_frame_bound": false
+        },
+        {
+          "role": "RL_G.4",
+          "point_mm": [
+            96.75,
+            75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W072",
+      "a": "RR1.G",
+      "b": "RR_G.2",
+      "net": "G_SYS",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "RR1.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              157.55756646104066,
+              -29.118374054170474,
+              11.617194897898143
+            ],
+            [
+              157.55756646104075,
+              -30.510105063771128,
+              21.519875585313848
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR1",
+          "current_frame_bound": false
+        },
+        {
+          "role": "RR_G.2",
+          "point_mm": [
+            87.25,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W073",
+      "a": "RR2.G",
+      "b": "RR_G.3",
+      "net": "G_SYS",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "RR2.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              159.19467583176203,
+              -85.93183548241895,
+              1.1359041606223244
+            ],
+            [
+              151.53423140057217,
+              -85.03724803343104,
+              -5.2294162879305865
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR2",
+          "current_frame_bound": false
+        },
+        {
+          "role": "RR_G.3",
+          "point_mm": [
+            92.0,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W074",
+      "a": "RR3.G",
+      "b": "RR_G.4",
+      "net": "G_SYS",
+      "corridor": "RR",
+      "ends": [
+        {
+          "role": "RR3.G",
+          "point_mm": null,
+          "exit_reservation": [
+            [
+              198.66597639955506,
+              -55.06076089893137,
+              -61.88374077985159
+            ],
+            [
+              188.81789886943292,
+              -54.81908934531189,
+              -63.60332323523858
+            ]
+          ],
+          "manufacturer_pin_known": false,
+          "physical_loom": "RR3",
+          "current_frame_bound": false
+        },
+        {
+          "role": "RR_G.4",
+          "point_mm": [
+            96.75,
+            -75.25,
+            67.99000000000001
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W075",
+      "a": "BAT.plus",
+      "b": "F0.in",
+      "net": "BAT_RAW",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "BAT.plus",
+          "point_mm": [
+            -72.99999999999994,
+            -58.79999999999997,
+            49.999999999999986
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "F0.in",
+          "point_mm": [
+            -48.0,
+            -58.8,
+            50.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W076",
+      "a": "F0.out",
+      "b": "S0.in",
+      "net": "BAT_FUSED",
+      "corridor": "SOURCE_SWITCH",
+      "ends": [
+        {
+          "role": "F0.out",
+          "point_mm": [
+            3.0,
+            -58.8,
+            50.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "S0.in",
+          "point_mm": [
+            -75.55,
+            -7.296083361801397,
+            80.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W077",
+      "a": "F_PI.out",
+      "b": "SPLICE_PI.16",
+      "net": "MAIN_INPUT_FUSED",
+      "corridor": "MAIN_PI",
+      "ends": [
+        {
+          "role": "F_PI.out",
+          "point_mm": [
+            -24.000000000000014,
+            41.25,
+            53.0
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": true
+        },
+        {
+          "role": "SPLICE_PI.16",
+          "point_mm": [
+            -38.18000000000001,
+            94,
+            53
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": true,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W078",
+      "a": "SPLICE_PI.18",
+      "b": "MAIN.VIN",
+      "net": "MAIN_INPUT_FUSED",
+      "corridor": "MAIN_PI",
+      "ends": [
+        {
+          "role": "SPLICE_PI.18",
+          "point_mm": [
+            -38.18000000000001,
+            94,
+            53
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        },
+        {
+          "role": "MAIN.VIN",
+          "point_mm": [
+            -38.18000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": true,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W079",
+      "a": "MAIN.VOUT",
+      "b": "PI_USB_C.VBUS",
+      "net": "PI_5V1",
+      "corridor": "MAIN_PI",
+      "ends": [
+        {
+          "role": "MAIN.VOUT",
+          "point_mm": [
+            -48.68000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        },
+        {
+          "role": "PI_USB_C.VBUS",
+          "point_mm": [
+            -9.4,
+            -53.0,
+            45.2
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    },
+    {
+      "id": "W080",
+      "a": "MAIN.GND_OUT",
+      "b": "PI_USB_C.GND",
+      "net": "G_SYS",
+      "corridor": "MAIN_PI",
+      "ends": [
+        {
+          "role": "MAIN.GND_OUT",
+          "point_mm": [
+            -45.18000000000001,
+            21.289000000000016,
+            48.094800000000006
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        },
+        {
+          "role": "PI_USB_C.GND",
+          "point_mm": [
+            -12.6,
+            -53.0,
+            45.2
+          ],
+          "exit_reservation": null,
+          "manufacturer_pin_known": false,
+          "physical_loom": null,
+          "current_frame_bound": false
+        }
+      ],
+      "existing_route_only": false,
+      "actual_cut_mm": null
+    }
+  ],
+  "shared_corridor_reservations_mm": {
+    "FL": [
+      -70,
+      56,
+      150,
+      -10,
+      68,
+      170
+    ],
+    "FR": [
+      -70,
+      -68,
+      150,
+      -10,
+      -56,
+      170
+    ],
+    "RL": [
+      42,
+      56,
+      150,
+      112,
+      68,
+      170
+    ],
+    "RR": [
+      42,
+      -68,
+      150,
+      112,
+      -56,
+      170
+    ],
+    "LOGIC_AUX": [
+      -45,
+      -10,
+      153,
+      112,
+      10,
+      171
+    ],
+    "MAIN_PI": [
+      -65,
+      -48,
+      65,
+      70,
+      -30,
+      75
+    ],
+    "HEAD": [
+      -124,
+      -60,
+      125,
+      -106,
+      -20,
+      145
+    ],
+    "TAIL": [
+      138,
+      -12,
+      145,
+      158,
+      12,
+      165
+    ],
+    "USB_BUS": [
+      68,
+      -46,
+      65,
+      125,
+      -30,
+      77
+    ],
+    "AUX_BRANCHES": [
+      -45,
+      76,
+      110,
+      110,
+      92,
+      130
+    ],
+    "SOURCE_SWITCH": [
+      -108,
+      -72,
+      38,
+      144,
+      44,
+      125
+    ]
+  },
+  "legacy_source": [
+    {
+      "graph_ids": [
+        "BAT_0"
+      ],
+      "ends": [
+        "BAT.plus",
+        "F0.in"
+      ],
+      "current_datums": {
+        "BAT.plus": {
+          "role": "BAT.plus",
+          "native": "XT60_CP2",
+          "point_mm": [
+            -72.99999999999994,
+            -58.79999999999997,
+            49.999999999999986
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        },
+        "F0.in": {
+          "role": "F0.in",
+          "native": "F0_CP2",
+          "point_mm": [
+            -48.0,
+            -58.8,
+            50.0
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "old_920mm_not_current_stock_acceptance": true
+    },
+    {
+      "graph_ids": [
+        "BAT_1"
+      ],
+      "ends": [
+        "F0.out",
+        "S0.in"
+      ],
+      "current_datums": {
+        "F0.out": {
+          "role": "F0.out",
+          "native": "F0_CP2",
+          "point_mm": [
+            3.0,
+            -58.8,
+            50.0
+          ],
+          "basis": "Retained source builder nominal cups/exits; polarity from markings",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        },
+        "S0.in": {
+          "role": "S0.in",
+          "native": "S0_ring_IN",
+          "point_mm": [
+            -75.55,
+            -7.296083361801397,
+            80.0
+          ],
+          "departure": [
+            0.5,
+            -0.8660254037844386,
+            0.0
+          ],
+          "basis": "Retained nominal S0 barrel, bearing conditional",
+          "route_restraint_and_lever_qualified": false,
+          "current_frame_bound": true,
+          "frame_source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+          "datum_is_not_manufacturer_pin": false
+        }
+      },
+      "old_920mm_not_current_stock_acceptance": true
+    }
+  ],
+  "full_logical_scope_reference": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-scope-plan.json",
+  "corridor_reservations_not_wire_paths_or_contacts": true,
+  "factory_MG92B_leads_unchanged_mm": 250,
+  "connectors_added": 0,
+  "old_body_routes_not_reused": true,
+  "old_fixed_cover_not_present_in_current_inventory": true,
+  "remaining_output_AUX": {
+    "role": "F_AUX.out -> AUX.VIN",
+    "body_source_mm": [
+      61.5,
+      52.75,
+      100.99
+    ],
+    "delivered_padmap_required": true,
+    "target_pin_mm": null
+  },
+  "assembly_plan": [
+    "Keep finished source carriers, bankR47 and existing input grips unchanged.",
+    "Lay shared fixed body bundles before installing populated boards. Preserve dedicated motor returns.",
+    "Bind stationary yaw at its retained insulation seat. Do not treat its shared boundary as three coincident conductor paths.",
+    "Integrate the existing tail local support, rather than adding another JR or cutting factory leads.",
+    "Re-anchor the pitch flexible loop to the open-prototype structure; the former fixed-cover support is not retained.",
+    "Give body tails independent insulation restraint at existing rails, keeping ATO lid and WAGO levers accessible.",
+    "After one common route check, reconcile lengths/ties/material stock and qualify the common service sequence."
+  ],
+  "physical_gates": [
+    "Delivered U1 and AUX pads/polarity",
+    "JR view/pin cavity and actual factory lead exits",
+    "Nominal routes are for dry fit; print, bend, pull and thermal tests remain phase2"
+  ],
+  "next": "One shared body layout including9local tails/80body rows/legacy920mm source; no rechecking unchanged fixtures",
+  "context_checks": [
+    {
+      "native": "Head_YawCarrier",
+      "current_bounds_mm": [
+        -191.0,
+        -68.0,
+        71.52000000000001,
+        -107.0,
+        20.0,
+        107.0
+      ],
+      "transformed_source_difference_mm3": 0.0,
+      "source_shape_retained": true,
+      "bbox_not_used_as_collision_test": true
+    },
+    {
+      "native": "Head_PitchCarrier",
+      "current_bounds_mm": [
+        -206.0,
+        -13.999999999999996,
+        146.25,
+        -182.0,
+        21.48,
+        186.25
+      ],
+      "transformed_source_difference_mm3": 1.8189894035458565e-12,
+      "source_shape_retained": true,
+      "bbox_not_used_as_collision_test": true
+    },
+    {
+      "native": "P0_MG92BMount29",
+      "current_bounds_mm": [
+        149.0,
+        -20.0,
+        62.0,
+        191.0,
+        20.00000000000003,
+        116.0
+      ],
+      "native_present": true,
+      "local_finish_support_integration_qualified": false,
+      "reason": "Retained inventory references P0 support, not TailLocalCompleteSupportR2"
+    }
+  ],
+  "unchanged_context_checks_retained": true,
+  "created_utc": "2026-10-08T13:33:03.486787+00:00",
+  "worker_wall_seconds": 0.09582319995388389
+}

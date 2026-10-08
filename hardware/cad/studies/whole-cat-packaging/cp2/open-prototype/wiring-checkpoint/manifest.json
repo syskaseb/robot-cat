@@ -161,19 +161,49 @@
     "physical_pass": false
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T13:11:07Z",
-    "window_elapsed_seconds": 8887,
+    "saved_utc": "2026-10-08T13:33:04Z",
+    "window_elapsed_seconds": 10204,
+    "local_boundary_and_tail_checkpoint_seconds_since_previous": 1317,
+    "tail_native_worker_seconds": 24.266,
+    "initial_tail_proof_write_failure": "Native checked/saved, then unsupported getExternalLinks call and closed-document cleanup failed; no acceptance from failed attempt",
     "source_fixture_checkpoint_elapsed_since_previous_seconds": 3144,
     "native_builder_attempt_wall_seconds": [127.594,162.922,172.656],
     "changed_route_preflight_wall_seconds": 13.297,
     "includes_analysis_compute_and_user_notification_question_not_continuous_CPU": true
   },
-  "next": "Keep SourceFixturesAssembly with2 carriers/current rail, current HP allocation and service Pi route (84/240mm); old Pi saddle/over-ATO path is historical only. Finish remaining4 FHAC output/load/restraint interfaces together with current WAGO/body/leg/local wiring and legacy920mm source; use actual known connectors and retain unknown AUX/U1 padmap as delivery gates, not centre-as-pin. Do not repeat completed input/body/ATO geometry or rejected directY74.25 descent. Full removal/common stock/current selected export remain OPEN; no point for this local subassembly.",
+  "current_local_boundary_preparation": {
+    "plan": "local-boundary-plan.json",
+    "body_rows": 80,
+    "local_head_tail_boundaries": 9,
+    "legacy_source_920mm_included_not_reconciled": true,
+    "head_two_retained_native_shapes_exactly_match_transformed_sources": true,
+    "old_fixed_cover_not_retained_requires_current_pitch_loop_anchor": true,
+    "logical_PWM_roles": ["R1.2", "R2.2", "R3.2"],
+    "not_manufacturer_pinout_or_route_acceptance": true
+  },
+  "current_tail_mount_preparation": {
+    "native": "TailLocalCurrent.FCStd",
+    "native_sha256": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "proof": "tail-integration-checks.json",
+    "export": "TailLocalCurrent.stl",
+    "replaces": "P0_MG92BMount29",
+    "extra_parts_screws_connectors": 0,
+    "retained_ties_this_local_scope": 5,
+    "contacts": 0,
+    "tested_changed_pairs": 19,
+    "native_solid_count": 1,
+    "parameter_and_relocated_reopen_checked": true,
+    "export_dimensions_mm": [126, 97.61308288574219, 54],
+    "margin_to_256_mm": 10,
+    "factory_lead_uncut_mm": 250,
+    "whole_body_routes_and_final_combined_assembly_not_qualified": true
+  },
+  "next": "Use one shared local-boundary plan for80body rows/9local tails/legacy920mm source. Keep SourceFixturesAssembly and checked replacementTailLocalCurrent, no input/holder/tail-shape retry. Bind PWM physical chosen1608 pads to current board frame under logicalR1.2/R2.2/R3.2 (not staleB1.out drawing aliases). Adapt pitch fixed flexible-loop anchor because oldCover is absent; do not merely translate oldfixedCover supports. Finish4FHAC load feeds, shared body-leg independent insulation restraints and common mount/service/stock/current export. UnknownAUX/U1 deliveredpadmap stays gate, not guessed pins. No point for this local subassembly.",
   "estimate_review": "Shared5holder/input fixture checkpoint recorded52min24 after previous save (45-90min provisional). Whole Stage3 still OPEN at2h28min07; original3-5h cannot be promised for remaining4outputs/full body-leg-local/source920mm/restraints/stock. Next use known endpoint evidence and one grouped harness plan, not another placement search or expensive check of unchanged fixtures.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T12:09:59Z",
-    "weekly_used_percent": 8,
-    "weekly_remaining_percent": 92,
+    "checked_utc": "2026-10-08T13:33:04Z",
+    "weekly_used_percent": 9,
+    "weekly_remaining_percent": 91,
     "ordinary_usage_allowed": true
   }
 }
