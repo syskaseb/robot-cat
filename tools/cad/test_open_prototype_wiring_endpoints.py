@@ -125,6 +125,51 @@ class EndpointContract(unittest.TestCase):
         self.assertEqual(scope['scopes']['LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'],2)
         self.assertFalse(scope['stage_completed'])
 
+    def test_pi_output_pair_has_current_evidence_and_no_extra_joint(self):
+        p=E.read(E.BASE/'wiring-checkpoint/source-output-plan.json')
+        for path,digest in p['source_sha256'].items():self.assertEqual(E.sha(E.ROOT/path),digest,path)
+        self.assertEqual(p['status'],'PI_OUTPUT_PATH_CHECKED_SUPPORTS_OPEN')
+        self.assertFalse(p['material_or_changed_contacts'])
+        self.assertFalse(p['reservation_contacts'])
+        self.assertFalse(p['errors']);self.assertFalse(p['self_errors'])
+        self.assertEqual(p['splice']['new_connector_or_splice_count'],0)
+        self.assertEqual(p['splice']['bare_overlap_mm'],8)
+        self.assertEqual(p['splice']['intact_overlap_each_side_mm'],6)
+
+    def test_pi_stock_accounts_strip_and_whole_package_corridor(self):
+        p=E.read(E.BASE/'wiring-checkpoint/source-output-plan.json')
+        self.assertAlmostEqual(p['W077']['required_blank_mm'],p['W077']['insulated_route_mm']+8)
+        self.assertLessEqual(p['W077']['nominal_fit_blank_mm'],p['W077']['factory_minimum_mm'])
+        self.assertAlmostEqual(p['W078']['required_blank_mm'],p['W078']['insulated_route_mm']+16)
+        self.assertGreater(p['W078']['nominal_fit_blank_mm'],p['W078']['required_blank_mm'])
+        plan=p['shared_descent_plan']
+        self.assertEqual(set(plan['package_left_limits_mm']),{'holder_budget','input_insulation','retained_left_rail'})
+        self.assertAlmostEqual(p['planned_insulated_descent_x_mm']+plan['insulation_radius_mm'],
+            min(plan['package_left_limits_mm'].values())-plan['clearance_design_mm'])
+
+    def test_pi_two_independent_grips_never_bear_on_bare_joint(self):
+        p=E.read(E.BASE/'wiring-checkpoint/source-output-plan.json');sp=p['splice']
+        first,second=sp['required_independent_grips'];half=first['length_mm']/2
+        self.assertEqual(first['wire'],'W077');self.assertEqual(second['wire'],'W078')
+        self.assertAlmostEqual(first['centre_mm'][0]-half,sp['factory_insulation_boundary_mm'][0]+6)
+        self.assertAlmostEqual(second['centre_mm'][0]+half,sp['extension_insulation_boundary_mm'][0]-6)
+        self.assertEqual(p['MAIN']['insulated_grip_straight_mm'],9)
+        self.assertTrue(all(r['status']=='LOAD_DATUM_OPEN_NO_CENTRE_AS_PIN' for r in p['planned_output_connections'] if r['holder']!='F_PI'))
+        self.assertFalse(p['stage_completed']);self.assertFalse(p['selected'])
+
+    def test_pi_saddle_mating_reopen_proof_retains_source_and_no_contacts(self):
+        folder=E.BASE/'wiring-checkpoint'
+        proof=E.read(folder/'pi-wire-support-checks.json')
+        verified=E.read(folder/'pi-wire-support-verification.json')
+        for p in (proof,verified):
+            for path,digest in p['source_sha256'].items():self.assertEqual(E.sha(E.ROOT/path),digest,path)
+            self.assertEqual(E.sha(folder/'PiWireSupportAssembly.FCStd'),p['native_sha256'])
+            self.assertFalse(p['stage_completed']);self.assertFalse(p['physical_pass'])
+        self.assertFalse(proof['material_neighbour_or_reservation_contacts']);self.assertFalse(proof['errors'])
+        self.assertEqual(proof['continuous_service_slide_mm'],[0,35,0])
+        self.assertTrue(verified['relocated_fresh_process']);self.assertTrue(verified['source_unchanged'])
+        for a,b in zip(verified['initial_volumes_mm3'],verified['restored_volumes_mm3']):self.assertAlmostEqual(a,b,places=5)
+
 
 if __name__ == '__main__':
     unittest.main()

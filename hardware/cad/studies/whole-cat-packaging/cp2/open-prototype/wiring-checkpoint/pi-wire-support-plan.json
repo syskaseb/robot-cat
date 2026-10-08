@@ -1,0 +1,67 @@
+{
+  "status": "PI_TWO_SEAT_SHARED_PLAN",
+  "selected": false,
+  "physical_pass": false,
+  "source_route": "source-output-plan.json",
+  "rail_top_world_z_mm": 93,
+  "anchors_x_mm": [
+    -55.0,
+    31.0
+  ],
+  "foot_y_mm": [
+    69,
+    73
+  ],
+  "foot_width_x_mm": 4,
+  "seats": [
+    {
+      "wire": "W077",
+      "centre_mm": [
+        -32.68000000000001,
+        56.75,
+        127.99
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "length_mm": 9
+    },
+    {
+      "wire": "W078",
+      "centre_mm": [
+        -61.68000000000001,
+        56.75,
+        127.99
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "length_mm": 9
+    }
+  ],
+  "beam_bounds_mm": [
+    -67,
+    67,
+    123.99,
+    33,
+    73,
+    125.99
+  ],
+  "rail_attachment": "Two replaceable T18I through new inner-lip slots; no tie crosses any WAGO lever",
+  "wire_attachment": "One independent T18I on each9mm intact insulation seat; no load on joint/shrink",
+  "added_ties": 4,
+  "added_screws": 0,
+  "new_electrical_connectors_or_splices": 0,
+  "changed_rail": "Same editable rail master, two extra upper inner-lip slots per rail; other rail slots unused",
+  "removal": "Cut2wire ties and2rail ties; slide complete saddle+Y35mm beneath unchanged fixed wires, through casing gaps; then lift off. No74WAGO routine disconnects",
+  "assumptions": [
+    "Nominal T18I width2.5/thickness1.1/head6 not a delivered fit or force rating",
+    "Actual wire OD/shrink profile and no-crush/pull/creep checks after delivery",
+    "Chosen ports/whole harness/5FHAC holder mounts remain unselected"
+  ],
+  "whole_stage_completed": false
+}

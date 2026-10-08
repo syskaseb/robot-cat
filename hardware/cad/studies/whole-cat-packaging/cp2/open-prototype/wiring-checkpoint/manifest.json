@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "STAGE3_SHARED_FIVE_INPUT_PREPARATION_CHECKED_OUTPUTS_AND_MOUNTS_OPEN",
+  "status": "STAGE3_FIVE_INPUTS_AND_PI_OUTPUT_SADDLE_PREPARED_REMAINING_WIRING_OPEN",
   "stage_completed": false,
   "selected": false,
   "physical_pass": false,
@@ -78,6 +78,30 @@
   "shared_source_layout_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json",
   "shared_source_layout_proof": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-fit.json",
   "whole_stage_routing_scope": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-scope-plan.json",
+  "pi_output_preparation": {
+    "route_proof": "source-output-plan.json",
+    "native_candidate": "PiWireSupportAssembly.FCStd",
+    "native_sha256": "72285418307c7172085d178413cb97322f8435b0a3e8c4c3917770eee8eb79e8",
+    "support_export": "PiSpliceInsulationSaddle.stl",
+    "support_export_sha256": "33018a9883b78bbf63bd505dcc868198918573e8e4402d9950d75386443020cc",
+    "support_plan": "pi-wire-support-plan.json",
+    "native_geometry_proof": "pi-wire-support-checks.json",
+    "mating_and_relocated_reopen_proof": "pi-wire-support-verification.json",
+    "nominal_fit_blanks_mm": {"W077":82,"W078":240},
+    "required_blanks_mm": {"W077":80.52955592153877,"W078":225.29531184307749},
+    "same_K1474_red_conductor_no_extra_connector_or_splice": true,
+    "new_native_saddle_and_two_extra_slots_per_common_rail": true,
+    "new_ties_for_Pi_saddle": 4,
+    "extra_screws": 0,
+    "nominal_insulation_seats_mm": 9,
+    "changed_seat_and_mating_slot_parameters_restored": true,
+    "continuous_saddle_removal_Y35mm_no_detected_contacts": true,
+    "route_references_are_not_editable_native_wire_histories": true,
+    "checked_geometry_uses_labelled_project_wire_and_tie_assumptions": true,
+    "delivered_tie_fit_force_no_crush_and_creep_open": true,
+    "FHAC_holder_attachments_other4outputs_WAGO_restraints_and_whole_stock_open": true,
+    "native_candidate_does_not_replace_base_or_selected_R53": true
+  },
   "planning_result": {
     "body_net_identities_preserved": 80,
     "current_leg_frames_retained": 12,
@@ -105,18 +129,18 @@
     "stock_and_actual_cut_not_selected": true,
     "endpoint_worker_seconds": 14.172,
     "joint_input_worker_seconds": 14.047,
-    "pure_contract_tests_passed": 12
+    "pure_contract_tests_passed": 16
   },
   "measured_time": {
-    "saved_utc": "2026-10-08T11:28:21Z",
-    "window_elapsed_seconds": 2721,
+    "saved_utc": "2026-10-08T12:09:59Z",
+    "window_elapsed_seconds": 5219,
     "includes_analysis_compute_and_user_notification_question_not_continuous_CPU": true
   },
-  "next": "Keep checked5input allocation. Plan all5output destinations and independent native strain load paths jointly, then supports/assembly and remaining scope/stock. Current scope includes4moved outputs/29local interconnect pairs, plus legacy920mm. Do not repeat source placement search or old bank. Unknown U1/AUX electrical pad mapping stays a gate, not an invented datum.",
+  "next": "Keep checked5inputs and Pi protected output pair/saddle. No worker remains after received mating/reopen check. Next allocate remaining4output destination frames with their actual termination/service allowances; retain unresolved U1/AUX as delivery gates. Then one shared5holder/entry/other output load-path plan, WAGO and remaining body/leg/source/local wires plus stock. Do not repeat rejected Pi descents, source placement search or old bank. This is NOT whole-stage completion or selected wiring export.",
   "last_account_usage": {
-    "checked_utc": "2026-10-08T11:28:21Z",
-    "weekly_used_percent": 7,
-    "weekly_remaining_percent": 93,
+    "checked_utc": "2026-10-08T12:09:59Z",
+    "weekly_used_percent": 8,
+    "weekly_remaining_percent": 92,
     "ordinary_usage_allowed": true
   }
 }

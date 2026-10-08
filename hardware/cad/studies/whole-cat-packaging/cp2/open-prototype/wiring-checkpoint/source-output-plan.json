@@ -1,0 +1,408 @@
+{
+  "status": "PI_OUTPUT_PATH_CHECKED_SUPPORTS_OPEN",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json": "cf76b5186a292ba41a2acd84da826b616fbd06dfb898bf4914f21a251d30ad73",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/electronics/full-cat/main-positive-wiring-card-r1/interface.json": "eeb9d8af5f34e9400c316dfeb7246c3bb2fd28cddfbbb58a27dd5ebcf8b45535",
+    "tools/cad/open_prototype_wiring_source_fit.py": "a030045f16b8f87068c6e71c8e750a404999ff3e2f897294dc6db3b347132f31",
+    "tools/cad/open_prototype_wiring_outputs.py": "7ed1071a65a17242400ee3fc00410f6bfdfc4b80e352bf713aabb6ec8a87afea"
+  },
+  "planned_output_connections": [
+    {
+      "holder": "F_PI",
+      "destination": "MAIN.VIN",
+      "status": "PLANNED_PI_PAIR_SUPPORTS_OPEN"
+    },
+    {
+      "holder": "F_AUX",
+      "destination": "AUX.VIN",
+      "status": "LOAD_DATUM_OPEN_NO_CENTRE_AS_PIN"
+    },
+    {
+      "holder": "F_HY",
+      "destination": "C_HY.V+",
+      "status": "LOAD_DATUM_OPEN_NO_CENTRE_AS_PIN"
+    },
+    {
+      "holder": "F_HP",
+      "destination": "C_HP.V+",
+      "status": "LOAD_DATUM_OPEN_NO_CENTRE_AS_PIN"
+    },
+    {
+      "holder": "F_TY",
+      "destination": "C_TY.V+",
+      "status": "LOAD_DATUM_OPEN_NO_CENTRE_AS_PIN"
+    }
+  ],
+  "W077": {
+    "insulated_route_mm": 72.52955592153877,
+    "bare_overlap_mm": 8,
+    "required_blank_mm": 80.52955592153877,
+    "nominal_fit_blank_mm": 82,
+    "factory_minimum_mm": 84.5,
+    "OD4_R6_project_gates": true
+  },
+  "W078": {
+    "insulated_route_mm": 209.29531184307749,
+    "splice_strip_mm": 8,
+    "MAIN_strip_mm": 8,
+    "required_blank_mm": 225.29531184307749,
+    "nominal_fit_blank_mm": 240,
+    "material": "Red18AWG from SAME K1474; not a new stock cable",
+    "OD2p6_R6_project_gates": true
+  },
+  "splice": {
+    "factory_insulation_boundary_mm": [
+      -43.18000000000001,
+      56.75,
+      127.99
+    ],
+    "extension_insulation_boundary_mm": [
+      -51.18000000000001,
+      56.75,
+      127.99
+    ],
+    "axis": [
+      -1,
+      0,
+      0
+    ],
+    "bare_overlap_mm": 8,
+    "sleeve_blank_mm": 20,
+    "intact_overlap_each_side_mm": 6,
+    "SKU": "RNF-100-3/16-0-STK",
+    "new_connector_or_splice_count": 0,
+    "required_independent_grips": [
+      {
+        "wire": "W077",
+        "centre_mm": [
+          -32.68000000000001,
+          56.75,
+          127.99
+        ],
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "length_mm": 9
+      },
+      {
+        "wire": "W078",
+        "centre_mm": [
+          -61.68000000000001,
+          56.75,
+          127.99
+        ],
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "length_mm": 9
+      }
+    ],
+    "heat_and_trim_off_PETG": true,
+    "actual_joint_OD_and_shrink_profile_phase2": true
+  },
+  "MAIN": {
+    "pad_mm": [
+      -38.18000000000001,
+      21.289000000000016,
+      48.094800000000006
+    ],
+    "exposed_neck_mm": 5,
+    "insulated_grip_straight_mm": 9,
+    "insertion_allowance_mm": 3
+  },
+  "old_MAIN4853_CP2_budget_superseded_by_valid_world_MainSupplierFamily": true,
+  "planned_insulated_descent_x_mm": -99.3,
+  "shared_descent_plan": {
+    "package_left_limits_mm": {
+      "holder_budget": -73.5,
+      "input_insulation": -85.15913760233914,
+      "retained_left_rail": -96.0
+    },
+    "insulation_radius_mm": 1.3,
+    "clearance_design_mm": 2.0,
+    "reason": "External left corridor beyond WHOLE holder/input/rail package; none of their datums moved",
+    "envelope_is_allocation_not_contact_proof": true
+  },
+  "rejected_hypotheses": [
+    "Descent within holder left wall crossed F_PI material budget",
+    "Clearing holder alone by4mm crossed its input; do not repeat that layout"
+  ],
+  "centreline_edges": {
+    "W077": [
+      {
+        "start_mm": [
+          -22.5,
+          56.75,
+          100.99
+        ],
+        "end_mm": [
+          -13.5,
+          56.75,
+          100.99
+        ],
+        "length_mm": 9.0,
+        "curve": "Line",
+        "centre_mm": null
+      },
+      {
+        "start_mm": [
+          -13.5,
+          56.75,
+          100.99
+        ],
+        "end_mm": [
+          -7.500000000000002,
+          56.75,
+          106.99
+        ],
+        "length_mm": 9.424777960769385,
+        "curve": "Circle",
+        "centre_mm": [
+          -13.499999999999993,
+          56.75,
+          106.98999999999998
+        ]
+      },
+      {
+        "start_mm": [
+          -7.5,
+          56.75,
+          106.99
+        ],
+        "end_mm": [
+          -7.500000000000002,
+          56.75,
+          121.99
+        ],
+        "length_mm": 15.0,
+        "curve": "Line",
+        "centre_mm": null
+      },
+      {
+        "start_mm": [
+          -7.5000000000000036,
+          56.75,
+          121.99
+        ],
+        "end_mm": [
+          -13.5,
+          56.75,
+          127.99
+        ],
+        "length_mm": 9.424777960769385,
+        "curve": "Circle",
+        "centre_mm": [
+          -13.499999999999993,
+          56.75,
+          121.99000000000001
+        ]
+      },
+      {
+        "start_mm": [
+          -13.5,
+          56.75,
+          127.99
+        ],
+        "end_mm": [
+          -43.18000000000001,
+          56.75,
+          127.99
+        ],
+        "length_mm": 29.680000000000007,
+        "curve": "Line",
+        "centre_mm": null
+      }
+    ],
+    "W078": [
+      {
+        "start_mm": [
+          -51.18000000000001,
+          56.75,
+          127.99
+        ],
+        "end_mm": [
+          -93.3,
+          56.75,
+          127.99
+        ],
+        "length_mm": 42.11999999999999,
+        "curve": "Line",
+        "centre_mm": null
+      },
+      {
+        "start_mm": [
+          -93.3,
+          56.75,
+          127.99
+        ],
+        "end_mm": [
+          -99.3,
+          56.75,
+          121.99
+        ],
+        "length_mm": 9.424777960769388,
+        "curve": "Circle",
+        "centre_mm": [
+          -93.30000000000001,
+          56.75,
+          121.99000000000001
+        ]
+      },
+      {
+        "start_mm": [
+          -99.3,
+          56.75,
+          121.99
+        ],
+        "end_mm": [
+          -99.3,
+          56.75,
+          74.0948
+        ],
+        "length_mm": 47.89519999999999,
+        "curve": "Line",
+        "centre_mm": null
+      },
+      {
+        "start_mm": [
+          -99.3,
+          56.75,
+          74.0948
+        ],
+        "end_mm": [
+          -93.3,
+          56.75,
+          68.0948
+        ],
+        "length_mm": 9.424777960769388,
+        "curve": "Circle",
+        "centre_mm": [
+          -93.30000000000001,
+          56.75,
+          74.09479999999999
+        ]
+      },
+      {
+        "start_mm": [
+          -93.3,
+          56.75,
+          68.0948
+        ],
+        "end_mm": [
+          -44.18000000000001,
+          56.75,
+          68.0948
+        ],
+        "length_mm": 49.11999999999999,
+        "curve": "Line",
+        "centre_mm": null
+      },
+      {
+        "start_mm": [
+          -44.18000000000001,
+          56.75,
+          68.0948
+        ],
+        "end_mm": [
+          -38.18000000000001,
+          50.75,
+          68.0948
+        ],
+        "length_mm": 9.42477796076938,
+        "curve": "Circle",
+        "centre_mm": [
+          -44.18000000000001,
+          50.75,
+          68.0948
+        ]
+      },
+      {
+        "start_mm": [
+          -38.18000000000001,
+          50.75,
+          68.0948
+        ],
+        "end_mm": [
+          -38.18000000000001,
+          27.289000000000016,
+          68.0948
+        ],
+        "length_mm": 23.460999999999984,
+        "curve": "Line",
+        "centre_mm": null
+      },
+      {
+        "start_mm": [
+          -38.18000000000001,
+          27.289000000000016,
+          68.0948
+        ],
+        "end_mm": [
+          -38.18000000000001,
+          21.289000000000016,
+          62.094800000000006
+        ],
+        "length_mm": 9.424777960769383,
+        "curve": "Circle",
+        "centre_mm": [
+          -38.18000000000001,
+          27.28900000000001,
+          62.09480000000001
+        ]
+      },
+      {
+        "start_mm": [
+          -38.18000000000001,
+          21.289000000000016,
+          62.094800000000006
+        ],
+        "end_mm": [
+          -38.18000000000001,
+          21.289000000000016,
+          53.094800000000006
+        ],
+        "length_mm": 9.0,
+        "curve": "Line",
+        "centre_mm": null
+      }
+    ]
+  },
+  "exact_joint_self_checks": [
+    {
+      "a": "W077_factory",
+      "b": "W078_K1474_red",
+      "volume_mm3": 0.0,
+      "expected_mm3": 0.0
+    },
+    {
+      "a": "W077_factory",
+      "b": "PiSolderSleeveAllowance",
+      "volume_mm3": 75.39822368615513,
+      "expected_mm3": 75.39822368615503
+    },
+    {
+      "a": "W078_K1474_red",
+      "b": "PiSolderSleeveAllowance",
+      "volume_mm3": 31.855749507400482,
+      "expected_mm3": 31.855749507400503
+    }
+  ],
+  "self_errors": [],
+  "tested_candidate_pairs": 10,
+  "material_or_changed_contacts": [],
+  "reservation_contacts": [],
+  "errors": [],
+  "native_load_paths_whole_stock_and_other_outputs_open": true,
+  "finished_utc": "2026-10-08T11:53:41.792154+00:00",
+  "worker_wall_seconds": 12.23499999998603
+}
