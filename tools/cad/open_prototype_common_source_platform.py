@@ -6,7 +6,7 @@ No historical document is written; one current development module.
 """
 from datetime import datetime, timezone
 from pathlib import Path
-import json, math, time
+import json, math, time, subprocess, hashlib
 import FreeCAD as A
 import Part, Sketcher
 from open_deck_p0_supports import sketch, feature
@@ -52,7 +52,9 @@ def build(mount):
     sk=sketch(body,'SourceFeetPlan',77.72)
     for x,y in AXES:circle(sk,x,y,12)
     body.Tip=feature(body,'Pad','SourceFeet',sk,5)
-    pad('SourceRibs',109,[(-62,y,144,4) for y in (-18,14)],4)
+    # Ribs directly over the receiving column rows; underside strap heads
+    # belong in the central bay, not in the rib/load path.
+    pad('SourceRibs',109,[(-62,y,144,4) for y in (-22,18)],4)
     sk=sketch(body,'SourceBoresPlan',115)
     for x,y in AXES:circle(sk,x,y,3.4)
     body.Tip=feature(body,'Pocket','SourceBores',sk,37.28)
@@ -67,8 +69,13 @@ def build(mount):
     # Input supports bear on intact last9mm, independently of bought bodies.
     pad('InputSupportArms',113,[(-58.5,25.5,10,25.75),(-12,25.5,10,25.75),
         (23.25,-52.75,19.5,27.25)],2)
-    pad('InputInsulationSeats',115,[(-58.5,42.25,10,9),(-12,42.25,10,9),
-        (23.25,-52.75,19.5,9)],3)
+    # Whole-row straps route OUTSIDE the close-pitch wires, never through
+    # neighbouring port chambers. Raised shim/no-slip fit remains a gate.
+    pad('InputInsulationSeats',115,[(-67,42.25,80,9),(16.5,-52.75,33,9)],2.8)
+    outputs=[(-40,-1),(-15,-1),(10,1),(35,1),(60,1)]
+    pad('OutputGripArms',111,[(x+9,25.5 if sign>0 else -38.55,3,13.05) for x,sign in outputs],4)
+    pad('OutputGripPosts',82.5,[(x+9,35.55 if sign>0 else -38.55,3,3) for x,sign in outputs],30.5)
+    pad('OutputInsulationBackers',82.5,[(x-6,35.55 if sign>0 else -38.55,18,3) for x,sign in outputs],9)
     # Ten body-band slots at the fixed5case centres, cut before band install.
     sk=sketch(body,'BodyTieSlotsPlan',115)
     for x in (-40,-15,10,35,60):
@@ -93,23 +100,38 @@ def build(mount):
     for x,name in zip((-40,-15,10,35,60),('F_PI','F_AUX','F_HY','F_HP','F_TY')):
         for i,y in enumerate((-12,12)):
             shape=ring(A,Part,1,2.5,[x-11.325,y-1.25,111.8,x+11.325,y+1.25,138.2],
-                [x+10.125,y-2.25,108.3,x+14.925,y+2.25,112.8])
+                [x-2.4,y-2.25,108.3,x+2.4,y+2.25,112.8])
             ob=doc.addObject('Part::Feature',name+'_BodyTie'+str(i));ob.Shape=shape;refs[ob.Name]=ob
-    for name,x in [('PI',-53.5),('AUX',-7)]:
-        y=46.75
-        shape=ring(A,Part,1,2.5,[x-6.2,y-1.25,111.8,x+6.2,y+1.25,123.4],
-            [x-11,y-2.25,118.5,x-5.5,y+2.25,122])
-        ob=doc.addObject('Part::Feature',name+'_InputTie');ob.Shape=shape;refs[ob.Name]=ob
-    for i,y in enumerate((-50,-46.5)):
-        shape=ring(A,Part,1,2.5,[22.05,y-1.25,111.8,43.95,y+1.25,123.4],
-            [42.75,y-2.25,118.5,48.25,y+2.25,122])
+    for i,y in enumerate((44.5,49)):
+        shape=ring(A,Part,1,2.5,[-68.2,y-1.25,111.8,14.2,y+1.25,123.5],
+            [-44.9,y-2.25,108.3,-40.1,y+2.25,112.8])
+        ob=doc.addObject('Part::Feature','NorthInputTie'+str(i));ob.Shape=shape;refs[ob.Name]=ob
+    for i,y in enumerate((-50.5,-46)):
+        shape=ring(A,Part,1,2.5,[15.3,y-1.25,111.8,50.7,y+1.25,123.5],
+            [30.6,y-2.25,108.3,35.4,y+2.25,112.8])
         ob=doc.addObject('Part::Feature','SouthInputTie'+str(i));ob.Shape=shape;refs[ob.Name]=ob
+    for name,(x,sign) in zip(('F_PI','F_AUX','F_HY','F_HP','F_TY'),outputs):
+        for i,z in enumerate((84.75,89.25)):
+            # Rectangular nominal strap around backer AND intact insulation;
+            # side-post is inside this same load-bearing backer, not a new
+            # hidden band collision. 4.5mm head centres do not overlap.
+            box=[x-7.2,32.25,z-1.25,x+13.2,39.75,z+1.25]
+            head=[x+12,35.75,z-2.25,x+17.5,39.25,z+2.25]
+            if sign<0:
+                box[1],box[4]=-box[4],-box[1]
+                head[1],head[4]=-head[4],-head[1]
+            ob=doc.addObject('Part::Feature',name+'_OutputTie'+str(i));ob.Shape=ring(A,Part,2,2.5,box,head);refs[ob.Name]=ob
     doc.recompute()
     return doc,receiver,body,refs,nuts
 
 
 def main():
-    assert not MODEL.exists() and not PROOF.exists(),'Receive existing native worker before another build'
+    if MODEL.exists() or PROOF.exists():
+        prior=read(PROOF)
+        assert prior['status']=='NATIVE_SOURCE_PLATFORM_HAS_CHANGED_INTERFACE_FAILURES'
+        for path in (MODEL,PROOF):
+            saved=subprocess.check_output(['git','show','0d95d30:'+path.relative_to(ROOT).as_posix()],cwd=ROOT)
+            assert hashlib.sha256(saved).hexdigest()==sha(path),'Preserve exact rejected build before cause change'
     tick=time.monotonic();plan=read(OUT/'shared-source-support-plan.json');allocation=read(OUT/'shared-allocation-plan.json')
     assert plan['status']=='COMMON_PLATFORM_LOAD_PATH_PREFLIGHT_CLEAR_NATIVE_RESTRAINTS_OPEN'
     for n,v in plan['source_sha256'].items():assert sha(ROOT/n)==v,n
@@ -117,15 +139,17 @@ def main():
     mount=A.openDocument(str(MOUNTS));ctx=A.openDocument(str(CONTEXT));rail=A.openDocument(str(RAILS));doc=None
     r=dict(status='PENDING',selected=False,stage_completed=False,physical_pass=False,source_sha256=pins,
         contacts=[],errors=[],outside_torso=[],tested_pairs=0,reservation_occupancies=[],
-        new_hardware_candidate={'M3x10':4,'M3_washer':4,'M3_nut':4,'T18I_body':10,'T18I_input':4},
-        source_platform_owns=['five source bodies retention','five intact input seats'],
+        new_hardware_candidate={'M3x10':4,'M3_washer':4,'M3_nut':4,'T18I_body':10,'T18I_input':4,'T18I_output':10},
+        prior_rejection_commit='0d95d30',
+        cause_change='Close-pitch individual input straps replaced by whole-row straps with underside heads; body heads under own centre and ribs over actual column rows. Frozen bought cases and wire recipes unchanged. Add five integral output backers outside covered splices.',
+        source_platform_owns=['five source bodies retention','whole north10/south5port input seats','five intact output backers/two straps each'],
         fixed_station_disposition='Do NOT copy obsolete pitch post through P_SYS; pitch atZ166 is head interface,not torso internal. Tail fixed station needs independent current load path with full new fanout. Both remain OPEN.',
         assembly=plan['assembly']+['Fit10 replaceable holder-body ties; cut only2 on affected holder for delivered ATO lid trial','Four independent input ties stay in place during ATO service; comb each-wire no-slip needs dry fit'],
-        gates=['Full outputs/independent output grips/fixed head-tail station supports are NOT included','Full MTA/S1/PWM/body/legs/stock not qualified','Delivered nut/tie/casing/lid/OD/R6/no-crush/each comb wire retention','PETG ribs/cantilever/layers/bearing/creep and support removal'],
+        gates=['Full output-to-load routes/fixed head-tail station supports are NOT included','Full MTA/S1/PWM/body/legs/stock not qualified','Delivered nut/tie/casing/lid/OD/R6/no-crush/individual wire shims/each comb wire retention','PETG ribs/cantilever/layers/bearing/creep and support removal'],
         known_superseded=['SourceLeftCarrier','SourceRightCarrier','five historical output guides'],
         manufacturing=dict(material='PETG',orientation='Plate flat, columns up (world-Z inverted); underside ribs and grip arms support review phase2',printer_cube_mm=[256,256,256],total_margin_mm=10,nozzle_layer_profile='UNSET'))
     try:
-        print('BUILD native receiver/platform and14restraints',flush=True)
+        print('BUILD shared receiver/platform/row-grips/5outputbackers and24restraints',flush=True)
         doc,receiver,body,refs,nuts=build(mount);bodies=[receiver,body]
         baseline=validate(doc,bodies);nutz=nuts[0].Shape.BoundBox.ZMin
         doc.SourceParameters.NutSeatDepth=2.8;changed=validate(doc,bodies)
@@ -177,7 +201,7 @@ def main():
         r['print_dimensions_mm']={b.Name:[b.Shape.BoundBox.XLength,b.Shape.BoundBox.YLength,b.Shape.BoundBox.ZLength] for b in bodies}
         assert all(max(q)<246 for q in r['print_dimensions_mm'].values())
         r['model_sha256']=sha(MODEL)
-        r['status']='NATIVE_SOURCE_PLATFORM_AND_INPUT_RESTRAINTS_CLEAR_OUTPUT_STATIONS_OPEN' if not any(r[k] for k in ('contacts','errors','outside_torso')) else 'NATIVE_SOURCE_PLATFORM_HAS_CHANGED_INTERFACE_FAILURES'
+        r['status']='NATIVE_SOURCE_PLATFORM_AND_LOCAL_RESTRAINTS_CLEAR_FULL_ROUTES_STATIONS_OPEN' if not any(r[k] for k in ('contacts','errors','outside_torso')) else 'NATIVE_SOURCE_PLATFORM_HAS_CHANGED_INTERFACE_FAILURES'
     except Exception as e:
         r['status']='NATIVE_SOURCE_PLATFORM_BUILD_OR_GATE_ERROR';r['errors'].append(dict(error=repr(e)))
         if doc and not MODEL.exists():
