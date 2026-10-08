@@ -1,0 +1,4441 @@
+{
+  "status": "PARTIAL_MACRO_SIMPLIFICATION_NOT_READY_FOR_CAD",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "preserved": [
+    "P0",
+    "E6",
+    "15drives",
+    "MG92B replaceable provisional adapters",
+    "bankR47 design",
+    "325x200x160",
+    "MAIN46.52"
+  ],
+  "changed_cause": "Straight-through factory tails replace source return loops and output return loops; all4 MTA centers and both sides allocated together",
+  "mta_centres_mm": {
+    "FL": [
+      -50,
+      17,
+      120
+    ],
+    "FR": [
+      -15.5,
+      17,
+      120
+    ],
+    "RL": [
+      39.5,
+      17,
+      120
+    ],
+    "RR": [
+      76.5,
+      17,
+      120
+    ]
+  },
+  "mta_rotation_z_deg": 90,
+  "receiving_cases": {
+    "P_FRONT": {
+      "centre_mm": [
+        -59,
+        -41,
+        120
+      ],
+      "rotation_z_deg": 180
+    },
+    "P_REAR": {
+      "centre_mm": [
+        79.5,
+        -41,
+        120
+      ],
+      "rotation_z_deg": 180
+    }
+  },
+  "candidate_lower_left_roles": [
+    "FL_P",
+    "FR_P",
+    "FL_G",
+    "RL_P",
+    "RR_P"
+  ],
+  "candidate_lower_right_roles": [
+    "FR_G",
+    "D_FR",
+    "D_FL",
+    "RL_G",
+    "RR_G"
+  ],
+  "rows": [
+    {
+      "id": "W041",
+      "leg": "FL",
+      "side": "source",
+      "target": "P_FRONT.5",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              -50,
+              -0.5,
+              120
+            ],
+            "end": [
+              -50.0,
+              -9.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -50.0,
+              -9.0,
+              120.0
+            ],
+            "mid": [
+              -51.757359312880716,
+              -13.242640687119286,
+              120.0
+            ],
+            "end": [
+              -56.0,
+              -15.0,
+              120.0
+            ],
+            "centre": [
+              -56.0,
+              -9.0,
+              120.0
+            ],
+            "radial_start": [
+              1.0,
+              -0.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -56.0,
+              -15.0,
+              120.0
+            ],
+            "end": [
+              -66.0,
+              -15.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -66.0,
+              -15.0,
+              120.0
+            ],
+            "mid": [
+              -70.24264068711929,
+              -16.757359312880716,
+              120.0
+            ],
+            "end": [
+              -72.0,
+              -21.0,
+              120.0
+            ],
+            "centre": [
+              -66.0,
+              -21.0,
+              120.0
+            ],
+            "radial_start": [
+              -6.123233995736766e-17,
+              1.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              -1.0,
+              -6.123233995736766e-17,
+              0.0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -72.0,
+              -21.0,
+              120.0
+            ],
+            "end": [
+              -72,
+              -30,
+              120
+            ]
+          }
+        ],
+        "centreline_mm": 46.34955592153876,
+        "first_straight_mm": 8.5,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 6,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 14,
+      "required_factory_blank_mm": 60.34955592153876,
+      "nominal_fit_blank_mm": 61,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "solder_lap",
+      "not_selected": true
+    },
+    {
+      "id": "W026",
+      "leg": "FL",
+      "side": "output",
+      "target": "FL_P.5",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              -50,
+              34.5,
+              120
+            ],
+            "end": [
+              -50.0,
+              37.5,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -50.0,
+              37.5,
+              120.0
+            ],
+            "mid": [
+              -50.13359337960694,
+              44.2175144212722,
+              117.22072333065718
+            ],
+            "end": [
+              -50.45611632849728,
+              47.0,
+              110.5109559019426
+            ],
+            "centre": [
+              -50.45611632849728,
+              37.5,
+              110.5109559019426
+            ],
+            "radial_start": [
+              0.04801224510497682,
+              -0.0,
+              0.9988467471639378
+            ],
+            "radial_tangent": [
+              0,
+              1,
+              0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -50.45611632849728,
+              47.0,
+              110.5109559019426
+            ],
+            "end": [
+              -52.04388367150272,
+              47.0,
+              77.47904409805741
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -52.04388367150272,
+              47.0,
+              77.47904409805741
+            ],
+            "mid": [
+              -52.36640662039306,
+              49.7824855787278,
+              70.76927666934283
+            ],
+            "end": [
+              -52.5,
+              56.5,
+              67.99000000000001
+            ],
+            "centre": [
+              -52.04388367150272,
+              56.5,
+              77.47904409805741
+            ],
+            "radial_start": [
+              -2.939902114384402e-18,
+              -1.0,
+              -6.11617235876531e-17
+            ],
+            "radial_tangent": [
+              -0.04801224510497682,
+              6.123233995736766e-17,
+              -0.9988467471639378
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -52.5,
+              56.5,
+              67.99000000000001
+            ],
+            "end": [
+              -52.5,
+              65.5,
+              67.99
+            ]
+          }
+        ],
+        "centreline_mm": 74.9151801418619,
+        "first_straight_mm": 3.0,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 9.5,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 11,
+      "required_factory_blank_mm": 85.9151801418619,
+      "nominal_fit_blank_mm": 86,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "installed_WAGO221-412",
+      "not_selected": true
+    },
+    {
+      "id": "W042",
+      "leg": "FR",
+      "side": "source",
+      "target": "P_FRONT.1",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              -15.5,
+              -0.5,
+              120
+            ],
+            "end": [
+              -15.5,
+              -9.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -15.5,
+              -9.0,
+              120.0
+            ],
+            "mid": [
+              -17.257359312880716,
+              -13.242640687119286,
+              120.0
+            ],
+            "end": [
+              -21.5,
+              -15.0,
+              120.0
+            ],
+            "centre": [
+              -21.5,
+              -9.0,
+              120.0
+            ],
+            "radial_start": [
+              1.0,
+              -0.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -21.5,
+              -15.0,
+              120.0
+            ],
+            "end": [
+              -40.0,
+              -15.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -40.0,
+              -15.0,
+              120.0
+            ],
+            "mid": [
+              -44.242640687119284,
+              -16.757359312880716,
+              120.0
+            ],
+            "end": [
+              -46.0,
+              -21.0,
+              120.0
+            ],
+            "centre": [
+              -40.0,
+              -21.0,
+              120.0
+            ],
+            "radial_start": [
+              -6.123233995736766e-17,
+              1.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              -1.0,
+              -6.123233995736766e-17,
+              0.0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -46.0,
+              -21.0,
+              120.0
+            ],
+            "end": [
+              -46,
+              -30,
+              120
+            ]
+          }
+        ],
+        "centreline_mm": 54.84955592153876,
+        "first_straight_mm": 8.5,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 6,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 14,
+      "required_factory_blank_mm": 68.84955592153875,
+      "nominal_fit_blank_mm": 69,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "solder_lap",
+      "not_selected": true
+    },
+    {
+      "id": "W037",
+      "leg": "FR",
+      "side": "output",
+      "target": "FR_P.5",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              -15.5,
+              34.5,
+              120
+            ],
+            "end": [
+              -15.5,
+              37.5,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -15.5,
+              37.5,
+              120.0
+            ],
+            "mid": [
+              -15.5,
+              44.2175144212722,
+              117.2175144212722
+            ],
+            "end": [
+              -15.5,
+              47.0,
+              110.5
+            ],
+            "centre": [
+              -15.5,
+              37.5,
+              110.5
+            ],
+            "radial_start": [
+              -0.0,
+              -0.0,
+              1.0
+            ],
+            "radial_tangent": [
+              0,
+              1,
+              0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -15.5,
+              47.0,
+              110.5
+            ],
+            "end": [
+              -15.5,
+              47.0,
+              77.49
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -15.5,
+              47.0,
+              77.49
+            ],
+            "mid": [
+              -15.5,
+              49.7824855787278,
+              70.7724855787278
+            ],
+            "end": [
+              -15.5,
+              56.5,
+              67.99
+            ],
+            "centre": [
+              -15.5,
+              56.5,
+              77.49
+            ],
+            "radial_start": [
+              -0.0,
+              -1.0,
+              -6.123233995736766e-17
+            ],
+            "radial_tangent": [
+              0.0,
+              6.123233995736766e-17,
+              -1.0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -15.5,
+              56.5,
+              67.99
+            ],
+            "end": [
+              -15.5,
+              65.5,
+              67.99
+            ]
+          }
+        ],
+        "centreline_mm": 74.85513020910304,
+        "first_straight_mm": 3.0,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 9.5,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 11,
+      "required_factory_blank_mm": 85.85513020910304,
+      "nominal_fit_blank_mm": 86,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "installed_WAGO221-412",
+      "not_selected": true
+    },
+    {
+      "id": "W044",
+      "leg": "RL",
+      "side": "source",
+      "target": "P_REAR.5",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              39.5,
+              -0.5,
+              120
+            ],
+            "end": [
+              39.5,
+              -9.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              39.5,
+              -9.0,
+              120.0
+            ],
+            "mid": [
+              41.257359312880716,
+              -13.242640687119286,
+              120.0
+            ],
+            "end": [
+              45.5,
+              -15.0,
+              120.0
+            ],
+            "centre": [
+              45.5,
+              -9.0,
+              120.0
+            ],
+            "radial_start": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              45.5,
+              -15.0,
+              120.0
+            ],
+            "end": [
+              60.5,
+              -15.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              60.5,
+              -15.0,
+              120.0
+            ],
+            "mid": [
+              64.74264068711929,
+              -16.757359312880716,
+              120.0
+            ],
+            "end": [
+              66.5,
+              -21.0,
+              120.0
+            ],
+            "centre": [
+              60.5,
+              -21.0,
+              120.0
+            ],
+            "radial_start": [
+              6.123233995736766e-17,
+              1.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              1.0,
+              -6.123233995736766e-17,
+              0.0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              66.5,
+              -21.0,
+              120.0
+            ],
+            "end": [
+              66.5,
+              -30,
+              120
+            ]
+          }
+        ],
+        "centreline_mm": 51.34955592153876,
+        "first_straight_mm": 8.5,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 6,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 14,
+      "required_factory_blank_mm": 65.34955592153875,
+      "nominal_fit_blank_mm": 66,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "solder_lap",
+      "not_selected": true
+    },
+    {
+      "id": "W045",
+      "leg": "RL",
+      "side": "output",
+      "target": "RL_P.1",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              39.5,
+              34.5,
+              120
+            ],
+            "end": [
+              39.5,
+              37.5,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              39.5,
+              37.5,
+              120.0
+            ],
+            "mid": [
+              39.5,
+              44.2175144212722,
+              117.2175144212722
+            ],
+            "end": [
+              39.5,
+              47.0,
+              110.5
+            ],
+            "centre": [
+              39.5,
+              37.5,
+              110.5
+            ],
+            "radial_start": [
+              -0.0,
+              -0.0,
+              1.0
+            ],
+            "radial_tangent": [
+              0,
+              1,
+              0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              39.5,
+              47.0,
+              110.5
+            ],
+            "end": [
+              39.5,
+              47.0,
+              77.49
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              39.5,
+              47.0,
+              77.49
+            ],
+            "mid": [
+              39.5,
+              49.7824855787278,
+              70.7724855787278
+            ],
+            "end": [
+              39.5,
+              56.5,
+              67.99
+            ],
+            "centre": [
+              39.5,
+              56.5,
+              77.49
+            ],
+            "radial_start": [
+              -0.0,
+              -1.0,
+              -6.123233995736766e-17
+            ],
+            "radial_tangent": [
+              0.0,
+              6.123233995736766e-17,
+              -1.0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              39.5,
+              56.5,
+              67.99
+            ],
+            "end": [
+              39.5,
+              65.5,
+              67.99
+            ]
+          }
+        ],
+        "centreline_mm": 74.85513020910304,
+        "first_straight_mm": 3.0,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 9.5,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 11,
+      "required_factory_blank_mm": 85.85513020910304,
+      "nominal_fit_blank_mm": 86,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "installed_WAGO221-412",
+      "not_selected": true
+    },
+    {
+      "id": "W052",
+      "leg": "RR",
+      "side": "source",
+      "target": "P_REAR.1",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              76.5,
+              -0.5,
+              120
+            ],
+            "end": [
+              76.5,
+              -9.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              76.5,
+              -9.0,
+              120.0
+            ],
+            "mid": [
+              78.25735931288071,
+              -13.242640687119286,
+              120.0
+            ],
+            "end": [
+              82.5,
+              -15.0,
+              120.0
+            ],
+            "centre": [
+              82.5,
+              -9.0,
+              120.0
+            ],
+            "radial_start": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              82.5,
+              -15.0,
+              120.0
+            ],
+            "end": [
+              86.5,
+              -15.0,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              86.5,
+              -15.0,
+              120.0
+            ],
+            "mid": [
+              90.74264068711929,
+              -16.757359312880716,
+              120.0
+            ],
+            "end": [
+              92.5,
+              -21.0,
+              120.0
+            ],
+            "centre": [
+              86.5,
+              -21.0,
+              120.0
+            ],
+            "radial_start": [
+              6.123233995736766e-17,
+              1.0,
+              -0.0
+            ],
+            "radial_tangent": [
+              1.0,
+              -6.123233995736766e-17,
+              0.0
+            ],
+            "radius_mm": 6,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              92.5,
+              -21.0,
+              120.0
+            ],
+            "end": [
+              92.5,
+              -30,
+              120
+            ]
+          }
+        ],
+        "centreline_mm": 40.34955592153876,
+        "first_straight_mm": 8.5,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 6,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 14,
+      "required_factory_blank_mm": 54.34955592153876,
+      "nominal_fit_blank_mm": 55,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "solder_lap",
+      "not_selected": true
+    },
+    {
+      "id": "W053",
+      "leg": "RR",
+      "side": "output",
+      "target": "RR_P.1",
+      "recipe": {
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              76.5,
+              34.5,
+              120
+            ],
+            "end": [
+              76.5,
+              37.5,
+              120.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              76.5,
+              37.5,
+              120.0
+            ],
+            "mid": [
+              76.5,
+              44.2175144212722,
+              117.2175144212722
+            ],
+            "end": [
+              76.5,
+              47.0,
+              110.5
+            ],
+            "centre": [
+              76.5,
+              37.5,
+              110.5
+            ],
+            "radial_start": [
+              -0.0,
+              -0.0,
+              1.0
+            ],
+            "radial_tangent": [
+              0,
+              1,
+              0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              76.5,
+              47.0,
+              110.5
+            ],
+            "end": [
+              76.5,
+              47.0,
+              77.49
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              76.5,
+              47.0,
+              77.49
+            ],
+            "mid": [
+              76.5,
+              49.7824855787278,
+              70.7724855787278
+            ],
+            "end": [
+              76.5,
+              56.5,
+              67.99
+            ],
+            "centre": [
+              76.5,
+              56.5,
+              77.49
+            ],
+            "radial_start": [
+              -0.0,
+              -1.0,
+              -6.123233995736766e-17
+            ],
+            "radial_tangent": [
+              0.0,
+              6.123233995736766e-17,
+              -1.0
+            ],
+            "radius_mm": 9.5,
+            "angle_rad": 1.5707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              76.5,
+              56.5,
+              67.99
+            ],
+            "end": [
+              76.5,
+              65.5,
+              67.99
+            ]
+          }
+        ],
+        "centreline_mm": 74.85513020910304,
+        "first_straight_mm": 3.0,
+        "grip_straight_mm": 9,
+        "radius_assumption_mm": 9.5,
+        "arc_angle_deg": 90.0,
+        "OD_assumption_mm": 4,
+        "supplier_bend_or_mutual_clearance_qualified": false
+      },
+      "strip_allowance_mm": 11,
+      "required_factory_blank_mm": 85.85513020910304,
+      "nominal_fit_blank_mm": 86,
+      "factory_limit_assumed_mm": 100,
+      "length_fits_assumption": true,
+      "independent_grip": "Last9mm straight before terminal, separate from WAGO lever",
+      "replaced_joint_kind": "installed_WAGO221-412",
+      "not_selected": true
+    }
+  ],
+  "port_binding": {
+    "same_bus_permutation": {
+      "P_FRONT.1": "P_FRONT.2",
+      "P_FRONT.2": "P_FRONT.5",
+      "P_FRONT.3": "P_FRONT.1",
+      "P_FRONT.4": "P_FRONT.4",
+      "P_FRONT.5": "P_FRONT.3",
+      "P_REAR.1": "P_REAR.2",
+      "P_REAR.2": "P_REAR.5",
+      "P_REAR.3": "P_REAR.1",
+      "P_REAR.4": "P_REAR.4",
+      "P_REAR.5": "P_REAR.3",
+      "FL_P.1": "FL_P.5",
+      "FL_P.5": "FL_P.1",
+      "FR_P.1": "FR_P.5",
+      "FR_P.5": "FR_P.1"
+    },
+    "ports": [
+      {
+        "role": "D_FL.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            2.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FL.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            7.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FL.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            12.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FL.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            16.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FL.5",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            21.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FR.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -34.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FR.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -29.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FR.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -25.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FR.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -20.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_FR.5",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -15.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "D_RL.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RL.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RL.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RL.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RL.5",
+        "occupied": false,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RR.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RR.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RR.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RR.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "D_RR.5",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "FL_G.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            2.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_G.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            7.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_G.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            12.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_G.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            16.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_G.5",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            21.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_P.1",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            -71.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_P.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -66.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_P.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -62.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_P.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -57.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FL_P.5",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -52.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_G.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -71.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_G.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -66.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_G.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -62.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_G.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -57.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_G.5",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            -52.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_P.1",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            -34.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_P.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -29.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_P.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -25.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_P.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -20.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "FR_P.5",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -15.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "G1.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G1.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G1.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G1.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G1.5",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G2.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G2.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G2.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G2.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G2.5",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_AUX.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_AUX.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_AUX.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_AUX.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_AUX.5",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_TAIL.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_TAIL.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_TAIL.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_TAIL.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "G_TAIL.5",
+        "occupied": false,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_AUX.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_AUX.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_AUX.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_AUX.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_AUX.5",
+        "occupied": false,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_FRONT.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -46.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_FRONT.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -52.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_FRONT.3",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            -59.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_FRONT.4",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            -65.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_FRONT.5",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            -72.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_REAR.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            92.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_REAR.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            86.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_REAR.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            79.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_REAR.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            73.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_REAR.5",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            66.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "P_SYS.1",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_SYS.2",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_SYS.3",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_SYS.4",
+        "occupied": true,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "P_SYS.5",
+        "occupied": false,
+        "datum": null,
+        "spatial_status": "OPEN_UPPER_STATION_NO_OLD_COORDINATE_REUSE"
+      },
+      {
+        "role": "RL_G.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            39.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_G.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            44.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_G.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            49.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_G.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            53.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_G.5",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            58.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_P.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            39.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_P.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            44.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_P.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            49.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_P.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            53.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RL_P.5",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            58.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_G.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            76.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_G.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            81.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_G.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            86.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_G.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            90.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_G.5",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            95.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_P.1",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            76.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_P.2",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            81.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_P.3",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            86.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_P.4",
+        "occupied": true,
+        "datum": {
+          "point_mm": [
+            90.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      },
+      {
+        "role": "RR_P.5",
+        "occupied": false,
+        "datum": {
+          "point_mm": [
+            95.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "spatial_status": "CANDIDATE_DATUM"
+      }
+    ],
+    "body_ends": [
+      {
+        "wire": "W001",
+        "original_role": "BAT.minus",
+        "current_role": "BAT.minus",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W001",
+        "original_role": "G1.1",
+        "current_role": "G1.1",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W002",
+        "original_role": "BUS.D",
+        "current_role": "BUS.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W002",
+        "original_role": "D_FL.1",
+        "current_role": "D_FL.1",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            2.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W003",
+        "original_role": "BUS.G",
+        "current_role": "BUS.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W003",
+        "original_role": "G2.4",
+        "current_role": "G2.4",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W004",
+        "original_role": "D_FL.2",
+        "current_role": "D_FL.2",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            7.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W004",
+        "original_role": "FL1.D",
+        "current_role": "FL1.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W005",
+        "original_role": "D_FL.3",
+        "current_role": "D_FL.3",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            12.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W005",
+        "original_role": "FL2.D",
+        "current_role": "FL2.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W006",
+        "original_role": "D_FL.4",
+        "current_role": "D_FL.4",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            16.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W006",
+        "original_role": "FL3.D",
+        "current_role": "FL3.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W007",
+        "original_role": "D_FL.5",
+        "current_role": "D_FL.5",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            21.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W007",
+        "original_role": "D_FR.1",
+        "current_role": "D_FR.1",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            -34.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W008",
+        "original_role": "D_FR.2",
+        "current_role": "D_FR.2",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            -29.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W008",
+        "original_role": "FR1.D",
+        "current_role": "FR1.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W009",
+        "original_role": "D_FR.3",
+        "current_role": "D_FR.3",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            -25.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W009",
+        "original_role": "FR2.D",
+        "current_role": "FR2.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W010",
+        "original_role": "D_FR.4",
+        "current_role": "D_FR.4",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            -20.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W010",
+        "original_role": "FR3.D",
+        "current_role": "FR3.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W011",
+        "original_role": "D_FR.5",
+        "current_role": "D_FR.5",
+        "net": "BUS_DATA",
+        "datum": {
+          "point_mm": [
+            -15.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W011",
+        "original_role": "D_RR.1",
+        "current_role": "D_RR.1",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W012",
+        "original_role": "D_RL.1",
+        "current_role": "D_RL.1",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W012",
+        "original_role": "D_RR.5",
+        "current_role": "D_RR.5",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W013",
+        "original_role": "D_RL.2",
+        "current_role": "D_RL.2",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W013",
+        "original_role": "RL1.D",
+        "current_role": "RL1.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W014",
+        "original_role": "D_RL.3",
+        "current_role": "D_RL.3",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W014",
+        "original_role": "RL2.D",
+        "current_role": "RL2.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W015",
+        "original_role": "D_RL.4",
+        "current_role": "D_RL.4",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W015",
+        "original_role": "RL3.D",
+        "current_role": "RL3.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W016",
+        "original_role": "D_RR.2",
+        "current_role": "D_RR.2",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W016",
+        "original_role": "RR1.D",
+        "current_role": "RR1.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W017",
+        "original_role": "D_RR.3",
+        "current_role": "D_RR.3",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W017",
+        "original_role": "RR2.D",
+        "current_role": "RR2.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W018",
+        "original_role": "D_RR.4",
+        "current_role": "D_RR.4",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W018",
+        "original_role": "RR3.D",
+        "current_role": "RR3.D",
+        "net": "BUS_DATA",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W019",
+        "original_role": "FL1.G",
+        "current_role": "FL1.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W019",
+        "original_role": "FL_G.2",
+        "current_role": "FL_G.2",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            7.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W020",
+        "original_role": "FL1.V",
+        "current_role": "FL1.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W020",
+        "original_role": "F_FL1.out",
+        "current_role": "F_FL1.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W021",
+        "original_role": "FL2.G",
+        "current_role": "FL2.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W021",
+        "original_role": "FL_G.3",
+        "current_role": "FL_G.3",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            12.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W022",
+        "original_role": "FL2.V",
+        "current_role": "FL2.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W022",
+        "original_role": "F_FL2.out",
+        "current_role": "F_FL2.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W023",
+        "original_role": "FL3.G",
+        "current_role": "FL3.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W023",
+        "original_role": "FL_G.4",
+        "current_role": "FL_G.4",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            16.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W024",
+        "original_role": "FL3.V",
+        "current_role": "FL3.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W024",
+        "original_role": "F_FL3.out",
+        "current_role": "F_FL3.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W025",
+        "original_role": "FL_G.1",
+        "current_role": "FL_G.1",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            2.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W025",
+        "original_role": "G1.3",
+        "current_role": "G1.3",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W026",
+        "original_role": "FL_P.1",
+        "current_role": "FL_P.5",
+        "net": "FL_P",
+        "datum": {
+          "point_mm": [
+            -52.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W026",
+        "original_role": "F_FL.out",
+        "current_role": "F_FL.out",
+        "net": "FL_P",
+        "datum": {
+          "point_mm": [
+            -50,
+            34.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W027",
+        "original_role": "FL_P.2",
+        "current_role": "FL_P.2",
+        "net": "FL_P",
+        "datum": {
+          "point_mm": [
+            -66.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W027",
+        "original_role": "F_FL1.in",
+        "current_role": "F_FL1.in",
+        "net": "FL_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W028",
+        "original_role": "FL_P.3",
+        "current_role": "FL_P.3",
+        "net": "FL_P",
+        "datum": {
+          "point_mm": [
+            -62.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W028",
+        "original_role": "F_FL2.in",
+        "current_role": "F_FL2.in",
+        "net": "FL_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W029",
+        "original_role": "FL_P.4",
+        "current_role": "FL_P.4",
+        "net": "FL_P",
+        "datum": {
+          "point_mm": [
+            -57.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W029",
+        "original_role": "F_FL3.in",
+        "current_role": "F_FL3.in",
+        "net": "FL_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W030",
+        "original_role": "FR1.G",
+        "current_role": "FR1.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W030",
+        "original_role": "FR_G.2",
+        "current_role": "FR_G.2",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            -66.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W031",
+        "original_role": "FR1.V",
+        "current_role": "FR1.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W031",
+        "original_role": "F_FR1.out",
+        "current_role": "F_FR1.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W032",
+        "original_role": "FR2.G",
+        "current_role": "FR2.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W032",
+        "original_role": "FR_G.3",
+        "current_role": "FR_G.3",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            -62.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W033",
+        "original_role": "FR2.V",
+        "current_role": "FR2.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W033",
+        "original_role": "F_FR2.out",
+        "current_role": "F_FR2.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W034",
+        "original_role": "FR3.G",
+        "current_role": "FR3.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W034",
+        "original_role": "FR_G.4",
+        "current_role": "FR_G.4",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            -57.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W035",
+        "original_role": "FR3.V",
+        "current_role": "FR3.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W035",
+        "original_role": "F_FR3.out",
+        "current_role": "F_FR3.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W036",
+        "original_role": "FR_G.1",
+        "current_role": "FR_G.1",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            -71.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W036",
+        "original_role": "G1.4",
+        "current_role": "G1.4",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W037",
+        "original_role": "FR_P.1",
+        "current_role": "FR_P.5",
+        "net": "FR_P",
+        "datum": {
+          "point_mm": [
+            -15.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W037",
+        "original_role": "F_FR.out",
+        "current_role": "F_FR.out",
+        "net": "FR_P",
+        "datum": {
+          "point_mm": [
+            -15.5,
+            34.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W038",
+        "original_role": "FR_P.2",
+        "current_role": "FR_P.2",
+        "net": "FR_P",
+        "datum": {
+          "point_mm": [
+            -29.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W038",
+        "original_role": "F_FR1.in",
+        "current_role": "F_FR1.in",
+        "net": "FR_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W039",
+        "original_role": "FR_P.3",
+        "current_role": "FR_P.3",
+        "net": "FR_P",
+        "datum": {
+          "point_mm": [
+            -25.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W039",
+        "original_role": "F_FR2.in",
+        "current_role": "F_FR2.in",
+        "net": "FR_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W040",
+        "original_role": "FR_P.4",
+        "current_role": "FR_P.4",
+        "net": "FR_P",
+        "datum": {
+          "point_mm": [
+            -20.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W040",
+        "original_role": "F_FR3.in",
+        "current_role": "F_FR3.in",
+        "net": "FR_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W041",
+        "original_role": "F_FL.in",
+        "current_role": "F_FL.in",
+        "net": "P_FRONT",
+        "datum": {
+          "point_mm": [
+            -50,
+            -0.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W041",
+        "original_role": "P_FRONT.2",
+        "current_role": "P_FRONT.5",
+        "net": "P_FRONT",
+        "datum": {
+          "point_mm": [
+            -72.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W042",
+        "original_role": "F_FR.in",
+        "current_role": "F_FR.in",
+        "net": "P_FRONT",
+        "datum": {
+          "point_mm": [
+            -15.5,
+            -0.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W042",
+        "original_role": "P_FRONT.3",
+        "current_role": "P_FRONT.1",
+        "net": "P_FRONT",
+        "datum": {
+          "point_mm": [
+            -46.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W043",
+        "original_role": "F_PI.in",
+        "current_role": "F_PI.in",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W043",
+        "original_role": "P_SYS.2",
+        "current_role": "P_SYS.2",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W044",
+        "original_role": "F_RL.in",
+        "current_role": "F_RL.in",
+        "net": "P_REAR",
+        "datum": {
+          "point_mm": [
+            39.5,
+            -0.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W044",
+        "original_role": "P_REAR.2",
+        "current_role": "P_REAR.5",
+        "net": "P_REAR",
+        "datum": {
+          "point_mm": [
+            66.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W045",
+        "original_role": "F_RL.out",
+        "current_role": "F_RL.out",
+        "net": "RL_P",
+        "datum": {
+          "point_mm": [
+            39.5,
+            34.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W045",
+        "original_role": "RL_P.1",
+        "current_role": "RL_P.1",
+        "net": "RL_P",
+        "datum": {
+          "point_mm": [
+            39.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W046",
+        "original_role": "F_RL1.in",
+        "current_role": "F_RL1.in",
+        "net": "RL_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W046",
+        "original_role": "RL_P.2",
+        "current_role": "RL_P.2",
+        "net": "RL_P",
+        "datum": {
+          "point_mm": [
+            44.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W047",
+        "original_role": "F_RL1.out",
+        "current_role": "F_RL1.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W047",
+        "original_role": "RL1.V",
+        "current_role": "RL1.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W048",
+        "original_role": "F_RL2.in",
+        "current_role": "F_RL2.in",
+        "net": "RL_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W048",
+        "original_role": "RL_P.3",
+        "current_role": "RL_P.3",
+        "net": "RL_P",
+        "datum": {
+          "point_mm": [
+            49.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W049",
+        "original_role": "F_RL2.out",
+        "current_role": "F_RL2.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W049",
+        "original_role": "RL2.V",
+        "current_role": "RL2.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W050",
+        "original_role": "F_RL3.in",
+        "current_role": "F_RL3.in",
+        "net": "RL_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W050",
+        "original_role": "RL_P.4",
+        "current_role": "RL_P.4",
+        "net": "RL_P",
+        "datum": {
+          "point_mm": [
+            53.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W051",
+        "original_role": "F_RL3.out",
+        "current_role": "F_RL3.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W051",
+        "original_role": "RL3.V",
+        "current_role": "RL3.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W052",
+        "original_role": "F_RR.in",
+        "current_role": "F_RR.in",
+        "net": "P_REAR",
+        "datum": {
+          "point_mm": [
+            76.5,
+            -0.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W052",
+        "original_role": "P_REAR.3",
+        "current_role": "P_REAR.1",
+        "net": "P_REAR",
+        "datum": {
+          "point_mm": [
+            92.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W053",
+        "original_role": "F_RR.out",
+        "current_role": "F_RR.out",
+        "net": "RR_P",
+        "datum": {
+          "point_mm": [
+            76.5,
+            34.5,
+            120
+          ]
+        },
+        "status": "CANDIDATE_MTA_EXIT_NOT_SUPPLIER_PIN"
+      },
+      {
+        "wire": "W053",
+        "original_role": "RR_P.1",
+        "current_role": "RR_P.1",
+        "net": "RR_P",
+        "datum": {
+          "point_mm": [
+            76.5,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W054",
+        "original_role": "F_RR1.in",
+        "current_role": "F_RR1.in",
+        "net": "RR_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W054",
+        "original_role": "RR_P.2",
+        "current_role": "RR_P.2",
+        "net": "RR_P",
+        "datum": {
+          "point_mm": [
+            81.25,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W055",
+        "original_role": "F_RR1.out",
+        "current_role": "F_RR1.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W055",
+        "original_role": "RR1.V",
+        "current_role": "RR1.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W056",
+        "original_role": "F_RR2.in",
+        "current_role": "F_RR2.in",
+        "net": "RR_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W056",
+        "original_role": "RR_P.3",
+        "current_role": "RR_P.3",
+        "net": "RR_P",
+        "datum": {
+          "point_mm": [
+            86.0,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W057",
+        "original_role": "F_RR2.out",
+        "current_role": "F_RR2.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W057",
+        "original_role": "RR2.V",
+        "current_role": "RR2.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W058",
+        "original_role": "F_RR3.in",
+        "current_role": "F_RR3.in",
+        "net": "RR_P",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W058",
+        "original_role": "RR_P.4",
+        "current_role": "RR_P.4",
+        "net": "RR_P",
+        "datum": {
+          "point_mm": [
+            90.75,
+            65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W059",
+        "original_role": "F_RR3.out",
+        "current_role": "F_RR3.out",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W059",
+        "original_role": "RR3.V",
+        "current_role": "RR3.V",
+        "net": "SERVO_V_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W060",
+        "original_role": "G1.2",
+        "current_role": "G1.2",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W060",
+        "original_role": "MAIN.GND",
+        "current_role": "MAIN.GND",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W061",
+        "original_role": "G1.5",
+        "current_role": "G1.5",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W061",
+        "original_role": "G2.1",
+        "current_role": "G2.1",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W062",
+        "original_role": "G2.2",
+        "current_role": "G2.2",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W062",
+        "original_role": "RL_G.1",
+        "current_role": "RL_G.1",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            39.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W063",
+        "original_role": "G2.3",
+        "current_role": "G2.3",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W063",
+        "original_role": "RR_G.1",
+        "current_role": "RR_G.1",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            76.5,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W064",
+        "original_role": "P_FRONT.1",
+        "current_role": "P_FRONT.2",
+        "net": "P_FRONT",
+        "datum": {
+          "point_mm": [
+            -52.5,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W064",
+        "original_role": "S1.3",
+        "current_role": "S1.3",
+        "net": "P_FRONT",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W065",
+        "original_role": "P_REAR.1",
+        "current_role": "P_REAR.2",
+        "net": "P_REAR",
+        "datum": {
+          "point_mm": [
+            86.0,
+            -30,
+            120
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated615 rotated180 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W065",
+        "original_role": "S1.6",
+        "current_role": "S1.6",
+        "net": "P_REAR",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W066",
+        "original_role": "P_SYS.1",
+        "current_role": "P_SYS.1",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W066",
+        "original_role": "S0.out",
+        "current_role": "S0.out",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W067",
+        "original_role": "P_SYS.3",
+        "current_role": "P_SYS.3",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W067",
+        "original_role": "S1.2",
+        "current_role": "S1.2",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W068",
+        "original_role": "P_SYS.4",
+        "current_role": "P_SYS.4",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "OPEN_STATION"
+      },
+      {
+        "wire": "W068",
+        "original_role": "S1.5",
+        "current_role": "S1.5",
+        "net": "P_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W069",
+        "original_role": "RL1.G",
+        "current_role": "RL1.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W069",
+        "original_role": "RL_G.2",
+        "current_role": "RL_G.2",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            44.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W070",
+        "original_role": "RL2.G",
+        "current_role": "RL2.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W070",
+        "original_role": "RL_G.3",
+        "current_role": "RL_G.3",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            49.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W071",
+        "original_role": "RL3.G",
+        "current_role": "RL3.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W071",
+        "original_role": "RL_G.4",
+        "current_role": "RL_G.4",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            53.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W072",
+        "original_role": "RR1.G",
+        "current_role": "RR1.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W072",
+        "original_role": "RR_G.2",
+        "current_role": "RR_G.2",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            81.25,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W073",
+        "original_role": "RR2.G",
+        "current_role": "RR2.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W073",
+        "original_role": "RR_G.3",
+        "current_role": "RR_G.3",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            86.0,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W074",
+        "original_role": "RR3.G",
+        "current_role": "RR3.G",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W074",
+        "original_role": "RR_G.4",
+        "current_role": "RR_G.4",
+        "net": "G_SYS",
+        "datum": {
+          "point_mm": [
+            90.75,
+            -65.5,
+            67.99
+          ],
+          "departure": [
+            0,
+            1,
+            0
+          ],
+          "basis": "Reallocated415 envelope entry allowance, NOT delivered cavity datum"
+        },
+        "status": "CANDIDATE_STATION"
+      },
+      {
+        "wire": "W075",
+        "original_role": "BAT.plus",
+        "current_role": "BAT.plus",
+        "net": "BAT_RAW",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W075",
+        "original_role": "F0.in",
+        "current_role": "F0.in",
+        "net": "BAT_RAW",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W076",
+        "original_role": "F0.out",
+        "current_role": "F0.out",
+        "net": "BAT_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W076",
+        "original_role": "S0.in",
+        "current_role": "S0.in",
+        "net": "BAT_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W077",
+        "original_role": "F_PI.out",
+        "current_role": "F_PI.out",
+        "net": "MAIN_INPUT_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W077",
+        "original_role": "SPLICE_PI.16",
+        "current_role": "SPLICE_PI.16",
+        "net": "MAIN_INPUT_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W078",
+        "original_role": "SPLICE_PI.18",
+        "current_role": "SPLICE_PI.18",
+        "net": "MAIN_INPUT_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W078",
+        "original_role": "MAIN.VIN",
+        "current_role": "MAIN.VIN",
+        "net": "MAIN_INPUT_FUSED",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W079",
+        "original_role": "MAIN.VOUT",
+        "current_role": "MAIN.VOUT",
+        "net": "PI_5V1",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W079",
+        "original_role": "PI_USB_C.VBUS",
+        "current_role": "PI_USB_C.VBUS",
+        "net": "PI_5V1",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W080",
+        "original_role": "MAIN.GND_OUT",
+        "current_role": "MAIN.GND_OUT",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      },
+      {
+        "wire": "W080",
+        "original_role": "PI_USB_C.GND",
+        "current_role": "PI_USB_C.GND",
+        "net": "G_SYS",
+        "datum": null,
+        "status": "RETAINED_ROLE_REQUIRES_COMPLETE_SHARED_ROUTE"
+      }
+    ],
+    "occupied_ports": 86,
+    "NC_ports": 14,
+    "body_ends_count": 160,
+    "unallocated_upper_roles": [
+      "D_RL",
+      "D_RR",
+      "G1",
+      "G2",
+      "G_AUX",
+      "G_TAIL",
+      "P_AUX",
+      "P_SYS"
+    ],
+    "no_partial_wiring_credit": true
+  },
+  "section_screen": {
+    "events": 286,
+    "centreline_planning_overlaps": [],
+    "centreline_outside_section": [],
+    "basis": "Polyline interpolation at received10 planes/0.25mm contours; centerline ONLY, no pipe radius, no continuous clearance, no BRep contact claim"
+  },
+  "conditional_reductions": {
+    "main_HELU_extensions": 8,
+    "covered_solder_laps": 4,
+    "output_joint_roles": 4,
+    "stock_not_reduced": true,
+    "existing_output_joint_parts_retained_until_selection": true
+  },
+  "delivery_gates": [
+    "MTA actual usable length/side, OD and bend radius unknown: L140 is NOT100mm each side",
+    "4mm2 factory lead current/insulation qualification retained; no substitute cross-section",
+    "WAGO port positions provisional, not delivered cavity datums"
+  ],
+  "before_next_CAD": [
+    "Resolve all remaining10 upperWAGO and fiveFHAC with BOTH complete exits",
+    "Allocate four fullS1 routes including replaced920mm; no down-loop through P0",
+    "Rebind all100ports/86occupied and160body ends without duplicate connections",
+    "Matched native bank/station support and tool access; old mounts are invalidated, not waived",
+    "Full tube/grip/mutual/torso qualification: section screen is not clearance"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/power-harness-plan.json": "8182fa9a1419e26ffaba63c9bdf4afb3cfaa02679484f8cb841ed66f6938564e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-scope-plan.json": "32b14c5f38eb85e6200d93ba3ee31b2d87f491c0f9b40a96eef5ea0ac51c850e",
+    "tools/cad/open_prototype_direct_mta_plan.py": "fc367530a0776802b0087f218976bdacbfe07dcb6f0255d402791e6f020895c9",
+    "tools/cad/open_prototype_distribution_allocation.py": "4d15ca7062f68503a983d4e841f346b2016bb824220651e12a3a00f234edced1",
+    "tools/cad/open_prototype_entry_chambers.py": "39b3b161f4c52a4c7ef128ae5905a21fd88fd8c10920169e630fd18c6bb3530c"
+  },
+  "worker_seconds": 0.13549880008213222,
+  "finished_utc": "2026-10-08T23:34:06.335729+00:00"
+}
