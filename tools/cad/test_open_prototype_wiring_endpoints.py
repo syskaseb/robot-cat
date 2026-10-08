@@ -122,7 +122,13 @@ class EndpointContract(unittest.TestCase):
         self.assertEqual(scope['circuit_wire_edges'],129)
         self.assertEqual(scope['distinct_unordered_wire_pairs'],128)
         self.assertEqual(scope['scopes']['FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN'],4)
-        self.assertEqual(scope['scopes']['LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'],2)
+        self.assertEqual(scope['scopes']['LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'],4)
+        self.assertEqual(scope['scopes']['LEGACY_BATTERY_F0; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'],2)
+        self.assertEqual(scope['scopes']['BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN'],88)
+        s1=[r for r in scope['physical_pair_groups'] if r['scope'].startswith('LEGACY_SOURCE_920MM')]
+        self.assertEqual({r['body_id'] for r in s1},{'W064','W065','W067','W068'})
+        self.assertEqual(sum(r['historical_blank_mm'] for r in s1),920)
+        self.assertTrue(all(not i.startswith('BAT_') for r in s1 for i in r['graph_ids']))
         self.assertFalse(scope['stage_completed'])
 
     def test_pi_output_pair_has_current_evidence_and_no_extra_joint(self):

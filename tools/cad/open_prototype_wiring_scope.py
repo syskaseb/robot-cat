@@ -15,6 +15,12 @@ def build():
     endpoint = read(OUT)
     net = read(net_path)
     allocation = read(source_path)
+    source_meta_path = BASE.parent/'interfaces.json'
+    historical = read(source_meta_path)['source_stock_contribution']
+    s1_ids = {r['id']:r['legacy_nominal_mm'] for r in historical['S1_replacements']}
+    assert set(s1_ids)=={'W064','W065','W067','W068'}
+    assert sum(s1_ids.values())==historical['S1_legacy_subtotal_mm']==920
+    body_by_pair = {tuple(sorted((r['a'],r['b']))):r for r in endpoint['body_conductors']}
     current = {e['role']:e for row in endpoint['body_conductors'] for e in row['ends']}
     for row in endpoint['distribution_boundary']:
         current.update(row['resolved_datums'])
@@ -39,7 +45,12 @@ def build():
         if edge['source'] not in group['source_files']:
             group['source_files'].append(edge['source'])
         if edge['id'].startswith('BAT_'):
-            group['scope'] = 'LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'
+            group['scope'] = 'LEGACY_BATTERY_F0; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN'
+        elif key in body_by_pair and body_by_pair[key]['id'] in s1_ids:
+            wire=body_by_pair[key]
+            group.update(scope='LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN',
+                body_id=wire['id'],historical_blank_mm=s1_ids[wire['id']],
+                old_blank_not_current_flat_WAGO_route=True)
         elif frozenset(key) in covered or edge['id'] in aliases:
             group['scope'] = 'BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN'
         elif edge['id'] == 'PI_VIN':
@@ -49,11 +60,14 @@ def build():
         else:
             group['scope'] = 'PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED'
     rows = list(groups.values())
-    pins = {p.relative_to(ROOT).as_posix():sha(p) for p in (net_path, OUT, source_path, Path(__file__))}
+    pins = {p.relative_to(ROOT).as_posix():sha(p) for p in (net_path, OUT, source_path, source_meta_path, Path(__file__))}
     return dict(status='WHOLE_STAGE3_WIRE_SCOPE_PLAN_NOT_ROUTE_ACCEPTANCE',selected=False,
         stage_completed=False,physical_pass=False,source_sha256=pins,
         circuit_wire_edges=sum(len(r['graph_ids']) for r in rows),distinct_unordered_wire_pairs=len(rows),
         scopes=dict(Counter(r['scope'] for r in rows)),physical_pair_groups=rows,
+        legacy_920mm=dict(wire_ids=sorted(s1_ids),historical_blanks_mm=s1_ids,
+            total_mm=920,scope='Four S1 HELU23802 conductors, NOT BAT_0/BAT_1',
+            historical_budget_not_current_routes_or_stock=True),
         graph_edge_count_not_wire_stock_quantity=True,
         internal_bus_module_local_links_not_added_to_wire_stock=True,
         open=['Unknown U1 delivered padmap; no invention',

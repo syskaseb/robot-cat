@@ -7,13 +7,15 @@
     "hardware/electronics/full-cat/connection-map-e4-r1/netlist.json": "97d21d4be7b641a02c1f554e7ce4905cf330af279be7d4efe403854b775d0415",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-layout-plan.json": "cf76b5186a292ba41a2acd84da826b616fbd06dfb898bf4914f21a251d30ad73",
-    "tools/cad/open_prototype_wiring_scope.py": "84492fdc29c05a96003d89b90023fc34f61d9b9a3bc6a876994fdb82401c9248"
+    "hardware/cad/studies/whole-cat-packaging/cp2/interfaces.json": "76704ef3fce6033663f6167730bbfa70a8c4b7a854b38d25cbd2a67850c3391b",
+    "tools/cad/open_prototype_wiring_scope.py": "4f2f85c70fc2e2edbd37fb3b5b0148c88962a413de3edbc8445afc21ce220521"
   },
   "circuit_wire_edges": 129,
   "distinct_unordered_wire_pairs": 128,
   "scopes": {
-    "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN": 92,
-    "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN": 2,
+    "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN": 88,
+    "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN": 4,
+    "LEGACY_BATTERY_F0; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN": 2,
     "ONE_PHYSICAL_SPLIT_W077_W078_WITH_PROTECTED_SPLICE; NOT_EXTRA_PARALLEL_WIRE": 1,
     "FOUR_MOVED_FHAC_OUTPUTS; LOAD_ENDPOINT_AND_ROUTE_OPEN": 4,
     "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED": 29
@@ -182,7 +184,10 @@
       },
       "missing_current_roles": [],
       "current_route_selected": false,
-      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN",
+      "body_id": "W067",
+      "historical_blank_mm": 260,
+      "old_blank_not_current_flat_WAGO_route": true
     },
     {
       "ends": [
@@ -240,7 +245,10 @@
       },
       "missing_current_roles": [],
       "current_route_selected": false,
-      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN",
+      "body_id": "W068",
+      "historical_blank_mm": 260,
+      "old_blank_not_current_flat_WAGO_route": true
     },
     {
       "ends": [
@@ -298,7 +306,10 @@
       },
       "missing_current_roles": [],
       "current_route_selected": false,
-      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN",
+      "body_id": "W064",
+      "historical_blank_mm": 220,
+      "old_blank_not_current_flat_WAGO_route": true
     },
     {
       "ends": [
@@ -490,7 +501,10 @@
       },
       "missing_current_roles": [],
       "current_route_selected": false,
-      "scope": "BODY_OR_DISTRIBUTION_PLAN; ROUTE_OPEN"
+      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN",
+      "body_id": "W065",
+      "historical_blank_mm": 180,
+      "old_blank_not_current_flat_WAGO_route": true
     },
     {
       "ends": [
@@ -2989,7 +3003,7 @@
       },
       "missing_current_roles": [],
       "current_route_selected": false,
-      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN"
+      "scope": "LEGACY_BATTERY_F0; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN"
     },
     {
       "ends": [
@@ -3039,7 +3053,7 @@
       },
       "missing_current_roles": [],
       "current_route_selected": false,
-      "scope": "LEGACY_SOURCE_920MM; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN"
+      "scope": "LEGACY_BATTERY_F0; LENGTH_AND_RESTRAINT_RECONCILIATION_OPEN"
     },
     {
       "ends": [
@@ -6235,6 +6249,23 @@
       "scope": "PCB_HEAD_TAIL_LOGIC_OR_PI_LOCAL_INTERCONNECT; CURRENT_BINDING_REVIEW_REQUIRED"
     }
   ],
+  "legacy_920mm": {
+    "wire_ids": [
+      "W064",
+      "W065",
+      "W067",
+      "W068"
+    ],
+    "historical_blanks_mm": {
+      "W067": 260,
+      "W068": 260,
+      "W064": 220,
+      "W065": 180
+    },
+    "total_mm": 920,
+    "scope": "Four S1 HELU23802 conductors, NOT BAT_0/BAT_1",
+    "historical_budget_not_current_routes_or_stock": true
+  },
   "graph_edge_count_not_wire_stock_quantity": true,
   "internal_bus_module_local_links_not_added_to_wire_stock": true,
   "open": [
