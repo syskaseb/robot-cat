@@ -15,7 +15,7 @@ from open_prototype_path_preflight import samples
 B=S.B;F=S.F;K=S.K;C=S.C;ROOT=S.ROOT;OUT=S.OUT
 PLAN=OUT/'s1-biarc-family-plan.json';PROOF=OUT/'s1-biarc-family-space.json';REUSE_PROOF=None
 
-def search():
+def search(connector=A.connect):
     base=F.build();records=B.read(OUT/'obstacle-map-current.json')['objects']
     fixed=[dict(name=r['role'],bounds=K.bounds(r['centre_mm'],r['size_mm']))
         for r in base['stations']+base['mta']+base['holders'] if r['role'] not in ('P_SYS','F_PI')]
@@ -74,7 +74,7 @@ def search():
             for d1 in (16,24,32,40,48,60,75,90,110,135,165):
                 counts['biarc_constructions']+=1
                 try:
-                    parts=A.connect(ring['barrel_mm'],ring['direction'],end,arrival,d1)
+                    parts=connector(ring['barrel_mm'],ring['direction'],end,arrival,d1)
                     length=B.check_path(parts,min_radius=25.2)
                 except (AssertionError,ValueError,ZeroDivisionError):continue
                 clear,detail=boxes_clear(parts,2.1,fixed+boxes,target.split('.')[0])
