@@ -1,0 +1,293 @@
+{
+  "status": "REQUIRES_COUPLED_CAUSE_CHANGE",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/power-island-layered-plan.json": "c131f63561d5971d0940d35294f34c62b983e7f720c5ec3b851d4f70c81cb96b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "tools/cad/open_prototype_power_island_plan.py": "96cf2706100f7323e83eb31245ef801626c4e9054251601258f1aa61aea6d6cf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c"
+  },
+  "errors": [],
+  "outside": [
+    {
+      "name": "FR_G",
+      "volume_mm3": 251.52488
+    },
+    {
+      "name": "G_TAIL",
+      "volume_mm3": 104.200672
+    }
+  ],
+  "budget_overlaps": [],
+  "input_overlaps": [
+    {
+      "a": "F_PI_input",
+      "b": "MTA_RR",
+      "volume_mm3": 16.704337
+    },
+    {
+      "a": "F_AUX_input",
+      "b": "W052",
+      "volume_mm3": 10.735844
+    }
+  ],
+  "tested_budget_pairs": 1,
+  "tested_input_pairs": 10,
+  "plan_geometry_rebuilt_equal": true,
+  "retained_contacts": [
+    {
+      "candidate": "S1_body",
+      "reference": "P0_MountFrontR",
+      "kind": "retained",
+      "volume_mm3": 7.792,
+      "interpretation": "Planning volume intersects retained valid BRep; not measured supplier-part contact"
+    },
+    {
+      "candidate": "S1_body",
+      "reference": "P0_SideRight22",
+      "kind": "retained",
+      "volume_mm3": 155.814346,
+      "interpretation": "Planning volume intersects retained valid BRep; not measured supplier-part contact"
+    },
+    {
+      "candidate": "S1_body",
+      "reference": "F_R1_CP2_IN",
+      "kind": "retained",
+      "volume_mm3": 271.27647,
+      "interpretation": "Planning volume intersects retained valid BRep; not measured supplier-part contact"
+    },
+    {
+      "candidate": "S1_body",
+      "reference": "F_R1_CP2_OUT",
+      "kind": "retained",
+      "volume_mm3": 33.291301,
+      "interpretation": "Planning volume intersects retained valid BRep; not measured supplier-part contact"
+    }
+  ],
+  "tested_retained_pairs": 29,
+  "scope": "31station/MTA/FHAC/S1/F0 budgets plus external S1 control;13input paths;9retained whole-module budgets plus valid retained solids from the411object inventory. Full output/assembly clearance remains OPEN.",
+  "retained_budget_names": [
+    "U1UnknownModuleReservation",
+    "Pi4_CP2",
+    "PWM9685_CP2",
+    "AUX4092_CP2",
+    "PWM1608_CP2",
+    "BUS_CP2",
+    "Monitor_CP2",
+    "Splice_L1_CP2",
+    "PostF0Splice_CP2"
+  ],
+  "retained_solid_count": 350,
+  "excluded_changed_interfaces": [
+    {
+      "name": "S1_body_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_control_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_ring_2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_screw_2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_seat_budget_2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_driver_2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_ring_5",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_screw_5",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_seat_budget_5",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_driver_5",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_ring_3",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_screw_3",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_seat_budget_3",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_driver_3",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_ring_6",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_screw_6",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_seat_budget_6",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "S1_driver_6",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "UpperCarrier",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "CommonSourcePlatform",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "LeftDistributionCarrier",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "RightDistributionCarrier",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "FL_P_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "FL_G_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "D_FL_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "RL_P_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "RL_G_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "P_SYS_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "P_FRONT_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "P_REAR_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "D_RL_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "G2_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "FR_P_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "FR_G_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "D_FR_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "RR_P_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "RR_G_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "G1_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "D_RR_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "P_AUX_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "G_AUX_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "G_TAIL_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "MTA_FL_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "MTA_FR_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "MTA_RL_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "MTA_RR_CP2",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "F_PI",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "F_AUX",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "F_HY",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "F_HP",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    },
+    {
+      "name": "F_TY",
+      "reason": "Relocated candidate/support/S1; matched replacement qualification OPEN"
+    }
+  ],
+  "worker_seconds": 76.515,
+  "finished_utc": "2026-10-09T00:33:04.249627+00:00"
+}

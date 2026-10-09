@@ -1,0 +1,64 @@
+{
+  "status": "REQUIRES_COUPLED_CAUSE_CHANGE",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/power-island-plan.json": "8ba520870e82ab4b26aa5e8632025e68e3ab40780914ea3270556e7e1d45c799",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "tools/cad/open_prototype_power_island_plan.py": "e92bb3979630a0147e32a2c8bc7061d6d4d6efce21089655e7a0fcbff950f8b7"
+  },
+  "errors": [],
+  "outside": [],
+  "budget_overlaps": [
+    {
+      "a": "P_FRONT",
+      "b": "P_SYS",
+      "volume_mm3": 192.5
+    }
+  ],
+  "input_overlaps": [
+    {
+      "a": "W041",
+      "b": "F_HP",
+      "volume_mm3": 177.955586
+    },
+    {
+      "a": "W041",
+      "b": "F_TY",
+      "volume_mm3": 34.50449
+    },
+    {
+      "a": "W042",
+      "b": "F_TY",
+      "volume_mm3": 125.340001
+    },
+    {
+      "a": "W037",
+      "b": "FR_G",
+      "volume_mm3": 149.527474
+    },
+    {
+      "a": "F_AUX_input",
+      "b": "W052",
+      "volume_mm3": 70.179354
+    }
+  ],
+  "tested_budget_pairs": 2,
+  "tested_input_pairs": 18,
+  "scope": "30station/MTA/FHAC/S1/F0 budgets plus external S1 control;13input paths;9retained whole-module budgets. NOT411actualparts or full output/assembly clearance.",
+  "retained_budget_names": [
+    "U1UnknownModuleReservation",
+    "Pi4_CP2",
+    "PWM9685_CP2",
+    "AUX4092_CP2",
+    "PWM1608_CP2",
+    "BUS_CP2",
+    "Monitor_CP2",
+    "Splice_L1_CP2",
+    "PostF0Splice_CP2"
+  ],
+  "worker_seconds": 10.016,
+  "finished_utc": "2026-10-09T00:23:13.809713+00:00"
+}

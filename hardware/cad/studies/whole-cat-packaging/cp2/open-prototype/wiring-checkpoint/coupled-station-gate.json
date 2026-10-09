@@ -1,0 +1,274 @@
+{
+  "status": "PARTIAL_COUPLED_RESERVATION_GATE_NOT_LAYOUT_ACCEPTANCE",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "tools/cad/open_prototype_layout_gate.py": "f223f4f4054d92f1187792361ed471bad20b1794fa7cf4b9ffef546309fe5df1"
+  },
+  "reservations": [
+    {
+      "name": "MTA_RL",
+      "centre_mm": [
+        5,
+        0,
+        70
+      ],
+      "size_mm": [
+        35.0,
+        22.0,
+        16.0
+      ],
+      "basis": "Copied current MTA reservation35x22x16, source+X/output-X; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": [
+        {
+          "reservation": "Pi4_CP2",
+          "volume_mm3": 1540.0
+        }
+      ]
+    },
+    {
+      "name": "MTA_RR",
+      "centre_mm": [
+        42,
+        0,
+        70
+      ],
+      "size_mm": [
+        35.0,
+        22.0,
+        16.0
+      ],
+      "basis": "Copied current MTA reservation35x22x16, source+X/output-X; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": [
+        {
+          "reservation": "Pi4_CP2",
+          "volume_mm3": 1540.0
+        }
+      ]
+    },
+    {
+      "name": "MTA_FL",
+      "centre_mm": [
+        116,
+        40,
+        70
+      ],
+      "size_mm": [
+        35.0,
+        22.0,
+        16.0
+      ],
+      "basis": "Copied current MTA reservation35x22x16, source+X/output-X; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "MTA_FR",
+      "centre_mm": [
+        153,
+        40,
+        70
+      ],
+      "size_mm": [
+        35.0,
+        22.0,
+        16.0
+      ],
+      "basis": "Copied current MTA reservation35x22x16, source+X/output-X; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "P_SYS",
+      "centre_mm": [
+        126,
+        -33,
+        117
+      ],
+      "size_mm": [
+        37,
+        11,
+        22
+      ],
+      "basis": "615 rotatedX90; input below, unmeasured cavity datum",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "P_REAR",
+      "centre_mm": [
+        56.877,
+        -33,
+        139
+      ],
+      "size_mm": [
+        37,
+        11,
+        22
+      ],
+      "basis": "615 rotatedX90; input below, unmeasured cavity datum",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "P_FRONT",
+      "centre_mm": [
+        169.523,
+        -33,
+        139
+      ],
+      "size_mm": [
+        37,
+        11,
+        22
+      ],
+      "basis": "615 rotatedX90; input below, unmeasured cavity datum",
+      "outside_torso_mm3": 1773.309288,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "F_HY",
+      "centre_mm": [
+        -50,
+        10,
+        129
+      ],
+      "size_mm": [
+        20.25,
+        51,
+        22
+      ],
+      "basis": "FHAC body reservation axis+Y, inputY-15.5/output35.5; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "F_HP",
+      "centre_mm": [
+        -25,
+        10,
+        129
+      ],
+      "size_mm": [
+        20.25,
+        51,
+        22
+      ],
+      "basis": "FHAC body reservation axis+Y, inputY-15.5/output35.5; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "F_TY",
+      "centre_mm": [
+        0,
+        10,
+        129
+      ],
+      "size_mm": [
+        20.25,
+        51,
+        22
+      ],
+      "basis": "FHAC body reservation axis+Y, inputY-15.5/output35.5; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "F_AUX",
+      "centre_mm": [
+        56.877,
+        10,
+        129
+      ],
+      "size_mm": [
+        20.25,
+        51,
+        22
+      ],
+      "basis": "FHAC body reservation axis+Y, inputY-15.5/output35.5; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "F_PI",
+      "centre_mm": [
+        139,
+        10,
+        107
+      ],
+      "size_mm": [
+        20.25,
+        51,
+        22
+      ],
+      "basis": "FHAC body reservation axis+Y, inputY-15.5/output35.5; tails OPEN",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    },
+    {
+      "name": "S1_body",
+      "centre_mm": [
+        126.2,
+        -55.5,
+        61
+      ],
+      "size_mm": [
+        24,
+        37,
+        42
+      ],
+      "basis": "Mirror original S1 aroundZ then lower24mm; rings/control/access are NOT qualified",
+      "outside_torso_mm3": 0.0,
+      "shared_reservation_overlaps": [],
+      "module_reservation_overlaps": []
+    }
+  ],
+  "errors": [],
+  "geometry_basis": "Valid primitive reservations and saved torso BRep. Intersections reject allocation budgets, not prove delivered-part contact.",
+  "open_items": [
+    "All20 station allocation",
+    "Both exits of every holder and whole routes",
+    "S1 rings/tools/control and native mounting",
+    "Independent cable restraints",
+    "MTA delivered lead lengths",
+    "U1/S0 delivery datums",
+    "Mount/stock/export"
+  ],
+  "module_reservation_names": [
+    "U1UnknownModuleReservation",
+    "Pi4_CP2",
+    "PWM9685_CP2",
+    "AUX4092_CP2",
+    "PWM1608_CP2",
+    "BUS_CP2",
+    "Monitor_CP2",
+    "F0_CP2",
+    "Splice_L1_CP2",
+    "PostF0Splice_CP2"
+  ],
+  "failed_reservations": [
+    "MTA_RL",
+    "MTA_RR",
+    "P_FRONT"
+  ],
+  "worker_seconds": 7.25,
+  "finished_utc": "2026-10-08T23:55:47.313605+00:00"
+}
