@@ -1,5 +1,28 @@
 {
   "schema_version": 1,
+  "source_retention_next_checkpoint": {
+    "status":"PLANNED_NOT_NATIVE_OR_ASSEMBLY_QUALIFIED",
+    "base_commit":"de2384c",
+    "station_source":"source-current-receipt.json",
+    "scope":"One matched source-family carrier and independent insulation restraints; preserve the seven qualified nominal profiles",
+    "assembly_order":[
+      "Resolve actual structural ownership and screw/tool access of S1 and relocated P_REAR before detailing saddles",
+      "Prepare the four source conductors to nominal FIT lengths, identify both ends and leave terminal work until route threading is resolved",
+      "Place factory W044/W052/F_AUX inputs with both ends and their source/receiver restraint stations; do not count their wire as extra stock",
+      "Install four S1 source routes as one family, then their two independent insulation restraints each; no restraint inside the W068 narrow gap",
+      "Check the complete mounted family, tie heads/tools and ATO access/removal together before selecting any native export"
+    ],
+    "acceptance":[
+      "Native editable supports for changed S1/P_REAR positions and all14 explicitly owned insulation seats",
+      "No lever restraint, terminal screw restraint, adhesive-only wire relief or clamp on unknown U1 pads",
+      "Changed-material/tie/tool checks only; do not repeat unchanged seven-profile radius gates",
+      "Parameter/restore/reopen and needed closed exports below256mm with margin",
+      "One hardware/tie contribution with no duplicate count of existing MTA grips; whole stock remains open"
+    ],
+    "delivery_gates":["W068 nominal0.15mm gap","factory usable lead lengths","actual WAGO cavity/strip depths","unknown external U1 padmap"],
+    "two_failed_trials_require_layout_or_cause_change":true,
+    "does_not_close_full_wiring_or_any_result":true
+  },
   "current_shared_source_family": {
     "plan":"source-low-gap-plan.json","proof":"source-south-ato-space.json",
     "receipt":"source-current-receipt.json",
