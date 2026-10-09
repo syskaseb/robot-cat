@@ -1,0 +1,426 @@
+{
+  "status": "NATIVE_DATA_MOUNT_AND_TEN_STRAIGHT_APPROACHES_PREPARED",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "local_data_mount_complete": true,
+  "contacts": [],
+  "errors": [],
+  "tested_pairs": 21,
+  "full_data_conductors_and_source_family_still_open": true,
+  "assembly": [
+    "On unstacked upper plate fit DataShelf with two M3x10 and washers/nuts; driver is used before G2 installation",
+    "Install/retain D_RL and D_RR on the marked flat floors; supplier pad/cavity fit after delivery",
+    "Lay insulated wires on8mm lands within9mm straight approaches, pass one T18I through each transverse tunnel",
+    "Snug ties on insulation only; no tie across levers; do not energize before phase2 wiring and pull checks",
+    "Deep shelf removal may require releasing adjacent G2 adhesive without disconnecting its conductors; not routine ATO service"
+  ],
+  "hardware_contribution": {
+    "M3x10": 2,
+    "M3_washer": 2,
+    "M3_nut": 2,
+    "T18I": 2
+  },
+  "delivery_gates": [
+    "WAGO cavity and adhesive pad datum",
+    "nominal4.2mmOD maximum insulation land; actual data wire may be smaller",
+    "PETG deformation/fastener bearing",
+    "T18I routing, head fit, insulation pull/no-crush"
+  ],
+  "rejected_old_mounts": [
+    "obsolete D_RL and D_RR upper-tier mounts; no active selection yet"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceRetentionCurrent.FCStd": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-group-allocation.json": "011e0d857dc797854204ae0f7e22c619a69a58f679624f0cdcddc4bf1019d8c5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "tools/cad/open_prototype_data_shelf.py": "2b01c4db40afd686e525cdfc056f7b686a47c0b8951c8d8c13fca0fcc2f47008",
+    "tools/cad/open_prototype_side_source_routes.py": "8f7b82dfdcaa40d99f066571e3a52d6f5e08b7ed1a9282f8ae129e6587800151"
+  },
+  "original_root_bearing_area_mm2": 40.000000000000554,
+  "root_bearing_area_mm2": 240.0000000000034,
+  "parameter_test": {
+    "thickness_mm": [
+      3,
+      3.2,
+      3
+    ],
+    "restored": true
+  },
+  "changed_stations": [
+    {
+      "role": "D_RL",
+      "centre_mm": [
+        -80,
+        -20,
+        128
+      ],
+      "size_mm": [
+        19,
+        30,
+        9
+      ],
+      "model": "415",
+      "rotation": "90",
+      "supplier_cavity_datum_known": false,
+      "mount_status": "OPEN_MATCHED_NATIVE_RESTRAINT"
+    },
+    {
+      "role": "D_RR",
+      "centre_mm": [
+        -40,
+        -20,
+        128
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "model": "415",
+      "rotation": "0",
+      "supplier_cavity_datum_known": false,
+      "mount_status": "OPEN_MATCHED_NATIVE_RESTRAINT"
+    }
+  ],
+  "changed_ports": {
+    "D_RL.1": {
+      "point_mm": [
+        -70.5,
+        -29.5,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RL.2": {
+      "point_mm": [
+        -70.5,
+        -24.75,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RL.3": {
+      "point_mm": [
+        -70.5,
+        -20.0,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RL.4": {
+      "point_mm": [
+        -70.5,
+        -15.25,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RL.5": {
+      "point_mm": [
+        -70.5,
+        -10.5,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RR.1": {
+      "point_mm": [
+        -49.5,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RR.2": {
+      "point_mm": [
+        -44.75,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RR.3": {
+      "point_mm": [
+        -40.0,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RR.4": {
+      "point_mm": [
+        -35.25,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    },
+    "D_RR.5": {
+      "point_mm": [
+        -30.5,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "basis": "nominal project cavity, delivery fit OPEN"
+    }
+  },
+  "invalidated_wires": [
+    "W011",
+    "W012",
+    "W013",
+    "W014",
+    "W015",
+    "W016",
+    "W017",
+    "W018"
+  ],
+  "tie_budget": {
+    "loop_perimeter_max_mm": 85.3,
+    "nominal_stock_length_mm": 100,
+    "slot_width_mm": 3.2,
+    "slot_height_mm": 1.6,
+    "strap_width_mm": 2.5,
+    "strap_thickness_mm": 1.1,
+    "not_manufacturer_measured_shape": true
+  },
+  "entry_lands": [
+    {
+      "port": "D_RL.1",
+      "point_mm": [
+        -70.5,
+        -29.5,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RL.2",
+      "point_mm": [
+        -70.5,
+        -24.75,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RL.3",
+      "point_mm": [
+        -70.5,
+        -20.0,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RL.4",
+      "point_mm": [
+        -70.5,
+        -15.25,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RL.5",
+      "point_mm": [
+        -70.5,
+        -10.5,
+        128
+      ],
+      "departure": [
+        1,
+        0,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RR.1",
+      "point_mm": [
+        -49.5,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RR.2",
+      "point_mm": [
+        -44.75,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RR.3",
+      "point_mm": [
+        -40.0,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RR.4",
+      "point_mm": [
+        -35.25,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    },
+    {
+      "port": "D_RR.5",
+      "point_mm": [
+        -30.5,
+        -29.5,
+        128
+      ],
+      "departure": [
+        0,
+        -1,
+        0
+      ],
+      "straight_mm": 9,
+      "support_mm": 8
+    }
+  ],
+  "native_volumes_mm3": {
+    "UpperCarrier": 26960.061243476557,
+    "DataShelf": 8403.364783386765
+  },
+  "sketches": 25,
+  "print_bounds_mm": {
+    "UpperCarrier": [
+      214.0,
+      82.0,
+      15.299999999999997
+    ],
+    "DataShelf": [
+      64.5,
+      33.5,
+      48.18000000000001
+    ]
+  },
+  "model_sha256": "8239585a203c2ad153f4000826583a49ceb77cdc99364da22f9a3b3ad665e6dc",
+  "exports": {
+    "DataShelf_UpperCarrier.stl": {
+      "sha256": "c4ddaf7c8705935e8ede612cc913271db1e0a123f8d80070f99591d6ff532a1a",
+      "closed": true,
+      "manifold": true
+    },
+    "DataShelf_DataShelf.stl": {
+      "sha256": "64b7b5e11beeed5bd234cb7392dee7074ae7581ba6f0e8599ef48ef1eac8d131",
+      "closed": true,
+      "manifold": true
+    }
+  },
+  "reopen_verified": true,
+  "worker_seconds": 97.906,
+  "finished_utc": "2026-10-09T13:34:26.172824+00:00"
+}

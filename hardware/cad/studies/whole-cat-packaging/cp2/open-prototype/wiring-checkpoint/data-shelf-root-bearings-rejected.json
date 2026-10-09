@@ -1,0 +1,48 @@
+{
+  "status": "ERROR_NOT_ACCEPTANCE",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "local_data_mount_complete": false,
+  "contacts": [],
+  "errors": [
+    "('Incomplete foot bearing', 50.000000000000696)"
+  ],
+  "tested_pairs": 0,
+  "full_data_conductors_and_source_family_still_open": true,
+  "assembly": [
+    "On unstacked upper plate fit DataShelf with two M3x10 and washers/nuts; driver is used before G2 installation",
+    "Install/retain D_RL and D_RR on the marked flat floors; supplier pad/cavity fit after delivery",
+    "Lay insulated wires on8mm lands within9mm straight approaches, pass one T18I through each transverse tunnel",
+    "Snug ties on insulation only; no tie across levers; do not energize before phase2 wiring and pull checks",
+    "Deep shelf removal may require releasing adjacent G2 adhesive without disconnecting its conductors; not routine ATO service"
+  ],
+  "hardware_contribution": {
+    "M3x10": 2,
+    "M3_washer": 2,
+    "M3_nut": 2,
+    "T18I": 2
+  },
+  "delivery_gates": [
+    "WAGO cavity and adhesive pad datum",
+    "nominal4.2mmOD maximum insulation land; actual data wire may be smaller",
+    "PETG deformation/fastener bearing",
+    "T18I routing, head fit, insulation pull/no-crush"
+  ],
+  "rejected_old_mounts": [
+    "obsolete D_RL and D_RR upper-tier mounts; no active selection yet"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceRetentionCurrent.FCStd": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-group-allocation.json": "011e0d857dc797854204ae0f7e22c619a69a58f679624f0cdcddc4bf1019d8c5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "tools/cad/open_prototype_data_shelf.py": "41f040a6e9ce43e33faf45398dec6ddc4079347df8888622223ec4bd32cf5c9e",
+    "tools/cad/open_prototype_side_source_routes.py": "8f7b82dfdcaa40d99f066571e3a52d6f5e08b7ed1a9282f8ae129e6587800151"
+  },
+  "worker_seconds": 50.687,
+  "finished_utc": "2026-10-09T13:21:10.854774+00:00"
+}
