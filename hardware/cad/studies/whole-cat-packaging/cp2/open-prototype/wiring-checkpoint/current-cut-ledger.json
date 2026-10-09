@@ -1497,32 +1497,33 @@
       ],
       "current_roles": [
         "F_RL.in",
-        "P_REAR.1"
+        "P_REAR.3"
       ],
       "datums": [
         null,
         {
           "point_mm": [
             68.8,
-            42.5,
-            133.221923828125
+            22.5,
+            138
           ],
           "departure": [
             0,
-            0,
-            -1
+            1,
+            0
           ],
-          "basis": "Envelope-derived project entry, not a delivered cavity datum"
+          "basis": "180deg rotated envelope; project slots numbered world-X ascending; delivered cavity depth remains unmeasured",
+          "rotated_model_cavity_index": 3
         }
       ],
       "material": "factory MTA0100335 4 mm2 leads",
       "historical_R53_blank_mm": null,
-      "current_nominal_blank_mm": 73,
+      "current_nominal_blank_mm": 74,
       "stock_contribution_mm": 0,
       "status": "FACTORY_TAIL_NOMINAL_RECIPE_ONLY",
       "ready_to_cut": false,
-      "unrounded_required_mm": 72.61147476158109,
-      "route_mm": 58.6114747615811,
+      "unrounded_required_mm": 73.84955592153875,
+      "route_mm": 59.84955592153876,
       "strip_allowance_mm": 14,
       "factory_limit_assumption_mm": 100,
       "supplier_usable_lead_length_unverified": true,
@@ -1753,26 +1754,27 @@
         null,
         {
           "point_mm": [
-            88.3,
-            42.5,
-            133.221923828125
+            75.3,
+            22.5,
+            138
           ],
           "departure": [
             0,
-            0,
-            -1
+            1,
+            0
           ],
-          "basis": "Envelope-derived project entry, not a delivered cavity datum"
+          "basis": "180deg rotated envelope; project slots numbered world-X ascending; delivered cavity depth remains unmeasured",
+          "rotated_model_cavity_index": 2
         }
       ],
       "material": "factory MTA0100335 4 mm2 leads",
       "historical_R53_blank_mm": null,
-      "current_nominal_blank_mm": 77,
+      "current_nominal_blank_mm": 85,
       "stock_contribution_mm": 0,
       "status": "FACTORY_TAIL_NOMINAL_RECIPE_ONLY",
       "ready_to_cut": false,
-      "unrounded_required_mm": 76.11746447564082,
-      "route_mm": 62.117464475640816,
+      "unrounded_required_mm": 84.77168133631726,
+      "route_mm": 70.77168133631726,
       "strip_allowance_mm": 14,
       "factory_limit_assumption_mm": 100,
       "supplier_usable_lead_length_unverified": true,
@@ -2189,10 +2191,16 @@
       ],
       "material": "HELU23802 red 4 mm2",
       "historical_R53_blank_mm": null,
-      "current_nominal_blank_mm": null,
+      "current_nominal_blank_mm": 211,
       "stock_contribution_mm": null,
-      "status": "FULL_ROUTE_AND_RESTRAINT_OPEN",
-      "ready_to_cut": false
+      "status": "CURRENT_SOURCE_RADIUS_RECIPE_NATIVE_RESTRAINT_AND_ASSEMBLY_OPEN",
+      "ready_to_cut": false,
+      "unrounded_required_mm": 210.35610007681817,
+      "route_mm": 181.90410007681817,
+      "strip_allowance_mm": 28.452,
+      "provisional_stock_contribution_mm": 211,
+      "source_radius_receipt": "source-current-receipt.json",
+      "current_full_stock_selection_open": true
     },
     {
       "id": "W065",
@@ -2208,25 +2216,32 @@
       "datums": [
         {
           "point_mm": [
-            94.8,
-            42.5,
-            133.221923828125
+            81.8,
+            22.5,
+            138
           ],
           "departure": [
             0,
-            0,
-            -1
+            1,
+            0
           ],
-          "basis": "Envelope-derived project entry, not a delivered cavity datum"
+          "basis": "180deg rotated envelope; project slots numbered world-X ascending; delivered cavity depth remains unmeasured",
+          "rotated_model_cavity_index": 1
         },
         null
       ],
       "material": "HELU23802 red 4 mm2",
       "historical_R53_blank_mm": null,
-      "current_nominal_blank_mm": null,
+      "current_nominal_blank_mm": 183,
       "stock_contribution_mm": null,
-      "status": "FULL_ROUTE_AND_RESTRAINT_OPEN",
-      "ready_to_cut": false
+      "status": "CURRENT_SOURCE_RADIUS_RECIPE_NATIVE_RESTRAINT_AND_ASSEMBLY_OPEN",
+      "ready_to_cut": false,
+      "unrounded_required_mm": 182.98251316061706,
+      "route_mm": 154.53051316061706,
+      "strip_allowance_mm": 28.452,
+      "provisional_stock_contribution_mm": 183,
+      "source_radius_receipt": "source-current-receipt.json",
+      "current_full_stock_selection_open": true
     },
     {
       "id": "W066",
@@ -2236,13 +2251,13 @@
         "S0.out"
       ],
       "current_roles": [
-        "P_SYS.2",
+        "P_SYS.5",
         "S0.out"
       ],
       "datums": [
         {
           "point_mm": [
-            3.5,
+            23.0,
             -21.0,
             148.0
           ],
@@ -2270,8 +2285,48 @@
         "S1.2"
       ],
       "current_roles": [
-        "P_SYS.4",
+        "P_SYS.3",
         "S1.2"
+      ],
+      "datums": [
+        {
+          "point_mm": [
+            10.0,
+            -21.0,
+            148.0
+          ],
+          "departure": [
+            0,
+            -1,
+            0
+          ],
+          "basis": "Envelope-derived project entry, not a delivered cavity datum"
+        },
+        null
+      ],
+      "material": "HELU23802 red 4 mm2",
+      "historical_R53_blank_mm": null,
+      "current_nominal_blank_mm": 349,
+      "stock_contribution_mm": null,
+      "status": "CURRENT_SOURCE_RADIUS_RECIPE_NATIVE_RESTRAINT_AND_ASSEMBLY_OPEN",
+      "ready_to_cut": false,
+      "unrounded_required_mm": 348.09243325749435,
+      "route_mm": 319.64043325749435,
+      "strip_allowance_mm": 28.452,
+      "provisional_stock_contribution_mm": 349,
+      "source_radius_receipt": "source-current-receipt.json",
+      "current_full_stock_selection_open": true
+    },
+    {
+      "id": "W068",
+      "net": "P_SYS",
+      "old_roles": [
+        "P_SYS.4",
+        "S1.5"
+      ],
+      "current_roles": [
+        "P_SYS.4",
+        "S1.5"
       ],
       "datums": [
         {
@@ -2291,44 +2346,16 @@
       ],
       "material": "HELU23802 red 4 mm2",
       "historical_R53_blank_mm": null,
-      "current_nominal_blank_mm": null,
+      "current_nominal_blank_mm": 433,
       "stock_contribution_mm": null,
-      "status": "FULL_ROUTE_AND_RESTRAINT_OPEN",
-      "ready_to_cut": false
-    },
-    {
-      "id": "W068",
-      "net": "P_SYS",
-      "old_roles": [
-        "P_SYS.4",
-        "S1.5"
-      ],
-      "current_roles": [
-        "P_SYS.5",
-        "S1.5"
-      ],
-      "datums": [
-        {
-          "point_mm": [
-            23.0,
-            -21.0,
-            148.0
-          ],
-          "departure": [
-            0,
-            -1,
-            0
-          ],
-          "basis": "Envelope-derived project entry, not a delivered cavity datum"
-        },
-        null
-      ],
-      "material": "HELU23802 red 4 mm2",
-      "historical_R53_blank_mm": null,
-      "current_nominal_blank_mm": null,
-      "stock_contribution_mm": null,
-      "status": "FULL_ROUTE_AND_RESTRAINT_OPEN",
-      "ready_to_cut": false
+      "status": "CURRENT_SOURCE_RADIUS_RECIPE_NATIVE_RESTRAINT_AND_ASSEMBLY_OPEN",
+      "ready_to_cut": false,
+      "unrounded_required_mm": 432.91501293796756,
+      "route_mm": 404.46301293796756,
+      "strip_allowance_mm": 28.452,
+      "provisional_stock_contribution_mm": 433,
+      "source_radius_receipt": "source-current-receipt.json",
+      "current_full_stock_selection_open": true
     },
     {
       "id": "W069",
@@ -2686,9 +2713,9 @@
       "id": "XA01",
       "part": "F_AUX",
       "from_role": "F_AUX.in",
-      "target": "P_REAR.3",
-      "nominal_mm": 47,
-      "unrounded_mm": 46.70155289299315,
+      "target": "P_REAR.1",
+      "nominal_mm": 83,
+      "unrounded_mm": 82.97433388230817,
       "factory_minimum_mm": 84.5,
       "factory_datum_OD_and_bend_provisional": true,
       "stock_contribution_mm": 0,
@@ -2777,9 +2804,10 @@
     }
   ],
   "body_conductor_count": 80,
-  "current_body_nominal_count": 10,
+  "current_body_nominal_count": 14,
   "extra_factory_wire_purchase_mm": 0,
   "whole_stock_total_mm": null,
+  "source_current_receipt": "source-current-receipt.json",
   "W076_factory_extension_one_logical_conductor": true,
   "historical920mm_not_current_source_stock": true,
   "branch_output_prefixes_not_double_counted": true,
@@ -2789,14 +2817,18 @@
   "stage_completed": false,
   "physical_pass": false,
   "source_sha256": {
-    "tools/cad/open_prototype_current_cut_ledger.py": "5fbaa7883fbbb79424b3f83464ca244849a2699ea8bf505f2692c7f71c851c98",
+    "tools/cad/open_prototype_current_cut_ledger.py": "a0dea0d74febbb67d1f03031e5a964bd69efed462b3626feec183c91deb01843",
     "tools/cad/open_prototype_rl_tail_group.py": "b37723e6b4547c345ad40bf5b2a657d87d72ac73accdefccfe9b4d50ad03123a",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/tail-joint-height-plan.json": "8cb559195311116a5a65202b6951c81ea156eb1319a8dd9150ccd0f5ad76900d",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a",
     "hardware/cad/studies/whole-cat-packaging/cp2/interfaces.json": "76704ef3fce6033663f6167730bbfa70a8c4b7a854b38d25cbd2a67850c3391b",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/ground-upstream-grip-plan.json": "8a329803bb4144ac9930c8d2aa2a8f8bad3c2df566749ee2f607c3dce5d791df",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/ground-upstream-grip-radius.json": "47ae2da67c4b715f8c251ab4dcce5df44a37c26f8e9b15c48fc9c0ae1abe064b"
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/ground-upstream-grip-radius.json": "47ae2da67c4b715f8c251ab4dcce5df44a37c26f8e9b15c48fc9c0ae1abe064b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-current-receipt.json": "e062dd537ba377647585fb083d513e3be2008d763a75f92d1f0f0d1831cd07fd",
+    "tools/cad/open_prototype_source_receipt.py": "9a2f75444d9039827fa1a1ebe7c0752937c51b3696765024b751f618ea412305",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-low-gap-plan.json": "701dfb4b03b41aa562681256b8c07093d1a9899875da0343b4bcca2471cc4eaa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-low-gap-radius.json": "e9a94507f6974d91579146c14cfdb85b2406b3d11b9cd6f5885637abca6e8b6c"
   },
-  "worker_seconds": 0.212161,
-  "finished_utc": "2026-10-09T05:53:55.004845+00:00"
+  "worker_seconds": 0.29369,
+  "finished_utc": "2026-10-09T07:03:21.311127+00:00"
 }

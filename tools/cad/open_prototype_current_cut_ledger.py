@@ -12,7 +12,14 @@ from open_prototype_wiring_endpoints import BASE
 OUT=T.OUT;DEST=OUT/'current-cut-ledger.json'
 
 def build():
-    tick=time.monotonic();p=T.build();ep=T.B.read(OUT/'endpoint-plan.json')
+    tick=time.monotonic();current_source=None
+    source_receipt=OUT/'source-current-receipt.json'
+    if source_receipt.exists():
+        import open_prototype_source_receipt as Current
+        current_source=Current
+        p=Current.verified_family()
+    else:p=T.build()
+    ep=T.B.read(OUT/'endpoint-plan.json')
     entries=[];tails={r['wire']:r for r in p['tails'] if r['leg'] in ('FL','FR','RL','RR')}
     assert len(tails)==8
     for row in ep['body_conductors']:
@@ -52,6 +59,17 @@ def build():
         route_mm=g['centreline_mm'],strip_allowance_mm=g['termination_allowance_mm'],
         provisional_stock_contribution_mm=g['nominal_fit_blank_mm'],
         old150mm_blank_invalid=True,native_grips_and_assembly_access_open=True)
+    if current_source:
+        for r in p['s1_routes']:
+            item=next(e for e in entries if e['id']==r['wire'])
+            assert r['target'] in item['current_roles']
+            item.update(status='CURRENT_SOURCE_RADIUS_RECIPE_NATIVE_RESTRAINT_AND_ASSEMBLY_OPEN',
+                current_nominal_blank_mm=r['nominal_fit_blank_mm'],
+                unrounded_required_mm=r['centreline_mm']+r['termination_allowance_mm'],
+                route_mm=r['centreline_mm'],strip_allowance_mm=r['termination_allowance_mm'],
+                provisional_stock_contribution_mm=r['nominal_fit_blank_mm'],
+                source_radius_receipt=source_receipt.name,
+                current_full_stock_selection_open=True)
     holder_inputs=[]
     for h in p['holders']:
         old=next(r for r in ep['distribution_boundary'] if h['role']+'.in' in r['ends'])
@@ -81,10 +99,12 @@ def build():
             r.update(current_nominal_mm=g['nominal_fit_blank_mm'],status='SCOPED_RADIUS_CLEAR_GRIPS_OPEN',
                 reason='Current G1.1 and upstream9.6mm grip; last3mm entry is not a grip land')
     pins=[Path(__file__),Path(T.__file__),T.PLAN,OUT/'endpoint-plan.json',BASE.parent/'interfaces.json',ground_plan,ground_proof]
+    if current_source:pins.extend([source_receipt,Path(current_source.__file__),current_source.G.PLAN,current_source.NEW_PROOF])
     return dict(status='CURRENT_IDENTITIES_AND_NOMINAL_SUBSET_NOT_FULL_CUTLIST',
         body_conductors=entries,holder_factory_inputs=holder_inputs,legacy_source=legacy,
         body_conductor_count=80,current_body_nominal_count=sum(r['current_nominal_blank_mm'] is not None for r in entries),
         extra_factory_wire_purchase_mm=0,whole_stock_total_mm=None,
+        source_current_receipt=source_receipt.name if current_source else None,
         W076_factory_extension_one_logical_conductor=True,
         historical920mm_not_current_source_stock=True,
         branch_output_prefixes_not_double_counted=True,
