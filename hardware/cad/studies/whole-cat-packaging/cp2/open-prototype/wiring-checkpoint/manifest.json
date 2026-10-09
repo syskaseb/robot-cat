@@ -1,5 +1,20 @@
 {
   "schema_version": 1,
+  "current_tail_corridor": {
+    "checked_utc":"2026-10-09T05:16:28Z",
+    "plan":"rl-tail-group-plan.json","case_point_proof":"tail-corridor-allocated-space.json",
+    "status":"REJECTED_FULL_RADIUS_RESERVATION",
+    "radius_proof":"tail-corridor-radius-clearance.json","radius_worker_seconds":47.047,
+    "radius_conflicts":[{"wire":"XB32","material":"S1_ring_3","distance_mm":0.3625,"required_mm":1.05}],
+    "whole_holder_centre_mm":[100.075,-0.5,143],"factory_output":"NORTH/EAST/DOWN",
+    "covered_joint_cut_mm":[115.075,34,106],"receiving_insulation_station_mm":[115.075,68.2,130],
+    "receiving_station_not_servo_pin":true,"case_point_worker_seconds":49.86,
+    "case_contacts":0,"outside":0,"positive_point_intrusions":0,"errors":0,
+    "original_RL_factory_blanks_mm":[72.611475,81.642581],"factory100mm_is_delivery_assumption":true,
+    "S1_horizontal_plane_mm":85,"complete4S1_and_legacy920mm_open":true,
+    "native_files_changed":0,"moving_tail_continuation_grips_stock_open":true,
+    "selected":false,"stage_completed":false,"physical_pass":false
+  },
   "current_source_contract_correction": {
     "checked_utc":"2026-10-09T04:43:16Z","status":"SOURCE_AND_TAIL_LAYOUT_STILL_OPEN",
     "wire":"W065","current_target":"P_REAR.5","obsolete_target":"P_REAR.3",
@@ -9,8 +24,8 @@
     "source_grip_capacity":"s1-grip-capacity.json","source_grip_capacity_seconds":4.472064,
     "whole_EAST_barrel_trial":"source-exit-allocation.json","trial_seconds":4.5575,
     "current_filter_blocker":"W067 versus conservative D_RR allowance; not a physical impossibility claim. No four-source joint combination qualified.",
-    "tail_plan":"rl-tail-group-plan.json","tail_status":"REJECTED_W042_CROSSING_0.700185mm",
-    "RL_both_factory_blanks_mm":[87.311627,81.522630],"factory100mm_is_assumption":true,
+    "tail_plan":"rl-tail-group-plan.json","tail_status":"SUPERSEDED_BY_CURRENT_TAIL_CORRIDOR_SEE_ABOVE",
+    "historical_RL_both_factory_blanks_mm":[87.311627,81.522630],"factory100mm_is_assumption":true,
     "next":"Change shared S1/rear-bus/factory-MTA/AUX receiving topology before another detail gate; tail needs whole output family change, not another free-wire offset.",
     "native_files_changed":0,"selected":false,"stage_completed":false,"physical_pass":false
   },

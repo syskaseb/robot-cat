@@ -10,11 +10,12 @@ class TailReceiving(unittest.TestCase):
         for key,offset in [('sleeve_start_mm',-17.25),('sleeve_end_mm',9.25),('new_insulation_end_mm',18.25)]:
             self.assertEqual(h[key],B.add(h['output_segments'][-1]['end'],B.mul(B.DOWN,offset)))
         r=next(r for r in p['protected_receiving_rows'] if r['wire']=='XB32')
-        B.check_path(r['segments'],r['segments'][0]['start'],[103,74.2,130],12.6)
+        B.check_path(r['segments'],r['segments'][0]['start'],r['station_mm'],12.6)
         B.check_path(h['output_segments']+r['segments'])
         self.assertGreaterEqual(B.segment_geometry(r['segments'][-1])[0],9)
         self.assertEqual(h['axis'],B.NORTH)
         self.assertLessEqual(h['input_blank_mm'],84.5)
+        self.assertFalse(T.compact()['diameter_budget_exclusions'])
         self.assertTrue(r['moving_continuation_not_qualified'])
 
     def test_mta_both_factory_ends_and_ledgers_retained(self):
