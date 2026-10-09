@@ -1,0 +1,142 @@
+{
+  "status": "REJECTED_COUPLED_SPACE_OR_INPUT_WITNESS",
+  "contacts": [
+    {
+      "a": "S1_control_CP2",
+      "b": "PWM1608_CP2",
+      "volume_mm3": 47.406894
+    },
+    {
+      "a": "S1_ring_2",
+      "b": "TailBridge",
+      "volume_mm3": 59.790347
+    },
+    {
+      "a": "S1_ring_5",
+      "b": "TailBridge",
+      "volume_mm3": 64.550601
+    },
+    {
+      "a": "S1_ring_6",
+      "b": "TailBridge",
+      "volume_mm3": 200.880086
+    },
+    {
+      "a": "S1_ring_6",
+      "b": "S1_ring_5",
+      "volume_mm3": 0.778265
+    },
+    {
+      "a": "S1_ring_6",
+      "b": "S1_ring_3",
+      "volume_mm3": 13.343125
+    }
+  ],
+  "outside": [],
+  "external_operator_outside": [],
+  "input_point_intrusions": [
+    {
+      "a": "W064",
+      "b": "F_PWM_CP2",
+      "segment": 3,
+      "point_mm": [
+        42.619148519013805,
+        12.0,
+        130.68974618299745
+      ]
+    },
+    {
+      "a": "W067",
+      "b": "TailBridge",
+      "segment": 0,
+      "point_mm": [
+        120.2,
+        -22.123,
+        60.0
+      ]
+    },
+    {
+      "a": "W067",
+      "b": "P0_MountRearR",
+      "segment": 1,
+      "point_mm": [
+        120.02532511526415,
+        -33.76194241593751,
+        60.0
+      ]
+    },
+    {
+      "a": "W067",
+      "b": "F_R3_CP2_Housing",
+      "segment": 4,
+      "point_mm": [
+        16.500000000000004,
+        -56.0,
+        98.06315789473685
+      ]
+    },
+    {
+      "a": "W068",
+      "b": "TailBridge",
+      "segment": 0,
+      "point_mm": [
+        132.2,
+        -22.123,
+        60.0
+      ]
+    },
+    {
+      "a": "W068",
+      "b": "F_R3_CP2_Housing",
+      "segment": 4,
+      "point_mm": [
+        10.000000000000002,
+        -62.0,
+        98.06315789473685
+      ]
+    },
+    {
+      "a": "W068",
+      "b": "F_R3_CP2_ATO",
+      "segment": 5,
+      "point_mm": [
+        10.0,
+        -61.68974618299747,
+        126.74214851901381
+      ]
+    }
+  ],
+  "input_outside": [],
+  "head_transition_outside": [],
+  "receiving_trunk_intrusions": [],
+  "errors": [],
+  "source_sha256": {
+    "tools/cad/open_prototype_s1_lower_corridor.py": "f1d21d261f2c75ed7e6673c02f95003c45c85b57a3ddd4769f19ea4c2d186fa4",
+    "tools/cad/open_prototype_rl_tail_group.py": "b37723e6b4547c345ad40bf5b2a657d87d72ac73accdefccfe9b4d50ad03123a",
+    "tools/cad/open_prototype_s1_biarc_plan.py": "219270ec77a12a37cd84b7b2ce6f60a568ed2bfe1c5c252a2dd085430141370c",
+    "tools/cad/open_prototype_biarc.py": "416ba5b59c7b185457121bed0129d247be9f6f927bd28de351919e68be55d312",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/tail-joint-height-plan.json": "8cb559195311116a5a65202b6951c81ea156eb1319a8dd9150ccd0f5ad76900d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-space-map.json": "f3e7492d373741c8b758d43da3b6a0295df74bb245b2626dd45bcbbb810e20d8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/s1-ordered-full-corridor-plan.json": "f10244fa077148b25a97a296198e406dc1edebe81b666004588ed7f57ce7fcb6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "tools/cad/open_prototype_source_receiving_space.py": "b6a5c24748199e86ab1972bcea620d3aed3a4d91407d716af82b81f1189a968d"
+  },
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "point_screen_not_full_tube": true,
+  "native_sources_saved": false,
+  "scope": "Changed complete module families versus current other cases and retained valid material; changed FHAC inputs and PI output/joint positive-point screen. Unchanged partial results may be reused only with pinned geometry; other conductors invalidated/open.",
+  "assembled_driver_proof_reused": "s1-terminal-plane-budget.json: four Monitor obstructions unchanged; proposed bench prewire/install-before-Monitor sequence, NOT qualified removal or assembled tool clearance",
+  "tested_pairs": 32,
+  "changed_parts": 17,
+  "retained_targets": 386,
+  "sample_count": 945,
+  "point_queries": 53,
+  "obsolete_HP_upstream_core_not_tested_as_current": true,
+  "worker_seconds": 75.469,
+  "finished_utc": "2026-10-09T05:31:17.551339+00:00"
+}

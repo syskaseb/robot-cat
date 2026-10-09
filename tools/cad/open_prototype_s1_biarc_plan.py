@@ -15,7 +15,7 @@ from open_prototype_path_preflight import samples
 B=S.B;F=S.F;K=S.K;C=S.C;ROOT=S.ROOT;OUT=S.OUT
 PLAN=OUT/'s1-biarc-family-plan.json';PROOF=OUT/'s1-biarc-family-space.json';REUSE_PROOF=None
 
-def search(connector=A.connect,base_override=None,receiving_goals=None,source_budget_allowance=.5,max_joint_combinations=256):
+def search(connector=A.connect,base_override=None,receiving_goals=None,source_budget_allowance=.5,max_joint_combinations=256,construction_lengths=(16,24,32,40,48,60,75,90,110,135,165)):
     base=copy.deepcopy(base_override) if base_override is not None else F.build()
     records=B.read(OUT/'obstacle-map-current.json')['objects']
     fixed=[dict(name=r['role'],bounds=K.bounds(r['centre_mm'],r['size_mm']))
@@ -77,7 +77,7 @@ def search(connector=A.connect,base_override=None,receiving_goals=None,source_bu
         for wire,terminal,target in S.source_specs(p):
             ring=next(r for r in p['s1_module']['rings'] if r['terminal']==terminal)
             end=p['ports'][target]['point_mm'];arrival=B.mul(p['ports'][target]['departure'],-1);rows=[]
-            for d1 in (16,24,32,40,48,60,75,90,110,135,165):
+            for d1 in construction_lengths:
                 counts['biarc_constructions']+=1
                 try:
                     parts=connector(ring['barrel_mm'],ring['direction'],end,arrival,d1)

@@ -100,6 +100,9 @@ def run():
         # Include changed complete factory feeds, not only casing/prefixes.
         # Protected extensions are already listed above; do not duplicate.
         present={r[0] for r in routes}
+        for r in p.get('s1_routes',[]):
+            routes.append((r['wire'],r['segments'],'S1_ring_'+str(r['terminal']),r['target'].split('.')[0],r['OD_mm']/2))
+            present.add(r['wire'])
         for r in p.get('tails',[]):
             if r['wire'] in present or r['wire'] not in p['changed_path_names']:continue
             source='MTA_'+r['leg'] if r['leg'] in ('FL','FR','RL','RR') else r.get('holder')
