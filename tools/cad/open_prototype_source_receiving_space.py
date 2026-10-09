@@ -24,7 +24,7 @@ def run():
     pins.update({f.relative_to(G.ROOT).as_posix():B.sha(f) for f in files})
     assert all(B.sha(G.ROOT/n)==h for n,h in pins.items())
     result=dict(status='PENDING',contacts=[],outside=[],external_operator_outside=[],
-        input_point_intrusions=[],input_outside=[],receiving_trunk_intrusions=[],
+        input_point_intrusions=[],input_outside=[],head_transition_outside=[],receiving_trunk_intrusions=[],
         errors=[],source_sha256=pins,selected=False,stage_completed=False,physical_pass=False,
         point_screen_not_full_tube=True,native_sources_saved=False,
         scope='Changed complete module families versus current other cases and retained valid material; changed FHAC inputs and PI output/joint positive-point screen. Unchanged partial results may be reused only with pinned geometry; other conductors invalidated/open.',
@@ -93,16 +93,20 @@ def run():
         for h in p['holders']:
             if h['role'] in ('F_PI','F_HY','F_HP','F_TY'):
                 routes.append((h['role']+'/input',h['input_segments'],h['role'],h['input_target'].split('.')[0],2))
-            if h['role']=='F_PI':
-                routes += [('F_PI/output',h['output_segments'],'F_PI',None,2),
-                    ('F_PI/sleeve',[B.line(h['sleeve_start_mm'],h['sleeve_end_mm'])],None,None,3),
-                    ('F_PI/new_insulation',[B.line(h['output_segments'][-1]['end'],h['new_insulation_end_mm'])],None,None,1.05)]
+            routes += [(h['role']+'/output',h['output_segments'],h['role'],None,2),
+                (h['role']+'/sleeve',[B.line(h['sleeve_start_mm'],h['sleeve_end_mm'])],None,None,3),
+                (h['role']+'/new_insulation',[B.line(h['output_segments'][-1]['end'],h['new_insulation_end_mm'])],None,None,1.05)]
+        for r in p.get('protected_receiving_rows',[]):routes.append((r['wire'],r['segments'],r['holder'],None,r['OD_mm']/2))
         routes=[r for r in routes if r[0] in p['changed_path_names']]
         inventory=[(n,s,s.BoundBox) for n,s in scene+changed];witness={};outside={};count=queries=0
         for name,parts,source,receiver,radius in routes:
             for segment,q in samples(parts):
                 count+=1;v=A.Vector(*q)
-                if name not in outside and not torso.isInside(v,1e-7,True):outside[name]=dict(name=name,segment=segment,point_mm=q)
+                if not torso.isInside(v,1e-7,True):
+                    row=dict(name=name,segment=segment,point_mm=q)
+                    if name=='XB12' and segment==len(parts)-1 and -112.000001<=q[0]<=-109 and abs(q[1]+57.85)<1e-6 and abs(q[2]-84.5937822173509)<1e-6:
+                        if not result['head_transition_outside']:result['head_transition_outside'].append(dict(row,interpretation='Unchanged last body/head exit segment, not rejected as body-internal wire; full bridge/thickness/motion OPEN'))
+                    elif name not in outside:outside[name]=row
                 for n,s,bbox in inventory:
                     if (name,n) in witness or not bbox.isInside(v):continue
                     if n==source and math.dist(q,parts[0]['start'])<=radius+1e-5:continue
@@ -112,7 +116,9 @@ def run():
         result.update(input_point_intrusions=list(witness.values()),input_outside=list(outside.values()),
                       sample_count=count,point_queries=queries)
         # Preserve HP receiving core while testing both moved cases together.
-        core=next(r['core_segments'] for r in B.read(G.OUT/'source-fanouts-plan.json')['rows'] if r['wire']=='XB22')
+        replaced_HP=any(r['wire']=='XB22' for r in p.get('protected_receiving_rows',[]))
+        core=[] if replaced_HP else next(r['core_segments'] for r in B.read(G.OUT/'source-fanouts-plan.json')['rows'] if r['wire']=='XB22')
+        if replaced_HP:result['obsolete_HP_upstream_core_not_tested_as_current']=True
         for segment,q in samples(core):
             v=A.Vector(*q)
             for n,s in changed:

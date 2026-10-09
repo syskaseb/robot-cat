@@ -1,0 +1,235 @@
+{
+  "status": "SHARED_FANOUT_CAPACITY_REQUIRES_ONE_ACTUAL_GATE",
+  "counts": {
+    "whole_pairs": 7176,
+    "case_capacity_exclusions": 1449,
+    "case_budget_exclusions": 5451,
+    "case_route_exclusions": 139,
+    "prefix_choices": 548,
+    "prefix_exclusions": 118,
+    "shortlisted": 430
+  },
+  "choice": {
+    "SYS": {
+      "centre_mm": [
+        10,
+        -10,
+        148
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ]
+    },
+    "PI": {
+      "centre_mm": [
+        -3.0,
+        -37.0,
+        101.49999999999999
+      ],
+      "size_mm": [
+        20.25,
+        22,
+        51
+      ]
+    },
+    "input_segments": [
+      {
+        "kind": "line",
+        "start": [
+          -3.0,
+          -36,
+          126.99999999999999
+        ],
+        "end": [
+          -3.0,
+          -36,
+          142.0
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -3.0,
+          -36,
+          142.0
+        ],
+        "mid": [
+          -3.0,
+          -34.24264068711929,
+          146.2426406871193
+        ],
+        "end": [
+          -3.0,
+          -30,
+          148.0
+        ],
+        "radius_mm": 6
+      },
+      {
+        "kind": "line",
+        "start": [
+          -3.0,
+          -30,
+          148.0
+        ],
+        "end": [
+          -3.0,
+          -21,
+          148.0
+        ]
+      }
+    ],
+    "output_segments": [
+      {
+        "kind": "line",
+        "start": [
+          -3.0,
+          -36,
+          75.99999999999999
+        ],
+        "end": [
+          -3.0,
+          -36,
+          72.99999999999999
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -3.0,
+          -36,
+          72.99999999999999
+        ],
+        "mid": [
+          -1.2426406871192848,
+          -36.0,
+          68.7573593128807
+        ],
+        "end": [
+          3.0,
+          -36,
+          66.99999999999999
+        ],
+        "radius_mm": 6
+      },
+      {
+        "kind": "line",
+        "start": [
+          3.0,
+          -36,
+          66.99999999999999
+        ],
+        "end": [
+          21.0,
+          -36,
+          66.99999999999999
+        ]
+      }
+    ],
+    "sleeve_start_mm": [
+      3.75,
+      -36.0,
+      66.99999999999999
+    ],
+    "sleeve_end_mm": [
+      30.25,
+      -36.0,
+      66.99999999999999
+    ],
+    "new_insulation_end_mm": [
+      39.25,
+      -36.0,
+      66.99999999999999
+    ],
+    "whole_pair_turns_z": 0,
+    "output_direction": [
+      1,
+      0,
+      0
+    ],
+    "all_SYS_ports": {
+      "P_SYS.1": {
+        "point_mm": [
+          -3.0,
+          -21.0,
+          148.0
+        ],
+        "departure": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "P_SYS.2": {
+        "point_mm": [
+          3.5,
+          -21.0,
+          148.0
+        ],
+        "departure": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "P_SYS.3": {
+        "point_mm": [
+          10.0,
+          -21.0,
+          148.0
+        ],
+        "departure": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "P_SYS.4": {
+        "point_mm": [
+          16.5,
+          -21.0,
+          148.0
+        ],
+        "departure": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "P_SYS.5": {
+        "point_mm": [
+          23.0,
+          -21.0,
+          148.0
+        ],
+        "departure": [
+          0,
+          -1,
+          0
+        ]
+      }
+    },
+    "score": 10.0
+  },
+  "retained_profiles": 26,
+  "retained_profile_points": 1505,
+  "no_native_variants_generated": true,
+  "conservative_bbox_exclusion_not_material_collision": true,
+  "sampled_torso_not_containment_proof": true,
+  "sampled_paths_not_full_thickness": true,
+  "source_sha256": {
+    "tools/cad/open_prototype_aux_fanout_capacity.py": "ed1234dc86d88cbf31619eefc8137c1fc5bfecaa26e382ab75dc3062a969dea1",
+    "tools/cad/open_prototype_aux_fanout_plan.py": "00b569ec3cce4b8316d952bcdfb36cc8735a905b13e783f2a1b797893aa82574",
+    "tools/cad/open_prototype_pi_capacity_plan.py": "af4010ac3b1dc278b719a5562000b4d00f6a33270ec426c7f367983da2e00e42",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/aux-fanout-plan.json": "0663fdf9558413038891c4347abd76140b2368ecacd74d168ad125e028aeccb6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/routing-space-map.json": "f3e7492d373741c8b758d43da3b6a0295df74bb245b2626dd45bcbbb810e20d8"
+  },
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "worker_seconds": 9.936978,
+  "finished_utc": "2026-10-09T03:40:24.558987+00:00"
+}
