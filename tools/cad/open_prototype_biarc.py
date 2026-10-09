@@ -29,6 +29,7 @@ def connect(start,departure,end,arrival,d1,straight=9):
     first=arc(a,departure,joint)
     reverse=arc(b,B.mul(arrival,-1),joint)
     second={**reverse,'start':reverse['end'],'end':reverse['start']}
-    parts=[B.line(start,a),first,second,B.line(b,end)]
+    assert straight>=0
+    parts=([B.line(start,a)] if straight else [])+[first,second]+([B.line(b,end)] if straight else [])
     B.check_path(parts,start,end)
     return parts

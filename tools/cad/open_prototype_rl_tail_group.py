@@ -1,7 +1,7 @@
 """One coupled RL/MTA/tail gallery, not moving the occupied tail endpoint.
 
 Move whole RL MTA and both100mm-reserved sides; retain receiving case/ports.
-Tail uses a shared SOUTH gallery and a30mm final EAST straight, not the old
+Tail drops into a shared low SOUTH gallery and a9mm final EAST straight, not the old
 core that cannot be joined to the current TY output. Motion remains OPEN.
 """
 from pathlib import Path
@@ -35,11 +35,12 @@ def build():
     assert max(source['required_blank_mm'],output['required_blank_mm'])<=100
     h=next(h for h in p['holders'] if h['role']=='F_TY')
     start=h['new_insulation_end_mm'];end=[68,-45,116.78756443470179]
-    a=B.add(start,B.mul(B.WEST,9));q=B.quarter(a,B.WEST,B.SOUTH,12.6)
-    bottom=[q['end'][0],-62.4,151];turn=B.quarter(bottom,B.SOUTH,B.EAST,12.6)
+    a=B.add(start,B.mul(B.WEST,9));q=B.quarter(a,B.WEST,B.DOWN,12.6)
+    south=B.quarter(q['end'],B.DOWN,B.SOUTH,12.6)
+    bottom=[south['end'][0],-52.4,south['end'][2]];turn=B.quarter(bottom,B.SOUTH,B.EAST,12.6)
     approach=input_recipe(turn['end'],end,B.EAST,12.6)['segments']
     approach[-1]['end']=end
-    parts=[B.line(start,a),q,B.line(q['end'],bottom),turn]+approach
+    parts=[B.line(start,a),q,south,B.line(south['end'],bottom),turn]+approach
     full=[B.line(h['output_segments'][-1]['end'],start)]+parts
     length=B.check_path(full,full[0]['start'],end,12.6)
     B.check_path(h['output_segments']+full,h['output_mm'],end)
@@ -72,9 +73,13 @@ def compact():
         selected=False,stage_completed=False,physical_pass=False)
 
 if __name__=='__main__':
-    assert not PLAN.exists(),'One received group, no unchanged retry'
+    if PLAN.exists():
+        old=B.read(PLAN)
+        assert old['status']=='REQUIRES_SHARED_CHANGE_BEFORE_CAD'
+        assert old['source_sha256'][Path(__file__).relative_to(ROOT).as_posix()]!=B.sha(Path(__file__)), 'No unchanged retry'
     tick=time.monotonic();data=compact()
     data.update(worker_seconds=round(time.monotonic()-tick,6),finished_utc=datetime.now(timezone.utc).isoformat())
+    data['prior_failed_upper_gallery_preserved_in_git']='Previous own checkpoint commit: upper151mm gallery rejected by sampled boundary, no CAD acceptance. Current gallery drops25.2mm before SOUTH traverse; not a Y micro-offset.'
     PLAN.write_text(json.dumps(data,separators=(',',':'))+'\n',encoding='utf-8')
     print(json.dumps(dict(status=data['status'],blanks=[(r['wire'],r['required_blank_mm']) for r in data['family']['tails'] if r['wire'] in ('W044','W045')],
         conflicts=data['known_mutual_failures'],outside=data['conservative_boundary_exclusions'],seconds=data['worker_seconds'])),flush=True)

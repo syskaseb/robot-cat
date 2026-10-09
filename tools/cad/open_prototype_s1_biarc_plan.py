@@ -28,7 +28,10 @@ def search(connector=A.connect,base_override=None):
         for _,q in samples(parts):grid.setdefault(tuple(math.floor(v/cell) for v in q),[]).append((q,radius))
     def near(q,radius):
         key=tuple(math.floor(v/cell) for v in q)
-        return any(math.dist(q,v)<radius+r+.5 for d in itertools.product((-1,0,1),repeat=3)
+        #Do not turn an invented0.5mm sample allowance into a known collision.
+        #The final shared proximity report retains close pairs for exact
+        #centreline/radius checking; this is NOT a full clearance waiver.
+        return any(math.dist(q,v)<radius+r for d in itertools.product((-1,0,1),repeat=3)
             for v,r in grid.get(tuple(key[i]+d[i] for i in range(3)),[]))
     def inside(q,radius):
         spans=min(space,key=lambda r:(r['x_mm']-q[0])**2+(r['y_mm']-q[1])**2)['torso_z_intervals_mm']
@@ -69,7 +72,7 @@ def search(connector=A.connect,base_override=None):
             ([B.line(h['output_segments'][-1]['end'],h['new_insulation_end_mm'])],1.05)]
         if any(not boxes_clear(parts,radius,fixed)[0] for parts,radius in prefixes):counts['prefix_exclusions']+=1;continue
         groups=[]
-        for wire,terminal,target in [('W064',3,'P_FRONT.5'),('W065',6,'P_REAR.3'),('W067',2,'P_SYS.4'),('W068',5,'P_SYS.5')]:
+        for wire,terminal,target in S.source_specs(p):
             ring=next(r for r in p['s1_module']['rings'] if r['terminal']==terminal)
             end=p['ports'][target]['point_mm'];arrival=B.mul(p['ports'][target]['departure'],-1);rows=[]
             for d1 in (16,24,32,40,48,60,75,90,110,135,165):

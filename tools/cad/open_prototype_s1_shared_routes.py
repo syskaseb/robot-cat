@@ -22,11 +22,24 @@ PROOF=OUT/'s1-shared-routes-space.json'
 REUSE_PROOF=None
 RADIUS=25.2
 
+def source_specs(p):
+    """Bind current physical ports from the end ledger, never old recipes."""
+    result=[]
+    for wire in ('W064','W065','W067','W068'):
+        ends=[e for e in p['body_ends'] if e['wire']==wire]
+        assert len(ends)==2
+        port=[e for e in ends if e['current_role'] in p['ports']]
+        terminal=[e for e in ends if e['current_role'].startswith('S1.')]
+        assert len(port)==len(terminal)==1,(wire,ends)
+        assert port[0]['net']==port[0]['current_role'].split('.')[0]
+        result.append((wire,int(terminal[0]['current_role'].split('.')[1]),port[0]['current_role']))
+    assert len({r[2] for r in result})==4
+    return result
+
 def route_sources(p):
     """First solve required end tangent, then aim each whole ring at its bend."""
     rings=p['s1_module']['rings'];routes=[]
-    for wire,t,target in [('W064',3,'P_FRONT.5'),('W065',6,'P_REAR.3'),
-                          ('W067',2,'P_SYS.4'),('W068',5,'P_SYS.5')]:
+    for wire,t,target in source_specs(p):
         ring=next(r for r in rings if r['terminal']==t)
         eye=ring['eye_mm'];end=p['ports'][target]['point_mm']
         arrival=B.mul(p['ports'][target]['departure'],-1)

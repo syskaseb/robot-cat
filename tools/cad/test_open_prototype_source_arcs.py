@@ -4,6 +4,14 @@ import open_prototype_s1_northern_bypass as N
 B=A.B
 
 class TangentSources(unittest.TestCase):
+    def test_source_ports_follow_current_end_ledger(self):
+        import open_prototype_s1_shared_routes as S
+        p=S.F.build();rows=S.source_specs(p)
+        self.assertEqual(dict((w,t) for w,_,t in rows)['W065'],'P_REAR.5')
+        self.assertNotEqual(dict((w,t) for w,_,t in rows)['W065'],next(h['input_target'] for h in p['holders'] if h['role']=='F_AUX'))
+        for row in p['tails']:
+            if row['wire'] in {e['wire'] for e in p['body_ends']}:
+                self.assertIn(row['target'],[e['current_role'] for e in p['body_ends'] if e['wire']==row['wire']])
     def test_exact_three_dimensional_tangents(self):
         for first in (32,40,60,80,110):
             parts=A.connect([132.2,43.123,85],B.NORTH,[81.8,42.5,124.221923828125],B.UP,first)

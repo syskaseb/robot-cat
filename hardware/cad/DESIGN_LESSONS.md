@@ -94,6 +94,10 @@ Przy podmianie fizycznego odcinka użyć istniejącej nazwy natywnej: logiczne
 W076_EXT zastępuje W076_EXTENSION_CP2, nie tworzy drugiego przewodu.
 Blokadę ponownej próby wiązać z geometrią przepisu, nie czasem raportu lub
 hashem całego skryptu; zmiana metadanych nie uzasadnia ponownego CAD.
+Po zamianie portów receptę generować z bieżącego rejestru obu końców,
+nie z lokalnej starej tabeli połączeń. Potwierdzić jednoznaczność zajętych
+zacisków przed oceną przestrzeni; poprawne obwody nie naprawiają błędnego
+celu fizycznego przewodu (W065/P_REAR w etapie3).
 
 Przy rozszerzaniu zapisanej historii PartDesign jawnie aktualizować Tip.
 W wyrażeniach długości dodawać jednostki stałym (`4 mm + Parameters.Gap`).
