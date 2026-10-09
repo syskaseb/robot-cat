@@ -7,6 +7,12 @@ które zmieniają sposób pracy. Bieżący stan pozostaje w HOBBY_COMPLETION_PLA
 
 ## Co się nie sprawdziło
 
+- **Trasy sprawdzone bez ich rzeczywistych podpór.** Dowód wolnej przestrzeni,
+  który wyłącza `replaceable_support`, nie kwalifikuje obecnego złożenia.
+  Przed projektowaniem chwytów związać aktualne pozycje modułów z natywnymi
+  płytami, kolumnami i mocowaniami obu stron. Jawnie wskazać części zastępowane.
+  Nie dopasowywać chwytów do trasy przecinającej zachowaną kolumnę ramy ani
+  usuwać kolumny, żeby otrzymać zielony wynik. Najpierw uzgodnić ten interfejs.
 - **Dopasowywanie wnętrza do odziedziczonej skorupy.** Powstawały kolejne
   wycięcia, podpory i trudne trasy. Najpierw zestawić rzeczywiste moduły,
   przewody, narzędzia i ruch w jednym układzie. Dopiero potem ustalić obrys

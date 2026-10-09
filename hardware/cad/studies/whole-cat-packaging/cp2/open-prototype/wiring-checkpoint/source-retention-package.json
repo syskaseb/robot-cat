@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "status": "S1_LOCAL_NATIVE_AND_EXPORT_VERIFIED_ASSEMBLY_DEPENDENCIES_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "stage_completed": false,
+  "source_retention_checkpoint_complete": false,
+  "gates": {
+    "geometry": {
+      "status": "open",
+      "reason": "S1 current wires/cases and base rails checked; obsolete MTAroot contacts require replacement; D_RL/rear native column contact unresolved"
+    },
+    "assembly": {
+      "status": "open",
+      "reason": "Local S1 bench mounting only; complete wire/ATO installation/removal OPEN"
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Delivered S821bushing,lockingring,lead,no-crush/no-slip and tool fit OPEN"
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Profile,layer strength,creep and print support/removal OPEN"
+    },
+    "loads": {
+      "status": "open",
+      "reason": "Bracket acts on upper receiving plate; prototype load/retention test OPEN"
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "All14independent wire restraints/full body wiring/U1/stock OPEN"
+    },
+    "service": {
+      "status": "open",
+      "reason": "Actual wired bank access and whole module service OPEN"
+    }
+  },
+  "files": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+      "sha256": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonMtaMounts.FCStd",
+      "sha256": "ce13e801ac7398707591653108a4d04f818249e9b747ba78c487387cc35cb99f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LeftDistributionCarrierSourceCurrent.stl",
+      "sha256": "ca14a336ce89b77a660920890cca85ed389d6c7a493ca85893998ea64ca2ca1d"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/RightDistributionCarrierSourceCurrent.stl",
+      "sha256": "8e88997c4fc5b639b0476577607cd89ac62d28f6e40049351663de31ffae2d34"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/S1BracketSourceCurrent.stl",
+      "sha256": "387ece5424808d8705e4ef1d7328c014fd49a73d55b774c90fe07b5f417a1055"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd",
+      "sha256": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceRetentionCurrent.FCStd",
+      "sha256": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/UpperCarrierSourceCurrent.stl",
+      "sha256": "764f0b603bb7bf647053e5fa6c6cb4c6f4466d7cd1629d2d26641b9cebf97af8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-current-receipt.json",
+      "sha256": "e062dd537ba377647585fb083d513e3be2008d763a75f92d1f0f0d1831cd07fd"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-retention-capacity.json",
+      "sha256": "54cf90fb62a6633870cba019a9611a3a2e8b6b2acc722249bb1964aa301c6eba"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-retention-checks.json",
+      "sha256": "e28541aba1a5b54dea718ae93054b1d20401bc4b1fbbe37f7c77b7dd776465ed"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-retention-reopen.json",
+      "sha256": "37ace30e15c76928baae7a5df29ee9f1b3eae456e0281ec754fd7c9861177f2b"
+    },
+    {
+      "path": "hardware/reference/manual-stop-p0-2026-09-24/NKK-hardware-C91.png",
+      "sha256": "2491f8c4f3da11b101fbde3cd770d1f53df6ae264ff32984171e3508db7ba70d"
+    },
+    {
+      "path": "hardware/reference/manual-stop-p0-2026-09-24/S821-A120.png",
+      "sha256": "66b883d25a474ab94fcf132117aba0ff6af7871bada110f21d52dc9fc9dcffcc"
+    },
+    {
+      "path": "tools/cad/open_prototype_source_retention.py",
+      "sha256": "fb2d8ca34d51235012cd70f6557da16667a6c928cb852f1919d450c6523fdf02"
+    },
+    {
+      "path": "tools/cad/open_prototype_source_retention_verify.py",
+      "sha256": "6ed4e90306cec2ba529b04bc6c476fc2c4259810ecae1449eafd8fdb76fd8929"
+    }
+  ],
+  "exports": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/UpperCarrierSourceCurrent.stl",
+      "sha256": "764f0b603bb7bf647053e5fa6c6cb4c6f4466d7cd1629d2d26641b9cebf97af8",
+      "dimensions_mm": [
+        189.0,
+        81.99939923058264,
+        15.300000190734863
+      ],
+      "closed": true,
+      "selected": false,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/S1BracketSourceCurrent.stl",
+      "sha256": "387ece5424808d8705e4ef1d7328c014fd49a73d55b774c90fe07b5f417a1055",
+      "dimensions_mm": [
+        23.985083054751158,
+        57.99626922607422,
+        37.529998779296875
+      ],
+      "closed": true,
+      "selected": false,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LeftDistributionCarrierSourceCurrent.stl",
+      "sha256": "ca14a336ce89b77a660920890cca85ed389d6c7a493ca85893998ea64ca2ca1d",
+      "dimensions_mm": [
+        205.0,
+        48.75,
+        57.0099983215332
+      ],
+      "closed": true,
+      "selected": false,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/RightDistributionCarrierSourceCurrent.stl",
+      "sha256": "8e88997c4fc5b639b0476577607cd89ac62d28f6e40049351663de31ffae2d34",
+      "dimensions_mm": [
+        205.0,
+        65.25,
+        57.0099983215332
+      ],
+      "closed": true,
+      "selected": false,
+      "print_ready": false
+    }
+  ],
+  "new_candidate_hardware": {
+    "M3x8": 2,
+    "M3_washer": 2,
+    "M3_nut": 2
+  },
+  "supplier_hardware_reused": [
+    "AT503M",
+    "AT506M",
+    "AT508",
+    "AT527M"
+  ],
+  "assembly": [
+    "Fit upper plate with source passages and north anchor ear before boards",
+    "Bench fit S821backupnut/lockingring/panel/lockwasher/facenut; preserve stated panel stack",
+    "Fit2M3nuts in bracket underside; install bracket using2M3x8/2washers from below before monitor",
+    "Attach four source ring terminations with power disconnected; independent wire grips still OPEN"
+  ],
+  "dependency_note": "Use matched paired carriers without obsolete G2/D_RR station pads/4MTA roots; whole4MTA mounting remains OPEN. Do not select the plate while D_RL occupies the rear load column. No frame boss deleted to hide that conflict.",
+  "next": "Resolve D_RL and all source support ownership jointly; then14native wire seats, P_REAR, MTA/ATO/service and stock",
+  "worker_seconds": 34.15700000000652,
+  "minimum_confirmed_results": "3/20=15%,unchanged"
+}

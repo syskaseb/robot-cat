@@ -1,0 +1,72 @@
+{
+  "status": "S1_CHANGED_NATIVE_INTERFACES_PREPARED_NOT_WHOLE_SOURCE_RETENTION",
+  "selected": false,
+  "physical_pass": false,
+  "source_retention_checkpoint_complete": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/CommonMtaMounts.FCStd": "ce13e801ac7398707591653108a4d04f818249e9b747ba78c487387cc35cb99f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-current-receipt.json": "e062dd537ba377647585fb083d513e3be2008d763a75f92d1f0f0d1831cd07fd",
+    "hardware/reference/manual-stop-p0-2026-09-24/S821-A120.png": "66b883d25a474ab94fcf132117aba0ff6af7871bada110f21d52dc9fc9dcffcc",
+    "hardware/reference/manual-stop-p0-2026-09-24/NKK-hardware-C91.png": "2491f8c4f3da11b101fbde3cd770d1f53df6ae264ff32984171e3508db7ba70d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SharedDistributionCarriers.FCStd": "6327b2d99ba258053cbf49595378bce3441599303ac4307d0be567a7e0377582",
+    "tools/cad/open_prototype_source_retention.py": "fb2d8ca34d51235012cd70f6557da16667a6c928cb852f1919d450c6523fdf02"
+  },
+  "scope": "Changed S1 panel/UpperCarrier only. Four moved MTA supports, P_REAR,14wire restraints and whole wiring remain OPEN.",
+  "contacts": [],
+  "errors": [],
+  "pairs": 31,
+  "unresolved_prior_carrier_interfaces": [
+    {
+      "a": "UpperCarrier",
+      "b": "D_RL",
+      "volume_mm3": 143.07357808787222
+    }
+  ],
+  "native_volumes_mm3": {
+    "UpperCarrier": 26373.68004762989,
+    "S1Bracket": 5581.638463446835,
+    "LeftDistributionCarrier": 27135.985479442992,
+    "RightDistributionCarrier": 27587.485479443065
+  },
+  "parameter_mm": [
+    3,
+    3.5,
+    3
+  ],
+  "parameter_restored": true,
+  "replaced_native_supports": [
+    "LeftDistributionCarrier",
+    "RightDistributionCarrier"
+  ],
+  "retired_support_interfaces": [
+    "oldG2pad",
+    "oldD_RRpad",
+    "old4MTAaddedroots"
+  ],
+  "current_four_MTA_mounts_still_open": true,
+  "candidate_hardware": {
+    "M3x8": 2,
+    "M3_washer": 2,
+    "M3_nut": 2
+  },
+  "supplier_hardware_reused": [
+    "AT503M",
+    "AT506M",
+    "AT508",
+    "AT527M"
+  ],
+  "delivery_gates": [
+    "S821case/bushingdatum",
+    "locking_ring_orientation",
+    "PETGcreep/clamp",
+    "nut/tool/lead actual fit"
+  ],
+  "panel_bounds_mm": [
+    24,
+    58,
+    37.53
+  ],
+  "worker_seconds": 44.64099999994505,
+  "model_sha256": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e"
+}
