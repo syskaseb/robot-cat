@@ -1,0 +1,253 @@
+{
+  "status": "CURRENT_GROUND_NOMINAL_PLAN_ONLY",
+  "row": {
+    "wire": "W001",
+    "net": "G_SYS",
+    "ends": [
+      "BAT.minus",
+      "G1.1"
+    ],
+    "start_mm": [
+      -73,
+      -58.8,
+      57
+    ],
+    "end_mm": [
+      -93.0,
+      -53.0,
+      105
+    ],
+    "segments": [
+      {
+        "kind": "line",
+        "start": [
+          -73,
+          -58.8,
+          57
+        ],
+        "end": [
+          -64,
+          -58.8,
+          57
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -64,
+          -58.8,
+          57
+        ],
+        "end": [
+          -51.6,
+          -46.4,
+          57.0
+        ],
+        "mid": [
+          -55.231875913286814,
+          -55.168124086713185,
+          57.0
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -51.6,
+          -46.4,
+          57.0
+        ],
+        "end": [
+          -51.6,
+          -34.0,
+          69.4
+        ],
+        "mid": [
+          -51.6,
+          -37.631875913286805,
+          60.63187591328681
+        ]
+      },
+      {
+        "kind": "line",
+        "start": [
+          -51.6,
+          -34.0,
+          69.4
+        ],
+        "end": [
+          -51.6,
+          -34.0,
+          117.4
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -51.6,
+          -34.0,
+          117.4
+        ],
+        "end": [
+          -64.0,
+          -34.0,
+          129.8
+        ],
+        "mid": [
+          -55.231875913286814,
+          -34.0,
+          126.16812408671319
+        ]
+      },
+      {
+        "kind": "line",
+        "start": [
+          -64.0,
+          -34.0,
+          129.8
+        ],
+        "end": [
+          -80.6,
+          -34.0,
+          129.8
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -80.6,
+          -34.0,
+          129.8
+        ],
+        "end": [
+          -93.0,
+          -46.4,
+          129.8
+        ],
+        "mid": [
+          -89.36812408671318,
+          -37.63187591328681,
+          129.8
+        ]
+      },
+      {
+        "kind": "line",
+        "start": [
+          -93.0,
+          -46.4,
+          129.8
+        ],
+        "end": [
+          -93.0,
+          -56.0,
+          129.8
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -93.0,
+          -56.0,
+          129.8
+        ],
+        "end": [
+          -93.0,
+          -68.4,
+          117.4
+        ],
+        "mid": [
+          -93.0,
+          -64.76812408671319,
+          126.1681240867132
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          -93.0,
+          -68.4,
+          117.4
+        ],
+        "end": [
+          -93.0,
+          -56.00000000000001,
+          105.0
+        ],
+        "mid": [
+          -93.0,
+          -64.7681240867132,
+          108.63187591328682
+        ]
+      },
+      {
+        "kind": "line",
+        "start": [
+          -93.0,
+          -56.00000000000001,
+          105.0
+        ],
+        "end": [
+          -93.0,
+          -53.00000000000001,
+          105.0
+        ]
+      }
+    ],
+    "OD_mm": 3.1,
+    "minimum_radius_mm": 12.4,
+    "centreline_mm": 203.0672467135403,
+    "termination_allowance_mm": 19,
+    "nominal_fit_blank_mm": 223,
+    "old150mm_blank_margin_mm": -72.0672467135403,
+    "material": "LAPP0107001",
+    "terminal_allowance_basis": "14mm WAGO strip +5mm solder project allowance",
+    "datum_basis": "Retained nominal robot XT60 negative cup; current G1.1 project entry, not supplier cavity measurement",
+    "grips": [
+      {
+        "end": "BAT.minus",
+        "insulation_axis_from_mm": [
+          -73,
+          -58.8,
+          57
+        ],
+        "insulation_axis_to_mm": [
+          -64,
+          -58.8,
+          57
+        ]
+      },
+      {
+        "end": "G1.1",
+        "insulation_axis_from_mm": [
+          -93.0,
+          -46.4,
+          129.8
+        ],
+        "insulation_axis_to_mm": [
+          -93.0,
+          -56.0,
+          129.8
+        ],
+        "grip_is_before_hairpin_not_on_final3mm": true
+      }
+    ],
+    "grip_mounts_and_assembly_access_open": true,
+    "selected": false,
+    "stage_completed": false,
+    "physical_pass": false
+  },
+  "source_sha256": {
+    "tools/cad/open_prototype_ground_current.py": "15fff3d08fdea666aef84765b63caf5d771b54c8938163943e18ffcedc0b8a93",
+    "tools/cad/open_prototype_biarc.py": "416ba5b59c7b185457121bed0129d247be9f6f927bd28de351919e68be55d312",
+    "tools/cad/open_prototype_rl_tail_group.py": "b37723e6b4547c345ad40bf5b2a657d87d72ac73accdefccfe9b4d50ad03123a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a"
+  },
+  "geometry_digest": "6a0cf1c10a2047afa22638bb9a632666391e403a6d880b8e24aba4e6c35bc302",
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "worker_seconds": 0.19917729997541755
+}
