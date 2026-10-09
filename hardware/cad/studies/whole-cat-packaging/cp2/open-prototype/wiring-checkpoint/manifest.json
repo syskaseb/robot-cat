@@ -1,5 +1,16 @@
 {
   "schema_version": 1,
+  "current_source_receiving_family": {
+    "plan":"source-receiving-family-plan.json", "proof":"source-receiving-family-space.json",
+    "status":"REJECTED_COUPLED_SPACE_OR_INPUT_WITNESS", "selected":false, "stage_completed":false,
+    "plan_seconds":0.064339, "tests":2, "test_seconds":0.192, "worker_seconds":62.719,
+    "input_blanks_mm":{"PI":47.424778,"HY":38.680484,"HP":59.004315,"TY":80.189029},
+    "rejects":"P_SYS outside3088.180177mm3; F_PI versus G1 3162.6375/G2 263.925mm3. Other changed modules had no reported contacts; no positive input/prefix/head-pitch-core point witnesses, not full tube proof.",
+    "preserve_partial":"S1 horizontal bearing plane and P_AUX/all3FHAC input rebind. External S1 operator is explicitly allowed outside the shell by original CP2 source; historical raw negative proof preserved.",
+    "assembly":"Bench prewire S1 then install before Monitor is a proposed sequence, not native removal proof. Four unchanged Monitor driver obstructions remain recorded.",
+    "next":"Whole P_SYS/PI family orientation and PI exit topology must change together. All four S1 source routes/native strain relief/full wiring remain OPEN.",
+    "native_files_changed":0,"stock_selected":false,"physical_pass":false
+  },
   "current_source_receiving_coupling": {
     "protected_plan": "protected-loads-receiving-plan.json",
     "protected_proof": "protected-loads-point-screen.json",
@@ -14,7 +25,7 @@
     "S1_macro_seconds": 57.781,
     "S1_macro_status": "REJECTED_SHARED_S1_SPACE_BUDGET",
     "S1_macro_change": "Entire nominal S1 rotatedX+90 and relocated, all four actual bearing planes rotate together; upper rings SOUTH/lower NORTH. No native file writes.",
-    "S1_blocker": "Control budget enters P_AUX1928.103344mm3 and leavesTorso1231.504193mm3; all four driver budgets hit Monitor. Casing/ring fit is insufficient for selection.",
+    "S1_blocker": "Control reservation enters P_AUX1928.103344mm3; all four driver budgets hit Monitor. CORRECTION09.10: S1_control_CP2 explicitly require_internal_shell=False in whole_cat_interior.py, also external in power-island plan. Its1231.504193mm3 outside volume does NOT by itself reject external operator fit. Historical raw proof unchanged. P_AUX interference and installation/removal remain unresolved; casing/ring fit is insufficient for selection.",
     "contract_tests": 2,
     "contract_seconds": 0.248,
     "native_files_changed": 0,
