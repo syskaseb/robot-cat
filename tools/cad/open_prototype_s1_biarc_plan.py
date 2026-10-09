@@ -15,14 +15,15 @@ from open_prototype_path_preflight import samples
 B=S.B;F=S.F;K=S.K;C=S.C;ROOT=S.ROOT;OUT=S.OUT
 PLAN=OUT/'s1-biarc-family-plan.json';PROOF=OUT/'s1-biarc-family-space.json';REUSE_PROOF=None
 
-def search(connector=A.connect,base_override=None):
+def search(connector=A.connect,base_override=None,receiving_goals=None,source_budget_allowance=.5,max_joint_combinations=256):
     base=copy.deepcopy(base_override) if base_override is not None else F.build()
     records=B.read(OUT/'obstacle-map-current.json')['objects']
     fixed=[dict(name=r['role'],bounds=K.bounds(r['centre_mm'],r['size_mm']))
         for r in base['stations']+base['mta']+base['holders'] if r['role'] not in ('P_SYS','F_PI')]
     fixed += [dict(name=r['name'],bounds=r['bounds_mm']) for r in records
         if r['basis'].startswith('Canonical whole-component/reference envelope') or r['name']=='U1UnknownModuleReservation']
-    fixed += [dict(name='S1/body',bounds=[114.2,-21,89,138.2,21,126]),dict(name='S1/operator',bounds=[112.2,-14,126,140.2,14,160])]
+    fixed += [dict(name='S1/body',bounds=base['s1_module'].get('body_bounds_mm',[114.2,-21,89,138.2,21,126])),
+              dict(name='S1/operator',bounds=base['s1_module'].get('operator_bounds_mm',[112.2,-14,126,140.2,14,160]))]
     space=B.read(OUT/'routing-space-map.json')['samples'];cell=10;grid={}
     for name,radius,parts in C.profiles(base):
         for _,q in samples(parts):grid.setdefault(tuple(math.floor(v/cell) for v in q),[]).append((q,radius))
@@ -36,17 +37,17 @@ def search(connector=A.connect,base_override=None):
     def inside(q,radius):
         spans=min(space,key=lambda r:(r['x_mm']-q[0])**2+(r['y_mm']-q[1])**2)['torso_z_intervals_mm']
         return bool(spans) and min(v[0] for v in spans)+radius+.5<=q[2]<=max(v[1] for v in spans)-radius-.5
-    def boxes_clear(parts,radius,boxes,receiver=None):
+    def boxes_clear(parts,radius,boxes,receiver=None,allowance=.5):
         points=list(samples(parts,step=2))
         for _,q in points:
             if near(q,radius) or not inside(q,radius):return False,'route_or_boundary'
             for r in boxes:
                 if r['name']==receiver and math.dist(q,parts[-1]['end'])<=radius+1e-6:continue
-                if K.distance_squared(q,r['bounds'])<(radius+.5)**2:return False,r['name']
+                if K.distance_squared(q,r['bounds'])<(radius+allowance)**2:return False,r['name']
         return True,points
     counts=dict(families=0,case_exclusions=0,prefix_exclusions=0,biarc_constructions=0,source_exclusions=0,joint_combinations=0)
     rejections={};choices=[]
-    goals=sorted(itertools.product(range(-90,131,10),range(-60,61,10)),key=lambda q:math.dist(q,[10,-10]))
+    goals=receiving_goals if receiving_goals is not None else sorted(itertools.product(range(-90,131,10),range(-60,61,10)),key=lambda q:math.dist(q,[10,-10]))
     #All four outputs need the148mm level in this bounded family. Lower
     #levels are not retried as undeclared shorter-radius curves.
     for x,y in goals:
@@ -81,7 +82,7 @@ def search(connector=A.connect,base_override=None):
                     parts=connector(ring['barrel_mm'],ring['direction'],end,arrival,d1)
                     length=B.check_path(parts,min_radius=25.2)
                 except (AssertionError,ValueError,ZeroDivisionError):continue
-                clear,detail=boxes_clear(parts,2.1,fixed+boxes,target.split('.')[0])
+                clear,detail=boxes_clear(parts,2.1,fixed+boxes,target.split('.')[0],source_budget_allowance)
                 if not clear:
                     key=wire+'/'+detail;rejections[key]=rejections.get(key,0)+1;continue
                 rows.append(dict(wire=wire,terminal=terminal,target=target,eye_mm=ring['eye_mm'],
@@ -94,6 +95,8 @@ def search(connector=A.connect,base_override=None):
             if not rows:break
         if len(groups)!=4 or any(not g for g in groups):counts['source_exclusions']+=1;continue
         for rows in itertools.product(*groups):
+            if counts['joint_combinations']>=max_joint_combinations:
+                counts['joint_search_budget_reached']=True;break
             counts['joint_combinations']+=1;p['s1_routes']=list(rows)
             report=F.F.proximity(p)
             if any(r['status']=='REJECT_PLANNING_PROXIMITY' for r in report['near_pairs']):continue

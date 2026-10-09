@@ -97,6 +97,15 @@ def run():
                 (h['role']+'/sleeve',[B.line(h['sleeve_start_mm'],h['sleeve_end_mm'])],None,None,3),
                 (h['role']+'/new_insulation',[B.line(h['output_segments'][-1]['end'],h['new_insulation_end_mm'])],None,None,1.05)]
         for r in p.get('protected_receiving_rows',[]):routes.append((r['wire'],r['segments'],r['holder'],None,r['OD_mm']/2))
+        # Include changed complete factory feeds, not only casing/prefixes.
+        # Protected extensions are already listed above; do not duplicate.
+        present={r[0] for r in routes}
+        for r in p.get('tails',[]):
+            if r['wire'] in present or r['wire'] not in p['changed_path_names']:continue
+            source='MTA_'+r['leg'] if r['leg'] in ('FL','FR','RL','RR') else r.get('holder')
+            receiver=r.get('target','').split('.')[0] or None
+            routes.append((r['wire'],r['segments'],source,receiver,r['OD_mm']/2))
+            present.add(r['wire'])
         routes=[r for r in routes if r[0] in p['changed_path_names']]
         inventory=[(n,s,s.BoundBox) for n,s in scene+changed];witness={};outside={};count=queries=0
         for name,parts,source,receiver,radius in routes:
