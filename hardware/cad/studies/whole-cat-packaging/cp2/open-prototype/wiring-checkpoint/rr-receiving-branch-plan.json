@@ -1,0 +1,309 @@
+{
+  "status": "INDEPENDENT_RR_RECEIVING_BRANCH_NOT_SELECTION",
+  "recipe_compact": true,
+  "materialized_geometry_digest": "7b128a4fa44e90871abe4b680c3c0b6d537b519749e4f324c8738fc73a9d8a8b",
+  "geometry_digest_rounding_mm": 1e-06,
+  "station": {
+    "role": "RR_P",
+    "centre_mm": [
+      109,
+      -42,
+      132.5
+    ],
+    "size_mm": [
+      19,
+      30,
+      9
+    ],
+    "model": "415",
+    "rotation": "90",
+    "supplier_cavity_datum_known": false,
+    "mount_status": "OPEN_MATCHED_NATIVE_RESTRAINT"
+  },
+  "changed_path_names": [
+    "W053"
+  ],
+  "factory_output": {
+    "wire": "W053",
+    "leg": "RR",
+    "side": "output",
+    "target": "RR_P.1",
+    "segments": [
+      {
+        "kind": "line",
+        "start": [
+          94.8,
+          -38.5,
+          117
+        ],
+        "end": [
+          94.8,
+          -41.5,
+          117
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          94.8,
+          -41.5,
+          117
+        ],
+        "mid": [
+          96.99669914110089,
+          -46.80330085889911,
+          117.0
+        ],
+        "end": [
+          102.3,
+          -49.0,
+          117.0
+        ],
+        "radius_mm": 7.5
+      },
+      {
+        "kind": "line",
+        "start": [
+          102.3,
+          -49.0,
+          117.0
+        ],
+        "end": [
+          127.5,
+          -49.0,
+          117
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          127.5,
+          -49.0,
+          117
+        ],
+        "mid": [
+          135.3501592340538,
+          -50.25,
+          124.75
+        ],
+        "end": [
+          127.5,
+          -51.5,
+          132.5
+        ],
+        "radius_mm": 7.850159234053791
+      },
+      {
+        "kind": "line",
+        "start": [
+          127.5,
+          -51.5,
+          132.5
+        ],
+        "end": [
+          118.5,
+          -51.5,
+          132.5
+        ]
+      }
+    ],
+    "centreline_mm": 73.6429750301752,
+    "required_blank_mm": 84.6429750301752,
+    "strip_allowance_mm": 11,
+    "OD_mm": 4,
+    "min_radius_mm": 7.5,
+    "assumed_factory_limit_mm": 100,
+    "factory_limit_not_catalog": true,
+    "terminal_straight_mm": 9,
+    "independent_grip_plan": "Final9mm WEST factory straight; receiving station and grip require new native support"
+  },
+  "mutual_path_preflight": {
+    "status": "PROXIMITY_SCREEN_ONLY_RETAINED_MATERIAL_OPEN",
+    "paths": 22,
+    "samples": 2167,
+    "step_max_mm": 1,
+    "near_pairs": [
+      {
+        "a": "W041",
+        "b": "W042",
+        "sampled_distance_mm": 4.00172842343743,
+        "centreline_minimum_mm": 4.0,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          -25.0,
+          -5.5,
+          117.0
+        ],
+        "sample_b_mm": [
+          -21.854101966249683,
+          -5.5,
+          119.47328848624517
+        ],
+        "segment_a": 0,
+        "segment_b": 3,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "W037",
+        "b": "W067",
+        "sampled_distance_mm": 6.092211893137147,
+        "centreline_minimum_mm": 4.1,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          -8.491681412179517,
+          49.0,
+          90.14985122510205
+        ],
+        "sample_b_mm": [
+          -14.0,
+          51.09422121256988,
+          91.69507276222073
+        ],
+        "segment_a": 2,
+        "segment_b": 6,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "W067",
+        "b": "W068",
+        "sampled_distance_mm": 6.0169939269356165,
+        "centreline_minimum_mm": 4.2,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          33.20842033955894,
+          32.99034742148479,
+          149.323
+        ],
+        "sample_b_mm": [
+          33.66021979120546,
+          33.0,
+          143.323
+        ],
+        "segment_a": 9,
+        "segment_b": 2,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "W044",
+        "b": "F_AUX/input",
+        "sampled_distance_mm": 4.127659024354607,
+        "centreline_minimum_mm": 4.0,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          68.8,
+          40.02671151375484,
+          119.36782186187531
+        ],
+        "sample_b_mm": [
+          69.89526249034444,
+          42.5,
+          116.25
+        ],
+        "segment_a": 4,
+        "segment_b": 1,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "W037",
+        "b": "F_AUX/output",
+        "sampled_distance_mm": 5.71220200165125,
+        "centreline_minimum_mm": 4.0,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          -0.077060704811593,
+          43.44114283826891,
+          116.75633902304412
+        ],
+        "sample_b_mm": [
+          4.145898033750315,
+          42.5,
+          113.02671151375485
+        ],
+        "segment_a": 1,
+        "segment_b": 1,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "F_HY/input",
+        "b": "F_HP/input",
+        "sampled_distance_mm": 4.75,
+        "centreline_minimum_mm": 4.0,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          111.0,
+          -20.75,
+          142.0
+        ],
+        "sample_b_mm": [
+          111.0,
+          -16.0,
+          142.0
+        ],
+        "segment_a": 3,
+        "segment_b": 2,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "F_HP/input",
+        "b": "F_TY/input",
+        "sampled_distance_mm": 4.749999999999991,
+        "centreline_minimum_mm": 4.0,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          111.0,
+          -16.0,
+          142.0
+        ],
+        "sample_b_mm": [
+          111.0,
+          -11.250000000000009,
+          142.0
+        ],
+        "segment_a": 2,
+        "segment_b": 3,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      },
+      {
+        "a": "W067",
+        "b": "F_TY/output",
+        "sampled_distance_mm": 5.033581443425348,
+        "centreline_minimum_mm": 4.1,
+        "sampling_allowance_mm": 2,
+        "sample_a_mm": [
+          39.97541791734214,
+          8.838616757162935,
+          149.323
+        ],
+        "sample_b_mm": [
+          35.346039145130206,
+          10.0,
+          147.72394299843728
+        ],
+        "segment_a": 9,
+        "segment_b": 2,
+        "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+      }
+    ],
+    "no_BRep_or_native_acceptance": true,
+    "selected": false,
+    "stage_completed": false,
+    "physical_pass": false,
+    "worker_seconds": 0.036507,
+    "finished_utc": "2026-10-09T02:13:54.041237+00:00"
+  },
+  "known_lower6_blocker_retained": true,
+  "selected": false,
+  "stage_completed": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "tools/cad/open_prototype_rr_receiving_branch.py": "e62b2696d521038238b1ca4e4ef3a4739ec241a4491f79dbf67eeb9803a4aa89",
+    "tools/cad/open_prototype_source_frame_corridor.py": "b1c289e9eaf5ec76209adfc7a4932497c0fb94e0fa1d0a4e70320fc07d666f1d",
+    "tools/cad/open_prototype_source_capacity_plan.py": "159cf19027f0cc003ccdfa71dbce0a859b107a8241634fb2073a977b46504d63",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-group-capacity-plan.json": "a1e3377dfb66cd2690c662590d2455dfc26e3db66a9f3fad94ca7c33b3434aca",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/rear-gallery-height-capacity.json": "be7297fc626aedde090d747d38954b2500900e9c7927483c99ee3a3f326960e2",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-group-frame-point-screen.json": "19cd327f9ebad1660bfaf0c88e0215715e70664960c317db602c8731680c7570"
+  },
+  "worker_seconds": 0.106426,
+  "finished_utc": "2026-10-09T02:13:54.067327+00:00"
+}

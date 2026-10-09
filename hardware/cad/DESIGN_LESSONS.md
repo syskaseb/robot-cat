@@ -113,3 +113,10 @@ kupnych rezerwacji w rzeczywistą bryłę tułowia, nie tylko wysokość Z. W CP
 08.10 osiem z20 rezerwacji WAGO przekraczało obrys; dalsze chronienie ich
 współrzędnych wymuszałoby kolejne obejścia. Zachować obwody/liczby części,
 a naruszone położenia i mocowania ponownie uzgodnić w jednym układzie.
+
+Minimalny prosty odcinek pod chwyt nie jest sztywną współrzędną końca łuku.
+Przed detalami sprawdzić wspólnie pełne trasy lekkim ekranem wzajemnych
+odległości; dopiero kandydat bez znanych przecięć przechodzi do brył.
+Ekran próbek nie jest certyfikatem prześwitu. Wysokość przy zakrzywionym
+dachu wyznaczać dla całego obrysu części i zapasu, a następnie przeliczyć
+wszystkie jej podejścia razem, nie przesuwać pojedynczego końca.
