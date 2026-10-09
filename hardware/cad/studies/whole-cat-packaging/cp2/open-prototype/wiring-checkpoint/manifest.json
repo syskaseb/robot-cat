@@ -1,4 +1,28 @@
 {
+  "manual_shared_layout_checkpoint": {
+    "started_utc":"2026-10-09T09:50:22Z","checkpoint_utc":"2026-10-09T10:13:29Z","wall_seconds":1387,
+    "scope":"Bounded support-first shared source-zone planning, maximum30min; not full stage3",
+    "status":"TWO_SHARED_PROPOSALS_REJECTED_DO_NOT_BUILD_DETAILED_CAD",
+    "producer":"tools/cad/open_prototype_source_shared_layout.py",
+    "producer_sha256":"516309a5f8bc26a9bd0406fa0ac8f2903f12d4fb2abfece7bc2732cb471adb57",
+    "proof":"source-shared-layout.json",
+    "proof_sha256":"930544f0bfc75ba5b2e72ad0acec27977a23cd011cab5dd23c936309d8f9e6c7",
+    "current_source_pins_verified":11,"two_worker_seconds":[56.015,46.907],"two_scoped_pairs":[116,100],
+    "latest_contacts":9,"latest_outside_service_budgets":1,"latest_computation_errors":0,
+    "baseline_nominal_G_TAIL_MTA_RR_overlap_mm3":288,
+    "no_physical_part_failure_claim":true,"bbox_is_not_collision":true,
+    "four_frame_columns_preserved":true,"all_eight_MTA_tails_in_scene":true,
+    "native_files_changed":0,"new_STLs":0,"new_proposal_selected":false,
+    "fourteen_seat_details_not_qualified_by_this_check":true,
+    "old_seven_profile_clearance_not_whole_current_native_acceptance":true,
+    "two_proposals_are_different_scopes_not_a_progress_percentage":true,
+    "next":"Allocate complete S1/four terminals/sources and coupled G_TAIL/RR_P/MTA_RR/tail housing together; explicit permission within scope to invalidate old routes; no third scalar support/pose retry",
+    "result_count":3,"result_denominator":20,"result_percent":15,"change_pp":0,
+    "usage_checked_utc":"2026-10-09T10:13:29Z","weekly_used_percent":31,"weekly_remaining_percent":69,
+    "hook_enabled":false,"active_worker":null,"model_settings_changed":false,
+    "whole_stage_estimate":"not reliable; bounded planning step did not produce a buildable complete group",
+    "stage_completed":false,"selected":false,"physical_pass":false
+  },
   "schema_version": 1,
   "manual_source_retention_20261009": {
     "started_utc":"2026-10-09T08:47:45Z","checkpoint_utc":"2026-10-09T09:19:22Z","wall_seconds":1897,
@@ -32,7 +56,7 @@
     "status":"S1_LOCAL_NATIVE_PREPARED_SHARED_CARRIER_DEPENDENCIES_REQUIRE_PLAN_FIRST",
     "base_commit":"de2384c",
     "station_source":"source-current-receipt.json",
-    "scope":"One matched source-family carrier and independent insulation restraints; preserve the seven qualified nominal profiles",
+    "scope":"One complete source-family layout including actual frame and supports; regenerate any invalidated source/tail profile rather than freezing seven scoped nominal profiles",
     "assembly_order":[
       "Resolve D_RL against actual rear column and source support ownership before adding14restraints; retain S1 candidate only with its matched paired rails",
       "Resolve actual structural ownership and screw/tool access of S1 and relocated P_REAR before detailing saddles",

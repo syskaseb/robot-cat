@@ -1,0 +1,718 @@
+{
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "native_files_changed": 0,
+  "scope": "Shared source-zone planning, not whole wiring or finished mounts",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceRetentionCurrent.FCStd": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-current-receipt.json": "e062dd537ba377647585fb083d513e3be2008d763a75f92d1f0f0d1831cd07fd",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-low-gap-plan.json": "701dfb4b03b41aa562681256b8c07093d1a9899875da0343b4bcca2471cc4eaa",
+    "hardware/reference/manual-stop-p0-2026-09-24/S821-A120.png": "66b883d25a474ab94fcf132117aba0ff6af7871bada110f21d52dc9fc9dcffcc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/ground-upstream-grip-plan.json": "8a329803bb4144ac9930c8d2aa2a8f8bad3c2df566749ee2f607c3dce5d791df",
+    "tools/cad/open_prototype_source_shared_layout.py": "516309a5f8bc26a9bd0406fa0ac8f2903f12d4fb2abfece7bc2732cb471adb57"
+  },
+  "changed_station": {
+    "before": {
+      "role": "D_RL",
+      "centre_mm": [
+        132,
+        -40,
+        76
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "model": "415",
+      "rotation": "0",
+      "supplier_cavity_datum_known": false,
+      "mount_status": "OPEN_MATCHED_NATIVE_RESTRAINT"
+    },
+    "after": {
+      "role": "D_RL",
+      "centre_mm": [
+        149,
+        50,
+        91
+      ],
+      "size_mm": [
+        30,
+        19,
+        9
+      ],
+      "model": "415",
+      "rotation": "180",
+      "supplier_cavity_datum_known": false,
+      "mount_status": "REAR_NORTH_SOURCE_TRELLIS_PROPOSAL"
+    }
+  },
+  "invalidated": [
+    "D_RL old case/support/ports and W012-W015 endpoints; these routes were not completed",
+    "Old4MTA mounting roots and P_REAR platform; current complete conductor profiles retained only if new supports clear",
+    "D_RR and G_TAIL old positions and all associated endpoints/routes; these cannot retain their previous qualification",
+    "Upper secondary distribution beams/pads retired together, lower10-station rails retained; G1/G2/F_AUX mounts remain explicitly OPEN"
+  ],
+  "retained_frame_columns": [
+    "Spacer1",
+    "Spacer2",
+    "Spacer3",
+    "Spacer4"
+  ],
+  "support_owners": {
+    "MTA_FL/floor_arm": "UpperCarrier",
+    "MTA_FR/floor_arm": "UpperCarrier",
+    "MTA_RL/floor_arm": "UpperCarrier",
+    "MTA_RL/plate_ear": "UpperCarrier",
+    "MTA_RR/floor_arm": "UpperCarrier",
+    "MTA_RR/plate_ear": "UpperCarrier",
+    "P_REAR/platform": "UpperCarrier",
+    "P_REAR/plate_ear": "UpperCarrier",
+    "DATA/plate_ear": "UpperCarrier",
+    "D_RL/shelf": "UpperCarrier",
+    "D_RR/shelf": "UpperCarrier",
+    "G_TAIL/platform": "UpperCarrier"
+  },
+  "contacts": [
+    {
+      "a": "D_RR",
+      "b": "P0_UpperHousing34",
+      "volume_mm3": 94.5,
+      "basis": "changed case versus ALL retained material/reservations"
+    },
+    {
+      "a": "S1_ring_6",
+      "b": "Spacer4",
+      "volume_mm3": 29.782916,
+      "basis": "current native owner"
+    },
+    {
+      "a": "MTA_FR/floor_arm",
+      "b": "F_AUX/sleeve",
+      "distance_mm": 2.0,
+      "required_mm": 3,
+      "basis": "whole current conductor profile"
+    },
+    {
+      "a": "P_REAR/platform",
+      "b": "XB32",
+      "distance_mm": 0.0,
+      "required_mm": 1.05,
+      "basis": "whole current conductor profile"
+    },
+    {
+      "a": "D_RR/shelf",
+      "b": "P0_UpperHousing34",
+      "volume_mm3": 31.5,
+      "basis": "retained material or whole-component reservation"
+    },
+    {
+      "a": "G_TAIL/platform",
+      "b": "W067",
+      "distance_mm": 0.0,
+      "required_mm": 2.1,
+      "basis": "whole current conductor profile"
+    },
+    {
+      "a": "D_RR/top_service_budget",
+      "b": "P0_UpperHousing34",
+      "volume_mm3": 59.85,
+      "basis": "project entry/service reservation"
+    },
+    {
+      "a": "D_RR/top_service_budget",
+      "b": "P0_BearingCap34",
+      "volume_mm3": 28.5,
+      "basis": "project entry/service reservation"
+    },
+    {
+      "a": "W068",
+      "b": "Spacer3",
+      "distance_mm": 1.8,
+      "required_mm": 2.1,
+      "basis": "whole profile versus actual retained structural owner"
+    }
+  ],
+  "errors": [],
+  "outside": [
+    {
+      "name": "D_RR/top_service_budget",
+      "volume_mm3": 0.05068924551667925,
+      "basis": "project service/entry reservation"
+    }
+  ],
+  "delivery_gates": [
+    "WAGO cavity/lever envelopes",
+    "MTA usable factory lengths",
+    "S1 supplier fit",
+    "U1 unknown pad map",
+    "PETG retention and nominal W068 gap"
+  ],
+  "geometry_acceptance": false,
+  "assembly_acceptance": false,
+  "previous_rejected_proposal": {
+    "selected": false,
+    "stage_completed": false,
+    "physical_pass": false,
+    "native_files_changed": 0,
+    "scope": "Shared source-zone planning, not whole wiring or finished mounts",
+    "source_sha256": {
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceRetentionCurrent.FCStd": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-current-receipt.json": "e062dd537ba377647585fb083d513e3be2008d763a75f92d1f0f0d1831cd07fd",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-low-gap-plan.json": "701dfb4b03b41aa562681256b8c07093d1a9899875da0343b4bcca2471cc4eaa",
+      "tools/cad/open_prototype_source_shared_layout.py": "b3fa6e6d737dc728e2918ee055fe512a2f03062d9260b50de9887be84e8d9262"
+    },
+    "changed_station": {
+      "before": {
+        "role": "D_RL",
+        "centre_mm": [
+          132,
+          -40,
+          76
+        ],
+        "size_mm": [
+          30,
+          19,
+          9
+        ],
+        "model": "415",
+        "rotation": "0",
+        "supplier_cavity_datum_known": false,
+        "mount_status": "OPEN_MATCHED_NATIVE_RESTRAINT"
+      },
+      "after": {
+        "role": "D_RL",
+        "centre_mm": [
+          86,
+          -75,
+          67.99
+        ],
+        "size_mm": [
+          30,
+          19,
+          9
+        ],
+        "model": "415",
+        "rotation": "180",
+        "supplier_cavity_datum_known": false,
+        "mount_status": "VACATED_RR_P_LOWER_PAD_REUSED_PROPOSAL"
+      }
+    },
+    "invalidated": [
+      "D_RL old case/support/ports and W012-W015 endpoints; these routes were not completed",
+      "Old4MTA mounting roots and P_REAR platform; current complete conductor profiles retained only if new supports clear",
+      "D_RR shelf and structural bolt access require explicit attachment"
+    ],
+    "retained_frame_columns": [
+      "Spacer1",
+      "Spacer2",
+      "Spacer3",
+      "Spacer4"
+    ],
+    "support_owners": {
+      "MTA_FL/floor_arm": "LeftDistributionCarrier",
+      "MTA_FR/floor_arm": "LeftDistributionCarrier",
+      "MTA_RL/floor_arm": "RightDistributionCarrier",
+      "MTA_RR/floor_arm": "RightDistributionCarrier",
+      "P_REAR/platform": "RightDistributionCarrier",
+      "D_RR/shelf": "UpperCarrier (removable attachment OPEN, rear frame bolt must remain accessible)"
+    },
+    "contacts": [
+      {
+        "a": "G1",
+        "b": "RightDistributionCarrier",
+        "volume_mm3": 10.43,
+        "basis": "current native owner"
+      },
+      {
+        "a": "G_TAIL",
+        "b": "RightDistributionCarrier",
+        "volume_mm3": 456.0,
+        "basis": "current native owner"
+      },
+      {
+        "a": "F_AUX",
+        "b": "LeftDistributionCarrier",
+        "volume_mm3": 152.625,
+        "basis": "current native owner"
+      },
+      {
+        "a": "S1_control_CP2",
+        "b": "S1Bracket",
+        "volume_mm3": 1042.666414,
+        "basis": "current native owner"
+      },
+      {
+        "a": "S1_ring_6",
+        "b": "Spacer4",
+        "volume_mm3": 29.782916,
+        "basis": "current native owner"
+      },
+      {
+        "a": "MTA_FL/floor_arm",
+        "b": "F_L2_CP2_Housing",
+        "volume_mm3": 387.645,
+        "basis": "retained material or whole-component reservation"
+      },
+      {
+        "a": "MTA_FL/floor_arm",
+        "b": "W026",
+        "distance_mm": 0.0,
+        "required_mm": 2.0,
+        "basis": "whole current conductor profile"
+      },
+      {
+        "a": "MTA_FR/floor_arm",
+        "b": "F_L3_CP2_Housing",
+        "volume_mm3": 387.645,
+        "basis": "retained material or whole-component reservation"
+      },
+      {
+        "a": "MTA_FR/floor_arm",
+        "b": "W037",
+        "distance_mm": 0.0,
+        "required_mm": 2.0,
+        "basis": "whole current conductor profile"
+      },
+      {
+        "a": "MTA_FR/floor_arm",
+        "b": "F_AUX/output",
+        "distance_mm": 0.0,
+        "required_mm": 2,
+        "basis": "whole current conductor profile"
+      },
+      {
+        "a": "MTA_FR/floor_arm",
+        "b": "F_AUX/sleeve",
+        "distance_mm": 0.0,
+        "required_mm": 3,
+        "basis": "whole current conductor profile"
+      },
+      {
+        "a": "MTA_RL/floor_arm",
+        "b": "F_R5_CP2_Housing",
+        "volume_mm3": 387.645,
+        "basis": "retained material or whole-component reservation"
+      },
+      {
+        "a": "MTA_RL/floor_arm",
+        "b": "W045",
+        "distance_mm": 0.0,
+        "required_mm": 2.0,
+        "basis": "whole current conductor profile"
+      },
+      {
+        "a": "MTA_RR/floor_arm",
+        "b": "G_TAIL",
+        "volume_mm3": 650.424,
+        "basis": "nominal case or saved S1 material"
+      },
+      {
+        "a": "MTA_RR/floor_arm",
+        "b": "F_R6_CP2_Housing",
+        "volume_mm3": 310.116,
+        "basis": "retained material or whole-component reservation"
+      },
+      {
+        "a": "D_RR/shelf",
+        "b": "CurrentTailSupport",
+        "volume_mm3": 399.051,
+        "basis": "retained material or whole-component reservation"
+      },
+      {
+        "a": "D_RL.1/entry",
+        "b": "W068",
+        "distance_mm": 0.177,
+        "required_mm": 2.1,
+        "basis": "project entry/service versus current wire"
+      },
+      {
+        "a": "D_RL.2/entry",
+        "b": "W068",
+        "distance_mm": 0.177,
+        "required_mm": 2.1,
+        "basis": "project entry/service versus current wire"
+      },
+      {
+        "a": "D_RL.3/entry",
+        "b": "W068",
+        "distance_mm": 1.437707,
+        "required_mm": 2.1,
+        "basis": "project entry/service versus current wire"
+      },
+      {
+        "a": "D_RL/top_service_budget",
+        "b": "F_R5_CP2_IN",
+        "volume_mm3": 1198.06944,
+        "basis": "project entry/service reservation"
+      },
+      {
+        "a": "W068",
+        "b": "Spacer3",
+        "distance_mm": 1.8,
+        "required_mm": 2.1,
+        "basis": "whole profile versus actual retained structural owner"
+      }
+    ],
+    "errors": [],
+    "outside": [],
+    "delivery_gates": [
+      "WAGO cavity/lever envelopes",
+      "MTA usable factory lengths",
+      "S1 supplier fit",
+      "U1 unknown pad map",
+      "PETG retention and nominal W068 gap"
+    ],
+    "geometry_acceptance": false,
+    "assembly_acceptance": false,
+    "tested_pairs": 116,
+    "current_profiles": 35,
+    "fixed_shapes": 368,
+    "full_MTA_tails": [
+      "W041",
+      "W026",
+      "W042",
+      "W037",
+      "W044",
+      "W045",
+      "W052",
+      "W053"
+    ],
+    "support_bounds": {
+      "MTA_FL/floor_arm": [
+        -37.0,
+        13.7,
+        106.0,
+        -13.0,
+        65.25,
+        112.01
+      ],
+      "MTA_FR/floor_arm": [
+        -12.0,
+        13.7,
+        106.0,
+        12.0,
+        65.25,
+        112.01
+      ],
+      "MTA_RL/floor_arm": [
+        56.8,
+        -65.25,
+        106.0,
+        80.8,
+        -26.4,
+        112.01
+      ],
+      "MTA_RR/floor_arm": [
+        82.8,
+        -65.25,
+        106.0,
+        106.8,
+        -26.4,
+        112.01
+      ],
+      "P_REAR/platform": [
+        50.3,
+        0.5,
+        112.01,
+        116.0,
+        47.0,
+        130.01
+      ],
+      "D_RR/shelf": [
+        117.0,
+        -49.5,
+        77.72,
+        147.0,
+        -27.0,
+        84.01
+      ]
+    },
+    "changed_bus_ports": {
+      "D_RL.1": {
+        "point_mm": [
+          95.5,
+          -65.5,
+          67.99
+        ],
+        "departure": [
+          0,
+          1,
+          0
+        ],
+        "basis": "Envelope-derived project entry, not a delivered cavity datum"
+      },
+      "D_RL.2": {
+        "point_mm": [
+          90.75,
+          -65.5,
+          67.99
+        ],
+        "departure": [
+          0,
+          1,
+          0
+        ],
+        "basis": "Envelope-derived project entry, not a delivered cavity datum"
+      },
+      "D_RL.3": {
+        "point_mm": [
+          86.0,
+          -65.5,
+          67.99
+        ],
+        "departure": [
+          0,
+          1,
+          0
+        ],
+        "basis": "Envelope-derived project entry, not a delivered cavity datum"
+      },
+      "D_RL.4": {
+        "point_mm": [
+          81.25,
+          -65.5,
+          67.99
+        ],
+        "departure": [
+          0,
+          1,
+          0
+        ],
+        "basis": "Envelope-derived project entry, not a delivered cavity datum"
+      },
+      "D_RL.5": {
+        "point_mm": [
+          76.5,
+          -65.5,
+          67.99
+        ],
+        "departure": [
+          0,
+          1,
+          0
+        ],
+        "basis": "Envelope-derived project entry, not a delivered cavity datum"
+      }
+    },
+    "restraint_stations_considered": 14,
+    "assembly_gates": [
+      "D_RR removable shelf must not cover the rear frame bolt tool axis",
+      "Install common rail supports before boards, fit MTA bodies from above, retain both factory tails",
+      "P_REAR pillar/beam and MTA strap heads require native attachment and tool qualification",
+      "Install data WAGO in vacant lower station; W012-W015 route lengths/relief still OPEN",
+      "14 source relief seats/tie heads and fully wired ATO access still OPEN"
+    ],
+    "status": "REJECTED_SHARED_SUPPORT_LAYOUT",
+    "worker_seconds": 56.015,
+    "finished_utc": "2026-10-09T09:57:15.692094+00:00"
+  },
+  "plan_revision": "Internal source trellis, staggered data rack, vertical west-tail ground; no side-bank-crossing MTA arms",
+  "inherited_unresolved": [
+    "S1 ring6/Spacer4",
+    "W068/Spacer3",
+    "Moved G_TAIL receiving and TY output paths must be regenerated together",
+    "S1 broad operator reservation must distinguish M12 bushing from28mm operator sweep"
+  ],
+  "no_third_proposal_without_root_change": true,
+  "tested_pairs": 100,
+  "current_profiles": 36,
+  "fixed_shapes": 368,
+  "full_MTA_tails": [
+    "W041",
+    "W026",
+    "W042",
+    "W037",
+    "W044",
+    "W045",
+    "W052",
+    "W053"
+  ],
+  "support_bounds": {
+    "MTA_FL/floor_arm": [
+      -37.0,
+      13.7,
+      77.72,
+      -13.0,
+      40.5,
+      109.0
+    ],
+    "MTA_FR/floor_arm": [
+      -12.0,
+      13.7,
+      77.72,
+      12.0,
+      40.5,
+      109.0
+    ],
+    "MTA_RL/floor_arm": [
+      56.8,
+      -40.5,
+      77.72,
+      80.8,
+      -26.4,
+      109.0
+    ],
+    "MTA_RL/plate_ear": [
+      63.8,
+      -34.5,
+      74.72,
+      73.8,
+      -24.0,
+      77.72
+    ],
+    "MTA_RR/floor_arm": [
+      82.8,
+      -40.5,
+      77.72,
+      106.8,
+      -26.4,
+      109.0
+    ],
+    "MTA_RR/plate_ear": [
+      89.8,
+      -34.5,
+      74.72,
+      99.8,
+      -24.0,
+      77.72
+    ],
+    "P_REAR/platform": [
+      50.3,
+      0.5,
+      77.72,
+      116.0,
+      47.0,
+      130.01
+    ],
+    "P_REAR/plate_ear": [
+      107.0,
+      24.0,
+      74.72,
+      120.0,
+      47.0,
+      77.72
+    ],
+    "DATA/plate_ear": [
+      132.5,
+      30.0,
+      74.72,
+      148.0,
+      53.0,
+      77.72
+    ],
+    "D_RL/shelf": [
+      134.0,
+      35.0,
+      77.72,
+      164.0,
+      59.5,
+      84.01
+    ],
+    "D_RR/shelf": [
+      140.0,
+      10.5,
+      77.72,
+      170.0,
+      38.0,
+      121.01
+    ],
+    "G_TAIL/platform": [
+      -56.0,
+      -51.0,
+      77.72,
+      -26.0,
+      -21.0,
+      112.01
+    ]
+  },
+  "changed_bus_ports": {
+    "D_RL.1": {
+      "point_mm": [
+        158.5,
+        59.5,
+        91
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "basis": "Envelope-derived project entry, not a delivered cavity datum"
+    },
+    "D_RL.2": {
+      "point_mm": [
+        153.75,
+        59.5,
+        91
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "basis": "Envelope-derived project entry, not a delivered cavity datum"
+    },
+    "D_RL.3": {
+      "point_mm": [
+        149.0,
+        59.5,
+        91
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "basis": "Envelope-derived project entry, not a delivered cavity datum"
+    },
+    "D_RL.4": {
+      "point_mm": [
+        144.25,
+        59.5,
+        91
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "basis": "Envelope-derived project entry, not a delivered cavity datum"
+    },
+    "D_RL.5": {
+      "point_mm": [
+        139.5,
+        59.5,
+        91
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "basis": "Envelope-derived project entry, not a delivered cavity datum"
+    }
+  },
+  "restraint_stations_considered": 14,
+  "assembly_gates": [
+    "D_RR removable shelf must not cover the rear frame bolt tool axis",
+    "Install common rail supports before boards, fit MTA bodies from above, retain both factory tails",
+    "P_REAR pillar/beam and MTA strap heads require native attachment and tool qualification",
+    "Install data WAGO in vacant lower station; W012-W015 route lengths/relief still OPEN",
+    "14 source relief seats/tie heads and fully wired ATO access still OPEN"
+  ],
+  "status": "REJECTED_SHARED_SUPPORT_LAYOUT",
+  "worker_seconds": 46.907,
+  "finished_utc": "2026-10-09T10:11:30.604029+00:00"
+}
