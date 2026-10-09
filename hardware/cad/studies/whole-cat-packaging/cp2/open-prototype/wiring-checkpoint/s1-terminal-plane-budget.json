@@ -1,0 +1,96 @@
+{
+  "status": "REJECTED_SHARED_S1_SPACE_BUDGET",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/rr-receiving-branch-plan.json": "b4e291f8c4cd44b1482026f73e250c3e18bf1f69de23597cd149148666ffb97e",
+    "tools/cad/open_prototype_s1_plane_plan.py": "fc8d4c98961a938aaab83ca1619d50889fb56d6a5febc5ba44004dc8837cb7af",
+    "tools/cad/open_prototype_rr_receiving_branch.py": "e62b2696d521038238b1ca4e4ef3a4739ec241a4491f79dbf67eeb9803a4aa89"
+  },
+  "contacts": [
+    {
+      "a": "S1_control_CP2",
+      "b": "P_AUX",
+      "volume_mm3": 1928.103344
+    }
+  ],
+  "outside": [
+    {
+      "name": "S1_control_CP2",
+      "volume_mm3": 1231.504193
+    }
+  ],
+  "errors": [],
+  "driver_obstructions": [
+    {
+      "a": "S1_driver_2",
+      "b": "Monitor_CP2",
+      "volume_mm3": 76.453799
+    },
+    {
+      "a": "S1_driver_5",
+      "b": "Monitor_CP2",
+      "volume_mm3": 76.453799
+    },
+    {
+      "a": "S1_driver_3",
+      "b": "Monitor_CP2",
+      "volume_mm3": 152.907598
+    },
+    {
+      "a": "S1_driver_6",
+      "b": "Monitor_CP2",
+      "volume_mm3": 152.907598
+    }
+  ],
+  "tested_pairs": 26,
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "module_change": "Entire S1 X+90deg about126.2,55.5,85 then translate0,-55.5,+22.5; terminal plane becomes Z85. No individual bearing-axis fiction.",
+  "invalidated": [
+    "S1 mounting/support",
+    "All four S1 routes and920mm historical blanks",
+    "S1 assembled driver access"
+  ],
+  "unchanged": [
+    "P0",
+    "bankR47",
+    "4MTA",
+    "MAIN46.52",
+    "15 drives",
+    "MG92B",
+    "Torso325x200x160"
+  ],
+  "next": "Only consider this layout with complete four-exit routes, new retention and assembled installation/removal. Casing fit alone is not selection.",
+  "moved_parts": 14,
+  "driver_reservations": 4,
+  "retained_and_candidate_targets": 389,
+  "bearing_plane": "XY, normalZ after whole module rotation",
+  "barrel_mm": {
+    "2": [
+      120.2,
+      -22.123,
+      85
+    ],
+    "5": [
+      132.2,
+      -22.123,
+      85
+    ],
+    "3": [
+      120.2,
+      34.123,
+      85
+    ],
+    "6": [
+      132.2,
+      34.123,
+      85
+    ]
+  },
+  "worker_seconds": 57.781,
+  "finished_utc": "2026-10-09T02:42:47.077357+00:00"
+}

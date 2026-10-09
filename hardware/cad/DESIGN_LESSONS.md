@@ -120,3 +120,9 @@ odległości; dopiero kandydat bez znanych przecięć przechodzi do brył.
 Ekran próbek nie jest certyfikatem prześwitu. Wysokość przy zakrzywionym
 dachu wyznaczać dla całego obrysu części i zapasu, a następnie przeliczyć
 wszystkie jej podejścia razem, nie przesuwać pojedynczego końca.
+
+Przed nowym podejściem sprawdzić sam wymagany punkt odbioru wobec innych
+tras. Jeżeli punkt stacji jest zajęty, przesunięcia wcześniejszych łuków
+nie rozwiążą przyczyny. W zmianie orientacji źródła przenosić cały korpus,
+wszystkie rzeczywiste płaszczyzny zacisków, sterowanie i narzędzia razem.
+Sam brak kontaktów korpusu nie kwalifikuje dostępności ani pełnej wiązki.
