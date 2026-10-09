@@ -9,8 +9,9 @@ import json, math, time, sys
 import open_prototype_source_bypass as G
 
 B=G.B;ROOT=G.ROOT;OUT=G.OUT
-JOINT_ENTRIES='--joint-entries' in sys.argv
-STEM='source-rear-joint-entries' if JOINT_ENTRIES else 'source-rear-face'
+ORDERED_COLUMNS='--ordered-columns' in sys.argv
+JOINT_ENTRIES='--joint-entries' in sys.argv or ORDERED_COLUMNS
+STEM='source-rear-ordered-columns' if ORDERED_COLUMNS else 'source-rear-joint-entries' if JOINT_ENTRIES else 'source-rear-face'
 PLAN=OUT/(STEM+'-plan.json');PROOF=OUT/(STEM+'-space.json')
 REUSE_PROOF=None
 
@@ -18,7 +19,8 @@ def parts(route):
     return [dict(kind=s['kind'],start=s['start_mm'],end=s['end_mm'],
         **(dict(mid=s['mid_mm']) if s['kind']=='arc' else {})) for s in route.row['segments']]
 
-def build_geometry(joint_entries=False):
+def build_geometry(joint_entries=False,ordered_columns=False):
+    joint_entries=joint_entries or ordered_columns
     p=G.build_geometry(bus_undercross=True,allocated_ports=True)
     # Stop bending adjacent metal barrels into one another. The front goes
     # WEST; the rear keeps its original NORTH orientation. This requires the
@@ -40,6 +42,11 @@ def build_geometry(joint_entries=False):
         # pass through the AUX outlet. The AUX vertical hairpin occupies the
         # gap between those inputs, with its NORTH-side arrival on slot4.
         remap={'P_REAR.4':'P_REAR.5','P_REAR.5':'P_REAR.3','P_REAR.3':'P_REAR.4'}
+    if ordered_columns:
+        # Left-to-right arrival columns: AUX, NC, RL, RR, S1. Move RR
+        # laterally below the receiving bus, not across S1 at its entry Z.
+        # Both MTA routes turn UP then SOUTH in their own column.
+        remap={'P_REAR.1':'P_REAR.3','P_REAR.3':'P_REAR.1'}
     p['permutation']={k:remap.get(v,v) for k,v in p['permutation'].items()}
     for e in p['body_ends']:
         e['current_role']=remap.get(e['current_role'],e['current_role'])
@@ -65,7 +72,7 @@ def build_geometry(joint_entries=False):
             r.turn(B.UP,25.2)
             land(end[2]-25.2-r.p[2],'Rear vertical insulation outside bank X extent')
             r.turn(B.WEST,25.2)
-            G.short_line(r,r.p[0]-(end[0]+25.2))
+            if r.p[0]-(end[0]+25.2)>1e-7:G.short_line(r,r.p[0]-(end[0]+25.2))
             r.turn(B.SOUTH,25.2)
             land(r.p[1]-end[1],'P_REAR incoming insulation')
             r.finish(end,B.SOUTH)
@@ -76,22 +83,31 @@ def build_geometry(joint_entries=False):
     # The short 1/2 mm internal lands are NOT restraint seats.
     for row in p['tails']:
         if row['wire'] not in ('W044','W052'):continue
-        target='P_REAR.1' if row['wire']=='W044' else 'P_REAR.5'
+        target=remap.get(row['target'],row['target'])
         end=p['ports'][target]['point_mm'];start=row['segments'][0]['start']
         r=G.Route(row['wire'],start,B.NORTH,4,6,14,[])
-        r.line(target_y+2-start[1]);r.turn(B.UP,6);r.line(9);r.turn(B.WEST,6)
-        G.short_line(r,r.p[0]-(end[0]+6));r.turn(B.SOUTH,6)
+        if ordered_columns:
+            if row['wire']=='W052':
+                r.line(9);r.shift([end[0]-r.p[0],0,0],10)
+            G.short_line(r,target_y+2-r.p[1]) if row['wire']=='W052' else r.line(target_y+2-r.p[1])
+            r.turn(B.UP,6);r.line(9);r.turn(B.SOUTH,6)
+        else:
+            r.line(target_y+2-start[1]);r.turn(B.UP,6);r.line(9);r.turn(B.WEST,6)
+            G.short_line(r,r.p[0]-(end[0]+6));r.turn(B.SOUTH,6)
         G.short_line(r,r.p[1]-end[1]);r.finish(end,B.SOUTH)
         seg=parts(r);length=B.check_path(seg,start,end,6)
         assert length+14<=row['assumed_factory_limit_mm']
+        grip_segments=[s for s in seg if s['kind']=='line' and B.segment_geometry(s)[0]>=9-1e-7]
         row.update(target=target,segments=seg,centreline_mm=length,required_blank_mm=length+14,
-            independent_grip_lands=[dict(start_mm=seg[0]['start'],end_mm=seg[0]['end']),
-                dict(start_mm=seg[2]['start'],end_mm=seg[2]['end'])],short_entry_is_not_grip=True)
+            independent_grip_lands=[dict(start_mm=s['start'],end_mm=s['end']) for s in grip_segments],short_entry_is_not_grip=True)
     h=next(h for h in p['holders'] if h['role']=='F_AUX')
     h['input_target']=remap.get(h['input_target'],h['input_target'])
     end=p['ports'][h['input_target']]['point_mm']
     r=G.Route('F_AUX/input',h['input_mm'],B.EAST,4,6,11,[])
-    if joint_entries:
+    if ordered_columns:
+        r.line(9);r.turn(B.UP,6);r.line(132-r.p[2]);r.turn(B.WEST,6)
+        r.line(r.p[0]-(end[0]+6));r.turn(B.SOUTH,6)
+    elif joint_entries:
         r.line(end[0]+6-h['input_mm'][0]);r.turn(B.SOUTH,6);r.turn(B.UP,6)
         r.line(132-r.p[2]);r.turn(B.WEST,6);r.turn(B.SOUTH,6)
     else:
@@ -101,8 +117,7 @@ def build_geometry(joint_entries=False):
     seg=parts(r);length=B.check_path(seg,h['input_mm'],end,6)
     assert length+11<=h['factory_minimum_mm']
     h.update(input_segments=seg,input_blank_mm=length+11,
-        input_grip_lands=[dict(start_mm=seg[0]['start'],end_mm=seg[0]['end']),
-            dict(start_mm=seg[3 if joint_entries else 2]['start'],end_mm=seg[3 if joint_entries else 2]['end'])],short_entry_is_not_grip=True)
+        input_grip_lands=[dict(start_mm=s['start'],end_mm=s['end']) for s in seg if s['kind']=='line' and B.segment_geometry(s)[0]>=9-1e-7],short_entry_is_not_grip=True)
     p.update(changed_case_names=['P_REAR'],changed_path_names=['W064','W065','W067','W068','W044','W052','F_AUX/input'],
         source_topology='Separated original NORTH rear ring and WEST front ring; complete NORTH-face rear receiving family',
         invalidated=['S1 native mount and source grips','P_REAR native retention and all four receiving grips',
@@ -116,7 +131,7 @@ def build():
 
 def main():
     assert not PLAN.exists(),'Do not repeat unchanged geometry'
-    tick=time.monotonic();p=build_geometry(JOINT_ENTRIES);screen=G.S.F.F.proximity(p)
+    tick=time.monotonic();p=build_geometry(JOINT_ENTRIES,ORDERED_COLUMNS);screen=G.S.F.F.proximity(p)
     bad=[r for r in screen['near_pairs'] if r['status']=='REJECT_PLANNING_PROXIMITY']
     files=[Path(__file__),Path(G.__file__),Path(G.T.__file__),Path(G.S.__file__),G.T.PLAN,
         OUT/'obstacle-map-current.json',OUT/'endpoint-plan.json']
