@@ -50,10 +50,11 @@ def search(connector=A.connect,base_override=None,receiving_goals=None,source_bu
     goals=receiving_goals if receiving_goals is not None else sorted(itertools.product(range(-90,131,10),range(-60,61,10)),key=lambda q:math.dist(q,[10,-10]))
     #All four outputs need the148mm level in this bounded family. Lower
     #levels are not retried as undeclared shorter-radius curves.
-    for x,y in goals:
+    for goal in goals:
+        x,y=goal[:2];z=goal[2] if len(goal)==3 else 148
         counts['families']+=1
-        p=copy.deepcopy(base);delta=B.sub([x,y,148],next(s for s in p['stations'] if s['role']=='P_SYS')['centre_mm'])
-        next(s for s in p['stations'] if s['role']=='P_SYS')['centre_mm']=[x,y,148]
+        p=copy.deepcopy(base);delta=B.sub([x,y,z],next(s for s in p['stations'] if s['role']=='P_SYS')['centre_mm'])
+        next(s for s in p['stations'] if s['role']=='P_SYS')['centre_mm']=[x,y,z]
         for n in range(1,6):
             port=p['ports'][f'P_SYS.{n}'];port['point_mm']=B.add(port['point_mm'],delta)
         pi=next(h for h in p['holders'] if h['role']=='F_PI')

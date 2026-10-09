@@ -13,7 +13,21 @@ import open_prototype_pi_capacity_plan as K
 from open_prototype_distribution_allocation import input_recipe
 from open_prototype_path_preflight import samples
 ROOT=F.ROOT;OUT=F.OUT
-PLAN=OUT/'rl-tail-group-plan.json';PROOF=OUT/'tail-corridor-allocated-space.json';REUSE_PROOF=None
+PLAN=OUT/'tail-joint-height-plan.json';PROOF=OUT/'tail-corridor-allocated-space.json';REUSE_PROOF=None
+
+def allocate_joint_height(x,y):
+    # Bounds from valid transformed saved S1_ring_3 in f1e7665's scene.
+    # This is a conservative search obstacle, not supplier geometry. The
+    # actual full-radius gate still checks the real ring, shell and all peers.
+    bounds=[115.4375,6.437,81.825,124.9625,34.123,88.175]
+    required=1.05+1 # insulation radius + explicit project margin
+    for i in range(212,260):
+        cut=i*.5;start=[x,y,cut-18.25];end=B.add(start,B.mul(B.DOWN,9))
+        parts=[B.line(start,end),B.quarter(end,B.DOWN,B.NORTH,12.6)]
+        d=min(math.sqrt(K.distance_squared(q,bounds)) for _,q in samples(parts,step=.1))
+        # Every curve point is <=.1mm from a sample; distance is1-Lipschitz.
+        if d>=required+.1:return cut,d,bounds
+    raise AssertionError('No whole joint/approach capacity; change topology')
 
 def build():
     p=F.build()
@@ -44,13 +58,19 @@ def build():
     side_turn=B.quarter(first['end'],B.NORTH,B.EAST,6)
     side=B.line(side_turn['end'],B.add(side_turn['end'],B.mul(B.EAST,3)))
     factory_turn=B.quarter(side['end'],B.EAST,B.DOWN,6)
-    cut=B.add(factory_turn['end'],B.mul(B.DOWN,30))
+    cut_z,ring_budget_distance,ring_bounds=allocate_joint_height(factory_turn['end'][0],factory_turn['end'][1])
+    cut=[factory_turn['end'][0],factory_turn['end'][1],cut_z]
+    assert factory_turn['end'][2]-cut_z>=9, 'Factory insulation grip straight'
     h['output_segments']=[first,side_turn,side,factory_turn,B.line(factory_turn['end'],cut)]
     h['output_prefix_mm']=B.check_path(h['output_segments'],h['output_mm'],cut,6)
     assert h['output_prefix_mm']<=h['factory_minimum_mm']
     h.update(sleeve_start_mm=B.sub(cut,B.mul(B.DOWN,17.25)),
         sleeve_end_mm=B.add(cut,B.mul(B.DOWN,9.25)),
-        new_insulation_end_mm=B.add(cut,B.mul(B.DOWN,18.25)))
+        new_insulation_end_mm=B.add(cut,B.mul(B.DOWN,18.25)),
+        joint_height_allocation=dict(obstacle='S1_ring_3 transformed saved material bounds',
+            bounds_mm=ring_bounds,minimum_sampled_distance_mm=ring_budget_distance,
+            insulation_radius_mm=1.05,project_margin_mm=1,sampling_allowance_mm=.1,
+            entire_covered_joint_and_receiving_approach_recomputed=True))
     start=h['new_insulation_end_mm']
     a=B.add(start,B.mul(B.DOWN,9));q=B.quarter(a,B.DOWN,B.NORTH,12.6)
     bottom=B.add(q['end'],B.mul(B.NORTH,9));turn=B.quarter(bottom,B.NORTH,B.UP,12.6)

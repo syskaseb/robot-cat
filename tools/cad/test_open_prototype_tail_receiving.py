@@ -3,6 +3,13 @@ import open_prototype_rl_tail_group as T
 B=T.B
 
 class TailReceiving(unittest.TestCase):
+    def test_complete_joint_height_allocated_against_ring(self):
+        p=T.build();h=next(h for h in p['holders'] if h['role']=='F_TY')
+        a=h['joint_height_allocation']
+        self.assertGreaterEqual(a['minimum_sampled_distance_mm'],a['insulation_radius_mm']+a['project_margin_mm']+a['sampling_allowance_mm'])
+        self.assertTrue(a['entire_covered_joint_and_receiving_approach_recomputed'])
+        self.assertEqual(h['output_segments'][-1]['end'][2],123.5)
+
     def test_whole_factory_joint_changes_together(self):
         p=T.build();h=next(h for h in p['holders'] if h['role']=='F_TY')
         B.check_path(h['output_segments'],h['output_mm'],min_radius=6)

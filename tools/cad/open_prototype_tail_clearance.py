@@ -15,7 +15,7 @@ import open_prototype_source_group as B
 import open_prototype_rr_receiving_branch as R
 from open_prototype_entry_chambers import CONTEXT, MOUNTS
 
-DEST=G.OUT/'tail-corridor-radius-clearance.json'
+DEST=G.OUT/'tail-joint-height-radius.json'
 
 def wire(parts):
     edges=[Part.makeLine(A.Vector(*p['start']),A.Vector(*p['end'])) if p['kind']=='line'
@@ -59,12 +59,18 @@ def run():
     tick=time.monotonic();p=G.build();plan=B.read(G.PLAN);prior=B.read(G.PROOF)
     assert R.geometry_digest(p)==plan['geometry_digest']
     assert not any(prior[k] for k in ('contacts','outside','input_point_intrusions','input_outside','receiving_trunk_intrusions','errors'))
-    pins=dict(prior['source_sha256'])
-    assert all(B.sha(G.ROOT/n)==h for n,h in pins.items()), 'Pinned case/point proof changed'
-    pins.update({f.relative_to(G.ROOT).as_posix():B.sha(f) for f in (G.PROOF,Path(__file__))})
+    prior_plan=B.read(G.OUT/'rl-tail-group-plan.json')['family']
+    for key in ('stations','mta','holders'):
+        assert [(r['role'],r['centre_mm'],r['size_mm']) for r in p[key]]==[(r['role'],r['centre_mm'],r['size_mm']) for r in prior_plan[key]],key
+    assert p['s1_module']==prior_plan['s1_module'], 'Do not reuse a moved S1 case gate'
+    prior_producer=Path(G.__file__).relative_to(G.ROOT).as_posix()
+    assert all(B.sha(G.ROOT/n)==h for n,h in prior['source_sha256'].items() if n!=prior_producer), 'Retained geometry changed'
+    pins={n:B.sha(G.ROOT/n) for n in prior['source_sha256']}
+    pins.update({f.relative_to(G.ROOT).as_posix():B.sha(f) for f in (G.PLAN,G.PROOF,Path(__file__))})
     result=dict(status='PENDING',conflicts=[],outside=[],errors=[],tested_pairs=0,
         selected=False,stage_completed=False,physical_pass=False,source_sha256=pins,
         changed_case_proof_reused=G.PROOF.name,changed_profiles=p['changed_path_names'],
+        prior_case_producer_snapshot='f1e7665; explicit identical cases and S1, new paths NOT reused',
         reservations_are_not_measured_supplier_collisions=True,
         complete_source_wiring_native_grips_stock_and_moving_continuation_open=True)
     docs=[]
