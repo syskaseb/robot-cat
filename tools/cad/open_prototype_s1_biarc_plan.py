@@ -15,8 +15,9 @@ from open_prototype_path_preflight import samples
 B=S.B;F=S.F;K=S.K;C=S.C;ROOT=S.ROOT;OUT=S.OUT
 PLAN=OUT/'s1-biarc-family-plan.json';PROOF=OUT/'s1-biarc-family-space.json';REUSE_PROOF=None
 
-def search(connector=A.connect):
-    base=F.build();records=B.read(OUT/'obstacle-map-current.json')['objects']
+def search(connector=A.connect,base_override=None):
+    base=copy.deepcopy(base_override) if base_override is not None else F.build()
+    records=B.read(OUT/'obstacle-map-current.json')['objects']
     fixed=[dict(name=r['role'],bounds=K.bounds(r['centre_mm'],r['size_mm']))
         for r in base['stations']+base['mta']+base['holders'] if r['role'] not in ('P_SYS','F_PI')]
     fixed += [dict(name=r['name'],bounds=r['bounds_mm']) for r in records
