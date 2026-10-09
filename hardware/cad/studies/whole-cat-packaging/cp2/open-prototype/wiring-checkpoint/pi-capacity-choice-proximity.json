@@ -1,0 +1,184 @@
+{
+  "status": "REJECTED_MUTUAL_PATH_RESERVATION",
+  "paths": 20,
+  "samples": 1070,
+  "step_max_mm": 1,
+  "near_pairs": [
+    {
+      "a": "W041",
+      "b": "W042",
+      "sampled_distance_mm": 4.00172842343743,
+      "centreline_minimum_mm": 4.0,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        -25.0,
+        -5.5,
+        117.0
+      ],
+      "sample_b_mm": [
+        -21.854101966249683,
+        -5.5,
+        119.47328848624517
+      ],
+      "segment_a": 0,
+      "segment_b": 3,
+      "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+    },
+    {
+      "a": "W044",
+      "b": "F_AUX/input",
+      "sampled_distance_mm": 4.127659024354607,
+      "centreline_minimum_mm": 4.0,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        68.8,
+        40.02671151375484,
+        119.36782186187531
+      ],
+      "sample_b_mm": [
+        69.89526249034444,
+        42.5,
+        116.25
+      ],
+      "segment_a": 4,
+      "segment_b": 1,
+      "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+    },
+    {
+      "a": "W037",
+      "b": "F_AUX/output",
+      "sampled_distance_mm": 5.71220200165125,
+      "centreline_minimum_mm": 4.0,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        -0.077060704811593,
+        43.44114283826891,
+        116.75633902304412
+      ],
+      "sample_b_mm": [
+        4.145898033750315,
+        42.5,
+        113.02671151375485
+      ],
+      "segment_a": 1,
+      "segment_b": 1,
+      "status": "REQUIRES_EXACT_DISTANCE_CHECK"
+    },
+    {
+      "a": "F_HY/input",
+      "b": "F_HP/input",
+      "sampled_distance_mm": 3.046502115221747,
+      "centreline_minimum_mm": 4.0,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        104.93121346233613,
+        -45.06225235943601,
+        140.18538801010425
+      ],
+      "sample_b_mm": [
+        106.75735931288071,
+        -43.25196911267289,
+        141.81916921855236
+      ],
+      "segment_a": 1,
+      "segment_b": 3,
+      "status": "REJECT_PLANNING_PROXIMITY"
+    },
+    {
+      "a": "F_HP/input",
+      "b": "F_TY/input",
+      "sampled_distance_mm": 0.7131276927284019,
+      "centreline_minimum_mm": 4.0,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        105.0,
+        -35.23991624280039,
+        140.9903361630483
+      ],
+      "sample_b_mm": [
+        105.07386995642918,
+        -35.19760283060694,
+        141.69836434809594
+      ],
+      "segment_a": 2,
+      "segment_b": 3,
+      "status": "REJECT_PLANNING_PROXIMITY"
+    }
+  ],
+  "no_BRep_or_native_acceptance": true,
+  "selected": false,
+  "stage_completed": false,
+  "physical_pass": false,
+  "worker_seconds": 0.019625,
+  "finished_utc": "2026-10-09T03:27:13.891183+00:00",
+  "intentional_same_conductor_covered_profiles": [
+    {
+      "a": "F_PI/sleeve",
+      "b": "F_PI/new_insulation",
+      "sampled_distance_mm": 0.35526315789473983,
+      "centreline_minimum_mm": 4.05,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        40.25,
+        -36.0,
+        66.99999999999999
+      ],
+      "sample_b_mm": [
+        40.60526315789474,
+        -36.0,
+        66.99999999999999
+      ],
+      "segment_a": 0,
+      "segment_b": 0,
+      "status": "REJECT_PLANNING_PROXIMITY"
+    },
+    {
+      "a": "F_PI/sleeve",
+      "b": "F_PI/output",
+      "sampled_distance_mm": 0.25,
+      "centreline_minimum_mm": 5.0,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        13.75,
+        -36.0,
+        66.99999999999999
+      ],
+      "sample_b_mm": [
+        14.0,
+        -36.0,
+        66.99999999999999
+      ],
+      "segment_a": 0,
+      "segment_b": 2,
+      "status": "REJECT_PLANNING_PROXIMITY"
+    },
+    {
+      "a": "F_PI/new_insulation",
+      "b": "F_PI/output",
+      "sampled_distance_mm": 0.0,
+      "centreline_minimum_mm": 3.05,
+      "sampling_allowance_mm": 2,
+      "sample_a_mm": [
+        31.0,
+        -36.0,
+        66.99999999999999
+      ],
+      "sample_b_mm": [
+        31.0,
+        -36.0,
+        66.99999999999999
+      ],
+      "segment_a": 0,
+      "segment_b": 2,
+      "status": "REJECT_PLANNING_PROXIMITY"
+    }
+  ],
+  "source_sha256": {
+    "tools/cad/open_prototype_pi_capacity_proximity.py": "178a7af6e0aaa59fee764c291c686da68320023d7c1cffb28b6b13e39fd6275e",
+    "tools/cad/open_prototype_pi_capacity_choice.py": "37046624fccddeb993c3fbdee4741ad87ba88ef4871cf8512e98ebffe34e68ae",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/pi-capacity-choice-plan.json": "bc541115596eef55bb82f7d135615653bcd0dfa7bd2b210ab9cdf63aefc95f93",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/pi-capacity-choice-space.json": "025b0d1ba7bba29dcd6167984d14b73c5e36866a394822a8041c1a0fa321baeb"
+  },
+  "four_S1_paths_invalidated_not_screened": true,
+  "covered_joint_recipe_not_new_selection": true
+}

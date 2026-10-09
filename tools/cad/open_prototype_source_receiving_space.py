@@ -27,11 +27,23 @@ def run():
         input_point_intrusions=[],input_outside=[],receiving_trunk_intrusions=[],
         errors=[],source_sha256=pins,selected=False,stage_completed=False,physical_pass=False,
         point_screen_not_full_tube=True,native_sources_saved=False,
-        scope='All changed S1 parts/P_AUX/P_SYS/F_PI versus current other cases and retained valid material; four changed FHAC inputs and translated PI output/joint positive-point screen. Other conductors invalidated/open.',
+        scope='Changed complete module families versus current other cases and retained valid material; changed FHAC inputs and PI output/joint positive-point screen. Unchanged partial results may be reused only with pinned geometry; other conductors invalidated/open.',
         assembled_driver_proof_reused='s1-terminal-plane-budget.json: four Monitor obstructions unchanged; proposed bench prewire/install-before-Monitor sequence, NOT qualified removal or assembled tool clearance')
     docs=[]
     def box(c,size):return Part.makeBox(*size,A.Vector(*[v-d/2 for v,d in zip(c,size)]))
     try:
+        if getattr(G,'REUSE_PROOF',None):
+            prior=B.read(G.REUSE_PROOF)
+            assert not prior['errors'] and not prior['input_point_intrusions'] and not prior['input_outside']
+            assert all(r['a']=='F_PI' and r['b'] in ('G1','G2') for r in prior['contacts'])
+            assert all(r['name']=='P_SYS' for r in prior['outside'])
+            for n,h in prior['source_sha256'].items():
+                # Raw prior producer preserved in ce778be, not relabelled as
+                # current code. Actual geometry and recipe pins must match.
+                if n==Path(__file__).relative_to(G.ROOT).as_posix():continue
+                assert B.sha(G.ROOT/n)==h,n
+            result['unchanged_partial_reused_from']=G.REUSE_PROOF.relative_to(G.ROOT).as_posix()
+            result['prior_producer_snapshot']='ce778be; historical proof not overwritten'
         docs=[A.openDocument(str(f)) for f in files[1:4]]
         ctx,mount,tail=docs;torso=ctx.TorsoEnvelope.Shape
         assert torso.isValid() and len(torso.Solids)==1
@@ -51,7 +63,7 @@ def run():
                     ring=next(q for q in spec['rings'] if q['terminal']==int(n[-1]))
                     s.rotate(A.Vector(*ring['eye_mm']),A.Vector(0,0,1),ring['ring_rotation_z_deg'])
                 assert s.isValid() and s.Solids,n
-                changed.append((n,s));continue
+                (changed if p.get('s1_geometry_changed',True) else scene).append((n,s));continue
             if r['kind'] in ('candidate_station','replaceable_support'):continue
             if r['basis'].startswith('Canonical whole-component/reference envelope') or n=='U1UnknownModuleReservation':
                 v=r['bounds_mm'];s=box([(v[i]+v[i+3])/2 for i in range(3)],[v[i+3]-v[i] for i in range(3)])
@@ -85,6 +97,7 @@ def run():
                 routes += [('F_PI/output',h['output_segments'],'F_PI',None,2),
                     ('F_PI/sleeve',[B.line(h['sleeve_start_mm'],h['sleeve_end_mm'])],None,None,3),
                     ('F_PI/new_insulation',[B.line(h['output_segments'][-1]['end'],h['new_insulation_end_mm'])],None,None,1.05)]
+        routes=[r for r in routes if r[0] in p['changed_path_names']]
         inventory=[(n,s,s.BoundBox) for n,s in scene+changed];witness={};outside={};count=queries=0
         for name,parts,source,receiver,radius in routes:
             for segment,q in samples(parts):

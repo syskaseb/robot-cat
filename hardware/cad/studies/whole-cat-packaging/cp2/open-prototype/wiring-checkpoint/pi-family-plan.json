@@ -1,0 +1,527 @@
+{
+  "status": "WHOLE_PI_FAMILY_ORIENTATION_AND_EXIT_REBOUND_NOT_COMPLETE_WIRING",
+  "recipe_compact": true,
+  "geometry_digest": "dc064529cd9f2143804ca6e3bcd38793d2ba11d2bbafedf7039f2fef9a05568a",
+  "s1_module": {
+    "whole_rotation_deg": 90,
+    "axis": [
+      1,
+      0,
+      0
+    ],
+    "pivot_mm": [
+      126.2,
+      55.5,
+      85
+    ],
+    "translation_mm": [
+      0,
+      -55.5,
+      22.5
+    ],
+    "bearing_plane": "XY, normal Z",
+    "external_control": true,
+    "external_control_basis": "whole_cat_interior.py S1_control_CP2 require_internal_shell=False; manual operator reservation, not measured delivered geometry",
+    "rings": [
+      {
+        "terminal": 2,
+        "eye_mm": [
+          120.2,
+          0,
+          85
+        ],
+        "barrel_mm": [
+          120.2,
+          -22.123,
+          85
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "ring_rotation_z_deg": 90
+      },
+      {
+        "terminal": 5,
+        "eye_mm": [
+          132.2,
+          0,
+          85
+        ],
+        "barrel_mm": [
+          132.2,
+          -22.123,
+          85
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "ring_rotation_z_deg": -90
+      },
+      {
+        "terminal": 3,
+        "eye_mm": [
+          120.2,
+          12,
+          85
+        ],
+        "barrel_mm": [
+          120.2,
+          34.123,
+          85
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "ring_rotation_z_deg": -90
+      },
+      {
+        "terminal": 6,
+        "eye_mm": [
+          132.2,
+          12,
+          85
+        ],
+        "barrel_mm": [
+          132.2,
+          34.123,
+          85
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "ring_rotation_z_deg": 90
+      }
+    ],
+    "terminal_mount_sequence": [
+      "Attach four ring terminals to S1 on the bench with specified insulation and independent wire grips.",
+      "Install retained S1 module before Monitor; assembled driver sweeps are NOT claimed clear.",
+      "Route four new complete source circuits and retain module independently of terminal screws.",
+      "For S1 terminal service: isolate power, identify/disconnect only its four source wires, remove retained S1 module, then service on bench.",
+      "Routine ATO access must not require these disconnections; qualify the separate bank access sequence."
+    ],
+    "sequence_status": "PROPOSED_NOT_NATIVE_REMOVAL_PROOF"
+  },
+  "changed_cases": [
+    {
+      "role": "P_SYS",
+      "centre_mm": [
+        20,
+        0,
+        148
+      ],
+      "size_mm": [
+        37,
+        22,
+        11
+      ],
+      "model": "615",
+      "rotation": "180",
+      "supplier_cavity_datum_known": false,
+      "mount_status": "OPEN_MATCHED_NATIVE_RESTRAINT"
+    },
+    {
+      "role": "F_PI",
+      "input_mm": [
+        33.0,
+        26,
+        126.99999999999999
+      ],
+      "output_mm": [
+        33.0,
+        26,
+        75.99999999999999
+      ],
+      "axis": [
+        0,
+        0,
+        -1
+      ],
+      "centre_mm": [
+        33.0,
+        27.0,
+        101.49999999999999
+      ],
+      "size_mm": [
+        20.25,
+        22,
+        51
+      ],
+      "input_target": "P_SYS.1",
+      "input_segments": [
+        {
+          "kind": "line",
+          "start": [
+            33.0,
+            26,
+            126.99999999999999
+          ],
+          "end": [
+            33.0,
+            26,
+            142.0
+          ]
+        },
+        {
+          "kind": "arc",
+          "start": [
+            33.0,
+            26,
+            142.0
+          ],
+          "mid": [
+            33.0,
+            24.24264068711929,
+            146.2426406871193
+          ],
+          "end": [
+            33.0,
+            20,
+            148.0
+          ],
+          "radius_mm": 6
+        },
+        {
+          "kind": "line",
+          "start": [
+            33.0,
+            20,
+            148.0
+          ],
+          "end": [
+            33.0,
+            11,
+            148.0
+          ]
+        }
+      ],
+      "input_blank_mm": 47.42477796076939,
+      "output_segments": [
+        {
+          "kind": "line",
+          "start": [
+            33.0,
+            26,
+            75.99999999999999
+          ],
+          "end": [
+            33.0,
+            26,
+            72.99999999999999
+          ]
+        },
+        {
+          "kind": "arc",
+          "start": [
+            33.0,
+            26,
+            72.99999999999999
+          ],
+          "mid": [
+            33.0,
+            27.757359312880716,
+            68.7573593128807
+          ],
+          "end": [
+            33.0,
+            32,
+            66.99999999999999
+          ],
+          "radius_mm": 6
+        },
+        {
+          "kind": "line",
+          "start": [
+            33.0,
+            32,
+            66.99999999999999
+          ],
+          "end": [
+            33,
+            50,
+            67
+          ]
+        }
+      ],
+      "output_prefix_mm": 30.42477796076939,
+      "sleeve_start_mm": [
+        33.0,
+        32.75,
+        67.0
+      ],
+      "sleeve_end_mm": [
+        33.0,
+        59.25,
+        67.0
+      ],
+      "sleeve_OD_mm": 6,
+      "covered_overlap_mm": 8,
+      "new_insulation_end_mm": [
+        33.0,
+        68.25,
+        67.0
+      ],
+      "joint_basis": "Retained FHAC covered solder recipe26.5mm/17.25factory/9.25new/8overlap, not a new connector selection",
+      "output_status": "PREFIX_ONLY_DOWNSTREAM_LOAD_ROUTE_AND_STOCK_OPEN",
+      "independent_restraint_status": "OPEN_NATIVE_INPUT_OUTPUT_GRIPS",
+      "factory_minimum_mm": 84.5,
+      "case51mm_maximum_length_basis": "FHAC manufacturer50+/-1; OD4/bendR6/cross-section project assumptions"
+    }
+  ],
+  "changed_holder_inputs": [
+    {
+      "role": "F_PI",
+      "target": "P_SYS.1",
+      "segments": [
+        {
+          "kind": "line",
+          "start": [
+            33.0,
+            26,
+            126.99999999999999
+          ],
+          "end": [
+            33.0,
+            26,
+            142.0
+          ]
+        },
+        {
+          "kind": "arc",
+          "start": [
+            33.0,
+            26,
+            142.0
+          ],
+          "mid": [
+            33.0,
+            24.24264068711929,
+            146.2426406871193
+          ],
+          "end": [
+            33.0,
+            20,
+            148.0
+          ],
+          "radius_mm": 6
+        },
+        {
+          "kind": "line",
+          "start": [
+            33.0,
+            20,
+            148.0
+          ],
+          "end": [
+            33.0,
+            11,
+            148.0
+          ]
+        }
+      ],
+      "blank_mm": 47.42477796076939,
+      "factory_limit_is_project_assumption": true
+    }
+  ],
+  "invalidated": [
+    "All four S1 source routes and historical920mm",
+    "P_SYS-connected conductors and full PI_VIN load route",
+    "P_AUX-connected conductors other than three newly rebuilt FHAC inputs",
+    "P_SYS/F_PI/P_AUX native mounts and connected removal"
+  ],
+  "remaining": [
+    "Complete RL/W045/tail receiving family",
+    "HY body/head transition and HP moving continuation",
+    "All remaining wiring, native strain relief, stock and selected exports",
+    "Delivered U1/AUX padmap gate; no invented pins"
+  ],
+  "external_control_interpretation_correction": {
+    "historical_proof": "s1-terminal-plane-budget.json",
+    "outside_volume_mm3": 1231.504193,
+    "outside_does_not_reject_external_operator": true,
+    "P_AUX_interference_mm3": 1928.103344,
+    "interference_still_requires_change": true,
+    "original_driver_obstructions_retained": true,
+    "original_proof_not_overwritten": true
+  },
+  "ports": 100,
+  "occupied": 86,
+  "NC": 14,
+  "body_ends": 160,
+  "source_sha256": {
+    "tools/cad/open_prototype_source_receiving_family.py": "2c30d93f8bab204135a74a49291144118d8b7d644b9a58e953213061cdaf7594",
+    "tools/cad/open_prototype_rr_receiving_branch.py": "e62b2696d521038238b1ca4e4ef3a4739ec241a4491f79dbf67eeb9803a4aa89",
+    "tools/cad/open_prototype_source_group.py": "2bd3e3f588ecac9fb63005c846f776e59c5bec5aec92dda68a6e818983e7a0c0",
+    "tools/cad/open_prototype_distribution_allocation.py": "4d15ca7062f68503a983d4e841f346b2016bb824220651e12a3a00f234edced1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/rr-receiving-branch-plan.json": "b4e291f8c4cd44b1482026f73e250c3e18bf1f69de23597cd149148666ffb97e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/s1-terminal-plane-budget.json": "4a19545e375480f6963050d8867dc05e4e953b31733b2dda54e0947760f8d05e",
+    "tools/cad/whole_cat_interior.py": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/obstacle-map-current.json": "99c6de13659ebfb3db061d42ba8744f46ba819e4c1be61b71cfcf2aa249c2a0f",
+    "tools/cad/open_prototype_pi_family_plan.py": "83e895c2493b7300cef42c6d04e4a892a8d1be16061367cb4761be7bbd4fba61",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-receiving-family-plan.json": "f5f3f206a9712f44ff8b0bf8abeaf3edff519a3bf4fe74f804d47ed099ac5a69",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-receiving-family-space.json": "fa3543550cca0b59bf397aa5353db8545a56a98590dfe10e4555fe3efd4389b0"
+  },
+  "selected": false,
+  "stage_completed": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "whole_PI": {
+    "role": "F_PI",
+    "input_mm": [
+      33.0,
+      26,
+      126.99999999999999
+    ],
+    "output_mm": [
+      33.0,
+      26,
+      75.99999999999999
+    ],
+    "axis": [
+      0,
+      0,
+      -1
+    ],
+    "centre_mm": [
+      33.0,
+      27.0,
+      101.49999999999999
+    ],
+    "size_mm": [
+      20.25,
+      22,
+      51
+    ],
+    "input_target": "P_SYS.1",
+    "input_segments": [
+      {
+        "kind": "line",
+        "start": [
+          33.0,
+          26,
+          126.99999999999999
+        ],
+        "end": [
+          33.0,
+          26,
+          142.0
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          33.0,
+          26,
+          142.0
+        ],
+        "mid": [
+          33.0,
+          24.24264068711929,
+          146.2426406871193
+        ],
+        "end": [
+          33.0,
+          20,
+          148.0
+        ],
+        "radius_mm": 6
+      },
+      {
+        "kind": "line",
+        "start": [
+          33.0,
+          20,
+          148.0
+        ],
+        "end": [
+          33.0,
+          11,
+          148.0
+        ]
+      }
+    ],
+    "input_blank_mm": 47.42477796076939,
+    "output_segments": [
+      {
+        "kind": "line",
+        "start": [
+          33.0,
+          26,
+          75.99999999999999
+        ],
+        "end": [
+          33.0,
+          26,
+          72.99999999999999
+        ]
+      },
+      {
+        "kind": "arc",
+        "start": [
+          33.0,
+          26,
+          72.99999999999999
+        ],
+        "mid": [
+          33.0,
+          27.757359312880716,
+          68.7573593128807
+        ],
+        "end": [
+          33.0,
+          32,
+          66.99999999999999
+        ],
+        "radius_mm": 6
+      },
+      {
+        "kind": "line",
+        "start": [
+          33.0,
+          32,
+          66.99999999999999
+        ],
+        "end": [
+          33,
+          50,
+          67
+        ]
+      }
+    ],
+    "output_prefix_mm": 30.42477796076939,
+    "sleeve_start_mm": [
+      33.0,
+      32.75,
+      67.0
+    ],
+    "sleeve_end_mm": [
+      33.0,
+      59.25,
+      67.0
+    ],
+    "sleeve_OD_mm": 6,
+    "covered_overlap_mm": 8,
+    "new_insulation_end_mm": [
+      33.0,
+      68.25,
+      67.0
+    ],
+    "joint_basis": "Retained FHAC covered solder recipe26.5mm/17.25factory/9.25new/8overlap, not a new connector selection",
+    "output_status": "PREFIX_ONLY_DOWNSTREAM_LOAD_ROUTE_AND_STOCK_OPEN",
+    "independent_restraint_status": "OPEN_NATIVE_INPUT_OUTPUT_GRIPS",
+    "factory_minimum_mm": 84.5,
+    "case51mm_maximum_length_basis": "FHAC manufacturer50+/-1; OD4/bendR6/cross-section project assumptions"
+  },
+  "reused_partial_proof": "source-receiving-family-space.json",
+  "changed_cause": "Whole pair Z+90, SYS20/0/148 with input and both PI exits rebound, output/joint NORTH above Pi allowance. Not another -60X scalar shift.",
+  "reused_partial_not_full_acceptance": true,
+  "worker_seconds": 0.136751,
+  "finished_utc": "2026-10-09T03:15:48.582883+00:00"
+}
