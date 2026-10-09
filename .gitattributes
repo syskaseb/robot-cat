@@ -573,6 +573,10 @@ hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eo
 /hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r29/** -text -eol
 /tools/electronics/servo_fuse_bank_select_r2.py -text -eol
 /hardware/manufacturing/one-batch-prototype-r52/** -text -eol
+# Current M3 evidence is byte-hashed; preserve JSON, CAD and README bytes.
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/** -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-phase1-score.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_open_prototype_tail_package.py text eol=lf
 # Stage2 mounting evidence pins raw bytes, including Windows-generated JSON.
 # Preserve these serialized reports; autocrlf would break their SHA256 chain.
 /hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/*.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

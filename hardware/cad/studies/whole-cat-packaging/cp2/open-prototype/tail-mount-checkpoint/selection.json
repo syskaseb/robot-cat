@@ -1,0 +1,626 @@
+{
+  "status": "M3_NOMINAL_PROTOTYPE_MECHANICS_SELECTED",
+  "selected": true,
+  "mechanical_M3_complete": true,
+  "physical_pass": false,
+  "print_ready": false,
+  "wiring_complete": false,
+  "full_phase1_complete": false,
+  "current_assembly": "TailAssemblyCurrent.FCStd",
+  "result_id": "M3",
+  "prints": [
+    {
+      "identity": "tail support:MG92BMount29",
+      "module": "tail support",
+      "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "nominal_prototype_selected_physical_fit_open",
+      "material": "PETG",
+      "orientation": "Saved world Z upward, lower base on bed; PETG, brim5 within256cube",
+      "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd",
+      "source_object": "RaisedTailSupport",
+      "sha256": "8f4b2b96ce6d8f7cb482332e93d25ac5a0297667233b0c0decb457e6759431d0",
+      "recipe": "hardware/manufacturing/one-batch-prototype-r29/tail-wiring-interface.json",
+      "print_size_mm": [
+        126.0,
+        97.61308288574219,
+        54.0
+      ],
+      "brim_mm": 5,
+      "supports": "Phase2 inspect cantilever/underside/portal supports and removal; nozzle/layers unset",
+      "source_kind": "T158 inherited support plus native integral Pad/Pocket/entry Fillet",
+      "installation": "Feed tie band only; locking head outside and accessible; stationary servo wire, disconnect before Bridge removal",
+      "tie_candidate": "HellermannTyton T18R 112-01819, max band 2.7 x 1.2 mm; not head tie 111-00643",
+      "actual_tie_wire_guard_qualified": false,
+      "whole_tail_qualified": false,
+      "actual_drive_qualified": false
+    },
+    {
+      "identity": "tail support:UpperHousing34",
+      "module": "tail support",
+      "stl": "hardware/cad/exports/current-tail-r1/UpperHousing34_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Saved world Z upward; lowest face on bed; flat base/ring orientation",
+      "source": "hardware/cad/modules/tail/TailSupport.FCStd",
+      "source_object": "UpperHousing34",
+      "sha256": "36af5cf3ed2291b7df68824d37db486ca08a459c4c4a1f0d577e0c026f6994c9",
+      "recipe": "hardware/cad/exports/current-tail-r1/exports.json",
+      "print_size_mm": [
+        40.0,
+        34.0,
+        22.200000762939453
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail support:BearingCap34",
+      "module": "tail support",
+      "stl": "hardware/cad/exports/current-tail-r1/BearingCap34_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Saved world Z upward; lowest face on bed; flat base/ring orientation",
+      "source": "hardware/cad/modules/tail/TailCartridge.FCStd",
+      "source_object": "BearingCap34",
+      "sha256": "b79ebffa0cecbc2f075e0c7c3eb23f85ebb902e09e686c89ec4df7467c7d8165",
+      "recipe": "hardware/cad/exports/current-tail-r1/exports.json",
+      "print_size_mm": [
+        38.0,
+        34.0,
+        4.999999999999986
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail support:OuterSpacer34",
+      "module": "tail support",
+      "stl": "hardware/cad/exports/current-tail-r1/OuterSpacer34_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Saved world Z upward; lowest face on bed; flat base/ring orientation",
+      "source": "hardware/cad/modules/tail/TailSupport.FCStd",
+      "source_object": "OuterSpacer34",
+      "sha256": "a1068d9e4100a3a0508c0bbd155e8e903a929d1deda521dc7bc18c1e6693a01d",
+      "recipe": "hardware/cad/exports/current-tail-r1/exports.json",
+      "print_size_mm": [
+        21.799999237060547,
+        21.799999237060547,
+        6.0
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail support:InnerSpacer34",
+      "module": "tail support",
+      "stl": "hardware/cad/exports/current-tail-r1/InnerSpacer34_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Saved world Z upward; lowest face on bed; flat base/ring orientation",
+      "source": "hardware/cad/modules/tail/TailSupport.FCStd",
+      "source_object": "InnerSpacer34",
+      "sha256": "4372a8adebb5c46825cb05af9f596ee65b56941bb82e87900d81b55d16232f77",
+      "recipe": "hardware/cad/exports/current-tail-r1/exports.json",
+      "print_size_mm": [
+        11.0,
+        11.0,
+        6.0
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail support:SpindleCap34",
+      "module": "tail support",
+      "stl": "hardware/cad/exports/current-tail-r1/SpindleCap34_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Saved world Z upward; lowest face on bed; flat base/ring orientation",
+      "source": "hardware/cad/modules/tail/TailSupport.FCStd",
+      "source_object": "SpindleCap34",
+      "sha256": "3b74aae8d55429cef78903e027dcdab2ff68f5c764776f4fe6dd76fb700565a3",
+      "recipe": "hardware/cad/exports/current-tail-r1/exports.json",
+      "print_size_mm": [
+        11.0,
+        11.0,
+        2.0
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail support:TailLowerRetainer",
+      "module": "tail support",
+      "stl": "hardware/cad/exports/current-tail-r1/TailLowerRetainer_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Saved world Z upward; lowest face on bed; flat base/ring orientation",
+      "source": "hardware/cad/modules/tail/TailCartridge.FCStd",
+      "source_object": "LowerRetainerPETG",
+      "sha256": "6382f8d04285931402172bfa50728ef1b8b64fa602e1bbd64d93fcbeb64c1e0f",
+      "recipe": "hardware/cad/exports/current-tail-r1/exports.json",
+      "print_size_mm": [
+        25.200000762939453,
+        32.5,
+        4.199999809265137
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail support:TailBridge29",
+      "module": "tail support",
+      "stl": "hardware/cad/studies/tail-p0-bridge-flange-r1/TailBridge_P0_flange_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "diagnostic_mount_candidate",
+      "material": "PETG",
+      "orientation": "Z up; saved underside Z41 on bed, flange underside elevated 1.52mm requires support review",
+      "source": "hardware/cad/studies/tail-p0-bridge-flange-r1/TailBridgeP0Flange.FCStd",
+      "source_object": "TailBridge",
+      "sha256": "fe498213a667229b607fa512d6040f27c82c7f92ca435cb0ebbc2017afa093c9",
+      "recipe": "hardware/cad/studies/tail-p0-bridge-flange-r1/README.md",
+      "print_size_mm": [
+        87.0,
+        54.0,
+        6.000000000000007
+      ],
+      "brim_mm": 5,
+      "supports": "Flange underside 1.52mm above bed; per-part support/contact review, NOT slicer approved"
+    },
+    {
+      "identity": "tail segments:TailModule29_00",
+      "module": "tail segments",
+      "stl": "hardware/cad/exports/tail-segments-r1/TailModule29_00_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Native local Z up: socket down; candidate only",
+      "source": "hardware/skorupa/v29/TailDesign29.FCStd",
+      "source_object": "TailModule00",
+      "sha256": "4d170734656b5d522a74c1b91632c94f3d5dc91848f5308a7c2bc24e33250c53",
+      "recipe": "hardware/cad/exports/tail-segments-r1/exports.json",
+      "print_size_mm": [
+        21.200010776519775,
+        18.000000715255737,
+        36.97395706176758
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail segments:TailModule29_01",
+      "module": "tail segments",
+      "stl": "hardware/cad/exports/tail-segments-r1/TailModule29_01_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Native local Z up: socket down; candidate only",
+      "source": "hardware/skorupa/v29/TailDesign29.FCStd",
+      "source_object": "TailModule001",
+      "sha256": "1f8f5548d2f9041705dbe37c33ab559f95c487bc78e2d23091cbd9a03105a20a",
+      "recipe": "hardware/cad/exports/tail-segments-r1/exports.json",
+      "print_size_mm": [
+        20.708425521850586,
+        17.49206566810608,
+        36.97395706176758
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail segments:TailModule29_02",
+      "module": "tail segments",
+      "stl": "hardware/cad/exports/tail-segments-r1/TailModule29_02_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Native local Z up: socket down; candidate only",
+      "source": "hardware/skorupa/v29/TailDesign29.FCStd",
+      "source_object": "TailModule002",
+      "sha256": "9886ff465504ae4bc37534d849b0e6ad16fbdec32950856381e615ca64904a6f",
+      "recipe": "hardware/cad/exports/tail-segments-r1/exports.json",
+      "print_size_mm": [
+        20.213282108306885,
+        16.996168613433838,
+        36.97395706176758
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail segments:TailModule29_03",
+      "module": "tail segments",
+      "stl": "hardware/cad/exports/tail-segments-r1/TailModule29_03_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Native local Z up: socket down; candidate only",
+      "source": "hardware/skorupa/v29/TailDesign29.FCStd",
+      "source_object": "TailModule003",
+      "sha256": "97637cc5846fa69980392e30bd083b9088b8df1742b6481fac99a4e4ebf77434",
+      "recipe": "hardware/cad/exports/tail-segments-r1/exports.json",
+      "print_size_mm": [
+        19.724368810653687,
+        16.497007131576538,
+        36.97395706176758
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail segments:TailModule29_04",
+      "module": "tail segments",
+      "stl": "hardware/cad/exports/tail-segments-r1/TailModule29_04_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Native local Z up: socket down; candidate only",
+      "source": "hardware/skorupa/v29/TailDesign29.FCStd",
+      "source_object": "TailModule004",
+      "sha256": "609ecbe08bbc33f81a7208b3f30f067322c55908dd01b6978cc149e55837a6c9",
+      "recipe": "hardware/cad/exports/tail-segments-r1/exports.json",
+      "print_size_mm": [
+        19.23389458656311,
+        15.992916345596313,
+        36.97395706176758
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "tail segments:TailModule29_05",
+      "module": "tail segments",
+      "stl": "hardware/cad/exports/tail-segments-r1/TailModule29_05_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "existing_candidate_not_print_approved",
+      "material": "PETG",
+      "orientation": "Native local Z up: socket down; candidate only",
+      "source": "hardware/skorupa/v29/TailDesign29.FCStd",
+      "source_object": "TailModule005",
+      "sha256": "474652429f0f870151c020ce6ad306000ea5c05713659d882a8c4c1045d5c326",
+      "recipe": "hardware/cad/exports/tail-segments-r1/exports.json",
+      "print_size_mm": [
+        18.990781784057617,
+        15.496071815490723,
+        35.970096588134766
+      ],
+      "brim_mm": 5,
+      "supports": "Use pinned per-part README; not slicer-qualified"
+    },
+    {
+      "identity": "drive:MG92BPrintedHorn20T-R2",
+      "module": "head/neck+tail",
+      "stl": "hardware/cad/studies/mg92b-printed-horn-r2/MG92B_cross_horn_20T_TOP_RELIEF_PROVISIONAL_x3.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "conditional_trial_selection",
+      "material": "PETG",
+      "sha256": "6e3e2245201a63912cf2f13a7681996228458f830fc98a59bd23286d86e57329",
+      "source": "hardware/cad/studies/mg92b-printed-horn-r2/MG92BPrintedHornTopReliefR2.FCStd",
+      "source_object": "PrintedHorn20T",
+      "allocation": "ONE of the existing three horn prints; two head horns are not added again",
+      "print_size_mm": [
+        28.0,
+        16.700000762939453,
+        5.449999809265137
+      ]
+    },
+    {
+      "identity": "tail support:TailRoot29",
+      "module": "tail support",
+      "stl": "hardware/cad/studies/tail-horn-provisional-r5/TailSupportedRoot_horn_provisional_candidate_x1.stl",
+      "quantity": 1,
+      "purpose": "installed_candidate",
+      "status": "conditional_trial_selection",
+      "material": "PETG",
+      "sha256": "39f1d9aeafe758aca40209f6a179eb378ddbf7c2031aa614fd811cd21cf247e2",
+      "source": "hardware/cad/studies/tail-horn-provisional-r5/TailCartridgeProvisionalR5.FCStd",
+      "source_object": "SupportedRoot34",
+      "print_size_mm": [
+        47.0994,
+        32.99991,
+        33.0
+      ]
+    },
+    {
+      "identity": "CP2:LowerCarrier",
+      "quantity": 1,
+      "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/LowerCarrier_x1.stl",
+      "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd",
+      "source_object": "LowerCarrier",
+      "sha256": "0b6bbb8841a275e0aa1a7be6a88eae4ab60a5f56f1cb1a2f56a69cadfb30d25b",
+      "print_size_mm": [
+        184.0,
+        181.49998474121094,
+        9.000003814697266
+      ],
+      "material": "PETG",
+      "brim_mm": 5,
+      "orientation": "Flat base at Z0; carrier floor down, annular risers axis vertical",
+      "supports": "Phase2 slicer/printed fit verification required"
+    },
+    {
+      "identity": "CP2:TailRiser",
+      "quantity": 4,
+      "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailRiser_x4.stl",
+      "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd",
+      "source_object": "TailRiser",
+      "sha256": "1d3223b9f59a9f71684225e085d02b10f3c2b16a436158e5a47625ce290d6ad3",
+      "print_size_mm": [
+        6.995649337768555,
+        6.997824192047119,
+        19.0
+      ],
+      "material": "PETG",
+      "brim_mm": 5,
+      "orientation": "Flat base at Z0; carrier floor down, annular risers axis vertical",
+      "supports": "Phase2 slicer/printed fit verification required"
+    }
+  ],
+  "tail_internal_hardware": {
+    "groups": [
+      {
+        "group": "bearings",
+        "item": "608ZZ",
+        "quantity": 2,
+        "identities": [
+          "BearingLower34",
+          "BearingUpper34"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "support-to-bridge",
+        "item": "M3x16",
+        "quantity": 4,
+        "identities": [
+          "TailMountBolt29_0",
+          "TailMountBolt29_1",
+          "TailMountBolt29_2",
+          "TailMountBolt29_3"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "spindle",
+        "item": "M3x30",
+        "quantity": 1,
+        "identities": [
+          "SpindleBolt34"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "housing",
+        "item": "M3x12",
+        "quantity": 2,
+        "identities": [
+          "HousingJointBolt34_0",
+          "HousingJointBolt34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "cap",
+        "item": "M2x12",
+        "quantity": 2,
+        "identities": [
+          "BearingCapBolt34_0",
+          "BearingCapBolt34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "support/housing/spindle nuts",
+        "item": "M3 nut",
+        "quantity": 7,
+        "identities": [
+          "TailMountNut29_0",
+          "TailMountNut29_1",
+          "TailMountNut29_2",
+          "TailMountNut29_3",
+          "SpindleNut34",
+          "HousingJointNut34_0",
+          "HousingJointNut34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "cap nuts",
+        "item": "M2 nut",
+        "quantity": 2,
+        "identities": [
+          "BearingCapNut34_0",
+          "BearingCapNut34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "lower cartridge adapter",
+        "item": "M2x10",
+        "quantity": 4,
+        "identities": [
+          "TailCartridgeBolt0",
+          "TailCartridgeBolt1",
+          "TailCartridgeBolt2",
+          "TailCartridgeBolt3"
+        ],
+        "source": "hardware/bom/tail-cartridge-installation.json"
+      },
+      {
+        "group": "lower cartridge adapter",
+        "item": "M2 nut",
+        "quantity": 4,
+        "identities": [
+          "TailCartridgeNut0",
+          "TailCartridgeNut1",
+          "TailCartridgeNut2",
+          "TailCartridgeNut3"
+        ],
+        "source": "hardware/bom/tail-cartridge-installation.json"
+      },
+      {
+        "group": "servo BODY, not horn",
+        "item": "M2x12",
+        "quantity": 2,
+        "identities": [
+          "TailEarBolt29_0",
+          "TailEarBolt29_1"
+        ],
+        "source": "hardware/cad/studies/tail-servo-body-kit-r1/kit.json"
+      },
+      {
+        "group": "servo BODY, not horn",
+        "item": "M2 nut",
+        "quantity": 2,
+        "identities": [
+          "TailEarNut29_0",
+          "TailEarNut29_1"
+        ],
+        "source": "hardware/cad/studies/tail-servo-body-kit-r1/kit.json"
+      },
+      {
+        "group": "six passive segments",
+        "item": "M2x12",
+        "quantity": 6,
+        "identities": [
+          "TailBolt29_00",
+          "TailBolt29_01",
+          "TailBolt29_02",
+          "TailBolt29_03",
+          "TailBolt29_04",
+          "TailBolt29_05"
+        ],
+        "source": "hardware/cad/studies/tail-segment-identities-r1/README.md"
+      },
+      {
+        "group": "six passive segments",
+        "item": "M2 nut",
+        "quantity": 6,
+        "identities": [
+          "TailNut29_00",
+          "TailNut29_01",
+          "TailNut29_02",
+          "TailNut29_03",
+          "TailNut29_04",
+          "TailNut29_05"
+        ],
+        "source": "hardware/cad/studies/tail-segment-identities-r1/README.md"
+      }
+    ],
+    "nominal_internal_tail_totals": {
+      "608ZZ": 2,
+      "M3x16": 4,
+      "M3x30": 1,
+      "M3x12": 2,
+      "M2x12": 10,
+      "M3 nut": 7,
+      "M2 nut": 14,
+      "M2x10": 4
+    },
+    "unique_parts": 44,
+    "source": "hardware/cad/studies/tail-fastener-reconciliation-r1/kit.json",
+    "not_global_purchase_totals": true
+  },
+  "shared_rear_frame_hardware": {
+    "M2x30": 4,
+    "M2_nut_reused": 4,
+    "M2_washer_reused": 8,
+    "replaces": "Four rear P0 M2x10 / historical M2x14; no second TailFrame bolt set",
+    "selected_supplier": "Rosentaler 0200912020030 DIN912 A2-70 M2x30 full thread30mm",
+    "supplier_url": "https://www.rosentaler-schrauben.de/Befestigungstechnik/Schrauben/Innensechskant-Schrauben/DIN-912-Zylinderkopf-mit-Innensechskant/Zylinderkopfschraube-mit-Innensechskant-DIN-912-A2-Edelstahl-Rostfrei-M2-x-30.html/",
+    "procurement_contribution_only": {
+      "unit": "piece",
+      "installed": 4,
+      "spare": 1,
+      "planned_total": 5,
+      "purchased": 0
+    }
+  },
+  "monitor": {
+    "case_bounds_mm": [
+      108,
+      -12.5,
+      42.92,
+      149,
+      12.5,
+      54.92
+    ],
+    "floor_thickness_mm": 1.8,
+    "band_channel_minimum_floor_mm": 1.6,
+    "tie_count": 2,
+    "ties_retained_not_extra": true,
+    "sku": "111-02370",
+    "nominal_length_mm": 145,
+    "supplier_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18i/111-02370",
+    "unknown_delivered_pads_and_connectors_are_fit_gate": true
+  },
+  "assembly_recipe": "README.md",
+  "range_deg": [
+    -30,
+    30
+  ],
+  "discrete_samples": 13,
+  "work_timing": {
+    "started_utc": "2026-10-09T13:55:24Z",
+    "native_checks_finished_utc": "2026-10-09T15:08:27Z",
+    "wall_seconds_to_native_checks": 4383,
+    "not_cpu_seconds": true
+  },
+  "phase2_gates": [
+    "Actual MG92B spline, shaft height and axial retention screw/retainer fit",
+    "PETG bearing, creep/torque and support/web coupon",
+    "Delivered monitor underside/lead exit, insulation and non-crushing tie fit",
+    "Real fastener lengths, thread runout, tools and light tightening; frame holes hand-finished per retained P0 recipe",
+    "Slicer/printing; loaded tail movement and passive segment posture"
+  ],
+  "explicitly_open": [
+    "W4 tail-to-body wiring",
+    "W5 whole harness",
+    "M2 head",
+    "M4 protective covers",
+    "M5 complete board mount result",
+    "E3 data",
+    "Global K1/K2/K3 and A2/A3"
+  ],
+  "fixed_total": 20,
+  "confirmed_result_ids": [
+    "M1",
+    "M3",
+    "E4",
+    "A1"
+  ],
+  "result_count": 4,
+  "result_percent": 20,
+  "preserved": [
+    "P0",
+    "E6",
+    "15 drives",
+    "bank R47",
+    "MAIN worldZ46.52",
+    "torso325x200x160",
+    "replaceable provisional MG92B adapters"
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "status": "ERROR_NO_ACCEPTANCE",
+  "mechanical_M3_complete": false,
+  "physical_pass": false,
+  "wiring_complete": false,
+  "selected": false,
+  "contacts": [],
+  "errors": [
+    "'App.DocumentObject' object has no attribute 'Shape'"
+  ],
+  "tested_pairs": 350,
+  "motion_samples": [
+    {
+      "angle_deg": -30,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": -25,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": -20,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": -15,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": -10,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": -5,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 0,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 5,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 10,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 15,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 20,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 25,
+      "new_contacts": 0
+    },
+    {
+      "angle_deg": 30,
+      "new_contacts": 0
+    }
+  ],
+  "tail_identities": [
+    "BearingCap34",
+    "BearingCapBolt34_0",
+    "BearingCapBolt34_1",
+    "BearingCapNut34_0",
+    "BearingCapNut34_1",
+    "BearingLower34",
+    "BearingUpper34",
+    "HousingJointBolt34_0",
+    "HousingJointBolt34_1",
+    "HousingJointNut34_0",
+    "HousingJointNut34_1",
+    "InnerSpacer34",
+    "MG92BCase29",
+    "MG92BMount29",
+    "OuterSpacer34",
+    "PrintedHornR2",
+    "SpindleBolt34",
+    "SpindleCap34",
+    "SpindleNut34",
+    "TailBolt29_00",
+    "TailBolt29_01",
+    "TailBolt29_02",
+    "TailBolt29_03",
+    "TailBolt29_04",
+    "TailBolt29_05",
+    "TailBridge29",
+    "TailCartridgeBolt0",
+    "TailCartridgeBolt1",
+    "TailCartridgeBolt2",
+    "TailCartridgeBolt3",
+    "TailCartridgeNut0",
+    "TailCartridgeNut1",
+    "TailCartridgeNut2",
+    "TailCartridgeNut3",
+    "TailEarBolt29_0",
+    "TailEarBolt29_1",
+    "TailEarNut29_0",
+    "TailEarNut29_1",
+    "TailLowerRetainer",
+    "TailModule29_00",
+    "TailModule29_01",
+    "TailModule29_02",
+    "TailModule29_03",
+    "TailModule29_04",
+    "TailModule29_05",
+    "TailMountBolt29_0",
+    "TailMountBolt29_1",
+    "TailMountBolt29_2",
+    "TailMountBolt29_3",
+    "TailMountNut29_0",
+    "TailMountNut29_1",
+    "TailMountNut29_2",
+    "TailMountNut29_3",
+    "TailNut29_00",
+    "TailNut29_01",
+    "TailNut29_02",
+    "TailNut29_03",
+    "TailNut29_04",
+    "TailNut29_05",
+    "TailRoot29",
+    "UpperHousing34"
+  ],
+  "internal_hardware": {
+    "groups": [
+      {
+        "group": "bearings",
+        "item": "608ZZ",
+        "quantity": 2,
+        "identities": [
+          "BearingLower34",
+          "BearingUpper34"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "support-to-bridge",
+        "item": "M3x16",
+        "quantity": 4,
+        "identities": [
+          "TailMountBolt29_0",
+          "TailMountBolt29_1",
+          "TailMountBolt29_2",
+          "TailMountBolt29_3"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "spindle",
+        "item": "M3x30",
+        "quantity": 1,
+        "identities": [
+          "SpindleBolt34"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "housing",
+        "item": "M3x12",
+        "quantity": 2,
+        "identities": [
+          "HousingJointBolt34_0",
+          "HousingJointBolt34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "cap",
+        "item": "M2x12",
+        "quantity": 2,
+        "identities": [
+          "BearingCapBolt34_0",
+          "BearingCapBolt34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "support/housing/spindle nuts",
+        "item": "M3 nut",
+        "quantity": 7,
+        "identities": [
+          "TailMountNut29_0",
+          "TailMountNut29_1",
+          "TailMountNut29_2",
+          "TailMountNut29_3",
+          "SpindleNut34",
+          "HousingJointNut34_0",
+          "HousingJointNut34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "cap nuts",
+        "item": "M2 nut",
+        "quantity": 2,
+        "identities": [
+          "BearingCapNut34_0",
+          "BearingCapNut34_1"
+        ],
+        "source": "hardware/bom/tail-support.json"
+      },
+      {
+        "group": "lower cartridge adapter",
+        "item": "M2x10",
+        "quantity": 4,
+        "identities": [
+          "TailCartridgeBolt0",
+          "TailCartridgeBolt1",
+          "TailCartridgeBolt2",
+          "TailCartridgeBolt3"
+        ],
+        "source": "hardware/bom/tail-cartridge-installation.json"
+      },
+      {
+        "group": "lower cartridge adapter",
+        "item": "M2 nut",
+        "quantity": 4,
+        "identities": [
+          "TailCartridgeNut0",
+          "TailCartridgeNut1",
+          "TailCartridgeNut2",
+          "TailCartridgeNut3"
+        ],
+        "source": "hardware/bom/tail-cartridge-installation.json"
+      },
+      {
+        "group": "servo BODY, not horn",
+        "item": "M2x12",
+        "quantity": 2,
+        "identities": [
+          "TailEarBolt29_0",
+          "TailEarBolt29_1"
+        ],
+        "source": "hardware/cad/studies/tail-servo-body-kit-r1/kit.json"
+      },
+      {
+        "group": "servo BODY, not horn",
+        "item": "M2 nut",
+        "quantity": 2,
+        "identities": [
+          "TailEarNut29_0",
+          "TailEarNut29_1"
+        ],
+        "source": "hardware/cad/studies/tail-servo-body-kit-r1/kit.json"
+      },
+      {
+        "group": "six passive segments",
+        "item": "M2x12",
+        "quantity": 6,
+        "identities": [
+          "TailBolt29_00",
+          "TailBolt29_01",
+          "TailBolt29_02",
+          "TailBolt29_03",
+          "TailBolt29_04",
+          "TailBolt29_05"
+        ],
+        "source": "hardware/cad/studies/tail-segment-identities-r1/README.md"
+      },
+      {
+        "group": "six passive segments",
+        "item": "M2 nut",
+        "quantity": 6,
+        "identities": [
+          "TailNut29_00",
+          "TailNut29_01",
+          "TailNut29_02",
+          "TailNut29_03",
+          "TailNut29_04",
+          "TailNut29_05"
+        ],
+        "source": "hardware/cad/studies/tail-segment-identities-r1/README.md"
+      }
+    ],
+    "nominal_internal_tail_totals": {
+      "608ZZ": 2,
+      "M3x16": 4,
+      "M3x30": 1,
+      "M3x12": 2,
+      "M2x12": 10,
+      "M3 nut": 7,
+      "M2 nut": 14,
+      "M2x10": 4
+    },
+    "unique_parts": 44,
+    "source": "hardware/cad/studies/tail-fastener-reconciliation-r1/kit.json",
+    "not_global_purchase_totals": true
+  },
+  "moving_identities": [
+    "InnerSpacer34",
+    "PrintedHornR2",
+    "SpindleBolt34",
+    "SpindleCap34",
+    "SpindleNut34",
+    "TailBolt29_00",
+    "TailBolt29_01",
+    "TailBolt29_02",
+    "TailBolt29_03",
+    "TailBolt29_04",
+    "TailBolt29_05",
+    "TailCartridgeBolt0",
+    "TailCartridgeBolt1",
+    "TailCartridgeBolt2",
+    "TailCartridgeBolt3",
+    "TailCartridgeNut0",
+    "TailCartridgeNut1",
+    "TailCartridgeNut2",
+    "TailCartridgeNut3",
+    "TailLowerRetainer",
+    "TailModule29_00",
+    "TailModule29_01",
+    "TailModule29_02",
+    "TailModule29_03",
+    "TailModule29_04",
+    "TailModule29_05",
+    "TailNut29_00",
+    "TailNut29_01",
+    "TailNut29_02",
+    "TailNut29_03",
+    "TailNut29_04",
+    "TailNut29_05",
+    "TailRoot29"
+  ],
+  "range_deg": [
+    -30,
+    30
+  ],
+  "step_deg": 5,
+  "motion_scope": "13 discrete nominal samples, not continuous/loaded physical sweep; passive segment posture retained",
+  "legacy_unchanged_pair_evidence": "hardware/cad/validation/tail-cartridge-integration/geometry.json",
+  "whole_tail_parameter_restore": true,
+  "model_sha256": "c8e4794a41194bfde80e7696c208049a39a412f55a72755a1ac7b57fde1c87be",
+  "source_sha256": {
+    "hardware/cad/assembly/RobotCatTailCartridge.FCStd": "741c43d449e0a0991e667ac261d52d66eec49cab9d91b09fd08c561cac7c7ced",
+    "hardware/cad/modules/tail/TailCartridge.FCStd": "443863a99774468f24c40dcc1aff02128c0fab5e0414fd9d9d0dc27a1bf60b50",
+    "hardware/cad/modules/tail/TailPurchased.FCStd": "7a29e0d97f30af2cc456eb00eec0ed231e6e47f4cb609788543304eb912d9f8f",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/SourceRetentionCurrent.FCStd": "965676891de0284fe997d6b2bd39380098408895d700563d095055a791fec02e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/LocalStationsAssembly.FCStd": "8cc935807900955b2e8bf50efbc70a13647e22e80910897117b6e63dcc868883",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/TailLocalCurrent.FCStd": "cdc8dcde34e97e774264325adad5c3a9d1d149c1ab08c71667e96850bc6f6f3c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailMechanicalCurrent.FCStd": "548cf9879ee245e14aa52cac54fa34df3c9ccd293678a3ca48f9fa50e03656a9",
+    "hardware/cad/studies/tail-printed-horn-r2/TailR5PrintedHornR2_CANDIDATE.FCStd": "61c6d81fd28ef7df927ee4c5cdc2f71cce3a86bf5db4a01f370d4743dae62f0b",
+    "hardware/manufacturing/tail-fixed-build-r1/interfaces.json": "c253e80b38949db69152a1c984340f12db98ff5ec642ee840fbd9076d6397c1e",
+    "tools/cad/open_prototype_tail_assembly.py": "43469f17008e8f41158cff03335952e8644b6ac8f9838d6bc45e5ed82d438c27",
+    "hardware/cad/validation/tail-cartridge-integration/geometry.json": "88c75a195ec6744f067295c60ed2f0395f603beef8f2b8ad49e5061f4fe86e4f"
+  },
+  "worker_seconds": 595.391,
+  "finished_utc": "2026-10-09T15:04:55.111034+00:00"
+}
