@@ -1,0 +1,214 @@
+{
+  "status": "M5_CURRENT_NOMINAL_BOARD_MECHANICS_SELECTED",
+  "result_id": "M5",
+  "selected": true,
+  "M5_complete": true,
+  "physical_pass": false,
+  "print_ready": false,
+  "full_wiring_complete": false,
+  "current_native": "CurrentBoardMounts.FCStd",
+  "scope": "Current Pi/BUS/PWM/AUX/U1 plate attachment and clamp load path; not WAGO/S1/wire/service completion",
+  "fixed_criterion_basis": "Original R31 M5 closed PiTray/clamps/Pi mounting and staged Bus removal, with Pi wires explicitly left W5. Requalify that full mechanical function at CP2, not redefine M5 as all W5 distribution routes.",
+  "original_M5_definition": "hardware/manufacturing/one-batch-prototype-r31/README.md",
+  "print_parts": [
+    {
+      "part": "UpperSpacer",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/UpperSpacer.stl",
+      "sha256": "4d8eed4e8a8e889339c09353504ff6805119f93347353c92b346bd57cc2b3e5b",
+      "bounds_with_5mm_brim_mm": [
+        17.995027685072273,
+        17.9975136135472,
+        32.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN",
+      "print_size_mm": [
+        7.995027685072273,
+        7.9975136135471985,
+        32.0
+      ]
+    },
+    {
+      "part": "TopClampPad",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/TopClampPad.stl",
+      "sha256": "925bbcfaa452a3afdf749094ed63b3cda654c5c6b357b8218de79c68e7e7fd95",
+      "bounds_with_5mm_brim_mm": [
+        20.0,
+        23.5,
+        1.2000000476837158
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN",
+      "print_size_mm": [
+        10.0,
+        13.5,
+        1.2000000476837158
+      ]
+    },
+    {
+      "part": "LowerClampJaw",
+      "quantity": 4,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/LowerClampJaw.stl",
+      "sha256": "540011318755f484f1f7fb5988b13228130ae37b06f54293064d0f2b93e95ae2",
+      "bounds_with_5mm_brim_mm": [
+        20.0,
+        23.5,
+        3.0
+      ],
+      "orientation": "Flat base +Z; PETG; physical coupon/profile/support assessment OPEN",
+      "print_size_mm": [
+        10.0,
+        13.5,
+        3.0
+      ]
+    },
+    {
+      "part": "LowerCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/LowerCarrier_x1.stl",
+      "sha256": "0b6bbb8841a275e0aa1a7be6a88eae4ab60a5f56f1cb1a2f56a69cadfb30d25b",
+      "bounds_with_5mm_brim_mm": [
+        194.0,
+        191.49998474121094,
+        9.000003814697266
+      ],
+      "orientation": "Flat base +Z, PETG; supports/actual printer profile assessed in phase2, not slicer-approved",
+      "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/CurrentBoardMounts.FCStd",
+      "source_object": "LowerCarrier001",
+      "shared_physical_identity": "CP2:LowerCarrier already selected by M3; one plate, not two",
+      "print_size_mm": [
+        184.0,
+        181.49998474121094,
+        9.000003814697266
+      ]
+    },
+    {
+      "part": "PwmInsulatingWasher",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/PwmInsulatingWasher.stl",
+      "sha256": "01f961afada7fac56d5a92eca90a5937a9674bab6263008ec5e72fa8e08c9977",
+      "bounds_with_5mm_brim_mm": [
+        15.0,
+        15.0,
+        1.0
+      ],
+      "orientation": "Flat on bed +Z, PETG; actual printer/nozzle/profile unknown; fit/creep/insulation coupon required",
+      "print_size_mm": [
+        5.0,
+        5.0,
+        1.0
+      ]
+    },
+    {
+      "part": "UpperCarrier",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/DataShelf_UpperCarrier.stl",
+      "sha256": "c4ddaf7c8705935e8ede612cc913271db1e0a123f8d80070f99591d6ff532a1a",
+      "bounds_with_5mm_brim_mm": [
+        224.0,
+        91.99908447265625,
+        15.299995422363281
+      ],
+      "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/CurrentBoardMounts.FCStd",
+      "source_object": "UpperCarrier001",
+      "print_size_mm": [
+        214.0,
+        81.99908447265625,
+        15.299995422363281
+      ]
+    },
+    {
+      "part": "U1InsulatingSpacer",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1InsulatingSpacerRetention.stl",
+      "sha256": "98d4a5b4dbbfbf90852a3c24d023bc370e2aaf996dc5adbab5505c61ca078ee4",
+      "bounds_with_5mm_brim_mm": [
+        18.0,
+        18.0,
+        4.0
+      ],
+      "print_size_mm": [
+        8.0,
+        8.0,
+        4.0
+      ]
+    },
+    {
+      "part": "U1TopInsulator",
+      "quantity": 2,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/U1TopInsulatorRetention.stl",
+      "sha256": "7e696355c6a8efebd2f9c89dabfc7ebadb6c74f93a30a6e76c597459af6fa231",
+      "bounds_with_5mm_brim_mm": [
+        14.5,
+        14.5,
+        1.0
+      ],
+      "print_size_mm": [
+        4.5,
+        4.5,
+        1.0
+      ]
+    }
+  ],
+  "print_quantity_total": 20,
+  "unique_print_geometries": 8,
+  "fastener_total": 27,
+  "quantities": {
+    "M3x14": 4,
+    "M3x45": 4,
+    "M3_washer_OD7_ID3p2_t0p5": 16,
+    "M3_nut_AF5p5_h2p4": 8,
+    "M2x12": 8,
+    "M2x14": 9,
+    "M2x10": 2,
+    "M2_washer_OD4p3_ID2p2_t0p3": 24,
+    "M2_nut_AF4_h1p6": 19
+  },
+  "shared_allocations": [
+    "LowerCarrier is the M3 plate, not a duplicate",
+    "Monitor and its two ties already belong to M3",
+    "MAIN and its two bolts belong to M2",
+    "Bank R47 retained, not rebuilt or duplicated"
+  ],
+  "excludes": [
+    "Old WAGO/source positions in historical document are hidden and not selected",
+    "Side distribution rails/spacers belong to current wiring packaging, not this board-only kit",
+    "No U1 pinout inferred; E1/E2/W1/W5 and global stock K2/K3 remain OPEN"
+  ],
+  "assembly_recipe": "current-M5-README.md",
+  "inherited_proofs": [
+    "board-mount-checks.json",
+    "board-hardware-checks.json",
+    "board-rear-tool-checks.json",
+    "pwm-flat-insulator-checks.json",
+    "shared-retention-mount-checks.json"
+  ],
+  "phase2_gates": [
+    {
+      "id": "DELIVERED_U1",
+      "status": "OPEN",
+      "required_before": "Print/assemble provisional local attachment",
+      "checks": [
+        "Actual holes/diameter/thickness and unchanged supplier revision",
+        "Both-side no-pad/solder bearing regions at all spacers/insulators",
+        "Actual pad mapping and every local connection within50mm with bends/ends",
+        "PETG coupon/creep/insulation and actual tools",
+        "No energizing while any electrical safety gate OPEN"
+      ]
+    },
+    {
+      "id": "POPULATED_FIT",
+      "status": "OPEN",
+      "required_before": "Physical acceptance",
+      "checks": [
+        "Delivered spines/solder/USB/AUX/actual tools",
+        "PETG coupon, insulation, bearing/creep/torque",
+        "Assembly order: U1 before above MTA; full screw extraction requires MTA absent"
+      ]
+    }
+  ],
+  "provisional_U1_authorized": true,
+  "delivered_U1_map_required_before_local_print": true,
+  "prepared_utc": "2026-10-10T00:38:20.827789+00:00",
+  "worker_seconds": 122.062
+}

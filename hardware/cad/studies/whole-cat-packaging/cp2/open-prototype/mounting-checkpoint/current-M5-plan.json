@@ -1,0 +1,22 @@
+{
+  "status": "CURRENT_M5_INTERFACE_PLAN_NOT_QUALIFIED",
+  "result_id": "M5",
+  "scope": "Complete current Pi/BUS/PWM/AUX/U1 mechanical board attachment and shared plate/clamp load path. WAGO full harness, S1 wires and connected service remain separate W1/W5 results, not waived.",
+  "baseline": "RetentionMountsAssembly.FCStd; supplier PCB axes, delivered U1 measurement gate and lateral rear-nut access retained",
+  "current_lower": "../tail-mount-checkpoint/TailAssemblyCurrent.FCStd#LowerCarrier",
+  "current_upper": "../wiring-checkpoint/DataShelfCurrent.FCStd#UpperCarrier",
+  "preserved": ["P0 rail clamp stations x0/90 and y+/-24.5", "MAIN worldZ46.52 and neck", "bank R47", "15 drives", "replaceable MG92B", "325x200x160 torso", "upper frame spacers and PCB holes"],
+  "changed_interfaces": [
+    "Matched lower plate versus current head/neck/tail and retained board footprints/fasteners",
+    "Matched upper plate versus current board supports and retained fasteners/insulators",
+    "One self-contained native current board assembly; obsolete WAGO/source placements hidden and explicitly not selected",
+    "One selected board-only print/fastener list with shared M2/M3 parts referenced, not added twice"
+  ],
+  "method": "Use pinned existing board/retention/tool receipts, qualify only new plate material against actual saved bodies/nominal delivered-part allowances. No baseline rerun, no cached invalid BUS compound, no box-as-material collision inference.",
+  "assembly": ["Empty P0/MAIN first", "Lower rail clamps/pads before lower PCBs", "Lower PCB nuts/bolts before upper plate", "Upper frame lateral rear nut access; upper PCBs before cables", "U1 captive nuts and actual measured adapter before above MTA", "No energizing; deeper service reverses staged assembly"],
+  "phase2_gates": ["Delivered U1 both-side pad/hole/thickness map before local print", "PCB/fastener/PETG/insulation/creep and actual tools", "Unknown populated component dimensions are explicit provisional allowances, not manufacturer facts"],
+  "score_before": {"fixed_total": 20, "count": 5, "percent": 25},
+  "selected": false,
+  "physical_pass": false,
+  "M5_complete": false
+}
