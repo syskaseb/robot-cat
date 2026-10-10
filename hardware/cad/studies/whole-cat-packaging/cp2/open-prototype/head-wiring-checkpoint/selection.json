@@ -1,0 +1,357 @@
+{
+  "status": "CURRENT_W2_NOMINAL_PROTOTYPE_SELECTED",
+  "selected": true,
+  "W2_complete": true,
+  "physical_pass": false,
+  "print_ready": false,
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadWiringCurrent.FCStd",
+  "model_sha256": "87c856f8388e1ce9b8cf8d7bd0661152c956aa3d4a8ac9dd9b3b1ed1d357d85d",
+  "prints": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/UpperCarrier001_current_x1.stl",
+      "sha256": "d58a2f564e53fba15ee093b137632eb717875cf0a6ac9348574cd3728ae5596b",
+      "size_mm": [
+        214.0,
+        93.0,
+        17.899993896484375
+      ],
+      "quantity": 1,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadFixedAnchor_current_x1.stl",
+      "sha256": "fbe56428cdb11f9cccf7b8d734d69df20541925e1c8bfac36f24ca81494db8cb",
+      "size_mm": [
+        36.0,
+        102.0,
+        56.58000183105469
+      ],
+      "quantity": 1,
+      "print_ready": false
+    }
+  ],
+  "scope": "Two complete nominal local servo/JR/tail interfaces, six isolated joins, three constant-length moving conductors and independent fixed anchor. Six body feeds are W3, not W2; wholeW5 remainsOPEN.",
+  "retained_mechanics": "Current selected M2 head/neck52identities and provisional interchangeableMG92B adapters; unchanged local support geometry retained from R28. One matched UpperCarrier replaces W4 carrier, not a second carrier.",
+  "frames": {
+    "head_root_translation_mm": [
+      -42,
+      0,
+      25
+    ],
+    "applied_once": true
+  },
+  "pins": {
+    "JR1": "GND provisional delivered-cavity gate",
+    "JR2": "AUX6V centre provisional",
+    "JR3": "PWM provisional"
+  },
+  "boundaries": [
+    {
+      "yaw": -15,
+      "wire": "XB22",
+      "gap_mm": 2.842170943040401e-14,
+      "tangent_dot": 0.9999999999996274,
+      "fixed_tail_end_mm": [
+        -53.049999999999976,
+        66.99999999999991,
+        135.3937822173508
+      ]
+    },
+    {
+      "yaw": -15,
+      "wire": "XB23",
+      "gap_mm": 2.842170943040401e-14,
+      "tangent_dot": 0.9999999999995594,
+      "fixed_tail_end_mm": [
+        -50.95,
+        67.00000000000021,
+        135.3937822173508
+      ]
+    },
+    {
+      "yaw": -15,
+      "wire": "XS23",
+      "gap_mm": 8.987733679556355e-14,
+      "tangent_dot": 0.9999999999998589,
+      "fixed_tail_end_mm": [
+        -51.99999999999998,
+        66.99999999999957,
+        137.21243556529822
+      ]
+    },
+    {
+      "yaw": 0,
+      "wire": "XB22",
+      "gap_mm": 0.0,
+      "tangent_dot": 0.9999999999995445,
+      "fixed_tail_end_mm": [
+        -53.05,
+        67.00000000000034,
+        135.3937822173509
+      ]
+    },
+    {
+      "yaw": 0,
+      "wire": "XB23",
+      "gap_mm": 0.0,
+      "tangent_dot": 0.9999999999997548,
+      "fixed_tail_end_mm": [
+        -50.95,
+        67.00000000000021,
+        135.3937822173508
+      ]
+    },
+    {
+      "yaw": 0,
+      "wire": "XS23",
+      "gap_mm": 8.526512829121202e-14,
+      "tangent_dot": 0.9999999999986408,
+      "fixed_tail_end_mm": [
+        -52.00000000000002,
+        66.99999999999996,
+        137.21243556529822
+      ]
+    },
+    {
+      "yaw": 15,
+      "wire": "XB22",
+      "gap_mm": 2.842170943040401e-14,
+      "tangent_dot": 0.9999999999984283,
+      "fixed_tail_end_mm": [
+        -53.04999999999986,
+        67.00000000000016,
+        135.3937822173509
+      ]
+    },
+    {
+      "yaw": 15,
+      "wire": "XB23",
+      "gap_mm": 2.842170943040401e-14,
+      "tangent_dot": 0.9999999999981616,
+      "fixed_tail_end_mm": [
+        -50.94999999999989,
+        66.99999999999956,
+        135.3937822173509
+      ]
+    },
+    {
+      "yaw": 15,
+      "wire": "XS23",
+      "gap_mm": 9.099386826154683e-14,
+      "tangent_dot": 0.9999999999996398,
+      "fixed_tail_end_mm": [
+        -51.999999999999886,
+        67.00000000000024,
+        137.21243556529822
+      ]
+    }
+  ],
+  "motion_samples": [
+    {
+      "yaw": -15,
+      "pitch": -10
+    },
+    {
+      "yaw": -15,
+      "pitch": 0
+    },
+    {
+      "yaw": -15,
+      "pitch": 5
+    },
+    {
+      "yaw": 0,
+      "pitch": -10
+    },
+    {
+      "yaw": 0,
+      "pitch": 0
+    },
+    {
+      "yaw": 0,
+      "pitch": 5
+    },
+    {
+      "yaw": 15,
+      "pitch": -10
+    },
+    {
+      "yaw": 15,
+      "pitch": 0
+    },
+    {
+      "yaw": 15,
+      "pitch": 5
+    }
+  ],
+  "moving_required_project_radius_mm": 31.5,
+  "minimum_sampled_moving_radius_mm": 33.00369679604907,
+  "fixed_project_radius_mm": 12.6,
+  "wire_OD_mm": 2.1,
+  "individual_sleeve_max_OD_mm": 3.4,
+  "factory_leads": [
+    {
+      "axis": "yaw",
+      "nominal_uncut_mm": 250,
+      "modeled_guide_mm": 220,
+      "unallocated_delivery_fit_budget_mm": 30
+    },
+    {
+      "axis": "pitch",
+      "nominal_uncut_mm": 250,
+      "modeled_guide_mm": 224.886,
+      "unallocated_delivery_fit_budget_mm": 25.114
+    }
+  ],
+  "factory_limit": "These retained R28 guides do NOT prove an exact installed250mm coil. Residual length is an explicit unpowered delivery fit budget, not invented routed geometry. Current body interference checked; retained internal flat-exit/support evidence conditional on the same delivery fit gates.",
+  "splice_recipe": {
+    "status": "SOURCE_BEFORE_COMPLETE_INDIVIDUAL_LOCAL_TAILS",
+    "new_stls": 0,
+    "new_skus": 0,
+    "new_fasteners": 0,
+    "wire_OD_mm": 2.1,
+    "sleeve_OD_mm": 3.4,
+    "sleeve_length_mm": 12,
+    "fixed_min_radius_mm": 12.6,
+    "pitch_joint_centres_y_mm": {
+      "XB22": 106.5,
+      "XB23": 108.5,
+      "XS23": 110.5
+    },
+    "yaw_joint_centres_x_mm": {
+      "XB12": -97,
+      "XB13": -95,
+      "XS13": -93
+    },
+    "expanded_pitch_scale": 1.6666666666666667,
+    "expanded_yaw_scale": 1.6666666666666667,
+    "packing": "Three OD3.4 sleeves at triangle spacing3.5mm, circumradius2.0207+1.7=3.7207mm; THREE may overlap axially. Not contained in oldOD7 cylinder, so check actual selected seat anew.",
+    "pitch_taper_y_mm": [
+      93,
+      100.5,
+      116.5,
+      130
+    ],
+    "yaw_taper_x_mm": [
+      -87,
+      -70
+    ],
+    "pitch_bend": "U15.1 then two opposing R15.1 arcs offset+5X; unchanged JR station and loop anchor.",
+    "pinout": "JR1 ground/center2 AUX6V/3 PWM provisional; verify delivered connector while unpowered. Do not infer cavity view from wire colour.",
+    "assembly": "Prepare outside PETG. Preserve factory250mm; cut only JR extension tails after fitting. Label six joins, lap<=4mm/OD2.1, individual RNF1/8 sleeve blank11.5+/-0.2 final<=12/OD3.4. No common overwrap; heat away from servo/PETG. End ties on intact insulation, never on solder. Fit all three sleeves in expanded triangle then taper to root packing.",
+    "physical_pass": false,
+    "selected": false,
+    "phase1_complete": false
+  },
+  "length_stock_rows": [
+    {
+      "wire": "XB12",
+      "local_mixed_JR_HELU_guide_mm": 35.0236816663206,
+      "moving_HELU_mm": 0,
+      "fixed_HELU_anchor_tail_mm": 0,
+      "conservative_local_HELU_fit_allowance_mm": 100,
+      "local_procurement_contribution_mm": 125,
+      "JR_stock_mm": 300,
+      "cut_only_after_fit": true,
+      "body_feed_W3_not_included": true
+    },
+    {
+      "wire": "XB13",
+      "local_mixed_JR_HELU_guide_mm": 35.02368166632059,
+      "moving_HELU_mm": 0,
+      "fixed_HELU_anchor_tail_mm": 0,
+      "conservative_local_HELU_fit_allowance_mm": 100,
+      "local_procurement_contribution_mm": 125,
+      "JR_stock_mm": 300,
+      "cut_only_after_fit": true,
+      "body_feed_W3_not_included": true
+    },
+    {
+      "wire": "XS13",
+      "local_mixed_JR_HELU_guide_mm": 35.02368166632059,
+      "moving_HELU_mm": 0,
+      "fixed_HELU_anchor_tail_mm": 0,
+      "conservative_local_HELU_fit_allowance_mm": 100,
+      "local_procurement_contribution_mm": 125,
+      "JR_stock_mm": 300,
+      "cut_only_after_fit": true,
+      "body_feed_W3_not_included": true
+    },
+    {
+      "wire": "XB22",
+      "local_mixed_JR_HELU_guide_mm": 104.40978383837233,
+      "moving_HELU_mm": 299.5000000086448,
+      "fixed_HELU_anchor_tail_mm": 9,
+      "conservative_local_HELU_fit_allowance_mm": 475,
+      "local_procurement_contribution_mm": 595,
+      "JR_stock_mm": 300,
+      "cut_only_after_fit": true,
+      "body_feed_W3_not_included": true
+    },
+    {
+      "wire": "XB23",
+      "local_mixed_JR_HELU_guide_mm": 104.4097838383723,
+      "moving_HELU_mm": 303.80000000721134,
+      "fixed_HELU_anchor_tail_mm": 9,
+      "conservative_local_HELU_fit_allowance_mm": 480,
+      "local_procurement_contribution_mm": 600,
+      "JR_stock_mm": 300,
+      "cut_only_after_fit": true,
+      "body_feed_W3_not_included": true
+    },
+    {
+      "wire": "XS23",
+      "local_mixed_JR_HELU_guide_mm": 98.69631584103455,
+      "moving_HELU_mm": 297.3000000045335,
+      "fixed_HELU_anchor_tail_mm": 9,
+      "conservative_local_HELU_fit_allowance_mm": 465,
+      "local_procurement_contribution_mm": 585,
+      "JR_stock_mm": 300,
+      "cut_only_after_fit": true,
+      "body_feed_W3_not_included": true
+    }
+  ],
+  "quantities": {
+    "MG92B_factory250_reused_uncut": 2,
+    "JR_Kamami586761_300mm22AWG": 2,
+    "RNF100_1_8_raw_mm": [
+      11.5,
+      11.5,
+      11.5,
+      11.5,
+      11.5,
+      11.5
+    ],
+    "T18I_11102370_fixed_anchor_replacement": 1,
+    "M3x10": 2,
+    "M3_nut_AF5p5_h2p4": 2,
+    "M3_washer_OD7_ID3p2_t0p5": 2
+  },
+  "stock_rule": "Retain both original factory leads and two JR300extensions. Six individual11.5+/-0.2mm sleeves, final<=12mm, lap<=4mm, no common wrap. Existing local head ties retained; new fixed-anchor tie REPLACES oldY136cover tie. W3 must aggregate continuous HELU with these local allowances, not add another joint atY67.",
+  "load_path": "Two M3x10/washer/captive-nut stacks on actual carrier floor -> single editable dogleg anchor -> intact9mm straight insulation tails. New receiver material checked against all retained body and head neighbours; no floating support or adhesive strain relief.",
+  "assembly": [
+    "All battery/USB/monitor sources removed. Fit two captive nuts/receiver and anchor screws on bare carrier before boards.",
+    "Prepare factory/JR pairs and six labelled individual joins off PETG; preserve factory250uncut, cut extensions only after fit. Retain qualified head housing/factory/local insulation ties.",
+    "Install head and complete moving conductors in assigned triangle, no common sleeve. Three equal-length-per-wire yaw routes; never put a tie on solder or moving bend.",
+    "Lay nine-mm straight tails on independent anchor land; one replacementT18I on intact insulation. W3 continues each same wire fromY67 without a splice.",
+    "Inspect polarity/cavity view, flat exit, sleeve packing, actual slack in all poses and support creep before energizing in phase2."
+  ],
+  "service": [
+    "Sources removed. Release both JR pairs and designated local insulation bands before extracting either servo by retainedM2 procedure.",
+    "For body/head separation, disconnect three W3 supply/PWM/return ends on supported bench, then cut new anchor band before undoing two accessibleM3 screws. Do not lift a soldered or taut harness.",
+    "The two independent bolted modules are removed AFTER their wires are free; no connected cable sweep or live service claimed. Current head shell/52-part mechanical assembly remains selectedM2."
+  ],
+  "tool_assumption": "Lhex2.5mmAF withinOD3,18mm vertical and40mm horizontal outboard±X; delivered key fit gate, not a50mm straight screwdriver.",
+  "supersedes": "Historical outside-cover anchor and fixed pitch transition retired. 50mm straight tool rejection superseded by dimensioned18/40mm Lkey proof, not waived.",
+  "phase2_gates": [
+    "Delivered MG92B factory length/flat3.5x1.8 exit and flexibility, uncut residual30/25.114mm storage fit.",
+    "JR/Futaba Kamami58676130cm22AWG actual mating/cavity/polarity and provisional30x12x10pair allowance.",
+    "Individual RNF sleeve recovery/OD3.4 and actual lap coverage; insulation/strain pull, PETG creep and physical motion clearances.",
+    "Sampled nominal motion/curve radii are not a physical sweep test; exports are not sliced or printed."
+  ],
+  "open_outside_W2": [
+    "Six current body feeds/independent terminations/native roots W3",
+    "Full remaining body/leg/source harness W5, stock and E3 actual data"
+  ],
+  "checked_utc": "2026-10-10T21:24:25.970950+00:00"
+}
