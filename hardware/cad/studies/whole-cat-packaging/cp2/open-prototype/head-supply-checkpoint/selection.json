@@ -1,0 +1,348 @@
+{
+  "status": "CURRENT_W3_NOMINAL_PROTOTYPE_SELECTED",
+  "physical_pass": false,
+  "result_id": "W3",
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-supply-checkpoint/HeadSupplyCurrent.FCStd",
+  "model_sha256": "f465523757d7222f3e173bf7930e34132f710437eb278bf08501724f07c7797b",
+  "prints": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-supply-checkpoint/Foundation_current_x1.stl",
+      "sha256": "9639f9839b23b2993ca1614f367b2b2a176156bd07689b27f730c8d403c02c1d",
+      "size_mm": [
+        202.0,
+        198.0,
+        71.23243713378906
+      ],
+      "quantity": 1,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-supply-checkpoint/UpperCarrier001_current_x1.stl",
+      "sha256": "c0f81aa0e72e6be892a3776b231dd9d4c9ca53cfd622541522315a70f01f1a27",
+      "size_mm": [
+        214.0,
+        93.0,
+        17.899993896484375
+      ],
+      "quantity": 1,
+      "print_ready": false
+    }
+  ],
+  "replaces_prints": [
+    "M2 Foundation",
+    "W2 UpperCarrier001"
+  ],
+  "preserves": [
+    "M2/W2 YawCarrier unchanged",
+    "W2 HeadFixedAnchor/current local paths/moving paths/JR joints",
+    "M2 all moving head bodies and provisionalMG92B adapters",
+    "W4 boardB3/native fixture",
+    "bankR47",
+    "P0/E6/15drives/torso325x200x160"
+  ],
+  "feed_ends": [
+    {
+      "wire": "XB12",
+      "source": "F_HY WEST factory output/8mm lap",
+      "receiving": "W2 fixed yaw local conductor",
+      "new_joint_at_boundary": false
+    },
+    {
+      "wire": "XB13",
+      "source": "G_AUX221 port4/11mm untinned strip",
+      "receiving": "W2 fixed yaw local conductor",
+      "new_joint_at_boundary": false
+    },
+    {
+      "wire": "XS13",
+      "source": "PWM1608 assigned B1 pad",
+      "receiving": "W2 fixed yaw local conductor",
+      "new_joint_at_boundary": false
+    },
+    {
+      "wire": "XB22",
+      "source": "F_HP WEST factory output/8mm lap",
+      "receiving": "W2 Y85 current fixed tail and constant-length moving loop",
+      "new_joint_at_boundary": false
+    },
+    {
+      "wire": "XB23",
+      "source": "G_AUX221 port3/11mm untinned strip",
+      "receiving": "W2 Y85 current fixed tail and constant-length moving loop",
+      "new_joint_at_boundary": false
+    },
+    {
+      "wire": "XS23",
+      "source": "PWM1608 assigned B2 pad",
+      "receiving": "W2 Y85 current fixed tail and constant-length moving loop",
+      "new_joint_at_boundary": false
+    }
+  ],
+  "length_stock_rows": [
+    {
+      "wire": "XB12",
+      "sku": "HELU23302 red0.5mm2",
+      "W3_guide_mm": 154.50857444440138,
+      "W2_mixed_JR_HELU_upper_bound_mm": 35.0236816663206,
+      "W2_moving_and_tail_mm": 0,
+      "extra_bare_board_mm": 0,
+      "source_strip_or_lap_allowance_mm": 8,
+      "trim_allowance_mm": 60,
+      "conservative_continuous_fit_blank_mm": 260,
+      "procurement_contribution_mm": 325,
+      "accounting": "One continuous HELU per feed. W2 mixed-JR guide is an upper bound, not duplicate JR purchase or a splice at the W2/W3 boundary. Replaces, never adds, W2 local HELU stock contribution. Final cut after unpowered delivered fit."
+    },
+    {
+      "wire": "XB13",
+      "sku": "HELU23301 black0.5mm2",
+      "W3_guide_mm": 482.3328142025729,
+      "W2_mixed_JR_HELU_upper_bound_mm": 35.02368166632059,
+      "W2_moving_and_tail_mm": 0,
+      "extra_bare_board_mm": 0,
+      "source_strip_or_lap_allowance_mm": 11,
+      "trim_allowance_mm": 60,
+      "conservative_continuous_fit_blank_mm": 590,
+      "procurement_contribution_mm": 740,
+      "accounting": "One continuous HELU per feed. W2 mixed-JR guide is an upper bound, not duplicate JR purchase or a splice at the W2/W3 boundary. Replaces, never adds, W2 local HELU stock contribution. Final cut after unpowered delivered fit."
+    },
+    {
+      "wire": "XS13",
+      "sku": "HELU23308 yellow0.5mm2",
+      "W3_guide_mm": 744.8170903611295,
+      "W2_mixed_JR_HELU_upper_bound_mm": 35.02368166632059,
+      "W2_moving_and_tail_mm": 0,
+      "extra_bare_board_mm": 7.190996326794898,
+      "source_strip_or_lap_allowance_mm": 8,
+      "trim_allowance_mm": 60,
+      "conservative_continuous_fit_blank_mm": 860,
+      "procurement_contribution_mm": 1075,
+      "accounting": "One continuous HELU per feed. W2 mixed-JR guide is an upper bound, not duplicate JR purchase or a splice at the W2/W3 boundary. Replaces, never adds, W2 local HELU stock contribution. Final cut after unpowered delivered fit."
+    },
+    {
+      "wire": "XB22",
+      "sku": "HELU23302 red0.5mm2",
+      "W3_guide_mm": 172.68885445658182,
+      "W2_mixed_JR_HELU_upper_bound_mm": 104.40978383837233,
+      "W2_moving_and_tail_mm": 288.5000000072066,
+      "extra_bare_board_mm": 0,
+      "source_strip_or_lap_allowance_mm": 8,
+      "trim_allowance_mm": 60,
+      "conservative_continuous_fit_blank_mm": 635,
+      "procurement_contribution_mm": 795,
+      "accounting": "One continuous HELU per feed. W2 mixed-JR guide is an upper bound, not duplicate JR purchase or a splice at the W2/W3 boundary. Replaces, never adds, W2 local HELU stock contribution. Final cut after unpowered delivered fit."
+    },
+    {
+      "wire": "XB23",
+      "sku": "HELU23301 black0.5mm2",
+      "W3_guide_mm": 159.77451436307555,
+      "W2_mixed_JR_HELU_upper_bound_mm": 104.4097838383723,
+      "W2_moving_and_tail_mm": 292.8000000112838,
+      "extra_bare_board_mm": 0,
+      "source_strip_or_lap_allowance_mm": 11,
+      "trim_allowance_mm": 60,
+      "conservative_continuous_fit_blank_mm": 630,
+      "procurement_contribution_mm": 790,
+      "accounting": "One continuous HELU per feed. W2 mixed-JR guide is an upper bound, not duplicate JR purchase or a splice at the W2/W3 boundary. Replaces, never adds, W2 local HELU stock contribution. Final cut after unpowered delivered fit."
+    },
+    {
+      "wire": "XS23",
+      "sku": "HELU23308 yellow0.5mm2",
+      "W3_guide_mm": 435.71990901849773,
+      "W2_mixed_JR_HELU_upper_bound_mm": 98.69631584103455,
+      "W2_moving_and_tail_mm": 286.400000000817,
+      "extra_bare_board_mm": 7.190996326794898,
+      "source_strip_or_lap_allowance_mm": 8,
+      "trim_allowance_mm": 60,
+      "conservative_continuous_fit_blank_mm": 900,
+      "procurement_contribution_mm": 1125,
+      "accounting": "One continuous HELU per feed. W2 mixed-JR guide is an upper bound, not duplicate JR purchase or a splice at the W2/W3 boundary. Replaces, never adds, W2 local HELU stock contribution. Final cut after unpowered delivered fit."
+    }
+  ],
+  "grips": [
+    {
+      "name": "FHYOut",
+      "axis": "X",
+      "centre_mm": [
+        -171.5,
+        -85.125,
+        120
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1
+    },
+    {
+      "name": "FHYIn",
+      "axis": "X",
+      "centre_mm": [
+        -110.5,
+        -85.125,
+        120
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1
+    },
+    {
+      "name": "FHPOut",
+      "axis": "X",
+      "centre_mm": [
+        -42.55,
+        88.625,
+        79.99
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1
+    },
+    {
+      "name": "FHPIn",
+      "axis": "X",
+      "centre_mm": [
+        17.45,
+        88.625,
+        79.99
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1
+    },
+    {
+      "name": "YawSource",
+      "centre_mm": [
+        -100.5,
+        -85,
+        139.0124355653
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1,
+      "wires": [
+        "XB12",
+        "XB13",
+        "XS13"
+      ]
+    },
+    {
+      "name": "GroundSource",
+      "centre_mm": [
+        -111.5,
+        -28.175,
+        123.39378221735
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1,
+      "ports": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "B1",
+      "axis": "X",
+      "centre_mm": [
+        64,
+        27.57,
+        79.2
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1
+    },
+    {
+      "name": "B2",
+      "axis": "X",
+      "centre_mm": [
+        64,
+        -27.6,
+        79.2
+      ],
+      "intact_insulation_only": true,
+      "T18I": 1
+    }
+  ],
+  "new_hardware": {
+    "T18I_11102370": 12,
+    "M3": 0,
+    "FHAC_new": 0,
+    "G_AUX_new": 0,
+    "JR_new": 0,
+    "SJ4570_reused_matched_pairs": 1,
+    "SJ4570_trim_blank_mm": [
+      20,
+      10
+    ],
+    "SJ4570_final_pair_mm": [
+      18,
+      10
+    ],
+    "RNF100_3_16_9_raw_mm": [
+      20,
+      20
+    ]
+  },
+  "factory_budget": [
+    {
+      "wire": "F_HY_out",
+      "guide_mm": 64.83955592153879,
+      "minimum_delivered_usable_mm": 84.5,
+      "nominal_per_side_mm": 100,
+      "manufacturer_verified": false
+    },
+    {
+      "wire": "F_HP_out",
+      "guide_mm": 54.79955592153877,
+      "minimum_delivered_usable_mm": 84.5,
+      "nominal_per_side_mm": 100,
+      "manufacturer_verified": false
+    }
+  ],
+  "splices": {
+    "lap_mm": 8,
+    "individual_raw_sleeve_mm": 20,
+    "finished_length_gate_mm": [
+      14,
+      20
+    ],
+    "finished_OD_max_mm": 4.8,
+    "rule": "Heat off PETG on supported bench. >=3mm intact insulation either side. No common sleeve. Delivered OD/length/heat recovery and solder fit gate."
+  },
+  "insulation": {
+    "product": "3M Temflex165 retained W4 material",
+    "layers": 2,
+    "nominal_added_radius_mm": 0.33,
+    "intact_jacket_overlap_mm": 3,
+    "nominal_material_contribution_mm": 40,
+    "rule": "Separate formed B1/B2 leads to PCB underside only. Hole/solder face clean. Actual coverage/adhesion/edge separation gate before power."
+  },
+  "source_scope": "Both FHAC opposite INPUTS retain9mm straight approaches and independent grips; full upstream supply belongs toW5. Three unused G_AUXports reserved, not W1. No invented externalU1 pinout.",
+  "assembly": [
+    "Unpowered bench: prepare both known PCB formed leads and their individual insulation before board seating; retain assigned solder hole access.",
+    "Fit the two replacement native bodies using their unchanged mechanical fasteners. Retain W2 yaw carrier. Thread designated band return/side channels before installing cases/boards. No new body screws.",
+    "Fit deliveredFHACs on floors, two case bands each; independently grip each intact factory exit/input. Trim reusedSJ4570 pair18x10 for G_AUXcase only.",
+    "Prepare both8mm factory/HELU laps off PETG; individual20mm raw sleeves, verify final14..20/OD<=4.8. Do not cut factoryINPUT untilW5 is planned.",
+    "Route six continuous nominal feeds in the coupled plan. Source yaw group uses its high bridge, not a post through its previous downleg. Retain qualified W2 joints without an extra jaw on staggered sleeves/taper.",
+    "Seat B1/B2 insulation-only clamps on native board carrier. SourceG_AUX ports3/4 share independent intact-insulation grip, not the adhesivecase retention.",
+    "Join continuous W2 lengths without a splice at accounting boundaries; keep W2 existing three9mm tails and moving loops unchanged. Final lengths and tension set after delivery."
+  ],
+  "service": [
+    "No power. Routine head ATO: support holder, cut ONLY its two dedicated case bands; nominal22x10x35mm upward tool spaces are qualified. Inspect delivered lid/ATO fit before using in-place access.",
+    "If delivered lid motion differs, free the supported holder and its source/output restraints for bench service; do not force a taut wire or claim a connected sweep.",
+    "Whole head removal: label/unplug two localJR pairs and free the fixed HELU/source joints. ReleaseG_AUX3/4 on the supported loose case after its insulation band/SJ4570 retention is freed. Known soldered B1/B2 are desoldered on the bench if removal requires it, not pretended plug connections.",
+    "Only after all six wires are free, undo retained root/arm fasteners. No routine74WAGO disconnects or attached-wire head lift claimed. Replace cut disposable bands on reassembly."
+  ],
+  "functional_neck": "No upper cosmetic torso installed; functional red return reachesZ160.594, like external neck hardware, no side widening or closed-shell claim.",
+  "phase2_gates": [
+    "Delivered FHAC100mm per-side/OD4/R6/usable length and lid/tool fit",
+    "T18I head3.5x4.8x4.5 actual orientation, tension, liner, creep and support edges",
+    "SJ4570 PETG adhesion and mated thickness; not wire restraint",
+    "No source energizing before global E3/E4 tests",
+    "84.5mm usable factory tails/OD4/R6 are delivery assumptions, not catalogL140",
+    "Actual JR cavity/polarity, all six end labels, bare/taped pad inspection and manual full travel before power",
+    "Global K3/E3 electrical/stock/load approval remainsOPEN; this is a nominal local contribution, not energizing authority"
+  ],
+  "checked_utc": "2026-10-10T23:51:33.288994+00:00",
+  "tool_versions": {
+    "native_document_program_version": "1.1R20260725 (Git shallow)",
+    "compatibility": "Self-contained FreeCAD FCStd, native constrained pads/pockets; no external links/addon runtime required by the changed bodies."
+  },
+  "measured_worker_seconds": {
+    "coupled_space_reused": 252.531,
+    "changed_native": 813.563,
+    "W2_boundary": 0.7349999999860302
+  }
+}
