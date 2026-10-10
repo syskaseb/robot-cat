@@ -1,0 +1,65 @@
+{
+  "status": "E2_CURRENT_COMPLETE_NATIVE_PREPARED",
+  "contacts": [],
+  "pairs": 15,
+  "physical_pass": false,
+  "tail_samples": [
+    -30,
+    -25,
+    -20,
+    -15,
+    -10,
+    -5,
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "worker_seconds": 65.125,
+  "model_sha256": "3c2124b7118771c20639265f7c440d265b66bff3c7c549bf66e4d1f50e360432",
+  "exports": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/UpperCarrier001_final_x1.stl",
+      "sha256": "f88af6c50758ddf923e4cc034d70601eea1798b20661efc0550a2520417a119d",
+      "object": "UpperCarrier001",
+      "quantity": 1,
+      "size_mm": [
+        214.0,
+        81.99940490722656,
+        15.299995422363281
+      ],
+      "brim_mm": 5,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/E2Fixture_final_x1.stl",
+      "sha256": "dd3ee57aa4525bca27a34087a6577bfbb6d2e04a19b81ac59c8aa4589fbd45d7",
+      "object": "E2Fixture",
+      "quantity": 1,
+      "size_mm": [
+        129.0,
+        74.0,
+        64.17999267578125
+      ],
+      "brim_mm": 5,
+      "print_ready": false
+    }
+  ],
+  "native_parameter_restore": true,
+  "fresh_relocated_reopen": true,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/CurrentBoardMounts.FCStd": "373b5c398ec27a5fec9dd27c0d5f1d0b63288d9f0f2dcb745a65334c3bb8f44c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd": "f9673ee62855b1075136ab64de7b411718903c0aa02f8819091912f91df21da7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/PWMBranchAssembly.FCStd": "efac3d7c35f4d14c6784bb10f972fe577682a99f793f6073e19114c94c840ac9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/current-checks.json": "2562adf2bce1c2df136b30fdd165ce368b8b2679521c772989d686ecdd53b7be",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/received-checks.json": "472fdfc5b4a21026ec6997bd99034824be05fab34eb9f964dc645bc688dcf70a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/final-plan.json": "9cdd6ee0f6138d2157e59543327d2d13885979f3b01967234e8cd1e5fd2fa26a",
+    "tools/cad/finish_current_pwm_bands.py": "0ed23e633821a3c563dfc012e32b44f22706cc005a8eb663486298ea59045a60"
+  },
+  "prior_failures_resolved": "Three exact positive tie/insulation intersections. Bundle top/bottom derived together; lower module channels resized for full1.2mm strap plus0.2mm clearance. No wire move. Prior unchanged service/torso/PCB/tail gates retained.",
+  "nominal_clearance_mm": 0.2
+}

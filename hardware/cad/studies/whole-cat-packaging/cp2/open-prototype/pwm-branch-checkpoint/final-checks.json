@@ -1,0 +1,208 @@
+{
+  "status": "E2_FINAL_GATES_REJECTED",
+  "contacts": [
+    {
+      "a": "E2Bolt0",
+      "b": "E2Fixture",
+      "volume": 13.430308594096415
+    },
+    {
+      "a": "E2Driver0",
+      "b": "Pi4NominalPCB",
+      "volume": 20.106192982974697
+    },
+    {
+      "a": "E2Bolt1",
+      "b": "E2Fixture",
+      "volume": 13.430308594096415
+    },
+    {
+      "a": "E2Driver1",
+      "b": "Pi4NominalPCB",
+      "volume": 20.106192982974697
+    },
+    {
+      "a": "E2Bolt2",
+      "b": "E2Fixture",
+      "volume": 13.430308594096415
+    }
+  ],
+  "pairs": 91,
+  "selected": false,
+  "E2_complete": false,
+  "physical_pass": false,
+  "excluded_history_features_by_native_body_ownership": {
+    "LowerClampJawBore": 0.0,
+    "LowerClampJawClearance": 377.76239169337646,
+    "LowerClampJawPlan": 0.0,
+    "LowerClampJawPlate": 405.0,
+    "SpacerHeight": 1317.96095003399,
+    "SpacerProfile": 0.0,
+    "TopClampPadBore": 0.0,
+    "TopClampPadClearance": 151.1049566773506,
+    "TopClampPadPlan": 0.0,
+    "TopClampPadPlate": 162.0,
+    "U1InsulatorPlan": 0.0,
+    "U1InsulatorThickness": 11.380419387629026,
+    "U1SpacerHeight": 45.741589036267385,
+    "U1SpacerPlan": 0.0,
+    "U1SpacerStem": 79.88284719915445,
+    "U1SpacerStemPlan": 0.0,
+    "UpperFrameBores": 0.0,
+    "UpperFrameClearance": 26770.96965249917
+  },
+  "worker_seconds": 106.547,
+  "model_sha256": "a4b33061ea0f98b639af3f12f193859e4cdce87eba326947f2025935d30a1880",
+  "prints": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/UpperCarrier001_x1.stl",
+      "sha256": "ea1a6a05b53db41204da2b6269a7a27df139463447bfe4539509cbfe6760583f",
+      "object": "UpperCarrier001",
+      "quantity": 1,
+      "size_mm": [
+        214.0,
+        81.99940490722656,
+        15.299995422363281
+      ],
+      "brim_mm": 5,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/E2Fixture_x1.stl",
+      "sha256": "b1a8fcf1df941a58397567e7541fe1b8b85c07dcf9069992229f4bf6c089305e",
+      "object": "E2Fixture",
+      "quantity": 1,
+      "size_mm": [
+        129.0,
+        74.0,
+        64.17999267578125
+      ],
+      "brim_mm": 5,
+      "print_ready": false
+    }
+  ],
+  "anchors": [
+    {
+      "xy": [
+        26,
+        -20
+      ],
+      "stack": "M3x12 underhead74.22; washer0.5/carrier3/post4/nut2.4; end86.22",
+      "full_thread_engagement_mm": 2.4,
+      "protrusion_mm": 2.1
+    },
+    {
+      "xy": [
+        26,
+        20
+      ],
+      "stack": "M3x12 underhead74.22; washer0.5/carrier3/post4/nut2.4; end86.22",
+      "full_thread_engagement_mm": 2.4,
+      "protrusion_mm": 2.1
+    },
+    {
+      "xy": [
+        120,
+        -20
+      ],
+      "stack": "M3x12 underhead74.22; washer0.5/carrier3/post4/nut2.4; end86.22",
+      "full_thread_engagement_mm": 2.4,
+      "protrusion_mm": 2.1
+    }
+  ],
+  "bearing_checks": [
+    {
+      "board": "PWM9685",
+      "xy": [
+        -35.825,
+        9.525000000000002
+      ],
+      "retained_volume": 1.9996237240099957
+    },
+    {
+      "board": "PWM9685",
+      "xy": [
+        -35.825,
+        -9.524999999999999
+      ],
+      "retained_volume": 1.9996237240099957
+    },
+    {
+      "board": "PWM9685",
+      "xy": [
+        20.055,
+        9.525000000000002
+      ],
+      "retained_volume": 1.9996237240099979
+    },
+    {
+      "board": "PWM9685",
+      "xy": [
+        20.055,
+        -9.524999999999999
+      ],
+      "retained_volume": 1.9996237240099979
+    },
+    {
+      "board": "AUX4092",
+      "xy": [
+        37.159,
+        -10.541
+      ],
+      "retained_volume": 1.9996237240099966
+    },
+    {
+      "board": "AUX4092",
+      "xy": [
+        37.159,
+        10.541
+      ],
+      "retained_volume": 1.9996237240099966
+    },
+    {
+      "board": "AUX4092",
+      "xy": [
+        58.241,
+        -10.541
+      ],
+      "retained_volume": 1.9996237240099966
+    },
+    {
+      "board": "PWM1608",
+      "xy": [
+        73.81,
+        0.0
+      ],
+      "retained_volume": 1.9996237240099997
+    },
+    {
+      "board": "PWM1608",
+      "xy": [
+        109.37,
+        0.0
+      ],
+      "retained_volume": 1.9996237240099992
+    }
+  ],
+  "native_parameter_and_restore": true,
+  "fresh_relocated_reopen": true,
+  "native_validity": {
+    "UpperCarrier001": 27573.11002686333,
+    "E2Fixture": 32720.732621834602
+  },
+  "quantities": {
+    "M3x12": 3,
+    "M3_nut": 3,
+    "M3_washer": 3,
+    "T18I_11102370": 10
+  },
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/CurrentBoardMounts.FCStd": "373b5c398ec27a5fec9dd27c0d5f1d0b63288d9f0f2dcb745a65334c3bb8f44c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd": "f9673ee62855b1075136ab64de7b411718903c0aa02f8819091912f91df21da7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/PWMBranchCurrent.FCStd": "7d15c4d20df466b1c9a3783e07fe0ef75db5aa3fac21ce85397f3c939d5d0d21",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/native-checks.json": "060f325af6d94642d2a7f8eecd173931322a5c320f8051a317d49b2bbac48daa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/current-plan.json": "4df837403b6d209163ee61d69c54fc0ca5c984ef9a7f747fa9764d4f0b90b120",
+    "tools/cad/finish_current_pwm_fixture.py": "7180d226c5a185c86078691ee1bd4d89b20576752766af5f43c92a56784c2e91"
+  }
+}

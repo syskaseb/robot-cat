@@ -1,0 +1,88 @@
+{
+  "status": "E2_CURRENT_NATIVE_REJECTED",
+  "contacts": [
+    {
+      "a": "Band_SourceRed",
+      "b": "XP03_source",
+      "volume": 0.05601269566614134
+    },
+    {
+      "a": "Band_Module1",
+      "b": "XP02_module",
+      "volume": 0.017848679945772605
+    },
+    {
+      "a": "Band_Module2",
+      "b": "XP02_module",
+      "volume": 0.017848679945772605
+    }
+  ],
+  "pairs": 37,
+  "physical_pass": false,
+  "selected": false,
+  "tail_motion_samples": [
+    -30,
+    -25,
+    -20,
+    -15,
+    -10,
+    -5,
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "service_limits": "Project housing/finger allowances only. Free both source ends and ties first; support board and unstack upper module for bench unplugging if tension occurs. No connected wire sweep or manufacturer lever stroke claimed.",
+  "outside_torso": [],
+  "native_parameter_restore": true,
+  "native_validity": {
+    "UpperCarrier001": 27563.048026863326,
+    "E2Fixture": 32641.2098835601
+  },
+  "worker_seconds": 82.188,
+  "exports": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/UpperCarrier001_current_x1.stl",
+      "sha256": "f88af6c50758ddf923e4cc034d70601eea1798b20661efc0550a2520417a119d",
+      "object": "UpperCarrier001",
+      "quantity": 1,
+      "size_mm": [
+        214.0,
+        81.99940490722656,
+        15.299995422363281
+      ],
+      "brim_mm": 5,
+      "print_ready": false,
+      "orientation": "Current axes, base down; long fixture posts/bridge and upper lands require phase2 support planning. Remove support from band channels/nut pockets, deburr. No slicer verification."
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/E2Fixture_current_x1.stl",
+      "sha256": "c1b51bf95a11cc8830258a4c91506b3971b1349663789fb3c06590af4e5472cc",
+      "object": "E2Fixture",
+      "quantity": 1,
+      "size_mm": [
+        129.0,
+        74.0,
+        64.17999267578125
+      ],
+      "brim_mm": 5,
+      "print_ready": false,
+      "orientation": "Current axes, base down; long fixture posts/bridge and upper lands require phase2 support planning. Remove support from band channels/nut pockets, deburr. No slicer verification."
+    }
+  ],
+  "model_sha256": "efac3d7c35f4d14c6784bb10f972fe577682a99f793f6073e19114c94c840ac9",
+  "fresh_relocated_reopen": true,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/CurrentBoardMounts.FCStd": "373b5c398ec27a5fec9dd27c0d5f1d0b63288d9f0f2dcb745a65334c3bb8f44c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd": "f9673ee62855b1075136ab64de7b411718903c0aa02f8819091912f91df21da7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/PWMBranchReceived.FCStd": "1c7924ec91528656722f5ca22e9d72f0f013b8bd9f075d2aff1e66ebd9a1f6b9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/received-checks.json": "472fdfc5b4a21026ec6997bd99034824be05fab34eb9f964dc645bc688dcf70a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/final-checks.json": "d0d89297feb8500937e4cd45db5372dfb3a110d7b2230c2cd1b2c00ce370291c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/final-plan.json": "9cdd6ee0f6138d2157e59543327d2d13885979f3b01967234e8cd1e5fd2fa26a",
+    "tools/cad/qualify_current_pwm_branch.py": "381c3d59b5c97344d198a4ae29ae714f209e88003cb20621ce12dff696e4ca16"
+  }
+}
