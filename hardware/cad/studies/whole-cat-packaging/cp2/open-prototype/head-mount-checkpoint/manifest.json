@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "readiness": "prototype",
+  "result_id": "M2",
+  "mechanical_preparation_complete": true,
+  "physical_pass": false,
+  "gates": {
+    "assembly": {
+      "status": "open",
+      "reason": "Physical phase2 trial required; nominal M2 scope only"
+    },
+    "fit": {
+      "status": "open",
+      "reason": "Physical phase2 trial required; nominal M2 scope only"
+    },
+    "loads": {
+      "status": "open",
+      "reason": "Physical phase2 trial required; nominal M2 scope only"
+    },
+    "petg": {
+      "status": "open",
+      "reason": "Physical phase2 trial required; nominal M2 scope only"
+    },
+    "service": {
+      "status": "open",
+      "reason": "Physical phase2 trial required; nominal M2 scope only"
+    },
+    "geometry": {
+      "status": "pass",
+      "reason": "Current external head/neck interface, retained internal samples and independent relocated native parameter restore; no whole wiring claim",
+      "evidence": [
+        "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/preflight.json",
+        "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/native-assembly-checks.json",
+        "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/head-neck-checks.json"
+      ]
+    },
+    "electrical": {
+      "status": "open",
+      "reason": "Physical phase2 trial required; nominal M2 scope only"
+    }
+  },
+  "files": [
+    {
+      "path": "hardware/cad/modules/head/HeadNarrowRimEars.FCStd",
+      "sha256": "19183fae36199cd3b145306fac0041c869189fa21c19b242b1fbdeb908b66728"
+    },
+    {
+      "path": "hardware/cad/studies/head-external-wire-support-r1/FrontRightWirePassage.FCStd",
+      "sha256": "86c067711fe97ea9f75eeea942c7ff18731ae20c450577add8f43e0d59af4afe"
+    },
+    {
+      "path": "hardware/cad/studies/head-external-wire-support-r1/FrontRightWirePassage_candidate_x1.stl",
+      "sha256": "d46ae4fec1de72422cc4913c2224650c8e60e3f19ea573e736231d16ff9b0e0a"
+    },
+    {
+      "path": "hardware/cad/studies/head-fixed-yaw-feed-r3/YawCarrierJRSeat.brep",
+      "sha256": "a7730376d2521e05bb6f1b1375f072d22de9d04383d1e2d6234d4cf8f67bcc99"
+    },
+    {
+      "path": "hardware/cad/studies/head-fixed-yaw-feed-r3/YawCarrierJRSeat.FCStd",
+      "sha256": "fdbc84347abaaffa513dde48c965298d618b5a5cae2f2beadf735c0fd4607cce"
+    },
+    {
+      "path": "hardware/cad/studies/head-fixed-yaw-feed-r3/YawCarrierJRSeat_candidate_x1.stl",
+      "sha256": "8cc902e36e07f4b8afe83b41a570eaf363783f82dda0d8caaaf8155bd3b9d2bc"
+    },
+    {
+      "path": "hardware/cad/studies/head-jr-support-r5/PitchCarrierThroughLeadExit.brep",
+      "sha256": "1dea8a5e44757aaf8b9df40228edc236e388af5706a38685dab7a88f6cfe12a7"
+    },
+    {
+      "path": "hardware/cad/studies/head-jr-support-r5/PitchCarrierThroughLeadExit.FCStd",
+      "sha256": "dc76cc469000d265dca372d63c978bdaea79283f9a68a8e4d7227720eb35bf40"
+    },
+    {
+      "path": "hardware/cad/studies/head-jr-support-r5/PitchCarrierThroughLeadExit_candidate_x1.stl",
+      "sha256": "0001b6493b68f9bbdac617362c234843280b6140bdb8a4f84727949c68b2713e"
+    },
+    {
+      "path": "hardware/cad/studies/head-p7/retainer-nut-seats-work/Retainer_nut_seats_candidate_x1.stl",
+      "sha256": "9cec858da852e5046020f7e5dd3fd791a1bae95991107c72cbee0615afed2279"
+    },
+    {
+      "path": "hardware/cad/studies/head-p7/retainer-nut-seats-work/RetainerNutSeats.FCStd",
+      "sha256": "a34d9ad9f656239f669fda6f170606be4256c79472e8ecd869f1bd9c75f582eb"
+    },
+    {
+      "path": "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd",
+      "sha256": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f"
+    },
+    {
+      "path": "hardware/cad/studies/head-p7/yaw-support-r1/Foundation_candidate_x1.stl",
+      "sha256": "03437c586d1db889f08a7d49b241138dcb83ac69f0e2f5ca71e271e73800cb3a"
+    },
+    {
+      "path": "hardware/cad/studies/head-p7/yaw-support-r1/NeckFoundationR2.FCStd",
+      "sha256": "ab22cfda0f797d7ba93467bde6fe2f5765a8d692cc5f59d9c694f7e84595341c"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/ear-service-r1/EarL_E6_candidate_x1.stl",
+      "sha256": "6482e026cf2eb7db126f8570393b23ba9f5119f1b4120b820f2a87de77ec9b37"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/ear-service-r1/EarR_E6_candidate_x1.stl",
+      "sha256": "16235d1f7ef81a11162ef9542a67aea13485777adfce7d9f5f8952985fe89197"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-bench-build-r2/README.md",
+      "sha256": "e13674da4759afae41f9aca99859b6412a1042427da75abdb769f8ff757af7bf"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-current-motion-r1/candidate-checks.json",
+      "sha256": "bc7059f5a9dea7abf3a75a868c182806b0320c1bacde4f95f89fc128f99e97b7"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-nose-insert-bridge-r1/FrontLeft_nose_insert_candidate_x1.stl",
+      "sha256": "db6e1a78f05607a2c3652c9ae61f764bd19f66fbf44900533d3cb6a36af1250a"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-nose-insert-bridge-r1/HeadFrontNoseInserts.FCStd",
+      "sha256": "ffe108f40e2bfbd37b2687ced298a7ada9298a865eb41017a981778e743b256b"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-pitch-cage-selected-r1/CageBase_selected_conditional_x1.stl",
+      "sha256": "6f6baa09565f700e47a9e33429cc7853eee5afb1366809d33aec29d6a06dcb0b"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-pitch-cage-selected-r1/CageRetainerLeft_selected_conditional_x1.stl",
+      "sha256": "eadf5da3fbc692b4afcc77f977c22fcaf7d4f785e0a5fb0f4b4a9dccca73c0af"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-pitch-cage-selected-r1/CageRetainerRight_selected_conditional_x1.stl",
+      "sha256": "0c4733775e4fce8f794b799314e83d95bad58e47785a33fe660e322b1686a67b"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-printed-horns-r2/checks.json",
+      "sha256": "20307c85bf64a56d4493788ccf757422ae923ec705134e0c8cd64cc389f6649d"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-printed-horns-r2/HeadPrintedPitchYawR2_CANDIDATE.FCStd",
+      "sha256": "81685ea4f0fec0ad1045c7980f547a505df5c513ccea07ed280404e0f09cbf3d"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-printed-horns-r2/YawDrivePrintedHornR2.FCStd",
+      "sha256": "3233ed983ec1defdbffa1040f195e5d01b451ece059832bee3660c286c846dd6"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-printed-horns-r2/YawNeckPrintedHornR2.FCStd",
+      "sha256": "e97e19a29d8895ca6af079abd3576561fdb22705dd317b45a225f2f009533fe3"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-fit-jaws-r2/ClampNegativeX_fit_r2_candidate_x1.stl",
+      "sha256": "02185c61f1dd064cb7de1d2e3b93b6c206cc42b4efcf368494256b6a434192fd"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-fit-jaws-r2/ClampPositiveX_fit_r2_candidate_x1.stl",
+      "sha256": "845f5e424678d445602fcaa2e1916865c76cbb8d927184a869f342f7be710fe8"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-fit-jaws-r2/motion-screen/checks.json",
+      "sha256": "664d941b42cda6dc22cbdb9e31c0c0a4eccb72d8fa5f0e0d2f785bc11792e633"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-fit-jaws-r2/YawFitJawsR2.FCStd",
+      "sha256": "ce5dbc99ee646439a05296fb0e09dd6e71b00e8d7df8818de8639a9e45559c8c"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-open-key-r1/bridge-passage-r5/Bridge_horn_passage_r5_candidate_x1.stl",
+      "sha256": "ae4717ad9ba7599b4cd02e7739c6d92e2d7e9fbd8e46523b11452adad5e9b1f0"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-open-key-r1/bridge-passage-r5/YawBridgeHornPassageR5.FCStd",
+      "sha256": "0f90d6b168298fc69918d938319d0233f869c049f8074250208b2597a6e4f197"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/head-yaw-open-key-r1/UpperForkOpenKey.FCStd",
+      "sha256": "e25a727d2ab070d04570f2914e690ea1042d9d00157cd0b9e7db6ed60334e81f"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/neck-bottom-trim-r3/HeadRear_neck_bottom_trim_candidate_x1.stl",
+      "sha256": "f35761e56302cdca58b3998fdf8a089b13842301ac6b620078d93f14a2df7152"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/neck-bottom-trim-r3/HeadRearNeckBottomTrim.FCStd",
+      "sha256": "71a77f3a938aef46189296dc3c98efad6a95ef753e0edba9480131e29dc14297"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/nose-native-r1/CosmeticNose.FCStd",
+      "sha256": "9c9aab391d760e8d5dbe631f811a3439ca30ce75b0eddf8db749e1a93d399186"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/nose-native-r1/CosmeticNose_candidate_x1.stl",
+      "sha256": "1adc0fecf7628dfc6b702bdd20b0965d41d9919e5edda6cce3cd52a43e2885c7"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/pitch-drive-interface-r1/pitch-servo-body-kit.json",
+      "sha256": "434a75317ba13dd01a2640cd8002def4dbf185c0a5673631bf72999b21128315"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/pitch-heatset-assembly-r1/PitchHeatsetAssembly.FCStd",
+      "sha256": "8018823556d736c7cbd323275a5ad18f4979800019cd64e9406daa6b1eeefc04"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/pitch-shifted-mount-r1/PitchCageShifted.FCStd",
+      "sha256": "a0cdd7f27e55616422346521274f112d078c91e16ad6d1b79b15e52cc3da0173"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/pitch-support-r3/PitchBearingFork.FCStd",
+      "sha256": "20bf44a56254bb06b5af495fefe20b6a28c9e105fdbadbb50712980fad7fbcda"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/pitch-support-r3/PitchRetainer_candidate_x1.stl",
+      "sha256": "d42e34360bc1ae0b2f4e07db925d5a5c40edf81fe12db1f196a5c807743427aa"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/shell-bench-work/HeadShellHardwareBench.FCStd",
+      "sha256": "29a98d6ac6ad2bef0909505003f24fe29711de6ce586250ed1e69b48aa7eb0c1"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/shell-mount-r2/HeadPassiveMount.FCStd",
+      "sha256": "0630f106ae1928ee0a834fda82a5b5c51bef8e46fdc2bddd24ed6f5e15b39aee"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/shell-mount-r2/PassiveJournal_candidate_x1.stl",
+      "sha256": "eaca0a454c0f48a7326e4f5e6ed495b097e4e208b4cca880c7696a89ba890282"
+    },
+    {
+      "path": "hardware/cad/studies/head-p8/shell-mount-r2/PitchCarrierAccess.FCStd",
+      "sha256": "98f8bc1ad3094c59c1c3a71fc01c9941514802d828a1ebab6462ba347d5685de"
+    },
+    {
+      "path": "hardware/cad/studies/head-yaw-end-restraints-r2/ForkYawEndSeatSplices.brep",
+      "sha256": "f6a30a0509a42baa9ae9eb3d4f11180fe0d21d36a156f2fa343da6c12c1b332d"
+    },
+    {
+      "path": "hardware/cad/studies/head-yaw-end-restraints-r2/ForkYawEndSeatSplices.FCStd",
+      "sha256": "f4048b1003b05584564828a57bf599213ad5fc43bca74de05f0758154965c3b1"
+    },
+    {
+      "path": "hardware/cad/studies/head-yaw-end-restraints-r2/ForkYawEndSeatSplices_candidate_x1.stl",
+      "sha256": "43cc4316004349832b0db49fd909121a6bcaa1e1e0f2b6f96b7604dcde0198f0"
+    },
+    {
+      "path": "hardware/cad/studies/mg92b-printed-horn-r2/MG92B_cross_horn_20T_TOP_RELIEF_PROVISIONAL_x3.stl",
+      "sha256": "6e3e2245201a63912cf2f13a7681996228458f830fc98a59bd23286d86e57329"
+    },
+    {
+      "path": "hardware/cad/studies/mg92b-printed-horn-r2/MG92BPrintedHornTopReliefR2.FCStd",
+      "sha256": "7bfcce6f84ba617705b49c4afb7d1282b79c45e9a8585fa8430528802da69337"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/coupled/RightRiser_candidate.stl",
+      "sha256": "df79bbed70ed1777a388c11196b27e1ed14c66eeb7825dadf375deb59f7b21a2"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/main-mount-sequence/LeftRiserWithMain_candidate.stl",
+      "sha256": "27a3cd9fb61bd53303b40fb19e3869e15dbae92d8a9b4740dff2b7b1fc3be06e"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/neck-support/mount-check-corrected.json",
+      "sha256": "0fd24c568b4212cf34981fa77682454212538f70161fb15ff9ce2669eeca86df"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/head-neck-checks.json",
+      "sha256": "d6575dc080f6e045dda66296b59abc473ef9424d4f19665496680527b18869d8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadAssemblyCurrent.FCStd",
+      "sha256": "279dd509a3ede9db83b1028321f6686af1b7463dae9859224077a205464ae558"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadNeckCurrent.FCStd",
+      "sha256": "ce19a824152b6ab8646731bbd002956a49557be17bacd819d3688d79c69fde89"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/native-assembly-checks.json",
+      "sha256": "0b55a159c1075b65fa7434fa310561a560e09e8b2805b1b9e805192f4496d6d0"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/preflight.json",
+      "sha256": "7636b6d653680425e6e57dd6ea5b5fc9b3c2e994b7758509e1e9f61d9388cd87"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/README.md",
+      "sha256": "68f27136cda3564b19684de66e359e8e568c02b0fb98317086d64819e20d4d1d"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/selection.json",
+      "sha256": "1670d03e437195aaca39eab1ac9c737d6ca2546695437bd3406b29eeb53a2be9"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/Mounts.FCStd",
+      "sha256": "7fb4c3cdbf51333ce07b06364a2e8bea83f2ea8ef9007a86ac81b59eb5e9cfd8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/RetentionMountsAssembly.FCStd",
+      "sha256": "5e8bf36ada7b150297aa527d59eeea1d975cfefdee9fc3d526ddd4391b62cc71"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/OpenPrototypePlan.FCStd",
+      "sha256": "ce59a37562e841bb3daf90b4249c52d674b97307871043772d5dba66dea39b5f"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/TailAssemblyCurrent.FCStd",
+      "sha256": "f9673ee62855b1075136ab64de7b411718903c0aa02f8819091912f91df21da7"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/DataShelfCurrent.FCStd",
+      "sha256": "8239585a203c2ad153f4000826583a49ceb77cdc99364da22f9a3b3ad665e6dc"
+    },
+    {
+      "path": "hardware/manufacturing/head-fastener-kit-r1/kit.json",
+      "sha256": "3a015524fb57c682fddf3a5dc45e92fcff8f700874e92129a65f070eda910139"
+    },
+    {
+      "path": "tests/test_open_prototype_head_package.py",
+      "sha256": "fbebfe64578081894af57604ee1dc09b87ffd4cfbe34f4eacc273b52c7dcfd86"
+    },
+    {
+      "path": "tools/cad/finalize_open_prototype_head.py",
+      "sha256": "afecd18fada24a74325171b08d8a1f79e0c6a422a7613db835735ff87683f4e2"
+    },
+    {
+      "path": "tools/cad/open_prototype_head_assembly.py",
+      "sha256": "7183b7e0c40bbfb43cb84682e43ec1ef1f90a2451b3ea1254d15df14faf5dc4a"
+    },
+    {
+      "path": "tools/cad/open_prototype_head_preflight.py",
+      "sha256": "3bb6d72f09ab9128882ee9b29fb4d171fd60977a9f65d95cce0f3b5bf382ecb9"
+    },
+    {
+      "path": "tools/cad/package_open_prototype_head.py",
+      "sha256": "8ffbe439d2dcdd64cdc53a8df04e438ee91e7804fac46ef19acdb3f30b2549af"
+    }
+  ]
+}
