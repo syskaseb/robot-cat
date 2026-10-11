@@ -69,9 +69,11 @@ def build():
                 q=flex(start,last,outward,side)
                 if q is None:bad.append(dict(section=source['loom']+'/Hip',angle=angle));continue
                 poses.append(dict(angle=angle,parts=[line(fixed,start)]+q+[line(last,end)],
+                    bulge_mm=side*(q[1]['end'][1]-(start[1]+last[1])/2),
                     flex_length_mm=sum(p['length_mm'] for p in q),minimum_R_mm=min(p.get('radius_mm',float('inf')) for p in q)))
             rows.append(dict(section=source['loom']+'/Hip',loom=source['loom'],cad_code=source['cad_code'],physical_leg=leg,
                 parent_stage='Frame',child_stage='Hip',project_OD_mm=6,guide_mm=126,
+                pivot_mm=pivot,joint_axis=axis['axis'],axial_tangent=outward,side=side,
                 fixed_anchor_world_mm=fixed,moving_anchor_rest_world_mm=moving,poses=poses,
                 support_status='OPEN: proposed near-frame and near-case roots; actual feet, tool access and load path not qualified'))
     result=dict(status='REJECTED_AXIAL_HIP_MATH' if bad else 'AXIAL_HIP_MATH_ONLY',
@@ -108,6 +110,14 @@ def build():
             rejected=rejected,near_pairs=near,motion_cases=cases)
         result['source_sha256'].update({f.relative_to(ROOT).as_posix():SHA(f) for f in pins|{head}})
     result['worker_seconds']=time.monotonic()-tick
+    # Persist one recipe, not31 copies of every derived arc and every Knee
+    # section already qualified in its own immutable source-bound package.
+    result['knee_reference']='joint-local-knee-plan.json'
+    result['shared_screen_sections']=len(result['loops'])
+    result['loops']=[r for r in result['loops'] if r['child_stage']=='Hip']
+    for r in result['loops']:
+        r['recipe']='four exact S-offset arcs, two9mm grip lands, free midpoint bulge per pose'
+        for p in r['poses']:p.pop('parts')
     (OUT/'hip-axial-loom-plan.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(dict(status=result['status'],math_failures=bad,wire_rejections=result.get('rejected'),worker_seconds=result['worker_seconds'])),flush=True)
 
