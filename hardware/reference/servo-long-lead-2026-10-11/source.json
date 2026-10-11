@@ -1,0 +1,42 @@
+{
+  "status": "PRIMARY_SOURCE_CANDIDATE_NOT_PURCHASE_OR_SELECTION",
+  "checked_utc": "2026-10-11T18:50:00Z",
+  "manufacturer": "Spektrum / Horizon Hobby",
+  "SKU": "SPMA3007",
+  "source_url": "https://www.horizonhobby.com/product/servo-extension-lead-48-heavy-duty/SPMA3007.html",
+  "source_title": "Spektrum Servo Extension Lead:48inch Heavy-Duty",
+  "published_facts": {
+    "nominal_length_inches": 48,
+    "wire_gauge_AWG": 22,
+    "connector_family": "Z-connectors; manufacturer states Spektrum/JR receiver and servo compatibility",
+    "contacts": "gold plated"
+  },
+  "derived": {"nominal_length_mm": 1219.2, "inch_to_mm": 25.4},
+  "project_assumptions_not_catalog_facts": {
+    "trim_reserve_mm": 50,
+    "usable_nominal_blank_mm": 1169.2,
+    "planning_core_OD_mm": 2,
+    "planning_bundle_OD_mm": 6,
+    "planning_fixed_core_R_mm": 10,
+    "planning_moving_bundle_R_mm": 30,
+    "mating_allowance_mm": 14
+  },
+  "open_delivery_and_electrical_gates": [
+    "Received complete-lead length and actual insulation/core dimensions",
+    "Connector mechanical fit, retaining feature and actual mating envelope versus provisional CAD",
+    "Unpowered continuity and actual D/V/G order; do not infer from generic colours",
+    "Actual conductor material/strand and insulation specification",
+    "Continuous/contact current and fuse clearing/let-through qualification E3",
+    "Received bare strands compatible with WAGO; no tinned ends in spring clamps"
+  ],
+  "scope": "Real complete factory cable available as the length ceiling for all12 leg looms. After ALL3 complete core guides are known, retain900mm where the maximum requirement fits850mm and use this candidate otherwise. Installed/purchase/spare quantities NOT selected yet. No extra inline connection or fictional splice.",
+  "rejected_alternative": {
+    "SKU": "Botland KAB-08863",
+    "url": "https://botland.com.pl/przewody-do-serw/8863-przedluzacz-do-serw-100cm-skrecony-5904422312305.html",
+    "reason": "Listing conflicts90/100cm and specifies26AWG; do not treat it as a verified thicker1m replacement. No selection."
+  },
+  "selected": false,
+  "purchased": false,
+  "E3_complete": false,
+  "physical_pass": false
+}

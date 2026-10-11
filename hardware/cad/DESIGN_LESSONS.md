@@ -150,3 +150,15 @@ banku. Usunięcie tylko ich zewnętrznych występów przeszło wspólną kontrol
 przed wyborem trzeba odtworzyć odejmowanie natywnie i sprawdzić aktualne
 drogi obciążeń/mocowania. Nie mylić usunięcia starego uchwytu z pozwoleniem
 na wycięcie aktywnej podpory, płytki lub zmienienie zachowanej części w ciszy.
+
+Pełny wachlarz zaczyna się przed wyborem punktu rozdzielenia wiązki: zarezerwować
+wszystkie sąsiednie podejścia zacisków oraz OBA przewody BUS, nie dodawać ich
+dopiero po znalezieniu wolnej pętli. Przy rzędzie portów w osiX zakręt wzdłużX
+może przecinać sąsiednie identyczne łuki; prowadzić osobnymi pasami w poprzek
+rzędu i sprawdzić cały wachlarz. Wirtualny podział płaszcza nie jest uchwytem.
+Nie wymuszać przy nim nieistniejącego odcinka pod opaskę ani nawrotuUP.
+
+Nie bronić arbitralnie długości odziedziczonego kabla kosztem setek obejść.
+Najpierw ustalić dostępny rzeczywisty dłuższy kompletny element, zachować
+promień i zapas cięcia, a krótszy wybrać tylko gdy wszystkie trzy pełne żyły
+się mieszczą. Dłuższy kabel nie dowodzi obciążalności, pinoutu ani pasowania.
