@@ -12,7 +12,7 @@ from plan_current_main_sources import ROOT,OUT,SHA
 from plan_current_joint_local_looms import scene_parts
 
 
-def run():
+def run(layout='underframe'):
     tick=time.monotonic();reader,pins,targets,old=context()
     hf=OUT/'hip-axial-loom-plan.json';kf=OUT/'joint-local-knee-plan.json'
     hp=json.loads(hf.read_text());kp=json.loads(kf.read_text())
@@ -22,12 +22,15 @@ def run():
     stages={q['name']:q['stage'].split('_')[1:] for q in components if q['stage'].startswith('Motion_')}
     pins.update((hf,kf,af,archive,Path(__file__)))
     rows=copy.deepcopy(hp['loops'])
+    assert layout in ('underframe','inward-corridor')
     for r in rows:
         r.pop('poses',None)
         for key in ('fixed_anchor_world_mm','moving_anchor_rest_world_mm'):
-            r[key][2]=-50
-        r['midpoint_direction']=[0,r['side'],0]
-    result=dict(status='PENDING',layout='Single underside axial gallery Z-50, Y45/53/61; electronics and ATO bank unchanged',
+            r[key][2]=-50 if layout=='underframe' else 60 if r['physical_leg'].startswith('Front') else 65
+        r['midpoint_direction']=[0,r['side']*(1 if layout=='underframe' else -1),0]
+    result=dict(status='PENDING',layout=layout,
+        rationale=('Single underside gallery' if layout=='underframe' else
+            'Whole family bows INWARD, away from rear data cases and their fixed approach lands; front plane below S0 family bottom65 and above retained motors. Bank/P0/source wires unchanged; native roots still open.'),
         loops=rows,contacts=[],errors=[],pair_tests=0,sampled_cases=0,
         native_changed=False,selected=False,W5_complete=False,physical_pass=False,
         roots_and_full_joins_open=True,continuous_sweep_verified=False)
@@ -81,15 +84,21 @@ def run():
                 for angles in itertools.product((-15,0,15),repeat=3):
                     if angles!=(0,0,0):test(code,*angles)
                     if result['contacts']:break
-                print('Underframe',code,'contacts',len(result['contacts']),flush=True)
+                print(layout,code,'contacts',len(result['contacts']),flush=True)
                 if result['contacts']:break
     except Exception as exc:result['errors'].append(repr(exc))
-    result.update(status='REJECTED_UNDERFRAME_HIP' if result['contacts'] or result['errors'] else 'UNDERFRAME_HIP_SAMPLED_ONLY_ROOTS_AND_JOINS_OPEN',
+    label='UNDERFRAME_HIP' if layout=='underframe' else 'INWARD_HIP_CORRIDOR'
+    result.update(status='REJECTED_'+label if result['contacts'] or result['errors'] else label+'_SAMPLED_ONLY_ROOTS_AND_JOINS_OPEN',
         worker_seconds=round(time.monotonic()-tick,3),
         source_sha256={**reader.hashes,**{f.relative_to(ROOT).as_posix():SHA(f) for f in pins}})
-    (OUT/'underframe-hip-plan.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+    filename='underframe-hip-plan.json' if layout=='underframe' else 'hip-corridor-current.json'
+    (OUT/filename).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({k:result[k] for k in ('status','pair_tests','sampled_cases','contacts','errors','worker_seconds')}),flush=True)
     return result
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import sys
+    # Explicit architecture only; a rejected default is never an automatic retry.
+    assert len(sys.argv)==2 and sys.argv[1]=='inward-corridor','Specify the newly planned architecture'
+    run(sys.argv[1])
