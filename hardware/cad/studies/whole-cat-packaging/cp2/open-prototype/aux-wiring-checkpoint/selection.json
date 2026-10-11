@@ -1,0 +1,482 @@
+{
+  "status": "CURRENT_W1_NOMINAL_PROTOTYPE_SELECTED",
+  "result_id": "W1",
+  "physical_pass": false,
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/AUXPowerCurrent.FCStd",
+  "model_sha256": "19483642e90e2d75685e92527f043be9dd198e19fdafc0fc7d82a60c6edf065a",
+  "prints": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/Foundation_current_x1.stl",
+      "sha256": "01cf83583e5ddd9b30f9a9d4169173ecaf92aec1e69ea572fa55da20e743e556",
+      "size_mm": [
+        202.0,
+        198.0,
+        71.23243713378906
+      ],
+      "quantity": 1,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/UpperCarrier001_current_x1.stl",
+      "sha256": "43a0dd345847c0dd0afb061aa97e99b9030c5e45438156b4032ecd05d41eafe9",
+      "size_mm": [
+        214.0,
+        98.0,
+        81.57999420166016
+      ],
+      "quantity": 1,
+      "print_ready": false
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/E2Fixture_current_x1.stl",
+      "sha256": "de9426ee2f36062bd06ebb1e334a97d86f83fcd1ff00911faee05ec4f3cb36eb",
+      "size_mm": [
+        129.0,
+        76.80000305175781,
+        75.97999572753906
+      ],
+      "quantity": 1,
+      "print_ready": false
+    }
+  ],
+  "feed_ends": [
+    {
+      "wire": "XA02",
+      "ends": [
+        "F_AUX.OUT supported8mm factory/custom lap",
+        "Pololu4092 VIN component-side solder"
+      ]
+    },
+    {
+      "wire": "XA03",
+      "ends": [
+        "Pololu4092 VOUT component-side solder",
+        "P_AUX.2 untinned11mm strip"
+      ]
+    },
+    {
+      "wire": "XA04",
+      "ends": [
+        "Pololu4092 GND component-side solder",
+        "G_AUX.2 untinned11mm strip"
+      ]
+    },
+    {
+      "wire": "XA05",
+      "ends": [
+        "G2.5 untinned11mm strip",
+        "G_AUX.1 untinned11mm strip"
+      ]
+    },
+    {
+      "wire": "XA06",
+      "ends": [
+        "G_AUX.5 untinned11mm strip",
+        "G_TAIL.1 untinned11mm strip"
+      ]
+    },
+    {
+      "wire": "XB11",
+      "ends": [
+        "P_AUX.1 untinned11mm strip",
+        "F_HY.INPUT supported8mm factory/custom lap"
+      ]
+    }
+  ],
+  "length_stock_rows": [
+    {
+      "wire": "XA02",
+      "sku": "HELU23502",
+      "section_mm2": 1,
+      "guided_mm": 169.70259114638407,
+      "extra_formed_bare_mm": 11.1415926535898,
+      "additional_WAGO_strip_mm": 0,
+      "trim_allowance_mm": 60,
+      "nominal_fit_blank_mm": 245,
+      "procurement_contribution_mm": 310,
+      "accounting": "Replaces historical R19/R20 contribution; no additional wire at layer/owner boundaries. Factory/custom8mm overlap already included in guide. Formed bare and jacket overlap3mm counted once. Cut only after delivered unpowered dry fit."
+    },
+    {
+      "wire": "XA03",
+      "sku": "HELU23502",
+      "section_mm2": 1,
+      "guided_mm": 494.1900704881488,
+      "extra_formed_bare_mm": 7.0,
+      "additional_WAGO_strip_mm": 11,
+      "trim_allowance_mm": 60,
+      "nominal_fit_blank_mm": 575,
+      "procurement_contribution_mm": 720,
+      "accounting": "Replaces historical R19/R20 contribution; no additional wire at layer/owner boundaries. Factory/custom8mm overlap already included in guide. Formed bare and jacket overlap3mm counted once. Cut only after delivered unpowered dry fit."
+    },
+    {
+      "wire": "XA04",
+      "sku": "HELU23501",
+      "section_mm2": 1,
+      "guided_mm": 456.8352788641314,
+      "extra_formed_bare_mm": 11.1415926535898,
+      "additional_WAGO_strip_mm": 11,
+      "trim_allowance_mm": 60,
+      "nominal_fit_blank_mm": 540,
+      "procurement_contribution_mm": 675,
+      "accounting": "Replaces historical R19/R20 contribution; no additional wire at layer/owner boundaries. Factory/custom8mm overlap already included in guide. Formed bare and jacket overlap3mm counted once. Cut only after delivered unpowered dry fit."
+    },
+    {
+      "wire": "XA05",
+      "sku": "HELU23501",
+      "section_mm2": 1,
+      "guided_mm": 419.2778871941906,
+      "extra_formed_bare_mm": 0,
+      "additional_WAGO_strip_mm": 22,
+      "trim_allowance_mm": 60,
+      "nominal_fit_blank_mm": 505,
+      "procurement_contribution_mm": 635,
+      "accounting": "Replaces historical R19/R20 contribution; no additional wire at layer/owner boundaries. Factory/custom8mm overlap already included in guide. Formed bare and jacket overlap3mm counted once. Cut only after delivered unpowered dry fit."
+    },
+    {
+      "wire": "XA06",
+      "sku": "HELU23501",
+      "section_mm2": 1,
+      "guided_mm": 257.13647239596895,
+      "extra_formed_bare_mm": 0,
+      "additional_WAGO_strip_mm": 22,
+      "trim_allowance_mm": 60,
+      "nominal_fit_blank_mm": 340,
+      "procurement_contribution_mm": 425,
+      "accounting": "Replaces historical R19/R20 contribution; no additional wire at layer/owner boundaries. Factory/custom8mm overlap already included in guide. Formed bare and jacket overlap3mm counted once. Cut only after delivered unpowered dry fit."
+    },
+    {
+      "wire": "XB11",
+      "sku": "HELU23502",
+      "section_mm2": 1,
+      "guided_mm": 329.99666941154067,
+      "extra_formed_bare_mm": 0,
+      "additional_WAGO_strip_mm": 11,
+      "trim_allowance_mm": 60,
+      "nominal_fit_blank_mm": 405,
+      "procurement_contribution_mm": 510,
+      "accounting": "Replaces historical R19/R20 contribution; no additional wire at layer/owner boundaries. Factory/custom8mm overlap already included in guide. Formed bare and jacket overlap3mm counted once. Cut only after delivered unpowered dry fit."
+    }
+  ],
+  "additional_source_prefix": {
+    "wire": "XA01",
+    "source": "P_REAR.1 same BAT_SW rail",
+    "factory_route_mm": 35.950516762616644,
+    "source_strip_mm": 14,
+    "complete_unfused_blank_mm": 49.950516762616644,
+    "maximum_unfused_mm": 50,
+    "not_additional_custom_HELU": true,
+    "delivered_length_measurement_required": true,
+    "supersedes_historical_11mm_accounting": true
+  },
+  "factory_budget": {
+    "F_AUX_factory_out": {
+      "route_mm": 76.34955592153877,
+      "minimum_usable_assumption_mm": 84.5,
+      "margin_mm": 8.150444078461234
+    },
+    "F_HY_factory_in": {
+      "route_mm": 45.0,
+      "minimum_usable_assumption_mm": 84.5,
+      "margin_mm": 39.5
+    }
+  },
+  "joint_coverage": {
+    "XA02": {
+      "opposed_end_lap_mm": 8,
+      "nominal_jacket_coverage_mm": [
+        5,
+        5
+      ],
+      "raw_sleeve_mm": 18
+    },
+    "XB11": {
+      "opposed_end_lap_mm": 8,
+      "nominal_jacket_coverage_mm": [
+        6,
+        6
+      ],
+      "raw_sleeve_mm": 20
+    }
+  },
+  "grips": [
+    {
+      "name": "PAux",
+      "axis": "X",
+      "centre_mm": [
+        32.5,
+        -27.875,
+        155
+      ],
+      "wires": [
+        "XA03",
+        "XB11"
+      ],
+      "T18I": 1
+    },
+    {
+      "name": "G2Source",
+      "axis": "X",
+      "centre_mm": [
+        106,
+        53.5,
+        155
+      ],
+      "radius_mm": 1.25,
+      "T18I": 1
+    },
+    {
+      "name": "GAux1",
+      "axis": "X",
+      "centre_mm": [
+        -110,
+        -16.3,
+        123.39378221735
+      ],
+      "radius_mm": 1.25,
+      "T18I": 1
+    },
+    {
+      "name": "GAux2",
+      "axis": "X",
+      "centre_mm": [
+        -114,
+        -21.05,
+        123.39378221735
+      ],
+      "radius_mm": 1.25,
+      "T18I": 1
+    },
+    {
+      "name": "GAux5",
+      "axis": "X",
+      "centre_mm": [
+        -114,
+        -35.3,
+        123.39378221735
+      ],
+      "radius_mm": 1.25,
+      "T18I": 1
+    },
+    {
+      "name": "GTail1",
+      "axis": "X",
+      "centre_mm": [
+        43.5,
+        -25.5,
+        141
+      ],
+      "radius_mm": 1.25,
+      "T18I": 1
+    },
+    {
+      "name": "FAuxInput",
+      "axis": "X",
+      "centre_mm": [
+        54.46633777452794,
+        14.5,
+        149
+      ],
+      "radius_mm": 2,
+      "T18I": 1
+    },
+    {
+      "name": "FAuxOutput",
+      "axis": "X",
+      "centre_mm": [
+        114.46633777452794,
+        14.5,
+        149
+      ],
+      "radius_mm": 2,
+      "T18I": 1
+    },
+    {
+      "name": "UnfusedSource",
+      "axis": "X",
+      "centre_mm": [
+        33.5,
+        13,
+        138
+      ],
+      "radius_mm": 2,
+      "T18I": 1
+    },
+    {
+      "name": "FAuxJoint",
+      "axis": "Z",
+      "centre_mm": [
+        124.96633777452794,
+        -33,
+        134
+      ],
+      "radius_mm": 2.4,
+      "T18I": 1
+    },
+    {
+      "name": "FHYInputJoint",
+      "axis": "X",
+      "centre_mm": [
+        -74,
+        -85.125,
+        120
+      ],
+      "radius_mm": 2.4,
+      "T18I": 1
+    },
+    {
+      "name": "AuxVIN",
+      "axis": "Z",
+      "centre_mm": [
+        31.27,
+        -1.27,
+        97
+      ],
+      "T18I": 1
+    },
+    {
+      "name": "AuxGND",
+      "axis": "Z",
+      "centre_mm": [
+        41.27,
+        1.27,
+        101
+      ],
+      "T18I": 1
+    },
+    {
+      "name": "AuxVOUT",
+      "axis": "Z",
+      "centre_mm": [
+        36.27,
+        6.35,
+        105
+      ],
+      "T18I": 1
+    }
+  ],
+  "new_hardware": {
+    "T18I_11102370": 16,
+    "M3": 0,
+    "FHAC_new": 0,
+    "WAGO_new": 0,
+    "SJ4570_reused_matched_pairs": 2,
+    "SJ4570_pair_trim_mm": [
+      18,
+      10
+    ],
+    "RNF100_3_16_9_raw_mm": [
+      18,
+      20
+    ]
+  },
+  "board_end_insulation": {
+    "material": "3M Temflex165",
+    "layers": 2,
+    "nominal_added_radius_mm": 0.33,
+    "jacket_overlap_mm": 3,
+    "nominal_material_contribution_mm": 60,
+    "supplier_revision_and_solder_land_fit_gate": true
+  },
+  "sleeves": {
+    "joints": {
+      "XA02": {
+        "factory_tip_mm": [
+          124.96633777452794,
+          -33,
+          130
+        ],
+        "custom_tip_mm": [
+          124.96633777452794,
+          -33,
+          138
+        ],
+        "strip_each_mm": 8,
+        "sleeve_raw_mm": 18,
+        "sleeve_envelope_mm": [
+          125,
+          143
+        ]
+      },
+      "XB11": {
+        "factory_tip_mm": [
+          -70,
+          -85.125,
+          120
+        ],
+        "custom_tip_mm": [
+          -78,
+          -85.125,
+          120
+        ],
+        "strip_each_mm": 8,
+        "sleeve_raw_mm": 20,
+        "sleeve_envelope_mm": [
+          -84,
+          -64
+        ]
+      }
+    },
+    "finished_OD_max_mm": 4.8,
+    "lap_mm": 8,
+    "rule": "Individual insulated opposed END strips soldered off PETG, >=3mm intact insulation each side. XA02 raw18mm must finish16..18mm; XB11 raw20mm must finish14..20mm. Coverage and delivered shrink are phase2 gates. No shared bare junction."
+  },
+  "circuit_rules": "BAT_SW before AUX4092, AUX6 after it; separate AUX/platform power returns. No MAIN/AUX positive bridge or invented externalU1 pinout.",
+  "replaces": [
+    "W3 Foundation print only: retained geometry/material and head functions unchanged",
+    "W3 UpperCarrier001 print only",
+    "W4 E2Fixture print only",
+    "P_AUX/G2 case poses and case adhesion",
+    "W4 paired-source-ground tie locking head envelope, same existing band/wires"
+  ],
+  "preserves": [
+    "P0",
+    "E6",
+    "15 drives",
+    "replaceable provisionalMG92B",
+    "bankR47",
+    "W2/W3/W4 conductors and all retained material",
+    "existing E2 board/connector and both factory module leads",
+    "325x200x160 torso sides"
+  ],
+  "assembly": [
+    "All power/USB absent; carrier passages and captive anchors before boards",
+    "Prepare measured factory/custom supported splices off PETG; no bare copper outside individual insulation",
+    "Component-side AUX pad joints only after supplier registration and delivered fit check",
+    "Lay all six circuits, then insulation grips, then casing restraints; levers and ATO lid remain accessible",
+    "Support soldered board ends when servicing; free WAGO ends and cut only designated ties",
+    "Install three matched native replacements, reusing all retained screws/nuts. Thread all band side/return channels before cases/boards. Case retention is not wire relief.",
+    "Prepare two individual8mm factory/custom laps and three formed board ends on supported bench; heat shrink off PETG. No full1mm2 conductor through1.02mm drill.",
+    "Retain16new wire/case ties, two reused SJ4570 pairs trimmed18x10; W4 common band uses its locking head on TOP. Inspect and replace a damaged old tie, do not count it as a new mandatory tie."
+  ],
+  "service": [
+    "All power/USB removed. F_AUX: support body, cut two case bands and use nominal SOUTH lid space; factory/custom insulation bands remain. Delivered hinge/hand/puller fit remains phase2 gate. WAGO levers clear above cages, case adhesive is not wire relief. Install native receiving floors/slots before boards; bench solder/insulate ends, thread vertical comb and cut dedicated wire ties for board removal.",
+    "F_AUX routine service: cut two dedicated body straps only; use qualified nominal SOUTH22x35x10mm lid/tool space, not through either factory output. Delivered hinge/ATO/puller check remains open.",
+    "Other ATO service under an overhead free arch: remove all sources, label and free only the crossing W1 conductor at its assigned supported WAGO or bench joint, release its dedicated ties, then move that disconnected wire aside. No connected sweep or routine74WAGO disconnects claimed.",
+    "For board replacement, support and desolder the three known component-side joints on the bench; no fictitious plug or pulling on solder pads. Release case adhesion and wire ties separately before floor removal."
+  ],
+  "open_prototype_limit": "Upper cosmetic shell omitted. Free wire arches reach185mm; no closed160mm shell fit claim, no side widening. Delivery fit/creep/insulation/manual motion and global E3/K3 remain open.",
+  "phase2_gates": [
+    "Delivered supplier PCB registration and component-side solder lands; no bridges/loose strands",
+    "Actual FHAC factory OD/length/R/lid travel;100mm per side is not catalogL140",
+    "Actual WAGO levers/entry11mm, tie pressure, PETG edge deburr/creep and adhesive retention",
+    "Individual sleeves/tape coverage and unplugged continuity/polarity/pull inspection",
+    "Global source/fault/thermal E3 approval before any power"
+  ],
+  "bank_ownership": {
+    "status": "HISTORICAL_BANK_REFERENCE_NOT_CURRENT_FIT_PROOF",
+    "current_scope": "W1 six fixed AUX conductors and receiving parts. W5 remains OPEN including current bank retention and all leg/source conductors.",
+    "observed": "The original R47 printed bank halves occupy Y89..142 and Y-142..-89. Their raw saved poses do not align with the CP2 twelve holder cases at Y54.5..69.5 and Y-69.5..-54.5.",
+    "correction": "bank-boundary-checks.json has0contacts for the historical raw poses only. Its result must NOT be called current CP2 bank clearance or used to award W5. No bbox or raw native pose substitutes for registration.",
+    "prior_authorized_owner_basis": "tools/cad/whole_cat_interior.py explicitly lists BankLeft/BankRight among old_supports_superseded in the CP2 layout. R47 electrical kit, twelve holders/24ends and compatible terminal recipes are retained; old plastic support world poses are not frozen.",
+    "current_W1_obstacles": "All twelve bought holder cases are included by the selected OpenPrototypePlan context. Current native W1 parts/retained wiring and actual insulation have their separate checks. This local W1 result is not whole W5 assembly acceptance.",
+    "next_W5_requirement": "Register the current bank retention to all12current holder datums, include its entire native material and channels in the shared W5 gate, preserve current W1 or explicitly revoke/requalify any affected result. Do not translate a single saved bank bbox as if it were proof of current geometry.",
+    "physical_pass": false
+  },
+  "measured_worker_seconds": {
+    "joint_support": 59.688,
+    "changed_routes_cases": 137.875,
+    "native": 1464.297,
+    "bank_boundary": 57.828
+  },
+  "checked_utc": "2026-10-11T03:20:28.814911+00:00"
+}
