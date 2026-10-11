@@ -5,7 +5,7 @@ flex sections at crossed joints. No new electrical connector, reduced bend
 radius, selected mount, native edit or W5 credit. This first pilot checks TWO
 parallel FL Knee loops, not a fictitious complete cable to the body.
 """
-import json,math,time,zipfile,itertools
+import json,math,time,zipfile,itertools,copy
 from pathlib import Path
 from plan_current_main_sources import ROOT,OUT,SHA
 from plan_current_moving_looms import add,sub,mul,dot,norm,rotation,metrics,curve_length,poles
@@ -33,66 +33,101 @@ def solve_loop(start,start_axis,end,end_axis,length=LENGTH):
         p=at((lo+hi)/2);actual,radius,bounds=metrics(p,360)
         if abs(actual-length)>1e-6 or radius<31:continue
         return dict(kind='bezier',poles_mm=p,start=p[0],end=p[-1],length_mm=actual,
+            first_handle_mm=first,second_handle_mm=(lo+hi)/2,
             sampled_minimum_R_mm=radius,sampled_bounds_mm=bounds)
     return None
 
 
-def basis(axis,side):
+def basis(axis,side,stage='Knee',front=True):
     # Actual joint axis, not a mirrored front/rear source or guessed globalY.
     normal=mul(axis,1/norm(axis))
-    if side*normal[1]<0:normal=mul(normal,-1)
+    outward=[0,side,0] if stage=='Knee' else [-1 if front else 1,0,0]
+    if dot(normal,outward)<0:normal=mul(normal,-1)
     vertical=sub([0,0,1],mul(normal,normal[2]));vertical=mul(vertical,1/norm(vertical))
-    bulge=[1,0,0]
+    bulge=[1 if front else -1,0,0] if stage=='Knee' else [0,side,0]
     bulge=sub(bulge,mul(normal,dot(bulge,normal)))
     bulge=sub(bulge,mul(vertical,dot(bulge,vertical)));bulge=mul(bulge,1/norm(bulge))
     return normal,vertical,bulge
 
 
-def build():
-    tick=time.monotonic();af=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json'
-    hf=OUT/'harness-interfaces-plan.json';axes=json.loads(af.read_text())['axes']
-    source=json.loads(hf.read_text());families=[q for q in source['looms'] if q['loom'] in ('FL2','FL3')]
-    axis=next(a for a in axes if a['code']==families[0]['cad_code'] and a['stage']=='Knee')
-    pivot=axis['pivot_mm'];normal,vertical,bulge=basis(axis['axis'],1)
-    archive=ROOT/'hardware/simulation/v35/inputs.zip'
-    with zipfile.ZipFile(archive) as z:components=json.loads(z.read('geometry.json'))['components']
-    # Include integral LegLink005/006 and counter-shells, not merely the
-    #bought servo casing. The first pilot exposed precisely this omission.
-    members=[q for q in components if q['stage']=='Motion_'+families[0]['cad_code']+'_Knee']
+def expanded_pose(row,angle):
+    """One curve recipe, not620 copies of derived endpoints and grip lands."""
+    pose=next(q for q in row['poses'] if q['angle']==angle)
+    if 'parts' in pose:return pose
+    fixed=row['fixed_anchor_world_mm'];pivot=row['pivot_mm'];bulge=row['fixed_tangent_world']
+    end=add(pivot,rotation(sub(row['moving_anchor_rest_world_mm'],pivot),row['joint_axis'],angle))
+    tangent=rotation(row['moving_tangent_rest_world'],row['joint_axis'],angle)
+    start=add(fixed,mul(bulge,9));last=sub(end,mul(tangent,9))
+    controls=poles(start,bulge,last,mul(tangent,-1),pose['first_handle_mm'],pose['second_handle_mm'])
+    q=dict(kind='bezier',poles_mm=controls,start=start,end=last,length_mm=pose['length_mm'],
+        sampled_minimum_R_mm=pose['sampled_minimum_R_mm'])
+    return dict(angle=angle,curve=q,parts=[line(fixed,start),q,line(last,end)])
+
+
+def scene_parts(row,hip,knee,axes):
+    parts=copy.deepcopy(expanded_pose(row,hip if row['child_stage']=='Hip' else knee)['parts'])
+    if row['parent_stage']=='Hip':
+        axis=next(a for a in axes if a['code']==row['cad_code'] and a['stage']=='Hip')
+        def moved(p):return add(axis['pivot_mm'],rotation(sub(p,axis['pivot_mm']),axis['axis'],hip))
+        for segment in parts:
+            for key in ('start','end','mid'):
+                if key in segment:segment[key]=moved(segment[key])
+            if 'poles_mm' in segment:segment['poles_mm']=[moved(v) for v in segment['poles_mm']]
+    return parts
+
+
+def group(axis,families,components):
+    pivot=axis['pivot_mm'];side=1 if families[0]['physical_leg'].endswith('Left') else -1
+    front=families[0]['physical_leg'].startswith('Front');stage=axis['stage']
+    normal,vertical,bulge=basis(axis['axis'],side,stage,front)
+    members=[q for q in components if q['stage']=='Motion_'+families[0]['cad_code']+'_'+stage]
     corners=[]
     for row in members:
         b=row['bbox_mm'];corners.extend(itertools.product(*((b[j],b[j+3]) for j in range(3))))
-    # These are candidate tie planes; attachable parent/child feet remain
-    #open. Conservative corner projection is an allocation, not a contact.
     plane=max(dot(sub(p,pivot),normal) for p in corners)+OD/2+1.5
     loops=[];failures=[]
     for lane,row in enumerate(families):
         centre=add(pivot,mul(normal,plane+lane*8))
-        fixed=add(centre,mul(vertical,RADIUS));moving=add(centre,mul(vertical,-RADIUS))
-        poses=[]
+        fixed=add(centre,mul(vertical,RADIUS));moving=add(centre,mul(vertical,-RADIUS));poses=[]
         for angle in range(-15,16):
             end=add(pivot,rotation(sub(moving,pivot),axis['axis'],angle))
             end_axis=rotation(mul(bulge,-1),axis['axis'],angle)
             curve_start=add(fixed,mul(bulge,9));curve_end=sub(end,mul(end_axis,9))
             q=solve_loop(curve_start,bulge,curve_end,end_axis)
-            if q is None:failures.append(dict(loom=row['loom'],angle=angle,cause='NO_FIXED_LENGTH_R31_LOOP'));continue
-            parts=[line(fixed,curve_start),q,line(curve_end,end)]
-            poses.append(dict(angle=angle,curve=q,parts=parts))
-        loops.append(dict(loom=row['loom'],joint=axis['name'],cad_code=row['cad_code'],
-            parent_stage='Hip',child_stage='Knee',project_OD_mm=OD,guide_mm=LENGTH+18,flex_guide_mm=LENGTH,
-            independent_insulation_land_mm_each=9,
-            fixed_anchor_world_mm=fixed,moving_anchor_rest_world_mm=moving,
-            fixed_tangent_world=bulge,moving_tangent_rest_world=mul(bulge,-1),
-            plane_axis_offset_mm=plane+lane*8,poses=poses,cores=row['electrical'],
+            if q is None:failures.append(dict(loom=row['loom'],stage=stage,angle=angle,cause='NO_FIXED_LENGTH_R31_LOOP'));continue
+            poses.append(dict(angle=angle,first_handle_mm=q['first_handle_mm'],second_handle_mm=q['second_handle_mm'],
+                length_mm=q['length_mm'],sampled_minimum_R_mm=q['sampled_minimum_R_mm']))
+        loops.append(dict(loom=row['loom'],section=row['loom']+'/'+stage,joint=axis['name'],cad_code=row['cad_code'],
+            physical_leg=row['physical_leg'],parent_stage='Hip' if stage=='Knee' else 'Frame',child_stage=stage,
+            pivot_mm=pivot,joint_axis=axis['axis'],
+            project_OD_mm=OD,guide_mm=LENGTH+18,flex_guide_mm=LENGTH,independent_insulation_land_mm_each=9,
+            fixed_anchor_world_mm=fixed,moving_anchor_rest_world_mm=moving,fixed_tangent_world=bulge,
+            moving_tangent_rest_world=mul(bulge,-1),plane_axis_offset_mm=plane+lane*8,poses=poses,cores=row['electrical'],
+            complete_child_material_members=[q['name'] for q in members],
             parent_and_child_anchor_supports='OPEN: actual mounting feet; both9mm insulation lands in this route'))
+    return loops,failures
+
+
+def build():
+    tick=time.monotonic();af=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json'
+    hf=OUT/'harness-interfaces-plan.json';axes=json.loads(af.read_text())['axes']
+    source=json.loads(hf.read_text())
+    archive=ROOT/'hardware/simulation/v35/inputs.zip'
+    with zipfile.ZipFile(archive) as z:components=json.loads(z.read('geometry.json'))['components']
+    loops=[];failures=[]
+    for leg in ('FrontLeft','FrontRight','RearLeft','RearRight'):
+        family=[q for q in source['looms'] if q['physical_leg']==leg]
+        for stage in ('Hip','Knee'):
+            crossed=[q for q in family if any(n.endswith('_'+stage) for n in q['crossed_axes'])]
+            axis=next(a for a in axes if a['code']==family[0]['cad_code'] and a['stage']==stage)
+            sections,bad=group(axis,crossed,components);loops.extend(sections);failures.extend(bad)
     files=(af,hf,archive,Path(__file__),Path(__file__).with_name('plan_current_moving_looms.py'))
-    result=dict(status='REJECTED_JOINT_LOCAL_PILOT_MATH' if failures else 'JOINT_LOCAL_PILOT_MATH_ONLY',
-        scope='Two FL Knee sections only; continuous factory cables, no extra electrical connection',
+    result=dict(status='REJECTED_JOINT_LOCAL_SECTIONS_MATH' if failures else 'JOINT_LOCAL_SECTIONS_MATH_ONLY',
+        scope='20 local flex sections for12 continuous factory leads; rigid joining sections and native feet OPEN',
         reason='Whole-body roof arches crossed retained source/head wires; single risingS had no common length interval',
-        pivot_mm=pivot,axis=axis['axis'],loops=loops,failures=failures,
-        complete_child_material_members=[q['name'] for q in members],
+        loops=loops,failures=failures,pilot_reuse_commit='86f0754',
         old_roof_and_single_S_architectures_rejected=True,
-        stage_ownership='Only local Knee motion here; both loops move rigidly with parent Hip. Ankle drive cable casing belongs to Knee, not Ankle.',
+        stage_ownership='Hip section parent Frame/child Hip; Knee section parent Hip/child Knee. Ankle drive cable casing belongs to Knee, not Ankle.',
         untouched=['P0','E6','bankR47','15drives','replaceableMG92B','torso325x200x160'],
         open=['actual nominal material','sampled Hip/Knee/Ankle material','two local supports per section',
               'rigid interstage guides','Hip flex sections','source/plug and all36 body ends','whole stock and selection'],
@@ -105,4 +140,53 @@ def build():
     return result
 
 
-if __name__=='__main__':build()
+def screen():
+    from current_material_reservations import FaceKeepouts
+    from screen_current_remaining_routes import route_rows
+    from screen_current_moving_looms import only_new_pairs
+    from route_current_leg_fanouts import sampling_parts
+    tick=time.monotonic();source=OUT/'joint-local-loom-plan.json';p=json.loads(source.read_text())
+    assert p['status']=='JOINT_LOCAL_SECTIONS_MATH_ONLY'
+    for n,h in p['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    axesfile=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(axesfile.read_text())['axes']
+    headsfile=OUT/'head-wire-screen-reference.json';heads=json.loads(headsfile.read_text())
+    retained,pins=route_rows(tuple(OUT/(s+'-plan.json') for s in
+        ('ground-tree','data-bridges','positive-source','s0-in-extension','BUS-routes')))
+    # Retained body routes also contain Beziers. The proximity checker accepts
+    # line/arc samples, regardless of whether a route is old or newly planned.
+    fixed=[dict(r,segments=sampling_parts(r['segments'])) for r in list(retained.values())+heads['rows']];rows=[]
+    for row in p['loops']:rows.append(dict(wire=row['section'],OD_mm=OD,segments=sampling_parts(scene_parts(row,0,0,axes))))
+    near=only_new_pairs(fixed,rows);bad=[q for q in near if q['status']=='REJECT_PLANNING_PROXIMITY']
+    spatialfile=OUT/'BUS-material-routing-space.json';spatial=json.loads(spatialfile.read_text())
+    for n,h in spatial['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    materials=FaceKeepouts(spatial['boxes'])
+    reservations=[dict(section=r['wire'],**hit) for r in rows if (hit:=materials.hit(r['segments'],3.5))]
+    cases=[]
+    if not bad:
+        for leg in ('FrontLeft','FrontRight','RearLeft','RearRight'):
+            sections=[r for r in p['loops'] if r['physical_leg']==leg]
+            names={r['section'] for r in sections};stationary=fixed+[r for r in rows if r['wire'] not in names]
+            for hip,knee in itertools.product((-15,0,15),repeat=2):
+                if hip==knee==0:continue
+                changed=[dict(wire=r['section'],OD_mm=OD,segments=sampling_parts(scene_parts(r,hip,knee,axes))) for r in sections]
+                failures=[q for q in only_new_pairs(stationary,changed) if q['status']=='REJECT_PLANNING_PROXIMITY']
+                cases.append(dict(physical_leg=leg,hip=hip,knee=knee,rejected=failures))
+                bad.extend(dict(physical_leg=leg,hip=hip,knee=knee,**q) for q in failures)
+            print('Joint-local cheap whole-leg motion',leg,'rejected',len(bad),flush=True)
+    pins.update((source,axesfile,headsfile,spatialfile,Path(__file__),Path(__file__).with_name('current_material_reservations.py')))
+    result=dict(status='REJECTED_JOINT_LOCAL_SHARED_SCREEN' if bad else 'JOINT_LOCAL_SHARED_SAMPLED_ONLY_MATERIAL_OPEN',
+        sections=20,continuous_cables=12,near_pairs=near,rejected=bad,motion_cases=cases,
+        nominal_face_reservations_not_actual_contacts=reservations,
+        selected=False,W5_complete=False,native_changed=False,physical_pass=False,
+        full_rigid_and_body_routes_open=True,continuous_or_simultaneous_all_legs_verified=False,
+        worker_seconds=time.monotonic()-tick,source_sha256={f.relative_to(ROOT).as_posix():SHA(f) for f in pins})
+    (OUT/'joint-local-loom-screen.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+    print(json.dumps(dict(status=result['status'],rejected=bad,reservations=reservations,
+        worker_seconds=result['worker_seconds'])),flush=True)
+    return result
+
+
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--screen',action='store_true');args=parser.parse_args()
+    screen() if args.screen else build()
