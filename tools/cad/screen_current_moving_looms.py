@@ -6,7 +6,7 @@ from open_prototype_path_preflight import samples
 from screen_current_remaining_routes import route_rows
 from plan_current_mta_interfaces import line
 
-def only_new_pairs(old,new):
+def only_new_pairs(old,new,skip=None):
     """Do not repeatedly compare the126 unchanged head reference segments."""
     grid={};near={};cell=7
     for compare,rows in ((False,old),(True,new)):
@@ -21,6 +21,7 @@ def only_new_pairs(old,new):
                                 for other,q,r,seg in grid.get((key[0]+dx,key[1]+dy,key[2]+dz),[]):
                                     d=math.dist(p,q);minimum=(od+r)/2
                                     if d>minimum+2:continue
+                                    if skip is not None and skip(other,name,seg,segment,q,p):continue
                                     pair=(other,name)
                                     if pair not in near or d<near[pair]['sampled_distance_mm']:
                                         near[pair]=dict(a=other,b=name,sampled_distance_mm=d,centreline_minimum_mm=minimum,

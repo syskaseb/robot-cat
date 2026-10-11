@@ -95,7 +95,19 @@ def vertical_s(start,end,r=31):
     from plan_current_mta_interfaces import line,curve
     up=[0,0,1];delta=sub(end,start);height=delta[2];delta[2]=0;distance=norm(delta)
     if distance<1e-8:return [line(start,end)] if height>0 else None
-    if distance>2*r:return None
+    if distance>2*r:
+        # A larger shared offset needs two full quarters and a horizontal
+        # land, not an impossible short-arc S or a guessed cubic handle.
+        extra=height-2*r
+        if extra<-1e-6:return None
+        direction=mul(delta,1/distance);a=add(start,mul(up,max(0,extra)/2));parts=[]
+        if extra>1e-8:parts.append(line(start,a))
+        first=exact_quarter(a,up,direction,r);parts.append(first)
+        b=add(first['end'],mul(direction,distance-2*r));parts.append(line(first['end'],b))
+        second=exact_quarter(b,direction,up,r);parts.append(second)
+        if extra>1e-8:parts.append(line(second['end'],end))
+        assert math.dist(add(second['end'],mul(up,max(0,extra)/2)),end)<1e-6
+        return parts
     direction=mul(delta,1/distance);phi=math.acos(1-distance/(2*r));sn,cs=math.sin(phi),math.cos(phi)
     extra=height-2*r*sn
     if extra<-1e-6:return None
@@ -113,19 +125,26 @@ def vertical_s(start,end,r=31):
 def low_return(start,dock,side,target=None):
     """One whole below-frame Knee return, no occupied roof corridor.
 
-Two exact R30 quarters turn DOWN to UP and inboard60mm. Added dip
+Two exact R30 quarters turn DOWN to UP and forward60mm. Added dip
 on both sides preserves cable length; the body grip remains inside200mm.
 The minimum height is reported, not declared safe operating clearance.
 """
     from plan_current_mta_interfaces import line
-    down=[0,0,-1];up=[0,0,1];inward=[0,-side,0]
+    # A lateral U returns beneath the same Knee and its diagonal rising S
+    # cuts the purchased shell. Change the WHOLE U plane: go forward60mm
+    # below the motor, then rise ahead of its complete casing before the
+    # inboard S. Never trim material from a purchased servo to fit cable.
+    down=[0,0,-1];up=[0,0,1];inward=[-1,0,0]
     first=exact_quarter(start,down,inward);second=exact_quarter(first['end'],inward,up)
-    transition=vertical_s(second['end'],dock)
+    delta=sub(dock,second['end']);height=delta[2];delta[2]=0;distance=norm(delta)
+    required_height=62 if distance>=62 else 62*math.sqrt(max(0,1-(1-distance/62)**2))
+    mandatory_dip=max(0,required_height-height)
+    lowered=add(second['end'],mul(down,mandatory_dip));transition=vertical_s(lowered,dock)
     if transition is None:return None
-    base=first['length_mm']+second['length_mm']+sum(q['length_mm'] for q in transition)
-    dip=0 if target is None else (target-base)/2
-    if dip<-1e-6:return None
-    dip=max(0,dip);a=add(start,mul(down,dip));parts=[]
+    base=mandatory_dip+first['length_mm']+second['length_mm']+sum(q['length_mm'] for q in transition)
+    extra=0 if target is None else (target-base)/2
+    if extra<-1e-6:return None
+    dip=mandatory_dip+max(0,extra);a=add(start,mul(down,dip));parts=[]
     if dip>1e-8:parts.append(line(start,a))
     first=exact_quarter(a,down,inward);second=exact_quarter(first['end'],inward,up)
     transition=vertical_s(second['end'],dock);assert transition is not None
@@ -191,13 +210,13 @@ def plan():
     old=json.loads(f.read_text());axes=json.loads(af.read_text())['axes'];result=[]
     previous_file=OUT/'moving-looms-plan.json'
     previous=json.loads(previous_file.read_text()) if previous_file.exists() else {}
-    reuse={r['loom']:r for r in previous.get('looms',[]) if not r['rejected_poses'] and (previous.get('allocation_revision')==8 or not r['loom'].endswith('3'))} if previous.get('allocation_revision') in (7,8) else {}
+    reuse={r['loom']:r for r in previous.get('looms',[]) if not r['rejected_poses'] and (previous.get('allocation_revision')==10 or not (r['loom'].startswith('F') and r['loom'].endswith('2')))} if previous.get('allocation_revision') in (9,10) else {}
     if any(previous.get('source_sha256',{}).get(q.relative_to(ROOT).as_posix())!=SHA(q) for q in (f,af)):reuse={}
     for row in old['looms']:
         leg=row['loom'][:2];i=int(row['loom'][-1])-1;s=1 if leg.endswith('L') else -1
         front=leg.startswith('F')
-        dock=[(-145 if i==0 else -100 if i==1 else -120) if front else 185+i*20,
-              s*((75 if front else 95) if i==0 else 95 if front and i==1 else 95+i*20),
+        dock=[(-145 if i==0 else -135 if i==1 else -120) if front else 185+i*20,
+              s*((75 if front else 95) if i==0 else 55 if front and i==1 else 95+i*20),
               145 if i==0 else 30 if i==2 else 50 if front else 80]
         if row['loom'] in reuse and reuse[row['loom']]['body_dock_mm']==dock:
             result.append(reuse[row['loom']]);print('Reuse unchanged complete math family',row['loom'],flush=True);continue
@@ -306,9 +325,9 @@ def plan():
         print('Loom family',row['loom'],'rejected',len(bad),'fixedflex',round(length,3),flush=True)
     report=dict(status='PROJECT_FLEX_ALLOCATION_ONLY' if not any(r['rejected_poses'] for r in result) else 'REJECTED_PROJECT_FLEX_FAMILY',
         looms=result,selected=False,W5_complete=False,physical_pass=False,
-        allocation_revision=8,count=12,body_core_count=36,nominal_factory_cables=12,nominal_six_packs=2,
+        allocation_revision=10,count=12,body_core_count=36,nominal_factory_cables=12,nominal_six_packs=2,
         scope='One common cable model per3core factory loom; constant length sampled poses, not approved travel/continuous sweep/material clearance. Functional external loops, no body widening or cosmetic shell-fit claim.',
-        changed_topology='Opposed Ankle cable U turns use opposite complete fore/aft directions in their moving frames after five mutual contacts in revision7 cheap motion. Other8families unchanged, including low front Knee returns.14mm factory mating reservation unverified, no cable through housing. Actual plugs/grips/native/access/floor qualification OPEN. Outboard free loops are not approval for wider printed body supports.',
+        changed_topology='Both front Knee U returns now DOWN/WEST/UP: pass forward60mm below the motor BEFORE rising, then inboard S to shared barX-135/Y+/-55/Z50. The two previous lateral-U/diagonal-UP attempts crossed the purchased Knee cases; not repeated. Other10families preserved.14mm factory mating reservation unverified, no cable through housing. Actual plugs/grips/native/access/floor qualification OPEN. Outboard free loops do not approve wider printed supports.',
         delivery_gates=['Actual34172 OD/Cu/usable length/cavity order/dynamic bend specification',
             '14mm factory mating reservation and real external outlet: measure delivered servo/plug. No housing cut or inferred void acceptance.',
             'Actual safe servo travel and unpowered supported movement, no tensile/solder/PCB load',
