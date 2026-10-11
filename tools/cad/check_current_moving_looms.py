@@ -11,14 +11,47 @@ def run():
     tick=time.monotonic();f=OUT/'moving-looms-plan.json';p=json.loads(f.read_text())
     assert p['status']=='PROJECT_FLEX_ALLOCATION_ONLY'
     for n,h in p['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    sf=OUT/'moving-looms-screen.json';screen=json.loads(sf.read_text())
+    assert screen['status']=='SHARED_LOOM_PROXIMITY_ONLY_REAL_MATERIAL_OPEN'
+    for n,h in screen['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    mf=OUT/'moving-looms-motion-screen.json';motion=json.loads(mf.read_text())
+    assert motion['status']=='SAMPLED_LOOM_PROXIMITY_ONLY_REAL_MATERIAL_OPEN'
+    for n,h in motion['source_sha256'].items():assert SHA(ROOT/n)==h,n
     from current_complete_harness_context import context,W,Part
-    reader,pins,targets,old=context();pins.update((f,Path(__file__)))
+    reader,pins,targets,old=context();pins.update((f,sf,mf,Path(__file__)))
     result=dict(status='PENDING',pairs=0,contacts=[],errors=[],selected=False,W5_complete=False,
         physical_pass=False,native_parts_changed=0,project_bundle_OD_mm=6,
-        manufacturer_flex_data_verified=False,continuous_sweep_verified=False,sampled_poses=0)
+        manufacturer_flex_data_verified=False,continuous_sweep_verified=False,sampled_poses=0,
+        allocation_revision=p['allocation_revision'],cover_candidates=[])
+    # Explicit matched cover candidates, not omitted frame material. Protect
+    # the full eight M3 bearing rings on each retained 2mm frame plate.
+    for row in screen['proposed_cover_windows']:
+        source=targets[row['target']];changed=source
+        holes={}
+        for face in source.Faces:
+            surf=face.Surface
+            if isinstance(surf,Part.Cylinder) and abs(surf.Radius-1.6)<1e-5 and abs(surf.Axis.x)>.999:
+                holes[(round(surf.Center.y,5),round(surf.Center.z,5))]=surf.Center
+        assert len(holes)==8,(row['target'],len(holes))
+        for cut in row['cut_windows']:changed=changed.cut(W.box(cut['bounds_mm']))
+        assert changed.isValid() and len(changed.Solids)==1 and not changed.check(True),row['target']
+        bb=source.BoundBox;retained=[]
+        for centre in holes.values():
+            start=W.A.Vector(bb.XMin,centre.y,centre.z);axis=W.A.Vector(1,0,0)
+            ring=Part.makeCylinder(3.4,bb.XLength,start,axis).cut(Part.makeCylinder(1.6,bb.XLength,start,axis))
+            before=source.common(ring).Volume;after=changed.common(ring).Volume
+            assert abs(before-after)<1e-5,(row['target'],list(centre),before,after)
+            retained.append(dict(centre_yz_mm=[centre.y,centre.z],before_mm3=before,after_mm3=after))
+        targets[row['target']]=changed
+        result['cover_candidates'].append(dict(target=row['target'],valid_solids=1,BOP_errors=0,
+            bearing_rings=retained,wire_windows=row['cut_windows'],native_and_delivered_plug_fit='OPEN'))
     def shape(row,angles):
         v=next(v for v in row['poses'] if v['angles']==list(angles))
-        poles=v.get('spans_mm',[v.get('poles_mm')]);edges=[]
+        from plan_current_mta_interfaces import line
+        poles=v.get('spans_mm',[v.get('poles_mm')]);prefix=[]
+        if row['initial_land_mm']:prefix.append(line(v['start'],v['flex_start']))
+        prefix.extend(v.get('departure_parts_mm',[]));edges=list(W.makewire(prefix).Edges)
+        if v.get('transition_parts_mm'):edges.extend(W.makewire(v['transition_parts_mm']).Edges)
         for q in poles:
             curve=Part.BezierCurve();curve.setPoles([W.A.Vector(*x) for x in q]);edges.append(curve.toShape())
         if v.get('return_parts_mm'):edges.extend(W.makewire(v['return_parts_mm']).Edges)
@@ -27,9 +60,11 @@ def run():
         # these Beziers:365.994142 vs precise edge365.799797. Sum the actual
         # edges, verified independently by adaptive integration/dense samples.
         exact_length=sum(e.Length for e in curve.Edges)
-        assert abs(exact_length-row['constant_flex_budget_mm'])<.001,(row['loom'],exact_length,row['constant_flex_budget_mm'])
+        assert abs(exact_length-row['constant_flex_budget_mm']-row['initial_land_mm'])<.001,(row['loom'],exact_length,row['constant_flex_budget_mm']+row['initial_land_mm'])
         return curve
     def pair(n,c,m,t,rad=0,pose=None):
+        # All checked cable begins at the explicit external project outlet.
+        # No servo shell/PCB material is omitted or clipped from this gate.
         if not W.near(c,t,3+rad):return
         assert c.isValid() and t.isValid(),(n,m);result['pairs']+=1
         d,pts,_=c.distToShape(t)
