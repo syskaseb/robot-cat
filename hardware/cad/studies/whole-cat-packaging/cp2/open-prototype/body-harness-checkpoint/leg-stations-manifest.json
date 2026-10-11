@@ -9,10 +9,10 @@
   "cases": 12,
   "ports": 60,
   "full_output_guides_mm": {
-    "W026_CUSTOM": 331.6544060726391,
-    "W037_CUSTOM": 456.29499158926626,
-    "W045_CUSTOM": 344.96354654355486,
-    "W053_CUSTOM": 352.73626974092554
+    "W026_CUSTOM": 426.15833836549456,
+    "W037_CUSTOM": 408.3365388760503,
+    "W045_CUSTOM": 372.27319986518916,
+    "W053_CUSTOM": 396.28127916354055
   },
   "factory_override": {
     "replaces": "W026_FACTORY and W026_Joint ONLY",
@@ -111,20 +111,20 @@
   },
   "native_parts_created": 0,
   "STL_created": 0,
-  "pairs": 37,
+  "pairs": 49,
   "head_poses": 9,
-  "gate_seconds": 62.219,
+  "gate_seconds": 82.969,
   "reused_qualifications": {
     "cases": 12,
     "outputs": [
-      "W037_CUSTOM",
+      "W026_CUSTOM",
       "W045_CUSTOM",
       "W053_CUSTOM"
     ],
-    "head_poses": 9,
-    "basis": "Exact previous receipt completed all static and9head poses; contacts ONLY changedFL. Current cases/other3recipes and all retained input hashes identical. ChangedFL rechecked against every other curve/case/head.",
-    "previous_gate_seconds": 188.5,
-    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-retained-evidence.json"
+    "head_poses": 0,
+    "basis": "Executed previous receipt: current cases/other3recipes/factory and retained hashes identical. FR evidence is STATIC ONLY; all9head poses must run now. Changed curve rechecked against every other curve/case/head.",
+    "previous_gate_seconds": 119.032,
+    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-current-static-evidence.json"
   },
   "open": [
     "24bank departure/load-path plan,12inputs,12factory leg looms,ground/data fans",
@@ -136,9 +136,9 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/AUXPowerCurrent.FCStd": "19483642e90e2d75685e92527f043be9dd198e19fdafc0fc7d82a60c6edf065a",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/selection.json": "5583153206fd0900115c5b0d7eb5cdf6583789b005689ef06dc4b8644a17a0fb",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json": "954b1d7d9b36a802c7148a4c6c70f612e0aa2aa1858d3d285bfeedfbf3103424",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-retained-evidence.json": "c893c47da546315cd4c847389e0275668c3f13263cc7f1a5dabee14b5d5ab6c3",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-stations-checks.json": "7f90365d8cc91775dbae2e58a857634115c39acdafc52e0d55c1c3171c31a7b0",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-stations-plan.json": "a8dfdd9c8dd4ba87d02334eba626e914b78a61648767c164238e7839317f5f90",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-current-static-evidence.json": "49193e4c54a556b27add1332e9ca90c91ca14817551005c3b733520109d3449b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-stations-checks.json": "14582503b5268fe75eaff2c1886dbc0167b5886dd6adf713f80b55abe03ccf7a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-stations-plan.json": "b9a17b0b24983a090cd79ca33ed9c5d5ceae46e595b3a7797134391d6b923423",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/main-source-checks.json": "e911327b64a1a8496f3c6ad20924fb488370f3cfba3f247d44e5edc1dc9eecff",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/main-source-plan.json": "37ca6f5d5ee17491e1b95ce4a51855d920257ee50321e55d5c5fc0e8c6a5994b",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/mta-interface-checks.json": "56370411e64e01a567cea36d4e4f533094ba5fb880b990493f48cd1e442e7e75",
@@ -215,11 +215,11 @@
     "hardware/electronics/full-cat/tail-r9-insulated-r2/GND_lead_insulation.brep": "cf6a927e602fc3f2a4281d84c73138ff9bb158d4091997f7b1de2259b151094b",
     "hardware/electronics/full-cat/tail-r9-insulated-r2/PWM_lead_insulation.brep": "c1f71c080c404cd30ea82c5e54a9d453d4b906bf6bea844dc61cbd23f9a742dd",
     "hardware/electronics/full-cat/tail-r9-insulated-r2/body_insulation.brep": "577db5f8b1acd093a6fad1ecce474cf7a9cd34a4abd070ec61b6df997f54f679",
-    "tests/test_current_leg_stations.py": "a43de8aae85bee283b46b2b9ebceaedb55cff88395c4867480290c6d90cbfbc8",
-    "tools/cad/check_current_leg_stations.py": "f0ab757f479133125c5fc5c445a21ec8dfa1a14eac98eae51f34ffd51be903fa",
+    "tests/test_current_leg_stations.py": "a66229c9dc4f3110f96c33f0a72e174e791d8f308e45b28a8a4752aaa1ebeccf",
+    "tools/cad/check_current_leg_stations.py": "9ece4f46d932c1874ebb0cf267b6c4d6a2efb4d5e7bd31e01567e8856a9e9f14",
     "tools/cad/current_body_harness_context.py": "559e8563f9be637b90684456626c67b2acb79e3f3339b9432657b70e34824283",
     "tools/cad/package_current_leg_stations.py": "8e69236eb915144881fb3141cc0edb0f8879554f5738af20386f39434c1b2110",
-    "tools/cad/plan_current_leg_stations.py": "4ef028f0225c2620d217b2cc7579a9145b817e58be375d52d03a2b794ba9d7d8"
+    "tools/cad/plan_current_leg_stations.py": "3b34b83ccef50330461e7ba08c6c630ae9bd7e74f75ff8f010dc0e31cb53e1b2"
   },
-  "verification_seconds": 0.2741062000859529
+  "verification_seconds": 0.25086259993258864
 }

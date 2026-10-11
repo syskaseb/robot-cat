@@ -9,18 +9,20 @@ def run():
     tick=time.monotonic();f=OUT/'leg-stations-plan.json';p=json.loads(f.read_text());pins={Path(__file__),f}
     changed=set(p['routes']);reuse={}
     if '--only-output' in sys.argv:
-        name=sys.argv[sys.argv.index('--only-output')+1];assert name=='W026_CUSTOM'
-        cache=OUT/'leg-retained-evidence.json';v=json.loads(cache.read_text());pins.add(cache)
+        name=sys.argv[sys.argv.index('--only-output')+1];assert name in ('W026_CUSTOM','W037_CUSTOM')
+        cache=OUT/('leg-current-static-evidence.json' if name=='W037_CUSTOM' else 'leg-retained-evidence.json');v=json.loads(cache.read_text());pins.add(cache)
         old=v['reference_plan'];g=v['reference_gate'];scripts=v['reference_scripts_base64']
-        assert g['contacts'] and all(r['a']==name and r['b']=='head/Fork' for r in g['contacts'])
+        assert g['contacts'] and all(r['a']==name for r in g['contacts'])
+        if name=='W026_CUSTOM':assert all(r['b']=='head/Fork' for r in g['contacts'])
+        else:assert g['status']=='REJECTED_LEG_OUTPUT_SHARED_LAYOUT' and p['factory_override']==old['factory_override']
         assert not g['errors'] and p['stations']==old['stations']
         assert all(p['routes'][n]==r for n,r in old['routes'].items() if n!=name)
         for n,h in {**old['source_sha256'],**g['source_sha256']}.items():
             if n in scripts:assert hashlib.sha256(base64.b64decode(scripts[n])).hexdigest()==h,n
             elif n==f.relative_to(ROOT).as_posix():assert h==v['reference_plan_sha256']
             else:assert W.sha(ROOT/n)==h,n
-        changed={name};reuse=dict(cases=12,outputs=sorted(set(p['routes'])-changed),head_poses=9,
-          basis='Exact previous receipt completed all static and9head poses; contacts ONLY changedFL. Current cases/other3recipes and all retained input hashes identical. ChangedFL rechecked against every other curve/case/head.',
+        changed={name};reuse=dict(cases=12,outputs=sorted(set(p['routes'])-changed),head_poses=9 if name=='W026_CUSTOM' else 0,
+          basis='Executed previous receipt: current cases/other3recipes/factory and retained hashes identical. FR evidence is STATIC ONLY; all9head poses must run now. Changed curve rechecked against every other curve/case/head.',
           previous_gate_seconds=g['worker_seconds'],evidence=cache.relative_to(ROOT).as_posix())
     old=[]
     def cheap_parts(parts):
@@ -56,13 +58,17 @@ def run():
     retained.update({n:(W.makewire(v['parts']),v['radius_mm']) for n,v in {**sp['routes'],**sp['factory_routes']}.items()})
     boxes={n:W.box(s['casing_mm']) for n,s in p['stations'].items()}
     curves={n:W.makewire(v['parts']) for n,v in p['routes'].items()}
-    if override:
+    if override and (not reuse or 'W026_CUSTOM' in changed):
         j=override['joint'];s=W.box(j['local_casing_mm'])
         s.Placement=W.A.Placement(W.A.Vector(*j['factory_entry_mm']),W.A.Rotation(W.A.Vector(1,0,0),j['rotation_x_degrees']))
         assert s.isValid() and len(s.Solids)==1
         targets['W026_Joint']=s
         retained.pop('W026_FACTORY')
         curves['W026_FACTORY']=W.makewire(override['parts']);changed.add('W026_FACTORY')
+    elif override:
+        j=override['joint'];s=W.box(j['local_casing_mm'])
+        s.Placement=W.A.Placement(W.A.Vector(*j['factory_entry_mm']),W.A.Rotation(W.A.Vector(1,0,0),j['rotation_x_degrees']))
+        targets['W026_Joint']=s;retained['W026_FACTORY']=(W.makewire(override['parts']),2.1)
     def solid(n,s,m,t):
         if not t.Solids or not W.near(s,t,0):return
         assert s.isValid() and t.isValid(),(n,m);r['pairs']+=1;v=s.common(t).Volume
@@ -75,7 +81,7 @@ def run():
         for m,t in {**targets,**{k:v for k,v in boxes.items() if k>n}}.items():solid(n,s,m,t)
         for m,(c,rr) in retained.items():curve(m,c,rr,n,s)
     print('Leg station cases',len(r['contacts']),'contacts',flush=True)
-    if override:
+    if override and (not reuse or 'W026_CUSTOM' in changed):
         s=targets['W026_Joint']
         for m,t in {**targets,**boxes}.items():
             if m!='W026_Joint':solid('W026_Joint',s,m,t)
@@ -97,9 +103,9 @@ def run():
             for pitch in (-10,0,5):
                 for m,t in W.F.H.head(reader,yaw,pitch).items():
                     if m=='Foundation' or not t.Solids:continue
-                    for n,s in ([] if reuse else boxes.items()):solid(n,s,'head/'+m,t)
+                    for n,s in ([] if reuse.get('head_poses')==9 else boxes.items()):solid(n,s,'head/'+m,t)
                     for n,c in curves.items():
-                        if n in changed:curve(n,c,2.1,'head/'+m,t)
+                        if n in changed or reuse.get('head_poses')==0:curve(n,c,2.1,'head/'+m,t)
                     if override:solid('W026_Joint',targets['W026_Joint'],'head/'+m,t)
     write('LEG_STATIONS_AND_MAIN_OUTPUT_SPACE_ONLY_FANS_NATIVE_OPEN' if not r['contacts'] else 'REJECTED_LEG_OUTPUT_SHARED_LAYOUT')
 if __name__=='__main__':run()

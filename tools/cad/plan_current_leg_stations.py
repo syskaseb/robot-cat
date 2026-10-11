@@ -15,16 +15,18 @@ def plan():
     stations={};ports={}
     for leg,sign in [('FL',1),('FR',-1),('RL',1),('RR',-1)]:
         front=leg.startswith('F')
-        allocation=([('P',70),('D',35),('G',-20)] if leg=='FR' else
-          [('P',-60),('D',-95),('G',-130)] if front else [('P',80),('G',115),('D',150)])
+        allocation=([('P',-60),('D',35),('G',-20)] if leg=='FR' else
+          [('P',-60),('D',-95),('G',-130)] if front else [('P',115),('G',65),('D',110)])
         for kind,x in allocation:
-            vertical=front or kind=='P';axis=U if vertical else E
-            z=103 if leg=='FL' else 99 if vertical else 61.69 if leg=='RL' else 67.99
+            vertical=True;axis=U
+            z=10 if kind=='P' else 103 if leg=='FL' else 99 if front else 20
             name='D_'+leg if kind=='D' else leg+'_'+kind
-            y=-79 if leg=='FR' else 84 if leg=='FL' else sign*(90.5 if vertical else 75)
+            y=sign*80 if kind=='P' else -79 if leg=='FR' else 84 if leg=='FL' else sign*15
+            physical={str(i):(5 if i==1 else 1 if i==5 else i) if kind=='P' and not front else i for i in range(1,6)}
             stations[name]=dict(casing_mm=[x-15,y-4.5,z-9.5,x+15,y+4.5,z+9.5] if vertical else [x-9.5,y-15,z-4.5,x+9.5,y+15,z+4.5],
               centre_mm=[x,y,z],entry_axis=axis,SKU='WAGO221-415',native_mount='OPEN',
-              ports={str(i):[x+(i-3)*4.75,y,z+9.5] if vertical else [x+9.5,y+(i-3)*4.75,z] for i in range(1,6)})
+              logical_to_physical_common_rail_cavity=physical,
+              ports={str(i):[x+(physical[str(i)]-3)*4.75,y,z+9.5] if vertical else [x+9.5,y+(i-3)*4.75,z] for i in range(1,6)})
             for i,point in stations[name]['ports'].items():ports[name+'.'+i]=dict(point_mm=point,wire=None)
     for row in ep['body_conductors']:
         for role in (row['a'],row['b']):
@@ -66,9 +68,6 @@ def plan():
             straight(q,add(q[-1]['end'],mul(W,2.8)));turn(q,W,N)
             outside_y=94.5
             straight(q,[target[0],outside_y-R,q[-1]['end'][2]]);turn(q,N,D)
-            # Descend OUTSIDE the new vertical joint, then return inboard
-            # wholly below its Z185.6 bottom. A direct drop intersects the
-            # joint itself despite clearing every other retained part.
             straight(q,[target[0],outside_y,180]);offset(q,D,S,outside_y-target[1])
             straight(q,target);routes[wid+'_CUSTOM']=q
             continue
@@ -81,11 +80,14 @@ def plan():
         turn(q,W,U);turn(q,U,E)
         # The FR descent transfers19mm south BELOW the elevated RR source
         # column. Its upper EAST run stays north of that retained column.
-        approach_y=-60 if leg=='FR' else target[1]
+        approach_y=-96 if leg=='FR' else target[1]
         delta=approach_y-q[-1]['end'][1]
         if abs(delta)>1e-7:offset(q,E,N if delta>0 else S,abs(delta))
         straight(q,[target[0]-R,approach_y,q[-1]['end'][2]]);turn(q,E,D)
-        if leg=='FR':offset(q,D,S,19)
+        if leg=='FR':
+            # Descend outside the whole MTA and Foundation rim; move inward
+            # only below them, not diagonally through the fuse body.
+            straight(q,[target[0],approach_y,70]);offset(q,D,N,target[1]-approach_y)
         straight(q,target);routes[wid+'_CUSTOM']=q
     # Rear six mouths now UP, outside the ATO rows. No under-tail hairpin
     # or passage through an adjacent flat rail. Both take elevated corridors
@@ -100,13 +102,21 @@ def plan():
     q.append(curve(start,at(a),at(a/2),R,a))
     column_x=q[-1]['end'][0]
     straight(q,[column_x,q[-1]['end'][1],183.3]);turn(q,U,N)
-    target=stations['RL_P']['ports']['1'];p=entry(target,U,183.3-target[2]);turn(p,U,E)
-    straight(p,[column_x-R,target[1],208.5]);turn(p,E,S)
-    straight(p,q[-1]['end']);routes['W045_CUSTOM']=finish(q,p)
+    # Two north-wall descents intersect S1's retained ring exits. Use the
+    # complete rear corner, east of MTA/RL and south of that ring corridor.
+    target=stations['RL_P']['ports']['1'];descent_x=155;descent_y=70
+    transfer=math.hypot(descent_x-target[0],descent_y-target[1])
+    rise=math.sqrt(4*R*transfer-transfer**2)
+    p=entry(target,U,80-rise-target[2])
+    offset(p,U,[(descent_x-target[0])/transfer,(descent_y-target[1])/transfer,0],transfer)
+    straight(p,[descent_x,descent_y,183.3]);turn(p,U,S)
+    offset(q,N,E,descent_x-column_x);straight(q,p[-1]['end'])
+    routes['W045_CUSTOM']=finish(q,p)
     q=entry(joints['W053']['custom_entry_mm'],N,2.5);turn(q,N,U);turn(q,U,W)
     target=stations['RR_P']['ports']['1']
     straight(q,[target[0]+R,q[-1]['end'][1],q[-1]['end'][2]]);turn(q,W,S)
-    straight(q,[target[0],target[1]+R,q[-1]['end'][2]]);turn(q,S,D)
+    straight(q,[target[0],-95+R,q[-1]['end'][2]]);turn(q,S,D)
+    straight(q,[target[0],-95,70]);offset(q,D,N,15)
     straight(q,target);routes['W053_CUSTOM']=q
     for n,q in routes.items():check_path(q,min_radius=R)
     return dict(status='TWELVE_LEG_STATIONS_AND_FOUR_OUTPUT_GUIDES_PLAN_ONLY',selected=False,
@@ -114,9 +124,9 @@ def plan():
       factory_override=factory_override,
       routes={n:dict(parts=q,radius_mm=2.1,SKU='HELU23802',guide_mm=sum(s['length_mm'] for s in q),
         strip_mm=[11,11],actual_cut_mm=None) for n,q in routes.items()},
-      access='Eight modules (front6/rearP2) stand vertically with mouths UP and lever access from free outer sides. Rear four G/D retain already-clear flat EAST-mouth placements, not rotated into S1/tail. Elevated power descents do not pass through neighboring modules. Independent insulation saddles, no ties through levers. Actual lever/tool/removal/native mounts/full end fans OPEN.',
+      access='All12cases stand with mouths UP. Rear ground/data share the CENTRAL lower galleryX65/110,Y+/-15,Z20, not side galleries occupied by P0 servo housings. Four power cases stay in outer lower gallery. Independent insulation saddles, no ties through levers. Actual lever/tool/removal/native mounts/full end fans OPEN.',
       retained='Existing current W1/E2/W2/W3/W4 and source guides; old twenty-station mounts superseded, not a clearance source.',
-      allocation_reason='Functional orientation, not uniform rotation: front6 and rearP useUP, rearDATA/GROUND retain clearflat cases. FR P70/D35/G-20 Y-79 clears crowded neck, input joints and tail; upper FR approach crosses north of RR source column then transfers south below it. RearP stand atY+/-90.5 with upper corridors and direct vertical mouths, abandoning under-tail loops/EAST power entries through neighboring rails. Replacement shared carrier must support modules independently of cosmetic shell; native load path/access still OPEN.',
+      allocation_reason='One lower receiving gallery: four UP-mouth power rails atZ19.5/Y+/-80 leave three5mm separated fan layers, avoiding upper U-loops crossing factory exits. Complete LAPP inputs rise continuously from low rails to DOWN-facing TE mouths. Rear common-rail logical1 uses physical5 so inputs fan away from main output. Rear D/G are central vertical banks below boards, away from side servo housings/mounts and tail bridge. Front source interfaces unchanged except FL output override. All modified cases/curves, leg motion, native underfloor load paths and Foundation passages must pass together; not selected.',
       open=['All actual current cases/curves and moving-head/leg clearance',
         'Twelve ATO inputs and outputs, ground/data fans,12factory leg looms/dynamic slack',
         'Native retention/load paths/strain relief and actual wire cut/stock ledger'],

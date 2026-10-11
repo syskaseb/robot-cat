@@ -136,3 +136,17 @@ tras. Jeżeli punkt stacji jest zajęty, przesunięcia wcześniejszych łuków
 nie rozwiążą przyczyny. W zmianie orientacji źródła przenosić cały korpus,
 wszystkie rzeczywiste płaszczyzny zacisków, sterowanie i narzędzia razem.
 Sam brak kontaktów korpusu nie kwalifikuje dostępności ani pełnej wiązki.
+
+Przy wachlarzu przewodów nie wystarcza zwiększyć odstępu poziomów: kolejność
+poziomów musi odpowiadać kierunkowi rozchodzenia. Przewód po stronie odbioru
+zgina się wcześniej, a wcześniejsze w kolejności zacisków przechodzą ponad
+nim. Sprawdzić wszystkie gałęzie razem tanim ekranem, następnie bryłami.
+
+Nie omijać przewodem pozostałości NIEAKTUALNEJ funkcji. W CP2 starych20
+mocowań WAGO nie wybieramy ponownie, ale skopiowane ramiona SideArms/Ribs/Feet
+wciąż były rzeczywistym materiałem LowerCarrier i blokowały5wejść nowego
+banku. Usunięcie tylko ich zewnętrznych występów przeszło wspólną kontrolę
+12wejść; rdzeń płyty zachowany objętościowo,1bryła/BOP0. To dopiero kandydat:
+przed wyborem trzeba odtworzyć odejmowanie natywnie i sprawdzić aktualne
+drogi obciążeń/mocowania. Nie mylić usunięcia starego uchwytu z pozwoleniem
+na wycięcie aktywnej podpory, płytki lub zmienienie zachowanej części w ciszy.
