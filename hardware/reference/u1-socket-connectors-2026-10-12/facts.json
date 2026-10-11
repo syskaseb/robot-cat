@@ -1,0 +1,50 @@
+{
+  "status": "MANUFACTURER_NOMINAL_CONNECTOR_FACTS_NOT_DELIVERED_FIT",
+  "checked_utc": "2026-10-11T22:52:12Z",
+  "female": {
+    "sku": "M20-7821242",
+    "product": "https://www.harwin.com/products/M20-7821242",
+    "drawing": "https://content.harwin.com/asset/53851ba8-b32e-4ac5-a0c5-09d9271c0c0a/DRG-00385-Technical-Drawing-Datasheet-M20-782-pdf.pdf",
+    "drawing_revision": "11, 03.08.26",
+    "quantity_candidate": 2,
+    "contacts": 12,
+    "pitch_mm": 2.54,
+    "height_above_PCB_mm": 8.5,
+    "height_tolerance_mm": 0.15,
+    "body_length_mm": 30.88,
+    "body_length_tolerance_mm": 0.35,
+    "body_width_mm": 2.5,
+    "body_width_tolerance_mm": 0.15,
+    "tail_length_mm": 3,
+    "tail_length_tolerance_mm": 0.25,
+    "recommended_PCB_drill_mm": 1.02,
+    "recommended_PCB_drill_tolerance_mm": 0.05,
+    "mating_pin": "0.64mm square",
+    "polarized": false,
+    "cuttable": false
+  },
+  "male": {
+    "sku": "M20-9991245",
+    "product": "https://www.harwin.com/products/M20-9991245",
+    "drawing": "https://content.harwin.com/asset/640f59f4-1860-40fe-82ef-f2a104ffa7d8/DRG-00479-Technical-Drawing-Datasheet-M20-999-pdf.pdf",
+    "quantity_candidate": 2,
+    "contacts": 12,
+    "pitch_mm": 2.54,
+    "overall_mm": [30.48, 2.54, 11.64],
+    "mating_pin_length_mm": 6.1,
+    "tail_length_mm": 3,
+    "housing_height_derived_mm": 2.54,
+    "housing_height_derivation": "11.64 overall minus3 tail minus6.1 mating pin; nominal, not complete tolerance stack",
+    "pin_square_mm": 0.64,
+    "polarized": false
+  },
+  "explicit_limits": [
+    "1208 does NOT include headers. Candidate stock adds2male and2female, no purchase performed.",
+    "1608 has1.2mm holes, larger than the female recommended1.02+/-0.05. Do not label this recommended land pattern or delivered retention PASS.",
+    "Adapter thickness1.6mm and fully seated11.04mm stack are project nominal assumptions, not a proven tolerance stack.",
+    "Mark chip1 and implement an asymmetric passive stop; unpolarized rows must not be reversed or offset.",
+    "No primary source grants this assembly vibration/thermal/solder acceptance; phase2 unpowered checks remain mandatory."
+  ],
+  "purchase_performed": false,
+  "physical_pass": false
+}

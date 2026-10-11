@@ -1,0 +1,71 @@
+{
+  "status": "NATIVE_SOCKET_RETENTION_CANDIDATE_SHARED_SPACE_OPEN",
+  "selected": false,
+  "E1_complete": false,
+  "physical_pass": false,
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1SocketRetainer.FCStd",
+  "native_sha256": "580d03f79dab8ab0ddc22d7e6e2cd382cabe84148888474a1a438749f0ff4691",
+  "exports": [
+    {
+      "part": "AnchorLeft",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/AnchorLeft.stl",
+      "sha256": "b46e33dd1f09aec36f072359948d483995f7db0009c8b471e9e6a62a28aec352",
+      "print_orientation": "As exported, neck/eye/bar planes parallel to bed",
+      "brim_margin_mm_each": 5
+    },
+    {
+      "part": "AnchorRight",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/AnchorRight.stl",
+      "sha256": "d9dce7833da7a07eb515994cb81f84b03f567ee79a8d589a6af7496dc318d09b",
+      "print_orientation": "As exported, neck/eye/bar planes parallel to bed",
+      "brim_margin_mm_each": 5
+    },
+    {
+      "part": "RetainerBar",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/RetainerBar.stl",
+      "sha256": "efa447548eacef193ffc51a5951b529f4b6fe1a7f890ab9e931bb2406a67a315",
+      "print_orientation": "As exported, neck/eye/bar planes parallel to bed",
+      "brim_margin_mm_each": 5
+    }
+  ],
+  "valid_editable_parts": 3,
+  "parameter_restore_mm": [
+    2,
+    2.4,
+    2
+  ],
+  "fresh_relocated_reopen": true,
+  "replaces": [
+    "PWM160825TopInsulator",
+    "PWM160824TopInsulator"
+  ],
+  "retained_fasteners": "Existing2xM2x14/nuts, same1mm under-head stack; no extra metal fasteners",
+  "load_path": "Foam on known bare PCB zones -> bar ->2T18I ->2PETG eyes -> actual PCB mounting bolts/posts",
+  "assembly": [
+    "Install anchors with PCB1 before plugging1208; bench solder and unpowered continuity first",
+    "Insert orientation-marked1208 into24actual socket contacts",
+    "Two5x3x2 insulating foam pads atX80/100,Y-3.2; no adhesive as wire strain relief",
+    "Lower keyed bar into existing unused1208hole at106.83,3.81; route and snug2T18I",
+    "Reverse: cut only these2ties, lift bar then withdraw adapter12mm vertically; unstack upper module first if obstructed"
+  ],
+  "added_ties": 2,
+  "foam_pads": 2,
+  "extra_screws": 0,
+  "supplier_stack_is_nominal_not_tolerance_qualified": true,
+  "phase2_gates": [
+    "Actual header/board thickness and seating; trim male tails<=1.4mm above adapter",
+    "Key0.7mm and1.4x2.8slot print coupon/dry fit; deburr band windows",
+    "PETG1mm washer bearing/creep and wing support, no strength rating",
+    "Foam must be electrically insulating and suitable for temperature; no bare pad compression",
+    "Separate independent external lead grips and underside insulating cover remainOPEN"
+  ],
+  "source_sha256": {
+    "tools/cad/build_u1_socket_retainer.py": "c80ef415ac4f97367770f31efed9276fc5a61f8d35a92452f2d65b106f75e6c8",
+    "hardware/reference/hellermann-11102370-2026-10-04/dimensions.json": "5aa13c21ca221d162eb9483b37bf75b9e4fa5d5ad0fec918f8abe8c270bdad0d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-carrier-plan.json": "1b437a4da201866c6127929da0b33d688d422e9ea342dac9c93e8da434c6c785"
+  },
+  "worker_seconds": 3.266
+}
