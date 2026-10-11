@@ -162,3 +162,12 @@ Nie bronić arbitralnie długości odziedziczonego kabla kosztem setek obejść.
 Najpierw ustalić dostępny rzeczywisty dłuższy kompletny element, zachować
 promień i zapas cięcia, a krótszy wybrać tylko gdy wszystkie trzy pełne żyły
 się mieszczą. Dłuższy kabel nie dowodzi obciążalności, pinoutu ani pasowania.
+
+Przewodu przekraczającego kilka przegubów nie traktować automatycznie jako
+jednej swobodnej pętli od serwa aż do rozdzielni. W CP2 taki model wymuszał
+wysokie łuki przez głowę i źródła, mimo dłuższego kabla. Najpierw wskazać
+odciążenia na sztywnych członach i oddzielne sekcje luzu przy przekraczanych
+osiach. To nadal jeden ciągły przewód, nie powód do dodawania złączy.
+Płaszczyznę odciążenia wyznaczać z całego członu, także LegLink i osłony,
+nie tylko z obrysu kupnego serwa. Matematyczny lokalny pilot nie kwalifikuje
+brakujących podpór, odcinków między nimi ani całej wiązki.

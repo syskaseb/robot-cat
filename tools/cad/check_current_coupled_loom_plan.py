@@ -7,6 +7,7 @@ nominal contact stops motion qualification; bbox only selects exact pairs.
 import json,time
 from pathlib import Path
 from plan_current_main_sources import ROOT,BASE,OUT,SHA
+from current_material_reservations import terminal_owners
 
 
 def run():
@@ -16,7 +17,8 @@ def run():
     assert len(plan['routes'])==40
     for n,h in plan['source_sha256'].items():assert SHA(ROOT/n)==h,n
     prior=OUT/plan['retained_families_reference'];reference=json.loads(prior.read_text())
-    looms=[q for q in reference['looms'] if q['loom'] not in ('FL3','RL2','RR2')]
+    replaced=set(plan['rear_receiving_changes'])|{'FL3'}
+    looms=[q for q in reference['looms'] if q['loom'] not in replaced]
     looms+=list(plan['rear_receiving_changes'].values())+[plan['candidate_FL3']]
     assert len(looms)==12
     from current_complete_harness_context import context,W,Part
@@ -70,8 +72,9 @@ def run():
             witness_mm=[list(v) for v in pts[0]] if pts else None))
 
     curves={};ownership={};roles={}
-    endfile=OUT/'front-receiver-relayout-plan.json';pins.add(endfile)
-    for q in json.loads(endfile.read_text())['leg_body_ends']:roles[q['wire']]=q['body_role'].split('.')[0]
+    endfile=OUT/plan['body_ends_reference'];pins.add(endfile)
+    ends=json.loads(endfile.read_text())
+    for q in ends.get('wires',ends.get('leg_body_ends')):roles[q['wire']]=q['body_role'].split('.')[0]
     roles.update(W002='D_FL',W003='G2',W007='D_FR',W025='G1')
     for row in looms:
         pose=next(v for v in row['poses'] if not any(v['angles']))
@@ -89,7 +92,7 @@ def run():
         for m,t in targets.items():
             if not t.Solids:continue
             receiver=roles.get(n)
-            cc=trim(c,False,3) if receiver and m in (receiver,receiver+'_CP2','W1Ref_'+receiver+'_CP2') else c
+            cc=trim(c,False,3) if receiver and m in terminal_owners(receiver) else c
             # W025/W007 start at changed FL rails, ending at G1/D_FR.
             if n in ('W025','W007') and m==('FL_G' if n=='W025' else 'D_FL'):cc=trim(cc,True,3)
             pair(n,cc,r,m,t)

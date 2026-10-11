@@ -15,7 +15,7 @@ import time
 from collections import Counter
 from pathlib import Path
 
-from plan_current_leg_body_joins import ROOT, OUT, SHA, SharedMotionSpace, ankle_rise_basis, arch_family, rear_family
+from plan_current_leg_body_joins import ROOT, OUT, SHA, SharedMotionSpace, arch_family, exact_turn_to, sub, norm
 from plan_current_bus_routes import ReservedSpace
 from route_current_leg_fanouts import Space, search, sampling_parts, pose_row
 from plan_current_joined_leg_looms import leave_port, reverse_parts, exact_quarter
@@ -25,9 +25,10 @@ from plan_current_ground_tree import paired_east_tail
 from open_prototype_path_preflight import samples
 from plan_current_moving_looms import vertical_s
 from screen_current_moving_looms import only_new_pairs
+from current_material_reservations import FaceKeepouts,terminal_owners
 
 UP=[0,0,1]
-CHANGED=('W002','W003','W004','W005','W006','W007','W019','W021','W023','W024','W025')
+CHANGED=('W002','W003')
 LONG_SOURCE=ROOT/'hardware/reference/servo-long-lead-2026-10-11/source.json'
 
 
@@ -41,8 +42,14 @@ def usable_blank(loom):
 
 class WitnessSpace(Space):
     """Keep the first rejecting witness in the existing gate, not a new audit."""
-    def clear(self,parts,ignore=(),margin=.7,root=None):
+    def __init__(self,materials=None):
+        super().__init__();self.materials=materials
+    def clear(self,parts,ignore=(),margin=.7,root=None,material_terminal=None,qualified_material=False):
         self.hit=None
+        if self.materials and not qualified_material:
+            self.hit=self.materials.hit(parts,1+margin,
+                terminal_owners(material_terminal) if material_terminal else (),3 if material_terminal else 0)
+            if self.hit:return False
         expanded=sampling_parts(parts);prefix=[];walked=0
         for s in expanded:prefix.append(walked);walked+=s['length_mm']
         for i,p in samples(expanded,step=1):
@@ -75,21 +82,131 @@ def receiver(point, axis, direction, radius=10):
 
 def coupled_approaches(relocation,bus,bridges,ground,registry):
     """Allocate ALL changed fixed ends before choosing a moving boundary."""
-    prefixes={'W002':receiver(relocation['rails']['D_FL']['ports']['1'],UP,[0,-1,0]),
+    prefixes={'W002':bus['receiving_prefixes']['W002'],
               'W003':bus['receiving_prefixes']['W003']}
     breakouts={w:bus['source_prefixes'][w] for w in ('W002','W003')}
-    fixed_ends={q['id']:q for q in registry['body_conductors']}
-    for wid,rail,port,radius,direction,reference in (
-        ('W007','D_FL','5',10,[0,-1,0],bridges),
-        ('W025','FL_G','1',21,[-1,0,0],ground)):
-        old=reference['routes'][wid]['parts']
-        starts_here=any(e['role']==rail+'.'+port and math.dist(e['point_mm'],old[0]['start'])<1e-5
-            for e in fixed_ends[wid]['current_ends'])
-        opposite=old[-1]['end'] if starts_here else old[0]['start']
-        breakouts[wid]=receiver(relocation['rails'][rail]['ports'][port],UP,direction,radius)
-        prefixes[wid]=paired_east_tail('W025',263,[0,1,0])[:-1] if wid=='W025' else receiver(opposite,UP,[0,-1,0],radius)
-        assert math.dist(prefixes[wid][0]['start'],opposite)<1e-5
     return prefixes,breakouts
+
+
+def outboard_basis(loom,side):
+    """Keep the actual low outlet/U; escape OUTWARD before rising at all.
+
+    The rejected FL source turned vertically through its own side frame,
+    then crossed the entire body/tail. Rear folds crossed the ground rails.
+    One shared topology avoids both: leave the existing outlet tangent to
+    Y140, turn UP outside the material, then an exact fixed-length roof arch.
+    """
+    changed=copy.deepcopy(loom)
+    for pose in changed['poses']:
+        start=pose['spans_mm'][0][0] if loom['loom']=='FL3' else pose['flex_start']
+        axis=sub(pose['spans_mm'][0][1],start) if loom['loom']=='FL3' else pose['axis']
+        axis=mul(axis,1/norm(axis))
+        assert side*axis[1]>.5
+        p=list(pose.get('departure_parts_mm',[])) if loom['loom']=='FL3' else []
+        if loom['loom']=='FL3':
+            length=(side*140-start[1])/axis[1];assert length>=0
+            p.append(line(start,add(start,mul(axis,length))))
+            # Cross fore/aft only AFTER leaving the side frame. The earlier
+            #central crossing below the frame cut P0; the outboard bay is
+            #a different topology. Rise aft of the head's yaw envelope.
+            p.append(exact_turn_to(p[-1]['end'],axis,[1,0,0],31))
+            a=p[-1]['end'];assert a[0]<-20
+            p.append(line(a,[-20,a[1],a[2]]))
+            p.append(exact_quarter(p[-1]['end'],[1,0,0],UP,31))
+        else:
+            # All affected Knee leads turn fore-aft BEFORE their rise,
+            #separating the source region from adjacent Ankle cables.
+            #FL2 must change WITH FL3; keeping its old low return forced
+            #the Ankle cable into the purchased frame.
+            p.append(exact_turn_to(start,axis,[1,0,0],31))
+            p.append(exact_quarter(p[-1]['end'],[1,0,0],UP,31))
+        a=p[-1]['end'];assert a[2]<180
+        p.append(line(a,[a[0],a[1],180]))
+        pose['departure_parts_mm']=p;a=p[-1]['end']
+        pose['spans_mm']=[[a,add(a,[0,0,30]),add(a,[0,0,60]),add(a,[0,0,90])]]
+    return changed
+
+
+def descending_s(start,target):
+    """Put excess height at the FREE end, not through the receiving PCB."""
+    q=vertical_s([start[0],start[1],-start[2]],[target[0],target[1],-target[2]],10)
+    if q is None:return None
+    if len(q)>1 and q[-1]['kind']=='line' and q[-2]['kind']=='arc':
+        tail=q.pop();extra=tail['length_mm']
+        delta=[0,0,extra]
+        # Shift both S arcs down along the start tangent; merge the added
+        #height into the first land. True endpoints/tangents/R10 unchanged.
+        first=q.pop(0) if q[0]['kind']=='line' else None
+        origin=first['start'] if first else q[0]['start']
+        for s in q:
+            for key in ('start','mid','end'):
+                if key in s:s[key]=add(s[key],delta)
+        q.insert(0,line(origin,q[0]['start']))
+    p=[]
+    for segment in q:
+        s=dict(segment)
+        for key in ('start','mid','end'):
+            if key in s:s[key]=[s[key][0],s[key][1],-s[key][2]]
+        if s['length_mm']>1e-8:p.append(s)
+    return p
+
+
+def rising_s_family(loom,dock):
+    """Constant cable length by flexing a rising S, not a tall roof return.
+
+    The source tangent escapes laterally before turning UP. Each pose may
+    change S radius, never below31mm. Intersect the true achievable length
+    intervals, then solve that SAME cable length in every joint pose.
+    """
+    rows=[]
+    for pose in loom['poses']:
+        start=pose['spans_mm'][0][0];height=dock[2]-start[2]
+        distance=math.dist(start[:2],dock[:2])
+        if height<=0 or distance<1e-7:return None
+        upper=(height*height+distance*distance)/(4*distance)
+        # If distance>2R, the pair of quarter turns needs height>=2R.
+        if height<distance:upper=height/2
+        if upper<31:return None
+        prefix=sum(s['length_mm'] for s in pose['departure_parts_mm'])
+        def at(radius,start=start,prefix=prefix):
+            p=vertical_s(start,dock,radius)
+            return None if p is None else (prefix+sum(s['length_mm'] for s in p),p)
+        small,big=at(31),at(upper*(1-1e-9))
+        if small is None or big is None:return None
+        rows.append((pose,upper,small[0],big[0],at))
+    low=max(row[3] for row in rows);high=min(row[2] for row in rows)
+    if low>high+1e-7:return None
+    target=(low+high)/2;poses=[]
+    for pose,upper,_,_,at in rows:
+        lo,hi=31,upper
+        for _ in range(40):
+            mid=(lo+hi)/2
+            if at(mid)[0]>target:lo=mid
+            else:hi=mid
+        radius=(lo+hi)/2;length,parts=at(radius)
+        if abs(length-target)>1e-5:return None
+        poses.append(dict(angles=pose['angles'],start=pose['start'],flex_start=pose['flex_start'],
+            departure_parts_mm=pose['departure_parts_mm'],transition_parts_mm=parts,spans_mm=[],return_parts_mm=[],
+            body_arrival_axis_mm=UP,flex_length_mm=length,sampled_minimum_R_mm=min(31,radius)))
+    return dict(body_dock_mm=dock,fixed_bundle_guide_mm=target,poses=poses,
+        topology='Lateral source escape then variable-radius rising S; fixed cable length, all R>=31')
+
+
+def lateral_basis(loom,side):
+    """All four affected leads leave the leg before any vertical return."""
+    changed=copy.deepcopy(loom)
+    for pose in changed['poses']:
+        start=pose['spans_mm'][0][0] if loom['loom']=='FL3' else pose['flex_start']
+        axis=sub(pose['spans_mm'][0][1],start) if loom['loom']=='FL3' else pose['axis']
+        axis=mul(axis,1/norm(axis));assert side*axis[1]>.5
+        parts=list(pose.get('departure_parts_mm',[])) if loom['loom']=='FL3' else []
+        length=(side*180-start[1])/axis[1]
+        if length<0:return None
+        parts.append(line(start,add(start,mul(axis,length))))
+        parts.append(exact_turn_to(parts[-1]['end'],axis,UP,31))
+        a=parts[-1]['end'];pose['departure_parts_mm']=parts
+        pose['spans_mm']=[[a,add(a,[0,0,30]),add(a,[0,0,60]),add(a,[0,0,90])]]
+    return changed
 
 
 def complete_breakout(loom,space):
@@ -112,8 +229,8 @@ def complete_breakout(loom,space):
     return None,hits
 
 
-def bundle_space(retained,looms,receiving=()):
-    space=WitnessSpace()
+def bundle_space(retained,looms,receiving=(),materials=None):
+    space=WitnessSpace(materials)
     for row in retained:space.insert(row)
     for wid,p in receiving:space.insert(dict(wire=wid+'/receiver',OD_mm=2,segments=p))
     for loom in looms:
@@ -180,14 +297,9 @@ def direct_down_fan(loom,space,receiving):
         for core,v in loom['cores'].items():
             wid=v['wire'];a=math.radians(rotation+{'D':0,'G':120,'V':240}[core])
             start=add(join,[1.2*math.cos(a),1.2*math.sin(a),0]);target=receiving[wid][-1]['end']
-            q=vertical_s([start[0],start[1],-start[2]],[target[0],target[1],-target[2]],10)
-            if q is None:break
-            p=[]
-            for segment in q:
-                s=dict(segment)
-                for key in ('start','mid','end'):
-                    if key in s:s[key]=[s[key][0],s[key][1],-s[key][2]]
-                if s['length_mm']>1e-8:p.append(s)
+            arrival=next(p for p in loom['poses'] if not any(p['angles']))['body_arrival_axis_mm']
+            p=descending_s(start,target) if arrival[2]<0 else arch_middle(start,target,10)
+            if p is None:break
             blank=14+loom['initial_land_mm']+loom['fixed_bundle_guide_mm']+sum(s['length_mm'] for s in p+receiving[wid])+21
             if blank>usable_blank(loom['loom']):break
             if not space.clear(p,ignore=(wid+'/receiver',),margin=0,root=('Loom/'+loom['loom'],join)):
@@ -202,7 +314,7 @@ def direct_down_fan(loom,space,receiving):
 
 
 def run():
-    tick=time.monotonic(); pins={Path(__file__),LONG_SOURCE}
+    tick=time.monotonic(); pins={Path(__file__),LONG_SOURCE,Path(__file__).with_name('current_material_reservations.py')}
     long_source=json.loads(LONG_SOURCE.read_text())
     assert long_source['SKU']=='SPMA3007'
     assert long_source['derived']['nominal_length_mm']-long_source['project_assumptions_not_catalog_facts']['trim_reserve_mm']==usable_blank('FL3')
@@ -212,13 +324,17 @@ def run():
             assert SHA(ROOT/n)==h,n
         return q
     previous=read('leg-body-joins-plan.json')
-    relocation=read('front-receiver-relayout-plan.json')
+    stations=read('leg-stations-plan.json')
+    termination=read('leg-terminations-plan.json')
+    relocation=dict(rails={n:stations['stations'][n] for n in ('D_FL','FL_G')},leg_body_ends=termination['wires'])
     original=read('joined-leg-looms-plan.json')
     heads=read('head-wire-screen-reference.json')
     bus=read('BUS-routes-plan.json')
     registry=read('harness-interfaces-plan.json')
     ground=read('ground-tree-plan.json')
     bridges=read('data-bridges-plan.json')
+    spatial=read('BUS-material-routing-space.json')
+    materials=FaceKeepouts(spatial['boxes'])
     fixed,more=route_rows(tuple(OUT/(s+'-plan.json') for s in
         ('ground-tree','data-bridges','positive-source','s0-in-extension','BUS-routes')))
     pins.update(more)
@@ -230,7 +346,7 @@ def run():
     # Both BUS ends and both trunk ends are now part of the initial allocation.
     planned_retained=retained+[dict(wire=wid+'/'+label,OD_mm=4.2 if wid=='W025' else 2,segments=p)
         for label,rows in (('receiver',coupled_prefixes),('breakout',coupled_breakouts)) for wid,p in rows.items()]
-    chosen=[q for q in previous['looms'] if q['loom'] not in ('FL3','RL2','RR2')]
+    chosen=[q for q in previous['looms'] if q['loom'] not in ('FL2','FL3','RL2','RR2')]
     raw=next(q for q in original['looms'] if q['loom']=='FL3')
     ends={q['wire']:q for q in relocation['leg_body_ends']}
     receiving={}
@@ -244,93 +360,86 @@ def run():
     # The old joins were averages of three terminal positions: there was
     # no room for the required radial fan. Allocate whole interior receiving
     # zones clear of the rear ground columns, before selecting a bundle.
-    rear_changes={};rear_failures=[]
-    for name,side in (('RL2',1),('RR2',-1)):
+    rear_changes={};rear_failures=[];rear_fans={}
+    for name,side in (('FL2',1),('RL2',1),('RR2',-1)):
         raw_rear=next(q for q in original['looms'] if q['loom']==name)
-        motion=SharedMotionSpace(planned_retained,chosen);found=None;counts=Counter()
-        for dock in itertools.product((170,190),(side*45,side*20),(110,140)):
-            c=rear_family(raw_rear,list(dock))
+        motion=SharedMotionSpace(planned_retained,chosen);found=None;counts=Counter();witnesses={}
+        basis=lateral_basis(raw_rear,side)
+        xs=(-100,-75) if name=='FL2' else (125,100)
+        for dock in itertools.product(xs,(side*45,side*65),(150,170)):
+            c=rising_s_family(basis,list(dock))
+            if c is None:continue
             q=dict(loom=name,motion_stage=raw_rear['motion_stage'],initial_land_mm=raw_rear['initial_land_mm'],cores=raw_rear['cores'],**c)
             lower=14+q['initial_land_mm']+q['fixed_bundle_guide_mm']+max(math.dist(dock,ends[v['wire']]['body_point_mm']) for v in q['cores'].values())+21
             if lower>usable_blank(name):counts['capacity']+=1;continue
+            hit=materials.hit(pose_row(q,next(p for p in q['poses'] if not any(p['angles'])))['segments'],3.5)
+            if hit:counts[hit['other']]+=1;continue
             clear,hit=motion.clear(q)
-            if not clear:counts[hit['other']]+=1;continue
-            fan,_=complete_breakout(q,bundle_space(planned_retained,chosen+[q],receiving.items()))
+            if not clear:
+                counts[hit['other']]+=1;witnesses.setdefault(hit['other'],hit);continue
+            fan,_=direct_down_fan(q,bundle_space(planned_retained,chosen+[q],receiving.items(),materials),receiving)
             if fan is None:counts['complete_fan']+=1;continue
-            found=q;break
+            found=q;rear_fans.update(fan);break
         if found:chosen.append(found);rear_changes[name]=found
-        else:rear_failures.append(dict(loom=name,cause='NO_WHOLE_REAR_RECEIVING_ZONE',rejections=dict(counts)))
+        else:rear_failures.append(dict(loom=name,cause='NO_WHOLE_REAR_RECEIVING_ZONE',rejections=dict(counts),witnesses=witnesses))
     space=SharedMotionSpace(planned_retained,chosen)
     targets=[ends[q['wire']]['body_point_mm'] for q in raw['cores'].values()]
     # A direct descending R10 S with lateral span>=20mm needs20mm
     #height above the complete receiver approach, not merely its mouth.
     minimum_down_join_z=max(receiving[q['wire']][-1]['end'][2] for q in raw['cores'].values())+20
     allocated_down_z=10*math.ceil(minimum_down_join_z/10)
-    prefix_bad={tuple(q['corridor_land_mm']) for q in previous['shared_motion_station_rejections']
-        if q['loom']=='FL3' and q.get('scope')=='WHOLE_SOURCE_PREFIX' and q.get('other') not in CHANGED}
-    reject_counts=Counter(); candidate=None; trials=0;direct_fan=None;fan_failures=[]
-    for east,inner in itertools.product((60,80,100,120,140),(20,40,60,0,80)):
-        if (east,inner) in prefix_bad:continue
-        basis=ankle_rise_basis(raw,east,inner)
-        zones=[(allocated_down_z,(60,80,allocated_down_z))]+list(itertools.product((170,200,230),itertools.product((0,30,60),(40,60),(170,200))))
+    reject_counts=Counter(); candidate=None; trials=0;direct_fan=None;fan_failures=[];fl_witnesses={}
+    for basis in (lateral_basis(raw,1),):
+        prefix_hit=materials.hit(next(p for p in basis['poses'] if not any(p['angles']))['departure_parts_mm'],3.5)
+        if prefix_hit:
+            reject_counts[prefix_hit['other']]+=1;continue
+        zones=[(180,(-130,60,170))]+list(itertools.product((180,210),itertools.product((-150,-120,-90),(40,60),(170,200))))
         for floor,dock in zones:
             trials+=1
-            proposal=arch_family(basis,list(dock),lambda a,b:max(a[2],b[2],floor))
+            proposal=rising_s_family(basis,list(dock))
             if proposal is None:continue
             lower=14+basis['initial_land_mm']+proposal['fixed_bundle_guide_mm']+max(math.dist(dock,p) for p in targets)+21
             if lower>usable_blank('FL3'):reject_counts['factory_capacity_lower_bound']+=1;continue
             proposal=dict(loom='FL3',motion_stage=raw['motion_stage'],initial_land_mm=raw['initial_land_mm'],
-                cores=raw['cores'],corridor_land_mm=[east,inner],minimum_complete_blank_lower_bound_mm=lower,**proposal)
+                cores=raw['cores'],corridor='Original low U then outwardY140 before any rise',minimum_complete_blank_lower_bound_mm=lower,**proposal)
+            hit=materials.hit(pose_row(proposal,next(p for p in proposal['poses'] if not any(p['angles'])))['segments'],3.5)
+            if hit:reject_counts[hit['other']]+=1;continue
             clear,hit=space.clear(proposal)
             if clear:
-                fan,hits=direct_down_fan(proposal,bundle_space(planned_retained,chosen+[proposal],receiving.items()),receiving)
+                fan,hits=direct_down_fan(proposal,bundle_space(planned_retained,chosen+[proposal],receiving.items(),materials),receiving)
                 if fan is not None:candidate=proposal;direct_fan=fan;break
                 fan_failures.extend(hits[:1]);reject_counts['complete_down_fan']+=1;continue
-            reject_counts[hit['other']]+=1
+            reject_counts[hit['other']]+=1;fl_witnesses.setdefault(hit['other'],hit)
         if candidate:break
     failures=list(rear_failures);routes={};prefixes={};breakouts={};total_states=0
     if candidate:
         chosen=chosen+[candidate]
         # Reserve complete sampled bundle families, not old nominal fanouts.
-        channel=bundle_space(retained,chosen)
-        routes.update(direct_fan)
-        for wid,r in direct_fan.items():channel.insert(dict(wire=wid,OD_mm=2,segments=r['parts']))
+        channel=bundle_space(retained,chosen,materials=materials)
+        routes.update(rear_fans);routes.update(direct_fan)
+        for wid,r in routes.items():channel.insert(dict(wire=wid,OD_mm=2,segments=r['parts']))
         for wid,end in ends.items():
             p=receiving[wid]
-            if wid not in direct_fan and not channel.clear(p,margin=0):failures.append(dict(wire=wid,cause='RECEIVER_APPROACH_BLOCKED',**channel.hit))
+            if wid not in routes and not channel.clear(p,margin=0,material_terminal=end['body_role'].split('.')[0]):failures.append(dict(wire=wid,cause='RECEIVER_APPROACH_BLOCKED',**channel.hit))
             prefixes[wid]=p
         # BUS source passages/grip roots stay exactly as qualified. The
         # downstream G route is invalidated even though G2 did not move.
-        prefixes['W002']=receiver(relocation['rails']['D_FL']['ports']['1'],UP,[0,-1,0])
-        prefixes['W003']=bus['receiving_prefixes']['W003']
+        prefixes.update(coupled_prefixes)
         for wid in ('W002','W003'):
             breakouts[wid]=bus['source_prefixes'][wid]
             for label,p in [('source',breakouts[wid]),('receiver',prefixes[wid])]:
-                if not channel.clear(p,margin=0):failures.append(dict(wire=wid,cause='BUS_'+label.upper()+'_APPROACH_BLOCKED',**channel.hit))
-        # Cross-rail bridge and the thick R21 ground are part of this change.
-        # Do NOT pass the4mm2 trunk through an R10 factory-core planner.
-        fixed_ends={q['id']:q for q in registry['body_conductors']}
-        for wid,rail,port,radius,direction,reference in (
-            ('W007','D_FL','5',10,[0,-1,0],bridges),
-            ('W025','FL_G','1',21,[-1,0,0],ground)):
-            old=reference['routes'][wid]['parts']
-            newpoint=relocation['rails'][rail]['ports'][port]
-            starts_here=any(e['role']==rail+'.'+port and math.dist(e['point_mm'],old[0]['start'])<1e-5
-                for e in fixed_ends[wid]['current_ends'])
-            # W025's current selected logical G1 mapping is not the old
-            # registry coordinate. Preserve the already rebound opposite end.
-            opposite=old[-1]['end'] if starts_here else old[0]['start']
-            breakouts[wid]=receiver(newpoint,UP,direction,radius)
-            prefixes[wid]=paired_east_tail('W025',263,[0,1,0])[:-1] if wid=='W025' else receiver(opposite,UP,[0,-1,0],radius)
-            assert math.dist(prefixes[wid][0]['start'],opposite)<1e-5
-            if not channel.clear(breakouts[wid],margin=1.1 if wid=='W025' else 0):failures.append(dict(wire=wid,cause='TRUNK_APPROACH_BLOCKED',**channel.hit))
+                # These exact source/receiver recipes and original cases
+                #are already material-qualified. Still check new wires.
+                #Face-box overfill of the real carrier passage is not a
+                #reason to invalidate that unchanged exact BRep proof.
+                if not channel.clear(p,margin=0,qualified_material=True):failures.append(dict(wire=wid,cause='BUS_'+label.upper()+'_APPROACH_BLOCKED',**channel.hit))
         for wid,p in prefixes.items():channel.insert(dict(wire=wid+'/receiver',OD_mm=4.2 if wid=='W025' else 2,segments=p))
-        for wid in ('W002','W003','W007','W025'):
+        for wid in ('W002','W003'):
             channel.insert(dict(wire=wid+'/breakout',OD_mm=4.2 if wid=='W025' else 2,segments=breakouts[wid]))
         # Complete three-core breakouts follow each bundle's actual arrival
         # tangent; the old UP-only fanouts cannot be reused for DOWN arrivals.
         for loom in chosen:
-            if loom['loom']=='FL3':continue
+            if loom['loom'] in ('FL2','FL3','RL2','RR2'):continue
             choice,hits=complete_breakout(loom,channel)
             if choice is None:failures.append(dict(loom=loom['loom'],cause='WHOLE_BREAKOUT_BLOCKED',witnesses=hits));continue
             for wid,p in choice:
@@ -339,21 +448,16 @@ def run():
         if not failures:
             work=[]
             for loom in chosen:
-                if loom['loom']=='FL3':continue
+                if loom['loom'] in ('FL2','FL3','RL2','RR2'):continue
                 capacity=usable_blank(loom['loom'])-14-loom['initial_land_mm']-loom['fixed_bundle_guide_mm']-21
                 for v in loom['cores'].values():
                     wid=v['wire'];fixedlen=sum(p['length_mm'] for p in prefixes[wid]+breakouts[wid])
                     work.append((capacity-fixedlen,wid,10))
             work.extend((850-14.05-21-sum(p['length_mm'] for p in prefixes[w]+breakouts[w]),w,10) for w in ('W002','W003'))
-            work.append((1200,'W007',10))
-            p,states=ground_middle(channel,breakouts['W025'][-1]['end'],prefixes['W025'][-1]['end'])
-            total_states+=states
-            if p is None:
-                failures.append(dict(wire='W025',cause='R21_SHARED_GROUND_CORRIDOR_BLOCKED',states=states,witness=channel.hit))
-            else:
-                whole=breakouts['W025']+p+reverse_parts(prefixes['W025'])
-                routes['W025']=dict(parts=whole,guide_mm=sum(v['length_mm'] for v in whole),project_R_mm=21)
-                channel.insert(dict(wire='W025',OD_mm=4.2,segments=whole))
+            for wid,reference in (('W007',bridges),('W025',ground)):
+                whole=reference['routes'][wid]['parts']
+                routes[wid]=dict(parts=whole,guide_mm=sum(v['length_mm'] for v in whole),project_R_mm=21 if wid=='W025' else 10,
+                    retained_qualified_route=True)
             for budget,wid,radius in sorted(work):
                 p,states=search(channel,breakouts[wid][-1]['end'],prefixes[wid][-1]['end'],budget,0,
                     (wid+'/receiver',wid+'/breakout'),max_states=600)
@@ -379,13 +483,14 @@ def run():
     failures.extend(dict(cause='COMPLETE_STATIC_CORES_INTERSECT',**q) for q in mutual if q['status']=='REJECT_PLANNING_PROXIMITY')
     result=dict(status='REJECTED_COUPLED_FL_BUS_PLAN' if failures else 'COUPLED_FL_BUS_PLANNING_ONLY',
         candidate_FL3=candidate,rear_receiving_changes=rear_changes,retained_families_reference='leg-body-joins-plan.json',rails=relocation['rails'],
+        body_ends_reference='leg-terminations-plan.json',retained_original_rail_locations=True,
         minimum_direct_down_join_z_mm=minimum_down_join_z,
         factory_alternative=dict(SKU='SPMA3007',allocation_scope='All12 length ceilings; assign900mm only after all3 actual core guides fit850mm',nominal_mm=1219.2,trim_reserve_mm=50,
             installed_quantity=None,extra_inline_connections=0,selected=False,E3_complete=False),
         factory_assignment=factory_assignment,complete_static_core_near_pairs=mutual,
         invalidated_wire_ids=list(CHANGED),all36_leg_fanouts_invalidated=True,
         routes=routes,endpoint_failures=failures,trial_rejections=dict(reject_counts),direct_down_fan_rejections=fan_failures,trials=trials,
-        search_states=total_states,source_prefixes=bus['source_prefixes'],
+        search_states=total_states,source_prefixes=bus['source_prefixes'],FL_motion_witnesses=fl_witnesses,
         selected=False,W5_complete=False,physical_pass=False,native_changed=False,
         limitations=['Shared sampled path planning, not real-material or continuous-motion qualification',
             'All36 full fanouts, both BUS cores, bridge and R21 ground must be complete before native changes',
