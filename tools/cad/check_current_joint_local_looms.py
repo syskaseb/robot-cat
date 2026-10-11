@@ -30,10 +30,13 @@ def pilot_reuse(plan):
         expanded_geometry_matches_all31poses=True,new_mutual_pairs_not_waived=True,
         original_pairs=proof['pairs'],original_worker_seconds=proof['worker_seconds'])
 
-def run():
-    tick=time.monotonic();source=OUT/'joint-local-loom-plan.json';screen=OUT/'joint-local-loom-screen.json'
+def run(knees_only=False):
+    tick=time.monotonic();stem='joint-local-knee' if knees_only else 'joint-local-loom'
+    source=OUT/(stem+'-plan.json');screen=OUT/(stem+'-screen.json')
     p=json.loads(source.read_text());gate=json.loads(screen.read_text())
-    assert p['status']=='JOINT_LOCAL_SECTIONS_MATH_ONLY' and len(p['loops'])==20
+    assert p['status']==('JOINT_LOCAL_KNEE_MATH_ONLY' if knees_only else 'JOINT_LOCAL_SECTIONS_MATH_ONLY')
+    assert len(p['loops'])==(8 if knees_only else 20)
+    if knees_only:assert all(r['child_stage']=='Knee' for r in p['loops'])
     assert gate['status']=='JOINT_LOCAL_SHARED_SAMPLED_ONLY_MATERIAL_OPEN'
     for receipt in (p,gate):
         for n,h in receipt['source_sha256'].items():assert SHA(ROOT/n)==h,n
@@ -47,7 +50,7 @@ def run():
     result=dict(status='PENDING',pairs=0,contacts=[],errors=[],selected=False,W5_complete=False,
         physical_pass=False,native_changed=False,full_cable_routes_complete=False,
         continuous_motion_verified=False,simultaneous_all_leg_motion_verified=False,
-        scope='20local sections; all nominal then27joint samples perleg. Rigid/source/body guides and native supports OPEN.',
+        scope=f"{len(p['loops'])}local sections; all nominal then27joint samples perleg. Rigid/source/body guides and native supports OPEN.",
         pilot_reuse=reuse,tested_poses=[])
     def transforms(code,angles):
         T=W.A.Placement();ts={}
@@ -111,10 +114,13 @@ def run():
                 case(code,angles)
                 if result['contacts'] or result['errors']:break
             if result['contacts'] or result['errors']:break
-    result.update(status='REJECTED_JOINT_LOCAL_SHARED_MATERIAL' if result['contacts'] or result['errors'] else 'TWENTY_LOCAL_SECTIONS_SAMPLED_MATERIAL_ONLY_FULL_CABLE_OPEN',
+    result.update(status='REJECTED_JOINT_LOCAL_SHARED_MATERIAL' if result['contacts'] or result['errors'] else ('EIGHT_KNEE_SECTIONS_SAMPLED_MATERIAL_ONLY_FULL_CABLE_OPEN' if knees_only else 'TWENTY_LOCAL_SECTIONS_SAMPLED_MATERIAL_ONLY_FULL_CABLE_OPEN'),
         worker_seconds=time.monotonic()-tick,source_sha256={**reader.hashes,**{f.relative_to(ROOT).as_posix():SHA(f) for f in pins}})
-    (OUT/'joint-local-loom-material.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+    (OUT/(stem+'-material.json')).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({k:result[k] for k in ('status','pairs','contacts','errors','worker_seconds')}),flush=True)
     return result
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--knees-only',action='store_true')
+    run(parser.parse_args().knees_only)

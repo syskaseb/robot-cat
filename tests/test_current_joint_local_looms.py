@@ -36,8 +36,12 @@ class JointLocalPilot(unittest.TestCase):
 
     def test_current_pilot_is_not_whole_loom_or_selected_result(self):
         q=json.loads((OUT/'joint-local-loom-plan.json').read_text())
-        for n,h in q['source_sha256'].items():self.assertEqual(SHA(ROOT/n),h,n)
-        self.assertEqual(q['status'],'JOINT_LOCAL_SECTIONS_MATH_ONLY')
+        if q['status'].startswith('PARKED_'):
+            self.assertIn('IMPRACTICAL',q['status'])
+            self.assertTrue(q['parked_reason'])
+        else:
+            for n,h in q['source_sha256'].items():self.assertEqual(SHA(ROOT/n),h,n)
+            self.assertEqual(q['status'],'JOINT_LOCAL_SECTIONS_MATH_ONLY')
         self.assertFalse(q['W5_complete']);self.assertFalse(q['selected']);self.assertFalse(q['native_changed'])
         self.assertEqual(len(q['loops']),20)
         self.assertEqual(len({r['loom'] for r in q['loops']}),12)
@@ -46,6 +50,9 @@ class JointLocalPilot(unittest.TestCase):
             self.assertEqual([p['angle'] for p in row['poses']],list(range(-15,16)))
             self.assertIn((row['parent_stage'],row['child_stage']),(('Hip','Knee'),('Frame','Hip')))
             self.assertEqual(row['independent_insulation_land_mm_each'],9)
+            if row['child_stage']=='Hip':
+                self.assertTrue(row['common_material_allocation']['conservative_face_bounds_not_actual_contacts'])
+                self.assertGreaterEqual(row['plane_axis_offset_mm'],row['common_material_allocation']['material_axial_extent_mm']+4.5-1e-7)
             for datum in row['poses']:
                 p=expanded_pose(row,datum['angle'])
                 self.assertAlmostEqual(p['curve']['length_mm'],LENGTH,places=6)
@@ -55,6 +62,23 @@ class JointLocalPilot(unittest.TestCase):
                 for a,b in zip(p['parts'],p['parts'][1:]):self.assertLess(math.dist(a['end'],b['start']),1e-7)
         pilot=next(r for r in q['loops'] if r['section']=='FL2/Knee')
         self.assertIn('Part__Feature117',pilot['complete_child_material_members'])
+
+    def test_unchanged_knee_pilot_reuse_is_source_and_geometry_bound(self):
+        from check_current_joint_local_looms import pilot_reuse
+        proof=pilot_reuse(json.loads((OUT/'joint-local-loom-plan.json').read_text()))
+        self.assertEqual(proof['sections'],['FL2/Knee','FL3/Knee'])
+        self.assertTrue(proof['new_mutual_pairs_not_waived'])
+
+    def test_eight_knee_result_is_pinned_and_never_claims_complete_cable(self):
+        for suffix in ('plan','screen','material'):
+            receipt=json.loads((OUT/('joint-local-knee-'+suffix+'.json')).read_text())
+            for n,h in receipt['source_sha256'].items():self.assertEqual(SHA(ROOT/n),h,n)
+            self.assertFalse(receipt['W5_complete']);self.assertFalse(receipt['selected'])
+            self.assertFalse(receipt['native_changed']);self.assertFalse(receipt['physical_pass'])
+        self.assertEqual(receipt['status'],'EIGHT_KNEE_SECTIONS_SAMPLED_MATERIAL_ONLY_FULL_CABLE_OPEN')
+        self.assertFalse(receipt['contacts']);self.assertFalse(receipt['errors'])
+        self.assertEqual(len(receipt['tested_poses']),105)
+        self.assertEqual(receipt['pilot_reuse']['sections'],['FL2/Knee','FL3/Knee'])
 
 
 if __name__=='__main__':unittest.main()
