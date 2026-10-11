@@ -7,6 +7,7 @@ pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
 # \r turns the shebang into "/usr/bin/env bash\r: no such file or directory".
 *.sh text eol=lf
 Dockerfile text eol=lf
+/tests/test_current_bus_routes.py text eol=lf
 # Generated PDFs are binary even when their first block contains no NUL byte.
 *.pdf binary
 # STL byte hashes are pinned by the selected prototype manifest, including
