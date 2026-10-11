@@ -1,0 +1,582 @@
+{
+  "status": "TWO_S1_OUTPUTS_SHARED_PLAN_ONLY",
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "rings": {
+    "W064": {
+      "role": "S1.3",
+      "point_mm": [
+        123.69999999999999,
+        63.623000000000005,
+        93.0
+      ],
+      "departure": [
+        -6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      "native": "S1_ring_3",
+      "source_frame": "Current CP2 S1 centre/yaw applied once to old ring barrel end; not a new supplier pin"
+    },
+    "W065": {
+      "role": "S1.6",
+      "point_mm": [
+        123.69999999999999,
+        7.377000000000022,
+        93.0
+      ],
+      "departure": [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      "native": "S1_ring_6",
+      "source_frame": "Current CP2 S1 centre/yaw applied once to old ring barrel end; not a new supplier pin"
+    }
+  },
+  "P_FRONT": {
+    "casing_mm": [
+      -61,
+      21.5,
+      145.9,
+      -39,
+      58.5,
+      156.9
+    ],
+    "centre_mm": [
+      -50,
+      40,
+      151.4
+    ],
+    "entry_axis": [
+      -1,
+      0,
+      0
+    ],
+    "ports": {
+      "1": [
+        -61,
+        53.0,
+        151.4
+      ],
+      "2": [
+        -61,
+        46.5,
+        151.4
+      ],
+      "3": [
+        -61,
+        40.0,
+        151.4
+      ],
+      "4": [
+        -61,
+        33.5,
+        151.4
+      ],
+      "5": [
+        -61,
+        27.0,
+        151.4
+      ]
+    },
+    "roles": {
+      "1": "W064 S1.3",
+      "2": "W041 FL input",
+      "3": "W042 FR input",
+      "4": "NC",
+      "5": "NC"
+    },
+    "native_support": "OPEN_REPLACES_UNSELECTED_OLD_P_FRONT_SUPPORT"
+  },
+  "P_REAR5": [
+    29,
+    -13,
+    138
+  ],
+  "allocation_revision": 3,
+  "rejected_first_cause": "W065 horizontal SOUTH rail alley crosses retained E2 tie heads/XP03 and W4 XB33; immediate full-radius rising fan replaces complete rail approach, no case cut or unchanged retry",
+  "rejected_second_cause": "Both route families obstructed directly outside P_REAR.5 by two locking heads on SOUTH sides of complete E2 bands. Third attempt changes whole restraint-head architecture: locking heads on TOP of unchanged continuous bands, not another unchanged station-route trial.",
+  "changed_e2_heads": {
+    "TieHead_Input": [
+      32.25,
+      -8.9,
+      140.25,
+      36.75,
+      -4.1,
+      143.75
+    ],
+    "TieHead_Fuse1": [
+      43.75,
+      -8.9,
+      142.4,
+      48.25,
+      -4.1,
+      145.9
+    ]
+  },
+  "changed_head_basis": "Same nominal T18I4.5x4.8x3.5 locking-head allowance rotated to top of closed band. Native pose/delivered forming/tool fit OPEN. Band and E2 PETG passages unchanged; actual changed contacts with ALL retained curves required.",
+  "routes": {
+    "W064": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -61,
+            53.0,
+            151.4
+          ],
+          "end": [
+            -70,
+            53.0,
+            151.4
+          ],
+          "length_mm": 9.0
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -70,
+            53.0,
+            151.4
+          ],
+          "mid": [
+            -87.819090885901,
+            53.0,
+            158.78090911409902
+          ],
+          "end": [
+            -95.2,
+            53.0,
+            176.6
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "line",
+          "start": [
+            -95.2,
+            53.0,
+            176.6
+          ],
+          "end": [
+            -95.2,
+            53.0,
+            190.0
+          ],
+          "length_mm": 13.400000000000006
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -95.2,
+            53.0,
+            190.0
+          ],
+          "mid": [
+            -87.819090885901,
+            53.0,
+            207.819090885901
+          ],
+          "end": [
+            -70.0,
+            53.0,
+            215.2
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -70.0,
+            53.0,
+            215.2
+          ],
+          "mid": [
+            -53.76778203694886,
+            58.92423542372443,
+            215.2
+          ],
+          "end": [
+            -45.16758634868532,
+            73.9115,
+            215.2
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 35.27459323253391
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -45.16758634868532,
+            73.9115,
+            215.2
+          ],
+          "mid": [
+            -36.56739066042177,
+            88.89876457627558,
+            215.2
+          ],
+          "end": [
+            -20.335172697370634,
+            94.82300000000001,
+            215.2
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 35.27459323253391
+        },
+        {
+          "kind": "line",
+          "start": [
+            -20.335172697370634,
+            94.82300000000001,
+            215.2
+          ],
+          "end": [
+            98.49999999999999,
+            94.82300000000001,
+            215.2
+          ],
+          "length_mm": 118.83517269737062
+        },
+        {
+          "kind": "arc",
+          "start": [
+            98.49999999999999,
+            94.82300000000001,
+            215.2
+          ],
+          "mid": [
+            116.31909088590099,
+            94.82300000000001,
+            207.819090885901
+          ],
+          "end": [
+            123.69999999999999,
+            94.82300000000001,
+            190.0
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "line",
+          "start": [
+            123.69999999999999,
+            94.82300000000001,
+            190.0
+          ],
+          "end": [
+            123.69999999999999,
+            94.82300000000001,
+            118.2
+          ],
+          "length_mm": 71.8
+        },
+        {
+          "kind": "arc",
+          "start": [
+            123.69999999999999,
+            94.82300000000001,
+            118.2
+          ],
+          "mid": [
+            123.69999999999999,
+            87.442090885901,
+            100.380909114099
+          ],
+          "end": [
+            123.69999999999999,
+            69.623,
+            93.0
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "line",
+          "start": [
+            123.69999999999999,
+            69.623,
+            93.0
+          ],
+          "end": [
+            123.69999999999999,
+            63.623000000000005,
+            93.0
+          ],
+          "length_mm": 6.0
+        }
+      ],
+      "radius_mm": 2.1,
+      "sku": "HELU23802",
+      "nominal_guide_mm": 447.920628903364,
+      "rail_strip_mm": 14,
+      "ring_barrel_allowance_mm": 14.452,
+      "actual_crimp_strip_mm": null,
+      "actual_cut_mm": null
+    },
+    "W065": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            29,
+            -13,
+            138
+          ],
+          "end": [
+            31.5,
+            -13.0,
+            138.0
+          ],
+          "length_mm": 2.5
+        },
+        {
+          "kind": "arc",
+          "start": [
+            31.5,
+            -13.0,
+            138.0
+          ],
+          "mid": [
+            49.319090885901,
+            -14.03332727597386,
+            145.3082182569569
+          ],
+          "end": [
+            56.7,
+            -16.528,
+            162.95181788968492
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "arc",
+          "start": [
+            56.7,
+            -16.528,
+            162.95181788968492
+          ],
+          "mid": [
+            56.7,
+            -16.714060012199127,
+            164.71145859645006
+          ],
+          "end": [
+            56.7,
+            -16.776182110315087,
+            166.4798178896849
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 3.5396276506883666
+        },
+        {
+          "kind": "line",
+          "start": [
+            56.7,
+            -16.776182110315087,
+            166.4798178896849
+          ],
+          "end": [
+            56.7,
+            -16.776182110315087,
+            190.0
+          ],
+          "length_mm": 23.52018211031509
+        },
+        {
+          "kind": "arc",
+          "start": [
+            56.7,
+            -16.776182110315087,
+            190.0
+          ],
+          "mid": [
+            64.080909114099,
+            -16.776182110315087,
+            207.819090885901
+          ],
+          "end": [
+            81.9,
+            -16.776182110315087,
+            215.2
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "arc",
+          "start": [
+            81.9,
+            -16.776182110315087,
+            215.2
+          ],
+          "mid": [
+            89.85581251067512,
+            -18.06499127223709,
+            215.2
+          ],
+          "end": [
+            96.99785327100963,
+            -21.79959105515753,
+            215.2
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 16.18855591974271
+        },
+        {
+          "kind": "arc",
+          "start": [
+            96.99785327100963,
+            -21.79959105515753,
+            215.2
+          ],
+          "mid": [
+            104.13989403134414,
+            -25.534190838077972,
+            215.2
+          ],
+          "end": [
+            112.09570654201926,
+            -26.822999999999976,
+            215.2
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 16.18855591974271
+        },
+        {
+          "kind": "line",
+          "start": [
+            112.09570654201926,
+            -26.822999999999976,
+            215.2
+          ],
+          "end": [
+            148.89999999999998,
+            -26.82299999999998,
+            215.2
+          ],
+          "length_mm": 36.80429345798072
+        },
+        {
+          "kind": "arc",
+          "start": [
+            148.89999999999998,
+            -26.82299999999998,
+            215.2
+          ],
+          "mid": [
+            166.71909088590095,
+            -26.82299999999998,
+            207.819090885901
+          ],
+          "end": [
+            174.09999999999997,
+            -26.82299999999998,
+            190.0
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "line",
+          "start": [
+            174.09999999999997,
+            -26.82299999999998,
+            190.0
+          ],
+          "end": [
+            174.09999999999997,
+            -26.82299999999998,
+            118.2
+          ],
+          "length_mm": 71.8
+        },
+        {
+          "kind": "arc",
+          "start": [
+            174.09999999999997,
+            -26.82299999999998,
+            118.2
+          ],
+          "mid": [
+            166.71909088590098,
+            -26.82299999999998,
+            100.380909114099
+          ],
+          "end": [
+            148.89999999999998,
+            -26.82299999999998,
+            93.0
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "arc",
+          "start": [
+            148.89999999999998,
+            -26.82299999999998,
+            93.0
+          ],
+          "mid": [
+            131.080909114099,
+            -19.442090885900974,
+            93.0
+          ],
+          "end": [
+            123.69999999999999,
+            -1.622999999999978,
+            93.0
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        },
+        {
+          "kind": "line",
+          "start": [
+            123.69999999999999,
+            -1.622999999999978,
+            93.0
+          ],
+          "end": [
+            123.69999999999999,
+            7.377000000000022,
+            93.0
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "radius_mm": 2.1,
+      "sku": "HELU23802",
+      "nominal_guide_mm": 377.46155223462654,
+      "rail_strip_mm": 14,
+      "ring_barrel_allowance_mm": 14.452,
+      "actual_crimp_strip_mm": null,
+      "actual_cut_mm": null
+    }
+  },
+  "retained": [
+    "MTA6 four bodies/eightfactory ends",
+    "Qualified four complete MAIN input continuations",
+    "W1/W2/W3/W4/E2 fixed material and wiring"
+  ],
+  "open": [
+    "Two P_SYS input feedsW067/W068 and complete receiving/F_PI/source group",
+    "All native independent grips, installed tool/removal access, old920mm full subtotal/stock",
+    "Actual supplied TE crimp strip and factory wire identification"
+  ],
+  "source_sha256": {
+    "tools/cad/plan_current_s1_outputs.py": "4699f6dd81cb12d51b837ee911adf39eef224c90b2248f1d9f686c0eac1b3aee",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/main-source-plan.json": "37ca6f5d5ee17491e1b95ce4a51855d920257ee50321e55d5c5fc0e8c6a5994b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/main-source-checks.json": "e911327b64a1a8496f3c6ad20924fb488370f3cfba3f247d44e5edc1dc9eecff",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/source-group-allocation.json": "011e0d857dc797854204ae0f7e22c619a69a58f679624f0cdcddc4bf1019d8c5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/endpoint-plan.json": "ec21ea5359fee9ff45166271beac5f50d1a9b4ba6d7e954cc372f01d9ba0c62a"
+  },
+  "planning_seconds": 0.018908499972894788
+}
