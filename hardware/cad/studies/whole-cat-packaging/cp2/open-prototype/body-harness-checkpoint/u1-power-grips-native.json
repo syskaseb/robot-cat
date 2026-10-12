@@ -1,0 +1,83 @@
+{
+  "status": "U1_POWER_GRIPS_NATIVE_PREPARED_SERVICE_SELECTION_OPEN",
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1PowerGripsCurrent.FCStd",
+  "native_sha256": "a3d432f9e4074885f44d5e481cf1898476157ad1abba3cdbcb54dc296af8ef16",
+  "exports": [
+    {
+      "part": "MAINGrip",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/MAINGrip_power_grips_x1.stl",
+      "sha256": "16b50bf1d3e3a2d5d6d4f41d937e7c3db04247539baf173615db06a8c23c002b",
+      "size_mm": [
+        23.341999053955078,
+        7.400000095367432,
+        7.75
+      ],
+      "brim_each_mm": 5,
+      "orientation": "Foot/floor down; cantilever supports/coupon in phase2, no slicer approval"
+    },
+    {
+      "part": "LowerCarrier001",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/LowerCarrier001_power_grips_x1.stl",
+      "sha256": "5aa7c8117053a5649b98d0b964ebb1ae3f0159b5587dc726ecec29dd104ce8a3",
+      "size_mm": [
+        184.0,
+        77.99889373779297,
+        10.149999618530273
+      ],
+      "brim_each_mm": 5,
+      "orientation": "Foot/floor down; cantilever supports/coupon in phase2, no slicer approval"
+    },
+    {
+      "part": "E2Fixture",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/E2Fixture_power_grips_x1.stl",
+      "sha256": "32579215e6eaf7e928983ef88497d23c6bc9e0d4750b08a32366121f6ce027bb",
+      "size_mm": [
+        129.0,
+        76.80000305175781,
+        75.9800033569336
+      ],
+      "brim_each_mm": 5,
+      "orientation": "Foot/floor down; cantilever supports/coupon in phase2, no slicer approval"
+    }
+  ],
+  "editable_parts": 3,
+  "parameter_restore_mm": [
+    2,
+    2.2,
+    2
+  ],
+  "relocated_reopen": true,
+  "new_T18R": 2,
+  "lacing_blanks_mm": [
+    150
+  ],
+  "new_metal_fasteners": 0,
+  "MAIN_upper_washers_removed": 2,
+  "MAIN_screw_raise_mm": 0.7,
+  "MAIN_nut_protrusion_mm": 0.5252,
+  "MAIN_common_land_mm": 3,
+  "replaced_parts": [
+    "LowerCarrier001 U1InterfaceCarriersCurrent print",
+    "E2Fixture AUXPowerCurrent print"
+  ],
+  "service": [
+    "No sources/USB connected; support wires, cut dedicated band before board or USB withdrawal.",
+    "MAIN grip uses both existingM2 mount axes; release all4cores before loosening either board screw.",
+    "Short3mm common insulated land requires gentle tension and actual unplugged pull/strain check in phase2.",
+    "Complete shared lever/tool/module access stillOPEN; do not select this local receipt as whole wiring."
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-power-grips-checks.json": "2d35099ff2909d967e688ea0e29fdd5b5f840acc4626bb6b6387de07e04fe6e1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-power-grips-plan.json": "0ae8a06e3e02286d4b93ddcb6ec82e239e0d1b3a54969bfb81127face440992e",
+    "tools/cad/build_u1_power_grips.py": "41ce2ac5943c1bc5aa7f6c5484c2aaebcfb44934e7c14529ca32dacdca782a7c",
+    "tools/cad/plan_u1_power_grips.py": "e2ab797b6d5124a699a28b2cad13f782534107fb7e8517dee2613eacbd69d468"
+  },
+  "selected": false,
+  "E1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "worker_seconds": 341.297
+}
