@@ -1,0 +1,2420 @@
+{
+  "status": "WHOLE11WIRE_PREFIX_PLAN_ONLY",
+  "selected": false,
+  "E1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "routes": {
+    "XL01": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -10.63,
+                23.229999999999997,
+                65.32
+              ],
+              "end": [
+                -10.63,
+                23.229999999999997,
+                74.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -10.63,
+            23.229999999999997,
+            74.32
+          ],
+          "physical_terminal": "PI.H1"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                73.81,
+                -13.97,
+                85.3202
+              ],
+              "end": [
+                73.81,
+                -13.97,
+                94.3202
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            73.81,
+            -13.97,
+            94.3202
+          ],
+          "physical_terminal": "LOGIC3V3.in"
+        }
+      },
+      "source": {
+        "id": "XL01",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H1",
+          "world_mm": [
+            -10.63,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "LOGIC3V3",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "LOGIC3V3.in",
+          "world_mm": [
+            73.81,
+            -13.97,
+            84.3202
+          ],
+          "net": "LOGIC3V3"
+        },
+        "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL10": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -5.550000000000001,
+                25.769999999999996,
+                65.32
+              ],
+              "end": [
+                -5.550000000000001,
+                25.769999999999996,
+                74.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -5.550000000000001,
+            25.769999999999996,
+            74.32
+          ],
+          "physical_terminal": "PI.H6"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                109.37,
+                19.05,
+                85.3202
+              ],
+              "end": [
+                109.37,
+                19.05,
+                94.3202
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            109.37,
+            19.05,
+            94.3202
+          ],
+          "physical_terminal": "G_LOGIC.in"
+        }
+      },
+      "source": {
+        "id": "XL10",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H6",
+          "world_mm": [
+            -5.550000000000001,
+            25.769999999999996,
+            65.32
+          ],
+          "net": "G_SYS",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "G_LOGIC.in",
+          "world_mm": [
+            109.37,
+            19.05,
+            84.3202
+          ],
+          "net": "G_SYS"
+        },
+        "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL07": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                2.0700000000000003,
+                23.229999999999997,
+                65.32
+              ],
+              "end": [
+                2.0700000000000003,
+                23.229999999999997,
+                74.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            2.0700000000000003,
+            23.229999999999997,
+            74.32
+          ],
+          "physical_terminal": "PI.H11"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                78.89,
+                8.89,
+                85.3202
+              ],
+              "end": [
+                78.89,
+                8.89,
+                94.3202
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            78.89,
+            8.89,
+            94.3202
+          ],
+          "physical_terminal": "OE.in"
+        }
+      },
+      "source": {
+        "id": "XL07",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H11",
+          "world_mm": [
+            2.0700000000000003,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "OE_N_3V3",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "OE.in",
+          "world_mm": [
+            78.89,
+            8.89,
+            84.3202
+          ],
+          "net": "OE_N_3V3"
+        },
+        "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL05": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -8.09,
+                23.229999999999997,
+                65.32
+              ],
+              "end": [
+                -8.09,
+                23.229999999999997,
+                74.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -8.09,
+            23.229999999999997,
+            74.32
+          ],
+          "physical_terminal": "PI.H3"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -37.095,
+                -1.143,
+                85.32
+              ],
+              "end": [
+                -37.095,
+                -1.143,
+                94.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -37.095,
+            -1.143,
+            94.32
+          ],
+          "physical_terminal": "PCA.JP3.3"
+        }
+      },
+      "source": {
+        "id": "XL05",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H3",
+          "world_mm": [
+            -8.09,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "I2C_SDA",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.3",
+          "world_mm": [
+            -37.095,
+            -1.143,
+            84.32
+          ],
+          "net": "I2C_SDA"
+        },
+        "construction": "Preserve Pi factory female; solder named PCA pad",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL06": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -5.550000000000001,
+                23.229999999999997,
+                65.32
+              ],
+              "end": [
+                -5.550000000000001,
+                23.229999999999997,
+                74.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -5.550000000000001,
+            23.229999999999997,
+            74.32
+          ],
+          "physical_terminal": "PI.H5"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -37.095,
+                1.397,
+                85.32
+              ],
+              "end": [
+                -37.095,
+                1.397,
+                94.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -37.095,
+            1.397,
+            94.32
+          ],
+          "physical_terminal": "PCA.JP3.4"
+        }
+      },
+      "source": {
+        "id": "XL06",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H5",
+          "world_mm": [
+            -5.550000000000001,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "I2C_SCL",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.4",
+          "world_mm": [
+            -37.095,
+            1.397,
+            84.32
+          ],
+          "net": "I2C_SCL"
+        },
+        "construction": "Preserve Pi factory female; solder named PCA pad",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL02": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                104.29,
+                6.35,
+                85.3202
+              ],
+              "end": [
+                104.29,
+                6.35,
+                94.3202
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            104.29,
+            6.35,
+            94.3202
+          ],
+          "physical_terminal": "PCA3V3.out"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -37.095,
+                -3.683,
+                85.32
+              ],
+              "end": [
+                -37.095,
+                -3.683,
+                94.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -37.095,
+            -3.683,
+            94.32
+          ],
+          "physical_terminal": "PCA.JP3.2"
+        }
+      },
+      "source": {
+        "id": "XL02",
+        "a": {
+          "kind": "actual1608pad",
+          "ref": "PCA3V3.out",
+          "world_mm": [
+            104.29,
+            6.35,
+            84.3202
+          ],
+          "net": "LOGIC3V3"
+        },
+        "b": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.2",
+          "world_mm": [
+            -37.095,
+            -3.683,
+            84.32
+          ],
+          "net": "LOGIC3V3"
+        },
+        "construction": "One fixed PCB-to-PCB logic conductor; not a second Pi feed",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "wire_choice_open": false,
+        "sku_candidate": "LAPP4126002S",
+        "project_radius_mm": 10,
+        "nominal_area_mm2": 0.25,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL08": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -37.095,
+                6.477,
+                85.32
+              ],
+              "end": [
+                -37.095,
+                6.477,
+                94.32
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -37.095,
+            6.477,
+            94.32
+          ],
+          "physical_terminal": "PCA.JP3.6"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                76.35000000000001,
+                19.05,
+                85.3202
+              ],
+              "end": [
+                76.35000000000001,
+                19.05,
+                94.3202
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            76.35000000000001,
+            19.05,
+            94.3202
+          ],
+          "physical_terminal": "G_HP.out"
+        }
+      },
+      "source": {
+        "id": "XL08",
+        "a": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.6",
+          "world_mm": [
+            -37.095,
+            6.477,
+            84.32
+          ],
+          "net": "G_SYS"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "G_HP.out",
+          "world_mm": [
+            76.35000000000001,
+            19.05,
+            84.3202
+          ],
+          "net": "G_SYS"
+        },
+        "construction": "Repurpose reserved signal-GND port as actual PCA reference wire",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "wire_choice_open": false,
+        "sku_candidate": "LAPP4126002S",
+        "project_radius_mm": 10,
+        "nominal_area_mm2": 0.25,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XL09": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                73.81,
+                19.05,
+                85.3202
+              ],
+              "end": [
+                73.81,
+                19.05,
+                94.3202
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            73.81,
+            19.05,
+            94.3202
+          ],
+          "physical_terminal": "G_HY.out"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                37.5,
+                -39.75,
+                141.0
+              ],
+              "end": [
+                46.5,
+                -39.75,
+                141.0
+              ],
+              "length_mm": 9.0
+            },
+            {
+              "kind": "arc",
+              "start": [
+                46.5,
+                -39.75,
+                141.0
+              ],
+              "mid": [
+                53.571067811865476,
+                -42.678932188134524,
+                141.0
+              ],
+              "end": [
+                56.5,
+                -49.75,
+                141.0
+              ],
+              "radius_mm": 10,
+              "length_mm": 15.707963267948966
+            },
+            {
+              "kind": "arc",
+              "start": [
+                56.5,
+                -49.75,
+                141.0
+              ],
+              "mid": [
+                56.5,
+                -56.821067811865476,
+                138.07106781186548
+              ],
+              "end": [
+                56.5,
+                -59.75,
+                131.0
+              ],
+              "radius_mm": 10,
+              "length_mm": 15.707963267948966
+            },
+            {
+              "kind": "line",
+              "start": [
+                56.5,
+                -59.75,
+                131.0
+              ],
+              "end": [
+                56.5,
+                -59.75,
+                122.0
+              ],
+              "length_mm": 9.0
+            }
+          ],
+          "radius": 0.7,
+          "end_axis": [
+            0,
+            0,
+            -1
+          ],
+          "end_mm": [
+            56.5,
+            -59.75,
+            122.0
+          ],
+          "physical_terminal": "G_TAIL.4"
+        }
+      },
+      "source": {
+        "id": "XL09",
+        "a": {
+          "kind": "actual1608pad",
+          "ref": "G_HY.out",
+          "world_mm": [
+            73.81,
+            19.05,
+            84.3202
+          ],
+          "net": "G_SYS"
+        },
+        "b": {
+          "kind": "current_WAGO_port",
+          "ref": "G_TAIL.4",
+          "world_mm": [
+            37.5,
+            -39.75,
+            141.0
+          ],
+          "net": "G_SYS",
+          "departure": [
+            1,
+            0,
+            0
+          ],
+          "basis": "Middle of current numbered ports3/5; provisional4.75mm pitch, not measured supplier cavity"
+        },
+        "construction": "Preserve E4 LOCAL.GND -> G_TAIL.4 reference; do not combine two ends in an occupied port",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "wire_choice_open": false,
+        "sku_candidate": "LAPP4126002S",
+        "project_radius_mm": 10,
+        "nominal_area_mm2": 0.25,
+        "OD_project_upper_mm": 1.4
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XS11": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -32.015,
+                -6.223,
+                84.82
+              ],
+              "end": [
+                -32.015,
+                -6.223,
+                86.32
+              ],
+              "length_mm": 1.5
+            },
+            {
+              "kind": "arc",
+              "start": [
+                -32.015,
+                -6.222999999999997,
+                86.32
+              ],
+              "end": [
+                -32.015,
+                -6.723,
+                86.82
+              ],
+              "length_mm": 0.78539816339745,
+              "mid": [
+                -32.015,
+                -6.369446609406724,
+                86.67355339059327
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                -32.015,
+                -6.723,
+                86.82
+              ],
+              "end": [
+                -32.015,
+                -18.5,
+                86.82
+              ],
+              "length_mm": 11.777000000000001
+            },
+            {
+              "kind": "arc",
+              "start": [
+                -32.015,
+                -18.5,
+                86.82
+              ],
+              "end": [
+                -32.015,
+                -19.000000000000004,
+                87.32
+              ],
+              "length_mm": 0.7853981633974498,
+              "mid": [
+                -32.015,
+                -18.853553390593277,
+                86.96644660940672
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                -32.015,
+                -19.0,
+                87.32
+              ],
+              "end": [
+                -32.015,
+                -19.0,
+                93.0
+              ],
+              "length_mm": 5.680000000000007
+            }
+          ],
+          "radius": 0.4,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -32.015,
+            -19.0,
+            93.0
+          ],
+          "physical_terminal": "PCA.JP2.10"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                78.89,
+                -3.81,
+                84.8202
+              ],
+              "end": [
+                78.89,
+                -3.81,
+                89.8
+              ],
+              "length_mm": 4.979799999999997
+            },
+            {
+              "kind": "arc",
+              "start": [
+                78.89,
+                -3.81,
+                89.8
+              ],
+              "end": [
+                78.39,
+                -3.81,
+                90.3
+              ],
+              "length_mm": 0.7853981633974534,
+              "mid": [
+                78.74355339059328,
+                -3.81,
+                90.15355339059327
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                78.39,
+                -3.81,
+                90.3
+              ],
+              "end": [
+                61.5,
+                -3.81,
+                90.3
+              ],
+              "length_mm": 16.89
+            },
+            {
+              "kind": "arc",
+              "start": [
+                61.5,
+                -3.81,
+                90.3
+              ],
+              "end": [
+                61.00000000000001,
+                -3.81,
+                90.8
+              ],
+              "length_mm": 0.7853981633974526,
+              "mid": [
+                61.14644660940672,
+                -3.81,
+                90.44644660940672
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                61.0,
+                -3.81,
+                90.8
+              ],
+              "end": [
+                61.0,
+                -3.81,
+                93.0
+              ],
+              "length_mm": 2.200000000000003
+            }
+          ],
+          "radius": 0.4,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            61.0,
+            -3.81,
+            93.0
+          ],
+          "physical_terminal": "A1.in"
+        }
+      },
+      "source": {
+        "id": "XS11",
+        "a": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP2.10",
+          "world_mm": [
+            -32.015,
+            -6.223,
+            84.32
+          ],
+          "net": "PWM_HEAD_YAW_3V3"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "A1.in",
+          "world_mm": [
+            78.89,
+            -3.81,
+            84.3202
+          ],
+          "net": "PWM_HEAD_YAW_3V3"
+        },
+        "construction": "Whole fixed PWM input including actual board ends; no assigned motor current",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "wire_choice_open": false,
+        "sku_candidate": "Adafruit1446",
+        "AWG": 30,
+        "project_radius_mm": 0.5,
+        "OD_project_upper_mm": 0.8,
+        "fixed_low_current_logic_only": true,
+        "radius_and_OD_are_project_fit_gates_not_catalogue": true,
+        "endpoint_under_adapter_requires_shared_fan": true
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XS21": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -29.475,
+                -6.223,
+                84.82
+              ],
+              "end": [
+                -29.475,
+                -6.223,
+                86.32
+              ],
+              "length_mm": 1.5
+            },
+            {
+              "kind": "arc",
+              "start": [
+                -29.475,
+                -6.222999999999997,
+                86.32
+              ],
+              "end": [
+                -29.475,
+                -6.723,
+                86.82
+              ],
+              "length_mm": 0.78539816339745,
+              "mid": [
+                -29.475,
+                -6.369446609406724,
+                86.67355339059327
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                -29.475,
+                -6.723,
+                86.82
+              ],
+              "end": [
+                -29.475,
+                -18.5,
+                86.82
+              ],
+              "length_mm": 11.777000000000001
+            },
+            {
+              "kind": "arc",
+              "start": [
+                -29.475,
+                -18.5,
+                86.82
+              ],
+              "end": [
+                -29.475,
+                -19.000000000000004,
+                87.32
+              ],
+              "length_mm": 0.7853981633974498,
+              "mid": [
+                -29.475,
+                -18.853553390593277,
+                86.96644660940672
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                -29.475,
+                -19.0,
+                87.32
+              ],
+              "end": [
+                -29.475,
+                -19.0,
+                93.0
+              ],
+              "length_mm": 5.680000000000007
+            }
+          ],
+          "radius": 0.4,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -29.475,
+            -19.0,
+            93.0
+          ],
+          "physical_terminal": "PCA.JP2.7"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                81.43,
+                -3.81,
+                84.8202
+              ],
+              "end": [
+                81.43,
+                -3.81,
+                89.8
+              ],
+              "length_mm": 4.979799999999997
+            },
+            {
+              "kind": "arc",
+              "start": [
+                81.43,
+                -3.8099999999999974,
+                89.8
+              ],
+              "end": [
+                81.43,
+                -4.31,
+                90.3
+              ],
+              "length_mm": 0.7853981633974495,
+              "mid": [
+                81.43,
+                -3.9564466094067243,
+                90.15355339059327
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                81.43,
+                -4.31,
+                90.3
+              ],
+              "end": [
+                81.43,
+                -4.58,
+                90.3
+              ],
+              "length_mm": 0.27000000000000046
+            },
+            {
+              "kind": "arc",
+              "start": [
+                81.43,
+                -4.58,
+                90.3
+              ],
+              "end": [
+                80.93,
+                -5.080000000000003,
+                90.3
+              ],
+              "length_mm": 0.7853981633974499,
+              "mid": [
+                81.28355339059328,
+                -4.933553390593276,
+                90.3
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                80.93,
+                -5.08,
+                90.3
+              ],
+              "end": [
+                61.5,
+                -5.08,
+                90.3
+              ],
+              "length_mm": 19.430000000000007
+            },
+            {
+              "kind": "arc",
+              "start": [
+                61.5,
+                -5.08,
+                90.3
+              ],
+              "end": [
+                61.00000000000001,
+                -5.08,
+                90.8
+              ],
+              "length_mm": 0.7853981633974526,
+              "mid": [
+                61.14644660940672,
+                -5.08,
+                90.44644660940672
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                61.0,
+                -5.08,
+                90.8
+              ],
+              "end": [
+                61.0,
+                -5.08,
+                93.0
+              ],
+              "length_mm": 2.200000000000003
+            }
+          ],
+          "radius": 0.4,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            61.0,
+            -5.08,
+            93.0
+          ],
+          "physical_terminal": "A2.in"
+        }
+      },
+      "source": {
+        "id": "XS21",
+        "a": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP2.7",
+          "world_mm": [
+            -29.475,
+            -6.223,
+            84.32
+          ],
+          "net": "PWM_HEAD_PITCH_3V3"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "A2.in",
+          "world_mm": [
+            81.43,
+            -3.81,
+            84.3202
+          ],
+          "net": "PWM_HEAD_PITCH_3V3"
+        },
+        "construction": "Whole fixed PWM input including actual board ends; no assigned motor current",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "wire_choice_open": false,
+        "sku_candidate": "Adafruit1446",
+        "AWG": 30,
+        "project_radius_mm": 0.5,
+        "OD_project_upper_mm": 0.8,
+        "fixed_low_current_logic_only": true,
+        "radius_and_OD_are_project_fit_gates_not_catalogue": true,
+        "endpoint_under_adapter_requires_shared_fan": true
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    },
+    "XS31": {
+      "ends": {
+        "a": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                -26.935,
+                -6.223,
+                84.82
+              ],
+              "end": [
+                -26.935,
+                -6.223,
+                86.32
+              ],
+              "length_mm": 1.5
+            },
+            {
+              "kind": "arc",
+              "start": [
+                -26.935,
+                -6.222999999999997,
+                86.32
+              ],
+              "end": [
+                -26.935,
+                -6.723,
+                86.82
+              ],
+              "length_mm": 0.78539816339745,
+              "mid": [
+                -26.935,
+                -6.369446609406724,
+                86.67355339059327
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                -26.935,
+                -6.723,
+                86.82
+              ],
+              "end": [
+                -26.935,
+                -18.5,
+                86.82
+              ],
+              "length_mm": 11.777000000000001
+            },
+            {
+              "kind": "arc",
+              "start": [
+                -26.935,
+                -18.5,
+                86.82
+              ],
+              "end": [
+                -26.935,
+                -19.000000000000004,
+                87.32
+              ],
+              "length_mm": 0.7853981633974498,
+              "mid": [
+                -26.935,
+                -18.853553390593277,
+                86.96644660940672
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                -26.935,
+                -19.0,
+                87.32
+              ],
+              "end": [
+                -26.935,
+                -19.0,
+                93.0
+              ],
+              "length_mm": 5.680000000000007
+            }
+          ],
+          "radius": 0.4,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            -26.935,
+            -19.0,
+            93.0
+          ],
+          "physical_terminal": "PCA.JP2.4"
+        },
+        "b": {
+          "parts": [
+            {
+              "kind": "line",
+              "start": [
+                83.97,
+                -3.81,
+                84.8202
+              ],
+              "end": [
+                83.97,
+                -3.81,
+                89.8
+              ],
+              "length_mm": 4.979799999999997
+            },
+            {
+              "kind": "arc",
+              "start": [
+                83.97,
+                -3.8099999999999974,
+                89.8
+              ],
+              "end": [
+                83.97,
+                -4.31,
+                90.3
+              ],
+              "length_mm": 0.7853981633974495,
+              "mid": [
+                83.97,
+                -3.9564466094067243,
+                90.15355339059327
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                83.97,
+                -4.31,
+                90.3
+              ],
+              "end": [
+                83.97,
+                -5.85,
+                90.3
+              ],
+              "length_mm": 1.54
+            },
+            {
+              "kind": "arc",
+              "start": [
+                83.97,
+                -5.85,
+                90.3
+              ],
+              "end": [
+                83.47,
+                -6.350000000000002,
+                90.3
+              ],
+              "length_mm": 0.7853981633974499,
+              "mid": [
+                83.82355339059328,
+                -6.203553390593275,
+                90.3
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                83.47,
+                -6.35,
+                90.3
+              ],
+              "end": [
+                61.5,
+                -6.35,
+                90.3
+              ],
+              "length_mm": 21.97
+            },
+            {
+              "kind": "arc",
+              "start": [
+                61.5,
+                -6.35,
+                90.3
+              ],
+              "end": [
+                61.00000000000001,
+                -6.35,
+                90.8
+              ],
+              "length_mm": 0.7853981633974526,
+              "mid": [
+                61.14644660940672,
+                -6.35,
+                90.44644660940672
+              ]
+            },
+            {
+              "kind": "line",
+              "start": [
+                61.0,
+                -6.35,
+                90.8
+              ],
+              "end": [
+                61.0,
+                -6.35,
+                93.0
+              ],
+              "length_mm": 2.200000000000003
+            }
+          ],
+          "radius": 0.4,
+          "end_axis": [
+            0,
+            0,
+            1
+          ],
+          "end_mm": [
+            61.0,
+            -6.35,
+            93.0
+          ],
+          "physical_terminal": "A3.in"
+        }
+      },
+      "source": {
+        "id": "XS31",
+        "a": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP2.4",
+          "world_mm": [
+            -26.935,
+            -6.223,
+            84.32
+          ],
+          "net": "PWM_TAIL_YAW_3V3"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "A3.in",
+          "world_mm": [
+            83.97,
+            -3.81,
+            84.3202
+          ],
+          "net": "PWM_TAIL_YAW_3V3"
+        },
+        "construction": "Whole fixed PWM input including actual board ends; no assigned motor current",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "wire_choice_open": false,
+        "sku_candidate": "Adafruit1446",
+        "AWG": 30,
+        "project_radius_mm": 0.5,
+        "OD_project_upper_mm": 0.8,
+        "fixed_low_current_logic_only": true,
+        "radius_and_OD_are_project_fit_gates_not_catalogue": true,
+        "endpoint_under_adapter_requires_shared_fan": true
+      },
+      "actual_cut_mm": null,
+      "middle_route_open": true
+    }
+  },
+  "bare": {
+    "XL01/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            73.81,
+            -13.97,
+            81.2202
+          ],
+          "end": [
+            73.81,
+            -13.97,
+            85.3202
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius": 0.2026375466632702,
+      "ends_on_source_pad": "LOGIC3V3.in",
+      "stripped_nominal_mm": 4.099999999999994,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL10/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            109.37,
+            19.05,
+            81.2202
+          ],
+          "end": [
+            109.37,
+            19.05,
+            85.3202
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius": 0.2026375466632702,
+      "ends_on_source_pad": "G_LOGIC.in",
+      "stripped_nominal_mm": 4.099999999999994,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL07/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            78.89,
+            8.89,
+            81.2202
+          ],
+          "end": [
+            78.89,
+            8.89,
+            85.3202
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius": 0.2026375466632702,
+      "ends_on_source_pad": "OE.in",
+      "stripped_nominal_mm": 4.099999999999994,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL05/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -37.095,
+            -1.143,
+            81.2202
+          ],
+          "end": [
+            -37.095,
+            -1.143,
+            85.32
+          ],
+          "length_mm": 4.099799999999988
+        }
+      ],
+      "radius": 0.2026375466632702,
+      "ends_on_source_pad": "PCA.JP3.3",
+      "stripped_nominal_mm": 4.099799999999988,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL06/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -37.095,
+            1.397,
+            81.2202
+          ],
+          "end": [
+            -37.095,
+            1.397,
+            85.32
+          ],
+          "length_mm": 4.099799999999988
+        }
+      ],
+      "radius": 0.2026375466632702,
+      "ends_on_source_pad": "PCA.JP3.4",
+      "stripped_nominal_mm": 4.099799999999988,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL02/a": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            104.29,
+            6.35,
+            81.2202
+          ],
+          "end": [
+            104.29,
+            6.35,
+            85.3202
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius": 0.28209479177387814,
+      "ends_on_source_pad": "PCA3V3.out",
+      "stripped_nominal_mm": 4.099999999999994,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL02/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -37.095,
+            -3.683,
+            81.2202
+          ],
+          "end": [
+            -37.095,
+            -3.683,
+            85.32
+          ],
+          "length_mm": 4.099799999999988
+        }
+      ],
+      "radius": 0.28209479177387814,
+      "ends_on_source_pad": "PCA.JP3.2",
+      "stripped_nominal_mm": 4.099799999999988,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL08/a": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -37.095,
+            6.477,
+            81.2202
+          ],
+          "end": [
+            -37.095,
+            6.477,
+            85.32
+          ],
+          "length_mm": 4.099799999999988
+        }
+      ],
+      "radius": 0.28209479177387814,
+      "ends_on_source_pad": "PCA.JP3.6",
+      "stripped_nominal_mm": 4.099799999999988,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL08/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            76.35000000000001,
+            19.05,
+            81.2202
+          ],
+          "end": [
+            76.35000000000001,
+            19.05,
+            85.3202
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius": 0.28209479177387814,
+      "ends_on_source_pad": "G_HP.out",
+      "stripped_nominal_mm": 4.099999999999994,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XL09/a": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            73.81,
+            19.05,
+            81.2202
+          ],
+          "end": [
+            73.81,
+            19.05,
+            85.3202
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius": 0.28209479177387814,
+      "ends_on_source_pad": "G_HY.out",
+      "stripped_nominal_mm": 4.099999999999994,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XS11/a": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -32.015,
+            -6.223,
+            81.2202
+          ],
+          "end": [
+            -32.015,
+            -6.223,
+            84.82
+          ],
+          "length_mm": 3.5997999999999877
+        }
+      ],
+      "radius": 0.13,
+      "ends_on_source_pad": "PCA.JP2.10",
+      "stripped_nominal_mm": 3.5997999999999877,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XS11/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            78.89,
+            -3.81,
+            81.2202
+          ],
+          "end": [
+            78.89,
+            -3.81,
+            84.8202
+          ],
+          "length_mm": 3.5999999999999943
+        }
+      ],
+      "radius": 0.13,
+      "ends_on_source_pad": "A1.in",
+      "stripped_nominal_mm": 3.5999999999999943,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XS21/a": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -29.475,
+            -6.223,
+            81.2202
+          ],
+          "end": [
+            -29.475,
+            -6.223,
+            84.82
+          ],
+          "length_mm": 3.5997999999999877
+        }
+      ],
+      "radius": 0.13,
+      "ends_on_source_pad": "PCA.JP2.7",
+      "stripped_nominal_mm": 3.5997999999999877,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XS21/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            81.43,
+            -3.81,
+            81.2202
+          ],
+          "end": [
+            81.43,
+            -3.81,
+            84.8202
+          ],
+          "length_mm": 3.5999999999999943
+        }
+      ],
+      "radius": 0.13,
+      "ends_on_source_pad": "A2.in",
+      "stripped_nominal_mm": 3.5999999999999943,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XS31/a": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -26.935,
+            -6.223,
+            81.2202
+          ],
+          "end": [
+            -26.935,
+            -6.223,
+            84.82
+          ],
+          "length_mm": 3.5997999999999877
+        }
+      ],
+      "radius": 0.13,
+      "ends_on_source_pad": "PCA.JP2.4",
+      "stripped_nominal_mm": 3.5997999999999877,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    },
+    "XS31/b": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            83.97,
+            -3.81,
+            81.2202
+          ],
+          "end": [
+            83.97,
+            -3.81,
+            84.8202
+          ],
+          "length_mm": 3.5999999999999943
+        }
+      ],
+      "radius": 0.13,
+      "ends_on_source_pad": "A3.in",
+      "stripped_nominal_mm": 3.5999999999999943,
+      "instruction": "Untinned strands through named existing hole, solder only at pad; inspect actual fillet/insulation. Not a free cable grip."
+    }
+  },
+  "grip_lands": [
+    {
+      "wire": "XL01",
+      "side": "a",
+      "line_mm": [
+        [
+          -10.63,
+          23.229999999999997,
+          65.32
+        ],
+        [
+          -10.63,
+          23.229999999999997,
+          74.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL01",
+      "side": "b",
+      "line_mm": [
+        [
+          73.81,
+          -13.97,
+          85.3202
+        ],
+        [
+          73.81,
+          -13.97,
+          94.3202
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL10",
+      "side": "a",
+      "line_mm": [
+        [
+          -5.550000000000001,
+          25.769999999999996,
+          65.32
+        ],
+        [
+          -5.550000000000001,
+          25.769999999999996,
+          74.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL10",
+      "side": "b",
+      "line_mm": [
+        [
+          109.37,
+          19.05,
+          85.3202
+        ],
+        [
+          109.37,
+          19.05,
+          94.3202
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL07",
+      "side": "a",
+      "line_mm": [
+        [
+          2.0700000000000003,
+          23.229999999999997,
+          65.32
+        ],
+        [
+          2.0700000000000003,
+          23.229999999999997,
+          74.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL07",
+      "side": "b",
+      "line_mm": [
+        [
+          78.89,
+          8.89,
+          85.3202
+        ],
+        [
+          78.89,
+          8.89,
+          94.3202
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL05",
+      "side": "a",
+      "line_mm": [
+        [
+          -8.09,
+          23.229999999999997,
+          65.32
+        ],
+        [
+          -8.09,
+          23.229999999999997,
+          74.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL05",
+      "side": "b",
+      "line_mm": [
+        [
+          -37.095,
+          -1.143,
+          85.32
+        ],
+        [
+          -37.095,
+          -1.143,
+          94.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL06",
+      "side": "a",
+      "line_mm": [
+        [
+          -5.550000000000001,
+          23.229999999999997,
+          65.32
+        ],
+        [
+          -5.550000000000001,
+          23.229999999999997,
+          74.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL06",
+      "side": "b",
+      "line_mm": [
+        [
+          -37.095,
+          1.397,
+          85.32
+        ],
+        [
+          -37.095,
+          1.397,
+          94.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL02",
+      "side": "a",
+      "line_mm": [
+        [
+          104.29,
+          6.35,
+          85.3202
+        ],
+        [
+          104.29,
+          6.35,
+          94.3202
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL02",
+      "side": "b",
+      "line_mm": [
+        [
+          -37.095,
+          -3.683,
+          85.32
+        ],
+        [
+          -37.095,
+          -3.683,
+          94.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL08",
+      "side": "a",
+      "line_mm": [
+        [
+          -37.095,
+          6.477,
+          85.32
+        ],
+        [
+          -37.095,
+          6.477,
+          94.32
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL08",
+      "side": "b",
+      "line_mm": [
+        [
+          76.35000000000001,
+          19.05,
+          85.3202
+        ],
+        [
+          76.35000000000001,
+          19.05,
+          94.3202
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL09",
+      "side": "a",
+      "line_mm": [
+        [
+          73.81,
+          19.05,
+          85.3202
+        ],
+        [
+          73.81,
+          19.05,
+          94.3202
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XL09",
+      "side": "b",
+      "line_mm": [
+        [
+          37.5,
+          -39.75,
+          141.0
+        ],
+        [
+          46.5,
+          -39.75,
+          141.0
+        ]
+      ],
+      "wire_OD_project_mm": 1.4,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XS11",
+      "side": "a",
+      "line_mm": [
+        [
+          -32.015,
+          -17.5,
+          86.82
+        ],
+        [
+          -32.015,
+          -8.5,
+          86.82
+        ]
+      ],
+      "wire_OD_project_mm": 0.8,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XS11",
+      "side": "b",
+      "line_mm": [
+        [
+          62,
+          -3.81,
+          90.3
+        ],
+        [
+          71,
+          -3.81,
+          90.3
+        ]
+      ],
+      "wire_OD_project_mm": 0.8,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XS21",
+      "side": "a",
+      "line_mm": [
+        [
+          -29.475,
+          -17.5,
+          86.82
+        ],
+        [
+          -29.475,
+          -8.5,
+          86.82
+        ]
+      ],
+      "wire_OD_project_mm": 0.8,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XS21",
+      "side": "b",
+      "line_mm": [
+        [
+          62,
+          -5.08,
+          90.3
+        ],
+        [
+          71,
+          -5.08,
+          90.3
+        ]
+      ],
+      "wire_OD_project_mm": 0.8,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XS31",
+      "side": "a",
+      "line_mm": [
+        [
+          -26.935,
+          -17.5,
+          86.82
+        ],
+        [
+          -26.935,
+          -8.5,
+          86.82
+        ]
+      ],
+      "wire_OD_project_mm": 0.8,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    },
+    {
+      "wire": "XS31",
+      "side": "b",
+      "line_mm": [
+        [
+          62,
+          -6.35,
+          90.3
+        ],
+        [
+          71,
+          -6.35,
+          90.3
+        ]
+      ],
+      "wire_OD_project_mm": 0.8,
+      "owner": "Carrier-rooted replaceable insulation grip; not socket bar or copper pad",
+      "native_open": true
+    }
+  ],
+  "limits": "Fine0.5mm bends only fixed1446PWM. All other wires retainR10. No whole cable is declared from these prefixes.",
+  "required_next": [
+    "Qualified end departures -> one common middle allocation including all retained wires/material",
+    "Native independent grips, complete insulation, service, stock and selection"
+  ],
+  "source_sha256": {
+    "tools/electronics/plan_u1_external_interfaces.py": "dfb89c408d3ee48eaf36a32a2f8afc831acee4d36cdb8bfb9dfd162ced694a5f",
+    "tools/cad/plan_u1_external_fan.py": "aa1d6b209305a0e39c3b03b7b08d29842f559a4d37bfd12ea2740a9c6fc35544",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-carrier-plan.json": "d1033a9322c43f4ba311dafce772d2915bdc4f24e2afe0319a558a869e1061f8",
+    "hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.brd": "803e6388dd025d2ef9312a7fbe731b7fd5edbd495ca3e93b6ade830a58212da0",
+    "hardware/electronics/full-cat/netlist-r1/netlist.json": "e48e02a08cd9f82a975011a80127ee0e18bf303d061eaa09f6015de57f740a5b",
+    "hardware/electronics/full-cat/netlist-r1/logic-binding.json": "8309fe4910fc04f7e1e805582fa125f9e407d793c467384ee945e25198558344",
+    "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json": "c4432f2ed29355a19b80f513ae5693abe74a1a8c3054485d7cacbdce07ae7008",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/selection.json": "470809555653fb217ad0cfa1f266402247b9e6687818f7e7857f10130e14abb0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-wiring-checkpoint/current-plan.json": "f5c0cd2d46b62aa1cb02aa0286e54d34b4f8817f465f600aa7ac8047fdaa47de",
+    "hardware/reference/p0-kit-2026-09-25/SIGNAL-CABLES.md": "3627a1dd381f65e39e1342ebc31fcfc2daced3676a96aeacd74bae4ee6fb8894",
+    "hardware/reference/u1-socket-connectors-2026-10-12/wire-facts.json": "0db7e46ca5944834c318bb268e6445af4f062853389a358202a35c3911aa9d48"
+  }
+}

@@ -1,0 +1,472 @@
+{
+  "status": "E4_BOUND_EXTERNAL_INTERFACE_PLAN_ROUTES_GRIPS_OPEN",
+  "selected": false,
+  "E1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "wires": [
+    {
+      "id": "XL01",
+      "a": {
+        "kind": "project40pin_housing_wire_exit",
+        "ref": "PI.H1",
+        "world_mm": [
+          -10.63,
+          23.229999999999997,
+          65.32
+        ],
+        "net": "LOGIC3V3",
+        "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "LOGIC3V3.in",
+        "world_mm": [
+          73.81,
+          -13.97,
+          84.3202
+        ],
+        "net": "LOGIC3V3"
+      },
+      "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "sku_candidate": "Pololu1871",
+      "AWG": 26,
+      "factory_nominal_mm": 600,
+      "service_reserve_Pi_mm": 30,
+      "project_radius_mm": 10,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL10",
+      "a": {
+        "kind": "project40pin_housing_wire_exit",
+        "ref": "PI.H6",
+        "world_mm": [
+          -5.550000000000001,
+          25.769999999999996,
+          65.32
+        ],
+        "net": "G_SYS",
+        "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "G_LOGIC.in",
+        "world_mm": [
+          109.37,
+          19.05,
+          84.3202
+        ],
+        "net": "G_SYS"
+      },
+      "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "sku_candidate": "Pololu1871",
+      "AWG": 26,
+      "factory_nominal_mm": 600,
+      "service_reserve_Pi_mm": 30,
+      "project_radius_mm": 10,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL07",
+      "a": {
+        "kind": "project40pin_housing_wire_exit",
+        "ref": "PI.H11",
+        "world_mm": [
+          2.0700000000000003,
+          23.229999999999997,
+          65.32
+        ],
+        "net": "OE_N_3V3",
+        "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "OE.in",
+        "world_mm": [
+          78.89,
+          8.89,
+          84.3202
+        ],
+        "net": "OE_N_3V3"
+      },
+      "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "sku_candidate": "Pololu1871",
+      "AWG": 26,
+      "factory_nominal_mm": 600,
+      "service_reserve_Pi_mm": 30,
+      "project_radius_mm": 10,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL05",
+      "a": {
+        "kind": "project40pin_housing_wire_exit",
+        "ref": "PI.H3",
+        "world_mm": [
+          -8.09,
+          23.229999999999997,
+          65.32
+        ],
+        "net": "I2C_SDA",
+        "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+      },
+      "b": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP3.3",
+        "world_mm": [
+          -37.095,
+          -1.143,
+          84.32
+        ],
+        "net": "I2C_SDA"
+      },
+      "construction": "Preserve Pi factory female; solder named PCA pad",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "sku_candidate": "Pololu1871",
+      "AWG": 26,
+      "factory_nominal_mm": 600,
+      "service_reserve_Pi_mm": 30,
+      "project_radius_mm": 10,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL06",
+      "a": {
+        "kind": "project40pin_housing_wire_exit",
+        "ref": "PI.H5",
+        "world_mm": [
+          -5.550000000000001,
+          23.229999999999997,
+          65.32
+        ],
+        "net": "I2C_SCL",
+        "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+      },
+      "b": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP3.4",
+        "world_mm": [
+          -37.095,
+          1.397,
+          84.32
+        ],
+        "net": "I2C_SCL"
+      },
+      "construction": "Preserve Pi factory female; solder named PCA pad",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "sku_candidate": "Pololu1871",
+      "AWG": 26,
+      "factory_nominal_mm": 600,
+      "service_reserve_Pi_mm": 30,
+      "project_radius_mm": 10,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL02",
+      "a": {
+        "kind": "actual1608pad",
+        "ref": "PCA3V3.out",
+        "world_mm": [
+          104.29,
+          6.35,
+          84.3202
+        ],
+        "net": "LOGIC3V3"
+      },
+      "b": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP3.2",
+        "world_mm": [
+          -37.095,
+          -3.683,
+          84.32
+        ],
+        "net": "LOGIC3V3"
+      },
+      "construction": "One fixed PCB-to-PCB logic conductor; not a second Pi feed",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "wire_choice_open": false,
+      "sku_candidate": "LAPP4126002S",
+      "project_radius_mm": 10,
+      "nominal_area_mm2": 0.25,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL08",
+      "a": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP3.6",
+        "world_mm": [
+          -37.095,
+          6.477,
+          84.32
+        ],
+        "net": "G_SYS"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "G_HP.out",
+        "world_mm": [
+          76.35000000000001,
+          19.05,
+          84.3202
+        ],
+        "net": "G_SYS"
+      },
+      "construction": "Repurpose reserved signal-GND port as actual PCA reference wire",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "wire_choice_open": false,
+      "sku_candidate": "LAPP4126002S",
+      "project_radius_mm": 10,
+      "nominal_area_mm2": 0.25,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XL09",
+      "a": {
+        "kind": "actual1608pad",
+        "ref": "G_HY.out",
+        "world_mm": [
+          73.81,
+          19.05,
+          84.3202
+        ],
+        "net": "G_SYS"
+      },
+      "b": {
+        "kind": "current_WAGO_port",
+        "ref": "G_TAIL.4",
+        "world_mm": [
+          37.5,
+          -39.75,
+          141.0
+        ],
+        "net": "G_SYS",
+        "departure": [
+          1,
+          0,
+          0
+        ],
+        "basis": "Middle of current numbered ports3/5; provisional4.75mm pitch, not measured supplier cavity"
+      },
+      "construction": "Preserve E4 LOCAL.GND -> G_TAIL.4 reference; do not combine two ends in an occupied port",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "wire_choice_open": false,
+      "sku_candidate": "LAPP4126002S",
+      "project_radius_mm": 10,
+      "nominal_area_mm2": 0.25,
+      "OD_project_upper_mm": 1.4
+    },
+    {
+      "id": "XS11",
+      "a": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP2.10",
+        "world_mm": [
+          -32.015,
+          -6.223,
+          84.32
+        ],
+        "net": "PWM_HEAD_YAW_3V3"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "A1.in",
+        "world_mm": [
+          78.89,
+          -3.81,
+          84.3202
+        ],
+        "net": "PWM_HEAD_YAW_3V3"
+      },
+      "construction": "Whole fixed PWM input including actual board ends; no assigned motor current",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "wire_choice_open": false,
+      "sku_candidate": "Adafruit1446",
+      "AWG": 30,
+      "project_radius_mm": 0.5,
+      "OD_project_upper_mm": 0.8,
+      "fixed_low_current_logic_only": true,
+      "radius_and_OD_are_project_fit_gates_not_catalogue": true,
+      "endpoint_under_adapter_requires_shared_fan": true
+    },
+    {
+      "id": "XS21",
+      "a": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP2.7",
+        "world_mm": [
+          -29.475,
+          -6.223,
+          84.32
+        ],
+        "net": "PWM_HEAD_PITCH_3V3"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "A2.in",
+        "world_mm": [
+          81.43,
+          -3.81,
+          84.3202
+        ],
+        "net": "PWM_HEAD_PITCH_3V3"
+      },
+      "construction": "Whole fixed PWM input including actual board ends; no assigned motor current",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "wire_choice_open": false,
+      "sku_candidate": "Adafruit1446",
+      "AWG": 30,
+      "project_radius_mm": 0.5,
+      "OD_project_upper_mm": 0.8,
+      "fixed_low_current_logic_only": true,
+      "radius_and_OD_are_project_fit_gates_not_catalogue": true,
+      "endpoint_under_adapter_requires_shared_fan": true
+    },
+    {
+      "id": "XS31",
+      "a": {
+        "kind": "supplier815revCpad",
+        "ref": "PCA.JP2.4",
+        "world_mm": [
+          -26.935,
+          -6.223,
+          84.32
+        ],
+        "net": "PWM_TAIL_YAW_3V3"
+      },
+      "b": {
+        "kind": "actual1608pad",
+        "ref": "A3.in",
+        "world_mm": [
+          83.97,
+          -3.81,
+          84.3202
+        ],
+        "net": "PWM_TAIL_YAW_3V3"
+      },
+      "construction": "Whole fixed PWM input including actual board ends; no assigned motor current",
+      "actual_cut_mm": null,
+      "route_qualified": false,
+      "independent_insulation_grips_required": true,
+      "wire_choice_open": false,
+      "sku_candidate": "Adafruit1446",
+      "AWG": 30,
+      "project_radius_mm": 0.5,
+      "OD_project_upper_mm": 0.8,
+      "fixed_low_current_logic_only": true,
+      "radius_and_OD_are_project_fit_gates_not_catalogue": true,
+      "endpoint_under_adapter_requires_shared_fan": true
+    }
+  ],
+  "occupied_external_terminals": 22,
+  "added_occupied1608hole": {
+    "ref": "PCA3V3.out",
+    "x": 12.7,
+    "y": 6.35,
+    "net": "LOGIC3V3",
+    "source_copper_group": "N$49"
+  },
+  "unchanged_output_ports": [
+    "B1.out/XS13",
+    "B2.out/XS23",
+    "B3.out/XS33"
+  ],
+  "retained_E2": [
+    "XP02.board/PWM_REG_IN",
+    "XP03.board/G_SYS fromG_TAIL.3; separate fromXL09/G_TAIL.4"
+  ],
+  "not_installed": [
+    "No extra G_HY/G_HP/G_TY thin leads to servo motor-GND contacts",
+    "G_TY.out reserved copper hole remains physically unpopulated"
+  ],
+  "rationale": "R7/R8/R9 already use local servo connector GND. Selected E4 uses XB13/XB23/XB33 motor returns; old population separate signalGND names are not extra three physical servo contacts.",
+  "unchanged_logical_graph": "XL03/04/11/12/13 and XP04A/B/C realized by qualified same-net copper/header/local links, not extra long wires",
+  "GPIO_factory_choice": "Later pi-interface-final-r2 Pololu1871/600mm supersedes early1841/300mm candidate; selected stock still must reconcile",
+  "fixed_link_choice": "XL02/08/09 use existing LAPP4126002S0.25mm2 stock candidate: supplier nominalOD1.3/staticR5.2; projectOD<=1.4/R10. No26AWG0.129mm2 direct WAGO termination below0.14mm2 minimum.",
+  "E4_physical_gauge_deltas": {
+    "XS11/21/31": "0.14mm2 generic -> supported fixed30AWG1446 logic only",
+    "XL02/08/09": "0.14mm2 generic ->0.25mm2 fixedLAPP; electrical nets unchanged"
+  },
+  "no_connect": [
+    "Pi2/4 and other35housing cavities",
+    "PCAJP3.1/V+",
+    "PCAJP3.5/OE",
+    "PCAJP4whole",
+    "PCAallservoV+"
+  ],
+  "actual_GPIO_binding": {
+    "status": "PROJECT_DESIGN_NOT_DELIVERED_VERIFICATION",
+    "pi_header": {
+      "LOGIC3V3": 1,
+      "GND": 6,
+      "SDA": 3,
+      "SCL": 5,
+      "U1_OE": 11
+    },
+    "bcm": {
+      "SDA": 2,
+      "SCL": 3,
+      "U1_OE": 17
+    },
+    "channels": {
+      "head_yaw": 0,
+      "head_pitch": 1,
+      "tail_yaw": 2
+    },
+    "i2c_address_design": "0x40, all address solder bridges open; verify delivered revision",
+    "pca_oe": "JP3.5 left unconnected; onboard pulldown retained. U1 pin22 is the independent output gate, not tied to PCA OE.",
+    "unused_pca": "channels3..15 FULL_OFF; all V+ pads and screw power terminal unconnected",
+    "gpio_boot": "BCM17 must be input/high or output HIGH until deliberate start; existing R15=10k pulls U1.22 to3V3. No SPI1 or conflicting overlay on BCM17.",
+    "sources": {
+      "pi": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio-and-the-40-pin-header",
+      "pca": "https://learn.adafruit.com/16-channel-pwm-servo-driver/pinouts",
+      "u1": "https://www.ti.com/lit/ds/symlink/sn74lvc8t245.pdf"
+    },
+    "actual_verified": false
+  },
+  "delivery_gate": "Unpowered actual connector/pin1/revision/OD/solder/insulation checks, no physicalPASS",
+  "required_next": [
+    "One shared fan for all11conductors plus currentE2/W3/W4/retention, before new mounts",
+    "G_TAIL.4 bound to current ports3/5; independent entry grip and lever access still OPEN",
+    "No radius/gauge relaxation without an explicit supported fixed-wire choice",
+    "Independent cable grips, native assembly, stock, one selection"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-carrier-plan.json": "d1033a9322c43f4ba311dafce772d2915bdc4f24e2afe0319a558a869e1061f8",
+    "hardware/reference/adafruit815-2026-09-26/Adafruit PCA9685 rev C.brd": "803e6388dd025d2ef9312a7fbe731b7fd5edbd495ca3e93b6ade830a58212da0",
+    "hardware/electronics/full-cat/netlist-r1/netlist.json": "e48e02a08cd9f82a975011a80127ee0e18bf303d061eaa09f6015de57f740a5b",
+    "hardware/electronics/full-cat/netlist-r1/logic-binding.json": "8309fe4910fc04f7e1e805582fa125f9e407d793c467384ee945e25198558344",
+    "hardware/electronics/full-cat/pi-interface-final-r2/wiring-card.json": "c4432f2ed29355a19b80f513ae5693abe74a1a8c3054485d7cacbdce07ae7008",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/selection.json": "470809555653fb217ad0cfa1f266402247b9e6687818f7e7857f10130e14abb0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-wiring-checkpoint/current-plan.json": "f5c0cd2d46b62aa1cb02aa0286e54d34b4f8817f465f600aa7ac8047fdaa47de",
+    "hardware/reference/p0-kit-2026-09-25/SIGNAL-CABLES.md": "3627a1dd381f65e39e1342ebc31fcfc2daced3676a96aeacd74bae4ee6fb8894",
+    "hardware/reference/u1-socket-connectors-2026-10-12/wire-facts.json": "0db7e46ca5944834c318bb268e6445af4f062853389a358202a35c3911aa9d48",
+    "tools/electronics/plan_u1_external_interfaces.py": "dfb89c408d3ee48eaf36a32a2f8afc831acee4d36cdb8bfb9dfd162ced694a5f"
+  },
+  "worker_seconds": 0.0263
+}

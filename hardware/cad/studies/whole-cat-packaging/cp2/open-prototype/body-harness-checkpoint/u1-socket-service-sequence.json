@@ -1,0 +1,47 @@
+{
+  "status": "CONDITIONAL_SOCKET_EXTRACTION_ONLY_BUS_RELEASE_ACCESS_OPEN",
+  "selected": false,
+  "E1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "prior_unplug_free_hypothesis_rejected": true,
+  "no_external_wire_disconnects_required_for_adapter": false,
+  "conditional_retainer_and_adapter_lift_mm": 12,
+  "reused_pairs": 372,
+  "removed_obstacle_contacts": 8,
+  "removed_obstacle_reservations": 2,
+  "new_geometry_pairs": 0,
+  "geometry_condition": "Entire W002/W003 factory cable removed from the service volume BEFORE touching U1. This is not proof that cable can already be removed.",
+  "cable_ends": {
+    "W002": [
+      "BUS.H5.D",
+      "D_FL.1"
+    ],
+    "W003": [
+      "BUS.H5.G",
+      "G2.4"
+    ]
+  },
+  "loose_cable_interfaces": 3,
+  "shared_cable_bands_to_release": 1,
+  "sequence": [
+    "Disconnect and remove battery/USB; no live service. Label W002 DATA and W003 interface GND, neither is a servo power feed.",
+    "Support the BUS cable; open exactly D_FL.1 and G2.4 and protect the two stripped ends separately.",
+    "Release its ONE insulation band and unplug the single keyed H5 housing, without pulling wires or retaining a V contact/wire.",
+    "Move the disconnected entire cable to an insulated bench tray OUTSIDE the robot, not an invented connected parking pose.",
+    "Only after the cable is absent: cut the TWO U1-retainer ties, collect cuttings, lift keyed bar/foam12mm, then populated adapter12mm.",
+    "Reassemble reverse order with new ties; verify socket orientation, cable labels and unpowered continuity before any phase2 power."
+  ],
+  "unresolved_prerequisites": [
+    "Actual tool/lever access at current D_FL.1 and G2.4",
+    "H5 housing withdrawal and whole cable passage through the current native carrier; no assumption that the housing fits a bare-core slot",
+    "Independent external U1 grips and whole fixed-wire insulation/selection",
+    "Unpowered delivered connector fit, extraction force and solder inspection"
+  ],
+  "evidence_limit": "Existing clear stationary geometry retained; conditional sweep does not close common BUS release, E1 or full W5.",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-service-checks.json": "8409316ecb674f841651393e270a92159c6c9d84459c857511a0754272cf4035",
+    "tools/electronics/plan_u1_socket_service_sequence.py": "32bc956132aba64a56f5bb5a562cbdec967f69131e350e8fc929ffcc74352acf"
+  },
+  "worker_seconds": 0.3005
+}
