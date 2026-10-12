@@ -2,9 +2,21 @@
   "status": "REJECTED_LOW_HIP_SHARED_LAYOUT",
   "contacts": [
     {
-      "a": "FrontRightMovingCuff",
-      "b": "wire/W076_EXTENSION",
-      "gap_mm": 0.5690120563997738,
+      "a": "FR2/Knee",
+      "b": "Foundation",
+      "gap_mm": 2.4803423313148167,
+      "volume_mm3": 0,
+      "pose": {
+        "leg": "FrontRight",
+        "Hip": -15,
+        "Knee": 0,
+        "Ankle": 0
+      }
+    },
+    {
+      "a": "FR2/Knee",
+      "b": "wire/head-supply-checkpoint/XB13",
+      "gap_mm": 3.8842771673417262,
       "volume_mm3": 0,
       "pose": {
         "leg": "FrontRight",
@@ -15,7 +27,7 @@
     }
   ],
   "errors": [],
-  "pairs": 926,
+  "pairs": 951,
   "cases": 32,
   "math_poses": 0,
   "selected": false,
@@ -67,8 +79,8 @@
   "minimum_cable_to_rest_ground_mm": 89.64412703526651,
   "reused_math_poses": 620,
   "exact_pair_receipts": {
-    "reused": 0,
-    "computed": 926,
+    "reused": 633,
+    "computed": 318,
     "checker_sha256": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671"
   },
   "loops": [
@@ -541,15 +553,16 @@
       "flex_length_mm": 150
     }
   ],
-  "worker_seconds": 930.343,
+  "worker_seconds": 1045.828,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/low-joint-family-plan.json": "69c6bf013cfc4df6ec0884825740c6b9899eb50d40e9ce0f42c1372ed8f2e227",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
     "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/joint-support-corridors-plan.json": "43fade6824119068469977092d6058ef666c0cf00bb4122d51f9cba4e2f33021",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/moving-cuff-corridors-plan.json": "31789cefe44a3468e9bcf76f4eded8777f6c3c6d3c771c08e5a00976844c3341",
     "hardware/reference/hellermann-11102519-2026-10-12/dimensions.json": "b335d5ea5cc3225485c19138907f9e3baac45a45c0d9dff584a8eff9a6bb21ef",
-    "tools/cad/check_low_hip_loom_layout.py": "699ebdeaf04bc09c5b1c7447d85dc9450ae1406f8ecffca7c3d9bcebd783854b",
+    "tools/cad/check_low_hip_loom_layout.py": "3b643d85a7a1e407db4823ad8f84fa305d88a73e28ae0efe1ea6a9c2b62aea25",
     "tools/cad/plan_low_joint_loom_family.py": "7e85eb63be82d0fcd7b9058f7230e2791b6b193fccf89541d32964698277d857",
     "tools/cad/exact_pair_receipts.py": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671"
   }

@@ -34,6 +34,9 @@ def allocate(rows,targets,with_recipe=False):
     cp=json.loads((OUT/'joint-support-corridors-plan.json').read_text())
     assert cp['status']=='FOUR_ROOT_CORRIDORS_SCREEN_CLEAR_BREP_MOTION_OPEN'
     for n,h in cp['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    mc=json.loads((OUT/'moving-cuff-corridors-plan.json').read_text())
+    assert mc['status']=='MOVING_CORRIDORS_SCREEN_CLEAR_MATERIAL_GATE_OPEN'
+    for n,h in mc['source_sha256'].items():assert SHA(ROOT/n)==h,n
     retained_shoes,_,station_recipe=station_supports(targets)
     def put(n,s,code=None,owner=None):
         shapes[n]=s;moving[n]=code;owners[n]=owner or n
@@ -92,13 +95,18 @@ def allocate(rows,targets,with_recipe=False):
         crown_top=18.51+math.cos(math.radians(15))*(55.8-18.51)-math.sin(math.radians(15))*(98-16)-1.05-.5
         crown_bottom=crown_top-4
         short0,short1=(mx-6,mx-3) if front else (mx+3,mx+6)
-        bridge0,bridge1=(beam_x0,short1) if front else (short0,beam_x1)
+        moving_route=next(v['points_mm'] for v in mc['roots'] if v['leg']==leg)
         mp=[dict(bounds_mm=bounds(cap0,7,32.2,cap1,16,36.2),length_expression='CrownParameters.Thickness'),
             dict(bounds_mm=bounds(root0,12,root_z,root1,16,40),length_expression=f'{36-root_z} mm + CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(beam_x0,12,36,beam_x1,84,40),length_expression='CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(beam_x0,80,crown_bottom,beam_x1,84,40),length_expression=f'{36-crown_bottom} mm + CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(bridge0,80,crown_bottom,bridge1,84,crown_top),length_expression='CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(short0,80,crown_bottom,short1,128,crown_top),length_expression='CrownParameters.Thickness')]
+            dict(bounds_mm=bounds(beam_x0,12,36,beam_x1,84,40),length_expression='CrownParameters.Thickness')]
+        # Whole preallocated moving load path, including the FR underpass
+        # around W076. Not another constant-height crown displacement.
+        for a,b in zip(moving_route,moving_route[1:]):
+            half=(1.5,2,2)
+            v=[min(a[i],b[i])-half[i] for i in range(3)]+[max(a[i],b[i])+half[i] for i in range(3)]
+            mp.append(dict(bounds_mm=v,length_expression=f'{v[5]-v[2]-4} mm + CrownParameters.Thickness'))
+        spine0,spine1=(mx-8.5,mx-5.5) if front else (mx+5.5,mx+8.5)
+        mp.append(dict(bounds_mm=bounds(spine0,102,crown_bottom,spine1,128,crown_top),length_expression='CrownParameters.Thickness'))
         cuff=fuse([box(v['bounds_mm']) for v in mp])
         shim=B(cap0+1,8,31.7,cap1-1,15,32.2)
         put(leg+'CaseShim',shim,code)
@@ -117,6 +125,7 @@ def allocate(rows,targets,with_recipe=False):
         head=B(bx-4,4 if front else 56,37.9,bx+4,12 if front else 64,43.9)
         cuff=cuff.cut(band)
         put(leg+'CaseBand',band.fuse(head).removeSplitter(),code)
+        moving_notches=[bounds(bx-1.4,3.029,36.5,bx+1.4,60.931442,37.9)] if front else []
         for lane,row in enumerate(rs):
             yy=abs(row['fixed_anchor_world_mm'][1])
             for kind,xx,positive in [('Fixed',x,True),('Moving',mx,not front)]:
@@ -136,13 +145,18 @@ def allocate(rows,targets,with_recipe=False):
                 else:cuff=cuff.cut(b)
                 bb=h.BoundBox;cx=(bb.XMin+bb.XMax)/2;cy=(bb.YMin+bb.YMax)/2;cz=(bb.ZMin+bb.ZMax)/2
                 h=box([cx-3,cy-3,cz-2.5,cx+3,cy+3,cz+2.5])
+                if kind=='Moving':
+                    # New outboard backbone must preserve the actual whole
+                    # ratchet passage too, not just the thin band passage.
+                    cuff=cuff.cut(h)
+                    moving_notches.append([cx-3,cy-3,cz-2.5,cx+3,cy+3,cz+2.5])
                 # Band and ratchet head are ONE purchased physical item.
                 # Their intentional union must not appear as two colliding parts.
                 put(leg+kind+'Band'+str(lane),b.fuse(h).removeSplitter(),None if kind=='Fixed' else code)
         put(leg+'FixedArm',fixed.removeSplitter());put(leg+'LowerJaw',jaw)
         put(leg+'MovingCuff',cuff.removeSplitter(),code)
         recipe[leg+'FixedArm']=dict(pads=fp,holes=[[clamp_x-4,side*55],[clamp_x+4,side*55]],notches=[])
-        recipe[leg+'MovingCuff']=dict(pads=mp,holes=[],notches=[bounds(bx-1.4,3.029,36.5,bx+1.4,60.931442,37.9)] if front else [])
+        recipe[leg+'MovingCuff']=dict(pads=mp,holes=[],notches=moving_notches)
     return (shapes,moving,owners,recipe) if with_recipe else (shapes,moving,owners)
 
 
@@ -252,7 +266,7 @@ def run():
     report.update(status='REJECTED_LOW_HIP_SHARED_LAYOUT' if report['contacts'] or report['errors']
         else 'LOW_HIP_SHARED_LAYOUT_SAMPLED_CLEAR_NATIVE_FULL_JOINS_OPEN',loops=rows,
         worker_seconds=round(time.monotonic()-start,3),
-        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (archive,hf,af,zf,OUT/'joint-support-corridors-plan.json',ROOT/'hardware/reference/hellermann-11102519-2026-10-12/dimensions.json',Path(__file__),Path(__file__).with_name('plan_low_joint_loom_family.py'),Path(__file__).with_name('exact_pair_receipts.py'))})
+        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (archive,hf,af,zf,OUT/'joint-support-corridors-plan.json',OUT/'moving-cuff-corridors-plan.json',ROOT/'hardware/reference/hellermann-11102519-2026-10-12/dimensions.json',Path(__file__),Path(__file__).with_name('plan_low_joint_loom_family.py'),Path(__file__).with_name('exact_pair_receipts.py'))})
     (OUT/'low-hip-shared-layout.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ('status','cases','math_poses','pairs','contacts','errors','worker_seconds','minimum_cable_to_rest_ground_mm')}),flush=True)
 
