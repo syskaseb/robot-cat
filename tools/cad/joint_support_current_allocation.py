@@ -1,8 +1,10 @@
-"""Transverse XZ case retention, outside the shaft and child connector.
+"""Prototype-only bonded case cap, with independent jacket restraints.
 
-Rejected YZ wraps encircled the child WConnector. Use actual three-part Hip
-case section at absY32 and central low saddle joined to retained upper cuff.
-No factory screw or unknown thread assumed. Head/fit remain provisional.
+Neither YZ nor XZ bands fit between retained chassis and child connector.
+Keep the qualified cuff load path and use one exposed gap-filled bond to
+actual casing surface. This is NOT WAGO glue masquerading as wire relief:
+six separate jacket bands still restrain insulation per leg. Adhesive choice,
+PETG/case adhesion, peel, load and creep remain explicit physical gates.
 """
 import json,zipfile
 import FreeCAD as A
@@ -27,39 +29,39 @@ def allocate(rows,targets,with_recipe=False):
             y,Y=sorted((side*y,side*Y));return P.box([x,y,z,X,Y,Z])
         def bound(x,y,z,X,Y,Z):
             y,Y=sorted((side*y,side*Y));return [x,y,z,X,Y,Z]
-        # Between shaftY16 and child connectorY38.7. Slice each valid casing
-        # separately; overlapping source compounds are not Boolean operands.
         casing=[m for m in members if m['stage']=='Motion_'+row['cad_code']+'_Hip'
                 and m['label'].startswith(('ZK_','SG-ZIJI_','XG-ZIJI_'))]
         assert len(casing)==3,(leg,casing)
-        slab=box(mx-30,30.6,-10,mx+30,33.4,50)
-        sections=[targets['P0_'+m['name']].common(slab) for m in casing]
-        assert all(s.isValid() and s.Volume>0 for s in sections)
-        bb=Part.makeCompound(sections).BoundBox
-        x0,x1=bb.XMin-.3,bb.XMax+.3
-        z0=bb.ZMin-.3;z1=31.6;thick=1.4
-        assert bb.ZMax+.3<29.75,(leg,'Saddle intersects actual Hip case')
-        ring=box(x0-thick,30.6,z0-thick,x1+thick,33.4,z1+thick).cut(
-             box(x0,30.4,z0,x1,33.6,z1))
-        idle=x1+thick if rear else x0-thick
-        head=box(idle if rear else idle-6,28,20,idle+6 if rear else idle,36,28)
-        shapes[leg+'CaseBand']=ring.fuse(head).removeSplitter()
-        assert shapes[leg+'CaseBand'].isValid() and len(shapes[leg+'CaseBand'].Solids)==1
+        # Restrict the bond to main housing, not a casing seam, shaft, vent,
+        # connector, source screw or PCB. Rays confirm exposed top contact.
+        housing=next(m for m in casing if m['label'].startswith('ZK_'))
+        target=targets['P0_'+housing['name']]
+        cb=target.BoundBox;cx=(cb.XMin+cb.XMax)/2
+        bond=box(cx-4,8.75,30,cx+4,15,32.2)
+        for m in casing:bond=bond.cut(targets['P0_'+m['name']])
+        bond=bond.removeSplitter()
+        assert bond.isValid() and len(bond.Solids)==1,(leg,'Ambiguous bond volume')
+        assert bond.common(target).Volume<1e-6
+        # Ensure the bottom is actual casing, not an unfilled floating gap.
+        for xx in (cx-3.9,cx+3.9):
+            for yy in (8.85,14.9):
+                ray=Part.makeLine(A.Vector(xx,side*yy,29),A.Vector(xx,side*yy,32.2))
+                hits=target.common(ray);assert hits.Vertexes,(leg,'No underlying case')
+                top=max(v.Point.z for v in hits.Vertexes)
+                assert 30<top<32.1,(leg,'Bond gap outside exposed top allocation',top)
+        shapes[leg+'CaseShim']=bond
+        shapes.pop(leg+'CaseBand');result[1].pop(leg+'CaseBand');result[2].pop(leg+'CaseBand')
         recipe=result[3][leg+'MovingCuff']
         old_bx=mx-16.5
         old=bound(old_bx-1.4,3.029,36.5,old_bx+1.4,60.931442,37.9)
         recipe['notches']=[b for b in recipe['notches'] if b!=old]
-        recipe['pads'] += [
-            dict(bounds_mm=bound(mx-4,15,32.2,mx+4,35.5,36.2),length_expression='CrownParameters.Thickness'),
-            dict(bounds_mm=bound(mx-4,28.5,29.75,mx+4,35.5,36.2),length_expression='2.45 mm + CrownParameters.Thickness')]
+        if rear:
+            # Actual inverse-motion witness atHip-15 reachesZ32.3493670273,
+            # the exact mirror of the inherited frontHip+15 witness. Relieve
+            # only the lower root corner, retaining cap/bond and all routes.
+            root=recipe['pads'][1];root['bounds_mm'][2]=32.3493670273126+.5
+            root['length_expression']='3.1506329726874 mm + CrownParameters.Thickness'
         uncut=P.fuse([P.box(p['bounds_mm']) for p in recipe['pads']])
-        passages=[bound(x0-thick,30.6,z1,x1+thick,33.4,z1+thick),
-                  bound(x0-thick,30.6,z0-thick,x1+thick,33.4,z0),
-                  bound(x0-thick,30.6,z0,x0,33.4,z1),
-                  bound(x1,30.6,z0,x1+thick,33.4,z1)]
-        for b in passages:
-            if b not in recipe['notches'] and uncut.common(P.box(b)).Volume>1e-7:
-                recipe['notches'].append(b)
         cuff=uncut
         for b in recipe['notches']:cuff=cuff.cut(P.box(b))
         shapes[leg+'MovingCuff']=cuff.removeSplitter()

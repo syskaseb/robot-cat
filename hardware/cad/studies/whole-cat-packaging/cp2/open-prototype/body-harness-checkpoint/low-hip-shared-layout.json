@@ -1,22 +1,9 @@
 {
-  "status": "REJECTED_LOW_HIP_SHARED_LAYOUT",
-  "contacts": [
-    {
-      "a": "RearLeftCaseBand",
-      "b": "P0_Part__Feature107",
-      "gap_mm": 0.0,
-      "volume_mm3": 131.9456081889348,
-      "pose": {
-        "leg": "RearLeft",
-        "Hip": 0,
-        "Knee": 0,
-        "Ankle": 0
-      }
-    }
-  ],
+  "status": "LOW_HIP_SHARED_LAYOUT_SAMPLED_CLEAR_NATIVE_FULL_JOINS_OPEN",
+  "contacts": [],
   "errors": [],
-  "pairs": 139,
-  "cases": 4,
+  "pairs": 1129,
+  "cases": 108,
   "math_poses": 0,
   "selected": false,
   "native_changed": false,
@@ -26,13 +13,12 @@
   "approved_motion_limits": false,
   "provisional": [
     "OD6/R31 and +/-15 degree sampling are project assumptions, not delivered qualification",
-    "Keyed cuff fit, one cuttable240mm T25L case strap, 0.5mm shim/load/PETG creep need phase2 trial",
-    "Case head8x8x6 and small jacket heads6x6x5mm are project reservations, not supplier head dimensions",
-    "M3x55/washer/nut envelopes; final SKU and all wire grips/joins remain open"
+    "M3x55/washer/nut envelopes; final SKU and all wire grips/joins remain open",
+    "Gap-filled50mm2 bond on actual exposed main housing is a prototype candidate. DOWSIL3145 is manufacturer-described electronics stabilizing RTV, NOT a validated PETG/servo-case bond or chosen purchase. No load/peel/creep strength claimed. Small jacket heads remain6x6x5mm project reservations."
   ],
   "assembly": [
     "Fit fixed split clamps to P0 side rails before wiring; no drilling into retained rails.",
-    "Dry-fit keyed upper cap/shim and its integral central low saddle. Thread transverse XZ strap at absY32 through native saddle slot, away from shaftY16 and child connectorY38.7. Front headlowX/rearhighX. Delivered fit/load/strap closure remain phase2 gates; no assumed case-screw thread.",
+    "Dry-fit cap and independently restrained jacket lands; hold cap using assembly fixture while curing exposed casing-to-cap adhesive patch. Only bond actual main casing, not seam/shaft/connector/PCB/vent. Verify adhesive compatibility/load before moving or powering; no quick removal or guaranteed residue-free release. Deep service: support loom, cut sacrificial cured bead, release replaceable cuff. No factory-case screw assumed.",
     "Install three nine-mm jacket lands per side, six independent straps per leg; leave joint-local flex free.",
     "Deep removal by cutting replaceable straps before removing each cap; no quick-service promise.",
     "Four existing P-station shoes retained; top clamps replaced by common fixed wire arms, not duplicated. Knee flex family reflected outward together."
@@ -64,11 +50,11 @@
     }
   ],
   "rest_foot_ground_z_mm": -168.31915384000393,
-  "minimum_cable_to_rest_ground_mm": 1000000000.0,
+  "minimum_cable_to_rest_ground_mm": 75.73728339740877,
   "reused_math_poses": 620,
   "exact_pair_receipts": {
-    "reused": 92,
-    "computed": 47,
+    "reused": 603,
+    "computed": 526,
     "checker_sha256": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671"
   },
   "loops": [
@@ -541,7 +527,7 @@
       "flex_length_mm": 150
     }
   ],
-  "worker_seconds": 29.844,
+  "worker_seconds": 764.641,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/low-joint-family-plan.json": "69c6bf013cfc4df6ec0884825740c6b9899eb50d40e9ce0f42c1372ed8f2e227",
@@ -556,9 +542,9 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/outboard-knee-planes-plan.json": "aff56b3637a6dafe6a0717822da07ea55338f518444a5ad0ae621cd425ead2d8",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/outboard-knee-planes-checks.json": "d6ef17ee07dabbf021bc668752aa8eddd44de20d5a44e04e28d5e53f1d9ad7c7",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/harness-interfaces-plan.json": "e61fbdf3a5885541af63fcf72b924b467b093fee70efd229427f43314bf48819",
-    "tools/cad/check_supported_outboard_joint_family.py": "fead289091e25d2c08bb1f6fdc83ff5fc4e70c9497155208ba9da86f52562ca4",
+    "tools/cad/check_supported_outboard_joint_family.py": "64be815c7545ee4168cba3bed2f862017410c61eed1c87107c2c0206f978a981",
     "tools/cad/immutable_bounds.py": "dcf72a5aac5cbcea3c04e3ee17d6853070abd6519d01953530a32c0e70148a99",
-    "tools/cad/joint_support_current_allocation.py": "17d8dee81c3484097ccb1167192f6f696c5b3e9c93df9ded28701c8e2708ca26"
+    "tools/cad/joint_support_current_allocation.py": "720ee985f88bd8f27d281ca3590220e7ad177f425393e07496ee3495e501c317"
   },
   "Knee_data_replacement": {
     "plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/outboard-knee-planes-plan.json",
@@ -576,9 +562,11 @@
     "scope": "Only Knee row data replaced; full original shared checker and support geometry unchanged. No contact exclusions or radius changes."
   },
   "immutable_bounds_profile": {
-    "calls": 31358,
-    "immutable_instances": 1386,
-    "bounds_seconds": 0.97
+    "calls": 3509315,
+    "immutable_instances": 2721,
+    "bounds_seconds": 2.703
   },
-  "case_attachment_change": "Whole retention topology changed from rejected YZ wraps to XZ transverse bands at absY32, measured section of all3actual Hip casing parts. Central low saddle joins retained cap; head on actual idle side, frontlowX/rearhighX. Native tape slots use complete intersecting walls. Carrier/wires unchanged. Rear first, ALL108 final cases."
+  "case_attachment_change": "Prototype bonded upper cap: actual main casing top minus50mm2 exposed gap-fill allocation. No case band or hidden chassis cut. Six independent jacket ties perleg carry wire restraint into cap, not WAGO. Adhesive product/PETG-case adhesion/load/creep/cut-removal phase2 gates remain OPEN; this is material-fit, not retention strength proof.",
+  "adhesive_reference": "https://www.dow.com/en-us/pdp.dowsil-3145-rtv-mil-a-46146-adhesive-sealant.01059548z.html",
+  "rear_root_relief_basis": "Current exact inverse-motion witnessZmax32.3493670273126 atHip-15 plus0.5mm project margin, matching existing frontHip+15 root relief. Cap/bond/pivots/routes unchanged."
 }
