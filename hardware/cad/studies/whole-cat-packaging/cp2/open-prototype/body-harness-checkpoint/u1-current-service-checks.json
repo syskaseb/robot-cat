@@ -1,0 +1,66 @@
+{
+  "status": "U1_CHANGED_SERVICE_REQUIRES_RESOLUTION",
+  "pairs": 30,
+  "contacts": [
+    {
+      "a": "RetainerBarSweep",
+      "b": "XL01",
+      "distance_mm": 0.4500318219270484,
+      "radius_mm": 0.7
+    },
+    {
+      "a": "RetainerBarSweep",
+      "b": "XL09",
+      "distance_mm": 0.0,
+      "radius_mm": 0.7
+    },
+    {
+      "a": "Malen11p43Sweep",
+      "b": "XL01",
+      "distance_mm": 3.351623381340333e-14,
+      "radius_mm": 0.7
+    }
+  ],
+  "reservation_resolutions": [],
+  "errors": [],
+  "selected": false,
+  "physical_pass": false,
+  "reused_prior_pairs": 372,
+  "service_lift_mm": 12,
+  "prerequisite": "All sources absent. Disconnect H5 keyed BUS plug and W002 atD_FL.1/W003 atG2.4, release its own bindings and remove ENTIRE cable to insulated bench before U1 service.",
+  "sequence": [
+    "Support disconnected BUS cable, remove it completely; no connected parking assumed",
+    "Cut only two U1 module-retainer ties; leave ALL external wire grips installed",
+    "Lift retainer bar/foam12mm, then populated1208/maleheaders12mm; fixed100pad ends stay",
+    "Reinstall module/bar/new module ties, reconnect BUS by documented pinout with power still absent"
+  ],
+  "not_covered": [
+    "Access to the two WAGO levers/H5 and continuous BUS removal before this gate",
+    "Socket extraction force, hand grip, fit after delivery; no live-service approval"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1SocketPopulation.FCStd": "77595e6a5a3337bdfc2acbad895fde0fa13ea0f2478316228ed38c945d0278e3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1InterfaceCarriersCurrent.FCStd": "fd09de30744aa0ea26bad789779980172ee078b650ae80070729254ee259e9c1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/SocketCarrierCurrent.FCStd": "cbb1f30ba4e9ff0efa827b42e1d674ccdb2077ceede6b017de0c9007dfdf13ae",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1PowerGripsCurrent.FCStd": "a3d432f9e4074885f44d5e481cf1898476157ad1abba3cdbcb54dc296af8ef16",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/CurrentBoardMounts.FCStd": "373b5c398ec27a5fec9dd27c0d5f1d0b63288d9f0f2dcb745a65334c3bb8f44c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/AUXPowerCurrent.FCStd": "19483642e90e2d75685e92527f043be9dd198e19fdafc0fc7d82a60c6edf065a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1BoardGripsCurrent.FCStd": "36e81ef3e8866a5dbb4b3ec0b59772bcb1d22ac68f13d3381da9750a4e212c0f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1SocketRetainer.FCStd": "70da536276f15752952cafb1f3a1b0a38600861cdff8dde0cc40795884528d21",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1GroupedGripsCurrent.FCStd": "09d8d23e9f70150542a8abffb8ecab90c780c2739ae7582b5bbfec86ca49685e",
+    "tools/cad/check_u1_socket_service.py": "37bae0199278da41f4c9c72c2500086179d08b222c8906f1f4a77a7a9d92392c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-board-grips-native.json": "5e945135aa5116a33a40cafffa7e92788a51e56fe947429eaedb8fcb9c2ffcae",
+    "tools/cad/plan_u1_power_grips.py": "e2ab797b6d5124a699a28b2cad13f782534107fb7e8517dee2613eacbd69d468",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-grouped-grips-native.json": "75a64c92241ef2d700778ae23960587a2eaaea10ec07117b9067c2b77246316e",
+    "tools/cad/check_u1_current_service.py": "e89009f8afeb6ccdffb8675d466fdbd133b6327b246060e53faf5625ad05c468",
+    "tools/cad/plan_u1_grouped_grips.py": "b63f1ef07552cf0dedf366811775d23fa2597c5009cd8da57a2202d8b7ca3665",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-service-checks.json": "8409316ecb674f841651393e270a92159c6c9d84459c857511a0754272cf4035",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-common-wiring-plan.json": "9043f928a23a03c39581d5c1e77824ee63b93583fd6c48c4fcb871465755d826",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-retainer-native.json": "6da44938430c7a0abe27141aed267fb8ccf6429618156c081548f02a8d8f65b7",
+    "tools/cad/plan_u1_board_grips.py": "cb098194190545a1e3dc36bbd849930b36b8f6a5e463adfbd70ccd6a292d13d0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-power-grips-native.json": "e6552dc11d99540226d89a5a4fa0a40767d59890818af70f7433afff3131c3c6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-population-native.json": "ceb9ceb43e6cdee95e1da42ff276a78546c881b75972f0ad29bdffa450a30203",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-interface-carriers-native.json": "f70ec1431e578089d4b7f2226f0738a7458ed253213363cbab7f8050af94dddd"
+  },
+  "worker_seconds": 60.844
+}
