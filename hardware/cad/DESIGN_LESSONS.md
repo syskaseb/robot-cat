@@ -7,6 +7,15 @@ które zmieniają sposób pracy. Bieżący stan pozostaje w HOBBY_COMPLETION_PLA
 
 ## Co się nie sprawdziło
 
+- **Dopisanie wygody serwisowej do kryterium prototypu.** Plan CP2 przewiduje
+  montaż płytek na stole i głębszą naprawę przez odwrócenie etapów montażu.
+  Wymaganie wymiany U1 z zachowaniem całej otaczającej wiązki wywołało serię
+  niepotrzebnych prób parkingu BUS. Przed nimi porównać cel z zatwierdzonym
+  kryterium. Nie przebudowywać prototypu dla szybkiej rzadkiej naprawy.
+  Nadal trzeba wykazać montaż i opisać rzeczywiste rozłączenia; nie przenosić
+  tego uproszczenia na rutynową wymianę bezpiecznika ani udawać zaliczonego
+  serwisu całego robota. A2/W5 pozostają odrębnymi rezultatami.
+
 - **Trasy sprawdzone bez ich rzeczywistych podpór.** Dowód wolnej przestrzeni,
   który wyłącza `replaceable_support`, nie kwalifikuje obecnego złożenia.
   Przed projektowaniem chwytów związać aktualne pozycje modułów z natywnymi
