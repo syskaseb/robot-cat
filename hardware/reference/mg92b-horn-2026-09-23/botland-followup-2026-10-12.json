@@ -1,0 +1,33 @@
+{
+  "status": "SUPPLIER_REPORTED_DIMENSIONS_NOT_DELIVERED_FIT",
+  "source": {
+    "provider": "Botland technical support",
+    "message_id": "1a1303a76cff23df",
+    "thread_id": "1a0ed70153a17012",
+    "date_utc": "2026-10-12T13:08:19Z",
+    "product": "TowerPro MG92B DNG-24409"
+  },
+  "reported_dimensions_mm": {"diameter": 4, "height": 1},
+  "interpretation": "Reply to the explicit question about HEAD diameter/height of the previously reported M3x4 horn screw. Treat4mm as head OD, NOT thread diameter. Reply itself says fastening screw without explicitly repeating head.",
+  "previous_supplier_reply_quoted_in_thread": {
+    "date_utc": "2026-10-06T12:51:27Z",
+    "spline_teeth": 20,
+    "spline_OD_mm": 5,
+    "screw": "M3x4mm"
+  },
+  "suggested_reference": {
+    "url": "https://grabcad.com/library/mg90-micro-servo-1",
+    "model": "TowerPro MG90",
+    "supplier_statement": "Same output shaft and very similar horn; small differences versus the measured horn.",
+    "exact_MG92B_horn": false,
+    "downloaded_in_this_step": false
+  },
+  "decision": "Retain replaceable provisional MG92B adapters and current selected parts. Use supplier-reported head envelope in the next affected joint clearance check, with explicit project clearance; do not silently replace a native horn by the approximate MG90 model.",
+  "remaining_delivery_gates": [
+    "Received horn seating height, profile and holes against actual adapter",
+    "Received screw head and under-head length/thread engagement",
+    "Fit coupon, tool access, retention and unpowered mechanical movement"
+  ],
+  "selected_geometry_changed": false,
+  "physical_pass": false
+}
