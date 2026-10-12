@@ -1,0 +1,72 @@
+{
+  "status": "U1_BOARD_GRIPS_NATIVE_PREPARED_SERVICE_AND_POWER_GRIPS_OPEN",
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1BoardGripsCurrent.FCStd",
+  "native_sha256": "36e81ef3e8866a5dbb4b3ec0b59772bcb1d22ac68f13d3381da9750a4e212c0f",
+  "exports": [
+    {
+      "part": "AnchorLeft",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/AnchorLeft_wire_grips_x1.stl",
+      "sha256": "06c370efb4e61c551d1d7bcc9dc7c170821b3807dd1c36eb28c6ed8818d8d77a",
+      "size_mm": [
+        16.190000534057617,
+        51.220001220703125,
+        10.699999809265137
+      ],
+      "brim_each_mm": 5,
+      "orientation": "Original foot down, support cantilevers/eyes as needed in phase2; no slicer/print approval."
+    },
+    {
+      "part": "AnchorRight",
+      "quantity": 1,
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/AnchorRight_wire_grips_x1.stl",
+      "sha256": "e753f500f3502de3495b8d5d25c54b3f4f38f48d4e3b53aad08d6fa7b48e219e",
+      "size_mm": [
+        10.029999732971191,
+        27.950000762939453,
+        9.999799728393555
+      ],
+      "brim_each_mm": 5,
+      "orientation": "Original foot down, support cantilevers/eyes as needed in phase2; no slicer/print approval."
+    }
+  ],
+  "editable_replacement_parts": 2,
+  "retained_bar_not_duplicate_export": true,
+  "parameter_restore_mm": [
+    2.9997999999999934,
+    3.1997999999999935,
+    2.9997999999999934
+  ],
+  "relocated_reopen": true,
+  "existing_stack_unchanged": true,
+  "new_screws": 0,
+  "new_T18R": 3,
+  "lacing_blanks_mm": [
+    150,
+    150,
+    150
+  ],
+  "service": [
+    "Sources absent; dedicated cable ties/laces are independent of the2module retainer ties.",
+    "Release and support affected wires before loosening PCB1 anchor bolts; do not pull solder joints.",
+    "Cut only2module ties and lift bar for adapter service; release retained BUS pair first as separately planned.",
+    "Complete latest-scene withdrawal/tool/parking check still OPEN."
+  ],
+  "phase2": [
+    "Actual knot dimensions and snug hand tension, do not flatten insulation.",
+    "Small cantilevers/slot edges need PETG coupon/creep/dry fit.",
+    "Cut-length lacing availability or equivalent measured product must be resolved before stock selection."
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-board-grips-checks.json": "386b9720a4c4ded33172ef125d1cca21d3216b7db43b03caa3b7a42923a6c465",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-board-grips-plan.json": "a2377a9bf229c4e7c49e9ccd8c3acff4e6f4e1a6c728e96c00c5b2779f2b35eb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1SocketRetainer.FCStd": "70da536276f15752952cafb1f3a1b0a38600861cdff8dde0cc40795884528d21",
+    "tools/cad/build_u1_board_grips.py": "fc58136efb4ba5b683466ac38983c9029d967b5e481c9cacdc63d6e76d22a471",
+    "tools/cad/plan_u1_board_grips.py": "cb098194190545a1e3dc36bbd849930b36b8f6a5e463adfbd70ccd6a292d13d0"
+  },
+  "selected": false,
+  "E1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "worker_seconds": 25.015
+}
