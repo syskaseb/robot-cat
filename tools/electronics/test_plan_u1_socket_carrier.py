@@ -46,5 +46,15 @@ class SocketCarrierTests(unittest.TestCase):
         self.p['copper_cuts'][0]['along_trace_y_mm']=.8
         with self.assertRaises(AssertionError):U.check(self.p)
 
+    def test_output_ports_preserve_actual_head_and_tail_wire_holes(self):
+        terms={t['ref']:t for t in self.p['terminals']}
+        for i in range(1,4):
+            output=terms[f'B{i}.out'];resistor=terms[f'R{i}.2']
+            self.assertEqual(output['y'],13.97)
+            self.assertEqual(resistor['y'],11.43)
+            self.assertEqual(output['x'],resistor['x'])
+            self.assertEqual(output['net'],resistor['net'])
+        U.check(self.p)
+
 
 if __name__=='__main__':unittest.main()

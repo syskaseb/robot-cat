@@ -4,30 +4,30 @@
   "E1_complete": false,
   "physical_pass": false,
   "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1SocketRetainer.FCStd",
-  "native_sha256": "580d03f79dab8ab0ddc22d7e6e2cd382cabe84148888474a1a438749f0ff4691",
+  "native_sha256": "70da536276f15752952cafb1f3a1b0a38600861cdff8dde0cc40795884528d21",
   "exports": [
     {
       "part": "AnchorLeft",
       "quantity": 1,
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/AnchorLeft.stl",
-      "sha256": "b46e33dd1f09aec36f072359948d483995f7db0009c8b471e9e6a62a28aec352",
-      "print_orientation": "As exported, neck/eye/bar planes parallel to bed",
+      "sha256": "69ef4a9adf6a43bf8f991fcd21e822174be2db141f6a5cd8687881e50a4592d7",
+      "print_orientation": "As exported; support underside overhang/eye roof as needed, no slicer claim",
       "brim_margin_mm_each": 5
     },
     {
       "part": "AnchorRight",
       "quantity": 1,
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/AnchorRight.stl",
-      "sha256": "d9dce7833da7a07eb515994cb81f84b03f567ee79a8d589a6af7496dc318d09b",
-      "print_orientation": "As exported, neck/eye/bar planes parallel to bed",
+      "sha256": "a056530614eaa72754ee160ad2cbb6c231f49fe574adcbc8e02d4590787c6e9c",
+      "print_orientation": "As exported; support underside overhang/eye roof as needed, no slicer claim",
       "brim_margin_mm_each": 5
     },
     {
       "part": "RetainerBar",
       "quantity": 1,
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/RetainerBar.stl",
-      "sha256": "efa447548eacef193ffc51a5951b529f4b6fe1a7f890ab9e931bb2406a67a315",
-      "print_orientation": "As exported, neck/eye/bar planes parallel to bed",
+      "sha256": "560363d4cc917f96aa5b17fc59c4625925bf0b7f6a52a2a4a5db2c3e91a1807d",
+      "print_orientation": "As exported; support underside overhang/eye roof as needed, no slicer claim",
       "brim_margin_mm_each": 5
     }
   ],
@@ -55,6 +55,7 @@
   "foam_pads": 2,
   "extra_screws": 0,
   "supplier_stack_is_nominal_not_tolerance_qualified": true,
+  "superseded_retainer_geometry": "0f80936 preserves rejected locator-necks and PCB-crossing left band; NOT selected",
   "phase2_gates": [
     "Actual header/board thickness and seating; trim male tails<=1.4mm above adapter",
     "Key0.7mm and1.4x2.8slot print coupon/dry fit; deburr band windows",
@@ -63,9 +64,9 @@
     "Separate independent external lead grips and underside insulating cover remainOPEN"
   ],
   "source_sha256": {
-    "tools/cad/build_u1_socket_retainer.py": "c80ef415ac4f97367770f31efed9276fc5a61f8d35a92452f2d65b106f75e6c8",
+    "tools/cad/build_u1_socket_retainer.py": "e099f48d73164ff7fcc70d8327e584b5c1c83e7d32b3a0deae06a9772d91c9a7",
     "hardware/reference/hellermann-11102370-2026-10-04/dimensions.json": "5aa13c21ca221d162eb9483b37bf75b9e4fa5d5ad0fec918f8abe8c270bdad0d",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-carrier-plan.json": "1b437a4da201866c6127929da0b33d688d422e9ea342dac9c93e8da434c6c785"
   },
-  "worker_seconds": 3.266
+  "worker_seconds": 3.875
 }

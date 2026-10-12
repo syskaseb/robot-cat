@@ -4,7 +4,7 @@ Use exact PCB outline/drills and rectangular supplier maximum housings/body
 envelopes. A positive overlap with an envelope remains a required resolution,
 NOT a claim of real part intersection. All retained material/wires included.
 """
-import sys,json,time,math,hashlib
+import sys,json,time,math,hashlib,copy
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -21,17 +21,20 @@ def box(b):
     x,y,z,X,Y,Z=b;return Part.makeBox(X-x,Y-y,Z-z,A.Vector(x,y,z))
 
 
-def run(links_only=False, top_only=False, retainer_only=False):
+def run(links_only=False, top_only=False, retainer_only=False, passives_only=False, resolutions_only=False):
     tick=time.monotonic();f=OUT/'u1-socket-carrier-plan.json';p=json.loads(f.read_text())
     assert U.check(p)['chip_pins']==24
     for n,h in p['source_sha256'].items():assert SHA(ROOT/n)==h,n
     body_receipt=OUT/'u1-socket-space-checks.json'
-    if links_only:
+    if links_only or passives_only:
         assert SHA(body_receipt)=='f4fa4c858499e6d59aa88a2315e088cc431d51edc6ab5095cdfc14ca0f147e0d'
         previous=json.loads(body_receipt.read_text())
         assert not previous['overlaps'] and not previous['wire_clearance_resolutions'] and not previous['errors']
-        signature=hashlib.sha256(json.dumps({k:p[k] for k in ('parts','adapter_local_parts','adapter','connectors')},sort_keys=True).encode()).hexdigest()
-        assert signature=='3d369b79173ce0ca9342a84ab25931db591d4c9e82976322326b63f02827e1cd'
+        geometry={k:p[k] for k in ('parts','adapter_local_parts','adapter','connectors')}
+        if passives_only:
+            geometry['parts']=[dict(q,formed_pitch_mm=7.62) if q['ref'] in ('R1','R2','R3') else q for q in geometry['parts'] if q['ref']!='R16']
+        signature=hashlib.sha256(json.dumps(geometry,sort_keys=True).encode()).hexdigest()
+        assert signature==('d2ba093589ad659830e451dd805aab276eef0278b62b31d0fe37d822c25df443' if passives_only else '3d369b79173ce0ca9342a84ab25931db591d4c9e82976322326b63f02827e1cd')
     if top_only:
         reused_local=OUT/'u1-socket-links-space.json'
         reused_hash=SHA(reused_local)
@@ -39,6 +42,19 @@ def run(links_only=False, top_only=False, retainer_only=False):
         assert not old_local['errors'] and not old_local['overlaps'] and not old_local['wire_clearance_resolutions']
         assert len(old_local['local_link_material_resolutions'])==1
         assert old_local['local_link_material_resolutions'][0]['a']=='J4'
+    if resolutions_only:
+        old_passive_file=OUT/'u1-socket-passives-space.json';old_passive=json.loads(old_passive_file.read_text())
+        assert not any(old_passive[k] for k in ('overlaps','wire_clearance_resolutions','local_link_material_resolutions','errors'))
+        assert len(old_passive['passive_material_resolutions'])==11
+        old_p=copy.deepcopy(p)
+        restored={'R1.2':13.97,'R2.2':13.97,'R3.2':13.97,'B1.out':11.43,'B2.out':11.43,'B3.out':11.43}
+        for t in old_p['terminals']:
+            if t['ref'] in restored:t['y']=restored[t['ref']]
+        for q in old_p['parts']:
+            if q['ref'] in ('R1','R2','R3'):q['formed_pitch_mm']=7.62
+        old_p['source_sha256'][Path(U.__file__).relative_to(ROOT).as_posix()]=old_passive['source_sha256'][Path(U.__file__).relative_to(ROOT).as_posix()]
+        old_p['worker_seconds']=.0154  # Actual saved generator duration, not a new timing claim.
+        assert hashlib.sha256((json.dumps(old_p,indent=2)+'\n').encode()).hexdigest()==old_passive['source_sha256'][f.relative_to(ROOT).as_posix()]
     print('Socket preflight: loading retained current material/wires',flush=True)
     r,pins,targets,wires=context()
     print('Socket preflight: context ready',round(time.monotonic()-tick,2),flush=True)
@@ -81,8 +97,15 @@ def run(links_only=False, top_only=False, retainer_only=False):
     targets['PWM1608NominalPCB']=pcb1
     # Validate retained bodies ONCE, not once per new resistor against the same
     # expensive carrier. This is a space check, not repeated full BOP audits.
-    invalid=[n for n,t in targets.items() if not t.isValid()]
-    assert not invalid,invalid
+    if passives_only:
+        reuse_file=OUT/'u1-socket-retainer-space.json';reuse=json.loads(reuse_file.read_text())
+        assert not any(reuse[k] for k in ('overlaps','wire_clearance_resolutions','local_link_material_resolutions','errors'))
+        for n,h in r.hashes.items():assert reuse['source_sha256'][n]==h,('Changed retained native',n)
+        for q in pins:assert reuse['source_sha256'][q.relative_to(ROOT).as_posix()]==SHA(q),('Changed context source',q)
+        assert targets['PWM160824TopInsulator'].isValid()
+    else:
+        invalid=[n for n,t in targets.items() if not t.isValid()]
+        assert not invalid,invalid
     zbase=84.3202;parts={};kinds={}
     def body(name,center,size):
         x,y,z=center;dx,dy,dz=size
@@ -110,7 +133,7 @@ def run(links_only=False, top_only=False, retainer_only=False):
     body('TI_PW_MaxBody',[-1.92,-3.81,13.24],[7.9,4.5,1.2])
     for c in p['parts']+p['adapter_local_parts']:body(c['ref'],c['body_center_local_mm'],c['body_size_mm'])
     retainer_names=[];retainer_pins=[]
-    if retainer_only:
+    if retainer_only or passives_only:
         import build_u1_socket_retainer as T
         rf=OUT/'u1-socket-retainer-native.json';rp=json.loads(rf.read_text())
         nf=ROOT/rp['native'];assert SHA(nf)==rp['native_sha256']
@@ -133,11 +156,11 @@ def run(links_only=False, top_only=False, retainer_only=False):
                           'Actual socket withdrawal/tool path/retention stop','Changed native carrier and complete E2 board ends'],
              scope='Whole changed body/housing envelope preflight, not full actual lead/native/assembly acceptance')
     names=list(parts)
-    selected_names=retainer_names if retainer_only else [] if links_only else names
+    selected_names=[] if resolutions_only else ['R16'] if passives_only else retainer_names if retainer_only else [] if links_only else names
     for a in selected_names:
         i=names.index(a)
         s=parts[a]
-        prior_parts=[n for n in names[:i] if n not in retainer_names] if retainer_only else []
+        prior_parts=[n for n in names[:i] if n not in retainer_names] if retainer_only or passives_only else []
         for b,t in list(targets.items())+[(n,parts[n]) for n in prior_parts+names[i+1:]]:
             if a.startswith('Female') and b=='Male'+a.removeprefix('Female'):continue
             if {a,b}=={'Adapter1208PCB','TI_PW_MaxBody'}:continue
@@ -145,10 +168,9 @@ def run(links_only=False, top_only=False, retainer_only=False):
                 assert s.BoundBox.ZMin>=t.BoundBox.ZMax-1e-6
                 continue  # Defined bottom-face bearing; tails checked separately.
             mating=retainer_only and (
-                (a.startswith('Anchor') and (b=='PWM1608NominalPCB' or b in ('PWM160824Screw','PWM160825Screw')))
+                (a.startswith('Anchor') and (b=='PWM1608NominalPCB' or b in ('PWM160824Screw','PWM160825Screw') or b=='Tie'+a.removeprefix('Anchor')))
                 or (a.startswith('Foam') and b in ('Adapter1208PCB','RetainerBar'))
-                or (a=='RetainerBar' and b.startswith(('Foam','Band','Head')))
-                or (a.startswith('Band') and b=='Head'+a.removeprefix('Band')))
+                or (a=='RetainerBar' and b.startswith(('Foam','Tie'))))
             if not s.BoundBox.intersect(t.BoundBox):continue
             out['pairs']+=1
             try:
@@ -176,6 +198,8 @@ def run(links_only=False, top_only=False, retainer_only=False):
     bus=lp['ground_bus']['centreline_mm'];links['JG_COMB']=(Part.makeLine(*[A.Vector(*v) for v in bus]),.25)
     out['local_link_material_resolutions']=[]
     for a,(c,rad) in links.items():
+        if resolutions_only:continue
+        if passives_only and a not in ('J2','J4'):continue
         if top_only and a not in ('J2','J4'):continue
         link_targets={n:parts[n] for n in retainer_names} if retainer_only else {**targets,**parts}
         for b,s in link_targets.items():
@@ -189,7 +213,83 @@ def run(links_only=False, top_only=False, retainer_only=False):
             out['pairs']+=1;dist=c.distToShape(d)[0]
             if dist<rad+rr-1e-5:out['local_link_material_resolutions'].append(dict(a=a,b=b,distance_mm=dist,required_mm=rad+rr))
         print('Socket local link',a,'pairs',out['pairs'],'resolutions',len(out['local_link_material_resolutions']),round(time.monotonic()-tick,2),flush=True)
+    if passives_only:
+        import plan_u1_socket_passives as F
+        pf=OUT/'u1-socket-passive-leads.json';pp=json.loads(pf.read_text())
+        assert not any(pp[k] for k in ('conflicts','same_net_touch_requirements','stock_failures'))
+        for n,h in pp['source_sha256'].items():assert SHA(ROOT/n)==h,n
+        lead_metadata={q['ref']:q for q in pp['leads']}
+        out['passive_material_resolutions']=[]
+        if resolutions_only:
+            assert old_passive['checked_local_geometry']==links_plan_geometry(lp)
+            assert old_passive['source_sha256'][Path(F.__file__).relative_to(ROOT).as_posix()]==SHA(Path(F.__file__))
+            prior=F.plan(old_p,mapping)
+            changed={'R1.2','R2.2','R3.2'}
+            assert [q for q in pp['leads'] if q['ref'] not in changed]==[q for q in prior['leads'] if q['ref'] not in changed]
+            out['resolved_own_resin_queries']=[]
+            for n in ('R1.1','R2.1','R3.1','R_LOAD.1','R_LOAD.2'):
+                lead=lead_metadata[n];c,rad,net=F.curves(pp)[n]
+                part=next(q for q in p['parts'] if q['ref']==lead['part'])
+                terms={q['ref']:q for q in p['terminals']};a,b=[terms[v] for v in part['ends']]
+                axis=A.Vector(b['x']-a['x'],b['y']-a['y'],0).normalize()
+                x,y,z=part['body_center_local_mm'];centre=A.Vector(91.59+x,y,84.3202+z)
+                resin=Part.makeCylinder(.8,3.6,centre-axis*1.8,axis)
+                edge=c.Edges[0];solid=c.makePipeShell([Part.Wire([Part.makeCircle(rad,edge.valueAt(edge.FirstParameter),edge.tangentAt(edge.FirstParameter))])],True,False)
+                assert solid.isValid() and resin.isValid()
+                volume=solid.common(resin).Volume;assert volume<1e-5,(n,volume)
+                out['resolved_own_resin_queries'].append(dict(a=n,b=part['ref'],common_mm3=volume,
+                    basis='Exact round lead tube versus manufacturer maximum cylindrical MRS16 body; no spherical endpoint-distance approximation or material motion'))
+        for a,(c,rad,net) in F.curves(pp).items():
+            if resolutions_only and a not in changed:continue
+            meta=lead_metadata[a.split('/')[0]]
+            for b,s in {**targets,**parts}.items():
+                d=c
+                if meta['part']==b and not a.endswith(('/Sleeved','/PadBare')):
+                    # Only the physical resin-exit radius is excluded, not the
+                    # rest of the formed lead or other same-net components.
+                    d=F.trim(c,rad+1e-4,c.Length)
+                if meta['part']=='FemaleTail' and b=='Female'+str(meta['vertices_mm'][0][1]):
+                    d=F.trim(c,0,c.Length-rad-1e-4)
+                # Direct decoupler solder landing on known TSSOP PCB top face.
+                # Remove just the final radius at that specified pad plane.
+                if meta['part'] in ('C1','C2') and b=='Adapter1208PCB':
+                    assert abs(meta['vertices_mm'][-1][2]-s.BoundBox.ZMax)<1e-6
+                    d=F.trim(c,0,c.Length-rad-1e-4)
+                bb=s.BoundBox;bb.enlarge(rad)
+                if not bb.intersect(d.BoundBox):continue
+                out['pairs']+=1
+                try:
+                    dist=d.distToShape(s)[0]
+                    if dist<rad-1e-5:out['passive_material_resolutions'].append(dict(a=a,b=b,distance_mm=dist,required_mm=rad))
+                except Exception as e:out['errors'].append(dict(a=a,b=b,error=repr(e)))
+            for b,(d,rr) in wires.items():
+                bb=d.BoundBox;bb.enlarge(rad+rr)
+                if not bb.intersect(c.BoundBox):continue
+                out['pairs']+=1
+                try:
+                    dist=c.distToShape(d)[0]
+                    if dist<rad+rr-1e-5:out['passive_material_resolutions'].append(dict(a=a,b=b,distance_mm=dist,required_mm=rad+rr))
+                except Exception as e:out['errors'].append(dict(a=a,b=b,error=repr(e)))
+            print('Socket passive',a,'pairs',out['pairs'],'issues',len(out['passive_material_resolutions']),round(time.monotonic()-tick,2),flush=True)
+        old_top=json.loads((OUT/'u1-socket-top-links-space.json').read_text())
+        for n,q in links_plan_geometry(lp).items():
+            if n not in ('J2','J4'):assert q==old_top['checked_local_geometry'][n],('Changed supposedly reused underside link',n)
+        for q in retainer_pins:assert reuse['source_sha256'][q.relative_to(ROOT).as_posix()]==SHA(q),('Changed retainer source',q)
+        out['reused_scope']=dict(retainer_receipt=SHA(reuse_file),unchanged_body_geometry_signature=signature,
+            unchanged_bodies=24,changed_body='R16',changed_local_links=['J2','J4'],
+            retained_context_sources_verified=True,
+            description='Reuse24bodies and currentretainer only; all formed leads/header tails, changedR16 and2toplinks rechecked. Nine underside link geometries explicitly unchanged; prior rejected oldlink subsets NOT reused.')
+        if resolutions_only:
+            out['reused_scope'].update(passive_receipt=SHA(old_passive_file),previous_pairs=827,
+                reconstructed_previous_carrier_SHA256_verified=True,
+                unchanged_physical_leads=84,changed_physical_leads=sorted(changed),
+                description='Old827pair preflight reused ONLY for unchanged geometry; prior carrier source reconstructed exactly and SHA-verified. All84unchangedlead records compared with unchanged generator. Three changedoutputlegs checked against full retained scene;5own-resin queries resolved with exact tube/cylinder intersection. Same-copper output pad allocation preserves real W3/W4 output ends at13.97.')
+            pins.add(old_passive_file)
+        out['not_covered']=['Native carrier replacement','Independent external cable grips and full E2 end insulation','Solder joints and actual assembly/withdrawal motion']
+        out['checked_local_geometry']=links_plan_geometry(lp)
+        pins.update((pf,Path(F.__file__),reuse_file,OUT/'u1-socket-top-links-space.json'))
     out['status']='SOCKET_MODULE_BODY_SPACE_REQUIRES_CHANGE' if any(out[k] for k in ('overlaps','wire_clearance_resolutions','local_link_material_resolutions','errors')) else 'SOCKET_MODULE_BODY_AND_LOCAL_LINK_SPACE_CLEAR_PASSIVE_LEADS_NATIVE_OPEN'
+    if passives_only:out['status']='SOCKET_FORMED_LEADS_REQUIRE_CHANGE' if out['passive_material_resolutions'] or out['status']=='SOCKET_MODULE_BODY_SPACE_REQUIRES_CHANGE' else 'SOCKET_FORMED_LEADS_AND_RETAINER_SPACE_CLEAR_NATIVE_ENDS_OPEN'
     pins.update((Path(__file__),f,U.POP,U.MAP,U.SIGNAL,Path(U.__file__),Path(L.__file__),lf,old_e2,*retainer_pins))
     if links_only:
         pins.add(body_receipt);out['reused_body_subset']=dict(receipt=body_receipt.relative_to(ROOT).as_posix(),sha256=SHA(body_receipt),
@@ -207,12 +307,12 @@ def run(links_only=False, top_only=False, retainer_only=False):
         out['retainer_parts']=retainer_names;pins.add(top)
     out['source_sha256']={**r.hashes,**{f.relative_to(ROOT).as_posix():SHA(f) for f in pins}}
     out['worker_seconds']=round(time.monotonic()-tick,3)
-    (OUT/('u1-socket-retainer-space.json' if retainer_only else 'u1-socket-top-links-space.json' if top_only else 'u1-socket-links-space.json' if links_only else 'u1-socket-space-checks.json')).write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8',newline='\n')
-    print(json.dumps({k:out[k] for k in ('status','parts','pairs','overlaps','wire_clearance_resolutions','local_link_material_resolutions','errors','worker_seconds')}),flush=True)
+    (OUT/('u1-socket-passives-resolved.json' if resolutions_only else 'u1-socket-passives-space.json' if passives_only else 'u1-socket-retainer-space.json' if retainer_only else 'u1-socket-top-links-space.json' if top_only else 'u1-socket-links-space.json' if links_only else 'u1-socket-space-checks.json')).write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8',newline='\n')
+    print(json.dumps({k:out[k] for k in ('status','parts','pairs','overlaps','wire_clearance_resolutions','local_link_material_resolutions','errors','worker_seconds')+ (('passive_material_resolutions',) if passives_only else ())}),flush=True)
 
 
 def links_plan_geometry(p):
     return {q['ref']:{k:q[k] for k in ('start_mm','end_mm','underside_plane_world_mm','via_xy_mm')} for q in p['links']}
 
 
-if __name__=='__main__':run(any(q in sys.argv for q in ('--links-only','--top-only','--retainer-only')),'--top-only' in sys.argv,'--retainer-only' in sys.argv)
+if __name__=='__main__':run(any(q in sys.argv for q in ('--links-only','--top-only','--retainer-only')),'--top-only' in sys.argv,'--retainer-only' in sys.argv,any(q in sys.argv for q in ('--passives-only','--passive-resolutions-only')),'--passive-resolutions-only' in sys.argv)

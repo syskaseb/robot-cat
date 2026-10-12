@@ -92,6 +92,10 @@ def run():
         aa,bb=[t[n] for n in q['ends']]
         z=planes[q['ref']];extra=[];circles=[];reserved=posts
         if z>84.3202:
+            # Every component/header/entry pad is a possible occupied vertical
+            # column, not just the ten local-link endpoints. This includes the
+            # long R15/R16 drops to PCB1 before their formed leads are detailed.
+            reserved=[[v['x'],v['y']] for v in p['terminals']]
             # Both retained M2 heads: actual OD3.8, Z85.3202..87.3202.
             # Allocate their complete projected head footprint, not just the
             # mounting shafts used for the underside layer.

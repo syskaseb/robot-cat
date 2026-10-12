@@ -70,11 +70,14 @@ def plan():
         term('U1.'+str(row['chip_pin']),xx,yy,'G_SYS' if net=='GND' else net)
     # Series outputs use a deliberate cut; all five copper pads are accounted.
     for i,(x,axis) in enumerate(zip((-10.16,-7.62,-5.08),('HEAD_YAW','HEAD_PITCH','TAIL_YAW')),1):
-        pair('R'+str(i),(x,6.35),(x,13.97),('PWM_'+axis+'_BUF','PWM_'+axis+'_OUT'),
-             'MRS16000C2200FCT00',value_ohm=220,formed_pitch_mm=7.62,
+        pair('R'+str(i),(x,6.35),(x,11.43),('PWM_'+axis+'_BUF','PWM_'+axis+'_OUT'),
+             'MRS16000C2200FCT00',value_ohm=220,formed_pitch_mm=5.08,
              body_center_local_mm=[x,8.7,1.8],body_size_mm=[1.6,3.6,1.6],
              forming='Asymmetric lead forming, body offset1.46mm from hole midpoint; inspect bend/body gap at assembly')
-        term('B'+str(i)+'.out',x,11.43,'PWM_'+axis+'_OUT')
+        # Preserve actual selected W3/W4 output approaches at13.97. The
+        # resistor uses11.43 on the SAME isolated copper segment instead.
+        # No two physical conductors are forced into one pad hole.
+        term('B'+str(i)+'.out',x,13.97,'PWM_'+axis+'_OUT')
     for i,(x,axis) in enumerate(zip((-12.7,-10.16,-7.62),('HEAD_YAW','HEAD_PITCH','TAIL_YAW')),4):
         pair('R'+str(i),(x,-13.97),(x,-21.59),('PWM_'+axis+'_3V3','G_SYS'),
              'MRS16000C1002FCT00',value_ohm=10000,formed_pitch_mm=7.62,
@@ -90,7 +93,7 @@ def plan():
          forming='Entire long leads sleeved, lifted above short vertical load resistors; not qualified by copper graph')
     pair('R16',(-17.78,8.89),(10.16,8.89),('PWM5_SW','G_SYS'),
          'MRS16000C1002FCT00',value_ohm=10000,formed_pitch_mm=27.94,
-         body_center_local_mm=[-13.97,8.89,5.6],body_size_mm=[3.6,1.6,1.6],
+         body_center_local_mm=[0,8.89,5.6],body_size_mm=[3.6,1.6,1.6],
          forming='Entire long leads sleeved above series bodies; no geometry/lead stock acceptance yet')
     # Regulator moves to the genuinely free final three columns, not occupied chip pins.
     for pin,x,net in [(1,12.7,'PWM5_SW'),(2,15.24,'G_SYS'),(3,17.78,'PWM_REG_IN')]:term('U_PWM.'+str(pin),x,-13.97,net)
