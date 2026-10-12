@@ -1,0 +1,632 @@
+{
+  "status": "REJECTED_LOW_HIP_SHARED_LAYOUT",
+  "contacts": [
+    {
+      "a": "RearLeftCaseBand",
+      "b": "P0_Part__Feature120",
+      "gap_mm": 0.0,
+      "volume_mm3": 82.86254543703006,
+      "pose": {
+        "leg": "RearLeft",
+        "Hip": 0,
+        "Knee": 0,
+        "Ankle": 0
+      }
+    },
+    {
+      "a": "FrontLeftCaseBand",
+      "b": "FrontLeftMovingCuff",
+      "gap_mm": 0.0,
+      "volume_mm3": 5.911399997031438,
+      "pose": {
+        "leg": "RearLeft",
+        "Hip": 0,
+        "Knee": 0,
+        "Ankle": 0
+      }
+    },
+    {
+      "a": "FrontRightCaseBand",
+      "b": "FrontRightMovingCuff",
+      "gap_mm": 0.0,
+      "volume_mm3": 5.911399997064365,
+      "pose": {
+        "leg": "RearLeft",
+        "Hip": 0,
+        "Knee": 0,
+        "Ankle": 0
+      }
+    },
+    {
+      "a": "FrontLeftCaseBand",
+      "b": "FrontLeftMovingCuff",
+      "gap_mm": 0.0,
+      "volume_mm3": 5.911399997031438,
+      "pose": {
+        "leg": "FrontLeft",
+        "Hip": 0,
+        "Knee": 0,
+        "Ankle": 0
+      }
+    },
+    {
+      "a": "FrontRightCaseBand",
+      "b": "FrontRightMovingCuff",
+      "gap_mm": 0.0,
+      "volume_mm3": 5.911399997064365,
+      "pose": {
+        "leg": "FrontRight",
+        "Hip": 0,
+        "Knee": 0,
+        "Ankle": 0
+      }
+    }
+  ],
+  "errors": [],
+  "pairs": 148,
+  "cases": 4,
+  "math_poses": 0,
+  "selected": false,
+  "native_changed": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "continuous_motion_proved": false,
+  "approved_motion_limits": false,
+  "provisional": [
+    "OD6/R31 and +/-15 degree sampling are project assumptions, not delivered qualification",
+    "Keyed cuff fit, one cuttable240mm T25L case strap, 0.5mm shim/load/PETG creep need phase2 trial",
+    "Case head8x8x6 and small jacket heads6x6x5mm are project reservations, not supplier head dimensions",
+    "M3x55/washer/nut envelopes; final SKU and all wire grips/joins remain open"
+  ],
+  "assembly": [
+    "Fit fixed split clamps to P0 side rails before wiring; no drilling into retained rails.",
+    "Dry-fit keyed case cap/shim. Front band on idle lowX, head upper-inner; rear band on idle highX opposite fixed horn, head lower-inner. Thread actual native passages before tightening; no strap over connector or shaft. Delivered fit/load remain phase2 gates.",
+    "Install three nine-mm jacket lands per side, six independent straps per leg; leave joint-local flex free.",
+    "Deep removal by cutting replaceable straps before removing each cap; no quick-service promise.",
+    "Four existing P-station shoes retained; top clamps replaced by common fixed wire arms, not duplicated. Knee flex family reflected outward together."
+  ],
+  "common_length_trials": [
+    {
+      "length_mm": 125,
+      "all_extrema_feasible": false
+    },
+    {
+      "length_mm": 130,
+      "all_extrema_feasible": false
+    },
+    {
+      "length_mm": 135,
+      "all_extrema_feasible": false
+    },
+    {
+      "length_mm": 140,
+      "all_extrema_feasible": false
+    },
+    {
+      "length_mm": 145,
+      "all_extrema_feasible": false
+    },
+    {
+      "length_mm": 150,
+      "all_extrema_feasible": true
+    }
+  ],
+  "rest_foot_ground_z_mm": -168.31915384000393,
+  "minimum_cable_to_rest_ground_mm": 1000000000.0,
+  "reused_math_poses": 620,
+  "exact_pair_receipts": {
+    "reused": 92,
+    "computed": 56,
+    "checker_sha256": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671"
+  },
+  "loops": [
+    {
+      "section": "RL1/Hip",
+      "loom": "RL1",
+      "cad_code": "FL",
+      "physical_leg": "RearLeft",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        130.80956646104548,
+        15.999999999977565,
+        18.51000000000194
+      ],
+      "joint_axis": [
+        -1.0,
+        -2.813231988617981e-15,
+        -4.062622411515227e-15
+      ],
+      "axial_tangent": [
+        1,
+        0,
+        0
+      ],
+      "side": 1,
+      "fixed_anchor_world_mm": [
+        56.3975664610461,
+        104,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        146.3975664610461,
+        104,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "RL2/Hip",
+      "loom": "RL2",
+      "cad_code": "FL",
+      "physical_leg": "RearLeft",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        130.80956646104548,
+        15.999999999977565,
+        18.51000000000194
+      ],
+      "joint_axis": [
+        -1.0,
+        -2.813231988617981e-15,
+        -4.062622411515227e-15
+      ],
+      "axial_tangent": [
+        1,
+        0,
+        0
+      ],
+      "side": 1,
+      "fixed_anchor_world_mm": [
+        56.3975664610461,
+        114,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        146.3975664610461,
+        114,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "RL3/Hip",
+      "loom": "RL3",
+      "cad_code": "FL",
+      "physical_leg": "RearLeft",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        130.80956646104548,
+        15.999999999977565,
+        18.51000000000194
+      ],
+      "joint_axis": [
+        -1.0,
+        -2.813231988617981e-15,
+        -4.062622411515227e-15
+      ],
+      "axial_tangent": [
+        1,
+        0,
+        0
+      ],
+      "side": 1,
+      "fixed_anchor_world_mm": [
+        56.3975664610461,
+        124,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        146.3975664610461,
+        124,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "RR1/Hip",
+      "loom": "RR1",
+      "cad_code": "FR",
+      "physical_leg": "RearRight",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        130.80956646104062,
+        -16.00000000002637,
+        18.510000000001995
+      ],
+      "joint_axis": [
+        -1.0,
+        -8.166138778451745e-16,
+        -6.95314098057377e-15
+      ],
+      "axial_tangent": [
+        1,
+        0,
+        0
+      ],
+      "side": -1,
+      "fixed_anchor_world_mm": [
+        56.39756646103962,
+        -104,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        146.39756646103962,
+        -104,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "RR2/Hip",
+      "loom": "RR2",
+      "cad_code": "FR",
+      "physical_leg": "RearRight",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        130.80956646104062,
+        -16.00000000002637,
+        18.510000000001995
+      ],
+      "joint_axis": [
+        -1.0,
+        -8.166138778451745e-16,
+        -6.95314098057377e-15
+      ],
+      "axial_tangent": [
+        1,
+        0,
+        0
+      ],
+      "side": -1,
+      "fixed_anchor_world_mm": [
+        56.39756646103962,
+        -114,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        146.39756646103962,
+        -114,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "RR3/Hip",
+      "loom": "RR3",
+      "cad_code": "FR",
+      "physical_leg": "RearRight",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        130.80956646104062,
+        -16.00000000002637,
+        18.510000000001995
+      ],
+      "joint_axis": [
+        -1.0,
+        -8.166138778451745e-16,
+        -6.95314098057377e-15
+      ],
+      "axial_tangent": [
+        1,
+        0,
+        0
+      ],
+      "side": -1,
+      "fixed_anchor_world_mm": [
+        56.39756646103962,
+        -124,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        146.39756646103962,
+        -124,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "FL1/Hip",
+      "loom": "FL1",
+      "cad_code": "RL",
+      "physical_leg": "FrontLeft",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        -88.8095664610455,
+        16.000000000000732,
+        18.510000000000215
+      ],
+      "joint_axis": [
+        1.0,
+        -8.412153004120013e-15,
+        -3.9114646492537985e-14
+      ],
+      "axial_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "side": 1,
+      "fixed_anchor_world_mm": [
+        -14.39756646104452,
+        104,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        -104.39756646104452,
+        104,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "FL2/Hip",
+      "loom": "FL2",
+      "cad_code": "RL",
+      "physical_leg": "FrontLeft",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        -88.8095664610455,
+        16.000000000000732,
+        18.510000000000215
+      ],
+      "joint_axis": [
+        1.0,
+        -8.412153004120013e-15,
+        -3.9114646492537985e-14
+      ],
+      "axial_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "side": 1,
+      "fixed_anchor_world_mm": [
+        -14.39756646104452,
+        114,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        -104.39756646104452,
+        114,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "FL3/Hip",
+      "loom": "FL3",
+      "cad_code": "RL",
+      "physical_leg": "FrontLeft",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        -88.8095664610455,
+        16.000000000000732,
+        18.510000000000215
+      ],
+      "joint_axis": [
+        1.0,
+        -8.412153004120013e-15,
+        -3.9114646492537985e-14
+      ],
+      "axial_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "side": 1,
+      "fixed_anchor_world_mm": [
+        -14.39756646104452,
+        124,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        -104.39756646104452,
+        124,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "FR1/Hip",
+      "loom": "FR1",
+      "cad_code": "RR",
+      "physical_leg": "FrontRight",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        -88.80956646105068,
+        -16.000000000003183,
+        18.50999999999997
+      ],
+      "joint_axis": [
+        1.0,
+        2.2049657872672963e-15,
+        1.3029067142597272e-14
+      ],
+      "axial_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "side": -1,
+      "fixed_anchor_world_mm": [
+        -14.397566461056684,
+        -104,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        -104.39756646105668,
+        -104,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "FR2/Hip",
+      "loom": "FR2",
+      "cad_code": "RR",
+      "physical_leg": "FrontRight",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        -88.80956646105068,
+        -16.000000000003183,
+        18.50999999999997
+      ],
+      "joint_axis": [
+        1.0,
+        2.2049657872672963e-15,
+        1.3029067142597272e-14
+      ],
+      "axial_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "side": -1,
+      "fixed_anchor_world_mm": [
+        -14.397566461056684,
+        -114,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        -104.39756646105668,
+        -114,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    },
+    {
+      "section": "FR3/Hip",
+      "loom": "FR3",
+      "cad_code": "RR",
+      "physical_leg": "FrontRight",
+      "parent_stage": "Frame",
+      "child_stage": "Hip",
+      "project_OD_mm": 6,
+      "guide_mm": 168,
+      "pivot_mm": [
+        -88.80956646105068,
+        -16.000000000003183,
+        18.50999999999997
+      ],
+      "joint_axis": [
+        1.0,
+        2.2049657872672963e-15,
+        1.3029067142597272e-14
+      ],
+      "axial_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "side": -1,
+      "fixed_anchor_world_mm": [
+        -14.397566461056684,
+        -124,
+        30
+      ],
+      "moving_anchor_rest_world_mm": [
+        -104.39756646105668,
+        -124,
+        30
+      ],
+      "support_status": "OPEN until integral lower-carrier side beams and removable Hip-case cuff/arm are qualified together",
+      "recipe": "LOW DOWNWARD XZ, fixed DOWN/moving UP; 10mm lanes",
+      "flex_length_mm": 150
+    }
+  ],
+  "worker_seconds": 30.281,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/low-joint-family-plan.json": "69c6bf013cfc4df6ec0884825740c6b9899eb50d40e9ce0f42c1372ed8f2e227",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
+    "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/joint-support-corridors-plan.json": "43fade6824119068469977092d6058ef666c0cf00bb4122d51f9cba4e2f33021",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/moving-cuff-corridors-plan.json": "31789cefe44a3468e9bcf76f4eded8777f6c3c6d3c771c08e5a00976844c3341",
+    "hardware/reference/hellermann-11102519-2026-10-12/dimensions.json": "b335d5ea5cc3225485c19138907f9e3baac45a45c0d9dff584a8eff9a6bb21ef",
+    "tools/cad/check_low_hip_loom_layout.py": "3b643d85a7a1e407db4823ad8f84fa305d88a73e28ae0efe1ea6a9c2b62aea25",
+    "tools/cad/plan_low_joint_loom_family.py": "7e85eb63be82d0fcd7b9058f7230e2791b6b193fccf89541d32964698277d857",
+    "tools/cad/exact_pair_receipts.py": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/outboard-knee-planes-plan.json": "aff56b3637a6dafe6a0717822da07ea55338f518444a5ad0ae621cd425ead2d8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/outboard-knee-planes-checks.json": "d6ef17ee07dabbf021bc668752aa8eddd44de20d5a44e04e28d5e53f1d9ad7c7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/harness-interfaces-plan.json": "e61fbdf3a5885541af63fcf72b924b467b093fee70efd229427f43314bf48819",
+    "tools/cad/check_supported_outboard_joint_family.py": "818256727568efbe838f78ac34928036bc6c1b2f54b7b6a4fe33e4d3d213bb5a",
+    "tools/cad/immutable_bounds.py": "dcf72a5aac5cbcea3c04e3ee17d6853070abd6519d01953530a32c0e70148a99",
+    "tools/cad/joint_support_current_allocation.py": "c8f60b193600d3b2420e590e4b3297054208c3b2dd55870f9163a2fe42c9fe13"
+  },
+  "Knee_data_replacement": {
+    "plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/outboard-knee-planes-plan.json",
+    "exact_Knee_cases": 108,
+    "section_ids": [
+      "FL2/Knee",
+      "FL3/Knee",
+      "FR2/Knee",
+      "FR3/Knee",
+      "RL2/Knee",
+      "RL3/Knee",
+      "RR2/Knee",
+      "RR3/Knee"
+    ],
+    "scope": "Only Knee row data replaced; full original shared checker and support geometry unchanged. No contact exclusions or radius changes."
+  },
+  "immutable_bounds_profile": {
+    "calls": 31377,
+    "immutable_instances": 1397,
+    "bounds_seconds": 1.282
+  },
+  "case_attachment_change": "All four whole bands allocated from ACTUAL Hip housing Y/Z plus cap, not CHILD WConnector. Rear idle side HIGHX opposite fixed horn; frontLOWX. Rear closure lower-inner/frontupper-inner. Native tape slots rebuilt from same cuff pads, obsolete slots removed. Carrier/wires unchanged. Rear first, ALL108 final cases."
+}
