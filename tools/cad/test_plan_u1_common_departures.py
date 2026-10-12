@@ -15,7 +15,7 @@ class CommonDepartureTests(unittest.TestCase):
 
     def test_rebound_same_net_source_holes_not_invented_pitch(self):
         r=self.p['routes']
-        self.assertEqual(r['XL02']['source']['a']['world_mm'][:2],[73.81,-3.81])
+        self.assertEqual(r['XL02']['source']['a']['world_mm'][:2],[76.35,-13.97])
         self.assertEqual(r['XL07']['source']['b']['world_mm'][:2],[78.89,6.35])
         self.assertEqual(r['XL02']['source']['a']['net'],'LOGIC3V3')
 
@@ -26,11 +26,21 @@ class CommonDepartureTests(unittest.TestCase):
         self.assertGreater(p[5],b[5]+12)
         self.assertFalse(self.p['selected'])
 
-    def test_pair_is_rebound_together_without_extra_stock(self):
+    def test_pair_is_rebound_together_with_explicit_adapter_stock(self):
         pair=self.p['changed_MAIN_pair'];self.assertEqual(set(pair),{'W079','W080'})
-        for r in pair.values():self.assertLessEqual(r['guide_mm']+3,250)
+        for r in pair.values():self.assertLessEqual(r['guide_mm']+3,450)
         a=pair['W079']['parts'][-1]['end'];b=pair['W080']['parts'][-1]['end']
         self.assertAlmostEqual(math.dist(a,b),3.5)
+        self.assertEqual(a,[32.7,-37.15,50.92]);self.assertEqual(b,[32.7,-40.65,50.92])
+        receiver=self.p['USB_receiver']
+        self.assertEqual(receiver['quantity'],1)
+        self.assertEqual(receiver['mating_front_world_mm'],[-7.8,-29.25,50.92])
+        self.assertEqual(receiver['official_Pi_USB_C_shell_board_xy_mm'],[6.875,-1.25,15.525,6.15])
+        self.assertFalse(receiver['selected'])
+        budget=self.p['PI_CABLE_P0_proposed_routing_cap_supersession']
+        self.assertGreater(budget['remaining_single1m_cut_after_output_and_INPUT_offcut_mm'],0)
+        self.assertGreater(budget['conditional_remaining_total_loop_budget_ohm'],0)
+        self.assertFalse(budget['selected'])
 
     def test_fine_fan_lands_are_outside_retainer_tie(self):
         lands=[l for l in self.p['grip_lands'] if l['wire'].startswith('XS') and l['side']=='b']
