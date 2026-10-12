@@ -1,0 +1,125 @@
+{
+  "contacts": [],
+  "errors": [],
+  "pairs": 188,
+  "leg_poses": 108,
+  "head_poses": 9,
+  "joint_sections": 0,
+  "candidate_joint_conflicts": [],
+  "candidate_joint_errors": [],
+  "unselected_joint_scope": "Not checked: full factory/body joins rejected. Prior disconnected-section clearance is NOT transferred to these new supports. Complete current wiring remains OPEN.",
+  "status": "TWELVE_STATION_ROOTED_SUPPORTS_NATIVE_PREPARED_W5_OPEN",
+  "scope": "Changed5station supports/hardware/bonds vs retained P0 leg27poses each and52head members9poses. Rejected unselected joint-cable family explicitly excluded, no clearance or W5 qualification transferred.",
+  "continuous_sweep_verified": false,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadNeckCurrent.FCStd": "ce19a824152b6ab8646731bbd002956a49557be17bacd819d3688d79c69fde89",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/data-ground-mounts-plan.json": "2556d033321ec5d7fd6380f5d1f1879cc977e0bc96b68e576eda8b05a279c5be",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
+    "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
+    "tools/cad/build_current_station_frames.py": "0e432a700cc081c045aa710bca2bd5b472948279b9b56454545206c12a630086",
+    "tools/cad/plan_current_data_ground_mounts.py": "a39781402734d353f9df060cee31508c2a17ab0981d5a7cac6d7d4fcb5ef21ba",
+    "tools/cad/plan_current_head_wiring.py": "12d670fc60c17e5d8ac513c8a9a0374673d4007e7bd1e19d50cb04754f1abca7",
+    "tools/cad/exact_pair_receipts.py": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671",
+    "tools/cad/immutable_bounds.py": "dcf72a5aac5cbcea3c04e3ee17d6853070abd6519d01953530a32c0e70148a99"
+  },
+  "worker_seconds": 640.922,
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd",
+  "native_sha256": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
+  "exports": [
+    {
+      "part": "FLStationFrame",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/FLStationFrame_x1.stl",
+      "sha256": "e7efdb186d9d1113ac941c5ff1ee8a5e7e00c1d32b3984d62f2b0df304bdc617",
+      "size_mm": [
+        96.0,
+        13.75,
+        48.0
+      ],
+      "quantity": 1,
+      "brim_each_mm": 5
+    },
+    {
+      "part": "FRStationFrame",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/FRStationFrame_x1.stl",
+      "sha256": "6c9d526fb434a6751d851bca438ec346d43221424736db91e5be4523e1598b2e",
+      "size_mm": [
+        105.0,
+        102.75,
+        66.0
+      ],
+      "quantity": 1,
+      "brim_each_mm": 5
+    },
+    {
+      "part": "RLStationFrame",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/RLStationFrame_x1.stl",
+      "sha256": "3ae1e3ae78a1c9c86d06aa8ab8f51cad28dc2f7cb9ef3d57bf08ba761d7de575",
+      "size_mm": [
+        86.0,
+        73.75,
+        63.0
+      ],
+      "quantity": 1,
+      "brim_each_mm": 5
+    },
+    {
+      "part": "RRStationFrame",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/RRStationFrame_x1.stl",
+      "sha256": "35db1b7eb349fadb207aef2d6348b1ed1bf8b2b57146fc44f84fe8942022594c",
+      "size_mm": [
+        86.0,
+        73.75,
+        66.00000000000001
+      ],
+      "quantity": 1,
+      "brim_each_mm": 5
+    },
+    {
+      "part": "FoundationStationSupports",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/FoundationStationSupports_x1.stl",
+      "sha256": "86d7c6424498d6990d32c49c779b8a7a9270c2efd99054ea574a758e24040a10",
+      "size_mm": [
+        202.0,
+        198.0,
+        71.2324447631836
+      ],
+      "quantity": 1,
+      "brim_each_mm": 5
+    }
+  ],
+  "editable_parts": 5,
+  "fully_constrained_sketches": 103,
+  "parameter_restore_mm": [
+    5.5,
+    5.7,
+    5.5
+  ],
+  "relocated_reopen": true,
+  "inherited_geometry": "Exactly one retained Foundation base, all original material kept. New support pads/sketches editable; old base is explicitly inherited, not claimed fully migrated.",
+  "replaces_unselected_low_power_mounts": true,
+  "hardware_nominal": {
+    "M3x16": 4,
+    "M3nut": 4,
+    "M3washer": 4
+  },
+  "assembly": [
+    "Disconnect/remove all power sources. Install four nuts in actual P0 top captive pockets before frames, before E1 lower carrier/wiring. Do not drill or trim P0.",
+    "Fit each frame foot below its actual Z-2 boss with one upward M3x16 and washer. Check rotation/friction bearing by phase2 coupon; no load rating assigned.",
+    "Dry-fit twelve delivered WAGO cases. Retention is provisional removable bottom/back bonding after compatibility/peel trial; support the case during lever operation.",
+    "All low shoes stop below the lever/terminal gallery. Independent wire grips/full fan routing must be fitted before loading a cable.",
+    "Deep repair: support case, release five ends with no pulling, remove bond/case. Bottom screw is accessible from below; captive nut must be held/replaced before E1 lower carrier installation. Full carrier/wiring removal sequence remains A2 OPEN, not routine service."
+  ],
+  "provisional": [
+    "Nominal purchased bolt/nut/washer envelopes, exact SKU and PETG clamp preload/creep remain K2/phase2 gates",
+    "Bond thickness/area are project allocations, not measured adhesion; delivered WAGO lower casing and lever fit remain phase2 gates"
+  ],
+  "open": [
+    "Independent insulation grips and full five-port fan/lever operation",
+    "Complete leg/head wiring, stock and whole assembly selection"
+  ],
+  "print_orientation": "Foundation: retained floor down. Other4frames: broad side down, support seat bridges as required. Phase2 slicer/coupon/stiffness/creep/adhesion tests open."
+}
