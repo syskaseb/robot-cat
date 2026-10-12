@@ -1,0 +1,122 @@
+{
+  "status": "TWO_GROUPED_GRIPS_NATIVE_PREPARED_OTHER_ENDS_SERVICE_OPEN",
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1GroupedGripsCurrent.FCStd",
+  "native_sha256": "09d8d23e9f70150542a8abffb8ecab90c780c2739ae7582b5bbfec86ca49685e",
+  "exports": [
+    {
+      "part": "GPIOGrip",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/GPIOGrip_x1.stl",
+      "sha256": "20d4ed4f151c83b30d0ece7a088ae5f7ab53d302664f6ea97637509fee300dc5",
+      "quantity": 1,
+      "size_mm": [
+        62.79999923706055,
+        24.499999999999986,
+        11.470000267028809
+      ],
+      "brim_each_mm": 5,
+      "orientation": "GPIO: north spine down; PCA: bearing feet down. Support bridges/slots as needed; phase2 slicer and PETG creep/fit gates, no print approval."
+    },
+    {
+      "part": "PCAGrip",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/PCAGrip_x1.stl",
+      "sha256": "74c3e991917c1d467a61ce2391adadf06de432517356762b703c12f53196c6d3",
+      "quantity": 1,
+      "size_mm": [
+        18.46500015258789,
+        31.924999237060547,
+        10.0
+      ],
+      "brim_each_mm": 5,
+      "orientation": "GPIO: north spine down; PCA: bearing feet down. Support bridges/slots as needed; phase2 slicer and PETG creep/fit gates, no print approval."
+    }
+  ],
+  "editable_parts": 2,
+  "parameter_restore_mm": [
+    2.5,
+    2.7,
+    2.5
+  ],
+  "relocated_reopen": true,
+  "changed_existing_hardware": [
+    {
+      "name": "Pi410Screw",
+      "translation_mm": [
+        0,
+        0,
+        0.7
+      ],
+      "same_length_reused": true
+    },
+    {
+      "name": "Pi412Screw",
+      "translation_mm": [
+        0,
+        0,
+        0.7
+      ],
+      "same_length_reused": true
+    },
+    {
+      "name": "PWM968517Screw",
+      "translation_mm": [
+        0,
+        0,
+        0.7
+      ],
+      "same_length_reused": true
+    },
+    {
+      "name": "PWM968518Screw",
+      "translation_mm": [
+        0,
+        0,
+        0.7
+      ],
+      "same_length_reused": true
+    }
+  ],
+  "replaced_upper_washers": [
+    "PWM968517TopWasher",
+    "PWM968518TopWasher",
+    "Pi410TopWasher",
+    "Pi412TopWasher"
+  ],
+  "purchased_ties": {
+    "SKU": "111-00405",
+    "type": "T18R",
+    "width_mm": 2.5,
+    "thickness_mm": 1.0,
+    "source": "https://www.hellermanntyton.us/products/cable-ties/t18r/111-00405",
+    "locked_head_budget_mm": [
+      4.8,
+      4.5,
+      3.5
+    ],
+    "head_is_project_reservation": true
+  },
+  "ties_quantity": 4,
+  "assembly": [
+    "Source/USB disconnected; fit feet at four actual board axes while supportingPCB; retain captive nuts and screw lengths.",
+    "Install three GPIO-front PWM JP3/fine groups and separate GPIO rear row ties on insulation only.",
+    "Service: cut only dedicated wire ties, support PCB, remove two bracket bolts; remove GPIO bracket before plug withdrawal.",
+    "BUS pair release, lower-board tool access and all U1-side restraint/service remain open; this is not wholeE1/W5."
+  ],
+  "phase2": [
+    "Tie actual locking dimensions and hand tension; do not crush fine insulation.",
+    "Right-rooted GPIO cantilever stiffness/creep and layer direction.",
+    "PCA1mm common seat and thin slot edges require coupon/deburr/fit.",
+    "Actual driver access/connector envelopes and thermal clearances."
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-grouped-grips-checks.json": "069f4362fa6183c8663ec56f057366d75a3dc2f995ea2a70671c9bf11e29aefc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-grouped-grips-plan.json": "b7d12472eb5280ca57558183d80adebe83552d604f6f44fb5edb6f7b999de51c",
+    "tools/cad/build_u1_grouped_grips.py": "34f12fa921cb3b91099602078587e57db29682b9c87def858e4c501f637b767f",
+    "tools/cad/plan_u1_grouped_grips.py": "b63f1ef07552cf0dedf366811775d23fa2597c5009cd8da57a2202d8b7ca3665",
+    "hardware/reference/hellermann-11100405-2026-10-12/dimensions.json": "1b31ab118f89dff9f80d46acd35d2afb59115502a6702042ca9376a989f567f0"
+  },
+  "worker_seconds": 11.796,
+  "selected": false,
+  "E1_complete": false,
+  "W5_complete": false,
+  "physical_pass": false
+}
