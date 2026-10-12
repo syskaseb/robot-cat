@@ -2,15 +2,21 @@
   "status": "REJECTED_LOW_HIP_SHARED_LAYOUT",
   "contacts": [
     {
-      "a": "FrontLeftMovingCuff",
-      "b": "P0_Part__Feature",
-      "gap_mm": 3.552713678800501e-15,
-      "volume_mm3": 0.0832639525663457
+      "a": "FrontRightMovingCuff",
+      "b": "wire/W076_EXTENSION",
+      "gap_mm": 0.5690120563997738,
+      "volume_mm3": 0,
+      "pose": {
+        "leg": "FrontRight",
+        "Hip": -15,
+        "Knee": 0,
+        "Ankle": 0
+      }
     }
   ],
   "errors": [],
-  "pairs": 848,
-  "cases": 22,
+  "pairs": 926,
+  "cases": 32,
   "math_poses": 0,
   "selected": false,
   "native_changed": false,
@@ -20,12 +26,13 @@
   "approved_motion_limits": false,
   "provisional": [
     "OD6/R31 and +/-15 degree sampling are project assumptions, not delivered qualification",
-    "Keyed cuff fit, one cuttable T18R case strap, 0.5mm shim/load/PETG creep need phase2 trial",
+    "Keyed cuff fit, one cuttable240mm T25L case strap, 0.5mm shim/load/PETG creep need phase2 trial",
+    "Case head8x8x6 and small jacket heads6x6x5mm are project reservations, not supplier head dimensions",
     "M3x55/washer/nut envelopes; final SKU and all wire grips/joins remain open"
   ],
   "assembly": [
     "Fit fixed split clamps to P0 side rails before wiring; no drilling into retained rails.",
-    "Dry-fit inboard keyed moving cap and shim; strap on idle low-X case side, head above outer casing, not over shaft/connector.",
+    "Dry-fit keyed moving cap and shim; strap on idle low-X case side. Ratchet above inboard edge at front, outer edge at rear, avoiding spine/carrier respectively; not over shaft/connector.",
     "Install three nine-mm jacket lands per side, six independent straps per leg; leave joint-local flex free.",
     "Deep removal by cutting replaceable straps before removing each cap; no quick-service promise.",
     "Four existing P-station shoes retained; top clamps replaced by common fixed wire arms, not duplicated. Knee flex family reflected outward together."
@@ -59,6 +66,11 @@
   "rest_foot_ground_z_mm": -168.31915384000393,
   "minimum_cable_to_rest_ground_mm": 89.64412703526651,
   "reused_math_poses": 620,
+  "exact_pair_receipts": {
+    "reused": 0,
+    "computed": 926,
+    "checker_sha256": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671"
+  },
   "loops": [
     {
       "section": "FL1/Hip",
@@ -529,14 +541,16 @@
       "flex_length_mm": 150
     }
   ],
-  "worker_seconds": 808.219,
+  "worker_seconds": 930.343,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/low-joint-family-plan.json": "69c6bf013cfc4df6ec0884825740c6b9899eb50d40e9ce0f42c1372ed8f2e227",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
     "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/joint-support-corridors-plan.json": "43fade6824119068469977092d6058ef666c0cf00bb4122d51f9cba4e2f33021",
-    "tools/cad/check_low_hip_loom_layout.py": "2a21c0572f80aab7af04210601f889071d6f13ff2ee747c888d564509f132841",
-    "tools/cad/plan_low_joint_loom_family.py": "7e85eb63be82d0fcd7b9058f7230e2791b6b193fccf89541d32964698277d857"
+    "hardware/reference/hellermann-11102519-2026-10-12/dimensions.json": "b335d5ea5cc3225485c19138907f9e3baac45a45c0d9dff584a8eff9a6bb21ef",
+    "tools/cad/check_low_hip_loom_layout.py": "699ebdeaf04bc09c5b1c7447d85dc9450ae1406f8ecffca7c3d9bcebd783854b",
+    "tools/cad/plan_low_joint_loom_family.py": "7e85eb63be82d0fcd7b9058f7230e2791b6b193fccf89541d32964698277d857",
+    "tools/cad/exact_pair_receipts.py": "cb0c1df5f81386dd68ef98aaffafc63cb01ae522e48616c91c6d51ef94f12671"
   }
 }

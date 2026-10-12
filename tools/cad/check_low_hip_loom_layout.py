@@ -17,6 +17,7 @@ from plan_current_moving_looms import add,sub,mul,rotation
 from plan_current_mta_interfaces import line
 from plan_current_tail_complete import tie_x
 from current_prototype_harness_scene import wire,W
+from exact_pair_receipts import PairReceipts
 
 
 def rejected_old_parts_at(r,angle):
@@ -79,30 +80,51 @@ def allocate(rows,targets,with_recipe=False):
         rung0,rung1=(mx-22,mx+6) if front else (mx-6,mx+22)
         # Inboard bearing patch remains inside the frame screw corridor
         # throughout Hip sampling, rather than clearing only its rest pose.
+        # Actual frame witness at Hip+15 reached local Z32.3493670273.
+        # Relieve the root's lower edge over its full width with0.5mm margin;
+        # retain the separate case bearing patch and upper joined load path.
+        root_z=32.349367027314756+.5 if front else 32.2
+        # Use the WHOLE fixed-head-wire bounding lower envelope, not only
+        # the previous witness point. XS13 minY-98/minZ55.8, FR pivot
+        # (-16,18.51), inverse Hip15 gives a conservative local minZ.
+        # Keep outboard spine below its1.05mm jacket plus0.5mm margin.
+        # Only the near-case beam remains above the sampled Knee member.
+        crown_top=18.51+math.cos(math.radians(15))*(55.8-18.51)-math.sin(math.radians(15))*(98-16)-1.05-.5
+        crown_bottom=crown_top-4
+        short0,short1=(mx-6,mx-3) if front else (mx+3,mx+6)
+        bridge0,bridge1=(beam_x0,short1) if front else (short0,beam_x1)
         mp=[dict(bounds_mm=bounds(cap0,7,32.2,cap1,16,36.2),length_expression='CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(root0,12,32.2,root1,16,40),length_expression='3.8 mm + CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(beam_x0,12,36,beam_x1,128,40),length_expression='CrownParameters.Thickness'),
-            dict(bounds_mm=bounds(rung0,100,36,rung1,128,40),length_expression='CrownParameters.Thickness')]
+            dict(bounds_mm=bounds(root0,12,root_z,root1,16,40),length_expression=f'{36-root_z} mm + CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(beam_x0,12,36,beam_x1,84,40),length_expression='CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(beam_x0,80,crown_bottom,beam_x1,84,40),length_expression=f'{36-crown_bottom} mm + CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(bridge0,80,crown_bottom,bridge1,84,crown_top),length_expression='CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(short0,80,crown_bottom,short1,128,crown_top),length_expression='CrownParameters.Thickness')]
         cuff=fuse([box(v['bounds_mm']) for v in mp])
         shim=B(cap0+1,8,31.7,cap1-1,15,32.2)
         put(leg+'CaseShim',shim,code)
         # The connector's lower/back projection belongs to the physical
         # member too. Idle low-X band avoids Knee on all four legs; rear
         # structural beam attaches at the opposite cap end to clear frame.
-        # Head above OUTER casing, not into lower carrier or centerline.
+        # Head above INBOARD case edge: outer edge crosses the arm's spine.
         bx=mx-16.5
-        band=B(bx-1.25,3.229,-3.480805,bx+1.25,60.731442,37.7).cut(
-            B(bx-1.4,4.429,-2.280805,bx+1.4,59.531442,36.5))
-        head=B(bx-2.4,56,37.7,bx+2.4,60.8,42.2)
+        # Real240mm T25L case strap; short T18R cannot close this case.
+        # Head budgets are provisional, not supplier dimensions.
+        band=B(bx-1.4,3.029,-3.680805,bx+1.4,60.931442,37.9).cut(
+            B(bx-1.6,4.429,-2.280805,bx+1.6,59.531442,36.5))
+        # Front external spine occupies the outer face. Rear spine is on
+        # oppositeX side, while the retained body carrier occupies its inner
+        # face. Allocate these two distinct rigid assemblies accordingly.
+        head=B(bx-4,4 if front else 56,37.9,bx+4,12 if front else 64,43.9)
         cuff=cuff.cut(band)
-        put(leg+'CaseBand',band,code);put(leg+'CaseBandHead',head,code)
+        put(leg+'CaseBand',band.fuse(head).removeSplitter(),code)
         for lane,row in enumerate(rs):
             yy=abs(row['fixed_anchor_world_mm'][1])
             for kind,xx,positive in [('Fixed',x,True),('Moving',mx,not front)]:
                 p0,p1=(xx+3,xx+6) if positive else (xx-6,xx-3)
                 # Both posts rise to the crown, leaving flex below free.
-                post=B(p0,yy-2,21,p1,yy+2,40)
-                (fp if kind=='Fixed' else mp).append(dict(bounds_mm=bounds(p0,yy-2,21,p1,yy+2,40),length_expression='15 mm + CrownParameters.Thickness'))
+                top=40 if kind=='Fixed' else crown_top
+                post=B(p0,yy-2,21,p1,yy+2,top)
+                (fp if kind=='Fixed' else mp).append(dict(bounds_mm=bounds(p0,yy-2,21,p1,yy+2,top),length_expression=f'{top-25} mm + CrownParameters.Thickness'))
                 if kind=='Fixed':fixed=fixed.fuse(post)
                 else:cuff=cuff.fuse(post)
                 x0,x1=(xx-4.2,xx+7.2) if positive else (xx-7.2,xx+4.2)
@@ -112,12 +134,15 @@ def allocate(rows,targets,with_recipe=False):
                     x1+4.5 if positive else x0,yy+2.4,27.25)
                 if kind=='Fixed':fixed=fixed.cut(b)
                 else:cuff=cuff.cut(b)
-                put(leg+kind+'Band'+str(lane),b,None if kind=='Fixed' else code)
-                put(leg+kind+'BandHead'+str(lane),h,None if kind=='Fixed' else code)
+                bb=h.BoundBox;cx=(bb.XMin+bb.XMax)/2;cy=(bb.YMin+bb.YMax)/2;cz=(bb.ZMin+bb.ZMax)/2
+                h=box([cx-3,cy-3,cz-2.5,cx+3,cy+3,cz+2.5])
+                # Band and ratchet head are ONE purchased physical item.
+                # Their intentional union must not appear as two colliding parts.
+                put(leg+kind+'Band'+str(lane),b.fuse(h).removeSplitter(),None if kind=='Fixed' else code)
         put(leg+'FixedArm',fixed.removeSplitter());put(leg+'LowerJaw',jaw)
         put(leg+'MovingCuff',cuff.removeSplitter(),code)
         recipe[leg+'FixedArm']=dict(pads=fp,holes=[[clamp_x-4,side*55],[clamp_x+4,side*55]],notches=[])
-        recipe[leg+'MovingCuff']=dict(pads=mp,holes=[],notches=[bounds(bx-1.25,3.229,36.5,bx+1.25,60.731442,37.7)] if front else [])
+        recipe[leg+'MovingCuff']=dict(pads=mp,holes=[],notches=[bounds(bx-1.4,3.029,36.5,bx+1.4,60.931442,37.9)] if front else [])
     return (shapes,moving,owners,recipe) if with_recipe else (shapes,moving,owners)
 
 
@@ -131,10 +156,11 @@ def run():
         selected=False,native_changed=False,W5_complete=False,physical_pass=False,
         continuous_motion_proved=False,approved_motion_limits=False,
         provisional=['OD6/R31 and +/-15 degree sampling are project assumptions, not delivered qualification',
-          'Keyed cuff fit, one cuttable T18R case strap, 0.5mm shim/load/PETG creep need phase2 trial',
+          'Keyed cuff fit, one cuttable240mm T25L case strap, 0.5mm shim/load/PETG creep need phase2 trial',
+          'Case head8x8x6 and small jacket heads6x6x5mm are project reservations, not supplier head dimensions',
           'M3x55/washer/nut envelopes; final SKU and all wire grips/joins remain open'],
         assembly=['Fit fixed split clamps to P0 side rails before wiring; no drilling into retained rails.',
-          'Dry-fit inboard keyed moving cap and shim; strap on idle low-X case side, head above outer casing, not over shaft/connector.',
+          'Dry-fit keyed moving cap and shim; strap on idle low-X case side. Ratchet above inboard edge at front, outer edge at rear, avoiding spine/carrier respectively; not over shaft/connector.',
           'Install three nine-mm jacket lands per side, six independent straps per leg; leave joint-local flex free.',
           'Deep removal by cutting replaceable straps before removing each cap; no quick-service promise.'])
     chosen=rows[0]['flex_length_mm'];report['common_length_trials']=family['common_Hip_length_trials']
@@ -144,7 +170,8 @@ def run():
     axes=json.loads(af.read_text())['axes']
     with zipfile.ZipFile(zf) as z:members=json.loads(z.read('geometry.json'))['components']
     membership={q['name']:q['stage'].split('_')[1:] for q in members if q['stage'].startswith('Motion_')}
-    supports,assigned,owners=allocate(rows,targets);cache={};seen=set();valid={}
+    supports,assigned,owners=allocate(rows,targets);cache={};seen=set()
+    pair_gate=PairReceipts(OUT/'joint-support-pair-cache.json',W.near)
     for n,s in supports.items():
         if not s.isValid() or len(s.Solids)!=1:report['errors'].append([n,'Not one valid support/strap/hardware solid'])
     def cached(key,fn):
@@ -157,17 +184,10 @@ def run():
         key=(id(s),id(t),rs,rt) if id(s)<id(t) else (id(t),id(s),rt,rs)
         if key in seen:return
         seen.add(key);report['pairs']+=1
-        for q in (s,t):
-            if id(q) not in valid:valid[id(q)]=q.isValid()
-        if not valid[id(s)] or not valid[id(t)]:report['errors'].append([n,m]);return
-        gap=s.distToShape(t)[0]
-        v=0
-        if not rs+rt and gap<=1e-5:
-            common=s.common(t)
-            if not common.isNull() and not common.isValid():report['errors'].append([n,m,'Invalid Boolean result']);return
-            if not common.isNull():v=common.Volume
+        try:gap,v=pair_gate.check(s,t,rs,rt)
+        except (AssertionError,ValueError) as e:report['errors'].append([n,m,str(e)]);return
         if (rs+rt and gap<rs+rt-1e-4) or v>1e-5:
-            report['contacts'].append(dict(a=n,b=m,gap_mm=gap,volume_mm3=v))
+            report['contacts'].append(dict(a=n,b=m,gap_mm=gap,volume_mm3=v,pose=dict(leg=leg,Hip=h,Knee=k,Ankle=a)))
     ground=min(t.BoundBox.ZMin for n,t in targets.items()
                if n.startswith('P0_') and membership.get(n[3:],['',''])[-1]=='Ankle')
     report['rest_foot_ground_z_mm']=ground;report['minimum_cable_to_rest_ground_mm']=1e9
@@ -176,7 +196,8 @@ def run():
         for r in rows:r['guide_mm']=chosen+18
         legs=list(dict.fromkeys(r['physical_leg'] for r in rows))
         schedule=[(leg,[(0,0,0)]) for leg in legs]
-        schedule += [(leg,[p for p in itertools.product((-15,0,15),repeat=3) if p!=(0,0,0)]) for leg in legs]
+        priority=[(15,0,0),(-15,0,0),(0,15,0),(0,-15,0),(0,0,15),(0,0,-15)]
+        schedule += [(leg,priority+[p for p in itertools.product((-15,0,15),repeat=3) if p!=(0,0,0) and p not in priority]) for leg in legs]
         for leg,poses in schedule:
             if len(poses)>1 and (report['contacts'] or report['errors']):break
             family=[r for r in rows if r['physical_leg']==leg];code=family[0]['cad_code']
@@ -199,9 +220,9 @@ def run():
                     lambda r=r:wire(parts_at(r,h if r['cad_code']==code else 0))) for r in rows}
                 kk={r['section']:cached(('knee',r['section'],h if r['cad_code']==code else 0,k if r['cad_code']==code else 0),
                     lambda r=r:wire(scene_parts(r,h if r['cad_code']==code else 0,k if r['cad_code']==code else 0,axes))) for r in knees}
-                active=[(r['section'],curves[r['section']],3) for r in family]
+                active=[(n,s,0) for n,s in ss.items() if n.startswith(leg)]
+                active += [(r['section'],curves[r['section']],3) for r in family]
                 active += [(r['section'],kk[r['section']],3) for r in knees if r['cad_code']==code]
-                active += [(n,s,0) for n,s in ss.items() if n.startswith(leg)]
                 for n,s,rad in active:
                     if rad:
                         clearance=s.BoundBox.ZMin-rad-ground
@@ -215,18 +236,23 @@ def run():
                     # Full jacket rings are tangent to assigned lands, not waived.
                     if rad:
                         for m,t in ss.items():test(n,s,m,t,rad)
+                    if report['contacts'] or report['errors']:break
                 names=list(ss)
                 for i,n in enumerate(names):
                     for m in names[i+1:]:test(n,ss[n],m,ss[m])
+                if report['cases']%5==0:
+                    pair_gate.save()
+                    print('motion progress',leg,(h,k,a),'cases',report['cases'],'pairs',report['pairs'],'exact reused/new',pair_gate.reused,pair_gate.computed,flush=True)
                 if report['contacts'] or report['errors']:break
             print('low family',leg,'cases',report['cases'],'contacts',len(report['contacts']),'errors',len(report['errors']),flush=True)
             # At least nominal on every leg is useful to reject the architecture
             # as a whole, but do not spend27poses repeating a known failure.
     if report['cases']==0:report['minimum_cable_to_rest_ground_mm']=None
+    pair_gate.save();report['exact_pair_receipts']=dict(reused=pair_gate.reused,computed=pair_gate.computed,checker_sha256=pair_gate.revision)
     report.update(status='REJECTED_LOW_HIP_SHARED_LAYOUT' if report['contacts'] or report['errors']
         else 'LOW_HIP_SHARED_LAYOUT_SAMPLED_CLEAR_NATIVE_FULL_JOINS_OPEN',loops=rows,
         worker_seconds=round(time.monotonic()-start,3),
-        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (archive,hf,af,zf,OUT/'joint-support-corridors-plan.json',Path(__file__),Path(__file__).with_name('plan_low_joint_loom_family.py'))})
+        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (archive,hf,af,zf,OUT/'joint-support-corridors-plan.json',ROOT/'hardware/reference/hellermann-11102519-2026-10-12/dimensions.json',Path(__file__),Path(__file__).with_name('plan_low_joint_loom_family.py'),Path(__file__).with_name('exact_pair_receipts.py'))})
     (OUT/'low-hip-shared-layout.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ('status','cases','math_poses','pairs','contacts','errors','worker_seconds','minimum_cable_to_rest_ground_mm')}),flush=True)
 
