@@ -10,7 +10,8 @@ from pathlib import Path
 import FreeCAD as A
 import Part
 from plan_current_main_sources import ROOT,OUT,SHA
-from plan_low_power_station_mounts import scene,box,fuse
+from plan_low_power_station_mounts import scene,box,fuse,allocate as station_supports
+from plan_low_joint_loom_family import hip_parts as parts_at
 from plan_current_joint_local_looms import solve_loop,scene_parts
 from plan_current_moving_looms import add,sub,mul,rotation
 from plan_current_mta_interfaces import line
@@ -18,7 +19,7 @@ from plan_current_tail_complete import tie_x
 from current_prototype_harness_scene import wire,W
 
 
-def parts_at(r,angle):
+def rejected_old_parts_at(r,angle):
     direction=[0,0,-1];end_direction=rotation([0,0,1],r['joint_axis'],angle)
     fixed=r['fixed_anchor_world_mm'];pv=r['pivot_mm']
     moving=add(pv,rotation(sub(r['moving_anchor_rest_world_mm'],pv),r['joint_axis'],angle))
@@ -27,51 +28,81 @@ def parts_at(r,angle):
     return None if q is None else [line(fixed,start),q,line(end,moving)]
 
 
-def allocate(rows):
-    shapes={};moving={};owners={}
+def allocate(rows,targets,with_recipe=False):
+    shapes={};moving={};owners={};recipe={}
+    cp=json.loads((OUT/'joint-support-corridors-plan.json').read_text())
+    assert cp['status']=='FOUR_ROOT_CORRIDORS_SCREEN_CLEAR_BREP_MOTION_OPEN'
+    for n,h in cp['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    retained_shoes,_,station_recipe=station_supports(targets)
     def put(n,s,code=None,owner=None):
         shapes[n]=s;moving[n]=code;owners[n]=owner or n
     for leg in dict.fromkeys(r['physical_leg'] for r in rows):
         rs=[r for r in rows if r['physical_leg']==leg];r=rs[0]
         side=r['side'];front=leg.startswith('Front');code=r['cad_code']
         x=r['fixed_anchor_world_mm'][0];mx=r['moving_anchor_rest_world_mm'][0]
-        def B(a,b,c,d,e,f):
-            y0,y1=sorted((side*b,side*e));return box([a,y0,c,d,y1,f])
-        fixed=fuse([B(x-10,45,38.52,x+10,61,43.52),
-                    B(x-6,55,38.52,x+6,65,43.52),
-                    B(x-6,61,25,x+6,65,43.52),
-                    B(x-6,61,25,x+6,124,29)])
-        jaw=B(x-10,45,-5,x+10,61,-2)
+        clamp_x=40 if front else 115
+        short={'FrontLeft':'FL','FrontRight':'FR','RearLeft':'RL','RearRight':'RR'}[leg]
+        def bounds(a,b,c,d,e,f):
+            y0,y1=sorted((side*b,side*e));return [a,y0,c,d,y1,f]
+        def B(*v):return box(bounds(*v))
+        # Same four proven current P-station clamps, not four extra clamps
+        # under F0/splice. Replace their top caps, preserve their native shoes.
+        # Crown ABOVE the downward land/departure. The entire transverse
+        # bridge goes outside F0/splice, not through their occupied corridor.
+        route=next(v['points_mm'] for v in cp['roots'] if v['leg']==leg)
+        fp=[dict(bounds_mm=bounds(clamp_x-10,45,38.52,clamp_x+10,61,43.52))]
+        fp.append(dict(bounds_mm=bounds(clamp_x-3,59,38.52,clamp_x+3,65,43.52)))
+        fp += [dict(bounds_mm=[min(a[i],b[i])-3 for i in range(3)]+[max(a[i],b[i])+3 for i in range(3)]) for a,b in zip(route,route[1:])]
+        fp.append(dict(bounds_mm=bounds(x+3,88,36,x+6,128,40),length_expression='CrownParameters.Thickness'))
+        fixed=fuse([box(v['bounds_mm']) for v in fp])
+        jaw=retained_shoes[short+'StationShoe']
+        for suffix in ('BottomBond','BackBond'):put(leg+suffix,retained_shoes[short+suffix])
         for dx in (-4,4):
-            hole=Part.makeCylinder(1.7,60,A.Vector(x+dx,side*55,-12))
+            cx=clamp_x+dx
+            hole=Part.makeCylinder(1.7,60,A.Vector(cx,side*55,-12))
             fixed=fixed.cut(hole);jaw=jaw.cut(hole)
-            screw=Part.makeCylinder(1.5,55,A.Vector(x+dx,side*55,-10.98)).fuse(
-                Part.makeCylinder(2.75,3,A.Vector(x+dx,side*55,44.02)))
+            screw=Part.makeCylinder(1.5,55,A.Vector(cx,side*55,-10.98)).fuse(
+                Part.makeCylinder(2.75,3,A.Vector(cx,side*55,44.02)))
             put(leg+'Screw'+str(dx),screw)
             for tag,z in [('UpperWasher',43.52),('LowerWasher',-5.5)]:
-                put(leg+tag+str(dx),Part.makeCylinder(3.5,.5,A.Vector(x+dx,side*55,z)).cut(
-                    Part.makeCylinder(1.6,.5,A.Vector(x+dx,side*55,z))))
-            pts=[A.Vector(x+dx+3.2*math.cos(i*math.pi/3),side*55+3.2*math.sin(i*math.pi/3),-7.9) for i in range(7)]
+                put(leg+tag+str(dx),Part.makeCylinder(3.5,.5,A.Vector(cx,side*55,z)).cut(
+                    Part.makeCylinder(1.6,.5,A.Vector(cx,side*55,z))))
+            pts=[A.Vector(cx+3.2*math.cos(i*math.pi/3),side*55+3.2*math.sin(i*math.pi/3),-7.9) for i in range(7)]
             nut=Part.Face(Part.makePolygon(pts)).extrude(A.Vector(0,0,2.4)).cut(
-                Part.makeCylinder(1.5,2.4,A.Vector(x+dx,side*55,-7.9)))
+                Part.makeCylinder(1.5,2.4,A.Vector(cx,side*55,-7.9)))
             put(leg+'Nut'+str(dx),nut)
         # The low-X face of each actual case stays outside its Knee motor.
         # A single replaceable case band + keyed cap, not two colliding bands.
-        beam_x0,beam_x1=(mx-22,mx-19) if front else (mx-19,mx-16)
-        cuff=fuse([B(mx-18,7,32.2,mx+6,32,36.2),
-                   B(mx-22,25,32.2,mx-14,32,40),
-                   B(beam_x0,25,36,beam_x1,124,40)])
-        shim=B(mx-17,8,31.7,mx+5,24,32.2)
+        beam_x0,beam_x1=(mx-22,mx-19) if front else (mx+19,mx+22)
+        cap0,cap1=(mx-18,mx+6) if front else (mx-18,mx+18)
+        root0,root1=(mx-22,mx-14) if front else (mx+14,mx+22)
+        rung0,rung1=(mx-22,mx+6) if front else (mx-6,mx+22)
+        # Inboard bearing patch remains inside the frame screw corridor
+        # throughout Hip sampling, rather than clearing only its rest pose.
+        mp=[dict(bounds_mm=bounds(cap0,7,32.2,cap1,16,36.2),length_expression='CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(root0,12,32.2,root1,16,40),length_expression='3.8 mm + CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(beam_x0,12,36,beam_x1,128,40),length_expression='CrownParameters.Thickness'),
+            dict(bounds_mm=bounds(rung0,100,36,rung1,128,40),length_expression='CrownParameters.Thickness')]
+        cuff=fuse([box(v['bounds_mm']) for v in mp])
+        shim=B(cap0+1,8,31.7,cap1-1,15,32.2)
         put(leg+'CaseShim',shim,code)
-        y0,y1=sorted((side*3.229,side*60.731442))
-        band,head=tie_x(mx-16.5,y0,y1,-3.480805,37.7,head_north=side<0)
+        # The connector's lower/back projection belongs to the physical
+        # member too. Idle low-X band avoids Knee on all four legs; rear
+        # structural beam attaches at the opposite cap end to clear frame.
+        # Head above OUTER casing, not into lower carrier or centerline.
+        bx=mx-16.5
+        band=B(bx-1.25,3.229,-3.480805,bx+1.25,60.731442,37.7).cut(
+            B(bx-1.4,4.429,-2.280805,bx+1.4,59.531442,36.5))
+        head=B(bx-2.4,56,37.7,bx+2.4,60.8,42.2)
         cuff=cuff.cut(band)
         put(leg+'CaseBand',band,code);put(leg+'CaseBandHead',head,code)
         for lane,row in enumerate(rs):
             yy=abs(row['fixed_anchor_world_mm'][1])
-            for kind,xx,positive in [('Fixed',x,front),('Moving',mx,not front)]:
+            for kind,xx,positive in [('Fixed',x,True),('Moving',mx,not front)]:
                 p0,p1=(xx+3,xx+6) if positive else (xx-6,xx-3)
-                post=B(p0,yy-2,21,p1,yy+2,29 if kind=='Fixed' else 40)
+                # Both posts rise to the crown, leaving flex below free.
+                post=B(p0,yy-2,21,p1,yy+2,40)
+                (fp if kind=='Fixed' else mp).append(dict(bounds_mm=bounds(p0,yy-2,21,p1,yy+2,40),length_expression='15 mm + CrownParameters.Thickness'))
                 if kind=='Fixed':fixed=fixed.fuse(post)
                 else:cuff=cuff.fuse(post)
                 x0,x1=(xx-4.2,xx+7.2) if positive else (xx-7.2,xx+4.2)
@@ -85,16 +116,17 @@ def allocate(rows):
                 put(leg+kind+'BandHead'+str(lane),h,None if kind=='Fixed' else code)
         put(leg+'FixedArm',fixed.removeSplitter());put(leg+'LowerJaw',jaw)
         put(leg+'MovingCuff',cuff.removeSplitter(),code)
-    return shapes,moving,owners
+        recipe[leg+'FixedArm']=dict(pads=fp,holes=[[clamp_x-4,side*55],[clamp_x+4,side*55]],notches=[])
+        recipe[leg+'MovingCuff']=dict(pads=mp,holes=[],notches=[bounds(bx-1.25,3.229,36.5,bx+1.25,60.731442,37.7)] if front else [])
+    return (shapes,moving,owners,recipe) if with_recipe else (shapes,moving,owners)
 
 
 def run():
-    start=time.monotonic();hf=OUT/'side-hip-arches-plan.json';kf=OUT/'joint-local-knee-plan.json'
-    rows=copy.deepcopy(json.loads(hf.read_text())['loops']);knees=json.loads(kf.read_text())['loops']
-    for r in rows:
-        r.pop('poses',None)
-        r['fixed_anchor_world_mm'][2]=30;r['moving_anchor_rest_world_mm'][2]=30
-        r['recipe']='LOW DOWNWARD XZ FLEX, fixed DOWN/moving UP, retained three independent cables'
+    start=time.monotonic();hf=OUT/'low-joint-family-plan.json'
+    family=json.loads(hf.read_text());assert family['status']=='LOW_JOINT_FAMILY_SAMPLED_SCREEN_CLEAR_MATERIAL_ROOTS_OPEN'
+    assert not family['errors'] and not family['rejected']
+    for n,h in family['source_sha256'].items():assert SHA(ROOT/n)==h,n
+    rows=family['hips'];knees=family['knees']
     report=dict(status='PENDING',contacts=[],errors=[],pairs=0,cases=0,math_poses=0,
         selected=False,native_changed=False,W5_complete=False,physical_pass=False,
         continuous_motion_proved=False,approved_motion_limits=False,
@@ -102,24 +134,19 @@ def run():
           'Keyed cuff fit, one cuttable T18R case strap, 0.5mm shim/load/PETG creep need phase2 trial',
           'M3x55/washer/nut envelopes; final SKU and all wire grips/joins remain open'],
         assembly=['Fit fixed split clamps to P0 side rails before wiring; no drilling into retained rails.',
-          'Dry-fit keyed moving cap and shim; strap on idle low-X case side, head inward, not over shaft/connector.',
+          'Dry-fit inboard keyed moving cap and shim; strap on idle low-X case side, head above outer casing, not over shaft/connector.',
           'Install three nine-mm jacket lands per side, six independent straps per leg; leave joint-local flex free.',
           'Deep removal by cutting replaceable straps before removing each cap; no quick-service promise.'])
-    # A bounded common length is solved once for the whole four-leg family.
-    trials=[];chosen=None
-    for length in range(125,186,5):
-        for r in rows:r['flex_length_mm']=length
-        good=all(parts_at(r,a) is not None for r in rows for a in (-15,0,15))
-        trials.append(dict(length_mm=length,all_extrema_feasible=good))
-        if good:chosen=length;break
-    if chosen is None:report['errors'].append('No common fixed-length/R31 solution in125..185mm')
-    report['common_length_trials']=trials
+    chosen=rows[0]['flex_length_mm'];report['common_length_trials']=family['common_Hip_length_trials']
+    report['assembly'].append('Four existing P-station shoes retained; top clamps replaced by common fixed wire arms, not duplicated. Knee flex family reflected outward together.')
     targets,old,archive=scene()
     af=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';zf=ROOT/'hardware/simulation/v35/inputs.zip'
     axes=json.loads(af.read_text())['axes']
     with zipfile.ZipFile(zf) as z:members=json.loads(z.read('geometry.json'))['components']
     membership={q['name']:q['stage'].split('_')[1:] for q in members if q['stage'].startswith('Motion_')}
-    supports,assigned,owners=allocate(rows);cache={};seen=set()
+    supports,assigned,owners=allocate(rows,targets);cache={};seen=set();valid={}
+    for n,s in supports.items():
+        if not s.isValid() or len(s.Solids)!=1:report['errors'].append([n,'Not one valid support/strap/hardware solid'])
     def cached(key,fn):
         if key not in cache:cache[key]=fn()
         return cache[key]
@@ -127,26 +154,33 @@ def run():
         q=s.copy();q.Placement=t*q.Placement;return q
     def test(n,s,m,t,rs=0,rt=0):
         if not W.near(s,t,rs+rt+.001):return
-        key=(id(s),id(t),rs,rt)
+        key=(id(s),id(t),rs,rt) if id(s)<id(t) else (id(t),id(s),rt,rs)
         if key in seen:return
         seen.add(key);report['pairs']+=1
-        if not s.isValid() or not t.isValid():report['errors'].append([n,m]);return
+        for q in (s,t):
+            if id(q) not in valid:valid[id(q)]=q.isValid()
+        if not valid[id(s)] or not valid[id(t)]:report['errors'].append([n,m]);return
         gap=s.distToShape(t)[0]
-        v=0 if rs+rt or gap>1e-5 else s.common(t).Volume
+        v=0
+        if not rs+rt and gap<=1e-5:
+            common=s.common(t)
+            if not common.isNull() and not common.isValid():report['errors'].append([n,m,'Invalid Boolean result']);return
+            if not common.isNull():v=common.Volume
         if (rs+rt and gap<rs+rt-1e-4) or v>1e-5:
             report['contacts'].append(dict(a=n,b=m,gap_mm=gap,volume_mm3=v))
     ground=min(t.BoundBox.ZMin for n,t in targets.items()
                if n.startswith('P0_') and membership.get(n[3:],['',''])[-1]=='Ankle')
     report['rest_foot_ground_z_mm']=ground;report['minimum_cable_to_rest_ground_mm']=1e9
     if not report['errors']:
-        for r in rows:
-            r['guide_mm']=chosen+18
-            for a in range(-15,16):
-                q=parts_at(r,a);report['math_poses']+=1
-                if q is None:report['errors'].append([r['section'],a,'No radius solution'])
-        for leg in dict.fromkeys(r['physical_leg'] for r in rows):
+        report['reused_math_poses']=family['math_poses']
+        for r in rows:r['guide_mm']=chosen+18
+        legs=list(dict.fromkeys(r['physical_leg'] for r in rows))
+        schedule=[(leg,[(0,0,0)]) for leg in legs]
+        schedule += [(leg,[p for p in itertools.product((-15,0,15),repeat=3) if p!=(0,0,0)]) for leg in legs]
+        for leg,poses in schedule:
+            if len(poses)>1 and (report['contacts'] or report['errors']):break
             family=[r for r in rows if r['physical_leg']==leg];code=family[0]['cad_code']
-            for h,k,a in [(0,0,0)]+[p for p in itertools.product((-15,0,15),repeat=3) if p!=(0,0,0)]:
+            for h,k,a in poses:
                 report['cases']+=1;trans={};T=A.Placement()
                 for stage,angle in zip(('Hip','Knee','Ankle'),(h,k,a)):
                     ax=next(v for v in axes if v['code']==code and v['stage']==stage)
@@ -166,6 +200,7 @@ def run():
                 kk={r['section']:cached(('knee',r['section'],h if r['cad_code']==code else 0,k if r['cad_code']==code else 0),
                     lambda r=r:wire(scene_parts(r,h if r['cad_code']==code else 0,k if r['cad_code']==code else 0,axes))) for r in knees}
                 active=[(r['section'],curves[r['section']],3) for r in family]
+                active += [(r['section'],kk[r['section']],3) for r in knees if r['cad_code']==code]
                 active += [(n,s,0) for n,s in ss.items() if n.startswith(leg)]
                 for n,s,rad in active:
                     if rad:
@@ -187,10 +222,11 @@ def run():
             print('low family',leg,'cases',report['cases'],'contacts',len(report['contacts']),'errors',len(report['errors']),flush=True)
             # At least nominal on every leg is useful to reject the architecture
             # as a whole, but do not spend27poses repeating a known failure.
+    if report['cases']==0:report['minimum_cable_to_rest_ground_mm']=None
     report.update(status='REJECTED_LOW_HIP_SHARED_LAYOUT' if report['contacts'] or report['errors']
         else 'LOW_HIP_SHARED_LAYOUT_SAMPLED_CLEAR_NATIVE_FULL_JOINS_OPEN',loops=rows,
         worker_seconds=round(time.monotonic()-start,3),
-        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (archive,hf,kf,af,zf,Path(__file__))})
+        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (archive,hf,af,zf,OUT/'joint-support-corridors-plan.json',Path(__file__),Path(__file__).with_name('plan_low_joint_loom_family.py'))})
     (OUT/'low-hip-shared-layout.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ('status','cases','math_poses','pairs','contacts','errors','worker_seconds','minimum_cable_to_rest_ground_mm')}),flush=True)
 
