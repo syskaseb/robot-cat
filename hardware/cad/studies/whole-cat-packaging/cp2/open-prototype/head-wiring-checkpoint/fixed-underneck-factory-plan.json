@@ -1,0 +1,53 @@
+{
+  "status": "REJECTED_FIXED_UNDERNECK_FACTORY_MATH",
+  "selected": false,
+  "native_changed": false,
+  "W2_complete": false,
+  "W3_complete": false,
+  "physical_pass": false,
+  "factory_mm": 250,
+  "fixed_JR_entry_mm": [
+    -214.0,
+    -20.0,
+    87.68206931238267
+  ],
+  "fixed_JR_axis": [
+    0,
+    -1,
+    0
+  ],
+  "math": {
+    "prefix_mm": 43.81490305841703,
+    "flex_curve_mm": 128.18509694158297,
+    "tail_mm": 60.0,
+    "poses": [],
+    "failures": [
+      {
+        "yaw": -15,
+        "cause": "Fixed250mm length and both9mm lands do not yieldR31.5 in this single U+60mm-tail family"
+      }
+    ]
+  },
+  "scope": "Whole retainedS-exit plus one factory flex and supportedFIXED JR; removes movingJR/second3coreflex and their two grips.",
+  "project_reservations": [
+    "Factoryflat3.5x1.8, JR30x12x10, R31.5 and both9mm lands not supplier qualification"
+  ],
+  "replaces_if_qualified": [
+    "Legacy outboard Forkarm",
+    "Pitch movingJR",
+    "Three pitchHELUmovingloops",
+    "All3fixedpitchapproaches"
+  ],
+  "remaining": [
+    "ActualfixedJR support/receiver/independentlands and fullfixed3core route allocated together",
+    "Actualhead9poses/body/currentwires and neck containment",
+    "Native replacement/assembly/stock/selection"
+  ],
+  "source_sha256": {
+    "tools/cad/plan_fixed_underneck_factory.py": "6cb2c74715fa9fc84b2ed6fb5844a8e989e3a0c05e5c6f0f429b74278714676e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/neck-factory-plan.json": "e4a6e26e20c69b29219e5597e12d2e92b4d1f3b78589ddec275993a1bb22cb44",
+    "tools/cad/plan_current_joint_local_looms.py": "958f8114ad882164a4205fcc651431c4363aef6c313a52d9eae3a1f888437b45",
+    "tools/cad/plan_current_moving_looms.py": "49d46ef277f618d0d114607f6769d31110efa5d5d0302448eb1fddd65e2c2039"
+  },
+  "worker_seconds": 0.235
+}
