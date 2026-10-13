@@ -8,13 +8,13 @@ from pathlib import Path
 import FreeCAD as A
 import Part
 import build_remaining_loom_supports as G
-from component_pair_receipts import ComponentPairReceipts
+from material_pair_receipts import MaterialPairReceipts
 
 P=G.P
 CACHE=P.OUT/'remaining-support-cache'
 TICK=time.monotonic()
 ALLOCATE=G.allocation
-PAIRS=ComponentPairReceipts
+PAIRS=MaterialPairReceipts
 
 def write(path,data):
     tmp=path.with_suffix(path.suffix+'.tmp')
