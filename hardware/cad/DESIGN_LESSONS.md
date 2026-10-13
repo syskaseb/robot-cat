@@ -5,6 +5,26 @@ Czytać przed zmianą układu robota, planowaniem dłuższego etapu lub po dwóc
 nieudanych próbach tego samego interfejsu. Dopisywać tylko nowe wnioski,
 które zmieniają sposób pracy. Bieżący stan pozostaje w HOBBY_COMPLETION_PLAN.md.
 
+## Krótka procedura następnej sesji (13.10)
+
+1. Czytać aktualny wynik/licznik i NEXT, nie cały historyczny dziennik.
+   Ustalić jeden cel dostarczenia, przypięte wejścia i warunek zakończenia.
+   Procent ukończenia nie jest procentem czasu. Nie powtarzać dawnych estymat
+   po zmianie zakresu; nie obiecywać pełnegoW5 na podstawie jednego uchwytu.
+2. Przed detalami połączyć w jednej rezerwacji części stare ORAZ wszystkie
+   nowe podpory, przewody i ich ruch. Rozwiązać montaż. Zwykły serwis prototypu
+   może wymagać zdjęcia sąsiada; nie dopisywać szybkiej wymiany jako wymogu.
+3. Zamrozić przyjęte końce/położenia. Kontrola wskazuje konkretną parę,
+   pozę i materiał konfliktu; dopiero wtedy zmienić całą wadliwą gałąź.
+   Po dwóch niepowodzeniach tej samej przyczyny zmienić układ, nie offset.
+4. Budować natywny detal raz, po akceptacji wspólnego materiału. Przeniesiony
+   zapis, zmiana/cofnięcie parametru i właściwy eksport kończą podzespół.
+   Test kolizji nie dowodzi drogi obciążenia, wytrzymałości ani montażu.
+5. Przed długim procesem zapisać wejście i wznowienie. Zmiana wyboru pliku/
+   komunikatu nie unieważnia brył, jeśli kod geometrii i wszystkie wejścia
+   są dowodowo identyczne. Zmieniona bryła/promień/algorytm unieważniają
+   właściwe pary. Nie naprawiać wydajności przez pomijanie trudnych par.
+
 ## Co się nie sprawdziło
 
 - **Dopisanie wygody serwisowej do kryterium prototypu.** Plan CP2 przewiduje
