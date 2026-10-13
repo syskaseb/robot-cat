@@ -8,11 +8,13 @@ import heapq,itertools,json,math,time,zipfile
 from pathlib import Path
 import FreeCAD as A
 import Part
+import numpy as np
 import check_low_hip_loom_layout as P
 import plan_current_head_wiring as H
 from plan_continuous_joint_family import parts_for_loom
 from plan_current_rigid_factory_joins import moved_parts
 from cad_reservation_math import triangle_box
+from fast_carrier_reservations import TriangleBucket,WireBucket
 
 
 def run():
@@ -74,7 +76,7 @@ def run():
                 '4x6x4 beam is a minimum search reservation, not stiffness approval; full ribs/grips/hardware need changed gate',
                 'Known exposed case patch needs provisional compatible bond/fit/load/peel/creep trial; no new case holes',
                 'Full Knee/source grips and fixed receiving roots/body fans remain OPEN'],
-            worker_seconds=round(time.monotonic()-tick,3),source_sha256={p.relative_to(P.ROOT).as_posix():P.SHA(p) for p in (fp,receipt,sf,H.HEAD,ff,archive,af,zf,Path(__file__),Path(__file__).with_name('cad_reservation_math.py'))})
+            worker_seconds=round(time.monotonic()-tick,3),source_sha256={p.relative_to(P.ROOT).as_posix():P.SHA(p) for p in (fp,receipt,sf,H.HEAD,ff,archive,af,zf,Path(__file__),Path(__file__).with_name('cad_reservation_math.py'),Path(__file__).with_name('fast_carrier_reservations.py'))})
         (P.OUT/'complete-source-carriers-plan.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
         return report
     for leg in ('FrontLeft','FrontRight','RearLeft','RearRight'):
@@ -128,26 +130,30 @@ def run():
                 qlo=[b.XMin,min(side*b.YMin,side*b.YMax),b.ZMin];qhi=[b.XMax,max(side*b.YMin,side*b.YMax),b.ZMax]
                 if any(qhi[i]<low[i]-4 or qlo[i]>high[i]+4 for i in range(3)):continue
                 materials.append((n,q,b))
-                if n not in meshes:meshes[n]=s.tessellate(mesh_margin)
-                verts,faces=meshes[n];vv=[coord(tr.multVec(p)) for p in verts]
-                for inds in faces:
-                    tri=tuple(vv[i] for i in inds)
-                    lo=[max(low[i],min(p[i] for p in tri)-surface_half[i]) for i in range(3)]
-                    hi=[min(high[i],max(p[i] for p in tri)+surface_half[i]) for i in range(3)]
-                    if any(x>y for x,y in zip(lo,hi)):continue
+                if n not in meshes:
+                    vertices,faces=s.tessellate(mesh_margin)
+                    meshes[n]=(np.asarray([tuple(p) for p in vertices]),np.asarray(faces,dtype=int))
+                verts,faces=meshes[n];matrix=np.asarray(tr.toMatrix().A).reshape(4,4)
+                vv=verts@matrix[:3,:3].T+matrix[:3,3];vv[:,1]*=side
+                triangles=vv[faces]
+                lows=np.maximum(low,triangles.min(axis=1)-surface_half)
+                highs=np.minimum(high,triangles.max(axis=1)+surface_half)
+                for tri,lo,hi in zip(triangles[np.all(lows<=highs,axis=1)],lows[np.all(lows<=highs,axis=1)],highs[np.all(lows<=highs,axis=1)]):
                     for bucket in itertools.product(*(range(math.floor(x/cell),math.floor(y/cell)+1) for x,y in zip(lo,hi))):surfaces.setdefault(bucket,[]).append((tri,n))
         print('carrier',leg,'material buckets',len(surfaces),'placements',len(materials),flush=True)
+        grid={key:WireBucket(value) for key,value in grid.items()}
+        surfaces={key:TriangleBucket(value) for key,value in surfaces.items()}
         cache={};blockers={}
         def clear(p):
             key=tuple(p)
             if key in cache:return cache[key]
             bucket=tuple(math.floor(x/cell) for x in p)
             for d in itertools.product((-1,0,1),repeat=3):
-                for v,rad,n in grid.get(tuple(x+y for x,y in zip(bucket,d)),()):
-                    if sum(max(0,abs(x-y)-hh)**2 for x,y,hh in zip(p,v,half))<(rad+margin+.5)**2:
-                        cache[key]=False;blockers[key]='wire reservation/'+n;return False
-            for tri,n in surfaces.get(bucket,()):
-                if triangle_box(tri,p,surface_half):cache[key]=False;blockers[key]='mesh reservation/'+n;return False
+                rows=grid.get(tuple(x+y for x,y in zip(bucket,d)))
+                n=rows.hit(p,half,margin) if rows else None
+                if n is not None:cache[key]=False;blockers[key]='wire reservation/'+n;return False
+            rows=surfaces.get(bucket);n=rows.hit(p,surface_half) if rows else None
+            if n is not None:cache[key]=False;blockers[key]='mesh reservation/'+n;return False
             cache[key]=True;return True
         paths=[];endpoints=[]
         for row,goal in zip(rows,goals):
