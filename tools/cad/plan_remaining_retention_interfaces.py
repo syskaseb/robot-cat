@@ -7,12 +7,14 @@ import copy
 import itertools
 import json
 import math
+import sys
 import time
 import zipfile
 from pathlib import Path
 import FreeCAD as A
 import build_complete_source_carriers as B
 from loom_land_port import build
+from compact_loom_land_port import build as compact_build
 from diagnose_remaining_support_endpoints import transform,moved
 
 P=B.P
@@ -24,6 +26,10 @@ def run():
     rf=P.OUT/'remaining-retention-rest.json';pf=P.OUT/'remaining-loom-roots-plan.json'
     ff=P.OUT/'leg-source-near-member-plan.json';nf=P.OUT/'front-fixed-port-clearance-native.json'
     rest,plan,family,native=[json.loads(f.read_text()) for f in (rf,pf,ff,nf)]
+    compact_mode='--compact-failed' in sys.argv
+    basefile=P.OUT/'remaining-retention-motion.json'
+    previous=json.loads(basefile.read_text()) if compact_mode else None
+    failed_ids={p['land_id'] for g in previous['groups'] for p in g['ports'] if p.get('error')} if previous else set()
     af=P.ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(af.read_text())['axes']
     reader=B.H.P.SavedShapes();targets,wires,archive,sf,hw=B.current_scene(reader)
     zf=P.ROOT/'hardware/simulation/v35/inputs.zip'
@@ -43,6 +49,9 @@ def run():
     lands={r['id']:r for g in plan['groups'] for r in g['lands']}
     for group in rest['groups']:
         for port in group['ports']:
+            if previous:
+                received=next(p for g in previous['groups'] for p in g['ports'] if p['land_id']==port['land_id'])
+                if not received.get('error'):port=received
             shapes=build(lands[port['land_id']],port['arrival_normal'],port['recipe']['band_axial_offset_mm'])
             for prefix,key in (('PlannedPort_','body'),('PlannedBand_','band')):
                 name=prefix+port['land_id'];targets[name]=shapes[key];membership[name]=owners[group['id']]
@@ -106,11 +115,18 @@ def run():
         selected=False,W5_complete=False,physical_pass=False,continuous_sweep_verified=False,
         source_sha256={f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (rf,pf,ff,nf,af,zf,model,archive,sf,hw,Path(__file__),Path(__file__).with_name('loom_land_port.py'))})
     destination=P.OUT/'remaining-retention-motion.json'
+    if previous:
+        result['groups']=copy.deepcopy(previous['groups'])
+        result['inherited_unchanged_ports']=36-len(failed_ids)
+        result['source_sha256'][basefile.relative_to(P.ROOT).as_posix()]=P.SHA(basefile)
+        result['source_sha256'][Path(__file__).with_name('compact_loom_land_port.py').relative_to(P.ROOT).as_posix()]=P.SHA(Path(__file__).with_name('compact_loom_land_port.py'))
+        destination=P.OUT/'remaining-retention-current.json'
     def save():
         cache.save();result['pairs']=checked;result['worker_seconds']=round(time.monotonic()-tick,3)
         result['errors']=[g['id'] for g in result['groups'] if g.get('root_error') or any(p.get('error') for p in g['ports'])]
         destination.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     for group in plan['groups']:
+        if previous and not any(r['id'] in failed_ids for r in group['lands']):continue
         old=next(g for g in rest['groups'] if g['id']==group['id']);choice=old['root_choice']
         root=list(old['root_world_mm'])
         # Fixed supports depart OUTWARD from the qualified parent face.
@@ -119,14 +135,18 @@ def run():
         if group['id'].endswith('FixedCarrier'):
             root=list(A.Vector(*choice['plane_centre_world_mm'])+A.Vector(*choice['outward_normal']))
         x,y,z=root;seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
-        root_hits=contacts({'Root':seed},group)
+        inherited=next(g for g in previous['groups'] if g['id']==group['id']) if previous else None
+        root_hits=inherited['root_error'] if inherited else contacts({'Root':seed},group)
+        if inherited:root=inherited['root_world_mm']
         record=dict(id=group['id'],owner_stage=group['owner_stage'],root_world_mm=root,root_choice=choice,
             root_error=root_hits,ports=[])
         for port in old['ports']:
+            if previous and port['land_id'] not in failed_ids:
+                record['ports'].append(next(p for p in inherited['ports'] if p['land_id']==port['land_id']));continue
             land=lands[port['land_id']];options=[];rejected=[]
             for sign in (1,-1):
                 normal=[sign*v for v in port['arrival_normal']]
-                shapes=build(land,normal,port['recipe']['band_axial_offset_mm'])
+                shapes=(compact_build if compact_mode else build)(land,normal,port['recipe']['band_axial_offset_mm'])
                 x,y,z=shapes['arrival_world_mm'];seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
                 parts={'Port':shapes['body'],'Band':shapes['band'],'Arrival':seed}
                 if seed.common(shapes['band']).Volume>1e-5 or seed.common(shapes['body']).Volume<1:
@@ -140,7 +160,9 @@ def run():
                     recipe=shapes['recipe'],rejected=rejected))
             else:record['ports'].append(dict(land_id=land['id'],error='Both aligned full profiles blocked in sampled common motion',rejected=rejected))
             print('motion retention',land['id'],'options',len(options),'pairs',checked,flush=True)
-        result['groups'].append(record);save()
+        if previous:result['groups']=[record if g['id']==group['id'] else g for g in result['groups']]
+        else:result['groups'].append(record)
+        save()
     result['status']='SHARED_RETENTION_MOTION_CLEAR_ARMS_NATIVE_OPEN' if not result['errors'] else 'SHARED_RETENTION_MOTION_REQUIRES_LAYOUT_CHANGE'
     save();print(json.dumps(dict(status=result['status'],errors=result['errors'],pairs=checked,worker_seconds=result['worker_seconds'])),flush=True)
 
