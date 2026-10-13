@@ -8,6 +8,7 @@ import heapq
 import itertools
 import json
 import math
+import subprocess
 import time
 from pathlib import Path
 import numpy as np
@@ -54,7 +55,7 @@ class Scene:
         self.wide=np.flatnonzero(extent>98)
         for i,p in enumerate(data['wire_points']):self.wires.setdefault(tuple(np.floor(p/self.cell).astype(int)),[]).append(i)
         self.wires={k:np.asarray(v) for k,v in self.wires.items()}
-        self.blockers={};self.last_blocker=None;self.material_cache={}
+        self.blockers={};self.last_blocker=None;self.material_cache={};self.exact_curve_points=set()
 
     def add_points(self,name,points,radius=1):
         data=self.data;offset=len(data['wire_points']);identity=len(data['wire_names'])
@@ -111,6 +112,7 @@ class Scene:
             if not close.any():continue
             for i in ix[close]:
                 name=str(self.data['wire_names'][self.data['wire_ids'][i]])
+                if (name,tuple(np.round(p,7))) in self.exact_curve_points:continue
                 if name in ('new/'+row['wire']+'/source','new/'+row['wire']+'/receiver'):continue
                 if name.startswith('leg/'+row['loom']+'/') and np.linalg.norm(p-root)<6:continue
                 self.blockers['wire/'+name]=self.blockers.get('wire/'+name,0)+1
@@ -140,7 +142,7 @@ def compatible(a,b):
     if np.any(bb.max(axis=0)<low) or np.any(bb.min(axis=0)>high):return True
     for p in aa:
         distances=np.linalg.norm(bb-p,axis=1)
-        if distances.min()<2.1:return False
+        if distances.min()<2.55:return False
     return True
 
 
@@ -152,12 +154,29 @@ def part_points(part):
     return np.asarray([p for _,p in samples([part],step=.75)])
 
 
-def corridor(scene,row):
+def reverse_part(part):
+    result=dict(part,start=part['end'],end=part['start'])
+    if part['kind']=='bezier':result['poles_mm']=list(reversed(part['poles_mm']))
+    return result
+
+
+def corridor(scene,row,backward=False):
     """One bounded tangent/curvature grid, then a checked final spatial span."""
     assert tuple(row['bodyward_bundle_tangent'])==AXES[4],'Changed root direction needs a new shared contract'
-    start=np.asarray(row['free_start']);end=np.asarray(row['free_end'])
-    capacity=row['capacity_before_terminal_mm']-row['terminal_allowance_project_mm']-14
-    first=(0,0,0,4);queue=[(float(np.linalg.norm(end-start)),0,0,first)]
+    receiving=row.get('receiving_parts',[row['receiving_land']])
+    if backward:
+        start=np.asarray(row['free_end']);end=np.asarray(row['free_start'])
+        initial=[reverse_part(p) for p in reversed(receiving)]
+        final_parts=[reverse_part(row['source_land'])]
+        first_axis=AXES.index(tuple(row['receiver_outward_axis']))
+        end_axis=row['bodyward_bundle_tangent']
+    else:
+        start=np.asarray(row['free_start']);end=np.asarray(row['free_end'])
+        initial=[row['source_land']];final_parts=receiving
+        first_axis=4;end_axis=row['receiver_outward_axis']
+    fixed=row['source_land']['length_mm']+sum(p['length_mm'] for p in receiving)
+    capacity=row['capacity_before_terminal_mm']-row['terminal_allowance_project_mm']-fixed
+    first=(0,0,0,first_axis);queue=[(float(np.linalg.norm(end-start)),0,0,first)]
     best={first:0};parents={};serial=itertools.count(1);tick=time.monotonic();states=0
     while queue and states<1000 and time.monotonic()-tick<120:
         _,cost,_,state=heapq.heappop(queue)
@@ -167,7 +186,7 @@ def corridor(scene,row):
         if cost>0 and distance+cost<capacity:
             handles=[max(12,min(65,distance/3)),18,38]
             for h,b in ((handles[0],handles[0]),(18,38),(38,18),(38,38)):
-                poles=[p,add(p,mul(u,h)),add(end.tolist(),mul(row['receiver_outward_axis'],b)),end.tolist()]
+                poles=[p,add(p,mul(u,h)),add(end.tolist(),mul(end_axis,b)),end.tolist()]
                 length,radius,_=metrics(poles,24)
                 if radius<10.5 or length+cost>capacity:continue
                 final=dict(kind='bezier',start=p,end=end.tolist(),poles_mm=poles,length_mm=length)
@@ -180,7 +199,8 @@ def corridor(scene,row):
                 while key!=first:
                     key,part=parents[key];middle.append(part)
                 middle=list(reversed(middle[1:]))+[final]
-                whole=[row['source_land'],*middle,row['receiving_land']]
+                whole=[*initial,*middle,*final_parts]
+                if backward:whole=[reverse_part(p) for p in reversed(whole)]
                 points=np.concatenate([part_points(part) for part in whole])
                 assert all(math.dist(a['end'],b['start'])<1e-6 for a,b in zip(whole,whole[1:]))
                 along=np.r_[0,np.cumsum(np.linalg.norm(np.diff(points,axis=0),axis=1))]
@@ -189,8 +209,9 @@ def corridor(scene,row):
                 if np.any(distance[remote]<2.1**2):continue
                 if not scene.clear(points,row):continue
                 guide=sum(q['length_mm'] for q in whole)
-                return dict(parts=whole,guide_mm=guide,spare_before_trim_mm=capacity+14-guide,
-                            minimum_sampled_R_mm=min(10,radius),search_states=states,search_seconds=round(time.monotonic()-tick,3)),points
+                return dict(parts=whole,guide_mm=guide,spare_before_trim_mm=capacity+fixed-guide,
+                            minimum_sampled_R_mm=min(10,radius),search_direction='receiver_to_source' if backward else 'source_to_receiver',
+                            search_states=states,search_seconds=round(time.monotonic()-tick,3)),points
         for index,v in enumerate(AXES):
             if index==state[3]:part=line(p,add(p,mul(u,10)))
             elif sum(a*b for a,b in zip(u,v))==0:part=exact_quarter(p,u,v,10)
@@ -205,15 +226,132 @@ def corridor(scene,row):
                 search_states=states,search_seconds=round(time.monotonic()-tick,3)),None
 
 
+def receiving_profiles(row,direction):
+    axis=row['receiver_outward_axis'];end=row['receiver_point_mm']
+    entry=line(end,row['free_end']);q=exact_quarter(entry['end'],axis,direction,10)
+    yield [entry,q],0,'land_before_turn'
+    # The9mm grip requirement does not force the bend to start9mm from the
+    # contact. Keep a project3mm external entry, turnR10, then a full9mm land.
+    entry=line(end,add(end,mul(axis,3)));q=exact_quarter(entry['end'],axis,direction,10)
+    land=line(q['end'],add(q['end'],mul(direction,9)))
+    yield [entry,q,land],2,'land_after_turn'
+
+
+def corridor_exits(scene,row,start,axis):
+    """A clear endpoint alone is insufficient: qualify its next R10 move."""
+    clear=[];blocked=[]
+    for direction in AXES:
+        if direction==tuple(axis):recipe=line(start,add(start,mul(axis,10)))
+        elif sum(a*b for a,b in zip(axis,direction))==0:recipe=exact_quarter(start,axis,direction,10)
+        else:continue
+        if scene.clear(part_points(recipe),row):clear.append((recipe,direction))
+        else:blocked.append(dict(direction=list(direction),blocker=scene.last_blocker))
+    return clear,blocked
+
+
+def receiving_turns(scene,rows,routes,pins):
+    options={};rejected=[];blocked=[];selected={};nodes=0;until=time.monotonic()+30
+    evidence=OUT/'body-fanout-receiver-witnesses.json'
+    proof=json.loads(evidence.read_text());generator='tools/cad/diagnose_body_fanout_receivers.py'
+    historical=subprocess.check_output(['git','show','5b08e89:'+generator],cwd=ROOT)
+    assert hashlib.sha256(historical).hexdigest()==proof['source_sha256'][generator]
+    for n,h in proof['source_sha256'].items():
+        if n!=generator:assert SHA(ROOT/n)==h,n
+    pins[evidence.relative_to(ROOT).as_posix()]=SHA(evidence)
+    # Replace ONLY conservative sample hits on the already qualified quarter,
+    # not clearance elsewhere on this conductor or against any other object.
+    for witness in proof['rows']:
+        if witness['kind']!='wire' or witness['violates_project_clearance']:continue
+        row=next(r for r in rows if r['wire']==witness['wire'])
+        quarter=exact_quarter(row['free_end'],row['receiver_outward_axis'],witness['direction'],10)
+        scene.exact_curve_points.update((witness['target'],tuple(np.round(p,7))) for p in part_points(quarter))
+    for row in rows:
+        if row['wire'] in routes:continue
+        own=[];side=1 if row['receiver_point_mm'][1]>0 else -1
+        directions=sorted(AXES,key=lambda v:(-side*v[1],abs(v[2])))
+        for v in directions:
+            axis=row['receiver_outward_axis']
+            if sum(a*b for a,b in zip(axis,v))!=0:continue
+            for parts,grip,kind in receiving_profiles(row,v):
+                points=np.concatenate([part_points(p) for p in parts])
+                if not scene.clear(points,row):
+                    blocked.append(dict(wire=row['wire'],direction=list(v),profile=kind,blocker=scene.last_blocker))
+                    continue
+                exits,exit_blockers=corridor_exits(scene,row,parts[-1]['end'],v)
+                if not exits:
+                    blocked.append(dict(wire=row['wire'],direction=list(v),profile=kind,
+                        error='CLEAR_APPROACH_WITH_NO_CURVATURE_CORRIDOR_EXIT',exit_blockers=exit_blockers))
+                    continue
+                reverse=[dict(p,start=p['end'],end=p['start']) for p in reversed(parts)]
+                own.append(dict(free_end=parts[-1]['end'],receiver_outward_axis=list(v),
+                    receiving_parts=reverse,receiving_grip_part_index=len(parts)-grip-1,
+                    receiver_profile=kind,entry_straight_project_mm=parts[0]['length_mm'],
+                    clear_next_moves=len(exits),
+                    source_connection_lower_bound_mm=min(math.dist(p['end'],row['free_start'])+p['length_mm'] for p,d in exits),samples=points))
+        own.sort(key=lambda c:(c['source_connection_lower_bound_mm'],-c['clear_next_moves']))
+        options[row['wire']]=own
+        if not own:rejected.append(dict(wire=row['wire'],error='NO_R10_RECEIVER_TURN_IN_RESERVATIONS_REQUIRES_EXACT_DIAGNOSIS'))
+    def choose(pending):
+        nonlocal nodes
+        nodes+=1
+        if nodes>30000 or time.monotonic()>until:return False
+        if not pending:return True
+        name=min(pending,key=lambda n:len(options[n]))
+        for candidate in options[name]:
+            if not all(compatible(candidate,old) for old in selected.values()):continue
+            selected[name]=candidate
+            if choose([n for n in pending if n!=name]):return True
+            selected.pop(name)
+        return False
+    until=time.monotonic()+30
+    if not rejected and not choose(list(options)):rejected.append(dict(error='BOUNDED_SHARED_RECEIVER_TURN_ALLOCATION_UNRESOLVED',nodes=nodes))
+    result=dict(status='RECEIVER_TURNS_NEED_ACTUAL_DIAGNOSIS' if rejected else 'SHARED_RECEIVER_R10_TURNS_PLANNED_NO_MATERIAL_ACCEPTANCE',
+        options={n:[{k:v for k,v in c.items() if k!='samples'} for c in values] for n,values in options.items()},
+        chosen={n:{k:v for k,v in c.items() if k!='samples'} for n,c in selected.items()},
+        rejected=rejected,blocked=blocked,reused_existing_final_approaches=list(routes),
+        source_sha256=pins,selected=False,W5_complete=False,physical_pass=False)
+    f=OUT/'body-fanout-receiving-turns.json';f.write_text(json.dumps(result,indent=2)+'\n')
+    if rejected:return None,result
+    changed=[]
+    for row in rows:
+        if row['wire'] in selected:
+            c=selected[row['wire']];scene.add_points('new/'+row['wire']+'/receiver',c['samples'])
+            row=dict(row,**{k:v for k,v in c.items() if k!='samples'})
+        changed.append(row)
+    return changed,result
+
+
 def corridor_layout(scene,rows,files,tick):
     routes={};rejected=[];dest=OUT/'body-fanout-layout.json'
     pins={p.relative_to(ROOT).as_posix():SHA(p) for p in files}
+    inherited=[];origin=None
+    if dest.exists():
+        prior=json.loads(dest.read_text())
+        if prior.get('route_family')=='tangent_grid_R10_plus_spatial_completion':
+            for p in files[:-1]:assert prior['source_sha256'][p.relative_to(ROOT).as_posix()]==SHA(p),'Changed route geometry input'
+            routes=prior['routes'];origin=SHA(dest);inherited=list(routes)
+            for name,r in routes.items():
+                row=next(row for row in rows if row['wire']==name)
+                assert math.dist(r['parts'][0]['start'],row['start'])<1e-8
+                assert math.dist(r['parts'][-1]['end'],row['receiver_point_mm'])<1e-8
+                assert abs(sum(p['length_mm'] for p in r['parts'])-r['guide_mm'])<1e-6
     for row in rows:
         scene.add_points('new/'+row['wire']+'/source',np.linspace(row['start'],row['free_start'],9))
-        scene.add_points('new/'+row['wire']+'/receiver',np.linspace(row['free_end'],row['receiver_point_mm'],15))
+        # Only the mandatory entry is reserved before choosing the land's
+        # side of the bend. Do not protect an unselected old9mm tail.
+        entry=add(row['receiver_point_mm'],mul(row['receiver_outward_axis'],3))
+        scene.add_points('new/'+row['wire']+'/receiver',np.linspace(entry,row['receiver_point_mm'],6))
+    for name,r in routes.items():scene.add_points('new/'+name,np.concatenate([part_points(p) for p in r['parts']]))
+    updated,goals=receiving_turns(scene,rows,routes,pins)
+    if updated is None:
+        print(json.dumps(dict(status=goals['status'],rejected=goals['rejected'],existing_routes=len(routes))),flush=True)
+        return
+    rows=updated
+    pins[(OUT/'body-fanout-receiving-turns.json').relative_to(ROOT).as_posix()]=SHA(OUT/'body-fanout-receiving-turns.json')
     order=sorted(rows,key=lambda r:(r['capacity_before_terminal_mm']-r['terminal_allowance_project_mm']-math.dist(r['free_start'],r['free_end']),r['wire']))
     def save(status):
         result=dict(status=status,route_family='tangent_grid_R10_plus_spatial_completion',routes=routes,rows=rows,
+            inherited_routes=inherited,inherited_candidate_sha256=origin,
             rejected=rejected,blocker_counts=scene.blockers,all_new_supports_in_scene=12,
             individual_project_OD_mm=2,project_static_R_mm=10,radial_packing_mm=1.5,
             source_free_straight_mm=5,receiving_land_mm=9,
@@ -225,7 +363,8 @@ def corridor_layout(scene,rows,files,tick):
         temp=dest.with_suffix('.tmp');temp.write_text(json.dumps(result,indent=2)+'\n');temp.replace(dest)
         return result
     for row in order:
-        result,points=corridor(scene,row)
+        if row['wire'] in routes:continue
+        result,points=corridor(scene,row,backward=True)
         if points is None:
             rejected.append(dict(wire=row['wire'],**result));save('PARTIAL_SHARED36CORE_CORRIDORS_CURRENT_END_DIAGNOSIS_OPEN')
             print(json.dumps(dict(stopped_at=row['wire'],found=len(routes),**result)),flush=True)

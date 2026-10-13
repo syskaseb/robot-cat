@@ -18,6 +18,11 @@ class SpatialIndexTest(unittest.TestCase):
         row=dict(wire='W013',loom='RL1',bundle_root_world_mm=[-10]*3,receiver_point_mm=[-20]*3)
         self.assertTrue(scene.clear(points,row))
         self.assertFalse(scene.clear(points,dict(row,wire='W014')))
+        scene.exact_curve_points.add(('new/W013/source',(0.,0.,2.5)))
+        self.assertTrue(scene.clear(points,dict(row,wire='W014')))
+        self.assertFalse(scene.clear(np.array([[0.,0.,2.6]]),dict(row,wire='W014')))
+        scene.add_points('different/retained',points)
+        self.assertFalse(scene.clear(points,dict(row,wire='W014')))
 
     def test_all_size_levels_and_cell_boundaries(self):
         rng=np.random.default_rng(615)
