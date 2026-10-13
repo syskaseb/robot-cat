@@ -41,10 +41,14 @@ def run():
             source=list(reversed(route['source_parts']));straight=max((q for q in source if q['kind']=='line'),key=lambda q:q['length_mm'])
             index=source.index(straight);prefix=sum(q['length_mm'] for q in source[:index])+straight['length_mm']/2
             centre=[(a+b)/2 for a,b in zip(straight['start'],straight['end'])]
-            assert straight['length_mm']>=56
-            # One8mm lap,20mm sleeve and two independent9mm lands. Sleeve
-            # outer diameter/adhesion/cable construction are fit gates.
-            primary_blank=math.ceil((prefix+14+4+20)/5)*5
+            # Stagger the three individually insulated joints longitudinally.
+            # Three20mm sleeves at22mm pitch occupy64mm, plus two2mm gaps
+            # and two9mm jacket lands =86mm, all on this source-owned line.
+            # This is a cut/space candidate, not supplier insulation data.
+            offsets=(-22,0,22);required=86
+            assert straight['length_mm']>=required
+            axis=[(a-b)/straight['length_mm'] for a,b in zip(straight['start'],straight['end'])]
+            primary_blank=math.ceil((prefix+max(offsets)+14+4+20)/5)*5
             donor_guide_to_root=route['guide_to_body_grip_mm']-prefix
             core_capacity=850-donor_guide_to_root-4
             join=dict(loom=name,owner=route['source']['moving_saved_stage'],centre_world_mm=centre,
@@ -53,9 +57,19 @@ def run():
                 donor_nominal_mm=900,donor_usable_project_mm=850,donor_guide_to_body_root_mm=donor_guide_to_root,
                 body_core_capacity_before_terminal_mm=core_capacity,three_eight_mm_laps=3,
                 individual_insulation_sleeves=3,sleeve_length_project_mm=20,independent_nine_mm_lands=2,
-                required_straight_total_project_mm=56,source_owned_not_free_flex=True,
+                sleeve_centre_pitch_project_mm=22,sleeve_zone_project_mm=64,
+                required_straight_total_project_mm=required,source_owned_not_free_flex=True,
+                independent_land_centres_world_mm=[[c+sign*38.5*u for c,u in zip(centre,axis)] for sign in (-1,1)],
                 holder_and_material_qualified=False,splice_geometry_not_yet_added_to_material_gate=True)
-            for c in cores:c['donor_budget_after_lower_bound_mm']=core_capacity-c['route_lower_bound_mm']-c['terminal_allowance_project_mm']
+            schedule=[]
+            for c,offset in zip(cores,offsets):
+                capacity=core_capacity+offset
+                c['donor_budget_after_lower_bound_mm']=capacity-c['route_lower_bound_mm']-c['terminal_allowance_project_mm']
+                schedule.append(dict(core=c['core'],wire=c['wire'],source_to_joint_guide_mm=prefix+offset,
+                    joint_centre_world_mm=[v+offset*u for v,u in zip(centre,axis)],
+                    original_core_cut_from_plug_face_project_mm=prefix+offset+14+4,
+                    donor_core_capacity_before_terminal_mm=capacity))
+            join['staggered_core_schedule']=schedule
             assert all(c['donor_budget_after_lower_bound_mm']>0 for c in cores)
             row['extension_candidate']=join;joins.append(join)
         rows.append(row)
