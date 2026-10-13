@@ -14,7 +14,10 @@ OUT=BASE/'head-wiring-checkpoint'
 R=31.5
 START=[-176.,47.21874542459709,153.5]
 PIVOT=[-152.,-5.25,25.]
-END_XZ=[-194.,80.]
+# ActualW076 x-190/r2.1 at this neck. Place the ENTIRE12mm-wide JR beyond
+# its jacket plus0.5gap, and carry its bed underneath rather than through
+# that wire. The rejected above-wire stack broke the two-turn geometry.
+END_XZ=[-190.-2.1-.5-6,80.]
 RESERVE=math.hypot(3.5,1.8)/2
 
 
@@ -41,6 +44,11 @@ def route(yaw,slack,receiver_y=0):
 
 def run():
     tick=time.monotonic();source=OUT/'neck-factory-plan.json';prefix=json.loads(source.read_text())['factory']['qualified_exit_length_mm']
+    prior_file=OUT/'fixed-underneck-rounds-plan.json';history=[]
+    if prior_file.exists():
+        prior=json.loads(prior_file.read_text());history=prior.get('rejected_allocations',[])
+        if prior['status'].startswith('REJECTED'):
+            history.append({k:prior[k] for k in ('status','fixed_receiver_XZ_mm','failures','worker_seconds')})
     target=250-prefix;intervals=[];failures=[]
     print('Shared exact-radius factory return; derive receiver from31poses',flush=True)
     for yaw in range(-15,16):
@@ -80,12 +88,17 @@ def run():
         derived_shared_receiver_Y_interval_mm=shared,fixed_receiver_Y_mm=chosen,
         allocations=intervals,failures=failures,poses=poses,
         factory_profile_and_dynamic_radius_provisional=True,project_radius_mm=R,
+        receiver_stack=dict(retained_W076_centreline_min_X_mm=-190,retained_radius_mm=2.1,
+            separation_mm=.5,seat_thickness_mm=3,JR_half_width_mm=6,
+            seat_bottom_Z_mm=72,seat_top_Z_mm=75,
+            source='Actual wire0216.brep fromcurrent-view-60-20261012.zip; fixedheadreceiver no longer shares this wire corridor'),
+        rejected_allocations=history,
         retained=['Actual S exit','Uncut factory250','Both9mm straight lands','Full200mm width'],
         removes_if_qualified=['MovingJR arm toY134','Second3coreyawflex'],
         decision='Exactfillets rather than singlecubic. Position derived jointly from all31poses, not one scalar collision fix.',
         remaining=['Actualfixedroot bearing faces, all3fixedroutes/independentgrips and JR together',
                    'Head/body/currentwire material and self-distance gates','Native/assembly/stock/selection'],
-        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (source,Path(__file__),Path(__file__).with_name('plan_current_moving_looms.py'))},
+        source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in (source,Path(__file__),Path(__file__).with_name('plan_current_moving_looms.py'),BASE/'current-view-60-20261012.zip')},
         worker_seconds=round(time.monotonic()-tick,3))
     (OUT/'fixed-underneck-rounds-plan.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ('status','derived_shared_receiver_Y_interval_mm','fixed_receiver_Y_mm','failures','worker_seconds')}),flush=True)
