@@ -265,6 +265,19 @@ def receiving_turns(scene,rows,routes,pins):
         row=next(r for r in rows if r['wire']==witness['wire'])
         quarter=exact_quarter(row['free_end'],row['receiver_outward_axis'],witness['direction'],10)
         scene.exact_curve_points.update((witness['target'],tuple(np.round(p,7))) for p in part_points(quarter))
+    batch_file=OUT/'body-fanout-wire-screen-witnesses.json'
+    batch=json.loads(batch_file.read_text())
+    request_file=(OUT/'body-fanout-receiving-turns.json').relative_to(ROOT).as_posix()
+    for n,h in batch['source_sha256'].items():
+        if n==request_file:
+            old=subprocess.check_output(['git','show','7f6180f:'+n],cwd=ROOT)
+            assert hashlib.sha256(old).hexdigest()==h,n
+        else:assert SHA(ROOT/n)==h,n
+    pins[batch_file.relative_to(ROOT).as_posix()]=SHA(batch_file)
+    for witness in batch['rows']:
+        if witness['violates_project_clearance']:continue
+        scene.exact_curve_points.update((witness['target'],tuple(np.round(p,7)))
+            for part in witness['parts'] for p in part_points(part))
     for row in rows:
         if row['wire'] in routes:continue
         own=[];side=1 if row['receiver_point_mm'][1]>0 else -1
@@ -272,7 +285,16 @@ def receiving_turns(scene,rows,routes,pins):
         for v in directions:
             axis=row['receiver_outward_axis']
             if sum(a*b for a,b in zip(axis,v))!=0:continue
+            # Whole-bank topology: unfinished V outputs leave toward the
+            # central bay, away from the retained outer input-feed gallery
+            # (W028/W029). A short clear outer exit is a cul-de-sac, not an
+            # accessible body corridor. Already found complete routes stay.
+            if row['core']=='V' and side*v[1]>=0:continue
             for parts,grip,kind in receiving_profiles(row,v):
+                # Three adjacent D/G cores share one9mm axial jacket land
+                # and a single purchased band. Do not allocate independent
+                # differently oriented clamp heads at the4.75mm port pitch.
+                if row['core'] in ('D','G') and kind!='land_before_turn':continue
                 points=np.concatenate([part_points(p) for p in parts])
                 if not scene.clear(points,row):
                     blocked.append(dict(wire=row['wire'],direction=list(v),profile=kind,blocker=scene.last_blocker))
@@ -282,33 +304,53 @@ def receiving_turns(scene,rows,routes,pins):
                     blocked.append(dict(wire=row['wire'],direction=list(v),profile=kind,
                         error='CLEAR_APPROACH_WITH_NO_CURVATURE_CORRIDOR_EXIT',exit_blockers=exit_blockers))
                     continue
-                reverse=[dict(p,start=p['end'],end=p['start']) for p in reversed(parts)]
-                own.append(dict(free_end=parts[-1]['end'],receiver_outward_axis=list(v),
-                    receiving_parts=reverse,receiving_grip_part_index=len(parts)-grip-1,
-                    receiver_profile=kind,entry_straight_project_mm=parts[0]['length_mm'],
-                    clear_next_moves=len(exits),
-                    source_connection_lower_bound_mm=min(math.dist(p['end'],row['free_start'])+p['length_mm'] for p,d in exits),samples=points))
+                # The next move belongs to the SHARED allocation too. Merely
+                # knowing one exit exists before selecting neighbours allows
+                # another receiver profile to close that same corridor later.
+                for exit_part,exit_direction in exits:
+                    extended=[*parts,exit_part]
+                    extended_points=np.concatenate([part_points(p) for p in extended])
+                    reverse=[reverse_part(p) for p in reversed(extended)]
+                    own.append(dict(free_end=exit_part['end'],receiver_outward_axis=list(exit_direction),
+                        receiving_parts=reverse,receiving_grip_part_index=len(extended)-grip-1,
+                        receiver_profile=kind,entry_straight_project_mm=parts[0]['length_mm'],
+                        initial_receiver_fan_axis=list(v),
+                        shared_exit_reserved=True,clear_next_moves=len(exits),
+                        source_connection_lower_bound_mm=math.dist(exit_part['end'],row['free_start'])+
+                            sum(p['length_mm'] for p in extended),samples=extended_points))
         own.sort(key=lambda c:(c['source_connection_lower_bound_mm'],-c['clear_next_moves']))
         options[row['wire']]=own
         if not own:rejected.append(dict(wire=row['wire'],error='NO_R10_RECEIVER_TURN_IN_RESERVATIONS_REQUIRES_EXACT_DIAGNOSIS'))
-    def choose(pending):
+    pair_memo={}
+    def fits(a,b):
+        key=tuple(sorted((id(a),id(b))))
+        if key not in pair_memo:pair_memo[key]=compatible(a,b)
+        return pair_memo[key]
+    def choose(domains):
         nonlocal nodes
         nodes+=1
         if nodes>30000 or time.monotonic()>until:return False
-        if not pending:return True
-        name=min(pending,key=lambda n:len(options[n]))
-        for candidate in options[name]:
-            if not all(compatible(candidate,old) for old in selected.values()):continue
+        if not domains:return True
+        name=min(domains,key=lambda n:len(domains[n]))
+        for candidate in domains[name]:
+            narrowed={};dead=False
+            for other,values in domains.items():
+                if other==name:continue
+                narrowed[other]=[c for c in values if fits(candidate,c)]
+                if not narrowed[other]:dead=True;break
+            if dead:continue
             selected[name]=candidate
-            if choose([n for n in pending if n!=name]):return True
+            if choose(narrowed):return True
             selected.pop(name)
         return False
     until=time.monotonic()+30
-    if not rejected and not choose(list(options)):rejected.append(dict(error='BOUNDED_SHARED_RECEIVER_TURN_ALLOCATION_UNRESOLVED',nodes=nodes))
+    if not rejected and not choose(options):rejected.append(dict(error='BOUNDED_SHARED_RECEIVER_TURN_ALLOCATION_UNRESOLVED',nodes=nodes))
     result=dict(status='RECEIVER_TURNS_NEED_ACTUAL_DIAGNOSIS' if rejected else 'SHARED_RECEIVER_R10_TURNS_PLANNED_NO_MATERIAL_ACCEPTANCE',
         options={n:[{k:v for k,v in c.items() if k!='samples'} for c in values] for n,values in options.items()},
         chosen={n:{k:v for k,v in c.items() if k!='samples'} for n,c in selected.items()},
         rejected=rejected,blocked=blocked,reused_existing_final_approaches=list(routes),
+        allocation_nodes=nodes,compatibility_pairs=len(pair_memo),
+        receiving_restraint_plan='D/G three adjacent cores share9mm before-turn axial land and one independent band per station;V single-core nine-mm land before/after turn. Root arms/material/native stillOPEN.',
         source_sha256=pins,selected=False,W5_complete=False,physical_pass=False)
     f=OUT/'body-fanout-receiving-turns.json';f.write_text(json.dumps(result,indent=2)+'\n')
     if rejected:return None,result
