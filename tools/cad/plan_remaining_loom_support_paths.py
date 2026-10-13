@@ -69,9 +69,16 @@ def search(start,goal,low,high,clear,existing_points=()):
 def run():
     tick=time.monotonic();pf=P.OUT/'remaining-loom-roots-plan.json';ff=P.OUT/'remaining-loom-root-faces.json'
     plan,faces=[json.loads(p.read_text()) for p in (pf,ff)]
-    entry_mode='--entry-ports' in sys.argv
+    shared_mode='--shared-recovery' in sys.argv
+    entry_mode='--entry-ports' in sys.argv or shared_mode
     resolving='--resolve-boundaries' in sys.argv or entry_mode
     priorfile=P.OUT/('remaining-support-entry-received.json' if '--resume-entry' in sys.argv else 'remaining-support-resolved-paths.json' if entry_mode else 'remaining-support-current-paths.json')
+    recoveryfile=P.OUT/'remaining-support-shared-recovery-plan.json'
+    recovery=json.loads(recoveryfile.read_text()) if shared_mode else None
+    if shared_mode:
+        assert not recovery['unresolved'],'Resolve actual witness ownership before rerouting'
+        for name,digest in recovery['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
+        priorfile=P.OUT/'remaining-support-final-paths.json'
     boundaryfile=P.OUT/'remaining-support-boundaries.json'
     prior=json.loads(priorfile.read_text()) if resolving else None
     boundary=json.loads(boundaryfile.read_text()) if resolving else None
@@ -141,6 +148,23 @@ def run():
         axis=A.Vector(*sleeve['axis']);centre=A.Vector(*sleeve['centre_world_mm'])
         targets[sleeve['name']]=B.Part.makeCylinder(sleeve['diameter_project_mm']/2,sleeve['length_mm'],centre-axis*sleeve['length_mm']/2,axis)
         membership[sleeve['name']]=sleeve['owner_stage'].split('_')[1:]
+    shared_inputs=[]
+    if shared_mode:
+        # Frozen COMPLETE new supports are moving obstacles, not just ports.
+        # Other changed groups retain their old shape conservatively during
+        # planning; a final joint actual-material gate is still mandatory.
+        seen_shared=set()
+        for cf in (P.OUT/'remaining-support-cache').glob('*/manifest.json'):
+            data=json.loads(cf.read_text());group=data['contract']['group'];name=group['id']
+            if data['contract']['paths']!=next((g for g in prior['groups'] if g['id']==name),None):continue
+            assert name not in seen_shared,'Ambiguous shared support cache'
+            seen_shared.add(name);shared_inputs.append(cf)
+            row=data['shapes'][name];bf=cf.parent/row['file'];assert P.SHA(bf)==row['sha256']
+            s=B.Part.Shape();s.read(str(bf));assert s.isValid(),name
+            key='SharedSupport_'+name;targets[key]=s;shared_inputs.append(bf)
+            if group['owner_stage']!='Body':membership[key]=group['owner_stage'].split('_')[1:]
+        assert len(seen_shared)==12,'Need complete shared obstacle set'
+        shared_inputs.append(recoveryfile)
     transforms={}
     for code in ('FL','FR','RL','RR'):
         for h,k,a in itertools.product(ANGLES,repeat=3):
@@ -161,6 +185,7 @@ def run():
     existingfile=P.OUT/'complete-source-carriers-plan.json';existing=json.loads(existingfile.read_text())
     inputs=(pf,ff,nf,model,familyfile,seedfile,retentionfile,af,zf,archive,sf,B.H.HEAD,headwires,existingfile,
             Path(__file__),Path(B.__file__),Path(__file__).with_name('fast_carrier_reservations.py'),Path(__file__).with_name('compact_loom_land_port.py'),Path(__file__).with_name('support_entry_port.py'))
+    inputs=inputs+tuple(shared_inputs)
     result=dict(status='PARTIAL_REMAINING_SUPPORT_PATH_RESERVATIONS',groups=[],
                 beam_reservation_mm=[4,6,4],material_margin_project_mm=.3,
                 wire_margin_project_mm=.5,selected=False,native_changed=False,
@@ -172,6 +197,7 @@ def run():
     destination=P.OUT/('remaining-support-current-paths.json' if '--current-retention' in sys.argv else 'remaining-loom-support-paths.json')
     if resolving:
         destination=P.OUT/('remaining-support-final-paths.json' if entry_mode else 'remaining-support-resolved-paths.json')
+        if shared_mode:destination=P.OUT/'remaining-support-shared-paths.json'
         result['groups']=copy.deepcopy(prior['groups'])
         result['source_sha256'].update({p.relative_to(P.ROOT).as_posix():P.SHA(p) for p in (priorfile,boundaryfile)})
         result['inherited_found_paths']=sum(bool(p['points_mm']) for g in prior['groups'] for p in g['paths'])
@@ -183,6 +209,9 @@ def run():
     for group in (g for g in plan['groups'] if g['id'] in {r['id'] for r in complete_groups}):
         oldgroup=next(g for g in prior['groups'] if g['id']==group['id']) if prior else None
         failed_ids={p['land_id'] for p in oldgroup['paths'] if not p['points_mm']} if prior else None
+        if shared_mode:
+            change=next((r for r in recovery['changed_fixed_groups'] if r['group']==group['id']),None)
+            failed_ids={p['land_id'] for p in change['branches']} if change else set()
         if resolving and not failed_ids:continue
         group_tick=time.monotonic()
         stage=group['owner_stage'].split('_')[-1]
@@ -195,7 +224,7 @@ def run():
             port=next(r for r in selected['ports'] if r['land_id']==land['id'])
             goals.append((land,port['arrival_world_mm'],port['arrival_normal']))
         inherited_prefix=[];branch_source=None
-        if entry_mode and len(goals)==1:
+        if entry_mode and len(goals)==1 and not shared_mode:
             # Join the nearest already-received SAME-owner branch, rather
             # than re-searching its unchanged trunk from the case foot.
             goal=goals[0][1];choices=[]
@@ -240,6 +269,7 @@ def run():
                 # hardware/bands/cables remain obstacles. Bought cases never
                 # disappear from the scene just because they own a root.
                 if name==group.get('preserved_owner'):continue
+                if shared_mode and name=='SharedSupport_'+group['id']:continue
                 if name.startswith('PlannedPort_') and name.removeprefix('PlannedPort_') in {r['id'] for r in group['lands']}:
                     continue  # New seat and arm are the SAME printed owner.
                 mem=membership.get(name)
@@ -327,7 +357,7 @@ def run():
                                 cache[key]=True;subset_proofs.append(dict(point=point,outside_mm3=outside.Volume,conservative_old_blocker=name));return True
                 cache[key]=False;blockers[key]='mesh reservation/'+name;return False
             cache[key]=True;return True
-        paths=copy.deepcopy([p for p in oldgroup['paths'] if p['points_mm']]) if resolving else []
+        paths=copy.deepcopy([p for p in oldgroup['paths'] if p['points_mm'] and (not shared_mode or p['land_id'] not in failed_ids)]) if resolving else []
         prefix=inherited_prefix
         if resolving and group['id'].endswith('HipExtension'):
             proof=next(r for r in boundary['existing_exits'] if r['group']==group['id'])
@@ -367,6 +397,9 @@ def run():
         else:result['groups'].append(record)
         save()
     result['status']='COMPLETE_INDEPENDENT_GROUP_SUPPORT_RESERVATIONS_ACTUAL_NATIVE_OPEN' if all(r['points_mm'] for g in result['groups'] for r in g['paths']) else 'REMAINING_SUPPORT_RESERVATIONS_INCOMPLETE_DIAGNOSE_CAUSE'
+    if shared_mode:
+        result['status']='SHARED_SUPPORT_RESERVATIONS_ACTUAL_NATIVE_OPEN' if all(r['points_mm'] for g in result['groups'] for r in g['paths']) else 'SHARED_SUPPORT_RESERVATIONS_INCOMPLETE_DIAGNOSE_CAUSE'
+        result['joint_actual_material_gate_required']=True
     save();print(json.dumps(dict(status=result['status'],worker_seconds=result['worker_seconds'])),flush=True)
 
 

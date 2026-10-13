@@ -1,7 +1,92 @@
 {
-  "status": "PARTIAL_COMBINED_SUPPORT_MATERIAL",
+  "status": "REJECTED_COMBINED_SUPPORT_MATERIAL",
   "errors": [],
-  "contacts": [],
+  "contacts": [
+    {
+      "group": "FrontLeftKneeCarrier",
+      "target": "NewSupport_FrontLeftFixedCarrier",
+      "pose": [
+        15,
+        15
+      ],
+      "other_pose": [
+        0,
+        0,
+        0
+      ],
+      "volume_mm3": 21.834850923858
+    },
+    {
+      "group": "FrontLeftFixedCarrier",
+      "target": "NewSupport_FrontLeftKneeCarrier",
+      "pose": [
+        0,
+        0
+      ],
+      "other_pose": [
+        15,
+        15,
+        0
+      ],
+      "volume_mm3": 21.834850923858
+    },
+    {
+      "group": "FrontRightHipExtension",
+      "target": "NewSupport_FrontRightFixedCarrier",
+      "pose": [
+        -15,
+        0
+      ],
+      "other_pose": [
+        0,
+        0,
+        0
+      ],
+      "volume_mm3": 150.83094797206596
+    },
+    {
+      "group": "FrontRightKneeCarrier",
+      "target": "NewSupport_FrontRightFixedCarrier",
+      "pose": [
+        0,
+        15
+      ],
+      "other_pose": [
+        0,
+        0,
+        0
+      ],
+      "volume_mm3": 0.6519573429758322
+    },
+    {
+      "group": "FrontRightFixedCarrier",
+      "target": "NewSupport_FrontRightHipExtension",
+      "pose": [
+        0,
+        0
+      ],
+      "other_pose": [
+        -15,
+        0,
+        0
+      ],
+      "volume_mm3": 150.83094797206593
+    },
+    {
+      "group": "FrontRightFixedCarrier",
+      "target": "NewSupport_FrontRightKneeCarrier",
+      "pose": [
+        0,
+        0
+      ],
+      "other_pose": [
+        0,
+        15,
+        0
+      ],
+      "volume_mm3": 0.6519573429758321
+    }
+  ],
   "recipes": {
     "FrontLeftHipExtension": {
       "pads": [
@@ -14561,7 +14646,7 @@
         "fits_with_5mm_brim": true,
         "size_mm": [
           177.23883214474878,
-          165.6650366246951,
+          165.6650366246953,
           112.06000000000179
         ],
         "rotation_quaternion": [
@@ -14572,9 +14657,312 @@
         ],
         "support_and_slicer_validation": false
       },
-      "added_volume_mm3": 7614.093270683406
+      "added_volume_mm3": 7614.093270683485
+    },
+    {
+      "name": "FrontLeftKneeCarrier",
+      "contacts": [
+        {
+          "target": "NewSupport_FrontLeftFixedCarrier",
+          "pose": [
+            15,
+            15
+          ],
+          "other_pose": [
+            0,
+            0,
+            0
+          ],
+          "volume_mm3": 21.834850923858
+        }
+      ],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          146.78366746885797,
+          142.29753654696884,
+          66.53494364829328
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 12414.932047777915
+    },
+    {
+      "name": "FrontLeftFixedCarrier",
+      "contacts": [
+        {
+          "target": "NewSupport_FrontLeftKneeCarrier",
+          "pose": [
+            0,
+            0
+          ],
+          "other_pose": [
+            15,
+            15,
+            0
+          ],
+          "volume_mm3": 21.834850923858
+        }
+      ],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          177.00749365781724,
+          199.80603912294026,
+          111.0
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.25881904510252074,
+          0.9659258262890683
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 15960.500676278123
+    },
+    {
+      "name": "FrontRightHipExtension",
+      "contacts": [
+        {
+          "target": "NewSupport_FrontRightFixedCarrier",
+          "pose": [
+            -15,
+            0
+          ],
+          "other_pose": [
+            0,
+            0,
+            0
+          ],
+          "volume_mm3": 150.83094797206596
+        }
+      ],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          174.55712984682816,
+          173.5456392344907,
+          109.75353429833544
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.25881904510252074,
+          0.9659258262890683
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 7458.5598648578825
+    },
+    {
+      "name": "FrontRightKneeCarrier",
+      "contacts": [
+        {
+          "target": "NewSupport_FrontRightFixedCarrier",
+          "pose": [
+            0,
+            15
+          ],
+          "other_pose": [
+            0,
+            0,
+            0
+          ],
+          "volume_mm3": 0.6519573429758322
+        }
+      ],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          127.72978962648313,
+          122.54584532857677,
+          62.40000000000022
+        ],
+        "rotation_quaternion": [
+          -0.2705980500730985,
+          0.6532814824381883,
+          0.2705980500730985,
+          0.6532814824381883
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 14379.91892196991
+    },
+    {
+      "name": "FrontRightFixedCarrier",
+      "contacts": [
+        {
+          "target": "NewSupport_FrontRightHipExtension",
+          "pose": [
+            0,
+            0
+          ],
+          "other_pose": [
+            -15,
+            0,
+            0
+          ],
+          "volume_mm3": 150.83094797206593
+        },
+        {
+          "target": "NewSupport_FrontRightKneeCarrier",
+          "pose": [
+            0,
+            0
+          ],
+          "other_pose": [
+            0,
+            15,
+            0
+          ],
+          "volume_mm3": 0.6519573429758321
+        }
+      ],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          199.80603912293026,
+          209.9190279423936,
+          112.0
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.49999999999999994,
+          0.8660254037844387
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 12797.771768678045
+    },
+    {
+      "name": "RearLeftHipExtension",
+      "contacts": [],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          152.89416376206125,
+          155.17458313138795,
+          68.63742159007771
+        ],
+        "rotation_quaternion": [
+          -0.2705980500730985,
+          0.6532814824381883,
+          0.2705980500730985,
+          0.6532814824381883
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 9352.915076755678
+    },
+    {
+      "name": "RearLeftKneeCarrier",
+      "contacts": [],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          127.61374185414434,
+          129.50013775647935,
+          66.59114630440062
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.6087614290087207,
+          0.7933533402912352
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 13206.954880574021
+    },
+    {
+      "name": "RearLeftFixedCarrier",
+      "contacts": [],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          132.1024335389534,
+          127.27806671864602,
+          111.0
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 9645.61198981946
+    },
+    {
+      "name": "RearRightHipExtension",
+      "contacts": [],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          155.17458313138783,
+          151.67440456451442,
+          68.63742159007688
+        ],
+        "rotation_quaternion": [
+          -0.2705980500730985,
+          0.6532814824381883,
+          0.2705980500730985,
+          0.6532814824381883
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 9864.934741233086
+    },
+    {
+      "name": "RearRightKneeCarrier",
+      "contacts": [],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          125.48080803377816,
+          116.87134109844337,
+          70.02869943220676
+        ],
+        "rotation_quaternion": [
+          -0.2705980500730985,
+          0.6532814824381883,
+          0.2705980500730985,
+          0.6532814824381883
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 12737.328579377161
+    },
+    {
+      "name": "RearRightFixedCarrier",
+      "contacts": [],
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          132.10243353896072,
+          127.27806671869101,
+          111.0
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "support_and_slicer_validation": false
+      },
+      "added_volume_mm3": 9734.620835463043
     }
   ],
-  "pairs": 170,
-  "worker_seconds": 763.516
+  "pairs": 2630,
+  "worker_seconds": 718.843
 }

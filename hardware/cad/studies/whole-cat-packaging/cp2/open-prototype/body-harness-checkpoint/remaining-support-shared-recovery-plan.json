@@ -1,0 +1,241 @@
+{
+  "status": "SHARED_SUPPORT_RECOVERY_CONTRACT_NOT_SOLVED",
+  "changed_fixed_groups": [
+    {
+      "group": "FrontLeftFixedCarrier",
+      "owner_stage": "Body",
+      "branches": [
+        {
+          "land_id": "FL1/Hip/Fixed",
+          "preserved_start_mm": [
+            37.27659574468085,
+            79.0,
+            -5.042553191489362
+          ],
+          "preserved_arrival_mm": [
+            -153.1575664610456,
+            35.5,
+            -11.0
+          ],
+          "prior_points_mm": [
+            [
+              37.27659574468085,
+              79.0,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              79.0,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              77.5,
+              -5.042553191489362
+            ],
+            [
+              -32.05756646104561,
+              77.5,
+              -5.042553191489362
+            ],
+            [
+              -32.05756646104561,
+              57.5,
+              -5.042553191489362
+            ],
+            [
+              -44.05756646104561,
+              57.5,
+              -5.042553191489362
+            ],
+            [
+              -44.05756646104561,
+              49.5,
+              -5.042553191489362
+            ],
+            [
+              -56.05756646104561,
+              49.5,
+              -5.042553191489362
+            ],
+            [
+              -56.05756646104561,
+              45.5,
+              -5.042553191489362
+            ],
+            [
+              -56.05756646104561,
+              45.5,
+              -11.0
+            ],
+            [
+              -84.05756646104561,
+              45.5,
+              -11.0
+            ],
+            [
+              -84.05756646104561,
+              37.5,
+              -11.0
+            ],
+            [
+              -153.1575664610456,
+              37.5,
+              -11.0
+            ],
+            [
+              -153.1575664610456,
+              35.5,
+              -11.0
+            ]
+          ],
+          "decision": "Reroute WHOLE branch against frozen moving support poses; no scalar-offset search"
+        }
+      ],
+      "received_conflicts": [
+        {
+          "group": "FrontLeftKneeCarrier",
+          "target": "NewSupport_FrontLeftFixedCarrier",
+          "pose": [
+            15,
+            15
+          ],
+          "other_pose": [
+            0,
+            0,
+            0
+          ],
+          "volume_mm3": 21.834850923858
+        }
+      ]
+    },
+    {
+      "group": "FrontRightFixedCarrier",
+      "owner_stage": "Body",
+      "branches": [
+        {
+          "land_id": "FR1/Hip/Fixed",
+          "preserved_start_mm": [
+            -20.0,
+            -90.5,
+            56.25
+          ],
+          "preserved_arrival_mm": [
+            -153.1575664610506,
+            -35.5,
+            -11.0
+          ],
+          "prior_points_mm": [
+            [
+              -20.0,
+              -90.5,
+              56.25
+            ],
+            [
+              -20.057566461050612,
+              -90.5,
+              56.25
+            ],
+            [
+              -20.057566461050612,
+              -90.5,
+              53.5
+            ],
+            [
+              -20.057566461050612,
+              -86.97806671866348,
+              53.5
+            ],
+            [
+              -104.05756646105061,
+              -86.97806671866348,
+              53.5
+            ],
+            [
+              -104.05756646105061,
+              -78.97806671866348,
+              53.5
+            ],
+            [
+              -124.05756646105061,
+              -78.97806671866348,
+              53.5
+            ],
+            [
+              -124.05756646105061,
+              -78.97806671866348,
+              -11.0
+            ],
+            [
+              -153.1575664610506,
+              -78.97806671866348,
+              -11.0
+            ],
+            [
+              -153.1575664610506,
+              -35.5,
+              -11.0
+            ]
+          ],
+          "decision": "Reroute WHOLE branch against frozen moving support poses; no scalar-offset search"
+        }
+      ],
+      "received_conflicts": [
+        {
+          "group": "FrontRightHipExtension",
+          "target": "NewSupport_FrontRightFixedCarrier",
+          "pose": [
+            -15,
+            0
+          ],
+          "other_pose": [
+            0,
+            0,
+            0
+          ],
+          "volume_mm3": 150.83094797206596
+        },
+        {
+          "group": "FrontRightKneeCarrier",
+          "target": "NewSupport_FrontRightFixedCarrier",
+          "pose": [
+            0,
+            15
+          ],
+          "other_pose": [
+            0,
+            0,
+            0
+          ],
+          "volume_mm3": 0.6519573429758322
+        }
+      ]
+    }
+  ],
+  "unresolved": [],
+  "freeze": [
+    "All cable paths, sleeve positions,9mm jacket lands and independent bands",
+    "All received native parent geometry and mounting interfaces",
+    "All unchanged Hip/Knee support candidates as explicit moving obstacles, NOT accepted parts"
+  ],
+  "planning_rules": [
+    "Insert complete new supports into owner-relative planning obstacles before searching the failed fixed branches",
+    "For fixed branches reserve all9Hip/Knee and27childAnkle sampled poses; preserve existing coupled-motion rules",
+    "Retain all existing body/head shapes and wire radius+0.5mm; mesh/bounds are reservations only",
+    "New paths must end on the unchanged physical root and whole port approach, not floating endpoints",
+    "After one joint plan, rebuild only changed fixed bodies; check actual added material against complete assembly and each other",
+    "Reuse exact unchanged pair results; native/editability/parameter/reopen/STL only after complete accepted gate"
+  ],
+  "inherited_phase1_percent": 60,
+  "accepted": false,
+  "native_build_allowed": false,
+  "geometry_changed": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-material.json": "109380bf6bd2f21f7e457e656c23f44cec8fc0cc015fe6e9c5248b72c24b7dd7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-contact-diagnosis.json": "9589b3759b00c185ad628c45796b02af6dbb0dd631a79564ac24855ecc0c0c63",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-final-paths.json": "4e240f686218d915d440ac68375dce5d08eb4d0f2feab6a473ee06dbcd1bc087",
+    "tools/cad/plan_remaining_support_interactions.py": "53c6e1535b222e42b2ffe37751489dfebef13f3c585c7b5a66aa6e9a31f10f48"
+  },
+  "worker_seconds": 0.031
+}
