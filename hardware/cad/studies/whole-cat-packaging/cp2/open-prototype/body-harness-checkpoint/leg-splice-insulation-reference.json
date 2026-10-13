@@ -1,0 +1,56 @@
+{
+  "status": "PRIMARY_SUPPLIER_INSULATION_REFERENCE_NOT_SELECTED_FIT_OPEN",
+  "checked_utc": "2026-10-13T07:09:00Z",
+  "manufacturer": "HellermannTyton",
+  "manufacturer_sku": "333-30300",
+  "description": "TF31-3/1-PO-X-BK",
+  "manufacturer_url": "https://www.hellermanntyton.com/products/heat-shrink-tubing/tf31-31/333-30300",
+  "manufacturer_values": {
+    "expanded_inside_diameter_min_mm": 3.0,
+    "recovered_inside_diameter_max_mm": 1.0,
+    "object_outside_diameter_range_mm": [1.4, 2.6],
+    "wall_catalogue_mm": 0.6,
+    "longitudinal_change_percent": [-15, 5],
+    "inner_glue": false,
+    "catalogue_package_m": 30
+  },
+  "project_derivation_not_manufacturer_splice_instruction": {
+    "candidate_cut_length_mm": 20,
+    "derived_recovered_length_range_mm": [17, 21],
+    "bare_lap_length_project_mm": 8,
+    "minimum_equal_insulated_overlap_each_end_mm": 4.5,
+    "retained_staggered_joint_centres_mm": [-22, 0, 22],
+    "maximum_three_sleeve_zone_mm": 65,
+    "retained_independent_nine_mm_land_centres_mm": [-38.5, 38.5],
+    "minimum_gap_between_outer_sleeve_and_nearest_land_mm": 1.5,
+    "available_source_owned_straight_mm": 111.9151329220914,
+    "candidate_installed_sleeves": 12,
+    "candidate_cut_total_mm": 240,
+    "installed_OD_max_guaranteed": false,
+    "wall_value_is_not_a_guaranteed_assembled_outer_diameter": true
+  },
+  "current_geometry_not_changed": true,
+  "selected": false,
+  "stock_selected": false,
+  "purchase_authorized": false,
+  "W5_complete": false,
+  "E3_complete": false,
+  "physical_pass": false,
+  "gates": [
+    "Measure delivered insulated core and complete soldered lap OD; the catalogue object range does not prove this unknown factory lead fits.",
+    "Reserve and check actual maximum assembled sleeve/bundle envelope against source-owned supports and sampled motion before selection. Existing OD6 wire gate excludes new sleeve material.",
+    "Keep three separate individual sleeves; no uninsulated adjacent conductors. Fit sleeves before forming joints, heat only unpowered detached leads away from PETG and battery.",
+    "12x20mm cuts need240mm plus scrap/coupon allowance. Find a documented distributor cut length or a smaller suitable exact product; do not buy or silently allocate the30m catalogue reel.",
+    "No cable ampacity, copper area, pin cavity mapping, fault protection or E3 acceptance follows from this insulation reference."
+  ],
+  "comparison_not_selected": {
+    "manufacturer": "TE Connectivity",
+    "manufacturer_part": "ATUM-4/1-0-SP",
+    "te_internal_part": "NB11014001",
+    "manufacturer_url": "https://www.te.com/en/product-NB11014001.html",
+    "expanded_inside_diameter_mm": 4,
+    "recovered_inside_diameter_mm": 1,
+    "nominal_recovered_wall_mm": 1,
+    "reason": "Thicker dual-wall option is not interchangeable with a thin-wall sleeve or proof of current fit. No second CAD variant or stock selection."
+  }
+}

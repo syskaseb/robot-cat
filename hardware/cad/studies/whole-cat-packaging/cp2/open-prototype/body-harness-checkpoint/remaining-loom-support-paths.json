@@ -1,0 +1,285 @@
+{
+  "status": "PARTIAL_REMAINING_SUPPORT_PATH_RESERVATIONS",
+  "groups": [
+    {
+      "id": "FrontLeftHipExtension",
+      "owner_stage": "Motion_RL_Hip",
+      "root_choice": {
+        "preserved_owner": "FrontLeftSourceCarrier"
+      },
+      "root_world_mm": [
+        -104.08395228156813,
+        11.875,
+        34.2
+      ],
+      "paths": [
+        {
+          "land_id": "FL2/Knee/Fixed",
+          "post_arrival_normal": [
+            -1.4622061704911243e-14,
+            -0.926569772891405,
+            -0.37612292666622976
+          ],
+          "start_blocker": "mesh reservation/FrontLeftSourceCaseBond",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FL3/Knee/Fixed",
+          "post_arrival_normal": [
+            -1.561645287709923e-14,
+            -0.9889512838637751,
+            -0.14824087878918907
+          ],
+          "start_blocker": "mesh reservation/FrontLeftSourceCaseBond",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        }
+      ],
+      "sampled_owner_poses": 3,
+      "relative_material_placements": 284
+    },
+    {
+      "id": "FrontLeftKneeCarrier",
+      "owner_stage": "Motion_RL_Knee",
+      "root_choice": {
+        "owner": "P0_Part__Feature088",
+        "face_index": 14,
+        "plane_centre_world_mm": [
+          -56.819767933389215,
+          73.86785700106448,
+          -66.7405217211317
+        ],
+        "outward_normal": [
+          -1.1084883011491797e-14,
+          0.9902680687415671,
+          -0.1391731009600888
+        ],
+        "in_plane_axis": [
+          1.0,
+          1.0977005692016188e-14,
+          -1.5427175424891212e-15
+        ],
+        "patch_bounds_plane_mm": [
+          10,
+          8
+        ],
+        "actual_patch_area_mm2": 79.99999999999994,
+        "outer_arm_root_world_mm": [
+          -56.819767933389286,
+          80.00751902726219,
+          -67.60339494708425
+        ],
+        "distance_to_group_centre_mm": 51.204573709462416
+      },
+      "root_world_mm": [
+        -56.819767933389286,
+        80.00751902726219,
+        -67.60339494708425
+      ],
+      "paths": [
+        {
+          "land_id": "FL2/Knee/Moving",
+          "post_arrival_normal": [
+            -1.1648878529989268e-14,
+            -0.7327690637127611,
+            -0.6804774054041204
+          ],
+          "start_blocker": "actual interior/P0_Part__Feature089",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FL3/Knee/Moving",
+          "post_arrival_normal": [
+            -1.5645693975077833e-14,
+            -0.9909246807413346,
+            0.13441829152940507
+          ],
+          "start_blocker": "actual interior/P0_Part__Feature089",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FL3/Splice/0",
+          "post_arrival_normal": [
+            -0.9999689825382662,
+            -0.0010961501854962617,
+            -0.007799513840984125
+          ],
+          "start_blocker": "actual interior/P0_Part__Feature089",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FL3/Splice/1",
+          "post_arrival_normal": [
+            -0.9999689825382662,
+            -0.001096150185496139,
+            -0.007799513840983941
+          ],
+          "start_blocker": "actual interior/P0_Part__Feature089",
+          "goal_blocker": "wire reservation/FL2",
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": false,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        }
+      ],
+      "sampled_owner_poses": 9,
+      "relative_material_placements": 75
+    },
+    {
+      "id": "FrontLeftFixedCarrier",
+      "owner_stage": "Body",
+      "root_choice": {
+        "owner": "FLStationFrame",
+        "face_index": 4,
+        "plane_centre_world_mm": [
+          38.458333333333336,
+          82.0,
+          -1.1145833333333335
+        ],
+        "outward_normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "in_plane_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "patch_bounds_plane_mm": [
+          10,
+          8
+        ],
+        "actual_patch_area_mm2": 80.0,
+        "outer_arm_root_world_mm": [
+          38.458333333333336,
+          88.2,
+          -1.1145833333333335
+        ],
+        "distance_to_group_centre_mm": 119.48674559630966
+      },
+      "root_world_mm": [
+        38.458333333333336,
+        81.0,
+        -1.1145833333333335
+      ],
+      "paths": [
+        {
+          "land_id": "FL1/Hip/Fixed",
+          "post_arrival_normal": [
+            0.9770102750092602,
+            0.21319221966650095,
+            0.0
+          ],
+          "start_blocker": "mesh reservation/FL_P",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FL2/Hip/Fixed",
+          "post_arrival_normal": [
+            0.3166264110948741,
+            -0.9485503232813639,
+            0.0
+          ],
+          "start_blocker": "mesh reservation/FL_P",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FL3/Hip/Fixed",
+          "post_arrival_normal": [
+            0.9793286787213299,
+            -0.20227540392725513,
+            0.0
+          ],
+          "start_blocker": "mesh reservation/FL_P",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        }
+      ],
+      "sampled_owner_poses": 1,
+      "relative_material_placements": 270
+    }
+  ],
+  "beam_reservation_mm": [
+    4,
+    6,
+    4
+  ],
+  "material_margin_project_mm": 0.3,
+  "wire_margin_project_mm": 0.5,
+  "selected": false,
+  "native_changed": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "continuous_sweep_verified": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-roots-plan.json": "c0971a3621e00aba08be9441d35eab8eed90d17137fce0b439c6aafce4123bd6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-root-faces.json": "e46e592768ab1cc8458839251a552f40241ad575e49f82ccf549572d4e0be927",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/complete-source-carriers-native.json": "c4a72e3dc3ef585f1cb065e20b76b27604045cbc55239d2d421d686ab4cac8e4",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/CompleteSourceCarriers.FCStd": "1bb861c9f5bb43953ac59675aa6532014eed1c2a7cc9e5d8f4bc33a4ef908508",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
+    "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadNeckFixedJoined.FCStd": "0b8dce308b2b849c34179f70945788642c6e1440955e965bffc5a1968d21a879",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-underneck-rounds-plan.json": "3d58c718094954c9247a2dbcc36d24184f0f6d8109c1066117bdde2e84a7c57b",
+    "tools/cad/plan_remaining_loom_support_paths.py": "86d814a53ac5a3d5f821e31d4ec21815bc27892ea3c67a9cd695f20395945826",
+    "tools/cad/build_complete_source_carriers.py": "923b8fd9ff68ad4e50b64110fbebcdf850ffb4bb94e115598c9615908a4df6d0",
+    "tools/cad/fast_carrier_reservations.py": "79210cad153c7a014b21bdfd2ecd9870d2865a7f430202cb020d3a87505ffc81"
+  },
+  "open": [
+    "Actual combined arm/grip/tie/sleeve material gate and precise new intersections",
+    "Case bond/load/creep and sleeve dimensions are provisional; no new holes in bought cases",
+    "Native current frame extension/export/assembly/stock and whole body fanouts"
+  ],
+  "worker_seconds": 463.875
+}
