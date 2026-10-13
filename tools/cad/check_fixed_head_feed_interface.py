@@ -3,13 +3,13 @@
 Exact BRep distances/Commons; bbox only broad phase. Reject before native.
 Intended connector/insulation bearing interfaces are explicitly limited.
 """
-import json,time,re
+import json,time,re,hashlib,subprocess
 from pathlib import Path
 import FreeCAD as A
 import Part
 import plan_fixed_head_feed_interface as I
 from exact_pair_receipts import PairReceipts
-from fixed_head_land_profile import flat_land
+from fixed_head_land_profile import flat_land,flat_bend_prefix
 H,S,C,Q=I.H,I.S,I.C,I.Q
 
 def nonlocal_edge_pairs(edges,radius,minimum_curve_radius=Q.R):
@@ -43,7 +43,34 @@ def nonlocal_edge_pairs(edges,radius,minimum_curve_radius=Q.R):
                 if a is not None:yield i,a,j,f
                 if b is not None:yield i,e,j,b
 
-def run():
+def verified_parent(commit):
+    """Reuse only completed scopes whose inputs and original checker are pinned."""
+    path=H.OUT/'fixed-head-bend-refinement-parent.json'
+    parent=json.loads(path.read_text())
+    assert parent['status']=='REJECTED_SHARED_FIXED_HEAD_INTERFACE'
+    assert parent['stage']=='head yaw-15 whole factory/feed/support material'
+    assert parent['poses']==9 and not parent['errors'] and len(parent['contacts'])==1
+    hit=parent['contacts'][0]
+    assert (hit['a'],hit['b'],hit['pose'])==('FactorySection2','MovingFactoryGrip',[-15,0])
+    checker=Path(__file__).relative_to(H.ROOT).as_posix()
+    helper=Path(__file__).with_name('fixed_head_land_profile.py').relative_to(H.ROOT).as_posix()
+    def historical(name):return subprocess.check_output(['git','show',commit+':'+name],cwd=H.ROOT)
+    for name,expected in parent['source_sha256'].items():
+        if name in (checker,helper):
+            data=historical(name)
+            assert hashlib.sha256(data).hexdigest()==expected,('Changed historical source',name)
+            if name==helper:
+                current=(H.ROOT/name).read_bytes().split(b'# LOCAL_BEND_REFINEMENT')[0]
+                assert current.rstrip()==data.rstrip(),'Original flat_land changed'
+        else:assert S.SHA(H.ROOT/name)==expected,('Reuse input changed',name)
+    assert historical(path.relative_to(H.ROOT).as_posix())==path.read_bytes()
+    return dict(parent_commit=commit,parent_sha256=S.SHA(path),
+        completed_scopes=['rooted support/static receiving parts','whole fixed interface/head envelope',
+                          'whole three fixed source paths'],head_poses=9,
+        remaining_scope='Full factory/body/support/self at all3yaws, with local first8mm arc flat refinement')
+
+def run(parent_commit=None):
+    reuse=verified_parent(parent_commit) if parent_commit else None
     tick=time.monotonic();p,feeds,roots,meta,fork,reader,allocation,archive=I.prepare()
     targets,old,_=S.scene()
     station,hardware,bonds,_=C.D.allocate(targets)
@@ -62,7 +89,7 @@ def run():
         W2_complete=False,W3_complete=False,pairs=0,contacts=[],errors=[],poses=0,
         retired_source_paths=sorted(retired),rooted_support=meta,allocation=allocation,
         scope='Three whole fixed feeds, rooted material/bands, unchanged source interfaces and full250factory9sampled head poses; native/assembly/stock still OPEN',
-        lengths_mm={n:sum(e.Length for e in es) for n,es in feeds.items()},
+        completed_scope_reuse=reuse,lengths_mm={n:sum(e.Length for e in es) for n,es in feeds.items()},
         factory_self_distance_sampled=False,source_sha256={**reader.hashes,
           archive.relative_to(H.ROOT).as_posix():S.SHA(archive),
           **{Path(f).relative_to(H.ROOT).as_posix():S.SHA(Path(f)) for f in (__file__,I.__file__,C.__file__,C.D.__file__,str(Path(__file__).with_name('fixed_head_land_profile.py')))}})
@@ -100,6 +127,9 @@ def run():
     qualified,qualified_meta=C.F.allocation(60)
     qualified={n:(s,r) for n,(s,r) in qualified.items() if n.startswith('Qualified')}
     report['source_sha256'].update(qualified_meta['source_sha256'])
+    if reuse:
+        report['poses']=reuse['head_poses']
+        report['source_sha256'][(H.OUT/'fixed-head-bend-refinement-parent.json').relative_to(H.ROOT).as_posix()]=reuse['parent_sha256']
     factories={}
     for yaw in (-15,0,15):
         row=next(q for q in p['poses'] if q['yaw']==yaw)
@@ -130,19 +160,19 @@ def run():
     # static materials and retained wires. No expensive repeated motion on
     # an already disconnected or statically interfering construction.
     fixed={n:s for n,s in roots.items() if not n.startswith('Moving')}
-    for n,s in fixed.items():
+    for n,s in (() if reuse else fixed.items()):
         test(n,s,0,'FixedJR',jr)
         for m,t in targets.items():
             if t.Solids:test(n,s,0,m,t)
         for m,(t,tr) in old.items():
             if m not in retired:test(n,s,0,m,t,tr)
-    for i,n in enumerate(fixed):
+    for i,n in enumerate(() if reuse else fixed):
         for m in list(fixed)[i+1:]:test(n,fixed[n],0,m,fixed[m])
     if blocked('rooted support/static receiving parts'):return
 
     # Receive the whole current head envelope before the many retained
     # body-wire pairs. Exact members, not a skin bbox or rest-only view.
-    for yaw in (-15,0,15):
+    for yaw in (() if reuse else (-15,0,15)):
         for pitch in (-10,0,5):
             head=head_at(yaw,pitch)
             # Changed moving restraint first: a known local skin clash must
@@ -162,7 +192,7 @@ def run():
     # the assigned outward9mm port land or unchanged lap pairing, not all
     # wires in the same branch. Every newly routed segment remains tested.
     wires={n:Part.Wire(es) for n,es in feeds.items()}
-    for n,s in wires.items():
+    for n,s in (() if reuse else wires.items()):
         for m,t in targets.items():
             if not t.Solids:continue
             current=s
@@ -206,7 +236,15 @@ def run():
         # position relative to distant body objects. Support/head passages
         # must not contain insulation; exact bearing may touch, not overlap.
         for i,(s,r) in material.items():
-            for m,(t,tr) in moving.items():test('FactorySection'+str(i),s,r,m,t,tr,pose=[yaw,0])
+            for m,(t,tr) in moving.items():
+                if i==2:
+                    # The circular reservation is intentionally conservative.
+                    # Qualify the actual nominal flat first8mm, and retain the
+                    # full diagonal reservation on the rest of this same arc.
+                    actual,rest=flat_bend_prefix(edges[i])
+                    test('FactoryFlatBendFirst8',actual,0,m,t,tr,pose=[yaw,0])
+                    test('FactoryBendRemainder',rest,Q.RESERVE,m,t,tr,pose=[yaw,0])
+                else:test('FactorySection'+str(i),s,r,m,t,tr,pose=[yaw,0])
             if i>=2:
                 for m,(t,tr) in qualified.items():test('FactorySection'+str(i),s,r,m,H.moved(t,yaw),tr,pose=[yaw,0])
         for n,(s,r) in qualified.items():
@@ -227,4 +265,7 @@ def run():
     save('complete sampled shared interface')
     print(json.dumps({k:report[k] for k in ('status','poses','pairs','worker_seconds')}),flush=True)
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--parent-commit')
+    run(parser.parse_args().parent_commit)

@@ -5,12 +5,19 @@ import Part
 from check_fixed_head_feed_interface import nonlocal_edge_pairs
 from build_fixed_head_interface import band_boxes
 from plan_fixed_head_feed_interface import strap
-from fixed_head_land_profile import flat_land
+from fixed_head_land_profile import flat_land,flat_bend_prefix
 from plan_current_data_ground_mounts import bearing_area
 
 V=A.Vector
 
 class InterfaceContracts(unittest.TestCase):
+    def test_local_arc_profile_keeps_length_and_nominal_volume(self):
+        arc=Part.Arc(V(0,0,0),V(31.5-31.5/2**.5,31.5/2**.5,0),V(31.5,31.5,0)).toShape()
+        material,rest=flat_bend_prefix(arc)
+        self.assertAlmostEqual(material.Volume,8*3.5*1.8,places=4)
+        self.assertAlmostEqual(rest.Length+8,arc.Length,places=6)
+        self.assertTrue(material.isValid())
+
     def test_flat_source_bears_on_nominal_bed_not_diagonal_circle(self):
         e=Part.makeLine(V(-176,47.2187454246,153.5),V(-176,56.2187454246,153.5))
         flat=flat_land(e)

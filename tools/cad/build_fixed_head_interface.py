@@ -64,6 +64,10 @@ def run():
     assert gate['status']=='SHARED_FIXED_HEAD_INTERFACE_SAMPLED_CLEAR_NATIVE_OPEN'
     assert gate['poses']==9 and not gate['contacts'] and not gate['errors']
     for n,h in gate['source_sha256'].items():assert S.SHA(H.ROOT/n)==h,n
+    legfile=H.OUT/'fixed-head-leg-material.json';leg=H.read(legfile)
+    assert leg['status']=='CHANGED_HEAD_LEG_INTERFACE_SAMPLED_CLEAR' and leg['poses']==108
+    assert not leg['contacts'] and not leg['errors']
+    for n,h in leg['source_sha256'].items():assert S.SHA(H.ROOT/n)==h,n
     assert not MODEL.exists(),'Receive existing candidate, do not overwrite/duplicate'
     p,feeds,roots,meta,fork,reader,allocation,archive=I.prepare()
     assert meta==gate['rooted_support'] and allocation==gate['allocation']
@@ -128,7 +132,7 @@ def run():
         editable_parts=2,fully_constrained_sketches=sketches,parameter_restore_mm=[3,3.2,3],relocated_reopen=True,
         exact_material_matches_shared_gate=True,purchased_nominal_bands=len(cuts),new_M3=0,
         inherited_mechanical_bases_explicit=True,whole_phase1_complete=False,W2_complete=False,W3_complete=False,
-        source_sha256={**gate['source_sha256'],gatefile.relative_to(H.ROOT).as_posix():S.SHA(gatefile),Path(__file__).relative_to(H.ROOT).as_posix():S.SHA(Path(__file__))},
+        source_sha256={**leg['source_sha256'],legfile.relative_to(H.ROOT).as_posix():S.SHA(legfile),Path(__file__).relative_to(H.ROOT).as_posix():S.SHA(Path(__file__))},
         remaining=['Whole assembly/disconnection/ATO access/current length-stock and native master selection','Remaining full leg/body wiring and E3, not claimed by this interface'],
         worker_seconds=round(time.monotonic()-tick,3))
     H.save('fixed-head-interface-native.json',report)
