@@ -2,6 +2,7 @@
 import json
 import math
 import unittest
+from plan_current_moving_looms import exact_quarter
 from plan_body_fanout_layout import OUT,prepared_rows,corridor,corridor_exits
 
 
@@ -49,6 +50,16 @@ class CorridorTest(unittest.TestCase):
             self.assertEqual(route['search_direction'],'receiver_to_source')
             for a,b in zip(route['parts'],route['parts'][1:]):
                 self.assertLess(math.dist(a['end'],b['start']),1e-8)
+
+    def test_radial_source_prefix_is_included_in_budget_and_geometry(self):
+        row=prepared_rows(json.loads((OUT/'body-fanout-work-contract.json').read_text()))[0]
+        arc=exact_quarter(row['free_start'],[0,0,1],[1,0,0],10)
+        row.update(source_parts=[row['source_land'],arc],free_start=arc['end'],source_free_axis=[1,0,0])
+        route,points=corridor(ClearScene(),row,backward=True)
+        self.assertIsNotNone(points)
+        self.assertEqual(route['parts'][1]['kind'],'arc')
+        self.assertAlmostEqual(route['parts'][1]['length_mm'],10*math.pi/2)
+        self.assertGreaterEqual(route['spare_before_trim_mm'],0)
 
 
 if __name__=='__main__':unittest.main()

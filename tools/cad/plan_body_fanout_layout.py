@@ -9,6 +9,7 @@ import itertools
 import json
 import math
 import subprocess
+import sys
 import time
 from pathlib import Path
 import numpy as np
@@ -164,17 +165,18 @@ def corridor(scene,row,backward=False):
     """One bounded tangent/curvature grid, then a checked final spatial span."""
     assert tuple(row['bodyward_bundle_tangent'])==AXES[4],'Changed root direction needs a new shared contract'
     receiving=row.get('receiving_parts',[row['receiving_land']])
+    source=row.get('source_parts',[row['source_land']])
     if backward:
         start=np.asarray(row['free_end']);end=np.asarray(row['free_start'])
         initial=[reverse_part(p) for p in reversed(receiving)]
-        final_parts=[reverse_part(row['source_land'])]
+        final_parts=[reverse_part(p) for p in reversed(source)]
         first_axis=AXES.index(tuple(row['receiver_outward_axis']))
-        end_axis=row['bodyward_bundle_tangent']
+        end_axis=row.get('source_free_axis',row['bodyward_bundle_tangent'])
     else:
         start=np.asarray(row['free_start']);end=np.asarray(row['free_end'])
-        initial=[row['source_land']];final_parts=receiving
+        initial=source;final_parts=receiving
         first_axis=4;end_axis=row['receiver_outward_axis']
-    fixed=row['source_land']['length_mm']+sum(p['length_mm'] for p in receiving)
+    fixed=sum(p['length_mm'] for p in source)+sum(p['length_mm'] for p in receiving)
     capacity=row['capacity_before_terminal_mm']-row['terminal_allowance_project_mm']-fixed
     first=(0,0,0,first_axis);queue=[(float(np.linalg.norm(end-start)),0,0,first)]
     best={first:0};parents={};serial=itertools.count(1);tick=time.monotonic();states=0
@@ -363,6 +365,31 @@ def receiving_turns(scene,rows,routes,pins):
     return changed,result
 
 
+def radial_sources(scene,rows,routes,pins):
+    planned=[];rejected=[];changed=[]
+    for row in rows:
+        if row['wire'] in routes:
+            changed.append(row);continue
+        root=np.asarray(row['bundle_root_world_mm']);offset=np.asarray(row['start'])-root
+        axis=(offset/np.linalg.norm(offset)).tolist()
+        flare=exact_quarter(row['free_start'],row['bodyward_bundle_tangent'],axis,10)
+        points=part_points(flare);clear=scene.clear(points,row)
+        record=dict(wire=row['wire'],loom=row['loom'],parts=[row['source_land'],flare],
+            radial_axis=axis,screen_clear=clear,blocker=None if clear else scene.last_blocker)
+        planned.append(record)
+        if not clear:rejected.append(record)
+        else:scene.add_points('new/'+row['wire']+'/source',points)
+        changed.append(dict(row,source_parts=record['parts'],free_start=flare['end'],source_free_axis=axis))
+    result=dict(status='RADIAL_SOURCE_FANS_NEED_ACTUAL_DIAGNOSIS' if rejected else 'SHARED_RADIAL_SOURCE_FANS_SCREEN_CLEAR_NOT_ACTUAL_ACCEPTANCE',
+        rows=planned,rejected=rejected,preserved_routes=list(routes),source_sha256=pins,
+        design='Three packed cores diverge radially after the existing5mm breakout. R10 bend moves the dense source connection into an accessible body corridor before final cubic joining. Existing complete paths unchanged.',
+        selected=False,W5_complete=False,physical_pass=False)
+    dest=OUT/'body-fanout-radial-sources.json';dest.write_text(json.dumps(result,indent=2)+'\n')
+    pins[dest.relative_to(ROOT).as_posix()]=SHA(dest)
+    print(json.dumps(dict(source_fans=len(planned),blocked=len(rejected),preserved_routes=len(routes))),flush=True)
+    return (None if rejected else changed),result
+
+
 def corridor_layout(scene,rows,files,tick):
     routes={};rejected=[];dest=OUT/'body-fanout-layout.json'
     pins={p.relative_to(ROOT).as_posix():SHA(p) for p in files}
@@ -384,6 +411,13 @@ def corridor_layout(scene,rows,files,tick):
         entry=add(row['receiver_point_mm'],mul(row['receiver_outward_axis'],3))
         scene.add_points('new/'+row['wire']+'/receiver',np.linspace(entry,row['receiver_point_mm'],6))
     for name,r in routes.items():scene.add_points('new/'+name,np.concatenate([part_points(p) for p in r['parts']]))
+    if '--radial-source-fans' in sys.argv:
+        updated,source_plan=radial_sources(scene,rows,routes,pins.copy())
+        if updated is None:
+            print(json.dumps(dict(status=source_plan['status'],blocked=[r['wire'] for r in source_plan['rejected']])),flush=True)
+            return
+        rows=updated
+        pins[(OUT/'body-fanout-radial-sources.json').relative_to(ROOT).as_posix()]=SHA(OUT/'body-fanout-radial-sources.json')
     updated,goals=receiving_turns(scene,rows,routes,pins)
     if updated is None:
         print(json.dumps(dict(status=goals['status'],rejected=goals['rejected'],existing_routes=len(routes))),flush=True)
