@@ -15,6 +15,7 @@ import FreeCAD as A
 import numpy as np
 import build_complete_source_carriers as B
 from fast_carrier_reservations import TriangleBucket,WireBucket
+from loom_land_port import build as build_port
 
 P=B.P
 ANGLES=(-15,0,15)
@@ -69,6 +70,31 @@ def run():
     nf=P.OUT/'complete-source-carriers-native.json';native=json.loads(nf.read_text())
     model=P.ROOT/native['native'];assert P.SHA(model)==native['native_sha256']
     familyfile=P.OUT/'leg-source-near-member-plan.json';family=json.loads(familyfile.read_text())
+    seedfile=P.OUT/'remaining-carrier-seed-proof.json';seedproof=json.loads(seedfile.read_text())
+    assert seedproof['status']=='FOUR_HIP_ROOT_SEEDS_EXACT_UNCHANGED_SUBSETS'
+    for name,digest in seedproof['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
+    retentionfile=P.OUT/'remaining-retention-rest.json';retention=json.loads(retentionfile.read_text())
+    for name,digest in retention['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
+    complete_groups=[g for g in retention['groups'] if g['root_world_mm'] and not any('error' in p for p in g['ports'])]
+    lands={r['id']:r for g in plan['groups'] for r in g['lands']}
+    profile_parts={};arrival_failures=[]
+    for group in complete_groups:
+        for port in group['ports']:
+            shapes=build_port(lands[port['land_id']],port['arrival_normal'],port['recipe']['band_axial_offset_mm'])
+            x,y,z=port['arrival_world_mm'];seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
+            overlap=seed.common(shapes['band']).Volume;joined=seed.common(shapes['body']).Volume
+            if overlap>1e-5 or joined<1:
+                arrival_failures.append(dict(land_id=port['land_id'],band_intersection_mm3=overlap,post_connection_mm3=joined))
+            profile_parts[port['land_id']]=(shapes,group)
+    if arrival_failures:
+        receipt=dict(status='REJECTED_COMPLETE_ARM_ARRIVAL_SEEDS_BEFORE_MESH',failures=arrival_failures,
+                     inherited_open_groups=retention['errors'],selected=False,W5_complete=False,physical_pass=False,
+                     decision='Complete port was statically clear, but world-aligned4x6x4arm arrival conflicts with rotated band. Choose a manufacturable approach direction/oriented stub BEFORE mesh/path search; do not move cable lands.',
+                     source_sha256={p.relative_to(P.ROOT).as_posix():P.SHA(p) for p in (pf,retentionfile,Path(__file__),Path(__file__).with_name('loom_land_port.py'))},
+                     worker_seconds=round(time.monotonic()-tick,3))
+        (P.OUT/'remaining-arm-arrival-checks.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+        print(json.dumps(receipt),flush=True)
+        return
     af=P.ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(af.read_text())['axes']
     zf=P.ROOT/'hardware/simulation/v35/inputs.zip'
     with zipfile.ZipFile(zf) as z:members=json.loads(z.read('geometry.json'))['components']
@@ -87,6 +113,14 @@ def run():
             loom=actual.removesuffix('IndependentBand')
             code=next(r['cad_code'] for r in family['hips'] if r['loom']==loom)
         membership[actual]=(code,'Hip')
+    for land_id,(shapes,group) in profile_parts.items():
+        for prefix,key in (('PlannedPort_','body'),('PlannedBand_','band')):
+            name=prefix+land_id;targets[name]=shapes[key]
+            if group['owner_stage']!='Body':membership[name]=group['owner_stage'].split('_')[1:]
+    for sleeve in retention['sleeve_reservations']:
+        axis=A.Vector(*sleeve['axis']);centre=A.Vector(*sleeve['centre_world_mm'])
+        targets[sleeve['name']]=B.Part.makeCylinder(sleeve['diameter_project_mm']/2,sleeve['length_mm'],centre-axis*sleeve['length_mm']/2,axis)
+        membership[sleeve['name']]=sleeve['owner_stage'].split('_')[1:]
     transforms={}
     for code in ('FL','FR','RL','RR'):
         for h,k,a in itertools.product(ANGLES,repeat=3):
@@ -102,7 +136,7 @@ def run():
         for h,k in itertools.product(ANGLES,repeat=2):
             s=P.wire(B.parts_for_loom(family,route['loom'],h,k,axes)+B.moved_parts(route['source_parts'],route['source'],h,k,axes))
             wirepoints.append((route['loom'],[p for e in s.Edges for p in e.discretize(Distance=1)],3,code,h,k))
-    inputs=(pf,ff,nf,model,familyfile,af,zf,archive,sf,B.H.HEAD,headwires,
+    inputs=(pf,ff,nf,model,familyfile,seedfile,retentionfile,af,zf,archive,sf,B.H.HEAD,headwires,
             Path(__file__),Path(B.__file__),Path(__file__).with_name('fast_carrier_reservations.py'))
     result=dict(status='PARTIAL_REMAINING_SUPPORT_PATH_RESERVATIONS',groups=[],
                 beam_reservation_mm=[4,6,4],material_margin_project_mm=.3,
@@ -117,30 +151,20 @@ def run():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         destination.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     meshes={};half=(2,3,2);surfacehalf=tuple(v+.4 for v in half);cell=10
-    for group in plan['groups']:
+    result['inherited_open_groups']=retention['errors']
+    for group in (g for g in plan['groups'] if g['id'] in {r['id'] for r in complete_groups}):
         stage=group['owner_stage'].split('_')[-1]
         code=group['owner_stage'].split('_')[1] if stage!='Body' else None
-        rootdata=next(r for r in faces['groups'] if r['id']==group['id'])
-        if 'root_world_mm' in rootdata:
-            start=rootdata['root_world_mm'];choice=dict(preserved_owner=group['preserved_owner'])
-        else:
-            choices=rootdata['candidate_faces']
-            if stage=='Knee':
-                side=1 if group['id'].startswith(('FrontLeft','RearLeft')) else -1
-                same=[r for r in choices if side*r['outward_normal'][1]>.9]
-                choices=same or choices
-            choice=choices[0]
-            normal=A.Vector(*choice['outward_normal']);centre=A.Vector(*choice['plane_centre_world_mm'])
-            start=list(centre+normal*(6.2 if stage=='Knee' else -1))
+        selected=next(r for r in complete_groups if r['id']==group['id'])
+        start=selected['root_world_mm'];choice=selected['root_choice']
         goals=[]
         for land in group['lands']:
-            axis=A.Vector(*land['axis']);centre=A.Vector(*land['centre_world_mm'])
-            normal=A.Vector(*start)-centre;normal-=axis*normal.dot(axis)
-            if normal.Length<1:normal=A.Vector(0,0,-1)-axis*axis.dot(A.Vector(0,0,-1))
-            normal.normalize()
-            goals.append((land,list(centre+normal*16.9),list(normal)))
-        low=[min([start[i]]+[p[i] for _,p,_ in goals])-18 for i in range(3)]
-        high=[max([start[i]]+[p[i] for _,p,_ in goals])+18 for i in range(3)]
+            port=next(r for r in selected['ports'] if r['land_id']==land['id'])
+            goals.append((land,port['arrival_world_mm'],port['arrival_normal']))
+        # Include all eight meaningful radial port orientations in ONE
+        # planning space. No new jacket land position or cable radius.
+        low=[min([start[i]]+[r['centre_world_mm'][i] for r in group['lands']])-38 for i in range(3)]
+        high=[max([start[i]]+[r['centre_world_mm'][i] for r in group['lands']])+38 for i in range(3)]
         poses=list(itertools.product(ANGLES, repeat=2)) if stage=='Knee' else [(h,0) for h in ANGLES] if stage=='Hip' else [(0,0)]
         surfaces={};cloud={};seen=set();interiors=[]
         print('remaining common root',group['id'],'lands',len(goals),flush=True)
@@ -158,6 +182,8 @@ def run():
                 # hardware/bands/cables remain obstacles. Bought cases never
                 # disappear from the scene just because they own a root.
                 if name==group.get('preserved_owner'):continue
+                if name.startswith('PlannedPort_') and name.removeprefix('PlannedPort_') in {r['id'] for r in group['lands']}:
+                    continue  # New seat and arm are the SAME printed owner.
                 mem=membership.get(name)
                 if not mem:
                     options=[(0,0,0)]
@@ -203,6 +229,14 @@ def run():
             cache[key]=True;return True
         paths=[]
         for land,goal,normal in goals:
+            if group['id'].endswith('HipExtension'):
+                # Nominal4x6x4seed is ENTIRELY unchanged received cap material.
+                # Keep all mesh margins for added material. This narrowly
+                # resolves the intended tangent bond at the immutable seed,
+                # rather than moving a root or ignoring collisions of arms.
+                proof=next(r for r in seedproof['rows'] if r['group']==group['id'])
+                assert proof['seed_outside_received_cap_mm3']<1e-6
+                cache[tuple(start)]=True
             # Face reservations alone cannot see an entire solid's interior.
             for endpoint in (start,goal):
                 p=A.Vector(*endpoint)
@@ -211,13 +245,14 @@ def run():
                         cache[tuple(endpoint)]=False;blockers[tuple(endpoint)]='actual interior/'+name;break
             path=search(start,goal,low,high,clear)
             paths.append(dict(land_id=land['id'],post_arrival_normal=normal,
+                              complete_port_retention_rest_preflight=True,
                               start_blocker=blockers.get(tuple(start)),goal_blocker=blockers.get(tuple(goal)),**path))
             print('remaining support path',land['id'],len(path['points_mm']),path['expansions'],flush=True)
         result['groups'].append(dict(id=group['id'],owner_stage=group['owner_stage'],
                                       root_choice=choice,root_world_mm=start,paths=paths,
                                       sampled_owner_poses=len(poses),relative_material_placements=len(interiors)))
         save()
-    result['status']='REMAINING_SUPPORT_RESERVATIONS_COMPLETE_ACTUAL_NATIVE_OPEN' if all(r['points_mm'] for g in result['groups'] for r in g['paths']) else 'REMAINING_SUPPORT_RESERVATIONS_INCOMPLETE_DIAGNOSE_CAUSE'
+    result['status']='COMPLETE_INDEPENDENT_GROUP_SUPPORT_RESERVATIONS_ACTUAL_NATIVE_OPEN' if all(r['points_mm'] for g in result['groups'] for r in g['paths']) else 'REMAINING_SUPPORT_RESERVATIONS_INCOMPLETE_DIAGNOSE_CAUSE'
     save();print(json.dumps(dict(status=result['status'],worker_seconds=result['worker_seconds'])),flush=True)
 
 
