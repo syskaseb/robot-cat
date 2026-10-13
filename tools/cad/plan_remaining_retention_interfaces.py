@@ -15,6 +15,7 @@ import FreeCAD as A
 import build_complete_source_carriers as B
 from loom_land_port import build
 from compact_loom_land_port import build as compact_build
+from support_entry_port import build as entry_build
 from diagnose_remaining_support_endpoints import transform,moved
 
 P=B.P
@@ -26,10 +27,12 @@ def run():
     rf=P.OUT/'remaining-retention-rest.json';pf=P.OUT/'remaining-loom-roots-plan.json'
     ff=P.OUT/'leg-source-near-member-plan.json';nf=P.OUT/'front-fixed-port-clearance-native.json'
     rest,plan,family,native=[json.loads(f.read_text()) for f in (rf,pf,ff,nf)]
-    compact_mode='--compact-failed' in sys.argv
-    basefile=P.OUT/'remaining-retention-motion.json'
+    axial_mode='--axial-entry' in sys.argv
+    compact_mode='--compact-failed' in sys.argv or axial_mode
+    basefile=P.OUT/('remaining-retention-current.json' if axial_mode else 'remaining-retention-motion.json')
     previous=json.loads(basefile.read_text()) if compact_mode else None
     failed_ids={p['land_id'] for g in previous['groups'] for p in g['ports'] if p.get('error')} if previous else set()
+    if axial_mode:failed_ids={p['land_id'] for g in previous['groups'] for p in g['ports'] if p.get('recipe',{}).get('construction')}
     af=P.ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(af.read_text())['axes']
     reader=B.H.P.SavedShapes();targets,wires,archive,sf,hw=B.current_scene(reader)
     zf=P.ROOT/'hardware/simulation/v35/inputs.zip'
@@ -52,7 +55,7 @@ def run():
             if previous:
                 received=next(p for g in previous['groups'] for p in g['ports'] if p['land_id']==port['land_id'])
                 if not received.get('error'):port=received
-            shapes=build(lands[port['land_id']],port['arrival_normal'],port['recipe']['band_axial_offset_mm'])
+            shapes=entry_build(lands[port['land_id']],port)
             for prefix,key in (('PlannedPort_','body'),('PlannedBand_','band')):
                 name=prefix+port['land_id'];targets[name]=shapes[key];membership[name]=owners[group['id']]
     for sleeve in rest['sleeve_reservations']:
@@ -105,7 +108,7 @@ def run():
                     if code and code==other and (hh!=h or (stage=='Knee' and kk!=k)):continue
                     # Own jacket intentionally bears on its band; all other
                     # wire interfaces retain0.5mm design clearance.
-                    margin=0 if land_id and name==land_id.split('/')[0] else .5
+                    margin=0 if label=='Band' and land_id and name==land_id.split('/')[0] else .5
                     if not bounds.near(q,w,r+margin+.001):continue
                     checked+=1;gap,_=cache.check(q,w,0,r+margin)
                     if gap<r+margin-1e-4:
@@ -121,6 +124,9 @@ def run():
         result['source_sha256'][basefile.relative_to(P.ROOT).as_posix()]=P.SHA(basefile)
         result['source_sha256'][Path(__file__).with_name('compact_loom_land_port.py').relative_to(P.ROOT).as_posix()]=P.SHA(Path(__file__).with_name('compact_loom_land_port.py'))
         destination=P.OUT/'remaining-retention-current.json'
+        if axial_mode:
+            destination=P.OUT/'remaining-retention-entry.json'
+            ep=Path(__file__).with_name('support_entry_port.py');result['source_sha256'][ep.relative_to(P.ROOT).as_posix()]=P.SHA(ep)
     def save():
         cache.save();result['pairs']=checked;result['worker_seconds']=round(time.monotonic()-tick,3)
         result['errors']=[g['id'] for g in result['groups'] if g.get('root_error') or any(p.get('error') for p in g['ports'])]
@@ -144,8 +150,11 @@ def run():
             if previous and port['land_id'] not in failed_ids:
                 record['ports'].append(next(p for p in inherited['ports'] if p['land_id']==port['land_id']));continue
             land=lands[port['land_id']];options=[];rejected=[]
-            for sign in (1,-1):
-                if compact_mode:
+            for sign in ((1,) if axial_mode else (1,-1)):
+                if axial_mode:
+                    received=next(p for p in inherited['ports'] if p['land_id']==port['land_id'])
+                    normal=received['arrival_normal']
+                elif compact_mode:
                     # Exact failures put other looms on BOTH lateral sides
                     # of these splice stations. The axial-entry construction
                     # permits a support perpendicular to that crowded plane.
@@ -155,7 +164,7 @@ def run():
                     normal=A.Vector(0,0,1);normal-=axis*normal.dot(axis);normal.normalize()
                     normal=list(normal*sign)
                 else:normal=[sign*v for v in port['arrival_normal']]
-                shapes=(compact_build if compact_mode else build)(land,normal,port['recipe']['band_axial_offset_mm'])
+                shapes=entry_build(land,received,extension=6) if axial_mode else (compact_build if compact_mode else build)(land,normal,port['recipe']['band_axial_offset_mm'])
                 x,y,z=shapes['arrival_world_mm'];seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
                 parts={'Port':shapes['body'],'Band':shapes['band'],'Arrival':seed}
                 if seed.common(shapes['band']).Volume>1e-5 or seed.common(shapes['body']).Volume<1:
