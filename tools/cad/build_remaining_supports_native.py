@@ -8,6 +8,7 @@ from build_front_fixed_port_clearance import placement
 from open_deck_p0_supports import sketch
 from open_deck_p0_plate import rect
 import build_remaining_loom_supports as G
+from resume_remaining_support_gate import cached_allocation
 P=B.P
 
 def add_feature(d,b,row,name,cut=False):
@@ -42,7 +43,7 @@ def run():
     for recipe in gate['recipes'].values():
         name=recipe['preserved_owner']
         if name:parents[name]=reader.shape(source if name.endswith('SourceCarrier') else sf,name)
-    expected,_,bands,bonds,errors=G.allocation(paths,retention,roots,parents);assert not errors
+    expected,_,bands,bonds,errors=cached_allocation(paths,retention,roots,parents);assert not errors
     outputs=[];exports=[];names={};sketches=0
     def progress():
         receipt=dict(status='PARTIAL_NATIVE_SUPPORT_BUILD_NOT_SELECTED',native_documents=outputs,exports=exports,

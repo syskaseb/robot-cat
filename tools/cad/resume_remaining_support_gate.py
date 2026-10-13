@@ -8,12 +8,13 @@ from pathlib import Path
 import FreeCAD as A
 import Part
 import build_remaining_loom_supports as G
+from component_pair_receipts import ComponentPairReceipts
 
 P=G.P
 CACHE=P.OUT/'remaining-support-cache'
 TICK=time.monotonic()
 ALLOCATE=G.allocation
-PAIRS=G.B.PairReceipts
+PAIRS=ComponentPairReceipts
 
 def write(path,data):
     tmp=path.with_suffix(path.suffix+'.tmp')
@@ -93,7 +94,7 @@ class StreamingPairs(PAIRS):
         tmp.write_text(json.dumps(dict(checker_sha256=self.revision,records=self.records),separators=(',',':'))+'\n',encoding='utf-8')
         os.replace(tmp,self.path)
         write(CACHE/'timing.json',dict(calls=self.calls,computed=self.computed,reused=self.reused,
-            slowest=self.slowest,elapsed_seconds=round(time.monotonic()-TICK,3)))
+            decomposed=self.decomposed,slowest=self.slowest,elapsed_seconds=round(time.monotonic()-TICK,3)))
 
 if __name__=='__main__':
     CACHE.mkdir(exist_ok=True)
