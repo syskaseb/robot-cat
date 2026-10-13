@@ -1,0 +1,111 @@
+{
+  "status": "FRONT_FIXED_PORT_CLEARANCE_NATIVE_PREPARED_W5_OPEN",
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-carriers-fixed-interface/SourceCarriersFixedClearance.FCStd",
+  "native_sha256": "8340d69ee299cf279d98426e0804d876a97c686800847391fc5a706ed752a1ac",
+  "exports": [
+    {
+      "part": "RearLeftSourceCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/RearLeftSourceCarrier_x1.stl",
+      "sha256": "36f04f57a0c609dfbbefee74a679875b8e12051084e4a967eeb7545b5b4a6035",
+      "quantity": 1,
+      "size_mm": [
+        42.0,
+        194.14999389648438,
+        58.18012619018555
+      ],
+      "brim_each_mm": 5
+    },
+    {
+      "part": "RearRightSourceCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/RearRightSourceCarrier_x1.stl",
+      "sha256": "f892c3f638e17c0e6718eff6e809dd7f822c5a61004e94400850b626282d6b58",
+      "quantity": 1,
+      "size_mm": [
+        31.186386108398438,
+        194.14999389648438,
+        68.08280181884766
+      ],
+      "brim_each_mm": 5
+    },
+    {
+      "part": "FrontLeftSourceCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-carriers-fixed-interface/FrontLeftSourceCarrier_x1.stl",
+      "sha256": "6474a18160c8ba112f45e81010496fbafb090937c723d21bac13fede15bc0aa7",
+      "quantity": 1,
+      "size_mm": [
+        112.05999755859375,
+        194.14999389648438,
+        68.08280181884766
+      ],
+      "brim_each_mm": 5
+    },
+    {
+      "part": "FrontRightSourceCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-carriers-fixed-interface/FrontRightSourceCarrier_x1.stl",
+      "sha256": "4b120430445cd35605e69ac811642876e3ad3fa2452a13064ed34249c40e014b",
+      "quantity": 1,
+      "size_mm": [
+        112.05999755859375,
+        194.14999389648438,
+        58.18012619018555
+      ],
+      "brim_each_mm": 5
+    }
+  ],
+  "retained_native_sketches": 252,
+  "added_fully_constrained_sketches": 6,
+  "parameter_restore_mm": [
+    0.4,
+    0.5,
+    0.4
+  ],
+  "parameter_meaning": "FrontPortParameters.PocketExtraDepth; inwardX depth only, other clearance faces fixed at0.4mm",
+  "relocated_reopen": true,
+  "root_contact_faces": [
+    {
+      "part": "FrontLeftSourceCarrier",
+      "bond_case_area_mm2": 52.92279426335922,
+      "carrier_bond_area_mm2": 50.0
+    },
+    {
+      "part": "FrontRightSourceCarrier",
+      "bond_case_area_mm2": 52.922794263324924,
+      "carrier_bond_area_mm2": 50.0
+    },
+    {
+      "part": "RearLeftSourceCarrier",
+      "bond_case_area_mm2": 52.92279426327397,
+      "carrier_bond_area_mm2": 50.0
+    },
+    {
+      "part": "RearRightSourceCarrier",
+      "bond_case_area_mm2": 52.9227942634078,
+      "carrier_bond_area_mm2": 50.0
+    }
+  ],
+  "inherited_case_cap_and_three_seats_per_front_unchanged": true,
+  "unchanged_rear_exports_reused": true,
+  "new_hardware": 0,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "assembly": [
+    "No energy sources. Bench-fit existing case patch; do not drill motor or use shaft/PCB/seam as root.",
+    "Bond prototype cap to exposed case patch only after compatible adhesive trial and cure in supported jig.",
+    "Fit all three9mm insulated lands and independent cuttable ties. No cable force through electrical terminal.",
+    "For deep repair support wires first, cut dedicated ties, remove cap/bond without prying on PCB; no quick-release or physical strength approval."
+  ],
+  "phase2_gates": [
+    "Case/PETG bond peel/load/creep and long-carrier stiffness/coupon remain phase2 gates",
+    "Source-owned splices, Knee/fixed roots/body fans and complete stock/selection still OPEN",
+    "Print orientation/support and slicer approval not performed"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/front-fixed-port-clearance.json": "46d9cafb31bb2304676614b82e68bce9e388c25ab4cad291c3bf828e683b7e79",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/complete-source-carriers-native.json": "c4a72e3dc3ef585f1cb065e20b76b27604045cbc55239d2d421d686ab4cac8e4",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/CompleteSourceCarriers.FCStd": "1bb861c9f5bb43953ac59675aa6532014eed1c2a7cc9e5d8f4bc33a4ef908508",
+    "tools/cad/build_front_fixed_port_clearance.py": "a8717361561661cf0619afd2e224a94759ab9ee62d3c91e5af1f89a5177e76ab",
+    "tools/cad/build_complete_source_carriers.py": "923b8fd9ff68ad4e50b64110fbebcdf850ffb4bb94e115598c9615908a4df6d0"
+  },
+  "worker_seconds": 155.468
+}
