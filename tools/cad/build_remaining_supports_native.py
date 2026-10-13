@@ -20,6 +20,25 @@ def check_deadline():
 def add_feature(d,b,row,name,cut=False):
     check_deadline()
     x,y,z,X,Y,Z=row['bounds_mm'];old=b.Tip
+    existing=d.getObject(name)
+    if existing:
+        sk=d.getObject(name+'Plan')
+        profile=existing.Profile[0] if isinstance(existing.Profile,(tuple,list)) else existing.Profile
+        assert sk and sk in b.Group and existing in b.Group and profile==sk,(name,existing.Profile)
+        assert existing.TypeId==('PartDesign::Pocket' if cut else 'PartDesign::Pad'),name
+        pose=A.Placement(A.Vector(0,0,Z if cut else z),A.Rotation())
+        if row.get('placement'):pose=placement(row['placement'])*pose
+        assert max(abs(a-c) for a,c in zip(sk.Placement.toMatrix().A,pose.toMatrix().A))<1e-8,name
+        pts=[(x,y),(X,y),(X,Y),(x,Y)]
+        assert sk.GeometryCount==4 and sk.FullyConstrained,name
+        for i,edge in enumerate(sk.Geometry):
+            for actual,wanted in ((edge.StartPoint,pts[i]),(edge.EndPoint,pts[(i+1)%4])):
+                assert abs(actual.x-wanted[0])<1e-8 and abs(actual.y-wanted[1])<1e-8 and abs(actual.z)<1e-8,name
+        # Final body is checked against the accepted material below. Repeating
+        # validity of every inherited intermediate solid is redundant and slow.
+        assert abs(existing.Length.Value-(Z-z))<1e-8 and not existing.Shape.isNull(),name
+        assert not any(s in ('Invalid','Error') for s in existing.State),name
+        return False
     sk=sketch(b,name+'Plan',Z if cut else z)
     if row.get('placement'):sk.Placement=placement(row['placement'])*sk.Placement
     rect(sk,x,y,X-x,Y-y)
@@ -34,9 +53,9 @@ def add_feature(d,b,row,name,cut=False):
     sk.Visibility=False
     if old:old.Visibility=False
     assert sk.FullyConstrained,(name,'Unconstrained sketch')
-    return feature
+    return True
 
-def run(shared_candidate=False):
+def run(shared_candidate=False,resume=False):
     tick=time.monotonic();gf=P.OUT/('remaining-support-shared-material.json' if shared_candidate else 'remaining-support-material.json');gate=json.loads(gf.read_text())
     assert gate['status']=='COMBINED_SUPPORT_MATERIAL_CLEAR_NATIVE_OPEN' and not gate['contacts'] and not gate['errors']
     for n,h in gate['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
@@ -55,6 +74,23 @@ def run(shared_candidate=False):
         if name:parents[name]=reader.shape(source if name.endswith('SourceCarrier') else sf,name)
     expected,_,bands,bonds,errors=cached_allocation(paths,retention,roots,parents);assert not errors
     outputs=[];exports=[];names={};sketches=0
+    if resume and (out/'build-progress.json').exists():
+        previous=json.loads((out/'build-progress.json').read_text())
+        assert previous['source_material_sha256']==P.SHA(gf),'Changed accepted material'
+        outputs=previous['native_documents'];exports=previous['exports']
+        for row in outputs+exports:assert P.SHA(P.ROOT/row['path'])==row['sha256'],row['path']
+        for row in outputs:
+            file=Path(row['path']).name;receipt=out/(file+'.receipt.json')
+            if receipt.exists():
+                cert=json.loads(receipt.read_text())
+                assert cert['source_material_sha256']==P.SHA(gf) and cert['native_sha256']==row['sha256']
+                assert cert['parameter_restore_mm']==[4,4.2,4] and cert['relocated_reopen']
+            else:
+                cert=json.loads((out/'hip-receipt.json').read_text())
+                assert file==cert['native']['path'] and row['sha256']==cert['native']['sha256']
+                assert cert['source_material_sha256']==P.SHA(gf)
+                assert cert['evidence']['parameter_trial_and_restore_mm']==[4,4.2,4] and cert['evidence']['relocated_reopen']
+                assert all(any(e['path'].endswith('/'+n) and e['sha256']==h for e in exports) for n,h in cert['exports'].items())
     def progress():
         receipt=dict(status='PARTIAL_NATIVE_SUPPORT_BUILD_NOT_SELECTED',native_documents=outputs,exports=exports,
             fully_constrained_new_sketches=sketches,source_material_sha256=P.SHA(gf),selected=False,physical_pass=False,
@@ -63,34 +99,69 @@ def run(shared_candidate=False):
     jobs=[('HipExtension',source,'SourceCarriersCurrent.FCStd'),('FixedCarrier',sf,'StationFramesSupported.FCStd'),('KneeCarrier',None,'KneeLoomCarriers.FCStd')]
     for suffix,src,filename in jobs:
         check_deadline()
-        dest=out/filename;assert not dest.exists(),'Never overwrite an unreceived native output'
+        group_recipes={n:r for n,r in gate['recipes'].items() if n.endswith(suffix)}
+        for name,recipe in group_recipes.items():names[name]=(filename,recipe['preserved_owner'] or name)
+        dest=out/filename
+        if resume and any(Path(r['path']).name==filename for r in outputs):
+            assert sum(e['part'] in group_recipes for e in exports)==4,'Incomplete saved exports require recovery'
+            sketches+=sum(len(r['pads'])+len(r['cuts']) for r in group_recipes.values())
+            print('reused received native',filename,flush=True)
+            continue
+        assert not dest.exists(),'Never overwrite an unreceived native output'
+        partial=out/(filename.removesuffix('.FCStd')+'.partial.FCStd')
+        partial_receipt=out/(filename+'.partial.json')
+        resumed_partial=None
+        if resume and partial.exists():
+            if partial_receipt.exists():
+                cert=json.loads(partial_receipt.read_text())
+                assert cert['source_material_sha256']==P.SHA(gf) and cert['sha256']==P.SHA(partial),'Changed partial input'
+            else:
+                cert=json.loads((P.OUT/'support-completion-hour-20261013.json').read_text())
+                assert cert['partial_native']['sha256']==P.SHA(partial),'Unrecognized legacy partial'
+                interruption=json.loads((out/'build-interruption.json').read_text())
+                assert interruption['source_material_sha256']==P.SHA(gf) and Path(interruption['partial_document']).name==partial.name
+            resumed_partial=partial
+        def save_partial():
+            d.saveAs(str(partial))
+            partial_receipt.write_text(json.dumps(dict(sha256=P.SHA(partial),source_material_sha256=P.SHA(gf),accepted=False),indent=2)+'\n')
+            progress()
         with tempfile.TemporaryDirectory(prefix='robot-cat-remaining-native-') as td:
-            if src:
-                copy=Path(td)/filename;shutil.copy2(src,copy);d=A.openDocument(str(copy))
+            if resumed_partial or src:
+                copy=Path(td)/filename;shutil.copy2(resumed_partial or src,copy);d=A.openDocument(str(copy))
             else:d=A.newDocument('KneeLoomCarriers')
-            par=d.addObject('App::VarSet','LoomParameters');par.addProperty('App::PropertyLength','BackboneDepth');par.BackboneDepth=4
+            par=d.getObject('LoomParameters')
+            if par is None:
+                par=d.addObject('App::VarSet','LoomParameters');par.addProperty('App::PropertyLength','BackboneDepth');par.BackboneDepth=4
+            assert abs(par.BackboneDepth.Value-4)<1e-8,'Partial must preserve baseline parameter'
+            if resumed_partial:
+                sketches+=sum(o.TypeId=='Sketcher::SketchObject' and any(o.Name.startswith(n+'Loom') for n in group_recipes) for o in d.Objects)
+                print('resumed partial',filename,'existing sketches',sketches,flush=True)
             volumes={};changed=[]
             try:
                 for name,recipe in gate['recipes'].items():
                     if not name.endswith(suffix):continue
-                    b=d.getObject(recipe['preserved_owner']) if recipe['preserved_owner'] else d.addObject('PartDesign::Body',name)
+                    b=d.getObject(recipe['preserved_owner'] or name)
+                    if b is None:b=d.addObject('PartDesign::Body',name)
                     names[name]=(filename,b.Name);changed.append(b)
-                    for i,row in enumerate(recipe['pads']):add_feature(d,b,row,name+'LoomPad'+str(i));sketches+=1
-                    for i,row in enumerate(recipe['cuts']):add_feature(d,b,row,name+'LoomCut'+str(i),True);sketches+=1
+                    for i,row in enumerate(recipe['pads']):sketches+=add_feature(d,b,row,name+'LoomPad'+str(i))
+                    for i,row in enumerate(recipe['cuts']):sketches+=add_feature(d,b,row,name+'LoomCut'+str(i),True)
                     B.validate(b);q=expected[name]
                     assert b.Shape.cut(q).Volume<1e-4 and q.cut(b.Shape).Volume<1e-4,(name,'Native differs from tested material')
                     volumes[b.Name]=b.Shape.Volume
-                    progress()
+                    save_partial()
                     print('remaining native',name,'volume',b.Shape.Volume,flush=True)
                 check_deadline()
+                save_partial()
+                print('parameter trial',filename,'4 to4.2',flush=True)
                 par.BackboneDepth=4.2;d.recompute()
                 for b in changed:B.validate(b);assert b.Shape.Volume>volumes[b.Name],b.Name
+                print('parameter restore',filename,'4.2 to4',flush=True)
                 par.BackboneDepth=4;d.recompute()
                 for b in changed:B.validate(b);assert abs(b.Shape.Volume-volumes[b.Name])<1e-4,b.Name
                 d.saveAs(str(dest))
             except BaseException as exc:
-                partial=out/(filename.removesuffix('.FCStd')+'.partial.FCStd')
-                d.saveAs(str(partial))
+                if abs(par.BackboneDepth.Value-4)>1e-8:par.BackboneDepth=4;d.recompute()
+                save_partial()
                 progress()
                 (out/'build-interruption.json').write_text(json.dumps(dict(
                     status='INCOMPLETE_NATIVE_NOT_ACCEPTED',error=str(exc),
@@ -117,6 +188,9 @@ def run(shared_candidate=False):
                     exports.append(dict(part=name,path=f.relative_to(P.ROOT).as_posix(),sha256=P.SHA(f),quantity=1,size_mm=size,printing=printing))
                     progress()
             finally:A.closeDocument(d.Name)
+        (out/(filename+'.receipt.json')).write_text(json.dumps(dict(
+            native_sha256=P.SHA(dest),source_material_sha256=P.SHA(gf),parameter_restore_mm=[4,4.2,4],
+            relocated_reopen=True,exports=[e for e in exports if e['part'] in group_recipes]),indent=2)+'\n')
     manifest=dict(status='REMAINING36LAND_SUPPORT_SET_NATIVE_PREPARED_W5_OPEN',native_documents=outputs,exports=exports,
         fully_constrained_new_sketches=sketches,parameter_restore_mm=[4,4.2,4],relocated_reopen=True,
         installed_new_hardware={'independent_T18I_bands':36,'provisional_case_bonds':4,'new_screws':0},
@@ -135,7 +209,8 @@ def run(shared_candidate=False):
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--shared-candidate',action='store_true')
+    parser.add_argument('--resume',action='store_true',help='Reuse received document and hash-bound partial histories')
     parser.add_argument('--deadline-utc',help='Hard user window; save unfinished native document rather than mark complete')
     args=parser.parse_args()
     if args.deadline_utc:DEADLINE=datetime.fromisoformat(args.deadline_utc.replace('Z','+00:00'))
-    run(args.shared_candidate)
+    run(args.shared_candidate,args.resume)
