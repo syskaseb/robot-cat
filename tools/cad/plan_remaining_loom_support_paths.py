@@ -8,6 +8,7 @@ import heapq
 import itertools
 import json
 import math
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -67,7 +68,8 @@ def run():
     plan,faces=[json.loads(p.read_text()) for p in (pf,ff)]
     for receipt in (plan,faces):
         for name,digest in receipt['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
-    nf=P.OUT/'complete-source-carriers-native.json';native=json.loads(nf.read_text())
+    nf=P.OUT/('front-fixed-port-clearance-native.json' if '--front-clearance' in sys.argv else 'complete-source-carriers-native.json')
+    native=json.loads(nf.read_text())
     model=P.ROOT/native['native'];assert P.SHA(model)==native['native_sha256']
     familyfile=P.OUT/'leg-source-near-member-plan.json';family=json.loads(familyfile.read_text())
     seedfile=P.OUT/'remaining-carrier-seed-proof.json';seedproof=json.loads(seedfile.read_text())
@@ -103,6 +105,11 @@ def run():
     for leg in ('FrontLeft','FrontRight','RearLeft','RearRight'):
         code=next(r['cad_code'] for r in family['hips'] if r['physical_leg']==leg)
         name=leg+'SourceCarrier';targets[name]=reader.shape(model,name);membership[name]=(code,'Hip')
+        # Old cap subset proof also applies to this precise native candidate
+        # only after confirming its same seed remains entirely in the body.
+        group=next(g for g in plan['groups'] if g['id']==leg+'HipExtension')
+        x,y,z=group['root_world_mm'];seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
+        assert seed.cut(targets[name]).Volume<1e-6,(name,'Native cap seed changed')
     for name in reader.doc(model):
         if not name.startswith('Ref_'):continue
         actual=name[4:];targets[actual]=reader.shape(model,name)

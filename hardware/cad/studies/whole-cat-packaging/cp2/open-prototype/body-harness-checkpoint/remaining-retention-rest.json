@@ -1,5 +1,5 @@
 {
-  "status": "REMAINING_RETENTION_PREFLIGHT_REJECTED",
+  "status": "REMAINING_RETENTION_REST_CLEAR_PATHS_MOTION_NATIVE_OPEN",
   "groups": [
     {
       "id": "FrontLeftHipExtension",
@@ -946,114 +946,145 @@
       "ports": [
         {
           "land_id": "FL1/Hip/Fixed",
-          "rejected_orientations": [
-            {
-              "arrival_normal": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "band_axial_offset_mm": 0,
-              "contacts": [
-                {
-                  "a": "Port_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 200.87599999999915
-                },
-                {
-                  "a": "Band_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 18.24999999999953
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "band_axial_offset_mm": 0,
-              "contacts": [
-                {
-                  "a": "Band_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 1.8499999999998935
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "band_axial_offset_mm": -1.5,
-              "contacts": [
-                {
-                  "a": "Port_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 215.87599999999912
-                },
-                {
-                  "a": "Band_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 18.24999999999953
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "band_axial_offset_mm": -1.5,
-              "contacts": [
-                {
-                  "a": "Band_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 1.8499999999998935
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "band_axial_offset_mm": 1.5,
-              "contacts": [
-                {
-                  "a": "Port_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 185.8759999999992
-                },
-                {
-                  "a": "Band_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 18.24999999999953
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "band_axial_offset_mm": 1.5,
-              "contacts": [
-                {
-                  "a": "Band_FL1/Hip/Fixed",
-                  "b": "FrontLeftSourceCarrier",
-                  "volume_mm3": 1.8499999999998935
-                }
-              ]
-            }
+          "arrival_world_mm": [
+            -153.1575664610456,
+            35.5,
+            -11.0
           ],
-          "error": "No actual complete port orientation clear in current rest scene"
+          "arrival_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "recipe": {
+            "pads": [
+              {
+                "name": "NineMmLand",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -4.5,
+                  8,
+                  3,
+                  4.5
+                ]
+              },
+              {
+                "name": "BelowBandSlab",
+                "bounds_mm": [
+                  4,
+                  -6.2,
+                  -9.0,
+                  16,
+                  6.2,
+                  -5.0
+                ]
+              },
+              {
+                "name": "ArrivalColumn",
+                "bounds_mm": [
+                  14.9,
+                  -3,
+                  -9.0,
+                  18.9,
+                  3,
+                  0.5
+                ]
+              },
+              {
+                "name": "SideColumnPositive",
+                "bounds_mm": [
+                  4,
+                  4.9,
+                  -9.0,
+                  8,
+                  8.9,
+                  0.5
+                ]
+              },
+              {
+                "name": "SideColumnNegative",
+                "bounds_mm": [
+                  4,
+                  -8.9,
+                  -9.0,
+                  8,
+                  -4.9,
+                  0.5
+                ]
+              },
+              {
+                "name": "SeatToLowerBridge",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -5.1,
+                  8,
+                  3,
+                  -3.5
+                ]
+              }
+            ],
+            "cuts": [
+              [
+                7,
+                -3.1,
+                -2.9,
+                8.3,
+                3.1,
+                -0.10000000000000009
+              ],
+              [
+                8,
+                -3.2,
+                -4.2,
+                14.4,
+                3.2,
+                1.2000000000000002
+              ]
+            ],
+            "ring_cut": {
+              "outer": [
+                -4.4,
+                -4.4,
+                -2.95,
+                8.4,
+                4.4,
+                -0.050000000000000044
+              ],
+              "inner": [
+                -2.8,
+                -2.8,
+                -3.1,
+                6.8,
+                2.8,
+                0.10000000000000009
+              ]
+            },
+            "local_to_world": [
+              1.0,
+              0.0,
+              0.0,
+              -170.0575664610456,
+              0.0,
+              -1.0,
+              0.0,
+              35.5,
+              0.0,
+              0.0,
+              -1.0,
+              -12.5,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "reverse_axis_for_outer_splice_bridge": false,
+            "band_axial_offset_mm": -1.5,
+            "jacket_land_mm": 9,
+            "band2_5mm_head6x6x5_provisional": true
+          },
+          "clear_radial_orientations": 3
         },
         {
           "land_id": "FL2/Hip/Fixed",
@@ -2275,114 +2306,145 @@
       "ports": [
         {
           "land_id": "FR1/Hip/Fixed",
-          "rejected_orientations": [
-            {
-              "arrival_normal": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "band_axial_offset_mm": 0,
-              "contacts": [
-                {
-                  "a": "Port_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 276.99864572578844
-                },
-                {
-                  "a": "Band_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 28.789967358110953
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "band_axial_offset_mm": 0,
-              "contacts": [
-                {
-                  "a": "Band_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 3.0436830501953045
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "band_axial_offset_mm": -1.5,
-              "contacts": [
-                {
-                  "a": "Port_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 274.99525351188686
-                },
-                {
-                  "a": "Band_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 18.24999999999901
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "band_axial_offset_mm": -1.5,
-              "contacts": [
-                {
-                  "a": "Band_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 1.8499999999996752
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "band_axial_offset_mm": 1.5,
-              "contacts": [
-                {
-                  "a": "Port_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 279.19125351188706
-                },
-                {
-                  "a": "Band_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 38.99999999999737
-                }
-              ]
-            },
-            {
-              "arrival_normal": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "band_axial_offset_mm": 1.5,
-              "contacts": [
-                {
-                  "a": "Band_FR1/Hip/Fixed",
-                  "b": "FrontRightSourceCarrier",
-                  "volume_mm3": 4.199999999999164
-                }
-              ]
-            }
+          "arrival_world_mm": [
+            -153.1575664610506,
+            -35.5,
+            -11.0
           ],
-          "error": "No actual complete port orientation clear in current rest scene"
+          "arrival_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "recipe": {
+            "pads": [
+              {
+                "name": "NineMmLand",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -4.5,
+                  8,
+                  3,
+                  4.5
+                ]
+              },
+              {
+                "name": "BelowBandSlab",
+                "bounds_mm": [
+                  4,
+                  -6.2,
+                  -9.0,
+                  16,
+                  6.2,
+                  -5.0
+                ]
+              },
+              {
+                "name": "ArrivalColumn",
+                "bounds_mm": [
+                  14.9,
+                  -3,
+                  -9.0,
+                  18.9,
+                  3,
+                  0.5
+                ]
+              },
+              {
+                "name": "SideColumnPositive",
+                "bounds_mm": [
+                  4,
+                  4.9,
+                  -9.0,
+                  8,
+                  8.9,
+                  0.5
+                ]
+              },
+              {
+                "name": "SideColumnNegative",
+                "bounds_mm": [
+                  4,
+                  -8.9,
+                  -9.0,
+                  8,
+                  -4.9,
+                  0.5
+                ]
+              },
+              {
+                "name": "SeatToLowerBridge",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -5.1,
+                  8,
+                  3,
+                  -3.5
+                ]
+              }
+            ],
+            "cuts": [
+              [
+                7,
+                -3.1,
+                -2.9,
+                8.3,
+                3.1,
+                -0.10000000000000009
+              ],
+              [
+                8,
+                -3.2,
+                -4.2,
+                14.4,
+                3.2,
+                1.2000000000000002
+              ]
+            ],
+            "ring_cut": {
+              "outer": [
+                -4.4,
+                -4.4,
+                -2.95,
+                8.4,
+                4.4,
+                -0.050000000000000044
+              ],
+              "inner": [
+                -2.8,
+                -2.8,
+                -3.1,
+                6.8,
+                2.8,
+                0.10000000000000009
+              ]
+            },
+            "local_to_world": [
+              1.0,
+              0.0,
+              0.0,
+              -170.0575664610506,
+              0.0,
+              -1.0,
+              0.0,
+              -35.5,
+              0.0,
+              0.0,
+              -1.0,
+              -12.5,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "reverse_axis_for_outer_splice_bridge": false,
+            "band_axial_offset_mm": -1.5,
+            "jacket_land_mm": 9,
+            "band2_5mm_head6x6x5_provisional": true
+          },
+          "clear_radial_orientations": 3
         },
         {
           "land_id": "FR2/Hip/Fixed",
@@ -5627,10 +5689,7 @@
     }
   ],
   "pairs": 661,
-  "errors": [
-    "FrontLeftFixedCarrier",
-    "FrontRightFixedCarrier"
-  ],
+  "errors": [],
   "selected": false,
   "W5_complete": false,
   "physical_pass": false,
@@ -5643,8 +5702,8 @@
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-roots-plan.json": "c0971a3621e00aba08be9441d35eab8eed90d17137fce0b439c6aafce4123bd6",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-root-faces.json": "c97c84893c1424ac0aad827ae54c4e588b8afcc3dd6b8de230df4676edff0c66",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/complete-source-carriers-native.json": "c4a72e3dc3ef585f1cb065e20b76b27604045cbc55239d2d421d686ab4cac8e4",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/CompleteSourceCarriers.FCStd": "1bb861c9f5bb43953ac59675aa6532014eed1c2a7cc9e5d8f4bc33a4ef908508",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/front-fixed-port-clearance-native.json": "79054bb4404507b2cfe02ddf948741863cc8b256e04a3538394d7145c881e0c3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-carriers-fixed-interface/SourceCarriersFixedClearance.FCStd": "8340d69ee299cf279d98426e0804d876a97c686800847391fc5a706ed752a1ac",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-extension-budget-plan.json": "9cdd7b101e78dfb07c0524a9f9a751e4acbf2d0bbe117aec7dc21ab0facd0dcb",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-splice-insulation-reference.json": "6233b5c5b5411cbbec376f70bf8b1c18c556fc2f0547e51eec5dcf7dee824541",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
@@ -5653,9 +5712,9 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadNeckFixedJoined.FCStd": "0b8dce308b2b849c34179f70945788642c6e1440955e965bffc5a1968d21a879",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-underneck-rounds-plan.json": "3d58c718094954c9247a2dbcc36d24184f0f6d8109c1066117bdde2e84a7c57b",
-    "tools/cad/preflight_remaining_loom_retention.py": "126fd6b3133c576ec8a14ac2580bfc946de1225a299ddef068b2497a88f9fd8c",
+    "tools/cad/preflight_remaining_loom_retention.py": "401c18dcb2f0b94fcfbdb1ea292286e043cb95274752386aa5ab37d74bea3e7c",
     "tools/cad/build_complete_source_carriers.py": "923b8fd9ff68ad4e50b64110fbebcdf850ffb4bb94e115598c9615908a4df6d0",
     "tools/cad/loom_land_port.py": "298d886126b12e2a4ef0c40905ba2a05edad89af270f14ae5635351018d8b321"
   },
-  "worker_seconds": 111.297
+  "worker_seconds": 100.281
 }

@@ -7,6 +7,7 @@ remain required. New insulation cylinders are explicit PROJECT reservations.
 import itertools
 import json
 import math
+import sys
 import time
 from pathlib import Path
 import FreeCAD as A
@@ -19,7 +20,8 @@ P=B.P
 def run():
     tick=time.monotonic()
     pf=P.OUT/'remaining-loom-roots-plan.json';ff=P.OUT/'remaining-loom-root-faces.json'
-    nf=P.OUT/'complete-source-carriers-native.json';ef=P.OUT/'leg-extension-budget-plan.json'
+    nf=P.OUT/('front-fixed-port-clearance-native.json' if '--front-clearance' in sys.argv else 'complete-source-carriers-native.json')
+    ef=P.OUT/'leg-extension-budget-plan.json'
     cf=P.OUT/'leg-splice-insulation-reference.json';familyfile=P.OUT/'leg-source-near-member-plan.json'
     plan,faces,native,extensions,insulation,family=[json.loads(f.read_text()) for f in (pf,ff,nf,ef,cf,familyfile)]
     assert faces['status']=='EXPOSED_ASSEMBLED_CASE_ROOT_FACES_REST_CLEAR_LAYOUT_OPEN' and not faces['errors']
