@@ -145,7 +145,16 @@ def run():
                 record['ports'].append(next(p for p in inherited['ports'] if p['land_id']==port['land_id']));continue
             land=lands[port['land_id']];options=[];rejected=[]
             for sign in (1,-1):
-                normal=[sign*v for v in port['arrival_normal']]
+                if compact_mode:
+                    # Exact failures put other looms on BOTH lateral sides
+                    # of these splice stations. The axial-entry construction
+                    # permits a support perpendicular to that crowded plane.
+                    # Use only the two manufactured up/down alternatives;
+                    # don't repeat rejected +/-X or move cable coordinates.
+                    axis=A.Vector(*land['axis']);axis.normalize()
+                    normal=A.Vector(0,0,1);normal-=axis*normal.dot(axis);normal.normalize()
+                    normal=list(normal*sign)
+                else:normal=[sign*v for v in port['arrival_normal']]
                 shapes=(compact_build if compact_mode else build)(land,normal,port['recipe']['band_axial_offset_mm'])
                 x,y,z=shapes['arrival_world_mm'];seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
                 parts={'Port':shapes['body'],'Band':shapes['band'],'Arrival':seed}

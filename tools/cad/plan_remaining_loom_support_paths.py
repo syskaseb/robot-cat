@@ -17,14 +17,15 @@ import numpy as np
 import build_complete_source_carriers as B
 from fast_carrier_reservations import TriangleBucket,WireBucket
 from loom_land_port import build as build_port
+from compact_loom_land_port import build as build_compact_port
 
 P=B.P
 ANGLES=(-15,0,15)
 
 
-def search(start,goal,low,high,clear):
+def search(start,goal,low,high,clear,existing_points=()):
     coords=[sorted(set([low[i]+4*j for j in range(math.ceil((high[i]-low[i])/4)+1)]
-                       +[start[i],goal[i]])) for i in range(3)]
+                       +[start[i],goal[i]]+[p[i] for p in existing_points if low[i]<=p[i]<=high[i]])) for i in range(3)]
     first=tuple(v.index(x) for v,x in zip(coords,start))
     last=tuple(v.index(x) for v,x in zip(coords,goal))
     def point(k):return [v[j] for v,j in zip(coords,k)]
@@ -75,14 +76,16 @@ def run():
     seedfile=P.OUT/'remaining-carrier-seed-proof.json';seedproof=json.loads(seedfile.read_text())
     assert seedproof['status']=='FOUR_HIP_ROOT_SEEDS_EXACT_UNCHANGED_SUBSETS'
     for name,digest in seedproof['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
-    retentionfile=P.OUT/'remaining-retention-rest.json';retention=json.loads(retentionfile.read_text())
+    retentionfile=P.OUT/('remaining-retention-current.json' if '--current-retention' in sys.argv else 'remaining-retention-rest.json');retention=json.loads(retentionfile.read_text())
+    if '--current-retention' in sys.argv:assert not retention['errors'],retention['errors']
     for name,digest in retention['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
     complete_groups=[g for g in retention['groups'] if g['root_world_mm'] and not any('error' in p for p in g['ports'])]
     lands={r['id']:r for g in plan['groups'] for r in g['lands']}
     profile_parts={};arrival_failures=[]
     for group in complete_groups:
         for port in group['ports']:
-            shapes=build_port(lands[port['land_id']],port['arrival_normal'],port['recipe']['band_axial_offset_mm'])
+            builder=build_compact_port if port['recipe'].get('construction')=='single_post_axial_entry_below_band' else build_port
+            shapes=builder(lands[port['land_id']],port['arrival_normal'],port['recipe']['band_axial_offset_mm'])
             x,y,z=port['arrival_world_mm'];seed=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
             overlap=seed.common(shapes['band']).Volume;joined=seed.common(shapes['body']).Volume
             if overlap>1e-5 or joined<1:
@@ -143,8 +146,9 @@ def run():
         for h,k in itertools.product(ANGLES,repeat=2):
             s=P.wire(B.parts_for_loom(family,route['loom'],h,k,axes)+B.moved_parts(route['source_parts'],route['source'],h,k,axes))
             wirepoints.append((route['loom'],[p for e in s.Edges for p in e.discretize(Distance=1)],3,code,h,k))
-    inputs=(pf,ff,nf,model,familyfile,seedfile,retentionfile,af,zf,archive,sf,B.H.HEAD,headwires,
-            Path(__file__),Path(B.__file__),Path(__file__).with_name('fast_carrier_reservations.py'))
+    existingfile=P.OUT/'complete-source-carriers-plan.json';existing=json.loads(existingfile.read_text())
+    inputs=(pf,ff,nf,model,familyfile,seedfile,retentionfile,af,zf,archive,sf,B.H.HEAD,headwires,existingfile,
+            Path(__file__),Path(B.__file__),Path(__file__).with_name('fast_carrier_reservations.py'),Path(__file__).with_name('compact_loom_land_port.py'))
     result=dict(status='PARTIAL_REMAINING_SUPPORT_PATH_RESERVATIONS',groups=[],
                 beam_reservation_mm=[4,6,4],material_margin_project_mm=.3,
                 wire_margin_project_mm=.5,selected=False,native_changed=False,
@@ -153,13 +157,14 @@ def run():
                 open=['Actual combined arm/grip/tie/sleeve material gate and precise new intersections',
                       'Case bond/load/creep and sleeve dimensions are provisional; no new holes in bought cases',
                       'Native current frame extension/export/assembly/stock and whole body fanouts'])
-    destination=P.OUT/'remaining-loom-support-paths.json'
+    destination=P.OUT/('remaining-support-current-paths.json' if '--current-retention' in sys.argv else 'remaining-loom-support-paths.json')
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         destination.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     meshes={};half=(2,3,2);surfacehalf=tuple(v+.4 for v in half);cell=10
     result['inherited_open_groups']=retention['errors']
     for group in (g for g in plan['groups'] if g['id'] in {r['id'] for r in complete_groups}):
+        group_tick=time.monotonic()
         stage=group['owner_stage'].split('_')[-1]
         code=group['owner_stage'].split('_')[1] if stage!='Body' else None
         selected=next(r for r in complete_groups if r['id']==group['id'])
@@ -222,7 +227,12 @@ def run():
                             surfaces.setdefault(bucket,[]).append((triangle,name))
         cloud={key:WireBucket(v) for key,v in cloud.items()}
         surfaces={key:TriangleBucket(v) for key,v in surfaces.items()}
-        cache={};blockers={}
+        cache={};blockers={};subset_proofs=[]
+        parent=targets.get(group.get('preserved_owner'))
+        existing_points=[]
+        if group['id'].endswith('HipExtension'):
+            oldroot=next(r for r in existing['roots'] if r['leg']==group['id'].removesuffix('HipExtension'))
+            existing_points=[p for path in oldroot['paths'] for p in path['points_mm']]
         def clear(point):
             key=tuple(point)
             if key in cache:return cache[key]
@@ -232,7 +242,23 @@ def run():
                 name=rows.hit(point,half,.5) if rows else None
                 if name is not None:cache[key]=False;blockers[key]='wire reservation/'+name;return False
             rows=surfaces.get(bucket);name=rows.hit(point,surfacehalf) if rows else None
-            if name is not None:cache[key]=False;blockers[key]='mesh reservation/'+name;return False
+            if name is not None:
+                # Reuse only entirely existing parent material, never waive
+                # added arms. This lets an extension depart along a received
+                # cap/branch rather than trapping its start in the inflated
+                # adhesive reservation. New bands/ports/sleeves still block.
+                if parent is not None and not name.startswith(('Planned','SpliceReserve')):
+                    x,y,z=point;q=P.box([x-2,y-3,z-2,x+2,y+3,z+2])
+                    bb=parent.BoundBox
+                    if bb.isInside(A.Vector(x-2,y-3,z-2)) and bb.isInside(A.Vector(x+2,y+3,z+2)):
+                        outside=q.cut(parent)
+                        if (outside.isNull() or outside.isValid()) and outside.Volume<1e-6:
+                            # Check every local triangle from NEW interfaces,
+                            # because the first returned blocker may be old.
+                            newitems=[(tri,n) for tri,n in zip(rows.tri,rows.names) if n.startswith(('Planned','SpliceReserve'))]
+                            if not newitems or TriangleBucket(newitems).hit(point,surfacehalf) is None:
+                                cache[key]=True;subset_proofs.append(dict(point=point,outside_mm3=outside.Volume,conservative_old_blocker=name));return True
+                cache[key]=False;blockers[key]='mesh reservation/'+name;return False
             cache[key]=True;return True
         paths=[]
         for land,goal,normal in goals:
@@ -250,14 +276,16 @@ def run():
                 for name,s,b in interiors:
                     if b.isInside(p) and s.isInside(p,1e-6,False):
                         cache[tuple(endpoint)]=False;blockers[tuple(endpoint)]='actual interior/'+name;break
-            path=search(start,goal,low,high,clear)
+            path=search(start,goal,low,high,clear,existing_points)
             paths.append(dict(land_id=land['id'],post_arrival_normal=normal,
                               complete_port_retention_rest_preflight=True,
                               start_blocker=blockers.get(tuple(start)),goal_blocker=blockers.get(tuple(goal)),**path))
             print('remaining support path',land['id'],len(path['points_mm']),path['expansions'],flush=True)
         result['groups'].append(dict(id=group['id'],owner_stage=group['owner_stage'],
                                       root_choice=choice,root_world_mm=start,paths=paths,
-                                      sampled_owner_poses=len(poses),relative_material_placements=len(interiors)))
+                                      existing_parent_subset_proofs=subset_proofs,
+                                      sampled_owner_poses=len(poses),relative_material_placements=len(interiors),
+                                      group_seconds=round(time.monotonic()-group_tick,3)))
         save()
     result['status']='COMPLETE_INDEPENDENT_GROUP_SUPPORT_RESERVATIONS_ACTUAL_NATIVE_OPEN' if all(r['points_mm'] for g in result['groups'] for r in g['paths']) else 'REMAINING_SUPPORT_RESERVATIONS_INCOMPLETE_DIAGNOSE_CAUSE'
     save();print(json.dumps(dict(status=result['status'],worker_seconds=result['worker_seconds'])),flush=True)

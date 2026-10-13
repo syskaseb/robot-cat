@@ -1,5 +1,5 @@
 {
-  "status": "SHARED_RETENTION_MOTION_REQUIRES_LAYOUT_CHANGE",
+  "status": "SHARED_RETENTION_MOTION_CLEAR_ARMS_NATIVE_OPEN",
   "groups": [
     {
       "id": "FrontLeftHipExtension",
@@ -719,17 +719,111 @@
         },
         {
           "land_id": "FL3/Splice/1",
-          "error": "Both aligned full profiles blocked in sampled common motion",
+          "arrival_world_mm": [
+            1.0227659473452617,
+            130.19280080405366,
+            -80.25537299338215
+          ],
+          "arrival_normal": [
+            1.567251446781555e-15,
+            -0.1391731009600883,
+            -0.9902680687415671
+          ],
+          "recipe": {
+            "pads": [
+              {
+                "name": "NineMmLand",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -4.5,
+                  8,
+                  3,
+                  4.5
+                ]
+              },
+              {
+                "name": "AxialArmEntry",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -7.5,
+                  8,
+                  3,
+                  -3.5
+                ]
+              }
+            ],
+            "cuts": [
+              [
+                7,
+                -3.1,
+                -1.4,
+                8.3,
+                3.1,
+                1.4
+              ],
+              [
+                8,
+                -3.2,
+                -2.7,
+                14.4,
+                3.2,
+                2.7
+              ]
+            ],
+            "ring_cut": {
+              "outer": [
+                -4.4,
+                -4.4,
+                -1.45,
+                8.4,
+                4.4,
+                1.45
+              ],
+              "inner": [
+                -2.8,
+                -2.8,
+                -1.6,
+                6.8,
+                2.8,
+                1.6
+              ]
+            },
+            "local_to_world": [
+              1.567251446781555e-15,
+              1.0,
+              1.1151573491790453e-14,
+              1.0227659473453141,
+              -0.1391731009600883,
+              1.1261166388977761e-14,
+              -0.9902680687415671,
+              125.58136503173557,
+              -0.9902680687415671,
+              0.0,
+              0.1391731009600883,
+              -73.54831252565226,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "reverse_axis_for_outer_splice_bridge": true,
+            "band_axial_offset_mm": 0,
+            "jacket_land_mm": 9,
+            "band2_5mm_head6x6x5_provisional": true,
+            "construction": "single_post_axial_entry_below_band"
+          },
           "rejected": [
             {
               "normal": [
-                -1.0,
-                -1.1043047145144987e-14,
-                1.5519990634367973e-15
+                -1.567251446781555e-15,
+                0.1391731009600883,
+                0.9902680687415671
               ],
               "contacts": [
                 {
-                  "part": "Band",
+                  "part": "Port",
                   "target": "FL2",
                   "pose": [
                     15,
@@ -739,30 +833,7 @@
                     15,
                     15
                   ],
-                  "gap_mm": 3.2167704751249806,
-                  "required_mm": 3.5
-                }
-              ]
-            },
-            {
-              "normal": [
-                1.0,
-                1.1043047145144987e-14,
-                -1.5519990634367973e-15
-              ],
-              "contacts": [
-                {
-                  "part": "Band",
-                  "target": "RL2",
-                  "pose": [
-                    15,
-                    15
-                  ],
-                  "other_pose": [
-                    0,
-                    -15
-                  ],
-                  "gap_mm": 1.06567962585816,
+                  "gap_mm": 2.3646560701826846,
                   "required_mm": 3.5
                 }
               ]
@@ -4555,50 +4626,121 @@
         },
         {
           "land_id": "RR3/Splice/0",
-          "error": "Both aligned full profiles blocked in sampled common motion",
+          "arrival_world_mm": [
+            135.6659763995549,
+            -43.2908823084274,
+            -66.2885576535083
+          ],
+          "arrival_normal": [
+            -1.7752936742298588e-15,
+            0.13917310096004412,
+            -0.9902680687415734
+          ],
+          "recipe": {
+            "pads": [
+              {
+                "name": "NineMmLand",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -4.5,
+                  8,
+                  3,
+                  4.5
+                ]
+              },
+              {
+                "name": "AxialArmEntry",
+                "bounds_mm": [
+                  4,
+                  -3,
+                  -7.5,
+                  8,
+                  3,
+                  -3.5
+                ]
+              }
+            ],
+            "cuts": [
+              [
+                7,
+                -3.1,
+                -1.4,
+                8.3,
+                3.1,
+                1.4
+              ],
+              [
+                8,
+                -3.2,
+                -2.7,
+                14.4,
+                3.2,
+                2.7
+              ]
+            ],
+            "ring_cut": {
+              "outer": [
+                -4.4,
+                -4.4,
+                -1.45,
+                8.4,
+                4.4,
+                1.45
+              ],
+              "inner": [
+                -2.8,
+                -2.8,
+                -1.6,
+                6.8,
+                2.8,
+                1.6
+              ]
+            },
+            "local_to_world": [
+              -1.7752936742298584e-15,
+              1.0,
+              1.2631870857957326e-14,
+              135.66597639955498,
+              0.1391731009600441,
+              1.2756011484859684e-14,
+              -0.9902680687415734,
+              -49.572395292266314,
+              -0.9902680687415734,
+              1.9721522630525295e-31,
+              -0.1391731009600441,
+              -61.11240129633911,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "reverse_axis_for_outer_splice_bridge": false,
+            "band_axial_offset_mm": 0,
+            "jacket_land_mm": 9,
+            "band2_5mm_head6x6x5_provisional": true,
+            "construction": "single_post_axial_entry_below_band"
+          },
           "rejected": [
             {
               "normal": [
-                1.0,
-                1.2508938359102363e-14,
-                1.7580166382287339e-15
+                1.7752936742298588e-15,
+                -0.13917310096004412,
+                0.9902680687415734
               ],
               "contacts": [
                 {
-                  "part": "Port",
+                  "part": "Band",
                   "target": "RR1",
                   "pose": [
-                    0,
+                    -15,
                     15
                   ],
                   "other_pose": [
-                    0,
+                    -15,
                     15
                   ],
-                  "gap_mm": 0.0,
-                  "required_mm": 3.5
-                }
-              ]
-            },
-            {
-              "normal": [
-                -1.0,
-                -1.2508938359102363e-14,
-                -1.7580166382287339e-15
-              ],
-              "contacts": [
-                {
-                  "part": "Port",
-                  "target": "RR1",
-                  "pose": [
-                    0,
-                    0
-                  ],
-                  "other_pose": [
-                    0,
-                    0
-                  ],
-                  "gap_mm": 2.698014535604524,
+                  "gap_mm": 1.8928547591888636,
                   "required_mm": 3.5
                 }
               ]
@@ -5469,16 +5611,13 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-underneck-rounds-plan.json": "3d58c718094954c9247a2dbcc36d24184f0f6d8109c1066117bdde2e84a7c57b",
-    "tools/cad/plan_remaining_retention_interfaces.py": "fbfe8c4b4cc3aca3ad39a2032886bc2fbf256693561bf14b82a329a3ce74b714",
+    "tools/cad/plan_remaining_retention_interfaces.py": "147cad7dfb7c276301da807fe0973eececde4b7daeab30efdf8c5f6d8190edbf",
     "tools/cad/loom_land_port.py": "298d886126b12e2a4ef0c40905ba2a05edad89af270f14ae5635351018d8b321",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-retention-motion.json": "6a45996d1bad243fbad6a2f12ff9c1c8c36b088b121b2db709b1675f4d328a72",
     "tools/cad/compact_loom_land_port.py": "df16b8e6e84b4c76622666d37e286deee43ef2888ac2f7d022e4ad7bbb8bb7e6"
   },
   "inherited_unchanged_ports": 34,
-  "pairs": 205,
-  "worker_seconds": 78.125,
-  "errors": [
-    "FrontLeftKneeCarrier",
-    "RearRightKneeCarrier"
-  ]
+  "pairs": 235,
+  "worker_seconds": 81.859,
+  "errors": []
 }
