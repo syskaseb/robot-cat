@@ -7,6 +7,13 @@ import resume_remaining_support_gate as R
 from immutable_bounds import ImmutableBounds
 
 class CheckpointTest(unittest.TestCase):
+    def test_cli_change_does_not_invalidate_geometry_but_geometry_change_does(self):
+        source=Path(R.G.__file__).read_text()
+        self.assertEqual(R.allocation_identity(source),R.LEGACY_GENERATOR)
+        self.assertEqual(R.allocation_identity(source+'\n# CLI note\n'),R.LEGACY_GENERATOR)
+        changed=source.replace('def allocation(', '# geometry change\ndef allocation(',1)
+        self.assertNotEqual(R.allocation_identity(changed),R.LEGACY_GENERATOR)
+
     def test_pair_results_and_resume_preserve_negative(self):
         with tempfile.TemporaryDirectory() as td,patch.object(R,'CACHE',Path(td)):
             file=Path(td)/'pairs.json';near=ImmutableBounds().near

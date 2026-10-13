@@ -16,6 +16,19 @@ TICK=time.monotonic()
 ALLOCATE=G.allocation
 PAIRS=MaterialPairReceipts
 
+# All geometry code/imports above run() are byte-identical (normalized LF)
+# to this pinned historical generator. A CLI-only change must not rebuild
+# twelve unchanged solids. If ANY part of that prefix changes, fail closed
+# to a new full-source cache key; input and helper hashes always remain keyed.
+LEGACY_GENERATOR='5c936bfa6bb81828a616fbd25c5748bed3a2d918dd1410842cea11896eb4e045'
+LEGACY_GEOMETRY_PREFIX='c310d6655323908a0685e65d7a7faad3f228d0541ec492a8262a81bf1707099e'
+
+def allocation_identity(source):
+    prefix=source.replace('\r\n','\n').split('\ndef run(',1)[0]
+    code_hash=hashlib.sha256(prefix.encode()).hexdigest()
+    if code_hash==LEGACY_GEOMETRY_PREFIX:return LEGACY_GENERATOR
+    return hashlib.sha256(source.encode()).hexdigest()
+
 def write(path,data):
     tmp=path.with_suffix(path.suffix+'.tmp')
     tmp.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
@@ -37,6 +50,7 @@ def cached_allocation(paths,retention,roots,parents):
             parent_sha256=fingerprint(parent) if parent else None,
             source_sha256={n:P.SHA(Path(G.__file__).with_name(n)) for n in
                 ('build_remaining_loom_supports.py','support_entry_port.py','loom_land_port.py','compact_loom_land_port.py')})
+        contract['source_sha256']['build_remaining_loom_supports.py']=allocation_identity(Path(G.__file__).read_text())
         folder=CACHE/digest(contract);receipt=folder/'manifest.json'
         started=time.monotonic()
         write(CACHE/'activity.json',dict(operation='allocation',group=name,elapsed_seconds=round(started-TICK,3)))
@@ -97,7 +111,13 @@ class StreamingPairs(PAIRS):
             decomposed=self.decomposed,slowest=self.slowest,elapsed_seconds=round(time.monotonic()-TICK,3)))
 
 if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--shared-candidate',action='store_true',help='Explicitly verify the corrected two-branch shared candidate; preserve historical rejected receipt')
+    args=parser.parse_args()
     CACHE.mkdir(exist_ok=True)
     G.allocation=cached_allocation
     G.B.PairReceipts=StreamingPairs
-    G.run()
+    if args.shared_candidate:
+        G.run(P.OUT/'remaining-support-shared-paths.json',P.OUT/'remaining-support-shared-material.json')
+    else:G.run()

@@ -29,14 +29,17 @@ def add_feature(d,b,row,name,cut=False):
     assert sk.FullyConstrained,(name,'Unconstrained sketch')
     return feature
 
-def run():
-    tick=time.monotonic();gf=P.OUT/'remaining-support-material.json';gate=json.loads(gf.read_text())
+def run(shared_candidate=False):
+    tick=time.monotonic();gf=P.OUT/('remaining-support-shared-material.json' if shared_candidate else 'remaining-support-material.json');gate=json.loads(gf.read_text())
     assert gate['status']=='COMBINED_SUPPORT_MATERIAL_CLEAR_NATIVE_OPEN' and not gate['contacts'] and not gate['errors']
     for n,h in gate['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     nf=P.OUT/'front-fixed-port-clearance-native.json';source=P.ROOT/json.loads(nf.read_text())['native']
     sf=P.OUT/'StationFramesCurrent.FCStd'
     out=P.OUT/'remaining-supports';out.mkdir(exist_ok=True)
-    paths=json.loads((P.OUT/'remaining-support-final-paths.json').read_text())
+    pf=P.OUT/('remaining-support-shared-paths.json' if shared_candidate else 'remaining-support-final-paths.json')
+    assert gate.get('route_contract',pf.relative_to(P.ROOT).as_posix())==pf.relative_to(P.ROOT).as_posix()
+    assert gate['source_sha256'][pf.relative_to(P.ROOT).as_posix()]==P.SHA(pf),'Wrong route revision for accepted material'
+    paths=json.loads(pf.read_text())
     retention=json.loads((P.OUT/'remaining-retention-entry.json').read_text())
     roots=json.loads((P.OUT/'remaining-loom-roots-plan.json').read_text())
     reader=B.H.P.SavedShapes();parents={}
@@ -109,4 +112,7 @@ def run():
         source_sha256={gf.relative_to(P.ROOT).as_posix():P.SHA(gf),Path(__file__).relative_to(P.ROOT).as_posix():P.SHA(Path(__file__))},worker_seconds=round(time.monotonic()-tick,3))
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(json.dumps(dict(status=manifest['status'],exports=len(exports),worker_seconds=manifest['worker_seconds'])),flush=True)
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--shared-candidate',action='store_true')
+    run(parser.parse_args().shared_candidate)

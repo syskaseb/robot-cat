@@ -82,9 +82,10 @@ def allocation(paths,retention,roots,parents):
         print('combined support allocation',name,'solids',len(s.Solids),'valid',s.isValid(),flush=True)
     return shapes,recipes,bands,bonds,errors
 
-def run():
+def run(paths_file=None, output_file=None):
     tick=time.monotonic()
     files=[P.OUT/n for n in ('remaining-support-final-paths.json','remaining-retention-entry.json','remaining-loom-roots-plan.json','front-fixed-port-clearance-native.json','leg-source-near-member-plan.json')]
+    if paths_file is not None:files[0]=Path(paths_file)
     paths,retention,roots,native,family=[json.loads(f.read_text()) for f in files]
     assert all(p['points_mm'] for g in paths['groups'] for p in g['paths']),'Do not fabricate missing paths'
     # Inputs of historical receipts may include earlier generator revisions;
@@ -112,7 +113,9 @@ def run():
         source_sha256={f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files+[af,zf,archive,sf,model,B.H.HEAD,hw,Path(__file__),Path(__file__).with_name('loom_land_port.py'),Path(__file__).with_name('compact_loom_land_port.py'),Path(__file__).with_name('support_entry_port.py')]},
         scope='36complete new lands/arms/four case feet against retained assembly and each other in coupled samples. Body core fanouts not yet allocated; not wholeW5.',
         print_allowance_each_mm=5)
-    out=P.OUT/'remaining-support-material.json'
+    out=Path(output_file) if output_file is not None else P.OUT/'remaining-support-material.json'
+    assert out.resolve()!=files[0].resolve(),'Output cannot replace the route contract'
+    result['route_contract']=files[0].relative_to(P.ROOT).as_posix()
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         out.write_text(json.dumps(result,indent=2)+'\n')
@@ -171,7 +174,9 @@ def run():
         if not printing['fits_with_5mm_brim']:errors.append(dict(group=name,error='No tested print orientation fits256with5mmbrim',printing=printing))
         result['groups'].append(dict(name=name,contacts=contacts,printing=printing,added_volume_mm3=s.Volume))
         result['contacts'] += [dict(group=name,**r) for r in contacts]
-        result['pairs']=checked;cache.save();save()
+        result['pairs']=checked
+        result['pair_reuse']=dict(computed=cache.computed,reused=cache.reused)
+        cache.save();save()
         print('combined support material',name,'contacts',len(contacts),'pairs',checked,flush=True)
     result['status']='COMBINED_SUPPORT_MATERIAL_CLEAR_NATIVE_OPEN' if not result['contacts'] and not errors else 'REJECTED_COMBINED_SUPPORT_MATERIAL'
     save();print(json.dumps(dict(status=result['status'],contacts=len(result['contacts']),errors=errors,worker_seconds=result['worker_seconds'])),flush=True)
