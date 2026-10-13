@@ -82,13 +82,20 @@ def run():
             radial=A.Vector(*start)-centre;radial-=axis*radial.dot(axis)
             if radial.Length<1:radial=A.Vector(0,0,-1)-axis*axis.dot(A.Vector(0,0,-1))
             radial.normalize();other=axis.cross(radial);orientations=[];rejections=[]
-            for angle in (0,math.pi/4,-math.pi/4,math.pi/2,-math.pi/2,math.pi,3*math.pi/4,-3*math.pi/4):
-                normal=radial*math.cos(angle)+other*math.sin(angle)
-                port=build(land,list(normal))
-                parts={'Port_'+land['id']:port['body'],'Band_'+land['id']:port['band']}
-                hits=contacts(parts,[group.get('preserved_owner')])
-                if hits:rejections.append(dict(angle_rad=angle,contacts=hits));continue
-                orientations.append((math.dist(start,port['arrival_world_mm']),list(normal),port))
+            # Close the actual paired-end interface, not another wire shift:
+            # front/rear role2 centres are only7.795mm apart, while nominal
+            # two band silhouettes need8.4mm at equal axial height. Their
+            # two bands occupy separate +/-1.5mm axial seats on the existing
+            #9mm jacket lands. No extra band, connector or length added.
+            offsets=[-1.5] if land['id'] in ('FL2/Hip/Fixed','FR2/Hip/Fixed') else [1.5] if land['id'] in ('RL2/Hip/Fixed','RR2/Hip/Fixed') else [0,-1.5,1.5] if land['id'] in ('FL1/Hip/Fixed','FR1/Hip/Fixed') else [0]
+            for offset in offsets:
+                for angle in (0,math.pi/4,-math.pi/4,math.pi/2,-math.pi/2,math.pi,3*math.pi/4,-3*math.pi/4):
+                    normal=radial*math.cos(angle)+other*math.sin(angle)
+                    port=build(land,list(normal),offset)
+                    parts={'Port_'+land['id']:port['body'],'Band_'+land['id']:port['band']}
+                    hits=contacts(parts,[group.get('preserved_owner')])
+                    if hits:rejections.append(dict(angle_rad=angle,band_axial_offset_mm=offset,contacts=hits));continue
+                    orientations.append((math.dist(start,port['arrival_world_mm']),list(normal),port))
             if not orientations:
                 ports.append(dict(land_id=land['id'],rejected_orientations=rejections,error='No actual complete port orientation clear in current rest scene'))
                 print('retention port rejected',land['id'],len(rejections),flush=True);continue

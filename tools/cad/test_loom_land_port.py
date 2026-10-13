@@ -6,6 +6,17 @@ from loom_land_port import build
 
 
 class LandPort(unittest.TestCase):
+    def test_staggered_bands_fit_unchanged_nine_mm_lands(self):
+        for offset in (-1.5,1.5):
+            result=build(dict(centre_world_mm=[0,0,0],axis=[0,0,1]),[1,0,0],offset)
+            self.assertTrue(result['body'].isValid())
+            self.assertEqual(len(result['body'].Solids),1)
+            self.assertFalse(result['body'].check(True))
+            self.assertLess(result['body'].common(result['band']).Volume,1e-6)
+            self.assertGreaterEqual(4.5-abs(offset)-1.25,1.75)
+            seat=result['recipe']['pads'][0]['bounds_mm']
+            self.assertEqual(seat,[4,-3,-4.5,8,3,4.5])
+
     def test_far_splice_bridge_faces_away_without_moving_land(self):
         centre=[0,0,38.5]
         result=build(dict(id='FL3/Splice/1',centre_world_mm=centre,axis=[0,0,1]),[1,0,0])
