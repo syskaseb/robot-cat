@@ -1,0 +1,93 @@
+{
+  "status": "PARTIAL_COMPLETE_SOURCE_CARRIER_RESERVATIONS",
+  "roots": [
+    {
+      "leg": "FrontLeft",
+      "cad_code": "RL",
+      "case": "Part__Feature014",
+      "bond_bounds_world_mm": [
+        -108.08395228156813,
+        8.75,
+        30,
+        -100.08395228156813,
+        15,
+        32.2
+      ],
+      "paths": [
+        {
+          "loom": "FL1",
+          "points_mm": [],
+          "expansions": 237,
+          "search_seconds": 90.047
+        },
+        {
+          "loom": "FL2",
+          "points_mm": [],
+          "expansions": 0,
+          "search_seconds": 0.0
+        },
+        {
+          "loom": "FL3",
+          "points_mm": [],
+          "expansions": 0,
+          "search_seconds": 0.0
+        }
+      ],
+      "endpoints": [
+        {
+          "loom": "FL1",
+          "start_clear": true,
+          "goal_clear": true,
+          "start_blocker": null,
+          "goal_blocker": null
+        },
+        {
+          "loom": "FL2",
+          "start_clear": true,
+          "goal_clear": false,
+          "start_blocker": null,
+          "goal_blocker": "wire reservation/FL2"
+        },
+        {
+          "loom": "FL3",
+          "start_clear": true,
+          "goal_clear": false,
+          "start_blocker": null,
+          "goal_blocker": "wire reservation/FL3"
+        }
+      ]
+    }
+  ],
+  "beam_reservation_mm": [
+    4,
+    6,
+    4
+  ],
+  "wire_margin_mm": 0.5,
+  "leg_material_samples": 27,
+  "wire_inverse_Hip_samples": 31,
+  "source_coupled_samples": 9,
+  "selected": false,
+  "native_changed": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "limitations": [
+    "Conservative surface/point-cloud planning only; rejection is not actual BRep contact",
+    "4x6x4 beam is a minimum search reservation, not stiffness approval; full ribs/grips/hardware need changed gate",
+    "Known exposed case patch needs provisional compatible bond/fit/load/peel/creep trial; no new case holes",
+    "Full Knee/source grips and fixed receiving roots/body fans remain OPEN"
+  ],
+  "worker_seconds": 493.344,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan-material.json": "cdf0c531b0802b86d97f3476743d21f12a6efde1133180c29571f03e6b51a61c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadNeckFixedJoined.FCStd": "0b8dce308b2b849c34179f70945788642c6e1440955e965bffc5a1968d21a879",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-underneck-rounds-plan.json": "3d58c718094954c9247a2dbcc36d24184f0f6d8109c1066117bdde2e84a7c57b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
+    "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
+    "tools/cad/plan_complete_source_carriers.py": "b02e648d373b8428eba18ecaa49adc5e68c9e74ba5b658f6a07de24af98b3af2",
+    "tools/cad/cad_reservation_math.py": "ee4bcda6e3fa9885c7f960f546ab4683fa27bbd26740653c6ef66f99e25ae493"
+  }
+}
