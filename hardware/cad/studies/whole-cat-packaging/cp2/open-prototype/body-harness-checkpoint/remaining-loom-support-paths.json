@@ -1,11 +1,15 @@
 {
-  "status": "PARTIAL_REMAINING_SUPPORT_PATH_RESERVATIONS",
+  "status": "REMAINING_SUPPORT_RESERVATIONS_INCOMPLETE_DIAGNOSE_CAUSE",
   "groups": [
     {
       "id": "FrontLeftHipExtension",
       "owner_stage": "Motion_RL_Hip",
       "root_choice": {
-        "preserved_owner": "FrontLeftSourceCarrier"
+        "root_world_mm": [
+          -104.08395228156813,
+          11.875,
+          34.2
+        ]
       },
       "root_world_mm": [
         -104.08395228156813,
@@ -16,137 +20,325 @@
         {
           "land_id": "FL2/Knee/Fixed",
           "post_arrival_normal": [
-            -1.4622061704911243e-14,
-            -0.926569772891405,
-            -0.37612292666622976
+            -0.0,
+            -0.0,
+            -1.0
           ],
-          "start_blocker": "mesh reservation/FrontLeftSourceCaseBond",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": null,
-          "points_mm": [],
-          "start_clear": false,
+          "points_mm": [
+            [
+              -104.08395228156813,
+              11.875,
+              34.2
+            ],
+            [
+              -104.08395228156813,
+              11.875,
+              36.2
+            ],
+            [
+              -104.08395228156813,
+              13.875,
+              36.2
+            ],
+            [
+              -131.03498805111968,
+              13.875,
+              36.2
+            ],
+            [
+              -131.03498805111968,
+              93.875,
+              36.2
+            ],
+            [
+              -141.03498805111968,
+              93.875,
+              36.2
+            ],
+            [
+              -141.03498805111968,
+              93.875,
+              48.2
+            ],
+            [
+              -141.03498805111968,
+              97.875,
+              48.2
+            ],
+            [
+              -141.03498805111968,
+              97.875,
+              60.2
+            ],
+            [
+              -141.03498805111968,
+              113.875,
+              60.2
+            ],
+            [
+              -141.03498805111968,
+              113.875,
+              74.8734098836504
+            ],
+            [
+              -141.03498805111968,
+              153.70570889432065,
+              74.8734098836504
+            ]
+          ],
+          "start_clear": true,
           "goal_clear": true,
-          "expansions": 0,
-          "search_seconds": 0,
-          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+          "expansions": 1613,
+          "search_seconds": 2.656,
+          "rejection": null
         },
         {
           "land_id": "FL3/Knee/Fixed",
           "post_arrival_normal": [
-            -1.561645287709923e-14,
-            -0.9889512838637751,
-            -0.14824087878918907
+            -0.0,
+            -0.0,
+            -1.0
           ],
-          "start_blocker": "mesh reservation/FrontLeftSourceCaseBond",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": null,
-          "points_mm": [],
-          "start_clear": false,
+          "points_mm": [
+            [
+              -104.08395228156813,
+              11.875,
+              34.2
+            ],
+            [
+              -104.08395228156813,
+              11.875,
+              36.2
+            ],
+            [
+              -104.08395228156813,
+              194.00000000000006,
+              36.2
+            ],
+            [
+              -107.03498805111968,
+              194.00000000000006,
+              36.2
+            ],
+            [
+              -107.03498805111968,
+              194.00000000000006,
+              44.6
+            ],
+            [
+              -108.89756646104382,
+              194.00000000000006,
+              44.6
+            ]
+          ],
+          "start_clear": true,
           "goal_clear": true,
-          "expansions": 0,
-          "search_seconds": 0,
-          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+          "expansions": 349,
+          "search_seconds": 0.265,
+          "rejection": null
         }
       ],
       "sampled_owner_poses": 3,
-      "relative_material_placements": 284
+      "relative_material_placements": 575
     },
     {
       "id": "FrontLeftKneeCarrier",
       "owner_stage": "Motion_RL_Knee",
       "root_choice": {
         "owner": "P0_Part__Feature088",
-        "face_index": 14,
+        "face_index": 11,
         "plane_centre_world_mm": [
-          -56.819767933389215,
-          73.86785700106448,
-          -66.7405217211317
+          -44.80933878925444,
+          67.90897384144836,
+          -63.12374512678868
         ],
         "outward_normal": [
-          -1.1084883011491797e-14,
-          0.9902680687415671,
-          -0.1391731009600888
+          0.984770254550605,
+          0.03280784460553184,
+          0.17073719888962682
         ],
         "in_plane_axis": [
-          1.0,
-          1.0977005692016188e-14,
-          -1.5427175424891212e-15
+          0.17386070790243727,
+          -0.18582801067148605,
+          -0.967078282610845
         ],
         "patch_bounds_plane_mm": [
           10,
           8
         ],
-        "actual_patch_area_mm2": 79.99999999999994,
+        "actual_patch_area_mm2": 79.99999999999999,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 6.2,
         "outer_arm_root_world_mm": [
-          -56.819767933389286,
-          80.00751902726219,
-          -67.60339494708425
+          -38.70376321104069,
+          68.11238247800266,
+          -62.06517449367299
         ],
-        "distance_to_group_centre_mm": 51.204573709462416
+        "distance_to_group_centre_mm": 54.459619626868516
       },
       "root_world_mm": [
-        -56.819767933389286,
-        80.00751902726219,
-        -67.60339494708425
+        -38.70376321104069,
+        68.11238247800266,
+        -62.06517449367299
       ],
       "paths": [
         {
           "land_id": "FL2/Knee/Moving",
           "post_arrival_normal": [
-            -1.1648878529989268e-14,
-            -0.7327690637127611,
-            -0.6804774054041204
+            -0.0,
+            -0.0,
+            -1.0
           ],
-          "start_blocker": "actual interior/P0_Part__Feature089",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": null,
-          "points_mm": [],
-          "start_clear": false,
+          "points_mm": [
+            [
+              -38.70376321104069,
+              68.11238247800266,
+              -62.06517449367299
+            ],
+            [
+              -38.70376321104069,
+              71.3307237386349,
+              -62.06517449367299
+            ],
+            [
+              -38.70376321104069,
+              71.3307237386349,
+              -29.71435029025276
+            ],
+            [
+              -135.26090152151247,
+              71.3307237386349,
+              -29.71435029025276
+            ],
+            [
+              -135.26090152151247,
+              139.00685777982676,
+              -29.71435029025276
+            ]
+          ],
+          "start_clear": true,
           "goal_clear": true,
-          "expansions": 0,
-          "search_seconds": 0,
-          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+          "expansions": 1628,
+          "search_seconds": 1.11,
+          "rejection": null
         },
         {
           "land_id": "FL3/Knee/Moving",
           "post_arrival_normal": [
-            -1.5645693975077833e-14,
-            -0.9909246807413346,
-            0.13441829152940507
+            0.0,
+            0.0,
+            1.0
           ],
-          "start_blocker": "actual interior/P0_Part__Feature089",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": null,
-          "points_mm": [],
-          "start_clear": false,
+          "points_mm": [
+            [
+              -38.70376321104069,
+              68.11238247800266,
+              -62.06517449367299
+            ],
+            [
+              -37.260901521512466,
+              68.11238247800266,
+              -62.06517449367299
+            ],
+            [
+              -37.260901521512466,
+              131.3307237386349,
+              -62.06517449367299
+            ],
+            [
+              -37.260901521512466,
+              131.3307237386349,
+              -62.36190704446577
+            ],
+            [
+              -34.97723405265523,
+              131.3307237386349,
+              -62.36190704446577
+            ],
+            [
+              -34.97723405265523,
+              131.3307237386349,
+              -63.46190704446577
+            ],
+            [
+              -34.97723405265523,
+              174.06260917149666,
+              -63.46190704446577
+            ]
+          ],
+          "start_clear": true,
           "goal_clear": true,
-          "expansions": 0,
-          "search_seconds": 0,
-          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+          "expansions": 172,
+          "search_seconds": 0.141,
+          "rejection": null
         },
         {
           "land_id": "FL3/Splice/0",
           "post_arrival_normal": [
-            -0.9999689825382662,
-            -0.0010961501854962617,
-            -0.007799513840984125
+            -1.0,
+            -1.1043047145144987e-14,
+            1.5519990634367973e-15
           ],
-          "start_blocker": "actual interior/P0_Part__Feature089",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": null,
-          "points_mm": [],
-          "start_clear": false,
+          "points_mm": [
+            [
+              -38.70376321104069,
+              68.11238247800266,
+              -62.06517449367299
+            ],
+            [
+              -38.70376321104069,
+              68.11238247800266,
+              -62.831983751725424
+            ],
+            [
+              -38.70376321104069,
+              67.3307237386349,
+              -62.831983751725424
+            ],
+            [
+              -15.877234052653824,
+              67.3307237386349,
+              -62.831983751725424
+            ],
+            [
+              -15.877234052653824,
+              49.330723738634724,
+              -62.831983751725424
+            ]
+          ],
+          "start_clear": true,
           "goal_clear": true,
-          "expansions": 0,
-          "search_seconds": 0,
-          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+          "expansions": 168,
+          "search_seconds": 0.125,
+          "rejection": null
         },
         {
           "land_id": "FL3/Splice/1",
           "post_arrival_normal": [
-            -0.9999689825382662,
-            -0.001096150185496139,
-            -0.007799513840983941
+            -1.0,
+            -1.1043047145144987e-14,
+            1.5519990634367973e-15
           ],
-          "start_blocker": "actual interior/P0_Part__Feature089",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": "wire reservation/FL2",
           "points_mm": [],
-          "start_clear": false,
+          "start_clear": true,
           "goal_clear": false,
           "expansions": 0,
           "search_seconds": 0,
@@ -154,22 +346,22 @@
         }
       ],
       "sampled_owner_poses": 9,
-      "relative_material_placements": 75
+      "relative_material_placements": 404
     },
     {
       "id": "FrontLeftFixedCarrier",
       "owner_stage": "Body",
       "root_choice": {
         "owner": "FLStationFrame",
-        "face_index": 4,
+        "face_index": 2,
         "plane_centre_world_mm": [
-          38.458333333333336,
-          82.0,
-          -1.1145833333333335
+          37.27659574468085,
+          80.0,
+          -5.042553191489362
         ],
         "outward_normal": [
           0.0,
-          1.0,
+          -1.0,
           0.0
         ],
         "in_plane_axis": [
@@ -178,47 +370,711 @@
           0.0
         ],
         "patch_bounds_plane_mm": [
-          10,
-          8
+          6,
+          4
         ],
-        "actual_patch_area_mm2": 80.0,
+        "actual_patch_area_mm2": 24.0,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 3,
         "outer_arm_root_world_mm": [
-          38.458333333333336,
-          88.2,
-          -1.1145833333333335
+          37.27659574468085,
+          77.0,
+          -5.042553191489362
         ],
-        "distance_to_group_centre_mm": 119.48674559630966
+        "distance_to_group_centre_mm": 119.79021501799157
       },
       "root_world_mm": [
-        38.458333333333336,
+        37.27659574468085,
         81.0,
-        -1.1145833333333335
+        -5.042553191489362
       ],
       "paths": [
         {
           "land_id": "FL1/Hip/Fixed",
           "post_arrival_normal": [
-            0.9770102750092602,
-            0.21319221966650095,
+            1.0,
+            0.0,
             0.0
           ],
-          "start_blocker": "mesh reservation/FL_P",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
           "goal_blocker": null,
-          "points_mm": [],
-          "start_clear": false,
+          "points_mm": [
+            [
+              37.27659574468085,
+              81.0,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              81.0,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              77.5,
+              -5.042553191489362
+            ],
+            [
+              -32.05756646104561,
+              77.5,
+              -5.042553191489362
+            ],
+            [
+              -32.05756646104561,
+              57.5,
+              -5.042553191489362
+            ],
+            [
+              -44.05756646104561,
+              57.5,
+              -5.042553191489362
+            ],
+            [
+              -44.05756646104561,
+              49.5,
+              -5.042553191489362
+            ],
+            [
+              -56.05756646104561,
+              49.5,
+              -5.042553191489362
+            ],
+            [
+              -56.05756646104561,
+              45.5,
+              -5.042553191489362
+            ],
+            [
+              -56.05756646104561,
+              45.5,
+              -11.0
+            ],
+            [
+              -84.05756646104561,
+              45.5,
+              -11.0
+            ],
+            [
+              -84.05756646104561,
+              37.5,
+              -11.0
+            ],
+            [
+              -153.1575664610456,
+              37.5,
+              -11.0
+            ],
+            [
+              -153.1575664610456,
+              35.5,
+              -11.0
+            ]
+          ],
+          "start_clear": true,
           "goal_clear": true,
-          "expansions": 0,
-          "search_seconds": 0,
-          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+          "expansions": 1306,
+          "search_seconds": 2.188,
+          "rejection": null
         },
         {
           "land_id": "FL2/Hip/Fixed",
           "post_arrival_normal": [
-            0.3166264110948741,
-            -0.9485503232813639,
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              37.27659574468085,
+              81.0,
+              -5.042553191489362
+            ],
+            [
+              37.27659574468085,
+              81.5,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              81.5,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              81.5,
+              -2.5
+            ],
+            [
+              19.94243353895439,
+              81.5,
+              -2.5
+            ],
+            [
+              19.94243353895439,
+              81.5,
+              27.0
+            ],
+            [
+              0.20243353895602212,
+              81.5,
+              27.0
+            ],
+            [
+              0.20243353895602212,
+              144.9780667186704,
+              27.0
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 1705,
+          "search_seconds": 1.047,
+          "rejection": null
+        },
+        {
+          "land_id": "FL3/Hip/Fixed",
+          "post_arrival_normal": [
+            1.0,
+            0.0,
             0.0
           ],
-          "start_blocker": "mesh reservation/FL_P",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              37.27659574468085,
+              81.0,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              81.0,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              85.5,
+              -5.042553191489362
+            ],
+            [
+              35.94243353895439,
+              85.5,
+              86.5
+            ],
+            [
+              35.94243353895439,
+              104.0,
+              86.5
+            ],
+            [
+              -55.997566461043824,
+              104.0,
+              86.5
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 3817,
+          "search_seconds": 2.546,
+          "rejection": null
+        }
+      ],
+      "sampled_owner_poses": 1,
+      "relative_material_placements": 521
+    },
+    {
+      "id": "FrontRightHipExtension",
+      "owner_stage": "Motion_RR_Hip",
+      "root_choice": {
+        "root_world_mm": [
+          -104.08395228157323,
+          -11.875,
+          34.2
+        ]
+      },
+      "root_world_mm": [
+        -104.08395228157323,
+        -11.875,
+        34.2
+      ],
+      "paths": [
+        {
+          "land_id": "FR2/Knee/Fixed",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              -104.08395228157323,
+              -11.875,
+              34.2
+            ],
+            [
+              -104.08395228157323,
+              -11.875,
+              36.2
+            ],
+            [
+              -104.08395228157323,
+              -87.99999999999994,
+              36.2
+            ],
+            [
+              -104.08395228157323,
+              -87.99999999999994,
+              34.2
+            ],
+            [
+              -104.08395228157323,
+              -99.99999999999994,
+              34.2
+            ],
+            [
+              -104.08395228157323,
+              -99.99999999999994,
+              32.2
+            ],
+            [
+              -104.08395228157323,
+              -153.7057088943134,
+              32.2
+            ],
+            [
+              -141.034988051134,
+              -153.7057088943134,
+              32.2
+            ],
+            [
+              -141.034988051134,
+              -153.7057088943134,
+              74.87340988365023
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 3515,
+          "search_seconds": 4.844,
+          "rejection": null
+        },
+        {
+          "land_id": "FR3/Knee/Fixed",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              -104.08395228157323,
+              -11.875,
+              34.2
+            ],
+            [
+              -104.08395228157323,
+              -11.875,
+              36.2
+            ],
+            [
+              -104.08395228157323,
+              -87.99999999999994,
+              36.2
+            ],
+            [
+              -104.08395228157323,
+              -87.99999999999994,
+              34.2
+            ],
+            [
+              -104.08395228157323,
+              -99.99999999999994,
+              34.2
+            ],
+            [
+              -104.08395228157323,
+              -99.99999999999994,
+              32.2
+            ],
+            [
+              -104.08395228157323,
+              -111.99999999999994,
+              32.2
+            ],
+            [
+              -104.08395228157323,
+              -111.99999999999994,
+              44.6
+            ],
+            [
+              -108.89756646105715,
+              -111.99999999999994,
+              44.6
+            ],
+            [
+              -108.89756646105715,
+              -193.99999999999994,
+              44.6
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 979,
+          "search_seconds": 0.875,
+          "rejection": null
+        }
+      ],
+      "sampled_owner_poses": 3,
+      "relative_material_placements": 633
+    },
+    {
+      "id": "FrontRightKneeCarrier",
+      "owner_stage": "Motion_RR_Knee",
+      "root_choice": {
+        "owner": "P0_Part__Feature042",
+        "face_index": 23,
+        "plane_centre_world_mm": [
+          -105.24439011937537,
+          -83.02411742000226,
+          -9.199435951642043
+        ],
+        "outward_normal": [
+          -0.7659697721779591,
+          0.07562372345914264,
+          -0.6384131581975897
+        ],
+        "in_plane_axis": [
+          0.6428765885530794,
+          0.09010358638136318,
+          -0.7606517176813388
+        ],
+        "patch_bounds_plane_mm": [
+          10,
+          8
+        ],
+        "actual_patch_area_mm2": 79.99999999999999,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 6.2,
+        "outer_arm_root_world_mm": [
+          -109.99340270687871,
+          -82.55525033455557,
+          -13.157597532467099
+        ],
+        "distance_to_group_centre_mm": 63.93335546166296
+      },
+      "root_world_mm": [
+        -109.99340270687871,
+        -82.55525033455557,
+        -13.157597532467099
+      ],
+      "paths": [
+        {
+          "land_id": "FR2/Knee/Moving",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              -109.99340270687871,
+              -82.55525033455557,
+              -13.157597532467099
+            ],
+            [
+              -109.99340270687871,
+              -84.30428072511626,
+              -13.157597532467099
+            ],
+            [
+              -113.12915652253756,
+              -84.30428072511626,
+              -13.157597532467099
+            ],
+            [
+              -113.12915652253756,
+              -84.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -127.60045709033477,
+              -84.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -127.60045709033477,
+              -84.30428072511626,
+              -23.34902984170064
+            ],
+            [
+              -127.60045709033477,
+              -139.9014452288065,
+              -23.34902984170064
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 171,
+          "search_seconds": 0.218,
+          "rejection": null
+        },
+        {
+          "land_id": "FR3/Knee/Moving",
+          "post_arrival_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              -109.99340270687871,
+              -82.55525033455557,
+              -13.157597532467099
+            ],
+            [
+              -109.99340270687871,
+              -84.30428072511626,
+              -13.157597532467099
+            ],
+            [
+              -109.99340270687871,
+              -84.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -109.99340270687871,
+              -144.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -121.12915652253756,
+              -144.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -121.12915652253756,
+              -148.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -149.12915652253756,
+              -148.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -149.12915652253756,
+              -164.30428072511626,
+              -16.64232458907415
+            ],
+            [
+              -149.12915652253756,
+              -164.30428072511626,
+              -61.74232458907415
+            ],
+            [
+              -151.12915652253756,
+              -164.30428072511626,
+              -61.74232458907415
+            ],
+            [
+              -151.12915652253756,
+              -174.30428072511626,
+              -61.74232458907415
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 3312,
+          "search_seconds": 1.797,
+          "rejection": null
+        },
+        {
+          "land_id": "FR3/Splice/0",
+          "post_arrival_normal": [
+            1.0,
+            1.5636172948877943e-14,
+            2.197520797786044e-15
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              -109.99340270687871,
+              -82.55525033455557,
+              -13.157597532467099
+            ],
+            [
+              -109.12915652253756,
+              -82.55525033455557,
+              -13.157597532467099
+            ],
+            [
+              -109.12915652253756,
+              -80.30428072511626,
+              -13.157597532467099
+            ],
+            [
+              -109.12915652253756,
+              -80.30428072511626,
+              -24.64232458907415
+            ],
+            [
+              -98.22915652253964,
+              -80.30428072511626,
+              -24.64232458907415
+            ],
+            [
+              -98.22915652253964,
+              -80.30428072511626,
+              -60.64232458907415
+            ],
+            [
+              -98.22915652253964,
+              -76.30428072511626,
+              -60.64232458907415
+            ],
+            [
+              -98.22915652253964,
+              -76.30428072511626,
+              -61.112401296337886
+            ],
+            [
+              -98.22915652253964,
+              -49.572395292250995,
+              -61.112401296337886
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 467,
+          "search_seconds": 0.766,
+          "rejection": null
+        },
+        {
+          "land_id": "FR3/Splice/1",
+          "post_arrival_normal": [
+            1.0,
+            1.5636172948877978e-14,
+            2.1975207977860277e-15
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              -109.99340270687871,
+              -82.55525033455557,
+              -13.157597532467099
+            ],
+            [
+              -109.12915652253756,
+              -82.55525033455557,
+              -13.157597532467099
+            ],
+            [
+              -109.12915652253756,
+              -124.30428072511626,
+              -13.157597532467099
+            ],
+            [
+              -101.12915652253756,
+              -124.30428072511626,
+              -13.157597532467099
+            ],
+            [
+              -101.12915652253756,
+              -125.82303658535206,
+              -13.157597532467099
+            ],
+            [
+              -98.22915652253837,
+              -125.82303658535206,
+              -13.157597532467099
+            ],
+            [
+              -98.22915652253837,
+              -125.82303658535206,
+              -71.82873007026188
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 317,
+          "search_seconds": 0.234,
+          "rejection": null
+        }
+      ],
+      "sampled_owner_poses": 9,
+      "relative_material_placements": 223
+    },
+    {
+      "id": "FrontRightFixedCarrier",
+      "owner_stage": "Body",
+      "root_choice": {
+        "owner": "FRStationFrame",
+        "face_index": 31,
+        "plane_centre_world_mm": [
+          -20.0,
+          -90.5,
+          57.25
+        ],
+        "outward_normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "in_plane_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "patch_bounds_plane_mm": [
+          6,
+          4
+        ],
+        "actual_patch_area_mm2": 24.0,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 3,
+        "outer_arm_root_world_mm": [
+          -20.0,
+          -90.5,
+          54.25
+        ],
+        "distance_to_group_centre_mm": 60.457157106349584
+      },
+      "root_world_mm": [
+        -20.0,
+        -90.5,
+        58.25
+      ],
+      "paths": [
+        {
+          "land_id": "FR1/Hip/Fixed",
+          "post_arrival_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/FR_G",
           "goal_blocker": null,
           "points_mm": [],
           "start_clear": false,
@@ -228,13 +1084,31 @@
           "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
         },
         {
-          "land_id": "FL3/Hip/Fixed",
+          "land_id": "FR2/Hip/Fixed",
           "post_arrival_normal": [
-            0.9793286787213299,
-            -0.20227540392725513,
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/FR_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "FR3/Hip/Fixed",
+          "post_arrival_normal": [
+            1.0,
+            0.0,
             0.0
           ],
-          "start_blocker": "mesh reservation/FL_P",
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/FR_G",
           "goal_blocker": null,
           "points_mm": [],
           "start_clear": false,
@@ -245,7 +1119,831 @@
         }
       ],
       "sampled_owner_poses": 1,
-      "relative_material_placements": 270
+      "relative_material_placements": 504
+    },
+    {
+      "id": "RearLeftHipExtension",
+      "owner_stage": "Motion_FL_Hip",
+      "root_choice": {
+        "root_world_mm": [
+          146.08395228156874,
+          11.875,
+          34.2
+        ]
+      },
+      "root_world_mm": [
+        146.08395228156874,
+        11.875,
+        34.2
+      ],
+      "paths": [
+        {
+          "land_id": "RL2/Knee/Fixed",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 1,
+          "search_seconds": 0.0,
+          "rejection": "Bounded planning search exhausted, NOT proof of geometric impossibility"
+        },
+        {
+          "land_id": "RL3/Knee/Fixed",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 1,
+          "search_seconds": 0.0,
+          "rejection": "Bounded planning search exhausted, NOT proof of geometric impossibility"
+        }
+      ],
+      "sampled_owner_poses": 3,
+      "relative_material_placements": 525
+    },
+    {
+      "id": "RearLeftKneeCarrier",
+      "owner_stage": "Motion_FL_Knee",
+      "root_choice": {
+        "owner": "P0_Part__Feature096",
+        "face_index": 11,
+        "plane_centre_world_mm": [
+          205.98579413283824,
+          67.90897384142448,
+          -63.12374512678897
+        ],
+        "outward_normal": [
+          0.9847702545505987,
+          0.032807844605541966,
+          0.1707371988896607
+        ],
+        "in_plane_axis": [
+          0.17386070790247293,
+          -0.18582801067150456,
+          -0.967078282610835
+        ],
+        "patch_bounds_plane_mm": [
+          10,
+          8
+        ],
+        "actual_patch_area_mm2": 80.00000000000009,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 6.2,
+        "outer_arm_root_world_mm": [
+          212.09136971105195,
+          68.11238247797884,
+          -62.06517449367307
+        ],
+        "distance_to_group_centre_mm": 66.78814038809668
+      },
+      "root_world_mm": [
+        212.09136971105195,
+        68.11238247797884,
+        -62.06517449367307
+      ],
+      "paths": [
+        {
+          "land_id": "RL2/Knee/Moving",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -62.06517449367307
+            ],
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -29.714350290254885
+            ],
+            [
+              209.53423140057828,
+              68.11238247797884,
+              -29.714350290254885
+            ],
+            [
+              209.53423140057828,
+              71.33072373862272,
+              -29.714350290254885
+            ],
+            [
+              205.53423140057828,
+              71.33072373862272,
+              -29.714350290254885
+            ],
+            [
+              205.53423140057828,
+              95.33072373862272,
+              -29.714350290254885
+            ],
+            [
+              187.53423140057828,
+              95.33072373862272,
+              -29.714350290254885
+            ],
+            [
+              187.53423140057828,
+              139.00685777980192,
+              -29.714350290254885
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 1257,
+          "search_seconds": 1.156,
+          "rejection": null
+        },
+        {
+          "land_id": "RL3/Knee/Moving",
+          "post_arrival_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -62.06517449367307
+            ],
+            [
+              213.53423140057828,
+              68.11238247797884,
+              -62.06517449367307
+            ],
+            [
+              213.53423140057828,
+              71.33072373862272,
+              -62.06517449367307
+            ],
+            [
+              213.53423140057828,
+              71.33072373862272,
+              -62.361907044470115
+            ],
+            [
+              213.53423140057828,
+              119.33072373862272,
+              -62.361907044470115
+            ],
+            [
+              213.53423140057828,
+              119.33072373862272,
+              -63.46190704447012
+            ],
+            [
+              213.53423140057828,
+              131.33072373862274,
+              -63.46190704447012
+            ],
+            [
+              287.81789886943744,
+              131.33072373862274,
+              -63.46190704447012
+            ],
+            [
+              287.81789886943744,
+              174.06260917149513,
+              -63.46190704447012
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 774,
+          "search_seconds": 0.563,
+          "rejection": null
+        },
+        {
+          "land_id": "RL3/Splice/0",
+          "post_arrival_normal": [
+            -1.0,
+            -1.2508938359102299e-14,
+            1.7580166382293172e-15
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -62.06517449367307
+            ],
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -62.831983751727925
+            ],
+            [
+              212.09136971105195,
+              67.33072373862272,
+              -62.831983751727925
+            ],
+            [
+              234.91789886943945,
+              67.33072373862272,
+              -62.831983751727925
+            ],
+            [
+              234.91789886943945,
+              49.33072373862251,
+              -62.831983751727925
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 168,
+          "search_seconds": 0.125,
+          "rejection": null
+        },
+        {
+          "land_id": "RL3/Splice/1",
+          "post_arrival_normal": [
+            -1.0,
+            -1.2508938359102307e-14,
+            1.7580166382292985e-15
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -62.06517449367307
+            ],
+            [
+              212.09136971105195,
+              68.11238247797884,
+              -62.361907044470115
+            ],
+            [
+              234.91789886943826,
+              68.11238247797884,
+              -62.361907044470115
+            ],
+            [
+              234.91789886943826,
+              125.58136503172315,
+              -62.361907044470115
+            ],
+            [
+              234.91789886943826,
+              125.58136503172315,
+              -73.54831252565485
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 640,
+          "search_seconds": 0.203,
+          "rejection": null
+        }
+      ],
+      "sampled_owner_poses": 9,
+      "relative_material_placements": 147
+    },
+    {
+      "id": "RearLeftFixedCarrier",
+      "owner_stage": "Body",
+      "root_choice": {
+        "owner": "RLStationFrame",
+        "face_index": 47,
+        "plane_centre_world_mm": [
+          105.0,
+          92.5,
+          57.25
+        ],
+        "outward_normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "in_plane_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "patch_bounds_plane_mm": [
+          6,
+          4
+        ],
+        "actual_patch_area_mm2": 24.0,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 3,
+        "outer_arm_root_world_mm": [
+          105.0,
+          92.5,
+          54.25
+        ],
+        "distance_to_group_centre_mm": 29.418974590182337
+      },
+      "root_world_mm": [
+        105.0,
+        92.5,
+        58.25
+      ],
+      "paths": [
+        {
+          "land_id": "RL1/Hip/Fixed",
+          "post_arrival_normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/RL_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "RL2/Hip/Fixed",
+          "post_arrival_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/RL_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "RL3/Hip/Fixed",
+          "post_arrival_normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/RL_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        }
+      ],
+      "sampled_owner_poses": 1,
+      "relative_material_placements": 520
+    },
+    {
+      "id": "RearRightHipExtension",
+      "owner_stage": "Motion_FR_Hip",
+      "root_choice": {
+        "root_world_mm": [
+          146.08395228156377,
+          -11.875,
+          34.2
+        ]
+      },
+      "root_world_mm": [
+        146.08395228156377,
+        -11.875,
+        34.2
+      ],
+      "paths": [
+        {
+          "land_id": "RR2/Knee/Fixed",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 1,
+          "search_seconds": 0.016,
+          "rejection": "Bounded planning search exhausted, NOT proof of geometric impossibility"
+        },
+        {
+          "land_id": "RR3/Knee/Fixed",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 1,
+          "search_seconds": 0.0,
+          "rejection": "Bounded planning search exhausted, NOT proof of geometric impossibility"
+        }
+      ],
+      "sampled_owner_poses": 3,
+      "relative_material_placements": 570
+    },
+    {
+      "id": "RearRightKneeCarrier",
+      "owner_stage": "Motion_FR_Knee",
+      "root_choice": {
+        "owner": "P0_Part__Feature050",
+        "face_index": 144,
+        "plane_centre_world_mm": [
+          168.92106231625468,
+          -81.8385409457323,
+          -17.84925680909335
+        ],
+        "outward_normal": [
+          0.6427249533274706,
+          0.09277608707580628,
+          -0.760458566943067
+        ],
+        "in_plane_axis": [
+          0.7660970136805133,
+          -0.07783545056418967,
+          0.6379945205605364
+        ],
+        "patch_bounds_plane_mm": [
+          10,
+          8
+        ],
+        "actual_patch_area_mm2": 80.00000000000004,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 6.2,
+        "outer_arm_root_world_mm": [
+          172.905957026885,
+          -81.2633292058623,
+          -22.564099924140365
+        ],
+        "distance_to_group_centre_mm": 55.47052605474011
+      },
+      "root_world_mm": [
+        172.905957026885,
+        -81.2633292058623,
+        -22.564099924140365
+      ],
+      "paths": [
+        {
+          "land_id": "RR2/Knee/Moving",
+          "post_arrival_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              172.905957026885,
+              -81.2633292058623,
+              -22.564099924140365
+            ],
+            [
+              195.1946758317615,
+              -81.2633292058623,
+              -22.564099924140365
+            ],
+            [
+              195.1946758317615,
+              -81.2633292058623,
+              -20.6423245890725
+            ],
+            [
+              195.1946758317615,
+              -96.30428072511853,
+              -20.6423245890725
+            ],
+            [
+              195.1946758317615,
+              -96.30428072511853,
+              -23.349029841701288
+            ],
+            [
+              195.1946758317615,
+              -139.90144522883492,
+              -23.349029841701288
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 85,
+          "search_seconds": 0.219,
+          "rejection": null
+        },
+        {
+          "land_id": "RR3/Knee/Moving",
+          "post_arrival_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              172.905957026885,
+              -81.2633292058623,
+              -22.564099924140365
+            ],
+            [
+              172.905957026885,
+              -81.2633292058623,
+              -40.6423245890725
+            ],
+            [
+              172.905957026885,
+              -80.30428072511853,
+              -40.6423245890725
+            ],
+            [
+              172.905957026885,
+              -80.30428072511853,
+              -52.6423245890725
+            ],
+            [
+              172.905957026885,
+              -174.30428072511853,
+              -52.6423245890725
+            ],
+            [
+              172.905957026885,
+              -174.30428072511853,
+              -61.7423245890725
+            ],
+            [
+              171.6659763995569,
+              -174.30428072511853,
+              -61.7423245890725
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 230,
+          "search_seconds": 0.297,
+          "rejection": null
+        },
+        {
+          "land_id": "RR3/Splice/0",
+          "post_arrival_normal": [
+            1.0,
+            1.2508938359102363e-14,
+            1.7580166382287339e-15
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              172.905957026885,
+              -81.2633292058623,
+              -22.564099924140365
+            ],
+            [
+              172.905957026885,
+              -80.30428072511853,
+              -22.564099924140365
+            ],
+            [
+              172.905957026885,
+              -80.30428072511853,
+              -24.6423245890725
+            ],
+            [
+              169.66597639955498,
+              -80.30428072511853,
+              -24.6423245890725
+            ],
+            [
+              169.66597639955498,
+              -80.30428072511853,
+              -28.6423245890725
+            ],
+            [
+              153.66597639955498,
+              -80.30428072511853,
+              -28.6423245890725
+            ],
+            [
+              153.66597639955498,
+              -49.5723952922661,
+              -28.6423245890725
+            ],
+            [
+              153.66597639955498,
+              -49.5723952922661,
+              -61.11240129633908
+            ],
+            [
+              152.56597639955498,
+              -49.5723952922661,
+              -61.11240129633908
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 501,
+          "search_seconds": 0.875,
+          "rejection": null
+        },
+        {
+          "land_id": "RR3/Splice/1",
+          "post_arrival_normal": [
+            1.0,
+            1.2508938359102363e-14,
+            1.7580166382287339e-15
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": null,
+          "goal_blocker": null,
+          "points_mm": [
+            [
+              172.905957026885,
+              -81.2633292058623,
+              -22.564099924140365
+            ],
+            [
+              172.905957026885,
+              -81.2633292058623,
+              -24.6423245890725
+            ],
+            [
+              169.66597639955498,
+              -81.2633292058623,
+              -24.6423245890725
+            ],
+            [
+              169.66597639955498,
+              -81.2633292058623,
+              -28.6423245890725
+            ],
+            [
+              152.56597639955618,
+              -81.2633292058623,
+              -28.6423245890725
+            ],
+            [
+              152.56597639955618,
+              -112.30428072511853,
+              -28.6423245890725
+            ],
+            [
+              152.56597639955618,
+              -112.30428072511853,
+              -36.6423245890725
+            ],
+            [
+              152.56597639955618,
+              -125.82303658536723,
+              -36.6423245890725
+            ],
+            [
+              152.56597639955618,
+              -125.82303658536723,
+              -71.82873007026252
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 660,
+          "search_seconds": 0.672,
+          "rejection": null
+        }
+      ],
+      "sampled_owner_poses": 9,
+      "relative_material_placements": 297
+    },
+    {
+      "id": "RearRightFixedCarrier",
+      "owner_stage": "Body",
+      "root_choice": {
+        "owner": "RRStationFrame",
+        "face_index": 34,
+        "plane_centre_world_mm": [
+          105.0,
+          -92.5,
+          57.25
+        ],
+        "outward_normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "in_plane_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "patch_bounds_plane_mm": [
+          6,
+          4
+        ],
+        "actual_patch_area_mm2": 24.0,
+        "root_stub_nominal_clear_vs_retained_rest": true,
+        "root_stub_depth_mm": 3,
+        "outer_arm_root_world_mm": [
+          105.0,
+          -92.5,
+          54.25
+        ],
+        "distance_to_group_centre_mm": 29.418974590186355
+      },
+      "root_world_mm": [
+        105.0,
+        -92.5,
+        58.25
+      ],
+      "paths": [
+        {
+          "land_id": "RR1/Hip/Fixed",
+          "post_arrival_normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/RR_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "RR2/Hip/Fixed",
+          "post_arrival_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/RR_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        },
+        {
+          "land_id": "RR3/Hip/Fixed",
+          "post_arrival_normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "complete_port_retention_rest_preflight": true,
+          "start_blocker": "mesh reservation/RR_G",
+          "goal_blocker": null,
+          "points_mm": [],
+          "start_clear": false,
+          "goal_clear": true,
+          "expansions": 0,
+          "search_seconds": 0,
+          "rejection": "Endpoint reservation occupied; inspect exact material before rerouting"
+        }
+      ],
+      "sampled_owner_poses": 1,
+      "relative_material_placements": 536
     }
   ],
   "beam_reservation_mm": [
@@ -262,17 +1960,19 @@
   "continuous_sweep_verified": false,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-roots-plan.json": "c0971a3621e00aba08be9441d35eab8eed90d17137fce0b439c6aafce4123bd6",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-root-faces.json": "e46e592768ab1cc8458839251a552f40241ad575e49f82ccf549572d4e0be927",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/complete-source-carriers-native.json": "c4a72e3dc3ef585f1cb065e20b76b27604045cbc55239d2d421d686ab4cac8e4",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/CompleteSourceCarriers.FCStd": "1bb861c9f5bb43953ac59675aa6532014eed1c2a7cc9e5d8f4bc33a4ef908508",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-root-faces.json": "c97c84893c1424ac0aad827ae54c4e588b8afcc3dd6b8de230df4676edff0c66",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/front-fixed-port-clearance-native.json": "79054bb4404507b2cfe02ddf948741863cc8b256e04a3538394d7145c881e0c3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-carriers-fixed-interface/SourceCarriersFixedClearance.FCStd": "8340d69ee299cf279d98426e0804d876a97c686800847391fc5a706ed752a1ac",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-carrier-seed-proof.json": "5fcf004fdce9b23818fec97d4757ea6f7873af63675804d9310db656272cf6fa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-retention-rest.json": "5ac35ab0ccbb0ee156a963a8c0483a06bd573da915d6239853b99e28467029d0",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
     "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadNeckFixedJoined.FCStd": "0b8dce308b2b849c34179f70945788642c6e1440955e965bffc5a1968d21a879",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-underneck-rounds-plan.json": "3d58c718094954c9247a2dbcc36d24184f0f6d8109c1066117bdde2e84a7c57b",
-    "tools/cad/plan_remaining_loom_support_paths.py": "86d814a53ac5a3d5f821e31d4ec21815bc27892ea3c67a9cd695f20395945826",
+    "tools/cad/plan_remaining_loom_support_paths.py": "0edd6804deb3c0df5ef65c1e51bd8723e8ddfb78fdcda75ee92997aeeeb49ac1",
     "tools/cad/build_complete_source_carriers.py": "923b8fd9ff68ad4e50b64110fbebcdf850ffb4bb94e115598c9615908a4df6d0",
     "tools/cad/fast_carrier_reservations.py": "79210cad153c7a014b21bdfd2ecd9870d2865a7f430202cb020d3a87505ffc81"
   },
@@ -281,5 +1981,6 @@
     "Case bond/load/creep and sleeve dimensions are provisional; no new holes in bought cases",
     "Native current frame extension/export/assembly/stock and whole body fanouts"
   ],
-  "worker_seconds": 463.875
+  "inherited_open_groups": [],
+  "worker_seconds": 1986.875
 }
