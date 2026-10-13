@@ -1,0 +1,1315 @@
+{
+  "status": "REMAINING36LANDS_COMMON_OWNERSHIP_PLAN_GEOMETRY_OPEN",
+  "groups": [
+    {
+      "id": "FrontLeftHipExtension",
+      "owner_stage": "Motion_RL_Hip",
+      "preserved_owner": "FrontLeftSourceCarrier",
+      "root_world_mm": [
+        -104.08395228156813,
+        11.875,
+        34.2
+      ],
+      "root_basis": "Join the existing actual case cap; preserve its12-land geometry. New branches require changed material gate.",
+      "lands": [
+        {
+          "id": "FL2/Knee/Fixed",
+          "loom": "FL2",
+          "owner_stage": "Motion_RL_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            -136.53498805111968,
+            153.7057088943206,
+            91.7734098836504
+          ],
+          "end_world_mm": [
+            -145.53498805111968,
+            153.70570889432074,
+            91.7734098836504
+          ],
+          "centre_world_mm": [
+            -141.03498805111968,
+            153.70570889432065,
+            91.7734098836504
+          ],
+          "axis": [
+            -1.0,
+            1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FL3/Knee/Fixed",
+          "loom": "FL3",
+          "owner_stage": "Motion_RL_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            -104.39756646104382,
+            194.0,
+            61.5
+          ],
+          "end_world_mm": [
+            -113.39756646104382,
+            194.00000000000014,
+            61.5
+          ],
+          "centre_world_mm": [
+            -108.89756646104382,
+            194.00000000000006,
+            61.5
+          ],
+          "axis": [
+            -1.0,
+            1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "FrontLeftKneeCarrier",
+      "owner_stage": "Motion_RL_Knee",
+      "root_case_candidates": [
+        "P0_Part__Feature056",
+        "P0_Part__Feature088"
+      ],
+      "root_basis": "Inspect real planar case patches from these same-stage bodies; no invented screw holes, shaft or PCB attachment.",
+      "sleeve_zone": {
+        "loom": "FL3",
+        "centre_world_mm": [
+          1.0227659473457442,
+          87.45604438518524,
+          -68.19014813868885
+        ],
+        "axis": [
+          -1.1172880802364076e-14,
+          0.9902680687415671,
+          -0.13917310096008864
+        ],
+        "length_project_mm": 64,
+        "sleeve_count": 3,
+        "sleeve_length_project_mm": 20,
+        "sleeve_OD_manufacturer_mm": null,
+        "sleeve_SKU": null,
+        "actual_material_check_open": true
+      },
+      "lands": [
+        {
+          "id": "FL2/Knee/Moving",
+          "loom": "FL2",
+          "owner_stage": "Motion_RL_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            -139.76090152151247,
+            139.00685777982684,
+            -12.814350290252763
+          ],
+          "end_world_mm": [
+            -130.76090152151247,
+            139.0068577798267,
+            -12.814350290252763
+          ],
+          "centre_world_mm": [
+            -135.26090152151247,
+            139.00685777982676,
+            -12.814350290252763
+          ],
+          "axis": [
+            1.0,
+            -1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FL3/Knee/Moving",
+          "loom": "FL3",
+          "owner_stage": "Motion_RL_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            -39.477234052655234,
+            174.06260917149675,
+            -80.36190704446577
+          ],
+          "end_world_mm": [
+            -30.477234052655234,
+            174.0626091714966,
+            -80.36190704446577
+          ],
+          "centre_world_mm": [
+            -34.977234052655234,
+            174.06260917149666,
+            -80.36190704446577
+          ],
+          "axis": [
+            1.0,
+            -1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FL3/Splice/0",
+          "loom": "FL3",
+          "owner_stage": "Motion_RL_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            1.0227659473462245,
+            44.87451742929785,
+            -62.205704797405055
+          ],
+          "end_world_mm": [
+            1.0227659473461241,
+            53.786930047971964,
+            -63.45826270604585
+          ],
+          "centre_world_mm": [
+            1.0227659473461743,
+            49.33072373863491,
+            -62.83198375172545
+          ],
+          "axis": [
+            -1.1151573491790453e-14,
+            0.9902680687415671,
+            -0.1391731009600883
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FL3/Splice/1",
+          "loom": "FL3",
+          "owner_stage": "Motion_RL_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            1.0227659473453643,
+            121.12515872239852,
+            -72.92203357133187
+          ],
+          "end_world_mm": [
+            1.022765947345264,
+            130.03757134107263,
+            -74.17459147997266
+          ],
+          "centre_world_mm": [
+            1.0227659473453141,
+            125.58136503173557,
+            -73.54831252565226
+          ],
+          "axis": [
+            -1.1151573491790453e-14,
+            0.9902680687415671,
+            -0.1391731009600883
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "FrontLeftFixedCarrier",
+      "owner_stage": "Body",
+      "preserved_owner": "FLStationFrame",
+      "root_basis": "Extend current native frame after shared allocation; no old LowPowerStationShoe or duplicate chassis.",
+      "lands": [
+        {
+          "id": "FL1/Hip/Fixed",
+          "loom": "FL1",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            -170.0575664610456,
+            35.5,
+            -8
+          ],
+          "end_world_mm": [
+            -170.0575664610456,
+            35.5,
+            -17
+          ],
+          "centre_world_mm": [
+            -170.0575664610456,
+            35.5,
+            -12.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FL2/Hip/Fixed",
+          "loom": "FL2",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            17.10243353895602,
+            144.9780667186704,
+            30
+          ],
+          "end_world_mm": [
+            17.10243353895602,
+            144.9780667186704,
+            21
+          ],
+          "centre_world_mm": [
+            17.10243353895602,
+            144.9780667186704,
+            25.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FL3/Hip/Fixed",
+          "loom": "FL3",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            -72.89756646104382,
+            104.0,
+            91
+          ],
+          "end_world_mm": [
+            -72.89756646104382,
+            104.0,
+            82
+          ],
+          "centre_world_mm": [
+            -72.89756646104382,
+            104.0,
+            86.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "FrontRightHipExtension",
+      "owner_stage": "Motion_RR_Hip",
+      "preserved_owner": "FrontRightSourceCarrier",
+      "root_world_mm": [
+        -104.08395228157323,
+        -11.875,
+        34.2
+      ],
+      "root_basis": "Join the existing actual case cap; preserve its12-land geometry. New branches require changed material gate.",
+      "lands": [
+        {
+          "id": "FR2/Knee/Fixed",
+          "loom": "FR2",
+          "owner_stage": "Motion_RR_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            -136.534988051134,
+            -153.70570889431346,
+            91.77340988365023
+          ],
+          "end_world_mm": [
+            -145.534988051134,
+            -153.70570889431335,
+            91.77340988365023
+          ],
+          "centre_world_mm": [
+            -141.034988051134,
+            -153.7057088943134,
+            91.77340988365023
+          ],
+          "axis": [
+            -1.0,
+            1.2631870857957336e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FR3/Knee/Fixed",
+          "loom": "FR3",
+          "owner_stage": "Motion_RR_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            -104.39756646105715,
+            -194.0,
+            61.5
+          ],
+          "end_world_mm": [
+            -113.39756646105715,
+            -193.9999999999999,
+            61.5
+          ],
+          "centre_world_mm": [
+            -108.89756646105715,
+            -193.99999999999994,
+            61.5
+          ],
+          "axis": [
+            -1.0,
+            1.2631870857957336e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "FrontRightKneeCarrier",
+      "owner_stage": "Motion_RR_Knee",
+      "root_case_candidates": [
+        "P0_Part__Feature040",
+        "P0_Part__Feature072"
+      ],
+      "root_basis": "Inspect real planar case patches from these same-stage bodies; no invented screw holes, shaft or PCB attachment.",
+      "sleeve_zone": {
+        "loom": "FR3",
+        "centre_world_mm": [
+          -115.129156522539,
+          -87.69771593880179,
+          -66.47056568329992
+        ],
+        "axis": [
+          1.679464648160237e-14,
+          -0.9902680687415724,
+          -0.13917310096005198
+        ],
+        "length_project_mm": 64,
+        "sleeve_count": 3,
+        "sleeve_length_project_mm": 20,
+        "sleeve_OD_manufacturer_mm": null,
+        "sleeve_SKU": null,
+        "actual_material_check_open": true
+      },
+      "lands": [
+        {
+          "id": "FR2/Knee/Moving",
+          "loom": "FR2",
+          "owner_stage": "Motion_RR_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            -132.10045709033477,
+            -139.90144522880644,
+            -6.449029841700643
+          ],
+          "end_world_mm": [
+            -123.10045709033477,
+            -139.90144522880655,
+            -6.449029841700643
+          ],
+          "centre_world_mm": [
+            -127.60045709033477,
+            -139.9014452288065,
+            -6.449029841700643
+          ],
+          "axis": [
+            1.0,
+            -1.2631870857957336e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FR3/Knee/Moving",
+          "loom": "FR3",
+          "owner_stage": "Motion_RR_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            -155.62915652253756,
+            -174.30428072511623,
+            -78.64232458907415
+          ],
+          "end_world_mm": [
+            -146.62915652253756,
+            -174.3042807251163,
+            -78.64232458907415
+          ],
+          "centre_world_mm": [
+            -151.12915652253756,
+            -174.30428072511626,
+            -78.64232458907415
+          ],
+          "axis": [
+            1.0,
+            -9.473903143468002e-15,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FR3/Splice/0",
+          "loom": "FR3",
+          "owner_stage": "Motion_RR_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            -115.12915652253972,
+            -45.11618898291418,
+            -60.48612234201769
+          ],
+          "end_world_mm": [
+            -115.12915652253957,
+            -54.028601601588335,
+            -61.738680250658156
+          ],
+          "centre_world_mm": [
+            -115.12915652253965,
+            -49.57239529225126,
+            -61.11240129633792
+          ],
+          "axis": [
+            1.5789838572446665e-14,
+            -0.9902680687415722,
+            -0.13917310096005206
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FR3/Splice/1",
+          "loom": "FR3",
+          "owner_stage": "Motion_RR_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            -115.12915652253844,
+            -121.36683027601525,
+            -71.2024511159417
+          ],
+          "end_world_mm": [
+            -115.1291565225383,
+            -130.2792428946894,
+            -72.45500902458215
+          ],
+          "centre_world_mm": [
+            -115.12915652253837,
+            -125.82303658535233,
+            -71.82873007026193
+          ],
+          "axis": [
+            1.5789838572446694e-14,
+            -0.9902680687415724,
+            -0.13917310096005073
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "FrontRightFixedCarrier",
+      "owner_stage": "Body",
+      "preserved_owner": "FRStationFrame",
+      "root_basis": "Extend current native frame after shared allocation; no old LowPowerStationShoe or duplicate chassis.",
+      "lands": [
+        {
+          "id": "FR1/Hip/Fixed",
+          "loom": "FR1",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            -170.0575664610506,
+            -35.5,
+            -8
+          ],
+          "end_world_mm": [
+            -170.0575664610506,
+            -35.5,
+            -17
+          ],
+          "centre_world_mm": [
+            -170.0575664610506,
+            -35.5,
+            -12.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FR2/Hip/Fixed",
+          "loom": "FR2",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            17.102433538942947,
+            -144.97806671866348,
+            30
+          ],
+          "end_world_mm": [
+            17.102433538942947,
+            -144.97806671866348,
+            21
+          ],
+          "centre_world_mm": [
+            17.102433538942947,
+            -144.97806671866348,
+            25.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "FR3/Hip/Fixed",
+          "loom": "FR3",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            -72.89756646105715,
+            -104.0,
+            91
+          ],
+          "end_world_mm": [
+            -72.89756646105715,
+            -104.0,
+            82
+          ],
+          "centre_world_mm": [
+            -72.89756646105715,
+            -104.0,
+            86.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "RearLeftHipExtension",
+      "owner_stage": "Motion_FL_Hip",
+      "preserved_owner": "RearLeftSourceCarrier",
+      "root_world_mm": [
+        146.08395228156874,
+        11.875,
+        34.2
+      ],
+      "root_basis": "Join the existing actual case cap; preserve its12-land geometry. New branches require changed material gate.",
+      "lands": [
+        {
+          "id": "RL2/Knee/Fixed",
+          "loom": "RL2",
+          "owner_stage": "Motion_FL_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            178.53498805112426,
+            153.70570889429604,
+            91.77340988365026
+          ],
+          "end_world_mm": [
+            187.53498805112426,
+            153.7057088942959,
+            91.77340988365026
+          ],
+          "centre_world_mm": [
+            183.03498805112426,
+            153.70570889429598,
+            91.77340988365026
+          ],
+          "axis": [
+            1.0,
+            -1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RL3/Knee/Fixed",
+          "loom": "RL3",
+          "owner_stage": "Motion_FL_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            146.39756646104678,
+            194.0,
+            61.5
+          ],
+          "end_world_mm": [
+            155.39756646104678,
+            193.99999999999986,
+            61.5
+          ],
+          "centre_world_mm": [
+            150.89756646104678,
+            193.99999999999994,
+            61.5
+          ],
+          "axis": [
+            1.0,
+            -1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "RearLeftKneeCarrier",
+      "owner_stage": "Motion_FL_Knee",
+      "root_case_candidates": [
+        "P0_Part__Feature064",
+        "P0_Part__Feature096"
+      ],
+      "root_basis": "Inspect real planar case patches from these same-stage bodies; no invented screw holes, shaft or PCB attachment.",
+      "sleeve_zone": {
+        "loom": "RL3",
+        "centre_world_mm": [
+          251.81789886943886,
+          87.45604438517304,
+          -68.19014813869141
+        ],
+        "axis": [
+          -1.5502750598402185e-14,
+          0.9902680687415671,
+          -0.13917310096008995
+        ],
+        "length_project_mm": 64,
+        "sleeve_count": 3,
+        "sleeve_length_project_mm": 20,
+        "sleeve_OD_manufacturer_mm": null,
+        "sleeve_SKU": null,
+        "actual_material_check_open": true
+      },
+      "lands": [
+        {
+          "id": "RL2/Knee/Moving",
+          "loom": "RL2",
+          "owner_stage": "Motion_FL_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            192.03423140057828,
+            139.00685777980183,
+            -12.814350290254888
+          ],
+          "end_world_mm": [
+            183.03423140057828,
+            139.00685777980198,
+            -12.814350290254888
+          ],
+          "centre_world_mm": [
+            187.53423140057828,
+            139.00685777980192,
+            -12.814350290254888
+          ],
+          "axis": [
+            -1.0,
+            1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RL3/Knee/Moving",
+          "loom": "RL3",
+          "owner_stage": "Motion_FL_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            292.31789886943744,
+            174.06260917149504,
+            -80.36190704447012
+          ],
+          "end_world_mm": [
+            283.31789886943744,
+            174.06260917149518,
+            -80.36190704447012
+          ],
+          "centre_world_mm": [
+            287.81789886943744,
+            174.06260917149513,
+            -80.36190704447012
+          ],
+          "axis": [
+            -1.0,
+            1.578983857244667e-14,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RL3/Splice/0",
+          "loom": "RL3",
+          "owner_stage": "Motion_FL_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            251.81789886943952,
+            44.874517429285675,
+            -62.20570479740755
+          ],
+          "end_world_mm": [
+            251.8178988694394,
+            53.78693004795977,
+            -63.45826270604836
+          ],
+          "centre_world_mm": [
+            251.81789886943946,
+            49.33072373862272,
+            -62.831983751727954
+          ],
+          "axis": [
+            -1.2631870857957344e-14,
+            0.9902680687415669,
+            -0.13917310096009008
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RL3/Splice/1",
+          "loom": "RL3",
+          "owner_stage": "Motion_FL_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            251.81789886943832,
+            121.12515872238632,
+            -72.92203357133448
+          ],
+          "end_world_mm": [
+            251.8178988694382,
+            130.0375713410604,
+            -74.17459147997528
+          ],
+          "centre_world_mm": [
+            251.81789886943827,
+            125.58136503172337,
+            -73.54831252565488
+          ],
+          "axis": [
+            -1.2631870857957347e-14,
+            0.990268068741567,
+            -0.13917310096008853
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "RearLeftFixedCarrier",
+      "owner_stage": "Body",
+      "preserved_owner": "RLStationFrame",
+      "root_basis": "Extend current native frame after shared allocation; no old LowPowerStationShoe or duplicate chassis.",
+      "lands": [
+        {
+          "id": "RL1/Hip/Fixed",
+          "loom": "RL1",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            125,
+            35.5,
+            -8
+          ],
+          "end_world_mm": [
+            125,
+            35.5,
+            -17
+          ],
+          "centre_world_mm": [
+            125.0,
+            35.5,
+            -12.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RL2/Hip/Fixed",
+          "loom": "RL2",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            24.89756646104661,
+            144.9780667186459,
+            30
+          ],
+          "end_world_mm": [
+            24.89756646104661,
+            144.9780667186459,
+            21
+          ],
+          "centre_world_mm": [
+            24.89756646104661,
+            144.9780667186459,
+            25.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RL3/Hip/Fixed",
+          "loom": "RL3",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            114.89756646104678,
+            104.0,
+            91
+          ],
+          "end_world_mm": [
+            114.89756646104678,
+            104.0,
+            82
+          ],
+          "centre_world_mm": [
+            114.89756646104678,
+            104.0,
+            86.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "RearRightHipExtension",
+      "owner_stage": "Motion_FR_Hip",
+      "preserved_owner": "RearRightSourceCarrier",
+      "root_world_mm": [
+        146.08395228156377,
+        -11.875,
+        34.2
+      ],
+      "root_basis": "Join the existing actual case cap; preserve its12-land geometry. New branches require changed material gate.",
+      "lands": [
+        {
+          "id": "RR2/Knee/Fixed",
+          "loom": "RR2",
+          "owner_stage": "Motion_FR_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            178.5349880511155,
+            -153.705708894341,
+            91.77340988365036
+          ],
+          "end_world_mm": [
+            187.5349880511155,
+            -153.7057088943411,
+            91.77340988365036
+          ],
+          "centre_world_mm": [
+            183.0349880511155,
+            -153.70570889434106,
+            91.77340988365036
+          ],
+          "axis": [
+            1.0,
+            -9.473903143468002e-15,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RR3/Knee/Fixed",
+          "loom": "RR3",
+          "owner_stage": "Motion_FR_Hip",
+          "purpose": "Hip-owned end of Knee flex",
+          "start_world_mm": [
+            146.39756646103916,
+            -194.0,
+            61.5
+          ],
+          "end_world_mm": [
+            155.39756646103916,
+            -194.00000000000009,
+            61.5
+          ],
+          "centre_world_mm": [
+            150.89756646103916,
+            -194.00000000000006,
+            61.5
+          ],
+          "axis": [
+            1.0,
+            -9.473903143468002e-15,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "RearRightKneeCarrier",
+      "owner_stage": "Motion_FR_Knee",
+      "root_case_candidates": [
+        "P0_Part__Feature048",
+        "P0_Part__Feature080"
+      ],
+      "root_basis": "Inspect real planar case patches from these same-stage bodies; no invented screw holes, shaft or PCB attachment.",
+      "sleeve_zone": {
+        "loom": "RR3",
+        "centre_world_mm": [
+          135.66597639955557,
+          -87.69771593881688,
+          -66.47056568330083
+        ],
+        "axis": [
+          1.5502750598402185e-14,
+          -0.9902680687415736,
+          -0.13917310096004473
+        ],
+        "length_project_mm": 64,
+        "sleeve_count": 3,
+        "sleeve_length_project_mm": 20,
+        "sleeve_OD_manufacturer_mm": null,
+        "sleeve_SKU": null,
+        "actual_material_check_open": true
+      },
+      "lands": [
+        {
+          "id": "RR2/Knee/Moving",
+          "loom": "RR2",
+          "owner_stage": "Motion_FR_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            199.6946758317615,
+            -139.90144522883494,
+            -6.4490298417012895
+          ],
+          "end_world_mm": [
+            190.6946758317615,
+            -139.90144522883486,
+            -6.4490298417012895
+          ],
+          "centre_world_mm": [
+            195.1946758317615,
+            -139.90144522883492,
+            -6.4490298417012895
+          ],
+          "axis": [
+            -1.0,
+            9.473903143468002e-15,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RR3/Knee/Moving",
+          "loom": "RR3",
+          "owner_stage": "Motion_FR_Knee",
+          "purpose": "Knee-owned end of Knee flex",
+          "start_world_mm": [
+            176.1659763995569,
+            -174.30428072511856,
+            -78.6423245890725
+          ],
+          "end_world_mm": [
+            167.1659763995569,
+            -174.30428072511847,
+            -78.6423245890725
+          ],
+          "centre_world_mm": [
+            171.6659763995569,
+            -174.30428072511853,
+            -78.6423245890725
+          ],
+          "axis": [
+            -1.0,
+            9.473903143468002e-15,
+            0.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RR3/Splice/0",
+          "loom": "RR3",
+          "owner_stage": "Motion_FR_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            135.66597639955492,
+            -45.11618898292923,
+            -60.48612234201891
+          ],
+          "end_world_mm": [
+            135.66597639955503,
+            -54.0286016016034,
+            -61.73868025065931
+          ],
+          "centre_world_mm": [
+            135.66597639955498,
+            -49.572395292266314,
+            -61.11240129633911
+          ],
+          "axis": [
+            1.2631870857957326e-14,
+            -0.9902680687415734,
+            -0.1391731009600441
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RR3/Splice/1",
+          "loom": "RR3",
+          "owner_stage": "Motion_FR_Knee",
+          "purpose": "Independent jacket land outside staggered sleeve zone",
+          "start_world_mm": [
+            135.66597639955611,
+            -121.36683027603037,
+            -71.20245111594235
+          ],
+          "end_world_mm": [
+            135.66597639955623,
+            -130.27924289470454,
+            -72.45500902458275
+          ],
+          "centre_world_mm": [
+            135.66597639955617,
+            -125.82303658536745,
+            -71.82873007026255
+          ],
+          "axis": [
+            1.2631870857957326e-14,
+            -0.9902680687415734,
+            -0.1391731009600441
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    },
+    {
+      "id": "RearRightFixedCarrier",
+      "owner_stage": "Body",
+      "preserved_owner": "RRStationFrame",
+      "root_basis": "Extend current native frame after shared allocation; no old LowPowerStationShoe or duplicate chassis.",
+      "lands": [
+        {
+          "id": "RR1/Hip/Fixed",
+          "loom": "RR1",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            125,
+            -35.5,
+            -8
+          ],
+          "end_world_mm": [
+            125,
+            -35.5,
+            -17
+          ],
+          "centre_world_mm": [
+            125.0,
+            -35.5,
+            -12.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RR2/Hip/Fixed",
+          "loom": "RR2",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            24.897566461039276,
+            -144.97806671869068,
+            30
+          ],
+          "end_world_mm": [
+            24.897566461039276,
+            -144.97806671869068,
+            21
+          ],
+          "centre_world_mm": [
+            24.897566461039276,
+            -144.97806671869068,
+            25.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        },
+        {
+          "id": "RR3/Hip/Fixed",
+          "loom": "RR3",
+          "owner_stage": "Body",
+          "purpose": "Fixed end of complete Hip flex",
+          "start_world_mm": [
+            114.89756646103916,
+            -104.0,
+            91
+          ],
+          "end_world_mm": [
+            114.89756646103916,
+            -104.0,
+            82
+          ],
+          "centre_world_mm": [
+            114.89756646103916,
+            -104.0,
+            86.5
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "length_mm": 9,
+          "installed_independent_bands": 1,
+          "band_head_is_project_reservation": true,
+          "native_root_qualified": false
+        }
+      ]
+    }
+  ],
+  "preserved_Hip_moving_lands": 12,
+  "new_lands": 36,
+  "total_joint_and_splice_lands": 48,
+  "selected": false,
+  "native_changed": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "assembly": [
+    "Bench-fit insulation and all unpowered source-owned joins before attaching carrier.",
+    "Attach supports to their actual owner, never across a moving joint. Support wires while fastening.",
+    "Insert complete uncut flex between corresponding two jacket lands, with unchanged R31.5 project reservation.",
+    "Only after full source and body fanout lengths fit, select blanks and stock. No short offcut counted as whole spare."
+  ],
+  "open": [
+    "Exact roots and shared full material, load paths and native geometry",
+    "Actual sleeve SKU/OD/Cu and delivered case/cable fit, no invented pin cavity order",
+    "36 leg core fanouts and other19 body guides, terminations/cut lengths/stock",
+    "Complete current export/assembly and phase1 selection"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-extension-budget-plan.json": "9cdd7b101e78dfb07c0524a9f9a751e4acbf2d0bbe117aec7dc21ab0facd0dcb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/complete-source-carriers-plan.json": "f64990fc6579679d184b43edc4f381e8851f36f9456eb21bfa68c626ac420357",
+    "tools/cad/plan_remaining_loom_roots.py": "12d07dd593ae0d3ee62eb89580051142dbfedf523148fa27dd8c13586412cd43"
+  },
+  "worker_seconds": 0.056
+}
