@@ -1,5 +1,6 @@
 """Append native supports only after one accepted combined material gate."""
 import json,shutil,tempfile,time
+from datetime import datetime,timezone
 from pathlib import Path
 import FreeCAD as A
 import MeshPart
@@ -10,8 +11,14 @@ from open_deck_p0_plate import rect
 import build_remaining_loom_supports as G
 from resume_remaining_support_gate import cached_allocation
 P=B.P
+DEADLINE=None
+
+def check_deadline():
+    if DEADLINE is not None and datetime.now(timezone.utc)>=DEADLINE:
+        raise TimeoutError('Authorized work window ended; preserve partial native document, not accepted')
 
 def add_feature(d,b,row,name,cut=False):
+    check_deadline()
     x,y,z,X,Y,Z=row['bounds_mm'];old=b.Tip
     sk=sketch(b,name+'Plan',Z if cut else z)
     if row.get('placement'):sk.Placement=placement(row['placement'])*sk.Placement
@@ -55,6 +62,7 @@ def run(shared_candidate=False):
         (out/'build-progress.json').write_text(json.dumps(receipt,indent=2)+'\n')
     jobs=[('HipExtension',source,'SourceCarriersCurrent.FCStd'),('FixedCarrier',sf,'StationFramesSupported.FCStd'),('KneeCarrier',None,'KneeLoomCarriers.FCStd')]
     for suffix,src,filename in jobs:
+        check_deadline()
         dest=out/filename;assert not dest.exists(),'Never overwrite an unreceived native output'
         with tempfile.TemporaryDirectory(prefix='robot-cat-remaining-native-') as td:
             if src:
@@ -72,12 +80,23 @@ def run(shared_candidate=False):
                     B.validate(b);q=expected[name]
                     assert b.Shape.cut(q).Volume<1e-4 and q.cut(b.Shape).Volume<1e-4,(name,'Native differs from tested material')
                     volumes[b.Name]=b.Shape.Volume
+                    progress()
                     print('remaining native',name,'volume',b.Shape.Volume,flush=True)
+                check_deadline()
                 par.BackboneDepth=4.2;d.recompute()
                 for b in changed:B.validate(b);assert b.Shape.Volume>volumes[b.Name],b.Name
                 par.BackboneDepth=4;d.recompute()
                 for b in changed:B.validate(b);assert abs(b.Shape.Volume-volumes[b.Name])<1e-4,b.Name
                 d.saveAs(str(dest))
+            except BaseException as exc:
+                partial=out/(filename.removesuffix('.FCStd')+'.partial.FCStd')
+                d.saveAs(str(partial))
+                progress()
+                (out/'build-interruption.json').write_text(json.dumps(dict(
+                    status='INCOMPLETE_NATIVE_NOT_ACCEPTED',error=str(exc),
+                    partial_document=partial.relative_to(P.ROOT).as_posix(),
+                    source_material_sha256=P.SHA(gf),physical_pass=False),indent=2)+'\n')
+                raise
             finally:A.closeDocument(d.Name)
             outputs.append(dict(path=dest.relative_to(P.ROOT).as_posix(),sha256=P.SHA(dest),volumes_mm3=volumes))
             progress()
@@ -86,6 +105,7 @@ def run(shared_candidate=False):
             try:
                 for name,(file,obj) in names.items():
                     if file!=filename:continue
+                    check_deadline()
                     b=d.getObject(obj);B.validate(b);assert abs(b.Shape.Volume-volumes[obj])<1e-4
                     printing=next(r['printing'] for r in gate['groups'] if r['name']==name)
                     q=G.moved(b.Shape,A.Placement(A.Vector(),A.Rotation(*printing['rotation_quaternion'])))
@@ -115,4 +135,7 @@ def run(shared_candidate=False):
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--shared-candidate',action='store_true')
-    run(parser.parse_args().shared_candidate)
+    parser.add_argument('--deadline-utc',help='Hard user window; save unfinished native document rather than mark complete')
+    args=parser.parse_args()
+    if args.deadline_utc:DEADLINE=datetime.fromisoformat(args.deadline_utc.replace('Z','+00:00'))
+    run(args.shared_candidate)
