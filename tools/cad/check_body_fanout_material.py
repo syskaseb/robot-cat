@@ -41,11 +41,11 @@ def mate_names(row):
     return {f'F_{side}{position}_CP2_OUT',f'F_{side}{position}_CP2_Housing'}
 
 
-def run():
+def run(material_loader=None, report_name='body-fanout-material.json'):
     tick=time.monotonic();file=P.OUT/'body-fanout-layout.json'
     plan=json.loads(file.read_text());assert plan['routes']
     for n,h in plan['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
-    targets,old,pins=M.load()
+    targets,old,pins=(material_loader or M.load)()
     scene=json.loads((P.OUT/'body-fanout-scene.json').read_text())
     archive=P.ROOT/scene['scene'];assert P.SHA(archive)==scene['sha256']
     with np.load(archive,allow_pickle=False) as mesh:
@@ -87,7 +87,7 @@ def run():
                 Path(__file__).relative_to(P.ROOT).as_posix():P.SHA(Path(__file__))},
             computed_pairs=cache.computed,reused_pairs=cache.reused,worker_seconds=round(time.monotonic()-tick,3),
             selected=False,W5_complete=False,physical_pass=False,continuous_motion_sweep=False)
-        dest=P.OUT/'body-fanout-material.json';tmp=dest.with_suffix('.tmp')
+        dest=P.OUT/report_name;tmp=dest.with_suffix('.tmp')
         tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(dest);cache.save()
         return result
     names=list(curves)
