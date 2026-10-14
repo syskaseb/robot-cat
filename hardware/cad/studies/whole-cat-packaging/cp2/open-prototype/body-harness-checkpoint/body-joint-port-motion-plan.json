@@ -1,0 +1,104 @@
+{
+  "status": "VERTICAL_TWO_ARC_FLEX_HAS_NO_ROBUST_LENGTH_CHANGE_WHOLE_ENTRY_DIRECTION",
+  "root_selection": [
+    {
+      "loom": "FL1",
+      "root_Z_mm": -36,
+      "source_direction": [
+        1,
+        0,
+        0
+      ],
+      "allowed_root_Z_mm": [
+        -70.0,
+        -34.13383495271796
+      ],
+      "basis": "Nearest previous nominal root within whole-material reserved domain",
+      "project_interval_edge_reserve_mm": 1
+    },
+    {
+      "loom": "FR1",
+      "root_Z_mm": -25,
+      "source_direction": [
+        1,
+        0,
+        0
+      ],
+      "allowed_root_Z_mm": [
+        -70.0,
+        -23.881825514833338
+      ],
+      "basis": "Nearest previous nominal root within whole-material reserved domain",
+      "project_interval_edge_reserve_mm": 1
+    },
+    {
+      "loom": "RL1",
+      "root_Z_mm": -20,
+      "source_direction": [
+        -1,
+        0,
+        0
+      ],
+      "allowed_root_Z_mm": [
+        -70.0,
+        -17.711661230572286
+      ],
+      "basis": "Nearest previous nominal root within whole-material reserved domain",
+      "project_interval_edge_reserve_mm": 1
+    },
+    {
+      "loom": "RR1",
+      "root_Z_mm": -33,
+      "source_direction": [
+        -1,
+        0,
+        0
+      ],
+      "allowed_root_Z_mm": [
+        -34.79045740911448,
+        -17.711661230572496
+      ],
+      "basis": "RR1 lower robust domain: old flex intersects knee carrier",
+      "project_interval_edge_reserve_mm": 1
+    }
+  ],
+  "common_intervals_mm": [],
+  "per_loom_intervals_mm": {
+    "FL1": [
+      [
+        156.98765005973098,
+        158.3109044193433
+      ]
+    ],
+    "FR1": [
+      [
+        152.28833070237724,
+        156.4263227685882
+      ]
+    ],
+    "RL1": [
+      [
+        148.34618529730363,
+        161.4263227685812
+      ]
+    ],
+    "RR1": [
+      [
+        155.43404648959495,
+        161.3109044193424
+      ]
+    ]
+  },
+  "failed_loom": "FL1",
+  "requested_length_allowance_mm": 5,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-fixed-port-vertical-space.json": "82a1f6abf053430418e8fa193e0f0b0954ad55b18d6490bb745c9afa511e4490",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-low-hip-rail-exit-plan.json": "d3dce099249afc0056b32039d2877686a63869a5a835e267d83810d7f15721af",
+    "tools/cad/plan_joint_port_motion_space.py": "29c259f16aab145201c29ac263ac886a448f4ed73ee75451b69599c857e0f4ac",
+    "tools/cad/planar_round_flex.py": "6c7d7db300e55cf0671219869c00a5bb22b3e43d81f15e3259a0b5e26ad294d7"
+  },
+  "worker_seconds": 0.36,
+  "selected": false,
+  "physical_pass": false,
+  "decision": "Do not select a precision-only midpoint or weaken5mm allowance to green. Vertical fixed-entry CSC class is overconstrained; plan whole oblique fixed-entry family and full source-port/corefan geometry together."
+}
