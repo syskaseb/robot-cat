@@ -5,6 +5,8 @@ from check_rail_hip_shared_space import P,fan
 from prepare_rail_hip_retention import overlay
 from plan_low_hip_rail_exit import ends
 from planar_round_flex import domain,build
+from current_body_fanout_material import B
+import math
 
 
 class RailHipScopeTests(unittest.TestCase):
@@ -46,6 +48,20 @@ class RailHipScopeTests(unittest.TestCase):
                 ids={r['land']['id'] for r in changed}
                 self.assertEqual([r for r in group[key] if r.get('land_id',r.get('id')) not in ids],
                                  [r for r in old[key] if r.get('land_id',r.get('id')) not in ids])
+
+    def test_factory_join_unchanged_and_only_5mm_budget_change(self):
+        family=json.loads((P.OUT/'leg-source-near-member-plan.json').read_text())
+        axes=json.loads((P.ROOT/'hardware/simulation/p0/e6-leg-compatibility.json').read_text())['axes']
+        for row in self.plan['hips']:
+            original=next(r for r in family['routes'] if r['loom']==row['loom'])
+            self.assertAlmostEqual(row['guide_mm']-(row['previous_flex_length_mm']+18),5)
+            for pose in row['poses']:
+                factory=B.moved_parts(original['source_parts'],original['source'],pose['angle'],0,axes)
+                self.assertLess(math.dist(pose['parts'][-1]['end'],factory[0]['start']),1e-6)
+                edges=[P.wire([p]).Edges[0] for p in pose['parts']]
+                for left,right in zip(edges,edges[1:]):
+                    u=left.tangentAt(left.LastParameter);v=right.tangentAt(right.FirstParameter)
+                    self.assertGreater(u.dot(v),1-1e-7)
 
 
 if __name__=='__main__':unittest.main()
