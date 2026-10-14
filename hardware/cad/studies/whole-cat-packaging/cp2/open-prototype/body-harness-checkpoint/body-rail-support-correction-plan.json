@@ -1,5 +1,5 @@
 {
-  "status": "REJECTED_RAIL_FIVE_OWNER_CORRECTION_PREFLIGHT",
+  "status": "RAIL_FIVE_OWNER_CORRECTION_PREFLIGHT_CLEAR_FULL_SPACE_OPEN",
   "changed_support_owners": [
     "FrontLeftFixedCarrier",
     "FrontRightFixedCarrier",
@@ -204,14 +204,14 @@
       "owner": "RearRightKneeCarrier",
       "land_id": "RR3/Splice/0",
       "normal": [
-        1.7752936742298588e-15,
-        -0.13917310096004412,
-        0.9902680687415734
+        -1.7752936742298588e-15,
+        0.13917310096004412,
+        -0.9902680687415734
       ],
       "arrival": [
         135.66597639955484,
-        -39.01935110749849,
-        -53.570302222849165
+        -37.34927389597796,
+        -65.45351904774805
       ],
       "points": [
         [
@@ -220,19 +220,19 @@
           -22.564099924140365
         ],
         [
-          172.905957026885,
+          135.66597639955484,
           -81.2633292058623,
-          -53.570302222849165
-        ],
-        [
-          172.905957026885,
-          -39.01935110749849,
-          -53.570302222849165
+          -22.564099924140365
         ],
         [
           135.66597639955484,
-          -39.01935110749849,
-          -53.570302222849165
+          -81.2633292058623,
+          -65.45351904774805
+        ],
+        [
+          135.66597639955484,
+          -37.34927389597796,
+          -65.45351904774805
         ]
       ]
     },
@@ -257,13 +257,13 @@
         ],
         [
           172.905957026885,
-          -81.2633292058623,
-          -55.093199708529966
+          -128.1750619915922,
+          -22.564099924140365
         ],
         [
-          172.905957026885,
+          135.6659763995562,
           -128.1750619915922,
-          -55.093199708529966
+          -22.564099924140365
         ],
         [
           135.6659763995562,
@@ -273,35 +273,125 @@
       ]
     }
   ],
-  "contacts": [
-    {
-      "target": "RR3/Splice/0/Body",
-      "hip": -15,
-      "knee": 15,
-      "gap_mm": 3.1979644656613004
+  "joint_knee_allocation": {
+    "profile_rejections": [
+      {
+        "land_id": "RR3/Splice/0",
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "profile_gap_mm": 0.004754959131285119
+      },
+      {
+        "land_id": "RR3/Splice/0",
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "profile_gap_mm": 2.665976399554822
+      },
+      {
+        "land_id": "RR3/Splice/0",
+        "normal": [
+          1.7752936742298588e-15,
+          -0.13917310096004412,
+          0.9902680687415734
+        ],
+        "profile_gap_mm": 1.5932863860256985
+      },
+      {
+        "land_id": "RR3/Splice/1",
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "profile_gap_mm": 3.124978187495276
+      }
+    ],
+    "feasible_arm_domains": {
+      "RR3/Splice/0": 2,
+      "RR3/Splice/1": 7
     },
-    {
-      "target": "RR3/Splice/0/Band",
-      "hip": -15,
-      "knee": 15,
-      "gap_mm": 1.5932863860256816
-    },
-    {
-      "target": "RR3/Splice/0/Arm2",
-      "hip": 0,
-      "knee": 15,
-      "gap_mm": 0.144807713159003
-    }
-  ],
+    "joint_choices": 14,
+    "selected": [
+      {
+        "land_id": "RR3/Splice/0",
+        "normal": [
+          -1.7752936742298588e-15,
+          0.13917310096004412,
+          -0.9902680687415734
+        ],
+        "points": [
+          [
+            172.905957026885,
+            -81.2633292058623,
+            -22.564099924140365
+          ],
+          [
+            135.66597639955484,
+            -81.2633292058623,
+            -22.564099924140365
+          ],
+          [
+            135.66597639955484,
+            -81.2633292058623,
+            -65.45351904774805
+          ],
+          [
+            135.66597639955484,
+            -37.34927389597796,
+            -65.45351904774805
+          ]
+        ],
+        "minimum_RR_gap_mm": 6.5913531733979065
+      },
+      {
+        "land_id": "RR3/Splice/1",
+        "normal": [
+          1.7752936742298588e-15,
+          -0.13917310096004412,
+          0.9902680687415734
+        ],
+        "points": [
+          [
+            172.905957026885,
+            -81.2633292058623,
+            -22.564099924140365
+          ],
+          [
+            172.905957026885,
+            -128.1750619915922,
+            -22.564099924140365
+          ],
+          [
+            135.6659763995562,
+            -128.1750619915922,
+            -22.564099924140365
+          ],
+          [
+            135.6659763995562,
+            -128.1750619915922,
+            -55.093199708529966
+          ]
+        ],
+        "minimum_RR_gap_mm": 3.726477588424743
+      }
+    ]
+  },
+  "contacts": [],
   "checks": 90,
-  "worker_seconds": 2.547,
+  "worker_seconds": 7.078,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-paths.json": "688c42c79e005516414a58a0ad55904baec6e5ab55b985bea5d8b590dda8fc20",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-retention-entry.json": "81ea08b76dadcf14bb7aa50155eefd704371120765267e20cfb9a909d65e1409",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-roots-plan.json": "c0971a3621e00aba08be9441d35eab8eed90d17137fce0b439c6aafce4123bd6",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-low-hip-rail-exit-plan.json": "d3dce099249afc0056b32039d2877686a63869a5a835e267d83810d7f15721af",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
-    "tools/cad/plan_rail_support_correction.py": "340051212c0f3f4178ac24fd0424057cc31b2c0641fb9d29ca0e743548e14756",
+    "tools/cad/plan_rail_support_correction.py": "ca314164a4de59e12b8b22a712046072caa577858681638baf11feb45b0435b6",
     "tools/cad/prepare_rail_hip_retention.py": "6e9aacc140c6f6afb40a35dcdb98bf391a404c92103fa2029eec9b828ed51eb9"
   },
   "selected": false,
