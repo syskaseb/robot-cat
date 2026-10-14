@@ -1,5 +1,13 @@
 # Wnioski z projektowania 3D robot-cat
 
+15.10: etykieta `Band` nie dowodzi kontaktu główki opaski. Najpierw
+rozdzielić pętlę/główkę i wskazać rzeczywistą parę; w CP2 kontakt był
+w pętli, więc zmiana strony zamknięcia nie mogła pomóc. Limit pozycji
+wyznaczony z jednego wyjścia/promienia nie kwalifikuje pełnego chwytu:
+uwzględnić także jego kolumnę, ramię i wszystkie ruchome sąsiednie bryły
+przed kolejnym wyborem położenia. Lokalny RR-only ekran nie może być
+bramką do budowy ramion przecinających zachowane serwo lub własny kabel.
+
 Aktualizacja: 06.10.2026. Krótka pamięć projektowa, nie dziennik wykonanych prób.
 Czytać przed zmianą układu robota, planowaniem dłuższego etapu lub po dwóch
 nieudanych próbach tego samego interfejsu. Dopisywać tylko nowe wnioski,
@@ -26,6 +34,17 @@ które zmieniają sposób pracy. Bieżący stan pozostaje w HOBBY_COMPLETION_PLA
    właściwe pary. Nie naprawiać wydajności przez pomijanie trudnych par.
 
 ## Co się nie sprawdziło
+
+- **Osobne trasy nowych wsporników, choć każda omija stare części.**
+  13.10 wspólny test12podpór wykrył3skrzyżowania ich ramion w ruchu.
+  Włączenie pełnych nowych podpór do przestrzeni planowania pozwoliło
+  zmienić tylko2gałęzie stałe, zachować34drogi i końce;50sprawdzeń
+  rzeczywistych nowych interfejsów bez kontaktów. To nadal nie test
+  całej wiązki. Najpierw wspólne zajętości ruchu, potem konkretne ramiona.
+  Mierz koszt kontroli: dla kryterium objętości twardych części wystarcza
+  dokładne przecięcie; odległość zachowaj tam, gdzie wymaga jej luz kabla.
+  OperacjeOCC wykonuj na kopiach, jeśli zmieniają serializowane flagi
+  wejść. Zapisuj bryły i wyniki par, również negatywne, przed wznowieniem.
 
 - **Dopisanie wygody serwisowej do kryterium prototypu.** Plan CP2 przewiduje
   montaż płytek na stole i głębszą naprawę przez odwrócenie etapów montażu.
@@ -113,6 +132,13 @@ polerowania projektu ani podstawą do deklarowania fizycznego PASS.
 
 To lokalne wnioski z tego projektu, nie uniwersalny regulamin CAD. Aktualizować
 je po nowym sprawdzonym doświadczeniu, nie dopisywać historii każdego testu.
+
+Przed długą kontrolą sprawdzić zawartość przypiętej sceny: aktualny archiwalny
+korpus CP2 nie zawiera52 osobno ładowanych części głowy. Brak kontaktów z
+korpusem nie kwalifikuje brakującego interfejsu. Niezmienione dokładne pary
+można ponownie wykorzystać tylko po kluczu pełnych brył w world-placement,
+promieni i wersji algorytmu. Zachować również ujemne wyniki; zmiana etykiety
+ani skryptu otaczającego nie może zamienić kolizji w prześwit.
 
 Przed rezerwacją przestrzeni przypisać każdą kupną część do obwodu i odróżnić
 ilość zamontowaną od zapasu. R53 ma5 zamontowanych221-412 +1 zapas; cztery
