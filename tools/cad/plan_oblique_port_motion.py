@@ -19,10 +19,24 @@ def ends(row,angle):
     end=sub(moving,mul(exit,9));return start,end,exit,moving
 
 
-def run():
+def run(space_name=None,output_name='body-oblique-port-motion-plan.json'):
     tick=time.monotonic();pf=OUT/'body-low-hip-rail-exit-plan.json';prior=json.loads(pf.read_text())
     df=OUT/'body-joint-port-motion-plan.json';vertical=json.loads(df.read_text())
-    rows=copy.deepcopy(prior['hips']);roots={r['loom']:r['root_Z_mm'] for r in vertical['root_selection']}
+    rows=copy.deepcopy(prior['hips']);roots={r['loom']:r['root_Z_mm'] for r in vertical['root_selection']};selection=[]
+    if space_name:
+        sf=OUT/space_name;space=json.loads(sf.read_text());assert len(space['domains'])==16
+        for n,h in space['source_sha256'].items():assert SHA(ROOT/n)==h,n
+        for row in rows:
+            loom=row['loom'];direction=[1,0,0] if row['physical_leg'].startswith('Front') else [-1,0,0]
+            region=next(r for r in space['domains'] if r['loom']==loom and r['direction']==direction);options=[]
+            for lo,hi in region['allowed_root_Z_mm']:
+                low,high=math.ceil(lo+1),math.floor(hi-1)
+                if low>high:continue
+                z=max(low,min(high,roots[loom]));options.append((abs(z-roots[loom]),z,[lo,hi]))
+            assert options,(loom,'No whole-port reservation interval with1mm reserve')
+            _,z,interval=min(options);roots[loom]=z
+            row['source_fan_direction']=direction
+            selection.append(dict(loom=loom,root_Z_mm=z,source_direction=direction,allowed_root_Z_mm=interval,interval_edge_reserve_mm=1))
     domains={};per={};common=[[0,850.]]
     for row in rows:
         loom=row['loom'];side=1 if row['fixed_anchor_world_mm'][1]>0 else -1;angle=-side*30
@@ -54,15 +68,19 @@ def run():
             assert self_screen(parts) is None,(loom,h)
             row['poses'].append(dict(angle=h,parts=parts,bridge_beta_degrees=r['beta_degrees']))
         row['fixed_lands']=[dict(id=loom+'/Hip/Fixed',parts=[row['poses'][15]['parts'][0]],owner='Body')]
-    result=dict(status='OBLIQUE_FIXED_ENTRY_MATH_PLANNED_FULL_PORT_SOURCE_SPACE_INVALIDATED_OPEN',hips=rows,
+    result=dict(status='OBLIQUE_FIXED_ENTRY_MATH_AND_PORT_RESERVATIONS_PLANNED_ACTUAL_SOURCE_GATE_OPEN' if space_name else 'OBLIQUE_FIXED_ENTRY_MATH_PLANNED_FULL_PORT_SOURCE_SPACE_INVALIDATED_OPEN',hips=rows,root_selection=selection,
         common_flex_mm=shared,flex_by_loom_mm=lengths,feasible_intervals_by_loom_mm=per,
         fixed_land_count=4,additional_fixed_bands=0,project_length_allowance_mm=5,
         invalidates=['All4fixedport orientations and theircorepacking/fan reservations; previousvertical rootdomains NOTqualification',
                      'Fournewfactoryflexes/material/ground andterminalarms; other8families/11bodyroutes retained'],
-        source_sha256={f.relative_to(ROOT).as_posix():SHA(f) for f in (pf,df,Path(__file__),Path(__file__).with_name('planar_csc_flex.py'))},
+        source_sha256={f.relative_to(ROOT).as_posix():SHA(f) for f in (pf,df,Path(__file__),Path(__file__).with_name('planar_csc_flex.py'),*([sf] if space_name else []))},
         worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False)
-    (OUT/'body-oblique-port-motion-plan.json').write_text(json.dumps(result,indent=2)+'\n')
+    assert Path(output_name).name==output_name
+    (OUT/output_name).write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(dict(status=result['status'],lengths=lengths,worker_seconds=result['worker_seconds'])),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--space');parser.add_argument('--output',default='body-oblique-port-motion-plan.json')
+    args=parser.parse_args();run(args.space,args.output)

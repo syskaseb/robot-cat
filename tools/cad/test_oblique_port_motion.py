@@ -1,4 +1,5 @@
 import json
+import os
 import unittest
 import FreeCAD as A
 from plan_body_fanout_layout import OUT
@@ -8,6 +9,7 @@ from plan_low_hip_rail_exit import ends as vertical_ends
 from oblique_source_fans import fan
 import current_body_fanout_material as M
 P=M.P
+PLAN_NAME=os.environ.get('ROBOT_CAT_TEST_MOTION_PLAN','body-oblique-port-motion-plan.json')
 
 
 class ObliqueMotionTests(unittest.TestCase):
@@ -24,7 +26,7 @@ class ObliqueMotionTests(unittest.TestCase):
                         self.assertAlmostEqual(old['maximum_mm'],new['maximum_mm'],places=6)
 
     def test_all124_actual_endpoints_tangencies_and_nominal_length(self):
-        plan=json.loads((OUT/'body-oblique-port-motion-plan.json').read_text())
+        plan=json.loads((OUT/PLAN_NAME).read_text())
         family=json.loads((OUT/'leg-source-near-member-plan.json').read_text())
         axes=json.loads((P.ROOT/'hardware/simulation/p0/e6-leg-compatibility.json').read_text())['axes']
         count=0
@@ -42,7 +44,7 @@ class ObliqueMotionTests(unittest.TestCase):
         self.assertEqual(count,124)
 
     def test_rigid_breakout_rotation_preserves_core_separation(self):
-        plan=json.loads((OUT/'body-oblique-port-motion-plan.json').read_text())
+        plan=json.loads((OUT/PLAN_NAME).read_text())
         for row in plan['hips']:
             for direction in ([1,0,0],[-1,0,0],[0,1,0],[0,-1,0]):
                 cores=fan(row,direction);wires=[P.wire(r['parts']) for r in cores]

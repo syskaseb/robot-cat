@@ -1,0 +1,751 @@
+{
+  "status": "FOUR_OBLIQUE_PORTS_PREPARED_SOURCE_MATERIAL_ARMS_OPEN",
+  "retained": [
+    {
+      "owner": "FrontLeftFixedCarrier",
+      "preserved_owner": "FLStationFrame",
+      "retained_volume_mm3": 12269.73916167257,
+      "outside_previous_mm3": 0.0,
+      "removed_only": "FL1/Hip/Fixed owned arm/port recipe",
+      "root_world_mm": [
+        37.27659574468085,
+        79.0,
+        -5.042553191489362
+      ]
+    },
+    {
+      "owner": "FrontRightFixedCarrier",
+      "preserved_owner": "FRStationFrame",
+      "retained_volume_mm3": 14254.812160371355,
+      "outside_previous_mm3": 0.0,
+      "removed_only": "FR1/Hip/Fixed owned arm/port recipe",
+      "root_world_mm": [
+        -20.0,
+        -90.5,
+        56.25
+      ]
+    },
+    {
+      "owner": "RearLeftFixedCarrier",
+      "preserved_owner": "RLStationFrame",
+      "retained_volume_mm3": 13710.67238151294,
+      "outside_previous_mm3": 0.0,
+      "removed_only": "RL1/Hip/Fixed owned arm/port recipe",
+      "root_world_mm": [
+        105.0,
+        92.5,
+        56.25
+      ]
+    },
+    {
+      "owner": "RearRightFixedCarrier",
+      "preserved_owner": "RRStationFrame",
+      "retained_volume_mm3": 14075.361227156358,
+      "outside_previous_mm3": 0.0,
+      "removed_only": "RR1/Hip/Fixed owned arm/port recipe",
+      "root_world_mm": [
+        105.0,
+        -92.5,
+        56.25
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "owner": "FrontLeftFixedCarrier",
+      "land": {
+        "id": "FL1/Hip/Fixed",
+        "loom": "FL1",
+        "owner_stage": "Body",
+        "start_world_mm": [
+          -170.0575664610456,
+          35.5,
+          -37
+        ],
+        "end_world_mm": [
+          -170.0575664610456,
+          31.0,
+          -44.79422863405995
+        ],
+        "centre_world_mm": [
+          -170.0575664610456,
+          33.25,
+          -40.897114317029974
+        ],
+        "axis": [
+          0.0,
+          -0.49999999999999994,
+          -0.8660254037844387
+        ],
+        "length_mm": 9
+      },
+      "arrival_normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "arrival_world_mm": [
+        -153.1575664610456,
+        34.0,
+        -39.598076211353316
+      ],
+      "recipe": {
+        "pads": [
+          {
+            "name": "NineMmLand",
+            "bounds_mm": [
+              4,
+              -3,
+              -4.5,
+              8,
+              3,
+              4.5
+            ]
+          },
+          {
+            "name": "BelowBandSlab",
+            "bounds_mm": [
+              4,
+              -6.2,
+              -9.0,
+              16,
+              6.2,
+              -5.0
+            ]
+          },
+          {
+            "name": "ArrivalColumn",
+            "bounds_mm": [
+              14.9,
+              -3,
+              -9.0,
+              18.9,
+              3,
+              0.5
+            ]
+          },
+          {
+            "name": "SideColumnPositive",
+            "bounds_mm": [
+              4,
+              4.9,
+              -9.0,
+              8,
+              8.9,
+              0.5
+            ]
+          },
+          {
+            "name": "SideColumnNegative",
+            "bounds_mm": [
+              4,
+              -8.9,
+              -9.0,
+              8,
+              -4.9,
+              0.5
+            ]
+          },
+          {
+            "name": "SeatToLowerBridge",
+            "bounds_mm": [
+              4,
+              -3,
+              -5.1,
+              8,
+              3,
+              -3.5
+            ]
+          }
+        ],
+        "cuts": [
+          [
+            7,
+            -3.1,
+            -2.9,
+            8.3,
+            3.1,
+            -0.10000000000000009
+          ],
+          [
+            8,
+            -3.2,
+            -4.2,
+            14.4,
+            3.2,
+            1.2000000000000002
+          ]
+        ],
+        "ring_cut": {
+          "outer": [
+            -4.4,
+            -4.4,
+            -2.95,
+            8.4,
+            4.4,
+            -0.050000000000000044
+          ],
+          "inner": [
+            -2.8,
+            -2.8,
+            -3.1,
+            6.8,
+            2.8,
+            0.10000000000000009
+          ]
+        },
+        "local_to_world": [
+          1.0,
+          0.0,
+          0.0,
+          -170.0575664610456,
+          0.0,
+          -0.8660254037844387,
+          -0.49999999999999994,
+          33.25,
+          0.0,
+          0.49999999999999994,
+          -0.8660254037844387,
+          -40.897114317029974,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "reverse_axis_for_outer_splice_bridge": false,
+        "band_axial_offset_mm": -1.5,
+        "jacket_land_mm": 9,
+        "band2_5mm_head6x6x5_provisional": true
+      },
+      "body": "FL1ObliqueSeat",
+      "band": "FL1ObliqueBand",
+      "root_world_mm": [
+        37.27659574468085,
+        79.0,
+        -5.042553191489362
+      ]
+    },
+    {
+      "owner": "FrontRightFixedCarrier",
+      "land": {
+        "id": "FR1/Hip/Fixed",
+        "loom": "FR1",
+        "owner_stage": "Body",
+        "start_world_mm": [
+          -170.0575664610506,
+          -35.5,
+          -27
+        ],
+        "end_world_mm": [
+          -170.0575664610506,
+          -31.0,
+          -34.79422863405995
+        ],
+        "centre_world_mm": [
+          -170.0575664610506,
+          -33.25,
+          -30.897114317029974
+        ],
+        "axis": [
+          0.0,
+          0.49999999999999994,
+          -0.8660254037844387
+        ],
+        "length_mm": 9
+      },
+      "arrival_normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "arrival_world_mm": [
+        -153.1575664610506,
+        -34.0,
+        -29.598076211353316
+      ],
+      "recipe": {
+        "pads": [
+          {
+            "name": "NineMmLand",
+            "bounds_mm": [
+              4,
+              -3,
+              -4.5,
+              8,
+              3,
+              4.5
+            ]
+          },
+          {
+            "name": "BelowBandSlab",
+            "bounds_mm": [
+              4,
+              -6.2,
+              -9.0,
+              16,
+              6.2,
+              -5.0
+            ]
+          },
+          {
+            "name": "ArrivalColumn",
+            "bounds_mm": [
+              14.9,
+              -3,
+              -9.0,
+              18.9,
+              3,
+              0.5
+            ]
+          },
+          {
+            "name": "SideColumnPositive",
+            "bounds_mm": [
+              4,
+              4.9,
+              -9.0,
+              8,
+              8.9,
+              0.5
+            ]
+          },
+          {
+            "name": "SideColumnNegative",
+            "bounds_mm": [
+              4,
+              -8.9,
+              -9.0,
+              8,
+              -4.9,
+              0.5
+            ]
+          },
+          {
+            "name": "SeatToLowerBridge",
+            "bounds_mm": [
+              4,
+              -3,
+              -5.1,
+              8,
+              3,
+              -3.5
+            ]
+          }
+        ],
+        "cuts": [
+          [
+            7,
+            -3.1,
+            -2.9,
+            8.3,
+            3.1,
+            -0.10000000000000009
+          ],
+          [
+            8,
+            -3.2,
+            -4.2,
+            14.4,
+            3.2,
+            1.2000000000000002
+          ]
+        ],
+        "ring_cut": {
+          "outer": [
+            -4.4,
+            -4.4,
+            -2.95,
+            8.4,
+            4.4,
+            -0.050000000000000044
+          ],
+          "inner": [
+            -2.8,
+            -2.8,
+            -3.1,
+            6.8,
+            2.8,
+            0.10000000000000009
+          ]
+        },
+        "local_to_world": [
+          1.0,
+          0.0,
+          0.0,
+          -170.0575664610506,
+          0.0,
+          -0.8660254037844387,
+          0.49999999999999994,
+          -33.25,
+          0.0,
+          -0.49999999999999994,
+          -0.8660254037844387,
+          -30.897114317029974,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "reverse_axis_for_outer_splice_bridge": false,
+        "band_axial_offset_mm": -1.5,
+        "jacket_land_mm": 9,
+        "band2_5mm_head6x6x5_provisional": true
+      },
+      "body": "FR1ObliqueSeat",
+      "band": "FR1ObliqueBand",
+      "root_world_mm": [
+        -20.0,
+        -90.5,
+        56.25
+      ]
+    },
+    {
+      "owner": "RearLeftFixedCarrier",
+      "land": {
+        "id": "RL1/Hip/Fixed",
+        "loom": "RL1",
+        "owner_stage": "Body",
+        "start_world_mm": [
+          125,
+          35.5,
+          -20
+        ],
+        "end_world_mm": [
+          125.0,
+          31.0,
+          -27.794228634059948
+        ],
+        "centre_world_mm": [
+          125.0,
+          33.25,
+          -23.897114317029974
+        ],
+        "axis": [
+          0.0,
+          -0.49999999999999994,
+          -0.8660254037844387
+        ],
+        "length_mm": 9
+      },
+      "arrival_normal": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "arrival_world_mm": [
+        108.1,
+        33.25,
+        -23.897114317029974
+      ],
+      "recipe": {
+        "pads": [
+          {
+            "name": "NineMmLand",
+            "bounds_mm": [
+              4,
+              -3,
+              -4.5,
+              8,
+              3,
+              4.5
+            ]
+          },
+          {
+            "name": "BelowBandSlab",
+            "bounds_mm": [
+              4,
+              -6.2,
+              -7.5,
+              16,
+              6.2,
+              -3.5
+            ]
+          },
+          {
+            "name": "ArrivalColumn",
+            "bounds_mm": [
+              14.9,
+              -3,
+              -7.5,
+              18.9,
+              3,
+              2
+            ]
+          },
+          {
+            "name": "SideColumnPositive",
+            "bounds_mm": [
+              4,
+              4.9,
+              -7.5,
+              8,
+              8.9,
+              2
+            ]
+          },
+          {
+            "name": "SideColumnNegative",
+            "bounds_mm": [
+              4,
+              -8.9,
+              -7.5,
+              8,
+              -4.9,
+              2
+            ]
+          }
+        ],
+        "cuts": [
+          [
+            7,
+            -3.1,
+            -1.4,
+            8.3,
+            3.1,
+            1.4
+          ],
+          [
+            8,
+            -3.2,
+            -2.7,
+            14.4,
+            3.2,
+            2.7
+          ]
+        ],
+        "ring_cut": {
+          "outer": [
+            -4.4,
+            -4.4,
+            -1.45,
+            8.4,
+            4.4,
+            1.45
+          ],
+          "inner": [
+            -2.8,
+            -2.8,
+            -1.6,
+            6.8,
+            2.8,
+            1.6
+          ]
+        },
+        "local_to_world": [
+          -1.0,
+          0.0,
+          0.0,
+          125.0,
+          0.0,
+          0.8660254037844387,
+          -0.49999999999999994,
+          33.25,
+          0.0,
+          -0.49999999999999994,
+          -0.8660254037844387,
+          -23.897114317029974,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "reverse_axis_for_outer_splice_bridge": false,
+        "band_axial_offset_mm": 0,
+        "jacket_land_mm": 9,
+        "band2_5mm_head6x6x5_provisional": true
+      },
+      "body": "RL1ObliqueSeat",
+      "band": "RL1ObliqueBand",
+      "root_world_mm": [
+        105.0,
+        92.5,
+        56.25
+      ]
+    },
+    {
+      "owner": "RearRightFixedCarrier",
+      "land": {
+        "id": "RR1/Hip/Fixed",
+        "loom": "RR1",
+        "owner_stage": "Body",
+        "start_world_mm": [
+          125,
+          -35.5,
+          -32
+        ],
+        "end_world_mm": [
+          125.0,
+          -31.0,
+          -39.79422863405995
+        ],
+        "centre_world_mm": [
+          125.0,
+          -33.25,
+          -35.897114317029974
+        ],
+        "axis": [
+          0.0,
+          0.49999999999999994,
+          -0.8660254037844387
+        ],
+        "length_mm": 9
+      },
+      "arrival_normal": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "arrival_world_mm": [
+        108.1,
+        -33.25,
+        -35.897114317029974
+      ],
+      "recipe": {
+        "pads": [
+          {
+            "name": "NineMmLand",
+            "bounds_mm": [
+              4,
+              -3,
+              -4.5,
+              8,
+              3,
+              4.5
+            ]
+          },
+          {
+            "name": "BelowBandSlab",
+            "bounds_mm": [
+              4,
+              -6.2,
+              -7.5,
+              16,
+              6.2,
+              -3.5
+            ]
+          },
+          {
+            "name": "ArrivalColumn",
+            "bounds_mm": [
+              14.9,
+              -3,
+              -7.5,
+              18.9,
+              3,
+              2
+            ]
+          },
+          {
+            "name": "SideColumnPositive",
+            "bounds_mm": [
+              4,
+              4.9,
+              -7.5,
+              8,
+              8.9,
+              2
+            ]
+          },
+          {
+            "name": "SideColumnNegative",
+            "bounds_mm": [
+              4,
+              -8.9,
+              -7.5,
+              8,
+              -4.9,
+              2
+            ]
+          }
+        ],
+        "cuts": [
+          [
+            7,
+            -3.1,
+            -1.4,
+            8.3,
+            3.1,
+            1.4
+          ],
+          [
+            8,
+            -3.2,
+            -2.7,
+            14.4,
+            3.2,
+            2.7
+          ]
+        ],
+        "ring_cut": {
+          "outer": [
+            -4.4,
+            -4.4,
+            -1.45,
+            8.4,
+            4.4,
+            1.45
+          ],
+          "inner": [
+            -2.8,
+            -2.8,
+            -1.6,
+            6.8,
+            2.8,
+            1.6
+          ]
+        },
+        "local_to_world": [
+          -1.0,
+          0.0,
+          0.0,
+          125.0,
+          -0.0,
+          0.8660254037844387,
+          0.49999999999999994,
+          -33.25,
+          0.0,
+          0.49999999999999994,
+          -0.8660254037844387,
+          -35.897114317029974,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "reverse_axis_for_outer_splice_bridge": false,
+        "band_axial_offset_mm": 0,
+        "jacket_land_mm": 9,
+        "band2_5mm_head6x6x5_provisional": true
+      },
+      "body": "RR1ObliqueSeat",
+      "band": "RR1ObliqueBand",
+      "root_world_mm": [
+        105.0,
+        -92.5,
+        56.25
+      ]
+    }
+  ],
+  "archive": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-oblique-source-ports.zip",
+  "archive_sha256": "14f9d960d643819b9ff61c02079ed21f1a0cb8f8b6c2de8d387d63323cad6970",
+  "removed_old_bands": [
+    "FL1/Hip/Fixed",
+    "FR1/Hip/Fixed",
+    "RL1/Hip/Fixed",
+    "RR1/Hip/Fixed"
+  ],
+  "new_fixed_lands": 4,
+  "additional_T18I": 0,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-oblique-port-motion-chosen-plan.json": "f9347583fe3fd087b4cba81eb1a1760cddb4e38199ecf472774beaf05b7a8334",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-low-hip-retention-plan.json": "3e47ef76f8af889e1d05fc29e41c286e08e0f7e28bbbfaab26e0f195f3c99b5a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-low-hip-retention-shapes.zip": "31aedf12722af0a1432b8ebecada950c379de13522b927a287fa98b6633efdfb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-retention-entry.json": "81ea08b76dadcf14bb7aa50155eefd704371120765267e20cfb9a909d65e1409",
+    "tools/cad/prepare_oblique_source_ports.py": "2536827437b9833af34292ccd1af0fa76ec0b477d4e7da8964127cd73dccbd7e",
+    "tools/cad/support_entry_port.py": "4437e4f93f48ae68809ebbf89ec6697c5b2c4c19aad897a18ecfbd65ce7fd594"
+  },
+  "worker_seconds": 4.078,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false
+}
