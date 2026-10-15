@@ -1,0 +1,78 @@
+{
+  "status": "RECEIVER_SCOPE_HARDWARE_CONTRIBUTION_PREPARED_NOT_WHOLE_STOCK",
+  "quantities": {
+    "replacement_Frame_prints": 4,
+    "separate_cap_prints": 7,
+    "T18I_receiver_quantity": 21,
+    "M2x14_receiver_quantity": 1,
+    "M2_nut_receiver_quantity": 1
+  },
+  "thread_checks": [
+    {
+      "project_cap_take_up_mm": 0,
+      "nut_from_bearing_mm": [
+        10.5,
+        12.1
+      ],
+      "shop_declared_thread_interval_from_bearing_mm": [
+        9,
+        14
+      ],
+      "nominal_engagement_inside_thread": true
+    },
+    {
+      "project_cap_take_up_mm": 0.7,
+      "nut_from_bearing_mm": [
+        9.8,
+        11.4
+      ],
+      "shop_declared_thread_interval_from_bearing_mm": [
+        9,
+        14
+      ],
+      "nominal_engagement_inside_thread": true
+    }
+  ],
+  "hardware": [
+    {
+      "role": "RR_G_cap_screw",
+      "quantity": 1,
+      "sku": "SKL000596",
+      "description": "BEJMET DIN912 A2 M2x14",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Sruba-imbusowa-nierdzewna-DIN-912-A2-M2x14/2040"
+    },
+    {
+      "role": "RR_G_cap_nut",
+      "quantity": 1,
+      "sku": "SKL000381",
+      "description": "BEJMET DIN934 A2 M2",
+      "url": "https://bejmet-nierdzewne.pl/pl/p/Nakretka-szesciokatna-nierdzewna-DIN-934-A2-M-2/1762"
+    }
+  ],
+  "offer_evidence_date": "2026-09-24",
+  "current_price_and_availability_not_checked": true,
+  "no_purchase": true,
+  "no_existing_MAIN_or_ear_hardware_recount": true,
+  "print_replacement_rule": "Four fixed Frames supersede source-only Frame prints; never print both.",
+  "assembly": "Seat nut in NC-side trap before fitting RR_G cap. Hand-tighten with1.5mm hex; do not infer PETG torque from steel data.",
+  "physical_fit_gates": [
+    "Delivered thread/head/nut dimensions",
+    "Cap take-up and insulation grip without crush",
+    "Printed nut capture and PETG creep/loosening"
+  ],
+  "open": [
+    "Full36middle acceptance and native exports",
+    "Other19guides and whole materials reconciliation"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-joint-selection.json": "1bd594949e83ce01205ca66b031c17d65f63d24d59ad4eea4fc2cf4aae26f5f8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/bolted-receiver-layout.json": "123ab3878c3db6666153c479793558a1a4943897ef8fa7f1469f34ad2ab210d1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/rising-fuse-receiver-domains.json": "7d5fdedae36aa569071cd83cf6871722222e80ef6d8594eb5617e6f9f7053ab3",
+    "hardware/cad/studies/main-p0-mount/r3/FASTENERS.md": "7e146832a12ae0695301a0b1d467a4ac791ff819e34e20d847ace87543d3b678",
+    "tools/cad/prepare_receiver_hardware_contribution.py": "0fc76cc49bb0d6ec284255c584cdc41c37a244b6c5bf6dbc36ba43909bf75e54"
+  },
+  "worker_seconds": 0.179,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false
+}
