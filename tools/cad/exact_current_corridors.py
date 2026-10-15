@@ -20,6 +20,7 @@ from plan_axial_source_supports import arm_box
 from short_feed_lacing_saddle import build as feed_material
 from positive_material_witness import witness
 from current_work_guard import check as guard
+from canonical_body_rows import normalize,selected_rows
 
 class ExactOracle:
     def __init__(self,targets,wires):
@@ -156,22 +157,15 @@ def run(parent_commit):
         if prepared is None:prepared=original()
         a,b,p,g=prepared
         p={**p,Path(__file__).relative_to(P.ROOT).as_posix():P.SHA(Path(__file__))}
-        generated=P.OUT/'exact-corridor-plan.json'
+        generated=P.OUT/'exact-corridor-recovery-plan.json'
         if generated.exists():p[generated.relative_to(P.ROOT).as_posix()]=P.SHA(generated)
+        helper=Path(__file__).with_name('canonical_body_rows.py')
+        p[helper.relative_to(P.ROOT).as_posix()]=P.SHA(helper)
         return dict(a),dict(b),p,g
     receiver.prepare=shared_prepare
     def choose(parent,base):
-        targets,wires,pins,grips=shared_prepare();rows={r['wire']:copy.deepcopy(r) for r in base['rows']}
-        rows.update({r['wire']:copy.deepcopy(r) for r in parent['changed_rows']})
-        front=packed_front_prefixes(rows)
-        for n in ('W004','W019','W030'):
-            # Existing source seat/fan is preserved; include every new packed
-            # prefix in own-bundle/full-curve checking, never hide that prefix.
-            original_source=rows[n].get('source_parts') or [rows[n]['source_land']]
-            original_after=rows[n].get('source_after_jacket_first5_mm',original_source[1:])
-            rows[n]['source_after_jacket_first5_mm']=[*original_after,*front[n][len(original_source):]]
-            rows[n]['source_parts']=front[n]
-            rows[n]['free_start']=front[n][-1]['end'];rows[n]['source_free_axis']=list((0,0,1))
+        targets,wires,pins,grips=shared_prepare()
+        rows=normalize(parent,base,selected_rows(P.OUT/'receiver-joint-selection.json',P.ROOT))
         for name,g in grips['groups'].items():
             profile,parts=material(g)
             targets.update({'Group_'+name+'/'+k:s for k,s in parts.items()})
@@ -212,7 +206,7 @@ def run(parent_commit):
             out=dict(status='ACTUAL_GEOMETRY_ROUTE_PLANNING_NOT_WHOLE_W5_ACCEPTANCE',candidates=candidates,failures=failed,
                 remaining=[n for n in parent['remaining_wire_ids'] if n not in candidates],checks=oracle.checks,
                 worker_seconds=round(time.monotonic()-tick,3),parent_commit=parent_commit,selected=False,physical_pass=False)
-            f=P.OUT/'exact-corridor-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);oracle.cache.save()
+            f=P.OUT/'exact-corridor-recovery-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);oracle.cache.save()
         save()
         for n in parent['remaining_wire_ids']:
             guard();q,error=lazy_route(oracle,rows[n],mesh=mesh)
