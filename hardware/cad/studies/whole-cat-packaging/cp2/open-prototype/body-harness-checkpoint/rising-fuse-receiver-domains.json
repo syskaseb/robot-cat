@@ -1,5 +1,5 @@
 {
-  "status": "PARALLEL_FL_FUSE_DOMAINS_OPEN",
+  "status": "PARALLEL_FL_FUSE_DOMAINS_CLEAR_JOINT_OPEN",
   "parent_domains": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/bolted-receiver-layout.json",
   "replacement_options": {
     "W020": [
@@ -3064,7 +3064,1772 @@
         ]
       }
     ],
-    "W022": []
+    "W022": [
+      {
+        "kind": "single",
+        "owner": "FrontLeftFixedCarrier",
+        "land": {
+          "id": "W022/Receiver",
+          "centre_world_mm": [
+            -23.0,
+            40.5,
+            56.402
+          ],
+          "start_world_mm": [
+            -23.0,
+            36.0,
+            56.402
+          ],
+          "end_world_mm": [
+            -23.0,
+            45.0,
+            56.402
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "length_mm": 9
+        },
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "offset": 0,
+        "wires": [
+          "W022"
+        ],
+        "rows": [
+          {
+            "wire": "W022",
+            "loom": "FL2",
+            "core": "V",
+            "bundle_root_world_mm": [
+              17.10243353895602,
+              144.9780667186704,
+              30
+            ],
+            "bodyward_bundle_tangent": [
+              0,
+              0,
+              1
+            ],
+            "existing_fixed_support": "FrontLeftFixedCarrier",
+            "existing_bundle_land": "FL2/Hip/Fixed",
+            "receiver_role": "F_FL2.out",
+            "receiver_point_mm": [
+              -23.0,
+              55.0,
+              75.402
+            ],
+            "receiver_outward_axis": [
+              1,
+              0,
+              0
+            ],
+            "capacity_before_terminal_mm": 315.8145612680047,
+            "terminal_allowance_project_mm": 11,
+            "length_lower_bound_mm": 114.02077542170352,
+            "optimistic_margin_mm": 190.79378584630118,
+            "source_extension_candidate": null,
+            "actual_core_start": null,
+            "actual_route": null,
+            "receiving_restraint": null,
+            "actual_cut_mm": null,
+            "start": [
+              15.803395433279363,
+              145.7280667186704,
+              30
+            ],
+            "free_start": [
+              15.803395433279363,
+              145.7280667186704,
+              35
+            ],
+            "free_end": [
+              -10.75255128608411,
+              26.0,
+              53.47306781186548
+            ],
+            "source_land": {
+              "kind": "line",
+              "start": [
+                15.803395433279363,
+                145.7280667186704,
+                30
+              ],
+              "end": [
+                15.803395433279363,
+                145.7280667186704,
+                35
+              ],
+              "length_mm": 5.0
+            },
+            "receiving_land": {
+              "kind": "line",
+              "start": [
+                -23.0,
+                36.0,
+                56.402
+              ],
+              "end": [
+                -23.0,
+                45.0,
+                56.402
+              ],
+              "length_mm": 9.0
+            },
+            "receiving_parts": [
+              {
+                "kind": "arc",
+                "start": [
+                  -10.75255128608411,
+                  26.0,
+                  53.47306781186548
+                ],
+                "mid": [
+                  -12.057813208284626,
+                  26.0,
+                  53.558619198127374
+                ],
+                "end": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "radius_mm": 10,
+                "length_mm": 2.6179938779914935
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "mid": [
+                  -20.17086875603151,
+                  28.928932188134524,
+                  55.643936567896986
+                ],
+                "end": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "end": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "length_mm": 9.0
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "mid": [
+                  -23.0,
+                  52.071067811865476,
+                  59.330932188134526
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  75.402
+                ],
+                "length_mm": 9.0
+              }
+            ],
+            "receiving_grip_part_index": 2,
+            "receiver_profile": "parallel9mm_land_spatial_S_R10",
+            "entry_straight_project_mm": 9,
+            "initial_receiver_fan_axis": [
+              0,
+              -1,
+              0
+            ],
+            "shared_exit_reserved": true,
+            "clear_next_moves": 5,
+            "source_connection_lower_bound_mm": 153.97427812845672,
+            "approach_basis": "SharedMAIN/Spacer2/W024 avoidance; terminals and9mm Y40.5 land retained"
+          }
+        ],
+        "recipe": {
+          "pads": [
+            {
+              "name": "CoreSaddle",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -4.25,
+                5.5,
+                2,
+                4.25
+              ]
+            },
+            {
+              "name": "AxialArmEntry",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -7,
+                5.5,
+                2,
+                -3.5
+              ]
+            }
+          ],
+          "ring_cut": {
+            "outer": [
+              -2.6,
+              -2.6,
+              -1.45,
+              6.9,
+              2.6,
+              1.45
+            ],
+            "inner": [
+              -1.2,
+              -1.2,
+              -1.6,
+              5.5,
+              1.2,
+              1.6
+            ]
+          },
+          "local_to_world": [
+            -1.0,
+            0.0,
+            0.0,
+            -23.0,
+            0.0,
+            2.220446049250313e-16,
+            1.0,
+            40.5,
+            0.0,
+            1.0,
+            -2.220446049250313e-16,
+            56.402,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "construction": "provisional_independent_core_saddle",
+          "project_core_OD_mm": 2,
+          "land_mm": 9,
+          "band_axial_offset_mm": 0,
+          "band_head_6x6x5_provisional": true,
+          "sample_retention_and_tightening_gate_open": true
+        },
+        "arrival_world_mm": [
+          -26.5,
+          35.5,
+          56.402
+        ]
+      },
+      {
+        "kind": "single",
+        "owner": "FrontLeftFixedCarrier",
+        "land": {
+          "id": "W022/Receiver",
+          "centre_world_mm": [
+            -23.0,
+            40.5,
+            56.402
+          ],
+          "start_world_mm": [
+            -23.0,
+            36.0,
+            56.402
+          ],
+          "end_world_mm": [
+            -23.0,
+            45.0,
+            56.402
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "length_mm": 9
+        },
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "offset": -1.5,
+        "wires": [
+          "W022"
+        ],
+        "rows": [
+          {
+            "wire": "W022",
+            "loom": "FL2",
+            "core": "V",
+            "bundle_root_world_mm": [
+              17.10243353895602,
+              144.9780667186704,
+              30
+            ],
+            "bodyward_bundle_tangent": [
+              0,
+              0,
+              1
+            ],
+            "existing_fixed_support": "FrontLeftFixedCarrier",
+            "existing_bundle_land": "FL2/Hip/Fixed",
+            "receiver_role": "F_FL2.out",
+            "receiver_point_mm": [
+              -23.0,
+              55.0,
+              75.402
+            ],
+            "receiver_outward_axis": [
+              1,
+              0,
+              0
+            ],
+            "capacity_before_terminal_mm": 315.8145612680047,
+            "terminal_allowance_project_mm": 11,
+            "length_lower_bound_mm": 114.02077542170352,
+            "optimistic_margin_mm": 190.79378584630118,
+            "source_extension_candidate": null,
+            "actual_core_start": null,
+            "actual_route": null,
+            "receiving_restraint": null,
+            "actual_cut_mm": null,
+            "start": [
+              15.803395433279363,
+              145.7280667186704,
+              30
+            ],
+            "free_start": [
+              15.803395433279363,
+              145.7280667186704,
+              35
+            ],
+            "free_end": [
+              -10.75255128608411,
+              26.0,
+              53.47306781186548
+            ],
+            "source_land": {
+              "kind": "line",
+              "start": [
+                15.803395433279363,
+                145.7280667186704,
+                30
+              ],
+              "end": [
+                15.803395433279363,
+                145.7280667186704,
+                35
+              ],
+              "length_mm": 5.0
+            },
+            "receiving_land": {
+              "kind": "line",
+              "start": [
+                -23.0,
+                36.0,
+                56.402
+              ],
+              "end": [
+                -23.0,
+                45.0,
+                56.402
+              ],
+              "length_mm": 9.0
+            },
+            "receiving_parts": [
+              {
+                "kind": "arc",
+                "start": [
+                  -10.75255128608411,
+                  26.0,
+                  53.47306781186548
+                ],
+                "mid": [
+                  -12.057813208284626,
+                  26.0,
+                  53.558619198127374
+                ],
+                "end": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "radius_mm": 10,
+                "length_mm": 2.6179938779914935
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "mid": [
+                  -20.17086875603151,
+                  28.928932188134524,
+                  55.643936567896986
+                ],
+                "end": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "end": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "length_mm": 9.0
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "mid": [
+                  -23.0,
+                  52.071067811865476,
+                  59.330932188134526
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  75.402
+                ],
+                "length_mm": 9.0
+              }
+            ],
+            "receiving_grip_part_index": 2,
+            "receiver_profile": "parallel9mm_land_spatial_S_R10",
+            "entry_straight_project_mm": 9,
+            "initial_receiver_fan_axis": [
+              0,
+              -1,
+              0
+            ],
+            "shared_exit_reserved": true,
+            "clear_next_moves": 5,
+            "source_connection_lower_bound_mm": 153.97427812845672,
+            "approach_basis": "SharedMAIN/Spacer2/W024 avoidance; terminals and9mm Y40.5 land retained"
+          }
+        ],
+        "recipe": {
+          "pads": [
+            {
+              "name": "CoreSaddle",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -4.25,
+                5.5,
+                2,
+                4.25
+              ]
+            },
+            {
+              "name": "AxialArmEntry",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -8.5,
+                5.5,
+                2,
+                -3.5
+              ]
+            }
+          ],
+          "ring_cut": {
+            "outer": [
+              -2.6,
+              -2.6,
+              -2.95,
+              6.9,
+              2.6,
+              -0.050000000000000044
+            ],
+            "inner": [
+              -1.2,
+              -1.2,
+              -3.1,
+              5.5,
+              1.2,
+              0.10000000000000009
+            ]
+          },
+          "local_to_world": [
+            -1.0,
+            0.0,
+            0.0,
+            -23.0,
+            0.0,
+            2.220446049250313e-16,
+            1.0,
+            40.5,
+            0.0,
+            1.0,
+            -2.220446049250313e-16,
+            56.402,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "construction": "provisional_independent_core_saddle",
+          "project_core_OD_mm": 2,
+          "land_mm": 9,
+          "band_axial_offset_mm": -1.5,
+          "band_head_6x6x5_provisional": true,
+          "sample_retention_and_tightening_gate_open": true
+        },
+        "arrival_world_mm": [
+          -26.5,
+          34.0,
+          56.402
+        ]
+      },
+      {
+        "kind": "single",
+        "owner": "FrontLeftFixedCarrier",
+        "land": {
+          "id": "W022/Receiver",
+          "centre_world_mm": [
+            -23.0,
+            40.5,
+            56.402
+          ],
+          "start_world_mm": [
+            -23.0,
+            36.0,
+            56.402
+          ],
+          "end_world_mm": [
+            -23.0,
+            45.0,
+            56.402
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "length_mm": 9
+        },
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "offset": 1.5,
+        "wires": [
+          "W022"
+        ],
+        "rows": [
+          {
+            "wire": "W022",
+            "loom": "FL2",
+            "core": "V",
+            "bundle_root_world_mm": [
+              17.10243353895602,
+              144.9780667186704,
+              30
+            ],
+            "bodyward_bundle_tangent": [
+              0,
+              0,
+              1
+            ],
+            "existing_fixed_support": "FrontLeftFixedCarrier",
+            "existing_bundle_land": "FL2/Hip/Fixed",
+            "receiver_role": "F_FL2.out",
+            "receiver_point_mm": [
+              -23.0,
+              55.0,
+              75.402
+            ],
+            "receiver_outward_axis": [
+              1,
+              0,
+              0
+            ],
+            "capacity_before_terminal_mm": 315.8145612680047,
+            "terminal_allowance_project_mm": 11,
+            "length_lower_bound_mm": 114.02077542170352,
+            "optimistic_margin_mm": 190.79378584630118,
+            "source_extension_candidate": null,
+            "actual_core_start": null,
+            "actual_route": null,
+            "receiving_restraint": null,
+            "actual_cut_mm": null,
+            "start": [
+              15.803395433279363,
+              145.7280667186704,
+              30
+            ],
+            "free_start": [
+              15.803395433279363,
+              145.7280667186704,
+              35
+            ],
+            "free_end": [
+              -10.75255128608411,
+              26.0,
+              53.47306781186548
+            ],
+            "source_land": {
+              "kind": "line",
+              "start": [
+                15.803395433279363,
+                145.7280667186704,
+                30
+              ],
+              "end": [
+                15.803395433279363,
+                145.7280667186704,
+                35
+              ],
+              "length_mm": 5.0
+            },
+            "receiving_land": {
+              "kind": "line",
+              "start": [
+                -23.0,
+                36.0,
+                56.402
+              ],
+              "end": [
+                -23.0,
+                45.0,
+                56.402
+              ],
+              "length_mm": 9.0
+            },
+            "receiving_parts": [
+              {
+                "kind": "arc",
+                "start": [
+                  -10.75255128608411,
+                  26.0,
+                  53.47306781186548
+                ],
+                "mid": [
+                  -12.057813208284626,
+                  26.0,
+                  53.558619198127374
+                ],
+                "end": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "radius_mm": 10,
+                "length_mm": 2.6179938779914935
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "mid": [
+                  -20.17086875603151,
+                  28.928932188134524,
+                  55.643936567896986
+                ],
+                "end": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "end": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "length_mm": 9.0
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "mid": [
+                  -23.0,
+                  52.071067811865476,
+                  59.330932188134526
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  75.402
+                ],
+                "length_mm": 9.0
+              }
+            ],
+            "receiving_grip_part_index": 2,
+            "receiver_profile": "parallel9mm_land_spatial_S_R10",
+            "entry_straight_project_mm": 9,
+            "initial_receiver_fan_axis": [
+              0,
+              -1,
+              0
+            ],
+            "shared_exit_reserved": true,
+            "clear_next_moves": 5,
+            "source_connection_lower_bound_mm": 153.97427812845672,
+            "approach_basis": "SharedMAIN/Spacer2/W024 avoidance; terminals and9mm Y40.5 land retained"
+          }
+        ],
+        "recipe": {
+          "pads": [
+            {
+              "name": "CoreSaddle",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -4.25,
+                5.5,
+                2,
+                4.25
+              ]
+            },
+            {
+              "name": "AxialArmEntry",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -5.5,
+                5.5,
+                2,
+                -3.5
+              ]
+            }
+          ],
+          "ring_cut": {
+            "outer": [
+              -2.6,
+              -2.6,
+              0.050000000000000044,
+              6.9,
+              2.6,
+              2.95
+            ],
+            "inner": [
+              -1.2,
+              -1.2,
+              -0.10000000000000009,
+              5.5,
+              1.2,
+              3.1
+            ]
+          },
+          "local_to_world": [
+            -1.0,
+            0.0,
+            0.0,
+            -23.0,
+            0.0,
+            2.220446049250313e-16,
+            1.0,
+            40.5,
+            0.0,
+            1.0,
+            -2.220446049250313e-16,
+            56.402,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "construction": "provisional_independent_core_saddle",
+          "project_core_OD_mm": 2,
+          "land_mm": 9,
+          "band_axial_offset_mm": 1.5,
+          "band_head_6x6x5_provisional": true,
+          "sample_retention_and_tightening_gate_open": true
+        },
+        "arrival_world_mm": [
+          -26.5,
+          37.0,
+          56.402
+        ]
+      },
+      {
+        "kind": "single",
+        "owner": "FrontLeftFixedCarrier",
+        "land": {
+          "id": "W022/Receiver",
+          "centre_world_mm": [
+            -23.0,
+            40.5,
+            56.402
+          ],
+          "start_world_mm": [
+            -23.0,
+            36.0,
+            56.402
+          ],
+          "end_world_mm": [
+            -23.0,
+            45.0,
+            56.402
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "length_mm": 9
+        },
+        "normal": [
+          0,
+          0,
+          -1
+        ],
+        "offset": 0,
+        "wires": [
+          "W022"
+        ],
+        "rows": [
+          {
+            "wire": "W022",
+            "loom": "FL2",
+            "core": "V",
+            "bundle_root_world_mm": [
+              17.10243353895602,
+              144.9780667186704,
+              30
+            ],
+            "bodyward_bundle_tangent": [
+              0,
+              0,
+              1
+            ],
+            "existing_fixed_support": "FrontLeftFixedCarrier",
+            "existing_bundle_land": "FL2/Hip/Fixed",
+            "receiver_role": "F_FL2.out",
+            "receiver_point_mm": [
+              -23.0,
+              55.0,
+              75.402
+            ],
+            "receiver_outward_axis": [
+              1,
+              0,
+              0
+            ],
+            "capacity_before_terminal_mm": 315.8145612680047,
+            "terminal_allowance_project_mm": 11,
+            "length_lower_bound_mm": 114.02077542170352,
+            "optimistic_margin_mm": 190.79378584630118,
+            "source_extension_candidate": null,
+            "actual_core_start": null,
+            "actual_route": null,
+            "receiving_restraint": null,
+            "actual_cut_mm": null,
+            "start": [
+              15.803395433279363,
+              145.7280667186704,
+              30
+            ],
+            "free_start": [
+              15.803395433279363,
+              145.7280667186704,
+              35
+            ],
+            "free_end": [
+              -10.75255128608411,
+              26.0,
+              53.47306781186548
+            ],
+            "source_land": {
+              "kind": "line",
+              "start": [
+                15.803395433279363,
+                145.7280667186704,
+                30
+              ],
+              "end": [
+                15.803395433279363,
+                145.7280667186704,
+                35
+              ],
+              "length_mm": 5.0
+            },
+            "receiving_land": {
+              "kind": "line",
+              "start": [
+                -23.0,
+                36.0,
+                56.402
+              ],
+              "end": [
+                -23.0,
+                45.0,
+                56.402
+              ],
+              "length_mm": 9.0
+            },
+            "receiving_parts": [
+              {
+                "kind": "arc",
+                "start": [
+                  -10.75255128608411,
+                  26.0,
+                  53.47306781186548
+                ],
+                "mid": [
+                  -12.057813208284626,
+                  26.0,
+                  53.558619198127374
+                ],
+                "end": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "radius_mm": 10,
+                "length_mm": 2.6179938779914935
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "mid": [
+                  -20.17086875603151,
+                  28.928932188134524,
+                  55.643936567896986
+                ],
+                "end": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "end": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "length_mm": 9.0
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "mid": [
+                  -23.0,
+                  52.071067811865476,
+                  59.330932188134526
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  75.402
+                ],
+                "length_mm": 9.0
+              }
+            ],
+            "receiving_grip_part_index": 2,
+            "receiver_profile": "parallel9mm_land_spatial_S_R10",
+            "entry_straight_project_mm": 9,
+            "initial_receiver_fan_axis": [
+              0,
+              -1,
+              0
+            ],
+            "shared_exit_reserved": true,
+            "clear_next_moves": 5,
+            "source_connection_lower_bound_mm": 153.97427812845672,
+            "approach_basis": "SharedMAIN/Spacer2/W024 avoidance; terminals and9mm Y40.5 land retained"
+          }
+        ],
+        "recipe": {
+          "pads": [
+            {
+              "name": "CoreSaddle",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -4.25,
+                5.5,
+                2,
+                4.25
+              ]
+            },
+            {
+              "name": "AxialArmEntry",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -7,
+                5.5,
+                2,
+                -3.5
+              ]
+            }
+          ],
+          "ring_cut": {
+            "outer": [
+              -2.6,
+              -2.6,
+              -1.45,
+              6.9,
+              2.6,
+              1.45
+            ],
+            "inner": [
+              -1.2,
+              -1.2,
+              -1.6,
+              5.5,
+              1.2,
+              1.6
+            ]
+          },
+          "local_to_world": [
+            0.0,
+            -1.0,
+            0.0,
+            -23.0,
+            0.0,
+            0.0,
+            1.0,
+            40.5,
+            -1.0,
+            0.0,
+            0.0,
+            56.402,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "construction": "provisional_independent_core_saddle",
+          "project_core_OD_mm": 2,
+          "land_mm": 9,
+          "band_axial_offset_mm": 0,
+          "band_head_6x6x5_provisional": true,
+          "sample_retention_and_tightening_gate_open": true
+        },
+        "arrival_world_mm": [
+          -23.0,
+          35.5,
+          52.902
+        ]
+      },
+      {
+        "kind": "single",
+        "owner": "FrontLeftFixedCarrier",
+        "land": {
+          "id": "W022/Receiver",
+          "centre_world_mm": [
+            -23.0,
+            40.5,
+            56.402
+          ],
+          "start_world_mm": [
+            -23.0,
+            36.0,
+            56.402
+          ],
+          "end_world_mm": [
+            -23.0,
+            45.0,
+            56.402
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "length_mm": 9
+        },
+        "normal": [
+          0,
+          0,
+          -1
+        ],
+        "offset": -1.5,
+        "wires": [
+          "W022"
+        ],
+        "rows": [
+          {
+            "wire": "W022",
+            "loom": "FL2",
+            "core": "V",
+            "bundle_root_world_mm": [
+              17.10243353895602,
+              144.9780667186704,
+              30
+            ],
+            "bodyward_bundle_tangent": [
+              0,
+              0,
+              1
+            ],
+            "existing_fixed_support": "FrontLeftFixedCarrier",
+            "existing_bundle_land": "FL2/Hip/Fixed",
+            "receiver_role": "F_FL2.out",
+            "receiver_point_mm": [
+              -23.0,
+              55.0,
+              75.402
+            ],
+            "receiver_outward_axis": [
+              1,
+              0,
+              0
+            ],
+            "capacity_before_terminal_mm": 315.8145612680047,
+            "terminal_allowance_project_mm": 11,
+            "length_lower_bound_mm": 114.02077542170352,
+            "optimistic_margin_mm": 190.79378584630118,
+            "source_extension_candidate": null,
+            "actual_core_start": null,
+            "actual_route": null,
+            "receiving_restraint": null,
+            "actual_cut_mm": null,
+            "start": [
+              15.803395433279363,
+              145.7280667186704,
+              30
+            ],
+            "free_start": [
+              15.803395433279363,
+              145.7280667186704,
+              35
+            ],
+            "free_end": [
+              -10.75255128608411,
+              26.0,
+              53.47306781186548
+            ],
+            "source_land": {
+              "kind": "line",
+              "start": [
+                15.803395433279363,
+                145.7280667186704,
+                30
+              ],
+              "end": [
+                15.803395433279363,
+                145.7280667186704,
+                35
+              ],
+              "length_mm": 5.0
+            },
+            "receiving_land": {
+              "kind": "line",
+              "start": [
+                -23.0,
+                36.0,
+                56.402
+              ],
+              "end": [
+                -23.0,
+                45.0,
+                56.402
+              ],
+              "length_mm": 9.0
+            },
+            "receiving_parts": [
+              {
+                "kind": "arc",
+                "start": [
+                  -10.75255128608411,
+                  26.0,
+                  53.47306781186548
+                ],
+                "mid": [
+                  -12.057813208284626,
+                  26.0,
+                  53.558619198127374
+                ],
+                "end": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "radius_mm": 10,
+                "length_mm": 2.6179938779914935
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "mid": [
+                  -20.17086875603151,
+                  28.928932188134524,
+                  55.643936567896986
+                ],
+                "end": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "end": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "length_mm": 9.0
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "mid": [
+                  -23.0,
+                  52.071067811865476,
+                  59.330932188134526
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  75.402
+                ],
+                "length_mm": 9.0
+              }
+            ],
+            "receiving_grip_part_index": 2,
+            "receiver_profile": "parallel9mm_land_spatial_S_R10",
+            "entry_straight_project_mm": 9,
+            "initial_receiver_fan_axis": [
+              0,
+              -1,
+              0
+            ],
+            "shared_exit_reserved": true,
+            "clear_next_moves": 5,
+            "source_connection_lower_bound_mm": 153.97427812845672,
+            "approach_basis": "SharedMAIN/Spacer2/W024 avoidance; terminals and9mm Y40.5 land retained"
+          }
+        ],
+        "recipe": {
+          "pads": [
+            {
+              "name": "CoreSaddle",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -4.25,
+                5.5,
+                2,
+                4.25
+              ]
+            },
+            {
+              "name": "AxialArmEntry",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -8.5,
+                5.5,
+                2,
+                -3.5
+              ]
+            }
+          ],
+          "ring_cut": {
+            "outer": [
+              -2.6,
+              -2.6,
+              -2.95,
+              6.9,
+              2.6,
+              -0.050000000000000044
+            ],
+            "inner": [
+              -1.2,
+              -1.2,
+              -3.1,
+              5.5,
+              1.2,
+              0.10000000000000009
+            ]
+          },
+          "local_to_world": [
+            0.0,
+            -1.0,
+            0.0,
+            -23.0,
+            0.0,
+            0.0,
+            1.0,
+            40.5,
+            -1.0,
+            0.0,
+            0.0,
+            56.402,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "construction": "provisional_independent_core_saddle",
+          "project_core_OD_mm": 2,
+          "land_mm": 9,
+          "band_axial_offset_mm": -1.5,
+          "band_head_6x6x5_provisional": true,
+          "sample_retention_and_tightening_gate_open": true
+        },
+        "arrival_world_mm": [
+          -23.0,
+          34.0,
+          52.902
+        ]
+      },
+      {
+        "kind": "single",
+        "owner": "FrontLeftFixedCarrier",
+        "land": {
+          "id": "W022/Receiver",
+          "centre_world_mm": [
+            -23.0,
+            40.5,
+            56.402
+          ],
+          "start_world_mm": [
+            -23.0,
+            36.0,
+            56.402
+          ],
+          "end_world_mm": [
+            -23.0,
+            45.0,
+            56.402
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "length_mm": 9
+        },
+        "normal": [
+          0,
+          0,
+          -1
+        ],
+        "offset": 1.5,
+        "wires": [
+          "W022"
+        ],
+        "rows": [
+          {
+            "wire": "W022",
+            "loom": "FL2",
+            "core": "V",
+            "bundle_root_world_mm": [
+              17.10243353895602,
+              144.9780667186704,
+              30
+            ],
+            "bodyward_bundle_tangent": [
+              0,
+              0,
+              1
+            ],
+            "existing_fixed_support": "FrontLeftFixedCarrier",
+            "existing_bundle_land": "FL2/Hip/Fixed",
+            "receiver_role": "F_FL2.out",
+            "receiver_point_mm": [
+              -23.0,
+              55.0,
+              75.402
+            ],
+            "receiver_outward_axis": [
+              1,
+              0,
+              0
+            ],
+            "capacity_before_terminal_mm": 315.8145612680047,
+            "terminal_allowance_project_mm": 11,
+            "length_lower_bound_mm": 114.02077542170352,
+            "optimistic_margin_mm": 190.79378584630118,
+            "source_extension_candidate": null,
+            "actual_core_start": null,
+            "actual_route": null,
+            "receiving_restraint": null,
+            "actual_cut_mm": null,
+            "start": [
+              15.803395433279363,
+              145.7280667186704,
+              30
+            ],
+            "free_start": [
+              15.803395433279363,
+              145.7280667186704,
+              35
+            ],
+            "free_end": [
+              -10.75255128608411,
+              26.0,
+              53.47306781186548
+            ],
+            "source_land": {
+              "kind": "line",
+              "start": [
+                15.803395433279363,
+                145.7280667186704,
+                30
+              ],
+              "end": [
+                15.803395433279363,
+                145.7280667186704,
+                35
+              ],
+              "length_mm": 5.0
+            },
+            "receiving_land": {
+              "kind": "line",
+              "start": [
+                -23.0,
+                36.0,
+                56.402
+              ],
+              "end": [
+                -23.0,
+                45.0,
+                56.402
+              ],
+              "length_mm": 9.0
+            },
+            "receiving_parts": [
+              {
+                "kind": "arc",
+                "start": [
+                  -10.75255128608411,
+                  26.0,
+                  53.47306781186548
+                ],
+                "mid": [
+                  -12.057813208284626,
+                  26.0,
+                  53.558619198127374
+                ],
+                "end": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "radius_mm": 10,
+                "length_mm": 2.6179938779914935
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -13.340741737109317,
+                  26.0,
+                  53.813809548974795
+                ],
+                "mid": [
+                  -20.17086875603151,
+                  28.928932188134524,
+                  55.643936567896986
+                ],
+                "end": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  36.0,
+                  56.402
+                ],
+                "end": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "length_mm": 9.0
+              },
+              {
+                "kind": "arc",
+                "start": [
+                  -23.0,
+                  45.0,
+                  56.402
+                ],
+                "mid": [
+                  -23.0,
+                  52.071067811865476,
+                  59.330932188134526
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "radius_mm": 10,
+                "length_mm": 15.707963267948966
+              },
+              {
+                "kind": "line",
+                "start": [
+                  -23.0,
+                  55.0,
+                  66.402
+                ],
+                "end": [
+                  -23.0,
+                  55.0,
+                  75.402
+                ],
+                "length_mm": 9.0
+              }
+            ],
+            "receiving_grip_part_index": 2,
+            "receiver_profile": "parallel9mm_land_spatial_S_R10",
+            "entry_straight_project_mm": 9,
+            "initial_receiver_fan_axis": [
+              0,
+              -1,
+              0
+            ],
+            "shared_exit_reserved": true,
+            "clear_next_moves": 5,
+            "source_connection_lower_bound_mm": 153.97427812845672,
+            "approach_basis": "SharedMAIN/Spacer2/W024 avoidance; terminals and9mm Y40.5 land retained"
+          }
+        ],
+        "recipe": {
+          "pads": [
+            {
+              "name": "CoreSaddle",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -4.25,
+                5.5,
+                2,
+                4.25
+              ]
+            },
+            {
+              "name": "AxialArmEntry",
+              "bounds_mm": [
+                1.5,
+                -2,
+                -5.5,
+                5.5,
+                2,
+                -3.5
+              ]
+            }
+          ],
+          "ring_cut": {
+            "outer": [
+              -2.6,
+              -2.6,
+              0.050000000000000044,
+              6.9,
+              2.6,
+              2.95
+            ],
+            "inner": [
+              -1.2,
+              -1.2,
+              -0.10000000000000009,
+              5.5,
+              1.2,
+              3.1
+            ]
+          },
+          "local_to_world": [
+            0.0,
+            -1.0,
+            0.0,
+            -23.0,
+            0.0,
+            0.0,
+            1.0,
+            40.5,
+            -1.0,
+            0.0,
+            0.0,
+            56.402,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "construction": "provisional_independent_core_saddle",
+          "project_core_OD_mm": 2,
+          "land_mm": 9,
+          "band_axial_offset_mm": 1.5,
+          "band_head_6x6x5_provisional": true,
+          "sample_retention_and_tightening_gate_open": true
+        },
+        "arrival_world_mm": [
+          -23.0,
+          37.0,
+          52.902
+        ]
+      }
+    ]
   },
   "changed_prefixes": [
     "W020",
@@ -3087,13 +4852,68 @@
   "failures": [
     {
       "wire": "W022",
-      "kind": "prefix",
-      "target": "Spacer2/0/0"
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "offset": 0,
+      "target": "body:wire/W066"
+    },
+    {
+      "wire": "W022",
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "offset": -1.5,
+      "target": "body:wire/W066"
+    },
+    {
+      "wire": "W022",
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "offset": 1.5,
+      "target": "body:wire/W066"
+    },
+    {
+      "wire": "W022",
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "offset": 0,
+      "target": "body:wire/W066"
+    },
+    {
+      "wire": "W022",
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "offset": -1.5,
+      "target": "body:wire/W066"
+    },
+    {
+      "wire": "W022",
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "offset": 1.5,
+      "target": "body:wire/W066"
     }
   ],
   "errors": [],
-  "checks": 1,
-  "worker_seconds": 64.562,
+  "checks": 71,
+  "worker_seconds": 90.422,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
@@ -3137,7 +4957,8 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/bolted-receiver-layout.json": "123ab3878c3db6666153c479793558a1a4943897ef8fa7f1469f34ad2ab210d1",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-current-contract.json": "2d18aa244e505bb5ff182beaaba33183e56dbbf4505707cfa2d9ca2608d722ea",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/parallel-fuse-receiver-domains.json": "2085e52da11a4b7d9e22f5670e46f0fdd4be20e43ec87f260aee4872e0cde928",
-    "tools/cad/plan_rising_fuse_receiver_domain.py": "d0d8d198bea44b44f582a78bff9b7af302772bd2c4bd1ea06d2358744e8eabcb"
+    "tools/cad/plan_rising_fuse_receiver_domain.py": "f18d171e805da0cd92c3f253da34394e3fe5dff1eff5d502fd7b29871f72f3f3",
+    "tools/cad/spatial_fuse_receiver_prefix.py": "481455a3ad90912c4e5dd535ab10accd646d6018a55aa2c00789875321561aad"
   },
   "selected": false,
   "W5_complete": false,

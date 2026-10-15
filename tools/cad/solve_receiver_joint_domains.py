@@ -12,8 +12,8 @@ def run():
     assert receipt['status']=='BOLTED_RECEIVER_LAYOUT_OPEN' and not receipt['rejections'] and not receipt['errors']
     for n,h in receipt['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     extra_files=[]
-    if '--parallel' in sys.argv:
-        extension=P.OUT/'parallel-fuse-receiver-domains.json';new=json.loads(extension.read_text())
+    if '--parallel' in sys.argv or '--rising' in sys.argv:
+        extension=P.OUT/('rising-fuse-receiver-domains.json' if '--rising' in sys.argv else 'parallel-fuse-receiver-domains.json');new=json.loads(extension.read_text())
         assert new['status']=='PARALLEL_FL_FUSE_DOMAINS_CLEAR_JOINT_OPEN' and not new['errors']
         assert new['parent_domains']==source.relative_to(P.ROOT).as_posix()
         for n,h in new['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
