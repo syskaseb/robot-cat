@@ -226,3 +226,19 @@ osiach. To nadal jeden ciągły przewód, nie powód do dodawania złączy.
 Płaszczyznę odciążenia wyznaczać z całego członu, także LegLink i osłony,
 nie tylko z obrysu kupnego serwa. Matematyczny lokalny pilot nie kwalifikuje
 brakujących podpór, odcinków między nimi ani całej wiązki.
+
+15.10, wspólne źródłaHip1: nie przenosić ograniczenia płaskiej konstrukcji
+na układ przestrzenny. Warunek dużej rozpiętościY, choć łuki były3D,
+przeniósł korzenie na przeciwną stronę i poprowadził kable przez drugą
+nogę. Sprawdzać rzeczywisty zasięgXY i stronę nogi, a potem całe bryły.
+Zmiana wszystkich czterech korzeni na właściwe strony jest zmianą przyczyny,
+nie serią mikroprzesunięć. Matematyka takiego układu nadal nie jestPASS.
+
+Przed usuwaniem fragmentu podpory odtworzyć OSTATNIĄ receptę, nie pierwszą:
+tu brak późniejszych BelowBandBridge usuwał także cudze gałęzie. Dowód ma
+wykazać podzbiór aktualnej bryły i brak usuniętego materiału poza zakresem
+zmienianej gałęzi. Sprawdzone podzbiory zapisywać natychmiast, per właściciel,
+z pinami wejść i kodu; następna trasa nie uzasadnia kolejnego liczenia tych
+samych drogich union/common. RejestrOPEN nie oznacza braku gotowej trasy:
+19prowadzeń istniało już w późniejszych dowodach. Najpierw uzgodnić aktualne
+końce i jawne zamiany zacisków tej samej szyny, zamiast trasować je od nowa.
