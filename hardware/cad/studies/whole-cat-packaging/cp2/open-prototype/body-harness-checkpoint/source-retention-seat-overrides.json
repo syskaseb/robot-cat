@@ -1,0 +1,22 @@
+{
+  "status": "PLANNED_EXISTING_STRAIGHT_SEAT_OVERRIDE_NOT_YET_QUALIFIED",
+  "overrides": {
+    "W001_0_0": {
+      "wire": "W001",
+      "require_original_centre_mm": [-71.5, -58.8, 57.0],
+      "new_source_recipe": "ground-tree-plan.json",
+      "new_segment": 0,
+      "new_part_index": 2,
+      "new_land_mm": 3,
+      "new_offset_on_part_mm": 1.95,
+      "new_normal": [1, 0, 0],
+      "basis": "Retain unchanged full W001 route. Existing6.9mm straight after the firstR12.4 bend provides a thin3mm lacing land,25.928mm along guide from BAT. Old immediate3mm land foot intersected its own curved wire. Move the support only, not the BAT cup, bend, wire or G1 port.",
+      "band_and_seat_clearance_verified": false,
+      "structural_root_verified": false
+    }
+  },
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "rule": "Do not apply during the active original local-root worker. Future scoped continuation must verify recipe part/length and check the changed seat/band against whole current scene and all inherited accepted arms. No repeated routing of accepted roots."
+}

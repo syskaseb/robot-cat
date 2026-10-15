@@ -4,7 +4,7 @@ No new wire positions, no long global stelaż, no per-voxel OCC queries.
 Meshes propose; full actual segments qualify. Each accepted arm immediately
 becomes an obstacle for subsequent arms, and all seats/bands exist up front.
 """
-import json,math,time
+import json,math,time,hashlib,subprocess,copy
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -38,7 +38,7 @@ def patches(parent,goal,limit=2):
     return result
 
 
-def run():
+def run(resume_commit=None):
     check();tick=time.monotonic();targets,wires,pins,profiles,recipes,parents,grips=context()
     additions={};rows=[];errors=[];checks=0;mesh_cache={};wire_cache={}
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'local-source-retention-pairs.json',bounds.near)
@@ -48,6 +48,7 @@ def run():
               Path(__file__).with_name('fast_carrier_reservations.py'),
               Path(__file__).with_name('plan_remaining_loom_support_paths.py')):
         pins[f.relative_to(P.ROOT).as_posix()]=P.SHA(f)
+    inherited=None;resumed=set()
     def hit(a,b,r=0):
         nonlocal checks
         if not bounds.near(a,b,r+.0001):return False
@@ -61,13 +62,44 @@ def run():
         done=len(rows)==13 and all(r.get('path') for r in rows) and not errors
         result=dict(status='THIRTEEN_LOCAL_SOURCE_ROOTS_EXACT_SEGMENTS_CLEAR_NATIVE_OPEN' if done else 'LOCAL_SOURCE_ROOT_PLAN_OPEN',
             groups=rows,arm_half_widths_world_mm=HALF,errors=errors,checks=checks,source_sha256=pins,
+            inherited_qualified_receipt=inherited,resumed_groups=sorted(resumed),
             worker_seconds=round(time.monotonic()-tick,3),
             rejected_architecture='bd1479b: three long shared support trees; keep13clear lacing loops, replace only load paths/parent assignment.',
             gates=['Final parent unions/parameter/reopen/exports','Source case/S0 retention and other25interfaces','Whole assembly/stock/W5'],
             selected=False,W5_complete=False,physical_pass=False)
         f=P.OUT/'local-source-retention-roots.json';tmp=f.with_suffix('.tmp')
         tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
+    if resume_commit:
+        name=(P.OUT/'local-source-retention-roots.json').relative_to(P.ROOT).as_posix()
+        raw=subprocess.check_output(['git','show',resume_commit+':'+name],cwd=P.ROOT);old=json.loads(raw)
+        mutable={'tools/cad/plan_local_source_retention_roots.py','tools/cad/current_source_retention_context.py'}
+        for n,h in old['source_sha256'].items():
+            if n in mutable:
+                code=subprocess.check_output(['git','show',resume_commit+':'+n],cwd=P.ROOT)
+                variants=(code,code.replace(b'\r\n',b'\n'),code.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))
+                assert h in {hashlib.sha256(v).hexdigest() for v in variants},('Unknown inherited algorithm bytes',n)
+            else:assert P.SHA(P.ROOT/n)==h,('Changed inherited geometry input',n)
+        assert old['arm_half_widths_world_mm']==HALF and not old['errors']
+        changed={gid for gid,r in recipes.items() if r!=next(x['recipe'] for x in old['groups'] if x['id']==gid)}
+        assert changed=={'W001_0_0'},('Only explicit W001 seat override allowed',changed)
+        inherited=dict(git_commit=resume_commit,receipt=name,raw_sha256=hashlib.sha256(raw).hexdigest(),
+                       changed_profile_ids=sorted(changed),unchanged_nonalgorithm_inputs_verified=True)
+        for previous in old['groups']:
+            if not previous.get('path'):continue
+            gid=previous['id'];assert gid not in changed and previous['recipe']==recipes[gid]
+            points=previous['path']
+            for i,(a,b) in enumerate(zip(points,points[1:])):
+                s=arm_box(a,b,HALF)
+                for change in changed:
+                    for kind in ('body','band'):
+                        assert not hit(s,profiles[change][kind]),('Changed seat blocks inherited arm',gid,change,kind)
+                additions['AcceptedSourceArm/'+previous['owner']+'/'+gid+'/'+str(i)]=(s,None)
+            record=copy.deepcopy(previous);record['inherited_from']=resume_commit
+            rows.append(record);resumed.add(gid)
+        assert len(resumed)==12
+        save();print('reused twelve exact source root paths; changed W001 profile checked against all inherited arms',flush=True)
     for gid,profile in profiles.items():
+        if gid in resumed:continue
         check();goal=profile['root_tip_mm'];row=dict(id=gid,recipe=recipes[gid],goal_mm=goal,path=None,rejections=[])
         rows.append(row)
         # Check whole seats once, before any path or owner selection. The
@@ -80,9 +112,17 @@ def run():
             else:seat_contacts.append(n)
         for n,(w,r) in wires.items():
             if hit(profile['body'],w,r+.25):seat_contacts.append(n)
+        if recipes[gid].get('geometry_override_basis'):
+            for n,t in targets.items():
+                if hit(profile['band'],t):seat_contacts.append('changed_band/'+n)
+            for n,(w,r) in wires.items():
+                own=n in ('wire/'+recipes[gid]['wire'],recipes[gid]['wire'])
+                if hit(profile['band'],w,r if own else r+.25):seat_contacts.append('changed_band/'+n)
         for n,(t,_) in additions.items():
             if n=='SourceLand/'+gid+'/body':continue
             if hit(profile['body'],t):seat_contacts.append(n)
+            if recipes[gid].get('geometry_override_basis') and n!='SourceLand/'+gid+'/band' and hit(profile['band'],t):
+                seat_contacts.append('changed_band/'+n)
         if len(touching_owners)>1:seat_contacts.append('Different physical printed parents would be bridged')
         row['seat_contacts']=seat_contacts;row['touching_printed_parents']=sorted(touching_owners)
         if seat_contacts:save();print('local source seat blocked',gid,seat_contacts,flush=True);continue
@@ -143,4 +183,7 @@ def run():
     save()
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit')
+    run(parser.parse_args().resume_commit)
