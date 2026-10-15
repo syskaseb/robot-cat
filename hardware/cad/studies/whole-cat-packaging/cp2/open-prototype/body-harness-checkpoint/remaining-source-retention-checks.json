@@ -1,6 +1,5 @@
 {
   "status": "REMAINING_SOURCE_COMMON_RETENTION_MATERIAL_OPEN",
-  "execution_error": "First candidate stopped after13bands: SourceStructure/RightRiser is valid but has TWO solids; no world approval for its structures.",
   "components": [
     {
       "name": "SourceLacing/W001_0_0",
@@ -9,9 +8,7 @@
     },
     {
       "name": "SourceLacing/W075_0_0",
-      "contacts": [
-        "candidate/SourceStructure/RightRiser"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
@@ -31,30 +28,22 @@
     },
     {
       "name": "SourceLacing/W076_1_13",
-      "contacts": [
-        "candidate/SourceStructure/LeftRiser"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
       "name": "SourceLacing/W066_0_3",
-      "contacts": [
-        "candidate/SourceStructure/UpperCarrier001"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
       "name": "SourceLacing/W066_0_15",
-      "contacts": [
-        "candidate/SourceStructure/UpperCarrier001"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
       "name": "SourceLacing/W077_0_0",
-      "contacts": [
-        "candidate/SourceStructure/UpperCarrier001"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
@@ -64,23 +53,52 @@
     },
     {
       "name": "SourceLacing/W067_P_SYS",
-      "contacts": [
-        "curve/wire/W041_FACTORY",
-        "candidate/SourceStructure/UpperCarrier001"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
       "name": "SourceLacing/W068_P_SYS",
-      "contacts": [
-        "candidate/SourceStructure/UpperCarrier001"
-      ],
+      "contacts": [],
       "nominal_case_reservations_not_manufacturer_metal": true
     },
     {
       "name": "SourceLacing/W043_P_SYS",
+      "contacts": [],
+      "nominal_case_reservations_not_manufacturer_metal": true
+    },
+    {
+      "name": "SourceStructure/RightRiser",
       "contacts": [
-        "candidate/SourceStructure/UpperCarrier001"
+        "material/CurrentNative/FrontRightFixedCarrier",
+        "curve/wire/W038",
+        "curve/wire/W060",
+        "curve/wire/W001",
+        "curve/body/W031"
+      ],
+      "nominal_case_reservations_not_manufacturer_metal": true
+    },
+    {
+      "name": "SourceStructure/LeftRiser",
+      "contacts": [
+        "material/FoundationStationSupports/0/0",
+        "curve/body/W020"
+      ],
+      "nominal_case_reservations_not_manufacturer_metal": true
+    },
+    {
+      "name": "SourceStructure/UpperCarrier001",
+      "contacts": [
+        "material/F_L3_CP2_IN/0/0",
+        "material/F_L4_CP2_Housing/0/0",
+        "material/F_L4_CP2_ATO/0/0",
+        "material/F_L4_CP2_IN/0/0",
+        "material/W1Ref_G2SJ4570/0/0",
+        "material/W041_Joint/0/0",
+        "material/FrontLeftFixedCarrier/0/0",
+        "material/CurrentNative/FrontLeftFixedCarrier",
+        "curve/wire/W041_FACTORY",
+        "curve/wire/W028",
+        "curve/body/W022"
       ],
       "nominal_case_reservations_not_manufacturer_metal": true
     }
@@ -834,10 +852,10 @@
           1.0
         ],
         "knot": [
-          6.981,
+          -5.681,
           -1,
           -1.5,
-          9.981,
+          -2.681,
           1,
           0.5
         ],
@@ -940,10 +958,10 @@
           1.0
         ],
         "knot": [
-          6.981,
+          -5.681,
           -1,
           -1.5,
-          9.981,
+          -2.681,
           1,
           0.5
         ],
@@ -1047,10 +1065,10 @@
           1.0
         ],
         "knot": [
-          6.881,
+          -5.581,
           -1,
           -1.5,
-          9.881,
+          -2.5810000000000004,
           1,
           0.5
         ],
@@ -1251,10 +1269,10 @@
           1.0
         ],
         "knot": [
-          6.981,
+          -5.681,
           -1,
           -1.5,
-          9.981,
+          -2.681,
           1,
           0.5
         ],
@@ -1349,10 +1367,10 @@
           1.0
         ],
         "knot": [
-          6.981,
+          -5.681,
           -1,
           -1.5,
-          9.981,
+          -2.681,
           1,
           0.5
         ],
@@ -1447,10 +1465,10 @@
           1.0
         ],
         "knot": [
-          6.881,
+          -5.581,
           -1,
           -1.5,
-          9.881,
+          -2.5810000000000004,
           1,
           0.5
         ],
@@ -1475,28 +1493,42 @@
             63.25
           ],
           [
-            -60,
+            -50,
             -25,
             63.25
           ],
           [
-            -60,
+            -50,
             -66,
             63.25
           ],
           [
-            -60,
-            -66,
-            18
-          ],
-          [
-            45.5,
+            -50,
             -66,
             18
           ]
         ],
         "half_widths_mm": [
           2,
+          2,
+          2
+        ]
+      },
+      {
+        "points_mm": [
+          [
+            -68.5,
+            -66,
+            18
+          ],
+          [
+            48.5,
+            -66,
+            18
+          ]
+        ],
+        "half_widths_mm": [
+          1.4,
           2,
           2
         ]
@@ -1661,24 +1693,29 @@
         "points_mm": [
           [
             -112,
-            45.791273890184684,
+            43.19319767883137,
             74
           ],
           [
             -112,
-            45.791273890184684,
+            46.65729929396912,
+            74
+          ],
+          [
+            -112,
+            46.65729929396912,
             74.9
           ],
           [
-            -106.20000000000002,
-            45.791273890184684,
+            -106.70000000000002,
+            46.65729929396912,
             74.9
           ]
         ],
         "half_widths_mm": [
-          2,
-          2,
-          2
+          1.4,
+          1.4,
+          1.4
         ]
       }
     ],
@@ -1708,17 +1745,17 @@
           [
             33.125,
             85.5,
-            51.4
+            45.5
           ],
           [
             13.09555285409,
             85.5,
-            48.4
+            45.5
           ],
           [
             13.09555285409,
             54.59195868431,
-            48.4
+            45.5
           ]
         ],
         "half_widths_mm": [
@@ -1737,7 +1774,7 @@
           [
             33.125,
             40,
-            154.4
+            152
           ]
         ],
         "half_widths_mm": [
@@ -1751,12 +1788,12 @@
           [
             33.125,
             40,
-            154.4
+            152
           ],
           [
             15.5,
             40,
-            154.4
+            152
           ]
         ],
         "half_widths_mm": [
@@ -1770,12 +1807,12 @@
           [
             33.125,
             40,
-            154.4
+            152
           ],
           [
             47.5,
             40,
-            154.4
+            152
           ]
         ],
         "half_widths_mm": [
@@ -1792,8 +1829,13 @@
             96.4
           ],
           [
+            33.125,
+            75.5,
+            96.4
+          ],
+          [
             10,
-            85.5,
+            75.5,
             96.4
           ]
         ],
@@ -1811,8 +1853,13 @@
             96.4
           ],
           [
+            33.125,
+            75.5,
+            96.4
+          ],
+          [
             28,
-            85.5,
+            75.5,
             96.4
           ]
         ],
@@ -1827,7 +1874,12 @@
           [
             13.09555285409,
             54.59195868431,
-            48.4
+            45.5
+          ],
+          [
+            16.09555285409,
+            54.59195868431106,
+            45.5
           ],
           [
             16.09555285409,
@@ -1846,17 +1898,17 @@
           [
             33.125,
             40,
-            154.4
+            152
           ],
           [
             45.0,
             40,
-            154.4
+            152
           ],
           [
             45.0,
             63.3,
-            154.4
+            152
           ],
           [
             45.0,
@@ -1876,6 +1928,11 @@
             28,
             85.5,
             96.4
+          ],
+          [
+            28,
+            85.5,
+            93.4
           ],
           [
             24.0,
@@ -1923,17 +1980,17 @@
           [
             33.125,
             40,
-            154.4
+            152
           ],
           [
             38.5,
             40,
-            154.4
+            152
           ],
           [
             38.5,
             63.3,
-            154.4
+            152
           ],
           [
             38.5,
@@ -1952,17 +2009,17 @@
           [
             33.125,
             40,
-            154.4
+            152
           ],
           [
             32.0,
             40,
-            154.4
+            152
           ],
           [
             32.0,
             63.3,
-            154.4
+            152
           ],
           [
             32.0,
@@ -1981,17 +2038,17 @@
           [
             33.125,
             40,
-            154.4
+            152
           ],
           [
             19.0,
             40,
-            154.4
+            152
           ],
           [
             19.0,
             63.3,
-            154.4
+            152
           ],
           [
             19.0,
@@ -2007,7 +2064,7 @@
       }
     ]
   },
-  "checks": 78,
+  "checks": 323,
   "errors": [],
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
@@ -2077,17 +2134,17 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1InterfaceCarriersCurrent.FCStd": "fd09de30744aa0ea26bad789779980172ee078b650ae80070729254ee259e9c1",
     "tools/cad/current_body_restraint_material.py": "9beb26b964cb86269a77153c01659af1a735c69fffa33b36de1cbf8ab38aaca1",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/ReceiverSupportsCurrent.FCStd": "4306e95194894c02579bb3370488af0a2909ccde79095986678bdfd5c0bab71a",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/upper-fixed-feed-supports/UpperFixedFeedSupportsCurrent.FCStd": "896f6fee1ded571ceecc17481376fea9f042d753d1432556072b5ac28f5dfa6e",
-    "tools/cad/plan_axial_source_supports.py": "82745e3dd674765f065ba5ce74e4910f9bd08b3f8c7bcc3e6d61b90e3c9b520b",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-source-retention-plan.json": "c68cb7bf63b09521b4b90fcdd8dd15e6d34361df9bb492ec71932495712b6d6c",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadNeckCurrent.FCStd": "ce19a824152b6ab8646731bbd002956a49557be17bacd819d3688d79c69fde89",
-    "tools/cad/remaining_source_retention_material.py": "2272900b081295a70267f895fbd163cb89875846ec1e1416851260a6a34d0c1a",
+    "tools/cad/remaining_source_retention_material.py": "41fa6d7f51e3294a987977e789ecb40f71194eba147d657f337b8d7f3111ea0e",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-receiving-plan.json": "253f7369ec88bfe47393a38073dae9650be08135394ea02f05fa8ca2299f2493",
-    "tools/cad/check_remaining_source_retention.py": "955ada0f994ba0092635901d7a2b4d4785a852284d2e03b0315ea483d736d655",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadNeckCurrent.FCStd": "ce19a824152b6ab8646731bbd002956a49557be17bacd819d3688d79c69fde89",
+    "tools/cad/plan_axial_source_supports.py": "82745e3dd674765f065ba5ce74e4910f9bd08b3f8c7bcc3e6d61b90e3c9b520b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/upper-fixed-feed-supports/UpperFixedFeedSupportsCurrent.FCStd": "896f6fee1ded571ceecc17481376fea9f042d753d1432556072b5ac28f5dfa6e",
+    "tools/cad/check_remaining_source_retention.py": "41dd1b4a8e65b8d60f550ecaf257acd0251d1fc21f4e35b2092f4096a0b49aa4",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/manifest.json": "e2c66a73ba172c23617072bcb27f95a7d64097761904dd9c2a93ec2406c836d1",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "4b72dbb0781a011e18bd448e4792b92d992dedce90e6616684e0735fef8602c1"
   },
-  "worker_seconds": 157.875,
+  "worker_seconds": 196.875,
   "scope": "Changed source retention only vs all current36/full retained scene/native receivers and all candidate structures/bands. Existing unmodified pairs reused, not rerun.",
   "open": [
     "Native replacements and source case retention/S0 fit",
