@@ -15,6 +15,18 @@ def cavity(role,datum,aliases):
     return station+'.'+str(p['physical_project_cavity']),p['point_mm']
 
 
+def role_order(guide):
+    """Electrical NET list order is not necessarily geometric path order."""
+    roles=list(guide['electrical_roles']);segments=guide['segments']
+    first=segments[0].get('endpoints');last=segments[-1].get('endpoints')
+    normalize={'S0.IN.barrel_tip':'S0.in','S0.OUT.barrel_tip':'S0.out'}
+    if first and last:
+        ordered=[normalize.get(first[0],first[0]),normalize.get(last[-1],last[-1])]
+        if len(set(ordered))==2 and set(ordered)==set(roles):
+            return ordered,'Explicit recipe endpoints, normalized S0 barrel aliases; no geometry moved'
+    return roles,'Legacy role order; known project datums checked where present, remaining geometric direction unverified'
+
+
 def run():
     tick=time.monotonic();files=[OUT/(n+'.json') for n in
         ('retained-body-guides-inventory','current-leg-receiver-datums','ground-tree-plan',
@@ -25,7 +37,8 @@ def run():
     aliases=inventory['same_DATA_rail_aliases'];bindings={};seen={}
     for name,guide in inventory['guides'].items():
         endpoints=[]
-        for side,role in enumerate(guide['electrical_roles']):
+        ordered_roles,order_basis=role_order(guide)
+        for side,role in enumerate(ordered_roles):
             physical,point=cavity(role,datums['ports'],aliases)
             if role.startswith('G1.'):
                 physical='G1.'+str(ground['G1_same_ground_port_mapping'][name])
@@ -43,10 +56,13 @@ def run():
         candidates=[]
         for side,segment in enumerate((guide['segments'][0],guide['segments'][-1])):
             parts=segment['parts'] if side==0 else list(reversed(segment['parts']))
-            part=next((p for p in parts if p['kind']=='line' and p['length_mm']>=9),None)
+            index=next((i for i,p in enumerate(parts) if p['kind']=='line' and p['length_mm']>=9),None)
+            part=parts[index] if index is not None else None
             candidates.append(dict(end_index=side,existing_straight=part,
+                preceding_guide_mm=sum(p['length_mm'] for p in parts[:index]) if index is not None else None,
                 nine_mm_lands_are_candidates_not_chosen_restraints=True))
         bindings[name]=dict(ends=endpoints,existing_native_scope=retained,
+            geometric_end_role_order_basis=order_basis,
             land_candidates=candidates,full_retention_complete=False,
             guide_mm=guide['centreline_sum_mm'],actual_cut_mm=None)
     result=dict(status='RETAINED19_PHYSICAL_END_BINDINGS_AND_RETENTION_INPUTS_ONLY',bindings=bindings,
