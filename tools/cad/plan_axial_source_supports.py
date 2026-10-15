@@ -15,13 +15,46 @@ P=C.P
 
 
 def port_arm_halves(recipe):
-    frame=recipe['local_to_world']
-    return [sum(abs(frame[j*4+i])*h for i,h in enumerate((2,3,2))) for j in range(3)]
+    # A4mm square wire-support pilot fits inside every4x6x4 port entry.
+    # Do not widen worldY across a Y-normal seat toward its own cable.
+    # Creep/load/fit remain physical sample gates; this is not a leg support.
+    return [2.,2.,2.]
 
 
 def arm_box(a,b,halves=(2,3,2)):
     return P.box([min(x,y)-d for x,y,d in zip(a,b,halves)]+
                  [max(x,y)+d for x,y,d in zip(a,b,halves)])
+
+
+def contained_roots(parent,row,limit=4):
+    goal=row['goal_world_mm'];half=row['arm_half_widths_world_mm']
+    points=[row['fallback_root_world_mm']]
+    faces=sorted(parent.Faces,key=lambda f:math.dist(list(f.CenterOfMass),goal))[:60]
+    for face in faces:
+        if type(face.Surface).__name__!='Plane':continue
+        u,U,v,V=face.ParameterRange;normal=face.normalAt((u+U)/2,(v+V)/2)
+        for sign in (-1,1):points.append(list(face.CenterOfMass+normal*(sign*2)))
+    result=[];seen=set()
+    for point in sorted(points,key=lambda p:math.dist(p,goal)):
+        key=tuple(round(v,6) for v in point)
+        if key in seen:continue
+        seen.add(key)
+        if not row['moving'] and not (-118<=point[0]<=203 and -98<=point[1]<=98 and -28<=point[2]<=153):continue
+        if not parent.isInside(A.Vector(*point),1e-7,True):continue
+        outside=arm_box(point,point,half).copy().cut(parent.copy()).Volume
+        if outside>1e-5:continue
+        result.append(dict(point_mm=point,outside_retained_parent_mm3=outside))
+        if len(result)>=limit:break
+    return result
+
+
+def direct_elbows(start,goal):
+    for order in itertools.permutations(range(3)):
+        points=[list(start)];current=list(start)
+        for axis in order:
+            if abs(current[axis]-goal[axis])<1e-7:continue
+            current=list(current);current[axis]=goal[axis];points.append(current)
+        if len(points)>1:yield points
 
 
 def run():
@@ -89,11 +122,28 @@ def run():
             groups=contracts,rejections=rejections,checks=checks,retained_subset_receipts=subsets,
             source_sha256={**pins,**{f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in [file,*files,Path(__file__)]}},
             worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
-            scope='Eight4x6x4rootedarms vsallretainedmaterial,allsourceposes/12fans/20bodyroutes andpriornewarms. Ownparent/seatunion permitted only within same physical part. Booleanunion/native/36cores/stock stillOPEN.')
+            prototype_wire_support_square_mm=4,physical_load_creep_fit_gate_open=True,
+            scope='Eight4mmsquarewire-supportpilotarms vsallretainedmaterial,allsourceposes/12fans/20bodyroutes andpriornewarms. Rootsstrictsubsets ofretainedparent; ownparent/seatuniononlysamephysicalpart. Notlegloadsupports. Booleanunion/native/36cores/stock stillOPEN.')
         out=P.OUT/'body-axial-rooted-arms-plan.json';tmp=out.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(out);cache.save()
     for row in contracts:
-        goal=row['goal_world_mm'];start_options=[row['root_world_mm'],row['fallback_root_world_mm']]
+        goal=row['goal_world_mm'];root_receipts=contained_roots(targets[row['name']+'/0/0'],row)
+        row['root_patch_receipts']=root_receipts;start_options=[r['point_mm'] for r in root_receipts]
         for root in start_options:
+            start_witness=blocked(arm_box(root,root,row['arm_half_widths_world_mm']),row)
+            goal_witness=blocked(arm_box(goal,goal,row['arm_half_widths_world_mm']),row)
+            if start_witness or goal_witness:
+                rejections.append(dict(group=row['name'],root=root,start_witness=start_witness,goal_witness=goal_witness));save();continue
+            candidate=None
+            for points in direct_elbows(root,goal):
+                witness=None
+                for a,b in zip(points,points[1:]):
+                    witness=blocked(arm_box(a,b,row['arm_half_widths_world_mm']),row)
+                    if witness:break
+                if witness is None:
+                    candidate=dict(points_mm=points,root_subset_verified=True,method='whole_segment_exact_manhattan_elbows');break
+            if candidate:
+                row['paths']=[dict(points_mm=candidate['points_mm'],root_attachment='Verifiedcontainedretainedparentpatch',search=candidate)]
+                break
             low=[min(a,b)-24 for a,b in zip(root,goal)];high=[max(a,b)+24 for a,b in zip(root,goal)]
             memo={}
             def clear(point):
@@ -109,12 +159,14 @@ def run():
             if not points or witness:
                 rejections.append(dict(group=row['name'],root=root,search=candidate,segment_witness=witness));save();continue
             row['paths']=[dict(points_mm=points,root_attachment='Actualretainednativeparent',search=candidate)]
+            break
+        if row['paths']:
+            points=row['paths'][0]['points_mm']
             for i,(a,b) in enumerate(zip(points,points[1:])):
                 for h in C.ANGLES if row['moving'] else (0,):
                     shape=arm_box(a,b,row['arm_half_widths_world_mm'])
                     if row['moving']:shape=C.moved(shape,C.transform(axes,row['code'],h,0,'Hip'))
                     additions[row['name']+'/arm/'+str(i)+'/'+str(h)]=(shape,(row['code'],h) if row['moving'] else None)
-            break
         save();print('rooted source arm',row['name'],bool(row['paths']),'pairs',checks,flush=True)
     save()
 

@@ -11,7 +11,7 @@ class SourceArmEntries(unittest.TestCase):
             for moving in (False,True):
                 _,port=C.make_port(row,moving);goal=port['arrival_world_mm']
                 half=port_arm_halves(port['recipe']);seed=arm_box(goal,goal,half)
-                self.assertAlmostEqual(seed.Volume,96,places=5)
+                self.assertAlmostEqual(seed.Volume,64,places=5)
                 self.assertLess(seed.common(port['band']).Volume,1e-6)
                 self.assertGreater(seed.common(port['body']).Volume,1)
                 self.assertGreaterEqual(seed.distToShape(wire)[0],3.25-1e-6,(row['loom'],moving,half))
