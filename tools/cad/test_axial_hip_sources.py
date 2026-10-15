@@ -3,6 +3,7 @@ import numpy as np
 import FreeCAD as A
 import current_body_fanout_material as M
 from plan_axial_hip_sources import OUT,ROOT,ends,build
+from search_axial_source_layout import ends as current_ends,solve_flex
 from plan_current_moving_looms import add,mul,exact_turn_to
 from open_prototype_path_preflight import samples
 PLAN_NAME=os.environ.get('ROBOT_CAT_AXIAL_PLAN_NAME','body-axial-hip-plan.json')
@@ -34,8 +35,8 @@ class AxialSourceTests(unittest.TestCase):
                 for a,b in zip(edges,edges[1:]):
                     self.assertLess(a.Vertexes[-1].Point.distanceToPoint(b.Vertexes[0].Point),1e-6)
                     self.assertGreater(a.tangentAt(a.LastParameter).dot(b.tangentAt(b.FirstParameter)),1-1e-6)
-                a,b,v,_=ends(row,pose['angle'])
-                for d in (-5,5):self.assertIsNotNone(build(a,b,v,row['flex_length_mm']+d,row['bridge_beta_degrees']))
+                parameter=row.get('bridge_cosine') if row.get('flex_construction')=='antiparallel_axial_return' else row['bridge_beta_degrees']
+                for d in (-5,5):self.assertIsNotNone(solve_flex(row,pose['angle'],row['flex_length_mm']+d,parameter))
                 self.assertAlmostEqual(sum(p['length_mm'] for p in pose['parts']),row['guide_mm'],places=6)
                 count+=1
         self.assertEqual(count,124)
