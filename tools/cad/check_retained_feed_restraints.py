@@ -13,6 +13,7 @@ from short_feed_lacing_saddle import build
 from loom_land_port import box
 from build_front_fixed_port_clearance import placement
 from current_work_guard import check as guard
+from current_body36_candidates import resolve
 
 def old_shapes(recipe):
     """Reconstruct exactly the received recipe, not the changed helper code."""
@@ -34,9 +35,7 @@ def run(parent_commit=None):
     for n,h in macro['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     # Reconstruct inherited geometry directly, not from an unspecified latest.
     bf=P.ROOT/macro['inherited_receipt'];base=json.loads(bf.read_text())
-    effective={n:base['routes'][n] for n in macro['retained_route_ids']}
-    effective.update(macro['qualified_changed_routes']);effective.update(macro['proposed_routes'])
-    assert len(effective)==36
+    effective,ancestry=resolve(macro,P.ROOT)
     parent=None;inherited=None
     if parent_commit:
         path=(P.OUT/'retained-feed-restraints-checks.json').relative_to(P.ROOT).as_posix()
@@ -70,7 +69,7 @@ def run(parent_commit=None):
         elif n.split('/')[0] in {r['owner'] for r in plan['restraints']}:owners[n]=n.split('/')[0]
     samples={};checks=0;records=[];accepted={};errors=[]
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'retained-feed-restraints-pairs.json',bounds.near)
-    files=[planfile,mf,bf,rf,Path(__file__),Path(__file__).with_name('short_feed_lacing_saddle.py')]
+    files=[planfile,mf,bf,rf,Path(__file__),Path(__file__).with_name('short_feed_lacing_saddle.py'),Path(__file__).with_name('current_body36_candidates.py')]
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
     if parent:
         for old in parent['restraints']:
@@ -96,6 +95,7 @@ def run(parent_commit=None):
             restraints=records,checks=checks,errors=errors,source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3),inherited_qualified_receipt=inherited,
             selected=False,W5_complete=False,physical_pass=False,
             full_body_curves_accepted=not macro['remaining_wire_ids'],
+            candidate_receipt_ancestry=ancestry,
             scope='Changed10seats/bands vs realretained/current36candidatecurves/roots/allmotion. Unqualifiedbodyroutes remain OPEN; this does not certifywholeW5.',
             open=['Whole36routeacceptance','Native4replacementFrames/7caps withfeedseats','Lacingstock/mounting/physicalsample'])
         f=P.OUT/'retained-feed-restraints-checks.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
