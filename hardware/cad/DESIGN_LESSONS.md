@@ -263,3 +263,19 @@ RL3, nie z jego Hipflex. Zachowanie źródłowej osi wyjścia i zmiana kierunku
 wejścia stałego chwytu może rozwiązać przyczynę bez zmniejszaniaR31,5.
 Nowa rodzina powrotu osiowego dała trzecią alokację źródła; pełny komplet,
 ramiona i fizyczne pasowanie pozostają osobnymi bramkami.
+
+15.10, pełne36 odbiorników: nie zamrażać pierwszych20 orientacji chwytów,
+gdy pozostałe16 nie weszło jeszcze do wspólnego planu. Próba ze stałymi20
+dała W013/W069 bez opcji, a W047/W071 miały7/8 dobrych opcji. Przerwano
+dalsze liczenie po zapisanym wyniku192,437s, zamiast obrabiać znany martwy
+układ. Wspólny wybór36 zachowuje20 CAŁYCH tras, lecz dopuszcza inne
+wcześniej poprawne orientacje chwytów. W013/W069 dostały7/6 opcji bez
+mikroprzesunięć przewodów; to jeszcze nie dowód wspólnego rozwiązania.
+Pozytywne domeny z bardziej restrykcyjnej sceny można odzyskać po
+sprawdzeniu pinów, ale końcowy wybór nadal wymaga kontroli wzajemnej.
+
+Ramiona: dokładne CSG na każdym węźle siatki było zbyt kosztowne.
+Planowanie na powierzchniach RZECZYWISTYCH brył oraz próbkach przewodów,
+a potem dokładna kontrola CAŁYCH segmentów, domknęło8 ramion źródeł:
+1145 par,569,781s. Powierzchnia styczna nie jest objętościową kolizją;
+mesh może odrzucić/proponować, nigdy sam zaakceptować materiału.
