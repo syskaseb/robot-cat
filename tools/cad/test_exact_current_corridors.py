@@ -9,6 +9,21 @@ class FakeOracle:
     def clear(self,part,row):self.checks+=1;return self.allowed
 
 class ExactRoutingTests(unittest.TestCase):
+    def test_short_goal_approach_is_not_excluded_by_twelve_mm_handles(self):
+        import math
+        from goal_tangent_handles import pairs
+        from plan_current_moving_looms import metrics
+        start=[-116.799038,85.75,109];end=[-119.75,84,121.5]
+        radii=[]
+        for a,b in pairs(math.dist(start,end)):
+            _,radius,_=metrics([start,[start[0],start[1],start[2]+a],
+                                [end[0],end[1],end[2]-b],end],400)
+            radii.append(radius)
+        self.assertGreater(max(radii),10.5)
+        _,old_radius,_=metrics([start,[start[0],start[1],start[2]+12],
+                               [end[0],end[1],end[2]-12],end],400)
+        self.assertLess(old_radius,1)
+
     def test_proxy_uses_same_core_budget_without_extra_legacy_reservation(self):
         import numpy as np
         from types import SimpleNamespace
