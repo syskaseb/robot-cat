@@ -3,6 +3,14 @@ import FreeCAD as A
 from plan_g1_rooted_carrier import geometry,PORTS
 
 class G1CarrierTests(unittest.TestCase):
+    def test_direct_upper_load_path_is_one_connected_body(self):
+        body,bands,recipe=geometry(direct_upper=True)
+        self.assertEqual(len(body.Solids),1)
+        self.assertTrue(body.isValid())
+        self.assertEqual(recipe['root_path_mm'][0],[-16,-30,76.72])
+        self.assertTrue(recipe['direct_upper'])
+        for band in bands.values():self.assertLess(body.common(band).Volume,1e-6)
+
     def test_one_rooted_design_five_independent_lands(self):
         body,bands,recipe=geometry()
         self.assertEqual(len(body.Solids),1)

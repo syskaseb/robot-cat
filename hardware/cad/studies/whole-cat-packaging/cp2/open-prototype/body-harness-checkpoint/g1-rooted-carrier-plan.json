@@ -8,8 +8,8 @@
           -61.5,
           -58.5,
           143.5,
-          -18.5,
-          -38.5,
+          -14,
+          -28,
           146.5
         ]
       },
@@ -17,10 +17,10 @@
         "name": "BackSpine",
         "bounds_mm": [
           -61.5,
-          -41.5,
+          -31,
           143.5,
-          -18.5,
-          -38.5,
+          -14,
+          -28,
           175.75
         ]
       },
@@ -31,7 +31,7 @@
           -58.5,
           146.5,
           -59,
-          -38.5,
+          -28,
           150
         ]
       },
@@ -42,31 +42,21 @@
           -58.5,
           146.5,
           -18.5,
-          -38.5,
+          -47.5,
           150
         ]
       }
     ],
     "root_path_mm": [
       [
-        -100.5,
-        -85.05,
-        132.4224451363255
+        -16,
+        -30,
+        76.72
       ],
       [
-        -100.5,
-        -85.05,
-        144.5
-      ],
-      [
-        -40,
-        -85.05,
-        144.5
-      ],
-      [
-        -40,
-        -40,
-        144.5
+        -16,
+        -30,
+        145
       ]
     ],
     "arm_half_width_mm": 2,
@@ -127,7 +117,7 @@
           -52.45,
           171.75,
           -51,
-          -38.5,
+          -28,
           175.75
         ],
         "local_to_world": [
@@ -206,7 +196,7 @@
           -51.95,
           171.75,
           -44.5,
-          -38.5,
+          -28,
           175.75
         ],
         "local_to_world": [
@@ -285,7 +275,7 @@
           -51.4,
           171.75,
           -38,
-          -38.5,
+          -28,
           175.75
         ],
         "local_to_world": [
@@ -364,7 +354,7 @@
           -51.4,
           171.75,
           -31.5,
-          -38.5,
+          -28,
           175.75
         ],
         "local_to_world": [
@@ -443,7 +433,7 @@
           -51.4,
           171.75,
           -25,
-          -38.5,
+          -28,
           175.75
         ],
         "local_to_world": [
@@ -466,21 +456,19 @@
         ],
         "lacing_blank_mm": 150
       }
-    ]
+    ],
+    "direct_upper": true
   },
   "components": [
     {
       "component": "carrier",
-      "contact": "curve/wire/tail-wiring-checkpoint/XB32",
+      "contact": "curve/headwire/0/Interface_XS23",
       "all_contacts": [
-        "material/W4_OutputJointSleeve/0/0",
-        "material/W4_XB32/0/0",
-        "material/W3Ref_YawSource_Band/0/0",
-        "material/MTA/FR/0/0",
-        "curve/wire/head-supply-checkpoint/XB12",
-        "curve/wire/head-supply-checkpoint/XB13",
-        "curve/wire/head-supply-checkpoint/XS13",
-        "curve/wire/tail-wiring-checkpoint/XB32"
+        "material/FTYCradle/0/0",
+        "material/W4_F_TY_case/0/0",
+        "material/W4_CradleWasher1/0/0",
+        "curve/wire/XA06",
+        "curve/headwire/0/Interface_XS23"
       ]
     },
     {
@@ -509,7 +497,7 @@
       "all_contacts": []
     }
   ],
-  "checks": 56,
+  "checks": 70,
   "errors": [],
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
@@ -570,17 +558,19 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/rising-fuse-receiver-domains.json": "7d5fdedae36aa569071cd83cf6871722222e80ef6d8594eb5617e6f9f7053ab3",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-joint-selection.json": "1bd594949e83ce01205ca66b031c17d65f63d24d59ad4eea4fc2cf4aae26f5f8",
     "tools/cad/current_mixed_receiver_material.py": "18d1263ceb38c2ac772bad63e20342e6bd436037d58a09bc16ad32f5c0085bd8",
-    "tools/cad/plan_g1_rooted_carrier.py": "bacc88e45e75258663156cc714d4acb882af416524c7d5e4da9c567911604b86",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/U1InterfaceCarriersCurrent.FCStd": "fd09de30744aa0ea26bad789779980172ee078b650ae80070729254ee259e9c1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/g1-whole-root-choice.json": "83b1aa0e7686c82f9e5a520df0019e0a0fd7c732eef6ec6055c0ca961f35f2e3",
+    "tools/cad/plan_g1_rooted_carrier.py": "21fb38b924ab75fe67dfe3b38614b97502ba9cf153764eee163da9097465ebef",
     "tools/cad/current_body36_candidates.py": "e3828fce78074f2dd5d3a48871bf641c0dca25bd98b09a18361c78a78511beb3",
     "tools/cad/short_feed_lacing_saddle.py": "7c058b821848322b1462e88e355599fe6e26987d25d1144e1841af0d8c62c617",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-receiver-support-reservations.json": "7936155d8f752d000b4b1cc3458abe55a9b7ca1cd687ba3016dbd931f4842c69",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "0914ca1eb7f15b86a0c8ec8c11db1278ab3040e18c482ca41ee36da72fa0fc31",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "a6711797a63729ab8f7c9593f95b323a8e8dc5161d1f3b6f4a936c6dc43bd7e0",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-recovery-layout.json": "d2c1975c8c0a9fc44e61b71ddf0e2f11a3b5e3510e80e84c62a8f97ed53d68dc"
   },
-  "contained_root_cube_outside_mm3": 0.0,
-  "replacement_parent": "FoundationStationSupports",
+  "contained_root_patch_outside_mm3": 0.0,
+  "replacement_parent": "UpperCarrier001",
   "parent_union_one_solid": true,
-  "worker_seconds": 126.765,
+  "worker_seconds": 140.656,
   "selected": false,
   "W5_complete": false,
   "physical_pass": false,
@@ -589,6 +579,16 @@
   "new_separate_prints": 0,
   "new_screws": 0,
   "candidate_receipt_ancestry": [
+    {
+      "commit": "a58feaa",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json",
+      "sha256": "02e23ab7afebfeebf87a09b5b8694fd0376da1169e67758c0c5ca5612e771d46"
+    },
+    {
+      "commit": "eb0e86e",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json",
+      "sha256": "0914ca1eb7f15b86a0c8ec8c11db1278ab3040e18c482ca41ee36da72fa0fc31"
+    },
     {
       "commit": "29190d4",
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json",
@@ -607,6 +607,17 @@
   ],
   "lacing_candidate_mm": 750,
   "adhesive_gap_project_mm": 0.5,
+  "assembly_plan": [
+    "UpperCarrier001 with integrated carrier before later bank/boards, installed access still requires A2 proof",
+    "Insert bank fuses before G1 casing if that casing obstructs the extraction approach",
+    "Bench prepare five untinned ends; retain actual first3mm UP lands; support case while opening levers",
+    "Five dedicated lacing bindings carry insulation load into the printed carrier, never case adhesive"
+  ],
+  "service_plan": [
+    "All sources including monitor/USB absent; robot supported",
+    "Support G1, release five dedicated bindings and five labeled G1 ends before deeper bank work; park/cover ends without tension",
+    "Remove provisional casing bond; do not claim bank can move through the empty integral carrier until installed A2 path is proved"
+  ],
   "gates": [
     "Provisional3mm fixed mouth retention/creep/diameter",
     "Removable adhesive fit/compatibility",
