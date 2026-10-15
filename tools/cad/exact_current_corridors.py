@@ -21,6 +21,7 @@ from short_feed_lacing_saddle import build as feed_material
 from positive_material_witness import witness
 from current_work_guard import check as guard
 from canonical_body_rows import normalize,selected_rows
+from current_route_proposal_screen import clear as proposal_clear
 
 class ExactOracle:
     def __init__(self,targets,wires):
@@ -72,7 +73,7 @@ class ProposalOracle:
             from plan_body_fanout_layout import part_points
             points=part_points(part)
             points=np.asarray([p for p in points if min(math.dist(p,row['free_start']),math.dist(p,row['free_end']))>1e-7])
-            result=not len(points) or self.mesh.clear(points,row)
+            result=not len(points) or proposal_clear(self.mesh,points,row)
             self.memo[key]=result;self.checks+=1;return result
         s=P.wire([part]);rs=1.25;points=self.exact.points;bounds=self.exact.bounds
         for n,(t,r) in self.exact.wires.items():
@@ -113,7 +114,10 @@ def route(oracle,row,max_seconds=900,max_states=15000):
     fixed=sum(p['length_mm'] for p in source+receiving)
     capacity=row['capacity_before_terminal_mm']-row['terminal_allowance_project_mm']-fixed
     axis=tuple(row.get('source_free_axis',row['bodyward_bundle_tangent']))
-    first=(0,0,0,AXES.index(axis));serial=itertools.count();queue=[(math.dist(start,end),0,next(serial),first)]
+    # Feasibility, not shortest-path proof. Weighted search limits spending
+    # on lateral cul-de-sacs; curvature/capacity and exact gates are unchanged.
+    heuristic_weight=2.0
+    first=(0,0,0,AXES.index(axis));serial=itertools.count();queue=[(heuristic_weight*math.dist(start,end),0,next(serial),first)]
     best={first:0};parents={};tick=time.monotonic();last=tick;states=0
     while queue and states<max_states and time.monotonic()-tick<max_seconds:
         _,cost,_,state=heapq.heappop(queue)
@@ -145,7 +149,7 @@ def route(oracle,row,max_seconds=900,max_states=15000):
             new=cost+part['length_mm']
             if new+math.dist(part['end'],end)>capacity or new>=best.get(nxt,float('inf')):continue
             if not oracle.clear(part,row):continue
-            best[nxt]=new;parents[nxt]=(state,part);heapq.heappush(queue,(new+math.dist(part['end'],end),new,next(serial),nxt))
+            best[nxt]=new;parents[nxt]=(state,part);heapq.heappush(queue,(new+heuristic_weight*math.dist(part['end'],end),new,next(serial),nxt))
     return None,dict(reason='BOUNDED_EXACT_GRAPH_NOT_GEOMETRIC_IMPOSSIBILITY',states=states,seconds=round(time.monotonic()-tick,3),blockers=oracle.blockers.copy())
 
 def run(parent_commit):
@@ -161,6 +165,8 @@ def run(parent_commit):
         if generated.exists():p[generated.relative_to(P.ROOT).as_posix()]=P.SHA(generated)
         helper=Path(__file__).with_name('canonical_body_rows.py')
         p[helper.relative_to(P.ROOT).as_posix()]=P.SHA(helper)
+        screen=Path(__file__).with_name('current_route_proposal_screen.py')
+        p[screen.relative_to(P.ROOT).as_posix()]=P.SHA(screen)
         return dict(a),dict(b),p,g
     receiver.prepare=shared_prepare
     def choose(parent,base):

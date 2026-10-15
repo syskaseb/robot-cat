@@ -9,6 +9,17 @@ class FakeOracle:
     def clear(self,part,row):self.checks+=1;return self.allowed
 
 class ExactRoutingTests(unittest.TestCase):
+    def test_proxy_uses_same_core_budget_without_extra_legacy_reservation(self):
+        import numpy as np
+        from types import SimpleNamespace
+        from current_route_proposal_screen import clear
+        row=dict(wire='test',loom='FL1',bundle_root_world_mm=[-20,0,0],receiver_point_mm=[20,0,0])
+        for separation,allowed in ((2.2,False),(2.3,True)):
+            scene=SimpleNamespace(cell=10,wires={(0,0,0):np.array([0])},material_hit=lambda p:None,
+                data=dict(low=np.array([-100]*3),high=np.array([100]*3),wire_points=np.array([[0,separation,0]]),
+                          wire_radii=np.array([1.0]),wire_names=np.array(['other']),wire_ids=np.array([0])))
+            self.assertEqual(clear(scene,np.array([[0.,0.,0.]]),row),allowed)
+
     def test_proposal_does_not_override_later_exact_rejection(self):
         # Centreline is outside the solid, but its insulation does not fit.
         # No inside witness is not clearance. Exact result must ban the edge.
