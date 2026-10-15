@@ -1,0 +1,53 @@
+{
+  "status": "FIXED_ENTRY_CHAMBER_BLOCK_PROVED",
+  "blocked": [
+    {
+      "wire": "W004",
+      "side": "receiver",
+      "point_mm": [
+        -119.75,
+        84.0,
+        121.5
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "owner": "FrontLeftFixedCarrier",
+      "group": "W021",
+      "segment": 1,
+      "actual_bounds_mm": [
+        -121.25,
+        74.5,
+        113.725,
+        -117.25,
+        90.5,
+        117.725
+      ],
+      "face_depth_mm": 3.7760000000000056,
+      "maximum_transverse_before_face_mm": 0.7403118843019367,
+      "transverse_inside_margins_mm": [
+        1.5,
+        6.5
+      ],
+      "required_minimum_radius_mm": 10,
+      "basis": "Bounded curvature and fixed tangent force centreline into this actual rectangular solid"
+    }
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "a6711797a63729ab8f7c9593f95b323a8e8dc5161d1f3b6f4a936c6dc43bd7e0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-recovery-layout.json": "d2c1975c8c0a9fc44e61b71ddf0e2f11a3b5e3510e80e84c62a8f97ed53d68dc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-receiver-support-reservations.json": "7936155d8f752d000b4b1cc3458abe55a9b7ca1cd687ba3016dbd931f4842c69",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-joint-selection.json": "1bd594949e83ce01205ca66b031c17d65f63d24d59ad4eea4fc2cf4aae26f5f8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/bolted-receiver-layout.json": "123ab3878c3db6666153c479793558a1a4943897ef8fa7f1469f34ad2ab210d1",
+    "tools/cad/receiver_entry_chambers.py": "9ce9d02fd41755f3951cefc229b005a67532b4018a58e35c841841d9639caf7b",
+    "tools/cad/plan_axial_source_supports.py": "82745e3dd674765f065ba5ce74e4910f9bd08b3f8c7bcc3e6d61b90e3c9b520b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/rising-fuse-receiver-domains.json": "7d5fdedae36aa569071cd83cf6871722222e80ef6d8594eb5617e6f9f7053ab3"
+  },
+  "worker_seconds": 0.078,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "scope": "Required projectR10 and fixed tangent, actual rectangular arms ONLY; absence never qualifies a route."
+}

@@ -1,24 +1,20 @@
 {
-  "status": "BOUNDED_GRAPH_STOPPED_FOR_PROVEN_CONNECTOR_MODEL_FIX",
-  "interrupted_wire": "W022",
-  "stop_utc": "2026-10-15T20:28:04Z",
-  "reason": "W0043730states/900.468s exhausted; W022 interrupted before result. Cheap R10 fixture proves old minimum12mm tangent handles exclude feasible short approach. Not geometric impossibility, no accepted route lost,33wholepositive remain.",
+  "status": "STOPPED_AFTER_PROVED_FIXED_ENTRY_CHAMBER_BLOCK",
+  "interrupted_wire": "W004",
+  "stop_utc": "2026-10-15T21:09:41Z",
+  "last_observed_search_seconds": 761.0,
+  "last_observed_states": 2702,
+  "last_observed_proxy_checks": 8809,
+  "reason": "No candidate accepted. Actual W021 root beam blocks the old optional W004 Uturn entry under requiredR10; receiver-entry-chambers proves this in0.078s. Preserve33whole and all material. Simplify optional pregrip approach before another graph.",
   "candidates": {},
-  "failures": {
-    "W004": {
-      "reason": "BOUNDED_EXACT_GRAPH_NOT_GEOMETRIC_IMPOSSIBILITY",
-      "states": 3730,
-      "seconds": 900.468,
-      "blockers": {}
-    }
-  },
+  "failures": {},
   "remaining": [
     "W004",
     "W022",
     "W069"
   ],
   "checks": 0,
-  "worker_seconds": 900.484,
+  "worker_seconds": 0.0,
   "parent_commit": "3b7d95e",
   "selected": false,
   "physical_pass": false
