@@ -242,3 +242,24 @@ z pinami wejść i kodu; następna trasa nie uzasadnia kolejnego liczenia tych
 samych drogich union/common. RejestrOPEN nie oznacza braku gotowej trasy:
 19prowadzeń istniało już w późniejszych dowodach. Najpierw uzgodnić aktualne
 końce i jawne zamiany zacisków tej samej szyny, zamiast trasować je od nowa.
+
+15.10, odciążenia odbiorników: wolne9mm samej żyły nie rezerwuje miejsca
+na siodło, główkę opaski i wejście ramienia. Najpierw rozmieścić te pełne
+elementy wspólnie, potem prowadzić środek przewodu.19 istniejących tras
+i18 dobrych domen chwytów zachowano; zmianaW074 korzysta z wcześniejszej
+prostej bez reroutingu, aW024 wymagał nowego podejścia razem z uchwytem.
+Wspólna alokacja20 uchwytów/podejścia:2368par,25węzłów,238,078s.
+To nadal nie kwalifikuje brakujących ramion ani pełnego środka przewodu.
+
+W pętli planera najpierw sprawdzić wszystkie położenia, zapas długości,
+samokontakt i prześwit, dopiero potem kosztowne bryły świata. Samokontakt
+najkrótszej matematycznej próby nie odrzuca całego kierunku; szukać pierwszej
+poprawnej matematycznie długości. Po odrzuceniu jej rzeczywistą przeszkodą
+zmieniać kierunek/rodzinę, nie dokładać kolejnych wariantów luzu.
+
+Nie utożsamiać etykiety całej wiązki z jej pętlą przy biodrze. Jedna
+lokalizacja rzeczywistej pary0,391s wykazała konflikt z odcinkiem FABRYCZNYM
+RL3, nie z jego Hipflex. Zachowanie źródłowej osi wyjścia i zmiana kierunku
+wejścia stałego chwytu może rozwiązać przyczynę bez zmniejszaniaR31,5.
+Nowa rodzina powrotu osiowego dała trzecią alokację źródła; pełny komplet,
+ramiona i fizyczne pasowanie pozostają osobnymi bramkami.
