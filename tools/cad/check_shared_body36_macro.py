@@ -17,19 +17,19 @@ from positive_material_witness import witness
 from csg_bore_clearance import prove
 from current_work_guard import check as guard
 
-def run(parent_commit=None):
+def run(parent_commit=None,material_only=False):
     guard();tick=time.monotonic();basefile=P.OUT/'body36-recovery-layout.json';base=json.loads(basefile.read_text())
     for n,h in base['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     inherited=None;parent=None
     if parent_commit:
         path=(P.OUT/'body36-shared-macro-layout.json').relative_to(P.ROOT).as_posix()
         raw=subprocess.check_output(['git','show',parent_commit+':'+path],cwd=P.ROOT);parent=json.loads(raw)
-        own=Path(__file__).relative_to(P.ROOT).as_posix()
+        mutable={Path(__file__).relative_to(P.ROOT).as_posix(),Path(__file__).with_name('revise_shared_body36_routes.py').relative_to(P.ROOT).as_posix()}
         for n,h in parent['source_sha256'].items():
-            actual=hashlib.sha256(subprocess.check_output(['git','show',parent_commit+':'+n],cwd=P.ROOT)).hexdigest() if n==own else P.SHA(P.ROOT/n)
+            actual=hashlib.sha256(subprocess.check_output(['git','show',parent_commit+':'+n],cwd=P.ROOT)).hexdigest() if n in mutable else P.SHA(P.ROOT/n)
             assert actual==h,('Inherited proof input changed',n)
         from revise_shared_body36_routes import plan as revise
-        rows,candidates,failures=revise(parent,base)
+        rows,candidates,failures=revise(parent,base,material_only=material_only)
         inherited=dict(git_commit=parent_commit,receipt=path,sha256=hashlib.sha256(raw).hexdigest(),
             source_pins_verified=True,qualified_routes=list(parent['qualified_changed_routes']))
     else:rows,candidates,failures=plan({r['wire']:r for r in base['rows']})
@@ -55,6 +55,7 @@ def run(parent_commit=None):
         row=rows[n];old['fan/'+row['loom']+'/'+row['core']]=(P.wire(row['source_parts']),1)
     files=[basefile,rf,Path(__file__),Path(__file__).with_name('shared_body36_macro_routes.py'),Path(__file__).with_name('positive_material_witness.py')]
     if parent:files.append(Path(__file__).with_name('revise_shared_body36_routes.py'))
+    if material_only:files.append(Path(__file__).with_name('received_curve_splice.py'))
     pins.update(base['source_sha256']);pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'body36-shared-macro-pairs.json',bounds.near)
     points={};edge_cache={};checks=0;completed=dict(received);attempts=[];last=time.monotonic()
@@ -125,4 +126,4 @@ def run(parent_commit=None):
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--resume-commit');run(p.parse_args().resume_commit)
+    p=argparse.ArgumentParser();p.add_argument('--resume-commit');p.add_argument('--material-only',action='store_true');a=p.parse_args();run(a.resume_commit,a.material_only)

@@ -9,7 +9,32 @@ from plan_current_moving_looms import exact_quarter
 
 PARENT='cd4715c'
 
-def plan(parent,base):
+def material_revision(parent,base):
+    from received_curve_splice import splice
+    rows={r['wire']:copy.deepcopy(r) for r in base['rows']}
+    rows.update({r['wire']:copy.deepcopy(r) for r in parent['changed_rows']})
+    front=packed_front_prefixes(rows);result={};failures={}
+    rows['W008'],q,error=splice(rows['W008'],front['W008'],base['routes']['W008'],2,2,65.99-1.25-10)
+    if q:result['W008']=q
+    else:failures['W008']=error
+    r=rows['W030'];end=r['free_end'];p=front['W030'];rise(p,end[2]+10)
+    p.append(exact_quarter(p[-1]['end'],U,S,10))
+    # HeadSupplyCurrent's real band: x[-151.25,-148.75],
+    # y[-96.6,-73.65],z[107.3,133.25]. Shift EAST before its north edge.
+    p.append(exact_quarter(p[-1]['end'],S,E,10));p.append(exact_quarter(p[-1]['end'],E,S,10));a=p[-1]['end']
+    straight_to(p,[a[0],end[1]+10,a[2]]);p.append(exact_quarter(p[-1]['end'],S,E,10))
+    p.append(exact_quarter(p[-1]['end'],E,U,10));rise(p,150)
+    p.append(exact_quarter(p[-1]['end'],U,E,10));a=p[-1]['end']
+    straight_to(p,[end[0]-20,a[1],a[2]]);p.append(exact_quarter(p[-1]['end'],E,D,10));a=p[-1]['end']
+    straight_to(p,[a[0],a[1],end[2]+10]);p.append(exact_quarter(p[-1]['end'],D,E,10))
+    q,error=math_gate(r,[*p,*r['receiving_parts']])
+    if q:result['W030']=dict(q,architecture='FR1_east_S_offset_before_real_FHY_band_then_upper_gallery',
+        real_avoided_band_bounds_mm=[-151.25,-96.6,107.3,-148.75,-73.65,133.25])
+    else:failures['W030']=error
+    return rows,result,failures
+
+def plan(parent,base,material_only=False):
+    if material_only:return material_revision(parent,base)
     rows={r['wire']:copy.deepcopy(r) for r in base['rows']}
     rows.update({r['wire']:copy.deepcopy(r) for r in parent['changed_rows']})
     front=packed_front_prefixes(rows);result={};failures={}

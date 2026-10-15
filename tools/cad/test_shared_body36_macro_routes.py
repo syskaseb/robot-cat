@@ -3,6 +3,29 @@ from pathlib import Path
 from shared_body36_macro_routes import plan,CHANGED,spatial_half_return,N,packed_front_prefixes
 
 class MacroRoutesTest(unittest.TestCase):
+    def test_only_two_real_material_conflicts_are_revised_without_margin_waiver(self):
+        import subprocess
+        from revise_shared_body36_routes import plan as revise
+        root=Path(__file__).resolve().parents[2];folder='hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/'
+        parent=json.loads(subprocess.check_output(['git','show','3c81baf:'+folder+'body36-shared-macro-layout.json'],cwd=root))
+        base=json.loads((root/folder/'body36-recovery-layout.json').read_text());rows,candidates,failures=revise(parent,base,material_only=True)
+        self.assertFalse(failures);self.assertEqual(set(candidates),{'W008','W030'})
+        for q in candidates.values():
+            self.assertGreaterEqual(q['minimum_sampled_R_mm'],10);self.assertGreater(q['spare_before_trim_mm'],0)
+    def test_received_bezier_splice_keeps_old_tail_and_under_support_join(self):
+        from received_curve_splice import splice,split
+        root=Path(__file__).resolve().parents[2]
+        f=root/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-recovery-layout.json'
+        base=json.loads(f.read_text());rows={r['wire']:r for r in base['rows']}
+        row,q,error=splice(rows['W008'],packed_front_prefixes(rows)['W008'],base['routes']['W008'],2,2,54.74)
+        self.assertIsNone(error);self.assertIsNotNone(q);self.assertAlmostEqual(row['free_end'][2],54.74,6)
+        self.assertEqual(q['parts'][-1]['end'],base['routes']['W008']['parts'][-1]['end'])
+        self.assertGreater(q['spare_before_trim_mm'],0);self.assertGreaterEqual(q['minimum_sampled_R_mm'],10)
+        self.assertEqual(row['receiving_parts'][1:],base['routes']['W008']['parts'][3:])
+        left,right=split(base['routes']['W008']['parts'][2],.5)
+        self.assertEqual(left['end'],right['start'])
+        self.assertAlmostEqual(left['length_mm']+right['length_mm'],base['routes']['W008']['parts'][2]['length_mm'],3)
+        print('received splice W008',q['guide_mm'],q['spare_before_trim_mm'],flush=True)
     def test_witness_driven_revision_keeps_qualified_routes_and_all_terminals(self):
         import subprocess
         from revise_shared_body36_routes import plan as revise,PARENT
