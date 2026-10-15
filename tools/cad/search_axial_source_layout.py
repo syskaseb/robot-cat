@@ -4,7 +4,7 @@ Reject complete fixed port/fan/arm-entry reservations before solving a wire.
 Then verify full candidate curves in coupled source poses. No native mutation,
 no change to radius/endpoints, no bbox collision verdict and no W5 acceptance.
 """
-import copy,itertools,json,math,time
+import argparse,ast,copy,hashlib,itertools,json,math,subprocess,time
 from datetime import datetime,timezone
 from pathlib import Path
 import FreeCAD as A
@@ -17,18 +17,32 @@ from plan_continuous_joint_family import self_screen
 P=C.P
 
 
-def run():
+def run(resume_commit=None):
     tick=time.monotonic();until=tick+25*60
     seedfile=P.OUT/'body-axial-hip-plan.json';seed=json.loads(seedfile.read_text())
     for n,h in seed['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     targets,old,pins,family,axes,own,bare,files,subsets=C.prepare_context(seed)
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'axial-layout-search-pairs.json',bounds.near)
-    selected=[];attempts=[];errors=[];checks=0;last_save=time.monotonic();extra=[]
+    selected=[];attempts=[];errors=[];checks=0;last_save=time.monotonic();extra=[];resume_proof=None
+    if resume_commit:
+        relative=(P.OUT/'body-axial-layout-search.json').relative_to(P.ROOT).as_posix()
+        previous_bytes=subprocess.check_output(['git','show',resume_commit+':'+relative],cwd=P.ROOT)
+        previous=json.loads(previous_bytes)
+        script=Path(__file__).relative_to(P.ROOT).as_posix()
+        old_code=subprocess.check_output(['git','show',resume_commit+':'+script],cwd=P.ROOT).decode()
+        assert hashlib.sha256(old_code.encode()).hexdigest()==previous['source_sha256'][script], 'Resume script pin mismatch'
+        for name,digest in previous['source_sha256'].items():
+            if name!=script:assert P.SHA(P.ROOT/name)==digest,('Resume input changed',name)
+        def evaluators(source):
+            return {n.name:ast.dump(n,include_attributes=False) for n in ast.walk(ast.parse(source)) if isinstance(n,ast.FunctionDef) and n.name in ('hit','coupled_wire','clear_world','profile_clear')}
+        assert evaluators(old_code)==evaluators(Path(__file__).read_text()),'Resume evaluator changed'
+        selected=copy.deepcopy(previous['hips'])
+        resume_proof=dict(commit=resume_commit,report_sha256=hashlib.sha256(previous_bytes).hexdigest(),input_pins_verified=True,evaluator_AST_verified=True,retained_looms=[r['loom'] for r in selected])
     old_codes={r['loom']:r['cad_code'] for r in family['hips']}
     report=P.OUT/'body-axial-layout-search.json';resultfile=P.OUT/'body-axial-layout-chosen.json'
     def save():
         result=dict(status='FOUR_SOURCE_ALLOCATIONS_SAMPLED_CLEAR_ROOT_ARMS_NATIVE_OPEN' if len(selected)==4 else 'PARTIAL_BOUNDED_AXIAL_SOURCE_ALLOCATION',
-            hips=selected,rejected=[],attempts=attempts,attempt_errors=errors,checks=checks,
+            hips=selected,rejected=[],attempts=attempts,attempt_errors=errors,checks=checks,resume_proof=resume_proof,
             retained_subset_receipts=subsets,material_instances=len(targets),body_routes=20,
             source_sha256={**pins,**{f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in [seedfile,*files,Path(__file__),Path(C.__file__),Path(__file__).with_name('spatial_down_axial_flex.py')]}},
             scope='Chosen source fixedport+threecorefan+armseed and complete freewire/factory in3coupledHip samples. Otherlegs independent; retained material and8otherfamilies/20bodyroutes present. Complete8rootedarms/native/36bodycores/stock/wholeW5 OPEN.',
@@ -83,8 +97,22 @@ def run():
             witness=clear_world(shape,owner=(code,h) if moving else None)
             if witness:return dict(profile='arm_seed',hip=h,**witness)
         return None
+    for saved in selected:
+        loom,code=saved['loom'],saved['cad_code']
+        for pose in saved['poses']:
+            h=pose['angle']
+            if h in C.ANGLES:
+                extra.append((loom+'/'+str(h),P.wire(pose['parts']+C.B.moved_parts(saved['source_parts'],saved['source'],h,0,axes)),3,(code,h)))
+        for name,is_moving in (('Fixed',False),('Moving',True)):
+            _,profile=C.make_port(saved,is_moving)
+            for kind in ('body','band'):
+                for h in C.ANGLES if is_moving else (0,):
+                    shape=C.moved(profile[kind],C.transform(axes,code,h,0,'Hip')) if is_moving else profile[kind]
+                    extra.append((loom+'/'+name+'/'+kind,shape,0,(code,h) if is_moving else None))
+        for core in saved['source_fans']:extra.append((loom+'/core/'+core['core'],P.wire(core['parts']),1,None))
     try:
         for original in seed['hips']:
+            if original['loom'] in {r['loom'] for r in selected}:continue
             if not alive():break
             row=copy.deepcopy(original);side=1 if row['fixed_anchor_world_mm'][1]>0 else -1
             front=row['physical_leg'].startswith('Front');code=row['cad_code'];loom=row['loom']
@@ -94,7 +122,9 @@ def run():
                 attempts.append(dict(loom=loom,phase='moving_profile_and_seed',witness=witness));save()
                 print('source moving entry blocked',loom,witness,flush=True);continue
             chosen=None
-            roots=itertools.product((25.,15.,35.5,50.,65.),(-16.,-24.,-8.,-32.),(-115.5,-105.,-95.) if front else (160.,170.,145.,185.))
+            # Centreline and shallow cross-centre roots change the loop corridor,
+            # unlike repeating longer slack in the rejected same-side corridor.
+            roots=itertools.product((0.,-10.,15.,35.5,50.,65.,25.),(-16.,-24.,-8.,-32.),(-115.5,-105.,-95.) if front else (160.,170.,145.,185.))
             for y,z,x in roots:
                 if not alive():break
                 row['fixed_anchor_world_mm']=[x,side*y,z]
@@ -146,7 +176,9 @@ def run():
                                     if failure:break
                                     curves.append((h,wire))
                                 poses.append(dict(angle=h,parts=parts))
-                            if failure:attempt['last_curve_failure']=failure;continue
+                            if failure:
+                                attempt['last_curve_failure']=failure
+                                break  # First robust compact curve failed: change geometry, not slack.
                             for direction,cores in candidate_fans:
                                 if any(hit(P.wire(c['after_5mm']),w,1.25,3) for c in cores for _,w in curves):continue
                                 poses.sort(key=lambda p:p['angle']);row.update(poses=poses,flex_length_mm=length,guide_mm=length+18,
@@ -178,4 +210,6 @@ def run():
         result=save();print(json.dumps({k:result[k] for k in ('status','candidate_count','checks','worker_seconds')}),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit')
+    run(parser.parse_args().resume_commit)
