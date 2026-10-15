@@ -1,0 +1,65 @@
+{
+  "status": "ONE_900MM_BUS_CABLE_CAPACITY_CHOICE_W5_STOCK_RECONCILIATION_OPEN",
+  "part_number": "SR-Cable-5264-3PIN-900mm-6PCS",
+  "wires": [
+    {
+      "wire": "W002",
+      "guide_mm": 359.53421135755104,
+      "minimum_blank_project_mm": 394.58421135755106,
+      "existing_project_allowance_mm": 35.05000000000001,
+      "minimum_blank_fits_900": true,
+      "project_insulation_radius_mm": 1,
+      "project_static_radius_mm": 10,
+      "actual_cut_mm": null,
+      "route_unchanged": true
+    },
+    {
+      "wire": "W003",
+      "guide_mm": 358.9306166748718,
+      "minimum_blank_project_mm": 393.98061667487184,
+      "existing_project_allowance_mm": 35.05000000000001,
+      "minimum_blank_fits_900": true,
+      "project_insulation_radius_mm": 1,
+      "project_static_radius_mm": 10,
+      "actual_cut_mm": null,
+      "route_unchanged": true
+    }
+  ],
+  "physical_cables_installed": 1,
+  "conductors_installed": [
+    "D",
+    "G"
+  ],
+  "V_contact_and_wire_absent": true,
+  "header": "H5",
+  "pin_binding_inherited_not_colour_inferred": true,
+  "stock_pack_quantity_candidate": 1,
+  "stock_pack_cables": 6,
+  "unused_pack_cables_candidate": 5,
+  "not_extra_cables_per_conductor": true,
+  "minimum_common_blank_project_mm": 394.58421135755106,
+  "project_round_up_for_fit_blank_mm": 395,
+  "gross_900mm_surplus_before_actual_trim_mm": 505.41578864244894,
+  "existing_12leg_cables_not_reallocated": true,
+  "aggregate_pack_count_not_selected": true,
+  "new_splices": 0,
+  "new_restraints": 0,
+  "changed_geometry": 0,
+  "selected": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "gates": [
+    "Actual matching5264/H5 keyed plug and D/G continuity, V absent before power",
+    "Delivered900mm usable length/OD/Cu/insulation/contact; project2mmOD/R10 are not new manufacturer guarantees",
+    "Trim only after unpowered assembly/fit, then remote D_FL.1/G2.4 termination",
+    "K3 reconcile whole900mm pack count and existing planned stock; no purchase",
+    "Existing route/full restraint/native/service and E3 gates remain OPEN"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/BUS-routes-plan.json": "c68138198faaa52b349eb627c3285a335b1cb1510091cf4049a2026499ed319d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/BUS-port-binding.json": "de2c0a96372521032069ab176b83ae38b5a864f4176d803abd5b1312e51d0b89",
+    "hardware/reference/waveshare-sr-cable-900-2026-10-15/facts.json": "00907dcd8610823a44823e56ca4fcdd44e38d6f45a25f4e4241d958c5834efe2",
+    "tools/cad/prepare_bus_cable_capacity_choice.py": "92009f3c910597c497f6bf2263c2f757b04eb3c57d861c9f62000048eda6b6f2"
+  },
+  "worker_seconds": 0.005
+}
