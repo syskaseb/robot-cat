@@ -4,7 +4,7 @@ Cheap mesh screening proposes a path; an exact changed-wire gate decides it.
 The nineteen inherited routes are not rerouted or re-audited. Historical
 body-fanout-layout and native models stay unchanged until whole selection.
 """
-import copy,gc,json,math,time
+import argparse,copy,gc,json,math,time
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -16,7 +16,7 @@ from check_body_fanout_material import mate_names,terminal_trim
 P=C.P
 
 
-def run():
+def run(shorter_departure=False):
     tick=time.monotonic();pf=P.OUT/'receiver-relief-approach-plan.json';bf=P.OUT/'body-fanout-layout.json';sf=P.OUT/'body-fanout-scene.json'
     prefix,prior,scene_receipt=[json.loads(f.read_text()) for f in (pf,bf,sf)]
     assert prefix['status']=='JOINT20_RECEIVER_GRIPS_AND_W024_PREFIX_CLEAR_MIDDLE_ROOT_ARMS_NATIVE_OPEN'
@@ -29,7 +29,14 @@ def run():
     for name,q in prefix['grips'].items():
         profiles[name]=T.build(q['land'],q['normal'],q['offset'])
         goal=profiles[name]['arrival_world_mm'];profiles[name]['seed']=P.box([v-2 for v in goal]+[v+2 for v in goal])
-    row=copy.deepcopy(prefix['grips']['W024']['row'])
+    chosen=prefix['grips']['W024'];row=copy.deepcopy(chosen['row']);variant_index=None
+    if shorter_departure:
+        options=[(i,q) for i,q in enumerate(prefix['W024_options']) if
+                 q['land']==chosen['land'] and q['normal']==chosen['normal'] and q['offset']==chosen['offset']]
+        assert options,'No unchanged-grip alternate departure'
+        variant_index,q=min(options,key=lambda iq:math.dist(iq[1]['row']['free_end'],row['free_start']))
+        row=copy.deepcopy(q['row'])
+        print('same20grips, changed departure',row['receiver_outward_axis'],row['free_end'],flush=True)
     known={tuple(np.round(p,7)) for part in [*row['receiving_parts'],row['source_land']] for p in R.part_points(part)}
     class GripScene(R.Scene):
         def __init__(self,data):super().__init__(data);self.grip_memo={}
@@ -61,7 +68,8 @@ def run():
     candidate['rows']=[row if r['wire']=='W024' else r for r in prior['rows']]
     candidate.update(source_sha256={f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (pf,bf,sf,oldgate,Path(__file__),Path(T.__file__),Path(R.__file__))},
         inherited_routes=[n for n in prior['routes'] if n!='W024'],inherited_material_gate=oldgate.relative_to(P.ROOT).as_posix(),
-        status='RECEIVER_MIDDLE_ROUTE_OPEN',selected=False,W5_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
+        status='RECEIVER_MIDDLE_ROUTE_OPEN',qualified_prefix_variant_index=variant_index,
+        printed20grip_geometry_unchanged=True,selected=False,W5_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
     out=P.OUT/'body-receiver-relief-layout.json'
     if points is None:
         candidate['routes'].pop('W024',None)
@@ -103,4 +111,6 @@ def run():
     print(json.dumps({k:candidate[k] for k in ('status','changed_pairs','worker_seconds','contacts','errors')}),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--shorter-departure',action='store_true')
+    run(parser.parse_args().shorter_departure)

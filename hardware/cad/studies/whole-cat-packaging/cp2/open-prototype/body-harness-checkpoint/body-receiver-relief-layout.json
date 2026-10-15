@@ -1,5 +1,5 @@
 {
-  "status": "RECEIVER_MIDDLE_ROUTE_OPEN",
+  "status": "BODY20_ROUTES_AND_RECEIVER_GRIPS_EXACT_CHANGED_WIRE_CLEAR_ROOT_ARMS_NATIVE_OPEN",
   "route_family": "tangent_grid_R10_plus_spatial_completion",
   "routes": {
     "W010": {
@@ -677,6 +677,222 @@
       "search_direction": "receiver_to_source",
       "search_states": 178,
       "search_seconds": 73.359
+    },
+    "W024": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -74.19660456672048,
+            104.75,
+            91
+          ],
+          "end": [
+            -74.19660456672048,
+            104.75,
+            96
+          ],
+          "length_mm": 5.0
+        },
+        {
+          "kind": "line",
+          "start": [
+            -74.19660456672048,
+            104.75,
+            96.0
+          ],
+          "end": [
+            -74.19660456672048,
+            104.75,
+            106.0
+          ],
+          "length_mm": 10.0
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -74.19660456672048,
+            104.75,
+            106.0
+          ],
+          "mid": [
+            -71.26767237858596,
+            104.75,
+            113.07106781186548
+          ],
+          "end": [
+            -64.19660456672048,
+            104.75,
+            116.0
+          ],
+          "radius_mm": 10,
+          "length_mm": 15.707963267948966
+        },
+        {
+          "kind": "line",
+          "start": [
+            -64.19660456672048,
+            104.75,
+            116.0
+          ],
+          "end": [
+            -54.19660456672048,
+            104.75,
+            116.0
+          ],
+          "length_mm": 10.0
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -54.19660456672048,
+            104.75,
+            116.0
+          ],
+          "mid": [
+            -47.125536754855005,
+            104.75,
+            113.07106781186548
+          ],
+          "end": [
+            -44.19660456672048,
+            104.75,
+            106.0
+          ],
+          "radius_mm": 10,
+          "length_mm": 15.707963267948966
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -44.19660456672048,
+            104.75,
+            106.0
+          ],
+          "mid": [
+            -44.19660456672048,
+            101.82106781186548,
+            98.92893218813452
+          ],
+          "end": [
+            -44.19660456672048,
+            94.75,
+            96.0
+          ],
+          "radius_mm": 10,
+          "length_mm": 15.707963267948966
+        },
+        {
+          "kind": "bezier",
+          "start": [
+            -44.19660456672048,
+            94.75,
+            96.0
+          ],
+          "end": [
+            -3.0,
+            26.0,
+            56.402
+          ],
+          "poles_mm": [
+            [
+              -44.19660456672048,
+              94.75,
+              96.0
+            ],
+            [
+              -44.19660456672048,
+              56.75,
+              96.0
+            ],
+            [
+              -41.0,
+              26.0,
+              56.402
+            ],
+            [
+              -3.0,
+              26.0,
+              56.402
+            ]
+          ],
+          "length_mm": 102.44687956857408
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -3.0,
+            26.0,
+            56.402
+          ],
+          "mid": [
+            4.0710678118654755,
+            28.928932188134524,
+            56.402
+          ],
+          "end": [
+            7.0,
+            36.0,
+            56.402
+          ],
+          "radius_mm": 10,
+          "length_mm": 15.707963267948966
+        },
+        {
+          "kind": "line",
+          "start": [
+            7.0,
+            36.0,
+            56.402
+          ],
+          "end": [
+            7.0,
+            45.0,
+            56.402
+          ],
+          "length_mm": 9.0
+        },
+        {
+          "kind": "arc",
+          "start": [
+            7.0,
+            45.0,
+            56.402
+          ],
+          "mid": [
+            7.0,
+            52.071067811865476,
+            59.330932188134526
+          ],
+          "end": [
+            7.0,
+            55.0,
+            66.402
+          ],
+          "radius_mm": 10,
+          "length_mm": 15.707963267948966
+        },
+        {
+          "kind": "line",
+          "start": [
+            7.0,
+            55.0,
+            66.402
+          ],
+          "end": [
+            7.0,
+            55.0,
+            75.402
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "guide_mm": 223.98669590831892,
+      "spare_before_trim_mm": 0.09543842126444702,
+      "minimum_sampled_R_mm": 10,
+      "search_direction": "source_to_receiver",
+      "search_states": 35,
+      "search_seconds": 32.812
     },
     "W005": {
       "parts": [
@@ -6461,7 +6677,7 @@
         75.402
       ],
       "receiver_outward_axis": [
-        1,
+        -1,
         0,
         0
       ],
@@ -6485,7 +6701,7 @@
         96
       ],
       "free_end": [
-        17.0,
+        -3.0,
         26.0,
         56.402
       ],
@@ -6521,12 +6737,12 @@
         {
           "kind": "arc",
           "start": [
-            17.0,
+            -3.0,
             26.0,
             56.402
           ],
           "mid": [
-            9.928932188134524,
+            4.0710678118654755,
             28.928932188134524,
             56.402
           ],
@@ -7975,22 +8191,114 @@
     }
   ],
   "blocker_counts": {
-    "Pi4NominalPCB/0/0": 1,
-    "wire/new/W049": 7,
-    "GPIOGrip/0/0": 1,
-    "UpperCarrier001/0/0": 2,
-    "wire/wire/XL10": 7,
-    "wire/wire/W080": 1,
-    "Grouped/GPIOFrontBand/0/0": 1,
-    "F_L2_CP2_IN/0/0": 2,
-    "F_L3_CP2_OUT/0/0": 3,
-    "wire/wire/tail-wiring-checkpoint/XS33": 2,
-    "F_L2_CP2_OUT/0/0": 3,
+    "wire/new/W015": 72,
+    "wire/wire/W064": 57,
+    "wire/wire/W066": 23,
+    "GPIOGrip/0/0": 2,
+    "RearLeftFixedCarrier/0/0": 62,
+    "wire/wire/W062": 29,
+    "F_L6_CP2_IN/0/0": 11,
+    "F_L6_CP2_Housing/0/0": 32,
+    "wire/wire/W067": 14,
+    "wire/new/W051": 44,
+    "W4_Band_FactoryGuard/0/0": 1,
+    "wire/wire/W012": 3,
+    "F_R6_CP2_Housing/0/0": 8,
+    "wire/wire/W011": 5,
+    "TailLocalRail/0/0": 3,
+    "wire/wire/W079": 1,
+    "Pi411Screw/0/0": 1,
+    "RearRightFixedCarrier/0/0": 3,
+    "wire/wire/W063": 7,
+    "F_R6_CP2_IN/0/0": 14,
+    "F_R5_CP2_Housing/0/0": 6,
+    "tail/MG92BMount29/0/0": 22,
+    "P0_MountRearR/0/0": 2,
+    "tail/TailBridge29/0/0": 4,
+    "wire/wire/W002": 6,
+    "wire/wire/W007": 10,
+    "wire/wire/W025": 4,
+    "wire/headwire/0/Interface_XB22": 4,
+    "P0_MountFrontL/0/0": 1,
+    "S0_body_CP2/0/0": 1,
+    "MAINGrip/0/0": 1,
+    "wire/new/W021": 167,
+    "wire/wire/W078": 7,
+    "wire/wire/W037_CUSTOM": 3,
+    "wire/new/W010": 2,
+    "F_R4_CP2_ATO/0/0": 5,
+    "F_R3_CP2_ATO/0/0": 1,
+    "F_R4_CP2_Housing/0/0": 2,
+    "P0_MountFrontR/0/0": 1,
+    "FrontRightFixedCarrier/0/0": 2,
+    "wire/wire/W036": 7,
+    "wire/wire/W001": 10,
+    "F_R2_CP2_IN/0/0": 12,
+    "F_R2_CP2_Housing/0/0": 3,
+    "F0_CP2/0/0": 1,
+    "Spacer1/0/0": 4,
+    "LowerCarrier001/0/0": 6,
+    "wire/new/W022/receiver": 2,
+    "Spacer2/0/0": 1,
+    "F_L2_CP2_OUT/0/0": 10,
+    "F_L2_CP2_Housing/0/0": 16,
+    "UpperCarrier001/0/0": 7,
     "W4_XS33/0/0": 1,
-    "wire/new/W006": 1,
-    "wire/new/W023": 2,
-    "wire/leg/FL2/15/-15": 1,
-    "F_L1_CP2_IN/0/0": 1
+    "F_L2_CP2_IN/0/0": 7,
+    "Pi4NominalPCB/0/0": 1,
+    "P0_SideLeft22/0/0": 4,
+    "FoundationStationSupports/0/0": 22,
+    "F_L3_CP2_Housing/0/0": 1,
+    "W3Ref_F_HP_case/0/0": 9,
+    "F_L1_CP2_OUT/0/0": 6,
+    "wire/wire/XL01": 1,
+    "F_L1_CP2_IN/0/0": 7,
+    "F_L1_CP2_Housing/0/0": 3,
+    "wire/new/W024": 29,
+    "wire/leg/FL2/15/-15": 49,
+    "FrontLeftFixedCarrier/0/0": 69,
+    "W3Ref_FHPCase0_Band/0/0": 1,
+    "D_FL/0/0": 24,
+    "wire/new/W072/receiver": 2,
+    "RailClamp3Screw/0/0": 1,
+    "wire/new/W057/receiver": 2,
+    "wire/wire/W080": 3,
+    "F_R5_CP2_OUT/0/0": 1,
+    "F_R5_CP2_IN/0/0": 6,
+    "wire/wire/W056": 2,
+    "wire/wire/W058": 8,
+    "F_R6_CP2_OUT/0/0": 7,
+    "RR_G/0/0": 2,
+    "P0_SideRight22/0/0": 1,
+    "wire/new/W071/receiver": 6,
+    "wire/new/W071/source": 1,
+    "wire/leg/RL3/-15/-15": 30,
+    "wire/leg/RL2/-15/-15": 59,
+    "wire/new/W024/source": 6,
+    "wire/new/W005": 5,
+    "wire/leg/FL3/-15/-15": 17,
+    "Band_FL3/Hip/Fixed/0/0": 4,
+    "wire/new/W023/source": 2,
+    "wire/leg/FL2/0/-15": 5,
+    "wire/new/W023/receiver": 1,
+    "wire/wire/head-supply-checkpoint/F_HP_out": 2,
+    "wire/leg/FL3/0/-15": 1,
+    "FL_G/0/0": 5,
+    "wire/new/W014": 69,
+    "Band_RL3/Hip/Fixed/0/0": 25,
+    "RL_G/0/0": 29,
+    "wire/new/W069/receiver": 14,
+    "wire/new/W070/receiver": 12,
+    "wire/leg/RL2/0/-15": 9,
+    "D_RL/0/0": 13,
+    "RearLeftHipExtension/-15/0": 13,
+    "wire/new/W014/receiver": 19,
+    "RL2IndependentBand/-15/0": 12,
+    "wire/new/W013/receiver": 4,
+    "wire/wire/W044_FACTORY": 2,
+    "wire/leg/RL3/15/-15": 3,
+    "F_L5_CP2_Housing/0/0": 1,
+    "wire/new/W015/source": 1
   },
   "all_new_supports_in_scene": 12,
   "individual_project_OD_mm": 2,
@@ -8011,11 +8319,27 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-fanout-layout.json": "56854e4c77b2b054b8076d172e25108480b3dfb4854db9316a45566a918fa0f6",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body-fanout-scene.json": "174a3ca93ca348fa33f219c6fe08154e453481e14b16f17456687c9bddf217d3",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/independent-body-routes-material.json": "7c394acc339be689b3924a37732202dbeac78b71ff4e5922eb4c05184b8c6c7d",
-    "tools/cad/route_receiver_relief_middle.py": "4ac501ca2c7c418a94dab018d7147add7d29c561f30edc8bda870a60b64f6a5d",
+    "tools/cad/route_receiver_relief_middle.py": "f29e5b3d3933f7db8325e5b7aaf4d2f1a41b9829791977e46b21974cfa7e99ca",
     "tools/cad/core_receiver_port.py": "613cd4fd93259a640abba08aaa8c7bb4088f9ea8fd4190809ce25fdc87b67975",
-    "tools/cad/plan_body_fanout_layout.py": "defbcb5688e46568eff1d5d5fcecd8e9a140c925e018ebb819a43d1b72be47c3"
+    "tools/cad/plan_body_fanout_layout.py": "defbcb5688e46568eff1d5d5fcecd8e9a140c925e018ebb819a43d1b72be47c3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
+    "hardware/simulation/v35/inputs.zip": "c831bdf4c82b8a3b7ed6e926ca129f224e885439be7eb4c0ea815dccfee23f1e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-view-60-20261012.zip": "a8d05019eadc7cdb75045047f5d9894a3798f96f8d3892a2f8af5f22e2cadef5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/StationFramesCurrent.FCStd": "62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-underneck-rounds-plan.json": "3d58c718094954c9247a2dbcc36d24184f0f6d8109c1066117bdde2e84a7c57b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/HeadNeckFixedJoined.FCStd": "0b8dce308b2b849c34179f70945788642c6e1440955e965bffc5a1968d21a879",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-carriers-fixed-interface/SourceCarriersFixedClearance.FCStd": "8340d69ee299cf279d98426e0804d876a97c686800847391fc5a706ed752a1ac",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
+    "tools/cad/prepare_body_fanout_scene.py": "c588834db4ab47e3e7061d0517bd2c7bd2447581e7e9b4d70e5d274a94124c97",
+    "tools/cad/build_complete_source_carriers.py": "923b8fd9ff68ad4e50b64110fbebcdf850ffb4bb94e115598c9615908a4df6d0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-paths.json": "688c42c79e005516414a58a0ad55904baec6e5ab55b985bea5d8b590dda8fc20",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-retention-entry.json": "81ea08b76dadcf14bb7aa50155eefd704371120765267e20cfb9a909d65e1409",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-loom-roots-plan.json": "c0971a3621e00aba08be9441d35eab8eed90d17137fce0b439c6aafce4123bd6",
+    "tools/cad/current_body_fanout_material.py": "59e21dce9b484b32fabdabdbdcfef64e1ba2c347fa1c54cade74d67d026dac61",
+    "tools/cad/whole_current_body_material.py": "b0dcb8c2cbb5ea14e9710a1b626dd150379e37059cab64fbd1a8ffb4a8f6eaa6"
   },
-  "worker_seconds": 36.093,
+  "worker_seconds": 235.75,
   "current_queue_completed": [
     "W057",
     "W049",
@@ -8055,9 +8379,13 @@
   },
   "planning_scope": "Only independent unchanged nonHip1 roots and cached receiver allocations. Hip1whole-source redesign, W071/W009 coupled-source conflicts, newgrips/material/wholeW5 remain OPEN.",
   "inherited_material_gate": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/independent-body-routes-material.json",
-  "route_failure": {
-    "error": "BOUNDED_CURVATURE_CORRIDOR_EXHAUSTED_NOT_GEOMETRIC_IMPOSSIBILITY",
-    "search_states": 47,
-    "search_seconds": 7.187
-  }
+  "qualified_prefix_variant_index": 12,
+  "printed20grip_geometry_unchanged": true,
+  "contacts": [],
+  "errors": [],
+  "changed_wire": "W024",
+  "changed_pairs": 82,
+  "unchanged_routes_exact_material_reused": 19,
+  "receiver_grips": 20,
+  "scope": "ChangedcompleteW024vsfullretainedmaterial/wires/19bodycurves/20jointgrips. Original19routesreusepinnedmaterialproof; all20gripsreusejointprefixproof. Whole4newHip1sources/rootarms/native/stockW5OPEN."
 }
