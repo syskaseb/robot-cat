@@ -38,6 +38,17 @@ def run():
         for kind,s in components.items():
             key='Group_'+group_id+'/'+kind;targets[key]=s
             if q['kind']=='triple' and kind in ('body','cap'):analytic[key]=(profile['recipe'],kind)
+    breakoutfile=P.OUT/'rl1-straight-breakout.json'
+    breakout=json.loads(breakoutfile.read_text())
+    assert breakout['status']=='RL1_THREE_STRAIGHT_BREAKOUTS_EXACT_CLEAR_FULL_MIDDLES_OPEN'
+    assert not breakout['contacts'] and not breakout['errors']
+    for n,h in breakout['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
+    for name,row in breakout['replacement_rows'].items():
+        assert row['receiving_parts']==rows[name]['receiving_parts']
+        rows[name]=row
+        old['fan/'+row['loom']+'/'+row['core']]=(P.wire(row['source_parts']),1)
+    exitfile=P.OUT/'body36-exit-diagnosis.json';exits=json.loads(exitfile.read_text())
+    for n,h in exits['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     rootfile=P.OUT/'body36-receiver-support-reservations.json';rootplan=json.loads(rootfile.read_text())
     assert rootplan['status']=='ALL_GROUPED_RECEIVER_SUPPORT_RESERVATIONS_CLEAR_MIDDLES_OPEN'
     assert rootplan['support_first'] and len(rootplan['groups'])==22
@@ -60,7 +71,7 @@ def run():
     routes=copy.deepcopy(inherited)
     failures={};contacts=[];errors=[];completed=[];checks=0
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in
-        (cf,gf,rootfile,Path(__file__),Path(__file__).with_name('current_core_corridor.py'),
+        (cf,gf,rootfile,breakoutfile,exitfile,Path(__file__),Path(__file__).with_name('current_core_corridor.py'),
          Path(__file__).with_name('current_core_planning_scene.py'),Path(__file__).with_name('current_mixed_receiver_material.py'),
          Path(__file__).with_name('plan_bolted_receiver_layout.py'),Path(__file__).with_name('bolted_rail_pressure_bridge.py'),
          Path(__file__).with_name('csg_bore_clearance.py'))})
@@ -76,12 +87,17 @@ def run():
     for name in changed:
         row=rows[name]
         known={tuple(np.round(p,7)) for part in row.get('source_parts',[row['source_land']])+row['receiving_parts'] for p in R.part_points(part)}
+        # These exact qualified first bends may bypass a conservative mesh
+        # proposal rejection, NEVER the final whole-curve BRep acceptance.
+        for option in exits['exits'][name]:
+            if not option['contacts'] and math.dist(option['part']['start'],row['free_start'])<1e-7:
+                known.update(tuple(np.round(p,7)) for p in R.part_points(option['part']))
         def clear(points,r):
             remaining=np.asarray([p for p in points if tuple(np.round(p,7)) not in known])
             return True if not len(remaining) else original_clear(remaining,r)
         scene.clear=clear
-        result,points=corridor(scene,row,backward=True)
-        if points is None:result,points=corridor(scene,row,backward=False)
+        result,points=corridor(scene,row,backward=False)
+        if points is None:result,points=corridor(scene,row,backward=True)
         if points is None:failures[name]=dict(result=result,blockers=scene.blockers)
         else:
             routes[name]=result;scene.add_points('new/'+name,points)
