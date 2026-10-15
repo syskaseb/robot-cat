@@ -3,6 +3,20 @@ import FreeCAD as A
 from plan_g1_rooted_carrier import geometry,PORTS
 
 class G1CarrierTests(unittest.TestCase):
+    def test_upper_portal_avoids_known_tail_fuse_and_aux_wire_corridors(self):
+        from loom_land_port import box
+        import Part
+        body,bands,recipe=geometry(direct_upper=True,upper_portal=True)
+        self.assertEqual(recipe['root_path_mm'][0],[-56,-22,76.72])
+        self.assertEqual(recipe['pads'][1]['bounds_mm'][1:2],[-38.5])
+        case=box([-61,-52,89.99,-10,-31.75,111.99])
+        self.assertLess(body.common(case).Volume,1e-6)
+        # Known fixed head supply run below the portal, not a clearance
+        # claim for the whole moving head or the rest of the scene.
+        xs23=Part.makeCylinder(1.05,180,A.Vector(-116.6,-27.6,79.2),A.Vector(1,0,0))
+        self.assertLess(body.common(xs23).Volume,1e-6)
+        self.assertEqual(len(body.Solids),1)
+
     def test_direct_upper_load_path_is_one_connected_body(self):
         body,bands,recipe=geometry(direct_upper=True)
         self.assertEqual(len(body.Solids),1)

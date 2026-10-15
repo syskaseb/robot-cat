@@ -18,26 +18,30 @@ from short_feed_lacing_saddle import build as feed_material
 ROOT_POINT=[-74.0,-84.2375,112.0]
 PORTS=[('W060',-53,1.05),('W001',-46.5,1.55),('W036',-40,2.1),('W061',-33.5,2.1),('W025',-27,2.1)]
 
-def geometry(root_path=None,direct_upper=False):
+def geometry(root_path=None,direct_upper=False,upper_portal=False):
     # The FIRST layout's floor overhung the ATO row. Put the whole floor,
     # spine and five restraints NORTH of that row instead of trimming fuses.
     # The narrow root crosses the actual gap between R1/R2, below G1 case.
     # Tail XB32 runs across the WHOLE former spine atY-41.875/Z151.49.
     # Allocate the whole spine north of that wire and its6mm sleeve, not
     # only west of the sleeve's first collision witness.
-    north=-28 if direct_upper else -35.5
-    east=-14 if direct_upper else -18.5
+    north=-28 if direct_upper and not upper_portal else -35.5
+    east=-14 if direct_upper and not upper_portal else -18.5
     pads=[dict(name='Tray',bounds_mm=[-61.5,-58.5,143.5,east,north,146.5]),
           dict(name='BackSpine',bounds_mm=[-61.5,north-3,143.5,east,north,175.75]),
           dict(name='LeftKey',bounds_mm=[-61.5,-58.5,146.5,-59,north,150]),
           dict(name='RightKey',bounds_mm=[-21,-58.5,146.5,-18.5,-47.5,150])]
     # The previous upper root was a wired head-source collar. Start at the
     # separate measured lower parent root; plan its whole path below MTA.
-    path=([[-16,-30,76.72],[-16,-30,145]] if direct_upper else
+    path=([[-56,-22,76.72],[-56,-22,140],[-56,-37,140],[-56,-37,144.5]] if upper_portal else
+          [[-16,-30,76.72],[-16,-30,145]] if direct_upper else
           root_path or [ROOT_POINT,[-40,-84.2375,112],[-40,-54,112],[-40,-54,144.5]])
-    if not direct_upper:assert path[0]==ROOT_POINT and path[-1]==[-40,-54,144.5]
+    if not direct_upper and not upper_portal:assert path[0]==ROOT_POINT and path[-1]==[-40,-54,144.5]
     pieces=[box(p['bounds_mm']) for p in pads]
-    pieces.extend([box([-18,-32,76.72,-14,-28,146.5])] if direct_upper else
+    post=([-58,-24,76.72,-54,-20,142] if upper_portal else
+          [-18,-32,76.72,-14,-28,146.5] if direct_upper else None)
+    pieces.extend(([box(post)]+[arm_box(a,b,[2,2,2]) for a,b in zip(path[1:],path[2:])]) if upper_portal else
+                  [box(post)] if direct_upper else
                   [arm_box(a,b,[2,2,2]) for a,b in zip(path,path[1:])])
     bands={};recipes=[]
     for wire,x,r in PORTS:
@@ -65,16 +69,17 @@ def geometry(root_path=None,direct_upper=False):
     body=pieces[0].multiFuse(pieces[1:]).removeSplitter()
     assert body.isValid() and len(body.Solids)==1 and not body.check(True),'Carrier disconnected/invalid'
     for n,b in bands.items():assert body.common(b).Volume<1e-6,('own band',n)
-    return body,bands,dict(pads=pads,root_path_mm=path,arm_half_width_mm=2,lands=recipes,direct_upper=direct_upper)
+    return body,bands,dict(pads=pads,root_path_mm=path,root_post_bounds_mm=post,
+                          arm_half_width_mm=2,lands=recipes,direct_upper=direct_upper,upper_portal=upper_portal)
 
-def run(diagnose_all=False,direct_upper=False):
+def run(diagnose_all=False,direct_upper=False,upper_portal=False):
     guard();tick=time.monotonic()
     choicefile=P.OUT/'g1-whole-root-choice.json'
-    if direct_upper:
+    if direct_upper or upper_portal:
         native=P.OUT/'U1InterfaceCarriersCurrent.FCStd';parent_name='UpperCarrier001'
         assert P.SHA(native)=='fd09de30744aa0ea26bad789779980172ee078b650ae80070729254ee259e9c1'
-        body,bands,recipe=geometry(direct_upper=True)
-        root_patch=box([-18,-32,76.72,-14,-28,77.72])
+        body,bands,recipe=geometry(direct_upper=True,upper_portal=upper_portal)
+        root_patch=box([-58,-24,76.72,-54,-20,77.72] if upper_portal else [-18,-32,76.72,-14,-28,77.72])
     else:
         assert choicefile.exists(),'Allocate the whole new root path before a third component gate'
         choice=json.loads(choicefile.read_text());assert choice['status']=='STATIC_WHOLE_ROOT_PROPOSAL_MOTION_GATE_OPEN'
@@ -164,5 +169,5 @@ def run(diagnose_all=False,direct_upper=False):
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--diagnose-all',action='store_true')
-    parser.add_argument('--direct-upper',action='store_true');args=parser.parse_args()
-    run(args.diagnose_all,args.direct_upper)
+    parser.add_argument('--direct-upper',action='store_true');parser.add_argument('--upper-portal',action='store_true');args=parser.parse_args()
+    run(args.diagnose_all,args.direct_upper,args.upper_portal)
