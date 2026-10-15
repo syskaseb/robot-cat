@@ -12,6 +12,15 @@ class MacroRoutesTest(unittest.TestCase):
         self.assertFalse(failures);self.assertEqual(set(candidates),{'W008','W030'})
         for q in candidates.values():
             self.assertGreaterEqual(q['minimum_sampled_R_mm'],10);self.assertGreater(q['spare_before_trim_mm'],0)
+
+    def test_received_W008_is_not_repeated_and_W030_clears_full_module_before_crossing(self):
+        import subprocess
+        from revise_shared_body36_routes import plan as revise
+        root=Path(__file__).resolve().parents[2];folder='hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/'
+        parent=json.loads(subprocess.check_output(['git','show','29190d4:'+folder+'body36-shared-macro-layout.json'],cwd=root))
+        base=json.loads((root/folder/'body36-recovery-layout.json').read_text());rows,q,errors=revise(parent,base,material_only=True)
+        self.assertFalse(errors);self.assertEqual(set(q),{'W030'});self.assertEqual(q['W030']['side_gallery_x_mm'],-101)
+        self.assertGreater(q['W030']['spare_before_trim_mm'],0)
     def test_received_bezier_splice_keeps_old_tail_and_under_support_join(self):
         from received_curve_splice import splice,split
         root=Path(__file__).resolve().parents[2]

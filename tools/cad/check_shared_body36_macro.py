@@ -63,7 +63,8 @@ def run(parent_commit=None,material_only=False):
         out=dict(status='PARTIAL_SHARED_MACRO_ARCHITECTURE_NOT_SELECTED',changed_rows=[rows[n] for n in CHANGED],
             inherited_receipt=basefile.relative_to(P.ROOT).as_posix(),
             inherited_qualified_receipt=inherited,
-            proposed_routes=candidates,math_failures=failures,retained_route_ids=sorted(retained),qualified_changed_routes=completed,
+            proposed_routes={**(parent['proposed_routes'] if parent else {}),**candidates},
+            attempted_wire_ids=list(candidates),math_failures=failures,retained_route_ids=sorted(retained),qualified_changed_routes=completed,
             attempts=attempts,remaining_wire_ids=sorted(set(rows)-set(retained)-set(completed)),changed_pairs=checks,
             source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
             scope='JointFL1+FR1replace3oldpositivecores explicitly;27otherwholecurves retained. Allcurrent36/19guides/receiverroots/sourcearms/motionincluded. No native change or phasepoint.')
