@@ -1,0 +1,152 @@
+"""Plan against actual valid geometry BEFORE choosing a whole route.
+
+Unlike the rejected 1000-state mesh grid, each new line/arc/Bezier is screened
+against real BReps and exact wire edges with the unchanged1.25mm core budget.
+The final existing full-curve gate remains mandatory. No bbox acceptance.
+"""
+import copy,heapq,itertools,json,math,time
+from pathlib import Path
+import numpy as np
+import FreeCAD as A
+import Part
+from plan_body36_receiver_space import P,C
+from plan_body_fanout_layout import AXES,reverse_part
+from shared_body36_macro_routes import packed_front_prefixes,math_gate
+from plan_current_moving_looms import exact_quarter,metrics,add,mul
+from plan_current_mta_interfaces import line
+from current_body36_candidates import resolve
+from current_mixed_receiver_material import material
+from plan_axial_source_supports import arm_box
+from short_feed_lacing_saddle import build as feed_material
+from positive_material_witness import witness
+from current_work_guard import check as guard
+
+class ExactOracle:
+    def __init__(self,targets,wires):
+        self.targets=targets;self.wires=wires;self.bounds=C.ImmutableBounds()
+        self.cache=C.AtomicMaterial(P.OUT/'exact-corridor-pairs.json',self.bounds.near)
+        self.memo={};self.points={};self.checks=0;self.blockers={}
+
+    def clear(self,part,row):
+        key=(row['wire'],json.dumps(part,sort_keys=True))
+        if key in self.memo:return self.memo[key]
+        s=P.wire([part]);rs=1.25
+        for name,t in self.targets.items():
+            if not self.bounds.near(s,t,rs+.0001):continue
+            self.checks+=1
+            if witness(s,t,self.bounds,self.points) is not None:
+                self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
+            gap,vol=self.cache.check(s,t,rs,0)
+            if vol>1e-5 or gap<rs-1e-6:
+                self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
+        for name,(t,r) in self.wires.items():
+            if name=='fan/'+row['loom']+'/'+row['core']:continue
+            if not self.bounds.near(s,t,rs+r+.0001):continue
+            for e in t.Edges:
+                if not self.bounds.near(s,e,rs+r+.0001):continue
+                self.checks+=1;gap,vol=self.cache.check(s,e,rs,r)
+                if vol>1e-5 or gap<rs+r-1e-6:
+                    self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
+        self.memo[key]=True;return True
+
+def route(oracle,row,max_seconds=900,max_states=15000):
+    start=np.asarray(row['free_start']);end=np.asarray(row['free_end'])
+    source=row.get('source_parts') or [row['source_land']];receiving=row['receiving_parts']
+    fixed=sum(p['length_mm'] for p in source+receiving)
+    capacity=row['capacity_before_terminal_mm']-row['terminal_allowance_project_mm']-fixed
+    axis=tuple(row.get('source_free_axis',row['bodyward_bundle_tangent']))
+    first=(0,0,0,AXES.index(axis));serial=itertools.count();queue=[(math.dist(start,end),0,next(serial),first)]
+    best={first:0};parents={};tick=time.monotonic();last=tick;states=0
+    while queue and states<max_states and time.monotonic()-tick<max_seconds:
+        _,cost,_,state=heapq.heappop(queue)
+        if best.get(state)!=cost:continue
+        states+=1;p=(start+10*np.asarray(state[:3])).tolist();u=AXES[state[3]]
+        if time.monotonic()-last>20:
+            guard();oracle.cache.save();print('exact plan',row['wire'],'states',states,'checks',oracle.checks,'seconds',round(time.monotonic()-tick,1),flush=True);last=time.monotonic()
+        distance=math.dist(p,end)
+        if cost and cost+distance<capacity:
+            h=max(12,min(65,distance/3))
+            for a,b in ((h,h),(18,38),(38,18),(38,38)):
+                poles=[p,add(p,mul(u,a)),add(end.tolist(),mul(row['receiver_outward_axis'],b)),end.tolist()]
+                length,radius,_=metrics(poles,24)
+                if radius<10.5 or cost+length>capacity:continue
+                length,radius,_=metrics(poles,400)
+                if radius<10 or cost+length>capacity:continue
+                final=dict(kind='bezier',start=p,end=end.tolist(),poles_mm=poles,length_mm=length,sampled_radius_mm=radius)
+                if not oracle.clear(final,row):continue
+                parts=[final];key=state
+                while key!=first:key,part=parents[key];parts.append(part)
+                parts=list(reversed(parts[1:]))+[final]
+                q,error=math_gate(row,[*source,*parts,*receiving])
+                if q:return dict(q,architecture='ACTUAL_BREP_CURVATURE_GRAPH_BEFORE_FULL_CURVE_GATE',search_states=states,search_seconds=round(time.monotonic()-tick,3)),None
+        for i,v in enumerate(AXES):
+            if i==state[3]:part=line(p,add(p,mul(u,10)))
+            elif sum(a*b for a,b in zip(u,v))==0:part=exact_quarter(p,u,v,10)
+            else:continue
+            nxt=tuple(round((part['end'][j]-start[j])/10) for j in range(3))+(i,)
+            new=cost+part['length_mm']
+            if new+math.dist(part['end'],end)>capacity or new>=best.get(nxt,float('inf')):continue
+            if not oracle.clear(part,row):continue
+            best[nxt]=new;parents[nxt]=(state,part);heapq.heappush(queue,(new+math.dist(part['end'],end),new,next(serial),nxt))
+    return None,dict(reason='BOUNDED_EXACT_GRAPH_NOT_GEOMETRIC_IMPOSSIBILITY',states=states,seconds=round(time.monotonic()-tick,3),blockers=oracle.blockers.copy())
+
+def run(parent_commit):
+    import check_shared_body36_macro as receiver
+    import joint_clearance_corridors as dispatch
+    original=receiver.prepare;prepared=None
+    def shared_prepare():
+        nonlocal prepared
+        if prepared is None:prepared=original()
+        a,b,p,g=prepared
+        p={**p,Path(__file__).relative_to(P.ROOT).as_posix():P.SHA(Path(__file__))}
+        generated=P.OUT/'exact-corridor-plan.json'
+        if generated.exists():p[generated.relative_to(P.ROOT).as_posix()]=P.SHA(generated)
+        return dict(a),dict(b),p,g
+    receiver.prepare=shared_prepare
+    def choose(parent,base):
+        targets,wires,pins,grips=shared_prepare();rows={r['wire']:copy.deepcopy(r) for r in base['rows']}
+        rows.update({r['wire']:copy.deepcopy(r) for r in parent['changed_rows']})
+        front=packed_front_prefixes(rows)
+        for n in ('W004','W019','W030'):
+            # Existing source seat/fan is preserved; include every new packed
+            # prefix in own-bundle/full-curve checking, never hide that prefix.
+            rows[n]['source_parts']=front[n];rows[n]['source_after_jacket_first5_mm']=front[n][1:]
+            rows[n]['free_start']=front[n][-1]['end'];rows[n]['source_free_axis']=list((0,0,1))
+        for name,g in grips['groups'].items():
+            profile,parts=material(g)
+            targets.update({'Group_'+name+'/'+k:s for k,s in parts.items()})
+            if g['kind']=='triple':
+                for feed in g['feeds']:
+                    support='cap' if name=='D_FL' and feed['wire']=='W002' else 'body'
+                    q=feed_material(profile['recipe'],feed,support=support)
+                    targets.update({'Feed_'+name+'/'+feed['wire']+'/'+k:q[k] for k in ('body','band')})
+        rootfile=P.OUT/'body36-receiver-support-reservations.json'
+        for r in json.loads(rootfile.read_text())['groups']:
+            for path in r['paths']:
+                for i,(a,b) in enumerate(zip(path['points_mm'],path['points_mm'][1:])):
+                    targets['ReceiverRoot/'+r['name']+'/'+r['wire']+'/'+str(i)]=arm_box(a,b,r['arm_half_widths_world_mm'])
+        current,_=resolve(parent,P.ROOT)
+        positive=set(parent['retained_route_ids'])|set(parent['qualified_changed_routes'])
+        wires={n:v for n,v in wires.items() if not n.startswith('body/')}
+        wires.update({'body/'+n:(P.wire(current[n]['parts']),1) for n in positive})
+        for n in ('W013','W047','W069'):
+            r=rows[n];wires['fan/'+r['loom']+'/'+r['core']]=(P.wire(r['source_parts']),1)
+        oracle=ExactOracle(targets,wires);candidates={};failed={};tick=time.monotonic()
+        def save():
+            out=dict(status='ACTUAL_GEOMETRY_ROUTE_PLANNING_NOT_WHOLE_W5_ACCEPTANCE',candidates=candidates,failures=failed,
+                remaining=[n for n in parent['remaining_wire_ids'] if n not in candidates],checks=oracle.checks,
+                worker_seconds=round(time.monotonic()-tick,3),parent_commit=parent_commit,selected=False,physical_pass=False)
+            f=P.OUT/'exact-corridor-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);oracle.cache.save()
+        save()
+        for n in parent['remaining_wire_ids']:
+            guard();q,error=route(oracle,rows[n])
+            if q:candidates[n]=q;oracle.wires['body/'+n]=(P.wire(q['parts']),1)
+            else:failed[n]=error
+            save();print('exact plan result',n,'candidate',q is not None,'seconds',round(time.monotonic()-tick,1),flush=True)
+        return rows,candidates,failed
+    dispatch.plan=choose
+    receiver.run(parent_commit,joint_clearance=True)
+
+if __name__=='__main__':
+    import argparse
+    p=argparse.ArgumentParser();p.add_argument('--parent-commit',required=True);run(p.parse_args().parent_commit)
