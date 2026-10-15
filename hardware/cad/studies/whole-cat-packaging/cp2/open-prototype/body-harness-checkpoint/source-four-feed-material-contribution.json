@@ -1,0 +1,96 @@
+{
+  "status": "FOUR_CURRENT_SOURCE_FEEDS_MATERIAL_CONTRIBUTION_ONLY",
+  "wires": [
+    {
+      "wire": "W064",
+      "roles": [
+        "P_FRONT.1",
+        "S1.3"
+      ],
+      "sku": "HELU23802",
+      "guide_mm": 447.920628903364,
+      "rail_strip_mm": 14,
+      "ring_barrel_allowance_mm": 14.452,
+      "recipe": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/s1-output-plan.json",
+      "minimum_project_blank_mm": 476.372628903364,
+      "fit_trim_project_allowance_mm": 20,
+      "nominal_fit_blank_mm": 500,
+      "actual_crimp_strip_mm": null,
+      "actual_cut_mm": null
+    },
+    {
+      "wire": "W065",
+      "roles": [
+        "P_REAR.5",
+        "S1.6"
+      ],
+      "sku": "HELU23802",
+      "guide_mm": 377.46155223462654,
+      "rail_strip_mm": 14,
+      "ring_barrel_allowance_mm": 14.452,
+      "recipe": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/s1-output-plan.json",
+      "minimum_project_blank_mm": 405.91355223462654,
+      "fit_trim_project_allowance_mm": 20,
+      "nominal_fit_blank_mm": 430,
+      "actual_crimp_strip_mm": null,
+      "actual_cut_mm": null
+    },
+    {
+      "wire": "W067",
+      "roles": [
+        "P_SYS.2",
+        "S1.2"
+      ],
+      "sku": "HELU23802",
+      "guide_mm": 498.2955394818512,
+      "rail_strip_mm": 14,
+      "ring_barrel_allowance_mm": 14.452,
+      "recipe": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-receiving-plan.json",
+      "minimum_project_blank_mm": 526.7475394818512,
+      "fit_trim_project_allowance_mm": 20,
+      "nominal_fit_blank_mm": 550,
+      "actual_crimp_strip_mm": null,
+      "actual_cut_mm": null
+    },
+    {
+      "wire": "W068",
+      "roles": [
+        "P_SYS.3",
+        "S1.5"
+      ],
+      "sku": "HELU23802",
+      "guide_mm": 415.04305630593103,
+      "rail_strip_mm": 14,
+      "ring_barrel_allowance_mm": 14.452,
+      "recipe": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-receiving-plan.json",
+      "minimum_project_blank_mm": 443.49505630593103,
+      "fit_trim_project_allowance_mm": 20,
+      "nominal_fit_blank_mm": 465,
+      "actual_crimp_strip_mm": null,
+      "actual_cut_mm": null
+    }
+  ],
+  "physical_installed_wires": 4,
+  "extra_920mm_cable_quantity": 0,
+  "historical_sum_mm": 920,
+  "current_guide_sum_mm": 1738.7207769257727,
+  "nominal_fit_blank_sum_mm": 1945,
+  "selected": false,
+  "whole_stock_complete": false,
+  "W5_complete": false,
+  "physical_pass": false,
+  "interpretation": "Replace historical920mm source allocation with these four current feed blanks; never add920mm again.",
+  "gates": [
+    "Actual ring crimp strip and delivered wire fit",
+    "Native grips and installed assembly/service",
+    "Aggregate all HELU23802 contributors before choosing stock",
+    "E3 electrical protection data remains separate"
+  ],
+  "source_sha256": {
+    "tools/cad/reconcile_source_feed_material.py": "3d8130a9c98d33a4da0a8643a9fc10562afcd6b86a864dc3d9c5d5bfac7750c1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/harness-interfaces-plan.json": "e61fbdf3a5885541af63fcf72b924b467b093fee70efd229427f43314bf48819",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-receiving-plan.json": "253f7369ec88bfe47393a38073dae9650be08135394ea02f05fa8ca2299f2493",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/s1-output-plan.json": "306f4d2148fab636d96db1f9dff05abc5a1622f68f43726c7d2507eaec54516e"
+  },
+  "worker_seconds": 0.17
+}
