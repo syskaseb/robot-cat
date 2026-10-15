@@ -3,6 +3,23 @@ from pathlib import Path
 from shared_body36_macro_routes import plan,CHANGED,spatial_half_return,N,packed_front_prefixes
 
 class MacroRoutesTest(unittest.TestCase):
+    def test_witness_driven_revision_keeps_qualified_routes_and_all_terminals(self):
+        import subprocess
+        from revise_shared_body36_routes import plan as revise,PARENT
+        root=Path(__file__).resolve().parents[2]
+        folder='hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/'
+        parent=json.loads(subprocess.check_output(['git','show',PARENT+':'+folder+'body36-shared-macro-layout.json'],cwd=root));saved=copy.deepcopy(parent)
+        base=json.loads((root/folder/'body36-recovery-layout.json').read_text())
+        rows,candidates,failures=revise(parent,base)
+        self.assertEqual(parent,saved);self.assertFalse(failures)
+        self.assertEqual(set(candidates),{'W004','W008','W019','W022','W030','W069'})
+        self.assertFalse(set(candidates)&set(parent['qualified_changed_routes']))
+        original={r['wire']:r for r in base['rows']}
+        for name,q in candidates.items():
+            self.assertEqual(q['parts'][-1]['end'],original[name]['receiving_parts'][-1]['end'])
+            self.assertGreaterEqual(q['minimum_sampled_R_mm'],10);self.assertGreater(q['spare_before_trim_mm'],0)
+        self.assertGreater(candidates['W022']['spare_before_trim_mm'],20)
+
     def test_concentric_corners_preserve_three_core_packing(self):
         import numpy as np
         from plan_body_fanout_layout import part_points

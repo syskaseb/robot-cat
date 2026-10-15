@@ -3,7 +3,7 @@
 Positive sampled witnesses only reject. Every surviving edge uses the exact
 distance gate. No native mutation; old positive routes remain pinned inputs.
 """
-import json,time,math
+import json,time,math,hashlib,subprocess
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -17,10 +17,22 @@ from positive_material_witness import witness
 from csg_bore_clearance import prove
 from current_work_guard import check as guard
 
-def run():
+def run(parent_commit=None):
     guard();tick=time.monotonic();basefile=P.OUT/'body36-recovery-layout.json';base=json.loads(basefile.read_text())
     for n,h in base['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
-    rows,candidates,failures=plan({r['wire']:r for r in base['rows']})
+    inherited=None;parent=None
+    if parent_commit:
+        path=(P.OUT/'body36-shared-macro-layout.json').relative_to(P.ROOT).as_posix()
+        raw=subprocess.check_output(['git','show',parent_commit+':'+path],cwd=P.ROOT);parent=json.loads(raw)
+        own=Path(__file__).relative_to(P.ROOT).as_posix()
+        for n,h in parent['source_sha256'].items():
+            actual=hashlib.sha256(subprocess.check_output(['git','show',parent_commit+':'+n],cwd=P.ROOT)).hexdigest() if n==own else P.SHA(P.ROOT/n)
+            assert actual==h,('Inherited proof input changed',n)
+        from revise_shared_body36_routes import plan as revise
+        rows,candidates,failures=revise(parent,base)
+        inherited=dict(git_commit=parent_commit,receipt=path,sha256=hashlib.sha256(raw).hexdigest(),
+            source_pins_verified=True,qualified_routes=list(parent['qualified_changed_routes']))
+    else:rows,candidates,failures=plan({r['wire']:r for r in base['rows']})
     targets,old,pins,grips=prepare();analytic={};group_for={}
     for name,g in grips['groups'].items():
         profile,components=material(g);group_for.update({w:name for w in g['wires']})
@@ -36,16 +48,20 @@ def run():
     for n in list(old):
         if n.startswith('body/'):old.pop(n)
     retained={n:r for n,r in base['routes'].items() if n not in CHANGED}
+    received=parent['qualified_changed_routes'] if parent else {}
     old.update({'body/'+n:(P.wire(r['parts']),1) for n,r in retained.items()})
+    old.update({'body/'+n:(P.wire(r['parts']),1) for n,r in received.items()})
     for n in ('W013','W047','W069'):
         row=rows[n];old['fan/'+row['loom']+'/'+row['core']]=(P.wire(row['source_parts']),1)
     files=[basefile,rf,Path(__file__),Path(__file__).with_name('shared_body36_macro_routes.py'),Path(__file__).with_name('positive_material_witness.py')]
+    if parent:files.append(Path(__file__).with_name('revise_shared_body36_routes.py'))
     pins.update(base['source_sha256']);pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'body36-shared-macro-pairs.json',bounds.near)
-    points={};edge_cache={};checks=0;completed={};attempts=[];last=time.monotonic()
+    points={};edge_cache={};checks=0;completed=dict(received);attempts=[];last=time.monotonic()
     def save():
         out=dict(status='PARTIAL_SHARED_MACRO_ARCHITECTURE_NOT_SELECTED',changed_rows=[rows[n] for n in CHANGED],
             inherited_receipt=basefile.relative_to(P.ROOT).as_posix(),
+            inherited_qualified_receipt=inherited,
             proposed_routes=candidates,math_failures=failures,retained_route_ids=sorted(retained),qualified_changed_routes=completed,
             attempts=attempts,remaining_wire_ids=sorted(set(rows)-set(retained)-set(completed)),changed_pairs=checks,
             source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
@@ -107,4 +123,6 @@ def run():
         save();print('shared macro',name,'qualified',name in completed,'first',contacts[:1],errors[:1],flush=True)
     save()
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    p=argparse.ArgumentParser();p.add_argument('--resume-commit');run(p.parse_args().resume_commit)
