@@ -1,5 +1,5 @@
 {
-  "status": "FEED_COMMON_COMPONENT_GATE_OPEN",
+  "status": "TEN_FEED_COMMON_COMPONENT_GATE_COMPLETE",
   "restraints": [
     {
       "group": "D_RL",
@@ -92,98 +92,6 @@
       "rooted_to_existing_group_body_one_solid": true,
       "contact": null,
       "accepted_in_this_scope": true
-    },
-    {
-      "group": "RL_G",
-      "wire": "W062",
-      "owner": "RearLeftFixedCarrier",
-      "recipe": {
-        "pads": [
-          {
-            "name": "ShortFixedFeedSeat",
-            "bounds_mm": [
-              2.6,
-              -11.5,
-              -6,
-              6.6,
-              -7.5,
-              -3
-            ]
-          },
-          {
-            "name": "ParentTopFoot",
-            "bounds_mm": [
-              2.6,
-              -11.5,
-              -4.5,
-              6.6,
-              -7.5,
-              -2.5
-            ]
-          }
-        ],
-        "ring_cut": {
-          "outer": [
-            -2.831,
-            -12.331,
-            -5.4882,
-            7.131,
-            -6.669,
-            -3.5118
-          ],
-          "inner": [
-            -2.1500000000000004,
-            -11.649999999999999,
-            -6.1764,
-            6.449999999999999,
-            -7.3500000000000005,
-            -2.8236
-          ]
-        },
-        "local_to_world": [
-          2.220446049250313e-16,
-          -1.0,
-          0.0,
-          100.25,
-          -1.0,
-          -2.220446049250313e-16,
-          -0.0,
-          90.0,
-          0.0,
-          0.0,
-          -1.0,
-          82.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0
-        ],
-        "project_wire_radius_mm": 2.1,
-        "short_fixed_land_mm": 3,
-        "contact_world_centre_mm": [
-          109.75,
-          90.0,
-          86.5
-        ],
-        "project_lacing_section_mm": [
-          0.381,
-          1.6764
-        ],
-        "project_knot_bounds_local_mm": [
-          6.981,
-          -10.5,
-          -6,
-          9.981,
-          -8.5,
-          -4
-        ],
-        "lacing_blank_mm": 150,
-        "does_not_claim_nine_mm_pressure_land": true,
-        "physical_retention_tightening_creep_gate_open": true
-      },
-      "rooted_to_existing_group_body_one_solid": true,
-      "contact": "body:Group_RL_G/band0",
-      "accepted_in_this_scope": false
     },
     {
       "group": "D_RR",
@@ -462,98 +370,6 @@
       "accepted_in_this_scope": true
     },
     {
-      "group": "D_FL",
-      "wire": "W002",
-      "owner": "FrontLeftFixedCarrier",
-      "recipe": {
-        "pads": [
-          {
-            "name": "ShortFixedFeedSeat",
-            "bounds_mm": [
-              1.5,
-              -11.5,
-              -6,
-              5.5,
-              -7.5,
-              -3
-            ]
-          },
-          {
-            "name": "ParentTopFoot",
-            "bounds_mm": [
-              1.5,
-              -11.5,
-              -4.5,
-              5.5,
-              -7.5,
-              -2.5
-            ]
-          }
-        ],
-        "ring_cut": {
-          "outer": [
-            -1.7309999999999999,
-            -11.231,
-            -5.4882,
-            6.031000000000001,
-            -7.769,
-            -3.5118
-          ],
-          "inner": [
-            -1.05,
-            -10.549999999999999,
-            -6.1764,
-            5.35,
-            -8.450000000000001,
-            -2.8236
-          ]
-        },
-        "local_to_world": [
-          2.220446049250313e-16,
-          1.0,
-          0.0,
-          -95.0,
-          1.0,
-          -2.220446049250313e-16,
-          0.0,
-          84.0,
-          0.0,
-          0.0,
-          -1.0,
-          115.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0
-        ],
-        "project_wire_radius_mm": 1,
-        "short_fixed_land_mm": 3,
-        "contact_world_centre_mm": [
-          -104.5,
-          84.0,
-          119.5
-        ],
-        "project_lacing_section_mm": [
-          0.381,
-          1.6764
-        ],
-        "project_knot_bounds_local_mm": [
-          5.881,
-          -10.5,
-          -6,
-          8.881,
-          -8.5,
-          -4
-        ],
-        "lacing_blank_mm": 150,
-        "does_not_claim_nine_mm_pressure_land": true,
-        "physical_retention_tightening_creep_gate_open": true
-      },
-      "rooted_to_existing_group_body_one_solid": true,
-      "contact": "band:ReceiverRoot/FrontLeftFixedCarrier/W023/3",
-      "accepted_in_this_scope": false
-    },
-    {
       "group": "D_FR",
       "wire": "W007",
       "owner": "FrontRightFixedCarrier",
@@ -738,98 +554,6 @@
       "accepted_in_this_scope": true
     },
     {
-      "group": "FR_G",
-      "wire": "W036",
-      "owner": "FrontRightFixedCarrier",
-      "recipe": {
-        "pads": [
-          {
-            "name": "ShortFixedFeedSeat",
-            "bounds_mm": [
-              2.6,
-              7.499999999999998,
-              -6,
-              6.6,
-              11.499999999999998,
-              -3
-            ]
-          },
-          {
-            "name": "ParentTopFoot",
-            "bounds_mm": [
-              2.6,
-              7.499999999999998,
-              -4.5,
-              6.6,
-              11.499999999999998,
-              -2.5
-            ]
-          }
-        ],
-        "ring_cut": {
-          "outer": [
-            -2.831,
-            6.668999999999998,
-            -5.4882,
-            7.131,
-            12.330999999999998,
-            -3.5118
-          ],
-          "inner": [
-            -2.1500000000000004,
-            7.349999999999999,
-            -6.1764,
-            6.449999999999999,
-            11.649999999999997,
-            -2.8236
-          ]
-        },
-        "local_to_world": [
-          2.220446049250313e-16,
-          1.0,
-          0.0,
-          -20.0,
-          1.0,
-          -2.220446049250313e-16,
-          0.0,
-          -88.0,
-          0.0,
-          0.0,
-          -1.0,
-          82.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0
-        ],
-        "project_wire_radius_mm": 2.1,
-        "short_fixed_land_mm": 3,
-        "contact_world_centre_mm": [
-          -10.500000000000002,
-          -88.0,
-          86.5
-        ],
-        "project_lacing_section_mm": [
-          0.381,
-          1.6764
-        ],
-        "project_knot_bounds_local_mm": [
-          6.981,
-          8.499999999999998,
-          -6,
-          9.981,
-          10.499999999999998,
-          -4
-        ],
-        "lacing_blank_mm": 150,
-        "does_not_claim_nine_mm_pressure_land": true,
-        "physical_retention_tightening_creep_gate_open": true
-      },
-      "rooted_to_existing_group_body_one_solid": true,
-      "contact": "body:Group_FR_G/band0",
-      "accepted_in_this_scope": false
-    },
-    {
       "group": "RR_G",
       "wire": "W063",
       "owner": "RearRightFixedCarrier",
@@ -920,9 +644,300 @@
       "rooted_to_existing_group_body_one_solid": true,
       "contact": null,
       "accepted_in_this_scope": true
+    },
+    {
+      "group": "RL_G",
+      "wire": "W062",
+      "owner": "RearLeftFixedCarrier",
+      "recipe": {
+        "pads": [
+          {
+            "name": "ShortFixedFeedSeat",
+            "bounds_mm": [
+              2.6,
+              -11.5,
+              -6,
+              6.6,
+              -7.5,
+              -3
+            ]
+          },
+          {
+            "name": "ParentTopFoot",
+            "bounds_mm": [
+              2.6,
+              -11.5,
+              -4.5,
+              5.5,
+              -7.5,
+              -2.5
+            ]
+          }
+        ],
+        "ring_cut": {
+          "outer": [
+            -2.831,
+            -12.331,
+            -5.4882,
+            7.131,
+            -6.669,
+            -3.5118
+          ],
+          "inner": [
+            -2.1500000000000004,
+            -11.649999999999999,
+            -6.1764,
+            6.449999999999999,
+            -7.3500000000000005,
+            -2.8236
+          ]
+        },
+        "local_to_world": [
+          2.220446049250313e-16,
+          -1.0,
+          0.0,
+          100.25,
+          -1.0,
+          -2.220446049250313e-16,
+          -0.0,
+          90.0,
+          0.0,
+          0.0,
+          -1.0,
+          82.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "project_wire_radius_mm": 2.1,
+        "parent_component": "body",
+        "short_fixed_land_mm": 3,
+        "contact_world_centre_mm": [
+          109.75,
+          90.0,
+          86.5
+        ],
+        "project_lacing_section_mm": [
+          0.381,
+          1.6764
+        ],
+        "project_knot_bounds_local_mm": [
+          6.981,
+          -10.5,
+          -6,
+          9.981,
+          -8.5,
+          -4
+        ],
+        "lacing_blank_mm": 150,
+        "does_not_claim_nine_mm_pressure_land": true,
+        "physical_retention_tightening_creep_gate_open": true
+      },
+      "parent_component": "body",
+      "physical_print_owner": "RearLeftFixedCarrier",
+      "new_separate_prints": 0,
+      "new_screws": 0,
+      "rooted_to_existing_group_body_one_solid": true,
+      "contact": null,
+      "accepted_in_this_scope": true
+    },
+    {
+      "group": "D_FL",
+      "wire": "W002",
+      "owner": "FrontLeftFixedCarrier",
+      "recipe": {
+        "pads": [
+          {
+            "name": "ShortFixedFeedSeat",
+            "bounds_mm": [
+              -5.5,
+              -11.5,
+              -6,
+              -1.5,
+              -7.5,
+              -3
+            ]
+          },
+          {
+            "name": "ParentTopFoot",
+            "bounds_mm": [
+              -5,
+              -11.5,
+              -4.5,
+              -1.5,
+              -7.5,
+              -2.5
+            ]
+          }
+        ],
+        "ring_cut": {
+          "outer": [
+            -6.031000000000001,
+            -11.231,
+            -5.4882,
+            1.7309999999999999,
+            -7.769,
+            -3.5118
+          ],
+          "inner": [
+            -5.35,
+            -10.549999999999999,
+            -6.1764,
+            1.05,
+            -8.450000000000001,
+            -2.8236
+          ]
+        },
+        "local_to_world": [
+          2.220446049250313e-16,
+          1.0,
+          0.0,
+          -95.0,
+          1.0,
+          -2.220446049250313e-16,
+          0.0,
+          84.0,
+          0.0,
+          0.0,
+          -1.0,
+          115.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "project_wire_radius_mm": 1,
+        "parent_component": "cap",
+        "short_fixed_land_mm": 3,
+        "contact_world_centre_mm": [
+          -104.5,
+          84.0,
+          119.5
+        ],
+        "project_lacing_section_mm": [
+          0.381,
+          1.6764
+        ],
+        "project_knot_bounds_local_mm": [
+          -8.881,
+          -10.5,
+          -6,
+          -5.881,
+          -8.5,
+          -4
+        ],
+        "lacing_blank_mm": 150,
+        "does_not_claim_nine_mm_pressure_land": true,
+        "physical_retention_tightening_creep_gate_open": true
+      },
+      "parent_component": "cap",
+      "physical_print_owner": "CAP/D_FL",
+      "new_separate_prints": 0,
+      "new_screws": 0,
+      "rooted_to_existing_group_body_one_solid": true,
+      "contact": null,
+      "accepted_in_this_scope": true
+    },
+    {
+      "group": "FR_G",
+      "wire": "W036",
+      "owner": "FrontRightFixedCarrier",
+      "recipe": {
+        "pads": [
+          {
+            "name": "ShortFixedFeedSeat",
+            "bounds_mm": [
+              2.6,
+              7.499999999999998,
+              -6,
+              6.6,
+              11.499999999999998,
+              -3
+            ]
+          },
+          {
+            "name": "ParentTopFoot",
+            "bounds_mm": [
+              2.6,
+              7.499999999999998,
+              -4.5,
+              5.5,
+              11.499999999999998,
+              -2.5
+            ]
+          }
+        ],
+        "ring_cut": {
+          "outer": [
+            -2.831,
+            6.668999999999998,
+            -5.4882,
+            7.131,
+            12.330999999999998,
+            -3.5118
+          ],
+          "inner": [
+            -2.1500000000000004,
+            7.349999999999999,
+            -6.1764,
+            6.449999999999999,
+            11.649999999999997,
+            -2.8236
+          ]
+        },
+        "local_to_world": [
+          2.220446049250313e-16,
+          1.0,
+          0.0,
+          -20.0,
+          1.0,
+          -2.220446049250313e-16,
+          0.0,
+          -88.0,
+          0.0,
+          0.0,
+          -1.0,
+          82.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "project_wire_radius_mm": 2.1,
+        "parent_component": "body",
+        "short_fixed_land_mm": 3,
+        "contact_world_centre_mm": [
+          -10.500000000000002,
+          -88.0,
+          86.5
+        ],
+        "project_lacing_section_mm": [
+          0.381,
+          1.6764
+        ],
+        "project_knot_bounds_local_mm": [
+          6.981,
+          8.499999999999998,
+          -6,
+          9.981,
+          10.499999999999998,
+          -4
+        ],
+        "lacing_blank_mm": 150,
+        "does_not_claim_nine_mm_pressure_land": true,
+        "physical_retention_tightening_creep_gate_open": true
+      },
+      "parent_component": "body",
+      "physical_print_owner": "FrontRightFixedCarrier",
+      "new_separate_prints": 0,
+      "new_screws": 0,
+      "rooted_to_existing_group_body_one_solid": true,
+      "contact": null,
+      "accepted_in_this_scope": true
     }
   ],
-  "checks": 231,
+  "checks": 73,
   "errors": [],
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
@@ -987,10 +1002,23 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "67b23cbdda495ad25f6ef8537f7268a9cac3b30c70c133deab6cbf8fff325c5d",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-recovery-layout.json": "d2c1975c8c0a9fc44e61b71ddf0e2f11a3b5e3510e80e84c62a8f97ed53d68dc",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-receiver-support-reservations.json": "7936155d8f752d000b4b1cc3458abe55a9b7ca1cd687ba3016dbd931f4842c69",
-    "tools/cad/check_retained_feed_restraints.py": "d26d3449f2b34e6c7c968424fcbf18499d96ec5608fb0134344d1da76a69f6f3",
-    "tools/cad/short_feed_lacing_saddle.py": "6570a370a2e968bafa7ba5199420f070e4206c858617fb44e4103a0eba4b49f5"
+    "tools/cad/check_retained_feed_restraints.py": "03889c623653c7d7ab094dacce28e2c2590a80d77ed1096fce51de9562454b7b",
+    "tools/cad/short_feed_lacing_saddle.py": "7c058b821848322b1462e88e355599fe6e26987d25d1144e1841af0d8c62c617"
   },
-  "worker_seconds": 129.219,
+  "worker_seconds": 101.344,
+  "inherited_qualified_receipt": {
+    "commit": "397dfe7",
+    "receipt_sha256": "8a1197c3e999104be95991e5f5ca9cecf09a3a6a631bc2454c91809682b871a0",
+    "unchanged_components": [
+      "D_RL/W012",
+      "D_RR/W011",
+      "D_RR/W012",
+      "D_FL/W007",
+      "D_FR/W007",
+      "D_FR/W011",
+      "RR_G/W063"
+    ]
+  },
   "selected": false,
   "W5_complete": false,
   "physical_pass": false,
