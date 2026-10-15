@@ -212,7 +212,7 @@ def run(parent_commit):
         planning=dict(wires)
         for r in rows.values():
             key='fan/'+r['loom']+'/'+r['core']
-            if key in planning:planning['new/'+r['wire']+'/source']=planning.pop(key)
+            if key in planning:planning.setdefault('new/'+r['wire']+'/source',planning.pop(key))
         for n in list(planning):
             if n.startswith('chosen/'):planning['leg/'+n.removeprefix('chosen/')]=planning.pop(n)
         mesh=proxy_build(targets,planning)
