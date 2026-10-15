@@ -3,6 +3,18 @@ import FreeCAD as A
 from plan_g1_rooted_carrier import geometry,PORTS
 
 class G1CarrierTests(unittest.TestCase):
+    def test_whole_open_web_preserves_real_xa06_clearance(self):
+        import zipfile
+        import Part
+        from plan_body36_receiver_space import P
+        body,bands,recipe=geometry(direct_upper=True,upper_portal=True,open_web=True)
+        with zipfile.ZipFile(P.OUT.parent/'current-view-60-20261012.zip') as z:
+            wire=Part.Shape();wire.importBrepFromString(z.read('wire0007.brep').decode())
+        self.assertGreaterEqual(min(body.distToShape(e)[0] for e in wire.Edges),1.5-1e-6)
+        self.assertTrue(recipe['open_web'])
+        self.assertTrue(all(r['bridge_mm'][2]==173 for r in recipe['lands']))
+        for band in bands.values():self.assertLess(body.common(band).Volume,1e-6)
+
     def test_portal_foot_in_actual_saved_native_material(self):
         from check_main_p0_placement import SavedShapes
         from plan_body36_receiver_space import P

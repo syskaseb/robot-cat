@@ -19,7 +19,7 @@ from check_main_p0_placement import SavedShapes
 ROOT_POINT=[-74.0,-84.2375,112.0]
 PORTS=[('W060',-53,1.05),('W001',-46.5,1.55),('W036',-40,2.1),('W061',-33.5,2.1),('W025',-27,2.1)]
 
-def geometry(root_path=None,direct_upper=False,upper_portal=False):
+def geometry(root_path=None,direct_upper=False,upper_portal=False,open_web=False):
     # The FIRST layout's floor overhung the ATO row. Put the whole floor,
     # spine and five restraints NORTH of that row instead of trimming fuses.
     # The narrow root crosses the actual gap between R1/R2, below G1 case.
@@ -32,6 +32,15 @@ def geometry(root_path=None,direct_upper=False,upper_portal=False):
           dict(name='BackSpine',bounds_mm=[-61.5,north-3,143.5,east,north,175.75]),
           dict(name='LeftKey',bounds_mm=[-61.5,-58.5,146.5,-59,north,150]),
           dict(name='RightKey',bounds_mm=[-21,-58.5,146.5,-18.5,-47.5,150])]
+    triangle=None
+    if open_web:
+        assert upper_portal,'Open web uses the qualified native upper portal foot'
+        # Replace the entire wide wall with a south-side triangular load web.
+        # XA06 has actual minY-35.3/maxZ171. Keep1.5mm jacket+margin;
+        # raise all bridge bottoms to173, not a local wire-shaped notch.
+        pads=[p for p in pads if p['name']!='BackSpine']
+        pads.append(dict(name='TopBeam',bounds_mm=[-61.5,-40,173,-18.5,north,177]))
+        triangle=[[-61.5,143.5],[-61.5,177],[-18.5,177]]
     # The previous upper root was a wired head-source collar. Start at the
     # separate measured lower parent root; plan its whole path below MTA.
     path=([[-56,-22,76.72],[-56,-22,140],[-56,-37,140],[-56,-37,144.5]] if upper_portal else
@@ -39,6 +48,9 @@ def geometry(root_path=None,direct_upper=False,upper_portal=False):
           root_path or [ROOT_POINT,[-40,-84.2375,112],[-40,-54,112],[-40,-54,144.5]])
     if not direct_upper and not upper_portal:assert path[0]==ROOT_POINT and path[-1]==[-40,-54,144.5]
     pieces=[box(p['bounds_mm']) for p in pads]
+    if triangle:
+        pts=[A.Vector(x,-40,z) for x,z in triangle]
+        pieces.append(Part.Face(Part.Wire(Part.makePolygon(pts+[pts[0]]).Edges)).extrude(A.Vector(0,3,0)))
     post=([-58,-24,76.72,-54,-20,142] if upper_portal else
           [-18,-32,76.72,-14,-28,146.5] if direct_upper else None)
     pieces.extend(([box(post)]+[arm_box(a,b,[2,2,2]) for a,b in zip(path[1:],path[2:])]) if upper_portal else
@@ -62,7 +74,7 @@ def geometry(root_path=None,direct_upper=False,upper_portal=False):
         for q in (s,band):
             assert q.isValid() and len(q.Solids)==1 and not q.check(True),wire
             q.Placement=frame*q.Placement
-        bridge=[x-2,-54+r+.5,171.75,x+2,north,175.75]
+        bridge=[x-2,-54+r+.5,173 if open_web else 171.75,x+2,north,177 if open_web else 175.75]
         pieces.extend([s,box(bridge)]);bands[wire]=band
         recipes.append(dict(wire=wire,radius_mm=r,centre_mm=[x,-54,170.5],land_mm=3,
             seat=seat,foot=foot,ring_cut=dict(outer=outer,inner=inner),knot=knot,
@@ -71,15 +83,16 @@ def geometry(root_path=None,direct_upper=False,upper_portal=False):
     assert body.isValid() and len(body.Solids)==1 and not body.check(True),'Carrier disconnected/invalid'
     for n,b in bands.items():assert body.common(b).Volume<1e-6,('own band',n)
     return body,bands,dict(pads=pads,root_path_mm=path,root_post_bounds_mm=post,
-                          arm_half_width_mm=2,lands=recipes,direct_upper=direct_upper,upper_portal=upper_portal)
+                          arm_half_width_mm=2,lands=recipes,direct_upper=direct_upper,upper_portal=upper_portal,
+                          open_web=open_web,spine_triangle_xz_mm=triangle,spine_y_mm=[-40,-37] if triangle else None)
 
-def run(diagnose_all=False,direct_upper=False,upper_portal=False):
+def run(diagnose_all=False,direct_upper=False,upper_portal=False,open_web=False):
     guard();tick=time.monotonic()
     choicefile=P.OUT/'g1-whole-root-choice.json'
     if direct_upper or upper_portal:
         native=P.OUT/'U1InterfaceCarriersCurrent.FCStd';parent_name='UpperCarrier001'
         assert P.SHA(native)=='fd09de30744aa0ea26bad789779980172ee078b650ae80070729254ee259e9c1'
-        body,bands,recipe=geometry(direct_upper=True,upper_portal=upper_portal)
+        body,bands,recipe=geometry(direct_upper=True,upper_portal=upper_portal,open_web=open_web)
         root_patch=box([-58,-24,76.72,-54,-20,77.72] if upper_portal else [-18,-32,76.72,-14,-28,77.72])
     else:
         assert choicefile.exists(),'Allocate the whole new root path before a third component gate'
@@ -175,5 +188,6 @@ def run(diagnose_all=False,direct_upper=False,upper_portal=False):
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--diagnose-all',action='store_true')
-    parser.add_argument('--direct-upper',action='store_true');parser.add_argument('--upper-portal',action='store_true');args=parser.parse_args()
-    run(args.diagnose_all,args.direct_upper,args.upper_portal)
+    parser.add_argument('--direct-upper',action='store_true');parser.add_argument('--upper-portal',action='store_true')
+    parser.add_argument('--open-web',action='store_true');args=parser.parse_args()
+    run(args.diagnose_all,args.direct_upper,args.upper_portal,args.open_web)
