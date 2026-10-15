@@ -22,6 +22,7 @@ from positive_material_witness import witness
 from current_work_guard import check as guard
 from canonical_body_rows import normalize,selected_rows
 from current_route_proposal_screen import clear as proposal_clear
+from goal_tangent_handles import pairs as goal_handles
 
 class ExactOracle:
     def __init__(self,targets,wires):
@@ -127,8 +128,7 @@ def route(oracle,row,max_seconds=900,max_states=15000):
             guard();oracle.cache.save();print('exact plan',row['wire'],'states',states,'checks',oracle.checks,'seconds',round(time.monotonic()-tick,1),flush=True);last=time.monotonic()
         distance=math.dist(p,end)
         if cost and cost+distance<capacity:
-            h=max(12,min(65,distance/3))
-            for a,b in ((h,h),(18,38),(38,18),(38,38)):
+            for a,b in goal_handles(distance):
                 poles=[p,add(p,mul(u,a)),add(end.tolist(),mul(row['receiver_outward_axis'],b)),end.tolist()]
                 length,radius,_=metrics(poles,24)
                 if radius<10.5 or cost+length>capacity:continue
@@ -167,6 +167,8 @@ def run(parent_commit):
         p[helper.relative_to(P.ROOT).as_posix()]=P.SHA(helper)
         screen=Path(__file__).with_name('current_route_proposal_screen.py')
         p[screen.relative_to(P.ROOT).as_posix()]=P.SHA(screen)
+        handles=Path(__file__).with_name('goal_tangent_handles.py')
+        p[handles.relative_to(P.ROOT).as_posix()]=P.SHA(handles)
         return dict(a),dict(b),p,g
     receiver.prepare=shared_prepare
     def choose(parent,base):
