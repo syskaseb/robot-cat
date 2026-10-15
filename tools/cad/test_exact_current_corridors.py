@@ -9,6 +9,13 @@ class FakeOracle:
     def clear(self,part,row):self.checks+=1;return self.allowed
 
 class ExactRoutingTests(unittest.TestCase):
+    def test_fast_wire_rejection_preserves_exact_threshold(self):
+        row=dict(wire='test',loom='FL1',core='D')
+        for separation,allowed in ((2.2,False),(2.3,True)):
+            other=Part.makeLine(A.Vector(0,separation,0),A.Vector(10,separation,0))
+            oracle=ExactOracle({}, {'other':(other,1)})
+            self.assertEqual(oracle.clear(line([0,0,0],[10,0,0]),row),allowed)
+
     def test_actual_bore_is_not_rejected_by_its_box(self):
         body=Part.makeBox(10,10,10).cut(Part.makeCylinder(2,10,A.Vector(0,5,5),A.Vector(1,0,0)))
         oracle=ExactOracle({'parent':body},{})

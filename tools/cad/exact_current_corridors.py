@@ -31,6 +31,23 @@ class ExactOracle:
         key=(row['wire'],json.dumps(part,sort_keys=True))
         if key in self.memo:return self.memo[key]
         s=P.wire([part]);rs=1.25
+        for name,(t,r) in self.wires.items():
+            if name=='fan/'+row['loom']+'/'+row['core']:continue
+            if not self.bounds.near(s,t,rs+r+.0001):continue
+            # Points ON exact curves can prove rejection cheaply. Absence of
+            # a close point still falls through to exact per-edge distance.
+            for q in (s,t):
+                if id(q) not in self.points:self.points[id(q)]=np.asarray([list(v) for e in q.Edges for v in e.discretize(Distance=.75)])
+            aa,bb=self.points[id(s)],self.points[id(t)]
+            for p in aa:
+                ix=np.all(np.abs(bb-p)<rs+r,axis=1)
+                if ix.any() and np.any(np.linalg.norm(bb[ix]-p,axis=1)<rs+r-1e-6):
+                    self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
+            for e in t.Edges:
+                if not self.bounds.near(s,e,rs+r+.0001):continue
+                self.checks+=1;gap,vol=self.cache.check(s,e,rs,r)
+                if vol>1e-5 or gap<rs+r-1e-6:
+                    self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
         for name,t in self.targets.items():
             if not self.bounds.near(s,t,rs+.0001):continue
             self.checks+=1
@@ -39,14 +56,6 @@ class ExactOracle:
             gap,vol=self.cache.check(s,t,rs,0)
             if vol>1e-5 or gap<rs-1e-6:
                 self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
-        for name,(t,r) in self.wires.items():
-            if name=='fan/'+row['loom']+'/'+row['core']:continue
-            if not self.bounds.near(s,t,rs+r+.0001):continue
-            for e in t.Edges:
-                if not self.bounds.near(s,e,rs+r+.0001):continue
-                self.checks+=1;gap,vol=self.cache.check(s,e,rs,r)
-                if vol>1e-5 or gap<rs+r-1e-6:
-                    self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
         self.memo[key]=True;return True
 
 def route(oracle,row,max_seconds=900,max_states=15000):
