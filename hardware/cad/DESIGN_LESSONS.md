@@ -279,3 +279,15 @@ Planowanie na powierzchniach RZECZYWISTYCH brył oraz próbkach przewodów,
 a potem dokładna kontrola CAŁYCH segmentów, domknęło8 ramion źródeł:
 1145 par,569,781s. Powierzchnia styczna nie jest objętościową kolizją;
 mesh może odrzucić/proponować, nigdy sam zaakceptować materiału.
+
+15.10: przed projektowaniem wspólnego docisku odczytać WSZYSTKIE zajęte
+porty szyny, także dwa feedy i różne promienie izolacji. NC nie zgadywać.
+Błąd jądra CAD nie dowodzi kolizji. Konserwatywny analityczny dowód
+separacji działa tylko dla przypiętej rzeczywistej receptury CSG; brak
+dowodu nadal blokuje akceptację. Testy muszą zawierać rzeczywisty kontakt.
+Natywne ramiona źródeł powstały zanim uzgodniono wszystkie opaski
+odbiorników i wiązkę głowy, przez co zostały konflikty RR_G/FL_G.
+Następny plan obejmuje jednocześnie ramiona, opaski, dociski i całe kable.
+Sześć dodatnich domen na osiem nie jest wspólnym rozwiązaniem ani punktem.
+Długie spekulacyjne rozważania też są kosztem: ograniczać je do wyboru
+jednej sprawdzalnej zmiany przyczyny; nie zastępować nimi wyniku.
