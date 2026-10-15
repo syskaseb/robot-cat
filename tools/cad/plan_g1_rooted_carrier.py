@@ -15,18 +15,24 @@ from current_work_guard import check as guard
 from current_body36_candidates import resolve
 from short_feed_lacing_saddle import build as feed_material
 
-ROOT_POINT=[-100.5,-85.05,132.4224451363255]
+ROOT_POINT=[-74.0,-84.2375,112.0]
 PORTS=[('W060',-53,1.05),('W001',-46.5,1.55),('W036',-40,2.1),('W061',-33.5,2.1),('W025',-27,2.1)]
 
-def geometry():
+def geometry(root_path=None):
     # The FIRST layout's floor overhung the ATO row. Put the whole floor,
     # spine and five restraints NORTH of that row instead of trimming fuses.
     # The narrow root crosses the actual gap between R1/R2, below G1 case.
-    pads=[dict(name='Tray',bounds_mm=[-61.5,-58.5,143.5,-18.5,-38.5,146.5]),
-          dict(name='BackSpine',bounds_mm=[-61.5,-41.5,143.5,-18.5,-38.5,175.75]),
-          dict(name='LeftKey',bounds_mm=[-61.5,-58.5,146.5,-59,-38.5,150]),
-          dict(name='RightKey',bounds_mm=[-21,-58.5,146.5,-18.5,-38.5,150])]
-    path=[ROOT_POINT,[-100.5,-85.05,144.5],[-40,-85.05,144.5],[-40,-40,144.5]]
+    # Tail XB32 runs across the WHOLE former spine atY-41.875/Z151.49.
+    # Allocate the whole spine north of that wire and its6mm sleeve, not
+    # only west of the sleeve's first collision witness.
+    pads=[dict(name='Tray',bounds_mm=[-61.5,-58.5,143.5,-18.5,-35.5,146.5]),
+          dict(name='BackSpine',bounds_mm=[-61.5,-38.5,143.5,-18.5,-35.5,175.75]),
+          dict(name='LeftKey',bounds_mm=[-61.5,-58.5,146.5,-59,-35.5,150]),
+          dict(name='RightKey',bounds_mm=[-21,-58.5,146.5,-18.5,-47.5,150])]
+    # The previous upper root was a wired head-source collar. Start at the
+    # separate measured lower parent root; plan its whole path below MTA.
+    path=root_path or [ROOT_POINT,[-40,-84.2375,112],[-40,-54,112],[-40,-54,144.5]]
+    assert path[0]==ROOT_POINT and path[-1]==[-40,-54,144.5]
     pieces=[box(p['bounds_mm']) for p in pads]+[arm_box(a,b,[2,2,2]) for a,b in zip(path,path[1:])]
     bands={};recipes=[]
     for wire,x,r in PORTS:
@@ -46,7 +52,7 @@ def geometry():
         for q in (s,band):
             assert q.isValid() and len(q.Solids)==1 and not q.check(True),wire
             q.Placement=frame*q.Placement
-        bridge=[x-2,-54+r+.5,171.75,x+2,-38.5,175.75]
+        bridge=[x-2,-54+r+.5,171.75,x+2,-35.5,175.75]
         pieces.extend([s,box(bridge)]);bands[wire]=band
         recipes.append(dict(wire=wire,radius_mm=r,centre_mm=[x,-54,170.5],land_mm=3,
             seat=seat,foot=foot,ring_cut=dict(outer=outer,inner=inner),knot=knot,
@@ -57,7 +63,12 @@ def geometry():
     return body,bands,dict(pads=pads,root_path_mm=path,arm_half_width_mm=2,lands=recipes)
 
 def run(diagnose_all=False):
-    guard();tick=time.monotonic();body,bands,recipe=geometry()
+    guard();tick=time.monotonic()
+    choicefile=P.OUT/'g1-whole-root-choice.json'
+    assert choicefile.exists(),'Allocate the whole new root path before a third component gate'
+    choice=json.loads(choicefile.read_text());assert choice['status']=='STATIC_WHOLE_ROOT_PROPOSAL_MOTION_GATE_OPEN'
+    for n,h in choice['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,('Changed shared root choice input',n)
+    body,bands,recipe=geometry(choice['root_path_mm'])
     native=P.OUT/'StationFramesCurrent.FCStd'
     assert P.SHA(native)=='62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9'
     doc=A.openDocument(str(native));parent=doc.getObject('FoundationStationSupports').Shape.copy();A.closeDocument(doc.Name)
@@ -84,7 +95,7 @@ def run(diagnose_all=False):
     effective,ancestry=resolve(macro,P.ROOT)
     wires={n:v for n,v in wires.items() if not n.startswith('body/')}
     wires.update({'body/'+n:(P.wire(r['parts']),1) for n,r in effective.items()})
-    pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (native,Path(__file__),Path(__file__).with_name('current_body36_candidates.py'),Path(__file__).with_name('short_feed_lacing_saddle.py'),rootsfile,macrofile,basefile)})
+    pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (native,choicefile,Path(__file__),Path(__file__).with_name('current_body36_candidates.py'),Path(__file__).with_name('short_feed_lacing_saddle.py'),rootsfile,macrofile,basefile)})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'g1-carrier-pairs.json',bounds.near)
     checks=0;errors=[];records=[]
     def hit(a,b,r=0):
@@ -105,6 +116,13 @@ def run(diagnose_all=False):
             full36accepted=not macro['remaining_wire_ids'],new_separate_prints=0,new_screws=0,
             candidate_receipt_ancestry=ancestry,
             lacing_candidate_mm=750,adhesive_gap_project_mm=.5,
+            assembly_plan=['Foundation with integrated carrier before later bank/boards, installed access still requires A2 proof',
+                'Insert bank fuses before G1 casing if that casing obstructs the extraction approach',
+                'Bench prepare five untinned ends; retain actual first3mm UP lands; support case while opening levers',
+                'Five dedicated lacing bindings carry insulation load into the printed carrier, never case adhesive'],
+            service_plan=['All sources including monitor/USB absent; robot supported',
+                'Support G1, release five dedicated bindings and five labeled G1 ends before deeper bank work; park/cover ends without tension',
+                'Remove provisional casing bond; do not claim bank can move through the empty integral carrier until installed A2 path is proved'],
             gates=['Provisional3mm fixed mouth retention/creep/diameter','Removable adhesive fit/compatibility','Lever access and assembly','Native editable replacement/export','WholeW5/stock'])
         f=P.OUT/'g1-rooted-carrier-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);cache.save()
     save()
