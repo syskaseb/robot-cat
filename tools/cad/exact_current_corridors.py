@@ -60,13 +60,19 @@ class ExactOracle:
 
 class ProposalOracle:
     """Positive witnesses reject; absence is ONLY a proposal for exact testing."""
-    def __init__(self,exact):
-        self.exact=exact;self.memo={};self.checks=0;self.blockers={};self.cache=exact.cache
+    def __init__(self,exact,mesh=None):
+        self.exact=exact;self.mesh=mesh;self.memo={};self.checks=0;self.blockers={};self.cache=exact.cache
 
     def clear(self,part,row):
         key=(row['wire'],json.dumps(part,sort_keys=True))
         if key in self.exact.memo:return self.exact.memo[key]
         if key in self.memo:return self.memo[key]
+        if self.mesh is not None:
+            from plan_body_fanout_layout import part_points
+            points=part_points(part)
+            points=np.asarray([p for p in points if min(math.dist(p,row['free_start']),math.dist(p,row['free_end']))>1e-7])
+            result=not len(points) or self.mesh.clear(points,row)
+            self.memo[key]=result;self.checks+=1;return result
         s=P.wire([part]);rs=1.25;points=self.exact.points;bounds=self.exact.bounds
         for n,(t,r) in self.exact.wires.items():
             if n=='fan/'+row['loom']+'/'+row['core']:continue
@@ -83,8 +89,8 @@ class ProposalOracle:
                 self.blockers[n]=self.blockers.get(n,0)+1;self.memo[key]=False;return False
         self.checks+=1;self.memo[key]=True;return True
 
-def lazy_route(exact,row,max_seconds=900):
-    tick=time.monotonic();proposal=ProposalOracle(exact);attempts=0
+def lazy_route(exact,row,max_seconds=900,mesh=None):
+    tick=time.monotonic();proposal=ProposalOracle(exact,mesh);attempts=0
     source=row.get('source_parts') or [row['source_land']];receiving=row['receiving_parts']
     while time.monotonic()-tick<max_seconds:
         guard();q,error=route(proposal,row,max_seconds=max_seconds-(time.monotonic()-tick))
@@ -161,7 +167,10 @@ def run(parent_commit):
         for n in ('W004','W019','W030'):
             # Existing source seat/fan is preserved; include every new packed
             # prefix in own-bundle/full-curve checking, never hide that prefix.
-            rows[n]['source_parts']=front[n];rows[n]['source_after_jacket_first5_mm']=front[n][1:]
+            original_source=rows[n].get('source_parts') or [rows[n]['source_land']]
+            original_after=rows[n].get('source_after_jacket_first5_mm',original_source[1:])
+            rows[n]['source_after_jacket_first5_mm']=[*original_after,*front[n][len(original_source):]]
+            rows[n]['source_parts']=front[n]
             rows[n]['free_start']=front[n][-1]['end'];rows[n]['source_free_axis']=list((0,0,1))
         for name,g in grips['groups'].items():
             profile,parts=material(g)
@@ -182,6 +191,22 @@ def run(parent_commit):
         wires.update({'body/'+n:(P.wire(current[n]['parts']),1) for n in positive})
         for n in ('W013','W047','W069'):
             r=rows[n];wires['fan/'+r['loom']+'/'+r['core']]=(P.wire(r['source_parts']),1)
+        # Reuse the received REAL-surface proxy rather than repeating costly
+        # OCC inside/distance queries at every graph node. Actual validation
+        # below still uses1.25 and all full material, not this planning proxy.
+        from current_core_planning_scene import build as proxy_build
+        planning=dict(wires)
+        for r in rows.values():
+            key='fan/'+r['loom']+'/'+r['core']
+            if key in planning:planning['new/'+r['wire']+'/source']=planning.pop(key)
+        for n in list(planning):
+            if n.startswith('chosen/'):planning['leg/'+n.removeprefix('chosen/')]=planning.pop(n)
+        mesh=proxy_build(targets,planning)
+        # Functional open-prototype corridors may rise beyond the historical
+        # Z155 planning cut. Missing proxy material there is NEVER acceptance:
+        # lazy exact and the full gate include all actual bodies/motion.
+        mesh.data['high']=np.maximum(mesh.data['high'],[210,180,275])
+        mesh.data['low']=np.minimum(mesh.data['low'],[-220,-180,-30])
         oracle=ExactOracle(targets,wires);candidates={};failed={};tick=time.monotonic()
         def save():
             out=dict(status='ACTUAL_GEOMETRY_ROUTE_PLANNING_NOT_WHOLE_W5_ACCEPTANCE',candidates=candidates,failures=failed,
@@ -190,8 +215,11 @@ def run(parent_commit):
             f=P.OUT/'exact-corridor-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);oracle.cache.save()
         save()
         for n in parent['remaining_wire_ids']:
-            guard();q,error=lazy_route(oracle,rows[n])
-            if q:candidates[n]=q;oracle.wires['body/'+n]=(P.wire(q['parts']),1)
+            guard();q,error=lazy_route(oracle,rows[n],mesh=mesh)
+            if q:
+                from plan_body_fanout_layout import part_points
+                candidates[n]=q;oracle.wires['body/'+n]=(P.wire(q['parts']),1)
+                mesh.add_points('currentbody/'+n,np.concatenate([part_points(p) for p in q['parts']]))
             else:failed[n]=error
             save();print('exact plan result',n,'candidate',q is not None,'seconds',round(time.monotonic()-tick,1),flush=True)
         return rows,candidates,failed
