@@ -13,6 +13,7 @@ import build_complete_source_carriers as B
 import build_remaining_loom_supports as G
 from whole_current_body_material import load
 from compact_loom_land_port import build as port_build
+from support_entry_port import build as entry_build
 from build_front_fixed_port_clearance import placement
 from diagnose_remaining_support_endpoints import transform,moved
 from check_low_hip_shared_space import ownership,AtomicMaterial,same_leg_pose
@@ -109,11 +110,7 @@ def retained_hip_parents(targets,family,roots):
     return kept,receipts,inputs+[manifest,*[folder/r['file'] for r in saved['parts'].values()]]
 
 
-def run(math_name='body-near-axis-hip-plan.json',report_name='body-near-axis-source-space.json'):
-    assert Path(math_name).name==math_name and Path(report_name).name==report_name
-    tick=time.monotonic();mf=P.OUT/math_name;plan=json.loads(mf.read_text())
-    assert not plan['rejected'] and len(plan['hips'])==4
-    for n,h in plan['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
+def prepare_context(plan):
     targets,old,pins=load();ff=P.OUT/'leg-source-near-member-plan.json';family=json.loads(ff.read_text())
     rf=P.OUT/'remaining-loom-roots-plan.json';roots=json.loads(rf.read_text())
     af=P.ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(af.read_text())['axes']
@@ -138,13 +135,35 @@ def run(math_name='body-near-axis-hip-plan.json',report_name='body-near-axis-sou
     own,bare=ownership(targets,family,roots)
     bf=P.OUT/'body-fanout-layout.json'
     for n,r in json.loads(bf.read_text())['routes'].items():old['body/'+n]=(P.wire(r['parts']),1)
+    return targets,old,pins,family,axes,own,bare,[ff,rf,af,bf,sf,archive,*files],subset_receipts
+
+
+def make_port(row,moving_flag):
+    axis=row['moving_tangent_rest_world'] if moving_flag else row['fixed_tangent_world']
+    anchor=row['moving_anchor_rest_world_mm'] if moving_flag else row['fixed_anchor_world_mm']
+    start=[a-9*b for a,b in zip(anchor,axis)] if moving_flag else anchor
+    end=anchor if moving_flag else [a+9*b for a,b in zip(anchor,axis)]
+    land=dict(start_world_mm=start,end_world_mm=end,centre_world_mm=[(a+b)/2 for a,b in zip(start,end)],axis=axis,length_mm=9)
+    normal=row.get('moving_port_normal_world' if moving_flag else 'fixed_port_normal_world',
+        [1,0,0] if row['physical_leg'].startswith('Front') else [-1,0,0])
+    extension=row.get('moving_port_entry_extension_mm' if moving_flag else 'fixed_port_entry_extension_mm',0)
+    if extension:
+        port=dict(arrival_normal=normal,recipe=dict(construction='single_post_axial_entry_below_band',band_axial_offset_mm=0,axial_entry_extension_mm=extension))
+        return land,entry_build(land,port)
+    return land,port_build(land,normal)
+
+
+def run(math_name='body-near-axis-hip-plan.json',report_name='body-near-axis-source-space.json'):
+    assert Path(math_name).name==math_name and Path(report_name).name==report_name
+    tick=time.monotonic();mf=P.OUT/math_name;plan=json.loads(mf.read_text())
+    assert not plan['rejected'] and len(plan['hips'])==4
+    for n,h in plan['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
+    targets,old,pins,family,axes,own,bare,files,subset_receipts=prepare_context(plan)
     new={};new_owners={};curve_info={};curves={};ground=[];contacts=[];errors=[];completed=[];pairs=0
     for row in plan['hips']:
         loom=row['loom'];code=row['cad_code'];normal=[1,0,0] if row['physical_leg'].startswith('Front') else [-1,0,0]
         for moving_flag,key in ((False,'fixed_lands'),(True,'moving_lands')):
-            part=row[key][0]['parts'][0];axis=[(b-a)/9 for a,b in zip(part['start'],part['end'])]
-            land=dict(start_world_mm=part['start'],end_world_mm=part['end'],centre_world_mm=[(a+b)/2 for a,b in zip(part['start'],part['end'])],axis=axis,length_mm=9)
-            port=port_build(land,normal)
+            land,port=make_port(row,moving_flag)
             for kind in ('body','band'):
                 for h in ANGLES if moving_flag else (0,):
                     n=f'{loom}/{"Moving" if moving_flag else "Fixed"}/{kind}/{h}'
@@ -165,7 +184,7 @@ def run(math_name='body-near-axis-hip-plan.json',report_name='body-near-axis-sou
             retained_subset_receipts=subset_receipts,ground=ground,material_instances=len(targets),
             changed_source_curves=len(curves),changed_port_pose_shapes=len(new),body_routes=20,
             scope='Four complete new factoryapproach+Hip1flex families,8seats/bands; fullretainedassembly/other8families/20bodyroutes. CoupledHip samples-15/0/+15,124ground/selfchecks. Arms/corebreakouts/native/stock/continuoussweep OPEN.',
-            source_sha256={**pins,**{f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in [mf,ff,rf,af,bf,sf,archive,*files,Path(__file__)]}},
+            source_sha256={**pins,**{f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in [mf,*files,Path(__file__)]}},
             computed_pairs=cache.computed,reused_pairs=cache.reused,worker_seconds=round(time.monotonic()-tick,3),
             selected=False,W5_complete=False,physical_pass=False)
         out=P.OUT/report_name;tmp=out.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(out);cache.save();return result
