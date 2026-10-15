@@ -17,7 +17,7 @@ from plan_continuous_joint_family import self_screen
 P=C.P
 
 
-def run(resume_commit=None):
+def run(resume_commit=None,rear_upper_corridor=False):
     tick=time.monotonic();until=tick+25*60
     seedfile=P.OUT/'body-axial-hip-plan.json';seed=json.loads(seedfile.read_text())
     for n,h in seed['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
@@ -124,7 +124,8 @@ def run(resume_commit=None):
             chosen=None
             # Centreline and shallow cross-centre roots change the loop corridor,
             # unlike repeating longer slack in the rejected same-side corridor.
-            roots=itertools.product((0.,-10.,15.,35.5,50.,65.,25.),(-16.,-24.,-8.,-32.),(-115.5,-105.,-95.) if front else (160.,170.,145.,185.))
+            heights=(60.,80.,105.,40.) if rear_upper_corridor and not front else (-16.,-24.,-8.,-32.)
+            roots=itertools.product((0.,25.,-10.,15.,50.,65.,35.5) if rear_upper_corridor else (0.,-10.,15.,35.5,50.,65.,25.),heights,(-115.5,-105.,-95.) if front else (170.,185.,145.,160.))
             for y,z,x in roots:
                 if not alive():break
                 row['fixed_anchor_world_mm']=[x,side*y,z]
@@ -149,7 +150,7 @@ def run(resume_commit=None):
                         if not failure:candidate_fans.append((direction,cores))
                     if not candidate_fans:attempt.update(phase='three_core_fans',witness=failure);save();continue
                     attempt['phase']='constant_length_full_source'
-                    for beta in (60,45,30,15,0,-15,-30,-45,-60):
+                    for beta in ((-60,-45,-30,-15,0,15,30,45,60) if rear_upper_corridor and not front else (60,45,30,15,0,-15,-30,-45,-60)):
                         if not alive():break
                         for length in range(125,351,5):
                             if not alive():break
@@ -211,5 +212,5 @@ def run(resume_commit=None):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit')
-    run(parser.parse_args().resume_commit)
+    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit');parser.add_argument('--rear-upper-corridor',action='store_true')
+    args=parser.parse_args();run(args.resume_commit,args.rear_upper_corridor)
