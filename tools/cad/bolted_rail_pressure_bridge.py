@@ -20,13 +20,14 @@ def build(lands,normal,feeds):
     capboss=[-5,y-3.7,z-3.7,0,y+3.7,z+3.7]
     base=box(base_bounds).fuse(box(entry)).fuse(box(boss)).removeSplitter()
     cap=box(cap_bounds).fuse(box(capboss)).removeSplitter()
-    for cylinder in r['cylinders']:
+    cylinders=[dict(c,radius_mm=c['radius_mm'],height_mm=9.4,base_mm=[c['base_mm'][0],c['base_mm'][1],-6.7]) for c in r['cylinders']]
+    for cylinder in cylinders:
         tool=Part.makeCylinder(cylinder['radius_mm'],cylinder['height_mm'],A.Vector(*cylinder['base_mm']))
         base=base.cut(tool).removeSplitter();cap=cap.cut(tool).removeSplitter()
     bore=Part.makeCylinder(1.1,16,A.Vector(-6,y,z),A.Vector(1,0,0))
     base=base.cut(bore).removeSplitter();cap=cap.cut(bore).removeSplitter()
     def hexagon(x,radius,length):
-        points=[A.Vector(x,y+radius*math.cos(i*math.pi/3),z+radius*math.sin(i*math.pi/3)) for i in range(6)]
+        points=[A.Vector(x,y+radius*math.cos(i*math.pi/3+math.pi/6),z+radius*math.sin(i*math.pi/3+math.pi/6)) for i in range(6)]
         return Part.Face(Part.Wire(Part.makePolygon(points+[points[0]]).Edges)).extrude(A.Vector(length,0,0))
     trap=hexagon(5.5,2.5,3.2);base=base.cut(trap).removeSplitter()
     screw=Part.makeCylinder(1,14,A.Vector(-5,y,z),A.Vector(1,0,0)).fuse(
@@ -42,9 +43,10 @@ def build(lands,normal,feeds):
     # The extra NC boss is included in the conservative positive CSG bounds.
     main=[min(base_bounds[i],boss[i]) if i<3 else max(base_bounds[i],boss[i]) for i in range(6)]
     capmain=[min(cap_bounds[i],capboss[i]) if i<3 else max(cap_bounds[i],capboss[i]) for i in range(6)]
-    recipe=dict(r,base_bounds_mm=main,cap_bounds_mm=capmain,channels=[],T18I_quantity=0,
+    recipe=dict(r,base_bounds_mm=main,cap_bounds_mm=capmain,cylinders=cylinders,channels=[],T18I_quantity=0,
         base_boss_bounds_mm=boss,cap_boss_bounds_mm=capboss,bolt_centre_local_mm=[y,z],
         M2x14_quantity=1,M2_nut_quantity=1,nut_trap_project_radius_mm=2.5,
+        minimum_nut_trap_to_core_ligament_mm=4.75-2.5*math.cos(math.pi/6)-1.3,
         screw_and_nut_nominal_reservations_not_supplier_geometry=True,
         hardware_SKU_and_tightening_gate_open=True)
     return dict(body=base,cap=cap,screw=screw,nut=nut,access_tool=tool,bands=[],recipe=recipe,

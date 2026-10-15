@@ -1,4 +1,6 @@
 import unittest
+import FreeCAD as A
+import Part
 from bolted_rail_pressure_bridge import build
 
 
@@ -17,6 +19,11 @@ class BoltedBridgeTest(unittest.TestCase):
                 self.assertLess(p['body'].common(p['cap']).Volume,1e-6)
                 self.assertLess(p['body'].common(p['screw']).Volume,1e-6)
                 self.assertLess(p['cap'].common(p['screw']).Volume,1e-6)
+                self.assertGreater(p['recipe']['minimum_nut_trap_to_core_ligament_mm'],1.2)
+                for x in (-4.75,0,4.75):
+                    wire=Part.makeLine(A.Vector(x,0,4.5),A.Vector(x,0,-4.5))
+                    for component in ('body','cap','screw','nut','access_tool'):
+                        self.assertGreaterEqual(p[component].distToShape(wire)[0],1.25-1e-6)
 
     def test_two_feed_rail_cannot_be_used_as_free_bolt_position(self):
         lands=[dict(centre_world_mm=[x,0,0],axis=[0,0,-1],length_mm=9) for x in (-4.75,0,4.75)]
