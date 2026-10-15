@@ -3,6 +3,15 @@ import FreeCAD as A
 from plan_g1_rooted_carrier import geometry,PORTS
 
 class G1CarrierTests(unittest.TestCase):
+    def test_portal_foot_in_actual_saved_native_material(self):
+        from check_main_p0_placement import SavedShapes
+        from plan_body36_receiver_space import P
+        from loom_land_port import box
+        path=P.OUT/'U1InterfaceCarriersCurrent.FCStd'
+        self.assertEqual(P.SHA(path),'fd09de30744aa0ea26bad789779980172ee078b650ae80070729254ee259e9c1')
+        parent=SavedShapes().shape(path,'UpperCarrier001')
+        self.assertLess(box([-58,-24,76.72,-54,-20,77.72]).cut(parent).Volume,1e-6)
+
     def test_upper_portal_avoids_known_tail_fuse_and_aux_wire_corridors(self):
         from loom_land_port import box
         import Part

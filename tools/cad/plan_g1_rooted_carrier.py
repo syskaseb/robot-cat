@@ -14,6 +14,7 @@ from plan_body36_receiver_space import P,C
 from current_work_guard import check as guard
 from current_body36_candidates import resolve
 from short_feed_lacing_saddle import build as feed_material
+from check_main_p0_placement import SavedShapes
 
 ROOT_POINT=[-74.0,-84.2375,112.0]
 PORTS=[('W060',-53,1.05),('W001',-46.5,1.55),('W036',-40,2.1),('W061',-33.5,2.1),('W025',-27,2.1)]
@@ -88,7 +89,10 @@ def run(diagnose_all=False,direct_upper=False,upper_portal=False):
         native=P.OUT/'StationFramesCurrent.FCStd';parent_name='FoundationStationSupports'
         assert P.SHA(native)=='62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9'
         root_patch=arm_box(ROOT_POINT,ROOT_POINT,[2,2,2])
-    doc=A.openDocument(str(native));parent=doc.getObject(parent_name).Shape.copy();A.closeDocument(doc.Name)
+    # Saved BRep is the exact qualified native tip. Preflight must not
+    # recompute its entire history merely to read material. Editing still
+    # requires the later parameter/reopen checks on a separate native copy.
+    parent=SavedShapes().shape(native,parent_name)
     outside=root_patch.cut(parent).Volume
     assert outside<1e-6,('Unrooted carrier',outside)
     union=parent.fuse(body).removeSplitter()
@@ -112,7 +116,7 @@ def run(diagnose_all=False,direct_upper=False,upper_portal=False):
     effective,ancestry=resolve(macro,P.ROOT)
     wires={n:v for n,v in wires.items() if not n.startswith('body/')}
     wires.update({'body/'+n:(P.wire(r['parts']),1) for n,r in effective.items()})
-    pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (native,choicefile,Path(__file__),Path(__file__).with_name('current_body36_candidates.py'),Path(__file__).with_name('short_feed_lacing_saddle.py'),rootsfile,macrofile,basefile)})
+    pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (native,choicefile,Path(__file__),Path(__file__).with_name('check_main_p0_placement.py'),Path(__file__).with_name('current_body36_candidates.py'),Path(__file__).with_name('short_feed_lacing_saddle.py'),rootsfile,macrofile,basefile)})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'g1-carrier-pairs.json',bounds.near)
     checks=0;errors=[];records=[]
     def hit(a,b,r=0):
