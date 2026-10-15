@@ -17,7 +17,7 @@ class FixedBodyCuts(unittest.TestCase):
         rows=[dict(wire=n,sku='BUS900 factory',physical_unit='BUS',nominal_fit_blank_mm=l)
               for n,l in [('D',395),('G',390)]]
         units,draw=material_draw(rows)
-        self.assertEqual(draw,{'BUS900':395})
+        self.assertEqual(draw,{'BUS900 factory':395})
         self.assertEqual(len(units),1)
 
 

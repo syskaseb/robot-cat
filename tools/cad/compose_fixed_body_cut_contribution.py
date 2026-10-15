@@ -22,7 +22,8 @@ def material_draw(portions):
     """One shared factory cable draws MAX(core blanks), never their sum."""
     groups={};sums={}
     for r in portions:
-        key=r['sku'].split()[0]
+        key=next((p for p in ('LAPP0107001','LAPP4126002S','TKD2500125','HELU23802')
+                  if r['sku'].startswith(p)),r['sku'])
         unit=r['physical_unit']
         if unit in groups:assert groups[unit]['sku']==key,'Mixed products in physical unit'
         q=groups.setdefault(unit,dict(sku=key,nominal_mm=0,conductors=[]))
