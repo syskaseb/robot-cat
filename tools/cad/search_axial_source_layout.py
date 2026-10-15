@@ -158,6 +158,9 @@ def run(resume_commit=None,rear_upper_corridor=False):
                                 if any(build(*ends(row,h)[:3],length+d,beta) is None for h in (0,-15,15) for d in (-5,0,5)):continue
                             except AssertionError:continue
                             poses=[];curves=[];failure=None
+                            # Complete cheap31-pose self/length/ground screening
+                            # BEFORE the first world-material query. An invalid
+                            # shortest loop is not a rejected spatial corridor.
                             for h in (0,-15,15,*[a for a in range(-15,16) if a not in (0,-15,15)]):
                                 a,b,v,m=ends(row,h);middle=build(a,b,v,length,beta)
                                 if middle is None or any(build(a,b,v,length+d,beta) is None for d in (-5,5)):failure=dict(kind='length_margin',h=h);break
@@ -166,7 +169,15 @@ def run(resume_commit=None,rear_upper_corridor=False):
                                 if self_screen(full) is not None:failure=dict(kind='self_contact',h=h);break
                                 wire=P.wire(full)
                                 if wire.BoundBox.ZMin-3+168.319012764516<5:failure=dict(kind='ground_margin',h=h);break
+                                poses.append(dict(angle=h,parts=parts))
+                            if failure:
+                                attempt['last_math_failure']=failure
+                                continue
+                            for pose in poses:
+                                h=pose['angle']
                                 if h in C.ANGLES:
+                                    full=pose['parts']+C.B.moved_parts(row['source_parts'],row['source'],h,0,axes)
+                                    wire=P.wire(full)
                                     failure=clear_world(wire,3.25,(code,h))
                                     if failure:failure={**failure,'h':h};break
                                     for name,profile in (('fixed',fixed),('moving',moving)):
@@ -176,7 +187,6 @@ def run(resume_commit=None,rear_upper_corridor=False):
                                         if failure:break
                                     if failure:break
                                     curves.append((h,wire))
-                                poses.append(dict(angle=h,parts=parts))
                             if failure:
                                 attempt['last_curve_failure']=failure
                                 break  # First robust compact curve failed: change geometry, not slack.
