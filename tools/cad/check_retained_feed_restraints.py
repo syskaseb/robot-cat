@@ -46,6 +46,11 @@ def run(parent_commit=None):
             assert actual==h,('Inherited feed input changed',n)
         inherited=dict(commit=parent_commit,receipt_sha256=hashlib.sha256(raw).hexdigest(),unchanged_components=[])
     targets,wires,pins,grips=prepare();profiles={};owners={}
+    from current_body_restraint_material import prepare as current_restraints
+    extra,extra_pins=current_restraints();targets.update(extra);pins.update(extra_pins)
+    owners.update({'FixedFeed/FL_G/body':'FrontLeftFixedCarrier',
+                   'FixedFeed/Heavy3/body':'UpperCarrier001','FixedFeed/BUS_G/body':'UpperCarrier001',
+                   'G1/carrier':'UpperCarrier001'})
     for name,g in grips['groups'].items():
         p,components=material(g);profiles[name]=p
         for kind,s in components.items():
