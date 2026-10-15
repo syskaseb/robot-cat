@@ -56,7 +56,7 @@ def geometry():
     for n,b in bands.items():assert body.common(b).Volume<1e-6,('own band',n)
     return body,bands,dict(pads=pads,root_path_mm=path,arm_half_width_mm=2,lands=recipes)
 
-def run():
+def run(diagnose_all=False):
     guard();tick=time.monotonic();body,bands,recipe=geometry()
     native=P.OUT/'StationFramesCurrent.FCStd'
     assert P.SHA(native)=='62d7b5c691bfc696e8173467d1fedc8be8e4e4bcf54bbcf7ed70cec36b666ba9'
@@ -109,20 +109,29 @@ def run():
         f=P.OUT/'g1-rooted-carrier-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);cache.save()
     save()
     for kind,s in [('carrier',body)]+list(bands.items()):
-        guard();contact=None
+        guard();contact=None;contacts=[]
         for n,t in targets.items():
             if kind=='carrier' and n.split('/')[0]=='FoundationStationSupports':continue
-            if hit(s,t):contact='material/'+n;break
-        if not contact:
+            if hit(s,t):
+                contact='material/'+n;contacts.append(contact)
+                if not diagnose_all:break
+        if not contact or diagnose_all:
             for n,(wire,r) in wires.items():
                 own=n=='wire/'+kind
-                if hit(s,wire,r if own else r+.25):contact='curve/'+n;break
-        if not contact:
+                if hit(s,wire,r if own else r+.25):
+                    contact='curve/'+n;contacts.append(contact)
+                    if not diagnose_all:break
+        if not contact or diagnose_all:
             for n,b in bands.items():
                 if n==kind:continue
-                if hit(s,b):contact='band/'+n;break
-        records.append(dict(component=kind,contact=contact));save()
-        print('G1',kind,'first',contact,'checks',checks,flush=True)
+                if hit(s,b):
+                    contact='band/'+n;contacts.append(contact)
+                    if not diagnose_all:break
+        records.append(dict(component=kind,contact=contact,all_contacts=contacts));save()
+        print('G1',kind,'contacts',contacts,'checks',checks,flush=True)
     save()
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--diagnose-all',action='store_true')
+    run(parser.parse_args().diagnose_all)
