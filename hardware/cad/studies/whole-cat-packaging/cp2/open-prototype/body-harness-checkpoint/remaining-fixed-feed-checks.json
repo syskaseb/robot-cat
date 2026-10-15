@@ -1,5 +1,5 @@
 {
-  "status": "REMAINING_FIXED_FEEDS_COMPONENT_GATE_OPEN",
+  "status": "FIVE_REMAINING_FIXED_FEEDS_COMPONENT_GATE_CLEAR",
   "components": [
     {
       "component": "Heavy3/body",
@@ -15,17 +15,11 @@
     },
     {
       "component": "BUS_G/band",
-      "contacts": [
-        "material/UpperCarrier001/0/0",
-        "material/W1Ref_G2SourceBand/0/0",
-        "curve/wire/W063"
-      ]
+      "contacts": []
     },
     {
       "component": "FL_G/body",
-      "contacts": [
-        "material/Group_W021/band"
-      ]
+      "contacts": []
     },
     {
       "component": "FL_G/band",
@@ -37,7 +31,13 @@
       "parent": "FrontLeftFixedCarrier",
       "rooted_component_attachments": [
         [
-          "Group_W021/body"
+          "ReceiverRoot/FrontLeftFixedCarrier/W021/6",
+          "ReceiverRoot/FrontLeftFixedCarrier/W021/7",
+          "ReceiverRoot/FrontLeftFixedCarrier/W019/0",
+          "ReceiverRoot/FrontLeftFixedCarrier/W019/1",
+          "ReceiverRoot/FrontLeftFixedCarrier/W019/2",
+          "ReceiverRoot/FrontLeftFixedCarrier/W019/3",
+          "ReceiverRoot/FrontLeftFixedCarrier/W019/4"
         ]
       ],
       "prior_root_graph_verified": true,
@@ -138,35 +138,35 @@
       ],
       "seat": [
         1.5,
-        -2,
+        -1.25,
         -1.5,
         5.5,
-        2,
+        1.25,
         1.5
       ],
       "foot": [
         5.0,
-        -2,
+        -1.25,
         -1.5,
         7.09,
-        2,
+        1.25,
         1.5
       ],
       "ring_cut": {
         "outer": [
           -1.581,
-          -2.6809999999999996,
+          -1.9309999999999998,
           -0.9882,
           6.031000000000001,
-          2.6809999999999996,
+          1.9309999999999998,
           0.9882
         ],
         "inner": [
           -0.9,
-          -2.0,
+          -1.25,
           -1.5264,
           5.35,
-          2.0,
+          1.25,
           1.5264
         ]
       },
@@ -273,24 +273,24 @@
       ],
       "root_path_mm": [
         [
-          -130,
-          87.5,
-          114.9
-        ],
-        [
-          -130,
-          91.5,
-          114.9
+          -126.25,
+          95.5,
+          123.5
         ],
         [
           -144,
-          91.5,
-          114.9
+          95.5,
+          123.5
         ],
         [
           -144,
           84,
-          114.9
+          123.5
+        ],
+        [
+          -144,
+          84,
+          116.5
         ]
       ],
       "arm_half_width_mm": 2,
@@ -367,8 +367,8 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-joint-selection.json": "1bd594949e83ce01205ca66b031c17d65f63d24d59ad4eea4fc2cf4aae26f5f8",
     "tools/cad/current_mixed_receiver_material.py": "18d1263ceb38c2ac772bad63e20342e6bd436037d58a09bc16ad32f5c0085bd8",
     "tools/cad/check_remaining_fixed_feed_restraints.py": "d3a801479d137f557c61dd8ead5800313817aa15c931f24cac3962fc61d21224",
-    "tools/cad/current_g2_feed_restraints.py": "61b0c36924d02d85dad1fd6ab9159695d912ad4276ca00949935d517b172b29f",
-    "tools/cad/current_fl_ground_feed.py": "be80c5af02eec100b23427b0e56f26a7b0d9c6dd1b83defe705fac6fda22b98f",
+    "tools/cad/current_g2_feed_restraints.py": "393801b111b3ae0e367704d98247ec28104b3a7084d2d1e8ee36d03d680cc308",
+    "tools/cad/current_fl_ground_feed.py": "155a01198fb2a9e6b7de348dce17b8e5543da44b7bc13417b5ed6e0dd322b8fb",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "a6711797a63729ab8f7c9593f95b323a8e8dc5161d1f3b6f4a936c6dc43bd7e0",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-receiver-support-reservations.json": "7936155d8f752d000b4b1cc3458abe55a9b7ca1cd687ba3016dbd931f4842c69"
   },
@@ -399,7 +399,7 @@
       "sha256": "694a6e8b68464360971c60e262fc7ed446afdf8975d536e2e1e9323e178b6e76"
     }
   ],
-  "worker_seconds": 164.672,
+  "worker_seconds": 152.625,
   "full36accepted": false,
   "selected": false,
   "native_complete": false,
