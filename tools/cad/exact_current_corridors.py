@@ -160,6 +160,8 @@ def run(parent_commit):
         nonlocal prepared
         if prepared is None:prepared=original()
         a,b,p,g=prepared
+        from current_fixed_feed_material import prepare as fixed_feeds
+        extra,extra_pins=fixed_feeds();a={**a,**extra};p={**p,**extra_pins}
         p={**p,Path(__file__).relative_to(P.ROOT).as_posix():P.SHA(Path(__file__))}
         generated=P.OUT/'exact-corridor-recovery-plan.json'
         if generated.exists():p[generated.relative_to(P.ROOT).as_posix()]=P.SHA(generated)

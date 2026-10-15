@@ -98,6 +98,8 @@ def run(diagnose_all=False,direct_upper=False,upper_portal=False):
     union=parent.fuse(body).removeSplitter()
     assert union.isValid() and len(union.Solids)==1 and not union.check(True)
     targets,wires,pins,grips=prepare()
+    from current_fixed_feed_material import prepare as fixed_feeds
+    extra,extra_pins=fixed_feeds();targets.update(extra);pins.update(extra_pins)
     for name,g in grips['groups'].items():
         profile,components=material(g)
         targets.update({'Group_'+name+'/'+k:s for k,s in components.items() if k!='seed'})
