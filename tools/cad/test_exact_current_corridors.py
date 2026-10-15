@@ -1,7 +1,7 @@
 import unittest
 import FreeCAD as A
 import Part
-from exact_current_corridors import ExactOracle,route
+from exact_current_corridors import ExactOracle,ProposalOracle,route
 from plan_current_mta_interfaces import line
 
 class FakeOracle:
@@ -9,6 +9,16 @@ class FakeOracle:
     def clear(self,part,row):self.checks+=1;return self.allowed
 
 class ExactRoutingTests(unittest.TestCase):
+    def test_proposal_does_not_override_later_exact_rejection(self):
+        # Centreline is outside the solid, but its insulation does not fit.
+        # No inside witness is not clearance. Exact result must ban the edge.
+        row=dict(wire='test',loom='FL1',core='D');part=line([0,1.2,.5],[10,1.2,.5])
+        exact=ExactOracle({'obstacle':Part.makeBox(1,1,1,A.Vector(5,0,0))},{})
+        proposal=ProposalOracle(exact)
+        self.assertTrue(proposal.clear(part,row))
+        self.assertFalse(exact.clear(part,row))
+        self.assertFalse(proposal.clear(part,row))
+
     def test_fast_wire_rejection_preserves_exact_threshold(self):
         row=dict(wire='test',loom='FL1',core='D')
         for separation,allowed in ((2.2,False),(2.3,True)):

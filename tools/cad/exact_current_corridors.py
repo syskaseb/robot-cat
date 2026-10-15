@@ -58,6 +58,48 @@ class ExactOracle:
                 self.blockers[name]=self.blockers.get(name,0)+1;self.memo[key]=False;return False
         self.memo[key]=True;return True
 
+class ProposalOracle:
+    """Positive witnesses reject; absence is ONLY a proposal for exact testing."""
+    def __init__(self,exact):
+        self.exact=exact;self.memo={};self.checks=0;self.blockers={};self.cache=exact.cache
+
+    def clear(self,part,row):
+        key=(row['wire'],json.dumps(part,sort_keys=True))
+        if key in self.exact.memo:return self.exact.memo[key]
+        if key in self.memo:return self.memo[key]
+        s=P.wire([part]);rs=1.25;points=self.exact.points;bounds=self.exact.bounds
+        for n,(t,r) in self.exact.wires.items():
+            if n=='fan/'+row['loom']+'/'+row['core']:continue
+            if not bounds.near(s,t,rs+r+.0001):continue
+            for q in (s,t):
+                if id(q) not in points:points[id(q)]=np.asarray([list(v) for e in q.Edges for v in e.discretize(Distance=.75)])
+            aa,bb=points[id(s)],points[id(t)]
+            for p in aa:
+                ix=np.all(np.abs(bb-p)<rs+r,axis=1)
+                if ix.any() and np.any(np.linalg.norm(bb[ix]-p,axis=1)<rs+r-1e-6):
+                    self.blockers[n]=self.blockers.get(n,0)+1;self.memo[key]=False;return False
+        for n,t in self.exact.targets.items():
+            if bounds.near(s,t,rs+.0001) and witness(s,t,bounds,points) is not None:
+                self.blockers[n]=self.blockers.get(n,0)+1;self.memo[key]=False;return False
+        self.checks+=1;self.memo[key]=True;return True
+
+def lazy_route(exact,row,max_seconds=900):
+    tick=time.monotonic();proposal=ProposalOracle(exact);attempts=0
+    source=row.get('source_parts') or [row['source_land']];receiving=row['receiving_parts']
+    while time.monotonic()-tick<max_seconds:
+        guard();q,error=route(proposal,row,max_seconds=max_seconds-(time.monotonic()-tick))
+        if not q:return None,error
+        attempts+=1;middle=q['parts'][len(source):-len(receiving)]
+        rejected=next((p for p in middle if not exact.clear(p,row)),None)
+        exact.cache.save()
+        print('lazy exact candidate',row['wire'],attempts,'accepted_middle',rejected is None,'seconds',round(time.monotonic()-tick,1),flush=True)
+        if rejected is None:
+            q['architecture']='POSITIVE_WITNESS_GRAPH_LAZY_EXACT_MIDDLE_THEN_FULL_CURVE_GATE'
+            q['exact_middle_candidates']=attempts;return q,None
+        # Exact.memo bans that particular colliding edge on every next search;
+        # other graph work and all exact pair receipts remain reusable.
+    return None,dict(reason='BOUNDED_LAZY_EXACT_GRAPH_NOT_GEOMETRIC_IMPOSSIBILITY',candidates=attempts,seconds=round(time.monotonic()-tick,3))
+
 def route(oracle,row,max_seconds=900,max_states=15000):
     start=np.asarray(row['free_start']);end=np.asarray(row['free_end'])
     source=row.get('source_parts') or [row['source_land']];receiving=row['receiving_parts']
@@ -148,7 +190,7 @@ def run(parent_commit):
             f=P.OUT/'exact-corridor-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);oracle.cache.save()
         save()
         for n in parent['remaining_wire_ids']:
-            guard();q,error=route(oracle,rows[n])
+            guard();q,error=lazy_route(oracle,rows[n])
             if q:candidates[n]=q;oracle.wires['body/'+n]=(P.wire(q['parts']),1)
             else:failed[n]=error
             save();print('exact plan result',n,'candidate',q is not None,'seconds',round(time.monotonic()-tick,1),flush=True)
