@@ -6,10 +6,10 @@
         "name": "Tray",
         "bounds_mm": [
           -61.5,
-          -69.5,
+          -58.5,
           143.5,
           -18.5,
-          -45.5,
+          -38.5,
           146.5
         ]
       },
@@ -17,10 +17,10 @@
         "name": "BackSpine",
         "bounds_mm": [
           -61.5,
-          -69.5,
+          -41.5,
           143.5,
           -18.5,
-          -66.5,
+          -38.5,
           175.75
         ]
       },
@@ -28,10 +28,10 @@
         "name": "LeftKey",
         "bounds_mm": [
           -61.5,
-          -69.5,
+          -58.5,
           146.5,
           -59,
-          -45.5,
+          -38.5,
           150
         ]
       },
@@ -39,10 +39,10 @@
         "name": "RightKey",
         "bounds_mm": [
           -21,
-          -69.5,
+          -58.5,
           146.5,
           -18.5,
-          -45.5,
+          -38.5,
           150
         ]
       }
@@ -56,17 +56,17 @@
       [
         -100.5,
         -85.05,
-        145.5
+        144.5
       ],
       [
         -40,
         -85.05,
-        145.5
+        144.5
       ],
       [
         -40,
-        -68,
-        145.5
+        -40,
+        144.5
       ]
     ],
     "arm_half_width_mm": 2,
@@ -124,18 +124,18 @@
         ],
         "bridge_mm": [
           -55,
-          -69.5,
+          -52.45,
           171.75,
           -51,
-          -55.55,
+          -38.5,
           175.75
         ],
         "local_to_world": [
           0.0,
-          1.0,
+          -1.0,
           0.0,
           -53.0,
-          -1.0,
+          1.0,
           0.0,
           0.0,
           -54.0,
@@ -203,18 +203,18 @@
         ],
         "bridge_mm": [
           -48.5,
-          -69.5,
+          -51.95,
           171.75,
           -44.5,
-          -56.05,
+          -38.5,
           175.75
         ],
         "local_to_world": [
           0.0,
-          1.0,
+          -1.0,
           0.0,
           -46.5,
-          -1.0,
+          1.0,
           0.0,
           0.0,
           -54.0,
@@ -282,18 +282,18 @@
         ],
         "bridge_mm": [
           -42,
-          -69.5,
+          -51.4,
           171.75,
           -38,
-          -56.6,
+          -38.5,
           175.75
         ],
         "local_to_world": [
           0.0,
-          1.0,
+          -1.0,
           0.0,
           -40.0,
-          -1.0,
+          1.0,
           0.0,
           0.0,
           -54.0,
@@ -361,18 +361,18 @@
         ],
         "bridge_mm": [
           -35.5,
-          -69.5,
+          -51.4,
           171.75,
           -31.5,
-          -56.6,
+          -38.5,
           175.75
         ],
         "local_to_world": [
           0.0,
-          1.0,
+          -1.0,
           0.0,
           -33.5,
-          -1.0,
+          1.0,
           0.0,
           0.0,
           -54.0,
@@ -440,18 +440,18 @@
         ],
         "bridge_mm": [
           -29,
-          -69.5,
+          -51.4,
           171.75,
           -25,
-          -56.6,
+          -38.5,
           175.75
         ],
         "local_to_world": [
           0.0,
-          1.0,
+          -1.0,
           0.0,
           -27.0,
-          -1.0,
+          1.0,
           0.0,
           0.0,
           -54.0,
@@ -471,7 +471,7 @@
   "components": [
     {
       "component": "carrier",
-      "contact": "material/F_R1_CP2_ATO/0/0"
+      "contact": "material/W4_OutputJointSleeve/0/0"
     },
     {
       "component": "W060",
@@ -494,7 +494,7 @@
       "contact": null
     }
   ],
-  "checks": 15,
+  "checks": 21,
   "errors": [],
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
@@ -555,7 +555,7 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/rising-fuse-receiver-domains.json": "7d5fdedae36aa569071cd83cf6871722222e80ef6d8594eb5617e6f9f7053ab3",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-joint-selection.json": "1bd594949e83ce01205ca66b031c17d65f63d24d59ad4eea4fc2cf4aae26f5f8",
     "tools/cad/current_mixed_receiver_material.py": "18d1263ceb38c2ac772bad63e20342e6bd436037d58a09bc16ad32f5c0085bd8",
-    "tools/cad/plan_g1_rooted_carrier.py": "331f883a14eec8e215dc9cac08a040c61d6384e623cc67d4134f07c970224fa7",
+    "tools/cad/plan_g1_rooted_carrier.py": "6ac0d44a6e2e221d009ff3d5039ad2dba4f11379b9b3b92c1eff9332972420f9",
     "tools/cad/current_body36_candidates.py": "e3828fce78074f2dd5d3a48871bf641c0dca25bd98b09a18361c78a78511beb3",
     "tools/cad/short_feed_lacing_saddle.py": "7c058b821848322b1462e88e355599fe6e26987d25d1144e1841af0d8c62c617",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-receiver-support-reservations.json": "7936155d8f752d000b4b1cc3458abe55a9b7ca1cd687ba3016dbd931f4842c69",
@@ -565,7 +565,7 @@
   "contained_root_cube_outside_mm3": 0.0,
   "replacement_parent": "FoundationStationSupports",
   "parent_union_one_solid": true,
-  "worker_seconds": 117.937,
+  "worker_seconds": 128.735,
   "selected": false,
   "W5_complete": false,
   "physical_pass": false,

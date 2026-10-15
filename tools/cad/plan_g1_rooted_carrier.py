@@ -19,11 +19,14 @@ ROOT_POINT=[-100.5,-85.05,132.4224451363255]
 PORTS=[('W060',-53,1.05),('W001',-46.5,1.55),('W036',-40,2.1),('W061',-33.5,2.1),('W025',-27,2.1)]
 
 def geometry():
-    pads=[dict(name='Tray',bounds_mm=[-61.5,-69.5,143.5,-18.5,-45.5,146.5]),
-          dict(name='BackSpine',bounds_mm=[-61.5,-69.5,143.5,-18.5,-66.5,175.75]),
-          dict(name='LeftKey',bounds_mm=[-61.5,-69.5,146.5,-59,-45.5,150]),
-          dict(name='RightKey',bounds_mm=[-21,-69.5,146.5,-18.5,-45.5,150])]
-    path=[ROOT_POINT,[-100.5,-85.05,145.5],[-40,-85.05,145.5],[-40,-68,145.5]]
+    # The FIRST layout's floor overhung the ATO row. Put the whole floor,
+    # spine and five restraints NORTH of that row instead of trimming fuses.
+    # The narrow root crosses the actual gap between R1/R2, below G1 case.
+    pads=[dict(name='Tray',bounds_mm=[-61.5,-58.5,143.5,-18.5,-38.5,146.5]),
+          dict(name='BackSpine',bounds_mm=[-61.5,-41.5,143.5,-18.5,-38.5,175.75]),
+          dict(name='LeftKey',bounds_mm=[-61.5,-58.5,146.5,-59,-38.5,150]),
+          dict(name='RightKey',bounds_mm=[-21,-58.5,146.5,-18.5,-38.5,150])]
+    path=[ROOT_POINT,[-100.5,-85.05,144.5],[-40,-85.05,144.5],[-40,-40,144.5]]
     pieces=[box(p['bounds_mm']) for p in pads]+[arm_box(a,b,[2,2,2]) for a,b in zip(path,path[1:])]
     bands={};recipes=[]
     for wire,x,r in PORTS:
@@ -36,14 +39,14 @@ def geometry():
         band=box([-r-.2-t,-r-.2-t,-w/2,r+4.5+t,r+.2+t,w/2]).cut(box([-r-.2,-r-.2,-w,r+4.5,r+.2,w]))
         knot=[r+4.5+t,-1,-1.5,r+7.5+t,1,.5]
         band=band.fuse(box(knot)).removeSplitter()
-        # Local normal=-Y, lateral=+X, axial=+Z; datum is middle of3mm mouth.
-        m=A.Matrix();m.A11=0;m.A21=-1;m.A12=1;m.A22=0;m.A33=1
+        # Local normal=+Y, lateral=-X, axial=+Z; datum is middle of3mm mouth.
+        m=A.Matrix();m.A11=0;m.A21=1;m.A12=-1;m.A22=0;m.A33=1
         m.A14=x;m.A24=-54;m.A34=170.5
         frame=A.Placement(m)
         for q in (s,band):
             assert q.isValid() and len(q.Solids)==1 and not q.check(True),wire
             q.Placement=frame*q.Placement
-        bridge=[x-2,-69.5,171.75,x+2,-54-r-.5,175.75]
+        bridge=[x-2,-54+r+.5,171.75,x+2,-38.5,175.75]
         pieces.extend([s,box(bridge)]);bands[wire]=band
         recipes.append(dict(wire=wire,radius_mm=r,centre_mm=[x,-54,170.5],land_mm=3,
             seat=seat,foot=foot,ring_cut=dict(outer=outer,inner=inner),knot=knot,
