@@ -1,5 +1,43 @@
 # Domknięcie hobbystycznego robot-cat
 
+Następny checkpoint po zamknięciu tego okna, NIE uruchomiony automatycznie:
+uzgodnić jednocześnie dwa blokujące interfejsy RR_G/FL_G z ramionami
+źródeł, opaskami i rzeczywistą wiązką głowy. Nie przebudowywać12 źródeł.
+Najpierw jeden kompletny plan z ochroną istniejących podpór/otworów płyt
+i miejscem na montaż; potem sprawdzenie rzeczywistych brył zmienionych
+interfejsów oraz wzajemnej zgodności całego wyboru, nie samych domen.
+Po dwóch nieudanych próbach zmienić przyczynę/architekturę, nie offsety.
+Dopiero po przyjęciu wspólnego układu:16 brakujących środków przewodów,
+ramiona odbiorników i natywne mocowania z parametrem/reopen/eksportem,
+19 pozostałych prowadzeń, wspólny montaż, nominalne długości i stock.
+W5 zaliczyć dopiero w całości z aktualnym pakietem. Pozostałe kryteria
+M4/K1/K2/K3/A2/A3/E3 rozliczać osobno, bez punktów za samą liczbę plików.
+Nie ma rzetelnej estymaty do100% na podstawie obecnych nieudanych domen;
+poprzednich obietnic krótkiego domknięcia nie traktować jako nowej ETA.
+Oszacowanie następnych prac wymaga najpierw dodatniego wspólnego wyniku
+tych dwóch interfejsów. To plan dalszej pracy, nie deklaracja ukończenia.
+
+15.10 08:56 Warszawy: odebrano ostatni wynik low-profile-receiver-space:
+270,250s,264 kontrole,363 analityczne dowody separacji,0 błędów jądra.
+Sześć z ośmiu grup potrójnych ma opcje; RR_G i FL_G nie mają opcji,
+więc wspólny układ pozostaje OTWARTY. Nie ponawiać tych geometrii.
+RR_G wymaga rzeczywistego kanału opaski z ochroną istniejących gałęzi;
+FL_G wymaga zmiany wspólnego interfejsu z wiązką głowy, nie mikrooffsetu.
+Źródła: e2cb8b0/6653313,8 aktualnych natywnych części i8 zamkniętych STL,
+parametr4→4,2→4/reopen, margines5mm do256³. current-source-supports.json
+zbiera te8 oraz4 zachowane Knee, bez kopiowania binariów:12 referencji,
+3 dokumenty; generator0,283s. To NIE pełny pakiet robota ani całe W5.
+Pięć testów szablonu i konserwatywnego dowodu CSG:7,200s, poprawne.
+Otwarte16 środków przewodów, korzenie odbiorników,19 pozostałych prowadzeń,
+montaż, długości/stock i wspólny wybór; W5/M4/K1/K2/K3/A2/A3/E3 OPEN.
+12/20=60%, zmiana tego okna0pp. Okno od14.10 23:35:42 Warszawy;
+o08:55:30 minęło9h19m48s. HookON tylko do09:00, brak własnych workerów.
+API08:54:28:100% pozostałego limitu, nieoczekiwana zmiana względem61%;
+przyczyna niezweryfikowana, resetu nie użyto. Nie deklaruję dotrzymania
+10min odstępów: część analizy i zapisów trwała zbyt długo. Bez PASS/maila
+na tym częściowym wyniku; raport dopiero przy faktycznym zamknięciu.
+
+
 ## Stały licznik fazy 1 — baza 30.09.2026, R26
 
 Postęp = zamknięte rezultaty / 20; każdy rezultat ma wagę 5 punktów.
