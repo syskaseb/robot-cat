@@ -41,4 +41,6 @@ def saddle(name, x, y, radius, half_span, wires):
 def geometry():
     return {
         'Heavy3': saddle('Heavy3',107,39.25,2.1,6.75,['W061','W062','W063']),
-        'BUS_G': saddle('BUS_G',104,48.75,1,2,['W003'])}
+        # The smaller jacket needs a2.5mm seat, not the4mm legacy seat.
+        # Its wider band entered W063's margin and the retained G2 source jaw.
+        'BUS_G': saddle('BUS_G',104,48.75,1,1.25,['W003'])}

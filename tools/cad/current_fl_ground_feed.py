@@ -23,9 +23,9 @@ def geometry():
     m=A.Matrix();m.A11=-1;m.A22=-1;m.A33=1
     m.A14=-139.5;m.A24=84;m.A34=119.5
     for s in (body,band):s.Placement=A.Placement(m)*s.Placement
-    # Go around the entire vertical jacket before turning toward the seat.
-    # A direct WEST branch atY87.5 cut its own nominal insulation.
-    path=[[-130,87.5,114.9],[-130,91.5,114.9],[-144,91.5,114.9],[-144,84,114.9]]
+    # Root on the existing W019 support beam, not under W021's lacing.
+    # The whole top/outer elbow bypasses that occupied receiver seat.
+    path=[[-126.25,95.5,123.5],[-144,95.5,123.5],[-144,84,123.5],[-144,84,116.5]]
     body=body.multiFuse([arm_box(a,b,[2,2,2]) for a,b in zip(path,path[1:])]).removeSplitter()
     for s in (body,band):assert s.isValid() and len(s.Solids)==1 and not s.check(True)
     assert body.common(band).Volume<1e-6

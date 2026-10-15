@@ -15,8 +15,11 @@ class G2FeedTests(unittest.TestCase):
                 for k in ('body','band'):self.assertLess(q[k].common(wire).Volume,1e-6)
 
     def test_bands_and_existing_floor_do_not_intersect(self):
+        from loom_land_port import box
         g=geometry()
         floor=Part.makeBox(35.5,30,3,A.Vector(82.5,29,145.01))
+        retained_source_seat=box([102.5,51,148.01,109.5,56,153.7])
+        self.assertLess(g['BUS_G']['band'].common(retained_source_seat).Volume,1e-6)
         for q in g.values():
             self.assertLess(q['band'].common(floor).Volume,1e-6)
             self.assertGreater(q['body'].common(floor).Volume,0)
