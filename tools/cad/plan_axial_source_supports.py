@@ -4,12 +4,13 @@ Reuse exact retained native parents, not empty owner boxes. All eight printed
 seats, bands, breakouts and source poses enter one planning scene before arms.
 No current native document or historic source is overwritten.
 """
-import itertools,json,math,time
+import argparse,copy,hashlib,itertools,json,math,subprocess,time
 from pathlib import Path
 import FreeCAD as A
 import Part
 import check_near_axis_hip_sources as C
 from current_axial_receiver_material import prepare_context
+from source_arm_reservations import Reservations
 from plan_remaining_loom_support_paths import search
 P=C.P
 
@@ -57,7 +58,7 @@ def direct_elbows(start,goal):
         if len(points)>1:yield points
 
 
-def run():
+def run(resume_commit=None):
     tick=time.monotonic();file=P.OUT/'body-axial-layout-chosen.json';plan=json.loads(file.read_text())
     assert len(plan['hips'])==4 and not plan['rejected']
     for n,h in plan['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
@@ -94,7 +95,30 @@ def run():
                 wire_owners[key]=(code,h)
         for core in row['source_fans']:old['fan/'+loom+'/'+core['core']]=(P.wire(core['parts']),1)
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'axial-rooted-arm-pairs.json',bounds.near)
-    checks=0;rejections=[];last=time.monotonic()
+    checks=0;rejections=[];last=time.monotonic();mesh_cache={};wire_cache={};resumed=[]
+    grip_owners={n:q['owner'] for n,q in json.loads((P.OUT/'receiver-relief-approach-plan.json').read_text())['grips'].items()}
+    def same_printed_receivers(row):
+        return {n for n in targets if n.startswith('Receiver_') and n.split('/')[-1] in ('body','seed') and
+                grip_owners[n.split('/')[0].removeprefix('Receiver_')]==row['name'] and not row['moving']}
+    printed_unions={row['name']:same_printed_receivers(row) for row in contracts}
+    if resume_commit:
+        relative=(P.OUT/'body-axial-rooted-arms-plan.json').relative_to(P.ROOT).as_posix()
+        previous=json.loads(subprocess.check_output(['git','show',resume_commit+':'+relative],cwd=P.ROOT))
+        script=Path(__file__).relative_to(P.ROOT).as_posix()
+        oldcode=subprocess.check_output(['git','show',resume_commit+':'+script],cwd=P.ROOT)
+        assert hashlib.sha256(oldcode).hexdigest()==previous['source_sha256'][script]
+        for n,digest in previous['source_sha256'].items():
+            if n!=script:assert P.SHA(P.ROOT/n)==digest,n
+        for row in contracts:
+            oldrow=next(r for r in previous['groups'] if r['name']==row['name'])
+            if not oldrow['paths']:continue
+            assert oldrow['goal_world_mm']==row['goal_world_mm'] and oldrow['port_recipe']==row['port_recipe'] and oldrow['arm_half_widths_world_mm']==row['arm_half_widths_world_mm']
+            row['paths']=copy.deepcopy(oldrow['paths']);row['root_patch_receipts']=oldrow['root_patch_receipts'];resumed.append(row['name'])
+            for i,(a,b) in enumerate(zip(row['paths'][0]['points_mm'],row['paths'][0]['points_mm'][1:])):
+                for h in C.ANGLES if row['moving'] else (0,):
+                    s=arm_box(a,b,row['arm_half_widths_world_mm'])
+                    if row['moving']:s=C.moved(s,C.transform(axes,row['code'],h,0,'Hip'))
+                    additions[row['name']+'/arm/'+str(i)+'/'+str(h)]=(s,(row['code'],h) if row['moving'] else None)
     def hit(s,t,r=0):
         nonlocal checks,last
         if not bounds.near(s,t,r+.0001):return False
@@ -107,6 +131,7 @@ def run():
             current=C.moved(shape,C.transform(axes,code,h,0,'Hip')) if moving else shape
             for target,s in targets.items():
                 if target.startswith(name+'/'):continue # Same physical parent, preserved by union.
+                if target in printed_unions[name]:continue # Printed body/seed only, same native Frame union. Bands/wires remain.
                 if moving and not C.same_leg_pose(own.get(target),code,h):continue
                 if hit(current,s):return dict(target=target,hip=h)
             for target,(w,r) in old.items():
@@ -119,24 +144,33 @@ def run():
         return None
     def save():
         result=dict(status='EIGHT_ROOTED_SOURCE_ARMS_EXACT_SEGMENTS_CLEAR_UNION_NATIVE_OPEN' if all(r['paths'] for r in contracts) else 'PARTIAL_ROOTED_SOURCE_ARM_PLAN',
-            groups=contracts,rejections=rejections,checks=checks,retained_subset_receipts=subsets,
-            source_sha256={**pins,**{f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in [file,*files,Path(__file__)]}},
+            groups=contracts,rejections=rejections,checks=checks,retained_subset_receipts=subsets,resume_commit=resume_commit,resumed_groups=resumed,
+            source_sha256={**pins,**{f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in [file,*files,Path(__file__),Path(__file__).with_name('source_arm_reservations.py'),Path(__file__).with_name('fast_carrier_reservations.py')]}},
             worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
             prototype_wire_support_square_mm=4,physical_load_creep_fit_gate_open=True,
             scope='Eight4mmsquarewire-supportpilotarms vsallretainedmaterial,allsourceposes/12fans/20bodyroutes andpriornewarms. Rootsstrictsubsets ofretainedparent; ownparent/seatuniononlysamephysicalpart. Notlegloadsupports. Booleanunion/native/36cores/stock stillOPEN.')
         out=P.OUT/'body-axial-rooted-arms-plan.json';tmp=out.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(out);cache.save()
     for row in contracts:
+        if row['paths']:save();print('reused rooted arm',row['name'],flush=True);continue
         goal=row['goal_world_mm'];root_receipts=contained_roots(targets[row['name']+'/0/0'],row)
         row['root_patch_receipts']=root_receipts;start_options=[r['point_mm'] for r in root_receipts]
+        low=[min([goal[i]]+[r[i] for r in start_options])-24 for i in range(3)]
+        high=[max([goal[i]]+[r[i] for r in start_options])+24 for i in range(3)]
+        reservations=Reservations(targets,old,own,wire_owners,additions,axes,row,low,high,mesh_cache,wire_cache,printed_unions[row['name']]) if start_options else None
         for root in start_options:
             start_witness=blocked(arm_box(root,root,row['arm_half_widths_world_mm']),row)
             goal_witness=blocked(arm_box(goal,goal,row['arm_half_widths_world_mm']),row)
             if start_witness or goal_witness:
                 rejections.append(dict(group=row['name'],root=root,start_witness=start_witness,goal_witness=goal_witness));save();continue
+            reservations.memo[tuple(round(v,7) for v in root)]=True
+            reservations.memo[tuple(round(v,7) for v in goal)]=True
             candidate=None
             for points in direct_elbows(root,goal):
                 witness=None
                 for a,b in zip(points,points[1:]):
+                    steps=max(1,math.ceil(math.dist(a,b)/2))
+                    if not all(reservations.clear([x+(y-x)*j/steps for x,y in zip(a,b)]) for j in range(steps+1)):
+                        witness=dict(kind='surface_wire_planning_reservation');break
                     witness=blocked(arm_box(a,b,row['arm_half_widths_world_mm']),row)
                     if witness:break
                 if witness is None:
@@ -144,13 +178,7 @@ def run():
             if candidate:
                 row['paths']=[dict(points_mm=candidate['points_mm'],root_attachment='Verifiedcontainedretainedparentpatch',search=candidate)]
                 break
-            low=[min(a,b)-24 for a,b in zip(root,goal)];high=[max(a,b)+24 for a,b in zip(root,goal)]
-            memo={}
-            def clear(point):
-                key=tuple(round(v,7) for v in point)
-                if key not in memo:memo[key]=blocked(arm_box(point,point,row['arm_half_widths_world_mm']),row) is None
-                return memo[key]
-            candidate=search(root,goal,low,high,clear)
+            candidate=search(root,goal,low,high,reservations.clear)
             points=candidate['points_mm'];witness=None
             if points:
                 for a,b in zip(points,points[1:]):
@@ -171,4 +199,6 @@ def run():
     save()
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit')
+    run(parser.parse_args().resume_commit)
