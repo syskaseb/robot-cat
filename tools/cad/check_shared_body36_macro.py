@@ -17,7 +17,7 @@ from positive_material_witness import witness
 from csg_bore_clearance import prove
 from current_work_guard import check as guard
 
-def run(parent_commit=None,material_only=False):
+def run(parent_commit=None,material_only=False,joint_clearance=False):
     guard();tick=time.monotonic();basefile=P.OUT/'body36-recovery-layout.json';base=json.loads(basefile.read_text())
     for n,h in base['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     inherited=None;parent=None
@@ -28,8 +28,12 @@ def run(parent_commit=None,material_only=False):
         for n,h in parent['source_sha256'].items():
             actual=hashlib.sha256(subprocess.check_output(['git','show',parent_commit+':'+n],cwd=P.ROOT)).hexdigest() if n in mutable else P.SHA(P.ROOT/n)
             assert actual==h,('Inherited proof input changed',n)
-        from revise_shared_body36_routes import plan as revise
-        rows,candidates,failures=revise(parent,base,material_only=material_only)
+        if joint_clearance:
+            from joint_clearance_corridors import plan as revise
+            rows,candidates,failures=revise(parent,base)
+        else:
+            from revise_shared_body36_routes import plan as revise
+            rows,candidates,failures=revise(parent,base,material_only=material_only)
         inherited=dict(git_commit=parent_commit,receipt=path,sha256=hashlib.sha256(raw).hexdigest(),
             source_pins_verified=True,qualified_routes=list(parent['qualified_changed_routes']))
     else:rows,candidates,failures=plan({r['wire']:r for r in base['rows']})
@@ -56,6 +60,10 @@ def run(parent_commit=None,material_only=False):
     files=[basefile,rf,Path(__file__),Path(__file__).with_name('shared_body36_macro_routes.py'),Path(__file__).with_name('positive_material_witness.py')]
     if parent:files.append(Path(__file__).with_name('revise_shared_body36_routes.py'))
     if material_only:files.append(Path(__file__).with_name('received_curve_splice.py'))
+    if joint_clearance:files.append(Path(__file__).with_name('joint_clearance_corridors.py'))
+    from current_body36_candidates import resolve
+    parent_candidates,_=resolve(parent,P.ROOT) if parent else ({},[])
+    files.append(Path(__file__).with_name('current_body36_candidates.py'))
     pins.update(base['source_sha256']);pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'body36-shared-macro-pairs.json',bounds.near)
     points={};edge_cache={};checks=0;completed=dict(received);attempts=[];last=time.monotonic()
@@ -63,7 +71,7 @@ def run(parent_commit=None,material_only=False):
         out=dict(status='PARTIAL_SHARED_MACRO_ARCHITECTURE_NOT_SELECTED',changed_rows=[rows[n] for n in CHANGED],
             inherited_receipt=basefile.relative_to(P.ROOT).as_posix(),
             inherited_qualified_receipt=inherited,
-            proposed_routes={**(parent['proposed_routes'] if parent else {}),**candidates},
+            proposed_routes={**{n:q for n,q in parent_candidates.items() if n in CHANGED},**candidates},
             attempted_wire_ids=list(candidates),math_failures=failures,retained_route_ids=sorted(retained),qualified_changed_routes=completed,
             attempts=attempts,remaining_wire_ids=sorted(set(rows)-set(retained)-set(completed)),changed_pairs=checks,
             source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
@@ -127,4 +135,4 @@ def run(parent_commit=None,material_only=False):
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--resume-commit');p.add_argument('--material-only',action='store_true');a=p.parse_args();run(a.resume_commit,a.material_only)
+    p=argparse.ArgumentParser();p.add_argument('--resume-commit');p.add_argument('--material-only',action='store_true');p.add_argument('--joint-clearance',action='store_true');a=p.parse_args();run(a.resume_commit,a.material_only,a.joint_clearance)
