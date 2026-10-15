@@ -27,7 +27,7 @@ def blocked(point,direction,radius,bounds):
                 basis='Bounded curvature and fixed tangent force centreline into this actual rectangular solid')
 
 
-def run():
+def run(direct=False):
     import FreeCAD as A
     from plan_body36_receiver_space import P
     from plan_axial_source_supports import arm_box
@@ -36,6 +36,9 @@ def run():
     basefile=P.OUT/'body36-recovery-layout.json';base=json.loads(basefile.read_text())
     selectionfile=P.OUT/'receiver-joint-selection.json'
     rows=normalize(macro,base,selected_rows(selectionfile,P.ROOT))
+    if direct:
+        from direct_terminal_approaches import simplify
+        rows=simplify(rows,macro['remaining_wire_ids'])
     rf=P.OUT/'body36-receiver-support-reservations.json';roots=json.loads(rf.read_text());records=[]
     for name in macro['remaining_wire_ids']:
         row=rows[name]
@@ -57,12 +60,16 @@ def run():
     files=[mf,basefile,rf,selectionfile,P.ROOT/selection['domain_receipt'],Path(__file__),
            Path(__file__).with_name('plan_axial_source_supports.py')]
     if selection['override_receipt']:files.append(P.ROOT/selection['override_receipt'])
+    if direct:files.append(Path(__file__).with_name('direct_terminal_approaches.py'))
     result=dict(status='FIXED_ENTRY_CHAMBER_BLOCK_PROVED' if records else 'NO_BOX_ENTRY_BLOCK_PROVED_NOT_CLEARANCE',
         blocked=records,source_sha256={f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files},
         worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
         scope='Required projectR10 and fixed tangent, actual rectangular arms ONLY; absence never qualifies a route.')
-    (P.OUT/'receiver-entry-chambers.json').write_text(json.dumps(result,indent=2)+'\n')
+    (P.OUT/('receiver-entry-current-chambers.json' if direct else 'receiver-entry-chambers.json')).write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result['blocked'],indent=2));print('seconds',result['worker_seconds'])
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--direct-lands',action='store_true')
+    run(parser.parse_args().direct_lands)

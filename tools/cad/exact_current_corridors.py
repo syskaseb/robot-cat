@@ -23,6 +23,7 @@ from current_work_guard import check as guard
 from canonical_body_rows import normalize,selected_rows
 from current_route_proposal_screen import clear as proposal_clear
 from goal_tangent_handles import pairs as goal_handles
+from direct_terminal_approaches import simplify as direct_approaches
 
 class ExactOracle:
     def __init__(self,targets,wires):
@@ -35,7 +36,7 @@ class ExactOracle:
         if key in self.memo:return self.memo[key]
         s=P.wire([part]);rs=1.25
         for name,(t,r) in self.wires.items():
-            if name=='fan/'+row['loom']+'/'+row['core']:continue
+            if name in ('fan/'+row['loom']+'/'+row['core'],'new/'+row['wire']+'/source','new/'+row['wire']+'/receiver'):continue
             if not self.bounds.near(s,t,rs+r+.0001):continue
             # Points ON exact curves can prove rejection cheaply. Absence of
             # a close point still falls through to exact per-edge distance.
@@ -78,7 +79,7 @@ class ProposalOracle:
             self.memo[key]=result;self.checks+=1;return result
         s=P.wire([part]);rs=1.25;points=self.exact.points;bounds=self.exact.bounds
         for n,(t,r) in self.exact.wires.items():
-            if n=='fan/'+row['loom']+'/'+row['core']:continue
+            if n in ('fan/'+row['loom']+'/'+row['core'],'new/'+row['wire']+'/source','new/'+row['wire']+'/receiver'):continue
             if not bounds.near(s,t,rs+r+.0001):continue
             for q in (s,t):
                 if id(q) not in points:points[id(q)]=np.asarray([list(v) for e in q.Edges for v in e.discretize(Distance=.75)])
@@ -171,11 +172,14 @@ def run(parent_commit):
         p[screen.relative_to(P.ROOT).as_posix()]=P.SHA(screen)
         handles=Path(__file__).with_name('goal_tangent_handles.py')
         p[handles.relative_to(P.ROOT).as_posix()]=P.SHA(handles)
+        direct=Path(__file__).with_name('direct_terminal_approaches.py')
+        p[direct.relative_to(P.ROOT).as_posix()]=P.SHA(direct)
         return dict(a),dict(b),p,g
     receiver.prepare=shared_prepare
     def choose(parent,base):
         targets,wires,pins,grips=shared_prepare()
         rows=normalize(parent,base,selected_rows(P.OUT/'receiver-joint-selection.json',P.ROOT))
+        rows=direct_approaches(rows,parent['remaining_wire_ids'])
         for name,g in grips['groups'].items():
             profile,parts=material(g)
             targets.update({'Group_'+name+'/'+k:s for k,s in parts.items()})
@@ -193,6 +197,12 @@ def run(parent_commit):
         positive=set(parent['retained_route_ids'])|set(parent['qualified_changed_routes'])
         wires={n:v for n,v in wires.items() if not n.startswith('body/')}
         wires.update({'body/'+n:(P.wire(current[n]['parts']),1) for n in positive})
+        # Allocate all remaining immutable source/pressure-land interfaces
+        # together. An earlier new middle may not occupy a later one's ends.
+        for n in parent['remaining_wire_ids']:
+            r=rows[n]
+            wires['new/'+n+'/source']=(P.wire(r.get('source_parts') or [r['source_land']]),1)
+            wires['new/'+n+'/receiver']=(P.wire(r['receiving_parts']),1)
         for n in ('W013','W047','W069'):
             r=rows[n];wires['fan/'+r['loom']+'/'+r['core']]=(P.wire(r['source_parts']),1)
         # Reuse the received REAL-surface proxy rather than repeating costly
@@ -215,11 +225,13 @@ def run(parent_commit):
         def save():
             out=dict(status='ACTUAL_GEOMETRY_ROUTE_PLANNING_NOT_WHOLE_W5_ACCEPTANCE',candidates=candidates,failures=failed,
                 remaining=[n for n in parent['remaining_wire_ids'] if n not in candidates],checks=oracle.checks,
-                worker_seconds=round(time.monotonic()-tick,3),parent_commit=parent_commit,selected=False,physical_pass=False)
+                worker_seconds=round(time.monotonic()-tick,3),parent_commit=parent_commit,
+                max_seconds_per_wire=300,pending_interfaces_reserved_together=True,selected=False,physical_pass=False)
             f=P.OUT/'exact-corridor-recovery-plan.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);oracle.cache.save()
         save()
-        for n in parent['remaining_wire_ids']:
-            guard();q,error=lazy_route(oracle,rows[n],mesh=mesh)
+        order=[n for n in ('W069','W022','W004') if n in parent['remaining_wire_ids']]
+        for n in order:
+            guard();q,error=lazy_route(oracle,rows[n],max_seconds=300,mesh=mesh)
             if q:
                 from plan_body_fanout_layout import part_points
                 candidates[n]=q;oracle.wires['body/'+n]=(P.wire(q['parts']),1)

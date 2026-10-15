@@ -9,6 +9,12 @@ class FakeOracle:
     def clear(self,part,row):self.checks+=1;return self.allowed
 
 class ExactRoutingTests(unittest.TestCase):
+    def test_own_reserved_prefix_is_not_self_collision_but_other_is(self):
+        row=dict(wire='test',loom='FL1',core='D');part=line([0,0,0],[10,0,0])
+        same=Part.makeLine(A.Vector(0,0,0),A.Vector(10,0,0))
+        self.assertTrue(ExactOracle({}, {'new/test/receiver':(same,1)}).clear(part,row))
+        self.assertFalse(ExactOracle({}, {'new/other/receiver':(same,1)}).clear(part,row))
+
     def test_short_goal_approach_is_not_excluded_by_twelve_mm_handles(self):
         import math
         from goal_tangent_handles import pairs
