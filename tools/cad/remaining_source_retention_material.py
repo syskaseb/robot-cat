@@ -32,11 +32,15 @@ def saddle(g):
     band=box([-r-.2-t,-r-.2-t,-w/2,r+4.5+t,r+.2+t,w/2]).cut(
               box([-r-.2,-r-.2,-w,r+4.5,r+.2,w]))
     knot=[r+4.5+t,-1,-1.5,r+7.5+t,1,.5]
+    if g['bound_ends'][0].startswith('P_SYS.') or g['bound_ends'][0] in ('S0.out','F_PI.out'):
+        # Receiving MTA factory lead runs below these lands. Close the
+        # lacing on the opposite free face, keeping the entire loop fixed.
+        knot=[-r-.2-t-3,-1,-1.5,-r-.2-t,1,.5]
     band=band.fuse(box(knot)).removeSplitter()
     for s in (body,band):s.Placement=A.Placement(m)*s.Placement
     # Root BEHIND the lacing plane. A mid-plane root would run through
     # its own lacing wall; allocate this before the common material gate.
-    p=A.Placement(m).multVec(A.Vector(r+3,0,3*sign))
+    p=A.Placement(m).multVec(A.Vector(r+3,0,(4 if g['bound_ends'][0]=='S0.in' else 3)*sign))
     return dict(body=body,band=band,root_tip_mm=list(p),
                 recipe=dict(pads=[dict(bounds_mm=v) for v in pads],ring_cut=dict(outer=outer,inner=inner),
                     local_to_world=list(m.A),knot=knot,project_lacing_blank_mm=150,
@@ -69,35 +73,41 @@ def geometry():
         for a,b in zip(points,points[1:]):trees[owner].append(arm_box(a,b,list(half)))
     # The outside x-100 descent would enter the front leg's moving bay.
     # Cross over the retained P0 mount top61, then descend INBOARD atx-60.
-    arm('RightRiser',[anchors['RightRiser'],[-100,-25,63.25],[-60,-25,63.25],
-        [-60,-66,63.25],[-60,-66,18],[45.5,-66,18]])
+    arm('RightRiser',[anchors['RightRiser'],[-100,-25,63.25],[-50,-25,63.25],
+        [-50,-66,63.25],[-50,-66,18]])
+    # Span ALL five feet, including the negative BAT cup and both inline
+    # entries. End at48.5 with1.4half-X, outside post-F0 casingX>=50.
+    arm('RightRiser',[[-68.5,-66,18],[48.5,-66,18]],(1.4,2,2))
     arm('LeftRiser',[anchors['LeftRiser'],[-100,31,55],[-112,31,55],[-112,31,74],[-112,43.19319767883137,74]])
     # Cross BELOW the existing MTA factory bend, not its Z151.4 slab.
     arm('UpperCarrier001',[anchors['UpperCarrier001'],[84,40,143.5],[33.125,40,143.5],
-        [33.125,85.5,143.5],[33.125,85.5,51.4],[13.09555285409,85.5,48.4],
-        [13.09555285409,54.59195868431,48.4]])
-    arm('UpperCarrier001',[[33.125,40,143.5],[33.125,40,154.4]])
+        [33.125,85.5,143.5],[33.125,85.5,45.5],[13.09555285409,85.5,45.5],
+        [13.09555285409,54.59195868431,45.5]])
+    arm('UpperCarrier001',[[33.125,40,143.5],[33.125,40,152]])
     # Bearing strips under P_SYS; keeping an open middle, not a large sheet.
     for x in (15.5,47.5):
-        trees['UpperCarrier001'].append(box([x-2,36.8,152.9,x+2,64,155.9]))
-        arm('UpperCarrier001',[[33.125,40,154.4],[x,40,154.4]])
+        trees['UpperCarrier001'].append(box([x-2,36.8,152.9,x+2,58.8,155.9]))
+        arm('UpperCarrier001',[[33.125,40,152],[x,40,152]])
     # F_PI floor rails leave its downward lead and R6 bend open.
     for x in (10,28):
         trees['UpperCarrier001'].append(box([x-2,74.5,94.9,x+2,96.5,97.9]))
-        arm('UpperCarrier001',[[33.125,85.5,96.4],[x,85.5,96.4]],(1.4,2,1.4))
+        # Open U return at the BACK of the cradle, not a crossbar through
+        # the downward lead's lacing loop atY85.5/Z96.4.
+        arm('UpperCarrier001',[[33.125,85.5,96.4],[33.125,75.5,96.4],[x,75.5,96.4]],(1.4,2,1.4))
     for g in groups:
         q=saddle(g);gid=g['id'];components['SourceLacing/'+gid]=q['band']
         owner={'LOWER_SOURCE_CARRIAGE':'RightRiser','S0_SOURCE_MOUNT':'LeftRiser',
                'SOURCE_RECEIVING_CARRIER':'UpperCarrier001'}[g['assembly_group']]
         tip=q['root_tip_mm'];trees[owner].append(q['body'])
         if owner=='RightRiser':arm(owner,[[tip[0],-66,18],[tip[0],-66,tip[2]],tip],(1.4,2,1.4))
-        elif owner=='LeftRiser':arm(owner,[[-112,tip[1],74],[-112,tip[1],tip[2]],tip])
+        elif owner=='LeftRiser':arm(owner,[[-112,43.19319767883137,74],[-112,tip[1],74],
+            [-112,tip[1],tip[2]],tip],(1.4,1.4,1.4))
         elif g['wire'] in ('W066','W067','W068','W043') and g['bound_ends'][0].startswith('P_SYS.'):
-            arm(owner,[[33.125,40,154.4],[tip[0],40,154.4],[tip[0],tip[1],154.4],tip],(1.4,2,1.4))
+            arm(owner,[[33.125,40,152],[tip[0],40,152],[tip[0],tip[1],152],tip],(1.4,2,1.4))
         elif g['wire']=='W078':
             arm(owner,[[33.125,85.5,96.4],[33.125,tip[1],96.4],[33.125,tip[1],tip[2]],tip],(1.4,2,1.4))
-        elif g['wire']=='W077':arm(owner,[[28,85.5,96.4],tip],(1.4,2,1.4))
-        else:arm(owner,[[13.09555285409,54.59195868431,48.4],tip],(1.4,2,1.4))
+        elif g['wire']=='W077':arm(owner,[[28,85.5,96.4],[28,85.5,tip[2]],tip],(1.4,2,1.4))
+        else:arm(owner,[[13.09555285409,54.59195868431,45.5],[tip[0],tip[1],45.5],tip],(1.4,2,1.4))
         recipes[gid]=dict(g,owner=owner,saddle=q['recipe'])
     for owner,shapes in trees.items():
         components['SourceStructure/'+owner]=shapes[0].multiFuse(shapes[1:]).removeSplitter()
@@ -105,3 +115,17 @@ def geometry():
     return dict(components=components,parents=parents,anchors=anchors,recipes=recipes,paths=paths,
                 source_sha256={p.relative_to(ROOT).as_posix():SHA(p) for p in pins},
                 selected=False,W5_complete=False,physical_pass=False)
+
+
+def internal_gate(q):
+    """Reject disconnected trees/own-band intersections BEFORE scene loading."""
+    failures=[]
+    for n,s in q['components'].items():
+        if not s.isValid() or len(s.Solids)!=1 or s.check(True):failures.append(n+'/invalid_or_disconnected')
+    names=list(q['components'])
+    for i,a in enumerate(names):
+        sa=q['components'][a]
+        for b in names[i+1:]:
+            sb=q['components'][b]
+            if sa.BoundBox.intersect(sb.BoundBox) and sa.common(sb).Volume>1e-5:failures.append(a+' <> '+b)
+    return failures

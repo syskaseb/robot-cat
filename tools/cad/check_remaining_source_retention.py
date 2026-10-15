@@ -6,7 +6,7 @@ Only the actual same-parent printed structure may fuse with its own parent.
 import json,time
 from pathlib import Path
 import FreeCAD as A
-from remaining_source_retention_material import geometry
+from remaining_source_retention_material import geometry,internal_gate
 from current_mixed_receiver_material import prepare
 from current_body_restraint_material import prepare as other_retention
 from current_body36_candidates import resolve
@@ -16,7 +16,9 @@ from current_work_guard import check
 
 
 def run():
-    check();tick=time.monotonic();q=geometry();targets,wires,pins,_=prepare()
+    check();tick=time.monotonic();q=geometry()
+    failures=internal_gate(q);assert not failures,('Internal source assembly first',failures)
+    targets,wires,pins,_=prepare()
     extras,ep=other_retention();targets.update(extras);pins.update(ep)
     mf=P.OUT/'body36-shared-macro-layout.json';macro=json.loads(mf.read_text())
     assert not macro['remaining_wire_ids'];routes,_=resolve(macro,P.ROOT)
