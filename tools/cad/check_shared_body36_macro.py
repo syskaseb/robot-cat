@@ -44,15 +44,17 @@ def run():
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'body36-shared-macro-pairs.json',bounds.near)
     points={};edge_cache={};checks=0;completed={};attempts=[];last=time.monotonic()
     def save():
-        out=dict(status='PARTIAL_SHARED_MACRO_ARCHITECTURE_NOT_SELECTED',rows=list(rows.values()),
-            proposed_routes=candidates,math_failures=failures,retained_routes=retained,qualified_changed_routes=completed,
+        out=dict(status='PARTIAL_SHARED_MACRO_ARCHITECTURE_NOT_SELECTED',changed_rows=[rows[n] for n in CHANGED],
+            inherited_receipt=basefile.relative_to(P.ROOT).as_posix(),
+            proposed_routes=candidates,math_failures=failures,retained_route_ids=sorted(retained),qualified_changed_routes=completed,
             attempts=attempts,remaining_wire_ids=sorted(set(rows)-set(retained)-set(completed)),changed_pairs=checks,
             source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,physical_pass=False,
-            scope='JointFL1replacesW020explicitly; allcurrent36/19guides/receiverroots/sourcearms/motionincluded. No native change or phasepoint.')
+            scope='JointFL1+FR1replace3oldpositivecores explicitly;27otherwholecurves retained. Allcurrent36/19guides/receiverroots/sourcearms/motionincluded. No native change or phasepoint.')
         f=P.OUT/'body36-shared-macro-layout.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(out,indent=2)+'\n');tmp.replace(f);cache.save()
     def samples(s):
         if id(s) not in points:points[id(s)]=np.asarray([list(v) for e in s.Edges for v in e.discretize(Distance=.75)])
         return points[id(s)]
+    save()
     for name,q in candidates.items():
         guard();row=rows[name];parts=q['parts'];whole=P.wire(parts);mouth=P.wire(terminal_trim(parts))
         source=row.get('source_parts',[row['source_land']]);after=P.wire(row.get('source_after_jacket_first5_mm',source[1:])+parts[len(source):])
