@@ -23,7 +23,7 @@ def matches(size,r):
 
 
 def run():
-    check();tick=time.monotonic();candidate=BASE/'phase1-purchased-role-plan.json'
+    check();tick=time.monotonic();candidate=BASE/'phase1-purchased-role-plan-r2.json'
     p=json.loads(candidate.read_text());pins=dict(p['source_sha256'])
     proof_file=BASE/'commercial-hardware/washer-checks.json';proof=json.loads(proof_file.read_text())
     assert proof['status']=='COMMERCIAL_WASHERS_CHANGED_MATERIAL_CLEAR' and not proof['errors']+proof['contacts']
@@ -82,12 +82,12 @@ def run():
             'Commercial stock/prices/packs refreshed before any phase2 purchase; none purchased',
             'Delock/K1474 and socket/contact delivered fit reservations remain explicit phase2 gates'],
         source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3))
-    f=BASE/'phase1-current-purchased-selection.json';f.write_text(json.dumps(result,indent=2)+'\n',newline='\n');pins[f.relative_to(ROOT).as_posix()]=SHA(f)
+    f=BASE/'phase1-current-purchased-selection-r2.json';f.write_text(json.dumps(result,indent=2)+'\n',newline='\n');pins[f.relative_to(ROOT).as_posix()]=SHA(f)
     manifest=dict(schema_version=1,readiness='prototype',result_id='K2',selected=True,K2_complete=True,physical_pass=False,
         scope=result['scope'],selection=f.relative_to(ROOT).as_posix(),files=[dict(path=n,sha256=h) for n,h in sorted(pins.items())],
         gates={g:dict(status='open',reason='Physical/electrical/wholeassembly readiness is not implied by nominal identity reconciliation.') for g in REQUIRED_GATES})
     assert verify(ROOT,manifest)['integrity_ok']
-    f=BASE/'phase1-purchased-manifest.json';f.write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')
+    f=BASE/'phase1-purchased-manifest-r2.json';f.write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')
     print(json.dumps(dict(hardware_products=len(products),roles=len(roles),components=len(p['components']),seconds=result['worker_seconds'])))
 
 

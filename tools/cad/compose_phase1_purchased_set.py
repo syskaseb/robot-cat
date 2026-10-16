@@ -54,6 +54,9 @@ def run():
     group('Tail wire fixture','tail-wiring-checkpoint/selection.json',
         {'M3x10':2,'M3 nut':2,'M3 washer OD7':2})
     local('tail-wiring-checkpoint/selection.json')
+    e2=local('pwm-branch-checkpoint/selection.json')
+    assert e2['quantities']['M3x12_DIN912']==e2['quantities']['M3_nut_AF5p5_h2p4']==e2['quantities']['M3_washer_OD7_ID3p2_t0p5']==3
+    group('E2 fixture','pwm-branch-checkpoint/selection.json',{'M3x12':3,'M3 nut':3,'M3 washer OD7':3})
     group('W5 source detachable rail','body-harness-checkpoint/w5-nominal-material-selection.json',
         {'M3x8':2,'M3 nut':2,'M3 washer OD7':2})
     group('W5 receiver cap','body-harness-checkpoint/w5-nominal-material-selection.json',{'M2x14':1,'M2 nut':1})
@@ -88,8 +91,12 @@ def run():
         ('JR extension','additional:MG92B-JR-EXTENSION',3),
         ('E2 source housing','connector:430250200',1),('E2 module housing','connector:430200201',1),
         ('E2 source V contact','connector:2147612113',1),('E2 source G contact','connector:2147611113',1),
-        ('E2 module V contact','connector:2147632113',1),('E2 module G contact','connector:2147631112',1),
+        ('E2 module V contact','connector:2147632113',1),
     ]:add(role,key,count)
+    assert '2147631113' in e2['factory_leads']['black_module']
+    components.append(dict(id='E2 module G contact',part='2147631113',installed=1,manufacturer='Molex',
+        supplier_sku='2147631113',url=e2['module_factory_basis']['url'],
+        evidence=prefix+'pwm-branch-checkpoint/selection.json',nominal_factory_mm=225,purchased=0))
     fusecounts=Counter(r['sku'] for r in net['fuses'])
     for sku,count in fusecounts.items():
         keys=[k for k,v in catalog.items() if v.get('manufacturer_part')==sku]
@@ -148,7 +155,7 @@ def run():
             'Complete commercial fastener binding, including M3x45 and washer mismatch'],
         gaps=gaps,source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3))
     assert result['drive_count']==15
-    path=BASE/'phase1-purchased-role-plan.json';path.write_text(json.dumps(result,indent=2)+'\n',newline='\n')
+    path=BASE/'phase1-purchased-role-plan-r2.json';path.write_text(json.dumps(result,indent=2)+'\n',newline='\n')
     print(json.dumps(dict(roles=len(roles),component_rows=len(components),gaps=len(gaps),seconds=result['worker_seconds'])))
 
 
