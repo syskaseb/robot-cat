@@ -16,6 +16,7 @@ from check_main_p0_placement import SavedShapes
 from loom_land_port import box
 from current_work_guard import check
 from remaining25_shared_context import load as current_context
+from remaining25_restraint_layout import apply_layout
 
 
 def own_wire_name(name,wires):
@@ -44,8 +45,9 @@ def profile(g,normal,knot_sign):
         for row,a in enumerate(v,1):setattr(m,'A'+str(row)+str(col),a)
     m.A14,m.A24,m.A34=g['centre_world_mm']
     t=.381;w=1.6764
+    sign=g.get('foot_sign',1)
     pads=[[r+.5,-span,-1.5,r+4.5,span,1.5],
-          [r+.5,-span,1.4,r+4.5,span,4.5]]
+          [r+.5,-span,1.4 if sign==1 else -4.5,r+4.5,span,4.5 if sign==1 else -1.4]]
     outer=[-r-.2-t-.15,-span-.2-t-.15,-w/2-.15,r+4.5+t+.15,span+.2+t+.15,w/2+.15]
     inner=[-r-.2+.15,-span-.2+.15,-w,r+4.5-.15,span+.2-.15,w]
     body=box(pads[0]).fuse(box(pads[1])).cut(box(outer).cut(box(inner))).removeSplitter()
@@ -57,19 +59,23 @@ def profile(g,normal,knot_sign):
         assert s.isValid() and len(s.Solids)==1 and not s.check(True)
         s.Placement=A.Placement(m)*s.Placement
     assert body.common(band).Volume<1e-6
-    tip=A.Placement(m).multVec(A.Vector(r+3,0,3))
-    return dict(body=body,band=band,root_tip_mm=list(tip),
+    tip=A.Placement(m).multVec(A.Vector(r+3,0,3*sign))
+    result=dict(body=body,band=band,root_tip_mm=list(tip),
         recipe=dict(normal=normal,knot_sign=knot_sign,pads=pads,ring_cut=dict(outer=outer,inner=inner),
                     knot=knot,local_to_world=list(m.A),axial_cradle_mm=3,
                     allocated_straight_mm=g['land_mm'],project_lacing_blank_mm=150,
                     physical_retention_verified=False))
+    if sign!=1:result['recipe']['foot_sign']=sign
+    return result
 
 
 def run(resume_commit=None):
     check();tick=time.monotonic();pf=P.OUT/'remaining25-interface-allocation.json';p=json.loads(pf.read_text())
     assert p['physical_ends']==66 and len(p['groups'])==55
     for n,h in p['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
+    p,layout_pins=apply_layout(p)
     targets,wires,pins,parents,grips=current_context()
+    pins.update(layout_pins)
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (pf,Path(__file__))})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'remaining25-restraint-pairs.json',bounds.near)
     rows=[];errors=[];checks=0;accepted={};domains={};failures=[];materials={};inherited=None
@@ -107,6 +113,7 @@ def run(resume_commit=None):
     def save(status):
         result=dict(status=status,groups=rows,domains=domains,selected_options=accepted,
             failed_groups=failures,errors=errors,checks=checks,inherited_qualified_domains=inherited,
+            layout_change=p['layout_change'],spatial_groups=p['groups'],expected_groups=len(p['groups']),
             worker_seconds=round(time.monotonic()-tick,3),source_sha256=pins,
             scope='Current55 new insulation saddles/loops against current36/retained19/25 and13 native source lands. '
                   'Nominal purchased envelopes are conservative allocation constraints, not proof of a physical supplier collision. '
@@ -121,7 +128,8 @@ def run(resume_commit=None):
         check();gid=g['id'];row=dict(id=gid,qualified_options=[],rejected=[]);rows.append(row)
         own={endpoints[e]['wire'] for e in g['ends']}
         options=[]
-        for normal in normals(g.get('axis',g.get('common_axis')),len(g['ends'])==3):
+        choices=g.get('normal_candidates') or normals(g.get('axis',g.get('common_axis')),len(g['ends'])==3)
+        for normal in choices:
             for sign in (1,-1):
                 q=profile(g,normal,sign);contacts=[];touching=set()
                 for kind in ('body','band'):
@@ -154,7 +162,7 @@ def run(resume_commit=None):
         # Retain all received domains; next run must change the cause, not
         # recompute identical successful groups.
         if len(failures)>=2 or errors:break
-    if failures or len(rows)!=55 or errors:
+    if failures or len(rows)!=len(p['groups']) or errors:
         save('REMAINING25_SHARED_MATERIAL_ALLOCATION_REQUIRES_LAYOUT_CHANGE')
         return
     ordered=sorted(materials,key=lambda n:len(materials[n]));chosen={};attempts=0
@@ -172,7 +180,7 @@ def run(resume_commit=None):
             chosen.pop(gid);accepted.pop(gid)
         return False
     clear=select(0)
-    save('FIFTY_FIVE_REMAINING_SADDLE_DOMAINS_AND_SHARED_MATERIAL_CLEAR_ROOTS_OPEN' if clear else
+    save('REMAINING25_SADDLE_DOMAINS_AND_SHARED_MATERIAL_CLEAR_ROOTS_OPEN' if clear else
          'REMAINING25_SHARED_MATERIAL_NO_JOINT_SOLUTION')
     print('remaining25 shared',clear,'groups',len(accepted),'pairs',checks,'seconds',round(time.monotonic()-tick,3),flush=True)
 
