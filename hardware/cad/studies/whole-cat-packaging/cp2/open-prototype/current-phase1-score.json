@@ -17,24 +17,25 @@
     "W5",
     "K1",
     "A2",
-    "K2"
+    "K2",
+    "K3"
   ],
-  "result_count": 16,
-  "result_percent": 80,
-  "change_pp": 0,
-  "new_result": "A2",
+  "result_count": 17,
+  "result_percent": 85,
+  "change_pp": 5,
+  "new_result": "K3",
   "K2_retracted_cause": "Whole E2 contribution crosscheck:3M3x12/nuts/washers omitted and current moduleG is2147631113 not historical2147631112. Preserve prior receipt as history; requalify complete r2 before restoring point.",
   "physical_pass": false,
   "baseline": "execution-plan.json remains immutable historical stage1 minimum3/20",
-  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r2.json",
-  "evidence_sha256": "b24c860a1f83249e71e3ce333d5e3a1e507ebb9ec94e4a5cc8e36bfaf530181a",
-  "checked_utc": "2026-10-16T13:56:34.896867+00:00",
-  "verification_seconds": 0.05,
-  "verification_basis": "Whole nominal open prototype assembly/reverse sequence: P0/battery,neck,head,tail,boards,bank,all current wiring. Staged tool/fastener access, explicit pretermination threading and ordinary deep disconnection. No hot-swap/zero-disconnection requirement or physical/energizing PASS. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
+  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest.json",
+  "evidence_sha256": "4b046d80b06ab644c29d655f5dd8953e360bb4483a8693cefe9459702a36f6d4",
+  "checked_utc": "2026-10-16T14:15:35.302877+00:00",
+  "verification_seconds": 0.072,
+  "verification_basis": "Complete current nominal wire/factory-unit/cut-insulation/adhesive/tie/lace/PETG/tool provision for the selected open prototype, with overlaps removed. Requirements for stock/tool access, not owned inventory, purchases, physical fit or electrical E3 acceptance. Unselected M4 guard redesign is explicitly not fabricated. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
   "previous_evidence": {
-    "new_result": "K2",
-    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-purchased-manifest-r3.json",
-    "evidence_sha256": "102758b074fe646b25778c65131be170d730f1d06b0f684a4f72ece613452259"
+    "new_result": "A2",
+    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r2.json",
+    "evidence_sha256": "b24c860a1f83249e71e3ce333d5e3a1e507ebb9ec94e4a5cc8e36bfaf530181a"
   },
   "current_result_overrides": {
     "M2": {
@@ -61,6 +62,11 @@
       "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r2.json",
       "sha256": "b24c860a1f83249e71e3ce333d5e3a1e507ebb9ec94e4a5cc8e36bfaf530181a",
       "new_points": 0
+    },
+    "K3": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest.json",
+      "sha256": "4b046d80b06ab644c29d655f5dd8953e360bb4483a8693cefe9459702a36f6d4",
+      "new_points": 5
     }
   },
   "current_head_change_pp": 0
