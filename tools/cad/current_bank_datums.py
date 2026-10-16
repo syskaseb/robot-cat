@@ -4,6 +4,11 @@ Housing/ATO solids are project nominal envelopes, not measured part profiles.
 Their placement is nevertheless authoritative for their own assembly frame.
 """
 import re
+import json
+import hashlib
+import time
+import zipfile
+from pathlib import Path
 import FreeCAD as A
 import Part
 
@@ -42,3 +47,32 @@ def nominal_sweep(row,travel_mm=35):
     assert travel_mm>0
     a=row['parts']['ATO']['bounds_mm'];x,y,z,X,Y,Z=a
     return Part.makeBox(X-x,Y-y,Z-z+travel_mm,A.Vector(x,y,z))
+
+
+def run():
+    # Read just48 bank solids, not all2665 objects or cached Boolean results.
+    # Inputs to this placement proof must match the current pinned scene.
+    from plan_current_harness_interfaces import ROOT,OUT,SHA
+    tick=time.monotonic();source=OUT/'remaining25-space-context.zip';targets={}
+    with zipfile.ZipFile(source) as z:
+        index=json.loads(z.read('index.json'));pins=dict(index['source_sha256'])
+        for name,digest in pins.items():assert SHA(ROOT/name)==digest,name
+        for r in index['entries']:
+            if r['kind']!='target' or not re.fullmatch(r'F_[LR][1-6]_CP2_(Housing|ATO|IN|OUT)(?:/.*)?',r['name']):continue
+            s=Part.Shape();s.importBrepFromString(z.read(r['file']).decode());targets[r['name']]=s
+    rows=datums(targets)
+    pins.update({f.relative_to(ROOT).as_posix():SHA(f) for f in (source,Path(__file__))})
+    result=dict(status='TWELVE_BANK_PLACED_WORLD_DATUMS_VERIFIED_NOT_RETENTION_OR_SERVICE',
+        rows=rows,part_count=len(targets),source_sha256=pins,
+        correction='Old fixture/service templates usedoriginY+/-58 instead of placedcentreY+/-62. No purchased part or wire moved.',
+        invalidated_claim='6c20adb33-pair map is NOT installed fuse withdrawal proof.',
+        open=['Correctly placed fixture and installed service material checks',
+              'Actual delivered engagement/tool/force and print fit',
+              'Native rooted bank/whole assembly/stock'],
+        worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,M4_complete=False,physical_pass=False)
+    (OUT/'bank-current-world-datums.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(dict(holders=len(rows),parts=len(targets),
+        centre_Y_mm=sorted({r['centre_xy_mm'][1] for r in rows}),worker_seconds=result['worker_seconds'])))
+
+
+if __name__=='__main__':run()
