@@ -11,7 +11,7 @@ from loom_land_port import box
 
 
 def geometry():
-    prints={};feet={};hardware={};tools={};access={};rows=[];fasteners=[]
+    prints={};feet={};hardware={};tools={};access={};sweeps={};jaws={};rows=[];fasteners=[]
     for side,y,centres,owners in [
         ('L',58,[-53,-23,7,37,67,97],['FrontLeftFixedCarrier','RearLeftFixedCarrier']),
         ('R',-58,[-53,-21,11,43,75,107],['FrontRightFixedCarrier','RearRightFixedCarrier'])]:
@@ -22,6 +22,10 @@ def geometry():
             # Delivered fit may replace this panel; no latch motion is invented.
             panel=panel.cut(box([x-11.1,y-5.65,121,x+11.1,y+5.65,125]))
             access[f'ATO_{side}{i}']=box([x-14,y-13,144.8,x+14,y+13,189.8])
+            sweeps[f'F_{side}{i}_CP2_ATO']=box([x-9.55,y-2.55,126,x+9.55,y+2.55,179.8])
+            for sign in (-1,1):
+                jaws[f'F_{side}{i}_CP2_ATO/{sign}']=box([x-10.55,y+(-5.55 if sign==-1 else 2.55),137,
+                    x+10.55,y+(-2.55 if sign==-1 else 5.55),184])
             rows.append(dict(id=f'F_{side}{i}_CP2',centre_xy_mm=[x,y],
                 flange_top_z_mm=126,panel_top_z_mm=124,nominal_flange_mm=[28,15,2],
                 aperture_mm=[22.2,11.3],aperture_supplier_verified=False,
@@ -62,11 +66,12 @@ def geometry():
     for n,s in prints.items():
         assert s.isValid() and len(s.Solids)==1 and not s.check(True),n
         b=s.BoundBox;assert max(b.XLength+10,b.YLength+10,b.ZLength)<256
-    return dict(prints=prints,feet=feet,hardware=hardware,tools=tools,ATO_access=access,
+    return dict(prints=prints,feet=feet,hardware=hardware,tools=tools,ATO_access=access,ATO_sweeps=sweeps,ATO_jaws=jaws,
         recipe=dict(holders=rows,fasteners=fasteners,new_separate_prints=6,
             integrated_parent_feet=4,nominal_hardware={'M3x12':8,'M3nut':8,'M3washer':8},
             panel_aperture_basis='servo_fuse_side_bank_r4.py prototype11.3x22.2 rotated90deg; NOT a manufacturer cutout tolerance. Current28x15x2 flange from0300330 reference.',
             shared_layout='Two rows remainY+/-58, flange top126 and all24TE/current wires unchanged. Panels122..124, bars126..129 outsideY+/-5.5 from each row. No old outer BankLeft/Right/Deck/Cover or cosmetic shell.',
+            routine_ATO_design_basis='Nominal19.1x5.1x18.8 fuse,35mm UP withdrawal. Two project3mm jaw envelopes21.1wide grip aboveZ137 and translate35mm; NOT manufacturer tool dimensions, measured engagement or complete commercial pliers geometry. Coarse28x26x45 budget is advisory, not proof of physical collision. Delivered fuse/tool fit remains phase2 gate.',
             assembly=['Install four rooted parent feet with captive nuts before electronics/looms.',
                       'Prepare12 holders and24 TE assemblies on bench; dry-fit replaceable panels to delivered housings.',
                       'Place panels on feet, seat flanges, fit two outboard bars per row using8 nominalM3x12 stacks.',
