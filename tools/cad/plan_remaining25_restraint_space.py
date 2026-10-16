@@ -84,8 +84,10 @@ def run(resume_commit=None):
     if resume_commit:
         name=(P.OUT/'remaining25-restraint-space.json').relative_to(P.ROOT).as_posix()
         raw=subprocess.check_output(['git','show',resume_commit+':'+name],cwd=P.ROOT);old=json.loads(raw)
+        mutable={Path(__file__).relative_to(P.ROOT).as_posix(),
+                 Path(__file__).with_name('remaining25_restraint_layout.py').relative_to(P.ROOT).as_posix()}
         for n,h in old['source_sha256'].items():
-            if n==Path(__file__).relative_to(P.ROOT).as_posix():
+            if n in mutable:
                 code=subprocess.check_output(['git','show',resume_commit+':'+n],cwd=P.ROOT)
                 assert h in {hashlib.sha256(v).hexdigest() for v in (code,code.replace(b'\r\n',b'\n'),code.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))}
             else:assert P.SHA(P.ROOT/n)==h,('Changed inherited material',n)
@@ -93,13 +95,18 @@ def run(resume_commit=None):
         for row in old['groups']:
             if not row['qualified_options']:continue
             gid=row['id'];options=[]
+            changed=False
             for record in row['qualified_options']:
                 r=record['recipe'];q=profile(frozen[gid],r['normal'],r['knot_sign'])
-                assert q['recipe']==r and q['root_tip_mm']==record['root_tip_mm']
+                if q['recipe']!=r or q['root_tip_mm']!=record['root_tip_mm']:
+                    changed=True;break
                 options.append(q)
+            if changed:
+                assert gid in p['layout_change']['changed_groups'],('Undeclared inherited profile change',gid)
+                continue
             materials[gid]=options;rows.append(dict(row,inherited_from=resume_commit));domains[gid]=row['qualified_options']
         inherited=dict(git_commit=resume_commit,raw_sha256=hashlib.sha256(raw).hexdigest(),groups=list(materials),
-            basis='Identical geometry and world inputs. Old own-wire treatment was stricter, so its positive domains remain valid. Factory alias correction only changes own-band clearance to the existing physical-radius rule; foreign-wire margin stays0.25mm.')
+            basis='Identical profile geometry and world inputs only. Explicitly changed profiles are not inherited. Foreign-wire margin stays0.25mm; old stricter own-wire positives may be reused.')
     def hit(a,b,r=0):
         nonlocal checks
         if not bounds.near(a,b,r+.0001):return False
@@ -165,23 +172,54 @@ def run(resume_commit=None):
     if failures or len(rows)!=len(p['groups']) or errors:
         save('REMAINING25_SHARED_MATERIAL_ALLOCATION_REQUIRES_LAYOUT_CHANGE')
         return
-    ordered=sorted(materials,key=lambda n:len(materials[n]));chosen={};attempts=0
+    # Cheap exact pair-domain consistency precedes combinatorial search.
+    # A bounded failed search is NOT proof that no joint solution exists.
+    admissible={n:list(range(len(options))) for n,options in materials.items()}
+    memo={};solver={};chosen={};attempts=0;budget_exhausted=False
+    def compatible(gid,i,other,j):
+        key=(gid,i,other,j) if gid<other else (other,j,gid,i)
+        if key not in memo:
+            q,t=materials[gid][i],materials[other][j]
+            memo[key]=not any(hit(q[a],t[b]) for a in ('body','band') for b in ('body','band'))
+        return memo[key]
+    changed=True
+    while changed:
+        changed=False
+        for gid in materials:
+            for other in materials:
+                if gid==other:continue
+                keep=[i for i in admissible[gid] if any(compatible(gid,i,other,j) for j in admissible[other])]
+                if len(keep)!=len(admissible[gid]):
+                    admissible[gid]=keep;changed=True
+                if not keep:
+                    solver.update(status='inconsistent_pair_domains',a=gid,b=other,
+                                  exact_pair_options_exhausted=True)
+                    p['layout_change']['pair_domain_solver']=solver
+                    save('REMAINING25_SHARED_PAIR_DOMAINS_INCONSISTENT')
+                    print('remaining25 incompatible domains',gid,other,'pairs',checks,flush=True)
+                    return
+    ordered=sorted(materials,key=lambda n:len(admissible[n]))
     def select(i):
-        nonlocal attempts
+        nonlocal attempts,budget_exhausted
         check()
         if i==len(ordered):return True
         gid=ordered[i]
-        for index,q in enumerate(materials[gid]):
+        for index in admissible[gid]:
+            q=materials[gid][index]
             attempts+=1
-            if attempts>10000:return False
+            if attempts>10000:budget_exhausted=True;return False
             if any(hit(q[a],other[b]) for other in chosen.values() for a in ('body','band') for b in ('body','band')):continue
             chosen[gid]=q;accepted[gid]=index
             if select(i+1):return True
             chosen.pop(gid);accepted.pop(gid)
+            if budget_exhausted:return False
         return False
     clear=select(0)
+    solver.update(status='solution' if clear else 'search_budget_exhausted' if budget_exhausted else 'exhaustively_rejected',attempts=attempts,
+                  admissible_options=admissible,compatible_pairs_cached=len(memo))
+    p['layout_change']['pair_domain_solver']=solver
     save('REMAINING25_SADDLE_DOMAINS_AND_SHARED_MATERIAL_CLEAR_ROOTS_OPEN' if clear else
-         'REMAINING25_SHARED_MATERIAL_NO_JOINT_SOLUTION')
+         'REMAINING25_SHARED_MATERIAL_SEARCH_NOT_ACCEPTED')
     print('remaining25 shared',clear,'groups',len(accepted),'pairs',checks,'seconds',round(time.monotonic()-tick,3),flush=True)
 
 

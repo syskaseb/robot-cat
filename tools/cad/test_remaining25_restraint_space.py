@@ -38,5 +38,21 @@ class OwnWireTests(unittest.TestCase):
         self.assertGreater(common['available_common_straight_mm'],9)
         for n in common['normal_candidates']:profile(common,n,1)
 
+    def test_lower_feed_and_branch_loops_are_allocated_at_distinct_levels(self):
+        original=json.loads((OUT/'remaining25-interface-allocation.json').read_text())
+        old={g['id']:g for g in original['groups']}
+        thin=profile(old['FL_P_BRANCH3'],[0,1,0],1)
+        fat=profile(old['W026/custom/end'],[-1,0,0],1)
+        self.assertGreater(thin['band'].common(fat['band']).Volume,.5)
+        revised,_=apply_layout(original);groups={g['id']:g for g in revised['groups']}
+        for wid,leg in [('W026','FL'),('W037','FR'),('W045','RL'),('W053','RR')]:
+            self.assertEqual(groups[wid+'/custom/end']['centre_world_mm'][2],26.5)
+            branch=profile(groups[leg+'_P_BRANCH3'],[0,1,0],1)
+            for n in groups[wid+'/custom/end']['normal_candidates']:
+                incoming=profile(groups[wid+'/custom/end'],n,1)
+                for a in ('body','band'):
+                    for b in ('body','band'):
+                        self.assertLess(branch[a].common(incoming[b]).Volume,1e-6)
+
 
 if __name__=='__main__':unittest.main()
