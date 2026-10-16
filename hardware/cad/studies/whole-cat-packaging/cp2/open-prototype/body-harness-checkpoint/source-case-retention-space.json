@@ -16,33 +16,13 @@
     {
       "part": "SourceCase/MTACase_RL",
       "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "wire/W064",
-          "volume_mm3": 0,
-          "gap_mm": 1.3230000000000075,
-          "required_mm": 2.35
-        },
-        {
-          "obstacle": "wire/W062",
-          "volume_mm3": 0,
-          "gap_mm": 0.75,
-          "required_mm": 2.35
-        }
-      ],
+      "contacts": [],
       "parent_unions": []
     },
     {
       "part": "SourceCase/MTACase_RR",
       "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "wire/W053_CUSTOM",
-          "volume_mm3": 0,
-          "gap_mm": 1.5,
-          "required_mm": 2.35
-        }
-      ],
+      "contacts": [],
       "parent_unions": []
     },
     {
@@ -55,45 +35,18 @@
       "part": "SourceCase/SourceJoint_W037",
       "owner": "FrontRightFixedCarrier",
       "contacts": [],
-      "parent_unions": [
-        {
-          "obstacle": "CurrentNative/FrontRightFixedCarrier",
-          "volume_mm3": 6.3799999999999795,
-          "gap_mm": null,
-          "required_mm": 0
-        }
-      ]
+      "parent_unions": []
     },
     {
       "part": "SourceCase/SourceJoint_W041",
       "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "W1Ref_UnfusedSourceHead/0/0",
-          "volume_mm3": 22.44374999999988,
-          "gap_mm": null,
-          "required_mm": 0
-        },
-        {
-          "obstacle": "wire/XA01_factory",
-          "volume_mm3": 0,
-          "gap_mm": 1.976455006262466,
-          "required_mm": 2.25
-        }
-      ],
+      "contacts": [],
       "parent_unions": []
     },
     {
       "part": "SourceCase/SourceJoint_W042",
       "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "wire/W036",
-          "volume_mm3": 0,
-          "gap_mm": 1.9500000000000028,
-          "required_mm": 2.35
-        }
-      ],
+      "contacts": [],
       "parent_unions": []
     },
     {
@@ -106,82 +59,40 @@
       "part": "SourceCase/SourceJoint_W045",
       "owner": "RearLeftFixedCarrier",
       "contacts": [],
-      "parent_unions": [
-        {
-          "obstacle": "CurrentNative/RearLeftFixedCarrier",
-          "volume_mm3": 6.580000000000069,
-          "gap_mm": null,
-          "required_mm": 0
-        }
-      ]
+      "parent_unions": []
     },
     {
       "part": "SourceCase/SourceJoint_W052",
-      "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "CurrentNative/FrontRightFixedCarrier",
-          "volume_mm3": 6.380000000000048,
-          "gap_mm": null,
-          "required_mm": 0
-        }
-      ],
-      "parent_unions": []
-    },
-    {
-      "part": "SourceCase/SourceJoint_W053",
-      "owner": "RearRightFixedCarrier",
-      "contacts": [
-        {
-          "obstacle": "tail/BearingCapBolt34_1/0/0",
-          "volume_mm3": 10.139268249107118,
-          "gap_mm": null,
-          "required_mm": 0
-        }
-      ],
-      "parent_unions": [
-        {
-          "obstacle": "CurrentNative/RearRightFixedCarrier",
-          "volume_mm3": 6.580000000000146,
-          "gap_mm": null,
-          "required_mm": 0
-        }
-      ]
-    },
-    {
-      "part": "SourceCaseBand/MTACase_FL",
-      "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "wire/W026_CUSTOM",
-          "volume_mm3": 0,
-          "gap_mm": 0.0,
-          "required_mm": 2.35
-        }
-      ],
-      "parent_unions": []
-    },
-    {
-      "part": "SourceCaseBand/MTACase_FR",
-      "owner": "UpperCarrier001",
-      "contacts": [
-        {
-          "obstacle": "wire/W037_CUSTOM",
-          "volume_mm3": 0,
-          "gap_mm": 0.3704908048320349,
-          "required_mm": 2.35
-        }
-      ],
-      "parent_unions": []
-    },
-    {
-      "part": "SourceCaseBand/MTACase_RL",
       "owner": "UpperCarrier001",
       "contacts": [],
       "parent_unions": []
     },
     {
-      "part": "SourceCaseBand/MTACase_RR",
+      "part": "SourceCase/SourceJoint_W053",
+      "owner": "RearRightFixedCarrier",
+      "contacts": [],
+      "parent_unions": []
+    },
+    {
+      "part": "SourceCaseAdhesive/MTACase_FL",
+      "owner": "UpperCarrier001",
+      "contacts": [],
+      "parent_unions": []
+    },
+    {
+      "part": "SourceCaseAdhesive/MTACase_FR",
+      "owner": "UpperCarrier001",
+      "contacts": [],
+      "parent_unions": []
+    },
+    {
+      "part": "SourceCaseAdhesive/MTACase_RL",
+      "owner": "UpperCarrier001",
+      "contacts": [],
+      "parent_unions": []
+    },
+    {
+      "part": "SourceCaseAdhesive/MTACase_RR",
       "owner": "UpperCarrier001",
       "contacts": [],
       "parent_unions": []
@@ -616,10 +527,10 @@
     ]
   },
   "errors": [],
-  "checks": 102,
-  "computed_pairs": 90,
-  "reused_pairs": 12,
-  "worker_seconds": 507.796,
+  "checks": 79,
+  "computed_pairs": 64,
+  "reused_pairs": 15,
+  "worker_seconds": 213.375,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-support-shared-material.json": "a252ae0237c64a4e6914914a20d53500032c2818e510b596dd5779bd8769232d",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
@@ -717,11 +628,11 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-stations-plan.json": "b9a17b0b24983a090cd79ca33ed9c5d5ceae46e595b3a7797134391d6b923423",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-receiver-support-reservations.json": "7936155d8f752d000b4b1cc3458abe55a9b7ca1cd687ba3016dbd931f4842c69",
     "tools/cad/bank_upper_retained_context.py": "0017f891b828400ffaa21f1c8a956d2063edbd7f4fc3e552b50c91de589c9765",
-    "tools/cad/current_source_case_retention.py": "13d9891537645283fe8ad050a45308f4b366c90edef97dad5a37070573e98580",
+    "tools/cad/current_source_case_retention.py": "81ed0bd909aff1d60cabe28e73b8d90f67dc4fe5b25d42f3d5a35b32ffbe0b1c",
     "tools/cad/bank_prototype_service_material.py": "83ba9a77ec13751c87a56b2f1063001076eb56ceb16d219505389db93b131dcf",
     "tools/cad/plan_remaining25_restraint_space.py": "5f4e03bf05cddf5943c4e3f4bd9c9d7ceaaaaaac3a1615435a00cb398ba484e0",
     "tools/cad/plan_individual_bank_seats.py": "8dd5e19117eaf323c1bcec6853ae0b9cbbe23e79a4a303219d414116c51b1372",
-    "tools/cad/check_current_source_case_space.py": "f2f614f8284ae06ad93c8df8af4a1436864cc423350e82ce11b29148a57f2b6c"
+    "tools/cad/check_current_source_case_space.py": "7901011ba16beb12a1cf5f49ebf9a5496eab4dd34c98858290b2891689f5a599"
   },
   "selected": false,
   "W5_complete": false,

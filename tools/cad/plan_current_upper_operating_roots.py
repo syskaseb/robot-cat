@@ -90,6 +90,7 @@ def run(resume=False):
             root=a['point'];k=tuple(root)
             if k in seen:continue
             seen.add(k)
+            if any(math.dist(root,a['point'])<8 for a in pool):continue
             # bank anchors have a proven4mm trunk; native anchors were exactly
             # checked in preflight. A narrower insulation root is contained.
             if 'component' in a and arm_box(root,root,half).cut(a['component'].copy()).Volume>1e-5:continue

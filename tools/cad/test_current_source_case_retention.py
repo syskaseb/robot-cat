@@ -15,8 +15,8 @@ class SourceCaseTests(unittest.TestCase):
                 s=Part.Shape();s.importBrepFromString(z.read(r['file']).decode());targets[r['name']]=s
         allocation=json.loads((OUT/'remaining25-interface-allocation.json').read_text())
         legs=json.loads((OUT/'leg-stations-plan.json').read_text());q=material(targets,allocation,legs)
-        self.assertEqual(len(q['parts']),12);self.assertEqual(len(q['bands']),4);self.assertEqual(len(q['adhesive']),8)
-        self.assertEqual(q['new_case_lacing_candidate_mm'],600)
+        self.assertEqual(len(q['parts']),12);self.assertEqual(len(q['bands']),0);self.assertEqual(len(q['adhesive']),12)
+        self.assertEqual(q['new_case_lacing_candidate_mm'],0)
         owners={r['id']:r['owner'] for r in q['rows']}
         self.assertEqual(owners['SourceJoint_W037'],'FrontRightFixedCarrier')
         self.assertEqual(owners['SourceJoint_W045'],'RearLeftFixedCarrier')

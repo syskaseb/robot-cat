@@ -3,7 +3,7 @@
 No parking pose is installed. Actual shared geometry accepts contacts; bounding
 boxes merely reject distant pairs. Anchor probes accept only exact containment.
 """
-import itertools,json,time
+import argparse,itertools,json,time,subprocess
 from pathlib import Path
 import FreeCAD as A
 from bank_upper_retained_context import prepare,P
@@ -25,7 +25,7 @@ def anchor_candidates(scene):
     return {o:list(dict.fromkeys(tuple(p) for p in points)) for o,points in result.items()}
 
 
-def run():
+def run(reuse_anchors=None):
     check();tick=time.monotonic();scene=prepare();targets=scene['targets'];wires=scene['wires']
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'source-case-retention-pairs.json',bounds.near)
     rows=[];anchors={};errors=[];checks=0
@@ -43,8 +43,17 @@ def run():
             return next((v for e in b.Edges if (v:=hit(a,e,r))),None)
         check();checks+=1;gap,volume=cache.check(a,b,0,r)
         if volume>1e-5 or (r and gap<r-1e-6):return dict(volume_mm3=volume,gap_mm=gap,required_mm=r)
+    if reuse_anchors:
+        rel=(P.OUT/'source-case-retention-space.json').relative_to(P.ROOT).as_posix()
+        old=json.loads(subprocess.check_output(['git','show',reuse_anchors+':'+rel],cwd=P.ROOT))
+        assert not old['errors']
+        native={n:h for n,h in scene['pins'].items() if n.endswith('.FCStd')}
+        assert native and all(old['source_sha256'].get(n)==h for n,h in native.items())
+        for n in ('body36-receiver-support-reservations','current-body-native-composition','local-source-retention-native/manifest'):
+            f=P.OUT/(n+'.json');key=f.relative_to(P.ROOT).as_posix();assert old['source_sha256'][key]==P.SHA(f)
+        anchors.update(old['anchors']);print('inherited exact unchanged native anchors',reuse_anchors,flush=True)
     save()
-    for owner,points in anchor_candidates(scene).items():
+    for owner,points in ({} if reuse_anchors else anchor_candidates(scene)).items():
         if owner not in scene['parents']:continue
         parent=scene['parents'][owner];anchors[owner]=[]
         for point in points:
@@ -72,4 +81,5 @@ def run():
     save()
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--reuse-anchors');run(parser.parse_args().reuse_anchors)
