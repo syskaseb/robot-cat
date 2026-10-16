@@ -103,12 +103,50 @@
     },
     {
       "part": "RailParkingCup0",
-      "contacts": [],
+      "contacts": [
+        {
+          "obstacle": "E2Fixture/0/0",
+          "volume_mm3": 39.375,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "P_REAR/0/0",
+          "volume_mm3": 238.5085000000002,
+          "gap_mm": null,
+          "required_mm": 0
+        }
+      ],
       "assigned_parent_unions": []
     },
     {
       "part": "RailParkingCup1",
-      "contacts": [],
+      "contacts": [
+        {
+          "obstacle": "E2Fixture/0/0",
+          "volume_mm3": 42.75,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "F_PWM_sleeve/0/0",
+          "volume_mm3": 102.91172651605802,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "wire/W044_CUSTOM",
+          "volume_mm3": 0,
+          "gap_mm": 1.3092098951074553,
+          "required_mm": 2.35
+        },
+        {
+          "obstacle": "wire/pwm-branch-checkpoint/XP01",
+          "volume_mm3": 0,
+          "gap_mm": 0.25,
+          "required_mm": 1.3
+        }
+      ],
       "assigned_parent_unions": []
     },
     {
@@ -179,11 +217,49 @@
     },
     {
       "part": "RailParkingCup0",
-      "contacts": []
+      "contacts": [
+        {
+          "obstacle": "E2Fixture/0/0",
+          "volume_mm3": 39.375,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "P_REAR/0/0",
+          "volume_mm3": 238.5085000000002,
+          "gap_mm": null,
+          "required_mm": 0
+        }
+      ]
     },
     {
       "part": "RailParkingCup1",
-      "contacts": []
+      "contacts": [
+        {
+          "obstacle": "E2Fixture/0/0",
+          "volume_mm3": 42.75,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "F_PWM_sleeve/0/0",
+          "volume_mm3": 102.91172651605802,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "wire/W044_CUSTOM",
+          "volume_mm3": 0,
+          "gap_mm": 1.3092098951074553,
+          "required_mm": 2.35
+        },
+        {
+          "obstacle": "wire/pwm-branch-checkpoint/XP01",
+          "volume_mm3": 0,
+          "gap_mm": 0.25,
+          "required_mm": 1.3
+        }
+      ]
     },
     {
       "part": "W043ParkingSeat",
@@ -193,10 +269,22 @@
       "part": "Rail",
       "contacts": [
         {
-          "obstacle": "W041_Joint/0/0",
-          "volume_mm3": 104.57499999999818,
+          "obstacle": "P_REAR/0/0",
+          "volume_mm3": 89.01135474479028,
           "gap_mm": null,
           "required_mm": 0
+        },
+        {
+          "obstacle": "F_PWM_sleeve/0/0",
+          "volume_mm3": 29.131535809471497,
+          "gap_mm": null,
+          "required_mm": 0
+        },
+        {
+          "obstacle": "wire/W041_CUSTOM",
+          "volume_mm3": 0,
+          "gap_mm": 0.7730629691610089,
+          "required_mm": 2.35
         }
       ]
     },
@@ -214,14 +302,7 @@
     },
     {
       "part": "WholeParkedW043",
-      "contacts": [
-        {
-          "obstacle": "CurrentSaddleBand/W043/single/start",
-          "volume_mm3": 0,
-          "gap_mm": 2.1999999999999993,
-          "required_mm": 2.25
-        }
-      ],
+      "contacts": [],
       "unchanged_blank_mm": 48.62477796076938
     }
   ],
@@ -314,21 +395,23 @@
     "tools/cad/remaining25_shared_context.py": "de0e4a921794e035a3bc2e23801d951fafa18d5c6381221df88720990ad16292",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining25-space-context.zip": "f1e55c3d0382e96f9ad08d60e10e9298487e09b97b96645c490ea44aa3034827",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-frame-saddles-native/RemainingFrameSaddlesCurrent.FCStd": "b527442a5dae363f22b1d54a50bb78ff63c49b817c1771ec90956e7c929c29b8",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/bank-prototype-service-plan.json": "cfd9ce904ef4153a273f08e97f32070fe17a7645bf8df396d49758d60ea2089d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/bank-prototype-service-plan.json": "52fb3417cf391c24e1a15157104deded97c66db436de9bb8e7990a928fbbdfe8",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/current-body-native-composition.json": "06777b4dd92b200a5dfdc433333073d30607c7bc90740732ef6002fb2aefa4b5",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining25-restraint-space.json": "d9362baa1260e738af421a9bd62184d7644ea8b88c6d8dd66239f4dff957dfbb",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining25-saddle-roots.json": "25703a09e250ff3836266de59f4c2984c98a584c809da3eb5b16a056cdc9d3ae",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/individual-bank-roots.json": "d0ef5be9aed1e6ea3ba2e4a09a8b2df5c930f7edae6528f184742d73974b78d0",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/mta-interface-plan.json": "d07b96b08ff97b07593bf1ab41d3e13a02d64b16c902c455be0c9254595ae23e",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/main-source-plan.json": "37ca6f5d5ee17491e1b95ce4a51855d920257ee50321e55d5c5fc0e8c6a5994b",
-    "tools/cad/check_bank_prototype_service_space.py": "af7a260f61c9a06d9a4a3d49b3ecca84a782fa34c360b752d76629564f315237",
-    "tools/cad/bank_prototype_service_material.py": "781860cad73cc3460e26b67f3696eb895d170627e16b99100f6c03d65a2ac8aa",
+    "tools/cad/check_bank_prototype_service_space.py": "f5f0f7d0293e0f8d4fed04149964716ea67bcbb508b1885990e3d59fb441b4d5",
+    "tools/cad/bank_prototype_service_material.py": "6615af683b10b051369237104aeb51a7442d149cfcb11cf9871e971b06c17125",
     "tools/cad/bank_service_source_routes.py": "535895d022417ff99d913017d36e3a3f1d58d712d04266f6d1afd29511202aee",
     "tools/cad/plan_individual_bank_seats.py": "8dd5e19117eaf323c1bcec6853ae0b9cbbe23e79a4a303219d414116c51b1372"
   },
-  "checks": 321,
+  "checks": 366,
   "errors": [],
-  "worker_seconds": 210.984,
+  "worker_seconds": 188.14,
+  "computed_material_pairs": 97,
+  "reused_material_pairs": 269,
   "exact_retained_Upper_children": [
     "UpperCarrierFixedFeedsCurrent"
   ],
