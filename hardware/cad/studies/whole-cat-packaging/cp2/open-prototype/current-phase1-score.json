@@ -20,24 +20,25 @@
     "K3",
     "M4",
     "M3",
-    "A3"
+    "A3",
+    "E3"
   ],
-  "result_count": 19,
-  "result_percent": 95,
+  "result_count": 20,
+  "result_percent": 100,
   "change_pp": 5,
-  "new_result": "A3",
+  "new_result": "E3",
   "K2_retracted_cause": "Whole E2 contribution crosscheck:3M3x12/nuts/washers omitted and current moduleG is2147631113 not historical2147631112. Preserve prior receipt as history; requalify complete r2 before restoring point.",
   "physical_pass": false,
   "baseline": "execution-plan.json remains immutable historical stage1 minimum3/20",
-  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/manifest.json",
-  "evidence_sha256": "0800dbbfdd1c248dd6c915b3d9fc94ce1775d06fa01b2044e055388c30c1fc1c",
-  "checked_utc": "2026-10-16T19:33:39.374821+00:00",
+  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-prototype-final/manifest.json",
+  "evidence_sha256": "ed14e70dc82069571509efa126d50ac2c09524e9759efb68df62765b548b3d5e",
+  "checked_utc": "2026-10-16T22:57:48.605721+00:00",
   "verification_seconds": 3.422,
-  "verification_basis": "One whole current neutral robot, all117print instances/84identities, actual current frame/root/battery/head/tail/material/wiring context, selected resources and verified exact-byte payload. E3 remains OPEN; no physicalPASS, power/slicer/ROS/cosmeticbody approval. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
+  "verification_basis": "Approved revised E3 nominal prototype documentation:23exact fuse roles, catalogue/estimated/analogous assumptions, budget/stall scenarios and4mandatoryphase2 holds. NOT completed electrical qualification, power authorization or physicalPASS.",
   "previous_evidence": {
-    "new_result": "M3",
-    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/manifest-r2.json",
-    "evidence_sha256": "071c46d6f66a26c0b14902608168990eb5c32878ded6cf5a02e0600be3c0ea1c"
+    "new_result": "A3",
+    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/manifest.json",
+    "evidence_sha256": "0800dbbfdd1c248dd6c915b3d9fc94ce1775d06fa01b2044e055388c30c1fc1c"
   },
   "current_result_overrides": {
     "M2": {
@@ -94,6 +95,11 @@
       "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/manifest.json",
       "sha256": "0800dbbfdd1c248dd6c915b3d9fc94ce1775d06fa01b2044e055388c30c1fc1c",
       "new_points": 5
+    },
+    "E3": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-prototype-final/manifest.json",
+      "sha256": "ed14e70dc82069571509efa126d50ac2c09524e9759efb68df62765b548b3d5e",
+      "new_points": 5
     }
   },
   "current_head_change_pp": 0,
@@ -103,5 +109,17 @@
       "reason": "Four current19mm TailRisers bottom38.52 have1.5mm gap to realFrameRear37.02; missing oldTopPlate cannot be restored because16current hardware contacts. Direct frame20.5mm riser repair pending; no physicalPASS.",
       "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/full-addition-datums.json"
     }
-  }
+  },
+  "phase1_prototype_design_complete": true,
+  "electrical_qualification_complete": false,
+  "power_authorized": false,
+  "criterion_revisions": {
+    "E3": {
+      "revision": "E3_NOMINAL_PROTOTYPE_20261017",
+      "previous_strict_percent": 95,
+      "authorization_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-prototype-final/criteria.json",
+      "strict_electrical_qualification_complete": false
+    }
+  },
+  "current_release_index": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-prototype-final/README.md"
 }
