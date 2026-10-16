@@ -18,6 +18,7 @@ def compose(old,native):
         assert r['relocated_reopen'] and r['parameter_restore_mm']==[0,.2,0]
         assert e['printing']['fits_with_5mm_brim']
         p=dict(previous or {},part=name,path=e['path'],sha256=e['sha256'],native=r['native'],native_object=r['object'],quantity=1,printing=e['printing'])
+        if r.get('junction_supplement'):p['junction_supplement']=r['junction_supplement']
         if previous:p['superseded_export']=previous['path']
         return p
     for r in old['prints']:prints.append(replacement(r['part'],r) if r['part'] in rows else dict(r))
@@ -37,11 +38,24 @@ def run():
     for receipt in (old,native):
         for n,h in receipt['source_sha256'].items():assert SHA(ROOT/n)==h,n
     for r in native['models']:assert SHA(ROOT/r['path'])==r['sha256']
+    supplements=[]
+    for r in native['parts']:
+        if not r.get('junction_supplement'):continue
+        q=r['junction_supplement'];f=ROOT/q['path'];assert SHA(f)==q['sha256'];proof=json.loads(f.read_text())
+        assert proof['status']=='CAUSAL_JUNCTION_NATIVE_AND_CLOSED_STL_COMPLETE'
+        assert not proof['contacts'] and proof['one_solid_BOP0'] and proof['relocated_reopen']
+        assert proof['mesh']==dict(closed=True,nonmanifolds=False,components=1)
+        assert proof['junction_parameter_restore_mm']==[1.6,1.8,1.6]
+        for n,h in proof['source_sha256'].items():assert SHA(ROOT/n)==h,n
+        supplements.append((f,proof))
     prints,lace=compose(old,native)
     for r in prints:assert SHA(ROOT/r['path'])==r['sha256']
     files=[oldfile,nf,Path(__file__)]+[ROOT/r['path'] for r in prints]+[ROOT/r['path'] for r in native['models']]
+    files.extend(f for f,_ in supplements)
     result=dict(status='ONE_CURRENT14_PRINT_OPERATING_COMPOSITION_NOT_WHOLE_RELEASE',prints=prints,
         physical_print_quantity=14,replacement_parent_quantity=4,new_separate_rail_quantity=1,lacing=lace,
+        builder_new_fully_constrained_sketches=native['fully_constrained_new_sketches'],
+        supplemental_junction_new_sketches=sum(p['fully_constrained_new_sketches'] for _,p in supplements),
         source_sha256={f.relative_to(ROOT).as_posix():SHA(f) for f in files},worker_seconds=round(time.monotonic()-tick,3),
         rail_hardware_candidate=native['new_rail_hardware_candidate'],case_only_adhesive_patches=12,
         scope='Current body support subset only, not total cat part count. No duplicate Frames/Upper or historical snapshots in quantities.',

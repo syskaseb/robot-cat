@@ -1,5 +1,5 @@
 {
-  "status": "OPERATING_NATIVE_EXPORTS_PARTIAL",
+  "status": "UPPER_CAUSAL_JUNCTION_EXPORT_COMPLETE_THREE_FRAMES_OPEN",
   "parts": [
     {
       "part": "SourceGripRail",
@@ -17,16 +17,26 @@
     },
     {
       "part": "UpperCarrier001",
-      "object": "UpperCarrier001OperatingCurrent",
-      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingCurrent.FCStd",
+      "object": "UpperCarrier001OperatingJunctionCurrent",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingJunctionCurrent.FCStd",
       "quantity": 1,
-      "volume_mm3": 112301.24591097361,
+      "volume_mm3": 112322.99034617067,
       "retained_native_history": true,
       "original_material_preserved": true,
       "parameter_restore_mm": [
         0,
         0.2,
         0
+      ],
+      "relocated_reopen": true,
+      "junction_supplement": {
+        "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/upper-junction-native.json",
+        "sha256": "7699c0d77a804adfcd32fdee63b42ddf6b70dffbbfb8ba3b1fcfcccfd4b4af4c"
+      },
+      "junction_parameter_restore_mm": [
+        1.6,
+        1.8,
+        1.6
       ]
     }
   ],
@@ -51,12 +61,41 @@
         ],
         "support_and_slicer_validation": false
       }
+    },
+    {
+      "part": "UpperCarrier001",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperCarrier001_junction_operating_x1.stl",
+      "sha256": "25ccffe1284793c318cf93fe160549d68e84d7a4a3e1c254b78c554af090054b",
+      "quantity": 1,
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          179.48,
+          245.6,
+          169.9
+        ],
+        "rotation_quaternion": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "support_and_slicer_validation": false
+      },
+      "junction_supplement": {
+        "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/upper-junction-native.json",
+        "sha256": "7699c0d77a804adfcd32fdee63b42ddf6b70dffbbfb8ba3b1fcfcccfd4b4af4c"
+      }
     }
   ],
   "models": [
     {
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingCurrent.FCStd",
       "sha256": "b833a7adc0f94cafd07277820d26ebcbcbd8c68f20d70914f9d7f15c9e3509de"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingJunctionCurrent.FCStd",
+      "sha256": "7c98a5415a7845bd851963f2d68fb72d89cc7fddbd13c3fa1ca6bb9472d602af"
     }
   ],
   "partial_models": [
