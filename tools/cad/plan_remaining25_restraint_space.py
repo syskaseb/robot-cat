@@ -6,6 +6,8 @@ Same-parent roots/native case mounting remain separate mandatory results.
 import json
 import math
 import time
+import hashlib
+import subprocess
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -13,6 +15,12 @@ from current_source_retention_context import context, same_parent, P, C
 from check_main_p0_placement import SavedShapes
 from loom_land_port import box
 from current_work_guard import check
+from remaining25_shared_context import load as current_context
+
+
+def own_wire_name(name,wires):
+    local=name.rsplit('/',1)[-1]
+    return local in wires or local.removesuffix('_FACTORY').removesuffix('_CUSTOM') in wires
 
 
 def normals(axis, common):
@@ -57,32 +65,35 @@ def profile(g,normal,knot_sign):
                     physical_retention_verified=False))
 
 
-def current_context():
-    targets,wires,pins,oldprofiles,recipes,parents,grips=context()
-    f=P.OUT/'local-source-retention-native/manifest.json';p=json.loads(f.read_text())
-    assert p['status']=='THIRTEEN_SOURCE_LANDS_FIVE_NATIVE_PARENT_REPLACEMENTS_COMPLETE'
-    reader=SavedShapes()
-    for r in p['models']:assert P.SHA(P.ROOT/r['path'])==r['sha256']
-    for r in p['parts']:
-        shape=reader.shape(P.ROOT/r['native'],r['object']);owner=r['part']
-        parents[owner]=shape
-        if owner in ('LeftRiser','RightRiser'):targets['neck/'+owner]=shape
-        else:targets['CurrentNative/'+owner]=shape
-        for name in r['lacing_reference_objects']:
-            targets['RetainedSourceLacing/'+name]=reader.shape(P.ROOT/r['native'],name)
-    pins.update(reader.hashes);pins[f.relative_to(P.ROOT).as_posix()]=P.SHA(f)
-    return targets,wires,pins,parents,grips
-
-
-def run():
+def run(resume_commit=None):
     check();tick=time.monotonic();pf=P.OUT/'remaining25-interface-allocation.json';p=json.loads(pf.read_text())
     assert p['physical_ends']==66 and len(p['groups'])==55
     for n,h in p['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
     targets,wires,pins,parents,grips=current_context()
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (pf,Path(__file__))})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'remaining25-restraint-pairs.json',bounds.near)
-    rows=[];errors=[];checks=0;accepted={};domains={};failures=[];materials={}
+    rows=[];errors=[];checks=0;accepted={};domains={};failures=[];materials={};inherited=None
     endpoints={e['id']:e for e in p['ends']}
+    frozen={g['id']:g for g in p['groups']}
+    if resume_commit:
+        name=(P.OUT/'remaining25-restraint-space.json').relative_to(P.ROOT).as_posix()
+        raw=subprocess.check_output(['git','show',resume_commit+':'+name],cwd=P.ROOT);old=json.loads(raw)
+        for n,h in old['source_sha256'].items():
+            if n==Path(__file__).relative_to(P.ROOT).as_posix():
+                code=subprocess.check_output(['git','show',resume_commit+':'+n],cwd=P.ROOT)
+                assert h in {hashlib.sha256(v).hexdigest() for v in (code,code.replace(b'\r\n',b'\n'),code.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))}
+            else:assert P.SHA(P.ROOT/n)==h,('Changed inherited material',n)
+        assert not old['errors']
+        for row in old['groups']:
+            if not row['qualified_options']:continue
+            gid=row['id'];options=[]
+            for record in row['qualified_options']:
+                r=record['recipe'];q=profile(frozen[gid],r['normal'],r['knot_sign'])
+                assert q['recipe']==r and q['root_tip_mm']==record['root_tip_mm']
+                options.append(q)
+            materials[gid]=options;rows.append(dict(row,inherited_from=resume_commit));domains[gid]=row['qualified_options']
+        inherited=dict(git_commit=resume_commit,raw_sha256=hashlib.sha256(raw).hexdigest(),groups=list(materials),
+            basis='Identical geometry and world inputs. Old own-wire treatment was stricter, so its positive domains remain valid. Factory alias correction only changes own-band clearance to the existing physical-radius rule; foreign-wire margin stays0.25mm.')
     def hit(a,b,r=0):
         nonlocal checks
         if not bounds.near(a,b,r+.0001):return False
@@ -95,7 +106,7 @@ def run():
             errors.append(str(e));return True
     def save(status):
         result=dict(status=status,groups=rows,domains=domains,selected_options=accepted,
-            failed_groups=failures,errors=errors,checks=checks,
+            failed_groups=failures,errors=errors,checks=checks,inherited_qualified_domains=inherited,
             worker_seconds=round(time.monotonic()-tick,3),source_sha256=pins,
             scope='Current55 new insulation saddles/loops against current36/retained19/25 and13 native source lands. '
                   'Nominal purchased envelopes are conservative allocation constraints, not proof of a physical supplier collision. '
@@ -106,6 +117,7 @@ def run():
         f=P.OUT/'remaining25-restraint-space.json';tmp=f.with_suffix('.tmp')
         tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
     for g in p['groups']:
+        if g['id'] in materials:continue
         check();gid=g['id'];row=dict(id=gid,qualified_options=[],rejected=[]);rows.append(row)
         own={endpoints[e]['wire'] for e in g['ends']}
         options=[]
@@ -122,7 +134,7 @@ def run():
                         if len(contacts)>=3:break
                     if len(contacts)>=3:break
                     for n,(w,r) in wires.items():
-                        own_wire=any(n==wid or n in ('wire/'+wid,wid+'_FACTORY',wid+'_CUSTOM') for wid in own)
+                        own_wire=own_wire_name(n,own)
                         if hit(s,w,r if kind=='band' and own_wire else r+.25):
                             contacts.append(dict(part=kind,obstacle=n))
                             if len(contacts)>=3:break
@@ -165,4 +177,7 @@ def run():
     print('remaining25 shared',clear,'groups',len(accepted),'pairs',checks,'seconds',round(time.monotonic()-tick,3),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit')
+    run(parser.parse_args().resume_commit)
