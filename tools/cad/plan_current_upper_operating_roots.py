@@ -4,7 +4,7 @@ Actual retained native structure anchors every branch. Bank4mm trunks may
 support insulation-only saddles, never substitute a wire pilot for a case load
 root. No normal wires move and no rejected parking geometry is installed.
 """
-import argparse,json,itertools,math,time
+import argparse,json,itertools,math,time,subprocess,hashlib
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -22,7 +22,19 @@ def printable(parent,body,points,half):
     return max(b.XLength,b.YLength,b.ZLength)+10<=256+1e-6
 
 
-def run(resume=False):
+def arrival_goal(row):
+    goal=list(row['goal'])
+    if row['kind']=='MTA_case_shelf':
+        # Root against the printed side, not into the adhesive interface.
+        # A case backer preflight does not qualify an arbitrary4mm arrival
+        # cube. Derive this once from the entire reserved adhesive face.
+        side=1 if goal[1]>0 else -1
+        a=row['recipe']['adhesive_bounds_mm'];face=a[1] if side==1 else a[4]
+        goal[1]=face-side*(row['half'][1]+.1)
+    return goal
+
+
+def run(resume=False,arrival_fix_from=None):
     check();tick=time.monotonic();scene=prepare();targets=scene['targets'];wires=scene['wires']
     file=P.OUT/'current-upper-operating-roots.json';preflight_file=P.OUT/'source-case-retention-space.json'
     preflight=json.loads(preflight_file.read_text())
@@ -33,7 +45,7 @@ def run(resume=False):
         preflight_file,Path(__file__),Path(__file__).with_name('source_arm_reservations.py'),
         Path(__file__).with_name('plan_remaining_loom_support_paths.py'))})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'current-upper-operating-root-pairs.json',bounds.near)
-    records=[];errors=[];checks=0;mesh_cache={};wire_cache={};additions={}
+    records=[];errors=[];checks=0;mesh_cache={};wire_cache={};additions={};inherited=None
     parents={o:s.copy() for o,s in scene['parents'].items()}
     for n,s in targets.items():
         for o in parents:
@@ -45,6 +57,7 @@ def run(resume=False):
             retired_old_Upper_roots=24,retired_Upper_native_children=scene['retired_Upper_native_children'],
             actual_bank_roots_retained=True,normal_wires_unchanged=True,in_robot_parking=False,
             worker_seconds=round(time.monotonic()-tick,3),source_sha256=pins,
+            inherited_root_receipt=inherited,
             open=['Native replacement unions,parameter/reopen,closed exports','Whole W5 selection/stock','A2 unpowered assembly/handling sequence'],
             selected=False,W5_complete=False,A2_complete=False,physical_pass=False)
         tmp=file.with_suffix('.tmp');tmp.write_text(json.dumps(p,indent=2)+'\n');tmp.replace(file);cache.save()
@@ -59,18 +72,30 @@ def run(resume=False):
         for i,(a,b) in enumerate(zip(r['path'],r['path'][1:])):
             s=arm_box(a,b,half);n='AcceptedRoot/'+owner+'/'+r['id']+'/'+str(i)
             additions[n]=(s,owner);parents[owner]=Part.makeCompound([parents[owner],s])
-    if resume and file.exists():
-        old=json.loads(file.read_text());assert old['source_sha256']==pins and not old['errors']
+    if (resume or arrival_fix_from) and file.exists():
+        raw=file.read_bytes();old=json.loads(raw);assert not old['errors']
+        if arrival_fix_from:
+            key=Path(__file__).relative_to(P.ROOT).as_posix()
+            code=subprocess.check_output(['git','show',arrival_fix_from+':'+key],cwd=P.ROOT)
+            versions=(code,code.replace(b'\r\n',b'\n'),code.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))
+            assert old['source_sha256'][key] in {hashlib.sha256(v).hexdigest() for v in versions}
+            assert {n:h for n,h in old['source_sha256'].items() if n!=key}=={n:h for n,h in pins.items() if n!=key}
+            inherited=dict(receipt_sha256=hashlib.sha256(raw).hexdigest(),planner_source_commit=arrival_fix_from,
+                basis='Only failed MTA arrival blocks derive a new glue-safe root goal; all input geometry,old accepted paths and native anchors unchanged.')
+        else:assert old['source_sha256']==pins
+        chosen={r['id']:r for r in scene['rows']}
         for r in old['groups']:
-            if r.get('path'):records.append(r);install(r)
+            if r.get('path'):
+                q=chosen[r['id']];assert r['goal']==arrival_goal(q) and r['recipe']==q['recipe'] and r['half_mm']==q['half']
+                records.append(r);install(r)
         print('reused accepted pinned operating roots',len(records),flush=True)
     done={r['id'] for r in records}
     order=sorted(scene['rows'],key=lambda r:(r['kind']=='wire_saddle',r['owner'],r['id']))
     save()
     for q in order:
         if q['id'] in done:continue
-        owner=q['owner'];goal=q['goal'];half=q['half'];allowed=scene['owned'][owner]
-        r=dict(id=q['id'],owner=owner,kind=q['kind'],goal=goal,half_mm=half,recipe=q['recipe'],path=None,rejections=[])
+        owner=q['owner'];goal=arrival_goal(q);half=q['half'];allowed=scene['owned'][owner]
+        r=dict(id=q['id'],owner=owner,kind=q['kind'],goal=goal,provided_goal=q['goal'],half_mm=half,recipe=q['recipe'],path=None,rejections=[])
         records.append(r);save()
         local={n:v for n,v in additions.items() if v[1]!=owner}
         def blocked(s):
@@ -122,4 +147,5 @@ def run(resume=False):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--resume',action='store_true');run(parser.parse_args().resume)
+    parser=argparse.ArgumentParser();parser.add_argument('--resume',action='store_true');parser.add_argument('--arrival-fix-from')
+    args=parser.parse_args();run(args.resume,args.arrival_fix_from)
