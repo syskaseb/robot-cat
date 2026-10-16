@@ -1,0 +1,79 @@
+{
+  "result_id": "E3",
+  "status": "MANUFACTURER_DATA_REQUESTS_PREPARED_NOT_SENT",
+  "selected": false,
+  "E3_complete": false,
+  "physical_pass": false,
+  "power_authorized": false,
+  "review_started_utc": "2026-10-16T20:36:42Z",
+  "current_score": {"count": 19, "fixed_total": 20, "percent": 95},
+  "preserved_package_commit": "d8f11c9",
+  "no_selected_CAD_BOM_or_manifest_changes": true,
+  "primary_document_findings": [
+    {
+      "part": "Gens Ace GEA223S30X6GT",
+      "url": "https://gensace.de/products/gens-ace-g-tech-soaring-2200mah-11-1v-30c-3s1p-lipo-battery-pack-with-xt60-plug",
+      "confirmed": "Exact selected SKU, 3S/11.1V, 2200mAh, 30C.",
+      "not_found_in_reviewed_page": "Guaranteed source fault-current upper bound or defensible lower impedance bound across relevant temperature, SOC and tolerance.",
+      "inference_not_guarantee": "Continuous discharge capability is not a short-circuit ceiling."
+    },
+    {
+      "part": "Pololu MAIN4853 D30V33MAL",
+      "url": "https://www.pololu.com/product/4853",
+      "confirmed": "Actual selected adjustable MAIN, not retired D24V90F5/2866; manufacturer lists soft start and short-circuit/over-current protection.",
+      "not_found_in_reviewed_page": "Guaranteed fault-current/time and combined inrush/reverse-energy envelope for this assembly. Typical available output current is not that guarantee."
+    },
+    {
+      "part": "Pololu AUX4092 D36V50F6",
+      "url": "https://www.pololu.com/product/4092",
+      "confirmed": "Actual selected separate6V AUX; manufacturer lists soft start and short-circuit/over-current protection.",
+      "not_found_in_reviewed_page": "Guaranteed fault-current/time, admissible regenerated energy and worst-case switched input current for current loads. Input reverse-polarity protection is not an output backfeed guarantee."
+    }
+  ],
+  "requests": [
+    {
+      "to_organization": "Gens Ace technical support, via selected pack supplier if necessary",
+      "parts": ["GEA223S30X6GT"],
+      "questions": [
+        "Provide a guaranteed maximum prospective short-circuit current, or a defensible minimum complete source impedance, including supplied leads/XT60 and temperature/SOC/tolerances.",
+        "Identify the supported DC fuse interruption requirement and application limitations for this exact pack."
+      ],
+      "acceptance": "Together with documented complete-loop lower resistance, establish Iprospective_max within the exact F0/holder interruption capability. At12.6V and1000A the complete-loop comparison is12.6milliohm; this is a conditional calculation, not a measured pack property.",
+      "blocked_by": "No such guaranteed source bound in the reviewed product page. No destructive short test authorized."
+    },
+    {
+      "to_organization": "Waveshare/Feetech and TowerPro, via exact servo suppliers",
+      "parts": ["12selected ST3215 servos and supplied cables/contacts", "3selected MG92B servos and supplied cables/contacts"],
+      "questions": [
+        "Identify exact delivered servo/cable/contact revisions, conductor copper area and material, insulation temperature rating and connector contact part/rating.",
+        "Provide supported continuous/peak lead and contact currents plus fault withstand or permitted protective-device data under stated installation conditions."
+      ],
+      "acceptance": "Every15factory lead/contact set must have a supported limit for its actual protection scenario; dimensions, nominal stall current or an aftermarket cable recommendation do not establish it.",
+      "blocked_by": "Exact delivered electrical lead/contact limits remain unknown; do not replace them with STEP dimensions or guessed AWG."
+    },
+    {
+      "to_organization": "Littelfuse and MTA application support",
+      "parts": ["ATOF287:30A/4A/3A/1A", "MTA MiniVAL10A", "Littelfuse0242.100UAT1", "FHAC0002ZXJ/FHAC0001ZXJ and selected MTA holders"],
+      "questions": [
+        "Provide guaranteed total-clearing limits, not only typical meltingI2t, at the project's actual DC fault-current range and installation/temperature conditions.",
+        "Confirm relevant holder interruption compatibility and data for checking the thinner input segments before branch fuses, using actual conductor thermal limits."
+      ],
+      "acceptance": "Complete clearing/let-through must be checked against each protected lead, including thinner pre-branch-fuse segments. Full selectivity is not invented as an extra target; the necessary conductor/source protection still needs evidence.",
+      "blocked_by": "Depends on source fault bound and actual conductor/contact data; a50mm routing rule is not thermal qualification."
+    },
+    {
+      "to_organization": "Pololu and NKK application support",
+      "parts": ["MAIN4853 D30V33MAL", "AUX4092 D36V50F6", "NKK S821, not S821D"],
+      "questions": [
+        "Provide maximum input inrush and fault-output current versus time/tolerance for the exact regulators and required operating range.",
+        "State whether each output can accept reverse/regenerated energy, under what limits and power sequencing, without assuming that input reverse-polarity protection covers this.",
+        "Confirm S821 suitability for the actual combined DC capacitive/converter load using supported inrush and switching data, without transferring AC motor or S821D ratings."
+      ],
+      "acceptance": "A supported combined current/energy and switching envelope is required for actual rails. No parallel converter outputs, added GUARD/BMS or imagined clamps/current limiters.",
+      "blocked_by": "Published typical load and generic protection-feature lists do not close the required worst-case envelopes."
+    }
+  ],
+  "outreach_authorized": false,
+  "outreach_sent": false,
+  "next_action": "Request human authorization for supplier/manufacturer correspondence, or obtain the missing authoritative data from the user. Preserve95percent; do not rerun CAD or waive E3."
+}
