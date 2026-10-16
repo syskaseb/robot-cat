@@ -4,6 +4,7 @@ All retained material/motion/source factory feeds remain.24 explicitly changed
 wire curves and12 terminal-side saddle groups cannot inherit qualification.
 """
 import json
+import argparse
 import time
 from pathlib import Path
 import FreeCAD as A
@@ -15,7 +16,13 @@ from rear_face_bank_layout import layout
 from current_work_guard import check
 
 
-def run():
+def run(variant='rear'):
+    if variant=='underdeck':
+        from underdeck_bank_layout import layout as build_layout
+    else:build_layout=layout
+    stem='underdeck-bank' if variant=='underdeck' else 'rear-face-bank'
+    label='UNDERDECK_BANK' if variant=='underdeck' else 'REAR_BANK'
+    panel_name='UnderdeckBankPanel' if variant=='underdeck' else 'RearBankPanel'
     check();tick=time.monotonic();targets,wires,pins,parents,grips=load()
     names=['body36-current-contract','remaining25-interface-allocation',
            'remaining25-restraint-space','remaining25-saddle-roots']
@@ -24,7 +31,8 @@ def run():
     assert roots['accepted_groups']==54 and not roots['errors']
     for receipt in (saddles,roots):
         for n,h in receipt['source_sha256'].items():assert P.SHA(P.ROOT/n)==h,n
-    q=layout(targets,contract,allocation)
+    q=build_layout(targets,contract,allocation)
+    prefix=q.get('component_prefix','RearBank/')
     changed_ends={e['id'] for e in allocation['ends'] if e['wire'] in q['changed_wire_ids'] and e['role'].startswith('F_') and e['role'].endswith('.in')}
     old_groups={g['id']:g for g in saddles['spatial_groups']}
     superseded_groups={gid for gid,g in old_groups.items() if any(e in changed_ends for e in g['ends'])}
@@ -44,9 +52,11 @@ def run():
     for n in retired_wires:wires.pop(n)
     files.extend(Path(__file__).with_name(n) for n in ('rear_face_bank_layout.py','current_bank_datums.py',
         'plan_axial_source_supports.py','plan_rear_face_bank_space.py'))
+    if variant=='underdeck':
+        files.extend([Path(__file__).with_name('underdeck_bank_layout.py'),P.ROOT/q['panel_recipe']['source']])
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
-    bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'rear-face-bank-pairs.json',bounds.near)
-    checks=0;errors=[];records=[];service=[];installed=dict(q['parts'],RearBankPanel=q['panel'])
+    bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/(stem+'-pairs.json'),bounds.near)
+    checks=0;errors=[];records=[];service=[];installed=dict(q['parts']);installed[panel_name]=q['panel']
     def save(status):
         result=dict(status=status,layout=q['records'],panel_recipe=q['panel_recipe'],basis=q['basis'],
             material=records,service=service,checks=checks,errors=errors,source_sha256=pins,
@@ -59,20 +69,20 @@ def run():
                   'Changed12 terminal-side saddles,12 output receivers and independent wire roots',
                   'Actual panel support/fasteners/snap/tool fit/native CAD/whole stock/assembly'],
             worker_seconds=round(time.monotonic()-tick,3),selected=False,W5_complete=False,M4_complete=False,physical_pass=False)
-        f=P.OUT/'rear-face-bank-space.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
+        f=P.OUT/(stem+'-space.json');tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
     def hit(a,b,r=0):
         nonlocal checks
         if not bounds.near(a,b,r+.0001):return None
         if r and not b.Solids and len(b.Edges)>1:
             return next((v for e in b.Edges if (v:=hit(a,e,r)) is not None),None)
         try:check()
-        except TimeoutError as e:errors.append(str(e));save('REAR_BANK_GUARDED_PARTIAL');raise
+        except TimeoutError as e:errors.append(str(e));save(label+'_GUARDED_PARTIAL');raise
         checks+=1
         try:gap,volume=cache.check(a,b,0,r)
         except (AssertionError,RuntimeError,ValueError) as e:errors.append(str(e));return dict(error=str(e))
         if volume>1e-5 or (r and gap<r-1e-6):return dict(volume_mm3=volume,gap_mm=gap,required_mm=r)
         return None
-    save('REAR_BANK_PREFLIGHT_STARTED')
+    save(label+'_PREFLIGHT_STARTED')
     for n,s in installed.items():
         row=dict(part=n,contacts=[],assigned_catalog_fit_interfaces=[]);records.append(row)
         for m,t in targets.items():
@@ -83,25 +93,27 @@ def run():
             if m==n:continue
             v=hit(s,t)
             if v is None:continue
-            if (n=='RearBankPanel' and m.endswith('/Housing')) or (m=='RearBankPanel' and n.endswith('/Housing')):
+            if (n==panel_name and m.endswith('/Housing')) or (m==panel_name and n.endswith('/Housing')):
                 row['assigned_catalog_fit_interfaces'].append(dict(part=m,**v));continue
             row['contacts'].append(dict(obstacle=m,**v))
-        save('REAR_BANK_INSTALLED_MATERIAL_IN_PROGRESS')
-        print('rear bank',n,'contacts',len(row['contacts']),'pairs',checks,flush=True)
+        save(label+'_INSTALLED_MATERIAL_IN_PROGRESS')
+        print(variant,'bank',n,'contacts',len(row['contacts']),'pairs',checks,flush=True)
     all_targets=dict(targets,**installed)
     for name,s in {**q['sweeps'],**q['jaws']}.items():
         row=dict(id=name,contacts=[]);service.append(row)
         own=name.split('/')[0]
         for m,t in all_targets.items():
-            if m=='RearBank/'+own+'/ATO' or not t.Solids:continue
+            if m==prefix+own+'/ATO' or not t.Solids:continue
             if (v:=hit(s,t)) is not None:row['contacts'].append(dict(obstacle=m,**v))
         for m,(w,r) in wires.items():
             if (v:=hit(s,w,r+.25)) is not None:row['contacts'].append(dict(obstacle=m,**v))
-        save('REAR_BANK_PROJECT_SERVICE_IN_PROGRESS')
-        print('rear service',name,'contacts',len(row['contacts']),flush=True)
+        save(label+'_PROJECT_SERVICE_IN_PROGRESS')
+        print(variant,'service',name,'contacts',len(row['contacts']),flush=True)
     clear=not errors and not any(r['contacts'] for r in records+service)
-    save('REAR_BANK_NECESSARY_SPACE_CLEAR_CHANGED_ROUTES_ROOTS_NATIVE_OPEN' if clear else 'REAR_BANK_PREFLIGHT_REQUIRES_CHANGED_LAYOUT')
+    save(label+('_NECESSARY_SPACE_CLEAR_CHANGED_ROUTES_ROOTS_NATIVE_OPEN' if clear else '_PREFLIGHT_REQUIRES_CHANGED_LAYOUT'))
     print(json.dumps(dict(parts=len(records),services=len(service),contacts=sum(len(r['contacts']) for r in records+service),checks=checks,seconds=round(time.monotonic()-tick,3))),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--layout',choices=['rear','underdeck'],default='rear')
+    run(parser.parse_args().layout)
