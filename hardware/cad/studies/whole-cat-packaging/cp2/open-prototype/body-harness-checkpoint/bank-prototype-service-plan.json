@@ -6,7 +6,7 @@
     "Cut only W043 end lacing. Keep other three heavy ends in removable rail; remove its two M3 fasteners. Reorient+90degX about bolt row then park inward/down in defined cradles, not on floating wires.",
     "Park short F_PI lead separately with exact unchanged length/R6 and a defined open parking cradle; no pre-fuse extension.",
     "G1+five current ground ends get one calculated4.5mm northward relocation; whole five full curves and independent lands need changed-interface gate.",
-    "W041 factory bend moves UP, full custom continuation follows; W042 custom northward transfer is delayed until above ATO service. Keep source case poses/radii/usable factory lead bound.",
+    "Keep normal W041 factory/custom geometry. Permanent UP relocation failed shared S1 wire clearance in0b11f99, so do not rerun it or force global source reroutes. Left-bank service also needs explicit release of two W041 joint ends and qualified temporary parking; joint support/levers still OPEN.",
     "Right bank data W011 and AUX VOUT XA03 need explicit changed route or a qualified limited temporary release/parking; W1 must not inherit invalidated geometry.",
     "Reroot only Upper wire arms intersecting the41service map, using all12ATO/jaw reservations; retain twelve new bank load roots and four native Frames unless a real new contact invalidates them."
   ],
@@ -938,11 +938,13 @@
     "base_bounds_mm": [
       15,
       61.5,
-      153.4,
+      154.0,
       49,
       65,
-      155.4
+      156.0
     ],
+    "plate_stack_raise_mm": 0.6,
+    "plate_raise_basis": "Keep current factory wireZ151.4/OD4.2 plus.25margin: plate bottom>=153.75. Use154.0; source clamp lands and all WAGO/holder/wire poses remain unchanged.",
     "parking_transform": {
       "rotation_deg_X": 90,
       "pivot_mm": [
@@ -985,52 +987,52 @@
       [
         8,
         50,
-        151.4
+        152.0
       ],
       [
         56,
         50,
-        151.4
+        152.0
       ]
     ],
     "stationary_boss_bounds_mm": [
       [
         3.75,
         45.75,
-        149.4,
+        150.0,
         12.25,
         54.25,
-        153.4
+        154.0
       ],
       [
         51.75,
         45.75,
-        149.4,
+        150.0,
         60.25,
         54.25,
-        153.4
+        154.0
       ]
     ],
     "structural_root_goals_mm": [
       [
         12,
         50,
-        151.4
+        152.0
       ],
       [
         52,
         50,
-        151.4
+        152.0
       ]
     ],
     "parked_tab_floor_z_mm": 131.15,
     "parked_tab_y_mm": [
-      40,
-      42
+      39.4,
+      41.4
     ],
     "parking_cradle_candidate_y_mm": [
-      38,
-      44
+      37.4,
+      43.4
     ],
     "parking_cradle_root_paths": null,
     "hardware_candidate": {
@@ -1044,17 +1046,17 @@
       "trap_AF_mm": 5.7,
       "trap_depth_mm": 2.6,
       "nut_z_mm": [
-        149.5,
-        151.9
+        150.1,
+        152.5
       ],
       "roof_mm": 1.4,
       "washer_z_mm": [
-        155.4,
-        155.9
+        156.0,
+        156.5
       ],
       "screw_shank_z_mm": [
-        147.9,
-        155.9
+        148.5,
+        156.5
       ],
       "nominal_tip_below_nut_mm": 1.6
     },
@@ -1496,8 +1498,8 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/ground-tree-plan.json": "883089570ab12a1acfa7fdab72c22e6237c680861883d2bfa147e058bfd30943",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-roots.json": "c3cf297618d7918a6e201dc2e5563ce439ff5cc84c68afeeca7200c8ac7e3c94",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-bank-cradle-space.json": "15cd0a5315f027fc008aa9640e8f6bae70720e3e92d8a6d63526eb5c746959d5",
-    "tools/cad/plan_bank_prototype_service.py": "bcd0458112de4cc5c7413ab1f19d8df3b3f210c6d22ca0321b11254b759c596c",
+    "tools/cad/plan_bank_prototype_service.py": "f42f0e496aad391eaf4a2c3a8ba4d3b20b1e08bee67db2015e935f8714898284",
     "hardware/reference/power-distribution-2026-09-23/WAGO-221-615.pdf": "fa0c8a23c9823e904324b059d28548d61ddcb04a8538f74d23e7c40f83c6e05b"
   },
-  "worker_seconds": 0.0
+  "worker_seconds": 0.016
 }

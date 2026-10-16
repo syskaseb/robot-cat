@@ -4,7 +4,7 @@ Keep actual four native Frames, all current wires/parts and new12 bank roots.
 Retire ONLY four named Upper source-grip children and two moved W041 groups.
 Parking remains incomplete until three full fixed-length heavy curves exist.
 """
-import json,time
+import argparse,json,time
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -20,7 +20,7 @@ from bank_service_source_routes import routes
 from current_work_guard import check
 
 
-def run():
+def run(retained_operating=False):
     check();tick=time.monotonic();targets,wires,pins,parents,grips=load();reader=SavedShapes()
     names=['bank-prototype-service-plan','current-body-native-composition','local-source-retention-native/manifest',
         'remaining25-restraint-space','remaining25-saddle-roots','individual-bank-roots','mta-interface-plan','main-source-plan']
@@ -47,7 +47,7 @@ def run():
         if same_parent('UpperCarrier001',n,grips) or any(n=='RetainedSourceLacing/'+ref for ref in upper['lacing_reference_objects']):targets.pop(n)
     targets['CurrentNative/UpperCarrier001']=retained
     # Full current fixed saddles. Only the two moved W041 joint ends retire.
-    moved_groups={'W041/factory/end','W041/custom/start'};groups={g['id']:g for g in saddles['spatial_groups']}
+    moved_groups=set() if retained_operating else {'W041/factory/end','W041/custom/start'};groups={g['id']:g for g in saddles['spatial_groups']}
     for r in roots['groups']:
         if r['id'] in moved_groups:continue
         rec=r['recipe'];q=profile(groups[r['id']],rec['normal'],rec['knot_sign']);assert q['recipe']==rec
@@ -63,19 +63,22 @@ def run():
         targets['CurrentBankOwned/'+r['id']+'/Leaf']=arm_box(*r['leaf_points'],bank['leaf_half_mm'])
         for i,(a,b) in enumerate(zip(r['path'],r['path'][1:])):
             targets['CurrentBankOwned/'+r['id']+'/'+str(i)]=arm_box(a,b,bank['trunk_half_mm'])
-    changed=routes(mta,main);old_joint=next(r for r in mta['joints'] if r['id']=='W041_Joint')
-    origin=old_joint['factory_entry_mm'];end=changed['W041_FACTORY']['parts'][-1]['end']
-    rot=A.Rotation(A.Vector(1,0,0),-90);pose=A.Placement(A.Vector(*end)-rot.multVec(A.Vector(*origin)),rot)
-    joints=[n for n in targets if n.split('/')[0]=='W041_Joint'];assert joints
-    moved_joint_shapes={}
-    for n in joints:
-        s=targets.pop(n).copy();s.Placement=pose*s.Placement;moved_joint_shapes['Changed/'+n]=s
-    retired_wires=[n for n in wires if n.rsplit('/',1)[-1] in changed];assert len(retired_wires)==2
+    changed={} if retained_operating else routes(mta,main)
+    joints=[];moved_joint_shapes={}
+    if changed:
+        old_joint=next(r for r in mta['joints'] if r['id']=='W041_Joint')
+        origin=old_joint['factory_entry_mm'];end=changed['W041_FACTORY']['parts'][-1]['end']
+        rot=A.Rotation(A.Vector(1,0,0),-90);pose=A.Placement(A.Vector(*end)-rot.multVec(A.Vector(*origin)),rot)
+        joints=[n for n in targets if n.split('/')[0]=='W041_Joint'];assert joints
+        for n in joints:
+            s=targets.pop(n).copy();s.Placement=pose*s.Placement;moved_joint_shapes['Changed/'+n]=s
+    retired_wires=[n for n in wires if n.rsplit('/',1)[-1] in changed];assert len(retired_wires)==(0 if retained_operating else 2)
     for n in retired_wires:wires.pop(n)
     q=material(plan);operating=dict(q['parts'],**{'RailBand/'+g:s for g,s in q['bands'].items()},**moved_joint_shapes)
     files.extend(Path(__file__).with_name(n) for n in ('check_bank_prototype_service_space.py','bank_prototype_service_material.py','bank_service_source_routes.py','plan_individual_bank_seats.py'))
     pins.update(reader.hashes);pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
-    bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'bank-prototype-service-pairs.json',bounds.near)
+    stem='bank-prototype-retained' if retained_operating else 'bank-prototype-service'
+    bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/(stem+'-pairs.json'),bounds.near)
     checks=0;errors=[];records=[];wire_records=[];park_records=[]
     stationary=set(q['stationary'])
     def save(status):
@@ -85,12 +88,13 @@ def run():
             superseded_wire_instances=retired_wires,moved_joint_instances=joints,
             no_whole_parent_collision_masks=True,existing_other_Upper_wire_roots_retained=True,
             new_part_counts=dict(removable_rail=1,stationary_bosses=2,parking_cups=2,prefuse_parking_seat=1,metal_fasteners=6),
-            scope='Full changed operating rail/hardware/W041factory+custom vs retained scene including4nativeFrames and12bankroots. Parking is NECESSARY contribution ONLY: three heavy whole parked curves/continuous handling not yet provided.',
+            operating_wire_mode='ALL_NORMAL_CURVES_RETAINED' if retained_operating else 'CANDIDATE_W041_UP_PERMANENT_RELOCATION',
+            scope='Full changed operating rail/hardware vs retained scene including4nativeFrames and12bankroots. Normal wire mode explicit. Parking is NECESSARY contribution ONLY: three heavy whole parked curves/continuous handling not yet provided.',
             missing_parked_whole_curves=['W066','W067','W068'],
             open=['Affected Upper wire/support roots and new boss/cup/parking-seat roots','Whole parked heavy curves/slack and actual ATO extraction/restore sequence',
                   'G1/five grounds,W042/W011/XA03 and all remaining41service witnesses','Native editable rail/Upper,whole stock/release'],
             selected=False,W5_complete=False,M4_complete=False,A2_complete=False,physical_pass=False)
-        f=P.OUT/'bank-prototype-service-space.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
+        f=P.OUT/(stem+'-space.json');tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
     def hit(a,b,ra=0,rb=0):
         nonlocal checks
         if not bounds.near(a,b,ra+rb+.0001):return None
@@ -151,9 +155,21 @@ def run():
             if n.rsplit('/',1)[-1] in ('W043','W066','W067','W068'):continue
             if (v:=hit(s,w,0,r+.25)) is not None:row['contacts'].append(dict(obstacle=n,**v))
         save('SERVICE_PARK_MATERIAL_CONTRIBUTION_IN_PROGRESS');print('service park contribution',name,'contacts',len(row['contacts']),flush=True)
+    prefuse=plan['W043_park'];curve=P.wire(prefuse['parts']);radius=prefuse['radius_mm']
+    row=dict(part='WholeParkedW043',contacts=[],unchanged_blank_mm=prefuse['unchanged_factory_blank_mm']);park_records.append(row)
+    for n,t in {**targets,**parked}.items():
+        if not t.Solids:continue
+        own_source=n.startswith(('F_PI_new','F_PI_CP2'))
+        wire=trimmed(prefuse['parts'],'start',radius+.2501) if own_source else curve
+        if (v:=hit(wire,t,radius+.25,0)) is not None:row['contacts'].append(dict(obstacle=n,**v))
+    for n,(wire,r) in wires.items():
+        if n.rsplit('/',1)[-1] in ('W043','W066','W067','W068'):continue
+        if (v:=hit(curve,wire,radius,r+.25)) is not None:row['contacts'].append(dict(obstacle=n,**v))
     save('SERVICE_OPERATING_AND_PARK_MATERIAL_CONTRIBUTION_COMPLETE_NOT_FULL_SERVICE')
     print(json.dumps(dict(parts=len(records),whole_changed_wires=len(wire_records),park_parts=len(park_records),
         contacts=sum(len(r['contacts']) for r in records+wire_records+park_records),checks=checks,seconds=round(time.monotonic()-tick,3))),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--retained-operating',action='store_true')
+    run(parser.parse_args().retained_operating)
