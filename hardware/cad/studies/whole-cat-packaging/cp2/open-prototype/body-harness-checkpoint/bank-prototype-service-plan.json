@@ -1,0 +1,1503 @@
+{
+  "status": "ONE_PROTOTYPE_BANK_SERVICE_PLAN_NOT_GEOMETRY_ACCEPTANCE",
+  "decisions": [
+    "No zero-disconnection service requirement. Keep bank/current24wire ends and P_SYS/F_PI/4MTA poses.",
+    "Before left bank ATO service, de-energized only: label and release exactly four P_SYS terminals1/2/3/5; never disconnect all20WAGO or74 ends.",
+    "Cut only W043 end lacing. Keep other three heavy ends in removable rail; remove its two M3 fasteners. Reorient+90degX about bolt row then park inward/down in defined cradles, not on floating wires.",
+    "Park short F_PI lead separately with exact unchanged length/R6 and a defined open parking cradle; no pre-fuse extension.",
+    "G1+five current ground ends get one calculated4.5mm northward relocation; whole five full curves and independent lands need changed-interface gate.",
+    "W041 factory bend moves UP, full custom continuation follows; W042 custom northward transfer is delayed until above ATO service. Keep source case poses/radii/usable factory lead bound.",
+    "Right bank data W011 and AUX VOUT XA03 need explicit changed route or a qualified limited temporary release/parking; W1 must not inherit invalidated geometry.",
+    "Reroot only Upper wire arms intersecting the41service map, using all12ATO/jaw reservations; retain twelve new bank load roots and four native Frames unless a real new contact invalidates them."
+  ],
+  "P_SYS": {
+    "centre_mm": [
+      32,
+      47.8,
+      161.4
+    ],
+    "casing_mm": [
+      13.5,
+      36.8,
+      155.9,
+      50.5,
+      58.8,
+      166.9
+    ],
+    "entry_axis": [
+      0,
+      1,
+      0
+    ],
+    "ports": {
+      "1": [
+        45.0,
+        58.8,
+        161.4
+      ],
+      "2": [
+        38.5,
+        58.8,
+        161.4
+      ],
+      "3": [
+        32.0,
+        58.8,
+        161.4
+      ],
+      "4": [
+        25.5,
+        58.8,
+        161.4
+      ],
+      "5": [
+        19.0,
+        58.8,
+        161.4
+      ]
+    },
+    "roles": {
+      "1": "W066 S0.out",
+      "2": "W067 S1.2",
+      "3": "W068 S1.5",
+      "4": "NC",
+      "5": "W043 F_PI.in"
+    },
+    "native_mount": "OPEN_UNSELECTED_REPLACEMENT"
+  },
+  "F_PI": {
+    "casing_mm": [
+      8.875,
+      74.5,
+      97.9,
+      29.125,
+      96.5,
+      148.9
+    ],
+    "input_mm": [
+      19,
+      85.5,
+      148.9
+    ],
+    "output_mm": [
+      19,
+      85.5,
+      97.9
+    ],
+    "input_port": "P_SYS.5",
+    "input_factory_blank_mm": 48.62477796076938,
+    "input_source_limit_mm": 50,
+    "output_sleeve_mm": [
+      29,
+      83.1,
+      86.5,
+      49,
+      87.9,
+      91.3
+    ],
+    "output_factory_tip_mm": [
+      43,
+      85.5,
+      88.9
+    ],
+    "output_custom_tip_mm": [
+      35,
+      85.5,
+      88.9
+    ],
+    "output_custom_insulation_start_mm": [
+      43,
+      85.5,
+      88.9
+    ],
+    "output_custom_entry_mm": [
+      58,
+      85.5,
+      88.9
+    ],
+    "output_overlap_mm": 8,
+    "output_sleeve_SKU": "RNF-100-3/16-0-STK",
+    "output_sleeve_blank_mm": 20,
+    "output_joint_basis": "Retained MAIN positive opposed8mm16/18AWG solder lap,20mm RNF sleeve,6mm coverage both sides; actual fit/thermal/pull gate after delivery. Full custom continuation/native grips OPEN.",
+    "native_mount": "OPEN"
+  },
+  "bank_positions_changed": false,
+  "rejected_P_SYS_inward_rotation": {
+    "reason": "Fails necessary50mm pre-fuse blank bound BEFORE CAD",
+    "hypothetical_end_mm": [
+      19.0,
+      36.8,
+      161.4
+    ],
+    "straight_distance_plus_strip_lower_bound_mm": 62.27862368840261,
+    "limit_mm": 50
+  },
+  "removable_rail": {
+    "occupied_ports": {
+      "W066": "1",
+      "W067": "2",
+      "W068": "3",
+      "W043": "5"
+    },
+    "source_grip_records": [
+      {
+        "id": "W066_0_15",
+        "recipe": {
+          "id": "W066_0_15",
+          "wire": "W066",
+          "segment": 0,
+          "source_recipe": "positive-source-plan.json",
+          "project_insulation_radius_mm": 2.1,
+          "bound_ends": [
+            "P_SYS.1"
+          ],
+          "assembly_group": "SOURCE_RECEIVING_CARRIER",
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "centre_world_mm": [
+            45.0,
+            60.3,
+            161.4
+          ],
+          "axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "land_mm": 3,
+          "preceding_guide_mm": 541.825241352717,
+          "recipe_part_index": 15,
+          "offset_on_part_mm": 0,
+          "project_lacing_blank_mm": 150,
+          "structural_root": null,
+          "root_and_contacts_qualified": false,
+          "retention_creep_delivered_fit_gate_open": true,
+          "owner": "UpperCarrier001",
+          "saddle": {
+            "pads": [
+              {
+                "bounds_mm": [
+                  2.6,
+                  -2,
+                  -1.5,
+                  6.6,
+                  2,
+                  1.5
+                ]
+              },
+              {
+                "bounds_mm": [
+                  2.6,
+                  -2,
+                  -4.5,
+                  6.6,
+                  2,
+                  -1.4
+                ]
+              }
+            ],
+            "ring_cut": {
+              "outer": [
+                -2.831,
+                -2.831,
+                -0.9882,
+                7.131,
+                2.831,
+                0.9882
+              ],
+              "inner": [
+                -2.1500000000000004,
+                -2.1500000000000004,
+                -1.6764,
+                6.449999999999999,
+                2.1500000000000004,
+                1.6764
+              ]
+            },
+            "local_to_world": [
+              0.0,
+              1.0,
+              0.0,
+              45.0,
+              0.0,
+              0.0,
+              -1.0,
+              60.3,
+              -1.0,
+              0.0,
+              0.0,
+              161.4,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "knot": [
+              -5.681,
+              -1,
+              -1.5,
+              -2.681,
+              1,
+              0.5
+            ],
+            "project_lacing_blank_mm": 150,
+            "land_mm": 3,
+            "actual_retention_verified": false
+          }
+        },
+        "goal_mm": [
+          45.0,
+          63.3,
+          156.3
+        ],
+        "path": [
+          [
+            84.0,
+            44.0,
+            146.51
+          ],
+          [
+            45.0,
+            44.0,
+            146.51
+          ],
+          [
+            45.0,
+            63.3,
+            146.51
+          ],
+          [
+            45.0,
+            63.3,
+            156.3
+          ]
+        ],
+        "rejections": [],
+        "seat_contacts": [],
+        "touching_printed_parents": [],
+        "parent_candidates": [
+          {
+            "owner": "UpperCarrier001",
+            "patches": [
+              {
+                "point_mm": [
+                  84.0,
+                  44.0,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              },
+              {
+                "point_mm": [
+                  100.24999999999999,
+                  57.5,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              }
+            ]
+          }
+        ],
+        "owner": "UpperCarrier001",
+        "root_subset_verified": true,
+        "search": {
+          "points_mm": [
+            [
+              84.0,
+              44.0,
+              146.51
+            ],
+            [
+              45.0,
+              44.0,
+              146.51
+            ],
+            [
+              45.0,
+              63.3,
+              146.51
+            ],
+            [
+              45.0,
+              63.3,
+              156.3
+            ]
+          ],
+          "method": "shared_surface_elbows"
+        },
+        "inherited_from": "38c622c59cc345be046167d4d65a250c5ac4267f"
+      },
+      {
+        "id": "W067_P_SYS",
+        "recipe": {
+          "id": "W067_P_SYS",
+          "wire": "W067",
+          "bound_ends": [
+            "P_SYS.2"
+          ],
+          "segment": 0,
+          "centre_world_mm": [
+            38.5,
+            60.3,
+            161.4
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "land_mm": 3,
+          "project_insulation_radius_mm": 2.1,
+          "assembly_group": "SOURCE_RECEIVING_CARRIER",
+          "owner": "UpperCarrier001",
+          "saddle": {
+            "pads": [
+              {
+                "bounds_mm": [
+                  2.6,
+                  -2,
+                  -1.5,
+                  6.6,
+                  2,
+                  1.5
+                ]
+              },
+              {
+                "bounds_mm": [
+                  2.6,
+                  -2,
+                  1.4,
+                  6.6,
+                  2,
+                  4.5
+                ]
+              }
+            ],
+            "ring_cut": {
+              "outer": [
+                -2.831,
+                -2.831,
+                -0.9882,
+                7.131,
+                2.831,
+                0.9882
+              ],
+              "inner": [
+                -2.1500000000000004,
+                -2.1500000000000004,
+                -1.6764,
+                6.449999999999999,
+                2.1500000000000004,
+                1.6764
+              ]
+            },
+            "local_to_world": [
+              0.0,
+              -1.0,
+              0.0,
+              38.5,
+              0.0,
+              0.0,
+              1.0,
+              60.3,
+              -1.0,
+              0.0,
+              0.0,
+              161.4,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "knot": [
+              -5.681,
+              -1,
+              -1.5,
+              -2.681,
+              1,
+              0.5
+            ],
+            "project_lacing_blank_mm": 150,
+            "land_mm": 3,
+            "actual_retention_verified": false
+          }
+        },
+        "goal_mm": [
+          38.5,
+          63.3,
+          156.3
+        ],
+        "path": [
+          [
+            84.0,
+            44.0,
+            146.51
+          ],
+          [
+            82.5,
+            44.0,
+            146.51
+          ],
+          [
+            82.5,
+            63.3,
+            146.51
+          ],
+          [
+            82.5,
+            63.3,
+            156.3
+          ],
+          [
+            50.5,
+            63.3,
+            156.3
+          ],
+          [
+            50.5,
+            68.0,
+            156.3
+          ],
+          [
+            38.5,
+            68.0,
+            156.3
+          ],
+          [
+            38.5,
+            63.3,
+            156.3
+          ]
+        ],
+        "rejections": [],
+        "seat_contacts": [],
+        "touching_printed_parents": [],
+        "parent_candidates": [
+          {
+            "owner": "UpperCarrier001",
+            "patches": [
+              {
+                "point_mm": [
+                  84.0,
+                  44.0,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              },
+              {
+                "point_mm": [
+                  100.24999999999999,
+                  57.5,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              }
+            ]
+          }
+        ],
+        "owner": "UpperCarrier001",
+        "root_subset_verified": true,
+        "search": {
+          "points_mm": [
+            [
+              84.0,
+              44.0,
+              146.51
+            ],
+            [
+              82.5,
+              44.0,
+              146.51
+            ],
+            [
+              82.5,
+              63.3,
+              146.51
+            ],
+            [
+              82.5,
+              63.3,
+              156.3
+            ],
+            [
+              50.5,
+              63.3,
+              156.3
+            ],
+            [
+              50.5,
+              68.0,
+              156.3
+            ],
+            [
+              38.5,
+              68.0,
+              156.3
+            ],
+            [
+              38.5,
+              63.3,
+              156.3
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 504,
+          "search_seconds": 0.422,
+          "rejection": null
+        },
+        "inherited_from": "38c622c59cc345be046167d4d65a250c5ac4267f"
+      },
+      {
+        "id": "W068_P_SYS",
+        "recipe": {
+          "id": "W068_P_SYS",
+          "wire": "W068",
+          "bound_ends": [
+            "P_SYS.3"
+          ],
+          "segment": 0,
+          "centre_world_mm": [
+            32.0,
+            60.3,
+            161.4
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "land_mm": 3,
+          "project_insulation_radius_mm": 2.1,
+          "assembly_group": "SOURCE_RECEIVING_CARRIER",
+          "owner": "UpperCarrier001",
+          "saddle": {
+            "pads": [
+              {
+                "bounds_mm": [
+                  2.6,
+                  -2,
+                  -1.5,
+                  6.6,
+                  2,
+                  1.5
+                ]
+              },
+              {
+                "bounds_mm": [
+                  2.6,
+                  -2,
+                  1.4,
+                  6.6,
+                  2,
+                  4.5
+                ]
+              }
+            ],
+            "ring_cut": {
+              "outer": [
+                -2.831,
+                -2.831,
+                -0.9882,
+                7.131,
+                2.831,
+                0.9882
+              ],
+              "inner": [
+                -2.1500000000000004,
+                -2.1500000000000004,
+                -1.6764,
+                6.449999999999999,
+                2.1500000000000004,
+                1.6764
+              ]
+            },
+            "local_to_world": [
+              0.0,
+              -1.0,
+              0.0,
+              32.0,
+              0.0,
+              0.0,
+              1.0,
+              60.3,
+              -1.0,
+              0.0,
+              0.0,
+              161.4,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "knot": [
+              -5.681,
+              -1,
+              -1.5,
+              -2.681,
+              1,
+              0.5
+            ],
+            "project_lacing_blank_mm": 150,
+            "land_mm": 3,
+            "actual_retention_verified": false
+          }
+        },
+        "goal_mm": [
+          32.0,
+          63.3,
+          156.3
+        ],
+        "path": [
+          [
+            84.0,
+            44.0,
+            146.51
+          ],
+          [
+            84.0,
+            63.3,
+            146.51
+          ],
+          [
+            28.0,
+            63.3,
+            146.51
+          ],
+          [
+            28.0,
+            63.3,
+            156.3
+          ],
+          [
+            32.0,
+            63.3,
+            156.3
+          ]
+        ],
+        "rejections": [],
+        "seat_contacts": [],
+        "touching_printed_parents": [],
+        "parent_candidates": [
+          {
+            "owner": "UpperCarrier001",
+            "patches": [
+              {
+                "point_mm": [
+                  84.0,
+                  44.0,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              },
+              {
+                "point_mm": [
+                  100.24999999999999,
+                  57.5,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              }
+            ]
+          }
+        ],
+        "owner": "UpperCarrier001",
+        "root_subset_verified": true,
+        "search": {
+          "points_mm": [
+            [
+              84.0,
+              44.0,
+              146.51
+            ],
+            [
+              84.0,
+              63.3,
+              146.51
+            ],
+            [
+              28.0,
+              63.3,
+              146.51
+            ],
+            [
+              28.0,
+              63.3,
+              156.3
+            ],
+            [
+              32.0,
+              63.3,
+              156.3
+            ]
+          ],
+          "start_clear": true,
+          "goal_clear": true,
+          "expansions": 470,
+          "search_seconds": 0.39,
+          "rejection": null
+        },
+        "inherited_from": "38c622c59cc345be046167d4d65a250c5ac4267f"
+      },
+      {
+        "id": "W043_P_SYS",
+        "recipe": {
+          "id": "W043_P_SYS",
+          "wire": "W043",
+          "bound_ends": [
+            "P_SYS.5"
+          ],
+          "segment": 0,
+          "centre_world_mm": [
+            19.0,
+            60.3,
+            161.4
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "land_mm": 3,
+          "project_insulation_radius_mm": 2,
+          "assembly_group": "SOURCE_RECEIVING_CARRIER",
+          "owner": "UpperCarrier001",
+          "saddle": {
+            "pads": [
+              {
+                "bounds_mm": [
+                  2.5,
+                  -2,
+                  -1.5,
+                  6.5,
+                  2,
+                  1.5
+                ]
+              },
+              {
+                "bounds_mm": [
+                  2.5,
+                  -2,
+                  1.4,
+                  6.5,
+                  2,
+                  4.5
+                ]
+              }
+            ],
+            "ring_cut": {
+              "outer": [
+                -2.7310000000000003,
+                -2.7310000000000003,
+                -0.9882,
+                7.031000000000001,
+                2.7310000000000003,
+                0.9882
+              ],
+              "inner": [
+                -2.0500000000000003,
+                -2.0500000000000003,
+                -1.6764,
+                6.35,
+                2.0500000000000003,
+                1.6764
+              ]
+            },
+            "local_to_world": [
+              0.0,
+              -1.0,
+              0.0,
+              19.0,
+              0.0,
+              0.0,
+              1.0,
+              60.3,
+              -1.0,
+              0.0,
+              0.0,
+              161.4,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "knot": [
+              -5.581,
+              -1,
+              -1.5,
+              -2.5810000000000004,
+              1,
+              0.5
+            ],
+            "project_lacing_blank_mm": 150,
+            "land_mm": 3,
+            "actual_retention_verified": false
+          }
+        },
+        "goal_mm": [
+          19.0,
+          63.3,
+          156.4
+        ],
+        "path": [
+          [
+            84.0,
+            44.0,
+            146.51
+          ],
+          [
+            84.0,
+            63.3,
+            146.51
+          ],
+          [
+            19.0,
+            63.3,
+            146.51
+          ],
+          [
+            19.0,
+            63.3,
+            156.4
+          ]
+        ],
+        "rejections": [],
+        "seat_contacts": [],
+        "touching_printed_parents": [],
+        "parent_candidates": [
+          {
+            "owner": "UpperCarrier001",
+            "patches": [
+              {
+                "point_mm": [
+                  84.0,
+                  44.0,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              },
+              {
+                "point_mm": [
+                  100.24999999999999,
+                  57.5,
+                  146.51
+                ],
+                "outside_parent_mm3": 0.0
+              }
+            ]
+          }
+        ],
+        "owner": "UpperCarrier001",
+        "root_subset_verified": true,
+        "search": {
+          "points_mm": [
+            [
+              84.0,
+              44.0,
+              146.51
+            ],
+            [
+              84.0,
+              63.3,
+              146.51
+            ],
+            [
+              19.0,
+              63.3,
+              146.51
+            ],
+            [
+              19.0,
+              63.3,
+              156.4
+            ]
+          ],
+          "method": "shared_surface_elbows"
+        },
+        "inherited_from": "38c622c59cc345be046167d4d65a250c5ac4267f"
+      }
+    ],
+    "base_bounds_mm": [
+      15,
+      61.5,
+      153.4,
+      49,
+      65,
+      155.4
+    ],
+    "parking_transform": {
+      "rotation_deg_X": 90,
+      "pivot_mm": [
+        0,
+        50,
+        155.4
+      ],
+      "post_translation_mm": [
+        0,
+        -10,
+        -20
+      ],
+      "resulting_free_end_points_mm": {
+        "W066": [
+          45.0,
+          34,
+          144.2
+        ],
+        "W067": [
+          38.5,
+          34,
+          144.2
+        ],
+        "W068": [
+          32.0,
+          34,
+          144.2
+        ]
+      },
+      "resulting_heavy_wire_departure": [
+        0,
+        0,
+        1
+      ],
+      "reason": "Keep parked wire departures UP atY34, outside P_SYS minY36.8, instead of directing them down through installed holders. Whole curves/access/physical motion still require validation."
+    },
+    "source_grips_geometry_retained": true,
+    "old_integral_grips_and_pilots_retired_only_after_new_gate": true,
+    "bolt_centres_mm": [
+      [
+        8,
+        50,
+        151.4
+      ],
+      [
+        56,
+        50,
+        151.4
+      ]
+    ],
+    "stationary_boss_bounds_mm": [
+      [
+        3.75,
+        45.75,
+        149.4,
+        12.25,
+        54.25,
+        153.4
+      ],
+      [
+        51.75,
+        45.75,
+        149.4,
+        60.25,
+        54.25,
+        153.4
+      ]
+    ],
+    "structural_root_goals_mm": [
+      [
+        12,
+        50,
+        151.4
+      ],
+      [
+        52,
+        50,
+        151.4
+      ]
+    ],
+    "parked_tab_floor_z_mm": 132.65,
+    "parked_tab_y_mm": [
+      40,
+      42
+    ],
+    "parking_cradle_candidate_y_mm": [
+      38.2,
+      43.8
+    ],
+    "parking_cradle_root_paths": null,
+    "hardware_candidate": {
+      "M3x8": 2,
+      "M3_nut": 2,
+      "M3_washer": 2
+    },
+    "captive_nut_candidate": {
+      "AF_mm": 5.5,
+      "height_mm": 2.4,
+      "trap_AF_mm": 5.7,
+      "trap_depth_mm": 2.6,
+      "nut_z_mm": [
+        149.5,
+        151.9
+      ],
+      "roof_mm": 1.4,
+      "washer_z_mm": [
+        155.4,
+        155.9
+      ],
+      "screw_shank_z_mm": [
+        147.9,
+        155.9
+      ],
+      "nominal_tip_below_nut_mm": 1.6
+    },
+    "hardware_basis": "Project nominal bolt/nut/washer envelopes must be instantiated in whole assembly; dimensions/stack/access/stock not accepted by this plan.",
+    "heavy_wire_service_slack_extra_guide_allowance_mm": 40,
+    "slack_caution": "Allowance is NOT a routed or selected cut. Installed and parked fixed-length curves both required, no stretching or borrowing unknown delivered length."
+  },
+  "W043_park": {
+    "parts": [
+      {
+        "kind": "line",
+        "start": [
+          19,
+          85.5,
+          148.9
+        ],
+        "end": [
+          19,
+          85.5,
+          155.9
+        ],
+        "length_mm": 7.0
+      },
+      {
+        "kind": "arc",
+        "start": [
+          19,
+          85.5,
+          155.9
+        ],
+        "mid": [
+          17.56861721727099,
+          84.48046329939744,
+          160.1426406871193
+        ],
+        "end": [
+          14.112953490259278,
+          82.01908396946565,
+          161.9
+        ],
+        "radius_mm": 6.0,
+        "length_mm": 9.42477796076938
+      },
+      {
+        "kind": "line",
+        "start": [
+          14.112953490259278,
+          82.01908396946565,
+          161.9
+        ],
+        "end": [
+          -2.340103092534486,
+          70.30000000000001,
+          161.9
+        ],
+        "length_mm": 20.199999999999996
+      }
+    ],
+    "radius_mm": 2,
+    "guide_mm": 36.62477796076938,
+    "rail_strip_mm": 12,
+    "unchanged_factory_blank_mm": 48.62477796076938,
+    "source_limit_mm": 50,
+    "actual_cut_mm": null,
+    "free_end_mm": [
+      -2.340103092534486,
+      70.30000000000001,
+      161.9
+    ],
+    "free_end_axis": [
+      -0.8145077516234537,
+      -0.5801526717557253,
+      0
+    ],
+    "parking_grip_centre_mm": [
+      -1.1183414650993053,
+      71.1702290076336,
+      161.9
+    ],
+    "parking_grip_normal": [
+      0,
+      0,
+      1
+    ],
+    "parking_grip_foot_sign": -1,
+    "basis": "Keep exactly the existing guide length and R6; redistribute .5mm from final straight to initial UP and rotate bend plane. Detached end may change orientation. Not a straight-line teleport or extra pre-fuse splice."
+  },
+  "G1_change": {
+    "translation_mm": [
+      0,
+      4.5,
+      0
+    ],
+    "moved_current_port_points": {
+      "1": [
+        -53.0,
+        -49.5,
+        169
+      ],
+      "2": [
+        -46.5,
+        -49.5,
+        169
+      ],
+      "3": [
+        -40.0,
+        -49.5,
+        169
+      ],
+      "4": [
+        -33.5,
+        -49.5,
+        169
+      ],
+      "5": [
+        -27.0,
+        -49.5,
+        169
+      ]
+    },
+    "required_gap_project_mm": 1,
+    "nominal_jaw_south_boundary_y_mm": -56.45,
+    "caveat": "Current37x11x22 G1 casing is project envelope; published WAGO dimensions36.7x10.1x21.1 differ. No claim that .05mm reservation overlap was physical supplier interference. Retain conservative envelope until controlled actual model/fit.",
+    "current_grounds": [
+      "W001",
+      "W025",
+      "W036",
+      "W060",
+      "W061"
+    ]
+  },
+  "whole_service_conflicts": [
+    {
+      "fuse": "F_L1_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/end/2",
+      "volume_mm3": 7.018689051508707,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L1_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/end/3",
+      "volume_mm3": 5.79816159864721,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L1_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/end/4",
+      "volume_mm3": 0.863555982777247,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L2_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/end/2",
+      "volume_mm3": 7.018689051508707,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L2_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/start/0",
+      "volume_mm3": 149.74400000000048,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L2_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/custom/start/1",
+      "volume_mm3": 96.8240000000006,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L2_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/custom/start/2",
+      "volume_mm3": 190.32324446728234,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L3_CP2_ATO",
+      "obstacle": "RetainedSourceLacing/SourceLacingW043_P_SYS",
+      "volume_mm3": 2.077934680800012,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L3_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/end/2",
+      "volume_mm3": 7.018689051508706,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L3_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/start/0",
+      "volume_mm3": 62.328000000000195,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L3_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/start/1",
+      "volume_mm3": 25.316256360871623,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L3_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/factory/start/0",
+      "volume_mm3": 149.74400000000048,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L3_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W026/custom/start/1",
+      "volume_mm3": 149.74400000000088,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentNative/UpperCarrier001",
+      "volume_mm3": 499.53094349999674,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "RetainedSourceLacing/SourceLacingW066_0_15",
+      "volume_mm3": 23.089255240800007,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "RetainedSourceLacing/SourceLacingW067_P_SYS",
+      "volume_mm3": 26.31851840159999,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "RetainedSourceLacing/SourceLacingW068_P_SYS",
+      "volume_mm3": 26.318518401599977,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/end/0",
+      "volume_mm3": 32.38891776671347,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/end/1",
+      "volume_mm3": 49.508937284051214,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/end/2",
+      "volume_mm3": 39.98400000000008,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/end/3",
+      "volume_mm3": 26.949999999999967,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W041/factory/end/4",
+      "volume_mm3": 13.719999999999988,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W044/custom/start/0",
+      "volume_mm3": 23.12800000000004,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "wire/W041_FACTORY",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 2.35
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "wire/W067",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 2.35
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "wire/W068",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 2.35
+    },
+    {
+      "fuse": "F_L4_CP2_ATO",
+      "obstacle": "wire/W066",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 2.35
+    },
+    {
+      "fuse": "F_L5_CP2_ATO",
+      "obstacle": "CurrentNative/UpperCarrier001",
+      "volume_mm3": 283.4439999999956,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L6_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W044/factory/start/1",
+      "volume_mm3": 39.98400000000028,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L6_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W044/factory/end/0",
+      "volume_mm3": 78.00800000000027,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_L6_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W044/factory/end/1",
+      "volume_mm3": 32.14400000000021,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_R1_CP2_ATO",
+      "obstacle": "G1_CP2/0/0",
+      "volume_mm3": 16.555000000001417,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_R2_CP2_ATO",
+      "obstacle": "G1_CP2/0/0",
+      "volume_mm3": 9.955000000000847,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_R2_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W042/factory/end/2",
+      "volume_mm3": 60.333,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_R2_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W042/factory/end/3",
+      "volume_mm3": 19.991999999999983,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_R3_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W042/custom/start/3",
+      "volume_mm3": 13.56600000000005,
+      "gap_mm": null,
+      "required_mm": 0
+    },
+    {
+      "fuse": "F_R4_CP2_ATO",
+      "obstacle": "wire/XA03",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 1.5
+    },
+    {
+      "fuse": "F_R4_CP2_ATO",
+      "obstacle": "wire/W042_CUSTOM",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 2.35
+    },
+    {
+      "fuse": "F_R4_CP2_ATO",
+      "obstacle": "wire/W011",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 0.9
+    },
+    {
+      "fuse": "F_R5_CP2_ATO",
+      "obstacle": "wire/XA03",
+      "volume_mm3": 0,
+      "gap_mm": 0.0,
+      "required_mm": 1.5
+    },
+    {
+      "fuse": "F_R6_CP2_ATO",
+      "obstacle": "CurrentSaddleRoot/UpperCarrier001/W052/factory/start/3",
+      "volume_mm3": 39.98400000000034,
+      "gap_mm": null,
+      "required_mm": 0
+    }
+  ],
+  "sequence": [
+    "Full robot unpowered, battery/source disconnected by existing P0 procedure. No energized service.",
+    "Access/label four P_SYS levers and two rail screws from assembled prototype; release terminals, loosen only W043 end lace, park three-end rail and W043 separately.",
+    "Execute explicit qualified right-side exceptions if needed; extract selected ATO with defined tool from actual installed holder.",
+    "Reverse parking, restore same labeled cavities, new W043 lace, fastener inspection; continuity/fit/protection acceptance belongs to delivered unpowered phase2."
+  ],
+  "open": [
+    "Whole operating and parked material incl all hardware, tools, 12bank roots, current native Frames and exact fixed-length curves",
+    "Rail/boss/tab load paths/native editable cuts and G1/restraint ownership, no hidden removal of arbitrary material",
+    "All source prefuse/factory radius/length limits, A2 restoration and stock reconciliation"
+  ],
+  "selected": false,
+  "W5_complete": false,
+  "M4_complete": false,
+  "A2_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/source-receiving-plan.json": "253f7369ec88bfe47393a38073dae9650be08135394ea02f05fa8ca2299f2493",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/ground-tree-plan.json": "883089570ab12a1acfa7fdab72c22e6237c680861883d2bfa147e058bfd30943",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-roots.json": "c3cf297618d7918a6e201dc2e5563ce439ff5cc84c68afeeca7200c8ac7e3c94",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-bank-cradle-space.json": "15cd0a5315f027fc008aa9640e8f6bae70720e3e92d8a6d63526eb5c746959d5",
+    "tools/cad/plan_bank_prototype_service.py": "c19d2d980ce5d909b10a18f3b33b1ca4abe4e0bbfe3ab540c3a4e36499ab75b0",
+    "hardware/reference/power-distribution-2026-09-23/WAGO-221-615.pdf": "fa0c8a23c9823e904324b059d28548d61ddcb04a8538f74d23e7c40f83c6e05b"
+  },
+  "worker_seconds": 0.0
+}
