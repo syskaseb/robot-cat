@@ -4,6 +4,7 @@ Rotate the existing48 nominal component BReps as rigid sets. No new vendor
 dimensions or terminal pinouts. This is shared-space planning, NOT selection.
 """
 import math
+import re
 import FreeCAD as A
 import Part
 from current_bank_datums import datums,bounds
@@ -18,7 +19,7 @@ def layout(targets,contract,allocation):
     rows=datums(targets);parts={};records=[];sweeps={};jaws={};retired=set()
     voltage={r['loom']:r for r in contract['rows'] if r['core']=='V'}
     assert len(voltage)==12
-    input_ends={e['role']:e for e in allocation['ends'] if e['role'].startswith('F_') and e['role'].endswith('.in')}
+    input_ends={e['role']:e for e in allocation['ends'] if re.fullmatch(r'F_(?:FL|FR|RL|RR)[123]\.in',e['role'])}
     assert len(input_ends)==12
     panel=box([166,-98,69,168,98,158])
     for r in rows:

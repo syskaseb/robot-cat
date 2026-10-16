@@ -14,6 +14,7 @@ class RearBankTests(unittest.TestCase):
                     receiver_point_mm=[old_x,old_y,75.402],receiver_outward_axis=[-1,0,0],
                     bundle_root_world_mm=[0,0,0],capacity_before_terminal_mm=900,terminal_allowance_project_mm=11))
                 ends.append(dict(role='F_'+leg+str(i)+'.in',wire='P'+leg+str(i),point_world_mm=[old_x,old_y,73.37]))
+        ends.append(dict(role='F_PI.in',wire='W043',point_world_mm=[0,0,0]))
         q=layout(targets,dict(rows=rows),dict(ends=ends))
         self.assertEqual(len(q['parts']),48);self.assertEqual(len(q['records']),12)
         self.assertEqual(len(q['changed_wire_ids']),24)
