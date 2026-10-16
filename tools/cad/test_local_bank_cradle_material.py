@@ -1,11 +1,27 @@
 import unittest
 import FreeCAD as A
 import Part
-from local_bank_cradle_material import families,GROUPS
+from local_bank_cradle_material import families,placed_families,GROUPS
 from loom_land_port import box
 
 
 class BankCradleTests(unittest.TestCase):
+    def test_placed_family_uses_all_twelve_actual_datums_once(self):
+        rows=[]
+        for leg,y,xs,owner in GROUPS:
+            side='L' if y>0 else 'R';indices=range(1,4) if leg.startswith('F') else range(4,7)
+            for i,x in zip(indices,xs):rows.append(dict(side=side,index=i,centre_xy_mm=[x,62 if y>0 else -62],placement_basis='test placed solid'))
+        current=placed_families(rows)
+        for leg,y,xs,owner in GROUPS:
+            for q in current[leg].values():
+                rec=q['recipe'];datum=rec['world_datum_correction']
+                self.assertEqual({p[1] for p in rec['holder_centres_mm']},{62 if y>0 else -62})
+                self.assertFalse(datum['purchased_components_moved'])
+                self.assertEqual(rec['root_goal_mm'],q['root_goal_mm'])
+                body=q['body'].BoundBox
+                self.assertAlmostEqual(min(p['bounds_mm'][1] for p in rec['pads']),body.YMin)
+                self.assertAlmostEqual(max(p['bounds_mm'][4] for p in rec['pads']),body.YMax)
+
     def test_four_families_preserve_twelve_holder_slots_and_ties(self):
         f=families();self.assertEqual(len(f),4)
         for leg,y,centres,owner in GROUPS:

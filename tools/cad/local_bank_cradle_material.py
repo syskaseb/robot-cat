@@ -72,3 +72,37 @@ def material(leg,side,head_pattern=1):
 def families():
     return {leg:{f'{side}/{pattern}':material(leg,side,pattern) for side in (-1,1) for pattern in (-1,1)}
             for leg,_,_,_ in GROUPS}
+
+
+def placed_families(rows):
+    """Correct the origin/centre confusion using placed world solids.
+
+    This is not a geometric offset search or movement of purchased parts.
+    The prior+/-58 template origin was NOT their current+/-62 centre.
+    """
+    result=families()
+    for leg,old_y,xs,owner in GROUPS:
+        side='L' if old_y>0 else 'R';indices=range(1,4) if leg.startswith('F') else range(4,7)
+        placed=[next(r for r in rows if r['side']==side and r['index']==i) for i in indices]
+        assert [r['centre_xy_mm'][0] for r in placed]==xs,'Changed X layout needs a new shared plan'
+        ys={r['centre_xy_mm'][1] for r in placed};assert len(ys)==1
+        current_y=ys.pop();dy=current_y-old_y
+        for key,q in result[leg].items():
+            for shape in [q['body'],*q['ties'].values()]:shape.translate(A.Vector(0,dy,0))
+            rec=q['recipe'];rec['holder_centres_mm']=[[x,current_y] for x in xs]
+            for pad in rec['pads']:
+                pad['bounds_mm'][1]+=dy;pad['bounds_mm'][4]+=dy
+            for tie in rec['ties']:
+                tie['holder_centre_mm'][1]+=dy
+                for name in ('outer','inner','head'):tie[name][1]+=dy;tie[name][4]+=dy
+            q['root_goal_mm'][1]+=dy
+            # Shared list in old recipe; do not translate the root a second time.
+            assert rec['root_goal_mm']==q['root_goal_mm']
+            rec['world_datum_correction']=dict(template_origin_y_mm=old_y,
+                current_placed_centre_y_mm=current_y,translation_y_mm=dy,
+                purchased_components_moved=False,basis=placed[0]['placement_basis'])
+            rec['catalog_panel_cutout']=dict(a_mm=22.2,b_mm=11.3,
+                b_tolerance_mm=[0,.3],panel_d_mm=2,
+                source='hardware/reference/servo-holder-p0-2026-09-24/0300330.png, MTA B0-100.E10A table')
+            rec['aperture_basis']='Drawing table22.2x11.3(+0.3/-0) for2mm panel; nominal body taper/terminal engagement still require delivered fit. Cradle is not a full panel cutout.'
+    return result

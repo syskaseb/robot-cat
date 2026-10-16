@@ -9,9 +9,10 @@ from pathlib import Path
 import FreeCAD as A
 from remaining25_shared_context import load,P
 from current_source_retention_context import C,same_parent
-from local_bank_cradle_material import families,GROUPS
+from local_bank_cradle_material import placed_families,GROUPS
 from plan_remaining25_restraint_space import profile
-from current_bank_retention_material import geometry as service_geometry
+from current_bank_datums import datums,nominal_sweep
+from plan_axial_source_supports import arm_box
 from current_work_guard import check
 
 
@@ -26,14 +27,26 @@ def run():
         rec=r['domains'][gid][i]['recipe'];q=profile(groups[gid],rec['normal'],rec['knot_sign'])
         assert q['recipe']==rec
         targets.update({'Remaining25/'+gid+'/'+k:q[k] for k in ('body','band')})
+    placed=datums(targets)
+    roots_file=P.OUT/'remaining25-saddle-roots.json'
+    roots=json.loads(roots_file.read_text())
+    for name,digest in roots['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
+    assert not roots['errors'],'Receive clean root result before bank material'
+    for row in roots['groups']:
+        if not row.get('path'):continue
+        for i,(a,b) in enumerate(zip(row['path'],row['path'][1:])):
+            targets['CurrentSaddleRoot/'+row['owner']+'/'+row['id']+'/'+str(i)]=arm_box(a,b,roots['arm_half_widths_mm'])
     files=[rf,Path(__file__),Path(__file__).with_name('local_bank_cradle_material.py'),
            P.ROOT/'tools/electronics/servo_fuse_bank_restraints_r3.py',
-           Path(__file__).with_name('current_bank_retention_material.py')]
+           Path(__file__).with_name('current_bank_datums.py'),roots_file,
+           Path(__file__).with_name('plan_axial_source_supports.py')]
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'local-bank-cradle-pairs.json',bounds.near)
     rows=[];choices={};options={};errors=[];checks=0;service=[]
     def save(status):
         result=dict(status=status,groups=rows,chosen_families=choices,errors=errors,checks=checks,
+            placed_bank_datums=placed,included_saddle_roots=roots['accepted_groups'],
+            invalidated_prior_service_map='6c20adb usedY+/-58, not current placedY+/-62. Its33pairs are NOT the installed ATO sweep.',
             nominal_vertical_ATO_service_conflicts=service,source_sha256=pins,
             worker_seconds=round(time.monotonic()-tick,3),scope='Four local combs/T18Icase straps against current full material, full wires and54 chosen insulation saddles. Current routes unchanged. Own housing-flange bounds are assigned provisional fit interfaces, not proved vendor interference or clearance.',
             open=['Four actual Frame roots and native unions/parameter/reopen/exports',
@@ -55,7 +68,7 @@ def run():
             errors.append(str(e));return dict(error=str(e))
         if volume>1e-5 or (radius and gap<radius-1e-6):return dict(volume_mm3=volume,gap_mm=gap,required_mm=radius)
         return None
-    family=families()
+    family=placed_families(placed)
     for leg,y,centres,owner in GROUPS:
         row=dict(id=leg,qualified_options=[],rejected=[]);rows.append(row);options[leg]={}
         side='L' if y>0 else 'R';indices=range(1,4) if leg.startswith('F') else range(4,7)
@@ -69,7 +82,7 @@ def run():
                     if v is None:continue
                     if n.split('/')[0] in own_cases:
                         interfaces.append(dict(part=name,nominal_case=n,**v));continue
-                    if name=='body' and same_parent(owner,n,grips):
+                    if name=='body' and (same_parent(owner,n,grips) or n.startswith('CurrentSaddleRoot/'+owner+'/')):
                         unions.append(dict(parent=n,**v));continue
                     contacts.append(dict(part=name,obstacle=n,**v))
                     if len(contacts)>=4:break
@@ -103,7 +116,7 @@ def run():
     save('FOUR_LOCAL_BANK_COMBS_MATERIAL_CLEAR_ROOTS_SERVICE_OPEN' if len(choices)==4 else 'LOCAL_BANK_COMB_LAYOUT_REQUIRES_CHANGE')
     # Diagnose the actual nominal component sweep, not a wide26mm tool bbox.
     # This is a separately OPEN service map, never a routine-access approval.
-    sweeps=service_geometry()['ATO_sweeps']
+    sweeps={row['id']+'_ATO':nominal_sweep(row) for row in placed}
     for name,s in sweeps.items():
         for n,t in targets.items():
             if n.startswith(name) or not t.Solids:continue
