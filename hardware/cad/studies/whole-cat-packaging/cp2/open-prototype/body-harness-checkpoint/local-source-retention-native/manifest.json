@@ -1,5 +1,5 @@
 {
-  "status": "LOCAL_SOURCE_NATIVE_PARAMETERS_CLEAR_REOPEN_OPEN",
+  "status": "THIRTEEN_SOURCE_LANDS_FIVE_NATIVE_PARENT_REPLACEMENTS_COMPLETE",
   "parts": [
     {
       "part": "FrontLeftFixedCarrier",
@@ -96,7 +96,37 @@
         "SourceLacingW068_P_SYS",
         "SourceLacingW043_P_SYS"
       ],
-      "volume_mm3": 45861.810096283436
+      "volume_mm3": 45861.810096283436,
+      "beam_Z_allowance_restore_mm": [
+        0,
+        0.2,
+        0
+      ],
+      "relocated_reopen": true,
+      "original_material_preserved": true,
+      "parameter_trial_inherited_from_saved_final": true
+    },
+    {
+      "part": "LeftRiser",
+      "object": "LeftRiserSourceRetentionCurrent",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/NeckSourceRetentionCurrent.FCStd",
+      "quantity": 1,
+      "prior_parent_object": "LeftRiser",
+      "retained_native_history": true,
+      "source_groups": [
+        "W076_1_13"
+      ],
+      "lacing_reference_objects": [
+        "SourceLacingW076_1_13"
+      ],
+      "volume_mm3": 7890.7925675491115,
+      "beam_Z_allowance_restore_mm": [
+        0,
+        0.2,
+        0
+      ],
+      "relocated_reopen": true,
+      "original_material_preserved": true
     }
   ],
   "models": [
@@ -113,6 +143,13 @@
       "family": "Upper",
       "partial_path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/UpperSourceRetention.partial.FCStd",
       "partial_sha256": "ca0b7963fa2c1534d022b9c71092164a78bc5b6406fce3cb5bb3b4eb1d5725f1"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/NeckSourceRetentionCurrent.FCStd",
+      "sha256": "05c977006ac500584a3f21a47de8e8cc352e7b1ba947fecf4f390f0cb07861f8",
+      "family": "Neck",
+      "partial_path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/NeckSourceRetention.partial.FCStd",
+      "partial_sha256": "604d507717c3cd051c862549bbac10b0028d0cc5312f07f2ef0ce5d865e72708"
     }
   ],
   "exports": [
@@ -178,23 +215,72 @@
         ],
         "support_and_slicer_validation": false
       }
+    },
+    {
+      "part": "UpperCarrier001",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/UpperCarrier001_source_retained_x1.stl",
+      "sha256": "ead75b2dc8fcfe8b83dd8fd2523ae9204ad06847f161df91859c56c59884f83e",
+      "quantity": 1,
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          194.13328398716325,
+          191.50798494467153,
+          104.88
+        ],
+        "rotation_quaternion": [
+          0.0,
+          0.0,
+          0.25881904510252074,
+          0.9659258262890683
+        ],
+        "support_and_slicer_validation": false
+      }
+    },
+    {
+      "part": "LeftRiser",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/LeftRiser_source_retained_x1.stl",
+      "sha256": "da7fb7b5b81d299bf1b51e94d8f3a9ae087f932351853db85b98550e73f87e77",
+      "quantity": 1,
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          56.385401838596486,
+          89.095454429505,
+          30.5903119958614
+        ],
+        "rotation_quaternion": [
+          0.6532814824381883,
+          0.2705980500730985,
+          0.2705980500730985,
+          0.6532814824381883
+        ],
+        "support_and_slicer_validation": false
+      }
     }
   ],
   "source_sha256": {
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-roots.json": "c3cf297618d7918a6e201dc2e5563ce439ff5cc84c68afeeca7200c8ac7e3c94",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/upper-fixed-feed-supports/UpperFixedFeedSupportsCurrent.FCStd": "896f6fee1ded571ceecc17481376fea9f042d753d1432556072b5ac28f5dfa6e",
-    "tools/cad/current_work_guard.py": "9fb8f367958cb694d9266deed6cd9edded202c5d4b4886e3108e238e6d516383",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadNeckCurrent.FCStd": "ce19a824152b6ab8646731bbd002956a49557be17bacd819d3688d79c69fde89",
-    "tools/cad/build_local_source_retention_native.py": "f8623f5280c37fec5ffd3d01a45cf3d84588f55412b97798f8bbb903e9e8a61e",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/manifest.json": "e2c66a73ba172c23617072bcb27f95a7d64097761904dd9c2a93ec2406c836d1",
-    "tools/cad/remaining_source_retention_material.py": "41fa6d7f51e3294a987977e789ecb40f71194eba147d657f337b8d7f3111ea0e",
     "tools/cad/build_current_receiver_supports.py": "69cf9c5a9583c9a0df7959c9c4a1b64e79a932e5042d12812ed52781c3d1a508",
+    "tools/cad/build_local_source_retention_native.py": "6f3b608d61cdf1c10ace539f5cfd50947acc4642f31f4372251cdae62bee0469",
+    "tools/cad/remaining_source_retention_material.py": "41fa6d7f51e3294a987977e789ecb40f71194eba147d657f337b8d7f3111ea0e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/manifest.json": "e2c66a73ba172c23617072bcb27f95a7d64097761904dd9c2a93ec2406c836d1",
     "tools/cad/plan_axial_source_supports.py": "82745e3dd674765f065ba5ce74e4910f9bd08b3f8c7bcc3e6d61b90e3c9b520b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/HeadNeckCurrent.FCStd": "ce19a824152b6ab8646731bbd002956a49557be17bacd819d3688d79c69fde89",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/ReceiverSupportsCurrent.FCStd": "4306e95194894c02579bb3370488af0a2909ccde79095986678bdfd5c0bab71a",
+    "tools/cad/current_work_guard.py": "9fb8f367958cb694d9266deed6cd9edded202c5d4b4886e3108e238e6d516383",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/upper-fixed-feed-supports/UpperFixedFeedSupportsCurrent.FCStd": "896f6fee1ded571ceecc17481376fea9f042d753d1432556072b5ac28f5dfa6e",
     "tools/cad/current_native_receiver_primitives.py": "2e737814e2c1c29ab1363ecf5cbdc447bb875edd921073e9a0e6913f08dc38ae",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/ReceiverSupportsCurrent.FCStd": "4306e95194894c02579bb3370488af0a2909ccde79095986678bdfd5c0bab71a"
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-roots.json": "c3cf297618d7918a6e201dc2e5563ce439ff5cc84c68afeeca7200c8ac7e3c94"
   },
-  "worker_seconds": 934.469,
-  "fully_constrained_new_sketches": 94,
+  "worker_seconds": 221.484,
+  "fully_constrained_new_sketches": 106,
+  "inherited_native_checkpoint": {
+    "git_commit": "71dfea7d93738484eaac4d499f1feb9f99e2438f",
+    "manifest": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/manifest.json",
+    "raw_sha256": "a477678e32f6aa7616d80b53141f4fca7d2a04fe4f19ab11ce2cd4beb4d81d6a",
+    "prior_recorded_worker_seconds": 934.469,
+    "not_exact_total_interrupted_cpu_time": true
+  },
   "source_lacing_blanks": 13,
   "source_lacing_project_mm": 1950,
   "new_separate_prints": 0,

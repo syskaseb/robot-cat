@@ -3,7 +3,7 @@
 Retain all prior native history. Only NEW pilots respond to the new Z allowance;
 do not cycle339 old receiver features for a small source-support addition.
 """
-import json,shutil,tempfile,time
+import json,shutil,tempfile,time,subprocess,hashlib,copy
 from pathlib import Path
 import FreeCAD as A
 import Part,MeshPart
@@ -21,7 +21,7 @@ def valid(s,n):assert s.isValid() and len(s.Solids)==1 and not s.check(True),n
 def equal(s,t,n):assert max(s.copy().cut(t.copy()).Volume,t.copy().cut(s.copy()).Volume)<1e-4,n
 
 
-def run():
+def run(resume_commit=None):
     check();tick=time.monotonic();pf=OUT/'local-source-retention-roots.json';plan=json.loads(pf.read_text())
     assert plan['status']=='THIRTEEN_LOCAL_SOURCE_ROOTS_EXACT_SEGMENTS_CLEAR_NATIVE_OPEN'
     assert len(plan['groups'])==13 and not plan['errors']
@@ -35,25 +35,70 @@ def run():
               ('Neck',BASE/'head-mount-checkpoint/HeadNeckCurrent.FCStd',{'LeftRiser':'LeftRiser'})]
     assert sum(len(f[2]) for f in families)==5
     output=OUT/'local-source-retention-native';output.mkdir(exist_ok=True)
-    assert not (output/'manifest.json').exists(),'Receive existing result, never regenerate unchanged'
+    prior=None;inherited=None
+    if resume_commit:
+        path=(output/'manifest.json').relative_to(ROOT).as_posix()
+        raw=subprocess.check_output(['git','show',resume_commit+':'+path],cwd=ROOT);prior=json.loads(raw)
+        script=Path(__file__).relative_to(ROOT).as_posix()
+        code=subprocess.check_output(['git','show',resume_commit+':'+script],cwd=ROOT)
+        assert prior['source_sha256'][script] in {hashlib.sha256(c).hexdigest() for c in
+            (code,code.replace(b'\r\n',b'\n'),code.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))}
+        for n,h in prior['source_sha256'].items():
+            if n!=script:assert SHA(ROOT/n)==h,('Changed native resume source',n)
+        for r in prior['models']:
+            assert SHA(ROOT/r['path'])==r['sha256'] and SHA(ROOT/r['partial_path'])==r['partial_sha256']
+        for r in prior['exports']:assert SHA(ROOT/r['path'])==r['sha256']
+        inherited=dict(git_commit=resume_commit,manifest=path,raw_sha256=hashlib.sha256(raw).hexdigest(),
+                       prior_recorded_worker_seconds=prior['worker_seconds'],not_exact_total_interrupted_cpu_time=True)
+    else:assert not (output/'manifest.json').exists(),'Receive existing result, never regenerate unchanged'
     files={pf,receiver_file,Path(__file__),Path(__file__).with_name('remaining_source_retention_material.py'),
            Path(__file__).with_name('current_native_receiver_primitives.py'),
            Path(__file__).with_name('build_current_receiver_supports.py'),
            Path(__file__).with_name('plan_axial_source_supports.py'),Path(__file__).with_name('current_work_guard.py')}
-    files.update(f[1] for f in families);records=[];models=[];exports=[];sketches=0
+    files.update(f[1] for f in families)
+    records=copy.deepcopy(prior['parts']) if prior else [];models=copy.deepcopy(prior['models']) if prior else []
+    exports=copy.deepcopy(prior['exports']) if prior else [];sketches=prior['fully_constrained_new_sketches'] if prior else 0
     def save(status):
         result=dict(status=status,parts=records,models=models,exports=exports,
             source_sha256={f.relative_to(ROOT).as_posix():SHA(f) for f in files},
             worker_seconds=round(time.monotonic()-tick,3),fully_constrained_new_sketches=sketches,
+            inherited_native_checkpoint=inherited,
             source_lacing_blanks=13,source_lacing_project_mm=1950,new_separate_prints=0,new_metal_fasteners=0,
             replaced_prints=sorted({r['owner'] for r in plan['groups']}),
             scope='Source insulation retention only; no extra Frame prints. Thirteen received lands/pilots. Original source case mounts/other25interfaces/assembly/stock remain OPEN.',
             selected=False,W5_complete=False,M4_complete=False,physical_pass=False,stock_selected=False)
         f=output/'manifest.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f)
-    save('LOCAL_SOURCE_NATIVE_STARTED')
+    save('LOCAL_SOURCE_NATIVE_RESUMED' if prior else 'LOCAL_SOURCE_NATIVE_STARTED')
     reader=SavedShapes()
     for family,src,parent_names in families:
         check();final=output/(family+'SourceRetentionCurrent.FCStd');partial=output/(family+'SourceRetention.partial.FCStd')
+        complete={r['part'] for r in exports}
+        if set(parent_names)<=complete:
+            assert all(r.get('relocated_reopen') for r in records if r['part'] in parent_names)
+            print('reused completed native family',family,flush=True);continue
+        resume_final=next((r for r in models if r['family']==family),None)
+        if resume_final:
+            assert SHA(final)==resume_final['sha256'],'Changed saved final family'
+            with tempfile.TemporaryDirectory(prefix='robot-cat-source-reopen-') as td:
+                frozen={r['part']:reader.shape(final,r['object']) for r in records if r['part'] in parent_names}
+                moved=Path(td)/'RelocatedSource.FCStd';shutil.copy2(final,moved);doc=A.openDocument(str(moved));doc.recompute()
+                try:
+                    assert doc.SourceRetentionParameters.BeamZAllowance.Value==0
+                    for r in (r for r in records if r['part'] in parent_names and r['part'] not in complete):
+                        check();s=doc.getObject(r['object']).Shape;valid(s,r['part'])
+                        equal(s,frozen[r['part']],r['part']+'resumed relocated reopen')
+                        orientation=print_orientation(s);assert orientation['fits_with_5mm_brim']
+                        shape=s.copy();shape.Placement=A.Placement(A.Vector(),A.Rotation(*orientation['rotation_quaternion']))*shape.Placement
+                        bb=shape.BoundBox;shape.translate(A.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+                        mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.05,AngularDeflection=.15,Relative=False)
+                        assert mesh.isSolid() and not mesh.hasNonManifolds() and mesh.countComponents()==1
+                        f=output/(r['part']+'_source_retained_x1.stl');mesh.write(str(f))
+                        r.update(beam_Z_allowance_restore_mm=[0,.2,0],relocated_reopen=True,original_material_preserved=True,
+                                 parameter_trial_inherited_from_saved_final=True)
+                        exports.append(dict(part=r['part'],path=f.relative_to(ROOT).as_posix(),sha256=SHA(f),quantity=1,printing=orientation))
+                        save('LOCAL_SOURCE_NATIVE_RESUMED_EXPORTS');print('source resumed export',r['part'],flush=True)
+                finally:A.closeDocument(doc.Name)
+            continue
         assert not final.exists() and not partial.exists(),'Receive existing native family before starting'
         with tempfile.TemporaryDirectory(prefix='robot-cat-source-native-') as td:
             work=Path(td)/(family+'Source.FCStd');shutil.copy2(src,work);doc=A.openDocument(str(work))
@@ -119,4 +164,7 @@ def run():
     save('THIRTEEN_SOURCE_LANDS_FIVE_NATIVE_PARENT_REPLACEMENTS_COMPLETE')
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--resume-commit')
+    run(parser.parse_args().resume_commit)
