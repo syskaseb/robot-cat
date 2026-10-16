@@ -15,7 +15,7 @@ class PrototypeServiceTests(unittest.TestCase):
         self.assertEqual(len(p['removable_rail']['occupied_ports']),4)
         self.assertEqual(p['removable_rail']['parking_transform']['resulting_heavy_wire_departure'],[0,0,1])
         for point in p['removable_rail']['parking_transform']['resulting_free_end_points_mm'].values():
-            self.assertAlmostEqual(point[1],34);self.assertAlmostEqual(point[2],144.2)
+            self.assertAlmostEqual(point[1],-10);self.assertAlmostEqual(point[2],146.6)
         self.assertFalse(p['selected']);self.assertFalse(p['A2_complete'])
         for a,b in zip(park['parts'],park['parts'][1:]):self.assertLess(math.dist(a['end'],b['start']),1e-8)
 

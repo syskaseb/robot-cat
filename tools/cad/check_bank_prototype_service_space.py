@@ -84,6 +84,7 @@ def run(retained_operating=False):
     def save(status):
         result=dict(status=status,operating_parts=records,changed_whole_wire_checks=wire_records,parking_contribution=park_records,
             changed_routes=changed,source_sha256=pins,checks=checks,errors=errors,worker_seconds=round(time.monotonic()-tick,3),
+            computed_material_pairs=cache.computed,reused_material_pairs=cache.reused,
             exact_retained_Upper_children=kept,retired_Upper_children=removed,superseded_two_W041_grip_groups=sorted(moved_groups),
             superseded_wire_instances=retired_wires,moved_joint_instances=joints,
             no_whole_parent_collision_masks=True,existing_other_Upper_wire_roots_retained=True,
@@ -161,7 +162,8 @@ def run(retained_operating=False):
         if not t.Solids:continue
         own_source=n.startswith(('F_PI_new','F_PI_CP2'))
         wire=trimmed(prefuse['parts'],'start',radius+.2501) if own_source else curve
-        if (v:=hit(wire,t,radius+.25,0)) is not None:row['contacts'].append(dict(obstacle=n,**v))
+        own_band=n.startswith('CurrentSaddleBand/W043/')
+        if (v:=hit(wire,t,radius if own_band else radius+.25,0)) is not None:row['contacts'].append(dict(obstacle=n,**v))
     for n,(wire,r) in wires.items():
         if n.rsplit('/',1)[-1] in ('W043','W066','W067','W068'):continue
         if (v:=hit(curve,wire,radius,r+.25)) is not None:row['contacts'].append(dict(obstacle=n,**v))

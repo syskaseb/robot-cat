@@ -35,13 +35,14 @@ def material(plan):
         hardware.update({f'RailM3_{i}/Screw':screw,f'RailM3_{i}/Nut':nut,f'RailM3_{i}/Washer':washer})
         # Parked tab floor derives from the ACTUAL operating tab minimumY,
         # not the former bolt-row51.5 template. Pocket gives .3mm each side.
-        floor=155.4+(45.75-50)-20
+        floor=155.4+(45.75-50)+r['parking_transform']['post_translation_mm'][2]
+        assert abs(floor-r['parked_tab_floor_z_mm'])<1e-7
         lo,hi=r['parked_tab_y_mm']
         outer=box([x-4.75,lo-2, floor-2,x+4.75,hi+2,floor+14])
         inner=box([x-4.45,lo-.3,floor,x+4.45,hi+.3,floor+15])
         cups['RailParkingCup'+str(i)]=outer.cut(inner).removeSplitter()
     rotation=A.Rotation(A.Vector(1,0,0),90);pivot=A.Vector(0,50,155.4)
-    pose=A.Placement(pivot-rotation.multVec(pivot)+A.Vector(0,-10,-20),rotation)
+    pose=A.Placement(pivot-rotation.multVec(pivot)+A.Vector(*r['parking_transform']['post_translation_mm']),rotation)
     parked=rail.copy();parked.Placement=pose*parked.Placement
     bands={gid:v['band'] for gid,v in q.items()}
     parked_bands={}
