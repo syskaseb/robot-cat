@@ -27,7 +27,7 @@ class RemainingInterfacesTests(unittest.TestCase):
         self.assertEqual(sum('_Joint.' in e['role'] for e in ends),16)
         self.assertEqual(sum(bool(e['already_native_source_group']) for e in ends),3)
         self.assertFalse(any(e['qualified'] for e in ends))
-        w052=next(e for e in ends if e['wire']=='W052' and e['side']=='end')
+        w052=next(e for e in ends if e['wire']=='W052' and e['segment']=='custom' and e['side']=='end')
         self.assertGreater(w052['land']['intervening_guide_mm'],0)
         self.assertEqual(w052['land']['land_mm'],9)
 
