@@ -28,16 +28,28 @@ OWNER='UpperCarrier001'
 
 def patches(parent,goal,limit=3):
     vertex=Part.Vertex(A.Vector(*goal));out=[];seen=set()
+    # These are centres of retained4mm structural members, not old1.4mm
+    # wire arms. Verify each cube exactly ONCE and share across12 seats.
+    for point in sorted(([-56,-22,120],[-56,-22,80],[84,40,146.5]),key=lambda p:math.dist(p,goal)):
+        if not parent.isInside(A.Vector(*point),1e-7,True):continue
+        if arm_box(point,point,HALF).cut(parent.copy()).Volume>1e-5:continue
+        out.append(point)
+    if out:return out[:limit]
     for face in sorted(parent.Faces,key=lambda f:box_distance(f,goal))[:60]:
         if type(face.Surface).__name__!='Plane':continue
         u,U,v,V=face.ParameterRange;n=face.normalAt((u+U)/2,(v+V)/2)
         near=face.distToShape(vertex)[1][0][0]
         for p in (near,face.CenterOfMass):
             for sign in (-1,1):
-                point=list(p+n*(sign*2.2));key=tuple(round(x,6) for x in point)
+                point=list(p+n*(sign*2));key=tuple(round(x,6) for x in point)
                 if key in seen:continue
                 seen.add(key)
                 if not parent.isInside(A.Vector(*point),1e-7,True):continue
+                # Cheap rejection only: thin walls cannot contain a4mm cube.
+                # Corners never ACCEPT it; exact subtraction below still must.
+                import itertools
+                if not all(parent.isInside(A.Vector(*[v+d*s for v,d,s in zip(point,HALF,signs)]),1e-7,True)
+                           for signs in itertools.product((-1,1),repeat=3)):continue
                 if arm_box(point,point,HALF).cut(parent.copy()).Volume>1e-5:continue
                 out.append(point)
                 if len(out)==limit:return out
@@ -59,6 +71,7 @@ def run():
         for i,(a,b) in enumerate(zip(r['path'],r['path'][1:])):
             targets['CurrentSaddleRoot/'+r['owner']+'/'+r['id']+'/'+str(i)]=arm_box(a,b,roots['arm_half_widths_mm'])
     placed=datums(targets);panels=seats(placed,True);parent=parents[OWNER]
+    anchor_pool=None
     for r in receipt['seats']:assert r['recipe']==panels[r['id']]['recipe']
     for r in placed:
         targets['BankATOService/'+r['id']]=nominal_sweep(r)
@@ -103,9 +116,13 @@ def run():
             if hit(s,w,r+.25):return n
         return None
     save()
+    print('bank roots: verifying concrete4mm structural anchors once',flush=True)
+    anchor_pool=patches(parent,[40,40,123])
+    print('bank roots: actual structural anchors',anchor_pool,flush=True)
     for r in sorted(placed,key=lambda r:box_distance(parent,r['centre_xy_mm']+[123])):
         gid=r['id'];q=panels[gid];x,y,z=q['recipe']['centre_mm']
         row=dict(id=gid,seat_recipe=q['recipe'],owner=OWNER,path=None,rejections=[]);records.append(row)
+        save()
         # Two whole leaf-exit directions allocated before trunk search; no
         # scalar position nudges of the holder, terminal or panel are made.
         for sign in sorted((-1,1),key=lambda v:abs(y+v*12)):
@@ -113,9 +130,10 @@ def run():
             leaf=arm_box(leaf_start,exit,LEAF_HALF)
             if (v:=blocked(leaf,r['parts']['Housing']['name'],q['body'])):
                 row['rejections'].append(dict(leaf_sign=sign,witness=v));continue
-            for root in patches(parent,exit):
+            for root in sorted(anchor_pool,key=lambda p:math.dist(p,exit)):
                 if (v:=blocked(arm_box(root,root,HALF))):row['rejections'].append(dict(root=root,witness=v));continue
                 low=[min(a,b)-24 for a,b in zip(root,exit)];high=[max(a,b)+24 for a,b in zip(root,exit)]
+                save();print('bank root corridor preparation',gid,root,exit,flush=True)
                 reserve=Reservations(targets,wires,{}, {},{},[],dict(name=OWNER,code=None,moving=False,arm_half_widths_world_mm=HALF),low,high,mesh_cache,wire_cache,allowed)
                 reserve.memo[tuple(round(v,7) for v in root)]=True
                 reserve.memo[tuple(round(v,7) for v in exit)]=True
