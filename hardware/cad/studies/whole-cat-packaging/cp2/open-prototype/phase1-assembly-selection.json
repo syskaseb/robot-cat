@@ -1,0 +1,586 @@
+{
+  "status": "A2_ONE_CURRENT_WHOLE_NOMINAL_ASSEMBLY_SEQUENCE",
+  "result_id": "A2",
+  "A2_complete": true,
+  "selected": true,
+  "physical_pass": false,
+  "readiness": "prototype",
+  "stages": [
+    {
+      "id": "delivery",
+      "requires": []
+    },
+    {
+      "id": "base",
+      "requires": [
+        "delivery"
+      ]
+    },
+    {
+      "id": "mounts",
+      "requires": [
+        "base"
+      ]
+    },
+    {
+      "id": "legs",
+      "requires": [
+        "mounts"
+      ]
+    },
+    {
+      "id": "headtail_bench",
+      "requires": [
+        "delivery"
+      ]
+    },
+    {
+      "id": "headtail_install",
+      "requires": [
+        "mounts",
+        "headtail_bench"
+      ]
+    },
+    {
+      "id": "battery",
+      "requires": [
+        "legs",
+        "mounts",
+        "headtail_install"
+      ]
+    },
+    {
+      "id": "electronics_bench",
+      "requires": [
+        "delivery"
+      ]
+    },
+    {
+      "id": "lower_boards",
+      "requires": [
+        "mounts",
+        "electronics_bench"
+      ]
+    },
+    {
+      "id": "looms_bench",
+      "requires": [
+        "delivery"
+      ]
+    },
+    {
+      "id": "bank_inputs_before_TE",
+      "requires": [
+        "looms_bench",
+        "mounts"
+      ]
+    },
+    {
+      "id": "upper_bench",
+      "requires": [
+        "electronics_bench",
+        "bank_inputs_before_TE"
+      ]
+    },
+    {
+      "id": "upper_install",
+      "requires": [
+        "upper_bench",
+        "lower_boards"
+      ]
+    },
+    {
+      "id": "route_finish",
+      "requires": [
+        "upper_install",
+        "looms_bench",
+        "legs",
+        "headtail_install"
+      ]
+    },
+    {
+      "id": "close",
+      "requires": [
+        "route_finish"
+      ]
+    },
+    {
+      "id": "unpowered_checks",
+      "requires": [
+        "close",
+        "battery"
+      ]
+    },
+    {
+      "id": "E3_power_gate",
+      "requires": [
+        "unpowered_checks"
+      ]
+    }
+  ],
+  "print_allocations": [
+    {
+      "identity": "AnchorLeft",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "AnchorRight",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "CP2:TailRiser",
+      "quantity": 4,
+      "stage": "mounts"
+    },
+    {
+      "identity": "E2Fixture",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "FTYCradle",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "Foundation",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "FrontLeftFixedCarrier",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "FrontLeftHipExtension",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "FrontLeftKneeCarrier",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "FrontRightFixedCarrier",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "FrontRightHipExtension",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "FrontRightKneeCarrier",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "GPIOGrip",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "LeftRiser",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "LowerCarrier001",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "LowerClampJaw",
+      "quantity": 4,
+      "stage": "mounts"
+    },
+    {
+      "identity": "MAINGrip",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "P0-BASE-ANKLE-SPACER",
+      "quantity": 4,
+      "stage": "legs"
+    },
+    {
+      "identity": "P0-BASE-COVER-FRONT",
+      "quantity": 1,
+      "stage": "close"
+    },
+    {
+      "identity": "P0-BASE-COVER-REAR",
+      "quantity": 1,
+      "stage": "close"
+    },
+    {
+      "identity": "P0-BASE-FOOT-BRACKET",
+      "quantity": 4,
+      "stage": "legs"
+    },
+    {
+      "identity": "P0-BASE-FRAME-FRONT",
+      "quantity": 1,
+      "stage": "base"
+    },
+    {
+      "identity": "P0-BASE-FRAME-REAR",
+      "quantity": 1,
+      "stage": "base"
+    },
+    {
+      "identity": "P0-BASE-HIP-COUPLER",
+      "quantity": 4,
+      "stage": "legs"
+    },
+    {
+      "identity": "P0-BASE-LEG-LINK",
+      "quantity": 8,
+      "stage": "legs"
+    },
+    {
+      "identity": "P0-BATTERY-CARRIER-R4",
+      "quantity": 1,
+      "stage": "battery"
+    },
+    {
+      "identity": "P0-BATTERY-NUT-RETAINER-R6",
+      "quantity": 4,
+      "stage": "battery"
+    },
+    {
+      "identity": "P0-BATTERY-PLATE-R4",
+      "quantity": 1,
+      "stage": "battery"
+    },
+    {
+      "identity": "PCAGrip",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "PwmInsulatingWasher",
+      "quantity": 2,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "RearLeftFixedCarrier",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "RearLeftHipExtension",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "RearLeftKneeCarrier",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "RearRightFixedCarrier",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "RearRightHipExtension",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "RearRightKneeCarrier",
+      "quantity": 1,
+      "stage": "legs"
+    },
+    {
+      "identity": "ReceiverCapD_FL",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "ReceiverCapD_FR",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "ReceiverCapD_RL",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "ReceiverCapD_RR",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "ReceiverCapFR_G",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "ReceiverCapRL_G",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "ReceiverCapRR_G",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "RetainerBar",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "RightRiser",
+      "quantity": 1,
+      "stage": "mounts"
+    },
+    {
+      "identity": "SourceGripRail",
+      "quantity": 1,
+      "stage": "route_finish"
+    },
+    {
+      "identity": "TailLocalRail",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "TopClampPad",
+      "quantity": 4,
+      "stage": "mounts"
+    },
+    {
+      "identity": "U1InsulatingSpacer",
+      "quantity": 2,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "U1TopInsulator",
+      "quantity": 2,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "UpperCarrier001",
+      "quantity": 1,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "UpperSpacer",
+      "quantity": 4,
+      "stage": "upper_bench"
+    },
+    {
+      "identity": "drive:MG92BPrintedHorn20T-R2",
+      "quantity": 3,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:Bridge",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:CageBase",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:CageRetainerLeft",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:CageRetainerRight",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:ClampNegativeX",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:ClampPositiveX",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:EarL",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:EarR",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:FrontLeft",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:FrontRightPorted",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:Nose",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:PassiveJournal",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:PitchCarrier",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:PitchRetainer",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:Rear",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:UpperFork",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:YawCarrier",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "head:YawRetainer",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail segments:TailModule29_00",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail segments:TailModule29_01",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail segments:TailModule29_02",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail segments:TailModule29_03",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail segments:TailModule29_04",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail segments:TailModule29_05",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:BearingCap34",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:InnerSpacer34",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:MG92BMount29",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:OuterSpacer34",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:SpindleCap34",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:TailBridge29",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:TailLowerRetainer",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:TailRoot29",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    },
+    {
+      "identity": "tail support:UpperHousing34",
+      "quantity": 1,
+      "stage": "headtail_bench"
+    }
+  ],
+  "hardware_role_count": 64,
+  "component_rows": 54,
+  "current_net_count": 80,
+  "current_physical_cut_ends": 202,
+  "instruction": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/PHASE1_ASSEMBLY.md",
+  "scope": "Whole nominal open prototype assembly/reverse sequence: P0/battery,neck,head,tail,boards,bank,all current wiring. Staged tool/fastener access, explicit pretermination threading and ordinary deep disconnection. No hot-swap/zero-disconnection requirement or physical/energizing PASS.",
+  "physical_phase2_gates": [
+    "Delivered geometry/access/tool/fasteners/PETG/adhesives/cable limits before actual assembly",
+    "Unpowered electrical continuity/polarity/retention and continuous movement must be performed",
+    "E3 independent power gate must close before any source is connected"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-print-selection.json": "02eb00b3f150c639a194cbc53b56316853ad5bbeb808bdc5b6cef9a5f7a58725",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-purchased-selection-r2.json": "55eb6d01c7d81710369baf83db519c4d8880eeff2bd8ac257fe5f1cff2a9913d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-selection.json": "bc163ae9c40e8bed1e94c29af56479f4eb3a9365314a376655547400b5bba258",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/selection.json": "1670d03e437195aaca39eab1ac9c737d6ca2546695437bd3406b29eeb53a2be9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/selection.json": "91fac22ee260852b5dc5e0cc0beea13ff7da8e4586421e22fce9f2826502e0de",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/current-M5-selection.json": "d54c947f33d64b3609d485c388e8d084bd685619dbdf35d92227f50673a4ce4d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/e1-selection.json": "6e2c2563ffa01806068d599802ede50b12432951cf668a30e55c0f82c767de2c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/selection.json": "5583153206fd0900115c5b0d7eb5cdf6583789b005689ef06dc4b8644a17a0fb",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-wiring-checkpoint/selection.json": "11d1ce89ba3a5fc092b7931ac8ea6a93ee2aea098704adc21ea692fe9068597c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/fixed-head-current-selection.json": "de742c85dce13c2fcd89d13ce39ab8ec69323771b313552d5883b43574d679a1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/selection.json": "470809555653fb217ad0cfa1f266402247b9e6687818f7e7857f10130e14abb0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/PHASE1_ASSEMBLY.md": "32c900f6365a63bdb3c94db1bf697d003b971a6bef6d0d6180849bcd30093653",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/W5_ASSEMBLY.md": "962b686e3b8f27c138efd30b635f4f59b0076c33a98fc23af9012870801af60e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/README.md": "68f27136cda3564b19684de66e359e8e568c02b0fb98317086d64819e20d4d1d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/README.md": "9461879a620e8fe66c8a8a5053882932a7f425d71b93adfe2d6c1331421f371d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/current-M5-README.md": "0ed37e5e4e19473b32056e2051025abbc8e457010cfbf063369d87a52dde4faf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/README.md": "d6ba3f94ab4e41ec3c1f2046b1e4098e7ce6e63cef918b65eb4c91f5da5e7fef",
+    "hardware/electronics/power-platform/MONTAZ-P0.md": "dd3741eaed7150af46c2ff0b87cb52ef2943fee017280ef52f3eec8764f24a7e",
+    "tools/cad/compose_phase1_assembly.py": "78710c74d042e2c44f8c9b46869c0063ad7db023944457969f4957499778b957"
+  },
+  "worker_seconds": 0.021
+}
