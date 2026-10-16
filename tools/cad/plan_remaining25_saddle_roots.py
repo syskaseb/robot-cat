@@ -15,13 +15,41 @@ import Part
 from remaining25_shared_context import load, P
 from current_source_retention_context import C, same_parent
 from plan_remaining25_restraint_space import profile
-from plan_local_source_retention_roots import patches
 from plan_axial_source_supports import arm_box, direct_elbows
 from source_arm_reservations import Reservations
 from plan_remaining_loom_support_paths import search
 from current_work_guard import check
 
 HALF=[1.4,1.4,1.4]  # Insulation-lacing support only, NOT a bank load support.
+
+
+def box_distance(shape,point):
+    """Ordering heuristic ONLY; never used to accept collision or a root."""
+    b=shape.BoundBox
+    return math.sqrt(sum(max(lo-x,0,x-hi)**2 for x,lo,hi in zip(point,
+        (b.XMin,b.YMin,b.ZMin),(b.XMax,b.YMax,b.ZMax))))
+
+
+def patches(parent,goal,limit=2):
+    vertex=Part.Vertex(A.Vector(*goal));result=[];seen=set()
+    # A lower-bound box score orders faces cheaply. The candidate point and
+    # entire root cube still have to be truly contained in the actual parent.
+    faces=sorted(parent.Faces,key=lambda f:box_distance(f,goal))[:48]
+    for face in faces:
+        if type(face.Surface).__name__!='Plane':continue
+        u,U,v,V=face.ParameterRange;n=face.normalAt((u+U)/2,(v+V)/2)
+        near=face.distToShape(vertex)[1][0][0]
+        for p in (near,face.CenterOfMass):
+            for sign in (-1,1):
+                point=list(p+n*(sign*1.5));key=tuple(round(x,6) for x in point)
+                if key in seen:continue
+                seen.add(key)
+                if not parent.isInside(A.Vector(*point),1e-7,True):continue
+                outside=arm_box(point,point,HALF).copy().cut(parent.copy()).Volume
+                if outside>1e-5:continue
+                result.append(dict(point_mm=point,outside_parent_mm3=outside))
+                if len(result)==limit:return result
+    return result
 
 
 def printable(parent,body,points):
@@ -39,7 +67,7 @@ def run(resume=False):
     assert receipt['status']=='REMAINING25_SADDLE_DOMAINS_AND_SHARED_MATERIAL_CLEAR_ROOTS_OPEN'
     for name,digest in receipt['source_sha256'].items():assert P.SHA(P.ROOT/name)==digest,name
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in (
-        source,Path(__file__),Path(__file__).with_name('plan_local_source_retention_roots.py'),
+        source,Path(__file__),
         Path(__file__).with_name('plan_axial_source_supports.py'),
         Path(__file__).with_name('source_arm_reservations.py'),
         Path(__file__).with_name('plan_remaining_loom_support_paths.py'))})
@@ -91,7 +119,8 @@ def run(resume=False):
     completed={r['id'] for r in rows}
     # Short nearby roots first reduce gratuitous long branches; every accepted
     # arm becomes a real obstacle before planning the next one.
-    order=sorted(profiles,key=lambda gid:min(s.distToShape(Part.Vertex(A.Vector(*profiles[gid]['root_tip_mm'])))[0] for s in parents.values()))
+    order=sorted(profiles,key=lambda gid:min(box_distance(s,profiles[gid]['root_tip_mm']) for s in parents.values()))
+    print('shared54 saddle roots: cheap order ready; exact acceptance unchanged',flush=True)
     for gid in order:
         if gid in completed:continue
         check();q=profiles[gid];goal=q['root_tip_mm'];rec=q['recipe']
@@ -105,8 +134,7 @@ def run(resume=False):
             actual.update(o for o in parents if same_parent(o,n,grips))
         if len(actual)>1:
             row['rejections'].append(dict(reason='Seat joins different printed parents',owners=sorted(actual)));save();continue
-        v=Part.Vertex(A.Vector(*goal))
-        owners=list(actual) if actual else sorted(parents,key=lambda o:parents[o].distToShape(v)[0])[:3]
+        owners=list(actual) if actual else sorted(parents,key=lambda o:box_distance(parents[o],goal))[:3]
         for owner in owners:
             if not printable(parent_shapes[owner],q['body'],[goal]):
                 row['rejections'].append(dict(owner=owner,reason='Combined native parent+5mmbrim exceeds256cube'));continue
