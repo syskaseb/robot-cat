@@ -9,7 +9,7 @@ from plan_current_harness_interfaces import ROOT,BASE,SHA
 from release_check import verify
 
 
-ALLOWED={'K1','K2','K3','M4','A2','A3','W5'}
+ALLOWED={'K1','K2','K3','M3','M4','A2','A3','W5'}
 
 
 def validate_score(score,result,refresh=False):
@@ -37,6 +37,8 @@ def run(result,file,refresh=False):
         checked_utc=datetime.now(timezone.utc).isoformat(),verification_seconds=round(time.monotonic()-tick,3),
         verification_basis=manifest['scope']+' Required file hashes verified; nominal prototype preparation, NOT physical PASS.')
     score.setdefault('current_result_overrides',{})[result]=dict(evidence=file.relative_to(ROOT).as_posix(),sha256=SHA(file),new_points=0 if refresh else 5)
+    if result in score.get('retracted_results',{}):
+        score.setdefault('resolved_retractions',{})[result]=score['retracted_results'].pop(result)
     score_file.write_text(json.dumps(score,indent=2)+'\n',newline='\n')
     print(json.dumps(dict(result=result,count=len(ids),fixed_total=20,percent=score['result_percent'],seconds=score['verification_seconds'])))
 

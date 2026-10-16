@@ -4,7 +4,6 @@
   "confirmed_result_ids": [
     "M1",
     "M2",
-    "M3",
     "M5",
     "E2",
     "E4",
@@ -19,24 +18,26 @@
     "A2",
     "K2",
     "K3",
-    "M4"
+    "M4",
+    "M3",
+    "A3"
   ],
-  "result_count": 18,
-  "result_percent": 90,
+  "result_count": 19,
+  "result_percent": 95,
   "change_pp": 5,
-  "new_result": "M4",
+  "new_result": "A3",
   "K2_retracted_cause": "Whole E2 contribution crosscheck:3M3x12/nuts/washers omitted and current moduleG is2147631113 not historical2147631112. Preserve prior receipt as history; requalify complete r2 before restoring point.",
   "physical_pass": false,
   "baseline": "execution-plan.json remains immutable historical stage1 minimum3/20",
-  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/manifest.json",
-  "evidence_sha256": "50778af3aa1d140c9b98b42e28a4ca3088c4b319836a2f8026b5f7053f8739b9",
-  "checked_utc": "2026-10-16T18:33:50.983141+00:00",
-  "verification_seconds": 2.035,
-  "verification_basis": "Complete nominal functional protection for the selected open prototype, before cosmetic torso. Delivered insulation/fit/load/electrical qualification explicitly separate; no IP/touch-safety/physicalPASS or power approval. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
+  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/manifest.json",
+  "evidence_sha256": "0800dbbfdd1c248dd6c915b3d9fc94ce1775d06fa01b2044e055388c30c1fc1c",
+  "checked_utc": "2026-10-16T19:33:39.374821+00:00",
+  "verification_seconds": 3.422,
+  "verification_basis": "One whole current neutral robot, all117print instances/84identities, actual current frame/root/battery/head/tail/material/wiring context, selected resources and verified exact-byte payload. E3 remains OPEN; no physicalPASS, power/slicer/ROS/cosmeticbody approval. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
   "previous_evidence": {
-    "new_result": "W5",
-    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-manifest-r2.json",
-    "evidence_sha256": "972dd3fda5ac6626cb1cc3f0200c81d7dbb6cb17b45dad5d6be4a4ef9fc8e6ca"
+    "new_result": "M3",
+    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/manifest-r2.json",
+    "evidence_sha256": "071c46d6f66a26c0b14902608168990eb5c32878ded6cf5a02e0600be3c0ea1c"
   },
   "current_result_overrides": {
     "M2": {
@@ -60,18 +61,18 @@
       "new_points": 0
     },
     "A2": {
-      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r3.json",
-      "sha256": "be09853a8ef746b680c59f38775f3b71f00a46644fe8abfa16e18e8e1fe406ab",
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r6.json",
+      "sha256": "5df2ce43aef29dae23033ddb04b4c25f37c378caea78b9b3611d944aeef592b8",
       "new_points": 0
     },
     "K3": {
-      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest-r2.json",
-      "sha256": "d90b2f0629aad26033a63dedd543e035dfebb9854b74134402a8a6e352ba2668",
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest-r4.json",
+      "sha256": "30f0967235db4ec37eb8480e1d4f8c70a9889316177a9ad5bf7b799f3c50c888",
       "new_points": 0
     },
     "K1": {
-      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-print-manifest-r2.json",
-      "sha256": "f7b4a1abaa473d9a7535d5448307a95aa9e5225ea8a25a233e52a1410656273d",
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-print-manifest-r4.json",
+      "sha256": "b88c84f233f696046874db91f71ec8380a0daf0f77eaa006ad9046b9978f70d8",
       "new_points": 0
     },
     "W5": {
@@ -83,7 +84,24 @@
       "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/manifest.json",
       "sha256": "50778af3aa1d140c9b98b42e28a4ca3088c4b319836a2f8026b5f7053f8739b9",
       "new_points": 5
+    },
+    "M3": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/manifest-r2.json",
+      "sha256": "071c46d6f66a26c0b14902608168990eb5c32878ded6cf5a02e0600be3c0ea1c",
+      "new_points": 5
+    },
+    "A3": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/manifest.json",
+      "sha256": "0800dbbfdd1c248dd6c915b3d9fc94ce1775d06fa01b2044e055388c30c1fc1c",
+      "new_points": 5
     }
   },
-  "current_head_change_pp": 0
+  "current_head_change_pp": 0,
+  "retracted_results": {},
+  "resolved_retractions": {
+    "M3": {
+      "reason": "Four current19mm TailRisers bottom38.52 have1.5mm gap to realFrameRear37.02; missing oldTopPlate cannot be restored because16current hardware contacts. Direct frame20.5mm riser repair pending; no physicalPASS.",
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/full-addition-datums.json"
+    }
+  }
 }

@@ -1,0 +1,43 @@
+{
+  "result_id": "E3",
+  "status": "SOURCE_AND_BRANCH_PROTECTION_DATA_OPEN",
+  "selected": false,
+  "E3_complete": false,
+  "physical_pass": false,
+  "power_authorized": false,
+  "checked_utc": "2026-10-16T19:04:34Z",
+  "retained_nominal_source": "hardware/electronics/full-cat/protection-selection-r2/branch-protection.json",
+  "current_purchased_selection": "phase1-current-purchased-selection-r4.json",
+  "nominal_fuse_quantity": 23,
+  "current_quantities_match_retained_values": true,
+  "gaps": [
+    {
+      "id": "SOURCE_FAULT_BOUND",
+      "needed": "Guaranteed prospective short-circuit bound for selected battery/source and complete path, compatible with F0/holder DC interruption rating.",
+      "not_a_substitute": "30C, nominal20A operating ceiling, typical charger IR or normal runtime current do not provide a guaranteed fault bound. No deliberate short-circuit test."
+    },
+    {
+      "id": "FACTORY_LEADS_AND_CONTACTS",
+      "needed": "Actual Cu area/insulation/temperature and guaranteed allowable current for all15factoryservo leads and their supplied contacts.",
+      "not_a_substitute": "STEP dimensions, modelled OD/length, advertised stall torque or servo electronic protection do not qualify external lead/contact protection."
+    },
+    {
+      "id": "THIN_BRANCH_FAULT_COORDINATION",
+      "needed": "Guaranteed total-clearing/time-current envelope against every thinner pre-fuse/input/component lead and its actual thermal limits.",
+      "not_a_substitute": "Typical melting I2t and short50mm allowance do not prove protection or full selectivity of10A/4A stages."
+    },
+    {
+      "id": "DC_TRANSIENT_AND_REVERSE_ENERGY",
+      "needed": "Supported combined DC/inrush/regenerative/reverse-fault envelope for actual S821 and selected converters with current rails.",
+      "not_a_substitute": "S821 has30A/30V DC resistive data; that alone does not qualify the actual converter/motor capacitive/transient load. S821D is another product."
+    }
+  ],
+  "bounded_new_checks": {
+    "manufacturer_S821": "https://www.nkkswitches.com/wp-content/themes/impress-blank/search/inc/part.php?part_no=S821",
+    "manufacturer_Feetech": "https://www.feetechrc.com/20210430-56680.html",
+    "result": "Current primary pages do not close all four required envelopes. No new electrical qualification inferred.",
+    "supplier_email_check": "Connected Gmail after10October returned only the already-known12October Botland mechanical horn/MG90 correspondence, no new electrical lead or source data. No outgoing supplier message."
+  },
+  "no_GUARD_BMS_or_new_power_architecture": true,
+  "next_input": "Manufacturer guarantees or competent controlled qualification with defined safe bounds; no hardware energizing authorized in this CAD task."
+}
