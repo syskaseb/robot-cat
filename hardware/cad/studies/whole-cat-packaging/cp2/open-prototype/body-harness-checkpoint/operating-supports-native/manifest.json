@@ -1,5 +1,5 @@
 {
-  "status": "UPPER_CAUSAL_JUNCTION_EXPORT_COMPLETE_THREE_FRAMES_OPEN",
+  "status": "FIVE_OPERATING_NATIVE_PRINT_REPLACEMENTS_COMPLETE",
   "parts": [
     {
       "part": "SourceGripRail",
@@ -38,6 +38,51 @@
         1.8,
         1.6
       ]
+    },
+    {
+      "part": "FrontRightFixedCarrier",
+      "object": "FrontRightFixedCarrierOperatingCurrent",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "quantity": 1,
+      "volume_mm3": 34507.316580536855,
+      "retained_native_history": true,
+      "original_material_preserved": true,
+      "parameter_restore_mm": [
+        0,
+        0.2,
+        0
+      ],
+      "relocated_reopen": true
+    },
+    {
+      "part": "RearLeftFixedCarrier",
+      "object": "RearLeftFixedCarrierOperatingCurrent",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "quantity": 1,
+      "volume_mm3": 29964.773306517094,
+      "retained_native_history": true,
+      "original_material_preserved": true,
+      "parameter_restore_mm": [
+        0,
+        0.2,
+        0
+      ],
+      "relocated_reopen": true
+    },
+    {
+      "part": "RearRightFixedCarrier",
+      "object": "RearRightFixedCarrierOperatingCurrent",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "quantity": 1,
+      "volume_mm3": 27835.707094095138,
+      "retained_native_history": true,
+      "original_material_preserved": true,
+      "parameter_restore_mm": [
+        0,
+        0.2,
+        0
+      ],
+      "relocated_reopen": true
     }
   ],
   "exports": [
@@ -86,6 +131,69 @@
         "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/upper-junction-native.json",
         "sha256": "7699c0d77a804adfcd32fdee63b42ddf6b70dffbbfb8ba3b1fcfcccfd4b4af4c"
       }
+    },
+    {
+      "part": "FrontRightFixedCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FrontRightFixedCarrier_operating_x1.stl",
+      "sha256": "baeab1753c99b312fafb1a799e5b891de9ce1b95a32978fd3e1d4b3e954dcd0b",
+      "quantity": 1,
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          178.70000000000005,
+          244.0,
+          156.8780667186635
+        ],
+        "rotation_quaternion": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "support_and_slicer_validation": false
+      }
+    },
+    {
+      "part": "RearLeftFixedCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/RearLeftFixedCarrier_operating_x1.stl",
+      "sha256": "e0401b4a8b47cfb6f797f0507e75715848c632b82ce5a98b295d425ddeb84377",
+      "quantity": 1,
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          161.45000000000005,
+          167.74999999999997,
+          138.0780667186459
+        ],
+        "rotation_quaternion": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "support_and_slicer_validation": false
+      }
+    },
+    {
+      "part": "RearRightFixedCarrier",
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/RearRightFixedCarrier_operating_x1.stl",
+      "sha256": "8fc1957eee6fd5d396c6eaf788ac29f0035cb0a209ddce9dadf7c544d3b4cf73",
+      "quantity": 1,
+      "printing": {
+        "fits_with_5mm_brim": true,
+        "size_mm": [
+          165.4024335389608,
+          161.4500000000001,
+          138.07806671869068
+        ],
+        "rotation_quaternion": [
+          0.7071067811865476,
+          0.0,
+          0.0,
+          0.7071067811865476
+        ],
+        "support_and_slicer_validation": false
+      }
     }
   ],
   "models": [
@@ -96,12 +204,20 @@
     {
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingJunctionCurrent.FCStd",
       "sha256": "7c98a5415a7845bd851963f2d68fb72d89cc7fddbd13c3fa1ca6bb9472d602af"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "sha256": "265e9446dd9f3c9d350d30e246a07c882e1f9df7c1a975589ce61b2265cd6992"
     }
   ],
   "partial_models": [
     {
       "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperating.partial.FCStd",
       "sha256": "a0df73bd897937db92d5a9497c4d1b4868258a516c16fcdd26bd8b4efae940ec"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperating.partial.FCStd",
+      "sha256": "d645f97f43163140c83da15b818346063c9d5dd05e009c5ab9b146f2b4a16436"
     }
   ],
   "in_progress_owner": null,
@@ -363,6 +479,24 @@
       "object": "Ref_OperatingCaseAdhesiveMTACase_RR",
       "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingCurrent.FCStd",
       "not_printable": true
+    },
+    {
+      "part": "CaseAdhesive/SourceJoint_W037",
+      "object": "Ref_OperatingCaseAdhesiveSourceJoint_W037",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "not_printable": true
+    },
+    {
+      "part": "CaseAdhesive/SourceJoint_W045",
+      "object": "Ref_OperatingCaseAdhesiveSourceJoint_W045",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "not_printable": true
+    },
+    {
+      "part": "CaseAdhesive/SourceJoint_W053",
+      "object": "Ref_OperatingCaseAdhesiveSourceJoint_W053",
+      "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd",
+      "not_printable": true
     }
   ],
   "source_sha256": {
@@ -380,8 +514,8 @@
     "tools/cad/current_native_receiver_primitives.py": "2e737814e2c1c29ab1363ecf5cbdc447bb875edd921073e9a0e6913f08dc38ae",
     "tools/cad/build_remaining_loom_supports.py": "2230fa46599310406fe90516742f2ea978430c84fb66ee52d9733060b7b4a058"
   },
-  "fully_constrained_new_sketches": 453,
-  "worker_seconds": 598.172,
+  "fully_constrained_new_sketches": 485,
+  "worker_seconds": 742.984,
   "replacement_parent_quantity": 4,
   "detachable_rail_quantity": 1,
   "retained_unchanged_FrontLeft_Frame_quantity": 1,
