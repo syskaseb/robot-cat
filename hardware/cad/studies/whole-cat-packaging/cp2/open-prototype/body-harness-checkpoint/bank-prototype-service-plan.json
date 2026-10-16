@@ -3,7 +3,7 @@
   "decisions": [
     "No zero-disconnection service requirement. Keep bank/current24wire ends and P_SYS/F_PI/4MTA poses.",
     "Before left bank ATO service, de-energized only: label and release exactly four P_SYS terminals1/2/3/5; never disconnect all20WAGO or74 ends.",
-    "Cut only W043 end lacing. Keep other three heavy ends in removable rail; remove its two M3 fasteners. Reorient+90degX about bolt row then park inward/down in defined cradles, not on floating wires.",
+    "After two in-robot park bays failed, do NOT add another pocket/offset. Release four end laces, remove the EMPTY rail to the bench. Four source wires require a separate unpowered temporary handling plan; full A2 remains OPEN.",
     "Park short F_PI lead separately with exact unchanged length/R6 and a defined open parking cradle; no pre-fuse extension.",
     "G1+five current ground ends get one calculated4.5mm northward relocation; whole five full curves and independent lands need changed-interface gate.",
     "Keep normal W041 factory/custom geometry. Permanent UP relocation failed shared S1 wire clearance in0b11f99, so do not rerun it or force global source reroutes. Left-bank service also needs explicit release of two W041 joint ends and qualified temporary parking; joint support/levers still OPEN.",
@@ -935,6 +935,12 @@
         "inherited_from": "38c622c59cc345be046167d4d65a250c5ac4267f"
       }
     ],
+    "in_robot_park_enabled": false,
+    "rejected_park_bays": [
+      "North-under-P_SYS crosses stationary W041 joint, aa83dce",
+      "Central bay hits P_REAR/E2/F_PWM and source curves,3971efb"
+    ],
+    "handling": "Empty detachable rail on bench, not permanent in-robot parking hardware. Complete operating W5 first; do not silently expand it to full A2 wire-parking proof.",
     "base_bounds_mm": [
       15,
       61.5,
@@ -1498,8 +1504,8 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/ground-tree-plan.json": "883089570ab12a1acfa7fdab72c22e6237c680861883d2bfa147e058bfd30943",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-roots.json": "c3cf297618d7918a6e201dc2e5563ce439ff5cc84c68afeeca7200c8ac7e3c94",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-bank-cradle-space.json": "15cd0a5315f027fc008aa9640e8f6bae70720e3e92d8a6d63526eb5c746959d5",
-    "tools/cad/plan_bank_prototype_service.py": "370de4a0a39041cd214444fc70cfb69f28c95c0011c092bd7898c9a1eaf97254",
+    "tools/cad/plan_bank_prototype_service.py": "849a35ad7d222aa3282a55990e75e5d4945ce36afa6c715057b23dc29cb3bd30",
     "hardware/reference/power-distribution-2026-09-23/WAGO-221-615.pdf": "fa0c8a23c9823e904324b059d28548d61ddcb04a8538f74d23e7c40f83c6e05b"
   },
-  "worker_seconds": 0.016
+  "worker_seconds": 0.015
 }

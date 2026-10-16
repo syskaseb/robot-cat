@@ -55,7 +55,7 @@ def proposal(source,ground,source_roots,service):
         decisions=[
             'No zero-disconnection service requirement. Keep bank/current24wire ends and P_SYS/F_PI/4MTA poses.',
             'Before left bank ATO service, de-energized only: label and release exactly four P_SYS terminals1/2/3/5; never disconnect all20WAGO or74 ends.',
-            'Cut only W043 end lacing. Keep other three heavy ends in removable rail; remove its two M3 fasteners. Reorient+90degX about bolt row then park inward/down in defined cradles, not on floating wires.',
+            'After two in-robot park bays failed, do NOT add another pocket/offset. Release four end laces, remove the EMPTY rail to the bench. Four source wires require a separate unpowered temporary handling plan; full A2 remains OPEN.',
             'Park short F_PI lead separately with exact unchanged length/R6 and a defined open parking cradle; no pre-fuse extension.',
             'G1+five current ground ends get one calculated4.5mm northward relocation; whole five full curves and independent lands need changed-interface gate.',
             'Keep normal W041 factory/custom geometry. Permanent UP relocation failed shared S1 wire clearance in0b11f99, so do not rerun it or force global source reroutes. Left-bank service also needs explicit release of two W041 joint ends and qualified temporary parking; joint support/levers still OPEN.',
@@ -65,6 +65,9 @@ def proposal(source,ground,source_roots,service):
         rejected_P_SYS_inward_rotation=dict(reason='Fails necessary50mm pre-fuse blank bound BEFORE CAD',
             hypothetical_end_mm=bad,straight_distance_plus_strip_lower_bound_mm=impossible,limit_mm=50),
         removable_rail=dict(occupied_ports=portmap,source_grip_records=grips,
+            in_robot_park_enabled=False,
+            rejected_park_bays=['North-under-P_SYS crosses stationary W041 joint, aa83dce','Central bay hits P_REAR/E2/F_PWM and source curves,3971efb'],
+            handling='Empty detachable rail on bench, not permanent in-robot parking hardware. Complete operating W5 first; do not silently expand it to full A2 wire-parking proof.',
             base_bounds_mm=[15,61.5,154.0,49,65,156.0],
             plate_stack_raise_mm=.6,
             plate_raise_basis='Keep current factory wireZ151.4/OD4.2 plus.25margin: plate bottom>=153.75. Use154.0; source clamp lands and all WAGO/holder/wire poses remain unchanged.',

@@ -40,7 +40,7 @@ def material(plan):
         lo,hi=r['parked_tab_y_mm']
         outer=box([x-4.75,lo-2, floor-2,x+4.75,hi+2,floor+14])
         inner=box([x-4.45,lo-.3,floor,x+4.45,hi+.3,floor+15])
-        cups['RailParkingCup'+str(i)]=outer.cut(inner).removeSplitter()
+        if r.get('in_robot_park_enabled',True):cups['RailParkingCup'+str(i)]=outer.cut(inner).removeSplitter()
     rotation=A.Rotation(A.Vector(1,0,0),90);pivot=A.Vector(0,50,155.4)
     pose=A.Placement(pivot-rotation.multVec(pivot)+A.Vector(*r['parking_transform']['post_translation_mm']),rotation)
     parked=rail.copy();parked.Placement=pose*parked.Placement
@@ -51,12 +51,12 @@ def material(plan):
         s=s.copy();s.Placement=pose*s.Placement;parked_bands[gid]=s
     p=plan['W043_park'];clip=profile(dict(project_radius_mm=p['radius_mm'],axis=p['free_end_axis'],
         centre_world_mm=p['parking_grip_centre_mm'],land_mm=3,foot_sign=-1),p['parking_grip_normal'],1)
-    parts.update({'Rail':rail,**bosses,**cups,'W043ParkingSeat':clip['body'],**hardware})
+    parts.update({'Rail':rail,**bosses,**cups,**({'W043ParkingSeat':clip['body']} if r.get('in_robot_park_enabled',True) else {}),**hardware})
     for name,s in parts.items():assert s.isValid() and len(s.Solids)==1 and not s.check(True),name
     for gid,b in bands.items():assert rail.common(b).Volume<1e-5,('Rail touches lacing',gid)
     for gid,b in parked_bands.items():assert parked.common(b).Volume<1e-5,('Park rail touches lacing',gid)
     return dict(parts=parts,rail=rail,parked_rail=parked,bands=bands,parked_bands=parked_bands,
         prefuse_parking_seat=clip,pose=pose,parking_cup_floor_z_mm=floor,
-        stationary={**bosses,**cups,'W043ParkingSeat':clip['body']},hardware=hardware,
-        root_goals=r['structural_root_goals_mm']+[[x,sum(r['parked_tab_y_mm'])/2,floor-2] for x,_,_ in r['bolt_centres_mm']],
+        stationary={**bosses,**cups,**({'W043ParkingSeat':clip['body']} if r.get('in_robot_park_enabled',True) else {})},hardware=hardware,
+        root_goals=r['structural_root_goals_mm']+([[x,sum(r['parked_tab_y_mm'])/2,floor-2] for x,_,_ in r['bolt_centres_mm']] if cups else []),
         selected=False,physical_pass=False)
