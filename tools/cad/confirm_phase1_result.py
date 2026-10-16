@@ -9,11 +9,12 @@ from plan_current_harness_interfaces import ROOT,BASE,SHA
 from release_check import verify
 
 
-ALLOWED={'K1','K2','K3','M4','A2','A3'}
+ALLOWED={'K1','K2','K3','M4','A2','A3','W5'}
 
 
 def validate_score(score,result,refresh=False):
     assert result in ALLOWED and score['fixed_total']==20
+    assert result!='W5' or refresh,'W5 may only refresh an existing complete result here'
     ids=score['confirmed_result_ids'];assert len(ids)==len(set(ids))==score['result_count']
     assert score['result_percent']==5*len(ids)
     assert (result in ids) if refresh else (result not in ids)

@@ -18,24 +18,25 @@
     "K1",
     "A2",
     "K2",
-    "K3"
+    "K3",
+    "M4"
   ],
-  "result_count": 17,
-  "result_percent": 85,
+  "result_count": 18,
+  "result_percent": 90,
   "change_pp": 5,
-  "new_result": "K3",
+  "new_result": "M4",
   "K2_retracted_cause": "Whole E2 contribution crosscheck:3M3x12/nuts/washers omitted and current moduleG is2147631113 not historical2147631112. Preserve prior receipt as history; requalify complete r2 before restoring point.",
   "physical_pass": false,
   "baseline": "execution-plan.json remains immutable historical stage1 minimum3/20",
-  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest.json",
-  "evidence_sha256": "4b046d80b06ab644c29d655f5dd8953e360bb4483a8693cefe9459702a36f6d4",
-  "checked_utc": "2026-10-16T14:15:35.302877+00:00",
-  "verification_seconds": 0.072,
-  "verification_basis": "Complete current nominal wire/factory-unit/cut-insulation/adhesive/tie/lace/PETG/tool provision for the selected open prototype, with overlaps removed. Requirements for stock/tool access, not owned inventory, purchases, physical fit or electrical E3 acceptance. Unselected M4 guard redesign is explicitly not fabricated. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
+  "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/manifest.json",
+  "evidence_sha256": "50778af3aa1d140c9b98b42e28a4ca3088c4b319836a2f8026b5f7053f8739b9",
+  "checked_utc": "2026-10-16T18:33:50.983141+00:00",
+  "verification_seconds": 2.035,
+  "verification_basis": "Complete nominal functional protection for the selected open prototype, before cosmetic torso. Delivered insulation/fit/load/electrical qualification explicitly separate; no IP/touch-safety/physicalPASS or power approval. Required file hashes verified; nominal prototype preparation, NOT physical PASS.",
   "previous_evidence": {
-    "new_result": "A2",
-    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r2.json",
-    "evidence_sha256": "b24c860a1f83249e71e3ce333d5e3a1e507ebb9ec94e4a5cc8e36bfaf530181a"
+    "new_result": "W5",
+    "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-manifest-r2.json",
+    "evidence_sha256": "972dd3fda5ac6626cb1cc3f0200c81d7dbb6cb17b45dad5d6be4a4ef9fc8e6ca"
   },
   "current_result_overrides": {
     "M2": {
@@ -54,18 +55,33 @@
       "new_points": 0
     },
     "K2": {
-      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-purchased-manifest-r3.json",
-      "sha256": "102758b074fe646b25778c65131be170d730f1d06b0f684a4f72ece613452259",
-      "new_points": 5
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-purchased-manifest-r4.json",
+      "sha256": "3fd2070147ed9c5ddbb593edca0048d2faea816567f0944d02db14f2fd3b2403",
+      "new_points": 0
     },
     "A2": {
-      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r2.json",
-      "sha256": "b24c860a1f83249e71e3ce333d5e3a1e507ebb9ec94e4a5cc8e36bfaf530181a",
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-assembly-manifest-r3.json",
+      "sha256": "be09853a8ef746b680c59f38775f3b71f00a46644fe8abfa16e18e8e1fe406ab",
       "new_points": 0
     },
     "K3": {
-      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest.json",
-      "sha256": "4b046d80b06ab644c29d655f5dd8953e360bb4483a8693cefe9459702a36f6d4",
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-material-manifest-r2.json",
+      "sha256": "d90b2f0629aad26033a63dedd543e035dfebb9854b74134402a8a6e352ba2668",
+      "new_points": 0
+    },
+    "K1": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-print-manifest-r2.json",
+      "sha256": "f7b4a1abaa473d9a7535d5448307a95aa9e5225ea8a25a233e52a1410656273d",
+      "new_points": 0
+    },
+    "W5": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-manifest-r2.json",
+      "sha256": "972dd3fda5ac6626cb1cc3f0200c81d7dbb6cb17b45dad5d6be4a4ef9fc8e6ca",
+      "new_points": 0
+    },
+    "M4": {
+      "evidence": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/manifest.json",
+      "sha256": "50778af3aa1d140c9b98b42e28a4ca3088c4b319836a2f8026b5f7053f8739b9",
       "new_points": 5
     }
   },

@@ -1,0 +1,106 @@
+{
+  "status": "SOURCE_HARDWARE_BENCH_SEQUENCE_NOMINAL_CLEAR",
+  "selected": false,
+  "physical_pass": false,
+  "contacts": [],
+  "supplier_interface_gates": [
+    {
+      "a": "S0M6_96",
+      "b": "S0_body_CP2/0/0",
+      "volume_mm3": 452.38934211693
+    },
+    {
+      "a": "S0M6_96",
+      "b": "S0_key_CP2/0/0",
+      "volume_mm3": 21.51298812677974
+    },
+    {
+      "a": "S0Washer_96top",
+      "b": "S0_key_CP2/0/0",
+      "volume_mm3": 10.725291850642675
+    },
+    {
+      "a": "S0Washer_96lower",
+      "b": "S0_body_CP2/0/0",
+      "volume_mm3": 129.48388281035668
+    },
+    {
+      "a": "S0Nut_96",
+      "b": "S0_body_CP2/0/0",
+      "volume_mm3": 291.6410324806786
+    },
+    {
+      "a": "S0M6_58",
+      "b": "S0_body_CP2/0/0",
+      "volume_mm3": 452.3893421169301
+    },
+    {
+      "a": "S0M6_58",
+      "b": "S0_key_CP2/0/0",
+      "volume_mm3": 21.512988126779728
+    },
+    {
+      "a": "S0Washer_58top",
+      "b": "S0_key_CP2/0/0",
+      "volume_mm3": 10.72529185064268
+    },
+    {
+      "a": "S0Washer_58lower",
+      "b": "S0_body_CP2/0/0",
+      "volume_mm3": 129.48388281035673
+    },
+    {
+      "a": "S0Nut_58",
+      "b": "S0_body_CP2/0/0",
+      "volume_mm3": 291.6410324806786
+    }
+  ],
+  "pairs": 108,
+  "S1_stack": {
+    "head_top_mm": 83.5,
+    "tip_mm": 33.5,
+    "nut_bottom_mm": 36.82,
+    "nut_top_mm": 39.22,
+    "protrusion_mm": 3.32,
+    "product": "Wurth0048350 DIN965M3x50 PH1 partialthread",
+    "delivered_tip_thread_min_mm": 6,
+    "remove": [
+      "UpperFrame8Screw/0/0",
+      "UpperFrame8TopWasher/0/0"
+    ]
+  },
+  "S0_stack": {
+    "M6x20": 2,
+    "washer_OD12_ID6p4_t1p6": 4,
+    "nut_AF10_h5": 2,
+    "project_flange_mm": 4,
+    "flange_max_for_one_pitch_protrusion_mm": 8.4,
+    "gate": "Actual flange thickness/key/stud clock unknown. Published mount pattern only; delivered body/hardware fit must be verified unplugged, do not infer a hollow bolt bay from filled reservation."
+  },
+  "tool_sequence": [
+    {
+      "tool": "Project PH1 OD5x60",
+      "from_xyz": [
+        138,
+        30,
+        83.7
+      ],
+      "stage": "Frame joint before S1 case and before fixing the loose wires. Not assembled hot service."
+    },
+    {
+      "tool": "M6 AF5 and AF10",
+      "stage": "Source S0 mounted on static Foundation on bench before head/looms; support key OFF/remove key. Actual delivered flange recess access gate."
+    }
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/current-w5-assembly/CurrentW5AssemblyNeutral.FCStd": "8b0ccaf7ffdfccc01472dd853e99f242cdee291d5c56c84d02be78ce022cb1b7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/ReceiverSupportsCurrent.FCStd": "4306e95194894c02579bb3370488af0a2909ccde79095986678bdfd5c0bab71a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-frame-saddles-native/RemainingFrameSaddlesCurrent.FCStd": "b527442a5dae363f22b1d54a50bb78ff63c49b817c1771ec90956e7c929c29b8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd": "265e9446dd9f3c9d350d30e246a07c882e1f9df7c1a975589ce61b2265cd6992",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingJunctionCurrent.FCStd": "7c98a5415a7845bd851963f2d68fb72d89cc7fddbd13c3fa1ca6bb9472d602af",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/NeckSourceRetentionCurrent.FCStd": "05c977006ac500584a3f21a47de8e8cc352e7b1ba947fecf4f390f0cb07861f8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingCurrent.FCStd": "b833a7adc0f94cafd07277820d26ebcbcbd8c68f20d70914f9d7f15c9e3509de",
+    "tools/cad/check_phase1_source_hardware.py": "120531147b5ef37e7c4e1f4ddd33a7615993551a99018897048bc935977b8a24"
+  },
+  "worker_seconds": 133.172
+}

@@ -1,0 +1,1021 @@
+# SCM syntax highlighting & preventing 3-way merges
+pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
+
+# Shell scripts must stay LF even when checked out on Windows. Git's autocrlf
+# would otherwise hand them CRLF, and every one of them is executed by bash -
+# in WSL, or inside the Linux container run/docker/ builds - where a trailing
+# \r turns the shebang into "/usr/bin/env bash\r: no such file or directory".
+*.sh text eol=lf
+Dockerfile text eol=lf
+
+# Generated PDFs are binary even when their first block contains no NUL byte.
+*.pdf binary
+
+# STL byte hashes are pinned by the selected prototype manifest, including
+# historical ASCII exports. Never normalize their bytes or merge as prose.
+/hardware/**/*.stl binary -eol
+
+# Simulation provenance hashes must survive Windows/Linux checkouts.
+tools/simulation/*.py text eol=lf
+tools/simulation/plugin/* text eol=lf
+
+# v33 evidence is checksummed byte-for-byte. Preserve OCCT's serialized BRep
+# (including kernel whitespace), and keep hashed JSON stable across platforms.
+hardware/skorupa/v33/recovery/*.brep binary
+hardware/skorupa/v33/*.json text eol=lf
+
+# v35 prototype decisions bind the raw JSON evidence with SHA256 as well as
+# binary CAD. Windows checkout must not invalidate these evidence chains.
+hardware/skorupa/v35/*.json text eol=lf
+hardware/skorupa/v35/rejected/*.json text eol=lf
+hardware/simulation/v35/*.json text eol=lf
+hardware/simulation/v35/trials/*.json text eol=lf
+
+# The modular hardware manifest hashes these sources byte-for-byte.
+.gitattributes text eol=lf
+/tools/electronics/w5_whole_connection_plan.py -text -eol
+/tools/electronics/w5_loom_attachment_plan.py -text -eol
+/tools/electronics/w5_loom_attachment_receive.py -text -eol
+/tools/electronics/w5_loom_bearing_regions.py -text -eol
+/tools/electronics/w5_loom_common_layout.py -text -eol
+/tools/electronics/w5_loom_outboard_layout.py -text -eol
+/tools/electronics/w5_loom_coupled_frame_layout.py -text -eol
+/tools/electronics/w5_loom_frames_receive.py -text -eol
+/tools/electronics/w5_loom_mount_hardware.py -text -eol
+/tools/electronics/w5_loom_mount_receive.py -text -eol
+/tools/electronics/w5_loom_mount_recover.py -text -eol
+/tools/electronics/w5_loom_fixed_native.py -text -eol
+/tools/electronics/w5_moving_grip_space_plan.py -text -eol
+/hardware/electronics/full-cat/w5-moving-grip-space-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-loom-fixed-native-r*/** -text -eol
+/hardware/cad/studies/w5-loom-fixed-native-r*/** -text -eol
+/hardware/electronics/full-cat/w5-loom-mount-hardware-r*/** -text -eol
+/hardware/electronics/full-cat/w5-loom-mount-hardware-r*/*.brep -diff
+/hardware/cad/studies/w5-loom-fixed-native-r*/*.brep -diff
+/hardware/electronics/full-cat/w5-loom-frames-received-r*/** -text -eol
+/hardware/electronics/full-cat/w5-loom-common-layout-r*/** -text -eol
+/hardware/electronics/full-cat/w5-loom-bearing-regions-r*/** -text -eol
+/hardware/electronics/full-cat/w5-whole-connection-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-loom-attachment-plan-r*/** -text -eol
+/tools/electronics/w5_r53_owners.py -text -eol
+/tools/electronics/w5_xa05_access_r*.py -text -eol
+/tools/electronics/select_w5_xa05_r*.py -text -eol
+/tools/electronics/w5_r54_owners.py -text -eol
+/hardware/electronics/full-cat/w5-xa05-access-r*/** -text -eol
+/hardware/electronics/full-cat/w5-xa05-access-r*/*.brep binary
+/hardware/manufacturing/one-batch-prototype-r54/** -text -eol
+/tools/electronics/w5_leg_fanout_layout_r5.py -text -eol
+/tools/electronics/w5_psys_platform_preflight_r*.py -text -eol
+/hardware/electronics/full-cat/w5-psys-platform-preflight-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-psys-platform-preflight-r*/*.brep binary
+*.FCStd binary
+.agents/skills/**/SKILL.md text eol=lf
+tools/cad/*.py text eol=lf
+tools/freecad/skorupa/aux35.py text eol=lf
+tools/freecad/skorupa/inheritance30.py text eol=lf
+tools/freecad/skorupa/support34.py text eol=lf
+hardware/cad/**/*.json text eol=lf
+hardware/cad/studies/**/README.md text eol=lf
+hardware/bom/*.json text eol=lf
+hardware/releases/*.json text eol=lf
+
+# These saved CAD diagnostics hash exact JSON bytes, including their line endings.
+hardware/cad/studies/fuse-layout-repair-r1/*.json -text -eol
+hardware/cad/studies/battery-p0/current-cassette-service-r1/checks.json -text -eol
+
+# R17/R18 raw-byte manifests: preserve saved evidence across checkouts.
+hardware/cad/studies/aux-splice-shelf-r2/** -text -eol
+hardware/electronics/full-cat/xb11-upstream-route-r1/** -text -eol
+hardware/electronics/full-cat/xb11-upstream-route-r2/** -text -eol
+hardware/manufacturing/one-batch-prototype-r17/** -text -eol
+hardware/manufacturing/one-batch-prototype-r18/** -text -eol
+hardware/cad/studies/aux-splice-shelf-r2/*.brep binary
+hardware/electronics/full-cat/xb11-upstream-route-r1/*.brep binary
+hardware/electronics/full-cat/xb11-upstream-route-r2/*.brep binary
+tools/electronics/aux_splice_wire_e6.py text eol=lf
+tools/electronics/select_aux_splice_r17.py text eol=lf
+tools/electronics/select_fixed_logic_r18.py text eol=lf
+tools/electronics/xb11_upstream_route.py text eol=lf
+tools/electronics/xb11_upstream_raise.py text eol=lf
+tools/electronics/finalize_xb11_route_screen.py text eol=lf
+hardware/cad/studies/xb11-hangers-r1/** -text -eol
+hardware/cad/studies/xb11-hangers-r2/** -text -eol
+hardware/electronics/full-cat/xb11-upstream-route-r3/** -text -eol
+hardware/manufacturing/one-batch-prototype-r19/** -text -eol
+hardware/electronics/full-cat/xb11-upstream-route-r3/*.brep binary
+tools/electronics/xb11_selected_route_r3.py text eol=lf
+tools/electronics/select_xb11_r19.py text eol=lf
+hardware/cad/studies/aux-carrier-wire-ports-r1/** -text -eol
+hardware/electronics/full-cat/aux-converter-routes-r*/** -text -eol
+hardware/electronics/full-cat/xa05-main-aux-return-r*/** -text -eol
+hardware/electronics/full-cat/xa06-ground-bridge-r1/** -text -eol
+hardware/manufacturing/one-batch-prototype-r20/** -text -eol
+tools/electronics/aux_converter_routes_r2.py text eol=lf
+tools/electronics/aux_converter_routes_r3.py text eol=lf
+tools/electronics/xa05_main_aux_return_r1.py text eol=lf
+tools/electronics/xa06_ground_bridge_r1.py text eol=lf
+tools/electronics/select_fixed_aux_r20.py text eol=lf
+tools/cad/aux_carrier_wire_ports_r1.py text eol=lf
+hardware/electronics/full-cat/aux-converter-routes-r*/*.brep binary
+hardware/electronics/full-cat/xa05-main-aux-return-r*/*.brep binary
+hardware/electronics/full-cat/xa06-ground-bridge-r1/*.brep binary
+hardware/cad/studies/head-external-wire-support-r1/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/head-external-wire-support-r1/*.brep binary
+hardware/electronics/full-cat/head-external-yaw-loop-r*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/head-external-yaw-loop-r*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r21/** -text -eol whitespace=cr-at-eol
+tools/cad/head_external_wire_support_r1.py text eol=lf
+tools/cad/head_wire_support_finish_r1.py text eol=lf
+tools/electronics/select_head_wire_support_r21.py text eol=lf
+tools/electronics/head_external_yaw_loop_r1.py text eol=lf
+tools/electronics/head_external_yaw_loop_r2.py text eol=lf
+
+# R22 raw-byte CAD and evidence must retain their pinned hashes on Windows.
+hardware/cad/studies/head-jr-support-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/head-jr-support-r*/*.brep binary
+hardware/electronics/full-cat/head-factory-lead-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/head-factory-lead-*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r22/** -text -eol whitespace=cr-at-eol
+tools/cad/head_jr_support_r1.py text eol=lf
+tools/cad/head_jr_support_r5.py text eol=lf
+tools/electronics/head_factory_lead_storage_r1.py text eol=lf
+tools/electronics/head_factory_lead_storage_r2.py text eol=lf
+tools/electronics/head_factory_lead_storage_r3.py text eol=lf
+tools/electronics/head_factory_lead_local_profiles.py text eol=lf
+tools/electronics/head_factory_lead_guard_r5_check.py text eol=lf
+tools/electronics/head_jr_support_package.py text eol=lf
+tools/electronics/head_jr_support_preview.py text eol=lf
+tools/electronics/select_head_jr_factory_r22.py text eol=lf
+
+# R23 exact-byte construction, exported meshes and route evidence.
+hardware/cad/studies/head-yaw-end-restraints-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/head-yaw-end-restraints-r*/*.brep binary
+hardware/electronics/full-cat/head-complete-yaw-transitions-r*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/head-complete-yaw-transitions-r*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r23/** -text -eol whitespace=cr-at-eol
+tools/electronics/head_complete_yaw_transitions_r1.py text eol=lf
+tools/electronics/head_complete_yaw_transitions_r2.py text eol=lf
+tools/electronics/head_complete_yaw_transitions_r3.py text eol=lf
+tools/electronics/head_yaw_end_splices_r1.py text eol=lf
+tools/electronics/select_head_yaw_ends_r23.py text eol=lf
+hardware/manufacturing/one-batch-prototype-r24/** -text -eol whitespace=cr-at-eol
+tools/electronics/select_moving_pwm_r24.py text eol=lf
+hardware/cad/studies/head-fixed-yaw-feed-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/head-fixed-yaw-feed-r*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r25/** -text -eol whitespace=cr-at-eol
+tools/electronics/head_fixed_yaw_feed_r1.py text eol=lf
+tools/electronics/head_fixed_yaw_feed_r2.py text eol=lf
+tools/electronics/head_fixed_yaw_feed_r3.py text eol=lf
+tools/electronics/select_fixed_yaw_r25.py text eol=lf
+hardware/manufacturing/one-batch-prototype-r26/** -text -eol whitespace=cr-at-eol
+tools/electronics/select_joint_insulation_r26.py text eol=lf
+hardware/electronics/full-cat/pi-*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/pi-complete-native-r*/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r33/** -text -eol whitespace=cr-at-eol
+tools/cad/pi_*.py text eol=lf
+tools/cad/select_complete_pi_r33.py text eol=lf
+tools/electronics/pi_*.py text eol=lf
+hardware/electronics/full-cat/protection-selection-r2/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r34/** -text -eol whitespace=cr-at-eol
+tools/electronics/protection_selection_r2.py text eol=lf
+hardware/electronics/full-cat/connection-map-e4-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r35/** -text -eol whitespace=cr-at-eol
+tools/electronics/connection_map_e4_r1.py text eol=lf
+tools/electronics/e4_source_probe.py text eol=lf
+tools/electronics/test_connection_map_e4_r1.py text eol=lf
+
+# R36 physical harness recipes and evidence retain their hashed bytes.
+hardware/electronics/full-cat/body-harness-w5-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r36/** -text -eol whitespace=cr-at-eol
+tools/electronics/body_harness_w5_r1.py text eol=lf
+tools/electronics/test_body_harness_w5_r1.py text eol=lf
+
+# R37 supported DATA geometry and exact-byte construction evidence.
+hardware/electronics/full-cat/body-data-bridges-r*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/body-data-bridges-r*/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r37/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/body-data-bridges-r*/*.brep binary
+hardware/cad/studies/body-data-bridges-r*/*.brep binary
+tools/electronics/body_data_bridges*.py text eol=lf
+tools/electronics/test_body_data_bridges_r3.py text eol=lf
+tools/electronics/package_body_data_bridges_r37.py text eol=lf
+
+# R38 fixed ground bridge: preserve CAD/JSON hashes byte-for-byte.
+hardware/electronics/full-cat/body-ground*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/body-ground*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/body-ground*/*.brep binary
+hardware/cad/studies/body-ground*/*.brep binary
+hardware/manufacturing/one-batch-prototype-r38/** -text -eol whitespace=cr-at-eol
+tools/electronics/body_ground*.py -text -eol
+tools/electronics/complete_body_ground_bridge_checks_r3.py -text -eol
+tools/electronics/test_body_ground_bridge.py -text -eol
+tools/electronics/package_body_ground_bridge_r38.py -text -eol
+hardware/electronics/power-platform/open-deck-p0/layout.json -text -eol
+
+# R39 exact-byte materials, source PDFs and inherited package evidence.
+hardware/electronics/full-cat/assembly-materials-k3-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r39/** -text -eol whitespace=cr-at-eol
+tools/electronics/package_assembly_materials_r39.py -text -eol
+tools/electronics/test_assembly_materials_r39.py -text -eol
+
+# R40 W060 source-preserving native interfaces and provisional soft contact.
+hardware/electronics/full-cat/main-input-return*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/main-input-return*/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r40/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/main-input-return*/**/*.brep binary
+hardware/cad/studies/main-input-return*/**/*.stl binary
+hardware/electronics/full-cat/main-input-return*/**/*.brep binary
+tools/electronics/main_input_return*.py -text -eol
+tools/electronics/test_main_input_return.py -text -eol
+tools/electronics/package_main_input_return_r40.py -text -eol
+
+# R41 independent G1 restraints: exact source bytes, no CAD mesh text conversion.
+hardware/electronics/full-cat/g1-exit-restraints*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/g1-exit-restraints*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/g1-exit-restraints*/*.brep binary
+hardware/cad/studies/g1-exit-restraints*/*.stl binary
+hardware/manufacturing/one-batch-prototype-r41/** -text -eol whitespace=cr-at-eol
+tools/electronics/g1_exit_restraints*.py -text -eol
+tools/electronics/test_g1_exit_restraints.py -text -eol
+tools/electronics/package_g1_exit_restraints_r41.py -text -eol
+
+# R42 exact-byte tooling and explicitly unselected positive-input evidence.
+hardware/electronics/full-cat/main-positive*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive*/*.brep binary
+hardware/electronics/full-cat/termination-tools-k3-r1/** -text -eol whitespace=cr-at-eol
+hardware/reference/fhac0001zxj-2026-10-02/** -text -eol
+hardware/manufacturing/one-batch-prototype-r42/** -text -eol whitespace=cr-at-eol
+tools/electronics/main_positive*.py -text -eol
+tools/electronics/verify_main_positive_input_evidence.py -text -eol
+tools/electronics/termination_tools_k3_r1.py -text -eol
+tools/electronics/test_termination_tools_k3_r1.py -text -eol
+tools/electronics/package_termination_tools_r42.py -text -eol
+
+# R43 workshop set: keep source PDFs, generated recipe and package hashes exact.
+hardware/electronics/full-cat/assembly-tools-k3-r2/** -text -eol whitespace=cr-at-eol
+hardware/reference/assembly-tools-2026-10-02/** -text -eol
+hardware/manufacturing/one-batch-prototype-r43/** -text -eol whitespace=cr-at-eol
+tools/electronics/assembly_tools_k3_r2.py -text -eol
+tools/electronics/test_assembly_tools_k3_r2.py -text -eol
+tools/electronics/package_assembly_tools_r43.py -text -eol
+
+# R44 complete MAIN input: exact native/check/card/package bytes.
+hardware/electronics/full-cat/main-positive-complete-r3/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-complete-r4/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-complete-r5/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-complete-r6/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-complete-r7/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-native-r1/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-wiring-card-r1/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/main-positive-native-r1/** -text -eol
+hardware/manufacturing/one-batch-prototype-r44/** -text -eol whitespace=cr-at-eol
+tools/electronics/main_positive_complete_r3.py -text -eol
+tools/electronics/main_positive_complete_r4.py -text -eol
+tools/electronics/main_positive_complete_r5.py -text -eol
+tools/electronics/main_positive_complete_r6.py -text -eol
+tools/electronics/main_positive_complete_r7.py -text -eol
+tools/electronics/main_positive_native_r1.py -text -eol
+tools/electronics/main_positive_native_r2.py -text -eol
+tools/electronics/main_positive_native_interrupted_r1.py -text -eol
+tools/electronics/main_positive_wiring_card_r1.py -text -eol
+tools/electronics/test_main_positive_wiring_card.py -text -eol
+tools/electronics/main_positive_preview.py -text -eol
+tools/electronics/package_main_positive_r44.py -text -eol
+hardware/electronics/full-cat/main-positive-complete-r8/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/main-positive-native-r2/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/main-positive-native-r2/** -text -eol
+tools/electronics/main_positive_complete_r8.py -text
+tools/electronics/main_positive_native_r3.py -text
+tools/electronics/main_positive_mesh_probe.py -text
+hardware/electronics/full-cat/servo-fuse-inputs-r1/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-inputs-r1/*.brep binary
+hardware/electronics/full-cat/body-harness-w5-r2/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r45/** -text -eol whitespace=cr-at-eol
+tools/electronics/servo_fuse_inputs_r1.py -text -eol
+tools/electronics/test_servo_fuse_inputs_r1.py -text -eol
+tools/electronics/body_harness_w5_r2.py -text -eol
+tools/electronics/test_body_harness_w5_r2.py -text -eol
+tools/electronics/package_body_harness_r45.py -text -eol
+hardware/cad/studies/main-positive-native-r1/*.brep binary
+hardware/cad/studies/main-positive-native-r2/*.brep binary
+hardware/cad/studies/main-positive-native-r2/*.stl binary
+hardware/electronics/full-cat/main-positive-complete-r8/*.brep binary
+
+# R46 fixed-fastener supplier allocation: preserve hashed source bytes.
+hardware/manufacturing/fixed-fastener-skus-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r46/** -text -eol whitespace=cr-at-eol
+tools/manufacturing/fixed_fastener_skus_r1.py -text -eol
+tools/manufacturing/test_fixed_fastener_skus_r1.py -text -eol
+
+# R47 consolidated product identities: preserve manifest-pinned bytes.
+hardware/manufacturing/nonfastener-catalog-r1/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r47/** -text -eol whitespace=cr-at-eol
+tools/manufacturing/nonfastener_catalog_r1.py -text -eol
+tools/manufacturing/test_nonfastener_catalog_r1.py -text -eol
+
+# R48 source feed: keep manifest hashes stable on Windows checkouts.
+hardware/cad/studies/battery-feed-bridge-r1/** -text -eol
+hardware/cad/studies/battery-feed-return-finish-r2/** -text -eol
+hardware/cad/studies/battery-feed-mount-finish-r2/** -text -eol
+hardware/cad/studies/battery-feed-pair-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-bridge-r1/** -text -eol
+hardware/electronics/full-cat/battery-feed-return-finish-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-mount-finish-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-pair-r2/** -text -eol
+hardware/electronics/full-cat/battery-feed-access-finish-r1/** -text -eol
+hardware/electronics/full-cat/battery-feed-selected-r1/** -text -eol
+hardware/manufacturing/one-batch-prototype-r48/** -text -eol
+tools/electronics/battery_feed_*.py -text -eol
+tools/electronics/package_battery_feed_r48.py -text -eol
+tools/electronics/test_battery_feed_selection_r1.py -text -eol
+hardware/cad/studies/battery-feed-*/**/*.brep binary
+hardware/cad/studies/battery-feed-*/*.brep binary
+hardware/cad/studies/battery-feed-*/*.stl binary
+hardware/electronics/full-cat/battery-feed-*/*.brep binary
+hardware/electronics/full-cat/battery-feed-*/*.json -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r48/*.json -text -eol whitespace=cr-at-eol
+tools/electronics/finalize_battery_feed_ledger_r1.py -text -eol
+tools/electronics/source_switch_layout_r2.py -text -eol
+tools/electronics/battery_feed_coverage_sync_r1.py -text -eol
+hardware/electronics/full-cat/source-switch-layout-r2/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/source-switch-layout-r2/*.brep binary
+tools/electronics/source_switch_*.py -text -eol
+tools/electronics/test_source_switch_interface_r1.py -text -eol
+hardware/electronics/full-cat/source-switch-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/source-switch-*/*.brep binary
+hardware/cad/studies/source-switch-*/** -text -eol
+hardware/cad/studies/source-switch-*/*.brep binary
+hardware/cad/studies/source-switch-*/*.stl binary
+tools/electronics/package_source_switch_r49.py -text -eol
+hardware/manufacturing/one-batch-prototype-r49/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/nonfastener-offers-r2/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r50/** -text -eol whitespace=cr-at-eol
+tools/manufacturing/nonfastener_offers_r2.py -text -eol
+tools/manufacturing/test_nonfastener_offers_r2.py -text -eol
+hardware/manufacturing/nonfastener-offers-r3/** -text -eol whitespace=cr-at-eol
+hardware/manufacturing/one-batch-prototype-r51/** -text -eol whitespace=cr-at-eol
+tools/manufacturing/nonfastener_offers_r3.py -text -eol
+tools/manufacturing/test_nonfastener_offers_r3.py -text -eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r[45]/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r[45]/*.brep binary
+tools/electronics/servo_fuse_side_bank_r[45].py -text -eol
+
+# Owned local fuse-bank construction: preserve pinned raw source bytes.
+tools/electronics/servo_fuse_side_bank_r[6789].py -text -eol
+tools/electronics/servo_fuse_bank_*.py -text -eol
+tools/electronics/servo_fuse_cover_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r[6789]/** -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-*/** -text -eol
+hardware/electronics/full-cat/servo-fuse-cover-*/** -text -eol
+hardware/cad/studies/servo-fuse-bank-*/** -text -eol
+hardware/cad/studies/servo-fuse-cover-*/** -text -eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r[6789]/*.brep binary
+hardware/electronics/full-cat/servo-fuse-bank-*/*.brep binary
+hardware/electronics/full-cat/servo-fuse-cover-*/*.brep binary
+hardware/cad/studies/servo-fuse-bank-*/*.FCStd binary
+hardware/cad/studies/servo-fuse-bank-*/*.brep binary
+hardware/cad/studies/servo-fuse-bank-*/*.stl binary
+hardware/cad/studies/servo-fuse-cover-*/*.FCStd binary
+hardware/cad/studies/servo-fuse-cover-*/*.brep binary
+hardware/cad/studies/servo-fuse-cover-*/*.stl binary
+tools/electronics/servo_fuse_construction_checkpoint.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-*/** -text -eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r[6789]/*.json -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-bank-*/*.json -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-cover-*/*.json -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-construction-*/*.json -text -eol whitespace=cr-at-eol
+
+# Current owned input grips, route correction and changed local interfaces.
+tools/electronics/servo_fuse_side_bank_r1[01].py -text -eol
+tools/electronics/servo_fuse_deck_native_r1.py -text -eol
+tools/electronics/servo_fuse_wago_map_r1.py -text -eol
+tools/electronics/servo_fuse_holder_release_r1.py -text -eol
+tools/electronics/servo_fuse_ato_access_r1.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r2.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r3.py -text -eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r1[01]/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-side-bank-r1[01]/*.brep binary
+hardware/electronics/full-cat/servo-fuse-deck-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-wago-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-holder-*/** -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-ato-*/** -text -eol whitespace=cr-at-eol
+hardware/cad/studies/servo-fuse-deck-*/** -text -eol
+hardware/cad/studies/servo-fuse-deck-*/*.FCStd binary
+hardware/cad/studies/servo-fuse-deck-*/*.brep binary
+hardware/cad/studies/servo-fuse-deck-*/*.stl binary
+
+# Current local WAGO access/connected release/parent feed construction.
+tools/electronics/servo_fuse_wago_access_r2.py -text -eol
+tools/electronics/servo_fuse_bank_connected_release_r[12].py -text -eol
+tools/electronics/servo_fuse_bank_connected_release_r3.py -text -eol
+tools/electronics/servo_fuse_parent_feeds_r1.py -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-*/* -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-parent-*/*.brep binary
+hardware/reference/wago-221415-access-2026-10-02/*.json -text -eol whitespace=cr-at-eol
+hardware/electronics/full-cat/servo-fuse-wago-*/*.brep binary
+tools/electronics/servo_fuse_parent_feed_grips_native_r1.py -text -eol
+tools/electronics/servo_fuse_parent_feed_grips_native_r2.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r4.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r5.py -text -eol
+tools/electronics/servo_fuse_parent_carriers_r2.py -text -eol
+tools/electronics/servo_fuse_parent_carriers_r3.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r6.py -text -eol
+tools/electronics/servo_fuse_parent_carriers_r4.py -text -eol
+tools/electronics/servo_fuse_lower_loop_materials_r1.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r7.py -text -eol
+hardware/electronics/full-cat/servo-fuse-lower-loop-materials-r1/* -text -eol
+hardware/cad/studies/servo-fuse-parent-*/* -text -eol
+hardware/cad/studies/servo-fuse-parent-*/*.FCStd binary
+hardware/cad/studies/servo-fuse-parent-*/*.brep binary
+hardware/cad/studies/servo-fuse-parent-*/*.stl binary
+tools/electronics/servo_fuse_parent_complete_layout_r5.py -text -eol
+tools/electronics/servo_fuse_parent_extension_materials_r1.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r8.py -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r5/* -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r5/*.brep binary
+hardware/electronics/full-cat/servo-fuse-parent-extension-materials-r1/* -text -eol
+hardware/reference/parent-fuse-extensions-2026-10-03/* -text -eol
+tools/electronics/servo_fuse_parent_complete_layout_r6.py -text -eol
+tools/electronics/servo_fuse_parent_extension_materials_r2.py -text -eol
+tools/electronics/servo_fuse_parent_complete_layout_r7.py -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r7/* -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r7/*.brep binary
+tools/electronics/servo_fuse_bank_assembly_r4.py -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-assembly-r4/* -text -eol
+tools/electronics/servo_fuse_bank_assembly_r5.py -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-assembly-r5/* -text -eol
+tools/electronics/servo_fuse_rr_clip_approach_r1.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-clip-approach-r1/* -text -eol
+tools/electronics/servo_fuse_rr_clip_approach_r2.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-clip-approach-r2/* -text -eol
+tools/electronics/servo_fuse_bank_stock_budget_r1.py -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r1/* -text -eol
+tools/electronics/servo_fuse_deck_native_fault_r1.py -text -eol
+hardware/electronics/full-cat/servo-fuse-deck-native-fault-r1/* -text -eol
+tools/electronics/servo_fuse_parent_complete_layout_r8.py -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r8/* -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r8/*.brep binary
+tools/electronics/servo_fuse_construction_checkpoint_r9.py -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r6/* -text -eol
+hardware/electronics/full-cat/servo-fuse-parent-complete-layout-r6/*.brep binary
+hardware/electronics/full-cat/servo-fuse-parent-extension-materials-r2/* -text -eol
+
+tools/electronics/servo_fuse_construction_checkpoint_r10.py -text -eol
+tools/electronics/servo_fuse_main_space_plan_r1.py -text -eol
+tools/electronics/servo_fuse_main_space_plan_r2.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r10/* -text -eol
+hardware/electronics/full-cat/servo-fuse-main-space-plan-r1/* -text -eol
+hardware/electronics/full-cat/servo-fuse-main-space-plan-r2/* -text -eol
+tools/electronics/servo_fuse_main_*.py -text -eol
+tools/electronics/servo_fuse_contact_witness_sanity_r1.py -text -eol
+tools/electronics/servo_fuse_rr_witness_sources_r1.py -text -eol
+tools/electronics/servo_fuse_witness_tessellation_r1.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r11.py -text -eol
+hardware/electronics/full-cat/servo-fuse-main-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-contact-witness-sanity-r1/* -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-witness-sources-r1/* -text -eol
+hardware/electronics/full-cat/servo-fuse-witness-tessellation-r1/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r11/* -text -eol
+hardware/cad/studies/servo-fuse-main-reliefs-native-r1/* -text -eol
+tools/electronics/servo_fuse_rolled_*.py -text -eol
+tools/electronics/servo_fuse_feed_reliefs_native_*.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r12.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rolled-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-feed-reliefs-native-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r12/* -text -eol
+hardware/cad/studies/servo-fuse-rolled-cradles-native-r1/* -text -eol
+hardware/cad/studies/servo-fuse-feed-reliefs-native-r6/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r13.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r13/* -text -eol
+hardware/cad/studies/servo-fuse-rolled-cradles-native-r3/* -text -eol
+hardware/cad/studies/servo-fuse-rolled-cradles-native-r4/* -text -eol
+hardware/cad/studies/servo-fuse-rolled-cradles-native-r7/* -text -eol
+
+tools/electronics/servo_fuse_front_*.py -text -eol
+tools/electronics/servo_fuse_fr_*.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r14.py -text -eol
+hardware/electronics/full-cat/servo-fuse-front-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-fr-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r14/* -text -eol
+hardware/cad/studies/servo-fuse-fr-*/* -text -eol
+tools/electronics/servo_fuse_rear_*.py -text -eol
+tools/electronics/servo_fuse_rr_source_*.py -text -eol
+tools/electronics/servo_fuse_rl_source_*.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r15.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r16.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rear-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-source-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-rl-source-*/* -text -eol
+hardware/cad/studies/servo-fuse-rl-source-*/* -text -eol
+hardware/cad/studies/servo-fuse-rr-source-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r15/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r16/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r17.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r17/* -text -eol
+tools/electronics/servo_fuse_output_returns_complete_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-output-returns-complete-*/* -text -eol
+tools/electronics/servo_fuse_fr_output_station_native_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-fr-output-station-native-*/* -text -eol
+hardware/cad/studies/servo-fuse-fr-output-station-native-*/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r18.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r18/* -text -eol
+hardware/cad/studies/servo-fuse-rear-output-reliefs-native-*/* -text -eol
+tools/electronics/servo_fuse_output_quantity_contribution_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-output-quantity-contribution-*/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r19.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r19/* -text -eol
+tools/electronics/servo_fuse_main_feeds_materials_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-main-feeds-materials-*/* -text -eol
+hardware/cad/studies/servo-fuse-rear-output-stations-native-*/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r20.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r20/* -text -eol
+hardware/cad/studies/servo-fuse-rear-output-stations-parameter-*/* -text -eol
+hardware/cad/studies/servo-fuse-rear-output-stations-receive-*/* -text -eol
+tools/electronics/servo_fuse_rr_output_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-output-*/* -text -eol
+hardware/cad/studies/servo-fuse-rr-output-*/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r21.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r21/* -text -eol
+tools/electronics/servo_fuse_rr_fixed_station_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-fixed-station-*/* -text -eol
+hardware/cad/studies/servo-fuse-rr-fixed-station-*/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r22.py -text -eol
+tools/electronics/servo_fuse_bank_fixed_rr_lift_*.py -text -eol
+tools/electronics/servo_fuse_bank_stock_budget_r2.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r22/* -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r2/* -text -eol
+tools/electronics/servo_fuse_rr_mount_pair*.py -text -eol
+tools/electronics/servo_fuse_bank_stock_budget_r3.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r23.py -text -eol
+hardware/electronics/full-cat/servo-fuse-rr-mount-pair-*/* -text -eol
+hardware/cad/studies/servo-fuse-rr-mount-pair-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r3/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r23/* -text -eol
+tools/electronics/servo_fuse_output_rib_exits_native_*.py -text -eol
+tools/electronics/servo_fuse_output_clamps_fit_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-output-rib-exits-native-*/* -text -eol
+hardware/cad/studies/servo-fuse-output-rib-exits-native-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-output-clamps-fit-*/* -text -eol
+tools/electronics/servo_fuse_bank_stock_budget_r4.py -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r4/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r24.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r24/* -text -eol
+tools/electronics/servo_fuse_fr_source_fixed_deck_*.py -text -eol
+hardware/electronics/full-cat/servo-fuse-fr-source-fixed-deck-*/* -text -eol
+hardware/cad/studies/servo-fuse-fr-source-fixed-deck-*/* -text -eol
+tools/electronics/servo_fuse_bank_stock_budget_r5.py -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r5/* -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r25.py -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r25/* -text -eol
+tools/electronics/servo_fuse_bank_current_owner_receive.py -text -eol
+tools/electronics/servo_fuse_bank_stationary_strap_corridors_*.py -text -eol
+tools/electronics/servo_fuse_p_wago_retention_*.py -text -eol
+tools/electronics/servo_fuse_cover_rr_fixed_service_*.py -text -eol
+tools/electronics/servo_fuse_bank_stock_budget_r6.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r26.py -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stationary-strap-corridors-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-p-wago-retention-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-cover-rr-fixed-service-*/* -text -eol
+hardware/cad/studies/servo-fuse-cover-rr-fixed-service-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r6/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r26/* -text -eol
+hardware/cad/studies/open-deck-p0/plate-r1/checks.json -text -eol
+tools/electronics/servo_fuse_cover_main_service_*.py -text -eol
+tools/electronics/servo_fuse_bank_electrical_r2.py -text -eol
+tools/electronics/servo_fuse_construction_checkpoint_r27.py -text -eol
+hardware/electronics/full-cat/servo-fuse-cover-main-service-*/* -text -eol
+hardware/cad/studies/servo-fuse-cover-main-service-*/* -text -eol
+hardware/electronics/full-cat/servo-fuse-bank-electrical-r2/* -text -eol
+hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r27/* -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r28.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r28/** -text -eol
+/tools/electronics/servo_fuse_guard_fixed_deck*.py -text -eol
+/tools/electronics/servo_fuse_bank_stock_budget_r7.py -text -eol
+/tools/electronics/servo_fuse_bank_assembly_r6.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r1.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r29.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-guard-fixed-deck*/** -text -eol
+/hardware/cad/studies/servo-fuse-guard-fixed-deck*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r29/** -text -eol
+/tools/electronics/servo_fuse_bank_select_r2.py -text -eol
+/hardware/manufacturing/one-batch-prototype-r52/** -text -eol
+
+# Current prototype tests: keep hashed source bytes on Windows checkouts.
+/tests/test_current_aux_power.py text eol=lf
+/tests/test_current_body_harness_plan.py text eol=lf
+/tests/test_current_mta_interfaces.py text eol=lf
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-mount-checkpoint/** -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tools/cad/open_prototype_head_preflight.py -text -eol
+/tools/cad/open_prototype_head_assembly.py -text -eol
+/tools/cad/finalize_open_prototype_head.py -text -eol
+/tools/cad/package_open_prototype_head.py -text -eol
+/tests/test_open_prototype_head_package.py -text -eol
+/tools/cad/qualify_current_board_mounts.py -text -eol
+/tools/cad/package_current_board_mounts.py -text -eol
+/tests/test_current_board_mounts_package.py -text -eol
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/current-M5-README.md -text -eol
+
+# Current M3 evidence is byte-hashed; preserve JSON, CAD and README bytes.
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-mount-checkpoint/** -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/current-phase1-score.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_open_prototype_tail_package.py text eol=lf
+
+# Stage2 mounting evidence pins raw bytes, including Windows-generated JSON.
+# Preserve these serialized reports; autocrlf would break their SHA256 chain.
+/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/mounting-checkpoint/*.json -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# This bounded study pins its builder bytes as well as native CAD.
+/tools/cad/whole_cat_neck_risers.py -text -eol
+/tools/electronics/w5_shared_retention_service*.py -text -eol
+/tools/electronics/w5_loop_preparation.py -text -eol
+/tools/electronics/w5_one_order_candidate.py -text -eol
+/tools/electronics/w5_cover_withdrawal*.py -text -eol
+/tools/electronics/w5_cover_overdeck*.py -text -eol
+/hardware/electronics/full-cat/w5-shared-retention-service-*/** -text -eol
+/hardware/electronics/full-cat/w5-loop-preparation-*/** -text -eol
+/hardware/electronics/full-cat/w5-one-order-candidate-*/** -text -eol
+/hardware/electronics/full-cat/w5-cover-withdrawal-*/** -text -eol
+/hardware/electronics/full-cat/w5-cover-overdeck-*/** -text -eol
+/hardware/reference/hellermann-11102189-2026-10-05/** -text -eol
+/tools/electronics/w5_cover_upper_front*.py -text -eol
+/hardware/electronics/full-cat/w5-cover-upper-front-*/** -text -eol
+/hardware/cad/studies/w5-cover-upper-front-*/** -text -eol
+/hardware/electronics/full-cat/w5-deck-service-relief-*/** -text -eol
+/tools/electronics/w5_source_grip_motion.py -text -eol
+/tools/electronics/w5_shared_retention_service.py -text -eol
+/tools/electronics/w5_final_print_set_candidate.py -text -eol
+/hardware/electronics/full-cat/w5-source-grip-motion-r*/** -text -eol
+/hardware/electronics/full-cat/w5-shared-retention-service-r*/** -text -eol
+/hardware/electronics/full-cat/w5-final-print-set-candidate-r*/** -text -eol
+/tools/electronics/w5_current_order_contribution.py -text -eol
+/hardware/electronics/full-cat/w5-current-order-contribution-r*/** -text -eol
+/hardware/electronics/full-cat/w5-motion-length-screen-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-common-service-delta-r*/** -text -eol whitespace=cr-at-eol
+/tools/electronics/w5_motion_length_screen*.py -text -eol
+/tools/electronics/w5_common_service_delta.py -text -eol
+/hardware/electronics/full-cat/w5-remote-end-layout-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-remote-end-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-prototype-preparation-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-remote-end-native-r*/** -text -eol
+/hardware/electronics/full-cat/w5-remote-end-layout-r*/*.brep -diff
+/hardware/cad/studies/w5-remote-end-native-r*/*.brep -diff
+/tools/electronics/w5_remote_end*.py -text -eol
+/tools/electronics/w5_prototype_preparation*.py -text -eol
+/tools/electronics/w5_source_link_grips.py -text -eol
+/hardware/reference/hellermann-11102189-2026-10-05/** -text -eol
+/hardware/electronics/full-cat/w5-source-link-grips-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-link-grips-r1/*.brep -diff
+/hardware/electronics/full-cat/w5-source-link-grips-r2/** -text -eol
+/hardware/electronics/full-cat/w5-source-link-grips-r2/*.brep -diff
+/hardware/electronics/full-cat/w5-source-link-band-space-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-link-harness-interface-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-link-native-r1/** -text -eol
+/hardware/cad/studies/w5-source-link-native-r1/** -text -eol
+/hardware/cad/studies/w5-source-link-native-r1/*.brep -diff
+/tools/electronics/w5_source_link_band_space.py -text -eol
+/tools/electronics/w5_source_link_grip_window.py -text -eol
+/tools/electronics/w5_source_link_harness_interface.py -text -eol
+/tools/electronics/w5_source_link_native.py -text -eol
+/tools/electronics/w5_hip_*.py -text -eol
+/tools/electronics/w5_source_hip*.py -text -eol
+/hardware/electronics/full-cat/w5-hip-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-hip-*/*.brep -diff
+/hardware/electronics/full-cat/w5-source-hip-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-source-hip-*/*.brep -diff
+/hardware/cad/studies/w5-source-hip-native-r1/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-hip-native-r1/*.brep -diff
+/tools/electronics/w5_source_grip_common.py -text -eol
+/tools/electronics/w5_source_mount_profile.py -text -eol
+/hardware/electronics/full-cat/w5-source-grip-common-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-grip-common-r1/*.brep -diff
+/hardware/electronics/full-cat/w5-source-mount-full-profile-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-mount-full-profile-r1/*.brep -diff
+/tools/electronics/w5_side_retention_coupled.py -text -eol
+/tools/electronics/w5_side_retention_native.py -text -eol
+/tools/electronics/w5_side_retention_receive.py -text -eol
+/tools/electronics/w5_side_retention_receive_r2.py -text -eol
+/hardware/electronics/full-cat/w5-side-retention-received-r*/** -text -eol
+/hardware/electronics/full-cat/w5-side-retention-coupled-r*/** -text -eol
+/hardware/electronics/full-cat/w5-side-retention-native-r*/** -text -eol
+/hardware/cad/studies/w5-side-retention-native-r*/** -text -eol
+/hardware/electronics/full-cat/w5-side-retention-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-side-retention-preflight-r*/** -text -eol
+/tools/electronics/w5_side_retention_plan.py -text -eol
+/tools/electronics/w5_side_retention_anchors.py -text -eol
+/tools/electronics/w5_side_retention_preflight.py -text -eol
+/tools/electronics/w5_harness_passages_qualify.py -text -eol
+/tools/electronics/w5_central_retention_layout.py -text -eol
+/tools/electronics/w5_central_retention_layout_r*.py -text -eol
+/tools/electronics/w5_central_retention_native.py -text -eol
+/tools/electronics/w5_central_retention_receive.py -text -eol
+/tools/electronics/test_w5_central_retention_r3.py -text -eol
+/hardware/cad/studies/w5-central-retention-native-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-retention-native-r*/** -text -eol
+/hardware/cad/studies/w5-harness-passages-qualified-r1/** -text -eol
+/hardware/electronics/full-cat/w5-harness-passages-qualified-r1/** -text -eol
+/hardware/electronics/full-cat/w5-central-retention-layout-r*/** -text -eol
+/tools/electronics/w5_received_central_scope.py -text -eol
+/tools/electronics/w5_front_paired_flights*.py -text -eol
+/tools/electronics/w5_main_ground_low_return*.py -text -eol
+/tools/electronics/w5_bus_factory900*.py -text -eol
+/tools/electronics/w5_central_received_joint_r2.py -text -eol
+/tools/electronics/test_w5_front_paired_flights.py -text -eol
+/tools/electronics/test_w5_remaining_central_recipes.py -text -eol
+/hardware/electronics/full-cat/w5-front-paired-flights*/** -text -eol
+/hardware/electronics/full-cat/w5-main-ground-low-return*/** -text -eol
+/hardware/electronics/full-cat/w5-bus-factory900*/** -text -eol
+/hardware/electronics/full-cat/w5-central-received-joint-r2/** -text -eol
+/tools/electronics/w5_harness_construction_plan.py -text -eol
+/tools/electronics/w5_harness_passages_native.py -text -eol
+/tools/electronics/w5_harness_passages_receive.py -text -eol
+/hardware/electronics/full-cat/w5-harness-construction-plan-r1/** -text -eol
+/hardware/electronics/full-cat/w5-harness-passages-native-r1/** -text -eol
+/hardware/cad/studies/w5-harness-passages-native-r1/** -text -eol
+/tools/electronics/w5_central_shared_routes.py -text -eol
+/tools/electronics/w5_central_south_bridge.py -text -eol
+/tools/electronics/w5_central_remaining_routes.py -text -eol
+/tools/electronics/w5_parallel_connection.py -text -eol
+/tools/electronics/w5_bus_low_s_*.py -text -eol
+/tools/electronics/w5_four_low_returns.py -text -eol
+/tools/electronics/w5_rear_aux_low_joint.py -text -eol
+/hardware/electronics/full-cat/w5-central-shared-routes-r1/** -text -eol
+/hardware/electronics/full-cat/w5-central-south-bridge-r1/** -text -eol
+/hardware/electronics/full-cat/w5-central-remaining-routes-r1/** -text -eol
+/hardware/electronics/full-cat/w5-bus-low-s-plan-r1/** -text -eol
+/hardware/electronics/full-cat/w5-bus-low-s-material-r1/** -text -eol
+/hardware/electronics/full-cat/w5-four-low-returns-r1/** -text -eol
+/hardware/electronics/full-cat/w5-rear-aux-low-joint-r1/** -text -eol
+/tools/electronics/w5_aux_side_loop.py -text -eol
+/hardware/electronics/full-cat/w5-aux-side-loop-r1/** -text -eol
+/tools/electronics/w5_aux_diagonal_loop.py -text -eol
+/hardware/electronics/full-cat/w5-aux-diagonal-loop-r1/** -text -eol
+/tools/electronics/w5_aux_diagonal_loop_r2.py -text -eol
+/hardware/electronics/full-cat/w5-aux-diagonal-loop-r2/** -text -eol
+/tools/electronics/w5_aux_diagonal_loop_r3.py -text -eol
+/hardware/electronics/full-cat/w5-aux-diagonal-loop-r3/** -text -eol
+/tools/electronics/w5_central_received_joint.py -text -eol
+/hardware/electronics/full-cat/w5-central-received-joint-r1/** -text -eol
+/tools/electronics/w5_path_length.py -text -eol
+/tools/electronics/w5_branch_space_plan*.py -text -eol
+/hardware/electronics/full-cat/w5-branch-space-plan-r*/** -text -eol
+/tools/electronics/w5_branch_joint_routes*.py -text -eol
+/tools/electronics/w5_branch_outer_corridors*.py -text -eol
+/tools/electronics/w5_branch_tiered_corridors*.py -text -eol
+/tools/electronics/test_w5_branch_plan.py -text -eol
+/tools/electronics/w5_central_outward_plan.py -text -eol
+/tools/electronics/w5_central_source_zone.py -text -eol
+/tools/electronics/w5_central_source_boundary.py -text -eol
+/tools/electronics/w5_central_orientation_plan.py -text -eol
+/tools/electronics/w5_central_restraint_dependencies.py -text -eol
+/tools/electronics/w5_central_joint_clearance.py -text -eol
+/tools/electronics/w5_central_battery_s_plan.py -text -eol
+/tools/electronics/w5_central_bridge_low_arc.py -text -eol
+/hardware/electronics/full-cat/w5-central-bridge-low-arc-r*/** -text -eol
+/tools/electronics/w5_battery_parallel_s.py -text -eol
+/tools/electronics/test_w5_battery_parallel_s.py -text -eol
+/hardware/electronics/full-cat/w5-central-battery-s-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-joint-clearance-r*/** -text -eol
+/tools/electronics/w5_leg_length_ledger.py -text -eol
+/hardware/electronics/full-cat/w5-central-restraint-dependencies-r*/** -text -eol
+/hardware/electronics/full-cat/w5-leg-length-ledger-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-outward-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-source-zone-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-source-boundary-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-orientation-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-branch-joint-routes-r*/** -text -eol
+/tools/electronics/w5_layout_allocation.py -text -eol
+/tools/electronics/w5_allocation_reservations.py -text -eol
+/tools/electronics/w5_egress_space.py -text -eol
+/tools/electronics/w5_loom_contract.py -text -eol
+/tools/electronics/w5_ground_bridge_plan.py -text -eol
+/tools/electronics/w5_central_ground_routes*.py -text -eol
+/tools/electronics/w5_leg_ground_*.py -text -eol
+/tools/electronics/w5_ground_upper_routes.py -text -eol
+/tools/electronics/w5_joint_upper_harness.py -text -eol
+/tools/electronics/w5_data_outward*.py -text -eol
+/tools/electronics/w5_coupled_corridors*.py -text -eol
+/tools/electronics/w5_central_space_solver*.py -text -eol
+/tools/electronics/test_w5_coupled_corridors.py -text -eol
+/hardware/electronics/full-cat/w5-coupled-corridors-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-space-solver-r*/** -text -eol
+/hardware/electronics/full-cat/w5-data-outward-r*/** -text -eol
+/hardware/electronics/full-cat/w5-ground-facing-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-central-ground-routes-r*/** -text -eol
+/hardware/electronics/full-cat/w5-leg-ground-*-plan-r*/** -text -eol
+/hardware/electronics/full-cat/w5-leg-ground-upper-rail-r*/** -text -eol
+/hardware/electronics/full-cat/w5-joint-upper-harness-r*/** -text -eol
+/hardware/electronics/full-cat/w5-ground-network-r*/** -text -eol
+/tools/electronics/w5_ground_network*.py -text -eol
+/tools/electronics/test_w5_ground_network.py -text -eol
+/hardware/electronics/full-cat/w5-space-plan-inputs-r*/** -text -eol
+/tools/electronics/w5_space_plan_inputs.py -text -eol
+/hardware/electronics/full-cat/w5-ground-joint-preflight-r*/** -text -eol
+/hardware/electronics/full-cat/w5-ground-entries-r*/** -text -eol
+/hardware/electronics/full-cat/w5-leg-joint-source-layout-r1/** -text -eol
+/hardware/electronics/full-cat/w5-joint-source-carrier-native-r1/** -text -eol
+/hardware/cad/studies/w5-joint-source-carrier-native-r1/** -text -eol
+/hardware/electronics/full-cat/w5-four-ground-returns-check-r1/** -text -eol
+/hardware/electronics/full-cat/w5-leg-escape-fanouts-r1/*.brep binary -eol
+/hardware/electronics/full-cat/w5-leg-outward-loops-r2/*.brep binary -eol
+# Preserve received CAD bytes; OpenCascade whitespace is not authored prose.
+/hardware/cad/studies/w5-source-cage-access-native-r1/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-family-service-r1/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-family-service-r2/*.brep binary -eol
+/tools/electronics/w5_source_platform_native_r2.py -text -eol
+/hardware/cad/studies/w5-source-platform-native-r2/** -text -eol
+/hardware/cad/studies/w5-source-platform-native-r3/** -text -eol
+/hardware/electronics/full-cat/w5-source-platform-native-r3/** -text -eol
+/tools/electronics/w5_source_platform_native_r3.py -text -eol
+/hardware/cad/studies/w5-source-platform-native-r4/** -text -eol
+/hardware/electronics/full-cat/w5-source-platform-native-r4/** -text -eol
+/tools/electronics/w5_source_platform_native_r4.py -text -eol
+/tools/electronics/w5_source_platform_assembly_r1.py -text -eol
+/hardware/electronics/full-cat/w5-source-platform-assembly-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-platform-native-r2/** -text -eol
+/tools/electronics/w5_source_platform_native_r1.py -text -eol
+/hardware/reference/hellermann-11102370-2026-10-04/** -text -eol
+/hardware/cad/studies/w5-source-platform-native-r1/** -text -eol
+/hardware/electronics/full-cat/w5-source-platform-native-r1/** -text -eol
+/tools/electronics/w5_source_inlet_joint_r2.py -text -eol
+/hardware/electronics/full-cat/w5-source-inlet-joint-r2/** -text -eol
+/tools/electronics/select_w5_bus_r53.py -text -eol
+/tools/electronics/w5_leg_source_map_r1.py -text -eol
+/hardware/electronics/full-cat/w5-leg-source-map-r1/** -text -eol
+/tools/electronics/w5_xa05_joint_repair_r*.py -text -eol
+/tools/electronics/w5_xa05_saved_r*.py -text -eol
+/tools/electronics/w5_xa05_outer_support_r*.py -text -eol
+/hardware/electronics/full-cat/w5-xa05-outer-support-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-xa05-outer-support-r*/*.brep binary -eol
+/tools/electronics/w5_xa05_native_r*.py -text -eol
+/hardware/electronics/full-cat/w5-xa05-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-xa05-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-xa05-native-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-xa05-joint-repair-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-xa05-joint-repair-r*/*.brep binary -eol
+/tools/electronics/w5_leg_corridors_r*.py -text -eol
+/hardware/electronics/full-cat/w5-leg-corridors-r*/** -text -eol
+/hardware/reference/leg-cable-2026-10-04/** -text -eol
+/tools/electronics/w5_leg_fanouts_r*.py -text -eol
+/tools/electronics/w5_leg_fanout_layout.py -text -eol
+/tools/electronics/w5_s1_source_*.py -text -eol
+/tools/electronics/w5_source_carrier_native_r*.py -text -eol
+/tools/electronics/w5_source_bank_passage_native_r*.py -text -eol
+/tools/electronics/w5_source_cover_passages_native_r*.py -text -eol
+/tools/electronics/w5_source_received_interface_r*.py -text -eol
+/tools/electronics/w5_source_grips_native_r*.py -text -eol
+/tools/electronics/w5_source_roof*.py -text -eol whitespace=-blank-at-eof
+/tools/electronics/test_w5_source_roof.py -text -eol
+/hardware/cad/studies/w5-source-roof-*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-roof-*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-roof-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-source-roof-*/*.brep binary -eol
+/tools/electronics/w5_source_material_contribution_r*.py -text -eol
+/hardware/cad/studies/w5-source-grips-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-grips-native-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-grips-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-source-grips-native-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-material-contribution-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-source-received-interface-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-bank-passage-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-bank-passage-native-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-bank-passage-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-cover-passages-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-cover-passages-native-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-cover-passages-native-r*/** -text -eol whitespace=cr-at-eol
+/tools/electronics/w5_te130171_reference_r*.py -text -eol
+/hardware/cad/studies/w5-source-carrier-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-source-carrier-native-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-source-carrier-native-r*/** -text -eol whitespace=cr-at-eol
+/hardware/reference/source-terminal-2026-10-04/** -text -eol whitespace=cr-at-eol
+/hardware/reference/source-terminal-2026-10-04/*.brep binary -eol
+/hardware/reference/source-terminal-2026-10-04/te130171/*.stp binary -eol
+/tools/electronics/w5_source_inlet_joint_*.py -text -eol
+/hardware/electronics/full-cat/w5-source-inlet-joint-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-source-inlet-joint-*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-s1-source-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-s1-source-*/*.brep binary -eol
+/tools/electronics/w5_leg_end_preparation_r*.py -text -eol
+/tools/electronics/w5_rounded_path.py -text -eol
+/hardware/electronics/full-cat/w5-leg-fanouts-r*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-leg-fanouts-r*/*.brep binary -eol
+/hardware/electronics/full-cat/w5-leg-end-preparation-r*/** -text -eol whitespace=cr-at-eol
+/hardware/manufacturing/one-batch-prototype-r53/** -text -eol
+/tools/electronics/w5_g1_saved_*.py -text -eol
+/tools/electronics/w5_fl_return_r52_r*.py -text -eol
+/hardware/electronics/full-cat/w5-g1-saved-*/** -text -eol
+
+# Byte-pinned W5 construction and compact installed-state cache.
+/tools/electronics/w5_selected_owners_r52.py -text -eol
+/tools/electronics/w5_body_selected_r52.py -text -eol
+/tools/electronics/w5_front_return_r52_r*.py -text -eol
+/tools/electronics/test_w5_body_selected_r52.py -text -eol
+/hardware/electronics/full-cat/w5-installed-r52/** -text -eol
+/hardware/electronics/full-cat/w5-body-selected-r52/** -text -eol
+/hardware/electronics/full-cat/w5-front-return-r52-r*/** -text -eol
+/tools/electronics/w5_g1_passage_native_r*.py -text -eol
+/tools/electronics/w5_fl_return_r52_r1.py -text -eol
+/tools/electronics/w5_current_integrity.py -text -eol
+/hardware/electronics/full-cat/w5-g1-passage-native-r*/** -text -eol
+/hardware/electronics/full-cat/w5-fl-return-r52-r1/** -text -eol
+/hardware/electronics/full-cat/w5-fl-return-r52-r*/** -text -eol
+/hardware/cad/studies/w5-g1-passage-native-r*/** -text -eol
+/tools/electronics/w5_bus*.py -text -eol
+/hardware/electronics/full-cat/w5-bus-*/** -text -eol whitespace=cr-at-eol
+/hardware/cad/studies/w5-bus-*/** -text -eol whitespace=cr-at-eol
+/hardware/electronics/full-cat/w5-bus-*/*.brep binary -eol
+/hardware/cad/studies/w5-bus-*/*.brep binary -eol
+/tools/electronics/servo_fuse_cover_source_joint_service*.py -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r18.py -text -eol
+/tools/electronics/servo_fuse_bank_close_r1.py -text -eol
+/hardware/cad/studies/servo-fuse-cover-source-joint-service*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-cover-source-joint-service*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r18/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r13/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-assembly-r12/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r40/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r41/** -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r19.py -text -eol
+/tools/electronics/servo_fuse_bank_close_r2.py -text -eol
+/tools/electronics/servo_fuse_bank_close_r3.py -text -eol
+/tools/electronics/servo_fuse_bank_close_r4.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r8.py -text -eol
+/tools/electronics/servo_fuse_cover_offset_mount_native*.py -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r21.py -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r22.py -text -eol
+/hardware/cad/studies/servo-fuse-cover-offset-mount-native*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-cover-offset-mount-native*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r21/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r22/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r46/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r47/** -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r20.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r20/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r44/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r45/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r19/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r42/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r43/** -text -eol
+/tools/electronics/servo_fuse_cover_fixed_guard_service_r1.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r3.py -text -eol
+/tools/electronics/servo_fuse_bank_stock_budget_r8.py -text -eol
+/tools/electronics/servo_fuse_bank_assembly_r7.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r30.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-cover-fixed-guard-service-r1/** -text -eol
+/hardware/cad/studies/servo-fuse-cover-fixed-guard-service-r1/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r8/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-assembly-r7/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r30/** -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r31.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r32.py -text -eol
+/tools/electronics/servo_fuse_bank_stock_budget_r9.py -text -eol
+/tools/electronics/servo_fuse_bank_assembly_r8.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r4.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r9/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-assembly-r8/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r32/** -text -eol
+/tools/electronics/servo_fuse_guard_fixed_service_r1.py -text -eol
+/tools/electronics/servo_fuse_bank_stock_budget_r10.py -text -eol
+/tools/electronics/servo_fuse_bank_assembly_r9.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r5.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r33.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r34.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-guard-fixed-service-r1/** -text -eol
+/hardware/cad/studies/servo-fuse-guard-fixed-service-r1/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r10/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-assembly-r9/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r33/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r34/** -text -eol
+/tools/electronics/servo_fuse_left_mount*.py -text -eol
+/tools/electronics/servo_fuse_bank_stock_budget_r11.py -text -eol
+/tools/electronics/servo_fuse_bank_assembly_r10.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r6.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-left-mount*/** -text -eol
+/hardware/cad/studies/servo-fuse-left-mount*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r11/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-assembly-r10/** -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r35.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r36.py -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r35/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r36/** -text -eol
+/tools/electronics/servo_fuse_cover_deck_edge_service*.py -text -eol
+/tools/electronics/servo_fuse_bank_inner_feed_service*.py -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r16.py -text -eol
+/tools/electronics/servo_fuse_bank_fixed_rr_lift_r17.py -text -eol
+/tools/electronics/servo_fuse_bank_stock_budget_r12.py -text -eol
+/tools/electronics/servo_fuse_bank_assembly_r11.py -text -eol
+/tools/electronics/servo_fuse_bank_select_r7.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r37.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r38.py -text -eol
+/tools/electronics/servo_fuse_construction_checkpoint_r39.py -text -eol
+/hardware/cad/studies/servo-fuse-cover-deck-edge-service*/** -text -eol
+/hardware/cad/studies/servo-fuse-bank-inner-feed-service*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-cover-deck-edge-service*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-inner-feed-service*/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r16/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-fixed-rr-lift-r17/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-stock-budget-r12/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-bank-assembly-r11/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r37/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r38/** -text -eol
+/hardware/electronics/full-cat/servo-fuse-construction-checkpoint-r39/** -text -eol
+/hardware/manufacturing/one-batch-prototype-r52/** -text -eol
