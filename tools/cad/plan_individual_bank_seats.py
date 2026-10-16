@@ -5,7 +5,7 @@ is22.2x11.3(+.3/-0);11.6 is chosen provisionally. Nominal gross Housing
 overlap is assigned ONLY inside that2mm panel, not a tolerance/clip proof.
 Root paths, native construction and all installed service remain OPEN.
 """
-import json,time
+import argparse,hashlib,json,subprocess,time
 from pathlib import Path
 import FreeCAD as A
 from remaining25_shared_context import load,P
@@ -17,7 +17,7 @@ from loom_land_port import box
 from current_work_guard import check
 
 
-def seats(placed):
+def seats(placed,relief=False):
     result={}
     for r in placed:
         x,y=r['centre_xy_mm'];z=r['flange_top_z_mm']
@@ -28,10 +28,18 @@ def seats(placed):
             source='hardware/reference/servo-holder-p0-2026-09-24/0300330.png',
             catalog_basis='MTA B0-100.E10A d2 panel,a22.2,b11.3(+.3/-0); no measured clip/force claim',
             delivered_fit_gate=True,root_path=None,new_case_ties=0))
+        if relief and r['id']=='F_R6_CP2':
+            cut=[x-14.3,y+4.9,z-4.3,x-10.05,y+7.8,z-3.5]
+            shape=shape.cut(box(cut)).removeSplitter()
+            assert shape.isValid() and len(shape.Solids)==1 and not shape.check(True)
+            result[r['id']]['body']=shape
+            result[r['id']]['recipe']['lower_corner_relief']=dict(bounds_mm=cut,
+                actual_contact_receipt='individual-bank-seat-space.json',prior_volume_mm3=.7341979379357157,
+                basis='Changed one lower corner only, .3mm project clearance from actual trimmed contact. Remaining upper corner thickness1.5mm; centre end strips remain2mm. NOT guaranteed supplier clip engagement; unpowered delivered fit gate.')
     return result
 
 
-def run():
+def run(relief=False):
     check();tick=time.monotonic();targets,wires,pins,parents,grips=load()
     files=[P.OUT/(n+'.json') for n in ('remaining25-restraint-space','remaining25-saddle-roots')]
     saddles,roots=[json.loads(f.read_text()) for f in files]
@@ -45,20 +53,34 @@ def run():
     for row in roots['groups']:
         for i,(a,b) in enumerate(zip(row['path'],row['path'][1:])):
             targets['CurrentSaddleRoot/'+row['owner']+'/'+row['id']+'/'+str(i)]=arm_box(a,b,roots['arm_half_widths_mm'])
-    placed=datums(targets);panels=seats(placed)
+    placed=datums(targets);panels=seats(placed,relief)
     files.extend([Path(__file__),Path(__file__).with_name('current_bank_datums.py'),
         P.ROOT/'hardware/reference/servo-holder-p0-2026-09-24/0300330.png'])
     pins.update({f.relative_to(P.ROOT).as_posix():P.SHA(f) for f in files})
     bounds=C.ImmutableBounds();cache=C.AtomicMaterial(P.OUT/'individual-bank-seat-pairs.json',bounds.near)
-    checks=0;records=[];errors=[]
+    checks=0;records=[];errors=[];inherited=None
+    if relief:
+        oldfile=P.OUT/'individual-bank-seat-space.json';old=json.loads(oldfile.read_text())
+        assert len(old['seats'])==12 and not old['errors']
+        codefile=Path(__file__).relative_to(P.ROOT).as_posix()
+        code=subprocess.check_output(['git','show','4c9f6b1:'+codefile],cwd=P.ROOT)
+        assert old['source_sha256'][codefile] in {hashlib.sha256(c).hexdigest() for c in (code,code.replace(b'\r\n',b'\n'),code.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))}
+        for n,h in old['source_sha256'].items():
+            if n!=codefile:assert P.SHA(P.ROOT/n)==h,n
+        records=[r for r in old['seats'] if r['id']!='F_R6_CP2']
+        for r in records:assert not r['contacts'] and r['recipe']==panels[r['id']]['recipe']
+        assert len(records)==11
+        pins[oldfile.relative_to(P.ROOT).as_posix()]=P.SHA(oldfile)
+        inherited=dict(commit='4c9f6b1',receipt=oldfile.relative_to(P.ROOT).as_posix(),
+            receipt_sha256=P.SHA(oldfile),unchanged_seats=11,not_rechecked=True)
     def save():
         result=dict(status='TWELVE_INDIVIDUAL_BANK_SEATS_MATERIAL_CLEAR_ROOTS_SERVICE_OPEN' if len(records)==12 and not errors and not any(r['contacts'] for r in records) else 'INDIVIDUAL_BANK_SEAT_MATERIAL_PENDING_OR_REJECTED',
             seats=records,checks=checks,errors=errors,source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3),
-            changed_purchased_parts=0,changed_wires=0,retained_saddle_roots=54,
+            changed_purchased_parts=0,changed_wires=0,retained_saddle_roots=54,inherited_proof=inherited,
             open=['Twelve actual rooted load paths with service reservations','Full installed ATO/tool access including current G1 and obstructing feeds',
                   'Native editable CAD/parameter/reopen/exports and assembly/stock/physical delivered snap fit'],
             selected=False,W5_complete=False,M4_complete=False,physical_pass=False)
-        f=P.OUT/'individual-bank-seat-space.json';tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
+        f=P.OUT/('individual-bank-seat-relief-space.json' if relief else 'individual-bank-seat-space.json');tmp=f.with_suffix('.tmp');tmp.write_text(json.dumps(result,indent=2)+'\n');tmp.replace(f);cache.save()
     def hit(a,b,r=0):
         nonlocal checks
         if not bounds.near(a,b,r+.0001):return None
@@ -70,6 +92,7 @@ def run():
         return None
     save()
     for r in placed:
+        if relief and r['id']!='F_R6_CP2':continue
         gid=r['id'];q=panels[gid];s=q['body'];row=dict(id=gid,recipe=q['recipe'],contacts=[],catalog_panel_interfaces=[],parent_union_candidates=[]);records.append(row)
         own=r['parts']['Housing']['name']
         for n,t in targets.items():
@@ -88,4 +111,6 @@ def run():
     print(json.dumps(dict(seats=len(records),contacts=sum(len(r['contacts']) for r in records),checks=checks,seconds=round(time.monotonic()-tick,3))),flush=True)
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--r6-relief',action='store_true')
+    run(parser.parse_args().r6_relief)
