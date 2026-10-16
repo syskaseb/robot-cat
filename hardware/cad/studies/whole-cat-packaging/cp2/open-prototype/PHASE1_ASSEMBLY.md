@@ -1,7 +1,7 @@
 # Jeden montaż otwartego prototypu, bez zasilania
 
 Źródła wykonawcze: aktualny K1 (`phase1-current-print-selection.json`),
-K2 (`phase1-current-purchased-selection-r2.json`) oraz W5
+K2 (`phase1-current-purchased-selection-r3.json`) oraz W5
 (`body-harness-checkpoint/w5-selection.json`). Nie używać starego koszyka R53
 jako drugiego zestawu. To instrukcja nominalna fazy1, nie fizyczna próba.
 P0/E6, 15napędów, wymienne trzy MG92B i MAIN Z46,52 pozostają zachowane.
@@ -43,7 +43,8 @@ Brak zewnętrznej kosmetycznej obudowy jest zamierzony.
    znane elementy według E1: trzy cięcia miedzi, kontrola grafu, 24 piny U1,
    indywidualna izolacja i oznaczenie orientacji. Mapa zewnętrznej dostawy U1
    nie jest zgadywana. Wszystkie luty/grzanie wykonać poza PETG i baterią.
-9. **Dolne płytki i źródło.** Pi/BUS na ośmiu M2x12 z nakrętkami uwięzionymi;
+9. **Dolne płytki i źródło.** Osadzić microSD i obudowę40pin z przypisanymi
+   pięcioma przewodami GPIO przed ograniczeniem dostępu. Pi/BUS na ośmiu M2x12 z nakrętkami uwięzionymi;
    użyć aktualnego overlay20 podkładek DIN433 Ø4,5. GPIO/PCA cztery stare
    górne podkładki zastąpione stopami E1 nie wracają. S0 zamontować i dokręcić
    jego korpus M6 oraz zaciski M10 przed oczkami/przewodami; bez starego

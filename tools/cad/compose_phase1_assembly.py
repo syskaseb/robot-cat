@@ -30,7 +30,7 @@ def run():
     check();tick=time.monotonic();pins={}
     def read(rel):
         f=BASE/rel;pins[f.relative_to(ROOT).as_posix()]=SHA(f);return json.loads(f.read_text())
-    k1=read('phase1-current-print-selection.json');k2=read('phase1-current-purchased-selection-r2.json');w5=read('body-harness-checkpoint/w5-selection.json')
+    k1=read('phase1-current-print-selection.json');k2=read('phase1-current-purchased-selection-r3.json');w5=read('body-harness-checkpoint/w5-selection.json')
     for p in ['head-mount-checkpoint/selection.json','tail-mount-checkpoint/selection.json','mounting-checkpoint/current-M5-selection.json',
         'body-harness-checkpoint/e1-selection.json','aux-wiring-checkpoint/selection.json','tail-wiring-checkpoint/selection.json',
         'head-wiring-checkpoint/fixed-head-current-selection.json','pwm-branch-checkpoint/selection.json']:
@@ -62,12 +62,12 @@ def run():
             'Unpowered electrical continuity/polarity/retention and continuous movement must be performed',
             'E3 independent power gate must close before any source is connected'],
         source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3))
-    f=BASE/'phase1-assembly-selection.json';f.write_text(json.dumps(selected,indent=2)+'\n',newline='\n');pins[f.relative_to(ROOT).as_posix()]=SHA(f)
+    f=BASE/'phase1-assembly-selection-r2.json';f.write_text(json.dumps(selected,indent=2)+'\n',newline='\n');pins[f.relative_to(ROOT).as_posix()]=SHA(f)
     manifest=dict(schema_version=1,result_id='A2',readiness='prototype',scope=selected['scope'],selected=True,A2_complete=True,physical_pass=False,
         selection=f.relative_to(ROOT).as_posix(),files=[dict(path=n,sha256=h) for n,h in sorted(pins.items())],
         gates={n:dict(status='open',reason='Nominal sequence only; physical/print/electrical readiness not demonstrated.') for n in REQUIRED_GATES})
     assert verify(ROOT,manifest)['integrity_ok']
-    f=BASE/'phase1-assembly-manifest.json';f.write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')
+    f=BASE/'phase1-assembly-manifest-r2.json';f.write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')
     print(json.dumps(dict(stages=len(stages),prints=len(prints),installed=122,seconds=selected['worker_seconds'])))
 
 

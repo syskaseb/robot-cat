@@ -83,6 +83,8 @@ def run():
         ('Source S0','p0:MAIN-SWITCH',1),('Source S1','p0:MOTOR-STOP-MANUAL-P0',1),
         ('Source XT60 pair','p0:XT60',1),('WAGO power221615','p0:DISTRIBUTION',4),
         ('WAGO 221415','p0:DATA-JUNCTIONS-P0',16),('MTA four legs','p0:FUSE-HOLDERS',4),
+        ('POST_F0 protected junction','splice:WAGO221-412',1),
+        ('Pi GPIO housing','Pi:J8_housing_1992',1),('Pi microSD','p0:SD',1),
         ('MTA servo bank','p0:SERVO-HOLDERS-P0',12),
         ('Bank TE input','p0:TERMINAL-SERVO-IN-P0',12),
         ('Bank TE output','p0:TERMINAL-SERVO-OUT-P0',12),
@@ -155,7 +157,7 @@ def run():
             'Complete commercial fastener binding, including M3x45 and washer mismatch'],
         gaps=gaps,source_sha256=pins,worker_seconds=round(time.monotonic()-tick,3))
     assert result['drive_count']==15
-    path=BASE/'phase1-purchased-role-plan-r2.json';path.write_text(json.dumps(result,indent=2)+'\n',newline='\n')
+    path=BASE/'phase1-purchased-role-plan-r3.json';path.write_text(json.dumps(result,indent=2)+'\n',newline='\n')
     print(json.dumps(dict(roles=len(roles),component_rows=len(components),gaps=len(gaps),seconds=result['worker_seconds'])))
 
 
