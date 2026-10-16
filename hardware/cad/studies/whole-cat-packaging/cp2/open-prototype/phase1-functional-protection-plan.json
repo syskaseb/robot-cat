@@ -1,0 +1,42 @@
+{
+  "status": "THREE_NATIVE_MOUNTS_COMPLETE_M4_INSULATION_W003_SELECTION_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "scope": "Functional source mounting/protection only. Existing accepted wires/bank retained. No cosmetic torso.",
+  "S0": {
+    "published": "HELLA Product Overview2025 p259 exact002843002: mount24mm, two6.5mm bores38mm apart; two M10nuts included.1000A10sec is not interruption rating.",
+    "primary_pdf": "hardware/reference/hella-s0-primary-2026-10-16/HELLA_Product_Overview_2025.pdf",
+    "sha256": "c633d2004c2e07c56b5b20a9295aa0ccaacfd1b77d75ca1fa987eb1b7925c078",
+    "current_mount": "Integral static Foundation source mount, not LeftRiser. Root above stationary beamZ71.32 outside yawBridge; top panel105..107.4 with published24mm neck and38mm M6 pattern. No enclosing case.",
+    "proof": "functional-protection/foundation-space-check.json63pairs0contacts130.344s; native-mounts.json294.485s parameter/3STL/relocatedreopen.",
+    "physical_gates": "Body/flange thickness, studclock, deliveredkey/tool sweep/torque/coverage unknown. No pixel-derived dimensions or filled-key-reservation actualcollision claim. PETG is passive separation, not primaryinsulation/IPcertificate.",
+    "rejected": "Full enclosing guard and riser column crossing Foundation/yawBridge rejected. No retry."
+  },
+  "POST_F0": {
+    "mount": "Existing221412 case on short integralFRdock, baseZ18.7..20.5/pedestal21. Loweast/sidecurbs; WESTwireface and top lever free.",
+    "adhesive": "One4905pad8x18x0.5, caseweightonly. Independentwiregrips retained. Deliveredcreep/adhesion trial and hand-support onlever remain."
+  },
+  "S1": {
+    "published": "NKK S821 A120 explicitly lacks1/4; actual four2/3/5/6. M12P1/12.5bore/3key9offset/maxpanel4.5.",
+    "current_mount": "S1MountCurrent: existingUpperFrame8 joint plus antirotation peg126.2/Y40. CountersunkDIN965M3x50 replaces ONE M3x45 and ONE upperwasher; existing lowerwasher/nut retained. Install mount/frame bolt before S1case; no body loading on unknown pads.",
+    "manufacturer_fastener": "Wurth0048350 M3x50 DIN965 steel4.8/head5.6x1.65/PH1/pitch0.5/partialthread. Last>=6mm thread and PETG tool/torque actual fit gate; do not apply published steel torque to PETG.",
+    "insulation": "Temflex165 two half-lapped passes and folded end cushion, nominal1mm allocation over primary roundedTEeye/screw/tongue. Flexible actual nylon-mouth/coverage fit remains unpowered gate. Never count factory nylon as exposed metal.",
+    "reservation": "Coarsecontrolbox is notactualnecksolid; intendedpanelneck overlap is neitheractualcollisionnoractualclearance. Deliverynutstack/clockfit remainsgate.",
+    "rejected": "Rigid full terminal hood rejected; no thin isolation chosen merely to pass W003."
+  },
+  "native_set": [
+    "FoundationProtectedCurrent replacesFoundation",
+    "FrontRightFixedCarrierProtectedCurrent replacesFR",
+    "S1MountCurrent new"
+  ],
+  "acceptance": [
+    "One common new/new and currentmaterial/truewire-radius check beforedetail",
+    "EditableCAD meaningfulparameter restore/relocatedreopen",
+    "SingleclosedSTLs margin256cube+5mmbrim",
+    "RefreshK1K2K3A2 foroverlay withoutduplicatepoints",
+    "ExplicitretainedbatteryP0/endcovers/headE6/individualinsulation/ATOaccess beforecompleteM4"
+  ],
+  "purchase_authorized": false,
+  "power_authorized": false,
+  "next": "W003 BUS.G→G2.4 bypass clears23changedpairs64.844s, preservesends/R10,guide271.8067/blank310vs395. Compact belowG2 approach rejected. Midguide needs one AlphaWire150mm and integralUpper, west orientation afterfirstW061conflict. Then choose W5/M4 and refreshK1K2K3A2, A3wholeP0/battery/head/tail, E3externalgaps. Still17/20=85."
+}

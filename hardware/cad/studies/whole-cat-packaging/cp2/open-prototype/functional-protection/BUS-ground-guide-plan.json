@@ -1,0 +1,146 @@
+{
+  "status": "BUS_MID_GUIDE_REJECTED",
+  "selected": false,
+  "physical_pass": false,
+  "contacts": [
+    {
+      "new": "BUSMidGuideBody",
+      "wire": "wire/W061",
+      "distance_mm": 0.8661531690089664,
+      "required_mm": 2.1
+    }
+  ],
+  "errors": [],
+  "pairs": 20,
+  "recipe": {
+    "group": {
+      "project_radius_mm": 1,
+      "lateral_half_span_mm": 1.2,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "centre_world_mm": [
+        117.98489724483592,
+        27.90408019896401,
+        151
+      ],
+      "land_mm": 9
+    },
+    "profile": {
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "knot_sign": 1,
+      "pads": [
+        [
+          1.5,
+          -1.2,
+          -1.5,
+          5.5,
+          1.2,
+          1.5
+        ],
+        [
+          1.5,
+          -1.2,
+          1.4,
+          5.5,
+          1.2,
+          4.5
+        ]
+      ],
+      "ring_cut": {
+        "outer": [
+          -1.7309999999999999,
+          -1.9309999999999998,
+          -0.9882,
+          6.031000000000001,
+          1.9309999999999998,
+          0.9882
+        ],
+        "inner": [
+          -1.05,
+          -1.25,
+          -1.6764,
+          5.35,
+          1.25,
+          1.6764
+        ]
+      },
+      "knot": [
+        5.881,
+        -1,
+        -1.5,
+        8.881,
+        1,
+        0.5
+      ],
+      "local_to_world": [
+        0.0,
+        -1.0,
+        0.0,
+        117.98489724483592,
+        1.0,
+        0.0,
+        0.0,
+        27.90408019896401,
+        0.0,
+        0.0,
+        1.0,
+        151.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "axial_cradle_mm": 3,
+      "allocated_straight_mm": 9,
+      "project_lacing_blank_mm": 150,
+      "physical_retention_verified": false
+    },
+    "foot_xyz_size": [
+      114.5,
+      30.65408019896401,
+      147.81,
+      3.5,
+      2.5,
+      1.79
+    ],
+    "stem_xyz_size": [
+      116.73489724483592,
+      30.65408019896401,
+      149.4,
+      2.5,
+      2.5,
+      4.6
+    ]
+  },
+  "parent": "UpperCarrier001",
+  "beam_joint_overlap_mm3": 1.7499999999999036,
+  "new_print_identities": 0,
+  "extra_installed_lacing_blanks": 1,
+  "extra_lacing_blank_mm": 150,
+  "lacing_sku": "AlphaWire802534B",
+  "retained_end_restraints": [
+    "BUS paired source",
+    "BUS_G/G2.4"
+  ],
+  "scope": "One integral light-wire cradle/root on existing3mm structural beam, not a heavy-bank root. Native final, parameter/STL/reopen and selection remain open.",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/current-w5-assembly/CurrentW5AssemblyNeutral.FCStd": "8b0ccaf7ffdfccc01472dd853e99f242cdee291d5c56c84d02be78ce022cb1b7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/receiver-supports/ReceiverSupportsCurrent.FCStd": "4306e95194894c02579bb3370488af0a2909ccde79095986678bdfd5c0bab71a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining-frame-saddles-native/RemainingFrameSaddlesCurrent.FCStd": "b527442a5dae363f22b1d54a50bb78ff63c49b817c1771ec90956e7c929c29b8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/FramesOperatingCurrent.FCStd": "265e9446dd9f3c9d350d30e246a07c882e1f9df7c1a975589ce61b2265cd6992",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingJunctionCurrent.FCStd": "7c98a5415a7845bd851963f2d68fb72d89cc7fddbd13c3fa1ca6bb9472d602af",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/local-source-retention-native/NeckSourceRetentionCurrent.FCStd": "05c977006ac500584a3f21a47de8e8cc352e7b1ba947fecf4f390f0cb07861f8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/operating-supports-native/UpperOperatingCurrent.FCStd": "b833a7adc0f94cafd07277820d26ebcbcbd8c68f20d70914f9d7f15c9e3509de",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/W003RetainedUpperBypass.json": "99094a018d5f1635504e8e7b026c1aa4460eefde9d30a87417c08d5d8330c496",
+    "tools/cad/plan_bus_ground_mid_guide.py": "5a9c27a37e89d8e87a9a02b8c099dbf5a0ee71f409dc51e0d71ad1d508271999",
+    "tools/cad/plan_remaining25_restraint_space.py": "5f4e03bf05cddf5943c4e3f4bd9c9d7ceaaaaaac3a1615435a00cb398ba484e0"
+  },
+  "worker_seconds": 67.328
+}
