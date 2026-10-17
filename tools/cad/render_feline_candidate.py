@@ -2,8 +2,10 @@
 import json
 import pickle
 import time
+import sys
 import numpy as np
 import FreeCAD as A
+import Part
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -32,15 +34,46 @@ def main():
                 r=plan['reference_substitutions'][n];s=reader.shape(ROOT/r['source'],r['object'])
                 s.translate(A.Vector(*r['world_shift_before_head_drop_mm']))
                 p,f=s.tessellate(.8);v=np.array([list(x) for x in p])[np.array(f)]
+            if n in plan.get('part_pose_overrides',{}):
+                ov=plan['part_pose_overrides'][n]
+                v=v@np.array(ov['rotation_rows']).T+ov['translation_mm']
             # Dropping triangles is not mesh simplification: it creates
             # misleading holes in heads and plates. Render the whole mesh.
             placed[n]=(v@np.array(g['rotation_rows']).T+g['translation_mm'],c,kind)
     for n,r in inventory.items():
         if n in placed or r['kind']!='surface':continue
+        if n.startswith('BatteryFrameHardware'):continue
         if r['label'].startswith(('P0_','tail/')) or n.startswith(('Print_P0_','Print_CP2_TailRiser','Battery')):
             v,c,kind=cache[n];placed[n]=(v,c,kind)
+    feet=json.loads((OUT/'belly-feet-native.json').read_text())
+    assert feet['external_fit_complete']
+    for row in feet['parts']+feet['hardware']:
+        s=reader.shape(ROOT/feet['native'],row['object']);p,f=s.tessellate(.5)
+        v=np.array([list(x) for x in p])[np.array(f)]
+        placed[row['object']]=(v,np.array([.4,.53,.61]),'surface')
     axes=json.loads((ROOT/'hardware/simulation/p0/e6-leg-compatibility.json').read_text())['axes']
-    for index,filename in [(0,'candidate-standing.png'),(envelope['planning_pose_index'],'candidate-lying.png')]:
+    views=[(0,'candidate-standing.png')]
+    if '--standing-only' not in sys.argv:views.append((envelope['planning_pose_index'],'candidate-lying.png'))
+    factory=json.loads((OUT/'factory-routes.json').read_text())
+    current_factory=factory['source_sha256'][(OUT/'module-layout.json').relative_to(ROOT).as_posix()]==__import__('hashlib').sha256((OUT/'module-layout.json').read_bytes()).hexdigest()
+    curves=[]
+    if current_factory:
+        for row in factory['routes']:
+            edges=[]
+            for p in row['parts']:
+                a,b=A.Vector(*p['start']),A.Vector(*p['end'])
+                edges.append(Part.makeLine(a,b) if p['kind']=='line' else Part.Arc(a,A.Vector(*p['mid']),b).toShape())
+            curves.append(np.array([list(v) for v in Part.Wire(edges).discretize(Deflection=.2)]))
+    prefixes=json.loads((OUT/'prefix-allocation.json').read_text());approaches=[]
+    specs={r['id']:r for r in prefixes['specifications']}
+    assert prefixes['source_sha256'][(OUT/'module-layout.json').relative_to(ROOT).as_posix()]==__import__('hashlib').sha256((OUT/'module-layout.json').read_bytes()).hexdigest()
+    for key,k in prefixes['allocation'].items():
+        r=specs[key];bend=next(c['bend'] for c in prefixes['domains'][key] if c['option']==k)
+        p=A.Vector(*r['point']);d=A.Vector(*r['direction']);d.normalize()
+        b=A.Vector(*bend);b=b-d*b.dot(d);b.normalize();q=p+d*9;R=12.4
+        w=Part.Wire([Part.makeLine(p,q),Part.Arc(q,q+d*(R/2**.5)+b*(R*(1-1/2**.5)),q+d*R+b*R).toShape()])
+        approaches.append(np.array([list(v) for v in w.discretize(Deflection=.2)]))
+    for index,filename in views:
         pose=motion['poses'][index];drop=pose['body_drop_mm'];members={}
         for code,groups in motion['membership'].items():
             aa=[next(a for a in axes if a['code']==code and a['stage']==stage) for stage in STAGES]
@@ -48,10 +81,10 @@ def main():
             for stage,t in zip(STAGES,tf):
                 for n in groups[stage]:members[n]=t
         fig,axs=plt.subplots(1,3,figsize=(18,7),dpi=120)
-        views=[('PRZÓD',np.array([[0,0,-1],[1,0,0],[0,1,0]])),
+        camera_views=[('PRZÓD',np.array([[0,0,-1],[1,0,0],[0,1,0]])),
             ('BOK',np.array([[-1,0,0],[0,0,1],[0,1,0]])),
             ('GÓRA',np.array([[-1,0,0],[0,1,0],[0,0,-1]]))]
-        for ax,(title,basis) in zip(axs,views):
+        for ax,(title,basis) in zip(axs,camera_views):
             polygons=[];colors=[];depth=[]
             for n,(v,c,kind) in placed.items():
                 if n in members:v=apply(v.reshape(-1,3),members[n]).reshape(v.shape)
@@ -59,17 +92,23 @@ def main():
                 polygons.append(p[:,:,:2]);depth.append(p[:,:,2].mean(1));colors.append(np.tile(c*.85,(len(p),1)))
             v=np.concatenate(polygons);d=np.concatenate(depth);c=np.concatenate(colors);order=np.argsort(d)
             ax.add_collection(PolyCollection(v[order],facecolors=c[order],edgecolors='none',rasterized=True))
-            co,si=section_coefficients();co=np.r_[co,co[0]];si=np.r_[si,si[0]]
             for x,w,h in STATIONS:
-                v=np.column_stack((np.full(17,x),co*w/2,envelope['native']['center_z_mm']+si*h/2-drop))@basis
+                co,si=section_coefficients(w,h);co=np.r_[co,co[0]];si=np.r_[si,si[0]]
+                v=np.column_stack((np.full(len(co),x),co*w/2,envelope['native']['center_z_mm']+si*h/2-drop))@basis
                 ax.plot(v[:,0],v[:,1],color='#1680b3',lw=.75)
+            for curve in curves:
+                q=curve.copy();q[:,2]-=drop;q=q@basis
+                ax.plot(q[:,0],q[:,1],color='#d97928',lw=1.3)
+            for curve in approaches:
+                q=curve.copy();q[:,2]-=drop;q=q@basis
+                ax.plot(q[:,0],q[:,1],color='#d97928',lw=.65)
             if title!='GÓRA':ax.axhline(motion['ground_rest_z_mm'],color='#333333',lw=1)
             ax.autoscale_view();ax.set_aspect('equal');ax.grid(alpha=.15);ax.set_title(title);ax.set_xlabel('mm')
-        fig.suptitle(f'WSPÓLNY KANDYDAT, ODRZUCONY | opuszczenie {drop:.2f} mm',fontsize=15)
-        fig.text(.5,.045,'Pokazane aktualne moduły kandydata i P0/ogon; nie wybrany projekt. Nowe mocowania i pełne przewody jeszcze NIE zbudowane.',ha='center',fontsize=9)
-        fig.text(.5,.017,'Niebieski: rezerwacja obudowy, nie ścianka. Stare galerie jawnie zastępowane; nie są ukrytymi gotowymi mocowaniami.',ha='center',fontsize=9)
+        fig.suptitle(f'WSPÓLNY PLAN, NIE WYBRANY | opuszczenie {drop:.2f} mm',fontsize=15)
+        fig.text(.5,.045,'Aktualne moduły, P0/ogon i4natywne podpory na8osiachM2. Mocowania przeniesionych modułów i pełne przewody OPEN.',ha='center',fontsize=9)
+        fig.text(.5,.017,'Niebieski: rezerwacja, nie ścianka. Pomarańczowe:8całych odcinkówMTA i61podejść końców, NIE pełna wiązka.',ha='center',fontsize=9)
         fig.tight_layout(rect=(0,.07,1,.94));fig.savefig(OUT/filename,facecolor='white');plt.close(fig)
-    print(json.dumps(dict(views=['candidate-standing.png','candidate-lying.png'],parts=len(placed),seconds=round(time.monotonic()-tick,3))),flush=True)
+    print(json.dumps(dict(views=[f for i,f in views],parts=len(placed),factory_curves=len(curves),seconds=round(time.monotonic()-tick,3))),flush=True)
 
 
 if __name__=='__main__':main()
