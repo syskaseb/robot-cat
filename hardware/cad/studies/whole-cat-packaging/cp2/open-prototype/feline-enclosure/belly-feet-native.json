@@ -1,8 +1,8 @@
 {
-  "status": "FOUR_EDITABLE_FEET_NATIVE_SHARED_FIT_OPEN",
+  "status": "FOUR_BOLTED_BELLY_BRIDGES_GEOMETRY_CLEAR_LOAD_TEST_OPEN",
   "selected": false,
   "physical_pass": false,
-  "external_fit_complete": false,
+  "external_fit_complete": true,
   "load_test_complete": false,
   "parts": [
     {
@@ -26,15 +26,16 @@
       "boss_top_mm": -1.5,
       "volume_mm3": 15619.086637806131,
       "fully_editable": true,
-      "external_fit_complete": false,
+      "external_fit_complete": true,
       "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/BellyFoot1_candidate_x1.stl",
-      "stl_sha256": "45933f2b0fdf0895f93663e316fa924b29e60eb998c4141d45af95741d75d9cc",
+      "stl_sha256": "e6a1612fa6b0d419b9d6ebf3fdb27dc7a5844d7d5cb3934422e4369370b8762e",
       "closed_stl": true,
       "print_extents_mm": [
         18.0,
         30.0,
         72.02735137939453
-      ]
+      ],
+      "print_orientation": "Root-seat-down,180degX; support the0.5mm bridge/boss step"
     },
     {
       "object": "BellyFoot2",
@@ -57,15 +58,16 @@
       "boss_top_mm": -1.5,
       "volume_mm3": 15619.086637806131,
       "fully_editable": true,
-      "external_fit_complete": false,
+      "external_fit_complete": true,
       "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/BellyFoot2_candidate_x1.stl",
-      "stl_sha256": "6a37a0e2c1a414ae77daca005165a228b505e35c61004dc4db6dec7e59852620",
+      "stl_sha256": "792237a5fe05967161fad7eb85aaec22e2924bcf3088e883126a130967179cf0",
       "closed_stl": true,
       "print_extents_mm": [
         18.0,
         30.0,
         72.02735137939453
-      ]
+      ],
+      "print_orientation": "Root-seat-down,180degX; support the0.5mm bridge/boss step"
     },
     {
       "object": "BellyFoot3",
@@ -88,15 +90,16 @@
       "boss_top_mm": -1.5,
       "volume_mm3": 15619.086637806135,
       "fully_editable": true,
-      "external_fit_complete": false,
+      "external_fit_complete": true,
       "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/BellyFoot3_candidate_x1.stl",
-      "stl_sha256": "df8ed1795baffc6b803b083ed4fbf5886f4664a943b706279dc50252d2f64cf0",
+      "stl_sha256": "4f3ca3a3bcb6a26bc95f7cb61747611dfebfd0e4beedb44fc05e3f06eaf81e77",
       "closed_stl": true,
       "print_extents_mm": [
         18.0,
         30.0,
         72.02735137939453
-      ]
+      ],
+      "print_orientation": "Root-seat-down,180degX; support the0.5mm bridge/boss step"
     },
     {
       "object": "BellyFoot4",
@@ -119,15 +122,16 @@
       "boss_top_mm": -1.5,
       "volume_mm3": 15619.086637806135,
       "fully_editable": true,
-      "external_fit_complete": false,
+      "external_fit_complete": true,
       "stl": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/BellyFoot4_candidate_x1.stl",
-      "stl_sha256": "1965ed3ecb74d6e4788b92950bc1c3160915735b0f7ff0012b546f50c180950b",
+      "stl_sha256": "55231bbdf4b343194388803a80cfb5416e450c277c1c3602aa0ca854cd190a89",
       "closed_stl": true,
       "print_extents_mm": [
         18.0,
         30.0,
         72.02735137939453
-      ]
+      ],
+      "print_orientation": "Root-seat-down,180degX; support the0.5mm bridge/boss step"
     }
   ],
   "hardware": [
@@ -212,7 +216,7 @@
       "tip_mm": 4.7
     }
   ],
-  "load_path": "Ground annular foot -> hollow18mm stem ->18x30x3 bridge -> P0 underside contact and two existingM2 frame holes per support",
+  "load_path": "Annular ground foot -> hollow stem ->3mm bridge -> two boss seats -> retained R4mountingplate -> actual FrameFront20/Rear20 face at same twoM2axes",
   "stock_delta": {
     "M2x6": -8,
     "M2x10": 8,
@@ -225,7 +229,7 @@
     "Seat bridge at frameZ-2, two0.5mm bosses at battery-plateZ-1.5",
     "Bottom driver along original axes; actual tool/retention/load fit remains a gate"
   ],
-  "print_gate": "Candidate PETG, no slicer run. Root-down print needs local support for0.5mm bosses; orientation/support and first physical fit still open.",
+  "print_gate": "Root-seat-down export; support0.5mm boss/bridge step. Slicer/printed fit/torque/load test phase2; not print-ready.",
   "worker_seconds": 4.656,
   "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd",
   "native_sha256": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c",
@@ -244,6 +248,132 @@
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineLayoutEnvelope.FCStd": "648f5d91ace4aa868254174bfc7bc2e3734f137919a2e6c748fa138886d57262",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
-    "tools/cad/build_feline_belly_feet.py": "cea241fd4fd6eebb10b1d35475d32c2cb96af005d689b857780c79209e78fff1"
-  }
+    "tools/cad/build_feline_belly_feet.py": "a6ff8fbe47a08989611d0499d830308c95f0c2c292035366fc3959e37750d375",
+    "tools/cad/qualify_feline_bolted_bridges.py": "0f306a5ef53b15db130d4f8ac93796aa8bf42acdfba1a2bd0bba7050c10b3aed"
+  },
+  "accepted_for_geometry_continuation": true,
+  "selected_for_print": false,
+  "actual_clamp_contacts": [
+    {
+      "foot": "BellyFoot1",
+      "load_via_R4plate": true,
+      "contacts": [
+        {
+          "axis_mm": [
+            -80,
+            -22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.86061718819318,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.951266888764145,
+          "frame": "Ref_Material_P0_FrameFront20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        },
+        {
+          "axis_mm": [
+            -70,
+            -22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.860617188193174,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.860957046442785,
+          "frame": "Ref_Material_P0_FrameFront20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        }
+      ]
+    },
+    {
+      "foot": "BellyFoot2",
+      "load_via_R4plate": true,
+      "contacts": [
+        {
+          "axis_mm": [
+            -80,
+            22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.86061718819319,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.951266888793945,
+          "frame": "Ref_Material_P0_FrameFront20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        },
+        {
+          "axis_mm": [
+            -70,
+            22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.86061718819318,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.860957046485723,
+          "frame": "Ref_Material_P0_FrameFront20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        }
+      ]
+    },
+    {
+      "foot": "BellyFoot3",
+      "load_via_R4plate": true,
+      "contacts": [
+        {
+          "axis_mm": [
+            112,
+            -22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.860617188193185,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.86095704637617,
+          "frame": "Ref_Material_P0_FrameRear20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        },
+        {
+          "axis_mm": [
+            122,
+            -22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.860617188193174,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.951266888691087,
+          "frame": "Ref_Material_P0_FrameRear20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        }
+      ]
+    },
+    {
+      "foot": "BellyFoot4",
+      "load_via_R4plate": true,
+      "contacts": [
+        {
+          "axis_mm": [
+            112,
+            22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.86061718819319,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.86095704654069,
+          "frame": "Ref_Material_P0_FrameRear20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        },
+        {
+          "axis_mm": [
+            122,
+            22.5
+          ],
+          "foot_to_R4plate_face_z_mm": -1.5,
+          "foot_to_plate_actual_area_mm2": 26.86061718819318,
+          "plate_to_frame_face_z_mm": 0,
+          "plate_to_frame_actual_area_mm2": 24.951266888866698,
+          "frame": "Ref_Material_P0_FrameRear20_0_0",
+          "area_is_geometric_contact_not_load_capacity": true
+        }
+      ]
+    }
+  ],
+  "bolted_path_receiver_seconds": 1.578
 }

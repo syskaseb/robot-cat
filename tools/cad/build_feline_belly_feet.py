@@ -22,13 +22,13 @@ def run():
     live_doc_name=doc.Name;reused_sketches=set()
     report=dict(status='BUILDING_NATIVE_FEET',selected=False,physical_pass=False,
         external_fit_complete=False,load_test_complete=False,parts=[],hardware=[],
-        load_path='Ground annular foot -> hollow18mm stem ->18x30x3 bridge -> P0 underside contact and two existingM2 frame holes per support',
+        load_path='Ground annular foot -> hollow18mm stem ->3mm bridge -> two boss seatsZ-1.5 -> retained R4plate -> FrameFront20/FrameRear20 atZ0, clamped on two existingM2axes per foot',
         stock_delta={'M2x6':-8,'M2x10':8,'M2washers':0,'M2nuts':0},
         assembly=['Disconnect/remove battery before assembly; no energized work authorized',
             'Replace one original frame bolt pair at a time; preserve captive upper nuts/washers',
-            'Seat bridge at frameZ-2, two0.5mm bosses at battery-plateZ-1.5',
+            'Use two actual R4plate/frame clamp contacts per bridge; no forced direct stem seat against the side frame',
             'Bottom driver along original axes; actual tool/retention/load fit remains a gate'],
-        print_gate='Candidate PETG, no slicer run. Root-down print needs local support for0.5mm bosses; orientation/support and first physical fit still open.')
+        print_gate='Candidate PETG, no slicer run. Local support needed for stepped root/annular seat; orientation/support and first physical fit still open.')
     def save_report():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         (OUT/'belly-feet-native.json').write_text(json.dumps(report,indent=2)+'\n')
