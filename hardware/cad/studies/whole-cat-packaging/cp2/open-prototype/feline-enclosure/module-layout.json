@@ -1196,19 +1196,19 @@
         [
           119.65799713134766,
           21.5,
-          73.989082015477
+          84.0
         ],
         [
           198.6999969482422,
-          60.51091798452299,
+          63.62300109863281,
           126.0
         ]
       ],
       "candidate_bounds_mm": [
         [
-          -130.010917984523,
+          -133.1230010986328,
           18.45800018310547,
-          33.989082015476995
+          44.0
         ],
         [
           -91.0,
@@ -3818,12 +3818,12 @@
     ]
   ],
   "source_sha256": {
-    "tools/cad/plan_feline_interior.py": "8b2b7f355ca27140bf48084ffc04b8d6b4832347013d71d948fbb42d9847e4cc",
+    "tools/cad/plan_feline_interior.py": "57fdbd1143f02b9d32b2caadb5c6a8f0f8ee95d1c3f389a0d0fa7de678cd3972",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/layout-checkpoint.json": "ec6a2a609a164d5dd4f2c4668738639fc8b3edbae8737680c9867359b33d620b",
     "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
     "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-current-end-coverage.json": "a391313389a85e6497ae7c3b0dd3febcdd8e5dbed37b247b0e96b629b70a6a47",
-    "tools/cad/build_feline_layout_envelope.py": "7ace68a10fdc4633e341361bbc9b206c81df5b45636164a5cc98708eefe334cd"
+    "tools/cad/build_feline_layout_envelope.py": "b67d5360e7c83fbdbdc6987e8d72882aec2734b9e40c1fa4a1b78f3ded96a55e"
   },
   "geometry_source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
@@ -4004,19 +4004,19 @@
         ],
         [
           0.0,
-          0.7071067811865474,
-          0.7071067811865477
+          1.0,
+          0.0
         ],
         [
           0.0,
-          -0.7071067811865477,
-          0.7071067811865474
+          0.0,
+          1.0
         ]
       ],
       "translation_mm": [
         0.0,
-        -53.60586206959066,
-        56.58400076889282
+        0.0,
+        0.0
       ],
       "actual_cylinder_axis_point_mm": [
         122.558,
@@ -4028,7 +4028,7 @@
         0,
         0
       ],
-      "clock_degrees": -45,
+      "clock_degrees": 0,
       "basis": "Saved S1ring cylinderR2.667; clock lug upward about actual bore, not casing or signalpin."
     },
     "Ref_Material_current_S1_ring_5_0_0": {
@@ -4076,19 +4076,19 @@
         ],
         [
           0.0,
-          -0.7071067811865475,
-          -0.7071067811865477
+          -1.0,
+          -1.2246467991473532e-16
         ],
         [
           0.0,
-          0.7071067811865477,
-          -0.7071067811865475
+          1.2246467991473532e-16,
+          -1.0
         ]
       ],
       "translation_mm": [
         0.0,
-        116.12058069535209,
-        137.90128060534576
+        59.000000000000014,
+        186.0
       ],
       "actual_cylinder_axis_point_mm": [
         122.558,
@@ -4100,7 +4100,7 @@
         0,
         0
       ],
-      "clock_degrees": 135,
+      "clock_degrees": 180,
       "basis": "Saved S1ring cylinderR2.667; clock lug upward about actual bore, not casing or signalpin."
     },
     "Ref_Material_F_R1_CP2_Housing_0_0": {
@@ -4747,6 +4747,39 @@
   "reservation_native_sha256": "648f5d91ace4aa868254174bfc7bc2e3734f137919a2e6c748fa138886d57262",
   "proposed_cross_section_exponent": 4.0,
   "proposed_profile_family": "rounded_p4_back_flat_R12_belly",
+  "proposed_neck_stations_x_width_zlow_zhigh_mm": [
+    [
+      -192,
+      74,
+      -58,
+      76
+    ],
+    [
+      -175,
+      74,
+      -48,
+      76
+    ],
+    [
+      -160,
+      90,
+      -48,
+      88
+    ],
+    [
+      -141.5,
+      100,
+      -48,
+      112
+    ],
+    [
+      -130,
+      137.42372881356,
+      -48,
+      112
+    ]
+  ],
+  "neck_reservation_not_actual_skin_or_continuous_head_clearance": true,
   "native_envelope_matches_this_proposal": false,
   "native_update_condition": "Quarterturned whole bank, all8inlinejoins andsourcecases; actual prefixes/sideATOtool andlowerWAGO12mmservice mustpass before details.",
   "main_world_z46_52_retained": false,
@@ -4800,5 +4833,5 @@
   ],
   "physical_pass": false,
   "full_native_layout_complete": false,
-  "worker_seconds": 6.031
+  "worker_seconds": 6.141
 }

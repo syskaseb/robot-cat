@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 from check_main_p0_placement import ROOT, SavedShapes, sha
 from plan_feline_layout import BASE, OUT, STAGES
-from build_feline_layout_envelope import STATIONS, PROFILE_EXPONENT, PROFILE_FAMILY,section_coefficients
+from build_feline_layout_envelope import STATIONS,NECK_STATIONS, PROFILE_EXPONENT, PROFILE_FAMILY,section_coefficients
 
 
 def inside(points,center,margin=2):
@@ -31,6 +31,17 @@ def inside(points,center,margin=2):
         dy,dz=yy[j]-py,zz[j]-pz
         valid &= dy*(points[:,2]-center-pz)-dz*(points[:,1]-py)>=-1e-5
     return valid
+
+
+def inside_shared(points,margin=2):
+    """Torso OR planned neck volume, never a proof of a printed wall fit."""
+    x=points[:,0]
+    neck=(x>=NECK_STATIONS[0][0]+margin)&(x<=NECK_STATIONS[-1][0]-margin)
+    half=np.interp(x,[s[0] for s in NECK_STATIONS],[s[1]/2 for s in NECK_STATIONS])-margin
+    low=np.interp(x,[s[0] for s in NECK_STATIONS],[s[2] for s in NECK_STATIONS])+margin
+    high=np.interp(x,[s[0] for s in NECK_STATIONS],[s[3] for s in NECK_STATIONS])-margin
+    neck&=(abs(points[:,1])<=half)&(points[:,2]>=low)&(points[:,2]<=high)
+    return inside(points,32,margin)|neck
 
 
 def main():
@@ -72,7 +83,7 @@ def main():
             basis='Saved ring cylinderR5.02 onselectedsource; unchanged bore and lug. Not newmanufacturerfastener data.')
     # All four crimp exits fan FORE, upper pair upward and lower downward.
     # Pure vertical exits hit upperPWM hardware or lower fixed hip motors.
-    for k,y,z,degrees in [(2,41.5,105,45),(3,41.5,93,-45),(5,29.5,105,-135),(6,29.5,93,135)]:
+    for k,y,z,degrees in [(2,41.5,105,45),(3,41.5,93,0),(5,29.5,105,-135),(6,29.5,93,180)]:
         n=f'Ref_Material_current_S1_ring_{k}_0_0';p=A.Vector(122.558,y,z);r=A.Rotation(A.Vector(1,0,0),degrees)
         t=A.Placement(p-r.multVec(p),r);m=t.toMatrix()
         rot=np.array([[getattr(m,f'A{i+1}{j+1}') for j in range(3)] for i in range(3)])
@@ -251,6 +262,8 @@ def main():
         head_new_root_mount_required=True,
         reservation_native_sha256=layout['native']['sha256'],
         proposed_cross_section_exponent=PROFILE_EXPONENT,proposed_profile_family=PROFILE_FAMILY,
+        proposed_neck_stations_x_width_zlow_zhigh_mm=NECK_STATIONS,
+        neck_reservation_not_actual_skin_or_continuous_head_clearance=True,
         native_envelope_matches_this_proposal=layout['native'].get('profile_family')==PROFILE_FAMILY,
         native_update_condition='Quarterturned whole bank, all8inlinejoins andsourcecases; actual prefixes/sideATOtool andlowerWAGO12mmservice mustpass before details.',
         main_world_z46_52_retained=False,main_new_world_z_mm=96.52,

@@ -18,7 +18,7 @@ from plan_feline_layout import MODEL,BASE,OUT,STAGES
 from build_feline_interior_candidate import transform
 from check_feline_leg_body import placement
 from plan_feline_endpoints import owner,source_port_frames,transfer_port
-from plan_feline_interior import inside
+from plan_feline_interior import inside,inside_shared
 from check_feline_shared_space import tube_prefix
 
 
@@ -258,8 +258,8 @@ def main():
             bend=np.cos(k*np.pi/4)*u+np.sin(k*np.pi/4)*v
             q=p+d*9;t=np.linspace(0,np.pi/2,25)
             samples=np.r_[np.array([p+d*l for l in np.linspace(0,9,6)]),q+12.4*(np.sin(t)[:,None]*d+(1-np.cos(t))[:,None]*bend)]
-            fits=inside(samples,32,margin=2+r)
-            if not fits.all() and spec['role']!='S0':
+            fits=inside_shared(samples,margin=2+r)
+            if not fits.all():
                 rejections.append(dict(option=k,kind='outside_proposed_inner_space'));continue
             try:s=tube_prefix(p,d,r,bend,12.4)
             except Exception as e:report['candidate_errors'].append(dict(id=spec['id'],option=k,error=str(e)));continue

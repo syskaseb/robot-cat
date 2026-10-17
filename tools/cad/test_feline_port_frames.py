@@ -45,5 +45,10 @@ class PortFrames(unittest.TestCase):
         np.testing.assert_allclose(stale,correct)
         np.testing.assert_allclose(d,d2)
 
+    def test_neck_torso_union_has_no_artificial_margin_gap(self):
+        from plan_feline_interior import inside_shared
+        points=np.array([[x,22.5,53] for x in np.linspace(-175,-125,101)])
+        self.assertTrue(inside_shared(points,4.1).all())
+
 
 if __name__=='__main__':unittest.main()

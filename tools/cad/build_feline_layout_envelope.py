@@ -24,6 +24,11 @@ STATIONS = [(-141.5,100,160),(-112,196,160),(-65,196,160),
             (10,180,160),(55,166,160),(112,188,160),(158,132,160),(183.5,40,100)]
 PROFILE_EXPONENT = 4.0
 PROFILE_FAMILY = 'rounded_p4_back_flat_R12_belly'
+# Common fore-neck reservation, not an accepted wall or material clearance.
+# Last section overlaps the torso by11.5mm: shrink margins must not create
+# an artificial routing gap at the union of two contiguous covers.
+NECK_STATIONS=[(-192,74,-58,76),(-175,74,-48,76),(-160,90,-48,88),
+               (-141.5,100,-48,112),(-130,137.42372881356,-48,112)]
 
 
 def section_coefficients(width=196,height=160):

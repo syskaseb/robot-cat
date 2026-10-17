@@ -50,11 +50,12 @@ def main():
         oldgroups={g['role']:g for g in oldplan['groups']};assert set(oldgroups)==set(groups)
         keys=('objects','rotation_rows','translation_mm')
         changed={role for role in groups if any(groups[role][k]!=oldgroups[role][k] for k in keys)}
-        assert changed and plan['geometry_source_sha256']==oldplan['geometry_source_sha256']
+        assert plan['geometry_source_sha256']==oldplan['geometry_source_sha256']
         for key in ('part_pose_overrides','reference_substitutions'):
             new,old=plan[key],oldplan[key]
             changed_objects={n for n in set(new)|set(old) if new.get(n)!=old.get(n)}
             changed.update(role for role,g in groups.items() if changed_objects.intersection(g['objects']))
+        assert changed,'No changed geometry; receive the existing result instead of repeating it'
         for n,h in parent['source_sha256'].items():
             if n.endswith('.FCStd'):assert sha(ROOT/n)==h,n
         oldmotion=subprocess.run(['git','show',commit+':'+(OUT/'motion-layout.json').relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
