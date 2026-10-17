@@ -70,9 +70,9 @@ def main():
         overrides[n]=dict(rotation_rows=rot.tolist(),translation_mm=shift.tolist(),
             actual_cylinder_axis_point_mm=list(p),axis=[0,0,1],clock_degrees=degrees,
             basis='Saved ring cylinderR5.02 onselectedsource; unchanged bore and lug. Not newmanufacturerfastener data.')
-    # Upper lugs leave UP, lower lugs DOWN. Parallel upturned leads from
-    # 12mm-separated contacts would run through their upper neighbours.
-    for k,y,z,degrees in [(2,41.5,105,90),(3,41.5,93,-90),(5,29.5,105,-90),(6,29.5,93,90)]:
+    # All four crimp exits fan FORE, upper pair upward and lower downward.
+    # Pure vertical exits hit upperPWM hardware or lower fixed hip motors.
+    for k,y,z,degrees in [(2,41.5,105,45),(3,41.5,93,-45),(5,29.5,105,-135),(6,29.5,93,135)]:
         n=f'Ref_Material_current_S1_ring_{k}_0_0';p=A.Vector(122.558,y,z);r=A.Rotation(A.Vector(1,0,0),degrees)
         t=A.Placement(p-r.multVec(p),r);m=t.toMatrix()
         rot=np.array([[getattr(m,f'A{i+1}{j+1}') for j in range(3)] for i in range(3)])
@@ -203,6 +203,14 @@ def main():
         y=[-67,-40.5,40.5,67][row]
         base=35.5 if outer else -16.5
         role='WAGO:'+records[n]['label'].split('/')[0]
+        low_power_station=role in ('WAGO:RL_P','WAGO:RR_P')
+        if low_power_station:
+            # Upright30mm power station with mouths+X below the neighbours.
+            # Its former transverse exit crossed the folded knee. Allocate
+            # all5ports as a unit, not one new notch per conductor.
+            rotation=np.eye(3)[[order[1],order[0],order[2]]]
+            if np.linalg.det(rotation)<0:rotation[1]*=-1
+            height=sorted(dims)[2];base=-46
         old_centre=np.mean(records[n]['bounds_mm'],axis=0)
         source_points=[r['point_world_mm'] for r in coverage['fixed_physical_guide_ends']+coverage['body_fixed_boundary_ends']
             if owner(r['role'],{role:None})==role]
@@ -210,7 +218,7 @@ def main():
         if source_points:
             source_face=np.sign(np.median(np.array(source_points)[:,order[1]]-old_centre[order[1]]))
             original_axis=np.eye(3)[order[1]]*source_face
-            desired=np.array([0,-np.sign(y),0]) if outer else np.array([0,np.sign(y),0])
+            desired=np.array([1,0,0]) if low_power_station else (np.array([0,-np.sign(y),0]) if outer else np.array([0,np.sign(y),0]))
             if np.dot(rotation@original_axis,desired)<0:
                 rotation=np.diag([-1,-1,1])@rotation
         add('WAGO:'+records[n]['label'].split('/')[0],[n],rotation=rotation,
@@ -247,7 +255,7 @@ def main():
         native_update_condition='Quarterturned whole bank, all8inlinejoins andsourcecases; actual prefixes/sideATOtool andlowerWAGO12mmservice mustpass before details.',
         main_world_z46_52_retained=False,main_new_world_z_mm=96.52,
         old_MAIN_P0_adapter_not_reselected=True,
-        wago_entry_policy='Inner rails flat portsOUTWARD belowP0: bottomZ-16.5, mouthZ-12/-11. Outer railsflat portsINWARD aboveP0: mouthZ40. Explicit nominal station-local ports supersede stale guide endpoints; not manufacturer qualification.',
+        wago_entry_policy='Inner8flat portsOUTWARD belowP0,2RL_P/RR_P upright30mm mouths+X bottomZ-46; upper10flat portsINWARD mouthZ40. Explicit nominal station-local ports supersede stale guide endpoints; not manufacturer qualification.',
         lower_negative_WAGO_service_drop_mm=0,
         complete_conductor_paths=False,connector_entry_direction_verified=False,
         operating_apertures_required=[dict(object='Ref_Material_current_S1_control_CP2_0_0',

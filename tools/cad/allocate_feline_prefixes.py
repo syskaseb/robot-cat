@@ -7,6 +7,8 @@ import json
 import math
 import time
 import sys
+import ast
+import subprocess
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -131,9 +133,35 @@ def main():
     bounds={n:s.BoundBox for n,s in scene.items()}
     if '--factory-only' in sys.argv:
         factory_gate(plan,scene,bounds,reader,tick);return
+    assert '--factory-reuse-git' in sys.argv,'Receive complete factory links before custom prefix allocation'
+    parent=sys.argv[sys.argv.index('--factory-reuse-git')+1]
+    def gitread(relative):
+        return subprocess.run(['git','show',parent+':'+relative],cwd=ROOT,capture_output=True,check=True).stdout
+    factoryfile=OUT/'factory-routes.json';factory=json.loads(gitread(factoryfile.relative_to(ROOT).as_posix()))
+    assert factory['status']=='EIGHT_COMPLETE_FACTORY_LINKS_CLEAR_CUSTOM_WIRING_OPEN'
+    relative=Path(__file__).relative_to(ROOT).as_posix()
+    def function_ast(source):
+        return ast.dump(next(n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef) and n.name=='factory_gate'),include_attributes=False)
+    executed_script=gitread(relative).decode('utf-8')
+    assert function_ast(executed_script)==function_ast(Path(__file__).read_text()),'Factory checker changed'
+    for n,h in factory['source_sha256'].items():
+        if n==relative:
+            import hashlib
+            assert hashlib.sha256(executed_script.encode()).hexdigest()==h
+        else:assert sha(ROOT/n)==h,n
+    for row in factory['routes']:
+        edges=[]
+        for p in row['parts']:
+            start,end=A.Vector(*p['start']),A.Vector(*p['end'])
+            edges.append(Part.makeLine(start,end) if p['kind']=='line' else Part.Arc(start,A.Vector(*p['mid']),end).toShape())
+        w=Part.Wire(edges);e=w.Edges[0];p=e.valueAt(e.FirstParameter);d=e.tangentAt(e.FirstParameter)
+        s=w.makePipeShell([Part.Wire([Part.makeCircle(row['radius_mm'],p,d)])],True,False)
+        assert s.isValid() and len(s.Solids)==1
+        name='FactoryRoute:'+row['wire'];scene[name]=s;bounds[name]=s.BoundBox
     report=dict(status='PREFIX_DOMAIN_ALLOCATION_RUNNING',selected=False,physical_pass=False,
         domains={},missing_first_departures=[],first_land_blocked=[],candidate_errors=[],domain_rejections={},
-        source_port_frames=frames,
+        source_port_frames=frames,complete_factory_links_reused_from_git=parent,
+        factory_checker_AST_unchanged=True,full_factory_routes_not_forced_quarter_prefixes=True,
         material_pairs=0,wire_pairs=0,straight_mm=9,project_R_mm=12.4,
         R_basis='Existing prototype12.4 projectbudget, not manufacturer guaranteed flex/bend data; physicalqualification remains open.',
         factory_lead_budget_mm=100,factory_budget_is_not_catalogue_L140_guarantee=True,
@@ -153,14 +181,37 @@ def main():
     def moved(row,point,direction):
         return transfer_port(plan,row['role'],point,direction,frames)
     for row in json.loads(landfile.read_text())['ends']:
+        if row['segment']=='factory':continue
         role=owner(row['role'],groups)
         if role not in groups:continue
         land=row['land'];p=np.array(row['point_world_mm']);c=np.array(land['centre_world_mm'])
-        if land['intervening_guide_mm']>1e-6 or abs(np.linalg.norm(c-p)-4.5)>.05:
+        direction=None;basis=None
+        if role in frames:
+            direction=frames[role]['nominal_outward_axis'];basis='Explicit source nominal station-local port'
+        elif role.startswith('WAGO:') and groups[role].get('source_entry_axis') is not None:
+            direction=groups[role]['source_entry_axis'];basis='Source-end verified nominal casing entry face'
+        elif role.endswith('_Joint'):
+            g=groups[role];lo,hi=np.array(g['current_bounds_mm']);axis=int(np.argmax(hi-lo))
+            direction=np.eye(3)[axis]*np.sign(p[axis]-(hi[axis]+lo[axis])/2)
+            assert min(abs(p[axis]-lo[axis]),abs(p[axis]-hi[axis]))<.03,row['id']
+            basis='Existing nominal inline case terminal plane, both ends retained'
+        elif role.startswith('Bank'):
+            base,side=row['role'].split('.');code=base[2:4];index=int(base[4:])+ (3 if code in ('RL','RR') else 0)
+            n=f'Ref_Material_F_{"L" if code in ("FL","RL") else "R"}{index}_CP2_{side.upper()}_0_0'
+            raw=reader.shape(MODEL,n);bb=raw.BoundBox
+            assert min(abs(p[2]-bb.ZMin),abs(p[2]-bb.ZMax))<.03,(row['id'],p[2],bb.ZMin,bb.ZMax)
+            direction=[0,0,-1 if abs(p[2]-bb.ZMin)<abs(p[2]-bb.ZMax) else 1]
+            basis='Nominal existing TE wire exit point on source terminal Z end, not guessed IN/OUT sign'
+        elif role=='S1':
+            pin=int(row['role'].split('.')[1]);direction=[0,1 if pin in (2,3) else -1,0]
+            basis='Existing ring crimp along +/-Y before actual bore-axis lug clock'
+        elif land['intervening_guide_mm']<=1e-6 and abs(np.linalg.norm(c-p)-4.5)<=.05:
+            direction=(c-p)/4.5;basis='Verified first9mm source guide land'
+        if direction is None:
             report['missing_first_departures'].append(dict(id=row['id'],role=row['role'],reason='Source land downstream, do notinvent first departure'));continue
-        role,p,d=moved(row,p,(c-p)/4.5)
+        role,p,d=moved(row,p,direction)
         specs.append(dict(id=row['id'],wire=row['wire'],segment=row['segment'],role=role,
-            point=p.tolist(),direction=d.tolist(),radius=row['project_radius_mm']))
+            point=p.tolist(),direction=d.tolist(),radius=row['project_radius_mm'],departure_basis=basis))
     endfile=BASE/'body-harness-checkpoint/w5-current-end-coverage.json'
     for row in json.loads(endfile.read_text())['body_fixed_boundary_ends']:
         role=owner(row['role'],groups)
@@ -178,13 +229,14 @@ def main():
             gap2=sum(max(0,a-c,d-e)**2 for a,c,d,e in [
                 (b.XMin,bb.XMax,bb.XMin,b.XMax),(b.YMin,bb.YMax,bb.YMin,b.YMax),(b.ZMin,bb.ZMax,bb.ZMin,b.ZMax)])
             own=n in root_names
-            if gap2>(0 if own else 1.25**2):continue
+            gap=.2 if n.startswith('FactoryRoute:') else 1.25
+            if gap2>gap**2:continue
             report['material_pairs']+=1
             try:
                 overlap=shape.common(s)
                 if not overlap.isNull() and not overlap.isValid():raise ValueError('Invalid intersection')
                 if overlap.Volume>1e-5:return dict(part=n,kind='contact',volume_mm3=overlap.Volume)
-                if (trimmed if own else shape).distToShape(s)[0]<1.25-1e-5:return dict(part=n,kind='clearance_below1.25')
+                if (trimmed if own else shape).distToShape(s)[0]<gap-1e-5:return dict(part=n,kind='insufficient_clearance',required_mm=gap)
             except Exception as e:return dict(part=n,kind='kernel_error',error=str(e))
         return None
     shapes={};domain_points={}
