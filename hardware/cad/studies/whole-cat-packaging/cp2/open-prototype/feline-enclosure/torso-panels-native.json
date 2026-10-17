@@ -1,0 +1,111 @@
+{
+  "status": "FOUR_EDITABLE_TORSO_PANEL_CANDIDATES_CHANGED_INTERFACES_OPEN",
+  "selected": false,
+  "physical_pass": false,
+  "wall_interface_complete": false,
+  "parts": [
+    {
+      "object": "FrontLeftPanel",
+      "extents_mm": [
+        199.50000000000009,
+        184.00000000000014,
+        160.00000000000014
+      ],
+      "volume_mm3": 93128.48076828502,
+      "native_editable_dependencies": true
+    },
+    {
+      "object": "FrontRightPanel",
+      "extents_mm": [
+        199.50000000000009,
+        184.0,
+        160.00000000000009
+      ],
+      "volume_mm3": 93128.48081897323,
+      "native_editable_dependencies": true
+    },
+    {
+      "object": "RearLeftPanel",
+      "extents_mm": [
+        176.50000000000006,
+        176.00000000000006,
+        158.0000000000002
+      ],
+      "volume_mm3": 85179.3966274423,
+      "native_editable_dependencies": true
+    },
+    {
+      "object": "RearRightPanel",
+      "extents_mm": [
+        176.50000000000006,
+        176.0,
+        158.0000000000002
+      ],
+      "volume_mm3": 85179.39524083886,
+      "native_editable_dependencies": true
+    }
+  ],
+  "worker_seconds": 49.531,
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineTorsoPanels.FCStd",
+  "native_sha256": "c801183f9b43dc72bdd19f67b3db7248a81ecf8026471ac44a9fa83cc5431246",
+  "fresh_reopen": true,
+  "fully_constrained_sketches": 16,
+  "wall_parameter_test_mm": [
+    2,
+    2.4,
+    2
+  ],
+  "nominal_section_wall_mm": 2,
+  "actual_minimum_3d_wall_not_yet_verified": true,
+  "roof_stations_x_z_mm": [
+    [
+      -141.5,
+      100
+    ],
+    [
+      -112,
+      112
+    ],
+    [
+      -65,
+      112
+    ],
+    [
+      10,
+      110
+    ],
+    [
+      55,
+      109
+    ],
+    [
+      112,
+      110
+    ],
+    [
+      158,
+      99
+    ],
+    [
+      183.5,
+      72
+    ]
+  ],
+  "lowest_z_mm": -48,
+  "maximum_width_mm": 196,
+  "maximum_envelope_height_mm": 160,
+  "open": [
+    "Whole leg-motion openings",
+    "S0/S1 control access",
+    "Neck/tail closures",
+    "Actual3D minimum thickness at longitudinal tapers",
+    "Frame mounting and seams",
+    "Unchanged module cases and61known approaches vs new walls",
+    "Full moving wiring and service"
+  ],
+  "exports_built": false,
+  "source_sha256": {
+    "tools/cad/build_feline_torso_panels.py": "0c5a43d4c8d8c37121e7ea8779cb91e9cf270f85e056d6075873497ba2daf792",
+    "tools/cad/build_feline_layout_envelope.py": "b67d5360e7c83fbdbdc6987e8d72882aec2734b9e40c1fa4a1b78f3ded96a55e"
+  }
+}
