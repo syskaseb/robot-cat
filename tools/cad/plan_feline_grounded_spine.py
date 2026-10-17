@@ -31,16 +31,17 @@ def main():
             if not n.startswith('BatteryFrameHardware'):names.append(n)
     names += [f'BellyFoot{i}' for i in range(1,5)]+[f'FrameHardwareNew{i}' for i in range(8)]
     scene={n:reader.shape(native,n) for n in names}
-    roots=[];pieces={};recipes=[]
+    integrated='--integrated-tail-roots' in sys.argv
+    roots=[];pieces={};recipes=[];retained_risers={};root_reuse={}
     def box(name,low,high):
         x,y,z=low;xx,yy,zz=high
         s=Part.makeBox(xx-x,yy-y,zz-z,A.Vector(x,y,z));pieces[name]=s
         recipes.append(dict(name=name,kind='box',bounds_mm=[low,high]));return s
     for front,xlo,xhi,frame_name,anchors in [
-        (True,-89.5,-87,'Ref_Material_P0_FrameFront20_0_0',(-80,-70)),
-        (False,107,109.5,'Ref_Material_P0_FrameRear20_0_0',(112,122))]:
+        (True,-68.5 if integrated else -89.5,-66 if integrated else -87,'Ref_Material_P0_FrameFront20_0_0',(-80,-70)),
+        (False,104 if integrated else 107,106.5 if integrated else 109.5,'Ref_Material_P0_FrameRear20_0_0',(112,122))]:
         label='Front' if front else 'Rear'
-        foot_xlo=-89.5 if front else 107;foot_xhi=-66 if front else 126
+        foot_xlo=-89.5 if front else (104 if integrated else 107);foot_xhi=-66 if front else 126
         for sign in (-1,1):
             y=sign*22.5;name=label+('Left' if sign>0 else 'Right')+'Foot'
             foot=box(name,[foot_xlo,y-4,37.02],[foot_xhi,y+4,40.02])
@@ -50,7 +51,17 @@ def main():
                 pts=[A.Vector(hx+radius*math.cos(math.radians(30+60*i)),y+radius*math.sin(math.radians(30+60*i)),38.22) for i in range(6)]
                 tool=Part.Face(Part.Wire(Part.makePolygon(pts+[pts[0]]).Edges)).extrude(A.Vector(0,0,2))
                 foot=foot.cut(tool)
-            assert foot.isValid() and len(foot.Solids)==1;pieces[name]=foot
+            if integrated and not front:
+                suffixes=('', '002') if sign<0 else ('001','003')
+                old_risers={('Print_CP2_TailRiser'+suffix):scene['Print_CP2_TailRiser'+suffix] for suffix in suffixes}
+                retained_risers.update(old_risers);base=Part.makeCompound(list(old_risers.values()))
+                # Rear bores are already occupied. Preserve both exact risers
+                # and their original fasteners, integrate a forward wing,
+                # and screen ONLY newly added material against retained parts.
+                foot=foot.fuse(base).removeSplitter();root_reuse[name]=dict(originals=list(old_risers),base=base,whole=foot)
+                pieces[name]=foot.cut(base)
+            else:pieces[name]=foot
+            assert foot.isValid() and len(foot.Solids)==1
             recipes[-1].update(upper_frame_M2_axes_mm=[[hx,y] for hx in anchors],through_hole_diameter_mm=2.2,
                 nominal_nut_pockets=dict(across_flats_mm=4.3,z_mm=[38.22,40.22]))
             box(label+('Left' if sign>0 else 'Right')+'Upright',[xlo,y-4,39.92],[xhi,y+4,84])
@@ -69,13 +80,14 @@ def main():
                 holes.append(dict(axis_mm=[hx,y],diameter_mm=2.05,z_mm=[35.52,37.02]))
             assert bearing>90,(name,bearing)
             roots.append(dict(part=name,frame=frame_name,bearing_area_mm2=bearing,upper_bores=holes,
-                lower_belly_clamp_hardware_unchanged=True))
+                lower_belly_clamp_hardware_unchanged=True,reuses_original_tail_risers=bool(integrated and not front)))
         box(label+'CrossCap',[xlo,-74,83],[xhi,74,85])
     for sign in (-1,1):
-        y=sign*8;box('CentralRail'+('Left' if sign>0 else 'Right'),[-89.5,y-1.5,75],[109.5,y+1.5,85])
+        y=sign*8;box('CentralRail'+('Left' if sign>0 else 'Right'),[-68.5 if integrated else -89.5,y-1.5,75],[106.5 if integrated else 109.5,y+1.5,85])
     # Nominal hardware is separately checked. EightM2x6 freed by the belly
     # foot conversion may be reused; nuts/washers are still stock candidates.
     for root in roots:
+        if root['reuses_original_tail_risers']:continue
         for hx,y in [r['axis_mm'] for r in root['upper_bores']]:
             stem=Part.makeCylinder(1,6,A.Vector(hx,y,35.22));head=Part.makeCylinder(1.9,2,A.Vector(hx,y,33.22))
             washer=Part.makeCylinder(2.5,.3,A.Vector(hx,y,35.22)).cut(Part.makeCylinder(1.1,.3,A.Vector(hx,y,35.22)))
@@ -105,7 +117,11 @@ def main():
         stock_candidate={'reuse_released_M2x6':8,'additional_M2nuts':8,'additional_M2washers':8},
         open=['Native editable receiver','Whole36pose moving leg check','Board-specific mounts/fastener stacks',
             'Bank fixture retention and ATO service','Panel attachment tabs','Stock/assembly/load test'])
-    dest=OUT/'grounded-spine-plan.json';deadline=task_datetime.fromisoformat('2026-10-17T07:30:00+00:00')
+    if integrated:
+        report.update(topology='Front columns at inboard edge clear S0. Rear occupied frame bores reuse exact4tail risers/fasteners; integrated forward wings clear retained TailBridge, not a second bolt stack through occupied holes.',
+            original_tail_riser_reuse={k:dict(originals=v['originals'],unchanged_original_volume_mm3=v['base'].Volume) for k,v in root_reuse.items()},
+            newly_added_delta_screen=True,stock_candidate={'reuse_released_M2x6':4,'additional_M2nuts':4,'additional_M2washers':4,'rear_original_fasteners_retained':True})
+    dest=OUT/('grounded-spine-integrated-plan.json' if integrated else 'grounded-spine-plan.json');deadline=task_datetime.fromisoformat('2026-10-17T07:30:00+00:00')
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3);dest.write_text(json.dumps(report,indent=2)+'\n')
     bounds={n:s.BoundBox for n,s in {**pieces,**scene,**wires}.items()};save()
