@@ -1,5 +1,50 @@
 # Sylwetka Oli i wspólny układ
 
+## Aktualny wspólny plan17.10,05:11Warszawy
+
+Poprzedni bank90° odrzucony354par/150kontaktów/95,141s. Nie budowany
+natywnie. Wspólny plan50grup499brył przechodzi na dwa rzędy po6oprawek,
+RX−60/+60, środki(4,+30,70)/(16,−30,70), ATO na zewnątrz. Prawy rząd
+ma nowy Pitch30 zamiast32, rozstaw rzędów wX12mm: zachowane kupne
+12oprawek/24TE/12ATO, ale stare prawe mocowanieR47 nie jest nowym wyborem.
+Wszystkie nowe końce/mocowania/stock wymagają aktualnego natywnego wyniku.
+
+Pi4/BUS/MAIN otrzymują górną wspólną półkę, PWM9685 przednią górną strefę,
+U1/PWM1608 i AUX dolny przedział, cztery MTA pod ramą. MAIN nominalne
+Z96,52: stary adapterP0/świat46,52 nie został zachowany jako zaliczony
+interfejs nowego zakresu. Tułów325×196×160, bez przekroczenia200mm.
+Górny przekrój p4 ma17węzłów zamiast9: poprzednia rzadka wielolinia
+niepotrzebnie ścinała wolne naroża. Dolna połowa płaska z narożamiR12.
+Natywny nowy obrys jeszcze nie został przebudowany; to jawna propozycja.
+
+Cała głowa/szyja−40X/−90Z. S0 centrumKORPUSU(−115,−6,78),RX90;
+S1 centrumKORPUSU(−105,45,65),RZ90. Lugi S0 i czteryS1 obrócone wokół
+rzeczywistych cylindrycznych osi otworów z BRep, nie wokół bbox ani innych
+śrub. Trzeba zbudować ich nowe osłonięte przewody i sprawdzić cały ruch głowy.
+S0 przekracza przedni obrys tułowia o2mm: wymaga wspólnej osłony szyi,
+a kluczS0 i sterowanieS1 celowych klapek w łącznym limicie szerokości200.
+
+Odbiór worker8969/PID18356:76rzeczywistych par/3kontakty/0błędów,
+65,719s, dwa położenia nóg. Wszystkie trzy dotyczą jednego dolnego stosu
+PWM968518/S0; inne sprawdzone pary brył bez kontaktów. To nie odbiór
+całych kabli/skorupy ani fizycznego ruchu. Następna zmiana obejmie CAŁĄ
+PCB PWM wraz z15referencjami, a nie tylko nakrętkę/washer. Niezmieniony
+zakres odzyskać po porównaniu recept i pinów; nie liczyć76par ponownie.
+
+F_PI jest ustawioneRX90, centrum(−105,0,−32), więc długie końce wychodzą
+wY przed kolumnami podpór. F0RZ45°,centrum(68,0,−13,75), AUX przesunięte
+do przodu pod ramę, XT60 pod tylnym przedziałem(143,0,−35), a nie w serwie.
+Osiem łączników ma centraX−45/5/30/89,Y+/−35/47,Z−35,75; nie przecinają
+już czterech kolumn podpór. Cztery MTA centraX−40/65,Y+/−15,Z−34.
+
+WAGO: dwa wewnętrzne pionowe rzędyY+/−40,5, porty nominalnie kuZ,
+górna płaszczyzna−4; dwa zewnętrzne płaskie rzędyY+/−67,spód35,5,
+porty do środka. Ich nominalne strony źródłowe rekonstruowane z aktualnych
+punktów końców; brakujące W1/G_AUX pozostają jawnie niezweryfikowane.
+Kolejny właściwy wynik: wspólny wybór kierunków52prefiksów9mm+łuk
+z kilku domen na koniec, bez seryjnych prób jednego arbitralnego kierunku.
+Następnie pełne80sieci orazW1/W3/W4, nowe odciążenia/loadpaths i panele.
+
 ## Następna wspólna hipoteza,04:03Warszawy, jeszcze BEZ CAD
 
 Nie wykonywać trzeciego częściowego wariantu180° banku. Jego końce

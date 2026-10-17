@@ -5,6 +5,7 @@ be reported as a whole wiring or physical PASS. No CAD document is saved.
 """
 import json
 import time
+import sys
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -32,12 +33,13 @@ def tube_prefix(point,direction,radius,bend,R):
 def main():
     tick=time.monotonic();reader=SavedShapes()
     planfile=OUT/'module-layout.json';plan=json.loads(planfile.read_text())
+    parts_only='--parts-only' in sys.argv
     motion=json.loads((OUT/'motion-layout.json').read_text())
     groups={g['role']:g for g in plan['groups']};parts={};roles={};by_group={}
     report=dict(status='SHARED_SPACE_CHECK_RUNNING',selected=False,physical_pass=False,
         scope='48rigid groups, known9mm+quarter-bend prefixes, twoleg poses and provisional sideATO/12mmrail service. No fullcables/skin/mounts/continuousmotion approval.',
         pairs=0,contacts=[],errors=[],prefixes=[],prefixes_open=[],service_budgets=[],source_sha256={})
-    destination=OUT/'shared-space-checks.json';cache={}
+    destination=OUT/('shared-parts-checks.json' if parts_only else 'shared-space-checks.json');cache={}
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         destination.write_text(json.dumps(report,indent=2)+'\n')
@@ -60,7 +62,11 @@ def main():
                 s.Placement=t*A.Placement(A.Vector(*replacement['world_shift_before_head_drop_mm']),A.Rotation())*s.Placement
             else:
                 s=reader.shape(MODEL,n)
-                if not t.isIdentity():s.Placement=t*s.Placement
+                override=plan.get('part_pose_overrides',{}).get(n)
+                if override:s.Placement=transform(override)*s.Placement
+                if not t.isIdentity():
+                    if t.Rotation.isIdentity():s.translate(t.Base)
+                    else:s.Placement=t*s.Placement
             if not s.isValid() or not s.Solids:report['errors'].append(dict(object=n,error='Invalid/non-solid source'))
             parts[n]=s;roles[n]=role;by_group[role][n]=s
     print('Saved physical parts loaded',len(parts),flush=True);save()
@@ -78,7 +84,7 @@ def main():
     for i in range(1,5):
         n=f'BellyPadReservation{i}';retained[n]=reader.shape(old_envelope,n)
     landfile=BASE/'body-harness-checkpoint/remaining25-interface-allocation.json'
-    lands=json.loads(landfile.read_text())['ends'];prefixes={};prefix_roles={}
+    lands=[] if parts_only else json.loads(landfile.read_text())['ends'];prefixes={};prefix_roles={}
     for row in lands:
         role=owner(row['role'],groups)
         if role not in groups:continue
@@ -86,8 +92,13 @@ def main():
         if land['intervening_guide_mm']>1e-6 or abs(np.linalg.norm(centre-point)-4.5)>.05:
             report['prefixes_open'].append(dict(id=row['id'],reason='Existing land is downstream; first departure needs actual currentport reconstruction'))
             continue
-        g=groups[role];rot=np.array(g['rotation_rows']);d=rot@(centre-point)/4.5;p=rot@point+g['translation_mm']
-        if role=='Bank12Oprawek24Koncow':bend=[1,0,0]
+        g=groups[role];rot=np.array(g['rotation_rows'])
+        override_name=plan.get('role_pose_overrides',{}).get(row['role'])
+        if override_name:
+            ov=plan['part_pose_overrides'][override_name];rr=np.array(ov['rotation_rows']);tt=np.array(ov['translation_mm'])
+            point=rr@point+tt;centre=rr@centre+tt
+        d=rot@(centre-point)/4.5;p=rot@point+g['translation_mm']
+        if role.startswith('Bank'):bend=[1,0,0]
         elif role.startswith('MTA_'):bend=[0,-np.sign(p[1]),0]
         else:bend=[1,0,0] if abs(d[0])<.5 else [0,1,0]
         radius=row['project_radius_mm'];R=max(12.4,5*2*radius)
@@ -98,9 +109,9 @@ def main():
     # Bodyfanout power ends use the retained common TE OUT family at its saved
     # lowerZ mouth. Project2mm OD/R10 is a nominal design budget, not delivery.
     endfile=BASE/'body-harness-checkpoint/w5-current-end-coverage.json'
-    for row in json.loads(endfile.read_text())['body_fixed_boundary_ends']:
+    for row in ([] if parts_only else json.loads(endfile.read_text())['body_fixed_boundary_ends']):
         role=owner(row['role'],groups)
-        if role!='Bank12Oprawek24Koncow':continue
+        if not role or not role.startswith('Bank'):continue
         g=groups[role];rot=np.array(g['rotation_rows']);p=rot@row['point_world_mm']+g['translation_mm'];d=rot@[0,0,-1]
         n='Prefix:'+row['id'];prefixes[n]=tube_prefix(p,d,1,[1,0,0],10);prefix_roles[n]=role
         report['prefixes'].append(dict(id=n,owner=role,start_mm=p.tolist(),direction=d.tolist(),
@@ -129,7 +140,8 @@ def main():
     for n,s in service.items():
         if roles[n].startswith('WAGO:') and abs(s.BoundBox.Center.y+50)<.1 and s.BoundBox.ZMin< -40:
             q=s.copy();q.translate(A.Vector(0,0,-12));service[n]=q
-    for n,s in by_group['Bank12Oprawek24Koncow'].items():
+    service_bank={} if parts_only else {n:s for role,g in by_group.items() if role.startswith('Bank') for n,s in g.items()}
+    for n,s in service_bank.items():
         if '_ATO_' not in n:continue
         b=s.BoundBox;c=b.Center
         tool=Part.makeBox(25,66,12,A.Vector(c.x-12.5,b.YMin-60,c.z-6))
@@ -137,7 +149,7 @@ def main():
         for bn,bs in {**service,**retained}.items():
             if bn==n:continue
             check(probe,tool,bn,bs,'provisional_ATO_tool_rail_down_rest')
-    report.update(status='SHARED_SPACE_REJECTED' if report['contacts'] or report['errors'] else 'CHECKED_SHARED_SUBSCOPES_CLEAR_REMAINING_PREFIXES_WIRES_SKIN_OPEN',
+    report.update(status=('SHARED_PARTS_REJECTED' if parts_only else 'SHARED_SPACE_REJECTED') if report['contacts'] or report['errors'] else ('COMMON_PARTS_TWO_POSES_CLEAR_PREFIXES_WIRES_SKIN_OPEN' if parts_only else 'CHECKED_SHARED_SUBSCOPES_CLEAR_REMAINING_PREFIXES_WIRES_SKIN_OPEN'),
         source_sha256={**reader.hashes,planfile.relative_to(ROOT).as_posix():sha(planfile),
             landfile.relative_to(ROOT).as_posix():sha(landfile),endfile.relative_to(ROOT).as_posix():sha(endfile),
             Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__))},full_conductors_complete=False,

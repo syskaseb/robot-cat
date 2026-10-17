@@ -22,7 +22,7 @@ def owner(role,roles):
     for code,bank,offset in [('FL','L',0),('FR','R',0),('RL','L',3),('RR','R',3)]:
         if base=='F_'+code:return 'MTA_'+code
         if base in ['F_'+code+str(i) for i in (1,2,3)]:
-            return 'Bank12Oprawek24Koncow'
+            return ('BankLeft6Oprawek12Koncow' if bank=='L' else 'BankRight6Oprawek12Koncow')
     aliases={'P_FRONT':'P_FRONT_new','P_SYS':'P_SYS_new','G1':'G1_CP2','G2':'G2_CP2',
         'G_AUX':'W3Ref_G_AUX_case','P_AUX':'P_AUX_CP2'}
     key='WAGO:'+aliases.get(base,base)

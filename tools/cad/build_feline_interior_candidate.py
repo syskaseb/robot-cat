@@ -78,14 +78,19 @@ def main():
                     ob=doc.addObject('App::Link',n);group.addObject(ob)
                     ob.setLink(original);ob.LinkTransform=True;ob.LinkPlacement=t*shift
                     s=reader.shape(source_path,replacement['object']);s.Placement=t*shift*s.Placement
-                    ob.setExpression('LinkPlacement.Base.z','25 mm - Parameters.HeadDrop')
+                    if row['role']=='HeadMechanism':
+                        ob.setExpression('LinkPlacement.Base.z','25 mm - Parameters.HeadDrop')
                     assert max(abs(a-b) for a,b in zip(bb(ob.Shape),bb(s)))<1e-5
                 else:
                     s=reader.shape(MODEL,n)
                     # Identity assignment needlessly re-locates complex
                     # supplier solids and invalidates BUS25 tolerance flags.
                     # Keep unchanged source BRep exactly unchanged.
-                    if not t.isIdentity():s.Placement=t*s.Placement
+                    override=plan.get('part_pose_overrides',{}).get(n)
+                    if override:s.Placement=transform(override)*s.Placement
+                    if not t.isIdentity():
+                        if t.Rotation.isIdentity():s.translate(t.Base)
+                        else:s.Placement=t*s.Placement
                     ob=snapshot(n,s,group)
                     if row['role']=='HeadMechanism':
                         initial=ob.Placement.Base.z+plan['head_drop_mm']

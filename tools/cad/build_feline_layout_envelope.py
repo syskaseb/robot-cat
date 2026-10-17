@@ -20,14 +20,14 @@ from matplotlib.collections import PolyCollection
 from check_main_p0_placement import ROOT, sha
 from plan_feline_layout import BASE, OUT, MODEL, transforms, apply, STAGES
 
-STATIONS = [(-141.5,100,158),(-112,196,158),(-65,196,158),
-            (10,180,158),(55,166,158),(112,188,158),(158,132,158),(183.5,40,100)]
+STATIONS = [(-141.5,100,160),(-112,196,160),(-65,196,160),
+            (10,180,160),(55,166,160),(112,188,160),(158,132,160),(183.5,40,100)]
 PROFILE_EXPONENT = 4.0
 PROFILE_FAMILY = 'rounded_p4_back_flat_R12_belly'
 
 
-def section_coefficients(width=196,height=158):
-    a=np.linspace(0,math.pi,9)
+def section_coefficients(width=196,height=160):
+    a=np.linspace(0,math.pi,17)
     y=np.sign(np.cos(a))*abs(np.cos(a))**(2/PROFILE_EXPONENT)*width/2
     z=abs(np.sin(a))**(2/PROFILE_EXPONENT)*height/2
     radius=min(12,width/4,height/4)
@@ -47,7 +47,7 @@ def build(center_z,pad_tip):
     doc=A.newDocument('FelineLayoutEnvelope')
     try:
         params=doc.addObject('Spreadsheet::Sheet','Parameters')
-        for row,(label,value) in enumerate((('Width','196 mm'),('Height','158 mm'),
+        for row,(label,value) in enumerate((('Width','196 mm'),('Height','160 mm'),
                 ('CenterZ',f'{center_z} mm'),('BellyPadTip',f'{pad_tip} mm')),1):
             params.set(f'A{row}',label);params.set(f'B{row}',value);params.setAlias(f'B{row}',label)
         body=doc.addObject('PartDesign::Body','TorsoEnvelope')
@@ -66,7 +66,7 @@ def build(center_z,pad_tip):
                 k=sk.addConstraint(Sketcher.Constraint('DistanceX',i,1,float(c*width/2)))
                 sk.setExpression(f'Constraints[{k}]',f'Parameters.Width * {c*width/392:.12g}')
                 k=sk.addConstraint(Sketcher.Constraint('DistanceY',i,1,float(s*height/2)))
-                sk.setExpression(f'Constraints[{k}]',f'Parameters.Height * {s*height/316:.12g}')
+                sk.setExpression(f'Constraints[{k}]',f'Parameters.Height * {s*height/320:.12g}')
             sections.append(sk)
         doc.recompute()
         loft=body.newObject('PartDesign::AdditiveLoft','SharedEnvelope')

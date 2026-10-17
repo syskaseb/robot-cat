@@ -59,6 +59,40 @@ def main():
     replacement=dict(source=yaw_file.relative_to(ROOT).as_posix(),object='Carrier',
         world_shift_before_head_drop_mm=[-42,0,25],original_current_bounds_mm=old_carrier_bounds,
         reason='Retain original editable servo carrier core; supersede long W3 wire-support arms in the new wiring architecture.')
+    # Clock only unkeyed ring lugs around their ACTUAL saved cylindrical axes.
+    # The mounting bolts atX-96/-58 are different features, not these axes.
+    overrides={}
+    for suffix,x,degrees in [('IN',-89,90),('OUT',-65,-90)]:
+        n='Ref_Material_S0_ring_'+suffix+'_0_0';r=A.Rotation(A.Vector(0,0,1),degrees)
+        p=A.Vector(x,16,78.85);t=A.Placement(p-r.multVec(p),r);m=t.toMatrix()
+        rot=np.array([[getattr(m,f'A{i+1}{j+1}') for j in range(3)] for i in range(3)])
+        shift=np.array(list(t.Base));v,c,kind=meshes[n];meshes[n]=(v@rot.T+shift,c,kind)
+        overrides[n]=dict(rotation_rows=rot.tolist(),translation_mm=shift.tolist(),
+            actual_cylinder_axis_point_mm=list(p),axis=[0,0,1],clock_degrees=degrees,
+            basis='Saved ring cylinderR5.02 onselectedsource; unchanged bore and lug. Not newmanufacturerfastener data.')
+    for k,y,z,degrees in [(2,41.5,105,90),(3,41.5,93,90),(5,29.5,105,-90),(6,29.5,93,-90)]:
+        n=f'Ref_Material_current_S1_ring_{k}_0_0';p=A.Vector(122.558,y,z);r=A.Rotation(A.Vector(1,0,0),degrees)
+        t=A.Placement(p-r.multVec(p),r);m=t.toMatrix()
+        rot=np.array([[getattr(m,f'A{i+1}{j+1}') for j in range(3)] for i in range(3)])
+        shift=np.array(list(t.Base));v,c,kind=meshes[n];meshes[n]=(v@rot.T+shift,c,kind)
+        overrides[n]=dict(rotation_rows=rot.tolist(),translation_mm=shift.tolist(),
+            actual_cylinder_axis_point_mm=list(p),axis=[1,0,0],clock_degrees=degrees,
+            basis='Saved S1ring cylinderR2.667; clock lug upward about actual bore, not casing or signalpin.')
+    # Preserve all catalogue housings/ATO/TE instances. The R47 right support
+    # needs a new native30mm pitch instead of32mm in this enclosure extension.
+    # This is NOT the old selected right support or its wiring qualification.
+    for n in records:
+        if not n.startswith('Ref_Material_F_R'):continue
+        i=int(n.split('F_R',1)[1][0]);shift=np.array([-2*(i-1),0,0])
+        v,c,kind=meshes[n];meshes[n]=(v+shift,c,kind)
+        overrides[n]=dict(rotation_rows=np.eye(3).tolist(),translation_mm=shift.tolist(),
+            basis='New common right6holder pitch30; catalogue subparts unchanged. Supersedes R47rightmount pose/stock in new scope.')
+    tail_file=ROOT/'hardware/cad/modules/tail/TailSupport.FCStd'
+    tail=SavedShapes();s=tail.shape(tail_file,'ServoSupport34');s.translate(A.Vector(0,0,15))
+    v,f=s.tessellate(.8);tn='Ref_Material_tail_MG92BMount29_0_0'
+    meshes[tn]=(np.array([list(p) for p in v])[np.array(f)],meshes[tn][1],'surface')
+    tail_replacement=dict(source=tail_file.relative_to(ROOT).as_posix(),object='ServoSupport34',
+        world_shift_before_head_drop_mm=[0,0,15],reason='Original native structuralcore proven subset; obsolete W4arms retired. Newstationarywiregrip required.')
     groups=[];assigned=set()
     def add(name,names,delta=(0,0,0),rotation=None,new_center=None,region='torso',datum=None):
         names=sorted(names);assert names,name
@@ -87,38 +121,43 @@ def main():
     surfaces={n:r for n,r in records.items() if r['kind']=='surface'}
     labels={n:r['label'] for n,r in surfaces.items()}
     select=lambda *prefixes:[n for n,label in labels.items() if label.startswith(prefixes)]
-    add('HeadMechanism',select('head/0/0/','headref/0/'),delta=(0,0,-90),region='head_neck')
-    add('Pi4',select('Pi4'))
-    add('BUS',select('BUSsupplier'))
-    add('MAIN',select('MAIN/','MAIN_','Power/MAIN'),delta=(0,0,0))
-    add('PWM9685',select('PWM9685'),delta=(89,25,-3))
-    add('PWM1608_U1',select('PWM1608','U1_'),delta=(-80,0,-21))
-    add('AUX4092',select('AUX4092'),delta=(-10,0,12))
+    add('HeadMechanism',select('head/0/0/','headref/0/'),delta=(-40,0,-90),region='head_neck')
+    add('TailMechanicalCore',[tn],region='tail_root')
+    add('Pi4',select('Pi4'),delta=(0,0,50.38))
+    add('BUS',select('BUSsupplier'),delta=(0,0,42))
+    add('MAIN',select('MAIN/','MAIN_','Power/MAIN'),delta=(0,-23,50))
+    add('PWM9685',select('PWM9685'),delta=(-63,22,21.28))
+    add('PWM1608_U1',select('PWM1608','U1_'),delta=(-80,2,-107.75))
+    add('AUX4092',select('AUX4092'),delta=(-115,6,-91))
     # Full TE ends span71.43mm in Z, not just the28.5mm casing.
     rx=np.array([[1,0,0],[0,0,-1],[0,1,0]])
     rz=np.array([[0,-1,0],[1,0,0],[0,0,1]])
-    add('Bank12Oprawek24Koncow',select('F_L','F_R'),rotation=rx,new_center=(17,0,32))
-    add('S0',select('S0_'),rotation=rx,new_center=(-107,-6,78),datum='Ref_Material_S0_body_CP2_0_0')
+    ang=np.radians(60)
+    rx60=np.array([[1,0,0],[0,np.cos(ang),-np.sin(ang)],[0,np.sin(ang),np.cos(ang)]])
+    add('BankLeft6Oprawek12Koncow',select('F_L'),rotation=rx60.T,new_center=(4,30,70))
+    add('BankRight6Oprawek12Koncow',select('F_R'),rotation=rx60,new_center=(16,-30,70))
+    add('S0',select('S0_'),rotation=rx,new_center=(-115,-6,78),datum='Ref_Material_S0_body_CP2_0_0')
     add('S1',select('current/S1_'),rotation=rz,new_center=(-105,45,65),datum='Ref_Material_current_S1_body_CP2_0_0')
-    for code,x,y,z in (('FL',-40,50,73.5),('FR',-40,-50,73.5),('RL',65,50,73.5),('RR',65,-50,73.5)):
+    for code,x,y,z in (('FL',-40,15,-34),('FR',-40,-15,-34),('RL',65,15,-34),('RR',65,-15,-34)):
         add('MTA_'+code,select('MTA/'+code+'/'),new_center=(x,y,z))
     n=select('F_PI_new/');assert len(n)==1
     ry=np.array([[0,0,1],[0,1,0],[-1,0,0]])
-    add('F_PI',n,rotation=ry,new_center=(-98,-30,-13))
+    add('F_PI',n,rotation=rx,new_center=(-105,0,-32))
+    rz45=np.array([[2**-.5,-2**-.5,0],[2**-.5,2**-.5,0],[0,0,1]])
     for role,prefix,rotation,centre in [
-        ('F0','F0_CP2/',None,(156,0,43.5)),
+        ('F0','F0_CP2/',rz45,(68,0,-13.75)),
         ('F_AUX','F_AUX_candidate_case/',rz,(143,0,-15)),
-        ('XT60','XT60_CP2/',None,(143,-35,20)),
+        ('XT60','XT60_CP2/',None,(143,0,-35)),
         ('POST_F0','PostF0Splice_CP2/',None,(143,-35,42)),
         ('JPWM','JPWM/',None,(25,-44,50))]:
         add(role,select(prefix),rotation=rotation,new_center=centre)
-    for code,x,y in [('W026',-60,30),('W041',-15,30),('W037',-60,-30),('W042',-15,-30),
-                     ('W045',30,30),('W044',75,30),('W053',30,-30),('W052',75,-30)]:
+    for code,x,y in [('W026',-45,35),('W041',5,47),('W037',-45,-35),('W042',5,-47),
+                     ('W045',30,35),('W044',89,47),('W053',30,-35),('W052',89,-47)]:
         n=select(code+'_Joint/');assert len(n)==1
         dims=np.array(records[n[0]]['bounds_mm'][1])-records[n[0]]['bounds_mm'][0]
         order=np.argsort(dims);rotation=np.eye(3)[[order[2],order[0],order[1]]]
         if np.linalg.det(rotation)<0:rotation[1]*=-1
-        add(code+'_Joint',n,rotation=rotation,new_center=(x,y,70.5))
+        add(code+'_Joint',n,rotation=rotation,new_center=(x,y,-35.75))
     aliases=select('W1Ref_P_AUX_CP2/','W1Ref_G2_CP2/')
     cases=[]
     for n,r in surfaces.items():
@@ -132,23 +171,37 @@ def main():
     small=[item for item in cases if item[1].max()<35]
     assert len(large)==4 and len(small)==16
     slots=[(column,row) for row in (0,3,1,2) for column in range(5)]
-    large_slots=[(i,row) for row in (1,2) for i in (0,2)]
+    large_slots=[(i,row) for row in (1,2) for i in (0,4)]
     small_slots=[slot for slot in slots if slot not in large_slots]
+    coverage_path=BASE/'body-harness-checkpoint/w5-current-end-coverage.json'
+    coverage=json.loads(coverage_path.read_text())
+    from plan_feline_endpoints import owner
     for (n,dims),(col,row) in list(zip(large,large_slots))+list(zip(small,small_slots)):
         # Flat cases: largest -> X, middle -> Y, smallest -> Z.
         order=np.argsort(dims)
-        rotation=np.eye(3)[[order[2],order[1],order[0]]]
-        if np.linalg.det(rotation)<0:rotation[1]*=-1
-        height=sorted(dims)[0]
         outer=row in (0,3)
-        xs=[-50,-15,20,55,90] if outer else [-46.5,-12,22.5,57,88]
-        # All lower-bank tails depart toward+Y. A mirrored low+Y rail would
-        # cross their first9mm before any bend. Move that WHOLE rail above
-        # the low tails, outside the inner receiving row; ports face inward.
-        y=[-50,-38,38,67][row]
-        base=(-43.5 if row==0 else 2) if outer else -17
+        rotation=np.eye(3)[[order[2],order[1],order[0]]] if outer else np.eye(3)[[order[2],order[0],order[1]]]
+        if np.linalg.det(rotation)<0:rotation[1]*=-1
+        height=sorted(dims)[0] if outer else sorted(dims)[1]
+        xs=[-50,-15,20,55,90] if outer else [-46.5,-12,19,50,84.5]
+        y=[-67,-40.5,40.5,67][row]
+        base=35.5 if outer else -4-height
+        role='WAGO:'+records[n]['label'].split('/')[0]
+        old_centre=np.mean(records[n]['bounds_mm'],axis=0)
+        source_points=[r['point_world_mm'] for r in coverage['fixed_physical_guide_ends']+coverage['body_fixed_boundary_ends']
+            if owner(r['role'],{role:None})==role]
+        source_face=None
+        if source_points:
+            source_face=np.sign(np.median(np.array(source_points)[:,order[1]]-old_centre[order[1]]))
+            original_axis=np.eye(3)[order[1]]*source_face
+            desired=np.array([0,-np.sign(y),0]) if outer else np.array([0,0,1])
+            if np.dot(rotation@original_axis,desired)<0:
+                rotation=(np.diag([-1,-1,1]) if outer else np.diag([1,-1,-1]))@rotation
         add('WAGO:'+records[n]['label'].split('/')[0],[n],rotation=rotation,
             new_center=(xs[col],y,base+height/2))
+        groups[-1]['entry_face_verified_by_source_ends']=source_face is not None
+        groups[-1]['source_entry_axis']=None if source_face is None else original_axis.tolist()
+        groups[-1]['source_entry_basis']='Current nominal guide-end roles on source case, not a new manufacturer datum.'
     # Bounding overlaps are only candidates for exact checks, never collisions.
     potential=[]
     for i,a in enumerate(groups):
@@ -163,18 +216,23 @@ def main():
         potential_group_pairs_NOT_collisions=potential,
         source_sha256={},
         geometry_source_sha256=motion['source_sha256'],
-        reference_substitutions={yaw_name:replacement},
+        reference_substitutions={yaw_name:replacement,tn:tail_replacement},part_pose_overrides=overrides,
+        role_pose_overrides={'S0.in':'Ref_Material_S0_ring_IN_0_0','S0.out':'Ref_Material_S0_ring_OUT_0_0',
+            **{f'S1.{k}':f'Ref_Material_current_S1_ring_{k}_0_0' for k in (2,3,5,6)},
+            **{f'F_{code}{j}.{side}':f'Ref_Material_F_R{j+offset}_CP2_{"IN" if side=="in" else "OUT"}_0_0'
+                for code,offset in [('FR',0),('RR',3)] for j in (1,2,3) for side in ('in','out')}},
         superseded_wire_insulation_not_rigid_modules=select('XP01/','XP02_source/','XP03_source/','XP02_module_','XP03_module_'),
         superseded_insulation_basis='build_current_pwm_fixture.py/build_e2_tail_insulation.py: wraps of obsolete routed leads, not connector bodies or board geometry. Must rebuild on complete newW4paths, never rigidly relocate as modules.',
-        head_drop_mm=90,head_yaw_axis_mm=[-152,-5.25,-65],head_pitch_axis_mm=[-194,0,71],
+        head_drop_mm=90,head_yaw_axis_mm=[-192,-5.25,-65],head_pitch_axis_mm=[-234,0,71],
         head_new_root_mount_required=True,
         reservation_native_sha256=layout['native']['sha256'],
         proposed_cross_section_exponent=PROFILE_EXPONENT,proposed_profile_family=PROFILE_FAMILY,
         native_envelope_matches_this_proposal=layout['native'].get('profile_family')==PROFILE_FAMILY,
         native_update_condition='Quarterturned whole bank, all8inlinejoins andsourcecases; actual prefixes/sideATOtool andlowerWAGO12mmservice mustpass before details.',
-        main_world_z46_52_retained=True,
-        wago_entry_policy='Negative low rail outward; both inner rails inward; positive outer/high rail inward. Reconstruct exact source case entry faces before selecting rotations or routing.',
-        lower_negative_WAGO_service_drop_mm=12,
+        main_world_z46_52_retained=False,main_new_world_z_mm=96.52,
+        old_MAIN_P0_adapter_not_reselected=True,
+        wago_entry_policy='Inner rails upright portsUP: mouthZ-4. Outer railsflat portsINWARD: mouthZ40. Source face/slotidentities must be reconstructed, not guessed frombbox.',
+        lower_negative_WAGO_service_drop_mm=0,
         complete_conductor_paths=False,connector_entry_direction_verified=False,
         operating_apertures_required=[dict(object='Ref_Material_current_S1_control_CP2_0_0',
             scope='Operating control face, actual cap/access still open and must keep totalwidth<=200.'),
@@ -192,6 +250,9 @@ def main():
     report['source_sha256']={Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__)),
         (OUT/'layout-checkpoint.json').relative_to(ROOT).as_posix():sha(OUT/'layout-checkpoint.json')}
     report['source_sha256'].update(yaw_reader.hashes)
+    report['source_sha256'].update(tail.hashes)
+    report['source_sha256'][coverage_path.relative_to(ROOT).as_posix()]=sha(coverage_path)
+    report['source_sha256'][Path(__file__).with_name('build_feline_layout_envelope.py').relative_to(ROOT).as_posix()]=sha(Path(__file__).with_name('build_feline_layout_envelope.py'))
     (OUT/'module-layout.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(dict(status=report['status'],groups=len(groups),parts=sum(len(g['objects']) for g in groups),
         outside_groups=[(g['role'],g['sampled_outside_inner_reservation']) for g in groups if g['sampled_outside_inner_reservation']],
