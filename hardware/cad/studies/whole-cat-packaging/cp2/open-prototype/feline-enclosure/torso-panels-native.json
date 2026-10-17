@@ -11,7 +11,7 @@
         184.00000000000014,
         160.00000000000014
       ],
-      "volume_mm3": 93128.48076828502,
+      "volume_mm3": 92368.25225993466,
       "native_editable_dependencies": true
     },
     {
@@ -21,7 +21,7 @@
         184.0,
         160.00000000000009
       ],
-      "volume_mm3": 93128.48081897323,
+      "volume_mm3": 92368.09742414724,
       "native_editable_dependencies": true
     },
     {
@@ -31,7 +31,7 @@
         176.00000000000006,
         158.0000000000002
       ],
-      "volume_mm3": 85179.3966274423,
+      "volume_mm3": 84418.94787039515,
       "native_editable_dependencies": true
     },
     {
@@ -41,13 +41,13 @@
         176.0,
         158.0000000000002
       ],
-      "volume_mm3": 85179.39524083886,
+      "volume_mm3": 84419.04840932223,
       "native_editable_dependencies": true
     }
   ],
   "worker_seconds": 49.531,
   "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineTorsoPanels.FCStd",
-  "native_sha256": "c801183f9b43dc72bdd19f67b3db7248a81ecf8026471ac44a9fa83cc5431246",
+  "native_sha256": "3893e9d5498edfe565ce5b3e2ccb411ac4ed1f801c7f129bbc0abde99c698104",
   "fresh_reopen": true,
   "fully_constrained_sketches": 16,
   "wall_parameter_test_mm": [
@@ -107,5 +107,14 @@
   "source_sha256": {
     "tools/cad/build_feline_torso_panels.py": "0c5a43d4c8d8c37121e7ea8779cb91e9cf270f85e056d6075873497ba2daf792",
     "tools/cad/build_feline_layout_envelope.py": "b67d5360e7c83fbdbdc6987e8d72882aec2734b9e40c1fa4a1b78f3ded96a55e"
-  }
+  },
+  "foot_passages": 4,
+  "foot_hole_diameter_mm": 22,
+  "foot_passage_radius_test_mm": [
+    11,
+    11.5,
+    11
+  ],
+  "prior_native_sha256": "c801183f9b43dc72bdd19f67b3db7248a81ecf8026471ac44a9fa83cc5431246",
+  "passage_modifier": "tools/cad/check_feline_torso_panels.py"
 }
