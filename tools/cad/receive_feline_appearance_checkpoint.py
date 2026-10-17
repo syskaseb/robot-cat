@@ -19,7 +19,7 @@ def main():
         'interior-native-checks.json','shared-skin-exact.json','motion-receivers-checks.json','receiver-straight-land-gate.json',
         'torso-candidate-exports.json','render-receivers-skin.json','grounded-spine-plan.json','grounded-spine-integrated-plan.json',
         'skin-base-wall-thickness.json','skin-end-correction.json','true-normal-wall-study.json',
-        'endpoint-current-receivers.json','current-mount-axis-inventory.json','compact-rear-joint-topology-plan.json']
+        'endpoint-current-receivers.json','current-mount-axis-inventory.json','compact-rear-joint-topology-plan.json','whole-profile-wall-budget.json']
     reports={};pins={}
     for filename in files:
         p=OUT/filename;data=json.loads(p.read_text());pins[p.relative_to(ROOT).as_posix()]=sha(p)
