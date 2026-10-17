@@ -5,6 +5,7 @@ No old protruding mount is silently accepted by this layout study.
 """
 import json
 import time
+import sys
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -37,6 +38,21 @@ def main():
     plan_path=OUT/'module-layout.json';plan=json.loads(plan_path.read_text())
     motion=json.loads((OUT/'motion-layout.json').read_text())
     envelope=json.loads((OUT/'layout-checkpoint.json').read_text())
+    reuse='--reuse-qualified-interfaces' in sys.argv
+    reused_receipts={}
+    feet=None
+    if reuse:
+        for filename,status in [('shared-parts-checks.json','COMMON_PARTS_TWO_POSES_CLEAR_PREFIXES_WIRES_SKIN_OPEN'),
+                                ('belly-feet-fit.json','FOUR_BOLTED_BELLY_BRIDGES_GEOMETRIC_LOAD_PATH_CLEAR'),
+                                ('factory-routes.json','EIGHT_COMPLETE_FACTORY_LINKS_CLEAR_CUSTOM_WIRING_OPEN'),
+                                ('prefix-allocation.json','COUPLED_KNOWN_PREFIXES_CLEAR_FULL_WIRING_OPEN')]:
+            rp=OUT/filename;r=json.loads(rp.read_text())
+            assert r['status']==status,(filename,r['status'])
+            assert all(sha(ROOT/n)==h for n,h in r['source_sha256'].items()),filename
+            assert not r.get('contacts') and not r.get('errors'),filename
+            reused_receipts[rp.relative_to(ROOT).as_posix()]=sha(rp)
+        feet=json.loads((OUT/'belly-feet-native.json').read_text())
+        assert sha(ROOT/feet['native'])==feet['native_sha256']
     assert envelope['native'].get('cross_section_exponent')==plan['proposed_cross_section_exponent']
     assert all(sha(ROOT/n)==h for n,h in plan['geometry_source_sha256'].items())
     reader=SavedShapes();owned=[]
@@ -52,6 +68,7 @@ def main():
         scope='Actual relocated modules, retained P0/legs/tail and lower73part head. Mounts, complete wires and shell panels not yet built.',
         groups=[],contacts=[],errors=[],pairs=0,source_sha256={},
         new_mounts_complete=False,complete_wiring=False,shell_panels_complete=False)
+    report['reused_qualified_interface_receipts']=reused_receipts
     destination=OUT/'interior-native-checks.json'
     def save_progress():
         report['worker_seconds']=round(time.monotonic()-tick,3)
@@ -108,16 +125,28 @@ def main():
         retained_shapes={}
         for r in motion['inventory']:
             n=r['object'];label=r['label']
-            if n in shapes or r['kind']!='surface':continue
+            if n in shapes or r['kind']!='surface' or (feet and n.startswith('BatteryFrameHardware')):continue
             if not (label.startswith(('P0_','tail/')) or n.startswith(('Print_P0_','Print_CP2_TailRiser','Battery'))):continue
             s=reader.shape(MODEL,n)
             snapshot(n,s,retained);retained_shapes[n]=s
         ep=ROOT/envelope['native']['native'];src=A.openDocument(str(ep));owned.append(src.Name)
         body_link=doc.addObject('App::Link','TorsoEnvelopeReference');body_link.setLink(src.TorsoEnvelope);body_link.LinkTransform=True
         body_link.addProperty('App::PropertyString','Status');body_link.Status='Shared reservation, no printable skin yet'
-        for i in range(1,5):
-            n=f'BellyPadReservation{i}'
-            s=reader.shape(ep,n);snapshot(n,s,retained);retained_shapes[n]=s
+        if feet:
+            feet_path=ROOT/feet['native'];feet_doc=A.openDocument(str(feet_path));owned.append(feet_doc.Name)
+            for row in feet['parts']+feet['hardware']:
+                n=row['object'];s=reader.shape(feet_path,n)
+                ob=doc.addObject('App::Link',n);retained.addObject(ob)
+                ob.setLink(feet_doc.getObject(n));ob.LinkTransform=True
+                assert abs(ob.Shape.Volume-s.Volume)<1e-5,n
+                retained_shapes[n]=s
+            report['belly_supports']={'editable_native_links':4,'replacement_hardware':8,
+                'load_path':'Ground -> bridge -> retained R4 plate -> Frame20 at existing8M2axes',
+                'physical_load_test_complete':False,'R4_removal':'Unload/prop chassis and detach feet first'}
+        else:
+            for i in range(1,5):
+                n=f'BellyPadReservation{i}'
+                s=reader.shape(ep,n);snapshot(n,s,retained);retained_shapes[n]=s
         doc.recompute()
         before={n:center(all_objects[n].Shape).z for n in head_names}
         parameters.set('B1',f'{drop+1} mm');doc.recompute()
@@ -143,14 +172,14 @@ def main():
                     report['contacts'].append(dict(a=a_name,b=b_name,pose=pose,volume_mm3=overlap.Volume,
                         witness_bounds_mm=bb(overlap)))
             except Exception as exc:report['errors'].append(dict(a=a_name,b=b_name,pose=pose,error=str(exc)))
-        for a,b in plan['potential_group_pairs_NOT_collisions']:
+        for a,b in ([] if reuse else plan['potential_group_pairs_NOT_collisions']):
             for an,as_ in group_parts[a].items():
                 for bn,bs in group_parts[b].items():check(an,as_,bn,bs)
             print('Exact common groups',a,b,'contacts',len(report['contacts']),'errors',len(report['errors']),flush=True)
             save_progress()
         stage_of={n:(code,stage) for code,g in motion['membership'].items() for stage,ns in g.items() for n in ns}
         axes=json.loads((ROOT/'hardware/simulation/p0/e6-leg-compatibility.json').read_text())['axes']
-        for index in (0,envelope['planning_pose_index']):
+        for index in (() if reuse else (0,envelope['planning_pose_index'])):
             pose=motion['poses'][index];current={n:s for n,s in retained_shapes.items() if n not in stage_of}
             for code,g in motion['membership'].items():
                 aa=[next(a for a in axes if a['code']==code and a['stage']==stage) for stage in STAGES]
@@ -165,7 +194,7 @@ def main():
                 save_progress()
         # Only external group interfaces are tested; manufactured module
         # internal overlaps and unchanged leg self-motion are not rechecked.
-        expected={n:(s.Volume,list(center(s))) for n,s in shapes.items()}
+        expected={n:(s.Volume,list(center(s))) for n,s in {**shapes,**retained_shapes}.items()}
         doc_name=doc.Name
         A.closeDocument(doc_name);owned.remove(doc_name)
         reopened=A.openDocument(str(path));owned.append(reopened.Name)

@@ -1,5 +1,5 @@
 {
-  "status": "COMMON_INTERIOR_INTERFACES_REJECTED",
+  "status": "COMMON_INTERIOR_ENDPOINTS_CLEAR_MOUNTS_WIRES_SKIN_OPEN",
   "selected": false,
   "physical_pass": false,
   "scope": "Actual relocated modules, retained P0/legs/tail and lower73part head. Mounts, complete wires and shell panels not yet built.",
@@ -82,6 +82,13 @@
         "Ref_Material_headref_0_Interface_XS23Sleeve_0_0"
       ],
       "region": "head_neck"
+    },
+    {
+      "role": "TailMechanicalCore",
+      "objects": [
+        "Ref_Material_tail_MG92BMount29_0_0"
+      ],
+      "region": "tail_root"
     },
     {
       "role": "Pi4",
@@ -438,7 +445,7 @@
       "region": "torso"
     },
     {
-      "role": "Bank12Oprawek24Koncow",
+      "role": "BankLeft6Oprawek12Koncow",
       "objects": [
         "Ref_Material_F_L1_CP2_ATO_0_0",
         "Ref_Material_F_L1_CP2_Housing_0_0",
@@ -463,7 +470,13 @@
         "Ref_Material_F_L6_CP2_ATO_0_0",
         "Ref_Material_F_L6_CP2_Housing_0_0",
         "Ref_Material_F_L6_CP2_IN_0_0",
-        "Ref_Material_F_L6_CP2_OUT_0_0",
+        "Ref_Material_F_L6_CP2_OUT_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "BankRight6Oprawek12Koncow",
+      "objects": [
         "Ref_Material_F_R1_CP2_ATO_0_0",
         "Ref_Material_F_R1_CP2_Housing_0_0",
         "Ref_Material_F_R1_CP2_IN_0_0",
@@ -556,6 +569,97 @@
       "role": "F_PI",
       "objects": [
         "Ref_Material_F_PI_new_0_0"
+      ],
+      "region": "head_neck"
+    },
+    {
+      "role": "F0",
+      "objects": [
+        "Ref_Material_F0_CP2_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "F_AUX",
+      "objects": [
+        "Ref_Material_F_AUX_candidate_case_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "XT60",
+      "objects": [
+        "Ref_Material_XT60_CP2_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "POST_F0",
+      "objects": [
+        "Ref_Material_PostF0Splice_CP2_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "JPWM",
+      "objects": [
+        "Ref_Material_JPWM_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W026_Joint",
+      "objects": [
+        "Ref_Material_W026_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W037_Joint",
+      "objects": [
+        "Ref_Material_W037_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W045_Joint",
+      "objects": [
+        "Ref_Material_W045_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W053_Joint",
+      "objects": [
+        "Ref_Material_W053_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W041_Joint",
+      "objects": [
+        "Ref_Material_W041_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W042_Joint",
+      "objects": [
+        "Ref_Material_W042_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W044_Joint",
+      "objects": [
+        "Ref_Material_W044_Joint_0_0"
+      ],
+      "region": "torso"
+    },
+    {
+      "role": "W052_Joint",
+      "objects": [
+        "Ref_Material_W052_Joint_0_0"
       ],
       "region": "torso"
     },
@@ -700,413 +804,48 @@
       "region": "torso"
     }
   ],
-  "contacts": [
-    {
-      "a": "Ref_Material_F_L1_CP2_Housing_0_0",
-      "b": "Ref_Material_S0_key_CP2_0_0",
-      "pose": null,
-      "volume_mm3": 486.3156340150621,
-      "witness_bounds_mm": [
-        -77.0,
-        -68.25,
-        62.598004009469996,
-        -73.68770599365234,
-        -54.5,
-        76.5850067138672
-      ]
-    },
-    {
-      "a": "Ref_Material_F_L6_CP2_Housing_0_0",
-      "b": "Ref_Material_current_S1_ring_5_0_0",
-      "pose": null,
-      "volume_mm3": 11.405520512286316,
-      "witness_bounds_mm": [
-        77.65799999999999,
-        -62.62300000000002,
-        75.23750000000001,
-        78.70000000000002,
-        -54.5,
-        76.58500671386719
-      ]
-    },
-    {
-      "a": "Ref_Material_F_L6_CP2_Housing_0_0",
-      "b": "Ref_Material_current_S1_ring_6_0_0",
-      "pose": null,
-      "volume_mm3": 285.10384007659906,
-      "witness_bounds_mm": [
-        75.52500000000003,
-        -62.623,
-        63.2375,
-        81.87500000000004,
-        -54.5,
-        72.7625
-      ]
-    },
-    {
-      "a": "Ref_Material_F_L6_CP2_OUT_0_0",
-      "b": "Ref_Material_current_S1_ring_5_0_0",
-      "pose": null,
-      "volume_mm3": 0.3336342409823074,
-      "witness_bounds_mm": [
-        81.80569999999958,
-        -57.7305,
-        79.34026330251928,
-        81.875,
-        -52.2695,
-        80.65973669748072
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_MTA_RR_0_0",
-      "pose": null,
-      "volume_mm3": 3011.798328857414,
-      "witness_bounds_mm": [
-        82.70000000000002,
-        -41.0,
-        90.00000610351563,
-        97.5,
-        -22.500000000000007,
-        101.0
-      ]
-    },
-    {
-      "a": "Ref_Material_F_PI_new_0_0",
-      "b": "Ref_Material_W3Ref_G_AUX_case_0_0",
-      "pose": null,
-      "volume_mm3": 1728.5924302511232,
-      "witness_bounds_mm": [
-        -10.49999389648437,
-        -54.0,
-        -24.12499999999998,
-        0.9999992370605248,
-        -35.49999999999999,
-        -16.000001351985944
-      ]
-    },
-    {
-      "a": "Ref_Material_F_PI_new_0_0",
-      "b": "Ref_Material_P_AUX_CP2_0_0",
-      "pose": null,
-      "volume_mm3": 4509.374999999983,
-      "witness_bounds_mm": [
-        5.999999999999978,
-        -54.0,
-        -24.124999999999975,
-        35.99999999999999,
-        -35.5,
-        -16.0
-      ]
-    },
-    {
-      "a": "Ref_Material_F_L6_CP2_OUT_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 0,
-      "volume_mm3": 53.93241689999975,
-      "witness_bounds_mm": [
-        81.8057,
-        -54.0,
-        83.0,
-        92.1943,
-        -52.2695,
-        86.0
-      ]
-    },
-    {
-      "a": "Ref_Material_S0_body_CP2_0_0",
-      "b": "Ref_Material_P0_MountFrontL_0_0",
-      "pose": 0,
-      "volume_mm3": 222.43362556087143,
-      "witness_bounds_mm": [
-        -69.50000000000003,
-        31.799999999999983,
-        50.926748264656474,
-        -62.39607234338253,
-        37.8,
-        61.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_P0_MountRearR_0_0",
-      "pose": 0,
-      "volume_mm3": 23.80000000000023,
-      "witness_bounds_mm": [
-        117.99999999999999,
-        -40.0,
-        41.52,
-        130.00000000000003,
-        -31.8,
-        61.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 0,
-      "volume_mm3": 1147.0541356569606,
-      "witness_bounds_mm": [
-        82.70000000000002,
-        -46.50000000000002,
-        83.0,
-        119.70000000000002,
-        -36.0,
-        86.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_tail_TailBridge29_0_0",
-      "pose": 0,
-      "volume_mm3": 75.99293839572907,
-      "witness_bounds_mm": [
-        108.0,
-        -27.000000000000007,
-        59.0,
-        119.70000000000002,
-        -22.499999999999996,
-        60.52
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_control_CP2_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 0,
-      "volume_mm3": 1564.5810429473456,
-      "witness_bounds_mm": [
-        119.70000000000002,
-        -48.174794331177345,
-        80.0,
-        153.0,
-        -20.5,
-        86.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_ring_5_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 0,
-      "volume_mm3": 33.76837399226106,
-      "witness_bounds_mm": [
-        77.658,
-        -54.0,
-        82.99999999999999,
-        79.73953114431464,
-        -36.0,
-        84.7625
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_screw_5_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 0,
-      "volume_mm3": 10.879482095462656,
-      "witness_bounds_mm": [
-        74.65800000000003,
-        -43.14575131106459,
-        83.0,
-        77.65800000000003,
-        -37.85424868893541,
-        84.0
-      ]
-    },
-    {
-      "a": "Ref_Material_G_TAIL_0_0",
-      "b": "Ref_Material_P0_Part__Feature116_0_0",
-      "pose": 0,
-      "volume_mm3": 26.726856715923347,
-      "witness_bounds_mm": [
-        -63.99999999999999,
-        -54.50000000000002,
-        -25.0,
-        -53.246894459374786,
-        -53.57957063642635,
-        -18.45080477483454
-      ]
-    },
-    {
-      "a": "Ref_Material_D_FL_0_0",
-      "b": "Ref_Material_P0_Part__Feature118_0_0",
-      "pose": 0,
-      "volume_mm3": 26.726856715563386,
-      "witness_bounds_mm": [
-        -64.0,
-        53.57957063643354,
-        -24.999999999999986,
-        -53.24689445936943,
-        54.500000000000014,
-        -18.450804774886315
-      ]
-    },
-    {
-      "a": "Ref_Material_F_L6_CP2_OUT_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 35,
-      "volume_mm3": 53.93241689999975,
-      "witness_bounds_mm": [
-        81.8057,
-        -54.0,
-        83.0,
-        92.1943,
-        -52.2695,
-        86.0
-      ]
-    },
-    {
-      "a": "Ref_Material_S0_body_CP2_0_0",
-      "b": "Ref_Material_P0_MountFrontL_0_0",
-      "pose": 35,
-      "volume_mm3": 222.43362556087143,
-      "witness_bounds_mm": [
-        -69.50000000000003,
-        31.799999999999983,
-        50.926748264656474,
-        -62.39607234338253,
-        37.8,
-        61.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_P0_MountRearR_0_0",
-      "pose": 35,
-      "volume_mm3": 23.80000000000023,
-      "witness_bounds_mm": [
-        117.99999999999999,
-        -40.0,
-        41.52,
-        130.00000000000003,
-        -31.8,
-        61.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 35,
-      "volume_mm3": 1147.0541356569606,
-      "witness_bounds_mm": [
-        82.70000000000002,
-        -46.50000000000002,
-        83.0,
-        119.70000000000002,
-        -36.0,
-        86.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_body_CP2_0_0",
-      "b": "Ref_Material_tail_TailBridge29_0_0",
-      "pose": 35,
-      "volume_mm3": 75.99293839572907,
-      "witness_bounds_mm": [
-        108.0,
-        -27.000000000000007,
-        59.0,
-        119.70000000000002,
-        -22.499999999999996,
-        60.52
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_control_CP2_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 35,
-      "volume_mm3": 1564.5810429473456,
-      "witness_bounds_mm": [
-        119.70000000000002,
-        -48.174794331177345,
-        80.0,
-        153.0,
-        -20.5,
-        86.0
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_ring_5_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 35,
-      "volume_mm3": 33.76837399226106,
-      "witness_bounds_mm": [
-        77.658,
-        -54.0,
-        82.99999999999999,
-        79.73953114431464,
-        -36.0,
-        84.7625
-      ]
-    },
-    {
-      "a": "Ref_Material_current_S1_screw_5_0_0",
-      "b": "Ref_Material_tail_MG92BMount29_0_0",
-      "pose": 35,
-      "volume_mm3": 10.879482095462656,
-      "witness_bounds_mm": [
-        74.65800000000003,
-        -43.14575131106459,
-        83.0,
-        77.65800000000003,
-        -37.85424868893541,
-        84.0
-      ]
-    },
-    {
-      "a": "Ref_Material_F_PI_new_0_0",
-      "b": "Ref_Material_P0_Part__Feature074_0_0",
-      "pose": 35,
-      "volume_mm3": 1.1743747812520646,
-      "witness_bounds_mm": [
-        -4.267754826319021,
-        -54.18858061761868,
-        -15.715484854054395,
-        2.460443153703598,
-        -53.14768414593111,
-        -3.6717253499733964
-      ]
-    },
-    {
-      "a": "Ref_Material_F_PI_new_0_0",
-      "b": "Ref_Material_P0_Part__Feature079_0_0_0",
-      "pose": 35,
-      "volume_mm3": 106.89979077734063,
-      "witness_bounds_mm": [
-        -10.662915176835007,
-        -55.564203264037765,
-        -10.917029662156096,
-        6.361173143688054,
-        -51.59098897024945,
-        -3.7241908443155323
-      ]
-    }
-  ],
+  "contacts": [],
   "errors": [],
-  "pairs": 67,
+  "pairs": 0,
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
     "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/functional-protection/DirectFrameTailRisers.FCStd": "560eb31320f24bb39079a1a86660a77cb2cab95cf501f2a9d53419f7563f070c",
     "hardware/cad/studies/battery-p0/r4/electronics/BatteryCarrierP0.FCStd": "1b02b4906552234fe015ae7149a9acd299a4a0391ea6323d84e16560cec166c9",
     "hardware/cad/studies/battery-p0/r4/chassis/BottomPlateP0.FCStd": "26a4ced1004557a7c18f0c60a9c307415790e4b588d5aee16906f25fb6de42c0",
     "hardware/cad/studies/battery-p0/r6/BatteryNutRetainerP0.FCStd": "f79d5ea25a6d867c408177c86ca63d6ff4919974d8cb827704b13ab39b1ace87",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineLayoutEnvelope.FCStd": "648f5d91ace4aa868254174bfc7bc2e3734f137919a2e6c748fa138886d57262",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-layout.json": "5951fb3a4b6439a24a852b1e06ebed1fcb4826f8b501a2ea78c90eb0c3176d05",
-    "tools/cad/build_feline_interior_candidate.py": "042c7fbef9c91507e3e39dc2c155971e76625ec7b7422264ec9fba21a60be626"
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-layout.json": "47135260475e1163e223013a4ed4613cf038aab06f0a6a6e93ed780c743cbd2a",
+    "tools/cad/build_feline_interior_candidate.py": "425dab10d0cb6c7ea71c682f677d1fa84517d08e051cffdf2e219547a59c4466"
   },
   "new_mounts_complete": false,
   "complete_wiring": false,
   "shell_panels_complete": false,
-  "worker_seconds": 247.922,
+  "reused_qualified_interface_receipts": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/shared-parts-checks.json": "14d634e0b8a2324a1a70b6dde544627beb3d32ca5b543c3afc16e7ff23e6e105",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/belly-feet-fit.json": "9c275d49351f7e12004def404e73b82c89d5917c70e11226e98afb3e1f91d525",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/factory-routes.json": "1ba656843b844ff89d9fac709360ed744372c0e246c8e76ea98e5ec419b4cff3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/prefix-allocation.json": "347b24c8d4ace17603c8999f53d05066d91862b7d95daae8f48745e7e9bd72f7"
+  },
+  "worker_seconds": 317.047,
+  "belly_supports": {
+    "editable_native_links": 4,
+    "replacement_hardware": 8,
+    "load_path": "Ground -> bridge -> retained R4 plate -> Frame20 at existing8M2axes",
+    "physical_load_test_complete": false,
+    "R4_removal": "Unload/prop chassis and detach feet first"
+  },
   "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorCandidate.FCStd",
-  "native_sha256": "ef65fee08ccbba940c3943f58d97beb85bdd47fb0d077987037b62972cde7e54",
+  "native_sha256": "900ccf71e03db4e7cb583d279b861cbc84ee9bd03cc43fadb64a1e44f2ff4f5f",
   "native_head_drop_parameter_test_mm": [
-    80,
-    81,
-    80
+    90,
+    91,
+    90
   ],
   "head_reference_count": 73,
-  "retained_reference_count": 227,
-  "native_supplier_parts": 485,
+  "retained_reference_count": 226,
+  "native_supplier_parts": 499,
   "fresh_native_reopen_verified": true,
   "continuous_new_module_motion_checked": false,
   "skin_containment_exact_checked": false
