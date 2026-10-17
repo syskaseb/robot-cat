@@ -2,20 +2,20 @@
   "status": "FOUR_NATIVE_PANELS_WITH_SEVEN_SHARED_PORTALS_EXACT_MOTION_OPEN",
   "selected": false,
   "physical_pass": false,
-  "source_native_sha256": "3893e9d5498edfe565ce5b3e2ccb411ac4ed1f801c7f129bbc0abde99c698104",
+  "source_native_sha256": "aec607bcbd297df900d3a26268937edf20fcfdc403d85e88bddb5be4cdef99a7",
   "portals": [
     {
       "name": "Leg_FL",
       "bounds_mm": [
         [
           129.20628356933594,
-          48.06182122046929,
-          -25.316606521606445
+          47.98767747710113,
+          -37.9096794128418
         ],
         [
-          169.47700621322926,
+          170.17930603027344,
           110.0,
-          30.640308380126953
+          31.54187774658203
         ]
       ],
       "corner_radius_mm": 6,
@@ -35,12 +35,12 @@
         [
           129.20628356933594,
           -110.0,
-          -25.31642723083496
+          -37.9096794128418
         ],
         [
-          169.47700629090798,
-          -48.06182128426425,
-          30.640308380126953
+          170.17930603027344,
+          -47.987677527906385,
+          31.54187774658203
         ]
       ],
       "corner_radius_mm": 6,
@@ -58,12 +58,12 @@
       "name": "Leg_RL",
       "bounds_mm": [
         [
-          -121.44649505615234,
+          -121.5401611328125,
           42.316714932881965,
-          -53.99992578725653
+          -53.99999011342655
         ],
         [
-          12.887473034686977,
+          12.9032670035538,
           110.0,
           20.32461166381836
         ]
@@ -83,12 +83,12 @@
       "name": "Leg_RR",
       "bounds_mm": [
         [
-          -121.44649505615234,
+          -121.5401611328125,
           -110.0,
-          -53.999935150146484
+          -53.99998928492089
         ],
         [
-          12.88747319048925,
+          12.903268027753395,
           -42.31671539262688,
           20.323455810546875
         ]
@@ -183,8 +183,8 @@
   "parts": [
     {
       "object": "FrontLeftPanel",
-      "volume_mm3": 59862.444339590824,
-      "removed_mm3": 32505.807920343817,
+      "volume_mm3": 59846.64737378856,
+      "removed_mm3": 15.796965802299383,
       "conservative_print_bounds_mm": [
         199.50000000000009,
         184.00000000000006,
@@ -193,8 +193,8 @@
     },
     {
       "object": "FrontRightPanel",
-      "volume_mm3": 57697.684202525226,
-      "removed_mm3": 34670.413221621784,
+      "volume_mm3": 57686.59675444894,
+      "removed_mm3": 11.087448076323199,
       "conservative_print_bounds_mm": [
         199.50000000000009,
         184.00000000000003,
@@ -203,8 +203,8 @@
     },
     {
       "object": "RearLeftPanel",
-      "volume_mm3": 79823.85437337893,
-      "removed_mm3": 4595.093497016147,
+      "volume_mm3": 78899.16779381532,
+      "removed_mm3": 924.6865795635385,
       "conservative_print_bounds_mm": [
         176.50000000000006,
         176.00000000000006,
@@ -213,8 +213,8 @@
     },
     {
       "object": "RearRightPanel",
-      "volume_mm3": 79824.86314062013,
-      "removed_mm3": 4594.18526870216,
+      "volume_mm3": 78898.88072973417,
+      "removed_mm3": 925.9824108859902,
       "conservative_print_bounds_mm": [
         176.50000000000006,
         176.0,
@@ -232,12 +232,264 @@
   "cowls_complete": false,
   "frame_mounts_complete": false,
   "source_sha256": {
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/skin-access-plan.json": "503287f3b1d02c98b8f933d8c8f38d15039fa84aac899e2b70a8e31bc4ad3aa3",
-    "tools/cad/build_feline_skin_access.py": "ddff33740c61d9feeae551295229ccd7e9eceb9cf3b86e2dae15a672dd32e72a"
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/skin-access-plan.json": "982112707f3d0b4490848dde2daaa8ebc0c5bde5933fa5bca69d0d4d246825be",
+    "tools/cad/build_feline_skin_access.py": "724b16bc1bc105ccba7aa835ab19c8dd1448cf47c8eed097f2261ebd99cd753e"
   },
-  "worker_seconds": 99.234,
+  "previous_access_receipt": {
+    "status": "FOUR_NATIVE_PANELS_WITH_SEVEN_SHARED_PORTALS_EXACT_MOTION_OPEN",
+    "selected": false,
+    "physical_pass": false,
+    "source_native_sha256": "3893e9d5498edfe565ce5b3e2ccb411ac4ed1f801c7f129bbc0abde99c698104",
+    "portals": [
+      {
+        "name": "Leg_FL",
+        "bounds_mm": [
+          [
+            129.20628356933594,
+            48.06182122046929,
+            -25.316606521606445
+          ],
+          [
+            169.47700621322926,
+            110.0,
+            30.640308380126953
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "Leg_FLRect0"
+          },
+          {
+            "object": "Leg_FLRect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      },
+      {
+        "name": "Leg_FR",
+        "bounds_mm": [
+          [
+            129.20628356933594,
+            -110.0,
+            -25.31642723083496
+          ],
+          [
+            169.47700629090798,
+            -48.06182128426425,
+            30.640308380126953
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "Leg_FRRect0"
+          },
+          {
+            "object": "Leg_FRRect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      },
+      {
+        "name": "Leg_RL",
+        "bounds_mm": [
+          [
+            -121.44649505615234,
+            42.316714932881965,
+            -53.99992578725653
+          ],
+          [
+            12.887473034686977,
+            110.0,
+            20.32461166381836
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "Leg_RLRect0"
+          },
+          {
+            "object": "Leg_RLRect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      },
+      {
+        "name": "Leg_RR",
+        "bounds_mm": [
+          [
+            -121.44649505615234,
+            -110.0,
+            -53.999935150146484
+          ],
+          [
+            12.88747319048925,
+            -42.31671539262688,
+            20.323455810546875
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "Leg_RRRect0"
+          },
+          {
+            "object": "Leg_RRRect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      },
+      {
+        "name": "Control_S0",
+        "bounds_mm": [
+          [
+            -146.5,
+            -95.5,
+            60.00466226998778
+          ],
+          [
+            -97.0,
+            17.0,
+            109.49114168702327
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "Control_S0Rect0"
+          },
+          {
+            "object": "Control_S0Rect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      },
+      {
+        "name": "Control_S1",
+        "bounds_mm": [
+          [
+            -121.98839793137658,
+            83.16666971842449,
+            48.00435145198857
+          ],
+          [
+            -87.99999999999997,
+            100.50000305175783,
+            81.99564854801143
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "Control_S1Rect0"
+          },
+          {
+            "object": "Control_S1Rect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      },
+      {
+        "name": "TailRoot",
+        "bounds_mm": [
+          [
+            148.0,
+            -23.0,
+            59.0
+          ],
+          [
+            189.49907194936452,
+            23.0,
+            103.0
+          ]
+        ],
+        "corner_radius_mm": 6,
+        "straight_interior_boxes": [
+          {
+            "object": "TailRootRect0"
+          },
+          {
+            "object": "TailRootRect1"
+          }
+        ],
+        "design_reservation_not_new_contact_proof": true
+      }
+    ],
+    "parts": [
+      {
+        "object": "FrontLeftPanel",
+        "volume_mm3": 59862.444339590824,
+        "removed_mm3": 32505.807920343817,
+        "conservative_print_bounds_mm": [
+          199.50000000000009,
+          184.00000000000006,
+          160.00000000000006
+        ]
+      },
+      {
+        "object": "FrontRightPanel",
+        "volume_mm3": 57697.684202525226,
+        "removed_mm3": 34670.413221621784,
+        "conservative_print_bounds_mm": [
+          199.50000000000009,
+          184.00000000000003,
+          160.00000000000006
+        ]
+      },
+      {
+        "object": "RearLeftPanel",
+        "volume_mm3": 79823.85437337893,
+        "removed_mm3": 4595.093497016147,
+        "conservative_print_bounds_mm": [
+          176.50000000000006,
+          176.00000000000006,
+          158.00000000508768
+        ]
+      },
+      {
+        "object": "RearRightPanel",
+        "volume_mm3": 79824.86314062013,
+        "removed_mm3": 4594.18526870216,
+        "conservative_print_bounds_mm": [
+          176.50000000000006,
+          176.0,
+          158.0000000012576
+        ]
+      }
+    ],
+    "new_material_mm3": {
+      "FrontLeftPanel": 0.0,
+      "FrontRightPanel": 0.0,
+      "RearLeftPanel": 0.0,
+      "RearRightPanel": 0.0
+    },
+    "full_wiring_complete": false,
+    "cowls_complete": false,
+    "frame_mounts_complete": false,
+    "source_sha256": {
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/skin-access-plan.json": "503287f3b1d02c98b8f933d8c8f38d15039fa84aac899e2b70a8e31bc4ad3aa3",
+      "tools/cad/build_feline_skin_access.py": "ddff33740c61d9feeae551295229ccd7e9eceb9cf3b86e2dae15a672dd32e72a"
+    },
+    "worker_seconds": 99.234,
+    "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineTorsoPanels.FCStd",
+    "native_sha256": "aec607bcbd297df900d3a26268937edf20fcfdc403d85e88bddb5be4cdef99a7",
+    "fresh_reopen": true,
+    "corner_parameter_test_mm": [
+      6,
+      6.5,
+      6
+    ],
+    "body_width_not_increased": true,
+    "previous_clear_wire_distances_reused_by_strict_material_subset": true,
+    "previous_clear_fixed_pairs_reused_by_strict_material_subset": true,
+    "exact_leg_motion_complete": false,
+    "source_receipt": "45f390a:torso-panel-interfaces.json;69knownwires clear,9fixed positive witnesses and2legposes not accepted"
+  },
+  "worker_seconds": 103.047,
   "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineTorsoPanels.FCStd",
-  "native_sha256": "aec607bcbd297df900d3a26268937edf20fcfdc403d85e88bddb5be4cdef99a7",
+  "native_sha256": "1055534030241b90582863b7b7055e513010c1fdadf33a8669113a7db02c1b65",
   "fresh_reopen": true,
   "corner_parameter_test_mm": [
     6,

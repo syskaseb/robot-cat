@@ -19,7 +19,12 @@ def main():
     native=ROOT/access['native'];assert sha(native)==access['native_sha256']
     oldfile=OUT/'torso-panel-interfaces.json';old=json.loads(oldfile.read_text())
     assert old['status']=='UNNOTCHED_WALL_REJECTED_PARTIAL_MATRIX_STOPPED'
-    assert access['source_native_sha256']==old['native_sha256']
+    ancestor=access
+    while ancestor['source_native_sha256']!=old['native_sha256']:
+        previous=ancestor['previous_access_receipt']
+        assert previous['native_sha256']==ancestor['source_native_sha256']
+        assert all(v<1e-5 for v in previous['new_material_mm3'].values())
+        ancestor=previous
     assert not old['errors'] and not old['clearance_failures']
     assert all(v<1e-5 for v in access['new_material_mm3'].values())
     interior=json.loads((OUT/'interior-native-checks.json').read_text());current=ROOT/interior['native']

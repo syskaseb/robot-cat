@@ -13,8 +13,11 @@ from build_feline_torso_panels import TOPS
 from build_feline_layout_envelope import STATIONS,section_coefficients
 
 
-def loft_inside(v,inner=False,margin=0):
-    """Halfplanes of actual ruled station polygons; planning only."""
+_section_cache={}
+
+
+def loft_sections(inner):
+    if inner in _section_cache:return _section_cache[inner]
     sections=[];xx=[r[0] for r in STATIONS]
     for (_,w,_),top in zip(STATIONS,TOPS):
         h=top+48;c,z=section_coefficients(w,h);q=np.column_stack((c*w/2,z*h/2))
@@ -27,6 +30,12 @@ def loft_inside(v,inner=False,margin=0):
             q=q+2*np.array(offsets)
         q[:,1]+=(top-48)/2;sections.append(q)
     if inner:xx[0]-=3;xx[-1]+=3
+    _section_cache[inner]=(xx,sections);return xx,sections
+
+
+def loft_inside(v,inner=False,margin=0):
+    """Halfplanes of actual ruled station polygons; planning only."""
+    xx,sections=loft_sections(inner)
     x=v[:,0];valid=(x>=xx[0]+margin)&(x<=xx[-1]-margin)
     y=[np.interp(x,xx,[q[i,0] for q in sections]) for i in range(len(sections[0]))]
     z=[np.interp(x,xx,[q[i,1] for q in sections]) for i in range(len(sections[0]))]
@@ -39,11 +48,26 @@ def loft_inside(v,inner=False,margin=0):
 def skin_band(v):return loft_inside(v,False,-3)&~loft_inside(v,True,3)
 
 
+def surface_samples(triangles,edge_limit=2):
+    """Cover planar interiors too; cache tessellation need not split flat faces."""
+    todo=triangles.copy();result=[]
+    for iteration in range(18):
+        lengths=np.stack([np.sum((todo[:,i]-todo[:,(i+1)%3])**2,axis=1) for i in range(3)],axis=1)
+        longest=lengths.argmax(1);large=lengths.max(1)>edge_limit**2
+        if np.any(~large):result.append(todo[~large].mean(1))
+        if not np.any(large):return np.concatenate(result)
+        t=todo[large];k=longest[large];ii=np.arange(len(t))
+        a=t[ii,k];b=t[ii,(k+1)%3];c=t[ii,(k+2)%3];mid=(a+b)/2
+        todo=np.concatenate([np.stack([a,mid,c],axis=1),np.stack([mid,b,c],axis=1)])
+    raise ValueError('Surface subdivision did not reach2mm; do not accept vertex-only plan')
+
+
 def main():
     tick=time.monotonic();motionfile=OUT/'motion-layout.json';motion=json.loads(motionfile.read_text())
     receiptfile=OUT/'torso-panel-interfaces.json';receipt=json.loads(receiptfile.read_text())
     assert receipt['status']=='UNNOTCHED_WALL_REJECTED_PARTIAL_MATRIX_STOPPED'
     assert not receipt['errors'] and not receipt['clearance_failures']
+    previous_file=OUT/'skin-access-plan.json';previous=json.loads(previous_file.read_text()) if previous_file.exists() else None
     cachefile=BASE/'phase1-prototype-final/preview/triangulation-cache.pkl';meshes={}
     moving={n for g in motion['membership'].values() for ns in g.values() for n in ns}
     with cachefile.open('rb') as f:
@@ -51,14 +75,15 @@ def main():
         while True:
             try:n,m=pickle.load(f)
             except EOFError:break
-            if n in moving:meshes[n]=np.unique(m[0].reshape(-1,3),axis=0)
+            if n in moving:meshes[n]=surface_samples(m[0])
     assert set(meshes)==moving
     axesfile=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(axesfile.read_text())['axes']
     inventory={r['object']:r for r in motion['inventory']};code_of={n:code for code,g in motion['membership'].items() for ns in g.values() for n in ns}
     report=dict(status='SHARED_SKIN_ACCESS_RESERVATIONS_ONLY',selected=False,physical_pass=False,
         exact_collision_approval=False,leg_bays=[],control_portals=[],tail_portal=None,
         mesh_poses=36,nominal_skin_thickness_mm=2,minimum_3d_thickness_open=True,
-        clearance_budget_mm=3,boxes_not_contact_proofs=True)
+        clearance_budget_mm=3,boxes_not_contact_proofs=True,
+        sampler='FULL_TRIANGLE_SURFACES_MAX_EDGE_2MM',planar_face_interiors_included=True)
     for code,g in motion['membership'].items():
         points=[];per_pose=[]
         for index,pose in enumerate(motion['poses'][:36]):
@@ -83,6 +108,9 @@ def main():
         if sign>0:low[1]=max(0,low[1]);high[1]=110
         else:low[1]=-110;high[1]=min(0,high[1])
         low[2]=max(-60,low[2]);high[2]=min(112,high[2])
+        if previous:
+            old=next(r for r in previous['leg_bays'] if r['code']==code)
+            low=np.minimum(low,np.array(old['design_box_mm'][0]));high=np.maximum(high,np.array(old['design_box_mm'][1]))
         report['leg_bays'].append(dict(code=code,physical_leg=aa[0]['physical_leg'],
             design_box_mm=[low.tolist(),high.tolist()],actual_positive_witnesses=len(witnesses),
             mesh_sample_summary=per_pose,shape='One rounded rectangular open-bottom side bay per wholeleg; minimum corner radius6mm, no per-contact notches',
@@ -102,12 +130,13 @@ def main():
     for kind,prefixes in [('S0',('Ref_Material_S0_',)),('S1',('Ref_Material_current_S1_',))]:
         hits=[r for r in contacts if r['scope']=='fixed_material' and r['object'].startswith(prefixes)]
         assert hits,kind
-        report['control_portals'].append(dict(control=kind,design_box_mm=planned_portal(hits),
+        portal=next(r for r in previous['control_portals'] if r['control']==kind)['design_box_mm'] if previous else planned_portal(hits)
+        report['control_portals'].append(dict(control=kind,design_box_mm=portal,
             actual_objects=sorted({r['object'] for r in hits}),
             function='Functional control aperture; add common fore-neck cowl protecting terminals, not arbitrary exposed bare conductors'))
     hits=[r for r in contacts if r['scope']=='fixed_material' and r['object'].startswith('Ref_Material_tail_')]
     assert hits
-    report['tail_portal']=dict(design_box_mm=planned_portal(hits),
+    report['tail_portal']=dict(design_box_mm=previous['tail_portal']['design_box_mm'] if previous else planned_portal(hits),
         actual_objects=sorted({r['object'] for r in hits}),function='One tail-root clearance opening plus separate removable root cowl; no body widening')
     report.update(open=['Native rounded bays/control/tail portals','Exact36pose leg and9pose head gate',
         'Fore-neck andtail-root cowls','Panel/frame anchors and seams','Full moving looms and all80nets','Actual3D thickness and print fit'],
