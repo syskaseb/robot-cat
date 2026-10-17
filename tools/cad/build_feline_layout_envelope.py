@@ -21,15 +21,23 @@ from check_main_p0_placement import ROOT, sha
 from plan_feline_layout import BASE, OUT, MODEL, transforms, apply, STAGES
 
 STATIONS = [(-141.5,72,100),(-112,142,140),(-65,196,158),
-            (10,180,154),(55,166,144),(112,188,151),(158,132,118),(183.5,40,64)]
+            (10,180,158),(55,166,156),(112,188,156),(158,132,118),(183.5,40,64)]
+PROFILE_EXPONENT = 4.0
 
 
-def build(center_z):
+def section_coefficients():
+    angles=(np.arange(16)+.5)*2*math.pi/16
+    cos=np.sign(np.cos(angles))*abs(np.cos(angles))**(2/PROFILE_EXPONENT)
+    sin=np.sign(np.sin(angles))*abs(np.sin(angles))**(2/PROFILE_EXPONENT)
+    return cos/abs(cos).max(),sin/abs(sin).max()
+
+
+def build(center_z,pad_tip):
     doc=A.newDocument('FelineLayoutEnvelope')
     try:
         params=doc.addObject('Spreadsheet::Sheet','Parameters')
         for row,(label,value) in enumerate((('Width','196 mm'),('Height','158 mm'),
-                ('CenterZ',f'{center_z} mm'),('BellyPadTip',f'{center_z-87} mm')),1):
+                ('CenterZ',f'{center_z} mm'),('BellyPadTip',f'{pad_tip} mm')),1):
             params.set(f'A{row}',label);params.set(f'B{row}',value);params.setAlias(f'B{row}',label)
         body=doc.addObject('PartDesign::Body','TorsoEnvelope')
         body.Label='Tułów: rezerwacja przestrzeni, nie gotowa skorupa'
@@ -39,9 +47,7 @@ def build(center_z):
             body.addObject(sk)
             sk.Placement=A.Placement(A.Vector(x,0,center_z),A.Rotation(A.Vector(1,1,1),120))
             sk.setExpression('Placement.Base.z','Parameters.CenterZ')
-            angles=(np.arange(16)+.5)*2*math.pi/16
-            cos=np.cos(angles);sin=np.sin(angles)
-            cos/=np.max(np.abs(cos));sin/=np.max(np.abs(sin))
+            cos,sin=section_coefficients()
             points=[A.Vector(float(c*width/2),float(s*height/2),0) for c,s in zip(cos,sin)]
             for i in range(16): sk.addGeometry(Part.LineSegment(points[i],points[(i+1)%16]),False)
             for i in range(16): sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%16,1))
@@ -68,8 +74,8 @@ def build(center_z):
         for index,(x,y) in enumerate(((-75.5,-40),(-75.5,40),(117.5,-40),(117.5,40))):
             pad=doc.addObject('Part::Cylinder',f'BellyPadReservation{index+1}')
             pad.Label=f'Podpora brzucha {index+1}: rezerwacja do ramy'
-            pad.Radius=9;pad.Height=87-center_z
-            pad.Placement.Base=A.Vector(x,y,center_z-87)
+            pad.Radius=9;pad.Height=-pad_tip
+            pad.Placement.Base=A.Vector(x,y,pad_tip)
             pad.setExpression('Height','-Parameters.BellyPadTip')
             pad.setExpression('Placement.Base.z','Parameters.BellyPadTip')
         doc.recompute()
@@ -77,8 +83,9 @@ def build(center_z):
         return dict(native=path.relative_to(ROOT).as_posix(),sha256=sha(path),
             dimensions_mm=[shape.BoundBox.XLength,shape.BoundBox.YLength,shape.BoundBox.ZLength],
             center_z_mm=center_z,sections=STATIONS,fully_constrained_sketches=len(sections),
+            cross_section_exponent=PROFILE_EXPONENT,
             solids=len(shape.Solids),valid=shape.isValid(),volume_mm3=volume,
-            width_parameter_test_mm=[196,198,196],pad_tip_z_mm=center_z-87,
+            width_parameter_test_mm=[196,198,196],pad_tip_z_mm=pad_tip,
             readiness='concept',shell_wall_thickness_verified=False,printable_panels_built=False)
     finally:
         A.closeDocument(doc.Name)
@@ -113,14 +120,15 @@ def render(meshes,report,index,filename):
         triangles=np.concatenate(polygons);d=np.concatenate(depth);c=np.concatenate(colors)
         order=np.argsort(d)
         ax.add_collection(PolyCollection(triangles[order],facecolors=c[order],edgecolors='none',rasterized=True))
+        cos,sin=section_coefficients()
+        cos=np.r_[cos,cos[0]];sin=np.r_[sin,sin[0]]
         for x,width,height in STATIONS:
-            angles=np.linspace(0,2*math.pi,81)
-            world=np.column_stack((np.full(81,x),np.cos(angles)*width/2,
-                report['envelope_center_z_mm']+np.sin(angles)*height/2-drop))
+            world=np.column_stack((np.full(17,x),cos*width/2,
+                report['envelope_center_z_mm']+sin*height/2-drop))
             projected=world@basis
             ax.plot(projected[:,0],projected[:,1],color='#147ba9',lw=.8,zorder=3)
-        for theta in (0,math.pi/2,math.pi,3*math.pi/2):
-            world=np.array([[x,math.cos(theta)*w/2,report['envelope_center_z_mm']+math.sin(theta)*h/2-drop]
+        for k in (0,4,8,12):
+            world=np.array([[x,cos[k]*w/2,report['envelope_center_z_mm']+sin[k]*h/2-drop]
                             for x,w,h in STATIONS])
             p=world@basis;ax.plot(p[:,0],p[:,1],color='#147ba9',lw=1,zorder=3)
         if title!='GÓRA':ax.axhline(report['ground_rest_z_mm'],color='#303438',lw=1)
@@ -142,8 +150,8 @@ def main():
     index=max(i for i,p in enumerate(report['poses']) if p['body_drop_mm']<=95
               and all(l['foot_fit_error_mm']<=.02 and not l['mesh_floor_intrusions'] for l in p['legs'].values()))
     ground_local=report['ground_rest_z_mm']+report['poses'][index]['body_drop_mm']
-    center=ground_local+87
-    native=build(center)
+    center=32.0
+    native=build(center,ground_local)
     doc=A.openDocument(str(ROOT/native['native']))
     try:
         assert doc.getObject('TorsoEnvelope').Shape.isValid()
