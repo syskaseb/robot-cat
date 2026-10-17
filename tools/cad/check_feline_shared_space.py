@@ -46,12 +46,15 @@ def main():
             return json.loads(raw)
         parent=gitjson((OUT/'shared-parts-checks.json').relative_to(ROOT).as_posix())
         oldplan=gitjson(planfile.relative_to(ROOT).as_posix())
-        assert parent['status']=='SHARED_PARTS_REJECTED' and not parent['errors'] and parts_only
+        assert parent['status'] in ('SHARED_PARTS_REJECTED','COMMON_PARTS_TWO_POSES_CLEAR_PREFIXES_WIRES_SKIN_OPEN') and not parent['errors'] and parts_only
         oldgroups={g['role']:g for g in oldplan['groups']};assert set(oldgroups)==set(groups)
         keys=('objects','rotation_rows','translation_mm')
         changed={role for role in groups if any(groups[role][k]!=oldgroups[role][k] for k in keys)}
         assert changed and plan['geometry_source_sha256']==oldplan['geometry_source_sha256']
-        for key in ('part_pose_overrides','reference_substitutions'):assert plan[key]==oldplan[key]
+        for key in ('part_pose_overrides','reference_substitutions'):
+            new,old=plan[key],oldplan[key]
+            changed_objects={n for n in set(new)|set(old) if new.get(n)!=old.get(n)}
+            changed.update(role for role,g in groups.items() if changed_objects.intersection(g['objects']))
         for n,h in parent['source_sha256'].items():
             if n.endswith('.FCStd'):assert sha(ROOT/n)==h,n
         oldmotion=subprocess.run(['git','show',commit+':'+(OUT/'motion-layout.json').relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout

@@ -1,5 +1,38 @@
 # Sylwetka Oli i wspólny układ
 
+## Aktualizacja17.10,05:46Warszawy: pełne odcinkiMTA
+
+Najnowszym przepisem jest `module-layout.json`, nie starsze tabele niżej.
+50grup499referencji w dwóch pozach bez kontaktów, zmienione pary10/26,25s.
+WAGO dolne płasko, wyjścia na zewnątrz poniżejP0; górne do środka ponadP0.
+12nominalnych ram portów uzgodnionych z rzeczywistymi obudowami snapshotu.
+Punkty późniejszych starych tras nie zastępują źródłowej lokalnej definicji
+gniazda; role/cavity tej samej szyny zachowane, brak nowego pinoutu producenta.
+Pięć testów regresji tych reguł przechodzi,140identyczności/178końców
+nie oznacza140sprawdzonych tras.36kotew ruchomych i2SPLICE_PI nadalOPEN.
+
+Osiem prawdziwych łączników otrzymuje oba wyjścia, nie samą obudowę:
+
+| Łączniki | Środki XYZ mm | Fabryczna trasa |
+|---|---|---|
+| W026/W037 | −97,±15,−34 | prosta21,75mm |
+| W045/W053 | 121,±15,−34 | prosta20,75mm |
+| W041/W042 | 48,±35,−41 | S63,55mm |
+| W044/W052 | −17,±57,−34 | S78,11mm |
+
+Każdy koniec ma co najmniej9mm prostej. ŁukiR12,4 są budżetem projektowym;
+100mm fabrycznie dostępnego przewodu pozostaje bramką dostawy/przymiarki.
+`factory-routes.json`:8całych odcinków,0kontaktów/0błędów/0poza obrysem,
+26,687s. Kontrola obejmuje rzeczywiste części wspólnego układu, ramę/nogi
+w spoczynku i leżeniu oraz wzajemne przewody. Nie obejmuje całego ruchu,
+nowych uchwytów, skóry ani dalszych przedłużeń. F_PI poziomo w moście szyi
+przy(−142,0,−32); jego dawne mocowanie nie wybrane.
+
+Po odrzuceniu wspólnej płaszczyzny wejść zmieniono architekturę na dwie
+wysokości i dwa boczne korytarze. Nie powtarzać tego samego skrzyżowania
+przewodów przez lokalne wycinanie uchwytów. Nie dokładać wymuszonego łuku
+przy obu końcach krótkiego współosiowego połączenia.
+
 ## Aktualny wspólny plan17.10,05:11Warszawy
 
 Poprzedni bank90° odrzucony354par/150kontaktów/95,141s. Nie budowany

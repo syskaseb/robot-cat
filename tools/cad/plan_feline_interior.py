@@ -70,7 +70,9 @@ def main():
         overrides[n]=dict(rotation_rows=rot.tolist(),translation_mm=shift.tolist(),
             actual_cylinder_axis_point_mm=list(p),axis=[0,0,1],clock_degrees=degrees,
             basis='Saved ring cylinderR5.02 onselectedsource; unchanged bore and lug. Not newmanufacturerfastener data.')
-    for k,y,z,degrees in [(2,41.5,105,90),(3,41.5,93,90),(5,29.5,105,-90),(6,29.5,93,-90)]:
+    # Upper lugs leave UP, lower lugs DOWN. Parallel upturned leads from
+    # 12mm-separated contacts would run through their upper neighbours.
+    for k,y,z,degrees in [(2,41.5,105,90),(3,41.5,93,-90),(5,29.5,105,-90),(6,29.5,93,90)]:
         n=f'Ref_Material_current_S1_ring_{k}_0_0';p=A.Vector(122.558,y,z);r=A.Rotation(A.Vector(1,0,0),degrees)
         t=A.Placement(p-r.multVec(p),r);m=t.toMatrix()
         rot=np.array([[getattr(m,f'A{i+1}{j+1}') for j in range(3)] for i in range(3)])
@@ -142,7 +144,8 @@ def main():
         add('MTA_'+code,select('MTA/'+code+'/'),new_center=(x,y,z))
     n=select('F_PI_new/');assert len(n)==1
     ry=np.array([[0,0,1],[0,1,0],[-1,0,0]])
-    add('F_PI',n,rotation=rx,new_center=(-105,0,-32))
+    add('F_PI',n,rotation=ry,new_center=(-142,0,-32),region='head_neck')
+    groups[-1]['new_mount_requirement']='Protected fore-neck distribution bridge; whole F_PI separated from front hip motors and MTA joints, not an accepted old mount.'
     rz45=np.array([[2**-.5,-2**-.5,0],[2**-.5,2**-.5,0],[0,0,1]])
     for role,prefix,rotation,centre in [
         ('F0','F0_CP2/',rz45,(68,0,-13.75)),
@@ -151,13 +154,26 @@ def main():
         ('POST_F0','PostF0Splice_CP2/',None,(143,-35,42)),
         ('JPWM','JPWM/',None,(25,-44,50))]:
         add(role,select(prefix),rotation=rotation,new_center=centre)
-    for code,x,y in [('W026',-45,35),('W041',5,47),('W037',-45,-35),('W042',5,-47),
-                     ('W045',30,35),('W044',89,47),('W053',30,-35),('W052',89,-47)]:
+    # External outputs use collinear factory leads with >=18mm for two9mm
+    # lands. The four input joints use two separated low longitudinal lanes;
+    # exact smooth S paths are generated before accepting this arrangement.
+    joint_cells=[('W026',-97,15,-34,1),('W037',-97,-15,-34,1),
+                 ('W045',121,15,-34,-1),('W053',121,-15,-34,-1),
+                 ('W041',48,35,-41,-1),('W042',48,-35,-41,-1),
+                 ('W044',-17,57,-34,1),('W052',-17,-57,-34,1)]
+    interfaces=json.loads((BASE/'body-harness-checkpoint/remaining25-interface-allocation.json').read_text())
+    for code,x,y,z,factory_sign in joint_cells:
         n=select(code+'_Joint/');assert len(n)==1
         dims=np.array(records[n[0]]['bounds_mm'][1])-records[n[0]]['bounds_mm'][0]
         order=np.argsort(dims);rotation=np.eye(3)[[order[2],order[0],order[1]]]
         if np.linalg.det(rotation)<0:rotation[1]*=-1
-        add(code+'_Joint',n,rotation=rotation,new_center=(x,y,-35.75))
+        p=next(e['point_world_mm'] for e in interfaces['ends'] if e['id']==code+'/factory/end')
+        centre=np.mean(records[n[0]]['bounds_mm'],axis=0)
+        if np.sign((rotation@(np.array(p)-centre))[0])!=factory_sign:
+            rotation=np.diag([-1,-1,1])@rotation
+        add(code+'_Joint',n,rotation=rotation,new_center=(x,y,z))
+        groups[-1]['factory_exit_axis']=[factory_sign,0,0]
+        groups[-1]['factory_route_policy']='Collinear or twoarcS with9mmendlands; no forced quarterbend at bothends.'
     aliases=select('W1Ref_P_AUX_CP2/','W1Ref_G2_CP2/')
     cases=[]
     for n,r in surfaces.items():
@@ -180,12 +196,12 @@ def main():
         # Flat cases: largest -> X, middle -> Y, smallest -> Z.
         order=np.argsort(dims)
         outer=row in (0,3)
-        rotation=np.eye(3)[[order[2],order[1],order[0]]] if outer else np.eye(3)[[order[2],order[0],order[1]]]
+        rotation=np.eye(3)[[order[2],order[1],order[0]]]
         if np.linalg.det(rotation)<0:rotation[1]*=-1
-        height=sorted(dims)[0] if outer else sorted(dims)[1]
+        height=sorted(dims)[0]
         xs=[-50,-15,20,55,90] if outer else [-46.5,-12,19,50,84.5]
         y=[-67,-40.5,40.5,67][row]
-        base=35.5 if outer else -4-height
+        base=35.5 if outer else -16.5
         role='WAGO:'+records[n]['label'].split('/')[0]
         old_centre=np.mean(records[n]['bounds_mm'],axis=0)
         source_points=[r['point_world_mm'] for r in coverage['fixed_physical_guide_ends']+coverage['body_fixed_boundary_ends']
@@ -194,9 +210,9 @@ def main():
         if source_points:
             source_face=np.sign(np.median(np.array(source_points)[:,order[1]]-old_centre[order[1]]))
             original_axis=np.eye(3)[order[1]]*source_face
-            desired=np.array([0,-np.sign(y),0]) if outer else np.array([0,0,1])
+            desired=np.array([0,-np.sign(y),0]) if outer else np.array([0,np.sign(y),0])
             if np.dot(rotation@original_axis,desired)<0:
-                rotation=(np.diag([-1,-1,1]) if outer else np.diag([1,-1,-1]))@rotation
+                rotation=np.diag([-1,-1,1])@rotation
         add('WAGO:'+records[n]['label'].split('/')[0],[n],rotation=rotation,
             new_center=(xs[col],y,base+height/2))
         groups[-1]['entry_face_verified_by_source_ends']=source_face is not None
@@ -231,7 +247,7 @@ def main():
         native_update_condition='Quarterturned whole bank, all8inlinejoins andsourcecases; actual prefixes/sideATOtool andlowerWAGO12mmservice mustpass before details.',
         main_world_z46_52_retained=False,main_new_world_z_mm=96.52,
         old_MAIN_P0_adapter_not_reselected=True,
-        wago_entry_policy='Inner rails upright portsUP: mouthZ-4. Outer railsflat portsINWARD: mouthZ40. Source face/slotidentities must be reconstructed, not guessed frombbox.',
+        wago_entry_policy='Inner rails flat portsOUTWARD belowP0: bottomZ-16.5, mouthZ-12/-11. Outer railsflat portsINWARD aboveP0: mouthZ40. Explicit nominal station-local ports supersede stale guide endpoints; not manufacturer qualification.',
         lower_negative_WAGO_service_drop_mm=0,
         complete_conductor_paths=False,connector_entry_direction_verified=False,
         operating_apertures_required=[dict(object='Ref_Material_current_S1_control_CP2_0_0',
