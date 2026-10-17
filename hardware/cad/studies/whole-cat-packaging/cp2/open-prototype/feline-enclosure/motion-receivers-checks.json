@@ -1,0 +1,645 @@
+{
+  "status": "RECEIVING_CORRIDOR_MOTION_REJECTED_NO_REPEAT_POSES",
+  "selected": false,
+  "physical_pass": false,
+  "changed_roles": [
+    "W044_Joint",
+    "W052_Joint",
+    "AUX4092",
+    "WAGO:P_SYS_new",
+    "WAGO:P_REAR"
+  ],
+  "changed_parts": 17,
+  "factory_changed_wires": [
+    "W044",
+    "W052"
+  ],
+  "contacts": [
+    {
+      "a": "Ref_Material_P_SYS_new_0_0",
+      "b": "Ref_Material_P0_Part__Feature090_0_0",
+      "scope": "changed_cases_leg",
+      "pose": 27,
+      "volume_mm3": 0.00021779663122082488,
+      "witness_mesh_bounds_mm": [
+        [
+          -34.30861270437977,
+          51.4954219208467,
+          -16.49999389648437
+        ],
+        [
+          -28.000000000000007,
+          51.49999923706054,
+          -16.481506842708832
+        ]
+      ]
+    },
+    {
+      "a": "Ref_Material_P_REAR_0_0",
+      "b": "Ref_Material_P0_Part__Feature074_0_0",
+      "scope": "changed_cases_leg",
+      "pose": 27,
+      "volume_mm3": 0.0002179403902748932,
+      "witness_mesh_bounds_mm": [
+        [
+          -34.30861391751338,
+          -51.50000000000001,
+          -16.5
+        ],
+        [
+          -28.0,
+          -51.49542118308149,
+          -16.481506882778206
+        ]
+      ]
+    }
+  ],
+  "clearance_failures": [],
+  "errors": [],
+  "pairs": 135,
+  "leg_poses": [
+    {
+      "index": 0,
+      "pairs": 2
+    },
+    {
+      "index": 1,
+      "pairs": 2
+    },
+    {
+      "index": 2,
+      "pairs": 2
+    },
+    {
+      "index": 3,
+      "pairs": 2
+    },
+    {
+      "index": 4,
+      "pairs": 2
+    },
+    {
+      "index": 5,
+      "pairs": 2
+    },
+    {
+      "index": 6,
+      "pairs": 2
+    },
+    {
+      "index": 7,
+      "pairs": 2
+    },
+    {
+      "index": 8,
+      "pairs": 2
+    },
+    {
+      "index": 9,
+      "pairs": 2
+    },
+    {
+      "index": 10,
+      "pairs": 2
+    },
+    {
+      "index": 11,
+      "pairs": 2
+    },
+    {
+      "index": 12,
+      "pairs": 2
+    },
+    {
+      "index": 13,
+      "pairs": 2
+    },
+    {
+      "index": 14,
+      "pairs": 2
+    },
+    {
+      "index": 15,
+      "pairs": 2
+    },
+    {
+      "index": 16,
+      "pairs": 4
+    },
+    {
+      "index": 17,
+      "pairs": 4
+    },
+    {
+      "index": 18,
+      "pairs": 4
+    },
+    {
+      "index": 19,
+      "pairs": 5
+    },
+    {
+      "index": 20,
+      "pairs": 6
+    },
+    {
+      "index": 21,
+      "pairs": 5
+    },
+    {
+      "index": 22,
+      "pairs": 5
+    },
+    {
+      "index": 23,
+      "pairs": 4
+    },
+    {
+      "index": 24,
+      "pairs": 4
+    },
+    {
+      "index": 25,
+      "pairs": 4
+    },
+    {
+      "index": 26,
+      "pairs": 4
+    },
+    {
+      "index": 27,
+      "pairs": 4
+    }
+  ],
+  "native_built": false,
+  "module_plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-motion-layout.json",
+  "factory_routes": [
+    {
+      "wire": "W026",
+      "start_role": "F_FL.out",
+      "end_role": "W026_Joint.factory",
+      "source_group": "MTA_FL",
+      "joint_group": "W026_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -57.5,
+            15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -79.24999389648437,
+            15.000003051757815,
+            -34.0
+          ],
+          "length_mm": 21.74999389648544
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 21.74999389648544,
+      "minimum_end_straight_mm": 10.874996948242185,
+      "factory100mm_provisional_margin_mm": 78.25000610351456,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W037",
+      "start_role": "F_FR.out",
+      "end_role": "W037_Joint.factory",
+      "source_group": "MTA_FR",
+      "joint_group": "W037_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -57.5,
+            -15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -79.25,
+            -15.0,
+            -33.99999389648437
+          ],
+          "length_mm": 21.75
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 21.75,
+      "minimum_end_straight_mm": 10.875,
+      "factory100mm_provisional_margin_mm": 78.25,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W041",
+      "start_role": "F_FL.in",
+      "end_role": "W041_Joint.factory",
+      "source_group": "MTA_FL",
+      "joint_group": "W041_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -22.5,
+            15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -8.392897020471958,
+            15.0,
+            -33.99999389648437
+          ],
+          "length_mm": 14.107102979528042
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -8.392897020471958,
+            15.0,
+            -33.99999389648437
+          ],
+          "mid": [
+            -0.2880947354706773,
+            17.846036917475335,
+            -34.99610685559943
+          ],
+          "end": [
+            3.874999618530275,
+            24.999999618530275,
+            -37.49999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 17.666246169505012
+        },
+        {
+          "kind": "arc",
+          "start": [
+            3.874999618530275,
+            24.999999618530275,
+            -37.49999389648437
+          ],
+          "mid": [
+            8.038093972531227,
+            32.15396231958522,
+            -40.00388093736931
+          ],
+          "end": [
+            16.142896257532506,
+            34.99999923706055,
+            -40.99999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 17.666246169505012
+        },
+        {
+          "kind": "line",
+          "start": [
+            16.142896257532506,
+            34.99999923706055,
+            -40.99999389648437
+          ],
+          "end": [
+            30.24999923706055,
+            34.99999923706055,
+            -40.99999389648437
+          ],
+          "length_mm": 14.107102979528042
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 63.54669829806611,
+      "minimum_end_straight_mm": 14.107102979528042,
+      "factory100mm_provisional_margin_mm": 36.45330170193389,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W042",
+      "start_role": "F_FR.in",
+      "end_role": "W042_Joint.factory",
+      "source_group": "MTA_FR",
+      "joint_group": "W042_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -22.5,
+            -15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -8.392896691983182,
+            -15.0,
+            -33.99999389648437
+          ],
+          "length_mm": 14.107103308016818
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -8.392896691983182,
+            -15.0,
+            -33.99999389648437
+          ],
+          "mid": [
+            -0.28809426926534165,
+            -17.846037041581155,
+            -34.996106861037774
+          ],
+          "end": [
+            3.875,
+            -25.0,
+            -37.49999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 17.66624653343553
+        },
+        {
+          "kind": "arc",
+          "start": [
+            3.875,
+            -25.0,
+            -37.49999389648437
+          ],
+          "mid": [
+            8.038094269265342,
+            -32.153962958418845,
+            -40.003880931930965
+          ],
+          "end": [
+            16.142896691983182,
+            -35.0,
+            -40.99999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 17.66624653343553
+        },
+        {
+          "kind": "line",
+          "start": [
+            16.142896691983182,
+            -35.0,
+            -40.99999389648437
+          ],
+          "end": [
+            30.25,
+            -35.0,
+            -40.99999389648437
+          ],
+          "length_mm": 14.107103308016818
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 63.546699682904695,
+      "minimum_end_straight_mm": 14.107103308016818,
+      "factory100mm_provisional_margin_mm": 36.453300317095305,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W044",
+      "start_role": "F_RL.in",
+      "end_role": "W044_Joint.factory",
+      "source_group": "MTA_RL",
+      "joint_group": "W044_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            47.5,
+            15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            23.395726400694222,
+            15.0,
+            -33.99999389648437
+          ],
+          "length_mm": 24.104273599305778
+        },
+        {
+          "kind": "arc",
+          "start": [
+            23.395726400694222,
+            15.0,
+            -33.99999389648437
+          ],
+          "mid": [
+            16.13624983554161,
+            17.34713971051025,
+            -33.99999389648437
+          ],
+          "end": [
+            11.624999999999998,
+            23.5,
+            -33.99999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 15.510533241555226
+        },
+        {
+          "kind": "arc",
+          "start": [
+            11.624999999999998,
+            23.5,
+            -33.99999389648437
+          ],
+          "mid": [
+            7.11375016445839,
+            29.65286028948975,
+            -33.99999389648437
+          ],
+          "end": [
+            -0.14572640069422604,
+            32.0,
+            -33.99999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 15.510533241555226
+        },
+        {
+          "kind": "line",
+          "start": [
+            -0.14572640069422604,
+            32.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -24.25,
+            32.0,
+            -33.99999389648437
+          ],
+          "length_mm": 24.104273599305778
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 79.22961368172201,
+      "minimum_end_straight_mm": 24.104273599305778,
+      "factory100mm_provisional_margin_mm": 20.770386318277986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W045",
+      "start_role": "F_RL.out",
+      "end_role": "W045_Joint.factory",
+      "source_group": "MTA_RL",
+      "joint_group": "W045_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            82.5,
+            15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            103.24999923706055,
+            15.000003051757801,
+            -33.99999389648437
+          ],
+          "length_mm": 20.749999237060774
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999237060774,
+      "minimum_end_straight_mm": 10.374999618530275,
+      "factory100mm_provisional_margin_mm": 79.25000076293922,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W052",
+      "start_role": "F_RR.in",
+      "end_role": "W052_Joint.factory",
+      "source_group": "MTA_RR",
+      "joint_group": "W052_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            47.5,
+            -15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            23.395726400694222,
+            -15.0,
+            -33.99999389648437
+          ],
+          "length_mm": 24.104273599305778
+        },
+        {
+          "kind": "arc",
+          "start": [
+            23.395726400694222,
+            -15.0,
+            -33.99999389648437
+          ],
+          "mid": [
+            16.13624983554161,
+            -17.34713971051025,
+            -33.99999389648437
+          ],
+          "end": [
+            11.624999999999998,
+            -23.5,
+            -33.99999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 15.510533241555226
+        },
+        {
+          "kind": "arc",
+          "start": [
+            11.624999999999998,
+            -23.5,
+            -33.99999389648437
+          ],
+          "mid": [
+            7.11375016445839,
+            -29.65286028948975,
+            -33.99999389648437
+          ],
+          "end": [
+            -0.14572640069422604,
+            -32.0,
+            -33.99999389648437
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 15.510533241555226
+        },
+        {
+          "kind": "line",
+          "start": [
+            -0.14572640069422604,
+            -32.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -24.25,
+            -32.0,
+            -33.99999389648437
+          ],
+          "length_mm": 24.104273599305778
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 79.22961368172201,
+      "minimum_end_straight_mm": 24.104273599305778,
+      "factory100mm_provisional_margin_mm": 20.770386318277986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W053",
+      "start_role": "F_RR.out",
+      "end_role": "W053_Joint.factory",
+      "source_group": "MTA_RR",
+      "joint_group": "W053_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            82.5,
+            -15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            103.24999923706055,
+            -15.000003051757801,
+            -33.99999389648437
+          ],
+          "length_mm": 20.749999237060774
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999237060774,
+      "minimum_end_straight_mm": 10.374999618530275,
+      "factory100mm_provisional_margin_mm": 79.25000076293922,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    }
+  ],
+  "old_native_sha256": "900ccf71e03db4e7cb583d279b861cbc84ee9bd03cc43fadb64a1e44f2ff4f5f",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorCandidate.FCStd": "900ccf71e03db4e7cb583d279b861cbc84ee9bd03cc43fadb64a1e44f2ff4f5f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-layout.json": "47135260475e1163e223013a4ed4613cf038aab06f0a6a6e93ed780c743cbd2a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-motion-layout.json": "5aa2f9f1800d3d1db7c9c5edc628355b5523e8801dce085b8673ef52c6eb27d8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/factory-routes.json": "1ba656843b844ff89d9fac709360ed744372c0e246c8e76ea98e5ec419b4cff3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/shared-skin-exact.json": "31eba7bedb84a955206927feda016d6261c9255bbf23962ddf04d33f5948f7ce",
+    "tools/cad/replan_feline_motion_receivers.py": "dcf6b700de41792eb262d88bcf5f8c353f2f812441db103345530fa0ddc365e5"
+  },
+  "worker_seconds": 196.422
+}
