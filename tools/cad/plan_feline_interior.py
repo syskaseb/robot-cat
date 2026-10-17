@@ -83,14 +83,18 @@ def main():
             basis='Saved ring cylinderR5.02 onselectedsource; unchanged bore and lug. Not newmanufacturerfastener data.')
     # All four crimp exits fan FORE, upper pair upward and lower downward.
     # Pure vertical exits hit upperPWM hardware or lower fixed hip motors.
-    for k,y,z,degrees in [(2,41.5,105,45),(3,41.5,93,0),(5,29.5,105,-135),(6,29.5,93,180)]:
+    # Lower pair must diverge: making both horizontal puts pin6's wire
+    # through pin3's crimp. For pin6, foreplate x=-124.46/topZ30.84,
+    # bore(-99,Z53) and2.1+1.25 clearance bound downward slope to<=36.45deg.
+    # Choose30deg, rather than a series of cable/fastener translations.
+    for k,y,z,degrees in [(2,41.5,105,45),(3,41.5,93,0),(5,29.5,105,-135),(6,29.5,93,150)]:
         n=f'Ref_Material_current_S1_ring_{k}_0_0';p=A.Vector(122.558,y,z);r=A.Rotation(A.Vector(1,0,0),degrees)
         t=A.Placement(p-r.multVec(p),r);m=t.toMatrix()
         rot=np.array([[getattr(m,f'A{i+1}{j+1}') for j in range(3)] for i in range(3)])
         shift=np.array(list(t.Base));v,c,kind=meshes[n];meshes[n]=(v@rot.T+shift,c,kind)
         overrides[n]=dict(rotation_rows=rot.tolist(),translation_mm=shift.tolist(),
             actual_cylinder_axis_point_mm=list(p),axis=[1,0,0],clock_degrees=degrees,
-            basis='Saved S1ring cylinderR2.667; clock lug upward about actual bore, not casing or signalpin.')
+            basis='Saved S1ring cylinderR2.667; whole forefan around actual bores, with lowerpair diverging above known foreplate. Not casing or signalpin axes.')
     # Preserve all catalogue housings/ATO/TE instances. The R47 right support
     # needs a new native30mm pitch instead of32mm in this enclosure extension.
     # This is NOT the old selected right support or its wiring qualification.
