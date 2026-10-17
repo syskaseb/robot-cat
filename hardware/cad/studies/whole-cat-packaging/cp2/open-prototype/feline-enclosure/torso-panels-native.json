@@ -11,7 +11,7 @@
         184.00000000000014,
         160.00000000000014
       ],
-      "volume_mm3": 92368.25225993466,
+      "volume_mm3": 59862.444339590824,
       "native_editable_dependencies": true
     },
     {
@@ -21,7 +21,7 @@
         184.0,
         160.00000000000009
       ],
-      "volume_mm3": 92368.09742414724,
+      "volume_mm3": 57697.684202525226,
       "native_editable_dependencies": true
     },
     {
@@ -31,7 +31,7 @@
         176.00000000000006,
         158.0000000000002
       ],
-      "volume_mm3": 84418.94787039515,
+      "volume_mm3": 79823.85437337893,
       "native_editable_dependencies": true
     },
     {
@@ -41,13 +41,13 @@
         176.0,
         158.0000000000002
       ],
-      "volume_mm3": 84419.04840932223,
+      "volume_mm3": 79824.86314062013,
       "native_editable_dependencies": true
     }
   ],
   "worker_seconds": 49.531,
   "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineTorsoPanels.FCStd",
-  "native_sha256": "3893e9d5498edfe565ce5b3e2ccb411ac4ed1f801c7f129bbc0abde99c698104",
+  "native_sha256": "aec607bcbd297df900d3a26268937edf20fcfdc403d85e88bddb5be4cdef99a7",
   "fresh_reopen": true,
   "fully_constrained_sketches": 16,
   "wall_parameter_test_mm": [
@@ -116,5 +116,13 @@
     11
   ],
   "prior_native_sha256": "c801183f9b43dc72bdd19f67b3db7248a81ecf8026471ac44a9fa83cc5431246",
-  "passage_modifier": "tools/cad/check_feline_torso_panels.py"
+  "passage_modifier": "tools/cad/check_feline_torso_panels.py",
+  "shared_access_portals": 7,
+  "corner_parameter_test_mm": [
+    6,
+    6.5,
+    6
+  ],
+  "shared_portal_modifier": "tools/cad/build_feline_skin_access.py",
+  "current_status": "FOUR_NATIVE_PANELS_WITH_SEVEN_SHARED_PORTALS_EXACT_MOTION_OPEN"
 }
