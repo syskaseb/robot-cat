@@ -15,6 +15,61 @@ from check_main_p0_placement import ROOT,SavedShapes,sha,prop
 from plan_feline_layout import OUT,STAGES
 from check_feline_leg_body import placement
 from plan_feline_factory_links import routes
+from build_feline_interior_candidate import center as shape_center
+
+
+def receive_native():
+    """Repair only saved native emission; never repeat accepted geometry."""
+    tick=time.monotonic();reader=SavedShapes();reportfile=OUT/'motion-receivers-checks.json'
+    report=json.loads(reportfile.read_text())
+    assert report['status']=='RECEIVING_CORRIDOR_STATIC_FACTORY_AND36LEGPOSES_CLEAR_PREFIXES_HEAD_OPEN' and not report['native_built']
+    assert len(report['leg_poses'])==36 and not any(report[k] for k in ('contacts','clearance_failures','errors'))
+    meta=json.loads((OUT/'interior-native-checks.json').read_text());source=ROOT/meta['native']
+    assert sha(source)==report['old_native_sha256']
+    planfile=ROOT/report['module_plan'];assert sha(planfile)==report['source_sha256'][planfile.relative_to(ROOT).as_posix()]
+    plan=json.loads(planfile.read_text());changes=plan['motion_receiving_changes'];target=OUT/'FelineInteriorMotion.FCStd'
+    oldxml=reader.doc(source)
+    if target.exists():
+        placeholder=reader.doc(target);assert set(placeholder)==set(oldxml)
+        assert all(reader.placement(oldxml[n]).isSame(reader.placement(placeholder[n]),1e-7) for n in oldxml),'Do not overwrite an independently changed target'
+    doc=A.openDocument(str(source));name=doc.Name;expected={}
+    try:
+        doc.saveAs(str(target))
+        for role,c in changes.items():
+            rotation=A.Rotation(A.Vector(0,0,1),180) if role.startswith('WAGO:') else A.Rotation()
+            transform=A.Placement(A.Vector(*c['translation_mm']),rotation)
+            for n in c['objects']:
+                s=reader.shape(source,n)
+                if rotation.isIdentity():s.translate(transform.Base)
+                else:s.Placement=transform*s.Placement
+                expected[n]=s;ob=doc.getObject(n);ob.Placement=transform*ob.Placement
+        doc.recompute()
+        for n,s in expected.items():
+            actual=doc.getObject(n).Shape
+            assert actual.isValid() and abs(actual.Volume-s.Volume)<1e-4 and (shape_center(actual)-shape_center(s)).Length<1e-5,n
+        doc.save();A.closeDocument(name);doc=None
+        fresh=SavedShapes();newxml=fresh.doc(target);assert set(newxml)==set(oldxml);unchanged=0
+        for n in oldxml:
+            if n in expected:continue
+            assert reader.placement(oldxml[n]).isSame(fresh.placement(newxml[n]),1e-7),n
+            if prop(oldxml[n],'LinkPlacement') is not None:assert reader.placement(oldxml[n],'LinkPlacement').isSame(fresh.placement(newxml[n],'LinkPlacement'),1e-7),n
+            unchanged+=1
+        d=A.openDocument(str(target))
+        try:
+            for n,s in expected.items():
+                actual=d.getObject(n).Shape
+                assert actual.isValid() and abs(actual.Volume-s.Volume)<1e-4 and (shape_center(actual)-shape_center(s)).Length<1e-5,n
+        finally:A.closeDocument(d.Name)
+        report.update(native_built=True,native=target.relative_to(ROOT).as_posix(),native_sha256=sha(target),
+            changed_native_parts_verified=len(expected),unchanged_saved_node_placements_verified=unchanged,fresh_reopen=True,
+            native_receiver_seconds=round(time.monotonic()-tick,3),
+            native_receiver_source_sha256=sha(Path(__file__)),native_build_error_repaired=True,
+            full_unchanged_geometry_reaudit_performed=False)
+        reportfile.write_text(json.dumps(report,indent=2)+'\n')
+        assert sha(source)==report['old_native_sha256']
+        print(json.dumps({k:report[k] for k in ('native_built','changed_native_parts_verified','unchanged_saved_node_placements_verified','native_receiver_seconds')}),flush=True)
+    finally:
+        if doc and doc.Name in A.listDocuments():A.closeDocument(doc.Name)
 
 
 def main():
@@ -205,5 +260,5 @@ def main():
 
 
 if __name__=='__main__':
-    try:main()
+    try:receive_native() if '--receive-native' in sys.argv else main()
     except TimeoutError as exc:print(str(exc)+'; partial saved, no new work',flush=True)
