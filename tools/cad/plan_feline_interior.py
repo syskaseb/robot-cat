@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 from check_main_p0_placement import ROOT, SavedShapes, sha
 from plan_feline_layout import BASE, OUT, STAGES
-from build_feline_layout_envelope import STATIONS, PROFILE_EXPONENT
+from build_feline_layout_envelope import STATIONS, PROFILE_EXPONENT, PROFILE_FAMILY,section_coefficients
 
 
 def inside(points,center,margin=2):
@@ -19,13 +19,16 @@ def inside(points,center,margin=2):
     valid=(x>=STATIONS[0][0]+margin)&(x<=STATIONS[-1][0]-margin)
     widths=np.interp(x,[s[0] for s in STATIONS],[s[1] for s in STATIONS])-2*margin
     heights=np.interp(x,[s[0] for s in STATIONS],[s[2] for s in STATIONS])-2*margin
-    a=(np.arange(16)+.5)*2*np.pi/16
-    c=np.sign(np.cos(a))*abs(np.cos(a))**(2/PROFILE_EXPONENT);c/=abs(c).max()
-    s=np.sign(np.sin(a))*abs(np.sin(a))**(2/PROFILE_EXPONENT);s/=abs(s).max()
-    for i in range(16):
-        j=(i+1)%16
-        py, pz=c[i]*widths/2,s[i]*heights/2
-        dy, dz=(c[j]-c[i])*widths/2,(s[j]-s[i])*heights/2
+    sections=[np.column_stack(section_coefficients(w,h))*[w/2,h/2] for _,w,h in STATIONS]
+    # Ruled loft interpolates actual corresponding vertices, not a local
+    # exponent guessed independently of the native station geometry.
+    count=len(sections[0])
+    yy=[np.interp(x,[s[0] for s in STATIONS],[p[i,0] for p in sections])*(widths/(widths+2*margin)) for i in range(count)]
+    zz=[np.interp(x,[s[0] for s in STATIONS],[p[i,1] for p in sections])*(heights/(heights+2*margin)) for i in range(count)]
+    for i in range(count):
+        j=(i+1)%count
+        py,pz=yy[i],zz[i]
+        dy,dz=yy[j]-py,zz[j]-pz
         valid &= dy*(points[:,2]-center-pz)-dz*(points[:,1]-py)>=-1e-5
     return valid
 
@@ -57,13 +60,14 @@ def main():
         world_shift_before_head_drop_mm=[-42,0,25],original_current_bounds_mm=old_carrier_bounds,
         reason='Retain original editable servo carrier core; supersede long W3 wire-support arms in the new wiring architecture.')
     groups=[];assigned=set()
-    def add(name,names,delta=(0,0,0),rotation=None,new_center=None,region='torso'):
+    def add(name,names,delta=(0,0,0),rotation=None,new_center=None,region='torso',datum=None):
         names=sorted(names);assert names,name
         assert not assigned.intersection(names),(name,assigned.intersection(names))
         assigned.update(names)
         rotation=np.eye(3) if rotation is None else rotation
         points=np.concatenate([meshes[n][0].reshape(-1,3) for n in names])
-        old_center=(points.min(0)+points.max(0))/2
+        datum_points=points if datum is None else meshes[datum][0].reshape(-1,3)
+        old_center=(datum_points.min(0)+datum_points.max(0))/2
         translation=np.asarray(delta) if new_center is None else np.asarray(new_center)-rotation@old_center
         moved=points@rotation.T+translation
         contained=inside(moved,layout['native']['center_z_mm']) if region=='torso' else np.ones(len(moved),dtype=bool)
@@ -79,11 +83,11 @@ def main():
             sampled_points=len(points),sampled_outside_inner_reservation=int((~contained).sum()),
             outside_objects=outside_objects,
             outside_witnesses_mm=witnesses[np.linspace(0,len(witnesses)-1,min(8,len(witnesses)),dtype=int)].tolist() if len(witnesses) else [],
-            selected=False,rigid_internal_geometry_retained=True))
+            placement_datum_object=datum,selected=False,rigid_internal_geometry_retained=True))
     surfaces={n:r for n,r in records.items() if r['kind']=='surface'}
     labels={n:r['label'] for n,r in surfaces.items()}
     select=lambda *prefixes:[n for n,label in labels.items() if label.startswith(prefixes)]
-    add('HeadMechanism',select('head/0/0/','headref/0/'),delta=(0,0,-80),region='head_neck')
+    add('HeadMechanism',select('head/0/0/','headref/0/'),delta=(0,0,-90),region='head_neck')
     add('Pi4',select('Pi4'))
     add('BUS',select('BUSsupplier'))
     add('MAIN',select('MAIN/','MAIN_','Power/MAIN'),delta=(0,0,0))
@@ -91,16 +95,30 @@ def main():
     add('PWM1608_U1',select('PWM1608','U1_'),delta=(-80,0,-21))
     add('AUX4092',select('AUX4092'),delta=(-10,0,12))
     # Full TE ends span71.43mm in Z, not just the28.5mm casing.
-    add('Bank12Oprawek24Koncow',select('F_L','F_R'),rotation=np.diag([1,-1,-1]),new_center=(17,0,65))
     rx=np.array([[1,0,0],[0,0,-1],[0,1,0]])
     rz=np.array([[0,-1,0],[1,0,0],[0,0,1]])
-    add('S0',select('S0_'),rotation=rx,new_center=(-85,-15,72))
-    add('S1',select('current/S1_'),delta=(-45,-70,-25))
-    for code,x,y,z in (('FL',-10,30,100),('FR',-10,-30,100),('RL',80,30,98),('RR',80,-30,98)):
+    add('Bank12Oprawek24Koncow',select('F_L','F_R'),rotation=rx,new_center=(17,0,32))
+    add('S0',select('S0_'),rotation=rx,new_center=(-107,-6,78),datum='Ref_Material_S0_body_CP2_0_0')
+    add('S1',select('current/S1_'),rotation=rz,new_center=(-105,45,65),datum='Ref_Material_current_S1_body_CP2_0_0')
+    for code,x,y,z in (('FL',-40,50,73.5),('FR',-40,-50,73.5),('RL',65,50,73.5),('RR',65,-50,73.5)):
         add('MTA_'+code,select('MTA/'+code+'/'),new_center=(x,y,z))
     n=select('F_PI_new/');assert len(n)==1
     ry=np.array([[0,0,1],[0,1,0],[-1,0,0]])
-    add('F_PI',n,rotation=ry,new_center=(15,-43,-14))
+    add('F_PI',n,rotation=ry,new_center=(-98,-30,-13))
+    for role,prefix,rotation,centre in [
+        ('F0','F0_CP2/',None,(156,0,43.5)),
+        ('F_AUX','F_AUX_candidate_case/',rz,(143,0,-15)),
+        ('XT60','XT60_CP2/',None,(143,-35,20)),
+        ('POST_F0','PostF0Splice_CP2/',None,(143,-35,42)),
+        ('JPWM','JPWM/',None,(25,-44,50))]:
+        add(role,select(prefix),rotation=rotation,new_center=centre)
+    for code,x,y in [('W026',-60,30),('W041',-15,30),('W037',-60,-30),('W042',-15,-30),
+                     ('W045',30,30),('W044',75,30),('W053',30,-30),('W052',75,-30)]:
+        n=select(code+'_Joint/');assert len(n)==1
+        dims=np.array(records[n[0]]['bounds_mm'][1])-records[n[0]]['bounds_mm'][0]
+        order=np.argsort(dims);rotation=np.eye(3)[[order[2],order[0],order[1]]]
+        if np.linalg.det(rotation)<0:rotation[1]*=-1
+        add(code+'_Joint',n,rotation=rotation,new_center=(x,y,70.5))
     aliases=select('W1Ref_P_AUX_CP2/','W1Ref_G2_CP2/')
     cases=[]
     for n,r in surfaces.items():
@@ -114,7 +132,7 @@ def main():
     small=[item for item in cases if item[1].max()<35]
     assert len(large)==4 and len(small)==16
     slots=[(column,row) for row in (0,3,1,2) for column in range(5)]
-    large_slots=[(i,1) for i in range(4)]
+    large_slots=[(i,row) for row in (1,2) for i in (0,2)]
     small_slots=[slot for slot in slots if slot not in large_slots]
     for (n,dims),(col,row) in list(zip(large,large_slots))+list(zip(small,small_slots)):
         # Flat cases: largest -> X, middle -> Y, smallest -> Z.
@@ -123,9 +141,12 @@ def main():
         if np.linalg.det(rotation)<0:rotation[1]*=-1
         height=sorted(dims)[0]
         outer=row in (0,3)
-        xs=[-49,-14,21,56,91] if outer else [-59,-20,19,58,97]
-        y=[-45,-15,15,45][row]
-        base=-25 if outer else -43.5
+        xs=[-50,-15,20,55,90] if outer else [-46.5,-12,22.5,57,88]
+        # All lower-bank tails depart toward+Y. A mirrored low+Y rail would
+        # cross their first9mm before any bend. Move that WHOLE rail above
+        # the low tails, outside the inner receiving row; ports face inward.
+        y=[-50,-38,38,67][row]
+        base=(-43.5 if row==0 else 2) if outer else -17
         add('WAGO:'+records[n]['label'].split('/')[0],[n],rotation=rotation,
             new_center=(xs[col],y,base+height/2))
     # Bounding overlaps are only candidates for exact checks, never collisions.
@@ -143,17 +164,23 @@ def main():
         source_sha256={},
         geometry_source_sha256=motion['source_sha256'],
         reference_substitutions={yaw_name:replacement},
-        head_drop_mm=80,head_yaw_axis_mm=[-152,-5.25,-55],head_pitch_axis_mm=[-194,0,81],
+        superseded_wire_insulation_not_rigid_modules=select('XP01/','XP02_source/','XP03_source/','XP02_module_','XP03_module_'),
+        superseded_insulation_basis='build_current_pwm_fixture.py/build_e2_tail_insulation.py: wraps of obsolete routed leads, not connector bodies or board geometry. Must rebuild on complete newW4paths, never rigidly relocate as modules.',
+        head_drop_mm=90,head_yaw_axis_mm=[-152,-5.25,-65],head_pitch_axis_mm=[-194,0,71],
         head_new_root_mount_required=True,
         reservation_native_sha256=layout['native']['sha256'],
-        proposed_cross_section_exponent=PROFILE_EXPONENT,native_envelope_matches_this_proposal=True,
-        native_update_condition='Shared layer architecture includes both MTA exits and bottom ATO service; exact checks remain required.',
+        proposed_cross_section_exponent=PROFILE_EXPONENT,proposed_profile_family=PROFILE_FAMILY,
+        native_envelope_matches_this_proposal=layout['native'].get('profile_family')==PROFILE_FAMILY,
+        native_update_condition='Quarterturned whole bank, all8inlinejoins andsourcecases; actual prefixes/sideATOtool andlowerWAGO12mmservice mustpass before details.',
         main_world_z46_52_retained=True,
+        wago_entry_policy='Negative low rail outward; both inner rails inward; positive outer/high rail inward. Reconstruct exact source case entry faces before selecting rotations or routing.',
+        lower_negative_WAGO_service_drop_mm=12,
         complete_conductor_paths=False,connector_entry_direction_verified=False,
         operating_apertures_required=[dict(object='Ref_Material_current_S1_control_CP2_0_0',
-            scope='Only operating control face may enter the reserved2mm skin. Body remains inside; actual access opening/actuation/tool clearance still to build.')],
-        corridors=[dict(id='left',y_mm=18,z_mm=-13,x_mm=[-90,125],width_y_mm=30,height_z_mm=18),
-                   dict(id='right',y_mm=-18,z_mm=-13,x_mm=[-90,125],width_y_mm=30,height_z_mm=18)],
+            scope='Operating control face, actual cap/access still open and must keep totalwidth<=200.'),
+            dict(object='Ref_Material_S0_key_CP2_0_0',scope='Full shaft/key sweep and shaped service flap; local cover must stay within totalwidth200. Not a waiver for exposed electrical parts.')],
+        corridors=[dict(id='left',y_mm=12,z_mm=-12,x_mm=[-90,125],width_y_mm=20,height_z_mm=10),
+                   dict(id='right',y_mm=-12,z_mm=-12,x_mm=[-90,125],width_y_mm=20,height_z_mm=10)],
         corridor_basis='Provisional shared reservation; derive actual occupied conductor area/packing/bend transitions from selected W5 before selecting.',
         new_mounts_required=['Two lower removable WAGO rails, independent wire restraints',
             'Compact bank core mounts retaining12holders/24ends and ATO access',

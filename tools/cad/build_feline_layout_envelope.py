@@ -20,16 +20,27 @@ from matplotlib.collections import PolyCollection
 from check_main_p0_placement import ROOT, sha
 from plan_feline_layout import BASE, OUT, MODEL, transforms, apply, STAGES
 
-STATIONS = [(-141.5,72,100),(-112,142,140),(-65,196,158),
-            (10,180,158),(55,166,156),(112,188,156),(158,132,118),(183.5,40,64)]
+STATIONS = [(-141.5,100,158),(-112,196,158),(-65,196,158),
+            (10,180,158),(55,166,158),(112,188,158),(158,132,158),(183.5,40,100)]
 PROFILE_EXPONENT = 4.0
+PROFILE_FAMILY = 'rounded_p4_back_flat_R12_belly'
 
 
-def section_coefficients():
-    angles=(np.arange(16)+.5)*2*math.pi/16
-    cos=np.sign(np.cos(angles))*abs(np.cos(angles))**(2/PROFILE_EXPONENT)
-    sin=np.sign(np.sin(angles))*abs(np.sin(angles))**(2/PROFILE_EXPONENT)
-    return cos/abs(cos).max(),sin/abs(sin).max()
+def section_coefficients(width=196,height=158):
+    a=np.linspace(0,math.pi,9)
+    y=np.sign(np.cos(a))*abs(np.cos(a))**(2/PROFILE_EXPONENT)*width/2
+    z=abs(np.sin(a))**(2/PROFILE_EXPONENT)*height/2
+    radius=min(12,width/4,height/4)
+    points=list(zip(y,z));points.append((-width/2,-height/2+radius))
+    for angle in (210,240,270):
+        t=math.radians(angle)
+        points.append((-width/2+radius+radius*math.cos(t),-height/2+radius+radius*math.sin(t)))
+    points.append((width/2-radius,-height/2))
+    for angle in (300,330,360):
+        t=math.radians(angle)
+        points.append((width/2-radius+radius*math.cos(t),-height/2+radius+radius*math.sin(t)))
+    points=np.array(points)
+    return points[:,0]/(width/2),points[:,1]/(height/2)
 
 
 def build(center_z,pad_tip):
@@ -47,10 +58,10 @@ def build(center_z,pad_tip):
             body.addObject(sk)
             sk.Placement=A.Placement(A.Vector(x,0,center_z),A.Rotation(A.Vector(1,1,1),120))
             sk.setExpression('Placement.Base.z','Parameters.CenterZ')
-            cos,sin=section_coefficients()
+            cos,sin=section_coefficients(width,height);count=len(cos)
             points=[A.Vector(float(c*width/2),float(s*height/2),0) for c,s in zip(cos,sin)]
-            for i in range(16): sk.addGeometry(Part.LineSegment(points[i],points[(i+1)%16]),False)
-            for i in range(16): sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%16,1))
+            for i in range(count): sk.addGeometry(Part.LineSegment(points[i],points[(i+1)%count]),False)
+            for i in range(count): sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%count,1))
             for i,(c,s) in enumerate(zip(cos,sin)):
                 k=sk.addConstraint(Sketcher.Constraint('DistanceX',i,1,float(c*width/2)))
                 sk.setExpression(f'Constraints[{k}]',f'Parameters.Width * {c*width/392:.12g}')
@@ -84,6 +95,7 @@ def build(center_z,pad_tip):
             dimensions_mm=[shape.BoundBox.XLength,shape.BoundBox.YLength,shape.BoundBox.ZLength],
             center_z_mm=center_z,sections=STATIONS,fully_constrained_sketches=len(sections),
             cross_section_exponent=PROFILE_EXPONENT,
+            profile_family=PROFILE_FAMILY,
             solids=len(shape.Solids),valid=shape.isValid(),volume_mm3=volume,
             width_parameter_test_mm=[196,198,196],pad_tip_z_mm=pad_tip,
             readiness='concept',shell_wall_thickness_verified=False,printable_panels_built=False)
@@ -120,15 +132,15 @@ def render(meshes,report,index,filename):
         triangles=np.concatenate(polygons);d=np.concatenate(depth);c=np.concatenate(colors)
         order=np.argsort(d)
         ax.add_collection(PolyCollection(triangles[order],facecolors=c[order],edgecolors='none',rasterized=True))
-        cos,sin=section_coefficients()
-        cos=np.r_[cos,cos[0]];sin=np.r_[sin,sin[0]]
         for x,width,height in STATIONS:
-            world=np.column_stack((np.full(17,x),cos*width/2,
+            cos,sin=section_coefficients(width,height)
+            cos=np.r_[cos,cos[0]];sin=np.r_[sin,sin[0]]
+            world=np.column_stack((np.full(len(cos),x),cos*width/2,
                 report['envelope_center_z_mm']+sin*height/2-drop))
             projected=world@basis
             ax.plot(projected[:,0],projected[:,1],color='#147ba9',lw=.8,zorder=3)
         for k in (0,4,8,12):
-            world=np.array([[x,cos[k]*w/2,report['envelope_center_z_mm']+sin[k]*h/2-drop]
+            world=np.array([[x,section_coefficients(w,h)[0][k]*w/2,report['envelope_center_z_mm']+section_coefficients(w,h)[1][k]*h/2-drop]
                             for x,w,h in STATIONS])
             p=world@basis;ax.plot(p[:,0],p[:,1],color='#147ba9',lw=1,zorder=3)
         if title!='GÓRA':ax.axhline(report['ground_rest_z_mm'],color='#303438',lw=1)
@@ -166,7 +178,8 @@ def main():
             except EOFError:break
             meshes[name]=m
     report['envelope_center_z_mm']=center
-    views=[render(meshes,report,0,'standing-layout.png'),render(meshes,report,index,'lying-layout.png')]
+    import sys
+    views=[] if '--native-only' in sys.argv else [render(meshes,report,0,'standing-layout.png'),render(meshes,report,index,'lying-layout.png')]
     result=dict(status='COMMON_SPACE_CANDIDATE_NOT_SELECTED',selected=False,
         baseline_tag='phase1-open-prototype-100-2026-10-17',reference='hardware/reference/appearance/ola-cat-reference.jpg',
         source_sha256=report['source_sha256'],native=native,views=views,planning_pose_index=index,

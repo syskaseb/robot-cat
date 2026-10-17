@@ -13,6 +13,7 @@ from plan_feline_layout import BASE, OUT
 
 def owner(role,roles):
     base=role.split('.')[0]
+    if base in roles:return base
     if base.startswith('BAT'):return 'RetainedBattery'
     if base=='BUS':return 'BUS'
     if base.startswith('MAIN'):return 'MAIN'
