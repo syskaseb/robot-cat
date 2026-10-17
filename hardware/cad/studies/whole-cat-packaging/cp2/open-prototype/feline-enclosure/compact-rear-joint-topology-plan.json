@@ -1,0 +1,29 @@
+{
+  "status": "ALTERNATIVE_RECEIVING_TOPOLOGY_PLAN_NOT_SELECTED",
+  "selected": false,
+  "physical_pass": false,
+  "existing_issue": "W044/W052 compulsory9mm custom lands intersect full belly feet. Bend search cannot fix that invariant. Receiver native remains an incomplete candidate.",
+  "candidate": "Two separate same-face2conductor WAGO221-412 receivers instead of two opposed-exit221-2411. Preserve one independent splice per existing branch; do not merge feeds or infer higher electrical qualification.",
+  "catalogue_source": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-412",
+  "cad_catalogue_source": "https://wago-embedded.customer-domain.wago.com/3d-cad-models/221-412-splicing-connector-with-levers-for-all-conductor-types-max-4-mm-2-conductor-transparent-housing-surrounding-air-temperature-max-85-c-t85-wago?info=wago/pg07/serie221/0221-0412_0999-0962.prj",
+  "source_checked_utc": "2026-10-17T07:09:26Z",
+  "catalogue_identity_verified": {"BESTNR":"221-412","FILENAME":"221-412","width_mm":13.0,"depth_mm":18.3,"height_mm":8.15,"strip_mm":11},
+  "catalogue_dimensions_are_not_maximum_manufacturing_tolerances": true,
+  "reservation_only": {"depth_width_height_mm":[18.6,13.1,8.3],"is_project_budget_not_supplier_drawing":true},
+  "mouth_positions_and_port_pitch_verified": false,
+  "supplier_step_downloaded": false,
+  "mount_and_lever_qualification_complete": false,
+  "full_actual_material_motion_checked": false,
+  "prior_one_face_inward_bend_idea_not_accepted": "A custom tail bending inward can cross the same connector's neighbouring incoming factory lead. Allocate both tails together, not just opposite-pair separation.",
+  "layout_requirements_before_CAD": [
+    "Verify actual mouth plane, port separation and lever action from supplier CAD/drawing or preserve explicit fit gate.",
+    "Allocate four tails jointly:2factory paths and2custom9mm lands/bends/independent grips; include U1 under-board pins, belly feet, full36legposes, fixed distribution and floor/skin.",
+    "Nominal100mm usable MTA factory lead remains a project assumption; show complete guide and delivery margin, not a new manufacturer guarantee.",
+    "Preserve4MTA, two separate power branches and P0/E6. Replacement2connector stock entries remain candidates, no purchase.",
+    "Reject vertical/down proposals that consume the body floor margin or cross U1; do not silently reduce9mm grip orR12.4 assumptions.",
+    "Only after the joint plan passes actual material may native receivers, stock delta and complete wiring be selected."
+  ],
+  "purchases":0,
+  "native_files_changed":0,
+  "full_wiring_complete":false
+}
