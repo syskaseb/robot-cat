@@ -1,53 +1,10 @@
 {
-  "status": "SHARED_PARTS_REJECTED",
+  "status": "COMMON_PARTS_TWO_POSES_CLEAR_PREFIXES_WIRES_SKIN_OPEN",
   "selected": false,
   "physical_pass": false,
   "scope": "48rigid groups, known9mm+quarter-bend prefixes, twoleg poses and provisional sideATO/12mmrail service. No fullcables/skin/mounts/continuousmotion approval.",
-  "pairs": 76,
-  "contacts": [
-    {
-      "a": "Ref_Material_PWM968518BottomWasher_0_0",
-      "b": "Ref_Material_S0_body_CP2_0_0",
-      "scope": "rigid_groups",
-      "volume_mm3": 3.133181973909629,
-      "witness_bounds_mm": [
-        -101.075,
-        10.225000000000001,
-        95.7,
-        -96.575,
-        14.000000000000005,
-        96.0
-      ]
-    },
-    {
-      "a": "Ref_Material_PWM968518Nut_0_0",
-      "b": "Ref_Material_S0_body_CP2_0_0",
-      "scope": "rigid_groups",
-      "volume_mm3": 14.92566482068334,
-      "witness_bounds_mm": [
-        -101.13440107675851,
-        10.475000000000001,
-        94.10000000000001,
-        -96.5155989232415,
-        14.000000000000005,
-        95.70000000000002
-      ]
-    },
-    {
-      "a": "Ref_Material_PWM968518Screw_0_0",
-      "b": "Ref_Material_S0_body_CP2_0_0",
-      "scope": "rigid_groups",
-      "volume_mm3": 27.826354142119854,
-      "witness_bounds_mm": [
-        -99.825,
-        11.472557046438684,
-        92.6,
-        -97.825,
-        13.477442953561324,
-        102.12404143173363
-      ]
-    }
-  ],
+  "pairs": 0,
+  "contacts": [],
   "errors": [],
   "prefixes": [],
   "prefixes_open": [],
@@ -61,12 +18,23 @@
     "hardware/cad/studies/battery-p0/r4/chassis/BottomPlateP0.FCStd": "26a4ced1004557a7c18f0c60a9c307415790e4b588d5aee16906f25fb6de42c0",
     "hardware/cad/studies/battery-p0/r6/BatteryNutRetainerP0.FCStd": "f79d5ea25a6d867c408177c86ca63d6ff4919974d8cb827704b13ab39b1ace87",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineLayoutEnvelope.FCStd": "648f5d91ace4aa868254174bfc7bc2e3734f137919a2e6c748fa138886d57262",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-layout.json": "ad192dfca7cf3834619a1bc31563628bd262242dd20186d1c1880b79ca6449f4",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/module-layout.json": "0c7fbf9ef3fb6052ac3bdde9c775b564a3fe736c076083bb11b12cf259175555",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/remaining25-interface-allocation.json": "7849e5aed63dd1c08153dde1688c2fe1bb5351bb8eecd561ecea1b406e2862ca",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-current-end-coverage.json": "a391313389a85e6497ae7c3b0dd3febcdd8e5dbed37b247b0e96b629b70a6a47",
-    "tools/cad/check_feline_shared_space.py": "c69b651d0348b1d9c3c5ac889098e07de2681fda9136617c1434931c6a2263bd"
+    "tools/cad/check_feline_shared_space.py": "4318af313e14599135b9cfee9b9005d89c7ed90f3bd0103c7db5616c99963985"
   },
-  "worker_seconds": 65.719,
+  "unchanged_scope_reuse": {
+    "parent_commit": "309f823",
+    "parent_pairs": 76,
+    "changed_roles": [
+      "PWM9685"
+    ],
+    "unchanged_rigid_recipes_verified": 49,
+    "scope": "All unchanged material and twolegposes reused by exactsourcepins/poses/overrides. Parentpairtotal is not falsely called number ofreusedpairs.",
+    "parent_geometry_validation_reused": true,
+    "kinematic_JSON_values_identical": true
+  },
+  "worker_seconds": 25.922,
   "full_conductors_complete": false,
   "native_details_allowed": false,
   "remaining": "Unreconstructedprefixes/allW1W3W4/continuouslooms andlengths/newgriproots/skin/jointtravel"

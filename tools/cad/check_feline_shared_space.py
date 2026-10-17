@@ -6,6 +6,8 @@ be reported as a whole wiring or physical PASS. No CAD document is saved.
 import json
 import time
 import sys
+import subprocess
+import hashlib
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -17,10 +19,10 @@ from check_feline_leg_body import placement
 from plan_feline_endpoints import owner
 
 
-def tube_prefix(point,direction,radius,bend,R):
+def tube_prefix(point,direction,radius,bend,R,straight_mm=9):
     p=A.Vector(*point);d=A.Vector(*direction);d.normalize()
     b=A.Vector(*bend);b=b-d*b.dot(d);b.normalize()
-    q=p+d*9
+    q=p+d*straight_mm
     mid=q+d*(R/2**.5)+b*(R*(1-1/2**.5))
     end=q+d*R+b*R
     spine=Part.Wire([Part.makeLine(p,q),Part.Arc(q,mid,end).toShape()])
@@ -36,9 +38,34 @@ def main():
     parts_only='--parts-only' in sys.argv
     motion=json.loads((OUT/'motion-layout.json').read_text())
     groups={g['role']:g for g in plan['groups']};parts={};roles={};by_group={}
+    changed=None;parent=None
+    if '--reuse-git' in sys.argv:
+        commit=sys.argv[sys.argv.index('--reuse-git')+1]
+        def gitjson(relative):
+            raw=subprocess.run(['git','show',commit+':'+relative],cwd=ROOT,check=True,capture_output=True).stdout
+            return json.loads(raw)
+        parent=gitjson((OUT/'shared-parts-checks.json').relative_to(ROOT).as_posix())
+        oldplan=gitjson(planfile.relative_to(ROOT).as_posix())
+        assert parent['status']=='SHARED_PARTS_REJECTED' and not parent['errors'] and parts_only
+        oldgroups={g['role']:g for g in oldplan['groups']};assert set(oldgroups)==set(groups)
+        keys=('objects','rotation_rows','translation_mm')
+        changed={role for role in groups if any(groups[role][k]!=oldgroups[role][k] for k in keys)}
+        assert changed and plan['geometry_source_sha256']==oldplan['geometry_source_sha256']
+        for key in ('part_pose_overrides','reference_substitutions'):assert plan[key]==oldplan[key]
+        for n,h in parent['source_sha256'].items():
+            if n.endswith('.FCStd'):assert sha(ROOT/n)==h,n
+        oldmotion=subprocess.run(['git','show',commit+':'+(OUT/'motion-layout.json').relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
+        assert json.loads(oldmotion)==motion,'Kinematic data changed; do not reuse'
+        affected={n for role in changed for n in groups[role]['objects']}
+        assert all(c['a'] in affected or c['b'] in affected for c in parent['contacts'])
     report=dict(status='SHARED_SPACE_CHECK_RUNNING',selected=False,physical_pass=False,
         scope='48rigid groups, known9mm+quarter-bend prefixes, twoleg poses and provisional sideATO/12mmrail service. No fullcables/skin/mounts/continuousmotion approval.',
         pairs=0,contacts=[],errors=[],prefixes=[],prefixes_open=[],service_budgets=[],source_sha256={})
+    if parent is not None:report['unchanged_scope_reuse']=dict(parent_commit=commit,parent_pairs=parent['pairs'],
+        changed_roles=sorted(changed),unchanged_rigid_recipes_verified=len(groups)-len(changed),
+        scope='All unchanged material and twolegposes reused by exactsourcepins/poses/overrides. Parentpairtotal is not falsely called number ofreusedpairs.',
+        parent_geometry_validation_reused=True)
+    if parent is not None:report['unchanged_scope_reuse']['kinematic_JSON_values_identical']=True
     destination=OUT/('shared-parts-checks.json' if parts_only else 'shared-space-checks.json');cache={}
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
@@ -67,10 +94,12 @@ def main():
                 if not t.isIdentity():
                     if t.Rotation.isIdentity():s.translate(t.Base)
                     else:s.Placement=t*s.Placement
-            if not s.isValid() or not s.Solids:report['errors'].append(dict(object=n,error='Invalid/non-solid source'))
+            if (changed is None or role in changed) and (not s.isValid() or not s.Solids):
+                report['errors'].append(dict(object=n,error='Invalid/non-solid source'))
             parts[n]=s;roles[n]=role;by_group[role][n]=s
     print('Saved physical parts loaded',len(parts),flush=True);save()
     for a,b in plan['potential_group_pairs_NOT_collisions']:
+        if changed is not None and not changed.intersection((a,b)):continue
         for an,aa in by_group[a].items():
             for bn,bs in by_group[b].items():check(an,aa,bn,bs,'rigid_groups')
     print('Common groups',report['pairs'],'contacts',len(report['contacts']),flush=True);save()
@@ -132,6 +161,7 @@ def main():
                 for n in ns:
                     s=retained[n].copy();s.Placement=tf[stage]*s.Placement;current[n]=s
         for an,a in {**parts,**prefixes}.items():
+            if changed is not None and roles.get(an) not in changed:continue
             for bn,b in current.items():check(an,a,bn,b,f'retained_pose{index}')
         print('Pose',index,'pairs',report['pairs'],'contacts',len(report['contacts']),flush=True);save()
     # Provisional tool grip on distal6mm of each ATO, followed by60mm withdrawal.

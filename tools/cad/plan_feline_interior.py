@@ -126,7 +126,7 @@ def main():
     add('Pi4',select('Pi4'),delta=(0,0,50.38))
     add('BUS',select('BUSsupplier'),delta=(0,0,42))
     add('MAIN',select('MAIN/','MAIN_','Power/MAIN'),delta=(0,-23,50))
-    add('PWM9685',select('PWM9685'),delta=(-63,22,21.28))
+    add('PWM9685',select('PWM9685'),delta=(-63,28,21.28))
     add('PWM1608_U1',select('PWM1608','U1_'),delta=(-80,2,-107.75))
     add('AUX4092',select('AUX4092'),delta=(-115,6,-91))
     # Full TE ends span71.43mm in Z, not just the28.5mm casing.
