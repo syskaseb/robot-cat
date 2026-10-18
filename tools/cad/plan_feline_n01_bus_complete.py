@@ -29,8 +29,9 @@ def bb(s):
     b=s.BoundBox;return [[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();rooted='--rooted-branches' in sys.argv
-    dest=OUT/('n01-bus-both-plugs-plan-r2.json' if rooted else 'n01-bus-both-plugs-plan.json')
+    tick=time.monotonic();reader=SavedShapes();dogleg='--outside-cable-arm' in sys.argv
+    rooted=dogleg or '--rooted-branches' in sys.argv
+    dest=OUT/('n01-bus-both-plugs-plan-r3.json' if dogleg else 'n01-bus-both-plugs-plan-r2.json' if rooted else 'n01-bus-both-plugs-plan.json')
     assert not dest.exists(),'Receive previous result; no unchanged rerun'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json','current-mount-axis-inventory.json')]
@@ -165,12 +166,25 @@ def main():
         # Short flat branch from the retained full structural9wire arm,
         # not a1.4mm wire pilot and not a long bar through the rear frame.
         start=np.array([105,-36,64]);end=np.array([p[0]+6.27,p[1],p[2]+4.5])
-        delta=end-start;normal=np.array([-delta[1],delta[0],0]);normal/=np.linalg.norm(normal)
-        sections=[]
-        for v in (start,end):
-            vs=[A.Vector(*(v+normal*a+np.array([0,0,b]))) for a,b in ((-3,-1.5),(3,-1.5),(3,1.5),(-3,1.5))]
-            sections.append(Part.makePolygon(vs+[vs[0]]))
-        beam=Part.makeLoft(sections,True,True);assert beam.isValid() and len(beam.Solids)==1
+        def flatbeam(a,b,width):
+            delta=b-a;normal=np.array([-delta[1],delta[0],0]);normal/=np.linalg.norm(normal)
+            sections=[]
+            for v in (a,b):
+                vs=[A.Vector(*(v+normal*aa+np.array([0,0,bb]))) for aa,bb in
+                    ((-width/2,-1.5),(width/2,-1.5),(width/2,1.5),(-width/2,1.5))]
+                sections.append(Part.makePolygon(vs+[vs[0]]))
+            return Part.makeLoft(sections,True,True)
+        if dogleg:
+            q1=np.array([135.5,-60,58]);q2=np.array([135.5,p[1],p[2]+4.5])
+            end=np.array([p[0]+3.9,p[1],p[2]+4.5])
+            beam=flatbeam(start,q1,6).fuse(flatbeam(q1,q2,4)).fuse(flatbeam(q2,end,4))
+            for q,w in ((q1,6),(q2,4)):
+                beam=beam.fuse(Part.makeBox(w,w,3,A.Vector(*(q-[w/2,w/2,1.5]))))
+            beam=beam.removeSplitter()
+            report['USB_outside_arm_path_mm']=[v.tolist() for v in (start,q1,q2,end)]
+            report['USB_outside_arm_cause']='After2rooting rejections, route around the COMPLETE cable via2outer knuckles; no direct diagonal through its final tangent cylinder. USB pose/path unchanged.'
+        else:beam=flatbeam(start,end,6)
+        assert beam.isValid() and len(beam.Solids)==1
         roots['USB_DiagonalArm']=beam
         parent=Part.makeBox(6,30,3,A.Vector(102,-50,62.5))
         for row in backbone['allocations']:
@@ -207,6 +221,13 @@ def main():
             reason='Identical exact vendor source/pose and routes. All prior hits are only root reservations changed below.',
             actual_mating_still_provisional=True)
         report['source_sha256'][priorpath.relative_to(ROOT).as_posix()]=sha(priorpath)
+        if dogleg:
+            priorrootpath=OUT/'n01-bus-both-plugs-plan-r2.json';pr=json.loads(priorrootpath.read_text())
+            assert not pr['contacts'] and not pr['errors'] and len(pr['reservation_overlaps'])==1
+            hit=pr['reservation_overlaps'][0];assert hit['a']=='USB_DiagonalArm' and hit['b']=='USB_CableFirst'
+            report['source_sha256'][priorrootpath.relative_to(ROOT).as_posix()]=sha(priorrootpath)
+            report['unchanged_root_scope_reused']=dict(report=priorrootpath.relative_to(ROOT).as_posix(),sha256=sha(priorrootpath),
+                only_changed='USB_DiagonalArm replaced by outside dogleg; all other roots, plugs and prefixes identical')
     save()
     for n,s in ({} if rooted else {**bus,**wires}).items():
         for bn,b in scene.items():
@@ -216,6 +237,7 @@ def main():
     for n,s in {**reserves,**roots}.items():
         if n.startswith('InheritedRearPost'):continue # unchanged scoped R4 proof
         if rooted and n in reserves:continue # received unchanged plug/relief footprints
+        if dogleg and n!='USB_DiagonalArm':continue # received all other exact root checks
         for bn,b in scene.items():
             if n.startswith('BUS_Standoff') and roles.get(bn)=='BUS':continue
             if n=='H5MatingReserve' and roles.get(bn)=='BUS':continue
