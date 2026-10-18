@@ -23,8 +23,9 @@ from check_feline_leg_body import placement
 
 
 def main():
-    ordered='--ordered-return-loops' in sys.argv
-    tick=time.monotonic();reader=SavedShapes();dest=OUT/('n01-full-lower-bay-plan-r2.json' if ordered else 'n01-full-lower-bay-plan.json')
+    relieved='--relieved-supports' in sys.argv
+    ordered=relieved or '--ordered-return-loops' in sys.argv
+    tick=time.monotonic();reader=SavedShapes();dest=OUT/('n01-full-lower-bay-plan-r3.json' if relieved else 'n01-full-lower-bay-plan-r2.json' if ordered else 'n01-full-lower-bay-plan.json')
     assert not dest.exists(),'Receive existing complete/partial result first'
     paths={k:OUT/n for k,n in dict(scene='n01-full-material-scene.json',
         modules='n01-module-plan-r5.json',rear='n01-shared-preflight-r5.json',
@@ -68,6 +69,13 @@ def main():
         report['changed_cause']='All purchased lower modules cleared retained805scene. Two opposing factory return fans crossed; allocate COMPLETE fore dip-and-return below rearfan with5.5mm plane separation, both factory ends and24full straps/heads before next motion. Cases stay at-34; no scalar case-Z trial.'
         report['ordered_factory_crossing_budget_mm']=dict(wire_R=2.1,required_wire_gap=1.25,plane_separation=5.5,nominal_gap=1.3,first_and_last_lands=9.25,interplane_straight=2)
         report['tie_budget_not_catalogue']=dict(head_mm=[4,4,3],loop_strip_mm=[2.5,.8],delivered_fit_gate=True)
+    prior=None
+    if relieved:
+        priorpath=OUT/'n01-full-lower-bay-plan-r2.json';prior=json.loads(priorpath.read_text())
+        assert not prior['contacts'] and len(prior['reservation_contacts'])==8 and not prior['errors']
+        report['source_sha256'][priorpath.relative_to(ROOT).as_posix()]=sha(priorpath)
+        report['changed_cause']='R2 complete actual source/return paths clear. Preserve every case/curve/seat; direct heads outboard away from source bodies and allocate TWO full-depth open fan channels across the panel ribs, not a thin blind floor. Original M2bearing roots retained.'
+        report['support_relief_basis_mm']=dict(wire_radius=2.1,gap=1.25,tool_radius=3.35,through_depth=True,thin_channel_floor=False)
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -181,7 +189,7 @@ def main():
             inner=box([x-1.5,y-4.4,z-5.4],[x+1.5,y+4.4,z+2.4]);loop=outer.cut(inner)
             assert loop.isValid() and len(loop.Solids)==1
             new[name]=loop;kind[name]='tie_reservation';owner[name]='Tie:'+r['name']
-            sign=(1 if y>0 else -1)*(1 if abs(y)<25 else -1)
+            sign=(1 if y>0 else -1)*(1 if relieved or abs(y)<25 else -1)
             ya,yb=sorted((y+sign*4.9,y+sign*8.9));hn='TieHead:'+r['name']
             new[hn]=box([x-2,ya,z-1.5],[x+2,yb,z+1.5]);kind[hn]='tie_reservation';owner[hn]=owner[name]
             report['tie_loops_and_heads'].append(dict(loop=name,head=hn,wire=r['wire'],project_dimensions_only=True))
@@ -200,10 +208,31 @@ def main():
             for ya,yb in ((-40,-26.5),(26.5,40)):
                 aa,bb=max(lo,a),min(hi,b)
                 if bb>aa:s=s.fuse(box([aa,ya,-44.3],[bb,yb,-42]))
+        if relieved:
+            # Conservative, dimensioned THROUGH channels for the whole dip/
+            # fan/rise, not only a witness-sized nick in each rib. Both sides
+            # leave a continuous23.3mm central spine and intact M2roots.
+            for r in factory:
+                if r['wire'] not in ('W041','W042'):continue
+                spans=r['parts'][1:-1];points=[c[k] for c in spans for k in ('start','end')]
+                xmin=min(q[0] for q in points)-3.35;xmax=max(q[0] for q in points)+3.35
+                ymin=min(q[1] for q in points)-3.35;ymax=max(q[1] for q in points)+3.35
+                s=s.cut(box([xmin,ymin,-45],[xmax,ymax,-36.15]))
         s=s.removeSplitter();assert s.isValid() and len(s.Solids)==1
         n='LowerBay:'+label;new[n]=s;kind[n]='frame_reservation';owner[n]=label
     bounds={n:s.BoundBox for n,s in {**fixed,**new}.items()}
     valid={n:s.isValid() and bool(s.Solids) for n,s in {**fixed,**new}.items()}
+    changed=set(new)
+    if relieved:
+        previous={r['name']:r for r in prior['parts']}
+        changed={n for n in new if n.startswith(('TieHead:','LowerBay:'))}
+        assert set(previous)==set(new)
+        for n in set(new)-changed:
+            b=bounds[n];bb=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
+            assert np.max(np.abs(np.array(bb)-previous[n]['bounds_mm']))<1e-5,n
+            assert abs(new[n].Volume-previous[n]['volume_mm3'])<1e-4,n
+        assert report['factory_routes']==prior['factory_routes']
+        report['unchanged_static_reused']=dict(source=priorpath.relative_to(ROOT).as_posix(),sha256=sha(priorpath),changed_parts=sorted(changed),unchanged_parts=len(new)-len(changed),matched_bounds_volumes_and_full_factory_recipes=True)
     def check(n,s,m,t,pose=None):
         gate();b=t.BoundBox if pose is not None else bounds[m]
         if not bounds[n].intersect(b):return
@@ -222,11 +251,13 @@ def main():
     try:
         save()
         for n,s in new.items():
+            if n not in changed:continue
             for m,t in fixed.items():
                 if fixedrows[m]['role'].startswith('leg:'):continue
                 check(n,s,m,t)
         for i,(n,s) in enumerate(new.items()):
             for m,t in list(new.items())[i+1:]:
+                if n not in changed and m not in changed:continue
                 if kind[n].endswith('reservation') and kind[m].endswith('reservation') and owner[n]==owner[m]:continue
                 if kind[n]=='actual_wire' and owner.get(m) in owner[n] or kind[m]=='actual_wire' and owner.get(n) in owner[m]:continue
                 check(n,s,m,t)
