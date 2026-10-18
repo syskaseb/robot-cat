@@ -1,0 +1,93 @@
+{
+  "native": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/central-cassette-envelope/FelineLayoutEnvelope.FCStd",
+  "sha256": "70b6d563701e7a4fbaaddff9c7fb62103aee75a53a5153eb3f2f27dad8987bdf",
+  "dimensions_mm": [
+    325.0000000000002,
+    196.00000000000017,
+    160.00000000000017
+  ],
+  "center_z_mm": 32,
+  "sections": [
+    [
+      -141.5,
+      100,
+      160
+    ],
+    [
+      -112,
+      196,
+      160
+    ],
+    [
+      -65,
+      196,
+      160
+    ],
+    [
+      10,
+      180,
+      160
+    ],
+    [
+      55,
+      166,
+      160
+    ],
+    [
+      112,
+      188,
+      160
+    ],
+    [
+      158,
+      132,
+      160
+    ],
+    [
+      183.5,
+      40,
+      100
+    ]
+  ],
+  "fully_constrained_sketches": 8,
+  "cross_section_exponent": 4.0,
+  "profile_family": "rounded_p4_back_flat_R12_belly",
+  "solids": 1,
+  "valid": true,
+  "volume_mm3": 8398468.061935399,
+  "width_parameter_test_mm": [
+    196,
+    198,
+    196
+  ],
+  "pad_tip_z_mm": -73.52734883626302,
+  "readiness": "concept",
+  "shell_wall_thickness_verified": false,
+  "printable_panels_built": false,
+  "fresh_reopen": true,
+  "actual_bounds_mm": [
+    [
+      -141.50000000000003,
+      -98.00000000000007,
+      -48.00000000000006
+    ],
+    [
+      183.5000000000002,
+      98.00000000000006,
+      112.00000000000006
+    ]
+  ],
+  "status": "NATIVE_FLAT_BELLY_PLANNING_VOLUME_NOT_SKIN_OR_SELECTED",
+  "selected": false,
+  "physical_pass": false,
+  "old_source_preserved_sha256": "648f5d91ace4aa868254174bfc7bc2e3734f137919a2e6c748fa138886d57262",
+  "worker_seconds": 9.562,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineLayoutEnvelope.FCStd": "648f5d91ace4aa868254174bfc7bc2e3734f137919a2e6c748fa138886d57262",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c",
+    "tools/cad/build_feline_layout_envelope.py": "b67d5360e7c83fbdbdc6987e8d72882aec2734b9e40c1fa4a1b78f3ded96a55e",
+    "tools/cad/build_feline_central_cassette_envelope.py": "cb80316172cfe9a388a7d192e19b0c675d7fbdce63c4b2ce6357ff573cee49d1"
+  },
+  "reason": "Old saved envelope is158high/p4belly and differs from current160high/flatR12 design recipe. Use one explicit candidate, do not silently treat unsaved recipe as native geometry.",
+  "full_skin_mounts_motion_and_appearance_open": true
+}
