@@ -43,12 +43,13 @@ def shared_rail_bounds():
                       [127,60 if side>0 else -54,37.7]]) for side in (-1,1)]
 
 
-def build(station,family,side,departure,centre_x=0):
+def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='OUTWARD_CONCENTRIC'):
     pitch,depth,height=station['flat_dimensions_pitch_departure_thickness_mm']
     source=station['source_part_record'];volume=pitch*depth*height
     assert source['valid'] and source['solids']==1 and abs(source['volume_mm3']-volume)<1e-5
     assert family in station['row_families'] and side in (-1,1) and departure in (-1,1)
     if station['fixed_identity_pose']:
+        assert centre_y_mm is None and bend_mode=='OUTWARD_CONCENTRIC'
         centre=np.array(station['source_world_centre_mm']);side=1;departure=-1
         # Current P_SYS pitch points-Y and departure-X; keep all original
         # coordinates, not the other rows' source-centre recipe.
@@ -58,10 +59,17 @@ def build(station,family,side,departure,centre_x=0):
         rmax=max(p['radius_mm'] for p in station['ports'])
         z=min(52-1.25-rmax-2-1.2,52-1.25-height/2) if family=='outer' else 48.5
         centre=np.array([centre_x,side*(62.5 if family=='outer' else 19.5),z])
+        if centre_y_mm is not None:
+            assert family=='inner' and abs(centre_y_mm)<=19.5
+            centre[1]=centre_y_mm
         h=float(np.cross(station['source_pitch_axis'],station['source_departure_axis'])[2])
         assert abs(abs(h)-1)<1e-7
         pitchsign=int(-h*departure) # Preserve source+Z/leverUP, including +Y mouths.
     d=np.array([departure,0,0.]);b=np.array([0,0,1.]) if family=='outer' else np.array([0,side,0.])
+    assert bend_mode in ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL')
+    if bend_mode!='OUTWARD_CONCENTRIC':
+        assert family=='inner'
+        b=np.array([0,0,1.]) if bend_mode=='UP_PARALLEL' else np.array([0,-side/2**.5,1/2**.5])
     commonR=station['shared_fan_R_mm'];first=9
     activeYs=[(centre[1]+pitchsign*p['local_pitch_departure_thickness_mm'][0],
                max(12.4,p['minimum_project_R_mm'])) for p in station['ports'] if not p['protected_whole_route_reuse']]
@@ -90,7 +98,7 @@ def build(station,family,side,departure,centre_x=0):
                 point_mm=q.tolist(),departure_axis=d.tolist(),grip_length_mm=9,
                 source_straight_length_mm=source['parts'][-1]['length_mm'],not_new_wire_geometry=True))
             continue
-        R=commonY-side*q[1] if family=='inner' else commonR
+        R=commonY-side*q[1] if family=='inner' and bend_mode=='OUTWARD_CONCENTRIC' else commonR
         assert R>=port['minimum_project_R_mm']-1e-7
         a=q+d*first;angles=np.linspace(0,math.pi/2,math.ceil(R*math.pi/2)+1)
         arc=a+R*np.sin(angles)[:,None]*d+R*(1-np.cos(angles))[:,None]*b
@@ -145,8 +153,9 @@ def build(station,family,side,departure,centre_x=0):
     bounds=np.array([(p-rr[:,None]).min(0),(p+rr[:,None]).max(0)])
     return dict(ref=station['ref'],family=family,side=side,departure_X=departure,centre_mm=centre.tolist(),
         fixed_identity=station['fixed_identity_pose'],pitch_Y_sign=pitchsign,
+        centre_y_override_mm=centre_y_mm,bend_mode=bend_mode,
         source_lever_UP_preserved_from_actual_handedness=True,first_mm=first,
-        R_mm=max(w['R_mm'] for w in wires),inner_concentric_full_fan=(family=='inner'),
+        R_mm=max(w['R_mm'] for w in wires),inner_concentric_full_fan=(family=='inner' and bend_mode=='OUTWARD_CONCENTRIC'),
         points=p,radii=rr,types=tt,bounds=bounds,boxes=boxes,wires=wires,reused_jacket_lands=reused,
         frame_family='STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS',
         tie_wrap_rectangular_upper_bound_mm=2*((ymax-ymin)+(cap[1,2]-cap[0,2]))+10,
