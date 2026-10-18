@@ -2,6 +2,191 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+15:37:45Z, aktualnyNEXT i wynik30m56 tejkontynuacji (nieczasCPU):
+38468/PID21484 odebranyexit0/62,657s. Forecase'y odrzucone przez
+AUX409221washer/screw iS1ring, mimo0base-static/0base-outer przełożonych
+stacji. To kolejne ręczne zajęcie już obsadzonej przestrzeni — NIE
+powtarzać trzeciej przedniej wysokości ani kolejnego bocznegooffsetu.
+NEXT: globalna automatyczna mapa miejsc na CAŁE51x20,25x22case'y,
+wszystkie orientacje osiowe, z rzeczywistym aktualnym materiałem,
+obrysem i zachowaną36poseunion. Z istniejącego cache wznowić statyczne
+chmury tylko dla zmienionych stacji/typedprefixów/cutMAIN; usunąć stare
+ODRZUCONE3FHAC/Monitor ze sceny-kandydackiej, nie wybrane części.
+Warstwy nominalne i konserwatywne osobno, bbox/kernel to capacity,
+nie kontakt. Potem exactBRep najlepszych wspólnych domen z OBUogonami.
+Jeśli WAGO zamyka domenę, ich pozycji-kandydatów nie zamrażać jak zakupów:
+planować wspólnie, nie przesuwać samegoFHAC. Nie startowaćnativeN03.
+Nie ponawiać niezmienionej bazy stacji: ostatni planner niestety
+powtórzył te same statyczne pary w dwóch makrach; to nie nowy postęp.
+Sprawdzone własne commity:69c6af6d/d297914c/7b5c983d/d9e02c9f/
+0d3115d4/c1e954eb. Suma wall6workerów576,424s, nieczasCPU; reszta
+kontynuacji to kod/analiza/odbiór. Okno6h39m44 od08:58:01.
+0/10, historyczne20/20 dokumentacji osobno. Braknative/selected/physicalPASS.
+Hookenabled do20:00Z/22Warszawa; ordinarytrue,21%użyte/79%pozostałe,
+bezresetu/maila/zakupów/modelchange. Nie ma już żadnego własnegoworkera.
+Następny capacity-checkpoint orientacyjnie30-60min, niska pewność;
+nie estymacjaN01/10% ani obietnica ukończenia całości w tym czasie.
+
+Odbiór świadkamotion1,266s/1para/0błędów: rzeczywistyBRepHYcase ma
+gap0 z P0_Part__Feature116/0/0, FrontRight/Knee, poza28/36.
+Nie jest to tylko zbieżność voxel; dodatniej objętości nie zadeklarowano.
+Po2niepowodzeniach bocznej lokalizacji zmiana CAŁEJ strefy zasilania:
+3FHACw przedniej przestrzeni podS0, NIE stara zdejmowana kaseta.
+Centra(-117,0,-20/4/28), rot(1,1,1)120:51wzdłużY,20,25wysokośćZ,
+22wzdłużX. Stackpitch24=>3,75gapcase; top38,125<S0bottom49,5.
+Oba sourcefactorymouth mają Xcase-1=-118. First9/R12,4/after14 daje
+factory55,478mm z3wewnątrzcase, bez przedłużenia; sleeve20/lap8/gripy
+9..18 zachowane. HYb+Z, HP/TYb(+0,5X,-sqrt3/2 Z), aby nie pokryć
+dwóch pionowych ogonów. CałegripymaxX-95,8 przedP0front-85,458.
+To jeden wyprowadzony układ całych6ogonów+case+montażowejstrefy,
+nie seria lokalnychoffsetów. Bramka actualsourceworld/obrys/36motion
+screen/CSPmutual, rootmount/ATO/tools/USB/full123 nadalOPEN; żadnegoN01.
+Stacje z0static/0outer z0d3115d4 zachowane, nie ponawiać niezmienionych
+par bez celu. Wynikokna nadal0/10; do15:29:41 okno6h31m40 od08:58:01,
+nie ciągłyczasCPU. Ta kontynuacja22m52 od15:06:49. Limit20/80 bezresetu.
+
+62154/PID22656 odebranyexit0/63,063s: przełożone stacje mają0static
+braków/0actualouter. TrzydedykowaneFHAC nadalodrzucone:HYcase przez
+konserwatywny36posevoxel, HPcase przez dolnyD_RR,TYcase przez dolnyD_RL.
+Nie planować ponownie TYLKO górnej kolejki — tecase'y zajmują OBA piętra.
+0d3115d4 zabezpiecza cały wynik, bez punktuN01. Przed następną geometrią
+odbiorca znajdzie NAZWANĄczęść/pozycję z ownercache i porówna rzeczywisty
+BRep z HYcase; conservativevoxel0,047 nie jest dowodem kontaktu.
+90s/12świadkówmax, koniec przy rzeczywistym nominalnymgapfail, bez native.
+
+31530/PID6532 odebranyexit0/159,609s:0basebraków materiału,
+13outerholdów (9bbox całych łuków nie dowodzą rzeczywistego protrusion,
+4P_REARafter ma3,0..3,1mm vs3,25). Dokładne różnice szablonówFHAC
+0/0mm3 i oba localmouth/direction równe; reuse rzeczywiście zadziałał,
+nie utrata elektrycznych tożsamości.1012wierszy to332unikalne geometrie
+FHAC powtórzone tożsamościami+16Monitor, nie1012obudów. ZnówbrakFHAC.
+Przyczyna: pionowy caseZ32/top57,5 wchodzi w bankbed52..55/housing55..83,
+nawet przy osi w luce. NIE uruchamiać kolejnej domeny samych małychoffsetów.
+JEDENdedykowanyukład: caseFHY(-24,-62,25),FHP(12,62,25),FTY(48,-62,25),
+top50,5 podbed52. PoRy-90 faktyczne mouthX=caseX+1, więc osie-23/13/49
+w naturalnych lukach banku. Upperfirst36 =>turnstartZ86,5 ponadbank83
+z r2+gap1,25, potemR12,4/after14 i pełny sleeve20/customlap8/grip9..18.
+UpperbendswzdłużX: HY/HP-X,TY+X; Lowerfirst21/R12,4 i diagonalny
+X/inwardY od omijanych złączy4MTA. Blankupper72,478/lower57,478<=100
+PROJEKTOWYCHmm, dostawa nadalbramka. Nie dodano żadnego złącza.
+Zarezerwować te3CAŁEbay'e w układzie stacji: negupper-108/-48/0/104/144,
+odejścia-/-/+/-/-; posupper-64/-16/36/76/132,odejścia-/-/+/+/-.
+G_TAIL/P_REAR-X iinwardY; forecolumn-108 spełnia wyprowadzony lowerbound
+-109,75 z rzeczywistej przedniej ściany-141,5+3,25+11+3+12,4+2,1.
+To zmiana właścicielstwa całych wnęk i obu długich zakończeń, nie próba
+z samego bboxcase. Bramka: actualouter dlałuków (bez bboxodrzucenia),
+staticworld/material/wires/motionmesh/root/toolholds; brak native/punktu.
+
+N01, bramka wyższych wnęk: dolne domeny zapisane7b5c983d nie zostaną
+ponowione. Planter --upper-side-domain bada wspólne wnęki NAD/BOKIEM
+banku (caseZ0/24/48/64) z oboma pełnymi ogonami i5płaszczyznami łuków,
+plus osie między obudowami banku wyliczone z ich24mm pitch, nie losowe
+mikroprzesunięcia. G_TAIL/P_REAR zachowują-110case, ale wracają na
+odejście-X i zakrętDOŚRODKA+Y; D_FR72/FR_G128 przywraca wymagany56pitch.
+Zachowana reguła jacket-jacket0,2mm, materiał1,25mm, obrys3,25mm;
+klasyfikacja wire nie używa substringu"wire" dlaF_PIcase.
+Trzy szablonyFHAC można współdzielić w zapytaniach tylko po isValid,
+obustronnym cutVolume<1e-8 i równych OBUlocalmouth/direction, bez
+łączenia tożsamości elektrycznych/portów. To ogranicza powtarzanie
+tej samej geometrii3razy. 240s/save/resume, bez rozpoczęcia native.
+
+92029/PID18376 odebranyexit0/182,391s:244stanów domeny,3FHAC
+bezkandydata/Monitor6kandydatów, brak wspólnego przydziału. Dolna
+topologia koliduje z ruchem36próbek/podporami4MTA; bbox odrzucenia
+były jawnie konserwatywne, nie dowód rzeczywistej kolizji. Nowe stacje
+mają0problemówobrysu,20brakówdystansu:4G_TAIL/PWM i16powtórzeń
+tej samej przyczynyD_FR/FR_G (paryprofil+grip), nie20nowych części.
+Ta próba używała1,25mm także sleeve/jacket vsjacket; to konserwatywne,
+nie zmiana wybranego nominalnego gap0,2. Nie uznać samych odrzuceń
+za niemożliwość całego układu ani ponawiać dolnej domeny bez zmiany.
+Zmiana przyczyny przed kolejną próbą: oba przednie wachlarze kierować
+DOŚRODKA przedniej wolnej części, nie w stronęPWM/poza loft; przeciwnie
+skierowaneD_FR/FR_G potrzebują pitch>=2*(9,5+3+12,4)+3,1+0,2=53,1mm,
+zatem zachować56mm. DomenaFHACnad/bokiem banku, a nie pod nogami;
+wykorzystać geometryczną równoważność tylko po dokładnym dowodzie
+różnicy brył i obu localdatums. Nie mnożyć3razy tej samej obudowy.
+Świat/obrys/pełne ends nadal wymagane, stan0/10. NEXT stanowi ten wspólny
+plan, nie kolejna trasaUSB lub przypadkowy offset płytki.
+
+N01, następna wspólna przyczyna: pionoweFHAC przyY83,5 nie mieszczą
+się w rzeczywistym zmiennym obrysie; D_FL/G_TAIL/P_REAR mają razem
+konfliktyS1/PWM/zwężenia. Jeden plan przekłada oba przednie słupki na
+X-110/odejście+X, całą dodatnią górną kolejkę naX-64/-16/32/80/128,
+oraz alokuje JEDNOCZEŚNIE3pełnepakietyFHAC+Monitor. Domena boczna
+dolna/horizontalX porównana z interstitialverticalZ w tym samymCSP,
+nie osobne ręczne offsety. Wszystkie oba factory9/R12,4/after14,
+sleeve20/lap8/custom9..18 są razem. 240s/zapis/wznowienie tylko
+brakujących, brak zgodyN01/mocowań z samych domen.4MTA/P0 bez zmian.
+Przywrócenie RetainedMAINCutForeCap wymaga isValid/solid/dowodu subset
+wcześniejszej wyciętej belki; nie jest jej zamianą na pełnybox.
+Akceptacja checkpointu: cała wspólna domena i rzeczywiste brakujące
+prześwity/obrys, osobne zachowane bramki materiału/krzywych/ruchu;
+żadnego punktu za same liczniki prób. Root/tool/USB/full123 nadalOPEN.
+
+49174/PID24204 odebranyexit0/107,438s:165dokładnych par,0błędów,
+18nominalnych braków prześwitu materiału/19rezerwacji/16problemówobrysu,
+0wykrytych par wire-wire w zmienionym zakresie. NIE zero kolizji całości.
+TrzyFHAC w układzie pionowymY83,5 wychodzą poza zmienną szerokość
+rzeczywistego loftu. D_FL/case i port5 przecinająS1; G_TAIL przecina
+osprzętPWM. G_TAIL/P_REAR chwyty wchodzą w zwężenieprzodu. Monitor
+ma0,472mmdoobrysu. PCAjacket vswłasnyPCB ma0,51/1mm: osobnejawne
+bramki izolacji/matingu, nie automatycznie powód przenoszenia płytki.
+Sześć własnych połączeńfactory/caseFHAC nie zostało odebrane przez
+kolejność seen-pair (case przedwire); pozostająOPEN, niePASS. RuchOPEN.
+NEXT: jeden wspólny układ bocznych modułów/stacji z pełnymi obuogonami,
+a nie kolejne izolowaneUSB. Sprawdzić obecność istniejącej recepty
+RetainedMAINCutForeCap w overlayREV3 przed ruszaniemPi — źródłoR2miało
+ją jako subset belki, a builderREV3 importował tylko grupęPiCoupled.
+69c6af6d zabezpiecza krzywe odrzucone i86portów, bez punktówN01.
+
+N01, bramka przed następnymCAD: REV3 nie miał kompletnej kontroli
+wszystkich zmienionych zakończeń względem świata; poprzednie106par
+dotyczyłyREV2. Pełny kontrakt86portów daje82recepty nominalne,
+4nieznane zachowują2,1mm;45odziedziczonych nominalnych recept nie są
+gwarancjąOD i pozostają oznaczone.4testy0,031s. Nie zmieniono części.
+Kontrola: całyREV3/Pi/PWM/19WAGO/3FHAC+gripy vs prawdziwe bryły,
+pełnyF_PWM/lokalnehead-tail iobrys, inverse-validBUS. Cel: pełna mapa
+rzeczywistych nominalnych konfliktów, nie kolejna próba pojedynczegoUSB.
+180s limit/zapis ukończonych par. Bbox tylko broadphase;5jawnych belek
+realloc osobnoHOLD, żadnej zgody na wiszący bank/missingloadpath.
+Ruch, pełne middles, narzędzia i korzenie nadalOPEN; kontrola nie dajeN01.
+
+15:06:17Z: odebrano20632/exit0/26,672s. Wszystkie3 zapisane krzywe
+USB odrzucone również przez twarde ograniczenia; brak dowodu niemożliwości.
+Nie kontynuować izolowanych próbUSB. NEXT: wspólna kwalifikacja wszystkich
+aktualnych zakończeń/chwytówREV3, z rozróżnieniem nominalnych promieni
+źródłowych i konserwatywnych rezerwacji, następnie jedna korekta całego
+układu na podstawie pełnej mapy konfliktów. N01 nadalOPEN/0z10.
+Do pierwszych10% pozostają cały wspólny układ, USB, zakończenia, korzenie
+mocowań oraz dostęp/montaż/ruch; brak wiarygodnej krótkiej ETA.
+Limit20%użyte/80%pozostałe, bez resetu. Hookaktywny do20:00Z.
+
+7492/PID15408 odebrany28,422s/14stanów numerycznych, exit0. Żaden
+nie spełnia R30/długości/całego pola; nie uruchomiono CADreceive/native.
+Miękki least-squares wymieniał zbyt ciasne łuki na długość (najlepszy
+koszt472,36 miałR20,406 i452,671mm, niedostateczne odległości). Nie
+zaliczać wyniku ani obniżać R dla zielonego testu. Teraz odbiór zapisanych
+stanów z TWARDYMI nierównościamiR30,15/prześwitu oraz równością długości;
+3różne wejścia,32s/seed i115s limit, bez nowego układu/pozycji komponentu.
+Powtórna numeryczna optymalizacja nie jest powtarzaniem odrzuconych CADpar.
+
+Karta producenta Lanberg potwierdza wybrany kabel50cm, nie dostarcza
+w niej promienia ani wymiaru płaszcza. R30/OD5 pozostają jawnymi danymi
+projektowymi, nie gwarancją producenta. Nie zmieniono ich aniSKU.
+Źródło: https://lanberg.eu/product/download-file/6270/Product%20card%20%25language%25
+
+N01, aktualne działanie po80f838f3: gładka krzywaC2 z mapy, oba tangent
+joiny po9mm chwytach, pełne452mm i R>=30. Zachowano reprezentanta każdej
+z7×7par końców, nie tylko30najtańszych. Minimum promienia na KAŻDYM
+odcinku sześciennym liczone z pierwiastków wielomianu stacjonarnego
+krzywizny pluskońce, nie wyłącznie129próbek.4testy0,032s potwierdzają
+parabolę z maksimum wewnętrznym, skalowanie/obrót, prostą i odrzucenie
+cusp(speed0). To narzędzie numeryczne, nie formalny dowód interwałowy.
+Fitter limit14s/seed i215s całości; zapisuje najlepszy stan. Akceptacja
+tego kroku tylko numeryczna prekwalifikacja: długość, R, tangent i pole.
+Potem wymagany PEŁNY rzeczywisty sourceBRep/obrys (także oba prefiksy),
+nie native/brakN01point. Pi/BUS/wybrane części nie przesuwane.
+
 Checkpoint80f838f3: kod/źródłowe recepty/kompaktowe pola/odbiór mapy
 zapisane lokalnie, bez innych zmian użytkownika.51/7/5pinów trzech
 aktualnych wejść sprawdzone,6nowych testów0,071s. Rawcache322MB pozostaje
