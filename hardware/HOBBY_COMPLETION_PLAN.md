@@ -1,5 +1,199 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Aktywne okno 6h,18.10.2026
+
+09:48:37Z około50min37s okna, N01nadal0/10, hookON.
+Odebrano36pozycji64części w144,328s:1040par,263rzeczywiste kontakty
+WYŁĄCZNIE FRjoint/W037/W042/custom z nogami;17części poza starym
+obrysem. Pi/szkielet zachowane. Błąd finalnego zapisu sha(str) poprawiony
+z odebranych36zapisów bez ponownego CAD; commit48d0fe40.
+Przyczyna zmieniona: całe4gałęzie obrócone wzdłużX, dwie warstwy
+pod baterią, po2gałęzie/warstwę; 24niezależne9mm chwyty i dwie półki
+z czterema rootami na rzeczywistych podporach brzucha planowane razem.
+Odebrano18,75s/59par:0kontaktów kupnych/przewodów,0błędów. Nie
+przenosić tej statyki na ruch.15styków rezerwacji chwytów z końcami
+korpusów oraz5rezerwacji podpór poza obrysem, więc brak akceptacji.
+Commitd1579227. Fabryczne proste20,75mm pozwalają2x9mm chwyty z
+zapasem0,25 od korpusów i2,25 pomiędzy, bez zmiany przewodów/położeń.
+Nie ratować pojedynczych śrub. Stary zapisanyTorsoEnvelope ma158mm
+i zaokrąglony dół, a aktualny planprofilu160mm/flatR12 jest inną
+geometrią. Powstaje jawna nowa kopia obrysu (session48983), bez
+nadpisania historii i bez poszerzania boków ponad196/limit200mm.
+Wspólny ruch, roots/śruby/narzędzia/reszta wiązki pozostają otwarte.
+
+09:42:05Z odczyt8%użyte/92%pozostałe. Zamrożony probe64brył
+odebrany27,328s,0niepoprawnych źródeł; nie jest natywnym eksportem.
+Kontrola obrysu/36pozycji uruchomiona jako session22166, bez duplikatu.
+Pozytywna statyka odzyskana z2fa89c0e, nie ponawiana. Kolejny wspólny
+plan dolnej podpory4MTA musi objąć cztery rzeczywiste podpory brzucha,
+drogi obciążenia i niezależne chwyty, nie samą pustą płytę. Nowy zakres
+wciąż0/10; historyczne100% bez zmian. HookON do14:58:01Z.
+
+09:35:24Z odebrano pełną zewnętrzną szynę26,25s:0kontaktów/
+0rezerwacji/0błędów; poprzednie zamknięte pary odzyskane, nie powtarzane.
+Nowe pozytywne styki z forepost i obiema poprzeczkami zachowane.
+To pierwszy wspólny STATYCZNY wynik toruPi/8końców/4MTA/8pełnych
+fabrycznych odcinków/8customkońców i zmienionego szkieletu, nieN01.
+Teraz jeden przypiętyBRep probe TYCH zmienionych części, nie druk/natywne
+mocowania: umożliwi prawdziwy obrys i36przyjętych pozycji bez przebudowy
+ani ponawiania statyki. BUS pozostaje odebrany osobno w tym samym układzie,
+ze swoim jawnym błędem poobrotowym supplier25 i konserwatywnym obrysem.
+N01 dalej0/10; pełne MTAchwyty/roots/narzędzia/montaż/korytarze reszty
+wiązek oraz źródłohead/tail poza80nadal nie są kwalifikowane.
+
+09:33:13Z8%użyte/92%pozostałe,35min12s okna. R4odebrany30,25s/41par:
+0kontaktów rzeczywistych części/przewodów,0błędów; jedno zgłoszenie
+rezerwacji: CAŁALowerRail0/obrysMountFrontR poY−37,8 (11,52mm3).
+Wszystkie6skorygowanych końców oraz cały portal odciążenia przeszły.
+Nie powtarzać innych korpusów/trzech tras/pozostałego szkieletu.
+Następny wyłącznie pełna szyna z maxY−39,5 wyprowadzonym z faktycznego
+MountFrontR.Ymin−37,8 i zapasu1,25 (otrzymany gap1,7); zachowane
+pozytywne styki z postem i dwiema poprzeczkami. Bez cięciaP0 lub
+przesuwania przewodów. Po odebraniu tego wyniku prawdziwy obrys i ruch
+całego ZMIENIONEGO zestawu, nie ponowna statyka. N01 nadal0/10.
+
+09:29:51Z8%użyte/92%pozostałe, około32min okna. R3odebrany31s/63par:
+korpusy i3pełne trasy nie mają fizycznych kontaktów z kupnymi częściami.
+W079prefix był błędnie transformowany dwa razy przez aliasend_mm/
+parts[-1].end: to błąd własnego generatora, nie dowód złego projektu.
+Nowy test kontroluje WSZYSTKIE6prefiksów względem8tożsamości i12/9mm.
+Nie ponawiać dobrych przypadkówW043/W077/W078/korpusów; tylko nowe6końców
+i cały zmieniony szkielet. Ujemna dolna szyna przechodzi naY−40 z pełnymi
+poprzeczkami do starych wolnych zacisków; tylni krótki odcinek zachowuje
+rootNineWireArmRR. Usunięty poprzeczny mostek przezstopęP0, nie P0.
+Górna ujemna szyna ma JEDEN portal19,1x8,6 na CAŁE4żyłowe odciążenie,
+z boczną ścianką>=2,7mm i nominalnym zapasem1,25; nie cztery mikrowycięcia.
+Pozostałe11zgłoszeńR3 są budżetami podpór (w tym duplikaty par), nie
+11kolizjami rzeczywistych kupnych części. N01 nadal0/10, bez native/PASS.
+
+R2odebrany32,063s/39par. Surowy licznik11kontaktów mylnie obejmuje
+10przecięć REZERWACJI szkieletu; rzeczywista kupna przeszkoda to jedno
+W078/TE-IN_R1. Pozostałe2to również rezerwacje klipu/sleeve ze słupkiem.
+Nie poprawiać przewodów dla arbitralnego szkieletu: to zmienna planu.
+Po dwóch odrzuceniach centralnego układu nowa przyczyna: cały przedni
+ujemny słupek przeniesiony za montażP0 z dwoma poprzeczkami do zachowanej
+szyny i wolnych zacisków, ujemnyUpperStrip obniżony z85..88 na81,3..84,3,
+z pełnymi przedłużeniami korzeniPi i banku. Zachowane położeniaF_PI/P_SYS
+i prefuse. W077ma większą prostą przed powrotem, kandydat75+8,35=83,35
+<=84,5; pełny donor przechodzi LEWĄ stroną faktycznegoTE_IN_R1
+x−33,1181..−22,8819, z MAINplane91/4końcami wynikającymi z TEtop74,1943,
+12mm land i JPWMtop86. Bez zmianyJPWM/wybranych części/nowego lutu.
+Warunek: CAŁY zmieniony szkielet z aktualnymi częściami i przewodami,
+nie tylko uwolniona ostatnia para. Klasyfikacja kolejnych rezerwacji jawna.
+
+09:23:44Z:8%użyte/92%pozostałe. Pierwszy centralny tor31,937s/29par,
+8kontaktów/0rezerwacji/0błędów, commit6e822023. Część założeń wymiarowych
+nie była wystarczająca: rzeczywisty pakiet zaczyna sięX−26,25, przednie
+zawiasy zajmują niższą zatokęP_SYS, kabel bankuW031 przecina górny dawca.
+Następny pełny układ odwraca obie stronyF_PI: wejście krótko w stronę
+środka doP_SYS NAD baterią/ramą, wyjście przez ukośny R12,5 z oboma25mm
+domenami lutowania. Oba9mm chwyty POZA20mm sleeve łączy most po stronie
+wewnętrznej, nie pełny prostokąt przez istniejąceMountFront. MAIN ponad
+bankiem z4wyjściami w dół; JPWM BEZ zmiany, nie otwieramy kolejnej gałęzi.
+Kandydaci50/70/80mm, raw po odcięciu końca58,35/78,35mm <=84,5mm.
+1K1474 zachowany. Wszystkie8końców, sleeve, pełne chwyty i8fabrycznych
+MTA razem przed wyborem; po drugim odrzuceniu tej przyczyny nie robić
+kolejnych offsetów. Bbox podejrzenia nadal nie jest kolizją rzeczywistą.
+
+Po odbiorze31195: całe4MTA/8fabrycznych tras/8zewnętrznych custom końców
+przechodzą statykę0kontaktów/0rezerwacji/0błędów. Commit1869f892.
+Ten sam sztywny szablon toruPi nie dał konserwatywnej komórki; to nie
+dowód niemożliwości. NIE ponawiać gęstszej siatki. N01 nadal0/10.
+Zmiana przyczyny: cały tor rozmieszczony od RAMY, nie sztywnej tacki:
+P_SYS pionowo poniżejS0 (wszystkie4obsadzone komory), F_PI wzdłużX
+nad baterią obok jej przedniej krawędzi, lut/chwyty poniżej banku,
+MAINodwróconyRy180 międzyJPWM/Pi/PWM z4pełnymi12mm wyjściami w dół.
+Nowe receptury45/60/115mm; rzeczywiste krzywe30/57,274/103,108mm,
+W043+12mmstrip=42mm, maksusunięcie fabrycznego końca8,35 uwzględnione.
+Te same części i1K1474; red115+225 z1000, black280+225 z1000.
+P_SYS5/MAINVIN pozostałe końce transformowane wspólnie RAZ; nie nowy
+pinout. Akceptacja przed CAD: całe3krzywe/8końców/pełne wspólne chwyty,
+wszystkie24prefiksy banku i przyjęte4MTA razem, prawdziwy obrys i ruch.
+Tylko zmienione interfejsy; nie ponawiać dobrych statyk gałęziMTA.
+
+09:10:20Z odebrano kolumny26,359s/8par:6kontaktów,0rezerwacji/błędów.
+FL/RL i wszystkie8proste fabryczne przewody bez wzajemnych skrzyżowań;
+blokują tylko2całe gałęzie: FRz częściami nogi116/118, RRzBellyFoot3/4.
+Korekta wspólnego przydziału przenosi CAŁE3korpusowe gałęzieFR naX−32
+iRR naX90, z oboma fabrycznymi odcinkami, nie pojedynczy kabel/śrubę.
+Dodano przed wyborem również8zewnętrznych9mm końców custom tych złączy,
+z konserwatywnymØ4,2. Nie powtarzać starego nominalnegoBUS jako przeszkody:
+scena ma bieżąceBUSr3/oba wtyki. Przyjęcie dopiero całość+odciążenia/ruch.
+
+09:07:01Z limit7%użyte/93%pozostałe. Druga wspólna górna warstwa
+26,437s/27par:10kontaktów/5rezerwacji/0błędów, commit685fd689.
+Nie ponawiać zmianZ ani wachlarzy FL/RL: kolidują z prefiksami banku,
+S0, korzeniamiBUS i wzajemnie. Następna zmiana TOPOLOGII: cztery całe
+gałęzieMTA+2złącza w osobnych kolumnach osiY, środkix−95/−45/65/118,
+Z−34; MTA wY0, oba złączaY±56, osie wszystkich12korpusów obrócone90Z.
+Osiem prostych fabrycznych odcinków20,75mm ma oba9mm chwyty bez
+krzyżujących się wachlarzy;100mm użyteczne nadal założenie dostawy.
+Zachowane wszystkie części i stary szkieletR4 (bez niepotrzebnego
+odsuwania szyn). Najpierw pełne korpusy/końce/przewody wobec ramy,
+podpór brzucha i banku. Tylko przy wspólnym przejściu sprawdzić miejsce
+CAŁEGO toruPi z8obsadzonymi końcami. Bez detali i częściowych punktów.
+
+09:05:24Z odebrano wspólną zatokę15,093s/30par:15kontaktów części,
+4konflikty rezerwacji,0błędów. Przerwano PRZED szukaniemPi. Commit
+odrzucenia zachowuje4MTA/8pełnych tras z długościami20,75..92,11mm,
+nie wybór. Przyczyna: rzeczywiste belki ramy/ścianki boczne doZ37,02
+i przecinające się dwa wachlarze, nie brak mocy CAD. Następny JEDEN
+układ ustala wspólną płaszczyznę korpusówZ49 (spód41) i przednie
+złącza wyjśćY±47/Z45, tylne wewnętrzneY±28/Z49. Wszystkie8złączy
+wyznaczane od ich aktualnego środka, nie dawnego offsetu. AktualnyBUSr3
+z oboma wtykami zastępuje dawny przesuniętyBUS w tej scenie. Usuwana
+wyłącznie rezerwacja starego klipu lutowania, który należy do przebudowy
+CAŁEGO toruPi; oryginalne części/kupne elementy zachowane.
+Akceptacja nadal wszystkie zmienione korpusy/trasy/wsporniki razem;
+po drugim odrzuceniu tej architektury nie kontynuować zmianZ/offsetów.
+
+NEXT N01: pojedyncza wspólna propozycja przenosi4MTA ORAZ8złączy
+fabrycznych nad baterię, doZ37,5; oba wyjścia/R12,4/9mm/limity100mm
+liczone razem. Dolna zatoka zwalniana dla CAŁEGO toruPi z8końcami,
+nie kolejny offset oprawki. Dolne szyny planowane poY±35 zamiast±20;
+pełne korytarze/wspornikiR4 jako jawne rezerwacje, nie gotowyPETG.
+Najpierw wszystkie zmienione korpusy i8całych tras wobec części,
+banku i rezerwacji; znany konflikt zatrzymuje poszukiwanie toruPi.
+Po dwóch odrzuceniach tej architektury wymagana zmiana przyczyny.
+Bez natywnej budowy i wyboru; pełne narzędzia/stock/mocowania otwarte.
+
+09:02:27Z:7%użyte/93%pozostałe. BUS odebrany75,375s,36przyjętych
+pozycji rozdzielonych obwiedniami/0parBOP/0kontaktów i0wyjść obrysu
+pozostałych części; pojedynczy cachedBUSsupplier25 ma nieprawidłowyBRep.
+Nie uznawać błędu za kolizję ani zielony wynik. HistorycznyMODEL tego
+samego supplier25 był poprawny; następna kontrola dotyczy WYŁĄCZNIE
+odzyskania identycznego źródła/pozycji i obrysu tej części, bez ponawiania
+36nóg/statyki. Warunek=poprawne źródło ze zgodnymi bounds/volume albo
+jawnie konserwatywna rezerwacja tylko do planowania, bez zatwierdzeniaBRep.
+7testów pełnego toruPi w0,038s; poprawiono wyłącznie nazwy mas w teście
+na faktyczneMAIN.GND/MAIN.GND_OUT, bez zmiany receptur i pinoutu.
+
+Zgoda użytkownika: „Oki to dawaj6h”. Start08:58:01Z/10:58:01Warszawy,
+deadline14:58:01Z/16:58:01Warszawy, bez przedłużenia i dodatkowego progu2pp.
+Odczyt konta08:58:01Z:6%użyte/94%pozostałe, zwykła praca dozwolona,
+bez resetu/zakupów. Hookenabled=true, oknofeline-layout-20261018-six-hours.
+Nowy zakresN01-N10 nadal0/10=0%; historyczna dokumentacja20/20 osobno.
+Poprzedni ograniczony blok N01 nie jest już aktywną zgodą ani deadline.
+
+Kolejność: odbiór istniejącegoBUSr3, jego prawdziwy obrys i36przyjętych
+pozycji tylko zmienionych interfejsów; następnie JEDEN wspólny układ całego
+toruPi (8obsadzonych końców) z4MTA/8fabrycznymi stronami, mocowaniami,
+odciążeniami, narzędziami i obrysem. Bez ponawianiaF_PI-only siatki.
+Po akceptacjiN01 jedna geometria natywna i kolejneN02-N10; nie budować
+detali przed wspólnym planem. Co30-60min zapisać wynik/procent/czas;
+lokalny checkpoint nie zamyka tego okna. Model ustawiony przez użytkownika,
+bez zmiany ustawień. Bez maila/schedule/power/zakupów/resetów/pushów.
+
+Odebrano session23086: BUSr3 13,469s/5dokładnychpar/0kontaktów/
+0konfliktów rezerwacji/0błędów. Statyka wspólnego zewnętrznego ramienia
+USB przyjęta WYŁĄCZNIE w tym zakresie; brak pełnego kablaUSB/PiA,
+obrysu/ruchu/narzędzi. N01 i natywnyCAD bez zaliczenia/zmiany.
+Przed kolejną kosztowną kontrolą: blokadaN01=niekwalifikowany obrys/ruch
+całegoBUS; interfejsy=BUS/nominalneH5/USB/odciążenia/korzenie i nogi.
+Akceptacja=brak kontaktów z poprawnymi bryłami w przyjętych36pozycjach
+oraz zmieszczenie całych części w prawdziwymTorsoEnvelope; to nadal
+nie kwalifikuje ścian2mm ani pełnej wiązki.
+
 ## Aktywny blok N01,18.10.2026
 
 Zgoda: wdrożyć wyłącznie wspólny plan N01, bez szczegółowej budowyN02/N03.
