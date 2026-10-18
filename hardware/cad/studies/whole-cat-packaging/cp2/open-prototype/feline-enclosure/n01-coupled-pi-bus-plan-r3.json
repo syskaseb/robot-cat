@@ -1,0 +1,712 @@
+{
+  "status": "ANALYTIC_CANDIDATE_NOT_SELECTED",
+  "selected": false,
+  "N01_complete": false,
+  "native_changed": false,
+  "physical_pass": false,
+  "relative_to": "common-backbone-r4, R5 rear bay and flat-bank-r2",
+  "shifts_mm": {
+    "BUS": [
+      41,
+      0,
+      -18
+    ]
+  },
+  "F_PI": {
+    "centre_mm": [
+      -100,
+      -30,
+      -33.5
+    ],
+    "rotation_relative_current": [
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "old_centre_mm": [
+      -141.99999389648437,
+      0,
+      -32
+    ],
+    "input_mm": [
+      -100,
+      -4.5,
+      -33.5
+    ],
+    "output_mm": [
+      -100,
+      -55.5,
+      -33.5
+    ]
+  },
+  "splice": {
+    "centre_mm": [
+      -117.10672382427447,
+      -38.5,
+      -39.099999999999994
+    ],
+    "tip16_mm": [
+      -117.10672382427447,
+      -34.5,
+      -39.099999999999994
+    ],
+    "tip18_mm": [
+      -117.10672382427447,
+      -42.5,
+      -39.099999999999994
+    ],
+    "axis": [
+      0,
+      1,
+      0
+    ],
+    "sleeve_blank_mm": 20,
+    "sleeve_y_mm": [
+      -48.5,
+      -28.5
+    ],
+    "bare_overlap_y_mm": [
+      -42.5,
+      -34.5
+    ],
+    "jacket_grip16_y_mm": [
+      -59.5,
+      -50.5
+    ],
+    "jacket_grip18_y_mm": [
+      -26.5,
+      -17.5
+    ],
+    "outer_project_OD_mm": 4.2,
+    "clip_reservation_mm": [
+      [
+        -121.20672382427446,
+        -59.5,
+        -43.199999999999996
+      ],
+      [
+        -113.00672382427447,
+        -17.5,
+        -34.99999999999999
+      ]
+    ],
+    "grips_outside_sleeve": true,
+    "grip_clear_gap_each_mm": 2,
+    "additional_splice_or_connector": false
+  },
+  "routes": [
+    {
+      "wire": "W043",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -100,
+            -4.5,
+            -33.5
+          ],
+          "end": [
+            -100,
+            -1.5,
+            -33.5
+          ],
+          "length_mm": 3
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -100,
+            -1.5,
+            -33.5
+          ],
+          "mid": [
+            -98.24264068711929,
+            2.7426406871192848,
+            -33.5
+          ],
+          "end": [
+            -94,
+            4.5,
+            -33.5
+          ],
+          "radius_mm": 6,
+          "length_mm": 9.42477796076938
+        },
+        {
+          "kind": "line",
+          "start": [
+            -94,
+            4.5,
+            -33.5
+          ],
+          "end": [
+            -84,
+            4.5,
+            -33.5
+          ],
+          "length_mm": 10
+        }
+      ],
+      "radius_mm": 1.7,
+      "length_mm": 22.42477796076938,
+      "end_mm": [
+        -84,
+        4.5,
+        -33.5
+      ],
+      "end_direction": [
+        1,
+        0,
+        0
+      ],
+      "strip_mm": 12,
+      "nominal_fit_blank_mm": 40,
+      "raw_required_mm": 34.424777960769376,
+      "selected_pre_fuse_limit_mm": 50,
+      "last_intact_grip_mm": [
+        [
+          -93,
+          4.5,
+          -33.5
+        ],
+        [
+          -84,
+          4.5,
+          -33.5
+        ]
+      ],
+      "initial3mm_after_molded_relief_is_project_assumption": true,
+      "factory_tip_removal_max_mm": 8.35
+    },
+    {
+      "wire": "W077",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -100,
+            -55.5,
+            -33.5
+          ],
+          "end": [
+            -100,
+            -59.5,
+            -33.5
+          ],
+          "length_mm": 4
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -100,
+            -59.5,
+            -33.5
+          ],
+          "mid": [
+            -102.50522170212226,
+            -65.86396103067892,
+            -34.32010101267767
+          ],
+          "end": [
+            -108.55336191213723,
+            -68.5,
+            -36.3
+          ],
+          "radius_mm": 9,
+          "length_mm": 14.137166941154069
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -108.55336191213723,
+            -68.5,
+            -36.3
+          ],
+          "mid": [
+            -114.60150212215221,
+            -65.86396103067892,
+            -38.27989898732233
+          ],
+          "end": [
+            -117.10672382427447,
+            -59.5,
+            -39.099999999999994
+          ],
+          "radius_mm": 9,
+          "length_mm": 14.137166941154069
+        },
+        {
+          "kind": "line",
+          "start": [
+            -117.10672382427447,
+            -59.5,
+            -39.099999999999994
+          ],
+          "end": [
+            -117.10672382427447,
+            -34.5,
+            -39.099999999999994
+          ],
+          "length_mm": 25
+        }
+      ],
+      "radius_mm": 1.7,
+      "length_mm": 57.27433388230814,
+      "end_mm": [
+        -117.10672382427447,
+        -34.5,
+        -39.099999999999994
+      ],
+      "end_direction": [
+        0,
+        1,
+        0
+      ],
+      "bare_overlap_included_mm": 8,
+      "factory_tip_removal_max_mm": 8.35,
+      "supplier_shortest_including_tip_mm": 84.5,
+      "source_draw_required_mm": 65.62433388230814,
+      "nominal_fit_blank_after_tip_removal_mm": 60,
+      "old_fit_blank_mm": 30
+    },
+    {
+      "wire": "W078",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -117.10672382427447,
+            -42.5,
+            -39.099999999999994
+          ],
+          "end": [
+            -117.10672382427447,
+            -17.5,
+            -39.099999999999994
+          ],
+          "length_mm": 25
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -117.10672382427447,
+            -17.5,
+            -39.099999999999994
+          ],
+          "mid": [
+            -117.10672382427447,
+            -9.651114728829324,
+            -35.84888527117067
+          ],
+          "end": [
+            -117.10672382427447,
+            -6.4,
+            -27.999999999999993
+          ],
+          "radius_mm": 11.1,
+          "length_mm": 17.43583922742335
+        },
+        {
+          "kind": "line",
+          "start": [
+            -117.10672382427447,
+            -6.4,
+            -27.999999999999993
+          ],
+          "end": [
+            -117.10672382427447,
+            -6.4,
+            -15.999999999999993
+          ],
+          "length_mm": 12
+        }
+      ],
+      "radius_mm": 1.05,
+      "length_mm": 54.43583922742335,
+      "end_mm": [
+        -117.10672382427447,
+        -6.4,
+        -15.999999999999993
+      ],
+      "end_direction": [
+        0,
+        0,
+        1
+      ],
+      "PCB_insertion_allowance_mm": 3,
+      "raw_required_mm": 57.43583922742335,
+      "selected_retained_limit_mm": 150,
+      "selected_fit_blank_mm": 140,
+      "proposed_fit_blank_mm": 65,
+      "old140mm_cut_not_selected_for_new_geometry": true,
+      "one_K1474_preserved": true
+    }
+  ],
+  "bounds_are_not_actual_contacts": true,
+  "full_other80net_routes": false,
+  "actual_tools_verified": false,
+  "nominal_plug_fit_verified": false,
+  "all_mounts_complete": false,
+  "length_authority": {
+    "current": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-nominal-material-selection.json",
+    "current_rows": {
+      "W043": {
+        "wire": "W043",
+        "portion": "factory",
+        "sku": "FHAC0001ZXJ supplied16AWG",
+        "physical_unit": "W043_factory",
+        "guide_mm": 36.62477796076938,
+        "termination_project_allowance_mm": 12,
+        "fit_trim_project_mm": 0,
+        "minimum_project_blank_mm": 48.62477796076938,
+        "nominal_fit_blank_mm": 50,
+        "retained_limit_mm": 50,
+        "actual_cut_mm": null
+      },
+      "W060": {
+        "wire": "W060",
+        "portion": "continuous",
+        "sku": "Joy-IT K-1474 retained18AWG",
+        "physical_unit": "W060_continuous",
+        "guide_mm": 258.0680894334619,
+        "termination_project_allowance_mm": 17,
+        "fit_trim_project_mm": 0,
+        "minimum_project_blank_mm": 275.0680894334619,
+        "nominal_fit_blank_mm": 280,
+        "retained_limit_mm": 300,
+        "actual_cut_mm": null
+      },
+      "W077": {
+        "wire": "W077",
+        "portion": "continuous",
+        "sku": "FHAC0001ZXJ supplied16AWG",
+        "physical_unit": "W077_continuous",
+        "guide_mm": 19.33577796076938,
+        "termination_project_allowance_mm": 8,
+        "fit_trim_project_mm": 0,
+        "minimum_project_blank_mm": 27.33577796076938,
+        "nominal_fit_blank_mm": 30,
+        "retained_limit_mm": 100,
+        "actual_cut_mm": null
+      },
+      "W078": {
+        "wire": "W078",
+        "portion": "continuous",
+        "sku": "Joy-IT K-1474 retained18AWG",
+        "physical_unit": "W078_continuous",
+        "guide_mm": 135.22855690969342,
+        "termination_project_allowance_mm": 3,
+        "fit_trim_project_mm": 0,
+        "minimum_project_blank_mm": 138.22855690969342,
+        "nominal_fit_blank_mm": 140,
+        "retained_limit_mm": 150,
+        "actual_cut_mm": null
+      },
+      "W079": {
+        "wire": "W079",
+        "portion": "continuous",
+        "sku": "Joy-IT K-1474 retained18AWG",
+        "physical_unit": "K1474_USB_FACTORY_PAIR",
+        "guide_mm": 182.19834201702102,
+        "termination_project_allowance_mm": 3,
+        "fit_trim_project_mm": 0,
+        "minimum_project_blank_mm": 185.19834201702102,
+        "nominal_fit_blank_mm": 190,
+        "retained_limit_mm": 250,
+        "actual_cut_mm": null
+      },
+      "W080": {
+        "wire": "W080",
+        "portion": "continuous",
+        "sku": "Joy-IT K-1474 retained18AWG",
+        "physical_unit": "K1474_USB_FACTORY_PAIR",
+        "guide_mm": 217.09102762856938,
+        "termination_project_allowance_mm": 3,
+        "fit_trim_project_mm": 0,
+        "minimum_project_blank_mm": 220.09102762856938,
+        "nominal_fit_blank_mm": 225,
+        "retained_limit_mm": 250,
+        "actual_cut_mm": null
+      }
+    },
+    "intermediate_210mm_card_is_not_latest_selection": true,
+    "pre_fuse50_and_red_donor150_limits_retained": true,
+    "requested_new_cut_lengths_are_candidate_only": true
+  },
+  "BUS": {
+    "ports": [
+      {
+        "role": "D",
+        "header_reference_mm": [
+          113.12703374279464,
+          -12.953784177304964,
+          80.22000356554196
+        ],
+        "nominal_exit_mm": [
+          113.12703374279464,
+          -12.953784177304964,
+          94.27000356554196
+        ],
+        "assumption_not_manufacturer_exit": true,
+        "first_bend_and_after_bend_grip": {
+          "wire": "BUS.D",
+          "parts": [
+            {
+              "kind": "arc",
+              "start": [
+                113.12703374279464,
+                -12.953784177304964,
+                94.27000356554196
+              ],
+              "mid": [
+                116.05596593092916,
+                -12.953784177304964,
+                101.34107137740743
+              ],
+              "end": [
+                123.12703374279464,
+                -12.953784177304964,
+                104.27000356554196
+              ],
+              "radius_mm": 10,
+              "length_mm": 15.707963267948966
+            },
+            {
+              "kind": "line",
+              "start": [
+                123.12703374279464,
+                -12.953784177304964,
+                104.27000356554196
+              ],
+              "end": [
+                132.12703374279465,
+                -12.953784177304964,
+                104.27000356554196
+              ],
+              "length_mm": 9
+            }
+          ],
+          "radius_mm": 1.55,
+          "length_mm": 24.707963267948966,
+          "end_mm": [
+            132.12703374279465,
+            -12.953784177304964,
+            104.27000356554196
+          ],
+          "end_direction": [
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "role": "G",
+        "header_reference_mm": [
+          113.12703286856687,
+          -7.953784177305039,
+          80.22000356554196
+        ],
+        "nominal_exit_mm": [
+          113.12703286856687,
+          -7.953784177305039,
+          94.27000356554196
+        ],
+        "assumption_not_manufacturer_exit": true,
+        "first_bend_and_after_bend_grip": {
+          "wire": "BUS.G",
+          "parts": [
+            {
+              "kind": "arc",
+              "start": [
+                113.12703286856687,
+                -7.953784177305039,
+                94.27000356554196
+              ],
+              "mid": [
+                116.0559650567014,
+                -7.953784177305039,
+                101.34107137740743
+              ],
+              "end": [
+                123.12703286856687,
+                -7.953784177305039,
+                104.27000356554196
+              ],
+              "radius_mm": 10,
+              "length_mm": 15.707963267948966
+            },
+            {
+              "kind": "line",
+              "start": [
+                123.12703286856687,
+                -7.953784177305039,
+                104.27000356554196
+              ],
+              "end": [
+                132.12703286856686,
+                -7.953784177305039,
+                104.27000356554196
+              ],
+              "length_mm": 9
+            }
+          ],
+          "radius_mm": 1.55,
+          "length_mm": 24.707963267948966,
+          "end_mm": [
+            132.12703286856686,
+            -7.953784177305039,
+            104.27000356554196
+          ],
+          "end_direction": [
+            1,
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "nominal_mating_reserve_mm": [
+      [
+        108.62703374279464,
+        -16.503784177304965,
+        79.22000356554196
+      ],
+      [
+        117.62703374279464,
+        -4.403784177305039,
+        94.27000356554196
+      ]
+    ],
+    "shared_two_lane_after_bend_grip_mm": [
+      [
+        123.12703374279464,
+        -16.503784177304965,
+        100.72000356554196
+      ],
+      [
+        132.12703374279465,
+        -4.403784177305039,
+        107.82000356554195
+      ]
+    ],
+    "shared_grip_is_not_two_overlapping_straps": true,
+    "main_inner_roof_mm": 109.6,
+    "grip_roof_box_margin_mm": 1.7799964344580417,
+    "old_nominal_offset14p05_is_delivery_gate": true,
+    "USB_mating_and_complete_DG_middle_open": true
+  },
+  "necessary_length_gate": {
+    "W043": true,
+    "W077": true,
+    "W078": true,
+    "exact_endpoint_match": true,
+    "full_geometry_and_tools_open": true,
+    "ready_for_changed_interface_screen": true
+  },
+  "stock_candidate": {
+    "K1474_units": 1,
+    "each_colour_available_mm": 1000,
+    "red_W078_candidate_mm": 65,
+    "black_W060_retained_candidate_mm": 280,
+    "USB_factory_pair_retained_draw_mm": 225,
+    "red_remaining_mm": 710,
+    "black_remaining_mm": 495,
+    "positive_path_candidate_mm": 165,
+    "positive_path_limit_mm": 300,
+    "other_routes_not_accepted": true,
+    "selected": false
+  },
+  "next": "Bounded whole-template conservative placement search over4upright yaw poses; only one candidate gets actual changed-interface screening. Proposed lower deck is not yet native; its plate/lever-window/support design remains OPEN.",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-complete-end-allocation.json": "35b83662ea8454395c2eddd25469a96dc2ce78f0c8b0ea43707e192b3dcc9367",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-nominal-material-selection.json": "16e3e840dd55431f2e5db6647d987f5d6fae13cb47f9adfb71459bbb8c201c08",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/BUS-port-binding.json": "de2c0a96372521032069ab176b83ae38b5a864f4176d803abd5b1312e51d0b89",
+    "hardware/reference/fhac0001zxj-2026-10-02/README.md": "a317471ff028b1ee1b2550769003619a7d061ce98244ce1e516e1a19bba21f2c",
+    "tools/cad/plan_feline_n01_coupled_pi_bus.py": "803be6e893dea505b44b74e7a7af1f88d293df094af883f29691f2a2e1852361",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-checks.json": "dc27688de31db55e829c1e8bec439539ef2237fcbc40d1a9d480527d5db9c1b1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-checks-r2.json": "bbef2c479108af67f8e64c3be57bee6c874f46e9e0e3a9ac23a2b9b0e87cc510"
+  },
+  "worker_seconds": 0.0146,
+  "updated_utc": "2026-10-18T08:09:40.630244+00:00",
+  "relative_poses": {
+    "MAIN": {
+      "rotation_rows": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "translation_mm": [
+        -78.92672382427446,
+        -8.110999999999999,
+        85.09479999999999
+      ]
+    },
+    "WAGO:P_SYS_new": {
+      "rotation_rows": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "translation_mm": [
+        -106.99999923706055,
+        38.0,
+        -41.49999389648437
+      ]
+    }
+  },
+  "changed_cause": "After2received rejections, complete rigid power-tray template, upside-down MAIN with short upward approach instead of U-loop through leg brackets. All cases/3full curves/sleeve/independent grips searched together against all actual saved neighbors. No third scalar coordinate trial.",
+  "assembly_gates": [
+    "P_SYS down-facing lever access needs a real window in the proposed lower deck; bench preparation does not prove access",
+    "MAIN and F_PI lower fore bay require shared rooted removable carrier, not skin support",
+    "All four other P_SYS ends and three other MAIN ends transformed together, full downstream routes open",
+    "Adopted36leg motion must qualify the new lower fore material before selection"
+  ],
+  "unchanged_BUS_reuse": {
+    "report": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-checks.json",
+    "sha256": "dc27688de31db55e829c1e8bec439539ef2237fcbc40d1a9d480527d5db9c1b1",
+    "scope": "No BUS-related actual or reservation hits in received trial. Same case pose, nominal mating allowance, both first bends and shared grip; not USB/full cable/actual plug approval."
+  },
+  "unit_template_groups": [
+    "F_PI",
+    "WAGO:P_SYS_new",
+    "MAIN"
+  ],
+  "unit_world_pose_pending": true
+}

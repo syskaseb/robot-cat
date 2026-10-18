@@ -209,9 +209,52 @@ def build_lower_fore():
     p.update(worker_seconds=round(time.monotonic()-tick,4),updated_utc=datetime.now(timezone.utc).isoformat())
     return p
 
+def build_flat_unit():
+    tick=time.monotonic();p=build_lower_fore()
+    # Architecture change after BOTH rejected layouts. Put the complete
+    # source unit below the battery: upside-down MAIN avoids the tall U-loop.
+    # All module poses and all3full paths now move as ONE rigid template.
+    dz=-5.6;R=9
+    bend=[-math.sqrt(1-(dz/(2*R))**2),0,dz/(2*R)]
+    r=Route(p['F_PI']['output_mm'],[0,-1,0]).line(4).turn(bend,R).turn([0,1,0],R).line(25)
+    out=r.record('W077',1.7);sx,sy,sz=out['end_mm'];cx=sx
+    out.update(bare_overlap_included_mm=8,factory_tip_removal_max_mm=8.35,
+        supplier_shortest_including_tip_mm=84.5,source_draw_required_mm=out['length_mm']+8.35,
+        nominal_fit_blank_after_tip_removal_mm=60,old_fit_blank_mm=30)
+    p['splice']=dict(centre_mm=[cx,sy-4,sz],tip16_mm=[cx,sy,sz],tip18_mm=[cx,sy-8,sz],
+        axis=[0,1,0],sleeve_blank_mm=20,sleeve_y_mm=[sy-14,sy+6],bare_overlap_y_mm=[sy-8,sy],
+        jacket_grip16_y_mm=[sy-25,sy-16],jacket_grip18_y_mm=[sy+8,sy+17],
+        outer_project_OD_mm=4.2,clip_reservation_mm=[[cx-4.1,sy-25,sz-4.1],[cx+4.1,sy+17,sz+4.1]],
+        grips_outside_sleeve=True,grip_clear_gap_each_mm=2,additional_splice_or_connector=False)
+    r=Route(p['splice']['tip18_mm'],[0,1,0]).line(25).turn([0,0,1],11.1).line(12)
+    donor=r.record('W078',1.05);vin=donor['end_mm']
+    donor.update(PCB_insertion_allowance_mm=3,raw_required_mm=donor['length_mm']+3,
+        selected_retained_limit_mm=150,selected_fit_blank_mm=140,proposed_fit_blank_mm=65,
+        old140mm_cut_not_selected_for_new_geometry=True,one_K1474_preserved=True)
+    ledger=json.loads((OUT/'n01-complete-end-allocation.json').read_text())
+    e=next(e for e in ledger['endpoints'] if e['role']=='MAIN.VIN')
+    rr=[[1,0,0],[0,-1,0],[0,0,-1]]
+    rot=[sum(a*b for a,b in zip(row,e['point_mm'])) for row in rr]
+    p['relative_poses']['MAIN']=dict(rotation_rows=rr,translation_mm=[b-a for a,b in zip(rot,vin)])
+    p['routes']=[p['routes'][0],out,donor]
+    p['unit_template_groups']=['F_PI','WAGO:P_SYS_new','MAIN']
+    p['unit_world_pose_pending']=True
+    p['changed_cause']='After2received rejections, complete rigid power-tray template, upside-down MAIN with short upward approach instead of U-loop through leg brackets. All cases/3full curves/sleeve/independent grips searched together against all actual saved neighbors. No third scalar coordinate trial.'
+    p['necessary_length_gate'].update(W077=out['length_mm']<=60 and 60+8.35<=84.5,
+        W078=donor['raw_required_mm']<=65<=150)
+    p['stock_candidate'].update(red_W078_candidate_mm=65,red_remaining_mm=710,
+        positive_path_candidate_mm=40+60+65)
+    p['next']='Bounded whole-template conservative placement search over4upright yaw poses; only one candidate gets actual changed-interface screening. Proposed lower deck is not yet native; its plate/lever-window/support design remains OPEN.'
+    previous=OUT/'n01-coupled-pi-bus-checks-r2.json'
+    p['source_sha256'][previous.relative_to(ROOT).as_posix()]=sha(previous)
+    p['source_sha256']['tools/cad/plan_feline_n01_coupled_pi_bus.py']=sha(Path(__file__))
+    p.update(worker_seconds=round(time.monotonic()-tick,4),updated_utc=datetime.now(timezone.utc).isoformat())
+    return p
+
 if __name__=='__main__':
     lower='--lower-fore' in sys.argv
-    dest=OUT/('n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json')
+    flat='--flat-unit' in sys.argv
+    dest=OUT/('n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json')
     assert not dest.exists(),'Receive existing result; do not repeat unchanged candidate'
-    p=build_lower_fore() if lower else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
+    p=build_flat_unit() if flat else build_lower_fore() if lower else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(status=p['status'],gate=p['necessary_length_gate'],seconds=p['worker_seconds'])))

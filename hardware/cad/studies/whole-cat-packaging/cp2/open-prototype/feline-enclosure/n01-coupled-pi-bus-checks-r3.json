@@ -1,0 +1,60 @@
+{
+  "status": "NO_CONSERVATIVE_SHARED_UNIT_PLACEMENT",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "native_changed": false,
+  "contacts": [],
+  "reservation_overlaps": [],
+  "errors": [],
+  "exact_pairs": 0,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-plan-r3.json": "d04954312d21386bae11d7f9cbb52a8f500d727fb8b773e894137d95f65e1a03",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-module-plan-r5.json": "aa9b0ccfb0f928d52be3c7d3217640147db341f5b63c790ba8d3325696aeb735",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-preflight-r5.json": "e71b88b40831011a6db0e56423743560925252f17ecc0fad93fe23e8572b7fc0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-compact-bank-plan-r2.json": "9a1c685ef9ad8b5233228989254c1a23cdbac35471268ed2cec065dd25ed95ae",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-backbone-preflight-r4.json": "e54e3bcc6b66c798ba43a020dc3a78fba0f7a6315e5c4e81576e817257481113",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "tools/cad/check_feline_n01_coupled_pi_bus.py": "9223aa6660f8d04e92da79925cd3855259152e77b3cdc1e487f5727e386890ee",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorMotion.FCStd": "5133e3fd1df3713a41ddc503a828f39ccaf0113e7057781a1aefb70f15c24fdf",
+    "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c"
+  },
+  "scope": "Changed complete F_PI/P_SYS/MAIN/JPWM/BUS cases plus full W043/W077/W078, all24bank bends and8MTAfactory routes. Proposed support/plug/grip reservation overlaps distinguished from actual collisions. Not full80nets, tools or motion.",
+  "old_other_wire_routes_not_accepted": true,
+  "declared_join_scope": "Only existing8mm solder-overlap cylinder; never exclude whole W077/W078 pair or supports",
+  "whole_unit_search": {
+    "status": "NO_CONSERVATIVE_CELL_NOT_PHYSICAL_INFEASIBILITY_PROOF",
+    "yaw_stats": [
+      {
+        "yaw_deg": 0,
+        "inside_cells": 931,
+        "conservative_clear_cells": 0
+      },
+      {
+        "yaw_deg": 90,
+        "inside_cells": 855,
+        "conservative_clear_cells": 0
+      },
+      {
+        "yaw_deg": 180,
+        "inside_cells": 931,
+        "conservative_clear_cells": 0
+      },
+      {
+        "yaw_deg": 270,
+        "inside_cells": 855,
+        "conservative_clear_cells": 0
+      }
+    ],
+    "candidates": 0,
+    "whole_case_and_route_proxy_boxes": 26,
+    "fixed_actual_and_path_obstacles": 678,
+    "gap_mm": 1.25,
+    "lower_deck_replacement_open": true,
+    "full_motion_and_other_end_routes_open": true
+  },
+  "worker_seconds": 13.312,
+  "updated_utc": "2026-10-18T08:10:07.617293+00:00"
+}

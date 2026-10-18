@@ -20,10 +20,11 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    lower='--lower-fore' in sys.argv
-    target=OUT/('n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    flat='--flat-unit' in sys.argv
+    lower=flat or '--lower-fore' in sys.argv
+    target=OUT/('n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
-    paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
+    paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json')]
     candidate,plan,rear,bank,backbone,motion=[json.loads(p.read_text()) for p in paths]
@@ -118,6 +119,86 @@ def main():
     for row in routes(effective):
         n='Factory:'+row['wire'];wires[n]=pipe(row['parts'],row['radius_mm']);own[n]={row['source_group'],row['joint_group']}
     actual_new={r['wire']:pipe(r['parts'],r['radius_mm']) for r in candidate['routes']}
+    if flat:
+        # All case hardware, ALL segments, full splice/grip envelopes search
+        # together. Conservative overlap rejects only this cell, not real
+        # material or general physical feasibility. No expensive CAD loop.
+        def arraybox(s):
+            b=s.BoundBox;return np.array([[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]])
+        unit={**changed,**actual_new}
+        lo,hi=np.array(candidate['splice']['clip_reservation_mm'])
+        unit['UnitSpliceClip']=Part.makeBox(*(hi-lo),A.Vector(*lo))
+        rr=candidate['routes'][0];a=np.array(rr['end_mm'])-np.array([9,0,0])
+        unit['InputFullGrip']=Part.makeCylinder(3.7,9,A.Vector(*a),A.Vector(1,0,0))
+        rr=candidate['routes'][2];a=np.array(rr['end_mm'])-np.array([0,0,12])
+        unit['MainFullGrip']=Part.makeCylinder(3.05,9,A.Vector(*a),A.Vector(0,0,1))
+        proxy=[]
+        for n,s in unit.items():
+            if n not in actual_new:proxy.append(arraybox(s))
+        for row in candidate['routes']:
+            for part in row['parts']:proxy.append(arraybox(pipe([part],row['radius_mm'])))
+        proxy=np.array(proxy);centre=(proxy[:,0].min(axis=0)+proxy[:,1].max(axis=0))/2
+        fixed={n:s for n,s in scene.items() if n not in changed}
+        fixed.update(wires)
+        for entry in candidate['BUS']['ports']:
+            r=entry['first_bend_and_after_bend_grip']
+            fixed['Nominal'+r['wire']]=pipe(r['parts'],r['radius_mm'])
+        ob=np.array([arraybox(s) for s in fixed.values()]);ol,oh=ob[:,0],ob[:,1]
+        candidates=[];stats=[];gap=1.25
+        import itertools
+        for yaw in (0,90,180,270):
+            c,s=round(np.cos(np.deg2rad(yaw))),round(np.sin(np.deg2rad(yaw)))
+            R=np.array([[c,-s,0],[s,c,0],[0,0,1]],float)
+            transformed=[]
+            for box in proxy:
+                corners=np.array(list(itertools.product(*zip(box[0],box[1]))))
+                v=(corners-centre)@R.T;transformed.append([v.min(axis=0),v.max(axis=0)])
+            transformed=np.array(transformed);mn=transformed[:,0].min(axis=0);mx=transformed[:,1].max(axis=0)
+            z=-45.6+gap-mn[2]
+            points=np.array([[x,y,z] for x in range(-100,141,5) for y in range(-45,46,5)],float)
+            inside=np.all(points+mn>=[-139.1+gap,-95.6+gap,-45.6+gap],axis=1)&np.all(points+mx<=[181.1-gap,95.6-gap,109.6-gap],axis=1)
+            points=points[inside];initial=len(points)
+            for pbox in transformed:
+                gate()
+                if not len(points):break
+                keep=np.ones(len(points),bool)
+                for j in range(0,len(points),256):
+                    lows=points[j:j+256,None,:]+pbox[0];highs=points[j:j+256,None,:]+pbox[1]
+                    hit=np.all((lows<oh[None,:,:]+gap)&(highs>ol[None,:,:]-gap),axis=2)
+                    keep[j:j+256]=~np.any(hit,axis=1)
+                points=points[keep]
+            stats.append(dict(yaw_deg=yaw,inside_cells=initial,conservative_clear_cells=len(points)))
+            for pp in points:
+                candidates.append(dict(yaw_deg=yaw,R=R.tolist(),centre_mm=pp.tolist(),
+                    translation_mm=(pp-R@centre).tolist(),score=float(np.linalg.norm(pp-centre))))
+        report['whole_unit_search']=dict(status='CLEAR_CONSERVATIVE_CELLS' if candidates else 'NO_CONSERVATIVE_CELL_NOT_PHYSICAL_INFEASIBILITY_PROOF',
+            yaw_stats=stats,candidates=len(candidates),whole_case_and_route_proxy_boxes=len(proxy),
+            fixed_actual_and_path_obstacles=len(fixed),gap_mm=gap,
+            lower_deck_replacement_open=True,full_motion_and_other_end_routes_open=True)
+        if not candidates:
+            report.update(status='NO_CONSERVATIVE_SHARED_UNIT_PLACEMENT',source_sha256={**report['source_sha256'],**reader.hashes})
+            save();print(json.dumps(report['whole_unit_search']),flush=True);return
+        choice=min(candidates,key=lambda r:r['score']);report['whole_unit_search']['chosen_one']=choice
+        T=placement(choice['R'],choice['translation_mm'])
+        for n,s in unit.items():
+            s.Placement=T*s.Placement
+            if n in scene:scene[n]=s
+        allowed_solder_overlap.Placement=T*allowed_solder_overlap.Placement
+        report['unit_reservations_world_bounds_mm']={n:arraybox(s).tolist() for n,s in unit.items() if n not in changed and n not in actual_new}
+        report['current_full_route_parts']={}
+        for row in candidate['routes']:
+            parts=[]
+            for old in row['parts']:
+                new=dict(old)
+                for k in ('start','mid','end'):
+                    if k in old:new[k]=[float(v) for v in T.multVec(A.Vector(*old[k]))]
+                parts.append(new)
+            report['current_full_route_parts'][row['wire']]=parts
+        # Current module poses are COMPOSED with the template pose; named
+        # endpoints and ALL other ends must use the same one transform.
+        report['whole_unit_pose_applies_to_all_module_ends']=True
+        report['current_unit_case_bounds_mm']={n:arraybox(s).tolist() for n,s in changed.items()}
+        save();print('Whole unit chosen',choice['centre_mm'],choice['yaw_deg'],flush=True)
     for n,s in changed.items():
         for bn,b in scene.items():
             if n==bn or roles.get(n)==roles.get(bn):continue
@@ -145,7 +226,7 @@ def main():
         box('LowerRail1Inboard',[-67,-3,39.72],[-33,3,42.72])
         box('LowerRail1RearTurn',[-36,-3,39.72],[-30,23,42.72])
         box('LowerRail1Rear',[-33,17,39.72],[108,23,42.72])
-    box('SpliceClip',*candidate['splice']['clip_reservation_mm'])
+    if not flat:box('SpliceClip',*candidate['splice']['clip_reservation_mm'])
     if not lower:box('MainCarrier',[-52,-12,84],[-23,12,87])
     # rear branch below BUS, rooted at the existing rear post, not on skin
     for y in (-18.5,18.5):box('BUSRearBranch'+str(y),[102,y-3,67],[145,y+3,70])
