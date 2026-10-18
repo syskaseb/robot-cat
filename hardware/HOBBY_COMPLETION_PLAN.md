@@ -2,6 +2,220 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+16:50:18Z:24used/76remaining/resetfalse,0/10. ForeV2 odebrany73610/
+PID22996 exit0/26,672s, caseoutergap2,5674<3,25; źródło/negatywnywynik
+7f33929a. Brak trzeciego forecaseoffsetu. Wszystkie własne procesy zakończone;
+hookONdo20Z/22Warsaw, okno NIE zamknięte. Czasy ścienne, nie ciągłyCPU:
+od15:39:39 minęło70m39, okno od08:58:01 minęło7h52m17. Ostatnie7zmierzone
+factoryworkery908,344s w sumie (nie całyczas pracy; bez niezmierzonych
+duplikatu/błędu selektora). Sourcepartial122cases/242first/232numeric zachowany.
+S1readersource0,438s/2testy0,040s, commit55b03ba4:4/4nominalne mouth
+potwierdzone współosiowym Cylinder+końcową Plane. Centroid asymetrycznie
+podzielonej ściany NIE jest osią tulei: pierwotny0/4COM-HOLD superseded,
+żadna geometria nie zmieniona, vendor/deliveredfit nadalOPEN.
+NEXT jeden WSPÓLNY FORE-SERVICEplan: kandydatS1 Ry180 wokółbody+X15,
+zachowujeoperatoraxisY i wszystkie4przeniesione końce; D_FLflipY180 oraz
+FL_Gcase/ends naX0 (pełne facinggrips64mmpitch), nie niezależnyforecase.
+To zmienne kandydatowe przed wspólną geometrią/źródłami, NIE wybór.
+Najpierw uzgodnić sourcebudgets: HELU23802/SIF4.00-R ma w zachowanej
+recepturzeOD4,2/R25,2 (parent-fuse-extensionsfacts03.10 i sourcegallery),
+a kontrakt nowych WAGO odziedziczyłR12,4 z firstland-default. CzteryS1
+i oba końce W064/65/67/68 wymagają JEDNEJ jawnej wartości, bez przedstawiania
+nominalnegoR jako producenta albo zmniejszenia tylko żeby zrobićgreen.
+Zachować większe25,2 w nowym commonplan do innej popartej podstawy; zmienia
+to także4powerports P_FRONT.1/P_REAR.5/P_SYS.2/.3, NIE bodycase automatycznie.
+ProtectedF_PI/P_SYS stock/geometry nie otwierać bez rzeczywiście zmienionego
+interfejsu. FHACminimum84,5 i jawneprotoOD3,4/R6 utrzymane. Pełne3oprawki/
+root/osprzęt/tools/ATO/USB123portion246ends/stock OPEN, brakETA10procent.
+
+N01 obowiązkowe wejście wspólnego fore-serviceplan: aktualny packet-r3
+oznacza wszystkie4S1ends jako TRANSFERRED_GUIDE_ENDPOINT_NOT_AUTOMATICALLY
+ACTUAL_MOUTH, actual_port_verified=false. NIE przenosić samegoS1body,
+zostawiając4stare końce; nie uznawaćstarego GUIDE za dostarczony port.
+Przed nowym wspólnym S1/D_FL/FL_G/FHAC ruchem odbiorca czyta TYLKO
+nazwane zapisane S1BReps i porównuje4guides z płaszczyznami końców pierścieni
+oraz osiami; bez wholeCAD/legclouds i bez powtarzania starych par.
+To wymagany zmieniany interfejs, nie opcjonalny mikroaudit. Niezgodność
+pozostajeHOLD, zgodność daje tylko nominalsavedsource, nie vendorfit/PASS.
+
+ForeV1 odebrany16896/PID25704 exit0/26,469s:case vs rzeczywisty pionowy
+P0Part__Feature_0_0 gap0; zachowany84ad78b8. NIE jest płytą pod spodem:
+sourcebboxX[-124,4576,-122,4576],Y[-31,31],Z[6,1775,30,8425]. Odrzucone
+straddlingtab, nie uruchomiono ogonów po zależnym błędzie case.
+N01 ForeV2 ZMIENIONA PRZYCZYNA: całycase NAD tym elementem i PRZED
+actualS1body, na prawo odS0. X=min(AUXbudget,S1bodyminX-11,375,
+P0uprightminX-2,9-1,25-0,2);Y=S0maxY+12,25;Z=uprighttop+26,75.
+Dolnyfactory PROSTY zamiast wymuszonego łuku; górny kąt wyprowadzony
+z całego factory+customend+izolacja oraz roof3,25mm, ceil daje73deg.
+Pełne9mm kanalowe siodła/nominalT18I2,5x1,2/headcube6, nie wypełnione
+kołowe4mmbudżetyPETG; sourcehardwareprototypefit jawny. Uchwytcustom
+jest bodyward/down quarterseat, fabryczny forehalfseat; band2,5mm mieści
+się w9mm chwycie, bez skracania chwytu ani ignorowania główki. Ringretencji
+w dolnej częścicase pod S0/S1. Wszystko actualstatic/36motion/trueouter;
+4testy0,171s; brak kolejnego trialu dx/dz po failurebez nowej przyczyny.
+Root/osprzęt/narzędzia/3caseallocation/fullN01 nadalOPEN,0/10.
+
+78605/PID24776 zakończonyexit1 PRZED pierwszym zapytaniem geometrii:
+błąd selektora nazwS0 (current_S0 zamiast zapisanychRef_Material_S0_*).
+Brak verdictu/eksportu/CAD. Nazwy sprawdzone z currentconstraintmap,
+naprawiona TYLKO selekcja właściciela, bez zmian punktów/formuł/marginesów.
+Powtórka inicjalizacji po odebranym workerze, nie nowy wariant geometryczny.
+
+N01 forevertical: jeden punkt wynika z actualAUXminX/actualS0maxY/floor,
+pełnego case20,25x22x51 i PEŁNEGO customgripR3,55: x=AUXminX-1,25-
+10,125-0,5; y=S0maxY+11+1,25+1; z=floor+25,5+9+6+3,55+3,25+1.
+To dolna konieczna rezerwacja, nie bboxcontact/PASS. Dwa testy wzorów
+i translacji źródeł0,000s; teraz actualBRep obu pełnych ogonów/gripów
+oraz3mm otwartego kanałowego pierścienia retencji. Nie budować native.
+R6/r1,7 pochodzi z jawnego nominalnegoW043 FHAC, nie katalogowej gwarancji.
+S0/S1/AUX/P0 nie przesuwane. Bez tego odbioru nie ma wyboru trzeciejoprawki;
+tylne oprawki/roots/tools/full123/246ends nadalOPEN,0/10.
+
+16:28:57Z23used/77remaining.23166/PID2880 odebranyexit0/101,453s,
+48pełnychsource-endreceipts/0centralpackages/0errors, commit3578b0ce.
+Oba central6/7 w tej rodzinie mają rzeczywiste P0SideLeft/Right22gap0
+lub1,0396<1,25; nie ponawiać centralnych quartervariants ani tylnychcells
+jako sposobu na trzeciąoprawkę. To nie dowód globalnej niemożliwości.
+Nowa przyczyna do uzgodnienia PRZED CAD: sourceFHAC ma w istniejącym
+nominalnym F_PI R6/r1,7 (n01-central-spine-power-plan-r4 W043, supplier
+README02.10 jawneOD3,4/R6prototype). WspólneR12,4/r2 było założeniem
+rezerwacji, nie danymi FHAC. Starego wyniku nie zamieniać naPASS; nowa
+cała geometria pełnych factory/sleeve/grips wymaga własnego odbioru.
+N01 następny wspólny układ: pionowa oprawka w dodatniej przedniej wnęce
+S0/S1/AUX (nie odrzucony foreYstack), dwie tylne oprawki z globalnych
+caseproof2/3, obie strony/pełnegripy/retencja/montaż od początku. Fore
+interwały wyznaczyć od aktualnych brył AUX/S1 i prawdziwej ściany, nie
+seria przesunięć; pole4mm nie wyklucza wąskiej ciągłej wnęki. Root/loadpath
+i narzędzia obowiązkowe przed wyborem,0/10. Żadnej zmiany części/P0.
+
+16:23:33Z23used/77remaining.73196odebranyexit0/181,688s242first/232domains,
+snapshot218458ad zachowany. NIE kontynuować kosztownych tylnych cellvariants
+przed krytycznym trzeciąoprawką central6/7. Jeden odbiorca23166/PID2880
+CIMstart16:23:41Z; oba całeogony/20sleeve/8lap/9gripy/84,5budget w actual
+static+36sampled+trueouter, reusefirst9, input Git218458ad stabilny.
+4testy0,126s; gotowyreceiver to narzędzie, nie odebrana geometria/N01point.
+Akceptacja: centralcase z OBIEMA całymi stronami bez rzeczywistych blokad,
+następnie wspólnetrzy case+taily/CSP, nie sam pojedynczy ogon. Przy failure
+nazwać materiał/pozę; zmienić wspólne właścicielstwo, nie kolejny caseoffset.
+Roots/tools/ATO/USB/full123/246ends/stock OPEN,0/10; hookONdo20Z.
+
+16:20:14Z:22used/78remaining/resetfalse,0/10.22672/PID2180 odebrany
+exit0/189,312s,233firstlands/222numericdomains. Jeden resume73196/PID23308
+CIMstart16:20:16Z; stary proces zakończony. Commitdddf405f batchsource/
+2testy0,498s,4testy fullshape/ranking0,125s. Receiverpełnychogonów nadal
+nieuruchomiony; waitscomplete source, exact84,5budget, własnycase matingtrim
+tylko2,5mm. Negatywny coarsefield central6/7 nie jest dowodem kontaktu.
+
+N01 korekta wejścia18.10: istniejący supplierREADME02.10 dla dokładnego
+FHAC0001ZXJ podaje89,5+/-5=MIN84,5mm (16AWG), nie100mm. Dotychczasowe
+source100provisional NIE kwalifikuje stock ani pełnego ogona. Receiver
+fullfactory przypina tenREADME, dopuszcza tylkofirst9..45, bo3inside+
+45+19,478arc+14=81,478<=84,5;first54/63 wykluczone bez zmiany casepose.
+3inside jest dodatkowym ostrożnym budżetem projektu, nie wymiarem producenta.
+Istniejące nominalOD4/R12,4 pozostają jawnym założeniem, nie danymi producenta.
+Preflightcase/first9 nie zmienia geometrii i pozostaje użyteczny;100mm
+numericdomain nie jest akceptacją. Pełny stock/fit/montaż nadalOPEN,0/10.
+
+16:16:43Z(CIMstart): worker22672/PID2180 odbiera TYLKO brakujące case/end.
+16119/PID21884 zakończonyexit0/202,719s:182first/174domains,91case;
+180s cap sprawdzany między operacjami, nie przerywa trwającegoOCC.
+Wpisany wcześniej start16:14:09 był niezweryfikowany i wycofany; obecny
+start z CreationDateUTC, czas worker z zegara monotonicznego.0/10.
+Przygotowany odbiorca fullfactory/sleeve/custom przyjmuje rzeczywiste bryły,
+reusefirst9; tylko nazwany initial2,5mm matingtrim przy własnym case.
+Centralne6/7 zachować mimo negativecoarsefield (nie dowód kontaktu).
+Wspólne case+taily/obu stron/3oprawki wymagane, roots/tools/pełnyN01OPEN.
+
+16:12:39Z: ordinary22used/78remaining, resetfalse;0/10. Odebrano73209/
+PID17644 exit0/180,031s,167firstlands/159numericdomains; tylko brakujące
+endpoints do odbioru. BŁĄD wykonania: zdublowany28650/PID22260 uruchomiony
+16:09:48Z przy aktywnym73209. Własny duplikat zakończony, oba PID nie istnieją;
+finalJSON z oryginału ma167/159 i kosztcap180,031s. Nie zmieniono nativeCAD.
+NEXT N01: domknąć166wholecase/bothfirst9/fullfactorynumeric w jednym workerze,
+potem wspólne trzy pełne oprawki/ogony/sleeves/gripy względem actualmotion
+i obrysu. Akceptacja nie z samego casebox/numericfield; mount/root/tool/ATO/
+USB/pełne123portion246ends nadalOPEN. Nie powtarzać odebranych par.
+
+16:07:11Z:27m32 tejkontynuacji/7h09m10 okna, nieciągłyCPU. Limit22użyte/
+78pozostałe, ordinarytrue/resetfalse.0/10.78020/PID24756 odebranyexit0/
+180,016s costcap,35case receipts/70actualfirst9/67numdomains zachowane.
+34ff0a28 zapisuje źródło i całypartial. Batchreceiver zmienia TYLKO
+organizację identycznych224profili/punktów:5zbiorczych odczytów zamiast
+3360wołań perend;2testy0,412s porównują aktualne savedsource domeny
+case2in/out (liczby13/4 i każde zapisane first/bend/margin/arc/tip).
+Nowybest-rejected zachowuje warstwę i punkt pola dla diagnozy, nie
+fizyczny kontakt. Kod34ff+allotherSHA weryfikowane przed reuse70/67,
+nie zmieniają się siatka/R/końce/części. Kontynuować tylko pozostałe
+166cellends, bez ręcznych wariantów. PełneBRep/CSP obuogonów nadalOPEN.
+
+58778/PID2620 odebranyexit0/28,860s:12case-clear i3niepokrywające
+[0,2,3] utrzymane po solid-childrepair.2Compoundparyponownieodebrane,
+prawidłoweSolid/Solid iouterreuse; sourceframeBBoxassert nie wykazał błędu.
+Nie ponawiać tejkontroli ani zaliczaćcałychFHACzsamychcase'ów.
+Receiveallcells1,343s zachował WSZYSTKIE166stany orientowane,12previous
+clearreuse. Rankspacing12mm nie może usuwać pobliskiej pozycji przed
+sprawdzeniem obu first9. Nowyalgorytm: całe case tamgdziejeszczeopen,
+oba obowiązkowefirst9 actualsource/outer/36; potempełne factoryfirst
+9/18/27/36/45/54/63,R12,4,32płaszczyzny,after14,sleeve20,lap8/grip9..18.
+Maxblank3+63+19,478+14=99,478<=100 projektowychmm bezprzedłużenia.
+Numericalfield jest LOOSYprefilter (materialgap0,2, actualrigid1,25),
+nie BRepapproval. Source100deliverygate ipełnyroot/montaż/stockOPEN.
+180s/save/resume, brakN01point; field/chmury/stacje nie są ponawiane.
+
+Naprawa query, nie zmianaCASEpose:4testy0,068s potwierdzają containment
+Compound(wieleSolid), oba kierunki, rozdzielenie i ramę po rotate/translate,
+odrzucenie shell-only. Odbiorca--solid-children-receive weryfikuje kod
+382e4fc7 i niezmienione geometrie/model/sourceposes, reużywa actualouter
+oraz stare prawidłowe Solid/Solidpary; zmienia tylko Compounddistancepary.
+W każdej potencjalnej movingparze weryfikujeBBox rzeczywiście posedBRep
+wewnątrz konserwatywnego transformbbox, żeby nie dziedziczyć błędu ram.
+0/10, pełneogony/mounts/tools nadalOPEN, bezphysicalPASS.
+
+74811/PID9320 odebranyexit0/32,765s:12case-clear/19zapytan,3niepokrywające
+case'y[0,2,3], ALE wynik exact case HOLD przed zaliczeniem! Minimalny
+reproducerFreeCAD wykazał dist(Solid100cube,inner20cube)=0, lecz
+dist(Compound[Solid100cube],inner)=40 mimo commonVolume8000mm3.
+To pułapka zagnieżdżenia Compound: dodatni distance może fałszywie
+przejść containment. N01nadal0, nic nie wybrano/zmieniononative.
+Następnyodbiór używa min dystansów WSZYSTKICH poprawnych solid-child
+pairs; bbox tylko broadphase/pruning. Reużywa actualouter i sourceposes,
+ponawia TYLKO nielicencjonowane stare distancepary; nie chmury/motionmesh.
+Wcześniejsze0-static stacji pozostaje LIMITED/HOLD dla compound-pairs,
+nie dziedziczyć jako pełnegoPASS. Żadnego cofania fizycznych testów,
+bo fizycznegoPASS nigdy nie było.
+
+65070 odebranyexit0/37,406s po częściowym49,031s, bez powtórzenia1092
+chmur. Aktualne1125statics:951reuse/174zmienione, motion36reusebez
+tessellacji. Casecapacity6orientacji ma58/58/6/6/19/19nominalnych
+centrów (razem166orientowanychstanów), 0konserwatywnych. Nie jest to
+PASS/niemożliwość; budżet próbkowania i wnętrza solidów wymagają exact.
+5testów:3kernel0,096s+2properrotation0,123s. NEXTodbiorca wszystkich
+domen: rzeczywistyBRepFHAC->static/actualouter/36sourcedposes, tylko
+potencjalne pary bboxbroadphase i zapis każdego wyniku.12clearmax/180s,
+pełnefactorytails/mount/tools/stockOPEN, bezN01point. Nie nowyCASEoffset.
+
+48736 odebranyexit0/49,031s:1092źródła zachowane, stopklasyfikacji
+SelectedYawW2local pozaROI (sample0). Staryatlas kończył ROI-disjoint
+PRZED rozpoznaniemcurve, więc miał"reservation", current rozpoznałcurve.
+Nie jest to kontakt ani zmiana geometrii. e7200dc9 zabezpiecza źródło
+i wynik; receipt--receive-empty-roi weryfikuje starykod z tegoGitSHA
+i WSZYSTKIEpozostałe sourceSHA, zmienia tylko ten jawny przypadek
+sample0+actualbboxdisjoint.1092done nie są ponawiane, cachelokalnyzSHA.
+
+N01, przed globalnymcapacity: żadnego następnego ręcznegoCASEpose.
+feline_current_candidate_scene odtwarza dokładne recepty przełożonych
+stacji/typedprofile/cutMAIN z przyjętego w ograniczonym zakresie0-static/
+0-obrys. Nie ponawia tych par. Globalplanner reużywa źródłowe statyczne
+chmury poza174zmienionymi źródłami i pełną36motionunion, bez nowej
+tessellacjinóg. Całe51×20,25×22 w6orientacjach osiowych, kernel4mm
+zaokrąglonyNAZEWNĄTRZ, nominalne/konserwatywne oddzielnie; wszystkie
+komponenty domen zachowane. Surface2,3+voxel0,8662+grid3,4641 jawnie.
+Pusta powierzchniowa przestrzeń nie dowodzi, że punkt nie leży wewnątrz
+dużego solid; exactBRepbramka obowiązkowa przed wyborem. Bbox/kernel
+to capacity, nie kontakt ani N01. Rawzip nie miał końcowego SHA po
+kosztowymstopie, więc każde reuseentry jest weryfikowane ze źródłowym
+SHA, całyzip przypinany na bieżąco. 240s/save/resume bez zgodyN03.
+
 15:37:45Z, aktualnyNEXT i wynik30m56 tejkontynuacji (nieczasCPU):
 38468/PID21484 odebranyexit0/62,657s. Forecase'y odrzucone przez
 AUX409221washer/screw iS1ring, mimo0base-static/0base-outer przełożonych
