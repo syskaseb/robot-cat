@@ -22,11 +22,15 @@ from plan_feline_n01_shared import pipe
 from check_feline_leg_body import placement
 
 
-def main():
+def main(geometry_only=False):
     relieved='--relieved-supports' in sys.argv
     ordered=relieved or '--ordered-return-loops' in sys.argv
     tick=time.monotonic();reader=SavedShapes();dest=OUT/('n01-full-lower-bay-plan-r3.json' if relieved else 'n01-full-lower-bay-plan-r2.json' if ordered else 'n01-full-lower-bay-plan.json')
-    assert not dest.exists(),'Receive existing complete/partial result first'
+    if geometry_only:
+        assert relieved and dest.exists()
+        received=json.loads(dest.read_text())
+        assert received['status']=='FULL_LOWER_BAY_SCOPED_CLEAR_FULL_HARNESS_JOINT_SEATS_TOOLS_NATIVE_OPEN'
+    else:assert not dest.exists(),'Receive existing complete/partial result first'
     paths={k:OUT/n for k,n in dict(scene='n01-full-material-scene.json',
         modules='n01-module-plan-r5.json',rear='n01-shared-preflight-r5.json',
         cassette='n01-cassette-world-probe.json',motion='motion-layout.json').items()}
@@ -84,7 +88,7 @@ def main():
     def box(a,b):return Part.makeBox(*(v-u for u,v in zip(a,b)),A.Vector(*a))
     fixed={};fixedrows={};new={};kind={};owner={}
     with zipfile.ZipFile(ROOT/p['scene']['bundle']) as z:
-        for r in p['scene']['parts']:
+        for r in ([] if geometry_only else p['scene']['parts']):
             if r['role']=='CurrentCassette':continue
             s=Part.Shape();s.importBrepFromString(z.read(r['entry']).decode('utf-8'))
             fixed[r['name']]=s;fixedrows[r['name']]=r
@@ -220,6 +224,8 @@ def main():
                 s=s.cut(box([xmin,ymin,-45],[xmax,ymax,-36.15]))
         s=s.removeSplitter();assert s.isValid() and len(s.Solids)==1
         n='LowerBay:'+label;new[n]=s;kind[n]='frame_reservation';owner[n]=label
+    if geometry_only:
+        return new,kind,owner,received
     bounds={n:s.BoundBox for n,s in {**fixed,**new}.items()}
     valid={n:s.isValid() and bool(s.Solids) for n,s in {**fixed,**new}.items()}
     changed=set(new)

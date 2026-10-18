@@ -6,6 +6,7 @@ No CAD, guessed pinout, selected material or completed-result credit.
 import copy
 import json
 import math
+import sys
 import time
 from pathlib import Path
 from plan_feline_n01_coupled_pi_bus import ROOT,OUT,sha
@@ -19,13 +20,19 @@ def branch_point(point,datum):
 def branch_direction(d):return [d[1],-d[0],d[2]]
 
 
-def compose():
+def compose(lower_bay=False):
     tick=time.monotonic()
     files={k:OUT/n for k,n in dict(old='n01-complete-end-allocation.json',
         branches='n01-central-mta-cassette-plan-r3.json',
         axial='n01-axial-branch-root-clear.json',power='n01-central-spine-power-plan-r4.json',
         bank='n01-common-backbone-preflight-r4.json',bus='n01-bus-both-plugs-plan-r3.json').items()}
     p={k:json.loads(path.read_text()) for k,path in files.items()}
+    if lower_bay:
+        files['lower_bay']=OUT/'n01-full-lower-bay-plan-r3.json'
+        p['lower_bay']=json.loads(files['lower_bay'].read_text())
+        assert p['lower_bay']['status']=='FULL_LOWER_BAY_SCOPED_CLEAR_FULL_HARNESS_JOINT_SEATS_TOOLS_NATIVE_OPEN'
+        assert len(p['lower_bay']['poses'])==36
+        assert not any(p['lower_bay'][k] for k in ('contacts','reservation_contacts','outside','wall_failures','errors'))
     branches=p['branches'];assert len(branches['poses'])==36
     assert all(not branches[k] for k in ('contacts','reservation_contacts','errors','envelope_outside','wall_budget_failures'))
     rows=copy.deepcopy(p['old']['endpoints']);byid={r['id']:r for r in rows}
@@ -53,7 +60,7 @@ def compose():
     update('W078/retained0/start',sp['tip18_mm'],[1,0,0],'Current8mm solder overlap18AWG, intact grip outside20mm sleeve')
     wire_branch={w:c for c,d in branches['branch_datums'].items() for w in d['wires']}
     factory_lengths={}
-    for route in p['axial']['joint_bay_factory_routes']:
+    for route in ([] if lower_bay else p['axial']['joint_bay_factory_routes']):
         w=route['wire'];d=branches['branch_datums'][wire_branch[w]]
         a=route['parts'][0]['start'];b=route['parts'][-1]['end'];length=math.dist(a,b)
         aa=branch_point(a,d);bb=branch_point(b,d)
@@ -64,10 +71,28 @@ def compose():
             initial_jacket_land_mm=9,factory100mm_is_project_assumption=True)
         factory_lengths[w]=dict(guide_mm=length,grip_offsets_from_start_mm=[.25,length-9-.25],
             grip_length_mm=9,between_grips_mm=length-18-.5,factory100mm_is_project_assumption=True)
-    for e in p['axial']['all_eight_joint_custom_ends']:
+    for e in ([] if lower_bay else p['axial']['all_eight_joint_custom_ends']):
         w=e['id'].split('/')[0];d=branches['branch_datums'][wire_branch[w]]
         update(e['id'],branch_point(e['point_mm'],d),branch_direction(e['departure_axis']),
             'Whole central cassette custom side; nominal CAD port',initial_jacket_land_mm=9)
+    if lower_bay:
+        from compose_feline_n01_allocation import tangent
+        lower=p['lower_bay']
+        for route in lower['factory_routes']:
+            w=route['wire'];first,last=route['parts'][0],route['parts'][-1]
+            update(w+'/factory/start',first['start'],tangent(first,True),
+                'Full-scene lower bay: source factory mouth; provisional CAD port',initial_jacket_land_mm=9,
+                factory100mm_is_project_assumption=True)
+            update(w+'/factory/end',last['end'],[-v for v in tangent(last,False)],
+                'Full-scene lower bay: joint factory mouth; provisional CAD port',initial_jacket_land_mm=9,
+                factory100mm_is_project_assumption=True)
+            factory_lengths[w]=dict(guide_mm=route['guide_mm'],grip_length_mm=9,
+                grip_owner_names=[s['name'] for s in lower['wire_seats'] if s['wire']==w and ':factory:' in s['name']],
+                factory100mm_is_project_assumption=True,complete_curve_in_scope=True)
+        for e in lower['custom_ends']:
+            update(e['id'],e['point_mm'],e['departure_axis'],
+                'Full-scene lower bay: opposite custom mouth, NOT tangent of obsolete after-bend guide',
+                initial_jacket_land_mm=9)
     for route in p['bus']['routes']:
         if route['wire'] not in ('BUS.D','BUS.G'):continue
         key='W002/retained0/start' if route['wire']=='BUS.D' else 'W003/retained0/start'
@@ -85,8 +110,9 @@ def compose():
     return dict(status='CURRENT178_IDENTITIES_RECONCILED_REMAINING_ROUTING_OPEN',selected=False,
         physical_pass=False,N01_complete=False,endpoints=rows,changed_endpoint_ids=changed,
         physical_segment_lower_bounds=distances,logical_nets=80,physical_segments=89,
-        factory_lengths=factory_lengths,current_case_datums=branches['branch_datums'],
-        full_route_receipts_only=['W043','W077','W078','Eight20.75mm factory portions'],
+        factory_lengths=factory_lengths,current_case_datums=p['lower_bay']['joint_centres_mm'] if lower_bay else branches['branch_datums'],
+        full_route_receipts_only=['W043','W077','W078','Eight complete lower-bay factory portions' if lower_bay else 'Eight20.75mm factory portions'],
+        rejected_central_cassette_MTA_endpoints_used=not lower_bay,
         body_bundle_hierarchy=p['old']['body_bundle_hierarchy'],
         head_tail_JR_outside80='Separate current JPWM factory branch remains unchanged; full source/receiver path and lie/head/tail motion still open.',
         USB_outside80=dict(current_BUS_prefix=p['bus']['routes'][-1],Pi_A_mould_and_complete500mm_middle_open=True),
@@ -98,8 +124,9 @@ def compose():
 
 
 def main():
-    target=OUT/'n01-current-endpoint-packet.json';assert not target.exists()
-    p=compose();target.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8',newline='\n')
+    lower_bay='--lower-bay' in sys.argv
+    target=OUT/('n01-current-endpoint-packet-r2.json' if lower_bay else 'n01-current-endpoint-packet.json');assert not target.exists()
+    p=compose(lower_bay);target.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({k:p[k] for k in ('status','logical_nets','physical_segments','worker_seconds')}),flush=True)
 
 
