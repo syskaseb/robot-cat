@@ -1,0 +1,2516 @@
+{
+  "status": "NO_CONSERVATIVE_SHARED_UNIT_PLACEMENT",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "native_changed": false,
+  "contacts": [],
+  "reservation_overlaps": [],
+  "errors": [],
+  "exact_pairs": 18,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-plan-r4.json": "d9664a330db5762943aaf5a649d86f41d09de799e06d23d570cf75fa60c2a875",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-module-plan-r5.json": "aa9b0ccfb0f928d52be3c7d3217640147db341f5b63c790ba8d3325696aeb735",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-preflight-r5.json": "e71b88b40831011a6db0e56423743560925252f17ecc0fad93fe23e8572b7fc0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-compact-bank-plan-r2.json": "9a1c685ef9ad8b5233228989254c1a23cdbac35471268ed2cec065dd25ed95ae",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-backbone-preflight-r4.json": "e54e3bcc6b66c798ba43a020dc3a78fba0f7a6315e5c4e81576e817257481113",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "tools/cad/check_feline_n01_coupled_pi_bus.py": "db6e5876218fd2a738f67d0c3c49bb89c5431df4dbb7a64d66fde4c1809fb982",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorMotion.FCStd": "5133e3fd1df3713a41ddc503a828f39ccaf0113e7057781a1aefb70f15c24fdf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-complete-end-allocation.json": "35b83662ea8454395c2eddd25469a96dc2ce78f0c8b0ea43707e192b3dcc9367",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-checks-r3.json": "803d0a0acb2d4d403718a1a608b527eb57d006cecd3e6f6a07e12cc3a30fa9a7",
+    "tools/cad/build_feline_layout_envelope.py": "b67d5360e7c83fbdbdc6987e8d72882aec2734b9e40c1fa4a1b78f3ded96a55e",
+    "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c"
+  },
+  "scope": "Changed complete F_PI/P_SYS/MAIN/JPWM/BUS cases plus full W043/W077/W078, all24bank bends and8MTAfactory routes. Proposed support/plug/grip reservation overlaps distinguished from actual collisions. Not full80nets, tools or motion.",
+  "old_other_wire_routes_not_accepted": true,
+  "declared_join_scope": "Only existing8mm solder-overlap cylinder; never exclude whole W077/W078 pair or supports",
+  "axial_columns_basis": {
+    "centres_mm": {
+      "MTA_FL": [
+        -95,
+        0,
+        -34
+      ],
+      "W026_Joint": [
+        -95,
+        -56,
+        -34
+      ],
+      "W041_Joint": [
+        -95,
+        56,
+        -34
+      ],
+      "MTA_FR": [
+        -32,
+        0,
+        -34
+      ],
+      "W037_Joint": [
+        -32,
+        -56,
+        -34
+      ],
+      "W042_Joint": [
+        -32,
+        56,
+        -34
+      ],
+      "MTA_RL": [
+        65,
+        0,
+        -34
+      ],
+      "W044_Joint": [
+        65,
+        -56,
+        -34
+      ],
+      "W045_Joint": [
+        65,
+        56,
+        -34
+      ],
+      "MTA_RR": [
+        90,
+        0,
+        -34
+      ],
+      "W052_Joint": [
+        90,
+        -56,
+        -34
+      ],
+      "W053_Joint": [
+        90,
+        56,
+        -34
+      ]
+    },
+    "rotation_rows": [
+      [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "factory_paths": "Eight straight20.75mm paths, each has both9mm intact jacket lands. No crossing fans or raised paths through bank prefixes.",
+    "same_four_MTA_and_eight_joint_cases": true,
+    "all_native_mounts_and_tools_open": true,
+    "cause_change": "Two upper-layer failures. Rotate entire four3case branches into noncrossing longitudinally separated columns below battery; no third height retry."
+  },
+  "joint_bay_architecture": {
+    "relative_current_changes_mm": {
+      "MTA_FL": [
+        -80.0,
+        40.0,
+        0.0
+      ],
+      "MTA_FR": [
+        -47.0,
+        40.0,
+        0.0
+      ],
+      "MTA_RL": [
+        80.0,
+        -65.0,
+        0.0
+      ],
+      "MTA_RR": [
+        75.0,
+        -65.0,
+        0.0
+      ],
+      "W026_Joint": [
+        -79.99999618530273,
+        41.0,
+        0.0
+      ],
+      "W037_Joint": [
+        -47.0,
+        41.0,
+        -7.62939453125e-06
+      ],
+      "W045_Joint": [
+        80.0,
+        -64.99999952316284,
+        -7.62939453125e-06
+      ],
+      "W053_Joint": [
+        75.0,
+        -64.99999952316284,
+        -7.62939453125e-06
+      ],
+      "W041_Joint": [
+        -45.0,
+        8.000000476837158,
+        3.9999923706054688
+      ],
+      "W042_Joint": [
+        -82.0,
+        8.0,
+        3.9999923706054688
+      ],
+      "W044_Joint": [
+        99.0,
+        -34.0,
+        -7.62939453125e-06
+      ],
+      "W052_Joint": [
+        56.0,
+        -34.0,
+        -7.62939453125e-06
+      ]
+    },
+    "source_cases_centre_z_mm": 37.5,
+    "two_factory_sides_each": true,
+    "full_lower_bay_released_for_power_unit": true,
+    "old_lower_rails_replaced_by_outboard_rails": true,
+    "not_a_selected_layout_or_native_mount": true
+  },
+  "BUS_current_r3_not_old_shifted_prefix": {
+    "source": "n01-bus-both-plugs-plan-r3.json",
+    "pose": {
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        222.02000045776367,
+        86.90814590454102,
+        74.98791122436523
+      ],
+      "centre_mm": [
+        126,
+        0,
+        75
+      ]
+    },
+    "both_plug_paths_included": true,
+    "supplier25_transformed_BRep_gate": "n01-bus-source-cache-qualification.json"
+  },
+  "joint_bay_factory_routes": [
+    {
+      "wire": "W026",
+      "start_role": "F_FL.out",
+      "end_role": "W026_Joint.factory",
+      "source_group": "MTA_FL",
+      "joint_group": "W026_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -95.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -94.99999923706055,
+            -38.24999389648437,
+            -34.0
+          ],
+          "length_mm": 20.749993896485282
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749993896485282,
+      "minimum_end_straight_mm": 10.374996948242185,
+      "factory100mm_provisional_margin_mm": 79.25000610351472,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W037",
+      "start_role": "F_FR.out",
+      "end_role": "W037_Joint.factory",
+      "source_group": "MTA_FR",
+      "joint_group": "W037_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -32.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -32.0,
+            -38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W041",
+      "start_role": "F_FL.in",
+      "end_role": "W041_Joint.factory",
+      "source_group": "MTA_FL",
+      "joint_group": "W041_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -95.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -94.99999923706055,
+            38.24999971389771,
+            -34.0000015258789
+          ],
+          "length_mm": 20.749999713899125
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999713899125,
+      "minimum_end_straight_mm": 10.374999856948854,
+      "factory100mm_provisional_margin_mm": 79.25000028610087,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W042",
+      "start_role": "F_FR.in",
+      "end_role": "W042_Joint.factory",
+      "source_group": "MTA_FR",
+      "joint_group": "W042_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -32.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -32.0,
+            38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W044",
+      "start_role": "F_RL.in",
+      "end_role": "W044_Joint.factory",
+      "source_group": "MTA_RL",
+      "joint_group": "W044_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            65.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            65.0,
+            -38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W045",
+      "start_role": "F_RL.out",
+      "end_role": "W045_Joint.factory",
+      "source_group": "MTA_RL",
+      "joint_group": "W045_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            65.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            64.9999969482422,
+            38.24999971389771,
+            -34.0000015258789
+          ],
+          "length_mm": 20.749999713899335
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999713899335,
+      "minimum_end_straight_mm": 10.374999856948854,
+      "factory100mm_provisional_margin_mm": 79.25000028610066,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W052",
+      "start_role": "F_RR.in",
+      "end_role": "W052_Joint.factory",
+      "source_group": "MTA_RR",
+      "joint_group": "W052_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            90.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            90.0,
+            -38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W053",
+      "start_role": "F_RR.out",
+      "end_role": "W053_Joint.factory",
+      "source_group": "MTA_RR",
+      "joint_group": "W053_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            90.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            90.0000030517578,
+            38.24999971389771,
+            -34.0000015258789
+          ],
+          "length_mm": 20.749999713899335
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999713899335,
+      "minimum_end_straight_mm": 10.374999856948854,
+      "factory100mm_provisional_margin_mm": 79.25000028610066,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    }
+  ],
+  "all_eight_joint_custom_ends": [
+    {
+      "id": "W026/custom/start",
+      "role": "W026_Joint.custom",
+      "point_mm": [
+        -94.99999923706055,
+        -73.74999389648437,
+        -34.0
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W037/custom/start",
+      "role": "W037_Joint.custom",
+      "point_mm": [
+        -32.0,
+        -73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W041/custom/start",
+      "role": "W041_Joint.custom",
+      "point_mm": [
+        -94.99999923706055,
+        73.74999971389771,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W042/custom/start",
+      "role": "W042_Joint.custom",
+      "point_mm": [
+        -32.0,
+        73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W044/custom/start",
+      "role": "W044_Joint.custom",
+      "point_mm": [
+        65.0,
+        -73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W045/custom/start",
+      "role": "W045_Joint.custom",
+      "point_mm": [
+        64.9999969482422,
+        73.7499997138977,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W052/custom/start",
+      "role": "W052_Joint.custom",
+      "point_mm": [
+        90.0,
+        -73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W053/custom/start",
+      "role": "W053_Joint.custom",
+      "point_mm": [
+        90.0000030517578,
+        73.7499997138977,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    }
+  ],
+  "worker_seconds": 37.453,
+  "updated_utc": "2026-10-18T09:14:03.199318+00:00",
+  "full_unit_end_identities": [
+    {
+      "id": "W043/single/end",
+      "wire": "W043",
+      "role": "P_SYS.5",
+      "point_mm": [
+        -84.0,
+        4.5,
+        -33.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 1.7,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W067/single/start",
+      "wire": "W067",
+      "role": "P_SYS.2",
+      "point_mm": [
+        -84.0,
+        4.5,
+        -14.0
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 2.1,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W068/single/start",
+      "wire": "W068",
+      "role": "P_SYS.3",
+      "point_mm": [
+        -84.0,
+        4.5,
+        -20.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 2.1,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W060/retained0/end",
+      "wire": "W060",
+      "role": "MAIN.GND",
+      "point_mm": [
+        -120.60672382427447,
+        -6.4,
+        -16.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W066/retained0/end",
+      "wire": "W066",
+      "role": "P_SYS.1",
+      "point_mm": [
+        -84.0,
+        4.5,
+        -7.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 2.1,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W078/retained0/end",
+      "wire": "W078",
+      "role": "MAIN.VIN",
+      "point_mm": [
+        -117.10672382427447,
+        -6.4,
+        -16.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W079/retained0/start",
+      "wire": "W079",
+      "role": "MAIN.VOUT",
+      "point_mm": [
+        -127.60672382427447,
+        -6.4,
+        -16.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    },
+    {
+      "id": "W080/retained0/start",
+      "wire": "W080",
+      "role": "MAIN.GND_OUT",
+      "point_mm": [
+        -124.10672382427447,
+        -6.4,
+        -16.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05,
+      "source": "Existing178identity ledger; no invented cavity or NC conductor"
+    }
+  ],
+  "unchanged_floor_yaw_search_reused": true,
+  "search_progress": [
+    {
+      "orientation_index": 0,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "after_outline_budget": 1693,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        582,
+        274,
+        271,
+        260,
+        139,
+        116,
+        115,
+        115,
+        41,
+        41,
+        20,
+        0
+      ]
+    },
+    {
+      "orientation_index": 1,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "after_outline_budget": 1677,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        625,
+        404,
+        348,
+        284,
+        170,
+        133,
+        122,
+        118,
+        48,
+        48,
+        24,
+        0
+      ]
+    },
+    {
+      "orientation_index": 2,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "after_outline_budget": 1768,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        643,
+        412,
+        354,
+        295,
+        171,
+        132,
+        122,
+        112,
+        44,
+        44,
+        26,
+        0
+      ]
+    },
+    {
+      "orientation_index": 3,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "after_outline_budget": 1784,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        540,
+        242,
+        241,
+        214,
+        126,
+        103,
+        103,
+        101,
+        44,
+        44,
+        26,
+        0
+      ]
+    },
+    {
+      "orientation_index": 4,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "after_outline_budget": 1539,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        532,
+        374,
+        368,
+        368,
+        285,
+        264,
+        263,
+        263,
+        91,
+        91,
+        87,
+        0
+      ]
+    },
+    {
+      "orientation_index": 5,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "after_outline_budget": 1544,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        607,
+        451,
+        440,
+        438,
+        302,
+        276,
+        272,
+        272,
+        14,
+        14,
+        11,
+        0
+      ]
+    },
+    {
+      "orientation_index": 6,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "after_outline_budget": 1540,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        556,
+        412,
+        412,
+        412,
+        280,
+        261,
+        261,
+        261,
+        0
+      ]
+    },
+    {
+      "orientation_index": 7,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "after_outline_budget": 1554,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        513,
+        367,
+        363,
+        363,
+        256,
+        237,
+        235,
+        235,
+        65,
+        65,
+        60,
+        0
+      ]
+    },
+    {
+      "orientation_index": 8,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "after_outline_budget": 2093,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1003,
+        706,
+        652,
+        591,
+        307,
+        248,
+        245,
+        226,
+        97,
+        97,
+        97,
+        0
+      ]
+    },
+    {
+      "orientation_index": 9,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "after_outline_budget": 2054,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        938,
+        591,
+        590,
+        554,
+        285,
+        214,
+        214,
+        210,
+        83,
+        83,
+        82,
+        0
+      ]
+    },
+    {
+      "orientation_index": 10,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "after_outline_budget": 1896,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        905,
+        511,
+        507,
+        473,
+        231,
+        158,
+        156,
+        153,
+        85,
+        85,
+        84,
+        0
+      ]
+    },
+    {
+      "orientation_index": 11,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "after_outline_budget": 1921,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        956,
+        660,
+        616,
+        554,
+        266,
+        206,
+        206,
+        190,
+        106,
+        106,
+        104,
+        0
+      ]
+    },
+    {
+      "orientation_index": 12,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "after_outline_budget": 1922,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        651,
+        493,
+        483,
+        480,
+        257,
+        207,
+        202,
+        201,
+        97,
+        97,
+        97,
+        0
+      ]
+    },
+    {
+      "orientation_index": 13,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "after_outline_budget": 1959,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        832,
+        629,
+        596,
+        593,
+        208,
+        144,
+        131,
+        131,
+        0
+      ]
+    },
+    {
+      "orientation_index": 14,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "after_outline_budget": 1925,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        838,
+        630,
+        602,
+        601,
+        211,
+        109,
+        105,
+        105,
+        6,
+        6,
+        4,
+        0
+      ]
+    },
+    {
+      "orientation_index": 15,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "after_outline_budget": 1865,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        643,
+        471,
+        466,
+        466,
+        255,
+        207,
+        205,
+        205,
+        115,
+        115,
+        115,
+        0
+      ]
+    },
+    {
+      "orientation_index": 16,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "after_outline_budget": 1241,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        580,
+        410,
+        398,
+        371,
+        214,
+        190,
+        188,
+        179,
+        4,
+        4,
+        4,
+        0
+      ]
+    },
+    {
+      "orientation_index": 17,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "after_outline_budget": 1363,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        633,
+        498,
+        498,
+        498,
+        226,
+        210,
+        210,
+        210,
+        90,
+        90,
+        81,
+        0
+      ]
+    },
+    {
+      "orientation_index": 18,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "after_outline_budget": 1340,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        646,
+        511,
+        509,
+        506,
+        231,
+        212,
+        212,
+        212,
+        83,
+        83,
+        75,
+        0
+      ]
+    },
+    {
+      "orientation_index": 19,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "after_outline_budget": 1213,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        565,
+        417,
+        408,
+        390,
+        226,
+        205,
+        201,
+        193,
+        19,
+        19,
+        18,
+        0
+      ]
+    },
+    {
+      "orientation_index": 20,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "after_outline_budget": 1367,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        621,
+        498,
+        482,
+        458,
+        159,
+        113,
+        111,
+        102,
+        13,
+        13,
+        9,
+        0
+      ]
+    },
+    {
+      "orientation_index": 21,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "after_outline_budget": 1448,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        418,
+        284,
+        280,
+        276,
+        121,
+        100,
+        98,
+        92,
+        42,
+        42,
+        17,
+        0
+      ]
+    },
+    {
+      "orientation_index": 22,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "after_outline_budget": 1492,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        436,
+        297,
+        291,
+        284,
+        146,
+        114,
+        110,
+        100,
+        53,
+        53,
+        19,
+        0
+      ]
+    },
+    {
+      "orientation_index": 23,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "after_outline_budget": 1402,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        651,
+        521,
+        502,
+        480,
+        180,
+        135,
+        131,
+        119,
+        22,
+        22,
+        16,
+        0
+      ]
+    }
+  ],
+  "whole_unit_search": {
+    "status": "NO_CONSERVATIVE_CELL_NOT_PHYSICAL_INFEASIBILITY_PROOF",
+    "yaw_stats": [
+      {
+        "orientation_index": 0,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "after_outline_budget": 1693,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          582,
+          274,
+          271,
+          260,
+          139,
+          116,
+          115,
+          115,
+          41,
+          41,
+          20,
+          0
+        ]
+      },
+      {
+        "orientation_index": 1,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "after_outline_budget": 1677,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          625,
+          404,
+          348,
+          284,
+          170,
+          133,
+          122,
+          118,
+          48,
+          48,
+          24,
+          0
+        ]
+      },
+      {
+        "orientation_index": 2,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "after_outline_budget": 1768,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          643,
+          412,
+          354,
+          295,
+          171,
+          132,
+          122,
+          112,
+          44,
+          44,
+          26,
+          0
+        ]
+      },
+      {
+        "orientation_index": 3,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "after_outline_budget": 1784,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          540,
+          242,
+          241,
+          214,
+          126,
+          103,
+          103,
+          101,
+          44,
+          44,
+          26,
+          0
+        ]
+      },
+      {
+        "orientation_index": 4,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "after_outline_budget": 1539,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          532,
+          374,
+          368,
+          368,
+          285,
+          264,
+          263,
+          263,
+          91,
+          91,
+          87,
+          0
+        ]
+      },
+      {
+        "orientation_index": 5,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "after_outline_budget": 1544,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          607,
+          451,
+          440,
+          438,
+          302,
+          276,
+          272,
+          272,
+          14,
+          14,
+          11,
+          0
+        ]
+      },
+      {
+        "orientation_index": 6,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "after_outline_budget": 1540,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          556,
+          412,
+          412,
+          412,
+          280,
+          261,
+          261,
+          261,
+          0
+        ]
+      },
+      {
+        "orientation_index": 7,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "after_outline_budget": 1554,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          513,
+          367,
+          363,
+          363,
+          256,
+          237,
+          235,
+          235,
+          65,
+          65,
+          60,
+          0
+        ]
+      },
+      {
+        "orientation_index": 8,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "after_outline_budget": 2093,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1003,
+          706,
+          652,
+          591,
+          307,
+          248,
+          245,
+          226,
+          97,
+          97,
+          97,
+          0
+        ]
+      },
+      {
+        "orientation_index": 9,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "after_outline_budget": 2054,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          938,
+          591,
+          590,
+          554,
+          285,
+          214,
+          214,
+          210,
+          83,
+          83,
+          82,
+          0
+        ]
+      },
+      {
+        "orientation_index": 10,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "after_outline_budget": 1896,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          905,
+          511,
+          507,
+          473,
+          231,
+          158,
+          156,
+          153,
+          85,
+          85,
+          84,
+          0
+        ]
+      },
+      {
+        "orientation_index": 11,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "after_outline_budget": 1921,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          956,
+          660,
+          616,
+          554,
+          266,
+          206,
+          206,
+          190,
+          106,
+          106,
+          104,
+          0
+        ]
+      },
+      {
+        "orientation_index": 12,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "after_outline_budget": 1922,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          651,
+          493,
+          483,
+          480,
+          257,
+          207,
+          202,
+          201,
+          97,
+          97,
+          97,
+          0
+        ]
+      },
+      {
+        "orientation_index": 13,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "after_outline_budget": 1959,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          832,
+          629,
+          596,
+          593,
+          208,
+          144,
+          131,
+          131,
+          0
+        ]
+      },
+      {
+        "orientation_index": 14,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "after_outline_budget": 1925,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          838,
+          630,
+          602,
+          601,
+          211,
+          109,
+          105,
+          105,
+          6,
+          6,
+          4,
+          0
+        ]
+      },
+      {
+        "orientation_index": 15,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "after_outline_budget": 1865,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          643,
+          471,
+          466,
+          466,
+          255,
+          207,
+          205,
+          205,
+          115,
+          115,
+          115,
+          0
+        ]
+      },
+      {
+        "orientation_index": 16,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "after_outline_budget": 1241,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          580,
+          410,
+          398,
+          371,
+          214,
+          190,
+          188,
+          179,
+          4,
+          4,
+          4,
+          0
+        ]
+      },
+      {
+        "orientation_index": 17,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "after_outline_budget": 1363,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          633,
+          498,
+          498,
+          498,
+          226,
+          210,
+          210,
+          210,
+          90,
+          90,
+          81,
+          0
+        ]
+      },
+      {
+        "orientation_index": 18,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "after_outline_budget": 1340,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          646,
+          511,
+          509,
+          506,
+          231,
+          212,
+          212,
+          212,
+          83,
+          83,
+          75,
+          0
+        ]
+      },
+      {
+        "orientation_index": 19,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "after_outline_budget": 1213,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          565,
+          417,
+          408,
+          390,
+          226,
+          205,
+          201,
+          193,
+          19,
+          19,
+          18,
+          0
+        ]
+      },
+      {
+        "orientation_index": 20,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "after_outline_budget": 1367,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          621,
+          498,
+          482,
+          458,
+          159,
+          113,
+          111,
+          102,
+          13,
+          13,
+          9,
+          0
+        ]
+      },
+      {
+        "orientation_index": 21,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "after_outline_budget": 1448,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          418,
+          284,
+          280,
+          276,
+          121,
+          100,
+          98,
+          92,
+          42,
+          42,
+          17,
+          0
+        ]
+      },
+      {
+        "orientation_index": 22,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "after_outline_budget": 1492,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          436,
+          297,
+          291,
+          284,
+          146,
+          114,
+          110,
+          100,
+          53,
+          53,
+          19,
+          0
+        ]
+      },
+      {
+        "orientation_index": 23,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "after_outline_budget": 1402,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          651,
+          521,
+          502,
+          480,
+          180,
+          135,
+          131,
+          119,
+          22,
+          22,
+          16,
+          0
+        ]
+      }
+    ],
+    "candidates": 0,
+    "whole_case_and_route_proxy_boxes": 32,
+    "fixed_actual_and_path_obstacles": 767,
+    "gap_mm": 1.25,
+    "lower_deck_replacement_open": true,
+    "full_motion_and_other_end_routes_open": true
+  }
+}

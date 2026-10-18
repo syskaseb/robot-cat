@@ -20,14 +20,15 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    axial_columns='--axial-branch-columns' in sys.argv
+    branch_roots='--axial-branch-root-clear' in sys.argv
+    axial_columns=branch_roots or '--axial-branch-columns' in sys.argv
     above_frame=axial_columns or '--above-frame-joint-bay' in sys.argv
     joint_bay=above_frame or '--joint-power-bay' in sys.argv
     all_ends=joint_bay or '--all-ends' in sys.argv
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=spatial or '--flat-unit' in sys.argv
     lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -119,8 +120,8 @@ def main():
             R=np.array([[0,-1,0],[1,0,0],[0,0,1]],float)
             targets={}
             for code,x,negative,positive in (('FL',-95,'W026_Joint','W041_Joint'),
-                    ('FR',-45,'W037_Joint','W042_Joint'),('RL',65,'W044_Joint','W045_Joint'),
-                    ('RR',118,'W052_Joint','W053_Joint')):
+                    ('FR',-32 if branch_roots else -45,'W037_Joint','W042_Joint'),('RL',65,'W044_Joint','W045_Joint'),
+                    ('RR',90 if branch_roots else 118,'W052_Joint','W053_Joint')):
                 targets['MTA_'+code]=[x,0,-34]
                 targets[negative]=[x,-56,-34];targets[positive]=[x,56,-34]
             for g in effective['groups']:
@@ -197,6 +198,20 @@ def main():
         report['joint_bay_factory_routes']=routes(effective)
         wires.update({'ReceivedBUS:'+n:s for n,s in current_bus.items()})
         wires.update({'StructureReserve:BUS:'+n:s for n,s in {**current_bus_reserves,**current_bus_roots}.items()})
+        new_custom={};custom_owners={}
+        if branch_roots:
+            ledgerpath=OUT/'n01-complete-end-allocation.json';ledger=json.loads(ledgerpath.read_text())
+            report['source_sha256'][ledgerpath.relative_to(ROOT).as_posix()]=sha(ledgerpath)
+            report['all_eight_joint_custom_ends']=[]
+            for e in ledger['endpoints']:
+                if e['group'] not in joint_changes or not e['role'].endswith('.custom'):continue
+                role=e['group'];R=np.array(joint_rotations[role]);p=R@e['point_mm']+joint_changes[role];d=R@e['departure_axis']
+                radius=2.1 # selected4mm2 parent feeds; max reserve includes thinner output extensions
+                n='CustomPrefix:'+e['id'];new_custom[n]=Part.makeCylinder(radius,9,A.Vector(*p),A.Vector(*d));custom_owners[n]=role
+                wires[n]=new_custom[n];own[n]={role}
+                report['all_eight_joint_custom_ends'].append({'id':e['id'],'role':e['role'],
+                    'point_mm':p.tolist(),'departure_axis':d.tolist(),'jacket_mm':9,'conservative_radius_mm':radius})
+            assert len(new_custom)==8
         # Include whole common backbone reservations before power-unit search.
         # These are planning reserves, not actual finished PETG contact claims.
         for row in backbone['recipes']:
@@ -224,6 +239,13 @@ def main():
                 if n==bn:continue
                 if bn.startswith(('Factory:','StructureReserve:')) and n>bn and bn.startswith('Factory:'):continue
                 check(n,s,bn,b,'whole_upper_MTA_factory_route_vs_paths_or_structure',bn.startswith('StructureReserve:'))
+        for n,s in new_custom.items():
+            for bn,b in scene.items():
+                if bn in changed or roles.get(bn)==custom_owners[n]:continue
+                check(n,s,bn,b,'all8_custom_exit_lands_vs_actual_material')
+            for bn,b in wires.items():
+                if n==bn or bn.startswith('CustomPrefix:') and n>bn:continue
+                check(n,s,bn,b,'all8_custom_exit_lands_vs_all_new_paths_and_structure',bn.startswith('StructureReserve:'))
         save();print('Joint bay preliminary',len(report['contacts']),len(report['reservation_overlaps']),len(report['errors']),flush=True)
         if report['contacts'] or report['reservation_overlaps'] or report['errors']:
             report.update(status='JOINT_POWER_BAY_REJECTED_BEFORE_UNIT_SEARCH',source_sha256={**report['source_sha256'],**reader.hashes})
@@ -266,7 +288,7 @@ def main():
         proxy=np.array(proxy);centre=(proxy[:,0].min(axis=0)+proxy[:,1].max(axis=0))/2
         fixed={n:s for n,s in scene.items() if n not in changed}
         fixed.update(wires)
-        for entry in candidate['BUS']['ports']:
+        for entry in ([] if current_bus else candidate['BUS']['ports']):
             r=entry['first_bend_and_after_bend_grip']
             fixed['Nominal'+r['wire']]=pipe(r['parts'],r['radius_mm'])
         ob=np.array([arraybox(s) for s in fixed.values()]);ol,oh=ob[:,0],ob[:,1]
