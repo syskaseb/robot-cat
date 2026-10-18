@@ -32,14 +32,22 @@
     "tools/cad/feline_candidate_collision_scene.py": "1ab05e1b0bd221578dfbc0047843e10045000135828b6ca13e6cd60f9c22e8ae",
     "hardware/reference/fhac0001zxj-2026-10-02/README.md": "a317471ff028b1ee1b2550769003619a7d061ce98244ce1e516e1a19bba21f2c",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-plan-r4.json": "1621d5b44566eeb412458dbda5bd1cb3ef0185d07dbf3e66c6dc6bfafb62c5d1",
-    "tools/cad/plan_feline_fore_vertical_packet.py": "77399c5a1b862f653d5e5304742dbb55a33e530d8b5f4526a317a9e71f8cd1b3",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/wiring-checkpoint/pi-wire-support-plan.json": "17c25af1f0e4130a42928da690f01877bf3289970522cc80d4ab53eaedd36571",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-wiring-checkpoint/anchor-plan.json": "8ff7c200b47f8e35bfe0b98a990bb434e3cb576febcdc94af2f79d1d0cd7bf27",
+    "tools/cad/plan_feline_fore_vertical_packet.py": "a96fe5ae0bfd65c587812cbfcfb2d5a2efc57764707ae4d55396d9578675a624",
     "tools/cad/feline_solid_distance.py": "83bce3dff141dc94cbd4caad21ec35d1b70b9f812377e81b0a38c684f56f86aa",
     "tools/cad/check_feline_shared_space.py": "ba6248abb98f410e05a53bd2c19a0022544bc5c8144612b00bee2eeabf4c22d9"
   },
+  "prior_rejected_receipt_retained_in_git": {
+    "commit": "84ad78b8",
+    "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fore-vertical-full-packet.json",
+    "sha256": "12b7001f8e26bbbce6819c4bfbed19cacd8e7bb35caeba8b4d70b62ccb8a50b1",
+    "reused_positive_geometry": false
+  },
   "centre_mm": [
-    -122.0254010767585,
-    27.25,
-    0.299999999999943
+    -128.807566461048,
+    26.25,
+    57.59252585076639
   ],
   "source_axis_to_world_axis": [
     2,
@@ -50,7 +58,27 @@
     "aux_actual_minX": -110.1504010767585,
     "s0_actual_maxY": 14.0,
     "actual_outer_minZ": -48.00000000000006,
-    "formula": "AUXminX-1.25-10.125-.5;S0maxY+11+1.25+1;floor+25.5+9+6+3.55+3.25+1"
+    "upright_bounds_mm": [
+      [
+        -124.45756646104799,
+        -31.000000000000036,
+        6.1774741492335234
+      ],
+      [
+        -122.45756646104495,
+        31.000000000000032,
+        30.842525850766393
+      ]
+    ],
+    "s1_body_minX": -117.0,
+    "formula": "min(AUXminX-11.875,S1minX-11.375,uprightminX-2.9-1.25-.2);S0maxY+11+1.25;uprighttop+1.25+25.5"
+  },
+  "grip_budget": {
+    "PETG_seat_mm": 2,
+    "band_width_mm": 2.5,
+    "band_thickness_mm": 1.2,
+    "head_cube_mm": 6,
+    "nominal_not_delivered": true
   },
   "source84_5minimum_mm": 84.5,
   "prototype_OD_mm": 3.4,
@@ -61,9 +89,9 @@
     {
       "side": "in",
       "point_mm": [
-        -122.0254010767585,
-        26.25,
-        25.799999999999944
+        -128.807566461048,
+        25.25,
+        83.09252585076639
       ],
       "departure_axis": [
         0.0,
@@ -77,65 +105,66 @@
       ],
       "first_mm": 9,
       "R_mm": 6,
+      "bend_angle_degrees": 73.0,
       "factory_radius_mm": 1.7,
       "sleeve_radius_mm": 2.4,
       "sleeve_line_mm": [
         [
-          -122.0254010767585,
-          32.25,
-          40.79999999999994
+          -128.807566461048,
+          29.49576977166358,
+          97.8303543865446
         ],
         [
-          -122.0254010767585,
-          52.25,
-          40.79999999999994
+          -128.807566461048,
+          48.621864890924286,
+          103.67778848099934
         ]
       ],
       "custom_line_mm": [
         [
-          -122.0254010767585,
-          38.25,
-          40.79999999999994
+          -128.807566461048,
+          35.23359830744179,
+          99.58458461488102
         ],
         [
-          -122.0254010767585,
-          64.25,
-          40.79999999999994
+          -128.807566461048,
+          60.09752196248071,
+          107.18624893767218
         ]
       ],
       "factory_grip_line_mm": [
         [
-          -122.0254010767585,
-          26.25,
-          25.799999999999944
+          -128.807566461048,
+          25.25,
+          83.09252585076639
         ],
         [
-          -122.0254010767585,
-          26.25,
-          34.79999999999994
+          -128.807566461048,
+          25.25,
+          92.09252585076639
         ]
       ],
       "custom_grip_line_mm": [
         [
-          -122.0254010767585,
-          55.25,
-          40.79999999999994
+          -128.807566461048,
+          51.49077915881339,
+          104.55490359516754
         ],
         [
-          -122.0254010767585,
-          64.25,
-          40.79999999999994
+          -128.807566461048,
+          60.09752196248071,
+          107.18624893767218
         ]
       ],
-      "nominal_factory_blank_with3internal_mm": 35.424777960769376,
+      "nominal_factory_blank_with3internal_mm": 33.644542123735164,
       "full_grips_are_conservative_planning_volumes_not_printed_features": true
     },
     {
       "side": "out",
       "point_mm": [
-        -122.0254010767585,
-        26.25,
-        -25.200000000000056
+        -128.807566461048,
+        25.25,
+        32.09252585076639
       ],
       "departure_axis": [
         0.0,
@@ -149,57 +178,58 @@
       ],
       "first_mm": 9,
       "R_mm": 6,
+      "bend_angle_degrees": 0.0,
       "factory_radius_mm": 1.7,
       "sleeve_radius_mm": 2.4,
       "sleeve_line_mm": [
         [
-          -122.0254010767585,
-          32.25,
-          -40.20000000000006
+          -128.807566461048,
+          25.25,
+          23.092525850766393
         ],
         [
-          -122.0254010767585,
-          52.25,
-          -40.20000000000006
+          -128.807566461048,
+          25.25,
+          3.0925258507663926
         ]
       ],
       "custom_line_mm": [
         [
-          -122.0254010767585,
-          38.25,
-          -40.20000000000006
+          -128.807566461048,
+          25.25,
+          17.092525850766393
         ],
         [
-          -122.0254010767585,
-          64.25,
-          -40.20000000000006
+          -128.807566461048,
+          25.25,
+          -8.907474149233607
         ]
       ],
       "factory_grip_line_mm": [
         [
-          -122.0254010767585,
-          26.25,
-          -25.200000000000056
+          -128.807566461048,
+          25.25,
+          32.09252585076639
         ],
         [
-          -122.0254010767585,
-          26.25,
-          -34.20000000000006
+          -128.807566461048,
+          25.25,
+          23.092525850766393
         ]
       ],
       "custom_grip_line_mm": [
         [
-          -122.0254010767585,
-          55.25,
-          -40.20000000000006
+          -128.807566461048,
+          25.25,
+          0.09252585076639264
         ],
         [
-          -122.0254010767585,
-          64.25,
-          -40.20000000000006
+          -128.807566461048,
+          25.25,
+          -8.907474149233607
         ]
       ],
-      "nominal_factory_blank_with3internal_mm": 35.424777960769376,
+      "nominal_factory_blank_with3internal_mm": 26,
       "full_grips_are_conservative_planning_volumes_not_printed_features": true
     }
   ],
@@ -207,22 +237,14 @@
     {
       "name": "case",
       "failure": {
-        "kind": "actual_static_gap",
-        "source": "Ref_Material_P0_Part__Feature_0_0",
-        "gap_mm": 0.0,
-        "minimum_mm": 1.25
+        "kind": "actual_outer_gap",
+        "gap_mm": 2.5674335389519456
       },
       "completed_queries": [
         {
           "scope": "true_outer",
-          "gap_mm": 9.349598923241473,
+          "gap_mm": 2.5674335389519456,
           "minimum_mm": 3.25
-        },
-        {
-          "scope": "static_solid_children",
-          "source": "Ref_Material_P0_Part__Feature_0_0",
-          "gap_mm": 0.0,
-          "minimum_mm": 1.25
         }
       ]
     }
@@ -230,13 +252,11 @@
   "failures": [
     {
       "name": "case",
-      "kind": "actual_static_gap",
-      "source": "Ref_Material_P0_Part__Feature_0_0",
-      "gap_mm": 0.0,
-      "minimum_mm": 1.25
+      "kind": "actual_outer_gap",
+      "gap_mm": 2.5674335389519456
     }
   ],
   "errors": [],
   "roots_tools_and_three_case_mutual_allocation_OPEN": true,
-  "worker_seconds": 26.469
+  "worker_seconds": 26.672
 }
