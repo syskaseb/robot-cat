@@ -1,5 +1,13 @@
 # Wnioski z projektowania 3D robot-cat
 
+18.10, zaciski źródła: przed obliczaniem pełnych wachlarzy i całego świata
+sprawdzić niezmienny wewnętrzny fit WSZYSTKICH kupnych oczek na rzeczywistych
+osiach śrub. Założenie okrągłego obrysu końcówki nie wystarcza: rzeczywisty
+kształt oczka ogranicza orientacje. Odebrany wspólny pinwheel daje sześć
+rzeczywistych luzów >=1,6745mm; dopiero ten układ przenosić sztywno z całym
+źródłem i dołączać chwyty/trasy. Ruch całego źródła nie naprawia błędu
+wewnętrznego. Nie obniżać marginesu, żeby uratować odrzuconą rodzinę.
+
 18.10, wejście wymiarowe przed następną geometrią: FHAC miał w wybranym
 szablonie51×20,25×22mm, nie założone15,5mm przekroju. Monitor41×25×12,
 nie21×15×4. Przekrój po obrocie liczyć z pełnego źródła. Źródło oznaczone

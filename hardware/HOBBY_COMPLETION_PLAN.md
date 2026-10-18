@@ -2,195 +2,80 @@
 
 ## Aktywne okno 6h,18.10.2026
 
-Stan bieżący: **N01 OPEN,0/10 nowego zakresu**. Historyczne20/20=100%
-dotyczy dokumentacji otwartego prototypu, tag
-phase1-open-prototype-100-2026-10-17/9bf50a5; nie jest wynikiem obudowy.
-Okno feline-layout-20261018-six-hours od08:58:01Z do20:00:00Z/22:00Warszawy,
-przedłużone przez użytkownika; hookON. Ostatni odczyt17:52:09Z:
-25%used/75%remaining, ordinaryallowed, bezresetu. Modelsettingsunchanged,
-SolHigh według ustaleń; runtimeID/effort niepotwierdzone niezależnie.
+Stan: **N01 OPEN,0/10 nowego zakresu**. Historyczne20/20=100% dotyczy
+dokumentacji otwartego prototypu, tagphase1-open-prototype-100-2026-10-17/
+9bf50a5. Nie jest wynikiem nowej obudowy ani fizycznymPASS.
+Okno feline-layout-20261018-six-hours:08:58:01Z–20:00:00Z/22:00Warszawy,
+zamknięte po deadline20:00:00Z. Zapis zamknięcia20:00:04Z, hookOFF,
+własnych procesów0. Nowych prac projektowych po terminie nie rozpoczęto.
+Zmierzony czas okna39723s=11h02min, NIE ciągły czas CPU/aktywnej pracy.
+Odczyt20:00:04Z:30%used/70%remaining, ordinaryallowed, reset=false.
+Ustawień modelu nie zmieniono; SolHigh według ustaleń, runtimeID/effort
+niepotwierdzone niezależnie. Czas okna nie jest ciągłym czasem CPU/pracy.
 
-Aktualizacja18:33:19Z:27%used/73%remaining, ordinaryallowed, reset=false.
-R2worker92840 odebranyexit0/33,625s, commit5f2be86c: nowy4kanałowycap
-ma poprawny nominalny mate9mm z niezmienionymW043; blokuje stara opaska
-PSYSTie, nie kupnycase. Pełna funkcja źródłowa obejmuje takżePSYSTieHead;
-ledger n01-flat20-owner-contract.json/0,038876s obejmuje wszystkie3części.
-ObieR2belki mają rzeczywistywallgap2,860713<3,25. Nie ponawiać całej
-geometrii po samym usunięciu etykiety: wspólny nośnik ma kończyć się na
-actualP0SideX127, nie kosmetycznymtailX158; domena musi mieć dodatni
-overlap całego piera z skończoną belką. Podział przyX45 daje171/82mm
-przed złączem; złącze/osprzęt/nośność/4kotwy i retainedMAIN/cuffs/bank
-drogi obciążenia nadalOPEN. Nie dziedziczyć dotychczasowych domenR1/R2.
-27307field odebranyexit0/31,359s/941fixed/0errors.92739exact odebrany
-exit0/102,156s/16receipts/0fail/0errors: CAŁY P_SYS4jacketcap/band/head/
-floor/pier oraz2skończone belki externalCLEAR w tymzakresie. Niepełne
-kotwy/złącza/nośność nie są zaliczone przez ten test. FIRST:null.
-Następnie jedna kontrola zmienionegoP_SYS/nośników, potem WSPÓLNE20+
-4S1sourceclocks i pozostałe123/246 końce; bez nativeN03 przedN01.
-Naruszenie interwału limitu18:12:16..18:22:54 wyniosło638s, o38s za dużo;
-zapisane jawnie, kolejne odczyty przed operacją/max10min wymagane.
+Bieżący wynik i NEXT, zamiast ponawiania starego FIRST:
+- 91765ecf zachowuje wspólny plan51grup:20WAGO+4S1+24odejścia banku+
+  2pary rzeczywistych kotew+cały F_PWM. Worker26809 exit0/241,562s,
+  wszystkie51domen niepuste, ale brak wspólnego wyboru;6węzłów/0errors.
+  P_REAR37/P_FRONT57/G1 59/F_PWM26. To nie dowód globalnej niewykonalności.
+- F_PWM to bezpiecznik0242.100UAT1 w chronionym przewodzie/sleeve42×6,4×6,4,
+  NIE FHAC. Wszystkie5źródłowych brył zachowane, oba nowe9mm chwyty przed
+  łukiem na istniejących prostych. Przeniesienie całego modułu otworzyło
+  domeny WAGO. Monotoniczność pola i hashe pozwoliły odzyskać niezmienione
+  światy50grup bez ponownego skanowania. Pole56828 exit0/43,203s/912fixed.
+- 00bea042 zachowuje bank50/24pełneodejścia i realne24części4clampkitów;
+  wszystkie16położeń par kotew mają nominalne oparcie>=60mm² i brak
+  dodatniego common z rodzicem P0. Śruby/podkładki/nakrętki bez podmian.
+  Stare nieWYBRANE łuki banku są zmiennymi, kupne TE i pierwsze9mm nie.
+- f6309a7e zachowuje tylko lokalny pełny P_SYS4kanały/cap/band/head/floor/
+  pier i2skończone belki:92739 exit0/102,156s/16receipts/0fail/0errors.
+  W043 niezmieniony, nominalny mate9mm. Zastępowana cała stara funkcja
+  PSys comb+tie+head, nie usunięta pojedyncza blokująca etykieta.
+  Belki kończą się na actualP0X127, nie kosmetycznymtailX158; podziałX45.
+- Receiver81242 exit0/70,485s zawęził obecny deadend do4S1. W064/W065
+  iW065/W068 nie mają wzajemnie dopuszczonej pary w odebranej rodzinie.
+  Najlepsze W064/W067 orazW067/W068: dokładny ringgap0,867304845mm,
+  common0mm³, valid. Nie nazywać zerowego dystansu kolizją objętościową.
+  Oddzielnie pełne chwyty/bandy mają ujemny nominalny luz. Nie obniżać1,25.
+- f441652c zachowuje receiver49986 exit0/51,344s: cztery narożniki
+  starej płaszczyzny mają domeny5/0/0/0; ujemneX z R25,2 wychodzi z tułowia.
+- ad56a861: pełny pionowy packet22części/38,844s, przewody/chwyty rozdzielone,
+  lecz dwa oczka z luzem0,874mm i15worldHOLD. Diagonal45packet38,75s
+  odrzucony już przez cztery ringgap0; świat nie liczony po tej bramce.
+- Receiver22002 exit0/93,844s: wspólny PINWHEEL czterech rzeczywistych oczek.
+  W06490°/W065180°/W0670°/W068270°, sześć dokładnych ringpair >=1,6745mm.
+  Nie podmieniono części ani nie obniżono wymaganego1,25mm. Ten ograniczony
+  fit jest niezmienniczy przy sztywnym przeniesieniu całego źródła.
+- d23d6369: stały22partpacket z pinwheel i4normal-awayłukami nie ma domeny
+  w1440wspólnychpozach/151,969s. Nie zamrażać tych czterech łuków ponownie.
+- 27f9f7db i odbiór34976+78637:10części źródła/4oczka jako wspólne core,
+  1930/2800poz odebranych w90,187+90,063=180,250s;21NUMERYCZNYCH propozycji,
+  pierwsze1113bezponownego query. Pozostałe870 można wznowić z receiptu.
+  To nie fit całego źródła ani zatwierdzone pozycje montażu.
+- NEXT po nowej zgodzie: wznowić tylko brakujące870poz, potem52węzły=
+  47odebranych+core+4pełne niezależnie wybierane wachlarze z TYM SAMYM
+  core_pose_id. Zachowane źródłoweoczka, minimumR25,2 i pełne9mmgripy.
+  Nie liczyć ponownie pól/36motion/ATO ani lokalnychWAGO/DFLclocków.
+  Native/wybór dopiero po całym wspólnym planie; źródłowe śruby/powierzchnie
+  docisku/korzenie/narzędzia i całe123/246 nadal obowiązkowe.
 
-Historia wcześniejszego FIRST:70115/PID23536 odebranyexit0/82,265s.
-4S1sourceR25,2 domeny1/2/0/3; W067pusta, więc D_FL NIE liczony ponownie.
-Pole n01-joint-fore-field.npz4,70MB zachowane, sourcepinned. To ograniczona
-rodzina numeryczna, nie dowód kolizji/niewykonalności ani wynikN01.
-Nie uruchamiać kolejnych clock-kątów przy zamrożonym lokalnym układzie.
+Pozostałe bramki N01: wykonalne wszystkie123odcinki/246końców jako plan,
+obie strony4MTA/fabryczne długości, pełne chwyty i narzędzia, wspólna droga
+montażu/12ATO, rzeczywiste korzenie do ramy MAIN/cuffs/banku/płyt i kotew,
+skończone belki/złącza/nośność oraz rzeczywisty obrys/ruch. Finalne środki
+tras i stock należą doN04/N05/N10; nie dopisywać ich wykonawczej kwalifikacji
+doN01, ale nie zaliczać samych rozmieszczonych case jako gotowego planu.
+Nie zaczynać nativeN03/paneli przed wykonalnym wspólnym planem.
+Brak wiarygodnej ETA do10% przed przyjęciem wspólnego układu źródła i reszty;
+następna estymata dotyczy tylko odebrania konkretnego receivera, nie całości.
 
-N01 pole CAŁYCH20flatstacji odebrane88903/PID23560exit0/31,203s/0errors:
-944fixedsources, perźródłowyunion,36motion/ATO reused. Pole/manifest
-n01-flat20-field.npz/json. Wyjęte case/frames to WARUNKOWE zmienne, niePASS.
-Konkretna blokada:
-W067empty/2odrzuconeD_FL oraz P_REARniezmiennyforeextent. Wyjąć z planera
-wszystkie stare19case/fans, P_SYS przenieść do osobnego identity-context,
-przestarzałe nieWYBRANE frame-post/rail/crossmemberrecipes oznaczyć
-warunkowymi z obowiązkiem zastępczych korzeni. BankBed/MAINcut/P0/4MTA/
-faktyczny materiał i source36motion/ATO zachować. Union przebudować
-perźródło, nie kasować first-owner voxeli. Akceptacja TYLKO sourcepinned
-pole do wspólnej alokacji20case/86fan/common9grip/root, nie N01/PASS.
-NEXT teraz wspólna alokacja pełnychcase/fan/grip/closure na tym polu,
-bez przebudowy nieruszonych źródeł. OuterZ wyprowadzić z całego cap2mm/
-band1,2/rmax2,1 i bankbed52: wireplane<=45,45, nie case-onlytop50,75.
-To ustalenie wspólnej bramki PRZED pierwszą geometrią nowego układu,
-nie kolejnyoffset odrzuconegoD_FL. Wszystkie kanały chwytów w jednymcap,
-jeden band/head POD całymcap, brak5niezależnychgłówek nad5żyłami.
-Szablony gotowe:40sourceframe/port/clampassertionsPASS, leverUP wynika z
-RZ faktycznego p×d, NIE z błędnej uniwersalnej pitchSign=depSign.
-Innerwireplane48,5 (pełneR25,2 pod bankbed52), outer min z całegocase
-i cap2/band1,2/head. Każda domena zawiera wszystkieporty/9gripy/wspólny
-cap/band/head/podparcie i tylny powrót do wspólnychrailów. Numericfield
-ma jawnie luźny prefilter; actualgap1,25/outer3,25 NIE zmieniony. Szukać
-jednego wspólnego wyboru20, dopiero potem JEDEN exactreceiver. Nie robić
-OCC na każdym węźle; zapisywać perstation, nie przepadające240s pętle.
-74409/PID20020odebranyexit0/18,093s,19niepustychzewnętrznychdomen,
-P_SYS0/1 z reservationmargin-1,7915. NIEakceptacja: wykryty błąd szablonu
-innerfan: jednakoweR przy pitchY i końcowych9wzdłużY zbiegałyby żyły.
-WSZYSTKIE takieinnerdomeny unieważnione. OuterUPperpPitch nie dziedziczy
-tego błędu, ale teżnieCADPASS. Przed kolejnym światem wspólne concentricR
-wyliczone z ACTUALportY+minR, wspólna liniaYkońców/różneX, i pełny
-numericselfcheck wszystkichżył. Polefixed pozostajeidentyczne. Dopiero
-pełnyPSYSreceiver nazwie owner rzeczywistegoHOLD; bez mikroprzesunięć.
-58098/PID19832odebranyexit0/33,765s/0errors.11P_SYSblokad WYŁĄCZNIE
-stara P_SYS_CommonRelief(ownerUpperFrame/kindframe_reservation), a nie
-kupnycase. Nowycap ma zastąpić całąfunkcję4żył, W043teżmusi dostaćkanał.
-SourceW043ostatniodcinek10,2744976mm potwierdzony:9mmchwyt bezreroutingu.
-Rail-1 realPOST_F0bbox[138,5,-44,5,35]..[147,5,-25,5,49]; Rail+1 actual
-P0MountRearL[107,27,5,35,92]..[130,40,61]. NIE ruszać tych części.
-Druga CAŁA rodzinaframe: niskieOUTBOARDrailpodplatformą, zamiast między
-WAGOnaZ40; pełnepionowe kolumny do wspólnych casefloor/capów. Closure
-outerINWARD/SIDE, P_SYS4coreSIDE zamiastgenericUP; innerpozostałeUP.
-To zmiana drogi obciążenia i całych chwytów, nie skalarny unikD_FL.
-R2wspólnyframe rails X[-126,158]/absY[54,60]/Z[34,7,37,7], pionydo
-CASEfloorów; nie stare wysokieY42,75belki. P_SYS_CommonRelief
-retireWARUNKOWEownerUpperFrame po pokryciu4wszystkichżył. W043nieusunięty:
-osobnyidentity-wire-context, actual1,7radiusR4 i9/10,274mmprostego są
-matingdoNOWEGOcapu, nieforeign1,25airgap. Materiałreszty/kupnych/case
-nie wyłączany.144self/groove/frameassertions1,907sPASS. Teraz poleR2,
-potem cała jednostkaPSysR2 +rails na actualfixedscene, bez ruszaniaW043.
-Concentricinnerfan:144self/templateassertions1,922s, minimalnywolny
-nominalny margines0,35mm ponad wiregap0,2. P_SYS R66/67/68=25,2/31,7/38,2,
-końceY64,2 na różnychX, bez zbiegania. OuterUP geometria niezmieniona.
-Następna konieczna kontrola exact: CAŁY stałyP_SYS(3nowefans/commoncap/
-band/head/roots+2wspólnerails) na IDENTYCZNYM fixed944scene, zanim
-powtarzać wspólnyCSP z kotwą0domen. W043/caseidentity nie przeliczane
-ponownie. Akceptacja: nazwy realnychblokad lub externalunitclear, NIE
-pełnyN01/19pozostałych/S1/123portions. PropozycjeBRep, nie nativeN03.
-
-NEXT: JEDNA ZMIANA ARCHITEKTURY wszystkich20stacji, nie następny lokalny
-S1clock/D_FL. Płaskie case/leverUP pod bankiem, wewnętrzne podłużne galerie
-pełnychR25,2, zewnętrzne pionowe wachlarze w przerwach oprawek. Wszystkie
-86obsadzonych portów, pełne9gripy/główki i wspólny frame/root w tym samym
-planie.4duże615(11x22x37) i16małe415(9x19x30) z actualsource, nie20takich
-samychboxes. P_SYS/F_PI/W043/W077/W078 chronione, bank12/24 oraz4MTA
-zachowane; nowyplan NIEwybrany. Nie testować trzeciej samotnej pozycjiD_FL.
-P_REAR.5 przyX-119/-X/first3/R25,2/r2,1 potrzebujeX-149,3 przed zawróceniem90°,
-poza hardfore-141,5. CałyP_REAR/5portów jest zmienną; nie zmniejszaćR,
-nie zmieniać samejW065. Chronione F_PI/W043/W077/W078/P_SYScase pozostać
-bez zmian, jeśli wspólny układ na to pozwoli. Potem pełne3FHAC/retencja,
-ATO/tools/USB, wszystkie123portion/246ends i nominalne długości/stock.
-Nie przechodzić do nativeN03/paneli-detali bez kompletnej bramkiN01.
-
-Aktualne źródła:
-- tools/cad/feline_current_candidate_scene.py: merge n01-rev3-whole-profiles
-  z n01-dedicated-fuse-bays.station_profile_recipes oraz joint_station_moves.
-  Nie używać starych REV3mouthD_FLX-93,5; aktualnyX-73,5.
-- S14mouths: n01-s1-current-source-datums.json/55b03ba4,4/4coaxialCylinder
-  i coincidentPlane,0,438s. SplitfaceCOM nie jest osią tulei. Nominalsaved
-  source, nie vendor/deliveredfit. Osi pierścieni nie wymyślać.
-- P_SYS.2/.3 toX4,55/Y23,5 i17/Z48,5; nie stareGUIDE[-40,51,5,-11].
-  HELU23802 sourceOD4,2/R25,2 zastępuje genericR12,4 na obu końcach4żył.
-- FHAC0001ZXJ51x20,25x22, minimum89,5-5=84,5mm ze źródła02.10.
-  OD3,4/R6 są jawnym założeniem prototypu istniejącegoW043, nie producenta.
-  Sleeve20/lap8/14straightafterarc i obydwa9mmgripy z pełnymi główkami.
-- TorsoEnvelope central-cassette-envelope/FelineLayoutEnvelope.FCStd:
-  p4superellipse, nie roundedbox. WorldZ[-48,112],325x200x160/max200.
-  Obrys jest zmienną projektu w tych granicach, nie świętą starą kasetą.
-- Actual P0upright: X[-124,4576,-122,4576],Y[-31,31],Z[6,1775,30,8425].
-  Nie jest dolną płytą. KodnogiRL w motion-layout oznacza fizycznieFrontLeft.
-- BUS: cachepoobrocieinvalid; tylko originalvalidBRep + inverseframe.
-  Solid-childdistance, nie Compoundparent.distToShape, które gubi containment.
-
-Odebrane w ostatnim bloku, bez punktów:
-- Macro71aaadb9:62142/PID12824exit0/110,219s,17holdfail/0errors.
-  S1wholeRy180/+X15,FL_G+X16. S1body/większośćkit i FL_G5fansCLEAR.
-  S1ring2/3/W067/68 trafiają w R4ScaffoldingPost/LowerRail; W064 do
-  actualF_L1INgap0,7057. Operatoroutside443,97mm3 zachowany jakoHOLD;
-  funkcjonalny panelopening w max200 wymaga osobnego wspólnego planu.
-- D_FLclosestpoint0,984s: caseZ20,75 vsleg20,0663; port5Z24,7 vsleg24,4874.
-  b5fd4491: flatRx90 na tym samymcentre[-64,58,35,75] ODRZUCONY przez
-  P0SideLeft oraz S1body/operator. Nie ponawiać offsetu ani tej geometrii.
-- b5fd4491:66081/PID25336exit0/64,672s. Foregórnyfactorybodyward+X90°,
-  dolnyfirst34mm, casecentre bez zmiany. Oba całe zewnętrzne factory/
-  sleeve/custom/gripy CLEAR wobec actualstatic/trueouter/36sampledposes.
-  Blanki35,425 i51mm<=84,5. Źródłowe case/firstgrips reużyte.
-- 9c1d1273: foreintrinsic32queries/0,360s,0fail/0errors. Kanały/własne
-  mateinterfacesCLEAR, bez ponownej kontroli świata. Początkowe2,5mm
-  nominalny mate, nieairgap. Sleevezewnętrzną rezerwacją; wewnętrzne
-  przewodniki i deliveredfit nieudowodnione. Ringforegap1,6087 nadalHOLD,
-  potrzebuje wspólnego partnerapanelu/root/osprzętu; nie znieśćmarginesu.
-- 77edae06:47197/PID17660exit0/241,016s PARTIALnumeric. Pole po76,203s,
-  potem zbyt drogi serialDFLscan; brakjointassignment, niegeometryrejection.
-  939cloudsreused/185new. Nowa kolejność source-first, zapisy perbatch
-  oraz pole zachowane, bez zmiany punktów/marginesów do szukaniaPASS.
-- 07fe58de:70115/PID23536exit0/82,265s,0errors;4source-domain1/2/0/3,
-  emptyW067, więc drogie D_FL NIE powtórzone. Pole4,70MBsaved/pinned.
-  To boundednumericfamily, NIE dowód rzeczywistej niewykonalności.
-- Wholeflatplan n01-flat-station-architecture.json:0,080550s,20case/86portów,
-  wszystkie mouthplanes zgodne z actualsourcecase;16małych415/4duże615.
-  Assertions20/86/uniqueIDs/HELU25,2/P_SYSidentity/W043reuse oraz zapis
-  identyczny z builderemPASS, ale bez geometriiPASS. Obrys/20pełnychfans/
-  assembly/root/native/123portion pozostająOPEN. Zewnętrzne chwyty BEFORE
-  arc na9mm w jednym multichannelcap; nie wciskać5główek do9mm fusegap.
-  Commit65d4451f; integralność4nowychproofów:77pinów/46unikalnychhashy,
-  wszystkie zgodne, bez zmiany native/wyboru/score. Ostatni blok17:23:13..
-  17:52:09=1736s(28m56)elapsed; zmierzone główneworkery388,394s,
-  nie ciągłyCPU ani całyczaspracy. Oknoelapsed32048s(8h54m08).
-
-Frame/root: Post-69_1[-72,17,42,72]..[-66,23,85] i
-LowerRail1[-72,17,39,72]..[108,23,42,72] to ScaffoldingReservations,
-NIE kupne części. Także4BankArm+UpperStrip1 są unselectedR4proposals.
-Warunkowe wyłączenie z planera wymaga całej zastępczej drogi obciążenia
-i rzeczywistych kotew/fastener/tools przedN01; nie usuwać przeszkód doPASS.
-RetainedMAINCutForeCap zachować jako rzeczywisty podzbiór, nie pełnybox.
-Stare wolne otwory nie są automatycznie obecnie wolne. Lower4MTA/battery/
-zajęte śruby/mocowania i cały dolny obrys należą do tego samego planu.
-
-Historia prób zachowana wGit27c20dac (pełny1319-liniowy blok sprzed
-skrócenia) oraz przypiętych proofach, NIE w nowym dzienniku. Globalcapacity
-122cases/242first/232numericsnapshot218458ad nie kwalifikuje pełnychogonów.
-48centralpackages3578b0ce odrzucone przez P0Side; foreV1upright84ad78b8
-i foreV2outer7f33929a nie ponawiać. Closed rearcase2/3 i niezmienione4MTA,
-front/bank/MAIN/Pi-sourcepary reużywać przez aktualne piny, nie powtarzać.
-
-Zasady wykonania: jeden aktualny układ; after2fail zmiana przyczyny/układu.
-BBox niekolizja, numericfield nierealnyPASS, sampled36 niecontinuousproof.
-ZachowaćP0/E6/15napędów/wymienneMG92B/Ola-reference/margines256cube.
-Bez zakupów/resetów/power/push/slicera/ROS/GUARD/BMS/schedule/maila/
-WORK_HANDOFF/Claude/zmianmodelu. Zegar/limit przed kosztem i maks10min,
-zapisać last_account_usage.17:17 odczyt po17m23 był naruszeniem podczas
-nadmiernej analizy; nie ukrywać ani nie powtarzać. Czasyworkerwall, nieCPU.
-Odeadline20Z, pełnym wyniku, realnym braku bezpiecznej pracy lub braku/
-wyczerpaniu zwykłego limitu: odebrać/zakończyć własne procesy, zapisać stan,
-wyłączyćenabled, raport i ROBOT_CAT_FELINE_SIX_HOURS_DONE tylko przy zamknięciu.
+Pełne wcześniejsze receipts/odrzucenia i zmierzone czasy są w pierwszym bloku
+appearance-checkpoint.json i przypiętych wynikach/commitach; nie powtarzać.
+Naruszenie limit-check18:12:16..18:22:54=638s (38s ponad10min) zachowane jawnie;
+kolejne odczyty przed kosztem i max10min. Bez resetu/zakupów/push/mail/modelchange. Następne prace wymagają nowej zgody.
+Ostatnie zachowane commity:f441652c/ad56a861/f594837a/d23d6369/27f9f7db/
+2cc3d46d. Wybrany master707MB ma niezmienionySHA256aff0a45bfc4bb430…;
+nie zbudowano nowego native ani wybranego eksportu, N01 nadalOPEN0/10.
 
 ## Aktywny blok N01,18.10.2026
 
