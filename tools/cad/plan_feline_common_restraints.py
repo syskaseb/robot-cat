@@ -20,9 +20,10 @@ from check_feline_leg_body import placement
 from check_feline_shared_space import tube_prefix
 
 
-def main():
+def main(geometry_only=False,restore_usb_corner=False):
     coherent='--coherent-retention' in sys.argv
-    tick=time.monotonic();dest=OUT/('n01-common-restraint-material-r2.json' if coherent else 'n01-common-restraint-material.json');assert not dest.exists()
+    tick=time.monotonic();dest=OUT/('n01-common-restraint-material-r2.json' if coherent else 'n01-common-restraint-material.json')
+    assert coherent and dest.exists() if geometry_only else not dest.exists()
     paths={k:OUT/n for k,n in dict(scene='n01-full-material-scene.json',lower='n01-lower-bay-world-probe.json',
         packet='n01-current-endpoint-packet-r3.json',lands='n01-reconciled-port-contracts-gate.json',
         qualified='n01-reconciled-port-contracts-qualified.json',motion='motion-layout.json').items()}
@@ -41,6 +42,7 @@ def main():
         full89routes_headtail_USB_tools_skin_native_stock_open=True,
         source_sha256={f.relative_to(ROOT).as_posix():sha(f) for f in (*paths.values(),Path(__file__))})
     def save():
+        if geometry_only:return
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
     def gate():
@@ -95,7 +97,9 @@ def main():
             return Part.makeLoft(profiles,True,True)
         s=beam(points[0],points[1],6)
         for a,b in zip(points[1:],points[2:]):s=s.fuse(beam(a,b,4))
-        for q in points[1:-1]:s=s.fuse(box((q-[3,3,1.5]).tolist(),(q+[3,3,1.5]).tolist()))
+        for index,q in enumerate(points[1:-1]):
+            half=2 if restore_usb_corner and index==2 else 3
+            s=s.fuse(box((q-[half,half,1.5]).tolist(),(q+[half,half,1.5]).tolist()))
         s=s.removeSplitter();assert len(s.Solids)==1
         replace(fn,s,'UpperFrame');report['USB_whole_branch_path_mm']=[q.tolist() for q in points]
     # Enlarge only the head budget, not the received24wire seats/loops/routes.
@@ -265,6 +269,7 @@ def main():
                     report['planned_unions'].append(row);return
             if m.startswith('TieLoop:') and n.startswith('TieHead:') and n.removeprefix('TieHead:')==m.removeprefix('TieLoop:'):report['mating_pairs'].append(row);return
         report['contacts'].append(row)
+    if geometry_only:return new,kind,owner,scene,meta,p
     try:
         save()
         for n,s in new.items():
