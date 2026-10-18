@@ -31,7 +31,7 @@ def points(s):
 
 
 def frame_variable(n,m):
-    if any(a in sys.argv for a in ('--owner-complete','--joint-space')) and own_reservation(n,m):return True
+    if any(a in sys.argv for a in ('--owner-complete','--joint-space','--bank-joint')) and own_reservation(n,m):return True
     if n=='P_SYS_CommonRelief':
         assert m.get('kind')=='frame_reservation' and m.get('owner')=='UpperFrame',m
         return '--owner-r2' in sys.argv
@@ -43,15 +43,36 @@ def frame_variable(n,m):
 
 
 def main():
-    tick=time.monotonic();joint='--joint-space' in sys.argv
-    r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete','--joint-space'))
-    suffix='-joint' if joint else '-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
+    tick=time.monotonic();bankjoint='--bank-joint' in sys.argv;joint='--joint-space' in sys.argv or bankjoint
+    r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete','--joint-space','--bank-joint'))
+    suffix='-bankjoint' if bankjoint else '-joint' if joint else '-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
     dest=OUT/('n01-flat20-field'+suffix+'.json');fieldfile=OUT/('n01-flat20-field'+suffix+'.npz')
     assert not dest.exists() and not fieldfile.exists(),'Receive existing field before rebuilding'
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
     assert plan['station_count']==20 and plan['occupied_ports']==86
     for n,h in plan['source_sha256'].items():assert sha(ROOT/n)==h,n
     scene,meta,templates,pins,bus,changed,removed,variable=current()
+    bankrows=[];banktermnames=[];bankcontext={};railnames=[]
+    if bankjoint:
+        bankfile=OUT/'n01-common-backbone-preflight-r4.json';bankdoc=json.loads(bankfile.read_text())
+        gripfile=OUT/'n01-compact-bank-preflight-r2.json';gripdoc=json.loads(gripfile.read_text())
+        assert not any(gripdoc[k] for k in ('contacts','grip_conflicts','service_conflicts','errors'))
+        grips={r['id']:r for r in gripdoc['grip_allocations']}
+        for i,r in enumerate(bankdoc['bend_allocations']):
+            a=np.array(r['start_mm']);axis=(np.array(r['end_mm'])-a-r['bend_R_mm']*np.array(r['bend']))/(r['land_mm']+r['bend_R_mm'])
+            g=grips[r['id']];assert np.allclose(a,g['start_mm']) and np.allclose(a+9*axis,g['end_mm'])
+            assert abs(np.linalg.norm(axis)-1)<1e-6 and abs(g['outer_radius_mm']-2-r['radius_mm'])<1e-6
+            terminal=f"Ref_Material_F_{r['holder']}_CP2_{'IN' if g['role'].endswith('.in') else 'OUT'}_0_0"
+            assert terminal in scene and scene[terminal].isValid()
+            bankrows.append(dict(r,departure_axis=axis.tolist(),terminal_name=terminal,
+                terminal_context_key=f'BankTerm{i}_context',fixed_source_grip_mm=9,project_cap_wall_mm=2))
+            banktermnames.append(terminal);bankcontext[f'BankTerm{i}_context']=points(scene[terminal])
+        assert len(bankrows)==len(set(banktermnames))==24
+        railnames=['Ref_Material_P0_SideLeft22_0_0','Ref_Material_P0_SideRight22_0_0']
+        bankcontext['BankTerm_context']=np.vstack(list(bankcontext.values()))
+        bankcontext['P0Rail_context']=np.vstack([points(scene[n]) for n in railnames])
+        for p in (bankfile,gripfile,OUT/'n01-flat20-actual-clamp-kits.json'):
+            pins[p.relative_to(ROOT).as_posix()]=sha(p)
     capfile=OUT/'n01-global-case-capacity.json';cap=json.loads(capfile.read_text())
     rawfile=OUT/'n01-shared-space-atlas.json';raw=json.loads(rawfile.read_text());rawbundle=ROOT/raw['bundle']
     originalfield=OUT/'n01-global-current-case-field.npz';assert sha(originalfield)==cap['field_sha256']
@@ -77,6 +98,11 @@ def main():
     retired=cases|frame|{n for n in scene if n.startswith('REV3Station:')}
     retired|={n for n in scene if n.startswith(('End:W067/single/start','End:W068/single/start','End:W066/retained0/end'))}
     retired|={n for n in scene if n.startswith('Ref_Material_current_S1_')}
+    if bankjoint:
+        bankprefixes={n for n in scene if n.startswith('BankFullPrefix:')}
+        assert bankprefixes=={'BankFullPrefix:'+r['id'] for r in bankrows}
+        assert all(meta[n].get('kind')=='actual_wire' and meta[n].get('owner')==n for n in bankprefixes)
+        retired|=bankprefixes #All24successors preserve q/d/r/first9 and purchased TE ends.
     originalparts=set(scene)
     for n in retired:scene.pop(n);meta.pop(n)
     overlays=[];s1names=[]
@@ -110,6 +136,13 @@ def main():
         S1_body_control_and_studs_preserved_in_separate_context=True,
         S1_context_must_be_seen_by_all_other_modules_and_wire_jackets=True,
         ring_eye_mate_requires_later_exact_internal_qualification=True)
+    if bankjoint:report.update(bank_joint_full_source_ports=bankrows,
+        bank_purchased_cases_TE_ends_not_moved_or_deleted=True,
+        all24source_first9_must_be_present_in_joint_successors=True,
+        bank_new_bends_caps_full_bands_heads_and_roots_NOT_approved=True,
+        bank_terminal_context_parts=banktermnames,P0_rail_mating_context_parts=railnames,
+        paired_actual_clamp_kit_joint_choices_required=True,
+        only_bank_after_first9_directions_reallocated=True)
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -119,6 +152,9 @@ def main():
     try:
         with zipfile.ZipFile(rawbundle) as z:
             for n,s in scene.items():
+                if bankjoint and n in banktermnames+railnames:
+                    report['material_clouds'].append(dict(source=n,category='Bank_terminal_mating_context' if n in banktermnames else 'P0_clamp_parent_context',reused=False,samples=len(points(s))))
+                    continue
                 if joint and n in s1names:
                     report['material_clouds'].append(dict(source=n,category='S1_mating_context',reused=False,samples=len(points(s))))
                     continue
@@ -153,6 +189,7 @@ def main():
         fields.update(service=old['service'],inside=old['inside'],P_SYS_context=context)
         if r2:fields['W043_context']=wirecontext
         if joint:fields['S1_context']=s1context
+        if bankjoint:fields.update(bankcontext)
         np.savez_compressed(fieldfile,**dict(zip(('x','y','z'),axes)),**fields)
         report.update(status='FLAT20_SOURCE_FIELD_READY_FOR_JOINT_DOMAINS_NOT_N01',stage='complete',
             field=fieldfile.relative_to(ROOT).as_posix(),field_sha256=sha(fieldfile),
