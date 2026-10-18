@@ -2,6 +2,42 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+09:57:30Z9%użyte/91%pozostałe,59min29s okna. HookON, deadline
+14:58:01Z bez zmian, nowy zakres0/10; historyczne20/20 zachowane.
+f90a1383: odebrany centralny nośnikR3 w70,235s/88par/36pozycji,
+0kontaktów/0rezerwacji/0outside/0wall/0błędów, osiem kanałów wkrętaka.
+4MTA/8pełnych fabrycznych odcinków/8customlands/24chwytów odzyskane
+z pozytywnego zakresuR2, nie przeliczone ponownie.8M2x12 to kandydat
+stock, nie wybrany zakup. Dolne2,3mm półki/4korzenie są rezerwacją,
+nie gotowym natywnym drukiem/nośnością. Brak własnych workerów.
+Jedna kopia70worldBRep (4,515s, bez ponownej statyki) oraz aktualny
+pakiet178końców/89fizycznych odcinków/80sieci,62końce uzgodnione.
+3testy asercji PASS0,044s bez pytest (niezainstalowany); nic nie
+dziedziczy kwalifikacji trasy/stock tylko z tożsamości przewodu.
+NEXT: pełna aktualna scena materiałowa i wspólny wymiarowany plan
+pozostałych korytarzy80stałych/12ruchomych wiązek/USB/head-tail,
+ze wszystkimi końcami i montażem. Obie strony4MTA już nie są wolną
+zmienną do kolejnego przesuwania. Uzupełnić rzeczywiste podparcia
+spodu8jointów/dostęp/demontaż przed native; nie wracać do szerokich
+półek/obejm. Nie zaliczaćN01 za sam pozytywny podzespół.
+
+09:53:27Z9%użyte/91%pozostałe,55min26s okna,0/10. HookON.
+Odebrano flat-belly native9,562s/8wpełni związanych przekrojów/
+1validsolid/parametr196→198→196/reopen, commit4551bd30. To rezerwacja,
+nie ściana/druk. Stary obrys NIE jest podzbiorem nowego (8306mm3), więc
+nie wolno przenosić całej starej kwalifikacji containment. Nowe części
+sprawdzane bezpośrednio. c724e5de:85,735s/359par/36pozycji,0kontaktów
+kupnych/24chwytów/0outside/0wall/0błędów.184kontakty dotyczą WYŁĄCZNIE
+starych szerokich półek i dwóch przednich obejm, nie nowych przewodów.
+Po tym wyniku zmieniona CAŁA droga montażowa: centralny nośnik56mm,
+cztery korzenie pod istniejącymi podkładkami,8M2x12 zamiast8M2x10
+(kandydat, ten sam tip4,7mm), bez zmian stóp/nakrętek. Wszystkie8osie
+mają pełne kanałyØ6,5 do wkrętakaR3; brzegPETG2,25mm. Aktualny
+session43042 sprawdza tylko nowy nośnik/hardware/narzędzia, odzyskuje
+przechodzące36pozycji4gałęzi/24chwytów. Nie ponawiać szerokich płyt/
+zewnętrznych obejm ani samych położeń MTA. Montaż/demontaż/stock/pełne
+pozostałe wiązki wciąż otwarte, bez częściowych punktów.
+
 09:48:37Z około50min37s okna, N01nadal0/10, hookON.
 Odebrano36pozycji64części w144,328s:1040par,263rzeczywiste kontakty
 WYŁĄCZNIE FRjoint/W037/W042/custom z nogami;17części poza starym
