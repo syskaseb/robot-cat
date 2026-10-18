@@ -1,5 +1,77 @@
 # Domknięcie hobbystycznego robot-cat
 
+## N01 do pełnych10%,19.10.2026
+
+Nowa zgoda: jeden pełny wspólny plan N01=1/10=10%, bez terminu godzinowego.
+Start18.10 22:12:45Z/19.10 00:12:45Warszawy, obecnie0/10. Hook result_stageON.
+Odczyt22:14:24Z:30%used/70%remaining, ordinaryallowed; bez resetu.
+Zatwierdzone uproszczenie: wspólne siodło/grzebień PETG i opaski, najpierw
+blokujące S1; zachować niezależne odciążenie żył, izolację, promienie i dostęp.
+Odebrać870 pozostałych pozycji rdzenia źródła bez przeliczania1930; potem
+rdzeń/cztery niezależne wachlarze/47grup we wspólnym układzie, pełne korzenie,
+narzędzia i montaż. Szczegóły produkcyjneN03, finalne trasyN04/N05 i stockN10
+nie są bramkąN01. Wszystkie123odcinki/246końców i4MTA pozostają w planie.
+Stare odrzucenie czterech jednakowych90° łuków nie dowodzi braku miejsca.
+Zatrzymanie: pełne10%, rzeczywisty brak bezpiecznej pracy lub niedostępny/
+wyczerpany zwykły limit. Bez punktów częściowych, maila i fizycznegoPASS.
+
+22:20Z: odebrano870/870 brakujących pozycji w106,157s; razem2800,34propozycje.
+Proste siodła+opaski:34rdzenie×4niezależne wyjścia,60,031s, brak pełnego
+kompletu. Diagnoza17,110s: trzy rdzenie4/8/26 mieszczą wszystkie pierwsze12mm.
+W najlepszym8 W064 wychodzi pionowo w górę zZ82,123: pierwsze12+łukR25,2
+dająZ119,323 bez płaszcza, ponad maksymalnymZ112. Mniejszy uchwyt tego nie
+naprawia. Zmiana przyczyny: pozostałe16orientacji całego źródła (obecne8/24),
+najpierw wszystkie cztery obowiązkowe wyjścia, potem pełny rdzeń i wachlarze.
+Nie przeliczać odebranych2800pozycji/34wachlarzy. N01 nadalOPEN0/10.
+
+22:32Z: pozostałe16orientacji5600pozycji odebrane104,875s,9nowych rdzeni,
+brak pełnego wachlarza4wyjść. Dokładny świadek0,718s: W067↔TE R4IN
+6,65248mm³; R4OUT luz1,1695<1,25mm. Płaszczyzna wyjść poza TE wyznaczona
+zY−39,25−5,3−1,25=−45,8mm odrzucona26,187s: całe S1 przecina zachowaneP0.
+Nie ponawiać tego bocznego przejścia. Diagnoza poziomej wnęki POD bankiem
+22,453s/18par/0błędów: korpus S1↔bateria18060mm³, klucz w dół przecina
+płytę/F0/4MTA. Następna zmiana przyczyny: klucz W GÓRĘ i pozioma płaszczyzna
+zacisków pod bankiem, wysokość wyznaczona z pełnej baterii/paska i CAŁEGO S1,
+nie kolejny offset. Zachować źródła, P0 i bank; najpierw dokładne pary.
+6testów siodeł/stałych końców/transformacji/cache i świadków przeszło0,335s.
+Limit22:28:50Z31%used/69%remaining; hookON, N01OPEN0/10, bez fizycznegoPASS.
+
+22:37Z: pełna wysokość klucza-do-góry wynika z rzeczywistych śrub, nie
+założonego promienia: centrumZ56,492mm nad paskiem28,7+1,25mm.
+Pierwszy przekrój źródła miał42mm wY i przecinał TE. Obrót CAŁEGO S1 o90°
+ustawia krótsze24mm w centralnym korytarzu27,74mm: rzeczywiste ciało/klucz/
+bank/bateria są rozłączne; pozostają2oczka↔P0, po0,211175mm³. Obie próby
+380par:29,578/29,563s. Nie podnosić kolejno o ułamki mm ani ciąćP0.
+NEXT: wspólna wnęka ZA baterią z poziomymi zaciskami i kluczem do góry,
+krótsza oś obudowy S1 przez środek banku. Wyznaczyć pozycję całego źródła
+z końca rzeczywistej bateriiX80,25, pełnego korpusu/oczka/wyjść i płaszczyzny
+nad baterią; uwzględnić niezależny kierunek siodła/opaski (siodło nie musi
+zawsze wisieć nad żyłą po odwróceniu S1). Zachować promień/izolację iP0.
+To zmiana wspólnej funkcjonalnej wnęki, nie kolejny wariant odrzuconej
+płaszczyzny bocznej. Następnie wspólne47grup/korzenie/narzędzia/pełne końce.
+
+22:45Z: nowa pełna wnękaX103,623/Y0/Z53,55 (za komórką, klucz do góry,
+zaciski31,05 nad komórką) — rzeczywiste10części S1 kontraP0/bank/bateria:
+380par odebrane30,453s,0utraconych luzów,min1,262191mm. To TYLKO te
+interfejsy, NIE cały świat. Po naprawie wrappera/pinów odebrano wyłącznie
+brakujące siodła PO łuku na istniejących9mm:21,0s,380par NIE powtórzono.
+Wynik domen0/0/0/24, cały rdzeń ma material-screen−0,2. Nie uruchamiać
+CSP z pustymi domenami ani kolejnej pozycji źródła: najpierw rzeczywisty
+właściciel stałego materiału w tej wnęce. N01 nadalOPEN0/10. 8testów0,413s.
+
+22:50Z: właściciel odebrany46374/23,109s/21par/0błędów. Tylna pionowa
+wnęka przecina FAKTYCZNE BUS.D/G, kupne źródła BUS i jego cały chwyt/H5;
+ponadto P0Feature105/106. Nie usuwać pojedynczego ramienia BUS ani przesuwać
+dalej S1 w tej samej wnęce. NEXT: pełny PODŁUŻNY tylny niski układ S1,
+oś klucza wX do przodu, cała obudowa za rzeczywistymi MountRearP0 X130.
+Przekrój całego S1 po tym obrocie37X42Y24Z; zaplanować równocześnie
+cały klucz,4wyjścia z chwytami/narzędziami i przedni powrót wiązek do szerszej
+części tułowia. X149,75 wynika z130+1,25+37/2; pozostałe poziomy wyznaczyć
+z pełnych wyjść/obrysu/P0, nie przypadkowym gridem. To hipoteza, nie wybór.
+Natywny wybrany master nadal bez zmian. Licznik0/10. Limit31%used/69%remaining,
+hookresultstageON bez terminu, bez resetu/maila. Dotychczas37min27s czasu
+ściennego tego wznowienia (od22:12:45Z), nie ciągłegoCPU.
+
 ## Aktywne okno 6h,18.10.2026
 
 Stan: **N01 OPEN,0/10 nowego zakresu**. Historyczne20/20=100% dotyczy
