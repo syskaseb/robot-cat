@@ -22,8 +22,9 @@ from check_feline_leg_body import placement
 
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();rev2='--overhead-bank' in sys.argv
-    dest=OUT/('n01-common-backbone-preflight-r2.json' if rev2 else 'n01-common-backbone-preflight.json')
+    tick=time.monotonic();reader=SavedShapes();rev3='--washer-plane-carriers' in sys.argv
+    rev2=rev3 or '--overhead-bank' in sys.argv
+    dest=OUT/('n01-common-backbone-preflight-r3.json' if rev3 else 'n01-common-backbone-preflight-r2.json' if rev2 else 'n01-common-backbone-preflight.json')
     assert not dest.exists(), 'Receive existing result; no unchanged rerun'
     native=OUT/'FelineInteriorMotion.FCStd'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json',
@@ -57,6 +58,13 @@ def main():
             committed_source='6f94b1bb:tools/cad/plan_feline_n01_common_backbone.py',
             first_bends24_and_changed_output_bays='Identical recipes; reuse zero contacts/errors',
             changed_structure='Overhead fore-bank hangers instead of crossing P0 mounts; bridge-bottom keepout; sized standoffs; five lower-axis supports')
+        if rev3:
+            p2=OUT/'n01-common-backbone-preflight-r2.json';r2=json.loads(p2.read_text())
+            assert len(r2['contacts'])==22 and not r2['errors']
+            assert all('Nut_' in c['b'] or 'BottomWasher_' in c['b'] for c in r2['contacts'])
+            report['reuse_r2']=dict(report=p2.relative_to(ROOT).as_posix(),sha256=sha(p2),
+                committed_source='9c522c04:tools/cad/plan_feline_n01_common_backbone.py',
+                scope='Unchanged frame/neck/lowerdeck clear; generic spacers rejected. Replace with carriers at actual washer/nut TOP planes.')
     scene={};role_of={};changed={};holder_of={};groups={g['role']:g for g in plan['groups']}
     valid={}
     def check(an,a,bn,b,scope):
@@ -65,7 +73,10 @@ def main():
             'bend_other_grips','bank_bends_mutual','changed_complete_factory_route'):return
         if rev2 and scope.startswith('common_structure_') and not an.startswith((
             'BankArm-69_','BankForeHanger','BankForeToe','NeckWeb','Standoff_',
-            'U1Support','AUXSupport','AUXBacker','AUXEar','PiFuseCradle','PiFuseRiser')):return
+            'U1Support','AUXSupport','AUXBacker','AUXEar','PiFuseCradle','PiFuseRiser',
+            'PCBrail','PCBroot','U1Carrier','AUXCarrier')):return
+        if rev3 and scope.startswith('common_structure_') and an.startswith((
+            'NeckWeb','AUXBacker','AUXEar','PiFuseCradle','PiFuseRiser')):return
         if not near(a,b):return
         report['pairs']+=1
         try:
@@ -153,12 +164,24 @@ def main():
             lo,hi=sorted((sign*20,sign*53.5));z=85 if rev2 and x==-69 else 52
             box(f'BankArm{x}_{sign}',[x-3,lo,z],[x+3,hi,z+3])
             if rev2 and x==-69:
-                box(f'BankForeHanger{sign}',[-72,sign*53.5-3,52],[-66,sign*53.5+3,88])
-                box(f'BankForeToe{sign}',[-72,sign*53.5-3,52],[-59,sign*53.5+3,55])
+                hy=sign*(70 if rev3 else 53.5)
+                box(f'BankForeHanger{sign}',[-72,hy-3,52],[-66,hy+3,88])
+                lo,hi=sorted((sign*53.5,hy))
+                box(f'BankForeToe{sign}',[-72,lo-3,52],[-59,hi+3,55])
+                if rev3:
+                    lo,hi=sorted((sign*20,hy));box(f'BankArm{x}_{sign}',[-72,lo,85],[-66,hi,88])
     box('MainRaisedBridge',[-58,-12,91],[-29,12,94])
     box('PWMForeBranch',[-102,15.3,88.5],[-39.77,40.7,91.5])
     ztop={'Pi4':98.1,'BUS':90.72,'MAIN':96.52,'PWM9685':104}
     zbase={'Pi4':88,'BUS':88,'MAIN':94,'PWM9685':91.5}
+    if rev3:
+        zbase.update(Pi4=91.9,PWM9685=96)
+        for role,xs,ys,z,rootz in (('Pi4',[-19.5,46.5],[-24.5,24.5],91.9,88),
+                ('PWM9685',[-102.825,-38.945],[18.475,37.525],96,91.5)):
+            for i,y in enumerate(ys):
+                box(f'PCBrail{role}_{i}',[xs[0],y-4,z],[xs[1],y+4,z+2])
+                for j,x in enumerate((0,30) if role=='Pi4' else (-85,-55)):
+                    box(f'PCBroot{role}_{i}_{j}',[x-3,y-3,rootz],[x+3,y+3,z])
     for group in axes_inventory['groups']:
         role=group['role']
         if role not in ztop:continue
@@ -169,6 +192,9 @@ def main():
                 Part.makeCylinder(inner,ztop[role]-zbase[role],A.Vector(x,y,zbase[role])))
             for pn in ('UpperStrip-1','UpperStrip1','MainRaisedBridge','PWMForeBranch'):
                 parts[pn]=parts[pn].cut(Part.makeCylinder(3,30,A.Vector(x,y,84)))
+            if rev3 and role in ('Pi4','PWM9685'):
+                for j in range(2):
+                    pn=f'PCBrail{role}_{j}';parts[pn]=parts[pn].cut(Part.makeCylinder(inner,20,A.Vector(x,y,zbase[role]-1)))
             report['recipes'].append(dict(name=n,actual_saved_axis_xy_mm=[x,y],z_mm=[zbase[role],ztop[role]],
                 plate_hardware_clearance_D_mm=6,standoff_OD_mm=outer*2,standoff_bore_D_mm=inner*2,nut_pocket_and_bearing_detail_open=True))
     box('HeadRootPlate',[-204,-30,-21.48],[-180,30,-18.48])
@@ -198,11 +224,23 @@ def main():
             lo,hi=sorted((sign*18,sign*27));box(f'AUXEar{sign}',[-111,lo,-23.38],[-104,hi,-20.38])
         for group in axes_inventory['groups']:
             if group['role'] not in ('PWM1608_U1','AUX4092'):continue
-            u1=group['role']=='PWM1608_U1';z0,z1=(-42,-25.03) if u1 else (-20.38,-8.28)
+            u1=group['role']=='PWM1608_U1'
+            z0,z1=((-33.03,-25.03) if u1 else (-16.28,-8.28)) if rev3 else ((-42,-25.03) if u1 else (-20.38,-8.28))
             for i,a in enumerate(group['unique_axes']):
                 x,y=a['axis_world_xy_mm'];n=('U1Support' if u1 else 'AUXSupport')+str(i)
                 parts[n]=Part.makeCylinder(3,z1-z0,A.Vector(x,y,z0)).cut(
-                    Part.makeCylinder(1.7 if u1 else 1.2,z1-z0,A.Vector(x,y,z0)))
+                    Part.makeCylinder(1.2 if rev3 else 1.7 if u1 else 1.2,z1-z0,A.Vector(x,y,z0)))
+                if rev3:
+                    if u1:
+                        box(f'U1CarrierArm{i}',[x-3,2,z0],[x+3,13,z0+2])
+                        box(f'U1CarrierRoot{i}',[x-3,7,-42],[x+3,13,z0])
+                        parts[f'U1CarrierArm{i}']=parts[f'U1CarrierArm{i}'].cut(Part.makeCylinder(1.2,4,A.Vector(x,y,z0-1)))
+                    else:
+                        # Lugs outside the saved PCB perimeter, not through underside pads.
+                        ox=-113.5 if x<-100 else -81.1
+                        box(f'AUXCarrierArm{i}',[min(ox,x)-3,y-3,z0],[max(ox,x)+3,y+3,z0+2])
+                        box(f'AUXCarrierRoot{i}',[ox-3,y-3,-20.38],[ox+3,y+3,z0])
+                        parts[f'AUXCarrierArm{i}']=parts[f'AUXCarrierArm{i}'].cut(Part.makeCylinder(1.2,4,A.Vector(x,y,z0-1)))
                 report['recipes'].append(dict(name=n,actual_saved_axis_xy_mm=[x,y],z_mm=[z0,z1],
                     bottom_hardware_and_tool_open=True))
         box('PiFuseCradle',[-167.5,-28,-44.5],[-116.5,28,-42.125])
@@ -232,6 +270,13 @@ def main():
         report['allocations'].append(dict(id=row['id'],role=role,point_mm=p,bodyward_axis=axis,owner=support,
             status='PROJECT_ALLOCATION_NOT_COMPLETE_ROUTE',old_boundary_retired=True,actual_factory_length_verified=False))
     assert len(report['allocations'])==38 and len({a['id'] for a in report['allocations']})==38
+    boundary_wires={}
+    if rev3:
+        for row in report['allocations']:
+            if not row['owner'].startswith('NineWireCuff'):continue
+            p=A.Vector(*row['point_mm']);d=A.Vector(*row['bodyward_axis'])
+            boundary_wires[row['id']]=Part.makeCylinder(1.55,9,p,d)
+            n=row['owner'];parts[n]=parts[n].cut(Part.makeCylinder(1.8,11,p-d,d))
     box('SelectedSolderSpliceClip',[-103,-9,38.9],[-61,9,47.1])
     report['splice_recipe']=dict(type='Existing selected solder overlap, no new connector',overlap_mm=8,
         sleeve_blank_mm=20,existing_material='RNF-100-3/16-0-STK',independent_intact_grips_x_mm=[[-103,-94],[-70,-61]],
@@ -244,6 +289,11 @@ def main():
         for bn,b in wires.items():check(n,s,bn,b,'common_structure_vs_new_full_prefixes')
         for bn,b in grips.items():check(n,s,'Grip:'+bn,b,'common_structure_vs_complete_bank_grips')
         save();print('Structure',n,'contacts',len(report['contacts']),flush=True)
+    if rev3:
+        # These are real wire cylinders inside perforated cuff reservations;
+        # no support is allowed to block a channel, including an intended joint.
+        for n,s in boundary_wires.items():
+            for bn,b in parts.items():check(n,s,bn,b,'allocated_boundary_wire_vs_all_structure')
     report['source_sha256'].update(reader.hashes)
     for p in (contractfile,macrofile):report['source_sha256'][p.relative_to(ROOT).as_posix()]=sha(p)
     if report['contacts'] or report['errors']:
