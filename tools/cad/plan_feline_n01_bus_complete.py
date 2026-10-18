@@ -6,6 +6,7 @@ no detailed native build, purchasing, electrical or physical PASS.
 """
 import json
 import time
+import sys
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -28,7 +29,8 @@ def bb(s):
     b=s.BoundBox;return [[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();dest=OUT/'n01-bus-both-plugs-plan.json'
+    tick=time.monotonic();reader=SavedShapes();rooted='--rooted-branches' in sys.argv
+    dest=OUT/('n01-bus-both-plugs-plan-r2.json' if rooted else 'n01-bus-both-plugs-plan.json')
     assert not dest.exists(),'Receive previous result; no unchanged rerun'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json','current-mount-axis-inventory.json')]
@@ -141,35 +143,79 @@ def main():
     for row in ax:
         x,y=row['axis_world_xy_mm'];v=T.multVec(A.Vector(x,y,90.72));holepts.append(v)
     pcbback=float(np.mean([v.x for v in holepts]));ys=[v.y for v in holepts];zs=[v.z for v in holepts]
-    plate=box('BUS_Backplate',[pcbback+2,min(ys)-3,min(zs)-3],[pcbback+5,max(ys)+3,max(zs)+3],True)
+    plate=box('BUS_Backplate',[pcbback+2,min(ys)-3,min(zs)-(6 if rooted else 3)],
+        [pcbback+5,max(ys)+3,max(zs)+3],True)
     for i,v in enumerate(holepts):
         plate=plate.cut(Part.makeCylinder(1.2,5,A.Vector(pcbback+1,v.y,v.z),A.Vector(1,0,0)))
         roots['BUS_Standoff'+str(i)]=Part.makeCylinder(3,2,v,A.Vector(1,0,0)).cut(Part.makeCylinder(1.2,2,v,A.Vector(1,0,0)))
     roots['BUS_Backplate']=plate
-    for y in (-18.5,18.5):box('BUS_LowerRoot'+str(y),[102,y-3,52],[pcbback+5,y+3,55],True)
-    box('BUS_UpperPositiveRoot',[102,17,79],[pcbback+5,23,82],True)
+    if rooted:
+        box('BUS_FrameCrossbar',[101,-23,49],[107,23,52],True)
+        box('BUS_CentralLowerRoot',[104,-4,49],[pcbback+5,4,52],True)
+        box('BUS_UpperPositiveRoot',[102,21,79],[pcbback+5,27,82],True)
+        box('BUS_BackplatePositiveEar',[pcbback+2,14,79],[pcbback+5,27,82],True)
+    else:
+        for y in (-18.5,18.5):box('BUS_LowerRoot'+str(y),[102,y-3,52],[pcbback+5,y+3,55],True)
+        box('BUS_UpperPositiveRoot',[102,17,79],[pcbback+5,23,82],True)
     box('DG_LowerRoot',[102,-3,52],[108,23,55],True)
     box('DG_Upstand',[bx+3.65,by-8.5,54],[bx+9.65,by-3.25,bz],True)
     # USB relief support remains below the whole wire end, no filled box
     # crossing the cable. Common frame-root reservations stay explicit.
-    box('USB_XRoot',[102,-23,35],[p[0]+11,-17,38],True)
-    box('USB_FrameRiser',[102,-23,35],[108,-17,45.72],True)
-    box('USB_YRoot',[p[0]+5,-74,35],[p[0]+11,-20,38],True)
-    box('USB_Upstand',[p[0]+4.6,p[1]-2.5,35],[p[0]+10.6,p[1]+2.5,p[2]+5],True)
+    if rooted:
+        # Short flat branch from the retained full structural9wire arm,
+        # not a1.4mm wire pilot and not a long bar through the rear frame.
+        start=np.array([105,-36,64]);end=np.array([p[0]+6.27,p[1],p[2]+4.5])
+        delta=end-start;normal=np.array([-delta[1],delta[0],0]);normal/=np.linalg.norm(normal)
+        sections=[]
+        for v in (start,end):
+            vs=[A.Vector(*(v+normal*a+np.array([0,0,b]))) for a,b in ((-3,-1.5),(3,-1.5),(3,1.5),(-3,1.5))]
+            sections.append(Part.makePolygon(vs+[vs[0]]))
+        beam=Part.makeLoft(sections,True,True);assert beam.isValid() and len(beam.Solids)==1
+        roots['USB_DiagonalArm']=beam
+        parent=Part.makeBox(6,30,3,A.Vector(102,-50,62.5))
+        for row in backbone['allocations']:
+            if row['owner']=='NineWireCuffRR':
+                pv=A.Vector(*row['point_mm']);dv=A.Vector(*row['bodyward_axis'])
+                parent=parent.cut(Part.makeCylinder(1.8,11,pv-dv,dv))
+        # LogicalRR has negativeY in the current physical mapping; assert
+        # actual frame/arm coordinates rather than inferring by its label.
+        contact=beam.common(parent);assert contact.isValid() and contact.Volume>1e-4
+        report['USB_root_parent']=dict(owner='NineWireArmRR',source='common-backbone-r4',
+            full_parent_box_mm=[[102,-50,62.5],[108,-20,65.5]],root_contact_volume_mm3=contact.Volume,
+            start_mm=start.tolist(),end_mm=end.tolist(),section_mm=[6,3],
+            parent_is_still_a_scoped_planning_body_not_native_release=True)
+        report['roots'].append(dict(name='USB_DiagonalArm',start_mm=start.tolist(),end_mm=end.tolist(),section_mm=[6,3]))
+    else:
+        box('USB_XRoot',[102,-23,35],[p[0]+11,-17,38],True)
+        box('USB_FrameRiser',[102,-23,35],[108,-17,45.72],True)
+        box('USB_YRoot',[p[0]+5,-74,35],[p[0]+11,-20,38],True)
+        box('USB_Upstand',[p[0]+4.6,p[1]-2.5,35],[p[0]+10.6,p[1]+2.5,p[2]+5],True)
     report['PCB_axes_mm']=[[v.x,v.y,v.z] for v in holepts]
     report['hardware_candidate']='Retain4M2board stacks; exact length/nut/head placement and stock reconciliation still N03. Not a new selected SKU.'
     # roots touch common posts by positive volume, but those posts are still
     # only the previously screened backbone plan, not finished native parts.
     for sign in (-1,1):box('InheritedRearPost'+str(sign),[102,sign*20-3,42.72],[108,sign*20+3,85],True)
     report['frame_root_basis']='Inherited common-backbone-r4 rear-post -> lower rail -> four free-span frame clamps. Physical fastener/strength proof remains OPEN.'
+    if rooted:
+        priorpath=OUT/'n01-bus-both-plugs-plan.json';prior=json.loads(priorpath.read_text())
+        assert not prior['contacts'] and not prior['errors']
+        assert prior['relative_BUS_pose']==report['relative_BUS_pose'] and prior['routes']==report['routes']
+        for pp,h in prior['source_sha256'].items():
+            if pp!='tools/cad/plan_feline_n01_bus_complete.py':assert sha(ROOT/pp)==h,pp
+        report['unchanged_received_scope']=dict(report=priorpath.relative_to(ROOT).as_posix(),sha256=sha(priorpath),
+            case_and_complete_nominal_prefixes_reused=True,
+            reason='Identical exact vendor source/pose and routes. All prior hits are only root reservations changed below.',
+            actual_mating_still_provisional=True)
+        report['source_sha256'][priorpath.relative_to(ROOT).as_posix()]=sha(priorpath)
     save()
-    for n,s in {**bus,**wires}.items():
+    for n,s in ({} if rooted else {**bus,**wires}).items():
         for bn,b in scene.items():
             if roles.get(bn)=='BUS':continue
             check(n,s,bn,b,'new_BUS_or_nominal_wire_vs_actual_static_material')
         for bn,b in fixedwires.items():check(n,s,bn,b,'new_BUS_or_nominal_wire_vs_bank_MTA_and36boundaries')
     for n,s in {**reserves,**roots}.items():
         if n.startswith('InheritedRearPost'):continue # unchanged scoped R4 proof
+        if rooted and n in reserves:continue # received unchanged plug/relief footprints
         for bn,b in scene.items():
             if n.startswith('BUS_Standoff') and roles.get(bn)=='BUS':continue
             if n=='H5MatingReserve' and roles.get(bn)=='BUS':continue
