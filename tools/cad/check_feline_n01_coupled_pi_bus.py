@@ -20,17 +20,18 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    branch_roots='--axial-branch-root-clear' in sys.argv
+    central='--central-spine-power' in sys.argv
+    branch_roots=central or '--axial-branch-root-clear' in sys.argv
     axial_columns=branch_roots or '--axial-branch-columns' in sys.argv
     above_frame=axial_columns or '--above-frame-joint-bay' in sys.argv
     joint_bay=above_frame or '--joint-power-bay' in sys.argv
     all_ends=joint_bay or '--all-ends' in sys.argv
     spatial=all_ends or '--spatial-unit' in sys.argv
-    flat=spatial or '--flat-unit' in sys.argv
-    lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    flat=not central and (spatial or '--flat-unit' in sys.argv)
+    lower=central or flat or '--lower-fore' in sys.argv
+    target=OUT/('n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
-    paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
+    paths=[OUT/n for n in (('n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json')]
     candidate,plan,rear,bank,backbone,motion=[json.loads(p.read_text()) for p in paths]
@@ -224,6 +225,7 @@ def main():
             if n.startswith('Crossmember') and not axial_columns:lo[1]=-38;hi[1]=38
             wires['StructureReserve:'+n]=Part.makeBox(*(hi-lo),A.Vector(*lo));own['StructureReserve:'+n]=set()
         for n,s in jointparts.items():
+            if central:continue # exact branch statics received; new Pi-vs-branch checked below
             for bn,b in scene.items():
                 if n==bn or roles.get(n)==roles.get(bn) or bn in changed:continue
                 check(n,s,bn,b,'whole_upper_MTA_bay_case_vs_actual_static')
@@ -231,6 +233,7 @@ def main():
                 if roles.get(n) in own.get(bn,set()):continue
                 check(n,s,bn,b,'whole_upper_MTA_bay_case_vs_complete_paths_or_structure',bn.startswith('StructureReserve:'))
         for n,s in wires.items():
+            if central:continue
             if not n.startswith('Factory:'):continue
             for bn,b in scene.items():
                 if bn in changed or roles.get(bn) in own[n]:continue
@@ -240,12 +243,25 @@ def main():
                 if bn.startswith(('Factory:','StructureReserve:')) and n>bn and bn.startswith('Factory:'):continue
                 check(n,s,bn,b,'whole_upper_MTA_factory_route_vs_paths_or_structure',bn.startswith('StructureReserve:'))
         for n,s in new_custom.items():
+            if central:continue
             for bn,b in scene.items():
                 if bn in changed or roles.get(bn)==custom_owners[n]:continue
                 check(n,s,bn,b,'all8_custom_exit_lands_vs_actual_material')
             for bn,b in wires.items():
                 if n==bn or bn.startswith('CustomPrefix:') and n>bn:continue
                 check(n,s,bn,b,'all8_custom_exit_lands_vs_all_new_paths_and_structure',bn.startswith('StructureReserve:'))
+        if central:
+            parentpath=OUT/'n01-axial-branch-root-clear.json';parent=json.loads(parentpath.read_text())
+            assert not(parent['contacts'] or parent['reservation_overlaps'] or parent['errors'])
+            assert parent['joint_bay_factory_routes']==report['joint_bay_factory_routes']
+            assert parent['axial_columns_basis']==report['axial_columns_basis']
+            assert parent['all_eight_joint_custom_ends']==report['all_eight_joint_custom_ends']
+            for pp,h in parent['source_sha256'].items():
+                if pp!='tools/cad/check_feline_n01_coupled_pi_bus.py':assert sha(ROOT/pp)==h,pp
+            report['received_unchanged_axial_branch_scope']={'path':parentpath.relative_to(ROOT).as_posix(),
+                'sha256':sha(parentpath),'eight_factory_paths_and_custom_ends_identical':True,
+                'new_power_against_all_branches_checked_below':True}
+            report['source_sha256'][parentpath.relative_to(ROOT).as_posix()]=sha(parentpath)
         save();print('Joint bay preliminary',len(report['contacts']),len(report['reservation_overlaps']),len(report['errors']),flush=True)
         if report['contacts'] or report['reservation_overlaps'] or report['errors']:
             report.update(status='JOINT_POWER_BAY_REJECTED_BEFORE_UNIT_SEARCH',source_sha256={**report['source_sha256'],**reader.hashes})
@@ -417,13 +433,15 @@ def main():
         box('LowerRail1RearTurn',[-36,-3,39.72],[-30,23,42.72])
         box('LowerRail1Rear',[-33,17,39.72],[108,23,42.72])
     if not flat:box('SpliceClip',*candidate['splice']['clip_reservation_mm'])
+    if central:
+        for n,(lo,hi) in candidate['shared_relief_reservations'].items():box(n,lo,hi)
     if not lower:box('MainCarrier',[-52,-12,84],[-23,12,87])
     # rear branch below BUS, rooted at the existing rear post, not on skin
     for y in (-18.5,18.5):box('BUSRearBranch'+str(y),[102,y-3,67],[145,y+3,70])
     if not lower:box('JPWMForeSeat',[-102,-22,72],[-70,-8,74])
     box('BUSNominalMating',*candidate['BUS']['nominal_mating_reserve_mm'])
     box('BUSSharedTwoLaneGrip',*candidate['BUS']['shared_two_lane_after_bend_grip_mm'])
-    for entry in candidate['BUS']['ports']:
+    for entry in ([] if current_bus else candidate['BUS']['ports']):
         r=entry['first_bend_and_after_bend_grip'];actual_new['Nominal'+r['wire']]=pipe(r['parts'],r['radius_mm'])
     for rn,r in reserves.items():
         if lower and rn.startswith('BUS'):continue # exact received unchanged proof
@@ -433,6 +451,8 @@ def main():
         for bn,b in wires.items():check(rn,r,bn,b,'proposed_reservation_vs_bank_and_MTA_prefix',True)
         for bn,b in actual_new.items():
             if rn=='SpliceClip' and bn in ('W077','W078'):continue
+            if central and rn=='P_SYS_CommonRelief' and (bn=='W043' or any(bn=='End:'+e['id'] and e['role'].startswith('P_SYS.') for e in candidate['all_unit_ends'])):continue
+            if central and rn=='MAIN_CommonRelief' and (bn=='W078' or any(bn=='End:'+e['id'] and e['role'].startswith('MAIN.') for e in candidate['all_unit_ends'])):continue
             if rn in ('BUSSharedTwoLaneGrip','BUSNominalMating') and bn.startswith('NominalBUS.'):continue
             check(rn,r,bn,b,'proposed_reservation_vs_new_wire',True)
     # Nominal new BUS wire paths against every actual neighbor and prefixes.
