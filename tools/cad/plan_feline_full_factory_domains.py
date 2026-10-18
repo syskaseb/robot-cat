@@ -6,6 +6,7 @@ source exits and nominal100 allowance remain explicit. No hidden extensions.
 import json
 import math
 import sys
+import subprocess
 import time
 from pathlib import Path
 import numpy as np
@@ -16,6 +17,7 @@ from check_main_p0_placement import ROOT,sha
 from plan_feline_layout import OUT
 from feline_candidate_collision_scene import Scene
 from receive_feline_global_case_candidates import matrix_rotation,placement
+from feline_factory_field_domains import evaluate as batch_domains
 
 
 def full_profile_points(q,d,b,first,R=12.4):
@@ -46,16 +48,28 @@ def main():
     for p in (src,fieldfile,fieldproof,sourcefile,Path(__file__),Path(__file__).with_name('feline_candidate_collision_scene.py')):
         pins[p.relative_to(ROOT).as_posix()]=sha(p)
     if allcells:pins[cellsfile.relative_to(ROOT).as_posix()]=sha(cellsfile)
+    batchfile=Path(__file__).with_name('feline_factory_field_domains.py');pins[batchfile.relative_to(ROOT).as_posix()]=sha(batchfile)
     result=dict(status='RUNNING_GLOBAL_FULL_FACTORY_DOMAINS',selected=False,N01_complete=False,physical_pass=False,
         source_sha256=pins,first_lands=[],domains=[],errors=[],case_receipts=[],all_case_cells_before_end_pruning=allcells,
         factory_radius_mm=2,sleeve_radius_mm=2.4,custom_radius_mm=1.55,
         R_mm=12.4,first_min_mm=9,after_arc_mm=14,lap_mm=8,sleeve_mm=20,custom_grip_from_factory_tip_mm=[9,18],
-        source100mm_is_delivery_assumption=True,case_identity_used_for_geometry='F_HY source-equivalent3SKU shapes; actual electrical side mapping remains explicit',
+        source100mm_is_delivery_assumption=True,case_identity_used_for_geometry='F_HY geometry equivalent to F_HP/F_TY instances; actual electrical side mapping remains explicit',
         numeric_material_gap_prefilter_mm=.2,numeric_reservation_motion_gap_mm=1.25,actual_material_gap_mm=1.25,actual_wire_wire_gap_mm=.2,
         source_field_screen_not_actual_geometry_acceptance=True,full_two_tail_packages_or_montage_or_stock_not_qualified=True)
     previous=json.loads(dest.read_text()) if dest.exists() else None
     if previous:
-        assert previous['status']=='PARTIAL_GLOBAL_FULL_FACTORY_DOMAINS' and previous['source_sha256']==pins
+        assert previous['status']=='PARTIAL_GLOBAL_FULL_FACTORY_DOMAINS'
+        if previous['source_sha256']!=pins:
+            rel=Path(__file__).relative_to(ROOT).as_posix();batchrel=batchfile.relative_to(ROOT).as_posix()
+            changed={n for n in set(pins)|set(previous['source_sha256']) if pins.get(n)!=previous['source_sha256'].get(n)}
+            assert '--batch-receive' in sys.argv and changed=={rel,batchrel}
+            oldcode=subprocess.run(['git','show','34ff0a28:'+rel],cwd=ROOT,capture_output=True,check=True).stdout
+            assert __import__('hashlib').sha256(oldcode).hexdigest()==previous['source_sha256'][rel]
+            previous.setdefault('implementation_receipts',[]).append(dict(prior_code_commit='34ff0a28',
+                source_geometry_grid_and224profiles_unchanged=True,
+                prior_first_lands_reused=len(previous['first_lands']),prior_complete_domains_reused=len(previous['domains']),
+                method='Batch the identical points per category instead of3360interpolator calls per end'))
+            previous['source_sha256']=pins
         result=previous;result.setdefault('prior_attempts',[]).append(dict(seconds=previous['worker_seconds'],errors=previous['errors']));result['errors']=[]
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
@@ -89,19 +103,9 @@ def main():
                     result['first_lands'].append(row);done[key]=row;save()
                 if done[key]['failure'] is not None or key in done_domains:continue
                 u=np.eye(3)[int(np.argmin(abs(d)))];u-=d*np.dot(u,d);u/=np.linalg.norm(u);v=np.cross(d,u)
-                candidates=[];tested=0
-                for first in (9,18,27,36,45,54,63):
-                    for angle in np.linspace(0,2*math.pi,32,endpoint=False):
-                        gate();b=u*math.cos(angle)+v*math.sin(angle);parts,end,tip=full_profile_points(q,d,b,first);tested+=1
-                        minimum=math.inf
-                        for name,points in parts.items():
-                            radius={'factory':2,'sleeve':2.4,'custom':1.55}[name]
-                            for category in interpolators:
-                                allowance=3.25 if category=='outer' else .2 if category=='material' else 3.35 if category=='curve_hold' else 1.25
-                                margin=float(np.min(interpolators[category](points)-radius-allowance))
-                                minimum=min(minimum,margin)
-                        if minimum>=-1e-5:
-                            candidates.append(dict(first_mm=first,bend_unit=b.tolist(),R_mm=12.4,
+                candidates=[];diagnostic={};eligible,tested=batch_domains(q,d,u,v,interpolators,full_profile_points,gate,diagnostic)
+                for minimum,first,b,end,tip in eligible:
+                    candidates.append(dict(first_mm=first,bend_unit=b.tolist(),R_mm=12.4,
                                 factory_external_length_mm=first+12.4*math.pi/2+14,
                                 nominal_factory_blank_with3inside_mm=3+first+12.4*math.pi/2+14,
                                 source100mm_is_assumption=True,numeric_min_surface_margin_mm=minimum,
@@ -112,7 +116,7 @@ def main():
                                 full_CAD_or_other_case_tail_or_root_not_qualified=True))
                 candidates.sort(key=lambda r:(-r['numeric_min_surface_margin_mm'],r['first_mm']))
                 result['domains'].append(dict(case_id=case['id'],side=side,point_mm=q.tolist(),departure_axis=d.tolist(),
-                    numeric_trials=tested,numeric_eligible=len(candidates),candidates=candidates[:12]))
+                    numeric_trials=tested,numeric_eligible=len(candidates),candidates=candidates[:12],field_diagnostic=diagnostic))
                 done_domains.add(key);save()
                 print('Complete source end',key,'field_candidates',len(candidates),flush=True)
         result['both_first9_case_ids']=[c['id'] for c in casepool if all(done.get((c['id'],side),{}).get('failure','missing') is None for side in ('in','out'))]
