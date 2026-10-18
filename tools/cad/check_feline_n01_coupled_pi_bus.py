@@ -20,7 +20,9 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    central='--central-spine-power' in sys.argv
+    backbone_free='--backbone-free-source' in sys.argv
+    fitted=backbone_free or '--central-source-fitted' in sys.argv
+    central=fitted or '--central-spine-power' in sys.argv
     branch_roots=central or '--axial-branch-root-clear' in sys.argv
     axial_columns=branch_roots or '--axial-branch-columns' in sys.argv
     above_frame=axial_columns or '--above-frame-joint-bay' in sys.argv
@@ -29,9 +31,9 @@ def main():
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=not central and (spatial or '--flat-unit' in sys.argv)
     lower=central or flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
-    paths=[OUT/n for n in (('n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
+    paths=[OUT/n for n in (('n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json')]
     candidate,plan,rear,bank,backbone,motion=[json.loads(p.read_text()) for p in paths]
@@ -60,6 +62,7 @@ def main():
     allowed_solder_overlap=Part.makeCylinder(1.71,dd.Length,sv,dd)
     report['declared_join_scope']='Only existing8mm solder-overlap cylinder; never exclude whole W077/W078 pair or supports'
     def check(an,a,bn,b,scope,reservation=False):
+        reservation=reservation or an.startswith('StructureReserve:') or bn.startswith('StructureReserve:')
         gate();key=tuple(sorted((an,bn)))+(scope,)
         if key in seen:return
         seen.add(key)
@@ -179,10 +182,12 @@ def main():
         if n not in scene and row['kind']=='surface' and (n in stages or n.startswith(('Print_P0_','Ref_Material_P0_','Battery','Print_CP2_TailRiser'))):
             if not n.startswith('BatteryFrameHardware'):scene[n]=reader.shape(native,n)
     for i in range(1,5):scene[f'BellyFoot{i}']=reader.shape(native,f'BellyFoot{i}')
-    current_bus={};current_bus_reserves={};current_bus_roots={}
+    current_bus={};current_bus_reserves={};current_bus_roots={};changed_backbone={}
     if above_frame:
         from plan_feline_n01_bus_complete import main as received_bus_geometry
         actual_bus,current_bus,current_bus_reserves,current_bus_roots,bus_recipe=received_bus_geometry(geometry_only=True)
+        for p in (ROOT/'tools/cad/plan_feline_n01_bus_complete.py',OUT/'n01-bus-both-plugs-plan-r3.json',OUT/'n01-bus-source-cache-qualification.json'):
+            report['source_sha256'][p.relative_to(ROOT).as_posix()]=sha(p)
         for n,s in actual_bus.items():scene[n]=s
         report['BUS_current_r3_not_old_shifted_prefix']={'source':'n01-bus-both-plugs-plan-r3.json',
             'pose':bus_recipe['relative_BUS_pose'],'both_plug_paths_included':True,
@@ -224,6 +229,10 @@ def main():
                 lo[1]=sign*35-3;hi[1]=sign*35+3
             if n.startswith('Crossmember') and not axial_columns:lo[1]=-38;hi[1]=38
             wires['StructureReserve:'+n]=Part.makeBox(*(hi-lo),A.Vector(*lo));own['StructureReserve:'+n]=set()
+        for n,(lo,hi) in candidate.get('backbone_changes',{}).items():
+            s=Part.makeBox(*(np.array(hi)-lo),A.Vector(*lo));changed_backbone['StructureReserve:'+n]=s
+            wires['StructureReserve:'+n]=s;own['StructureReserve:'+n]=set()
+        if changed_backbone:report['changed_complete_backbone_reservations']=candidate['backbone_changes']
         for n,s in jointparts.items():
             if central:continue # exact branch statics received; new Pi-vs-branch checked below
             for bn,b in scene.items():
@@ -433,6 +442,13 @@ def main():
         box('LowerRail1RearTurn',[-36,-3,39.72],[-30,23,42.72])
         box('LowerRail1Rear',[-33,17,39.72],[108,23,42.72])
     if not flat:box('SpliceClip',*candidate['splice']['clip_reservation_mm'])
+    if fitted:
+        clip=[]
+        for lo,hi in candidate['splice']['clip_parts']:clip.append(Part.makeBox(*(np.array(hi)-lo),A.Vector(*lo)))
+        reserves['SpliceClip']=clip[0].fuse(clip[1:]).removeSplitter()
+        assert reserves['SpliceClip'].isValid() and len(reserves['SpliceClip'].Solids)==1
+        sx=candidate['splice']['sleeve_x_mm'];yy=candidate['splice']['centre_mm'][1];zz=candidate['splice']['centre_mm'][2]
+        reserves['SpliceSleeve']=Part.makeCylinder(2.1,20,A.Vector(sx[0],yy,zz),A.Vector(1,0,0))
     if central:
         for n,(lo,hi) in candidate['shared_relief_reservations'].items():box(n,lo,hi)
     if not lower:box('MainCarrier',[-52,-12,84],[-23,12,87])
@@ -450,11 +466,20 @@ def main():
             check(rn,r,bn,b,'proposed_reservation_vs_actual_material',True)
         for bn,b in wires.items():check(rn,r,bn,b,'proposed_reservation_vs_bank_and_MTA_prefix',True)
         for bn,b in actual_new.items():
-            if rn=='SpliceClip' and bn in ('W077','W078'):continue
+            if rn in ('SpliceClip','SpliceSleeve') and bn in ('W077','W078'):continue
             if central and rn=='P_SYS_CommonRelief' and (bn=='W043' or any(bn=='End:'+e['id'] and e['role'].startswith('P_SYS.') for e in candidate['all_unit_ends'])):continue
             if central and rn=='MAIN_CommonRelief' and (bn=='W078' or any(bn=='End:'+e['id'] and e['role'].startswith('MAIN.') for e in candidate['all_unit_ends'])):continue
             if rn in ('BUSSharedTwoLaneGrip','BUSNominalMating') and bn.startswith('NominalBUS.'):continue
             check(rn,r,bn,b,'proposed_reservation_vs_new_wire',True)
+    for n,s in changed_backbone.items():
+        for bn,b in scene.items():check(n,s,bn,b,'changed_shared_backbone_vs_all_actual_parts',True)
+        for bn,b in wires.items():
+            if bn.startswith('StructureReserve:'):continue # intended common structure unions, not foreign material
+            check(n,s,bn,b,'changed_shared_backbone_vs_all_received_wire',True)
+        for bn,b in actual_new.items():check(n,s,bn,b,'changed_shared_backbone_vs_complete_power_path',True)
+        for bn,b in reserves.items():
+            if bn.startswith('BUS'):continue
+            check(n,s,bn,b,'changed_shared_backbone_vs_new_whole_clamps',True)
     # Nominal new BUS wire paths against every actual neighbor and prefixes.
     for n,s in actual_new.items():
         if not n.startswith('NominalBUS.'):continue
