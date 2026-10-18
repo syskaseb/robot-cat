@@ -28,9 +28,10 @@ from plan_feline_skin_access import surface_samples
 
 
 def main():
-    tick=time.monotonic();dedicated='--dedicated-fuse-bays' in sys.argv
+    tick=time.monotonic();fore='--fore-supply-zone' in sys.argv
+    dedicated='--dedicated-fuse-bays' in sys.argv or fore
     upper='--upper-side-domain' in sys.argv or dedicated
-    dest=OUT/('n01-dedicated-fuse-bays.json' if dedicated else 'n01-joint-upper-side-bays.json' if upper else 'n01-joint-side-bays.json')
+    dest=OUT/('n01-fore-supply-zone.json' if fore else 'n01-dedicated-fuse-bays.json' if dedicated else 'n01-joint-upper-side-bays.json' if upper else 'n01-joint-side-bays.json')
     previous=json.loads(dest.read_text()) if dest.exists() else None
     if previous:assert previous['status']=='PARTIAL_COUPLED_SIDE_DOMAINS'
     priorfile=OUT/'n01-rev3-whole-profiles.json';prior=json.loads(priorfile.read_text())
@@ -117,6 +118,16 @@ def main():
             lower_factory_project_blank_mm=3+21+12.4*math.pi/2+14,
             fore_column_min_X_mm=-141.5+3.25+11+3+12.4+2.1,
             no_new_join_or_extension=True)
+    if fore:
+        result.pop('dedicated_fuse_bays')
+        result['fore_supply_zone']=dict(case_centres_mm={'F_HY':[-117,0,-20],'F_HP':[-117,0,4],'F_TY':[-117,0,28]},
+            rotation_axis=[1,1,1],rotation_degrees=120,
+            source51_axis='worldY',source20_25_axis='worldZ',source22_axis='worldX',
+            factory_mouth_case_X_offset_mm=-1,first_mm=9,R_mm=12.4,after_arc_mm=14,
+            project_factory_blank_mm=3+9+12.4*math.pi/2+14,
+            full_both_sides_sleeve20_lap8_custom_grip9_18=True,
+            source_under_S0_49_5_not_the_old_cassette=True,
+            no_new_join_or_extension=True)
     if previous:
         assert previous['source_sha256']==pins,'Inputs changed; do not reuse prior pairs'
         result=previous
@@ -185,13 +196,16 @@ def main():
         packages={}
         geometry_receipts={}
         def package(role,centre,orientation,bend):
-            n,source,_=templates[role];rot=A.Rotation(A.Vector(0,1,0),-90) if orientation=='verticalZ' else A.Rotation()
+            n,source,_=templates[role];rot=A.Rotation(A.Vector(1,1,1),120) if orientation=='foreY' else A.Rotation(A.Vector(0,1,0),-90) if orientation=='verticalZ' else A.Rotation()
             case=source.copy();case.Placement=A.Placement(A.Vector(*centre)-rot.multVec(source.BoundBox.Center),rot)*case.Placement
             parts={'case':case}
             for side in ('in','out'):
                 e=local[role+'.'+side];q=A.Vector(*centre)+rot.multVec(A.Vector(*e['local_point_mm']));d=rot.multVec(A.Vector(*e['departure_axis']));b=A.Vector(*bend)
                 first=9
-                if dedicated:
+                if fore:
+                    if role=='F_HY':b=A.Vector(0,0,1)
+                    else:b=A.Vector(.5,0,-math.sqrt(3)/2)
+                elif dedicated:
                     first=36 if d.z>0 else 21
                     if d.z>0:b=A.Vector(1 if role=='F_TY' else -1,0,0)
                     else:b=A.Vector((-1 if role=='F_TY' else 1)/math.sqrt(2),(-1 if centre[1]>0 else 1)/math.sqrt(2),0)
@@ -249,7 +263,10 @@ def main():
         # vertical outboard cases. Vertical interstitial bays are compared in
         # the SAME common domain, not run as separate blind CAD variants.
         for role in ('F_HY','F_HP','F_TY'):
-            if dedicated:
+            if fore:
+                centre={'F_HY':[-117,0,-20],'F_HP':[-117,0,4],'F_TY':[-117,0,28]}[role]
+                candidate(role,centre,'foreY',[0,0,1] if role=='F_HY' else [.5,0,-math.sqrt(3)/2])
+            elif dedicated:
                 centre={'F_HY':[-24,-62,25],'F_HP':[12,62,25],'F_TY':[48,-62,25]}[role]
                 candidate(role,centre,'verticalZ',[0,-1 if centre[1]>0 else 1,0])
             elif upper:
