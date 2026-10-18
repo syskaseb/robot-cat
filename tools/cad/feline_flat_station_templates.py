@@ -49,7 +49,10 @@ def build(station,family,side,departure,centre_x=0):
         assert abs(abs(h)-1)<1e-7
         pitchsign=int(-h*departure) # Preserve source+Z/leverUP, including +Y mouths.
     d=np.array([departure,0,0.]);b=np.array([0,0,1.]) if family=='outer' else np.array([0,side,0.])
-    R=station['shared_fan_R_mm'];first=9
+    commonR=station['shared_fan_R_mm'];first=9
+    activeYs=[(centre[1]+pitchsign*p['local_pitch_departure_thickness_mm'][0],
+               max(12.4,p['minimum_project_R_mm'])) for p in station['ports'] if not p['protected_whole_route_reuse']]
+    commonY=max(side*y+r for y,r in activeYs) if family=='inner' else None
     boxes=[];wires=[];clouds=[];radii=[];types=[]
     def addbox(name,lo,hi,kind):
         bounds=np.sort(np.array([lo,hi],float),axis=0)
@@ -63,6 +66,8 @@ def build(station,family,side,departure,centre_x=0):
         q=centre+np.array([departure*ld,pitchsign*lp,lz])
         portrows.append(dict(port,q=q))
         if port['protected_whole_route_reuse']:continue
+        R=commonY-side*q[1] if family=='inner' else commonR
+        assert R>=port['minimum_project_R_mm']-1e-7
         a=q+d*first;angles=np.linspace(0,math.pi/2,math.ceil(R*math.pi/2)+1)
         arc=a+R*np.sin(angles)[:,None]*d+R*(1-np.cos(angles))[:,None]*b
         end=arc[-1];p=np.vstack((np.linspace(q,a,10),arc,np.linspace(end,end+b*9,10)))
@@ -114,7 +119,8 @@ def build(station,family,side,departure,centre_x=0):
     bounds=np.array([(p-rr[:,None]).min(0),(p+rr[:,None]).max(0)])
     return dict(ref=station['ref'],family=family,side=side,departure_X=departure,centre_mm=centre.tolist(),
         fixed_identity=station['fixed_identity_pose'],pitch_Y_sign=pitchsign,
-        source_lever_UP_preserved_from_actual_handedness=True,first_mm=first,R_mm=R,
+        source_lever_UP_preserved_from_actual_handedness=True,first_mm=first,
+        R_mm=max(w['R_mm'] for w in wires),inner_concentric_full_fan=(family=='inner'),
         points=p,radii=rr,types=tt,bounds=bounds,boxes=boxes,wires=wires,
         tie_wrap_rectangular_upper_bound_mm=2*((ymax-ymin)+(cap[1,2]-cap[0,2]))+10,
         all_caps_channel_all_owned_jackets=True,actual_band_length_fit_not_verified=True)
@@ -142,3 +148,12 @@ def compatible(a,b):
 
 def compact(m):
     return {k:v for k,v in m.items() if k not in ('points','radii','types','bounds','boxes','wires')}
+
+
+def self_wire_gap(m):
+    from scipy.spatial import cKDTree
+    margins=[]
+    for a,b in itertools.combinations(m['wires'],2):
+        d=float(cKDTree(a['points']).query(b['points'],workers=1)[0].min())
+        margins.append(d-a['radius']-b['radius']-.2)
+    return min(margins,default=1e6)
