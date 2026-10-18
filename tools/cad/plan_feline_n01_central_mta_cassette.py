@@ -23,8 +23,9 @@ BRANCHES={'FL':(-95,-14,-34,('W026','W041')),
 
 def main():
     tick=time.monotonic();reader=SavedShapes()
-    flat='--flat-belly' in sys.argv
-    dest=OUT/('n01-central-mta-cassette-plan-r2.json' if flat else 'n01-central-mta-cassette-plan.json')
+    bolted='--bolted-open-frame' in sys.argv
+    flat=bolted or '--flat-belly' in sys.argv
+    dest=OUT/('n01-central-mta-cassette-plan-r3.json' if bolted else 'n01-central-mta-cassette-plan-r2.json' if flat else 'n01-central-mta-cassette-plan.json')
     assert not dest.exists(),'Receive existing result; no unchanged replay'
     manifest=OUT/'n01-shared-probe.json';source=json.loads(manifest.read_text())
     priorpath=OUT/'n01-shared-probe-motion-envelope.json';prior=json.loads(priorpath.read_text())
@@ -61,6 +62,21 @@ def main():
         report['source_sha256'][rp.relative_to(ROOT).as_posix()]=sha(rp)
         report['reused_actual_static_receipt']=dict(path=rp.relative_to(ROOT).as_posix(),sha256=sha(rp),
             historical_tool_commit='d1579227',changed_only='Whole16factory seats inset0.25mm inside existing20.75mm wire; new flat-belly planning volume. No case/wire relocation.')
+    if bolted:
+        rp=OUT/'n01-central-mta-cassette-plan-r2.json';reuse=json.loads(rp.read_text())
+        assert len(reuse['poses'])==36 and not reuse['contacts'] and not reuse['errors']
+        assert not reuse['envelope_outside'] and not reuse['wall_budget_failures']
+        assert {r['a'] for r in reuse['reservation_contacts']}<={'LowerTrayReserve','UpperTrayReserve','FootCollarReserve1','FootCollarReserve2'}
+        assert reuse['branch_datums']==report['branch_datums']
+        report['source_sha256'][rp.relative_to(ROOT).as_posix()]=sha(rp)
+        report['reused_complete_branch_and24seat_36pose_scope']=dict(path=rp.relative_to(ROOT).as_posix(),sha256=sha(rp),poses=36,actual_contacts=0,wire_seat_contacts=0)
+        report['changed_cause']='Cases/wires/24seats clear all36poses. Full-width trays and outer foot collars strike legs. Replace whole support topology:55mm central spine with four inboard existing-bolt roots, not cutout/offset collars.'
+        report['root_basis']='Four retained foot bridges, actual8M2axes/upper nuts/washers preserved. Add2mm root plate below lower washers and replace8nominalM2x10 with M2x12; shaft tip4.7 unchanged. Candidate hardware, stock/tool/native qualification open.'
+        report['material_candidates'].update(foot_split_clamps=0,M2x10_delta=-8,M2x12_delta=8,new_washers=0,new_nuts=0)
+        report['assembly']=['Bench-assemble central cassette bottom tier then top tier and24independent wire ties.',
+            'Disconnect battery before frame work; replace one original two-bolt foot pair at a time, keeping captive upper hardware.',
+            'New2mm root sits below retained lower washer; M2x12 retains old4.7mm tip. Bottom axial driver reservationR3/depth12 must clear in assembled rest pose.',
+            'Routine12ATO unchanged. Deep MTA repair: power disconnected, label8outer wires, release8rootbolts, lower common cassette while preserving belly feet; actual removal/parking still open.']
     with zipfile.ZipFile(ROOT/source['shared_probe']) as archive:
         for row in source['parts']:
             s=Part.Shape();s.importBrepFromString(archive.read(row['entry']).decode('utf-8'))
@@ -103,13 +119,43 @@ def main():
     feet={f'BellyFoot{i}':reader.shape(OUT/'FelineBellyFeet.FCStd',f'BellyFoot{i}') for i in range(1,5)}
     foot_centres=[(-75.5,-40),(-75.5,40),(117.5,-40),(117.5,40)]
     for tier,z in (('Lower',-34),('Upper',-10)):
-        tray=box([-88,-52,z-10.3],[130,52,z-8])
-        for x,y in foot_centres:tray=tray.cut(Part.makeCylinder(9.2,4,A.Vector(x,y,z-11)))
+        tray=box([-87,-28,z-10.3],[129.5,28,z-8]) if bolted else box([-88,-52,z-10.3],[130,52,z-8])
+        if bolted:
+            # Entire axial driver channels precede native mounts: each leaves
+            # 2.25mm side web, instead of discovering blocked screws later.
+            for hx in (-80,-70,112,122):
+                for hy in (-22.5,22.5):tray=tray.cut(Part.makeCylinder(3.25,5,A.Vector(hx,hy,z-11)))
+        if not bolted:
+            for x,y in foot_centres:tray=tray.cut(Part.makeCylinder(9.2,4,A.Vector(x,y,z-11)))
         assert tray.isValid() and len(tray.Solids)==1
         name=tier+'TrayReserve';shapes[name]=tray;kinds[name]='tray_reservation'
-    for i,(x,y) in enumerate(foot_centres,1):
-        collar=Part.makeCylinder(12,26.3,A.Vector(x,y,-44.3)).cut(Part.makeCylinder(9.2,28,A.Vector(x,y,-45)))
-        name=f'FootCollarReserve{i}';shapes[name]=collar;kinds[name]='load_root_reservation'
+    if bolted:
+        report['root_axes_mm']=[]
+        for i,(x,y) in enumerate(foot_centres,1):
+            hy=22.5 if y>0 else -22.5;holes=(-80,-70) if x<0 else (112,122)
+            lo,hi=(-87,-66) if x<0 else (108,129.5);wx=-85.5 if x<0 else 128
+            plate=box([lo,hy-4,-7.3],[hi,hy+4,-5.3])
+            for hx in holes:plate=plate.cut(Part.makeCylinder(1.1,4,A.Vector(hx,hy,-8)))
+            assert plate.isValid() and len(plate.Solids)==1
+            name=f'RootPlateReserve{i}';shapes[name]=plate;kinds[name]='load_root_reservation'
+            name=f'RootWebReserve{i}';shapes[name]=box([wx-1.5,hy-2,-42.1],[wx+1.5,hy+2,-7.2]);kinds[name]='load_root_reservation'
+            report['root_axes_mm'].extend([[hx,hy] for hx in holes])
+        for i,x in enumerate((-80,-70,112,122)):
+            for j,y in enumerate((-22.5,22.5)):
+                old=reader.shape(OUT/'FelineBellyFeet.FCStd',f'FrameHardwareNew{i*2+j}')
+                retained=[s for s in old.Solids if s.BoundBox.ZMin>-7]
+                assert len(retained)==3
+                bolt=Part.makeCylinder(1.9,2,A.Vector(x,y,-9.3)).fuse(Part.makeCylinder(1,12,A.Vector(x,y,-7.3)))
+                s=Part.makeCompound([bolt,*retained]);assert s.isValid()
+                name=f'FootHardwareCandidate{i*2+j}';shapes[name]=s;kinds[name]='actual_fastener_candidate'
+        report['estimated_tray_extents_mm']=[216.5,56,39]
+        report['root_driver_plan']=dict(axes_mm=report['root_axes_mm'],tool_R_mm=3,
+            passage_R_mm=3.25,side_web_mm=2.25,tool_z_mm=[-59.3,-9.3],
+            scope='Unpowered assembly/rest only; robot supported on bench, not while legs move.')
+    else:
+        for i,(x,y) in enumerate(foot_centres,1):
+            collar=Part.makeCylinder(12,26.3,A.Vector(x,y,-44.3)).cut(Part.makeCylinder(9.2,28,A.Vector(x,y,-45)))
+            name=f'FootCollarReserve{i}';shapes[name]=collar;kinds[name]='load_root_reservation'
     report['tray_interfaces']='Seat bottoms and MTA bottom surfaces meet own tier top. Joint case risers/contact patches and split collar bolt stacks still open; no load qualification inferred.'
     motionpath=OUT/'motion-layout.json';motion=json.loads(motionpath.read_text())
     moving_names={n for g in motion['membership'].values() for ns in g.values() for n in ns}
@@ -119,7 +165,9 @@ def main():
         if row['kind']=='surface' and n not in moving_names and n not in fixed and (n.startswith(('Ref_Material_P0_','Print_P0_','Battery')) or row['label'].startswith('P0_')):
             if not n.startswith('BatteryFrameHardware'):fixed[n]=reader.shape(native,n)
     fixed.update(feet)
-    for i in range(8):fixed[f'FootHardware{i}']=reader.shape(OUT/'FelineBellyFeet.FCStd',f'FrameHardwareNew{i}')
+    if not bolted:
+        for i in range(8):fixed[f'FootHardware{i}']=reader.shape(OUT/'FelineBellyFeet.FCStd',f'FrameHardwareNew{i}')
+    changed_frame={n for n in shapes if kinds[n] in ('tray_reservation','load_root_reservation','actual_fastener_candidate')}
     bounds={n:s.BoundBox for n,s in {**fixed,**shapes}.items()}
     def check(n,s,m,t,pose=None):
         gate()
@@ -127,19 +175,31 @@ def main():
         report['pairs']+=1
         c=s.common(t);assert c.isNull() or c.isValid(),(n,m)
         if c.Volume>1e-5:
-            key='contacts' if kinds[n]=='actual_branch' and (m not in kinds or kinds[m]=='actual_branch') else 'reservation_contacts'
+            key='contacts' if kinds[n].startswith('actual') and (m not in kinds or kinds[m].startswith('actual')) else 'reservation_contacts'
             report[key].append(dict(a=n,b=m,pose=pose,volume_mm3=c.Volume))
     try:
         save()
         for n,s in shapes.items():
-            if flat and (kinds[n]=='actual_branch' or not n.startswith('Seat:') or ':factory:' not in n):continue
+            if bolted:
+                if n not in changed_frame:continue
+            elif flat and (kinds[n]=='actual_branch' or not n.startswith('Seat:') or ':factory:' not in n):continue
             for m,t in fixed.items():check(n,s,m,t)
         # Within a branch, retained supplier joins/owned wire seats unchanged.
         for n,s in shapes.items():
             if kinds[n]!='actual_branch':continue
             for m,t in shapes.items():
                 if kinds[m]=='actual_branch' and m>n and owners[n]!=owners[m] and not flat:check(n,s,m,t)
-                elif kinds[m]!='actual_branch' and (not flat or m.startswith('Seat:') and ':factory:' in m):check(m,t,n,s)
+                elif kinds[m]!='actual_branch' and (m in changed_frame if bolted else not flat or m.startswith('Seat:') and ':factory:' in m):check(m,t,n,s)
+        if bolted:
+            for n in shapes:
+                if kinds[n]!='actual_fastener_candidate':continue
+                for m in changed_frame:
+                    if kinds[m]!='actual_fastener_candidate':check(m,shapes[m],n,shapes[n])
+            for i,(x,y) in enumerate(report['root_axes_mm']):
+                n=f'RootDriverReserve{i}';tool=Part.makeCylinder(3,50,A.Vector(x,y,-59.3))
+                kinds[n]='tool_reservation';bounds[n]=tool.BoundBox
+                for m,t in {**fixed,**shapes}.items():check(n,tool,m,t)
+                for m in moving_names:check(n,tool,m,reader.shape(MODEL,m),0)
         outerpath=OUT/('central-cassette-envelope/FelineLayoutEnvelope.FCStd' if flat else 'FelineLayoutEnvelope.FCStd')
         outer=reader.shape(outerpath,'TorsoEnvelope');shell=Part.makeCompound(outer.Shells)
         if flat:
@@ -149,6 +209,7 @@ def main():
             # Previous parts may reuse containment only if true volume subset.
             report['old_envelope_containment_reusable']=removed.Volume<1e-5
         for n,s in shapes.items():
+            if bolted and n not in changed_frame:continue
             gate();diff=s.cut(outer);assert diff.isNull() or diff.isValid(),n
             if diff.Volume>1e-5:report['envelope_outside'].append(dict(object=n,outside_mm3=diff.Volume))
             else:
@@ -171,7 +232,7 @@ def main():
                         for n in names:
                             gate();B=A.BoundBox()
                             for v in corners[n]:B.add(tf[st].multVec(v))
-                            near=[m for m in shapes if B.intersect(bounds[m])]
+                            near=[m for m in shapes if (not bolted or m in changed_frame) and B.intersect(bounds[m])]
                             if not near:continue
                             s=moving[n].copy();s.Placement=tf[st]*s.Placement;assert s.isValid(),n
                             for m in near:check(m,shapes[m],n,s,index)
