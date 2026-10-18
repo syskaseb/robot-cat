@@ -1,5 +1,5 @@
 {
-  "status": "PARTIAL_JOINT_FORE_NUMERIC_DOMAINS",
+  "status": "REQUIRED_SOURCE_EMPTY_IN_BOUNDED_NUMERIC_FAMILY_DFL_NOT_REPEATED",
   "selected": false,
   "N01_complete": false,
   "physical_pass": false,
@@ -33,7 +33,7 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fore-topology.json": "43fbc8a8ec72b1205d6abec76c5f79ac62c9dab2069406d98152a0f7885d456f",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-s1-current-source-datums.json": "c9abb3914986e9192d2cbeb6b080989a012c21ba368f7385e25bd6bc5a364235",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-global-current-case-field.npz": "1f61666cb6c3f41861c724e100634806be84e81b0efb6e54e3869d7e765ecf33",
-    "tools/cad/plan_feline_joint_fore_domains.py": "70bbc91031456fcd96df0b7ac2d030d60fc672440aa57a61cd87e69c05ef499b",
+    "tools/cad/plan_feline_joint_fore_domains.py": "ef7490950b1e20d96d2840e53e85981d0c33fb2289da2dcfa904f6e26d02dd61",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fore-service-macro.breps.zip": "e4d50d0905e189fdf3bf1ec0c80ce84a52841843f5e38d6a97e556ac69ed8061",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fore-topology.breps.zip": "af21e825aeada629c9a4cb891b4f76952467582bafe3e397a7cded169c37f9d5"
   },
@@ -64,10 +64,227 @@
   "opposite_four_WAGO_ends_and_P_REAR_whole_case_change_OPEN": true,
   "full123portions246ends_roots_tools_assembly_stock_OPEN": true,
   "dfl_domains": [],
-  "source_domains": {},
+  "source_domains": {
+    "W064/single/end": [
+      {
+        "score": 0.14984374833697744,
+        "clock_target_degrees": 240,
+        "first_mm": 9,
+        "bend_degrees": 225,
+        "point_mm": [
+          -95.06150000000002,
+          22.5000030517578,
+          57.84091999207688
+        ],
+        "departure_axis": [
+          -0.5000000000000004,
+          0.0,
+          -0.8660254037844385
+        ],
+        "bend_unit": [
+          -0.6123724356957944,
+          -0.7071067811865477,
+          0.35355339059327406
+        ],
+        "ring_name": "Ref_Material_current_S1_ring_3_0_0",
+        "clock_tf_translation_mm": [
+          -212.39934640057524,
+          0.0,
+          -16.62881982007265
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.8660254037844387,
+          0.0,
+          0.4999999999999999
+        ]
+      }
+    ],
+    "W065/single/end": [
+      {
+        "score": 0.1905620034135409,
+        "clock_target_degrees": 0,
+        "first_mm": 9,
+        "bend_degrees": 45,
+        "point_mm": [
+          -73.877,
+          22.5000030517578,
+          77.00000000000001
+        ],
+        "departure_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "bend_unit": [
+          0.0,
+          0.7071067811865476,
+          0.7071067811865476
+        ],
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "clock_tf_translation_mm": [
+          -39.763485025340415,
+          -3.552713678800501e-15,
+          -42.399346400575155
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.25881904510252,
+          0.0,
+          0.9659258262890685
+        ]
+      },
+      {
+        "score": 0.07738406340737569,
+        "clock_target_degrees": 30,
+        "first_mm": 18,
+        "bend_degrees": 315,
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          88.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.3535533905932738,
+          0.7071067811865474,
+          -0.6123724356957947
+        ],
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "clock_tf_translation_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "W067/single/end": [],
+    "W068/single/end": [
+      {
+        "score": 0.9025038176030669,
+        "clock_target_degrees": 330,
+        "first_mm": 18,
+        "bend_degrees": 225,
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          53.938500000000005
+        ],
+        "departure_axis": [
+          0.8660254037844384,
+          0.0,
+          -0.5000000000000004
+        ],
+        "bend_unit": [
+          -0.35355339059327406,
+          -0.7071067811865477,
+          -0.6123724356957942
+        ],
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "clock_tf_translation_mm": [
+          13.4498947342816,
+          0.0,
+          27.837906756360127
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.13052619222005157,
+          0.0,
+          -0.9914448613738104
+        ]
+      },
+      {
+        "score": 0.22309630436161232,
+        "clock_target_degrees": 30,
+        "first_mm": 9,
+        "bend_degrees": 0,
+        "point_mm": [
+          -76.84091999207685,
+          22.5000030517578,
+          76.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "clock_tf_translation_mm": [
+          -10.59173582606104,
+          -3.552713678800501e-15,
+          143.80341887095398
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.6087614290087209,
+          0.0,
+          -0.793353340291235
+        ]
+      },
+      {
+        "score": 0.22309630436161232,
+        "clock_target_degrees": 30,
+        "first_mm": 18,
+        "bend_degrees": 0,
+        "point_mm": [
+          -76.84091999207685,
+          22.5000030517578,
+          76.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "clock_tf_translation_mm": [
+          -10.59173582606104,
+          -3.552713678800501e-15,
+          143.80341887095398
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.6087614290087209,
+          0.0,
+          -0.793353340291235
+        ]
+      }
+    ]
+  },
   "joint_assignment": null,
-  "errors": [
-    "TimeoutError('240s joint fore numeric gate; completed proposals retained')"
+  "errors": [],
+  "prior_partial_retained": {
+    "commit": "77edae06",
+    "sha256": "16a215a5eeecadeba875149809c1490622c97b53fdfddff5c4b37ad58c647de9",
+    "worker_seconds": 241.016,
+    "reason": "Mandatory4source domains first; do not repeat serial DFL-first scan",
+    "old_numeric_queries_not_called_CAD_or_geometry_acceptance": true
+  },
+  "field_cache": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-fore-field.npz",
+  "field_cache_sha256": "0a0e7072e5292b64748a375ace2ae33d5393f2f5f28241879a5865702ac810f4",
+  "worker_seconds": 82.265,
+  "mandatory_source_empty_domains": [
+    "W067/single/end"
   ],
-  "worker_seconds": 241.016
+  "DFL_tested_whole_poses": 0
 }

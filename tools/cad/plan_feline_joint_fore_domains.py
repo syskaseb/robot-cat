@@ -9,6 +9,8 @@ import io
 import itertools
 import json
 import math
+import subprocess
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -61,7 +63,16 @@ def compatible(a,b,minimum=.2):
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-joint-fore-domains.json';assert not dest.exists()
+    tick=time.monotonic();dest=OUT/'n01-joint-fore-domains.json';previous=None
+    if dest.exists():
+        assert '--receive-source-first-from' in sys.argv
+        commit=sys.argv[sys.argv.index('--receive-source-first-from')+1]
+        blob=subprocess.run(['git','show',commit+':'+dest.relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
+        old=json.loads(blob);assert old==json.loads(dest.read_text())
+        assert old['status']=='PARTIAL_JOINT_FORE_NUMERIC_DOMAINS' and not old['source_domains']
+        previous=dict(commit=commit,sha256=hashlib.sha256(blob).hexdigest(),worker_seconds=old['worker_seconds'],
+                      reason='Mandatory4source domains first; do not repeat serial DFL-first scan',
+                      old_numeric_queries_not_called_CAD_or_geometry_acceptance=True)
     scene,meta,templates,pins,bus,changed,removed,variable=current()
     capfile=OUT/'n01-global-case-capacity.json';capacity=json.loads(capfile.read_text())
     rawfile=OUT/'n01-shared-space-atlas.json';raw=json.loads(rawfile.read_text());bundle=ROOT/raw['bundle']
@@ -124,6 +135,10 @@ def main():
         interpolators[cat]=RegularGridInterpolator(axes,values.reshape(grid.shape[:3]),bounds_error=False,fill_value=0)
     for cat in ('motion36','outer'):
         interpolators[cat]=RegularGridInterpolator(axes,field[cat+'_distance'],bounds_error=False,fill_value=0)
+    cachefile=OUT/'n01-joint-fore-field.npz'
+    assert not cachefile.exists(),'Receive the saved field before any rebuild'
+    np.savez_compressed(cachefile,**{c:i.values for c,i in interpolators.items()},
+                        **dict(zip(('x','y','z'),axes)),dflcloud=dflcloud,s1context=np.vstack(s1context))
     s1tree=cKDTree(np.vstack(s1context))
     def score(p,radius=0,own_ring_mates=False):
         if not np.all(inside_ruled(p)):return -1e6
@@ -140,7 +155,8 @@ def main():
         sample_fields_do_not_classify_solid_interiors=True,screen_is_not_CAD_qualification=True,
         opposite_four_WAGO_ends_and_P_REAR_whole_case_change_OPEN=True,
         full123portions246ends_roots_tools_assembly_stock_OPEN=True,
-        dfl_domains=[],source_domains={},joint_assignment=None,errors=[])
+        dfl_domains=[],source_domains={},joint_assignment=None,errors=[],prior_partial_retained=previous,
+        field_cache=cachefile.relative_to(ROOT).as_posix(),field_cache_sha256=sha(cachefile))
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -148,16 +164,6 @@ def main():
     try:
         # DFL whole case plus all five complete current prefixes and after9
         # portions, not only a box or one source land. No native cap yet.
-        tested=0;df=[]
-        for r in rotations():
-            rotated=dflcloud@r.T
-            for centre in itertools.product(range(-104,9,16),(44,58,72,86),(14,30,46,62,78,94)):
-                gate();tested+=1;p=rotated+centre;s=score(p)
-                if s>=0:df.append(dict(score=s,centre_mm=list(centre),rotation_rows=r.tolist(),points=p,radii=np.zeros(len(p))))
-        df.sort(key=lambda r:-r['score']);domains['D_FL']=df[:24]
-        result['DFL_tested_whole_poses']=tested
-        result['dfl_domains']=[{k:v for k,v in r.items() if k not in ('points','radii')} for r in df[:24]];save()
-        print('Joint DFL full profile domains',len(df),'/',tested,flush=True)
         from plan_feline_fore_service_macro import rigid_tf
         body=source_s1['Ref_Material_current_S1_body_CP2_0_0'];tf=rigid_tf(body.BoundBox.Center,[15,0,0],180)
         for receipt in source['receipts']:
@@ -192,6 +198,27 @@ def main():
             choices.sort(key=lambda r:-r['score']);domains[endpoint]=choices[:24]
             result['source_domains'][endpoint]=[{k:v for k,v in r.items() if k not in ('points','radii')} for r in choices[:24]]
             save();print(endpoint,'full R25.2/9grip domains',len(choices),flush=True)
+        empty=[n for n,d in domains.items() if not d]
+        result['mandatory_source_empty_domains']=empty
+        if empty:
+            result['status']='REQUIRED_SOURCE_EMPTY_IN_BOUNDED_NUMERIC_FAMILY_DFL_NOT_REPEATED'
+            result['DFL_tested_whole_poses']=0
+            save();print(json.dumps({k:result[k] for k in ('status','worker_seconds','mandatory_source_empty_domains','errors')}),flush=True)
+            return
+        tested=0;df=[]
+        for r in rotations():
+            rotated=dflcloud@r.T
+            for centre in itertools.product(range(-104,9,16),(44,58,72,86),(14,30,46,62,78,94)):
+                gate();tested+=1;p=rotated+centre;s=score(p)
+                if s>=0:df.append(dict(score=s,centre_mm=list(centre),rotation_rows=r.tolist(),points=p,radii=np.zeros(len(p))))
+                if tested%96==0:
+                    df.sort(key=lambda row:-row['score']);df=df[:24]
+                    result['DFL_tested_whole_poses']=tested
+                    result['dfl_domains']=[{k:v for k,v in row.items() if k not in ('points','radii')} for row in df]
+                    save();print('DFL received poses',tested,'candidates',len(df),flush=True)
+        df.sort(key=lambda r:-r['score']);domains['D_FL']=df[:24]
+        result['DFL_tested_whole_poses']=tested
+        result['dfl_domains']=[{k:v for k,v in r.items() if k not in ('points','radii')} for r in df[:24]];save()
         order=sorted(domains,key=lambda k:len(domains[k]));memo={};visited=0
         def solve(chosen):
             nonlocal visited
