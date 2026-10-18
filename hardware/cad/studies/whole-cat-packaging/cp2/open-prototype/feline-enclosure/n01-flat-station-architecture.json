@@ -1,0 +1,4003 @@
+{
+  "status": "WHOLE20_FLAT_ARCHITECTURE_DOMAINS_REQUIRED_NOT_CHOSEN",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-twenty-wago-port-contract.json": "6e951e50f374ea8ad5318b43ddc9017b77de396894a31d58fac84e5f91f5025e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-whole-constraint-map.json": "bf3e13a271121fb3eabc0413bc281284b6fe6f0ae4d5e8f12f41a2a7548881f5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-rev3-whole-profiles.json": "94f645de927a8aab9f9557b113d8f8fbd8957ad9c7cee6df7c24bee8b54c9a55",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-dedicated-fuse-bays.json": "edaeb1d73b04f056cae8142eecc369bb684f8e2a6a63c5b335c5ab83c4016fb7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json": "16a435ffb797a3288409599aa559965a617a65fc72522c9cb3aebd3b542fb93b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-endpoint-packet-r3.json": "85583e07b67c498e1966e5f80722c205a4a53a65efe85e17510077a558e04f04",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fore-intrinsic.json": "61d091969c153d35f1e77933dfba0db1687e7947d9cd2e9b5f586442af0804d9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-reservation-ownership-plan.json": "d2daeff6dd3519d0d655b5627c2d456244d35de9f6355e51367e36971bb7226e",
+"tools/cad/plan_feline_flat_station_architecture.py": "40d9bf55c3e3864518031bce24110cd3381adb4a58aec04fe21f63b3e3017db1",
+    "hardware/reference/parent-fuse-extensions-2026-10-03/facts.json": "73efc0d8cdd1e4c9aa19836ad2aad8fb9c5856b06c8489161ace8d4614c59559"
+  },
+  "station_count": 20,
+  "occupied_ports": 86,
+  "small_415_count": 16,
+  "large_615_count": 4,
+  "stations": [
+    {
+      "ref": "D_FL",
+      "case_name": "Ref_Material_D_FL_0_0",
+      "source_world_centre_mm": [
+        -50.0,
+        67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_D_FL_0_0",
+        "entry": "0588.brep",
+        "role": "WAGO:D_FL",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "1c716a3ba2807532aee078e544aaf0e803f4a9f0045069d3a622fe2da62a0234",
+        "bounds_mm": [
+          [
+            -65.0,
+            57.5,
+            35.5
+          ],
+          [
+            -35.0,
+            76.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "D_FL.1",
+          "wire": "W002",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FL.1",
+            "wire": "W002",
+            "station": "D_FL",
+            "group": "WAGO:D_FL",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W002/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FL.2",
+          "wire": "W004",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FL.2",
+            "wire": "W004",
+            "station": "D_FL",
+            "group": "WAGO:D_FL",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W004/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FL.3",
+          "wire": "W005",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FL.3",
+            "wire": "W005",
+            "station": "D_FL",
+            "group": "WAGO:D_FL",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W005/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FL.4",
+          "wire": "W006",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FL.4",
+            "wire": "W006",
+            "station": "D_FL",
+            "group": "WAGO:D_FL",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W006/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FL.5",
+          "wire": "W007",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FL.5",
+            "wire": "W007",
+            "station": "D_FL",
+            "group": "WAGO:D_FL",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W007/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "D_FR",
+      "case_name": "Ref_Material_D_FR_0_0",
+      "source_world_centre_mm": [
+        55.0,
+        67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_D_FR_0_0",
+        "entry": "0591.brep",
+        "role": "WAGO:D_FR",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "9fcc5d8a205bafd8e5ac302d89e02a364304f0a5aa0503cecddb342bb249a57e",
+        "bounds_mm": [
+          [
+            40.0,
+            57.5,
+            35.5
+          ],
+          [
+            70.0,
+            76.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "D_FR.1",
+          "wire": "W007",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FR.1",
+            "wire": "W007",
+            "station": "D_FR",
+            "group": "WAGO:D_FR",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W007/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FR.2",
+          "wire": "W008",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FR.2",
+            "wire": "W008",
+            "station": "D_FR",
+            "group": "WAGO:D_FR",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W008/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FR.3",
+          "wire": "W009",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FR.3",
+            "wire": "W009",
+            "station": "D_FR",
+            "group": "WAGO:D_FR",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W009/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FR.4",
+          "wire": "W010",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FR.4",
+            "wire": "W010",
+            "station": "D_FR",
+            "group": "WAGO:D_FR",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W010/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_FR.5",
+          "wire": "W011",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_FR.5",
+            "wire": "W011",
+            "station": "D_FR",
+            "group": "WAGO:D_FR",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W011/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "D_RL",
+      "case_name": "Ref_Material_D_RL_0_0",
+      "source_world_centre_mm": [
+        50.0,
+        -40.5,
+        -12.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_D_RL_0_0",
+        "entry": "0595.brep",
+        "role": "WAGO:D_RL",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "05a60dfa5d119873b3f56db05a576a148e78530de877922dd95a9cf60a3478da",
+        "bounds_mm": [
+          [
+            35.0,
+            -50.0,
+            -16.5
+          ],
+          [
+            65.0,
+            -31.0,
+            -7.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "D_RL.2",
+          "wire": "W013",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RL.2",
+            "wire": "W013",
+            "station": "D_RL",
+            "group": "WAGO:D_RL",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W013/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RL.3",
+          "wire": "W014",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RL.3",
+            "wire": "W014",
+            "station": "D_RL",
+            "group": "WAGO:D_RL",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W014/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RL.4",
+          "wire": "W015",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RL.4",
+            "wire": "W015",
+            "station": "D_RL",
+            "group": "WAGO:D_RL",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W015/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RL.5",
+          "wire": "W012",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RL.5",
+            "wire": "W012",
+            "station": "D_RL",
+            "group": "WAGO:D_RL",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W012/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        1
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "D_RR",
+      "case_name": "Ref_Material_D_RR_0_0",
+      "source_world_centre_mm": [
+        50.0,
+        40.5,
+        -12.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_D_RR_0_0",
+        "entry": "0598.brep",
+        "role": "WAGO:D_RR",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "3e8a30106a91e74a7a4267c66c91b962846fdd8333232f2dd21301a939e4dbf9",
+        "bounds_mm": [
+          [
+            35.0,
+            31.0,
+            -16.5
+          ],
+          [
+            65.0,
+            50.0,
+            -7.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "D_RR.1",
+          "wire": "W011",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RR.1",
+            "wire": "W011",
+            "station": "D_RR",
+            "group": "WAGO:D_RR",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W011/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RR.2",
+          "wire": "W016",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RR.2",
+            "wire": "W016",
+            "station": "D_RR",
+            "group": "WAGO:D_RR",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W016/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RR.3",
+          "wire": "W017",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RR.3",
+            "wire": "W017",
+            "station": "D_RR",
+            "group": "WAGO:D_RR",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W017/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RR.4",
+          "wire": "W018",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RR.4",
+            "wire": "W018",
+            "station": "D_RR",
+            "group": "WAGO:D_RR",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W018/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "D_RR.5",
+          "wire": "W012",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "D_RR.5",
+            "wire": "W012",
+            "station": "D_RR",
+            "group": "WAGO:D_RR",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W012/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "FL_P",
+      "case_name": "Ref_Material_FL_P_0_0",
+      "source_world_centre_mm": [
+        90.0,
+        -67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_FL_P_0_0",
+        "entry": "0587.brep",
+        "role": "WAGO:FL_P",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "97828ea2e17bc66ee433c968bb5fd98859cad6ed130916ca4b995acf0191d8d8",
+        "bounds_mm": [
+          [
+            75.0,
+            -76.5,
+            35.5
+          ],
+          [
+            105.0,
+            -57.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "FL_P.1",
+          "wire": "W026/custom",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_P.1",
+            "wire": "W026/custom",
+            "station": "FL_P",
+            "group": "WAGO:FL_P",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W026/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FL_P.2",
+          "wire": "W027",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_P.2",
+            "wire": "W027",
+            "station": "FL_P",
+            "group": "WAGO:FL_P",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W027/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FL_P.3",
+          "wire": "W028",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_P.3",
+            "wire": "W028",
+            "station": "FL_P",
+            "group": "WAGO:FL_P",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W028/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FL_P.4",
+          "wire": "W029",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_P.4",
+            "wire": "W029",
+            "station": "FL_P",
+            "group": "WAGO:FL_P",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W029/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "FL_G",
+      "case_name": "Ref_Material_FL_G_0_0",
+      "source_world_centre_mm": [
+        -15.0,
+        67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_FL_G_0_0",
+        "entry": "0589.brep",
+        "role": "WAGO:FL_G",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "698c4b8d6f005b80358e5d8359a2b439f3a94718776152fcd205aa55e17dc653",
+        "bounds_mm": [
+          [
+            -30.0,
+            57.5,
+            35.5
+          ],
+          [
+            0.0,
+            76.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "FL_G.1",
+          "wire": "W025",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_G.1",
+            "wire": "W025",
+            "station": "FL_G",
+            "group": "WAGO:FL_G",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W025/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FL_G.2",
+          "wire": "W019",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_G.2",
+            "wire": "W019",
+            "station": "FL_G",
+            "group": "WAGO:FL_G",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W019/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FL_G.3",
+          "wire": "W021",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_G.3",
+            "wire": "W021",
+            "station": "FL_G",
+            "group": "WAGO:FL_G",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W021/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FL_G.4",
+          "wire": "W023",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FL_G.4",
+            "wire": "W023",
+            "station": "FL_G",
+            "group": "WAGO:FL_G",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W023/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "FR_P",
+      "case_name": "Ref_Material_FR_P_0_0",
+      "source_world_centre_mm": [
+        20.0,
+        67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_FR_P_0_0",
+        "entry": "0590.brep",
+        "role": "WAGO:FR_P",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "6a3eadbcebae4308187cf5e4554cdee69f3112ecd4eab13239ecc04481d89149",
+        "bounds_mm": [
+          [
+            5.0,
+            57.5,
+            35.5
+          ],
+          [
+            35.0,
+            76.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "FR_P.1",
+          "wire": "W037/custom",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_P.1",
+            "wire": "W037/custom",
+            "station": "FR_P",
+            "group": "WAGO:FR_P",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W037/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FR_P.2",
+          "wire": "W038",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_P.2",
+            "wire": "W038",
+            "station": "FR_P",
+            "group": "WAGO:FR_P",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W038/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FR_P.3",
+          "wire": "W039",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_P.3",
+            "wire": "W039",
+            "station": "FR_P",
+            "group": "WAGO:FR_P",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W039/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FR_P.4",
+          "wire": "W040",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_P.4",
+            "wire": "W040",
+            "station": "FR_P",
+            "group": "WAGO:FR_P",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W040/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "FR_G",
+      "case_name": "Ref_Material_FR_G_0_0",
+      "source_world_centre_mm": [
+        90.0,
+        67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_FR_G_0_0",
+        "entry": "0592.brep",
+        "role": "WAGO:FR_G",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "a864c2015cae281e894b557891d8afdbe0e85dfe2508fa18cf9664273e6c3b3e",
+        "bounds_mm": [
+          [
+            75.0,
+            57.5,
+            35.5
+          ],
+          [
+            105.0,
+            76.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "FR_G.2",
+          "wire": "W030",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_G.2",
+            "wire": "W030",
+            "station": "FR_G",
+            "group": "WAGO:FR_G",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W030/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FR_G.3",
+          "wire": "W032",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_G.3",
+            "wire": "W032",
+            "station": "FR_G",
+            "group": "WAGO:FR_G",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W032/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FR_G.4",
+          "wire": "W034",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_G.4",
+            "wire": "W034",
+            "station": "FR_G",
+            "group": "WAGO:FR_G",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W034/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "FR_G.5",
+          "wire": "W036",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "FR_G.5",
+            "wire": "W036",
+            "station": "FR_G",
+            "group": "WAGO:FR_G",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W036/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        1
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "RL_P",
+      "case_name": "Ref_Material_RL_P_0_0",
+      "source_world_centre_mm": [
+        -42.99999999999997,
+        -15.000000000000021,
+        -19.749999999999968
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_RL_P_0_0",
+        "entry": "0593.brep",
+        "role": "WAGO:RL_P",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "b5907decfd79315e7eda219c3e9ffdbdd7cc567458c72fc741a351140327f177",
+        "bounds_mm": [
+          [
+            -52.49999999999998,
+            -30.000000000000032,
+            -24.250000000000007
+          ],
+          [
+            -33.49999999999997,
+            -9.992007221626409e-15,
+            -15.25
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.00000000000002,
+        19.000000000000007,
+        9.000000000000007
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "RL_P.2",
+          "wire": "W046",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.750000000000021,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_P.2",
+            "wire": "W046",
+            "station": "RL_P",
+            "group": "WAGO:RL_P",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W046/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RL_P.3",
+          "wire": "W048",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            -2.1316282072803006e-14,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_P.3",
+            "wire": "W048",
+            "station": "RL_P",
+            "group": "WAGO:RL_P",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W048/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RL_P.4",
+          "wire": "W050",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.749999999999979,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_P.4",
+            "wire": "W050",
+            "station": "RL_P",
+            "group": "WAGO:RL_P",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W050/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RL_P.1",
+          "wire": "W045/custom",
+          "physical_port": 5,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            9.499999999999979,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_P.1",
+            "wire": "W045/custom",
+            "station": "RL_P",
+            "group": "WAGO:RL_P",
+            "physical_port": 5,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W045/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        1
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "RL_G",
+      "case_name": "Ref_Material_RL_G_0_0",
+      "source_world_centre_mm": [
+        19.0,
+        -40.5,
+        -12.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_RL_G_0_0",
+        "entry": "0594.brep",
+        "role": "WAGO:RL_G",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "889c59b94ce9b1a8439668be2d59bcf9c9149147aa115edadd3ab66c29615dd8",
+        "bounds_mm": [
+          [
+            4.0,
+            -50.0,
+            -16.5
+          ],
+          [
+            34.0,
+            -31.0,
+            -7.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "RL_G.1",
+          "wire": "W069",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_G.1",
+            "wire": "W069",
+            "station": "RL_G",
+            "group": "WAGO:RL_G",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W069/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RL_G.2",
+          "wire": "W070",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_G.2",
+            "wire": "W070",
+            "station": "RL_G",
+            "group": "WAGO:RL_G",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W070/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RL_G.3",
+          "wire": "W071",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_G.3",
+            "wire": "W071",
+            "station": "RL_G",
+            "group": "WAGO:RL_G",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W071/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RL_G.4",
+          "wire": "W062",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RL_G.4",
+            "wire": "W062",
+            "station": "RL_G",
+            "group": "WAGO:RL_G",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W062/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "RR_P",
+      "case_name": "Ref_Material_RR_P_0_0",
+      "source_world_centre_mm": [
+        -42.99999999999997,
+        15.000000000000016,
+        -19.749999999999968
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_RR_P_0_0",
+        "entry": "0596.brep",
+        "role": "WAGO:RR_P",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "8fdb54d85d55d181591c582aa1fcc105e32116a35ea6fcdf6f830b85eb8fd9a7",
+        "bounds_mm": [
+          [
+            -52.49999999999998,
+            1.4210854715202004e-14,
+            -24.25
+          ],
+          [
+            -33.49999999999997,
+            30.000000000000018,
+            -15.249999999999993
+          ]
+        ],
+        "volume_mm3": 5129.999999999999
+      },
+      "source_pitch_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.000000000000004,
+        19.000000000000007,
+        9.000000000000007
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "RR_P.2",
+          "wire": "W054",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.749999999999984,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_P.2",
+            "wire": "W054",
+            "station": "RR_P",
+            "group": "WAGO:RR_P",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W054/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RR_P.3",
+          "wire": "W056",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            1.5987211554602254e-14,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_P.3",
+            "wire": "W056",
+            "station": "RR_P",
+            "group": "WAGO:RR_P",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W056/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RR_P.4",
+          "wire": "W058",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.750000000000016,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_P.4",
+            "wire": "W058",
+            "station": "RR_P",
+            "group": "WAGO:RR_P",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W058/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RR_P.1",
+          "wire": "W053/custom",
+          "physical_port": 5,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            9.500000000000016,
+            9.499999999999972,
+            -3.197442310920451e-14
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_P.1",
+            "wire": "W053/custom",
+            "station": "RR_P",
+            "group": "WAGO:RR_P",
+            "physical_port": 5,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W053/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        1
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "RR_G",
+      "case_name": "Ref_Material_RR_G_0_0",
+      "source_world_centre_mm": [
+        19.0,
+        40.5,
+        -12.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_RR_G_0_0",
+        "entry": "0597.brep",
+        "role": "WAGO:RR_G",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "1a350016f136c7d8998f851254efae5f9e11a1703a94e3373c30c188193f10a7",
+        "bounds_mm": [
+          [
+            4.0,
+            31.0,
+            -16.5
+          ],
+          [
+            34.0,
+            50.0,
+            -7.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "RR_G.1",
+          "wire": "W072",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_G.1",
+            "wire": "W072",
+            "station": "RR_G",
+            "group": "WAGO:RR_G",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W072/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RR_G.2",
+          "wire": "W073",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_G.2",
+            "wire": "W073",
+            "station": "RR_G",
+            "group": "WAGO:RR_G",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W073/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RR_G.3",
+          "wire": "W074",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_G.3",
+            "wire": "W074",
+            "station": "RR_G",
+            "group": "WAGO:RR_G",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W074/body/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "RR_G.4",
+          "wire": "W063",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "RR_G.4",
+            "wire": "W063",
+            "station": "RR_G",
+            "group": "WAGO:RR_G",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W063/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "P_FRONT",
+      "case_name": "Ref_Material_P_FRONT_new_0_0",
+      "source_world_centre_mm": [
+        84.5,
+        -40.5,
+        -10.999993896484
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_P_FRONT_new_0_0",
+        "entry": "0581.brep",
+        "role": "WAGO:P_FRONT_new",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "094227cec164556359c070db9806a827b3e2df99b06e724ee8f31a2365597f65",
+        "bounds_mm": [
+          [
+            66.0,
+            -51.5,
+            -16.49999389648437
+          ],
+          [
+            103.0,
+            -29.5,
+            -5.499993896484369
+          ]
+        ],
+        "volume_mm3": 8954.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        37.0,
+        22.0,
+        11.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "P_FRONT.1",
+          "wire": "W064",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -13.0,
+            11.0,
+            -3.694822225952521e-13
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 25.2,
+          "source_basis": {
+            "endpoint": "P_FRONT.1",
+            "wire": "W064",
+            "station": "P_FRONT",
+            "group": "WAGO:P_FRONT_new",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W064/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_FRONT.2",
+          "wire": "W041/custom",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -6.5,
+            11.0,
+            -3.694822225952521e-13
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_FRONT.2",
+            "wire": "W041/custom",
+            "station": "P_FRONT",
+            "group": "WAGO:P_FRONT_new",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W041/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_FRONT.3",
+          "wire": "W042/custom",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            11.0,
+            -3.694822225952521e-13
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_FRONT.3",
+            "wire": "W042/custom",
+            "station": "P_FRONT",
+            "group": "WAGO:P_FRONT_new",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W042/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        4,
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner"
+      ],
+      "shared_fan_R_mm": 25.2,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "P_REAR",
+      "case_name": "Ref_Material_P_REAR_0_0",
+      "source_world_centre_mm": [
+        -43.25,
+        -34.0,
+        -8.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_P_REAR_0_0",
+        "entry": "0580.brep",
+        "role": "WAGO:P_REAR",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "993511c3585f807d5f35a4a9c75ebab7a4c4559507efb2bf033cafa9d4e84700",
+        "bounds_mm": [
+          [
+            -61.75,
+            -45.000000000000014,
+            -13.5
+          ],
+          [
+            -24.749999999999993,
+            -23.0,
+            -2.5
+          ]
+        ],
+        "volume_mm3": 8954.0
+      },
+      "source_pitch_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        37.00000000000001,
+        22.000000000000014,
+        11.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "P_REAR.1",
+          "wire": "XA01",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -13.0,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 2,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_REAR.1",
+            "wire": "XA01",
+            "station": "P_REAR",
+            "group": "WAGO:P_REAR",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 2,
+            "query_radius_mm": 2,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA01_factory",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_REAR.2",
+          "wire": "W052/custom",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -6.5,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_REAR.2",
+            "wire": "W052/custom",
+            "station": "P_REAR",
+            "group": "WAGO:P_REAR",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W052/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_REAR.3",
+          "wire": "W044/custom",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_REAR.3",
+            "wire": "W044/custom",
+            "station": "P_REAR",
+            "group": "WAGO:P_REAR",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W044/custom/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_REAR.4",
+          "wire": "XP01",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            6.5,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 1.05,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_REAR.4",
+            "wire": "XP01",
+            "station": "P_REAR",
+            "group": "WAGO:P_REAR",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.05,
+            "query_radius_mm": 1.05,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/selection.json",
+            "source_recipe_id": "XP01",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_REAR.5",
+          "wire": "W065",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            13.0,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 25.2,
+          "source_basis": {
+            "endpoint": "P_REAR.5",
+            "wire": "W065",
+            "station": "P_REAR",
+            "group": "WAGO:P_REAR",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 2.1,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W065/single/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner"
+      ],
+      "shared_fan_R_mm": 25.2,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "P_SYS",
+      "case_name": "Ref_Material_P_SYS_new_0_0",
+      "source_world_centre_mm": [
+        15.549999999999997,
+        16.99999999999999,
+        48.5
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_P_SYS_new_0_0",
+        "entry": "0082.brep",
+        "role": "CurrentPiAndShared",
+        "kind": "purchased_or_complete_wire",
+        "origin": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-shared-probe.zip",
+        "valid": true,
+        "solids": 1,
+        "sha256": "49387ee00b4e10f9cf421d9f2e5051c3adfd5228a02a6e170814b47153e5d5c9",
+        "bounds_mm": [
+          [
+            4.54999999999999,
+            -1.5000000000000138,
+            43.0
+          ],
+          [
+            26.550000000000004,
+            35.49999999999999,
+            54.0
+          ]
+        ],
+        "volume_mm3": 8954.000000000002
+      },
+      "source_pitch_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        37.00000000000001,
+        22.000000000000014,
+        11.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "P_SYS.1",
+          "wire": "W066",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -13.00000000000001,
+            10.999999999999996,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 25.2,
+          "source_basis": {
+            "method": "Retained current land recipe"
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_SYS.2",
+          "wire": "W067",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -6.500000000000011,
+            10.999999999999996,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 25.2,
+          "source_basis": {
+            "method": "Retained current land recipe"
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_SYS.3",
+          "wire": "W068",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            -1.0658141036401503e-14,
+            10.999999999999996,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 25.2,
+          "source_basis": {
+            "method": "Retained current land recipe"
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_SYS.5",
+          "wire": "W043",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            12.99999999999999,
+            10.999999999999996,
+            0.0
+          ],
+          "radius_mm": 2,
+          "minimum_project_R_mm": 25.2,
+          "source_basis": {
+            "method": "Retained current land recipe"
+          },
+          "protected_whole_route_reuse": true
+        }
+      ],
+      "unused_ports": [
+        4
+      ],
+      "fixed_identity_pose": true,
+      "row_families": [
+        "inner"
+      ],
+      "shared_fan_R_mm": 25.2,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "G1",
+      "case_name": "Ref_Material_G1_CP2_0_0",
+      "source_world_centre_mm": [
+        84.5,
+        40.5,
+        -11.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_G1_CP2_0_0",
+        "entry": "0582.brep",
+        "role": "WAGO:G1_CP2",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "f225b65c08417eef45548a51604b4673ecff28594a3f0ac29ae5c3a5a46ff050",
+        "bounds_mm": [
+          [
+            66.0,
+            29.5,
+            -16.5
+          ],
+          [
+            103.0,
+            51.5,
+            -5.5
+          ]
+        ],
+        "volume_mm3": 8954.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        37.0,
+        22.0,
+        11.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "G1.1",
+          "wire": "W060",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -13.0,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G1.1",
+            "wire": "W060",
+            "station": "G1",
+            "group": "WAGO:G1_CP2",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W060/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G1.2",
+          "wire": "W001",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -6.5,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G1.2",
+            "wire": "W001",
+            "station": "G1",
+            "group": "WAGO:G1_CP2",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W001/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G1.3",
+          "wire": "W036",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G1.3",
+            "wire": "W036",
+            "station": "G1",
+            "group": "WAGO:G1_CP2",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W036/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G1.4",
+          "wire": "W061",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            6.5,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G1.4",
+            "wire": "W061",
+            "station": "G1",
+            "group": "WAGO:G1_CP2",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W061/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G1.5",
+          "wire": "W025",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            13.0,
+            11.0,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G1.5",
+            "wire": "W025",
+            "station": "G1",
+            "group": "WAGO:G1_CP2",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W025/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "G2",
+      "case_name": "Ref_Material_G2_CP2_0_0",
+      "source_world_centre_mm": [
+        55.0,
+        -67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_G2_CP2_0_0",
+        "entry": "0586.brep",
+        "role": "WAGO:G2_CP2",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "b43312edab23c3794cdb10827aa6f4f0520b1f4de36b58019622742ddd7e4945",
+        "bounds_mm": [
+          [
+            40.00000000000006,
+            -76.5,
+            35.5
+          ],
+          [
+            70.00000000000006,
+            -57.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "G2.1",
+          "wire": "W061",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G2.1",
+            "wire": "W061",
+            "station": "G2",
+            "group": "WAGO:G2_CP2",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W061/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G2.2",
+          "wire": "W062",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G2.2",
+            "wire": "W062",
+            "station": "G2",
+            "group": "WAGO:G2_CP2",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W062/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G2.3",
+          "wire": "W063",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G2.3",
+            "wire": "W063",
+            "station": "G2",
+            "group": "WAGO:G2_CP2",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W063/retained0/start",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G2.4",
+          "wire": "W003",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.55,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G2.4",
+            "wire": "W003",
+            "station": "G2",
+            "group": "WAGO:G2_CP2",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 1.55,
+            "query_radius_mm": 1.55,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json",
+            "source_recipe_id": "W003/retained0/end",
+            "inherited_nominal_recipe_not_guaranteed_OD": true,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G2.5",
+          "wire": "XA05",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G2.5",
+            "wire": "XA05",
+            "station": "G2",
+            "group": "WAGO:G2_CP2",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA05",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "P_AUX",
+      "case_name": "Ref_Material_P_AUX_CP2_0_0",
+      "source_world_centre_mm": [
+        20.0,
+        -67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_P_AUX_CP2_0_0",
+        "entry": "0585.brep",
+        "role": "WAGO:P_AUX_CP2",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "70b1ac3ff7801a82e55bd5935d28800303a124d3fcb25f676a5dda17f80f64b7",
+        "bounds_mm": [
+          [
+            5.000000000000021,
+            -76.5,
+            35.5
+          ],
+          [
+            35.00000000000002,
+            -57.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        -0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "P_AUX.1",
+          "wire": "XB11",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_AUX.1",
+            "wire": "XB11",
+            "station": "P_AUX",
+            "group": "WAGO:P_AUX_CP2",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XB11",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_AUX.2",
+          "wire": "XA03",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_AUX.2",
+            "wire": "XA03",
+            "station": "P_AUX",
+            "group": "WAGO:P_AUX_CP2",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA03",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_AUX.3",
+          "wire": "XB21",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_AUX.3",
+            "wire": "XB21",
+            "station": "P_AUX",
+            "group": "WAGO:P_AUX_CP2",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": null,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": null,
+            "source_recipe_id": null,
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": true,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "P_AUX.4",
+          "wire": "XB31",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "P_AUX.4",
+            "wire": "XB31",
+            "station": "P_AUX",
+            "group": "WAGO:P_AUX_CP2",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": null,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": null,
+            "source_recipe_id": null,
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": true,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        5
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "G_AUX",
+      "case_name": "Ref_Material_W3Ref_G_AUX_case_0_0",
+      "source_world_centre_mm": [
+        -15.000000762939496,
+        -67.0,
+        39.9999986480141
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_W3Ref_G_AUX_case_0_0",
+        "entry": "0584.brep",
+        "role": "WAGO:W3Ref_G_AUX_case",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "246715ccb15ff22d85824462ad471b1d9456219f9cf006d680cd67b091fa5d36",
+        "bounds_mm": [
+          [
+            -30.00000076293945,
+            -76.5,
+            35.499998648014056
+          ],
+          [
+            -7.629394502828291e-07,
+            -57.5,
+            44.499998648014056
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        -0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "G_AUX.1",
+          "wire": "XA05",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.500000000000043,
+            9.5,
+            -4.263256414560601e-14
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_AUX.1",
+            "wire": "XA05",
+            "station": "G_AUX",
+            "group": "WAGO:W3Ref_G_AUX_case",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA05",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_AUX.2",
+          "wire": "XA04",
+          "physical_port": 2,
+          "schematic_port": 2,
+          "local_pitch_departure_thickness_mm": [
+            -4.750000000000043,
+            9.5,
+            -4.263256414560601e-14
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_AUX.2",
+            "wire": "XA04",
+            "station": "G_AUX",
+            "group": "WAGO:W3Ref_G_AUX_case",
+            "physical_port": 2,
+            "schematic_port": 2,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA04",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_AUX.3",
+          "wire": "XB23",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            -4.263256414560601e-14,
+            9.5,
+            -4.263256414560601e-14
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_AUX.3",
+            "wire": "XB23",
+            "station": "G_AUX",
+            "group": "WAGO:W3Ref_G_AUX_case",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": null,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": null,
+            "source_recipe_id": null,
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": true,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_AUX.4",
+          "wire": "XB13",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.749999999999957,
+            9.5,
+            -4.263256414560601e-14
+          ],
+          "radius_mm": 2.1,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_AUX.4",
+            "wire": "XB13",
+            "station": "G_AUX",
+            "group": "WAGO:W3Ref_G_AUX_case",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": null,
+            "query_radius_mm": 2.1,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": null,
+            "source_recipe_id": null,
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": true,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_AUX.5",
+          "wire": "XA06",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.499999999999957,
+            9.5,
+            -4.263256414560601e-14
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_AUX.5",
+            "wire": "XA06",
+            "station": "G_AUX",
+            "group": "WAGO:W3Ref_G_AUX_case",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA06",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    },
+    {
+      "ref": "G_TAIL",
+      "case_name": "Ref_Material_G_TAIL_0_0",
+      "source_world_centre_mm": [
+        -50.0,
+        -67.0,
+        40.0
+      ],
+      "source_part_record": {
+        "name": "Ref_Material_G_TAIL_0_0",
+        "entry": "0583.brep",
+        "role": "WAGO:G_TAIL",
+        "kind": "purchased_or_retained_module",
+        "origin": "retained_current_R5",
+        "valid": true,
+        "solids": 1,
+        "sha256": "a8a29098389a45373efd55cefa065e035051fc346353ef55c68819d8e9caf218",
+        "bounds_mm": [
+          [
+            -65.0,
+            -76.5,
+            35.5
+          ],
+          [
+            -35.0,
+            -57.5,
+            44.5
+          ]
+        ],
+        "volume_mm3": 5130.0
+      },
+      "source_pitch_axis": [
+        -1.0,
+        0.0,
+        -0.0
+      ],
+      "source_departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "flat_dimensions_pitch_departure_thickness_mm": [
+        30.0,
+        19.0,
+        9.0
+      ],
+      "preserve_closed_lever_UP": true,
+      "ports": [
+        {
+          "endpoint": "G_TAIL.1",
+          "wire": "XA06",
+          "physical_port": 1,
+          "schematic_port": 1,
+          "local_pitch_departure_thickness_mm": [
+            -9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.25,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_TAIL.1",
+            "wire": "XA06",
+            "station": "G_TAIL",
+            "group": "WAGO:G_TAIL",
+            "physical_port": 1,
+            "schematic_port": 1,
+            "nominal_project_radius_mm": 1.25,
+            "query_radius_mm": 1.25,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/aux-wiring-checkpoint/whole-layout-plan.json",
+            "source_recipe_id": "XA06",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_TAIL.3",
+          "wire": "XP03.source",
+          "physical_port": 3,
+          "schematic_port": 3,
+          "local_pitch_departure_thickness_mm": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 0.925,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_TAIL.3",
+            "wire": "XP03.source",
+            "station": "G_TAIL",
+            "group": "WAGO:G_TAIL",
+            "physical_port": 3,
+            "schematic_port": 3,
+            "nominal_project_radius_mm": 0.925,
+            "query_radius_mm": 0.925,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/selection.json",
+            "source_recipe_id": "XP03_source",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_TAIL.4",
+          "wire": "XL09",
+          "physical_port": 4,
+          "schematic_port": 4,
+          "local_pitch_departure_thickness_mm": [
+            4.75,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 0.7,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_TAIL.4",
+            "wire": "XL09",
+            "station": "G_TAIL",
+            "group": "WAGO:G_TAIL",
+            "physical_port": 4,
+            "schematic_port": 4,
+            "nominal_project_radius_mm": 0.7,
+            "query_radius_mm": 0.7,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-common-wiring-plan.json",
+            "source_recipe_id": "XL09",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        },
+        {
+          "endpoint": "G_TAIL.5",
+          "wire": "XB33",
+          "physical_port": 5,
+          "schematic_port": 5,
+          "local_pitch_departure_thickness_mm": [
+            9.5,
+            9.5,
+            0.0
+          ],
+          "radius_mm": 1.05,
+          "minimum_project_R_mm": 12.4,
+          "source_basis": {
+            "endpoint": "G_TAIL.5",
+            "wire": "XB33",
+            "station": "G_TAIL",
+            "group": "WAGO:G_TAIL",
+            "physical_port": 5,
+            "schematic_port": 5,
+            "nominal_project_radius_mm": 1.05,
+            "query_radius_mm": 1.05,
+            "prior_uniform_reservation_radius_mm": 2.1,
+            "source_file": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-wiring-checkpoint/selection.json",
+            "source_recipe_id": "XB33",
+            "inherited_nominal_recipe_not_guaranteed_OD": false,
+            "unknown_retains_conservative_budget": false,
+            "bend_radius_mm": 12.4,
+            "supplier_datum_or_OD_guaranteed": false,
+            "current_route_grip_or_port_fit_qualified": false
+          },
+          "protected_whole_route_reuse": false
+        }
+      ],
+      "unused_ports": [
+        2
+      ],
+      "fixed_identity_pose": false,
+      "row_families": [
+        "inner",
+        "outer"
+      ],
+      "shared_fan_R_mm": 12.4,
+      "changed_case_all_owned_ports_and_grip_as_ONE_group": true
+    }
+  ],
+  "source_bound_receipt": {
+    "P_REAR_current_mouth_X_mm": -119,
+    "departure": [
+      -1,
+      0,
+      0
+    ],
+    "first_mm": 3,
+    "R_mm": 25.2,
+    "radius_mm": 2.1,
+    "required_fore_extent_before90turn_mm": -149.3,
+    "hard_fore_bound_mm": -141.5,
+    "current_P_REAR_orientation_cannot_be_frozen": true,
+    "not_actual_collision_or_global_infeasibility": true
+  },
+  "row_domains": {
+    "inner": {
+      "centre_Y_mm": [
+        -19.5,
+        19.5
+      ],
+      "bottom_Z_mm": 44.77,
+      "fan": "OUTWARD_Y below bank bed; use each group common_R >= all actual project minima",
+      "case_height_mm": "SOURCE9or11, not universal9",
+      "preserve_P_SYS_exact_identity_pose": true
+    },
+    "outer": {
+      "centre_Y_mm": [
+        -62.5,
+        62.5
+      ],
+      "top_Z_mm": 50.75,
+      "fan": "UP_Z in source bank case gaps, not outward through wall or down through folding knees",
+      "small_415_only": true,
+      "source_bank_gap_X_controls_case_X_domains": true
+    }
+  },
+  "pose_domains": {
+    "departure_X_signs": [
+      -1,
+      1
+    ],
+    "pitch_Y_sign_equals_departure_X_sign": true,
+    "rule": "Rotate complete source kit aboutZ to flat UP; target centre from shared row and bank-gap domains, not isolated scalar offsets",
+    "X_continuous_ranges_require_actual_fixed_material_and_all36motion_before_choice": true,
+    "use_no_more_than_two_whole_hypotheses_before_reassessing_cause": true
+  },
+  "full_fan": {
+    "first_mm": 3,
+    "after_arc_grip_mm": 9,
+    "first3_is_existing_unclamped_source_exit_not_a_3mm_grip": true,
+    "whole_station_grip_domains": [
+      "BEFORE: first9 with one common multichannel cap before arc",
+      "AFTER: first3 then full9 after arc, only if whole cap and closure fit"
+    ],
+    "outer_default": "BEFORE: do not force whole clamps/heads into9mm inter-fuse columns",
+    "shared_head_or_bolted_cap_not_five_overlapping_6mm_heads": true,
+    "radius_rule": "Whole station common_R at least every named source minimum; four HELU ends at least25.2",
+    "seat_mm": 2,
+    "band_width_mm": 2.5,
+    "band_thickness_mm": 1.2,
+    "head_cube_mm": 6,
+    "channel_all_neighbouring_jackets_before_common_PETG_union": true,
+    "no_filled_collision_boxes_instead_of_real_multichannel_grips": true,
+    "closure_heads_and_attachment_entry_must_be_in_same_domain": true
+  },
+  "shared_frame": {
+    "status": "JOINT_REPLACEMENT_REQUIRED_NOT_REMOVED_PARTS_PASS",
+    "provisional_inner_case_maxY_mm": 38,
+    "outer_small_case_minY_mm": 47.5,
+    "possible_between_row_rail_centre_absY_mm": 42.75,
+    "P0_side_top_mm": 38.52,
+    "provisional_airgap_base_Z_mm": 39.77,
+    "root_owners": "Actual existing rail clamps x0/90 and all current fastener/4MTA/battery owners must be reconciled once",
+    "all_changed_scaffolding_list": "n01-reservation-ownership-plan.json plus positivePost-69_1/LowerRail1",
+    "preserve_retained_MAIN_cut_channel": true,
+    "member_thickness_contact_bolt_access_load_paths_NOT_qualified": true,
+    "outer_low_seat_transition_is_not_solved_by_the_rail_centre_number": true
+  },
+  "preserve": [
+    "All selected purchased SKUs/counts/nets/cavities",
+    "12R47 bank cases and24source ends",
+    "Both sides of4MTA and their retained source families",
+    "P_SYScase/F_PI/W043/W077/W078 where source identity permits",
+    "P0/E6/15drives/replaceableMG92B/325x200x160/max200/256cube margin/Ola appearance"
+  ],
+  "installation_sequence": [
+    "Foundation and low supports before boards and station wiring",
+    "Install/terminate flat stations and all independent grips before bank obstructs lever service",
+    "Fit complete bank as retained kit, then modules/head/tail wires and removable panels",
+    "RoutineATO withdrawal remains outward above low stations; prove all12 actual tool paths",
+    "Deep WAGO repair may reverse assembly; do not invent quick service but account real disconnections"
+  ],
+  "required_before_N01": [
+    "Joint whole20 case/all86fullfans/closureheads/frame loadpath proposal",
+    "WholeS1body/control/4ring axes and all8HELU ends in freed common space, no old-sourceclock retry",
+    "All3FHAC fulltails, fore collar/panelpartner, rear tails and4MTA interfaces",
+    "All123physical portions/246ends and dynamic12looms throughout adopted motion, no historical15degree shortcut",
+    "Complete end/grip/root/tool/assembly coverage and nominal lengths/stock",
+    "One exact whole changed-geometry reception before native detailed features"
+  ],
+  "new_scope_count": 0,
+  "new_scope_total": 10,
+  "measured_seconds": 0.08055
+}
