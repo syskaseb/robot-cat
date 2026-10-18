@@ -20,12 +20,13 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    spatial='--spatial-unit' in sys.argv
+    all_ends='--all-ends' in sys.argv
+    spatial=all_ends or '--spatial-unit' in sys.argv
     flat=spatial or '--flat-unit' in sys.argv
     lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
-    paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
+    paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json')]
     candidate,plan,rear,bank,backbone,motion=[json.loads(p.read_text()) for p in paths]
@@ -120,6 +121,9 @@ def main():
     for row in routes(effective):
         n='Factory:'+row['wire'];wires[n]=pipe(row['parts'],row['radius_mm']);own[n]={row['source_group'],row['joint_group']}
     actual_new={r['wire']:pipe(r['parts'],r['radius_mm']) for r in candidate['routes']}
+    if all_ends:
+        for row in candidate['additional_end_prefixes']:actual_new[row['wire']]=pipe(row['parts'],row['radius_mm'])
+        report['full_unit_end_identities']=candidate['all_unit_ends']
     if flat:
         # All case hardware, ALL segments, full splice/grip envelopes search
         # together. Conservative overlap rejects only this cell, not real
@@ -129,14 +133,27 @@ def main():
         unit={**changed,**actual_new}
         lo,hi=np.array(candidate['splice']['clip_reservation_mm'])
         unit['UnitSpliceClip']=Part.makeBox(*(hi-lo),A.Vector(*lo))
-        rr=candidate['routes'][0];a=np.array(rr['end_mm'])-np.array([9,0,0])
-        unit['InputFullGrip']=Part.makeCylinder(3.7,9,A.Vector(*a),A.Vector(1,0,0))
-        rr=candidate['routes'][2];a=np.array(rr['end_mm'])-np.array([0,0,12])
-        unit['MainFullGrip']=Part.makeCylinder(3.05,9,A.Vector(*a),A.Vector(0,0,1))
+        if all_ends:
+            for n,(lo,hi) in candidate['shared_relief_reservations'].items():
+                unit[n]=Part.makeBox(*(np.array(hi)-lo),A.Vector(*lo))
+            # Check invariant internal interfaces BEFORE search or details.
+            for n,s in actual_new.items():
+                for bn,b in changed.items():check(n,s,bn,b,'complete_unit_all_ends_vs_own_actual_cases')
+            for n,s in unit.items():
+                if n in actual_new or n in changed:continue
+                for bn,b in changed.items():check(n,s,bn,b,'whole_unit_relief_reservation_vs_actual_case',True)
+            if report['contacts'] or report['reservation_overlaps'] or report['errors']:
+                report.update(status='INVARIANT_INTERNAL_UNIT_REJECTED_BEFORE_SEARCH',source_sha256={**report['source_sha256'],**reader.hashes})
+                save();print(json.dumps(dict(status=report['status'],contacts=len(report['contacts']),reservations=len(report['reservation_overlaps']),errors=len(report['errors']))),flush=True);return
+        else:
+            rr=candidate['routes'][0];a=np.array(rr['end_mm'])-np.array([9,0,0])
+            unit['InputFullGrip']=Part.makeCylinder(3.7,9,A.Vector(*a),A.Vector(1,0,0))
+            rr=candidate['routes'][2];a=np.array(rr['end_mm'])-np.array([0,0,12])
+            unit['MainFullGrip']=Part.makeCylinder(3.05,9,A.Vector(*a),A.Vector(0,0,1))
         proxy=[]
         for n,s in unit.items():
             if n not in actual_new:proxy.append(arraybox(s))
-        for row in candidate['routes']:
+        for row in candidate['routes']+candidate.get('additional_end_prefixes',[]):
             for part in row['parts']:proxy.append(arraybox(pipe([part],row['radius_mm'])))
         proxy=np.array(proxy);centre=(proxy[:,0].min(axis=0)+proxy[:,1].max(axis=0))/2
         fixed={n:s for n,s in scene.items() if n not in changed}
@@ -162,6 +179,10 @@ def main():
                     R=np.zeros((3,3))
                     for i,j in enumerate(order):R[i,j]=signs[i]
                     if np.linalg.det(R)>0:rotations.append((len(rotations),R))
+        if all_ends:
+            from build_feline_layout_envelope import STATIONS,PROFILE_EXPONENT
+            station=np.array(STATIONS,float)
+            report['source_sha256']['tools/cad/build_feline_layout_envelope.py']=sha(ROOT/'tools/cad/build_feline_layout_envelope.py')
         for yaw,R in rotations:
             transformed=[]
             for box in proxy:
@@ -175,6 +196,24 @@ def main():
             else:points=np.array([[x,y,z] for x in range(-100,141,5) for y in range(-45,46,5)],float)
             inside=np.all(points+mn>=[-139.1+gap,-95.6+gap,-45.6+gap],axis=1)&np.all(points+mx<=[181.1-gap,95.6-gap,109.6-gap],axis=1)
             points=points[inside];initial=len(points)
+            if all_ends:
+                # Necessary superellipse-corner budget for proposals only.
+                # Polygonal/ruled actual volume and normal wall distance still
+                # require the received-candidate exact envelope check.
+                inset=gap+2.4
+                for bb in transformed:
+                    if not len(points):break
+                    lo=points+bb[0]-inset;hi=points+bb[1]+inset
+                    width=np.minimum(np.interp(lo[:,0],station[:,0],station[:,1]),np.interp(hi[:,0],station[:,0],station[:,1]))
+                    height=np.minimum(np.interp(lo[:,0],station[:,0],station[:,2]),np.interp(hi[:,0],station[:,0],station[:,2]))
+                    for x,w,h in station:
+                        mask=(lo[:,0]<=x)&(hi[:,0]>=x)
+                        width=np.where(mask,np.minimum(width,w),width);height=np.where(mask,np.minimum(height,h),height)
+                    y=np.maximum(abs(lo[:,1]),abs(hi[:,1]));top=np.maximum(0,hi[:,2]-32)
+                    good=(lo[:,0]>=station[0,0])&(hi[:,0]<=station[-1,0])&(lo[:,2]>=32-height/2)&(y<=width/2)
+                    good&=(y/(width/2))**PROFILE_EXPONENT+(top/(height/2))**PROFILE_EXPONENT<=1
+                    points=points[good]
+            after_outline=len(points)
             restrictions=[]
             for pbox in transformed:
                 gate()
@@ -186,7 +225,7 @@ def main():
                     keep[j:j+256]=~np.any(hit,axis=1)
                 points=points[keep]
                 restrictions.append(len(points))
-            stats.append(dict(orientation_index=yaw,rotation_rows=R.tolist(),inside_cells=initial,
+            stats.append(dict(orientation_index=yaw,rotation_rows=R.tolist(),inside_cells=initial,after_outline_budget=after_outline,
                 conservative_clear_cells=len(points),remaining_after_each_unit_primitive=restrictions))
             report['search_progress']=stats;save()
             for pp in points:
@@ -207,7 +246,7 @@ def main():
         allowed_solder_overlap.Placement=T*allowed_solder_overlap.Placement
         report['unit_reservations_world_bounds_mm']={n:arraybox(s).tolist() for n,s in unit.items() if n not in changed and n not in actual_new}
         report['current_full_route_parts']={}
-        for row in candidate['routes']:
+        for row in candidate['routes']+candidate.get('additional_end_prefixes',[]):
             parts=[]
             for old in row['parts']:
                 new=dict(old)

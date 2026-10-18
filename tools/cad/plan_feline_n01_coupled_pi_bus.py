@@ -251,10 +251,52 @@ def build_flat_unit():
     p.update(worker_seconds=round(time.monotonic()-tick,4),updated_utc=datetime.now(timezone.utc).isoformat())
     return p
 
+def build_all_ends_unit():
+    tick=time.monotonic();p=build_flat_unit()
+    # Whole station clock, not port nudges: its other occupied cages used to
+    # face directly into F_PI. Keep cage5 and its complete short wire fixed.
+    r=p['relative_poses']['WAGO:P_SYS_new'];C=[[1,0,0],[0,0,1],[0,-1,0]]
+    anchor=[-84,4.5,-33.5]
+    cv=lambda v:[sum(a*b for a,b in zip(row,v)) for row in C]
+    rot=[[sum(C[i][k]*r['rotation_rows'][k][j] for k in range(3)) for j in range(3)] for i in range(3)]
+    trans=add(cv(r['translation_mm']),[a-b for a,b in zip(anchor,cv(anchor))])
+    p['relative_poses']['WAGO:P_SYS_new']=dict(rotation_rows=rot,translation_mm=trans)
+    ledger_path=OUT/'n01-complete-end-allocation.json';ledger=json.loads(ledger_path.read_text())
+    p['all_unit_ends']=[];p['additional_end_prefixes']=[]
+    for end in ledger['endpoints']:
+        if end['group'] not in ('MAIN','WAGO:P_SYS_new'):continue
+        pose=p['relative_poses'][end['group']];rr=pose['rotation_rows']
+        point=add([sum(a*b for a,b in zip(row,end['point_mm'])) for row in rr],pose['translation_mm'])
+        d=[sum(a*b for a,b in zip(row,end['departure_axis'])) for row in rr]
+        main=end['group']=='MAIN';length=12 if main else 9
+        row=dict(id=end['id'],wire=end['wire'],role=end['role'],point_mm=point,departure_axis=d,
+            initial_mm=length,radius_mm=1.05 if main else 1.7 if end['wire']=='W043' else 2.1,
+            source='Existing178identity ledger; no invented cavity or NC conductor')
+        p['all_unit_ends'].append(row)
+        if end['wire'] not in ('W043','W078'):
+            path=Route(point,d).line(length).record('End:'+end['id'],row['radius_mm'])
+            path['logical_wire']=end['wire'];p['additional_end_prefixes'].append(path)
+    assert len(p['all_unit_ends'])==8 and len(p['additional_end_prefixes'])==6
+    # One shared restraint for each parallel bundle, not overlapping individual
+    # outer cylinders. Distinct electrical conductors and full9mm lands kept.
+    p['shared_relief_reservations']={
+        'P_SYS_CommonRelief':[[-93,.4,-37.6],[-84,8.6,-3.4]],
+        'MAIN_CommonRelief':[[p['routes'][2]['end_mm'][0]-10.5-3.05,-9.45,-28],
+            [p['routes'][2]['end_mm'][0]+3.05,-3.35,-19]]}
+    p['P_SYS_occupied_cages']=[e['role'] for e in p['all_unit_ends'] if e['role'].startswith('P_SYS')]
+    p['P_SYS_4_no_wire_allocated_by_current_ledger']=True
+    p['changed_cause']='Whole P_SYS clock90deg around cage5 preserves short W043 while freeing ALL other occupied cage axes from F_PI. Eight actual end identities, six additional prefixes and two common insulated-wire restraints are planned before any placement. Previous3wire-only world fit is not a full unit approval.'
+    p['envelope_gate']='Use current torso profile in proposal search, not its box. Exact saved volume and normal wall budget still required.'
+    p['source_sha256'][ledger_path.relative_to(ROOT).as_posix()]=sha(ledger_path)
+    p['source_sha256']['tools/cad/plan_feline_n01_coupled_pi_bus.py']=sha(Path(__file__))
+    p.update(worker_seconds=round(time.monotonic()-tick,4),updated_utc=datetime.now(timezone.utc).isoformat())
+    return p
+
 if __name__=='__main__':
     lower='--lower-fore' in sys.argv
     flat='--flat-unit' in sys.argv
-    dest=OUT/('n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json')
+    all_ends='--all-ends' in sys.argv
+    dest=OUT/('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json')
     assert not dest.exists(),'Receive existing result; do not repeat unchanged candidate'
-    p=build_flat_unit() if flat else build_lower_fore() if lower else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
+    p=build_all_ends_unit() if all_ends else build_flat_unit() if flat else build_lower_fore() if lower else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(status=p['status'],gate=p['necessary_length_gate'],seconds=p['worker_seconds'])))
