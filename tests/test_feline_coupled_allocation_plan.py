@@ -58,7 +58,7 @@ class CoupledPlan(unittest.TestCase):
                 self.assertGreaterEqual(fuse['upper_factory_after_arc_mm']-14,9)
 
     def test_perpendicular_slot_fans_not_collinear_after_grips(self):
-        self.assertEqual(self.p['profile_revision'],1)
+        self.assertEqual(self.p['profile_revision'],2)
         for row in self.p['WAGO_station_rows']:
             self.assertEqual(row['bend_unit_mm'],[0,0,-1])
         pitches=[math.sqrt(sum(x*x for x in s['prototype']['port_pitch_vector_mm'])) for s in self.ports['stations']]
@@ -66,10 +66,14 @@ class CoupledPlan(unittest.TestCase):
 
     def test_staggered_Pi_power_and_inner_fuse_grip(self):
         f=self.p['PiPower_first_straights_mm']
-        self.assertGreaterEqual(abs(f['W079']-f['W080']),2*1.55+.2)
+        self.assertEqual(f['W079'],f['W080'])
+        radii=self.p['PiPower_concentric_radii_mm']
+        self.assertAlmostEqual(radii['W079']-radii['W080'],3.5)
+        self.assertGreaterEqual(min(radii.values()),12.4)
         hy=next(f for f in self.p['FHAC'] if f['role']=='F_HY')
         self.assertEqual(hy['inward_factory_first_mm'],3)
         self.assertGreaterEqual(hy['inward_factory_after_arc_mm']-14,9)
+        self.assertEqual(hy['source_roll_about_long_axis_degrees'],180)
 
     def test_not_misrepresented_as_selected_or_full_n01(self):
         self.assertFalse(self.p['selected'])
