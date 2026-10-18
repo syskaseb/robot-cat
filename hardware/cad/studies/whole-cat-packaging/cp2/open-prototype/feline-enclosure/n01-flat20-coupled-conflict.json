@@ -1,0 +1,66 @@
+{
+  "status": "BOUNDED_FLAT_FAMILY_MINIMAL_COUPLED_CONFLICT",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "minimal_core": [
+    "P_REAR",
+    "G1"
+  ],
+  "every_proper_subset_has_joint_choice": true,
+  "domain_counts": {
+    "P_REAR": 1,
+    "G1": 2
+  },
+  "witnesses": [
+    {
+      "a": "P_REAR",
+      "a_domain": 0,
+      "b": "G1",
+      "b_domain": 0,
+      "a_centre": [
+        44.0,
+        19.5,
+        48.5
+      ],
+      "b_centre": [
+        44.0,
+        19.5,
+        48.5
+      ],
+      "nominal_full_source_box_overlap_mm3": 8954.0,
+      "source_case_is_valid_full_nominal_box_not_precise_vendor_mesh": true,
+      "whole_module_numeric_incompatibility": true
+    },
+    {
+      "a": "P_REAR",
+      "a_domain": 0,
+      "b": "G1",
+      "b_domain": 1,
+      "a_centre": [
+        44.0,
+        19.5,
+        48.5
+      ],
+      "b_centre": [
+        92.0,
+        19.5,
+        48.5
+      ],
+      "nominal_full_source_box_overlap_mm3": 0.0,
+      "source_case_is_valid_full_nominal_box_not_precise_vendor_mesh": true,
+      "whole_module_numeric_incompatibility": true
+    }
+  ],
+  "no_global_infeasibility_claim": true,
+  "no_CAD_or_manufacturer_collision_claim_from_samples": true,
+  "unchanged19_received_domains_not_rescanned": true,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-domains-joint.json": "dfec8be8fc7f3fe2d908850622fb9037c28b51ea7bab00468275609a918d0b9c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat-station-architecture.json": "678c102635b3fbe2a62ea4c995d70435395478730229b9c221fe26e7f56675ab",
+    "tools/cad/explain_feline_flat_joint_conflict.py": "2c1bf7b37e53b2522544dd01ad88bef774fd124aa53dd253fa0866561368c178",
+    "tools/cad/feline_flat_station_templates.py": "0d8e7b7e5e5c51ae7f49af95a570c73239c3f755adacd70fa856acc758b62cb9"
+  },
+  "next": "Change shared row/height/module allocation including real clamps; no individual source-clock or scalar D_FL correction.",
+  "worker_seconds": 0.594
+}

@@ -7,6 +7,7 @@ All19changed cases and identity P_SYS must coexist before one exact receiver.
 import hashlib
 import json
 import sys
+import subprocess
 import time
 from pathlib import Path
 import numpy as np
@@ -23,7 +24,15 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
     tick=time.monotonic();joint='--joint-space' in sys.argv;suffix='-joint' if joint else ''
-    dest=OUT/('n01-flat20-domains'+suffix+'.json');assert not dest.exists()
+    dest=OUT/('n01-flat20-domains'+suffix+'.json');prior=None
+    if dest.exists():
+        assert '--resume-completed-from' in sys.argv
+        commit=sys.argv[sys.argv.index('--resume-completed-from')+1]
+        blob=subprocess.run(['git','show',commit+':'+dest.relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
+        prior=json.loads(blob);assert prior==json.loads(dest.read_text())
+        assert prior['status']=='PARTIAL_WHOLE20_FLAT_DOMAINS' and not prior.get('S1_joint_domains')
+        for n,h in prior['source_sha256'].items():
+            if n!=Path(__file__).relative_to(ROOT).as_posix():assert sha(ROOT/n)==h,n
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
     fieldproof=OUT/('n01-flat20-field'+suffix+'.json');proof=json.loads(fieldproof.read_text())
     assert proof['stage']=='complete' and not proof['errors']
@@ -38,6 +47,13 @@ def main():
     rails=shared_rail_bounds()
     wirecontext=cKDTree(field['W043_context']) if joint else None
     s1context=cKDTree(field['S1_context']) if joint else None
+    context_fields={}
+    if joint:
+        # Same source surfaces; gridded loose proposal screens like the other
+        # atlas layers, not millions of repeated nearest-neighbour queries.
+        query=np.stack(np.meshgrid(*axes,indexing='ij'),axis=-1)
+        for label,tree in (('W043_protected_whole',wirecontext),('S1_body_control_studs',s1context)):
+            context_fields[label]=RegularGridInterpolator(axes,tree.query(query.reshape(-1,3),workers=1)[0].reshape(query.shape[:3]),bounds_error=False,fill_value=0)
     required=dict(material=1.25,reservation=1.25,motion36=1.25,outer=3.25,wire_wire=.2)
     screen=dict(material=.2,reservation=.2,motion36=.2,outer=1,curve_hold=3.35)
     result=dict(status='RUNNING_WHOLE20_FLAT_DOMAINS',selected=False,N01_complete=False,physical_pass=False,
@@ -53,6 +69,12 @@ def main():
         complete_grip_external_budget=True,delivered_fit_and_tie_length_stock_still_OPEN=True,
         S1_four_clocked_rings_all8HELU_and123portions246ends_NOT_qualified=True,
         domains={},completed_sources=[],joint_assignment=None,failures=[],errors=[])
+    if prior:
+        result.update(domains=prior['domains'],completed_sources=prior['completed_sources'],
+            predecessor=dict(commit=commit,sha256=hashlib.sha256(blob).hexdigest(),
+                worker_seconds=prior['worker_seconds'],completed_sources_reused=len(prior['completed_sources']),
+                unchanged_template_source_hashes_verified=True,
+                context_screen_acceleration_not_geometry_change=True))
     def gate():
         if time.monotonic()-tick>180:raise TimeoutError('180s whole20 domains; completed per-source results retained')
     def save():
@@ -86,12 +108,12 @@ def main():
                 for i,v in zip(live,values):
                     if v<margin[i]:margin[i]=float(v);limiting[i]='P_SYS_identity_context'
             if joint:
-                for label,tree in (('W043_protected_whole',wirecontext),('S1_body_control_studs',s1context)):
+                for label,interp in context_fields.items():
                     allowed=np.ones(count,dtype=bool)
                     if identity and label=='W043_protected_whole':allowed=(tt!=0)&(tt!=4)
                     if label=='S1_body_control_studs':allowed=tt!=9
                     if allowed.any():
-                        values=(tree.query(p[live][:,allowed].reshape(-1,3),workers=1)[0].reshape(len(live),-1)-rr[allowed]-.2).min(1)
+                        values=(interp(p[live][:,allowed].reshape(-1,3)).reshape(len(live),-1)-rr[allowed]-.2).min(1)
                         for i,v in zip(live,values):
                             if v<margin[i]:margin[i]=float(v);limiting[i]=label
             # Carrier roots may unite with rails. Every purchased case,
@@ -113,11 +135,17 @@ def main():
         # not a hand adjustment to one failed connector.
         return [-112,-88]+mid+[rows[-1][1][0]+24,rows[-1][1][0]+48,rows[-1][1][0]+72]
     save();domains={};stats={}
+    if prior:
+        for ref,rows in prior['domains'].items():
+            station=next(s for s in plan['stations'] if s['ref']==ref);domains[ref]=[]
+            for r in rows:
+                m=build(station,r['family'],r['side'],r['departure_X'],r['centre_mm'][0]);m['numeric_score']=r['numeric_score'];domains[ref].append(m)
     try:
         stations=sorted(plan['stations'],key=lambda s:(not s['fixed_identity_pose'],
                        -s['flat_dimensions_pitch_departure_thickness_mm'][2],-len(s['ports'])))
         for station in stations:
             gate();ref=station['ref'];choices=[];tested=0;rejected={};best=None
+            if ref in domains:continue
             families=['inner'] if station['fixed_identity_pose'] else station['row_families']
             for family in families:
                 for side in ([1] if station['fixed_identity_pose'] else (-1,1)):

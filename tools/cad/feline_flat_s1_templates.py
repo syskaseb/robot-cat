@@ -54,9 +54,10 @@ def candidates():
                     wp=np.vstack((np.linspace(q,a,first+1),arc,np.linspace(arc[-1],arc[-1]+9*b,10)))
                     # Whole insulating two-mm clamp exterior on a straight,
                     # one full6cube head; not a bare wire-only proposal.
-                    grip_r=4.1;ringaxes=np.linspace(0,2*math.pi,17)[:-1]
+                    grip_r=5.3 #2.1jacket+2mm insulating cap+1.2mm complete band budget
+                    ringaxes=np.linspace(0,2*math.pi,17)[:-1]
                     grip=np.vstack([p+grip_r*(np.cos(t)*u+np.sin(t)*v) for p in line for t in ringaxes])
-                    h=q+4.5*d-7.1*u;head=box_points(h-3,h+3)
+                    h=q+4.5*d-8.3*u;head=box_points(h-3,h+3)
                     points=np.vstack((rc,wp,grip,head));radii=np.r_[np.zeros(len(rc)),np.full(len(wp),2.1),np.zeros(len(grip)+len(head))]
                     types=np.r_[np.full(len(rc),9),np.ones(len(wp),int),np.full(len(grip)+len(head),2)]
                     rows.append(dict(ref=endpoint,source_ring=True,ring_name=ringname,

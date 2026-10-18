@@ -1,5 +1,5 @@
 {
-  "status": "PARTIAL_WHOLE20_FLAT_DOMAINS",
+  "status": "WHOLE20_NO_JOINT_ASSIGNMENT_IN_THIS_BOUNDED_FAMILY",
   "selected": false,
   "N01_complete": false,
   "physical_pass": false,
@@ -42,8 +42,10 @@
     "tools/cad/plan_feline_skin_access.py": "cd9666d6e92ac57638f9c4173635cb5ad8f6607329685060ee105182c3d4ae27",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-field-joint.json": "c5c269da0bdf35a303e6729220f1b7aa688fa3e8147cdcaa662df83849734fd7",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-field-joint.npz": "d413ac4e539da05e165c90139b918fd34e9382e834247b3804cb75c5833b1dd0",
-    "tools/cad/plan_feline_flat_station_domains.py": "5ddd921de1fa0e258810cd15112d64fb0cfece6e7c624c6ad240e7d3392fbccf",
-    "tools/cad/feline_flat_station_templates.py": "0d8e7b7e5e5c51ae7f49af95a570c73239c3f755adacd70fa856acc758b62cb9"
+    "tools/cad/plan_feline_flat_station_domains.py": "ffb02f76d97b9a5a816d7183b74659da4f1c3e537f333f92f6c4a927df90417a",
+    "tools/cad/feline_flat_station_templates.py": "0d8e7b7e5e5c51ae7f49af95a570c73239c3f755adacd70fa856acc758b62cb9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-s1-current-source-datums.json": "c9abb3914986e9192d2cbeb6b080989a012c21ba368f7385e25bd6bc5a364235",
+    "tools/cad/feline_flat_s1_templates.py": "75c4bea4317fbbc1ea99e24130c26980cece52f28afdbc6c0c508bda15ee653f"
   },
   "actual_required_airgaps_NOT_changed_mm": {
     "material": 1.25,
@@ -3541,6 +3543,382 @@
         "actual_band_length_fit_not_verified": true,
         "numeric_score": 0.05398302792157661
       }
+    ],
+    "G_TAIL": [
+      {
+        "ref": "G_TAIL",
+        "family": "outer",
+        "side": 1,
+        "departure_X": 1,
+        "centre_mm": [
+          97.6,
+          62.5,
+          46.25
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "inner_concentric_full_fan": false,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 1.4484374999999998
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": -1,
+        "centre_mm": [
+          80.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 1.336562500000002
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": 1,
+        "centre_mm": [
+          44.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 1.3365625000000019
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": 1,
+        "centre_mm": [
+          56.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.9892961387297938
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": -1,
+        "centre_mm": [
+          92.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.7578125000000009
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "outer",
+        "side": -1,
+        "departure_X": 1,
+        "centre_mm": [
+          109.6,
+          -62.5,
+          46.25
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "inner_concentric_full_fan": false,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.7519125839695329
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": 1,
+        "centre_mm": [
+          20.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.27937604121282666
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": -1,
+        "centre_mm": [
+          8.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.25625000000000114
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": -1,
+        "centre_mm": [
+          20.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.11306986175477662
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": -1,
+        "centre_mm": [
+          32.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.10562184229493221
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": -1,
+        "centre_mm": [
+          44.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.10562184229493221
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": -1,
+        "centre_mm": [
+          56.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.10562184229493221
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": 1,
+        "centre_mm": [
+          56.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.10562184229493221
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": 1,
+        "centre_mm": [
+          32.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.05398302792157661
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": 1,
+        "departure_X": -1,
+        "centre_mm": [
+          8.0,
+          19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.03510492035998064
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "inner",
+        "side": -1,
+        "departure_X": 1,
+        "centre_mm": [
+          44.0,
+          -19.5,
+          48.5
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": -1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 31.4,
+        "inner_concentric_full_fan": true,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.0029227835925761947
+      },
+      {
+        "ref": "G_TAIL",
+        "family": "outer",
+        "side": 1,
+        "departure_X": -1,
+        "centre_mm": [
+          -81.1,
+          62.5,
+          46.25
+        ],
+        "fixed_identity": false,
+        "pitch_Y_sign": 1,
+        "source_lever_UP_preserved_from_actual_handedness": true,
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "inner_concentric_full_fan": false,
+        "frame_family": "STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS",
+        "tie_wrap_rectangular_upper_bound_mm": 73.6,
+        "all_caps_channel_all_owned_jackets": true,
+        "actual_band_length_fit_not_verified": true,
+        "numeric_score": 0.0008907991623882672
+      }
     ]
   },
   "completed_sources": [
@@ -3932,12 +4310,939 @@
         "score": -0.12036418773986646,
         "limiting_layer": "W043_protected_whole"
       }
+    },
+    {
+      "ref": "G_TAIL",
+      "tested": 128,
+      "received": 17,
+      "rejected_layers": {
+        "outside_numeric_grid": 22,
+        "material": 46,
+        "reservation": 32,
+        "P_SYS_identity_context": 10,
+        "S1_body_control_studs": 1
+      },
+      "best_rejected_numeric": {
+        "family": "outer",
+        "side": 1,
+        "departure": -1,
+        "centre_x": -57.1,
+        "score": -0.0018451800583532685,
+        "limiting_layer": "S1_body_control_studs"
+      }
+    },
+    {
+      "ref": "W064/single/end",
+      "tested": 192,
+      "received": 3,
+      "rejected_layers": {
+        "material": 54,
+        "outside_numeric_grid": 99,
+        "reservation": 19,
+        "motion36": 17
+      }
+    },
+    {
+      "ref": "W065/single/end",
+      "tested": 192,
+      "received": 6,
+      "rejected_layers": {
+        "material": 36,
+        "outside_numeric_grid": 108,
+        "reservation": 21,
+        "outer": 1,
+        "motion36": 20
+      }
+    },
+    {
+      "ref": "W067/single/end",
+      "tested": 192,
+      "received": 3,
+      "rejected_layers": {
+        "material": 69,
+        "W043_protected_whole": 2,
+        "reservation": 11,
+        "outside_numeric_grid": 92,
+        "motion36": 14,
+        "common_rail_reservation": 1
+      }
+    },
+    {
+      "ref": "W068/single/end",
+      "tested": 192,
+      "received": 9,
+      "rejected_layers": {
+        "reservation": 21,
+        "outside_numeric_grid": 102,
+        "material": 36,
+        "motion36": 23,
+        "common_rail_reservation": 1
+      }
     }
   ],
   "joint_assignment": null,
   "failures": [],
-  "errors": [
-    "TimeoutError('180s whole20 domains; completed per-source results retained')"
-  ],
-  "worker_seconds": 180.312
+  "errors": [],
+  "predecessor": {
+    "commit": "4ac967cd",
+    "sha256": "ddc67925e537ff17d139288d6bef82859919fa9b6e7c5b9ab5ec325a6f35deeb",
+    "worker_seconds": 180.312,
+    "completed_sources_reused": 19,
+    "unchanged_template_source_hashes_verified": true,
+    "context_screen_acceleration_not_geometry_change": true
+  },
+  "worker_seconds": 56.297,
+  "S1_joint_domains": {
+    "W064/single/end": [
+      {
+        "ref": "W064/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_3_0_0",
+        "wire": "W064",
+        "point_mm": [
+          -64.84091999207688,
+          22.5000030517578,
+          88.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 0,
+        "clock_tf_translation_mm": [
+          11.628819820072707,
+          0.0,
+          62.60065359942458
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.25881904510252013,
+          0.0,
+          -0.9659258262890684
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.5572977784520137
+      },
+      {
+        "ref": "W064/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_3_0_0",
+        "wire": "W064",
+        "point_mm": [
+          -95.06150000000002,
+          22.5000030517578,
+          57.84091999207688
+        ],
+        "departure_axis": [
+          -0.5000000000000004,
+          0.0,
+          -0.8660254037844385
+        ],
+        "bend_unit": [
+          -0.6123724356957944,
+          -0.7071067811865477,
+          0.35355339059327406
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 240,
+        "bend_degrees": 225,
+        "clock_tf_translation_mm": [
+          -212.39934640057524,
+          0.0,
+          -16.62881982007265
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.8660254037844387,
+          0.0,
+          0.4999999999999999
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.4539203619880811
+      },
+      {
+        "ref": "W064/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_3_0_0",
+        "wire": "W064",
+        "point_mm": [
+          -95.06150000000002,
+          22.5000030517578,
+          57.84091999207688
+        ],
+        "departure_axis": [
+          -0.5000000000000004,
+          0.0,
+          -0.8660254037844385
+        ],
+        "bend_unit": [
+          -0.6123724356957946,
+          0.7071067811865474,
+          0.3535533905932742
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 240,
+        "bend_degrees": 315,
+        "clock_tf_translation_mm": [
+          -212.39934640057524,
+          0.0,
+          -16.62881982007265
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.8660254037844387,
+          0.0,
+          0.4999999999999999
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.4107157015557334
+      }
+    ],
+    "W065/single/end": [
+      {
+        "ref": "W065/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "wire": "W065",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          88.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          -6.123233995736765e-17,
+          -1.0,
+          1.0605752387249069e-16
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 180,
+        "clock_tf_translation_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 2.4160134682861845
+      },
+      {
+        "ref": "W065/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "wire": "W065",
+        "point_mm": [
+          -73.877,
+          22.5000030517578,
+          77.00000000000001
+        ],
+        "departure_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "bend_unit": [
+          0.0,
+          0.7071067811865476,
+          0.7071067811865476
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 0,
+        "bend_degrees": 45,
+        "clock_tf_translation_mm": [
+          -39.763485025340415,
+          -3.552713678800501e-15,
+          -42.399346400575155
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.25881904510252,
+          0.0,
+          0.9659258262890685
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 1.3077934191652625
+      },
+      {
+        "ref": "W065/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "wire": "W065",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          88.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.3535533905932738,
+          0.7071067811865474,
+          -0.6123724356957947
+        ],
+        "R_mm": 25.2,
+        "first_mm": 18,
+        "clock_target_degrees": 30,
+        "bend_degrees": 315,
+        "clock_tf_translation_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 1.140872833528604
+      },
+      {
+        "ref": "W065/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "wire": "W065",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          88.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.3535533905932738,
+          0.7071067811865474,
+          -0.6123724356957947
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 315,
+        "clock_tf_translation_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 1.111905474855036
+      },
+      {
+        "ref": "W065/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "wire": "W065",
+        "point_mm": [
+          -73.877,
+          22.5000030517578,
+          77.00000000000001
+        ],
+        "departure_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "bend_unit": [
+          0.0,
+          0.7071067811865476,
+          0.7071067811865476
+        ],
+        "R_mm": 25.2,
+        "first_mm": 18,
+        "clock_target_degrees": 0,
+        "bend_degrees": 45,
+        "clock_tf_translation_mm": [
+          -39.763485025340415,
+          -3.552713678800501e-15,
+          -42.399346400575155
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.25881904510252,
+          0.0,
+          0.9659258262890685
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.804755544200179
+      },
+      {
+        "ref": "W065/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_6_0_0",
+        "wire": "W065",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          88.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 0,
+        "clock_tf_translation_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.5991873856296697
+      }
+    ],
+    "W067/single/end": [
+      {
+        "ref": "W067/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_2_0_0",
+        "wire": "W067",
+        "point_mm": [
+          -72.9385,
+          22.5000030517578,
+          84.15908000792315
+        ],
+        "departure_axis": [
+          0.5000000000000001,
+          0.0,
+          0.8660254037844386
+        ],
+        "bend_unit": [
+          0.6123724356957945,
+          -0.7071067811865477,
+          -0.3535533905932738
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 60,
+        "bend_degrees": 225,
+        "clock_tf_translation_mm": [
+          -76.94373529759035,
+          0.0,
+          189.04100464975042
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.7933533402912352,
+          0.0,
+          -0.6087614290087207
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 2.2841021112264683
+      },
+      {
+        "ref": "W067/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_2_0_0",
+        "wire": "W067",
+        "point_mm": [
+          -72.9385,
+          22.5000030517578,
+          84.15908000792315
+        ],
+        "departure_axis": [
+          0.5000000000000001,
+          0.0,
+          0.8660254037844386
+        ],
+        "bend_unit": [
+          0.6123724356957946,
+          0.7071067811865474,
+          -0.3535533905932739
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 60,
+        "bend_degrees": 315,
+        "clock_tf_translation_mm": [
+          -76.94373529759035,
+          0.0,
+          189.04100464975042
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.7933533402912352,
+          0.0,
+          -0.6087614290087207
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 1.2841021112264683
+      },
+      {
+        "ref": "W067/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_2_0_0",
+        "wire": "W067",
+        "point_mm": [
+          -64.84091999207686,
+          22.5000030517578,
+          76.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 0,
+        "clock_tf_translation_mm": [
+          -19.485907284830773,
+          -3.552713678800501e-15,
+          155.39452878642277
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.6087614290087209,
+          0.0,
+          -0.793353340291235
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.47572802207637094
+      }
+    ],
+    "W068/single/end": [
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207685,
+          22.5000030517578,
+          76.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 0,
+        "clock_tf_translation_mm": [
+          -10.59173582606104,
+          -3.552713678800501e-15,
+          143.80341887095398
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.6087614290087209,
+          0.0,
+          -0.793353340291235
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 1.014691874315904
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207685,
+          22.5000030517578,
+          76.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "R_mm": 25.2,
+        "first_mm": 18,
+        "clock_target_degrees": 30,
+        "bend_degrees": 0,
+        "clock_tf_translation_mm": [
+          -10.59173582606104,
+          -3.552713678800501e-15,
+          143.80341887095398
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.6087614290087209,
+          0.0,
+          -0.793353340291235
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 1.014691874315904
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          53.938500000000005
+        ],
+        "departure_axis": [
+          0.8660254037844384,
+          0.0,
+          -0.5000000000000004
+        ],
+        "bend_unit": [
+          -0.5000000000000004,
+          -1.8369701987210297e-16,
+          -0.8660254037844384
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 330,
+        "bend_degrees": 270,
+        "clock_tf_translation_mm": [
+          13.4498947342816,
+          0.0,
+          27.837906756360127
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.13052619222005157,
+          0.0,
+          -0.9914448613738104
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.8825408405436901
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          53.938500000000005
+        ],
+        "departure_axis": [
+          0.8660254037844384,
+          0.0,
+          -0.5000000000000004
+        ],
+        "bend_unit": [
+          -0.35355339059327406,
+          -0.7071067811865477,
+          -0.6123724356957942
+        ],
+        "R_mm": 25.2,
+        "first_mm": 18,
+        "clock_target_degrees": 330,
+        "bend_degrees": 225,
+        "clock_tf_translation_mm": [
+          13.4498947342816,
+          0.0,
+          27.837906756360127
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.13052619222005157,
+          0.0,
+          -0.9914448613738104
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.8825408405436901
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207685,
+          22.5000030517578,
+          76.06150000000001
+        ],
+        "departure_axis": [
+          0.8660254037844387,
+          0.0,
+          0.49999999999999994
+        ],
+        "bend_unit": [
+          0.3535533905932737,
+          -0.7071067811865477,
+          -0.6123724356957945
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 30,
+        "bend_degrees": 225,
+        "clock_tf_translation_mm": [
+          -10.59173582606104,
+          -3.552713678800501e-15,
+          143.80341887095398
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.6087614290087209,
+          0.0,
+          -0.793353340291235
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.6349415247939041
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          53.938500000000005
+        ],
+        "departure_axis": [
+          0.8660254037844384,
+          0.0,
+          -0.5000000000000004
+        ],
+        "bend_unit": [
+          -0.5000000000000004,
+          -1.8369701987210297e-16,
+          -0.8660254037844384
+        ],
+        "R_mm": 25.2,
+        "first_mm": 18,
+        "clock_target_degrees": 330,
+        "bend_degrees": 270,
+        "clock_tf_translation_mm": [
+          13.4498947342816,
+          0.0,
+          27.837906756360127
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.13052619222005157,
+          0.0,
+          -0.9914448613738104
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.488271487308167
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -84.93849999999998,
+          22.5000030517578,
+          84.15908000792315
+        ],
+        "departure_axis": [
+          0.5000000000000001,
+          0.0,
+          0.8660254037844386
+        ],
+        "bend_unit": [
+          0.6123724356957945,
+          -0.7071067811865477,
+          -0.3535533905932738
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 60,
+        "bend_degrees": 225,
+        "clock_tf_translation_mm": [
+          -61.83790675636011,
+          0.0,
+          177.4498947342816
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.7933533402912352,
+          0.0,
+          -0.6087614290087207
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.20593455619721412
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -84.93849999999998,
+          22.5000030517578,
+          84.15908000792315
+        ],
+        "departure_axis": [
+          0.5000000000000001,
+          0.0,
+          0.8660254037844386
+        ],
+        "bend_unit": [
+          0.6123724356957946,
+          0.7071067811865474,
+          -0.3535533905932739
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 60,
+        "bend_degrees": 315,
+        "clock_tf_translation_mm": [
+          -61.83790675636011,
+          0.0,
+          177.4498947342816
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.7933533402912352,
+          0.0,
+          -0.6087614290087207
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.20593455619721412
+      },
+      {
+        "ref": "W068/single/end",
+        "source_ring": true,
+        "ring_name": "Ref_Material_current_S1_ring_5_0_0",
+        "wire": "W068",
+        "point_mm": [
+          -76.84091999207686,
+          22.5000030517578,
+          53.938500000000005
+        ],
+        "departure_axis": [
+          0.8660254037844384,
+          0.0,
+          -0.5000000000000004
+        ],
+        "bend_unit": [
+          -0.35355339059327406,
+          -0.7071067811865477,
+          -0.6123724356957942
+        ],
+        "R_mm": 25.2,
+        "first_mm": 9,
+        "clock_target_degrees": 330,
+        "bend_degrees": 225,
+        "clock_tf_translation_mm": [
+          13.4498947342816,
+          0.0,
+          27.837906756360127
+        ],
+        "clock_tf_rotation_quaternion": [
+          0.0,
+          0.13052619222005157,
+          0.0,
+          -0.9914448613738104
+        ],
+        "source_ring_eye_body_mate_exact_OPEN": true,
+        "complete_grip_and6cube_head_included": true,
+        "clamp_root_and_tools_OPEN": true,
+        "numeric_score": 0.1673522995609537
+      }
+    ]
+  },
+  "empty_domains": [],
+  "search_nodes": 3,
+  "numeric_mutual_pairs": 193
 }
