@@ -8,6 +8,8 @@ Full tails/tools/roots and real BRep reception remain OPEN.
 import io
 import itertools
 import json
+import subprocess
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -60,7 +62,17 @@ def main():
     lo=np.array([-147,-104,-54]);hi=np.array([189,104,118]);dims=hi-lo+1;count=int(np.prod(dims))
     owners={k:np.zeros(count,dtype=np.uint16) for k in ('material','reservation','curve_hold')}
     if previous:
-        assert previous['source_sha256']==pins,'Changed sources: do not reuse capacity masks'
+        if previous['source_sha256']!=pins:
+            rel=Path(__file__).relative_to(ROOT).as_posix()
+            differences=[n for n in set(pins)|set(previous['source_sha256']) if pins.get(n)!=previous['source_sha256'].get(n)]
+            assert '--receive-empty-roi' in sys.argv and differences==[rel]
+            assert previous['stage']=='static' and previous['errors']==["AssertionError(('SelectedYaw:W2_local_XB12_0', 'reservation', 'curve_hold'))"]
+            original=subprocess.run(['git','show','e7200dc9:'+rel],cwd=ROOT,capture_output=True,check=True).stdout
+            assert __import__('hashlib').sha256(original).hexdigest()==previous['source_sha256'][rel]
+            previous.setdefault('implementation_repairs',[]).append(dict(parent_code_commit='e7200dc9',
+                old_script_sha256=previous['source_sha256'][rel],new_script_sha256=pins[rel],
+                changed_source_geometry_or_frames=False,reason='Empty ROI-disjoint cloud category label did not reach curve branch in original atlas'))
+            previous['source_sha256']=pins
         result=previous;result.setdefault('prior_attempts',[]).append(dict(seconds=result['worker_seconds'],errors=result['errors']))
         result['errors']=[]
         assert sha(cache)==result['voxel_cache_sha256'];v=np.load(cache,allow_pickle=False);owners={k:v[k] for k in owners}
@@ -85,7 +97,12 @@ def main():
                 if n in done:continue
                 cat=category(n);old=oldclouds.get(n);reused=old is not None and n not in changed
                 if reused:
-                    assert old['category']==cat,(n,old['category'],cat)
+                    if old['category']!=cat:
+                        bb=s.BoundBox
+                        disjoint=bb.XMax<lo[0] or bb.XMin>hi[0] or bb.YMax<lo[1] or bb.YMin>hi[1] or bb.ZMax<lo[2] or bb.ZMin>hi[2]
+                        assert old['sample_count']==0 and old.get('ROI_disjoint') and disjoint,(n,old['category'],cat)
+                        result.setdefault('empty_ROI_classifications',[]).append(dict(source=n,
+                            prior_category=old['category'],current_category=cat,no_geometry_inside_ROI=True))
                     raw=z.read(old['entry']);assert __import__('hashlib').sha256(raw).hexdigest()==old['sha256']
                     pts=np.load(io.BytesIO(raw),allow_pickle=False)
                 elif cat=='curve_hold':
@@ -110,6 +127,8 @@ def main():
         distance={};nearest={}
         for cat in ('material','reservation','curve_hold','motion36'):
             gate();o=oldvox[cat] if cat=='motion36' else owners[cat];ids=np.flatnonzero(o)
+            if not len(ids):
+                distance[cat]=np.full(shape,np.inf,dtype=np.float32);nearest[cat]=np.full(shape,-1,dtype=np.int32);continue
             tree=cKDTree(points_from_ids(ids,lo,dims));dd,ix=tree.query(points,workers=1)
             distance[cat]=dd.reshape(shape).astype(np.float32);nearest[cat]=(o[ids[ix]]-1).reshape(shape)
             print('Global capacity field',cat,len(ids),flush=True)
