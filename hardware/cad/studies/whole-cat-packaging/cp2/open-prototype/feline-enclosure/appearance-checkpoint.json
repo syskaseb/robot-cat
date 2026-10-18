@@ -1,4 +1,189 @@
 {
+  "n01_execution_block": {
+    "status": "closed_bounded_block_N01_incomplete",
+    "closed_utc": "2026-10-18T01:43:26Z",
+    "elapsed_block_seconds": 5323,
+    "close_reason": "safe_closeout_at_end_of_bounded_90min_block_no_automatic_extension",
+    "stage_completed": false,
+    "N01_complete": false,
+    "new_scope_percent": 0,
+    "final_account_usage": {
+      "read_utc": "2026-10-18T01:43:26Z",
+      "used_percent": 4,
+      "remaining_percent": 96,
+      "reset_used": false
+    },
+    "design_work_ended_utc": "2026-10-18T01:42:25Z",
+    "design_and_planning_elapsed_seconds": 5262,
+    "elapsed_includes_analysis_tools_and_waits_not_continuous_CPU": true,
+    "started_utc": "2026-10-18T00:14:43Z",
+    "deadline_utc": "2026-10-18T01:44:43Z",
+    "account_used_percent_start": 0,
+    "stop_at_account_used_percent": 5,
+    "last_account_usage": {
+      "read_utc": "2026-10-18T01:41:46Z",
+      "limit_id": "codex",
+      "used_percent": 4,
+      "remaining_percent": 96,
+      "window_duration_mins": 10080,
+      "resets_at": 1792884579,
+      "ordinary_usage_allowed": true
+    },
+    "verified_core_receipt_pins_current": [
+      "n01-common-backbone-preflight-r4.json",
+      "n01-complete-end-allocation.json"
+    ],
+    "diagnostic_search_provenance_note": "The9.125s conservative search recorded an older whole allocation JSON hash. That report was later regenerated for axis/curvature/gate reconciliation. Search remains an unselected diagnostic; current primitive target values were replayed in the pinned curvature followup. Do not claim its entire old raw input report is byte-identical to current allocation or that this is a release receipt.",
+    "own_checked_commits": [
+      "e39c8a94",
+      "6f94b1bb",
+      "9c522c04",
+      "ada99dfd",
+      "9d97f453",
+      "54035494",
+      "a6954d82"
+    ],
+    "next_checkpoint_budget_not_completion_promise": "One bounded block up to60min/+3pp for a coupled F_PI/P_SYS/splice/MAIN and real nominal BUS-plug roof plan; N01 only. No reliable total-extension completion ETA yet; do not automatically start another block.",
+    "native_integrity_verified": {
+      "FelineInteriorMotion.FCStd": "5133e3fd1df3713a41ddc503a828f39ccaf0113e7057781a1aefb70f15c24fdf",
+      "FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c",
+      "RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
+      "baseline_tag_target_commit": "9bf50a5d537999ce57e82dac131855a9431ac65d"
+    },
+    "hook_enabled": false,
+    "active_worker": null,
+    "next": "One coupled F_PI/P_SYS/splice/MAIN lead-budget plan plus reconstructed BUS plug/exit roof budget before more CAD. Preserve flat bank/R5 rear bay and scoped adopted36leg structure evidence. No N02/N03 detailed build or unchanged checks.",
+    "current_partial_result": {
+      "common_structure": "n01-common-backbone-preflight-r4.json",
+      "adopted_leg_samples": 36,
+      "adopted_contacts": 0,
+      "extra_unadopted_contact_events": 4,
+      "extra_contact_pose_indices": [
+        45,
+        46
+      ],
+      "end_allocation": "n01-complete-end-allocation.json",
+      "logical_nets": 80,
+      "endpoint_identities": 178,
+      "physical_portions": 89,
+      "new_candidate_boundaries": 38,
+      "project_axis_recipes": 178,
+      "guide_tangents_not_manufacturer_mouths": 8,
+      "factory_length_hard_failures": [
+        "W043",
+        "W077"
+      ],
+      "pi_case_search": "n01-pi-fuse-bay-search.json",
+      "necessary_curve_budget_survivors": 0,
+      "pure_math_tests": 5,
+      "random_constructed_curve_cases": 1000,
+      "N01_complete": false,
+      "new_scope_percent": 0,
+      "native_CAD_changed": false,
+      "hook_enabled": false
+    },
+    "mount_root_and_service_plan": {
+      "status": "PLANNED_DEPENDENCIES_NOT_NATIVE_OR_TOOL_ACCEPTANCE",
+      "root_gates": [
+        "Four free-span clamps retain the existing65mm2/frame bearing evidence; complete fixed backbone must actually unite into those roots.",
+        "MAIN raised bridge needs explicit short legs to upper strips; its vertical gap is not closed merely by a clear collision screen.",
+        "PWM fore branch needs a designed union/root across its0.5mm height gap to upper strips; not a floating plate.",
+        "Lower deck needs four dimensioned split-clamp connections to full belly stems. An intentional overlap with BellyFoot is not a complete fastening proof.",
+        "Twenty WAGO and eight inline receivers need current bed/clip-to-frame ownership plus independent wire relief; body adhesive is not wire relief.",
+        "Head root plate/webs need fourM3 actual-base fasteners and the shared front-foot/frame stack. Current mating reservations are not strength or assembled-tool evidence."
+      ],
+      "assembly_nodes": [
+        {
+          "id": "SAFE",
+          "after": [],
+          "action": "Source disconnected, robot supported, battery out; no powered operations."
+        },
+        {
+          "id": "ROOTS",
+          "after": [
+            "SAFE"
+          ],
+          "action": "Install four belly-foot/frame stacks and free-span clamps; preload accessible lower nuts before carriers/deck."
+        },
+        {
+          "id": "BACKBONE",
+          "after": [
+            "ROOTS"
+          ],
+          "action": "Install one rooted backbone, neck root and actual PCB bridge roots; do not call clear but unconnected plates mounted."
+        },
+        {
+          "id": "LOWER",
+          "after": [
+            "BACKBONE"
+          ],
+          "action": "Fit split-clamped lower beds, retained selected modules and labels; bench preparation only, solder outside robot."
+        },
+        {
+          "id": "BANK",
+          "after": [
+            "BACKBONE"
+          ],
+          "action": "Install complete two bank rails/24TE with independent lands; maintain outward12ATO extraction paths."
+        },
+        {
+          "id": "PCB",
+          "after": [
+            "BACKBONE",
+            "LOWER",
+            "BANK"
+          ],
+          "action": "Install carriers around actual washer/nut planes with trapped-nut access resolved; no generic columns through existing hardware."
+        },
+        {
+          "id": "HARNESS",
+          "after": [
+            "LOWER",
+            "BANK",
+            "PCB"
+          ],
+          "action": "Route and relieve full80nets plus head/tail and moving portions. Keep solder sleeve and both jacket grips distinct."
+        },
+        {
+          "id": "PANELS",
+          "after": [
+            "HARNESS"
+          ],
+          "action": "Fit split skin/cowls last. They do not carry the head or replace frame anchors."
+        }
+      ],
+      "routine_bank_service": "Remove corresponding skin panel and pull relevant ATO outward, retaining all bank TE ends and WAGO connections. Actual tool fit and surrounding complete harness still OPEN.",
+      "deep_repair": "May remove adjacent carriers and disconnect labelled harness boundaries; no unnecessary connected-lift/quick-service requirement. Never desolder a splice inside the robot.",
+      "reverse_access_actual_geometry_verified": false,
+      "physical_pass": false
+    },
+    "local_milestone": {
+      "commit": "e39c8a9",
+      "bank_proof": "n01-compact-bank-preflight-r2.json",
+      "rear_bay_proof": "n01-shared-preflight-r5.json",
+      "bank_scope": "48unchanged purchased parts/24full9mm grip reservations/12continuous conservative ATO extraction envelopes. Disjoint world bounds sufficed;0exact Boolean pairs. No actual-tool, mount, full-wire or motion approval.",
+      "native_CAD_changed": false,
+      "N01_complete": false
+    },
+    "scope": "N01 only: shared feasible interior/end/retention/tool/enclosure plan. No detailed N02/N03 build.",
+    "review": {
+      "model": "gpt-6-astra",
+      "effort": "high",
+      "maximum_minutes": 15,
+      "status": "completed_read_only_agent_closed",
+      "agent_id": "01a14c65-a6d6-7a12-b6c7-e00dfc92683b",
+      "reviewed_packet_sha256": "a7a79e3eb2ca598c169f5a80345c83e04cdcb1287d93b857b2eb9d9e5e93f282",
+      "verdict": "N01 not selectable, no partial points",
+      "findings": [
+        "Head-root-to-frame load path missing in initial proposal; cowl is not structure",
+        "Actual reverse removal/tools/parking not yet established; circular dependency is a risk, not a proved collision",
+        "36leg boundaries and2selected solder-splice ends plus full grips/corridor capacity unallocated"
+      ],
+      "correction": "19PCB axes total =14upper+5lower",
+      "recommended_change": "Defined fixed structural backbone with forward neck bridge and explicitly detachable carriers; allocate all boundaries/retention/removal together"
+    },
+    "physical_pass": false
+  },
   "checkpoint_email": {"status":"sent","message_id":"1a148c54566dd04d","thread_id":"1a148c54566dd04d","to":"syska.seb@gmail.com","confirmed_labels":["UNREAD","SENT","INBOX"],"phone_delivery_verified":false},
   "status": "AUTHORIZED_WINDOW_CLOSED_INCOMPLETE",
   "window_id": "appearance-lie-bundles-20261017-0930",
