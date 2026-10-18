@@ -31,7 +31,7 @@ def points(s):
 
 
 def frame_variable(n,m):
-    if '--owner-complete' in sys.argv and own_reservation(n,m):return True
+    if any(a in sys.argv for a in ('--owner-complete','--joint-space')) and own_reservation(n,m):return True
     if n=='P_SYS_CommonRelief':
         assert m.get('kind')=='frame_reservation' and m.get('owner')=='UpperFrame',m
         return '--owner-r2' in sys.argv
@@ -43,7 +43,9 @@ def frame_variable(n,m):
 
 
 def main():
-    tick=time.monotonic();r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete'));suffix='-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
+    tick=time.monotonic();joint='--joint-space' in sys.argv
+    r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete','--joint-space'))
+    suffix='-joint' if joint else '-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
     dest=OUT/('n01-flat20-field'+suffix+'.json');fieldfile=OUT/('n01-flat20-field'+suffix+'.npz')
     assert not dest.exists() and not fieldfile.exists(),'Receive existing field before rebuilding'
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
@@ -67,7 +69,7 @@ def main():
         assert np.allclose(protected['parts'][-1]['end'],[4.55,4,48.5])
         pins[protectedfile.relative_to(ROOT).as_posix()]=sha(protectedfile)
     frame={n for n in scene if frame_variable(n,meta[n])}
-    if '--owner-complete' in sys.argv:
+    if '--owner-complete' in sys.argv or joint:
         ownerfile=OUT/'n01-flat20-owner-contract.json';contract=json.loads(ownerfile.read_text())
         assert {r['name'] for r in contract['complete_P_SYS_retired_set']}<=frame
         pins[ownerfile.relative_to(ROOT).as_posix()]=sha(ownerfile)
@@ -77,7 +79,7 @@ def main():
     retired|={n for n in scene if n.startswith('Ref_Material_current_S1_')}
     originalparts=set(scene)
     for n in retired:scene.pop(n);meta.pop(n)
-    overlays=[]
+    overlays=[];s1names=[]
     for doc,groups in ((macro,{'S1Rigid','F_HP','F_TY'}),(fore,{'ForeFHAC'})):
         bundle=ROOT/doc['bundle'];assert sha(bundle)==doc['bundle_sha256'];pins[bundle.relative_to(ROOT).as_posix()]=sha(bundle)
         with zipfile.ZipFile(bundle) as z:
@@ -86,6 +88,8 @@ def main():
                 blob=z.read(r['entry']);assert hashlib.sha256(blob).hexdigest()==r['sha256']
                 s=Part.Shape();s.importBrepFromString(blob.decode('utf-8'));assert s.isValid() and s.Solids
                 scene[r['name']]=s;meta[r['name']]=dict(kind='wire' if r['wire'] else 'material');overlays.append(r['name'])
+                if joint and r['group']=='S1Rigid':s1names.append(r['name'])
+    s1context=np.vstack([points(scene[n]) for n in s1names]) if joint else None
     for p in (planfile,capfile,rawfile,rawbundle,originalfield,macrofile,forefile,Path(__file__),
               Path(__file__).with_name('plan_feline_skin_access.py')):pins[p.relative_to(ROOT).as_posix()]=sha(p)
     lo=np.array([-147,-104,-54]);hi=np.array([189,104,118]);dims=hi-lo+1;count=int(np.prod(dims))
@@ -102,6 +106,10 @@ def main():
         replaced_own_reservation='P_SYS_CommonRelief',replacement_must_cover_all4including_W043=True,
         protected_W043_reused_last_straight_mm=protected['parts'][-1]['length_mm'],
         W043_channel_mate_not_foreign_airgap=True)
+    if joint:report.update(S1_mating_context_parts=s1names,
+        S1_body_control_and_studs_preserved_in_separate_context=True,
+        S1_context_must_be_seen_by_all_other_modules_and_wire_jackets=True,
+        ring_eye_mate_requires_later_exact_internal_qualification=True)
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -111,6 +119,9 @@ def main():
     try:
         with zipfile.ZipFile(rawbundle) as z:
             for n,s in scene.items():
+                if joint and n in s1names:
+                    report['material_clouds'].append(dict(source=n,category='S1_mating_context',reused=False,samples=len(points(s))))
+                    continue
                 if r2 and n=='W043':
                     report['material_clouds'].append(dict(source=n,category='identity_wire_context',reused=False,samples=len(wirecontext)))
                     continue
@@ -141,6 +152,7 @@ def main():
         for c in ('motion36','outer'):fields[c+'_distance']=old[c+'_distance']
         fields.update(service=old['service'],inside=old['inside'],P_SYS_context=context)
         if r2:fields['W043_context']=wirecontext
+        if joint:fields['S1_context']=s1context
         np.savez_compressed(fieldfile,**dict(zip(('x','y','z'),axes)),**fields)
         report.update(status='FLAT20_SOURCE_FIELD_READY_FOR_JOINT_DOMAINS_NOT_N01',stage='complete',
             field=fieldfile.relative_to(ROOT).as_posix(),field_sha256=sha(fieldfile),
