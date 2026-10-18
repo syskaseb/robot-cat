@@ -20,13 +20,14 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    above_frame='--above-frame-joint-bay' in sys.argv
+    axial_columns='--axial-branch-columns' in sys.argv
+    above_frame=axial_columns or '--above-frame-joint-bay' in sys.argv
     joint_bay=above_frame or '--joint-power-bay' in sys.argv
     all_ends=joint_bay or '--all-ends' in sys.argv
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=spatial or '--flat-unit' in sys.argv
     lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -84,7 +85,7 @@ def main():
     effective=json.loads(json.dumps(plan))
     for g in effective['groups']:
         if g['role'] in common_delta:g['translation_mm']=(np.array(g['translation_mm'])+common_delta[g['role']]).tolist()
-    joint_changes={}
+    joint_changes={};joint_rotations={}
     if joint_bay:
         # Cause change: release the whole lower floor bay, not another F_PI
         # offset. Four MTA AND all8 factory-end joints move as one architecture.
@@ -111,9 +112,33 @@ def main():
             report['above_frame_basis']={'frame_top_mm':37.02,'source_case_bottom_mm':41,
                 'all_joint_centres_mm':targets,'rear_factory_fans_inboard_of_front_fans':True,
                 'changes_reason':'First whole bay struck front/rear frame and crossed factory fans. One frame-relative plane and two ordered complete fans replace that layout, not single screw nudges.'}
+        if axial_columns:
+            # After two upper-bay rejections, change topology: four independent
+            # straight axial branch columns, no opposing/crossed factory fans.
+            # Preserve all4 exact cases, both real ends and all8 inline joints.
+            R=np.array([[0,-1,0],[1,0,0],[0,0,1]],float)
+            targets={}
+            for code,x,negative,positive in (('FL',-95,'W026_Joint','W041_Joint'),
+                    ('FR',-45,'W037_Joint','W042_Joint'),('RL',65,'W044_Joint','W045_Joint'),
+                    ('RR',118,'W052_Joint','W053_Joint')):
+                targets['MTA_'+code]=[x,0,-34]
+                targets[negative]=[x,-56,-34];targets[positive]=[x,56,-34]
+            for g in effective['groups']:
+                if g['role'] in targets:
+                    centre=np.mean(g['candidate_bounds_mm'],axis=0)+np.array(common_delta.get(g['role'],[0,0,0]))
+                    joint_rotations[g['role']]=R.tolist()
+                    joint_changes[g['role']]=(np.array(targets[g['role']])-R@centre).tolist()
+            report['axial_columns_basis']={'centres_mm':targets,'rotation_rows':R.tolist(),
+                'factory_paths':'Eight straight20.75mm paths, each has both9mm intact jacket lands. No crossing fans or raised paths through bank prefixes.',
+                'same_four_MTA_and_eight_joint_cases':True,'all_native_mounts_and_tools_open':True,
+                'cause_change':'Two upper-layer failures. Rotate entire four3case branches into noncrossing longitudinally separated columns below battery; no third height retry.'}
+            report.pop('above_frame_basis',None)
         for g in effective['groups']:
             if g['role'] in joint_changes:
-                g['translation_mm']=(np.array(g['translation_mm'])+joint_changes[g['role']]).tolist()
+                R=np.array(joint_rotations.get(g['role'],np.eye(3)))
+                g['translation_mm']=(R@np.array(g['translation_mm'])+joint_changes[g['role']]).tolist()
+                g['rotation_rows']=(R@np.array(g['rotation_rows'])).tolist()
+                if g.get('factory_exit_axis') is not None:g['factory_exit_axis']=(R@np.array(g['factory_exit_axis'])).tolist()
         report['joint_bay_architecture']={'relative_current_changes_mm':joint_changes,
             'source_cases_centre_z_mm':37.5,'two_factory_sides_each':True,
             'full_lower_bay_released_for_power_unit':True,
@@ -127,7 +152,8 @@ def main():
                 rr=rear['relative_rotations'].get(role,np.eye(3).tolist())
                 s.Placement=placement(rr,rear['changed_complete_receiving_groups'][role])*s.Placement
             if role in common_delta:s.translate(A.Vector(*common_delta[role]))
-            if role in joint_changes:s.translate(A.Vector(*joint_changes[role]))
+            if role in joint_changes:
+                s.Placement=placement(joint_rotations.get(role,np.eye(3).tolist()),joint_changes[role])*s.Placement
             if role=='F_PI':
                 r=candidate['F_PI']; rr=np.array(r['rotation_relative_current'])
                 delta=np.array(r['centre_mm'])-rr@np.array(r['old_centre_mm'])
@@ -177,10 +203,10 @@ def main():
             if 'low_mm' not in row:continue
             n=row['name'];lo=np.array(row['low_mm'],float);hi=np.array(row['high_mm'],float)
             if n.startswith(('PiFuse','MainRaisedBridge','Standoff_MAIN','Standoff_BUS','SelectedSolderSpliceClip')):continue
-            if n.startswith('LowerRail'):
+            if n.startswith('LowerRail') and not axial_columns:
                 sign=1 if (lo[1]+hi[1])>0 else -1
                 lo[1]=sign*35-3;hi[1]=sign*35+3
-            if n.startswith('Crossmember'):lo[1]=-38;hi[1]=38
+            if n.startswith('Crossmember') and not axial_columns:lo[1]=-38;hi[1]=38
             wires['StructureReserve:'+n]=Part.makeBox(*(hi-lo),A.Vector(*lo));own['StructureReserve:'+n]=set()
         for n,s in jointparts.items():
             for bn,b in scene.items():
