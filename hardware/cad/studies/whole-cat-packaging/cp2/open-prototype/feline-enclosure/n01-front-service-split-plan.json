@@ -1,0 +1,3941 @@
+{
+  "status": "FRONT_SERVICE_SPLIT_PROPOSAL_SAVED_NOT_STATIC_QUALIFIED",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "complete_route_or_native_approval": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-front-bulkhead-architecture.json": "b249bc4e2b8666d0720ae1d2e82f1a9dbbad22a5007269658fe99b062ba4b959",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-front-bulkhead-static-received.json": "79097ada99ed204804d6ce4ca0e0365046da10c8cbdc964db0faef4a41d7c09e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-front-bulkhead-architecture.zip": "e29252fb2204a503daf1a69baf995be1fa0b6d0aebaf61caf4c5250766e094b1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-pi-full-port-contract.json": "78a714c8a495004bd6af6f086e6106380afec11f1d65766d0004a8a41eefb919",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-extra-interface-contract.json": "880ba3ee305d3bd883811e49bdc14de919758981aa12bf5d813b4468d0238d58",
+    "tools/cad/plan_feline_front_service_split.py": "e638e63dd752f2e3a1f708208c4eaee07ac7ad220eb6e1d73dbbc4d8678cfc5e"
+  },
+  "hard_clearance_mm": 1.25,
+  "case_and_material_contacts": [],
+  "reservation_conflicts": [],
+  "errors": [],
+  "pairs": 0,
+  "interface_changes": [
+    "WholePi Ry-90 forebulkhead, completeGPIO/power/data budget; not tinyR3mould",
+    "Ten side stations DOWN,22mm initial stroke thenR12.4INBOARD and9mm independent grip",
+    "Three FHAC vertical with six whole factory-to-custom/splice/independent grip budgets",
+    "Head and all retained head local sources raised35mm together; original internals unchanged",
+    "New envelope candidate198mm max, within200 limit, not native/print selected"
+  ],
+  "design": {
+    "Pi_PCB_source_origin_target_mm": [
+      -108,
+      0,
+      -19.65
+    ],
+    "Pi_rotation_about_Y_degrees": -90,
+    "head_relative_raise_mm": 35,
+    "side_station_centres_X_mm": [
+      -50,
+      -14,
+      22,
+      58,
+      94
+    ],
+    "side_station_centres_Y_mm": [
+      -67.5,
+      67.5
+    ],
+    "side_station_centre_Z_mm": 40,
+    "FHAC_centres": {
+      "F_HY": [
+        -24,
+        -83.5,
+        32
+      ],
+      "F_HP": [
+        12,
+        83.5,
+        32
+      ],
+      "F_TY": [
+        48,
+        -83.5,
+        32
+      ]
+    },
+    "FHAC_root_between_stations_X_mm": {
+      "F_HY": -32,
+      "F_HP": 4,
+      "F_TY": 40
+    },
+    "Monitor_centre_mm": [
+      50,
+      68,
+      0
+    ],
+    "F_PWM_centre_mm": [
+      60,
+      -76,
+      -20
+    ]
+  },
+  "preserved": [
+    "lower118/fourMTA/eightfactorysides",
+    "complete24bankquarters",
+    "W043/W077/W078",
+    "all15drives/P0/E6/provisionalreplaceableMG92B",
+    "MAINnegativeupperstrip andactualdatums"
+  ],
+  "holds": [
+    "All89body+34extra external middles/lengths and every restraint load path/tool/removal sequence",
+    "Newneck/core/head motion and exact revised skin containment",
+    "Pi carrier roots on actual availableframeholes, all new native geometry/parameter/reopen/stock",
+    "Yaw220mm plus30mm residual deliveryfit budget is NOT a modeled installed250mm coil",
+    "Reservation overlap is not proof of real supplier contact; cannot silently accept it either"
+  ],
+  "Pi_USB_A_mouth_mm": [
+    -114.10000000000002,
+    -19.39,
+    75.35
+  ],
+  "retained_local_curve_reservations": [
+    "SelectedYaw:W2_local_XB12_0",
+    "SelectedYaw:W2_local_XB12_1",
+    "SelectedYaw:W2_local_XB12_2",
+    "SelectedYaw:W2_local_XB13_0",
+    "SelectedYaw:W2_local_XB13_1",
+    "SelectedYaw:W2_local_XB13_2",
+    "SelectedYaw:W2_local_XS13_0",
+    "SelectedYaw:W2_local_XS13_1",
+    "SelectedYaw:W2_local_XS13_2",
+    "SelectedTail:W4Reference_local_XB32_0_CENTERLINE",
+    "SelectedTail:W4Reference_local_XB32_SLEEVE_CENTERLINE",
+    "SelectedTail:W4Reference_local_XB33_0_CENTERLINE",
+    "SelectedTail:W4Reference_local_XB33_SLEEVE_CENTERLINE",
+    "SelectedTail:W4Reference_local_XS33_0_CENTERLINE",
+    "SelectedTail:W4Reference_local_XS33_SLEEVE_CENTERLINE",
+    "SelectedTail:W4Reference_local_XB32_2_CENTERLINE",
+    "SelectedTail:W4Reference_local_XB33_2_CENTERLINE",
+    "SelectedTail:W4Reference_local_XS33_2_CENTERLINE",
+    "SelectedTail:W4Reference_local_factory_flat_circumscribed_RESERVATION",
+    "SelectedTail:W4Reference_JR_XB32",
+    "SelectedTail:W4Reference_JR_XB33",
+    "SelectedTail:W4Reference_JR_XS33"
+  ],
+  "changed_endpoints": {
+    "PI.H1": {
+      "point_mm": [
+        -142.59999999999997,
+        -23.229999999999997,
+        96.78
+      ],
+      "departure_axis": [
+        -1.0,
+        -1.2246467991473535e-16,
+        0.0
+      ],
+      "first_straight_mm": 3,
+      "bend_direction": [
+        0.0,
+        0.7071067811865475,
+        -0.7071067811865475
+      ],
+      "R_mm": 10,
+      "grip_after_turn_line_mm": [
+        [
+          -155.59999999999997,
+          -16.15893218813452,
+          89.70893218813453
+        ],
+        [
+          -155.59999999999997,
+          -9.794971157455594,
+          83.3449711574556
+        ]
+      ],
+      "shared_firstrow_grip_group": "GPIOrow1"
+    },
+    "PI.H3": {
+      "point_mm": [
+        -142.59999999999997,
+        -23.229999999999997,
+        94.24000000000001
+      ],
+      "departure_axis": [
+        -1.0,
+        -1.2246467991473535e-16,
+        0.0
+      ],
+      "first_straight_mm": 3,
+      "bend_direction": [
+        0.0,
+        0.7071067811865475,
+        -0.7071067811865475
+      ],
+      "R_mm": 10,
+      "grip_after_turn_line_mm": [
+        [
+          -155.59999999999997,
+          -16.15893218813452,
+          87.16893218813453
+        ],
+        [
+          -155.59999999999997,
+          -9.794971157455594,
+          80.80497115745561
+        ]
+      ],
+      "shared_firstrow_grip_group": "GPIOrow1"
+    },
+    "PI.H5": {
+      "point_mm": [
+        -142.59999999999997,
+        -23.229999999999997,
+        91.7
+      ],
+      "departure_axis": [
+        -1.0,
+        -1.2246467991473535e-16,
+        0.0
+      ],
+      "first_straight_mm": 3,
+      "bend_direction": [
+        0.0,
+        0.7071067811865475,
+        -0.7071067811865475
+      ],
+      "R_mm": 10,
+      "grip_after_turn_line_mm": [
+        [
+          -155.59999999999997,
+          -16.15893218813452,
+          84.62893218813453
+        ],
+        [
+          -155.59999999999997,
+          -9.794971157455594,
+          78.2649711574556
+        ]
+      ],
+      "shared_firstrow_grip_group": "GPIOrow1"
+    },
+    "PI.H11": {
+      "point_mm": [
+        -142.59999999999997,
+        -23.229999999999997,
+        84.08
+      ],
+      "departure_axis": [
+        -1.0,
+        -1.2246467991473535e-16,
+        0.0
+      ],
+      "first_straight_mm": 3,
+      "bend_direction": [
+        0.0,
+        0.7071067811865475,
+        -0.7071067811865475
+      ],
+      "R_mm": 10,
+      "grip_after_turn_line_mm": [
+        [
+          -155.59999999999997,
+          -16.15893218813452,
+          77.00893218813452
+        ],
+        [
+          -155.59999999999997,
+          -9.794971157455594,
+          70.6449711574556
+        ]
+      ],
+      "shared_firstrow_grip_group": "GPIOrow1"
+    },
+    "PI.H6": {
+      "point_mm": [
+        -142.59999999999997,
+        -25.769999999999996,
+        91.7
+      ],
+      "departure_axis": [
+        -1.0,
+        -1.2246467991473535e-16,
+        0.0
+      ],
+      "first_straight_mm": 3,
+      "bend_direction": [
+        0.0,
+        -0.7071067811865475,
+        -0.7071067811865475
+      ],
+      "R_mm": 10,
+      "grip_after_turn_line_mm": [
+        [
+          -155.59999999999997,
+          -32.84106781186547,
+          84.62893218813453
+        ],
+        [
+          -155.59999999999997,
+          -39.2050288425444,
+          78.2649711574556
+        ]
+      ],
+      "shared_firstrow_grip_group": "GPIOrow2"
+    },
+    "W079/Pi": {
+      "point_mm": [
+        -128.20000000000002,
+        37.150000000000006,
+        53.449999999999996
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ]
+    },
+    "W080/Pi": {
+      "point_mm": [
+        -128.20000000000002,
+        40.650000000000006,
+        53.449999999999996
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ]
+    },
+    "G_TAIL.1": {
+      "point_mm": [
+        -59.49999999999999,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -59.499999999999986,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "G_TAIL.3": {
+      "point_mm": [
+        -49.99999999999999,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -49.999999999999986,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "G_TAIL.4": {
+      "point_mm": [
+        -45.24999999999999,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -45.249999999999986,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "G_TAIL.5": {
+      "point_mm": [
+        -40.49999999999999,
+        -67.5,
+        30.500000000000014
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -40.499999999999986,
+        -46.100000000000016,
+        -3.8999999999999844
+      ]
+    },
+    "G_AUX.1": {
+      "point_mm": [
+        -23.500000000000043,
+        -67.50000000000004,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -23.50000000000004,
+        -46.10000000000006,
+        -3.8999999999999986
+      ]
+    },
+    "G_AUX.2": {
+      "point_mm": [
+        -18.750000000000043,
+        -67.50000000000004,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -18.75000000000004,
+        -46.10000000000006,
+        -3.8999999999999986
+      ]
+    },
+    "G_AUX.3": {
+      "point_mm": [
+        -14.000000000000044,
+        -67.50000000000004,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -14.00000000000004,
+        -46.10000000000006,
+        -3.8999999999999986
+      ]
+    },
+    "G_AUX.4": {
+      "point_mm": [
+        -9.250000000000043,
+        -67.50000000000004,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -9.250000000000039,
+        -46.10000000000006,
+        -3.8999999999999986
+      ]
+    },
+    "G_AUX.5": {
+      "point_mm": [
+        -4.500000000000043,
+        -67.50000000000004,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        -4.500000000000038,
+        -46.10000000000006,
+        -3.8999999999999986
+      ]
+    },
+    "P_AUX.1": {
+      "point_mm": [
+        12.500000000000004,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        12.500000000000007,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "P_AUX.2": {
+      "point_mm": [
+        17.250000000000004,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        17.250000000000007,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "P_AUX.3": {
+      "point_mm": [
+        22.000000000000004,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        22.000000000000007,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "P_AUX.4": {
+      "point_mm": [
+        26.75,
+        -67.5,
+        30.5
+      ],
+      "departure_axis": [
+        1.2246467991473532e-16,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        26.750000000000004,
+        -46.100000000000016,
+        -3.8999999999999986
+      ]
+    },
+    "G2.1": {
+      "point_mm": [
+        67.5,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        67.5,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "G2.2": {
+      "point_mm": [
+        62.75,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        62.75,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "G2.3": {
+      "point_mm": [
+        58.0,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        58.0,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "G2.4": {
+      "point_mm": [
+        53.25,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        53.25,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "G2.5": {
+      "point_mm": [
+        48.5,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        48.5,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "FL_P.1": {
+      "point_mm": [
+        103.5,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        103.5,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "FL_P.2": {
+      "point_mm": [
+        98.75,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        98.75,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "FL_P.3": {
+      "point_mm": [
+        94.0,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        94.0,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "FL_P.4": {
+      "point_mm": [
+        89.25,
+        -67.5,
+        30.500000000000007
+      ],
+      "departure_axis": [
+        0.0,
+        -2.220446049250313e-16,
+        -1.0
+      ],
+      "supported_after_turn_end_mm": [
+        89.25,
+        -46.100000000000016,
+        -3.8999999999999915
+      ]
+    },
+    "D_FL.1": {
+      "point_mm": [
+        -59.5,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -59.5,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FL.2": {
+      "point_mm": [
+        -54.75,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -54.75,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FL.3": {
+      "point_mm": [
+        -50.0,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -50.0,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FL.4": {
+      "point_mm": [
+        -45.24999999999999,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -45.24999999999999,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FL.5": {
+      "point_mm": [
+        -40.49999999999999,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -40.49999999999999,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FL_G.1": {
+      "point_mm": [
+        -23.500000000000004,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -23.500000000000004,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FL_G.2": {
+      "point_mm": [
+        -18.75,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -18.75,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FL_G.3": {
+      "point_mm": [
+        -14.0,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -14.0,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FL_G.4": {
+      "point_mm": [
+        -9.249999999999998,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        -9.249999999999998,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_P.1": {
+      "point_mm": [
+        12.499999999999998,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        12.499999999999998,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_P.2": {
+      "point_mm": [
+        17.25,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        17.25,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_P.3": {
+      "point_mm": [
+        22.0,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        22.0,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_P.4": {
+      "point_mm": [
+        26.750000000000004,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        26.750000000000004,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FR.1": {
+      "point_mm": [
+        48.49999999999999,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        48.49999999999999,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FR.2": {
+      "point_mm": [
+        53.25,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        53.25,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FR.3": {
+      "point_mm": [
+        58.0,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        58.0,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FR.4": {
+      "point_mm": [
+        62.75,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        62.75,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "D_FR.5": {
+      "point_mm": [
+        67.5,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        67.5,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_G.2": {
+      "point_mm": [
+        89.25,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        89.25,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_G.3": {
+      "point_mm": [
+        94.0,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        94.0,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_G.4": {
+      "point_mm": [
+        98.75,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        98.75,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "FR_G.5": {
+      "point_mm": [
+        103.50000000000001,
+        67.5,
+        30.5
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0000000000000002
+      ],
+      "supported_after_turn_end_mm": [
+        103.50000000000001,
+        46.1,
+        -3.9000000000000057
+      ]
+    },
+    "F_HY.in": {
+      "point_mm": [
+        -23.000000000000007,
+        -83.5,
+        57.5
+      ],
+      "departure_axis": [
+        -2.220446049250313e-16,
+        0.0,
+        1.0
+      ],
+      "nominal_factory_guide_mm": 38.47787445225673,
+      "custom_grip_line_mm": [
+        [
+          -23.000000000000014,
+          -52.099999999999994,
+          78.9
+        ],
+        [
+          -23.000000000000014,
+          -43.099999999999994,
+          78.9
+        ]
+      ],
+      "factory100mm_is_assumption": true,
+      "lap_mm": 8,
+      "sleeve_mm": 20
+    },
+    "F_HY.out": {
+      "point_mm": [
+        -22.999999999999993,
+        -83.5,
+        6.5
+      ],
+      "departure_axis": [
+        2.220446049250313e-16,
+        0.0,
+        -1.0
+      ],
+      "nominal_factory_guide_mm": 38.47787445225673,
+      "custom_grip_line_mm": [
+        [
+          -22.999999999999986,
+          -52.099999999999994,
+          -14.9
+        ],
+        [
+          -22.999999999999986,
+          -43.099999999999994,
+          -14.9
+        ]
+      ],
+      "factory100mm_is_assumption": true,
+      "lap_mm": 8,
+      "sleeve_mm": 20
+    },
+    "F_HP.in": {
+      "point_mm": [
+        12.999999999999995,
+        83.5,
+        57.5
+      ],
+      "departure_axis": [
+        -2.220446049250313e-16,
+        0.0,
+        1.0
+      ],
+      "nominal_factory_guide_mm": 38.47787445225673,
+      "custom_grip_line_mm": [
+        [
+          12.99999999999999,
+          52.099999999999994,
+          78.9
+        ],
+        [
+          12.99999999999999,
+          43.099999999999994,
+          78.9
+        ]
+      ],
+      "factory100mm_is_assumption": true,
+      "lap_mm": 8,
+      "sleeve_mm": 20
+    },
+    "F_HP.out": {
+      "point_mm": [
+        13.000000000000005,
+        83.5,
+        6.5
+      ],
+      "departure_axis": [
+        2.220446049250313e-16,
+        0.0,
+        -1.0
+      ],
+      "nominal_factory_guide_mm": 38.47787445225673,
+      "custom_grip_line_mm": [
+        [
+          13.00000000000001,
+          52.099999999999994,
+          -14.9
+        ],
+        [
+          13.00000000000001,
+          43.099999999999994,
+          -14.9
+        ]
+      ],
+      "factory100mm_is_assumption": true,
+      "lap_mm": 8,
+      "sleeve_mm": 20
+    },
+    "F_TY.in": {
+      "point_mm": [
+        49.00000000000001,
+        -83.5,
+        6.5
+      ],
+      "departure_axis": [
+        2.220446049250313e-16,
+        0.0,
+        -1.0
+      ],
+      "nominal_factory_guide_mm": 38.47787445225673,
+      "custom_grip_line_mm": [
+        [
+          49.00000000000001,
+          -52.099999999999994,
+          -14.9
+        ],
+        [
+          49.00000000000001,
+          -43.099999999999994,
+          -14.9
+        ]
+      ],
+      "factory100mm_is_assumption": true,
+      "lap_mm": 8,
+      "sleeve_mm": 20
+    },
+    "F_TY.out": {
+      "point_mm": [
+        48.99999999999999,
+        -83.5,
+        57.5
+      ],
+      "departure_axis": [
+        -2.220446049250313e-16,
+        0.0,
+        1.0
+      ],
+      "nominal_factory_guide_mm": 38.47787445225673,
+      "custom_grip_line_mm": [
+        [
+          48.99999999999999,
+          -52.099999999999994,
+          78.9
+        ],
+        [
+          48.99999999999999,
+          -43.099999999999994,
+          78.9
+        ]
+      ],
+      "factory100mm_is_assumption": true,
+      "lap_mm": 8,
+      "sleeve_mm": 20
+    },
+    "F_PWM.in": {
+      "jacket_exit_mm": [
+        29.0,
+        -15.0,
+        46.0
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "accounting_point_mm": [
+        38.5,
+        -15,
+        46
+      ],
+      "grip_after_turn_line_mm": [
+        [
+          7.600000000000001,
+          -27.4,
+          46.0
+        ],
+        [
+          7.600000000000001,
+          -36.4,
+          46.0
+        ]
+      ]
+    },
+    "F_PWM.out": {
+      "jacket_exit_mm": [
+        71.0,
+        -15.0,
+        46.0
+      ],
+      "departure_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "accounting_point_mm": [
+        58.9,
+        -15,
+        46
+      ],
+      "grip_after_turn_line_mm": [
+        [
+          92.4,
+          -27.4,
+          46.0
+        ],
+        [
+          92.4,
+          -36.4,
+          46.0
+        ]
+      ]
+    },
+    "C_HY.V+": {
+      "point_mm": [
+        -152.0,
+        -56.8,
+        31.412435565298196
+      ],
+      "departure_axis": [
+        0.9999999999999512,
+        -1.4516231913782524e-07,
+        2.770048945306806e-07
+      ],
+      "basis": "Selected CP2 boundary ->R5 once ->wholehead+35, not anotherCP2SHIFT"
+    },
+    "C_HY.GND": {
+      "point_mm": [
+        -152.0,
+        -55.75,
+        29.593782217350906
+      ],
+      "departure_axis": [
+        0.9999999999999696,
+        -1.141573210510713e-07,
+        2.1783959712144331e-07
+      ],
+      "basis": "Selected CP2 boundary ->R5 once ->wholehead+35, not anotherCP2SHIFT"
+    },
+    "C_HP.V+": {
+      "point_mm": [
+        -238.6,
+        -38.320513724211,
+        25.0
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "basis": "Selected CP2 boundary ->R5 once ->wholehead+35, not anotherCP2SHIFT"
+    },
+    "C_HP.GND": {
+      "point_mm": [
+        -241.14,
+        -38.320513724211,
+        25.0
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "basis": "Selected CP2 boundary ->R5 once ->wholehead+35, not anotherCP2SHIFT"
+    },
+    "C_HY.PWM": {
+      "point_mm": [
+        -152.0,
+        -57.85,
+        29.593782217350906
+      ],
+      "departure_axis": [
+        0.9999999999999618,
+        -1.2805121338466047e-07,
+        2.4435261551900133e-07
+      ],
+      "basis": "Selected CP2 boundary ->R5 once ->wholehead+35, not anotherCP2SHIFT"
+    },
+    "C_HP.PWM": {
+      "point_mm": [
+        -236.06,
+        -38.320513724211,
+        25.0
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "basis": "Selected CP2 boundary ->R5 once ->wholehead+35, not anotherCP2SHIFT"
+    }
+  },
+  "station_ports": [
+    {
+      "ref": "G_TAIL",
+      "station_centre_mm": [
+        -50,
+        -67.5,
+        40
+      ],
+      "occupied": 4
+    },
+    {
+      "ref": "G_AUX",
+      "station_centre_mm": [
+        -14,
+        -67.5,
+        40
+      ],
+      "occupied": 5
+    },
+    {
+      "ref": "P_AUX",
+      "station_centre_mm": [
+        22,
+        -67.5,
+        40
+      ],
+      "occupied": 4
+    },
+    {
+      "ref": "G2",
+      "station_centre_mm": [
+        58,
+        -67.5,
+        40
+      ],
+      "occupied": 5
+    },
+    {
+      "ref": "FL_P",
+      "station_centre_mm": [
+        94,
+        -67.5,
+        40
+      ],
+      "occupied": 4
+    },
+    {
+      "ref": "D_FL",
+      "station_centre_mm": [
+        -50,
+        67.5,
+        40
+      ],
+      "occupied": 5
+    },
+    {
+      "ref": "FL_G",
+      "station_centre_mm": [
+        -14,
+        67.5,
+        40
+      ],
+      "occupied": 4
+    },
+    {
+      "ref": "FR_P",
+      "station_centre_mm": [
+        22,
+        67.5,
+        40
+      ],
+      "occupied": 4
+    },
+    {
+      "ref": "D_FR",
+      "station_centre_mm": [
+        58,
+        67.5,
+        40
+      ],
+      "occupied": 5
+    },
+    {
+      "ref": "FR_G",
+      "station_centre_mm": [
+        94,
+        67.5,
+        40
+      ],
+      "occupied": 4
+    }
+  ],
+  "retired_planning_parts": [
+    "Ref_Material_head_0_0_Bearing608_0_0",
+    "Ref_Material_head_0_0_Bolt0_0_0",
+    "Ref_Material_head_0_0_Bolt1_0_0",
+    "Ref_Material_head_0_0_Bridge_0_0",
+    "Ref_Material_head_0_0_CageBase_0_0",
+    "Ref_Material_head_0_0_CageRetainerLeft_0_0",
+    "Ref_Material_head_0_0_CageRetainerRight_0_0",
+    "Ref_Material_head_0_0_Carrier_0_0",
+    "Ref_Material_head_0_0_ClampBolt0_0_0",
+    "Ref_Material_head_0_0_ClampBolt1_0_0",
+    "Ref_Material_head_0_0_ClampNegativeX_0_0",
+    "Ref_Material_head_0_0_ClampNut0_0_0",
+    "Ref_Material_head_0_0_ClampNut1_0_0",
+    "Ref_Material_head_0_0_ClampPositiveX_0_0",
+    "Ref_Material_head_0_0_ClampWasher0_0_0",
+    "Ref_Material_head_0_0_ClampWasher1_0_0",
+    "Ref_Material_head_0_0_EarL_0_0",
+    "Ref_Material_head_0_0_EarR_0_0",
+    "Ref_Material_head_0_0_Fork_0_0",
+    "Ref_Material_head_0_0_FrontLeft_0_0",
+    "Ref_Material_head_0_0_FrontRightPorted_0_0",
+    "Ref_Material_head_0_0_HornProvisional_0_0",
+    "Ref_Material_head_0_0_Insert_left_0_0",
+    "Ref_Material_head_0_0_Insert_right_0_0",
+    "Ref_Material_head_0_0_M2_head_left_0_0",
+    "Ref_Material_head_0_0_M2_head_right_0_0",
+    "Ref_Material_head_0_0_M2x14_shaft_left_0_0",
+    "Ref_Material_head_0_0_M2x14_shaft_right_0_0",
+    "Ref_Material_head_0_0_NoseInsertL_0_0",
+    "Ref_Material_head_0_0_NoseInsertR_0_0",
+    "Ref_Material_head_0_0_NoseScrewL_0_0",
+    "Ref_Material_head_0_0_NoseScrewR_0_0",
+    "Ref_Material_head_0_0_Nose_0_0",
+    "Ref_Material_head_0_0_Nut0_0_0",
+    "Ref_Material_head_0_0_Nut1_0_0",
+    "Ref_Material_head_0_0_PassiveJournal_0_0",
+    "Ref_Material_head_0_0_PitchRetainer_0_0",
+    "Ref_Material_head_0_0_Rear_0_0",
+    "Ref_Material_head_0_0_Retainer_0_0",
+    "Ref_Material_head_0_0_ServoReference_0_0",
+    "Ref_Material_head_0_0_UpperNutL_0_0",
+    "Ref_Material_head_0_0_UpperNutR_0_0",
+    "Ref_Material_head_0_0_UpperScrewL_0_0",
+    "Ref_Material_head_0_0_UpperScrewR_0_0",
+    "Ref_Material_head_0_0_Washer00_0_0",
+    "Ref_Material_head_0_0_Washer01_0_0",
+    "Ref_Material_head_0_0_Washer10_0_0",
+    "Ref_Material_head_0_0_Washer11_0_0",
+    "Ref_Material_head_0_0_YawCarrier_0_0",
+    "Ref_Material_head_0_0_YawPrintedHorn_0_0",
+    "Ref_Material_head_0_0_YawServoReference_0_0",
+    "Ref_Material_headref_0_Interface_FactoryLandBand_0_0",
+    "Ref_Material_headref_0_Interface_FixedJRBand_0_0",
+    "Ref_Material_headref_0_Interface_FixedJR_0_0",
+    "Ref_Material_headref_0_Interface_MovingFactoryBand_0_0",
+    "Ref_Material_headref_0_Interface_QualifiedFlatExit0_0_0",
+    "Ref_Material_headref_0_Interface_QualifiedFlatExit1_0_0",
+    "Ref_Material_headref_0_Interface_SourceLandBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22FrontBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22HELUBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22JRBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22NorthBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22Sleeve_0_0",
+    "Ref_Material_headref_0_Interface_XB23FrontBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23HELUBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23JRBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23NorthBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23Sleeve_0_0",
+    "Ref_Material_headref_0_Interface_XS23FrontBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23HELUBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23JRBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23NorthBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23Sleeve_0_0",
+    "StructureReserve:PCBrootPi4_0_0",
+    "StructureReserve:PCBrootPi4_0_1",
+    "Ref_Material_Pi410Nut_0_0",
+    "Ref_Material_Pi410Screw_0_0",
+    "Ref_Material_Pi411Nut_0_0",
+    "Ref_Material_Pi411Screw_0_0",
+    "Ref_Material_Pi411TopWasher_0_0",
+    "Ref_Material_Pi412Nut_0_0",
+    "Ref_Material_Pi412Screw_0_0",
+    "Ref_Material_Pi49Nut_0_0",
+    "Ref_Material_Pi49Screw_0_0",
+    "Ref_Material_Pi49TopWasher_0_0",
+    "Ref_Material_Pi4NominalPCB_0_0",
+    "StructureReserve:PCBrailPi4_0",
+    "StructureReserve:PCBrailPi4_1",
+    "StructureReserve:PCBrootPi4_1_0",
+    "StructureReserve:PCBrootPi4_1_1",
+    "NominalPiUSBCPowerMould",
+    "Ref_Material_G_TAIL_0_0",
+    "Ref_Material_W3Ref_G_AUX_case_0_0",
+    "Ref_Material_P_AUX_CP2_0_0",
+    "Ref_Material_G2_CP2_0_0",
+    "Ref_Material_FL_P_0_0",
+    "Ref_Material_D_FL_0_0",
+    "Ref_Material_FL_G_0_0",
+    "Ref_Material_FR_P_0_0",
+    "Ref_Material_D_FR_0_0",
+    "Ref_Material_FR_G_0_0"
+  ],
+  "proposed_group_parts": {
+    "HeadRaised": [
+      "Ref_Material_head_0_0_Bearing608_0_0",
+      "Ref_Material_head_0_0_Bolt0_0_0",
+      "Ref_Material_head_0_0_Bolt1_0_0",
+      "Ref_Material_head_0_0_Bridge_0_0",
+      "Ref_Material_head_0_0_CageBase_0_0",
+      "Ref_Material_head_0_0_CageRetainerLeft_0_0",
+      "Ref_Material_head_0_0_CageRetainerRight_0_0",
+      "Ref_Material_head_0_0_Carrier_0_0",
+      "Ref_Material_head_0_0_ClampBolt0_0_0",
+      "Ref_Material_head_0_0_ClampBolt1_0_0",
+      "Ref_Material_head_0_0_ClampNegativeX_0_0",
+      "Ref_Material_head_0_0_ClampNut0_0_0",
+      "Ref_Material_head_0_0_ClampNut1_0_0",
+      "Ref_Material_head_0_0_ClampPositiveX_0_0",
+      "Ref_Material_head_0_0_ClampWasher0_0_0",
+      "Ref_Material_head_0_0_ClampWasher1_0_0",
+      "Ref_Material_head_0_0_EarL_0_0",
+      "Ref_Material_head_0_0_EarR_0_0",
+      "Ref_Material_head_0_0_Fork_0_0",
+      "Ref_Material_head_0_0_FrontLeft_0_0",
+      "Ref_Material_head_0_0_FrontRightPorted_0_0",
+      "Ref_Material_head_0_0_HornProvisional_0_0",
+      "Ref_Material_head_0_0_Insert_left_0_0",
+      "Ref_Material_head_0_0_Insert_right_0_0",
+      "Ref_Material_head_0_0_M2_head_left_0_0",
+      "Ref_Material_head_0_0_M2_head_right_0_0",
+      "Ref_Material_head_0_0_M2x14_shaft_left_0_0",
+      "Ref_Material_head_0_0_M2x14_shaft_right_0_0",
+      "Ref_Material_head_0_0_NoseInsertL_0_0",
+      "Ref_Material_head_0_0_NoseInsertR_0_0",
+      "Ref_Material_head_0_0_NoseScrewL_0_0",
+      "Ref_Material_head_0_0_NoseScrewR_0_0",
+      "Ref_Material_head_0_0_Nose_0_0",
+      "Ref_Material_head_0_0_Nut0_0_0",
+      "Ref_Material_head_0_0_Nut1_0_0",
+      "Ref_Material_head_0_0_PassiveJournal_0_0",
+      "Ref_Material_head_0_0_PitchRetainer_0_0",
+      "Ref_Material_head_0_0_Rear_0_0",
+      "Ref_Material_head_0_0_Retainer_0_0",
+      "Ref_Material_head_0_0_ServoReference_0_0",
+      "Ref_Material_head_0_0_UpperNutL_0_0",
+      "Ref_Material_head_0_0_UpperNutR_0_0",
+      "Ref_Material_head_0_0_UpperScrewL_0_0",
+      "Ref_Material_head_0_0_UpperScrewR_0_0",
+      "Ref_Material_head_0_0_Washer00_0_0",
+      "Ref_Material_head_0_0_Washer01_0_0",
+      "Ref_Material_head_0_0_Washer10_0_0",
+      "Ref_Material_head_0_0_Washer11_0_0",
+      "Ref_Material_head_0_0_YawCarrier_0_0",
+      "Ref_Material_head_0_0_YawPrintedHorn_0_0",
+      "Ref_Material_head_0_0_YawServoReference_0_0",
+      "Ref_Material_headref_0_Interface_FactoryLandBand_0_0",
+      "Ref_Material_headref_0_Interface_FixedJRBand_0_0",
+      "Ref_Material_headref_0_Interface_FixedJR_0_0",
+      "Ref_Material_headref_0_Interface_MovingFactoryBand_0_0",
+      "Ref_Material_headref_0_Interface_QualifiedFlatExit0_0_0",
+      "Ref_Material_headref_0_Interface_QualifiedFlatExit1_0_0",
+      "Ref_Material_headref_0_Interface_SourceLandBand_0_0",
+      "Ref_Material_headref_0_Interface_XB22FrontBand_0_0",
+      "Ref_Material_headref_0_Interface_XB22HELUBand_0_0",
+      "Ref_Material_headref_0_Interface_XB22JRBand_0_0",
+      "Ref_Material_headref_0_Interface_XB22NorthBand_0_0",
+      "Ref_Material_headref_0_Interface_XB22Sleeve_0_0",
+      "Ref_Material_headref_0_Interface_XB23FrontBand_0_0",
+      "Ref_Material_headref_0_Interface_XB23HELUBand_0_0",
+      "Ref_Material_headref_0_Interface_XB23JRBand_0_0",
+      "Ref_Material_headref_0_Interface_XB23NorthBand_0_0",
+      "Ref_Material_headref_0_Interface_XB23Sleeve_0_0",
+      "Ref_Material_headref_0_Interface_XS23FrontBand_0_0",
+      "Ref_Material_headref_0_Interface_XS23HELUBand_0_0",
+      "Ref_Material_headref_0_Interface_XS23JRBand_0_0",
+      "Ref_Material_headref_0_Interface_XS23NorthBand_0_0",
+      "Ref_Material_headref_0_Interface_XS23Sleeve_0_0"
+    ],
+    "PiBulkhead": [
+      "Ref_Material_Pi410Nut_0_0",
+      "Ref_Material_Pi410Screw_0_0",
+      "Ref_Material_Pi411Nut_0_0",
+      "Ref_Material_Pi411Screw_0_0",
+      "Ref_Material_Pi411TopWasher_0_0",
+      "Ref_Material_Pi412Nut_0_0",
+      "Ref_Material_Pi412Screw_0_0",
+      "Ref_Material_Pi49Nut_0_0",
+      "Ref_Material_Pi49Screw_0_0",
+      "Ref_Material_Pi49TopWasher_0_0",
+      "Ref_Material_Pi4NominalPCB_0_0",
+      "PiBudget:USB_A_rear",
+      "PiBudget:USB_A_front",
+      "PiBudget:Ethernet",
+      "PiBudget:USB_C",
+      "PiBudget:GPIO_header",
+      "PiBudget:HDMI0",
+      "PiBudget:HDMI1",
+      "PiBudget:CSI",
+      "PiBudget:DSI",
+      "PiBudget:Audio",
+      "PiBudget:CPU",
+      "PiBudget:GPIO1992OccupiedHousing",
+      "PiBudget:AdapterBody",
+      "PiBudget:RetainedK1474Boot",
+      "PiBudget:UnlabelledTopComponentsBudget",
+      "PiBudget:microSDCardAndBottomBudget",
+      "PiBudget:USB_A_data_boot",
+      "PiBudget:USB_A_full_first_bend",
+      "PiPower:W079",
+      "PiPower:W080",
+      "PiGPIO:PI.H1",
+      "PiGPIOAfterGrip:PI.H1",
+      "PiGPIO:PI.H3",
+      "PiGPIOAfterGrip:PI.H3",
+      "PiGPIO:PI.H5",
+      "PiGPIOAfterGrip:PI.H5",
+      "PiGPIO:PI.H11",
+      "PiGPIOAfterGrip:PI.H11",
+      "PiGPIO:PI.H6",
+      "PiGPIOAfterGrip:PI.H6",
+      "PiBudget:USB_A_after_turn_grip"
+    ],
+    "WG:G_TAIL": [
+      "Ref_Material_G_TAIL_0_0",
+      "StationWire:G_TAIL.1",
+      "StationLand:G_TAIL.1",
+      "StationWire:G_TAIL.3",
+      "StationLand:G_TAIL.3",
+      "StationWire:G_TAIL.4",
+      "StationLand:G_TAIL.4",
+      "StationWire:G_TAIL.5",
+      "StationLand:G_TAIL.5"
+    ],
+    "WG:G_AUX": [
+      "Ref_Material_W3Ref_G_AUX_case_0_0",
+      "StationWire:G_AUX.1",
+      "StationLand:G_AUX.1",
+      "StationWire:G_AUX.2",
+      "StationLand:G_AUX.2",
+      "StationWire:G_AUX.3",
+      "StationLand:G_AUX.3",
+      "StationWire:G_AUX.4",
+      "StationLand:G_AUX.4",
+      "StationWire:G_AUX.5",
+      "StationLand:G_AUX.5"
+    ],
+    "WG:P_AUX": [
+      "Ref_Material_P_AUX_CP2_0_0",
+      "StationWire:P_AUX.1",
+      "StationLand:P_AUX.1",
+      "StationWire:P_AUX.2",
+      "StationLand:P_AUX.2",
+      "StationWire:P_AUX.3",
+      "StationLand:P_AUX.3",
+      "StationWire:P_AUX.4",
+      "StationLand:P_AUX.4"
+    ],
+    "WG:G2": [
+      "Ref_Material_G2_CP2_0_0",
+      "StationWire:G2.1",
+      "StationLand:G2.1",
+      "StationWire:G2.2",
+      "StationLand:G2.2",
+      "StationWire:G2.3",
+      "StationLand:G2.3",
+      "StationWire:G2.4",
+      "StationLand:G2.4",
+      "StationWire:G2.5",
+      "StationLand:G2.5"
+    ],
+    "WG:FL_P": [
+      "Ref_Material_FL_P_0_0",
+      "StationWire:FL_P.1",
+      "StationLand:FL_P.1",
+      "StationWire:FL_P.2",
+      "StationLand:FL_P.2",
+      "StationWire:FL_P.3",
+      "StationLand:FL_P.3",
+      "StationWire:FL_P.4",
+      "StationLand:FL_P.4"
+    ],
+    "WG:D_FL": [
+      "Ref_Material_D_FL_0_0",
+      "StationWire:D_FL.1",
+      "StationLand:D_FL.1",
+      "StationWire:D_FL.2",
+      "StationLand:D_FL.2",
+      "StationWire:D_FL.3",
+      "StationLand:D_FL.3",
+      "StationWire:D_FL.4",
+      "StationLand:D_FL.4",
+      "StationWire:D_FL.5",
+      "StationLand:D_FL.5"
+    ],
+    "WG:FL_G": [
+      "Ref_Material_FL_G_0_0",
+      "StationWire:FL_G.1",
+      "StationLand:FL_G.1",
+      "StationWire:FL_G.2",
+      "StationLand:FL_G.2",
+      "StationWire:FL_G.3",
+      "StationLand:FL_G.3",
+      "StationWire:FL_G.4",
+      "StationLand:FL_G.4"
+    ],
+    "WG:FR_P": [
+      "Ref_Material_FR_P_0_0",
+      "StationWire:FR_P.1",
+      "StationLand:FR_P.1",
+      "StationWire:FR_P.2",
+      "StationLand:FR_P.2",
+      "StationWire:FR_P.3",
+      "StationLand:FR_P.3",
+      "StationWire:FR_P.4",
+      "StationLand:FR_P.4"
+    ],
+    "WG:D_FR": [
+      "Ref_Material_D_FR_0_0",
+      "StationWire:D_FR.1",
+      "StationLand:D_FR.1",
+      "StationWire:D_FR.2",
+      "StationLand:D_FR.2",
+      "StationWire:D_FR.3",
+      "StationLand:D_FR.3",
+      "StationWire:D_FR.4",
+      "StationLand:D_FR.4",
+      "StationWire:D_FR.5",
+      "StationLand:D_FR.5"
+    ],
+    "WG:FR_G": [
+      "Ref_Material_FR_G_0_0",
+      "StationWire:FR_G.2",
+      "StationLand:FR_G.2",
+      "StationWire:FR_G.3",
+      "StationLand:FR_G.3",
+      "StationWire:FR_G.4",
+      "StationLand:FR_G.4",
+      "StationWire:FR_G.5",
+      "StationLand:FR_G.5"
+    ],
+    "F_HY": [
+      "F_HY:case",
+      "F_HY:floor",
+      "F_HY:backer",
+      "F_HY:bed_root",
+      "F_HY:factory_in",
+      "F_HY:splice_in",
+      "F_HY:custom_in",
+      "F_HY:factory_out",
+      "F_HY:splice_out",
+      "F_HY:custom_out"
+    ],
+    "F_HP": [
+      "F_HP:case",
+      "F_HP:floor",
+      "F_HP:backer",
+      "F_HP:bed_root",
+      "F_HP:factory_in",
+      "F_HP:splice_in",
+      "F_HP:custom_in",
+      "F_HP:factory_out",
+      "F_HP:splice_out",
+      "F_HP:custom_out"
+    ],
+    "F_TY": [
+      "F_TY:case",
+      "F_TY:floor",
+      "F_TY:backer",
+      "F_TY:bed_root",
+      "F_TY:factory_in",
+      "F_TY:splice_in",
+      "F_TY:custom_in",
+      "F_TY:factory_out",
+      "F_TY:splice_out",
+      "F_TY:custom_out"
+    ],
+    "F_PWM": [
+      "F_PWM:case",
+      "F_PWM:in_first_bend",
+      "F_PWM:in_after_turn_grip",
+      "F_PWM:out_first_bend",
+      "F_PWM:out_after_turn_grip"
+    ],
+    "Monitor5015": [
+      "Monitor5015:case"
+    ]
+  },
+  "worker_seconds": 3.313,
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-front-service-split-plan.zip",
+  "bundle_sha256": "26d82aae0e3a758abd30f921dd06cdbbfadf750706fca8d94bb00f17470d1c44",
+  "parts": [
+    {
+      "name": "Ref_Material_head_0_0_Bearing608_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0000.brep",
+      "sha256": "e1ceb9a2f63a764499c5eea54fd1dc115233cd797a82b15ff85d94327d82164b"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Bolt0_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0001.brep",
+      "sha256": "252d19dc97e1219bffc63b5fe8bf0d3994acac2b0790de84b11d27a6b53f5252"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Bolt1_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0002.brep",
+      "sha256": "bdabdda47e8a2eb95d175a17f28124240495ccb4e6e8379c4fceae987def5b66"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Bridge_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0003.brep",
+      "sha256": "775139d3910cbf34e72287dd215dd8c0e2f25a09cc2ffd55de4b46b6951bf899"
+    },
+    {
+      "name": "Ref_Material_head_0_0_CageBase_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0004.brep",
+      "sha256": "b1f6e1cab7cf2d7836a838754c457bcad2a0441ac85c53c00cbd16fa51219adb"
+    },
+    {
+      "name": "Ref_Material_head_0_0_CageRetainerLeft_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0005.brep",
+      "sha256": "4c54e1066f62a1713b756c42017bb535c66514b4ce91e52744ad8e604a660edd"
+    },
+    {
+      "name": "Ref_Material_head_0_0_CageRetainerRight_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0006.brep",
+      "sha256": "221e088cfc10ed86325f7f8ef3109950bed25a4bf0ea6dd9f6cebcee7e93bcca"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Carrier_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0007.brep",
+      "sha256": "6741ecb64be62cf8de652fc72b2c7d05b2b8f5e257f55d8fbd28582538dfe8fa"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampBolt0_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0008.brep",
+      "sha256": "169143d8af0f6b3623c050b72cd20a85d13d32f7a2706dad6f9f26858f95e23e"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampBolt1_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0009.brep",
+      "sha256": "07c63f6fbf4fcf376a15c7f8413aae1872d7c0be2449abac29b6716f263485a2"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampNegativeX_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0010.brep",
+      "sha256": "ecff7c2170ce37337ab729f36def2787c351e3729b527ab268c4b5a3d22e31a4"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampNut0_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0011.brep",
+      "sha256": "77ad27d3e813eb4804a702e761af810d10f9125ccb3342819a7a72647fb83ae3"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampNut1_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0012.brep",
+      "sha256": "25018bf4e08ec4f8ca7417f96c252a7aabf5aff2e624c249dd2bff0c158b24af"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampPositiveX_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0013.brep",
+      "sha256": "899f03bf5fc8d0c88b0381802f94f4fc6e5aaadd7f11b4b97fda9d4c24d58f76"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampWasher0_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0014.brep",
+      "sha256": "045282800545224ab36e0390dc41a58ec636fe44e60528f273aecb8946c35442"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ClampWasher1_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0015.brep",
+      "sha256": "97ff5899539b7aa776bd7619bc7c5bacdc2cd06a2ce2ad6d37651b61e9ed1604"
+    },
+    {
+      "name": "Ref_Material_head_0_0_EarL_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0016.brep",
+      "sha256": "3e68b61f363b742e773f7877efc022df1034188d46cfdd3a13c7a5d2333fd3c0"
+    },
+    {
+      "name": "Ref_Material_head_0_0_EarR_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0017.brep",
+      "sha256": "e4f0b942ae2ae1f9e28770fbd17dc76918a311ea01bf8361af96d96d9d794dfb"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Fork_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0018.brep",
+      "sha256": "826680d739ce1cb9b1f4428baecc71d8364122a535ff5d4457d5d727a57acbe7"
+    },
+    {
+      "name": "Ref_Material_head_0_0_FrontLeft_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0019.brep",
+      "sha256": "d4ca8cb1399212415665e6678c78a35b5f9d83bd212015c41e713634526bd6ec"
+    },
+    {
+      "name": "Ref_Material_head_0_0_FrontRightPorted_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0020.brep",
+      "sha256": "eb63ac437b4204312b20af7b36ce18e3dd33728d592f8fc3efa8a0590a334f17"
+    },
+    {
+      "name": "Ref_Material_head_0_0_HornProvisional_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0021.brep",
+      "sha256": "88418dc770a5b6bd9b496aea8399ea42ae3cffa18aa012d0faac6618840f31fe"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Insert_left_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0022.brep",
+      "sha256": "fd6a0a08aa124c12cebb9864b6672a8a374c7791d3f0df1ec816c77e114b34be"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Insert_right_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0023.brep",
+      "sha256": "d58173506470dc65caba2127e4e01b304bdc2e65ac882664d6007e0003d70cf6"
+    },
+    {
+      "name": "Ref_Material_head_0_0_M2_head_left_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0024.brep",
+      "sha256": "79d5b07585516935b7f7f8b3fab84dc475cdc63f08d1e0115123cc2823039649"
+    },
+    {
+      "name": "Ref_Material_head_0_0_M2_head_right_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0025.brep",
+      "sha256": "7888327a1f9f1f2f56639cada0a27dc2eb170cdd1082cf84b047cb33c71fdc61"
+    },
+    {
+      "name": "Ref_Material_head_0_0_M2x14_shaft_left_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0026.brep",
+      "sha256": "b2b48c49b236946704e4b10e41e754a53c456dfe14367aa7df70845ff0fae528"
+    },
+    {
+      "name": "Ref_Material_head_0_0_M2x14_shaft_right_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0027.brep",
+      "sha256": "9d3c5db97f992f3eb9758666f0483ce085c4602cd645fb3fc72dfed64bcf23f9"
+    },
+    {
+      "name": "Ref_Material_head_0_0_NoseInsertL_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0028.brep",
+      "sha256": "c3b52668cef32397d0670d2ed985e7cd373e951530283e44cc9ab3eea968ad19"
+    },
+    {
+      "name": "Ref_Material_head_0_0_NoseInsertR_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0029.brep",
+      "sha256": "21e8f28e2fe3dd3350a9879d20397096cb5a7132b20d33c0dcecbbeeaab93431"
+    },
+    {
+      "name": "Ref_Material_head_0_0_NoseScrewL_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0030.brep",
+      "sha256": "b69678830b85ad3ac03c63807da3d991d235e70efe0db092e7195c6b320c49a3"
+    },
+    {
+      "name": "Ref_Material_head_0_0_NoseScrewR_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0031.brep",
+      "sha256": "d26db92ca1734063b9798111d6f2311b70652d73218e56d30a84d868b704db2f"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Nose_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0032.brep",
+      "sha256": "c46dd39cf647cebb3790852c2c01637b3dc27c835341efa1ffc5a1acce8b89aa"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Nut0_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0033.brep",
+      "sha256": "f4c255e608fe22e75b1c3f5704792dcbc678dcc6431465deebfbd2b2a948b05d"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Nut1_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0034.brep",
+      "sha256": "05fdad0c73c05aa0e68f09a0b07268b85f0712dd8f9784f2b556174e022d8e65"
+    },
+    {
+      "name": "Ref_Material_head_0_0_PassiveJournal_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0035.brep",
+      "sha256": "0bb95337378fb32822142a19cbc811b07f35811ecc837555b5f09e281cb109ea"
+    },
+    {
+      "name": "Ref_Material_head_0_0_PitchRetainer_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0036.brep",
+      "sha256": "9d7a0dbfef2a1889eca5d1506e81b8907f31799af98f0878d9987e485bf9db4c"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Rear_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0037.brep",
+      "sha256": "6b01ae448c61c6e33e1546f18be80fd2c62a5da1270d16e3afc4e535ec4b2738"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Retainer_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0038.brep",
+      "sha256": "bbebe7a205456789d5e17653b8bc5d2d3bb7c6ceef440f74ce675a11af859c1b"
+    },
+    {
+      "name": "Ref_Material_head_0_0_ServoReference_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0039.brep",
+      "sha256": "36d7cc38fc0a4b8c968482ed7fdd16838f58b1d55a64fa75a4802f80c4f3d2f4"
+    },
+    {
+      "name": "Ref_Material_head_0_0_UpperNutL_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0040.brep",
+      "sha256": "6e65a0313ee75fe2c002b1d86285a1e147faf02a4d8c824a784bc8502dc7e1eb"
+    },
+    {
+      "name": "Ref_Material_head_0_0_UpperNutR_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0041.brep",
+      "sha256": "7253fdcdcae8710e9201a3bf423bea04fb0fa380c61390f1ac530f90284c8ef9"
+    },
+    {
+      "name": "Ref_Material_head_0_0_UpperScrewL_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0042.brep",
+      "sha256": "db5e4d1cd583c730c3ad854ae2dea90e2a4d6bb48775da1c6642ae1c7518125d"
+    },
+    {
+      "name": "Ref_Material_head_0_0_UpperScrewR_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0043.brep",
+      "sha256": "2506a5e86af9f6c63e961715287b270023c77aa0f724bd0cfbbfc03679db66af"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Washer00_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0044.brep",
+      "sha256": "f70c697269c7792ef18373c66bcc5c4beedf803bc29090335d7806ab25194e80"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Washer01_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0045.brep",
+      "sha256": "85b27a9037cea9fa7a2f70dc8c1d2f1b7ad5560e6004e49d5ace1dcb5ad96fb0"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Washer10_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0046.brep",
+      "sha256": "8c3956e0db54f5a37a722d423202861c34b8c76f377063add8a480fa2e87e1db"
+    },
+    {
+      "name": "Ref_Material_head_0_0_Washer11_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0047.brep",
+      "sha256": "a5709c4e917858b801f993e9c720b5102cb8ca4e1fe0f0eea22cd0624420129d"
+    },
+    {
+      "name": "Ref_Material_head_0_0_YawCarrier_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0048.brep",
+      "sha256": "17516a8dd4999dc56fb37a7b7c85785d6c9946b9de225e3d62c68f261aa8444e"
+    },
+    {
+      "name": "Ref_Material_head_0_0_YawPrintedHorn_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0049.brep",
+      "sha256": "5c5eaa09e1791d0c318a23998c72a60d2046ecf09dc002537abbb053b66b098e"
+    },
+    {
+      "name": "Ref_Material_head_0_0_YawServoReference_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0050.brep",
+      "sha256": "a3f3e9251efab91195ee0a51382d3cdc8d133bc7804fd1855f0986ac5c2d907e"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_FactoryLandBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0051.brep",
+      "sha256": "e5683a24c7a5e94e2ac7360d57873f2bfb1a8b07dda37e0809574fcc02744095"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_FixedJRBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0052.brep",
+      "sha256": "a24592563d8d458cdaad51617ddf475bb08ba8d1d62c15c987944220794ea64a"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_FixedJR_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0053.brep",
+      "sha256": "c15232271ef386b797b034e9b7be42bf79bcfb3f1f49333679110983f32490b1"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_MovingFactoryBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0054.brep",
+      "sha256": "81cbb6546e9c2a115bbcf711c0e7c6c89284c4c4f7beb4d5fe5510cada998ba2"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_QualifiedFlatExit0_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0055.brep",
+      "sha256": "6631238086bcf33ae64a093d4f16d7c675d4acff790bc901108bac8c47a25b62"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_QualifiedFlatExit1_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0056.brep",
+      "sha256": "8ccaf22716f793204c66dc3939fa002da3f330ead2a3b77a4e7ca45d72637ec9"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_SourceLandBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0057.brep",
+      "sha256": "f1ca56d14cad650d8eda97edaa38733cb994ec3e0592249a2514129bc19959db"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB22FrontBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0058.brep",
+      "sha256": "8d42aded18d55252970abff27774742e4bd5015000b94f25605fa2b47452048d"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB22HELUBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0059.brep",
+      "sha256": "94111b4b50dbd71454bcac4c86cfef0f46ab4e76d9d67b07f2b9e075b845eb13"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB22JRBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0060.brep",
+      "sha256": "57278be9577d3203dbee7091242f4bc9c0d656b9b506dc144cb2640e3ebfdb33"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB22NorthBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0061.brep",
+      "sha256": "1d5a517ee36ef7797f74cb1778642597c23b240e863695c0a4db5611fdecbf6d"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB22Sleeve_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0062.brep",
+      "sha256": "7e0045865af42d57bcbb2e2316a13339d9b9dabe5e9f116f80d942727dd58044"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB23FrontBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0063.brep",
+      "sha256": "aa3d4ea0174b99733799826f4a7e0fed9fe764f3ceb79765dd27ef15f059969f"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB23HELUBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0064.brep",
+      "sha256": "e62029866a0a5bd9fa4c6dd655b8b564d50ea05e6f21c7aa7693f0a567091dae"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB23JRBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0065.brep",
+      "sha256": "9f20c128e98749d704adbf6c17965fa88f15975dbdb5be45a03785aa45e892ef"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB23NorthBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0066.brep",
+      "sha256": "6b321b762b7dbfea17083fc3db719b517c1f560b52cd82bce57b77bf3e211279"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XB23Sleeve_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0067.brep",
+      "sha256": "089698bc51937c0542a1fbc5de213b4fd62548f5ec964cdc7c7fa244fe289606"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XS23FrontBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0068.brep",
+      "sha256": "6cd3efbb976df0663bafbc4cbb9bcbffc9c13664d7888f13f1c8f8f7a97dc402"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XS23HELUBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0069.brep",
+      "sha256": "1a937b690d0c49ebccbc2fd04c115b31a53ffdca01a143c3e4dec5d3d9a71123"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XS23JRBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0070.brep",
+      "sha256": "661453402c419b2010fb2948343c85972e785be5460322650a2f916d8ba39508"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XS23NorthBand_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0071.brep",
+      "sha256": "b0a39774d80d8dc8bf4d1b0030985fdc87228a48c9298d9c23e64ff8257f872a"
+    },
+    {
+      "name": "Ref_Material_headref_0_Interface_XS23Sleeve_0_0",
+      "group": "HeadRaised",
+      "kind": "proposal_material",
+      "entry": "0072.brep",
+      "sha256": "8cfe0281d73f2777a6518289339a6ac4a6af764d7709733fb9f1b30e3875394e"
+    },
+    {
+      "name": "Ref_Material_Pi410Nut_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0073.brep",
+      "sha256": "97874caa0ddd4e39dd47225f6bb4e4851a6c4d8166e257926541dd8264179322"
+    },
+    {
+      "name": "Ref_Material_Pi410Screw_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0074.brep",
+      "sha256": "2134f2cbeafd8ec65fb2cd7b44450a0474826e92ca2b80e77208bf8f8b2aa0c5"
+    },
+    {
+      "name": "Ref_Material_Pi411Nut_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0075.brep",
+      "sha256": "8cb17af6c4e79cb717f9cda850cec44d2944c860e2704536f167909e86d42a53"
+    },
+    {
+      "name": "Ref_Material_Pi411Screw_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0076.brep",
+      "sha256": "3ca843030b83f2c6822e8c42e55914a7edad345f15aeede8396ca9c412704129"
+    },
+    {
+      "name": "Ref_Material_Pi411TopWasher_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0077.brep",
+      "sha256": "cc3f30dbf492d422a186004f52006fa3bb3a5f752ca1aff5e8792d9cf13aa29c"
+    },
+    {
+      "name": "Ref_Material_Pi412Nut_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0078.brep",
+      "sha256": "74dec3dcd546458722bf78c7f3083937d715ee74d116139b9689d49e1eac3e22"
+    },
+    {
+      "name": "Ref_Material_Pi412Screw_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0079.brep",
+      "sha256": "e40a2932ad9ca4434ac71c40b0786e59f18cd2199834d8870ba6e010f605faec"
+    },
+    {
+      "name": "Ref_Material_Pi49Nut_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0080.brep",
+      "sha256": "e68aeb54a377d503e790856748ea90a4a544104635e006833df1cae19e65c82c"
+    },
+    {
+      "name": "Ref_Material_Pi49Screw_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0081.brep",
+      "sha256": "1e8e20e9d3b74452284be0db02d860694d99e0de9520a5f987732efc56ccdb00"
+    },
+    {
+      "name": "Ref_Material_Pi49TopWasher_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0082.brep",
+      "sha256": "de57271ba1abbd82e98253166c1f907341f318e51a07def55bcdac3f8dfd11af"
+    },
+    {
+      "name": "Ref_Material_Pi4NominalPCB_0_0",
+      "group": "PiBulkhead",
+      "kind": "proposal_material",
+      "entry": "0083.brep",
+      "sha256": "03d78c22bb1d93d61dc88fc0cadebd142ff5a767cc120a70b3a289f907d5e2da"
+    },
+    {
+      "name": "PiBudget:USB_A_rear",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0084.brep",
+      "sha256": "c1e5e2af575b14500c3e04d7220fcbb53b026fcb530e343951882f04abfa7d94"
+    },
+    {
+      "name": "PiBudget:USB_A_front",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0085.brep",
+      "sha256": "8a98db2e24383bfd8fc5613703a9a2a4798ea1497330fefabc2f287d515564d9"
+    },
+    {
+      "name": "PiBudget:Ethernet",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0086.brep",
+      "sha256": "6d1be88096953ea55f07cfa976f8d3cbac0fa4c56056cf370c9a31fcd7131917"
+    },
+    {
+      "name": "PiBudget:USB_C",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0087.brep",
+      "sha256": "ac6e571eb462943eb2e41df6906ece30f2e9085716776a406a85d2b67e8f8672"
+    },
+    {
+      "name": "PiBudget:GPIO_header",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0088.brep",
+      "sha256": "2b943ca03dc74bfca48b56c1286de8afc4532fdd6e9406c8de1be9a2d08af960"
+    },
+    {
+      "name": "PiBudget:HDMI0",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0089.brep",
+      "sha256": "fa48b9233b161e22012658349733e51405c9ca6b47ff0f93e7f9305df2fe2984"
+    },
+    {
+      "name": "PiBudget:HDMI1",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0090.brep",
+      "sha256": "27933687f9ed6d6a21c48b53895e7f0da47a6f9b5a4db11291bc2875ef4a230b"
+    },
+    {
+      "name": "PiBudget:CSI",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0091.brep",
+      "sha256": "71f3d6716d1f2ef8abaeac646e7661c71bdfc59a7f521436e29ffdb97f284f64"
+    },
+    {
+      "name": "PiBudget:DSI",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0092.brep",
+      "sha256": "dc2ca15f5e90631d4d38e98ab95b6e7b7f413854c17f93d12a431afef745b5c4"
+    },
+    {
+      "name": "PiBudget:Audio",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0093.brep",
+      "sha256": "7fbe9fb8b899385fb668a7f17befb745b64ae67b782a46c78deb43af2aec5620"
+    },
+    {
+      "name": "PiBudget:CPU",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0094.brep",
+      "sha256": "25c304e6ba4d48acb64d5817fca0aaa510b0faa193a50577f01b458e1dc3823d"
+    },
+    {
+      "name": "PiBudget:GPIO1992OccupiedHousing",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0095.brep",
+      "sha256": "48dc2cee05cd83e04f3b6e6753dfe1bd63734d23ba7098ab52d4078f12099b4a"
+    },
+    {
+      "name": "PiBudget:AdapterBody",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0096.brep",
+      "sha256": "d3ebac35b94d92a96d438c6936a1a52296e5c7ff2abfd006f03a8379af6af7c8"
+    },
+    {
+      "name": "PiBudget:RetainedK1474Boot",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0097.brep",
+      "sha256": "07e422eee907ad8e3438f2af2ac9abfe147ed33cc1bde430394bcb27ced9cf1e"
+    },
+    {
+      "name": "PiBudget:UnlabelledTopComponentsBudget",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0098.brep",
+      "sha256": "fc7d2f65dae58185764f8a306807a9a8b62977ce394baa77a95dda78290c3a13"
+    },
+    {
+      "name": "PiBudget:microSDCardAndBottomBudget",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0099.brep",
+      "sha256": "e725d51a17df9339f0aeca906ed6fa2b835344d07b9fbb56e44b9cd684aad46f"
+    },
+    {
+      "name": "PiBudget:USB_A_data_boot",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0100.brep",
+      "sha256": "4cc255a6201defce6c5b6c0c64a0f9bffc5a9bde1104796ace72d1b84f1c0c73"
+    },
+    {
+      "name": "PiBudget:USB_A_full_first_bend",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0101.brep",
+      "sha256": "0d1c06a17c8c4bce188eeda4d4dc52b3f0b1698f655e95f5e211817af19f86b0"
+    },
+    {
+      "name": "PiPower:W079",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0102.brep",
+      "sha256": "b4c58e5441d11d69b5cb8f45b443e9ffada5e63d9e9dc0b02a1befbe81971b42"
+    },
+    {
+      "name": "PiPower:W080",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0103.brep",
+      "sha256": "1f644295805571fcac8b2c7dd181915485ff40d1af8c95a08268525e0a230b4b"
+    },
+    {
+      "name": "Ref_Material_G_TAIL_0_0",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_material",
+      "entry": "0104.brep",
+      "sha256": "14fd5fe868c98c93886f7e30caa0558ac9a15f28bb635af984cfc94155a4275d"
+    },
+    {
+      "name": "StationWire:G_TAIL.1",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0105.brep",
+      "sha256": "7aa75c434077da511f821b124833403ebe6f663e0be6a558645f1c6060100b4e"
+    },
+    {
+      "name": "StationLand:G_TAIL.1",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0106.brep",
+      "sha256": "658c320c4104f52160fb1028b1be85a22335bea8dd17fe1243589a0153b65a69"
+    },
+    {
+      "name": "StationWire:G_TAIL.3",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0107.brep",
+      "sha256": "3b7df67a1523057bc2e6fe93dd704c510e1cd627386d3225e45b347bdea655de"
+    },
+    {
+      "name": "StationLand:G_TAIL.3",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0108.brep",
+      "sha256": "1f637a630d67248658b4fd9267f1174473db4479361ec50327008983b8c40e01"
+    },
+    {
+      "name": "StationWire:G_TAIL.4",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0109.brep",
+      "sha256": "ac627750267c361042ecb00ac224f2c11a9e798519133529eea3002e01f8906c"
+    },
+    {
+      "name": "StationLand:G_TAIL.4",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0110.brep",
+      "sha256": "34c8aeb3f6c2aef66fa9b87493040ba9fa3939f90a6e1d7a5f9fd95de0733f45"
+    },
+    {
+      "name": "StationWire:G_TAIL.5",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0111.brep",
+      "sha256": "9a03ca44dbc1c7fd7ee9c1ff1869ad32c284d7893163a730532981c416ce0e9a"
+    },
+    {
+      "name": "StationLand:G_TAIL.5",
+      "group": "WG:G_TAIL",
+      "kind": "proposal_wire",
+      "entry": "0112.brep",
+      "sha256": "e6cf1470c1e04291bbf47a69f5e649620c7d98d0d4be7834688299ca01258b7a"
+    },
+    {
+      "name": "Ref_Material_W3Ref_G_AUX_case_0_0",
+      "group": "WG:G_AUX",
+      "kind": "proposal_material",
+      "entry": "0113.brep",
+      "sha256": "4c45e6fbec6d3fc3413350c2afa714d8cdd0a7c829b764fe1b4681b1179adcba"
+    },
+    {
+      "name": "StationWire:G_AUX.1",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0114.brep",
+      "sha256": "1b178101752780250f6ace46a1ea4d11fb28f11357ce79ffbe18ef172a50adab"
+    },
+    {
+      "name": "StationLand:G_AUX.1",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0115.brep",
+      "sha256": "b01aa7291007893c67c09e23c371890c29fbed4b4907d25e5463dd1516051445"
+    },
+    {
+      "name": "StationWire:G_AUX.2",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0116.brep",
+      "sha256": "c0985ea6c3ec246f4edbe3271a61b1469a8678cfe05971691b2880b771c11fa9"
+    },
+    {
+      "name": "StationLand:G_AUX.2",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0117.brep",
+      "sha256": "cf4adbb01c20fe0100a0ca081230a829f0848da2dee9465742bdc124c3cc24b3"
+    },
+    {
+      "name": "StationWire:G_AUX.3",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0118.brep",
+      "sha256": "b07781f40cd73942c0c38f975e658fd83f29efa3e41c123af72a9c3769854351"
+    },
+    {
+      "name": "StationLand:G_AUX.3",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0119.brep",
+      "sha256": "fe234b4d4a813299e49b42f5cc6695a81e9b68bbb9aafb722470899cde98be31"
+    },
+    {
+      "name": "StationWire:G_AUX.4",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0120.brep",
+      "sha256": "38e03cd8966585419fb201ad3b7b3b9460bea58f1b98c5b4f1c8f0579eabb027"
+    },
+    {
+      "name": "StationLand:G_AUX.4",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0121.brep",
+      "sha256": "e20fc2c298ed1b553e388cf8ab820b4207dfc112ed1a20ea9d9a058bb68dc351"
+    },
+    {
+      "name": "StationWire:G_AUX.5",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0122.brep",
+      "sha256": "5d51e722f1ecd1b75608dc8965934b260ab572c9f55b26f2d1cb9f1cfdbbfe7d"
+    },
+    {
+      "name": "StationLand:G_AUX.5",
+      "group": "WG:G_AUX",
+      "kind": "proposal_wire",
+      "entry": "0123.brep",
+      "sha256": "4316d7f076e79aa4cecc5143aeaf66a42a150afaa6d3f69131123978466fc805"
+    },
+    {
+      "name": "Ref_Material_P_AUX_CP2_0_0",
+      "group": "WG:P_AUX",
+      "kind": "proposal_material",
+      "entry": "0124.brep",
+      "sha256": "dc89e883187da06959308262bb7fc486c7e4ee469ebd62d501a2b8228ed55dd8"
+    },
+    {
+      "name": "StationWire:P_AUX.1",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0125.brep",
+      "sha256": "1adf0d28c1a24964aee6697f18e6a0ce505585ea15d21d98a84f775179d542be"
+    },
+    {
+      "name": "StationLand:P_AUX.1",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0126.brep",
+      "sha256": "281b64b59a8e11e1a9e0c793f5f11f2db88dcad9dee900617ec079dca18d1dc0"
+    },
+    {
+      "name": "StationWire:P_AUX.2",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0127.brep",
+      "sha256": "c2d7ac8364ba0a935fb851f4c8a939ad525cc3d9c26f96f90e25a97bf8c50c0a"
+    },
+    {
+      "name": "StationLand:P_AUX.2",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0128.brep",
+      "sha256": "5a732177ac3e82ce7d92304be06fedee184cff3376c92318956104f61552081c"
+    },
+    {
+      "name": "StationWire:P_AUX.3",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0129.brep",
+      "sha256": "3af9b43df663972328b07be14c770377482a83d6f8a374fb24268802dfdc67c2"
+    },
+    {
+      "name": "StationLand:P_AUX.3",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0130.brep",
+      "sha256": "fd78bcf5fb0a241e98308e0f7269d954ff686cc165313887f6f33f74ce3907bf"
+    },
+    {
+      "name": "StationWire:P_AUX.4",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0131.brep",
+      "sha256": "2e48e30b90f3e394fdaa17ac0f56de104c22773d184b5f32977d372f64a55a08"
+    },
+    {
+      "name": "StationLand:P_AUX.4",
+      "group": "WG:P_AUX",
+      "kind": "proposal_wire",
+      "entry": "0132.brep",
+      "sha256": "351b9cbbe72c9ec5452a7a61812ce7524b79a29f1d34c7adc5c98adc5873fb26"
+    },
+    {
+      "name": "Ref_Material_G2_CP2_0_0",
+      "group": "WG:G2",
+      "kind": "proposal_material",
+      "entry": "0133.brep",
+      "sha256": "2829dc64e7b88a92c1ad21f314ee1d500355dc9fcf3e56cb31854ea278f040b4"
+    },
+    {
+      "name": "StationWire:G2.1",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0134.brep",
+      "sha256": "605aecf22bdabd034c41aab4dc8b9c839060c188c9a2c8dc3603b8acf4c65088"
+    },
+    {
+      "name": "StationLand:G2.1",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0135.brep",
+      "sha256": "e312b055f00ce1acab1a6602a51f9219ec38f3e00bae0d588fe27a3ac267f436"
+    },
+    {
+      "name": "StationWire:G2.2",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0136.brep",
+      "sha256": "0137f87da843366f1be21a70b59faaebf3f280af8dd2d100a2b0f64bc922fe58"
+    },
+    {
+      "name": "StationLand:G2.2",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0137.brep",
+      "sha256": "30b80b1f878d6c1c062cd2b56fd2ed97837d11b9372ffb5eb660602d1de95844"
+    },
+    {
+      "name": "StationWire:G2.3",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0138.brep",
+      "sha256": "96426ffacf291369caec2f616f9a88fbceb6c3c215e91cbe8f31145292ca0027"
+    },
+    {
+      "name": "StationLand:G2.3",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0139.brep",
+      "sha256": "b563c7ff095357d08a5368edbc308f3cbd5cce67e366f2dcd85ab9624b7ef3bf"
+    },
+    {
+      "name": "StationWire:G2.4",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0140.brep",
+      "sha256": "ca8cc249b9935e0edfcb34c950c8787dbc1682c49e733d4a2b2d9ad39e181e20"
+    },
+    {
+      "name": "StationLand:G2.4",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0141.brep",
+      "sha256": "57979a35cc2e74b65813291d5b42cc1245832cd412f38e7f6889620da2c70768"
+    },
+    {
+      "name": "StationWire:G2.5",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0142.brep",
+      "sha256": "9c881b7c7084c3e60d858c9ffab4042cd91ad0457b0626ff71c9ba22def7a0d7"
+    },
+    {
+      "name": "StationLand:G2.5",
+      "group": "WG:G2",
+      "kind": "proposal_wire",
+      "entry": "0143.brep",
+      "sha256": "bf75ec088a2e9f087d005d7df5e4d655c798d0109cb7efe4e245dd805db7827d"
+    },
+    {
+      "name": "Ref_Material_FL_P_0_0",
+      "group": "WG:FL_P",
+      "kind": "proposal_material",
+      "entry": "0144.brep",
+      "sha256": "defad7aafab63f89857231c1af1c64191191e1c3ba018e1e2593ff10ae004534"
+    },
+    {
+      "name": "StationWire:FL_P.1",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0145.brep",
+      "sha256": "6138e9d95deead72bc12320a642142e83f9a7127d5e9d2fe55eb02d4817af8d5"
+    },
+    {
+      "name": "StationLand:FL_P.1",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0146.brep",
+      "sha256": "902cd8510751c6599b76368d67a43825752eae22cb715ec78812ee68e9d2c3e9"
+    },
+    {
+      "name": "StationWire:FL_P.2",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0147.brep",
+      "sha256": "4fae18fa65a1661299e5fa025cb41e75616bf26719141d8e11f0e63351b35be1"
+    },
+    {
+      "name": "StationLand:FL_P.2",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0148.brep",
+      "sha256": "ff75a5322c6de7347e293833dc7dcf8252348dd07d8b904ce15980c55d691f17"
+    },
+    {
+      "name": "StationWire:FL_P.3",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0149.brep",
+      "sha256": "164b1d2ef1543ccef65bab463d3cba58cfbde255ff400bc32914227a73af47e6"
+    },
+    {
+      "name": "StationLand:FL_P.3",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0150.brep",
+      "sha256": "3407b411992f4a913046c5af5c458574643bc44a94491d9e1e6462e4bae26fa3"
+    },
+    {
+      "name": "StationWire:FL_P.4",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0151.brep",
+      "sha256": "e0ed72bef2b924ead08a4fd48156e95a5560f28f822648c93353215f8e371a7f"
+    },
+    {
+      "name": "StationLand:FL_P.4",
+      "group": "WG:FL_P",
+      "kind": "proposal_wire",
+      "entry": "0152.brep",
+      "sha256": "20b4a9636404aaacb8a7bfe09ddc8ded55bc51708c2e3c7079d7987642982c34"
+    },
+    {
+      "name": "Ref_Material_D_FL_0_0",
+      "group": "WG:D_FL",
+      "kind": "proposal_material",
+      "entry": "0153.brep",
+      "sha256": "572dd200acc56cb5c297f8f23c88c3633a4dfe0425f2d206c1e666d218dcf6a6"
+    },
+    {
+      "name": "StationWire:D_FL.1",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0154.brep",
+      "sha256": "d4076752fa6b285b6812cbdaa3fcc1980fcaa43944e248e34d79c5b04e3f8969"
+    },
+    {
+      "name": "StationLand:D_FL.1",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0155.brep",
+      "sha256": "aa6c6cfb6bea96df6a1b9a386bba99a4d02f7e3c010e4a59ed1db10919255534"
+    },
+    {
+      "name": "StationWire:D_FL.2",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0156.brep",
+      "sha256": "dcee7ef5d4b9dc07a0a3a694007f052a95092234e2256f8ad25563d914b74099"
+    },
+    {
+      "name": "StationLand:D_FL.2",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0157.brep",
+      "sha256": "d207ce24754e90703610f79ff1b0d0327c6307fe4e1ac3835f744468f1e76418"
+    },
+    {
+      "name": "StationWire:D_FL.3",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0158.brep",
+      "sha256": "f9b1b1032f35b737b81161f01a8cc9d482b1bec348f418a8481b225412f60603"
+    },
+    {
+      "name": "StationLand:D_FL.3",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0159.brep",
+      "sha256": "d16aff2c958636f913cff42416bc599b391872f6cdc0680efb9a3e6b8e44a190"
+    },
+    {
+      "name": "StationWire:D_FL.4",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0160.brep",
+      "sha256": "7336798cc5146e6d1171459dab900494e2d52dacff130a7e78e686f8404d9405"
+    },
+    {
+      "name": "StationLand:D_FL.4",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0161.brep",
+      "sha256": "77e004146fd6f5254b732bce60f134f3c0adf57f89c02a983e1510b0dfaea56c"
+    },
+    {
+      "name": "StationWire:D_FL.5",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0162.brep",
+      "sha256": "f9e45aea95fd3d22a25e8faa55c923965e00161bd65de484fe8bf9040ee66766"
+    },
+    {
+      "name": "StationLand:D_FL.5",
+      "group": "WG:D_FL",
+      "kind": "proposal_wire",
+      "entry": "0163.brep",
+      "sha256": "10bccf51e57265db7b711d9d2762263c94841142f2e0d42292f8c943e8ac835f"
+    },
+    {
+      "name": "Ref_Material_FL_G_0_0",
+      "group": "WG:FL_G",
+      "kind": "proposal_material",
+      "entry": "0164.brep",
+      "sha256": "e066f90f1c56d7baf0c50d69ed7251b6ac6a47a71ba5c056b0054a9a59830f38"
+    },
+    {
+      "name": "StationWire:FL_G.1",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0165.brep",
+      "sha256": "5c3e5a2c1c493296c7c255149017d54e92ebf9ba4ff4b0f83401dab32a88f1e8"
+    },
+    {
+      "name": "StationLand:FL_G.1",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0166.brep",
+      "sha256": "aff0725526b9519358267c3f3fdec4dfc0c4ca7b63565eea19abede3d818d6cd"
+    },
+    {
+      "name": "StationWire:FL_G.2",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0167.brep",
+      "sha256": "9f2c474b38be25814c58772ffd87ca0a317f9b559b721b82e13bc75c37d5814f"
+    },
+    {
+      "name": "StationLand:FL_G.2",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0168.brep",
+      "sha256": "430391dfadc6262f741b64050a0e06e4f2f20a368388d98735e8e800e16a6079"
+    },
+    {
+      "name": "StationWire:FL_G.3",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0169.brep",
+      "sha256": "2d39c10385ad043e45e6971e6feaf8dcf0c68e5afb0c610b3e9828d2f379549a"
+    },
+    {
+      "name": "StationLand:FL_G.3",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0170.brep",
+      "sha256": "a7385dd13519737fe45a5bcfee820749a7597a3c1e02873353493e16b7f11ab7"
+    },
+    {
+      "name": "StationWire:FL_G.4",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0171.brep",
+      "sha256": "0f7ed2074ea9f1818bcebe99ffa11e3f405a7eab4390defd29e290a7923754e5"
+    },
+    {
+      "name": "StationLand:FL_G.4",
+      "group": "WG:FL_G",
+      "kind": "proposal_wire",
+      "entry": "0172.brep",
+      "sha256": "f8dfa50b86715687ea12c3e80a337cbec650e1b8a7f489058a2362e6afe9088f"
+    },
+    {
+      "name": "Ref_Material_FR_P_0_0",
+      "group": "WG:FR_P",
+      "kind": "proposal_material",
+      "entry": "0173.brep",
+      "sha256": "f41f82f5a33e4c7d2457675fd1dc77f3889c8141e1451b02cc6f6bb3a0104f74"
+    },
+    {
+      "name": "StationWire:FR_P.1",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0174.brep",
+      "sha256": "c5399bfff674d95fd00c740ce80f8459098ca06112f0f30b63ff3c41752cf081"
+    },
+    {
+      "name": "StationLand:FR_P.1",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0175.brep",
+      "sha256": "1a28d8414022d1d6e5cf1868002d25d258d66754b39327863d57674b4a6e744a"
+    },
+    {
+      "name": "StationWire:FR_P.2",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0176.brep",
+      "sha256": "da8e8c6a5b486ccc7d02dcf0d0d9abc65d2142af7daeb1f451a3f524f1653732"
+    },
+    {
+      "name": "StationLand:FR_P.2",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0177.brep",
+      "sha256": "21bbaf4dcdf43653a59a566b3eec8608e2fa44f8100808e432fc3203cc8f79e2"
+    },
+    {
+      "name": "StationWire:FR_P.3",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0178.brep",
+      "sha256": "00d2c720458e4c0a1def123b4ab10bf5f8a873cba2cdda3c2f3d386cd980efd7"
+    },
+    {
+      "name": "StationLand:FR_P.3",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0179.brep",
+      "sha256": "88fc66ec61ed219beda39df08be16fff9f07c322d8382f943f25c5b70e6952e3"
+    },
+    {
+      "name": "StationWire:FR_P.4",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0180.brep",
+      "sha256": "62686b8de9f2bdd4256575c05776e7e6ce00ada3afd03cfbbdcfc70a52030ede"
+    },
+    {
+      "name": "StationLand:FR_P.4",
+      "group": "WG:FR_P",
+      "kind": "proposal_wire",
+      "entry": "0181.brep",
+      "sha256": "1a560b853c0631c4a5101bb1fe0c4bbed9d62ad47d73a8f4f61a201fd3220bd8"
+    },
+    {
+      "name": "Ref_Material_D_FR_0_0",
+      "group": "WG:D_FR",
+      "kind": "proposal_material",
+      "entry": "0182.brep",
+      "sha256": "ddc63fe77d5d06663e230c4d61be5528c53f165ecac19d9e07b48d8414320516"
+    },
+    {
+      "name": "StationWire:D_FR.1",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0183.brep",
+      "sha256": "13e2551e397bd764fb7e640edd76688bd476a0289b9dba9a1b9cb4db1ffde726"
+    },
+    {
+      "name": "StationLand:D_FR.1",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0184.brep",
+      "sha256": "58d83d1c8e2934f8942c6c8db89712150e01993a355399c2081d51858dd87e2b"
+    },
+    {
+      "name": "StationWire:D_FR.2",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0185.brep",
+      "sha256": "f8e782ecd460f9a135d977a4e885944f53364f93c7321317067c1c831a475b10"
+    },
+    {
+      "name": "StationLand:D_FR.2",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0186.brep",
+      "sha256": "c571db2c953146600d1476bdd52c8dedc05960140e9e923c86cac8cbd8c53d15"
+    },
+    {
+      "name": "StationWire:D_FR.3",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0187.brep",
+      "sha256": "d2bebf7f4b337303f594b0f7fa743876d24841a48993a5cd9c5ce21f4e44141b"
+    },
+    {
+      "name": "StationLand:D_FR.3",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0188.brep",
+      "sha256": "56057c3e88214632986ff1814bba0a89e6adcf991cd1817d13c1ab95358d0903"
+    },
+    {
+      "name": "StationWire:D_FR.4",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0189.brep",
+      "sha256": "c44c42a6da4b86fde868c80f7ef489ea9f9ccb91b0668cdf7b2d9f3c28c23d43"
+    },
+    {
+      "name": "StationLand:D_FR.4",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0190.brep",
+      "sha256": "5d4de7df952d9d7bf3596700a43d9df5404ba14aeeb224c572098438b5e59f4e"
+    },
+    {
+      "name": "StationWire:D_FR.5",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0191.brep",
+      "sha256": "af45239d8929a92107ca409972d226171f5b25cb331032d11bf52737148edf2b"
+    },
+    {
+      "name": "StationLand:D_FR.5",
+      "group": "WG:D_FR",
+      "kind": "proposal_wire",
+      "entry": "0192.brep",
+      "sha256": "b9b10533f0dcd73de20b1f490006b13f2144e8d8de69eaa7afcd7ea5cd9df491"
+    },
+    {
+      "name": "Ref_Material_FR_G_0_0",
+      "group": "WG:FR_G",
+      "kind": "proposal_material",
+      "entry": "0193.brep",
+      "sha256": "84769985d3c4258f29e6af26f6e306ab29f5aafffd6ba4f5bcddc929a499a9bc"
+    },
+    {
+      "name": "StationWire:FR_G.2",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0194.brep",
+      "sha256": "027560915e562d385d71eca31882a2eec7889b8b0155db9f6ddbc7bceadc700a"
+    },
+    {
+      "name": "StationLand:FR_G.2",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0195.brep",
+      "sha256": "002636448c7dee4c7e7cdf41aa40fe9ff044a322236ec539231eb5edee62cc64"
+    },
+    {
+      "name": "StationWire:FR_G.3",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0196.brep",
+      "sha256": "81299ce3c4e80e201055b95b0a83e5bf7b09b6b3d1f43aa28ec0a7717265b549"
+    },
+    {
+      "name": "StationLand:FR_G.3",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0197.brep",
+      "sha256": "ed7af897ebec3a9b17b10f8874b89aa7142bb2e5cbca688395a7b55fe39a3bd6"
+    },
+    {
+      "name": "StationWire:FR_G.4",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0198.brep",
+      "sha256": "1616a22e0ec6952e37ddfcc7c02974d243aa08b7fdd5f5e819dd9fb6cb13b13d"
+    },
+    {
+      "name": "StationLand:FR_G.4",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0199.brep",
+      "sha256": "77e0054f9e20a1e036221f38730ebfbe3c426cf21e9b7d24f9f02ce7be4c208c"
+    },
+    {
+      "name": "StationWire:FR_G.5",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0200.brep",
+      "sha256": "68acfc4dfb3abab394e347b83137200cd5c74bbf4fbb2846f143cdd96a12fde9"
+    },
+    {
+      "name": "StationLand:FR_G.5",
+      "group": "WG:FR_G",
+      "kind": "proposal_wire",
+      "entry": "0201.brep",
+      "sha256": "fbec8955a908277a841cd1a7129267af150609e7737a14b929431dae717433a1"
+    },
+    {
+      "name": "F_HY:case",
+      "group": "F_HY",
+      "kind": "proposal_material",
+      "entry": "0202.brep",
+      "sha256": "427b188875e22c6a25292a3463f014e8ded39ab16f943d6a9a6738c5a97f9cf3"
+    },
+    {
+      "name": "F_HY:floor",
+      "group": "F_HY",
+      "kind": "reservation",
+      "entry": "0203.brep",
+      "sha256": "7eed871d03df0c2478b5beed1eb3983b78bf54ae563bea29cc0113811f51dbfc"
+    },
+    {
+      "name": "F_HY:backer",
+      "group": "F_HY",
+      "kind": "reservation",
+      "entry": "0204.brep",
+      "sha256": "ce95fe3b43ce0cf63b9faba00509cc26238b21eb7f222f509ea2ba289f617d40"
+    },
+    {
+      "name": "F_HY:bed_root",
+      "group": "F_HY",
+      "kind": "reservation",
+      "entry": "0205.brep",
+      "sha256": "330c9c69a5d18da249669025fde543c180701681f0bb39c098ac5eb48fab65e1"
+    },
+    {
+      "name": "F_HY:factory_in",
+      "group": "F_HY",
+      "kind": "proposal_wire",
+      "entry": "0206.brep",
+      "sha256": "b7b10c5e9ce574b89a042d4bf6f15a5345f2f38a9fe1f83f2d31c89d88b98d8b"
+    },
+    {
+      "name": "F_HY:splice_in",
+      "group": "F_HY",
+      "kind": "reservation",
+      "entry": "0207.brep",
+      "sha256": "1e7aac377402b29166331887810139bbb82d45ddb1e8d8a10f610b2e23c6f247"
+    },
+    {
+      "name": "F_HY:custom_in",
+      "group": "F_HY",
+      "kind": "proposal_wire",
+      "entry": "0208.brep",
+      "sha256": "f63e63d2fac86243c648a999af60833e97c68fcb014fc85ac68a5904c7661f3e"
+    },
+    {
+      "name": "F_HY:factory_out",
+      "group": "F_HY",
+      "kind": "proposal_wire",
+      "entry": "0209.brep",
+      "sha256": "d6b1de634fe9cc4e41902a79b5cf9eebd7ab30e32a3c674b5a09bc1be120c36c"
+    },
+    {
+      "name": "F_HY:splice_out",
+      "group": "F_HY",
+      "kind": "reservation",
+      "entry": "0210.brep",
+      "sha256": "9748801e88824860dd519f504c42fba7f2956692e35d1977135492eda3fea50b"
+    },
+    {
+      "name": "F_HY:custom_out",
+      "group": "F_HY",
+      "kind": "proposal_wire",
+      "entry": "0211.brep",
+      "sha256": "a139de8a908e9214f0e16d559f4f421abfee5f7092afb779d7d39533dc8d2f40"
+    },
+    {
+      "name": "F_HP:case",
+      "group": "F_HP",
+      "kind": "proposal_material",
+      "entry": "0212.brep",
+      "sha256": "48089d77c67e3fb1899c0599484a05f8000b2e413f71ff3bd30dd11f2db73d98"
+    },
+    {
+      "name": "F_HP:floor",
+      "group": "F_HP",
+      "kind": "reservation",
+      "entry": "0213.brep",
+      "sha256": "f60c797567c137bdc6f2bd783f167371d785d7507b88d1061d297530c675da93"
+    },
+    {
+      "name": "F_HP:backer",
+      "group": "F_HP",
+      "kind": "reservation",
+      "entry": "0214.brep",
+      "sha256": "2824ee88cdc6bc24005feeb119a6ace73728fe40402c6d1abc6d138d49cba000"
+    },
+    {
+      "name": "F_HP:bed_root",
+      "group": "F_HP",
+      "kind": "reservation",
+      "entry": "0215.brep",
+      "sha256": "803d536a810794b02250a6f25099139611a73759b326dd758db09d1576c99879"
+    },
+    {
+      "name": "F_HP:factory_in",
+      "group": "F_HP",
+      "kind": "proposal_wire",
+      "entry": "0216.brep",
+      "sha256": "c2c7f4da6a3142d127efe30e5772a2052492a18c9a42e704ea8aa2d9f89f6778"
+    },
+    {
+      "name": "F_HP:splice_in",
+      "group": "F_HP",
+      "kind": "reservation",
+      "entry": "0217.brep",
+      "sha256": "468ab2b0126043bad82c0c68dd8dda88f822118e9fdc0618eb1279778a5828cf"
+    },
+    {
+      "name": "F_HP:custom_in",
+      "group": "F_HP",
+      "kind": "proposal_wire",
+      "entry": "0218.brep",
+      "sha256": "e6ba77983847af0f53c2b195b158c6c8096714128c45ead55361ff5dde28f699"
+    },
+    {
+      "name": "F_HP:factory_out",
+      "group": "F_HP",
+      "kind": "proposal_wire",
+      "entry": "0219.brep",
+      "sha256": "d918607f68f780bfaa5009cc8207237b350d0236deeb0d24e9d0bcf918b5bf68"
+    },
+    {
+      "name": "F_HP:splice_out",
+      "group": "F_HP",
+      "kind": "reservation",
+      "entry": "0220.brep",
+      "sha256": "2d02aca19eae3d080905b626711db91e0268757f3d03af6f6bc88869b5b42029"
+    },
+    {
+      "name": "F_HP:custom_out",
+      "group": "F_HP",
+      "kind": "proposal_wire",
+      "entry": "0221.brep",
+      "sha256": "e7ba37da273433b99e0e10685ab2e713ebe50e0ea2b38370fbcdc063864ef45b"
+    },
+    {
+      "name": "F_TY:case",
+      "group": "F_TY",
+      "kind": "proposal_material",
+      "entry": "0222.brep",
+      "sha256": "2c948bf43703bebe38b6803826689a2309d3dcd02b826184816f10317381e183"
+    },
+    {
+      "name": "F_TY:floor",
+      "group": "F_TY",
+      "kind": "reservation",
+      "entry": "0223.brep",
+      "sha256": "1d16ebbe2c711bf73ba8e8db58fcb75b3c8e7789325952d589f9700cfa055d5a"
+    },
+    {
+      "name": "F_TY:backer",
+      "group": "F_TY",
+      "kind": "reservation",
+      "entry": "0224.brep",
+      "sha256": "8f1d1cc5ad53d8c8ff205ab51f31167fdd1518986dcdae1e39991680b9aa1434"
+    },
+    {
+      "name": "F_TY:bed_root",
+      "group": "F_TY",
+      "kind": "reservation",
+      "entry": "0225.brep",
+      "sha256": "8ae19ffc462ff658fbf2c7ed2ba9ff0f3a7b3d4a844192aa1e2c9508803ba471"
+    },
+    {
+      "name": "F_TY:factory_in",
+      "group": "F_TY",
+      "kind": "proposal_wire",
+      "entry": "0226.brep",
+      "sha256": "d2dc2c6a46282942427bd464907351a64e1c48c201216510401de167e4ff1c32"
+    },
+    {
+      "name": "F_TY:splice_in",
+      "group": "F_TY",
+      "kind": "reservation",
+      "entry": "0227.brep",
+      "sha256": "046fab0e86ec090b8acafa5ca2ee788efa020302511720daa7a3d4004d18d023"
+    },
+    {
+      "name": "F_TY:custom_in",
+      "group": "F_TY",
+      "kind": "proposal_wire",
+      "entry": "0228.brep",
+      "sha256": "cdccf6f3c1377c60d7357e8bd5708a32cc167b47ea32ff75d9fccfc768da4234"
+    },
+    {
+      "name": "F_TY:factory_out",
+      "group": "F_TY",
+      "kind": "proposal_wire",
+      "entry": "0229.brep",
+      "sha256": "e5b972d1ad7a5855f5262860b12fdff5a5dceae68c05a73cda9be28ea9587792"
+    },
+    {
+      "name": "F_TY:splice_out",
+      "group": "F_TY",
+      "kind": "reservation",
+      "entry": "0230.brep",
+      "sha256": "6afd5179017c57cbddbd822491622fafd50d141458d0e1f54dd7b08e852fec8e"
+    },
+    {
+      "name": "F_TY:custom_out",
+      "group": "F_TY",
+      "kind": "proposal_wire",
+      "entry": "0231.brep",
+      "sha256": "ae150bb102c1fd933bcfc9ab6375aba55a989a96500985da2fa32ee350a05811"
+    },
+    {
+      "name": "F_PWM:case",
+      "group": "F_PWM",
+      "kind": "proposal_material",
+      "entry": "0232.brep",
+      "sha256": "43ab43790448c07657f3e8da00f5fe79346aa7123446427413da5963b60fe7c9"
+    },
+    {
+      "name": "Monitor5015:case",
+      "group": "Monitor5015",
+      "kind": "proposal_material",
+      "entry": "0233.brep",
+      "sha256": "d1761edf4b982d804fb374328ad05dfef841d2f69f9bc75986616aead2cd54bd"
+    },
+    {
+      "name": "PiGPIO:PI.H1",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0234.brep",
+      "sha256": "484c4d1fbed0c0ac639831a584bb8807c5efa473109bf6560ac53e39d75ac8c4"
+    },
+    {
+      "name": "PiGPIOAfterGrip:PI.H1",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0235.brep",
+      "sha256": "bca3d33ef6ec5be691d1dbfc635e31781eca96cd3a2325a3f8eadbc897021be2"
+    },
+    {
+      "name": "PiGPIO:PI.H3",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0236.brep",
+      "sha256": "257452d822ff38e3193990e57c2f88947a63ea791c2c801611a53e0203c700fc"
+    },
+    {
+      "name": "PiGPIOAfterGrip:PI.H3",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0237.brep",
+      "sha256": "05a783ef9461ecb6de43a659994f1d606be082db1c6c3e1c6cd9dcce42c75a04"
+    },
+    {
+      "name": "PiGPIO:PI.H5",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0238.brep",
+      "sha256": "052c27b7fb0da1272fba430b2d7dcf69c715f8a6cb5a427677b7241b157e3726"
+    },
+    {
+      "name": "PiGPIOAfterGrip:PI.H5",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0239.brep",
+      "sha256": "72192171e29e207d4d666d6b03205bfd60bcbbca8dc7834d5f2ad5ace5cd18ac"
+    },
+    {
+      "name": "PiGPIO:PI.H11",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0240.brep",
+      "sha256": "679c635d31ed29608aece277bc14e61086bf1ceef62a09c119d9a3c100185b94"
+    },
+    {
+      "name": "PiGPIOAfterGrip:PI.H11",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0241.brep",
+      "sha256": "8de4341ab7c0f4f1cff1cc850fbffb33868d58ef1ea5e4b078dcb120008c4ad7"
+    },
+    {
+      "name": "PiGPIO:PI.H6",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0242.brep",
+      "sha256": "bc4c79680246cc6c47eacb9a311954894f959517b6eb94d7d9846a504d9aa464"
+    },
+    {
+      "name": "PiGPIOAfterGrip:PI.H6",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0243.brep",
+      "sha256": "9474bec890715a856dea3cef6bde02705f7cf6b375a766051e0206882701bc0c"
+    },
+    {
+      "name": "PiBudget:USB_A_after_turn_grip",
+      "group": "PiBulkhead",
+      "kind": "reservation",
+      "entry": "0244.brep",
+      "sha256": "5f34c96307b663c6490bcc56f57f51f340a40d9ef6b0af6b12474f953f8e4f61"
+    },
+    {
+      "name": "F_PWM:in_first_bend",
+      "group": "F_PWM",
+      "kind": "proposal_wire",
+      "entry": "0245.brep",
+      "sha256": "694335786d9735ede949899899483cd0106b0b1a3ce67629a3fede32d572f5ba"
+    },
+    {
+      "name": "F_PWM:in_after_turn_grip",
+      "group": "F_PWM",
+      "kind": "proposal_wire",
+      "entry": "0246.brep",
+      "sha256": "e36bda12c35590cab1c6200399b003c829f4d51b952745a751170e6692d7616b"
+    },
+    {
+      "name": "F_PWM:out_first_bend",
+      "group": "F_PWM",
+      "kind": "proposal_wire",
+      "entry": "0247.brep",
+      "sha256": "0485852bd48536d94f558587b92c76ac17ab29d0d15b62a9a86e793cc9eac53e"
+    },
+    {
+      "name": "F_PWM:out_after_turn_grip",
+      "group": "F_PWM",
+      "kind": "proposal_wire",
+      "entry": "0248.brep",
+      "sha256": "67fe0d14233510689d751d1830e75fbc491822990f78e3231893e38b4e5c44bb"
+    }
+  ],
+  "source_parent": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-front-bulkhead-architecture.json",
+  "parent_static_receipt": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-front-bulkhead-static-received.json",
+  "changed_part_names": [
+    "F_HP:floor",
+    "F_HY:floor",
+    "F_PWM:case",
+    "F_PWM:in_after_turn_grip",
+    "F_PWM:in_first_bend",
+    "F_PWM:out_after_turn_grip",
+    "F_PWM:out_first_bend",
+    "F_TY:floor",
+    "Monitor5015:case",
+    "PiBudget:AdapterBody",
+    "PiBudget:Audio",
+    "PiBudget:CPU",
+    "PiBudget:CSI",
+    "PiBudget:DSI",
+    "PiBudget:Ethernet",
+    "PiBudget:GPIO1992OccupiedHousing",
+    "PiBudget:GPIO_header",
+    "PiBudget:HDMI0",
+    "PiBudget:HDMI1",
+    "PiBudget:RetainedK1474Boot",
+    "PiBudget:USB_A_after_turn_grip",
+    "PiBudget:USB_A_data_boot",
+    "PiBudget:USB_A_front",
+    "PiBudget:USB_A_full_first_bend",
+    "PiBudget:USB_A_rear",
+    "PiBudget:USB_C",
+    "PiBudget:UnlabelledTopComponentsBudget",
+    "PiBudget:microSDCardAndBottomBudget",
+    "PiGPIO:PI.H1",
+    "PiGPIO:PI.H11",
+    "PiGPIO:PI.H3",
+    "PiGPIO:PI.H5",
+    "PiGPIO:PI.H6",
+    "PiGPIOAfterGrip:PI.H1",
+    "PiGPIOAfterGrip:PI.H11",
+    "PiGPIOAfterGrip:PI.H3",
+    "PiGPIOAfterGrip:PI.H5",
+    "PiGPIOAfterGrip:PI.H6",
+    "PiPower:W079",
+    "PiPower:W080",
+    "Ref_Material_Pi410Nut_0_0",
+    "Ref_Material_Pi410Screw_0_0",
+    "Ref_Material_Pi411Nut_0_0",
+    "Ref_Material_Pi411Screw_0_0",
+    "Ref_Material_Pi411TopWasher_0_0",
+    "Ref_Material_Pi412Nut_0_0",
+    "Ref_Material_Pi412Screw_0_0",
+    "Ref_Material_Pi49Nut_0_0",
+    "Ref_Material_Pi49Screw_0_0",
+    "Ref_Material_Pi49TopWasher_0_0",
+    "Ref_Material_Pi4NominalPCB_0_0"
+  ],
+  "removed_part_names": [
+    "PiGPIO:PI.H1",
+    "PiGPIO:PI.H3",
+    "PiGPIO:PI.H5",
+    "PiGPIO:PI.H11",
+    "PiGPIO:PI.H6"
+  ],
+  "unchanged_part_names": [
+    "Ref_Material_head_0_0_Bearing608_0_0",
+    "Ref_Material_head_0_0_Bolt0_0_0",
+    "Ref_Material_head_0_0_Bolt1_0_0",
+    "Ref_Material_head_0_0_Bridge_0_0",
+    "Ref_Material_head_0_0_CageBase_0_0",
+    "Ref_Material_head_0_0_CageRetainerLeft_0_0",
+    "Ref_Material_head_0_0_CageRetainerRight_0_0",
+    "Ref_Material_head_0_0_Carrier_0_0",
+    "Ref_Material_head_0_0_ClampBolt0_0_0",
+    "Ref_Material_head_0_0_ClampBolt1_0_0",
+    "Ref_Material_head_0_0_ClampNegativeX_0_0",
+    "Ref_Material_head_0_0_ClampNut0_0_0",
+    "Ref_Material_head_0_0_ClampNut1_0_0",
+    "Ref_Material_head_0_0_ClampPositiveX_0_0",
+    "Ref_Material_head_0_0_ClampWasher0_0_0",
+    "Ref_Material_head_0_0_ClampWasher1_0_0",
+    "Ref_Material_head_0_0_EarL_0_0",
+    "Ref_Material_head_0_0_EarR_0_0",
+    "Ref_Material_head_0_0_Fork_0_0",
+    "Ref_Material_head_0_0_FrontLeft_0_0",
+    "Ref_Material_head_0_0_FrontRightPorted_0_0",
+    "Ref_Material_head_0_0_HornProvisional_0_0",
+    "Ref_Material_head_0_0_Insert_left_0_0",
+    "Ref_Material_head_0_0_Insert_right_0_0",
+    "Ref_Material_head_0_0_M2_head_left_0_0",
+    "Ref_Material_head_0_0_M2_head_right_0_0",
+    "Ref_Material_head_0_0_M2x14_shaft_left_0_0",
+    "Ref_Material_head_0_0_M2x14_shaft_right_0_0",
+    "Ref_Material_head_0_0_NoseInsertL_0_0",
+    "Ref_Material_head_0_0_NoseInsertR_0_0",
+    "Ref_Material_head_0_0_NoseScrewL_0_0",
+    "Ref_Material_head_0_0_NoseScrewR_0_0",
+    "Ref_Material_head_0_0_Nose_0_0",
+    "Ref_Material_head_0_0_Nut0_0_0",
+    "Ref_Material_head_0_0_Nut1_0_0",
+    "Ref_Material_head_0_0_PassiveJournal_0_0",
+    "Ref_Material_head_0_0_PitchRetainer_0_0",
+    "Ref_Material_head_0_0_Rear_0_0",
+    "Ref_Material_head_0_0_Retainer_0_0",
+    "Ref_Material_head_0_0_ServoReference_0_0",
+    "Ref_Material_head_0_0_UpperNutL_0_0",
+    "Ref_Material_head_0_0_UpperNutR_0_0",
+    "Ref_Material_head_0_0_UpperScrewL_0_0",
+    "Ref_Material_head_0_0_UpperScrewR_0_0",
+    "Ref_Material_head_0_0_Washer00_0_0",
+    "Ref_Material_head_0_0_Washer01_0_0",
+    "Ref_Material_head_0_0_Washer10_0_0",
+    "Ref_Material_head_0_0_Washer11_0_0",
+    "Ref_Material_head_0_0_YawCarrier_0_0",
+    "Ref_Material_head_0_0_YawPrintedHorn_0_0",
+    "Ref_Material_head_0_0_YawServoReference_0_0",
+    "Ref_Material_headref_0_Interface_FactoryLandBand_0_0",
+    "Ref_Material_headref_0_Interface_FixedJRBand_0_0",
+    "Ref_Material_headref_0_Interface_FixedJR_0_0",
+    "Ref_Material_headref_0_Interface_MovingFactoryBand_0_0",
+    "Ref_Material_headref_0_Interface_QualifiedFlatExit0_0_0",
+    "Ref_Material_headref_0_Interface_QualifiedFlatExit1_0_0",
+    "Ref_Material_headref_0_Interface_SourceLandBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22FrontBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22HELUBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22JRBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22NorthBand_0_0",
+    "Ref_Material_headref_0_Interface_XB22Sleeve_0_0",
+    "Ref_Material_headref_0_Interface_XB23FrontBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23HELUBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23JRBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23NorthBand_0_0",
+    "Ref_Material_headref_0_Interface_XB23Sleeve_0_0",
+    "Ref_Material_headref_0_Interface_XS23FrontBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23HELUBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23JRBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23NorthBand_0_0",
+    "Ref_Material_headref_0_Interface_XS23Sleeve_0_0",
+    "Ref_Material_G_TAIL_0_0",
+    "StationWire:G_TAIL.1",
+    "StationLand:G_TAIL.1",
+    "StationWire:G_TAIL.3",
+    "StationLand:G_TAIL.3",
+    "StationWire:G_TAIL.4",
+    "StationLand:G_TAIL.4",
+    "StationWire:G_TAIL.5",
+    "StationLand:G_TAIL.5",
+    "Ref_Material_W3Ref_G_AUX_case_0_0",
+    "StationWire:G_AUX.1",
+    "StationLand:G_AUX.1",
+    "StationWire:G_AUX.2",
+    "StationLand:G_AUX.2",
+    "StationWire:G_AUX.3",
+    "StationLand:G_AUX.3",
+    "StationWire:G_AUX.4",
+    "StationLand:G_AUX.4",
+    "StationWire:G_AUX.5",
+    "StationLand:G_AUX.5",
+    "Ref_Material_P_AUX_CP2_0_0",
+    "StationWire:P_AUX.1",
+    "StationLand:P_AUX.1",
+    "StationWire:P_AUX.2",
+    "StationLand:P_AUX.2",
+    "StationWire:P_AUX.3",
+    "StationLand:P_AUX.3",
+    "StationWire:P_AUX.4",
+    "StationLand:P_AUX.4",
+    "Ref_Material_G2_CP2_0_0",
+    "StationWire:G2.1",
+    "StationLand:G2.1",
+    "StationWire:G2.2",
+    "StationLand:G2.2",
+    "StationWire:G2.3",
+    "StationLand:G2.3",
+    "StationWire:G2.4",
+    "StationLand:G2.4",
+    "StationWire:G2.5",
+    "StationLand:G2.5",
+    "Ref_Material_FL_P_0_0",
+    "StationWire:FL_P.1",
+    "StationLand:FL_P.1",
+    "StationWire:FL_P.2",
+    "StationLand:FL_P.2",
+    "StationWire:FL_P.3",
+    "StationLand:FL_P.3",
+    "StationWire:FL_P.4",
+    "StationLand:FL_P.4",
+    "Ref_Material_D_FL_0_0",
+    "StationWire:D_FL.1",
+    "StationLand:D_FL.1",
+    "StationWire:D_FL.2",
+    "StationLand:D_FL.2",
+    "StationWire:D_FL.3",
+    "StationLand:D_FL.3",
+    "StationWire:D_FL.4",
+    "StationLand:D_FL.4",
+    "StationWire:D_FL.5",
+    "StationLand:D_FL.5",
+    "Ref_Material_FL_G_0_0",
+    "StationWire:FL_G.1",
+    "StationLand:FL_G.1",
+    "StationWire:FL_G.2",
+    "StationLand:FL_G.2",
+    "StationWire:FL_G.3",
+    "StationLand:FL_G.3",
+    "StationWire:FL_G.4",
+    "StationLand:FL_G.4",
+    "Ref_Material_FR_P_0_0",
+    "StationWire:FR_P.1",
+    "StationLand:FR_P.1",
+    "StationWire:FR_P.2",
+    "StationLand:FR_P.2",
+    "StationWire:FR_P.3",
+    "StationLand:FR_P.3",
+    "StationWire:FR_P.4",
+    "StationLand:FR_P.4",
+    "Ref_Material_D_FR_0_0",
+    "StationWire:D_FR.1",
+    "StationLand:D_FR.1",
+    "StationWire:D_FR.2",
+    "StationLand:D_FR.2",
+    "StationWire:D_FR.3",
+    "StationLand:D_FR.3",
+    "StationWire:D_FR.4",
+    "StationLand:D_FR.4",
+    "StationWire:D_FR.5",
+    "StationLand:D_FR.5",
+    "Ref_Material_FR_G_0_0",
+    "StationWire:FR_G.2",
+    "StationLand:FR_G.2",
+    "StationWire:FR_G.3",
+    "StationLand:FR_G.3",
+    "StationWire:FR_G.4",
+    "StationLand:FR_G.4",
+    "StationWire:FR_G.5",
+    "StationLand:FR_G.5",
+    "F_HY:case",
+    "F_HY:backer",
+    "F_HY:bed_root",
+    "F_HY:factory_in",
+    "F_HY:splice_in",
+    "F_HY:custom_in",
+    "F_HY:factory_out",
+    "F_HY:splice_out",
+    "F_HY:custom_out",
+    "F_HP:case",
+    "F_HP:backer",
+    "F_HP:bed_root",
+    "F_HP:factory_in",
+    "F_HP:splice_in",
+    "F_HP:custom_in",
+    "F_HP:factory_out",
+    "F_HP:splice_out",
+    "F_HP:custom_out",
+    "F_TY:case",
+    "F_TY:backer",
+    "F_TY:bed_root",
+    "F_TY:factory_in",
+    "F_TY:splice_in",
+    "F_TY:custom_in",
+    "F_TY:factory_out",
+    "F_TY:splice_out",
+    "F_TY:custom_out"
+  ],
+  "changed_groups": [
+    "F_HP",
+    "F_HY",
+    "F_PWM",
+    "F_TY",
+    "Monitor5015",
+    "PiBulkhead"
+  ],
+  "unchanged_raw_BRep_bytes_verified": true,
+  "old_failures_all_owned_by_changed_geometry": true,
+  "GPIO_jacket_separation": [
+    {
+      "a": "PI.H1",
+      "b": "PI.H3",
+      "jacket_gap_mm": 0.3960512242137977
+    },
+    {
+      "a": "PI.H1",
+      "b": "PI.H5",
+      "jacket_gap_mm": 2.1921024484276277
+    },
+    {
+      "a": "PI.H1",
+      "b": "PI.H11",
+      "jacket_gap_mm": 7.580256121069103
+    },
+    {
+      "a": "PI.H1",
+      "b": "PI.H6",
+      "jacket_gap_mm": 4.279612662849457
+    },
+    {
+      "a": "PI.H3",
+      "b": "PI.H5",
+      "jacket_gap_mm": 0.3960512242138128
+    },
+    {
+      "a": "PI.H3",
+      "b": "PI.H11",
+      "jacket_gap_mm": 5.784204896855288
+    },
+    {
+      "a": "PI.H3",
+      "b": "PI.H6",
+      "jacket_gap_mm": 2.1921024484276606
+    },
+    {
+      "a": "PI.H5",
+      "b": "PI.H11",
+      "jacket_gap_mm": 3.9881536726414577
+    },
+    {
+      "a": "PI.H5",
+      "b": "PI.H6",
+      "jacket_gap_mm": 1.1400000000000006
+    },
+    {
+      "a": "PI.H11",
+      "b": "PI.H6",
+      "jacket_gap_mm": 6.63218525682768
+    }
+  ],
+  "fore_Pi_functional_pose": {
+    "source_origin_target_mm": [
+      -125,
+      0,
+      86.15
+    ],
+    "rotation_rows": [
+      [
+        -2.220446049250313e-16,
+        1.2246467991473535e-16,
+        -1.0000000000000002
+      ],
+      [
+        0.0,
+        -1.0000000000000004,
+        -1.2246467991473535e-16
+      ],
+      [
+        -1.0000000000000002,
+        0.0,
+        -2.220446049250313e-16
+      ]
+    ],
+    "GPIO_opposite_S1": true,
+    "USB_A_down_then_R30_back": true,
+    "neck_roof_candidate_mm": 111,
+    "reason": "FullS1/AUX/MTA fore cluster, occupied edges and complete first bends determine registration; not a smallX trial"
+  }
+}
