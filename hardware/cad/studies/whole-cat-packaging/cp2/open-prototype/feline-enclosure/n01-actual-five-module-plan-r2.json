@@ -1,0 +1,726 @@
+{
+  "status": "ACTUAL_JOINT_FIVE_MODULE_PLAN_UNRESOLVED",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "negative_row_changes": [
+    {
+      "ref": "D_FL",
+      "name": "Ref_Material_D_FL_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 5,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "D_FR",
+      "name": "Ref_Material_D_FR_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 5,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "FL_P",
+      "name": "Ref_Material_FL_P_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 4,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "FL_G",
+      "name": "Ref_Material_FL_G_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 4,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "FR_P",
+      "name": "Ref_Material_FR_P_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 4,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "FR_G",
+      "name": "Ref_Material_FR_G_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 4,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "G2",
+      "name": "Ref_Material_G2_CP2_0_0",
+      "flip_Z180": false,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 5,
+      "relative_placement": "Placement [Pos=(5,0,6.1), Yaw-Pitch-Roll=(0,0,0)]"
+    },
+    {
+      "ref": "P_AUX",
+      "name": "Ref_Material_P_AUX_CP2_0_0",
+      "flip_Z180": true,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 4,
+      "relative_placement": "Placement [Pos=(45,-134,6.1), Yaw-Pitch-Roll=(180,0,0)]"
+    },
+    {
+      "ref": "G_AUX",
+      "name": "Ref_Material_W3Ref_G_AUX_case_0_0",
+      "flip_Z180": true,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 5,
+      "relative_placement": "Placement [Pos=(-25,-134,6.1), Yaw-Pitch-Roll=(180,0,0)]"
+    },
+    {
+      "ref": "G_TAIL",
+      "name": "Ref_Material_G_TAIL_0_0",
+      "flip_Z180": true,
+      "mouth_Z_mm": 46.1,
+      "occupied_ports": 4,
+      "relative_placement": "Placement [Pos=(-95,-134,6.1), Yaw-Pitch-Roll=(180,0,0)]"
+    }
+  ],
+  "domains": {
+    "F_HY": [],
+    "F_HP": [],
+    "F_TY": [],
+    "Monitor5015": [
+      {
+        "key": "Monitor5015:(50, 68, 0):True",
+        "centre_mm": [
+          50,
+          68,
+          0
+        ],
+        "vertical": true,
+        "failure": null
+      },
+      {
+        "key": "Monitor5015:(50, -68, 0):True",
+        "centre_mm": [
+          50,
+          -68,
+          0
+        ],
+        "vertical": true,
+        "failure": null
+      }
+    ],
+    "F_PWM": []
+  },
+  "blocked": [
+    {
+      "key": "F_HY:(-10, -68, 25):up",
+      "centre_mm": [
+        -10,
+        -68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature116_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.1402954553209412
+      }
+    },
+    {
+      "key": "F_HY:(-10, -68, 25):inboard",
+      "centre_mm": [
+        -10,
+        -68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature116_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.1402954553209412
+      }
+    },
+    {
+      "key": "F_HY:(-10, 68, 25):up",
+      "centre_mm": [
+        -10,
+        68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature118_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.14029726312032426
+      }
+    },
+    {
+      "key": "F_HY:(-10, 68, 25):inboard",
+      "centre_mm": [
+        -10,
+        68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature118_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.14029726312032426
+      }
+    },
+    {
+      "key": "F_HY:(65, -68, 25):up",
+      "centre_mm": [
+        65,
+        -68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 2.8749999999800195
+      }
+    },
+    {
+      "key": "F_HY:(65, -68, 25):inboard",
+      "centre_mm": [
+        65,
+        -68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 2.8749999999800195
+      }
+    },
+    {
+      "key": "F_HP:(-10, -68, 25):up",
+      "centre_mm": [
+        -10,
+        -68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature116_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.1402954553209412
+      }
+    },
+    {
+      "key": "F_HP:(-10, -68, 25):inboard",
+      "centre_mm": [
+        -10,
+        -68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature116_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.1402954553209412
+      }
+    },
+    {
+      "key": "F_HP:(-10, 68, 25):up",
+      "centre_mm": [
+        -10,
+        68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature118_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.14029726312032426
+      }
+    },
+    {
+      "key": "F_HP:(-10, 68, 25):inboard",
+      "centre_mm": [
+        -10,
+        68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature118_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.14029726312032426
+      }
+    },
+    {
+      "key": "F_HP:(65, -68, 25):up",
+      "centre_mm": [
+        65,
+        -68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 2.8749999999800195
+      }
+    },
+    {
+      "key": "F_HP:(65, -68, 25):inboard",
+      "centre_mm": [
+        65,
+        -68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 2.8749999999800195
+      }
+    },
+    {
+      "key": "F_TY:(-10, -68, 25):up",
+      "centre_mm": [
+        -10,
+        -68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature116_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.1402954553209412
+      }
+    },
+    {
+      "key": "F_TY:(-10, -68, 25):inboard",
+      "centre_mm": [
+        -10,
+        -68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature116_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.1402954553209412
+      }
+    },
+    {
+      "key": "F_TY:(-10, 68, 25):up",
+      "centre_mm": [
+        -10,
+        68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature118_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.14029726312032426
+      }
+    },
+    {
+      "key": "F_TY:(-10, 68, 25):inboard",
+      "centre_mm": [
+        -10,
+        68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "Ref_Material_P0_Part__Feature118_0_0@pose27",
+        "component": "cradle",
+        "gap_mm": 0.14029726312032426
+      }
+    },
+    {
+      "key": "F_TY:(65, -68, 25):up",
+      "centre_mm": [
+        65,
+        -68,
+        25
+      ],
+      "bend_kind": "up",
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 2.8749999999800195
+      }
+    },
+    {
+      "key": "F_TY:(65, -68, 25):inboard",
+      "centre_mm": [
+        65,
+        -68,
+        25
+      ],
+      "bend_kind": "inboard",
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 2.8749999999800195
+      }
+    },
+    {
+      "key": "Monitor5015:(50, 68, 0):False",
+      "centre_mm": [
+        50,
+        68,
+        0
+      ],
+      "vertical": false,
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 0.49999999998006217
+      }
+    },
+    {
+      "key": "Monitor5015:(50, -68, 0):False",
+      "centre_mm": [
+        50,
+        -68,
+        0
+      ],
+      "vertical": false,
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 0.49999999998001954
+      }
+    },
+    {
+      "key": "Monitor5015:(95, 55, 88):True",
+      "centre_mm": [
+        95,
+        55,
+        88
+      ],
+      "vertical": true,
+      "failure": {
+        "part": "Ref_Material_F_L6_CP2_Housing_0_0",
+        "component": "case",
+        "volume_mm3": 539.9999999999997
+      }
+    },
+    {
+      "key": "Monitor5015:(95, 55, 88):False",
+      "centre_mm": [
+        95,
+        55,
+        88
+      ],
+      "vertical": false,
+      "failure": {
+        "part": "Ref_Material_F_L6_CP2_Housing_0_0",
+        "component": "case",
+        "volume_mm3": 149.99999999999983
+      }
+    },
+    {
+      "key": "F_PWM:(60, -76, -20)",
+      "centre_mm": [
+        60,
+        -76,
+        -20
+      ],
+      "failure": {
+        "part": "TorsoEnvelope",
+        "boundary_gap_mm": 1.7999999999800167
+      }
+    }
+  ],
+  "errors": [],
+  "pairs": 1644,
+  "scope": "Actual five templates, provisional cradle/tie/head and BOTH9mm/R12.4departures. All retained tail and sampled36leg poses. Full134routes/other20grips/neck/assembly not qualified.",
+  "factory100mm_usable_is_project_assumption_not_catalogue": true,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.json": "f61a1be4752aa0872b168de1a094ebc1fc633f55968abd02c9e12f1634a7183d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-restraint-world-probe.json": "6152ea7f99306403dfede86e4752cebb391a984a7458c63e2da222306380c8fa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-remaining-selected-inventory.json": "8daf6f493a9c06169840b4bebc284453ec6ee0c9d1acf60721c06903e5d5e218",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-endpoint-packet-r3.json": "85583e07b67c498e1966e5f80722c205a4a53a65efe85e17510077a558e04f04",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-twenty-wago-port-contract.json": "6e951e50f374ea8ad5318b43ddc9017b77de396894a31d58fac84e5f91f5025e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.zip": "68460136b2f5a6afe5c9b276770c20bf5a73b01bae869cf214bb1eee2abf7579",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-restraint-world-probe.zip": "f4eebb23f984997cf68d91651847fe64bcbca16076a3e358adba34d5bc951937",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-remaining-selected-inventory.zip": "942f14000012d61982854a8ec4209927f2cdf4edeec2877ede705f2debb1d2d4",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/central-cassette-envelope/FelineLayoutEnvelope.FCStd": "70b6d563701e7a4fbaaddff9c7fb62103aee75a53a5153eb3f2f27dad8987bdf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
+    "tools/cad/plan_feline_actual_module_bays.py": "6b28c4062a52d2f805283f048529a1a1a36a7c043423adea8c9f7fbfe65f058d",
+    "tools/cad/feline_current_scene.py": "ca5c3d21863e2ae961046c2b552e9e63f25c197c9ba57e75742468ceaff38772"
+  },
+  "wire_OD_mm": 3.1,
+  "hard_clearance_mm": 1.25,
+  "skin_budget_mm": 3.65,
+  "worker_seconds": 173.719,
+  "negative_row_prefixes": [
+    {
+      "endpoint": "D_FL.1",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FL.2",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FL.3",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FL.4",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FL.5",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FR.1",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FR.2",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FR.3",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FR.4",
+      "failure": null
+    },
+    {
+      "endpoint": "D_FR.5",
+      "failure": null
+    },
+    {
+      "endpoint": "FL_P.1",
+      "failure": {
+        "part": "CurrentBUS:BUS_FrameCrossbar",
+        "component": "wire",
+        "gap_mm": 0.13900280360537423
+      }
+    },
+    {
+      "endpoint": "FL_P.2",
+      "failure": {
+        "part": "CurrentBUS:BUS_FrameCrossbar",
+        "component": "wire",
+        "gap_mm": 0.5512449810973549
+      }
+    },
+    {
+      "endpoint": "FL_P.3",
+      "failure": null
+    },
+    {
+      "endpoint": "FL_P.4",
+      "failure": null
+    },
+    {
+      "endpoint": "FL_G.1",
+      "failure": null
+    },
+    {
+      "endpoint": "FL_G.2",
+      "failure": null
+    },
+    {
+      "endpoint": "FL_G.3",
+      "failure": null
+    },
+    {
+      "endpoint": "FL_G.4",
+      "failure": {
+        "part": "End:W067/single/start",
+        "component": "wire",
+        "volume_mm3": 0.02833979946514636
+      }
+    },
+    {
+      "endpoint": "FR_P.1",
+      "failure": {
+        "part": "Ref_Material_P_SYS_new_0_0",
+        "component": "wire",
+        "volume_mm3": 112.2437796023554
+      }
+    },
+    {
+      "endpoint": "FR_P.2",
+      "failure": {
+        "part": "Ref_Material_P_SYS_new_0_0",
+        "component": "wire",
+        "volume_mm3": 112.24377960235108
+      }
+    },
+    {
+      "endpoint": "FR_P.3",
+      "failure": {
+        "part": "Ref_Material_P_SYS_new_0_0",
+        "component": "wire",
+        "volume_mm3": 112.24377932287831
+      }
+    },
+    {
+      "endpoint": "FR_P.4",
+      "failure": null
+    },
+    {
+      "endpoint": "FR_G.2",
+      "failure": null
+    },
+    {
+      "endpoint": "FR_G.3",
+      "failure": null
+    },
+    {
+      "endpoint": "FR_G.4",
+      "failure": {
+        "part": "CurrentBUS:BUS_FrameCrossbar",
+        "component": "wire",
+        "gap_mm": 0.5512449810973549
+      }
+    },
+    {
+      "endpoint": "FR_G.5",
+      "failure": {
+        "part": "CurrentBUS:BUS_FrameCrossbar",
+        "component": "wire",
+        "gap_mm": 0.13900280360537423
+      }
+    },
+    {
+      "endpoint": "G2.1",
+      "failure": null
+    },
+    {
+      "endpoint": "G2.2",
+      "failure": null
+    },
+    {
+      "endpoint": "G2.3",
+      "failure": null
+    },
+    {
+      "endpoint": "G2.4",
+      "failure": null
+    },
+    {
+      "endpoint": "G2.5",
+      "failure": null
+    },
+    {
+      "endpoint": "P_AUX.1",
+      "failure": null
+    },
+    {
+      "endpoint": "P_AUX.2",
+      "failure": null
+    },
+    {
+      "endpoint": "P_AUX.3",
+      "failure": null
+    },
+    {
+      "endpoint": "P_AUX.4",
+      "failure": null
+    },
+    {
+      "endpoint": "G_AUX.1",
+      "failure": null
+    },
+    {
+      "endpoint": "G_AUX.2",
+      "failure": null
+    },
+    {
+      "endpoint": "G_AUX.3",
+      "failure": null
+    },
+    {
+      "endpoint": "G_AUX.4",
+      "failure": null
+    },
+    {
+      "endpoint": "G_AUX.5",
+      "failure": null
+    },
+    {
+      "endpoint": "G_TAIL.1",
+      "failure": {
+        "part": "W078",
+        "component": "wire",
+        "gap_mm": 0.5051604312886738
+      }
+    },
+    {
+      "endpoint": "G_TAIL.3",
+      "failure": {
+        "part": "W078",
+        "component": "wire",
+        "gap_mm": 0.41613068973005635
+      }
+    },
+    {
+      "endpoint": "G_TAIL.4",
+      "failure": {
+        "part": "W078",
+        "component": "wire",
+        "volume_mm3": 3.102071501545127
+      }
+    },
+    {
+      "endpoint": "G_TAIL.5",
+      "failure": {
+        "part": "W078",
+        "component": "wire",
+        "volume_mm3": 15.834490221643353
+      }
+    }
+  ],
+  "changed_case_fit": [
+    {
+      "ref": "D_FL",
+      "failure": null
+    },
+    {
+      "ref": "D_FR",
+      "failure": null
+    },
+    {
+      "ref": "FL_P",
+      "failure": null
+    },
+    {
+      "ref": "FL_G",
+      "failure": null
+    },
+    {
+      "ref": "FR_P",
+      "failure": null
+    },
+    {
+      "ref": "FR_G",
+      "failure": null
+    },
+    {
+      "ref": "G2",
+      "failure": null
+    },
+    {
+      "ref": "P_AUX",
+      "failure": null
+    },
+    {
+      "ref": "G_AUX",
+      "failure": null
+    },
+    {
+      "ref": "G_TAIL",
+      "failure": null
+    }
+  ],
+  "whole_allocation": {},
+  "joint_actual_allocation_found": false,
+  "intermodule_pairs": 0
+}
