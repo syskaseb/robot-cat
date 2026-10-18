@@ -6,6 +6,7 @@ All new geometry is explicitly provisional planning material, not selected.
 """
 import json
 import math
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -16,14 +17,17 @@ from check_main_p0_placement import ROOT,SavedShapes,sha
 from plan_feline_layout import OUT,STAGES
 from check_feline_all_current_lands import near
 from check_feline_leg_body import placement
+from check_feline_shared_space import tube_prefix
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-common-restraint-material.json';assert not dest.exists()
+    coherent='--coherent-retention' in sys.argv
+    tick=time.monotonic();dest=OUT/('n01-common-restraint-material-r2.json' if coherent else 'n01-common-restraint-material.json');assert not dest.exists()
     paths={k:OUT/n for k,n in dict(scene='n01-full-material-scene.json',lower='n01-lower-bay-world-probe.json',
         packet='n01-current-endpoint-packet-r3.json',lands='n01-reconciled-port-contracts-gate.json',
         qualified='n01-reconciled-port-contracts-qualified.json',motion='motion-layout.json').items()}
     p={k:json.loads(f.read_text()) for k,f in paths.items()}
+    prior=json.loads((OUT/'n01-common-restraint-material.json').read_text()) if coherent else None
     report=dict(status='RUNNING_SHARED_RETENTION_MATERIAL',selected=False,N01_complete=False,physical_pass=False,
         native_changed=False,contacts=[],errors=[],outside=[],wall_failures=[],planned_unions=[],
         mating_pairs=[],root_unions=[],pairs=0,poses=[],driver_conflicts=[],parts=[],
@@ -78,6 +82,22 @@ def main():
         for i in axes:aa[i]+=.8;bb[i]-=.8
         band=outer.cut(box(aa,bb));add(name,band,'tie_reservation',o)
         add(name+'Head',box(headlo,headhi),'tie_reservation',o);ties[name]=name+'Head'
+    if coherent:
+        # USB was explicitly rooted in NineWireArmRR. Allocate that WHOLE
+        # first branch around its newly completed cuff/band, not a tiny notch.
+        fn='CurrentBUS:USB_DiagonalArm';end=np.array([132.4304752678421,-71.90814337545011,51.60996202870123])
+        points=[np.array(q) for q in ([105,-36,64],[105,-60,58],[135.5,-60,58],[135.5,end[1],end[2]],end)]
+        def beam(a,b,width):
+            d=b-a;v=np.array([-d[1],d[0],0]);v=v/np.linalg.norm(v);profiles=[]
+            for q in (a,b):
+                vv=[A.Vector(*(q+v*u+[0,0,h])) for u,h in ((-width/2,-1.5),(width/2,-1.5),(width/2,1.5),(-width/2,1.5))]
+                profiles.append(Part.makePolygon(vv+[vv[0]]))
+            return Part.makeLoft(profiles,True,True)
+        s=beam(points[0],points[1],6)
+        for a,b in zip(points[1:],points[2:]):s=s.fuse(beam(a,b,4))
+        for q in points[1:-1]:s=s.fuse(box((q-[3,3,1.5]).tolist(),(q+[3,3,1.5]).tolist()))
+        s=s.removeSplitter();assert len(s.Solids)==1
+        replace(fn,s,'UpperFrame');report['USB_whole_branch_path_mm']=[q.tolist() for q in points]
     # Enlarge only the head budget, not the received24wire seats/loops/routes.
     for n in list(scene):
         if not n.startswith('TieHead:'):continue
@@ -97,6 +117,9 @@ def main():
         if code.startswith('R'):arm=arm.fuse(box([107.5,y-7.35 if y>0 else y+5.35,62.5],[109.5,y-5.35 if y>0 else y+7.35,65.5]))
         if code=='FR':arm=arm.fuse(box([-83,-43,62.5],[-66,-37,65.5]))
         slot=box([(x0+x1)/2-1.45,y-9,z+5.15],[(x0+x1)/2+1.45,y+9,z+6.35])
+        if coherent:
+            for a,b in ((y-8.55,y-7.35),(y+7.35,y+8.55)):
+                arm=arm.cut(box([(x0+x1)/2-1.45,a,z-9],[(x0+x1)/2+1.45,b,z+7]))
         s=s.cut(slot);combined=s.fuse(arm).removeSplitter()
         assert len(combined.Solids)==1,(code,'Cuff has no positive arm connection')
         oldc=scene.pop('StructureReserve:NineWireCuff'+code);meta.pop('StructureReserve:NineWireCuff'+code)
@@ -129,10 +152,11 @@ def main():
     for r in ee:
         x=r['start_mm'][0];cyl=Part.makeCylinder(1.25,11,A.Vector(x,-24,89),A.Vector(0,0,-1))
         s=s.cut(cyl.fuse(box([x-1.25,-29,78],[x+1.25,-24,89])))
-    s=s.cut(box([-50,-26.25,85.35],[-31,-25.05,88.3]))
+    main_shift=-.7 if coherent else 0
+    s=s.cut(box([-50,-26.25,85.35+main_shift],[-31,-25.05,88.3+main_shift]))
     s=s.fuse(box([-49,-22.75,81.3],[-32.4,-17.7,84.3])).removeSplitter();assert len(s.Solids)==1
     replace('MAIN_CommonRelief',s,'UpperFrame')
-    strap('MAINTie',2,86.8,[-53.7,-26.05],[-31.4,-19.75],[-58.5,-26.05,84.8],[-53.5,-21.05,88.8],'MAINTie')
+    strap('MAINTie',2,86.8+main_shift,[-53.7,-26.05],[-31.4,-19.75],[-58.5,-26.05,84.8+main_shift],[-53.5,-21.05,88.8+main_shift],'MAINTie')
     report['root_unions'].append(dict(part='MAIN_CommonRelief',root='StructureReserve:UpperStrip-1'))
     report['geometry_stage']='Shared complete power combs and heads';save()
     # Eight removable inline caps/base shoes. Source-root driver axes allocated
@@ -148,7 +172,8 @@ def main():
         ya,yb=sorted((edge-bias*.25,bolt_y+bias*3.5))
         base=base.fuse(box([x-8.5,ya,-42.2],[x+8.5,yb,b.ZMin]))
         cap_bottom=b.ZMax+.25;cap_top=cap_bottom+2
-        cap=box([b.XMin+1,bolt_y-3.5,cap_bottom],[b.XMax-1,bolt_y+3.5,cap_top])
+        sy0,sy1=(edge-1.25,edge+.75) if bias>0 else (edge-.75,edge+1.25)
+        cap=box([b.XMin+1,sy0,cap_bottom],[b.XMax-1,sy1,cap_top]) if coherent else box([b.XMin+1,bolt_y-3.5,cap_bottom],[b.XMax-1,bolt_y+3.5,cap_top])
         spans=((b.XMin+2,b.XMin+4),(b.XMax-8,b.XMax-6)) if x<0 and abs(y)<25 else ((b.XMin+2,b.XMin+4),(b.XMax-4,b.XMax-2))
         for a,c in spans:
             ca=b.YMin-1.25 if bias>0 else b.YMin-2.75;cb=b.YMax+2.75 if bias>0 else b.YMax+1.25
@@ -156,6 +181,7 @@ def main():
             la,lb=(b.YMin-1.25,b.YMin-.25) if bias>0 else (b.YMax+.25,b.YMax+1.25)
             cap=cap.fuse(box([a,la,b.ZMax-1],[c,lb,cap_bottom+.2]))
         for j,bx in enumerate((x-5,x+5)):
+            if coherent:cap=cap.fuse(box([bx-3.5,min(bolt_y-3.5,sy0),cap_bottom],[bx+3.5,max(bolt_y+3.5,sy1),cap_top]))
             boss=Part.makeCylinder(3.5,cap_bottom+42.2,A.Vector(bx,bolt_y,-42.2));base=base.fuse(boss)
             bore=Part.makeCylinder(1.15,20,A.Vector(bx,bolt_y,-43));base=base.cut(bore);cap=cap.cut(bore)
             pts=[A.Vector(bx+2.4*math.cos(i*math.pi/3),bolt_y+2.4*math.sin(i*math.pi/3),-38.3) for i in range(6)]
@@ -180,15 +206,44 @@ def main():
         for panel in ('ForePanel','RearPanel'):
             pn='LowerBay:'+panel
             if pn in scene:replace(pn,scene[pn].copy(),panel)
-            new[pn]=new[pn].cut(box([station-1.45,b.YMin-1.2,-45],[station+1.45,b.YMax+1.2,-41.8])).removeSplitter()
+            new[pn]=new[pn].cut(box([station-1.45,b.YMin-1.2,-45],[station+1.45,b.YMax+1.2,b.ZMax+1.2 if coherent else -41.8])).removeSplitter()
             assert new[pn].isValid() and len(new[pn].Solids)==1,pn
     # First land cylinders from the CURRENT received contracts, no obsolete
     # axes or collinear power-pair copies. Their restraints are checked too.
     for r in recipes:
         n='Land:'+r['id'];s=Part.makeCylinder(r['radius_mm'],r['straight_mm'],A.Vector(*r['start_mm']),A.Vector(*r['axis']))
         scene[n]=s;meta[n]=dict(kind='current_first_land',role=ends[r['id']]['group'],endpoint=r['id'])
+    if coherent:
+        bp=OUT/'n01-common-backbone-preflight-r4.json';bank=json.loads(bp.read_text());report['source_sha256'][bp.relative_to(ROOT).as_posix()]=sha(bp)
+        report['bank_full_prefixes_added']=[]
+        for row in bank['bend_allocations']:
+            a=np.array(row['start_mm']);v=(np.array(row['end_mm'])-a-row['bend_R_mm']*np.array(row['bend']))/(row['land_mm']+row['bend_R_mm'])
+            n='BankFullPrefix:'+row['id'];s=tube_prefix(a.tolist(),v.tolist(),row['radius_mm'],row['bend'],row['bend_R_mm'],row['land_mm'])
+            add(n,s,'actual_wire',n);report['bank_full_prefixes_added'].append(row['id'])
     bounds={n:s.BoundBox for n,s in {**scene,**new}.items()}
     valid={n:s.isValid() and bool(s.Solids) for n,s in {**scene,**new}.items()}
+    changed=set(new)
+    if coherent:
+        changed={n for n in new if n.startswith(('BundleCuff:FL','BundleCuff:FR','BundleCuff:RR','CurrentBUS:','MAIN_CommonRelief','MAINTie','CaseCap:','LowerBay:','BankFullPrefix:'))}
+        previous={r['name']:r for r in prior['parts']}
+        for n in set(new)-changed:
+            b=bounds[n];bb=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
+            assert np.max(np.abs(np.array(bb)-previous[n]['bounds_mm']))<1e-5,n
+            assert abs(new[n].Volume-previous[n]['volume_mm3'])<1e-4,n
+        report['unchanged_material_receipt_reused']=dict(source='n01-common-restraint-material.json',sha256=sha(OUT/'n01-common-restraint-material.json'),unchanged_parts=len(new)-len(changed),changed_parts=sorted(changed))
+        report['prior_unchanged_contacts_classified_as_owned_print_unions']=[]
+        for row in prior['contacts']:
+            a,b=row['a'],row['b']
+            if a in changed or b in changed:continue
+            # Preserve negative observations. Reuse is allowed ONLY when the
+            # exact pair is demonstrably the same planned printed owner.
+            assert a in new and kind[a]=='frame_reservation',(a,b,'Unchanged unresolved contact')
+            same=b in new and kind[b]=='frame_reservation' and owner[a]==owner[b]
+            old=b in meta and (meta[b].get('owner')==owner[a] and meta[b]['kind'] in ('seat_reservation','frame_reservation','load_root_reservation') or owner[a]=='UpperFrame' and b.startswith('StructureReserve:'))
+            assert same or old,(a,b,'Cannot turn unchanged failure into clearance')
+            report['prior_unchanged_contacts_classified_as_owned_print_unions'].append(row)
+        report['assembly_sequence_change']='Cut2labelled replaceableW026/W037 factory-joint ties before8lower root drivers. Two lower panels are tethered; full disconnection list still OPEN, not independent removal proof.'
+        report['service_tie_replacements_candidate']=2
     def same_tie(a,b):return a in ties and ties[a]==b or b in ties and ties[b]==a
     def printed(k):return k in ('frame_reservation','cap_reservation')
     def check(n,s,m,t,pose=None):
@@ -199,25 +254,34 @@ def main():
         if c.Volume<=1e-5:return
         row=dict(a=n,b=m,pose=pose,volume_mm3=c.Volume)
         if pose is None:
+            if coherent and n.startswith('BankFullPrefix:') and m=='Land:'+n.removeprefix('BankFullPrefix:'):
+                report['mating_pairs'].append(row);return
             if same_tie(n,m) or m in new and kind[n]==kind[m]=='hardware' and owner[n]==owner[m]:report['mating_pairs'].append(row);return
             if m in new and kind[n]==kind[m]=='frame_reservation' and owner[n]==owner[m]:report['planned_unions'].append(row);return
             if m in scene and meta[m].get('role')=='ScaffoldPlanning' and kind[n]=='frame_reservation' and owner[n]=='UpperFrame':report['planned_unions'].append(row);return
+            if coherent and m in scene and kind[n]=='frame_reservation':
+                oldkind=meta[m]['kind'];oldowner=meta[m].get('owner')
+                if oldowner==owner[n] and oldkind in ('seat_reservation','frame_reservation','load_root_reservation') or owner[n]=='UpperFrame' and m.startswith('StructureReserve:'):
+                    report['planned_unions'].append(row);return
             if m.startswith('TieLoop:') and n.startswith('TieHead:') and n.removeprefix('TieHead:')==m.removeprefix('TieLoop:'):report['mating_pairs'].append(row);return
         report['contacts'].append(row)
     try:
         save()
         for n,s in new.items():
+            if n not in changed:continue
             for m,t in scene.items():
                 if meta[m].get('role','').startswith('leg:'):continue
                 check(n,s,m,t)
         for i,(n,s) in enumerate(new.items()):
-            for m,t in list(new.items())[i+1:]:check(n,s,m,t)
+            for m,t in list(new.items())[i+1:]:
+                if n in changed or m in changed:check(n,s,m,t)
         # Full eight assembly driver cylinders. Deep inline cap service is
         # intentionally performed after whole lower panel removal on bench.
         for x in (-80,-70,112,122):
             for y in (-22.5,22.5):
                 tool=Part.makeCylinder(3,43,A.Vector(x,y,-48))
                 for n,s in new.items():
+                    if coherent and n in ('TieHead:Seat:W026:factory:1','TieHead:Seat:W037:factory:1'):continue
                     if not tool.BoundBox.intersect(bounds[n]):continue
                     gate();c=tool.common(s);assert c.isNull() or c.isValid()
                     if c.Volume>1e-5:report['driver_conflicts'].append(dict(axis_mm=[x,y],part=n,volume_mm3=c.Volume))
