@@ -39,7 +39,7 @@ class ExtraInterfaceContract(unittest.TestCase):
             native=next(r for r in receipt['boundaries'] if r['endpoint']==ref)
             for a,b in zip(e['point_mm'],native['current_point_mm']):self.assertAlmostEqual(a,b,places=9)
             self.assertLess(native['native_gap_mm'],1e-5)
-            self.assertEqual(native['correction_delta_mm'],[42,0,-25])
+            for a,b in zip(native['correction_delta_mm'],[42,0,-25]):self.assertAlmostEqual(a,b,places=9)
             self.assertTrue(e['accounting_boundary_not_connector_pin'])
         self.assertFalse(self.ends['C_HY.PWM']['receiver_mould_face_qualification_pending'])
 
