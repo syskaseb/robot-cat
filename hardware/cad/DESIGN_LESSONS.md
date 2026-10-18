@@ -1,5 +1,32 @@
 # Wnioski z projektowania 3D robot-cat
 
+18.10, wejście wymiarowe przed następną geometrią: FHAC miał w wybranym
+szablonie51×20,25×22mm, nie założone15,5mm przekroju. Monitor41×25×12,
+nie21×15×4. Przekrój po obrocie liczyć z pełnego źródła. Źródło oznaczone
+supplier815revCpad jest punktem lutowniczym, nie wyjściem płaszcza przewodu.
+Najpierw PAD→bare/izolacja→jacket/grip i źródłoweOD/R, potem trasa. Błąd
+semantyki nie jest usuwany przesunięciem płytki ani kolejnym mocowaniem.
+Po odejściu od przedniegoPi nie dziedziczyć automatycznie Head+35.
+
+18.10, wspólne właścicielstwo: nie próbować trzeciej pozycji samegoPi,
+gdy oba odrzucenia wskazują PWM/pełne złącza i kanały MAIN. Alokować
+Pi/PWM/WSZYSTKIE20stacji z fabrycznymi końcami równocześnie. Zachowana
+belka z wyciętym kanałem nie może zostać zastąpiona pełnym prostopadłościanem.
+Odwrócone śruby/nakrętki wymagają ponownego stosu i spacerów, nie tylko
+braku kolizji. Sleeve20mm z14mm przed końcem factory wymaga co najmniej
+14mm prostej PO łuku; wcześniejsze10mm zostawiało4mm na łuku.
+
+18.10, ramy źródeł: nie wyciągać układu z nazwy folderu. Wybrane W3yaw
+GUIDE już miały CP2SHIFT, tak jak zapisane W2local. Dodanie go drugi raz
+dało błąd(−42,0,+25)mm i pozorny problem odbiornika. Przed transformacją
+porównać punkt z zapisanym natywnym sąsiadem i przypiętym boundary-check;
+test z samą wpisaną na sztywno współrzędną nie weryfikuje jej pochodzenia.
+Granica ciągłego przewodu nie wymaga wymyślonego złącza ani ściany wtyku.
+Przy ruchu całej głowy jej zachowane lokale jadą w tej samej grupie rigid;
+nie powtarzać jej styków własnych. W bramce powietrznego prześwitu dokładny
+dystans odrzuca konflikt bez kosztownego common; zerowy dystans nie jest
+automatycznie dowodem dodatniej objętości kolizji. Zapisywać ukończone pary.
+
 18.10, N01: analiza całych fabrycznych przewodów i zakończeń PRZED szkieletem.
 Samo rozmieszczenie oprawek/płytek i bezkontaktowy wspornik nie stanowią
 wspólnego układu. F_PI/P_SYS/MAIN/splice analizować jako jeden tor, z obiema

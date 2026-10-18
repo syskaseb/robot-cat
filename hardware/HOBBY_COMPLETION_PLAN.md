@@ -2,6 +2,80 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+13:57:12Z:30282331 zachowuje odbiór65868:27,422s/106par,
+23raporty braku prześwitu nominalnych źródłowych brył i25holdów rezerwacji,
+0błędów/0holdów błędnegoBUS w tym zmienionym zakresie. To NIE23zmierzone
+kolizje sprzętu;7raportów PCA dotyczy punktów lutowniczych na własnymPCB,
+których nie wolno pomylić z ustami izolowanego przewodu. Worker zakończony.
+Kontrakt rzeczywistych źródeł odebrany0,042s/3testy0,043s: FHAC ma
+51×20,25×22mm (po pionowym obrocie22×20,25×51), nie15,5przekroju.
+Monitor ma41×25×12mm.7PCA to supplier815revCpad:3sygnałyAdafruit1446
+OD0,8/R0,5 oraz4logiczneOD1,4/R6lub10 wg wybranego E1, dane PROJEKTOWE,
+nie gwarancje producenta. To konkretna poprawa wejścia, nie nowy punkt.
+Aktualny n01-coupled-allocation-plan.json REV3 zastępuje odrzucone pozycje:
+cienkie wY stacje ze slotami pionowo/na zewnątrz,3FHAC z powrotem do
+outboard rodziny (pełne14mm po łuku+chwyt początkowy9), PWM pionowo na
+ujemnym boku z jawnie formowanymi zakończeniamiPAD→bare→izolacja→jacket,
+monitor pionowo nisko. Pi zachowane; pełny fabrycznyUSB500 musi być
+rozwiązany ze WSPÓLNYMI oboma wyjściami, nie zamrożonymi doglegami.
+Nie uruchamiać starego builderaREV2 na nowym planie. Najpierw kontrakt
+końców/radiusów, wspólna trasaUSB/korytarze/narzędzia/zajęte kotwy, potem
+JEDEN makrosnapshot i zmienione bramki, bez detaliN03 przedN01.
+Wycofano poprzednie prostokątne galerie przyY±36,15: niekwalifikowane
+względem prawdziwych bocznych płytP0; bbox nie dowodzi kolizji ani wolnej
+przestrzeni. Header+35 też nie jest wyborem, po odejściu odPi z przodu
+wrócić do bazowej pozycji głowy, jeśli nowy rzeczywisty blok nie wymaga inaczej.
+N01 nadal0/10; historyczne20/20 nominalnego otwartego prototypu osobno.
+Do odczytu13:57:12 upłynęło1h04m27s tej kontynuacji i4h59m11s OKNA,
+nie ciągłej pracyCPU. Hook aktywny do22Warszawy, etap niewykonany.
+Błąd dyscypliny: odczyty13:30:41→13:46:35 miały15m54 przerwy,
+zapis odczytu odświeżony dopiero13:52:37. Obecnie odczyt i zapis atomowo.
+
+Checkpoint a6d0ff10: źródłowy kontrakt typów/wymiarów i aktualny planREV3
+zapisane lokalnie.8testów planu0,003s i3testy źródeł0,043s. Ważne:
+zielony test przewodów30282331 dotyczy WYŁĄCZNIE starego clocked snapshotu,
+NIE przyszłej geometriiREV3. Nie odziedziczyć go po nowym ustawieniu stacji.
+Najbliższy checkpoint: wspólne poprawne wejście (PAD/bare/jacket, pełnyUSB,
+rzeczywiste kotwy/korytarze i nominalny dostęp) oraz jeden wspólny snapshot.
+Budżet1–2h niska pewność, nie obietnica zamknięciaN01/całego zakresu.
+
+13:30:41Z: aktualny wspólny clocked snapshot ma11zmienionych i379surowych
+BRep bez zmian;3,062s. Wspólne centrumPiPower gap7e−15mm. Dokładny
+odbiór pierwszych przewodów/chwytów1,625s:4nowe pary+36identycznych
+dobrych reused,0konfliktów/0błędów. ZAMKNIĘTY TYLKO ten zakres wzajemny,
+nie cała wiązka aniN01. Następna bramka:390części vs868zachowanych,
+oddzielić prawdziwe bryły od rezerwacji; komponenty własne/stosy/narzędzia/
+kotwy/pełne korytarze/ruch/ściany nadalOPEN. Nie powtarzać źródłowych par
+głowy/ogona. Head+35 to odziedziczona propozycja przedniegoPi, nie wybór
+użytkownika; po zmianiePi na centralne nie utrzymywać jej bez przyczyny.
+N01=0/10.17%użyte/83%pozostałe, bez resetu. Do tego odczytu37m56s
+bieżącej kontynuacji;4h32m40s całego OKNA (nie ciągłej pracyCPU).
+
+13:26:10Z:94d19498 odebrany:190zmienionych/200BRep byte-reused w3,593s;
+nowa bramka1,672s/4nowe pary/36dobrych niezmienionych reused/2konflikty.
+Wachlarze WSZYSTKICH19przeniesionych stacji nie mają konfliktów własnych;
+zostały PiPower łuki między sobą iFHY.in-factory vsUSBA. Nie ma pełnego
+PASS świata aniN01. Po dwóch odrzuceniach NIE trzecie przesunięcie końca:
+NOWA topologiaPiPower: koncentryczneR15,9/R12,4 w rzeczywistej skośnej
+płaszczyźnie skoku ust3,5mm, wspólne centrum. Pełne FHY obrócić180°
+wokół jego osi długiej, wyjścia na GÓRĘ; datumZ98,75 daje usta99,75
+wobecUSB~95 (2+2,5+0,25mm budżetu). To zmiana strony wyjścia komponentu,
+nie uznanie starego brzegu za katalogowy. Zachować379niezmienionychBRep
+i ich dobre pary;8testów tanich0,003s, CADpending.16%użyte/84%pozostałe.
+
+13:21:11Z: a78fb036 zapisuje wspólny snapshot390nowych/868zachowanych
+referencji w17,641s. Prefirst-wire6,329s/348par/127braków prześwitu,
+0błędów: przede wszystkim dolne chwyty współliniowe wzdłuż skoku portów,
+P_AUX i dwa końcePiPower;1cross FHY.in-USBA. NIE uruchomiono pełnej
+bramki świata/ruchu. Następna zmiana dotyczy wspólnej RODZINY wachlarzy,
+nie pozycjiPi: płaszczyznaDOWN prostopadła do skoku portów; grubsze profile
+4,2mm kontra4,75pitch; korpusy po rzeczywistej szerokości z wewnętrzną
+ścianą|Y|52mm; PiPower pełne łuki przesunięte wzdłuż osi9/13mm; FHY.in
+3mm przed łukiem i23mm po nim (9mmfactorygrip+14mmprzedsleeve).
+8tanich testów0,003s; geometria nadal pending. Zachować niezmienione
+surowe BRep i ukończone dobre pary; nie powtarzać całego390snapshotu.
+N01 nadal0/10.16%użyte/84%pozostałe. Hook pozostaje włączony do22.
+
 Checkpoint3d898df6: wspólny rejestr i JEDEN plan całej alokacji zapisany;
 5testów kontraktów w0,003s, nie testów CAD.4769beab zachowuje wcześniejsze
 odrzucenia. Następny krok to wspólny snapshot/bramka z tego planu, nie nowa
