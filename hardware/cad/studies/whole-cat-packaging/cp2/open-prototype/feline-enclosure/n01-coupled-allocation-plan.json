@@ -4,21 +4,29 @@
   "N01_complete":false,
   "physical_pass":false,
   "source_map":"n01-whole-constraint-map.json",
+  "profile_revision":1,
+  "profile_revision_basis":"a78fb036 frozen390snapshot:348wire pairs/127failures/6.329s. Root cause lower fans turning ALONG slot pitch and collinear after9mm grips; no world gate launched.",
+  "WAGO_case_inner_face_abs_Y_mm":52,
+  "WAGO_uniform_conservative_jacket_radius_mm":2.1,
+  "WAGO_radius_budget_not_a_manufacturer_dimension":true,
+  "WAGO_family_rule":"All downward plane fans perpendicular to slot pitch. Max4.2mm diameter vs min4.75pitch leaves0.55mm nominal self-gap; not a full world clearance claim. Actual case widths determine centreY=52+halfwidth, no arbitrary same centre for30/37mm bodies.",
+  "PiPower_first_straights_mm":{"W079":9,"W080":13},
+  "PiPower_family_rule":"Stagger the complete bends by4mm along exit axis; do not put two after9mm lands on the same line. Selected two mouth points unchanged.",
   "reason":"Two central Pi hypotheses failed because PWM/full MAIN channels and whole station fans were not allocated jointly. No third isolated Pi retry.",
   "Pi":{"source_PCB_bottom_target_mm":[50,0,85],"rotation_order":"Rz180 * Rx-12","include":"All official ports, selected Delock60047/K1474, occupied1992, full Lanberg mould and firstR30, GPIO R10+after9mm grips","microSD_gap_budget":"Previous minimum0.5266mm +1mm shared stack datum =1.5266mm, verify exact again","nominal_max_GPIO_Z_mm":108.51804794110525,"mount_stack":"Do not accept flipped floating nuts. Proposed same14mm overall screw geometry with four6.2mm PETG ABOVE-PCB spacers to nut plane; holes410/412 also require exact1mm opposite-face interposer. Source stack and same-hardware tool/access must be explicitly checked. No native stack is accepted."},
   "PWM9685":{"whole_current_group_delta_mm":[-5,-28,-80],"purpose":"Lower fore bay outside battery carrier, vacate fore USB-Cable budget","all7_extra_ends_and_all_current_power_mates_must_move_or_be_rerouted":true,"source_header_and_mating_budget_required":true},
   "P_SYS":"Keep current source case and W043/W077/W078 unchanged where possible",
   "WAGO_station_rows":[
-    {"side":-1,"Y_mm":-60,"Z_mm":42,"refs":["G_TAIL","G_AUX","P_AUX","G2","FL_P"],"centres_X_mm":[-91,-43,5,53,101],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0.6,-0.8]},
-    {"side":1,"Y_mm":60,"Z_mm":42,"refs":["D_FL","FL_G","FR_P","D_FR","FR_G"],"centres_X_mm":[-71,-31,9,49,89],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,-0.6,-0.8]},
-    {"side":-1,"Y_mm":-60,"Z_mm":16,"refs":["P_REAR","P_FRONT","RL_G","D_RL","RL_P"],"centres_X_mm":[-91,-43,5,53,101],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,1,0]},
-    {"side":1,"Y_mm":60,"Z_mm":16,"refs":["G1","RR_G","D_RR","RR_P"],"centres_X_mm":[-71,-31,9,49],"departure_X_signs":[-1,-1,1,1],"bend_unit_mm":[0,-1,0]}
+    {"side":-1,"Y_mm":-67,"Z_mm":42,"refs":["G_TAIL","G_AUX","P_AUX","G2","FL_P"],"centres_X_mm":[-91,-43,5,53,101],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0,-1]},
+    {"side":1,"Y_mm":67,"Z_mm":42,"refs":["D_FL","FL_G","FR_P","D_FR","FR_G"],"centres_X_mm":[-71,-31,9,49,89],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0,-1]},
+    {"side":-1,"Y_mm":-67,"Z_mm":16,"refs":["P_REAR","P_FRONT","RL_G","D_RL","RL_P"],"centres_X_mm":[-91,-43,5,53,101],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0,-1]},
+    {"side":1,"Y_mm":67,"Z_mm":16,"refs":["G1","RR_G","D_RR","RR_P"],"centres_X_mm":[-71,-31,9,49],"departure_X_signs":[-1,-1,1,1],"bend_unit_mm":[0,0,-1]}
   ],
   "WAGO_first_profile":{"first_straight_mm":3,"R_mm":12.4,"after_turn_independent_grip_mm":9,"first_straight_is_project_fit_assumption":true,"use_actual_prototype_pitches_and_all86_occupied_cavities":true,"physical_map_already_applied_once":true,"orientation":"Use proper source/target bases: slot axis + departure + thickness; keep actual lever face UP, not a reflection or second logical cavity remap","large615_lower_cases":"Fore negative P_REAR/P_FRONT and fore positive G1; long inward fan stays fore of battery. P_SYS remains fixed."},
   "FHAC":[
     {"role":"F_TY","centre_mm":[-24,-43,25],"source_axis_X_rotated_to":"-Z","upper_factory_first_mm":25.35,"upper_factory_after_arc_mm":23,"upper_factory_grip":"First9mm after arc, before sleeve14mm","upper_bend_unit":[0,1,0],"upper_arc_finish_Z_mm":88.25,"lower_factory_first_mm":9,"lower_factory_grip":"Initial9mm before arc","lower_bend_unit":[0,-1,0]},
     {"role":"F_HP","centre_mm":[-12,43,25],"source_axis_X_rotated_to":"-Z","upper_factory_first_mm":31.6,"upper_factory_after_arc_mm":23,"upper_factory_grip":"First9mm after arc, before sleeve14mm","upper_bend_unit":[0,-1,0],"upper_arc_finish_Z_mm":94.5,"lower_factory_first_mm":9,"lower_factory_grip":"Initial9mm before arc","lower_bend_unit":[0,1,0]},
-    {"role":"F_HY","centre_mm":[-65,-22,97.5],"source_axis_X_rotated_to":"+Y","both_factory_first_mm":9,"both_factory_grip":"Initial9mm before arc","outward_bend_unit":[1,0,0],"inward_bend_unit":[-1,0,0]}
+    {"role":"F_HY","centre_mm":[-65,-22,97.5],"source_axis_X_rotated_to":"+Y","both_factory_first_mm":9,"both_factory_grip":"Outward initial9; inward after-arc9 before sleeve14","inward_factory_first_mm":3,"inward_factory_after_arc_mm":23,"outward_bend_unit":[1,0,0],"inward_bend_unit":[-1,0,0]}
   ],
   "FHAC_full_joint":{"factory_after_arc_straight_mm":14,"factory_inside_case_allowance_mm":3,"lap_mm":8,"sleeve_mm":20,"sleeve_before_factory_tip_mm":14,"sleeve_after_factory_tip_mm":6,"custom_grip_relative_factory_tip_mm":[9,18],"factory100mm_is_unconfirmed_delivery_assumption":true,"reason":"Prior10mm factory land is shorter than14mm straight sleeve budget; do not sleeve over4mm of a bend. Model both sides fully."},
   "structural_budget":{"MAIN":"REUSE actual saved cut UpperStrip-1 fore portion, never refill a solid box through MAIN_CommonRelief/W078/ties","portals":"Connected side load paths atY+-32 must be jointly assigned to actual free post/rail interfaces; prior generic cap and unnamed Post laps rejected","BankBed":"Named6.5mm factory pass-throughs may be planned in PETG bed, not purchased housing; check full preserved functional clip/ATO interfaces","Pi_carrier":"Above-PCB spacer paths must avoid full GPIO/USB port budgets. No fastener-stack approval from world gaps alone."},
