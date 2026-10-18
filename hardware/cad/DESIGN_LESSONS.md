@@ -1,5 +1,30 @@
 # Wnioski z projektowania 3D robot-cat
 
+18.10, N01: analiza całych fabrycznych przewodów i zakończeń PRZED szkieletem.
+Samo rozmieszczenie oprawek/płytek i bezkontaktowy wspornik nie stanowią
+wspólnego układu. F_PI/P_SYS/MAIN/splice analizować jako jeden tor, z obiema
+stronami oprawki, termokurczem20mm, bare overlap8mm i dwoma9mm chwytami
+POZA termokurczem. Odległość prosta jest dolną granicą, nie trasą.
+Cztery pozorne kandydaty przeszły tę granicę i rozłączne obwiednie, lecz
+odpadły już na kierunkach/R6/końcach, bez kolejnej operacji CAD.
+
+Nie wstawiać generycznych słupków przez istniejące nakrętki i podkładki.
+Najpierw ich rzeczywiste poziomy, potem jeden nośnik z drogą do ramy.
+Czysty test kolizji nie wykrywa braku połączenia: most nad szyną wymaga
+korzenia, a celowy kontakt z podporą wymaga faktycznego osprzętu.
+
+Kierunek starego prefiksu może być sprzed motion_receiving_changes, gdy
+punkt jest już w nowym native. Przeliczać te ramy osobno, raz. Dawny GUIDE
+nie jest automatycznie pinem ani wyjściem wtyku producenta; BUS H5 mówi
+to wprost. Zachować źródło i bramkę, nie dopisywać nowej pewności.
+
+Pamiętać obwiednie stałych brył w pętli par. W tym bloku10pozycji zajęło
+183s; po wznowieniu z cache pozostałe39 wraz z odczytem trwało99,859s,
+bez ponownego sprawdzania gotowych10. Dodatkowe pozycje poza przyjętymi
+0..35 opisywać oddzielnie; nie rozszerzać z nich po cichu zakresu kładzenia.
+Nie wszystkie9mm chwyty są przy ustach złącza: zatwierdzona recepta może
+mieć chwyt na prostej PO łuku. Pełną rezerwację przenosić wraz z nim.
+
 15.10: etykieta `Band` nie dowodzi kontaktu główki opaski. Najpierw
 rozdzielić pętlę/główkę i wskazać rzeczywistą parę; w CP2 kontakt był
 w pętli, więc zmiana strony zamknięcia nie mogła pomóc. Limit pozycji

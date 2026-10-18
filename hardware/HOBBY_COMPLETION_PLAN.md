@@ -1,5 +1,90 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Aktywny blok N01,18.10.2026
+
+Zgoda: wdrożyć wyłącznie wspólny plan N01, bez szczegółowej budowyN02/N03.
+Start00:14:43Z (02:14:43Warszawy), koniec najpóźniej01:44:43Z.
+Budżet konta: start0%użyte; stop przy>=5%użyte, braku odczytu albo terminie.
+Odczyt00:15:50Z:1%użyte/99%pozostałe; bez resetu. Hookfalse, worker=null.
+WykonawcaSolHigh; jeden ograniczony przegląd gotowej propozycjiAstraHigh,
+maks15min w tym samym oknie. Ustawień bieżącego modelu nie zmieniamy.
+Znane blokery: pełne9mm końceW044/W052 vs podpory, zajęte kotwy szkieletu,
+38nieprzypisanych granic, niepoprawne ściany skóry/przejściaS1 i ogona.
+N01 wymaga jednego wykonalnego wspólnego układu wszystkich grup/obu stron4MTA,
+wolnych kotew/retencji/narzędzi/ścian i sekwencji montażu, z wyeliminowaniem
+znanych blokad przed detalami. Nie wybieramy nowych typów złączy.
+Lokalny test nie daje punktu; aktualnie0/10=0%nowego zakresu. Historyczny
+prototyp i pliki źródłowe zachowane. Stop poN01 albo granicy czasu/budżetu.
+
+O00:40:16Z limit2%użyte/98%pozostałe. R5dolnej strefy: nowe6grup,
+pełne wymagane9mm końce i fabryczne trasyW044/W05260,74mm bez kontaktów
+w zakresie statycznym;100mm fabrycznej żyły nadal założenie. Cztery
+rzeczywiste styki zacisków z ramą~65mm2 każdy. Dwie propozycje konstrukcji
+odrzucone przed nativeCAD; nie wybierano ich, nie budowano detaliN02/N03.
+PrzeglądAstraHigh zakończony: brak pełnego mocowania głowy, kolejności
+demontażu i38alokacji/pełnych odciążeń; korekta19osi=14górnych+5dolnych.
+Obecny wspólny plan zmienia stos pionowy: elektronika poniżej końcówek
+banku, pełne chwyty w budżecie od początku, trójkątne wsporniki szyi do
+przednich podpór. Jeden worker session90990/PID23248, bez duplikatu;
+limit lokalnej operacji240s. Hook pozostajeOFF, licznik0/10 bez zmiany.
+
+O00:52:03Z: pierwszy odzyskiwalny wspólny ekran płaskiego banku,
+73,750s pracy workera, commit e39c8a9.12identycznych oprawek/24TE,
+rozstaw24mm z pełnego lokalnego obrysu21,8486mm, ATO wyjmowane przezboki.
+48części,24rezerwacje całych9mm chwytów i12ciągłych konserwatywnych
+obwiedni wyjęcia ATO bez konfliktów; wystarczyły rozłączne obwiednie
+geometrii świata,0par wymagającychBOP. Narzędzie25x12 projektowe,
+nie pomiar/katalog. Brak nativeCAD i wybranego eksportu. Nie jest toN01,
+nie cała wiązka/retencja/ruch ani fizycznyPASS. Licznik nadal0/10.
+Integralność15źródeł tego ekranu iR5 oraz składnia2własnych narzędzi
+sprawdzone bez ponownego liczenia geometrii. Baza/tag/wybrane części zachowane.
+Worker CAD zakończony; Git po commicie uruchomił własny automatyczny repack,
+nie ręczne kasowanie ani nowy worker CAD. Ten NEXT został wykonany w zakresie
+opisanym poniżej; nie wracać do starej wersji podpór.
+
+O01:37:15Z: limit4%użyte/96%pozostałe, bez resetu; hookOFF, worker=null.
+Wspólny ekran `n01-common-backbone-preflight-r4.json`: konstrukcja/14górnych
+i5dolnych osi mocowań,24pierwsze łuki banku oraz38nowych granic. Przyjęte
+36pozycji0..35 bez kontaktów nowych podpór z nogami. Dodatkowe13pozycji
+36..48 nie rozszerzają przyjętego zakresu:4kontakty dwóch par szyja/biodra
+w pozycjach45/46 zachowane w raporcie. Nie jest to pełny ruch/wiązka/PASS.
+10gotowych pozycji odebrano przed optymalizacją pamięci obwiedni; wznowienie
+bez ich powtarzania:99,859s, łączny zmierzony czas tych dwóch workerów282,906s.
+
+`n01-complete-end-allocation.json`:178unikalnych tożsamości/80sieci/89porcji,
+38dawnych luk ma propozycje miejsc. Kierunki wszystkich178 mają receptę,
+ale8to styczne nazwanych dawnych GUIDE, nie pomiary wyjść wtyków producenta.
+Poprawiono osobne przeliczenie kierunków sprzed motion_receiving_changes;
+punktów już w aktualnej ramie nie transformowano ponownie. Przypisanie
+nie dowodzi pełnej trasy/chwytu. W5 i N01 nadal OPEN, nowy licznik0/10.
+
+Wczesne twarde bramki przed kolejnym CAD: W043 wymaga co najmniej89,409mm,
+W077116,770mm już w linii prostej wobec najkrótszego84,5mm przewodu FHAC.
+Przegląd24ortogonalnych orientacji/siatki5mm w9,125s dał4pozorne warianty
+jednego położenia F_PI. Dolna granica z R6/kierunkami/końcami odrzuca WSZYSTKIE:
+wejście>=50,847mm vs projektowe50; wyjście>=100,931mm vs84,5. To wynik
+tej siatki i obecnych P_SYS/splice, nie dowód ogólnej niemożliwości mechanicznej.
+Nie budować tych4wariantów ani nie uruchamiać dla nich testów CAD.
+Metoda obliczeń:5testów czystegoPythona, w tym1000deterministycznych krzywych,
+przeszło w0,031s. Testy matematyki nie są odbiorem fizycznego robota.
+
+Następny krok w N01: JEDEN wspólny tor F_PI/P_SYS/lut16→18/MAIN, obie
+fabryczne strony z84,5mm, izolowany lut20mm RNF i dwa niezależne9mm chwyty
+POZA termokurczem; zachować P0/E6 oraz istniejący jeden K1474. Najpierw
+budżety długości/promieni/wyjść, nie detale. Dołączyć nominalny wtyk BUS:
+GUIDE BUS.D/G Z112,270 jest poza wewnętrznym dachem109,6; referencja H5
+w BUS-port-binding jawnie NIE jest stykiem/wyjściem wtyku. Nie zmieniać
+położenia PCB na podstawie samego dawnego punktu prowadzenia. Potem pełne
+gripy/korytarze całej wiązki, narzędzia/odwrócony montaż i cowl/obrys.
+N01 NIE WYBRANE; nie uruchomiono detaliN02/N03, nie zmieniono nativeCAD.
+
+Wniosek tego bloku: za późno połączono drogi/realny osprzęt ze szkieletem.
+Nie obwiniać modelu ani FreeCAD. Tania bramka całych fabrycznych długości
+i kierunków musi poprzedzać test konstrukcji. Proste słupki zastąpiono
+nośnikami na rzeczywistych poziomach podkładek/nakrętek, zamiast pomijać
+osprzęt. Nie wymagać9mm przy KAŻDYM wyjściu: dopuszczona recepta może
+mieć9mm chwytu po łuku; nie ściskać gołego lutu ani termokurczu.
+
 Następny checkpoint po zamknięciu tego okna, NIE uruchomiony automatycznie:
 uzgodnić jednocześnie dwa blokujące interfejsy RR_G/FL_G z ramionami
 źródeł, opaskami i rzeczywistą wiązką głowy. Nie przebudowywać12 źródeł.
