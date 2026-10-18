@@ -484,15 +484,22 @@ def source_outboard_terminal_gallery():
     proof=json.loads((OUT/'n01-flat20-field-modulejoint.json').read_text())
     datum=json.loads((OUT/'n01-s1-current-source-datums.json').read_text())
     needed=set(proof['bank_terminal_context_parts'])|{'Ref_Material_P0_Side'+s+'22_0_0' for s in ('Left','Right')}
-    rear_bay='--source-rear-bay-budget' in sys.argv
+    fore_outboard='--source-fore-outboard-core' in sys.argv
+    fore_axial='--source-fore-axial-budget' in sys.argv or fore_outboard
+    rear_bay='--source-rear-bay-budget' in sys.argv or fore_axial
     key_up='--source-key-up-budget' in sys.argv or rear_bay
     if key_up:needed|={n for n,r in records.items() if r.get('role')=='P0_or_battery' and 'Battery' in n}
+    if fore_axial:needed|={n for n,r in records.items() if r.get('role')=='P0_or_battery'}
     needed|={r['name'] for r in datum['source_parts']};shapes={}
     with zipfile.ZipFile(bundle) as z:
         for n in needed:
             row=records[n];blob=z.read(row['entry']);assert hashlib.sha256(blob).hexdigest()==row['sha256']
-            s=Part.Shape();s.importBrepFromString(blob.decode());assert s.isValid() and len(s.Solids)==1,n
+            s=Part.Shape();s.importBrepFromString(blob.decode());assert s.isValid() and s.Solids,n
             shapes[n]=s
+    if fore_axial:
+        from plan_feline_central_pi_wedge import packed
+        forefile=OUT/'n01-fore-topology.json';_,foreparts,forerecords=packed(forefile)
+        assert foreparts['ForeFHAC:case'].isValid()
     normal_offset=witness['template']['point_mm'][1]-pose['centre_mm'][1]
     # Outer tangent plane common to all24actual TE terminal bounding extents.
     # This is a valid separating-plane bound, not a claimed contact from bbox.
@@ -504,6 +511,14 @@ def source_outboard_terminal_gallery():
         # whole source90about its key axis to put24mm across the bank's
         # central27.74mm admissible case corridor (2*(15.12-1.25)).
         pose=dict(centre_mm=[60,0,0],rotation_rows=[[0,1,0],[1,0,0],[0,0,-1]])
+    if fore_axial:
+        c=2**-.5
+        # Key points+X under F_PI, whole source case stays ahead of the P0
+        # plate. Rotate its transverse plane45degrees to allocate all4fans
+        # between the true floor and fore body, not one vertical exit.
+        pose=dict(centre_mm=[-110,0,0],rotation_rows=[[0,0,-1],[c,c,0],[c,-c,0]])
+    if fore_outboard:
+        pose=dict(centre_mm=[-99.3,-57.55,0],rotation_rows=[[c,c,0],[0,0,-1],[-c,c,0]])
     body=shapes['Ref_Material_current_S1_body_CP2_0_0']
     rr=A.Rotation(*packet['rotation_quaternion'])
     tf=A.Placement(A.Vector(*packet['centre_mm'])-rr.multVec(body.BoundBox.Center),rr)
@@ -544,6 +559,22 @@ def source_outboard_terminal_gallery():
             z=target_plane_z-plane_offset
             dx=target_x-pose['centre_mm'][0];pose['centre_mm'][0]=target_x
             for s in moved.values():s.translate(A.Vector(dx,0,0))
+        if fore_axial:
+            # Restore the chosen fore bay after the separate rear-bay formula.
+            fore_x=-99.3 if fore_outboard else -110
+            dx=fore_x-pose['centre_mm'][0];pose['centre_mm'][0]=fore_x
+            for s in moved.values():s.translate(A.Vector(dx,0,0))
+            plate_top=shapes['Print_P0_BATTERY_PLATE_R4'].BoundBox.ZMax
+            # ForeFHAC is the F_HY functional group, NOT protected F_PI.
+            fore_fuse_bottom=foreparts['ForeFHAC:case'].BoundBox.ZMin
+            key_radius=shapes['Ref_Material_current_S1_control_CP2_0_0'].BoundBox.XLength/2
+            low=plate_top+1.25+key_radius;high=fore_fuse_bottom-1.25-key_radius
+            assert low<high,'No key corridor between plate and protected F_PI'
+            z=(low+high)/2
+            if fore_outboard:
+                frame_top=max(shapes['Ref_Material_P0_Side'+side+'22_0_0'].BoundBox.ZMax for side in ('Left','Right'))
+                case_half_z=moved['Ref_Material_current_S1_body_CP2_0_0'].BoundBox.ZLength/2
+                z=frame_top+1.25+case_half_z
         pose['centre_mm'][2]=z
         for s in moved.values():s.translate(A.Vector(0,0,z))
     proposal=dict(pose=pose,parent_core_pose_id=parent['core_pose_id'],terminal_min_Y_mm=terminal_min_y,
@@ -557,29 +588,57 @@ def source_outboard_terminal_gallery():
                         actual_source_case_short24_axis_across_bank_gap=True)
         if rear_bay:proposal.update(source_behind_actual_cell=True,grip_sites='AFTER_ARC9',
                                    cell_end_X_mm=cell.XMax,jacket_plane_Z_mm=target_plane_z)
-        previous=result.get('rear_bay_stack_budget' if rear_bay else 'key_up_stack_budget')
+        previous=result.get('fore_outboard_budget' if fore_outboard else 'fore_axial_budget' if fore_axial else 'rear_bay_stack_budget' if rear_bay else 'key_up_stack_budget')
         if previous:
             assert previous['pose']!=pose,'Do not repeat unchanged key-up geometry'
             result.setdefault('key_up_stack_budget_prior_rejections',[]).append(previous)
-    result['rear_bay_stack_budget' if rear_bay else 'key_up_stack_budget' if key_up else 'outboard_terminal_gallery']=proposal
+    if fore_axial:
+        proposal.update(source_key_points_up=False,body_and_ring_plane_horizontal=False,
+                        source_key_axis_toward_positive_X=True,whole_transverse_plane_tilt_degrees=45,
+                        key_corridor_centre_interval_Z_mm=[low,high],key_radius_mm=key_radius,
+                        plate_top_mm=plate_top,actual_F_HY_fore_case_bottom_mm=fore_fuse_bottom,
+                        all_fixed_P0_parts_included=True)
+    if fore_outboard:
+        proposal.update(source_key_axis_toward_positive_X=False,source_key_axis_toward_positive_Y=True,
+                        key_corridor_centre_interval_Z_mm=None,frame_top_mm=frame_top,
+                        case_half_height_mm=case_half_z,height_from_full_frame_not_unsigned_field=True,
+                        first3mm_then_flexible_bend_and_after_arc_grip_PLAN_ONLY=True,
+                        fixed_first12_before_grip_not_a_factory_requirement=True)
+    result['fore_outboard_budget' if fore_outboard else 'fore_axial_budget' if fore_axial else 'rear_bay_stack_budget' if rear_bay else 'key_up_stack_budget' if key_up else 'outboard_terminal_gallery']=proposal
     def save():
         proposal['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     save()
     obstacles={n:shapes[n] for n in needed if n not in moved}
+    if fore_axial:
+        for n,s in foreparts.items():
+            if forerecords[n]['group']=='ForeFHAC':obstacles[n]=s
+        proposal['F_PI_complete_field_owner_checked']=sorted(n for n in foreparts if forerecords[n]['group']=='ForeFHAC')
     for n,s in moved.items():
         assert s.isValid() and s.Solids,n
         for other,t in obstacles.items():
+            if fore_axial:
+                from feline_solid_distance import bbox_lower_bound
+                bound=bbox_lower_bound(s.BoundBox,t.BoundBox)
+                if bound>=1.25-1e-6:
+                    proposal['core_pair_receipts'].append(dict(source=n,obstacle=other,gap_lower_bound_mm=bound,
+                        proof='SEPARATING_BOUND_NOT_CONTACT_VERDICT',required_mm=1.25))
+                    continue
             gap=distance(s,t);volume=None
             if gap<1e-6:
                 common=s.common(t);assert common.isValid();volume=common.Volume
             proposal['core_pair_receipts'].append(dict(source=n,obstacle=other,exact_gap_mm=gap,
                                                        positive_common_mm3=volume,required_mm=1.25))
         save()
-    proposal['core_pair_failures']=[r for r in proposal['core_pair_receipts'] if r['exact_gap_mm']<1.25-1e-6]
+    proposal['core_pair_failures']=[r for r in proposal['core_pair_receipts']
+        if (r['exact_gap_mm'] if 'exact_gap_mm' in r else r['gap_lower_bound_mm'])<1.25-1e-6]
     if proposal['core_pair_failures']:
         proposal['status']='SOURCE_GALLERY_REJECTED_BY_ACTUAL_CORE_PAIR';save()
         print(json.dumps(dict(status=proposal['status'],pose=pose,failures=proposal['core_pair_failures'],seconds=proposal['worker_seconds'])),flush=True);return
+    if fore_outboard:
+        proposal['status']='FORE_OUTBOARD_CRITICAL_CORE_RECEIVED_GLOBAL_GATE_AND_FLEXIBLE_HARNESS_PENDING'
+        save();print(json.dumps(dict(status=proposal['status'],pose=pose,critical_pairs=len(proposal['core_pair_receipts']),
+                                    failures=0,seconds=proposal['worker_seconds'])),flush=True);return
     cm=source_core(packet,pose,sourcepoints,43);val,why=world_score(cm,fields,inside,service)
     proposal['core_numeric_world']=dict(margin_mm=val,layer=why)
     for recipe in packet['recipes']:
@@ -758,6 +817,220 @@ def source_resume_rear_fans():
                                 domains={k:len(v) for k,v in p['fan_domains'].items()})),flush=True)
 
 
+def source_exact_core_gate():
+    """Actual complete source vs ALL fixed owners before another fan family.
+
+    Reuses43received poses; unsigned surface fields are not interior tests.
+    Bbox is only a rigorous separating bound; overlap receives actual solids.
+    Completed pose and exact pair receipts survive bounded worker exits.
+    """
+    import hashlib
+    import itertools
+    import zipfile
+    import FreeCAD as A
+    import Part
+    from feline_current_candidate_scene import current
+    from plan_feline_central_pi_wedge import packed
+    from feline_solid_distance import distance,bbox_lower_bound
+    tick=time.monotonic()
+    dest=OUT/'n01-source-saddles-whole-joint.json';result=json.loads(dest.read_text())
+    packetpath=OUT/'n01-intrinsic-s1-whole-pose.json';packet=json.loads(packetpath.read_text())
+    datumpath=OUT/'n01-s1-current-source-datums.json';datum=json.loads(datumpath.read_text())
+    materialpath=OUT/'n01-full-material-scene.json';material=json.loads(materialpath.read_text())
+    bundle=ROOT/material['bundle'];assert sha(bundle)==material['bundle_sha256']
+    records={r['name']:r for r in material['parts']};original={}
+    with zipfile.ZipFile(bundle) as z:
+        for row in datum['source_parts']:
+            n=row['name'];r=records[n];blob=z.read(r['entry']);assert hashlib.sha256(blob).hexdigest()==r['sha256']
+            s=Part.Shape();s.importBrepFromString(blob.decode());assert s.isValid() and s.Solids
+            original[n]=s
+    body=original['Ref_Material_current_S1_body_CP2_0_0'];rr=A.Rotation(*packet['rotation_quaternion'])
+    tf=A.Placement(A.Vector(*packet['centre_mm'])-rr.multVec(body.BoundBox.Center),rr)
+    base={}
+    for n,s0 in original.items():
+        s=s0.copy();s.Placement=tf*s.Placement;base[n]=s
+    recipes={r['ref']:r for r in packet['recipes']}
+    for r in datum['receipts']:
+        n=r['matching_nominal_source_planes'][0]['part'];number=int(n.split('_ring_')[1].split('_')[0])
+        screw=original[f'Ref_Material_current_S1_screw_{number}_0_0']
+        q,d=(A.Vector(*r[k]) for k in ('source_point_mm','source_departure'))
+        eye=A.Vector(screw.BoundBox.Center.x,q.y,screw.BoundBox.Center.z)
+        target=rr.inverted().multVec(A.Vector(*recipes[r['endpoint']]['departure_axis']))
+        cr=A.Rotation(A.Vector(0,1,0),math.degrees(math.atan2(d.z,d.x)-math.atan2(target.z,target.x)))
+        clock=A.Placement(eye-cr.multVec(eye),cr)
+        s=original[n].copy();s.Placement=tf*clock*s.Placement;base[n]=s
+    if '--source-hard-motion' in sys.argv:
+        source_hard_motion_receiver(base,packet,result,
+            {p.relative_to(ROOT).as_posix():sha(p) for p in (packetpath,datumpath,materialpath,bundle)},tick)
+        return
+    scene,meta,_,pins,bus,*_=current()
+    proofpath=OUT/'n01-flat20-field-modulejoint.json';proof=json.loads(proofpath.read_text())
+    for file,groups in (('n01-fore-service-macro.json',{'F_HP','F_TY'}),('n01-fore-topology.json',{'ForeFHAC'})):
+        _,extra,rows=packed(OUT/file)
+        for n,s in extra.items():
+            if rows[n]['group'] in groups:scene[n]=s;meta[n]=rows[n]
+        pins[(OUT/file).relative_to(ROOT).as_posix()]=sha(OUT/file)
+    fixednames={r['source'] for r in proof['material_clouds'] if r['category']!='S1_mating_context'}
+    assert not fixednames-set(scene),fixednames-set(scene)
+    categories={r['source']:r['category'] for r in proof['material_clouds']}
+    # Hard retained P0/purchased components before mutable planning budgets.
+    def priority(n):
+        r=meta.get(n,{})
+        return ('reservation' in categories[n] or 'budget' in n.lower() or r.get('kind')=='reservation',
+                not (r.get('role')=='P0_or_battery' or 'Ref_Material_P0_' in n),n)
+    fixed=sorted(fixednames,key=priority)
+    layoutpath=OUT/'n01-s1-saddle-layout.json';layout=json.loads(layoutpath.read_text())
+    poses=[dict(id=r['core_pose_id'],pose=r['pose']) for r in layout['poses']]
+    for name in ('rear_bay_stack_budget','fore_axial_budget','fore_outboard_budget'):
+        if name in result:poses.append(dict(id=name,pose=result[name]['pose']))
+    pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (packetpath,datumpath,materialpath,bundle,proofpath,layoutpath)})
+    gate=result.get('exact_complete_source_core_gate',dict(status='RUNNING_ACTUAL_COMPLETE_SOURCE_CORE_GATE',
+         selected=False,N01_complete=False,physical_pass=False,source_sha256=pins,receipts=[],pair_receipts={},errors=[]))
+    assert gate['source_sha256']==pins,'Changed world/source requires affected-core requalification'
+    complete={r['id']:r['pose'] for r in gate['receipts']};memo=gate['pair_receipts'];signatures={}
+    result['exact_complete_source_core_gate']=gate
+    def sig(s):return hashlib.sha256(s.exportBrepToString().encode()).hexdigest()
+    def save():
+        gate['worker_seconds']=round(time.monotonic()-tick,3)
+        gate['received_pose_count']=len(gate['receipts']);gate['proposed_pose_count']=len(poses)
+        gate['surviving_core_ids']=[r['id'] for r in gate['receipts'] if r['first_failure'] is None]
+        dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+    gate['status']='RUNNING_ACTUAL_COMPLETE_SOURCE_CORE_GATE';save()
+    for row in poses:
+        if row['id'] in complete:
+            assert complete[row['id']]==row['pose'],'Same core id with changed pose is not reusable evidence'
+            continue
+        if time.monotonic()-tick>180:
+            gate['status']='PARTIAL_ACTUAL_COMPLETE_SOURCE_CORE_GATE';break
+        pose=row['pose'];matrix=A.Matrix()
+        for i in range(3):
+            for j in range(3):setattr(matrix,f'A{i+1}{j+1}',pose['rotation_rows'][i][j])
+        rotation=A.Rotation(matrix)
+        outer=A.Placement(A.Vector(*pose['centre_mm'])-rotation.multVec(A.Vector(*packet['centre_mm'])),rotation)
+        rec=dict(id=row['id'],pose=pose,first_failure=None,actual_pairs=0,separating_bounds=0)
+        for n in sorted(base,key=lambda n:('body' not in n,'control' not in n,n)):
+            s=base[n].copy();s.Placement=outer*s.Placement
+            if not s.isValid():rec['first_failure']=dict(source=n,error='Invalid rigid source; no clearance verdict');break
+            for other in fixed:
+                t=scene[other];minimum=3.35 if not t.Solids else 1.25
+                if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum-1e-6:
+                    rec['separating_bounds']+=1;continue
+                try:
+                    query=s
+                    if other==bus['name']:
+                        query=s.copy();query.Placement=bus['inverse']*query.Placement;t=bus['original']
+                    assert t.isValid(),other
+                    if other not in signatures:signatures[other]=sig(t)
+                    key=':'.join((sig(query),signatures[other],str(minimum),'solid-distance-v1'))
+                    if key not in memo:
+                        gap=distance(query,t) if t.Solids else float(query.distToShape(t)[0])
+                        volume=None
+                        if gap<1e-6 and t.Solids:
+                            common=query.copy().common(t.copy());assert common.isValid();volume=common.Volume
+                        memo[key]=dict(gap_mm=gap,required_mm=minimum,positive_common_mm3=volume)
+                    pair=memo[key];rec['actual_pairs']+=1
+                    if pair['gap_mm']<minimum-1e-6:
+                        rec['first_failure']=dict(source=n,obstacle=other,category=categories[other],**pair);break
+                except Exception as e:
+                    rec['first_failure']=dict(source=n,obstacle=other,error=repr(e));gate['errors'].append(rec['first_failure']);break
+            if rec['first_failure']:break
+        gate['receipts'].append(rec);save()
+        print('Actual complete core',row['id'],'clear' if rec['first_failure'] is None else rec['first_failure'],flush=True)
+    else:gate['status']='ACTUAL_COMPLETE_SOURCE_CORE_GATE_RECEIVED_NO_N01'
+    save();print(json.dumps(dict(status=gate['status'],seconds=gate['worker_seconds'],received=gate['received_pose_count'],
+                                survivors=gate['surviving_core_ids'],errors=len(gate['errors']))),flush=True)
+
+
+def source_hard_motion_receiver(base,packet,result,pins,tick):
+    """Qualify the candidate against immutable motion before moving PWM.
+
+    Existing p4 outer is an unselected shape variable inside325x200x160;
+    report any required fore-station refinement, never silently widen200.
+    """
+    import hashlib
+    import zipfile
+    import FreeCAD as A
+    from feline_candidate_collision_scene import Scene
+    from feline_solid_distance import distance
+    from receive_feline_global_case_candidates import placement
+    candidate=result['fore_outboard_budget'];assert candidate['core_pair_failures']==[]
+    pose=candidate['pose'];matrix=A.Matrix()
+    for i in range(3):
+        for j in range(3):setattr(matrix,f'A{i+1}{j+1}',pose['rotation_rows'][i][j])
+    r=A.Rotation(matrix);outer=A.Placement(A.Vector(*pose['centre_mm'])-r.multVec(A.Vector(*packet['centre_mm'])),r)
+    shapes={}
+    for n,source in base.items():
+        s=source.copy();s.Placement=outer*s.Placement;assert s.isValid() and s.Solids,n
+        shapes[n]=s
+    archive=OUT/'n01-current-s1-core.breps.zip';parts=[]
+    # One current received source snapshot, not a new native assembly variant.
+    with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+        for i,(n,s) in enumerate(shapes.items()):
+            blob=s.exportBrepToString().encode();entry=f'{i:02d}.brep';z.writestr(entry,blob)
+            parts.append(dict(name=n,entry=entry,sha256=hashlib.sha256(blob).hexdigest()))
+    bundlehash=sha(archive)
+    scene=Scene();pins.update(scene.pins)
+    old=result.get('hard_source_motion_receiver')
+    if old:
+        assert old['bundle_sha256']==bundlehash and old['source_sha256']==pins,'Changed core/motion invalidates receipts'
+        rec=old;rec.setdefault('previous_worker_seconds',[]).append(rec['worker_seconds'])
+    else:
+        rec=dict(status='RUNNING_SOURCE_HARD_MOTION',selected=False,N01_complete=False,physical_pass=False,
+                 bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=bundlehash,parts=parts,
+                 source_sha256=pins,outer_receipts=[],motion_pairs={},completed_sources=[],first_failure=None,
+                 motion_samples=36,continuous_sweep_verified=False,static_PWM_owner_conflict_STILL_OPEN=True,
+                 p4_is_not_an_immutable_selected_shell=True,outer_refinement_required=[],errors=[])
+    result['hard_source_motion_receiver']=rec
+    dest=OUT/'n01-source-saddles-whole-joint.json'
+    def save():
+        rec['worker_seconds']=round(time.monotonic()-tick,3)
+        dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+    rec['status']='RUNNING_SOURCE_HARD_MOTION';save()
+    done=set(rec['completed_sources']);outer_done={x['source'] for x in rec['outer_receipts']}
+    try:
+        for n,s in sorted(shapes.items(),key=lambda x:('body' not in x[0],'control' not in x[0],x[0])):
+            if n in done:continue
+            if time.monotonic()-tick>180:rec['status']='PARTIAL_SOURCE_HARD_MOTION';break
+            bb=s.BoundBox;bounds=np.array([[bb.XMin,bb.YMin,bb.ZMin],[bb.XMax,bb.YMax,bb.ZMax]])
+            if np.any(bounds[0]<np.array([-141.5,-100,-48])+3.25-1e-5) or np.any(bounds[1]>np.array([183.5,100,112])-3.25+1e-5):
+                rec['first_failure']=dict(source=n,kind='Absolute325x200x160 clearance bound exceeded');break
+            if n not in outer_done:
+                outside=s.copy().cut(scene.outer.copy());assert outside.isNull() or outside.isValid()
+                gap=float(s.distToShape(scene.outer.Shells[0])[0])
+                entry=dict(source=n,p4_outside_mm3=outside.Volume,gap_to_p4_mm=gap,required_wall_plus_air_mm=3.25)
+                rec['outer_receipts'].append(entry)
+                if outside.Volume>1e-5 or gap<3.25-1e-5:rec['outer_refinement_required'].append(entry)
+                save()
+            for p in scene.motion:
+                if box_gap(bounds,np.array(p['bounds']))>=1.25-1e-6:continue
+                key=n+'|'+p['name']+'|'+str(p['pose'])
+                if key in rec['motion_pairs']:pair=rec['motion_pairs'][key]
+                else:
+                    t=scene.rest[p['name']];assert t.isValid() and t.Solids,p['name']
+                    q=s
+                    if np.linalg.norm(p['r']-np.eye(3))>1e-12 or np.linalg.norm(p['t'])>1e-7:
+                        q=s.copy();q.Placement=placement(p['r'],p['t']).inverse()*q.Placement
+                    assert q.isValid(),'Invalid inverse source, no clearance verdict'
+                    gap=distance(q,t);volume=None
+                    if gap<1e-6:
+                        common=q.copy().common(t.copy());assert common.isValid();volume=common.Volume
+                    pair=dict(source=n,leg_source=p['name'],pose=p['pose'],code=p['code'],stage=p['stage'],
+                              gap_mm=gap,required_mm=1.25,positive_common_mm3=volume)
+                    rec['motion_pairs'][key]=pair
+                    if len(rec['motion_pairs'])%20==0:save()
+                if pair['gap_mm']<1.25-1e-5:
+                    rec['first_failure']=dict(kind='actual_leg_sample_clearance',**pair);break
+            if rec['first_failure']:break
+            rec['completed_sources'].append(n);save()
+        else:rec['status']='SOURCE_HARD_MOTION_RECEIVED_NOT_WHOLE_N01'
+        if rec['first_failure']:rec['status']='SOURCE_HARD_MOTION_REJECTED'
+    except Exception as e:
+        rec['errors'].append(repr(e));rec['status']='SOURCE_HARD_MOTION_ERROR_NOT_CLEARANCE'
+    save();print(json.dumps(dict(status=rec['status'],seconds=rec['worker_seconds'],completed=len(rec['completed_sources']),
+                                actual_pairs=len(rec['motion_pairs']),first_failure=rec['first_failure'],
+                                outer_refinement_required=rec['outer_refinement_required'],errors=rec['errors'])),flush=True)
+
+
 def source_saddles_joint():
     """Reuse unchanged47 source domains; bind core and4fans by core_pose_id.
 
@@ -906,7 +1179,17 @@ def source_saddles_joint():
 
 
 if __name__=='__main__':
-    if '--source-rear-owners' in sys.argv:
+    import os
+    print('WORKER_PID',os.getpid(),flush=True)
+    if '--source-hard-motion' in sys.argv:
+        source_exact_core_gate()
+    elif '--source-fore-outboard-core' in sys.argv:
+        source_outboard_terminal_gallery()
+    elif '--source-exact-core-gate' in sys.argv:
+        source_exact_core_gate()
+    elif '--source-fore-axial-budget' in sys.argv:
+        source_outboard_terminal_gallery()
+    elif '--source-rear-owners' in sys.argv:
         source_underbank_owner_diagnosis()
     elif '--resume-rear-fans' in sys.argv:
         source_resume_rear_fans()

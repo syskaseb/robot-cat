@@ -100,5 +100,27 @@ class SaddleContract(unittest.TestCase):
             return ast.dump(next(n for n in ast.parse(text).body if isinstance(n,ast.FunctionDef) and n.name=='main'),include_attributes=False)
         self.assertEqual(main_tree(previous),main_tree(current))
 
+    def test_unsigned_core_proposals_are_not_accepted_as_solid_clearance(self):
+        result=json.loads((OUT/'n01-source-saddles-whole-joint.json').read_text())
+        gate=result['exact_complete_source_core_gate']
+        self.assertEqual(gate['received_pose_count'],46)
+        self.assertEqual(gate['surviving_core_ids'],[])
+        self.assertEqual(gate['errors'],[])
+        self.assertTrue(all(r['first_failure'] is not None for r in gate['receipts']))
+        self.assertFalse(gate['selected'])
+        self.assertFalse(gate['N01_complete'])
+
+    def test_fore_critical_pass_has_all_P0_and_F_HY_not_just_two_side_rails(self):
+        result=json.loads((OUT/'n01-source-saddles-whole-joint.json').read_text())
+        p=result['fore_outboard_budget']
+        self.assertTrue(p['all_fixed_P0_parts_included'])
+        self.assertEqual(p['core_pair_failures'],[])
+        self.assertEqual(len(p['core_pair_receipts']),900)
+        self.assertEqual(len(p['F_PI_complete_field_owner_checked']),20)
+        # Legacy list-key spelling is descriptive metadata, not actual owner.
+        # Exact ForeFHAC source is F_HY, established from its construction.
+        self.assertIn('actual_F_HY_fore_case_bottom_mm',p)
+        self.assertFalse(p['N01_complete'])
+
 
 if __name__=='__main__':unittest.main()
