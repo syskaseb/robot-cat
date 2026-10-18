@@ -5,6 +5,7 @@ All four fan choices must subsequently share this core pose in whole joint.
 """
 import itertools
 import json
+import sys
 import time
 from pathlib import Path
 import numpy as np
@@ -49,11 +50,24 @@ def main():
                   source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in
                       (source,cloudpath,fieldproof,path,Path(__file__))})
     dest = OUT/'n01-s1-core-pose-domains.json'
+    skip = 0
+    if '--resume' in sys.argv:
+        previous = json.loads(dest.read_text())
+        assert previous['status'] == 'PARTIAL_CORE_POSES_RECEIVED'
+        for n,h in previous['source_sha256'].items():
+            if n != Path(__file__).relative_to(ROOT).as_posix():assert sha(ROOT/n)==h,n
+        skip = previous['attempts']
+        previous.setdefault('previous_worker_seconds',[]).append(previous['worker_seconds'])
+        previous['resumed_attempts_without_requery'] = skip
+        previous['status'] = 'RUNNING_CORE_POSES'
+        previous['source_sha256'][Path(__file__).relative_to(ROOT).as_posix()] = sha(Path(__file__))
+        result = previous
     def save():
         result['worker_seconds'] = round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     save()
-    for x,y,z,yaw,roll in itertools.product(range(-108,109,24),range(-36,37,12),(-24,0,24,48,72),(0,90,180,270),(0,90)):
+    for index,(x,y,z,yaw,roll) in enumerate(itertools.product(range(-108,109,24),range(-36,37,12),(-24,0,24,48,72),(0,90,180,270),(0,90))):
+        if index < skip:continue
         if time.monotonic()-tick > 90:
             result['status'] = 'PARTIAL_CORE_POSES_RECEIVED'
             break
