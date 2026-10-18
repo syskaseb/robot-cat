@@ -20,9 +20,10 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    flat='--flat-unit' in sys.argv
+    spatial='--spatial-unit' in sys.argv
+    flat=spatial or '--flat-unit' in sys.argv
     lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -146,18 +147,35 @@ def main():
         ob=np.array([arraybox(s) for s in fixed.values()]);ol,oh=ob[:,0],ob[:,1]
         candidates=[];stats=[];gap=1.25
         import itertools
+        rotations=[]
         for yaw in (0,90,180,270):
             c,s=round(np.cos(np.deg2rad(yaw))),round(np.sin(np.deg2rad(yaw)))
-            R=np.array([[c,-s,0],[s,c,0],[0,0,1]],float)
+            rotations.append((yaw,np.array([[c,-s,0],[s,c,0],[0,0,1]],float)))
+        if spatial:
+            prior=OUT/'n01-coupled-pi-bus-checks-r3.json'
+            old=json.loads(prior.read_text());assert old['whole_unit_search']['candidates']==0
+            report['source_sha256'][prior.relative_to(ROOT).as_posix()]=sha(prior)
+            report['unchanged_floor_yaw_search_reused']=True
+            rotations=[]
+            for order in itertools.permutations(range(3)):
+                for signs in itertools.product((-1,1),repeat=3):
+                    R=np.zeros((3,3))
+                    for i,j in enumerate(order):R[i,j]=signs[i]
+                    if np.linalg.det(R)>0:rotations.append((len(rotations),R))
+        for yaw,R in rotations:
             transformed=[]
             for box in proxy:
                 corners=np.array(list(itertools.product(*zip(box[0],box[1]))))
                 v=(corners-centre)@R.T;transformed.append([v.min(axis=0),v.max(axis=0)])
             transformed=np.array(transformed);mn=transformed[:,0].min(axis=0);mx=transformed[:,1].max(axis=0)
             z=-45.6+gap-mn[2]
-            points=np.array([[x,y,z] for x in range(-100,141,5) for y in range(-45,46,5)],float)
+            if spatial:
+                points=np.array([[x,y,zz] for x in range(-100,141,10) for y in range(-60,61,10)
+                    for zz in range(-20,71,10)],float)
+            else:points=np.array([[x,y,z] for x in range(-100,141,5) for y in range(-45,46,5)],float)
             inside=np.all(points+mn>=[-139.1+gap,-95.6+gap,-45.6+gap],axis=1)&np.all(points+mx<=[181.1-gap,95.6-gap,109.6-gap],axis=1)
             points=points[inside];initial=len(points)
+            restrictions=[]
             for pbox in transformed:
                 gate()
                 if not len(points):break
@@ -167,7 +185,10 @@ def main():
                     hit=np.all((lows<oh[None,:,:]+gap)&(highs>ol[None,:,:]-gap),axis=2)
                     keep[j:j+256]=~np.any(hit,axis=1)
                 points=points[keep]
-            stats.append(dict(yaw_deg=yaw,inside_cells=initial,conservative_clear_cells=len(points)))
+                restrictions.append(len(points))
+            stats.append(dict(orientation_index=yaw,rotation_rows=R.tolist(),inside_cells=initial,
+                conservative_clear_cells=len(points),remaining_after_each_unit_primitive=restrictions))
+            report['search_progress']=stats;save()
             for pp in points:
                 candidates.append(dict(yaw_deg=yaw,R=R.tolist(),centre_mm=pp.tolist(),
                     translation_mm=(pp-R@centre).tolist(),score=float(np.linalg.norm(pp-centre))))

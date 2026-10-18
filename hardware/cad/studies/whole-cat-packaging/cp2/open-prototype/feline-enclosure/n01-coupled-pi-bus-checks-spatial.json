@@ -1,0 +1,2253 @@
+{
+  "status": "CHANGED_STATIC_INTERFACES_CLEAR_FULL_PLAN_OPEN",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "native_changed": false,
+  "contacts": [],
+  "reservation_overlaps": [],
+  "errors": [],
+  "exact_pairs": 6,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-plan-r3.json": "d04954312d21386bae11d7f9cbb52a8f500d727fb8b773e894137d95f65e1a03",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-module-plan-r5.json": "aa9b0ccfb0f928d52be3c7d3217640147db341f5b63c790ba8d3325696aeb735",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-preflight-r5.json": "e71b88b40831011a6db0e56423743560925252f17ecc0fad93fe23e8572b7fc0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-compact-bank-plan-r2.json": "9a1c685ef9ad8b5233228989254c1a23cdbac35471268ed2cec065dd25ed95ae",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-backbone-preflight-r4.json": "e54e3bcc6b66c798ba43a020dc3a78fba0f7a6315e5c4e81576e817257481113",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "tools/cad/check_feline_n01_coupled_pi_bus.py": "b3ce40de59399a9d0ecb977a3863b3bb08944122ace94f0388953648f4d23022",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorMotion.FCStd": "5133e3fd1df3713a41ddc503a828f39ccaf0113e7057781a1aefb70f15c24fdf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-checks-r3.json": "803d0a0acb2d4d403718a1a608b527eb57d006cecd3e6f6a07e12cc3a30fa9a7",
+    "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c"
+  },
+  "scope": "Changed complete F_PI/P_SYS/MAIN/JPWM/BUS cases plus full W043/W077/W078, all24bank bends and8MTAfactory routes. Proposed support/plug/grip reservation overlaps distinguished from actual collisions. Not full80nets, tools or motion.",
+  "old_other_wire_routes_not_accepted": true,
+  "declared_join_scope": "Only existing8mm solder-overlap cylinder; never exclude whole W077/W078 pair or supports",
+  "unchanged_floor_yaw_search_reused": true,
+  "search_progress": [
+    {
+      "orientation_index": 0,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        996,
+        708,
+        701,
+        676,
+        485,
+        452,
+        451,
+        451,
+        301,
+        301,
+        197,
+        0
+      ]
+    },
+    {
+      "orientation_index": 1,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1056,
+        778,
+        656,
+        634,
+        441,
+        394,
+        370,
+        368,
+        185,
+        185,
+        104,
+        0
+      ]
+    },
+    {
+      "orientation_index": 2,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1013,
+        736,
+        620,
+        590,
+        431,
+        376,
+        353,
+        350,
+        151,
+        151,
+        74,
+        0
+      ]
+    },
+    {
+      "orientation_index": 3,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2250,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        869,
+        583,
+        583,
+        560,
+        383,
+        334,
+        334,
+        323,
+        205,
+        205,
+        120,
+        0
+      ]
+    },
+    {
+      "orientation_index": 4,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        832,
+        635,
+        626,
+        626,
+        485,
+        454,
+        450,
+        450,
+        131,
+        131,
+        127,
+        0
+      ]
+    },
+    {
+      "orientation_index": 5,
+      "rotation_rows": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        978,
+        801,
+        772,
+        772,
+        614,
+        586,
+        576,
+        576,
+        207,
+        207,
+        181,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "orientation_index": 6,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "conservative_clear_cells": 1,
+      "remaining_after_each_unit_primitive": [
+        844,
+        666,
+        660,
+        660,
+        476,
+        453,
+        449,
+        449,
+        83,
+        83,
+        73,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation_index": 7,
+      "rotation_rows": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1950,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        812,
+        618,
+        613,
+        613,
+        473,
+        445,
+        441,
+        441,
+        141,
+        141,
+        135,
+        0
+      ]
+    },
+    {
+      "orientation_index": 8,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1390,
+        1053,
+        949,
+        926,
+        598,
+        489,
+        437,
+        422,
+        204,
+        204,
+        203,
+        2,
+        0
+      ]
+    },
+    {
+      "orientation_index": 9,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1287,
+        958,
+        954,
+        944,
+        569,
+        495,
+        495,
+        495,
+        261,
+        261,
+        250,
+        0
+      ]
+    },
+    {
+      "orientation_index": 10,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1366,
+        1016,
+        1008,
+        999,
+        642,
+        557,
+        552,
+        548,
+        345,
+        345,
+        328,
+        0
+      ]
+    },
+    {
+      "orientation_index": 11,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "inside_cells": 2530,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1446,
+        1091,
+        993,
+        962,
+        626,
+        518,
+        463,
+        442,
+        241,
+        240,
+        233,
+        2,
+        0
+      ]
+    },
+    {
+      "orientation_index": 12,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        844,
+        623,
+        604,
+        592,
+        336,
+        291,
+        288,
+        288,
+        156,
+        156,
+        156,
+        0
+      ]
+    },
+    {
+      "orientation_index": 13,
+      "rotation_rows": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1361,
+        1154,
+        1139,
+        1135,
+        546,
+        406,
+        399,
+        399,
+        56,
+        56,
+        54,
+        0
+      ]
+    },
+    {
+      "orientation_index": 14,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "conservative_clear_cells": 2,
+      "remaining_after_each_unit_primitive": [
+        1465,
+        1266,
+        1240,
+        1237,
+        664,
+        486,
+        479,
+        479,
+        227,
+        227,
+        209,
+        8,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "orientation_index": 15,
+      "rotation_rows": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 2392,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        821,
+        594,
+        583,
+        573,
+        352,
+        309,
+        303,
+        303,
+        176,
+        176,
+        172,
+        0
+      ]
+    },
+    {
+      "orientation_index": 16,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        913,
+        699,
+        679,
+        641,
+        435,
+        404,
+        402,
+        393,
+        99,
+        99,
+        89,
+        0
+      ]
+    },
+    {
+      "orientation_index": 17,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        818,
+        689,
+        687,
+        687,
+        413,
+        391,
+        390,
+        390,
+        138,
+        138,
+        136,
+        0
+      ]
+    },
+    {
+      "orientation_index": 18,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        839,
+        708,
+        704,
+        701,
+        422,
+        401,
+        398,
+        398,
+        130,
+        130,
+        130,
+        0
+      ]
+    },
+    {
+      "orientation_index": 19,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1650,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        971,
+        786,
+        766,
+        734,
+        509,
+        482,
+        475,
+        467,
+        160,
+        160,
+        144,
+        0
+      ]
+    },
+    {
+      "orientation_index": 20,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1085,
+        946,
+        926,
+        891,
+        442,
+        336,
+        331,
+        320,
+        147,
+        147,
+        127,
+        0
+      ]
+    },
+    {
+      "orientation_index": 21,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        540,
+        430,
+        430,
+        429,
+        251,
+        219,
+        216,
+        204,
+        103,
+        103,
+        27,
+        0
+      ]
+    },
+    {
+      "orientation_index": 22,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        536,
+        408,
+        400,
+        394,
+        251,
+        225,
+        222,
+        209,
+        107,
+        107,
+        36,
+        0
+      ]
+    },
+    {
+      "orientation_index": 23,
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "inside_cells": 1800,
+      "conservative_clear_cells": 0,
+      "remaining_after_each_unit_primitive": [
+        1140,
+        1016,
+        990,
+        953,
+        499,
+        400,
+        389,
+        377,
+        181,
+        181,
+        160,
+        0
+      ]
+    }
+  ],
+  "worker_seconds": 21.516,
+  "updated_utc": "2026-10-18T08:11:48.156706+00:00",
+  "whole_unit_search": {
+    "status": "CLEAR_CONSERVATIVE_CELLS",
+    "yaw_stats": [
+      {
+        "orientation_index": 0,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          996,
+          708,
+          701,
+          676,
+          485,
+          452,
+          451,
+          451,
+          301,
+          301,
+          197,
+          0
+        ]
+      },
+      {
+        "orientation_index": 1,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1056,
+          778,
+          656,
+          634,
+          441,
+          394,
+          370,
+          368,
+          185,
+          185,
+          104,
+          0
+        ]
+      },
+      {
+        "orientation_index": 2,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1013,
+          736,
+          620,
+          590,
+          431,
+          376,
+          353,
+          350,
+          151,
+          151,
+          74,
+          0
+        ]
+      },
+      {
+        "orientation_index": 3,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2250,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          869,
+          583,
+          583,
+          560,
+          383,
+          334,
+          334,
+          323,
+          205,
+          205,
+          120,
+          0
+        ]
+      },
+      {
+        "orientation_index": 4,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          832,
+          635,
+          626,
+          626,
+          485,
+          454,
+          450,
+          450,
+          131,
+          131,
+          127,
+          0
+        ]
+      },
+      {
+        "orientation_index": 5,
+        "rotation_rows": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          978,
+          801,
+          772,
+          772,
+          614,
+          586,
+          576,
+          576,
+          207,
+          207,
+          181,
+          3,
+          2,
+          0
+        ]
+      },
+      {
+        "orientation_index": 6,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "conservative_clear_cells": 1,
+        "remaining_after_each_unit_primitive": [
+          844,
+          666,
+          660,
+          660,
+          476,
+          453,
+          449,
+          449,
+          83,
+          83,
+          73,
+          4,
+          4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "orientation_index": 7,
+        "rotation_rows": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1950,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          812,
+          618,
+          613,
+          613,
+          473,
+          445,
+          441,
+          441,
+          141,
+          141,
+          135,
+          0
+        ]
+      },
+      {
+        "orientation_index": 8,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1390,
+          1053,
+          949,
+          926,
+          598,
+          489,
+          437,
+          422,
+          204,
+          204,
+          203,
+          2,
+          0
+        ]
+      },
+      {
+        "orientation_index": 9,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1287,
+          958,
+          954,
+          944,
+          569,
+          495,
+          495,
+          495,
+          261,
+          261,
+          250,
+          0
+        ]
+      },
+      {
+        "orientation_index": 10,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1366,
+          1016,
+          1008,
+          999,
+          642,
+          557,
+          552,
+          548,
+          345,
+          345,
+          328,
+          0
+        ]
+      },
+      {
+        "orientation_index": 11,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "inside_cells": 2530,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1446,
+          1091,
+          993,
+          962,
+          626,
+          518,
+          463,
+          442,
+          241,
+          240,
+          233,
+          2,
+          0
+        ]
+      },
+      {
+        "orientation_index": 12,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          844,
+          623,
+          604,
+          592,
+          336,
+          291,
+          288,
+          288,
+          156,
+          156,
+          156,
+          0
+        ]
+      },
+      {
+        "orientation_index": 13,
+        "rotation_rows": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1361,
+          1154,
+          1139,
+          1135,
+          546,
+          406,
+          399,
+          399,
+          56,
+          56,
+          54,
+          0
+        ]
+      },
+      {
+        "orientation_index": 14,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "conservative_clear_cells": 2,
+        "remaining_after_each_unit_primitive": [
+          1465,
+          1266,
+          1240,
+          1237,
+          664,
+          486,
+          479,
+          479,
+          227,
+          227,
+          209,
+          8,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "orientation_index": 15,
+        "rotation_rows": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 2392,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          821,
+          594,
+          583,
+          573,
+          352,
+          309,
+          303,
+          303,
+          176,
+          176,
+          172,
+          0
+        ]
+      },
+      {
+        "orientation_index": 16,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          913,
+          699,
+          679,
+          641,
+          435,
+          404,
+          402,
+          393,
+          99,
+          99,
+          89,
+          0
+        ]
+      },
+      {
+        "orientation_index": 17,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          818,
+          689,
+          687,
+          687,
+          413,
+          391,
+          390,
+          390,
+          138,
+          138,
+          136,
+          0
+        ]
+      },
+      {
+        "orientation_index": 18,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          839,
+          708,
+          704,
+          701,
+          422,
+          401,
+          398,
+          398,
+          130,
+          130,
+          130,
+          0
+        ]
+      },
+      {
+        "orientation_index": 19,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1650,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          971,
+          786,
+          766,
+          734,
+          509,
+          482,
+          475,
+          467,
+          160,
+          160,
+          144,
+          0
+        ]
+      },
+      {
+        "orientation_index": 20,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1085,
+          946,
+          926,
+          891,
+          442,
+          336,
+          331,
+          320,
+          147,
+          147,
+          127,
+          0
+        ]
+      },
+      {
+        "orientation_index": 21,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          540,
+          430,
+          430,
+          429,
+          251,
+          219,
+          216,
+          204,
+          103,
+          103,
+          27,
+          0
+        ]
+      },
+      {
+        "orientation_index": 22,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          536,
+          408,
+          400,
+          394,
+          251,
+          225,
+          222,
+          209,
+          107,
+          107,
+          36,
+          0
+        ]
+      },
+      {
+        "orientation_index": 23,
+        "rotation_rows": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "inside_cells": 1800,
+        "conservative_clear_cells": 0,
+        "remaining_after_each_unit_primitive": [
+          1140,
+          1016,
+          990,
+          953,
+          499,
+          400,
+          389,
+          377,
+          181,
+          181,
+          160,
+          0
+        ]
+      }
+    ],
+    "candidates": 3,
+    "whole_case_and_route_proxy_boxes": 26,
+    "fixed_actual_and_path_obstacles": 678,
+    "gap_mm": 1.25,
+    "lower_deck_replacement_open": true,
+    "full_motion_and_other_end_routes_open": true,
+    "chosen_one": {
+      "yaw_deg": 6,
+      "R": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "centre_mm": [
+        130.0,
+        60.0,
+        60.0
+      ],
+      "translation_mm": [
+        228.06386191213724,
+        37.18750000000001,
+        85.59629827156431
+      ],
+      "score": 257.2892565660739
+    }
+  },
+  "unit_reservations_world_bounds_mm": {
+    "UnitSpliceClip": [
+      [
+        106.85713808786278,
+        72.18749999999999,
+        26.0962982715643
+      ],
+      [
+        115.05713808786277,
+        80.3875,
+        68.09629827156431
+      ]
+    ],
+    "InputFullGrip": [
+      [
+        135.06386191213724,
+        66.9875,
+        86.3962982715643
+      ],
+      [
+        144.06386191213724,
+        74.3875,
+        93.79629827156431
+      ]
+    ],
+    "MainFullGrip": [
+      [
+        107.90713808786278,
+        56.1875,
+        76.1462982715643
+      ],
+      [
+        114.00713808786277,
+        65.1875,
+        82.2462982715643
+      ]
+    ]
+  },
+  "current_full_route_parts": {
+    "W043": [
+      {
+        "kind": "line",
+        "start": [
+          128.06386191213724,
+          70.6875,
+          81.09629827156431
+        ],
+        "end": [
+          128.06386191213724,
+          70.6875,
+          84.0962982715643
+        ],
+        "length_mm": 3
+      },
+      {
+        "kind": "arc",
+        "start": [
+          128.06386191213724,
+          70.6875,
+          84.0962982715643
+        ],
+        "mid": [
+          129.82122122501795,
+          70.6875,
+          88.33893895868358
+        ],
+        "end": [
+          134.06386191213724,
+          70.6875,
+          90.09629827156431
+        ],
+        "radius_mm": 6,
+        "length_mm": 9.42477796076938
+      },
+      {
+        "kind": "line",
+        "start": [
+          134.06386191213724,
+          70.6875,
+          90.09629827156431
+        ],
+        "end": [
+          144.06386191213724,
+          70.6875,
+          90.09629827156431
+        ],
+        "length_mm": 10
+      }
+    ],
+    "W077": [
+      {
+        "kind": "line",
+        "start": [
+          128.06386191213724,
+          70.6875,
+          30.0962982715643
+        ],
+        "end": [
+          128.06386191213724,
+          70.6875,
+          26.0962982715643
+        ],
+        "length_mm": 4
+      },
+      {
+        "kind": "arc",
+        "start": [
+          128.06386191213724,
+          70.6875,
+          26.0962982715643
+        ],
+        "mid": [
+          125.55864021001499,
+          71.50760101267767,
+          19.73233724088537
+        ],
+        "end": [
+          119.51050000000001,
+          73.48749999999998,
+          17.096298271564294
+        ],
+        "radius_mm": 9,
+        "length_mm": 14.137166941154069
+      },
+      {
+        "kind": "arc",
+        "start": [
+          119.51050000000001,
+          73.48749999999998,
+          17.096298271564294
+        ],
+        "mid": [
+          113.46235978998503,
+          75.46739898732233,
+          19.73233724088537
+        ],
+        "end": [
+          110.95713808786277,
+          76.2875,
+          26.0962982715643
+        ],
+        "radius_mm": 9,
+        "length_mm": 14.137166941154069
+      },
+      {
+        "kind": "line",
+        "start": [
+          110.95713808786277,
+          76.2875,
+          26.0962982715643
+        ],
+        "end": [
+          110.95713808786277,
+          76.2875,
+          51.0962982715643
+        ],
+        "length_mm": 25
+      }
+    ],
+    "W078": [
+      {
+        "kind": "line",
+        "start": [
+          110.95713808786277,
+          76.2875,
+          43.0962982715643
+        ],
+        "end": [
+          110.95713808786277,
+          76.2875,
+          68.09629827156431
+        ],
+        "length_mm": 25
+      },
+      {
+        "kind": "arc",
+        "start": [
+          110.95713808786277,
+          76.2875,
+          68.09629827156431
+        ],
+        "mid": [
+          110.95713808786277,
+          73.03638527117067,
+          75.94518354273498
+        ],
+        "end": [
+          110.95713808786277,
+          65.1875,
+          79.1962982715643
+        ],
+        "radius_mm": 11.1,
+        "length_mm": 17.43583922742335
+      },
+      {
+        "kind": "line",
+        "start": [
+          110.95713808786277,
+          65.1875,
+          79.1962982715643
+        ],
+        "end": [
+          110.95713808786277,
+          53.1875,
+          79.1962982715643
+        ],
+        "length_mm": 12
+      }
+    ]
+  },
+  "whole_unit_pose_applies_to_all_module_ends": true,
+  "current_unit_case_bounds_mm": {
+    "Ref_Material_MAIN_0_head_0_0": [
+      [
+        94.53613808786278,
+        51.18750000000001,
+        75.2642982715643
+      ],
+      [
+        98.33613808786279,
+        53.18750000000001,
+        79.06429827156431
+      ]
+    ],
+    "Ref_Material_MAIN_0_lower_washer_0_0": [
+      [
+        93.93613808786279,
+        41.31270000000001,
+        74.6642982715643
+      ],
+      [
+        98.93613808786279,
+        41.612700000000004,
+        79.6642982715643
+      ]
+    ],
+    "Ref_Material_MAIN_0_nut_0_0": [
+      [
+        94.12673701110428,
+        39.712700000000005,
+        74.8548971948058
+      ],
+      [
+        98.74553916462129,
+        41.31270000000001,
+        79.47369934832281
+      ]
+    ],
+    "Ref_Material_MAIN_0_shaft_0_0": [
+      [
+        95.43613808786279,
+        39.18750000000001,
+        76.1642982715643
+      ],
+      [
+        97.43613808786279,
+        51.18750000000001,
+        78.1642982715643
+      ]
+    ],
+    "Ref_Material_MAIN_1_head_0_0": [
+      [
+        113.07813808786278,
+        51.18750000000001,
+        75.2642982715643
+      ],
+      [
+        116.8781380878628,
+        53.18750000000001,
+        79.06429827156431
+      ]
+    ],
+    "Ref_Material_MAIN_1_lower_washer_0_0": [
+      [
+        112.47813808786279,
+        41.31270000000001,
+        74.6642982715643
+      ],
+      [
+        117.47813808786279,
+        41.612700000000004,
+        79.6642982715643
+      ]
+    ],
+    "Ref_Material_MAIN_1_nut_0_0": [
+      [
+        112.66873701110428,
+        39.712700000000005,
+        74.8548971948058
+      ],
+      [
+        117.2875391646213,
+        41.31270000000001,
+        79.47369934832281
+      ]
+    ],
+    "Ref_Material_MAIN_1_shaft_0_0": [
+      [
+        113.97813808786279,
+        39.18750000000001,
+        76.1642982715643
+      ],
+      [
+        115.97813808786279,
+        51.18750000000001,
+        78.1642982715643
+      ]
+    ],
+    "Ref_Material_MAIN_CurrentMainSupplierReference_0_0": [
+      [
+        94.27713808786278,
+        48.612700000000025,
+        75.0052982715643
+      ],
+      [
+        117.13713808786278,
+        56.28750000000003,
+        105.4852982715643
+      ]
+    ],
+    "Ref_Material_Power_MAINBand_0_0": [
+      [
+        97.65713808786279,
+        53.43750000000001,
+        74.6462982715643
+      ],
+      [
+        113.75713808786278,
+        55.93750000000001,
+        81.99629827156431
+      ]
+    ],
+    "Ref_Material_Power_MAINHead_0_0": [
+      [
+        103.30713808786278,
+        52.43750000000001,
+        70.1462982715643
+      ],
+      [
+        108.10713808786278,
+        55.93750000000001,
+        74.6462982715643
+      ]
+    ],
+    "Ref_Material_F_PI_new_0_0": [
+      [
+        117.06386191213716,
+        60.562499999999964,
+        30.096298271564333
+      ],
+      [
+        139.06386191213716,
+        80.81249999999999,
+        81.09629827156434
+      ]
+    ],
+    "Ref_Material_P_SYS_new_0_0": [
+      [
+        144.0638619121372,
+        65.18749999999999,
+        58.59629827156427
+      ],
+      [
+        166.06386191213724,
+        76.1875,
+        95.59629827156428
+      ]
+    ]
+  },
+  "intentional_bare_solder_overlap_mm3": 27.708847204661936,
+  "unchanged_BUS_evidence_reused": {
+    "report": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-pi-bus-checks.json",
+    "sha256": "dc27688de31db55e829c1e8bec439539ef2237fcbc40d1a9d480527d5db9c1b1",
+    "scope": "No BUS-related actual or reservation hits in received trial. Same case pose, nominal mating allowance, both first bends and shared grip; not USB/full cable/actual plug approval."
+  },
+  "changed_case_objects": 13,
+  "bank_bends_included": 24,
+  "MTA_factory_paths_included": 8,
+  "proposed_reservations": [
+    "BUSRearBranch-18.5",
+    "BUSRearBranch18.5",
+    "BUSNominalMating",
+    "BUSSharedTwoLaneGrip"
+  ],
+  "motion_not_checked": true,
+  "full_other80net_curves_open": true
+}
