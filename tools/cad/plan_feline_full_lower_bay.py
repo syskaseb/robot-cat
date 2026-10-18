@@ -6,6 +6,8 @@ No upper cassette, guessed extra electrical part, native build or selection.
 """
 import copy
 import json
+import math
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -21,7 +23,8 @@ from check_feline_leg_body import placement
 
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();dest=OUT/'n01-full-lower-bay-plan.json'
+    ordered='--ordered-return-loops' in sys.argv
+    tick=time.monotonic();reader=SavedShapes();dest=OUT/('n01-full-lower-bay-plan-r2.json' if ordered else 'n01-full-lower-bay-plan.json')
     assert not dest.exists(),'Receive existing complete/partial result first'
     paths={k:OUT/n for k,n in dict(scene='n01-full-material-scene.json',
         modules='n01-module-plan-r5.json',rear='n01-shared-preflight-r5.json',
@@ -36,6 +39,10 @@ def main():
         'W045_Joint':[121,15,-34],'W053_Joint':[121,-15,-34],
         'W041_Joint':[48,33.25,-34],'W042_Joint':[48,-33.25,-34],
         'W044_Joint':[-22,33.25,-34],'W052_Joint':[-22,-33.25,-34]}
+    if ordered:
+        # All cases still share their actual-34plane. Whole fore feeds dip
+        # before the shared crossing and return AFTER it, with both9mm ends.
+        targets.update(W041_Joint=[73,33.25,-34],W042_Joint=[73,-33.25,-34])
     deltas={}
     for role,target in targets.items():
         g=groups[role];delta=np.array(target)-np.mean(g['candidate_bounds_mm'],axis=0)
@@ -53,6 +60,14 @@ def main():
             M2x10_delta=-8,M2x12_delta=8,new_electrical_parts=0,stock_selected=False),
         actual_joint_seats_root_bearings_native_material_and_whole_removal_open=True,
         source_sha256={path.relative_to(ROOT).as_posix():sha(path) for path in paths.values()})
+    if ordered:
+        parentpath=OUT/'n01-full-lower-bay-plan.json';parent=json.loads(parentpath.read_text())
+        assert parent['status']=='FULL_LOWER_BAY_STATIC_REJECTED_NO_MOTION_RERUN'
+        assert len(parent['contacts'])==2 and len(parent['reservation_contacts'])==5 and not parent['errors']
+        report['source_sha256'][parentpath.relative_to(ROOT).as_posix()]=sha(parentpath)
+        report['changed_cause']='All purchased lower modules cleared retained805scene. Two opposing factory return fans crossed; allocate COMPLETE fore dip-and-return below rearfan with5.5mm plane separation, both factory ends and24full straps/heads before next motion. Cases stay at-34; no scalar case-Z trial.'
+        report['ordered_factory_crossing_budget_mm']=dict(wire_R=2.1,required_wire_gap=1.25,plane_separation=5.5,nominal_gap=1.3,first_and_last_lands=9.25,interplane_straight=2)
+        report['tie_budget_not_catalogue']=dict(head_mm=[4,4,3],loop_strip_mm=[2.5,.8],delivered_fit_gate=True)
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -72,6 +87,12 @@ def main():
             n=r['name']
             if not n.startswith(('RootPlateReserve','RootWebReserve','FootHardwareCandidate')):continue
             s=Part.Shape();s.importBrepFromString(z.read(r['entry']).decode('utf-8'))
+            if ordered and n=='RootPlateReserve2':
+                # Whole bearing-root outline: keep both complete washers and
+                # the root web. Remove unsupported corner outside x=-83,
+                # y=20.5, derived from actual AUX edge and1.25mm gap.
+                s=s.cut(box([-88,18,-8],[-83,20.5,-5])).removeSplitter()
+                assert s.isValid() and len(s.Solids)==1
             new[n]=s;kind[n]=r['kind'];owner[n]='ForePanel' if s.BoundBox.Center.x<20 else 'RearPanel'
     moved=p['rear']['changed_complete_receiving_groups'];rr=p['rear']['relative_rotations']
     for role in ['MTA_'+c for c in ('FL','FR','RL','RR')]+list(targets):
@@ -90,6 +111,34 @@ def main():
             new[n]=s;kind[n]='actual_case';owner[n]=role
     report['effective_factory_groups']={r:groups[r] for r in targets if r in groups}
     factory=routes(effective);report['factory_routes']=factory
+    if ordered:
+        def line(a,b):return dict(kind='line',start=list(a),end=list(b),length_mm=float(np.linalg.norm(np.array(b)-a)))
+        def two_arcs(a,axis,offset,R=12.4):
+            a=np.array(a);v=np.array(axis);u=np.array(offset);H=np.linalg.norm(u);u=u/H
+            theta=math.acos(1-H/(2*R));span=2*R*math.sin(theta)
+            q=a+R*math.sin(theta)*v+R*(1-math.cos(theta))*u
+            b=a+span*v+H*u
+            m1=a+R*math.sin(theta/2)*v+R*(1-math.cos(theta/2))*u
+            m2=q+R*(math.sin(theta)-math.sin(theta/2))*v+R*(math.cos(theta/2)-math.cos(theta))*u
+            rows=[dict(kind='arc',start=a.tolist(),mid=m1.tolist(),end=q.tolist(),radius_mm=R,length_mm=R*theta),
+                  dict(kind='arc',start=q.tolist(),mid=m2.tolist(),end=b.tolist(),radius_mm=R,length_mm=R*theta)]
+            return rows,b
+        for r in factory:
+            if r['wire'] not in ('W041','W042'):continue
+            a=np.array(r['parts'][0]['start']);end=np.array(r['parts'][-1]['end']);v=np.array([1,0,0])
+            q=a+9.25*v;parts=[line(a,q)]
+            rows,q=two_arcs(q,v,[0,0,-5.5]);parts+=rows
+            parts.append(line(q,q+2*v));q=q+2*v
+            rows,q=two_arcs(q,v,[0,end[1]-q[1],0]);parts+=rows
+            parts.append(line(q,q+2*v));q=q+2*v
+            rows,q=two_arcs(q,v,[0,0,5.5]);parts+=rows
+            assert end[0]-q[0]>=9-1e-5,(r['wire'],q,end)
+            assert np.linalg.norm((end-q)[1:])<1e-5
+            parts.append(line(q,end));r['parts']=parts;r['guide_mm']=sum(c['length_mm'] for c in parts)
+            assert r['guide_mm']<=100
+            r['minimum_end_straight_mm']=min(parts[0]['length_mm'],parts[-1]['length_mm'])
+            r['factory100mm_provisional_margin_mm']=100-r['guide_mm']
+            r['whole_dip_then_fan_then_return_to_case_plane']=True
     for r in factory:
         n='Factory:'+r['wire'];new[n]=pipe(r['parts'],r['radius_mm']);kind[n]='actual_wire'
         owner[n]=[r['source_group'],r['joint_group']]
@@ -124,17 +173,30 @@ def main():
         d=np.array(e['departure_axis']);start=np.array(e['point_mm'])+.25*d
         seat('Seat:'+e['wire']+':custom',e['wire'],start,d)
     assert len(report['wire_seats'])==24
-    for label,lo,hi in (('ForePanel',-117.5,19.375),('RearPanel',20.625,129.5)):
+    if ordered:
+        report['tie_loops_and_heads']=[]
+        for r in report['wire_seats']:
+            a,b=np.array(r['land_start_mm']),np.array(r['land_end_mm']);mid=(a+b)/2;x,y,z=mid
+            name='TieLoop:'+r['name'];outer=box([x-1.25,y-5.2,z-6.2],[x+1.25,y+5.2,z+3.2])
+            inner=box([x-1.5,y-4.4,z-5.4],[x+1.5,y+4.4,z+2.4]);loop=outer.cut(inner)
+            assert loop.isValid() and len(loop.Solids)==1
+            new[name]=loop;kind[name]='tie_reservation';owner[name]='Tie:'+r['name']
+            sign=(1 if y>0 else -1)*(1 if abs(y)<25 else -1)
+            ya,yb=sorted((y+sign*4.9,y+sign*8.9));hn='TieHead:'+r['name']
+            new[hn]=box([x-2,ya,z-1.5],[x+2,yb,z+1.5]);kind[hn]='tie_reservation';owner[hn]=owner[name]
+            report['tie_loops_and_heads'].append(dict(loop=name,head=hn,wire=r['wire'],project_dimensions_only=True))
+        assert len(report['tie_loops_and_heads'])==24
+    for label,lo,hi in (('ForePanel',-126.5 if ordered else -117.5,19.375),('RearPanel',20.625,129.5)):
         s=box([lo,-28,-44.3],[hi,28,-42])
         if label=='RearPanel':
             # Leave the actual central XT60 (-43.2bottom) and its mating lane
             # free. Rear joint paddles are two side branches, not a full slab.
             for ya,yb in ((-21.75,-8.25),(8.25,21.75)):
-                s=s.fuse(box([125,ya,-44.3],[142.5,yb,-42]))
+                s=s.fuse(box([125,ya,-44.3],[150.5 if ordered else 142.5,yb,-42]))
         for x in (-80,-70,112,122):
             for y in (-22.5,22.5):s=s.cut(Part.makeCylinder(3.25,5,A.Vector(x,y,-45)))
         for y0,y1 in ((-28,-26),(26,28)):s=s.fuse(box([lo,y0,-42.1],[hi,y1,-38]))
-        for a,b in ((-51.25,-1.75),(28,77.5)):
+        for a,b in ((-51.25,7.5) if ordered else (-51.25,-1.75),(46,103) if ordered else (28,77.5)):
             for ya,yb in ((-40,-26.5),(26.5,40)):
                 aa,bb=max(lo,a),min(hi,b)
                 if bb>aa:s=s.fuse(box([aa,ya,-44.3],[bb,yb,-42]))
