@@ -2,6 +2,81 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+Checkpoint80f838f3: kod/źródłowe recepty/kompaktowe pola/odbiór mapy
+zapisane lokalnie, bez innych zmian użytkownika.51/7/5pinów trzech
+aktualnych wejść sprawdzone,6nowych testów0,071s. Rawcache322MB pozostaje
+LOKALNYM odtwarzalnym cache, nie wybranym eksportem/obowiązkowym plikiemGit.
+Aktualny planner używa n01-reservation-ownership-plan.json i
+n01-joint-frame-corridor-guide.json; poprzedni n01-atlas-corridor-guide.json
+jest superseded scratchguide, nie aktualne wydanie ani wejście doacceptance.
+NEXT: numeryczna gładka trasa z pola (styczne końce, R>=30, pełne452),
+potem rzeczywiste bryły/obrys/ruch oraz wspólny plan korzeni5belek.
+Nie spędzać kolejnej godziny na ręcznym wyprowadzaniu pętli/doglegów;
+nie traktować projektu minimumR30/first3/after9 jako katalogowych stałych.
+Budżet następnego checkpointu0,5–1,5h, niska pewność, nieETAcałegoN01.
+
+14:49:31Z: mapa ukończona20114(300,110s partial)+10085(179,657s
+odbiór bez ponownej statycznej tessellacji).1152źródła statyczne+108×36
+próbek ruchu+obrys =5041pozycji cache, nie5041części.158760komórek,
+51893nominalnych kandydackich/25330konserwatywnych. Union1mm zmniejszył
+duplikację dziesiątków milionów próbek do~1,6mln centrów; jawny budżet
+kwantyzacji0,8662, nie podmiana geometrii. Kompaktowy cache1,39MB i
+pole0,99MB; rawcache322MB zachowany lokalnie, NIE wybrany eksport ani
+obowiązkowy plik wydania. Z niego można wznowić źródła, z kompaktu plan.
+Własność5prowizorycznych belek potwierdzona ze źródła. Wspólny planer
+przy zachowanych prawdziwych częściach ma7kandydackich wyjśćPi/7BUS.
+Prowadzenie gridowe ma ostre naroża — nie kabelR30, nie N01/nowy punkt.
+Następny checkpoint: JEDNA gładka trasa całegoUSB/452/R>=30 z pełnymi
+chwytami, rzeczywistymi sąsiadami/obrysem/ruchami oraz zaplanowanymi
+zastępczymi korzeniami5belek. Nie wykonywać kolejnej ręcznej rodziny.
+
+Naruszenie interwału limitu:14:35:42→14:49:31 to13m49 podczas analizy
+i odczytów, bez kosztownegoCAD. Zapis14:49:31 atomowy,19%użyte/81%
+pozostałe. Trzymać kolejne odczyty+zapis<=10min, nie przeciągać analizy.
+Do14:49:31 upłynęło27m05 tej kontynuacji/5h51m30 całego okna, nieciągłego
+czasuCPU. Nowyzakres0/10, historyczne20/20 nominalnej dokumentacji osobno.
+
+Własność przestrzeni, źródłowy bloker N01: prefixPi23 odrzucony w siatce
+przy(-72,28,90) przez StructureReserve:BankArm-69_1 (2mm), najbliższy
+materiał w polu20,6mm. Mapa źródeł potwierdza ScaffoldPlanning /
+rectangular_reservation / backbone_R4_rectangular_recipe_only, nie część
+kupną/wybrany wydruk. Dodatni UpperStrip1 ma tę samą klasę. To błąd
+zamrożenia prowizorycznych belek w routingu, nie potrzeba większej obudowy.
+Wspólny plan może przemieścić TYLKO te jawneBankArms/dodatniUpperStrip;
+nie ruszać P0/4MTA/baterii/ujemnego kanałuMAIN ani pozostałych obwiedni
+złączy/osłon. Korzenie banku od dołu podbedZ52..55 i kandydackie klamry
+x0/90 mają HISTORYCZNY dowód wolnych przęseł, nie dzisiejsze zatwierdzenie.
+PrzedN01 wymagane aktualne właścicielstwo klamer/montaż/solidunion/narzędzia
+z całymi trasami. Nie usuwać obciążenia banku tylko dlatego, że pole wolne.
+
+Mapa20114 odebrana:300,110s,2538zapisanych chmur/~43mln próbek,
+zatrzymanie na własnym limicie kosztu; nie błąd CAD ani brak pracy.
+Pełne statyczne źródła i część36ruchów w cache. Nie ponawiać tessellacji.
+16GBRAM, w odczycie~3,5GBwolnego; rawpowielenie36pozycji nie ma sensu.
+Receiver scala ZACHOWANE chmury w1mmvoxelcentrum, kończy tylko brakujące
+pozycje, dodaje jawny budżet0,8662mm kwantyzacji do próbkowania2,3mm.
+To przyspieszenie tego samego planu, nie kolejna geometria/rozdzielczość
+testu kolizji. BboxATO tylko konserwatywna rezerwacja ruchu60mm, nie kontakt.
+
+Ważny stopień swobodyUSB: pierwsze3mm było MINIMUM projektu, nie
+fabryczną stałą. W planowaniu całych452mm wolno przydzielić dłuższą
+prostą przed R30 oraz dłuższą prostą zawierającą chwyt9mm. Nie zamrażać
+obu wyjść w najkrótszych doglegach. Nowa mapa porównuje ich dostępność
+wspólnie (oba wtyki, obrys i ruch), zamiast trzeciej ręcznej rodziny.
+
+N01, wspólna mapa przed kolejną trasą: dwa ręczne układyUSB odrzucone.
+Zmiana przyczyny: rzeczywiste powierzchnie wszystkich aktualnych części
+REV3, restoredF_PWM/lokalnehead-tail, osobno rezerwacje i union36próbek
+ruchu nóg. Cache source-pinned, próbki wnętrz trójkątów maxedge2mm,
+siatka4mm i odległości z właścicielem najbliższej powierzchni. Bbox tylko
+ROI, nie materiał ani kontakt. Krzywe bez jacket osobnoHOLD. Zapis chmur
+źródłowych pozwala wznowić bez ponownej tessellacji. Bramka tego działania:
+kompletna mapa warstw/źródeł i wspólna dostępność korytarzy po9mm chwytach
+obu USB, nie zaliczenieN01 ani proofR30/452.300s limit workerowym; potem
+rzeczywiste bryły kwalifikują konkretne wspólne trasy. Uwzględnić osobno
+źródłowy dostępATO60mm na zewnątrz po zdjęciu panelu — nie routować przez
+ten dostęp. Nie rozpoczynać mocowań/paneli przed całym planemN01.
+
 14:20Z:5edee3d7 zachowuje pełny odbiór bocznej rodzinyUSB.16705
 zakończony230,203s/48654przypadki matematyczne/32zapisane kandydaty.
 Receiver36757 zakończony12,062s:24odrzucone pominięte, pozostałe8
