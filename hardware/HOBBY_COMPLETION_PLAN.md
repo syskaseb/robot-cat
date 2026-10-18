@@ -2,6 +2,72 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+14:20Z:5edee3d7 zachowuje pełny odbiór bocznej rodzinyUSB.16705
+zakończony230,203s/48654przypadki matematyczne/32zapisane kandydaty.
+Receiver36757 zakończony12,062s:24odrzucone pominięte, pozostałe8
+odebrane, tylko8nowych dokładnych par, bez powtarzania złych pomiarów.
+Wszystkie32odrzucone; brak kwalifikowanej krzywej, nie dowód braku innej.
+Poprawna oryginalna bryłaBUS i odwrotna rama faktycznie użyte, bezheal.
+Integralność22pinów głównego/20pinów receivera sprawdzona. NEXT po dwóch
+odrzuconych topologiach: wspólna mapa rzeczywistej wolnej przestrzeni i
+właścicieli korytarzyUSB/PCA/ATO/chwytów/zapasu, nie trzecia ręczna
+rodzina przez ten sam układ. Niezmienione kable fabryczne/4MTA/bank/
+Pi/head zachowane; nadalOPEN F_PWM/brakujące middles/kotwy/narzędzia/ruch.
+N01=0/10, oba workery zakończone.15testów przechodzi, nowego punktu brak.
+
+Odbiór niedokończonych kandydatów USB: jeśli pierwszy worker zakończy
+na230s, nie uruchamiać trzeciej rodziny tras. Przygotowany receiver
+sprawdza WYŁĄCZNIE nieodrzucone zapisane krzywe32kandydatów. Nie liczy
+ponownie złych ani zapisanych dobrych par. Broadphase bierze sumę bbox
+poszczególnych krawędzi, zamiast olbrzymiego bbox całego przewodu.
+To ograniczenie kosztu tej samej kwalifikacji, nie nowe położenia CAD.
+Source kind purchased_or_complete_wire nie dowodzi, że F_PI jest żyłą;
+Ref_Material zawsze traktować jako materiał z dystansem osi3,75, nie2,7.
+Dotychczasowe odrzucenia F_PI mają dystans0..1,48, pozostają odrzuceniami.
+InvalidBUS kwalifikowany wyłącznie przez odwrotny rigid transform względem
+oryginalnej poprawnej bryły, datum bbox zgodny1e−5; bez naprawy źródła.
+
+N01, następna bramka po b30654bb: nie wracać do dwóch łuków schodzących
+w U1. Wspólny transfer boczny zawiera pośredni punkt ORAZ styczną, pełne
+452mm budżetu z oboma R30/9mm końcami, źródłowe7PCA/+X, wszystkie
+wachlarze19WAGO z after9 oraz obie końcówki3FHAC/sleeve20. To nowa
+topologia całej trasy, nie przesunięcie komponentu. Dane math/kandydaci
+i każda ukończona para zapisywane do wznowienia; znane U1/PWM najpierw.
+InvalidBUS sprawdzać w odwrotnej ramie względem POPRAWNEJ oryginalnej
+bryły z potwierdzonym datum, bez heal/skip. Akceptacja: pełna długość,
+R>=30, odstęp od rzeczywistego loftu>=5,75 od osi (jacket2,5+ściana2+
+powietrze1,25), sąsiedzi i samoprzecięcia. Korzenie/montaż/ruch nadalOPEN.
+
+14:12Z, USB odebrany62859/PID24476, exit0,180,016s.9758przypadków
+matematycznych,77z długością452,56zR>=30,13z próbkami wewnątrz
+prawdziwego loftu. Dokładnie odebrano10kandydatów:4odrzucone dystansem
+do obrysu,5przez U1/PWM/podkładkę,1nieukończony o limicie czasu.
+3pozostałych nie sprawdzono dokładnie. InvalidBUS jawnieHOLD; nic nie
+uznano za wolne. Brak kwalifikowanej trasy, NIE dowód niemożliwości.
+Obecna rodzina dwóch łuków przez środek schodzi w U1. NEXT: zachować
+odebrane świadki, przydzielić wspólny boczny transfer/slack zamiast kolejnej
+izolowanej pozycjiPi. Dokończenie pozostałych tanich kandydatów może użyć
+zapisanego równania i parametrów; nie powtarzać zaliczonych/złych par.
+
+Kontrakt7PCA PAD→bare→jacket odebrany0,0121s,2testy0,016s.
+Zachowuje wybrane Pololu1871/AWG26, LAPP iAdafruit1446/AWG30 oraz
+zapisane promienie miedzi0,20264/0,28209/0,13mm, NIE pomiary splotu.
+Izolacja zaczyna się +1mm(logika) albo+0,5mm(sygnały) nadPadem,
+nie na przeciwległym końcu odsłoniętej żyły. PoRy90 wyjście jacket jest+X.
+To aktualny kontrakt wejścia, nie nowe zakończoneN01.15testów planu/
+matematyki/źródeł przechodzi; pełny aktualny CAD nadal niewybrany.
+Worker zakończony, hook włączony do22Warszawy; nowy zakres0/10.
+
+14:06:21Z, N01 — następna operacja: pełna trasa USB500 przy zachowanym
+Pi i BUS oraz wspólnym REV3 (19WAGO/3FHAC/PWM/monitor). Bloker: dotychczas
+kwalifikowano osobno doglegi, nie wspólną długość/R30/obrys. Nowa metoda:
+styczne łuki 3D pomiędzy OBU wyjściami, ograniczenie długości452mm jako
+jawny projektowy budżet po odjęciu mouldów26+22; nie dane producenta.
+Kandydat wymaga poprawnych brył, rzeczywistego prześwitu i obrysu; brak
+wyniku ograniczonego solvera nie dowodzi niemożliwości układu. Własne
+testy matematyczne5/5 w0,004s nie są testem kolizji. Pełne końce lutowane,
+kotwy/ruch/narzędzia nadalOPEN; nie budować detali ani dopisywać punktu.
+
 13:57:12Z:30282331 zachowuje odbiór65868:27,422s/106par,
 23raporty braku prześwitu nominalnych źródłowych brył i25holdów rezerwacji,
 0błędów/0holdów błędnegoBUS w tym zmienionym zakresie. To NIE23zmierzone
