@@ -33,10 +33,15 @@ class ExtraInterfaceContract(unittest.TestCase):
             self.assertAlmostEqual(e['bare_tip_source_point_mm'][2],94.32)
 
     def test_Yaw_neck_registration_once_not_B1_source(self):
+        receipt=json.loads((OUT/'n01-selected-local-head-tail-sources.json').read_text())
         for ref in ('C_HY.V+','C_HY.GND','C_HY.PWM'):
-            e=self.ends[ref];self.assertAlmostEqual(e['point_mm'][0],-194)
+            e=self.ends[ref];self.assertAlmostEqual(e['point_mm'][0],-152)
+            native=next(r for r in receipt['boundaries'] if r['endpoint']==ref)
+            for a,b in zip(e['point_mm'],native['current_point_mm']):self.assertAlmostEqual(a,b,places=9)
+            self.assertLess(native['native_gap_mm'],1e-5)
+            self.assertEqual(native['correction_delta_mm'],[42,0,-25])
             self.assertTrue(e['accounting_boundary_not_connector_pin'])
-        self.assertTrue(self.ends['C_HY.PWM']['receiver_mould_face_qualification_pending'])
+        self.assertFalse(self.ends['C_HY.PWM']['receiver_mould_face_qualification_pending'])
 
     def test_Tail_current_accounting_not_old_display_curve_or_fake_plug(self):
         for ref in ('C_TY.V+','C_TY.GND','C_TY.PWM'):

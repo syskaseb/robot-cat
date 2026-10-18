@@ -22,6 +22,7 @@ def compose():
         carrier=BASE/'body-harness-checkpoint/u1-socket-carrier-plan.json',
         common=BASE/'body-harness-checkpoint/u1-common-wiring-plan.json',
         tail=BASE/'tail-wiring-checkpoint/selection.json',
+        local_sources=OUT/'n01-selected-local-head-tail-sources.json',
         head=BASE/'head-supply-checkpoint/selection.json',
         head_frame=ROOT/'tools/cad/plan_current_head_wiring.py',
         ecad=ROOT/'hardware/electronics/kicad-current/design.json').items()}
@@ -116,17 +117,23 @@ def compose():
             local_accounting_contact_mm=loc,local_jacket_exit_mm=[side*21,0,0],allocation_required=True,
             independent_grip_after_sleeve_mm=9)
     # Six whole head links terminate at already qualified receiving boundaries.
-    # Yaw local curves are in original head frame: CP2SHIFT THEN current head
-    # transform. Pitch fixed-JR curves already have CP2 frame: no second SHIFT.
+    # Both selected W3 yaw GUIDE and saved W2 local curves ALREADY include
+    # CP2SHIFT. Their actual native boundary receipt proves this; shift neither
+    # a second time. The boundary is not a physical JR face or an added joint.
     for wire,ref in (('XB12','C_HY.V+'),('XB13','C_HY.GND'),('XS13','C_HY.PWM')):
         es=guides['wire/head-supply-checkpoint/'+wire]['source_ends']
         matches=[e for e in es if abs(e['source_point_mm'][0]+112)<1e-5]
         assert len(matches)==1,(wire,'Named fixed yaw boundary is not maximumX source on signal wire')
         e=matches[0]
-        q=plus(e['source_point_mm'],[-42,0,25]);p,d=transfer('HeadMechanism',q,e['source_departure_into_guide'])
-        put(ref,'HeadMechanism',p,d,'W2 fixed-yaw accounting boundary, CP2SHIFT from selected head-wiring construction then current head transform; no new joint',
-            accounting_boundary_not_connector_pin=True,source_frame_registration='CP2SHIFT(-42,0,25), thenR5',
-            full_local_factory_and_JR_required=True,receiver_mould_face_qualification_pending=True)
+        receipt=next(b for b in data['local_sources']['boundaries'] if b['wire']==wire)
+        assert math.dist(e['source_point_mm'],receipt['source_CP2_point_mm'])<1e-5
+        assert receipt['native_gap_mm']<1e-5 and receipt['CP2SHIFT_already_in_both_selected_sources']
+        p,d=transfer('HeadMechanism',e['source_point_mm'],e['source_departure_into_guide'])
+        assert math.dist(p,receipt['current_point_mm'])<1e-5
+        put(ref,'HeadMechanism',p,d,'Actual selected W3/W2 native boundary, already CP2; current head transform ONCE; no new joint',
+            accounting_boundary_not_connector_pin=True,source_frame_registration='Selected W3/W2 already CP2; R5 once, NO additional SHIFT',
+            full_local_factory_and_JR_required=True,receiver_mould_face_qualification_pending=False,
+            selected_W2_boundary_gap_mm=receipt['native_gap_mm'])
     for wire,ref in (('XB22','C_HP.V+'),('XB23','C_HP.GND'),('XS23','C_HP.PWM')):
         e=guides['headwire/0/Interface_'+wire]['source_ends'][1]
         p,d=transfer('HeadMechanism',e['source_point_mm'],e['source_departure_into_guide'])
@@ -167,7 +174,7 @@ def compose():
         explicit_geometry_holds=['PiGPIO five housing mouthsZ115.7 above roof112',
             'PCA top solder exits require supported formed bare-to-horizontal plan, not9mmUP through roof',
             'Three FHAC factory exits below case midZ by1mm; do not use centreZ',
-            'Yaw accounting boundary receiver/mould face still needs selected head local geometry registration',
+            'Yaw accounting boundary native registration qualified; retained factory220 plus30mm delivery fit budget still requires shared allocation',
             'Full selected tail rail/JR/factory250 source bounds125..155/-54..-42/Z107..117 need common body/cowl allocation; do not drop this reference',
             'All34fullroutes, all20independent grips, new head root/33oldneck replacement and assembly remain OPEN'],
         selected_parts_or_ECAD_changed=False,

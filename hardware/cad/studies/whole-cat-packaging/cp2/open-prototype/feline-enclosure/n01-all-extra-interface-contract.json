@@ -418,22 +418,23 @@
           "endpoint": "C_HY.V+",
           "group": "HeadMechanism",
           "point_mm": [
-            -194.0,
+            -152.0,
             -56.8,
-            21.412435565298196
+            -3.587564434701804
           ],
           "departure_axis": [
             0.9999999999999512,
             -1.4516231913782524e-07,
             2.770048945306806e-07
           ],
-          "basis": "W2 fixed-yaw accounting boundary, CP2SHIFT from selected head-wiring construction then current head transform; no new joint",
+          "basis": "Actual selected W3/W2 native boundary, already CP2; current head transform ONCE; no new joint",
           "supplier_datum_guaranteed": false,
           "current_route_or_grip_verified": false,
           "accounting_boundary_not_connector_pin": true,
-          "source_frame_registration": "CP2SHIFT(-42,0,25), thenR5",
+          "source_frame_registration": "Selected W3/W2 already CP2; R5 once, NO additional SHIFT",
           "full_local_factory_and_JR_required": true,
-          "receiver_mould_face_qualification_pending": true
+          "receiver_mould_face_qualification_pending": false,
+          "selected_W2_boundary_gap_mm": 2.842170943040401e-14
         }
       ],
       "fixed_endpoint_pair": false,
@@ -448,22 +449,23 @@
           "endpoint": "C_HY.GND",
           "group": "HeadMechanism",
           "point_mm": [
-            -194.0,
+            -152.0,
             -55.75,
-            19.593782217350906
+            -5.406217782649094
           ],
           "departure_axis": [
             0.9999999999999696,
             -1.141573210510713e-07,
             2.1783959712144331e-07
           ],
-          "basis": "W2 fixed-yaw accounting boundary, CP2SHIFT from selected head-wiring construction then current head transform; no new joint",
+          "basis": "Actual selected W3/W2 native boundary, already CP2; current head transform ONCE; no new joint",
           "supplier_datum_guaranteed": false,
           "current_route_or_grip_verified": false,
           "accounting_boundary_not_connector_pin": true,
-          "source_frame_registration": "CP2SHIFT(-42,0,25), thenR5",
+          "source_frame_registration": "Selected W3/W2 already CP2; R5 once, NO additional SHIFT",
           "full_local_factory_and_JR_required": true,
-          "receiver_mould_face_qualification_pending": true
+          "receiver_mould_face_qualification_pending": false,
+          "selected_W2_boundary_gap_mm": 1.4210854715202004e-14
         },
         {
           "endpoint": "G_AUX.4",
@@ -486,7 +488,7 @@
         }
       ],
       "fixed_endpoint_pair": true,
-      "straight_chord_only_mm": 176.66363067459773,
+      "straight_chord_only_mm": 141.35893777455578,
       "chord_is_not_route_or_cut_length": true,
       "full_route_or_stock_accepted": false
     },
@@ -955,26 +957,27 @@
           "endpoint": "C_HY.PWM",
           "group": "HeadMechanism",
           "point_mm": [
-            -194.0,
+            -152.0,
             -57.85,
-            19.593782217350906
+            -5.406217782649094
           ],
           "departure_axis": [
             0.9999999999999618,
             -1.2805121338466047e-07,
             2.4435261551900133e-07
           ],
-          "basis": "W2 fixed-yaw accounting boundary, CP2SHIFT from selected head-wiring construction then current head transform; no new joint",
+          "basis": "Actual selected W3/W2 native boundary, already CP2; current head transform ONCE; no new joint",
           "supplier_datum_guaranteed": false,
           "current_route_or_grip_verified": false,
           "accounting_boundary_not_connector_pin": true,
-          "source_frame_registration": "CP2SHIFT(-42,0,25), thenR5",
+          "source_frame_registration": "Selected W3/W2 already CP2; R5 once, NO additional SHIFT",
           "full_local_factory_and_JR_required": true,
-          "receiver_mould_face_qualification_pending": true
+          "receiver_mould_face_qualification_pending": false,
+          "selected_W2_boundary_gap_mm": 1.5888218580782548e-14
         }
       ],
       "fixed_endpoint_pair": true,
-      "straight_chord_only_mm": 213.2915983502706,
+      "straight_chord_only_mm": 171.21625745222212,
       "chord_is_not_route_or_cut_length": true,
       "full_route_or_stock_accepted": false
     },
@@ -1850,7 +1853,7 @@
     "PiGPIO five housing mouthsZ115.7 above roof112",
     "PCA top solder exits require supported formed bare-to-horizontal plan, not9mmUP through roof",
     "Three FHAC factory exits below case midZ by1mm; do not use centreZ",
-    "Yaw accounting boundary receiver/mould face still needs selected head local geometry registration",
+    "Yaw accounting boundary native registration qualified; retained factory220 plus30mm delivery fit budget still requires shared allocation",
     "Full selected tail rail/JR/factory250 source bounds125..155/-54..-42/Z107..117 need common body/cowl allocation; do not drop this reference",
     "All34fullroutes, all20independent grips, new head root/33oldneck replacement and assembly remain OPEN"
   ],
@@ -1863,10 +1866,11 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-carrier-plan.json": "d1033a9322c43f4ba311dafce772d2915bdc4f24e2afe0319a558a869e1061f8",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-common-wiring-plan.json": "9043f928a23a03c39581d5c1e77824ee63b93583fd6c48c4fcb871465755d826",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-wiring-checkpoint/selection.json": "11d1ce89ba3a5fc092b7931ac8ea6a93ee2aea098704adc21ea692fe9068597c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-selected-local-head-tail-sources.json": "3479788c44e44d2d505f6875511a6f9e6e28e9e605d036291034cf3096a8de18",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-supply-checkpoint/selection.json": "688a37c2aa95f4091a7e4a9079f5cb38c6b1d14ddbd1a6317c716e34d0b40398",
     "tools/cad/plan_current_head_wiring.py": "12d670fc60c17e5d8ac513c8a9a0374673d4007e7bd1e19d50cb04754f1abca7",
     "hardware/electronics/kicad-current/design.json": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
-    "tools/cad/compose_feline_all_extra_interfaces.py": "d9a4d02880c0918abe1a19057a1b6662270d3e0cb89cc76f702720f39e475721"
+    "tools/cad/compose_feline_all_extra_interfaces.py": "0f2439880f5b1d8e3d8330596a9d08a33aa92e0b9736e2d63a53fae59a226a13"
   },
-  "worker_seconds": 0.025
+  "worker_seconds": 0.0262
 }
