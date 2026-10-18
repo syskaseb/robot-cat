@@ -52,4 +52,41 @@ class CoupledPlanTests(unittest.TestCase):
         self.assertEqual(p['unit_template_groups'],['F_PI','WAGO:P_SYS_new','MAIN'])
         self.assertTrue(p['unit_world_pose_pending'])
 
+class CompletePowerEndTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):cls.p=mod.build_all_ends_unit()
+
+    def test_all_occupied_identities_and_no_invented_nc(self):
+        ends=self.p['all_unit_ends']
+        self.assertEqual(len(ends),8)
+        self.assertEqual({e['role'] for e in ends},{'P_SYS.1','P_SYS.2','P_SYS.3','P_SYS.5',
+            'MAIN.VIN','MAIN.GND','MAIN.VOUT','MAIN.GND_OUT'})
+        self.assertEqual(len({e['id'] for e in ends}),8)
+        self.assertTrue(self.p['P_SYS_4_no_wire_allocated_by_current_ledger'])
+        self.assertEqual(len(self.p['additional_end_prefixes']),6)
+
+    def test_clock_keeps_fuse_feed_and_moves_all_other_ends_together(self):
+        ends={e['role']:e for e in self.p['all_unit_ends']}
+        self.assertEqual(ends['P_SYS.5']['point_mm'],[-84,4.5,-33.5])
+        for name in ('P_SYS.1','P_SYS.2','P_SYS.3','P_SYS.5'):
+            self.assertEqual(ends[name]['departure_axis'],[-1,0,0])
+            self.assertAlmostEqual(ends[name]['point_mm'][1],4.5)
+        for name in ('MAIN.VIN','MAIN.GND','MAIN.VOUT','MAIN.GND_OUT'):
+            self.assertEqual(ends[name]['departure_axis'],[0,0,-1])
+            self.assertEqual(ends[name]['initial_mm'],12)
+
+    def test_shared_restraint_contains_whole_parallel_jacket_lands(self):
+        for e in self.p['all_unit_ends']:
+            key='P_SYS_CommonRelief' if e['role'].startswith('P_SYS') else 'MAIN_CommonRelief'
+            lo,hi=self.p['shared_relief_reservations'][key]
+            # MAIN has12mm departure; last9mm, not the PCB pad, is gripped.
+            start=mod.add(e['point_mm'],mod.scale(e['departure_axis'],e['initial_mm']-9))
+            end=mod.add(e['point_mm'],mod.scale(e['departure_axis'],e['initial_mm']))
+            for point in (start,end):
+                for i,x in enumerate(point):
+                    self.assertGreaterEqual(x+1e-7,lo[i])
+                    self.assertLessEqual(x-1e-7,hi[i])
+            self.assertAlmostEqual(math.dist(start,end),9)
+        self.assertFalse(self.p['selected']);self.assertFalse(self.p['N01_complete'])
+
 if __name__=='__main__':unittest.main()

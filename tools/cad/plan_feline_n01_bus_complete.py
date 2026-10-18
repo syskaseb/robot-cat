@@ -29,9 +29,10 @@ def bb(s):
     b=s.BoundBox;return [[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();dogleg='--outside-cable-arm' in sys.argv
+    tick=time.monotonic();reader=SavedShapes();qualify='--qualify-received' in sys.argv
+    dogleg=qualify or '--outside-cable-arm' in sys.argv
     rooted=dogleg or '--rooted-branches' in sys.argv
-    dest=OUT/('n01-bus-both-plugs-plan-r3.json' if dogleg else 'n01-bus-both-plugs-plan-r2.json' if rooted else 'n01-bus-both-plugs-plan.json')
+    dest=OUT/('n01-bus-received-motion-envelope.json' if qualify else 'n01-bus-both-plugs-plan-r3.json' if dogleg else 'n01-bus-both-plugs-plan-r2.json' if rooted else 'n01-bus-both-plugs-plan.json')
     assert not dest.exists(),'Receive previous result; no unchanged rerun'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json','current-mount-axis-inventory.json')]
@@ -228,6 +229,58 @@ def main():
             report['source_sha256'][priorrootpath.relative_to(ROOT).as_posix()]=sha(priorrootpath)
             report['unchanged_root_scope_reused']=dict(report=priorrootpath.relative_to(ROOT).as_posix(),sha256=sha(priorrootpath),
                 only_changed='USB_DiagonalArm replaced by outside dogleg; all other roots, plugs and prefixes identical')
+    if qualify:
+        receivedpath=OUT/'n01-bus-both-plugs-plan-r3.json'
+        received=json.loads(receivedpath.read_text())
+        assert not (received['contacts'] or received['reservation_overlaps'] or received['errors'])
+        for key in ('relative_BUS_pose','routes','roots','USB_outside_arm_path_mm','PCB_axes_mm'):
+            assert received[key]==report[key],key+' changed since scoped static receipt'
+        for pp,h in received['source_sha256'].items():
+            if pp!='tools/cad/plan_feline_n01_bus_complete.py':assert sha(ROOT/pp)==h,pp
+        report['static_scope_reused_without_rerun']={'path':receivedpath.relative_to(ROOT).as_posix(),'sha256':sha(receivedpath)}
+        report['source_sha256'][receivedpath.relative_to(ROOT).as_posix()]=sha(receivedpath)
+        parts={**bus,**wires,**reserves,**{n:s for n,s in roots.items() if not n.startswith('InheritedRearPost')}}
+        outerpath=OUT/'FelineLayoutEnvelope.FCStd';outer=reader.shape(outerpath,'TorsoEnvelope')
+        assert outer.isValid() and len(outer.Solids)==1
+        report['envelope_outside']=[]
+        for n,s in parts.items():
+            gate()
+            try:
+                assert s.isValid() and bool(s.Solids),n
+                diff=s.cut(outer);assert diff.isNull() or diff.isValid()
+                if diff.Volume>1e-5:report['envelope_outside'].append({'object':n,'outside_mm3':diff.Volume,'bounds_mm':bb(diff)})
+            except Exception as exc:report['errors'].append({'object':n,'scope':'true_saved_outer_volume','error':str(exc)})
+        report['outer_volume_not_wall_or_physical_qualification']=True
+        save();print('BUS true envelope outside='+str(len(report['envelope_outside'])),flush=True)
+        axispath=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json'
+        axes=json.loads(axispath.read_text())['axes'];report['source_sha256'][axispath.relative_to(ROOT).as_posix()]=sha(axispath)
+        moving={n:reader.shape(MODEL,n) for group in motion['membership'].values() for ns in group.values() for n in ns}
+        corners={n:[A.Vector(x,y,z) for x in (s.BoundBox.XMin,s.BoundBox.XMax)
+                   for y in (s.BoundBox.YMin,s.BoundBox.YMax) for z in (s.BoundBox.ZMin,s.BoundBox.ZMax)] for n,s in moving.items()}
+        pb={n:s.BoundBox for n,s in parts.items()}
+        report['motion_broadphase']='Transform8corners of exact source world bound before copying BRep; disjoint conservative bounds prove separation only. Overlaps get actual solid common.'
+        for index in range(36):
+            sample=motion['poses'][index]
+            for code,group in motion['membership'].items():
+                a=[next(a for a in axes if a['code']==code and a['stage']==st) for st in STAGES]
+                transforms=placement(a,sample['legs'][code]['angles_delta_degrees'])
+                for st,names in group.items():
+                    for n in names:
+                        gate();B=A.BoundBox()
+                        for v in corners[n]:B.add(transforms[st].multVec(v))
+                        near=[pn for pn,b in pb.items() if B.intersect(b)]
+                        if not near:continue
+                        s=moving[n].copy();s.Placement=transforms[st]*s.Placement
+                        fixedbounds.pop(n,None)
+                        for pn in near:check(n,s,pn,parts[pn],'adopted_leg_pose_'+str(index),pn in reserves or pn in roots)
+            report['poses'].append(index);save()
+        report['source_sha256'].update(reader.hashes)
+        failed=report['contacts'] or report['reservation_overlaps'] or report['errors']
+        report['status']='BUS_ADOPTED_MOTION_REJECTED' if failed else 'BUS_OLD_ENVELOPE_REJECTED' if report['envelope_outside'] else 'BUS_ADOPTED36_AND_TRUE_OUTER_CLEAR_COMPLETE_USB_TOOLS_WALLS_OPEN'
+        save();print(json.dumps({'status':report['status'],'poses':len(report['poses']),'pairs':report['pairs'],
+             'contacts':len(report['contacts']),'reservations':len(report['reservation_overlaps']),
+             'outside':len(report['envelope_outside']),'errors':len(report['errors']),'seconds':report['worker_seconds']}),flush=True)
+        return
     save()
     for n,s in ({} if rooted else {**bus,**wires}).items():
         for bn,b in scene.items():
