@@ -1,38 +1,363 @@
 {
-  "status":"ONE_COUPLED_MACRO_ALLOCATION_SPEC_NOT_GEOMETRY_ACCEPTED",
-  "selected":false,
-  "N01_complete":false,
-  "physical_pass":false,
-  "source_map":"n01-whole-constraint-map.json",
-  "profile_revision":2,
-  "profile_revision_basis":"a78fb036 frozen390snapshot:348wire pairs/127failures/6.329s. Root cause lower fans turning ALONG slot pitch and collinear after9mm grips; no world gate launched.",
-  "WAGO_case_inner_face_abs_Y_mm":52,
-  "WAGO_uniform_conservative_jacket_radius_mm":2.1,
-  "WAGO_radius_budget_not_a_manufacturer_dimension":true,
-  "WAGO_family_rule":"All downward plane fans perpendicular to slot pitch. Max4.2mm diameter vs min4.75pitch leaves0.55mm nominal self-gap; not a full world clearance claim. Actual case widths determine centreY=52+halfwidth, no arbitrary same centre for30/37mm bodies.",
-  "PiPower_first_straights_mm":{"W079":9,"W080":9},
-  "PiPower_concentric_radii_mm":{"W079":15.9,"W080":12.4},
-  "PiPower_family_rule":"94d19498 second wire gate closed station families but two equal-radius Pi arcs still intersected. Change TOPOLOGY to concentric arcs in actual tilted mouth-pitch plane: source mouths3.5mm apart, radii differ3.5mm, same first9mm. Minimum nominal jacket gap0.4mm; verify exact. Not another offset trial.",
-  "reason":"Two central Pi hypotheses failed because PWM/full MAIN channels and whole station fans were not allocated jointly. No third isolated Pi retry.",
-  "Pi":{"source_PCB_bottom_target_mm":[50,0,85],"rotation_order":"Rz180 * Rx-12","include":"All official ports, selected Delock60047/K1474, occupied1992, full Lanberg mould and firstR30, GPIO R10+after9mm grips","microSD_gap_budget":"Previous minimum0.5266mm +1mm shared stack datum =1.5266mm, verify exact again","nominal_max_GPIO_Z_mm":108.51804794110525,"mount_stack":"Do not accept flipped floating nuts. Proposed same14mm overall screw geometry with four6.2mm PETG ABOVE-PCB spacers to nut plane; holes410/412 also require exact1mm opposite-face interposer. Source stack and same-hardware tool/access must be explicitly checked. No native stack is accepted."},
-  "PWM9685":{"whole_current_group_delta_mm":[-5,-28,-80],"purpose":"Lower fore bay outside battery carrier, vacate fore USB-Cable budget","all7_extra_ends_and_all_current_power_mates_must_move_or_be_rerouted":true,"source_header_and_mating_budget_required":true},
-  "P_SYS":"Keep current source case and W043/W077/W078 unchanged where possible",
-  "WAGO_station_rows":[
-    {"side":-1,"Y_mm":-67,"Z_mm":42,"refs":["G_TAIL","G_AUX","P_AUX","G2","FL_P"],"centres_X_mm":[-91,-43,5,53,101],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0,-1]},
-    {"side":1,"Y_mm":67,"Z_mm":42,"refs":["D_FL","FL_G","FR_P","D_FR","FR_G"],"centres_X_mm":[-71,-31,9,49,89],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0,-1]},
-    {"side":-1,"Y_mm":-67,"Z_mm":16,"refs":["P_REAR","P_FRONT","RL_G","D_RL","RL_P"],"centres_X_mm":[-91,-43,5,53,101],"departure_X_signs":[-1,-1,1,1,1],"bend_unit_mm":[0,0,-1]},
-    {"side":1,"Y_mm":67,"Z_mm":16,"refs":["G1","RR_G","D_RR","RR_P"],"centres_X_mm":[-71,-31,9,49],"departure_X_signs":[-1,-1,1,1],"bend_unit_mm":[0,0,-1]}
+  "status": "TYPED_WHOLE_REPLAN_AFTER_EXACT_WORLD_REJECTION_NOT_CAD_ACCEPTED",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "source_map": "n01-whole-constraint-map.json",
+  "profile_revision": 3,
+  "profile_revision_basis": "30282331 received106worldpairs/23nominal-source geometry failures/25reservationholds/0errors/27.422s. Correct actual component dimensions and pad-vs-jacket semantics before any next geometry, not offsets.",
+  "WAGO_uniform_conservative_jacket_radius_mm": 2.1,
+  "WAGO_radius_budget_not_a_manufacturer_dimension": true,
+  "WAGO_family_rule": "Vertical-slot thin-Y architecture. After-turn OUTWARD-Y fan is perpendicular to slot pitch. Source415dimensions(slot,departure,thickness)=30,19,9;615=37,22,11. Actual rotated case width controls centreY, topZ datum controls centreZ; do not assume fixed centres.",
+  "PiPower_first_straights_mm": {
+    "W079": 9,
+    "W080": 9
+  },
+  "PiPower_concentric_radii_mm": {
+    "W079": 15.9,
+    "W080": 12.4
+  },
+  "PiPower_family_rule": "94d19498 second wire gate closed station families but two equal-radius Pi arcs still intersected. Change TOPOLOGY to concentric arcs in actual tilted mouth-pitch plane: source mouths3.5mm apart, radii differ3.5mm, same first9mm. Minimum nominal jacket gap0.4mm; verify exact. Not another offset trial.",
+  "reason": "Two central Pi hypotheses failed because PWM/full MAIN channels and whole station fans were not allocated jointly. No third isolated Pi retry.",
+  "Pi": {
+    "source_PCB_bottom_target_mm": [
+      50,
+      0,
+      85
+    ],
+    "rotation_order": "Rz180 * Rx-12",
+    "include": "All official ports, selected Delock60047/K1474, occupied1992, full Lanberg mould and firstR30, GPIO R10+after9mm grips",
+    "microSD_gap_budget": "Previous minimum0.5266mm +1mm shared stack datum =1.5266mm, verify exact again",
+    "nominal_max_GPIO_Z_mm": 108.51804794110525,
+    "mount_stack": "Do not accept flipped floating nuts. Proposed same14mm overall screw geometry with four6.2mm PETG ABOVE-PCB spacers to nut plane; holes410/412 also require exact1mm opposite-face interposer. Source stack and same-hardware tool/access must be explicitly checked. No native stack is accepted."
+  },
+  "PWM9685": {
+    "source_PCB_bottom_datum_mm": [
+      -70.885,
+      28,
+      104
+    ],
+    "target_PCB_bottom_datum_mm": [
+      -85,
+      -51,
+      75
+    ],
+    "rotation_about_world_Y_degrees": 90,
+    "source_PCB_dimensions_mm": [
+      62.23,
+      25.4,
+      1.6
+    ],
+    "source_group_hardware_included": true,
+    "interface_type": "All7 endpoints supplier815revC solder PADS, not jacket exits",
+    "wire_data": "Use exact per-wire OD0.8/1.4 and fixed projectR0.5/6/10 from boundary contract; never infer from generic HELU",
+    "formed_term_plan": "Allocate named pad -> bare/insulation form -> jacket -> independent9mm grip together. CH0/1/2 30AWG and4I2C1.4OD need different fan planes. Bare conductor radius/strip prescription must be read from selected source, not invented.",
+    "qualification": "Not checked: entire module/formed terminals/root/known free PCB holes/tools/motion"
+  },
+  "P_SYS": "Keep current source case and W043/W077/W078 unchanged where possible",
+  "WAGO_station_rows": [
+    {
+      "side": -1,
+      "refs": [
+        "G_TAIL",
+        "G_AUX",
+        "P_AUX",
+        "G2",
+        "FL_P"
+      ],
+      "centres_X_mm": [
+        -96,
+        -48,
+        0,
+        48,
+        104
+      ],
+      "departure_X_signs": [
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "case_top_Z_mm": 50.75,
+      "bend_unit_mm": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "side": 1,
+      "refs": [
+        "D_FL",
+        "FL_G",
+        "FR_P",
+        "D_FR",
+        "FR_G"
+      ],
+      "centres_X_mm": [
+        -84,
+        -36,
+        12,
+        60,
+        116
+      ],
+      "departure_X_signs": [
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "case_top_Z_mm": 50.75,
+      "bend_unit_mm": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "side": -1,
+      "refs": [
+        "P_REAR",
+        "P_FRONT",
+        "RL_G",
+        "D_RL",
+        "RL_P"
+      ],
+      "centres_X_mm": [
+        -96,
+        -48,
+        0,
+        48,
+        104
+      ],
+      "departure_X_signs": [
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "case_top_Z_mm": 17.25,
+      "bend_unit_mm": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "side": 1,
+      "refs": [
+        "G1",
+        "RR_G",
+        "D_RR",
+        "RR_P"
+      ],
+      "centres_X_mm": [
+        -84,
+        -36,
+        12,
+        60
+      ],
+      "departure_X_signs": [
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "case_top_Z_mm": 17.25,
+      "bend_unit_mm": [
+        0,
+        1,
+        0
+      ]
+    }
   ],
-  "WAGO_first_profile":{"first_straight_mm":3,"R_mm":12.4,"after_turn_independent_grip_mm":9,"first_straight_is_project_fit_assumption":true,"use_actual_prototype_pitches_and_all86_occupied_cavities":true,"physical_map_already_applied_once":true,"orientation":"Use proper source/target bases: slot axis + departure + thickness; keep actual lever face UP, not a reflection or second logical cavity remap","large615_lower_cases":"Fore negative P_REAR/P_FRONT and fore positive G1; long inward fan stays fore of battery. P_SYS remains fixed."},
-  "FHAC":[
-    {"role":"F_TY","centre_mm":[-24,-43,25],"source_axis_X_rotated_to":"-Z","upper_factory_first_mm":25.35,"upper_factory_after_arc_mm":23,"upper_factory_grip":"First9mm after arc, before sleeve14mm","upper_bend_unit":[0,1,0],"upper_arc_finish_Z_mm":88.25,"lower_factory_first_mm":9,"lower_factory_grip":"Initial9mm before arc","lower_bend_unit":[0,-1,0]},
-    {"role":"F_HP","centre_mm":[-12,43,25],"source_axis_X_rotated_to":"-Z","upper_factory_first_mm":31.6,"upper_factory_after_arc_mm":23,"upper_factory_grip":"First9mm after arc, before sleeve14mm","upper_bend_unit":[0,-1,0],"upper_arc_finish_Z_mm":94.5,"lower_factory_first_mm":9,"lower_factory_grip":"Initial9mm before arc","lower_bend_unit":[0,1,0]},
-    {"role":"F_HY","centre_mm":[-65,-22,98.75],"source_axis_X_rotated_to":"+Y","source_roll_about_long_axis_degrees":180,"factory_exit_Z_mm":99.75,"functional_clocking_reason":"Factory mouths originally on underside crossed USB95plane. Clock WHOLE housing to upper mouths, centreZ derived from2+2.5+0.25nominal wire separation; no third first-straight trial.","both_factory_first_mm":9,"both_factory_grip":"Outward initial9; inward after-arc9 before sleeve14","inward_factory_first_mm":3,"inward_factory_after_arc_mm":23,"outward_bend_unit":[1,0,0],"inward_bend_unit":[-1,0,0]}
+  "WAGO_first_profile": {
+    "first_straight_mm": 3,
+    "R_mm": 12.4,
+    "after_turn_independent_grip_mm": 9,
+    "first_straight_is_project_fit_assumption": true,
+    "use_actual_prototype_pitches_and_all86_occupied_cavities": true,
+    "physical_map_already_applied_once": true,
+    "orientation": "slot axis -> +/-Z, departure -> +/-X, source thickness/lever face -> outward sideY. Proper handed frame; logical/physical map ONCE.",
+    "large615_lower_cases": "Fore negative P_REAR/P_FRONT and fore positive G1; long inward fan stays fore of battery. P_SYS remains fixed.",
+    "support_divider_budget": "Upper case bottom20.75,3mm divider17.75..20.75, lower case top17.25 gives0.5mm nominal fit gap. New roots/tool/lever qualification OPEN, no native build yet."
+  },
+  "FHAC": [
+    {
+      "role": "F_HY",
+      "centre_mm": [
+        -24,
+        -83.5,
+        32
+      ],
+      "source_axis_X_rotated_to": "-Z",
+      "source_dimensions_XYZ_mm": [
+        51,
+        20.25,
+        22
+      ],
+      "vertical_dimensions_XYZ_mm": [
+        22,
+        20.25,
+        51
+      ],
+      "both_factory_first_mm": 9,
+      "both_factory_after_arc_mm": 14,
+      "factory_grip": "Initial9mm before bend, at actual source casing mouth",
+      "bend_unit_mm": [
+        0,
+        1,
+        0
+      ],
+      "upper_factory_arc_finish_Z_mm": 78.9,
+      "lower_factory_arc_finish_Z_mm": -14.9,
+      "reuse_basis": "Same OUTBOARD vertical source family from original front-bulkhead plan, but whole new neighbours, extended14mm sleeve land and all tool/root/motion checks must be qualified. Do not falsely reuse old cross-module acceptance."
+    },
+    {
+      "role": "F_HP",
+      "centre_mm": [
+        12,
+        83.5,
+        32
+      ],
+      "source_axis_X_rotated_to": "-Z",
+      "source_dimensions_XYZ_mm": [
+        51,
+        20.25,
+        22
+      ],
+      "vertical_dimensions_XYZ_mm": [
+        22,
+        20.25,
+        51
+      ],
+      "both_factory_first_mm": 9,
+      "both_factory_after_arc_mm": 14,
+      "factory_grip": "Initial9mm before bend, at actual source casing mouth",
+      "bend_unit_mm": [
+        0,
+        -1,
+        0
+      ],
+      "upper_factory_arc_finish_Z_mm": 78.9,
+      "lower_factory_arc_finish_Z_mm": -14.9,
+      "reuse_basis": "Same OUTBOARD vertical source family from original front-bulkhead plan, but whole new neighbours, extended14mm sleeve land and all tool/root/motion checks must be qualified. Do not falsely reuse old cross-module acceptance."
+    },
+    {
+      "role": "F_TY",
+      "centre_mm": [
+        48,
+        -83.5,
+        32
+      ],
+      "source_axis_X_rotated_to": "-Z",
+      "source_dimensions_XYZ_mm": [
+        51,
+        20.25,
+        22
+      ],
+      "vertical_dimensions_XYZ_mm": [
+        22,
+        20.25,
+        51
+      ],
+      "both_factory_first_mm": 9,
+      "both_factory_after_arc_mm": 14,
+      "factory_grip": "Initial9mm before bend, at actual source casing mouth",
+      "bend_unit_mm": [
+        0,
+        1,
+        0
+      ],
+      "upper_factory_arc_finish_Z_mm": 78.9,
+      "lower_factory_arc_finish_Z_mm": -14.9,
+      "reuse_basis": "Same OUTBOARD vertical source family from original front-bulkhead plan, but whole new neighbours, extended14mm sleeve land and all tool/root/motion checks must be qualified. Do not falsely reuse old cross-module acceptance."
+    }
   ],
-  "FHAC_full_joint":{"factory_after_arc_straight_mm":14,"factory_inside_case_allowance_mm":3,"lap_mm":8,"sleeve_mm":20,"sleeve_before_factory_tip_mm":14,"sleeve_after_factory_tip_mm":6,"custom_grip_relative_factory_tip_mm":[9,18],"factory100mm_is_unconfirmed_delivery_assumption":true,"reason":"Prior10mm factory land is shorter than14mm straight sleeve budget; do not sleeve over4mm of a bend. Model both sides fully."},
-  "structural_budget":{"MAIN":"REUSE actual saved cut UpperStrip-1 fore portion, never refill a solid box through MAIN_CommonRelief/W078/ties","portals":"Connected side load paths atY+-32 must be jointly assigned to actual free post/rail interfaces; prior generic cap and unnamed Post laps rejected","BankBed":"Named6.5mm factory pass-throughs may be planned in PETG bed, not purchased housing; check full preserved functional clip/ATO interfaces","Pi_carrier":"Above-PCB spacer paths must avoid full GPIO/USB port budgets. No fastener-stack approval from world gaps alone."},
-  "routing_capacity_candidate":{"X_range_mm":[-65,100],"Y_centres_mm":[-36.15,36.15],"cross_Y_mm":15,"Z_range_mm":[-0.25,34.25],"status":"RESERVATIONS_ONLY_NOT_CHECKED","purpose":"Two shared longitudinal wire galleries outside U1/battery and belowP0, avoiding belly feet by nominal1.25mm. Must check actual folded legs and occupied anchors before use.","packing_fill_not_assumed":"Compute cut-plane actual section demand from all123external portions and real wire radii; do not count every wire in every plane or call area alone a route."},
-  "retained":"Lower118/4MTA eight complete factory paths/24bank quarters, P0/E6/15drives/MG92B, source local head-tail registered once",
-  "verification_order":["Cheap recipe dimensions, source identity, full sleeve/first-profile mutual wire checks","All changed case/port/grip/power/rail interfaces against retained material with known invalidBUS explicit HOLD","Actual outline and36adopted leg poses for changed whole budgets only","All246accounting ends and corridor/capacity/tool/anchor plan, then N01 selection if all blockers eliminated"],
-  "open":"No third Pi-only work. Build ONE joint snapshot from this spec; save before exact queries; use witnesses to change whole cause after rejection. No detailed native or N01 point yet."
+  "FHAC_full_joint": {
+    "factory_after_arc_straight_mm": 14,
+    "factory_inside_case_allowance_mm": 3,
+    "lap_mm": 8,
+    "sleeve_mm": 20,
+    "sleeve_before_factory_tip_mm": 14,
+    "sleeve_after_factory_tip_mm": 6,
+    "custom_grip_relative_factory_tip_mm": [
+      9,
+      18
+    ],
+    "factory100mm_is_unconfirmed_delivery_assumption": true,
+    "reason": "Prior10mm factory land is shorter than14mm straight sleeve budget; do not sleeve over4mm of a bend. Model both sides fully."
+  },
+  "structural_budget": {
+    "MAIN": "REUSE actual saved cut UpperStrip-1 fore portion, never refill a solid box through MAIN_CommonRelief/W078/ties",
+    "portals": "Connected side load paths atY+-32 must be jointly assigned to actual free post/rail interfaces; prior generic cap and unnamed Post laps rejected",
+    "BankBed": "Named6.5mm factory pass-throughs may be planned in PETG bed, not purchased housing; check full preserved functional clip/ATO interfaces",
+    "Pi_carrier": "Above-PCB spacer paths must avoid full GPIO/USB port budgets. No fastener-stack approval from world gaps alone.",
+    "WAGO": "One shared two-tier thin-Y carrier budget; occupied anchors/free slots/3mm divider/retention/lever sweep explicit before native. No ties through levers. Full sampled leg clearance required."
+  },
+  "routing_capacity_candidate": {
+    "status": "WITHDRAWN_NEEDS_ACTUAL_P0_SIDE_PLATE_VOIDS",
+    "purpose": "Previous rectangular galleries were never qualified against actual P0 side plates. Do not reuse their XYZ as an accepted corridor or infer a physical collision from bbox alone. Allocate real free voids and changed36leg motion together.",
+    "packing_fill_not_assumed": "Compute cut-plane actual section demand from all123external portions and real wire radii; do not count every wire in every plane or call area alone a route."
+  },
+  "retained": "Lower118/4MTA eight complete factory paths/24bank quarters, P0/E6/15drives/MG92B, source local head-tail registered once",
+  "verification_order": [
+    "Use component-boundary-contract source sizes and solder/jacket types, actual free hole ownership",
+    "Joint full500USB/radius/slack and all246accounting ends + corridor/tool budgets before new coupled geometry",
+    "One whole macro source snapshot with all case/factory/bare/jacket/grip/retention budgets; cheap mutual gate then exact retained source gate",
+    "Only changed actual outline/36leg trajectory; then N01 selection if ALL known blockers/root/tool interfaces closed",
+    "Native N02/N03 details AFTER complete N01, no point for this proposed replan"
+  ],
+  "open": "Whole input replan in scope; no worker and no native approval. Do not blindly run old rev2 builders against rev3. Implement current typed frame and complete USB/bare-end allocation first.",
+  "component_boundary_contract": "n01-component-boundary-contract.json",
+  "Hypotheses_not_to_repeat": [
+    "Fore Pi bulkhead both versions",
+    "Lower horizontal PWM through P0 FrameFront20",
+    "51mm vertical FHAC centredZ25/Y43 through actual P0 Side plates",
+    "FHAC15.5mm cross section (actual source20.25x22)",
+    "PCA solder pads treated as jacket mouths",
+    "Steep Pi to solve one edge while ignoring full selected USB-C power receiver",
+    "Fixed independent USB doglegs before whole factory500mm allocation"
+  ],
+  "WAGO_case_inner_face_abs_Y_mm": 53.5,
+  "WAGO_orientation": "slot axis -> +/-Z, departure -> +/-X, source thickness/lever face -> outward sideY. Proper handed frame; logical/physical map ONCE.",
+  "Monitor5015": {
+    "centre_mm": [
+      25,
+      78,
+      -23.25
+    ],
+    "rotation_about_X_degrees": -90,
+    "source_dimensions_mm": [
+      41,
+      25,
+      12
+    ],
+    "upright_dimensions_mm": [
+      41,
+      12,
+      25
+    ],
+    "basis": "Below positive lower source fan minimumZ-7.25 (2.1jacket ->-9.35); monitor top-10.75 nominal1.4airgap. True flat-belly contour, actual leg samples and screen-side/retention remain UNCHECKED."
+  },
+  "Head": {
+    "preserve_baseline_R5_pose": true,
+    "proposed_raise_mm": 0,
+    "reason": "The prior+35 belonged to rejected fore-Pi topology; do not preserve an optional changed head/root without an actual blocker. Preserve same73nativeparts and local source data, replace old33neck interfaces only by a planned load path."
+  },
+  "USB500": {
+    "selected_SKU": "LanbergCA-USBO-10CU-0005-BK",
+    "catalog_total_mm": 500,
+    "project_Pi_mould_length_mm": 26,
+    "retained_BUS_mould_length_mm": 22,
+    "conservative_external_wire_capacity_target_mm": 452,
+    "capacity_is_project_allowance_not_supplier_bare_length": true,
+    "Pi": "Existing full source Pi plug/port contract remains input; no new right-angle adapter/SKU.",
+    "BUS": "Actual same selected USB-C overmould/mouth. Existing DOWN-first prefix and root are NOT immutable if they make whole500route impossible: plan BOTH exits together; fore-X bend is a domain candidate, not selected.",
+    "required": "Geometry-aware complete route with R>=30, actual bodies/outer contour, first/after9mm grip ownership, factory slack reservation and length proof BEFORE another full snapshot.",
+    "blocked_claims": "No chord/dogleg sum alone is a route, no >500 nominal path markedPASS, no hidden cable extension."
+  }
 }

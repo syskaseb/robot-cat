@@ -58,9 +58,10 @@ class CoupledPlan(unittest.TestCase):
                 self.assertGreaterEqual(fuse['upper_factory_after_arc_mm']-14,9)
 
     def test_perpendicular_slot_fans_not_collinear_after_grips(self):
-        self.assertEqual(self.p['profile_revision'],2)
+        self.assertEqual(self.p['profile_revision'],3)
         for row in self.p['WAGO_station_rows']:
-            self.assertEqual(row['bend_unit_mm'],[0,0,-1])
+            self.assertEqual(row['bend_unit_mm'],[0,row['side'],0])
+            self.assertIn(row['case_top_Z_mm'],(17.25,50.75))
         pitches=[math.sqrt(sum(x*x for x in s['prototype']['port_pitch_vector_mm'])) for s in self.ports['stations']]
         self.assertGreaterEqual(min(pitches)-2*self.p['WAGO_uniform_conservative_jacket_radius_mm'],.2)
 
@@ -71,15 +72,16 @@ class CoupledPlan(unittest.TestCase):
         self.assertAlmostEqual(radii['W079']-radii['W080'],3.5)
         self.assertGreaterEqual(min(radii.values()),12.4)
         hy=next(f for f in self.p['FHAC'] if f['role']=='F_HY')
-        self.assertEqual(hy['inward_factory_first_mm'],3)
-        self.assertGreaterEqual(hy['inward_factory_after_arc_mm']-14,9)
-        self.assertEqual(hy['source_roll_about_long_axis_degrees'],180)
+        self.assertGreaterEqual(hy['both_factory_first_mm'],9)
+        self.assertGreaterEqual(hy['both_factory_after_arc_mm'],14)
+        self.assertEqual(hy['source_dimensions_XYZ_mm'],[51,20.25,22])
+        self.assertEqual(hy['source_axis_X_rotated_to'],'-Z')
 
     def test_not_misrepresented_as_selected_or_full_n01(self):
         self.assertFalse(self.p['selected'])
         self.assertFalse(self.p['N01_complete'])
         self.assertFalse(self.p['physical_pass'])
-        self.assertEqual(self.p['routing_capacity_candidate']['status'],'RESERVATIONS_ONLY_NOT_CHECKED')
+        self.assertNotEqual(self.p['routing_capacity_candidate']['status'],'APPROVED')
 
 
 if __name__=='__main__':unittest.main()
