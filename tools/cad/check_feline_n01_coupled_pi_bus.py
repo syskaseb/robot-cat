@@ -20,7 +20,8 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    backbone_free='--backbone-free-source' in sys.argv
+    supported='--supported-source-plan' in sys.argv
+    backbone_free=supported or '--backbone-free-source' in sys.argv
     fitted=backbone_free or '--central-source-fitted' in sys.argv
     central=fitted or '--central-spine-power' in sys.argv
     branch_roots=central or '--axial-branch-root-clear' in sys.argv
@@ -31,9 +32,9 @@ def main():
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=not central and (spatial or '--flat-unit' in sys.argv)
     lower=central or flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-central-spine-power-checks-r4.json' if supported else 'n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
-    paths=[OUT/n for n in (('n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
+    paths=[OUT/n for n in (('n01-central-spine-power-plan-r4.json' if supported else 'n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json')]
     candidate,plan,rear,bank,backbone,motion=[json.loads(p.read_text()) for p in paths]
@@ -230,7 +231,10 @@ def main():
             if n.startswith('Crossmember') and not axial_columns:lo[1]=-38;hi[1]=38
             wires['StructureReserve:'+n]=Part.makeBox(*(hi-lo),A.Vector(*lo));own['StructureReserve:'+n]=set()
         for n,(lo,hi) in candidate.get('backbone_changes',{}).items():
-            s=Part.makeBox(*(np.array(hi)-lo),A.Vector(*lo));changed_backbone['StructureReserve:'+n]=s
+            s=Part.makeBox(*(np.array(hi)-lo),A.Vector(*lo))
+            for a,b in candidate.get('backbone_apertures',{}).get(n,[]):s=s.cut(Part.makeBox(*(np.array(b)-a),A.Vector(*a)))
+            assert s.isValid() and len(s.Solids)==1
+            changed_backbone['StructureReserve:'+n]=s
             wires['StructureReserve:'+n]=s;own['StructureReserve:'+n]=set()
         if changed_backbone:report['changed_complete_backbone_reservations']=candidate['backbone_changes']
         for n,s in jointparts.items():
@@ -414,13 +418,26 @@ def main():
         report['whole_unit_pose_applies_to_all_module_ends']=True
         report['current_unit_case_bounds_mm']={n:arraybox(s).tolist() for n,s in changed.items()}
         save();print('Whole unit chosen',choice['centre_mm'],choice['yaw_deg'],flush=True)
-    for n,s in changed.items():
+    if supported:
+        pp=OUT/'n01-central-spine-power-plan-r3.json';pr=OUT/'n01-central-spine-power-checks-r3.json'
+        old=json.loads(pp.read_text());proof=json.loads(pr.read_text())
+        assert not proof['errors'] and len(proof['contacts'])==1
+        assert proof['contacts'][0]['a']=='End:W079/retained0/start'
+        for key in ('F_PI','relative_poses','routes','all_unit_ends'):assert old[key]==candidate[key],key
+        for path,h in proof['source_sha256'].items():
+            if path not in ('tools/cad/check_feline_n01_coupled_pi_bus.py','tools/cad/plan_feline_n01_central_spine_power.py'):assert sha(ROOT/path)==h,path
+        report['received_scoped_source_reuse']={'plan':pp.relative_to(ROOT).as_posix(),'proof':pr.relative_to(ROOT).as_posix(),
+            'unchanged':'All component poses and3complete routes versus actual fixed parts, original bank and received factory paths. Prior sole actual hit was malformed prefix, corrected/tested separately.',
+            'changed':'Six additional prefixes and shared negative backbone; all new structure versus full cases/routes/clamps checked.'}
+        report['source_sha256'].update({pp.relative_to(ROOT).as_posix():sha(pp),pr.relative_to(ROOT).as_posix():sha(pr)})
+    for n,s in ({} if supported else changed).items():
         for bn,b in scene.items():
             if n==bn or roles.get(n)==roles.get(bn):continue
             check(n,s,bn,b,'changed_case_vs_actual_static_material')
         for bn,b in wires.items():check(n,s,bn,b,'changed_case_vs_complete_existing_bank_or_MTA_prefix')
     save();print('Cases',len(report['contacts']),len(report['errors']),flush=True)
     for n,s in actual_new.items():
+        if supported and n in ('W043','W077','W078'):continue
         for bn,b in scene.items():
             if not lower:
                 if n in ('W043','W077') and roles.get(bn)=='F_PI':continue

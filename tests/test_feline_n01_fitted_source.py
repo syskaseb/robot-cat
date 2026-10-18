@@ -2,7 +2,7 @@
 import math,sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/cad'))
-from plan_feline_n01_central_spine_power import build_fitted
+from plan_feline_n01_central_spine_power import build_fitted,build_supported
 
 class FittedSourceTests(unittest.TestCase):
     @classmethod
@@ -47,5 +47,26 @@ class FittedSourceTests(unittest.TestCase):
             for part in row['parts']:
                 if part['kind']=='arc':self.assertGreaterEqual(part['radius_mm'],6)
         self.assertFalse(p['selected']);self.assertFalse(p['N01_complete']);self.assertFalse(p['physical_pass'])
+
+class SupportedSourceTests(unittest.TestCase):
+    def test_every_main_prefix_is_exact12mm_not_double_translated(self):
+        p=build_supported();ends={e['id']:e for e in p['all_unit_ends']}
+        for row in p['additional_end_prefixes']:
+            e=ends[row['wire'].removeprefix('End:')]
+            first,last=row['parts'][0]['start'],row['parts'][-1]['end']
+            self.assertLess(math.dist(first,e['point_mm']),1e-7)
+            wanted=[x+e['initial_mm']*d for x,d in zip(e['point_mm'],e['departure_axis'])]
+            self.assertLess(math.dist(last,wanted),1e-7)
+            self.assertLess(math.dist(row['end_mm'],last),1e-7)
+            self.assertAlmostEqual(math.dist(first,last),e['initial_mm'])
+        self.assertLess(p['routes'][1]['length_mm'],75)
+        self.assertLess(p['routes'][2]['raw_required_mm'],80)
+
+    def test_portal_contains_entire_common_clamp_with125_margin(self):
+        p=build_supported();a,b=p['backbone_apertures']['UpperStrip-1'][0];lo,hi=p['shared_relief_reservations']['MAIN_CommonRelief']
+        for i in (0,1):self.assertGreaterEqual(lo[i]-a[i],1.25-1e-7);self.assertGreaterEqual(b[i]-hi[i],1.25-1e-7)
+        lower=p['backbone_changes']['UpperStrip-1'][0];self.assertGreaterEqual(a[1]-lower[1],2.7-1e-7)
+        self.assertNotIn('ForeNegativeLowerCrossbar',p['backbone_changes'])
+        self.assertFalse(p['selected']);self.assertFalse(p['N01_complete'])
 
 if __name__=='__main__':unittest.main()

@@ -144,7 +144,8 @@ def build_backbone_free():
             for part in row['parts']:
                 for key in ('start','mid','end'):
                     if key in part:part[key][0]+=delta;part[key][2]+=3.5
-            row['end_mm'][0]+=delta;row['end_mm'][2]+=3.5
+            # Route.record end_mm aliases last part.end. Moving it twice
+            # silently changes a straight12mm prefix into a diagonal.
     lo,hi=p['shared_relief_reservations']['MAIN_CommonRelief']
     for v in (lo,hi):v[0]+=delta;v[2]+=3.5
     p['backbone_changes']={
@@ -163,9 +164,24 @@ def build_backbone_free():
     p['source_sha256'][Path(__file__).relative_to(ROOT).as_posix()]=sha(Path(__file__))
     return p
 
+def build_supported():
+    p=build_backbone_free();changes=p['backbone_changes']
+    changes['LowerRail0']=[[-83,-43,39.72],[95,-37,42.72]]
+    changes['Crossmember0']=[[-5,-43,39.72],[5,33.5,42.72]]
+    changes['Crossmember1']=[[85,-43,39.72],[95,33.5,42.72]]
+    changes['RearNegativeRailStub']=[[85,-23,39.72],[108,-17,42.72]]
+    changes.pop('ForeNegativeLowerCrossbar')
+    changes['UpperStrip-1'][0][1]=-31
+    p['backbone_apertures']={'UpperStrip-1':[[[-50.25,-28.3,80.3],[-31.15,-19.7,85.3]]]}
+    p['backbone_load_path']='Outer negative lower rail joins extended original crossmembers/free clamps; rear stub preserves cuff post. Fore post joins outer rail directly, no crossing over P0 fore-mount foot. One complete4wire/wholeclamp portal in upper strip leaves >=2.7mm side web, not4individual collision cutouts. Upper bank/Pi roots retained.'
+    p['changed_cause']='Receive corrected complete12mm prefixes (one prior endpoint aliased and was translated twice). Keep identical3full source routes/case poses. Replace lower crossing bar with whole outer rail to original free clamps. Main4wire common restraint passes through a dimensioned19.1x8.6mm upper portal rather than solid beam. No supplier cut, loosened radius or third source-only offset.'
+    p['source_sha256'][Path(__file__).relative_to(ROOT).as_posix()]=sha(Path(__file__))
+    return p
+
 if __name__=='__main__':
+    supported='--supported-source' in sys.argv
     backbone_free='--backbone-free' in sys.argv
     fitted='--frame-fitted' in sys.argv
-    dest=OUT/('n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json');assert not dest.exists()
-    p=build_backbone_free() if backbone_free else build_fitted() if fitted else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
+    dest=OUT/('n01-central-spine-power-plan-r4.json' if supported else 'n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json');assert not dest.exists()
+    p=build_supported() if supported else build_backbone_free() if backbone_free else build_fitted() if fitted else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'gate':p['necessary_length_gate'],'lengths':{r['wire']:r['length_mm'] for r in p['routes']},'selected':False}))
