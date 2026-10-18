@@ -28,12 +28,12 @@ def pose(R,t):
 def bb(s):
     b=s.BoundBox;return [[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
 
-def main():
+def main(geometry_only=False):
     tick=time.monotonic();reader=SavedShapes();qualify='--qualify-received' in sys.argv
-    dogleg=qualify or '--outside-cable-arm' in sys.argv
+    dogleg=geometry_only or qualify or '--outside-cable-arm' in sys.argv
     rooted=dogleg or '--rooted-branches' in sys.argv
     dest=OUT/('n01-bus-received-motion-envelope.json' if qualify else 'n01-bus-both-plugs-plan-r3.json' if dogleg else 'n01-bus-both-plugs-plan-r2.json' if rooted else 'n01-bus-both-plugs-plan.json')
-    assert not dest.exists(),'Receive previous result; no unchanged rerun'
+    assert geometry_only or not dest.exists(),'Receive previous result; no unchanged rerun'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json','current-mount-axis-inventory.json')]
     gplan,rear,bank,backbone,motion,axis_inventory=[json.loads(p.read_text()) for p in files]
@@ -229,6 +229,14 @@ def main():
             report['source_sha256'][priorrootpath.relative_to(ROOT).as_posix()]=sha(priorrootpath)
             report['unchanged_root_scope_reused']=dict(report=priorrootpath.relative_to(ROOT).as_posix(),sha256=sha(priorrootpath),
                 only_changed='USB_DiagonalArm replaced by outside dogleg; all other roots, plugs and prefixes identical')
+    if geometry_only:
+        receivedpath=OUT/'n01-bus-both-plugs-plan-r3.json';received=json.loads(receivedpath.read_text())
+        assert not (received['contacts'] or received['reservation_overlaps'] or received['errors'])
+        for key in ('relative_BUS_pose','routes','roots','USB_outside_arm_path_mm','PCB_axes_mm'):
+            assert received[key]==report[key],key+' changed since received geometry'
+        for pp,h in received['source_sha256'].items():
+            if pp!='tools/cad/plan_feline_n01_bus_complete.py':assert sha(ROOT/pp)==h,pp
+        return bus,wires,reserves,roots,report
     if qualify:
         receivedpath=OUT/'n01-bus-both-plugs-plan-r3.json'
         received=json.loads(receivedpath.read_text())

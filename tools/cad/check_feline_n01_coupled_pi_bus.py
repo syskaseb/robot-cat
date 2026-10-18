@@ -20,12 +20,13 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    joint_bay='--joint-power-bay' in sys.argv
+    above_frame='--above-frame-joint-bay' in sys.argv
+    joint_bay=above_frame or '--joint-power-bay' in sys.argv
     all_ends=joint_bay or '--all-ends' in sys.argv
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=spatial or '--flat-unit' in sys.argv
     lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -93,6 +94,23 @@ def main():
             joint_changes[role]=[0,-3*sign,71.5]
         joint_changes.update(W041_Joint=[0,-3,71.5],W042_Joint=[0,3,71.5],
             W044_Joint=[-23,6,71.5],W052_Joint=[-23,-6,71.5])
+        if above_frame:
+            # Resolve the actual frame top as one assembly plane, not local
+            # case offsets. Rear inward joints and two ordered factory fans
+            # are included BEFORE checking any whole Pi placement.
+            targets={**{'MTA_'+c:[x,s*12,49] for c,x,s in
+                (('FL',-40,1),('FR',-40,-1),('RL',65,1),('RR',65,-1))},
+                'W026_Joint':[-97,12,49],'W037_Joint':[-97,-12,49],
+                'W045_Joint':[121,12,49],'W053_Joint':[121,-12,49],
+                'W041_Joint':[48,47,45],'W042_Joint':[48,-47,45],
+                'W044_Joint':[-23,28,49],'W052_Joint':[-23,-28,49]}
+            for g in effective['groups']:
+                if g['role'] in targets:
+                    centre=np.mean(g['candidate_bounds_mm'],axis=0)+np.array(common_delta.get(g['role'],[0,0,0]))
+                    joint_changes[g['role']]=(np.array(targets[g['role']])-centre).tolist()
+            report['above_frame_basis']={'frame_top_mm':37.02,'source_case_bottom_mm':41,
+                'all_joint_centres_mm':targets,'rear_factory_fans_inboard_of_front_fans':True,
+                'changes_reason':'First whole bay struck front/rear frame and crossed factory fans. One frame-relative plane and two ordered complete fans replace that layout, not single screw nudges.'}
         for g in effective['groups']:
             if g['role'] in joint_changes:
                 g['translation_mm']=(np.array(g['translation_mm'])+joint_changes[g['role']]).tolist()
@@ -133,6 +151,14 @@ def main():
         if n not in scene and row['kind']=='surface' and (n in stages or n.startswith(('Print_P0_','Ref_Material_P0_','Battery','Print_CP2_TailRiser'))):
             if not n.startswith('BatteryFrameHardware'):scene[n]=reader.shape(native,n)
     for i in range(1,5):scene[f'BellyFoot{i}']=reader.shape(native,f'BellyFoot{i}')
+    current_bus={};current_bus_reserves={};current_bus_roots={}
+    if above_frame:
+        from plan_feline_n01_bus_complete import main as received_bus_geometry
+        actual_bus,current_bus,current_bus_reserves,current_bus_roots,bus_recipe=received_bus_geometry(geometry_only=True)
+        for n,s in actual_bus.items():scene[n]=s
+        report['BUS_current_r3_not_old_shifted_prefix']={'source':'n01-bus-both-plugs-plan-r3.json',
+            'pose':bus_recipe['relative_BUS_pose'],'both_plug_paths_included':True,
+            'supplier25_transformed_BRep_gate':'n01-bus-source-cache-qualification.json'}
     wires={};own={}
     for row in backbone['bend_allocations']:
         p=np.array(row['start_mm']);q=np.array(row['end_mm']);b=np.array(row['bend']);R=row['bend_R_mm'];land=row['land_mm']
@@ -143,12 +169,14 @@ def main():
     if joint_bay:
         jointparts={n:s for n,s in scene.items() if roles.get(n) in joint_changes}
         report['joint_bay_factory_routes']=routes(effective)
+        wires.update({'ReceivedBUS:'+n:s for n,s in current_bus.items()})
+        wires.update({'StructureReserve:BUS:'+n:s for n,s in {**current_bus_reserves,**current_bus_roots}.items()})
         # Include whole common backbone reservations before power-unit search.
         # These are planning reserves, not actual finished PETG contact claims.
         for row in backbone['recipes']:
             if 'low_mm' not in row:continue
             n=row['name'];lo=np.array(row['low_mm'],float);hi=np.array(row['high_mm'],float)
-            if n.startswith(('PiFuse','MainRaisedBridge','Standoff_MAIN','Standoff_BUS')):continue
+            if n.startswith(('PiFuse','MainRaisedBridge','Standoff_MAIN','Standoff_BUS','SelectedSolderSpliceClip')):continue
             if n.startswith('LowerRail'):
                 sign=1 if (lo[1]+hi[1])>0 else -1
                 lo[1]=sign*35-3;hi[1]=sign*35+3
