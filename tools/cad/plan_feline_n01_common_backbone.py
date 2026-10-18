@@ -7,6 +7,7 @@ Project reservations are not manufacturer dimensions or full wire routes.
 import copy
 import json
 import time
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 import FreeCAD as A
@@ -21,7 +22,8 @@ from check_feline_leg_body import placement
 
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();dest=OUT/'n01-common-backbone-preflight.json'
+    tick=time.monotonic();reader=SavedShapes();rev2='--overhead-bank' in sys.argv
+    dest=OUT/('n01-common-backbone-preflight-r2.json' if rev2 else 'n01-common-backbone-preflight.json')
     assert not dest.exists(), 'Receive existing result; no unchanged rerun'
     native=OUT/'FelineInteriorMotion.FCStd'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json',
@@ -44,10 +46,26 @@ def main():
     def gate():
         if time.monotonic()-tick>480:
             report['status']='TIME_BOUNDED_PARTIAL_NOT_SELECTED';save();raise TimeoutError('480s operation cap')
+    if rev2:
+        parentfile=OUT/'n01-common-backbone-preflight.json';parent=json.loads(parentfile.read_text())
+        assert parent['status']=='COMMON_BACKBONE_REJECTED_BEFORE_NATIVE_OR_MOTION' and not parent['errors']
+        assert all(c['scope']=='common_structure_vs_actual_fixed_parts' and c['a'] in
+            ('BankArm-69_-1','BankArm-69_1','Standoff_BUS_3','NeckWeb-1','NeckWeb1') for c in parent['contacts'])
+        for p,h in parent['source_sha256'].items():
+            if p!='tools/cad/plan_feline_n01_common_backbone.py':assert sha(ROOT/p)==h,p
+        report['reuse_parent']=dict(report=parentfile.relative_to(ROOT).as_posix(),sha256=sha(parentfile),
+            committed_source='6f94b1bb:tools/cad/plan_feline_n01_common_backbone.py',
+            first_bends24_and_changed_output_bays='Identical recipes; reuse zero contacts/errors',
+            changed_structure='Overhead fore-bank hangers instead of crossing P0 mounts; bridge-bottom keepout; sized standoffs; five lower-axis supports')
     scene={};role_of={};changed={};holder_of={};groups={g['role']:g for g in plan['groups']}
     valid={}
     def check(an,a,bn,b,scope):
         gate()
+        if rev2 and scope in ('changed_JPWM_and_output_cases','complete_first_bank_bends',
+            'bend_other_grips','bank_bends_mutual','changed_complete_factory_route'):return
+        if rev2 and scope.startswith('common_structure_') and not an.startswith((
+            'BankArm-69_','BankForeHanger','BankForeToe','NeckWeb','Standoff_',
+            'U1Support','AUXSupport','AUXBacker','AUXEar','PiFuseCradle','PiFuseRiser')):return
         if not near(a,b):return
         report['pairs']+=1
         try:
@@ -132,27 +150,34 @@ def main():
         lo,hi=sorted((sign*10,sign*30));box(f'UpperStrip{sign}',[-65,lo,85],[107,hi,88])
         lo,hi=sorted((sign*39.25,sign*67.75));box(f'BankBed{sign}',[-62,lo,52],[109,hi,55])
         for x in (-69,105):
-            lo,hi=sorted((sign*20,sign*53.5));box(f'BankArm{x}_{sign}',[x-3,lo,52],[x+3,hi,55])
+            lo,hi=sorted((sign*20,sign*53.5));z=85 if rev2 and x==-69 else 52
+            box(f'BankArm{x}_{sign}',[x-3,lo,z],[x+3,hi,z+3])
+            if rev2 and x==-69:
+                box(f'BankForeHanger{sign}',[-72,sign*53.5-3,52],[-66,sign*53.5+3,88])
+                box(f'BankForeToe{sign}',[-72,sign*53.5-3,52],[-59,sign*53.5+3,55])
     box('MainRaisedBridge',[-58,-12,91],[-29,12,94])
     box('PWMForeBranch',[-102,15.3,88.5],[-39.77,40.7,91.5])
-    ztop={'Pi4':98.1,'BUS':90.72,'MAIN':96.52,'PWM':104}
-    zbase={'Pi4':88,'BUS':88,'MAIN':94,'PWM':91.5}
+    ztop={'Pi4':98.1,'BUS':90.72,'MAIN':96.52,'PWM9685':104}
+    zbase={'Pi4':88,'BUS':88,'MAIN':94,'PWM9685':91.5}
     for group in axes_inventory['groups']:
         role=group['role']
         if role not in ztop:continue
         for i,a in enumerate(group['unique_axes']):
             x,y=a['axis_world_xy_mm'];n=f'Standoff_{role}_{i}'
-            parts[n]=Part.makeCylinder(4,ztop[role]-zbase[role],A.Vector(x,y,zbase[role])).cut(
-                Part.makeCylinder(3,ztop[role]-zbase[role],A.Vector(x,y,zbase[role])))
+            outer,inner=(3,1.4 if role=='Pi4' else 1.2) if rev2 else (4,3)
+            parts[n]=Part.makeCylinder(outer,ztop[role]-zbase[role],A.Vector(x,y,zbase[role])).cut(
+                Part.makeCylinder(inner,ztop[role]-zbase[role],A.Vector(x,y,zbase[role])))
             for pn in ('UpperStrip-1','UpperStrip1','MainRaisedBridge','PWMForeBranch'):
                 parts[pn]=parts[pn].cut(Part.makeCylinder(3,30,A.Vector(x,y,84)))
             report['recipes'].append(dict(name=n,actual_saved_axis_xy_mm=[x,y],z_mm=[zbase[role],ztop[role]],
-                hardware_clearance_D_mm=6,standoff_OD_mm=8,nut_pocket_and_bearing_detail_open=True))
+                plate_hardware_clearance_D_mm=6,standoff_OD_mm=outer*2,standoff_bore_D_mm=inner*2,nut_pocket_and_bearing_detail_open=True))
     box('HeadRootPlate',[-204,-30,-21.48],[-180,30,-18.48])
     for x in (-200,-184):
         for y in (-16,16):parts['HeadRootPlate']=parts['HeadRootPlate'].cut(Part.makeCylinder(1.7,5,A.Vector(x,y,-22.48)))
     for sign in (-1,1):
-        y=sign*27-2.5;points=[A.Vector(x,y,z) for x,z in ((-183,-21.48),(-75,-21.48),(-75,-2),(-183,-18.48))]
+        y=sign*27-2.5
+        section=((-183,-21.48),(-75,-21.48),(-75,-2),(-163,-18.48),(-183,-18.48)) if rev2 else ((-183,-21.48),(-75,-21.48),(-75,-2),(-183,-18.48))
+        points=[A.Vector(x,y,z) for x,z in section]
         s=Part.Face(Part.makePolygon(points+[points[0]])).extrude(A.Vector(0,5,0))
         for x in (-80,-70):s=s.cut(Part.makeCylinder(3,32,A.Vector(x,sign*22.5,-30)))
         parts['NeckWeb'+str(sign)]=s
@@ -167,6 +192,22 @@ def main():
                 parts[f'OutputWing{sign}']=parts[f'OutputWing{sign}'].cut(s)
         for x in (-75.5,117.5):
             lo,hi=sorted((sign*26,sign*36));box(f'LowerDeckRoot{x}_{sign}',[x-4,lo,-44.5],[x+4,hi,-42])
+    if rev2:
+        box('AUXBacker',[-113,-9,-23.38],[-82,21,-20.38])
+        for sign in (-1,1):
+            lo,hi=sorted((sign*18,sign*27));box(f'AUXEar{sign}',[-111,lo,-23.38],[-104,hi,-20.38])
+        for group in axes_inventory['groups']:
+            if group['role'] not in ('PWM1608_U1','AUX4092'):continue
+            u1=group['role']=='PWM1608_U1';z0,z1=(-42,-25.03) if u1 else (-20.38,-8.28)
+            for i,a in enumerate(group['unique_axes']):
+                x,y=a['axis_world_xy_mm'];n=('U1Support' if u1 else 'AUXSupport')+str(i)
+                parts[n]=Part.makeCylinder(3,z1-z0,A.Vector(x,y,z0)).cut(
+                    Part.makeCylinder(1.7 if u1 else 1.2,z1-z0,A.Vector(x,y,z0)))
+                report['recipes'].append(dict(name=n,actual_saved_axis_xy_mm=[x,y],z_mm=[z0,z1],
+                    bottom_hardware_and_tool_open=True))
+        box('PiFuseCradle',[-167.5,-28,-44.5],[-116.5,28,-42.125])
+        for x in (-160,-120):
+            for sign in (-1,1):box(f'PiFuseRiser{x}_{sign}',[x-3,sign*25-3,-42.125],[x+3,sign*25+3,-21.48])
     contractfile=BASE/'body-harness-checkpoint/body36-current-contract.json'
     contracts={r['wire']:r for r in json.loads(contractfile.read_text())['rows']}
     macrofile=BASE/'body-harness-checkpoint/body36-shared-macro-layout.json'
