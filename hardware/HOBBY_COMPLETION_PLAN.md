@@ -2,6 +2,104 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+Checkpoint3d898df6: wspólny rejestr i JEDEN plan całej alokacji zapisany;
+5testów kontraktów w0,003s, nie testów CAD.4769beab zachowuje wcześniejsze
+odrzucenia. Następny krok to wspólny snapshot/bramka z tego planu, nie nowa
+lokalna pozycja. Budżet orientacyjny45–60min do odbioru snapshotu, niska
+pewność; nie jest to obietnica ukończeniaN01 ani całego zakresu.0/10.
+
+13:08:02Z: mapa wspólnych ograniczeń odebrana42,625s:1034referencje,
+246granic123zewnętrznych porcji,20WAGO/86obsadzonych portów,5szablonów/
+8końców doalokacji.22krzywe NIE są pełnymi płaszczami. Jedyny nieważny
+sourceBRep:BUSsupplier25, zachowanyHOLD.0/10,16%użyte/84%pozostałe.
+Portal81277 odebrany14,640s/83par/3braki rzeczywistych brył PWM/
+25holdów/0błędów. Nie ma aktywnego workera. Nie wykonywać trzeciegoPi-only.
+Następny JEDEN wspólny układ zapisany w n01-coupled-allocation-plan.json:
+Pi/PWM/WSZYSTKIE20WAGO/3FHAC obie strony oraz pełne chwyty/narzędzia.
+Wariant pozostaje NIE WYBRANY. Zachować faktyczny wycięty kanałMAIN.
+Odwrócenie osprzętuPi wymaga4spacerów6,2mm i odtworzenia rzeczywistego
+stosu, nie zawieszonych nakrętek. Factory po łuku musi mieć14mm prostej
+pod20mm sleeve (stare10mm zostawiało4mm sleeve na łuku, nie powielać).
+Etap zaczęty08:58:01Z: upłynęło4h10m01s OKNA, nie ciągłej pracyCPU.
+Aktualna kontynuacja od12:52:45Z:15m17s czasu ściennego do tego odczytu.
+Hook włączony do20:00Z/22Warszawy; lokalny checkpoint nie zamyka okna.
+
+12:55:55Z: central-pi-wedge/41902 odebrany14,859s/58par. PiGPIO
+10par ma min0,632mm>=0,2. Trzy odstępy PCB-bank1,2008<1,25mm,
+24holdy rezerwacji (m.in. zaplanowana pełna listwaUpperStrip1 przezPi),
+1znany błędnyBRep BUS bez akceptacji. Commit4769beab zachowuje odrzucenia.
+Następna HIPOTEZA WSPÓLNA: Pi obrócone180Z i klin12degX, zasilanie
+wychodzi na zewnątrz płytki, USBdata do wnętrza; zastąpić obie pełne
+listwy górne połączonymi portalami przyY±32, zachowując przęsłoMAIN.
+Zajęte kotwy/posty są źródłem drogi nośnej, nie dowolny słupek.
+Bramka: cały Pi+złącza+chwyty+portale vs pozostałe rzeczywiste bryły;
+celowe mate wyłącznie własny przewód na ustach swojego mould, jawnie.
+Bez zwolnienia znanych konfliktów pozostałych stacji i bez punktuN01.
+
+12:52:45Z: worker54598 odebrany:20,468s/135par/34braki prześwitu
+rzeczywistych brył/34holdy rezerwacji/0błędów. Brak aktywnych workerów.
+Druga przednia pozycja Pi odrzucona; nie próbować trzeciego offsetu.
+N01 nadal0/10. N01 wymaga wspólnego planu i usunięcia znanych blokerów,
+nie gotowych wszystkich środków przewodów/native/stock (to N03/N04/N10),
+ale nie wolno ominąć znanych konfliktów końców, chwytów i narzędzi.
+NEXT: zmiana przyczyny: odstąpić od przedniej przegrody Pi, zachować S0/S1;
+cały Pi na centralnym klinie z obiema zajętymi krawędziami, odwróconym
+stosem mocowania i GPIO z chwytami PO łuku. Bramka: pełne bryły/porty,
+prześwity ramy/banku oraz wzajemne przewody, potem wspólne WSZYSTKIE20
+stacji WAGO/korytarze/narzędzia, nie kolejne przesunięcia górnej dziesiątki.
+15%użyte/85%pozostałe, bez resetu. Odczyty limitu miały przerwy dłuższe
+niż600s; to błąd dyscypliny pomiaru, nie dowód braku limitu.
+
+12:19:51Z:99613 odebrany14,797s/118dokładnych dystansów/0błędów:
+20braków prześwitu rzeczywistych brył,88konfliktów rezerwacji
+(NIE88fizycznych kolizji). PiPCB przecina AUX/osprzęt/S1 i2przednie
+MTA; monitor przecina5nowych wyjśćD_FR; F_PWM0,573mm odFTYinput,
+spliceFTY zachodzi w rezerwacjęFPWM. Układ NIE WYBRANY. Głowa+35
+i10nowych korpusówWG nie mają zgłoszeń w tym statycznym zakresie;
+pełne przewody/ruch/obrys/mocowania nie są zaliczone.0/10,15%użyte/
+85%pozostałe. Pierwszy worker44531 przerwany po~125s: brak poprawnego
+wyłączenia niezmienionych styków własnychHead+local i zbyt kosztowne
+common przed dystansem;239brył zapisanych. Odbiór bez odbudowy rozwiązał
+ten błąd zakresu; zapisuje każde ukończone zapytanie. Nie powtarzać125s.
+NEXT: jedna funkcjonalna korekta TRZECH grup: odwrócić zajęte krawędzie
+Pi w pionowej przedniej przegrodzie, z GPIO po stronie przeciwnejS1,
+USBA w dół/krótki3mm wylot/R30/9mm chwytPOłuku; planeX od pełnego
+obrysu S1/AUX/MTA, nie środek pustego bbox. Monitor iFPWM do dwóch
+rozłącznych zatok zwolnionych po dawnymPi, z obiema stronami przewodów.
+Nie przesuwać samegoPi ani nie powtarzać dawnych wolnych zatok monitora
+po zmianie wyjśćWAGO. Zachować poprawne niezmienione przypadki239snap.
+
+12:12:11Z: przed kosztowną operacją14%użyte/86%pozostałe, workerów0.
+Jedna NOWA topologia front-bulkhead-architecture: PiRy−90 w przedniej
+przegrodzie(−108,0,−19,65), pełneGPIO/USBC/USBA+R30; głowa i miejscowe
+źródła RIGID+35 razem (wcześniejszebody/root dowody unieważnione dla nich).
+10WAGO pionowo w dół,22mmPRZEDR12,4 i9mmchwyt po łuku, centraX−50/−14/
+22/58/94, Y±67,5 Z40. 3FHAC pionowo(−24,−83,5,32)/(12,83,5,32)/
+(48,−83,5,32), obie strony z pełnym factory/8lap/20sleeve/9customgrip;
+rooty w przerwach stacjiX−32/4/40, nie pod przypadkową główką śruby.
+Kandydat obrysu198max≤200, bez wyboru nowej skorupy. Zachować4MTA/
+lower118/3źródłaPi/24bankquarters/MAIN. Bramka: prawdziwe materiały
+oddzielone od rezerwacji, zapis propozycji PRZED zapytaniami, najpierw
+wspólne korpusy/porty, potem pełne przewody/ruch/narzędzia/mocowania.
+240s budżetu zapytania, nie nowego okna; nie ponawiać geometrii po odrzuceniu.
+
+12:01:59Z:2382c93f/cd626753 odebrały32aktualne źródła lokalnej elektryki
+głowy/ogona w1,187s. Sześć granic ciągłych, pełny factory250ogonu
+(247zewnątrz+3wyjście), JR/8mm podejścia/R9/izolacje zapisane.
+WAŻNE: poprzedni dodatkowy kontrakt błędnie dodawał CP2SHIFT po razDRUGI
+do trzech wybranych W3yawGUIDE. RzeczywisteW2native potwierdziły gap<1e-5;
+poprawne obecneC_HY mająX−152, a NIE−194; korekta(42,0,−25)mm.
+To granica ciągłego przewodu, nie nowy pin/złącze.5testów regresjiPASS
+0,008s po poprawie wyłącznie porównań float1e-14; hash źródeł/ZIP sprawdzony.
+Historyczne wybrane modele bez zmiany, poprzedni błędny roboczy kontrakt
+nie jest zachowany jako pozytywny dowód. Poprzednia notatka o SHIFT niżej
+jest superseded tym pomiarem natywnym. Nowy zakres nadal0/10.
+Pi: n01-pi-full-port-contract.json obejmuje11oficjalnych footprintów/Z,
+pełny istniejącyDelock/K1474, zajęty1992 i5GPIO; nie „samPCB+śrubki”.
+USB-A26x15x9 i dolny port są jawną rezerwacją przymiarki, nie danymi
+producenta; wybrany kabelLanberg500mm pozostaje ten sam. Następnie JEDNA
+architektura pionowych rozdzielni/oprawek i pełnegoPi/ramy przed detalami.
+
 11:56:47Z: render28428 odebrany (135,687s,1002bryły sceny planu,
 2283224trójkąty), iso/przód current-overlay-20261018-*.png. Bez zmiany
 modeli źródłowych, bez ukrywania odstających elementów przy szyi.
@@ -27,8 +125,8 @@ kompozycja34interfejsów0,025s. 11wewnętrznych sekcjiU1 bez duplikacji.
 FHAC: wyjścia fabryczne1mm PONIŻEJ środka bbox, nie środkiem obudowy.
 AUX: zachować rzeczywisty overlap gołego zakończenia/jacket3mm,
 nie przenieść91,32 na94,32. B1/B2/B3 i XP02/03 ze znanych terminali
-wybranego carrierE1, nie z IC ani dawnej losowej trasy. Yaw wymaga
-CP2SHIFT(−42,0,25) PRZED R5 i weryfikacji ramy fizycznego odbiornika;
+wybranego carrierE1, nie z IC ani dawnej losowej trasy. Yaw: korekta12:01Z,
+W3GUIDE jużCP2, nie dodawać SHIFT drugi raz; wybrana granica ciągłaX−152;
 pitchJR już ma CP2SHIFT, nie ponawiać. Tail: wybrana granica88,
 nie stary GUIDE68 i nie elektryczny pin/nowy lut. Pełny JR125..155,
 Y−54..−42,Z107..117 i miejscowy fabryczny250mm nadal do wspólnego
