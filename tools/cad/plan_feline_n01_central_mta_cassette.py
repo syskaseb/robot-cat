@@ -21,12 +21,12 @@ BRANCHES={'FL':(-95,-14,-34,('W026','W041')),
           'RR':(90,14,-10,('W052','W053'))}
 
 
-def main():
+def main(geometry_only=False):
     tick=time.monotonic();reader=SavedShapes()
     bolted='--bolted-open-frame' in sys.argv
     flat=bolted or '--flat-belly' in sys.argv
     dest=OUT/('n01-central-mta-cassette-plan-r3.json' if bolted else 'n01-central-mta-cassette-plan-r2.json' if flat else 'n01-central-mta-cassette-plan.json')
-    assert not dest.exists(),'Receive existing result; no unchanged replay'
+    assert geometry_only or not dest.exists(),'Receive existing result; no unchanged replay'
     manifest=OUT/'n01-shared-probe.json';source=json.loads(manifest.read_text())
     priorpath=OUT/'n01-shared-probe-motion-envelope.json';prior=json.loads(priorpath.read_text())
     assert prior['status']=='CHANGED_SHARED_SCOPE_REJECTED' and len(prior['poses'])==36
@@ -169,6 +169,21 @@ def main():
         for i in range(8):fixed[f'FootHardware{i}']=reader.shape(OUT/'FelineBellyFeet.FCStd',f'FrameHardwareNew{i}')
     changed_frame={n for n in shapes if kinds[n] in ('tray_reservation','load_root_reservation','actual_fastener_candidate')}
     bounds={n:s.BoundBox for n,s in {**fixed,**shapes}.items()}
+    if geometry_only:
+        assert bolted,'Only received current bolted layout can be exported'
+        received=json.loads(dest.read_text())
+        assert received['status']=='CENTRAL_CASSETTE_SCOPED_CLEAR_ROOT_BOLTS_JOINT_SEATS_TOOLS_FULL_HARNESS_OPEN'
+        assert len(received['poses'])==36 and not received['errors']
+        assert all(not received[k] for k in ('contacts','reservation_contacts','envelope_outside','wall_budget_failures'))
+        for p,h in received['source_sha256'].items():
+            if p!=Path(__file__).relative_to(ROOT).as_posix():assert sha(ROOT/p)==h,p
+        for old in (received,json.loads((OUT/'n01-central-mta-cassette-plan-r2.json').read_text())):
+            for n,row in old['parts'].items():
+                if n not in shapes:continue
+                if n.startswith(('FootCollar','LowerTray','UpperTray')) and old is not received:continue
+                b=bounds[n];actual=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
+                assert max(abs(a-v) for aa,bb in zip(actual,row['bounds_mm']) for a,v in zip(aa,bb))<1e-6,n
+        return shapes,kinds,received
     def check(n,s,m,t,pose=None):
         gate()
         if not bounds[n].intersect(t.BoundBox if pose is not None else bounds[m]):return
