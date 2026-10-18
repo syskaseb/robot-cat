@@ -1,0 +1,2724 @@
+{
+  "status": "COUPLED_CHANGED_CONTRACTS_REJECTED",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "contacts": [],
+  "reservation_contacts": [],
+  "errors": [],
+  "jacket_conflicts": [],
+  "pairs": 2,
+  "wire_pairs": 0,
+  "changed_end_ids": [
+    "W001/retained0/end",
+    "W025/retained0/end",
+    "W036/retained0/end",
+    "W060/retained0/start",
+    "W061/retained0/start",
+    "W066/retained0/start",
+    "W069/body/end",
+    "W070/body/end",
+    "W071/body/end",
+    "W072/body/end",
+    "W073/body/end",
+    "W074/body/end",
+    "W076/retained0/end",
+    "W076/retained1/end",
+    "W076/retained1/start",
+    "W079/retained0/end",
+    "W080/retained0/end"
+  ],
+  "source_crimp_jacket_lands": [
+    {
+      "id": "W066/retained0/start",
+      "actual_reference_ring": "Ref_Material_S0_ring_OUT_0_0",
+      "source_throat_allowance_mm": 7.000000100000018,
+      "jacket_land_mm": 9,
+      "basis": "Nominal source metal-barrel extent plus0.25project clearance, not producer insertion depth"
+    },
+    {
+      "id": "W076/retained1/end",
+      "actual_reference_ring": "Ref_Material_S0_ring_IN_0_0",
+      "source_throat_allowance_mm": 7.000000099999972,
+      "jacket_land_mm": 9,
+      "basis": "Nominal source metal-barrel extent plus0.25project clearance, not producer insertion depth"
+    }
+  ],
+  "component_mating_pairs": [
+    {
+      "a": "NominalPiUSBCPowerMould",
+      "b": "Ref_Material_Pi4NominalPCB_0_0",
+      "volume_mm3": 0.0
+    }
+  ],
+  "outside": [
+    {
+      "name": "W076/retained1/end",
+      "volume_mm3": 67.43824295680926
+    }
+  ],
+  "wall_failures": [],
+  "full178first_land_or_middle_or_motion_acceptance": false,
+  "retained_open": [
+    "Owned cuff/arm and MAIN/P_SYS groove material",
+    "MAIN existing insulating band0.75mm air vs1.25general budget",
+    "Full middle routes/independent grips/stock/tools/motion"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-endpoint-packet-r3.json": "85583e07b67c498e1966e5f80722c205a4a53a65efe85e17510077a558e04f04",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-all-current-first-lands.json": "16a435ffb797a3288409599aa559965a617a65fc72522c9cb3aebd3b542fb93b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.json": "f61a1be4752aa0872b168de1a094ebc1fc633f55968abd02c9e12f1634a7183d",
+    "tools/cad/check_feline_reconciled_contracts.py": "f6a9791704530481577663c07f87b230fd492e758b91b678402e94e042902837",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.zip": "68460136b2f5a6afe5c9b276770c20bf5a73b01bae869cf214bb1eee2abf7579",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/central-cassette-envelope/FelineLayoutEnvelope.FCStd": "70b6d563701e7a4fbaaddff9c7fb62103aee75a53a5153eb3f2f27dad8987bdf"
+  },
+  "worker_seconds": 41.687,
+  "changed_scene_parts": [
+    "NominalPiUSBCPowerMould",
+    "Ref_Material_PostF0Splice_CP2_0_0"
+  ],
+  "land_recipes": [
+    {
+      "id": "W026/factory/start",
+      "start_mm": [
+        -57.5,
+        15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        -0.99999999999996,
+        -3.507768571862076e-08,
+        -2.806214870557117e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W026/factory/end",
+      "start_mm": [
+        -79.24999389648437,
+        14.99999923706055,
+        -34.0
+      ],
+      "axis": [
+        0.99999999999996,
+        3.507768571862076e-08,
+        2.806214870557117e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W026/custom/start",
+      "start_mm": [
+        -114.74999389648437,
+        14.99999923706055,
+        -34.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W026/custom/end",
+      "start_mm": [
+        99.5,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W027/single/start",
+      "start_mm": [
+        94.75,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W027/single/end",
+      "start_mm": [
+        -53.999999999999986,
+        15.11999999999998,
+        68.99999999999999
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W028/single/start",
+      "start_mm": [
+        90.0,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W028/single/end",
+      "start_mm": [
+        -29.999999999999993,
+        15.11999999999998,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W029/single/start",
+      "start_mm": [
+        85.25,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W029/single/end",
+      "start_mm": [
+        -6.0,
+        15.11999999999998,
+        69.0
+      ],
+      "axis": [
+        8.300732894393695e-17,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W037/factory/start",
+      "start_mm": [
+        -57.5,
+        -15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        -0.9999999999999384,
+        0.0,
+        -3.5077676005744966e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W037/factory/end",
+      "start_mm": [
+        -79.25,
+        -15.0,
+        -34.0000015258789
+      ],
+      "axis": [
+        0.9999999999999384,
+        -0.0,
+        3.5077676005744966e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W037/custom/start",
+      "start_mm": [
+        -114.75,
+        -15.0,
+        -34.0000015258789
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W037/custom/end",
+      "start_mm": [
+        10.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W038/single/start",
+      "start_mm": [
+        15.25,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W038/single/end",
+      "start_mm": [
+        -27.999999999999993,
+        -15.119999999999987,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W039/single/start",
+      "start_mm": [
+        20.0,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W039/single/end",
+      "start_mm": [
+        -3.999999999999993,
+        -15.119999999999987,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W040/single/start",
+      "start_mm": [
+        24.75,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W040/single/end",
+      "start_mm": [
+        20.000000000000007,
+        -15.119999999999987,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W041/factory/start",
+      "start_mm": [
+        -22.5,
+        15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W041/factory/end",
+      "start_mm": [
+        55.24999971389771,
+        33.24999923706055,
+        -34.0000015258789
+      ],
+      "axis": [
+        -0.9999999999996729,
+        -0.0,
+        8.088351554844358e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W041/custom/start",
+      "start_mm": [
+        90.74999971389771,
+        33.24999923706055,
+        -34.0000015258789
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W041/custom/end",
+      "start_mm": [
+        78.0,
+        -51.5,
+        -10.99999389648437
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W042/factory/start",
+      "start_mm": [
+        -22.5,
+        -15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W042/factory/end",
+      "start_mm": [
+        55.25,
+        -33.25,
+        -34.0000015258789
+      ],
+      "axis": [
+        -0.9999999999996729,
+        -0.0,
+        8.088351488661664e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W042/custom/start",
+      "start_mm": [
+        90.75,
+        -33.25,
+        -34.0000015258789
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W042/custom/end",
+      "start_mm": [
+        84.5,
+        -51.5,
+        -10.99999389648437
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W043/single/start",
+      "start_mm": [
+        -27.45,
+        0.0,
+        41.1
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 2,
+      "straight_mm": 9
+    },
+    {
+      "id": "W043/single/end",
+      "start_mm": [
+        4.550000000000001,
+        4.0,
+        48.5
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2,
+      "straight_mm": 9
+    },
+    {
+      "id": "W044/factory/start",
+      "start_mm": [
+        47.5,
+        15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W044/factory/end",
+      "start_mm": [
+        -4.25,
+        33.25,
+        -34.0000015258789
+      ],
+      "axis": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W044/custom/start",
+      "start_mm": [
+        -39.75,
+        33.25,
+        -34.0000015258789
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W044/custom/end",
+      "start_mm": [
+        -43.25,
+        -23.0,
+        -8.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W045/factory/start",
+      "start_mm": [
+        82.5,
+        15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        0.9999999999999216,
+        1.4707266714259778e-07,
+        -3.6768166922621544e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W045/factory/end",
+      "start_mm": [
+        103.24999971389771,
+        15.000003051757801,
+        -34.0000015258789
+      ],
+      "axis": [
+        -0.9999999999999216,
+        -1.4707266714259778e-07,
+        3.6768166922621544e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W045/custom/start",
+      "start_mm": [
+        138.7499997138977,
+        15.000003051757801,
+        -34.0000015258789
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W045/custom/end",
+      "start_mm": [
+        -33.5,
+        -24.5,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W046/single/start",
+      "start_mm": [
+        -33.5,
+        -10.25,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W046/single/end",
+      "start_mm": [
+        17.999999999999993,
+        15.11999999999998,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W048/single/start",
+      "start_mm": [
+        -33.5,
+        -15.0,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W048/single/end",
+      "start_mm": [
+        41.999999999999986,
+        15.11999999999998,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W050/single/start",
+      "start_mm": [
+        -33.5,
+        -19.75,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W050/single/end",
+      "start_mm": [
+        65.99999999999997,
+        15.119999999999983,
+        68.99999999999997
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W052/factory/start",
+      "start_mm": [
+        47.5,
+        -15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W052/factory/end",
+      "start_mm": [
+        -4.25,
+        -33.25,
+        -34.0000015258789
+      ],
+      "axis": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W052/custom/start",
+      "start_mm": [
+        -39.75,
+        -33.25,
+        -34.0000015258789
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W052/custom/end",
+      "start_mm": [
+        -49.75,
+        -23.0,
+        -8.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W053/factory/start",
+      "start_mm": [
+        82.5,
+        -15.0,
+        -33.99999389648437
+      ],
+      "axis": [
+        0.9999999999999216,
+        -1.4707266714259778e-07,
+        -3.6768166922621544e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W053/factory/end",
+      "start_mm": [
+        103.24999971389771,
+        -15.000003051757801,
+        -34.0000015258789
+      ],
+      "axis": [
+        -0.9999999999999216,
+        1.4707266714259778e-07,
+        3.6768166922621544e-07
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W053/custom/start",
+      "start_mm": [
+        138.7499997138977,
+        -15.000003051757801,
+        -34.0000015258789
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W053/custom/end",
+      "start_mm": [
+        -33.5,
+        5.5,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W054/single/start",
+      "start_mm": [
+        -33.5,
+        19.75,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W054/single/end",
+      "start_mm": [
+        44.00000000000001,
+        -15.119999999999987,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W056/single/start",
+      "start_mm": [
+        -33.5,
+        15.0,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W056/single/end",
+      "start_mm": [
+        68.0,
+        -15.119999999999987,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W058/single/start",
+      "start_mm": [
+        -33.5,
+        10.25,
+        -19.75
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W058/single/end",
+      "start_mm": [
+        92.0,
+        -15.119999999999987,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W064/single/start",
+      "start_mm": [
+        71.5,
+        -51.5,
+        -10.99999389648437
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W064/single/end",
+      "start_mm": [
+        -133.123,
+        22.5000030517578,
+        53.0
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W065/single/start",
+      "start_mm": [
+        -30.25,
+        -23.0,
+        -8.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W065/single/end",
+      "start_mm": [
+        -118.15908000792312,
+        22.5000030517578,
+        41.93849999999999
+      ],
+      "axis": [
+        -0.8660254037844388,
+        0.0,
+        -0.49999999999999994
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W067/single/start",
+      "start_mm": [
+        4.550000000000001,
+        23.5,
+        48.5
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W067/single/end",
+      "start_mm": [
+        -126.64332332019006,
+        22.5000030517578,
+        80.64332332019009
+      ],
+      "axis": [
+        -0.7071067811865475,
+        0.0,
+        0.7071067811865476
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W068/single/start",
+      "start_mm": [
+        4.550000000000001,
+        17.0,
+        48.5
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W068/single/end",
+      "start_mm": [
+        -114.64332332018991,
+        22.5000030517578,
+        80.64332332019004
+      ],
+      "axis": [
+        -0.7071067811865475,
+        0.0,
+        0.7071067811865475
+      ],
+      "radius_mm": 2.1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W001/retained0/start",
+      "start_mm": [
+        154.9499969482422,
+        3.051757815342171e-06,
+        -31.5
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W001/retained0/end",
+      "start_mm": [
+        91.0,
+        51.5,
+        -11.0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W002/retained0/start",
+      "start_mm": [
+        109.74999689222172,
+        14.781112161746378,
+        62.03412704706027
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W002/retained0/end",
+      "start_mm": [
+        -59.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W003/retained0/start",
+      "start_mm": [
+        109.74999689222172,
+        14.781113035974144,
+        67.0341270470602
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W003/retained0/end",
+      "start_mm": [
+        50.25,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W007/retained0/start",
+      "start_mm": [
+        -40.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W007/retained0/end",
+      "start_mm": [
+        45.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W011/retained0/start",
+      "start_mm": [
+        64.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W011/retained0/end",
+      "start_mm": [
+        59.5,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W012/retained0/start",
+      "start_mm": [
+        59.5,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W012/retained0/end",
+      "start_mm": [
+        40.5,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W025/retained0/start",
+      "start_mm": [
+        -24.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W025/retained0/end",
+      "start_mm": [
+        71.5,
+        51.5,
+        -11.0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W036/retained0/start",
+      "start_mm": [
+        99.5,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W036/retained0/end",
+      "start_mm": [
+        84.5,
+        51.5,
+        -11.0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W060/retained0/start",
+      "start_mm": [
+        97.5,
+        51.5,
+        -11.0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W060/retained0/end",
+      "start_mm": [
+        -38.95,
+        -24.0,
+        91.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "radius_mm": 1.05,
+      "straight_mm": 12
+    },
+    {
+      "id": "W061/retained0/start",
+      "start_mm": [
+        78.0,
+        51.5,
+        -11.0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W061/retained0/end",
+      "start_mm": [
+        64.5,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W062/retained0/start",
+      "start_mm": [
+        59.75,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W062/retained0/end",
+      "start_mm": [
+        23.75,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W063/retained0/start",
+      "start_mm": [
+        55.0,
+        -57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W063/retained0/end",
+      "start_mm": [
+        14.25,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W066/retained0/start",
+      "start_mm": [
+        -83.48782208690639,
+        -1.0,
+        58.20391668819861
+      ],
+      "axis": [
+        0.8660254037844386,
+        0.0,
+        0.5
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W066/retained0/end",
+      "start_mm": [
+        4.550000000000001,
+        30.0,
+        48.5
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W075/retained0/start",
+      "start_mm": [
+        154.9499969482422,
+        3.051757815342171e-06,
+        -38.5
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W075/retained0/end",
+      "start_mm": [
+        49.96877492182439,
+        -18.03122076233832,
+        -13.75
+      ],
+      "axis": [
+        -0.7071067811865476,
+        -0.7071067811865476,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W076/retained0/start",
+      "start_mm": [
+        86.03122076233832,
+        18.03122507817561,
+        -13.75
+      ],
+      "axis": [
+        0.7071067811865476,
+        0.7071067811865476,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W076/retained0/end",
+      "start_mm": [
+        143.00000076293946,
+        -44.5,
+        43.5
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W076/retained1/start",
+      "start_mm": [
+        143.00000076293946,
+        -44.5,
+        36.75
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W076/retained1/end",
+      "start_mm": [
+        -146.7960833118014,
+        -0.9999999999999858,
+        58.487822086906384
+      ],
+      "axis": [
+        0.5,
+        0.0,
+        -0.8660254037844386
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W077/retained0/start",
+      "start_mm": [
+        -78.45,
+        0.0,
+        41.1
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W078/retained0/end",
+      "start_mm": [
+        -35.45,
+        -24.0,
+        91.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "radius_mm": 1.05,
+      "straight_mm": 12
+    },
+    {
+      "id": "W079/retained0/start",
+      "start_mm": [
+        -45.95,
+        -24.0,
+        91.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "radius_mm": 1.05,
+      "straight_mm": 12
+    },
+    {
+      "id": "W079/retained0/end",
+      "start_mm": [
+        30.95,
+        -45.0,
+        101.3
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "radius_mm": 1.05,
+      "straight_mm": 9
+    },
+    {
+      "id": "W080/retained0/start",
+      "start_mm": [
+        -42.45,
+        -24.0,
+        91.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "radius_mm": 1.05,
+      "straight_mm": 12
+    },
+    {
+      "id": "W080/retained0/end",
+      "start_mm": [
+        34.45,
+        -45.0,
+        101.3
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "radius_mm": 1.05,
+      "straight_mm": 9
+    },
+    {
+      "id": "W004/body/start",
+      "start_mm": [
+        -75.5,
+        46.4,
+        66.4
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W004/body/end",
+      "start_mm": [
+        -54.75,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W005/body/start",
+      "start_mm": [
+        -75.5,
+        46.4,
+        70.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W005/body/end",
+      "start_mm": [
+        -50.0,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W006/body/start",
+      "start_mm": [
+        -75.5,
+        46.4,
+        73.6
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W006/body/end",
+      "start_mm": [
+        -45.25,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W008/body/start",
+      "start_mm": [
+        -75.5,
+        -53.6,
+        66.4
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W008/body/end",
+      "start_mm": [
+        50.25,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W009/body/start",
+      "start_mm": [
+        -75.5,
+        -53.6,
+        70.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W009/body/end",
+      "start_mm": [
+        55.0,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W010/body/start",
+      "start_mm": [
+        -75.5,
+        -53.6,
+        73.6
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W010/body/end",
+      "start_mm": [
+        59.75,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W013/body/start",
+      "start_mm": [
+        117.5,
+        46.4,
+        66.4
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W013/body/end",
+      "start_mm": [
+        45.25,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W014/body/start",
+      "start_mm": [
+        117.5,
+        46.4,
+        70.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W014/body/end",
+      "start_mm": [
+        50.0,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W015/body/start",
+      "start_mm": [
+        117.5,
+        46.4,
+        73.6
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W015/body/end",
+      "start_mm": [
+        54.75,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W016/body/start",
+      "start_mm": [
+        117.5,
+        -53.6,
+        66.4
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W016/body/end",
+      "start_mm": [
+        54.75,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W017/body/start",
+      "start_mm": [
+        117.5,
+        -53.6,
+        70.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W017/body/end",
+      "start_mm": [
+        50.0,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W018/body/start",
+      "start_mm": [
+        117.5,
+        -53.6,
+        73.6
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W018/body/end",
+      "start_mm": [
+        45.25,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W019/body/start",
+      "start_mm": [
+        -75.5,
+        50.0,
+        66.4
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W019/body/end",
+      "start_mm": [
+        -19.75,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W020/body/start",
+      "start_mm": [
+        -75.5,
+        53.6,
+        66.4
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W020/body/end",
+      "start_mm": [
+        -39.99999999999998,
+        17.151999999999973,
+        68.99999999999999
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W021/body/start",
+      "start_mm": [
+        -75.5,
+        50.0,
+        70.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W021/body/end",
+      "start_mm": [
+        -15.0,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W022/body/start",
+      "start_mm": [
+        -75.5,
+        53.6,
+        70.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W022/body/end",
+      "start_mm": [
+        -15.999999999999986,
+        17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W023/body/start",
+      "start_mm": [
+        -75.5,
+        50.0,
+        73.6
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W023/body/end",
+      "start_mm": [
+        -10.25,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W024/body/start",
+      "start_mm": [
+        -75.5,
+        53.6,
+        73.6
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W024/body/end",
+      "start_mm": [
+        8.000000000000014,
+        17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W030/body/start",
+      "start_mm": [
+        -75.5,
+        -50.0,
+        66.4
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W030/body/end",
+      "start_mm": [
+        85.25,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W031/body/start",
+      "start_mm": [
+        -75.5,
+        -46.4,
+        66.4
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W031/body/end",
+      "start_mm": [
+        -41.99999999999999,
+        -17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W032/body/start",
+      "start_mm": [
+        -75.5,
+        -50.0,
+        70.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W032/body/end",
+      "start_mm": [
+        90.0,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W033/body/start",
+      "start_mm": [
+        -75.5,
+        -46.4,
+        70.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W033/body/end",
+      "start_mm": [
+        -17.999999999999993,
+        -17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W034/body/start",
+      "start_mm": [
+        -75.5,
+        -50.0,
+        73.6
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W034/body/end",
+      "start_mm": [
+        94.75,
+        57.5,
+        40.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W035/body/start",
+      "start_mm": [
+        -75.5,
+        -46.4,
+        73.6
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W035/body/end",
+      "start_mm": [
+        6.000000000000007,
+        -17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W047/body/start",
+      "start_mm": [
+        117.5,
+        53.6,
+        66.4
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W047/body/end",
+      "start_mm": [
+        32.00000000000001,
+        17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W049/body/start",
+      "start_mm": [
+        117.5,
+        53.6,
+        70.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W049/body/end",
+      "start_mm": [
+        56.0,
+        17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W051/body/start",
+      "start_mm": [
+        117.5,
+        53.6,
+        73.6
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W051/body/end",
+      "start_mm": [
+        80.0,
+        17.151999999999973,
+        68.99999999999997
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W055/body/start",
+      "start_mm": [
+        117.5,
+        -46.4,
+        66.4
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W055/body/end",
+      "start_mm": [
+        30.000000000000007,
+        -17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W057/body/start",
+      "start_mm": [
+        117.5,
+        -46.4,
+        70.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W057/body/end",
+      "start_mm": [
+        54.00000000000001,
+        -17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W059/body/start",
+      "start_mm": [
+        117.5,
+        -46.4,
+        73.6
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W059/body/end",
+      "start_mm": [
+        78.0,
+        -17.151999999999973,
+        69.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        2.4902198683181084e-16
+      ],
+      "radius_mm": 1,
+      "straight_mm": 9
+    },
+    {
+      "id": "W069/body/start",
+      "start_mm": [
+        117.5,
+        50.0,
+        66.4
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W069/body/end",
+      "start_mm": [
+        9.5,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W070/body/start",
+      "start_mm": [
+        117.5,
+        50.0,
+        70.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W070/body/end",
+      "start_mm": [
+        14.25,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W071/body/start",
+      "start_mm": [
+        117.5,
+        50.0,
+        73.6
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W071/body/end",
+      "start_mm": [
+        19.0,
+        -50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W072/body/start",
+      "start_mm": [
+        117.5,
+        -50.0,
+        66.4
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W072/body/end",
+      "start_mm": [
+        28.5,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W073/body/start",
+      "start_mm": [
+        117.5,
+        -50.0,
+        70.0
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W073/body/end",
+      "start_mm": [
+        23.75,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W074/body/start",
+      "start_mm": [
+        117.5,
+        -50.0,
+        73.6
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    },
+    {
+      "id": "W074/body/end",
+      "start_mm": [
+        19.0,
+        50.0,
+        -12.0
+      ],
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_mm": 1.55,
+      "straight_mm": 9
+    }
+  ]
+}
