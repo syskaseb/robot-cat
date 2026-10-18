@@ -30,7 +30,8 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-global-case-capacity.json": "db400bf8359748ac48b14a7deda08e653079866222a88289c47bf0d0097d9cb0",
     "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617",
-    "tools/cad/receive_feline_global_case_candidates.py": "87bb5c6a6c248af1914f2b3546fcdf139dc71d221e2c29ad98239f920b0ec92a"
+    "tools/cad/receive_feline_global_case_candidates.py": "d6e37e617eea399f68d237f22e43eea36ac45c9b9122bffedb9be6eb3f9f76be",
+    "tools/cad/feline_solid_distance.py": "83bce3dff141dc94cbd4caad21ec35d1b70b9f812377e81b0a38c684f56f86aa"
   },
   "pool": [
     {
@@ -1042,24 +1043,10 @@
       "candidate": 6
     },
     {
-      "key": "6|static|Ref_Material_P0_SideLeft22_0_0",
-      "gap_mm": 2.711661230573812,
-      "scope": "actual_static",
-      "candidate": 6,
-      "part": "Ref_Material_P0_SideLeft22_0_0"
-    },
-    {
       "key": "7|outer",
       "gap_mm": 51.874999999999986,
       "scope": "true_outer",
       "candidate": 7
-    },
-    {
-      "key": "7|static|Ref_Material_P0_SideLeft22_0_0",
-      "gap_mm": 3.586661230573803,
-      "scope": "actual_static",
-      "candidate": 7,
-      "part": "Ref_Material_P0_SideLeft22_0_0"
     },
     {
       "key": "8|outer",
@@ -1084,6 +1071,30 @@
       "gap_mm": 5.845867318306501,
       "scope": "true_outer",
       "candidate": 11
+    },
+    {
+      "key": "6|static|Ref_Material_P0_SideLeft22_0_0",
+      "gap_mm": 2.711661230573812,
+      "scope": "actual_static",
+      "candidate": 6,
+      "part": "Ref_Material_P0_SideLeft22_0_0",
+      "source_types": [
+        "Solid",
+        "Compound"
+      ],
+      "method": "minimum_valid_solid_children"
+    },
+    {
+      "key": "7|static|Ref_Material_P0_SideLeft22_0_0",
+      "gap_mm": 3.586661230573803,
+      "scope": "actual_static",
+      "candidate": 7,
+      "part": "Ref_Material_P0_SideLeft22_0_0",
+      "source_types": [
+        "Solid",
+        "Compound"
+      ],
+      "method": "minimum_valid_solid_children"
     }
   ],
   "errors": [],
@@ -1096,7 +1107,7 @@
     2,
     3
   ],
-  "worker_seconds": 32.765,
+  "worker_seconds": 28.86,
   "clear_case_candidates": [
     0,
     1,
@@ -1110,5 +1121,458 @@
     9,
     10,
     11
+  ],
+  "method_repairs": [
+    {
+      "previous_code_commit": "382e4fc7",
+      "changed_geometry_or_motion": false,
+      "previous_clear_cases_not_accepted_without_receive": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reason": "Compound distToShape missed fully contained solids in minimal reproducer"
+    }
+  ],
+  "prior_case_statuses": [
+    {
+      "centre_mm": [
+        108.0,
+        68.0,
+        -14.0
+      ],
+      "cell": [
+        62,
+        41,
+        8
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 7.0,
+      "source_axis_to_world_axis": [
+        2,
+        0,
+        1
+      ],
+      "id": 0,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          97.875,
+          57.0,
+          -39.5
+        ],
+        [
+          118.125,
+          79.0,
+          11.5
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        108.0,
+        68.0,
+        -14.0
+      ],
+      "cell": [
+        62,
+        41,
+        8
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 7.0,
+      "source_axis_to_world_axis": [
+        2,
+        1,
+        0
+      ],
+      "id": 1,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          96.99999999999999,
+          57.875,
+          -39.5
+        ],
+        [
+          119.0,
+          78.125,
+          11.500000000000005
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        68.0,
+        -64.0,
+        -30.0
+      ],
+      "cell": [
+        52,
+        8,
+        4
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        1,
+        2
+      ],
+      "id": 2,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          42.5,
+          -74.125,
+          -41.0
+        ],
+        [
+          93.5,
+          -53.875,
+          -19.0
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        68.0,
+        64.0,
+        -30.0
+      ],
+      "cell": [
+        52,
+        40,
+        4
+      ],
+      "component": 2,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        1,
+        2
+      ],
+      "id": 3,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          42.5,
+          53.875,
+          -41.0
+        ],
+        [
+          93.5,
+          74.125,
+          -19.0
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        68.0,
+        -64.0,
+        -30.0
+      ],
+      "cell": [
+        52,
+        8,
+        4
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        2,
+        1
+      ],
+      "id": 4,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          42.5,
+          -75.00000000000001,
+          -40.125
+        ],
+        [
+          93.5,
+          -52.99999999999999,
+          -19.874999999999996
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        68.0,
+        64.0,
+        -30.0
+      ],
+      "cell": [
+        52,
+        40,
+        4
+      ],
+      "component": 2,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        2,
+        1
+      ],
+      "id": 5,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          42.5,
+          52.99999999999997,
+          -40.125
+        ],
+        [
+          93.5,
+          74.99999999999999,
+          -19.874999999999996
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        -48.0,
+        4.0,
+        14.0
+      ],
+      "cell": [
+        23,
+        25,
+        15
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 2.0,
+      "source_axis_to_world_axis": [
+        1,
+        0,
+        2
+      ],
+      "id": 6,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          -58.125000000000014,
+          -21.500000000000004,
+          3.0
+        ],
+        [
+          -37.875,
+          29.5,
+          25.0
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        -48.0,
+        4.0,
+        14.0
+      ],
+      "cell": [
+        23,
+        25,
+        15
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 2.0,
+      "source_axis_to_world_axis": [
+        1,
+        2,
+        0
+      ],
+      "id": 7,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          -59.0,
+          -21.5,
+          3.875
+        ],
+        [
+          -37.0,
+          29.5,
+          24.125
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        80.0,
+        -64.0,
+        -30.0
+      ],
+      "cell": [
+        55,
+        8,
+        4
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        1,
+        2
+      ],
+      "id": 8,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          54.5,
+          -74.125,
+          -41.0
+        ],
+        [
+          105.5,
+          -53.875,
+          -19.0
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        80.0,
+        64.0,
+        -30.0
+      ],
+      "cell": [
+        55,
+        40,
+        4
+      ],
+      "component": 2,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        1,
+        2
+      ],
+      "id": 9,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          54.5,
+          53.875,
+          -41.0
+        ],
+        [
+          105.5,
+          74.125,
+          -19.0
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        56.0,
+        64.0,
+        -30.0
+      ],
+      "cell": [
+        49,
+        40,
+        4
+      ],
+      "component": 2,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        1,
+        2
+      ],
+      "id": 10,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          30.5,
+          53.875,
+          -41.0
+        ],
+        [
+          81.5,
+          74.125,
+          -19.0
+        ]
+      ]
+    },
+    {
+      "centre_mm": [
+        56.0,
+        -64.0,
+        -30.0
+      ],
+      "cell": [
+        49,
+        8,
+        4
+      ],
+      "component": 1,
+      "conservative": false,
+      "nominal_min_voxel_surface_gap_mm": 5.0,
+      "source_axis_to_world_axis": [
+        0,
+        1,
+        2
+      ],
+      "id": 11,
+      "status": "SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN",
+      "bounds_mm": [
+        [
+          30.5,
+          -74.125,
+          -41.0
+        ],
+        [
+          81.5,
+          -53.875,
+          -19.0
+        ]
+      ]
+    }
+  ],
+  "prior_attempts": [
+    {
+      "seconds": 32.765,
+      "errors": []
+    }
+  ],
+  "superseded_compound_distance_queries": [
+    {
+      "key": "6|static|Ref_Material_P0_SideLeft22_0_0",
+      "gap_mm": 2.711661230573812,
+      "scope": "actual_static",
+      "candidate": 6,
+      "part": "Ref_Material_P0_SideLeft22_0_0"
+    },
+    {
+      "key": "7|static|Ref_Material_P0_SideLeft22_0_0",
+      "gap_mm": 3.586661230573803,
+      "scope": "actual_static",
+      "candidate": 7,
+      "part": "Ref_Material_P0_SideLeft22_0_0"
+    }
   ]
 }

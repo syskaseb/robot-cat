@@ -6,6 +6,8 @@ motion remain separate required gates.
 """
 import itertools
 import json
+import subprocess
+import sys
 import time
 from pathlib import Path
 import numpy as np
@@ -14,6 +16,7 @@ from check_main_p0_placement import ROOT,SavedShapes,sha
 from plan_feline_layout import OUT,MODEL,STAGES,transforms
 from feline_current_candidate_scene import current
 from check_feline_all_current_lands import near
+from feline_solid_distance import distance as solid_distance
 
 
 def matrix_rotation(perm):
@@ -55,7 +58,7 @@ def main():
                     r,t=tfs[code,stage,i];v=corners@r.T+t
                     motionparts.append(dict(name=name,code=code,stage=stage,pose=i,bounds=[v.min(0),v.max(0)]))
     pins.update(reader.hashes)
-    for f in (src,MODEL,motionfile,axesfile,Path(__file__)):pins[f.relative_to(ROOT).as_posix()]=sha(f)
+    for f in (src,MODEL,motionfile,axesfile,Path(__file__),Path(__file__).with_name('feline_solid_distance.py')):pins[f.relative_to(ROOT).as_posix()]=sha(f)
     pool=[];seen=set()
     # All connected-domain representatives first, then global ranked centres.
     for key in ('all_component_representatives','ranked_distinct_centres'):
@@ -72,7 +75,19 @@ def main():
         sampled_motion_source_parts=len(rest),sampled_motion_pose_parts=len(motionparts),
         three_nonoverlapping_case_capacity=None)
     if dest.exists():
-        old=json.loads(dest.read_text());assert old['status']=='PARTIAL_GLOBAL_CASE_RECEIVE' and old['source_sha256']==pins
+        old=json.loads(dest.read_text())
+        if '--solid-children-receive' in sys.argv and old['status']=='GLOBAL_CASES_RECEIVED_FULL_FACTORY_TAILS_OPEN':
+            rel=Path(__file__).relative_to(ROOT).as_posix();helper=Path(__file__).with_name('feline_solid_distance.py').relative_to(ROOT).as_posix()
+            diff={n for n in set(pins)|set(old['source_sha256']) if pins.get(n)!=old['source_sha256'].get(n)}
+            assert diff=={rel,helper},diff
+            original=subprocess.run(['git','show','382e4fc7:'+rel],cwd=ROOT,check=True,capture_output=True).stdout
+            assert __import__('hashlib').sha256(original).hexdigest()==old['source_sha256'][rel]
+            old.setdefault('method_repairs',[]).append(dict(previous_code_commit='382e4fc7',
+                changed_geometry_or_motion=False,previous_clear_cases_not_accepted_without_receive=old['clear_case_candidates'],
+                reason='Compound distToShape missed fully contained solids in minimal reproducer'))
+            old['prior_case_statuses']=old['completed_candidates'];old['completed_candidates']=[]
+            old['clear_case_candidates']=[];old['three_nonoverlapping_case_capacity']=None;old['source_sha256']=pins
+        else:assert old['status']=='PARTIAL_GLOBAL_CASE_RECEIVE' and old['source_sha256']==pins
         result=old;result.setdefault('prior_attempts',[]).append(dict(seconds=old['worker_seconds'],errors=old['errors']));result['errors']=[]
     cache={r['key']:r for r in result['completed_queries']};done={r['id']:r for r in result['completed_candidates']}
     def save():
@@ -81,7 +96,12 @@ def main():
     def gate():
         if time.monotonic()-tick>180:raise TimeoutError('180s exact receiver cap; resume unfinished candidates/pairs only')
     def check(key,function,**record):
-        if key in cache:return cache[key]['gap_mm']
+        if key in cache:
+            previous=cache[key]
+            if previous['scope']=='true_outer' or previous.get('method')=='minimum_valid_solid_children' or record.get('source_types')==['Solid','Solid']:
+                return previous['gap_mm']
+            result.setdefault('superseded_compound_distance_queries',[]).append(previous)
+            result['completed_queries'].remove(previous);cache.pop(key)
         gate();gap=float(function());row=dict(key=key,gap_mm=gap,**record);cache[key]=row;result['completed_queries'].append(row)
         if len(cache)%10==0:save()
         return gap
@@ -101,9 +121,10 @@ def main():
             if row['id'] in done:continue
             s=case(row);bb=s.BoundBox;cb=[np.array([bb.XMin,bb.YMin,bb.ZMin]),np.array([bb.XMax,bb.YMax,bb.ZMax])]
             received=dict(row,status='pending',bounds_mm=[x.tolist() for x in cb])
-            outside=s.cut(outer)
-            if not outside.isNull():assert outside.isValid()
-            if outside.Volume>1e-5:received.update(status='ACTUAL_OUTSIDE_VOLUME',outside_volume_mm3=outside.Volume)
+            prior_case=next((r for r in result.get('prior_case_statuses',[]) if r['id']==row['id'] and r['status']=='SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN'),None)
+            outside=None if prior_case else s.cut(outer)
+            if outside is not None and not outside.isNull():assert outside.isValid()
+            if outside is not None and outside.Volume>1e-5:received.update(status='ACTUAL_OUTSIDE_VOLUME',outside_volume_mm3=outside.Volume)
             else:
                 distance=check(f"{row['id']}|outer",lambda:s.distToShape(outer.Shells[0])[0],scope='true_outer',candidate=row['id'])
                 if distance<3.25-1e-5:received.update(status='ACTUAL_OUTER_GAP_FAILURE',gap_mm=distance)
@@ -114,11 +135,14 @@ def main():
                         received.update(status='NEAR_CURRENT_CURVE_REQUIRES_JACKET_OWNER_PLAN',part=n);break
                     if n==bus['name']:
                         q=s.copy();q.Placement=bus['inverse']*q.Placement
-                        function=lambda:q.distToShape(bus['original'])[0]
+                        function=lambda:solid_distance(q,bus['original'])
+                        types=[q.ShapeType,bus['original'].ShapeType]
                     else:
                         if not t.isValid():received.update(status='INVALID_SOURCE_HOLD',part=n);break
-                        function=lambda:s.distToShape(t)[0]
-                    distance=check(f"{row['id']}|static|{n}",function,scope='actual_static',candidate=row['id'],part=n)
+                        function=lambda:solid_distance(s,t)
+                        types=[s.ShapeType,t.ShapeType]
+                    distance=check(f"{row['id']}|static|{n}",function,scope='actual_static',candidate=row['id'],part=n,
+                        source_types=types,method='minimum_valid_solid_children')
                     if distance<1.25-1e-5:
                         reservation='reservation' in meta[n].get('kind','') or meta[n].get('role')=='ScaffoldPlanning' or n.startswith(('StructureReserve:','PiBudget:')) or n=='RetainedMAINCutForeCap'
                         received.update(status='RESERVATION_HOLD' if reservation else 'ACTUAL_MATERIAL_GAP_FAILURE',part=n,gap_mm=distance);break
@@ -131,15 +155,19 @@ def main():
                     if np.linalg.norm(r-np.eye(3))>1e-12 or np.linalg.norm(t)>1e-7:
                         moved=original.copy();moved.Placement=placement(r,t)*moved.Placement
                     if not moved.isValid():received.update(status='INVALID_TRANSFORMED_MOTION_SOURCE_HOLD',motion=part['name']);break
+                    actual=moved.BoundBox
+                    actual_bounds=np.array([[actual.XMin,actual.YMin,actual.ZMin],[actual.XMax,actual.YMax,actual.ZMax]])
+                    assert np.all(actual_bounds[0]>=part['bounds'][0]-1e-5) and np.all(actual_bounds[1]<=part['bounds'][1]+1e-5),'World-posed motion frame mismatch'
                     key=f"{row['id']}|motion|{part['name']}|{part['pose']}"
-                    distance=check(key,lambda:s.distToShape(moved)[0],scope='actual_sampled_motion',candidate=row['id'],
-                        part=part['name'],leg=part['code'],stage=part['stage'],pose_index=part['pose'])
+                    distance=check(key,lambda:solid_distance(s,moved),scope='actual_sampled_motion',candidate=row['id'],
+                        part=part['name'],leg=part['code'],stage=part['stage'],pose_index=part['pose'],
+                        source_types=[s.ShapeType,moved.ShapeType],method='minimum_valid_solid_children')
                     if distance<1.25-1e-5:received.update(status='ACTUAL_SAMPLED_MOTION_GAP_FAILURE',part=part['name'],pose_index=part['pose'],gap_mm=distance);break
             if received['status']=='pending':received['status']='SOURCE_CASE_STATIC_AND36SAMPLED_MOTION_CLEAR_TAILS_OPEN';cases[row['id']]=s
             result['completed_candidates'].append(received);done[row['id']]=received;save()
             print('Whole case',row['id'],received['status'],'clear',len(cases),flush=True)
         for combo in itertools.combinations(cases,3):
-            if all(not near(cases[a].BoundBox,cases[b].BoundBox,1.25) or cases[a].distToShape(cases[b])[0]>=1.25-1e-5 for a,b in itertools.combinations(combo,2)):
+            if all(not near(cases[a].BoundBox,cases[b].BoundBox,1.25) or solid_distance(cases[a],cases[b])>=1.25-1e-5 for a,b in itertools.combinations(combo,2)):
                 result['three_nonoverlapping_case_capacity']=list(combo);break
         result['status']='GLOBAL_CASES_RECEIVED_FULL_FACTORY_TAILS_OPEN'
     except Exception as e:result['status']='PARTIAL_GLOBAL_CASE_RECEIVE';result['errors'].append(repr(e))
