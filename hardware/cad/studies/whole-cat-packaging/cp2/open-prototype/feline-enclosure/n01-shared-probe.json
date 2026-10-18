@@ -1,0 +1,2246 @@
+{
+  "status": "RECEIVED_SHARED_STATIC_GEOMETRY_PROBE_NOT_NATIVE_OR_SELECTED",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "native_changed": false,
+  "contacts": [],
+  "reservation_overlaps": [],
+  "errors": [],
+  "exact_pairs": 0,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-plan-r4.json": "1621d5b44566eeb412458dbda5bd1cb3ef0185d07dbf3e66c6dc6bfafb62c5d1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-module-plan-r5.json": "aa9b0ccfb0f928d52be3c7d3217640147db341f5b63c790ba8d3325696aeb735",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-preflight-r5.json": "e71b88b40831011a6db0e56423743560925252f17ecc0fad93fe23e8572b7fc0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-compact-bank-plan-r2.json": "9a1c685ef9ad8b5233228989254c1a23cdbac35471268ed2cec065dd25ed95ae",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-backbone-preflight-r4.json": "e54e3bcc6b66c798ba43a020dc3a78fba0f7a6315e5c4e81576e817257481113",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "tools/cad/check_feline_n01_coupled_pi_bus.py": "ed596bb4468e0a50b04aef3aa160443742385510d45bc355a9d67b83ca9825d5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorMotion.FCStd": "5133e3fd1df3713a41ddc503a828f39ccaf0113e7057781a1aefb70f15c24fdf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-checks-r4.json": "d0f90ac2478f1254941336054b1ce12e03214b4e6e82afdbcaf92d1b5393d703",
+    "tools/cad/plan_feline_n01_bus_complete.py": "c18bfb34e005c85ec384e2f4b4f5e3582f3d25f263c1751c8c28d803c2494b60",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bus-both-plugs-plan-r3.json": "1bd49f9a51ea5bc9fc912dcbf2e29f5424767d984bd05ef35ce7b4c5a803d02c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bus-source-cache-qualification.json": "f7bf3a629c2282d9a0b4abd78e4597343c87f9aa661cbbc000052cf4a35d71e6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-complete-end-allocation.json": "35b83662ea8454395c2eddd25469a96dc2ce78f0c8b0ea43707e192b3dcc9367",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-axial-branch-root-clear.json": "978cfff06e3855d3aa2d4a995164c55554bab869140934f67aaf391096a9cb52",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-plan-r3.json": "a2df73bfade67498a40e9a0c0c3dd21081e1156becb86c242d5a2e9a3655bdfc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-checks-r3.json": "c746b67a42838eefbed0ee437e60fc4379ef0f1de18d639ba942881f829ff410",
+    "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
+    "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-outer-rail-qualification.json": "52917cc5fbfc8984c8a099a03b5334353647d01bcaddcb452dc9fe053614f8be"
+  },
+  "scope": "Changed complete F_PI/P_SYS/MAIN/JPWM/BUS cases plus full W043/W077/W078, all24bank bends and8MTAfactory routes. Proposed support/plug/grip reservation overlaps distinguished from actual collisions. Not full80nets, tools or motion.",
+  "old_other_wire_routes_not_accepted": true,
+  "received_R4_scoped_reuse": {
+    "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-checks-r4.json",
+    "sha256": "d0f90ac2478f1254941336054b1ce12e03214b4e6e82afdbcaf92d1b5393d703",
+    "all_cases_3fullpaths_6prefixes_and_rest_of_structure": true,
+    "only_changed": "Whole LowerRail0, actual P0MountFrontR outerY=-37.8 requires rail maxY<=-39.05 for1.25gap. One analytic full-span assignment maxY=-39.5, not a search grid.",
+    "current_LowerRail0_mm": [
+      [
+        -83,
+        -45.5,
+        39.72
+      ],
+      [
+        95,
+        -39.5,
+        42.72
+      ]
+    ]
+  },
+  "declared_join_scope": "Only existing8mm solder-overlap cylinder; never exclude whole W077/W078 pair or supports",
+  "axial_columns_basis": {
+    "centres_mm": {
+      "MTA_FL": [
+        -95,
+        0,
+        -34
+      ],
+      "W026_Joint": [
+        -95,
+        -56,
+        -34
+      ],
+      "W041_Joint": [
+        -95,
+        56,
+        -34
+      ],
+      "MTA_FR": [
+        -32,
+        0,
+        -34
+      ],
+      "W037_Joint": [
+        -32,
+        -56,
+        -34
+      ],
+      "W042_Joint": [
+        -32,
+        56,
+        -34
+      ],
+      "MTA_RL": [
+        65,
+        0,
+        -34
+      ],
+      "W044_Joint": [
+        65,
+        -56,
+        -34
+      ],
+      "W045_Joint": [
+        65,
+        56,
+        -34
+      ],
+      "MTA_RR": [
+        90,
+        0,
+        -34
+      ],
+      "W052_Joint": [
+        90,
+        -56,
+        -34
+      ],
+      "W053_Joint": [
+        90,
+        56,
+        -34
+      ]
+    },
+    "rotation_rows": [
+      [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "factory_paths": "Eight straight20.75mm paths, each has both9mm intact jacket lands. No crossing fans or raised paths through bank prefixes.",
+    "same_four_MTA_and_eight_joint_cases": true,
+    "all_native_mounts_and_tools_open": true,
+    "cause_change": "Two upper-layer failures. Rotate entire four3case branches into noncrossing longitudinally separated columns below battery; no third height retry."
+  },
+  "joint_bay_architecture": {
+    "relative_current_changes_mm": {
+      "MTA_FL": [
+        -80.0,
+        40.0,
+        0.0
+      ],
+      "MTA_FR": [
+        -47.0,
+        40.0,
+        0.0
+      ],
+      "MTA_RL": [
+        80.0,
+        -65.0,
+        0.0
+      ],
+      "MTA_RR": [
+        75.0,
+        -65.0,
+        0.0
+      ],
+      "W026_Joint": [
+        -79.99999618530273,
+        41.0,
+        0.0
+      ],
+      "W037_Joint": [
+        -47.0,
+        41.0,
+        -7.62939453125e-06
+      ],
+      "W045_Joint": [
+        80.0,
+        -64.99999952316284,
+        -7.62939453125e-06
+      ],
+      "W053_Joint": [
+        75.0,
+        -64.99999952316284,
+        -7.62939453125e-06
+      ],
+      "W041_Joint": [
+        -45.0,
+        8.000000476837158,
+        3.9999923706054688
+      ],
+      "W042_Joint": [
+        -82.0,
+        8.0,
+        3.9999923706054688
+      ],
+      "W044_Joint": [
+        99.0,
+        -34.0,
+        -7.62939453125e-06
+      ],
+      "W052_Joint": [
+        56.0,
+        -34.0,
+        -7.62939453125e-06
+      ]
+    },
+    "source_cases_centre_z_mm": 37.5,
+    "two_factory_sides_each": true,
+    "full_lower_bay_released_for_power_unit": true,
+    "old_lower_rails_replaced_by_outboard_rails": true,
+    "not_a_selected_layout_or_native_mount": true
+  },
+  "BUS_current_r3_not_old_shifted_prefix": {
+    "source": "n01-bus-both-plugs-plan-r3.json",
+    "pose": {
+      "rotation_rows": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        222.02000045776367,
+        86.90814590454102,
+        74.98791122436523
+      ],
+      "centre_mm": [
+        126,
+        0,
+        75
+      ]
+    },
+    "both_plug_paths_included": true,
+    "supplier25_transformed_BRep_gate": "n01-bus-source-cache-qualification.json"
+  },
+  "joint_bay_factory_routes": [
+    {
+      "wire": "W026",
+      "start_role": "F_FL.out",
+      "end_role": "W026_Joint.factory",
+      "source_group": "MTA_FL",
+      "joint_group": "W026_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -95.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -94.99999923706055,
+            -38.24999389648437,
+            -34.0
+          ],
+          "length_mm": 20.749993896485282
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749993896485282,
+      "minimum_end_straight_mm": 10.374996948242185,
+      "factory100mm_provisional_margin_mm": 79.25000610351472,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W037",
+      "start_role": "F_FR.out",
+      "end_role": "W037_Joint.factory",
+      "source_group": "MTA_FR",
+      "joint_group": "W037_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -32.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -32.0,
+            -38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W041",
+      "start_role": "F_FL.in",
+      "end_role": "W041_Joint.factory",
+      "source_group": "MTA_FL",
+      "joint_group": "W041_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -95.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -94.99999923706055,
+            38.24999971389771,
+            -34.0000015258789
+          ],
+          "length_mm": 20.749999713899125
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999713899125,
+      "minimum_end_straight_mm": 10.374999856948854,
+      "factory100mm_provisional_margin_mm": 79.25000028610087,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W042",
+      "start_role": "F_FR.in",
+      "end_role": "W042_Joint.factory",
+      "source_group": "MTA_FR",
+      "joint_group": "W042_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -32.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            -32.0,
+            38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W044",
+      "start_role": "F_RL.in",
+      "end_role": "W044_Joint.factory",
+      "source_group": "MTA_RL",
+      "joint_group": "W044_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            65.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            65.0,
+            -38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W045",
+      "start_role": "F_RL.out",
+      "end_role": "W045_Joint.factory",
+      "source_group": "MTA_RL",
+      "joint_group": "W045_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            65.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            64.9999969482422,
+            38.24999971389771,
+            -34.0000015258789
+          ],
+          "length_mm": 20.749999713899335
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999713899335,
+      "minimum_end_straight_mm": 10.374999856948854,
+      "factory100mm_provisional_margin_mm": 79.25000028610066,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W052",
+      "start_role": "F_RR.in",
+      "end_role": "W052_Joint.factory",
+      "source_group": "MTA_RR",
+      "joint_group": "W052_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            90.0,
+            -17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            90.0,
+            -38.25,
+            -34.0000015258789
+          ],
+          "length_mm": 20.750000000001403
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.750000000001403,
+      "minimum_end_straight_mm": 10.375,
+      "factory100mm_provisional_margin_mm": 79.2499999999986,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    },
+    {
+      "wire": "W053",
+      "start_role": "F_RR.out",
+      "end_role": "W053_Joint.factory",
+      "source_group": "MTA_RR",
+      "joint_group": "W053_Joint",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            90.0,
+            17.5,
+            -33.99999389648437
+          ],
+          "end": [
+            90.0000030517578,
+            38.24999971389771,
+            -34.0000015258789
+          ],
+          "length_mm": 20.749999713899335
+        }
+      ],
+      "radius_mm": 2.1,
+      "guide_mm": 20.749999713899335,
+      "minimum_end_straight_mm": 10.374999856948854,
+      "factory100mm_provisional_margin_mm": 79.25000028610066,
+      "full_factory_guide": true,
+      "custom_extension_route_complete": false,
+      "factory_usable100_is_project_assumption": true
+    }
+  ],
+  "all_eight_joint_custom_ends": [
+    {
+      "id": "W026/custom/start",
+      "role": "W026_Joint.custom",
+      "point_mm": [
+        -94.99999923706055,
+        -73.74999389648437,
+        -34.0
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W037/custom/start",
+      "role": "W037_Joint.custom",
+      "point_mm": [
+        -32.0,
+        -73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W041/custom/start",
+      "role": "W041_Joint.custom",
+      "point_mm": [
+        -94.99999923706055,
+        73.74999971389771,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W042/custom/start",
+      "role": "W042_Joint.custom",
+      "point_mm": [
+        -32.0,
+        73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W044/custom/start",
+      "role": "W044_Joint.custom",
+      "point_mm": [
+        65.0,
+        -73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W045/custom/start",
+      "role": "W045_Joint.custom",
+      "point_mm": [
+        64.9999969482422,
+        73.7499997138977,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W052/custom/start",
+      "role": "W052_Joint.custom",
+      "point_mm": [
+        90.0,
+        -73.75,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    },
+    {
+      "id": "W053/custom/start",
+      "role": "W053_Joint.custom",
+      "point_mm": [
+        90.0000030517578,
+        73.7499997138977,
+        -34.0000015258789
+      ],
+      "departure_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_mm": 9,
+      "conservative_radius_mm": 2.1
+    }
+  ],
+  "new_rail_positive_root_contacts_mm3": {
+    "Post-69_-1": 21.0,
+    "Crossmember0": 105.0,
+    "Crossmember1": 105.0
+  },
+  "changed_complete_backbone_reservations": {
+    "LowerRail0": [
+      [
+        -83,
+        -45.5,
+        39.72
+      ],
+      [
+        95,
+        -39.5,
+        42.72
+      ]
+    ],
+    "Post-69_-1": [
+      [
+        -83,
+        -43,
+        41.72
+      ],
+      [
+        -77,
+        -37,
+        84.3
+      ]
+    ],
+    "UpperStrip-1": [
+      [
+        -83,
+        -31,
+        81.3
+      ],
+      [
+        107,
+        -10,
+        84.3
+      ]
+    ],
+    "PCBrootPi4_0_0": [
+      [
+        -3,
+        -27.5,
+        83.3
+      ],
+      [
+        3,
+        -21.5,
+        91.9
+      ]
+    ],
+    "PCBrootPi4_0_1": [
+      [
+        27,
+        -27.5,
+        83.3
+      ],
+      [
+        33,
+        -21.5,
+        91.9
+      ]
+    ],
+    "ForeNegativeUpperCrossbar": [
+      [
+        -83,
+        -43,
+        81.3
+      ],
+      [
+        -77,
+        -17,
+        84.3
+      ]
+    ],
+    "ForeNegativeBankConnection": [
+      [
+        -72,
+        -23,
+        81.3
+      ],
+      [
+        -66,
+        -17,
+        88
+      ]
+    ],
+    "Crossmember0": [
+      [
+        -5,
+        -43,
+        39.72
+      ],
+      [
+        5,
+        33.5,
+        42.72
+      ]
+    ],
+    "Crossmember1": [
+      [
+        85,
+        -43,
+        39.72
+      ],
+      [
+        95,
+        33.5,
+        42.72
+      ]
+    ],
+    "RearNegativeRailStub": [
+      [
+        85,
+        -23,
+        39.72
+      ],
+      [
+        108,
+        -17,
+        42.72
+      ]
+    ]
+  },
+  "received_unchanged_axial_branch_scope": {
+    "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-axial-branch-root-clear.json",
+    "sha256": "978cfff06e3855d3aa2d4a995164c55554bab869140934f67aaf391096a9cb52",
+    "eight_factory_paths_and_custom_ends_identical": true,
+    "new_power_against_all_branches_checked_below": true
+  },
+  "worker_seconds": 27.328,
+  "updated_utc": "2026-10-18T09:38:01.929736+00:00",
+  "full_unit_end_identities": [
+    {
+      "id": "W043/single/end",
+      "wire": "W043",
+      "role": "P_SYS.5",
+      "point_mm": [
+        4.550000000000001,
+        4.0,
+        48.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 1.7
+    },
+    {
+      "id": "W067/single/start",
+      "wire": "W067",
+      "role": "P_SYS.2",
+      "point_mm": [
+        4.550000000000001,
+        23.5,
+        48.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 2.1
+    },
+    {
+      "id": "W068/single/start",
+      "wire": "W068",
+      "role": "P_SYS.3",
+      "point_mm": [
+        4.550000000000001,
+        17.0,
+        48.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 2.1
+    },
+    {
+      "id": "W060/retained0/end",
+      "wire": "W060",
+      "role": "MAIN.GND",
+      "point_mm": [
+        -38.95,
+        -24.0,
+        91.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05
+    },
+    {
+      "id": "W066/retained0/end",
+      "wire": "W066",
+      "role": "P_SYS.1",
+      "point_mm": [
+        4.550000000000001,
+        30.0,
+        48.5
+      ],
+      "departure_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "initial_mm": 9,
+      "radius_mm": 2.1
+    },
+    {
+      "id": "W078/retained0/end",
+      "wire": "W078",
+      "role": "MAIN.VIN",
+      "point_mm": [
+        -35.45,
+        -24.0,
+        91.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05
+    },
+    {
+      "id": "W079/retained0/start",
+      "wire": "W079",
+      "role": "MAIN.VOUT",
+      "point_mm": [
+        -45.95,
+        -24.0,
+        91.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05
+    },
+    {
+      "id": "W080/retained0/start",
+      "wire": "W080",
+      "role": "MAIN.GND_OUT",
+      "point_mm": [
+        -42.45,
+        -24.0,
+        91.0
+      ],
+      "departure_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "initial_mm": 12,
+      "radius_mm": 1.05
+    }
+  ],
+  "received_scoped_source_reuse": {
+    "plan": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-plan-r3.json",
+    "proof": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-checks-r3.json",
+    "unchanged": "All component poses and3complete routes versus actual fixed parts, original bank and received factory paths. Prior sole actual hit was malformed prefix, corrected/tested separately.",
+    "changed": "Six additional prefixes and shared negative backbone; all new structure versus full cases/routes/clamps checked."
+  },
+  "shared_probe": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-shared-probe.zip",
+  "shared_probe_sha256": "9ce1d77057027bd26704f84d56336db11533a5d6df29349378336c351892c9a9",
+  "parts": [
+    {
+      "name": "Ref_Material_MAIN_0_head_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "000.brep",
+      "sha256": "a2c09f82126379a7ef12a76b2046d842290e9866afaceb22d127a72d85b1c622",
+      "bounds_mm": [
+        [
+          -51.871,
+          -27.932,
+          91.0
+        ],
+        [
+          -48.071000000000005,
+          -24.132,
+          93.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 22.68229895891832
+    },
+    {
+      "name": "Ref_Material_MAIN_0_lower_washer_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "001.brep",
+      "sha256": "d3fc9ea913861655f178dafa9cff31880820040986340e1803cb7e6e525713f4",
+      "bounds_mm": [
+        [
+          -52.471000000000004,
+          -28.532,
+          102.5748
+        ],
+        [
+          -47.471000000000004,
+          -23.532,
+          102.8748
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 4.750088092227754
+    },
+    {
+      "name": "Ref_Material_MAIN_0_nut_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "002.brep",
+      "sha256": "a4052d8db3c494394d206293460634962c5244e8636fe5fcf3182ee0ecb9ce39",
+      "bounds_mm": [
+        [
+          -52.28040107675851,
+          -28.341401076758505,
+          102.8748
+        ],
+        [
+          -47.6615989232415,
+          -23.722598923241495,
+          104.47479999999999
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 21.781709064889228
+    },
+    {
+      "name": "Ref_Material_MAIN_0_shaft_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "003.brep",
+      "sha256": "a5b7c01734d371492014ae0f563977d4e5a3eb6c0cae0ff072a92940aa7a3137",
+      "bounds_mm": [
+        [
+          -50.971000000000004,
+          -27.032,
+          93.0
+        ],
+        [
+          -48.971000000000004,
+          -25.032,
+          105.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 37.699111843077524
+    },
+    {
+      "name": "Ref_Material_MAIN_1_head_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "004.brep",
+      "sha256": "679f16289b780c0d8dc2dce96acdc29c8b55d4446f4b35ac4e784a8224941459",
+      "bounds_mm": [
+        [
+          -33.329,
+          -27.932,
+          91.0
+        ],
+        [
+          -29.529000000000003,
+          -24.132,
+          93.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 22.68229895891832
+    },
+    {
+      "name": "Ref_Material_MAIN_1_lower_washer_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "005.brep",
+      "sha256": "547caa2e12ba75d21084830651867e154638f25c64617c32bbbff1754917ae9c",
+      "bounds_mm": [
+        [
+          -33.929,
+          -28.532,
+          102.5748
+        ],
+        [
+          -28.929000000000002,
+          -23.532,
+          102.8748
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 4.750088092227754
+    },
+    {
+      "name": "Ref_Material_MAIN_1_nut_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "006.brep",
+      "sha256": "dc7bc1fa495cfb41f3559b5edbd93740c4ded62e71539909c38ef3f34e028a3d",
+      "bounds_mm": [
+        [
+          -33.73840107675851,
+          -28.341401076758505,
+          102.8748
+        ],
+        [
+          -29.119598923241497,
+          -23.722598923241495,
+          104.47479999999999
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 21.78170906488923
+    },
+    {
+      "name": "Ref_Material_MAIN_1_shaft_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "007.brep",
+      "sha256": "e925fb8b83cda940eaeec6f485b5684c40a14eb0b5559f6b66b1f5d9c3fda621",
+      "bounds_mm": [
+        [
+          -32.429,
+          -27.032,
+          93.0
+        ],
+        [
+          -30.429000000000002,
+          -25.032,
+          105.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 37.699111843077524
+    },
+    {
+      "name": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "008.brep",
+      "sha256": "2d8452360037c7c3ffabdf5d380e81b10ace229dd9c901de1b6fe503a016a1fe",
+      "bounds_mm": [
+        [
+          -52.13,
+          -28.191,
+          87.89999999999998
+        ],
+        [
+          -29.270000000000003,
+          2.2890000000000015,
+          95.57479999999998
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 3,
+      "volume_mm3": 1915.5709306457504
+    },
+    {
+      "name": "Ref_Material_Power_MAINBand_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "009.brep",
+      "sha256": "c65df223bcb7c219b6f225f8063586fa16e130077250db71030686cd6b75d56b",
+      "bounds_mm": [
+        [
+          -48.75,
+          -28.549999999999997,
+          88.24999999999999
+        ],
+        [
+          -32.65,
+          -21.2,
+          90.75
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 107.25000000000003
+    },
+    {
+      "name": "Ref_Material_Power_MAINHead_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "010.brep",
+      "sha256": "37413b9bade6a506939706053ac756055ca963af4dd80d7cd81fa0423a44caf1",
+      "bounds_mm": [
+        [
+          -43.1,
+          -33.05,
+          88.25
+        ],
+        [
+          -38.300000000000004,
+          -28.549999999999997,
+          91.75
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 75.59999999999997
+    },
+    {
+      "name": "Ref_Material_F_PI_new_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "011.brep",
+      "sha256": "d50c82efb725c872ab7800d512ee0917ef4e998cf7dcd982a35ef9c12202de19",
+      "bounds_mm": [
+        [
+          -78.45000000000002,
+          -11.0,
+          30.975000000000016
+        ],
+        [
+          -27.450000000000014,
+          11.0,
+          51.22500000000003
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 22720.5
+    },
+    {
+      "name": "Ref_Material_P_SYS_new_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "012.brep",
+      "sha256": "49387ee00b4e10f9cf421d9f2e5051c3adfd5228a02a6e170814b47153e5d5c9",
+      "bounds_mm": [
+        [
+          4.549999999999969,
+          -1.499999999999996,
+          43.0
+        ],
+        [
+          26.549999999999983,
+          35.500000000000014,
+          54.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 8954.0
+    },
+    {
+      "name": "Ref_Material_MTA_FL_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "013.brep",
+      "sha256": "7facb30ae20f08f8d4fa9c3dd675c3f7dfaf8bd68c06b4f3add00538af58e8af",
+      "bounds_mm": [
+        [
+          -106.00000000000001,
+          -17.5,
+          -41.99999389648437
+        ],
+        [
+          -84.0,
+          17.500000000000007,
+          -25.99999389648437
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 12320.0
+    },
+    {
+      "name": "Ref_Material_MTA_FR_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "014.brep",
+      "sha256": "6d3b2576763b2df55eb0af0dc58123f00e8673202936a5216c3f82cfaf43657d",
+      "bounds_mm": [
+        [
+          -43.000000000000014,
+          -17.5,
+          -41.99999389648437
+        ],
+        [
+          -21.000000000000007,
+          17.5,
+          -25.99999389648437
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 12320.0
+    },
+    {
+      "name": "Ref_Material_MTA_RL_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "015.brep",
+      "sha256": "db03d3f4e03ade623b9e4cf76c7ee91503f59f39eda8d749c1cd25c547df08f3",
+      "bounds_mm": [
+        [
+          54.00000000000003,
+          -17.499999999999986,
+          -41.99999389648437
+        ],
+        [
+          76.00000000000004,
+          17.500000000000032,
+          -25.99999389648437
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 12320.000000000002
+    },
+    {
+      "name": "Ref_Material_MTA_RR_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "016.brep",
+      "sha256": "bf2d4a5afe4de8714d5310bb8248714ff9faf85f02ad3949a31603c973168d03",
+      "bounds_mm": [
+        [
+          79.00000000000001,
+          -17.500000000000014,
+          -41.99999389648437
+        ],
+        [
+          101.00000000000003,
+          17.499999999999986,
+          -25.99999389648437
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 12320.0
+    },
+    {
+      "name": "Ref_Material_W026_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "017.brep",
+      "sha256": "c49d0b2cab8e320b5316f1894b506920331e1d5c3a943952611571fd9ee02543",
+      "bounds_mm": [
+        [
+          -99.04999923706056,
+          -73.74999389648437,
+          -38.45
+        ],
+        [
+          -90.94999923706057,
+          -38.24999389648437,
+          -29.55
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.1949999999997
+    },
+    {
+      "name": "Ref_Material_W037_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "018.brep",
+      "sha256": "562d6746a4afa91db626ca31993f9c058c43c4a812dd2565702bdef5df5c84b7",
+      "bounds_mm": [
+        [
+          -36.050000000000026,
+          -73.75000000000001,
+          -38.45000152587889
+        ],
+        [
+          -27.950000000000017,
+          -38.25,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.194999999991
+    },
+    {
+      "name": "Ref_Material_W045_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "019.brep",
+      "sha256": "0ee6303bd2691a41891dcbcce547a39f792267555d7d16ab8dfa198732f4f2bb",
+      "bounds_mm": [
+        [
+          60.94999694824219,
+          38.24999971389775,
+          -38.45000152587889
+        ],
+        [
+          69.04999694824224,
+          73.74999971389776,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.1950000000006
+    },
+    {
+      "name": "Ref_Material_W053_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "020.brep",
+      "sha256": "a700ffc03a906ab37b65793c724e9cf2a2bd9725f7da16202b9f2c1ec4136e74",
+      "bounds_mm": [
+        [
+          85.95000305175782,
+          38.249999713897736,
+          -38.45000152587889
+        ],
+        [
+          94.05000305175784,
+          73.74999971389774,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.1950000000006
+    },
+    {
+      "name": "Ref_Material_W041_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "021.brep",
+      "sha256": "658c43f4b870ec2de8c2f96b3475ea2efc3482a41f407a1d981ceedb364e722c",
+      "bounds_mm": [
+        [
+          -99.04999923706056,
+          38.24999971389772,
+          -38.45000152587889
+        ],
+        [
+          -90.94999923706055,
+          73.74999971389772,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.194999999991
+    },
+    {
+      "name": "Ref_Material_W042_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "022.brep",
+      "sha256": "3bebe18cebb371f67c119dac5b6b88a341afae0fab4d8d7d577ed6eae4e6d1b8",
+      "bounds_mm": [
+        [
+          -36.04999999999998,
+          38.249999999999986,
+          -38.45000152587889
+        ],
+        [
+          -27.94999999999998,
+          73.74999999999999,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.194999999991
+    },
+    {
+      "name": "Ref_Material_W044_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "023.brep",
+      "sha256": "55f17259fd92c4fcb674a6552d09a97b328375d77123f78f274f1f5a45e2a948",
+      "bounds_mm": [
+        [
+          60.94999999999999,
+          -73.74999999999999,
+          -38.45000152587889
+        ],
+        [
+          69.05,
+          -38.24999999999997,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.194999999991
+    },
+    {
+      "name": "Ref_Material_W052_Joint_0_0",
+      "kind": "purchased_or_complete_wire",
+      "entry": "024.brep",
+      "sha256": "67478146e9fe7129ee9209da90f3857fd5a021a38f0ef7e0ee4b612ce0e605e4",
+      "bounds_mm": [
+        [
+          85.94999999999999,
+          -73.75000000000001,
+          -38.45000152587889
+        ],
+        [
+          94.05000000000001,
+          -38.250000000000014,
+          -29.55000152587891
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2559.194999999991
+    },
+    {
+      "name": "W043",
+      "kind": "purchased_or_complete_wire",
+      "entry": "025.brep",
+      "sha256": "ca727ce53898887502cf24f737281a8d75f5d24cc21b4e4c5d15f8cc75eb8253",
+      "bounds_mm": [
+        [
+          -27.45,
+          -1.9181171167414537,
+          38.941874933038996
+        ],
+        [
+          4.550000000000001,
+          5.918117116741438,
+          50.65812506696101
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 324.62424330656074
+    },
+    {
+      "name": "W077",
+      "kind": "purchased_or_complete_wire",
+      "entry": "026.brep",
+      "sha256": "076cfb9d7349ed46cb4a85e4a2f42ce31b2fa753742a405bd0f5a277e35f796c",
+      "bounds_mm": [
+        [
+          -103.91996924415199,
+          -26.75517047438594,
+          39.17962729897662
+        ],
+        [
+          -63.55,
+          2.755170474385922,
+          50.020372701023355
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 675.2194761768479
+    },
+    {
+      "name": "W078",
+      "kind": "purchased_or_complete_wire",
+      "entry": "027.brep",
+      "sha256": "cfa2efad50729fdfbe7332f8c22679d2c0df45e556fccedbb2e3a767c8959203",
+      "bounds_mm": [
+        [
+          -71.55,
+          -25.05,
+          46.04893476644742
+        ],
+        [
+          -33.39893476644741,
+          -22.95,
+          91.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 257.12369078281586
+    },
+    {
+      "name": "End:W067/single/start",
+      "kind": "purchased_or_complete_wire",
+      "entry": "028.brep",
+      "sha256": "7516ea0ce7b4aeecb8570a2cc3734ca76aff5c4a623ac252cf1266cc6a9bd5f3",
+      "bounds_mm": [
+        [
+          -4.449999999999999,
+          21.4,
+          46.4
+        ],
+        [
+          4.550000000000001,
+          25.6,
+          50.6
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097897
+    },
+    {
+      "name": "End:W068/single/start",
+      "kind": "purchased_or_complete_wire",
+      "entry": "029.brep",
+      "sha256": "e347dbb06d200e385a108ece3879da1ff77e3f022a680638dd398741839db4eb",
+      "bounds_mm": [
+        [
+          -4.449999999999999,
+          14.9,
+          46.4
+        ],
+        [
+          4.550000000000001,
+          19.1,
+          50.6
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097897
+    },
+    {
+      "name": "End:W060/retained0/end",
+      "kind": "purchased_or_complete_wire",
+      "entry": "030.brep",
+      "sha256": "bd82f0e4c4587c4003e121b5c580ac15e39f60f2038599e61a2e7bac6137e9e7",
+      "bounds_mm": [
+        [
+          -40.0,
+          -25.05,
+          79.0
+        ],
+        [
+          -37.900000000000006,
+          -22.95,
+          91.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 41.563270806992904
+    },
+    {
+      "name": "End:W066/retained0/end",
+      "kind": "purchased_or_complete_wire",
+      "entry": "031.brep",
+      "sha256": "d93f67906b4e849b5a3a0f1049cc28d67f8b5ded00f4b319532796332a765f07",
+      "bounds_mm": [
+        [
+          -4.449999999999999,
+          27.9,
+          46.4
+        ],
+        [
+          4.550000000000001,
+          32.1,
+          50.6
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097897
+    },
+    {
+      "name": "End:W079/retained0/start",
+      "kind": "purchased_or_complete_wire",
+      "entry": "032.brep",
+      "sha256": "064a8f14a1661b3bb17dc46df3d14d54a91f6f935b25b4d050398a0879f3eaf0",
+      "bounds_mm": [
+        [
+          -47.0,
+          -25.05,
+          79.0
+        ],
+        [
+          -44.900000000000006,
+          -22.95,
+          91.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 41.563270806992904
+    },
+    {
+      "name": "End:W080/retained0/start",
+      "kind": "purchased_or_complete_wire",
+      "entry": "033.brep",
+      "sha256": "581448c4acaf370bc8538abe0cd5ab74f2c0c101c242a3ffc502a0772c21b38a",
+      "bounds_mm": [
+        [
+          -43.5,
+          -25.05,
+          79.0
+        ],
+        [
+          -41.400000000000006,
+          -22.95,
+          91.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 41.563270806992904
+    },
+    {
+      "name": "SpliceClip",
+      "kind": "whole_restraint_or_insulation_reservation",
+      "entry": "034.brep",
+      "sha256": "0a785185d58fa3e1dbd514f42e5f1a63175eedd599c2c240c00d34ff444bc174",
+      "bounds_mm": [
+        [
+          -88.55,
+          -28.1,
+          44.0
+        ],
+        [
+          -46.550000000000004,
+          -19.9,
+          52.2
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 1603.9199999999996
+    },
+    {
+      "name": "SpliceSleeve",
+      "kind": "whole_restraint_or_insulation_reservation",
+      "entry": "035.brep",
+      "sha256": "ee0c8150bc282473e0925a43ae563dac948a6779f23673e1f07132948e6fdd68",
+      "bounds_mm": [
+        [
+          -77.55,
+          -26.1,
+          46.0
+        ],
+        [
+          -57.55,
+          -21.9,
+          50.2
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 277.0884720466198
+    },
+    {
+      "name": "P_SYS_CommonRelief",
+      "kind": "whole_restraint_or_insulation_reservation",
+      "entry": "036.brep",
+      "sha256": "ab71e4fe3ec3b9131fbecd0629192700765c302c76d3f333b7f77edf086248a0",
+      "bounds_mm": [
+        [
+          -4.45,
+          -0.09999999999999964,
+          44.4
+        ],
+        [
+          4.55,
+          34.1,
+          52.6
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2523.9600000000014
+    },
+    {
+      "name": "MAIN_CommonRelief",
+      "kind": "whole_restraint_or_insulation_reservation",
+      "entry": "037.brep",
+      "sha256": "50973a3aa0cf7c5f61881d5bc40ea202840116737c1577fcb53a8f11823ad2a8",
+      "bounds_mm": [
+        [
+          -49.0,
+          -27.05,
+          79.0
+        ],
+        [
+          -32.4,
+          -20.95,
+          88.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 911.3400000000004
+    },
+    {
+      "name": "Factory:W026",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "038.brep",
+      "sha256": "0e51ce6b968014755a34b78eea5316b6b406428065990330e1a4a74d693f5b4f",
+      "bounds_mm": [
+        [
+          -97.1,
+          -38.24999451899686,
+          -36.09999999999986
+        ],
+        [
+          -92.89999923706068,
+          -17.499999377487512,
+          -31.89999389648446
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.4792051876892
+    },
+    {
+      "name": "Factory:W037",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "039.brep",
+      "sha256": "eb34a15e82c74908123a7d673ba6fa6ee418623f46729e5e425a552adca104fc",
+      "bounds_mm": [
+        [
+          -34.1,
+          -38.25000077213149,
+          -36.100001525878774
+        ],
+        [
+          -29.9,
+          -17.499999227868503,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.4792897483876
+    },
+    {
+      "name": "Factory:W041",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "040.brep",
+      "sha256": "6e3eaaa9ab30594b4560274c7c57d7dc979dc188a4dafc21d2b69d5952e9a7c9",
+      "bounds_mm": [
+        [
+          -97.1,
+          17.499999224017433,
+          -36.10000152587881
+        ],
+        [
+          -92.89999923706047,
+          38.25000048988027,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.479285784605
+    },
+    {
+      "name": "Factory:W042",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "041.brep",
+      "sha256": "edb0a3827d1f2336e322916023b8079120e3b00707f32c0b202317d93141dd9b",
+      "bounds_mm": [
+        [
+          -34.1,
+          17.499999227868503,
+          -36.100001525878774
+        ],
+        [
+          -29.9,
+          38.25000077213149,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.4792897483876
+    },
+    {
+      "name": "Factory:W044",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "042.brep",
+      "sha256": "3853d0cf10c6783e3fed17c498c06e1bcd0d605af74ecad17a4d6312a5639c61",
+      "bounds_mm": [
+        [
+          62.9,
+          -38.25000077213149,
+          -36.100001525878774
+        ],
+        [
+          67.1,
+          -17.499999227868503,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.47928974838703
+    },
+    {
+      "name": "Factory:W045",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "043.brep",
+      "sha256": "d8b32310a8641d90cb2e88806d3e299a837c79b964aa2c6fd16ef646a12d84a8",
+      "bounds_mm": [
+        [
+          62.89999694824219,
+          17.49999916838891,
+          -36.10000152587881
+        ],
+        [
+          67.09999999999998,
+          38.2500005455088,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.47928578460863
+    },
+    {
+      "name": "Factory:W052",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "044.brep",
+      "sha256": "8568e2605da1773ec71c4dd26879508a3b79b6ccee1cdff459785d0e16b495c3",
+      "bounds_mm": [
+        [
+          87.9,
+          -38.25000077213149,
+          -36.100001525878774
+        ],
+        [
+          92.1,
+          -17.499999227868503,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.4792897483871
+    },
+    {
+      "name": "Factory:W053",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "045.brep",
+      "sha256": "969825723937f9092718e0a8b03e347f9fc0f43d824d634db7c1c606dba114c1",
+      "bounds_mm": [
+        [
+          87.90000000000002,
+          17.49999916838891,
+          -36.10000152587881
+        ],
+        [
+          92.10000305175781,
+          38.2500005455088,
+          -31.89999389648451
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 287.47928578460863
+    },
+    {
+      "name": "CustomPrefix:W026/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "046.brep",
+      "sha256": "a0ef92a702f7d92e1e9e4bd130a25794df430e3c012bb9ef27e35834734c3db4",
+      "bounds_mm": [
+        [
+          -97.09999923706054,
+          -82.74999389648437,
+          -36.1
+        ],
+        [
+          -92.89999923706056,
+          -73.74999389648437,
+          -31.9
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097894
+    },
+    {
+      "name": "CustomPrefix:W037/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "047.brep",
+      "sha256": "e4cef0a0698091b3215ed2149faf0605758bbbc791563e278bc961d10681bdb3",
+      "bounds_mm": [
+        [
+          -34.1,
+          -82.75,
+          -36.1000015258789
+        ],
+        [
+          -29.9,
+          -73.75,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "CustomPrefix:W041/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "048.brep",
+      "sha256": "195fa183c59f47471c2f83bce665aaeb3162b841635871de9ac2d81cc66f5711",
+      "bounds_mm": [
+        [
+          -97.09999923706054,
+          73.74999971389771,
+          -36.1000015258789
+        ],
+        [
+          -92.89999923706056,
+          82.74999971389771,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "CustomPrefix:W042/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "049.brep",
+      "sha256": "fe0764c72c1626ad4f25b34e9b0a46a3af6c9ea3754bd945dab580b0c112f548",
+      "bounds_mm": [
+        [
+          -34.1,
+          73.75,
+          -36.1000015258789
+        ],
+        [
+          -29.9,
+          82.75,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "CustomPrefix:W044/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "050.brep",
+      "sha256": "a878518ba18a92410292401cd72a32685b0bf1b8a104b3f1a8ef56e2576745f6",
+      "bounds_mm": [
+        [
+          62.9,
+          -82.75,
+          -36.1000015258789
+        ],
+        [
+          67.1,
+          -73.75,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "CustomPrefix:W045/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "051.brep",
+      "sha256": "b8212620843fe9a3d89afa5b09f80e6c9676628cbaeea6c9f0e55156bec50d9c",
+      "bounds_mm": [
+        [
+          62.8999969482422,
+          73.7499997138977,
+          -36.1000015258789
+        ],
+        [
+          67.0999969482422,
+          82.7499997138977,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "CustomPrefix:W052/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "052.brep",
+      "sha256": "2a5b79856178c10cb2617d43008724ecc06572f4ad4c56e11c22e7d7e413fa7f",
+      "bounds_mm": [
+        [
+          87.9,
+          -82.75,
+          -36.1000015258789
+        ],
+        [
+          92.1,
+          -73.75,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "CustomPrefix:W053/custom/start",
+      "kind": "complete_factory_wire_or_custom9mm_land",
+      "entry": "053.brep",
+      "sha256": "eecccb5f59378bab263bba4e4b7c3f29052171c61c73d86c9aa0c6bcd1d29cde",
+      "bounds_mm": [
+        [
+          87.9000030517578,
+          73.7499997138977,
+          -36.1000015258789
+        ],
+        [
+          92.1000030517578,
+          82.7499997138977,
+          -31.9000015258789
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 124.68981242097891
+    },
+    {
+      "name": "StructureReserve:LowerRail0",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "054.brep",
+      "sha256": "67656b7ac8218b25566ce590f7e816f787b5b61d6ec8d2fd617327cb580682b4",
+      "bounds_mm": [
+        [
+          -83.0,
+          -45.5,
+          39.72
+        ],
+        [
+          95.0,
+          -39.5,
+          42.72
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 3203.9999999999995
+    },
+    {
+      "name": "StructureReserve:Post-69_-1",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "055.brep",
+      "sha256": "8f4b0e1c1f79eb9767599c62ee5358bd0065293d958aa4b727ec54bd157fff33",
+      "bounds_mm": [
+        [
+          -83.0,
+          -43.0,
+          41.72
+        ],
+        [
+          -77.0,
+          -37.0,
+          84.3
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 1532.8799999999999
+    },
+    {
+      "name": "StructureReserve:UpperStrip-1",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "056.brep",
+      "sha256": "d626b4897a13c15c234b3564b1ce538de7f32c3e48fd2c452d390b1ed17c51e6",
+      "bounds_mm": [
+        [
+          -83.0,
+          -31.0,
+          81.3
+        ],
+        [
+          107.0,
+          -10.0,
+          84.3
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 11477.22
+    },
+    {
+      "name": "StructureReserve:PCBrootPi4_0_0",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "057.brep",
+      "sha256": "c2dcf2a743b3812c68bce0c2704da61026c4da55262715e6c647278717ade722",
+      "bounds_mm": [
+        [
+          -3.0,
+          -27.5,
+          83.3
+        ],
+        [
+          3.0,
+          -21.5,
+          91.9
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 309.6000000000003
+    },
+    {
+      "name": "StructureReserve:PCBrootPi4_0_1",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "058.brep",
+      "sha256": "cd5a8c17d508a628d0d3c34013f6571c6e67389ceff6cf3a687c87e530245651",
+      "bounds_mm": [
+        [
+          27.0,
+          -27.5,
+          83.3
+        ],
+        [
+          33.0,
+          -21.5,
+          91.9
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 309.6000000000003
+    },
+    {
+      "name": "StructureReserve:ForeNegativeUpperCrossbar",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "059.brep",
+      "sha256": "87d120447186a330987ef961ff8959889146dc419e529d07c1660380944c4f99",
+      "bounds_mm": [
+        [
+          -83.0,
+          -43.0,
+          81.3
+        ],
+        [
+          -77.0,
+          -17.0,
+          84.3
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 468.0
+    },
+    {
+      "name": "StructureReserve:ForeNegativeBankConnection",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "060.brep",
+      "sha256": "d32cd5288f127989d8e32c58f688f931d94134ccf6363a153453f08eb420bbe3",
+      "bounds_mm": [
+        [
+          -72.0,
+          -23.0,
+          81.3
+        ],
+        [
+          -66.0,
+          -17.0,
+          88.0
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 241.2000000000001
+    },
+    {
+      "name": "StructureReserve:Crossmember0",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "061.brep",
+      "sha256": "c8b073fdba2713e68e114cbbb50c093978b2a30b68a0c9913bcbf710245f0708",
+      "bounds_mm": [
+        [
+          -5.0,
+          -43.0,
+          39.72
+        ],
+        [
+          5.0,
+          33.5,
+          42.72
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2295.0
+    },
+    {
+      "name": "StructureReserve:Crossmember1",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "062.brep",
+      "sha256": "5933edd4b67369a2bdabe32e0c40309c1366de041732b72cc76a567c68d3be09",
+      "bounds_mm": [
+        [
+          85.0,
+          -43.0,
+          39.72
+        ],
+        [
+          95.0,
+          33.5,
+          42.72
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 2295.0
+    },
+    {
+      "name": "StructureReserve:RearNegativeRailStub",
+      "kind": "changed_shared_structure_reservation",
+      "entry": "063.brep",
+      "sha256": "7c1af69eb751d781a9d14171356adff46cf34b594c622c3a3dcd42886b507d0b",
+      "bounds_mm": [
+        [
+          85.0,
+          -23.0,
+          39.72
+        ],
+        [
+          108.0,
+          -17.0,
+          42.72
+        ]
+      ],
+      "valid_when_exported": true,
+      "solids": 1,
+      "volume_mm3": 414.0
+    }
+  ],
+  "part_count": 64,
+  "invalid_source_names": [],
+  "probe_is_not_editable_native_or_print_export": true,
+  "BUS_unchanged_envelope36pose_evidence_reused_not_omitted_from_project": true,
+  "next": "Only true torso containment/wall budget and adopted36leg motion of this changed snapshot. Then complete MTA restraints/tool/assembly/remaining harness corridors; N01 not yet complete."
+}

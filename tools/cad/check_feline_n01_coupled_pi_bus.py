@@ -20,7 +20,8 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    outer_fit='--qualify-outer-rail' in sys.argv
+    export_probe='--export-shared-probe' in sys.argv
+    outer_fit=export_probe or '--qualify-outer-rail' in sys.argv
     supported=outer_fit or '--supported-source-plan' in sys.argv
     backbone_free=supported or '--backbone-free-source' in sys.argv
     fitted=backbone_free or '--central-source-fitted' in sys.argv
@@ -33,7 +34,7 @@ def main():
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=not central and (spatial or '--flat-unit' in sys.argv)
     lower=central or flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-outer-rail-qualification.json' if outer_fit else 'n01-central-spine-power-checks-r4.json' if supported else 'n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-shared-probe.json' if export_probe else 'n01-outer-rail-qualification.json' if outer_fit else 'n01-central-spine-power-checks-r4.json' if supported else 'n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-central-spine-power-plan-r4.json' if supported else 'n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -488,6 +489,42 @@ def main():
         reserves['SpliceSleeve']=Part.makeCylinder(2.1,20,A.Vector(sx[0],yy,zz),A.Vector(1,0,0))
     if central:
         for n,(lo,hi) in candidate['shared_relief_reservations'].items():box(n,lo,hi)
+    if export_probe:
+        import zipfile,hashlib
+        proofpath=OUT/'n01-outer-rail-qualification.json';proof=json.loads(proofpath.read_text())
+        assert proof['status']=='CHANGED_STATIC_INTERFACES_CLEAR_FULL_PLAN_OPEN'
+        assert not(proof['contacts'] or proof['reservation_overlaps'] or proof['errors'])
+        for path,h in proof['source_sha256'].items():
+            if path!='tools/cad/check_feline_n01_coupled_pi_bus.py':assert sha(ROOT/path)==h,path
+        assert proof['received_R4_scoped_reuse']['current_LowerRail0_mm']==candidate['backbone_changes']['LowerRail0']
+        parts={**changed,**jointparts,**actual_new}
+        kinds={n:'purchased_or_complete_wire' for n in parts}
+        for n,s in reserves.items():
+            if n.startswith('BUS'):continue # stale legacy placeholders, NOT received current BUS
+            parts[n]=s;kinds[n]='whole_restraint_or_insulation_reservation'
+        for n,s in wires.items():
+            if n.startswith(('Factory:','CustomPrefix:')):
+                parts[n]=s;kinds[n]='complete_factory_wire_or_custom9mm_land'
+        for n in candidate['backbone_changes']:
+            key='StructureReserve:'+n;parts[key]=wires[key];kinds[key]='changed_shared_structure_reservation'
+        bundle=OUT/'n01-current-shared-probe.zip';assert not bundle.exists()
+        rows=[]
+        with zipfile.ZipFile(bundle,'x',compression=zipfile.ZIP_DEFLATED) as archive:
+            for index,(n,s) in enumerate(parts.items()):
+                gate();b=s.BoundBox;data=s.exportBrepToString().encode('utf-8');entry=f'{index:03d}.brep'
+                archive.writestr(entry,data)
+                rows.append({'name':n,'kind':kinds[n],'entry':entry,'sha256':hashlib.sha256(data).hexdigest(),
+                    'bounds_mm':[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]],
+                    'valid_when_exported':s.isValid(),'solids':len(s.Solids),'volume_mm3':s.Volume})
+        report.update(status='RECEIVED_SHARED_STATIC_GEOMETRY_PROBE_NOT_NATIVE_OR_SELECTED',
+            shared_probe=bundle.relative_to(ROOT).as_posix(),shared_probe_sha256=sha(bundle),parts=rows,
+            part_count=len(rows),invalid_source_names=[r['name'] for r in rows if not r['valid_when_exported']],
+            probe_is_not_editable_native_or_print_export=True,
+            BUS_unchanged_envelope36pose_evidence_reused_not_omitted_from_project=True,
+            next='Only true torso containment/wall budget and adopted36leg motion of this changed snapshot. Then complete MTA restraints/tool/assembly/remaining harness corridors; N01 not yet complete.',
+            source_sha256={**report['source_sha256'],**reader.hashes,proofpath.relative_to(ROOT).as_posix():sha(proofpath)})
+        save();print(json.dumps({'status':report['status'],'parts':len(rows),'invalid':report['invalid_source_names'],'seconds':report['worker_seconds']}),flush=True)
+        return
     if not lower:box('MainCarrier',[-52,-12,84],[-23,12,87])
     # rear branch below BUS, rooted at the existing rear post, not on skin
     for y in (-18.5,18.5):box('BUSRearBranch'+str(y),[102,y-3,67],[145,y+3,70])
