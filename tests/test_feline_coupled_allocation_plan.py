@@ -41,12 +41,21 @@ class CoupledPlan(unittest.TestCase):
         for fuse in self.p['FHAC']:
             first=[fuse['both_factory_first_mm']]*2 if 'both_factory_first_mm' in fuse else [
                 fuse['upper_factory_first_mm'],fuse['lower_factory_first_mm']]
-            for a in first:
-                length=a+math.pi*12.4/2+14+3
+            for i,a in enumerate(first):
+                after=fuse.get('upper_factory_after_arc_mm',14) if i==0 and 'both_factory_first_mm' not in fuse else 14
+                length=a+math.pi*12.4/2+after+3
                 self.assertLess(length,100)
                 lengths.append(length)
         self.assertEqual(len(lengths),6)
         self.assertTrue(self.p['FHAC_full_joint']['factory100mm_is_unconfirmed_delivery_assumption'])
+
+    def test_factory_independent9mm_not_inside_sleeve(self):
+        for fuse in self.p['FHAC']:
+            if 'both_factory_first_mm' in fuse:
+                self.assertGreaterEqual(fuse['both_factory_first_mm'],9)
+            else:
+                self.assertGreaterEqual(fuse['lower_factory_first_mm'],9)
+                self.assertGreaterEqual(fuse['upper_factory_after_arc_mm']-14,9)
 
     def test_not_misrepresented_as_selected_or_full_n01(self):
         self.assertFalse(self.p['selected'])
