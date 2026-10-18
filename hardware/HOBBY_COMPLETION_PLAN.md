@@ -10,11 +10,90 @@ przedłużone przez użytkownika; hookON. Ostatni odczyt17:52:09Z:
 25%used/75%remaining, ordinaryallowed, bezresetu. Modelsettingsunchanged,
 SolHigh według ustaleń; runtimeID/effort niepotwierdzone niezależnie.
 
-**FIRST / active_worker:**null.70115/PID23536 odebranyexit0/82,265s.
+Aktualizacja18:33:19Z:27%used/73%remaining, ordinaryallowed, reset=false.
+R2worker92840 odebranyexit0/33,625s, commit5f2be86c: nowy4kanałowycap
+ma poprawny nominalny mate9mm z niezmienionymW043; blokuje stara opaska
+PSYSTie, nie kupnycase. Pełna funkcja źródłowa obejmuje takżePSYSTieHead;
+ledger n01-flat20-owner-contract.json/0,038876s obejmuje wszystkie3części.
+ObieR2belki mają rzeczywistywallgap2,860713<3,25. Nie ponawiać całej
+geometrii po samym usunięciu etykiety: wspólny nośnik ma kończyć się na
+actualP0SideX127, nie kosmetycznymtailX158; domena musi mieć dodatni
+overlap całego piera z skończoną belką. Podział przyX45 daje171/82mm
+przed złączem; złącze/osprzęt/nośność/4kotwy i retainedMAIN/cuffs/bank
+drogi obciążenia nadalOPEN. Nie dziedziczyć dotychczasowych domenR1/R2.
+27307field odebranyexit0/31,359s/941fixed/0errors.92739exact odebrany
+exit0/102,156s/16receipts/0fail/0errors: CAŁY P_SYS4jacketcap/band/head/
+floor/pier oraz2skończone belki externalCLEAR w tymzakresie. Niepełne
+kotwy/złącza/nośność nie są zaliczone przez ten test. FIRST:null.
+Następnie jedna kontrola zmienionegoP_SYS/nośników, potem WSPÓLNE20+
+4S1sourceclocks i pozostałe123/246 końce; bez nativeN03 przedN01.
+Naruszenie interwału limitu18:12:16..18:22:54 wyniosło638s, o38s za dużo;
+zapisane jawnie, kolejne odczyty przed operacją/max10min wymagane.
+
+Historia wcześniejszego FIRST:70115/PID23536 odebranyexit0/82,265s.
 4S1sourceR25,2 domeny1/2/0/3; W067pusta, więc D_FL NIE liczony ponownie.
 Pole n01-joint-fore-field.npz4,70MB zachowane, sourcepinned. To ograniczona
 rodzina numeryczna, nie dowód kolizji/niewykonalności ani wynikN01.
 Nie uruchamiać kolejnych clock-kątów przy zamrożonym lokalnym układzie.
+
+N01 pole CAŁYCH20flatstacji odebrane88903/PID23560exit0/31,203s/0errors:
+944fixedsources, perźródłowyunion,36motion/ATO reused. Pole/manifest
+n01-flat20-field.npz/json. Wyjęte case/frames to WARUNKOWE zmienne, niePASS.
+Konkretna blokada:
+W067empty/2odrzuconeD_FL oraz P_REARniezmiennyforeextent. Wyjąć z planera
+wszystkie stare19case/fans, P_SYS przenieść do osobnego identity-context,
+przestarzałe nieWYBRANE frame-post/rail/crossmemberrecipes oznaczyć
+warunkowymi z obowiązkiem zastępczych korzeni. BankBed/MAINcut/P0/4MTA/
+faktyczny materiał i source36motion/ATO zachować. Union przebudować
+perźródło, nie kasować first-owner voxeli. Akceptacja TYLKO sourcepinned
+pole do wspólnej alokacji20case/86fan/common9grip/root, nie N01/PASS.
+NEXT teraz wspólna alokacja pełnychcase/fan/grip/closure na tym polu,
+bez przebudowy nieruszonych źródeł. OuterZ wyprowadzić z całego cap2mm/
+band1,2/rmax2,1 i bankbed52: wireplane<=45,45, nie case-onlytop50,75.
+To ustalenie wspólnej bramki PRZED pierwszą geometrią nowego układu,
+nie kolejnyoffset odrzuconegoD_FL. Wszystkie kanały chwytów w jednymcap,
+jeden band/head POD całymcap, brak5niezależnychgłówek nad5żyłami.
+Szablony gotowe:40sourceframe/port/clampassertionsPASS, leverUP wynika z
+RZ faktycznego p×d, NIE z błędnej uniwersalnej pitchSign=depSign.
+Innerwireplane48,5 (pełneR25,2 pod bankbed52), outer min z całegocase
+i cap2/band1,2/head. Każda domena zawiera wszystkieporty/9gripy/wspólny
+cap/band/head/podparcie i tylny powrót do wspólnychrailów. Numericfield
+ma jawnie luźny prefilter; actualgap1,25/outer3,25 NIE zmieniony. Szukać
+jednego wspólnego wyboru20, dopiero potem JEDEN exactreceiver. Nie robić
+OCC na każdym węźle; zapisywać perstation, nie przepadające240s pętle.
+74409/PID20020odebranyexit0/18,093s,19niepustychzewnętrznychdomen,
+P_SYS0/1 z reservationmargin-1,7915. NIEakceptacja: wykryty błąd szablonu
+innerfan: jednakoweR przy pitchY i końcowych9wzdłużY zbiegałyby żyły.
+WSZYSTKIE takieinnerdomeny unieważnione. OuterUPperpPitch nie dziedziczy
+tego błędu, ale teżnieCADPASS. Przed kolejnym światem wspólne concentricR
+wyliczone z ACTUALportY+minR, wspólna liniaYkońców/różneX, i pełny
+numericselfcheck wszystkichżył. Polefixed pozostajeidentyczne. Dopiero
+pełnyPSYSreceiver nazwie owner rzeczywistegoHOLD; bez mikroprzesunięć.
+58098/PID19832odebranyexit0/33,765s/0errors.11P_SYSblokad WYŁĄCZNIE
+stara P_SYS_CommonRelief(ownerUpperFrame/kindframe_reservation), a nie
+kupnycase. Nowycap ma zastąpić całąfunkcję4żył, W043teżmusi dostaćkanał.
+SourceW043ostatniodcinek10,2744976mm potwierdzony:9mmchwyt bezreroutingu.
+Rail-1 realPOST_F0bbox[138,5,-44,5,35]..[147,5,-25,5,49]; Rail+1 actual
+P0MountRearL[107,27,5,35,92]..[130,40,61]. NIE ruszać tych części.
+Druga CAŁA rodzinaframe: niskieOUTBOARDrailpodplatformą, zamiast między
+WAGOnaZ40; pełnepionowe kolumny do wspólnych casefloor/capów. Closure
+outerINWARD/SIDE, P_SYS4coreSIDE zamiastgenericUP; innerpozostałeUP.
+To zmiana drogi obciążenia i całych chwytów, nie skalarny unikD_FL.
+R2wspólnyframe rails X[-126,158]/absY[54,60]/Z[34,7,37,7], pionydo
+CASEfloorów; nie stare wysokieY42,75belki. P_SYS_CommonRelief
+retireWARUNKOWEownerUpperFrame po pokryciu4wszystkichżył. W043nieusunięty:
+osobnyidentity-wire-context, actual1,7radiusR4 i9/10,274mmprostego są
+matingdoNOWEGOcapu, nieforeign1,25airgap. Materiałreszty/kupnych/case
+nie wyłączany.144self/groove/frameassertions1,907sPASS. Teraz poleR2,
+potem cała jednostkaPSysR2 +rails na actualfixedscene, bez ruszaniaW043.
+Concentricinnerfan:144self/templateassertions1,922s, minimalnywolny
+nominalny margines0,35mm ponad wiregap0,2. P_SYS R66/67/68=25,2/31,7/38,2,
+końceY64,2 na różnychX, bez zbiegania. OuterUP geometria niezmieniona.
+Następna konieczna kontrola exact: CAŁY stałyP_SYS(3nowefans/commoncap/
+band/head/roots+2wspólnerails) na IDENTYCZNYM fixed944scene, zanim
+powtarzać wspólnyCSP z kotwą0domen. W043/caseidentity nie przeliczane
+ponownie. Akceptacja: nazwy realnychblokad lub externalunitclear, NIE
+pełnyN01/19pozostałych/S1/123portions. PropozycjeBRep, nie nativeN03.
 
 NEXT: JEDNA ZMIANA ARCHITEKTURY wszystkich20stacji, nie następny lokalny
 S1clock/D_FL. Płaskie case/leverUP pod bankiem, wewnętrzne podłużne galerie
