@@ -31,7 +31,7 @@ def main():
     tick=time.monotonic();joint='--joint-frame' in sys.argv
     src=OUT/('n01-reservation-ownership-plan.json' if joint else 'n01-shared-space-atlas-received.json');dest=OUT/('n01-joint-frame-corridor-guide.json' if joint else 'n01-atlas-corridor-guide.json')
     prior=json.loads(dest.read_text()) if dest.exists() else None
-    if prior:assert prior['status']=='ATLAS_GUIDE_PENDING_CURVATURE_AND_EXACT_GEOMETRY' and not prior['selected'] and 'pairwise_source_goal_allocation' not in prior
+    if prior:assert prior['status']=='ATLAS_GUIDE_PENDING_CURVATURE_AND_EXACT_GEOMETRY' and not prior['selected'] and ('pairwise_source_goal_allocation' not in prior or '--representatives' in sys.argv)
     p=json.loads(src.read_text());assert p['status'] in ('SHARED_SURFACE_MOTION_SERVICE_ATLAS_PLANNING_NOT_N01','JOINT_FRAME_SURFACE_ATLAS_PLANNING_NOT_N01')
     f=ROOT/p['field'];assert sha(f)==p['field_sha256'];a=np.load(f,allow_pickle=False)
     free=a['nominal']&~a['curve_hold'];axes=[a[k] for k in ('x','y','z')];spacing=4
@@ -103,7 +103,16 @@ def main():
             'Sampled field cannot certify solid interiors, full123middles, roots, tools or continuous motion',
             'Both factory prefix lengths/whole452 must be solved together in smooth geometry, no changed selected cable'])
     if candidates:
-        for score,v,path,bends,si,ti,total,cos0,cos1 in sorted(candidates,key=lambda r:r[0])[:30]:
+        ranked=sorted(candidates,key=lambda r:r[0]);chosen=ranked[:30]
+        if '--representatives' in sys.argv:
+            pairs=set()
+            for c in ranked:
+                pair=(c[4],c[5])
+                if pair in pairs:continue
+                pairs.add(pair)
+                if c not in chosen:chosen.append(c)
+            result['one_representative_per_registered_pair_retained']=True
+        for score,v,path,bends,si,ti,total,cos0,cos1 in chosen:
             points=coordinates[path];compact=[points[0].tolist()]
             for i in range(1,len(points)-1):
                 if np.any(points[i]-points[i-1]!=points[i+1]-points[i]):compact.append(points[i].tolist())
@@ -114,7 +123,7 @@ def main():
                 grid_registration_links_not_exactly_qualified=True,no_repeat_grid_node=len(path)==len(set(path)),
                 not_a_selected_or_radius_qualified_cable=True))
         result['guide']=result['guides'][0]
-    if prior:result['previous_multisource_guide']=dict(guide=prior['guide'],source_sha256=prior['source_sha256'],worker_seconds=prior['worker_seconds'],reason='Shortest multi-source prefix choice discards alternatives important to radius; compare all6x7registered source-goal pairs, no new component pose')
+    if prior:result['previous_planning_receipt']=dict(source_sha256=prior['source_sha256'],worker_seconds=prior['worker_seconds'],reason='Keep EVERY registered pair before curvature fit, not only globally cheapest30. Prior80f838f3 snapshot remains Git history; no new component pose')
     result['worker_seconds']=round(time.monotonic()-tick,3);dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(dict(status=result['status'],nodes=n,source=len(sourceanchors),goal=len(goalanchors),guides=len(candidates),seconds=result['worker_seconds'])),flush=True)
 
