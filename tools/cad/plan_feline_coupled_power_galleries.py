@@ -26,16 +26,22 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
 def main():
-    tick=time.monotonic();typed='--typed-source-radii' in sys.argv
-    dest=OUT/('n01-typed-power-galleries.json' if typed else 'n01-coupled-power-galleries.json');assert not dest.exists()
-    oldpath=OUT/('n01-coupled-power-galleries.json' if typed else 'n01-flat20-domains-joint.json');old=json.loads(oldpath.read_text())
+    tick=time.monotonic();low='--common-low-closures' in sys.argv
+    typed='--typed-source-radii' in sys.argv or low
+    dest=OUT/('n01-common-low-closure-domains.json' if low else 'n01-typed-power-galleries.json' if typed else 'n01-coupled-power-galleries.json')
+    resume=None
+    if dest.exists():
+        assert '--receive-partial' in sys.argv
+        resume=json.loads(dest.read_text());assert resume['status']=='PARTIAL_COUPLED_POWER_GALLERIES'
+        assert all(sha(ROOT/n)==h for n,h in resume['source_sha256'].items())
+    oldpath=OUT/('n01-typed-power-galleries.json' if low else 'n01-coupled-power-galleries.json' if typed else 'n01-flat20-domains-joint.json');old=json.loads(oldpath.read_text())
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
     fieldproof=OUT/'n01-flat20-field-joint.json';proof=json.loads(fieldproof.read_text())
     fieldfile=ROOT/proof['field'];assert sha(fieldfile)==proof['field_sha256']
     helper=ROOT/'tools/cad/feline_flat_station_templates.py'
     for n,h in old['source_sha256'].items():
         if n not in (helper.relative_to(ROOT).as_posix(),Path(__file__).relative_to(ROOT).as_posix()):assert sha(ROOT/n)==h,n
-    priorcommit='ba5b72d4' if typed else PRIOR
+    priorcommit='40c386db' if low else 'ba5b72d4' if typed else PRIOR
     oldcode=subprocess.run(['git','show',priorcommit+':'+helper.relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
     legacy={'__file__':str(helper)};exec(compile(oldcode.decode(),'<pinned prior template>','exec'),legacy)
     domains={};equivalent=0
@@ -51,6 +57,8 @@ def main():
             assert len(m['boxes'])==len(oldm['boxes'])
             for a,b in zip(m['boxes'],oldm['boxes']):assert a['kind']==b['kind'] and np.array_equal(a['bounds'],b['bounds'])
             m['numeric_score']=row['numeric_score'];domains[ref].append(m);equivalent+=1
+    if low:
+        domains={ref:[m for m in rows if ref=='P_SYS' or m['family']=='outer'] for ref,rows in domains.items()}
     sourcechoices,sourcepins=candidates()
     s1rows=old.get('S1_joint_domains') or {n:r for n,r in old['domains'].items() if n not in stationrefs}
     for ref,rows in s1rows.items():
@@ -72,7 +80,7 @@ def main():
                 P_SYS_context=.2,W043_context=.2,S1_context=.2)
     rails=shared_rail_bounds()
     result=dict(status='RUNNING_COUPLED_POWER_GALLERIES',selected=False,N01_complete=False,physical_pass=False,
-        changed_cause=('Typed per-wire catalogue/project minimumR for the full3power UP galleries, not imposing one thick-wireR on every other jacket; all real minimumR and24joint choices preserved.' if typed else 'Shared lateral central void and distinct vertical fan galleries for all3large power kits after coupled P_REAR/G1 conflict; all24nodes remain joint choices.'),
+        changed_cause=('One whole low SIDE closure family for every inner station, following received P_SYS, rather than UP heads in the retained bank-prefix height band; no bank/board/bought-part move. All24nodes remain joint.' if low else 'Typed per-wire catalogue/project minimumR for the full3power UP galleries, not imposing one thick-wireR on every other jacket; all real minimumR and24joint choices preserved.' if typed else 'Shared lateral central void and distinct vertical fan galleries for all3large power kits after coupled P_REAR/G1 conflict; all24nodes remain joint choices.'),
         source_sha256={**proof['source_sha256'],**sourcepins,**{p.relative_to(ROOT).as_posix():sha(p) for p in
             (oldpath,planfile,fieldproof,fieldfile,helper,Path(__file__),OUT/'n01-flat20-coupled-conflict.json',OUT/'n01-flat20-actual-clamp-kits.json')}},
         prior_domain_geometry_equivalent_count=equivalent,old_default_geometry_exact_array_equivalence=True,
@@ -82,8 +90,19 @@ def main():
         all24actual_clamp_parts_stack_tools_and_carrier_root_connections_STILL_OPEN=True,
         full123portions246ends_and_materials_STILL_OPEN=True,
         domains={},new_domain_receipts=[],joint_assignment=None,errors=[])
+    if resume:
+        result['received_partial_seconds']=resume['worker_seconds']
+        result['new_domain_receipts']=resume['new_domain_receipts']
+        for r in resume['new_domain_receipts']:
+            ref=r['ref'];station=next(s for s in plan['stations'] if s['ref']==ref)
+            domains[ref]=[]
+            for row in resume['domains'][ref]:
+                m=build(station,row['family'],row['side'],row['departure_X'],row['centre_mm'][0],
+                    row.get('centre_y_override_mm'),row.get('bend_mode','OUTWARD_CONCENTRIC'),row.get('closure_mode','AUTO'))
+                m['numeric_score']=row['numeric_score'];domains[ref].append(m)
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
+        result['domains']={n:[compact(m) for m in v] for n,v in domains.items()}
         dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     def gate():
         if time.monotonic()-tick>180:raise TimeoutError('180s common power-gallery budget; completed source domains retained')
@@ -109,24 +128,29 @@ def main():
         return out
     save()
     try:
-        for ref in ('P_REAR','G1','P_FRONT'):
+        targetrefs=[s['ref'] for s in plan['stations'] if s['ref']!='P_SYS'] if low else ('P_REAR','G1','P_FRONT')
+        for ref in targetrefs:
+            if resume and ref in {r['ref'] for r in resume['new_domain_receipts']}:continue
             station=next(s for s in plan['stations'] if s['ref']==ref)
             pitch=station['flat_dimensions_pitch_departure_thickness_mm'][0]
             # Same actual P0 inner-face datum for all three kits, not hand
             # offsets to one failing wire. Existing standard row also retained.
             abs_y=27-pitch/2-1.25;assert abs_y>0
             tested=0;received=0;rejected={};oldcount=len(domains[ref])
-            modes=('UP_TYPED_RADII','INWARD_UP_TYPED_RADII') if typed else ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL')
-            for side,departure,y,bmode in itertools.product((-1,1),(-1,1),(0,abs_y,19.5),modes):
-                if y==19.5 and bmode=='OUTWARD_CONCENTRIC':continue #Already received, not repeated.
-                template=build(station,'inner',side,departure,0,side*y,bmode)
+            large=ref in ('P_REAR','G1','P_FRONT')
+            modes=(('OUTWARD_CONCENTRIC','UP_TYPED_RADII','INWARD_UP_TYPED_RADII') if large else ('OUTWARD_CONCENTRIC',)) if low else ('UP_TYPED_RADII','INWARD_UP_TYPED_RADII') if typed else ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL')
+            ys=(0,abs_y,19.5) if large or not low else (19.5,)
+            for side,departure,y,bmode in itertools.product((-1,1),(-1,1),ys,modes):
+                if y==19.5 and bmode=='OUTWARD_CONCENTRIC' and not low:continue #Already received, not repeated.
+                closure='SIDE' if low else 'AUTO'
+                template=build(station,'inner',side,departure,0,side*y,bmode,closure)
                 if self_wire_gap(template)<-1e-6:
                     rejected['intrinsic_full_jacket_gap']=rejected.get('intrinsic_full_jacket_gap',0)+1;continue
                 xx=list(range(-112,149,12))
                 for x,(score,layer) in zip(xx,scores(template,xx)):
                     tested+=1
                     if score<0:rejected[layer]=rejected.get(layer,0)+1;continue
-                    m=build(station,'inner',side,departure,x,side*y,bmode)
+                    m=build(station,'inner',side,departure,x,side*y,bmode,closure)
                     if not pier_supported(m):rejected['finite_pier_missing']=rejected.get('finite_pier_missing',0)+1;continue
                     m['numeric_score']=float(score);domains[ref].append(m);received+=1
             result['new_domain_receipts'].append(dict(ref=ref,new_tested=tested,new_received=received,

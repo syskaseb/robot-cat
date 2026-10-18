@@ -43,11 +43,12 @@ def shared_rail_bounds():
                       [127,60 if side>0 else -54,37.7]]) for side in (-1,1)]
 
 
-def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='OUTWARD_CONCENTRIC'):
+def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='OUTWARD_CONCENTRIC',closure_mode='AUTO'):
     pitch,depth,height=station['flat_dimensions_pitch_departure_thickness_mm']
     source=station['source_part_record'];volume=pitch*depth*height
     assert source['valid'] and source['solids']==1 and abs(source['volume_mm3']-volume)<1e-5
     assert family in station['row_families'] and side in (-1,1) and departure in (-1,1)
+    assert closure_mode in ('AUTO','SIDE')
     if station['fixed_identity_pose']:
         assert centre_y_mm is None and bend_mode=='OUTWARD_CONCENTRIC'
         centre=np.array(station['source_world_centre_mm']);side=1;departure=-1
@@ -125,7 +126,7 @@ def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='O
         ('band_lowZ',[bx[0],ymin,cap[0,2]-1.2],[bx[1],ymax,cap[0,2]]),
         ('band_highZ',[bx[0],ymin,cap[1,2]],[bx[1],ymax,cap[1,2]+1.2])):
         addbox(name,lo,hi,2)
-    if family=='outer' or station['fixed_identity_pose']:
+    if family=='outer' or station['fixed_identity_pose'] or closure_mode=='SIDE':
         head=np.array([mid,ymin-1.2-3 if side>0 else ymax+1.2+3,z])
     else:head=np.array([mid,(ymin+ymax)/2,cap[1,2]+1.2+3])
     addbox('one_common_band_head',head-3,head+3,2)
@@ -155,6 +156,7 @@ def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='O
     return dict(ref=station['ref'],family=family,side=side,departure_X=departure,centre_mm=centre.tolist(),
         fixed_identity=station['fixed_identity_pose'],pitch_Y_sign=pitchsign,
         centre_y_override_mm=centre_y_mm,bend_mode=bend_mode,
+        closure_mode=closure_mode,
         source_lever_UP_preserved_from_actual_handedness=True,first_mm=first,
         R_mm=max(w['R_mm'] for w in wires),inner_concentric_full_fan=(family=='inner' and bend_mode=='OUTWARD_CONCENTRIC'),
         points=p,radii=rr,types=tt,bounds=bounds,boxes=boxes,wires=wires,reused_jacket_lands=reused,
