@@ -20,9 +20,10 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    target=OUT/'n01-coupled-pi-bus-checks.json'
+    lower='--lower-fore' in sys.argv
+    target=OUT/('n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
-    paths=[OUT/n for n in ('n01-coupled-pi-bus-plan.json','n01-module-plan-r5.json',
+    paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
         'n01-common-backbone-preflight-r4.json','motion-layout.json')]
     candidate,plan,rear,bank,backbone,motion=[json.loads(p.read_text()) for p in paths]
@@ -47,6 +48,9 @@ def main():
             for j in range(3):setattr(m,f'A{i+1}{j+1}',rr[i][j])
         return A.Placement(A.Vector(*t),A.Rotation(m))
     scene={}; roles={}; changed={}; bounds={}; valid={}; seen=set()
+    splice=candidate['splice'];sv=A.Vector(*splice['tip18_mm']);ev=A.Vector(*splice['tip16_mm']);dd=ev-sv
+    allowed_solder_overlap=Part.makeCylinder(1.71,dd.Length,sv,dd)
+    report['declared_join_scope']='Only existing8mm solder-overlap cylinder; never exclude whole W077/W078 pair or supports'
     def check(an,a,bn,b,scope,reservation=False):
         gate();key=tuple(sorted((an,bn)))+(scope,)
         if key in seen:return
@@ -60,6 +64,10 @@ def main():
                 if n not in valid:valid[n]=s.isValid() and bool(s.Solids)
                 assert valid[n], 'Invalid material is not a clearance proof: '+n
             c=a.common(b);assert c.isNull() or c.isValid(),'Invalid common'
+            if {an,bn}=={'W077','W078'} and not c.isNull():
+                before=c.Volume;c=c.cut(allowed_solder_overlap)
+                assert c.isNull() or c.isValid()
+                report['intentional_bare_solder_overlap_mm3']=before-c.Volume
             if c.Volume>1e-5:
                 v=c.BoundBox
                 row=dict(a=an,b=bn,scope=scope,volume_mm3=c.Volume,
@@ -83,8 +91,12 @@ def main():
                 r=candidate['F_PI']; rr=np.array(r['rotation_relative_current'])
                 delta=np.array(r['centre_mm'])-rr@np.array(r['old_centre_mm'])
                 s.Placement=placement(rr,delta.tolist())*s.Placement; changed[n]=s
+            elif role in candidate.get('relative_poses',{}):
+                r=candidate['relative_poses'][role]
+                s.Placement=placement(r['rotation_rows'],r['translation_mm'])*s.Placement;changed[n]=s
             elif role in candidate['shifts_mm']:
-                s.translate(A.Vector(*candidate['shifts_mm'][role]));changed[n]=s
+                s.translate(A.Vector(*candidate['shifts_mm'][role]))
+                if not lower or role!='BUS':changed[n]=s
             scene[n]=s;roles[n]=role
     holder={}
     for key,p in bank['relative_holder_poses'].items():
@@ -114,9 +126,10 @@ def main():
     save();print('Cases',len(report['contacts']),len(report['errors']),flush=True)
     for n,s in actual_new.items():
         for bn,b in scene.items():
-            if n in ('W043','W077') and roles.get(bn)=='F_PI':continue # endpoint embedded in molded relief
-            if n=='W043' and roles.get(bn)=='WAGO:P_SYS_new':continue # intended bare insertion
-            if n=='W078' and roles.get(bn)=='MAIN':continue # termination is qualified separately
+            if not lower:
+                if n in ('W043','W077') and roles.get(bn)=='F_PI':continue
+                if n=='W043' and roles.get(bn)=='WAGO:P_SYS_new':continue
+                if n=='W078' and roles.get(bn)=='MAIN':continue
             check(n,s,bn,b,'complete_new_wire_vs_actual_static_material')
         for bn,b in wires.items():check(n,s,bn,b,'complete_new_wire_vs_complete_bank_and_MTA_prefixes')
         for bn,b in actual_new.items():
@@ -126,21 +139,23 @@ def main():
     def box(n,lo,hi):
         reserves[n]=Part.makeBox(*(np.array(hi)-lo),A.Vector(*lo))
     # ONE inboard detour around vertical F_PI instead of crossing its case.
-    box('LowerRail1Fore',[-72,17,39.72],[-64,23,42.72])
-    box('LowerRail1ForeTurn',[-70,-3,39.72],[-64,23,42.72])
-    box('LowerRail1Inboard',[-67,-3,39.72],[-33,3,42.72])
-    box('LowerRail1RearTurn',[-36,-3,39.72],[-30,23,42.72])
-    box('LowerRail1Rear',[-33,17,39.72],[108,23,42.72])
+    if not lower:
+        box('LowerRail1Fore',[-72,17,39.72],[-64,23,42.72])
+        box('LowerRail1ForeTurn',[-70,-3,39.72],[-64,23,42.72])
+        box('LowerRail1Inboard',[-67,-3,39.72],[-33,3,42.72])
+        box('LowerRail1RearTurn',[-36,-3,39.72],[-30,23,42.72])
+        box('LowerRail1Rear',[-33,17,39.72],[108,23,42.72])
     box('SpliceClip',*candidate['splice']['clip_reservation_mm'])
-    box('MainCarrier',[-52,-12,84],[-23,12,87])
+    if not lower:box('MainCarrier',[-52,-12,84],[-23,12,87])
     # rear branch below BUS, rooted at the existing rear post, not on skin
     for y in (-18.5,18.5):box('BUSRearBranch'+str(y),[102,y-3,67],[145,y+3,70])
-    box('JPWMForeSeat',[-102,-22,72],[-70,-8,74])
+    if not lower:box('JPWMForeSeat',[-102,-22,72],[-70,-8,74])
     box('BUSNominalMating',*candidate['BUS']['nominal_mating_reserve_mm'])
     box('BUSSharedTwoLaneGrip',*candidate['BUS']['shared_two_lane_after_bend_grip_mm'])
     for entry in candidate['BUS']['ports']:
         r=entry['first_bend_and_after_bend_grip'];actual_new['Nominal'+r['wire']]=pipe(r['parts'],r['radius_mm'])
     for rn,r in reserves.items():
+        if lower and rn.startswith('BUS'):continue # exact received unchanged proof
         for bn,b in scene.items():
             if rn=='BUSNominalMating' and roles.get(bn)=='BUS':continue
             check(rn,r,bn,b,'proposed_reservation_vs_actual_material',True)
@@ -152,11 +167,13 @@ def main():
     # Nominal new BUS wire paths against every actual neighbor and prefixes.
     for n,s in actual_new.items():
         if not n.startswith('NominalBUS.'):continue
+        if lower:continue # unchanged BUS-vs-bank/fixed pairs already received
         for bn,b in scene.items():
             if roles.get(bn)=='BUS':continue
             check(n,s,bn,b,'nominal_BUS_wire_vs_actual_material')
         for bn,b in wires.items():check(n,s,bn,b,'nominal_BUS_wire_vs_bank_and_MTA_prefix')
     report.update(source_sha256={**report['source_sha256'],**reader.hashes},
+        unchanged_BUS_evidence_reused=candidate.get('unchanged_BUS_reuse'),
         changed_case_objects=len(changed),bank_bends_included=24,MTA_factory_paths_included=8,
         proposed_reservations=list(reserves),motion_not_checked=True,full_other80net_curves_open=True,
         status='CHANGED_INTERFACES_REJECTED' if report['contacts'] or report['reservation_overlaps'] or report['errors'] else 'CHANGED_STATIC_INTERFACES_CLEAR_FULL_PLAN_OPEN')

@@ -147,8 +147,71 @@ def build():
     plan.update(worker_seconds=round(time.monotonic()-tick,4),updated_utc=datetime.now(timezone.utc).isoformat())
     return plan
 
+def build_lower_fore():
+    p=build();tick=time.monotonic()
+    priorpath=OUT/'n01-coupled-pi-bus-checks.json'
+    prior=json.loads(priorpath.read_text())
+    assert len(prior['contacts'])==11 and not prior['errors']
+    ledger=json.loads((OUT/'n01-complete-end-allocation.json').read_text())
+    ends={r['role']:r for r in ledger['endpoints']}
+    rz=[[0,-1,0],[1,0,0],[0,0,1]]
+    station_rotation=[[0,1,0],[1,0,0],[0,0,-1]]
+    def pose_to_point(rr,old,new):
+        rotated=[sum(a*b for a,b in zip(row,old)) for row in rr]
+        return dict(rotation_rows=rr,translation_mm=[b-a for a,b in zip(rotated,new)])
+    p['relative_poses']={
+        'MAIN':pose_to_point(rz,ends['MAIN.VIN']['point_mm'],[-116,15.8,-2.9052]),
+        'WAGO:P_SYS_new':pose_to_point(station_rotation,ends['P_SYS.5']['point_mm'],[-84,4.5,-33.5])}
+    p['shifts_mm']={'BUS':[41,0,-18]}
+    p['F_PI'].update(centre_mm=[-100,-30,-33.5],rotation_relative_current=rz,
+        input_mm=[-100,-4.5,-33.5],output_mm=[-100,-55.5,-33.5])
+    p['splice']=dict(centre_mm=[-116,-38.5,-33.5],tip16_mm=[-116,-34.5,-33.5],
+        tip18_mm=[-116,-42.5,-33.5],axis=[0,1,0],sleeve_blank_mm=20,
+        sleeve_y_mm=[-48.5,-28.5],bare_overlap_y_mm=[-42.5,-34.5],
+        jacket_grip16_y_mm=[-59.5,-50.5],jacket_grip18_y_mm=[-25.5,-16.5],
+        outer_project_OD_mm=4.2,clip_reservation_mm=[[-120.1,-59.5,-37.6],[-111.9,-16.5,-29.4]],
+        grips_outside_sleeve=True,grip_clear_gap_each_mm=2,additional_splice_or_connector=False)
+    # Factory input now never passes through the battery plate. Rotate the
+    # WHOLE P_SYS, keeping its electrical cavity identities and all other ends.
+    r=Route(p['F_PI']['input_mm'],[0,1,0]).line(3).turn([1,0,0],6).line(10)
+    w=r.record('W043',1.7);assert math.dist(w['end_mm'],[-84,4.5,-33.5])<1e-8
+    w.update(strip_mm=12,nominal_fit_blank_mm=40,raw_required_mm=w['length_mm']+12,
+        selected_pre_fuse_limit_mm=50,last_intact_grip_mm=[[-93,4.5,-33.5],[-84,4.5,-33.5]],
+        initial3mm_after_molded_relief_is_project_assumption=True,factory_tip_removal_max_mm=8.35)
+    # R8 half-turn places the entire sleeve/clip beside, NOT across, F_PI.
+    r=Route(p['F_PI']['output_mm'],[0,-1,0]).line(4).turn([-1,0,0],8).turn([0,1,0],8).line(25)
+    out=r.record('W077',1.7);assert math.dist(out['end_mm'],p['splice']['tip16_mm'])<1e-8
+    out.update(bare_overlap_included_mm=8,factory_tip_removal_max_mm=8.35,
+        supplier_shortest_including_tip_mm=84.5,source_draw_required_mm=out['length_mm']+8.35,
+        nominal_fit_blank_after_tip_removal_mm=60,old_fit_blank_mm=30)
+    vin=[-116,15.8,-2.9052];R=11.1
+    r=Route(p['splice']['tip18_mm'],[0,1,0]).line(25).turn([0,0,1],R)
+    r.line(vin[2]+12-r.p[2]).turn([0,1,0],R).turn([0,0,-1],R).line(12)
+    donor=r.record('W078',1.05);assert math.dist(donor['end_mm'],vin)<1e-8
+    donor.update(PCB_insertion_allowance_mm=3,raw_required_mm=donor['length_mm']+3,
+        selected_retained_limit_mm=150,selected_fit_blank_mm=140,proposed_fit_blank_mm=140,
+        one_K1474_preserved=True)
+    p['routes']=[w,out,donor]
+    p['necessary_length_gate']=dict(W043=w['raw_required_mm']<=40<=50,
+        W077=out['length_mm']<=60 and 60+8.35<=84.5,
+        W078=donor['raw_required_mm']<=140<=150,exact_endpoint_match=True,
+        full_geometry_and_tools_open=True,ready_for_changed_interface_screen=True)
+    p['stock_candidate'].update(red_W078_candidate_mm=140,red_remaining_mm=635,
+        positive_path_candidate_mm=40+60+140)
+    p['changed_cause']='After one shared rejection, move entire Pi power path to lower fore bay. P_SYS clocked together, MAIN rotated on same fore bridge, full sleeve alongside F_PI. No tall path through battery plate/bank/S0; JPWM restored unchanged. BUS evidence reused unchanged.'
+    p['assembly_gates']=['P_SYS down-facing lever access needs a real window in the proposed lower deck; bench preparation does not prove access',
+        'MAIN and F_PI lower fore bay require shared rooted removable carrier, not skin support',
+        'All four other P_SYS ends and three other MAIN ends transformed together, full downstream routes open',
+        'Adopted36leg motion must qualify the new lower fore material before selection']
+    p['unchanged_BUS_reuse']=dict(report=priorpath.relative_to(ROOT).as_posix(),sha256=sha(priorpath),
+        scope='No BUS-related actual or reservation hits in received trial. Same case pose, nominal mating allowance, both first bends and shared grip; not USB/full cable/actual plug approval.')
+    p['source_sha256'][priorpath.relative_to(ROOT).as_posix()]=sha(priorpath)
+    p.update(worker_seconds=round(time.monotonic()-tick,4),updated_utc=datetime.now(timezone.utc).isoformat())
+    return p
+
 if __name__=='__main__':
-    dest=OUT/'n01-coupled-pi-bus-plan.json'
+    lower='--lower-fore' in sys.argv
+    dest=OUT/('n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json')
     assert not dest.exists(),'Receive existing result; do not repeat unchanged candidate'
-    p=build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
+    p=build_lower_fore() if lower else build();dest.write_text(json.dumps(p,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(status=p['status'],gate=p['necessary_length_gate'],seconds=p['worker_seconds'])))
