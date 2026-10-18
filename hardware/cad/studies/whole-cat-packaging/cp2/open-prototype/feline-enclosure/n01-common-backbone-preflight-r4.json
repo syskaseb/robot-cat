@@ -1,5 +1,6 @@
 {
-  "status": "MOTION_SNAPSHOT_SAFELY_STOPPED_FOR_BOUND_CACHE_RESUME",
+  "status": "COMMON_BACKBONE_MOTION_REJECTED",
+  "adopted_pose_classification": {"source":"layout-checkpoint.json/planning_pose_index=35","adopted_pose_indices":[0,35],"adopted_pose_count":36,"adopted_scope_contacts":0,"additional_exploratory_pose_indices":[36,48],"additional_contacts":4,"contact_pose_indices":[45,46],"note":"Do not claim all49poses clear, do not silently enlarge accepted lie-down range. Four contacts are two neck-web/hip pairs at two extra poses. Sampled geometry only; no full wiring/continuous motion/physical PASS."},
   "selected": false,
   "N01_complete": false,
   "physical_pass": false,
@@ -14,16 +15,43 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/current-mount-axis-inventory.json": "34e0f8c91c77d0d254cba963bab3a95f79bcf4b9e6f0688c0021a2eb69dca8ae",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineInteriorMotion.FCStd": "5133e3fd1df3713a41ddc503a828f39ccaf0113e7057781a1aefb70f15c24fdf",
-    "tools/cad/plan_feline_n01_common_backbone.py": "7594bdced09402a4616d26294f7379972e60cc39e0ab5ba456d70779f2160fdb",
+    "tools/cad/plan_feline_n01_common_backbone.py": "3cfe02c174a5458fd418f498809eab56d63e3e3df33c0b09c348649b4d2599ed",
     "hardware/cad/studies/head-p7/yaw-r1/YawCarrier.FCStd": "f6dfdd21652ab4c61f187092a2554ef24c46387d6128635730a4ebc48c32ff5f",
     "hardware/cad/modules/tail/TailSupport.FCStd": "3397a14c969def1eb622b034f51e51f9706f138a8f235b24524522a5c5bfa78c",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/FelineBellyFeet.FCStd": "fa92cb56893669b059ab2f280ed123cbf7103aa5bc688999ac9379b44eaeb87c",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-current-contract.json": "2d18aa244e505bb5ff182beaaba33183e56dbbf4505707cfa2d9ca2608d722ea",
-    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "4b72dbb0781a011e18bd448e4792b92d992dedce90e6616684e0735fef8602c1"
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-shared-macro-layout.json": "4b72dbb0781a011e18bd448e4792b92d992dedce90e6616684e0735fef8602c1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
+    "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617"
   },
-  "contacts": [],
+  "contacts": [
+    {
+      "a": "pose45:Ref_Material_P0_Part__Feature015_0_0",
+      "b": "NeckWeb1",
+      "scope": "added_structure_vs_sampled_leg_motion",
+      "volume_mm3": 1.151095862404373
+    },
+    {
+      "a": "pose45:Ref_Material_P0_Part__Feature007_0_0",
+      "b": "NeckWeb-1",
+      "scope": "added_structure_vs_sampled_leg_motion",
+      "volume_mm3": 1.1526797763583956
+    },
+    {
+      "a": "pose46:Ref_Material_P0_Part__Feature015_0_0",
+      "b": "NeckWeb1",
+      "scope": "added_structure_vs_sampled_leg_motion",
+      "volume_mm3": 0.01956391028545271
+    },
+    {
+      "a": "pose46:Ref_Material_P0_Part__Feature007_0_0",
+      "b": "NeckWeb-1",
+      "scope": "added_structure_vs_sampled_leg_motion",
+      "volume_mm3": 0.02104967291046725
+    }
+  ],
   "errors": [],
-  "pairs": 44,
+  "pairs": 216,
   "recipes": [
     {
       "name": "LowerRail0",
@@ -2729,7 +2757,46 @@
     6,
     7,
     8,
-    9
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
   ],
   "reuse": "Exact flat-bank R2 poses/cases/ATO retained; JPWM changed and checked again. R5 rear source bay retained.",
   "full_wiring": false,
@@ -2741,6 +2808,13 @@
     "100mm usable MTA factory wire remains delivery gate",
     "Nominal PCB datums are not delivered measurements"
   ],
+  "motion_resume": {
+    "snapshot_commit": "9d97f453",
+    "snapshot_sha256": "b767b33285e8a0d4be09498061d546a392ced8454b325c43bf5dc1df309521c3",
+    "completed_samples_reused": 10,
+    "previous_worker_seconds": 183.047,
+    "reason": "Cache immutable world bounds once, not per structure pair. Same exact geometry; no completed-pose rerun."
+  },
   "reuse_parent": {
     "report": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-backbone-preflight.json",
     "sha256": "d69e9f472196b2a6e6bc87239ba32f6bfbb5e54f7fb1344cf68a259b9a054d42",
@@ -2759,8 +2833,9 @@
     "sha256": "b7c605bb1e9297ec07ecdd1fe7eb31f87ff8a03dfd6a13efb5be902f4f68992c",
     "scope": "All PCB/neck/bank fixed contacts resolved. Replace U1 outboard roots with central roots; drill common cuff AND its load arm together."
   },
-  "worker_seconds": 183.047,
-  "updated_utc": "2026-10-18T01:13:38.023254+00:00",
+  "worker_seconds": 282.906,
+  "current_worker_seconds": 99.859,
+  "updated_utc": "2026-10-18T01:15:45.887164+00:00",
   "splice_recipe": {
     "type": "Existing selected solder overlap, no new connector",
     "overlap_mm": 8,

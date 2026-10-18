@@ -22,11 +22,18 @@ from check_feline_leg_body import placement
 
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();rev4='--integrated-wire-channels' in sys.argv
+    tick=time.monotonic();reader=SavedShapes();resume='--resume-current-motion' in sys.argv
+    rev4=resume or '--integrated-wire-channels' in sys.argv
     rev3=rev4 or '--washer-plane-carriers' in sys.argv
     rev2=rev3 or '--overhead-bank' in sys.argv
     dest=OUT/('n01-common-backbone-preflight-r4.json' if rev4 else 'n01-common-backbone-preflight-r3.json' if rev3 else 'n01-common-backbone-preflight-r2.json' if rev2 else 'n01-common-backbone-preflight.json')
-    assert not dest.exists(), 'Receive existing result; no unchanged rerun'
+    assert resume or not dest.exists(), 'Receive existing result; no unchanged rerun'
+    snapshot=json.loads(dest.read_text()) if resume else None
+    if resume:
+        assert snapshot['status']=='MOTION_SNAPSHOT_SAFELY_STOPPED_FOR_BOUND_CACHE_RESUME'
+        assert not snapshot['contacts'] and not snapshot['errors']
+        assert snapshot['motion_samples']==list(range(len(snapshot['motion_samples'])))
+        snapshot_hash=sha(dest)
     native=OUT/'FelineInteriorMotion.FCStd'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json',
         'n01-compact-bank-plan-r2.json','n01-compact-bank-preflight-r2.json',
@@ -42,11 +49,20 @@ def main():
         full_wiring=False,actual_tools_verified=False,all_mounts_complete=False,continuous_motion_verified=False,
         assumptions=['3.1mm max wire OD and 2mm grip wall are project budgets',
             '100mm usable MTA factory wire remains delivery gate','Nominal PCB datums are not delivered measurements'])
+    prior_seconds=snapshot['worker_seconds'] if resume else 0
+    if resume:
+        for p,h in snapshot['source_sha256'].items():
+            if p!='tools/cad/plan_feline_n01_common_backbone.py':assert sha(ROOT/p)==h,p
+        report['motion_samples']=snapshot['motion_samples'][:];report['pairs']=snapshot['pairs']
+        report['motion_resume']=dict(snapshot_commit='9d97f453',snapshot_sha256=snapshot_hash,
+            completed_samples_reused=len(snapshot['motion_samples']),previous_worker_seconds=prior_seconds,
+            reason='Cache immutable world bounds once, not per structure pair. Same exact geometry; no completed-pose rerun.')
     def save():
-        report.update(worker_seconds=round(time.monotonic()-tick,3),updated_utc=datetime.now(timezone.utc).isoformat())
+        report.update(worker_seconds=round(prior_seconds+time.monotonic()-tick,3),
+            current_worker_seconds=round(time.monotonic()-tick,3),updated_utc=datetime.now(timezone.utc).isoformat())
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
     def gate():
-        if time.monotonic()-tick>480:
+        if prior_seconds+time.monotonic()-tick>480:
             report['status']='TIME_BOUNDED_PARTIAL_NOT_SELECTED';save();raise TimeoutError('480s operation cap')
     if rev2:
         parentfile=OUT/'n01-common-backbone-preflight.json';parent=json.loads(parentfile.read_text())
@@ -73,9 +89,10 @@ def main():
             report['reuse_r3']=dict(report=p3.relative_to(ROOT).as_posix(),sha256=sha(p3),
                 scope='All PCB/neck/bank fixed contacts resolved. Replace U1 outboard roots with central roots; drill common cuff AND its load arm together.')
     scene={};role_of={};changed={};holder_of={};groups={g['role']:g for g in plan['groups']}
-    valid={}
+    valid={};bounds={}
     def check(an,a,bn,b,scope):
         gate()
+        if resume and scope!='added_structure_vs_sampled_leg_motion':return
         if rev2 and scope in ('changed_JPWM_and_output_cases','complete_first_bank_bends',
             'bend_other_grips','bank_bends_mutual','changed_complete_factory_route'):return
         if rev2 and scope.startswith('common_structure_') and not an.startswith((
@@ -85,7 +102,9 @@ def main():
         if rev3 and scope.startswith('common_structure_') and an.startswith((
             'NeckWeb','AUXBacker','AUXEar','PiFuseCradle','PiFuseRiser')):return
         if rev4 and scope.startswith('common_structure_') and not an.startswith(('U1Carrier','NineWireArm')):return
-        if not near(a,b):return
+        if an not in bounds:bounds[an]=a.BoundBox
+        if bn not in bounds:bounds[bn]=b.BoundBox
+        if not bounds[an].intersect(bounds[bn]):return
         report['pairs']+=1
         try:
             for n,s in ((an,a),(bn,b)):
@@ -313,7 +332,8 @@ def main():
         report['status']='COMMON_BACKBONE_REJECTED_BEFORE_NATIVE_OR_MOTION';save();return
     axfile=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json';axes=json.loads(axfile.read_text())['axes']
     moving={n:reader.shape(MODEL,n) for n in stage_of}
-    for index,pose in enumerate(motion['poses']):
+    start=len(report['motion_samples'])
+    for index,pose in enumerate(motion['poses'][start:],start):
         for code,g in motion['membership'].items():
             a=[next(r for r in axes if r['code']==code and r['stage']==st) for st in STAGES]
             transforms=placement(a,pose['legs'][code]['angles_delta_degrees'])
