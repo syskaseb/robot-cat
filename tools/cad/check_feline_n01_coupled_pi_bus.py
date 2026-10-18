@@ -20,7 +20,8 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    supported='--supported-source-plan' in sys.argv
+    outer_fit='--qualify-outer-rail' in sys.argv
+    supported=outer_fit or '--supported-source-plan' in sys.argv
     backbone_free=supported or '--backbone-free-source' in sys.argv
     fitted=backbone_free or '--central-source-fitted' in sys.argv
     central=fitted or '--central-spine-power' in sys.argv
@@ -32,7 +33,7 @@ def main():
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=not central and (spatial or '--flat-unit' in sys.argv)
     lower=central or flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-central-spine-power-checks-r4.json' if supported else 'n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-outer-rail-qualification.json' if outer_fit else 'n01-central-spine-power-checks-r4.json' if supported else 'n01-central-spine-power-checks-r3.json' if backbone_free else 'n01-central-spine-power-checks-r2.json' if fitted else 'n01-central-spine-power-checks.json' if central else 'n01-axial-branch-root-clear.json' if branch_roots else 'n01-axial-branch-columns.json' if axial_columns else 'n01-joint-power-bay-above-frame.json' if above_frame else 'n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-central-spine-power-plan-r4.json' if supported else 'n01-central-spine-power-plan-r3.json' if backbone_free else 'n01-central-spine-power-plan-r2.json' if fitted else 'n01-central-spine-power-plan.json' if central else 'n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -53,6 +54,18 @@ def main():
     def gate():
         if time.monotonic()-tick>240:
             report['status']='TIME_BOUNDED_PARTIAL_NOT_SELECTED';save();raise TimeoutError('240s cap')
+    if outer_fit:
+        pp=OUT/'n01-central-spine-power-checks-r4.json';proof=json.loads(pp.read_text())
+        assert not proof['contacts'] and not proof['errors'] and len(proof['reservation_overlaps'])==1
+        hit=proof['reservation_overlaps'][0];assert hit['a']=='StructureReserve:LowerRail0' and hit['b']=='Ref_Material_P0_MountFrontR_0_0'
+        for path,h in proof['source_sha256'].items():
+            if path!='tools/cad/check_feline_n01_coupled_pi_bus.py':assert sha(ROOT/path)==h,path
+        candidate['backbone_changes']['LowerRail0']=[[-83,-45.5,39.72],[95,-39.5,42.72]]
+        report['received_R4_scoped_reuse']={'path':pp.relative_to(ROOT).as_posix(),'sha256':sha(pp),
+            'all_cases_3fullpaths_6prefixes_and_rest_of_structure':True,
+            'only_changed':'Whole LowerRail0, actual P0MountFrontR outerY=-37.8 requires rail maxY<=-39.05 for1.25gap. One analytic full-span assignment maxY=-39.5, not a search grid.',
+            'current_LowerRail0_mm':candidate['backbone_changes']['LowerRail0']}
+        report['source_sha256'][pp.relative_to(ROOT).as_posix()]=sha(pp)
     def placement(rr,t):
         m=A.Matrix()
         for i in range(3):
@@ -236,6 +249,12 @@ def main():
             assert s.isValid() and len(s.Solids)==1
             changed_backbone['StructureReserve:'+n]=s
             wires['StructureReserve:'+n]=s;own['StructureReserve:'+n]=set()
+        if outer_fit:
+            changed_backbone={n:s for n,s in changed_backbone.items() if n=='StructureReserve:LowerRail0'}
+            rail=changed_backbone['StructureReserve:LowerRail0'];report['new_rail_positive_root_contacts_mm3']={}
+            for name in ('Post-69_-1','Crossmember0','Crossmember1'):
+                c=rail.common(wires['StructureReserve:'+name]);assert c.isValid() and c.Volume>1e-5
+                report['new_rail_positive_root_contacts_mm3'][name]=c.Volume
         if changed_backbone:report['changed_complete_backbone_reservations']=candidate['backbone_changes']
         for n,s in jointparts.items():
             if central:continue # exact branch statics received; new Pi-vs-branch checked below
@@ -437,6 +456,7 @@ def main():
         for bn,b in wires.items():check(n,s,bn,b,'changed_case_vs_complete_existing_bank_or_MTA_prefix')
     save();print('Cases',len(report['contacts']),len(report['errors']),flush=True)
     for n,s in actual_new.items():
+        if outer_fit:continue
         if supported and n in ('W043','W077','W078'):continue
         for bn,b in scene.items():
             if not lower:
@@ -477,6 +497,7 @@ def main():
     for entry in ([] if current_bus else candidate['BUS']['ports']):
         r=entry['first_bend_and_after_bend_grip'];actual_new['Nominal'+r['wire']]=pipe(r['parts'],r['radius_mm'])
     for rn,r in reserves.items():
+        if outer_fit:continue
         if lower and rn.startswith('BUS'):continue # exact received unchanged proof
         for bn,b in scene.items():
             if rn=='BUSNominalMating' and roles.get(bn)=='BUS':continue
