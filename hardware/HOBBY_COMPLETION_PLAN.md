@@ -2,6 +2,64 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+NEXT N01: komplet178obowiązkowych prostych przy aktualnych końcach,
+pełna805scena bez odrzuconej kasety +118brył dolnej zatoki3d0b5a63.
+Kopia118 odebrana3,672s bez powtarzania par; blok geometrii porównany
+bajtowo ze źródłem faktycznie sprawdzonym w a3526763. Osprzęt śrubowy
+jest jawnym złożeniem kilku brył, nie błędem pojedynczego detalu.
+Brak pełnego wspólnego przebiegu: przed środkami tras ustalić wszystkie
+kolizyjne wejścia jedną kontrolą, z9mm prostych/1,25do twardych części.
+Znane pełne8factory/3Pi nie zastępują reszty; odcinki gołe splicu nie
+otrzymują fikcyjnego chwytu izolacji. Akceptacja:178pokrytych ID bez
+kontaktów, potem wspólne wachlarze/korytarze/chwyty i ruch, nie native.
+
+10:28:13Z10%użyte/90%pozostałe,1h30m12s okna. a3526763:
+dolny wspólny układR3 odebrany66551,99,094s/55zmienionych par/
+36przyjętych pozycji,0kontaktów/0rezerwacji/0outside/wall/błędów.
+Korpusy/trasyR2 zachowane; główki na zewnątrz, dwie otwarte szczeliny
+na pełne wachlarze zamiast cienkiego dna pod przewodami. Ciągły środek
+23,3mm, niezależneM2korzenie; to nadal REZERWACJE, nie native/druk.
+Packet-r2 aktualizuje24końceMTA,178tożsamości/89odcinków/80sieci;
+4asercje PASS. Pełne trasy fabryczne W041/42:88,686mm przy jawnym
+założeniu100mm, nie gwarancja katalogowa. Brak odziedziczonego stock.
+NEXT: kopia sprawdzonych brył bez ponownej statyki/ruchu; JEDEN
+wspólny plan reszty korytarzy, podparcia/retencji korpusów i narzędzi,
+USB/head-tail/12ruchomych wiązek oraz montażu. Nie wracać do kasety.
+CałegoN01 nadal nie zaliczono; nowy zakres0/10, hookON do14:58:01Z.
+
+10:23:41Z10%użyte/90%pozostałe,1h25m40s okna. R1:81,235s,
+111par,2skrzyżowane trasy fabryczne/5rezerwacji. R2 odebrany44356:
+98,610s/213par,0kontaktów rzeczywistych/8rezerwacji/0outside/wall/błędów,
+commit e7f2e78a. Obie przednie pełne trasy mają spadek/powrót5,5mm
+R12,4 i dwa proste końce>=9mm; rozdzielenie z tylnymi sprawdzone,
+wszystkie korpusy pozostają Z−34. Blokują WYŁĄCZNIE4główki skierowane
+ku MTA i4przecięcia nowych tras z żebrami/nośnikiem. N01 niekompletne.
+Przed kolejnym testem wspólna zmiana NOŚNIKA/RETENCJI: główki na
+zewnątrz korytarza źródeł; otwarte kanały wymiarowane pełną trasą
+Rprzewodu2,1+1,25luzu przez żebra, z zachowaniem połączenia paneli
+do własnych korzeni i pełnych podkładek. Nie zmieniać przypadkowo
+położeń modułów/trasy ani ponawiać kasety. Akceptacja:0kontaktów
+całej805sceny dla zmienionych interfejsów, potem36pozycji nóg,
+nie fragmentaryczne N01. Bez native przed pełnym wspólnym planem.
+
+10:14:11Z9%użyte/91%pozostałe. Pełna scena805części odebrana
+102,422s/236par, commit4b73a866:110rzeczywistych kontaktów kasety
+z zachowanymiU1/F0,52przecięcia rezerwacji,0błędów; jeden znany
+niepoprawnyBUSsupplierBRep jawny. Cofnięta akceptacja kasety jako
+kandydata CAŁEGO wnętrza; lokalne36pozycji pozostają wyłącznie dowodem
+ich opisanego zakresu, nie złożenia. To błąd poprzedniego zakresu
+sceny, nie brak mocy modelu. Nie projektować dla tej kasety native.
+Następny JEDEN wspólny dolny układ: zachowaneU1/F0/AUX, cztery oryginalne
+rozdzielone źródłaMTA, wszystkie8łączników naZ−34, pełne24chwyty i
+powroty w pasachY±33,25 wynikających z U1maxY27,4+Rchwytu4,35+1,25luzu.
+Dwie niezależne dolne płyty do czterech istniejących osi na każdej,
+podziałX20/zapas1,25; bez cienkiego połączenia paneli. Tylne ramiona
+omijają cały XT60, nie pełna płyta przez jego korpus. Użyte istniejące
+fabryczne długości<=100mm jako jawna bramka do dostawy, brak nowych
+części elektrycznych. Session2907: cała805scena przed ruchem i native.
+Nie przenosić starego packet178z kasety bez uzgodnienia24końcówMTA.
+Procent nadal0/10, hookON do14:58:01Z.
+
 09:57:30Z9%użyte/91%pozostałe,59min29s okna. HookON, deadline
 14:58:01Z bez zmian, nowy zakres0/10; historyczne20/20 zachowane.
 f90a1383: odebrany centralny nośnikR3 w70,235s/88par/36pozycji,
