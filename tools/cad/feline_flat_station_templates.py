@@ -6,6 +6,8 @@ one complete band/head, and a connected lower-frame branch. Not native CAD.
 """
 import itertools
 import math
+import json
+from pathlib import Path
 import numpy as np
 
 
@@ -28,6 +30,16 @@ def box_gap(a,b):
 
 def to_box(points,bounds):
     return np.linalg.norm(np.maximum(0,np.maximum(bounds[0]-points,points-bounds[1])),axis=1)
+
+
+def shared_rail_bounds():
+    """Second whole frame family: BELOW seats, OUTBOARD of preserved P0.
+
+    Not the rejected upper-between-row beams. Fore/tail section atX158 keeps
+    both whole rails inside the true outline; actual36motion still required.
+    """
+    return [np.array([[-126,54 if side>0 else -60,34.7],
+                      [158,60 if side>0 else -54,37.7]]) for side in (-1,1)]
 
 
 def build(station,family,side,departure,centre_x=0):
@@ -60,12 +72,23 @@ def build(station,family,side,departure,centre_x=0):
         clouds.append(p);radii.append(np.zeros(len(p)));types.append(np.full(len(p),kind))
     casebounds=np.array([centre-[depth/2,pitch/2,height/2],centre+[depth/2,pitch/2,height/2]])
     addbox('source_case',*casebounds,0)
-    portrows=[]
+    portrows=[];reused=[]
     for port in station['ports']:
+        port=dict(port)
+        if port['protected_whole_route_reuse']:
+            path=Path(__file__).resolve().parents[2]/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-plan-r4.json'
+            source=next(r for r in json.loads(path.read_text())['routes'] if r['wire']=='W043')
+            assert source['parts'][-1]['length_mm']>=9 and source['radius_mm']==1.7
+            port['radius_mm']=source['radius_mm']
         lp,ld,lz=port['local_pitch_departure_thickness_mm'];assert abs(lz)<1e-5
         q=centre+np.array([departure*ld,pitchsign*lp,lz])
         portrows.append(dict(port,q=q))
-        if port['protected_whole_route_reuse']:continue
+        if port['protected_whole_route_reuse']:
+            assert np.allclose(q,source['parts'][-1]['end']) and np.allclose(d,[-1,0,0])
+            reused.append(dict(wire=port['wire'],points=np.linspace(q,q+d*9,10),radius=port['radius_mm'],
+                point_mm=q.tolist(),departure_axis=d.tolist(),grip_length_mm=9,
+                source_straight_length_mm=source['parts'][-1]['length_mm'],not_new_wire_geometry=True))
+            continue
         R=commonY-side*q[1] if family=='inner' else commonR
         assert R>=port['minimum_project_R_mm']-1e-7
         a=q+d*first;angles=np.linspace(0,math.pi/2,math.ceil(R*math.pi/2)+1)
@@ -76,13 +99,13 @@ def build(station,family,side,departure,centre_x=0):
             first_mm=first,before_arc_grip_line_mm=[q.tolist(),a.tolist()],
             after_arc_end_mm=(end+b*9).tolist()))
         clouds.append(p);radii.append(np.full(len(p),port['radius_mm']));types.append(np.ones(len(p),dtype=int))
-    active=[r for r in portrows if not r['protected_whole_route_reuse']]
+    active=portrows # Replacement owns ALL occupied jackets, including existingW043.
     assert active
     qx=active[0]['q'][0];z=centre[2];rmax=max(r['radius_mm'] for r in active)
     ymin=min(r['q'][1]-r['radius_mm'] for r in active)-2
     ymax=max(r['q'][1]+r['radius_mm'] for r in active)+2
     xs=sorted((qx,qx+departure*9));cap=np.array([[xs[0],ymin,z-rmax-2],[xs[1],ymax,z+rmax+2]])
-    addbox('common_channelled_cap_exterior',*cap,2)
+    addbox('common_channelled_cap_exterior',*cap,4)
     # Exterior rounded-rectangle band budget. Interior is the cap, not an
     # additional filled block. Only the four boundary strips are material.
     mid=qx+departure*4.5;bx=[mid-1.25,mid+1.25]
@@ -92,7 +115,9 @@ def build(station,family,side,departure,centre_x=0):
         ('band_lowZ',[bx[0],ymin,cap[0,2]-1.2],[bx[1],ymax,cap[0,2]]),
         ('band_highZ',[bx[0],ymin,cap[1,2]],[bx[1],ymax,cap[1,2]+1.2])):
         addbox(name,lo,hi,2)
-    head=np.array([mid,(ymin+ymax)/2,(cap[0,2]-1.2-3 if family=='outer' else cap[1,2]+1.2+3)])
+    if family=='outer' or station['fixed_identity_pose']:
+        head=np.array([mid,ymin-1.2-3 if side>0 else ymax+1.2+3,z])
+    else:head=np.array([mid,(ymin+ymax)/2,cap[1,2]+1.2+3])
     addbox('one_common_band_head',head-3,head+3,2)
     # Shared carrier: seat/floor and a back-side return around (not through)
     # the purchased case. Roots may fuse with other roots, never with wires.
@@ -103,16 +128,16 @@ def build(station,family,side,departure,centre_x=0):
         seatnear=side*(49.3396+1.25)
         yy=sorted((seatnear,side*(abs(centre[1])+pitch/2)))
         addbox('outer_low_bearing_floor',[floorlo,yy[0],bottom-2],[floorhi,yy[1],bottom],3)
-        yy=sorted((side*42.75,seatnear+side*2))
-        addbox('back_return_to_shared_rail',[backlo,yy[0],39.77],[backhi,yy[1],42.77],3)
-        yy=sorted((seatnear,seatnear+side*2))
-        addbox('return_floor_union',[backlo,yy[0],bottom-2],[backhi,yy[1],42.77],3)
+        yy=sorted((side*54,side*60));x=centre[0]-departure*depth/4
+        addbox('outer_vertical_pier_to_low_rail',[x-3,yy[0],34.7],[x+3,yy[1],bottom],3)
     else:
         addbox('inner_bearing_floor',[floorlo,ylo,bottom-2],[floorhi,yhi,bottom],3)
-        edge=side*(abs(centre[1])+pitch/2);yy=sorted((edge,side*45.75))
+        edge=side*(abs(centre[1])+pitch/2);yy=sorted((edge,side*60))
         if yy[1]-yy[0]>1e-5:
             addbox('inner_return_to_shared_rail',[backlo,yy[0],min(bottom-2,39.77)],
                    [backhi,yy[1],max(bottom,42.77)],3)
+        yy=sorted((side*54,side*60))
+        addbox('inner_vertical_pier_to_low_rail',[backlo,yy[0],34.7],[backhi,yy[1],max(bottom,42.77)],3)
     addbox('independent_clamp_root',[xs[0],ymin,bottom-2],
            [xs[1],ymax,cap[0,2]],3)
     p=np.vstack(clouds);rr=np.concatenate(radii);tt=np.concatenate(types)
@@ -121,7 +146,8 @@ def build(station,family,side,departure,centre_x=0):
         fixed_identity=station['fixed_identity_pose'],pitch_Y_sign=pitchsign,
         source_lever_UP_preserved_from_actual_handedness=True,first_mm=first,
         R_mm=max(w['R_mm'] for w in wires),inner_concentric_full_fan=(family=='inner'),
-        points=p,radii=rr,types=tt,bounds=bounds,boxes=boxes,wires=wires,
+        points=p,radii=rr,types=tt,bounds=bounds,boxes=boxes,wires=wires,reused_jacket_lands=reused,
+        frame_family='LOW_OUTBOARD_RAILS_AND_WHOLE_CASE_PIERS_R2',
         tie_wrap_rectangular_upper_bound_mm=2*((ymax-ymin)+(cap[1,2]-cap[0,2]))+10,
         all_caps_channel_all_owned_jackets=True,actual_band_length_fit_not_verified=True)
 
@@ -147,13 +173,13 @@ def compatible(a,b):
 
 
 def compact(m):
-    return {k:v for k,v in m.items() if k not in ('points','radii','types','bounds','boxes','wires')}
+    return {k:v for k,v in m.items() if k not in ('points','radii','types','bounds','boxes','wires','reused_jacket_lands')}
 
 
 def self_wire_gap(m):
     from scipy.spatial import cKDTree
     margins=[]
-    for a,b in itertools.combinations(m['wires'],2):
+    for a,b in itertools.combinations(m['wires']+m.get('reused_jacket_lands',[]),2):
         d=float(cKDTree(a['points']).query(b['points'],workers=1)[0].min())
         margins.append(d-a['radius']-b['radius']-.2)
     return min(margins,default=1e6)

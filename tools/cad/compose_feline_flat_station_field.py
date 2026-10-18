@@ -8,6 +8,7 @@ No native assembly, collision acceptance or N01 score is produced.
 import hashlib
 import io
 import json
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -29,6 +30,9 @@ def points(s):
 
 
 def frame_variable(n,m):
+    if n=='P_SYS_CommonRelief':
+        assert m.get('kind')=='frame_reservation' and m.get('owner')=='UpperFrame',m
+        return '--owner-r2' in sys.argv
     if not n.startswith('StructureReserve:'):return False
     variable=n.removeprefix('StructureReserve:').startswith((
         'LowerRail','Crossmember','RootBoss','Post','BankArm','BankForeHanger','BankForeToe','UpperStrip'))
@@ -37,7 +41,8 @@ def frame_variable(n,m):
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-flat20-field.json';fieldfile=OUT/'n01-flat20-field.npz'
+    tick=time.monotonic();r2='--owner-r2' in sys.argv;suffix='-r2' if r2 else ''
+    dest=OUT/('n01-flat20-field'+suffix+'.json');fieldfile=OUT/('n01-flat20-field'+suffix+'.npz')
     assert not dest.exists() and not fieldfile.exists(),'Receive existing field before rebuilding'
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
     assert plan['station_count']==20 and plan['occupied_ports']==86
@@ -52,6 +57,13 @@ def main():
     forefile=OUT/'n01-fore-topology.json';fore=json.loads(forefile.read_text())
     cases={s['case_name'] for s in plan['stations']};assert cases<=set(scene),(cases-set(scene))
     context=points(scene['Ref_Material_P_SYS_new_0_0'])
+    wirecontext=points(scene['W043']) if r2 else None
+    protectedfile=OUT/'n01-central-spine-power-plan-r4.json'
+    if r2:
+        protected=json.loads(protectedfile.read_text());protected=next(r for r in protected['routes'] if r['wire']=='W043')
+        assert protected['radius_mm']==1.7 and protected['parts'][-1]['length_mm']>=9
+        assert np.allclose(protected['parts'][-1]['end'],[4.55,4,48.5])
+        pins[protectedfile.relative_to(ROOT).as_posix()]=sha(protectedfile)
     frame={n for n in scene if frame_variable(n,meta[n])}
     retired=cases|frame|{n for n in scene if n.startswith('REV3Station:')}
     retired|={n for n in scene if n.startswith(('End:W067/single/start','End:W068/single/start','End:W066/retained0/end'))}
@@ -79,6 +91,10 @@ def main():
         full123portions246ends_tools_stock_OPEN=True,voxel_mm=1,surface_sample_budget_mm=2.3,
         voxel_budget_mm=.8662,surface_field_does_not_classify_all_solid_interiors=True,
         material_clouds=[],errors=[],stage='fixed_sources',field=None)
+    if r2:report.update(identity_W043_jacket_context_preserved=True,
+        replaced_own_reservation='P_SYS_CommonRelief',replacement_must_cover_all4including_W043=True,
+        protected_W043_reused_last_straight_mm=protected['parts'][-1]['length_mm'],
+        W043_channel_mate_not_foreign_airgap=True)
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -88,6 +104,9 @@ def main():
     try:
         with zipfile.ZipFile(rawbundle) as z:
             for n,s in scene.items():
+                if r2 and n=='W043':
+                    report['material_clouds'].append(dict(source=n,category='identity_wire_context',reused=False,samples=len(wirecontext)))
+                    continue
                 gate();cached=cache.get(n);reuse=cached and cached['reused_raw_cloud'] and n not in overlays
                 if reuse:
                     r=cached['source_record'];blob=z.read(r['entry']);assert hashlib.sha256(blob).hexdigest()==r['sha256']
@@ -114,6 +133,7 @@ def main():
             report.setdefault('unique_voxels',{})[c]=len(ids)
         for c in ('motion36','outer'):fields[c+'_distance']=old[c+'_distance']
         fields.update(service=old['service'],inside=old['inside'],P_SYS_context=context)
+        if r2:fields['W043_context']=wirecontext
         np.savez_compressed(fieldfile,**dict(zip(('x','y','z'),axes)),**fields)
         report.update(status='FLAT20_SOURCE_FIELD_READY_FOR_JOINT_DOMAINS_NOT_N01',stage='complete',
             field=fieldfile.relative_to(ROOT).as_posix(),field_sha256=sha(fieldfile),
