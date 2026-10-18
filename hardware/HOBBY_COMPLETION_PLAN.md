@@ -2,6 +2,48 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+10:37:41Z10%użyte/90%pozostałe,1h39m40s okna. 97c3e29b odebrany:
+73363/41,687s/2nowe pary materiału,0kontaktów realnych/rezerwacji/żył/
+błędów. Jedyny wynik negatywny dotyczył użycia SAMEGO tułowia dla
+przedniegoS0. Istniejąca rezerwacja szyi obejmuje cały ten odcinek,
+dokładny BRep0,063s/10,954mm do granicy, bez zmiany trasy/obrysu ani
+powtarzania par. ObaS0:7mm rzeczywistego gardła źródłowego przed9mm
+izolacji; nie gwarancja katalogowa. PiUSBmould nominalny, nie producent.
+Żaden worker nie trwa. Następny JEDEN układ materiału:4cuff/arm i
+P_SYS/MAIN ze wspólnymi kanałami/chwytami/opaskami/korzeniami oraz
+12korpusów z retencją/narzędziami; potem pełne89odcinków/USB/headtail/
+12wiązek ruchomych. Nie przesuwać ponownie przyjętych portów ani MTA.
+N01 nadal OPEN,0/10, hookON do14:58:01Z; bez zmiany modelu/resetu/maila.
+
+10:35:58Z10%użyte/90%pozostałe,1h37m57s od startu okna, nie czasCPU.
+Plan15zmienionych końców d043e6a0/2asercje PASS; KiCad/wybrane części
+bez zmian. Session73363 odbiera TYLKO zmienione interfejsy i faktyczne
+gardłaS0, kompletny obrócony POST_F0 i nominalny wtykPi względem
+całej zachowanej sceny. Źródło rejestruR3 nadal kandydat pending,
+nie deklaracja pełnych178prostych/trasy. Kanały mocowań/retencja,
+środki89odcinków i ruch pozostają otwarte. HookON,0/10, bez maila.
+
+10:33:25Z10%użyte/90%pozostałe; 22091odebrany36,953s/178końców/
+306par/3pary żył,0błędów, commit1c07889f.17zgłoszeń twardych części
+obejmuje5błędnych osiG1,2tożsamościBUS nakładające się na WŁASNE
+pełne przewody,2wyjścia wewnątrz własnych końcówekS0,4odstępy0,75mm
+do izolacyjnej opaskiMAIN i4rzeczywiste kontakty/małe odstępyPOST_F0
+z ramą.102rezerwacje to głównie pełne prostopadłościenne cuff/comb bez
+otworów oraz małe nominalne luzy własnych chwytów; nie nazywać tego
+119kolizjami realnych kupnych części. Trzy samokontakty: dwa zdublowane
+zaciski mas i osiowo nałożona paraPiUSB_C.
+JEDEN plan korekty przed środkami:6końców tylnych nóg uzgodnić z
+JUŻ aktualnym KiCadem (.1/.2/.3, zasilanie.4), bez zmiany obwodów/części;
+G1 wszystkie5wyjść normalnie do rzeczywistej ścianyY51,5, nie+Z;
+cały POST_F0 obrócić90Z wokół143/−35/42 i zachować obie strony;
+paraK-1474 we wspólnej płaszczyźnie za jawnie nominalną rezerwacją
+wtyku10×17×5, nie współliniowe stareGUIDE. S0: rzeczywisty koniec
+barrela przed9mm chwytu, nie wycinać pierścienia. Wspólne kanały cuff
+i comb wymagają faktycznego planu materiału/retencji, nie zielonego
+testu pełnych bloków ani odrzucania po bbox. Akceptacja: zmienione
+interfejsy w całej scenie, jawne pary współpracujące i brak nowych
+kontaktów; wszystkie stare przyjęte trasy/pozycje zachować. Nadal0/10.
+
 NEXT N01: komplet178obowiązkowych prostych przy aktualnych końcach,
 pełna805scena bez odrzuconej kasety +118brył dolnej zatoki3d0b5a63.
 Kopia118 odebrana3,672s bez powtarzania par; blok geometrii porównany
