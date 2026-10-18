@@ -9,6 +9,7 @@ No selected/native source is saved or modified.
 import itertools
 import json
 import math
+import sys
 import time
 from pathlib import Path
 import numpy as np
@@ -27,7 +28,8 @@ from plan_feline_skin_access import surface_samples
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-joint-side-bays.json'
+    tick=time.monotonic();upper='--upper-side-domain' in sys.argv
+    dest=OUT/('n01-joint-upper-side-bays.json' if upper else 'n01-joint-side-bays.json')
     previous=json.loads(dest.read_text()) if dest.exists() else None
     if previous:assert previous['status']=='PARTIAL_COUPLED_SIDE_DOMAINS'
     priorfile=OUT/'n01-rev3-whole-profiles.json';prior=json.loads(priorfile.read_text())
@@ -56,6 +58,12 @@ def main():
         'G_TAIL':(-110,True),'P_REAR':(-110,True),
         'D_FL':(-64,False),'FL_G':(-16,False),'FR_P':(32,False),
         'D_FR':(80,False),'FR_G':(128,False)}
+    if upper:
+        # Directional topology change, not a third fore X-offset trial. Both
+        # fore station fans turn INWARD before the taper, away from PWM.
+        moves['G_TAIL']=(-110,False);moves['P_REAR']=(-110,False)
+        # Opposing fans need >=53.1mm, not a uniform48mm station pitch.
+        moves['D_FR']=(72,False)
     def station_group(n):
         if n.startswith('REV3Station:'):return n.split(':')[1].split('.')[0]
         return next((ref for ref,st in stations.items() if oldmeta.get(n,{}).get('role')==st['current_group']),None)
@@ -67,11 +75,12 @@ def main():
         for n,r in prior['recipes'].items():
             if not n.startswith('REV3Station:'+ref+'.'):continue
             q=tf.multVec(A.Vector(*r['point_mm']));d=rot.multVec(A.Vector(*r['departure_axis']));b=A.Vector(*r['bend_unit']);R=r['R_mm']
+            if upper and ref in ('G_TAIL','P_REAR'):b=-b
             tip=q+d*(3+R)+b*R;rr=r['radius_mm']
             scene[n]=tube_prefix(list(q),list(d),rr,list(b),R,3)
             scene[n+':after9']=line_tube(list(tip),list(tip+b*9),rr)
             changed[n]=scene[n];changed[n+':after9']=scene[n+':after9']
-            newrecipes[n]=dict(r,point_mm=list(q),departure_axis=list(d),after_grip_mm=[list(tip),list(tip+b*9)])
+            newrecipes[n]=dict(r,point_mm=list(q),departure_axis=list(d),bend_unit=list(b),after_grip_mm=[list(tip),list(tip+b*9)])
     # These previous positions are rejected by actual outer/body evidence.
     for n in list(scene):
         if n.startswith(('REV3:F_HY','REV3:F_HP','REV3:F_TY','REV3:Monitor5015')):scene.pop(n);meta.pop(n)
@@ -143,7 +152,23 @@ def main():
         # assumption is used: each role gets its own actual casing and datums.
         extra=json.loads((OUT/'n01-all-extra-interface-contract.json').read_text())
         local={e['endpoint']:e for sec in extra['sections'] for e in sec['ends'] if e.get('local_point_mm') is not None}
+        equivalent=False
+        if upper:
+            canonical=templates['F_HY'][1].copy();canonical.translate(-canonical.BoundBox.Center)
+            nominal_datums=sorted((tuple(local['F_HY.'+s]['local_point_mm']),tuple(local['F_HY.'+s]['departure_axis'])) for s in ('in','out'))
+            equivalence=[]
+            for role in ('F_HP','F_TY'):
+                source=templates[role][1].copy();source.translate(-source.BoundBox.Center)
+                ab=canonical.cut(source).Volume;ba=source.cut(canonical).Volume
+                datums=sorted((tuple(local[role+'.'+s]['local_point_mm']),tuple(local[role+'.'+s]['departure_axis'])) for s in ('in','out'))
+                match=all(np.linalg.norm(np.array(a[0])-b[0])<1e-7 and np.linalg.norm(np.array(a[1])-b[1])<1e-7 for a,b in zip(nominal_datums,datums))
+                equivalence.append(dict(role=role,both_valid=canonical.isValid() and source.isValid(),
+                    source_difference_volume_mm3=[ab,ba],both_unordered_local_mouths_and_departures_equal=match))
+            equivalent=all(r['both_valid'] and max(r['source_difference_volume_mm3'])<1e-8 and r['both_unordered_local_mouths_and_departures_equal'] for r in equivalence)
+            result['three_template_equivalence']=dict(receipts=equivalence,planning_query_reuse_enabled=equivalent,
+                source_identities_and_electrical_sides_not_merged=True)
         packages={}
+        geometry_receipts={}
         def package(role,centre,orientation,bend):
             n,source,_=templates[role];rot=A.Rotation(A.Vector(0,1,0),-90) if orientation=='verticalZ' else A.Rotation()
             case=source.copy();case.Placement=A.Placement(A.Vector(*centre)-rot.multVec(source.BoundBox.Center),rot)*case.Placement
@@ -158,8 +183,10 @@ def main():
             return parts
         def candidate(role,centre,orientation,bend=None):
             signature=(role,tuple(centre),orientation,tuple(bend) if bend else None)
+            geometry_key=(tuple(centre),orientation,tuple(bend) if bend else None)
             received=next((r for r in result['candidate_receipts'] if
                 (r['role'],tuple(r['centre_mm']),r['orientation'],tuple(r['bend_unit']) if r['bend_unit'] else None)==signature),None)
+            if received and equivalent and role!='Monitor5015':geometry_receipts[geometry_key]=received
             if received and not received['status'].startswith('candidate_whole'):return
             gate();index=len(result['candidate_receipts']);key=received['key'] if received else role+':'+str(index)
             if role=='Monitor5015':
@@ -169,6 +196,14 @@ def main():
             if received:
                 packages[key]=parts;return # Reconstruct accepted domain only; NO repeated exact queries.
             row=dict(key=key,role=role,centre_mm=centre,orientation=orientation,bend_unit=bend,status='pending')
+            cached=geometry_receipts.get(geometry_key) if equivalent and role!='Monitor5015' else None
+            if cached:
+                row.update(status=cached['status'],exact_geometry_query_reused_from=cached['key'],
+                    same_both_mouth_geometry_proved=True,
+                    canonical_part_label=cached.get('part'),canonical_evidence={k:v for k,v in cached.items() if k in ('evidence','gap_mm','neighbour','voxel_distance_mm')})
+                if row['status'].startswith('candidate_whole'):
+                    packages[key]=parts;result['domains'].setdefault(role,[]).append(key)
+                result['candidate_receipts'].append(row);save();return
             for pn,s in parts.items():
                 gate();okay,why=outer_ok(s)
                 if not okay:row.update(status='outer_screen_reject',part=pn,evidence=why);break
@@ -176,8 +211,10 @@ def main():
                 for name,t in fixed.items():
                     if not t.Solids or not near(bb,bounds[name],1.25):continue
                     gate();distance=gap(s,name,t)
-                    if distance<1.25-1e-5:
-                        row.update(status='exact_static_gap_reject',part=pn,neighbour=name,gap_mm=distance);break
+                    otherwire=bool(meta[name].get('wire_owner')) or meta[name].get('kind') in ('wire','actual_wire','proposal_wire') or name.startswith(('End:','BankFullPrefix:','Factory:','CustomPrefix:')) or name in ('W043','W077','W078')
+                    minimum=.2 if upper and pn!='case' and otherwire else 1.25
+                    if distance<minimum-1e-5:
+                        row.update(status='exact_static_gap_reject',part=pn,neighbour=name,gap_mm=distance,required_mm=minimum);break
                 if row['status']!='pending':break
                 vv,ff=s.tessellate(.6);vv=np.array([list(x) for x in vv]);pts=surface_samples(vv[np.array(ff,dtype=int)],2)
                 distance=float(motion.query(pts,workers=1)[0].min())
@@ -187,14 +224,23 @@ def main():
                 row['status']='candidate_whole_two_tail_static_and_sampled_motion_screen_clear_not_selected'
                 packages[key]=parts;result['domains'].setdefault(role,[]).append(key)
             result['candidate_receipts'].append(row);save()
+            if equivalent and role!='Monitor5015':geometry_receipts[geometry_key]=row
         # Whole side-bottom topology, not another small shift of the rejected
         # vertical outboard cases. Vertical interstitial bays are compared in
         # the SAME common domain, not run as separate blind CAD variants.
         for role in ('F_HY','F_HP','F_TY'):
-            for x,side,y,z in itertools.product((-72,-24,24,72),(-1,1),(60,72),(-32,-26)):
-                for bend in ([0,0,1],[0,-side,0]):candidate(role,[x,side*y,z],'horizontalX',bend)
-            for x,side,y in itertools.product((-24,24,76),(-1,1),(68,70)):
-                candidate(role,[x,side*y,32],'verticalZ',[0,-side,0])
+            if upper:
+                for x,side,y,z in itertools.product((-70,-22,26,74),(-1,1),(72,80),(0,24,48,64)):
+                    for bend in ([0,0,1],[0,0,-1],[0,-side,0],[0,-side/math.sqrt(2),1/math.sqrt(2)],[0,-side/math.sqrt(2),-1/math.sqrt(2)]):
+                        candidate(role,[x,side*y,z],'horizontalX',bend)
+                for side in (-1,1):
+                    for x,y in itertools.product((-23,25,73) if side<0 else (-11,37,61),(68,72)):
+                        candidate(role,[x,side*y,32],'verticalZ',[0,-side,0])
+            else:
+                for x,side,y,z in itertools.product((-72,-24,24,72),(-1,1),(60,72),(-32,-26)):
+                    for bend in ([0,0,1],[0,-side,0]):candidate(role,[x,side*y,z],'horizontalX',bend)
+                for x,side,y in itertools.product((-24,24,76),(-1,1),(68,70)):
+                    candidate(role,[x,side*y,32],'verticalZ',[0,-side,0])
             print('Received shared domain',role,len(result['domains'].get(role,[])),flush=True)
         for x,side,y in itertools.product((-40,8,48,96),(-1,1),(60,72)):
             candidate('Monitor5015',[x,side*y,-30],'upright')
