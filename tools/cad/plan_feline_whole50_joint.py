@@ -19,18 +19,30 @@ from feline_bank_anchor_templates import bank_candidates,anchor_candidates
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-whole50-joint-proposal.json';previous=None
+    tick=time.monotonic();modulejoint='--module-joint' in sys.argv
+    dest=OUT/('n01-whole51-joint-proposal.json' if modulejoint else 'n01-whole50-joint-proposal.json');previous=None
     if dest.exists():
         assert '--receive-partial' in sys.argv
         previous=json.loads(dest.read_text());assert previous['status']=='PARTIAL_WHOLE50_DOMAINS'
         for n,h in previous['source_sha256'].items():assert sha(ROOT/n)==h,n
-    proofpath=OUT/'n01-flat20-field-bankjoint.json';proof=json.loads(proofpath.read_text())
+    proofpath=OUT/('n01-flat20-field-modulejoint.json' if modulejoint else 'n01-flat20-field-bankjoint.json');proof=json.loads(proofpath.read_text())
     assert proof['stage']=='complete' and not proof['errors'] and len(proof['bank_joint_full_source_ports'])==24
     for n,h in proof['source_sha256'].items():assert sha(ROOT/n)==h,n
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
-    oldfile=OUT/'n01-common-low-closure-domains.json';old=json.loads(oldfile.read_text())
+    oldfile=OUT/('n01-whole50-joint-proposal.json' if modulejoint else 'n01-common-low-closure-domains.json');old=json.loads(oldfile.read_text())
     fieldfile=ROOT/proof['field'];assert sha(fieldfile)==proof['field_sha256']
     field=np.load(fieldfile,allow_pickle=False);axes=[field[k] for k in ('x','y','z')]
+    monotone=False
+    if modulejoint:
+        priorfieldproof=json.loads((OUT/'n01-flat20-field-bankjoint.json').read_text())
+        priorfield=np.load(ROOT/priorfieldproof['field'],allow_pickle=False)
+        assert set(priorfield.files)==set(field.files)
+        for k in field.files:
+            if k in ('material_distance','reservation_distance','curve_hold_distance'):assert np.all(field[k]>=priorfield[k]-1e-6),k
+            else:assert np.array_equal(field[k],priorfield[k]),k
+        removed=set(priorfieldproof['old_station_parts_retired'])^set(proof['old_station_parts_retired'])
+        assert removed=={'F_PWM:'+s for s in ('case','in_first_bend','in_after_turn_grip','out_first_bend','out_after_turn_grip')}
+        monotone=True
     grid=np.stack(np.meshgrid(*axes,indexing='ij'),axis=-1);queries=grid.reshape(-1,3)
     fields={k:RegularGridInterpolator(axes,field[k+'_distance'],bounds_error=False,fill_value=0)
         for k in ('material','reservation','curve_hold','motion36','outer')}
@@ -45,7 +57,7 @@ def main():
     screen={k:(1 if k=='outer' else 3.35 if k=='curve_hold' else .2) for k in fields}
     rails=shared_rail_bounds();domains={}
     result=dict(status='RUNNING_WHOLE50_JOINT',selected=False,N01_complete=False,physical_pass=False,
-        whole_joint_nodes=50,source_sha256={**proof['source_sha256'],**{p.relative_to(ROOT).as_posix():sha(p) for p in
+        whole_joint_nodes=51 if modulejoint else 50,source_sha256={**proof['source_sha256'],**{p.relative_to(ROOT).as_posix():sha(p) for p in
             (proofpath,planfile,oldfile,fieldfile,Path(__file__),ROOT/'tools/cad/feline_flat_station_templates.py',
                 ROOT/'tools/cad/feline_flat_s1_templates.py',ROOT/'tools/cad/feline_bank_anchor_templates.py')}},
         source_bank_first9_and_TE_unchanged=True,bank_R47_sources_not_overwritten=True,
@@ -55,6 +67,14 @@ def main():
         actual_source_case_fit_and_band_stock_NOT_qualified=True,
         complete123portions246ends_corridors_NOT_qualified=True,
         domains={},receipts=[],joint_assignment=None,errors=[])
+    if monotone:result.update(fixed_source_fields_only_relaxed_by_whole_pigtail_variable=True,
+        all_other_field_arrays_exactly_identical=True,
+        unchanged50_received_world_domains_can_be_reused_NOT_frozen=True,
+        F_PWM_selected_fuse_0242_100UAT1_and_all5_wire_shapes_preserved=True,
+        F_PWM_new_before_arc9_strain_relief_sites_design_change=True)
+    if modulejoint:
+        for name in ('feline_flat_station_templates.py','feline_flat_s1_templates.py','feline_bank_anchor_templates.py'):
+            rel='tools/cad/'+name;assert sha(ROOT/rel)==old['source_sha256'][rel],rel
     complete={r['ref'] for r in previous['receipts']} if previous else set()
     if previous:
         result['receipts']=previous['receipts'];result['previous_partial_seconds']=previous['worker_seconds']
@@ -112,7 +132,9 @@ def main():
                 key=(m['family'],m['side'],m['departure_X'],tuple(m['centre_mm']),m['bend_mode'],m['closure_mode'])
                 if key not in seen:seen.add(key);proposals.append(m)
             for r in old['domains'][ref]:
-                add(build(station,r['family'],r['side'],r['departure_X'],r['centre_mm'][0],r.get('centre_y_override_mm'),r.get('bend_mode','OUTWARD_CONCENTRIC'),r.get('closure_mode','AUTO')))
+                m=build(station,r['family'],r['side'],r['departure_X'],r['centre_mm'][0],r.get('centre_y_override_mm'),r.get('bend_mode','OUTWARD_CONCENTRIC'),r.get('closure_mode','AUTO'))
+                if monotone:m['numeric_score']=r['numeric_score'];m['reused_monotone_world_domain']=True
+                add(m)
             if ref in ('P_REAR','G1','P_FRONT'):
                 abs_y=27-station['flat_dimensions_pitch_departure_thickness_mm'][0]/2-1.25
                 for side in (-1,1):
@@ -120,9 +142,13 @@ def main():
                         for y in (0,abs_y,19.5):
                             for mode in ('OUTWARD_CONCENTRIC','UP_TYPED_RADII','INWARD_UP_TYPED_RADII'):
                                 for x in range(-112,149,12):add(build(station,'inner',side,departure,x,side*y,mode,'SIDE'))
+            elif modulejoint and ref!='P_SYS':
+                for departure in (-1,1):
+                    for x in range(-112,149,12):add(build(station,'inner',-1,departure,x,-19.5,'OUTWARD_CONCENTRIC','SIDE'))
             accepted=[];rejected={}
             for m in proposals:
                 gate()
+                if m.get('reused_monotone_world_domain'):accepted.append(m);continue
                 if self_wire_gap(m)<-1e-6:rejected['intrinsic_gap']=rejected.get('intrinsic_gap',0)+1;continue
                 if not pier_supported(m):continue
                 val,why=score(m)
@@ -133,17 +159,32 @@ def main():
             print(ref,'whole50 domains',len(accepted),flush=True)
         groups,pins=candidates();result['source_sha256'].update(pins)
         groups.update(bank_candidates(proof))
-        anchors,mates,pins=anchor_candidates(previous.get('actual_anchor_parent_receipts') if previous else None);result['source_sha256'].update(pins)
+        parentreceipts=previous.get('actual_anchor_parent_receipts') if previous else old.get('actual_anchor_parent_receipts') if modulejoint else None
+        anchors,mates,pins=anchor_candidates(parentreceipts);result['source_sha256'].update(pins)
         result['actual_anchor_parent_receipts']=mates;groups.update(anchors)
+        if modulejoint:
+            from feline_pwm_pigtail_templates import candidates as pwm_candidates
+            extra,pins=pwm_candidates();groups.update(extra);result['source_sha256'].update(pins)
         for ref,proposals in groups.items():
             if ref in complete:
                 def key(r):
+                    if r.get('f_pwm_source'):return tuple(r['centre_mm']),tuple(r['head_choices'])
                     if r.get('bank_source'):return r['bend_clock_degrees'],r['complete_band_head_degrees']
                     if r.get('anchor_source'):return r['axis_X_mm']
                     return r['clock_target_degrees'],r['first_mm'],r['bend_degrees']
                 bykey={key(m):m for m in proposals};domains[ref]=[]
                 for r in previous['domains'][ref]:
                     m=bykey[key(r)];m['numeric_score']=r['numeric_score'];domains[ref].append(m)
+                continue
+            if monotone and ref in old['domains']:
+                def oldkey(r):
+                    if r.get('bank_source'):return r['bend_clock_degrees'],r['complete_band_head_degrees']
+                    if r.get('anchor_source'):return r['axis_X_mm']
+                    return r['clock_target_degrees'],r['first_mm'],r['bend_degrees']
+                bykey={oldkey(m):m for m in proposals};domains[ref]=[]
+                for r in old['domains'][ref]:
+                    m=bykey[oldkey(r)];m['numeric_score']=r['numeric_score'];m['reused_monotone_world_domain']=True;domains[ref].append(m)
+                result['receipts'].append(dict(ref=ref,tested=0,received=len(domains[ref]),reused_by_field_monotonicity=True));save()
                 continue
             gate();accepted=[];rejected={}
             for m in proposals:
@@ -153,7 +194,7 @@ def main():
             accepted.sort(key=lambda m:-m['numeric_score']);domains[ref]=accepted
             result['receipts'].append(dict(ref=ref,tested=len(proposals),received=len(accepted),rejected=rejected));save()
             print(ref,'whole50 domains',len(accepted),flush=True)
-        assert len(domains)==50
+        assert len(domains)==(51 if modulejoint else 50)
         result['empty_domains']=[n for n,v in domains.items() if not v]
         if result['empty_domains']:
             result['status']='WHOLE50_REQUIRED_DOMAIN_EMPTY_NOT_GLOBAL_INFEASIBILITY';save();return
@@ -165,7 +206,7 @@ def main():
             if aa.get('anchor_source') and bb.get('anchor_source'):
                 fore=aa if a=='Anchor:Fore' else bb;rear=bb if b=='Anchor:Rear' else aa
                 value=rear['axis_X_mm']-fore['axis_X_mm']>=90
-            elif not any(x.get('source_ring') or x.get('bank_source') or x.get('anchor_source') for x in (aa,bb)):
+            elif not any(x.get('source_ring') or x.get('bank_source') or x.get('anchor_source') or x.get('f_pwm_source') for x in (aa,bb)):
                 value=compatible(aa,bb)
             elif box_gap(aa['bounds'],bb['bounds'])>=1.25:value=True
             else:

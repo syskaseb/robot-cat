@@ -31,7 +31,7 @@ def points(s):
 
 
 def frame_variable(n,m):
-    if any(a in sys.argv for a in ('--owner-complete','--joint-space','--bank-joint')) and own_reservation(n,m):return True
+    if any(a in sys.argv for a in ('--owner-complete','--joint-space','--bank-joint','--module-joint')) and own_reservation(n,m):return True
     if n=='P_SYS_CommonRelief':
         assert m.get('kind')=='frame_reservation' and m.get('owner')=='UpperFrame',m
         return '--owner-r2' in sys.argv
@@ -43,9 +43,10 @@ def frame_variable(n,m):
 
 
 def main():
-    tick=time.monotonic();bankjoint='--bank-joint' in sys.argv;joint='--joint-space' in sys.argv or bankjoint
-    r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete','--joint-space','--bank-joint'))
-    suffix='-bankjoint' if bankjoint else '-joint' if joint else '-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
+    tick=time.monotonic();modulejoint='--module-joint' in sys.argv
+    bankjoint='--bank-joint' in sys.argv or modulejoint;joint='--joint-space' in sys.argv or bankjoint
+    r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete','--joint-space','--bank-joint','--module-joint'))
+    suffix='-modulejoint' if modulejoint else '-bankjoint' if bankjoint else '-joint' if joint else '-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
     dest=OUT/('n01-flat20-field'+suffix+'.json');fieldfile=OUT/('n01-flat20-field'+suffix+'.npz')
     assert not dest.exists() and not fieldfile.exists(),'Receive existing field before rebuilding'
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
@@ -103,6 +104,10 @@ def main():
         assert bankprefixes=={'BankFullPrefix:'+r['id'] for r in bankrows}
         assert all(meta[n].get('kind')=='actual_wire' and meta[n].get('owner')==n for n in bankprefixes)
         retired|=bankprefixes #All24successors preserve q/d/r/first9 and purchased TE ends.
+    if modulejoint:
+        pigtail={n for n in scene if n.startswith('F_PWM:')}
+        assert pigtail=={'F_PWM:'+s for s in ('case','in_first_bend','in_after_turn_grip','out_first_bend','out_after_turn_grip')}
+        retired|=pigtail
     originalparts=set(scene)
     for n in retired:scene.pop(n);meta.pop(n)
     overlays=[];s1names=[]
@@ -143,6 +148,11 @@ def main():
         bank_terminal_context_parts=banktermnames,P0_rail_mating_context_parts=railnames,
         paired_actual_clamp_kit_joint_choices_required=True,
         only_bank_after_first9_directions_reallocated=True)
+    if modulejoint:report.update(F_PWM_whole_pigtail_is_joint_variable=True,
+        F_PWM_not_FHAC_body_unchanged_0242_100UAT1=True,
+        F_PWM_all5_source_shapes_both9_afterturn_grips_required=True,
+        F_PWM_source='n01-coupled-clocked-joints.json/F_PWM',
+        full_pigtail_conductors_lengths_and_selected_fuse_not_changed=True)
     def save():
         report['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
