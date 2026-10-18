@@ -20,11 +20,12 @@ from plan_feline_factory_links import routes
 
 def main():
     tick=time.monotonic(); reader=SavedShapes()
-    all_ends='--all-ends' in sys.argv
+    joint_bay='--joint-power-bay' in sys.argv
+    all_ends=joint_bay or '--all-ends' in sys.argv
     spatial=all_ends or '--spatial-unit' in sys.argv
     flat=spatial or '--flat-unit' in sys.argv
     lower=flat or '--lower-fore' in sys.argv
-    target=OUT/('n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
+    target=OUT/('n01-joint-power-bay.json' if joint_bay else 'n01-coupled-pi-bus-checks-all-ends.json' if all_ends else 'n01-coupled-pi-bus-checks-spatial.json' if spatial else 'n01-coupled-pi-bus-checks-r3.json' if flat else 'n01-coupled-pi-bus-checks-r2.json' if lower else 'n01-coupled-pi-bus-checks.json')
     assert not target.exists(),'Receive existing result; do not repeat unchanged geometry'
     paths=[OUT/n for n in (('n01-coupled-pi-bus-plan-r4.json' if all_ends else 'n01-coupled-pi-bus-plan-r3.json' if flat else 'n01-coupled-pi-bus-plan-r2.json' if lower else 'n01-coupled-pi-bus-plan.json'),'n01-module-plan-r5.json',
         'n01-shared-preflight-r5.json','n01-compact-bank-plan-r2.json',
@@ -82,6 +83,24 @@ def main():
     effective=json.loads(json.dumps(plan))
     for g in effective['groups']:
         if g['role'] in common_delta:g['translation_mm']=(np.array(g['translation_mm'])+common_delta[g['role']]).tolist()
+    joint_changes={}
+    if joint_bay:
+        # Cause change: release the whole lower floor bay, not another F_PI
+        # offset. Four MTA AND all8 factory-end joints move as one architecture.
+        for code,sign in (('FL',1),('FR',-1),('RL',1),('RR',-1)):
+            joint_changes['MTA_'+code]=[0,-3*sign,71.5]
+        for role,sign in (('W026_Joint',1),('W037_Joint',-1),('W045_Joint',1),('W053_Joint',-1)):
+            joint_changes[role]=[0,-3*sign,71.5]
+        joint_changes.update(W041_Joint=[0,-3,71.5],W042_Joint=[0,3,71.5],
+            W044_Joint=[-23,6,71.5],W052_Joint=[-23,-6,71.5])
+        for g in effective['groups']:
+            if g['role'] in joint_changes:
+                g['translation_mm']=(np.array(g['translation_mm'])+joint_changes[g['role']]).tolist()
+        report['joint_bay_architecture']={'relative_current_changes_mm':joint_changes,
+            'source_cases_centre_z_mm':37.5,'two_factory_sides_each':True,
+            'full_lower_bay_released_for_power_unit':True,
+            'old_lower_rails_replaced_by_outboard_rails':True,
+            'not_a_selected_layout_or_native_mount':True}
     for g in plan['groups']:
         role=g['role']
         for n in g['objects']:
@@ -90,6 +109,7 @@ def main():
                 rr=rear['relative_rotations'].get(role,np.eye(3).tolist())
                 s.Placement=placement(rr,rear['changed_complete_receiving_groups'][role])*s.Placement
             if role in common_delta:s.translate(A.Vector(*common_delta[role]))
+            if role in joint_changes:s.translate(A.Vector(*joint_changes[role]))
             if role=='F_PI':
                 r=candidate['F_PI']; rr=np.array(r['rotation_relative_current'])
                 delta=np.array(r['centre_mm'])-rr@np.array(r['old_centre_mm'])
@@ -120,6 +140,40 @@ def main():
         wires[row['id']]=tube_prefix(p,d,row['radius_mm'],b,R,land);own[row['id']]={row['holder']}
     for row in routes(effective):
         n='Factory:'+row['wire'];wires[n]=pipe(row['parts'],row['radius_mm']);own[n]={row['source_group'],row['joint_group']}
+    if joint_bay:
+        jointparts={n:s for n,s in scene.items() if roles.get(n) in joint_changes}
+        report['joint_bay_factory_routes']=routes(effective)
+        # Include whole common backbone reservations before power-unit search.
+        # These are planning reserves, not actual finished PETG contact claims.
+        for row in backbone['recipes']:
+            if 'low_mm' not in row:continue
+            n=row['name'];lo=np.array(row['low_mm'],float);hi=np.array(row['high_mm'],float)
+            if n.startswith(('PiFuse','MainRaisedBridge','Standoff_MAIN','Standoff_BUS')):continue
+            if n.startswith('LowerRail'):
+                sign=1 if (lo[1]+hi[1])>0 else -1
+                lo[1]=sign*35-3;hi[1]=sign*35+3
+            if n.startswith('Crossmember'):lo[1]=-38;hi[1]=38
+            wires['StructureReserve:'+n]=Part.makeBox(*(hi-lo),A.Vector(*lo));own['StructureReserve:'+n]=set()
+        for n,s in jointparts.items():
+            for bn,b in scene.items():
+                if n==bn or roles.get(n)==roles.get(bn) or bn in changed:continue
+                check(n,s,bn,b,'whole_upper_MTA_bay_case_vs_actual_static')
+            for bn,b in wires.items():
+                if roles.get(n) in own.get(bn,set()):continue
+                check(n,s,bn,b,'whole_upper_MTA_bay_case_vs_complete_paths_or_structure',bn.startswith('StructureReserve:'))
+        for n,s in wires.items():
+            if not n.startswith('Factory:'):continue
+            for bn,b in scene.items():
+                if bn in changed or roles.get(bn) in own[n]:continue
+                check(n,s,bn,b,'whole_upper_MTA_factory_route_vs_actual_static')
+            for bn,b in wires.items():
+                if n==bn:continue
+                if bn.startswith(('Factory:','StructureReserve:')) and n>bn and bn.startswith('Factory:'):continue
+                check(n,s,bn,b,'whole_upper_MTA_factory_route_vs_paths_or_structure',bn.startswith('StructureReserve:'))
+        save();print('Joint bay preliminary',len(report['contacts']),len(report['reservation_overlaps']),len(report['errors']),flush=True)
+        if report['contacts'] or report['reservation_overlaps'] or report['errors']:
+            report.update(status='JOINT_POWER_BAY_REJECTED_BEFORE_UNIT_SEARCH',source_sha256={**report['source_sha256'],**reader.hashes})
+            save();return
     actual_new={r['wire']:pipe(r['parts'],r['radius_mm']) for r in candidate['routes']}
     if all_ends:
         for row in candidate['additional_end_prefixes']:actual_new[row['wire']]=pipe(row['parts'],row['radius_mm'])
