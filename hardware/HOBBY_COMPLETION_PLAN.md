@@ -2,6 +2,175 @@
 
 ## Aktywne okno 6h,18.10.2026
 
+11:56:47Z: render28428 odebrany (135,687s,1002bryły sceny planu,
+2283224trójkąty), iso/przód current-overlay-20261018-*.png. Bez zmiany
+modeli źródłowych, bez ukrywania odstających elementów przy szyi.
+Niebieski obrys jest rezerwacją, nie gotową skorupą; brakujące5modułów,
+pełne złączaPi/lokalna elektryka ogona/szyja są jawnieOPEN.0/10.
+Limit14%użyte/86%pozostałe,10726s okna (nieCPU). Workerów0;
+hook pozostajeON do22:00Warszawy. Nie wracać do staregoNEXT95100.
+
+11:52:41Z: użytkownik jawnie przedłużył TO SAMO okno i zakresN01–N10
+do18.10.2026 22:00Warszawy /20:00:00Z. Hookenabled=true, nowy limit
+okna39719s od08:58:01Z, bez automatycznego przedłużania; poprzedni
+deadline14:58:01Z zastąpiony. Odczyt13%użyte/87%pozostałe,10480s
+okna (nieCPU). Wynik nadal0/10. Na prośbę użytkownika bieżący widok
+ma pochodzić z aktualnych zapisanych brył planu, nie starego renderu
+ani wymyślonej gotowej obudowy. DetaleN01 i pełna wiązka pozostająOPEN.
+
+11:46:55Z:13%użyte/87%pozostałe,2h48m54s okna (nieCPU),0/10.
+6c230b5d/8d73de4d/efdbb92a zabezpieczają odebrane bramki i komplet
+34zewnętrznych dodatkowych interfejsów:68końców,26par w aktualnych
+ramach,8końców lokalnych4nieumieszczonych modułów. 8testów źródeł
+PASS (0,005+0,029s), nie wynik mechaniczny. Odczyt74GUIDE1,531s;
+kompozycja34interfejsów0,025s. 11wewnętrznych sekcjiU1 bez duplikacji.
+FHAC: wyjścia fabryczne1mm PONIŻEJ środka bbox, nie środkiem obudowy.
+AUX: zachować rzeczywisty overlap gołego zakończenia/jacket3mm,
+nie przenieść91,32 na94,32. B1/B2/B3 i XP02/03 ze znanych terminali
+wybranego carrierE1, nie z IC ani dawnej losowej trasy. Yaw wymaga
+CP2SHIFT(−42,0,25) PRZED R5 i weryfikacji ramy fizycznego odbiornika;
+pitchJR już ma CP2SHIFT, nie ponawiać. Tail: wybrana granica88,
+nie stary GUIDE68 i nie elektryczny pin/nowy lut. Pełny JR125..155,
+Y−54..−42,Z107..117 i miejscowy fabryczny250mm nadal do wspólnego
+złożenia/osłony; nie są uwzględnione przez samo60części mechaniki.
+Pi:5GPIO nominalnieZ115,7 ponad dach112, a pierwotne11źródeł Pi
+obejmują PCB/osprzęt, NIE pełne złącza. Oficjalny istniejący rysunek
+pi4-mechanical.png daje m.in. USB-A Z16, Ethernet13,5, GPIO8,5.
+Uwzględnić footprintyDXF, wybranyDelock60047 i sealedK1474 receiver
+z E1 (dwie rezerwacje), nie zastępować całości ostatnim małym mouldem
+z pakietuR3. To konkretny powód zmiany CAŁEGO układu Pi/portów/ramy,
+nie kolejny offset tacki. Trzy źródłowe Pi W043/W077/W078 zachować.
+NEXT: zamknąć rejestrację yaw i pełne lokalne head/tail interfejsy,
+następnie jeden układ Pi ze wszystkimi portami, obu bocznych rzędów,
+3FHAC/6fabrycznych tras/odciążeń i całego obrysu/montażu. Natywne
+detale dopiero po całymN01. Brak wiarygodnej estymaty całychN01–N10
+przed tą bramką; termin przedłużony przez użytkownika do22:00 jak wyżej.
+
+96710 odebrany173,719s/1644par/0błędów:10zmienionych korpusów
+nie koliduje w sprawdzonym zakresie, ale12wyjść wchodzi w P_SYS,
+BUScrossbar/W078; tacka FHAC nadal za blisko zgiętej nogi (poza27).
+Nie wykonywać trzeciej próby wysokości/tacki. Dwa pionowe miejsca
+monitora zachowane. F_PWM nie ma kontaktu, ale1,8mm do obrysu
+zamiast3,65; żaden z pięciu modułów nie jest wybrany.
+Przed kolejną geometrią: odczyt RZECZYWISTYCH dawnych GUIDE z mastera
+oraz całego wybranego E1. 45odcinków dodatkowego schematu obejmuje
+11wewnętrznych sekcji obsadzonegoU1, nie45osobnych kabli zewnętrznych.
+Nie dublować zachowanych84wyprowadzeń. Przenieść11znanych połączeń
+zewnętrznych E1 raz, ujawnić portyGPIO/obrys przed kolejną alokacją.
+Kolejna ewentualna topologia: pionowe boczne rozdzielnie z wyjściami
+w dół, oprawki obok (nie POD przepustami), cały obrys bez zwiększenia
+max200 oraz Pi z pełnymGPIO/USB/power; najpierw komplet końców.
+
+11:23:21Z:64233 odebrany134,547s/560par/0błędów. Rzeczywiste
+korpusy wykluczają przednie zatoki (nogi w spoczynku); środkowe
+blokuje spód tacki w pozycji21, tylne zewnętrzne główki przekraczają
+obrys. Monitor pionowo w [50,±68,0] ma wolne dwa miejsca.
+Drugi WSPÓLNY układ: trzyFHAC pod podniesionymi OBU górnymi rzędami,
+w środkowej lewej/prawej i tylnej prawej zatoce, główki DO WNĘTRZA;
+F_PWM w rozłącznej wcześniej makrozatoce [60,−76,−20], monitor+Y.
+Rzędy10WAGO razem: Z46,1 i X+5 z granicy P0MountFront maxX−57,5
++R1,55+1,25=−54,7 (pierwszyport−54,5); przejście proste22mm
+PRZED łukiem, z końcemY±35,5 poza wewnętrzną krawędzią bankbed39,25.
+Pierwsza próba9mm/łukUP przecinała bankbed/holder i frontowy montaż;
+nie ponawiać tych łuków ani przednich zatok. Pi/8MTA bez zmiany.
+Warunek: wszystkie zmienione korpusy/wyjścia, trzyoprawki/mon/F_PWM
+razem ze źródłem, odciążeniami i pełnymi trasami. N01 nadal OPEN.
+
+11:18:37Z: limit12%użyte/88%pozostałe,2h20m36s okna,0/10.
+95100 odebrany53,125s: pełne rezerwacje makro nie mają wspólnej
+alokacji5modułów, NIE dowód rzeczywistej kolizji/niemożliwości.
+N01 blokują: trzy dodatkoweWAGO mają wyjścia w ścianę oraz brak
+uzgodnionych5modułów i pełnych89+45odcinków/szyi. Zamiast gęstszej
+siatki: jedna alokacja rzeczywistych korpusów i OBU wyjść FHAC,
+na wspólnych zatokach bocznych, razem z monitorem i F_PWM.
+Wspólny ujemny rząd5WAGO: odwrócić3dodatkowe do wnętrza i podnieść
+wszystkie5doZ46,1 = szyna42,72+R2,1+luz1,25 (46,07 zaokrąglone).
+Wpływ22komory/8dotychczasowych końców; Pi/8MTAfabrycznych bez zmian.
+Akceptacja: rzeczywiste bryły, oba pierwsze łuki/9mmchwyty, pełna
+retencja i wspólny obrys/ruch/montaż; żadnego native przed całymN01.
+
+11:11:38Z12%użyte/88%pozostałe,2h13m37s okna (nieCPU),0/10.
+R2retencja35969 odebrana103,094s/277zmienionych par/0błędów/0narzędzi;
+pozostał własny stykUSB i3,522mm do obrysu zamiast3,65. Nie PASS.
+eeadf709/ed75ec7a zamrażają126brył, w tym24pełne kwartały banku,
+większe24główki5×5×4,4cuff/ramiona,2comb i12retencji korpusów.
+Po dwóch przyczynachUSB zmieniona CAŁA strona połączenia: dojście od
+wewnętrznegoY zamiast zewnętrznegoX. bdca7207/8,812s/7par/0kontaktów/
+0błędów, do całegoUSB1,4mm, do obrysu12,1767mm; korzenie dodatnie.
+Nie wracać do starego zewnętrznego knuckle ani przeliczać całych126.
+Pełność źródeł była błędnie nazwana:805 NIE obejmowały60elementów
+ogona,3oprawekF_HY/F_HP/F_TY,osłonyF_PWM ani monitora. Uzupełnione
+66źródeł:60ogona bez zmian,5szablonów bez wybranego położenia,nowa
+gałąźUSB. Monitor41×25×12 pochodzi ze staregoOpenPrototypePlan,
+jest nominalny; dokumentRetencji zawiera mocowanie, nie jego bryłę.
+33stare części szyi wymagają jawnego zastąpienia przez nowy truss;
+nie włączać starej wieży i nie traktować ich braku jako prześwitu.
+ALL20WAGO:86zajętych komór,134odcinki schematu=89fizycznych korpusu
++45pozostałych,2asercjePASS. RL_P/RR_P mają logiczne1=fizyczne5:
+mapa tylko do odczytu współrzędnych, bez drugiego przenoszenia portu.
+Trzy dodatkoweWAGO P_AUX/G_AUX/G_TAIL uzgodnione z rzeczywistą dawną
+ścianą źródłową i jednym obrotemR5, wyjściaY−76,5/Z40.
+Żadnego szczegółowego native przed CAŁYM N01. Wspólna propozycja
+makro17,531s znalazła tylko2pełne zatokiFHAC [70,±68,15], bezmonitora;
+przecięcieAABB odrzuca tę konserwatywną propozycję, nie dowodzi
+kolizji części/niemożliwości. Session95100 uwzględnia wszystkie
+ortogonalne orientacje5modułów i datum monitora nad tylnymcuff,
+nie gęstszą siatkę. NEXT: jeden CAŁY układ5modułów/obu wyjść/
+20chwytów/89+45tras/szyi, potem rzeczywista geometria i ruch.
+HookON do14:58:01Z, model bez zmian, bez maila/resetów/zakupów.
+
+R1 wspólnej retencji68348 odebrany94,532s/454par/57przecięć/2narzędzia/
+0outside/wall/błędów, b783f1f4. Nie był PASS. Większość57 to jawne
+połączenia tych samych wydruków (panel/siodła/korzenie), które kontrola
+nowego/starego opisała jako kolizje. Zachować geometryczne świadki,
+uzgodnić właścicieli, nie przesuwać tych części. Rzeczywiste przyczyny:
+RRcuff/opaska przechodzą przez własną gałąźUSB; MAIN opaska0,15mm wPCB;
+tylne długie grzbiety nakładek w XT60; boczne taśmyMTA i przednie
+taśmycuff nie mają pełnych przejść przez żebra/ramiona.
+R2 zmienia CAŁE gałęzie: USB z dotychczasowego korzenia105/−36/64
+najpierw do105/−60/58, potem do zachowanego135,5/−60/58 i dalszych
+knuckles. To ten sam nośnikNineWireArmRR, nie nowy obcy wspornik;
+kabel/wtyk/końcowe mocowanieUSB bez zmian. Nakładki: grzbiet nad
+krawędzią korpusu + tylko miejscowe uszy śrub, nie długa belka przezXT60.
+MAIN: wspólne dozwolone okno osi taśmy85,75..86,45 z rzeczywistego
+rootZ84,3/PCBmin87,9,2,5mm szerokości i0,2luzu; przyjąć środek86,1
+z pasującym slotem/główką, nie próby kolejnych offsetów. Taśmy mają
+przejścia całymi pętlami przez ramiona/ribs, nie tylko spodem panelu.
+Głębokie zdejmowanie dolnej zatoki: przeciąć2oznaczoneT18I W026/W037
+przy łączniku, dopiero wtedy8śrub; uwzględnić2nowe opaski w serwisie.
+Płyty są drukowane osobno, lecz fabryczne przewody przechodzą między
+nimi, więc nie twierdzić, że pojedyncza płyta wychodzi niezależnie.
+Pełna lista rozłączeń przy głębokiej naprawie wciąż bramkąN01/N08;
+rutynowy dostęp12ATO nie wymaga tych rozłączeń ani cięcia opasek.
+R2 kontroluje zmienione interfejsy; pełne24kwartały banku dołączyć do
+sceny (dotychczasowe805 zawierały same48elementów banku, nie łuki).
+
+N01, wspólny materiał/retencja przed native: wejścia97c3e29b/178końców,
+118dolnych brył3d0b5a63 i komplet805. Blokery: pełne cuff/comb bez
+kanałów; tylne cuff zaczynająX108,5 przy arm kończącymX108; FRarm
+nie sięga aktualnego słupkaX−83..−77/Y−43..−37. Nie przesuwać przewodów.
+Plan: cztery otwarte korytka9mm, wspólna wnęka10,7mm na3×3 żyły,
+ścianki/dno2mm, rzeczywiste mosty do tych samych słupków, opaski/sloty.
+P_SYS i MAIN: pełne kanały przy zamrożonych końcach, wspólna retencja
+i korzenie do istniejącej rezerwacji szkieletu. Tylko świadome pary
+podparcia mogą dotykać; własny izolacyjny element/opaska nie wymaga
+1,25mm powietrza, ale geometria nie może przecinać żyły. Luz pasowania
+to jawne założenie prototypu, nadal przymiarka fazy2.
+Wszystkie główki T18I w tym zakresie otrzymują konserwatywny budżet
+5×5×4 oparty o zachowany model4,8×4,5×3,5; wcześniejsze4×4×3 dolnych
+24główek było mniejsze. Zachować trasy/24siodła, kontrolować tylko te
+powiększone główki wraz z nowymi mocowaniami, nie powtarzać innych par.
+8łączników: otwarte podstawy i zdejmowane nakładki końcowe, po2M2x12/
+2nuts kandydat. Dla zewnętrznych nakładek śruby ku środkowi; wewnętrzne
+ku bokom, poza osiami czterechM2nośnika. Montaż i otwieranie łączników
+na stole po zdjęciu danej dolnej płyty; nie dodawać szybkiego serwisu.
+4MTA: oddzielne opaski, główki naprzemiennieX±7 ku środkowi; pełne
+przeloty pod płytą. Nad tylnymiMTA tylko0,8mm izolacyjnej taśmy w1,25mm
+przerwie do izolacyjnej oprawkiF0, jawny budżet0,2mm, nie do PCB/metalu.
+Akceptacja jednej sceny: pełne kanały/retencja/korzenie/śruby i8narzędzi
+montażu,0kontaktów niezamierzonych, poprawne dodatnie złączenia;
+potem zmieniony ruch36pozycji, cały89odcinków nadal osobną bramką N01.
+
 10:37:41Z10%użyte/90%pozostałe,1h39m40s okna. 97c3e29b odebrany:
 73363/41,687s/2nowe pary materiału,0kontaktów realnych/rezerwacji/żył/
 błędów. Jedyny wynik negatywny dotyczył użycia SAMEGO tułowia dla
