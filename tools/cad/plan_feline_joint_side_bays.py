@@ -28,8 +28,9 @@ from plan_feline_skin_access import surface_samples
 
 
 def main():
-    tick=time.monotonic();upper='--upper-side-domain' in sys.argv
-    dest=OUT/('n01-joint-upper-side-bays.json' if upper else 'n01-joint-side-bays.json')
+    tick=time.monotonic();dedicated='--dedicated-fuse-bays' in sys.argv
+    upper='--upper-side-domain' in sys.argv or dedicated
+    dest=OUT/('n01-dedicated-fuse-bays.json' if dedicated else 'n01-joint-upper-side-bays.json' if upper else 'n01-joint-side-bays.json')
     previous=json.loads(dest.read_text()) if dest.exists() else None
     if previous:assert previous['status']=='PARTIAL_COUPLED_SIDE_DOMAINS'
     priorfile=OUT/'n01-rev3-whole-profiles.json';prior=json.loads(priorfile.read_text())
@@ -64,6 +65,10 @@ def main():
         moves['G_TAIL']=(-110,False);moves['P_REAR']=(-110,False)
         # Opposing fans need >=53.1mm, not a uniform48mm station pitch.
         moves['D_FR']=(72,False)
+    if dedicated:
+        moves.update(G_TAIL=(-108,False),P_REAR=(-108,False),
+            G2=(104,True),FL_P=(144,False),FR_P=(36,False),
+            D_FR=(76,False),FR_G=(132,False))
     def station_group(n):
         if n.startswith('REV3Station:'):return n.split(':')[1].split('.')[0]
         return next((ref for ref,st in stations.items() if oldmeta.get(n,{}).get('role')==st['current_group']),None)
@@ -102,6 +107,16 @@ def main():
         roots_mounts_tools_full123middles_USB_and_continuous_motion_still_open=True,
         sampled_motion_screen='Existing36pose union1mm voxels; conservative4.4162mm surface screen, NOT physical contact proof',
         factory100mm_is_delivery_assumption=True)
+    if dedicated:
+        result['dedicated_fuse_bays']=dict(case_centres_mm={'F_HY':[-24,-62,25],'F_HP':[12,62,25],'F_TY':[48,-62,25]},
+            actual_factory_axis_case_X_offset_mm=1,
+            upper_first_mm=36,lower_first_mm=21,
+            upper_first_basis='Case top50.5+36=86.5 above bank top83 with2mm jacket and1.25gap BEFORE turn',
+            case_top50_5_below_bank_bed52=True,
+            upper_factory_project_blank_mm=3+36+12.4*math.pi/2+14,
+            lower_factory_project_blank_mm=3+21+12.4*math.pi/2+14,
+            fore_column_min_X_mm=-141.5+3.25+11+3+12.4+2.1,
+            no_new_join_or_extension=True)
     if previous:
         assert previous['source_sha256']==pins,'Inputs changed; do not reuse prior pairs'
         result=previous
@@ -118,13 +133,13 @@ def main():
             s=s.copy();s.Placement=bus['inverse']*s.Placement;return s.distToShape(bus['original'])[0]
         assert t.isValid(),n
         return s.distToShape(t)[0]
-    def outer_ok(s):
+    def outer_ok(s,conservative_box=False):
         # All X section breaks included: conservative BOX capacity screen,
         # never a claim that bbox overlap itself is a physical collision.
         bb=s.BoundBox
         xs=[bb.XMin,bb.XMax]+[x for x in (-141.5,-112,-65,10,55,112,158,183.5) if bb.XMin<x<bb.XMax]
         points=np.array([[x,y,z] for x in xs for y in (bb.YMin,bb.YMax) for z in (bb.ZMin,bb.ZMax)])
-        if not np.all(inside_ruled(points)):return False,'conservative_bbox_not_inside_source_sections'
+        if conservative_box and not np.all(inside_ruled(points)):return False,'conservative_bbox_not_inside_source_sections'
         outside=s.cut(outer).Volume
         if outside>1e-5:return False,dict(actual_outside_volume_mm3=outside)
         distance=s.distToShape(outer.Shells[0])[0]
@@ -175,8 +190,13 @@ def main():
             parts={'case':case}
             for side in ('in','out'):
                 e=local[role+'.'+side];q=A.Vector(*centre)+rot.multVec(A.Vector(*e['local_point_mm']));d=rot.multVec(A.Vector(*e['departure_axis']));b=A.Vector(*bend)
-                end=q+d*21.4+b*12.4;tip=end+b*14
-                parts[side+':factory_prefix']=tube_prefix(list(q),list(d),2,list(b),12.4,9)
+                first=9
+                if dedicated:
+                    first=36 if d.z>0 else 21
+                    if d.z>0:b=A.Vector(1 if role=='F_TY' else -1,0,0)
+                    else:b=A.Vector((-1 if role=='F_TY' else 1)/math.sqrt(2),(-1 if centre[1]>0 else 1)/math.sqrt(2),0)
+                end=q+d*(first+12.4)+b*12.4;tip=end+b*14
+                parts[side+':factory_prefix']=tube_prefix(list(q),list(d),2,list(b),12.4,first)
                 parts[side+':factory_land']=line_tube(list(end),list(tip),2)
                 parts[side+':sleeve']=line_tube(list(tip-b*14),list(tip+b*6),2.4)
                 parts[side+':custom']=line_tube(list(tip-b*8),list(tip+b*18),1.55)
@@ -205,7 +225,7 @@ def main():
                     packages[key]=parts;result['domains'].setdefault(role,[]).append(key)
                 result['candidate_receipts'].append(row);save();return
             for pn,s in parts.items():
-                gate();okay,why=outer_ok(s)
+                gate();okay,why=outer_ok(s,conservative_box=pn=='case')
                 if not okay:row.update(status='outer_screen_reject',part=pn,evidence=why);break
                 bb=s.BoundBox
                 for name,t in fixed.items():
@@ -229,7 +249,10 @@ def main():
         # vertical outboard cases. Vertical interstitial bays are compared in
         # the SAME common domain, not run as separate blind CAD variants.
         for role in ('F_HY','F_HP','F_TY'):
-            if upper:
+            if dedicated:
+                centre={'F_HY':[-24,-62,25],'F_HP':[12,62,25],'F_TY':[48,-62,25]}[role]
+                candidate(role,centre,'verticalZ',[0,-1 if centre[1]>0 else 1,0])
+            elif upper:
                 for x,side,y,z in itertools.product((-70,-22,26,74),(-1,1),(72,80),(0,24,48,64)):
                     for bend in ([0,0,1],[0,0,-1],[0,-side,0],[0,-side/math.sqrt(2),1/math.sqrt(2)],[0,-side/math.sqrt(2),-1/math.sqrt(2)]):
                         candidate(role,[x,side*y,z],'horizontalX',bend)
