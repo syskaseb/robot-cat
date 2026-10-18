@@ -35,11 +35,12 @@ def to_box(points,bounds):
 def shared_rail_bounds():
     """Second whole frame family: BELOW seats, OUTBOARD of preserved P0.
 
-    Not the rejected upper-between-row beams. Fore/tail section atX158 keeps
-    both whole rails inside the true outline; actual36motion still required.
+    Whole carrier ends at the retained P0 structural side datum X127, not
+    cosmetic tail station158. Domains whose complete pier misses the finite
+    rail are invalid; connections to actual clamp kits remain a separate HOLD.
     """
     return [np.array([[-126,54 if side>0 else -60,34.7],
-                      [158,60 if side>0 else -54,37.7]]) for side in (-1,1)]
+                      [127,60 if side>0 else -54,37.7]]) for side in (-1,1)]
 
 
 def build(station,family,side,departure,centre_x=0):
@@ -147,7 +148,7 @@ def build(station,family,side,departure,centre_x=0):
         source_lever_UP_preserved_from_actual_handedness=True,first_mm=first,
         R_mm=max(w['R_mm'] for w in wires),inner_concentric_full_fan=(family=='inner'),
         points=p,radii=rr,types=tt,bounds=bounds,boxes=boxes,wires=wires,reused_jacket_lands=reused,
-        frame_family='LOW_OUTBOARD_RAILS_AND_WHOLE_CASE_PIERS_R2',
+        frame_family='STRUCTURAL_END_BOUNDED_LOW_CARRIER_COMPLETE_OWNERS',
         tie_wrap_rectangular_upper_bound_mm=2*((ymax-ymin)+(cap[1,2]-cap[0,2]))+10,
         all_caps_channel_all_owned_jackets=True,actual_band_length_fit_not_verified=True)
 
@@ -183,3 +184,12 @@ def self_wire_gap(m):
         d=float(cKDTree(a['points']).query(b['points'],workers=1)[0].min())
         margins.append(d-a['radius']-b['radius']-.2)
     return min(margins,default=1e6)
+
+
+def pier_supported(m):
+    rail=shared_rail_bounds()[0 if m['side']<0 else 1]
+    piers=[r for r in m['boxes'] if 'vertical_pier_to_low_rail' in r['name']]
+    assert len(piers)==1
+    # Positive volume, not corner/edge contact; still not a whole load proof.
+    return bool(np.all(np.minimum(piers[0]['bounds'][1],rail[1])-
+                       np.maximum(piers[0]['bounds'][0],rail[0])>1e-5))

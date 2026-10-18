@@ -21,6 +21,7 @@ from plan_feline_layout import OUT
 from feline_current_candidate_scene import current
 from plan_feline_skin_access import surface_samples
 from plan_feline_global_case_capacity import points_from_ids
+from plan_feline_flat_owner_contract import own_reservation
 
 
 def points(s):
@@ -30,6 +31,7 @@ def points(s):
 
 
 def frame_variable(n,m):
+    if '--owner-complete' in sys.argv and own_reservation(n,m):return True
     if n=='P_SYS_CommonRelief':
         assert m.get('kind')=='frame_reservation' and m.get('owner')=='UpperFrame',m
         return '--owner-r2' in sys.argv
@@ -41,7 +43,7 @@ def frame_variable(n,m):
 
 
 def main():
-    tick=time.monotonic();r2='--owner-r2' in sys.argv;suffix='-r2' if r2 else ''
+    tick=time.monotonic();r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete'));suffix='-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
     dest=OUT/('n01-flat20-field'+suffix+'.json');fieldfile=OUT/('n01-flat20-field'+suffix+'.npz')
     assert not dest.exists() and not fieldfile.exists(),'Receive existing field before rebuilding'
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
@@ -65,6 +67,11 @@ def main():
         assert np.allclose(protected['parts'][-1]['end'],[4.55,4,48.5])
         pins[protectedfile.relative_to(ROOT).as_posix()]=sha(protectedfile)
     frame={n for n in scene if frame_variable(n,meta[n])}
+    if '--owner-complete' in sys.argv:
+        ownerfile=OUT/'n01-flat20-owner-contract.json';contract=json.loads(ownerfile.read_text())
+        assert {r['name'] for r in contract['complete_P_SYS_retired_set']}<=frame
+        pins[ownerfile.relative_to(ROOT).as_posix()]=sha(ownerfile)
+        pins[Path(__file__).with_name('plan_feline_flat_owner_contract.py').relative_to(ROOT).as_posix()]=sha(Path(__file__).with_name('plan_feline_flat_owner_contract.py'))
     retired=cases|frame|{n for n in scene if n.startswith('REV3Station:')}
     retired|={n for n in scene if n.startswith(('End:W067/single/start','End:W068/single/start','End:W066/retained0/end'))}
     retired|={n for n in scene if n.startswith('Ref_Material_current_S1_')}

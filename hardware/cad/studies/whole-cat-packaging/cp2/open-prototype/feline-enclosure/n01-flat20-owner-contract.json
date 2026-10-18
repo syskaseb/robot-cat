@@ -1,0 +1,253 @@
+{
+  "status": "COMPLETE_OWNER_CONTRACT_FRAME_ROOTS_OPEN",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-restraint-world-probe.json": "6152ea7f99306403dfede86e4752cebb391a984a7458c63e2da222306380c8fa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-restraint-material-r2.json": "2ffc361d8c4e7c4508f9d97b222c5b640d3107444614f675b9537990b2269ba9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat-station-architecture.json": "678c102635b3fbe2a62ea4c995d70435395478730229b9c221fe26e7f56675ab",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-whole-constraint-map.json": "bf3e13a271121fb3eabc0413bc281284b6fe6f0ae4d5e8f12f41a2a7548881f5",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-central-spine-power-plan-r4.json": "1621d5b44566eeb412458dbda5bd1cb3ef0185d07dbf3e66c6dc6bfafb62c5d1",
+    "tools/cad/plan_feline_flat_owner_contract.py": "8473e5358290c9854eee1a3830c5acba2c7ccc08cc0534cdcc2c78a364d4991c",
+    "tools/cad/plan_feline_common_restraints.py": "3d76d419d5b5a69622a197fcdc10464ade6ed6ff75e5629845e6dfc104ed6dbf"
+  },
+  "complete_P_SYS_retired_set": [
+    {
+      "name": "PSYSTie",
+      "kind": "tie_reservation",
+      "owner": "PSYSTie",
+      "entry": "038.brep",
+      "sha256": "62a9d51e4f4b9ec89a582004169b1ac70afed387ed8b448e3a1757135bb2675c",
+      "bounds_mm": [
+        [
+          -1.2,
+          -0.9,
+          43.2
+        ],
+        [
+          1.3000000000000003,
+          34.9,
+          51.6
+        ]
+      ],
+      "volume_mm3": 170.3999999999994,
+      "solids": 1
+    },
+    {
+      "name": "PSYSTieHead",
+      "kind": "tie_reservation",
+      "owner": "PSYSTie",
+      "entry": "039.brep",
+      "sha256": "cefc86565454e029f24b65bddb8762c72404091befed5b044f7e1593766d51f5",
+      "bounds_mm": [
+        [
+          -2.45,
+          -5.7,
+          46.5
+        ],
+        [
+          2.55,
+          -0.7000000000000002,
+          50.5
+        ]
+      ],
+      "volume_mm3": 99.99999999999997,
+      "solids": 1
+    },
+    {
+      "name": "P_SYS_CommonRelief",
+      "kind": "frame_reservation",
+      "owner": "UpperFrame",
+      "entry": "037.brep",
+      "sha256": "fb4fc7bc45c8210775810bbd4e44d2f0cc05fee704bc50a459f4b08b9df968f1",
+      "bounds_mm": [
+        [
+          -4.45,
+          -0.10000000000000009,
+          42.52
+        ],
+        [
+          4.55,
+          34.1,
+          52.6
+        ]
+      ],
+      "volume_mm3": 1778.2255475251793,
+      "solids": 1
+    }
+  ],
+  "successor": {
+    "cap": "One four-channel removable cap",
+    "band": "One complete new band",
+    "head": "One full side head",
+    "support": "Whole case floor and independent clamp stem",
+    "occupied_jackets": {
+      "W066": "P_SYS.1",
+      "W067": "P_SYS.2",
+      "W068": "P_SYS.3",
+      "W043": "P_SYS.5"
+    },
+    "protected_W043": {
+      "radius_mm": 1.7,
+      "grip_mm": 9,
+      "last_straight_mm": 10.274497574225348,
+      "whole_route_unchanged": true
+    }
+  },
+  "other19_station_case_and_REV3_prefixes_replaced_together": true,
+  "other_station_common_comb_tie_heads_in_original_constructor": [],
+  "retained_function_groups": [
+    "MAIN comb/tie/head",
+    "4 nine-wire cuffs/ties/heads",
+    "8 inline joint retainers",
+    "24 factory/custom seats and ties",
+    "4MTA source body bands",
+    "all purchased cases and bank source identities"
+  ],
+  "retained_root_dependencies": [
+    {
+      "part": "BundleCuff:FL",
+      "root": "StructureReserve:Post-69_1",
+      "volume_mm3": 54.0
+    },
+    {
+      "part": "BundleCuff:FR",
+      "root": "StructureReserve:Post-69_-1",
+      "volume_mm3": 108.0
+    },
+    {
+      "part": "BundleCuff:RL",
+      "root": "StructureReserve:Post105_1",
+      "volume_mm3": 54.0
+    },
+    {
+      "part": "BundleCuff:RR",
+      "root": "StructureReserve:Post105_-1",
+      "volume_mm3": 53.99999999999987
+    },
+    {
+      "part": "P_SYS_CommonRelief",
+      "root": "StructureReserve:Crossmember0",
+      "volume_mm3": 26.879999999999416
+    },
+    {
+      "part": "MAIN_CommonRelief",
+      "root": "StructureReserve:UpperStrip-1",
+      "volume_mm3": 99.60000000000005
+    }
+  ],
+  "root_dependency_policy": "Retained cuff/MAIN functions require replacement shared roots; retirement of a scaffold does not approve floating retained children.",
+  "carrier_extent_basis": {
+    "retained_P0_side_records": [
+      {
+        "name": "Ref_Material_P0_SideLeft22_0_0",
+        "owner": "P0_or_battery",
+        "source_record": {
+          "name": "Ref_Material_P0_SideLeft22_0_0",
+          "entry": "0729.brep",
+          "role": "P0_or_battery",
+          "kind": "retained_fixed_material",
+          "origin": "retained_P0_world",
+          "valid": true,
+          "solids": 1,
+          "sha256": "714b287330df8a7e62b3a4c0e3adfe14b56f284c14065e151fdf2a4ae3c32d78",
+          "bounds_mm": [
+            [
+              -84.99999999999717,
+              26.999999999968995,
+              -2.0
+            ],
+            [
+              127.00000000000848,
+              49.339613845817595,
+              38.5200000000025
+            ]
+          ],
+          "volume_mm3": 32397.373175726236
+        },
+        "world_bounds_mm": [
+          [
+            -84.99999999999717,
+            26.999999999968995,
+            -2.0
+          ],
+          [
+            127.00000000000848,
+            49.339613845817595,
+            38.5200000000025
+          ]
+        ],
+        "valid": true,
+        "solids": 1,
+        "geometry_category": "saved_source_solid",
+        "bounds_are_broadphase_only": true
+      },
+      {
+        "name": "Ref_Material_P0_SideRight22_0_0",
+        "owner": "P0_or_battery",
+        "source_record": {
+          "name": "Ref_Material_P0_SideRight22_0_0",
+          "entry": "0730.brep",
+          "role": "P0_or_battery",
+          "kind": "retained_fixed_material",
+          "origin": "retained_P0_world",
+          "valid": true,
+          "solids": 1,
+          "sha256": "2cd98517abb20ec79739e1988e32005d415f0be15f026f622e885c7129109cd6",
+          "bounds_mm": [
+            [
+              -85.00000000001295,
+              -49.3396138458442,
+              -2.0
+            ],
+            [
+              126.99999999999268,
+              -26.999999999995172,
+              38.52000000000261
+            ]
+          ],
+          "volume_mm3": 32397.37304806443
+        },
+        "world_bounds_mm": [
+          [
+            -85.00000000001295,
+            -49.3396138458442,
+            -2.0
+          ],
+          [
+            126.99999999999268,
+            -26.999999999995172,
+            38.52000000000261
+          ]
+        ],
+        "valid": true,
+        "solids": 1,
+        "geometry_category": "saved_source_solid",
+        "bounds_are_broadphase_only": true
+      }
+    ],
+    "rear_X_mm": 126.99999999999268,
+    "fore_X_mm": -126,
+    "root_pier_must_overlap_finite_rail": true,
+    "tail_cosmetic_section_X158_is_not_structural_anchor": true,
+    "print_split_required": true,
+    "split_X_mm": 45,
+    "print_segment_X_lengths_mm": [
+      171,
+      82
+    ],
+    "margin_to256_without_joint_mm": [
+      85,
+      174
+    ]
+  },
+  "frame_root_holds": [
+    "Actual four clamp seats and bolt stacks must be retained/reconnected",
+    "Cross-ties to outboard rails plus driver access not yet received",
+    "All retained cuff/MAIN/bank dependencies must have positive complete load paths",
+    "Split joint fasteners and PETG stiffness/creep remain unqualified"
+  ],
+  "previous_R2_receipt": "5f2be86c: full four-core cap mate received; old own PSYSTie remained; rails at cosmetic tail taper fail actual wall gap2.8607/3.25",
+  "worker_seconds": 0.038876
+}

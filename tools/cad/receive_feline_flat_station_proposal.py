@@ -52,7 +52,7 @@ def wire_shape(w):
 
 
 def main():
-    tick=time.monotonic();ref='P_SYS';r2='--owner-r2' in sys.argv;suffix='-r2' if r2 else ''
+    tick=time.monotonic();ref='P_SYS';r2=any(a in sys.argv for a in ('--owner-r2','--owner-complete'));suffix='-owned' if '--owner-complete' in sys.argv else '-r2' if r2 else ''
     dest=OUT/f'n01-flat20-mandatory-{ref}{suffix}.json';assert not dest.exists()
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
     proofpath=OUT/('n01-flat20-field'+suffix+'.json');proof=json.loads(proofpath.read_text())
