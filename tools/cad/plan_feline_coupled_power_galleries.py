@@ -8,6 +8,7 @@ import hashlib
 import itertools
 import json
 import subprocess
+import sys
 import time
 from pathlib import Path
 import numpy as np
@@ -25,28 +26,34 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-coupled-power-galleries.json';assert not dest.exists()
-    oldpath=OUT/'n01-flat20-domains-joint.json';old=json.loads(oldpath.read_text())
+    tick=time.monotonic();typed='--typed-source-radii' in sys.argv
+    dest=OUT/('n01-typed-power-galleries.json' if typed else 'n01-coupled-power-galleries.json');assert not dest.exists()
+    oldpath=OUT/('n01-coupled-power-galleries.json' if typed else 'n01-flat20-domains-joint.json');old=json.loads(oldpath.read_text())
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
     fieldproof=OUT/'n01-flat20-field-joint.json';proof=json.loads(fieldproof.read_text())
     fieldfile=ROOT/proof['field'];assert sha(fieldfile)==proof['field_sha256']
     helper=ROOT/'tools/cad/feline_flat_station_templates.py'
     for n,h in old['source_sha256'].items():
-        if n!=helper.relative_to(ROOT).as_posix():assert sha(ROOT/n)==h,n
-    oldcode=subprocess.run(['git','show',PRIOR+':'+helper.relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
+        if n not in (helper.relative_to(ROOT).as_posix(),Path(__file__).relative_to(ROOT).as_posix()):assert sha(ROOT/n)==h,n
+    priorcommit='ba5b72d4' if typed else PRIOR
+    oldcode=subprocess.run(['git','show',priorcommit+':'+helper.relative_to(ROOT).as_posix()],cwd=ROOT,check=True,capture_output=True).stdout
     legacy={'__file__':str(helper)};exec(compile(oldcode.decode(),'<pinned prior template>','exec'),legacy)
     domains={};equivalent=0
+    stationrefs={s['ref'] for s in plan['stations']}
     for ref,rows in old['domains'].items():
+        if ref not in stationrefs:continue
         station=next(s for s in plan['stations'] if s['ref']==ref);domains[ref]=[]
         for row in rows:
             args=(station,row['family'],row['side'],row['departure_X'],row['centre_mm'][0])
+            if typed:args+= (row.get('centre_y_override_mm'),row.get('bend_mode','OUTWARD_CONCENTRIC'))
             oldm=legacy['build'](*args);m=build(*args)
             for k in ('points','radii','types','bounds'):assert np.array_equal(oldm[k],m[k]),(ref,k)
             assert len(m['boxes'])==len(oldm['boxes'])
             for a,b in zip(m['boxes'],oldm['boxes']):assert a['kind']==b['kind'] and np.array_equal(a['bounds'],b['bounds'])
             m['numeric_score']=row['numeric_score'];domains[ref].append(m);equivalent+=1
     sourcechoices,sourcepins=candidates()
-    for ref,rows in old['S1_joint_domains'].items():
+    s1rows=old.get('S1_joint_domains') or {n:r for n,r in old['domains'].items() if n not in stationrefs}
+    for ref,rows in s1rows.items():
         bykey={(r['clock_target_degrees'],r['first_mm'],r['bend_degrees']):r for r in sourcechoices[ref]}
         domains[ref]=[]
         for row in rows:
@@ -65,11 +72,11 @@ def main():
                 P_SYS_context=.2,W043_context=.2,S1_context=.2)
     rails=shared_rail_bounds()
     result=dict(status='RUNNING_COUPLED_POWER_GALLERIES',selected=False,N01_complete=False,physical_pass=False,
-        changed_cause='Shared lateral central void and distinct vertical fan galleries for all3large power kits after coupled P_REAR/G1 conflict; all24nodes remain joint choices.',
+        changed_cause=('Typed per-wire catalogue/project minimumR for the full3power UP galleries, not imposing one thick-wireR on every other jacket; all real minimumR and24joint choices preserved.' if typed else 'Shared lateral central void and distinct vertical fan galleries for all3large power kits after coupled P_REAR/G1 conflict; all24nodes remain joint choices.'),
         source_sha256={**proof['source_sha256'],**sourcepins,**{p.relative_to(ROOT).as_posix():sha(p) for p in
             (oldpath,planfile,fieldproof,fieldfile,helper,Path(__file__),OUT/'n01-flat20-coupled-conflict.json',OUT/'n01-flat20-actual-clamp-kits.json')}},
         prior_domain_geometry_equivalent_count=equivalent,old_default_geometry_exact_array_equivalence=True,
-        reused_S1_source_domains={n:len(v) for n,v in domains.items() if n not in old['domains']},
+        reused_S1_source_domains={n:len(v) for n,v in domains.items() if n not in stationrefs},
         project_loose_numeric_screens_mm=screen,actual_airgaps_not_changed=True,
         numeric_proposal_not_solid_or_motion_qualification=True,
         all24actual_clamp_parts_stack_tools_and_carrier_root_connections_STILL_OPEN=True,
@@ -109,8 +116,8 @@ def main():
             # offsets to one failing wire. Existing standard row also retained.
             abs_y=27-pitch/2-1.25;assert abs_y>0
             tested=0;received=0;rejected={};oldcount=len(domains[ref])
-            for side,departure,y,bmode in itertools.product((-1,1),(-1,1),(0,abs_y,19.5),
-                    ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL')):
+            modes=('UP_TYPED_RADII','INWARD_UP_TYPED_RADII') if typed else ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL')
+            for side,departure,y,bmode in itertools.product((-1,1),(-1,1),(0,abs_y,19.5),modes):
                 if y==19.5 and bmode=='OUTWARD_CONCENTRIC':continue #Already received, not repeated.
                 template=build(station,'inner',side,departure,0,side*y,bmode)
                 if self_wire_gap(template)<-1e-6:

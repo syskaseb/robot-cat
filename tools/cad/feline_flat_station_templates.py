@@ -66,10 +66,10 @@ def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='O
         assert abs(abs(h)-1)<1e-7
         pitchsign=int(-h*departure) # Preserve source+Z/leverUP, including +Y mouths.
     d=np.array([departure,0,0.]);b=np.array([0,0,1.]) if family=='outer' else np.array([0,side,0.])
-    assert bend_mode in ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL')
+    assert bend_mode in ('OUTWARD_CONCENTRIC','UP_PARALLEL','INWARD_UP_PARALLEL','UP_TYPED_RADII','INWARD_UP_TYPED_RADII')
     if bend_mode!='OUTWARD_CONCENTRIC':
         assert family=='inner'
-        b=np.array([0,0,1.]) if bend_mode=='UP_PARALLEL' else np.array([0,-side/2**.5,1/2**.5])
+        b=np.array([0,0,1.]) if bend_mode in ('UP_PARALLEL','UP_TYPED_RADII') else np.array([0,-side/2**.5,1/2**.5])
     commonR=station['shared_fan_R_mm'];first=9
     activeYs=[(centre[1]+pitchsign*p['local_pitch_departure_thickness_mm'][0],
                max(12.4,p['minimum_project_R_mm'])) for p in station['ports'] if not p['protected_whole_route_reuse']]
@@ -99,6 +99,7 @@ def build(station,family,side,departure,centre_x=0,centre_y_mm=None,bend_mode='O
                 source_straight_length_mm=source['parts'][-1]['length_mm'],not_new_wire_geometry=True))
             continue
         R=commonY-side*q[1] if family=='inner' and bend_mode=='OUTWARD_CONCENTRIC' else commonR
+        if bend_mode.endswith('TYPED_RADII'):R=max(12.4,port['minimum_project_R_mm'])
         assert R>=port['minimum_project_R_mm']-1e-7
         a=q+d*first;angles=np.linspace(0,math.pi/2,math.ceil(R*math.pi/2)+1)
         arc=a+R*np.sin(angles)[:,None]*d+R*(1-np.cos(angles))[:,None]*b

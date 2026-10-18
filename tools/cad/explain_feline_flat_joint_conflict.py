@@ -2,6 +2,7 @@
 import hashlib
 import itertools
 import json
+import sys
 import time
 from pathlib import Path
 import numpy as np
@@ -12,14 +13,16 @@ OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enc
 
 
 def main():
-    tick=time.monotonic();path=OUT/'n01-flat20-domains-joint.json';doc=json.loads(path.read_text())
+    tick=time.monotonic();gallery='--gallery' in sys.argv
+    path=OUT/('n01-coupled-power-galleries.json' if gallery else 'n01-flat20-domains-joint.json');doc=json.loads(path.read_text())
     assert doc['joint_assignment'] is None and doc['search_nodes']==3 and not doc['errors']
     planfile=OUT/'n01-flat-station-architecture.json';plan=json.loads(planfile.read_text())
-    names=[n for n,v in doc['domains'].items() if len(v)<=3];assert len(names)==4
+    names=['P_SYS','P_REAR','G1','P_FRONT'] if gallery else [n for n,v in doc['domains'].items() if len(v)<=3];assert len(names)==4
     domains={}
     for n in names:
         station=next(s for s in plan['stations'] if s['ref']==n)
-        domains[n]=[build(station,r['family'],r['side'],r['departure_X'],r['centre_mm'][0]) for r in doc['domains'][n]]
+        domains[n]=[build(station,r['family'],r['side'],r['departure_X'],r['centre_mm'][0],
+            r.get('centre_y_override_mm'),r.get('bend_mode','OUTWARD_CONCENTRIC')) for r in doc['domains'][n]]
     def possible(group):
         for choice in itertools.product(*(range(len(domains[n])) for n in group)):
             if all(compatible(domains[a][choice[i]],domains[b][choice[j]]) for i,a in enumerate(group) for j,b in enumerate(group) if i<j):return True
@@ -53,7 +56,7 @@ def main():
             for p in (path,planfile,Path(__file__),ROOT/'tools/cad/feline_flat_station_templates.py')},
         next='Change shared row/height/module allocation including real clamps; no individual source-clock or scalar D_FL correction.',
         worker_seconds=round(time.monotonic()-tick,3))
-    dest=OUT/'n01-flat20-coupled-conflict.json';assert not dest.exists()
+    dest=OUT/('n01-coupled-power-gallery-conflict.json' if gallery else 'n01-flat20-coupled-conflict.json');assert not dest.exists()
     dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(dict(core=list(core),counts=result['domain_counts'],witnesses=len(witnesses),seconds=result['worker_seconds'])))
 
