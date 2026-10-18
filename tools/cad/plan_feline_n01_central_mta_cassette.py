@@ -6,6 +6,7 @@ No source/purchased part, lead length or robot motion is changed.
 """
 import json
 import time
+import sys
 import zipfile
 from pathlib import Path
 import FreeCAD as A
@@ -22,7 +23,8 @@ BRANCHES={'FL':(-95,-14,-34,('W026','W041')),
 
 def main():
     tick=time.monotonic();reader=SavedShapes()
-    dest=OUT/'n01-central-mta-cassette-plan.json'
+    flat='--flat-belly' in sys.argv
+    dest=OUT/('n01-central-mta-cassette-plan-r2.json' if flat else 'n01-central-mta-cassette-plan.json')
     assert not dest.exists(),'Receive existing result; no unchanged replay'
     manifest=OUT/'n01-shared-probe.json';source=json.loads(manifest.read_text())
     priorpath=OUT/'n01-shared-probe-motion-envelope.json';prior=json.loads(priorpath.read_text())
@@ -50,6 +52,15 @@ def main():
         if time.monotonic()-tick>240:raise TimeoutError('240s scope cap; preserve partial')
     def box(lo,hi):return Part.makeBox(*(b-a for a,b in zip(lo,hi)),A.Vector(*lo))
     shapes={};kinds={};owners={};fixed={}
+    reuse=None
+    if flat:
+        rp=OUT/'n01-central-mta-cassette-plan.json';reuse=json.loads(rp.read_text())
+        assert reuse['status']=='CENTRAL_CASSETTE_STATIC_REJECTED_MOTION_NOT_REPEATED'
+        assert not reuse['contacts'] and not reuse['errors'] and len(reuse['reservation_contacts'])==15
+        assert reuse['branch_datums']==report['branch_datums']
+        report['source_sha256'][rp.relative_to(ROOT).as_posix()]=sha(rp)
+        report['reused_actual_static_receipt']=dict(path=rp.relative_to(ROOT).as_posix(),sha256=sha(rp),
+            historical_tool_commit='d1579227',changed_only='Whole16factory seats inset0.25mm inside existing20.75mm wire; new flat-belly planning volume. No case/wire relocation.')
     with zipfile.ZipFile(ROOT/source['shared_probe']) as archive:
         for row in source['parts']:
             s=Part.Shape();s.importBrepFromString(archive.read(row['entry']).decode('utf-8'))
@@ -69,7 +80,8 @@ def main():
             for n in (f'Factory:{w}',f'CustomPrefix:{w}/custom/start'):
                 b=shapes[n].BoundBox;cy=(b.YMin+b.YMax)/2;cz=(b.ZMin+b.ZMax)/2
                 assert abs(cy-y)<1e-5 and abs(cz-z)<1e-5
-                starts=[b.XMin,b.XMax-9] if n.startswith('Factory:') else [b.XMin]
+                inset=.25 if flat else 0
+                starts=[b.XMin+inset,b.XMax-9-inset] if n.startswith('Factory:') else [b.XMin]
                 for i,x in enumerate(starts):
                     name=f'Seat:{w}:{"factory" if n.startswith("Factory:") else "custom"}:{i}'
                     outer=Part.makeCylinder(4.35,9,A.Vector(x,cy,cz),A.Vector(1,0,0))
@@ -120,14 +132,22 @@ def main():
     try:
         save()
         for n,s in shapes.items():
+            if flat and (kinds[n]=='actual_branch' or not n.startswith('Seat:') or ':factory:' not in n):continue
             for m,t in fixed.items():check(n,s,m,t)
         # Within a branch, retained supplier joins/owned wire seats unchanged.
         for n,s in shapes.items():
             if kinds[n]!='actual_branch':continue
             for m,t in shapes.items():
-                if kinds[m]=='actual_branch' and m>n and owners[n]!=owners[m]:check(n,s,m,t)
-                elif kinds[m]!='actual_branch':check(m,t,n,s)
-        outer=reader.shape(OUT/'FelineLayoutEnvelope.FCStd','TorsoEnvelope');shell=Part.makeCompound(outer.Shells)
+                if kinds[m]=='actual_branch' and m>n and owners[n]!=owners[m] and not flat:check(n,s,m,t)
+                elif kinds[m]!='actual_branch' and (not flat or m.startswith('Seat:') and ':factory:' in m):check(m,t,n,s)
+        outerpath=OUT/('central-cassette-envelope/FelineLayoutEnvelope.FCStd' if flat else 'FelineLayoutEnvelope.FCStd')
+        outer=reader.shape(outerpath,'TorsoEnvelope');shell=Part.makeCompound(outer.Shells)
+        if flat:
+            old=reader.shape(OUT/'FelineLayoutEnvelope.FCStd','TorsoEnvelope');removed=old.cut(outer)
+            assert removed.isNull() or removed.isValid()
+            report['old_envelope_material_outside_new_volume_mm3']=removed.Volume
+            # Previous parts may reuse containment only if true volume subset.
+            report['old_envelope_containment_reusable']=removed.Volume<1e-5
         for n,s in shapes.items():
             gate();diff=s.cut(outer);assert diff.isNull() or diff.isValid(),n
             if diff.Volume>1e-5:report['envelope_outside'].append(dict(object=n,outside_mm3=diff.Volume))
