@@ -22,9 +22,10 @@ from check_feline_leg_body import placement
 
 
 def main():
-    tick=time.monotonic();reader=SavedShapes();rev3='--washer-plane-carriers' in sys.argv
+    tick=time.monotonic();reader=SavedShapes();rev4='--integrated-wire-channels' in sys.argv
+    rev3=rev4 or '--washer-plane-carriers' in sys.argv
     rev2=rev3 or '--overhead-bank' in sys.argv
-    dest=OUT/('n01-common-backbone-preflight-r3.json' if rev3 else 'n01-common-backbone-preflight-r2.json' if rev2 else 'n01-common-backbone-preflight.json')
+    dest=OUT/('n01-common-backbone-preflight-r4.json' if rev4 else 'n01-common-backbone-preflight-r3.json' if rev3 else 'n01-common-backbone-preflight-r2.json' if rev2 else 'n01-common-backbone-preflight.json')
     assert not dest.exists(), 'Receive existing result; no unchanged rerun'
     native=OUT/'FelineInteriorMotion.FCStd'
     files=[OUT/n for n in ('n01-module-plan-r5.json','n01-shared-preflight-r5.json',
@@ -65,6 +66,12 @@ def main():
             report['reuse_r2']=dict(report=p2.relative_to(ROOT).as_posix(),sha256=sha(p2),
                 committed_source='9c522c04:tools/cad/plan_feline_n01_common_backbone.py',
                 scope='Unchanged frame/neck/lowerdeck clear; generic spacers rejected. Replace with carriers at actual washer/nut TOP planes.')
+        if rev4:
+            p3=OUT/'n01-common-backbone-preflight-r3.json';r3=json.loads(p3.read_text())
+            assert len(r3['contacts'])==5 and not r3['errors']
+            assert all(c['a']=='U1CarrierRoot0' or c['b'] in ('NineWireArmFL','NineWireArmFR') for c in r3['contacts'])
+            report['reuse_r3']=dict(report=p3.relative_to(ROOT).as_posix(),sha256=sha(p3),
+                scope='All PCB/neck/bank fixed contacts resolved. Replace U1 outboard roots with central roots; drill common cuff AND its load arm together.')
     scene={};role_of={};changed={};holder_of={};groups={g['role']:g for g in plan['groups']}
     valid={}
     def check(an,a,bn,b,scope):
@@ -77,6 +84,7 @@ def main():
             'PCBrail','PCBroot','U1Carrier','AUXCarrier')):return
         if rev3 and scope.startswith('common_structure_') and an.startswith((
             'NeckWeb','AUXBacker','AUXEar','PiFuseCradle','PiFuseRiser')):return
+        if rev4 and scope.startswith('common_structure_') and not an.startswith(('U1Carrier','NineWireArm')):return
         if not near(a,b):return
         report['pairs']+=1
         try:
@@ -232,8 +240,10 @@ def main():
                     Part.makeCylinder(1.2 if rev3 else 1.7 if u1 else 1.2,z1-z0,A.Vector(x,y,z0)))
                 if rev3:
                     if u1:
-                        box(f'U1CarrierArm{i}',[x-3,2,z0],[x+3,13,z0+2])
-                        box(f'U1CarrierRoot{i}',[x-3,7,-42],[x+3,13,z0])
+                        lo,hi=(-7,5) if rev4 else (2,13)
+                        box(f'U1CarrierArm{i}',[x-3,lo,z0],[x+3,hi,z0+2])
+                        lo,hi=(-7,-1) if rev4 else (7,13)
+                        box(f'U1CarrierRoot{i}',[x-3,lo,-42],[x+3,hi,z0])
                         parts[f'U1CarrierArm{i}']=parts[f'U1CarrierArm{i}'].cut(Part.makeCylinder(1.2,4,A.Vector(x,y,z0-1)))
                     else:
                         # Lugs outside the saved PCB perimeter, not through underside pads.
@@ -277,6 +287,9 @@ def main():
             p=A.Vector(*row['point_mm']);d=A.Vector(*row['bodyward_axis'])
             boundary_wires[row['id']]=Part.makeCylinder(1.55,9,p,d)
             n=row['owner'];parts[n]=parts[n].cut(Part.makeCylinder(1.8,11,p-d,d))
+            if rev4:
+                arm=n.replace('NineWireCuff','NineWireArm')
+                parts[arm]=parts[arm].cut(Part.makeCylinder(1.8,11,p-d,d))
     box('SelectedSolderSpliceClip',[-103,-9,38.9],[-61,9,47.1])
     report['splice_recipe']=dict(type='Existing selected solder overlap, no new connector',overlap_mm=8,
         sleeve_blank_mm=20,existing_material='RNF-100-3/16-0-STK',independent_intact_grips_x_mm=[[-103,-94],[-70,-61]],
