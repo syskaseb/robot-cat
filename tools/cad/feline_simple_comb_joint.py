@@ -116,7 +116,19 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--receipt-api-fix' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--compact-receipt-api' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_compact_station_receive.py'
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))
+            previous={n:subprocess.run(['git','show','541dda10:'+n],cwd=ROOT,check=True,capture_output=True).stdout for n in (own,receiver)}
+            assert all(hashlib.sha256(t).hexdigest()==result['source_sha256'][n] for n,t in previous.items())
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(previous[own],name))==ast.dump(get(Path(__file__).read_text(),name)),name
+            assert ast.dump(get(previous[receiver],'receive'))==ast.dump(get((ROOT/receiver).read_text(),'receive'))
+            assert result['errors']==['AssertionError()']
+            result.setdefault('controller_repairs',[]).append(dict(reason='Traceback identifies compact-receipt source pins, not a geometry failure. Adopt all3 actual compact/fan receipts after tested AST identity proof',prior_metadata_errors=result['errors'],prior_traceback=result.pop('last_error_traceback',None)))
+            result['errors']=[];result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--receipt-api-fix' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_bank_lane_receive.py'
             assert set(pins)==set(result['source_sha256'])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))

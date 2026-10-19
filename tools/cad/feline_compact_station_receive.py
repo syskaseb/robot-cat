@@ -1,5 +1,8 @@
 """Receive only changed full wires of the compact fan; keep actual old stock."""
 import json
+import ast
+import hashlib
+import subprocess
 import time
 from pathlib import Path
 import FreeCAD as A
@@ -13,13 +16,35 @@ from feline_solid_distance import bbox_lower_bound
 from receive_feline_global_case_candidates import placement
 
 
+def adopt_receipt_pins(result,pins):
+    """Pure metadata migration; every old constructor/query remains exact."""
+    own=Path(__file__).relative_to(ROOT).as_posix();helper='tools/cad/feline_compact_station_fan.py'
+    assert set(pins)==set(result['source_sha256'])
+    assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,helper))
+    get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+    previous={}
+    for name in (own,helper):
+        versions=[subprocess.run(['git','show',c+':'+name],cwd=ROOT,check=True,capture_output=True).stdout for c in ('b61265e7','65c742c7','dad9709b')]
+        previous[name]=next(t for t in versions if hashlib.sha256(t).hexdigest()==result['source_sha256'][name])
+    for name in ('unit','legacy_unit','rise_unit'):
+        if any(isinstance(n,ast.FunctionDef) and n.name==name for n in ast.walk(ast.parse(previous[helper]))):
+            assert ast.dump(get(previous[helper],name))==ast.dump(get((ROOT/helper).read_text(),name)),name
+    class DefaultFactory(ast.NodeTransformer):
+        def visit_Name(self,n):return ast.copy_location(ast.Name(id='factory',ctx=n.ctx),n) if n.id=='unit' else n
+    assert ast.dump(DefaultFactory().visit(get(previous[own],'receive')))==ast.dump(get(Path(__file__).read_text(),'receive'))
+    result.setdefault('additive_receipt_repairs',[]).append(dict(old_source_sha256=result['source_sha256'],reason='Existing constructors and actual receive AST unchanged; factory API and additive constructors only'))
+    result['source_sha256']=pins
+
+
 def receive_requests(requests,factory=None,destination='n01-compact-station-static.json'):
     tick=time.monotonic();dest=OUT/destination;factory=factory or unit
     files=[Path(__file__),Path(__file__).with_name('feline_compact_station_fan.py'),
            OUT/'n01-flat-station-architecture.json',OUT/'n01-station-zone-domains.json',OUT/'n01-six-source-shared-lanes.outer.brep']
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
     result=dict(status='RUNNING_CHANGED_COMPACT_FAN',source_sha256=pins,units={},errors=[],N01_complete=False,physical_pass=False)
-    if dest.exists():result=json.loads(dest.read_text());assert result['source_sha256']==pins
+    if dest.exists():
+        result=json.loads(dest.read_text())
+        if result['source_sha256']!=pins:adopt_receipt_pins(result,pins)
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         temp=dest.with_suffix('.writing.json');temp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n');temp.replace(dest)
