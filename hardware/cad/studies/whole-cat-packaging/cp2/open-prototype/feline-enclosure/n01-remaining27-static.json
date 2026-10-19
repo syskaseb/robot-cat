@@ -3,13 +3,13 @@
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-whole51-joint-proposal.json": "04f5c6c58914b346ee1619233fff38adaa103f5be2c2df5430824b94c5695489",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bank-W027-open-saddle.json": "165018260d9b8390327f605cb552ad61964f55e4ca04b7a883754078f285f622",
-    "tools/cad/feline_remaining_kits.py": "4b56a3dd3f433df3754b9631b30a17b8870e7d51b28ad02bda4c6a3d8517738b",
+    "tools/cad/feline_remaining_kits.py": "d507b5c284274f6191f66b4cb122d3e8c4d8b50b1297798080d006c546393e31",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-actual-clamp-kits.json": "b159aaeb71c39d5d3095185ca1a9cbfb1cd87a9215d1eebe752a3236eed2061a",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-actual-clamp-kits.breps.zip": "fbc5989e7980b721511168ec9fa68f58dddb8b734d5b739ef5a1797b72d3aa40",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-clocked-joints.json": "ac9f1c77c4c24bc22952f1f4815b7aee946eba73238cded0e0a597c745140788",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-clocked-joints.zip": "e776ebed7398891d9e607e33a20b0d2f6880af6eb23c10e861c01f0dc4d18cdb",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bank-W027-open-saddle.breps.zip": "a539224a5833b3194dfcc5149d9b985c4a6c9709f491fce4fd414cb9c7ecbb88",
-    "tools/cad/feline_remaining_receive.py": "36eba96e7f2192fa05340eccbe7b182077b639eb39394be07b6514c36f601a32"
+    "tools/cad/feline_remaining_receive.py": "9a9c74e28a56f59c3e706aad683fbb16bd10b28fd4d6b1d61e5a891fdfb9cb9d"
   },
   "units": {
     "Bank:W027/single/end:1946d3dbaeea29969134a234459eced1117d6d2829687d0328cc8fd75f6faea9": {
@@ -7843,12 +7843,122 @@
         }
       },
       "failure": "head_budget|fixed:Ref_Material_F_R5_CP2_IN_0_0"
+    },
+    "Bank:W059/body/end:a023044a5101df043d98d531dc0dbd466886092447d28d2b9d88dac1b1c080c7": {
+      "group": "Bank:W059/body/end",
+      "recipe": {
+        "ref": "Bank:W059/body/end",
+        "bank_source": true,
+        "source_endpoint": "W059/body/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm23_context",
+        "point_mm": [
+          78.0,
+          -17.151999999999973,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -1.0,
+          0.0,
+          1.2246467991473532e-16
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          56.599999999999994,
+          4.248000000000028,
+          69.0
+        ],
+        "bend_clock_degrees": 180,
+        "complete_band_head_degrees": 90,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 1.5882389894404805,
+        "reused_monotone_world_domain": true,
+        "grip_site": "AFTER_BEND",
+        "existing_after_arc_straight_grip_mm": 9,
+        "entire_wire_first9_R_length_unchanged": true
+      },
+      "pairs": {
+        "wire:W059/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 42.0
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R5_CP2_IN_0_0": {
+          "ok": true,
+          "gap_mm": 3.8819000000000017,
+          "minimum_mm": 1.25
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R5_CP2_OUT_0_0": {
+          "ok": true,
+          "gap_mm": 20.2695,
+          "minimum_mm": 1.25
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "split_cap_exterior|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 40.0
+        },
+        "split_cap_exterior|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "band_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 38.8
+        },
+        "band_budget|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "head_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 47.2
+        },
+        "head_budget|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        }
+      },
+      "identical_full_wire_receipts_reused_from": "Bank:W059/body/end:8ef71dae4d599e0d141a8d4040a8174d2d7ab021b8bbb8116cd62565253153c7",
+      "failure": null
     }
   },
   "errors": [],
   "N01_complete": false,
   "physical_pass": false,
-  "worker_seconds": 3.516,
+  "worker_seconds": 29.938,
   "world_source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.json": "f61a1be4752aa0872b168de1a094ebc1fc633f55968abd02c9e12f1634a7183d",
@@ -7917,13 +8027,20 @@
     1.063,
     3.453,
     3.438,
-    3.422
+    3.422,
+    3.516
   ],
   "additive_geometry_extensions": [
     {
       "old_constructor_sha256": "5d3e32cc6e977118d4c861ce4806036e27eab78d83f6d932f949afa4299ed6b0",
       "old_recipe_geometry_AST_identical": true,
       "added_only": "14W027 alternative bend planes; same original2retained",
+      "old_mouths_first9_R_and_grip_heads_preserved": true
+    },
+    {
+      "old_constructor_sha256": "4b56a3dd3f433df3754b9631b30a17b8870e7d51b28ad02bda4c6a3d8517738b",
+      "old_recipe_geometry_AST_identical": true,
+      "added_only": "W027 extra bend planes and AFTER_BEND full9grips for23generic bank sources; all before recipes retained",
       "old_mouths_first9_R_and_grip_heads_preserved": true
     }
   ],

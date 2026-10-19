@@ -7,11 +7,28 @@ import Part
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools/cad'))
-from feline_remaining_kits import candidates,materialise
+from feline_remaining_kits import candidates,materialise,source_wire_signature
 OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure'
 
 
 class RemainingKits(unittest.TestCase):
+    def test_after_arc_grips_preserve_entire_existing_wire_and_all9mm(self):
+        groups,_=candidates();group='Bank:W059/body/end'
+        after=[r for r in groups[group] if r.get('grip_site')=='AFTER_BEND']
+        self.assertTrue(after)
+        for r in after[:3]:
+            old=next(x for x in groups[group] if x.get('grip_site') is None and
+                     source_wire_signature(group,x)==source_wire_signature(group,r) and
+                     x['complete_band_head_degrees']==r['complete_band_head_degrees'])
+            before,_=materialise(group,old);now,_=materialise(group,r)
+            name=next(n for n in now if n.startswith('wire:'))
+            self.assertLess(before[name].cut(now[name]).Volume,1e-7)
+            self.assertLess(now[name].cut(before[name]).Volume,1e-7)
+            self.assertAlmostEqual(before[name].Volume,now[name].Volume,places=6)
+            for n,s in now.items():
+                if n!=name:self.assertLess(now[name].common(s).Volume,1e-7,n)
+            self.assertEqual(r['existing_after_arc_straight_grip_mm'],9)
+
     def test_only_remaining27_and_source_all24_mouths(self):
         groups,pins=candidates()
         self.assertEqual(len(groups),27)

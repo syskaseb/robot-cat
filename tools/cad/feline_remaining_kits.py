@@ -27,6 +27,7 @@ def candidates():
     assert packet['domains'] and not packet.get('errors')
     groups['Bank:W027/single/end']=[dict(r,received_open_packet=True) for r in packet['domains']]
     extend_open_bank(groups,packet)
+    extend_after_arc_grips(groups)
     assert len(groups)==27 and all(groups.values())
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in (path,opened,Path(__file__))}
     for name in ('n01-flat20-actual-clamp-kits.json','n01-coupled-clocked-joints.json','n01-bank-W027-open-saddle.json'):
@@ -48,25 +49,61 @@ def extend_open_bank(groups,packet):
     assert all(row in groups[key] for row in old)
 
 
+def extend_after_arc_grips(groups):
+    for group,rows in groups.items():
+        if not group.startswith('Bank:') or rows[0].get('received_open_packet'):continue
+        old=list(rows)
+        assert all('grip_site' not in r for r in old)
+        rows.extend(dict(r,grip_site='AFTER_BEND',existing_after_arc_straight_grip_mm=9,
+                         entire_wire_first9_R_length_unchanged=True) for r in old)
+
+
+def source_wire_signature(group,r):
+    if not group.startswith('Bank:') or r.get('received_open_packet'):return None
+    return json.dumps([group]+[r[n] for n in ('point_mm','departure_axis','bend_unit','R_mm','first_mm','radius_mm')],sort_keys=True)
+
+
+def after_arc_material(group,r):
+    q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis']);b=np.asarray(r['bend_unit'])
+    radius=r['radius_mm'];R=r['R_mm'];first=r['first_mm']
+    assert first==9 and abs(np.linalg.norm(b)-1)<1e-6 and abs(b@d)<1e-6
+    start=q+(first+R)*d+R*b
+    wire=wire_shape(dict(r,radius=radius))
+    cap=sleeve(start,b,radius,radius+.15,radius+2,9)
+    band=sleeve(start+3.25*b,b,radius,radius+2,radius+3.2,2.5)
+    angle=np.deg2rad(r['complete_band_head_degrees']);u=np.cos(angle)*d+np.sin(angle)*np.cross(b,d)
+    v=np.cross(b,u);rot=np.column_stack((u,v,b));assert abs(np.linalg.det(rot)-1)<1e-6
+    centre=start+4.5*b+(radius+6.2)*u
+    head=Part.makeBox(6,6,6,A.Vector(-3,-3,-3));head.Placement=placement(rot,centre)
+    parts={'wire:'+r['source_endpoint']:wire,'split_cap_exterior':cap,'band_budget':band,'head_budget':head}
+    kinds={n:'proposal_wire' if n.startswith('wire:') else 'project_stock_reservation' if 'budget' in n else 'proposal_material' for n in parts}
+    assert all(s.isValid() and s.Solids for s in parts.values())
+    return parts,kinds
+
+
 def prove_additive_extension(old_hash):
     """Old inputs have no new key, so every old material branch is identical."""
     rel='tools/cad/feline_remaining_kits.py'
-    old=subprocess.run(['git','show','65e2b033:'+rel],cwd=ROOT,check=True,capture_output=True).stdout
-    assert hashlib.sha256(old).hexdigest()==old_hash
+    versions=[subprocess.run(['git','show',c+':'+rel],cwd=ROOT,check=True,capture_output=True).stdout for c in ('65e2b033','f172a295')]
+    old=next(s for s in versions if hashlib.sha256(s).hexdigest()==old_hash)
     before=ast.parse(old);after=ast.parse(Path(__file__).read_text())
     class StripOnlyNewBranch(ast.NodeTransformer):
         def visit_If(self,node):
-            if ast.unparse(node.test)=="'wire_bend_clock_degrees' in r":return None
+            if ast.unparse(node.test) in ("'wire_bend_clock_degrees' in r","r.get('grip_site') == 'AFTER_BEND'"):return None
             return self.generic_visit(node)
         def visit_Expr(self,node):
-            if isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Name) and node.value.func.id=='extend_open_bank':return None
+            if isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Name) and node.value.func.id in ('extend_open_bank','extend_after_arc_grips'):return None
             return self.generic_visit(node)
-    after=StripOnlyNewBranch().visit(after)
+    old_branches=[n for n in ast.walk(before) if isinstance(n,ast.If) and ast.unparse(n.test)=="'wire_bend_clock_degrees' in r"]
+    for branch in old_branches:
+        same=next(n for n in ast.walk(after) if isinstance(n,ast.If) and ast.unparse(n.test)==ast.unparse(branch.test))
+        assert ast.dump(branch)==ast.dump(same)
+    before=StripOnlyNewBranch().visit(before);after=StripOnlyNewBranch().visit(after)
     for name in ('candidates','source_packet','sleeve','materialise'):
         get=lambda t:next(n for n in ast.walk(t) if isinstance(n,ast.FunctionDef) and n.name==name)
         assert ast.dump(get(before))==ast.dump(get(after)),name
     return dict(old_constructor_sha256=old_hash,old_recipe_geometry_AST_identical=True,
-                added_only='14W027 alternative bend planes; same original2retained',
+                added_only='W027 extra bend planes and AFTER_BEND full9grips for23generic bank sources; all before recipes retained',
                 old_mouths_first9_R_and_grip_heads_preserved=True)
 
 
@@ -85,6 +122,7 @@ def sleeve(q,d,r,inner,outer,length):
 
 def materialise(group,r):
     parts={};kinds={}
+    if r.get('grip_site')=='AFTER_BEND':return after_arc_material(group,r)
     if r.get('received_open_packet'):
         doc,source,rows=source_packet('n01-bank-W027-open-saddle.json')
         for row in r['parts']:

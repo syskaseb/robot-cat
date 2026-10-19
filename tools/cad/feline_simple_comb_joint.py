@@ -95,7 +95,17 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--repair-open-owner' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--after-bank-grips' in sys.argv:
+            from feline_remaining_kits import prove_additive_extension
+            own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_remaining_receive.py';helper='tools/cad/feline_remaining_kits.py'
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (receiver,own,helper))
+            proof=prove_additive_extension(result['source_sha256'][helper])
+            oldcode=subprocess.run(['git','show','42948b3d:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(oldcode).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(oldcode,name))==ast.dump(get(Path(__file__).read_text(),name))
+            result.setdefault('additive_geometry_extensions',[]).append(proof);result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--repair-open-owner' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_remaining_receive.py'
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (receiver,own))
             oldcode=subprocess.run(['git','show','f172a295:'+own],cwd=ROOT,check=True,capture_output=True).stdout
@@ -241,6 +251,11 @@ def main():
             longfile=OUT/'n01-two-lane-static.json';longdata=json.loads(longfile.read_text()) if two_lane and longfile.exists() else dict(units={})
             remaining_file=OUT/'n01-remaining27-static.json'
             remaining_data=json.loads(remaining_file.read_text()) if whole54 and remaining_file.exists() else dict(units={})
+            if whole54:
+                from feline_remaining_kits import source_wire_signature
+                bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
+                    if isinstance(rec.get('failure'),str) and rec['failure'].startswith('wire:')}
+                bad_bank_wires.discard(None)
             common_bad=receive_common_failures(result,longdata,stations) if two_lane else set()
             save()
             bad_cases={r['slot']['id'] for r in received.values() if str(r.get('failure','')).startswith('case|')}
@@ -278,6 +293,7 @@ def main():
                 elif r['kind']=='remaining_kit':
                     rec=remaining_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    if source_wire_signature(g,r['recipe']) in bad_bank_wires:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
