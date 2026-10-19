@@ -887,7 +887,405 @@ def receive_boot_intrinsic():
     print(json.dumps(result),flush=True)
 
 
+def receive_boot_module_gate():
+    """One shared critical-port table, before another detailed world audit."""
+    from feline_fore_power_pair import SolidQueries,pair_spacing
+    from feline_solid_distance import bbox_lower_bound
+    tick=time.monotonic();dest=OUT/'n01-boot30-whole-BUS-critical-gate.json';assert not dest.exists()
+    pf=OUT/'n01-joint-rear-boot-budget-plan.json';p=json.loads(pf.read_text());sf=OUT/'n01-full-material-scene.json';src=json.loads(sf.read_text())
+    priorfile=OUT/'n01-joint-rear-boot-intrinsic-received.json';prior=json.loads(priorfile.read_text())
+    assert prior['status']=='USB_FULL_BOOT_CORE_INTRINSIC_CLEAR_WORLD_OPEN'
+    for file in (pf,sf):assert prior['source_sha256'][file.relative_to(ROOT).as_posix()]==sha(file)
+    core={'Ref_Material_BUSsupplier0_0_0','CurrentBUS:H5MatingReserve','CurrentBUS:DGSharedRelief','CurrentBUS:USB_C_Overmould','CurrentBUS:BUS_Backplate','CurrentBUS:BUS.D','CurrentBUS:BUS.G',*(f'CurrentBUS:BUS_Standoff{i}' for i in range(4))}
+    fixednames={'Ref_Material_P0_MountRearL_0_0','Ref_Material_P0_MountRearR_0_0',*(f'Print_CP2_TailRiser{s}' for s in ('','001','002','003'))}
+    pins={};base={};obstacles={};metadata={}
+    def read(docfile,wanted,target):
+        d=json.loads(docfile.read_text());arc=ROOT/d['bundle'];assert sha(arc)==d['bundle_sha256']
+        pins.update({f.relative_to(ROOT).as_posix():sha(f) for f in (docfile,arc)})
+        with zipfile.ZipFile(arc) as z:
+            for row in d['parts']:
+                if not wanted(row):continue
+                raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256']
+                s=Part.Shape();s.importBrepFromString(raw.decode());assert s.isValid() and s.Solids
+                target[row['name']]=s;metadata[row['name']]=row
+    read(sf,lambda r:r['name'] in core,base);assert set(base)==core
+    read(sf,lambda r:r['name'] in fixednames,obstacles);assert set(obstacles)==fixednames
+    read(OUT/'n01-shared54-current.json',lambda r:r.get('group')=='F_PWM_whole' and ':End0:' not in r['name'] and ':End1:' not in r['name'],obstacles)
+    carrier,ties,_=fpwm_after_turn_carrier()
+    obstacles.update({'F_PWM:received_carrier':carrier,**{'F_PWM:'+n:s for n,s in ties.items()}})
+    bridgefile=OUT/'n01-two-flank-tail-bridge-plan.json';bridge=json.loads(bridgefile.read_text());arc=ROOT/bridge['bundle'];assert sha(arc)==bridge['bundle_sha256']
+    with zipfile.ZipFile(arc) as z:raw=z.read('new_bridge.brep')
+    assert hashlib.sha256(raw).hexdigest()==bridge['new_bridge.brep_sha256'];s=Part.Shape();s.importBrepFromString(raw.decode());obstacles['Tail:two_flank_bridge']=s
+    wirefile=ROOT/p['bundle'];assert sha(wirefile)==p['bundle_sha256']
+    with zipfile.ZipFile(wirefile) as z:raw=z.read('USB500.brep')
+    assert hashlib.sha256(raw).hexdigest()==p['USB_brep_sha256'];wire=Part.Shape();wire.importBrepFromString(raw.decode());wire.translate(A.Vector(-2,0,0))
+    outerfile=OUT/'n01-six-source-shared-lanes.outer.brep';outer=Part.Shape();outer.read(str(outerfile))
+    pins.update({f.relative_to(ROOT).as_posix():sha(f) for f in (pf,priorfile,wirefile,bridgefile,arc,outerfile,Path(__file__))})
+    pose=p['BUS_relative_placement'];delta=A.Vector(-2,0,0);tf=A.Placement(A.Vector(*pose['translation_mm'])+delta,A.Rotation(A.Vector(1,0,0),pose['rotation_X_deg']))
+    pivot=A.Vector(*p['BUS_new_mouth_mm'])+delta;axis=A.Vector(*p['BUS_new_departure_axis']);q=SolidQueries()
+    result=dict(status='RUNNING_BOOT30_WHOLE_CORE_GATE',source_sha256=pins,core_parts=sorted(core),fixed_critical_neighbors=sorted(obstacles),clocks={},N01_complete=False,physical_pass=False,selected=False,
+        all117supplier_parts_Pi_full7_world_motion_roots_tools_capacity_OPEN=True)
+    def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
+    for degree in (0,90,180,270):
+        r=A.Rotation(axis,degree);clock=A.Placement(pivot-r.multVec(pivot),r);transform=clock*tf
+        table=dict(outer=[],near_pairs=[],failures=[],bbox_separated_pairs=0,reused_intrinsic=0,complete=False);result['clocks'][str(degree)]=table
+        for name,original in base.items():
+            s=original.copy();s.Placement=transform*s.Placement
+            outside=outer_margin(s,outer);table['outer'].append(dict(part=name,**outside))
+            if not outside['ok']:table['failures'].append(dict(a=name,b='outer',**outside))
+            for other,t in {**obstacles,'USB500:whole':wire}.items():
+                if other=='USB500:whole' and degree==0:
+                    cached=next((r for r in prior['checks'] if r['part']==name),None)
+                    if cached:table['reused_intrinsic']+=1;continue
+                minimum=.2 if other=='USB500:whole' and name.endswith(('BUS.D','BUS.G')) else pair_spacing(name,metadata[name],other,metadata.get(other,{'kind':'proposal_material'}))
+                if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum:table['bbox_separated_pairs']+=1;continue
+                gap=q.distance(s,t);port=other=='USB500:whole' and name=='CurrentBUS:USB_C_Overmould'
+                check=dict(a=name,b=other,gap_mm=gap,minimum_mm=minimum,ok=gap>=minimum-1e-6)
+                if port:
+                    common=s.copy().common(t.copy());assert common.isNull() or common.isValid();check.update(ok=common.Volume<1e-5,port_common_mm3=common.Volume)
+                table['near_pairs'].append(check)
+                if not check['ok']:table['failures'].append(check)
+            save()
+        table['complete']=True;table['critical_clear']=not table['failures'];save()
+    result['critical_survivors']=[int(k) for k,v in result['clocks'].items() if v['critical_clear']]
+    result['status']='BOOT30_CRITICAL_POSES_RECEIVED_NOT_WHOLE_N01';save()
+    print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],survivors=result['critical_survivors'],poses={k:dict(failures=len(v['failures']),first=v['failures'][:3],near=len(v['near_pairs']),reused=v['reused_intrinsic']) for k,v in result['clocks'].items()})),flush=True)
+
+
+def plan_lower_shared_bay():
+    """One below-platform bay; extra straight is allocated with total length.
+
+    This is not the rejected narrow frame/bank U or a local rear-coil offset.
+    Signed samples propose witnesses, never prove an overlapping bbox collision.
+    """
+    from scipy.interpolate import make_interp_spline
+    from feline_cubic_curvature import extrema
+    from receive_feline_positive_service_deck import circle_arc,pipe
+    tick=time.monotonic();dest=OUT/'n01-below-platform-shared-plan.json';assert not dest.exists()
+    datumfile=OUT/'n01-active-Pi-BUS-datums.json';datums=json.loads(datumfile.read_text())
+    contractfile=OUT/'n01-physical-cable-contract.json';contract=json.loads(contractfile.read_text())['usb']
+    fieldfile=OUT/'n01-current-signed-space.json';fielddoc=json.loads(fieldfile.read_text());field=ROOT/fielddoc['field'];assert sha(field)==fielddoc['field_sha256']
+    oldmouth=np.array(contract['bus_jacket_mouth_mm']);board=np.mean([f['centre_mm'] for f in datums['boards'][1]['large_plane_faces']],axis=0)
+    q=np.array([-41.5,37.,98.7]);t=np.array([-1.,0,0]);R=31.;cy=0.;cz=-10.;first_length=33.;tail=30.;D=12.
+    dy,dz=cy-q[1],cz-q[2];K=math.sqrt(dy*dy+dz*dz-R*R)
+    co=(R*dy+K*dz)/(R*R+K*K);si=(K*dy-R*dz)/(R*R+K*K);phase=math.atan2(si,co)
+    b=np.array([0,si,co]);first=q+first_length*t;arcend=first+30*t+30*b;start=arcend+(K-30)*b
+    assert K-30>=9
+    x0=start[0];nodes,weights=np.polynomial.legendre.leggauss(48);u=(nodes+1)/2
+    length=lambda turns:float(np.sum(weights*np.sqrt((6*D*u*(1-u))**2+(R*2*math.pi*turns)**2))/2)
+    prefix=first_length+30*math.pi/2+K-30
+    turns=brentq(lambda z:prefix+length(z)+tail-452,.8,2.5,xtol=1e-12);T=2*math.pi*turns
+    at=lambda v:np.array([x0+D*(3*v*v-2*v*v*v),cy-R*math.cos(phase+T*v),cz+R*math.sin(phase+T*v)])
+    deriv=lambda v:np.array([6*D*v*(1-v),R*T*math.sin(phase+T*v),R*T*math.cos(phase+T*v)])
+    assert np.linalg.norm(at(0)-start)<1e-8
+    terminal=deriv(1);terminal/=np.linalg.norm(terminal);busmouth=at(1)+tail*terminal
+    roll=A.Rotation(A.Vector(1,0,0),math.degrees(math.atan2(-terminal[2],-terminal[1])))
+    rot=roll*A.Rotation(A.Vector(0,0,1),180);tf=A.Placement(A.Vector(*busmouth)-rot.multVec(A.Vector(*oldmouth)),rot)
+    v=np.linspace(0,1,401);points=np.array([at(z) for z in v]);spline=make_interp_spline(v,points,k=3,bc_type=([(1,deriv(0))],[(1,deriv(1))]))
+    curvature=extrema(spline.t,spline.c);assert curvature['regular'] and curvature['minimum_radius_mm']>=30
+    knots,mults=np.unique(spline.t,return_counts=True);curve=Part.BSplineCurve();curve.buildFromPolesMultsKnots([A.Vector(*p) for p in spline.c],mults.tolist(),knots.tolist(),False,3)
+    edges=[Part.makeLine(A.Vector(*q),A.Vector(*first)),circle_arc(first,t,b,30,math.pi/2),Part.makeLine(A.Vector(*arcend),A.Vector(*start)),curve.toShape(),Part.makeLine(A.Vector(*at(1)),A.Vector(*busmouth))]
+    shape,path=pipe(edges,2.5);assert abs(path.Length-452)<1e-4
+    ang=np.linspace(0,math.pi/2,151);arc=first+30*np.sin(ang[:,None])*t+30*(1-np.cos(ang[:,None]))*b
+    samples=np.vstack([np.linspace(q,first,51),arc,np.linspace(arcend,start,121),points,np.linspace(at(1),busmouth,61)])
+    along=np.r_[0,np.cumsum(np.linalg.norm(np.diff(samples,axis=0),axis=1))];pairs=cKDTree(samples).query_pairs(5.2,output_type='ndarray')
+    selfbad=bool(len(pairs) and np.any(np.abs(along[pairs[:,0]]-along[pairs[:,1]])>12))
+    field_checks={}
+    with np.load(field,allow_pickle=False) as f:
+        for key,minimum in [('rigid_signed_distance',3.75),('motion36_signed_distance',3.75),('outer_distance',5.75)]:
+            values=map_coordinates(f[key],(samples-f['origin_mm']).T,order=1,mode='constant',cval=-100);index=int(np.argmin(values))
+            field_checks[key]=dict(minimum_sample_mm=float(values[index]),required_mm=minimum,witness_mm=samples[index].tolist(),needs_exact_gate=bool(values[index]<minimum))
+    result=dict(status='BELOW_PLATFORM_SHARED_MATH_RECEIVED_EXACT_GATES_OPEN',source_sha256={f.relative_to(ROOT).as_posix():sha(f) for f in (datumfile,contractfile,fieldfile,field,Path(__file__))},
+        Pi_PCB_centre_mm=[30,56.39,104],Pi_USB_mouth_mm=q.tolist(),Pi_departure_axis=t.tolist(),source_initial_straight_mm=first_length,
+        source_full9_mm=[arcend.tolist(),(arcend+9*b).tolist()],source_postbend_straight_mm=K-30,allocated_BUS_outside_tangent_mm=tail,
+        BUS_first3_and_full9_mm=[busmouth.tolist(),(busmouth-3*terminal).tolist(),(busmouth-12*terminal).tolist()],
+        BUS_relative_placement=dict(base_mm=list(tf.Base),quaternion=list(tf.Rotation.Q)),BUS_actual_PCB_datum_mm=list(tf.multVec(A.Vector(*board))),
+        coil=dict(R_mm=R,centre_YZ_mm=[cy,cz],start_X_mm=x0,end_X_mm=x0+D,turns=turns,minimum_spline_R_mm=curvature['minimum_radius_mm']),
+        USB_length_mm=path.Length,USB_valid=shape.isValid(),USB_solids=len(shape.Solids),sampled_self_contact=selfbad,signed_sample_checks=field_checks,
+        signed_samples_are_not_clearance_or_infeasibility_proof=True,all_full_grips_roots_world_motion_Pi_and_supplier_component_gates_OPEN=True,
+        selected=False,N01_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
+    archive=dest.with_suffix('.breps.zip');raw=shape.exportBrepToString().encode();samplesblob=io.BytesIO();np.save(samplesblob,samples,allow_pickle=False)
+    with zipfile.ZipFile(archive,'x',zipfile.ZIP_DEFLATED) as z:z.writestr('USB500.brep',raw);z.writestr('samples.npy',samplesblob.getvalue())
+    result.update(bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),USB_brep_sha256=hashlib.sha256(raw).hexdigest());save_json(dest,result)
+    print(json.dumps(result),flush=True)
+
+
+def receive_lower_witnesses():
+    from feline_common_space_context import current
+    from feline_fore_power_pair import SolidQueries
+    from receive_feline_global_case_candidates import placement
+    tick=time.monotonic();pf=OUT/'n01-below-platform-shared-plan.json';p=json.loads(pf.read_text());arc=ROOT/p['bundle'];assert sha(arc)==p['bundle_sha256']
+    with zipfile.ZipFile(arc) as z:raw=z.read('USB500.brep')
+    assert hashlib.sha256(raw).hexdigest()==p['USB_brep_sha256'];wire=Part.Shape();wire.importBrepFromString(raw.decode())
+    world,parts,meta,pins,docs=current();query=SolidQueries();hits=[]
+    def contains(shape,point):
+        assert shape.isValid() and shape.Solids
+        return any(s.isInside(point,1e-7,False) for s in shape.Solids)
+    point=A.Vector(*p['signed_sample_checks']['rigid_signed_distance']['witness_mm'])
+    for n,s in parts.items():
+        if not s.Solids or not s.BoundBox.isInside(point):continue
+        if n==world.bus['name']:
+            inside=contains(world.bus['original'],world.bus['inverse'].multVec(point))
+        else:inside=contains(s,point)
+        if inside:
+            gap=query.distance(wire,s);hits.append(dict(layer='static',owner=n,witness_mm=list(point),strict_inside_actual_solid=True,whole_USB_gap_mm=gap));break
+    point=A.Vector(*p['signed_sample_checks']['motion36_signed_distance']['witness_mm'])
+    for pose in world.motion:
+        lo,hi=pose['bounds']
+        if not all(lo[i]<=point[i]<=hi[i] for i in range(3)):continue
+        tf=placement(pose['r'],pose['t']);s=world.rest[pose['name']]
+        if contains(s,tf.inverse().multVec(point)):
+            moving=s.copy();moving.Placement=tf*moving.Placement;gap=query.distance(wire,moving)
+            hits.append(dict(layer='motion',owner=pose['name'],pose=pose['pose'],witness_mm=list(point),strict_inside_actual_solid=True,whole_USB_gap_mm=gap));break
+    result=dict(status='BELOW_PLATFORM_WHOLE_BAY_REJECTED_ACTUAL_WITNESSES' if hits else 'SIGNED_WITNESSES_NOT_CONFIRMED_NO_INFEASIBILITY',
+        source_sha256={**pins,**{f.relative_to(ROOT).as_posix():sha(f) for f in (pf,arc,Path(__file__))}},hits=hits,
+        only_this_bay_rejected_not_global_robot_infeasibility=True,selected=False,N01_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
+    dest=OUT/'n01-below-platform-actual-witnesses.json';assert not dest.exists();save_json(dest,result)
+    print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],hits=hits)),flush=True)
+
+
+def plan_roof_shared_bay(drop=18.):
+    """Horizontal upper corridor instead of a transverse loop through legs."""
+    from scipy.interpolate import make_interp_spline
+    from feline_cubic_curvature import extrema
+    from receive_feline_positive_service_deck import circle_arc,pipe
+    from receive_feline_global_case_candidates import placement
+    tick=time.monotonic();dest=OUT/('n01-roof-shared-layer30-plan.json' if drop==30 else 'n01-roof-shared-plan.json');assert not dest.exists()
+    parentfile=OUT/'n01-joint-rear-service-bay-plan.json';parent=json.loads(parentfile.read_text())
+    contractfile=OUT/'n01-physical-cable-contract.json';contract=json.loads(contractfile.read_text())['usb']
+    q=np.array(parent['Pi_USB_mouth_mm'])+[-2,0,0];R=37.5;initial=15.;T=3*math.pi
+    cx=q[0]+initial;cy=q[1]-R;angle=math.radians(100)
+    at=lambda v:np.array([cx+R*math.cos(math.pi/2-T*v),cy+R*math.sin(math.pi/2-T*v),q[2]-drop*(3*v*v-2*v*v*v)])
+    deriv=lambda v:np.array([R*T*math.sin(math.pi/2-T*v),-R*T*math.cos(math.pi/2-T*v),-6*drop*v*(1-v)])
+    nodes,weights=np.polynomial.legendre.leggauss(48);u=(nodes+1)/2
+    coillen=float(np.sum(weights*np.sqrt((R*T)**2+(6*drop*u*(1-u))**2))/2)
+    final=452-initial-coillen-30*angle;assert final>=12
+    end=at(1);t=np.array([-1.,0,0]);b=np.array([0.,1,0]);tailend=end+30*math.sin(angle)*t+30*(1-math.cos(angle))*b
+    incoming=t*math.cos(angle)+b*math.sin(angle);mouth=tailend+final*incoming
+    rotmatrix=np.column_stack([[0,0,1],incoming,np.cross([0,0,1],incoming)])
+    rot=placement(rotmatrix,[0,0,0]).Rotation;oldmouth=np.array(contract['bus_jacket_mouth_mm']);tf=A.Placement(A.Vector(*mouth)-rot.multVec(A.Vector(*oldmouth)),rot)
+    v=np.linspace(0,1,401);points=np.array([at(z) for z in v]);spline=make_interp_spline(v,points,k=3,bc_type=([(1,deriv(0))],[(1,deriv(1))]))
+    curvature=extrema(spline.t,spline.c);assert curvature['regular'] and curvature['minimum_radius_mm']>=30
+    knots,mults=np.unique(spline.t,return_counts=True);curve=Part.BSplineCurve();curve.buildFromPolesMultsKnots([A.Vector(*p) for p in spline.c],mults.tolist(),knots.tolist(),False,3)
+    edges=[Part.makeLine(A.Vector(*q),A.Vector(*at(0))),curve.toShape(),circle_arc(end,t,b,30,angle),Part.makeLine(A.Vector(*tailend),A.Vector(*mouth))]
+    shape,path=pipe(edges,2.5);assert abs(path.Length-452)<1e-4
+    angles=np.linspace(0,angle,101);tail=end+30*np.sin(angles[:,None])*t+30*(1-np.cos(angles[:,None]))*b
+    samples=np.vstack([np.linspace(q,at(0),41),points,tail,np.linspace(tailend,mouth,41)])
+    along=np.r_[0,np.cumsum(np.linalg.norm(np.diff(samples,axis=0),axis=1))];pairs=cKDTree(samples).query_pairs(5.2,output_type='ndarray');selfbad=bool(len(pairs) and np.any(np.abs(along[pairs[:,0]]-along[pairs[:,1]])>12))
+    result=dict(status='ROOF_SHARED_MATH_RECEIVED_INTRINSIC_AND_WORLD_OPEN',source_sha256={f.relative_to(ROOT).as_posix():sha(f) for f in (parentfile,contractfile,Path(__file__))},
+        Pi_PCB_centre_mm=(np.array(parent['Pi_PCB_centre_mm'])+[-2,0,0]).tolist(),Pi_USB_mouth_mm=q.tolist(),Pi_departure_axis=[1,0,0],
+        source_initial_straight_mm=initial,source_full9_mm=[(q+[3,0,0]).tolist(),(q+[12,0,0]).tolist()],
+        coil=dict(R_mm=R,centre_XY_mm=[cx,cy],initial_Z_mm=q[2],final_Z_mm=q[2]-drop,turns=1.5,minimum_spline_R_mm=curvature['minimum_radius_mm']),
+        tail_R_mm=30,tail_angle_deg=100,allocated_BUS_outside_tangent_mm=final,
+        BUS_first3_and_full9_mm=[mouth.tolist(),(mouth-3*incoming).tolist(),(mouth-12*incoming).tolist()],
+        BUS_relative_placement=dict(base_mm=list(tf.Base),quaternion=list(tf.Rotation.Q)),USB_length_mm=path.Length,USB_valid=shape.isValid(),USB_solids=len(shape.Solids),
+        sampled_self_contact=selfbad,sampled_check_is_not_continuous_clearance=True,
+        selected=False,N01_complete=False,physical_pass=False,full_supplier_and_ports_grips_roots_world_motion_assembly_capacity_OPEN=True,worker_seconds=round(time.monotonic()-tick,3))
+    archive=dest.with_suffix('.breps.zip');raw=shape.exportBrepToString().encode();buf=io.BytesIO();np.save(buf,samples,allow_pickle=False)
+    with zipfile.ZipFile(archive,'x',zipfile.ZIP_DEFLATED) as z:z.writestr('USB500.brep',raw);z.writestr('samples.npy',buf.getvalue())
+    result.update(bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),USB_brep_sha256=hashlib.sha256(raw).hexdigest());save_json(dest,result)
+    print(json.dumps(result),flush=True)
+
+
+def receive_roof_core(build_only=False):
+    """Full bought modules and their own cable before the external world gate."""
+    from feline_common_space_context import current
+    from feline_fore_power_pair import SolidQueries,pair_spacing
+    from feline_solid_distance import bbox_lower_bound
+    from receive_feline_positive_service_deck import pipe,circle_arc,open_grip,intentional_mate
+    layer30='--roof-layer30' in sys.argv
+    tick=time.monotonic();dest=OUT/('n01-roof-shared-layer30-core-received.json' if layer30 else 'n01-roof-shared-core-received.json');assert build_only or not dest.exists()
+    pf=OUT/('n01-roof-shared-layer30-plan.json' if layer30 else 'n01-roof-shared-plan.json');p=json.loads(pf.read_text());ff=OUT/'n01-fore-coil-service-deck-received.json';fore=json.loads(ff.read_text())
+    world,parts,meta,pins,docs=current();actors={};roles={};rows={};baseline={}
+    spin=A.Rotation(A.Vector(0,0,1),180);centre=A.Vector(*fore['Pi_pose']['target_PCB_centre_mm']);target=A.Vector(*p['Pi_PCB_centre_mm']);pitf=A.Placement(target-spin.multVec(centre),spin)
+    archive=ROOT/fore['changed_geometry_archive'];assert sha(archive)==fore['changed_geometry_archive_sha256']
+    with zipfile.ZipFile(archive) as z:
+        for r in fore['geometry']:
+            if r['role'] not in ('PiRigid','PiFlexible'):continue
+            raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256'];s=Part.Shape();s.importBrepFromString(raw.decode());s.Placement=pitf*s.Placement
+            n=r['name'];actors[n]=s;roles[n]='PiWire' if r['role']=='PiFlexible' else 'PiRigid';rows[n]={'kind':'wire' if r['role']=='PiFlexible' else 'reservation' if n.startswith('PiBudget:') else 'proposal_material'}
+            baseline[n]=s.copy()
+    assert len(actors)==35
+    endpoints={e['id']:e for e in docs['ends']['endpoints']}
+    new_ends=[]
+    for e in fore['new_Pi_endpoints']:
+        power=e['id'].startswith(('W079/','W080/'));bound=endpoints[e['id']]
+        n='PiPower:'+e['id'].split('/')[0] if power else 'PiGPIO:'+bound['endpoint']
+        q=pitf.multVec(A.Vector(*e['point_mm']));t=pitf.Rotation.multVec(A.Vector(*e['axis']));b=A.Vector(0,1,0) if power else A.Vector(1,1,0);b-=t*t.dot(b);b.normalize()
+        first=q+t*e['first_mm'];end=first+t*e['R_mm']+b*e['R_mm'];tip=end+b*9
+        actors[n],path=pipe([Part.makeLine(q,first),circle_arc(list(first),list(t),list(b),e['R_mm'],math.pi/2),Part.makeLine(end,tip)],e['radius_mm'])
+        new_ends.append(dict(name=n,point_mm=list(q),axis=list(t),full9_mm=[list(end),list(tip)],R_mm=e['R_mm'],length_mm=path.Length))
+    pose=p['BUS_relative_placement'];bustf=A.Placement(A.Vector(*pose['base_mm']),A.Rotation(*pose['quaternion']));inverse=world.bus['inverse']*bustf.inverse()
+    keep={'CurrentBUS:H5MatingReserve','CurrentBUS:USB_C_Overmould','CurrentBUS:DGSharedRelief','CurrentBUS:BUS_Backplate',*(f'CurrentBUS:BUS_Standoff{i}' for i in range(4))}
+    for n,s in parts.items():
+        if meta[n].get('role')!='BUS' and not n.startswith('CurrentBUS:'):continue
+        if n.startswith('CurrentBUS:') and meta[n].get('kind') not in ('wire','actual_wire') and n not in keep:continue
+        a=s.copy();a.Placement=bustf*a.Placement;actors[n]=a;roles[n]='BUS';rows[n]=meta[n]
+    wirefile=ROOT/p['bundle'];assert sha(wirefile)==p['bundle_sha256']
+    with zipfile.ZipFile(wirefile) as z:raw=z.read('USB500.brep')
+    assert hashlib.sha256(raw).hexdigest()==p['USB_brep_sha256'];wire=Part.Shape();wire.importBrepFromString(raw.decode());actors['USB500:whole']=wire;roles['USB500:whole']='USB';rows['USB500:whole']={'kind':'wire'}
+    for tag,land in [('Pi',p['source_full9_mm']),('BUS',p['BUS_first3_and_full9_mm'][1:])]:
+        start=np.array(land[0]);axis=np.array(land[1])-land[0];axis/=np.linalg.norm(axis)
+        for suffix,s in open_grip(start,axis,[0,0,-1],4.5).items():
+            n='USBGrip:'+tag+':'+suffix;actors[n]=s;roles[n]='Grip:'+tag;rows[n]={'kind':'proposal_material'}
+    outerfile=OUT/'n01-six-source-shared-lanes.outer.brep';outer=Part.Shape();outer.read(str(outerfile));query=SolidQueries()
+    pins.update({f.relative_to(ROOT).as_posix():sha(f) for f in (pf,ff,archive,wirefile,outerfile,Path(__file__))})
+    if build_only:
+        accepted=json.loads(dest.read_text());assert accepted['status']=='ROOF_SHARED_CORE_RECEIVED_WORLD_OPEN' and not accepted['failures'] and not accepted['errors']
+        for name,value in accepted['source_sha256'].items():
+            if name!=Path(__file__).relative_to(ROOT).as_posix():assert pins[name]==value,name
+        assert accepted['actor_names']==list(actors) and accepted['new_Pi_full_ends']==new_ends
+        return world,parts,meta,pins,docs,actors,roles,rows,inverse,outer,accepted,dest
+    result=dict(status='RUNNING_ROOF_SHARED_CORE',source_sha256=pins,actor_names=list(actors),new_Pi_full_ends=new_ends,checks={},failures=[],errors=[],
+        P_REAR_whole9_forebay_relocation_not_yet_qualified=True,world_motion_all123_roots_tools_assembly_OPEN=True,selected=False,N01_complete=False,physical_pass=False,native_changed=False)
+    if layer30:
+        priorfile=OUT/'n01-roof-shared-core-received.json';prior=json.loads(priorfile.read_text())
+        assert prior['source_sha256'][ff.relative_to(ROOT).as_posix()]==sha(ff)
+        assert prior['source_sha256'][archive.relative_to(ROOT).as_posix()]==sha(archive)
+        assert prior['new_Pi_full_ends']==new_ends
+        oldplan=json.loads((OUT/'n01-roof-shared-plan.json').read_text());assert oldplan['Pi_PCB_centre_mm']==p['Pi_PCB_centre_mm']
+        pi={n for n in actors if roles[n] in ('PiRigid','PiWire')}
+        for key,r in prior['checks'].items():
+            names=key.split('|')
+            if r['ok'] and names[0] in pi and (names[1]=='outer' or names[1] in pi):result['checks'][key]=r
+        result['unchanged_full_Pi_receipt_reused']=dict(source_sha256=sha(priorfile),pairs=len(result['checks']))
+    def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
+    def distance(n,s,m,t):
+        if n==world.bus['name']:
+            a=t.copy();a.Placement=inverse*a.Placement;return query.distance(world.bus['original'],a)
+        if m==world.bus['name']:
+            a=s.copy();a.Placement=inverse*a.Placement;return query.distance(a,world.bus['original'])
+        return query.distance(s,t)
+    save()
+    try:
+        for n,s in actors.items():
+            # All bought components are checked against the cable. Critical
+            # board/ports/carriers establish outer feasibility before tiny parts.
+            if roles[n]!='BUS' or n.startswith('CurrentBUS:') or n=='Ref_Material_BUSsupplier0_0_0':
+                r=result['checks'].get(n+'|outer') or outer_margin(s,outer);result['checks'][n+'|outer']=r
+                if not r['ok']:result['failures'].append(dict(a=n,b='outer',**r))
+            for m,t in actors.items():
+                if n==m:continue
+                if roles[n]==roles[m] and roles[n] not in ('PiWire','USB'):continue
+                key='|'.join(sorted((n,m)))
+                if key in result['checks']:continue
+                minimum=pair_spacing(n,rows[n],m,rows[m])
+                if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum:continue
+                result['pending_pair']=[n,m];save();gap=distance(n,s,m,t);r=dict(gap_mm=gap,minimum_mm=minimum,ok=gap>=minimum-1e-6)
+                mate=intentional_mate(n,m)
+                if mate and gap<1e-6:
+                    common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
+                    r.update(ok=common.Volume<1e-5,mating_common_mm3=common.Volume)
+                    wn=n if n.startswith('PiGPIO:') else m if m.startswith('PiGPIO:') else None
+                    housing=m if wn==n else n
+                    if wn and housing=='PiBudget:GPIO1992OccupiedHousing':
+                        old=baseline[wn].copy().common(actors[housing].copy());delta=common.copy().cut(old.copy()).Volume+old.copy().cut(common.copy()).Volume
+                        r.update(ok=delta<1e-5,project_same_source_ingress_symmetric_difference_mm3=delta,project_budget_only_not_supplier_fit=True)
+                if 'USB500:whole' in (n,m) and any(x.startswith('USBGrip:') and x.endswith((':pad',':band')) for x in (n,m)):
+                    common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,intended_wire_pad_or_band_common_mm3=common.Volume)
+                result['checks'][key]=r;result.pop('pending_pair',None)
+                if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
+                save()
+                if time.monotonic()-tick>220:raise TimeoutError('Roof core pairs saved; not a new geometry variant')
+        result['status']='ROOF_SHARED_CORE_RECEIVED_WORLD_OPEN' if not result['failures'] else 'ROOF_SHARED_CORE_CONFLICTS_RECEIVED'
+    except Exception as exc:result['errors'].append(repr(exc));result['status']='ROOF_SHARED_CORE_PARTIAL'
+    save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],pairs=len(result['checks']),failures=result['failures'],errors=result['errors'])),flush=True)
+
+
+def receive_roof_world():
+    """Freeze the clear own-core, receive only changed external interfaces."""
+    from feline_fore_power_pair import SolidQueries,pair_spacing
+    from feline_solid_distance import bbox_lower_bound
+    from receive_feline_global_case_candidates import placement
+    tick=time.monotonic();dest=OUT/'n01-roof-layer30-world-received.json';resume='--resume-roof-world' in sys.argv;assert resume==dest.exists()
+    world,parts,meta,pins,docs,actors,roles,rows,inverse,outer,accepted,corefile=receive_roof_core(True)
+    fixed=dict(parts);retired=[]
+    for n in list(fixed):
+        if meta[n].get('group')=='PiUpper' or meta[n].get('role')=='BUS' or n.startswith('CurrentBUS:'):
+            retired.append(n);fixed.pop(n)
+    rear={n for n in fixed if meta[n].get('group')=='P_REAR'};assert len(rear)==9
+    for n in rear:
+        s=fixed.pop(n).copy();s.translate(A.Vector(-126.5,0,0));actors[n]=s;roles[n]='MovedPRear';rows[n]=meta[n]
+    query=SolidQueries();result=dict(status='RUNNING_ROOF_SHARED_WORLD',source_sha256={**pins,corefile.relative_to(ROOT).as_posix():sha(corefile)},
+        whole_accepted_core_reused=True,retired_replaced_old_module_parts=retired,moved_P_REAR_names=sorted(rear),P_REAR_translation_mm=[-126.5,0,0],
+        checks={},failures=[],errors=[],completed_actors=[],core_phase_complete=False,
+        seven_Pi_complete_grips_roots_tools_all123_and_assembly_OPEN=True,selected=False,N01_complete=False,physical_pass=False,native_changed=False)
+    if resume:
+        old=json.loads(dest.read_text())
+        for name,value in old['source_sha256'].items():
+            if name!=Path(__file__).relative_to(ROOT).as_posix():assert result['source_sha256'][name]==value,name
+        assert old['moved_P_REAR_names']==result['moved_P_REAR_names']
+        result.update(checks=old['checks'],failures=old['failures'],completed_actors=old['completed_actors'],
+            previous_runs=old.get('previous_runs',[])+[dict(worker_seconds=old['worker_seconds'],receipt_sha256=sha(dest),errors=old['errors'])])
+    def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
+    def gap_to(n,s,m,t):
+        if n==world.bus['name']:
+            a=t.copy();a.Placement=inverse*a.Placement;return query.distance(world.bus['original'],a)
+        if m==world.bus['name']:
+            a=s.copy();a.Placement=inverse*a.Placement;return query.distance(a,world.bus['original'])
+        return query.distance(s,t)
+    priority=lambda n:0 if n=='USB500:whole' else 1 if roles[n]=='PiWire' else 2 if roles[n]=='MovedPRear' else 3 if roles[n].startswith('Grip') else 4
+    core=[n for n in actors if roles[n]!='BUS' or n.startswith('CurrentBUS:') or n=='Ref_Material_BUSsupplier0_0_0']
+    detail=[n for n in actors if n not in core]
+    save()
+    try:
+        for phase,names in [('critical',sorted(core,key=priority)),('remaining_bought_components',detail)]:
+            if phase!='critical' and result['failures']:break
+            for n in names:
+                if n in result['completed_actors']:continue
+                s=actors[n]
+                if roles[n] in ('MovedPRear','BUS'):
+                    key=n+'|outer'
+                    if key not in result['checks']:
+                        if n==world.bus['name']:
+                            transformed_outer=outer.copy();transformed_outer.Placement=inverse*transformed_outer.Placement;r=outer_margin(world.bus['original'],transformed_outer)
+                        else:r=outer_margin(s,outer)
+                        result['checks'][key]=r
+                        if not r['ok']:result['failures'].append(dict(a=n,b='outer',**r))
+                targets={**fixed,**{m:actors[m] for m in rear if m!=n}}
+                if n in rear:targets.update({m:t for m,t in actors.items() if roles[m]!='MovedPRear'})
+                for m,t in targets.items():
+                    if n in rear and m in rear:continue  # Whole9-part isometry: existing intentional internal joints retained.
+                    key=n+'|fixed:'+m
+                    if key in result['checks']:continue
+                    minimum=pair_spacing(n,rows[n],m,rows.get(m,meta.get(m,{})))
+                    if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum:continue
+                    result['pending_pair']=[n,m];save()
+                    if not t.Solids:r=dict(ok=False,reason='Existing curve-only owner needs current physical profile/route disposition, not a material contact claim')
+                    else:
+                        gap=gap_to(n,s,m,t);r=dict(ok=gap>=minimum-1e-6,gap_mm=gap,minimum_mm=minimum)
+                    result['checks'][key]=r;result.pop('pending_pair',None)
+                    if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
+                    save()
+                    if time.monotonic()-tick>220:raise TimeoutError('External changed pairs saved; resume identical geometry')
+                for pose in world.motion:
+                    if bbox_lower_bound(s.BoundBox,A.BoundBox(*pose['bounds'][0],*pose['bounds'][1]))>=1.25:continue
+                    key=n+'|motion:'+pose['name']+':'+str(pose['pose'])
+                    if key in result['checks']:continue
+                    tf=placement(pose['r'],pose['t']);result['pending_pair']=[n,key];save()
+                    if n==world.bus['name']:
+                        moving=world.rest[pose['name']].copy();moving.Placement=inverse*tf*moving.Placement;gap=query.distance(world.bus['original'],moving)
+                    else:
+                        a=s.copy();a.Placement=tf.inverse()*a.Placement;gap=query.distance(a,world.rest[pose['name']])
+                    r=dict(ok=gap>=1.25-1e-6,gap_mm=gap,minimum_mm=1.25);result['checks'][key]=r;result.pop('pending_pair',None)
+                    if not r['ok']:result['failures'].append(dict(a=n,b=pose['name'],pose=pose['pose'],**r))
+                    save()
+                    if time.monotonic()-tick>220:raise TimeoutError('External changed motion pairs saved; resume identical geometry')
+                result['completed_actors'].append(n);save()
+            if phase=='critical':result['core_phase_complete']=True;save()
+        result['status']='ROOF_SHARED_WORLD_CONFLICTS_RECEIVED' if result['failures'] else 'ROOF_SHARED_STATIC_AND36MOTION_RECEIVED_ROOTS_TOOLS_CAPACITY_OPEN'
+    except Exception as exc:result['errors'].append(repr(exc));result['status']='ROOF_SHARED_WORLD_PARTIAL'
+    save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],pairs=len(result['checks']),completed=len(result['completed_actors']),failure_count=len(result['failures']),first_failures=result['failures'][:15],errors=result['errors'])),flush=True)
+
+
 def main():
+    if '--receive-roof-world' in sys.argv:return receive_roof_world()
+    if '--roof-layer30-plan' in sys.argv:return plan_roof_shared_bay(30.)
+    if '--receive-roof-core' in sys.argv:return receive_roof_core()
+    if '--roof-shared-bay' in sys.argv:return plan_roof_shared_bay()
+    if '--receive-lower-witnesses' in sys.argv:return receive_lower_witnesses()
+    if '--lower-shared-bay' in sys.argv:return plan_lower_shared_bay()
+    if '--boot-module-gate' in sys.argv:return receive_boot_module_gate()
     if '--receive-boot-intrinsic' in sys.argv:return receive_boot_intrinsic()
     if '--joint-rear-boot-budget' in sys.argv:return plan_joint_rear_bay(30)
     if '--fpwm-after-turn-carrier' in sys.argv:return plan_fpwm_after_turn_carrier()

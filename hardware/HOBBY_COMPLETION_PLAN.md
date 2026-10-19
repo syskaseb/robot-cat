@@ -2,6 +2,130 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+19:56Z: świat dla rozdzielonych zatokODEBRANY77,766s/103kontrole/
+31wskazań/0błędów. Własne162kontrolepozostają prawdziwe, NIE kwalifikują
+układu. Dwanaście wskazań dotyczy narzędzi/wyciąganiaATO, ponadto niższy
+powrót zbliża się0,453mm doFL1 i przecina główkęFL. PiPCBpo przesunięciu
+-30X przecina kluczS0, a przewody/adapter przecinają bank/górnąFR_P.
+Ten wariant ODRZUCONY; nie uruchamiać mikropoprawek lub7chwytów dla niego.
+Tabela wszystkich rzeczywistych krytycznych gabarytów/mocowań/H5/DG/
+zajętych portów jest odebrana w n01-shared-upper-constraints.json.
+Z niej planować CAŁY pakiet przed następnym modelem: Pi nie na kluczuS0,
+narzędziaATO doZ82, kabel nad narzędziami ale poza USB-A, pełna obudowaUSB-C,
+pełny H5 i obieD/G oraz drukowany nośnik z4prawdziwych osi. Obrys jest
+zmienną projektu w zatwierdzonych325x200x160/max200, nie wymuszać starego
+zwężenia pustą pętlą przez ogon. N01=0/10, stary master bez zmian.
+
+19:50Z: rozdzielone pełne zatokiPi/BUS ODEBRANE202,250s/162kontrole/
+0konfliktów/0błędów. Pełne452/R>=30, całe kupne moduły, obie obudowy
+wtyczek i dwa kompletne chwyty USB. Wszystkie21stacji zachowane BEZ
+przenoszenia. To nieN01: odbierany jest teraz tylko ten sam zapisany
+zestaw BRep względem świata i36pozycji nóg. Nie powtarzać162par własnych.
+Pełne7chwytówPi, drogi mocowania/narzędzia/montaż i123korytarze nadalOPEN.
+
+19:46Z: warstwa pod portami ODEBRANA131,266s/163kontrole/0błędów;
+pozostał JEDEN styk USB-A_frontPi z pełną obudową USB-C (11,534mm3).
+Rzeczywisty wymiar obudowy to X49,194..71,194, a portPi kończy sięX54.
+Poprzednia hipoteza kierunku tej22mm obudowy była odwrócona. Przydział
+dwóch PEŁNYCH zatok połączeń: portPi doX54, obudowaBUS odX64 (10mm),
+zamiast ich pionowego nakładania. Obie proste powrotu wyliczyć z452mm
+i tej granicy; nie skracać kabla/obudowy ani osobno przesuwać główek.
+Reużyć niezmienione pary własnegoPi; nowyBUS/USB/oba chwyty wymagają odbioru.
+
+19:43Z: podłużny powrótODEBRANY102,703s/225kontroli/9konfliktów/0błędów.
+Rzeczywiste obwiednie portówPi wskazują wspólną przyczynę: powrót przechodzi
+przez USB-A_front (Z87,2..103,2), budżet elementów (Z99,2..103,2) i końce
+śrub, nie brak miejsca samego PCB. Nie przesuwać osobno wtyczek ani opasek.
+Cały stały powrót i oba pełne chwyty przechodzą do wydzielonej warstwy
+Z81,5 POD portami; zejście w pierwszym pełnym nawrocieR32, końcowe9 jest
+naprawdę proste (poprzednia końcowa rampa nie gwarantowała tego). Dodatnia
+galeriaY89 i lewy nawrótY57 omijają wcześniej wykazane S0key/PWM, zamiast
+ponownego ujemnego łuku przez źródło. Długość452/izolacja i wszystkie
+21stacje zachowane. Najpierw wspólny odbiór własny; ani świat odrzuconego
+wariantu, ani pełneN03 nie są uruchamiane. N01bez punktu, native bez zmian.
+
+19:37Z: dachowy D30 ODRZUCONY we wspólnym świecie95,046s/0błędów.
+83surowe wskazania obejmują28błędnie ponownie badanych wewnętrznych
+styków9P_REAR; pozostałe świadki (ogon, bankW058, mankiety, F_PWM,
+fundament i ForeFHAC) blokują układ niezależnie. Nie ponawiać wariantu
+ani jego drobnych przesunięć. Przekroje z już przypiętych komórek2,890s
+pokazują podział warstw: Z70 bank, Z85 wolniejsza przestrzeń środkowa,
+Z100 górne moduły boczne. Komórki są konserwatywne, nie dowodzą kolizji.
+Zmiana topologii: JEDEN podłużny powrót USB nad bankiem, nie1,5zwoju
+przez ogon. Dwa półkolaR30, odstęp60Y, prosta140X, pełne452 wyliczone
+razem z łagodnym końcowym zejściem12Z; PiPCB8,5/13,468/104, USB80/32,858/
+98,7. BUS wynika z końca, PCB poziomo poniżej źródłowej prostej USB;
+oba pełne chwyty i wszystkie obudowy w bramce własnej. ZasilaniePi
+wykorzystuje pierwotny pionowy wylot w dół, zamiast wejścia w górne WAGO.
+Nie przenosić P_REAR ani innych21stacji bez rzeczywistej potrzeby.
+Warunek: własne bryły/końce/pełne chwyty, następnie tylko zmienione pary
+ze światem/ruch i narzędziami. WciążN01=0/10, native bez zmian.
+
+19:28Z: D30 pełny własny zestaw ODEBRANY58,171s/83kontrole/0konfliktów/
+0błędów;53identyczne paryPi reużyte. To nie całyN01. Warstwa kabla i BUS
+uzgodniona ze wszystkimi kupnymi komponentami własnymi, pełnymi obudowami
+USB i oboma pełnymi chwytami; prowizoryczne wejściaGPIO pozostają projektowe,
+nie producentowskie. Nie powtarzać bramki własnej. Następny odbiór to tylko
+zmienione interfejsy z CAŁYM rzeczywistym światem i36pozycjami nóg oraz
+pełne9P_REAR przesunięte razem-126,5X do forebay. Najpierw wszystkie
+krytyczne moduły/końce, potem tylko jeśli bez blokera drobne pozostałe części
+BUS. Zachować niezmieniony bank/P0/F_PWM/tailbridge. Nowe7chwytówPi,
+rzeczywiste drogi mocowania/narzędzia/montaż i wspólne123korytarze nadalOPEN.
+
+Odbiór własny dachowego układu62,828s/82kontrole/0błędów: tylko Ethernet
+1mm<1,25, USB-C common55,036mm3 i główka opaskiPi0,125mm. Rzeczywisty
+świadekEthernetu to bok(84;-4,642;89,7) vs kabel(85;-4,642;89,7).
+USB-C przecina inny zwój, nie własne wejście przewodu. Zmiana PRZYCZYNY:
+rozdzielić warstwy całego kabla i końcowegoBUS, nie przemieszczać każdego
+elementu osobno. Pełna rampa Z98,7→68,7 zamiast→80,7; XY/R37,5/source15/
+pełne9/tailR30_100stopni i całe452 zachowane, położenie całego BUS ponownie
+wyprowadzone z końca przewodu. D30 daje zapas pionowy do boków Ethernetu,
+bootu i główki jednocześnie. Nie dziedziczyć zmienionych par kabla/BUS;
+82 wcześniejsze wyniki zachowane, identyczne własne paryPi reużyć po
+przypiętej geometrii i tych samych końcach. Przed światem pełna bramka własna.
+
+19:15Z, dolna przednia rodzina zamknięta:28,860s, ścisłe wnętrze
+W037_Joint i rzeczywistego ruchomego P0PartFeature014/pose0, USBgap0.
+W037 to zachowana fabryczna gałąź przy kasecie, nie usuwać jej jako ghost.
+Zmiana funkcjonalnej płaszczyzny: pozioma pętla DANYCH pod dachem, nad
+nogami, nie kolejny niższy ofset. Przed następnym światem jeden plan całych
+Pi/USB/BUS: źródło15mm z pełnym9, R37,5/1,5obrotu/Z98,7→80,7, obrót
+ogonaR30/100stopni i pozostała prosta co najmniej12, całe452. Korpus BUS
+ma wypaść POZA bankiem w tylnym dodatnimY, nie nad drogąATO. Pełny H5,
+obie żyły D/G i obudowy USB wymagają wspólnej kontroli własnej. Jeśli
+P_REAR blokuje zasilaniePi, przenieść CAŁE9części do przedniej górnej
+strefy(-70..-33X), nie opuszczać go w nową płytkęBUS. Bank/P0/tailbridge/
+F_PWM i pozostałe moduły zachowane. Najpierw bramka wspólnej przestrzeni,
+nie nativeN03. Ta nowa rodzina wymaga pełnego odbioru, brak punktuN01.
+
+18:51Z: cztery tylne orientacje boot30 odebrane10,391s; brak przejścia
+obrysu i pełnych końców, nie ponawiać lokalnych zegarów/ofsetów. Odczyt
+aktualnych brył wykazał S0Y±28,5/Z44,92..108, S1Y-80,88..-34,22/
+Z30,77..77,44 (stary dodatniY z archiwum NIE jest bieżącą pozą).
+Zmiana funkcjonalnej strefy, nie kolejny tylny wariant: plan całego
+Pi+USB+BUS z pętlą poniżej platformy26,52, w istniejącym brzuchu-48..112.
+Do taniej bramki: PiPCB30/56,39/104, źródłoUSB(-41,5;37;98,7),33mm
+przed R30, pełna prosta po nim do niższej pętliR31/Y0/Z-10/X-104,5..-92,5,
+30mm przyBUS. Całe452mm rozwiązane wspólnie; nie skracać kabla aniR30.
+Pierwsze sprawdzenie: matematyka/pełne9/samokontakt i odebrane signedpole
+ruchu/ciała, potem rzeczywisty świadek CAD przed interpretacją ujemnego
+pola. Podpory/pełne chwyty/montaż nie dziedziczą zaliczenia. Trzy całe
+górne stacje trzeba rezerwować w środkowym poziomie z rzeczywistym pełnym
+gabarytem, nie samą wysokością obudowy. Nie budować nowych częściN03.
+
+18:43Z, N01OPEN. Bieżący bloker: stare12mm powodowało36,06187mm3
+we własnym bootUSB; boot30 ma common0 i siedem kontroli własnych odebranych.
+Nie powtarzać macierzy starego układu. Teraz jeden wspólny ekran CZTERECH
+funkcjonalnych orientacji całego BUS wokół zachowanego mouth/tangent nowego
+boot30, nie siatka przesunięć. Krytyczne źródłowe PCB/H5/obaDG/backplate/
+cztery dystanse/boot kontra rzeczywisty obrys i komplet znanych sąsiadów
+F_PWM/P0/tail. Reużyć odebrane własne pary dla orientacji0. Akceptacja
+przed następnym odbiorem świata: poprawne bryły, cały zestaw krytyczny
+z pełnymi końcami/bootem, nie sama płytka, bez naruszeń obrysu/marginesów.
+Wszystkie niezmienione źródła i bank zachowane; stare korzenie BUS nie
+dziedziczą kwalifikacji po nowym położeniu. Pełny świat/ruch/korzenie/
+montaż/123korytarze nadal wymagane. Brak aktywnego workera, hook otwarty.
+
 18:40Z:18626 odebrany147,640s/302kontrole/81sygnałów, bez błędów jądra.
 Poziomy F_PWM odrzucony na FL_G/RL_P/bankbed/BUS; NIE przesuwać go dalej
 małymi ofsetami. Część sygnałów to własne styki z budżetami/opaskami,

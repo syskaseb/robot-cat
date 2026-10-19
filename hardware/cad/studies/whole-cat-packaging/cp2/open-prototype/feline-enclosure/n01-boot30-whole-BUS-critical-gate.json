@@ -1,0 +1,1248 @@
+{
+  "status": "BOOT30_CRITICAL_POSES_RECEIVED_NOT_WHOLE_N01",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-current.json": "df808adf02ab2de6cae04689204a0275f7ee0e15ecc9cdd4cc88ca2e051de0d4",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-current.breps.zip": "97a6ed8b659ca12c44f7d42824496438180b551a4fe35d7a0771f22b06b3b58d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-boot-budget-plan.json": "6b04141a01567c1f425da974946f0f16b450984c54b602790c7c1b70d6172b24",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-boot-intrinsic-received.json": "53cc53165fa278ae70bcb9d479b6f8e0658da83c5fecf5816af5dab0d915f1e7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-boot-budget-plan.breps.zip": "6f681ea3d33325d6da734b44cb5b667b13f34a737de091b5152c3b7dd1f92f14",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-two-flank-tail-bridge-plan.json": "d5fc28c6c4247859ca588191cebb43b7126183d75bfb76f593fea1d12df6450d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-two-flank-tail-bridge-plan.breps.zip": "5647bf03fbfcd3e6d3192601abdb95a378decaa3ed43a103ed5c8d9d18f1e007",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-six-source-shared-lanes.outer.brep": "dabde8b511eadd26290bb95560359ab7a0e04ba8fb9af6b516b5f3516da7f855",
+    "tools/cad/plan_feline_usb_service_bight.py": "fe31efeb3160eeec4d022993cfdebc5409ebc5d4a854a040365cfc6eabbb51d5"
+  },
+  "core_parts": [
+    "CurrentBUS:BUS.D",
+    "CurrentBUS:BUS.G",
+    "CurrentBUS:BUS_Backplate",
+    "CurrentBUS:BUS_Standoff0",
+    "CurrentBUS:BUS_Standoff1",
+    "CurrentBUS:BUS_Standoff2",
+    "CurrentBUS:BUS_Standoff3",
+    "CurrentBUS:DGSharedRelief",
+    "CurrentBUS:H5MatingReserve",
+    "CurrentBUS:USB_C_Overmould",
+    "Ref_Material_BUSsupplier0_0_0"
+  ],
+  "fixed_critical_neighbors": [
+    "F_PWM:case:band_budget",
+    "F_PWM:case:head_budget",
+    "F_PWM:in:band_budget",
+    "F_PWM:in:head_budget",
+    "F_PWM:out:band_budget",
+    "F_PWM:out:head_budget",
+    "F_PWM:received_carrier",
+    "Print_CP2_TailRiser",
+    "Print_CP2_TailRiser001",
+    "Print_CP2_TailRiser002",
+    "Print_CP2_TailRiser003",
+    "Ref_Material_P0_MountRearL_0_0",
+    "Ref_Material_P0_MountRearR_0_0",
+    "Station:F_PWM_whole:F_PWM:case",
+    "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+    "Station:F_PWM_whole:F_PWM:in_first_bend",
+    "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+    "Station:F_PWM_whole:F_PWM:out_first_bend",
+    "Tail:two_flank_bridge"
+  ],
+  "clocks": {
+    "0": {
+      "outer": [
+        {
+          "part": "Ref_Material_BUSsupplier0_0_0",
+          "ok": false,
+          "outside_mm3": 50.38314164851533,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.D",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 4.871490981768102,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.G",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 6.42283487818435,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:DGSharedRelief",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 15.678516688956297,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:H5MatingReserve",
+          "ok": false,
+          "outside_mm3": 296.55846384409097,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:USB_C_Overmould",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 24.36626284873514,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Backplate",
+          "ok": false,
+          "outside_mm3": 290.37390080865447,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff0",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 17.085728094578783,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff1",
+          "ok": false,
+          "outside_mm3": 43.552156290491226,
+          "gap_mm": 2.842170943040401e-14,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff2",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 24.00495175165833,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff3",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 6.160540886446753,
+          "minimum_mm": 3.25
+        }
+      ],
+      "near_pairs": [
+        {
+          "a": "CurrentBUS:BUS.D",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 7.507495070441624,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 5.936744605171412,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Print_CP2_TailRiser003",
+          "gap_mm": 2.5257481317218384,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.8990071360394374,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Tail:two_flank_bridge",
+          "gap_mm": 3.8549095225465795,
+          "minimum_mm": 1.25,
+          "ok": true
+        }
+      ],
+      "failures": [
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 50.38314164851533,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 296.55846384409097,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.8990071360394374,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 290.37390080865447,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff1",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 43.552156290491226,
+          "gap_mm": 2.842170943040401e-14,
+          "minimum_mm": 3.25
+        }
+      ],
+      "bbox_separated_pairs": 205,
+      "reused_intrinsic": 7,
+      "complete": true,
+      "critical_clear": false
+    },
+    "90": {
+      "outer": [
+        {
+          "part": "Ref_Material_BUSsupplier0_0_0",
+          "ok": false,
+          "outside_mm3": 350.7817441609073,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.D",
+          "ok": false,
+          "outside_mm3": 186.48771002033115,
+          "gap_mm": 0.649592628159431,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.G",
+          "ok": false,
+          "outside_mm3": 156.48177275977633,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:DGSharedRelief",
+          "ok": false,
+          "outside_mm3": 660.8865800942685,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:H5MatingReserve",
+          "ok": false,
+          "outside_mm3": 2432.9718440634415,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:USB_C_Overmould",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 25.633047114941693,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Backplate",
+          "ok": false,
+          "outside_mm3": 912.3650193882764,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff0",
+          "ok": false,
+          "outside_mm3": 0.0,
+          "gap_mm": 1.5301366700358074,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff1",
+          "ok": false,
+          "outside_mm3": 47.500880922277766,
+          "gap_mm": 7.331435771652671,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff2",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 31.884870645401293,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff3",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 8.56630569462402,
+          "minimum_mm": 3.25
+        }
+      ],
+      "near_pairs": [
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 2.1416841785939127,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Tail:two_flank_bridge",
+          "gap_mm": 1.8549095225466237,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "USB500:whole",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": true,
+          "port_common_mm3": 0.0
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 1.851828513224206,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 1.2429119658259582,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff2",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.08815475067856937,
+          "minimum_mm": 1.25,
+          "ok": false
+        }
+      ],
+      "failures": [
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 350.7817441609073,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.D",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 186.48771002033115,
+          "gap_mm": 0.649592628159431,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 156.48177275977633,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 660.8865800942685,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 2432.9718440634415,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 912.3650193882764,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 1.2429119658259582,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff0",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 0.0,
+          "gap_mm": 1.5301366700358074,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff1",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 47.500880922277766,
+          "gap_mm": 7.331435771652671,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff2",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.08815475067856937,
+          "minimum_mm": 1.25,
+          "ok": false
+        }
+      ],
+      "bbox_separated_pairs": 207,
+      "reused_intrinsic": 0,
+      "complete": true,
+      "critical_clear": false
+    },
+    "180": {
+      "outer": [
+        {
+          "part": "Ref_Material_BUSsupplier0_0_0",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 3.9162003402821277,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.D",
+          "ok": false,
+          "outside_mm3": 108.63202555095596,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.G",
+          "ok": false,
+          "outside_mm3": 132.1333486077706,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:DGSharedRelief",
+          "ok": false,
+          "outside_mm3": 300.52309745382917,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:H5MatingReserve",
+          "ok": false,
+          "outside_mm3": 62.067378159901594,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:USB_C_Overmould",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 24.366262848735012,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Backplate",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 3.8095195918454667,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff0",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 27.723764206986658,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff1",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 15.435030225737913,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff2",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 27.426012872843337,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff3",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 3.9513560053232255,
+          "minimum_mm": 3.25
+        }
+      ],
+      "near_pairs": [
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 6.503246085405162,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Print_CP2_TailRiser003",
+          "gap_mm": 2.5257481317219463,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.8990071360394447,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Tail:two_flank_bridge",
+          "gap_mm": 3.854909522546602,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "USB500:whole",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": true,
+          "port_common_mm3": 0.0
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 6.00922866932271,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 0.8609534348325383,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "USB500:whole",
+          "gap_mm": 12.066569104816317,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff0",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 9.034392361581052,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff1",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 5.0609534348322,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff2",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 5.0609534348322,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 5.060953434832541,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 1.932085663350737,
+          "minimum_mm": 1.25,
+          "ok": true
+        }
+      ],
+      "failures": [
+        {
+          "a": "CurrentBUS:BUS.D",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 108.63202555095596,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 132.1333486077706,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 300.52309745382917,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 62.067378159901594,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.8990071360394447,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 0.8609534348325383,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        }
+      ],
+      "bbox_separated_pairs": 204,
+      "reused_intrinsic": 0,
+      "complete": true,
+      "critical_clear": false
+    },
+    "270": {
+      "outer": [
+        {
+          "part": "Ref_Material_BUSsupplier0_0_0",
+          "ok": false,
+          "outside_mm3": 0.0,
+          "gap_mm": 2.6373043718189955,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.D",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 19.839965953423015,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS.G",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 18.258826339583447,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:DGSharedRelief",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.761990319569875,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:H5MatingReserve",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 8.031185320220468,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:USB_C_Overmould",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 25.63304711494179,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Backplate",
+          "ok": false,
+          "outside_mm3": 0.009534664370089662,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff0",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 38.18474209452266,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff1",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.869948192782477,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff2",
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 18.349481624825444,
+          "minimum_mm": 3.25
+        },
+        {
+          "part": "CurrentBUS:BUS_Standoff3",
+          "ok": false,
+          "outside_mm3": 0.0,
+          "gap_mm": 1.545715699017131,
+          "minimum_mm": 3.25
+        }
+      ],
+      "near_pairs": [
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.D",
+          "b": "F_PWM:out:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "gap_mm": 0.46989079531196076,
+          "minimum_mm": 0.2,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "gap_mm": 1.4445049999081327,
+          "minimum_mm": 0.2,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "F_PWM:out:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "F_PWM:out:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "gap_mm": 3.0712623224827578,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.6453563568869214,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "F_PWM:out:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "F_PWM:out:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 2.295356356886927,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 1.2438626962305506,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 2.1416841785938967,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Tail:two_flank_bridge",
+          "gap_mm": 1.8549095225466372,
+          "minimum_mm": 1.25,
+          "ok": true
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "USB500:whole",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": true,
+          "port_common_mm3": 0.0
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 1.8377304716553537,
+          "minimum_mm": 1.25,
+          "ok": true
+        }
+      ],
+      "failures": [
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 0.0,
+          "gap_mm": 2.6373043718189955,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "Ref_Material_BUSsupplier0_0_0",
+          "b": "F_PWM:case:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.D",
+          "b": "F_PWM:out:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "F_PWM:out:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS.G",
+          "b": "F_PWM:out:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.6453563568869214,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "F_PWM:out:band_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:DGSharedRelief",
+          "b": "F_PWM:out:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:H5MatingReserve",
+          "b": "F_PWM:case:band_budget",
+          "gap_mm": 1.2438626962305506,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:USB_C_Overmould",
+          "b": "Ref_Material_P0_MountRearL_0_0",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 0.009534664370089662,
+          "gap_mm": 0.0,
+          "minimum_mm": 3.25
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "Station:F_PWM_whole:F_PWM:case",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Backplate",
+          "b": "F_PWM:received_carrier",
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25,
+          "ok": false
+        },
+        {
+          "a": "CurrentBUS:BUS_Standoff3",
+          "b": "outer",
+          "ok": false,
+          "outside_mm3": 0.0,
+          "gap_mm": 1.545715699017131,
+          "minimum_mm": 3.25
+        }
+      ],
+      "bbox_separated_pairs": 195,
+      "reused_intrinsic": 0,
+      "complete": true,
+      "critical_clear": false
+    }
+  },
+  "N01_complete": false,
+  "physical_pass": false,
+  "selected": false,
+  "all117supplier_parts_Pi_full7_world_motion_roots_tools_capacity_OPEN": true,
+  "worker_seconds": 10.391,
+  "critical_survivors": []
+}
