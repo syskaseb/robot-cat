@@ -152,4 +152,42 @@ def main():
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],sources=len(result['parts']),errors=result['errors'])),flush=True)
 
 
-if __name__=='__main__':print('WORKER_PID',os.getpid(),flush=True);main()
+def two_fore_lower_deck():
+    """Translate16 integer-grid cached sources; never retessellate the world."""
+    tick=time.monotonic();world,parts,meta,pins,docs=current();oldfile=OUT/'n01-current-signed-space.json'
+    old=json.loads(oldfile.read_text());fp=ROOT/old['field'];archive=ROOT/old['voxel_source_archive']
+    assert sha(fp)==old['field_sha256'] and sha(archive)==old['voxel_source_archive_sha256']
+    gate=OUT/'n01-usb-fore-lower-deck-space.json';accepted=json.loads(gate.read_text())
+    assert accepted['status']=='TWO_WHOLE_FORE_KITS_LOWER_DECK_SPACE_RECEIVED_USB_ROOTS_OPEN' and not accepted['failures'] and not accepted['errors']
+    assert all(accepted['source_sha256'][p]==h for p,h in pins.items())
+    names=set(accepted['changed_owners']);assert len(names)==16
+    with np.load(fp,allow_pickle=False) as f:values={k:f[k] for k in f.files}
+    origin=values['origin_mm'];rigid=np.zeros_like(values['rigid_occupied']);harness=values['harness_occupied'].copy();received=0
+    with zipfile.ZipFile(archive) as z:
+        for key,row in old['parts'].items():
+            if not key.startswith('Static:'):continue
+            n=key.removeprefix('Static:');assert n in parts,n
+            raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256']
+            with np.load(io.BytesIO(raw),allow_pickle=False) as f:local=f['origin'].copy();mask=f['occupied']
+            if n in names:local=local+np.array([0,0,-8]);received+=1
+            if is_jacket(n,meta[n]):
+                if n in names:deposit(harness,mask,local,origin)
+            else:deposit(rigid,mask,local,origin)
+    assert received==16,received
+    values['rigid_occupied']=rigid;values['harness_occupied']=harness
+    for key,mask in (('rigid',rigid),('harness',harness)):
+        distance=distance_transform_edt(~mask).astype(np.float32);distance[mask]=-distance_transform_edt(mask)[mask]
+        values[key+'_signed_distance']=distance
+    dest=OUT/'n01-two-fore-lower-deck-signed-space.json';field=dest.with_suffix('.npz');assert not dest.exists()
+    np.savez_compressed(field,**values)
+    result=dict(status='CHANGED16_CACHED_SIGNED_SPACE_PROPOSALS_ONLY',source_sha256={**pins,
+        **{p.relative_to(ROOT).as_posix():sha(p) for p in (oldfile,fp,archive,gate,Path(__file__))}},field=field.relative_to(ROOT).as_posix(),field_sha256=sha(field),
+        translated_sources=received,translation_mm=[0,0,-8],all_other_source_voxels_reused=True,retessellated_sources=0,
+        old_harness_occupancy_retained_as_conservative_superset=True,motion36_and_actual_outer_fields_byte_unchanged=True,
+        N01_complete=False,physical_pass=False,selected=False,worker_seconds=round(time.monotonic()-tick,3))
+    save_json(dest,result);print(json.dumps(result),flush=True)
+
+
+if __name__=='__main__':
+    print('WORKER_PID',os.getpid(),flush=True)
+    two_fore_lower_deck() if '--two-fore-lower-deck' in sys.argv else main()

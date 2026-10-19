@@ -2,6 +2,234 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+13:58Z:15030/8608 odebrany12,953s, globalnepunkty dochodzą doBUS,
+ale żadna trasa452mm z właściwą styczną nie odebrana. Nie robić3próby
+tych samych3proporcji uchwytówBezier. Przyczyna: końcowyłącznik ma
+jednocześnie nieść resztędługości i kierunek. Zmiana konstruktora na
+2dokładneprzestrzenne łukiC1, jawnepromienie i1parametr stosunku;
+długość stroi się do CAŁOŚCI, nie karą zaR. N01 nadal0/10;
+mapa/2WAGO/16masek bez zmian, żadnych ponownychOCCpar świata.
+
+13:55Z: cały dolny foredeck73730/24504 odebrany42,390s,16części,
+17dokładnychwpisów/0negatywnych. Cache62958/8768:48,203s, tylko
+16przesuniętychmasek bez retessellacji; motion/obrys byteunchanged.
+Nowe pole783450a...; stare54/native nadal nie nadpisane. GlobalUSB
+79415/4164:12,579s, dochodzi0,784mm od punktu, ale zły kierunek
+końcowy: NIE trasa. Teraz wspólnie BUS R30−X z pełnym9 po łuku,
+docelowy kierunek+X i ograniczenie długości na skręt; nie celować
+wyłącznie wpunkt. Pełne452 i niezmienione źródło kupne. N01=0/10.
+
+13:50Z: roofbeam20036 odebrany1,234s/11poziomów, brak kandydata,
+nie dowód niemożliwości. Inwentaryzacja RZECZYWISTYCH2kitów: FR_P/RR_P
+caseZ93,5..102,5, własnepełnechwyty/bandy do103,3. Nie próbowaćtrzeciego
+USBbeam w tej samej zamrożonej barierze. Zmiana wspólnejarchitektury:
+CAŁE2kity/16części (case+4żyły+comb+band+head) na niższy poziom−8mm,
+bez zmiany kupnych części/izolacji/9mm. Reszta54 i wewnętrznepary
+pozostają. Bramka:całe16 względemobrysu/ramy/banku/innychkitów/36póz.
+Jeśli wolne, uzgodnić nowe końce i ROOTy z całymUSB500; NIE zmieniać
+bieżącejwybranej54 przed wspólnymwynikiem. N01=0/10.
+
+13:44Z: twardyR34beam11104 skończył1,187s/9poziomów bez kandydata.
+Przekroje odebranej mapy wskazują barierę górnych WAGO/pełnych główek,
+nie powód do zmiany wszystkich modułów. Pierwszyfilter dodawał1,2mm
+ponad rzeczywisty margines: to tylko odrzucanie propozycji. Jedna
+próba ROOF: ten sam kupnyUSB, źródłoweR30clock+15°, pełne9 po łuku,
+R30wypłaszczenie15° dajeZ106,114 (5,886mm od płaskiegoZ112 vs5,75
+oś+izolacja+margines). Potem globalneR30,1 bez z góry ustalonej drogi,
+propozycje z konserwatywnego pola przy NOMINALNYCH marginesach,
+ostatecznyBRep nadal1,25/3,25 iR30. Nie jest to waiver aniPASS;
+pełna452długość/chwyty/rooty nadal wymagane.
+
+13:41Z: dolnyHP13049/15212 odebrany30,531s: 3żyły wzajemnie>=0,39mm.
+PrzyJR caseface0 to zamierzony styk, nie automatycznie obca kolizja;
+westband ma0,16mm, stareRootWebReserve1 jest rezerwacją podpory,
+nie wykazaną kolizją materiału. Bez waivera/nowegozaliczenia. Nie
+odpalać dalszych offsetów ślepo. USB: po2miękkichLS i2całychPi
+odrzuconych nie robić trzeciegoLS; jedna ograniczona95s próba
+całej przestrzeni z twardymi R34 łukami (nie karą zaR) i452mm
+całości. Reużywa odebraną mapę; wynik tylko propozycja doBRep,
+nie dowód niemożliwości, nie N01. Pełne chwyty/ruch/rooty OPEN.
+
+13:34Z:9429/PID20972 odebrany42,266s: górneHPprzejście17wpisów
+wolne, lecz2żyły trafiają w główkę W068, płaski zasób w SpliceClip.
+Nie robić dalszegooffsetu górnej szczeliny. Nowa topologia całegoHP:
+pełne9mm chwyty PRZED łukami przy rzeczywistych3JRwyjściach, R12,4
+w dół + zagnieżdżoneR12,4/14,94/17,48 doX−223,66 naZ−34,8/−37,34/−39,88;
+dalejR4zasób pod mostem i CAŁĄ ramą, R17doY−20 naZ−37,34, doX−70.
+Dół zasobu−41,34 powyżej obrysu−48; nie zwęża przewodów, nie rusza
+kupnych modułów. Bramka: rzeczywiste bryły/36póz + odległości3jacketów,
+pełne9chwyty i dotychczasoweHY zachowane; skóra/ruchgłowy/rooty OPEN.
+USB500/całe123/retencja nadal OPEN,0/10. Rzeczywisty limit13:34:17Z57/43.
+
+13:30Z: własny23092/session50082 zakończony bez wyniku: OCC utknął
+na wzajemnych3spline-pipe, nie na bryłach robota. Ta sama geometria,
+bez nowego wariantu: ciągłe ograniczenie odległości z otoczki pochodnej
+B-spline i błędu próbkowania daje dolną granicę0,362354mm izolacji
+vs0,2. Dwa testy4,610s PASS; rzeczywiste bryły ramy nadal wymagają
+odbioru. Wznowić ten sam flat-resource, bez powtarzania HY/HPnadJR.
+0/10, limit rzeczywisty57/43, bez resetu/native.
+
+2026-10-19T13:24:17Z: poprawionyHYtail odebrany12897/PID14140,33,219s,55wpisów
+bez kontaktu (zeroobjętościowa wcześniejsza wersja nieważna). HPkolistyR4
+nie mieści się między FrameFront20(top37,02)/ramą38,52 a S0(bottom45).
+Nowy przekrój to nie cieńszy przewód: 3nominalne1,05mm profile źródła,
+przejście pionowo→płasko32mm (każdy kubicznyspan sprawdzony R>=12,4),
+a w korpusie zasób10,6×3,4 na3×r1,7/pitch3,6,Z41,75. Daje odstępy
+1,53 od ramy i1,55 od S0, bez dokładania tam2mmścianki uchwytu.
+Wynik1testkonstrukcji+krzywizn2,886s; teraz dokładne bryły/36póz i
+wzajemne3jacketów. Bez native/wyboru/zaliczaniaN01.
+
+13:12Z: odebrany16132/PID25952,34,187s. HP przechodzi nad pierwszą
+płytą (gap3,157mm), ale opada w drugi wspornikP0 x−89,958..−85,458,
+z8,91..28,11. Nowy montaż/przebieg: zostać naZ38 aż doX−75, a dopiero
+ZA tym wspornikiem opuścićR30S. Cały staryHY/164wpisy zachować jako
+osobne3żyły; jego rozdział przyAUX nadalOPEN, nie dokładać dużejkomory.
+Nowy krótkiHYtail był konstrukcyjnie błędny (Volume≈0 mimo1solid/isValid,
+normalnaprofiluX przy stycznejY). Unieważnić ten jeden wynik, bez tezy
+o kolizji. Naprawa normalnej + kontrola V=pi*r²*L,1test/0,054s przechodzi
+na3konstruktorach. Nie recheckować jego błędnej rodziny ani starych
+164wpisów. Skóra/ruchgłowy/6pełnychkrzywych/USB/całe123OPEN,0/10.
+Uczciwy zapis limitu: przerwa odczytów12:57:50→13:12:07=857s podczas
+planowania/kontroli konstruktora (brak ciężkiego workera), ponad10min.
+Aktualny rzeczywisty odczyt57użyte/43pozostałe,bez resetu; pilnowaćzegara.
+
+12:57Z: odebrany1433/PID13016,59,563s. HY do środka ma164dokładne
+wpisy bez kontaktu; zachować pierwszy łuk/prostą. HP z obniżeniem
+trafia w pionową płytęP0 x−124,458..−122,458,z6,177..30,843.
+Duża wspólna komora obejmuje śrubęAUX x−109,74..−105,94,Y−6,44..−2,64.
+Nie przesuwać tej komory: dwa3żyłowe odcinki zostają osobne. HY po
+ODEBRANYM pierwszym łuku/prostej kończy nowymR17 naY−20, pod płytą,
+obokAUX. HP: z26,34 wznieśćR17S doZ54 NAD mostem, wejść dośrodka,
+R17S doZ38 NAD płytąP0, dopiero za nią zX−115 opuścićR30S doZ−15
+przyY−18. To inne przejście góra/dół istniejących przegród, nie trzeci
+offset przecinający płytę. Nie recheckować164staregoHY ani HPnadJR;
+źródła/geometria tych podzbiorów zgodne. Docelowe6tras/ruchgłowy/skóra
+nadalOPEN.0/10,limit12:57:50Z56/44, native i wybrane części bez zmian.
+
+12:54Z: odebrany18469/PID24572,33,782s. HP nad yawJR wolne od
+niekosmetycznych brył;3stare skóry głowy jawnie do nowegoobrysuN08.
+Dolny wspólny kanałR6 dotyka realnej przedniej nogi Feature122 już
+w pozie0(gap0). Nie przesuwać go po boku. Nowa topologia: osobne3żyłowe
+zasoby z zakrętem DOŚRODKA przed biodrem, wspólna komora dopiero
+x−118..−86,Y−15..0,Z−10..15. HY: start−152/−56,8/−4,8; HP po yawJR
+z obniżeniem16,34mm, potem taksamo DOŚRODKA. OsiełukówR17 i przekrójR4
+dają minR13 po wewnętrznej stronie zasobu (>=R12,4), pole3żył do
+r1,7 zajmuje54,2%, nie deklaracja termiki. Nie wymyślać chwytunaC_HY.
+Odebrane HPnadJR reużyć ze zgodnymi źródłami/geometrią, nie powtarzać.
+Pełne krzywe/chwyty/ruchgłowy/skóra/USB/całe123 nadalOPEN,0/10.
+
+12:51Z: źródła głowy potwierdzają C_HY jako granicę ciągłego przewodu,
+nie nowyJR/chwyt. Zachować factory220+30przymiarki i jego istniejącyJR.
+HP ma osobne3portyJR; wspólne promienie można prowadzić NAD yawJR
+(JR x−217..−187,y−62,8..−50,8,z−9,8..0,2), nie w niego.
+Sprawdzić dwa nowe zasoby szyi: HP x−223,66..−180,Y−53,72,Z26,34,R6;
+złączenie do korpusu x−152..−120,Y−56,Z−6,R6. To NIE pełne krzywe,
+nie kwalifikacja nowej skóry/ruchów głowy; dawne ±15yaw/−10..5pitch
+R28 nie stają się dowodem nowego zakresu. Nie zaciskać6żył w sztywny
+sznur w ruchomym odcinku; dwa elastyczne3żyłowe odcinki/istniejącegripy.
+Dokładne bryły i36poz nóg sprawdzić przed alokacją. Stare kosmetyczne
+skóry głowy to jawne zmienione interfejsyN08, nie potajemnie usunięte
+przeszkody. MCP dostępny, ale aktywny jest inny modelSIM1764obiektów;
+nie zmieniać go ani nie traktować jako bieżącegoMECH.0/10;56/44.
+
+12:38Z: odebrany38173/PID8652,181,078s: układ z bocznymS0 odrzucony
+przed końcem sprawdzeń,73dokładne wpisy/26ujemnych i bramki krzywych.
+S0/ring/2fanOUT poza obrysem, klucz w ForeFHAC; nowyMAIN grzebień
+w F_PWM. Nie odbierać reszty tej ujemnej próby, nie wybierać nowych
+pozycji. Pi/bank/źródła/native bez zmian. Pozostała bezpieczna niezależna
+pracaN01:6wyjść głowy, poza mapą tułowia, z rzeczywistymi źródłami
+factory i korytarzem szyi, bez wymazywania brakówUSB/korzeni/pojemności.
+Nie wracać do dwóch odrzuconych montażyPi.0/10,hookON,workerbrak.
+Limit12:38:01Z56/44;30453cb5 zabezpiecza mapę/propozycje, nie gotowyCAD.
+
+12:31Z: mapa i wszystkie123+USB propozycje zabezpieczone30453cb5;
+14testów integralności/matematyki, bez przyznaniaN01. Odebrany14800,
+64,765s: odwróconePi również odrzucone32wpisy (bank/PWM/wyjścia).
+Koniec lokalnych zamianPi. Wspólny układ prowadzony przez USB500:
+Pi/PWM/bank/S1 zostają; S0 z dwoma pełnymi wachlarzami obrót90Z
+(klucz do+Y, nie w Pi), monitor8mm niżej, MAIN18części na tył+Y
+ze środkiemPCB X125Y64/Zbez zmian, CAŁE D_RR na tył−Y X125Y−70.
+To zwalnia ustaPi i jeden wspólny górny pas/obszar zapasuUSB zamiast
+dopasowywania kabla do osobno zamrożonych modułów. Sprawdzić CAŁE
+zmienione moduły wzajemnie/stałe/ruch/obrys; nie dziedziczyć ich starych
+dat/mocowań/narzędzi. Reszta dowodów54 zachowana. USB R>=30,500
+bez skracania; pełny wariant kabla dopiero z tym układem, nie nativeN03.
+N01 nadal0/10. Limit12:28:08Z56użyte/44pozostałe,resetnie.
+
+12:18Z: odebrany27328/PID5332,104,625s: cały obrótPi180Z odrzucony,
+166kontroli/21ujemnych wpisów, m.in. rzeczywiste USB_A/BUS/ogon oraz
+PCB/starykorzeńBUS. Nie ponawiać tego obrotu lokalnym przesuwaniem.
+Drugi układ montażowy, nie wariant tej orientacji: Pi odwrócone180X,
+środekPCB Z99; wszystkie5GPIO schodzą do wspólnego wewnętrznego
+korytarza z R10/1,5/9, oba przewodyK1474 z zachowanymiR15,9/12,4/9/9
+kierowane do środka. USB wychodzi do−Y bez kluczaS0. Wspólna kontrola
+całegoPi+wszystkichwyjść przed jakąkolwiek adopcją; bez cięcia kupnych
+części i bez odziedziczonego dowodu starych prefiksów/korzeni.0/10.
+
+12:12Z: przyczyna USB jest wspólna, nie pojedynczy łuk: wyjście Pi jest
+skierowane na kluczS0, powrót dolny przecina nową ramę/foreFHAC,
+a obieg nad bankiem wymaga dodatkowego nawrotu do wejścia BUS.
+Nie ponawiać tych obiegów przesunięciami. Jedna zmiana całego modułu:
+obrót PiCoupled180°Z wokół środka aktualnejPCB, razem ze wszystkimi
+obsadzonymi złączami/osprzętem/prefiksami. Zachować każdą kupną część,
+nie ruszać54/źródła/banku. Najpierw sprawdzić całe zmienione Pi i wyjście
+USB w tylnej zatoce. Zmiana unieważnia lokalne daty Pi i jego korzenie,
+nie niezmienione pary reszty; dopiero po bramce aktualizować mapę/końce.
+Odrzucenie nie zmienia wybranych źródeł. Nadal0/10;limit12:12:32Z55/45.
+
+11:59Z: N01 nadal0/10. Odebrano85652,29,781s: dwa górne splajny
+USB odrzucone (R22,36/R19,67 zamiast30 i wejścia w bank/Pi).
+Nie ponawiać tej rodziny. Tani przesiew dolnego pionowego powrotu też
+ujemny: zajęta dolna zatoka, brak zatwierdzonego zapasu kabla500.
+Następny zmieniony mechanizm: trasa nad bankiem z narzuconymi łukamiR30,
+bez miękkiej kary pozwalającej ścinać narożniki. Zmieniane tylko USB,
+nie usta/wybrany kabel ani niezmienione dowody54. Warunek: cała długość,
+obie końcówki/pełne9, obrys/ruch/pozostałe przewody i miejsce mocowania.
+Mapa/grafy same nie zamykająN01; korzenie i głowa nadalOPEN.
+Limit11:57:05Z55użyte/45pozostałe,bez resetu. HookON,workerbrak.
+
+11:42Z: odebrany27489/PID18360,30,797s:całe123+USB zapisane.
+109połączonych propozycji (6dawnych dodatnich zachowanych),9niezmienionych
+całych odcinków bez reroutingu,6zewnętrznych interfejsów głowy jawnieOPEN.
+Brak dowodu promieni/pojemności/krótkich łączy do portów; maxłącze11,527mm.
+USB przy starych90° ma344mm schodkowego środka; nie uznawać go za krzywą.
+Teraz OBA kąty wyjść razem ze środkiem, bez dwóch arbitralnych90°;
+pełne R30/3mm/9mm/500mm i źródłowe usta bez zmian. Po tej ograniczonej
+próbie wspólne pełne chwyty/korzenie/montaż/korytarze z pojemnością;
+nie budować nativeN03, nie zaliczać samych grafów.0/10;limit11:41:53Z55/45.
+
+11:40Z: pełna mapa bez przebudowy. Planer1mm:6dróg zapisanych,
+59ograniczonych wyszukiwań,6wyjść poza tułów. To nie ujemny CAD;
+własny11572 zatrzymano po zapisie zamiast dalszych jałowych zapytań.
+Nowa metoda: globalny rzadki graf na TEJ SAMEJ siatce; każda krawędź2mm
+sprawdza pośrednią komórkę1mm.3testy0,012s, także cienka ściana i drzwi.
+Odebrane dodatnie propozycje zachowane; pełne źródłowe łącza/radii/capacity
+i korzenie nadalOPEN. IndexError osiEDT poprawiony regresją7testów0,005s;
+nie spowodował zmiany brył. Limit11:40:33Z55/45,0/10, hookON.
+
+11:35Z: aktualna mapa ZAKOŃCZONA,1240stałych/3888zapisów ruchu,
+1326rastrów,0błędów; ostatniworker225,875s. Osobne warstwy sztywne/
+wiązka/ruch i prawdziwy obrys. Mapa służy propozycjom, nie dowodzi luzu.
+Teraz CAŁE123+osobnyUSB: źródłowe końce, istniejące9,25mm custom4MTA,
+bez wymyślonych chwytów na wirtualnych granicach. USB: oba sztuczne kąty90°
+wolne WRAZ ze środkiem;R30/OD5/3mm/9mm po OBU stronach i kupny500mm
+zachowane. Dwa ograniczone podejścia, bez następnej siatki tych samych
+przyczyn. S0 wymaga własnego śrubowego panelu24/38±0,1/6,5 z producenta,
+nie klejenia jak lekkich WAGO. Korzenie/pełne chwyty/dostęp i pojemności
+nadal blokująN01.0/10;limit11:35:03Z54/46, bezresetu.
+
+11:30Z: odebrany71902/PID23712:251,281s,1304rastry/0błędów.
+Wznawiane wyłącznie brakujące pozycje ruchu;1240stałych bez powtórki.
+W następnym kroku wspólny rejestr123+USB nie dodaje9mm do wirtualnych
+granic i czyta istniejące9,25mm wyjścia custom4MTA;6testów0,005s.
+USB ma przygotowaną próbę CAŁEJ trasy z regulowanym projektowym kątem
+Pi zamiast wymuszonego90°, zachowujeR30/OD5/3mm i cały9mmchwyt.
+2testy0,002s potwierdzają sam konstruktor, nie przestrzeń/akceptację.
+Maksymalnie2ograniczone próby tej rodziny, potem odczyt przyczyny.
+Pełne korzenie i pozostałe chwyty pozostają wspólną bramkąN01,
+nie zaliczać z mapy/częściowego przewodu.0/10;limit11:30:16Z54/46.
+Lokalnycommit7ce60be2 zachowuje USB/balanser i równoważną szybszą siatkę.
+
 11:17Z: mapa1240stałych,181/3888zapisów36pozycji;1233źródła,
 odbiór248,235s/0błędów. Dalsze nakładanie komórek zmieniono z125pętli
 na8narożników i sumy prefiksowe:7testów0,180s, identyczna macierz z dawnym
