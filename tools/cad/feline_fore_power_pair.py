@@ -66,7 +66,7 @@ def pair_spacing(a,ar,b,br):
     def tie(n,r):
         return r.get('kind') in ('tie_reservation','project_stock_reservation') and ('Tie' in n or ':band_budget' in n or ':head_budget' in n or 'tie_budget' in n)
     wa,wb=jacket(a,ar),jacket(b,br)
-    return .2 if (wa and wb) or (wa and tie(b,br)) or (wb and tie(a,ar)) else 1.25
+    return .2 if (wa and wb) or (wa and tie(b,br)) or (wb and tie(a,ar)) or (tie(a,ar) and tie(b,br)) else 1.25
 
 
 def actual_s0_mouths(parts,ends,transform):

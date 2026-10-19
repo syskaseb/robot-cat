@@ -10,6 +10,7 @@ import time
 import itertools
 import ast
 import subprocess
+import sys
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -29,35 +30,55 @@ from feline_atomic_save import save_json
 
 def main():
     tick=time.monotonic();groups,_=original_candidates();recipes=both_after_candidates(groups);recipes.update(candidates(groups))
+    selected_ties='--selected-t18i' in sys.argv;factory=materialise
+    if selected_ties:
+        from feline_bank_selected_t18i import candidates as selected_candidates,materialise as selected_materialise
+        recipes=selected_candidates(groups);factory=selected_materialise
     source=OUT/'n01-shared54-whole.json';parent=json.loads(source.read_text());prior=parent['mutual_cache']
     helper=Path(__file__).with_name('feline_bank_zoned_layout.py')
     assert parent['source_sha256'][helper.relative_to(ROOT).as_posix()]==sha(helper)
     choices=[(g,r) for g,rows in recipes.items() for r in rows];codes=[key(g,r) for g,r in choices]
     assert len(codes)==len(set(codes))
-    parts=[materialise(g,r) for g,r in choices];signatures=[];cache=SolidQueries();component_cache={}
+    parts=[factory(g,r) for g,r in choices];signatures=[];cache=SolidQueries();component_cache={}
     for pp,kk in parts:
         signatures.append({n:hashlib.sha256(s.exportBrepToString().encode()).hexdigest() for n,s in pp.items()})
     result=dict(status='RUNNING_FULL_BANK_PLAN',source_sha256={source.relative_to(ROOT).as_posix():sha(source),helper.relative_to(ROOT).as_posix():sha(helper),Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__))},
         pairs={},cuts=[],iterations=[],errors=[],N01_complete=False,physical_pass=False)
+    if selected_ties:
+        p=Path(__file__).with_name('feline_bank_selected_t18i.py');result['source_sha256'][p.relative_to(ROOT).as_posix()]=sha(p)
     dest=OUT/'n01-bank-whole-preflight.json';cuts=set();bad=[]
     if dest.exists():
         saved=json.loads(dest.read_text())
         assert saved['source_sha256'][helper.relative_to(ROOT).as_posix()]==sha(helper),'Adopt unchanged old material before reusing its pairs'
         own=Path(__file__).relative_to(ROOT).as_posix()
         if saved['source_sha256'][own]!=sha(Path(__file__)):
-            old=subprocess.run(['git','show','8cb881ac:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            old=subprocess.run(['git','show','68c104d7:'+own],cwd=ROOT,check=True,capture_output=True).stdout
             assert hashlib.sha256(old).hexdigest()==saved['source_sha256'][own]
             get=lambda t:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name=='mutual')
-            assert ast.dump(get(old))==ast.dump(get(Path(__file__).read_text()))
-        result['pairs']=saved['pairs'];result['prior_exact_pair_source']=dict(source_sha256=saved['source_sha256'],query_kernel_identical=True)
+            after=get(Path(__file__).read_text());after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=='selected_ties')]
+            assert ast.dump(get(old))==ast.dump(after)
+        if selected_ties:
+            prior={**prior,**saved['pairs']};result['raw_generic_budget_pairs_retained']=saved['pairs']
+        else:result['pairs']=saved['pairs']
+        result['prior_exact_pair_source']=dict(source_sha256=saved['source_sha256'],query_kernel_identical_except_new_selected_head_subset_reuse=True)
         index={c:i for i,c in enumerate(codes)}
         for a,b in saved['cuts']:
+            if selected_ties:continue
             assert a in index and b in index
             cuts.add(tuple(sorted((index[a],index[b]))))
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     def mutual(i,j):
         code='|'.join(sorted((codes[i],codes[j])))
         if code in result['pairs']:return result['pairs'][code]['ok']
+        if selected_ties:
+            base=lambda i:key(choices[i][0],{n:v for n,v in choices[i][1].items() if n!='selected_T18I_max_head'})
+            oldcode='|'.join(sorted((base(i),base(j))))
+            old=prior.get(oldcode)
+            if old is not None:
+                last=old['pairs'][-1] if old.get('pairs') else {}
+                if old['ok'] or all('head_budget' not in last.get(n,'head_budget') for n in ('part','other')):
+                    result['pairs'][code]=dict(old,reused_actual_selected_head_subset=True,old_exact_pair_key=oldcode)
+                    return old['ok']
         if code in prior:
             result['pairs'][code]=dict(prior[code],reused_from_parent=True);return result['pairs'][code]['ok']
         aa,ak=parts[i];bb,bk=parts[j];record=dict(ok=True,pairs=[])
