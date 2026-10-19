@@ -19,8 +19,8 @@ from feline_remaining_receive import terminal_owner,key
 from feline_atomic_save import save_json
 
 
-def receive_requests(requests):
-    tick=time.monotonic();dest=OUT/'n01-bank-lanes-static.json';world,fixed=world_context();query=SolidQueries()
+def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.json'):
+    tick=time.monotonic();dest=OUT/destination;factory=factory or materialise;world,fixed=world_context();query=SolidQueries()
     files=[Path(__file__),Path(__file__).with_name('feline_bank_exit_lanes.py'),Path(__file__).with_name('feline_remaining_kits.py')]
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
     result=dict(status='RUNNING_BANK_OPPOSED_LANES',source_sha256=pins,world_source_sha256=world.pins,units={},errors=[],N01_complete=False,physical_pass=False)
@@ -31,7 +31,7 @@ def receive_requests(requests):
     assert old['source_sha256']['tools/cad/feline_remaining_kits.py']==pins['tools/cad/feline_remaining_kits.py']
     outer=Part.Shape();outer.read(str(OUT/'n01-six-source-shared-lanes.outer.brep'))
     def receive(group,recipe,record):
-        parts,kinds=materialise(group,recipe);done=record.setdefault('pairs',{});base=recipe['base_recipe']
+        parts,kinds=factory(group,recipe);done=record.setdefault('pairs',{});base=recipe['base_recipe']
         prior=old['units'].get(key(group,base),{});complete_old='failure' in prior and prior['failure'] is None
         if complete_old:record['unchanged_before_stock_reused_from']=key(group,base)
         for n,s in parts.items():

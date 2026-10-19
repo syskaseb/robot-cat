@@ -80,6 +80,7 @@ def main():
         p=Path(__file__).with_name('feline_remaining_receive.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
         if '--bank-lanes' in sys.argv:
             from feline_bank_exit_lanes import candidates as bank_candidates,materialise as bank_material
+            from feline_bank_exit_lanes import under_key_candidates,under_key_materialise
             from feline_bank_lane_receive import receive_requests as receive_bank_lanes
             for p in (Path(__file__).with_name('feline_bank_exit_lanes.py'),Path(__file__).with_name('feline_bank_lane_receive.py')):
                 pins[p.relative_to(ROOT).as_posix()]=sha(p)
@@ -114,7 +115,24 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--bank-lanes' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--under-key-bank' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix();helper='tools/cad/feline_bank_exit_lanes.py';receiver='tools/cad/feline_bank_lane_receive.py'
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,helper,receiver))
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            previous={n:subprocess.run(['git','show','48659c05:'+n],cwd=ROOT,check=True,capture_output=True).stdout for n in (own,helper,receiver)}
+            assert all(hashlib.sha256(t).hexdigest()==result['source_sha256'][n] for n,t in previous.items())
+            for name in ('shape','mutual'):
+                before,after=get(previous[own],name),get(Path(__file__).read_text(),name)
+                if name=='shape':after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'bank_under_key_lane'")]
+                assert ast.dump(before)==ast.dump(after),name
+            for name in ('candidates','materialise'):assert ast.dump(get(previous[helper],name))==ast.dump(get((ROOT/helper).read_text(),name))
+            class DefaultFactory(ast.NodeTransformer):
+                def visit_Name(self,n):return ast.copy_location(ast.Name(id='materialise',ctx=n.ctx),n) if n.id=='factory' else n
+            assert ast.dump(get(previous[receiver],'receive'))==ast.dump(DefaultFactory().visit(get((ROOT/receiver).read_text(),'receive')))
+            result.setdefault('additive_geometry_extensions',[]).append(dict(added='All24 below S0key: leftDOWN, rightIN+X/OUT-X, preserve2mm opposite staggers/full9/stock',old_shapes_and_pairs_AST_identical=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--bank-lanes' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
             assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_bank_exit_lanes.py','tools/cad/feline_bank_lane_receive.py'}
@@ -272,6 +290,9 @@ def main():
         if '--bank-lanes' in sys.argv:
             for group,options in bank_candidates(remaining_groups).items():
                 groups[group].extend(dict(kind='bank_exit_lane',group=group,recipe=r,key=remaining_key(group,r)) for r in options)
+            if '--under-key-bank' in sys.argv:
+                for group,options in under_key_candidates(remaining_groups).items():
+                    groups[group].extend(dict(kind='bank_under_key_lane',group=group,recipe=r,key=remaining_key(group,r)) for r in options)
         assert len(groups)==54
         if '--compact-fan' in sys.argv:
             base=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['D_FL']
@@ -353,6 +374,7 @@ def main():
             m=rise_unit(stations[r['ref']],r);return m['parts'],m['kinds']
         if kind=='remaining_kit':return remaining_material(r['group'],r['recipe'])
         if kind=='bank_exit_lane':return bank_material(r['group'],r['recipe'])
+        if kind=='bank_under_key_lane':return under_key_materialise(r['group'],r['recipe'])
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
             return parts,{n:'wire' if fanmeta[n]['kind']=='wire' else 'project_stock_reservation' if 'budget' in fanmeta[n]['kind'] else 'proposal_material' for n in parts}
@@ -391,6 +413,8 @@ def main():
             rise_data=json.loads(rise_file.read_text()) if '--rise-fan' in sys.argv and rise_file.exists() else dict(units={})
             bank_file=OUT/'n01-bank-lanes-static.json'
             bank_data=json.loads(bank_file.read_text()) if '--bank-lanes' in sys.argv and bank_file.exists() else dict(units={})
+            under_file=OUT/'n01-bank-under-key-static.json'
+            under_data=json.loads(under_file.read_text()) if '--under-key-bank' in sys.argv and under_file.exists() else dict(units={})
             if whole54:
                 from feline_remaining_kits import source_wire_signature
                 bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
@@ -419,7 +443,8 @@ def main():
             if '--bank-lanes' in sys.argv:
                 # One whole coherent bank architecture, not24independent new
                 # offsets. Old recipes and raw evidence remain preserved.
-                add([i for i,(g,r) in enumerate(choices) if r['kind']=='bank_exit_lane'],24,24)
+                bank_kind='bank_under_key_lane' if '--under-key-bank' in sys.argv else 'bank_exit_lane'
+                add([i for i,(g,r) in enumerate(choices) if r['kind']==bank_kind],24,24)
             upper=np.ones(total);cost=np.zeros(total)
             for i,(g,r) in enumerate(choices):
                 if r['kind']=='straight_comb':
@@ -459,6 +484,10 @@ def main():
                     rec=bank_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
+                elif r['kind']=='bank_under_key_lane':
+                    rec=under_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -484,7 +513,8 @@ def main():
             legacy_requests=[(g,r) for g,r in chosen if r['kind']=='legacy_compact_fan' and 'failure' not in legacy_data['units'].get(r['key'],{})]
             rise_requests=[(g,r) for g,r in chosen if r['kind']=='power_rise_fan' and 'failure' not in rise_data['units'].get(r['key'],{})]
             bank_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_exit_lane' and 'failure' not in bank_data['units'].get(r['key'],{})]
-            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)
+            under_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_under_key_lane' and 'failure' not in under_data['units'].get(r['key'],{})]
+            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)
             result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=unknown));save()
             print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',unknown,'mutualcuts',len(result['cuts']),flush=True)
             if unknown:
@@ -503,6 +533,7 @@ def main():
                 if legacy_requests:status=receive_compact(legacy_requests,factory=legacy_unit,destination='n01-legacy-compact-static.json')['status']
                 if rise_requests:status=receive_compact(rise_requests,factory=rise_unit,destination='n01-power-rise-static.json')['status']
                 if bank_requests:status=receive_bank_lanes(bank_requests)['status']
+                if under_requests:status=receive_bank_lanes(under_requests,factory=under_key_materialise,destination='n01-bank-under-key-static.json')['status']
                 result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=unknown))
                 save();continue
             cut=False

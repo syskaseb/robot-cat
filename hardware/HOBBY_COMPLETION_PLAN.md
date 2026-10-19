@@ -2,6 +2,132 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+07:44Z:72988 odebrany85,078s/0błędów.21/24 nowych wyjść czystych;
+cały bank odrzucony na kluczuS0 przez3lewe przednie żyłyW027/W028/W020.
+Nie powtarzać ich+Z z inną główką ani zmniejszaćR.48659c05 zachowuje wyniki.
+Przyczyna: klucz zajmuje przestrzeń NAD przednią częścią banku, nie tylko
+obszar kupnych oprawek. Cały nowy bank POD kluczem: lewa strona w-Z,
+prawa IN w+X/OUT w-X, co rozsuwa przeciwległe końce przesunięte o2mm.
+Wszystkie24 zachowują pierwotne9/pełneprzedniechwyty/stock/rzeczywisteusta/R.
+To plan wspólnych płaszczyzn z obsługąS0, nie kolejny offset końców.
+Przed światem test obu rodzajów przesunięciaIN iOUT oraz ownstock24.
+Brak punktuN01; po pełnym54 nadal commonframe/ATO/246/capacity.
+
+07:40Z:7054 odebrany482,141s/0błędów, P_SYS Zrise statycznie przyjęty;
+całe54 nieprzyjęte. Nie wznawiać płaskich90° wachlarzy banku dla samej
+kolejnej główki: W028↔W038 ma rzeczywiste przecięcie przewodów0mm.
+Nowa WSPÓLNA architektura wszystkich24: po zachowanych9/cap/pełnymosprzęcie
+łuki30° z niezmienionymR, lewa dodatniaY w+Z, prawa ujemnaY w-Z.
+To dwa rozdzielone poziomy wyjść banku, nie24mikroprzesunięcia.
+2testy6,376s zachowują pełne pierwsze9 i stock24 oraz rozdzielenie pary
+W028/W038. Świat/cała wiązka/ATO/korzenie jeszczeOPEN. Czterytesty
+rejestru końców PASS0,001s; P309four taps jawnie oddzielne, bez GTechpinoutu.
+dad9709b zabezpiecza te wcześniejsze interfejsy; master nadalAFF0A45...
+Limit07:39:32Z=47zużyte/53pozostałe, bezresetu; hookON, N01 nadal0/10.
+
+07:30Z:29918 odebrany211,625s/0błędów; dotychczasowy katalog54 zamknięty,
+NIE ponawiać. Ostatnia para P_SYS.3↔RailClamp2Screw:0,18<1,25mm.
+Korekta odczytu kotwy: AKTUALNA oś przednia=-24, nie-48; -48 odrzucona
+na SpliceClip w n01-remaining27-static. Bez kasowania prawidłowych par.
+Zmiana przyczyny: całe3customwyjścia P_SYS unoszą się w Z PO zachowanych9,
+a nie nadal w płaskiej galerii/śrubie. Korpus/pełnyosprzęt/W043 niezmienne.
+Wspólny R25,2 i pełne9; test całego chwytu kontra12hardware na rzeczywistej
+osi-24, nie nominalnej-48. To odrębna płaszczyzna wiązki, nie offsetstacji.
+Wspólny szkielet ma dodatnie złącza materiałowe do4rzeczywistych siodeł;
+test1,126s, bez akceptacji świata. a67a3a26 zachowuje fundament/odpornośćIO.
+N01 nadal0/10. Limit07:27:18Z=46zużyte/54pozostałe, resetnietknięty.
+
+07:22Z:40750 odebrany83,438s, trzy nowe pełne wachlarze RL_G/P_SYS/G1
+statycznie przyjęte, wzajemne nieukończone z powodu PermissionError13
+przy atomowym zapisie Windows. Nie jest to kolizja ani ukończenie N01.
+Zachowane6989par; poprawka wyłącznie zapisu z ograniczonym retry.
+2testy0,041s sprawdzają przejściową i trwałą blokadę, stary plik zachowany.
+65c742c7 zachowuje kod/3testy6,006s nowych6opcji; geometria niezmieniona
+przez poprawkę IO, shape/mutual zgodne AST. Nie odczytywać ciężkich JSON
+przez długie blokujące Get-Content w trakcie zapisu workera.
+
+07:19Z:72381 odebrany99,828s/0błędów, D_FL PO zakręcie przyjęty statycznie.
+Pełny54 nadal nieprzyjęty: P_SYS.2↔przednia RailClamp2Screw 0,897763<1,25.
+Wspólna korekta przyczyny dla6 dawnych wachlarzy: po zachowanych9mm
+łuk30° w PIERWOTNEJ płaszczyźnie, R>=minimum, bez narzuconych90°.
+Wszystkie case/usta/chwyty/opaski/główki i chroniony W043 bez zmian.
+3testy6,006s: zachowanie pełnego osprzętu6stacji, W043 i wcześniejszych
+odrzuceń oraz D_FL pełny chwyt kontra12hardware. To nie cały N01.
+Nowe6 opcji dodane do wszystkich54 zmiennych, stare wyniki zachowane
+z dowodem tożsamości AST; nie powtarzać zamkniętego poprzedniego katalogu.
+Limit07:18:58Z rzeczywisty:46%zużyte/54%pozostałe, bez resetu. HookON.
+
+07:08Z:13663 odebrany65,766s/0błędów, fixed-first9UP30 światem czysty,
+lecz pełny tylny72clamp nadal daje1,032859<1,25. Nie ponawiać samegokąta.
+Zmiana przyczyny: wspólny9mmgrzebień PO zakręcie, wejście3mm jawnie
+projektowe, Rwspólny>=każde minimum. Cały grzebień/opaska/główka obracane
+sztywno; miejsce całegoosprzętu wyliczone z podparcia PEŁNYCH12części72,
+nie tylko przewodu. Dodatni dowód separacji półprzestrzeni; bbox nigdy
+nie służył do odrzucenia kontaktu. Cały nowyprefiks krótszy niż poprzedni
+najkrótszy, pełne9niezmniejszone.2testy2,431s: dawnynegatyw zachowany,
+NOWE wszystkie części chwytu i5żył kontra12hardware72 czyste/own0.
+Nie fizycznyPASS. 9dce5791 zapisuje stanprzedświatem, teraz tylko zmienione
+wire+cap+stock, własnycase z przypiętego starego dodatniego wyniku.
+N01 nadal0/10, najpierw54wspólnie potem korzenie/ATO/246/pojemności.
+
+06:59Z:55676 odebrany59,422s/0błędów. PRZED/PO samo nie wystarczyło;
+ostatnia prawdziwa para D_FL.1↔RailClamp3Screw,0,9473019<1,25mm,
+tylna oś72. Bez kolejnego tego samego54katalogu. Jeden nowy wspólny wachlarz
+D_FLUP30: case(48,-16,25,48,5),5ust/pierwsze9/pełnychwyt/opaska/główka
+bez zmian; po9 łukiR=max(12,4,minźródłowe),30°UP i9połuku. Nie jest to
+zmniejszenie minimumR ani mikroprzesunięcie części. Nowa geometria5przewodów
+we wspólnych54zmiennych. Test1,728s:stałe9/case/stock/5R/own0 PASS;
+świat/wzajemneOPEN, dokładny odbiór tylko zmienionych5rur, starecapy zcache.
+ecd08118 zabezpiecza poprzednie przed/po. ZakresN01 nadal0/10/hookON.
+
+06:52Z:35781 odebrany291,110s/0błędów, pełny dotychczasowy54katalog
+zamkniętyNO_WHOLE, NIE globalna niemożliwość. Nie ponawiać go bez nowej
+przyczyny. Dowód blokującej pary: D_FL.1↔nieruchoma opaska W059 przy wejściu,
+0,1343537mm<istniejące0,2mm; różne końcowe łuki/główki nie ruszały tejopaski.
+Zmiana wspólnej architektury: dla23zwykłych źródeł banku dopuścić PEŁNY9mm
+chwyt PO łuku na JUŻ ISTNIEJĄCEJ prostej9, obok zachowanych wariantówPRZED.
+Nie zmienia się q/cały przewód/R/długość/kupneczęści; W027open pozostaje.
+Wszystkie stareprzepisy i przyjęte pary identyczneAST; odrzucony przewód
+przechodzi na wszystkie warianty jego samego uchwytu, nie jest liczonyznowu.
+Własne etapy 42948b3d: rzeczywiste4osie/3mmstos/kontaktpodkładek zachowane,
+test1,028s i86aktualnych lądówWAGO1,087s PASS zakresowo; rama całegoświataOPEN.
+NEXT: cały54 z nowym wspólnym PRZED/PO, potem wspólne korzenie/ATO/246/capacity.
+
+06:31Z:21924 odebrany105,985s/0błędów. WSZYSTKIE pozostałe26 grup
+mają przynajmniej jeden pełny statyczny wynik; W027 został odrzucony na
+WŁASNYM TE, bo wcześniejszy open-packet przechowywał terminal_name w
+source_endpoint, nie każdymwariancie. Nie jest to kolizja obca aniPASS:
+naprawić tylko właściciela, otworzyć14błędnych airgap-negatywów i wykonać
+rzeczywisty common. Dwa prawdziwe F_PInegatywy zachowane. Kod całości
+przednaprawąf172a295; kształty/algorytm mutual bez zmian. Wszystkie inne
+pary, w tym nowe W051/W058/W059, obie12częściowe kotwy iF_PWM zachowane.
+Warunek następnejpróby: W027↔własnyTE bez dodatniej objętości; obce1,25
+bez zmian, potem wspólne54/rzeczywiste korzenie/narzędzia/246końców.
+
+06:27Z:66171 odebrany157,672s/0błędów. Pełny54katalog zatrzymany,
+nie globalna niemożliwość: obie W027główki miały TEN SAM przewód w F_PI.
+Nie ponawiać tego łuku w dół. Zmiana przyczyny: zachować q/9/R12,4 oraz
+pełne istniejące siodło/opaski/główki, dopuścić inne płaszczyzny zakrętu
+tego SAMEGO źródła (7kierunków×2główki). Dwa odrzucone kierunki pozostają
+w cache; wszystkie inne dotychczasowe bryły i pary zachowane dowodemAST.
+Wspólny wybór nadal54, wcześniejszych27 nie zamrożono. W028/W029/W038/
+W039/W040/W046/W048/W050/W054/W056/W020/W022/W024/W031/W033/W035/W047/
+W049/W055/W057 orazF_PWM ijedna pełna kotwa już czyste indywidualnie.
+To NIE wspólne54ani punktN01. Przyjęto39734d97 z12ATO i odbiorem tych prób.
+NEXT: żądane nowe kierunki W027 we WSPÓLNYM54, potem korzenie i korytarze.
+
+06:21Z:2033/PID22744 odebrany42,266s/exit0;12/12ciągłych rezerwacji
+wyciąguATO i budżetów narzędzi czyste w CAŁYM obecnym27+930świecie.
+To jawny konserwatywny budżet narzędzia12×41×25, nie dane kupnego szczypca;
+celowy startowy styk z własnym Housing sprawdzony common=0, inni bez wyjątków.
+Brak74rozłączeńWAGO w tej sekwencji. Nie przenosić tegoPASS na nowe korzenie.
+Następna bramka wspólne54grupy: WSZYSTKIE27 poprzednie zmienne nadal wolne,
+dołączone24bank+2pełne12częściowe kotwy+F_PWM0242.100UAT1 z oboma chwytami.
+Przenosić wyłącznie identyczne27bryły/mutualAST i zachowane właściwe piny;
+stare47unsigned domeny są kandydatami, NIE dodatnimi dowodami świata.
+Akceptacja: wszystkie54pełne jednostki/statyka/wzajemne, potem wspólne
+drogi obciążeń/narzędzia/wszystkie246końców i pojemności fabryczne; N01OPEN.
+
 06:20:03Z: wspólny27węzłowy wybór odebrany67100/PID18000,
 274,172s/exit0/0błędów:20WAGO+monitor+6CAŁYCH wyjść źródła,
 statyka/obrys/36prób ruchu oraz wszystkie wzajemne pary zaakceptowane.

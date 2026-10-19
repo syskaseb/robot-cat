@@ -7,12 +7,31 @@ import Part
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools/cad'))
 from feline_remaining_kits import candidates as old_candidates,materialise as original
-from feline_bank_exit_lanes import candidates,materialise
+from feline_bank_exit_lanes import candidates,materialise,under_key_candidates,under_key_materialise
 from feline_fore_power_pair import SolidQueries,pair_spacing
 from feline_solid_distance import bbox_lower_bound
 
 
 class WholeBankPlanes(unittest.TestCase):
+    def test_three_planes_below_key_keep_all_stock_and_separate_both_staggers(self):
+        groups,_=old_candidates();lanes=under_key_candidates(groups);query=SolidQueries();models={}
+        for group,recipes in lanes.items():
+            recipe=recipes[0];r=recipe['base_recipe'];before,kinds=original(group,r);after,_=under_key_materialise(group,recipe)
+            models[group]=(after,kinds)
+            for n,s in before.items():
+                if kinds[n]=='proposal_wire':continue
+                self.assertLess(s.cut(after[n]).Volume,1e-7,(group,n))
+                self.assertLess(after[n].cut(s).Volume,1e-7,(group,n))
+            w=next(s for n,s in after.items() if kinds[n]=='proposal_wire')
+            prefix=Part.makeCylinder(r.get('radius_mm',r.get('radius')),9,A.Vector(*r['point_mm']),A.Vector(*r['departure_axis']))
+            self.assertLess(prefix.cut(w).Volume,1e-7,group)
+            for n,s in after.items():
+                if kinds[n]!='proposal_wire':self.assertLess(w.common(s).Volume,1e-7,(group,n))
+        for a,b in (('Bank:W028/single/end','Bank:W038/single/end'),('Bank:W020/body/end','Bank:W031/body/end')):
+            aa,ak=models[a];bb,bk=models[b]
+            aw=next(s for n,s in aa.items() if ak[n]=='proposal_wire');bw=next(s for n,s in bb.items() if bk[n]=='proposal_wire')
+            self.assertGreaterEqual(query.distance(aw,bw),.2-1e-6,(a,b))
+
     def test_all24_preserve_first9_and_full_selected_before_stock(self):
         groups,_=old_candidates();lanes=candidates(groups)
         for group,recipes in lanes.items():
