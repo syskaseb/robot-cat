@@ -32,11 +32,13 @@ def main():
         if result['source_sha256']!=pins and '--adopt-conservative-source-cells' in sys.argv:
             allowed={'tools/cad/build_feline_current_signed_space.py':{'020770f1653de98dd8e7628ab373cb5fa1533d242e6f6091552b8aba07fcc506','7dda7960261c9a40b4f55fcf863b8431daf178f05a48c6c141813ef75633e935'},'tools/cad/feline_signed_voxels.py':{'98d60a368b26da06d6b6e62b933870a655a3e8bf93c805281256c898c18be015','472e372e7b7e76620a0db81ff346329b7b4a0e531a9a36631b0c8baa2432fcb2'}}
             allowed['tools/cad/build_feline_current_signed_space.py'].add('bef4e01fe7bc4b2917b3887a11023648f3ffa81c911196fa0e0e13e6b54229c2')
+            allowed['tools/cad/build_feline_current_signed_space.py'].add('5def763a351c3136eba45ad925e57980c376db94abed1b861a74d24c30eeaae4')
+            allowed['tools/cad/feline_signed_voxels.py'].add('6476735f237c4df969519c7460dc10dbc27511164d097131048c396bb682cea7')
             for n,h in result['source_sha256'].items():assert h==pins[n] or (n in allowed and h in allowed[n]),n
             if result.get('conservative_source_cell_adoption'):result.setdefault('source_cell_adoption_history',[]).append(result['conservative_source_cell_adoption'])
             result['conservative_source_cell_adoption']=dict(previous_source_sha256=result['source_sha256'],
                 previous_result_sha256=sha(dest),source_cells_retained=len(result['parts']),
-                reason='Identical triangle SAT, poses and sources. Legacy filled cavities are conservative OCCUPIED supersets, not false free space; new cells distinguish enclosed regions. Only proposal data reused, no geometry PASS.')
+                reason='Identical triangle SAT, poses, cube expansion and source geometry. Eight-corner integer range union is byte-identical to former offset/scatter oracle. Existing source/layer cells retained; legacy filled cavities remain conservative OCCUPIED supersets. Only proposal data reused, no geometry PASS.')
             result['source_sha256']=pins
         else:assert result['source_sha256']==pins
         result.setdefault('previous_worker_seconds',[]).append(result['worker_seconds'])

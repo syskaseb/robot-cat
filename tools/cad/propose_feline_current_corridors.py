@@ -13,6 +13,15 @@ from plan_feline_layout import OUT
 from feline_atomic_save import save_json
 
 
+RADII=(1.05,1.55,2.1,2.5,3.5,5.)
+
+
+def radius_bucket(radius):
+    """Never shrink an actual cable to the nearest smaller guide class."""
+    assert radius>0
+    return next((r for r in RADII if r>=radius-1e-9),float(radius))
+
+
 def astar(mask,start,goal,clearance,seconds=5,maximum=120000,soft_penalty=None):
     shape=mask.shape;ny,nz=shape[1:];stride=ny*nz
     index=lambda p:int(p[0]*stride+p[1]*nz+p[2])
@@ -52,24 +61,33 @@ def main():
     ends_file=OUT/'n01-shared-routing-boundaries.json';register=json.loads(ends_file.read_text());ends={e['id']:e for e in register['endpoints']}
     spec=OUT/'prefix-allocation.json';bywire={}
     for r in json.loads(spec.read_text())['specifications']:bywire[r['wire']]=max(r['radius'],bywire.get(r['wire'],0))
-    dest=OUT/'n01-current-corridor-guides.json';pins={f.relative_to(ROOT).as_posix():sha(f) for f in (source,field,ends_file,spec,Path(__file__))}
+    extra_file=OUT/'n01-physical-cable-contract.json';extra=json.loads(extra_file.read_text())
+    dest=OUT/'n01-current-corridor-guides.json';pins={f.relative_to(ROOT).as_posix():sha(f) for f in (source,field,ends_file,spec,extra_file,Path(__file__))}
     result=dict(status='RUNNING_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS',source_sha256=pins,portions={},N01_complete=False,physical_pass=False,
         selected=False,all123_covered_not_all123_routed=True,graph_is_not_a_curve_or_airgap_proof=True)
     if dest.exists():result=json.loads(dest.read_text());assert result['source_sha256']==pins
     rigid=data['rigid_signed_distance'];motion=data['motion36_signed_distance'];outer=data['outer_distance'];inside=data['inside'];soft=data['harness_signed_distance']
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     factory={r['portion_id'] for r in register['received_factory4MTA_curves']}
+    tasks=dict(register['portions']);usb=extra['usb'];tasks[usb['id']]=[usb['id']+'/start',usb['id']+'/end']
+    for side,key in (('start','pi'),('end','bus')):
+        ends[usb['id']+'/'+side]=dict(id=usb['id']+'/'+side,wire=usb['id'],
+            routing_exit_mm=usb[key+'_prefix_exit_mm'],routing_exit_axis=usb[key+'_prefix_exit_axis'],
+            routing_boundary_status='RECEIVED_PREFIX_ONLY_WHOLE_USB_OPEN')
+    bywire[usb['id']]=usb['project_OD_mm']/2
+    result.update(extra_balance_contract=extra['balance'],extra_USB_is_one_bought_assembly_not_123rd_wire=True,
+        ordinary_portions=123,required_tasks=len(tasks),extra_USB_joined_length_and_service_bight_open=True)
     try:
-        for radius in (1.05,1.55,2.1):
+        for radius in sorted({radius_bucket(bywire.get(ends[ids[0]]['wire'],1.05 if ends[ids[0]]['wire'].startswith('X') else 1.55)) for ids in tasks.values()}):
             free=inside&(rigid>=radius+2.45)&(motion>=radius+2.45)&(outer>=radius+4.45)
             components,_=label(free);nearest=distance_transform_edt(~free,return_distances=False,return_indices=True)
             clearance=np.minimum(rigid,motion)
             soft_penalty=20*np.maximum(0,radius+1.4-soft)
-            for portion,ids in register['portions'].items():
+            for portion,ids in tasks.items():
                 if portion in result['portions']:continue
                 if time.monotonic()-tick>235:raise TimeoutError('Completed whole portion guides retained')
                 aa,bb=[ends[n] for n in ids];wire=aa['wire']
-                r=bywire.get(wire,1.05 if wire.startswith('X') else 1.55);bucket=min((1.05,1.55,2.1),key=lambda k:abs(k-r))
+                r=bywire.get(wire,1.05 if wire.startswith('X') else 1.55);bucket=radius_bucket(r)
                 if bucket!=radius:continue
                 row=dict(end_ids=ids,wire=wire,prototype_radius_mm=r,graph_radius_mm=radius,final_bend_radius_stock_and_physical_check_open=True)
                 if portion in factory or wire=='W043':row['status']='RECEIVED_COMPLETE_UNCHANGED_CURVE_NOT_REROUTED';result['portions'][portion]=row;continue
@@ -93,7 +111,7 @@ def main():
                     row['status']='CONNECTED_GRID_GUIDE_CURVATURE_AND_EXACT_GATES_OPEN' if row['guide']['points_mm'] else 'BOUNDED_GUIDE_SEARCH_OPEN'
                 result['portions'][portion]=row;save()
             del free,components,nearest
-        result['status']='ALL123_PORTION_CONNECTIVITY_PROPOSALS_RECORDED' if len(result['portions'])==123 else 'PARTIAL_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS'
+        result['status']='ALL123_PLUS_USB_CONNECTIVITY_PROPOSALS_RECORDED' if len(result['portions'])==len(tasks) else 'PARTIAL_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS'
     except TimeoutError as exc:result.update(status='PARTIAL_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS',slice_note=str(exc))
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],portions=len(result['portions']))),flush=True)
 

@@ -1,0 +1,102 @@
+{
+  "status": "PHYSICAL_USB500_AND_BALANCE_ASSEMBLIES_ACCOUNTED_SPACE_OPEN",
+  "usb": {
+    "id": "USB500_PiA_to_BUSC",
+    "selected_part": "LanbergCA-USBO-10CU-0005-BK",
+    "quantity": 1,
+    "catalogue_total_mm": 500,
+    "external452_mm_is_project_mould_allowance_not_supplier_guarantee": true,
+    "project_external_target_mm": 452,
+    "project_overmould_allowances_mm": [
+      26,
+      22
+    ],
+    "project_OD_mm": 5,
+    "minimum_fixed_project_R_mm": 30,
+    "pi_jacket_mouth_mm": [
+      -9.602138968261187,
+      17.69802066424016,
+      94.99810804943257
+    ],
+    "pi_prefix_exit_mm": [
+      -42.60213896826119,
+      56.69802066424016,
+      94.99810804943257
+    ],
+    "pi_prefix_exit_axis": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "bus_prefix_exit_mm": [
+      128.5304752678421,
+      -71.90814337545011,
+      47.10996202870123
+    ],
+    "bus_prefix_exit_axis": [
+      0,
+      0,
+      -1
+    ],
+    "pi_prefix_length_mm": 59.12388980384689,
+    "bus_prefix_length_mm": 59.12388980384689,
+    "joined_middle_Euclidean_lower_bound_mm": 219.36087074405395,
+    "remaining_middle_budget_mm": 333.7522203923062,
+    "maximum_slack_if_straight_middle_mm": 114.39134964825223,
+    "not_a_proven_joined_curve_or_actual_slack": true,
+    "do_not_force_a_complete_360degree_coil": true,
+    "service_bight_space_must_be_allocated_with_both_end_tangents": true,
+    "not_in_existing_123_portions_or_246_ends": true,
+    "no_SKU_change_or_extension": true,
+    "factory_usable_length_and_mould_fit_delivery_gate": true
+  },
+  "balance": {
+    "branches": [
+      {
+        "tap": "BAT.B0",
+        "to": "P309.minus",
+        "physical_GTech_cavity": null,
+        "ID_must_not_be_used": true
+      },
+      {
+        "tap": "BAT.B1",
+        "to": "P309.1S",
+        "physical_GTech_cavity": null,
+        "ID_must_not_be_used": true
+      },
+      {
+        "tap": "BAT.B2",
+        "to": "P309.2S",
+        "physical_GTech_cavity": null,
+        "ID_must_not_be_used": true
+      },
+      {
+        "tap": "BAT.B3",
+        "to": "P309.3S",
+        "physical_GTech_cavity": null,
+        "ID_must_not_be_used": true
+      }
+    ],
+    "not_in_existing_123_portions_or_246_ends": true,
+    "selected_alarm_unchanged": true,
+    "physical_GTech_pinout_assigned": false,
+    "branch_length_and_connector_envelope_known": false,
+    "delivery_measurement_required": true,
+    "routing_capacity_and_retention_not_yet_accepted": true
+  },
+  "existing_register_unchanged": {
+    "portions": 123,
+    "ends": 246
+  },
+  "physical_pass": false,
+  "N01_complete": false,
+  "selected": false,
+  "all_extra_physical_cables_routed": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-six-source-current-core.json": "027839a5061971b61a3222274e273b0fc87605d826a2c3a006a1458ba3b47f3f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bus-both-plugs-plan-r3.json": "1bd49f9a51ea5bc9fc912dcbf2e29f5424767d984bd05ef35ce7b4c5a803d02c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-routing-boundaries.json": "3ff749aa3d78c3e80f6ebdda76e7bcb101db346ccaf376749febca8143cd8155",
+    "tools/cad/compose_feline_physical_cables.py": "61fa85f99fb668801036bd819c7e2f45ef69fb893761f50901cd65cfad235676"
+  },
+  "worker_seconds": 0.031
+}

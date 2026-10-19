@@ -1,9 +1,13 @@
 import unittest
 import numpy as np
-from propose_feline_current_corridors import astar
+from propose_feline_current_corridors import astar,radius_bucket
 
 
 class GuideMath(unittest.TestCase):
+    def test_radius_is_never_rounded_down(self):
+        for radius in (1.05,1.1,1.55,1.7,2.1,2.4,2.5,3.1,3.5,5.,6.):
+            self.assertGreaterEqual(radius_bucket(radius)+1e-9,radius)
+        self.assertEqual(radius_bucket(2.4),2.5)
     def test_goes_around_occupied_solid_cells(self):
         mask=np.ones((9,9,9),bool);mask[4,:7,:7]=False
         r=astar(mask,[1,1,1],[7,1,1],np.full(mask.shape,10.))

@@ -43,6 +43,26 @@ def raster(triangles,step=1.,classify_region=None,skip_marked=True):
     return origin,occupied
 
 
+def union_integer_boxes(destination,low,high):
+    """Exactly OR inclusive integer boxes using eight signed corner updates.
+
+    This changes only the union implementation, not any source cube expansion,
+    orientation, clipping or occupancy. The former offset/scatter oracle is
+    retained in regression tests, including clipped and overlapping boxes.
+    """
+    size=np.array(destination.shape);low=np.maximum(low,0);high=np.minimum(high,size-1)
+    valid=np.all(high>=low,axis=1);low=low[valid];high=high[valid]
+    if not len(low):return
+    start=low.min(0);stop=high.max(0)+1
+    extent=stop-start;delta=np.zeros(tuple(extent+1),np.int32)
+    low=low-start;high=high-start+1
+    for corner in itertools.product((0,1),repeat=3):
+        q=np.where(np.asarray(corner),high,low)
+        np.add.at(delta,tuple(q.T),(-1)**sum(corner))
+    for axis in range(3):np.cumsum(delta,axis=axis,dtype=np.int32,out=delta)
+    destination[tuple(slice(int(a),int(b)) for a,b in zip(start,stop))]|=delta[:-1,:-1,:-1]>0
+
+
 def deposit(destination,source,source_origin,origin,step=1.,rotation=None,translation=None):
     """A rotated occupied source voxel is enclosed by its full corner bounds.
 
@@ -68,8 +88,4 @@ def deposit(destination,source,source_origin,origin,step=1.,rotation=None,transl
     if not len(points):return
     low=np.floor((points-origin-expansion-step/2)/step).astype(int)
     high=np.ceil((points-origin+expansion+step/2)/step).astype(int)
-    delta=np.max(high-low,axis=0);size=np.array(destination.shape)
-    for offset in itertools.product(*(range(int(d)+1) for d in delta)):
-        q=low+offset;valid=np.all(q<=high,axis=1)&np.all(q>=0,axis=1)&np.all(q<size,axis=1)
-        q=q[valid]
-        if len(q):destination[tuple(q.T)]=True
+    union_integer_boxes(destination,low,high)

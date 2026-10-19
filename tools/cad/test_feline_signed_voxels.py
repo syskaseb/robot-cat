@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from feline_signed_voxels import raster,deposit
+from feline_signed_voxels import raster,deposit,union_integer_boxes
 
 
 def cube(low,high):
@@ -10,6 +10,30 @@ def cube(low,high):
 
 
 class SignedVoxels(unittest.TestCase):
+    def test_range_union_exact_for_clipped_overlapping_boxes(self):
+        rng=np.random.default_rng(20261019)
+        for count in (1,17,1000):
+            low=rng.integers(-5,25,size=(count,3));high=low+rng.integers(0,6,size=(count,3))
+            new=np.zeros((23,19,27),bool);old=new.copy();old[1,1,1]=new[1,1,1]=True
+            for a,b in zip(low,high):
+                a=np.maximum(a,0);b=np.minimum(b,np.array(old.shape)-1)
+                if np.all(b>=a):old[tuple(slice(x,y+1) for x,y in zip(a,b))]=True
+            union_integer_boxes(new,low,high)
+            self.assertTrue(np.array_equal(old,new))
+    def test_rotated_deposit_byte_identical_to_former_offset_oracle(self):
+        import itertools
+        rng=np.random.default_rng(45);source=rng.random((11,17,13))>.7;origin=np.array([-9.,-11.,-7.])
+        for angle in (0,.2,1.15,2.9):
+            r=np.array([[np.cos(angle),-np.sin(angle),0],[np.sin(angle),np.cos(angle),0],[0,0,1.]])
+            t=np.array([-3.3,2.7,-1.9]);new=np.zeros((23,25,21),bool);old=new.copy()
+            deposit(new,source,np.array([-5.,-7.,-9.]),origin,rotation=r,translation=t)
+            points=(np.array([-5.,-7.,-9.])+np.argwhere(source))@r.T+t
+            expansion=np.sqrt(3)/2;size=np.array(old.shape);high_world=origin+size-1
+            points=points[np.all(points>=origin-expansion-1,1)&np.all(points<=high_world+expansion+1,1)]
+            low=np.floor(points-origin-expansion-.5).astype(int);high=np.ceil(points-origin+expansion+.5).astype(int)
+            for offset in itertools.product(*(range(int(d)+1) for d in np.max(high-low,axis=0))):
+                q=low+offset;valid=np.all(q<=high,1)&np.all(q>=0,1)&np.all(q<size,1);q=q[valid];old[tuple(q.T)]=True
+            self.assertTrue(np.array_equal(old,new))
     def test_skip_already_marked_cells_is_byte_identical(self):
         mesh=np.concatenate((cube(0,16),cube(5,11),cube(0,16)))
         classify=lambda p:bool(np.all(p>0)&np.all(p<16)&~(np.all(p>5)&np.all(p<11)))

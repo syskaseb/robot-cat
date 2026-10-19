@@ -2,6 +2,27 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+11:17Z: mapa1240stałych,181/3888zapisów36pozycji;1233źródła,
+odbiór248,235s/0błędów. Dalsze nakładanie komórek zmieniono z125pętli
+na8narożników i sumy prefiksowe:7testów0,180s, identyczna macierz z dawnym
+algorytmem również dla obrotu/obcięcia/nakładania. Zachowane wszystkie
+gotowe komórki; to usprawnienie narzędzia, NIE nowyPASS. Następna bramka:
+pełna mapa→123korytarze+USB→promienie/pojemności/pełne korzenie/dostęp.
+USB/balanser3testy0,032s; klasy promieni4testy0,005s, bez zaokrągleń w dół.
+Limit11:17:12Z54/46;0/10, hookON, resetnietknięty.
+
+11:14Z: odebrany zapis92658/PID12104:241,360s,1062źródła/1075stałych,
+0błędów. Proces zakończony; wznowiono tylko brakujące dane49641/PID13720.
+BlokerN01: brak wspólnego przydziału123korytarzy, dodatkowegoUSB500 oraz
+korzeni pełnych chwytów; moduły/fundament/54węzły/2FHAC pozostają odebrane.
+USB500 nie należy do123porcji/246końców. Rejestruje się osobno:452mm
+projektowo po26+22mm na wtyki, R30/OD5; brak dowodu środkowej krzywej.
+Nie wymuszać pełnego zwoju360°. Tani test nowego częściowego wyjścia30°
+wykazał, że SAME dwa łuki mają405,8mm >365,2mm budżetu; nie budować tego
+jako przyjętej trasy. Po mapie jeden wspólny układ z promieniami/dostępem
+i nośnym połączeniem, bez detaliN03 i bez zaliczenia samych propozycji.
+0/10; limit11:11:08Z53%zużyte/47%pozostało, bezresetu.
+
 10:59Z: proste8galerii i rezerwaUSB odrzucone97,360s: pełne zaciski
 banku/Pi/F0/U1/DG, nie dowód braku miejsca. Zamiast następnej wysokości
 powstaje JEDNA aktualna mapa zajętości: sztywne części, istniejąca wiązka,
