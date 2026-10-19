@@ -75,3 +75,26 @@ def legacy_unit(st,choice):
     return dict(parts=parts,kinds=kinds,wires=wires,reused_jacket_lands=model['reused_jacket_lands'],
                 all_case_first9_cap_band_head_and_protected_factory_unchanged=True,
                 roots_and_full_length_capacity_open=True)
+
+
+def rise_unit(st,choice):
+    """Separate the whole P_SYS power fan from the clamp/flat wiring plane.
+
+    Actual fore clamp is X-24 (X-48 is a closed SpliceClip rejection).
+    Keep all first9/stock and factory W043; custom tails rise in Z together.
+    """
+    assert st['ref']=='P_SYS'
+    model=legacy_unit(st,choice);theta=math.radians(30);b=np.array([0.,0.,1.])
+    for w in model['wires']:
+        q=np.asarray(w['point_mm']);d=np.asarray(w['departure_axis']);R=w['R_mm'];radius=w['radius']
+        assert abs(d@b)<1e-6
+        a=q+9*d;point=lambda t:a+R*math.sin(t)*d+R*(1-math.cos(t))*b
+        end=point(theta);axis=math.cos(theta)*d+math.sin(theta)*b;tip=end+9*axis
+        path=Part.Wire([Part.makeLine(A.Vector(*q),A.Vector(*a)),
+            Part.Arc(A.Vector(*a),A.Vector(*point(theta/2)),A.Vector(*end)).toShape(),Part.makeLine(A.Vector(*end),A.Vector(*tip))])
+        shape=path.makePipeShell([Part.Wire([Part.makeCircle(radius,A.Vector(*q),A.Vector(*d))])],True,False)
+        assert shape.isValid() and len(shape.Solids)==1
+        model['parts']['wire:'+w['endpoint']]=shape
+        w.update(bend_unit=b.tolist(),after_arc_end_mm=tip.tolist(),after_arc_exit_axis=axis.tolist())
+    model['whole_power_fan_rises_above_fore_clamp_not_another_flat_offset']=True
+    return model

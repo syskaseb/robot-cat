@@ -6,7 +6,7 @@ import FreeCAD as A
 import Part
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools/cad'))
-from feline_compact_station_fan import unit,legacy_unit
+from feline_compact_station_fan import unit,legacy_unit,rise_unit
 from feline_station_zone_domains import materialise
 from feline_remaining_kits import candidates,materialise as remaining_material
 from feline_fore_power_pair import SolidQueries
@@ -16,6 +16,27 @@ OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enc
 
 
 class CompactFan(unittest.TestCase):
+    def test_Psys_whole_fan_rises_above_ACTUAL_minus24_clamp(self):
+        stations={s['ref']:s for s in json.loads((OUT/'n01-flat-station-architecture.json').read_text())['stations']}
+        choice=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['P_SYS']
+        c=dict(slot=choice['slot'],base_recipe=choice['recipe']);old=legacy_unit(stations['P_SYS'],c);model=rise_unit(stations['P_SYS'],c)
+        groups,_=candidates();r=next(r for r in groups['Anchor:Fore'] if r['axis_X_mm']==-24)
+        hardware,_=remaining_material('Anchor:Fore',r);query=SolidQueries()
+        self.assertLess(query.distance(old['parts']['wire:P_SYS.3'],hardware['RailClamp2Screw']),1.25)
+        for n,s in model['parts'].items():
+            if not n.startswith('wire:'):
+                self.assertLess(s.cut(old['parts'][n]).Volume,1e-7)
+                self.assertLess(old['parts'][n].cut(s).Volume,1e-7)
+            for other,t in hardware.items():
+                if bbox_lower_bound(s.BoundBox,t.BoundBox)>=1.25:continue
+                self.assertGreaterEqual(query.distance(s,t),1.25-1e-6,(n,other))
+        serial=lambda x:json.dumps(x,default=lambda a:a.tolist(),sort_keys=True)
+        self.assertEqual(serial(model['reused_jacket_lands']),serial(old['reused_jacket_lands']))
+        for w in model['wires']:
+            self.assertGreaterEqual(w['R_mm'],w['minimum_R_mm'])
+            for n,s in model['parts'].items():
+                if not n.startswith('wire:'):self.assertLess(model['parts']['wire:'+w['endpoint']].common(s).Volume,1e-7)
+
     def test_shared_legacy_rule_preserves_all_stock_and_protected_W043(self):
         stations={s['ref']:s for s in json.loads((OUT/'n01-flat-station-architecture.json').read_text())['stations']}
         selected=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen'];count=0
