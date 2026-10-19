@@ -36,5 +36,11 @@ class EndRegister(unittest.TestCase):
             self.assertIsNotNone(r['jacket_routing_point_mm'])
             self.assertFalse(r['supplier_datum_guaranteed'])
 
+    def test_old920_is_not_counted_as_additional_stock(self):
+        r=self.doc['source_920_accounting']
+        self.assertEqual(set(r['replaced_by_wire_refs']),{'W064','W065','W067','W068'})
+        self.assertTrue(r['not_an_extra_conductor_or_stock_purchase'])
+        self.assertIsNone(r['current_cut_lengths_mm'])
+
 
 if __name__=='__main__':unittest.main()

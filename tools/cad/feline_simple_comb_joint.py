@@ -5,6 +5,7 @@ units, then actual mutual cuts. Keep source fans and all old positive receipts.
 No N01 credit before full roots/tools/end-corridor plan.
 """
 import hashlib
+import ast
 import json
 import os
 import subprocess
@@ -24,8 +25,29 @@ from feline_shared_straight_combs import slots,unit
 from feline_station_zone_domains import materialise
 from feline_fore_power_pair import SolidQueries,pair_spacing
 from feline_solid_distance import bbox_lower_bound
-from feline_flat_station_templates import box_gap
+from feline_flat_station_templates import box_gap,build
 from plan_feline_central_pi_wedge import packed
+
+
+_physical_bases={}
+
+
+def physical_key(st,slot):
+    """Exact constructor inputs, independent of logical labels and unused R.
+
+    Only the straight first-land geometry is aliased, never downstream R.
+    Handedness and actual occupied cavities/radii are all preserved.
+    """
+    side=slot['side'];c=np.asarray(slot['centre_mm']);key=(st['ref'],side)
+    if key not in _physical_bases:
+        # Replay precisely the constructor arithmetic, including floating
+        # roundoff at mirrored source mouths; no rounded coordinate alias.
+        base=build(dict(st,row_families=['inner','outer']),'outer',1,-side)
+        old=np.asarray(base['centre_mm']);rot=np.array([[0.,-1.,0.],[1.,0.,0.],[0.,0.,1.]])
+        _physical_bases[key]=[(rot@(np.asarray(w['point_mm'])-old),w['radius']) for w in base['wires']]
+    ports=[dict(point=(q+c).tolist(),radius=r) for q,r in _physical_bases[key]]
+    ports.sort(key=lambda p:tuple(p['point']))
+    return hashlib.sha256(json.dumps(dict(slot=slot,ports=ports),sort_keys=True).encode()).hexdigest()
 
 
 def main():
@@ -37,7 +59,20 @@ def main():
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in (Path(__file__),planfile,oldfile,zonefile,fanfile,Path(__file__).with_name('feline_shared_straight_combs.py'),Path(__file__).with_name('feline_beside_bank_receive.py'))}
     result=dict(status='RUNNING_SHARED_SIMPLE_COMB_ALLOCATION',source_sha256=pins,iterations=[],mutual_cache={},cuts=[],errors=[],N01_complete=False,physical_pass=False,selected=False)
     if dest.exists():
-        result=json.loads(dest.read_text());assert result['source_sha256']==pins
+        result=json.loads(dest.read_text())
+        if result['source_sha256']!=pins and '--receive-controller' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            previous=subprocess.run(['git','show','ac4117a8:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(previous).hexdigest()==result['source_sha256'][own]
+            assert all(result['source_sha256'][n]==v for n,v in pins.items() if n!=own)
+            before=ast.parse(previous);after=ast.parse(Path(__file__).read_text())
+            for name in ('shape','mutual'):
+                f=lambda tree:next(n for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name==name)
+                assert ast.dump(f(before))==ast.dump(f(after)),name
+            result.setdefault('controller_repairs',[]).append(dict(old_code_sha256=result['source_sha256'][own],
+                reason='Same shape/mutual kernels proven AST-identical. Propagate already-received identical CASE failures across logical references; reuse exact straight physical input signatures before requesting more units. No geometry change.'))
+            result['source_sha256']=pins
+        else:assert result['source_sha256']==pins
         result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3);dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -100,7 +135,18 @@ def main():
     try:
         for iteration in range(120):
             if time.monotonic()-tick>480:raise TimeoutError('Bounded8minute parent slice; no window closure')
-            received=json.loads((OUT/'n01-straight-combs-received.json').read_text())['units']
+            receiver=json.loads((OUT/'n01-straight-combs-received.json').read_text());received=receiver['units']
+            physical=receiver.get('physical_cache',{})
+            bad_cases={r['slot']['id'] for r in received.values() if str(r.get('failure','')).startswith('case|')}
+            for rec in received.values():
+                if rec.get('physical_key'):assert rec['physical_key']==physical_key(stations[rec['ref']],rec['slot'])
+            def receipt(r):
+                direct=received.get(r['ref']+':'+str(r['slot']['id']),{})
+                if 'failure' in direct:return direct
+                key=physical_key(stations[r['ref']],r['slot']);r0=physical.get(key,{})
+                if 'failure' in r0:
+                    result.setdefault('physical_aliases',{})[r['key']]=key
+                return r0
             rr=[];cc=[];vv=[];lo=[];hi=[]
             def add(indices,lower,upper):
                 j=len(lo);rr.extend([j]*len(indices));cc.extend(indices);vv.extend([1.]*len(indices));lo.append(lower);hi.append(upper)
@@ -108,7 +154,8 @@ def main():
             upper=np.ones(len(choices));cost=np.zeros(len(choices))
             for i,(g,r) in enumerate(choices):
                 if r['kind']=='straight_comb':
-                    rec=received.get(r['ref']+':'+str(r['slot']['id']),{})
+                    rec=receipt(r)
+                    if r['slot']['id'] in bad_cases:upper[i]=0
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 1000
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
@@ -119,7 +166,7 @@ def main():
             if fit.x is None:
                 result['status']='BOUNDED_JOINT_CATALOGUE_NO_WHOLE_SET_NOT_GLOBAL_IMPOSSIBILITY';result['solver_message']=fit.message;break
             chosen=[(g,r) for i,(g,r) in enumerate(choices) if fit.x[i]>.5]
-            requests=[dict(ref=r['ref'],slot_id=r['slot']['id']) for g,r in chosen if r['kind']=='straight_comb' and 'failure' not in received.get(r['ref']+':'+str(r['slot']['id']),{})]
+            requests=[dict(ref=r['ref'],slot_id=r['slot']['id']) for g,r in chosen if r['kind']=='straight_comb' and 'failure' not in receipt(r)]
             result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=len(requests)));save()
             print('Whole choice',len(result['iterations']),'unknown',len(requests),'mutualcuts',len(result['cuts']),flush=True)
             if requests:

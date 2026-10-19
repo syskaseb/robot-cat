@@ -35,6 +35,7 @@ def main():
         core='n01-six-source-current-core.json',fans='n01-six-source-shared-lanes.json',
         supported='n01-supported-fore-layout.json',pwm='n01-pwm-board-shelf.json',
         source='n01-full-material-scene.json',modules='n01-module-plan-r5.json').items()}
+    files['old_source_stock']=OUT.parent/'wiring-checkpoint/source-current-receipt.json'
     docs={k:json.loads(p.read_text()) for k,p in files.items()};rows=[]
     for e in docs['body']['endpoints']:
         r=copy.deepcopy(e);r.update(portion_id=e['id'].rsplit('/',1)[0],endpoint=e['role'],domain='body89')
@@ -112,6 +113,11 @@ def main():
         endpoints=rows,portions=portions,changed_current_datums=changes,actual_saved_Pi_pipe_cap_receipts=pipe_receipts,explicit_pipe_holds=pipe_errors,
         USB_actual_current_mouth=docs['core']['shared_fore_units']['PiUSB_changed_profile'],
         factory_4MTA_lengths=docs['body']['factory_lengths'],
+        source_920_accounting=dict(historical_total_mm=920,not_an_extra_conductor_or_stock_purchase=True,
+            replaced_by_wire_refs=[r['id'] for r in docs['old_source_stock']['source_recipes']],
+            historical_replacement_total_mm=docs['old_source_stock']['source_nominal_total_mm'],
+            historical1176_NOT_current_cut_list=True,current_cut_lengths_mm=None,
+            reason='All four S1 sources moved in current layout; old920 and later1176 are historical totals, never add either to current stock.'),
         accounting_boundaries_are_not_new_connectors=True,
         open=['Whole20station selection and both directions/factory corridors','Other moved modules not silently inherited','Full shared roots/tools/access','No invented U1/GTech external pinout; delivered fit gate'],
         source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in (*files.values(),Path(__file__))},worker_seconds=round(time.monotonic()-tick,3))
