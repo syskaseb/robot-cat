@@ -2,6 +2,51 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+06:20:03Z: wspólny27węzłowy wybór odebrany67100/PID18000,
+274,172s/exit0/0błędów:20WAGO+monitor+6CAŁYCH wyjść źródła,
+statyka/obrys/36prób ruchu oraz wszystkie wzajemne pary zaakceptowane.
+Dowody po identycznych CASE rozszerzono bez utożsamienia reszty jednostek;
+wybór nie zamraża tych pozycji przed wspólnym dołączeniem pozostałych27.
+N01 nadal0/10:24bank+2pełne kotwy+F_PWM/korzenie/ATO/narzędzia/wszystkie
+246końców/fabryczne pojemnościOPEN. Nie powtarzać zamkniętego budowania
+podpór, dawnych jednowierszowych geometrii ani nie przedstawiać tego jako10%.
+1852c030/9d6e4895/65e2b033 zachowują sprawdzone własne etapy.
+Testy: wspólny PETGpodzbiór2,757s, komponenty0,000s, ATOzcelowymblokiem
+2testy0,764s, pozostałe27/24usta i pełne bryły1,316s — PASS zakresowo.
+Odczyt44%used/56%remaining, bez resetu. HookON do całego wynikuN01.
+NEXT: odebrać konserwatywne12ciągłych wyciągówATO+niedeklarowane jako
+producenta budżety narzędzi, następnie wspólny54węzłowy model i korzenie.
+
+06:05:12Z:97693 odebrany exit0/495,875s/0błędów, N01 nadal0/10.
+Wspólna próba z dwoma rzędami9mm chwytów wykrywa te same P0Mount/PiPower
+pod różnymi etykietami. Nowy dowód PEŁNEGO wspólnego fragmentu PETG:
+odjęcie go od każdego z16rzeczywistych grzebieni daje0objętości poza nimi;
+test obu stron2,757s PASS. To umożliwia odrzucanie całej strefy tylko gdy
+ten rzeczywisty podzbiór traci1,25mm do wskazanej części, nigdy po bbox.
+1852c030 zapisuje naprawę całych partii i test.85771/PID7800 używa tego
+wyłącznie jako przyspieszenia; bryły/mutualAST niezmienione, brak nowegoCAD.
+Odczyt06:04:39Z44%used/56%remaining; hookON, bez resetu/nowego etapu.
+NEXT: odebrać85771; pełny wspólny plan24bank+2kotwy+F_PWM/korzenie/ATO/
+246końców/fabryczne pojemności nadal obowiązuje przed zaliczeniemN01.
+
+05:55:45Z:0/10, hookON bez terminu.44%used/56%remaining, bez resetu.
+Wybrany T18I111-02370 potwierdzony w źródle producenta; trzy PDF z osiami
+i tolerancjami zachowane. Max head4,3×5,3×5,0 vs dawny generic6³, pełna
+opaska1,2nominalnie bez zmian;145długości NIE jest145użytecznej pętli.
+Rigid1,25 nadal obowiązuje; poprawnie nazwany nylon/płaszcz używa istniejącej
+polityki0,2 (gołe head_budget błędnie wpadało do rigid). Nie jest toE3PASS.
+Po kolejnych kontaktach główka–PETG przyjęto DWIE linie pełnych9mm chwytów,
+odległe12mm wzdłuż tego samego prostego przewodu; żaden port/case/R/ścianka
+nie przesunięty.2testy sąsiednich pełnych jednostek/0,822s PASS; cały światOPEN.
+Workera25912 zatrzymano WYŁĄCZNIE po zachowaniu dwóch sprawdzonych kopiiJSON,
+bez dzieci i bez utraty native: kontroler odbierał bazę, lecz wracał do solvera
+przed odbiorem nowych chwytów. Naprawa tylko kolejności, shape/mutualAST bez zmian.
+Teraz97693/PID13700: ta sama pełna partia baza+nowy materiał przed re-solve.
+Źródło koduprzednaprawąa08eea28;ac4117a8/e36917e7/2435ccf3 zachowują wcześniejsze
+wejścia/rejestr123/246/odczyty i przyspieszenie sceny. Brak nowego wybranegoCAD.
+NEXT: odebrać97693, wspólny27węzłowy wynik, dalej24bank+2kotwy+F_PWM,
+wszystkie korzenie/narzędzia/ATO/246końców/fabryczne pojemności. Bez N03 detali.
+
 05:17:43Z: N01 nadal0/10, hookON do wyniku. Limit42%used/58%remaining,
 bez resetu. Wybrany master aff0a45b... ponownie bez zmian. Aktualny spis
 930właścicieli/26,609s potwierdza pełny bank do|Y|86,55, nie67,75 oprawki.
