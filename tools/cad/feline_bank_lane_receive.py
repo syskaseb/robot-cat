@@ -4,6 +4,9 @@ Unchanged before-grips may reuse a COMPLETE source-pinned old-unit receipt.
 Other units receive all parts. No old failed wire is inherited as a new pass.
 """
 import json
+import ast
+import hashlib
+import subprocess
 import time
 from pathlib import Path
 import FreeCAD as A
@@ -25,7 +28,24 @@ def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.js
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
     result=dict(status='RUNNING_BANK_OPPOSED_LANES',source_sha256=pins,world_source_sha256=world.pins,units={},errors=[],N01_complete=False,physical_pass=False)
     if dest.exists():
-        result=json.loads(dest.read_text());assert result['source_sha256']==pins and result['world_source_sha256']==world.pins
+        result=json.loads(dest.read_text());assert result['world_source_sha256']==world.pins
+        if result['source_sha256']!=pins:
+            own=Path(__file__).relative_to(ROOT).as_posix();helper='tools/cad/feline_bank_exit_lanes.py'
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,helper))
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            previous={}
+            for name in (own,helper):
+                versions=[subprocess.run(['git','show',c+':'+name],cwd=ROOT,check=True,capture_output=True).stdout for c in ('48659c05','928307e5')]
+                previous[name]=next(t for t in versions if hashlib.sha256(t).hexdigest()==result['source_sha256'][name])
+            for name in ('candidates','materialise','under_key_candidates','under_key_materialise'):
+                if any(isinstance(n,ast.FunctionDef) and n.name==name for n in ast.walk(ast.parse(previous[helper]))):
+                    assert ast.dump(get(previous[helper],name))==ast.dump(get((ROOT/helper).read_text(),name)),name
+            class DefaultFactory(ast.NodeTransformer):
+                def visit_Name(self,n):return ast.copy_location(ast.Name(id='factory',ctx=n.ctx),n) if n.id=='materialise' else n
+            assert ast.dump(DefaultFactory().visit(get(previous[own],'receive')))==ast.dump(get(Path(__file__).read_text(),'receive'))
+            result.setdefault('additive_receipt_repairs',[]).append(dict(old_source_sha256=result['source_sha256'],reason='All existing constructors and receive kernel AST unchanged; optional factory API only'))
+            result['source_sha256']=pins
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     old=json.loads((OUT/'n01-remaining27-static.json').read_text());assert old['world_source_sha256']==world.pins
     assert old['source_sha256']['tools/cad/feline_remaining_kits.py']==pins['tools/cad/feline_remaining_kits.py']

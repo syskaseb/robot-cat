@@ -12,6 +12,7 @@ import subprocess
 import sys
 import time
 import zipfile
+import traceback
 from functools import lru_cache
 from pathlib import Path
 import numpy as np
@@ -115,7 +116,19 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--rear-bank-return' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--receipt-api-fix' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_bank_lane_receive.py'
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))
+            previous={n:subprocess.run(['git','show','fdee8a1d:'+n],cwd=ROOT,check=True,capture_output=True).stdout for n in (own,receiver)}
+            assert all(hashlib.sha256(t).hexdigest()==result['source_sha256'][n] for n,t in previous.items())
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(previous[own],name))==ast.dump(get(Path(__file__).read_text(),name)),name
+            assert ast.dump(get(previous[receiver],'receive'))==ast.dump(get((ROOT/receiver).read_text(),'receive'))
+            assert result['errors']==['AssertionError()']
+            result.setdefault('controller_repairs',[]).append(dict(reason='Adopt old full-bank receipts after proven additive factory API, without changing actual query/geometry kernels',prior_metadata_errors=result['errors']))
+            result['errors']=[];result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--rear-bank-return' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             assert set(pins)==set(result['source_sha256'])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
@@ -560,7 +573,7 @@ def main():
             result['chosen']={g:r for g,r in chosen};break
         else:result['status']='BOUNDED_ITERATION_RECEIPT_NOT_N01'
     except TimeoutError as exc:result['status']='PARTIAL_SHARED_COMB_JOINT';result['slice_note']=str(exc)
-    except Exception as exc:result['status']='SHARED_COMB_CONTROLLER_ERROR';result['errors'].append(repr(exc))
+    except Exception as exc:result['status']='SHARED_COMB_CONTROLLER_ERROR';result['errors'].append(repr(exc));result['last_error_traceback']=traceback.format_exc()
     save();print(json.dumps(dict(status=result['status'],worker_seconds=result['worker_seconds'],errors=result['errors'])),flush=True)
 
 
