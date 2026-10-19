@@ -7,9 +7,11 @@ tools, mutual allocation and the other source interfaces remain open N01.
 Resumable by exact geometry signatures, not logical wire labels.
 """
 import hashlib
+import ast
 import itertools
 import json
 import os
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -83,7 +85,21 @@ def main():
     result=dict(status='RUNNING_CURRENT_COMPLETE_STATION_DOMAINS',source_sha256=pins,domains={},geometry_cache={},errors=[],N01_complete=False,physical_pass=False,
         roots_tools_all123portions246ends_other27_and_sixsource_mutual_still_required=True)
     if dest.exists():
-        old=json.loads(dest.read_text());assert old['source_sha256']==pins,'Receive pinned work only; no old world inheritance after change'
+        old=json.loads(dest.read_text())
+        if old['source_sha256']!=pins and '--receive-controller-only' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            assert all(old['source_sha256'][n]==v for n,v in pins.items() if n!=own)
+            previous=subprocess.run(['git','show','aafc89c7:'+own],cwd=ROOT,capture_output=True,check=True).stdout
+            assert hashlib.sha256(previous).hexdigest()==old['source_sha256'][own]
+            before=ast.parse(previous);after=ast.parse(Path(__file__).read_text())
+            def kernel(tree,name):
+                if name=='receive':tree=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
+                return ast.dump(next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name==name),include_attributes=False)
+            assert all(kernel(before,n)==kernel(after,n) for n in ('catalogue','signature','materialise','receive'))
+            old.setdefault('controller_repairs',[]).append(dict(old_code_sha256=old['source_sha256'][own],new_code_sha256=pins[own],
+                geometry_and_actual_query_kernel_AST_unchanged=True,reason='Demand-driven whole allocation requests, not exhaustive local domain enumeration'))
+            old['source_sha256']=pins
+        else:assert old['source_sha256']==pins,'Receive pinned work only; no old world inheritance after change'
         result=old;result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
@@ -135,19 +151,26 @@ def main():
                 if not pair(key,s,t,minimum,not wirewire):return key
         return None
     try:
+        requested=None
+        if '--requested-only' in sys.argv:requested=json.loads((OUT/'n01-station-joint-targets.json').read_text())['requests']
         for st in plan['stations']:
-            name=st['ref'];domain=result['domains'].setdefault(name,[]);options=catalogue(st,zones)
+            name=st['ref']
+            if requested is not None and name not in requested:continue
+            domain=result['domains'].setdefault(name,[]);options=catalogue(st,zones) if requested is None else requested[name]
             for r in options:
-                key=signature(st,r);record=result['geometry_cache'].setdefault(key,{})
+                clean={k:v for k,v in r.items() if k not in ('key','geometry_signature')};key=signature(st,clean)
+                assert r.get('key',key)==key
+                record=result['geometry_cache'].setdefault(key,{})
                 if 'failure' not in record:
                     budget();parts,kinds=materialise(st,slots[r['slot_id']],r)
                     record['failure']=receive(st,parts,kinds,record);record['recipe_example']=dict(ref=name,**r)
                     save();print('Full unit',name,r,'clear' if record['failure'] is None else 'blocked:'+record['failure'],flush=True)
                 if record['failure'] is None and not any(x['geometry_signature']==key for x in domain):domain.append(dict(r,geometry_signature=key))
-            result.setdefault('completed_stations',[])
-            if name not in result['completed_stations']:result['completed_stations'].append(name)
+            if requested is None:
+                result.setdefault('completed_stations',[])
+                if name not in result['completed_stations']:result['completed_stations'].append(name)
             save();print('Station complete',name,len(domain),'whole-unit alternatives',flush=True)
-        result['status']='CURRENT_COMPLETE_STATION_DOMAINS_RECEIVED_JOINT_REQUIRED'
+        result['status']='CURRENT_COMPLETE_STATION_DOMAINS_RECEIVED_JOINT_REQUIRED' if requested is None else 'REQUESTED_CURRENT_COMPLETE_UNITS_RECEIVED_NOT_N01'
     except TimeoutError as exc:result['status']='PARTIAL_CURRENT_COMPLETE_STATION_DOMAINS';result['slice_note']=str(exc)
     except Exception as exc:result['status']='STATION_DOMAIN_ERROR_NOT_ACCEPTANCE';result['errors'].append(repr(exc))
     save();print(json.dumps(dict(status=result['status'],worker_seconds=result['worker_seconds'],domains={n:len(v) for n,v in result['domains'].items()},errors=result['errors'])),flush=True)
