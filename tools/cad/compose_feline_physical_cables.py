@@ -21,6 +21,7 @@ def main():
         external452_mm_is_project_mould_allowance_not_supplier_guarantee=True,project_external_target_mm=452,
         project_overmould_allowances_mm=[26,22],project_OD_mm=5,minimum_fixed_project_R_mm=30,
         pi_jacket_mouth_mm=pi['mouth_mm'],pi_prefix_exit_mm=a,pi_prefix_exit_axis=[b-a for a,b in zip(*pi['grip9_mm'])],
+        bus_jacket_mouth_mm=bus['parts'][0]['start'],bus_jacket_departure_axis=[0,-1,0],
         bus_prefix_exit_mm=b,bus_prefix_exit_axis=bus['end_direction'],pi_prefix_length_mm=pi_prefix,bus_prefix_length_mm=bus['length_mm'],
         joined_middle_Euclidean_lower_bound_mm=lower,remaining_middle_budget_mm=452-pi_prefix-bus['length_mm'],
         maximum_slack_if_straight_middle_mm=452-pi_prefix-bus['length_mm']-lower,

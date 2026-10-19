@@ -4,7 +4,7 @@ Not final physical curves: anchor links, minimum bend radii, stock, shared
 capacity, full grips and exact BRep checks remain explicit. External head
 interfaces are not clamped silently to the torso map or called connected.
 """
-import heapq,json,math,time
+import heapq,json,math,os,time
 from pathlib import Path
 import numpy as np
 from scipy.ndimage import distance_transform_edt,label
@@ -20,6 +20,26 @@ def radius_bucket(radius):
     """Never shrink an actual cable to the nearest smaller guide class."""
     assert radius>0
     return next((r for r in RADII if r>=radius-1e-9),float(radius))
+
+
+def nearest_cell(indices,cell):
+    assert indices.shape[0]==3 and len(cell)==3
+    return indices[(slice(None),*tuple(cell))].astype(int)
+
+
+def macro_boundary(endpoint,lower_custom):
+    """Read received source prefix, do not invent9mm at a virtual boundary."""
+    q=np.asarray(endpoint['routing_exit_mm'],float);d=np.asarray(endpoint['routing_exit_axis'],float)
+    if endpoint['id'] in lower_custom:
+        r=lower_custom[endpoint['id']]
+        assert np.linalg.norm(q-np.asarray(r['point_mm']))<1e-5
+        return q+float(r['prefix_mm'])*d,d,'RECEIVED_LOWER4MTA_CUSTOM_PREFIX'
+    status=endpoint.get('routing_boundary_status','')
+    if status.startswith(('RECEIVED_','CURRENT_FULL_','CURRENT_MAIN_')):
+        return q,d,status
+    # Body loom cut points and non-connector accounting planes do not impose
+    # a new physical grip. Remaining real exits stay explicitly unqualified.
+    return q,d,'CURRENT_BOUNDARY_ANCHOR_LINK_AND_FULL_GRIP_OPEN'
 
 
 def astar(mask,start,goal,clearance,seconds=5,maximum=120000,soft_penalty=None):
@@ -62,10 +82,13 @@ def main():
     spec=OUT/'prefix-allocation.json';bywire={}
     for r in json.loads(spec.read_text())['specifications']:bywire[r['wire']]=max(r['radius'],bywire.get(r['wire'],0))
     extra_file=OUT/'n01-physical-cable-contract.json';extra=json.loads(extra_file.read_text())
-    dest=OUT/'n01-current-corridor-guides.json';pins={f.relative_to(ROOT).as_posix():sha(f) for f in (source,field,ends_file,spec,extra_file,Path(__file__))}
+    lower_file=OUT/'n01-full-lower-bay-plan-r3.json';lower=json.loads(lower_file.read_text());lower_custom={r['id']:r for r in lower['custom_ends']}
+    dest=OUT/'n01-current-corridor-guides.json';pins={f.relative_to(ROOT).as_posix():sha(f) for f in (source,field,ends_file,spec,extra_file,lower_file,Path(__file__))}
     result=dict(status='RUNNING_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS',source_sha256=pins,portions={},N01_complete=False,physical_pass=False,
         selected=False,all123_covered_not_all123_routed=True,graph_is_not_a_curve_or_airgap_proof=True)
-    if dest.exists():result=json.loads(dest.read_text());assert result['source_sha256']==pins
+    if dest.exists():
+        result=json.loads(dest.read_text());assert result['source_sha256']==pins
+        result.setdefault('previous_worker_seconds',[]).append(result['worker_seconds'])
     rigid=data['rigid_signed_distance'];motion=data['motion36_signed_distance'];outer=data['outer_distance'];inside=data['inside'];soft=data['harness_signed_distance']
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     factory={r['portion_id'] for r in register['received_factory4MTA_curves']}
@@ -79,6 +102,7 @@ def main():
         ordinary_portions=123,required_tasks=len(tasks),extra_USB_joined_length_and_service_bight_open=True)
     try:
         for radius in sorted({radius_bucket(bywire.get(ends[ids[0]]['wire'],1.05 if ends[ids[0]]['wire'].startswith('X') else 1.55)) for ids in tasks.values()}):
+            if not any(n not in result['portions'] and radius_bucket(bywire.get(ends[ids[0]]['wire'],1.05 if ends[ids[0]]['wire'].startswith('X') else 1.55))==radius for n,ids in tasks.items()):continue
             free=inside&(rigid>=radius+2.45)&(motion>=radius+2.45)&(outer>=radius+4.45)
             components,_=label(free);nearest=distance_transform_edt(~free,return_distances=False,return_indices=True)
             clearance=np.minimum(rigid,motion)
@@ -93,13 +117,12 @@ def main():
                 if portion in factory or wire=='W043':row['status']='RECEIVED_COMPLETE_UNCHANGED_CURVE_NOT_REROUTED';result['portions'][portion]=row;continue
                 anchors=[]
                 for e in (aa,bb):
-                    q=np.asarray(e['routing_exit_mm'],float);d=np.asarray(e['routing_exit_axis'],float)
-                    if not e.get('routing_boundary_status','').startswith(('RECEIVED_','CURRENT_FULL_','CURRENT_MAIN_')):q=q+9*d
+                    q,d,boundary_status=macro_boundary(e,lower_custom)
                     cell=np.rint((q-origin)/step).astype(int)
                     if np.any(cell<0) or np.any(cell>=free.shape):
                         anchors.append(dict(end=e['id'],point_mm=q.tolist(),status='EXTERNAL_HEAD_OR_APPENDAGE_ROUTE_NOT_IN_TORSO_FIELD'));continue
-                    anchor=nearest[tuple(cell)].astype(int);point=origin+anchor*step
-                    anchors.append(dict(end=e['id'],point_mm=q.tolist(),anchor_mm=point.tolist(),cell=anchor.tolist(),
+                    anchor=nearest_cell(nearest,cell);point=origin+anchor*step
+                    anchors.append(dict(end=e['id'],point_mm=q.tolist(),boundary_status=boundary_status,anchor_mm=point.tolist(),cell=anchor.tolist(),
                         component=int(components[tuple(anchor)]),unqualified_anchor_link_mm=float(np.linalg.norm(point-q)),
                         status='NEAREST_FREE_MACRO_ANCHOR_NOT_A_QUALIFIED_SOURCE_EXIT'))
                 row['anchors']=anchors
@@ -110,10 +133,11 @@ def main():
                     row['guide']={**path,'points_mm':[(origin+np.asarray(c)*step).tolist() for c in path.pop('points')]}
                     row['status']='CONNECTED_GRID_GUIDE_CURVATURE_AND_EXACT_GATES_OPEN' if row['guide']['points_mm'] else 'BOUNDED_GUIDE_SEARCH_OPEN'
                 result['portions'][portion]=row;save()
+                if len(result['portions'])%10==0:print('Current whole-space guides',len(result['portions']),'/',len(tasks),flush=True)
             del free,components,nearest
         result['status']='ALL123_PLUS_USB_CONNECTIVITY_PROPOSALS_RECORDED' if len(result['portions'])==len(tasks) else 'PARTIAL_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS'
     except TimeoutError as exc:result.update(status='PARTIAL_WHOLE_CORRIDOR_CONNECTIVITY_PROPOSALS',slice_note=str(exc))
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],portions=len(result['portions']))),flush=True)
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':print('WORKER_PID',os.getpid(),flush=True);main()

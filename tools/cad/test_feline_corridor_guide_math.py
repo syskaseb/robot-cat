@@ -1,9 +1,22 @@
 import unittest
 import numpy as np
-from propose_feline_current_corridors import astar,radius_bucket
+from propose_feline_current_corridors import astar,radius_bucket,macro_boundary,nearest_cell
 
 
 class GuideMath(unittest.TestCase):
+    def test_edt_indices_have_leading_coordinate_axis(self):
+        from scipy.ndimage import distance_transform_edt
+        free=np.zeros((12,15,11),bool);free[7,8,9]=True
+        indices=distance_transform_edt(~free,return_distances=False,return_indices=True)
+        self.assertTrue(np.array_equal(nearest_cell(indices,[10,12,10]),[7,8,9]))
+    def test_virtual_boundary_does_not_invent_a_nine_mm_land(self):
+        row=dict(id='FL/fixed',routing_exit_mm=[1,2,3],routing_exit_axis=[1,0,0],routing_boundary_status='CURRENT_MOUTH_PREFIX_ALLOCATION_OPEN',initial_jacket_land_mm=None)
+        q,_,_=macro_boundary(row,{})
+        self.assertTrue(np.array_equal(q,[1,2,3]))
+    def test_received_lower_custom_uses_exact_prefix_length(self):
+        row=dict(id='W026/custom/start',routing_exit_mm=[1,2,3],routing_exit_axis=[-1,0,0])
+        q,_,s=macro_boundary(row,{row['id']:dict(point_mm=[1,2,3],prefix_mm=9.25)})
+        self.assertTrue(np.array_equal(q,[-8.25,2,3]));self.assertTrue(s.startswith('RECEIVED_'))
     def test_radius_is_never_rounded_down(self):
         for radius in (1.05,1.1,1.55,1.7,2.1,2.4,2.5,3.1,3.5,5.,6.):
             self.assertGreaterEqual(radius_bucket(radius)+1e-9,radius)
