@@ -3,10 +3,26 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/cad'))
-from compose_feline_shared_end_plan import station_ends,bank_end,inline_end,balance_contract,source_end
+from compose_feline_shared_end_plan import station_ends,bank_end,inline_end,balance_contract,source_end,selected_bank_end
 
 
 class SharedEnds(unittest.TestCase):
+    def test_custom_portion_identity_is_not_a_new_logical_wire(self):
+        row=dict(endpoint='FL_P.1',wire='W026',portion_id='W026/custom',group='WAGO:FL_P')
+        wire=dict(endpoint='FL_P.1',wire='W026/custom',point_mm=[1,2,3],departure_axis=[1,0,0],grip_start_mm=[1,2,3],grip_end_mm=[10,2,3],minimum_R_mm=12.4)
+        self.assertEqual(station_ends([row],{'FL_P':[wire]}),1)
+        self.assertEqual(row['wire'],'W026')
+        with self.assertRaises(AssertionError):station_ends([dict(row)],{'FL_P':[dict(wire,wire='W026/factory')]})
+
+    def test_bank_grip_before_arc_does_not_acquire_a_duplicate_after9(self):
+        row={};r=dict(selected_T18I_max_head=True,joint_current_bank_plane='BEFORE9_PARALLEL60',
+            base_recipe=dict(point_mm=[-18,-17.152,69],departure_axis=[0,1,0],R_mm=12.4,terminal_name='R2_OUT_',first_mm=9))
+        selected_bank_end(row,'Bank:W033/body/end',r)
+        self.assertEqual(row['jacket_grip9_mm'],[[-18,-17.152,69],[-18,-8.152000000000001,69]])
+        self.assertFalse(row['duplicate_mandatory_after9'])
+        self.assertFalse(row['full_middle_route_accepted'])
+        self.assertGreater(row['routing_prefix_exit_mm'][0],-18)
+
     def test_source_end_keeps_actual_mouth_and_full_after_arc_grip(self):
         row=dict(id='W064/single/end')
         recipe=dict(ref=row['id'],point_mm=[1,2,3],departure_axis=[1,0,0],grip_start_mm=[4,5,6],

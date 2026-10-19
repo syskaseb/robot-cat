@@ -13,6 +13,7 @@ from plan_feline_layout import OUT
 from feline_atomic_save import save_json
 from feline_bank_receiving_grips import both_after_line
 from feline_bank_zoned_layout import profile as zoned_profile
+from feline_bank_selected_t18i import current_profile as selected_bank_profile
 
 
 def plus(a,b):return [x+y for x,y in zip(a,b)]
@@ -21,18 +22,21 @@ def mv(r,p):return [sum(x*y for x,y in zip(row,p)) for row in r]
 
 
 def station_ends(rows,models):
-    bykey={(r['endpoint'],r['wire']):r for r in rows if r['group'].startswith('WAGO:')}
+    station_rows=[r for r in rows if r['group'].startswith('WAGO:')]
     count=0
     for ref,wires in models.items():
         for w in wires:
-            r=bykey[w['endpoint'],w['wire']]
+            matching=[r for r in station_rows if r['endpoint']==w['endpoint'] and
+                (r.get('portion_id')==w['wire'] or r['wire']==w['wire'])]
+            assert len(matching)==1,('Ambiguous/missing physical station portion',w['endpoint'],w['wire'],matching)
+            r=matching[0]
             r.update(point_mm=w['point_mm'],departure_axis=w['departure_axis'],jacket_grip9_mm=[w['grip_start_mm'],w['grip_end_mm']],
                 minimum_R_mm=w['minimum_R_mm'],pose_status='CURRENT_SHARED_STATION_MOUTH_AND_FULL_GRIP',
                 current_pose_basis='Complete shared54 static/mutual selection; project mouth, not supplier guarantee',
                 received_prefix_R_mm=w.get('received_prefix_R_mm'),grip_length_mm=9,
                 full_middle_route_accepted=False,supplier_datum_guaranteed=False)
             count+=1
-    assert count==len(bykey) and len({(r['endpoint'],r['wire']) for r in rows if r['group'].startswith('WAGO:')})==count
+    assert count==len(station_rows) and len({(r['endpoint'],r['wire']) for r in station_rows})==count
     return count
 
 
@@ -66,6 +70,16 @@ def source_end(row,recipe):
         supplier_datum_guaranteed=False,full_middle_route_accepted=False)
 
 
+def selected_bank_end(row,group,recipe):
+    bank_end(row,recipe['base_recipe']);p=selected_bank_profile(group,recipe)
+    row.update(jacket_grip9_mm=[p['start'].tolist(),p['tip'].tolist()],grip_axis=p['axis'].tolist(),
+        current_prefix_entry_mm=p['entry'],current_prefix_sweep_degrees=p['degrees'],
+        routing_prefix_exit_mm=p['curve_end'].tolist(),routing_prefix_exit_axis=p['curve_axis'].tolist(),
+        source_first9_unchanged=True,initial_jacket_land_mm=9,grip_length_mm=9,
+        duplicate_mandatory_after9=False,receiving_zone=p['role'],
+        pose_status='CURRENT_SHARED_BANK_FULL_BEFORE9_TYPED60')
+
+
 def balance_contract(ecad):
     rows=copy.deepcopy(ecad['balance_interface'])
     assert len(rows)==4 and {r['tap'] for r in rows}=={'BAT.B0','BAT.B1','BAT.B2','BAT.B3'}
@@ -88,8 +102,9 @@ def main():
     bank=[]
     for group,choice in shared['chosen'].items():
         if group.startswith('Bank:'):
-            recipe=choice['recipe']['base_recipe'] if choice['kind'] in ('bank_exit_lane','bank_under_key_lane','bank_both_after','bank_zoned_after') else choice['recipe']
+            recipe=choice['recipe']['base_recipe'] if choice['kind'] in ('bank_exit_lane','bank_under_key_lane','bank_both_after','bank_zoned_after','bank_selected_t18i') else choice['recipe']
             row=byid[group[5:]];bank_end(row,recipe);bank.append(row['id'])
+            if choice['kind']=='bank_selected_t18i':selected_bank_end(row,group,choice['recipe'])
             if choice['kind']=='bank_both_after':
                 start,axis,tip,b=both_after_line(group,choice['recipe'])
                 row.update(jacket_grip9_mm=[start.tolist(),tip.tolist()],grip_axis=axis.tolist(),

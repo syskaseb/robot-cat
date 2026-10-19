@@ -2,6 +2,183 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+09:47Z: foundation46,500s odrzucona. Rzeczywiste przecięcia BankPier2/3
+z przewodami; inne pary to0,24/0,44/0,5mm zamiast1,25. Nie ruszać kabli.
+Nowy CAŁY nośnik: kanały z WSZYSTKICH bieżących chronionych brył tylko
+w NOWYM PETG, zachowane4rzeczywiste podkładki/pady i ich pola po cięciach.
+Podkładki12oprawek z rzeczywistych dolnych płaskich ścian, nie bbox;
+ładowny bed sięga pod te podkładki. Dokładne pary współpracujące własnego
+łożyskowania mają0penetracji, reszta1,25; nie wyłączać kupnych części.
+Pełny obecny drukowany ShelfPWMcarrier zachowany jako jawny wspólny
+fragment nośnika, bez cięcia/ukrywania. Graf KAŻDEJ oddzielnej bryły musi
+mieć dodatnie połączenie do zacisków, nie tylko etykieta części.
+To model planistyczny przedN03, nie natywny wydruk ani fizycznyPASS.
+
+09:35Z: current54 złożony45,953s: wszystkie12pełnych rezerwacji ATO
+czyste, bez74rozłączeńWAGO. Rejestr246:86WAGO/24bank/2F_PWM/6źródeł
+uzgodnione0,110s,7testów0,001s. W026/custom to istniejąca porcjaW026,
+nie nowy kabel; mapowanie po fizycznym porcie i IDporcji, nie obciętym ID.
+Teraz odbiór wspólnejfoundation na rzeczywistych4zaciskach PRZECIW
+całemu54/światu/ruchowi/12ATO. Pozostałe korzenie i pojemność nadalOPEN;
+nie zaliczaćN01 po samym current54. Limit09:35:03Z50/50, bezresetu.
+
+09:30Z:63333/PID2408 odebrany335,797s/0błędów: CAŁY54
+WHOLE54_FULL_UNITS_STATIC_MUTUAL_RECEIVED_ROOTS_CORRIDORS_TOOLS_OPEN.
+Jedno wspólne rozmieszczenie wszystkich20WAGO/monitora/6źródeł/24bankowych
+wyjść/2kompletnych zacisków/F_PWM; wszystkie pełne materiały oraz własneTE,
+świat/obrys i przyjęte próbki ruchu. Nie zaliczać jeszczeN01: teraz złożyć
+current54/12ATO/246końców, wspólną foundation i pozostałe korzenie/pojemność.
+Źródłowy native niezmieniony; bramka N03 nadal nieotwarta.
+
+09:23Z: aktualnybank:18geometrii BEFORE9_TYPED60 zachowanych,6praweOUT
+równolegle+X. CAŁY24 wzajemnie5,062s/375par i wszystkie24 przy PEŁNYCH
+obsadzonych modułach20,860s mają rozwiązanie. Dawny powrót180 odrzucony
+na F_PI/P_SYS/D_FL; nie wracać. Usunięty arbitralny drugi9mm ZA łukiem,
+gdy pełny wymagany chwyt9 jest PRZED nim. R12,4/rzeczywiste usta/stock
+niezmienione; T18Imaksymalne. a298b505 zabezpiecza ten etap, nieN01.
+Teraz jeden54 z pełnymi własnymiTE/światem, z odzyskanymi375bankpar
+i wykluczonymi znanymi główkami kolidującymi z S0. Potem wspólnepodpory.
+Limit09:23:23Z50/50, bezresetu, native źródłowy nietknięty, hookON.
+
+09:12Z: CAŁY24bank odebrany wzajemnie10,797s/375par; jeden wspólny wybór
+pełnych9/stock z maksymalnymi główkami wybranejT18I. Poziomy wspólne:
+cała prawa i3przednielewe zawracają POD bankiem po180°, poza środkowym
+P_SYS; pozostałe lewe w górnej galerii45°. Odbiór własny24 test2PASS4,595s;
+130dawnych pełnych recept zachowanych przez dokładną identycznośćbrył.
+N01 nadal0/10: teraz cały ten bank wobec modułów/TE/świata, wspólny54,
+potem foundation/korzenie/12ATO/246końców/pojemność fabrycznych przewodów.
+
+09:08Z: pełny bank pokazuje powtarzalny problem praweOUT w-X:
+W028wire↔W033cap0,084<1,25; nie kolejna lokalna główka. Nowa wspólna
+strefa WSZYSTKICH6prawychOUT: powrót180° POD bankiem, R12,4 i pełne9
+zachowane. Początek łuku0mm jest jawnym założeniem projektowym zamiast
+arbitralnych3, NIE gwarancją producenta; dokładne własneTE pozostają
+obowiązkową bramką przed przyjęciem. Odejście wcześniej utrzymuje CAŁY
+łuk poza P_SYS (przy3mm jego środek zbliża się do y=-1,75). To wspólna
+zmiana kierunku/poziomu odbioru, nie seria lokalnych przesunięć.
+
+09:05Z: pełny bank4,906s zatrzymuje nylonband↔nylonband1,203658<1,25,
+bez przenikania. W pair_spacing dokumentacja mówi0,2 dla miękkiego
+nylonu/płaszczy, ale kod pomijał kombinacjętie/tie. Korekta klasyfikacji
+dodaje WYŁĄCZNIE tę parę; PETG/kupne/bare pozostają1,25. Dawne negatywy
+zostają historyczne: tylko te odrzucone przez inny próg wracają do PEŁNEJ
+kontroli pary, NIE automatycznie doPASS. W banku także pełne maksymalne
+główki wybranejT18I4,3×5,3×5,0 zamiast anonimowych6³: źródłowe3rysunki
+z tolerancjami, prawdziwa rama opaski, kotwa od jej zewnętrznej powierzchni.
+Test24główek1,964s potwierdza113,95mm³ i podzbiór starej obwiedni,
+bez zmiany wire/R/cap/band/usta. Nie jest to nowySKU ani fizycznyPASS.
+
+08:53Z:80905 odebrany250,469s/0błędów. Odrzuca W027wire↔W031wire
+0,090626<0,2; wcześniejszy test5par nie obejmował sąsiada W027. Nie
+ponawiać główek tej samej drogi. Przedni prawy powrót idzie teraz pionowo
+w dół PO90°, pod całą ukośną lewą galerią, nie w stronę sąsiedniegoIN.
+Najpierw bramka WSZYSTKICH24 względem wszystkich24, z pełnym osprzętem
+i pełnym P_SYS/rdzeniem. Dopiero potem cały54. Dawne recepty/negatywy
+zostają i nie wolno podmienić ich geometrii pod starym kluczem.
+
+08:46Z:98244 odebrany211,250s/0błędów. Cały54 odrzuca W029cap↔P_SYScap:
+0,967951<1,25 we wszystkich główkach. Poprzedni ekran sprawdzał tylko
+korpus P_SYS, a powinien CAŁY jego chwyt — luka przygotowania jawnie
+naprawiona. Dodatkowe wejścieW029 należy do tej samej górnej galerii
+nad CAŁYM P_SYS, nie do dolnej. Nowe11/zachowane13. Nie ponawiać czterech
+clocków tego samego dolnegoW029. Bramka przed kolejnym54 obejmuje cały
+P_SYS z wire/cap/band/head i wszystkie dotychczasowe bryły, nie samcase.
+c5f0bd35 zachowuje poprzedni sprawdzony lokalny etap, nie wspólnyPASS.
+
+08:42Z: cały funkcjonalny bank ma lokalny test2PASS10,807s (pełne9,
+niezmienione objętości osprzętu i5pełnych par) oraz pełny ekran24grup
+przy121częściach rdzenia/P_SYS/D_FL/BUS/F_PI20,531s: każda ma co najmniej
+jedną pełną główkę czystą. Teraz JEDEN wspólny54, tylko10nowych grup,
+14bankowych geometrii i dawne dokładne pary zachowane przez dowódAST.
+N01 nadal0/10: wspólny54, korzenie,ATO,246końców/4MTA i pojemnośćOPEN.
+Limit08:42:26Z49/51, resetnietknięty; master źródłowy nietknięty.
+
+08:41Z: test12,212s potwierdził tylną parę, lecz przednia ma odległość
+pełnych opasek1,205637<1,25. Nie obniżać progu ani dokręcać jednej główki.
+Zmiana wspólnej przedniej pary: OBA wyjścia rozchodzą się ukośnie±X/-Z,
+zamiast jednego pionowego i jednego ukośnego; usta/R/pełne9 bez zmian.
+Dziesięć zmienionych grup,14geometrii dokładnie zachowanych. Cały ekran
+obsadzonych modułów przed dalszym pełnym solverem; brak zaliczeniaN01.
+
+08:40Z:94634 odebrany151,375s/0błędów; jednolity bank PO60 ma22/24,
+nie cały wynik. Pełna diagnostyka ujawniła też P_SYS/D_FL, więc nie
+ponawiamy tego katalogu. Plan funkcjonalny: lewa dodatniaX nad tymi
+modułami, pozostałe zachowane; pełne9chwytów/stock/R/usta bez zmian.
+Test10,110s odrzucił dwa wyjątki: przednia prawa18mm przecina lewy
+przewód, tylny powrót-X trafia w lewy cap. Nie mikroprzesuwać chwytów:
+oba prawe wyjątki mają teraz wspólną płaszczyznę ukośnie-X/-Z zamiast
+prostej przeciwnej osi. Bramka: pełne wzajemne pary, wszystkie zajęte
+moduły, potem tylko nowe interfejsy pełnego54. N01 nadal0/10, bez native.
+Limit08:38:30Z=48zużyte/52pozostałe, resetnietknięty, hookON.
+
+08:18Z:77067 odebrany169,734s/0błędów. D_FLabove pełny świat47par czysty,
+ale bankPRZED odrzucony: W028wire↔W038cap0,190193<1,25. Sam wire/wire
+miał0,502>0,2; brakowało bramki całego przeciwległego chwytu. Odrzucony
+także jednostronnyPRAWYPO30: wszystkie16główek w obu parach odpadają
+na NIEZMIENIONEJ parze wire/cap, nie ponawiaćclocków/główek.
+Nowa wspólna topologia OBA pełne9chwyty PO łuku: wejście3 jawnieprojektowe
+(NIE producenta), Rniezmienione,60° wspólny profil dla rozdzielonych pełnych
+chwytów. Lewa-Z, prawaIN+X/OUT-X, tylnyR6-Z. Kupneczęści/usta zachowane;
+nie zachowujemy dawnego PRZED9 jako obowiązkowej długości przedzakrętem.
+Czterytesty9,460s: wszystkie24pełne9/stock/ownfit oraz15/16pełnych
+pozycji główek w obu parachIN/OUT czyste; dawnenegatywy jawniezachowane.
+Świat/TE3/brass/całośćOPEN; nowego stock NIE wolno dziedziczyć zPRZED.
+Limit08:18:48Z=48zużyte/52pozostałe, resetnietknięty, N01 nadal0/10.
+
+08:06Z:10975/PID17132 zatrzymany WYŁĄCZNIE własny disposableworker po
+zapisanym122,5s/243wyborach/0błędów; exit1 to moje zakończenieprocesu,
+nie wynikCAD. Ostatnie252rzeczywiste negatywy zachowane, źródła nietknięte.
+Nowy przygotowany chwyt głodzony kosztem: stareodebrane0 vs nowy10.
+Nie zostawiać go tylko jako opcji w kolejnym8min szukaniu starych układów.
+Jawnie sprawdzić powyżej przygotowany pełny interfejs D_FL; inne grupy
+nadal wspólnie zmienne. Geometry/mutual AST bez zmian; to korekta wyboru,
+nie obniżenie bramki. f0603bb2 zabezpiecza ten zweryfikowany wariant.
+
+08:03Z:15251 odebrany486,016s/0błędów, zapisane nowe wzajemne pary.
+Pełny54 nadal nieprzyjęty; nie powtarzać tej samej osiowej rezerwacji
+D_FL/W051. Włączyć przygotowany wyżej pełny chwyt NADhardware z luzem1,25.
+Test z dowodem podzbioru5przewodów1,205s: cały stock bez zmianyobjętości,
+12hardware iW051czyste; nowe własne odstępy przewodów dziedziczą podzbiór.
+Odbiór pełnej jednostki przez wersjonowaną fabrykę, z osobnymi hashami
+geometrii/architektury; stary domyślny kernel odbioru i mutual identyczne.
+Limit08:03:43Z=47zużyte/53pozostałe, bezresetu. N01 nadal0/10.
+
+07:59Z: przygotowany tylko fallback dla rzeczywistego D_FLcap↔W0510mm.
+Pełna opaska/cap/główka może być NAD rzeczywistą śrubą/12hardware, zamiast
+dalej za skrajnym narożnikiem w projekcji osiowej. Analityczny guard z
+minZ CAŁEGOstock i maxZ CAŁEGOhardware daje1,25mm bez szukaniaoffsetów.
+Guard9,325252→0,766210mm; pełne9/objętości/rzeczywisteusta/R zachowane,
+minimumstockZ47,47 =top46,22+1,25. Lokalny test0,934s potwierdził wszystkie
+części i5przewodów kontra12hardware ipełnyW051. Świat jeszczeOPEN.
+NIE podmieniać aktywnego wyboru przed odbiorem15251; użyć tylko jeśli
+dotychczasowy wspólny54 nie daje już istniejącego całego rozwiązania.
+
+07:53Z:62776 odebrany25,219s; pełny traceback wskazał faktycznie COMPACT
+odbiór legacy_unit, nie bankowy odbiór. Poprzednia hipoteza była niepełna.
+Naprawić wszystkie3compact raporty przez czystą migrację metadanych,
+testując zachowanie KAŻDEGO ujemnego/dodatniego unit i odrzucenie zmiany
+architektury. Shape/mutual i sam receive identyczneAST; żadnego nowegoCAD.
+541dda10 zachowuje diagnostykę; po tej poprawce kontynuować wspólne54.
+
+07:52Z:1449 odebrany30,922s, AssertionError przy przyjęciu starych metadanych
+factoryAPI banku: dawna pełna geometria BEZ zmian, brakuje normalizacji
+model=materialise→model=factory w dowodzie odbioru. Naprawa z AST wszystkich
+istniejących konstruktorów/odbioru, zachować pary i stare pełne W058.
+NIE jest to nowa próba geometrii. fdee8a1d zachowuje sterowanie wyboru.
+Nowy prawdziwy konflikt zapisany: chwyt D_FLafter↔W051under,0mm.
+Po odbiorze poprawki wspólnego54 zmienić przyczynę tego interfejsu tylko
+jeżeli nie ma istniejącego pełnego wyboru; nie kasować świadków.
+
+07:49Z:93143 odebrany90,672s/0błędów.23/24 wyjść pod kluczem odebrane;
+jedyny odrzucony cały przewódW058↔BUS.G ma0mm. W020 przeszedł ze zmienioną
+stroną główki przy NIEZMIENIONYM przewodzie; nie trzeba ruszać kabla.
+W058 ma już DODATNI pełny wynik w poprzednim wspólnym wariancie w-Z
+(n01-bank-lanes-static), więc NIE tworzyć kolejnej geometrii. Wybrać23
+poniżej klucza oraz istniejący tylny powrótW058 w-Z. Zmiana wyłącznie
+ograniczenia wyboru, shape/mutual identyczneAST, stare negatywy zachowane.
+Trzytesty12,739s zachowały wszystkie24chwyty i oba rodzaje rozstawu.
+928307e5 zapisuje plan/konstrukcje; przed pełnym54 N01 nadal0/10.
+
 07:44Z:72988 odebrany85,078s/0błędów.21/24 nowych wyjść czystych;
 cały bank odrzucony na kluczuS0 przez3lewe przednie żyłyW027/W028/W020.
 Nie powtarzać ich+Z z inną główką ani zmniejszaćR.48659c05 zachowuje wyniki.

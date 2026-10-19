@@ -94,6 +94,15 @@ def main():
         if '--zoned-bank' in sys.argv:
             from feline_bank_zoned_layout import candidates as zoned_candidates,materialise as zoned_materialise
             p=Path(__file__).with_name('feline_bank_zoned_layout.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+        if '--selected-bank' in sys.argv:
+            from feline_bank_selected_t18i import candidates as selected_bank_candidates,materialise as selected_bank_materialise
+            for p in (Path(__file__).with_name('feline_bank_selected_t18i.py'),Path(__file__).with_name('feline_fore_power_pair.py'),OUT/'n01-bank-whole-preflight.json',OUT/'n01-bank-critical-interfaces.json'):
+                pins[p.relative_to(ROOT).as_posix()]=sha(p)
+            bank_preflight=json.loads((OUT/'n01-bank-whole-preflight.json').read_text())
+            critical_bank=json.loads((OUT/'n01-bank-critical-interfaces.json').read_text())
+            assert bank_preflight['status']=='ALL24_BANK_FULL_MATERIAL_MUTUAL_CLEAR_CORE_WORLD_OPEN'
+            assert all(any(not r['failures'] for r in rows) for rows in critical_bank['units'].values())
+            assert bank_preflight['source_sha256']['tools/cad/feline_bank_selected_t18i.py']==pins['tools/cad/feline_bank_selected_t18i.py']
         if '--compact-fan' in sys.argv:
             from feline_compact_station_fan import unit as compact_unit
             from feline_compact_station_fan import legacy_unit
@@ -125,7 +134,21 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--zoned-bank' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--selected-bank' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            added={'tools/cad/feline_bank_selected_t18i.py','tools/cad/feline_fore_power_pair.py',(OUT/'n01-bank-whole-preflight.json').relative_to(ROOT).as_posix(),(OUT/'n01-bank-critical-interfaces.json').relative_to(ROOT).as_posix()}
+            assert set(pins)-set(result['source_sha256'])==added
+            assert all(pins[n]==h for n,h in result['source_sha256'].items() if n!=own)
+            previous_code=subprocess.run(['git','show','c5f0bd35:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(previous_code).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):
+                before,after=get(previous_code,name),get(Path(__file__).read_text(),name)
+                if name=='shape':after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'bank_selected_t18i'")]
+                assert ast.dump(before)==ast.dump(after),name
+            result.setdefault('additive_geometry_extensions',[]).append(dict(added='Actual full T18I head, BEFORE9_TYPED60 bank; no duplicate after9, right parallel gallery. Entire24 bank and all occupied cores preflighted',old_shape_and_mutual_AST_identical=True,soft_tie_tie_policy_rechecks_retained=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--zoned-bank' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
             assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_bank_zoned_layout.py'}
@@ -397,7 +420,11 @@ def main():
             if '--zoned-bank' in sys.argv:
                 zoned_groups=zoned_candidates(remaining_groups)
                 for group,options in zoned_groups.items():
-                    groups[group].extend(dict(kind='bank_zoned_after',group=group,recipe=r,key=remaining_key(group,r)) for r in options)
+                    groups[group].extend(dict(kind='bank_zoned_after',group=group,recipe=r,key=remaining_key(group,r)) for r in options if r.get('receiving_zone'))
+            if '--selected-bank' in sys.argv:
+                current_bank_profile=lambda r:'BEFORE9_PARALLEL60' if r['base_recipe']['point_mm'][1]<0 and '_OUT_' in r['base_recipe'].get('terminal_name','') else 'BEFORE9_TYPED60'
+                for group,options in selected_bank_candidates(remaining_groups).items():
+                    groups[group].extend(dict(kind='bank_selected_t18i',group=group,recipe=r,key=remaining_key(group,r)) for r in options if r.get('joint_current_bank_plane')==current_bank_profile(r))
         assert len(groups)==54
         if '--compact-fan' in sys.argv:
             base=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['D_FL']
@@ -489,6 +516,7 @@ def main():
             m=above_unit(stations[r['ref']],r['recipe']);return m['parts'],m['kinds']
         if kind=='bank_both_after':return both_after_materialise(r['group'],r['recipe'])
         if kind=='bank_zoned_after':return zoned_materialise(r['group'],r['recipe'])
+        if kind=='bank_selected_t18i':return selected_bank_materialise(r['group'],r['recipe'])
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
             return parts,{n:'wire' if fanmeta[n]['kind']=='wire' else 'project_stock_reservation' if 'budget' in fanmeta[n]['kind'] else 'proposal_material' for n in parts}
@@ -508,6 +536,13 @@ def main():
                 if gap<minimum-1e-6:record['ok']=False;break
             if not record['ok']:break
         result['mutual_cache'][key]=record;save();return record['ok']
+    if '--selected-bank' in sys.argv:
+        for code,record in bank_preflight['pairs'].items():
+            assert all(c in idx for c in code.split('|'))
+            if code not in result['mutual_cache']:result['mutual_cache'][code]=record
+        for pair in bank_preflight['cuts']:
+            assert all(c in idx for c in pair)
+            if pair not in result['cuts']:result['cuts'].append(pair)
     save()
     try:
         for iteration in range(120):
@@ -535,6 +570,8 @@ def main():
             both_data=json.loads(both_file.read_text()) if '--both-after-bank' in sys.argv and both_file.exists() else dict(units={})
             zoned_file=OUT/'n01-bank-zoned-static.json'
             zoned_data=json.loads(zoned_file.read_text()) if '--zoned-bank' in sys.argv and zoned_file.exists() else dict(units={})
+            selected_file=OUT/'n01-bank-selected-t18i-static.json'
+            selected_data=json.loads(selected_file.read_text()) if '--selected-bank' in sys.argv and selected_file.exists() else dict(units={})
             if whole54:
                 from feline_remaining_kits import source_wire_signature
                 bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
@@ -565,7 +602,9 @@ def main():
                 # One whole coherent bank architecture, not24independent new
                 # offsets. Old recipes and raw evidence remain preserved.
                 bank_kind='bank_under_key_lane' if '--under-key-bank' in sys.argv else 'bank_exit_lane'
-                if '--zoned-bank' in sys.argv:
+                if '--selected-bank' in sys.argv:
+                    add([i for i,(g,r) in enumerate(choices) if r['kind']=='bank_selected_t18i'],24,24)
+                elif '--zoned-bank' in sys.argv:
                     compatible=lambda g,r:r['kind']==('bank_zoned_after' if g in zoned_groups else 'bank_both_after')
                     add([i for i,(g,r) in enumerate(choices) if g.startswith('Bank:') and compatible(g,r)],24,24)
                 elif '--both-after-bank' in sys.argv:
@@ -629,6 +668,13 @@ def main():
                     rec=zoned_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
+                elif r['kind']=='bank_selected_t18i':
+                    rec=selected_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    critical=[x for x in critical_bank['units'][g] if x['recipe']==r['recipe']]
+                    assert len(critical)==1
+                    if critical[0]['failures']:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -658,7 +704,8 @@ def main():
             above_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='above_hardware_fan' and 'failure' not in above_data['units'].get(r['key'],{})]
             both_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_both_after' and 'failure' not in both_data['units'].get(r['key'],{})]
             zoned_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_zoned_after' and 'failure' not in zoned_data['units'].get(r['key'],{})]
-            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)+len(above_requests)+len(both_requests)+len(zoned_requests)
+            selected_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_selected_t18i' and 'failure' not in selected_data['units'].get(r['key'],{})]
+            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)+len(above_requests)+len(both_requests)+len(zoned_requests)+len(selected_requests)
             result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=unknown));save()
             print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',unknown,'mutualcuts',len(result['cuts']),flush=True)
             if unknown:
@@ -681,6 +728,7 @@ def main():
                 if above_requests:status=receive_bank_lanes(above_requests,factory=above_receive_model,destination='n01-above-hardware-static.json',factory_sources=(Path(__file__).with_name('feline_above_hardware_grip.py'),planfile))['status']
                 if both_requests:status=receive_bank_lanes(both_requests,factory=both_after_materialise,destination='n01-bank-both-after-static.json',factory_sources=(Path(__file__).with_name('feline_bank_receiving_grips.py'),),stock_geometry_unchanged=False)['status']
                 if zoned_requests:status=receive_bank_lanes(zoned_requests,factory=zoned_materialise,destination='n01-bank-zoned-static.json',factory_sources=(Path(__file__).with_name('feline_bank_zoned_layout.py'),Path(__file__).with_name('feline_bank_receiving_grips.py')),stock_geometry_unchanged=False)['status']
+                if selected_requests:status=receive_bank_lanes(selected_requests,factory=selected_bank_materialise,destination='n01-bank-selected-t18i-static.json',factory_sources=(Path(__file__).with_name('feline_bank_selected_t18i.py'),Path(__file__).with_name('feline_bank_zoned_layout.py'),ROOT/'hardware/reference/cable-ties/t18i-111-02370/head-envelope.json'),stock_geometry_unchanged=False)['status']
                 result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=unknown))
                 save();continue
             cut=False
