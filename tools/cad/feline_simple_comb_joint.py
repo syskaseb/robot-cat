@@ -78,6 +78,11 @@ def main():
         from feline_remaining_receive import receive_requests as receive_remaining,key as remaining_key
         remaining_groups,remaining_pins=remaining_candidates();pins.update(remaining_pins)
         p=Path(__file__).with_name('feline_remaining_receive.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+        if '--bank-lanes' in sys.argv:
+            from feline_bank_exit_lanes import candidates as bank_candidates,materialise as bank_material
+            from feline_bank_lane_receive import receive_requests as receive_bank_lanes
+            for p in (Path(__file__).with_name('feline_bank_exit_lanes.py'),Path(__file__).with_name('feline_bank_lane_receive.py')):
+                pins[p.relative_to(ROOT).as_posix()]=sha(p)
         if '--compact-fan' in sys.argv:
             from feline_compact_station_fan import unit as compact_unit
             from feline_compact_station_fan import legacy_unit
@@ -109,7 +114,20 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--rise-fan' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--bank-lanes' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
+            assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_bank_exit_lanes.py','tools/cad/feline_bank_lane_receive.py'}
+            previous=subprocess.run(['git','show','dad9709b:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(previous).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):
+                before,after=get(previous,name),get(Path(__file__).read_text(),name)
+                if name=='shape':after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'bank_exit_lane'")]
+                assert ast.dump(before)==ast.dump(after),name
+            result.setdefault('additive_geometry_extensions',[]).append(dict(added='Whole24 bank custom exits in two opposedZ30 planes; all first9/full before-stock unchanged',old_shapes_and_pairs_AST_identical=True,old_bank_catalogue_not_claimed_globally_impossible=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--rise-fan' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix();helper='tools/cad/feline_compact_station_fan.py'
             assert set(pins)==set(result['source_sha256'])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,helper))
@@ -251,6 +269,9 @@ def main():
     if whole54:
         for group,options in remaining_groups.items():
             groups[group]=[dict(kind='remaining_kit',group=group,recipe=r,key=remaining_key(group,r)) for r in options]
+        if '--bank-lanes' in sys.argv:
+            for group,options in bank_candidates(remaining_groups).items():
+                groups[group].extend(dict(kind='bank_exit_lane',group=group,recipe=r,key=remaining_key(group,r)) for r in options)
         assert len(groups)==54
         if '--compact-fan' in sys.argv:
             base=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['D_FL']
@@ -331,6 +352,7 @@ def main():
         if kind=='power_rise_fan':
             m=rise_unit(stations[r['ref']],r);return m['parts'],m['kinds']
         if kind=='remaining_kit':return remaining_material(r['group'],r['recipe'])
+        if kind=='bank_exit_lane':return bank_material(r['group'],r['recipe'])
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
             return parts,{n:'wire' if fanmeta[n]['kind']=='wire' else 'project_stock_reservation' if 'budget' in fanmeta[n]['kind'] else 'proposal_material' for n in parts}
@@ -367,6 +389,8 @@ def main():
             legacy_data=json.loads(legacy_file.read_text()) if '--legacy-compact' in sys.argv and legacy_file.exists() else dict(units={})
             rise_file=OUT/'n01-power-rise-static.json'
             rise_data=json.loads(rise_file.read_text()) if '--rise-fan' in sys.argv and rise_file.exists() else dict(units={})
+            bank_file=OUT/'n01-bank-lanes-static.json'
+            bank_data=json.loads(bank_file.read_text()) if '--bank-lanes' in sys.argv and bank_file.exists() else dict(units={})
             if whole54:
                 from feline_remaining_kits import source_wire_signature
                 bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
@@ -392,6 +416,10 @@ def main():
             def add(indices,lower,upper,weights=None):
                 j=len(lo);rr.extend([j]*len(indices));cc.extend(indices);vv.extend([1.]*len(indices) if weights is None else weights);lo.append(lower);hi.append(upper)
             for g,rows in groups.items():add([idx[r['key']] for r in rows],1,1)
+            if '--bank-lanes' in sys.argv:
+                # One whole coherent bank architecture, not24independent new
+                # offsets. Old recipes and raw evidence remain preserved.
+                add([i for i,(g,r) in enumerate(choices) if r['kind']=='bank_exit_lane'],24,24)
             upper=np.ones(total);cost=np.zeros(total)
             for i,(g,r) in enumerate(choices):
                 if r['kind']=='straight_comb':
@@ -427,6 +455,10 @@ def main():
                     rec=rise_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
+                elif r['kind']=='bank_exit_lane':
+                    rec=bank_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -451,7 +483,8 @@ def main():
             after_requests=[(g,r) for g,r in chosen if r['kind']=='after_land_fan' and 'failure' not in after_data['units'].get(r['key'],{})]
             legacy_requests=[(g,r) for g,r in chosen if r['kind']=='legacy_compact_fan' and 'failure' not in legacy_data['units'].get(r['key'],{})]
             rise_requests=[(g,r) for g,r in chosen if r['kind']=='power_rise_fan' and 'failure' not in rise_data['units'].get(r['key'],{})]
-            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)
+            bank_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_exit_lane' and 'failure' not in bank_data['units'].get(r['key'],{})]
+            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)
             result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=unknown));save()
             print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',unknown,'mutualcuts',len(result['cuts']),flush=True)
             if unknown:
@@ -469,6 +502,7 @@ def main():
                 if after_requests:status=receive_after_land(after_requests)['status']
                 if legacy_requests:status=receive_compact(legacy_requests,factory=legacy_unit,destination='n01-legacy-compact-static.json')['status']
                 if rise_requests:status=receive_compact(rise_requests,factory=rise_unit,destination='n01-power-rise-static.json')['status']
+                if bank_requests:status=receive_bank_lanes(bank_requests)['status']
                 result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=unknown))
                 save();continue
             cut=False

@@ -75,7 +75,8 @@ def main():
     bank=[]
     for group,choice in shared['chosen'].items():
         if group.startswith('Bank:'):
-            row=byid[group[5:]];bank_end(row,choice['recipe']);bank.append(row['id'])
+            recipe=choice['recipe']['base_recipe'] if choice['kind']=='bank_exit_lane' else choice['recipe']
+            row=byid[group[5:]];bank_end(row,recipe);bank.append(row['id'])
     assert len(bank)==24
     for endpoint,sign in (('F_PWM.in',-1),('F_PWM.out',1)):
         matches=[r for r in rows if r['endpoint']==endpoint];assert len(matches)==1

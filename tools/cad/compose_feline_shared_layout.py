@@ -23,6 +23,7 @@ from feline_flat_station_templates import build
 from feline_zone_station_templates import zone_build,vertical_build
 from feline_underplate_station_templates import build_underplate
 from feline_remaining_kits import materialise as remaining_material
+from feline_bank_exit_lanes import materialise as bank_material
 from feline_compact_station_fan import unit as compact_unit
 from feline_compact_station_fan import legacy_unit
 from feline_compact_station_fan import rise_unit
@@ -81,6 +82,8 @@ def chosen_material(path=None):
             models[group]=dict(wires=station_lands(st,m))
         elif r['kind']=='remaining_kit':
             pp,kk=remaining_material(group,r['recipe'])
+        elif r['kind']=='bank_exit_lane':
+            pp,kk=bank_material(group,r['recipe'])
         elif r['kind'] in ('compact_fan','after_land_fan','legacy_compact_fan','power_rise_fan'):
             model=station_model(stations[group],r);pp,kk=model['parts'],model['kinds']
             models[group]=dict(wires=station_lands(stations[group],model))
