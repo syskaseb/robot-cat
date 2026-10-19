@@ -6,7 +6,7 @@ import FreeCAD as A
 import Part
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools/cad'))
-from feline_compact_station_fan import unit
+from feline_compact_station_fan import unit,legacy_unit
 from feline_station_zone_domains import materialise
 from feline_remaining_kits import candidates,materialise as remaining_material
 from feline_fore_power_pair import SolidQueries
@@ -16,6 +16,24 @@ OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enc
 
 
 class CompactFan(unittest.TestCase):
+    def test_shared_legacy_rule_preserves_all_stock_and_protected_W043(self):
+        stations={s['ref']:s for s in json.loads((OUT/'n01-flat-station-architecture.json').read_text())['stations']}
+        selected=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen'];count=0
+        for ref,choice in selected.items():
+            if choice['kind']!='received_legacy_unit':continue
+            st=stations[ref];model=legacy_unit(st,dict(slot=choice['slot'],base_recipe=choice['recipe']))
+            before,_=materialise(st,choice['slot'],choice['recipe'])
+            for n,s in before.items():
+                if not n.startswith('wire:'):
+                    self.assertLess(s.cut(model['parts'][n]).Volume,1e-7)
+                    self.assertLess(model['parts'][n].cut(s).Volume,1e-7)
+            count+=1
+            if ref=='P_SYS':
+                self.assertEqual(len(model['reused_jacket_lands']),1)
+                self.assertEqual(model['reused_jacket_lands'][0]['wire'],'W043')
+                self.assertEqual(len(model['wires']),3)
+        self.assertEqual(count,6)
+
     def test_fixed_first9_rejection_preserved_and_after_grip_clears_rear72(self):
         st=next(s for s in json.loads((OUT/'n01-flat-station-architecture.json').read_text())['stations'] if s['ref']=='D_FL')
         choice=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['D_FL']

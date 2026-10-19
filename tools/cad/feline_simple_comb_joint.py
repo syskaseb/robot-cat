@@ -78,6 +78,7 @@ def main():
         p=Path(__file__).with_name('feline_remaining_receive.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
         if '--compact-fan' in sys.argv:
             from feline_compact_station_fan import unit as compact_unit
+            from feline_compact_station_fan import legacy_unit
             from feline_compact_station_receive import receive_requests as receive_compact
             for p in (Path(__file__).with_name('feline_compact_station_fan.py'),Path(__file__).with_name('feline_compact_station_receive.py'),OUT/'n01-two-lane-comb-joint.json'):
                 pins[p.relative_to(ROOT).as_posix()]=sha(p)
@@ -105,7 +106,26 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--after-land-fan' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--legacy-compact' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            helper='tools/cad/feline_compact_station_fan.py';receiver='tools/cad/feline_compact_station_receive.py'
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,helper,receiver))
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            oldtexts={n:subprocess.run(['git','show','b61265e7:'+n],cwd=ROOT,check=True,capture_output=True).stdout for n in (own,helper,receiver)}
+            assert all(hashlib.sha256(t).hexdigest()==result['source_sha256'][n] for n,t in oldtexts.items())
+            for name in ('shape','mutual'):
+                before,after=get(oldtexts[own],name),get(Path(__file__).read_text(),name)
+                if name=='shape':after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'legacy_compact_fan'")]
+                assert ast.dump(before)==ast.dump(after),name
+            assert ast.dump(get(oldtexts[helper],'unit'))==ast.dump(get((ROOT/helper).read_text(),'unit'))
+            before,after=get(oldtexts[receiver],'receive'),get((ROOT/receiver).read_text(),'receive')
+            class DefaultFactory(ast.NodeTransformer):
+                def visit_Name(self,n):return ast.copy_location(ast.Name(id='unit',ctx=n.ctx),n) if n.id=='factory' else n
+            assert ast.dump(before)==ast.dump(DefaultFactory().visit(after)),'unchanged default receipt kernel'
+            result.setdefault('additive_geometry_extensions',[]).append(dict(added='Six optional original-plane30degree typedR fans; case/first9/stock/protectedW043 unchanged',old_shapes_and_pairs_AST_identical=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--after-land-fan' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
             assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_compact_after_land.py','tools/cad/feline_after_land_receive.py'}
@@ -211,6 +231,11 @@ def main():
             if '--after-land-fan' in sys.argv:
                 groups['D_FL'].append(dict(kind='after_land_fan',ref='D_FL',slot=base['slot'],base_recipe=base['recipe'],
                                           key='D_FL:after-up30-rear72guard:'+base['recipe']['geometry_signature']))
+            if '--legacy-compact' in sys.argv:
+                for ref,base in json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen'].items():
+                    if base['kind']=='received_legacy_unit':
+                        groups[ref].append(dict(kind='legacy_compact_fan',ref=ref,slot=base['slot'],base_recipe=base['recipe'],
+                            key=ref+':legacy-plane30:'+base['recipe']['geometry_signature']))
     choices=[(g,r) for g,rows in groups.items() for r in rows];idx={r['key']:i for i,(g,r) in enumerate(choices)}
     geometry={r['key']:('straight:'+physical_key(stations[g],r['slot'])+(':long' if r.get('lane') else '') if r['kind']=='straight_comb' else
         'legacy:'+r['recipe']['geometry_signature'] if r['kind']=='received_legacy_unit' else r['key']) for g,r in choices}
@@ -269,6 +294,8 @@ def main():
             m=compact_unit(stations[r['ref']],r);return m['parts'],m['kinds']
         if kind=='after_land_fan':
             m=after_land_unit(stations[r['ref']],r);return m['parts'],m['kinds']
+        if kind=='legacy_compact_fan':
+            m=legacy_unit(stations[r['ref']],r);return m['parts'],m['kinds']
         if kind=='remaining_kit':return remaining_material(r['group'],r['recipe'])
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
@@ -302,6 +329,8 @@ def main():
             compact_data=json.loads(compact_file.read_text()) if '--compact-fan' in sys.argv and compact_file.exists() else dict(units={})
             after_file=OUT/'n01-after-land-static.json'
             after_data=json.loads(after_file.read_text()) if '--after-land-fan' in sys.argv and after_file.exists() else dict(units={})
+            legacy_file=OUT/'n01-legacy-compact-static.json'
+            legacy_data=json.loads(legacy_file.read_text()) if '--legacy-compact' in sys.argv and legacy_file.exists() else dict(units={})
             if whole54:
                 from feline_remaining_kits import source_wire_signature
                 bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
@@ -354,6 +383,10 @@ def main():
                     rec=after_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
+                elif r['kind']=='legacy_compact_fan':
+                    rec=legacy_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -376,9 +409,11 @@ def main():
             remaining_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='remaining_kit' and 'failure' not in remaining_data['units'].get(r['key'],{})] if whole54 else []
             compact_requests=[(g,r) for g,r in chosen if r['kind']=='compact_fan' and 'failure' not in compact_data['units'].get(r['key'],{})]
             after_requests=[(g,r) for g,r in chosen if r['kind']=='after_land_fan' and 'failure' not in after_data['units'].get(r['key'],{})]
-            result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)));save()
-            print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests),'mutualcuts',len(result['cuts']),flush=True)
-            if requests or remaining_requests or compact_requests or after_requests:
+            legacy_requests=[(g,r) for g,r in chosen if r['kind']=='legacy_compact_fan' and 'failure' not in legacy_data['units'].get(r['key'],{})]
+            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)
+            result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=unknown));save()
+            print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',unknown,'mutualcuts',len(result['cuts']),flush=True)
+            if unknown:
                 baseline=[r for r in requests if not r['lane'] or 'failure' not in received.get(r['ref']+':'+str(r['slot_id']),{})]
                 child_tick=time.monotonic()
                 if baseline:
@@ -391,7 +426,8 @@ def main():
                 if remaining_requests:status=receive_remaining(remaining_requests)['status']
                 if compact_requests:status=receive_compact(compact_requests)['status']
                 if after_requests:status=receive_after_land(after_requests)['status']
-                result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)))
+                if legacy_requests:status=receive_compact(legacy_requests,factory=legacy_unit,destination='n01-legacy-compact-static.json')['status']
+                result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=unknown))
                 save();continue
             cut=False
             for i,(g,a) in enumerate(chosen):

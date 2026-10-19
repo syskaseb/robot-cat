@@ -13,8 +13,8 @@ from feline_solid_distance import bbox_lower_bound
 from receive_feline_global_case_candidates import placement
 
 
-def receive_requests(requests):
-    tick=time.monotonic();dest=OUT/'n01-compact-station-static.json'
+def receive_requests(requests,factory=None,destination='n01-compact-station-static.json'):
+    tick=time.monotonic();dest=OUT/destination;factory=factory or unit
     files=[Path(__file__),Path(__file__).with_name('feline_compact_station_fan.py'),
            OUT/'n01-flat-station-architecture.json',OUT/'n01-station-zone-domains.json',OUT/'n01-six-source-shared-lanes.outer.brep']
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
@@ -31,7 +31,7 @@ def receive_requests(requests):
     stations={s['ref']:s for s in json.loads((OUT/'n01-flat-station-architecture.json').read_text())['stations']}
     outer=Part.Shape();outer.read(str(OUT/'n01-six-source-shared-lanes.outer.brep'))
     def receive(ref,choice,record):
-        model=unit(stations[ref],choice);done=record.setdefault('pairs',{})
+        model=factory(stations[ref],choice);done=record.setdefault('pairs',{})
         previous=old['geometry_cache'][choice['base_recipe']['geometry_signature']]
         assert 'failure' in previous and previous['failure'] is None
         record['old_case_cap_band_head_static_receipt_reused']=choice['base_recipe']['geometry_signature']

@@ -24,6 +24,7 @@ from feline_zone_station_templates import zone_build,vertical_build
 from feline_underplate_station_templates import build_underplate
 from feline_remaining_kits import materialise as remaining_material
 from feline_compact_station_fan import unit as compact_unit
+from feline_compact_station_fan import legacy_unit
 from feline_compact_after_land import unit as after_land_unit
 
 COMPLETE='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
@@ -51,6 +52,7 @@ def station_model(st,choice):
     if choice['kind']=='straight_comb':return unit(st,slot,choice.get('lane',0))
     if choice['kind']=='compact_fan':return compact_unit(st,choice)
     if choice['kind']=='after_land_fan':return after_land_unit(st,choice)
+    if choice['kind']=='legacy_compact_fan':return legacy_unit(st,choice)
     r=choice['recipe']
     if r['family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS':return build_underplate(st,slot,r['bend_side'],r['head_side'])
     if st['fixed_identity_pose']:return build(st,'inner',1,-1)
@@ -77,7 +79,7 @@ def chosen_material(path=None):
             models[group]=dict(wires=station_lands(st,m))
         elif r['kind']=='remaining_kit':
             pp,kk=remaining_material(group,r['recipe'])
-        elif r['kind'] in ('compact_fan','after_land_fan'):
+        elif r['kind'] in ('compact_fan','after_land_fan','legacy_compact_fan'):
             model=station_model(stations[group],r);pp,kk=model['parts'],model['kinds']
             models[group]=dict(wires=station_lands(stations[group],model))
         elif r['kind']=='source_fan':
