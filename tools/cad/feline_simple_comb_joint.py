@@ -72,7 +72,7 @@ def main():
         result=json.loads(dest.read_text())
         if result['source_sha256']!=pins and '--receive-controller' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
-            versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7')]
+            versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7','2435ccf3','a08eea28')]
             previous=next(s for s in versions if hashlib.sha256(s).hexdigest()==result['source_sha256'][own])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
             assert set(pins)-set(result['source_sha256'])<= {'tools/cad/feline_persistent_receiver.py'}
@@ -81,14 +81,15 @@ def main():
                 f=lambda tree:next(n for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name==name)
                 assert ast.dump(f(before))==ast.dump(f(after)),name
             result.setdefault('controller_repairs',[]).append(dict(old_code_sha256=result['source_sha256'][own],
-                reason='Same shape/mutual kernels proven AST-identical. Propagate same-case rejections and exact physical aliases; retain pinned world in process. Prefer simple shared-comb architecture over obsolete elaborate fans, not weaker margins. No geometry change.'))
+                reason='Same shape/mutual kernels proven AST-identical. Complete baseline AND long lanes for the SAME chosen batch before re-solving; label permutations previously starved long-lane reception. Atomic parent JSON saves; prior actual receipts preserved. No geometry change.'))
             result['source_sha256']=pins
         else:assert result['source_sha256']==pins
         result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
     result['status']='RUNNING_SHARED_SIMPLE_COMB_ALLOCATION'
     if selected_head:result['selected_head_source']=headsource
     def save():
-        result['worker_seconds']=round(time.monotonic()-tick,3);dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+        result['worker_seconds']=round(time.monotonic()-tick,3)
+        temp=dest.with_suffix('.writing.json');temp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n');temp.replace(dest)
     groups={}
     for ref,st in stations.items():
         rows=[]
@@ -235,7 +236,10 @@ def main():
                 if baseline:
                     (OUT/'n01-simple-comb-joint-targets.json').write_text(json.dumps(dict(requests=baseline),indent=2)+'\n',encoding='utf-8',newline='\n')
                     status=receive_requested()
-                else:status=receive_long_lanes(requests)['status']
+                if two_lane:
+                    complete_base=json.loads((OUT/'n01-straight-combs-received.json').read_text())['units']
+                    long_requests=[r for r in requests if r['lane'] and 'failure' in complete_base.get(r['ref']+':'+str(r['slot_id']),{})]
+                    if long_requests:status=receive_long_lanes(long_requests)['status']
                 result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=len(requests)))
                 save();continue
             cut=False
