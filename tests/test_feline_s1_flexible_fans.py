@@ -5,9 +5,11 @@ from pathlib import Path
 import sys
 import unittest
 import numpy as np
+import FreeCAD as A
+import Part
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/cad'))
-from feline_s1_flexible_fans import curve,wire_shape,saddle_shapes,absolute_inside
+from feline_s1_flexible_fans import curve,mouth_curve,wire_shape,saddle_shapes,absolute_inside
 from plan_feline_layout import OUT
 
 
@@ -44,6 +46,26 @@ class FlexibleSource(unittest.TestCase):
         self.assertEqual(len(parts['saddle'].Solids),1)
         self.assertAlmostEqual(parts['head_budget'].Volume,216)
         self.assertAlmostEqual(parts['saddle'].Volume,math.pi*(4.1**2-2.25**2)/2*9,places=6)
+
+    def test_proper_strap_frame_never_cuts_jacket_or_saddle_on_axial_ports(self):
+        for axis in ((1,0,0),(-1,0,0),(0,1,0),(0,0,1)):
+            for radius in (1.55,1.7,2.1):
+                row=dict(grip_axis=axis,grip_start_mm=[0,0,0],jacket_radius_mm=radius)
+                p=saddle_shapes(row,180,90)
+                wire=Part.makeCylinder(radius,9,A.Vector(),A.Vector(*axis))
+                for a,b in ((wire,p['band_budget']),(wire,p['saddle']),
+                            (p['saddle'],p['band_budget']),(p['saddle'],p['head_budget']),
+                            (wire,p['head_budget'])):
+                    common=a.common(b)
+                    self.assertLess(common.Volume,1e-5,(axis,radius))
+
+    def test_tangent_at_cap_removes_only_invented_straight_not_radius_or_grip(self):
+        row=mouth_curve('datum',[0,0,0],[0,-2**-.5,2**-.5],[1,0,0],90,60,first=0)
+        self.assertEqual(row['first_project_mm'],0)
+        self.assertEqual(row['R_mm'],25.2);self.assertEqual(row['full_grip_mm'],9)
+        shape=wire_shape(row)
+        self.assertTrue(shape.isValid());self.assertEqual(len(shape.Solids),1)
+        self.assertAlmostEqual(shape.Volume,math.pi*2.1**2*(25.2*math.pi/3+9),places=5)
 
 
 if __name__=='__main__':unittest.main()

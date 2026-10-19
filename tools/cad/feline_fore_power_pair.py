@@ -52,6 +52,23 @@ class SolidQueries:
         return best
 
 
+def pair_spacing(a,ar,b,br):
+    """Mechanical margin by material/interface, not an electrical rating.
+
+    Fully insulated flexible jackets and soft nylon tie stock use the same
+    .2mm no-penetration reserve as jacket/jacket. Rigid supports, purchased
+    modules and exposed bare conductors keep1.25mm. Insulation geometry is
+    not thinned and power/thermal/dielectric qualification is not claimed.
+    """
+    def jacket(n,r):
+        if r.get('kind')=='bare' or ':bare' in n:return False
+        return r.get('kind') in ('wire','proposal_wire','actual_wire','insulation_reservation') or bool(r.get('wire_owner')) or bool(r.get('wire')) or n.startswith(('End:','ShelfPWM:jacket:','PiGPIO:','PiPower:','PiUSBData')) or n in ('W043','W077','W078')
+    def tie(n,r):
+        return r.get('kind') in ('tie_reservation','project_stock_reservation') and ('Tie' in n or ':band_budget' in n or ':head_budget' in n or 'tie_budget' in n)
+    wa,wb=jacket(a,ar),jacket(b,br)
+    return .2 if (wa and wb) or (wa and tie(b,br)) or (wb and tie(a,ar)) else 1.25
+
+
 def actual_s0_mouths(parts,ends,transform):
     """Find real saved bore/end planes, not a transferred guide direction."""
     result=[]
@@ -299,10 +316,19 @@ def all_current_blockers(packet_path=None,world=None):
     proof=json.loads((OUT/'n01-flat20-field-modulejoint.json').read_text())
     retired=set(packet['retired_whole_owners'])
     fixed={r['source']:world.parts[r['source']] for r in proof['material_clouds'] if r['category']!='S1_mating_context' and r['source'] not in retired}
-    fixed.update(pwm)
+    fixed.update({n:s for n,s in pwm.items() if n not in moving})
     source=json.loads((OUT/'n01-source-saddles-whole-joint.json').read_text())
     critical={(r['source'],r['obstacle']) for r in source['fore_outboard_budget']['core_pair_receipts']}
     pins={**world.pins,'power_bundle':packet['bundle_sha256'],'PWM_bundle':sha(ROOT/json.loads((OUT/'n01-pwm-board-shelf.json').read_text())['bundle'])}
+    prior=None;unchanged=set()
+    if packet.get('equivalent_prior_packet'):
+        pf=ROOT/packet['equivalent_prior_packet'];assert sha(pf)==packet['equivalent_prior_packet_sha256']
+        prior=json.loads(pf.read_text())
+        oldpins=prior['all_current_blockers']['source_sha256']
+        assert {n:h for n,h in oldpins.items() if n!='power_bundle'}=={n:h for n,h in pins.items() if n!='power_bundle'}
+        oldrows={r['name']:r for r in prior['parts']}
+        unchanged={n for n,r in rows.items() if n in oldrows and r['sha256']==oldrows[n]['sha256']}
+        changed=set(moving)-unchanged
     rec=packet.get('all_current_blockers')
     if rec:
         assert rec['source_sha256']==pins,'Changed world/owner invalidates pair cache'
@@ -310,8 +336,11 @@ def all_current_blockers(packet_path=None,world=None):
     else:
         rec=dict(status='RUNNING_ALL_CURRENT_POWER_BLOCKERS',source_sha256=pins,pairs={},failures=[],errors=[],
                  completed_static=[],completed_mutual=[],completed_motion=[],source_parts=len(moving),
-                 immutable_S1_critical900_and_PWM380_pairs_reused=True,N01_complete=False,
+                 immutable_S1_critical900_and_PWM380_pairs_reused=packet.get('reuse_original_S1_pose',True),N01_complete=False,
                  first_failure_is_NOT_a_complete_owner_inventory=True)
+        rec.update(computed_pairs=0,reused_unchanged_pairs=0,unchanged_geometry_actors=sorted(unchanged))
+        rec['interface_policy']=dict(rigid_external_mm=1.25,insulated_jacket_to_jacket_or_soft_nylon_tie_mm=.2,
+            bare_conductors_not_relaxed=True,insulation_not_thinned=True,not_electrical_thermal_or_physical_qualification=True)
         packet['all_current_blockers']=rec
     def save():
         rec['worker_seconds']=round(time.monotonic()-tick,3)
@@ -323,10 +352,55 @@ def all_current_blockers(packet_path=None,world=None):
         key=n+'|'+other+'|'+scope
         if key in rec['pairs']:return
         budget()
+        if prior and n in unchanged and other not in changed:
+            oldrow=prior['all_current_blockers']['pairs'].get(key)
+            if oldrow and 'error' not in oldrow and oldrow.get('required_mm')==minimum:
+                row=dict(oldrow,inherited_from=packet['equivalent_prior_packet'])
+                rec['pairs'][key]=row;rec['reused_unchanged_pairs']+=1
+                owned=row.get('kind') in ('OWNED_CARRIER_SUBSET_PLUS_CLEAR_ADDITION','NAMED_SHARED_STRUCTURE_UNION')
+                if not owned and ('hold' in row or row.get('gap_mm',minimum)<minimum-1e-6):rec['failures'].append(row)
+                save();return
         original_kind=world.meta.get(other,{}).get('kind','actual_current_owner')
         moving_kind=rows.get(n,{}).get('kind','actual_source')
         row=dict(part=n,other=other,scope=scope,required_mm=minimum,owner_meta=world.meta.get(other,{}))
         try:
+            rule=next((r for r in packet.get('planned_own_relations',[]) if {r['part'],r['other']}=={n,other}),None)
+            if rule:
+                c=s.copy().common(t.copy());assert c.isNull() or c.isValid()
+                if rule['kind']=='ZERO_PENETRATION_BOTTOM_BEARING':
+                    support=s if n==rule['part'] else t;housing=t if n==rule['part'] else s
+                    assert abs(support.optimalBoundingBox().ZMax-rule['plane_Z_mm'])<1e-5
+                    assert abs(housing.optimalBoundingBox().ZMin-rule['plane_Z_mm'])<1e-5
+                    assert c.Volume<1e-5
+                elif rule['kind']=='SAME_NAMED_TIE_BUDGET':
+                    assert c.Volume>1e-5,'Head and strap budgets must actually connect'
+                    assert all('Tie' in x for x in (n,other))
+                elif rule['kind']=='RETAINED_ROOT_SUBSET':
+                    parent=t if other==rule['other'] else s
+                    assert world.meta[rule['other']].get('role')=='ScaffoldPlanning'
+                    old=world.parts[rule['part']].copy().common(parent.copy());assert old.isValid() and old.Volume>1e-5
+                    extra=c.cut(old);assert extra.isNull() or extra.isValid()
+                    assert c.Volume>1e-5 and extra.Volume<1e-5
+                elif rule['kind']=='NAMED_POST_SIDE_BOND':
+                    assert world.meta[rule['other']].get('role')=='ScaffoldPlanning'
+                    lo,hi=rule['intersection_bounds_mm']
+                    expected=Part.makeBox(*(b-a for a,b in zip(lo,hi)),A.Vector(*lo))
+                    extra=c.cut(expected);assert extra.isNull() or extra.isValid()
+                    assert extra.Volume<1e-5 and abs(c.Volume-rule['expected_union_mm3'])<1e-5
+                else:raise AssertionError('Unknown ownership rule')
+                row.update(kind='NAMED_PLANNED_OWN_RELATION',relation=rule,positive_common_mm3=c.Volume,
+                           physical_pass=False,native_connections_pending_N03=True)
+                rec['pairs'][key]=row;rec['computed_pairs']+=1;save();return
+            root=packet.get('shared_fore_units',{}).get('PWM_changed_root')
+            if n=='ShelfPWM:carrier' and root and other==root['root_mate']:
+                c=s.copy().common(t.copy());assert c.isValid()
+                bounds=root['root_bounds_mm'];lo,hi=bounds
+                slab=t.optimalBoundingBox();assert abs(slab.ZLength-3)<1e-5
+                foot=Part.makeBox(hi[0]-lo[0],hi[1]-lo[1],3,A.Vector(lo[0],lo[1],slab.ZMin))
+                extra=c.cut(foot);assert extra.isNull() or extra.isValid()
+                assert extra.Volume<1e-5 and abs(c.Volume-root['expected_shared_slab_union_mm3'])<1e-5
+                row.update(kind='NAMED_SHARED_STRUCTURE_UNION',positive_common_mm3=c.Volume,native_union_pending_N03=True)
+                rec['pairs'][key]=row;rec['computed_pairs']+=1;save();return
             qq=s
             if other==world.bus['name']:
                 qq=s.copy();qq.Placement=world.bus['inverse']*qq.Placement;t=world.bus['original']
@@ -342,23 +416,20 @@ def all_current_blockers(packet_path=None,world=None):
                         or world.meta.get(other,{}).get('role')=='ScaffoldPlanning') else 'ACTUAL_SOURCE_PAIR_GAP'
                     rec['failures'].append(row)
         except Exception as e:row['error']=repr(e);rec['errors'].append(row)
-        rec['pairs'][key]=row;save();budget()
+        rec['pairs'][key]=row;rec['computed_pairs']+=1;save();budget()
     save()
     try:
         for n,s in moving.items():
             if n not in rec['completed_static']:
                 for other,t in fixed.items():
                     if packet.get('reuse_original_S1_pose',True) and rows[n]['group']=='S1' and ((n,other) in critical or other in pwm):continue
-                    wire=(n.startswith('AUXFront:') and n.endswith((':factory100',':custom21'))) or rows[n].get('kind') in ('wire','proposal_wire','actual_wire')
-                    minimum=.2 if wire and other in world.meta and world.wire(other) else 1.25
+                    minimum=pair_spacing(n,rows[n],other,world.meta.get(other,{}))
                     query(n,s,other,t,'all_static',minimum)
                 rec['completed_static'].append(n);save()
             if n not in rec['completed_mutual']:
                 for other,t in moving.items():
                     if other<=n or rows[n]['group']==rows[other]['group']:continue
-                    wa=rows[n].get('kind') in ('wire','proposal_wire','actual_wire')
-                    wb=rows[other].get('kind') in ('wire','proposal_wire','actual_wire')
-                    query(n,s,other,t,'all_moving_owners',.2 if wa and wb else 1.25)
+                    query(n,s,other,t,'all_moving_owners',pair_spacing(n,rows[n],other,rows[other]))
                 rec['completed_mutual'].append(n);save()
             if n not in rec['completed_motion']:
                 if rows[n]['group']!='S1' or not packet.get('reuse_original_S1_pose',True):

@@ -47,5 +47,37 @@ class SharedBackplane(unittest.TestCase):
         self.assertGreater(parts['Ref_Material_S0_key_CP2_0_0'].BoundBox.Center.x,
                            parts['Ref_Material_S0_body_CP2_0_0'].BoundBox.Center.x)
 
+    def test_shared_fore_plan_includes_both_full_factory_blanks_and_real_usb_curve(self):
+        parts,groups,_,f=proposal(fast_inputs(),True,True)
+        self.assertFalse(f['reuse_original_S1_pose'])
+        self.assertEqual(sum(g=='PiUpper' for g in groups.values()),44)
+        for r in f['shared_fore_units']['F_HY_full_factory_ports']:
+            self.assertAlmostEqual(r['external_factory_mm']+r['internal_assumed_mm'],100)
+            self.assertAlmostEqual(sum((a-b)**2 for a,b in zip(*r['first_full9_mm']))**.5,9)
+        usb=f['shared_fore_units']['PiUSB_changed_profile']
+        self.assertEqual(usb['R_mm'],30)
+        self.assertEqual(usb['first_project_mm'],3)
+        self.assertEqual(usb['status'],'OWNED_BAYS_PROFILE_CLEAR_EXTERNAL_WORLD_STILL_OPEN')
+        self.assertLess(f['Pi_whole_bay_translation_interval_mm'][0],f['Pi_relative_pose']['translation_mm'][0])
+        for s in parts.values():
+            b=s.optimalBoundingBox()
+            self.assertGreaterEqual(b.XMin,-138.25-1e-5)
+            self.assertGreaterEqual(b.YMin,-96.75-1e-5)
+            self.assertLessEqual(b.YMax,96.75+1e-5)
+            self.assertLessEqual(b.ZMax,108.75+1e-5)
+
+    def test_full_s1_not_just_case_sets_lower_plane_and_carrier_avoids_control(self):
+        parts,groups,_,f=proposal(fast_inputs(),True,True,True)
+        s1=[s for n,s in parts.items() if groups[n]=='S1']
+        self.assertAlmostEqual(min(s.optimalBoundingBox().ZMin for s in s1),39.77)
+        self.assertFalse(f['reuse_original_S1_pose'])
+        root=f['shared_fore_units']['PWM_changed_root']
+        self.assertEqual(root['own_failures'],[])
+        self.assertAlmostEqual(root['named_R1_R2_full_case_gap_mm'][1]-root['named_R1_R2_full_case_gap_mm'][0],9)
+        self.assertEqual(len(parts['ShelfPWM:carrier'].Solids),1)
+        self.assertTrue(parts['ShelfPWM:carrier'].isValid())
+        self.assertEqual(f['shared_fore_units']['PiUSB_changed_profile']['status'],
+                         'OWNED_BAYS_PROFILE_CLEAR_EXTERNAL_WORLD_STILL_OPEN')
+
 
 if __name__=='__main__':unittest.main()

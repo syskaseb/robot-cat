@@ -33,9 +33,23 @@ def curve(recipe,pose,packet,bend_degrees,sweep_degrees):
     r=np.array(pose['rotation_rows']);q=(np.array(recipe['point_mm'])-packet['centre_mm'])@r.T+pose['centre_mm']
     d=r@np.array(recipe['departure_axis']);d/=np.linalg.norm(d)
     n=np.array([0.,1.,0.]);assert abs(n@d)<1e-6
+    return mouth_curve(recipe['ref'],q,d,n,bend_degrees,sweep_degrees)
+
+
+def mouth_curve(ref,q,d,normal,bend_degrees,sweep_degrees,first=3.):
+    """Actual current world mouth; arbitrary proper3D bend plane.
+
+    The old helper's fixedY normal is not valid after the switch's axial
+    rotation. Keep R25.2/first3/full9; do not optimize by shrinking wire.
+    """
+    q=np.asarray(q,dtype=float);d=np.asarray(d,dtype=float);d=d/np.linalg.norm(d)
+    n=np.asarray(normal,dtype=float);n=n-d*(n@d)
+    assert np.linalg.norm(n)>1e-7
+    n/=np.linalg.norm(n)
     v=np.cross(d,n);phi=math.radians(bend_degrees)
     b=math.cos(phi)*n+math.sin(phi)*v
-    R=25.2;first=3.;angle=math.radians(sweep_degrees);a=q+first*d
+    assert first>=0
+    R=25.2;angle=math.radians(sweep_degrees);a=q+first*d
     angles=np.linspace(0,angle,65)
     arc=a+R*np.sin(angles)[:,None]*d+R*(1-np.cos(angles))[:,None]*b
     tangents=np.cos(angles)[:,None]*d+np.sin(angles)[:,None]*b
@@ -43,7 +57,7 @@ def curve(recipe,pose,packet,bend_degrees,sweep_degrees):
     points=np.vstack((q,a,arc,tip));directions=np.vstack((d,d,tangents,tangent))
     radial=2.1*np.sqrt(np.maximum(0,1-directions**2))
     sample_inside=bool(np.all(points-radial>=LOW-1e-6) and np.all(points+radial<=HIGH+1e-6))
-    return dict(ref=recipe['ref'],point_mm=q.tolist(),departure_axis=d.tolist(),bend_unit=b.tolist(),
+    return dict(ref=ref,point_mm=q.tolist(),departure_axis=d.tolist(),bend_unit=b.tolist(),
                 bend_degrees=bend_degrees,sweep_degrees=sweep_degrees,R_mm=R,first_project_mm=first,
                 grip_start_mm=end.tolist(),grip_end_mm=tip.tolist(),grip_axis=tangent.tolist(),
                 full_grip_mm=9,jacket_radius_mm=2.1,sample_inside_absolute_envelope=sample_inside)
@@ -51,10 +65,11 @@ def curve(recipe,pose,packet,bend_degrees,sweep_degrees):
 
 def wire_shape(row):
     q,d,b=(A.Vector(*row[k]) for k in ('point_mm','departure_axis','bend_unit'))
-    a=q+d*3;t=math.radians(row['sweep_degrees']);R=row['R_mm']
+    first=row.get('first_project_mm',3);a=q+d*first;t=math.radians(row['sweep_degrees']);R=row['R_mm']
     mid=a+R*math.sin(t/2)*d+R*(1-math.cos(t/2))*b
     end=A.Vector(*row['grip_start_mm']);tip=A.Vector(*row['grip_end_mm'])
-    return tube(Part.Wire([Part.makeLine(q,a),Part.Arc(a,mid,end).toShape(),Part.makeLine(end,tip)]),2.1)
+    edges=([Part.makeLine(q,a)] if first>1e-8 else [])+[Part.Arc(a,mid,end).toShape(),Part.makeLine(end,tip)]
+    return tube(Part.Wire(edges),2.1)
 
 
 def half_ring(q,axis,n,inner,outer,length,sign=-1):
@@ -69,26 +84,28 @@ def half_ring(q,axis,n,inner,outer,length,sign=-1):
 
 
 def saddle_shapes(row,normal_angle,head_angle):
+    radius=row.get('jacket_radius_mm',2.1)
     t=np.array(row['grip_axis']);q=np.array(row['grip_start_mm'])
     n=np.array([-1.,0,0]);n=n-t*(n@t)
     if np.linalg.norm(n)<.1:n=np.array([0.,0,-1]);n=n-t*(n@t)
     n/=np.linalg.norm(n);v=np.cross(t,n);a=math.radians(normal_angle)
-    n=math.cos(a)*n+math.sin(a)*v;u=np.cross(t,n)
-    lower=half_ring(q,t,n,2.25,4.1,9)
+    n=math.cos(a)*n+math.sin(a)*v;u=np.cross(n,t)
+    lower=half_ring(q,t,n,radius+.15,radius+2,9)
     qb=q+t*3.25
-    bandparts=[half_ring(qb,t,n,4.1,5.3,2.5),half_ring(qb,t,n,2.1,3.3,2.5,1)]
+    bandparts=[half_ring(qb,t,n,radius+2,radius+3.2,2.5),half_ring(qb,t,n,radius,radius+1.2,2.5,1)]
     matrix=A.Matrix()
+    assert np.linalg.det(np.column_stack((u,n,t)))>1-1e-7,'Strap frame must be proper, not a reflection'
     for i in range(3):
         for j,col in enumerate((u,n,t)):setattr(matrix,f'A{i+1}{j+1}',col[i])
     rot=A.Rotation(matrix)
     for side in (-1,1):
         # Strap shoulders lie ABOVE the saddle's flat rim, never half inside
         # its PETG wall. Lower/upper arcs meet these shoulders at full faces.
-        lo=qb+side*2.1*u
-        if side<0:lo=qb-5.3*u
+        lo=qb+side*radius*u
+        if side<0:lo=qb-(radius+3.2)*u
         sh=Part.makeBox(3.2,1.2,2.5);sh.Placement=A.Placement(A.Vector(*lo),rot);bandparts.append(sh)
     band=bandparts[0].multiFuse(bandparts[1:]).removeSplitter()
-    a=math.radians(head_angle);radial=2.1 if math.sin(a)>=0 else 4.1
+    a=math.radians(head_angle);radial=radius if math.sin(a)>=0 else radius+2
     h=q+4.5*t+(radial+1.2+3)*(math.cos(a)*u+math.sin(a)*n)
     head=Part.makeBox(6,6,6,A.Vector(*(h-3)))
     return {'saddle':lower,'band_budget':band,'head_budget':head}
