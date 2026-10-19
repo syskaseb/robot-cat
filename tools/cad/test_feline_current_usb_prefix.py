@@ -1,9 +1,19 @@
-import math,unittest
+import json,math,unittest
 import numpy as np
-from fit_feline_current_usb_space import pi_prefix,bus_prefix,scoring_points,biarc_join
+from fit_feline_current_usb_space import pi_prefix,bus_prefix,scoring_points,biarc_join,planned_pi_transform
 
 
 class CoupledUSBPrefix(unittest.TestCase):
+    def test_saved_flat_Pi_pose_maps_actual_centre_and_USB_mouth(self):
+        import FreeCAD as A
+        from plan_feline_layout import OUT
+        d=json.loads((OUT/'n01-whole-pi-rigid-ports-space.json').read_text());pose=d['proposals'][0]
+        centre=A.Vector(*d['source_PCB_centre_mm']);tf=planned_pi_transform(pose,centre)
+        self.assertTrue(np.allclose(list(tf.multVec(centre)),pose['target_PCB_centre_mm']))
+        usb=json.loads((OUT/'n01-physical-cable-contract.json').read_text())['usb']
+        self.assertTrue(np.allclose(list(tf.multVec(A.Vector(*usb['pi_jacket_mouth_mm']))),pose['USB_mouth_mm']))
+        self.assertTrue(np.allclose(list(tf.Rotation.multVec(A.Vector(-1,0,0))),pose['USB_departure_axis']))
+
     def test_spatial_biarc_preserves_endpoints_tangents_and_exact_R(self):
         p=np.array([0.,0,0]);q=np.array([60.,60,20]);t=np.array([1.,0,0]);u=np.array([0.,1.,0])
         for ratio in (.1,.5,1.,2.,10.):

@@ -2,6 +2,286 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+16:26Z: odebrano n01-common-head-root-JR-neck-received:48,187s,
+zero failures/errors;20 niezmienionych par pięciu identycznych BRep
+przeniesiono z poprzedniego odbioru, zmienione styki policzone od nowa.
+Całe trzy HP, wspólna płyta/JR/grzebień/dwie pełne opaski są lokalnym
+planem z dodatnim korzeniem11mm3 i zachowanym podparciem911,683mm2.
+4 testy regresji OK7,459s, w tym prawdziwa belka zamiast pełnego bbox.
+N01 nadal0/10: USB500/R30, wspólna pojemność pozostałych tras, korzenie,
+dostęp/ruch głowy i ostateczny obrys nie są zamknięte. Nie przypisuję
+lokalnego wyniku całej wiązce; native master pozostał bez zmian.
+
+16:22Z:60894/97426 odebrane, oba błędy przed światem: pierwszySolid.common
+nie zwracałwspólnej płaszczyzny (prawdziweFace/Facebearing911,683mm2);
+drugi55,991mm3wynikał z użyciaarm_box jako diagonalnejbelki, gdy helper
+tworzy PEŁNYbbox. Zmieniono prymityw na prawdziwyruledloft+zakotwienie,
+nie ofset ani pomniejszenie. Tani fixture4,155s bez odczytu całej sceny:
+1solidkażdy kit, root11mm3, zachowane911,683mm2 i4źródłowe otwory,
+case/sourceopaski wspólneV0. Są bramki N03/native/siły/motion, nie fizycznyPASS.
+Następny odbiórtylko nowego materiału/stykuwspólnejpłyty. Całe3żyły i
+niezmienione stock pary ze20763 reużywane tylko przyIDENTYCZNYCH BRepSHA
+i wszystkich niezmienionych wejściach; changedkitpairs nigdyzcache.
+
+16:17Z:20763/11572odebrany62,281s/45par, wszystkie3całeżyły i źródłowy
+grzebień/opaska BEZ ujemnych; pozostały2interfejsy nośnika: planowany
+HeadRootPlate oraz12,66mm3 z własną poprzeczną opaskąJR. Nie nazywać
+kontaktu prostokątnej rezerwacji kolizją kupnejczęści. Wspólny docelowy
+nośnik: integralna część NOWEJ płytygłowy, nie doklejka doYawCarrier.
+Szyjka przy tylnym kwartaleJR omija pełną środkową opaskę;4oryginalne
+osieØ3,4 odczytane z rzeczywistychCylinderYawCarrier [-200/-184,±16].
+Zachować materiałYawCarrier bez zmian, powierzchnię podparcia i4otwory;
+3mmHeadRootPlate/NeckWeb są jednym stałym zaplanowanym torem do ramy.
+Wspólny odbiór wymaga dodatniego złączenia nowego nośnika zpłytą,
+niezmienionego rzeczywistego podparciaYawCarrier oraz zerowego przenikania
+pełnej opaski. Bez kolejnej zmiany tras i bez ponawianiaUSB/core.
+
+16:08Z: kitJR obejmuje nie tylko korpus/opaskę, ale nowy wspólny grzebień:
+3osobne9mm kanałyR1,05 przy istniejącympitch2,54, zamknięcieT18I na
+grzebieniu. Każdażyła ma własne siodło, nie swobodną wspólną pętlę.
+Integralna szyjka doJRbed, nosa i belki do rzeczywistegoYawCarrier;
+stare2nominalneopaski jawnie zastąpione2pełnymi T18I (beznowegoSKU).
+JR+bed opasane razem, bez ściskania padów. N03native/pulltest pozostająOPEN.
+Akceptacja intencjonalnego kontaktu w chwytach wymaga zerowej objętości
+przecięcia oraz zachowanego1,25/.2poza9mm strefą, nie globalnego skipa.
+
+16:03Z:21386/24852 odebrany46,594s/25par całych3żył, bez błędów.
+Brak wcześniejszych factory_U3/W068/curveBBoxholdów. Pozostały rzeczywisty
+PassiveJournal oraz nylonoweSourceLandBand(0,2) iJRband(0,16). Journalma
+Ymax47 z przypiętego pełnego źródła, więc wspólna płaszczyzna wzniosuY50
+=47+R1,05+gap1,25+zapas0,7; nie przypadkowyoffset. Cała3ribbonprzejściami
+60/46mm trafia do tego samego wspólnegoY33Z103. SourceLandBand jest
+nominalnymT18I z przypiętego build_fixed_head_interface, nie sztywnymPETG:
+0,2mm spełnia zachowane miękkie kryterium, nie zmniejszam go. JRband0,16
+niezaliczone; zamiast luzować próg JEDEN kompletny poprzecznykitJR:
+ten sam korpus, pełna opaska/główka4,3x5,3x5, siedzisko4,2PETG iintegralna
+belka do rzeczywistej płaskiej powierzchniYawCarrier (positivecommon i1solid
+union wymagane). StareJRband jawnie zastąpione, nie usunięta kupna część.
+N03parametr/native niezaliczony, N01nadal0/10; kontrola CAŁEGO zestawu.
+
+15:58Z: pozytywny górny kanał ma pełne3bryły472,736/476,482/480,715mm,
+niezmienionyR1,05, pierwsze9mm i R12,4/14,94/17,48; przejściaminR23,736,
+ciągły dolnylimit wzajemnych przerw>=0,4238mm. KonstruktorOCC pierwszej
+środkowej prostej zapisanej jako241współliniowych biegunówBSpline dał
+błędną objętość9%; zastąpiono TĘ SAMĄ prostą krawędziąLine, nie zmieniono
+trasy ani kryterium. Nowe2testy geometrii potwierdzająpełne objętości.
+Całe kable omijają fabrycznąpętlęYaw dołem, wznosząsię po+Y45,4,
+trafiają do policzonego górnego płaskiego zasobuY33Z103. To propozycja,
+jeszcze nie świat. Broadphase po sumie bbox osi+1,05001 zachowuje cały
+płaszcz i odrzuca puste wnętrze dużego nawrotu, nie dowodzi kontaktu.
+Uczciwe uchybienie: ostatni odczytlimitu15:45:37 do kolejnego15:58
+przekroczył10min podczas naprawy konstruktorów, beznowego workera świata.
+Nie udaję zgodności. N01nadal0/10, masterbez zmian.
+
+15:50Z:90063/PID8568odebrany234,297s/468zapisanychpar/12OPENwpisów,
+bez błędów. To ograniczony odbiór pierwszej całejżyły, nie cały3zestaw.
+Rzeczywiste ujemne: factory_U3 oraz W068wire. Wyjście w górę zJR przecina
+zachowaną fabryczną pętlęYaw; nie ponawiać niewykonanych dwóchżył tej rodziny.
+ŚwiatN01 faktycznie NIE dodaje drugiegoHead+35 do pakietu lokalnego;
+odczytScene/currentpotwierdził zgodność. Nie zmieniać ramek na podstawie
+samej nazwy ani dawnego planuPiWedge.
+Jedna wspólna zmiana strefy: HPpodgłowąZ−34,8 przez+Y, pionowy wznios
+przyY45,4 POZA yawbridge/pitchservo, a potem wspólny płaski górnykanał
+Y33/Z103. Wynik przeglądu CAŁEGO signedfield dlaX−128..−35:
+Y32..35/Z103 ma nominalnyzapaspropozycji5,7mm, bezprzesuwaniaW068/S1.
+Najpierw trzycałe krzywe/mutual/minR12,4, potemtylko noweinterfejsy.
+Stare krzyweBBoxholds nie są kontaktem; znana opaskaSourceLandBand ma
+0,2mm, nie kontakt. JRband/głowamotion/neckskin/korzenie pozostająOPEN.
+
+15:42Z:5730/PID25492odebrany29,219s: nowy kanał ominął RootWeb1
+(luz2,5), lecz przecina kupneW037_Joint przy[-97,-15,-34]. Obie dolne
+rodziny zamknięte. Odczyt istniejącego signedfield naZ−37,34 pokazał brak
+stałego wolnegoY przezprzedniąramę; nie jest dowodem niewykonalności
+wnętrza legacycavity. Przestać ręcznie narysowywać następnydolny offset.
+Nowy WSPÓLNY przebieg od trzech rzeczywistychJRwyjść: pełne9 przedR12,4
+w górę, zagnieżdżoneR12,4/14,94/17,48, przejście66mm w płaski układ
+z bokuYawbridge do[-157,66,-35,53,5], zejście przyY−35 poniżejS0,
+następnie współśrodkowyS R17 w kierunkuY−18 i3nominalneżyły1,05
+z pitch3,4. Nie zmniejszać drutów, nie utożsamiać dawnego grubego10,6x3,4
+zasobu z obowiązkowym gabarytem. W068 pełnychwyt ma3odebrane opcje tej
+samejżyły; wspólna orientacja z całymHPzestawem, nie ponawianieS1core.
+Najpierw matematyka/wzajemne odstępy, następnie całość z prawdziwymi
+właścicielami/motion. JRband/siedzisko nadaljawnieOPEN.
+
+15:36Z:21259odebrany11,453s: drugi port+podprzejście nie domyka całej
+matematyki; rodzina zamknięta bez kolejnegoZ/pitch/offsetu. N01niezaliczony.
+Bezpieczny niezależny krok: HPpodramą ma wejść do kanału centralnegoY−14,
+omijając CAŁĄ pionową RootWebReserve1 przyY−22,5; zachowane trzy pierwsze
+żyły/nominalneR/chwyty mają odebrane stare wyniki i NIE są ponawiane.
+Odbiór tylko zmienionego CAŁEGO kanału odJR do korpusu/stałe/36póz.
+To nie nowy kanał produkcyjnyN04 ani przyznanie głowy/montażu. Rezerwacje
+starej opaski zachowane; późniejsza poprzeczna propozycja musi uwzględnić
+wcześniejszy konflikt zW076, nie wycinać go z kontrolowanej sceny.
+
+15:33Z:5718odebrany9,781s: drugi wolny port nadal ma matematyczne
+samoskrzyżowanie, nie dowód kolizji z kupnymi częściami. Rzeczywisty świadek
+recepty: źródło[-5,1463;6,3820;98,7] vs powrót[-5,2166;6,2071;97,7966],
+gaposi0,922887. Zmiana topologii: powrót POD tym konkretnym skrzyżowaniem
+przyZ90, nie stary waypoint poprzedniego gniazda. Pełne452/R30/Pi+stacje
+we wspólnym filtrze. Przy drugim niepowodzeniu tej rodziny nie ponawiać
+kolejnegoZ/offsetu. Dalsza bezpieczna niezależna praca: kanałHPpodramą z
+jawnym obejściem RootWebReserve1 i poprzeczną opaską na korpusieJR.
+
+15:30Z:13605/17448odebrany8,516s/41korzeni, powrót maxR24,994.
+Pionowa rodzina zamknięta beztrzeciej zmiany promienia. Istotne źródło:
+n01-pi-full-port-contract jawnie mówi selected_port_pose_qualified=false;
+dotychczasowe gniazdoA było ZAŁOŻENIEM, nie wybraną kupną częścią.
+Pi4 ma2USB2+2USB3 (oficjalny rpi4-datasheet.pdf). Jeden wspólny plan
+z drugim wolnymUSB_A_rear, bez zmianyPi/kabla: różnicaY18,73 wyprowadzona
+z przypiętegoDXF/ramy podPi; całe26x15x9 overmould jedzie wraz z wtykiem.
+Pi104/3dodatnieWAGO−8, pełne452/R30/9mm/oba końce i wszystkieRigidPi
+w filtrze przed wyborem. Nie zakładać, że rezerwacjeUSB/Ethernet są
+producentowskimi bryłami: wcześniejsze testy są konfliktami REZERWACJI,
+nie dowodem fizycznego kontaktu nieznanych wnętrz. Nie zmniejszam ich
+gabarytów; próba przymiarki wciąż otwarta. Brak nowego punktu/wyboruCAD.
+
+15:28Z:85047/9312odebrany76,016s/41korzeni, brakR30 w powrocie:
+max28,233mm. To ograniczenie wybranego promienia pętli30,1, nie kontakt
+świata. Wspólna pionowa zatoka ma projektowo70mm wysokości: środekokoło
+Z69, dolna oś>=34 wobec baterii28 i górna<=104 wobec dachu112.
+Dlatego jeden przebieg całej zatokiR35 (nie kolejne mikrooffsety), Rmin30
+powrotu, pełne452/9mm/Pi całe w filtrze. Zachowuję odrzuconą próbę.
+Powtarzane odczyty tych samych2JSON w matematyce były kosztowne:
+cache stałych wejść, bez zmiany geometrycznych kryteriów.
+
+15:24Z:51605odebrany15,125s:45korzeni długości,29zR>=30, tylko2bez
+samoskrzyżowania i oba odrzucone konserwatywną całą zajętościąPi/P_REAR.
+Nie ponawiać dachu/bezpośrednich powrotów. Nowa strefa funkcjonalna:
+pionowy zwój POD bankiem i w jego kanale centralnym, nie na dachuPi.
+Wspólne planowanie obu końców, pełne9PRZEDpierwszymR30, nominalna długość
+452, helisaR30,1/pitch8 i cały powrót z2łuków. SztywnePi w filtrze przed
+wyborem, pozostałe aktualne bryły/brak kolizji dopiero po dodatniej matematyce.
+Ta strefa może pozostawić wszystkie54stacje bez obniżania; nie modyfikuję
+jeszcze żadnej. Korzenie/drugi koniec/montaż/123plan nadalOPEN. Nie jest to
+wniosek o fizycznej niewykonalności poprzedniej zatoki ani nowy punkt.
+
+15:19Z:90390/PID7780odebrany116,968s/317par/27wpisów bezbłędów.
+GPIO z jawną zmianą drukowanej górnej podpory są wolne; śrubyPi104
+mają zapas doobrysu. Nowa sama spirala nie dotykaEthernetu, ALE wybrany
+zbyt wcześnie bezpośredniłącznik przecina inne pełne portyPi/P_REAR/power.
+Nie uruchamiać trzeciego CAD pierwszego tylko matematycznego kandydata.
+Zmiana przyczyny planera: WSZYSTKIE bryły sztywnegoPi i całe3przeniesione
+stacje wchodzą do wspólnego filtra PRZED wyborem powrotu. Konserwatywne
+pełne bbox mogą tylko wykluczać propozycje, nigdy dowodzić kolizji/PASS.
+Jedna ograniczona rodzina41stosunków krzywizn/452mm; beznowych offsetów.
+PowerW080 przy104 wpada w bank przez9PO łuku: pełne9ma być PRZEDR,
+obie żyły razem, bez zmniejszania średnicy/R12,4/R15,9. R30USB bez zmian.
+
+15:15Z:96198odebrany14,156s, pełna nowa matematyka452mm/R30/
+sampledselfaxis11,92395mm, spirala0,1537obrotu: przednia zatoka zamiast
+zajętegoEthernet. Pi104,3dodatnieWAGO−8, pozostałe bez zmian. Jeden odbiór
+CAŁEGO nowego zestawu. GPIOzostają razem; zmieniony interfejs PODPORY:
+poziomyBUS_UpperPositiveRoot zastępowany drogą przez pełną tylną płytę,
+4standoffy i zachowaneBUS_CentralLowerRoot/FrameCrossbar. Ten alternatywny
+loadpath jestjawnieOPEN do osobnego odbioru, NIE ciche usunięcie podpory.
+Przecięcia własnych wtyków klasyfikowane symetrycznie, bez ponawiania par.
+Akceptacja obecnego kroku: brak pozostałych rzeczywistych naruszonych par
+całych modułów/kabli/opasek/36póz/obrysu; korzenie/123końce dalej wymagane.
+
+15:13Z:98160odebrany14,406s; nowa zachodnia zatoka z narzuconym STARYM
+punktem podprzejścia nie domykaR30 przy452mm, max26,883mm. To ograniczenie
+łącznika nie dowodzi braku miejsca na kabel. Po zmianie całej zatoki stary
+punkt podprzejścia nie wynika już z nowego samoskrzyżowania: usuwam to
+dziedziczone ograniczenie i planuję bezpośredni2łukowy powrót razem z pełną
+długością/R30/samokontaktem. Nie ponawiam dotychczasowych4łuków/waypointu.
+
+15:12Z:64716/17908odebrany29,813s. Dokładny sprawcaUSB to SAMAspirala,
+nie łącznik: jej oś przy[39,338;28,078;100,7] jest1,295mm odEthernet,
+przy średnicy5. Ethernet maX40,5..61,85/Y11,995..27,505. Zmiana
+architektury: cała pętla w przedniej zachodniej zatoce Xmax<36,75,
+wejścieR30S o przejściu10mm i pełne9 bez zmian, nie wycięcie/kink.
+Pi wraca do104 z poprawnym zapasem śrub; nadmiar długości i powrót
+przeliczane wspólnie. Dolne wyjścieBUS clock3° wyznaczone z pełnego
+chwytu pomiędzy bankiem i ujemnymiWAGO, R30/OD5 pozostają. Najpierw
+pełna matematyka452mm/R30/samokontakt, potem rzeczywiste zmienione pary.
+GPIO drukowany korzeń wymaga zmiany drogi PODPORY, nie trzeciej próby łuków.
+
+15:10Z:43849/PID18480 odebrany128,531s/339kontroli/31wpisówOPENlubujemnych,
+bez błędów jądra. Wszystkie3obniżone dodatnieWAGO i6części otwartych chwytów
+bez ujemnych par. Sam USB ma kontakt z Ethernet,0,595mm do komponentówPi,
+ok.1,05..1,09mm do2ujemnychWAGO zamiast1,25. GPIO nadal trafia w drukowany
+BUS_UpperPositiveRoot, nie kupnyBUS. Nie ponawiać tych samych GPIOłuków.
+Część31wpisów to odwrócone zamierzone styki własnych wtyków i krzywa
+ogona, nie31kolizji. Następny: jedna lokalizacja KONKRETNYCH kawałków USB
+wobec Ethernet/komponentów, bez nowej spirali/pozycji. Nowe3testy2,359s
+potwierdzają objętość/długość/pełne główki i niepomijanie nowych kabli.
+N01 nadal0/10; nie wybrano nowegoCAD.
+
+15:06Z:68320/23184 odebrany66,562s:20negatywnych/OPEN, bez aktywnego
+workera. GPIO blokował drukowany BUS_UpperPositiveRoot, power G_AUX,
+USB przy wyjściu −Y zachowany PWMcarrier. Zmieniony WSPÓLNY układ:
+Pi elektroniką w dół PCBcentre[86,2,106], tylko dodatnie FR_P/RR_P/P_REAR
+Z−8; ujemne stacje pozostają wysoko. Pełne7prefiksów Pi planowane razem.
+Odebrana matematyka USB451,99999999994mm/R>=30/selfaxis8,72869mm
+(10,671s) z przejściem POD własnym początkiem, nie kolejny pełny zwój.
+Siodła płaskie PETG2mm+pełne główki T18I zamiast cylindrycznych uchwytów.
+Akceptacja następnego odbioru: dodatnie objętości całych rur, rzeczywiste
+pary CAŁEGO zmienionego zestawu, wzajemne nowe przewody, obrys/36póz.
+Nie kwalifikuje to jeszcze korzeni/chwytów123odcinków ani N01. R30 zachowany;
+pytanie o próbnyR20 nie ma odpowiedzi, nie przyjmuję zgody. Limit60/40,
+ordinaryUsageAllowed=true, bezresetu; master bez zmian/N01=0/10.
+
+14:40Z:15405/6864odebrany72,734s: całe rigidPi/porty beznegatywnych,
+4powerprefiksy wolne;10starychGPIOprzekraczaobrys, USBprzecinaBUS/
+tailmount. Źródłowygap_mm<0 wtymraporcieouter oznacza UJEMNĄOBJĘTOŚĆ
+pozaobrysem, NIE mmprzenikania (nie interpretować14,84 jako mm).
+Zmiana funkcjonalna: elektronikaPi W DÓŁ, wybranaorientacja0/PCB[86,2,104],
+USBmouth[14,5,-17,39,98,7]out−X, R30−Yclock−16°,pełne9PO łuku;
+GPIO/power kompletne razem. Odbierz68320/23184 przedkolejnymstartem.
+Obie próby spiralne zostały odrzucone matematycznie (R<30/samokontakt),
+NIECAD, nie przenosić ichdo native. Nie wymuszać całego360° anićieńszychżył.
+OficjalnyLanberg6270/Productcard: tylko50cm, brak wymiaru pomiędzywtykami;
+452mm=projektowe500−26−22,nadalbramkaprzymiarki, nie daneproducenta.
+https://lanberg.eu/product/download-file/6270/Product%20card%20%25language%25
+Uczciwyzapis: odczyt14:24:13→14:34:42=629s podczasplanowania,>10min,
+bezczynnegoheavyworkera; nieudawaćpełnejzgodności.14:40:35Zlimit59/41,
+bezresetu,N01=0/10,selectednativeaff0...niezmieniony.
+
+14:24Z:98177/11736 odebranyexit1przedzapytaniami geometrii:
+placementhelper potrzebuje numpy[3,3], nieJSONlist. Wyodrębnionymapping
+źródłowegocentre/USBmouth/kierunku:test5PASS0,142s. TaSAMAgeometria,
+beznowejpozycji; wznowiony15405/PID6864. Limit14:24:13Z59/41.
+
+14:22Z:25307/17332 odebrany68,406s:24orientacje,61,368,992przesunięcia
+zamkniętychobjętości,60zapisanychpropozycji w6rodzinach płaskiegoPCB.
+Bez ponownej tessellacji; nie nazywać milionówpropozycji kontrolamiCAD.
+JEDEN uzgodniony pełny następny: płaskiePi PCBcentre[48,1,88],USB+X
+mouth[119,5,-18,39,93,3]. To obrót+wyrównaniepłaszczyznyPCB iinna
+architektura portów, nie powtórzonyPi180przy61,9. Całe rigid+GPIO+
+powerprefiksy obrócone razem; USB niezależny pełny9mm PRZEDR30w dół,
+first3+land9+quarter, koniec[161,5,-18,39,63,3], dł59,1239.
+Cały nowy zestaw vs rzeczywiste bryły/obrys/36póz, zamierzonematy
+wyłącznie jawne. Fore2WAGO−8 zachowane. USB500loop/rooty/all123 OPEN.
+
+14:16Z:48329/22588 odebrany35,844s,1080pozycji całegoPi ZE STARYMI
+SZTYWNO zamrożonymi łukami bez propozycji, nie dowódbrakumiejscaPCB.
+Poprawa abstrakcji: wszystkieSZTYWNEPCB/hardware/obsadzoneporty razem;
+elastyczneprefiksy doNOWEGOwspólnegoplanu, nie część kupnego sztywnegoPi.
+ŹródłoweCLOSEDvoxele bezPi,2foreWAGOpo−8 ireszta niezmienione.
+24normalneosiePCB, wszystkie1mmprzesunięcia korelacją zajętychobjętości,
+nie nowegrube mikrosiati. Jedyniepropozycje; faktyczneBRep/wypusty9mm/
+całyUSB/rooty/montaż nadalbramkąN01.0/10,14:16:46Zlimit58/42bezresetu.
+
+14:10Z: kierunkowepary56919/24700odebrane26,453s,492rootydługości,
+0R>=30; nie dodawać kolejnych lokalnychłączników. Diverse18388
+odebrany6,016s, brakcałości; pierwsze7pozytywnychpoziomów odzyskane,
+nieOCC. Przyczyna do zmiany: zamrożony środkowy modułPi z całymi
+portami/wyjściami narzuca trasie zbyt ciasnątopologię. Jeden wspólny
+plan całegoPi: aktualnePCB/hardware/pełneporty/istniejąceprefiksy9mm
+razem, orientacje względemRZECZYWISTEJ płaszczyznyPCB i wolnejmapy
+po odjęciuTYLKO jego masek. 24orientacje×45centrów to taniepropozycje,
+niekolizje/akceptacja. Nie powtarzaS1/2800/5600 aniPi180/inverted.
+Następnie najwyżej wybrana pełna bryła Pi+porty+USB/rooty; nativebez zmian.
+
+14:07Z: biarc60629/10348odebrany10,797s bezcałości; reverse44245/14944
+10,063s i forwardhalf21672 5,391s zapisane jako .tree.npz, nie liczyć
+łukówponownie. Łączenie31153/21040 29,468s/3170rootówdługości,0R>=30.
+Diagnoza pełnychdomen: KD wybierał bliskiepunkty ZA styczną i wymuszał
+majorarc/nawrót (najbliższeR30całości były+76mmza długie). Teraz TYLKO
+dobórpar wprzód60mm, oba iloczyny dodatnie; ta sama odebrana geometria,
+żadnego ponownegoOCC. Niższe2pełneWAGO/cache/testy zachowane w830e4ae9;
+historyczny model aff0...niezmieniony.0/10; czas14:07:55Z limit58/42.
+
 13:58Z:15030/8608 odebrany12,953s, globalnepunkty dochodzą doBUS,
 ale żadna trasa452mm z właściwą styczną nie odebrana. Nie robić3próby
 tych samych3proporcji uchwytówBezier. Przyczyna: końcowyłącznik ma

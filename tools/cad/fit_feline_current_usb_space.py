@@ -46,7 +46,7 @@ def scoring_points(prefix,pos,post):
     return np.vstack([prefix,pos,post]),np.r_[(along>=6).astype(float),np.ones(len(pos)),(postalong>=6).astype(float)]
 
 
-def biarc_join(p,t,q,u,ratio):
+def biarc_join(p,t,q,u,ratio,sample=True):
     """Two exact spatial circular arcs with a common tangent, no soft R."""
     p,t,q,u=map(lambda x:np.asarray(x,float),(p,t,q,u));v=q-p
     alpha=(1-float(t@u))*ratio;beta=float(v@(ratio*t+u));square=float(v@v)
@@ -60,13 +60,13 @@ def biarc_join(p,t,q,u,ratio):
         w=end-start;x=float(w@tangent);normal=w-x*tangent;y=float(np.linalg.norm(normal))
         if y<1e-9:
             if x<=0:return None
-            radius=None;angle=0.;L=x;points=np.linspace(start,end,49);final=tangent
+            radius=None;angle=0.;L=x;points=np.linspace(start,end,49) if sample else None;final=tangent
         else:
             normal/=y;radius=float(w@w)/(2*y);angle=2*math.atan2(y,x);L=radius*angle
-            a=np.linspace(0,angle,97)[:,None];points=start+radius*np.sin(a)*tangent+radius*(1-np.cos(a))*normal
+            a=np.linspace(0,angle,97)[:,None];points=start+radius*np.sin(a)*tangent+radius*(1-np.cos(a))*normal if sample else None
             final=math.cos(angle)*tangent+math.sin(angle)*normal
         arcs.append(dict(start_mm=start.tolist(),start_tangent=tangent.tolist(),normal=normal.tolist(),R_mm=radius,angle_rad=angle,
-            length_mm=L,reverse=reverse,points_mm=points.tolist(),junction_tangent=final.tolist()))
+            length_mm=L,reverse=reverse,points_mm=None if points is None else points.tolist(),junction_tangent=final.tolist()))
     assert np.linalg.norm(np.array(arcs[0]['junction_tangent'])+np.array(arcs[1]['junction_tangent']))<1e-6
     return dict(arcs=arcs,length_mm=sum(a['length_mm'] for a in arcs),
         minimum_R_mm=min((a['R_mm'] for a in arcs if a['R_mm'] is not None),default=math.inf))
@@ -160,6 +160,14 @@ def main():
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'])),flush=True)
 
 
+def planned_pi_transform(pose,centre):
+    import FreeCAD as A
+    from receive_feline_global_case_candidates import placement
+    rot=placement(np.asarray(pose['rotation'],float),np.zeros(3)).Rotation
+    target=A.Vector(*pose['target_PCB_centre_mm'])
+    return A.Placement(target-rot.multVec(centre),rot)
+
+
 def screen_rear_facing_pi():
     """One whole-module cause change; no native/source or selected edits."""
     import FreeCAD as A
@@ -169,6 +177,17 @@ def screen_rear_facing_pi():
     from feline_solid_distance import bbox_lower_bound
     from receive_feline_global_case_candidates import placement
     tick=time.monotonic();world,parts,meta,pins,docs=current()
+    underhung='--underhung-flat-pi' in sys.argv
+    planned=underhung or '--planned-flat-pi' in sys.argv
+    if planned:
+        planfile=OUT/'n01-whole-pi-rigid-ports-space.json';plan=json.loads(planfile.read_text())
+        assert plan['status']=='WHOLE_PI_RIGID_PORT_POSE_PROPOSALS_ALL_NEW_LOOMS_OPEN'
+        pose=next(p for p in plan['proposals'] if p['orientation_index']==0) if underhung else plan['proposals'][0]
+        pins[planfile.relative_to(ROOT).as_posix()]=sha(planfile)
+        lowerfile=OUT/'n01-usb-fore-lower-deck-space.json';lowerdoc=json.loads(lowerfile.read_text())
+        assert lowerdoc['status']=='TWO_WHOLE_FORE_KITS_LOWER_DECK_SPACE_RECEIVED_USB_ROOTS_OPEN'
+        for n in lowerdoc['changed_owners']:parts[n]=parts[n].copy();parts[n].translate(A.Vector(0,0,-8))
+        pins[lowerfile.relative_to(ROOT).as_posix()]=sha(lowerfile)
     coupled='--usb-led-layout' in sys.argv
     own={n:s for n,s in parts.items() if meta[n].get('group')=='PiUpper'}
     assert 'Ref_Material_Pi4NominalPCB_0_0' in own and len(own)>35
@@ -176,7 +195,8 @@ def screen_rear_facing_pi():
     inverted='--inverted-pi' in sys.argv
     rot=A.Rotation(A.Vector(1,0,0) if inverted else A.Vector(0,0,1),180)
     target=A.Vector(centre.x,centre.y,99) if inverted else centre
-    tf=A.Placement(target-rot.multVec(centre),rot)
+    tf=planned_pi_transform(pose,centre) if planned else A.Placement(target-rot.multVec(centre),rot)
+    if planned:rot=tf.Rotation;target=tf.multVec(centre)
     changed={}
     for n,s in own.items():
         if n.startswith('PiUSBData') or (inverted and n.startswith(('PiGPIO:','PiPower:'))):continue
@@ -187,11 +207,17 @@ def screen_rear_facing_pi():
     d=np.array([-1.,0,0]) if inverted else np.array([1.,0,0])
     b=np.array([0.,-1,0]) if inverted else np.array([0.,math.sqrt(.84),-.4])
     R=30.5 if inverted else 30.;angle=math.pi/2 if inverted else math.pi;start=mouth+3*d
+    if planned:
+        d=np.array(pose['USB_departure_axis']);b=np.array([0.,0.,-1.]);R=30.;angle=math.pi/2;start=mouth+12*d
+    if underhung:
+        a=math.radians(16);b=np.array([0.,-math.cos(a),-math.sin(a)]);start=mouth+3*d
     point=lambda v:start+R*math.sin(v)*d+R*(1-math.cos(v))*b
     tangent=math.cos(angle)*d+math.sin(angle)*b;end=point(angle);tip=end+9*tangent
     path=Part.Wire([Part.makeLine(A.Vector(*mouth),A.Vector(*start)),Part.Arc(A.Vector(*start),A.Vector(*point(angle/2)),A.Vector(*end)).toShape(),Part.makeLine(A.Vector(*end),A.Vector(*tip))])
+    if planned and not underhung:
+        tip=end.copy();path=Part.Wire([Part.makeLine(A.Vector(*mouth),A.Vector(*start)),Part.Arc(A.Vector(*start),A.Vector(*point(angle/2)),A.Vector(*end)).toShape()])
     prefix=path.makePipeShell([Part.Wire([Part.makeCircle(2.5,A.Vector(*mouth),A.Vector(*d))])],True,False)
-    assert prefix.isValid() and len(prefix.Solids)==1
+    assert prefix.isValid() and len(prefix.Solids)==1 and abs(prefix.Volume-math.pi*2.5**2*path.Length)<1e-4
     changed['RearPiUSBPrefix']=prefix
     cm={**{n:meta[n] for n in own},'RearPiUSBPrefix':dict(kind='proposal_wire')}
     routes={}
@@ -260,7 +286,12 @@ def screen_rear_facing_pi():
         internal_rigid_Pi_relations_reused=True,checks=[],failures=[],N01_complete=False,selected=False,physical_pass=False,
         old_Pi_datums_roots_and_assembly_invalidated_if_adopted=True,whole_USB500_middle_and_full_grips_open=True)
     if coupled:result.update(changed_owners=list(changed),whole_changed_groups=units,Pi_PCB_and_all_other_ports_unchanged=True,old_Pi_datums_roots_and_assembly_invalidated_if_adopted=False,USB_prefix_length_mm=path.Length,USB_min_R_mm=30,new_seven_port_prefixes=routes)
-    dest=OUT/('n01-usb-led-layout-space.json' if coupled else 'n01-inverted-pi-space.json' if inverted else 'n01-rear-facing-pi-space.json');query=SolidQueries()
+    if planned:result.update(status='RUNNING_PLANNED_FLAT_PI_WHOLE_PORTS_PREFIXES',selected_pose=pose,
+        old_unrelated180Z_metadata_not_applicable=True,rotation_matrix=pose['rotation'],rotation_axis=None,rotation_degrees=None,
+        USB_prefix_length_mm=path.Length,USB_full9_before_bend_mm=None if underhung else [(mouth+3*d).tolist(),start.tolist()],
+        USB_full9_after_bend_mm=[end.tolist(),tip.tolist()] if underhung else None,
+        USB_prefix_tip_tangent=tangent.tolist(),other_GPIO_and_power_full_prefixes_rigidly_reoriented_NOT_new_routing_PASS=True)
+    dest=OUT/('n01-underhung-flat-pi-port-prefix-space.json' if underhung else 'n01-whole-flat-pi-port-prefix-space.json' if planned else 'n01-usb-led-layout-space.json' if coupled else 'n01-inverted-pi-space.json' if inverted else 'n01-rear-facing-pi-space.json');assert not planned or not dest.exists();query=SolidQueries()
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     def record(a,b,gap,minimum):
         r=dict(a=a,b=b,gap_mm=gap,minimum_mm=minimum,ok=gap>=minimum-1e-6);result['checks'].append(r)
@@ -276,7 +307,7 @@ def screen_rear_facing_pi():
             if coupled:
                 targets.update({k:v for k,v in changed.items() if units[k]!=units[n]})
                 if n=='RearPiUSBPrefix':targets.pop('PiBudget:USB_A_data_boot',None)
-            if n=='RearPiUSBPrefix' or (inverted and n.startswith(('PiGPIO:','PiPower:'))):
+            if n=='RearPiUSBPrefix' or ((inverted or planned) and n.startswith(('PiGPIO:','PiPower:'))):
                 mates={'PiBudget:USB_A_data_boot'} if n=='RearPiUSBPrefix' else {'PiBudget:GPIO1992OccupiedHousing','PiBudget:GPIO_header'} if n.startswith('PiGPIO:') and not n.endswith(':grip') else {'PiBudget:RetainedK1474Boot'} if n.startswith('PiPower:') and not n.endswith(':grip') else set()
                 if n.endswith(':grip'):mates.add(n[:-5])
                 else:mates.add(n+':grip')
@@ -293,9 +324,104 @@ def screen_rear_facing_pi():
                 q=s.copy();q.Placement=placement(p['r'],p['t']).inverse()*q.Placement
                 record(n,'motion:'+p['name']+':'+str(p['pose']),query.distance(q,world.rest[p['name']]),1.25)
             save();print('RECEIVED',n,'failures',len(result['failures']),flush=True)
-        result['status']='REAR_FACING_PI_AND_PREFIX_SPACE_ONLY' if not result['failures'] else 'WHOLE_REAR_FACING_PI_REJECTED'
+        result['status']=('PLANNED_FLAT_PI_WHOLE_PORTS_PREFIX_SPACE_ONLY' if not result['failures'] else 'PLANNED_FLAT_PI_WHOLE_PREFIX_INTERFACES_REJECTED') if planned else 'REAR_FACING_PI_AND_PREFIX_SPACE_ONLY' if not result['failures'] else 'WHOLE_REAR_FACING_PI_REJECTED'
     except Exception as exc:result['status']='WHOLE_REAR_FACING_PI_INCOMPLETE';result['error']=repr(exc)
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],failures=result['failures'])),flush=True)
+
+
+def couple_saved_trees():
+    """Join received positive trees, distributing slack at BOTH ends."""
+    from scipy.spatial import cKDTree
+    from scipy.optimize import brentq
+    tick=time.monotonic();paths=[OUT/n for n in ('n01-usb-lower-deck-forward-half-space.json','n01-usb-lower-deck-reverse-biarc-space.json')]
+    docs=[json.loads(p.read_text()) for p in paths];trees=[]
+    for d in docs:
+        p=ROOT/d['tree'];assert sha(p)==d['tree_sha256']
+        with np.load(p,allow_pickle=False) as f:trees.append({k:f[k] for k in f.files})
+    for key in ('entry','bus_entry','proposal_axis_thresholds_mm','external_target_mm'):
+        assert docs[0][key]==docs[1][key],key
+    sf=OUT/'n01-two-fore-lower-deck-signed-space.json';s=json.loads(sf.read_text());fp=ROOT/s['field'];assert sha(fp)==s['field_sha256']
+    for d in docs:assert d['source_sha256'][fp.relative_to(ROOT).as_posix()]==s['field_sha256']
+    with np.load(fp,allow_pickle=False) as f:
+        origin=f['origin_mm'];fields=[f[n] for n in ('rigid_signed_distance','motion36_signed_distance','outer_distance')]
+    thresholds=np.array(docs[0]['proposal_axis_thresholds_mm']);a,b=trees
+    contract=OUT/'n01-physical-cable-contract.json';usb=json.loads(contract.read_text())['usb'];entry=docs[0]['entry']
+    length=usb['remaining_middle_budget_mm']-entry['extra_length_mm']
+    directional='--directional-tree-pairs' in sys.argv
+    dest=OUT/('n01-usb-directional-two-ended-space.json' if directional else 'n01-usb-two-ended-coupled-space.json');assert not dest.exists()
+    result=dict(status='RUNNING_RECEIVED_TWO_ENDED_TREE_COUPLING',source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in (*paths,*(ROOT/d['tree'] for d in docs),sf,fp,contract,Path(__file__))},
+        candidate=None,queue_pairs=0,checked_pairs=0,root_matches=0,minimum_R_matches=0,field_matches=0,
+        N01_complete=False,physical_pass=False,selected=False,entry=entry,bus_entry=docs[0]['bus_entry'],
+        all_received_tree_primitives_reused=True,full_grips_roots_current_harness_BRep_gates_OPEN=True)
+    def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
+    def clear(points):
+        coords=(np.asarray(points)-origin).T
+        return np.stack([map_coordinates(f,coords,order=1,mode='constant',cval=-100,prefilter=False) for f in fields],axis=1)-thresholds
+    def chain(tree,j,reverse=False):
+        rows=[]
+        while tree['parents'][j]>=0:
+            parent=int(tree['parents'][j]);normal=tree['normals'][j]
+            rows.append(dict(start_mm=tree['positions_mm'][parent].tolist(),start_tangent=tree['tangents'][parent].tolist(),
+                normal=None if np.isnan(normal).all() else normal.tolist(),length_mm=8.,R_mm=30.1,reverse=reverse))
+            j=parent
+        if not reverse:rows.reverse()
+        return rows
+    def samples(rows):
+        answer=[]
+        for r in rows:
+            p=np.array(r['start_mm']);t=np.array(r['start_tangent']);u=np.linspace(0,r['length_mm'],33)
+            if r['normal'] is None:points=p+u[:,None]*t
+            else:
+                R=r['R_mm'];n=np.array(r['normal']);v=u[:,None]/R
+                points=p+R*np.sin(v)*t+R*(1-np.cos(v))*n
+            answer.extend(points[::-1] if r['reverse'] else points)
+        return np.array(answer)
+    ids=np.flatnonzero((b['lengths_mm']>=24)&(b['lengths_mm']<=208))
+    lookup=cKDTree(np.column_stack([b['positions_mm'][ids]/40,-b['tangents'][ids]]));queue=[]
+    for i in np.flatnonzero((a['lengths_mm']>=24)&(a['lengths_mm']<=184))[::2]:
+        aim=a['positions_mm'][i]+(60*a['tangents'][i] if directional else 0)
+        _,near=lookup.query(np.r_[aim/40,a['tangents'][i]],k=24)
+        for j in ids[near]:
+            remain=length-a['lengths_mm'][i]-b['lengths_mm'][j];chord=float(np.linalg.norm(a['positions_mm'][i]-b['positions_mm'][j]))
+            if not (20<remain<150 and chord<remain<2.2*chord):continue
+            if directional:
+                vector=b['positions_mm'][j]-a['positions_mm'][i]
+                if vector@a['tangents'][i]<=0 or vector@(-b['tangents'][j])<=0:continue
+            join=biarc_join(a['positions_mm'][i],a['tangents'][i],b['positions_mm'][j],-b['tangents'][j],1.,False)
+            if join is None or not .65*remain<join['length_mm']<1.5*remain:continue
+            queue.append((abs(join['length_mm']-remain),int(i),int(j),float(remain)))
+    queue.sort();result['queue_pairs']=len(queue);save()
+    for _,i,j,remain in queue[:6000]:
+        if time.monotonic()-tick>100:break
+        result['checked_pairs']+=1;previous=None
+        for ratio in np.logspace(-3,3,19):
+            join=biarc_join(a['positions_mm'][i],a['tangents'][i],b['positions_mm'][j],-b['tangents'][j],float(ratio),False)
+            if join is None:continue
+            delta=join['length_mm']-remain
+            if previous and delta*previous[1]<=0:
+                root=brentq(lambda r:biarc_join(a['positions_mm'][i],a['tangents'][i],b['positions_mm'][j],-b['tangents'][j],r,False)['length_mm']-remain,previous[0],ratio,xtol=1e-10)
+                result['root_matches']+=1
+                join=biarc_join(a['positions_mm'][i],a['tangents'][i],b['positions_mm'][j],-b['tangents'][j],root)
+                if join['minimum_R_mm']>=30:
+                    result['minimum_R_matches']+=1
+                    joined=np.vstack([join['arcs'][0]['points_mm'],join['arcs'][1]['points_mm'][::-1]])
+                    if clear(joined).min()>=0:
+                        result['field_matches']+=1
+                        fore=chain(a,i);rear=chain(b,j,True)
+                        whole=np.vstack([entry['source_prefix_samples_mm'],entry['flatten_samples_mm'],samples(fore),joined,samples(rear),docs[0]['bus_entry']['prefix_samples_mm'][::-1]])
+                        along=np.r_[0,np.cumsum(np.linalg.norm(np.diff(whole,axis=0),axis=1))]
+                        pairs=cdist(whole,whole);pairs[np.abs(along[:,None]-along[None,:])<=10]=1e6;self_gap=float(pairs.min())
+                        if self_gap>=5.2:
+                            result['candidate']=dict(forward_node=i,backward_node=j,fore_primitives=fore,connector=join,rear_primitives=rear,
+                                full_samples_mm=whole.tolist(),sampled_self_axis_gap_mm=self_gap,
+                                whole_external_length_mm=usb['pi_prefix_length_mm']+entry['extra_length_mm']+a['lengths_mm'][i]+join['length_mm']+b['lengths_mm'][j]+usb['bus_prefix_length_mm'],
+                                nominal_jacket_OD_mm=5,minimum_piecewise_R_mm=min(30.1,join['minimum_R_mm'],30.),all_end_tangents_constructive_C1=True)
+                            break
+            previous=(ratio,delta)
+        if result['candidate']:break
+        if result['checked_pairs']%100==0:save()
+    result['status']='WHOLE_USB500_TWO_ENDED_NUMERIC_PROPOSAL_EXACT_GATES_OPEN' if result['candidate'] else 'BOUNDED_RECEIVED_TREE_COUPLING_NO_CANDIDATE_NOT_INFEASIBILITY'
+    save();print(json.dumps({k:result[k] for k in ('status','worker_seconds','queue_pairs','checked_pairs','root_matches','minimum_R_matches','field_matches')}),flush=True)
 
 
 def receive_roof_fore_stations():
@@ -407,10 +533,17 @@ def curvature_beam_space():
     # exact BRep still decides, no clearance or insulation margin is waived.
     thresholds=np.array([3.75,3.75,5.75]) if roof else np.array([4.95,4.95,6.95]);rng=np.random.default_rng(20261019)
     biarc='--biarc-connector' in sys.argv
-    dest=OUT/('n01-usb-lower-deck-biarc-space.json' if biarc else 'n01-usb-lower-deck-inboard-bus-space.json' if sidebus else 'n01-usb-lower-deck-hard-curvature-space.json' if lower else 'n01-usb-hard-curvature-roof-space.json' if roof else 'n01-usb-hard-curvature-global-space.json')
+    reverse='--reverse-entry' in sys.argv
+    half='--save-forward-half-tree' in sys.argv
+    diverse='--diverse-slack-tree' in sys.argv
+    search_tangent=np.array(entry['t'])
+    if reverse:
+        old_start=start.copy();start=goal.copy();goal=old_start
+        old_target=target.copy();target=-search_tangent;search_tangent=-old_target
+    dest=OUT/('n01-usb-lower-deck-diverse-slack-space.json' if diverse else 'n01-usb-lower-deck-forward-half-space.json' if half else 'n01-usb-lower-deck-reverse-biarc-space.json' if reverse else 'n01-usb-lower-deck-biarc-space.json' if biarc else 'n01-usb-lower-deck-inboard-bus-space.json' if sidebus else 'n01-usb-lower-deck-hard-curvature-space.json' if lower else 'n01-usb-hard-curvature-roof-space.json' if roof else 'n01-usb-hard-curvature-global-space.json')
     assert not dest.exists(),'Receive previous bounded search before a new attempt'
     result=dict(status='RUNNING_HARD_CURVATURE_GLOBAL_SPACE',source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in (sf,fp,cp,Path(__file__))},
-        R_primitives_mm=R,step_mm=step,entry=entry,bus_entry=busentry,proposal_axis_thresholds_mm=thresholds.tolist(),external_target_mm=usb['project_external_target_mm'],levels=[],candidate=None,
+        R_primitives_mm=R,step_mm=step,entry=entry,bus_entry=busentry,search_runs_from_BUS_back_to_PI=reverse,proposal_axis_thresholds_mm=thresholds.tolist(),external_target_mm=usb['project_external_target_mm'],levels=[],candidate=None,
         field_only_not_clearance=True,full_source_prefixes_grips_roots_BRep_and_capacity_open=True,N01_complete=False,physical_pass=False,selected=False)
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     def clear(points):
@@ -418,8 +551,19 @@ def curvature_beam_space():
         values=np.stack([map_coordinates(f,coords,order=1,mode='constant',cval=-100,prefilter=False) for f in fields],axis=1)
         return (values-thresholds).min(axis=1).reshape(shape)
     # Nodes retain a parent and exact circular/straight primitive parameters.
-    nodes=[dict(p=start,t=np.array(entry['t']),L=0.,parent=None,arc=None)]
+    nodes=[dict(p=start,t=search_tangent,L=0.,parent=None,arc=None)]
     frontier=[0];save()
+    begin_level=1
+    if diverse:
+        priorfile=OUT/'n01-usb-lower-deck-forward-half-space.json';prior=json.loads(priorfile.read_text())
+        assert prior['entry']==entry and prior['bus_entry']==busentry and prior['source_sha256'][fp.relative_to(ROOT).as_posix()]==sha(fp)
+        tree=ROOT/prior['tree'];assert sha(tree)==prior['tree_sha256']
+        with np.load(tree,allow_pickle=False) as f:
+            keep=np.flatnonzero(f['lengths_mm']<=56);assert np.array_equal(keep,np.arange(len(keep)))
+            nodes=[dict(p=f['positions_mm'][i],t=f['tangents'][i],L=float(f['lengths_mm'][i]),parent=None if f['parents'][i]<0 else int(f['parents'][i]),
+                arc=None if np.isnan(f['normals'][i]).all() else f['normals'][i].tolist()) for i in keep]
+        frontier=[i for i,n in enumerate(nodes) if n['L']==56];begin_level=8
+        result['reused_first7_positive_levels']=dict(report=priorfile.relative_to(ROOT).as_posix(),sha256=sha(priorfile),nodes=len(nodes))
     def connect(node):
         remain=length-node['L'];p=node['p'];t=node['t'];chord=np.linalg.norm(goal-p)
         if remain<chord or remain>chord*2.5 or remain>160:return None
@@ -461,7 +605,7 @@ def curvature_beam_space():
             return dict(controls_mm=c.tolist(),knots=knots,continuous_curvature=proof,length_mm=exact,quadrature_error_mm=error,
                 whole_external_length_mm=exact+node['L']+usb['pi_prefix_length_mm']+entry['extra_length_mm']+usb['bus_prefix_length_mm'])
         return None
-    for level in range(1,40):
+    for level in range(begin_level,24 if half else 40):
         if time.monotonic()-tick>95:break
         proposed=[]
         for parent in frontier:
@@ -485,17 +629,28 @@ def curvature_beam_space():
             if key in seen:continue
             seen.add(key)
             if sidebus:
-                approach=goal-target*min(30.,dist*.5)
+                approach=goal-target*min(22. if reverse else 30.,dist*.5)
                 score=np.linalg.norm(approach-p)+18*(1-np.dot(t,delta/max(dist,1e-6)))+12*heading+rng.uniform(0,18)
             else:score=dist+18*(1-np.dot(t,delta/max(dist,1e-6)))+rng.uniform(0,18)
+            if diverse:
+                estimated=dist+R*heading
+                score=abs((length-used)-estimated)+10*(1-np.dot(t,delta/max(dist,1e-6)))+rng.uniform(0,12)
             choices.append((score,parent,p,t,b))
         choices.sort(key=lambda r:r[0]);frontier=[]
-        for _,parent,p,t,b in choices[:320]:
+        if diverse:
+            selected=[];cells={}
+            for row in choices:
+                cell=tuple(np.rint(row[2]/8).astype(int));count=cells.get(cell,0)
+                if count>=2:continue
+                cells[cell]=count+1;selected.append(row)
+                if len(selected)>=640:break
+        else:selected=choices[:320]
+        for _,parent,p,t,b in selected:
             nodes.append(dict(p=p,t=t,L=level*step,parent=parent,arc=None if b is None else b.tolist()));frontier.append(len(nodes)-1)
         result['levels'].append(dict(level=level,nodes=len(frontier),proposals=len(proposed),clear_proposals=int(np.sum(gaps>=0)),
             closest_goal_mm=min((float(np.linalg.norm(nodes[j]['p']-goal)) for j in frontier),default=None),
             best_pose=None if not frontier else dict(point_mm=nodes[frontier[0]]['p'].tolist(),tangent=nodes[frontier[0]]['t'].tolist())))
-        if level%3==0:
+        if level%3==0 and not half:
             for ix in frontier[::5]:
                 end=connect(nodes[ix])
                 if end:
@@ -508,9 +663,17 @@ def curvature_beam_space():
         save();print('USB hard curvature level',level,'frontier',len(frontier),'candidate',bool(result['candidate']),flush=True)
         if result['candidate'] or not frontier:break
     result['status']='HARD_CURVATURE_GLOBAL_PROPOSAL_EXACT_GATES_OPEN' if result['candidate'] else 'BOUNDED_HARD_CURVATURE_GLOBAL_SEARCH_NO_CANDIDATE_NOT_INFEASIBILITY'
+    # Preserve positive partial states even when the final connector fails.
+    # A next coupling method may reuse this unchanged-geometry tree instead
+    # of rerunning every accepted mathematical arc.
+    tree=dest.with_suffix('.tree.npz')
+    np.savez_compressed(tree,positions_mm=np.array([n['p'] for n in nodes]),tangents=np.array([n['t'] for n in nodes]),
+        lengths_mm=np.array([n['L'] for n in nodes]),parents=np.array([-1 if n['parent'] is None else n['parent'] for n in nodes]),
+        normals=np.array([[np.nan]*3 if n['arc'] is None else n['arc'] for n in nodes]))
+    result.update(tree=tree.relative_to(ROOT).as_posix(),tree_sha256=sha(tree))
     save();print(result['status'],result['worker_seconds'],flush=True)
 
 
 if __name__=='__main__':
     print('WORKER_PID',os.getpid(),flush=True)
-    receive_roof_fore_stations() if '--roof-fore-stations' in sys.argv else usb_space_sections() if '--usb-space-sections' in sys.argv else curvature_beam_space() if '--hard-curvature-global' in sys.argv else screen_rear_facing_pi() if any(x in sys.argv for x in ('--rear-facing-pi','--inverted-pi','--usb-led-layout')) else main()
+    couple_saved_trees() if '--couple-saved-trees' in sys.argv else receive_roof_fore_stations() if '--roof-fore-stations' in sys.argv else usb_space_sections() if '--usb-space-sections' in sys.argv else curvature_beam_space() if '--hard-curvature-global' in sys.argv else screen_rear_facing_pi() if any(x in sys.argv for x in ('--rear-facing-pi','--inverted-pi','--usb-led-layout','--planned-flat-pi','--underhung-flat-pi')) else main()
