@@ -3,7 +3,7 @@
 No new pose catalogue, final cuts, native detail or physical retention claim.
 The top U leaves microSD clear; existing M2 hardware is stacked on real axes.
 """
-import json,math,zipfile,hashlib
+import json,math,zipfile,hashlib,sys
 import numpy as np
 import FreeCAD as A
 import Part
@@ -40,9 +40,12 @@ def saddle(rows,radius):
 
 def build():
     from plan_feline_long_return import frozen_core
-    pf=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json';parent=json.loads(pf.read_text())
+    r2='--Pi-carrier-r2' in sys.argv
+    pf=OUT/('n01-shared-Pi-carrier-core-received.json' if r2 else 'n01-tail-supported-gallery-r2-canonical-core-received.json');parent=json.loads(pf.read_text())
     wf=OUT/'n01-tail-supported-gallery-r2-canonical-world-received.json';external=json.loads(wf.read_text())
     assert not external['failures'] and not external['errors'] and external['critical_phase_complete']
+    historical_constructor=parent['source_sha256'].get('tools/cad/feline_shared_pi_carrier.py')
+    if r2:parent['source_sha256']['tools/cad/feline_shared_pi_carrier.py']=sha(ROOT/'tools/cad/feline_shared_pi_carrier.py')
     world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe=frozen_core(parent)
     baseline={n:s.copy() for n,s in actors.items() if n.startswith(('PiGPIO:','PiPower:'))}
     changed=[];newends=[]
@@ -53,6 +56,7 @@ def build():
     for e in four:
         old=np.array(e['full9_mm'][0]);start=old+(station-(old-origin)@t)*t;tip=start+9*t
         q=np.array(e['point_mm']);d=np.array(e['axis']);first=q+1.5*d
+        if r2:continue  # ALL received wires/fasteners remain exact parent actors.
         actors[e['name']],path=pipe([Part.makeLine(A.Vector(*q),A.Vector(*first)),circle_arc(first,d,t,10,math.pi/2),Part.makeLine(A.Vector(*old),A.Vector(*tip))],.7)
         # first arc terminates at the old straight start, exactly.
         e.update(full9_mm=[start.tolist(),tip.tolist()],length_mm=path.Length,common_comb_straight_extension_only=True)
@@ -69,6 +73,9 @@ def build():
     for n in list(actors):
         if not n.startswith('Ref_Material_Pi4') or 'NominalPCB' in n:continue
         s=actors[n].copy();b=s.BoundBox;centre=b.Center
+        if r2:
+            if 'Screw' in n:axes.append([centre.x,centre.y])
+            continue
         if 'Nut' in n:
             rot=A.Rotation(A.Vector(0,0,1),30);s.Placement=A.Placement(centre-rot.multVec(centre),rot)*s.Placement
             s.translate(A.Vector(0,0,101.6-s.BoundBox.ZMin))
@@ -104,26 +111,65 @@ def build():
     groups=[('GPIO4',[(e['full9_mm'][0],t) for e in four],.7),('H1',[(h1['full9_mm'][0],t1)],.7),('Power2',[(e['full9_mm'][0],[0,1,0]) for e in power],1.55)]
     kits=[]
     # Carrier branches are allocated together above all source-bank lands.
-    rod('H1_upright',stem,[-6,stem[1],79.7])
-    rod('GPIO_bridge',[-6,stem[1],79.7],[24,-3,79.7])
-    rod('upper_USB_beam',[59.5,29,107.1],[120,28.8581096347,107.1])
-    rod('USB_pad_post',[120,28.8581096347,107.1],[120,28.8581096347,102.9])
-    join('existing_USB_Pi_pad',actors['USBGrip:Pi:pad']);actors.pop('USBGrip:Pi:pad');roles.pop('USBGrip:Pi:pad');rows.pop('USBGrip:Pi:pad')
-    rod('upper_power_beam',[91,29,106.38],[110.65,67.0181096347,107.1])
-    rod('power_pad_post',[110.65,67.0181096347,107.1],[110.65,67.0181096347,105.6])
+    if r2:
+        entry=np.array(h1['full9_mm'][1])+.75*t1
+        end4=np.mean([np.array(e['full9_mm'][0]) for e in four],axis=0)+9.75*t
+        rod('outside_PCB_column',stem,[-6,stem[1],87.3])
+        rod('H1_after_strap_entry',[-6,stem[1],87.3],[entry[0],entry[1],87.3])
+        rod('H1_after_strap_post',[entry[0],entry[1],87.3],[entry[0],entry[1],77.55])
+        rod('GPIO_above_whole_head',[-6,stem[1],87.3],[end4[0],end4[1],87.3])
+        rod('GPIO_after_strap_post',[end4[0],end4[1],87.3],[end4[0],end4[1],77.55])
+    else:
+        rod('H1_upright',stem,[-6,stem[1],79.7])
+        rod('GPIO_bridge',[-6,stem[1],79.7],[24,-3,79.7])
+    ux=118.5 if r2 else 120
+    rod('upper_USB_beam',[59.5,29,107.1],[ux,28.8581096347,107.1])
+    rod('USB_pad_post',[ux,28.8581096347,107.1],[ux,28.8581096347,102.9])
+    if r2:
+        originfile=ROOT/recipe['immutable_parent_core_file'];orig=json.loads(originfile.read_text());arc=ROOT/orig['bundle'];assert sha(arc)==orig['bundle_sha256']
+        rec=next(r for r in orig['geometry'] if r['name']=='USBGrip:Pi:pad')
+        with zipfile.ZipFile(arc) as z:raw=z.read(rec['entry'])
+        assert hashlib.sha256(raw).hexdigest()==rec['sha256'];usbpad=Part.Shape();usbpad.importBrepFromString(raw.decode())
+    else:
+        usbpad=actors.pop('USBGrip:Pi:pad');roles.pop('USBGrip:Pi:pad');rows.pop('USBGrip:Pi:pad')
+    join('existing_USB_Pi_pad',usbpad)
+    py=72.2681096347 if r2 else 67.0181096347
+    rod('upper_power_beam',[91,29,106.38],[110.65,py,107.1])
+    rod('power_pad_post',[110.65,py,107.1],[110.65,py,105.6])
     for name,lands,r in groups:
         pad,kit,proof=saddle(lands,r);join(name+':full9_pad',pad);kits.append(dict(name=name,wire_names=[e['name'] for e in four] if name=='GPIO4' else [h1['name']] if name=='H1' else [e['name'] for e in power],**proof))
         for suffix,s in kit.items():
-            n='PiGrip:'+name+':'+suffix;actors[n]=s;roles[n]='PiGrip:'+name;rows[n]=dict(kind='tie_reservation')
+            n='PiGrip:'+name+':'+suffix
+            if r2:assert n in actors;continue
+            actors[n]=s;roles[n]='PiGrip:'+name;rows[n]=dict(kind='tie_reservation')
+    if r2:
+        # One coherent tool/PCB keepout, NOT serial corner micro-offsets.
+        b=actors['PiBudget:UnlabelledTopComponentsBudget'].BoundBox
+        keepout=Part.makeBox(b.XLength+2.5,b.YLength+2.5,104.8-(b.ZMin-1.25),A.Vector(b.XMin-1.25,b.YMin-1.25,b.ZMin-1.25))
+        frame=frame.cut(keepout)
+        for e in [*four,h1]:
+            q=np.array(e['point_mm']);d=np.array(e['axis']);b=np.array(e.get('independent_bend',[math.sqrt(.5),math.sqrt(.5),0]))
+            first=q+1.5*d;arcend=first+10*(d+b);tip=np.array(e['full9_mm'][1])+3*b
+            clearance,_=pipe([Part.makeLine(A.Vector(*q),A.Vector(*first)),circle_arc(first,d,b,10,math.pi/2),Part.makeLine(A.Vector(*arcend),A.Vector(*tip))],.85)
+            frame=frame.cut(clearance)
+        for n,s in actors.items():
+            if n.startswith(('PiGrip:','USBGrip:Pi:')):frame=frame.cut(s)
+            if n.startswith('Ref_Material_Pi4') and 'Screw' in n:
+                b=s.BoundBox;c=b.Center;head_bottom=b.ZMax-2
+                frame=frame.cut(Part.makeCylinder(2.5,30,A.Vector(c.x,c.y,head_bottom)))
     for x,y0 in axes:frame=frame.cut(Part.makeCylinder(1.2,15,A.Vector(x,y0,100)))
     frame=frame.removeSplitter();assert frame.isValid() and len(frame.Solids)==1
-    ff=OUT/'n01-shared-Pi-carrier.brep';df=OUT/'n01-shared-Pi-carrier.delta.brep';assert not ff.exists()
+    stemfile='n01-shared-Pi-carrier-r2' if r2 else 'n01-shared-Pi-carrier'
+    ff=OUT/(stemfile+'.brep');df=OUT/(stemfile+'.delta.brep');assert not ff.exists()
     delta=frame.cut(oldroot);assert delta.isValid() and delta.Solids;frame.exportBrep(str(ff));delta.exportBrep(str(df))
     n='SharedPi:Carrier';actors[n]=frame;roles[n]='PiFrameNew';rows[n]=dict(kind='proposal_material')
     recipe=dict(recipe,new_Pi_full_ends=list(ends.values()),Pi_top_actual_axes_mm=axes,Pi_frame_actor=n,Pi_frame_file=ff.relative_to(ROOT).as_posix(),Pi_frame_delta_file=df.relative_to(ROOT).as_posix(),Pi_frame_delta_sha256=sha(df),
         Pi_positive_joints=joins,Pi_full_grip_kits=kits,Pi_actual_root=dict(owner=rootname,**choices[0]),
         Pi_changed_actors=changed,Pi_unchanged_parent_actor_names=[r['name'] for r in parent['geometry'] if r['name'] not in changed and r['name']!='USBGrip:Pi:pad'],
-        immutable_parent_core_file=pf.relative_to(ROOT).as_posix(),fixed_replaced_names=recipe['fixed_replaced_names']+[rootname],
+        immutable_parent_core_file=pf.relative_to(ROOT).as_posix(),fixed_replaced_names=list(dict.fromkeys(recipe['fixed_replaced_names']+[rootname])),
         project_mount_keepouts_not_supplier_guarantees=True,individual_jacket_pull_print_fit_and_thermal_phase2=True)
+    if r2:
+        recipe.update(Pi_changed_actors=[n],Pi_unchanged_parent_actor_names=[r['name'] for r in parent['geometry'] if r['name']!=n],
+            parent_constructor_historical_sha256=historical_constructor,whole_strap_heads_outside_support_paths=True,actual_M2_head_driver_channels_R_mm=2.5)
     pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (pf,wf,ff,df,ROOT/'tools/cad/feline_shared_pi_carrier.py')})
     return world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe

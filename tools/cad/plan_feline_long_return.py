@@ -162,6 +162,7 @@ def main():
     if canonical:name='n01-tail-supported-gallery-r2-canonical-core-received.json'
     pi_carrier='--Pi-carrier' in sys.argv
     if pi_carrier:name='n01-shared-Pi-carrier-core-received.json'
+    if '--Pi-carrier-r2' in sys.argv:name='n01-shared-Pi-carrier-r2-core-received.json'
     dest=OUT/name;resume='--resume-core' in sys.argv;assert resume==dest.exists()
     previous=json.loads(dest.read_text()) if resume else None
     if pi_carrier:
@@ -216,6 +217,7 @@ def main():
         outer_key=recipe['outer_file'];same_outer=old['source_sha256'].get(outer_key)==pins[outer_key]
         for key,r in old['checks'].items():
             names=key.split('|')
+            if pi_carrier and any(x.startswith('PiGrip:') for x in names) and any(x.startswith(('PiGPIO:','PiPower:')) for x in names):continue
             if '--keyed-feet' in sys.argv and any(x.startswith('DGGrip:') for x in names) and any(x.startswith('CurrentBUS:BUS.') for x in names):continue
             if len(names)!=2 or names[0] not in same:continue
             if names[1]=='outer':
@@ -311,7 +313,7 @@ def main():
                     common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,intended_pad_band_common_mm3=common.Volume)
                 if pi_carrier:
                     ownframe=recipe['Pi_frame_actor'];other=m if n==ownframe else n if m==ownframe else None
-                    if other and (other.startswith(('PiGPIO:','PiPower:','PiGrip:','Ref_Material_Pi4')) or other=='USB500:whole'):
+                    if other and (other.startswith(('PiGPIO:','PiPower:','PiGrip:','USBGrip:Pi:','Ref_Material_Pi4')) or other=='USB500:whole'):
                         common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
                         channel=other.startswith(('PiGPIO:','PiPower:'))
                         r.update(ok=common.Volume<1e-5 and (not channel or gap>=.149-1e-6),planned_Pi_mount_or_jacket_mate_mm3=common.Volume,physical_fit_not_qualified=True)
@@ -321,6 +323,11 @@ def main():
                         common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,selected_M2_same_actual_axis_mate_mm3=common.Volume)
                     if hw and target=='PiBudget:UnlabelledTopComponentsBudget':
                         r.update(ok=True,project_actual_mount_axis_keepout_not_supplier_component_geometry=True,delivery_fit_gate=True)
+                    for kit in recipe['Pi_full_grip_kits']:
+                        band='PiGrip:'+kit['name']+':band'
+                        if band in (n,m) and (m if n==band else n) in kit['wire_names']:
+                            common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
+                            r.update(ok=common.Volume<1e-5 and gap>=.149-1e-6,matching_wire_tie_nominal_clearance_mm=.15,individual_pull_phase2_gate=True)
                 result['checks'][key]=r;result.pop('pending_pair',None)
                 if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
                 save()
@@ -363,6 +370,7 @@ def receive_world():
     source=OUT/('n01-tail-supported-gallery-r2-core-received.json' if '--keyed-feet' in sys.argv else 'n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if gallery else 'n01-separated-port-bays-core-received.json')
     if '--canonical-parent' in sys.argv:source=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json'
     if '--Pi-carrier' in sys.argv:source=OUT/'n01-shared-Pi-carrier-core-received.json'
+    if '--Pi-carrier-r2' in sys.argv:source=OUT/'n01-shared-Pi-carrier-r2-core-received.json'
     prior=json.loads(source.read_text());diagnostic='--diagnose-world' in sys.argv
     if diagnostic:
         # Collect a frozen whole hypothesis BEFORE correcting its separate
@@ -378,6 +386,7 @@ def receive_world():
     if '--keyed-feet' in sys.argv:name='n01-tail-supported-gallery-r2-world-received.json'
     if '--canonical-parent' in sys.argv:name='n01-tail-supported-gallery-r2-canonical-world-received.json'
     if '--Pi-carrier' in sys.argv:name='n01-shared-Pi-carrier-world-received.json'
+    if '--Pi-carrier-r2' in sys.argv:name='n01-shared-Pi-carrier-r2-world-received.json'
     dest=OUT/name;resume='--resume' in sys.argv;assert resume==dest.exists()
     world,parts,meta,pins,docs=current()
     for name,value in pins.items():assert prior['source_sha256'][name]==value,name
@@ -475,6 +484,11 @@ def receive_world():
                     if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
                     save()
                     if time.monotonic()-tick>220:raise TimeoutError('Saved external pairs; resume same frozen archive')
+                static_holds=[r for r in result['failures'] if r['a']==n and r.get('b') in fixed]
+                if static_holds:
+                    result.setdefault('motion_deferred_for_static_hold',{})[n]=dict(static_hold_owners=[r['b'] for r in static_holds],
+                        reason='All fixed pairs received; do not audit hundreds of poses of a known statically blocked assembly',not_motion_qualified=True)
+                    result['completed_actors'].append(n);save();continue
                 for pose,pose_bounds in zip(world.motion,motion_bounds):
                     if bbox_lower_bound(actor_bounds[n],pose_bounds)>=1.25:continue
                     key=n+'|motion:'+pose['name']+':'+str(pose['pose'])
@@ -491,6 +505,7 @@ def receive_world():
                 result['completed_actors'].append(n);save()
             if phase=='critical':result['critical_phase_complete']=True;save()
         result['status']='SEPARATED_PORT_BAYS_WORLD_CONFLICTS_RECEIVED' if result['failures'] else 'SEPARATED_PORT_BAYS_STATIC36MOTION_RECEIVED_ROOTS_TOOLS_CAPACITY_OPEN'
+        result['all_motion_received_without_static_deferral']=not result.get('motion_deferred_for_static_hold')
         if diagnostic:result['status']='DIAGNOSTIC_EXTERNAL_RECEIVED_INTRINSIC_HOLD_STILL_OPEN'
     except Exception as exc:result['errors'].append(repr(exc));result['status']='SEPARATED_PORT_BAYS_WORLD_PARTIAL'
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],checks=len(result['checks']),failures=result['failures'][:18],failure_count=len(result['failures']),errors=result['errors'])),flush=True)

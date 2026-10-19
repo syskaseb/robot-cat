@@ -17,6 +17,7 @@ def bounds(s):
 
 
 def main():
+    if '--Pi-root-witnesses' in sys.argv:return pi_root_witnesses()
     if '--Pi-rigid-datums' in sys.argv:return pi_rigid_datums()
     if '--Pi-restraint-space' in sys.argv:return pi_restraint_space()
     if '--D-diagonal' in sys.argv:return receive_D_diagonal()
@@ -91,6 +92,36 @@ def pi_rigid_datums():
     result.update(whole_Pi_rigid_module_datums=rows,archive_only_completion_seconds=round(time.monotonic()-tick,3),all_Pi_budgets_not_just_land_neighbors=True)
     save_json(dest,result)
     for r in rows:print(r['name'],[[round(v,3) for v in p] for p in r['bounds_mm']],flush=True)
+
+
+def pi_root_witnesses():
+    tick=time.monotonic();pf=OUT/'n01-shared-Pi-carrier-r2-core-received.json';p=json.loads(pf.read_text())
+    wf=OUT/'n01-shared-Pi-carrier-r2-world-received.json';w=json.loads(wf.read_text());assert w['critical_phase_complete']
+    world,parts,meta,pins,docs=current()
+    for n,h in pins.items():assert p['source_sha256'][n]==h,n
+    f=ROOT/p['recipe']['Pi_frame_delta_file'];assert sha(f)==p['recipe']['Pi_frame_delta_sha256'];delta=Part.Shape();delta.read(str(f))
+    root=parts[p['recipe']['Pi_actual_root']['owner']];alias=parts['ShelfPWM:carrier']
+    alias_diff=root.cut(alias).Volume+alias.cut(root).Volume
+    records=[]
+    for row in w['failures']:
+        assert row['a']=='SharedPi:Carrier';n=row['b'];s=parts[n];d,pairs,_=delta.distToShape(s)
+        rec=dict(name=n,metadata=meta[n],bounds_mm=bounds(s),gap_mm=d,closest_pairs_mm=[[list(a),list(b)] for a,b in pairs[:2]],
+            connected_curve=bool(s.Wires) and len(s.Wires)==1,curve_length_mm=s.Length if not s.Solids else None)
+        if s.Solids:
+            c=delta.common(s);assert c.isNull() or c.isValid();rec.update(common_mm3=c.Volume,common_bounds_mm=bounds(c) if c.Volume>1e-6 else None,
+                cylindrical_axes=[dict(axis=list(face.Surface.Axis),centre_mm=list(face.Surface.Center),radius_mm=face.Surface.Radius) for face in s.Faces if isinstance(face.Surface,Part.Cylinder)])
+        else:
+            rr=meta[n].get('nominal_profile_radius_mm');assert rr and rr>0,(n,meta[n])
+            first=s.Vertexes[0].Point;inside=any(a.isInside(first,1e-7,True) for a in delta.Solids)
+            rec.update(circumscribed_profile_radius_mm=rr,profile_gap_lower_bound_mm=d-rr,first_curve_point_inside_delta=inside,
+                continuous_connected_curve_outside_solid_if_positive_surface_gap=not inside and d>0,
+                conservative_profile_clearance_ok=not inside and len(s.Wires)==1 and d-rr>=1.25-1e-6)
+        records.append(rec)
+    out=dict(status='PI_ROOT_ALL_FIVE_EXACT_WITNESSES',source_sha256={**pins,pf.relative_to(ROOT).as_posix():sha(pf),wf.relative_to(ROOT).as_posix():sha(wf),f.relative_to(ROOT).as_posix():sha(f)},
+        named_ShelfPWM_alias_symmetric_difference_mm3=alias_diff,retained_root_bounds_mm=bounds(root),witnesses=records,
+        N01_complete=False,physical_pass=False,no_geometry_change=True,worker_seconds=round(time.monotonic()-tick,3))
+    save_json(OUT/'n01-Pi-root-five-witnesses.json',out)
+    print(json.dumps(dict(seconds=out['worker_seconds'],alias_difference_mm3=alias_diff,witnesses=[{k:r.get(k) for k in ('name','gap_mm','common_mm3','profile_gap_lower_bound_mm','conservative_profile_clearance_ok')} for r in records])),flush=True)
 
 
 def receive_D_diagonal():
