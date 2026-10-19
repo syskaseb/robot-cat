@@ -12,6 +12,7 @@ from check_main_p0_placement import ROOT,sha
 from plan_feline_layout import OUT
 from feline_atomic_save import save_json
 from feline_bank_receiving_grips import both_after_line
+from feline_bank_zoned_layout import profile as zoned_profile
 
 
 def plus(a,b):return [x+y for x,y in zip(a,b)]
@@ -76,7 +77,7 @@ def main():
     bank=[]
     for group,choice in shared['chosen'].items():
         if group.startswith('Bank:'):
-            recipe=choice['recipe']['base_recipe'] if choice['kind'] in ('bank_exit_lane','bank_under_key_lane','bank_both_after') else choice['recipe']
+            recipe=choice['recipe']['base_recipe'] if choice['kind'] in ('bank_exit_lane','bank_under_key_lane','bank_both_after','bank_zoned_after') else choice['recipe']
             row=byid[group[5:]];bank_end(row,recipe);bank.append(row['id'])
             if choice['kind']=='bank_both_after':
                 start,axis,tip,b=both_after_line(group,choice['recipe'])
@@ -84,6 +85,12 @@ def main():
                     current_prefix_entry_mm=3,entry3_is_project_assumption=True,current_prefix_sweep_degrees=60,
                     source_first9_unchanged=False,initial_jacket_land_mm=3,grip_length_mm=9,
                     pose_status='CURRENT_SHARED_BANK_FULL9_AFTER_PROJECT3_ENTRY')
+            elif choice['kind']=='bank_zoned_after':
+                p=zoned_profile(group,choice['recipe'])
+                row.update(jacket_grip9_mm=[p['start'].tolist(),p['tip'].tolist()],grip_axis=p['axis'].tolist(),
+                    current_prefix_entry_mm=p['entry'],entry3_is_project_assumption=True,current_prefix_sweep_degrees=p['degrees'],
+                    source_first9_unchanged=False,initial_jacket_land_mm=p['entry'],grip_length_mm=9,
+                    receiving_zone=p['role'],pose_status='CURRENT_SHARED_BANK_FULL9_AFTER_ZONED_ENTRY')
     assert len(bank)==24
     for endpoint,sign in (('F_PWM.in',-1),('F_PWM.out',1)):
         matches=[r for r in rows if r['endpoint']==endpoint];assert len(matches)==1
