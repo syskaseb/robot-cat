@@ -88,6 +88,9 @@ def main():
         if '--above-hardware-grip' in sys.argv:
             from feline_above_hardware_grip import unit as above_unit,receive_model as above_receive_model
             p=Path(__file__).with_name('feline_above_hardware_grip.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+        if '--both-after-bank' in sys.argv:
+            from feline_bank_receiving_grips import both_after_candidates,both_after_materialise
+            p=Path(__file__).with_name('feline_bank_receiving_grips.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
         if '--compact-fan' in sys.argv:
             from feline_compact_station_fan import unit as compact_unit
             from feline_compact_station_fan import legacy_unit
@@ -119,7 +122,23 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--force-above-grip' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--both-after-bank' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_bank_lane_receive.py'
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))
+            assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_bank_receiving_grips.py'}
+            previous={n:subprocess.run(['git','show','0f7d67ed:'+n],cwd=ROOT,check=True,capture_output=True).stdout for n in (own,receiver)}
+            assert all(hashlib.sha256(t).hexdigest()==result['source_sha256'][n] for n,t in previous.items())
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):
+                before,after=get(previous[own],name),get(Path(__file__).read_text(),name)
+                if name=='shape':after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'bank_both_after'")]
+                assert ast.dump(before)==ast.dump(after),name
+            class DefaultStock(ast.NodeTransformer):
+                def visit_IfExp(self,n):return self.visit(n.body) if isinstance(n.test,ast.Name) and n.test.id=='stock_geometry_unchanged' else self.generic_visit(n)
+            assert ast.dump(get(previous[receiver],'receive'))==ast.dump(DefaultStock().visit(get((ROOT/receiver).read_text(),'receive')))
+            result.setdefault('additive_geometry_extensions',[]).append(dict(added='All24 full9 AFTER grips, projectentry3/Rretained/60deg, whole opposing material pairs tested; changedstock receives FULL checks',old_shapes_and_pairs_AST_identical=True,old_before_grip_and_one_sided_after_families_rejected=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--force-above-grip' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             assert set(pins)==set(result['source_sha256'])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
@@ -356,6 +375,9 @@ def main():
             if '--under-key-bank' in sys.argv:
                 for group,options in under_key_candidates(remaining_groups).items():
                     groups[group].extend(dict(kind='bank_under_key_lane',group=group,recipe=r,key=remaining_key(group,r)) for r in options)
+            if '--both-after-bank' in sys.argv:
+                for group,options in both_after_candidates(remaining_groups).items():
+                    groups[group].extend(dict(kind='bank_both_after',group=group,recipe=r,key=remaining_key(group,r)) for r in options)
         assert len(groups)==54
         if '--compact-fan' in sys.argv:
             base=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['D_FL']
@@ -445,6 +467,7 @@ def main():
         if kind=='bank_under_key_lane':return under_key_materialise(r['group'],r['recipe'])
         if kind=='above_hardware_fan':
             m=above_unit(stations[r['ref']],r['recipe']);return m['parts'],m['kinds']
+        if kind=='bank_both_after':return both_after_materialise(r['group'],r['recipe'])
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
             return parts,{n:'wire' if fanmeta[n]['kind']=='wire' else 'project_stock_reservation' if 'budget' in fanmeta[n]['kind'] else 'proposal_material' for n in parts}
@@ -487,6 +510,8 @@ def main():
             under_data=json.loads(under_file.read_text()) if '--under-key-bank' in sys.argv and under_file.exists() else dict(units={})
             above_file=OUT/'n01-above-hardware-static.json'
             above_data=json.loads(above_file.read_text()) if '--above-hardware-grip' in sys.argv and above_file.exists() else dict(units={})
+            both_file=OUT/'n01-bank-both-after-static.json'
+            both_data=json.loads(both_file.read_text()) if '--both-after-bank' in sys.argv and both_file.exists() else dict(units={})
             if whole54:
                 from feline_remaining_kits import source_wire_signature
                 bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
@@ -517,7 +542,9 @@ def main():
                 # One whole coherent bank architecture, not24independent new
                 # offsets. Old recipes and raw evidence remain preserved.
                 bank_kind='bank_under_key_lane' if '--under-key-bank' in sys.argv else 'bank_exit_lane'
-                if '--rear-bank-return' in sys.argv:
+                if '--both-after-bank' in sys.argv:
+                    add([i for i,(g,r) in enumerate(choices) if r['kind']=='bank_both_after'],24,24)
+                elif '--rear-bank-return' in sys.argv:
                     compatible=lambda g,r:(r['kind']==bank_kind and g!='Bank:W058/single/end') or (r['kind']=='bank_exit_lane' and g=='Bank:W058/single/end')
                     add([i for i,(g,r) in enumerate(choices) if compatible(g,r)],24,24)
                 else:add([i for i,(g,r) in enumerate(choices) if r['kind']==bank_kind],24,24)
@@ -568,6 +595,10 @@ def main():
                     rec=above_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
+                elif r['kind']=='bank_both_after':
+                    rec=both_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -595,7 +626,8 @@ def main():
             bank_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_exit_lane' and 'failure' not in bank_data['units'].get(r['key'],{})]
             under_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_under_key_lane' and 'failure' not in under_data['units'].get(r['key'],{})]
             above_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='above_hardware_fan' and 'failure' not in above_data['units'].get(r['key'],{})]
-            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)+len(above_requests)
+            both_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_both_after' and 'failure' not in both_data['units'].get(r['key'],{})]
+            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)+len(above_requests)+len(both_requests)
             result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=unknown));save()
             print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',unknown,'mutualcuts',len(result['cuts']),flush=True)
             if unknown:
@@ -616,6 +648,7 @@ def main():
                 if bank_requests:status=receive_bank_lanes(bank_requests)['status']
                 if under_requests:status=receive_bank_lanes(under_requests,factory=under_key_materialise,destination='n01-bank-under-key-static.json')['status']
                 if above_requests:status=receive_bank_lanes(above_requests,factory=above_receive_model,destination='n01-above-hardware-static.json',factory_sources=(Path(__file__).with_name('feline_above_hardware_grip.py'),planfile))['status']
+                if both_requests:status=receive_bank_lanes(both_requests,factory=both_after_materialise,destination='n01-bank-both-after-static.json',factory_sources=(Path(__file__).with_name('feline_bank_receiving_grips.py'),),stock_geometry_unchanged=False)['status']
                 result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=unknown))
                 save();continue
             cut=False

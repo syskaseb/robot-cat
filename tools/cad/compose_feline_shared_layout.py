@@ -30,6 +30,7 @@ from feline_compact_station_fan import legacy_unit
 from feline_compact_station_fan import rise_unit
 from feline_compact_after_land import unit as after_land_unit
 from feline_above_hardware_grip import unit as above_unit
+from feline_bank_receiving_grips import both_after_materialise
 
 COMPLETE='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
 COMPLETE54='WHOLE54_FULL_UNITS_STATIC_MUTUAL_RECEIVED_ROOTS_CORRIDORS_TOOLS_OPEN'
@@ -89,6 +90,8 @@ def chosen_material(path=None):
             pp,kk=bank_material(group,r['recipe'])
         elif r['kind']=='bank_under_key_lane':
             pp,kk=under_key_materialise(group,r['recipe'])
+        elif r['kind']=='bank_both_after':
+            pp,kk=both_after_materialise(group,r['recipe'])
         elif r['kind'] in ('compact_fan','after_land_fan','legacy_compact_fan','power_rise_fan','above_hardware_fan'):
             model=station_model(stations[group],r);pp,kk=model['parts'],model['kinds']
             models[group]=dict(wires=station_lands(stations[group],model))

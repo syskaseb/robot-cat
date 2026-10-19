@@ -22,14 +22,16 @@ from feline_remaining_receive import terminal_owner,key
 from feline_atomic_save import save_json
 
 
-def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.json',factory_sources=()):
+def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.json',factory_sources=(),stock_geometry_unchanged=True):
     tick=time.monotonic();dest=OUT/destination;factory=factory or materialise;world,fixed=world_context();query=SolidQueries()
     files=[Path(__file__),Path(__file__).with_name('feline_bank_exit_lanes.py'),Path(__file__).with_name('feline_remaining_kits.py')]
     files.extend(Path(p) for p in factory_sources)
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
-    result=dict(status='RUNNING_BANK_OPPOSED_LANES',source_sha256=pins,world_source_sha256=world.pins,units={},errors=[],N01_complete=False,physical_pass=False)
+    result=dict(status='RUNNING_BANK_OPPOSED_LANES',source_sha256=pins,world_source_sha256=world.pins,units={},errors=[],N01_complete=False,physical_pass=False,
+        stock_geometry_unchanged=stock_geometry_unchanged,geometry_factory=factory.__module__+'.'+factory.__name__)
     if dest.exists():
         result=json.loads(dest.read_text());assert result['world_source_sha256']==world.pins
+        assert result.get('stock_geometry_unchanged',True)==stock_geometry_unchanged
         if result['source_sha256']!=pins:
             own=Path(__file__).relative_to(ROOT).as_posix();helper='tools/cad/feline_bank_exit_lanes.py'
             assert set(pins)==set(result['source_sha256'])
@@ -44,7 +46,9 @@ def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.js
                     assert ast.dump(get(previous[helper],name))==ast.dump(get((ROOT/helper).read_text(),name)),name
             class DefaultFactory(ast.NodeTransformer):
                 def visit_Name(self,n):return ast.copy_location(ast.Name(id='factory',ctx=n.ctx),n) if n.id=='materialise' else n
-            assert ast.dump(DefaultFactory().visit(get(previous[own],'receive')))==ast.dump(get(Path(__file__).read_text(),'receive'))
+            class DefaultStock(ast.NodeTransformer):
+                def visit_IfExp(self,n):return self.visit(n.body) if isinstance(n.test,ast.Name) and n.test.id=='stock_geometry_unchanged' else self.generic_visit(n)
+            assert ast.dump(DefaultFactory().visit(get(previous[own],'receive')))==ast.dump(DefaultStock().visit(get(Path(__file__).read_text(),'receive')))
             result.setdefault('additive_receipt_repairs',[]).append(dict(old_source_sha256=result['source_sha256'],reason='All existing constructors and receive kernel AST unchanged; optional factory API only'))
             result['source_sha256']=pins
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
@@ -53,7 +57,7 @@ def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.js
     outer=Part.Shape();outer.read(str(OUT/'n01-six-source-shared-lanes.outer.brep'))
     def receive(group,recipe,record):
         parts,kinds=factory(group,recipe);done=record.setdefault('pairs',{});base=recipe['base_recipe']
-        prior=old['units'].get(key(group,base),{});complete_old='failure' in prior and prior['failure'] is None
+        prior=old['units'].get(key(group,base),{}) if stock_geometry_unchanged else {};complete_old='failure' in prior and prior['failure'] is None
         if complete_old:record['unchanged_before_stock_reused_from']=key(group,base)
         for n,s in parts.items():
             if kinds[n]!='proposal_wire' and complete_old:continue
