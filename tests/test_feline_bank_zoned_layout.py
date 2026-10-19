@@ -12,8 +12,8 @@ from feline_solid_distance import bbox_lower_bound
 
 
 class FunctionalBankZones(unittest.TestCase):
-    def test10_changed14_unchanged_all_full9_stock_and_own_fit(self):
-        groups,_=original_candidates();changed=candidates(groups);self.assertEqual(len(changed),10)
+    def test11_changed13_unchanged_all_full9_stock_and_own_fit(self):
+        groups,_=original_candidates();changed=candidates(groups);self.assertEqual(len(changed),11)
         for group,rows in both_after_candidates(groups).items():
             r=changed.get(group,rows)[0];parts,kinds=materialise(group,r);before,_=original_material(group,r['base_recipe'])
             if group in changed:

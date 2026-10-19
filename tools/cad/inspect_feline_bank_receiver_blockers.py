@@ -20,6 +20,7 @@ from feline_above_hardware_grip import unit as above_unit
 from feline_fore_power_pair import SolidQueries,pair_spacing
 from feline_solid_distance import bbox_lower_bound
 from feline_atomic_save import save_json
+from feline_compact_station_fan import rise_unit
 
 
 def main():
@@ -38,8 +39,8 @@ def main():
     assert wanted<=set(targets)
     stfile=OUT/'n01-flat-station-architecture.json';choicefile=OUT/'n01-two-lane-comb-joint.json'
     stations={s['ref']:s for s in json.loads(stfile.read_text())['stations']};chosen=json.loads(choicefile.read_text())['chosen']
-    c=chosen['P_SYS'];parts,kinds=station_material(stations['P_SYS'],c['slot'],c['recipe'])
-    targets['P_SYS:case']=parts['case'];meta['P_SYS:case']=dict(kind=kinds['case'])
+    c=chosen['P_SYS'];model=rise_unit(stations['P_SYS'],dict(slot=c['slot'],base_recipe=c['recipe']))
+    for n,s in model['parts'].items():targets['P_SYS:'+n]=s;meta['P_SYS:'+n]=dict(kind=model['kinds'][n])
     c=chosen['D_FL'];model=above_unit(stations['D_FL'],dict(slot=c['slot'],base_recipe=c['recipe']))
     for n,s in model['parts'].items():targets['D_FL:'+n]=s;meta['D_FL:'+n]=dict(kind=model['kinds'][n])
     groups,_=candidates();recipes=both_after_candidates(groups);factory=both_after_materialise
@@ -72,7 +73,7 @@ def main():
             records[group].append(dict(head=recipe['base_recipe'].get('complete_band_head_degrees',recipe['base_recipe'].get('head_degrees')),failures=failures))
         rejected={r['other']+':'+r['part'] for rec in records[group] for r in rec['failures']}
         print(group,'critical-clear-heads',[r['head'] for r in records[group] if not r['failures']],'blockers',sorted(rejected),flush=True)
-    for p in (Path(__file__),stfile,choicefile,Path(__file__).with_name('feline_bank_receiving_grips.py'),Path(__file__).with_name('feline_above_hardware_grip.py')):pins[p.relative_to(ROOT).as_posix()]=sha(p)
+    for p in (Path(__file__),stfile,choicefile,Path(__file__).with_name('feline_bank_receiving_grips.py'),Path(__file__).with_name('feline_above_hardware_grip.py'),Path(__file__).with_name('feline_compact_station_fan.py')):pins[p.relative_to(ROOT).as_posix()]=sha(p)
     result=dict(status='FULL_BANK_CRITICAL_INTERFACE_DIAGNOSTIC_NOT_WHOLE_WORLD',geometry_factory=factory.__module__+'.'+factory.__name__,source_sha256=pins,units=records,
         target_names=list(targets),N01_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
     save_json(OUT/'n01-bank-critical-interfaces.json',result);print('Critical diagnostic seconds',result['worker_seconds'],flush=True)

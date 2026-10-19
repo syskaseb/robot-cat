@@ -55,6 +55,17 @@ def inline_end(row,recipe,sign):
         full_middle_route_accepted=False,grip_length_mm=9)
 
 
+def source_end(row,recipe):
+    assert row['id']==recipe['ref']
+    a,b=recipe['grip_start_mm'],recipe['grip_end_mm']
+    assert abs(math.dist(a,b)-9)<1e-6
+    row.update(point_mm=recipe['point_mm'],departure_axis=recipe['departure_axis'],
+        jacket_grip9_mm=[a,b],grip_axis=recipe['grip_axis'],minimum_R_mm=recipe['R_mm'],
+        current_prefix_entry_mm=recipe['first_project_mm'],current_prefix_sweep_degrees=recipe['sweep_degrees'],
+        grip_length_mm=9,pose_status='CURRENT_SHARED_SOURCE_MOUTH_FULL9_AFTER_ARC',
+        supplier_datum_guaranteed=False,full_middle_route_accepted=False)
+
+
 def balance_contract(ecad):
     rows=copy.deepcopy(ecad['balance_interface'])
     assert len(rows)==4 and {r['tap'] for r in rows}=={'BAT.B0','BAT.B1','BAT.B2','BAT.B3'}
@@ -92,12 +103,18 @@ def main():
                     source_first9_unchanged=False,initial_jacket_land_mm=p['entry'],grip_length_mm=9,
                     receiving_zone=p['role'],pose_status='CURRENT_SHARED_BANK_FULL9_AFTER_ZONED_ENTRY')
     assert len(bank)==24
+    sources=[]
+    for group,choice in shared['chosen'].items():
+        if choice['kind']=='source_fan':
+            r=choice['option'];source_end(byid[r['ref']],r);sources.append(r['ref'])
+    assert len(sources)==6
     for endpoint,sign in (('F_PWM.in',-1),('F_PWM.out',1)):
         matches=[r for r in rows if r['endpoint']==endpoint];assert len(matches)==1
         inline_end(matches[0],shared['chosen']['F_PWM_whole']['recipe'],sign)
     assert all(len(ids)==2 for ids in result['portions'].values())
     result.update(status='SHARED54_WAGO_BANK_INLINE_ENDS_RECONCILED_OTHER_INTERFACES_OPEN',selected=False,N01_complete=False,
         physical_pass=False,shared_station_updated=count,shared_bank_updated=bank,shared_inline_jackets_updated=2,
+        shared_source_full_grips_updated=sources,
         balance_factory_contract=balance_contract(docs['ecad']),
         current_endpoint_pose_counts={status:sum(r['pose_status']==status for r in rows) for status in {r['pose_status'] for r in rows}},
         open=['Remaining source/bare/jacket boundaries and full grips','Common structural load paths and installation','All factory corridor capacities including separate four-tap P309 bundle'],

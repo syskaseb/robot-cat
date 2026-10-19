@@ -18,7 +18,7 @@ from feline_remaining_kits import materialise as original_material
 def zone(group,r):
     q=r['point_mm']
     if group=='Bank:W020/body/end':return 'FORE_LEFT_SPLIT_BELOW_S0_KEY'
-    if q[1]>0 and q[0]>0:return 'UPPER_LEFT_ABOVE_PSYS_DFL'
+    if q[1]>0 and (q[0]>0 or group=='Bank:W029/single/end'):return 'UPPER_LEFT_ABOVE_PSYS_DFL'
     if q[1]<0 and r.get('holder')=='R1' and '_OUT_' in r.get('terminal_name',''):return 'FORE_RIGHT_BELOW_S0_KEY'
     if group=='Bank:W058/single/end':return 'REAR_IN_RETURN_MINUS_X_AWAY_BUS'
     return None
@@ -29,7 +29,7 @@ def candidates(groups):
     for group,rows in both_after_candidates(groups).items():
         role=zone(group,rows[0]['base_recipe'])
         if role is not None:result[group]=[dict(copy.deepcopy(r),receiving_zone=role) for r in rows]
-    assert len(result)==10,(len(result),sorted(result))
+    assert len(result)==11,(len(result),sorted(result))
     return result
 
 

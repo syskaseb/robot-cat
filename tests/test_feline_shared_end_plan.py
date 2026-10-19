@@ -3,10 +3,20 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/cad'))
-from compose_feline_shared_end_plan import station_ends,bank_end,inline_end,balance_contract
+from compose_feline_shared_end_plan import station_ends,bank_end,inline_end,balance_contract,source_end
 
 
 class SharedEnds(unittest.TestCase):
+    def test_source_end_keeps_actual_mouth_and_full_after_arc_grip(self):
+        row=dict(id='W064/single/end')
+        recipe=dict(ref=row['id'],point_mm=[1,2,3],departure_axis=[1,0,0],grip_start_mm=[4,5,6],
+            grip_end_mm=[4,5,15],grip_axis=[0,0,1],R_mm=25.2,first_project_mm=0,sweep_degrees=60)
+        source_end(row,recipe)
+        self.assertEqual(row['point_mm'],[1,2,3])
+        self.assertEqual(row['jacket_grip9_mm'],[[4,5,6],[4,5,15]])
+        self.assertFalse(row['full_middle_route_accepted'])
+        with self.assertRaises(AssertionError):source_end(dict(id='wrong'),recipe)
+
     def test_station_mapping_uses_physical_end_and_wire_not_old_group_alias(self):
         rows=[dict(endpoint='G1.2',wire='W001',group='WAGO:G1_CP2',point_mm=[99,99,99])]
         models={'G1':[dict(endpoint='G1.2',wire='W001',point_mm=[1,2,3],departure_axis=[1,0,0],
