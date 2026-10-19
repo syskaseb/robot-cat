@@ -17,6 +17,7 @@ def bounds(s):
 
 
 def main():
+    if '--Pi-rigid-datums' in sys.argv:return pi_rigid_datums()
     if '--Pi-restraint-space' in sys.argv:return pi_restraint_space()
     if '--D-diagonal' in sys.argv:return receive_D_diagonal()
     tick=time.monotonic();source=OUT/'n01-service-gallery-core-received.json';d=json.loads(source.read_text())
@@ -75,6 +76,21 @@ def pi_restraint_space():
         nearby_bounds_are_not_collision_proof=True,N01_complete=False,physical_pass=False,no_new_geometry=True,worker_seconds=round(time.monotonic()-tick,3))
     save_json(OUT/'n01-Pi-seven-restraints-shared-datums.json',result)
     print(json.dumps(dict(status=result['status'],lands=len(lands),fastener_parts=len(anchors),root_parts=len(rootparts),seconds=result['worker_seconds'])),flush=True)
+
+
+def pi_rigid_datums():
+    """Complete the same Pi shared-plan packet from its pinned archive only."""
+    tick=time.monotonic();dest=OUT/'n01-Pi-seven-restraints-shared-datums.json';result=json.loads(dest.read_text())
+    source=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json';assert result['source_sha256'][source.relative_to(ROOT).as_posix()]==sha(source)
+    d=json.loads(source.read_text());arc=ROOT/d['bundle'];assert sha(arc)==d['bundle_sha256'];rows=[]
+    with zipfile.ZipFile(arc) as z:
+        for r in d['geometry']:
+            if r['role']!='PiRigid':continue
+            raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256'];s=Part.Shape();s.importBrepFromString(raw.decode())
+            rows.append(dict(name=r['name'],bounds_mm=bounds(s)))
+    result.update(whole_Pi_rigid_module_datums=rows,archive_only_completion_seconds=round(time.monotonic()-tick,3),all_Pi_budgets_not_just_land_neighbors=True)
+    save_json(dest,result)
+    for r in rows:print(r['name'],[[round(v,3) for v in p] for p in r['bounds_mm']],flush=True)
 
 
 def receive_D_diagonal():

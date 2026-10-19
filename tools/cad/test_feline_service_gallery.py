@@ -33,5 +33,14 @@ class GalleryConstructor(unittest.TestCase):
         self.assertGreaterEqual(self.recipe['final_exact_straight_mm'],12)
         self.assertEqual(self.recipe['BUS_mouth_mm'],[86,46,89])
 
+    def test_positive_enclosing_solid_needs_actual_outer_containment(self):
+        from plan_feline_usb_service_bight import outer_margin
+        outer=Part.makeBox(100,100,100)
+        inside=Part.makeBox(20,20,20,A.Vector(10,10,10))
+        self.assertTrue(outer_margin(inside,outer)['ok'])
+        # Overlap with outer bounds alone cannot pass the same test.
+        protruding=Part.makeBox(20,20,20,A.Vector(90,10,10))
+        self.assertFalse(outer_margin(protruding,outer)['ok'])
+
 
 if __name__=='__main__':unittest.main()

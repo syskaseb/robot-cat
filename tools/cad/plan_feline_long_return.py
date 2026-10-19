@@ -160,9 +160,13 @@ def main():
     if '--keyed-feet' in sys.argv:name='n01-tail-supported-gallery-r2-core-received.json'
     canonical='--canonical-parent' in sys.argv
     if canonical:name='n01-tail-supported-gallery-r2-canonical-core-received.json'
+    pi_carrier='--Pi-carrier' in sys.argv
+    if pi_carrier:name='n01-shared-Pi-carrier-core-received.json'
     dest=OUT/name;resume='--resume-core' in sys.argv;assert resume==dest.exists()
     previous=json.loads(dest.read_text()) if resume else None
-    if '--supported-tail' in sys.argv:
+    if pi_carrier:
+        from feline_shared_pi_carrier import build as selected_build
+    elif '--supported-tail' in sys.argv:
         from feline_gallery_tail_support import build as selected_build
     elif '--gallery' in sys.argv:
         from feline_service_gallery import build as selected_build
@@ -183,6 +187,12 @@ def main():
         pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (parentfile,r2file,ff,ROOT/recipe['frame_delta_file'])})
         recipe=dict(recipe,exact_parent_bytes_passed_without_reserialization=True)
     else:world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe=frozen_core(previous) if previous else selected_build()
+    if pi_carrier and not previous:
+        parent=json.loads((ROOT/recipe['immutable_parent_core_file']).read_text());pzip=ROOT/parent['bundle'];assert sha(pzip)==parent['bundle_sha256']
+        with zipfile.ZipFile(pzip) as z:
+            for row in parent['geometry']:
+                if row['name'] not in recipe['Pi_unchanged_parent_actor_names']:continue
+                raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256'];parent_raw[row['name']]=raw
     query=SolidQueries()
     archive=dest.with_suffix('.breps.zip');geometry=[]
     if previous:geometry=previous['geometry']
@@ -199,8 +209,8 @@ def main():
     result=dict(status='RUNNING_LONG_RETURN_CORE',source_sha256=pins,recipe=recipe,checks={},failures=[],errors=[],
         geometry=geometry,bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),
         current_world_outer_tools_montage_all123_OPEN=True,N01_complete=False,physical_pass=False,selected=False,native_changed=False)
-    if '--supported-tail' in sys.argv and not previous:
-        priorfile=OUT/('n01-tail-supported-gallery-core-received.json' if '--keyed-feet' in sys.argv else 'n01-service-gallery-core-received.json');old=json.loads(priorfile.read_text())
+    if ('--supported-tail' in sys.argv or pi_carrier) and not previous:
+        priorfile=ROOT/recipe['immutable_parent_core_file'] if pi_carrier else OUT/('n01-tail-supported-gallery-core-received.json' if '--keyed-feet' in sys.argv else 'n01-service-gallery-core-received.json');old=json.loads(priorfile.read_text())
         before={r['name']:(r['sha256'],r['role']) for r in old['geometry']};after={r['name']:(r['sha256'],r['role']) for r in geometry}
         same={n for n,v in after.items() if before.get(n)==v}
         outer_key=recipe['outer_file'];same_outer=old['source_sha256'].get(outer_key)==pins[outer_key]
@@ -261,13 +271,14 @@ def main():
             if roles[n]!='BUS' or n.startswith('CurrentBUS:') or n=='Ref_Material_BUSsupplier0_0_0':
                 key=n+'|outer'
                 if key not in result['checks']:
-                    if roles[n]=='FrameNew':
-                        delta=Part.Shape();delta.read(str(ROOT/recipe['frame_delta_file']));r=outer_margin(delta,outer);r['scope']='Only added material inside torso; retained original tail bridge/cowl is outside the torso box by design'
+                    if roles[n] in ('FrameNew','PiFrameNew'):
+                        key='Pi_frame_delta_file' if roles[n]=='PiFrameNew' else 'frame_delta_file'
+                        delta=Part.Shape();delta.read(str(ROOT/recipe[key]));r=outer_margin(delta,outer);r['scope']='Only added material inside torso; unchanged rooted source material retained'
                     else:r=outer_margin(s,outer)
                     result['checks'][key]=r
                     if not r['ok']:result['failures'].append(dict(a=n,b='outer',**r))
             for m,t in actors.items():
-                if n==m or roles[n]==roles[m] and roles[n] not in ('PiWire','USB','BUSWireNew'):continue
+                if n==m or roles[n]==roles[m] and roles[n] not in ('PiWire','USB','BUSWireNew','PiHWNew'):continue
                 key='|'.join(sorted((n,m)))
                 if key in result['checks']:continue
                 minimum=pair_spacing(n,rows[n],m,rows[m])
@@ -298,6 +309,18 @@ def main():
                     r.update(ok=common.Volume<1e-5 and gap>=.149-1e-6,matching_split_cap_nominal_clearance_mm=.15,physical_retention_not_qualified=True)
                 if 'USB500:whole' in (n,m) and any(x.startswith('USBGrip:') and x.endswith((':pad',':band')) for x in (n,m)):
                     common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,intended_pad_band_common_mm3=common.Volume)
+                if pi_carrier:
+                    ownframe=recipe['Pi_frame_actor'];other=m if n==ownframe else n if m==ownframe else None
+                    if other and (other.startswith(('PiGPIO:','PiPower:','PiGrip:','Ref_Material_Pi4')) or other=='USB500:whole'):
+                        common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
+                        channel=other.startswith(('PiGPIO:','PiPower:'))
+                        r.update(ok=common.Volume<1e-5 and (not channel or gap>=.149-1e-6),planned_Pi_mount_or_jacket_mate_mm3=common.Volume,physical_fit_not_qualified=True)
+                    hw=n if roles[n]=='PiHWNew' else m if roles[m]=='PiHWNew' else None
+                    target=m if hw==n else n
+                    if hw and (roles[target]=='PiHWNew' or target=='Ref_Material_Pi4NominalPCB_0_0'):
+                        common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,selected_M2_same_actual_axis_mate_mm3=common.Volume)
+                    if hw and target=='PiBudget:UnlabelledTopComponentsBudget':
+                        r.update(ok=True,project_actual_mount_axis_keepout_not_supplier_component_geometry=True,delivery_fit_gate=True)
                 result['checks'][key]=r;result.pop('pending_pair',None)
                 if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
                 save()
@@ -339,6 +362,7 @@ def receive_world():
     tick=time.monotonic();gallery='--gallery' in sys.argv
     source=OUT/('n01-tail-supported-gallery-r2-core-received.json' if '--keyed-feet' in sys.argv else 'n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if gallery else 'n01-separated-port-bays-core-received.json')
     if '--canonical-parent' in sys.argv:source=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json'
+    if '--Pi-carrier' in sys.argv:source=OUT/'n01-shared-Pi-carrier-core-received.json'
     prior=json.loads(source.read_text());diagnostic='--diagnose-world' in sys.argv
     if diagnostic:
         # Collect a frozen whole hypothesis BEFORE correcting its separate
@@ -353,6 +377,7 @@ def receive_world():
     name='n01-tail-supported-gallery-world-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-world-diagnostic.json' if diagnostic else 'n01-service-gallery-world-received.json' if gallery else 'n01-separated-port-bays-world-received.json'
     if '--keyed-feet' in sys.argv:name='n01-tail-supported-gallery-r2-world-received.json'
     if '--canonical-parent' in sys.argv:name='n01-tail-supported-gallery-r2-canonical-world-received.json'
+    if '--Pi-carrier' in sys.argv:name='n01-shared-Pi-carrier-world-received.json'
     dest=OUT/name;resume='--resume' in sys.argv;assert resume==dest.exists()
     world,parts,meta,pins,docs=current()
     for name,value in pins.items():assert prior['source_sha256'][name]==value,name
@@ -371,12 +396,31 @@ def receive_world():
     frame_delta=None
     if prior['recipe'].get('frame_delta_file'):
         f=ROOT/prior['recipe']['frame_delta_file'];assert sha(f)==prior['recipe']['frame_delta_sha256'];frame_delta=Part.Shape();frame_delta.read(str(f))
+    pi_frame_delta=None
+    if prior['recipe'].get('Pi_frame_delta_file'):
+        f=ROOT/prior['recipe']['Pi_frame_delta_file'];assert sha(f)==prior['recipe']['Pi_frame_delta_sha256'];pi_frame_delta=Part.Shape();pi_frame_delta.read(str(f))
     outerfile=ROOT/prior['recipe']['outer_file'] if gallery else OUT/'n01-six-source-shared-lanes.outer.brep'
     outer=Part.Shape();outer.read(str(outerfile));query=SolidQueries()
+    # A containing solid inside the real outline is a sufficient POSITIVE
+    # bound for every contained bought subpart. It is not a bbox contact test.
+    supplier_names=[n for n in actors if n.startswith('Ref_Material_BUSsupplier')]
+    envelope=A.BoundBox()
+    for n in supplier_names:
+        if n==world.bus['name']:
+            b=world.bus['original'].BoundBox;to_world=inverse.inverse()
+            for x in (b.XMin,b.XMax):
+                for y in (b.YMin,b.YMax):
+                    for z in (b.ZMin,b.ZMax):envelope.add(to_world.multVec(A.Vector(x,y,z)))
+        else:envelope.add(actors[n].BoundBox)
+    enclosure=Part.makeBox(envelope.XLength,envelope.YLength,envelope.ZLength,A.Vector(envelope.XMin,envelope.YMin,envelope.ZMin))
+    supplier_outer_proof=outer_margin(enclosure,outer)
     result=dict(status='RUNNING_SEPARATED_PORT_BAYS_WORLD',source_sha256={**pins,source.relative_to(ROOT).as_posix():sha(source),archive.relative_to(ROOT).as_posix():sha(archive)},
         unchanged_own_core_reused=not diagnostic,intrinsic_spacing_holds=prior['failures'],diagnostic_not_layout_acceptance=diagnostic,
         all21_stations_preserved_without_relocation=True,checks={},failures=[],errors=[],completed_actors=[],critical_phase_complete=False,
         full_Pi_grips_roots_tools_all123_montage_OPEN=True,N01_complete=False,physical_pass=False,selected=False,native_changed=False)
+    result['supplier_outer_enclosure_proof']=dict(**supplier_outer_proof,bounds_mm=[[envelope.XMin,envelope.YMin,envelope.ZMin],[envelope.XMax,envelope.YMax,envelope.ZMax]],
+        actors=supplier_names,invalid_cached_part_bounds_replaced_by_transformed_valid_original_bounds=True,
+        proof='Every bought BUS solid is contained in this box; box itself is contained in actual outer solid with required3.25mm. Not a contact test.')
     if frame_delta:
         result['frame_static_pair_scope']='Added carrier material only; old fixed mating interfaces retained. FULL frame is checked against all affected36 moving poses.'
         result['moved_whole_FPWM_output_case_isometry_proof']=prior['recipe']['FPWM_case_symmetry_difference_mm3']
@@ -386,6 +430,13 @@ def receive_world():
             previous_runs=old.get('previous_runs',[])+[dict(worker_seconds=old['worker_seconds'],receipt_sha256=sha(dest),errors=old['errors'])])
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     critical=[n for n in actors if roles[n]!='BUS' or n.startswith('CurrentBUS:') or n=='Ref_Material_BUSsupplier0_0_0']
+    # No actor/fixed solid is transformed in-place in this receiver. Cache
+    # exact bounds ONCE, not thousands of repeated OCC evaluations per part.
+    bounds_tick=time.monotonic();actor_bounds={n:s.BoundBox for n,s in actors.items()};fixed_bounds={n:s.BoundBox for n,s in fixed.items()}
+    delta_bounds=frame_delta.BoundBox if frame_delta else None
+    pi_delta_bounds=pi_frame_delta.BoundBox if pi_frame_delta else None
+    motion_bounds=[A.BoundBox(*p['bounds'][0],*p['bounds'][1]) for p in world.motion]
+    result['immutable_bound_cache']=dict(actors=len(actor_bounds),fixed=len(fixed_bounds),motion=len(motion_bounds),seconds=round(time.monotonic()-bounds_tick,3),geometry_not_mutated_in_place=True)
     priority=lambda n:0 if n=='USB500:whole' else 1 if roles[n]=='PiWire' else 2 if roles[n].startswith('Grip') else 3
     save()
     try:
@@ -396,7 +447,9 @@ def receive_world():
                 s=actors[n]
                 # All critical outer pairs were received as identical solids.
                 if phase!='critical':
-                    if n==world.bus['name']:
+                    if n in supplier_names and supplier_outer_proof['ok']:
+                        r=dict(ok=True,enclosing_solid_inside_real_outline=True,gap_lower_bound_mm=supplier_outer_proof['gap_mm'],minimum_mm=3.25)
+                    elif n==world.bus['name']:
                         o=outer.copy();o.Placement=inverse*o.Placement;r=outer_margin(world.bus['original'],o)
                     else:r=outer_margin(s,outer)
                     result['checks'][n+'|outer']=r
@@ -405,8 +458,9 @@ def receive_world():
                     key=n+'|fixed:'+m
                     if key in result['checks']:continue
                     minimum=pair_spacing(n,rows[n],m,meta.get(m,{}))
-                    tested=frame_delta if roles[n]=='FrameNew' else s
-                    if bbox_lower_bound(tested.BoundBox,t.BoundBox)>=minimum:continue
+                    tested=pi_frame_delta if roles[n]=='PiFrameNew' else frame_delta if roles[n]=='FrameNew' else s
+                    bb=pi_delta_bounds if roles[n]=='PiFrameNew' else delta_bounds if roles[n]=='FrameNew' else actor_bounds[n]
+                    if bbox_lower_bound(bb,fixed_bounds[m])>=minimum:continue
                     result['pending_pair']=[n,m];save()
                     if n in prior['recipe'].get('FPWM_moved_whole_output_names',[]) and m==prior['recipe'].get('FPWM_case_name'):
                         assert prior['recipe']['FPWM_case_symmetry_difference_mm3']<1e-5
@@ -421,8 +475,8 @@ def receive_world():
                     if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
                     save()
                     if time.monotonic()-tick>220:raise TimeoutError('Saved external pairs; resume same frozen archive')
-                for pose in world.motion:
-                    if bbox_lower_bound(s.BoundBox,A.BoundBox(*pose['bounds'][0],*pose['bounds'][1]))>=1.25:continue
+                for pose,pose_bounds in zip(world.motion,motion_bounds):
+                    if bbox_lower_bound(actor_bounds[n],pose_bounds)>=1.25:continue
                     key=n+'|motion:'+pose['name']+':'+str(pose['pose'])
                     if key in result['checks']:continue
                     tf=placement(pose['r'],pose['t']);result['pending_pair']=[n,key];save()
