@@ -381,8 +381,9 @@ def all_current_blockers(packet_path=None,world=None):
                     old=world.parts[rule['part']].copy().common(parent.copy());assert old.isValid() and old.Volume>1e-5
                     extra=c.cut(old);assert extra.isNull() or extra.isValid()
                     assert c.Volume>1e-5 and extra.Volume<1e-5
-                elif rule['kind']=='NAMED_POST_SIDE_BOND':
-                    assert world.meta[rule['other']].get('role')=='ScaffoldPlanning'
+                elif rule['kind'] in ('NAMED_POST_SIDE_BOND','NAMED_SHARED_FRAME_BRIDGE'):
+                    if rule['kind']=='NAMED_POST_SIDE_BOND':assert world.meta[rule['other']].get('role')=='ScaffoldPlanning'
+                    else:assert rule['other']=='StructureReserve:ForeNegativeBankConnection'
                     lo,hi=rule['intersection_bounds_mm']
                     expected=Part.makeBox(*(b-a for a,b in zip(lo,hi)),A.Vector(*lo))
                     extra=c.cut(expected);assert extra.isNull() or extra.isValid()
