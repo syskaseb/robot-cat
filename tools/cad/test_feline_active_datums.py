@@ -127,5 +127,28 @@ class RearPlanningGates(unittest.TestCase):
             actual=hashlib.sha256(shapes[row['name']].exportBrepToString().encode()).hexdigest()
             self.assertEqual(actual,row['sha256'],row['name'])
 
+    def test_whole_fore_recipe_recovers_P_REAR_and_rejects_missing_part(self):
+        from plan_feline_usb_service_bight import complete_source_station_groups
+        p=json.loads((OUT/'n01-fore-coil-service-deck-received.json').read_text())
+        rows=[r for r in p['geometry'] if r['name'].startswith('Station:')]
+        metadata={r['name']:{'group':r['role']} for r in rows}
+        self.assertEqual(complete_source_station_groups(p,metadata),{'FR_P','P_REAR','RR_P'})
+        rear=[r['name'] for r in rows if r['role']=='P_REAR'];self.assertEqual(len(rear),9)
+        metadata.pop(rear[-1])
+        with self.assertRaises(AssertionError):complete_source_station_groups(p,metadata)
+
+    def test_full_boot_gets_space_beyond_minimum_land_without_shortening_USB(self):
+        p=json.loads((OUT/'n01-joint-rear-boot-budget-plan.json').read_text())
+        self.assertEqual(p['allocated_BUS_outside_tangent_mm'],30)
+        self.assertAlmostEqual(p['USB_length_mm'],452,places=5)
+        self.assertGreaterEqual(p['coil']['minimum_spline_R_mm'],30)
+        self.assertAlmostEqual(math.dist(*p['BUS_first3_and_full9_mm'][1:]),9)
+        receipt=json.loads((OUT/'n01-joint-rear-boot-intrinsic-received.json').read_text())
+        self.assertEqual(receipt['status'],'USB_FULL_BOOT_CORE_INTRINSIC_CLEAR_WORLD_OPEN')
+        self.assertEqual(len(receipt['checks']),7);self.assertTrue(all(r['ok'] for r in receipt['checks']))
+        boot=next(r for r in receipt['checks'] if r['part']=='CurrentBUS:USB_C_Overmould')
+        self.assertEqual(boot['positive_common_mm3'],0)
+        self.assertFalse(receipt['N01_complete'])
+
 
 if __name__=='__main__':unittest.main()

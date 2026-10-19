@@ -1,5 +1,14 @@
 # Wnioski z projektowania 3D robot-cat
 
+19.10, wspólną scenę odzyskiwać z CAŁEJ przypiętej receptury, nie ręcznej
+listy grup. Pominięcie9częściP_REAR tworzyło pozorne nowe problemy z Pi.
+Test ma odrzucać brak dowolnej części, nie tylko sprawdzać licznik grup.
+Minimum chwytu3+9 nie jest maksymalną prostą: pełny boot USB wchodził
+w inny zwój kabla mimo poprawnych452mm/R30 i samokontaktu samej żyły.
+Przydzielenie30mm i ponowne rozwiązanie całej długości usunęło ten
+konflikt własny. Najpierw pełny kabel vs pełny własny zespół/boot, dopiero
+świat; nie kupować kolejnego kabla ani przemieszczać losowo modułów.
+
 19.10, rzeczywisty błąd polityki odbioru: zatrzymanie po pierwszej złej
 parze ukrywa pozostałe konflikty tej samej hipotezy. Trzy kolejne takie
 przebiegi ujawniły kolejno H5, zasilaniePi i GPIO; wspólny przebieg pokazał

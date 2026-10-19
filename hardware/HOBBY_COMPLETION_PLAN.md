@@ -2,6 +2,27 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+18:40Z:18626 odebrany147,640s/302kontrole/81sygnałów, bez błędów jądra.
+Poziomy F_PWM odrzucony na FL_G/RL_P/bankbed/BUS; NIE przesuwać go dalej
+małymi ofsetami. Część sygnałów to własne styki z budżetami/opaskami,
+nie81 udowodnionych kolizji kupnych elementów. Wykryto błąd składania:
+źródło fore zawiera FR_P/P_REAR/RR_P, a odbiornik pomijał całe9P_REAR.
+Odtąd grupy i WSZYSTKIE ich części odzyskiwane z przypiętej receptury;
+test ujemny usuwa1część i musi odrzucić scenę. Nie wracać do listy dwóch.
+Druga przyczyna: wymuszone12mm przyBUS nie obejmowało pełnego bootu,
+a3+9 jest minimum chwytu, nie maksimum prostej. Nowy konstruktor1,250s
+przydziela30mm, zachowuje451,999999808mm/R30 i wyprowadza CAŁY BUS
+z faktycznego mouth/tangent (PCB136/69,0768/47,3647 PRZED wspólnym-2X).
+Przed jakąkolwiek macierzą świata odebrano pełny kabel vs pełny boot,
+PCB/H5/DG/backplate:7kontroli0,484s, boot common0, styk na powierzchni
+portu. Pozostałe komponenty/świat/korzenie/ruch nadalOPEN.13testów2,078s
+OK; brak aktywnego workera/native. N01 nadal0/10, okno hooka otwarte.
+NEXT: NIE wznawiać starego layoutu12mm ani poziomegoF_PWM. Wczytać nowy
+plan boot30 i pełną recepturę3stacji; najpierw wspólna bramka krytycznych
+modułów z pełnymi końcami/bootami/obrysem i ścieżką ruchu, bez mikroaudytu
+rezystorów. Osobno wyjaśnić0,25mm wejścia GPIO w budżet housingu, nie
+zmniejszać kupnych części ani automatycznie uznawać tego za ich kolizję.
+
 18:27Z: odebrano86329 i99074; brak aktywnego workera. Ta sama zamrożona
 hipoteza:236,875s+221,594s,198 zachowanych dokładnych kontroli/12 konfliktów.
 Drugi przebieg reużył pierwsze132 pary, nie powtarzał geometrii. Oba

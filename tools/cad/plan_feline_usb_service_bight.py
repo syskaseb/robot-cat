@@ -386,7 +386,7 @@ def plan_rear_bay():
     if result['candidate']:print(json.dumps({k:v for k,v in result['candidate'].items() if k not in ('points_mm','tail_arcs')}),flush=True)
 
 
-def plan_joint_rear_bay():
+def plan_joint_rear_bay(tail_mm=12):
     """Analytic shared receiver: BUS moves as a WHOLE with its occupied ends.
 
     No further tail ratio search. Full cable closes by a tangent12mm BUS
@@ -395,7 +395,7 @@ def plan_joint_rear_bay():
     from scipy.interpolate import make_interp_spline
     from feline_cubic_curvature import extrema
     from receive_feline_positive_service_deck import circle_arc,pipe
-    tick=time.monotonic();dest=OUT/'n01-joint-rear-service-bay-plan.json';assert not dest.exists()
+    tick=time.monotonic();dest=OUT/('n01-joint-rear-boot-budget-plan.json' if tail_mm>12 else 'n01-joint-rear-service-bay-plan.json');assert not dest.exists()
     files=[OUT/'n01-physical-cable-contract.json',OUT/'n01-active-Pi-BUS-datums.json',
            OUT/'n01-fore-coil-service-deck-received.json',OUT/'n01-usb-fore-lower-deck-space.json',Path(__file__)]
     usb=json.loads(files[0].read_text())['usb'];datums=json.loads(files[1].read_text())
@@ -408,11 +408,12 @@ def plan_joint_rear_bay():
     arcend=first+[30,0,0]+30*bend;landend=arcend+9*bend
     nodes,weights=np.polynomial.legendre.leggauss(48);u=(nodes+1)/2
     length=lambda turns:float(np.sum(weights*np.sqrt((6*D*u*(1-u))**2+(R*2*math.pi*turns)**2))/2)
-    prefix=12+30*math.pi/2;turns=brentq(lambda t:prefix+length(t)+12-452,1.,2.,xtol=1e-12);T=turns*2*math.pi
+    assert tail_mm>=12
+    prefix=12+30*math.pi/2;turns=brentq(lambda t:prefix+length(t)+tail_mm-452,1.,2.,xtol=1e-12);T=turns*2*math.pi
     at=lambda u:np.array([x0-D*(3*u*u-2*u*u*u),cy+R*math.cos(phi+T*u),cz+R*math.sin(phi+T*u)])
     derivative=lambda u:np.array([-6*D*u*(1-u),-R*T*math.sin(phi+T*u),R*T*math.cos(phi+T*u)])
     assert np.linalg.norm(at(0)-landend)<1e-8
-    t=derivative(1);t/=np.linalg.norm(t);newmouth=at(1)+12*t
+    t=derivative(1);t/=np.linalg.norm(t);newmouth=at(1)+tail_mm*t
     angle=math.degrees(math.atan2(t[2],t[1]));rot=A.Rotation(A.Vector(1,0,0),angle)
     tf=A.Placement(A.Vector(*newmouth)-rot.multVec(A.Vector(*oldmouth)),rot)
     newdatum=tf.multVec(A.Vector(*bus_datum));assert abs(newdatum.x-136)<1e-7
@@ -433,7 +434,8 @@ def plan_joint_rear_bay():
         Pi_PCB_centre_mm=[40.5,my-19.39,104.],Pi_USB_mouth_mm=mouth.tolist(),Pi_departure_axis=[1,0,0],
         whole_FR_P_RR_P_translation_mm=[0,0,-8],source_first3_mm=[mouth.tolist(),first.tolist()],
         source_R30_bend_unit=bend.tolist(),source_full9_mm=[arcend.tolist(),landend.tolist()],
-        BUS_first3_and_full9_mm=[newmouth.tolist(),(newmouth-3*t).tolist(),at(1).tolist()],
+        BUS_first3_and_full9_mm=[newmouth.tolist(),(newmouth-3*t).tolist(),(newmouth-12*t).tolist()],
+        allocated_BUS_outside_tangent_mm=tail_mm,minimum_3plus9_is_not_a_maximum=True,
         BUS_relative_placement=dict(rotation_X_deg=angle,translation_mm=list(tf.Base)),
         BUS_actual_source_PCB_datum_mm=bus_datum.tolist(),BUS_target_PCB_datum_mm=list(newdatum),
         BUS_new_mouth_mm=newmouth.tolist(),BUS_new_departure_axis=(-t).tolist(),
@@ -547,7 +549,19 @@ def plan_rear_bridge_frame():
     print(json.dumps(result),flush=True)
 
 
-def fpwm_after_turn_carrier():
+def complete_source_station_groups(source,metadata):
+    """Recover complete station units, never a hand-picked subset of a pose."""
+    rows=[r for r in source['geometry'] if r['name'].startswith('Station:')]
+    groups={r['role'] for r in rows}
+    assert groups==set(source['moved_positive_WAGO_groups'])
+    for group in groups:
+        expected={r['name'] for r in rows if r['role']==group}
+        actual={n for n,r in metadata.items() if r.get('group')==group}
+        assert expected==actual,(group,expected-actual,actual-expected)
+    return groups
+
+
+def fpwm_after_turn_carrier(include_arm=True):
     """One planning carrier, unchanged bought case and existing full9 lands.
 
     Tie envelopes are selected T18 planning budgets, not supplier fit claims.
@@ -572,7 +586,7 @@ def fpwm_after_turn_carrier():
     def section(x,y,z):
         return Part.makePolygon([A.Vector(x-1.5,y,z-2),A.Vector(x+1.5,y,z-2),A.Vector(x+1.5,y,z+2),A.Vector(x-1.5,y,z+2),A.Vector(x-1.5,y,z-2)])
     arm=Part.makeLoft([section(121,65,56),section(126,32,60)],True,True)
-    carrier=backbone.multiFuse([*pads,arm]).cut(Part.makeCompound(channels)).removeSplitter()
+    carrier=backbone.multiFuse([*pads,*([arm] if include_arm else [])]).cut(Part.makeCompound(channels)).removeSplitter()
     assert carrier.isValid() and len(carrier.Solids)==1
     assert all(s.isValid() and len(s.Solids)==1 for s in ties.values())
     return carrier,ties,dict(lands=lands,selected_ties=3,additional_case_tie_stock_not_yet_allocated=True,
@@ -641,8 +655,9 @@ def receive_joint_rear_layout():
     quarter='--bus-quarter-clock' in sys.argv
     powerlane='--pi-power-common-lane' in sys.argv
     collect='--collect-layout-conflicts' in sys.argv
+    shared='--shared-critical-plan' in sys.argv
     resume='--resume-conflicts' in sys.argv
-    tick=time.monotonic();dest=OUT/('n01-joint-rear-layout-common-power-conflicts.json' if collect else 'n01-joint-rear-layout-common-power-lane-received.json' if powerlane else 'n01-joint-rear-layout-quarter-clock-received.json' if quarter else 'n01-joint-rear-layout-after-turn-received.json' if afterturn else 'n01-joint-rear-layout-received.json');assert resume==dest.exists()
+    tick=time.monotonic();dest=OUT/('n01-shared-Pi-fpwm-critical-plan.json' if shared else 'n01-joint-rear-layout-common-power-conflicts.json' if collect else 'n01-joint-rear-layout-common-power-lane-received.json' if powerlane else 'n01-joint-rear-layout-quarter-clock-received.json' if quarter else 'n01-joint-rear-layout-after-turn-received.json' if afterturn else 'n01-joint-rear-layout-received.json');assert resume==dest.exists()
     previous=json.loads(dest.read_text()) if resume else None
     previous_sha=sha(dest) if resume else None
     planfile=OUT/'n01-joint-rear-service-bay-plan.json';p=json.loads(planfile.read_text())
@@ -668,9 +683,12 @@ def receive_joint_rear_layout():
     if powerlane:
         from receive_feline_positive_service_deck import pipe,circle_arc
         for e in fore['new_Pi_endpoints']:
-            if not e['id'].startswith(('W079/','W080/')):continue
-            n='PiPower:'+e['id'].split('/')[0];q=pitf.multVec(A.Vector(*e['point_mm']));t=pitf.Rotation.multVec(A.Vector(*e['axis']))
-            b=A.Vector(0,-1,0);assert abs(t.dot(b))<1e-8
+            power=e['id'].startswith(('W079/','W080/'))
+            if not power and not shared:continue
+            endpoint=next(r for r in docs['ends']['endpoints'] if r['id']==e['id'])
+            n='PiPower:'+e['id'].split('/')[0] if power else 'PiGPIO:'+endpoint['endpoint']
+            q=pitf.multVec(A.Vector(*e['point_mm']));t=pitf.Rotation.multVec(A.Vector(*e['axis']))
+            b=A.Vector(0,1 if shared else -1,0) if power else A.Vector(1,1,0);b-=t*t.dot(b);b.normalize()
             start=q+t*e['first_mm'];end=start+t*e['R_mm']+b*e['R_mm'];tip=end+b*9
             edges=[Part.makeLine(q,start),circle_arc(list(start),list(t),list(b),e['R_mm'],math.pi/2),Part.makeLine(end,tip)]
             changed[n],path=pipe(edges,e['radius_mm'])
@@ -689,9 +707,18 @@ def receive_joint_rear_layout():
         changed[n]=s;roles[n]='BUS';cm[n]=meta[n]
         if n=='CurrentBUS:BUS_Backplate':backplate=s
     assert backplate is not None
+    station_groups=complete_source_station_groups(fore,meta)
     for n in list(fixed):
-        if meta[n].get('group') in ('FR_P','RR_P'):
+        if meta[n].get('group') in station_groups:
             s=fixed.pop(n).copy();s.translate(A.Vector(0,0,-8));changed[n]=s;roles[n]=meta[n]['group'];cm[n]=meta[n]
+    if shared:
+        fpwm_rotation=A.Rotation(A.Vector(0,1,0),90)
+        fpwm_tf=A.Placement(A.Vector(95,75,48)-fpwm_rotation.multVec(A.Vector(116,75,48)),fpwm_rotation)
+        factory=[n for n in fixed if meta[n].get('group')=='F_PWM_whole' and ':End0:' not in n and ':End1:' not in n]
+        assert len(factory)==5
+        for n in factory:
+            s=fixed.pop(n).copy();s.Placement=fpwm_tf*s.Placement
+            changed[n]=s;roles[n]='F_PWM_factory';cm[n]=meta[n]
     bundle=ROOT/p['bundle'];assert sha(bundle)==p['bundle_sha256']
     with zipfile.ZipFile(bundle) as z:raw=z.read('USB500.brep')
     assert hashlib.sha256(raw).hexdigest()==p['USB_brep_sha256'];s=Part.Shape();s.importBrepFromString(raw.decode());s.translate(delta)
@@ -721,10 +748,15 @@ def receive_joint_rear_layout():
     if afterturn:
         cf=OUT/'n01-fpwm-after-turn-carrier-plan-v3.json';cp=json.loads(cf.read_text())
         assert cp['status']=='F_PWM_AFTER_TURN_CARRIER_LOCAL_PLAN_RECEIVED'
-        carrier,ties,info=fpwm_after_turn_carrier()
+        carrier,ties,info=fpwm_after_turn_carrier(include_arm=not shared)
         for n in cp['retired_old_printed_grips_only']:assert fixed.pop(n) is not None
-        frame=frame.fuse(carrier).removeSplitter();assert frame.isValid() and len(frame.Solids)==1
+        if shared:
+            carrier.Placement=fpwm_tf*carrier.Placement
+            changed['HorizontalFPWMCarrier']=carrier;roles['HorizontalFPWMCarrier']='F_PWM_Carrier';cm['HorizontalFPWMCarrier']=dict(kind='proposal_material')
+        else:
+            frame=frame.fuse(carrier).removeSplitter();assert frame.isValid() and len(frame.Solids)==1
         for tag,s in ties.items():
+            if shared:s.Placement=fpwm_tf*s.Placement
             n='F_PWM_shared:'+tag;changed[n]=s;roles[n]='F_PWM_Ties';cm[n]=dict(kind='proposal_material')
         fpwm_local_pairs={r['b'] for r in cp['checks'] if r['a']=='F_PWM:common_carrier' and r['ok']}
         pins[cf.relative_to(ROOT).as_posix()]=sha(cf)
@@ -737,9 +769,13 @@ def receive_joint_rear_layout():
     result=dict(status='RUNNING_ONE_JOINT_REAR_LAYOUT',source_sha256=pins,changed_parts=list(changed),
         retired_old_BUS_frame_roots=retired,root_positive_joints_mm3=[] if quarter else [bj.Volume,pj.Volume],checks={},failures=[],errors=[],
         BUS_quarter_clock_about_preserved_USB_mouth_and_tangent=quarter,new_BUS_load_path_OPEN=quarter,
-        Pi_power_common_inboard_lane=new_power_lands,Pi_power_and_seven_port_common_carrier_OPEN=powerlane,
+        Pi_power_common_inboard_lane=[] if shared else new_power_lands,
+        Pi_seven_full_ends_shared_plan=new_power_lands if shared else [],Pi_power_and_seven_port_common_carrier_OPEN=powerlane,
+        whole_shared_critical_plan=shared,horizontal_F_PWM_new_load_path_OPEN=shared,
+        moved_station_groups_recovered_from_full_source_recipe=fore['moved_positive_WAGO_groups'],
+        GPIO_five_changed_internal_pairs_REQUIRE_recheck=shared,
         original_Pi35_internal_geometry_rigid_and_fore_receipt_reused=not powerlane,
-        original_Pi_rigid_and_five_GPIO_internal_evidence_reused=True,changed_power_internal_pairs_REQUIRE_recheck=powerlane,
+        original_Pi_rigid_and_five_GPIO_internal_evidence_reused=not shared,changed_power_internal_pairs_REQUIRE_recheck=powerlane,
         BUS_valid_original_inverse_method=True,collect_all_conflicts_before_layout_revision=collect,
         seven_Pi_complete_restraints_still_require_shared_comb_space=True,
         selected=False,N01_complete=False,physical_pass=False,native_changed=False,
@@ -772,7 +808,8 @@ def receive_joint_rear_layout():
         if not t.Solids:r=dict(ok=False,reason='Curve-only old physical harness gate, not material collision')
         else:
             result['pending_pair']=dict(a=n,b=m,started_worker_seconds=round(time.monotonic()-tick,3));save()
-            gap=dist(n,s,m,t);mate=intentional_mate(n,m) or (afterturn and ((n=='SharedRearFrame' and m in fpwm_local_pairs) or (m=='SharedRearFrame' and n.startswith('F_PWM_shared:')) or (n.startswith('F_PWM_shared:') and m in fpwm_local_pairs)))
+            carrier_owner='HorizontalFPWMCarrier' if shared else 'SharedRearFrame'
+            gap=dist(n,s,m,t);mate=intentional_mate(n,m) or (afterturn and ((n==carrier_owner and m in fpwm_local_pairs) or (m==carrier_owner and (n.startswith('F_PWM_shared:') or n in fpwm_local_pairs)) or (n.startswith('F_PWM_shared:') and m in fpwm_local_pairs)))
             r=dict(ok=gap>=minimum-1e-6,gap_mm=gap,minimum_mm=minimum)
             if mate and gap<1e-6:
                 common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
@@ -786,11 +823,15 @@ def receive_joint_rear_layout():
     save()
     try:
         for n in changed:
+            if shared and roles[n]=='BUS' and not n.startswith('CurrentBUS:') and n not in ('Ref_Material_BUSsupplier0_0_0','Ref_Material_BUSsupplier18_0_0'):
+                continue  # Gate entire planning core before microcomponent audit.
             if roles[n]=='BUS':
                 for m in fixed:
                     if meta.get(m,{}).get('group')=='F_PWM_whole':pair(n,m)
         for n in changed:
             outerkey=n+'|outer'
+            if shared and roles[n]=='BUS' and not n.startswith('CurrentBUS:') and n not in ('Ref_Material_BUSsupplier0_0_0','Ref_Material_BUSsupplier18_0_0'):
+                continue
             if outerkey in result['checks']:r=result['checks'][outerkey]
             elif n==world.bus['name']:
                 original_outer=outer.copy();original_outer.Placement=bus_inverse*original_outer.Placement
@@ -802,11 +843,11 @@ def receive_joint_rear_layout():
                 result['failures'].append(dict(a=n,b='outer',**r));save()
                 if not collect:raise RuntimeError('ACTUAL_INTERFACE_BLOCKER_SAVED')
             for m in [*fixed,*changed]:
-                newpower=powerlane and (n.startswith('PiPower:') or m.startswith('PiPower:'))
+                newpower=powerlane and (n.startswith('PiPower:') or m.startswith('PiPower:') or (shared and (n.startswith('PiGPIO:') or m.startswith('PiGPIO:'))))
                 if m==n or (m in changed and roles[m]==roles[n] and roles[n]!='USB' and not newpower):continue
                 pair(n,m)
             save()
-        result['status']='JOINT_REAR_WHOLE_LAYOUT_CONFLICTS_RECEIVED' if result['failures'] else 'JOINT_REAR_STATIC_RECEIVED_MOTION_ROOTS_CAPACITY_OPEN'
+        result['status']='JOINT_REAR_WHOLE_LAYOUT_CONFLICTS_RECEIVED' if result['failures'] else 'CRITICAL_SHARED_LAYOUT_RECEIVED_OTHER_GATES_OPEN' if shared else 'JOINT_REAR_STATIC_RECEIVED_MOTION_ROOTS_CAPACITY_OPEN'
     except RuntimeError as exc:
         if str(exc)=='ACTUAL_INTERFACE_BLOCKER_SAVED':result['status']='JOINT_REAR_LAYOUT_NAMED_INTERFACE_REJECTED'
         else:result['errors'].append(repr(exc));result['status']='JOINT_REAR_LAYOUT_PARTIAL_ERROR'
@@ -814,7 +855,41 @@ def receive_joint_rear_layout():
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],pairs=len(result['checks']),failure_count=len(result['failures']),first_failures=result['failures'][:12],errors=result['errors'])),flush=True)
 
 
+def receive_boot_intrinsic():
+    """Full cable against full boot before a further world-layout attempt."""
+    from feline_fore_power_pair import SolidQueries
+    from feline_solid_distance import bbox_lower_bound
+    tick=time.monotonic();pf=OUT/'n01-joint-rear-boot-budget-plan.json';p=json.loads(pf.read_text())
+    sf=OUT/'n01-full-material-scene.json';source=json.loads(sf.read_text());archive=ROOT/source['bundle']
+    assert sha(archive)==source['bundle_sha256'];wirefile=ROOT/p['bundle'];assert sha(wirefile)==p['bundle_sha256']
+    with zipfile.ZipFile(wirefile) as z:raw=z.read('USB500.brep')
+    assert hashlib.sha256(raw).hexdigest()==p['USB_brep_sha256'];wire=Part.Shape();wire.importBrepFromString(raw.decode());wire.translate(A.Vector(-2,0,0))
+    pose=p['BUS_relative_placement'];tf=A.Placement(A.Vector(*pose['translation_mm'])+A.Vector(-2,0,0),A.Rotation(A.Vector(1,0,0),pose['rotation_X_deg']))
+    names={'CurrentBUS:USB_C_Overmould','Ref_Material_BUSsupplier0_0_0','CurrentBUS:H5MatingReserve','CurrentBUS:DGSharedRelief','CurrentBUS:BUS_Backplate','CurrentBUS:BUS.D','CurrentBUS:BUS.G'}
+    rows=[r for r in source['parts'] if r['name'] in names];assert len(rows)==len(names)
+    checks=[];query=SolidQueries()
+    with zipfile.ZipFile(archive) as z:
+        for r in rows:
+            raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256'];s=Part.Shape();s.importBrepFromString(raw.decode());s.Placement=tf*s.Placement
+            assert s.isValid() and s.Solids
+            minimum=.2 if r['name'].endswith(('BUS.D','BUS.G')) else 1.25
+            lower=bbox_lower_bound(s.BoundBox,wire.BoundBox)
+            if lower>=minimum:checks.append(dict(part=r['name'],ok=True,separation_lower_bound_mm=lower,minimum_mm=minimum,method='Bounding-box separation proof, not overlapping-box rejection'));continue
+            gap=query.distance(wire,s);common=wire.copy().common(s.copy());assert common.isNull() or common.isValid()
+            port=r['name']=='CurrentBUS:USB_C_Overmould'
+            checks.append(dict(part=r['name'],gap_mm=gap,positive_common_mm3=common.Volume,
+                minimum_mm=minimum,ok=common.Volume<1e-5 and (port or gap>=minimum-1e-6),port_face_contact_allowed=port))
+    result=dict(status='USB_FULL_BOOT_CORE_INTRINSIC_CLEAR_WORLD_OPEN' if all(r['ok'] for r in checks) else 'USB_FULL_BOOT_CORE_INTRINSIC_REJECTED',
+        source_sha256={f.relative_to(ROOT).as_posix():sha(f) for f in (pf,sf,archive,wirefile,Path(__file__))},checks=checks,
+        selected=False,N01_complete=False,physical_pass=False,all_other_components_grips_roots_world_motion_OPEN=True,
+        worker_seconds=round(time.monotonic()-tick,3))
+    dest=OUT/'n01-joint-rear-boot-intrinsic-received.json';assert not dest.exists();save_json(dest,result)
+    print(json.dumps(result),flush=True)
+
+
 def main():
+    if '--receive-boot-intrinsic' in sys.argv:return receive_boot_intrinsic()
+    if '--joint-rear-boot-budget' in sys.argv:return plan_joint_rear_bay(30)
     if '--fpwm-after-turn-carrier' in sys.argv:return plan_fpwm_after_turn_carrier()
     if '--receive-joint-rear-layout' in sys.argv:return receive_joint_rear_layout()
     if '--rear-bridge-frame' in sys.argv:return plan_rear_bridge_frame()

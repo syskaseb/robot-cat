@@ -1,0 +1,67 @@
+{
+  "status": "USB_FULL_BOOT_CORE_INTRINSIC_CLEAR_WORLD_OPEN",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-boot-budget-plan.json": "6b04141a01567c1f425da974946f0f16b450984c54b602790c7c1b70d6172b24",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-boot-budget-plan.breps.zip": "6f681ea3d33325d6da734b44cb5b667b13f34a737de091b5152c3b7dd1f92f14",
+    "tools/cad/plan_feline_usb_service_bight.py": "4c08268d7d3dcf0989d03e9e0ca598bd3574c3a3f8a0dfa4a4ea8df1a18aaea0"
+  },
+  "checks": [
+    {
+      "part": "Ref_Material_BUSsupplier0_0_0",
+      "ok": true,
+      "separation_lower_bound_mm": 9.32197984634984,
+      "minimum_mm": 1.25,
+      "method": "Bounding-box separation proof, not overlapping-box rejection"
+    },
+    {
+      "part": "CurrentBUS:BUS.D",
+      "ok": true,
+      "separation_lower_bound_mm": 30.482600131080915,
+      "minimum_mm": 0.2,
+      "method": "Bounding-box separation proof, not overlapping-box rejection"
+    },
+    {
+      "part": "CurrentBUS:BUS.G",
+      "ok": true,
+      "separation_lower_bound_mm": 28.847340082122358,
+      "minimum_mm": 0.2,
+      "method": "Bounding-box separation proof, not overlapping-box rejection"
+    },
+    {
+      "part": "CurrentBUS:DGSharedRelief",
+      "ok": true,
+      "separation_lower_bound_mm": 28.201756685146474,
+      "minimum_mm": 1.25,
+      "method": "Bounding-box separation proof, not overlapping-box rejection"
+    },
+    {
+      "part": "CurrentBUS:H5MatingReserve",
+      "ok": true,
+      "separation_lower_bound_mm": 39.92224288693167,
+      "minimum_mm": 1.25,
+      "method": "Bounding-box separation proof, not overlapping-box rejection"
+    },
+    {
+      "part": "CurrentBUS:USB_C_Overmould",
+      "gap_mm": 0.0,
+      "positive_common_mm3": 0.0,
+      "minimum_mm": 1.25,
+      "ok": true,
+      "port_face_contact_allowed": true
+    },
+    {
+      "part": "CurrentBUS:BUS_Backplate",
+      "ok": true,
+      "separation_lower_bound_mm": 8.009515300694453,
+      "minimum_mm": 1.25,
+      "method": "Bounding-box separation proof, not overlapping-box rejection"
+    }
+  ],
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "all_other_components_grips_roots_world_motion_OPEN": true,
+  "worker_seconds": 0.484
+}
