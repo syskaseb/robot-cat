@@ -66,22 +66,24 @@ def main():
     if two_lane:
         from feline_t18i_two_lane import unit as two_lane_unit
         from feline_two_lane_receive import receive_requests as receive_long_lanes
+        from feline_comb_common_material import receive_common_failures
         for p in (Path(__file__).with_name('feline_t18i_two_lane.py'),Path(__file__).with_name('feline_two_lane_receive.py')):pins[p.relative_to(ROOT).as_posix()]=sha(p)
+        p=Path(__file__).with_name('feline_comb_common_material.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
     result=dict(status='RUNNING_SHARED_SIMPLE_COMB_ALLOCATION',source_sha256=pins,iterations=[],mutual_cache={},cuts=[],errors=[],N01_complete=False,physical_pass=False,selected=False)
     if dest.exists():
         result=json.loads(dest.read_text())
         if result['source_sha256']!=pins and '--receive-controller' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
-            versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7','2435ccf3','a08eea28')]
+            versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7','2435ccf3','a08eea28','1852c030')]
             previous=next(s for s in versions if hashlib.sha256(s).hexdigest()==result['source_sha256'][own])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
-            assert set(pins)-set(result['source_sha256'])<= {'tools/cad/feline_persistent_receiver.py'}
+            assert set(pins)-set(result['source_sha256'])<= {'tools/cad/feline_persistent_receiver.py','tools/cad/feline_comb_common_material.py'}
             before=ast.parse(previous);after=ast.parse(Path(__file__).read_text())
             for name in ('shape','mutual'):
                 f=lambda tree:next(n for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name==name)
                 assert ast.dump(f(before))==ast.dump(f(after)),name
             result.setdefault('controller_repairs',[]).append(dict(old_code_sha256=result['source_sha256'][own],
-                reason='Same shape/mutual kernels proven AST-identical. Complete baseline AND long lanes for the SAME chosen batch before re-solving; label permutations previously starved long-lane reception. Atomic parent JSON saves; prior actual receipts preserved. No geometry change.'))
+                reason='Same shape/mutual kernels proven AST-identical. Complete both lanes before resolve; exact shared PETG subset witnesses exclude all label permutations at fixed blocked sites. No geometry or clearance change.'))
             result['source_sha256']=pins
         else:assert result['source_sha256']==pins
         result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
@@ -182,6 +184,8 @@ def main():
             receiver=json.loads((OUT/'n01-straight-combs-received.json').read_text());received=receiver['units']
             physical=receiver.get('physical_cache',{})
             longfile=OUT/'n01-two-lane-static.json';longdata=json.loads(longfile.read_text()) if two_lane and longfile.exists() else dict(units={})
+            common_bad=receive_common_failures(result,longdata,stations) if two_lane else set()
+            save()
             bad_cases={r['slot']['id'] for r in received.values() if str(r.get('failure','')).startswith('case|')}
             for rec in received.values():
                 if rec.get('physical_key'):assert rec['physical_key']==physical_key(stations[rec['ref']],rec['slot'])
@@ -205,6 +209,7 @@ def main():
                 if r['kind']=='straight_comb':
                     rec=receipt(r)
                     if r['slot']['id'] in bad_cases:upper[i]=0
+                    if (r['slot']['id'],r.get('lane',0)) in common_bad:upper[i]=0
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
                     if two_lane and r['slot']['profile']=='standard':
