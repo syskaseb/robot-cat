@@ -8,6 +8,8 @@ import hashlib
 import json
 import time
 import itertools
+import ast
+import subprocess
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -38,6 +40,20 @@ def main():
     result=dict(status='RUNNING_FULL_BANK_PLAN',source_sha256={source.relative_to(ROOT).as_posix():sha(source),helper.relative_to(ROOT).as_posix():sha(helper),Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__))},
         pairs={},cuts=[],iterations=[],errors=[],N01_complete=False,physical_pass=False)
     dest=OUT/'n01-bank-whole-preflight.json';cuts=set();bad=[]
+    if dest.exists():
+        saved=json.loads(dest.read_text())
+        assert saved['source_sha256'][helper.relative_to(ROOT).as_posix()]==sha(helper),'Adopt unchanged old material before reusing its pairs'
+        own=Path(__file__).relative_to(ROOT).as_posix()
+        if saved['source_sha256'][own]!=sha(Path(__file__)):
+            old=subprocess.run(['git','show','8cb881ac:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(old).hexdigest()==saved['source_sha256'][own]
+            get=lambda t:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name=='mutual')
+            assert ast.dump(get(old))==ast.dump(get(Path(__file__).read_text()))
+        result['pairs']=saved['pairs'];result['prior_exact_pair_source']=dict(source_sha256=saved['source_sha256'],query_kernel_identical=True)
+        index={c:i for i,c in enumerate(codes)}
+        for a,b in saved['cuts']:
+            assert a in index and b in index
+            cuts.add(tuple(sorted((index[a],index[b]))))
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     def mutual(i,j):
         code='|'.join(sorted((codes[i],codes[j])))

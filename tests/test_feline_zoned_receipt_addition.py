@@ -13,7 +13,7 @@ class AdditiveZoneProof(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.old=subprocess.run(['git','show','c5f0bd35:'+HELPER],cwd=ROOT,check=True,capture_output=True).stdout
-        cls.new=(ROOT/HELPER).read_text();cls.groups,_=candidates()
+        cls.new=subprocess.run(['git','show','e6fb2794:'+HELPER],cwd=ROOT,check=True,capture_output=True).stdout.decode();cls.groups,_=candidates()
 
     def test_only_W029_added_all_prior_recipes_and_zone_results_identical(self):
         before,after=prove(self.old,self.new,self.groups)

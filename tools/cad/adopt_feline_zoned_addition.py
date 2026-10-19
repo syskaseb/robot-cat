@@ -81,11 +81,12 @@ def prove_retained_geometry(old_text,new_text,groups):
 
 
 def extend_fore():
-    old=subprocess.run(['git','show','e6fb2794:'+HELPER],cwd=ROOT,check=True,capture_output=True).stdout
+    previous=next((a.split('=',1)[1] for a in sys.argv if a.startswith('--previous=')),'e6fb2794')
+    old=subprocess.run(['git','show',previous+':'+HELPER],cwd=ROOT,check=True,capture_output=True).stdout
     oldsha=hashlib.sha256(old).hexdigest();newsha=sha(ROOT/HELPER);groups,_=source_candidates()
     before,count=prove_retained_geometry(old,(ROOT/HELPER).read_text(),groups)
     pending=[]
-    for p in (OUT/'n01-shared54-whole.json',OUT/'n01-bank-zoned-static.json'):
+    for p in (OUT/'n01-shared54-whole.json',OUT/'n01-bank-zoned-static.json',OUT/'n01-bank-whole-preflight.json'):
         doc=json.loads(p.read_text());pins=doc['source_sha256']
         assert pins[HELPER]==oldsha
         assert all(sha(ROOT/n)==h for n,h in pins.items() if n!=HELPER)
