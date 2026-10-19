@@ -95,7 +95,17 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and '--receive-controller' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--extend-open-bank' in sys.argv:
+            from feline_remaining_kits import prove_additive_extension
+            helper='tools/cad/feline_remaining_kits.py';receiver='tools/cad/feline_remaining_receive.py';own=Path(__file__).relative_to(ROOT).as_posix()
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (helper,receiver,own))
+            proof=prove_additive_extension(result['source_sha256'][helper])
+            oldcode=subprocess.run(['git','show','39734d97:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(oldcode).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(oldcode,name))==ast.dump(get(Path(__file__).read_text(),name))
+            result.setdefault('additive_geometry_extensions',[]).append(proof);result['source_sha256']=pins
+        elif result['source_sha256']!=pins and '--receive-controller' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7','2435ccf3','a08eea28','1852c030','9d6e4895')]
             previous=next(s for s in versions if hashlib.sha256(s).hexdigest()==result['source_sha256'][own])

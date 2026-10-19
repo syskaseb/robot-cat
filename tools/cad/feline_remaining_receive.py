@@ -6,6 +6,9 @@ all unrelated owners, true contour and current36motion positions remain.
 import hashlib
 import json
 import time
+import ast
+import subprocess
+import sys
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -27,7 +30,19 @@ def receive_requests(requests):
     _,pins=candidates();pins['tools/cad/feline_remaining_receive.py']=sha(Path(__file__))
     result=dict(status='RUNNING_CHOSEN_REMAINING_KITS',source_sha256=pins,units={},errors=[],N01_complete=False,physical_pass=False)
     if dest.exists():
-        result=json.loads(dest.read_text());assert result['source_sha256']==pins
+        result=json.loads(dest.read_text())
+        if result['source_sha256']!=pins and '--extend-open-bank' in sys.argv:
+            from feline_remaining_kits import prove_additive_extension
+            helper='tools/cad/feline_remaining_kits.py';own='tools/cad/feline_remaining_receive.py'
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (helper,own))
+            proof=prove_additive_extension(result['source_sha256'][helper])
+            old=subprocess.run(['git','show','65e2b033:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(old).hexdigest()==result['source_sha256'][own]
+            get=lambda t:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name=='receive')
+            assert ast.dump(get(old))==ast.dump(get(Path(__file__).read_text()))
+            assert all('wire_bend_clock_degrees' not in r['recipe'] for r in result['units'].values())
+            result.setdefault('additive_geometry_extensions',[]).append(proof);result['source_sha256']=pins
+        else:assert result['source_sha256']==pins
         result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)

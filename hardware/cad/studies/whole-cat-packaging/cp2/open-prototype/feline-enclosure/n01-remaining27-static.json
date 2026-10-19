@@ -3,13 +3,13 @@
   "source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-whole51-joint-proposal.json": "04f5c6c58914b346ee1619233fff38adaa103f5be2c2df5430824b94c5695489",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bank-W027-open-saddle.json": "165018260d9b8390327f605cb552ad61964f55e4ca04b7a883754078f285f622",
-    "tools/cad/feline_remaining_kits.py": "5d3e32cc6e977118d4c861ce4806036e27eab78d83f6d932f949afa4299ed6b0",
+    "tools/cad/feline_remaining_kits.py": "4b56a3dd3f433df3754b9631b30a17b8870e7d51b28ad02bda4c6a3d8517738b",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-actual-clamp-kits.json": "b159aaeb71c39d5d3095185ca1a9cbfb1cd87a9215d1eebe752a3236eed2061a",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat20-actual-clamp-kits.breps.zip": "fbc5989e7980b721511168ec9fa68f58dddb8b734d5b739ef5a1797b72d3aa40",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-clocked-joints.json": "ac9f1c77c4c24bc22952f1f4815b7aee946eba73238cded0e0a597c745140788",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coupled-clocked-joints.zip": "e776ebed7398891d9e607e33a20b0d2f6880af6eb23c10e861c01f0dc4d18cdb",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bank-W027-open-saddle.breps.zip": "a539224a5833b3194dfcc5149d9b985c4a6c9709f491fce4fd414cb9c7ecbb88",
-    "tools/cad/feline_remaining_receive.py": "6ed7a73db312c3f037826831f1d52fba091f1d75bc5e2df600b9eb881f9a6938"
+    "tools/cad/feline_remaining_receive.py": "4aa74b5a78607b3c22e5a103abe461f1594da8ac2bd5912d6fd0206cd7cc2907"
   },
   "units": {
     "Bank:W027/single/end:1946d3dbaeea29969134a234459eced1117d6d2829687d0328cc8fd75f6faea9": {
@@ -3501,12 +3501,2365 @@
         }
       },
       "failure": "TopClampPad3|fixed:StructureReserve:RearNegativeRailStub"
+    },
+    "Bank:W027/single/end:f02e37c2f8c55999ba0eac3c07c4438b2a08f5e09c70ff010641db550fb5d607": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 0
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:e9ad80ef976c58f1eb06d654c91a37a987defa3ba00d2375c23bdca5b32d53f4": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          92.0,
+          6.280000000000014,
+          90.4
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 180,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.599999999999994
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W051/body/end:4d2bbba17e683c1d01c98b3ea2c051976838330ef42304004b8c466915476a79": {
+      "group": "Bank:W051/body/end",
+      "recipe": {
+        "ref": "Bank:W051/body/end",
+        "bank_source": true,
+        "source_endpoint": "W051/body/end",
+        "holder": "L6",
+        "terminal_name": "Ref_Material_F_L6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm20_context",
+        "point_mm": [
+          80.0,
+          17.151999999999973,
+          68.99999999999997
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          95.13208511739211,
+          -4.248000000000028,
+          84.13208511739208
+        ],
+        "bend_clock_degrees": 45,
+        "complete_band_head_degrees": 270,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.88085079699825,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W051/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 27.160808101421367
+        },
+        "wire:W051/body/end|fixed:CurrentBUS:DGSharedRelief": {
+          "ok": true,
+          "gap_mm": 8.76933863202534,
+          "minimum_mm": 1.25
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W059/body/end:2efd6fc11ec514ff9ef56982c579fbe10989b38b4e82164f86dd48a79cfdc36b": {
+      "group": "Bank:W059/body/end",
+      "recipe": {
+        "ref": "Bank:W059/body/end",
+        "bank_source": true,
+        "source_endpoint": "W059/body/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm23_context",
+        "point_mm": [
+          78.0,
+          -17.151999999999973,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          78.0,
+          4.248000000000028,
+          90.4
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 90,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 1.5882389894404805,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W059/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.599999999999994
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W059/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W059/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Anchor:Rear:7f66399fbec352638d8e690e962b6c6cdf2e53c1c1221ddc5e059517c68e4f88": {
+      "group": "Anchor:Rear",
+      "recipe": {
+        "ref": "Anchor:Rear",
+        "anchor_source": true,
+        "axis_X_mm": 72,
+        "source_axis_X_mm": 90,
+        "clamp_indices": [
+          3,
+          4
+        ],
+        "actual_parts": [
+          {
+            "name": "TopClampPad3",
+            "clamp": 3
+          },
+          {
+            "name": "LowerClampJaw3",
+            "clamp": 3
+          },
+          {
+            "name": "RailClamp3Screw",
+            "clamp": 3
+          },
+          {
+            "name": "RailClamp3TopWasher",
+            "clamp": 3
+          },
+          {
+            "name": "RailClamp3BottomWasher",
+            "clamp": 3
+          },
+          {
+            "name": "RailClamp3Nut",
+            "clamp": 3
+          },
+          {
+            "name": "TopClampPad4",
+            "clamp": 4
+          },
+          {
+            "name": "LowerClampJaw4",
+            "clamp": 4
+          },
+          {
+            "name": "RailClamp4Screw",
+            "clamp": 4
+          },
+          {
+            "name": "RailClamp4TopWasher",
+            "clamp": 4
+          },
+          {
+            "name": "RailClamp4BottomWasher",
+            "clamp": 4
+          },
+          {
+            "name": "RailClamp4Nut",
+            "clamp": 4
+          }
+        ],
+        "bearing_receipts": [
+          {
+            "clamp": 3,
+            "actual_top_contact_mm2": 64.99999999978183
+          },
+          {
+            "clamp": 4,
+            "actual_top_contact_mm2": 65.00000000020923
+          }
+        ],
+        "actual_parent_no_positive_overlap_verified": true,
+        "driver_stage": "Tighten lower carrier before bank/WAGO/boards; not in-situ quick service",
+        "carrier_bore_and_washer_seat_subtractions_required": true,
+        "parent_P0_not_deleted_or_drilled": true,
+        "new_bought_parts": 0,
+        "numeric_score": 3.476677917283831,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "TopClampPad3|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 63.83154735987657
+        },
+        "TopClampPad3|fixed:Ref_Material_P0_SideRight22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "LowerClampJaw3|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 63.83154735987657
+        },
+        "LowerClampJaw3|fixed:Ref_Material_P0_SideRight22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp3Screw|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 65.78
+        },
+        "RailClamp3Screw|fixed:Ref_Material_P0_SideRight22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp3TopWasher|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 68.78
+        },
+        "RailClamp3TopWasher|fixed:Ref_Material_P0_SideRight22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp3BottomWasher|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 69.80552035875942
+        },
+        "RailClamp3BottomWasher|fixed:Ref_Material_P0_SideRight22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp3Nut|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 70.40442094479131
+        },
+        "RailClamp3Nut|fixed:Ref_Material_P0_SideRight22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "TopClampPad4|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 63.83154735987657
+        },
+        "TopClampPad4|fixed:Ref_Material_P0_SideLeft22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "LowerClampJaw4|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 63.83154735987657
+        },
+        "LowerClampJaw4|fixed:Ref_Material_P0_SideLeft22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp4Screw|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 65.78
+        },
+        "RailClamp4Screw|fixed:Ref_Material_P0_SideLeft22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp4TopWasher|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 68.78
+        },
+        "RailClamp4TopWasher|fixed:Ref_Material_P0_SideLeft22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp4BottomWasher|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 69.80552035875942
+        },
+        "RailClamp4BottomWasher|fixed:Ref_Material_P0_SideLeft22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "RailClamp4Nut|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 70.40442094479131
+        },
+        "RailClamp4Nut|fixed:Ref_Material_P0_SideLeft22_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        }
+      },
+      "failure": null
+    },
+    "Bank:W027/single/end:4ce7e02b89612c1befad34eabd41c8dad403d9557d693142c70bfe38e5d353b5": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 45
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.771899371768725
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:a12f0d7bdaeb3e2cfc783cd1935083d86b765aa56adc3f91cf5b712696a7ac5a": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          92.0,
+          6.280000000000014,
+          90.4
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 270,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.599999999999994
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W051/body/end:8bc0b6deeb28328cc1f5266a023244ebd87dc6e1709211cb862e4329bb956c27": {
+      "group": "Bank:W051/body/end",
+      "recipe": {
+        "ref": "Bank:W051/body/end",
+        "bank_source": true,
+        "source_endpoint": "W051/body/end",
+        "holder": "L6",
+        "terminal_name": "Ref_Material_F_L6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm20_context",
+        "point_mm": [
+          80.0,
+          17.151999999999973,
+          68.99999999999997
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          80.0,
+          -4.248000000000028,
+          90.39999999999998
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 0,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.88085079699825,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W051/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.600000000000023
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W059/body/end:61d90bdf742628f68851c53177030271d37fc65765176cc2b3f922843083cb64": {
+      "group": "Bank:W059/body/end",
+      "recipe": {
+        "ref": "Bank:W059/body/end",
+        "bank_source": true,
+        "source_endpoint": "W059/body/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm23_context",
+        "point_mm": [
+          78.0,
+          -17.151999999999973,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          78.0,
+          4.248000000000028,
+          90.4
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 270,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 1.5882389894404805,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W059/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.599999999999994
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W059/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W059/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W027/single/end:bbf001756196a06fa5c50362daef73799b9691049e873d4270411088d9cdd1fe": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 90
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.60000000000001
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:40f24ea3470289c2425c6be22928e2e3fe51123cc088bede747976385b3035bf": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -0.7071067811865475,
+          0.0,
+          0.7071067811865476
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          76.86791488260789,
+          6.280000000000014,
+          84.13208511739211
+        ],
+        "bend_clock_degrees": 135,
+        "complete_band_head_degrees": 0,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.77189937176874
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 1.0351805011031292,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W051/body/end:4eab45105efd3d2ecba73bb584e371d96e549ab4ca227fe02d45c3838d7837ac": {
+      "group": "Bank:W051/body/end",
+      "recipe": {
+        "ref": "Bank:W051/body/end",
+        "bank_source": true,
+        "source_endpoint": "W051/body/end",
+        "holder": "L6",
+        "terminal_name": "Ref_Material_F_L6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm20_context",
+        "point_mm": [
+          80.0,
+          17.151999999999973,
+          68.99999999999997
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          80.0,
+          -4.248000000000028,
+          90.39999999999998
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 90,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.88085079699825,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W051/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.600000000000023
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W059/body/end:8ef71dae4d599e0d141a8d4040a8174d2d7ab021b8bbb8116cd62565253153c7": {
+      "group": "Bank:W059/body/end",
+      "recipe": {
+        "ref": "Bank:W059/body/end",
+        "bank_source": true,
+        "source_endpoint": "W059/body/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm23_context",
+        "point_mm": [
+          78.0,
+          -17.151999999999973,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -1.0,
+          0.0,
+          1.2246467991473532e-16
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          56.599999999999994,
+          4.248000000000028,
+          69.0
+        ],
+        "bend_clock_degrees": 180,
+        "complete_band_head_degrees": 90,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 1.5882389894404805,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W059/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 42.0
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R5_CP2_IN_0_0": {
+          "ok": true,
+          "gap_mm": 3.8819000000000017,
+          "minimum_mm": 1.25
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R5_CP2_OUT_0_0": {
+          "ok": true,
+          "gap_mm": 20.2695,
+          "minimum_mm": 1.25
+        },
+        "wire:W059/body/end|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "split_cap_exterior|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 40.0
+        },
+        "split_cap_exterior|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "band_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 38.8
+        },
+        "band_budget|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "head_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 32.8
+        },
+        "head_budget|fixed:Ref_Material_F_R6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "head_budget|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": true,
+          "gap_mm": 2.41902229957652,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": null
+    },
+    "Bank:W027/single/end:be6010a873f6bce713c71095913bdf9f0b3ff879d41ccd6921c3a0c18eccd5be": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -0.7071067811865475,
+          0.0,
+          0.7071067811865476
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 135
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.77189937176874
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:10cd69d4dc639d8a64cf0de52168e2af20e0a543724ba22fe293b3f1b9039bf5": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -0.7071067811865475,
+          0.0,
+          0.7071067811865476
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          76.86791488260789,
+          6.280000000000014,
+          84.13208511739211
+        ],
+        "bend_clock_degrees": 135,
+        "complete_band_head_degrees": 90,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.77189937176874
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 1.0351805011031292,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W051/body/end:13d655ffc204254e9d649c9e18ec252f41b79c3365083463bca96a8f66817d16": {
+      "group": "Bank:W051/body/end",
+      "recipe": {
+        "ref": "Bank:W051/body/end",
+        "bank_source": true,
+        "source_endpoint": "W051/body/end",
+        "holder": "L6",
+        "terminal_name": "Ref_Material_F_L6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm20_context",
+        "point_mm": [
+          80.0,
+          17.151999999999973,
+          68.99999999999997
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          80.0,
+          -4.248000000000028,
+          90.39999999999998
+        ],
+        "bend_clock_degrees": 90,
+        "complete_band_head_degrees": 270,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.88085079699825,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W051/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.600000000000023
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W051/body/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W027/single/end:dff088322c7ed22e6a45359b72004e5c68466ed6de7463afc441ca5c978e1aef": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -1.0,
+          0.0,
+          1.2246467991473532e-16
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 180
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:150b42601ccaa65533c97ce1deaf9729897a7b49646f9402b069c7bedb18adce": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -0.7071067811865475,
+          0.0,
+          0.7071067811865476
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          76.86791488260789,
+          6.280000000000014,
+          84.13208511739211
+        ],
+        "bend_clock_degrees": 135,
+        "complete_band_head_degrees": 180,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.77189937176874
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 1.0351805011031292,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W051/body/end:68de91966e193c606de184f513a21e449249d4a75fcf2a77aa55e5307c009c8e": {
+      "group": "Bank:W051/body/end",
+      "recipe": {
+        "ref": "Bank:W051/body/end",
+        "bank_source": true,
+        "source_endpoint": "W051/body/end",
+        "holder": "L6",
+        "terminal_name": "Ref_Material_F_L6_CP2_OUT_0_0",
+        "terminal_context_key": "BankTerm20_context",
+        "point_mm": [
+          80.0,
+          17.151999999999973,
+          68.99999999999997
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -1.0,
+          0.0,
+          1.2246467991473532e-16
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1,
+        "after_arc_exit_mm": [
+          58.599999999999994,
+          -4.248000000000028,
+          68.99999999999997
+        ],
+        "bend_clock_degrees": 180,
+        "complete_band_head_degrees": 0,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.88085079699825,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W051/body/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 42.00000000000003
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L5_CP2_OUT_0_0": {
+          "ok": true,
+          "gap_mm": 20.2695,
+          "minimum_mm": 1.25
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L6_CP2_IN_0_0": {
+          "ok": true,
+          "gap_mm": 7.881900000000002,
+          "minimum_mm": 1.25
+        },
+        "wire:W051/body/end|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "split_cap_exterior|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 40.00000000000003
+        },
+        "split_cap_exterior|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "band_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 38.800000000000026
+        },
+        "band_budget|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "head_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 40.00000000000003
+        },
+        "head_budget|fixed:Ref_Material_F_L6_CP2_OUT_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        }
+      },
+      "failure": null
+    },
+    "Bank:W027/single/end:77f269a331315c7e0cac213981889ffb3140376e95a5a5a7a14cd7c3eeac420f": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -0.7071067811865477,
+          0.0,
+          -0.7071067811865475
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 225
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:1ce006c6392e5b8115dbe931bcaebf0651311b1a0b2a4695b4bccc99761b17a1": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -0.7071067811865475,
+          0.0,
+          0.7071067811865476
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          76.86791488260789,
+          6.280000000000014,
+          84.13208511739211
+        ],
+        "bend_clock_degrees": 135,
+        "complete_band_head_degrees": 270,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.77189937176874
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0": {
+          "ok": false,
+          "gap_mm": 1.0351805011031292,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "wire:W058/single/end|fixed:Ref_Material_Pi4NominalPCB_0_0"
+    },
+    "Bank:W027/single/end:43204cc9bc21e6cb1ba75946b256c24dae6f3bbc089413685397601ede749191": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          0.7071067811865474,
+          0.0,
+          -0.7071067811865477
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 270,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:270:wire",
+            "entry": "000.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:270:saddle",
+            "entry": "001.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:270:band_budget",
+            "entry": "002.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:270:head_budget",
+            "entry": "003.brep",
+            "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 315
+      },
+      "pairs": {
+        "OpenW027:270:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:270:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W058/single/end:572482d9a57dd33913fbb3a2effef58f7e01ebbc08566b334eb3629e31995739": {
+      "group": "Bank:W058/single/end",
+      "recipe": {
+        "ref": "Bank:W058/single/end",
+        "bank_source": true,
+        "source_endpoint": "W058/single/end",
+        "holder": "R6",
+        "terminal_name": "Ref_Material_F_R6_CP2_IN_0_0",
+        "terminal_context_key": "BankTerm11_context",
+        "point_mm": [
+          92.0,
+          -15.119999999999987,
+          69.0
+        ],
+        "departure_axis": [
+          0.0,
+          1.0,
+          2.4902198683181084e-16
+        ],
+        "bend_unit": [
+          -1.0,
+          0.0,
+          1.2246467991473532e-16
+        ],
+        "first_mm": 9,
+        "R_mm": 12.4,
+        "radius_mm": 1.5499999999999998,
+        "after_arc_exit_mm": [
+          70.6,
+          6.280000000000014,
+          69.0
+        ],
+        "bend_clock_degrees": 180,
+        "complete_band_head_degrees": 0,
+        "cap_wall_mm": 2,
+        "band_wall_budget_mm": 1.2,
+        "complete_head_budget_mm": [
+          6,
+          6,
+          6
+        ],
+        "source_first9_unchanged": true,
+        "factory_length_not_changed": true,
+        "cap_base_to_retained_bank_frame_root_OPEN": true,
+        "own_terminal_entry3_35mm_mate_requires_exact_no_overlap_check": true,
+        "numeric_score": 2.2302899288535016,
+        "reused_monotone_world_domain": true
+      },
+      "pairs": {
+        "wire:W058/single/end|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45
+        },
+        "wire:W058/single/end|fixed:CurrentBUS:DGSharedRelief": {
+          "ok": true,
+          "gap_mm": 2.3611657081746578,
+          "minimum_mm": 1.25
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R5_CP2_IN_0_0": {
+          "ok": true,
+          "gap_mm": 17.331900000000005,
+          "minimum_mm": 1.25
+        },
+        "wire:W058/single/end|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "split_cap_exterior|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 39.45
+        },
+        "split_cap_exterior|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "band_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 38.25
+        },
+        "band_budget|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        },
+        "head_budget|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 40.0
+        },
+        "head_budget|fixed:Ref_Material_F_R6_CP2_IN_0_0": {
+          "ok": true,
+          "own_named_mate": true,
+          "positive_common_mm3": 0.0,
+          "other_owners_NOT_exempt": true
+        }
+      },
+      "failure": null
+    },
+    "Bank:W027/single/end:bffd54ee14a56c5438e266fa53962bf5fc390faaaa6b290790b751c3fdfd2711": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 0
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W027/single/end:93b1b3074b4dff1a39b623161834e368fddbfb616b18e77f7e89e7f7e54a00ad": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 45
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.771899371768725
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W027/single/end:6e18e411bc0e334b6da2e58ec2b619f340ebbcc4a99be0305dde9ebe185a2e36": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          6.123233995736766e-17,
+          0.0,
+          1.0
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 90
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 21.60000000000001
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W027/single/end:185768294cf9b5a5ceb81b0ab16b7b5f647aaf5b2024d2058d55336f7d427fa7": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -0.7071067811865475,
+          0.0,
+          0.7071067811865476
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 135
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 26.77189937176874
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W027/single/end:e20757eebb256454e98389a8f67a62d3f11c0e9decf73ae2c4026a52e2e7c616": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -1.0,
+          0.0,
+          1.2246467991473532e-16
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 180
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W027/single/end:2e50d064afa9b19fd3394d835c7e2f05e4e1647d4e22141b0e92d20465ea3e76": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          0.7071067811865474,
+          0.0,
+          -0.7071067811865477
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 315
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
+    },
+    "Bank:W027/single/end:461c39b43f62cd08536be28962245a39da80bff36ae05d028c2baa1c2a7d5a15": {
+      "group": "Bank:W027/single/end",
+      "recipe": {
+        "point_mm": [
+          -53.999999999999986,
+          15.11999999999998,
+          68.99999999999999
+        ],
+        "departure_axis": [
+          0.0,
+          -1.0,
+          8.300732894393695e-17
+        ],
+        "bend_unit": [
+          -0.7071067811865477,
+          0.0,
+          -0.7071067811865475
+        ],
+        "R_mm": 12.4,
+        "first_mm": 9,
+        "radius": 1.5499999999999998,
+        "ref": "Bank:W027/single/end",
+        "bank_source": true,
+        "bank_simple_source": true,
+        "normal_degrees": 270,
+        "head_degrees": 0,
+        "full_grip_mm": 9,
+        "cap_wall_mm": 2,
+        "parts": [
+          {
+            "name": "OpenW027:0:wire",
+            "entry": "004.brep",
+            "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+            "kind": "wire"
+          },
+          {
+            "name": "OpenW027:0:saddle",
+            "entry": "005.brep",
+            "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+            "kind": "saddle"
+          },
+          {
+            "name": "OpenW027:0:band_budget",
+            "entry": "006.brep",
+            "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+            "kind": "band_budget"
+          },
+          {
+            "name": "OpenW027:0:head_budget",
+            "entry": "007.brep",
+            "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+            "kind": "head_budget"
+          }
+        ],
+        "received_open_packet": true,
+        "wire_bend_clock_degrees": 225
+      },
+      "pairs": {
+        "OpenW027:0:wire|outer": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 41.45000000000002
+        },
+        "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0": {
+          "ok": false,
+          "gap_mm": 0.0,
+          "minimum_mm": 1.25
+        }
+      },
+      "failure": "OpenW027:0:wire|fixed:Ref_Material_F_L1_CP2_IN_0_0"
     }
   },
   "errors": [],
   "N01_complete": false,
   "physical_pass": false,
-  "worker_seconds": 18.282,
+  "worker_seconds": 1.0,
   "world_source_sha256": {
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.json": "f61a1be4752aa0872b168de1a094ebc1fc633f55968abd02c9e12f1634a7183d",
@@ -3536,6 +5889,28 @@
     "tools/cad/feline_candidate_collision_scene.py": "1ab05e1b0bd221578dfbc0047843e10045000135828b6ca13e6cd60f9c22e8ae"
   },
   "prior_worker_seconds": [
-    79.484
+    79.484,
+    18.282,
+    41.25,
+    2.859,
+    5.735,
+    2.203,
+    5.0,
+    1.563,
+    4.281,
+    0.875,
+    0.891,
+    0.969,
+    0.875,
+    0.891,
+    0.875
+  ],
+  "additive_geometry_extensions": [
+    {
+      "old_constructor_sha256": "5d3e32cc6e977118d4c861ce4806036e27eab78d83f6d932f949afa4299ed6b0",
+      "old_recipe_geometry_AST_identical": true,
+      "added_only": "14W027 alternative bend planes; same original2retained",
+      "old_mouths_first9_R_and_grip_heads_preserved": true
+    }
   ]
 }

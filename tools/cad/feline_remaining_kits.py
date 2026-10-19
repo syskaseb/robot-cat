@@ -4,6 +4,9 @@ Recipes are retained candidates, not their historical unsigned acceptance.
 No old20station search or surface-cloud preprocessing is repeated here.
 """
 import json
+import ast
+import hashlib
+import subprocess
 from functools import lru_cache
 from pathlib import Path
 import numpy as np
@@ -23,6 +26,7 @@ def candidates():
     opened=OUT/'n01-bank-W027-open-saddle.json';packet=json.loads(opened.read_text())
     assert packet['domains'] and not packet.get('errors')
     groups['Bank:W027/single/end']=[dict(r,received_open_packet=True) for r in packet['domains']]
+    extend_open_bank(groups,packet)
     assert len(groups)==27 and all(groups.values())
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in (path,opened,Path(__file__))}
     for name in ('n01-flat20-actual-clamp-kits.json','n01-coupled-clocked-joints.json','n01-bank-W027-open-saddle.json'):
@@ -30,6 +34,40 @@ def candidates():
         assert sha(bundle)==doc['bundle_sha256']
         pins.update({p.relative_to(ROOT).as_posix():sha(p),doc['bundle']:doc['bundle_sha256']})
     return groups,pins
+
+
+def extend_open_bank(groups,packet):
+    """Change the blocked BEND, not the two identical first9mm grips/heads."""
+    key='Bank:W027/single/end';old=list(groups[key])
+    for row in old:
+        for degrees in (0,45,90,135,180,225,315):
+            a=np.deg2rad(degrees)
+            groups[key].append(dict(row,wire_bend_clock_degrees=degrees,
+                bend_unit=[float(np.cos(a)),0.,float(np.sin(a))]))
+    assert len(groups[key])==16
+    assert all(row in groups[key] for row in old)
+
+
+def prove_additive_extension(old_hash):
+    """Old inputs have no new key, so every old material branch is identical."""
+    rel='tools/cad/feline_remaining_kits.py'
+    old=subprocess.run(['git','show','65e2b033:'+rel],cwd=ROOT,check=True,capture_output=True).stdout
+    assert hashlib.sha256(old).hexdigest()==old_hash
+    before=ast.parse(old);after=ast.parse(Path(__file__).read_text())
+    class StripOnlyNewBranch(ast.NodeTransformer):
+        def visit_If(self,node):
+            if ast.unparse(node.test)=="'wire_bend_clock_degrees' in r":return None
+            return self.generic_visit(node)
+        def visit_Expr(self,node):
+            if isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Name) and node.value.func.id=='extend_open_bank':return None
+            return self.generic_visit(node)
+    after=StripOnlyNewBranch().visit(after)
+    for name in ('candidates','source_packet','sleeve','materialise'):
+        get=lambda t:next(n for n in ast.walk(t) if isinstance(n,ast.FunctionDef) and n.name==name)
+        assert ast.dump(get(before))==ast.dump(get(after)),name
+    return dict(old_constructor_sha256=old_hash,old_recipe_geometry_AST_identical=True,
+                added_only='14W027 alternative bend planes; same original2retained',
+                old_mouths_first9_R_and_grip_heads_preserved=True)
 
 
 @lru_cache(maxsize=3)
@@ -52,6 +90,9 @@ def materialise(group,r):
         for row in r['parts']:
             parts[row['name']]=source[row['name']]
             kinds[row['name']]='proposal_wire' if row['kind']=='wire' else 'project_stock_reservation' if 'budget' in row['kind'] else 'proposal_material'
+        if 'wire_bend_clock_degrees' in r:
+            name=next(n for n in parts if kinds[n]=='proposal_wire')
+            parts[name]=wire_shape(dict(r,radius=r['radius']))
         return parts,kinds
     if group.startswith('Bank:'):
         q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis']);radius=r['radius_mm']
