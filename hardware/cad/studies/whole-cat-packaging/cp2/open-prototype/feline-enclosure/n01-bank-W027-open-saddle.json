@@ -1,0 +1,283 @@
+{
+  "status": "W027_OPEN_SOURCE_CURRENT121_OWNTE_RECEIVED_NOT_WHOLE_N01",
+  "N01_complete": false,
+  "selected": false,
+  "physical_pass": false,
+  "source_bank_and_bought_TE_unchanged": true,
+  "source_first9_and_R_and_fullwire_unchanged": true,
+  "recipe": {
+    "point_mm": [
+      -53.999999999999986,
+      15.11999999999998,
+      68.99999999999999
+    ],
+    "departure_axis": [
+      0.0,
+      -1.0,
+      8.300732894393695e-17
+    ],
+    "bend_unit": [
+      0,
+      0,
+      -1
+    ],
+    "R_mm": 12.4,
+    "first_mm": 9,
+    "radius": 1.5499999999999998
+  },
+  "source_endpoint": {
+    "id": "W027/single/end",
+    "holder": "L1",
+    "start_mm": [
+      -53.999999999999986,
+      15.11999999999998,
+      68.99999999999999
+    ],
+    "end_mm": [
+      -53.999999999999986,
+      -6.280000000000019,
+      56.59999999999999
+    ],
+    "radius_mm": 1.5499999999999998,
+    "land_mm": 9,
+    "bend_R_mm": 12.4,
+    "bend": [
+      0,
+      0,
+      -1
+    ],
+    "full_middle_route": false,
+    "departure_axis": [
+      0.0,
+      -1.0,
+      8.300732894393695e-17
+    ],
+    "terminal_name": "Ref_Material_F_L1_CP2_IN_0_0",
+    "terminal_context_key": "BankTerm0_context",
+    "fixed_source_grip_mm": 9,
+    "project_cap_wall_mm": 2
+  },
+  "domains": [
+    {
+      "point_mm": [
+        -53.999999999999986,
+        15.11999999999998,
+        68.99999999999999
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "bend_unit": [
+        0,
+        0,
+        -1
+      ],
+      "R_mm": 12.4,
+      "first_mm": 9,
+      "radius": 1.5499999999999998,
+      "ref": "Bank:W027/single/end",
+      "bank_source": true,
+      "bank_simple_source": true,
+      "normal_degrees": 270,
+      "head_degrees": 270,
+      "full_grip_mm": 9,
+      "cap_wall_mm": 2,
+      "parts": [
+        {
+          "name": "OpenW027:270:wire",
+          "entry": "000.brep",
+          "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+          "kind": "wire"
+        },
+        {
+          "name": "OpenW027:270:saddle",
+          "entry": "001.brep",
+          "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+          "kind": "saddle"
+        },
+        {
+          "name": "OpenW027:270:band_budget",
+          "entry": "002.brep",
+          "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+          "kind": "band_budget"
+        },
+        {
+          "name": "OpenW027:270:head_budget",
+          "entry": "003.brep",
+          "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+          "kind": "head_budget"
+        }
+      ]
+    },
+    {
+      "point_mm": [
+        -53.999999999999986,
+        15.11999999999998,
+        68.99999999999999
+      ],
+      "departure_axis": [
+        0.0,
+        -1.0,
+        8.300732894393695e-17
+      ],
+      "bend_unit": [
+        0,
+        0,
+        -1
+      ],
+      "R_mm": 12.4,
+      "first_mm": 9,
+      "radius": 1.5499999999999998,
+      "ref": "Bank:W027/single/end",
+      "bank_source": true,
+      "bank_simple_source": true,
+      "normal_degrees": 270,
+      "head_degrees": 0,
+      "full_grip_mm": 9,
+      "cap_wall_mm": 2,
+      "parts": [
+        {
+          "name": "OpenW027:0:wire",
+          "entry": "004.brep",
+          "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+          "kind": "wire"
+        },
+        {
+          "name": "OpenW027:0:saddle",
+          "entry": "005.brep",
+          "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+          "kind": "saddle"
+        },
+        {
+          "name": "OpenW027:0:band_budget",
+          "entry": "006.brep",
+          "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+          "kind": "band_budget"
+        },
+        {
+          "name": "OpenW027:0:head_budget",
+          "entry": "007.brep",
+          "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+          "kind": "head_budget"
+        }
+      ]
+    }
+  ],
+  "rejected": [],
+  "queries": [
+    {
+      "head": 270,
+      "part": "wire",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 1.6315050395324528,
+      "required_mm": 1.25
+    },
+    {
+      "head": 270,
+      "part": "saddle",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 3.0212679167646743,
+      "required_mm": 1.25
+    },
+    {
+      "head": 270,
+      "part": "band_budget",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 2.5308916141366744,
+      "required_mm": 1.25
+    },
+    {
+      "head": 0,
+      "part": "wire",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 1.6315050395324528,
+      "required_mm": 1.25
+    },
+    {
+      "head": 0,
+      "part": "saddle",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 3.0212679167646743,
+      "required_mm": 1.25
+    },
+    {
+      "head": 0,
+      "part": "band_budget",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 2.5308916141366744,
+      "required_mm": 1.25
+    },
+    {
+      "head": 0,
+      "part": "head_budget",
+      "other": "Ref_Material_S0_key_CP2_0_0",
+      "gap_mm": 1.9046566567073622,
+      "required_mm": 1.25
+    }
+  ],
+  "parts": [
+    {
+      "name": "OpenW027:270:wire",
+      "entry": "000.brep",
+      "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+      "kind": "wire"
+    },
+    {
+      "name": "OpenW027:270:saddle",
+      "entry": "001.brep",
+      "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+      "kind": "saddle"
+    },
+    {
+      "name": "OpenW027:270:band_budget",
+      "entry": "002.brep",
+      "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+      "kind": "band_budget"
+    },
+    {
+      "name": "OpenW027:270:head_budget",
+      "entry": "003.brep",
+      "sha256": "8e9cb85746b9f127ccda28e9d42d0359028fbc9987cbb7f37cea8b35d2b55475",
+      "kind": "head_budget"
+    },
+    {
+      "name": "OpenW027:0:wire",
+      "entry": "004.brep",
+      "sha256": "d2cf82d0ef115ecdd7088564666d9066b32e5e35627ca6a2de0e27331dbf9fb5",
+      "kind": "wire"
+    },
+    {
+      "name": "OpenW027:0:saddle",
+      "entry": "005.brep",
+      "sha256": "afb4059fbdcae57d7f7671cdca1acb56bf2aa2f24116e12d99e8c4be860a89d2",
+      "kind": "saddle"
+    },
+    {
+      "name": "OpenW027:0:band_budget",
+      "entry": "006.brep",
+      "sha256": "284066ff8617ba6345dafe64e5e542c4a136bbf24ba8726bf0f2113647364dad",
+      "kind": "band_budget"
+    },
+    {
+      "name": "OpenW027:0:head_budget",
+      "entry": "007.brep",
+      "sha256": "384b3ac447f6ffb964b2c6af515306806b57f1c6bf0e5e7b28bd38b05d0e9753",
+      "kind": "head_budget"
+    }
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-six-source-current-core.json": "027839a5061971b61a3222274e273b0fc87605d826a2c3a006a1458ba3b47f3f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-six-source-current-core.breps.zip": "16c436d06233157735784e5f02e01cd364c6c769708f6fb1bda34e917a3c9837",
+    "n01-flat20-field-modulejoint.json": "7bef8fea1a043f78d70d8881f5275c2acf8e5a7a6725ef3e6906cc1eb9f43bcf",
+    "tools/cad/feline_bank_simple_source.py": "7769f2492a38bda46b4c80d241844efa28b063db50cf7db8fedb301408e42645"
+  },
+  "open": [
+    "Whole selected53 fixed/motion/mutual",
+    "Frame roots and all246ends/4MTA/assembly"
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-bank-W027-open-saddle.breps.zip",
+  "bundle_sha256": "a539224a5833b3194dfcc5149d9b985c4a6c9709f491fce4fd414cb9c7ecbb88",
+  "worker_seconds": 1.031
+}

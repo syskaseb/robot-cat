@@ -6,6 +6,7 @@ all246ends/factorycorridors/root/access before N01.
 """
 import hashlib
 import json
+import sys
 import time
 import zipfile
 from pathlib import Path
@@ -20,9 +21,15 @@ from plan_feline_joint_fore_domains import cloud
 from feline_flat_station_templates import build,compact,compatible,box_gap,to_box
 from feline_bank_anchor_templates import bank_candidates,anchor_candidates
 from feline_pwm_pigtail_templates import candidates as pwm_candidates
+from feline_fore_power_pair import SolidQueries,pair_spacing
+from feline_solid_distance import bbox_lower_bound
 
 
-def saved47():
+def sparse(shape):
+    return np.unique(np.array([list(v.Point) for v in shape.Vertexes]+[list(f.CenterOfMass) for f in shape.Faces]),axis=0)
+
+
+def saved47(fast=False):
     path=OUT/'n01-whole51-joint-proposal.json';old=json.loads(path.read_text())
     for n in ('feline_flat_station_templates.py','feline_bank_anchor_templates.py','feline_pwm_pigtail_templates.py'):
         rel='tools/cad/'+n;assert sha(ROOT/rel)==old['source_sha256'][rel],rel
@@ -31,7 +38,24 @@ def saved47():
         groups[st['ref']]=[build(st,r['family'],r['side'],r['departure_X'],r['centre_mm'][0],
             r.get('centre_y_override_mm'),r.get('bend_mode','OUTWARD_CONCENTRIC'),r.get('closure_mode','AUTO')) for r in old['domains'][st['ref']]]
     proof=json.loads((OUT/'n01-flat20-field-modulejoint.json').read_text())
-    extra=bank_candidates(proof);anchors,receipts,pins=anchor_candidates(old['actual_anchor_parent_receipts']);extra.update(anchors)
+    extra=bank_candidates(proof)
+    if fast:
+        fp=OUT/'n01-flat20-actual-clamp-kits.json';hardware=json.loads(fp.read_text());records={r['name']:r for r in hardware['parts']}
+        anchors={};pins={fp.relative_to(ROOT).as_posix():sha(fp)}
+        from feline_flat_station_templates import box_points
+        for name in ('Anchor:Fore','Anchor:Rear'):
+            anchors[name]=[]
+            for r in old['domains'][name]:
+                points=[];boxes=[];delta=np.array([r['axis_X_mm']-r['source_axis_X_mm'],0,0])
+                for part in r['actual_parts']:
+                    bounds=np.array(records[part['name']]['bounds_mm'])+delta
+                    points.append(box_points(*bounds,step=4));boxes.append(dict(name=part['name'],bounds=bounds,kind=7))
+                pp=np.vstack(points)
+                anchors[name].append(dict(r,points=pp,types=np.full(len(pp),7),radii=np.zeros(len(pp)),
+                    bounds=np.array([pp.min(0),pp.max(0)]),boxes=boxes,wires=[],
+                    conservative_per_piece_bboxes_NOT_exact_free_space=True))
+    else:anchors,receipts,pins=anchor_candidates(old['actual_anchor_parent_receipts'])
+    extra.update(anchors)
     pwm,more=pwm_candidates();extra.update(pwm)
     def key(m):
         if m.get('bank_source'):return m['bend_clock_degrees'],m['complete_band_head_degrees']
@@ -44,22 +68,26 @@ def saved47():
 
 
 def main():
-    tick=time.monotonic();dest=OUT/'n01-shared53-proposal.json';assert not dest.exists()
+    tick=time.monotonic();dest=OUT/'n01-shared53-proposal.json';fast='--joint-fast' in sys.argv
+    previous=json.loads(dest.read_text()) if dest.exists() else None
+    if previous:assert fast and previous['status']=='INTERRUPTED_EXPENSIVE_UNSIGNED_PREFILTER_NOT_ACCEPTANCE'
     result=dict(status='RUNNING_SHARED53_NUMERIC_PROPOSAL',N01_complete=False,physical_pass=False,selected=False,
         domains={},errors=[],joint_assignment=None,numeric_only_not_actual_clearance=True,
-        open=['Actual selected53static/mutual/motion','246ends/factorycorridors/roots/tools/assembly'])
+        open=['Actual selected53static/mutual/motion','246ends/factorycorridors/roots/tools/assembly',
+              'Separate P309monitor case/retention and conditional4tap factory balance space; no GTech cavity invention'])
+    if previous:result['previous_dense_diagnostic']=dict(commit='b89447bb',receipt_sha256=sha(dest),worker_stop=previous['owned_worker_stop'],saved_nodes=len(previous['domains']))
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     save()
-    groups,pins=saved47();fanfile=OUT/'n01-six-source-shared-lanes.json';fans=json.loads(fanfile.read_text())
+    groups,pins=saved47(fast);fanfile=OUT/'n01-six-source-shared-lanes.json';fans=json.loads(fanfile.read_text())
     corefile=OUT/'n01-six-source-current-core.json';core,cp,cr=packed(corefile)
     assert not core['all_current_blockers']['failures'] and not core['all_current_blockers']['errors']
     assert len(fans['complete_ports'])==6 and not fans['errors']
     # Sample only the current macro, never the obsolete original source pose.
     fixed=[];fixednames=[]
     for n,s in cp.items():
-        points=cloud(s);fixed.append(points);fixednames.extend([n]*len(points))
+        points=sparse(s) if fast else cloud(s);fixed.append(points);fixednames.extend([n]*len(points))
     tree=cKDTree(np.vstack(fixed));result['current121_surface_sample_count']=tree.n
     result['old47_source_domains_reused_as_candidates_NOT_old_world_acceptance']=True
     # Conservative sample guard for ranking/rejection; no positive claim from
@@ -70,40 +98,82 @@ def main():
         for m in options:
             mask=m['types']!=3
             p=m['points'][mask];rr=m['radii'][mask]
+            if fast and len(p)>512:
+                ix=np.linspace(0,len(p)-1,512,dtype=int);p=p[ix];rr=rr[ix]
             dd,indices=tree.query(p,workers=1);margins=dd-rr;ix=int(np.argmin(margins));gap=float(margins[ix])
             witness=dict(unsigned_surface_gap_minus_radius_mm=gap,source=fixednames[int(indices[ix])],point_mm=p[ix].tolist(),recipe=compact(m))
             if best is None or gap>best['unsigned_surface_gap_minus_radius_mm']:best=witness
-            if gap>=2.75:m['current_macro_unsigned_proposal_margin']=gap;filtered.append(m)
+            if fast or gap>=2.75:m['current_macro_unsigned_proposal_margin']=gap;filtered.append(m)
             else:rejected+=1
         groups[name]=filtered
+        if fast:groups[name].sort(key=lambda m:-m['current_macro_unsigned_proposal_margin'])
         result['domains'][name]=dict(received=len(options),retained=len(filtered),rejected_near_current_macro_samples=rejected,best_received_proposal_witness=best)
         save()
-    shapes={}
+    shapes={};actualmeta={}
     with zipfile.ZipFile(ROOT/fans['bundle']) as z:
         for r in fans['parts']:
             raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256']
             s=Part.Shape();s.importBrepFromString(raw.decode());shapes[r['name']]=s
+            actualmeta[r['name']]={'kind':'proposal_wire' if r['kind']=='wire' else 'project_stock_reservation' if 'budget' in r['kind'] else 'proposal_material'}
     for name,options in fans['domains'].items():
         groups[name]=[]
         for option in options:
             pp=[];tt=[]
             for r in option['parts']:
-                points=cloud(shapes[r['name']]);pp.append(points);tt.extend([1 if r['kind']=='wire' else 2]*len(points))
+                points=sparse(shapes[r['name']]) if fast else cloud(shapes[r['name']]);pp.append(points);tt.extend([1 if r['kind']=='wire' else 2]*len(points))
             points=np.vstack(pp)
             groups[name].append(dict(option,ref=name,source_fan_actual=True,points=points,types=np.array(tt),
                 radii=np.zeros(len(points)),bounds=np.array([points.min(0),points.max(0)]),boxes=[],wires=[]))
         result['domains'][name]=dict(received=len(options),retained=len(options),individual_actual_received=True)
+    if fast:
+        path=OUT/'n01-bank-W027-open-saddle.json';opened=json.loads(path.read_text());assert opened['domains']
+        assert sha(ROOT/opened['bundle'])==opened['bundle_sha256']
+        options=[]
+        with zipfile.ZipFile(ROOT/opened['bundle']) as z:
+            for r in opened['parts']:
+                raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256']
+                s=Part.Shape();s.importBrepFromString(raw.decode());shapes[r['name']]=s
+                actualmeta[r['name']]={'kind':'proposal_wire' if r['kind']=='wire' else 'project_stock_reservation' if 'budget' in r['kind'] else 'proposal_material'}
+        for option in opened['domains']:
+            chunks=[sparse(shapes[r['name']]) for r in option['parts']];pp=np.vstack(chunks)
+            types=np.concatenate([np.full(len(p),1 if r['kind']=='wire' else 2) for p,r in zip(chunks,option['parts'])])
+            options.append(dict(option,points=pp,types=types,radii=np.zeros(len(pp)),
+                boxes=[],wires=[],bounds=np.array([pp.min(0),pp.max(0)])))
+        groups['Bank:W027/single/end']=options
+        result['domains']['Bank:W027/single/end']=dict(received=2,retained=len(options),open_saddle_actual_current121_ownTE=True)
+        pins.update({path.relative_to(ROOT).as_posix():sha(path),opened['bundle']:opened['bundle_sha256']})
+        result['fast_proposal_policy']=dict(vertices_faces_only_ranking_NOT_acceptance=True,max_rank_samples_per_candidate=512,
+            old_candidates_not_discarded_by_unsigned_rank=True,anchor_boxes_conservative_per_piece=True,
+            requires_exact_selected_solids_and_own_clamp_channels=True)
     result['source_sha256']={**pins,fanfile.relative_to(ROOT).as_posix():sha(fanfile),corefile.relative_to(ROOT).as_posix():sha(corefile),
         core['bundle']:core['bundle_sha256'],Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__))}
     empty=[n for n,v in groups.items() if not v];result['empty_domains']=empty;save()
     if empty:
         result['status']='SHARED53_SAMPLE_PREFILTER_EMPTY_NOT_GLOBAL_INFEASIBILITY';save();print(json.dumps(dict(status=result['status'],empty=empty,seconds=result['worker_seconds'])));return
-    memo={};trees={};visited=0
+    result['received_recipes']={n:[compact(m) for m in options] for n,options in groups.items()}
+    memo={};trees={};visited=0;solver_tick=time.monotonic();qcache=SolidQueries()
+    priorjoint=json.loads((OUT/'n01-source-joint-allocation.json').read_text())
+    actualreceipts={tuple(sorted((r['part'],r['other']))):r for r in priorjoint['pairs']}
+    result['source_actual_mutual_new_queries']=[]
     def pair(a,i,b,j):
         key=(a,i,b,j) if a<b else (b,j,a,i)
         if key in memo:return memo[key]
         aa,bb=groups[a][i],groups[b][j]
         if box_gap(aa['bounds'],bb['bounds'])>=2.75:value=True
+        elif all(x.get('source_fan_actual') or x.get('bank_simple_source') for x in (aa,bb)):
+            value=True
+            for ar in aa['parts']:
+                for br in bb['parts']:
+                    n,o=ar['name'],br['name'];s,t=shapes[n],shapes[o]
+                    minimum=pair_spacing(n,actualmeta[n],o,actualmeta[o])
+                    if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum:continue
+                    receipt=actualreceipts.get(tuple(sorted((n,o))))
+                    if receipt and receipt['minimum_mm']==minimum:gap=receipt['gap_mm']
+                    else:
+                        gap=qcache.distance(s,t);receipt=dict(part=n,other=o,gap_mm=gap,minimum_mm=minimum)
+                        actualreceipts[tuple(sorted((n,o)))]=receipt;result['source_actual_mutual_new_queries'].append(receipt)
+                    if gap<minimum-1e-6:value=False;break
+                if not value:break
         elif aa.get('anchor_source') and bb.get('anchor_source'):
             fore=aa if a=='Anchor:Fore' else bb;rear=bb if b=='Anchor:Rear' else aa;value=rear['axis_X_mm']-fore['axis_X_mm']>=90
         elif not any(x.get('bank_source') or x.get('anchor_source') or x.get('f_pwm_source') or x.get('source_fan_actual') for x in (aa,bb)):
@@ -127,7 +197,7 @@ def main():
     def solve(chosen,remaining):
         nonlocal visited
         visited+=1
-        if time.monotonic()-tick>240 or visited>10000:raise TimeoutError('Bounded joint proposal; preserve domains')
+        if time.monotonic()-solver_tick>120 or visited>10000:raise TimeoutError('Bounded joint solver after setup; retain ALL recipes, no repeated preprocessing')
         if not remaining:return chosen
         viable={n:[i for i in opts if all(pair(n,i,o,j) for o,j in chosen.items())] for n,opts in remaining.items()}
         if any(not opts for opts in viable.values()):return None
