@@ -30,14 +30,18 @@ def candidates(groups):
         result[group]=selected+result[group]
         before=[dict(copy.deepcopy(r),selected_T18I_max_head=True,joint_current_bank_plane='BEFORE9_TYPED60') for r in rr]
         result[group]=before+result[group]
+        r=rr[0]['base_recipe']
+        if r['point_mm'][1]<0 and '_OUT_' in r.get('terminal_name',''):
+            parallel=[dict(copy.deepcopy(r),selected_T18I_max_head=True,joint_current_bank_plane='BEFORE9_PARALLEL60') for r in rr]
+            result[group]=parallel+result[group]
     return result
 
 
 def current_profile(group,recipe):
     r=recipe['base_recipe'];q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis'])
-    if recipe.get('joint_current_bank_plane')=='BEFORE9_TYPED60':
+    if recipe.get('joint_current_bank_plane') in ('BEFORE9_TYPED60','BEFORE9_PARALLEL60'):
         if q[1]>0 or group=='Bank:W058/single/end':b=np.array([0.,0.,-1.])
-        else:b=np.array([1. if '_IN_' in r.get('terminal_name','') else -1.,0.,0.])
+        else:b=np.array([1. if '_IN_' in r.get('terminal_name','') or recipe.get('joint_current_bank_plane')=='BEFORE9_PARALLEL60' else -1.,0.,0.])
         theta=math.radians(60);end=q+(9+r['R_mm']*math.sin(theta))*d+r['R_mm']*(1-math.cos(theta))*b
         axis=math.cos(theta)*d+math.sin(theta)*b
         return dict(start=q,axis=d,tip=q+9*d,bend=b,entry=9.,degrees=60.,curve_end=end,wire_tip=end,

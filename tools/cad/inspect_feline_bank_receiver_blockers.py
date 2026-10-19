@@ -51,7 +51,8 @@ def main():
         p=Path(__file__).with_name('feline_bank_zoned_layout.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
     if selected:
         from feline_bank_selected_t18i import candidates as selected_candidates,materialise as selected_materialise
-        recipes={g:[r for r in rr if r.get('joint_current_bank_plane')=='BEFORE9_TYPED60'] for g,rr in selected_candidates(groups).items()};factory=selected_materialise
+        current=lambda r:'BEFORE9_PARALLEL60' if r['base_recipe']['point_mm'][1]<0 and '_OUT_' in r['base_recipe'].get('terminal_name','') else 'BEFORE9_TYPED60'
+        recipes={g:[r for r in rr if r.get('joint_current_bank_plane')==current(r)] for g,rr in selected_candidates(groups).items()};factory=selected_materialise
         for p in (Path(__file__).with_name('feline_bank_selected_t18i.py'),Path(__file__).with_name('feline_bank_zoned_layout.py'),ROOT/'hardware/reference/cable-ties/t18i-111-02370/head-envelope.json'):
             pins[p.relative_to(ROOT).as_posix()]=sha(p)
     query=SolidQueries();records={}

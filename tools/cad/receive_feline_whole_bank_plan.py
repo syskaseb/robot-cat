@@ -33,7 +33,8 @@ def main():
     selected_ties='--selected-t18i' in sys.argv;factory=materialise
     if selected_ties:
         from feline_bank_selected_t18i import candidates as selected_candidates,materialise as selected_materialise
-        recipes=selected_candidates(groups);factory=selected_materialise
+        current=lambda r:'BEFORE9_PARALLEL60' if r['base_recipe']['point_mm'][1]<0 and '_OUT_' in r['base_recipe'].get('terminal_name','') else 'BEFORE9_TYPED60'
+        recipes={g:[r for r in rr if r.get('joint_current_bank_plane')==current(r)] for g,rr in selected_candidates(groups).items()};factory=selected_materialise
     source=OUT/'n01-shared54-whole.json';parent=json.loads(source.read_text());prior=parent['mutual_cache']
     helper=Path(__file__).with_name('feline_bank_zoned_layout.py')
     assert parent['source_sha256'][helper.relative_to(ROOT).as_posix()]==sha(helper)
@@ -52,7 +53,7 @@ def main():
         assert saved['source_sha256'][helper.relative_to(ROOT).as_posix()]==sha(helper),'Adopt unchanged old material before reusing its pairs'
         own=Path(__file__).relative_to(ROOT).as_posix()
         if saved['source_sha256'][own]!=sha(Path(__file__)):
-            versions=[subprocess.run(['git','show',v+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for v in ('bc472259','3fe59048','68c104d7')]
+            versions=[subprocess.run(['git','show',v+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for v in ('fb398066','bc472259','3fe59048','68c104d7')]
             old=next(v for v in versions if hashlib.sha256(v).hexdigest()==saved['source_sha256'][own])
             get=lambda t:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name=='mutual')
             after=get(Path(__file__).read_text())
@@ -112,7 +113,7 @@ def main():
             upper=np.ones(len(choices))
             if selected_ties:
                 for i,(g,r) in enumerate(choices):
-                    if r.get('joint_current_bank_plane')!='BEFORE9_TYPED60':upper[i]=0
+                    if r.get('joint_current_bank_plane')!=current(r):upper[i]=0
             for filename in ('n01-bank-both-after-static.json','n01-bank-zoned-static.json'):
                 records=json.loads((OUT/filename).read_text())['units']
                 for i,c in enumerate(codes):
