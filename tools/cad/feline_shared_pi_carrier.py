@@ -40,8 +40,8 @@ def saddle(rows,radius):
 
 def build():
     from plan_feline_long_return import frozen_core
-    r2='--Pi-carrier-r2' in sys.argv
-    pf=OUT/('n01-shared-Pi-carrier-core-received.json' if r2 else 'n01-tail-supported-gallery-r2-canonical-core-received.json');parent=json.loads(pf.read_text())
+    r3='--Pi-carrier-r3' in sys.argv;r2=r3 or '--Pi-carrier-r2' in sys.argv
+    pf=OUT/('n01-shared-Pi-carrier-r2-core-received.json' if r3 else 'n01-shared-Pi-carrier-core-received.json' if r2 else 'n01-tail-supported-gallery-r2-canonical-core-received.json');parent=json.loads(pf.read_text())
     wf=OUT/'n01-tail-supported-gallery-r2-canonical-world-received.json';external=json.loads(wf.read_text())
     assert not external['failures'] and not external['errors'] and external['critical_phase_complete']
     historical_constructor=parent['source_sha256'].get('tools/cad/feline_shared_pi_carrier.py')
@@ -84,7 +84,30 @@ def build():
         if 'Screw' in n:axes.append([centre.x,centre.y])
     assert len(axes)==4
     rootname='CurrentFoundation:RetainedPWMCarrier';oldroot=parts[rootname];assert oldroot.isValid() and len(oldroot.Solids)==1
-    choices=face_entries(oldroot,[-6,-6,105.6],1);assert choices
+    tool_proofs=[];rootplan_file=None
+    if r3:
+        from plan_feline_pi_root_access import root_arm
+        rootplan_file=OUT/'n01-Pi-root-access-plan.json';rp=json.loads(rootplan_file.read_text())
+        assert rp['status']=='WHOLE_PI_ROOT_ACCESS_PLAN_RECEIVED' and rp['source_sha256'][pf.relative_to(ROOT).as_posix()]==sha(pf)
+        for name,value in rp['source_sha256'].items():
+            if name in ('tools/cad/feline_shared_pi_carrier.py','tools/cad/plan_feline_long_return.py','tools/cad/plan_feline_usb_service_bight.py'):continue
+            assert sha(ROOT/name)==value,name
+        choices=[rp['accepted']];assert oldroot.isInside(A.Vector(*choices[0]['point_mm']),1e-7,False)
+        b=actors['PiBudget:UnlabelledTopComponentsBudget'].BoundBox
+        ko=Part.makeBox(b.XLength+2.5,b.YLength+2.5,104.8-b.ZMin+1.25,A.Vector(b.XMin-1.25,b.YMin-1.25,b.ZMin-1.25))
+        arm=root_arm(choices[0]['point_mm'],choices[0]['stem_mm'],ko)
+        for name,s in parts.items():
+            if not name.startswith('Ref_Material_PWM9685') or 'Screw' not in name:continue
+            faces=[f for f in s.Faces if isinstance(f.Surface,Part.Cylinder) and abs(f.Surface.Axis.z)>.99]
+            head=max(faces,key=lambda f:f.Surface.Radius);b=head.BoundBox;low=b.Center.z<s.BoundBox.Center.z
+            entry=A.Vector(b.Center.x,b.Center.y,b.ZMin if low else b.ZMax)
+            tool=Part.makeCylinder(2.5,25,entry,A.Vector(0,0,-1 if low else 1));gap=arm.distToShape(tool)[0]
+            assert gap>=1.25-1e-6,(name,gap)
+            tool_proofs.append(dict(source_screw=name,entry_mm=list(entry),axis=[0,0,-1 if low else 1],radius_mm=2.5,length_mm=25,
+                new_root_clearance_mm=gap,scope='Added root only; existing native access remains inherited, not physical PASS',project_tool_budget_not_supplier_drawing=True))
+        assert len(tool_proofs)==4,len(tool_proofs)
+    else:choices=face_entries(oldroot,[-6,-6,105.6],1)
+    assert choices
     anchor=np.array(choices[0]['point_mm']);frame=oldroot.copy();joins=[]
     def join(n,s):
         nonlocal frame
@@ -126,7 +149,7 @@ def build():
     rod('upper_USB_beam',[59.5,29,107.1],[ux,28.8581096347,107.1])
     rod('USB_pad_post',[ux,28.8581096347,107.1],[ux,28.8581096347,102.9])
     if r2:
-        originfile=ROOT/recipe['immutable_parent_core_file'];orig=json.loads(originfile.read_text());arc=ROOT/orig['bundle'];assert sha(arc)==orig['bundle_sha256']
+        originfile=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json';orig=json.loads(originfile.read_text());arc=ROOT/orig['bundle'];assert sha(arc)==orig['bundle_sha256']
         rec=next(r for r in orig['geometry'] if r['name']=='USBGrip:Pi:pad')
         with zipfile.ZipFile(arc) as z:raw=z.read(rec['entry'])
         assert hashlib.sha256(raw).hexdigest()==rec['sha256'];usbpad=Part.Shape();usbpad.importBrepFromString(raw.decode())
@@ -159,7 +182,7 @@ def build():
                 frame=frame.cut(Part.makeCylinder(2.5,30,A.Vector(c.x,c.y,head_bottom)))
     for x,y0 in axes:frame=frame.cut(Part.makeCylinder(1.2,15,A.Vector(x,y0,100)))
     frame=frame.removeSplitter();assert frame.isValid() and len(frame.Solids)==1
-    stemfile='n01-shared-Pi-carrier-r2' if r2 else 'n01-shared-Pi-carrier'
+    stemfile='n01-shared-Pi-carrier-r3' if r3 else 'n01-shared-Pi-carrier-r2' if r2 else 'n01-shared-Pi-carrier'
     ff=OUT/(stemfile+'.brep');df=OUT/(stemfile+'.delta.brep');assert not ff.exists()
     delta=frame.cut(oldroot);assert delta.isValid() and delta.Solids;frame.exportBrep(str(ff));delta.exportBrep(str(df))
     n='SharedPi:Carrier';actors[n]=frame;roles[n]='PiFrameNew';rows[n]=dict(kind='proposal_material')
@@ -171,5 +194,12 @@ def build():
     if r2:
         recipe.update(Pi_changed_actors=[n],Pi_unchanged_parent_actor_names=[r['name'] for r in parent['geometry'] if r['name']!=n],
             parent_constructor_historical_sha256=historical_constructor,whole_strap_heads_outside_support_paths=True,actual_M2_head_driver_channels_R_mm=2.5)
+    if r3:
+        alias='ShelfPWM:carrier';difference=oldroot.cut(parts[alias]).Volume+parts[alias].cut(oldroot).Volume;assert difference<1e-5
+        recipe.update(Pi_root_plan_file=rootplan_file.relative_to(ROOT).as_posix(),Pi_root_tool_clearance_proofs=tool_proofs,
+            Pi_printed_alias=alias,Pi_printed_alias_symmetric_difference_mm3=difference,
+            fixed_replaced_names=list(dict.fromkeys(recipe['fixed_replaced_names']+[alias])),
+            world_receipts_for_unchanged_actors=['n01-tail-supported-gallery-r2-canonical-world-received.json','n01-shared-Pi-carrier-r2-world-received.json'])
+        pins[rootplan_file.relative_to(ROOT).as_posix()]=sha(rootplan_file)
     pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (pf,wf,ff,df,ROOT/'tools/cad/feline_shared_pi_carrier.py')})
     return world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe

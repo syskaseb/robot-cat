@@ -2,6 +2,58 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+22:26Z: PiR3 odebrany lokalnie511par/0wskazań/208,312s, następnie
+świat481par/0wskazań/0błędów, pełny przyjęty36ruch bez odroczeń;
+ostatni odcinek185,25s. Korzeń wybrany z rzeczywistego wolnego materiału,
+cztery osie narzędziaPWM min4,3514mm, bez zmiany kupnych części/przewodów.
+Mały overlay10spośród246końców odebrany0,125s: pozostałe wiersze tylko
+referencją, None wewnętrznych kontaktów zachowane; W080 ma12mm ZA chwytem.
+N01 nadal0/10. NEXT: wspólna mapa aktualnych korytarzy/246końców/pojemność,
+przed detalami pozostałych74korzeni. Reużyć komórki niezmienionych części
+i3888pozycji ruchu, przeliczyć zmienione górne źródła. Mapy/ścieżki siatkowe
+nie kwalifikują promieni, wejść ani pojemności. Sztywność drukowanych ramion
+i retencja po przymiarce pozostają niepotwierdzone fizycznie.
+
+21:32Z: pierwsza CAŁA propozycjaPi odebrana214,813s/510par/17wskazań/
+0błędów,317reużytych,28dodatnich połączeń; zachowana e33946ff. Nie tylko
+ostatnia para: PCB6,90066mm3, łebM20,990857mm3, rezerwacja podPCB0,5mm,
+własne7opasek0,15 oraz ramiona w pełnych główkach/opaskach. JEDNA zmiana
+topologii podpór: wspólna belka powyżej główekZ87,3 i zejścia PO opaskach,
+korzeńUSB PRZED jego pełną główką; podPCB zachować pełny1,25keepout,
+cztery kanały główek/narzędziaM2R2,5. Nie zmieniać modułów/końców/przewodów
+ani wybranychM2. Własne opaski parować wyłącznie z przypisanymi żyłami,
+common0 i nominal0,15, nie globalnie obniżać odstępów. R2 w osobnych plikach;
+stara propozycja i wszystkie17świadków zachowane. N01=0/10,hookON.
+
+Następna bramkaPi, po wspólnych7końcach/28sztywnych rezerwacjach/4osiach:
+JEDEN układ, bez wyboru kolejnych pozycjiPCB. Górny U-nośnikPETG na wolnej
+stroniePCB, Z104,8..106,4, osieX-0,5/57,5 Y-15,03189/33,96811; bez lewej
+belki przez microSD. Te SAME M2: łby/nakrętki przesunąć wzdłuż istniejących
+osi do realnego stosuPCB/nośnik/podkładki, nakrętki na spódPCB; nie kupować.
+H1 zachować. Cztery równoległe GPIO: jeden wspólny9mmgrzebień, wspólna
+płaszczyzna osiowa z H11, pozostałe prefiksy wydłużone tylko w istniejącym
+kierunku prostym (niestock/finalcut). Dwa zasilania: jeden dwukanałowy
+grzebień na istniejącym wspólnym prostym Y62,518..71,518, bez zmiany ich
+przewodów; stare dodatkowe12W080 nie jest obowiązkiem drugiego chwytu.
+Siodła otwarte od dołu, 2mmnad rowkami, pełneT18I i nominalny luz0,15,
+osobny9mmkontakt każdej izolacji; retencja/pull/przymiarka faza2, niePASS.
+Całość wspólnie z podporą USB i korzeniem do rzeczywistej wolnej powierzchni
+RetainedPWMCarrier; nigdy zaczynać od rogu bbox. Reużyć statykę/ruch R2 dla
+niezmienionych części. Akceptacja: nośnik połączony, 4otwory/przeloty/stos
+M2, całe7chwytów i obie stronyUSB, brak kontaktów z bankiem/narzędziami/
+budżetami/ruchami, obrys3,25 zachowany. N01 nadal0/10 do CAŁEGO planu.
+
+21:12Z: układR2 odebrany także względem świata/36przyjętych pozycji:
+185kontroli/175aktorów/0wskazań/0błędów. Odebrane fragmenty zachowane;
+ostatnie43,578s. Wąskie gardło odbioru: tysiące ponownych ewaluacji
+BoundBox tych samych brył. Cache175aktorów/1176stałych/3888pozycji trwał
+0,516s, bez zmiany dokładnych testów ani marginesów. Jeden konserwatywny
+prostopadłościan CAŁEGO kupnegoBUS wewnątrz rzeczywistego obrysu daje
+dolne ograniczenie18,2305mm przy wymaganych3,25, nie dowód kolizji bbox.
+Lokalne7wskazań nośnika zamknięte. N01 nadal0/10: wszystkie7chwytówPi,
+wspólne korzenie/narzędzia/korytarze/246końców muszą być uzgodnione razem.
+Commit adc6f6a8 zachowuje konstrukcję; odbiórświata do dołączenia.
+
 21:04Z: R2CANONICAL odebrany218,266s/350par/0wskazań/0błędów;
 212niezmienionych wyników reużytych. Wszystkie7lokalnych wskazań nośnika
 zamknięte bez zmiany kupnych części/przewodów. Przyjęta roboczo geometria

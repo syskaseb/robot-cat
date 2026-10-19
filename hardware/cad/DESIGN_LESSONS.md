@@ -1,5 +1,20 @@
 # Wnioski z projektowania 3D robot-cat
 
+19.10, granica trasowania nie zawsze jest końcem chwytu: W080 zachowuje
+12mm prostej ZA pełnym9mmchwytem. Nową trasę zaczynać na rzeczywistej
+końcowej powierzchni prefiksu. Aktualizować mały overlay przy zachowaniu
+identyfikatorów/None, nie kopiować całego246-końcowego rejestru. Niezmienione
+komórki siatki i odebrany ruch reużywać tylko z przypiętymi źródłami;
+zawarty w mapie graf nie jest jeszcze dowodem promieni ani pojemności.
+
+19.10, odbiór całego układu: cache dokładnych BoundBox175niezmienianych
+aktorów/1176stałych/3888pozycji kosztował0,516s; pozostały odbiór zakończył
+się w43,578s. Nie wyliczać granic CSG od nowa dla każdej pary. Zachować
+dokładną geometrię w narrowphase i aktualizować cache przy transformacji.
+Zawierający CAŁY moduł prostopadłościan wewnątrz prawdziwego obrysu
+z wymaganym marginesem jest dodatnim dowodem przestrzeni dla modułu;
+nakładanie bboxów nadal nie dowodzi kolizji. Nie mylić tych dwóch reguł.
+
 19.10, odbiór geometrii: BRep po imporcie/eksporcie nie musi zachować
 identycznych bajtów, także przy ponownym zapisie tym samym API. Nie
 normalizować kolejno zapisu aż SHA pasuje. Niezmienionych aktorów nie

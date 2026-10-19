@@ -163,6 +163,7 @@ def main():
     pi_carrier='--Pi-carrier' in sys.argv
     if pi_carrier:name='n01-shared-Pi-carrier-core-received.json'
     if '--Pi-carrier-r2' in sys.argv:name='n01-shared-Pi-carrier-r2-core-received.json'
+    if '--Pi-carrier-r3' in sys.argv:name='n01-shared-Pi-carrier-r3-core-received.json'
     dest=OUT/name;resume='--resume-core' in sys.argv;assert resume==dest.exists()
     previous=json.loads(dest.read_text()) if resume else None
     if pi_carrier:
@@ -371,6 +372,7 @@ def receive_world():
     if '--canonical-parent' in sys.argv:source=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json'
     if '--Pi-carrier' in sys.argv:source=OUT/'n01-shared-Pi-carrier-core-received.json'
     if '--Pi-carrier-r2' in sys.argv:source=OUT/'n01-shared-Pi-carrier-r2-core-received.json'
+    if '--Pi-carrier-r3' in sys.argv:source=OUT/'n01-shared-Pi-carrier-r3-core-received.json'
     prior=json.loads(source.read_text());diagnostic='--diagnose-world' in sys.argv
     if diagnostic:
         # Collect a frozen whole hypothesis BEFORE correcting its separate
@@ -387,6 +389,7 @@ def receive_world():
     if '--canonical-parent' in sys.argv:name='n01-tail-supported-gallery-r2-canonical-world-received.json'
     if '--Pi-carrier' in sys.argv:name='n01-shared-Pi-carrier-world-received.json'
     if '--Pi-carrier-r2' in sys.argv:name='n01-shared-Pi-carrier-r2-world-received.json'
+    if '--Pi-carrier-r3' in sys.argv:name='n01-shared-Pi-carrier-r3-world-received.json'
     dest=OUT/name;resume='--resume' in sys.argv;assert resume==dest.exists()
     world,parts,meta,pins,docs=current()
     for name,value in pins.items():assert prior['source_sha256'][name]==value,name
@@ -400,6 +403,10 @@ def receive_world():
     pose=prior['recipe']['BUS_relative_placement'];bustf=A.Placement(A.Vector(*pose['base_mm']),A.Rotation(*pose['quaternion']))
     n=world.bus['name'];s=parts[n].copy();s.Placement=bustf*s.Placement;actors[n]=s;roles[n]='BUS';rows[n]=meta[n]
     inverse=world.bus['inverse']*bustf.inverse();fixed={n:s for n,s in parts.items() if meta[n].get('group')!='PiUpper' and meta[n].get('role')!='BUS' and not n.startswith('CurrentBUS:')}
+    base_fixed_names=set(fixed)
+    if prior['recipe'].get('Pi_printed_alias'):
+        a=parts[prior['recipe']['Pi_actual_root']['owner']];b=parts[prior['recipe']['Pi_printed_alias']]
+        assert a.cut(b).Volume+b.cut(a).Volume<1e-5,'Only proved same printed source may have a retired alias'
     for n in prior['recipe'].get('fixed_replaced_names',[]):
         assert n in fixed,n;fixed.pop(n)
     frame_delta=None
@@ -437,6 +444,26 @@ def receive_world():
         old=json.loads(dest.read_text());assert old['source_sha256']==result['source_sha256']
         result.update(checks=old['checks'],failures=old['failures'],completed_actors=old['completed_actors'],
             previous_runs=old.get('previous_runs',[])+[dict(worker_seconds=old['worker_seconds'],receipt_sha256=sha(dest),errors=old['errors'])])
+        if old.get('motion_deferred_for_static_hold'):result['motion_deferred_for_static_hold']=old['motion_deferred_for_static_hold']
+        if old.get('unchanged_world_reuse'):result['unchanged_world_reuse']=old['unchanged_world_reuse']
+    if not resume:
+        newgeo={r['name']:(r['sha256'],r['role']) for r in prior['geometry']};reused=[]
+        for filename in prior['recipe'].get('world_receipts_for_unchanged_actors',[]):
+            wp=OUT/filename;old=json.loads(wp.read_text());cp=OUT/filename.replace('-world-','-core-');oc=json.loads(cp.read_text())
+            assert old['source_sha256'][cp.relative_to(ROOT).as_posix()]==sha(cp)
+            assert all(old['source_sha256'][n]==h for n,h in pins.items()),'Changed fixed world cannot inherit pair evidence'
+            if not set(fixed)<=base_fixed_names-set(oc['recipe'].get('fixed_replaced_names',[])):continue
+            oldgeo={r['name']:(r['sha256'],r['role']) for r in oc['geometry']}
+            same={n for n,v in newgeo.items() if oldgeo.get(n)==v and n in old['completed_actors'] and n not in old.get('motion_deferred_for_static_hold',{})}
+            same-={r['a'] for r in old['failures']}
+            for key,row in old['checks'].items():
+                actor=key.split('|')[0]
+                if actor not in same:continue
+                if '|fixed:' in key and key.split('|fixed:',1)[1] not in fixed:continue
+                assert row['ok'];result['checks'][key]=row
+            result['completed_actors']=list(dict.fromkeys(result['completed_actors']+sorted(same)))
+            reused.append(dict(source_sha256=sha(wp),same_BRep_role_completed_actors=len(same),source=filename))
+        result['unchanged_world_reuse']=reused
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     critical=[n for n in actors if roles[n]!='BUS' or n.startswith('CurrentBUS:') or n=='Ref_Material_BUSsupplier0_0_0']
     # No actor/fixed solid is transformed in-place in this receiver. Cache
@@ -474,7 +501,12 @@ def receive_world():
                     if n in prior['recipe'].get('FPWM_moved_whole_output_names',[]) and m==prior['recipe'].get('FPWM_case_name'):
                         assert prior['recipe']['FPWM_case_symmetry_difference_mm3']<1e-5
                         r=dict(ok=True,unchanged_internal_factory_mate_reused_via_complete_output_isometry_and_case_invariance=True)
-                    elif not t.Solids:r=dict(ok=False,reason='Existing curve-only route requires actual physical profile; not a material collision claim')
+                    elif not t.Solids:
+                        rr=meta.get(m,{}).get('nominal_profile_radius_mm')
+                        if rr:
+                            from plan_feline_pi_root_access import profile_gap
+                            r=profile_gap(tested,t,rr,minimum);r['fixed_circumscribed_profile_radius_mm']=rr
+                        else:r=dict(ok=False,reason='Existing curve-only route requires actual physical profile; not a material collision claim')
                     else:
                         if n==world.bus['name']:
                             a=t.copy();a.Placement=inverse*a.Placement;gap=query.distance(world.bus['original'],a)
