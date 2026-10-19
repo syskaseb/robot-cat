@@ -72,6 +72,304 @@ Natywny wybrany master nadal bez zmian. Licznik0/10. Limit31%used/69%remaining,
 hookresultstageON bez terminu, bez resetu/maila. Dotychczas37min27s czasu
 ściennego tego wznowienia (od22:12:45Z), nie ciągłegoCPU.
 
+23:07Z: bramka CAŁYCH faktycznych właścicieli odebrana63405/28,656s:
+45/45wcześniejszych rdzeni odrzucone,0błędów. Nie uruchamiać dalej ich
+wachlarzy. KDs unsigned nie wykrywało wnętrza baterii. ForeFHAC to F_HY,
+nie F_PI; poprawiono etykietę, nie część. Przednie ustawienie osiowe też
+odrzucone na pełnej P0/F_HY, bez prób jego kosmetycznych przesunięć.
+Nowa uzgodniona hipoteza przestrzeni: S1 po przeciwnej stronie F_HY,
+na zewnątrz przedniej podporyP0 i nad pełną ramą, klucz w+Y do środka,
+płaszczyzna poprzeczna45°. Wysokość z rzeczywistegoP0+1,25+połowy obudowy.
+Poza tym samy przednimrogiem nie zamrażać łuku90° ani prostego12: po
+przeniesieniu chwytu za łuk zostaje3mm projektowego odsunięcia od lufki,
+R25,2 i pełne9mm chwytu. Żadnej zmiany wymiaru producenta ani kupnych części.
+22188/18,735s: S1[-99,3,-57,55,63,104524] przeszło900kontroli krytycznych
+P0/bank/bateria/CAŁE F_HY,0utraconych luzów. Dalekie pary mają jawny dowód
+separacji bbox, bliskie rzeczywiste BRep; bbox nie deklaruje kontaktu.
+Teraz ta JEDNA nowa pozycja do całej sceny (45poprzednich bez ponownego
+sprawdzania), potem obrys/motion36 i pełna elastyczna wiązka, nie detaleCAD.
+N01OPEN0/10; licznika nie zmieniono. Limit23:06:21Z32%used/68%remaining.
+
+23:32Z: odebrano33760/35,891s/exit0: wszystkie10części źródła przechodzą
+rzeczywiste36próbek kładzenia do94,79mm obniżenia i absolutne325×200×160.
+Nie dowodzi to ciągłego ruchu ani fizycznegoPASS. Niewybrany obrys p4 wymaga
+2korekt przedniego przekroju wewnątrz max200; nie zamrażać starego zwężenia.
+Cała obecna płytka PWM blokuje źródło: pierwszy świadek nakrętka0,8235mm,
+więc nie przesuwać samej nakrętki. NEXT wspólna pozioma półka całegoPWM,
+4odwrócone kompletne stosy śrubowe,7rzeczywistych końców i2wspólne grzebienie,
+pełny nośnik/korzeń; potem S1 oraz pozostałe47grup/narzędzia/obrys.
+ATO wyciągane w±Y, nie pionowo — wykorzystać istniejącą pełną rezerwację.
+Limit23:32:51Z33%used/67%remaining, bez resetu. Czas ścienny80min06s od
+startu, nie ciągłeCPU. N01OPEN0/10. Wybrany natywny master bez zmian.
+
+23:44Z: wspólny PWM odebrany85008/62,188s:38części nowego właściciela,
+0braków względem wszystkich stałych właścicieli/S1/12bocznych korytarzyATO
+i36próbek nóg. To NIE pełnyN01: własne połączenia/PETG-fit/47zmiennych/
+obrys/pełny plan końców nadalOPEN. 2wcześniejsze odrzucenia zapisano w tym
+samym raporcie, bez kasowania: S0, potem pełna spodnia strona osprzętuS1.
+Wysokość z CAŁYCH wybranych śrub, nie samej płytki; przewody XL mają
+projektowe1,5mm przedR10 i9mm po łuku, bez zmiany lutowanych końców.
+Nośnik ma1bryłę,4kompletne stosy śrub i2wspólne grzebienie. Właściwa liczba
+kupnych części PWM to15=PCB+4śruby+4nakrętki+4dolne+2górne podkładki,
+nie wcześniejsze błędne17. Nic nie dodano/usunięto. Korzeń łączy się
+z rezerwacją BankBed:108mm³ w6×6×3, jawne połączenie konstrukcyjne,
+nie dowód fizycznego mocowania. Wszystkie inne kontakty nadal kontrolowane.
+4testy konstruktorów/końców/źródeł0,816s. Limit23:44:25Z33/67%, bez resetu.
+
+23:59Z: własny montaż PWM odebrany45145/10,406s:105bliskich par,
+0przecięć/błędów; ponowny odbiór cache3,141s. Połączenia własnego
+podzespołu mają jawne kryteria: wolny płaszcz0,2mm; szczelina opaski0,25mm;
+łożyskowane powierzchnie mogą się stykać; między zewnętrznymi modułami
+pozostaje1,25mm. Żaden płaszcz nie może przenikać materiału. Nie zmniejszono
+kryterium kolizji zewnętrznych. Poprzedni nośnik miał braki: otwory nie
+przechodziły przez belki, opaski przecinały korzeń i pionowa kolumna
+przechodziła przez własnąPCB. Teraz wspólny powrót nośnika biegnie POD
+płytką i za jej krawędzią, wszystkie otwory i rezerwacje opasek są pełne.
+Cały rząd XL wychodzi od podkładki, bez przesuwania padów/zakupów.
+97037/75,172s:22niezmienione części PWM reużyte,16zmienionych części
+ponownie przeszło stały świat/S1/ATO/motion36.0błędów. Ponadto22źródła
+porównano z aktualnymi BRep różnicą symetryczną brył, nie samymbbox.
+Wspólne47zmiennych/obrys/pełne korzenie i końce nadalOPEN, N01OPEN0/10.
+1181/16472 liczy już S1 first3/R25,2 z różnymi kątami łuku i pełnym9po
+łuku.3testy nowych profili0,194s; nie ponawiać starych12+90°.
+Limit23:59:03Z33%used/67%remaining. Czas106min18s od wznowienia, nieCPU.
+
+19.10 00:31Z: N01 nadal0/10. Commitdfd50b2d zabezpiecza kompletny
+PWM: własne105par bez przecięć,22niezmienione/16ponownie odebrane części,
+kanoniczne źródła potwierdzone różnicą symetryczną brył. Nie jest toN01.
+ŹródłoS1 miało brak w poprzedniej bramce:900krytycznych i36motion NIE
+zamykało pozostałego świata po pierwszym świadkuPWM. Rzeczywiste S0body
+przecinało kontrolerS1 o9755,96mm³, kluczS0/oczko o47,18mm³. Poprawka
+podejścia: zakaz kolejnych wachlarzy przed CAŁYM wspólnym układem źródeł.
+1181 odebrano411,813s (miękki240s przekroczony przez atomowe operacjeOCC),
+domenez9/0/2częściowo,44BRep,0błędów; drugie wyjście blokuje S0, nie R.
+Nie ponawiać tej rodziny ani starych900/380niezmienionych par.
+Dolny przedni S0 boczny odrzucony31,157s przez biodro, osiowy27,750s przez
+zachowane P0. Tylny S027,532s blokował F_AUX; wspólna zamiana F_AUX na
+górny przód wraz z OBU nominalnymi100mm fabrycznymi ogonami27,735s
+wskazała też XT60. To nadal hipoteza, nie wybór ani zweryfikowana całość.
+Teraz13371/PID19340 zbiera WSZYSTKICH właścicieli w przestrzeni28części,
+stałe/mutual/motion, zapisując każdą parę; nie przenosić następnego jednego
+elementu po pierwszym świadku. S0ma2rzeczywiste osie/plane lufek zBRep;
+stare kierunki guide były błędne. Odczyt00:31:08Z34%used/66%remaining,
+bez resetu. Czas2h18min23s od wznowienia, nieciągłeCPU. HookON do wyniku.
+
+00:51Z: pełna lista28części odebrana13371/221,250s/757par/0błędów.
+Dolny układ S0 rzeczywiście przecina składane nogi, więc nie ratować go
+przenoszeniem kolejnoF_AUX/XT60/złączy. Cały diagnostyczny wynik603kolizji/
+rezerwacji zapisano0c6d941e; to NIE wynikN01. Dla niezmienionego S1
+pozostały tylkoFRcuff iW077 (drukowany element/cała wiązka do wspólnego
+przeplanowania), bez nowego P0. Pozostałe900+380niezmienionych par reużyte.
+Nowy wspólny plan: S0wysoko wśrodkowym korytarzu, klucz wX do przodu,
+oba M10barrele UP/OUT30°; Pi4kompletny44częściowy model z OBU zajętymi
+krawędziami na dodatnim boku. P_SYS, akumulator, bank i napędy bez ruchu.
+Pozycje liczone z rzeczywistych granic P_SYS/PCB i budżetu325×200×160,
+nie z zerowego punktu rysunku dostawcy. Stare mocowania/środki kabli Pi/S0
+nie odziedziczą kwalifikacji.76973/PID24040 wykonuje najpierw rzeczywisty
+wewnętrzny fit S0, potem pełną listę stałych/mutual/motion; bez nowych
+detali montażowych/wachlarzy przed zamknięciem tej bramki. N01OPEN0/10.
+00:51:55Z limit34%used/66%remaining. Bez zakupów/resetów/PASS. HookON.
+
+00:59Z:76973 odebrany exit1 — błąd wrappera identyfikacji P_SYS naprawiony,
+bez wyniku kolizji.3testy całego konstruktora/Pi44/rozróżnienia bramek4,031s.
+Źródło whole_cat_interior.py jawnie opisuje S0 jako rezerwację rodziny,
+NIE dokładny korpus HELLA. Dwa kontakty własnych oczek z tym cylindrem
+pozostają SUPPLIER_INTERFACE_HOLD jak w check_source_contact_insulation;
+nie są dowodem fizycznej kolizji ani fizycznego luzu.8rzeczywistych par
+oczko–przeciwny metal przechodzi odstęp1,25mm. Pozycja Pi wynika z faktycznej
+płaszczyzny PCB, pełne44części przemieszczone sztywno.72505/PID6864 zbiera
+CAŁĄ listę stałe/wzajemne/36motion dla nowego wspólnego układu. N010/10,
+wybrany master niezmieniony. Odczyt00:59:10Z35%used/65%remaining, bez resetu.
+
+01:05Z:72505 odebrano209,329s/456par/188braków odstępu/2błędyOCC.
+Cały układ centralneS0/bocznyPi ODRZUCONY: bank i składane nogi, nie
+pojedyncza śruba. Nie powtarzać. Nowe funkcjonalne strefy wspólnie:
+S0wprzedniej wnęceX−117,5, klucz WTYŁ doX−31; Pi cały zachowany górny
+pakiet przesunięty+20X z końca klucza+6mm do kupnego USB; MAIN NAD bankiem,
+dwa pełne stosy śrub odwrócone, cały pakiet+45Y/+7,25Z z granicy banku83.
+Żadnych zmian części/banku/P0;83części mieszczą absolutny budżet325×200×160.
+To tylko konstruktor, nie dowód wspólnego światła/obrysu/montażu. Własne
+pary MAIN sprawdzane przed następnym wspólnym przebiegiem, N01nadal0/10.
+Limit01:05:24Z35/65%, hookON. Wybrany natywny master niezmieniony.
+
+01:20Z:9066 odebrano175,390s/83części/42bliskiepary/26braków/0błędów.
+Własne18części MAIN:7,660s/0przenikań po pełnych kanałach opasek; to nie
+cały montaż. Pi pozostaje nad nogami bez nowego kontaktu z P0; starej
+bocznej pozycji nie ponawiać. Wspólna przednia wnęka wymaga zmiany CAŁEGO
+F_HY i kierunku klucza S1, nie kolejnej poprawki śruby. Wyszczególniono
+również JPWM,6kontaktów starego PiUSBData i3odstępy1,024<1,25 kluczaS0/TE.
+Następny uzgodniony podział funkcji: S0fore z kluczem skośnie wtył/wgórę,
+S1lewyfore klucz osiowo wX, F_HYprawyfore poziomo z OBU pełnymi nominalnymi
+ogonami, MAINna przeciwległym górnym boku, JPWMpodPWM, Pi górą. Najpierw
+cała rezerwacja/końce, potem jeden odbiór. Naprawiono stratę czasu: backend
+przyjmie JUŻ załadowaną scenę zamiast drugi raz ją budować w tym samym
+workerze. Nowa pozycjaS1 NIE może reużyć900/36dowodów starej pozycji.
+Limit01:17:34Z35/65%, bez resetu, N01OPEN0/10. Czasścienny3h07min44s,
+nieciągłeCPU. HookON do całegoN01, bez zmiany ustawień modelu.
+
+01:29Z: wspólny konstruktor106części obejmuje teraz CAŁE przednie strefy:
+S0oś klucza10° wtył/wgórę, S1key+X, F_HYprawy górny bok, MAINlewy górny
+bok, JPWMpodPWM, Pi na środku całej wnęki między kluczem a BUS. Nie zmieniono
+R30/first3 USB: nowy pełny łuk i9mm wyjścia przechodzi względem WSZYSTKICH
+nowych właścicieli. Oba F_HY mają97mm na zewnątrz+3mm wewnątrz=100mm
+projektowego fabrycznego blanku;3mm przejścia+9mm chwytu PRZEDR12,4 oraz
+pełny9mm chwyt po złączu. Nie są to potwierdzone wymiary dostawcy.
+Wszystkie106rzeczywistych BRep mieszczą absolutny budżet z3,25mm rezerwą;
+BSpline coarsebbox ogona zawyżał zasięg1,162mm, exactoptimalbb mieści się,
+więc nie przesuwano z tego powodu części. Zidentyfikowano też błąd ramki
+opaski: lewoskrętna macierz dla osiowych portów; poprawiona na prawoskrętną,
+4testy1,796s obejmują12kombinacji osi/promieni i rzeczywiste przenikanie.
+11testów współdzielonego konstruktora/cache13,496s. To NIE pełny odbiór
+zewnętrzny/obrys/123odcinki; N010/10. Commitca6b2dc4 zabezpiecza poprzednie
+2pełne odrzucone układy bez zmiany natywnego mastera. Limit01:28:09Z36/64%.
+
+01:53Z:107części odebrane7839/214,375s/123pary,16niezmienionych par
+reużytych. Pełny S1/pinwheel wyznacza dolną płaszczyznę39,77mm; obrót−135°
+wokół osi klucza usunął kontakt oczka z nogą. JPWM jest OBOK półki PWM,
+nie w zbyt małej szczelinie między kluczem a PCB. Nowy1bryłowy wspornikPWM
+ma drogę obciążenia ZA kluczem, w rzeczywistej9mm przerwie R1/R2 przyX−23;
+37pozostałych części PWM bez zmian, dodany materiał min0,2mm od każdego.
+Odbiornik pierwotnie błędnie uznał własne105uzgodnionych par za zewnętrzne
+oraz użył Z34,7 dolnej szyny zamiast Z52 rzeczywistej3mm płyty. Korekta
+0,609s sprawdziła WSZYSTKIE37części dodanego materiału i dokładne108mm³
+wspólnego przecięcia. Surowe błędne wiersze zachowane w tym samym raporcie;
+żadnej kolizji z kupną częścią/przewodem nie zwolniono. Zewnętrznych błędów0.
+Pozostałe12braków dotyczy wyłącznie starychFL/FR cuff/tie i nadmiarowej
+przedniej części rezerwacji BankBed−1 — nie P0/kupnych modułów. N01nadal0.
+NEXT: FL główka opaski do wewnątrz i F_HYchwyt na zewnętrznej stronie;
+FRcały9żyłowy odbiornik20mm do wolnego wewnętrznego korytarza przy tym samym
+X/Z, z zachowanym starym korzeniem. Nie zmniejszać przekroju wiązki:3×3
+pitch3,6 i maksOD3,1 daje10,3mm; czujne odróżnienie od cienkiego sygnału.
+Następnie skrócić CAŁY nadmiarowy wysięg górnej płyty do rzeczywistego
+R1housing−1,25mm, zachowując oparcie pierwszego gniazda i nowy rootX−23.
+Pełne źródłowe6wachlarzy/47grup/246końców/4MTA/obrys/narzędzia nadalOPEN.
+Odczyty01:44:49/01:48:44/01:53:55Z36%used/64%remaining, bez resetu. Okno
+trwa3h41min10s, nieciągłeCPU. HookON do pełnegoN01 bez terminu godzinowego.
+
+02:28Z:121części/worker72813 odebrano180,516s:122pary,2luki nominalne
+(.95mm cuffFR–ForeNegativeBankConnection,1,007566mm cuffFR–S1body),0błędów.
+Pełny boczny korzeń83,7mm3/54mm2,9przewodówOD3,1 i pełny chwyt9mm
+przeszły4testy1,195s, ale nie kwalifikują całegoN01. Obrys107części
+325x196x160 przeszedł19,875s/0błędów/0wyjść, rezerwa3,25mm. Nie powtarzać.
+Cache: przekazywać oryginalneBRep niezmienionych części; import/eksportOCC
+zmieniał bajty bez zmiany geometrii i niepotrzebnie unieważniał pary.
+W bieżącym121 policzono tylko7zmienionych par,115odzyskano z przypiętej bazy.
+
+Plan przestrzeni6wyjść ujawnił W064 bez domeny w starej wnęce; obudowa
+samego S1 nie była pełnym planem. Dwie przeciwne boczne wnęki odrzucono
+tanio na rzeczywistych S0key–PiUSB/S0body–S1ring/PWMroot, bez pełnej sceny.
+Aktualny wspólny pilot: całe10częściS1 przed pełną płaszczyzną P0Mount,
+delta(-6,2;0;-9)mm, S0/Pi/FHY bez zmian. Globalna wysokość szyny nie jest
+rzeczywistą podłogą tej przedniej/bocznej wnęki. Wszystkie6pełnych wyjść
+wchodzą PRZED kolejnym testem całego rdzenia. Dodatkowe3mm prostej były
+założeniem projektu, nie danymi producenta: łuk S1 zaczyna się stycznie
+na rzeczywistej płaszczyźnie końca baryłki; R25,2/OD4,2/chwyt9 niezmienione.
+5testów krzywych/pełnych opasek/przekroju1,610s PASS. Nie jest to fizycznyfit.
+Wykorzystanie pełnych zatwierdzonych200mm szerokości zamiast196 rezerwacji
+nie powiększa zatwierdzonego tułowia. Rzeczywisty nowy obrys zawiera stary;
+planowana ścianka2mm+powietrze1,25mm bez obniżania. Trwa89527/PID8420:
+najpierw pełne siodła/opaski/główki wobec obrysu, potem pozostałe części.
+N01 nadal0/10. Odczyt02:28:19Z37%used/63%remaining, bez resetu. Następnie
+wspólne47grup/246końców/4MTA/korzenie/narzędzia/montaż; nie detalN03.
+
+02:43Z: sześć pełnych wyjść ma otrzymane domeny1/3/2/3/3/3, bez błędów.
+W064/W065/W067:184,563s; W068 odzyskane bez powtarzania3gotowych portów
+w113,375s; S0 obie strony88,937s. Błąd szablonu S0: główka6x6x6 była
+world-axis zamiast w ramie pochylonej opaski. Cała kostka zachowana216mm3,
+zmieniona orientacja;9wcześniejszych główek S1 porównano rzeczywistą
+różnicą brył0, nie unieważniono gotowych portów.6testów1,689s PASS.
+Brak pierwszej próby W068 nie był brakiem miejsca: alternatywne główki
+nie były jeszcze w świecie. Zapisywać per-actor wyniki i ujemne pary.
+
+W mocowaniuFR pełna kontrola własna ujawniła odziedziczone43,8mm3
+przecięcia opaski z ramieniem. Sam nowy detal nie dodawał przecięcia, ale
+stary błąd NIE jestPASS. Jedno pełne odejmowanie opaski z zapasem.25mm
+usuwa konflikt, zostawia1solid. Sąsiedni ForeNegativeBankConnection jest
+wspólną drukowaną ramą: pełne2mm połączenie przez33mm3 zamiast omijania
+luzu.95mm. Korzeń wyprowadzono z rzeczywistej9x2powierzchni obrzeża,
+nie całegoBBox z odziedziczonym występem.3testy2,514s PASS,9żył i opaska
+bez dodatniej objętości, wymiar zapasu.25 zachowany. Nie dowodzi nośności.
+Trwa8072/PID17852:121części,11zmienionych, reszta surowychBRep i par
+odzyskana. DOPIERO po pełnych6domenach uruchomiono tę kontrolę rdzenia.
+Sześć domen to nie wspólna alokacja ani N01. Następne: wybór6/47grup,
+pełne123odcinki246końców/4MTA/korzenie/narzędzia/montaż. N01 nadal0/10.
+Wybrany master SHA aff0a45...d4ee niezmieniony. Commity168fed13/0e6ef1f3/
+52c405bb zabezpieczają sprawdzone dane, nie wybór nowego kota. Odczyt
+02:42:59Z38%used/62%remaining, bez resetu. OknoON bez deadline.
+
+02:52Z: rdzeń121 odebrany8072/234,062s/237par/0utraconych luzów/0błędów.
+Wspólna alokacja6wyjść odebrana3,734s/24dokładnepary/7węzłów/0błędów;
+zmienione części w prawdziwym obrysie200 i wszystkie warianty wyjść wobec
+dodanego mostu też bez utraty zapasu. Commity99163bf4/59eb32b6. To nie N01:
+trwa72890/PID18068, wspólne53grupy=47wcześniejszych+6obecnych źródeł.
+Ekran powierzchni obecnych121części to TYLKO propozycja, nie akceptacja
+przenikania ani dziedziczenie starego świata. Po nim rzeczywiste wybrane
+bryły/korzenie/246końców/4MTA/fabryczne korytarze/dostęp/montaż. N01 0/10.
+Limit02:50:59Z38%used/62%remaining, reset nieużyty, hookON bez deadline.
+
+03:42Z: stary katalog rozmieszczeń kostek dopuszcza najwyżej15/20, optymalność
+HiGHS potwierdzona7,469s; stary pełny53 układ odrzucony przed przewodami
+15,422s. To ograniczenie katalogu, nie dowód za małej obudowy. Nie powtarzać
+staregoCSP/pola unsigned ani źródeł. W027 pełne9mm/R12,4 ma dwa otwarte
+siodła bez kolizji z obecnym121+TE,1,031s. Teraz wspólne nowe strefy wszystkich
+20kostek i pominiętego monitora P309 wobec obecnych brył/ruchu/obrysu,
+worker79890/PID19484; chwyty/korzenie/246końców/narzędzia później wN01.
+Commity59eb32b6/c7621879 zachowane; master niezmieniony.0/10, hookON.
+Limit03:42:39Z39%used/61%remaining, bez resetu. Czas okna nie oznacza CPU.
+
+03:53Z: nowe płaskie strefy pozwalają na21brył=20kostek+monitor; własnyW043
+przyP_SYS sprawdzony przez zerową objętość wspólną, nie odstęp od obcej części.
+87,563s+26,953s odbioru zmienionej reguły. Nie oznacza miejsca na pełne9mm
+wyjścia: sąsiedni korpus może je blokować. Wspólny układ dwóch poziomów
+bocznych odrzucony68,453s: dolny poziom przecina ruch kładzenia, górny bank.
+Zmiana przyczyny: przestrzeń pod platformą wewnątrz istniejącego brzucha,
+pełny chwyt9mmPO łuku, nie skracanie izolacji/promienia. Odbiór80,469s daje
+10małych/4duże miejsca podplatformowe, nie komplet samodzielnego układu.
+Następnie jedna wspólna alokacja wszystkich pełnych jednostek z odebranych
+stref, nie wymuszanie jednej orientacji na20częściach ani kolejne wysokości.
+Konstruktory:3testy obrotów1,121s i test chwytów po łuku0,691s, bez
+przenikania własnego przewodu z kostką/grzebieniem/opaską/główką216mm³.
+Własne korzenie, narzędzia i cały N01 nadalOPEN0/10; master niezmieniony.
+Limit03:53:25Z40%used/60%remaining, reset nieużyty, hookON.
+
+04:05Z: odbiornik pełnych jednostek zakończył pierwszy atom240,063s,
+17alternatywD_FL bez utraty zapasów; nie zaliczono żadnego całegoN01.
+Zamiast wyliczać wszystkie lokalne warianty, wspólny HiGHS wybiera20kostek,
+monitor i6pełnych wachlarzy; kontrola rzeczywistych brył dotyczy aktualnego
+wyboru. Odrzucenie przewodu wyklucza warianty zmieniające samą główkę,
+wcześniejsze dokładne pary źródeł są reużywane. Nie zmieniono geometrii
+ani marginesów z powodu odrzucenia. Commity32f8f985/ad9b84aa/aafc89c7/
+4643af5b. Własny kontroler24340 zatrzymano tylko dla tej poprawki;
+odbiornik22148 zachował pary przed zamknięciem pipe, błąd loguOSError22
+zapisany jako transport, nie geometria/PASS. Oba procesy odebrane.
+Teraz64540/PID1764/child12724, jeden ograniczony atom naraz, okno hookON.
+Później inne27jednostek, pełne korzenie/narzędzia/montaż/123odcinki246końców
+z4MTA/fabrycznymi długościami. N01 nadalOPEN0/10. MasterSHA aff0a45b...
+ponownie potwierdzony04:05Z; bez zapisu wybranego natywnego CAD.
+Limit04:05:09Z40%used/60%remaining, reset nieużyty. Czas okna21165s
+nie jest czasem CPU ani potwierdzeniem ciągłej pracy.
+
+04:51Z: zmiana CAŁEGO układu po36wyborach starego katalogu. Wszystkie
+dokładne pary zachowane; własny odbiornik10768 zatrzymany, kontroler6576
+sam zakończył, brak procesów osieroconych/natywnych zmian. Nie jest to
+globalny dowód niemożliwości ani N01PASS. Nowe boczne listwy serwisowe:
+dolny rząd|Y|80, pełne9mm przed poziomymS, promienie niezmienione;
+górny|Y|76,75, wspólne9mm przed łukiem w górę/dośrodka i rezerwa na
+dalszy łuk w dół nad bankiem. Cały grzebień+opaska+główka216mm³,
+nie indywidualne rozbudowane uchwyty. Odrzucony wachlarz3D/usuwany helper
+nie jest aktualną konstrukcją. Wydłużono tylko narzędzie wycinające kanały,
+nie przewód/chwyt, żeby usunąć błądOCC współpłaszczyznowych cięć.
+2testy/11,329s:6pełnych jednostek/R/9mm/brak własnych przecięć/obrys
+rzeczywisty/stock100; nie całego świata. Zawias|Y|93/Z44 daje konstruktywny
+plan otwarcia bez74WAGO rozłączeń; pełny ruch/mocowania/narzędzia i długości
+serwisowe nadalOPEN. Monitor ma wspólną przednią wnękęY56, pinout po dostawie.
+58korpusów nowej wspólnej architektury odbiera58511/PID4300 przed kolejnym
+startem. F_PWM może jechać na ujemnej listwie, nie zastępować go FHAC;
+rzeczywisty5częściowy układ/JPWM/dojście i stock wymagają odbioru.
+N01 nadal0/10; master aff0a45b... zachowany, hookON bez terminu.
+Limit04:50:59Z41%used/59%remaining bez resetu. Jawnie zapisano przekroczony
+odstęp783s między odczytami04:18:02 a04:31:05; nie uzupełniano go fikcyjnie.
+
 ## Aktywne okno 6h,18.10.2026
 
 Stan: **N01 OPEN,0/10 nowego zakresu**. Historyczne20/20=100% dotyczy

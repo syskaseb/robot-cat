@@ -76,7 +76,8 @@ def current_world():
             if rr[n]['group'] in groups:world.parts[n]=s
     fixed={r['source']:world.parts[r['source']] for r in proof['material_clouds']
            if r['category']!='S1_mating_context' and r['source'] not in packet['retired_whole_owners']}
-    _,pwm,_=packed(OUT/'n01-pwm-board-shelf.json');fixed.update(pwm);fixed.update(core)
+    _,pwm,pwmrows=packed(OUT/'n01-pwm-board-shelf.json');fixed.update(pwm);fixed.update(core)
+    world.meta.update(pwmrows);world.meta.update(rows)
     return world,fixed
 
 

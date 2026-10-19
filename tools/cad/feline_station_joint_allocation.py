@@ -27,6 +27,14 @@ from feline_fore_power_pair import SolidQueries,pair_spacing
 from feline_solid_distance import bbox_lower_bound
 
 
+def physical_key(st,recipe):
+    """The constructor uses source handedness, not its obsolete world axes."""
+    h=float(np.cross(st['source_pitch_axis'],st['source_departure_axis'])[2])
+    assert abs(abs(h)-1)<1e-7
+    canonical=dict(st,source_pitch_axis=[1.,0.,0.],source_departure_axis=[0.,float(round(h)),0.])
+    return signature(canonical,{k:v for k,v in recipe.items() if k!='key'})
+
+
 def main():
     tick=time.monotonic();dest=OUT/'n01-station-joint-allocation.json'
     zonefile=OUT/'n01-case-zone-allocation.json';zones=json.loads(zonefile.read_text());slots={r['id']:r for r in zones['candidates']}
@@ -40,11 +48,11 @@ def main():
         if old['source_sha256']!=pins and '--receive-controller' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             assert all(old['source_sha256'][n]==v for n,v in pins.items() if n!=own)
-            previous=subprocess.run(['git','show','4643af5b:'+own],cwd=ROOT,check=True,capture_output=True).stdout
-            assert hashlib.sha256(previous).hexdigest()==old['source_sha256'][own]
+            versions=[subprocess.run(['git','show',commit+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for commit in ('4643af5b','17998bd2')]
+            assert any(hashlib.sha256(previous).hexdigest()==old['source_sha256'][own] for previous in versions)
             assert not old['actual_mutual_cache'],'Only controller-before-first-mutual repair here'
             old.setdefault('controller_repairs',[]).append(dict(old_code_sha256=old['source_sha256'][own],
-                reason='Propagate wire failures across unchanged head variants; reuse prior exact source pairs; bounded sequential worker slices. No geometry changed.'))
+                reason='Wire-failure propagation and physical geometry aliases: old source world axes reduce to constructor handedness. Same actual geometry/query kernel, prior6source pairs reused, bounded sequential worker slices.'))
             old['source_sha256']=pins
         else:assert old['source_sha256']==pins
         result=old;result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
@@ -57,8 +65,9 @@ def main():
     monitor_slots=[r['id'] for r in zones['candidates'] if r['profile']=='monitor' and not zones['received'][str(r['id'])]['failure']]
     active_slots+=monitor_slots;slotidx={s:len(variables)+i for i,s in enumerate(active_slots)};total=len(variables)+len(active_slots)
     caseconflicts=[(a,b) for i,a in enumerate(active_slots) for b in active_slots[i+1:] if box_gap(np.array(slots[a]['bounds_mm']),np.array(slots[b]['bounds_mm']))<1.25-1e-6]
+    modelkey=lambda n,r:physical_key(stations[n],r) if n in stations else r['key']
     bykey={}
-    for n,i in variables:bykey.setdefault(groups[n][i]['key'],[]).append(idx[n,i])
+    for n,i in variables:bykey.setdefault(modelkey(n,groups[n][i]),[]).append(idx[n,i])
     fanparts={};fankinds={}
     with zipfile.ZipFile(ROOT/fans['bundle']) as z:
         for r in fans['parts']:
@@ -73,7 +82,7 @@ def main():
         clean={k:v for k,v in r.items() if k!='key'}
         if 'head_side' in clean:clean['head_side']=0
         if clean['family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS' and slots[clean['slot_id']]['profile']=='large':clean['bend_side']=0
-        return signature(stations[name],clean)
+        return physical_key(stations[name],clean)
     @lru_cache(maxsize=64)
     def shapes(name,index):
         r=groups[name][index]
@@ -81,7 +90,7 @@ def main():
         option=fans['domains'][name.removeprefix('Source:')][r['fan_index']]
         return {p['name']:fanparts[p['name']] for p in option['parts']},{p['name']:fankinds[p['name']] for p in option['parts']}
     def mutual(a,i,b,j):
-        ka,kb=groups[a][i]['key'],groups[b][j]['key'];key='|'.join(sorted((ka,kb)))
+        ka,kb=modelkey(a,groups[a][i]),modelkey(b,groups[b][j]);key='|'.join(sorted((ka,kb)))
         if key in result['actual_mutual_cache']:return result['actual_mutual_cache'][key]['ok']
         aa,ak=shapes(a,i);bb,bk=shapes(b,j);receipt=dict(ok=True,pairs=[])
         for n,s in aa.items():
@@ -100,6 +109,21 @@ def main():
     try:
         for iteration in range(200):
             domainfile=OUT/'n01-station-zone-domains.json';received=json.loads(domainfile.read_text());cache=received['geometry_cache']
+            physical_proof={}
+            for n,i in variables:
+                if n not in stations:continue
+                r=groups[n][i];entry=cache.get(r['key'],{})
+                if 'failure' not in entry:continue
+                key=modelkey(n,r)
+                if key in physical_proof:assert (physical_proof[key][1]['failure'] is None)==(entry['failure'] is None),'Conflicting physical geometry receipts'
+                physical_proof[key]=(r['key'],entry)
+            def entry_for(n,r):
+                direct=cache.get(r['key'],{})
+                if 'failure' in direct:return direct
+                if n in stations and modelkey(n,r) in physical_proof:
+                    source,entry=physical_proof[modelkey(n,r)];result.setdefault('static_geometry_aliases',{})[r['key']]=source
+                    return entry
+                return direct
             wire_failed_classes={wire_class(n,r) for n,opts in groups.items() if n in stations for r in opts if str(cache.get(r['key'],{}).get('failure','')).startswith('wire:')}
             rr=[];cc=[];dd=[];low=[];high=[]
             def constraint(indices,coefficients,lo,hi):
@@ -117,7 +141,7 @@ def main():
                 vv=bykey[hold['key']]+[slotidx[hold['slot']]];constraint(vv,[1.]*len(vv),-np.inf,1.)
             upper=np.ones(total);objective=np.zeros(total)
             for n,i in variables:
-                r=groups[n][i];entry=cache.get(r['key'],{})
+                r=groups[n][i];entry=entry_for(n,r)
                 if entry.get('failure') is not None or n in stations and wire_class(n,r) in wire_failed_classes:upper[idx[n,i]]=0
                 objective[idx[n,i]]=0 if 'failure' in entry and entry['failure'] is None else 1.
                 if n in stations:objective[idx[n,i]]+=abs(slots[r['slot_id']]['centre_mm'][0])/10000
@@ -129,7 +153,7 @@ def main():
             assert all(fit.x[idx[n,i]]>.5 for n,i in chosen.items())
             selected_monitor=next(s for s in monitor_slots if fit.x[slotidx[s]]>.5)
             result['current_choices']={n:groups[n][i] for n,i in chosen.items()};result['current_monitor_slot']=selected_monitor;save()
-            requested={n:[groups[n][i]] for n,i in chosen.items() if n in stations and 'failure' not in cache.get(groups[n][i]['key'],{})}
+            requested={n:[groups[n][i]] for n,i in chosen.items() if n in stations and 'failure' not in entry_for(n,groups[n][i])}
             if requested:
                 (OUT/'n01-station-joint-targets.json').write_text(json.dumps(dict(source_sha256=pins,requests=requested),indent=2)+'\n',encoding='utf-8',newline='\n')
                 print('Common choice',iteration,'request',len(requested),'exact full units, cuts',len(cuts),flush=True)
@@ -145,7 +169,7 @@ def main():
             for ia,(a,i) in enumerate(items):
                 for b,j in items[ia+1:]:
                     if not mutual(a,i,b,j):
-                        cut=tuple(sorted((groups[a][i]['key'],groups[b][j]['key'])));cuts.add(cut);bad.append(cut)
+                        cut=tuple(sorted((modelkey(a,groups[a][i]),modelkey(b,groups[b][j]))));cuts.add(cut);bad.append(cut)
             # Monitor is a separate selected source, not an absent inventory item.
             lo,hi=np.array(slots[selected_monitor]['bounds_mm']);monitor=Part.makeBox(*(hi-lo),A.Vector(*lo))
             monitor_bad=0
@@ -156,7 +180,7 @@ def main():
                     gap=qcache.distance(s,monitor)
                     if gap<1.25-1e-6:
                         # Store a forbidden option/monitor-slot relation separately.
-                        result.setdefault('monitor_conflicts',[]).append(dict(key=groups[a][i]['key'],slot=selected_monitor,part=n,gap_mm=gap))
+                        result.setdefault('monitor_conflicts',[]).append(dict(key=modelkey(a,groups[a][i]),slot=selected_monitor,part=n,gap_mm=gap))
                         monitor_bad+=1;break
             result['conflict_cuts']=[list(c) for c in sorted(cuts)];result['iterations'].append(dict(iteration=iteration,solver_status=int(fit.status),bad_selected_pairs=len(bad),monitor_conflicts=monitor_bad));save()
             print('Common actual mutual',iteration,'failed pairs',len(bad),flush=True)
