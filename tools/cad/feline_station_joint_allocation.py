@@ -36,7 +36,17 @@ def main():
     result=dict(status='RUNNING_COMMON_STATION_ALLOCATION',source_sha256=pins,iterations=[],actual_mutual_cache={},conflict_cuts=[],errors=[],
         N01_complete=False,physical_pass=False,selected=False,open=['Other27kits','Fullroots/tools/service/assembly','All123portions246ends/factory corridors','Monitor retention/conditional balance interface'])
     if dest.exists():
-        old=json.loads(dest.read_text());assert old['source_sha256']==pins
+        old=json.loads(dest.read_text())
+        if old['source_sha256']!=pins and '--receive-controller' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            assert all(old['source_sha256'][n]==v for n,v in pins.items() if n!=own)
+            previous=subprocess.run(['git','show','4643af5b:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(previous).hexdigest()==old['source_sha256'][own]
+            assert not old['actual_mutual_cache'],'Only controller-before-first-mutual repair here'
+            old.setdefault('controller_repairs',[]).append(dict(old_code_sha256=old['source_sha256'][own],
+                reason='Propagate wire failures across unchanged head variants; reuse prior exact source pairs; bounded sequential worker slices. No geometry changed.'))
+            old['source_sha256']=pins
+        else:assert old['source_sha256']==pins
         result=old;result.setdefault('prior_worker_seconds',[]).append(result['worker_seconds'])
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3);dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -55,6 +65,15 @@ def main():
             raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256']
             s=Part.Shape();s.importBrepFromString(raw.decode());fanparts[r['name']]=s;fankinds[r['name']]='wire' if r['kind']=='wire' else 'project_stock_reservation' if 'budget' in r['kind'] else 'proposal_material'
     qcache=SolidQueries();cuts={tuple(c) for c in result['conflict_cuts']}
+    priorfile=OUT/'n01-source-joint-allocation.json';prior=json.loads(priorfile.read_text())
+    assert prior['source_sha256'][fanfile.relative_to(ROOT).as_posix()]==sha(fanfile)
+    source_pairs={tuple(sorted((r['part'],r['other']))):r for r in prior['pairs']}
+    def wire_class(name,r):
+        if name not in stations:return r['key']
+        clean={k:v for k,v in r.items() if k!='key'}
+        if 'head_side' in clean:clean['head_side']=0
+        if clean['family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS' and slots[clean['slot_id']]['profile']=='large':clean['bend_side']=0
+        return signature(stations[name],clean)
     @lru_cache(maxsize=64)
     def shapes(name,index):
         r=groups[name][index]
@@ -69,7 +88,11 @@ def main():
             for o,t in bb.items():
                 minimum=pair_spacing(n,{'kind':ak[n]},o,{'kind':bk[o]})
                 if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum:continue
-                gap=qcache.distance(s,t);receipt['pairs'].append(dict(part=n,other=o,gap_mm=gap,minimum_mm=minimum))
+                saved=source_pairs.get(tuple(sorted((n,o))))
+                if saved is not None and abs(saved['minimum_mm']-minimum)<1e-8:
+                    gap=saved['gap_mm'];reuse=True
+                else:gap=qcache.distance(s,t);reuse=False
+                receipt['pairs'].append(dict(part=n,other=o,gap_mm=gap,minimum_mm=minimum,reused_prior_actual_source_pair=reuse))
                 if gap<minimum-1e-6:receipt['ok']=False;break
             if not receipt['ok']:break
         result['actual_mutual_cache'][key]=receipt;save();return receipt['ok']
@@ -77,6 +100,7 @@ def main():
     try:
         for iteration in range(200):
             domainfile=OUT/'n01-station-zone-domains.json';received=json.loads(domainfile.read_text());cache=received['geometry_cache']
+            wire_failed_classes={wire_class(n,r) for n,opts in groups.items() if n in stations for r in opts if str(cache.get(r['key'],{}).get('failure','')).startswith('wire:')}
             rr=[];cc=[];dd=[];low=[];high=[]
             def constraint(indices,coefficients,lo,hi):
                 k=len(low);rr.extend([k]*len(indices));cc.extend(indices);dd.extend(coefficients);low.append(lo);high.append(hi)
@@ -94,7 +118,7 @@ def main():
             upper=np.ones(total);objective=np.zeros(total)
             for n,i in variables:
                 r=groups[n][i];entry=cache.get(r['key'],{})
-                if entry.get('failure') is not None:upper[idx[n,i]]=0
+                if entry.get('failure') is not None or n in stations and wire_class(n,r) in wire_failed_classes:upper[idx[n,i]]=0
                 objective[idx[n,i]]=0 if 'failure' in entry and entry['failure'] is None else 1.
                 if n in stations:objective[idx[n,i]]+=abs(slots[r['slot_id']]['centre_mm'][0])/10000
             matrix=coo_matrix((dd,(rr,cc)),shape=(len(low),total)).tocsc()
@@ -112,6 +136,8 @@ def main():
                 child=subprocess.run([sys.executable,str(Path(__file__).with_name('feline_station_zone_domains.py')),'--requested-only','--receive-controller-only'],cwd=ROOT)
                 assert child.returncode==0
                 after=json.loads(domainfile.read_text());assert not after['errors'],after['errors']
+                if '--one-slice' in sys.argv:
+                    result['status']='PARTIAL_DEMAND_DRIVEN_EXACT_REQUEST_RECEIVED';save();return
                 pending=any('failure' not in after['geometry_cache'].get(r[0]['key'],{}) for r in requested.values())
                 if pending:continue
                 if any(after['geometry_cache'][r[0]['key']]['failure'] is not None for r in requested.values()):continue
