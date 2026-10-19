@@ -85,6 +85,9 @@ def main():
             from feline_bank_lane_receive import receive_requests as receive_bank_lanes
             for p in (Path(__file__).with_name('feline_bank_exit_lanes.py'),Path(__file__).with_name('feline_bank_lane_receive.py')):
                 pins[p.relative_to(ROOT).as_posix()]=sha(p)
+        if '--above-hardware-grip' in sys.argv:
+            from feline_above_hardware_grip import unit as above_unit,receive_model as above_receive_model
+            p=Path(__file__).with_name('feline_above_hardware_grip.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
         if '--compact-fan' in sys.argv:
             from feline_compact_station_fan import unit as compact_unit
             from feline_compact_station_fan import legacy_unit
@@ -116,7 +119,21 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--compact-receipt-api' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--above-hardware-grip' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_bank_lane_receive.py'
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))
+            assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_above_hardware_grip.py'}
+            previous={n:subprocess.run(['git','show','caa378e0:'+n],cwd=ROOT,check=True,capture_output=True).stdout for n in (own,receiver)}
+            assert all(hashlib.sha256(t).hexdigest()==result['source_sha256'][n] for n,t in previous.items())
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):
+                before,after=get(previous[own],name),get(Path(__file__).read_text(),name)
+                if name=='shape':after.body=[n for n in after.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'above_hardware_fan'")]
+                assert ast.dump(before)==ast.dump(after),name
+            assert ast.dump(get(previous[receiver],'receive'))==ast.dump(get((ROOT/receiver).read_text(),'receive'))
+            result.setdefault('additive_geometry_extensions',[]).append(dict(added='Complete D_FL grip ABOVE full rear hardware at1.25, vertical support instead of excessive axial guard; new wires subsets',old_shapes_and_pairs_AST_identical=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--compact-receipt-api' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_compact_station_receive.py'
             assert set(pins)==set(result['source_sha256'])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))
@@ -345,6 +362,11 @@ def main():
                 base=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['P_SYS']
                 groups['P_SYS'].append(dict(kind='power_rise_fan',ref='P_SYS',slot=base['slot'],base_recipe=base['recipe'],
                     key='P_SYS:whole-power-up30:'+base['recipe']['geometry_signature']))
+            if '--above-hardware-grip' in sys.argv:
+                base=json.loads((OUT/'n01-two-lane-comb-joint.json').read_text())['chosen']['D_FL']
+                recipe=dict(slot=base['slot'],base_recipe=base['recipe'],guard_basis='ABOVE_FULL_REAR_HARDWARE_Z')
+                groups['D_FL'].append(dict(kind='above_hardware_fan',ref='D_FL',slot=base['slot'],recipe=recipe,
+                    key=remaining_key('D_FL',recipe)))
     choices=[(g,r) for g,rows in groups.items() for r in rows];idx={r['key']:i for i,(g,r) in enumerate(choices)}
     geometry={r['key']:('straight:'+physical_key(stations[g],r['slot'])+(':long' if r.get('lane') else '') if r['kind']=='straight_comb' else
         'legacy:'+r['recipe']['geometry_signature'] if r['kind']=='received_legacy_unit' else r['key']) for g,r in choices}
@@ -410,6 +432,8 @@ def main():
         if kind=='remaining_kit':return remaining_material(r['group'],r['recipe'])
         if kind=='bank_exit_lane':return bank_material(r['group'],r['recipe'])
         if kind=='bank_under_key_lane':return under_key_materialise(r['group'],r['recipe'])
+        if kind=='above_hardware_fan':
+            m=above_unit(stations[r['ref']],r['recipe']);return m['parts'],m['kinds']
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
             return parts,{n:'wire' if fanmeta[n]['kind']=='wire' else 'project_stock_reservation' if 'budget' in fanmeta[n]['kind'] else 'proposal_material' for n in parts}
@@ -450,6 +474,8 @@ def main():
             bank_data=json.loads(bank_file.read_text()) if '--bank-lanes' in sys.argv and bank_file.exists() else dict(units={})
             under_file=OUT/'n01-bank-under-key-static.json'
             under_data=json.loads(under_file.read_text()) if '--under-key-bank' in sys.argv and under_file.exists() else dict(units={})
+            above_file=OUT/'n01-above-hardware-static.json'
+            above_data=json.loads(above_file.read_text()) if '--above-hardware-grip' in sys.argv and above_file.exists() else dict(units={})
             if whole54:
                 from feline_remaining_kits import source_wire_signature
                 bad_bank_wires={source_wire_signature(rec['group'],rec['recipe']) for rec in remaining_data['units'].values()
@@ -526,6 +552,10 @@ def main():
                     rec=under_data['units'].get(r['key'],{})
                     if 'failure' in rec and rec['failure'] is not None:upper[i]=0
                     cost[i]=0 if 'failure' in rec else 10
+                elif r['kind']=='above_hardware_fan':
+                    rec=above_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -552,7 +582,8 @@ def main():
             rise_requests=[(g,r) for g,r in chosen if r['kind']=='power_rise_fan' and 'failure' not in rise_data['units'].get(r['key'],{})]
             bank_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_exit_lane' and 'failure' not in bank_data['units'].get(r['key'],{})]
             under_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='bank_under_key_lane' and 'failure' not in under_data['units'].get(r['key'],{})]
-            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)
+            above_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='above_hardware_fan' and 'failure' not in above_data['units'].get(r['key'],{})]
+            unknown=len(requests)+len(remaining_requests)+len(compact_requests)+len(after_requests)+len(legacy_requests)+len(rise_requests)+len(bank_requests)+len(under_requests)+len(above_requests)
             result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=unknown));save()
             print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',unknown,'mutualcuts',len(result['cuts']),flush=True)
             if unknown:
@@ -572,6 +603,7 @@ def main():
                 if rise_requests:status=receive_compact(rise_requests,factory=rise_unit,destination='n01-power-rise-static.json')['status']
                 if bank_requests:status=receive_bank_lanes(bank_requests)['status']
                 if under_requests:status=receive_bank_lanes(under_requests,factory=under_key_materialise,destination='n01-bank-under-key-static.json')['status']
+                if above_requests:status=receive_bank_lanes(above_requests,factory=above_receive_model,destination='n01-above-hardware-static.json',factory_sources=(Path(__file__).with_name('feline_above_hardware_grip.py'),planfile))['status']
                 result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=unknown))
                 save();continue
             cut=False

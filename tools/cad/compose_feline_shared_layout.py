@@ -29,6 +29,7 @@ from feline_compact_station_fan import unit as compact_unit
 from feline_compact_station_fan import legacy_unit
 from feline_compact_station_fan import rise_unit
 from feline_compact_after_land import unit as after_land_unit
+from feline_above_hardware_grip import unit as above_unit
 
 COMPLETE='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
 COMPLETE54='WHOLE54_FULL_UNITS_STATIC_MUTUAL_RECEIVED_ROOTS_CORRIDORS_TOOLS_OPEN'
@@ -57,6 +58,7 @@ def station_model(st,choice):
     if choice['kind']=='after_land_fan':return after_land_unit(st,choice)
     if choice['kind']=='legacy_compact_fan':return legacy_unit(st,choice)
     if choice['kind']=='power_rise_fan':return rise_unit(st,choice)
+    if choice['kind']=='above_hardware_fan':return above_unit(st,choice['recipe'])
     r=choice['recipe']
     if r['family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS':return build_underplate(st,slot,r['bend_side'],r['head_side'])
     if st['fixed_identity_pose']:return build(st,'inner',1,-1)
@@ -87,7 +89,7 @@ def chosen_material(path=None):
             pp,kk=bank_material(group,r['recipe'])
         elif r['kind']=='bank_under_key_lane':
             pp,kk=under_key_materialise(group,r['recipe'])
-        elif r['kind'] in ('compact_fan','after_land_fan','legacy_compact_fan','power_rise_fan'):
+        elif r['kind'] in ('compact_fan','after_land_fan','legacy_compact_fan','power_rise_fan','above_hardware_fan'):
             model=station_model(stations[group],r);pp,kk=model['parts'],model['kinds']
             models[group]=dict(wires=station_lands(stations[group],model))
         elif r['kind']=='source_fan':

@@ -22,9 +22,10 @@ from feline_remaining_receive import terminal_owner,key
 from feline_atomic_save import save_json
 
 
-def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.json'):
+def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.json',factory_sources=()):
     tick=time.monotonic();dest=OUT/destination;factory=factory or materialise;world,fixed=world_context();query=SolidQueries()
     files=[Path(__file__),Path(__file__).with_name('feline_bank_exit_lanes.py'),Path(__file__).with_name('feline_remaining_kits.py')]
+    files.extend(Path(p) for p in factory_sources)
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
     result=dict(status='RUNNING_BANK_OPPOSED_LANES',source_sha256=pins,world_source_sha256=world.pins,units={},errors=[],N01_complete=False,physical_pass=False)
     if dest.exists():
@@ -36,7 +37,7 @@ def receive_requests(requests,factory=None,destination='n01-bank-lanes-static.js
             get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
             previous={}
             for name in (own,helper):
-                versions=[subprocess.run(['git','show',c+':'+name],cwd=ROOT,check=True,capture_output=True).stdout for c in ('48659c05','928307e5')]
+                versions=[subprocess.run(['git','show',c+':'+name],cwd=ROOT,check=True,capture_output=True).stdout for c in ('48659c05','928307e5','541dda10')]
                 previous[name]=next(t for t in versions if hashlib.sha256(t).hexdigest()==result['source_sha256'][name])
             for name in ('candidates','materialise','under_key_candidates','under_key_materialise'):
                 if any(isinstance(n,ast.FunctionDef) and n.name==name for n in ast.walk(ast.parse(previous[helper]))):
