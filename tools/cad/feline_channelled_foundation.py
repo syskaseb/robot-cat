@@ -64,6 +64,59 @@ def bearing_area(a,b,z):
     return sum(x.common(y).Area for x in faces(a) for y in faces(b))
 
 
+def receive_constructed(chosen,proposal,fixed):
+    """Use the saved actual candidate, not another Boolean reconstruction.
+
+    Machining offcuts may be discarded ONLY from new unselected pier stock.
+    Never remove a bearing pad, clamp seat, retained component or whole pier.
+    Every required real bearing is measured again afterwards.
+    """
+    source=OUT/'n01-channelled-foundation-construction.json';doc=json.loads(source.read_text())
+    parent=OUT/'n01-shared54-whole.json'
+    assert doc['source_sha256'][parent.relative_to(ROOT).as_posix()]==sha(parent)
+    archive=ROOT/doc['bundle'];assert sha(archive)==doc['bundle_sha256']
+    actual={};records={}
+    with zipfile.ZipFile(archive) as z:
+        for r in doc['parts']:
+            raw=z.read(r['entry']);assert hashlib.sha256(raw).hexdigest()==r['sha256']
+            s=Part.Shape();s.importBrepFromString(raw.decode());assert s.isValid() and len(s.Solids)==1
+            actual[r['name']]=s;records[r['name']]=r['meta']
+    dropped=[]
+    try:connections=material_connections(actual)
+    except AssertionError as exc:
+        info=exc.args[0];assert isinstance(info,tuple) and info[0]=='Floating foundation pieces'
+        names=info[1]
+        for name in names:
+            m=records[name];owner=m['source_piece']
+            assert owner.startswith('BankPier:') and m['role']=='hollow_head_access_pier' and '/' in name
+            assert any(n not in names and records[n]['source_piece']==owner for n in actual)
+            s=actual[name];dropped.append(dict(name=name,volume_mm3=s.Volume,bounds_mm=[[s.BoundBox.XMin,s.BoundBox.YMin,s.BoundBox.ZMin],[s.BoundBox.XMax,s.BoundBox.YMax,s.BoundBox.ZMax]],
+                reason='Disconnected offcut from NEW unselected pier blank; all bearing/retained parts protected and remeasured'))
+        for name in names:del actual[name];del records[name]
+        connections=material_connections(actual)
+    _,_,oldmates=blank_frame(chosen,proposal,fixed);mates=[]
+    for m in oldmates:
+        i=m['clamp'];group='Anchor:Fore' if i in (1,2) else 'Anchor:Rear';prefix='Station:'+group+':'
+        seat=Part.makeCompound([s for n,s in actual.items() if records[n]['source_piece']==f'ClampSeat:{i}'])
+        pad=proposal[prefix+f'TopClampPad{i}'];washer=proposal[prefix+f'RailClamp{i}TopWasher']
+        bottom=bearing_area(seat,pad,pad.BoundBox.ZMax);top=bearing_area(seat,washer,washer.BoundBox.ZMin)
+        assert bottom>=60 and top>10,(i,bottom,top)
+        mates.append(dict(m,pad_bearing_area_after_channels_mm2=bottom,washer_bearing_after_channels_mm2=top))
+    pads=[]
+    for name,s in actual.items():
+        m=records[name]
+        if m.get('role')!='actual_selected_housing_bottom_bearing':continue
+        owner=fixed[m['owner']];area=bearing_area(s,owner,m['source_bottom_Z_mm'])
+        common=s.copy().common(owner.copy());assert common.isNull() or common.isValid()
+        assert area>5 and common.Volume<1e-7,(name,area,common.Volume)
+        pads.append(dict(part=name,owner=m['owner'],actual_after_channels_bearing_mm2=area,source_bottom_Z_mm=m['source_bottom_Z_mm'],positive_common_mm3=common.Volume))
+    assert len({r['owner'] for r in pads})==12
+    return actual,records,mates,dict(cuts=doc['cuts'],actual_bank_bearing=pads,positive_material_connections=connections,
+        discarded_new_blank_offcuts=dropped,source_candidate=source.relative_to(ROOT).as_posix(),source_candidate_sha256=sha(source),
+        replaced_planning_reservations=sorted(REPLACED_BEDS),purchased_material_edited=False,retained_PWM_carrier_complete_unchanged=True,
+        all_roots_case_retention_still_open=True)
+
+
 def build(chosen,proposal,fixed):
     pieces,meta,oldmates=blank_frame(chosen,proposal,fixed);pads=[];cuts=[];cutters={}
     for side in (-1,1):

@@ -2,6 +2,20 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+10:08Z: wspólna foundation ODEBRANA,35rzeczywistych brył; ostatni odbiór
+69,000s/0błędów. Zachowane4pola docisku125,9208mm² i4podkładki29,4053mm²,
+12rzeczywistych podparć oprawek, graf48dodatnich połączeń do4zacisków.
+Pełny świat/aktualny54/obrys3,25/ruch36/24rezerwacjeATO odebrane.
+StdFail na BankLedge2/P_SYS.1 nie był dowodem kontaktu: dwa sposoby
+ekstremów odpadły. Zmieniono topologię kanału tylko NOWEGO PETG na
+konserwatywną obwiednię pełnego przewodu+1,251mm: usunięte22,1027mm³,
+0materiału poza pierwotnym kandydatem, graf zachowany. Niezmienionych
+części/par nie liczono ponownie. Odpad nowego blanku0,003006mm³ odłączony,
+żadna kupna część/pad/podkładka nieusunięta; źródło zachowane w79b5acfe.
+To tylko podzespół planuN01, NIEpunkt: pozostałe korzenie WAGO/chwytów,
+całe123porcje/246końców i korytarze fabryczne/P309 nadalOPEN. Przed ich
+ramionami wspólnie zarezerwować środki wiązek. Native/master nietknięte.
+
 09:47Z: foundation46,500s odrzucona. Rzeczywiste przecięcia BankPier2/3
 z przewodami; inne pary to0,24/0,44/0,5mm zamiast1,25. Nie ruszać kabli.
 Nowy CAŁY nośnik: kanały z WSZYSTKICH bieżących chronionych brył tylko

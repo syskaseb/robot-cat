@@ -31,6 +31,8 @@ def main():
     world,fixed=world_context();channelled='--channelled' in sys.argv
     if channelled:
         from feline_channelled_foundation import build as channelled_build,same_relation
+        if '--receive-constructed' in sys.argv:
+            from feline_channelled_foundation import receive_constructed as channelled_build
         parts,meta,mates,construction=channelled_build(joint['chosen'],proposal,fixed)
     else:parts,meta,mates=build(joint['chosen'],proposal,fixed);construction={}
     dest=OUT/('n01-channelled-foundation-static.json' if channelled else 'n01-shared-foundation-static.json')
@@ -38,6 +40,9 @@ def main():
         Path(__file__).with_name('feline_atomic_save.py'),OUT/'n01-six-source-shared-lanes.outer.brep')}
     if channelled:
         p=Path(__file__).with_name('feline_channelled_foundation.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+        if '--receive-constructed' in sys.argv:
+            for p in (OUT/'n01-channelled-foundation-construction.json',OUT/'n01-channelled-foundation-construction.breps.zip'):
+                pins[p.relative_to(ROOT).as_posix()]=sha(p)
     result=dict(status='RUNNING_COMMON_FOUNDATION',source_sha256=pins,world_source_sha256=world.pins,
         parts={},mates=mates,positive_material_connections=material_connections(parts),errors=[],N01_complete=False,physical_pass=False,
         native_changed=False,selected=False,full_case_cap_source_roots_still_open=True)

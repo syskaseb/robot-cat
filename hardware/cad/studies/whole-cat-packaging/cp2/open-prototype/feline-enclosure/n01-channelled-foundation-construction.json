@@ -1,5 +1,5 @@
 {
-  "status": "MATERIAL_CONNECTION_REJECTED_NOT_N01",
+  "status": "CHANNELLED_CURRENT_CANDIDATE_KERNEL_TOPOLOGY_REVISED_NOT_N01",
   "cuts": [
     {
       "part": "FoundationRail:-1",
@@ -622,7 +622,7 @@
     {
       "name": "BankLedge:2",
       "entry": "12.brep",
-      "sha256": "1633b6b541d324f2f735dea1e7ded61667cadf60ca596dda3af259bde0d13b09",
+      "sha256": "dd2d4f2b64889da5cb0e608758f5ba95773208956229be3a1ebce7dd3f98c283",
       "meta": {
         "role": "bank_bed_extension_same_proposed_frame",
         "clamp": 2,
@@ -890,9 +890,25 @@
     }
   ],
   "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-channelled-foundation-construction.breps.zip",
-  "bundle_sha256": "13846eb8e2eb003d86013fa5d191c0ed84b2205c830fbe5453db5333ebefd462",
+  "bundle_sha256": "029211fe3840ff251c5326d407ee5df5f8e333cb6e2452838915b112bb27b0e2",
   "source_sha256": {
     "tools/cad/feline_channelled_foundation.py": "9793a24006c7489715152946b878141505040b2b1c01639fc16f72de9d6e9b3a",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-whole.json": "6633927706710e77d18abc800772739757939f67d99c5f38fbd17b5d5d200524"
+  },
+  "kernel_topology_cause_change": {
+    "part": "BankLedge:2",
+    "reason": "Two whole/face extrema methods failed on same trimmed topology; conservative whole-wire channel replaces curved pocket only in NEW stock",
+    "wire": "Station:P_SYS:wire:P_SYS.1",
+    "wire_BRep_sha256": "306b56a89d4447251a76c8517f1f88773ff37f73d73fa2acab23079ac72c2e00",
+    "gap_mm": 1.251,
+    "removed_new_PETG_mm3": 22.102704112184995,
+    "source_outside_original_mm3": 0.0,
+    "common_with_expanded_target_box_mm3": 0.0,
+    "original_construction_sha256": "891e412a14a36315f1204fc09571697897fd0a5b345fdd4cf0dd09f1f2085e76",
+    "original_archive_sha256": "13846eb8e2eb003d86013fa5d191c0ed84b2205c830fbe5453db5333ebefd462",
+    "original_preserved_commit": "79b5acfe",
+    "actual_positive_connection_count": 48,
+    "source_code_sha256": "1e6a414e04205bca2147cd7899e2b52b6b3f2571f12f47e4d2836b0e462bc939",
+    "physical_pass": false
   }
 }
