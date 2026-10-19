@@ -64,7 +64,7 @@ def prove_retained_geometry(old_text,new_text,groups):
     exec(compile(old_text,'pinned_old_zoned','exec'),old)
     exec(compile(new_text,'pinned_new_zoned','exec'),new)
     before=old['candidates'](groups);after=new['candidates'](groups);count=0
-    assert set(before)==set(after)
+    assert set(before)<=set(after)
     for group,recipes in before.items():
         for recipe in recipes:
             assert recipe in after[group],('Removed old recipe',group)

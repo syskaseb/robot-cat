@@ -26,6 +26,7 @@ from feline_compact_station_fan import rise_unit
 def main():
     tick=time.monotonic();targets={};meta={};pins={}
     zoned='--zoned' in sys.argv
+    selected='--selected-t18i' in sys.argv
     wanted={'CurrentBUS:DGSharedRelief','Ref_Material_S0_key_CP2_0_0','Ref_Material_F_PI_new_0_0'}
     for name in ('n01-full-material-scene.json','n01-six-source-current-core.json'):
         p=OUT/name;doc=json.loads(p.read_text());bundle=ROOT/doc['bundle'];assert sha(bundle)==doc['bundle_sha256']
@@ -48,6 +49,11 @@ def main():
         from feline_bank_zoned_layout import candidates as zoned_candidates,materialise as zoned_materialise
         recipes.update(zoned_candidates(groups));factory=zoned_materialise
         p=Path(__file__).with_name('feline_bank_zoned_layout.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+    if selected:
+        from feline_bank_selected_t18i import candidates as selected_candidates,materialise as selected_materialise
+        recipes={g:[r for r in rr if r.get('joint_current_bank_plane')] for g,rr in selected_candidates(groups).items()};factory=selected_materialise
+        for p in (Path(__file__).with_name('feline_bank_selected_t18i.py'),Path(__file__).with_name('feline_bank_zoned_layout.py'),ROOT/'hardware/reference/cable-ties/t18i-111-02370/head-envelope.json'):
+            pins[p.relative_to(ROOT).as_posix()]=sha(p)
     query=SolidQueries();records={}
     for group,rows in recipes.items():
         records[group]=[]

@@ -19,7 +19,7 @@ def zone(group,r):
     q=r['point_mm']
     if group=='Bank:W020/body/end':return 'FORE_LEFT_SPLIT_BELOW_S0_KEY'
     if q[1]>0 and (q[0]>0 or group=='Bank:W029/single/end'):return 'UPPER_LEFT_ABOVE_PSYS_DFL'
-    if q[1]<0 and r.get('holder')=='R1' and '_OUT_' in r.get('terminal_name',''):return 'FORE_RIGHT_RETURN120_BELOW_ALL_LEFT'
+    if q[1]<0 and '_OUT_' in r.get('terminal_name',''):return 'RIGHT_OUT_RETURN180_BELOW_BANK'
     if group=='Bank:W058/single/end':return 'REAR_IN_RETURN_MINUS_X_AWAY_BUS'
     return None
 
@@ -31,12 +31,14 @@ def candidates(groups):
         if role is not None:result[group]=[dict(copy.deepcopy(r),receiving_zone=role) for r in rows]
         if role=='FORE_LEFT_SPLIT_BELOW_S0_KEY':
             result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_LEFT_DOWN_TO_RECEIVING_LEVEL') for r in rows)
-        if role=='FORE_RIGHT_RETURN120_BELOW_ALL_LEFT':
-            for r in result[group]:r.update(current_prefix_sweep_degrees=120,template_turn60_is_not_current_profile=True)
-            result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_RIGHT_VERTICAL_BELOW_LEFT_GALLERY',
-                current_prefix_sweep_degrees=90,template_turn60_is_not_current_profile=True) for r in rows)
-            result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_RIGHT_BELOW_S0_KEY') for r in rows)
-    assert len(result)==11,(len(result),sorted(result))
+        if role=='RIGHT_OUT_RETURN180_BELOW_BANK':
+            for r in result[group]:r.update(current_prefix_sweep_degrees=180,current_prefix_entry_mm=0,template_turn60_is_not_current_profile=True)
+            if group=='Bank:W031/body/end':
+                result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_RIGHT_RETURN120_BELOW_ALL_LEFT',current_prefix_sweep_degrees=120,template_turn60_is_not_current_profile=True) for r in rows)
+                result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_RIGHT_VERTICAL_BELOW_LEFT_GALLERY',current_prefix_sweep_degrees=90,template_turn60_is_not_current_profile=True) for r in rows)
+                result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_RIGHT_BELOW_S0_KEY') for r in rows)
+            else:result[group].extend(copy.deepcopy(r) for r in rows)
+    assert len(result)==16,(len(result),sorted(result))
     return result
 
 
@@ -49,6 +51,7 @@ def profile(group,recipe):
     elif role=='FORE_RIGHT_VERTICAL_BELOW_LEFT_GALLERY':b=np.array([0.,0.,-1.]);degrees=90.
     elif role=='FORE_LEFT_DOWN_TO_RECEIVING_LEVEL':b=np.array([0.,0.,-1.])
     elif role=='FORE_RIGHT_RETURN120_BELOW_ALL_LEFT':b=np.array([0.,0.,-1.]);degrees=120.
+    elif role=='RIGHT_OUT_RETURN180_BELOW_BANK':b=np.array([0.,0.,-1.]);degrees=180.;entry=0.
     else:b=np.array([-1.,0.,-1.])/math.sqrt(2)
     theta=math.radians(degrees);start=q+(entry+r['R_mm']*math.sin(theta))*d+r['R_mm']*(1-math.cos(theta))*b
     axis=math.cos(theta)*d+math.sin(theta)*b
@@ -56,11 +59,12 @@ def profile(group,recipe):
 
 
 def materialise(group,recipe):
-    if zone(group,recipe['base_recipe']) is None:return both_after_materialise(group,recipe)
+    if not recipe.get('receiving_zone'):return both_after_materialise(group,recipe)
     r=recipe['base_recipe'];p=profile(group,recipe);parts,kinds=original_material(group,r)
     q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis']);R=r['R_mm'];theta=math.radians(p['degrees']);a=q+p['entry']*d
     point=lambda t:a+R*math.sin(t)*d+R*(1-math.cos(t))*p['bend']
-    path=Part.Wire([Part.makeLine(A.Vector(*q),A.Vector(*a)),Part.Arc(A.Vector(*a),A.Vector(*point(theta/2)),A.Vector(*p['start'])).toShape(),Part.makeLine(A.Vector(*p['start']),A.Vector(*p['tip']))])
+    edges=([Part.makeLine(A.Vector(*q),A.Vector(*a))] if p['entry']>1e-8 else [])
+    path=Part.Wire(edges+[Part.Arc(A.Vector(*a),A.Vector(*point(theta/2)),A.Vector(*p['start'])).toShape(),Part.makeLine(A.Vector(*p['start']),A.Vector(*p['tip']))])
     radius=r.get('radius_mm',r.get('radius'));wire=path.makePipeShell([Part.Wire([Part.makeCircle(radius,A.Vector(*q),A.Vector(*d))])],True,False)
     assert wire.isValid() and len(wire.Solids)==1
     rotation=A.Rotation(A.Vector(*d),A.Vector(*p['axis']));pose=A.Placement(A.Vector(*p['start'])-rotation.multVec(A.Vector(*q)),rotation)
