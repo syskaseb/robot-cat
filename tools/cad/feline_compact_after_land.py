@@ -60,6 +60,9 @@ def unit(st,choice):
     old_min=min(9+w['R_mm']*math.pi/2+9 for w in base['wires'])
     new_length=3+R*angle+guard+9
     assert new_length<=old_min+1e-6,'This compact prefix must not consume more than old accepted prefix budget'
+    for n in list(parts):
+        if kinds[n]=='project_stock_reservation':
+            parts['Tie:'+n]=parts.pop(n);kinds['Tie:'+n]=kinds.pop(n)
     return dict(parts=parts,kinds=kinds,wires=wires,reused_jacket_lands=[],
                 full_stock_guard_mm=guard,old_shortest_prefix_mm=old_min,new_prefix_mm=new_length,
                 clearance_basis=dict(reference_rear_axis_mm=72,minimum_mm=1.25,

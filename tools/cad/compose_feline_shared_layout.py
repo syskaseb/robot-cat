@@ -23,6 +23,8 @@ from feline_flat_station_templates import build
 from feline_zone_station_templates import zone_build,vertical_build
 from feline_underplate_station_templates import build_underplate
 from feline_remaining_kits import materialise as remaining_material
+from feline_compact_station_fan import unit as compact_unit
+from feline_compact_after_land import unit as after_land_unit
 
 COMPLETE='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
 COMPLETE54='WHOLE54_FULL_UNITS_STATIC_MUTUAL_RECEIVED_ROOTS_CORRIDORS_TOOLS_OPEN'
@@ -33,10 +35,11 @@ def station_lands(station,model):
     bywire={p['wire']:p for p in station['ports']}
     for w in model['wires']+model.get('reused_jacket_lands',[]):
         port=bywire[w['wire']];q=np.asarray(w['point_mm']);d=np.asarray(w['departure_axis'])
-        start=np.asarray(w.get('grip_start_mm',q));tip=start+9*d
+        start=np.asarray(w.get('grip_start_mm',q));grip_axis=np.asarray(w.get('grip_axis',d));tip=start+9*grip_axis
         result.append(dict(endpoint=w.get('endpoint',port['endpoint']),wire=w['wire'],
             point_mm=q.tolist(),departure_axis=d.tolist(),radius_mm=w.get('radius_mm',w.get('radius')),
             minimum_R_mm=port['minimum_project_R_mm'],grip_start_mm=start.tolist(),grip_end_mm=tip.tolist(),
+            grip_axis=grip_axis.tolist(),received_prefix_R_mm=w.get('R_mm'),
             grip_length_mm=9,not_new_connector=bool(w.get('not_new_wire_geometry')),
             full_middle_route_accepted=False,supplier_datum_guaranteed=False))
     assert {r['endpoint'] for r in result}=={p['endpoint'] for p in station['ports']}
@@ -46,6 +49,8 @@ def station_lands(station,model):
 def station_model(st,choice):
     slot=choice['slot']
     if choice['kind']=='straight_comb':return unit(st,slot,choice.get('lane',0))
+    if choice['kind']=='compact_fan':return compact_unit(st,choice)
+    if choice['kind']=='after_land_fan':return after_land_unit(st,choice)
     r=choice['recipe']
     if r['family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS':return build_underplate(st,slot,r['bend_side'],r['head_side'])
     if st['fixed_identity_pose']:return build(st,'inner',1,-1)
@@ -72,6 +77,9 @@ def chosen_material(path=None):
             models[group]=dict(wires=station_lands(st,m))
         elif r['kind']=='remaining_kit':
             pp,kk=remaining_material(group,r['recipe'])
+        elif r['kind'] in ('compact_fan','after_land_fan'):
+            model=station_model(stations[group],r);pp,kk=model['parts'],model['kinds']
+            models[group]=dict(wires=station_lands(stations[group],model))
         elif r['kind']=='source_fan':
             pp={p['name']:fans[p['name']] for p in r['option']['parts']}
             kk={n:fanrows[n]['kind'] for n in pp}
