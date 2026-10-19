@@ -20,15 +20,16 @@ def box(lo,hi,pose=None):
 
 
 def build_underplate(station,slot,bend_side=1,head_side=1):
-    assert slot['pose_family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS'
+    assert slot['pose_family'] in ('UNDER_PLATFORM_SHARED_REMOVABLE_COMBS','BESIDE_BANK_INWARD_DOWN_COMMON_SPINE')
     assert not station['fixed_identity_pose'] and bend_side in (-1,1) and head_side in (-1,1)
     centre=np.array(slot['centre_mm']);side=-1 if centre[1]<0 else 1
-    if slot['profile']=='standard':
+    beside_bank=slot['pose_family']=='BESIDE_BANK_INWARD_DOWN_COMMON_SPINE'
+    if slot['profile']=='standard' and not beside_bank:
         rot=np.array([[0.,1.,0.],[0.,0.,side],[side,0.,0.]])
         departure=-side;d=np.array([0.,0.,-1.]);b=np.array([0.,bend_side,0.]);sweep=90.
     else:
         rot=np.array([[0.,-1.,0.],[1.,0.,0.],[0.,0.,1.]])
-        departure=-side;d=np.array([0.,-side,0.]);b=np.array([0.,0.,-1.]);sweep=45.
+        departure=-side;d=np.array([0.,-side,0.]);b=np.array([0.,0.,-1.]);sweep=90. if beside_bank else 45.
     assert abs(np.linalg.det(rot)-1)<1e-8
     base=build(dict(station,row_families=['inner','outer']),'outer',1,departure)
     old=np.array(base['centre_mm']);qmap=lambda q:rot@(np.array(q)-old)+centre

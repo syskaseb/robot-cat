@@ -2,6 +2,26 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+05:17:43Z: N01 nadal0/10, hookON do wyniku. Limit42%used/58%remaining,
+bez resetu. Wybrany master aff0a45b... ponownie bez zmian. Aktualny spis
+930właścicieli/26,609s potwierdza pełny bank do|Y|86,55, nie67,75 oprawki.
+Receiver58511/138,062s: stare boczne listwy nie mieszczą całości21korpusów.
+Cztery nowe zejścia pod bank/33,844s odrzucone przez rzeczywiste boczne
+belkiP0, więc nie uruchomiono ich lokalnej siatki. Prostszy wspólny grzebień:
+pełne9mm PROSTO przed dalszym zakrętem, główka z boku; kanał między
+P0Z38,52 i BankBedZ52. 8pełnych sond/77,547s:6przechodzi świat/obrys/36nóg.
+Nie oznacza to całej trasy ani punktu. Kontroler61672/PID22328 wybiera
+wspólnie20WAGO+monitor+6pełnych wyjść; przy11wyborze wszystkie statycznie
+odebrane, pierwsze3konflikty wzajemne zapisane, brak powtórzenia dawnych par.
+Rejestr123/246 zachowany:27aktualnych dat,7wyjśćPi z rzeczywistych zapisanych
+capów,0HOLD w odczycie; pady lutownicze nie zastąpione fikcyjnym pinoutem.
+JPWM zarejestrowany z właściwej ramy candidateR5, nie z innego snapshotu.
+3testy rejestru/0,022s i2geometrii/2,366s PASS; te drugie dowodzą też, że
+stary domyślny helper podbankowy pozostał geometrycznie bez zmian.
+NEXT: odbierz61672, potem pełny wspólny wybór/korzenie/narzędzia/dostępATO/
+korytarze wszystkich końców i nominalne fabryczne długości. N03/N04/N05/N10
+nie są automatycznie domknięte przez plan. Bez fizycznegoPASS i nowegoCAD.
+
 Nowa zgoda: jeden pełny wspólny plan N01=1/10=10%, bez terminu godzinowego.
 Start18.10 22:12:45Z/19.10 00:12:45Warszawy, obecnie0/10. Hook result_stageON.
 Odczyt22:14:24Z:30%used/70%remaining, ordinaryallowed; bez resetu.
