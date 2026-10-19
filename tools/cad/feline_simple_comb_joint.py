@@ -53,8 +53,8 @@ def physical_key(st,slot):
 
 
 def main():
-    tick=time.monotonic();two_lane='--two-lane' in sys.argv;selected_head='--selected-head' in sys.argv or two_lane
-    dest=OUT/('n01-two-lane-comb-joint.json' if two_lane else 'n01-selected-t18i-comb-joint.json' if selected_head else 'n01-simple-comb-joint.json')
+    tick=time.monotonic();whole54='--whole54' in sys.argv;two_lane='--two-lane' in sys.argv or whole54;selected_head='--selected-head' in sys.argv or two_lane
+    dest=OUT/('n01-shared54-whole.json' if whole54 else 'n01-two-lane-comb-joint.json' if two_lane else 'n01-selected-t18i-comb-joint.json' if selected_head else 'n01-simple-comb-joint.json')
     planfile=OUT/'n01-flat-station-architecture.json';oldfile=OUT/'n01-station-zone-domains.json';zonefile=OUT/'n01-case-zone-allocation.json';fanfile=OUT/'n01-six-source-shared-lanes.json'
     stations={s['ref']:s for s in json.loads(planfile.read_text())['stations']}
     old=json.loads(oldfile.read_text());zones=json.loads(zonefile.read_text());oldslots={s['id']:s for s in zones['candidates']};newslots={s['id']:s for s in slots()}
@@ -71,7 +71,28 @@ def main():
         from feline_comb_common_material import receive_common_failures
         for p in (Path(__file__).with_name('feline_t18i_two_lane.py'),Path(__file__).with_name('feline_two_lane_receive.py')):pins[p.relative_to(ROOT).as_posix()]=sha(p)
         p=Path(__file__).with_name('feline_comb_common_material.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+    if whole54:
+        from feline_remaining_kits import candidates as remaining_candidates,materialise as remaining_material
+        from feline_remaining_receive import receive_requests as receive_remaining,key as remaining_key
+        remaining_groups,remaining_pins=remaining_candidates();pins.update(remaining_pins)
+        p=Path(__file__).with_name('feline_remaining_receive.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
     result=dict(status='RUNNING_SHARED_SIMPLE_COMB_ALLOCATION',source_sha256=pins,iterations=[],mutual_cache={},cuts=[],errors=[],N01_complete=False,physical_pass=False,selected=False)
+    if whole54 and not dest.exists():
+        predecessor=OUT/'n01-two-lane-comb-joint.json';prior=json.loads(predecessor.read_text())
+        own=Path(__file__).relative_to(ROOT).as_posix()
+        assert prior['status']=='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
+        assert all(pins[n]==v for n,v in prior['source_sha256'].items() if n!=own)
+        oldcode=subprocess.run(['git','show','65e2b033:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+        assert hashlib.sha256(oldcode).hexdigest()==prior['source_sha256'][own]
+        before=ast.parse(oldcode);after=ast.parse(Path(__file__).read_text())
+        for name in ('shape','mutual'):
+            f=lambda tree:next(n for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name==name)
+            a,b=f(before),f(after)
+            if name=='shape':b.body=[n for n in b.body if not(isinstance(n,ast.If) and ast.unparse(n.test)=="kind == 'remaining_kit'")]
+            assert ast.dump(a)==ast.dump(b),name
+        result.update(mutual_cache=prior['mutual_cache'],cuts=prior['cuts'],prior_generic_head_reconciled=prior['prior_generic_head_reconciled'],
+            seed=dict(file=predecessor.relative_to(ROOT).as_posix(),sha256=sha(predecessor),
+                      preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
         if result['source_sha256']!=pins and '--receive-controller' in sys.argv:
@@ -111,6 +132,10 @@ def main():
         groups['Source:'+ref]=[dict(kind='source_fan',key='Source:'+ref+':'+str(i),option=r) for i,r in enumerate(options)]
     monitor=[s for s in zones['candidates'] if s['profile']=='monitor' and not zones['received'][str(s['id'])]['failure']]
     groups['Monitor']=[dict(kind='monitor',slot=s,key='Monitor:'+str(s['id'])) for s in monitor]
+    if whole54:
+        for group,options in remaining_groups.items():
+            groups[group]=[dict(kind='remaining_kit',group=group,recipe=r,key=remaining_key(group,r)) for r in options]
+        assert len(groups)==54
     choices=[(g,r) for g,rows in groups.items() for r in rows];idx={r['key']:i for i,(g,r) in enumerate(choices)}
     geometry={r['key']:('straight:'+physical_key(stations[g],r['slot'])+(':long' if r.get('lane') else '') if r['kind']=='straight_comb' else
         'legacy:'+r['recipe']['geometry_signature'] if r['kind']=='received_legacy_unit' else r['key']) for g,r in choices}
@@ -134,7 +159,7 @@ def main():
             retained_positive_stronger_geometry_receipts=sum(r['ok'] for r in result['mutual_cache'].values()),
             retained_unchanged_negative_cuts=len(result['cuts']),retired_budget_negative_pairs=retired,
             raw_old_receipts_preserved=True,full6source_heads_unchanged=True)
-    case_rows=[r for _,r in choices if r['kind']!='source_fan']
+    case_rows=[r for _,r in choices if 'slot' in r]
     phase_keys=sorted({(s['side'],s['tier']) for s in newslots.values() if s['profile']=='standard'}) if two_lane else []
     phaseidx={key:len(choices)+i for i,key in enumerate(phase_keys)};total=len(choices)+len(phase_keys)
     parity={}
@@ -151,6 +176,11 @@ def main():
         for b in case_rows[i+1:]:
             if a.get('ref')==b.get('ref') and a['kind']!='monitor' and b['kind']!='monitor':continue
             if box_gap(cb(a),cb(b))<1.25-1e-6:conflicts.append((idx[a['key']],idx[b['key']]))
+    if whole54:
+        for fore in groups['Anchor:Fore']:
+            for rear in groups['Anchor:Rear']:
+                if rear['recipe']['axis_X_mm']-fore['recipe']['axis_X_mm']<90:
+                    conflicts.append((idx[fore['key']],idx[rear['key']]))
     cache=SolidQueries();sourceprior=json.loads((OUT/'n01-source-joint-allocation.json').read_text())
     sourcepairs={tuple(sorted((p['part'],p['other']))):p for p in sourceprior['pairs']}
     @lru_cache(maxsize=96)
@@ -160,6 +190,7 @@ def main():
             m=two_lane_unit(stations[r['ref']],r['slot'],r.get('lane',0)) if two_lane else (actual_head_unit if selected_head else unit)(stations[r['ref']],r['slot'])
             return m['parts'],{n:'wire' if n.startswith('wire:') else 'project_stock_reservation' if 'budget' in n else 'proposal_material' for n in m['parts']}
         if kind=='received_legacy_unit':return materialise(stations[r['ref']],r['slot'],r['recipe'])
+        if kind=='remaining_kit':return remaining_material(r['group'],r['recipe'])
         if kind=='source_fan':
             parts={p['name']:fanparts[p['name']] for p in r['option']['parts']}
             return parts,{n:'wire' if fanmeta[n]['kind']=='wire' else 'project_stock_reservation' if 'budget' in fanmeta[n]['kind'] else 'proposal_material' for n in parts}
@@ -186,6 +217,8 @@ def main():
             receiver=json.loads((OUT/'n01-straight-combs-received.json').read_text());received=receiver['units']
             physical=receiver.get('physical_cache',{})
             longfile=OUT/'n01-two-lane-static.json';longdata=json.loads(longfile.read_text()) if two_lane and longfile.exists() else dict(units={})
+            remaining_file=OUT/'n01-remaining27-static.json'
+            remaining_data=json.loads(remaining_file.read_text()) if whole54 and remaining_file.exists() else dict(units={})
             common_bad=receive_common_failures(result,longdata,stations) if two_lane else set()
             save()
             bad_cases={r['slot']['id'] for r in received.values() if str(r.get('failure','')).startswith('case|')}
@@ -220,6 +253,10 @@ def main():
                         else:add([i,p],-np.inf,1)
                 elif r['kind']=='received_legacy_unit' and not stations[r['ref']]['fixed_identity_pose']:
                     cost[i]=100 # Simplicity/load-path preference, not fit credit.
+                elif r['kind']=='remaining_kit':
+                    rec=remaining_data['units'].get(r['key'],{})
+                    if 'failure' in rec and rec['failure'] is not None:upper[i]=0
+                    cost[i]=0 if 'failure' in rec else 10
                 if 'slot' in r:cost[i]+=abs(r['slot']['centre_mm'][0])/10000
             for a,b in conflicts:add([a,b],-np.inf,1)
             expanded=set()
@@ -239,9 +276,10 @@ def main():
                 result['status']='BOUNDED_JOINT_CATALOGUE_NO_WHOLE_SET_NOT_GLOBAL_IMPOSSIBILITY';result['solver_message']=fit.message;break
             chosen=[(g,r) for i,(g,r) in enumerate(choices) if fit.x[i]>.5]
             requests=[dict(ref=r['ref'],slot_id=r['slot']['id'],lane=r.get('lane',0)) for g,r in chosen if r['kind']=='straight_comb' and 'failure' not in receipt(r)]
-            result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=len(requests)));save()
-            print('Whole choice',len(result['iterations']),'unknown',len(requests),'mutualcuts',len(result['cuts']),flush=True)
-            if requests:
+            remaining_requests=[(g,r['recipe']) for g,r in chosen if r['kind']=='remaining_kit' and 'failure' not in remaining_data['units'].get(r['key'],{})] if whole54 else []
+            result['iterations'].append(dict(iteration=len(result['iterations']),chosen={g:r['key'] for g,r in chosen},unknown_units=len(requests)+len(remaining_requests)));save()
+            print('Whole choice',len(result['iterations']),'groups',len(groups),'unknown',len(requests)+len(remaining_requests),'mutualcuts',len(result['cuts']),flush=True)
+            if requests or remaining_requests:
                 baseline=[r for r in requests if not r['lane'] or 'failure' not in received.get(r['ref']+':'+str(r['slot_id']),{})]
                 child_tick=time.monotonic()
                 if baseline:
@@ -251,7 +289,8 @@ def main():
                     complete_base=json.loads((OUT/'n01-straight-combs-received.json').read_text())['units']
                     long_requests=[r for r in requests if r['lane'] and 'failure' in complete_base.get(r['ref']+':'+str(r['slot_id']),{})]
                     if long_requests:status=receive_long_lanes(long_requests)['status']
-                result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=len(requests)))
+                if remaining_requests:status=receive_remaining(remaining_requests)['status']
+                result.setdefault('persistent_receipts',[]).append(dict(status=status,seconds=round(time.monotonic()-child_tick,3),requested=len(requests)+len(remaining_requests)))
                 save();continue
             cut=False
             for i,(g,a) in enumerate(chosen):
@@ -260,7 +299,7 @@ def main():
                         result['cuts'].append([a['key'],b['key']]);cut=True;save();break
                 if cut:break
             if cut:continue
-            result['status']='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
+            result['status']='WHOLE54_FULL_UNITS_STATIC_MUTUAL_RECEIVED_ROOTS_CORRIDORS_TOOLS_OPEN' if whole54 else 'WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
             result['chosen']={g:r for g,r in chosen};break
         else:result['status']='BOUNDED_ITERATION_RECEIPT_NOT_N01'
     except TimeoutError as exc:result['status']='PARTIAL_SHARED_COMB_JOINT';result['slice_note']=str(exc)
