@@ -1,5 +1,20 @@
 # Wnioski z projektowania 3D robot-cat
 
+19.10, wspólny węzeł P_SYS: łuki dopisane do arbitralnego tipa po dodatkowych
+9mm trafiały w bank/ramę. Chwyt był JUŻ przed łukiem. Pomogła jednoczesna
+alokacja ogonów po zachowanymfirst9, pełnego rzędu chwytówFL_P, orientacji
+tej samej główkiG2, przelotów opaski i drogi obciążenia. Nie ponawiać
+odrzuconegoG2lane1. Miejsce zakotwienia wybierać z faktycznej zachowanej
+sekcji: bbox żebra sięgał40,52, lecz miejscowo materiał kończył39,909.
+Guard dodatniego wspólnego materiału musi poprzedzać odbiór świata.
+Po przecięciu szyny sprawdzić KAŻDĄSolid, nie tylko jedną nazwę obiektu.
+
+19.10, sąsiednie wyjścia jednej WAGO nie gwarantują tego samego przekroju:
+P_SYS.1 maRizolacji1,55, P_SYS.2/.3 po2,1. Wyprowadzać profil kontynuacji
+z rzeczywistej powierzchni końca, a promień gięcia osobno z kontraktu.
+Kontakt powiększonej rezerwy nie jest kontaktem rzeczywistego przewodu;
+przy ważnym innym świadku odrzucenia nie ponawiać całej złej topologii.
+
 19.10, połączony graf punktowy nie planuje promieni ani wspólnych wiązek:
 CAŁY test108guides odrzucił wszystkie schodkowe łuki. Korytarze planować
 z prostych i rzeczywistych stycznych łuków, przekrój wiązki od początku;
