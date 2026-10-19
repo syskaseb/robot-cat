@@ -115,7 +115,17 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--under-key-bank' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--rear-bank-return' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
+            previous=subprocess.run(['git','show','928307e5:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(previous).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(previous,name))==ast.dump(get(Path(__file__).read_text(),name)),name
+            result.setdefault('controller_repairs',[]).append(dict(reason='Select23 received below-key exits plus already-received DOWN W058 rear return outside BUS.G; no new geometry or repeated static check',shape_and_mutual_AST_identical=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--under-key-bank' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix();helper='tools/cad/feline_bank_exit_lanes.py';receiver='tools/cad/feline_bank_lane_receive.py'
             assert set(pins)==set(result['source_sha256'])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,helper,receiver))
@@ -444,7 +454,10 @@ def main():
                 # One whole coherent bank architecture, not24independent new
                 # offsets. Old recipes and raw evidence remain preserved.
                 bank_kind='bank_under_key_lane' if '--under-key-bank' in sys.argv else 'bank_exit_lane'
-                add([i for i,(g,r) in enumerate(choices) if r['kind']==bank_kind],24,24)
+                if '--rear-bank-return' in sys.argv:
+                    compatible=lambda g,r:(r['kind']==bank_kind and g!='Bank:W058/single/end') or (r['kind']=='bank_exit_lane' and g=='Bank:W058/single/end')
+                    add([i for i,(g,r) in enumerate(choices) if compatible(g,r)],24,24)
+                else:add([i for i,(g,r) in enumerate(choices) if r['kind']==bank_kind],24,24)
             upper=np.ones(total);cost=np.zeros(total)
             for i,(g,r) in enumerate(choices):
                 if r['kind']=='straight_comb':
