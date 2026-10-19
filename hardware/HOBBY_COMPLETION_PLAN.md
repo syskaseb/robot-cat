@@ -2,6 +2,106 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+21:04Z: R2CANONICAL odebrany218,266s/350par/0wskazań/0błędów;
+212niezmienionych wyników reużytych. Wszystkie7lokalnych wskazań nośnika
+zamknięte bez zmiany kupnych części/przewodów. Przyjęta roboczo geometria
+nośnika, jeszcze nie wspólny układN01. Uruchomiony odbiór tego SAMEGO
+archiwum względem świata i36pozycji, potem wspólny odczyt wszystkich7Pi
+chwytów/osi śrub/korzeni. N01=0/10; starymaster/natywneCAD bez zmian.
+
+21:00Z: zachowano9d60e148 (sprawdzona konstrukcja i pełne7świadków,
+bez punktuN01). R2 ma jedną poprawną bryłę, przelotowe kanały i po15,6803mm2
+oparcia dwóch C-stópPCB. Dwa błędy null-fuse zamknięto zmianą metody:
+odejmowanie od ODEBRANEJ bryły, bez kolejnych łączeń współpowierzchniowych.
+Odbiór53par/62,344s przerwany przez brak odziedziczonej bazy ingress,
+nie kolizję. Próba normalizacjiBRep ujawniła niestabilną serializacjęD:
+nie powtarzać. Aktualny odbiórCANONICAL kopiuje dokładne bajty niezmienionych
+aktorów z archiwum rodzica, bez reserializacji; zmienia wyłącznie nośnik.
+N01 nadal0/10; wszystkie chwytyPi/korzenie/narzędzia/cały plan otwarte.
+
+20:48Z: wspólny nośnik w pełni ODEBRANY350kontroli,187reużytych,
+221,782+72,438s dwóch atomowych odcinków,7wskazań/0błędów. Konstrukcja
+ma33dodatnie połączenia, jedną bryłę i8chronionych starych osi otworów;
+ze starego mostu usunięto0,002655mm3. To nie zamykaN01. Świadki z tego
+samego archiwum (bez ponownego świata): dwa przewody stykają się czołami
+z KOŃCEM ślepych kanałów, pokrywy mają zaplanowane0,15 (nie1,25wolnego
+powietrza), dwa punkty mocowań PCB mijają46/94 tylko0,690/0,437, kwadratowy
+koniec szyny mija pełnyUSB-C0,499. Jedna wspólna korekta konstrukcji:
+PRZELOTOWE kanały z3mmwybiegiem poza9 (bez zmiany przewodów), jednoznaczne
+matingi wyłącznie pokryw ich własnychD/G, szyny kapsułoweR3 z czterech
+realnych osi (nie kwadratowe narożniki), dwa dolne C-kołnierzePCB otwarte
+od strony zmierzonych pełnych46/94+1,25; zachować zamknięte górne otwory/
+wysokość/pozostałe ścianki oraz >=12mm2 kontaktuPCB na każdej osi.
+Nie zmniejszać kupnych części/marginesu1,25. Nowy wariant osobno; nie
+nadpisywać odebranych brył/plików. Starymaster bez zmian,N01=0/10,hookON.
+
+20:30Z: Ddiagonal ODEBRANY35,468s/4pary; common0, lecz luzmostu0,030813
+<1,25. To DRUGIE odrzucenie swobodnego przelotu: NIE kolejny kąt/ofset.
+Zmiana topologii: podparty moduł BUS/Tail z D/G jako przewodami we własnych
+dwudzielnych siodłachPETG/2pełnychT18, nie wymaganie wolnego lotu nad
+obcym mostem. D zachować BYTE-identyczny z odebraną przekątną; G zachować.
+Nowy drukowany nośnik obejmuje staryTailBridge29 (kupne/osi/śrubyP0 bez
+zmian), dwie szyny z4otworamiBUS, podpierające ramiona i oba pełne9siodła.
+KanałyR1,70 dla izolacjiR1,55 są jawnym interfejsem mechanicznym z luzem
+nominalnym0,15, nie globalnym obniżeniem1,25. Połączenia: dodatnia wspólna
+objętość, jedna bryła, minścianki2mm, stare gniazda śrub bez podcięcia,
+pełne główki i przestrzeń montażu; próba retencji/jacketu dopiero faza2.
+Kotwa nośnika: rzeczywisty ścisły punkt mostu140,231/8,178/58,892.
+Boczny słupekX145,5/Y13,5, R2 doZ95,270 omija PCBmaxX141,816 i H5.
+Dolny poprzeczny łącznik naZ88,75 (nadH5max85,270, podUSB), doY53,396;
+drugi słupek do tylnej szyny. Górne belkiX od145,5 do141,804 (NIE do osi
+śrub139,304) zachowują cztery otwory. Siodła9 na aktualnych końcachD/G,
+ściana2,3mm, C-kanał/oddzielna pokrywa/pełny pas i główka, bez gołej żyły.
+Wspólny odbiór obejmie też H1odW035,5całych części wyjściaF_PWM obróconych
+Z90 wokół116/75/69 z dowodem symetrii niezmienionej oprawki, oraz pełne9
+USB w prostej15 (start+6, pas7,75), bez zmiany kabla/marginesu. To nadal
+PLAN N01, nie wybrany nativeN03/druk/physicalPASS. Pozytywne pary reużyć
+wyłącznie przy identycznych bryłach, metadanych odstępów i tym samym obrysie.
+
+20:16Z: wszystkie4zewnętrzne świadki odebrane wspólnie28,937s. H1/W035
+common1,514mm3; PCB/F_PWMout9,876mm3; D/TailBridge1,218mm3. D przecina
+konkretny środkowy żebrowy materiał mostuX140/Z58,59..59,41, nie całą
+obwiednię108..195/Y±27/Z56..62. Nie wycinać mostu ani wracać do odrzuconych
+dwuramiennych mostów. JEDNA następna hipotezaD: R10 i całe9 niezmienione,
+diagonalny-X/-Y zamiast-Y, odejście od środkowego żebra i zewnętrznej szyny;
+G zachowany i niebadany ponownie. Odbiór CAŁEGO nowegoD z całym światem/
+pozostałym własnym pakietem/ruchami przed zmianą głównego planu. Po drugim
+odrzuceniu nie wybierać kolejnego kąta bez zmiany topologii/przyczyny.
+Pozostałe naprawy JEDNOCZEŚNIE: pełna zatokaUSB9 w istniejących15mm,
+indywidualny wachlarzH1 odW035, CAŁA5częściowa gałąźwyjściowaF_PWM
+obrócona wokół niezmienionego wyjścia oprawki (nie samo przesunięcieBUS).
+
+20:10Z: wspólna galeria odebrana206,938s/213kontroli/0błędów; JEDEN
+brak marginesu: BUSsupplier11 vs pasUSB1,230475<1,25mm, common0.
+To nie kolizja i nie zaliczenie. Pełny odpowiedni komponent ma X108,298..
+122,298/Y19,099..28,499/Z79,170..93,770, najbliższa górna krawędź
+X118,648; pas ma X116,25..118,75/Zmin95. Wyznaczyć CAŁĄ zatokę chwytu
+w istniejącej prostej15mm (bez zmiany kabla/marginesu), nie przesuwać
+modułu o setne. PRZED poprawą: jeden odbiór diagnostyczny tego zamrożonego
+CAŁEGO układu ze światem/ruchami/narzędziami, z jawnym własnym holdem,
+żeby zgrupować ewentualne problemy5GPIO/banku i nie poprawiać po jednym.
+Diagnostyka nie może wydać zgodyN01 ani pominąć własnego holda.
+
+20:04Z, PRZED następnym kosztem: JEDEN wspólny plan górnej galerii,
+nie przesunięcie odrzuconej pętli. PiPCB38,5/9,468/104: minX-4 poza
+kluczemS0 doX-25; cały bootPi odsunięty od zajętych wejśćRR_P. Cały
+stały powrótUSB Z89 NAD narzędziamiATO doZ82 i Y46 POZA pełnym portem
+USB-A. Dwie przeciwne krzyweS/R30 zmieniają galerię, długość452 wylicza
+obie proste; pierwszy nawrótR31,5 kończy zejście Z98,7→89. BUSmouth86/46/
+89, pełnyH5 zachowany, D/G mają odrębne kierunki-Y/+Y z R10/pełnym9,
+zamiast wejścia podP0. NośnikBUS: DWIE pełne szyny na4rzeczywistych osiach
+dystansów, nie pełna płyta przecinająca opaskęUSB. Zachować osie/otwory
+kupnej płytki. WylotyK1474 najpierw prosto doX96,5, dopiero za pełnym
+P_REAR ich łuki i oddzielne9 (W080 drugi rząd12mm); nie zaniżaćR/średnic.
+To wymaga rezerwy przestrzennejPi do350mm z JEDNEGO1m (pozostaje440/430
+po dawnym wejściu210/220), nie wybór cięcia ani zamknięcieE3/N10.
+Obrys nadal325x200x160, max200: opóźniony tylny skos, nie zwiększenie
+gabarytu. 21stacji/bank/P0/źródła i ich przyjęte pary pozostają identyczne.
+Bramka: pełny własny pakiet/porty/obieUSBopaski i H5, potem tylko zmieniony
+świat/narzędzia/36ruchów. Pełne7chwytówPi/2D/G i korzenie nadalOPEN przed
+N01; żadnych produkcyjnychN03/native. Po dwóch odrzuceniach nie powtarzać
+tej samej przyczyny. Commitodebranychwyników73bcf2fa,6testów2,190s.
+
 19:56Z: świat dla rozdzielonych zatokODEBRANY77,766s/103kontrole/
 31wskazań/0błędów. Własne162kontrolepozostają prawdziwe, NIE kwalifikują
 układu. Dwanaście wskazań dotyczy narzędzi/wyciąganiaATO, ponadto niższy

@@ -1,5 +1,14 @@
 # Wnioski z projektowania 3D robot-cat
 
+19.10, odbiór geometrii: BRep po imporcie/eksporcie nie musi zachować
+identycznych bajtów, także przy ponownym zapisie tym samym API. Nie
+normalizować kolejno zapisu aż SHA pasuje. Niezmienionych aktorów nie
+reserializować: przenosić dokładne przypięte bajty rodzica i zmieniać tylko
+nową część. Historyczny dowód wejścia przewodu zachować z rodzica; bieżący
+przewód nie może być własną bazą porównawczą. Dwa null-fuse przy nowych
+współpowierzchniowych szynach rozwiązało odejmowanie od już odebranej,
+połączonej bryły, nie kolejny ofset albo zmniejszenie marginesu.
+
 19.10, wspólną scenę odzyskiwać z CAŁEJ przypiętej receptury, nie ręcznej
 listy grup. Pominięcie9częściP_REAR tworzyło pozorne nowe problemy z Pi.
 Test ma odrzucać brak dowolnej części, nie tylko sprawdzać licznik grup.

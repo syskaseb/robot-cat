@@ -141,7 +141,14 @@ def frozen_core(previous):
     for n in actors:
         if not n.startswith(('PiGPIO:','PiPower:')):continue
         housing='PiBudget:GPIO1992OccupiedHousing' if n.startswith('PiGPIO:') else 'PiBudget:RetainedK1474Boot'
-        assert '|'.join(sorted((n,housing))) in previous['checks'],(n,'Source ingress must already be received')
+        key='|'.join(sorted((n,housing)))
+        if key not in previous['checks'] and recipe.get('r2_from_exact_received_frame_sha256'):
+            p=OUT/'n01-tail-supported-gallery-core-received.json'
+            assert previous['source_sha256'][p.relative_to(ROOT).as_posix()]==sha(p)
+            original=json.loads(p.read_text());assert original['checks'][key]['ok']
+            # The exact non-frame actor byte roundtrip is verified by main
+            # BEFORE using this inherited ingress result in any receiver.
+        else:assert key in previous['checks'],(n,'Source ingress must already be received')
     return world,parts,meta,pins,actors,roles,rows,inverse,outer,{},recipe
 
 
@@ -150,6 +157,9 @@ def main():
     if '--world' in sys.argv:return receive_world()
     if '--diagnose' in sys.argv:return diagnose()
     tick=time.monotonic();name='n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if '--gallery' in sys.argv else 'n01-separated-port-bays-core-received.json' if '--separate-mating-bays' in sys.argv else 'n01-under-port-return-core-received.json' if '--under-ports' in sys.argv else 'n01-long-return-core-received.json'
+    if '--keyed-feet' in sys.argv:name='n01-tail-supported-gallery-r2-core-received.json'
+    canonical='--canonical-parent' in sys.argv
+    if canonical:name='n01-tail-supported-gallery-r2-canonical-core-received.json'
     dest=OUT/name;resume='--resume-core' in sys.argv;assert resume==dest.exists()
     previous=json.loads(dest.read_text()) if resume else None
     if '--supported-tail' in sys.argv:
@@ -157,7 +167,23 @@ def main():
     elif '--gallery' in sys.argv:
         from feline_service_gallery import build as selected_build
     else:selected_build=build
-    world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe=frozen_core(previous) if previous else selected_build();query=SolidQueries()
+    parent_raw={}
+    if canonical and not previous:
+        parentfile=OUT/'n01-tail-supported-gallery-core-received.json';parent=json.loads(parentfile.read_text())
+        r2file=OUT/'n01-tail-supported-gallery-r2-core-received.json';r2=json.loads(r2file.read_text())
+        parent['source_sha256']['tools/cad/feline_gallery_tail_support.py']=sha(ROOT/'tools/cad/feline_gallery_tail_support.py')
+        world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,_=frozen_core(parent)
+        recipe=r2['recipe'];ff=ROOT/recipe['frame_file'];assert sha(ff)==r2['source_sha256'][recipe['frame_file']]
+        frame=Part.Shape();frame.read(str(ff));assert frame.isValid() and len(frame.Solids)==1;actors[recipe['frame_actor']]=frame
+        parentzip=ROOT/parent['bundle'];assert sha(parentzip)==parent['bundle_sha256']
+        with zipfile.ZipFile(parentzip) as z:
+            for row in parent['geometry']:
+                raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256']
+                if row['name']!=recipe['frame_actor']:parent_raw[row['name']]=raw
+        pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (parentfile,r2file,ff,ROOT/recipe['frame_delta_file'])})
+        recipe=dict(recipe,exact_parent_bytes_passed_without_reserialization=True)
+    else:world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe=frozen_core(previous) if previous else selected_build()
+    query=SolidQueries()
     archive=dest.with_suffix('.breps.zip');geometry=[]
     if previous:geometry=previous['geometry']
     with zipfile.ZipFile(archive,'r' if resume else 'x',zipfile.ZIP_DEFLATED) as z:
@@ -166,7 +192,7 @@ def main():
             # Cached BUS25 is invalid; retain exact inverse/original protocol.
             if n==world.bus['name']:continue
             assert s.isValid() and s.Solids,n
-            raw=s.exportBrepToString().encode();entry=f'{i}.brep'
+            raw=parent_raw[n] if n in parent_raw else s.exportBrepToString().encode();entry=f'{i}.brep'
             if resume:assert z.read(entry)==raw,n
             else:z.writestr(entry,raw)
             geometry.append(dict(name=n,role=roles[n],entry=entry,sha256=hashlib.sha256(raw).hexdigest()))
@@ -174,12 +200,13 @@ def main():
         geometry=geometry,bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),
         current_world_outer_tools_montage_all123_OPEN=True,N01_complete=False,physical_pass=False,selected=False,native_changed=False)
     if '--supported-tail' in sys.argv and not previous:
-        priorfile=OUT/'n01-service-gallery-core-received.json';old=json.loads(priorfile.read_text())
+        priorfile=OUT/('n01-tail-supported-gallery-core-received.json' if '--keyed-feet' in sys.argv else 'n01-service-gallery-core-received.json');old=json.loads(priorfile.read_text())
         before={r['name']:(r['sha256'],r['role']) for r in old['geometry']};after={r['name']:(r['sha256'],r['role']) for r in geometry}
         same={n for n,v in after.items() if before.get(n)==v}
         outer_key=recipe['outer_file'];same_outer=old['source_sha256'].get(outer_key)==pins[outer_key]
         for key,r in old['checks'].items():
             names=key.split('|')
+            if '--keyed-feet' in sys.argv and any(x.startswith('DGGrip:') for x in names) and any(x.startswith('CurrentBUS:BUS.') for x in names):continue
             if len(names)!=2 or names[0] not in same:continue
             if names[1]=='outer':
                 if not same_outer:continue
@@ -199,6 +226,29 @@ def main():
         result.update(checks=previous['checks'],failures=previous['failures'],
             previous_runs=previous.get('previous_runs',[])+[dict(worker_seconds=previous['worker_seconds'],receipt_sha256=sha(dest),errors=previous['errors'])],
             unchanged_geometry_archive_and_complete_recipe_verified=True,geometry_resume_method='Exact SHA-pinned archive, no Boolean construction or serialization round trip')
+    if '--keyed-feet' in sys.argv and not canonical and not result.get('exact_roundtrip_source_reuse'):
+        # R2 edits ONLY the frame loaded from the prior archive. Its other
+        # actors passed through import/export, which changes BRep encoding.
+        # Prove that exact serialization roundtrip, rather than rerunning
+        # hundreds of unchanged pairs or comparing only bounds/volume.
+        priorfile=OUT/'n01-tail-supported-gallery-core-received.json';old=json.loads(priorfile.read_text())
+        oldzip=ROOT/old['bundle'];assert sha(oldzip)==old['bundle_sha256']
+        after={r['name']:r for r in geometry};same=set()
+        with zipfile.ZipFile(oldzip) as z:
+            for row in old['geometry']:
+                n=row['name']
+                if n==recipe['frame_actor'] or n not in after or after[n]['role']!=row['role']:continue
+                raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256']
+                s=Part.Shape();s.importBrepFromString(raw.decode())
+                assert hashlib.sha256(s.exportBrepToString().encode()).hexdigest()==after[n]['sha256'],n
+                same.add(n)
+        for key,r in old['checks'].items():
+            names=key.split('|')
+            if len(names)!=2 or names[0] not in same or names[1]!='outer' and names[1] not in same:continue
+            if any(x.startswith('DGGrip:') for x in names) and any(x.startswith('CurrentBUS:BUS.') for x in names):continue
+            result['checks'][key]=r
+        result['failures']=[dict(a=k.split('|')[0],b=k.split('|')[1],**v) for k,v in result['checks'].items() if not v['ok']]
+        result['exact_roundtrip_source_reuse']=dict(source_sha256=sha(priorfile),unchanged_actor_count=len(same),only_changed_actor=recipe['frame_actor'],method='Exact old archive bytes -> identical imported/exported bytes; not bounds or volume equivalence')
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     def distance(n,s,m,t):
         if n==world.bus['name']:
@@ -243,6 +293,9 @@ def main():
                         common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
                         r.update(ok=common.Volume<1e-5 and (not channel or gap>=.149-1e-6),intended_supported_joint_common_mm3=common.Volume,
                             nominal_channel_clearance_mm=.15 if channel else None,physical_retention_not_qualified=True)
+                if '--keyed-feet' in sys.argv and any(set((n,m))=={'CurrentBUS:BUS.'+tag,'DGGrip:'+tag+':cap'} for tag in ('D','G')):
+                    common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
+                    r.update(ok=common.Volume<1e-5 and gap>=.149-1e-6,matching_split_cap_nominal_clearance_mm=.15,physical_retention_not_qualified=True)
                 if 'USB500:whole' in (n,m) and any(x.startswith('USBGrip:') and x.endswith((':pad',':band')) for x in (n,m)):
                     common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,intended_pad_band_common_mm3=common.Volume)
                 result['checks'][key]=r;result.pop('pending_pair',None)
@@ -284,7 +337,8 @@ def receive_world():
     """Receive only external pairs of the frozen complete own-core archive."""
     from feline_common_space_context import current
     tick=time.monotonic();gallery='--gallery' in sys.argv
-    source=OUT/('n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if gallery else 'n01-separated-port-bays-core-received.json')
+    source=OUT/('n01-tail-supported-gallery-r2-core-received.json' if '--keyed-feet' in sys.argv else 'n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if gallery else 'n01-separated-port-bays-core-received.json')
+    if '--canonical-parent' in sys.argv:source=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json'
     prior=json.loads(source.read_text());diagnostic='--diagnose-world' in sys.argv
     if diagnostic:
         # Collect a frozen whole hypothesis BEFORE correcting its separate
@@ -297,6 +351,8 @@ def receive_world():
         assert prior['status']=='LONG_RETURN_CORE_RECEIVED_WORLD_OPEN'
         assert not prior['failures'] and not prior['errors']
     name='n01-tail-supported-gallery-world-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-world-diagnostic.json' if diagnostic else 'n01-service-gallery-world-received.json' if gallery else 'n01-separated-port-bays-world-received.json'
+    if '--keyed-feet' in sys.argv:name='n01-tail-supported-gallery-r2-world-received.json'
+    if '--canonical-parent' in sys.argv:name='n01-tail-supported-gallery-r2-canonical-world-received.json'
     dest=OUT/name;resume='--resume' in sys.argv;assert resume==dest.exists()
     world,parts,meta,pins,docs=current()
     for name,value in pins.items():assert prior['source_sha256'][name]==value,name

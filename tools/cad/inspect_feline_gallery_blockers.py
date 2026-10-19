@@ -17,6 +17,7 @@ def bounds(s):
 
 
 def main():
+    if '--Pi-restraint-space' in sys.argv:return pi_restraint_space()
     if '--D-diagonal' in sys.argv:return receive_D_diagonal()
     tick=time.monotonic();source=OUT/'n01-service-gallery-core-received.json';d=json.loads(source.read_text())
     df=OUT/'n01-service-gallery-world-diagnostic.json';diag=json.loads(df.read_text())
@@ -40,6 +41,40 @@ def main():
         if meta[n].get('group')=='F_PWM_whole':result['F_PWM_whole_output_kit'][n]=dict(kind=meta[n].get('kind'),bounds_mm=bounds(s),rotate_whole_output=n.endswith(('out_first_bend','out_after_turn_grip')) or ':End1:' in n)
     result['worker_seconds']=round(time.monotonic()-tick,3);save_json(OUT/'n01-service-gallery-world-witnesses.json',result)
     print(json.dumps(result['witnesses']),flush=True);print('SECONDS',result['worker_seconds'],flush=True)
+
+
+def pi_restraint_space():
+    """Read all seven lands, real bolt axes and nearby retained owners once.
+
+    Bounds are only planning datums/proximity, NEVER collision evidence.
+    No new candidate, changed geometry, native save or loop of poses.
+    """
+    tick=time.monotonic();source=OUT/'n01-tail-supported-gallery-r2-canonical-core-received.json';d=json.loads(source.read_text())
+    assert d['status']=='LONG_RETURN_CORE_RECEIVED_WORLD_OPEN' and not d['failures'] and not d['errors']
+    arc=ROOT/d['bundle'];assert sha(arc)==d['bundle_sha256'];actors={};roles={}
+    with zipfile.ZipFile(arc) as z:
+        for row in d['geometry']:
+            raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256']
+            s=Part.Shape();s.importBrepFromString(raw.decode());actors[row['name']]=s;roles[row['name']]=row['role']
+    world,parts,meta,pins,docs=current()
+    for n,h in pins.items():assert d['source_sha256'][n]==h,n
+    fixed={n:s for n,s in parts.items() if meta[n].get('group')!='PiUpper' and meta[n].get('role')!='BUS' and not n.startswith('CurrentBUS:')}
+    for n in d['recipe'].get('fixed_replaced_names',[]):fixed.pop(n)
+    fixed.update(actors)
+    def near_land(s,ends):
+        #12mm allocation neighborhood, NOT contact classification.
+        b=s.BoundBox;lo=[min(p[i] for p in ends)-12 for i in range(3)];hi=[max(p[i] for p in ends)+12 for i in range(3)]
+        return b.XMax>=lo[0] and b.XMin<=hi[0] and b.YMax>=lo[1] and b.YMin<=hi[1] and b.ZMax>=lo[2] and b.ZMin<=hi[2]
+    lands=[]
+    for row in d['recipe']['new_Pi_full_ends']:
+        lands.append(dict(**row,nearby_owner_datums=[dict(name=n,bounds_mm=bounds(s)) for n,s in fixed.items() if near_land(s,row['full9_mm'])]))
+    anchors=[dict(name=n,bounds_mm=bounds(s),cylinders=[dict(radius_mm=f.Surface.Radius,axis=list(f.Surface.Axis),centre_mm=list(f.Surface.Center)) for f in s.Faces if isinstance(f.Surface,Part.Cylinder)]) for n,s in actors.items() if n.startswith('Ref_Material_Pi4') and 'PCB' not in n]
+    rootparts=[dict(name=n,bounds_mm=bounds(s)) for n,s in fixed.items() if n.startswith('CurrentFoundation:') or n==d['recipe']['frame_actor']]
+    result=dict(status='SEVEN_PI_RESTRAINTS_SHARED_DATUMS_NOT_FIT',lands=lands,actual_Pi_fastener_datums=anchors,retained_root_datums=rootparts,
+        source_sha256={**pins,source.relative_to(ROOT).as_posix():sha(source),arc.relative_to(ROOT).as_posix():sha(arc)},
+        nearby_bounds_are_not_collision_proof=True,N01_complete=False,physical_pass=False,no_new_geometry=True,worker_seconds=round(time.monotonic()-tick,3))
+    save_json(OUT/'n01-Pi-seven-restraints-shared-datums.json',result)
+    print(json.dumps(dict(status=result['status'],lands=len(lands),fastener_parts=len(anchors),root_parts=len(rootparts),seconds=result['worker_seconds'])),flush=True)
 
 
 def receive_D_diagonal():
