@@ -2,6 +2,19 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+10:59Z: proste8galerii i rezerwaUSB odrzucone97,360s: pełne zaciski
+banku/Pi/F0/U1/DG, nie dowód braku miejsca. Zamiast następnej wysokości
+powstaje JEDNA aktualna mapa zajętości: sztywne części, istniejąca wiązka,
+36przyjętych pozycji ruchu i rzeczywisty obrys. Mapa klasyfikuje materiał
+wewnątrz brył; nie akceptuje dodatniego pola bez znaku. Zamknięte regiony
+rozróżnia od wnęk jednym dokładnym punktem, nie milionem zapytańOCC.
+5testów siatki0,097s i3testy prowadzenia0,005s; to narzędzia PROPOZYCJI,
+nie geometrycznyPASS ani punktN01. Ukończone rastry źródeł i całe warstwy
+są wznowialne; zamknięty uchwyt np.load usuwa WindowsPermissionError przy
+zamianie checkpointu. Poprzednie konserwatywnie zajęte komórki zachowane,
+bez promocji ujemnych par. Korzenie nośników nadal za bramką korytarzy.
+0/10, native/master bez zmian. Limit10:58:44Z53/47, bezresetu.
+
 10:34Z: F_HP/F_TY kompletne po obu stronach:36części,8chwytów9mm,
 4pełne wyjścia fabryczne/sleeve20/lap8/custom. Odbiór końcowy55,125s,
 0błędów,3testy0,009s. Wariant w głąb odrzucony54,688s na podpory brzucha
