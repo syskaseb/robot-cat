@@ -118,17 +118,51 @@ def build():
     return world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe
 
 
+def frozen_core(previous):
+    """Continue an interrupted receipt from exact archived bytes, no CAD rebuild."""
+    from feline_common_space_context import current
+    world,parts,meta,pins,docs=current()
+    for name,value in previous['source_sha256'].items():
+        if name in ('tools/cad/plan_feline_long_return.py','tools/cad/plan_feline_usb_service_bight.py'):continue
+        assert sha(ROOT/name)==value,name
+    pins=dict(previous['source_sha256']);pins['tools/cad/plan_feline_long_return.py']=sha(ROOT/'tools/cad/plan_feline_long_return.py')
+    archive=ROOT/previous['bundle'];assert sha(archive)==previous['bundle_sha256'];actors={};roles={};rows={}
+    with zipfile.ZipFile(archive) as z:
+        for row in previous['geometry']:
+            raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256']
+            s=Part.Shape();s.importBrepFromString(raw.decode());assert s.isValid() and s.Solids
+            n=row['name'];role=row['role'];actors[n]=s;roles[n]=role
+            rows[n]=dict(meta[n]) if n in meta and role in ('BUS','MovedFPWM') else {'kind':'wire' if role in ('PiWire','USB','BUSWireNew') else 'reservation' if n.startswith('PiBudget:') else 'proposal_material'}
+    recipe=previous['recipe'];p=recipe['BUS_relative_placement'];bt=A.Placement(A.Vector(*p['base_mm']),A.Rotation(*p['quaternion']))
+    n=world.bus['name'];s=parts[n].copy();s.Placement=bt*s.Placement;actors[n]=s;roles[n]='BUS';rows[n]=meta[n]
+    inverse=world.bus['inverse']*bt.inverse();outer=Part.Shape();outer.read(str(ROOT/recipe['outer_file']))
+    # A timeout after the BUS actor loop cannot reopen unreceived Pi mating
+    # evidence. Never replace its original ingress comparison with itself.
+    for n in actors:
+        if not n.startswith(('PiGPIO:','PiPower:')):continue
+        housing='PiBudget:GPIO1992OccupiedHousing' if n.startswith('PiGPIO:') else 'PiBudget:RetainedK1474Boot'
+        assert '|'.join(sorted((n,housing))) in previous['checks'],(n,'Source ingress must already be received')
+    return world,parts,meta,pins,actors,roles,rows,inverse,outer,{},recipe
+
+
 def main():
     if '--shared-constraints' in sys.argv:return shared_constraints()
     if '--world' in sys.argv:return receive_world()
     if '--diagnose' in sys.argv:return diagnose()
-    tick=time.monotonic();name='n01-separated-port-bays-core-received.json' if '--separate-mating-bays' in sys.argv else 'n01-under-port-return-core-received.json' if '--under-ports' in sys.argv else 'n01-long-return-core-received.json'
+    tick=time.monotonic();name='n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if '--gallery' in sys.argv else 'n01-separated-port-bays-core-received.json' if '--separate-mating-bays' in sys.argv else 'n01-under-port-return-core-received.json' if '--under-ports' in sys.argv else 'n01-long-return-core-received.json'
     dest=OUT/name;resume='--resume-core' in sys.argv;assert resume==dest.exists()
     previous=json.loads(dest.read_text()) if resume else None
-    world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe=build();query=SolidQueries()
+    if '--supported-tail' in sys.argv:
+        from feline_gallery_tail_support import build as selected_build
+    elif '--gallery' in sys.argv:
+        from feline_service_gallery import build as selected_build
+    else:selected_build=build
+    world,parts,meta,pins,actors,roles,rows,inverse,outer,baseline,recipe=frozen_core(previous) if previous else selected_build();query=SolidQueries()
     archive=dest.with_suffix('.breps.zip');geometry=[]
+    if previous:geometry=previous['geometry']
     with zipfile.ZipFile(archive,'r' if resume else 'x',zipfile.ZIP_DEFLATED) as z:
         for i,(n,s) in enumerate(actors.items()):
+            if previous:continue  # SHA checked while loading frozen bytes above.
             # Cached BUS25 is invalid; retain exact inverse/original protocol.
             if n==world.bus['name']:continue
             assert s.isValid() and s.Solids,n
@@ -139,6 +173,21 @@ def main():
     result=dict(status='RUNNING_LONG_RETURN_CORE',source_sha256=pins,recipe=recipe,checks={},failures=[],errors=[],
         geometry=geometry,bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),
         current_world_outer_tools_montage_all123_OPEN=True,N01_complete=False,physical_pass=False,selected=False,native_changed=False)
+    if '--supported-tail' in sys.argv and not previous:
+        priorfile=OUT/'n01-service-gallery-core-received.json';old=json.loads(priorfile.read_text())
+        before={r['name']:(r['sha256'],r['role']) for r in old['geometry']};after={r['name']:(r['sha256'],r['role']) for r in geometry}
+        same={n for n,v in after.items() if before.get(n)==v}
+        outer_key=recipe['outer_file'];same_outer=old['source_sha256'].get(outer_key)==pins[outer_key]
+        for key,r in old['checks'].items():
+            names=key.split('|')
+            if len(names)!=2 or names[0] not in same:continue
+            if names[1]=='outer':
+                if not same_outer:continue
+            elif names[1] not in same:continue
+            elif 'minimum_mm' in r and r['minimum_mm']!=pair_spacing(names[0],rows[names[0]],names[1],rows[names[1]]):continue
+            result['checks'][key]=r
+            if not r['ok']:result['failures'].append(dict(a=names[0],b=names[1],**r))
+        result['exact_unchanged_pair_reuse']=dict(source_sha256=sha(priorfile),same_actor_BRep_and_role_names=sorted(same),pairs=len(result['checks']),same_outer=same_outer)
     if previous:
         # Collection-only continuation: each archived geometric byte and the
         # complete recipe must match, so no renamed geometry inherits checks.
@@ -149,7 +198,7 @@ def main():
             if name not in control_files:assert pins[name]==value,name
         result.update(checks=previous['checks'],failures=previous['failures'],
             previous_runs=previous.get('previous_runs',[])+[dict(worker_seconds=previous['worker_seconds'],receipt_sha256=sha(dest),errors=previous['errors'])],
-            unchanged_geometry_archive_and_complete_recipe_verified=True)
+            unchanged_geometry_archive_and_complete_recipe_verified=True,geometry_resume_method='Exact SHA-pinned archive, no Boolean construction or serialization round trip')
     def save():result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     def distance(n,s,m,t):
         if n==world.bus['name']:
@@ -162,10 +211,13 @@ def main():
             if roles[n]!='BUS' or n.startswith('CurrentBUS:') or n=='Ref_Material_BUSsupplier0_0_0':
                 key=n+'|outer'
                 if key not in result['checks']:
-                    r=outer_margin(s,outer);result['checks'][key]=r
+                    if roles[n]=='FrameNew':
+                        delta=Part.Shape();delta.read(str(ROOT/recipe['frame_delta_file']));r=outer_margin(delta,outer);r['scope']='Only added material inside torso; retained original tail bridge/cowl is outside the torso box by design'
+                    else:r=outer_margin(s,outer)
+                    result['checks'][key]=r
                     if not r['ok']:result['failures'].append(dict(a=n,b='outer',**r))
             for m,t in actors.items():
-                if n==m or roles[n]==roles[m] and roles[n] not in ('PiWire','USB'):continue
+                if n==m or roles[n]==roles[m] and roles[n] not in ('PiWire','USB','BUSWireNew'):continue
                 key='|'.join(sorted((n,m)))
                 if key in result['checks']:continue
                 minimum=pair_spacing(n,rows[n],m,rows[m])
@@ -180,6 +232,17 @@ def main():
                     if wire and housing in ('PiBudget:GPIO1992OccupiedHousing','PiBudget:RetainedK1474Boot'):
                         before=baseline[wire].copy().common(actors[housing].copy());delta=common.copy().cut(before.copy()).Volume+before.copy().cut(common.copy()).Volume
                         r.update(ok=delta<1e-5,source_ingress_symmetric_difference_mm3=delta,project_budget_only_not_supplier_fit=True)
+                if ('CurrentBUS:H5MatingReserve' in (n,m)) and (roles[n]=='BUSWireNew' or roles[m]=='BUSWireNew'):
+                    common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,intended_H5_port_common_mm3=common.Volume)
+                frame=recipe.get('frame_actor')
+                if frame in (n,m):
+                    other=m if n==frame else n
+                    channel=other in ('CurrentBUS:BUS.D','CurrentBUS:BUS.G')
+                    mate=other=='Ref_Material_BUSsupplier0_0_0' or other.startswith('DGGrip:') and other.endswith((':cap',':band'))
+                    if channel or mate:
+                        common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
+                        r.update(ok=common.Volume<1e-5 and (not channel or gap>=.149-1e-6),intended_supported_joint_common_mm3=common.Volume,
+                            nominal_channel_clearance_mm=.15 if channel else None,physical_retention_not_qualified=True)
                 if 'USB500:whole' in (n,m) and any(x.startswith('USBGrip:') and x.endswith((':pad',':band')) for x in (n,m)):
                     common=s.copy().common(t.copy());assert common.isNull() or common.isValid();r.update(ok=common.Volume<1e-5,intended_pad_band_common_mm3=common.Volume)
                 result['checks'][key]=r;result.pop('pending_pair',None)
@@ -193,7 +256,9 @@ def main():
 
 def diagnose():
     under='--under-ports' in sys.argv
-    source=OUT/('n01-under-port-return-core-received.json' if under else 'n01-long-return-core-received.json');d=json.loads(source.read_text())
+    gallery='--gallery' in sys.argv
+    supported='--supported-tail' in sys.argv
+    source=OUT/('n01-tail-supported-gallery-core-received.json' if supported else 'n01-service-gallery-core-received.json' if gallery else 'n01-under-port-return-core-received.json' if under else 'n01-long-return-core-received.json');d=json.loads(source.read_text())
     assert d['status']!='RUNNING_LONG_RETURN_CORE'
     arc=ROOT/d['bundle'];assert sha(arc)==d['bundle_sha256']
     names={r[k] for r in d['failures'] for k in ('a','b') if r[k]!='outer'}
@@ -212,16 +277,27 @@ def diagnose():
         common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
         result['pairs'].append(dict(a=row['a'],b=row['b'],gap_mm=gap,
             closest_pairs_mm=[[list(a),list(b)] for a,b in points[:2]],common_mm3=common.Volume))
-    save_json(OUT/('n01-under-port-return-blocker-datums.json' if under else 'n01-long-return-blocker-datums.json'),result);print(json.dumps(result),flush=True)
+    save_json(OUT/('n01-tail-supported-gallery-blocker-datums.json' if supported else 'n01-service-gallery-blocker-datums.json' if gallery else 'n01-under-port-return-blocker-datums.json' if under else 'n01-long-return-blocker-datums.json'),result);print(json.dumps(result),flush=True)
 
 
 def receive_world():
     """Receive only external pairs of the frozen complete own-core archive."""
     from feline_common_space_context import current
-    tick=time.monotonic();source=OUT/'n01-separated-port-bays-core-received.json'
-    prior=json.loads(source.read_text());assert prior['status']=='LONG_RETURN_CORE_RECEIVED_WORLD_OPEN'
-    assert not prior['failures'] and not prior['errors']
-    dest=OUT/'n01-separated-port-bays-world-received.json';resume='--resume' in sys.argv;assert resume==dest.exists()
+    tick=time.monotonic();gallery='--gallery' in sys.argv
+    source=OUT/('n01-tail-supported-gallery-core-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-core-received.json' if gallery else 'n01-separated-port-bays-core-received.json')
+    prior=json.loads(source.read_text());diagnostic='--diagnose-world' in sys.argv
+    if diagnostic:
+        # Collect a frozen whole hypothesis BEFORE correcting its separate
+        # interfaces. This never accepts its known intrinsic margin hold.
+        assert gallery and prior['status']=='LONG_RETURN_CORE_CONFLICTS_RECEIVED' and not prior['errors']
+        assert len(prior['failures'])==1
+        hold=prior['failures'][0];assert {hold['a'],hold['b']}=={'Ref_Material_BUSsupplier11_0_0','USBGrip:Pi:band'}
+        assert hold['gap_mm']>1.2
+    else:
+        assert prior['status']=='LONG_RETURN_CORE_RECEIVED_WORLD_OPEN'
+        assert not prior['failures'] and not prior['errors']
+    name='n01-tail-supported-gallery-world-received.json' if '--supported-tail' in sys.argv else 'n01-service-gallery-world-diagnostic.json' if diagnostic else 'n01-service-gallery-world-received.json' if gallery else 'n01-separated-port-bays-world-received.json'
+    dest=OUT/name;resume='--resume' in sys.argv;assert resume==dest.exists()
     world,parts,meta,pins,docs=current()
     for name,value in pins.items():assert prior['source_sha256'][name]==value,name
     archive=ROOT/prior['bundle'];assert sha(archive)==prior['bundle_sha256'];actors={};roles={};rows={}
@@ -234,10 +310,20 @@ def receive_world():
     pose=prior['recipe']['BUS_relative_placement'];bustf=A.Placement(A.Vector(*pose['base_mm']),A.Rotation(*pose['quaternion']))
     n=world.bus['name'];s=parts[n].copy();s.Placement=bustf*s.Placement;actors[n]=s;roles[n]='BUS';rows[n]=meta[n]
     inverse=world.bus['inverse']*bustf.inverse();fixed={n:s for n,s in parts.items() if meta[n].get('group')!='PiUpper' and meta[n].get('role')!='BUS' and not n.startswith('CurrentBUS:')}
-    outerfile=OUT/'n01-six-source-shared-lanes.outer.brep';outer=Part.Shape();outer.read(str(outerfile));query=SolidQueries()
+    for n in prior['recipe'].get('fixed_replaced_names',[]):
+        assert n in fixed,n;fixed.pop(n)
+    frame_delta=None
+    if prior['recipe'].get('frame_delta_file'):
+        f=ROOT/prior['recipe']['frame_delta_file'];assert sha(f)==prior['recipe']['frame_delta_sha256'];frame_delta=Part.Shape();frame_delta.read(str(f))
+    outerfile=ROOT/prior['recipe']['outer_file'] if gallery else OUT/'n01-six-source-shared-lanes.outer.brep'
+    outer=Part.Shape();outer.read(str(outerfile));query=SolidQueries()
     result=dict(status='RUNNING_SEPARATED_PORT_BAYS_WORLD',source_sha256={**pins,source.relative_to(ROOT).as_posix():sha(source),archive.relative_to(ROOT).as_posix():sha(archive)},
-        unchanged_own_core_reused=True,all21_stations_preserved_without_relocation=True,checks={},failures=[],errors=[],completed_actors=[],critical_phase_complete=False,
+        unchanged_own_core_reused=not diagnostic,intrinsic_spacing_holds=prior['failures'],diagnostic_not_layout_acceptance=diagnostic,
+        all21_stations_preserved_without_relocation=True,checks={},failures=[],errors=[],completed_actors=[],critical_phase_complete=False,
         full_Pi_grips_roots_tools_all123_montage_OPEN=True,N01_complete=False,physical_pass=False,selected=False,native_changed=False)
+    if frame_delta:
+        result['frame_static_pair_scope']='Added carrier material only; old fixed mating interfaces retained. FULL frame is checked against all affected36 moving poses.'
+        result['moved_whole_FPWM_output_case_isometry_proof']=prior['recipe']['FPWM_case_symmetry_difference_mm3']
     if resume:
         old=json.loads(dest.read_text());assert old['source_sha256']==result['source_sha256']
         result.update(checks=old['checks'],failures=old['failures'],completed_actors=old['completed_actors'],
@@ -263,13 +349,17 @@ def receive_world():
                     key=n+'|fixed:'+m
                     if key in result['checks']:continue
                     minimum=pair_spacing(n,rows[n],m,meta.get(m,{}))
-                    if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum:continue
+                    tested=frame_delta if roles[n]=='FrameNew' else s
+                    if bbox_lower_bound(tested.BoundBox,t.BoundBox)>=minimum:continue
                     result['pending_pair']=[n,m];save()
-                    if not t.Solids:r=dict(ok=False,reason='Existing curve-only route requires actual physical profile; not a material collision claim')
+                    if n in prior['recipe'].get('FPWM_moved_whole_output_names',[]) and m==prior['recipe'].get('FPWM_case_name'):
+                        assert prior['recipe']['FPWM_case_symmetry_difference_mm3']<1e-5
+                        r=dict(ok=True,unchanged_internal_factory_mate_reused_via_complete_output_isometry_and_case_invariance=True)
+                    elif not t.Solids:r=dict(ok=False,reason='Existing curve-only route requires actual physical profile; not a material collision claim')
                     else:
                         if n==world.bus['name']:
                             a=t.copy();a.Placement=inverse*a.Placement;gap=query.distance(world.bus['original'],a)
-                        else:gap=query.distance(s,t)
+                        else:gap=query.distance(tested,t)
                         r=dict(ok=gap>=minimum-1e-6,gap_mm=gap,minimum_mm=minimum)
                     result['checks'][key]=r;result.pop('pending_pair',None)
                     if not r['ok']:result['failures'].append(dict(a=n,b=m,**r))
@@ -291,6 +381,7 @@ def receive_world():
                 result['completed_actors'].append(n);save()
             if phase=='critical':result['critical_phase_complete']=True;save()
         result['status']='SEPARATED_PORT_BAYS_WORLD_CONFLICTS_RECEIVED' if result['failures'] else 'SEPARATED_PORT_BAYS_STATIC36MOTION_RECEIVED_ROOTS_TOOLS_CAPACITY_OPEN'
+        if diagnostic:result['status']='DIAGNOSTIC_EXTERNAL_RECEIVED_INTRINSIC_HOLD_STILL_OPEN'
     except Exception as exc:result['errors'].append(repr(exc));result['status']='SEPARATED_PORT_BAYS_WORLD_PARTIAL'
     save();print(json.dumps(dict(status=result['status'],seconds=result['worker_seconds'],checks=len(result['checks']),failures=result['failures'][:18],failure_count=len(result['failures']),errors=result['errors'])),flush=True)
 
