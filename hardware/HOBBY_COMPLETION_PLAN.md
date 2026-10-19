@@ -2,6 +2,20 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+22:40Z: CAŁA aktualna mapa182nowe/1042cache/3888motion odebrana
+249,609+76,172s bezbłędów. Wszystkie124guides odebrane11,422s,80reużytych
+po kontroli pośrednich1mmkomórek. Wspólny test1,641s odrzucił METODĘ:
+108/108schodkowych tras nie mieści łuków,104/109zestawów współdzielonych
+nie ma certyfikatu przekroju. To nie kolizje części/niemożliwość montażu.
+Zmiana: sieć STYCZNYCH prostych/łukówR16/R28 od początku, nie wygładzanie
+2mmzygzaków. Cztery klasy odebrane8,703s, aktualna2,1R28 dołożona4,484s
+bez ponowienia pozostałych. Całe123przydziały:108wspólnych komponentów,
+9zachowanych pełnych krzywych,6zewnętrznych interfejsów głowy. Same źródła
+do korytarzy i pakowanie na łukach NIEODEBRANE; maxniepotwierdzonylink41,925mm.
+Jeden CAŁY dolny wjazdP_SYS3żyłyR25,2 odrzucony42,703s/54par/7wskazań:
+lewa/przednia rama, ledge2 i główkaW020. Nie przesuwać tych części.
+N01 nadal0/10, native/master i historyczne100% bez zmian.
+
 22:26Z: PiR3 odebrany lokalnie511par/0wskazań/208,312s, następnie
 świat481par/0wskazań/0błędów, pełny przyjęty36ruch bez odroczeń;
 ostatni odcinek185,25s. Korzeń wybrany z rzeczywistego wolnego materiału,

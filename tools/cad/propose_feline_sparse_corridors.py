@@ -5,7 +5,7 @@ resampling is accepted as clearance; endpoint links, curves and capacity are
 still open. Sparse global Dijkstra replaces thousands of bounded Python heap
 searches, not geometry/radii. Positive saved guides are retained unchanged.
 """
-import json,math,os,time
+import json,math,os,time,sys
 from pathlib import Path
 import numpy as np
 from scipy.ndimage import distance_transform_edt
@@ -33,12 +33,31 @@ def grid_graph(free,penalty=None,stride=2):
     return ids,graph
 
 
+def guide_cells_clear(points,origin,free):
+    cells=np.rint(np.asarray(points)-origin).astype(int)
+    if not np.allclose(cells+origin,points):return False
+    for a,b in zip(cells,cells[1:]):
+        delta=b-a
+        if np.count_nonzero(delta)>1:return False
+        count=int(np.abs(delta).sum());step=np.sign(delta)
+        q=a+np.arange(count+1)[:,None]*step
+        if np.any(q<0) or np.any(q>=np.asarray(free.shape)) or not free[tuple(q.T)].all():return False
+    return len(cells)>=2
+
+
 def main():
-    tick=time.monotonic();sf=OUT/'n01-current-signed-space.json';s=json.loads(sf.read_text())
+    tick=time.monotonic();integrated='--integrated-upper' in sys.argv
+    sf=OUT/('n01-integrated-signed-space.json' if integrated else 'n01-current-signed-space.json');s=json.loads(sf.read_text())
     assert s['status']=='CURRENT_SIGNED_CLOSED_VOLUME_SPACE_PROPOSALS_ONLY';fp=ROOT/s['field'];assert sha(fp)==s['field_sha256']
     with np.load(fp,allow_pickle=False) as a:
         origin=a['origin_mm'];rigid=a['rigid_signed_distance'];motion=a['motion36_signed_distance'];outer=a['outer_distance'];inside=a['inside'];soft=a['harness_signed_distance']
     ef=OUT/'n01-shared-routing-boundaries.json';reg=json.loads(ef.read_text());ends={r['id']:r for r in reg['endpoints']};tasks=dict(reg['portions'])
+    overlayfile=OUT/'n01-integrated-upper-boundary-overlay.json'
+    if integrated:
+        from compose_feline_integrated_boundaries import apply_updates
+        overlay=json.loads(overlayfile.read_text());assert overlay['parent_sha256']==sha(ef)
+        for p,h in overlay['source_sha256'].items():assert sha(ROOT/p)==h,p
+        ends={r['id']:r for r in apply_updates(reg['endpoints'],overlay['updates'])}
     cf=OUT/'n01-physical-cable-contract.json';extra=json.loads(cf.read_text());usb=extra['usb'];tasks[usb['id']]=[usb['id']+'/start',usb['id']+'/end']
     for side,key in (('start','pi'),('end','bus')):
         ends[usb['id']+'/'+side]=dict(id=usb['id']+'/'+side,wire=usb['id'],routing_exit_mm=usb[key+'_prefix_exit_mm'],routing_exit_axis=usb[key+'_prefix_exit_axis'],routing_boundary_status='RECEIVED_PREFIX_ONLY_WHOLE_USB_OPEN')
@@ -46,9 +65,11 @@ def main():
     specs=OUT/'prefix-allocation.json';radii={usb['id']:2.5}
     for r in json.loads(specs.read_text())['specifications']:radii[r['wire']]=max(r['radius'],radii.get(r['wire'],0))
     factory={r['portion_id'] for r in reg['received_factory4MTA_curves']}
-    oldfile=OUT/'n01-current-corridor-guides.json';old=json.loads(oldfile.read_text())
+    oldfile=OUT/('n01-current-sparse-corridor-guides.json' if integrated else 'n01-current-corridor-guides.json');old=json.loads(oldfile.read_text())
     files=(sf,fp,ef,cf,lf,specs,oldfile,Path(__file__),Path(__file__).with_name('propose_feline_current_corridors.py'))
-    pins={p.relative_to(ROOT).as_posix():sha(p) for p in files};dest=OUT/'n01-current-sparse-corridor-guides.json'
+    pins={p.relative_to(ROOT).as_posix():sha(p) for p in files}
+    if integrated:pins[overlayfile.relative_to(ROOT).as_posix()]=sha(overlayfile)
+    dest=OUT/('n01-integrated-sparse-corridor-guides.json' if integrated else 'n01-current-sparse-corridor-guides.json')
     result=dict(status='RUNNING_SHARED_SPARSE_GUIDES',source_sha256=pins,portions={},classes={},N01_complete=False,physical_pass=False,selected=False,
         total_ordinary_portions=123,separate_USB_assemblies=1,balance=extra['balance'],graph_cell_step_mm=2,underlying_occupied_volume_grid_mm=1,
         every_intermediate_1mm_cell_checked=True,all_anchor_links_curvature_shared_capacity_and_grip_roots_open=True,
@@ -61,15 +82,29 @@ def main():
         w=ends[ids[0]]['wire'];return radii.get(w,1.05 if w.startswith('X') else 1.55)
     # Only unchanged positive source-pinned proposals are reused. Old time-cap
     # failures are not retried with the same bounded algorithm or called CAD.
-    for n,row in old['portions'].items():
+    for n,row in ([] if integrated else old['portions'].items()):
         if row['status']=='CONNECTED_GRID_GUIDE_CURVATURE_AND_EXACT_GATES_OPEN':
             assert all(old['source_sha256'][p.relative_to(ROOT).as_posix()]==sha(p) for p in (sf,fp,ef,cf,lf,specs))
             result['portions'].setdefault(n,dict(row,positive_unchanged_guide_reused_from=oldfile.relative_to(ROOT).as_posix()))
     try:
         for r in sorted({radius_bucket(radius(ids)) for ids in tasks.values()}):
+            free=inside&(rigid>=r+2.45)&(motion>=r+2.45)&(outer>=r+4.45)
+            if integrated:
+                for n,row in old['portions'].items():
+                    if n in result['portions'] or radius_bucket(radius(tasks[n]))!=r or not row.get('guide',{}).get('points_mm'):continue
+                    if any(e in overlay['updates'] for e in tasks[n]):continue
+                    if guide_cells_clear(row['guide']['points_mm'],origin,free):
+                        result['portions'][n]=dict(row,current_grid_all_intermediate_cells_rechecked=True,
+                            inherited_proposal_only_not_anchor_or_capacity_approval=True)
+                # The full bought USB already has exact frozen core/world
+                # evidence. Do not replace it with another macro cut/route.
+                if radius_bucket(radii[usb['id']])==r:
+                    result['portions'][usb['id']]=dict(status='RECEIVED_COMPLETE_CURRENT_WHOLE_USB_NOT_REROUTED',
+                        core_world_source=overlayfile.relative_to(ROOT).as_posix(),factory_assembly_unchanged=True,
+                        capacity_interaction_with_future_corridors_still_open=True)
+                save()
             pending=[n for n,ids in tasks.items() if n not in result['portions'] and radius_bucket(radius(ids))==r]
             if not pending:continue
-            free=inside&(rigid>=r+2.45)&(motion>=r+2.45)&(outer>=r+4.45)
             penalty=(3*np.maximum(0,r+1.4-soft)).astype(np.float32)
             ids,graph=grid_graph(free,penalty);coarse=ids>=0;count,comp=connected_components(graph,directed=False)
             populations=np.bincount(comp);main_component=int(populations.argmax());main=np.zeros(coarse.shape,bool);main[coarse]=comp==main_component

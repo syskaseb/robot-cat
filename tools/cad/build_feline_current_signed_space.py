@@ -18,9 +18,15 @@ from feline_signed_voxels import raster,deposit
 
 
 def main():
-    tick=time.monotonic();world,parts,meta,pins,docs=current();step=1.
+    tick=time.monotonic();integrated_upper='--integrated-upper' in sys.argv
+    if integrated_upper:
+        from feline_integrated_space_context import integrated,reusable_cell
+        world,parts,meta,pins,docs=integrated()
+    else:world,parts,meta,pins,docs=current()
+    step=1.
     origin=np.array([-144.,-102.,-50.]);size=np.array([331,205,165]);high=origin+(size-1)*step
-    dest=OUT/'n01-current-signed-space.json';archive=dest.with_suffix('.voxels.zip')
+    stem='n01-integrated-signed-space' if integrated_upper else 'n01-current-signed-space'
+    dest=OUT/(stem+'.json');archive=dest.with_suffix('.voxels.zip')
     files=(Path(__file__),Path(__file__).with_name('feline_signed_voxels.py'),Path(__file__).with_name('feline_common_space_context.py'))
     pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in files})
     result=dict(status='RUNNING_CURRENT_SIGNED_SPACE',source_sha256=pins,parts={},errors=[],N01_complete=False,
@@ -54,6 +60,14 @@ def main():
     def cached(name,shape=None,triangles=None,classify_region=None):
         gate();key=hashlib.sha256(name.encode()).hexdigest()[:24]+'.npz'
         if name.startswith('Rest:') and name in last_rest:return last_rest[name]
+        if integrated_upper and reusable_cell(name,docs['unchanged'],docs['parent']['parts']):
+            row=docs['parent']['parts'][name]
+            with zipfile.ZipFile(docs['archive']) as z:raw=z.read(row['entry'])
+            assert hashlib.sha256(raw).hexdigest()==row['sha256']
+            with np.load(io.BytesIO(raw),allow_pickle=False) as data:value=(data['origin'].copy(),data['occupied'].copy())
+            result.setdefault('unchanged_cached_source_names',[])
+            if name not in result['unchanged_cached_source_names']:result['unchanged_cached_source_names'].append(name)
+            return value
         if name in result['parts']:
             with zipfile.ZipFile(archive) as z:raw=z.read(key)
             assert hashlib.sha256(raw).hexdigest()==result['parts'][name]['sha256']
@@ -74,6 +88,14 @@ def main():
         if name.startswith('Rest:'):last_rest.clear();last_rest[name]=(local,mask)
         return local,mask
     layers={k:np.zeros(tuple(size),bool) for k in ('rigid','harness','motion36')};done_static=set();done_motion=0
+    if integrated_upper:
+        with np.load(docs['field'],allow_pickle=False) as data:
+            assert np.array_equal(data['origin_mm'],origin) and float(data['grid_mm'])==step
+            assert data['motion36_occupied'].shape==tuple(size)
+            layers['motion36']=data['motion36_occupied'].copy()
+        done_motion=len(world.motion)
+        result['unchanged_motion_field_reused']=dict(poses=done_motion,source=docs['parentfile'].relative_to(ROOT).as_posix(),
+            sha256=sha(docs['parentfile']),fixed_world_and_voxel_engine_hashes_verified=True)
     saved=result.get('layer_checkpoint')
     if saved:
         p=ROOT/saved['file'];assert sha(p)==saved['sha256']
@@ -83,7 +105,7 @@ def main():
     layer_generation=result.get('layer_checkpoint',{}).get('generation',0)
     def checkpoint_layers():
         nonlocal layer_generation
-        layer_generation+=1;p=OUT/('n01-current-space-layers-'+str(layer_generation%2)+'.npz')
+        layer_generation+=1;p=OUT/(stem+'-layers-'+str(layer_generation%2)+'.npz')
         temp=p.with_suffix('.writing.npz');np.savez_compressed(temp,**layers);temp.replace(p)
         result['layer_checkpoint']=dict(file=p.relative_to(ROOT).as_posix(),sha256=sha(p),static_names=sorted(done_static),
             motion_count=done_motion,generation=layer_generation)
@@ -108,9 +130,10 @@ def main():
                 if len(done_static)%40==0:checkpoint_layers()
                 continue
             if n==world.bus['name']:
-                v,f=world.bus['original'].tessellate(.25);tf=world.bus['inverse'].inverse()
+                inverse=docs['inverse'] if integrated_upper else world.bus['inverse']
+                v,f=world.bus['original'].tessellate(.25);tf=inverse.inverse()
                 points=np.array([list(tf.multVec(p)) for p in v]);triangles=points[np.asarray(f)]
-                inverse=world.bus['inverse'];original=world.bus['original']
+                original=world.bus['original']
                 local,mask=cached('Static:'+n,triangles=triangles,
                     classify_region=lambda p:original.isInside(inverse.multVec(A.Vector(*p)),1e-7,True))
             else:local,mask=cached('Static:'+n,s)
@@ -127,9 +150,10 @@ def main():
             done_motion=index+1
             if done_motion%60==0:checkpoint_layers();print('Saved motion-space poses',done_motion,'/',len(world.motion),flush=True)
         checkpoint_layers()
-        outer=Part.Shape();outer.read(str(OUT/'n01-six-source-shared-lanes.outer.brep'))
+        if integrated_upper:outer=docs['outer']
+        else:outer=Part.Shape();outer.read(str(OUT/'n01-six-source-shared-lanes.outer.brep'))
         local,mask=cached('ActualTorsoBoundary',outer);inside=np.zeros(tuple(size),bool);deposit(inside,mask,local,origin,step)
-        field=OUT/'n01-current-signed-space.npz';values={}
+        field=dest.with_suffix('.npz');values={}
         for key,mask in layers.items():
             gate();values[key+'_occupied']=mask
             distance=distance_transform_edt(~mask,sampling=step).astype(np.float32)

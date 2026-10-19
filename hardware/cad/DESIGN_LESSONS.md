@@ -1,5 +1,11 @@
 # Wnioski z projektowania 3D robot-cat
 
+19.10, połączony graf punktowy nie planuje promieni ani wspólnych wiązek:
+CAŁY test108guides odrzucił wszystkie schodkowe łuki. Korytarze planować
+z prostych i rzeczywistych stycznych łuków, przekrój wiązki od początku;
+nie dodawać kolejnych lokalnych wygładzeń. Wspólny komponent nadal NIE
+kwalifikuje łącznika od rzeczywistego źródła (bywał41,925mm) ani pakowania.
+
 19.10, granica trasowania nie zawsze jest końcem chwytu: W080 zachowuje
 12mm prostej ZA pełnym9mmchwytem. Nową trasę zaczynać na rzeczywistej
 końcowej powierzchni prefiksu. Aktualizować mały overlay przy zachowaniu
