@@ -1,5 +1,41 @@
 # Wnioski z projektowania 3D robot-cat
 
+19.10, rzeczywisty błąd polityki odbioru: zatrzymanie po pierwszej złej
+parze ukrywa pozostałe konflikty tej samej hipotezy. Trzy kolejne takie
+przebiegi ujawniły kolejno H5, zasilaniePi i GPIO; wspólny przebieg pokazał
+równocześnie wnętrzePi, bank, obrys i ramęBUS. Po poprawnym konstruktorze
+zbierać wszystkie konflikty zamrożonej hipotezy w jednym ograniczonym
+odbiorze, zapisywać i wznawiać ukończone pary. Błąd bryły nadal blokuje
+dowód. Zmiana krzywej unieważnia jej wewnętrzne pary we własnym module,
+nie wolno odziedziczyć ich przez samą nazwę grupy. Nie wycinać nowego
+materiału ramy z testu tylko dlatego, że wcześniej stykała się z backplate.
+
+19.10, retrospekcja N01 po rozroście kontrolerów: centrum grupy NIE jest
+płaszczyzną PCB. W hipotezie coupled-two-level opisano PCB BUS jako X131,
+lecz przypięta rzeczywista bryła BUSsupplier0 ma X125,7..127,3, a Pi
+X41..126. To wykrywalne nakładanie przed macierzą całego świata. Przed
+kolejnym wariantem odczytać powierzchnie/otwory/rzeczywiste zajęte końce
+aktywnego blokera i dopiero wyprowadzić położenie grupy. Nie planować
+ze środka obwiedni ani z nazwy parametru. Brak kolizji samych korpusów
+nie obejmuje pełnych obsadzonych złączy i narzędzi.
+
+Nie tworzyć następnego ogólnego solvera, aby uzasadnić następną ręcznie
+zgadniętą pozycję. Najpierw jeden wspólny przekrój i rejestr ograniczeń
+aktualnych blokujących interfejsów Pi/BUS/USB/bank/rama/ruch. Rozdzielić
+kupną bryłę, konserwatywny budżet oraz niepotwierdzone założenie projektu;
+odrzucenie PiBudget nie dowodzi kontaktu producentowskiej części. Nie
+zmniejszać promieni/izolacji/obwiedni dla wyniku. Uzupełniać dane tylko
+aktywnego blokera, nie robić kolejnego audytu całego robota.
+
+N01 ma kończyć konstruktywny wspólny PLAN, nie uprzednio wykonywać
+produkcyjne N03 ani pełne indywidualne trasowanie N04-N05. Wykorzystać
+odebrane JR/bank/źródła/fabryczne krzywe. Na wejściu sprawdzić tanią
+poprawność konstruktora i podstawowe sprzeczności wymiarowe; dopiero
+potem jeden odbiór zmienionych interfejsów. Zakończone pary reużywać po
+geometrii/źródłach, nie mnożyć kontroli przez zmianę etykiety kontrolera.
+Raportować zamknięte decyzje i blokery; linie kodu, JSON-próbki i liczba
+odrzuconych prób nie są ukończonym wynikiem ani dodatkowym procentem.
+
 18.10, zaciski źródła: przed obliczaniem pełnych wachlarzy i całego świata
 sprawdzić niezmienny wewnętrzny fit WSZYSTKICH kupnych oczek na rzeczywistych
 osiach śrub. Założenie okrągłego obrysu końcówki nie wystarcza: rzeczywisty

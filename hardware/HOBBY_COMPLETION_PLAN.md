@@ -2,6 +2,84 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+18:27Z: odebrano86329 i99074; brak aktywnego workera. Ta sama zamrożona
+hipoteza:236,875s+221,594s,198 zachowanych dokładnych kontroli/12 konfliktów.
+Drugi przebieg reużył pierwsze132 pary, nie powtarzał geometrii. Oba
+zakończyły ograniczenie przebiegu; NIE dowód braku miejsca w całym robocie.
+Nie wznawiać macierzy drobnych elementów BUS: rzeczywiste PCB już narusza
+obrys i wspólną ramę. Nowa hipoteza wspólna, NIE WYBRANA: całe F_PWM
+z czterema fabrycznymi częściami poziomo wX, obrót90Y wokół starego
+(116,75,48) do środka(95,75,48), poniżej H5; obie żyły5VPi współśrodkowo
+na+Y z tymi samymiR15,9/12,4 i3+9; wszystkie5GPIO we wspólnej rodzinie
++X+Y/R10. BUS wraca do pierwotnej sprzężonej pozycji, USB452/R30 bez
+zmian. Najpierw wszystkie krytyczne CAŁE moduły/końce i obrys, potem
+korzenie/pozostałe wspólne korytarze i ruch. Bez native/N03 i małych
+ofsetów.11 testów1,949s OK, w tym odtworzenie rzeczywistych SHA siedmiu
+brył aktualnego mocowania F_PWM, nie tylko odczyt flag zJSON. Wynik0/10.
+Następna bramka szacunkowo30-60min, NIE obietnica pełnegoN01. Hook otwarty.
+
+18:14Z: wspólny plan nadal0/10, native bez zmian. Mocowanie F_PWM
+przeniesione na ISTNIEJĄCE dwa pełne9 po łukach; kupna obudowa i wszystkie
+4 fabryczne odcinki bez zmian. Jeden połączony materiał PETG, styk z ramą
+47,961999mm3;3 pełne budżety T18I (dodatkowa opaska obudowy wymaga jeszcze
+alokacji z obecnego stock, nie zakupu). Odbiór0,688s: wszystkie5 części
+fabrycznych i36 par opasek bez wnikania. Dokładne świadki styku łuku
+z siodłem leżą na wspólnej granicy z pełnym9: X117,55/Y62,6/Z5,6 lub90,4;
+nie zmieniono geometrii ani progu luzu.10 testów0,036s OK.
+Wspólny odbiór31,375s/3pary: dawny blokujący End1 usunięty, H5 ma tylko
+0,568966mm do kupnej obudowy F_PWM. Zmieniono całą orientację BUS wokół
+zachowanego mouth/tangentUSB (90stopni), nie przewód ani kupne części.
+Odbiór52,797s/33pary usunął H5, ujawnił stary łuk PiPowerW079 w F_L6.
+Następny wspólny korytarz dla OBU zasilających Pi: do wnętrza w poziomie,
+te same źródła/R/3+9 i długości. Całe7 chwytówPi, nowa droga mocowaniaBUS,
+ruch/pozostałe korzenie/korytarze nadalOPEN. Nie zaliczać lokalnych bramek.
+Zmiana sposobu pracy: zbierać wszystkie konflikty jednej hipotezy w jednym
+ograniczonym odbiorze, nie kolejny cykl od pierwszej pary. Własny worker
+79910/PID11736 aktywny; odebrać przed następnym obliczeniem. Hook otwarty.
+
+17:46Z, bramka rzeczywistych2sąsiadów/8par odebrana4,172s: USB ma
+dodatnie60,8944mm3 z TailBridge29. Sam tailMG92BMount ma5,5mm luzu,
+całe siodło/opaska/główka źródłaUSB ponad3,978mm do niego. Przed tym
+odbiorem CAŁY sprzężony zestaw przeniesiono-2X dla pełnej opaski3,8mm
+i wymaganego1,25mm do mocowania, nie tylko punkt kabla; długość/promienie
+i separacja zwojów bez zmian. Nie powtarzać pętli z innym drobnym ofsetem.
+Zmienić przyczynę: nowy wspólny most na dwóch bocznych drogach nośnych,
+zachować rzeczywiste otwory i pola oparcia P0/tailMG92B oraz ich położenia.
+Najpierw źródłowe osie/stan materiału, potem jeden plan całego mostu wokół
+strefyUSB, nie wycięcie punktowego świadka. Tylko ten wydruk zastępowany;
+P0/kupne części/15osi bez zmian. Native/N03 i pełny świat/ruch nadalOPEN.
+
+17:40Z, zmieniona przyczyna: wspólne położenie CAŁEGO BUS z końcem
+tylnej pętli, zamiast kolejnego łącznika do starego złącza. Pierwsza
+rodzina R35/stałyBUS zamknięta:1,141s,56korzeni długości,0 zR30,
+najlepszyR20,3707; nie dostała nowej macierzy CAD.
+Wspólny konstruktor1,328s: poprawny1solidUSB,451,999999756mm,
+8874,986mm3, zachowane3+R30+9 odPi i3+9 przyBUS, sampledself bez ujemnych
+(nie ciągły dowód). PętlaR36,5/Y-12/Z69,7; PiPCB40,5/13,4681/104;
+BUS z rzeczywistego źródłowegoPCB130,4999966 wyprowadzony do
+136/57,7919/75,1879, obrót47,36017X. Wszystkie kupne części, oba wyjścia,
+booty i źródłowe przewody BUS muszą jechać razem. Stare korzenie łączące
+BUS z ramą nie dziedziczą kwalifikacji. PełneFR_P/RR_P-8 z poprzedniego
+odbioru, bank/P0/S0/S1/PWM bez zmian. Akceptacja: najpierw prawdziwe
+F_PWM/tailbridge/P0/pełnePi7żył/obrys i ruch, potem drogi mocowania,
+pozostałe wspólne korytarze123/246. Bez native i punktuN01 przed całością.
+
+17:31Z, wspólny plan tylnej strefy serwisowej, NIE nowy wybór: BUS-r3
+i bank bez zmian, całePi odwrócone komponentami w dół/USB+X, oba całe
+FR_P/RR_P o8mm niżej zgodnie z odebranym wynikiem16części. Tylna pionowa
+pętla kabla ma obejść RZECZYWISTY tailbridge swoim wnętrzem, nie traktować
+mostu jak pełnego bbox. Do pierwszej bramki: R35, środekY0/Z71,2,
+zakres osiowy139..145; pierwsze3+R30+9 i wszystkie zajęte portyPi razem.
+Blokery: rzeczywiste wysokości wszystkich śrub/zajętych portówPi pod dachem,
+tailbridge/backplate/P0 oraz całe przejście doUSB_C w452mm. Najpierw tani
+odczyt zapisanychBRep, potem bramka długości/promienia/obu końców; bez
+dodatniej CAŁEJ bramki nie uruchamiać nowej macierzy ani nie wybierać CAD.
+Odczyt1,607s: wyprowadzony PCB(40,5;25,2166;104), mouth(112;44,6066;98,7),
+faza wejścia-16,4402stopni. Żaden z odczytanych PiRigid nie przekracza
+Z108,75; to wyłącznie pionowy filtr, NIE test prawdziwego dachu ani świata.
+Pełny bootK1474 Y57,1166..71,1166 potwierdza potrzebę wspólnej zmiany
+obu pełnych górnych stacji, nie samego punktuPCB. Cały kabel/mocowania OPEN.
+
 17:19Z, bramka danych wykonana bez nowego wariantu: zapisano
 n01-active-Pi-BUS-datums.json oraz pomocniczy rzut obwiedni SVG/PNG.
 To przegląd ISTNIEJĄCEGO kandydata, NIE uzgodniony przekrój ani nowy wybór.

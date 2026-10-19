@@ -1,0 +1,499 @@
+{
+  "status": "F_PWM_AFTER_TURN_CARRIER_LOCAL_PLAN_RECEIVED",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-current.json": "df808adf02ab2de6cae04689204a0275f7ee0e15ecc9cdd4cc88ca2e051de0d4",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-current.breps.zip": "97a6ed8b659ca12c44f7d42824496438180b551a4fe35d7a0771f22b06b3b58d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-two-flank-tail-bridge-plan.json": "d5fc28c6c4247859ca588191cebb43b7126183d75bfb76f593fea1d12df6450d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-two-flank-tail-bridge-plan.breps.zip": "5647bf03fbfcd3e6d3192601abdb95a378decaa3ed43a103ed5c8d9d18f1e007",
+    "tools/cad/plan_feline_usb_service_bight.py": "85bbe07607dc33a4ec6262599a59d54f83cea8ee35c21b4ba4ca03b2a786848e"
+  },
+  "retired_old_printed_grips_only": [
+    "Station:F_PWM_whole:End0:split_cap_exterior",
+    "Station:F_PWM_whole:End0:band_budget",
+    "Station:F_PWM_whole:End0:head_budget",
+    "Station:F_PWM_whole:End1:split_cap_exterior",
+    "Station:F_PWM_whole:End1:band_budget",
+    "Station:F_PWM_whole:End1:head_budget"
+  ],
+  "unchanged_factory_records": {
+    "Station:F_PWM_whole:F_PWM:case": {
+      "name": "Station:F_PWM_whole:F_PWM:case",
+      "group": "F_PWM_whole",
+      "kind": "proposal_material",
+      "source_choice_key": "F_PWM_whole:a8f3cbdb279c1e44e2b83356b44719b2b5449cca68fc0dfa1f46df09b0b552b1",
+      "entry": "0325.brep",
+      "sha256": "d316fc777cc327305a60fcee991dbdee2cc8ea11285a3d1d5dfd869468c1a1a8"
+    },
+    "Station:F_PWM_whole:F_PWM:in_first_bend": {
+      "name": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "group": "F_PWM_whole",
+      "kind": "proposal_wire",
+      "source_choice_key": "F_PWM_whole:a8f3cbdb279c1e44e2b83356b44719b2b5449cca68fc0dfa1f46df09b0b552b1",
+      "entry": "0326.brep",
+      "sha256": "28e9ba200fbf9c81b25d84e52ff5766966a1b746561818bd15938d3cb78bad6c"
+    },
+    "Station:F_PWM_whole:F_PWM:in_after_turn_grip": {
+      "name": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "group": "F_PWM_whole",
+      "kind": "proposal_wire",
+      "source_choice_key": "F_PWM_whole:a8f3cbdb279c1e44e2b83356b44719b2b5449cca68fc0dfa1f46df09b0b552b1",
+      "entry": "0327.brep",
+      "sha256": "2be503c0207ca553b223103bd65b7cc62da508b2953b7269b4fc1d36a354c683"
+    },
+    "Station:F_PWM_whole:F_PWM:out_first_bend": {
+      "name": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "group": "F_PWM_whole",
+      "kind": "proposal_wire",
+      "source_choice_key": "F_PWM_whole:a8f3cbdb279c1e44e2b83356b44719b2b5449cca68fc0dfa1f46df09b0b552b1",
+      "entry": "0328.brep",
+      "sha256": "22ea104833a094dc04d9a88098994dfd3bfeb2a12ba5ca6dcb2bda683af02aa9"
+    },
+    "Station:F_PWM_whole:F_PWM:out_after_turn_grip": {
+      "name": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "group": "F_PWM_whole",
+      "kind": "proposal_wire",
+      "source_choice_key": "F_PWM_whole:a8f3cbdb279c1e44e2b83356b44719b2b5449cca68fc0dfa1f46df09b0b552b1",
+      "entry": "0329.brep",
+      "sha256": "65b7b2002bf9f85c81fa7f9a4353319d4669fff52cd9dd372a6536283fc186e6"
+    }
+  },
+  "carrier_valid": true,
+  "carrier_solids": 1,
+  "positive_frame_joint_mm3": 47.96199878787883,
+  "checks": [
+    {
+      "a": "F_PWM:common_carrier",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "gap_mm": 0.0,
+      "common_mm3": 0.0,
+      "intentional_case_or_full9_pad_contact": true,
+      "tangent_boundary_evidence": null,
+      "ok": true
+    },
+    {
+      "a": "F_PWM:common_carrier",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "gap_mm": 0.0,
+      "common_mm3": 0.0,
+      "intentional_case_or_full9_pad_contact": true,
+      "tangent_boundary_evidence": {
+        "method": "Exact tangent seam of unchanged factory bend and full9 land",
+        "witness_pairs_mm": [
+          [
+            [
+              117.55,
+              62.6,
+              5.600000000000009
+            ],
+            [
+              117.55,
+              62.6,
+              5.600000000000009
+            ]
+          ]
+        ]
+      },
+      "ok": true
+    },
+    {
+      "a": "F_PWM:common_carrier",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "gap_mm": 0.0,
+      "common_mm3": 0.0,
+      "intentional_case_or_full9_pad_contact": true,
+      "tangent_boundary_evidence": null,
+      "ok": true
+    },
+    {
+      "a": "F_PWM:common_carrier",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "gap_mm": 0.0,
+      "common_mm3": 0.0,
+      "intentional_case_or_full9_pad_contact": true,
+      "tangent_boundary_evidence": {
+        "method": "Exact tangent seam of unchanged factory bend and full9 land",
+        "witness_pairs_mm": [
+          [
+            [
+              117.55,
+              62.6,
+              90.40000000000002
+            ],
+            [
+              117.55000000000003,
+              62.6,
+              90.40000000000002
+            ]
+          ],
+          [
+            [
+              117.55,
+              62.6,
+              90.40000031185822
+            ],
+            [
+              117.55,
+              62.6,
+              90.40000031185822
+            ]
+          ],
+          [
+            [
+              117.55,
+              62.6,
+              90.39999968814182
+            ],
+            [
+              117.55,
+              62.6,
+              90.39999968814182
+            ]
+          ]
+        ]
+      },
+      "ok": true
+    },
+    {
+      "a": "F_PWM:common_carrier",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "gap_mm": 0.0,
+      "common_mm3": 0.0,
+      "intentional_case_or_full9_pad_contact": true,
+      "tangent_boundary_evidence": null,
+      "ok": true
+    },
+    {
+      "a": "in:band_budget",
+      "b": "carrier",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:head_budget",
+      "b": "carrier",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "in:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:band_budget",
+      "b": "carrier",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:head_budget",
+      "b": "carrier",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "out:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:band_budget",
+      "b": "carrier",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:band_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:head_budget",
+      "b": "carrier",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:case",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:in_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    },
+    {
+      "a": "case:head_budget",
+      "b": "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "common_mm3": 0.0,
+      "ok": true,
+      "method": "Whole selected strap envelope must not occupy carrier or bought material; contacts allowed"
+    }
+  ],
+  "lands": [
+    {
+      "end": "in",
+      "start_mm": [
+        116,
+        62.6,
+        5.6
+      ],
+      "end_mm": [
+        116,
+        53.6,
+        5.6
+      ],
+      "length_mm": 9,
+      "radius_mm": 1.55
+    },
+    {
+      "end": "out",
+      "start_mm": [
+        116,
+        62.6,
+        90.4
+      ],
+      "end_mm": [
+        116,
+        53.6,
+        90.4
+      ],
+      "length_mm": 9,
+      "radius_mm": 1.55
+    }
+  ],
+  "selected_ties": 3,
+  "additional_case_tie_stock_not_yet_allocated": true,
+  "full_factory_curves_unchanged": true,
+  "continuous_backwall_mm": 1.25,
+  "provisional_PETG_strength_and_delivered_fit_OPEN": true,
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "whole_world_motion_tools_OPEN": true,
+  "worker_seconds": 0.688,
+  "geometry": [
+    {
+      "name": "carrier",
+      "entry": "carrier.brep",
+      "sha256": "96e538d91a287add6c7d07afa4746d6cffde10f3be43fd4dbc217cb3376a5c54"
+    },
+    {
+      "name": "in:band_budget",
+      "entry": "in_band_budget.brep",
+      "sha256": "2bd933c163940b52e5b87de7b65ae482a4b58fd70232debf27220525491636f1"
+    },
+    {
+      "name": "in:head_budget",
+      "entry": "in_head_budget.brep",
+      "sha256": "3f0271967bc26fda03bff4fff3324de11c8e21811a700f6da9939995e5c38acb"
+    },
+    {
+      "name": "out:band_budget",
+      "entry": "out_band_budget.brep",
+      "sha256": "f0c535b4b4128b047334c9abbc682b08c82b2056529a34f39113138143743321"
+    },
+    {
+      "name": "out:head_budget",
+      "entry": "out_head_budget.brep",
+      "sha256": "ccf4da4aa5007c1595becce257cb124a9a29eb1878d4b4ff80f1c1ba9ca7fae3"
+    },
+    {
+      "name": "case:band_budget",
+      "entry": "case_band_budget.brep",
+      "sha256": "8fbe88e3c15ab1afd67f695f96c2a102471f525e6022626067b2f3b84d7d55b6"
+    },
+    {
+      "name": "case:head_budget",
+      "entry": "case_head_budget.brep",
+      "sha256": "401e0163026c54a0b47b1be11843823932ab8fbfd09ffe21cc344c3d6106a907"
+    }
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fpwm-after-turn-carrier-plan-v3.breps.zip",
+  "bundle_sha256": "688c2f42174b7148e56893f7d2220286a0c0426628acc95131e4fd8f63a5ddf9"
+}

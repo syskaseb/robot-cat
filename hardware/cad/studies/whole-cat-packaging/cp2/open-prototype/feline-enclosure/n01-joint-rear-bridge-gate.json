@@ -1,0 +1,131 @@
+{
+  "status": "REAR_BRIDGE_ACTUAL_MATERIAL_OR_MARGIN_REJECTED",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-service-bay-plan.json": "3e5373b5d5838417bf028f323ecd1eab5c1d5f885bb1490e588db558daebfc39",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-joint-rear-service-bay-plan.breps.zip": "08530be7f6d5b00176286dca1f59151709894c2721c6603e49215d4f4e2eab3e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.json": "f61a1be4752aa0872b168de1a094ebc1fc633f55968abd02c9e12f1634a7183d",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-lower-bay-world-probe.zip": "68460136b2f5a6afe5c9b276770c20bf5a73b01bae869cf214bb1eee2abf7579",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-restraint-world-probe.json": "6152ea7f99306403dfede86e4752cebb391a984a7458c63e2da222306380c8fa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-common-restraint-world-probe.zip": "f4eebb23f984997cf68d91651847fe64bcbca16076a3e358adba34d5bc951937",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-remaining-selected-inventory.json": "8daf6f493a9c06169840b4bebc284453ec6ee0c9d1acf60721c06903e5d5e218",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-remaining-selected-inventory.zip": "942f14000012d61982854a8ec4209927f2cdf4edeec2877ede705f2debb1d2d4"
+  },
+  "source_records": {
+    "Ref_Material_tail_MG92BMount29_0_0": {
+      "name": "Ref_Material_tail_MG92BMount29_0_0",
+      "entry": "0315.brep",
+      "role": "TailMechanicalCore",
+      "kind": "purchased_or_retained_module",
+      "origin": "retained_current_R5",
+      "valid": true,
+      "solids": 1,
+      "sha256": "986efb6c7bfaf71139262d5b93443c8c56ae74acf0f783f4f5a03496825d9e63",
+      "bounds_mm": [
+        [
+          149.0,
+          -20.0,
+          62.0
+        ],
+        [
+          191.0,
+          20.0,
+          116.0
+        ]
+      ],
+      "volume_mm3": 17645.552546050905
+    },
+    "Ref_Material_tail_TailBridge29_0_0": {
+      "name": "Ref_Material_tail_TailBridge29_0_0",
+      "role": "RetainedTailMechanism",
+      "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd",
+      "object": "Ref_Material_tail_TailBridge29_0_0",
+      "placed_current": true,
+      "bounds_mm": [
+        [
+          108.0,
+          -27.0,
+          56.0
+        ],
+        [
+          195.0,
+          27.0,
+          62.0
+        ]
+      ],
+      "volume_mm3": 10718.173424021452,
+      "entry": "024.brep",
+      "sha256": "78d81daa28087c15a6aa954772aa073c9b15b079d499eb28cdab414b1838351e"
+    }
+  },
+  "coupled_whole_unit_translation_mm": [
+    -2.0,
+    0.0,
+    0.0
+  ],
+  "checks": [
+    {
+      "a": "USB500:whole",
+      "b": "Ref_Material_tail_MG92BMount29_0_0",
+      "gap_mm": 5.5,
+      "minimum_mm": 1.25,
+      "ok": true
+    },
+    {
+      "a": "USB500:whole",
+      "b": "Ref_Material_tail_TailBridge29_0_0",
+      "gap_mm": 0.0,
+      "minimum_mm": 1.25,
+      "ok": false,
+      "positive_common_mm3": 60.89442193696336
+    },
+    {
+      "a": "USBSourceGrip:pad",
+      "b": "Ref_Material_tail_MG92BMount29_0_0",
+      "gap_mm": 5.400000000000006,
+      "minimum_mm": 1.25,
+      "ok": true
+    },
+    {
+      "a": "USBSourceGrip:pad",
+      "b": "Ref_Material_tail_TailBridge29_0_0",
+      "gap_mm": 39.59377756565774,
+      "minimum_mm": 1.25,
+      "ok": true
+    },
+    {
+      "a": "USBSourceGrip:band",
+      "b": "Ref_Material_tail_MG92BMount29_0_0",
+      "gap_mm": 3.9783769091211414,
+      "minimum_mm": 1.25,
+      "ok": true
+    },
+    {
+      "a": "USBSourceGrip:band",
+      "b": "Ref_Material_tail_TailBridge29_0_0",
+      "gap_mm": 39.04176237581187,
+      "minimum_mm": 1.25,
+      "ok": true
+    },
+    {
+      "a": "USBSourceGrip:head",
+      "b": "Ref_Material_tail_MG92BMount29_0_0",
+      "gap_mm": 5.349999999999994,
+      "minimum_mm": 1.25,
+      "ok": true
+    },
+    {
+      "a": "USBSourceGrip:head",
+      "b": "Ref_Material_tail_TailBridge29_0_0",
+      "gap_mm": 34.942602043405635,
+      "minimum_mm": 1.25,
+      "ok": true
+    }
+  ],
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "worker_seconds": 4.172,
+  "full_world_Pi_BUS_other_grips_motion_roots_OPEN": true
+}
