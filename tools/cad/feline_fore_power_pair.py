@@ -64,8 +64,11 @@ def actual_s0_mouths(parts,ends,transform):
             surface=f.Surface
             if type(surface).__name__!='Cylinder':continue
             d=surface.Axis;d.normalize();c=surface.Center
-            if abs(d.y)>.1 or (hint-c).cross(d).Length>1e-4:continue
-            if d.dot(hint-stud)<0:d=-d
+            if abs(d.y)>.1:continue
+            # A re-clocked barrel does not inherit the old guide's axis.
+            # Actual non-stud cylindrical faces and their outward axial
+            # centre determine the source bore; no inferred manufacturer pad.
+            if d.dot(f.CenterOfMass-stud)<0:d=-d
             axes.append((d,c))
         assert axes,('No actual S0 barrel axis',name)
         d,c=axes[0];planes=[]
@@ -280,14 +283,14 @@ def main():
                                first_failure=rec['first_failure'],errors=rec['errors'])),flush=True)
 
 
-def all_current_blockers():
+def all_current_blockers(packet_path=None,world=None):
     """Inventory ALL changed-space owners, not another first-witness swap.
 
     No new geometry or selected-native mutation. Reuse complete900/380 S1
     proofs; actual remaining static/moving pairs are saved and resumable.
     """
-    tick=time.monotonic();dest=OUT/'n01-fore-power-pair.json'
-    packet,moving,rows=packed(dest);world=Scene();qcache=SolidQueries()
+    tick=time.monotonic();dest=packet_path or OUT/'n01-fore-power-pair.json'
+    packet,moving,rows=packed(dest);world=world or Scene();qcache=SolidQueries()
     _,pwm,_=packed(OUT/'n01-pwm-board-shelf.json')
     for file,groups in (('n01-fore-service-macro.json',{'F_HP','F_TY'}),('n01-fore-topology.json',{'ForeFHAC'})):
         _,p,r=packed(OUT/file)
@@ -321,6 +324,7 @@ def all_current_blockers():
         if key in rec['pairs']:return
         budget()
         original_kind=world.meta.get(other,{}).get('kind','actual_current_owner')
+        moving_kind=rows.get(n,{}).get('kind','actual_source')
         row=dict(part=n,other=other,scope=scope,required_mm=minimum,owner_meta=world.meta.get(other,{}))
         try:
             qq=s
@@ -334,7 +338,8 @@ def all_current_blockers():
                     c=qq.copy().common(t.copy());assert c.isValid();volume=c.Volume
                 row.update(gap_mm=gap,positive_common_mm3=volume)
                 if gap<minimum-1e-6:
-                    row['kind']='RESERVATION_HOLD' if 'reservation' in original_kind or world.meta.get(other,{}).get('role')=='ScaffoldPlanning' else 'ACTUAL_SOURCE_PAIR_GAP'
+                    row['kind']='RESERVATION_HOLD' if ('reservation' in original_kind or 'reservation' in moving_kind
+                        or world.meta.get(other,{}).get('role')=='ScaffoldPlanning') else 'ACTUAL_SOURCE_PAIR_GAP'
                     rec['failures'].append(row)
         except Exception as e:row['error']=repr(e);rec['errors'].append(row)
         rec['pairs'][key]=row;save();budget()
@@ -343,18 +348,20 @@ def all_current_blockers():
         for n,s in moving.items():
             if n not in rec['completed_static']:
                 for other,t in fixed.items():
-                    if rows[n]['group']=='S1' and ((n,other) in critical or other in pwm):continue
-                    wire=n.startswith('AUXFront:') and n.endswith((':factory100',':custom21'))
+                    if packet.get('reuse_original_S1_pose',True) and rows[n]['group']=='S1' and ((n,other) in critical or other in pwm):continue
+                    wire=(n.startswith('AUXFront:') and n.endswith((':factory100',':custom21'))) or rows[n].get('kind') in ('wire','proposal_wire','actual_wire')
                     minimum=.2 if wire and other in world.meta and world.wire(other) else 1.25
                     query(n,s,other,t,'all_static',minimum)
                 rec['completed_static'].append(n);save()
             if n not in rec['completed_mutual']:
                 for other,t in moving.items():
                     if other<=n or rows[n]['group']==rows[other]['group']:continue
-                    query(n,s,other,t,'all_moving_owners')
+                    wa=rows[n].get('kind') in ('wire','proposal_wire','actual_wire')
+                    wb=rows[other].get('kind') in ('wire','proposal_wire','actual_wire')
+                    query(n,s,other,t,'all_moving_owners',.2 if wa and wb else 1.25)
                 rec['completed_mutual'].append(n);save()
             if n not in rec['completed_motion']:
-                if rows[n]['group']!='S1':
+                if rows[n]['group']!='S1' or not packet.get('reuse_original_S1_pose',True):
                     for p in world.motion:
                         if bbox_lower_bound(s.BoundBox,A.BoundBox(*p['bounds'][0],*p['bounds'][1]))>=1.25:continue
                         qq=s.copy();qq.Placement=placement(p['r'],p['t']).inverse()*qq.Placement

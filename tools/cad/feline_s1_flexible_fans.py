@@ -103,6 +103,12 @@ def main():
     from feline_candidate_collision_scene import Scene
     from feline_pwm_board_shelf import build,source_inputs
     tick=time.monotonic();dest=OUT/'n01-s1-flexible-fore-fans.json';archive=OUT/'n01-s1-flexible-fore-fans.breps.zip'
+    # Never start detailed fans after only900critical/first-failure checks.
+    # All retained owners in the current whole source plan must be received.
+    core=OUT/'n01-shared-power-backplane.json'
+    assert core.exists(),'Complete shared source/board core gate BEFORE source fans'
+    coreproof=json.loads(core.read_text())
+    assert coreproof.get('whole_power_core_gate_complete') is True,'Shared power case gate not closed; do not resume the rejected fan family'
     previous=None
     if dest.exists():
         assert '--receive-partial' in sys.argv,'Receive previous result before duplicating flexible fans'
