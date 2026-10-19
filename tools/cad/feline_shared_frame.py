@@ -16,6 +16,24 @@ def box(lo,hi):
     return Part.makeBox(*(hi-lo),A.Vector(*lo))
 
 
+def material_connections(parts):
+    """Positive material joints, never a floating edge-touch load path."""
+    rows=[]
+    for i,(name,s) in enumerate(parts.items()):
+        for other,t in list(parts.items())[i+1:]:
+            if bbox_lower_bound(s.BoundBox,t.BoundBox)>1e-7:continue
+            common=s.copy().common(t.copy());assert common.isNull() or common.isValid()
+            if common.Volume>1e-7:rows.append(dict(a=name,b=other,common_mm3=common.Volume))
+    attached={n for n in parts if n.startswith('ClampSeat:')}
+    for _ in range(len(parts)):
+        before=len(attached)
+        for r in rows:
+            if r['a'] in attached or r['b'] in attached:attached.update((r['a'],r['b']))
+        if len(attached)==before:break
+    assert attached==set(parts),('Floating foundation pieces',sorted(set(parts)-attached))
+    return rows
+
+
 def build(chosen,proposal,fixed):
     pieces={};meta={};mates=[];fasteners=[]
     def put(name,shape,role,**extra):

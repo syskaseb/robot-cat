@@ -29,6 +29,7 @@ from feline_flat_station_templates import box_gap,build
 from plan_feline_central_pi_wedge import packed
 from feline_persistent_receiver import receive_requested
 from feline_component_conflict_alias import extra_case_cuts
+from feline_atomic_save import save_json
 
 
 _physical_bases={}
@@ -61,6 +62,7 @@ def main():
     fans=json.loads(fanfile.read_text());_,fanparts,fanmeta=packed(fanfile)
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in (Path(__file__),planfile,oldfile,zonefile,fanfile,Path(__file__).with_name('feline_shared_straight_combs.py'),Path(__file__).with_name('feline_beside_bank_receive.py'),Path(__file__).with_name('feline_persistent_receiver.py'))}
     p=Path(__file__).with_name('feline_component_conflict_alias.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
+    p=Path(__file__).with_name('feline_atomic_save.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
     if selected_head:
         from feline_t18i_selected_head import SOURCE,source,unit as actual_head_unit
         headsource=source()
@@ -106,7 +108,18 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--legacy-compact' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--atomic-retry' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
+            assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_atomic_save.py'}
+            oldcode=subprocess.run(['git','show','65c742c7:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(oldcode).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(oldcode,name))==ast.dump(get(Path(__file__).read_text(),name)),name
+            assert all(e=="PermissionError(13, 'Access is denied')" for e in result['errors'])
+            result.setdefault('controller_repairs',[]).append(dict(reason='Bounded atomic replace retry for transient Windows reader lock; shape/mutual AST unchanged',prior_io_errors=result['errors']))
+            result['errors']=[];result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--legacy-compact' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
             helper='tools/cad/feline_compact_station_fan.py';receiver='tools/cad/feline_compact_station_receive.py'
             assert set(pins)==set(result['source_sha256'])
@@ -202,7 +215,7 @@ def main():
     if selected_head:result['selected_head_source']=headsource
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
-        temp=dest.with_suffix('.writing.json');temp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n');temp.replace(dest)
+        save_json(dest,result)
     groups={}
     for ref,st in stations.items():
         rows=[]

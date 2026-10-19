@@ -7,7 +7,7 @@ import Part
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools/cad'))
 from feline_remaining_kits import candidates,materialise
-from feline_shared_frame import build,box
+from feline_shared_frame import build,box,material_connections
 OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure'
 
 
@@ -22,6 +22,9 @@ class ActualClampFrame(unittest.TestCase):
         inventory=json.loads((OUT/'n01-current-packaging-inventory.json').read_text())
         fixed={r['name']:box(*r['bounds_mm']) for r in inventory['fixed'] if r['name'].startswith('StructureReserve:BankBed')}
         frame,meta,mates=build(chosen,parts,fixed)
+        connections=material_connections(frame)
+        self.assertTrue(connections)
+        self.assertTrue(all(r['common_mm3']>1e-7 for r in connections))
         self.assertEqual(len(mates),4)
         for group in chosen:
             for index in chosen[group]['recipe']['clamp_indices']:
