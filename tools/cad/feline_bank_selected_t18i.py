@@ -28,11 +28,20 @@ def candidates(groups):
     for group,rr in both_after_candidates(groups).items():
         selected=[dict(copy.deepcopy(r),selected_T18I_max_head=True,joint_current_bank_plane=True) for r in rr]
         result[group]=selected+result[group]
+        before=[dict(copy.deepcopy(r),selected_T18I_max_head=True,joint_current_bank_plane='BEFORE9_TYPED60') for r in rr]
+        result[group]=before+result[group]
     return result
 
 
 def current_profile(group,recipe):
     r=recipe['base_recipe'];q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis'])
+    if recipe.get('joint_current_bank_plane')=='BEFORE9_TYPED60':
+        if q[1]>0 or group=='Bank:W058/single/end':b=np.array([0.,0.,-1.])
+        else:b=np.array([1. if '_IN_' in r.get('terminal_name','') else -1.,0.,0.])
+        theta=math.radians(60);end=q+(9+r['R_mm']*math.sin(theta))*d+r['R_mm']*(1-math.cos(theta))*b
+        axis=math.cos(theta)*d+math.sin(theta)*b
+        return dict(start=q,axis=d,tip=q+9*d,bend=b,entry=9.,degrees=60.,curve_end=end,wire_tip=end,
+            curve_axis=axis,grip_site='BEFORE_BEND',role='FULL_BEFORE9_TYPED60_NO_DUPLICATE_AFTER9')
     fore={'Bank:W027/single/end','Bank:W028/single/end','Bank:W020/body/end'}
     returning=q[1]<0 or group in fore
     b=np.array([0.,0.,-1. if returning else 1.]);entry=0. if returning else 3.;degrees=180. if returning else 45.
@@ -47,12 +56,16 @@ def current_receiving(group,recipe):
     q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis']);a=q+p['entry']*d;R=r['R_mm'];theta=math.radians(p['degrees'])
     at=lambda t:a+R*math.sin(t)*d+R*(1-math.cos(t))*p['bend']
     edges=([Part.makeLine(A.Vector(*q),A.Vector(*a))] if p['entry']>1e-8 else [])
-    path=Part.Wire(edges+[Part.Arc(A.Vector(*a),A.Vector(*at(theta/2)),A.Vector(*p['start'])).toShape(),Part.makeLine(A.Vector(*p['start']),A.Vector(*p['tip']))])
+    end=p.get('curve_end',p['start']);tip=p.get('wire_tip',p['tip'])
+    edges.append(Part.Arc(A.Vector(*a),A.Vector(*at(theta/2)),A.Vector(*end)).toShape())
+    if np.linalg.norm(tip-end)>1e-8:edges.append(Part.makeLine(A.Vector(*end),A.Vector(*tip)))
+    path=Part.Wire(edges)
     radius=r.get('radius_mm',r.get('radius'));wire=path.makePipeShell([Part.Wire([Part.makeCircle(radius,A.Vector(*q),A.Vector(*d))])],True,False)
     assert wire.isValid() and len(wire.Solids)==1
     rotation=A.Rotation(A.Vector(*d),A.Vector(*p['axis']));pose=A.Placement(A.Vector(*p['start'])-rotation.multVec(A.Vector(*q)),rotation)
     for n,s in list(parts.items()):
         if kinds[n]=='proposal_wire':parts[n]=wire
+        elif p.get('grip_site')=='BEFORE_BEND':continue
         else:
             v=s.copy();v.Placement=pose*v.Placement;assert v.isValid() and v.Solids;parts[n]=v
     return parts,kinds
@@ -70,7 +83,8 @@ def materialise(group,recipe):
     D,H,E=dimensions()
     for n,s in list(parts.items()):
         if not n.endswith('head_budget'):continue
-        radial=s.CenterOfMass-land;radial=radial-axis*radial.dot(axis)
+        assert len(s.Solids)==1
+        radial=s.Solids[0].CenterOfMass-land;radial=radial-axis*radial.dot(axis)
         oldcentre_radius=radial.Length;radial.normalize();tangent=axis.cross(radial)
         centre=land+radial*(oldcentre_radius-3+D/2)
         matrix=A.Matrix()

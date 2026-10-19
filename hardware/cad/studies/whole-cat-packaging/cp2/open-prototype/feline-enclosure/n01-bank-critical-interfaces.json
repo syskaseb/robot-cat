@@ -6,10 +6,10 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-six-source-current-core.json": "027839a5061971b61a3222274e273b0fc87605d826a2c3a006a1458ba3b47f3f",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-six-source-current-core.breps.zip": "16c436d06233157735784e5f02e01cd364c6c769708f6fb1bda34e917a3c9837",
-    "tools/cad/feline_bank_selected_t18i.py": "fb13b727d7a5a17531ecb6d8452e8975b8d2f1da871d12018bab076556fd4afc",
+    "tools/cad/feline_bank_selected_t18i.py": "4c95f6355002f0733f0a88930c65debcd275d9dbd3c08870e1a6ca24e3200696",
     "tools/cad/feline_bank_zoned_layout.py": "3d08854f505b5ac13159570d62f3ab376a2c5bb2f8c27b22b87f5f9cfa0c2b7b",
     "hardware/reference/cable-ties/t18i-111-02370/head-envelope.json": "a16c0ff5cda6d8fcee6f8332437162f4e0a257889eb7c3471724102600795c61",
-    "tools/cad/inspect_feline_bank_receiver_blockers.py": "80e8cee0ed3a65c2c5e6bd29219c4d6efa43b86a02374852952fd563dadd7d6b",
+    "tools/cad/inspect_feline_bank_receiver_blockers.py": "7f875613f7cce8d1626f4f7dbf8be2b93d6d0bc3f90ae5fc2ca9bd1bb1cbe6b6",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-flat-station-architecture.json": "678c102635b3fbe2a62ea4c995d70435395478730229b9c221fe26e7f56675ab",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-two-lane-comb-joint.json": "286be44edad68420dbdc05975d9b639cd58d0367c9da097f14511c3cfe11dcc2",
     "tools/cad/feline_bank_receiving_grips.py": "146b3740b0194932e31741111caefa5a2ef0062e046096cbeea1f465dc70979a",
@@ -81,23 +81,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "OpenW027:270:wire",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 73.32443207975793,
-            "common_center_mm": [
-              -53.99999989342726,
-              6.9909961831317595,
-              47.535001936209255
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -162,23 +149,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "OpenW027:0:wire",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 73.32443207975793,
-            "common_center_mm": [
-              -53.99999989342726,
-              6.9909961831317595,
-              47.535001936209255
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W028/single/end": [
@@ -237,23 +211,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W028/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 73.32443012090656,
-            "common_center_mm": [
-              -29.99999989230405,
-              6.990996085265872,
-              47.53500193965017
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -310,20 +271,20 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": [
           {
-            "part": "wire:W028/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
+            "part": "head_budget",
+            "other": "Ref_Material_S0_key_CP2_0_0",
             "gap_mm": 0.0,
             "required_mm": 1.25,
-            "positive_common_mm3": 73.32443012090656,
+            "positive_common_mm3": 0.023408422923452146,
             "common_center_mm": [
-              -29.99999989230405,
-              6.990996085265872,
-              47.53500193965017
+              -32.288141213685975,
+              8.21505078210026,
+              77.98619453276685
             ]
           }
         ]
@@ -383,23 +344,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W028/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 73.32443012090656,
-            "common_center_mm": [
-              -29.99999989230405,
-              6.990996085265872,
-              47.53500193965017
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -456,23 +404,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W028/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 73.32443012090656,
-            "common_center_mm": [
-              -29.99999989230405,
-              6.990996085265872,
-              47.53500193965017
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W029/single/end": [
@@ -531,7 +466,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -591,7 +526,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -651,7 +586,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -711,7 +646,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -773,23 +708,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W038/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 52.86972418733088,
-            "common_center_mm": [
-              -28.37283597903888,
-              -6.985473673969132,
-              47.52951917460043
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -846,23 +768,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W038/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 52.86972418733088,
-            "common_center_mm": [
-              -28.37283597903888,
-              -6.985473673969132,
-              47.52951917460043
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -919,23 +828,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W038/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 52.86972418733088,
-            "common_center_mm": [
-              -28.37283597903888,
-              -6.985473673969132,
-              47.52951917460043
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -992,20 +888,26 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": [
           {
-            "part": "wire:W038/single/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
+            "part": "head_budget",
+            "other": "Ref_Material_S0_key_CP2_0_0",
+            "gap_mm": 0.08146100364786324,
             "required_mm": 1.25,
-            "positive_common_mm3": 52.86972418733088,
-            "common_center_mm": [
-              -28.37283597903888,
-              -6.985473673969132,
-              47.52951917460043
+            "closest_points_mm": [
+              [
+                -30.64999999999999,
+                -8.119999999999989,
+                78.05000000000001
+              ],
+              [
+                -30.661920224509444,
+                -8.076140631901593,
+                78.11760295254626
+              ]
             ]
           }
         ]
@@ -1067,23 +969,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W039/single/end",
-            "other": "P_SYS:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 4.121985535190113,
-            "common_center_mm": [
-              -2.746857214589537,
-              -5.152391010106179,
-              49.23579765722704
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -1140,23 +1029,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W039/single/end",
-            "other": "P_SYS:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 4.121985535190113,
-            "common_center_mm": [
-              -2.746857214589537,
-              -5.152391010106179,
-              49.23579765722704
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -1213,23 +1089,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W039/single/end",
-            "other": "P_SYS:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 4.121985535190113,
-            "common_center_mm": [
-              -2.746857214589537,
-              -5.152391010106179,
-              49.23579765722704
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -1286,23 +1149,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
-        "failures": [
-          {
-            "part": "wire:W039/single/end",
-            "other": "P_SYS:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 4.121985535190113,
-            "common_center_mm": [
-              -2.746857214589537,
-              -5.152391010106179,
-              49.23579765722704
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W040/single/end": [
@@ -1361,23 +1211,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W040/single/end",
-            "other": "P_SYS:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.009954068425384472,
-            "common_center_mm": [
-              19.99999987654461,
-              -1.475268846568438,
-              53.878809076492225
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -1434,23 +1271,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W040/single/end",
-            "other": "P_SYS:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.009954068425384472,
-            "common_center_mm": [
-              19.99999987654461,
-              -1.475268846568438,
-              53.878809076492225
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -1507,23 +1331,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W040/single/end",
-            "other": "P_SYS:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.009954068425384472,
-            "common_center_mm": [
-              19.99999987654461,
-              -1.475268846568438,
-              53.878809076492225
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -1580,23 +1391,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
-        "failures": [
-          {
-            "part": "wire:W040/single/end",
-            "other": "P_SYS:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.009954068425384472,
-            "common_center_mm": [
-              19.99999987654461,
-              -1.475268846568438,
-              53.878809076492225
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W046/single/end": [
@@ -1655,7 +1453,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -1715,7 +1513,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -1775,7 +1573,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -1835,7 +1633,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -1897,7 +1695,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -1957,7 +1755,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -2017,7 +1815,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -2077,7 +1875,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -2139,7 +1937,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -2199,7 +1997,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -2259,7 +2057,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -2319,7 +2117,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -2381,59 +2179,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W054/single/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 147.44829885237962,
-            "common_center_mm": [
-              44.00000290462826,
-              -10.872615611918565,
-              46.88196264481915
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 143.97461723316633,
-            "common_center_mm": [
-              44.00000000000001,
-              -19.619999999999987,
-              45.85507050231011
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 40.31330348431664,
-            "common_center_mm": [
-              44.0,
-              -19.61999999999999,
-              46.77817940396936
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 61.27500000000032,
-            "common_center_mm": [
-              50.9,
-              -19.619999999999983,
-              45.42500000000001
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -2490,59 +2239,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W054/single/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 147.44829885237962,
-            "common_center_mm": [
-              44.00000290462826,
-              -10.872615611918565,
-              46.88196264481915
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 143.97461723316633,
-            "common_center_mm": [
-              44.00000000000001,
-              -19.619999999999987,
-              45.85507050231011
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 40.31330348431664,
-            "common_center_mm": [
-              44.0,
-              -19.61999999999999,
-              46.77817940396936
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 10.687500000000217,
-            "common_center_mm": [
-              38.875,
-              -19.619999999999983,
-              45.425000000000004
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -2599,59 +2299,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W054/single/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 147.44829885237962,
-            "common_center_mm": [
-              44.00000290462826,
-              -10.872615611918565,
-              46.88196264481915
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 143.97461723316633,
-            "common_center_mm": [
-              44.00000000000001,
-              -19.619999999999987,
-              45.85507050231011
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 40.31330348431664,
-            "common_center_mm": [
-              44.0,
-              -19.61999999999999,
-              46.77817940396936
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 107.32499999999989,
-            "common_center_mm": [
-              44.00000000000001,
-              -19.619999999999987,
-              50.974999999999994
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -2708,47 +2359,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
-        "failures": [
-          {
-            "part": "wire:W054/single/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 147.44829885237962,
-            "common_center_mm": [
-              44.00000290462826,
-              -10.872615611918565,
-              46.88196264481915
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 143.97461723316633,
-            "common_center_mm": [
-              44.00000000000001,
-              -19.619999999999987,
-              45.85507050231011
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 40.31330348431664,
-            "common_center_mm": [
-              44.0,
-              -19.61999999999999,
-              46.77817940396936
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W056/single/end": [
@@ -2807,143 +2421,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:wire:D_FL.5",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 4.199836881297005,
-            "common_center_mm": [
-              67.66245402832102,
-              -5.930101604215164,
-              49.93932705732796
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 27.69889442972834,
-            "common_center_mm": [
-              68.33811999538983,
-              -4.354645561118769,
-              51.43897895698885
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highY",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 3.944495329549046,
-            "common_center_mm": [
-              68.93072873991017,
-              -2.6208783826392903,
-              55.654027536636356
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highZ",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.4776405229257468,
-            "common_center_mm": [
-              68.63335552864643,
-              -3.6433641149960305,
-              56.13293619319064
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.2223217937063995,
-            "common_center_mm": [
-              68.2606566638665,
-              -1.7844669041710655,
-              53.76107436695187
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.8068293267840323,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562471665795,
-                -21.000000004714998,
-                47.43840895119868
-              ],
-              [
-                66.2150803250266,
-                -20.999999989638436,
-                48.174421157428874
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.3",
-            "gap_mm": 0.8068293267840319,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562472122441,
-                -16.24999993019334,
-                47.43840895324949
-              ],
-              [
-                66.21508039200916,
-                -16.249999897192176,
-                48.17442118751086
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.06897363125421846,
-            "common_center_mm": [
-              69.14975280467021,
-              -19.619999999999997,
-              47.52757006088581
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 0.4348472769950464,
-            "common_center_mm": [
-              66.12486037160015,
-              -20.564544008599302,
-              48.375522636001094
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 3.8295656310013264,
-            "common_center_mm": [
-              69.31948076164467,
-              -19.619999999999987,
-              48.284230280473594
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -3000,161 +2481,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:wire:D_FL.5",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 4.199836881297005,
-            "common_center_mm": [
-              67.66245402832102,
-              -5.930101604215164,
-              49.93932705732796
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 27.69889442972834,
-            "common_center_mm": [
-              68.33811999538983,
-              -4.354645561118769,
-              51.43897895698885
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highY",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 3.944495329549046,
-            "common_center_mm": [
-              68.93072873991017,
-              -2.6208783826392903,
-              55.654027536636356
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highZ",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.4776405229257468,
-            "common_center_mm": [
-              68.63335552864643,
-              -3.6433641149960305,
-              56.13293619319064
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.2223217937063995,
-            "common_center_mm": [
-              68.2606566638665,
-              -1.7844669041710655,
-              53.76107436695187
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.8068293267840323,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562471665795,
-                -21.000000004714998,
-                47.43840895119868
-              ],
-              [
-                66.2150803250266,
-                -20.999999989638436,
-                48.174421157428874
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.3",
-            "gap_mm": 0.8068293267840319,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562472122441,
-                -16.24999993019334,
-                47.43840895324949
-              ],
-              [
-                66.21508039200916,
-                -16.249999897192176,
-                48.17442118751086
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.06897363125421846,
-            "common_center_mm": [
-              69.14975280467021,
-              -19.619999999999997,
-              47.52757006088581
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 0.4348472769950464,
-            "common_center_mm": [
-              66.12486037160015,
-              -20.564544008599302,
-              48.375522636001094
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 3.8295656310013264,
-            "common_center_mm": [
-              69.31948076164467,
-              -19.619999999999987,
-              48.284230280473594
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.0999999999999801,
-            "required_mm": 0.2,
-            "closest_points_mm": [
-              [
-                58.95,
-                -21.0,
-                46.85000000000002
-              ],
-              [
-                58.95,
-                -21.0,
-                46.95
-              ]
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -3211,179 +2541,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:wire:D_FL.5",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 4.199836881297005,
-            "common_center_mm": [
-              67.66245402832102,
-              -5.930101604215164,
-              49.93932705732796
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 27.69889442972834,
-            "common_center_mm": [
-              68.33811999538983,
-              -4.354645561118769,
-              51.43897895698885
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highY",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 3.944495329549046,
-            "common_center_mm": [
-              68.93072873991017,
-              -2.6208783826392903,
-              55.654027536636356
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highZ",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.4776405229257468,
-            "common_center_mm": [
-              68.63335552864643,
-              -3.6433641149960305,
-              56.13293619319064
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.2223217937063995,
-            "common_center_mm": [
-              68.2606566638665,
-              -1.7844669041710655,
-              53.76107436695187
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.8068293267840323,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562471665795,
-                -21.000000004714998,
-                47.43840895119868
-              ],
-              [
-                66.2150803250266,
-                -20.999999989638436,
-                48.174421157428874
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.3",
-            "gap_mm": 0.8068293267840319,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562472122441,
-                -16.24999993019334,
-                47.43840895324949
-              ],
-              [
-                66.21508039200916,
-                -16.249999897192176,
-                48.17442118751086
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.06897363125421846,
-            "common_center_mm": [
-              69.14975280467021,
-              -19.619999999999997,
-              47.52757006088581
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 0.4348472769950464,
-            "common_center_mm": [
-              66.12486037160015,
-              -20.564544008599302,
-              48.375522636001094
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 3.8295656310013264,
-            "common_center_mm": [
-              69.31948076164467,
-              -19.619999999999987,
-              48.284230280473594
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 38.10730815344265,
-            "common_center_mm": [
-              68.0708137238831,
-              -20.871973523254052,
-              50.998473044523
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:wire:D_FL.3",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 7.132316596645609,
-            "common_center_mm": [
-              68.05802284410622,
-              -17.402422628706688,
-              50.97368411871476
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 42.745641221110645,
-            "common_center_mm": [
-              68.66665667973461,
-              -19.140129703945664,
-              51.24198517818773
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -3440,143 +2601,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
-        "failures": [
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:wire:D_FL.5",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 4.199836881297005,
-            "common_center_mm": [
-              67.66245402832102,
-              -5.930101604215164,
-              49.93932705732796
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 27.69889442972834,
-            "common_center_mm": [
-              68.33811999538983,
-              -4.354645561118769,
-              51.43897895698885
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highY",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 3.944495329549046,
-            "common_center_mm": [
-              68.93072873991017,
-              -2.6208783826392903,
-              55.654027536636356
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:band_highZ",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.4776405229257468,
-            "common_center_mm": [
-              68.63335552864643,
-              -3.6433641149960305,
-              56.13293619319064
-            ]
-          },
-          {
-            "part": "wire:W056/single/end",
-            "other": "D_FL:Tie:one_common_band_head",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 1.2223217937063995,
-            "common_center_mm": [
-              68.2606566638665,
-              -1.7844669041710655,
-              53.76107436695187
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.8068293267840323,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562471665795,
-                -21.000000004714998,
-                47.43840895119868
-              ],
-              [
-                66.2150803250266,
-                -20.999999989638436,
-                48.174421157428874
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:wire:D_FL.3",
-            "gap_mm": 0.8068293267840319,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                66.54562472122441,
-                -16.24999993019334,
-                47.43840895324949
-              ],
-              [
-                66.21508039200916,
-                -16.249999897192176,
-                48.17442118751086
-              ]
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.06897363125421846,
-            "common_center_mm": [
-              69.14975280467021,
-              -19.619999999999997,
-              47.52757006088581
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.0,
-            "required_mm": 0.2,
-            "positive_common_mm3": 0.4348472769950464,
-            "common_center_mm": [
-              66.12486037160015,
-              -20.564544008599302,
-              48.375522636001094
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 3.8295656310013264,
-            "common_center_mm": [
-              69.31948076164467,
-              -19.619999999999987,
-              48.284230280473594
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W058/single/end": [
@@ -3635,7 +2663,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -3695,7 +2723,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -3755,7 +2783,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -3815,7 +2843,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -3877,20 +2905,26 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": [
           {
-            "part": "wire:W020/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
+            "part": "head_budget",
+            "other": "Ref_Material_S0_key_CP2_0_0",
+            "gap_mm": 0.09170982783990703,
             "required_mm": 1.25,
-            "positive_common_mm3": 23.49344780763366,
-            "common_center_mm": [
-              -40.00000031382236,
-              8.180210393864053,
-              48.23912469017271
+            "closest_points_mm": [
+              [
+                -42.64999999999997,
+                10.151999999999973,
+                77.5
+              ],
+              [
+                -42.66178351802753,
+                10.090307972863766,
+                77.5668276515609
+              ]
             ]
           }
         ]
@@ -3950,23 +2984,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W020/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 23.49344780763366,
-            "common_center_mm": [
-              -40.00000031382236,
-              8.180210393864053,
-              48.23912469017271
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -4023,23 +3044,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W020/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 23.49344780763366,
-            "common_center_mm": [
-              -40.00000031382236,
-              8.180210393864053,
-              48.23912469017271
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -4096,23 +3104,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W020/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 23.49344780763366,
-            "common_center_mm": [
-              -40.00000031382236,
-              8.180210393864053,
-              48.23912469017271
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W022/body/end": [
@@ -4171,7 +3166,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -4231,7 +3226,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -4291,29 +3286,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "head_budget",
-            "other": "Ref_Material_S0_key_CP2_0_0",
-            "gap_mm": 0.5642785756883413,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                -24.499999999999982,
-                9.237055564881302e-14,
-                76.7084665588198
-              ],
-              [
-                -25.064278575688324,
-                9.050327877043161e-14,
-                76.7084665588198
-              ]
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -4370,7 +3346,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -4432,7 +3408,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -4492,7 +3468,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -4552,7 +3528,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -4612,7 +3588,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -4674,23 +3650,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W031/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 23.49345088457361,
-            "common_center_mm": [
-              -42.000000265446836,
-              -8.180210352163385,
-              48.23912452521372
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -4747,23 +3710,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W031/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 23.49345088457361,
-            "common_center_mm": [
-              -42.000000265446836,
-              -8.180210352163385,
-              48.23912452521372
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -4820,20 +3770,20 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": [
           {
-            "part": "wire:W031/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
+            "part": "head_budget",
+            "other": "Ref_Material_S0_key_CP2_0_0",
             "gap_mm": 0.0,
             "required_mm": 1.25,
-            "positive_common_mm3": 23.49345088457361,
+            "positive_common_mm3": 0.011633983372989733,
             "common_center_mm": [
-              -42.000000265446836,
-              -8.180210352163385,
-              48.23912452521372
+              -44.32819590924437,
+              -10.211731293809926,
+              77.44325725629949
             ]
           }
         ]
@@ -4893,23 +3843,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W031/body/end",
-            "other": "Ref_Material_F_PI_new_0_0",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 23.49345088457361,
-            "common_center_mm": [
-              -42.000000265446836,
-              -8.180210352163385,
-              48.23912452521372
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W033/body/end": [
@@ -4968,7 +3905,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -5028,7 +3965,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -5088,7 +4025,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -5148,7 +4085,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -5210,7 +4147,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -5270,7 +4207,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -5330,7 +4267,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -5390,7 +4327,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -5452,7 +4389,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -5512,7 +4449,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -5572,7 +4509,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -5632,7 +4569,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -5694,7 +4631,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -5754,7 +4691,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -5814,7 +4751,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -5874,7 +4811,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -5936,7 +4873,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
         "failures": []
@@ -5996,7 +4933,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -6056,7 +4993,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -6116,7 +5053,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -6178,7 +5115,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
         "failures": []
@@ -6238,7 +5175,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
         "failures": []
@@ -6298,18 +5235,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 0.0
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -6366,7 +5295,7 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
         "failures": []
@@ -6428,47 +5357,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
-        "failures": [
-          {
-            "part": "wire:W057/body/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 64.18165679667034,
-            "common_center_mm": [
-              53.99998999390635,
-              -13.120466445906349,
-              46.70272911746099
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 115.2110591345147,
-            "common_center_mm": [
-              54.00000000000001,
-              -21.651999999999973,
-              45.52111279626163
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 32.02342763110157,
-            "common_center_mm": [
-              53.632388265430116,
-              -21.651999999999973,
-              46.572175866173616
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -6525,59 +5417,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W057/body/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 64.18165679667034,
-            "common_center_mm": [
-              53.99998999390635,
-              -13.120466445906349,
-              46.70272911746099
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 115.2110591345147,
-            "common_center_mm": [
-              54.00000000000001,
-              -21.651999999999973,
-              45.52111279626163
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 32.02342763110157,
-            "common_center_mm": [
-              53.632388265430116,
-              -21.651999999999973,
-              46.572175866173616
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 113.94999999999993,
-            "common_center_mm": [
-              54.00000000000001,
-              -21.651999999999976,
-              50.550000000000004
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -6634,59 +5477,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W057/body/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 64.18165679667034,
-            "common_center_mm": [
-              53.99998999390635,
-              -13.120466445906349,
-              46.70272911746099
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 115.2110591345147,
-            "common_center_mm": [
-              54.00000000000001,
-              -21.651999999999973,
-              45.52111279626163
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 32.02342763110157,
-            "common_center_mm": [
-              53.632388265430116,
-              -21.651999999999973,
-              46.572175866173616
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 61.27500000000037,
-            "common_center_mm": [
-              47.650000000000006,
-              -21.651999999999976,
-              45.425
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -6743,83 +5537,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W057/body/end",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 64.18165679667034,
-            "common_center_mm": [
-              53.99998999390635,
-              -13.120466445906349,
-              46.70272911746099
-            ]
-          },
-          {
-            "part": "split_cap_exterior",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 115.2110591345147,
-            "common_center_mm": [
-              54.00000000000001,
-              -21.651999999999973,
-              45.52111279626163
-            ]
-          },
-          {
-            "part": "band_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 32.02342763110157,
-            "common_center_mm": [
-              53.632388265430116,
-              -21.651999999999973,
-              46.572175866173616
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:wire:D_FL.2",
-            "gap_mm": 0.10000000000000142,
-            "required_mm": 0.2,
-            "closest_points_mm": [
-              [
-                58.200000000000024,
-                -21.0,
-                46.85
-              ],
-              [
-                58.200000000000024,
-                -21.0,
-                46.95
-              ]
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:case",
-            "gap_mm": 0.7000000000000242,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                58.200000000000024,
-                -24.151999999999973,
-                46.85
-              ],
-              [
-                57.5,
-                -24.151999999999973,
-                46.85
-              ]
-            ]
-          }
-        ]
+        "failures": []
       }
     ],
     "Bank:W059/body/end": [
@@ -6878,29 +5599,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 90,
-        "failures": [
-          {
-            "part": "wire:W059/body/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.06721371159008527,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                77.0,
-                -5.648822178197852,
-                51.97
-              ],
-              [
-                76.93278628840991,
-                -5.64882217819785,
-                51.97
-              ]
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -6957,41 +5659,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 270,
-        "failures": [
-          {
-            "part": "wire:W059/body/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.06721371159008527,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                77.0,
-                -5.648822178197852,
-                51.97
-              ],
-              [
-                76.93278628840991,
-                -5.64882217819785,
-                51.97
-              ]
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.0,
-            "required_mm": 1.25,
-            "positive_common_mm3": 8.623957740559664,
-            "common_center_mm": [
-              75.97273019407531,
-              -21.65199999999998,
-              52.04338700052704
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -7048,29 +5719,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 0,
-        "failures": [
-          {
-            "part": "wire:W059/body/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.06721371159008527,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                77.0,
-                -5.648822178197852,
-                51.97
-              ],
-              [
-                76.93278628840991,
-                -5.64882217819785,
-                51.97
-              ]
-            ]
-          }
-        ]
+        "failures": []
       },
       {
         "recipe": {
@@ -7127,47 +5779,10 @@
           "current_entry_straight_mm": 3,
           "full_grip_after_arc_mm": 9,
           "selected_T18I_max_head": true,
-          "joint_current_bank_plane": true
+          "joint_current_bank_plane": "BEFORE9_TYPED60"
         },
         "head": 180,
-        "failures": [
-          {
-            "part": "wire:W059/body/end",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.06721371159008527,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                77.0,
-                -5.648822178197852,
-                51.97
-              ],
-              [
-                76.93278628840991,
-                -5.64882217819785,
-                51.97
-              ]
-            ]
-          },
-          {
-            "part": "head_budget",
-            "other": "D_FL:common_channelled_cap_exterior",
-            "gap_mm": 0.7176569231713424,
-            "required_mm": 1.25,
-            "closest_points_mm": [
-              [
-                69.49999999999999,
-                -24.151999999999973,
-                46.85000000000002
-              ],
-              [
-                69.14117153841431,
-                -24.151999999999973,
-                47.47150912666818
-              ]
-            ]
-          }
-        ]
+        "failures": []
       }
     ]
   },
@@ -7320,5 +5935,5 @@
   ],
   "N01_complete": false,
   "physical_pass": false,
-  "worker_seconds": 26.735
+  "worker_seconds": 19.734
 }
