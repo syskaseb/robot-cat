@@ -28,6 +28,7 @@ from feline_solid_distance import bbox_lower_bound
 from feline_flat_station_templates import box_gap,build
 from plan_feline_central_pi_wedge import packed
 from feline_persistent_receiver import receive_requested
+from feline_component_conflict_alias import extra_case_cuts
 
 
 _physical_bases={}
@@ -59,6 +60,7 @@ def main():
     old=json.loads(oldfile.read_text());zones=json.loads(zonefile.read_text());oldslots={s['id']:s for s in zones['candidates']};newslots={s['id']:s for s in slots()}
     fans=json.loads(fanfile.read_text());_,fanparts,fanmeta=packed(fanfile)
     pins={p.relative_to(ROOT).as_posix():sha(p) for p in (Path(__file__),planfile,oldfile,zonefile,fanfile,Path(__file__).with_name('feline_shared_straight_combs.py'),Path(__file__).with_name('feline_beside_bank_receive.py'),Path(__file__).with_name('feline_persistent_receiver.py'))}
+    p=Path(__file__).with_name('feline_component_conflict_alias.py');pins[p.relative_to(ROOT).as_posix()]=sha(p)
     if selected_head:
         from feline_t18i_selected_head import SOURCE,source,unit as actual_head_unit
         headsource=source()
@@ -74,10 +76,10 @@ def main():
         result=json.loads(dest.read_text())
         if result['source_sha256']!=pins and '--receive-controller' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix()
-            versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7','2435ccf3','a08eea28','1852c030')]
+            versions=[subprocess.run(['git','show',c+':'+own],cwd=ROOT,check=True,capture_output=True).stdout for c in ('ac4117a8','e36917e7','2435ccf3','a08eea28','1852c030','9d6e4895')]
             previous=next(s for s in versions if hashlib.sha256(s).hexdigest()==result['source_sha256'][own])
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
-            assert set(pins)-set(result['source_sha256'])<= {'tools/cad/feline_persistent_receiver.py','tools/cad/feline_comb_common_material.py'}
+            assert set(pins)-set(result['source_sha256'])<= {'tools/cad/feline_persistent_receiver.py','tools/cad/feline_comb_common_material.py','tools/cad/feline_component_conflict_alias.py'}
             before=ast.parse(previous);after=ast.parse(Path(__file__).read_text())
             for name in ('shape','mutual'):
                 f=lambda tree:next(n for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name==name)
@@ -225,6 +227,10 @@ def main():
                 for ia in bygeometry[geometry[a]]:
                     for ib in bygeometry[geometry[b]]:
                         if choices[ia][0]!=choices[ib][0]:expanded.add(tuple(sorted((ia,ib))))
+            component_cuts,component_proof=extra_case_cuts(result['cuts'],result['mutual_cache'],choices,idx,bygeometry,geometry,cb)
+            expanded.update(component_cuts)
+            result['actual_case_component_alias_receipts']=component_proof
+            result['expanded_actual_case_component_cuts']=len(component_cuts)
             for a,b in expanded:add([a,b],-np.inf,1)
             result['expanded_physical_conflict_cuts']=len(expanded)
             matrix=coo_matrix((vv,(rr,cc)),shape=(len(lo),total)).tocsc()
