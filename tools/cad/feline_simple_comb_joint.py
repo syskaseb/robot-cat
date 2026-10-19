@@ -119,7 +119,18 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--above-hardware-grip' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--force-above-grip' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix()
+            assert set(pins)==set(result['source_sha256'])
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
+            previous=subprocess.run(['git','show','f0603bb2:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(previous).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(previous,name))==ast.dump(get(Path(__file__).read_text(),name)),name
+            assert not result['errors']
+            result.setdefault('controller_repairs',[]).append(dict(reason='Explicitly test the planned D_FL above-hardware interface; known options cost0 was starving new cost10 option',shape_and_mutual_AST_identical=True,owned_worker_stopped_at_saved_checkpoint=dict(session_id=10975,pid=17132,exit_code=1,last_saved_seconds=122.5,no_native_open=True)))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--above-hardware-grip' in sys.argv:
             own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_bank_lane_receive.py'
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (own,receiver))
             assert set(pins)-set(result['source_sha256'])=={'tools/cad/feline_above_hardware_grip.py'}
@@ -501,6 +512,7 @@ def main():
             def add(indices,lower,upper,weights=None):
                 j=len(lo);rr.extend([j]*len(indices));cc.extend(indices);vv.extend([1.]*len(indices) if weights is None else weights);lo.append(lower);hi.append(upper)
             for g,rows in groups.items():add([idx[r['key']] for r in rows],1,1)
+            if '--force-above-grip' in sys.argv:add([i for i,(g,r) in enumerate(choices) if r['kind']=='above_hardware_fan'],1,1)
             if '--bank-lanes' in sys.argv:
                 # One whole coherent bank architecture, not24independent new
                 # offsets. Old recipes and raw evidence remain preserved.
