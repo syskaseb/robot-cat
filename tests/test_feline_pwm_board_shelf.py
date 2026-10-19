@@ -47,5 +47,25 @@ class PWMShelf(unittest.TestCase):
         self.assertFalse(r['continuous_sweep_verified'])
         self.assertEqual(len(r['outer_refinement_required']),2)
 
+    def test_current_own_and_affected_fixed_receipts_are_complete_not_N01(self):
+        r=json.loads((OUT/'n01-pwm-board-shelf.json').read_text())
+        self.assertEqual(r['status'],'OWNER_OWN_AND_FIXED_CLEAR_SHARED47_OUTER_PENDING')
+        self.assertEqual(r['errors'],[]);self.assertEqual(r['failures'],[])
+        self.assertEqual(len(r['completed_parts']),38)
+        self.assertEqual(len(r['unchanged_fixed_parts_reused']),22)
+        self.assertEqual(len(r['affected_parts_rechecked']),16)
+        self.assertEqual(r['internal_assembly']['failures'],[])
+        self.assertEqual(r['internal_assembly']['errors'],[])
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['physical_pass'])
+        self.assertTrue(all(x['symmetric_difference_mm3']<1e-5 for x in r['canonical_source_to_current_actual_equivalence']))
+
+    def test_cumulative_invalidation_is_against_external_baseline_not_last_revision(self):
+        r=json.loads((OUT/'n01-pwm-board-shelf.json').read_text())
+        baseline=r['previous_internal_assemblies'][0]['geometry_sha256']
+        expected={n for n,h in r['geometry_sha256'].items() if h!=baseline[n]}
+        self.assertEqual(expected,set(r['affected_parts_rechecked']))
+        self.assertEqual(set(r['unchanged_fixed_parts_reused'])|expected,set(r['geometry_sha256']))
+        self.assertEqual(set(r['unchanged_fixed_parts_reused'])&expected,set())
+
 
 if __name__=='__main__':unittest.main()

@@ -151,6 +151,7 @@ def build(scene, meta):
     lift=max(0,sourceparts['Ref_Material_current_S1_body_CP2_0_0'].BoundBox.ZMax+1.25-underside)
     if lift:
         for s in parts.values():s.translate(A.Vector(0,0,lift))
+        holes=[h+A.Vector(0,0,lift) for h in holes]
         relative.Base=relative.Base+A.Vector(0,0,lift)
         target.z+=lift;z+=lift
     assert min(s.BoundBox.ZMin for s in parts.values())>=sourceparts['Ref_Material_current_S1_body_CP2_0_0'].BoundBox.ZMax+1.25-1e-6
@@ -163,8 +164,10 @@ def build(scene, meta):
         small = wire.startswith('XS'); radius = row['minimum_fixed_project_R_mm'] if small else max(10, row['minimum_fixed_project_R_mm'])
         # Custom insulated mouth already2.6mm above PCB; 1.5mm transition
         # before R10 is project geometry, NOT a supplier first3/9mm rule.
-        bend = (0, -1, 0) if small else (1, 0, 0); first = 1.5
-        jacket, grip, tip = route(q, d, bend, first, radius, row['first_jacket_radius_mm'], 6.5 if small else 0)
+        # Entire occupied XL row exits AWAY from the adjacent mount washer,
+        # not four independent pad shifts. Source bare/datums stay unchanged.
+        bend = (0, -1, 0) if small else (-1, 0, 0); first = 1.5
+        jacket, grip, tip = route(q, d, bend, first, radius, row['first_jacket_radius_mm'], 7.25 if small else 0)
         name = 'ShelfPWM:jacket:'+wire; parts[name] = jacket; kinds[name] = dict(kind='wire', owner=wire)
         for i, seg in enumerate(row['bare_segments']):
             n = 'REV3:PCA:'+wire+':bare'+str(i); s = scene[n].copy(); s.Placement = relative*s.Placement
@@ -172,7 +175,7 @@ def build(scene, meta):
         recipes.append(dict(wire=wire, jacket_mouth_world_mm=list(q), departure_axis=list(d), bend_unit=list(bend),
                             first_straight_project_mm=first, R_mm=radius, minimum_inherited_R_mm=row['minimum_fixed_project_R_mm'],
                             jacket_radius_mm=row['first_jacket_radius_mm'], grip_start_mm=grip, grip_end_mm=tip,
-                            after_arc_extra_straight_mm=6.5 if small else 0, bare_segments_preserved=True))
+                            after_arc_extra_straight_mm=7.25 if small else 0, bare_segments_preserved=True))
     xl = [r for r in recipes if r['wire'].startswith('XL')]; xs = [r for r in recipes if r['wire'].startswith('XS')]
     assert len(xl) == 4 and len(xs) == 3
     xllo, xlhi = comb(parts, kinds, 'ShelfPWM:XLcomb', xl, 0)
@@ -182,25 +185,44 @@ def build(scene, meta):
         post = Part.makeCylinder(2, 8, h+A.Vector(0, 0, 1.6))
         post = post.cut(Part.makeCylinder(1.2, 8.02, h+A.Vector(0, 0, 1.59)))
         pieces.append(post)
-    fore=min(h.x for h in holes);rear=max(h.x for h in holes)
+    fore=min(min(h.x for h in holes),xllo[0]);rear=max(h.x for h in holes)
+    # Upright rib stays outside the COMPLETE washer circles. Its lower
+    # crossbars still reach actual hole posts below the washer bearing plane.
+    rib_inner=min(s.BoundBox.YMin for n,s in parts.items() if 'BottomWasher' in n)-1.25
+    rib_outer=rib_inner-3
     # First R1 nominal25mm tool at X[-47.5,-22.5]. Root remains BEFORE
     # this whole access lane, also behind MountFrontRight rearX-57.5.
     rootx=-47.5-1.25-3
     for y in (-60.525, -41.475):
         pieces.append(box([fore-2, y-2, z+6.6], [rear+2, y+2, z+9.6]))
     for x in (rootx, xllo[0]+1, xlhi[0]-1):
-        pieces.append(box([x-2, -62.525, z+6.6], [x+2, -39.475, z+9.6]))
-    pieces.append(box([fore-2, -65.525, z+9.5], [rear+2, -62.525, z+15.6]))
+        pieces.append(box([x-2, rib_outer, z+6.6], [x+2, -39.475, z+9.6]))
+    pieces.append(box([fore-2, rib_outer, z+9.5], [rear+2, rib_inner, z+15.6]))
     # XL lower saddle directly rests on a bridge; lid remains removable.
     pieces.append(box([xllo[0], xllo[1], xllo[2]-1.9], [xlhi[0], xlhi[1], xllo[2]+.1]))
     for x in (xllo[0]+1, xlhi[0]-1):
         pieces.append(box([x-1, -52, min(z+9.5,xllo[2]-2)], [x+1, -48, max(z+9.7,xllo[2]-1.8)]))
     # XS bridge joins rear end of lower saddle to the outboard carrier rib.
-    pieces.append(box([xslo[0], xslo[1], xslo[2]-2], [xshi[0]+2, xslo[1]+2, xslo[2]+.1]))
-    pieces.append(box([xshi[0], xslo[1], xslo[2]-2], [xshi[0]+2, -62.4, z+10]))
-    # Finite common rail load-path proposal, not a floating clamp.
-    pieces.append(box([rootx-3, -60, 34.7], [rootx+3, -54, z+9.6]))
+    pieces.append(box([xslo[0]-2, xslo[1], xslo[2]-4], [xshi[0], xslo[1]+2, xslo[2]+.1]))
+    pieces.append(box([xslo[0]-2, xslo[1], xslo[2]-4], [xslo[0], rib_outer+.1, z+10]))
+    # Finite common rail -> BELOW board -> outside occupied PCB edge -> rib.
+    # Never run a vertical support through its own board. The return column
+    # is outboard of the PCB by1.25, not a hole cut in the purchased PCB.
+    pieces.append(box([rootx-3, -60, 34.7], [rootx+3, -54, z-1.25]))
+    outside_PCB=-63.7-1.25
+    pieces.append(box([rootx-3, outside_PCB-3, z-4.25], [rootx+3, -54, z-1.25]))
+    pieces.append(box([rootx-3, outside_PCB-3, z-4.25], [rootx+3, outside_PCB, z+9.6]))
     carrier = pieces[0].multiFuse(pieces[1:]).removeSplitter()
+    # Coaxial bores pass through the WHOLE support, not only the posts.
+    for h in holes:
+        carrier=carrier.cut(Part.makeCylinder(1.2,25,h-A.Vector(0,0,.1)))
+    # Complete strap/head access slots, not hidden intersections in the frame.
+    for name,s in list(parts.items()):
+        if name.endswith((':band_budget',':head_budget')):
+            bb=s.BoundBox;lo=[bb.XMin-.25,bb.YMin-.25,bb.ZMin-.25];hi=[bb.XMax+.25,bb.YMax+.25,bb.ZMax+.25]
+            if ':XLcomb:band' in name:lo[2]=xllo[2]-2
+            carrier=carrier.cut(box(lo,hi))
+    carrier=carrier.removeSplitter()
     assert carrier.isValid() and len(carrier.Solids) == 1, ('Disconnected carrier', len(carrier.Solids))
     parts['ShelfPWM:carrier'] = carrier; kinds['ShelfPWM:carrier'] = dict(kind='carrier', owner='PWM9685')
     retired = [n for n in scene if n in oldnames or n.startswith('REV3:PCA:')]
@@ -210,7 +232,9 @@ def build(scene, meta):
                     carrier_solid_count=len(carrier.Solids), carrier_rail_root_mm=[[rootx-3,-60,34.7],[rootx+3,-54,37.7]],
                     bay_from_actual_S0_key_maxX_mm=key.BoundBox.XMax,
                     root_from_full_R1_tool_lane_minX_mm=-47.5,
+                    upright_rib_inner_Y_from_actual_washer_mm=rib_inner,
                     height_from_full_fastener_underside_mm=lift,
+                    structural_revision='Whole row exits away from washer; post datums follow full lift; full beam bores and2band/head slots; XS grip beyond PCB edge+1.25',
                     shared_backbone_join=dict(owner='StructureReserve:BankBed-1',root_bounds_mm=[[rootx-3,-60,34.7],[rootx+3,-54,z+9.6]],
                                               kind='UNITE_CONNECTED_PLANNING_STRUCTURE_NOT_CASE_OR_WIRE_WAIVER',native_join_still_N03=True),
                     fit_assumptions=dict(channel_clearance_mm=.15, wall_mm=2, first_XL_mm=1.5, post_OD_mm=4, post_bore_mm=2.4,
@@ -229,14 +253,36 @@ def receive():
     from feline_candidate_collision_scene import Scene
     from receive_feline_global_case_candidates import placement
     tick=time.monotonic(); dest=OUT/'n01-pwm-board-shelf.json'
+    affected='--affected-only' in sys.argv
     previous=None
     if dest.exists():
-        assert '--next-owner-bay' in sys.argv or '--full-stack-backbone' in sys.argv, 'Receive saved owner; do not duplicate construction'
+        assert affected or '--next-owner-bay' in sys.argv or '--full-stack-backbone' in sys.argv, 'Receive saved owner; do not duplicate construction'
         previous=json.loads(dest.read_text())
-        assert previous['status']=='OWNER_FIXED_GATE_REJECTED' and not previous['errors']
-        if previous.get('prior_rejected_owners'):
+        if affected:
+            assert previous['status']=='OWNER_CHANGED_GEOMETRY_NEEDS_AFFECTED_FIXED_RECEIVER'
+            assert previous['internal_assembly']['status']=='OWN_MATES_RECEIVED_FIT_ASSUMPTIONS_SHARED47_OUTER_OPEN'
+        else:assert previous['status']=='OWNER_FIXED_GATE_REJECTED' and not previous['errors']
+        if not affected and previous.get('prior_rejected_owners'):
             assert '--full-stack-backbone' in sys.argv and len(previous['prior_rejected_owners'])==1, 'After2 failures reassess whole owner'
-    world=Scene(); parts,kinds,s1,rec=build(world.parts,world.meta)
+    world=Scene()
+    canonical,canonical_meta=source_inputs()
+    source_equivalence=[]
+    # One canonical constructor for own/world receivers. Imported placement
+    # histories can serialize differently; prove shape identity by symmetric
+    # solid difference, NEVER by matching bounding boxes alone.
+    for n,s in canonical.items():
+        actual=world.parts[n]
+        assert s.isValid() and actual.isValid() and s.Solids and actual.Solids
+        ab=s.BoundBox;bb=actual.BoundBox
+        delta=max(abs(getattr(ab,k)-getattr(bb,k)) for k in ('XMin','YMin','ZMin','XMax','YMax','ZMax'))
+        assert delta<1e-6,n
+        aa=s.copy().cut(actual.copy());zz=actual.copy().cut(s.copy())
+        assert (aa.isNull() or aa.isValid()) and (zz.isNull() or zz.isValid())
+        assert aa.Volume+zz.Volume<1e-5,(n,aa.Volume,zz.Volume)
+        source_equivalence.append(dict(part=n,max_bound_delta_mm=delta,symmetric_difference_mm3=aa.Volume+zz.Volume))
+    parts,kinds,s1,rec=build(canonical,canonical_meta)
+    rec['canonical_source_to_current_actual_equivalence']=source_equivalence
+    rec['retired_whole_owner']=[n for n in world.parts if world.meta[n].get('role')=='PWM9685' or n.startswith('REV3:PCA:')]
     proof=json.loads((OUT/'n01-flat20-field-modulejoint.json').read_text())
     for file,groups in (('n01-fore-service-macro.json', {'F_HP','F_TY'}), ('n01-fore-topology.json', {'ForeFHAC'})):
         _,extra,rows=packed(OUT/file)
@@ -257,7 +303,18 @@ def receive():
     rec.update(stage='actual_fixed',pairs=[],failures=[],errors=[],completed_parts=[],
                all_fixed_owner_count=len(fixed), tool_assumption='Inherited full ATO60mm side pull plus nominal25x12 tool, not actual tool fit',
                outer_refinement_required=[], worker_seconds=0, source_sha256={**world.pins,**rec['source_sha256']})
-    if previous:
+    if affected:
+        geometry={n:hashlib.sha256(s.exportBrepToString().encode()).hexdigest() for n,s in parts.items()}
+        assert geometry==previous['internal_assembly']['geometry_sha256']
+        baseline=previous['previous_internal_assemblies'][0]['geometry_sha256']
+        changed={n for n,h in geometry.items() if h!=baseline[n]}
+        assert changed==set(previous['changed_parts_requiring_fixed_receiver'])
+        rec.update(internal_assembly=previous['internal_assembly'],previous_internal_assemblies=previous['previous_internal_assemblies'],
+                   prior_rejected_owners=previous.get('prior_rejected_owners',[]),geometry_sha256=geometry,
+                   baseline_fixed_commit='ba28a3db',unchanged_fixed_parts_reused=sorted(set(parts)-changed),
+                   completed_parts=sorted(set(parts)-changed),affected_parts_rechecked=sorted(changed),
+                   pairs=[r for r in previous['pairs'] if r['part'] not in changed])
+    elif previous:
         prior=list(previous.get('prior_rejected_owners',[]));previous.pop('prior_rejected_owners',None)
         rec['prior_rejected_owners']=prior+[previous]
         rec['changed_cause_after_two_failures']='Complete hardware underside sets height; custom insulated first transition1.5, and root is joined into existing shared BankBed scaffold, not fixed air budget'
@@ -291,6 +348,7 @@ def receive():
     save()
     try:
         for n,s in sorted(parts.items(),key=lambda p: ('carrier' not in p[0],p[0])):
+            if affected and n not in changed:continue
             if time.monotonic()-tick>240:rec['status']='PARTIAL_OWNER_GATE';break
             ok=True
             for other,t in fixed.items():
@@ -310,13 +368,103 @@ def receive():
                     if not query(n,q,p['name'],world.rest[p['name']],1.25,'actual_leg_pose_'+str(p['pose'])):ok=False;break
             rec['completed_parts'].append(n);save()
             print('PWM owner',n,'clear' if ok else rec['failures'][-1],flush=True)
-        else:rec['status']='OWNER_FIXED_GATE_REJECTED' if rec['failures'] else 'OWNER_FIXED_GATE_CLEAR_INTERNAL_SHARED47_OUTER_PENDING'
+        else:rec['status']='OWNER_FIXED_GATE_REJECTED' if rec['failures'] else 'OWNER_OWN_AND_FIXED_CLEAR_SHARED47_OUTER_PENDING' if affected else 'OWNER_FIXED_GATE_CLEAR_INTERNAL_SHARED47_OUTER_PENDING'
     except Exception as e:rec['errors'].append(repr(e));rec['status']='OWNER_GATE_ERROR_NOT_CLEARANCE'
+    if affected and not rec['errors'] and not rec['failures'] and len(rec['completed_parts'])==len(parts):
+        archive=OUT/'n01-pwm-board-shelf.breps.zip';records=[]
+        with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+            for i,(n,s) in enumerate(parts.items()):
+                raw=s.exportBrepToString().encode();entry=f'{i:03d}.brep';z.writestr(entry,raw)
+                records.append(dict(name=n,entry=entry,sha256=hashlib.sha256(raw).hexdigest(),group='PWM9685Shelf',**kinds[n]))
+        rec.update(bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),parts=records)
     save()
     print(json.dumps({k:rec[k] for k in ('status','worker_seconds','errors')}),flush=True)
+
+
+def internal_receiver():
+    """Actual own mates after fixed gate; do not repeat unchanged world pairs."""
+    import ast
+    import subprocess
+    tick=time.monotonic();dest=OUT/'n01-pwm-board-shelf.json';parent=json.loads(dest.read_text())
+    assert parent['status'] in ('OWNER_FIXED_GATE_CLEAR_INTERNAL_SHARED47_OUTER_PENDING','OWNER_CHANGED_GEOMETRY_NEEDS_AFFECTED_FIXED_RECEIVER')
+    previous=subprocess.check_output(['git','show','ba28a3db:tools/cad/feline_pwm_board_shelf.py'],cwd=ROOT,text=True,encoding='utf-8')
+    # Verify fixed-receiver constructor before reusing its external results.
+    assert hashlib.sha256(previous.encode()).hexdigest()==parent['source_sha256'][Path(__file__).relative_to(ROOT).as_posix()]
+    def trees(text):
+        return [ast.dump(n,include_attributes=False) for n in ast.parse(text).body
+                if isinstance(n,ast.FunctionDef) and n.name in ('build','comb','route','source_inputs','box')]
+    same=trees(previous)==trees(Path(__file__).read_text())
+    assert same or '--structural-revision' in sys.argv,'Changed owner needs affected world gate, not blind reuse'
+    parts,kinds,_,contract=build(*source_inputs())
+    signatures={n:hashlib.sha256(s.exportBrepToString().encode()).hexdigest() for n,s in parts.items()}
+    old=parent.get('internal_assembly');cache={}
+    if old:
+        assert not old['errors']
+        for r in old['pairs']:
+            cache[(r['part'],r['other'],old['geometry_sha256'][r['part']],old['geometry_sha256'][r['other']])]=r
+        parent.setdefault('previous_internal_assemblies',[]).append(old)
+    if not same:
+        assert old and 'geometry_sha256' in old
+        baseline=parent['previous_internal_assemblies'][0]['geometry_sha256']
+        assert all(signatures[n]==baseline[n] for n,k in kinds.items() if k['kind'] in ('board','fastener','bare')),'Never silently move bought parts/bare pads in structural revision'
+        parent['changed_parts_requiring_fixed_receiver']=[n for n,h in signatures.items() if h!=baseline[n]]
+        parent['status']='OWNER_CHANGED_GEOMETRY_NEEDS_AFFECTED_FIXED_RECEIVER'
+    rec=dict(status='RUNNING_OWN_MATES',pairs=[],failures=[],errors=[],geometry_sha256=signatures,
+             inherited_fixed_gate_commit='ba28a3db',constructor_AST_identical=same,physical_fit_verified=False,cached_pairs_reused=0,
+             N01_complete=False,parameter_native_and_reopen_not_yet_N03=True)
+    rec['interface_policy']=dict(external_owner_allowance_mm=1.25,own_supported_jacket_and_selected_hardware_free_gap_mm=.2,
+        own_strap_slot_clearance_mm=.25,intended_bearing_faces_may_touch=True,
+        no_jacket_material_intersection_permitted=True,physical_fit_remains_provisional=True,
+        reason='Internal channels/solder mouths and matching mount stack are assembly interfaces, not1.25mm external module separation')
+    parent['internal_assembly']=rec
+    stack={n:i for i,rows in enumerate(contract['reversed_complete_fastener_stacks']) for n in rows}
+    def save():
+        rec['worker_seconds']=round(time.monotonic()-tick,3)
+        dest.write_text(json.dumps(parent,indent=2)+'\n',encoding='utf-8',newline='\n')
+    save()
+    for (n,s),(other,t) in itertools.combinations(parts.items(),2):
+        a,b=kinds[n],kinds[other];ka,kb=a['kind'],b['kind']
+        wirea=ka in ('wire','bare');wireb=kb in ('wire','bare')
+        slot=(n.endswith((':band_budget',':head_budget')) and kb=='carrier') or (other.endswith((':band_budget',':head_budget')) and ka=='carrier')
+        required=.2 if wirea or wireb or slot else 1.25
+        if bbox_lower_bound(s.BoundBox,t.BoundBox)>=required:continue
+        intended=None;volume_permitted=False
+        if {ka,kb}<={'board','fastener'}:
+            if ka=='board' or kb=='board' or stack[n]==stack[other]:intended='Selected coaxial mount stack';volume_permitted=True
+        elif 'carrier' in (ka,kb) and ('board' in (ka,kb) or 'fastener' in (ka,kb)):
+            intended='Four post annuli at actual mounting holes, shaft in2.4mm bore'
+        elif ka==kb=='restraint' and a['owner']==b['owner']:
+            intended='Separate saddle/lid with common strap and head budgets';volume_permitted='head_budget' in n or 'head_budget' in other
+        elif ka=='carrier' and other.endswith(':lower') or kb=='carrier' and n.endswith(':lower'):
+            intended='Saddle lower joins carrier bridge';volume_permitted=True
+        elif ka=='carrier' and other.endswith(':lid') or kb=='carrier' and n.endswith(':lid'):
+            intended='Removable common lid locating face, no material overlap'
+        elif ka=='restraint' and wireb and b['owner'] in a['intended_wires'] or kb=='restraint' and wirea and a['owner'] in b['intended_wires']:
+            intended='Each-wire nine millimetre channel and common strap'
+        elif wirea and wireb and a['owner']==b['owner']:
+            intended='Same conductor jacket/bare continuation'
+        elif {ka,kb}=={'board','bare'}:
+            intended='Inherited source solder pad inside nominal unperforatedPCB; not physical pad proof';volume_permitted=True
+        try:
+            key=(n,other,signatures[n],signatures[other])
+            if key in cache:
+                gap=cache[key]['gap_mm'];volume=cache[key]['positive_common_mm3'];rec['cached_pairs_reused']+=1
+            else:
+                gap=distance(s,t);volume=None
+                if gap<1e-6:
+                    common=s.copy().common(t.copy());assert common.isValid();volume=common.Volume
+            row=dict(part=n,other=other,gap_mm=gap,positive_common_mm3=volume,required_air_mm=required,intended_mate=intended)
+            rec['pairs'].append(row)
+            if (not intended and gap<required-1e-6) or (intended and not volume_permitted and (volume or 0)>1e-5):rec['failures'].append(row)
+        except Exception as e:rec['errors'].append(dict(part=n,other=other,error=repr(e)))
+        save()
+    rec['status']='OWN_MATES_REJECTED' if rec['failures'] else 'OWN_MATES_RECEIVED_FIT_ASSUMPTIONS_SHARED47_OUTER_OPEN'
+    if rec['errors']:rec['status']='OWN_MATES_ERROR_NOT_CLEARANCE'
+    save();print(json.dumps(dict(status=rec['status'],seconds=rec['worker_seconds'],pairs=len(rec['pairs']),failures=rec['failures'],errors=rec['errors'])),flush=True)
 
 
 if __name__=='__main__':
     import os
     print('WORKER_PID',os.getpid(),flush=True)
-    receive()
+    if '--internal' in sys.argv:internal_receiver()
+    else:receive()
