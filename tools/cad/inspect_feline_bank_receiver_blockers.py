@@ -70,7 +70,7 @@ def main():
                         pts=s.distToShape(t)[1]
                         if pts:row['closest_points_mm']=[list(v) for v in pts[0]]
                     failures.append(row)
-            records[group].append(dict(head=recipe['base_recipe'].get('complete_band_head_degrees',recipe['base_recipe'].get('head_degrees')),failures=failures))
+            records[group].append(dict(recipe=recipe,head=recipe['base_recipe'].get('complete_band_head_degrees',recipe['base_recipe'].get('head_degrees')),failures=failures))
         rejected={r['other']+':'+r['part'] for rec in records[group] for r in rec['failures']}
         print(group,'critical-clear-heads',[r['head'] for r in records[group] if not r['failures']],'blockers',sorted(rejected),flush=True)
     for p in (Path(__file__),stfile,choicefile,Path(__file__).with_name('feline_bank_receiving_grips.py'),Path(__file__).with_name('feline_above_hardware_grip.py'),Path(__file__).with_name('feline_compact_station_fan.py')):pins[p.relative_to(ROOT).as_posix()]=sha(p)

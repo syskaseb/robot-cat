@@ -19,7 +19,7 @@ def zone(group,r):
     q=r['point_mm']
     if group=='Bank:W020/body/end':return 'FORE_LEFT_SPLIT_BELOW_S0_KEY'
     if q[1]>0 and (q[0]>0 or group=='Bank:W029/single/end'):return 'UPPER_LEFT_ABOVE_PSYS_DFL'
-    if q[1]<0 and r.get('holder')=='R1' and '_OUT_' in r.get('terminal_name',''):return 'FORE_RIGHT_BELOW_S0_KEY'
+    if q[1]<0 and r.get('holder')=='R1' and '_OUT_' in r.get('terminal_name',''):return 'FORE_RIGHT_VERTICAL_BELOW_LEFT_GALLERY'
     if group=='Bank:W058/single/end':return 'REAR_IN_RETURN_MINUS_X_AWAY_BUS'
     return None
 
@@ -29,16 +29,20 @@ def candidates(groups):
     for group,rows in both_after_candidates(groups).items():
         role=zone(group,rows[0]['base_recipe'])
         if role is not None:result[group]=[dict(copy.deepcopy(r),receiving_zone=role) for r in rows]
+        if role=='FORE_RIGHT_VERTICAL_BELOW_LEFT_GALLERY':
+            for r in result[group]:r.update(current_prefix_sweep_degrees=90,template_turn60_is_not_current_profile=True)
+            result[group].extend(dict(copy.deepcopy(r),receiving_zone='FORE_RIGHT_BELOW_S0_KEY') for r in rows)
     assert len(result)==11,(len(result),sorted(result))
     return result
 
 
 def profile(group,recipe):
-    r=recipe['base_recipe'];q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis']);role=zone(group,r)
+    r=recipe['base_recipe'];q=np.asarray(r['point_mm']);d=np.asarray(r['departure_axis']);role=recipe.get('receiving_zone',zone(group,r))
     assert role is not None
     entry=3.;degrees=60.
     if role=='UPPER_LEFT_ABOVE_PSYS_DFL':b=np.array([0.,0.,1.]);degrees=45.
     elif role=='FORE_LEFT_SPLIT_BELOW_S0_KEY':b=np.array([1.,0.,-1.])/math.sqrt(2)
+    elif role=='FORE_RIGHT_VERTICAL_BELOW_LEFT_GALLERY':b=np.array([0.,0.,-1.]);degrees=90.
     else:b=np.array([-1.,0.,-1.])/math.sqrt(2)
     theta=math.radians(degrees);start=q+(entry+r['R_mm']*math.sin(theta))*d+r['R_mm']*(1-math.cos(theta))*b
     axis=math.cos(theta)*d+math.sin(theta)*b
