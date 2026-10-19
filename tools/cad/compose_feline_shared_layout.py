@@ -6,6 +6,7 @@ Never compose an arbitrary last trial or an obsolete selected FCStd as current.
 import hashlib
 import json
 import time
+import sys
 import zipfile
 from pathlib import Path
 import numpy as np
@@ -18,24 +19,59 @@ from feline_t18i_two_lane import unit
 from feline_station_zone_domains import materialise
 from feline_ato_service import receive as receive_service
 from feline_two_lane_receive import world_context
+from feline_flat_station_templates import build
+from feline_zone_station_templates import zone_build,vertical_build
+from feline_underplate_station_templates import build_underplate
+from feline_remaining_kits import materialise as remaining_material
 
 COMPLETE='WHOLE20_MONITOR_SIX_FANS_FULL_UNITS_STATIC_MUTUAL_RECEIVED_CORRIDORS_ROOTS_TOOLS_OPEN'
+COMPLETE54='WHOLE54_FULL_UNITS_STATIC_MUTUAL_RECEIVED_ROOTS_CORRIDORS_TOOLS_OPEN'
+
+
+def station_lands(station,model):
+    result=[]
+    bywire={p['wire']:p for p in station['ports']}
+    for w in model['wires']+model.get('reused_jacket_lands',[]):
+        port=bywire[w['wire']];q=np.asarray(w['point_mm']);d=np.asarray(w['departure_axis'])
+        start=np.asarray(w.get('grip_start_mm',q));tip=start+9*d
+        result.append(dict(endpoint=w.get('endpoint',port['endpoint']),wire=w['wire'],
+            point_mm=q.tolist(),departure_axis=d.tolist(),radius_mm=w.get('radius_mm',w.get('radius')),
+            minimum_R_mm=port['minimum_project_R_mm'],grip_start_mm=start.tolist(),grip_end_mm=tip.tolist(),
+            grip_length_mm=9,not_new_connector=bool(w.get('not_new_wire_geometry')),
+            full_middle_route_accepted=False,supplier_datum_guaranteed=False))
+    assert {r['endpoint'] for r in result}=={p['endpoint'] for p in station['ports']}
+    return result
+
+
+def station_model(st,choice):
+    slot=choice['slot']
+    if choice['kind']=='straight_comb':return unit(st,slot,choice.get('lane',0))
+    r=choice['recipe']
+    if r['family']=='UNDER_PLATFORM_SHARED_REMOVABLE_COMBS':return build_underplate(st,slot,r['bend_side'],r['head_side'])
+    if st['fixed_identity_pose']:return build(st,'inner',1,-1)
+    if r['family']=='VERTICAL_DEPARTURE_TWO_SIDE_TIERS':return vertical_build(st,slot,r['departure_z'],r['lever_sign'],r['head_side'])
+    return zone_build(st,slot,r['departure'],r['bend_mode'])
 
 
 def chosen_material(path=None):
     path=path or OUT/'n01-two-lane-comb-joint.json'
     joint=json.loads(path.read_text())
-    assert joint['status']==COMPLETE and len(joint['chosen'])==27
+    assert ((joint['status']==COMPLETE and len(joint['chosen'])==27) or
+            (joint['status']==COMPLETE54 and len(joint['chosen'])==54))
     for n,h in joint['source_sha256'].items():assert sha(ROOT/n)==h,n
     stations={s['ref']:s for s in json.loads((OUT/'n01-flat-station-architecture.json').read_text())['stations']}
     fanpath=OUT/'n01-six-source-shared-lanes.json';_,fans,fanrows=packed(fanpath)
     parts={};rows={};models={}
     for group,r in joint['chosen'].items():
         if r['kind']=='straight_comb':
-            model=unit(stations[group],r['slot'],r.get('lane',0));models[group]=model
+            model=station_model(stations[group],r);models[group]=dict(wires=station_lands(stations[group],model))
             pp=model['parts'];kk={n:'proposal_wire' if n.startswith('wire:') else 'project_stock_reservation' if 'budget' in n else 'proposal_material' for n in pp}
         elif r['kind']=='received_legacy_unit':
             pp,kk=materialise(stations[group],r['slot'],r['recipe'])
+            st=stations[group];m=station_model(st,r)
+            models[group]=dict(wires=station_lands(st,m))
+        elif r['kind']=='remaining_kit':
+            pp,kk=remaining_material(group,r['recipe'])
         elif r['kind']=='source_fan':
             pp={p['name']:fans[p['name']] for p in r['option']['parts']}
             kk={n:fanrows[n]['kind'] for n in pp}
@@ -52,19 +88,19 @@ def chosen_material(path=None):
 
 
 def main():
-    tick=time.monotonic();source=OUT/'n01-two-lane-comb-joint.json'
+    tick=time.monotonic();whole54='--whole54' in sys.argv;source=OUT/('n01-shared54-whole.json' if whole54 else 'n01-two-lane-comb-joint.json')
     joint,proposal,rows,models=chosen_material(source)
     world,fixed=world_context()
     assert not set(proposal)&set(fixed),'No proposal may overwrite a preserved owner'
     service,tools=receive_service(world,fixed,proposal)
-    dest=OUT/'n01-shared-plan-current.json';archive=dest.with_suffix('.breps.zip')
+    dest=OUT/('n01-shared54-current.json' if whole54 else 'n01-shared-plan-current.json');archive=dest.with_suffix('.breps.zip')
     records=[]
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         for n,s in {**proposal,**tools}.items():
             raw=s.exportBrepToString().encode();entry=f'{len(records):04d}.brep';z.writestr(entry,raw)
             records.append(dict(rows.get(n,dict(name=n,group='ATO_service',kind='project_access_reservation')),
                                 entry=entry,sha256=hashlib.sha256(raw).hexdigest()))
-    result=dict(status='CURRENT_SHARED27_FULL_UNITS_AND_ATO_RECEIVED_REMAINDER_OPEN',
+    result=dict(status='CURRENT_SHARED54_FULL_UNITS_AND_ATO_RECEIVED_ROOTS_CORRIDORS_OPEN' if whole54 else 'CURRENT_SHARED27_FULL_UNITS_AND_ATO_RECEIVED_REMAINDER_OPEN',
         selected=False,N01_complete=False,physical_pass=False,
         source_sha256={**joint['source_sha256'],source.relative_to(ROOT).as_posix():sha(source),
                        Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__)),
@@ -72,10 +108,11 @@ def main():
         world_source_sha256=world.pins,chosen=joint['chosen'],parts=records,
         bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),
         ATO_service=service,all12_ATO_reservations_clear=all(r['all_reservations_clear'] for r in service),
-        current_straight_wire_ends={n:m['wires'] for n,m in models.items()},
-        open=['24bank source kits+2full anchor kits+selected F_PWM',
+        current_station_wire_ends={n:m['wires'] for n,m in models.items()},
+        current_occupied_station_end_count=sum(len(m['wires']) for m in models.values()),
+        open=([] if whole54 else ['24bank source kits+2full anchor kits+selected F_PWM'])+[
               'All roots/case retention and installation tool interfaces',
-              'All123portions246ends/Rcorridors/factorylength capacity'],
+              'All123portions246ends/Rcorridors/factorylength capacity; conditional monitor balance separately'],
         worker_seconds=round(time.monotonic()-tick,3))
     temp=dest.with_suffix('.writing.json');temp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n');temp.replace(dest)
     print(json.dumps(dict(status=result['status'],ATO_clear=sum(r['all_reservations_clear'] for r in service),

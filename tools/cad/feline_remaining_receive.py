@@ -9,6 +9,7 @@ import time
 import ast
 import subprocess
 import sys
+from functools import lru_cache
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -23,6 +24,46 @@ from receive_feline_global_case_candidates import placement
 
 def key(group,recipe):
     return group+':'+hashlib.sha256(json.dumps(recipe,sort_keys=True).encode()).hexdigest()
+
+
+@lru_cache(maxsize=1)
+def open_bank_terminal():
+    source=json.loads((OUT/'n01-bank-W027-open-saddle.json').read_text())
+    return source['source_endpoint']['terminal_name']
+
+
+def terminal_owner(group,recipe):
+    return recipe.get('terminal_name') or (open_bank_terminal() if group=='Bank:W027/single/end' else None)
+
+
+def repair_open_bank_owner():
+    """Reopen only false air-gap negatives; never promote them to clear."""
+    path=OUT/'n01-remaining27-static.json';result=json.loads(path.read_text())
+    _,pins=candidates();own='tools/cad/feline_remaining_receive.py';pins[own]=sha(Path(__file__))
+    if result['source_sha256']==pins:return
+    assert all(pins[n]==v for n,v in result['source_sha256'].items() if n!=own)
+    old=subprocess.run(['git','show','f172a295:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+    assert hashlib.sha256(old).hexdigest()==result['source_sha256'][own]
+    get=lambda t:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name=='receive')
+    before=get(old);after=get(Path(__file__).read_text())
+    for node in ast.walk(after):
+        if isinstance(node,ast.Assign) and ast.unparse(node.value)=="terminal_owner(group, recipe) == other":
+            node.value=ast.parse("recipe.get('terminal_name') == other",mode='eval').body
+    assert ast.dump(before)==ast.dump(after),'Only named mate owner lookup may change'
+    reopened=[];owner=open_bank_terminal()
+    for code,r in result['units'].items():
+        if r['group']!='Bank:W027/single/end':continue
+        failure=r.get('failure')
+        if isinstance(failure,str) and failure.endswith('|fixed:'+owner):
+            oldpair=r['pairs'].pop(failure)
+            r.setdefault('retired_wrong_airgap_receipts',[]).append(dict(pair_key=failure,receipt=oldpair,
+                reason='Owned TE entry requires exact positive-common check, not foreign1.25air. Still OPEN.'))
+            r.pop('failure');reopened.append(code)
+    result.setdefault('named_owner_repairs',[]).append(dict(owner=owner,reopened_only=reopened,
+        constructor_geometry_unchanged=True,other_negative_receipts_preserved=True,no_clearance_awarded=True))
+    result['source_sha256']=pins
+    temp=path.with_suffix('.writing.json');temp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n');temp.replace(path)
+    print('Reopened W027 owned-entry checks',len(reopened),'not accepted',flush=True)
 
 
 def receive_requests(requests):
@@ -63,7 +104,7 @@ def receive_requests(requests):
             if not done[k]['ok']:return k
             for other,t in fixed.items():
                 minimum=pair_spacing(group+':'+n,dict(kind=kinds[n]),other,world.meta.get(other,{}))
-                own=recipe.get('terminal_name')==other
+                own=terminal_owner(group,recipe)==other
                 if group.startswith('Anchor:'):
                     clamp=next(p['clamp'] for p in recipe['actual_parts'] if p['name']==n)
                     own=other=='Ref_Material_P0_Side'+('Right' if clamp in (1,3) else 'Left')+'22_0_0'

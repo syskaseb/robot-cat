@@ -95,7 +95,19 @@ def main():
                       preserved_unchanged27_shape_and_mutual_AST=True,positions_NOT_frozen=True))
     if dest.exists():
         result=json.loads(dest.read_text())
-        if result['source_sha256']!=pins and whole54 and '--extend-open-bank' in sys.argv:
+        if result['source_sha256']!=pins and whole54 and '--repair-open-owner' in sys.argv:
+            own=Path(__file__).relative_to(ROOT).as_posix();receiver='tools/cad/feline_remaining_receive.py'
+            assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (receiver,own))
+            oldcode=subprocess.run(['git','show','f172a295:'+own],cwd=ROOT,check=True,capture_output=True).stdout
+            assert hashlib.sha256(oldcode).hexdigest()==result['source_sha256'][own]
+            get=lambda t,name:next(n for n in ast.walk(ast.parse(t)) if isinstance(n,ast.FunctionDef) and n.name==name)
+            for name in ('shape','mutual'):assert ast.dump(get(oldcode,name))==ast.dump(get(Path(__file__).read_text(),name))
+            from feline_remaining_receive import repair_open_bank_owner
+            repair_open_bank_owner()
+            result.setdefault('named_owner_repairs',[]).append(dict(owner='W027 selected TE source mate',
+                all_geometry_and_mutual_AST_unchanged=True,no_clearance_awarded=True))
+            result['source_sha256']=pins
+        elif result['source_sha256']!=pins and whole54 and '--extend-open-bank' in sys.argv:
             from feline_remaining_kits import prove_additive_extension
             helper='tools/cad/feline_remaining_kits.py';receiver='tools/cad/feline_remaining_receive.py';own=Path(__file__).relative_to(ROOT).as_posix()
             assert all(pins[n]==v for n,v in result['source_sha256'].items() if n not in (helper,receiver,own))
