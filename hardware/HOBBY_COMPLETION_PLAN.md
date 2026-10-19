@@ -2,6 +2,92 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+17:19Z, bramka danych wykonana bez nowego wariantu: zapisano
+n01-active-Pi-BUS-datums.json oraz pomocniczy rzut obwiedni SVG/PNG.
+To przegląd ISTNIEJĄCEGO kandydata, NIE uzgodniony przekrój ani nowy wybór.
+Płaszczyzny PCB i cylindry otworów pochodzą z BRep: BUS X129,7/131,3,
+rzeczywista płaszczyzna środkowa130,5 zamiast centrum grupy126.
+Pi ma4 osieØ2,75 i płaszczyzny oddalone1,6mm, normalna
+(0,-0,207912,0,978148).177 rekordów części/budżetów zachowuje źródła;
+11 UNIKALNYCH zajętych wyjść Pi/BUS ma punkt i kierunek, nie nowy pinout.
+USB500/452/OD5/R30 bez zmian; nominalne budżety NIE stały się danymi
+producenta.5 testów OK0,025s. Dwa odczyty źródeł29,532+29,469=59,001s;
+drugi poprawił metadane zduplikowanego wyjściaUSB, bez nowej geometrii.
+N01 nadal0/10. Brak aktywnego workera i zmian native; okno hooka otwarte.
+
+Z wymiarów istniejącego kandydata wynika konieczne LOKALNE okno osiUSB
+Z86,75..88,75: banktop83, górne stacje od92,5, promień płaszcza2,5
+i luz1,25 z obu stron. To NIE wolna objętość całego robota: MAIN/S0/PWM,
+pełnePi/BUS, korzenie/ruch/obrys nadal trzeba uzgodnić. Dla odwróconegoPi
+mouth-PCB=-5,3 daje lokalny zakresPCB92,05..94,05; nie jest wyborem pozycji.
+Nie ponawiać niezależnego szukania wysokości sprzecznych z tymi warstwami.
+
+NEXT (jedna decyzja przestrzenna, nie następny solver): z otrzymanych
+powierzchni/otworów i wszystkich zajętych portów wyprowadzić CAŁY przekrój
+Pi/BUS/USB/bank/korzenie, zachowując aktualny plan pozostałych modułów.
+Jawnie wydzielić przestrzeń na cały USB500, siedem żył Pi, pełne chwyty,
+osprzęt i dojście. Sam prześwit PCB nie kwalifikuje złączy ani mocowania.
+Najpierw wykazać brak sprzeczności wymiarowych i miejsce na wejścia/wyjścia
+we wspólnej pozie, potem jeden odbiór zmienionych interfejsów; nie powtarzać
+zamkniętych dolnych topologiiUSB ani niezmienionych par. Po tym uzgodnić
+pojemność korytarzy123/246 i bramkę N01, bez produkcyjnych detali N03/N04.
+Pełne10% nie ma jeszcze wiarygodnej estymacji: zależy od wspólnej bramki,
+nie liczby dopisanych kontrolerów. Nie rozciągać poprzednich30-45min na
+obietnicę ukończenia N01.
+
+17:06Z, na prośbę użytkownika o wnioski i plan: nie uruchamiać kolejnego
+wariantu przed bramką danych. Odebrany95675/PID24608:206,516s,144pary,
+54ujemne/OPEN, zakończony limitem lokalnego kontrolera; NIE pełny odbiór
+ani dowód niewykonalności. Brak aktywnego workera. Wcześniejszy44803
+zakończył się przed światem na invalidnym cacheBUS25; poprawna metoda
+to oryginalna ważna bryła i odwrotna rama drugiego operandu. Tani fixture
+potwierdził valid źródła/odwróconego obrysu, gap21,7200 do obrysu oraz
+2,63258mm do przykładowegoPCB; nie kwalifikuje całego złożenia.
+
+Konkretny błąd planu: centrum grupy BUS przyjęte za płaszczyznę PCB.
+Z odebranego archiwum: PiPCB X41..126/Z92,2..93,8; BUSsupplier0
+X125,7..127,3/Z53,9879..96,0121. Opis centrumPCB131 był nieuprawniony.
+Nakładanie widać z danych przed pełną macierzą. Skorygowano metodę
+w DESIGN_LESSONS, nie zmieniono kupnych części ani pozostałych datums.
+
+Plan dalszego N01: (1) rzeczywiste datums/otwory i wszystkie zajęte
+końce Pi/BUS/USB, z jawnym rozróżnieniem PiBudget/producent/założenie;
+(2) jeden wymiarowany przekrój CAŁEGO przyjętego wnętrza, wspólne zasoby
+tras/chwytów/narzędzi/korzeni/obrysu i ruchu, bez nowych ogólnych solverów;
+(3) tania bramka sprzeczności i konstruktorów przed JEDNYM odbiorem
+zmienionych interfejsów z reużyciem niezmienionych wyników;
+(4) aktualny wspólny wybór i punkt N01 dopiero po całym planie123/246,
+obu stron4MTA/factory, USB500 i deklarowanych bramkach przymiarki.
+Bez produkcyjnych detali N03/pełnych tras N04-N05/stock N10 w tym kroku.
+Najbliższy checkpoint danych i przekroju: orientacyjnie30-45min pracy,
+NIE obietnica pełnego10%. N01 nadal0/10; hookokno otwarte, bez nowego
+workera na czas odpowiedzi o planie. Brak nowego fizycznegoPASS/native.
+
+16:58Z: score nadal0/10. USB500 pozostaje niezamkniętym wspólnym zasobem,
+nie dodatkowym zakupem. Bight3D:24,922s/1731korzeni długości/134 po
+R30/samokontakcie w próbkach/pełnychPiBBox. Pole nie dało dodatniego;
+świadek BankPier nie był dowodem kontaktu. Odbiór całego najlepszego
+kabla53,063s/311par wykazał również P0/S0/SpliceClip; rodzina zamknięta.
+Side-U z samych ukośnych zejść odrzucony już z planu: nie przechodzi
+jednocześnie pod bankiem i nad boczną ramą. Plateau-U zachował452/R30
+i oba9mm PRZED łukami, pełny dodatni BRep.6testówOK2,208s. Pierwszy odbiór
+27,609s przerwał błąd metody powłoki,0par świata; poprawiono kontroler,
+historia błędu zachowana. Wznowiony109,578s/332par:8stałych ujemnych,
+48zdarzeń ruchu,1curve-onlyOPEN. Odrzucono całą dolną topologię na ruchu
+tylnej nogi i zachowanych R1/W038, nie powtarzać jej ofsetów.
+
+Przyczyna zmieniona na ROZDZIELENIE warstw: Pi z komponentami w dół,
+osobny górny zasób USB. Sam PiPCB91 ma59,297s/86par i kolizje z zajętym
+BUS oraz rezerwacją tylnegoUSB_A względem banku. Nie budować do niego
+kolejnej krzywej. Aktualna wspólna hipoteza: PiPCB93, BUS w całości
+obrócony180Z i+5X (centrum PCB131), komponentami w stronę tyłu,
+górny zasób103. Wszystkie kupne części/obie zajęte strony/końce BUS
+przenoszone razem; stary pełny drukowany backplate/ramiona jawnie
+nie obowiązują. Nowa tylna rama krawędziowa/korzenie/montaż są OPEN,
+nie usunięto kupnych komponentów ani nie zaliczono ich bez mocowania.
+44803/PID3488 odbiór wspólnego miejsca PRZED szczegółami kabla/nośnika.
+MasterFCStd bez zmian; lokalny commit odebranego JR:0b2f6a96.
+
 16:26Z: odebrano n01-common-head-root-JR-neck-received:48,187s,
 zero failures/errors;20 niezmienionych par pięciu identycznych BRep
 przeniesiono z poprzedniego odbioru, zmienione styki policzone od nowa.
