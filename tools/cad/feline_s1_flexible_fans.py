@@ -107,7 +107,12 @@ def saddle_shapes(row,normal_angle,head_angle):
     band=bandparts[0].multiFuse(bandparts[1:]).removeSplitter()
     a=math.radians(head_angle);radial=radius if math.sin(a)>=0 else radius+2
     h=q+4.5*t+(radial+1.2+3)*(math.cos(a)*u+math.sin(a)*n)
-    head=Part.makeBox(6,6,6,A.Vector(*(h-3)))
+    if row.get('head_follows_strap',False):
+        # The complete stock budget rotates with the proper strap frame.
+        # A WORLD-axis cube cuts an oblique jacket despite correct6mm size.
+        head=Part.makeBox(6,6,6,A.Vector(-3,-3,-3))
+        head.Placement=A.Placement(A.Vector(*h),rot)
+    else:head=Part.makeBox(6,6,6,A.Vector(*(h-3)))
     return {'saddle':lower,'band_budget':band,'head_budget':head}
 
 

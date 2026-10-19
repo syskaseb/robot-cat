@@ -46,7 +46,9 @@ def allocation():
     s1delta=np.array([-6.2,0.,-9.]);s0delta=np.zeros(3)
     for n,s in parts.items():
         group=rows[n]['group']
-        if group in ('S0','S1'):s.translate(A.Vector(*(s0delta if group=='S0' else s1delta)))
+        if group in ('S0','S1'):
+            delta=s0delta if group=='S0' else s1delta
+            if np.linalg.norm(delta)>1e-10:s.translate(A.Vector(*delta))
     current_counts={};proposed={}
     for m in mouths:
         old=profiles(m);current_counts[m['ref']]=len(old)
@@ -64,6 +66,7 @@ def profiles(m):
     candidates=[]
     for sweep,bend in itertools.product((30,45,60,75,90,120,150),range(-180,180,30)):
         row=mouth_curve(m['ref'],m['q'],m['d'],m['normal'],bend,sweep,first=0 if m['group']=='S1' else 3)
+        if m['group']=='S0':row['head_follows_strap']=True
         if row['sample_inside_absolute_envelope']:candidates.append(row)
     # Short profiles first; alternatives change full bend plane, not position.
     return candidates
@@ -74,13 +77,40 @@ def main():
     dest=OUT/'n01-six-source-shared-lanes.json';archive=dest.with_suffix('.breps.zip')
     if '--screen' in sys.argv:
         print(json.dumps(dict(**facts,proposed_absolute_domains={n:len(v) for n,v in choices.items()})));return
-    assert not dest.exists(),'Receive saved six-source calculation; never duplicate'
+    previous=json.loads(dest.read_text()) if dest.exists() else None
+    if previous:
+        assert '--receive' in sys.argv,'Receive saved six-source calculation; never duplicate'
+        assert sha(archive)==previous['bundle_sha256']
+        # Only the opt-in S0 head-frame implementation changed. Prove that
+        # every already-qualified S1 head is the exact same old default.
+        retained_head_receipts=[]
+        with zipfile.ZipFile(archive) as zz:
+            for ref,options in previous['domains'].items():
+                for option in options:
+                    rr=next(r for r in option['parts'] if r['kind']=='head_budget')
+                    blob=zz.read(rr['entry']);assert hashlib.sha256(blob).hexdigest()==rr['sha256']
+                    old=Part.Shape();old.importBrepFromString(blob.decode())
+                    new=saddle_shapes(option,option['normal_degrees'],option['head_degrees'])['head_budget']
+                    assert old.cut(new).Volume+new.cut(old).Volume<1e-5
+                    retained_head_receipts.append(dict(ref=ref,head_sha256=rr['sha256'],symmetric_difference_mm3=0))
+        for name,value in previous['source_sha256'].items():
+            if name in (Path(__file__).relative_to(ROOT).as_posix(),'tools/cad/feline_s1_flexible_fans.py'):continue
+            assert sha(ROOT/name)==value,name
     result=dict(status='RUNNING_SIX_SOURCE_WHOLE_SPACE',N01_complete=False,physical_pass=False,selected=False,
         source_sha256={src.relative_to(ROOT).as_posix():sha(src),parent['bundle']:parent['bundle_sha256'],
             Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__)),
             'tools/cad/feline_s1_flexible_fans.py':sha(ROOT/'tools/cad/feline_s1_flexible_fans.py')},
         **facts,proposed_absolute_domains={n:len(v) for n,v in choices.items()},domains={},rejected={},pairs=0,errors=[],complete_ports=[],parts=[],
         open=['47remainingjointkits','All123portions246ends/4MTA/factorylengths','Roots/tools/assembly/truecontour','N03native'])
+    if previous:
+        result.update(domains=previous['domains'],parts=previous['parts'],complete_ports=[n for n in previous['complete_ports'] if previous['domains'].get(n)],
+            rejected=previous['rejected'],previous_runs=previous.get('previous_runs',[])+[
+                dict(status=previous['status'],worker_seconds=previous['worker_seconds'],receipt_sha256=sha(dest),
+                     generator_sha256=previous['source_sha256'][Path(__file__).relative_to(ROOT).as_posix()],
+                     retained_full_ports=[n for n,v in previous['domains'].items() if v])],
+            pair_cache=previous.get('pair_cache',{}),attempts=previous.get('attempts',[]),
+            initial_run_missing_per_actor_rows_NOT_reusable_for_failed_W068=True)
+        result['retained_default_heads_actual_equivalence']=retained_head_receipts
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3)
         dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
@@ -106,19 +136,24 @@ def main():
         return c.Volume<1e-5 and s.distToShape(surface)[0]>=3.25-1e-5
     for m in mouths:
         ref=m['ref'];preflight[ref]=[];bad={}
+        if ref in result['complete_ports']:
+            result['outer_preflight'][ref]=previous['outer_preflight'][ref];continue
+        rowcount=0
         for row in choices[ref]:
             wire=wire_shape(row)
             if not outer_clear(wire):bad['wire_outer']=bad.get('wire_outer',0)+1;continue
+            rowoptions=0
             for normal,head in itertools.product((0,90,180,270),(0,90,180,270)):
                 kit=saddle_shapes(row,normal,head)
                 if qcache.distance(wire,kit['head_budget'])<.2 or qcache.distance(kit['saddle'],kit['head_budget'])<.2:continue
                 if any(wire.common(s).Volume>1e-5 for k,s in kit.items() if k!='head_budget'):continue
                 if not all(outer_clear(s) for s in kit.values()):bad['kit_outer']=bad.get('kit_outer',0)+1;continue
-                preflight[ref].append(dict(row=row,normal=normal,head=head));break
-            if len(preflight[ref])>=3:break
+                preflight[ref].append(dict(row=row,normal=normal,head=head));rowoptions+=1
+            if rowoptions:rowcount+=1
+            if rowcount>=3:break
         result['outer_preflight'][ref]=dict(full_wire_saddle_tie_head_choices=len(preflight[ref]),rejected=bad)
         save();print('Whole outer first',ref,len(preflight[ref]),flush=True)
-    if any(not v for v in preflight.values()):
+    if any(not v for n,v in preflight.items() if n not in result['complete_ports']):
         result['status']='SIX_SOURCE_FULL_KIT_OUTER_EMPTY_NO_LARGE_WORLD_STARTED';save();return
     from feline_candidate_collision_scene import Scene
     world=Scene()
@@ -136,41 +171,58 @@ def main():
     result['source_sha256'].update(world.pins)
     def budget():
         if time.monotonic()-tick>240:raise TimeoutError('Atomic pair budget; retain completed domains, no whole-source gate from partial')
-    def receive(s,m,iswire):
+    def receive(s,m,iswire,identity):
         budget();kind={'kind':'proposal_wire' if iswire else 'proposal_material'}
-        outside=s.cut(outer);assert outside.isNull() or outside.isValid()
-        if outside.Volume>1e-5 or s.distToShape(surface)[0]<3.25-1e-5:return 'true_outer'
+        # Exact geometry's complete outer proof is already retained above.
+        cache=result.setdefault('pair_cache',{})
         for n,t in fixed.items():
             minimum=pair_spacing('SourceFan:wire' if iswire else 'SourceFan:saddle',kind,n,meta[n])
             mate=iswire and n==m['ring']
             if bbox_lower_bound(s.BoundBox,t.BoundBox)>=minimum and not mate:continue
+            key=identity+'|'+n
+            if key in cache:
+                if cache[key]['failure']:return cache[key]['failure']
+                continue
             budget();qq=s
             if n==world.bus['name']:
                 qq=s.copy();qq.Placement=world.bus['inverse']*qq.Placement;t=world.bus['original']
             gap=qcache.distance(qq,t);result['pairs']+=1
+            failure=None
             if mate:
                 c=qq.common(t);assert c.isNull() or c.isValid()
-                if c.Volume>1e-5:return 'own_barrel_penetration:'+n
-            elif gap<minimum-1e-6:return 'static:'+n
+                if c.Volume>1e-5:failure='own_barrel_penetration:'+n
+            elif gap<minimum-1e-6:failure='static:'+n
+            cache[key]=dict(gap_mm=gap,minimum_mm=minimum,failure=failure);save()
+            if failure:return failure
         for p in world.motion:
             if bbox_lower_bound(s.BoundBox,A.BoundBox(*p['bounds'][0],*p['bounds'][1]))>=1.25:continue
+            key=identity+'|'+p['name']+'|motion'+str(p['pose'])
+            if key in cache:
+                if cache[key]['failure']:return cache[key]['failure']
+                continue
             budget();qq=s.copy();qq.Placement=placement(p['r'],p['t']).inverse()*qq.Placement
             result['pairs']+=1
-            if qcache.distance(qq,world.rest[p['name']])<1.25-1e-6:return 'motion:'+p['name']
+            gap=qcache.distance(qq,world.rest[p['name']]);failure='motion:'+p['name'] if gap<1.25-1e-6 else None
+            cache[key]=dict(gap_mm=gap,minimum_mm=1.25,failure=failure);save()
+            if failure:return failure
         return None
     try:
-        with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+        with zipfile.ZipFile(archive,'a' if previous else 'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
             for m in mouths:
+                if m['ref'] in result['complete_ports']:continue
                 ref=m['ref'];accepted=[];rejected={};result['domains'][ref]=accepted;result['rejected'][ref]=rejected
                 for option in preflight[ref]:
                     row=option['row']
-                    wire=wire_shape(row);why=receive(wire,m,True)
+                    identity=ref+':'+str(row['sweep_degrees'])+':'+str(row['bend_degrees'])
+                    wire=wire_shape(row);why=receive(wire,m,True,identity+':wire')
                     if why:rejected[why]=rejected.get(why,0)+1;save();continue
                     for normal,head in ((option['normal'],option['head']),):
                         kit=saddle_shapes(row,normal,head)
                         if qcache.distance(wire,kit['head_budget'])<.2 or qcache.distance(kit['saddle'],kit['head_budget'])<.2:continue
                         if any(wire.common(s).Volume>1e-5 for k,s in kit.items() if k!='head_budget'):continue
-                        why=next((w for s in kit.values() if (w:=receive(s,m,False))),None)
+                        frame=':strap-local' if row.get('head_follows_strap') else ':world-legacy'
+                        why=next((w for k,s in kit.items() if (w:=receive(s,m,False,identity+frame+':'+str(normal)+':'+str(head)+':'+k))),None)
+                        result.setdefault('attempts',[]).append(dict(ref=ref,sweep=row['sweep_degrees'],bend=row['bend_degrees'],normal=normal,head=head,failure=why))
                         if why:rejected[why]=rejected.get(why,0)+1;continue
                         candidate=dict(row,normal_degrees=normal,head_degrees=head,parts=[])
                         for k,s in {'wire':wire,**kit}.items():

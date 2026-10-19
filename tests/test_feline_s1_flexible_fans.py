@@ -67,5 +67,14 @@ class FlexibleSource(unittest.TestCase):
         self.assertTrue(shape.isValid());self.assertEqual(len(shape.Solids),1)
         self.assertAlmostEqual(shape.Volume,math.pi*2.1**2*(25.2*math.pi/3+9),places=5)
 
+    def test_oblique_head_preserves_full_stock_cube_and_rotates_with_strap(self):
+        row=dict(grip_start_mm=[0,0,0],grip_axis=np.array([-.57,.71,.4])/np.linalg.norm([-.57,.71,.4]),
+                 jacket_radius_mm=2.1,head_follows_strap=True)
+        parts=saddle_shapes(row,90,90)
+        self.assertAlmostEqual(parts['head_budget'].Volume,216)
+        wire=Part.makeCylinder(2.1,9,A.Vector(),A.Vector(*row['grip_axis']))
+        self.assertLess(wire.common(parts['head_budget']).Volume,1e-5)
+        self.assertGreater(wire.distToShape(parts['head_budget'])[0],.2)
+
 
 if __name__=='__main__':unittest.main()
