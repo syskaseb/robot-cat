@@ -129,6 +129,13 @@ def main(revision=None, dest_name='n01-end-bay-outputs', extra_pins=()):
             if b in result.get('revision',{}).get('root_mates',{}).get(a,[]):
                 common=s.common(t);assert common.isNull() or common.isValid()
                 r.update(ok=common.Volume>1e-5,intended_positive_PETG_root_mm3=common.Volume)
+        for group in result.get('revision',{}).get('planned_print_unions',[]):
+            if n in group['members'] and m in group['members']:
+                assert group['union_solids']==1
+                r.update(ok=True,intended_features_of_single_received_print=group['panel'])
+        if [n,m] in result.get('revision',{}).get('captured_nut_panel_pairs',[]) or [m,n] in result.get('revision',{}).get('captured_nut_panel_pairs',[]):
+            common=s.common(t);assert common.isNull() or common.isValid()
+            r.update(ok=common.Volume<1e-5,captured_nut_with_own_root_panel_no_penetration_mm3=common.Volume)
         return r
     try:
         for n,s in actors.items():
