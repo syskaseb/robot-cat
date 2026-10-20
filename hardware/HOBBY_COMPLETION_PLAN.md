@@ -2,6 +2,34 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,01:43Z: cztery wspólne guide'y zasilające ODRZUCONE:126,125s,
+428sprawdzeń/16wskazań, bez marnowania ruchu po negatywnej statyce.
+Następnie dwa dowody gardła42,313s z POPRAWNYCH zamkniętych brył, nie bbox:
+RL_P.1/W045 przy zachowanym cap/osi/R25,2 ma maksymalny możliwy prześwit
+0,578<1,25 do własnegoBankPier4. RR_P.1/W053 ma górną granicę-1,653mm
+do zachowanego nominalnego PiAdapterBody: obecny prefiks uniemożliwia
+wyjście nawet dowolną krzywą3D spełniającą R25,2. To warunkowy dowód
+dla przyjętych nominalnych budżetów, NIE pomiar producenta/fizycznyPASS.
+Nie generować kolejnych środkowych krzywych z tych samych capów. NEXT:
+NAJPIERW wspólny screen koniecznych gardeł całych246końców, reużycie
+odebranych capów/2dowodów, nie ponowne208biarc ani2800/5600pozycji.
+Potem JEDNA wspólna korekta źródłowych chwytów/drukowanych podpór tam,
+gdzie wynik potwierdzi blokadę (dla RR_P zbadać pełne9mm po łuku PRZED
+wejściem w Pi; dla RL_P portal/mostek własnego wspornika). Bez ruszania
+kupnych części, bez obniżania marginesów, bez nowych detaliN03/stockN10.
+26testów źródeł/kontraktów/granic PASS1,575s. N01 nadal0/10; hookaktywny.
+
+20.10,01:18Z: delta62właścicieli odebrana107,375s,1149cache reużytych;
+ruch3888/obrys bez ponawiania. Pięć grafów zachowuje niezmienione łuki,
+odrzucone tylko krawędzie z zajętej teraz przestrzeni. Nowa hipoteza jednego
+pęku4HELU: przekrój/R32 poprawny, lecz największy konserwatywny region
+tylko228stanów, nie przyjmować go jako wspólnej trasy. Nie wymuszać pęku
+przez całe ciało. Jeden konstruktywny plan4zasilających dojść: niższy/wyższy
+poziom zgodny z rzeczywistymi FL_P/FR_P/RL_P/RR_P, opaski razem tylko na
+wspólnych równoległych odcinkach. Przed zakrętem uwzględnić WSZYSTKIE
+sąsiednie capy w danym wachlarzu, nie tylko wybraną żyłę. Jedna wspólna
+kontrola4guides przy niezmienionej reszcie, bez detali N04/native/stockN10.
+
 20.10,01:04Z: lokalny układ4wyjśćODEBRANY, nie pełneN01.
 224,782s/1303sprawdzenia/0wskazań: wszystkie60aktorów w statyce i wobec
 3888odebranych rekordów pozycji ruchu;58brył bajtowo zgodnych i286par

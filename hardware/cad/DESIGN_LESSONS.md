@@ -1,5 +1,15 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, kontrola KONIECZNA przed trasowaniem: zielony prefiks9mm i montaż
+modułu nie dowodzą, że przewód może opuścić jego cap. Dla curvature<=1/R,
+przed pierwszym przecięciem płaszczyzny odległej osiowo o L<R odchylenie
+poprzeczne nie przekroczy R-sqrt(R^2-L^2), niezależnie od skręcania3D.
+Z rzeczywistym signed-distance materiału dało to dowody braku prześwitu
+przy BankPier4 i kolizji nominalnego RR_P z budżetem PiAdapter. Wtedy
+zmień źródłowy chwyt/podporę, nie próbuj kolejnych środkowych łuków.
+Stosuj tę bramkę CAŁEJ wiązki przed następnym wspólnym układem CAD;
+brak negatywnego dowodu nie jest dowodem istnienia trasy ani punktemN01.
+
 20.10, wyjścia4MTA: dodatkowe9mm PRZED każdym łukiem było własnym
 ograniczeniem, nie wymiarem producenta. Pełny niezależny chwyt ZA pierwszym
 łukiem pozwolił zachować HELUR25,2, krótkie fabryczne ogony i obrys.
