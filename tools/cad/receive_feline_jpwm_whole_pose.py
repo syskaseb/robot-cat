@@ -12,6 +12,27 @@ from plan_feline_usb_service_bight import outer_margin
 from plan_feline_jpwm_pair_exit import factory_gate
 
 
+def solid_profile_target(shape,metadata):
+    """A typed cable reservation is a centreline, NOT an invalid bought solid.
+
+    Keep its existing circumscribed radius. Do not drop it, shrink it, or
+    claim its planar centreline has a physical material clearance.
+    """
+    if shape.Solids:return shape
+    import FreeCAD as A
+    import Part
+    assert shape.isValid() and len(shape.Wires)==1
+    assert metadata.get('kind') in ('curve_profile_reservation','wire','actual_wire','bare')
+    radius=metadata.get('nominal_profile_radius_mm')
+    assert isinstance(radius,(int,float)) and radius>0,'No invented wire profile'
+    wire=shape.Wires[0];edge=wire.Edges[0]
+    p=edge.valueAt(edge.FirstParameter);t=edge.tangentAt(edge.FirstParameter)
+    profile=Part.Wire([Part.makeCircle(radius,p,t)])
+    solid=wire.makePipeShell([profile],True,False)
+    assert solid.isValid() and len(solid.Solids)==1
+    return solid
+
+
 def source_head_on_free_side(actors):
     """Close the same full T18I on+X, away from G_TAIL; no module shift."""
     import FreeCAD as A
@@ -87,7 +108,7 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
     from feline_solid_distance import bbox_lower_bound
     from receive_feline_aux_vertical_unit import material_spacing
     from plan_feline_pi_root_access import profile_gap
-    tick=time.monotonic();query=SolidQueries();checks={};targets={n:s for n,s in fixed.items() if n not in actors}
+    tick=time.monotonic();query=SolidQueries();checks={};targets={n:s for n,s in fixed.items() if n not in actors};profile_targets={}
     localmeta={n:(dict(kind='wire',wire=n) if n.startswith('JPWMSource:') else
         dict(kind='PETG' if n.endswith(':pad') else 'T18I')) if groups[n]=='JPWM' else meta[n] for n in actors}
     localmeta['Ref_Material_JPWM_0_0']=dict(kind='purchased_case_reservation')
@@ -97,12 +118,25 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
             # clock. Preserve that existing own-case interface, not its root.
             if n.endswith(':out_first_bend') and b=='Station:F_PWM_whole:F_PWM:case':continue
             required=material_spacing(n,localmeta[n],b,meta.get(b,{}))
-            if bbox_lower_bound(s.BoundBox,t.BoundBox)>=required+1e-6:continue
+            reserve_radius=meta.get(b,{}).get('nominal_profile_radius_mm',0.) if not t.Solids else 0.
+            if bbox_lower_bound(s.BoundBox,t.BoundBox)>=required+reserve_radius+1e-6:continue
             a=s;other=t
             if b==world.bus['name']:
                 a=s.copy();a.Placement=world.bus['inverse']*a.Placement;other=world.bus['original']
+            elif not other.Solids:
+                if b not in profile_targets:profile_targets[b]=solid_profile_target(other,meta.get(b,{}))
+                other=profile_targets[b]
             if (n,b) in own_face_mates:required=0.
-            gap=query.distance(a,other);checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
+            try:
+                gap=query.distance(a,other)
+            except Exception as error:
+                save_json(OUT/(stem+'.query-error.json'),dict(actor=n,other=b,
+                    actor_valid=a.isValid(),other_valid=other.isValid(),
+                    error=str(error),status='QUERY_ERROR_NOT_CONTACT_OR_CLEARANCE',
+                    completed_checks=checks,N01_complete=False,physical_pass=False))
+                print('SOURCE_QUERY_ERROR',n,b,str(error),flush=True)
+                raise
+            checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
             if (n,b) in own_face_mates:
                 common=a.copy().common(other.copy()).Volume
                 checks[n+'|'+b].update(common_mm3=common,intended_source_face_only=True,ok=common<1e-5)
@@ -113,11 +147,17 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
             if groups[n]==groups[b]:continue # rigid intrinsic kits unchanged
             required=material_spacing(n,localmeta[n],b,localmeta[b])
             if bbox_lower_bound(actors[n].BoundBox,actors[b].BoundBox)>=required+1e-6:continue
+            face_mate=(n,b) in own_face_mates or (b,n) in own_face_mates
+            if face_mate:required=0.
             gap=query.distance(actors[n],actors[b]);checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
+            if face_mate:
+                common=actors[n].copy().common(actors[b].copy()).Volume
+                checks[n+'|'+b].update(common_mm3=common,intended_source_face_only=True,ok=common<1e-5)
     failures=[k for k,v in checks.items() if not v['ok']]
     result=dict(status=label+'_STATIC_'+('HOLD' if failures else 'RECEIVED'),actor_count=len(actors),
         recipe=recipe,checks=checks,failures=failures,source_sha256=pins,
-        factory_paths_roots_motion_outline_assembly_OPEN=True,N01_complete=False,physical_pass=False,
+        typed_centreline_reservations_swept_at_stored_radius_mm={n:meta[n]['nominal_profile_radius_mm'] for n in profile_targets},
+                factory_paths_roots_motion_outline_assembly_OPEN=True,N01_complete=False,physical_pass=False,
         worker_seconds=round(time.monotonic()-tick,3))
     save_json(OUT/(stem+'.json'),result)
     print(result['status'],result['worker_seconds'],failures,flush=True)

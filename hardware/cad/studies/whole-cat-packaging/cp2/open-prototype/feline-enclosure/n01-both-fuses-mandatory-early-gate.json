@@ -1,0 +1,91 @@
+{
+  "status": "MANDATORY_BOTH_FUSE_FEED_HOLD",
+  "baseline": {
+    "status": "BOTH_FUSE_NECESSARY_GATE_HOLD",
+    "rows": [
+      {
+        "wire": "XP01",
+        "source_mm": [
+          68.5,
+          68.0,
+          98.0
+        ],
+        "fuse_input_mm": [
+          116.0,
+          75.0,
+          27.0
+        ],
+        "straight_lower_bound_mm": 85.71026776296992,
+        "maximum_whole_unfused_mm": 50.0,
+        "hard_hold": true,
+        "strip_bends_internal_and_slack_NOT_in_lower_bound": true
+      },
+      {
+        "wire": "XA01",
+        "source_mm": [
+          88.0,
+          68.0,
+          98.0
+        ],
+        "fuse_input_mm": [
+          143.0,
+          -25.5,
+          -15.0
+        ],
+        "straight_lower_bound_mm": 156.64051200120613,
+        "maximum_whole_unfused_mm": 50.0,
+        "hard_hold": true,
+        "strip_bends_internal_and_slack_NOT_in_lower_bound": true
+      }
+    ],
+    "N01_complete": false,
+    "not_a_routed_or_electrical_PASS": true
+  },
+  "trial": {
+    "status": "BOTH_FUSE_NECESSARY_GATE_HOLD",
+    "rows": [
+      {
+        "wire": "XP01",
+        "source_mm": [
+          111.0,
+          -38.5,
+          98.0
+        ],
+        "fuse_input_mm": [
+          89.75,
+          -38.5,
+          98.0
+        ],
+        "straight_lower_bound_mm": 21.25,
+        "maximum_whole_unfused_mm": 50.0,
+        "hard_hold": false,
+        "strip_bends_internal_and_slack_NOT_in_lower_bound": true
+      },
+      {
+        "wire": "XA01",
+        "source_mm": [
+          111.0,
+          -58.0,
+          98.0
+        ],
+        "fuse_input_mm": [
+          143.0,
+          -25.5,
+          -15.0
+        ],
+        "straight_lower_bound_mm": 121.85749874340931,
+        "maximum_whole_unfused_mm": 50.0,
+        "hard_hold": true,
+        "strip_bends_internal_and_slack_NOT_in_lower_bound": true
+      }
+    ],
+    "N01_complete": false,
+    "not_a_routed_or_electrical_PASS": true
+  },
+  "unfused_limit_source": "hardware/electronics/full-cat/fuse-one-batch-r1/card.json",
+  "source_sha256": {
+    "hardware/electronics/full-cat/fuse-one-batch-r1/card.json": "41ea098da50eddfdf08454c84e5a88632a2caa7b9571ed05fa4978bd4ea2fb25"
+  },
+  "N01_complete": false,
+  "physical_pass": false
+}
