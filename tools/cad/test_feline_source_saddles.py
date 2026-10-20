@@ -5,6 +5,37 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_five_U1_grips_have_whole_print_static_and36_receipt_not_N01(self):
+        import json
+        from plan_feline_layout import OUT
+        r=json.loads((OUT/'n01-U1-frontband-common-received.json').read_text())
+        self.assertFalse(r['failures']);self.assertEqual(len(r['completed_static']),29)
+        self.assertEqual(len(r['completed_motion']),29)
+        self.assertTrue(all(p['valid'] and p['solids']==1 and max(p['envelope_mm'])<250 for p in r['whole_prints'].values()))
+        self.assertTrue(all(':bare|' in key for key in r['reused_unchanged_source_queries']))
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['physical_pass']);self.assertFalse(r['native_changed'])
+
+    def test_three_flat_U1_lands_keep9mm_R12_6_and_full_selected_heads(self):
+        import json
+        from plan_feline_layout import OUT
+        from receive_feline_rrp_shared_height import load
+        r=json.loads((OUT/'n01-U1-frontband-common-plan.json').read_text());shapes=load(r)
+        self.assertEqual(len(r['lands']),5);self.assertEqual(r['selected_T18I'],4)
+        self.assertTrue(r['all_heads_above_jackets']);self.assertTrue(r['no_selected_bought_SKU_change'])
+        for w in ('XS13','XS23','XS33'):
+            p,q=r['lands'][w]['grip9_mm'];self.assertAlmostEqual(FreeCAD.Vector(*p).distanceToPoint(FreeCAD.Vector(*q)),9.)
+            self.assertAlmostEqual(shapes['U1Relief:'+w+':head'].Volume,5*4.3*5.3)
+            for part in r['specs'][w+'/extra/start']['parts']:
+                if part['kind']=='arc':self.assertEqual(part['radius_mm'],12.6)
+
+    def test_V_clamp_post_is_own_base_only_for_its_nylon(self):
+        from receive_feline_u1_common_restraints import minimum
+        post='U1Relief:ForePost0';band='U1Relief:XSbundle:band'
+        plan=dict(intended_insulation_mates={},whole_clamp_Y_mm=[32,41],print_groups={'fore':[post,'U1Relief:XSbundle:pad']})
+        self.assertEqual(minimum(post,band,{},plan,{},set())[0],.2)
+        self.assertEqual(minimum(post,'U1Five:XS13:bare',{},plan,{},set())[0],1.25)
+        self.assertEqual(minimum('unrelated_printed_frame',band,{},plan,{},set())[0],1.25)
+
     def test_same_T18I_head_is_a_mate_not_an_independent_stock_piece(self):
         from receive_feline_u1_common_restraints import minimum
         head='U1Relief:XS13:head';band='U1Relief:XS13:band';other='U1Relief:XS33:band'

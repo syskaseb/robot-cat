@@ -98,7 +98,7 @@ def construct(fixed,root_clearance=False):
         separate_land_for_each_wire=True,roots_outside_whole_heads_and_own_jackets=root_clearance,N01_complete=False,native_changed=False,physical_pass=False)
 
 
-def peripheral_construct(fixed,coupled=False):
+def peripheral_construct(fixed,coupled=False,compact=False):
     """After two pin-field rejections, move the WHOLE three-wire grip outside.
 
     One3-way open V-comb and flat pressure lid, not three heads underneath
@@ -198,12 +198,124 @@ def peripheral_construct(fixed,coupled=False):
         common_V90_nominal_wire_radius_mm=rad,V_web_top_mm=5-2*rad*math.sqrt(2),V_floor_mm=2,
         clamp_pull_fit_and_lid_pressure_phase2=True,no_selected_bought_SKU_change=True,
         adjacent_bare_source_plane_coupled=coupled,foreign_and_bare_wire_margin_NOT_reduced=True)
+    if compact:
+        # Shared interval, not a new guessed pose: ALL36 motion boxes in this
+        # X-gallery start atY43.934..., while PCB endsY27.4. Put the whole9mm
+        # clamp at32..41. Actual clipped factory material endsZ-37.0497,
+        # not its loose pipe-surface bbox; the floor at-32.0349 clears it.
+        for w in ('XS13','XS23','XS33'):
+            eid=w+'/extra/start';s=r['specs'][eid]
+            s['parts'][-2]['end'][1]-=8
+            s['parts'][-1]['start'][1]-=8;s['parts'][-1]['end'][1]-=8
+            actors['U1Five:'+w+':jacket']=pipe(s['parts'],1.05)
+            for key in ('routing_exit_mm',):r['updates'][eid][key][1]-=8
+            for q in r['updates'][eid]['jacket_grip9_mm']:q[1]-=8
+            r['updates'][eid]['source_prefix_length_mm']-=8
+            r['lands'][w]['grip9_mm']=copy.deepcopy(r['updates'][eid]['jacket_grip9_mm'])
+        for suffix in ('pad','lid','band','head'):
+            n='U1Relief:XSbundle:'+suffix;actors[n]=actors[n].copy();actors[n].translate(A.Vector(0,-8,0))
+        for i,(a,b) in enumerate(((x0,x0+2),(x1-2,x1))):
+            n='U1Relief:ForePost'+str(i)
+            # Join the bottom of the clamp floor, NOT the populated/lid
+            # plane. .1mm positive CSG lap; full2x2mm load-path section.
+            actors[n]=joined([box([a,y0,-43.3],[b,y0+2,bottom+.1]),
+                box([min(a-1,landing_xmax-2),y0-2,-43.3],[b+1,y0+2,-41.3])])
+            assert actors[n].common(fixed['LowerBay:ForePanel']).Volume>5.
+        r.pop('named_grip_air_gaps',None);r.pop('named_structural_mates',None)
+        r.update(whole_clamp_Y_mm=[32,41],root_tops_under_clamp_floor_mm=bottom+.1,
+            removed_root_grip_gap_exceptions=True,static_factory_actual_clip_top_Z_mm=-37.0497,
+            required_motion_gallery_min_Y_mm=43.934024376124285)
     return actors,meta,r
 
 
-def save(fixed,root_clearance=False,peripheral=False,coupled=False):
-    tick=time.monotonic();actors,meta,r=peripheral_construct(fixed,coupled) if peripheral else construct(fixed,root_clearance)
-    dest=OUT/('n01-U1-peripheral-coupled-plan.json' if coupled else 'n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
+def outward_construct(fixed,upward=False):
+    """Ordinary transverse loops on three flat lands outside the PCB.
+
+    Named source pads remain fixed. Outer bare forms clock45 degrees away
+    from the middle lead; their R12.6 fans terminate before the common9mm
+    lands. A bridge above the jackets returns to the actual north floor.
+    This is a provisional construction, not a purchased clamp dimension.
+    """
+    actors,meta,r=construct(fixed,True)
+    for n in list(actors):
+        if n.startswith(('U1Relief:XS13:','U1Relief:XS23:','U1Relief:XS33:')) or n in ('U1Relief:ForeRoot','U1Relief:RearRoot'):
+            actors.pop(n);meta.pop(n)
+    r['print_groups']={k:[n for n in v if n in actors] for k,v in r['print_groups'].items()}
+    r['intended_insulation_mates']={k:v for k,v in r['intended_insulation_mates'].items() if k in actors}
+    def add(n,s,kind,group,wires=()):
+        assert s.isValid() and len(s.Solids)==1,n
+        actors[n]=s;meta[n]=dict(kind=kind,print_group=group,wires=list(wires))
+        if kind=='PETG':r['print_groups'][group].append(n)
+    R=12.6;z=-28.25;centres=[-3.03,4.97,10.97] if upward else [-3.03,4.97,12.97]
+    clocks=(0,180,0) if upward else (45,180,-45)
+    land_start=32 if upward else 28;land_end=land_start+9
+    for w,x,clock in zip(('XS13','XS23','XS33'),centres,clocks):
+        eid=w+'/extra/start';s=r['specs'][eid];bare=copy.deepcopy(s['bare_parts']);pad=A.Vector(*s['pad_world_mm'])
+        rot=A.Rotation(A.Vector(0,0,1),clock);p=pad+rot.multVec(A.Vector(*s['parts'][0]['start'])-pad)
+        for q in bare:
+            for key in ('start','mid','end'):
+                if key in q:q[key]=list(pad+rot.multVec(A.Vector(*q[key])-pad))
+        source_z=z-2 if upward and w=='XS23' else z
+        dz=source_z-p.z
+        for key in ('start','mid','end'):bare[0][key][2]+=dz
+        bare[1]['start'][2]+=dz;p.z=source_z
+        parts=[]
+        if upward or w=='XS23':
+            offset=A.Vector(x-p.x,0,z-p.z);angle=math.acos(1-offset.Length/(2*R));t=A.Vector(0,1,0);normal=offset/offset.Length
+            for _ in range(2):
+                at=lambda a:p+t*(R*math.sin(a))+normal*(R*(1-math.cos(a)))
+                q=at(angle);parts.append(dict(kind='arc',start=list(p),mid=list(at(angle/2)),end=list(q),radius_mm=R))
+                p=q;t,normal=t*math.cos(angle)+normal*math.sin(angle),t*math.sin(angle)-normal*math.cos(angle)
+        else:
+            sign=-1 if w=='XS13' else 1;angle=math.pi/4
+            t=A.Vector(sign*math.sin(angle),math.cos(angle),0)
+            length=(abs(x-p.x)-R*(1-math.cos(angle)))/math.sin(angle)
+            assert length>=0
+            q=p+t*length;parts.append(dict(kind='line',start=list(p),end=list(q)));p=q
+            normal=A.Vector(-sign*math.cos(angle),math.sin(angle),0)
+            at=lambda a:p+t*(R*math.sin(a))+normal*(R*(1-math.cos(a)))
+            q=at(angle);parts.append(dict(kind='arc',start=list(p),mid=list(at(angle/2)),end=list(q),radius_mm=R));p=q
+        assert abs(p.x-x)<1e-6 and abs(p.z-z)<1e-6 and p.y<land_start,(w,list(p))
+        parts.extend([dict(kind='line',start=list(p),end=[x,land_start,z]),dict(kind='line',start=[x,land_start,z],end=[x,land_end,z])])
+        s.update(parts=parts,bare_parts=bare,source_basis='Named pad; full-profile R12.6 fan; ordinary transverse loop, project grip geometry')
+        for kind,rows,rad in (('jacket',parts,1.05),('bare',bare,s['bare_radius_mm'])):
+            actors['U1Five:'+w+':'+kind]=pipe(rows,rad)
+        r['updates'][eid].update(jacket_routing_point_mm=parts[0]['start'],routing_exit_mm=[x,land_end,z],routing_exit_axis=[0,1,0],
+            jacket_grip9_mm=[[x,land_start,z],[x,land_end,z]],source_prefix_length_mm=sum(__import__('feline_source_saddles').segment(q).Length for q in parts),
+            routing_boundary_status='OUTWARD_TRANSVERSE_THREE_FULL_LANDS_NOT_RECEIVED')
+        prefix='U1Relief:'+w+':'
+        side=[0,0,1] if upward else [-1,0,0] if w=='XS13' else [0,0,1] if w=='XS23' else [1,0,0]
+        # Put the ordinary2.5mm ribbon at the FRONT of the full9mm land.
+        # W044's retained printed pad startsY35.75,Zmax-31.4. At our
+        # band bottom-30.5 the1.25mm margin requires Ymax<=34.8825.
+        # Centre33.5 gives Ymax34.75, without moving the wire or support.
+        lead=3 if upward else 2
+        kit=open_seat([x,land_start-lead,z],[0,1,0],side,1.05)
+        kit['pad'].translate(A.Vector(0,lead,0))
+        for k,shape in kit.items():add(prefix+k,shape,'PETG' if k=='pad' else 'T18I','fore',[w])
+        stem=box([x-.5,land_end-2,z+2.95],[x+.5,land_end,-21.75]) if upward or w=='XS23' else box([x-3.05,35,z-1.05],[x-2.05,37,-21.75]) if w=='XS13' else box([x+2.05,35,z-1.05],[x+3.05,37,-21.75])
+        add(prefix+'Stem',stem,'PETG','fore',[w])
+        for k in ('pad','band','Stem'):r['intended_insulation_mates'][prefix+k]=['U1Five:'+w+':jacket']
+        r['lands'][w]=dict(grip9_mm=[[x,land_start,z],[x,land_end,z]],pad=prefix+'pad',band=prefix+'band',full9mm_flat_support=True)
+    # The return crosses behind the complete heads (Ymax33), above jackets.
+    root=joined([box([-3.53 if upward else -6.08,land_end-2,-23.75],[21.75,land_end,-21.75]),box([19.75,min(land_end-2,38.6908696),-23.75],[21.75,max(land_end,40.6908696),-21.75]),
+                 box([19.75,38.6908696,-43.3],[21.75,40.6908696,-21.75]),
+                 box([5.5,36.6908696,-43.3],[21.75,40.6908696,-41.3])])
+    assert root.common(fixed['LowerBay:ForePanel']).Volume>5
+    add('U1Relief:ForeRoot',root,'PETG','fore')
+    add('U1Relief:RearRoot',joined([box([28.37,3.2,-30],[30.37,7.825,-28]),box([28.37,5.825,-30],[46.25,7.825,-28]),
+        box([44.25,-1.925,-30],[46.25,7.825,-28])]),'PETG','rear')
+    r.update(selected_T18I=4,changed_cause='Ordinary transverse loops facing left/up/right and flat lands replace deep V floor; integral root behind heads avoids populated PCB and lower factory wire field',
+        whole_clamp_Y_mm=[land_start,max(land_end,40.6908696)],source_clock_deg=list(clocks),source_full_profile_unchanged=True,
+        all_heads_above_jackets=upward,combined_lateral_and_vertical_R12_6_middle_fan=upward,
+        front_band_on_full9mm_land=upward,retained_W044_pad_to_band_gap_lower_bound_mm=math.hypot(1.,.9) if upward else None,
+        no_selected_bought_SKU_change=True,provisional_stock_loop_and_printed_grip=True)
+    return actors,meta,r
+
+
+def save(fixed,root_clearance=False,peripheral=False,coupled=False,compact=False,outward=False,upward=False):
+    tick=time.monotonic();actors,meta,r=outward_construct(fixed,upward) if outward else peripheral_construct(fixed,coupled,compact) if peripheral else construct(fixed,root_clearance)
+    dest=OUT/('n01-U1-frontband-common-plan.json' if upward else 'n01-U1-outward-common-plan.json' if outward else 'n01-U1-compact-shared-plan.json' if compact else 'n01-U1-peripheral-coupled-plan.json' if coupled else 'n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
     archive=dest.with_suffix('.breps.zip');geometry=[]
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for n,s in actors.items():

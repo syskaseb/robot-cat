@@ -17,6 +17,10 @@ from feline_atomic_save import save_json
 def minimum(a,b,meta,plan,groups,own_module):
     ar=meta.get(a,{});br=meta.get(b,{})
     if any(a in g and b in g for g in groups.values()):return None,'same proved whole print'
+    for post,nylon in ((a,b),(b,a)):
+        if plan.get('whole_clamp_Y_mm')==[32,41] and post in ('U1Relief:ForePost0','U1Relief:ForePost1') and nylon in ('U1Relief:XSbundle:band','U1Relief:XSbundle:head'):
+            assert post in plan['print_groups']['fore'] and 'U1Relief:XSbundle:pad' in plan['print_groups']['fore']
+            return .2,'own nylon to its integral clamp base post, not a foreign frame or bare conductor'
     for first,second in ((a,b),(b,a)):
         if second in plan.get('named_structural_mates',{}).get(first,[]):return 0.,'named integral clamp lid bearing stop'
         if second in plan.get('named_grip_air_gaps',{}).get(first,[]):return .2,'named integral printed clamp near its OWN insulated jackets, not exposed conductors'
@@ -38,19 +42,19 @@ def minimum(a,b,meta,plan,groups,own_module):
     return 1.25,None
 
 
-def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False,peripheral=False,coupled=False):
-    tick=time.monotonic();sf=OUT/('n01-U1-peripheral-coupled-plan.json' if coupled else 'n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
+def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False,peripheral=False,coupled=False,compact=False,outward=False,upward=False):
+    tick=time.monotonic();sf=OUT/('n01-U1-frontband-common-plan.json' if upward else 'n01-U1-outward-common-plan.json' if outward else 'n01-U1-compact-shared-plan.json' if compact else 'n01-U1-peripheral-coupled-plan.json' if coupled else 'n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
     for p,h in plan['source_sha256'].items():assert sha(ROOT/p)==h,p
     carrierfile=BASE/'body-harness-checkpoint/u1-socket-carrier-plan.json';carrier=json.loads(carrierfile.read_text())
     drills=[v for g in carrier['board']['groups'] for v in g['pads']]
-    assert len(plan['lands'])==5 and len(new)==(22 if peripheral else 26)
-    dest=OUT/('n01-U1-peripheral-coupled-received.json' if coupled else 'n01-U1-peripheral-common-received.json' if peripheral else 'n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
+    assert len(plan['lands'])==5 and len(new)==(29 if outward else 22 if peripheral else 26)
+    dest=OUT/('n01-U1-frontband-common-received.json' if upward else 'n01-U1-outward-common-received.json' if outward else 'n01-U1-compact-shared-received.json' if compact else 'n01-U1-peripheral-coupled-received.json' if coupled else 'n01-U1-peripheral-common-received.json' if peripheral else 'n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
     previous_policy=None
     if dest.exists():
         assert resume_policy,'Receive the existing worker before restarting'
         old_policy=json.loads(dest.read_text());assert old_policy['status']=='U1_WHOLE_KIT_LOCAL_HOLD' and not old_policy['whole_prints']
         old_rows=json.loads(gzip.decompress((ROOT/old_policy['pair_rows']).read_bytes()))
-        expected={f'U1Relief:{g}:head|U1Relief:{g}:band' for g in ('XS13','XS23','XS33','E2pair')}
+        expected={f'U1Relief:XSbundle:band|U1Relief:ForePost{i}' for i in (0,1)} if resume_policy=='integral_clamp_nylon' else {f'U1Relief:{g}:head|U1Relief:{g}:band' for g in ('XS13','XS23','XS33','E2pair')}
         assert set(old_policy['failures'])==expected and old_policy['source_sha256'][sf.relative_to(ROOT).as_posix()]==sha(sf)
         previous_policy=dict(status=old_policy['status'],worker_seconds=old_policy['worker_seconds'],wrong_policy_rows={k:old_rows[k] for k in expected},
                              all_geometry_unchanged=True,positive_local_pairs_reused=True)
@@ -71,7 +75,7 @@ def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=F
         result['prior_pure_policy_failure']=previous_policy
     oldfile=OUT/'n01-U1-remaining-five-coupled-plan-neighbors.json';old=json.loads(oldfile.read_text())
     for p,h in pins.items():assert old['source_sha256'][p]==h,p
-    unchanged={n for n in new if n.startswith('U1Five:') and ((n.endswith(':bare') and (not peripheral or n.split(':')[1] in ('XS13','XP02.module','XP03.module'))) or not peripheral and n.split(':')[1] in ('XS13','XS33'))}
+    unchanged={n for n in new if n.startswith('U1Five:') and (n.endswith(':bare') and n.split(':')[1] in ('XP02.module','XP03.module') if outward else ((n.endswith(':bare') and (not peripheral or n.split(':')[1] in ('XS13','XP02.module','XP03.module'))) or not peripheral and n.split(':')[1] in ('XS13','XS33')))}
     result['reused_unchanged_source_queries']=[];result['nominal_named_pad_holes']={}
     def save():
         pf.write_bytes(gzip.compress(json.dumps(checks,separators=(',',':')).encode(),mtime=0))
