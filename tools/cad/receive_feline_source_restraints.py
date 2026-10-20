@@ -44,11 +44,15 @@ def local_limit(n,other,meta,groups,specs,bonds):
 
 def local_check(revision):
     base,new,meta,groups,specs,bonds,*_=construct('r2' if revision=='r3' else revision)
+    if revision in ('r4','r5'):
+        m=json.loads((OUT/'n01-MTA-low-stop-cradles.json').read_text());base.update(load(m))
+        groups['lower']+=m['print_groups']['LowerBay:RearPanel']
     failures=[]
     for n,s in new.items():
         for other,t in {**base,**new}.items():
             if n==other or other in new and list(new).index(other)>list(new).index(n):continue
             limit=local_limit(n,other,meta,groups,specs,bonds)
+            if any(n in members and other in members for members in groups.values()):limit=None
             if limit is None:continue
             if bbox_lower_bound(s.BoundBox,t.BoundBox)>limit+1e-6:continue
             gap=s.distToShape(t)[0]
@@ -75,6 +79,14 @@ def main(revision='r1'):
         for p,h in parent['source_sha256'].items():
             if p!=Path(__file__).relative_to(ROOT).as_posix():assert pins[p]==h,('Changed geometry dependency',p)
         pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (previous,ROOT/parent['bundle'])})
+    diagnostic=None
+    if revision in ('r4','r5'):
+        df=OUT/'n01-source-restraints-static-witnesses.json';diagnostic=json.loads(df.read_text())
+        assert len(diagnostic['completed'])==27
+        prior=OUT/'n01-source-restraints-whole-r3.json';prior_result=json.loads(prior.read_text())
+        for p,h in diagnostic['source_sha256'].items():
+            if p in pins:assert pins[p]==h,p
+        pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (df,prior,ROOT/prior_result['bundle'])})
     checks={};query=SolidQueries()
     if dest.exists():
         result=json.loads(dest.read_text());assert result['source_sha256']==pins
@@ -129,6 +141,25 @@ def main(revision='r1'):
             new_geometry_count=len(new),five_independent_T18I_full_heads=True,
             selected_case_only_VHB_extra_draw_mm=54,selected_roll_count_NOT_changed=1,
             assembly_and_all123_common_capacity_OPEN=True,N01_complete=False,native_changed=False,physical_pass=False)
+        if diagnostic:
+            prior_shapes=load(prior_result);unchanged=[]
+            for n,s in new.items():
+                a=s.copy().cut(prior_shapes[n].copy());b=prior_shapes[n].copy().cut(s.copy())
+                assert (a.isNull() or a.isValid()) and (b.isNull() or b.isValid())
+                if a.Volume+b.Volume<1e-5:unchanged.append(n)
+            checks={k:v for k,v in diagnostic['checks'].items()
+                    if v['ok'] and k.split('|')[0] in unchanged and (k.split('|')[1] not in new or k.split('|')[1] in unchanged)}
+            # A group reassignment must not inherit a former same-print or
+            # softer mating exemption against a now foreign print member.
+            for key,row in list(checks.items()):
+                n,other=key.split('|',1)
+                same=any(n in members and other in members for members in result['print_groups'].values())
+                limit=None if same else local_limit(n,other,{v['name']:v for v in geometry},result['print_groups'],specs,bonds)
+                if limit is not None and row.get('minimum_mm',-1)<limit:checks.pop(key)
+            result.update(reused_actual_geometry_identity=unchanged,reused_exact_pairs=len(checks))
+            if result['print_groups']['upper']==prior_result['print_groups']['upper'] and all(n in unchanged for n in result['print_groups']['upper'] if n in new):
+                result['print_union_proofs']['upper']=copy.deepcopy(prior_result['print_union_proofs']['upper'])
+                checks['wholeprint:upper']=dict(ok=True,reused_identical_members_union_and_print_orientation=True)
         if parent:
             assert pgroup==parent['print_groups'],'Only reuse identical whole-print material members'
             result['reused_whole_print_geometry_from']=previous.relative_to(ROOT).as_posix()
@@ -152,8 +183,12 @@ def main(revision='r1'):
         if group in result['print_union_proofs']:continue
         s=effective[members[0]].copy().multiFuse([effective[n].copy() for n in members[1:]])
         valid=s.isValid() and len(s.Solids)==1;b=s.BoundBox;size=[b.XLength,b.YLength,b.ZLength]
-        result['print_union_proofs'][group]=dict(valid=valid,solids=len(s.Solids),envelope_mm=size,within250_margin=valid and max(size)<250,members=members)
-        checks['wholeprint:'+group]=dict(ok=valid and max(size)<250,actual_whole_print_union=True)
+        angle=45. if max(size[:2])>250 else 0.;c=abs(math.cos(math.radians(angle)));sn=abs(math.sin(math.radians(angle)))
+        oriented=[c*size[0]+sn*size[1],sn*size[0]+c*size[1],size[2]]
+        result['print_union_proofs'][group]=dict(valid=valid,solids=len(s.Solids),envelope_mm=size,
+            print_rotation_about_Z_deg=angle,conservative_rotated_print_envelope_mm=oriented,
+            within250_margin=valid and max(oriented)<250,members=members,orientation_NOT_slicer_or_strength_approval=True)
+        checks['wholeprint:'+group]=dict(ok=valid and max(oriented)<250,actual_whole_print_union=True)
         save();print('FULL_PRINT',group,result['print_union_proofs'][group]['solids'],size,flush=True)
         if not checks['wholeprint:'+group]['ok']:save('SOURCE_PRINT_UNION_HOLD');return
         if time.monotonic()-tick>220:save('PARTIAL_SOURCE_RESTRAINTS_SAVED');return
@@ -216,6 +251,6 @@ def main(revision='r1'):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--revision',choices=('r1','r2','r3'),default='r1');parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--revision',choices=('r1','r2','r3','r4','r5'),default='r1');parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
     if args.local_only:local_check(args.revision)
     else:main(args.revision)

@@ -38,21 +38,24 @@ def source():
 
 
 def construct(revision='r1'):
-    assert revision in ('r1','r2')
+    assert revision in ('r1','r2','r4','r5')
+    shared=revision!='r1'
+    shelf=revision in ('r4','r5')
     base,r,sf,mf=source();new={};meta={};groups={'lower':[],'upper':[]};proof={};specs={}
     add=lambda n,s,kind,group: (new.__setitem__(n,s),meta.__setitem__(n,dict(kind=kind,print_group=group)),groups[group].append(n) if kind=='PETG' else None)
     rr=r['recipes'];u=A.Vector(2**-.5,2**-.5,0);b=A.Vector(-u.y,u.x,0)
     configurations=(('W075','W075_factory',rr['W075_factory']['parts'][0],3.,[0,0,-1],7.5,'lower',3.1),
         ('GROUND','W001_ground_prefix',rr['W001_ground_prefix']['parts'][0],3.,[0,0,-1],9.,'lower',4.),
-        ('F0OUT','W076_factory',rr['W076_factory']['parts'][0],.3,[0,0,-1],7.,'lower',3. if revision=='r2' else 1.5),
-        ('POSTIN','W076_factory',rr['W076_factory']['parts'][-1],1.25,[1,0,0] if revision=='r2' else [0,1,0],5.75,'upper',None),
+        ('F0OUT','W076_factory',rr['W076_factory']['parts'][0],.3,[0,0,-1],7.,'lower',3. if shared else 1.5),
+        ('POSTIN','W076_factory',rr['W076_factory']['parts'][-1],1.25,[1,0,0] if shared else [0,1,0],5.75,'upper',None),
         ('POSTOUT','W076_custom_prefix',rr['W076_custom_prefix']['parts'][0],3.,[-.5,3**.5/2,0],9.,'upper',None))
     for key,wire,row,start,side,band_at,group,foot_at in configurations:
         kit,rec=saddle(row,start,side,band_at)
         for suffix,s in kit.items():add('SourceGrip:'+key+':'+suffix,s,'PETG' if suffix=='pad' else 'T18I',group)
         if group=='lower':
             e=segment(row);p=e.valueAt(e.FirstParameter+(e.LastParameter-e.FirstParameter)*foot_at/e.Length)
-            root=box([p.x-1,p.y-1,-43.3],[p.x+1,p.y+1,p.z-3.])
+            bottom=-27.5 if shelf and key in ('W075','GROUND') else -43.3
+            root=box([p.x-1,p.y-1,bottom],[p.x+1,p.y+1,p.z-3.])
             add('SourceGrip:'+key+':root',root,'PETG',group)
             overlap=root.common(kit['pad']);assert overlap.isValid() and overlap.Volume>1e-5,(key,'No root-to-full-pad material')
             rec['root_pad_common_mm3']=overlap.Volume
@@ -66,8 +69,22 @@ def construct(revision='r1'):
     frame=placement(np.column_stack((list(u),list(b),[0,0,1])),list(centre))
     def local(lo,hi):s=box(lo,hi);s.Placement=frame*s.Placement;return s
     patch=local([-9,11,-4],[9,11.5,4]);spine=joined([local([-10,11.5,-4],[31,13.5,4]),local([28,11.5,-4],[31,16.5,4])])
-    foot=frame.multVec(A.Vector(30,16,0));root=box([foot.x-1,foot.y-1,-43.3],[foot.x+1,foot.y+1,centre.z-3])
-    spine=joined([spine,root]);add('SourceBody:F0:spine',spine,'PETG','lower');add('SourceBody:F0:patch',patch,'VHB4905','lower')
+    foot=frame.multVec(A.Vector(30,16,0));fx=foot.x+(4. if revision=='r4' else 0.)
+    root=box([fx-1,foot.y-1,-43.3],[fx+1,foot.y+1,centre.z-3])
+    if revision=='r4':root=joined([root,box([foot.x-1,foot.y-1,centre.z-5],[fx+1,foot.y+1,centre.z-3])])
+    if revision=='r5':
+        # Stop trying to thread another F0 post between MTA case and tie.
+        # Its neck joins the already rooted POST spine OUTSIDE P0. Full
+        # POSTOUT head ends y65.644; downleg starts y69 (>1.25 gap).
+        # Low bridge stays below the escaping custom jacket; top bridge
+        # is above the WHOLE casing29.25, not through its two mouths.
+        post=base['Ref_Material_PostF0Splice_CP2_0_0'].BoundBox;px=post.XMin-2.5;py=post.Center.y-4
+        root=joined([box([foot.x-1,foot.y-1,centre.z],[px+2,foot.y+1,centre.z+2]),
+                     box([px,foot.y,centre.z],[px+2,71.,centre.z+2]),
+                     box([px,69.,centre.z],[px+2,71.,32.75]),
+                     box([px,py+7,30.75],[px+2,71.,32.75])])
+    fg='upper' if revision=='r5' else 'lower'
+    spine=joined([spine,root]);add('SourceBody:F0:spine',spine,'PETG',fg);add('SourceBody:F0:patch',patch,'VHB4905',fg)
     proof['F0']=dict(case='Ref_Material_F0_CP2_0_0',patch='SourceBody:F0:patch',spine='SourceBody:F0:spine',
         case_coupon=local([-9,10.99,-4],[9,11,4]),print_coupon=local([-9,11.5,-4],[9,11.51,4]))
     # Entire mated connector casing on its own selected case-only patch.
@@ -76,7 +93,7 @@ def construct(revision='r1'):
     frameXT=placement(np.column_stack((list(u),list(b),[0,0,1])),[c.x,c.y,0])
     def xt(lo,hi):s=box(lo,hi);s.Placement=frameXT*s.Placement;return s
     patch=xt([-9,-4,low-.5],[9,4,low]);bed=xt([-9,-4,low-2.5],[9,4,low-.5])
-    foot=frameXT.multVec(A.Vector(7,2,0));root=box([foot.x-1,foot.y-1,-43.3],[foot.x+1,foot.y+1,low-1.5])
+    foot=frameXT.multVec(A.Vector(7,2,0));root=box([foot.x-1,foot.y-1,-27.5 if shelf else -43.3],[foot.x+1,foot.y+1,low-1.5])
     bed=joined([bed,root]);add('SourceBody:XT60:bed',bed,'PETG','lower');add('SourceBody:XT60:patch',patch,'VHB4905','lower')
     proof['XT60']=dict(case='Ref_Material_XT60_CP2_0_0',patch='SourceBody:XT60:patch',spine='SourceBody:XT60:bed',
         case_coupon=xt([-9,-4,low],[9,4,low+.01]),print_coupon=xt([-9,-4,low-.51],[9,4,low-.5]))
@@ -88,8 +105,8 @@ def construct(revision='r1'):
     proof['POST']=dict(case='Ref_Material_PostF0Splice_CP2_0_0',patch='SourceBody:POST:patch',spine='SourceBody:POST:spine',
         case_coupon=box([x,y-4,z+.5],[x+.01,y+4,z+18.5]),print_coupon=box([x-.51,y-4,z+.5],[x-.5,y+4,z+18.5]))
     xf=r['current_nominal_datums']['POST1'][0];sx=x-1.5
-    if revision=='r2':xf+=3.5
-    arm=joined([box([xf-1,55.1 if revision=='r2' else 59.6,7.5],[xf+1,63,9.5]),box([sx-1,61,7.5],[xf+1,63,9.5]),
+    if shared:xf+=3.5
+    arm=joined([box([xf-1,55.1 if shared else 59.6,7.5],[xf+1,63,9.5]),box([sx-1,61,7.5],[xf+1,63,9.5]),
         box([sx-1,61,7.5],[sx+1,63,28.75]),box([sx-1,59.1,26.75],[sx+1,63,28.75])])
     add('SourceGrip:POSTIN:root',arm,'PETG','upper')
     add('SourceGrip:POSTOUT:root',box([x-2.5,58.5,5.75],[x-.5,60.5,12.75]),'PETG','upper')
@@ -107,20 +124,29 @@ def construct(revision='r1'):
         bonds[key]={k:v for k,v in p.items() if k not in ('case_coupon','print_coupon')}
         bonds[key].update(actual_nominal_case_land_mm2=area,actual_print_land_mm2=land,selected_patch_mm=[8,18,.5],
             actual_case_plastic_adhesion_peel_and_tightening_fit_phase2_gate=True,body_only_NOT_wire_relief=True)
-    if revision=='r2':
+    if shared:
         # Both floating feet lie in the same REAL floor cutout, not above
         # parent material. One bottom fork connects them to the witnessed
         # Floor boundary steps from x46 to x49.167 at y-36.6. The foot
         # extends to x52 across BOTH actual regions, not only their bbox.
-        bridge=joined([box([32.387120903,-38.734195125,-43.3],[52.,-34.734195125,-41.3]),
-                       box([37.01867032,-36.734195125,-43.3],[39.01867032,-28.981325364,-41.3])])
+        if shelf:
+            # Whole witness map found three vertical roots crossing W042 at
+            # z-34, and F0 root beside the W041 cap. The shared source shelf
+            # stays ABOVE MTA and BELOW full source heads, with ONE downleg
+            # inside the real floor at x52/y-24, not three crossing columns.
+            bridge=joined([box([32.387120903,-37.734195125,-27.5],[48. if revision=='r5' else 53.,-23.,-25.5]),
+                           box([47.,-25.,-27.5],[53.,-23.,-25.5]),
+                           box([51.,-25.,-43.3],[53.,-23.,-25.5])])
+        else:
+            bridge=joined([box([32.387120903,-38.734195125,-43.3],[52.,-34.734195125,-41.3]),
+                           box([37.01867032,-36.734195125,-43.3],[39.01867032,-28.981325364,-41.3])])
         add('SourceRoot:lowerSharedFork',bridge,'PETG','lower')
         import json
         from receive_feline_rrp_shared_height import load
         parent=load(json.loads((OUT/'n01-MTA-low-stop-cradles.json').read_text()))['LowerBay:RearPanel']
         for n in ('SourceGrip:W075:root','SourceBody:XT60:bed'):
             assert bridge.common(new[n]).Volume>1.,('Fork misses source foot',n)
-        assert bridge.common(parent).Volume>10.,'Fork misses real parent material'
+        assert bridge.common(parent).Volume>(5. if shelf else 10.),'Fork misses real parent material'
         assert new['SourceGrip:F0OUT:root'].distToShape(base['Ref_Material_F0_CP2_0_0'])[0]>=.2
     for n,s in new.items():assert s.isValid() and len(s.Solids)==1,n
     return base,new,meta,groups,specs,bonds,r,sf,mf
