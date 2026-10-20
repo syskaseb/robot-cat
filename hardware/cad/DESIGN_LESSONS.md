@@ -1,5 +1,32 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10: statyczna scena przewodów pomijała ruchome nogi. Dlatego zielona
+statyka nie chroniła nawet pozy0: realne przecięcia bioder327..445mm3.
+Przed drogą całej rodziny uwzględnij WSZYSTKIE rzeczywiste części także
+w spoczynku; dopiero potem próbki ruchu. Po znalezieniu jednej przyczyny
+nie kończ pozostałych setek kontroli odrzuconego wariantu. Zachowaj
+obserwacje/niepromowany wynik; zmień wspólny korytarz przed mocowaniami.
+
+20.10: wolny przedział po samym ruchu i długości NIE jest wspólnym planem:
+przeniesiony pełny chwyt zderzył się ze stałą podporą brzucha. Przed CAD
+w domenie pozycji uwzględniaj również WSZYSTKIE stałe części, oba końce
+i pełne opaski. ProstaUP118,5 trafiała w P0; po obejściu ramy pokazały
+się F_AUX i główki istniejących opasek. Nie projektuj uchwytów zanim cała
+rodzina wyjść nie ma korytarza. Przy coplanarnym nylonie common.Area=0
+nie dowodzi rozłączenia: sprawdź prawdziwe proste ściany/plane gap oraz
+poprawny1Solidfuse, zachowując zerowy wynik kernela w raporcie.
+
+20.10, MTA: liczyć trasę+strip+rework przed CAD. Korekta dwóch CAŁYCH
+złączy o wyliczony deficyt daje tor z pełnym zapasem; nie usuwać rework,
+nie ogłaszać katalogowego140L jako dwóch gwarantowanych ogonów140mm.
+Po2nieskutecznych zmianachstóp zmienić poziom decyzji: całe złącze/M2/
+chwyt w przedziale wynikającym z CAŁEGO ruchu i długości. Nie trzeciafaza.
+Różne interfejsy wymagają różnych dowodów: istniejąca obudowa dotykająca
+własnej izolującejpodłogi nie jest obcąkolizją; odziedziczony styk zachować
+tylko po dowodzie niezmienionejpodłogi/podzbioru materiału. Ujemne wyniki
+ruchu pozostają ujemne. Nie tworzyć przyszłego current-provider przed
+odbiorem jego źródła; skasowano3własne nieużywane szkielety takiejwarstwy.
+
 20.10: przed geometrią powiąż WSZYSTKIE fizyczne odcinki z wybraną tabelą
 materiałów i ich rolą. Większy budżetcap nie jest średnicą żyły, materiał
 fabrycznego ogona nie opisuje jego przedłużenia, SOURCE/DONOR nie mnoży

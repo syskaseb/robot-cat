@@ -2,7 +2,103 @@
 
 ## N01 do pełnych10%,19.10.2026
 
-20.10,04:34Z: wybrane role materiałowe123/123 związane z dokładnym bazowym
+20.10,05:59Z: odebrano session67097:292,625s,3/6aktorów ruchowych,
+721par/252ujemne. NIEdokańczać reszty odrzuconej trasy. Świadki27,625s
+dowodzą rzeczywistego przenikania już wpozie0 z biodrami FL/FR/RL:
+327,519/328,077/445,392mm3; toNIEbbox. Główna przyczyna: wcześniejsza
+statyczna scena nie zawierała nóg, a przewód wychodził pionowo przezbiodro.
+NEXT: przed statyką CAŁEJrodziny dołączyć wszystkie rzeczywiste nogi
+wspoczynku, potem próbki. Plan poziomów: zachować pierwszyS/chwyty,
+doprowadzić dolnytor POZA zewnętrzną ścianę biodra i F_AUX przed UP;
+Xwyznaczyć z prawdziwych brył oraz obrysu, nie zkolejnego witness-offset.
+Obie strony4MTA/4chwyty/podłogi i dostęp nadaljednąbramką. 18testów6,460s
+potwierdza także ujemnyruch, bezpunktów/N03. Masterbez zmian,hookotwarty.
+
+20.10,05:54Z: N01=0/10. Konkretna bramka: CAŁE4zestawyMTA, nie same
+druty. Oryginalne podpory/P0/żebra zostają. Cztery istniejące pierwszełuki
+R25,2 mają12,683mm: siodło po1,25..11,25mm, osobna opaska w8mm,
+korzeń2,5..4,5mm doizolującejpodłogi; montaż przez pełne okno opaski,
+bez zgniataniaizolacji. Tani konstruktor4kompletów0,668s: poprawnepojedyncze
+bryły, dodatniepad/root, nylonbezprzenikania; NIEdowód korzenia do podłogi.
+Następna wspólna kontrola:2przesunięte kompletnezłącza/M2,4factory,
+4custom,4całechwyty/korzenie,2zmienioneT18Igłówki, podłogi/sloty/narzędzia.
+Akceptacja: rzeczywiste1Solidpołączeniepodłogi i każdego korzenia,
+brakobcychkolizji/minima, aktualneruchy, pełny9mmchwyt i zachowanedługości.
+Przed tym NIEpromować current-provider ani robić N03. Pozostałe rodziny
+123/246 nadalotwarte. Korekta: dwie nowegłówki mająluz1,20mm vsstare1,45;
+nie dziedzicząstarego luzu. Oryginalnyreceiver ma jawne same_grip=brak
+przenikania; stosować dokładnietęparę, bezobniżaniaobcych1,25mm.
+Active receive_feline_mta_fan_contract.py, session67097: odebrać, niedublować.
+
+20.10,05:45Z, aktualnyNEXT: receive_feline_mta_tilted_fans.py, odebrać
+przed następnymstartem. **ŻADNEGO wariantuMTA jeszcze nie promowano.**
+Nowa hipoteza6zmian:4pełne krzyweCustom,2pełneT18Igłówki naGÓRZE starych
+pętli. Zachować WSZYSTKIE stare4podpory/P0/4mmRootWeb; wariant Cfeet
+i zwężoneżebra ODRZUCONE/NIEWYBRANE, nie wracać do nich. DolnyS±27
+zostaje, górne kierunki R25,2 niezależne:sin0,25 przy+X,sin0,5 przy-X;
+przy-X górnyS wraca doY±25 PRZED S1(minZ30,77), dopierocapZ45,26.
+DokładnyF_AUX: X132..154,Y±25,5,Z-25,125..-4,875; stałeUPdotąduderzało
+w tęoprawkę. DwieT18Igłówki5x5,3x4,3 zachowująwolumen/staryband/root.
+Tani testkonstruktora0,097s:1Solidfuse i rzeczywistecoplanarneprostokąty
+13,25mm2 mimo common.Area=0, gap3,55e-15; NIE ruszano geometrii.
+Pełne10mmchwyty na pierwszymłuku/korzenie/dostęp/ruchcałychzłączy oraz
+pozostałe rodziny123/246 są nadalOPEN. N01=0/10, hookotwarty.
+
+20.10,05:35Z: N01nadal0/10. Odrzucono przeniesienie28części na podstawie
+SAMEGOruchu/długości: stałeBellyFoot1/2 blokują starychwyt;19wskazań
+w94,157s. Próba4zmienionychpodpór+prostychwyjśćUP56,328s teżodrzucona:
+P0tylna rama blokuje2tory, stare cylindrycznechwyty2; NIEPROMOWANA.
+Wracamy doORYGINALNYCH4podpór/ichM2/stóp. NEXTCAŁE4wyjściaCustom:
+SdośrodkaR25,2, dopieroUPZAkońcamiP0, pełny10mmchwyt poPIERWSZYMłuku,
+nie dodatkowa9mmprosta. Rzeczywiste P0RearX107,5..127,458/MountRear do130,
+SideY27..49 wykluczały prosteUP przyX118,5. Korytarz międzyRootWeb24,5
+a stem31 ma6,5mm <4,2+2x1,25. Propozycja4RootWeb3x3 zamiast3x4:
+wewnętrznaściana/połączenia zachowane, tylkozewnętrzna do23,5. Lane±27
+zostawia1,4mm dożebra/1,9mm dostarejpodpory. Bez zmianySKU/P0/E6/stóp.
+Active plan_feline_mta_inboard_fans.py: odbierz przed następnym startem;
+chwyt/korzeń/ruch/montaż/całe123nadalotwarte. Nie tworzyćcurrent-provider
+ani produkcyjnegoCAD z częściowejkontroli przewodów. Mierzone znaneworkery
+od04:30:36Z:579,705s (niepełnybilans, nieCPU; błędne uruchomienia/analiza
+osobno). BłądKeyErrorpreflight naprawiony+atomowyzapis pokażdejżyle.
+Odczytlimitu spóźniony05:16:21->05:27:49(688s), przyanalizie; NIEretuszować
+jakozgodnyz10min. O05:35:03 odczyt rzeczywisty:15%pozostałe,bezresetu.
+
+20.10,05:03Z: wspólny przedział przesunięcia CAŁYCH28części obu tylnych
+złączy z rzeczywistych428przecięćruchu w67,547s: X[-20,7609;-18,0929]mm.
+Wybrany środek-19,4269mm, nie kolejna pojedyncza korekta narożnika.
+Źródłowe4MTA bez ruchu; dwa fabryczne ostatnieproste wydłużone, nominalnie
+tor+11strip+10rework zostawia2,334mm ze100założonych. KupneSKU zachowane.
+Obie całe końcówki/customchwyty jadąrazem, ich korzenie wymagają DWÓCH
+wąskich2,5mm palców podłogi do starej szyny; nie zostawiać ich w powietrzu.
+Active: receive_feline_factory_bay_layout.py — odebrać przed następnym.
+Nie promować poprzedniego41aktora z2ujemnymi wynikami. N01nadal0/10.
+
+20.10,04:59Z: cały plan4wejśćMTA pozostaje NIEODEBRANY, N01=0/10.
+R1statyka76,532s; R2zestaw75,172s +podłoga/ruch105,563s:417kontroli,
+8wskazań tylko2starychCaseBase w ruchu(min0,958mmvs1,25); druty/chwyty
+bez wskazań. Cała podłoga zachowana,1bryła z dawnymi korzeniami/wyjściami.
+Jedna wspólna zmiana profilu stóp30,625s:39/41aktorów byte-identyczne,
+409dodatnichpar reużyte;6/8 wskazańzamknięte,2nadal1,194mm. NIEpromować.
+Po2próbachkoniec lokalnychfaz/przesunięć: NEXT wspólny przedziałX dla
+CAŁYCH28części dwóch tylnych złączy/śrub/chwytów, z rzeczywistych próbek
+ruchu i długości(11strip+10rework+1rezerwy). ŹródłaMTA/kupneczęści stałe.
+Odebrać active_worker plan_feline_factory_joint_bay.py przed następnymCAD.
+14testówregresji5,101s potwierdza także zachowane negatywneobserwacje.
+Usunięto3własne nieużywane pliki przyszłego kontekstu/capów/testu; nie
+produkować warstwN03 przed całymN01. Master/natywnywybór nie zmieniony.
+
+20.10,04:36Z: próba4nowychwejść46,140s/65par ma22wskazania:8dotyków
+na nominalnychwłasnychustach kupnychczęści,10starychsiodeł/opasek,
+4własneCaseBase(luz0,30mm). Nie mylić tychstyków zkolizjąobcychmodułów.
+ZmianaPRZEDnastępnymCAD: zamiast8sztywnychchwytów poobu końcach,
+4pełne9mm bocznesiodła przyzłączach, zakotwione wpodłogach i pełneopaski.
+Jak dla odebranychwyjśćMTA; nie wymyślać kolejnego9mmprostej przedłukiem.
+Sprawdzić teżCAŁY budżet długości:84,692+11strip+10rework=105,692mm
+nie mieści się w założeniu100mm. Liczba140L wkataloguMTA nie dowodzi
+dwóchogonów140/100mm; pomiardostawy zostaje jawny, nie zmieniaćSKU.
+N01nadal0/10. Bez powtarzania65par niezmienionych geometrycznie.
+
+20.10,04:32Z: wybrane role materiałowe123/123 związane z dokładnym bazowym
 K3(blob5f84d783), bez zmianySKU/starychcięć;32kontrakty profilu skorygowane.
 Nominalny przewód nie jest większym budżetemcap. 4istniejąceprefiksy dolne
 mają9,25mm, nie założone9. MAINnarzędzia odebrane19par w0,469s po zdjęciu
