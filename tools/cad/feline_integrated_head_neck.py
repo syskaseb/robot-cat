@@ -97,34 +97,36 @@ def candidates():
     return result,bounds
 
 
-def positive_channel_candidates(rooted=False):
+def positive_channel_candidates(rooted=False,wire_R=12.4):
     """Whole shared lower-head return, rise on free positive side, top trunk.
 
     Retains the factory yaw loop; does not attempt to pass through it on the
     negative side. Top-trunk Y33/Z103 is proposed by the existing signed map.
     """
+    assert wire_R>=12.4
     rows=[];proof_rows=[];Y=-38.320513724211
-    for name,x,R,k in (('XB22',-238.6,14.94,0),('XB23',-241.14,17.48,1),('XS23',-236.06,12.4,-1)):
+    trunk_x=-236.06+wire_R;trunk_z=85.5+wire_R+2.54
+    for name,x,R,k in (('XB22',-238.6,wire_R+2.54,0),('XB23',-241.14,wire_R+5.08,1),('XS23',-236.06,wire_R,-1)):
         start=np.array([x,Y,-10.]);p=start+[0,-12,0]
         es=[Part.makeLine(A.Vector(*start),A.Vector(*p))]
-        es.append(circle_arc(p,[0,-1,0],[0,0,-1],12.4,math.pi/2));p=p+[0,-12.4,-12.4]
-        es.append(circle_arc(p,[0,0,-1],[0,1,0],12.4,math.pi/2));p=p+[0,12.4,-12.4]
+        es.append(circle_arc(p,[0,-1,0],[0,0,-1],wire_R,math.pi/2));p=p+[0,-wire_R,-wire_R]
+        es.append(circle_arc(p,[0,0,-1],[0,1,0],wire_R,math.pi/2));p=p+[0,wire_R,-wire_R]
         rise_y=50. if rooted else 45.4
-        q=np.array([x,rise_y-12.4,-34.8]);es.append(Part.makeLine(A.Vector(*p),A.Vector(*q)));p=q
-        es.append(circle_arc(p,[0,1,0],[0,0,1],12.4,math.pi/2));p=p+[0,12.4,12.4]
+        q=np.array([x,rise_y-wire_R,-10-2*wire_R]);es.append(Part.makeLine(A.Vector(*p),A.Vector(*q)));p=q
+        es.append(circle_arc(p,[0,1,0],[0,0,1],wire_R,math.pi/2));p=p+[0,wire_R,wire_R]
         q=np.array([x,rise_y,85.5]);es.append(Part.makeLine(A.Vector(*p),A.Vector(*q)));p=q
         es.append(circle_arc(p,[0,0,1],[1,0,0],R,math.pi/2));p=p+[R,0,R]
-        assert np.allclose(p,[-223.66,rise_y,100.44+k*2.54])
+        assert np.allclose(p,[trunk_x,rise_y,trunk_z+k*2.54])
         v=np.linspace(0,1,241);h=10*v**3-15*v**4+6*v**5;theta=math.pi/2*h
         radius=2.54+(3.4-2.54)*h
         L1,L2=(60.,46.) if rooted else (66.,40.)
-        first=np.column_stack([-223.66+L1*v,rise_y+k*radius*np.sin(theta),100.44+k*radius*np.cos(theta)])
-        second=np.column_stack([-223.66+L1+L2*v,rise_y+(33-rise_y)*h+k*3.4,100.44+(103-100.44)*h])
+        first=np.column_stack([trunk_x+L1*v,rise_y+k*radius*np.sin(theta),trunk_z+k*radius*np.cos(theta)])
+        second=np.column_stack([trunk_x+L1+L2*v,rise_y+(33-rise_y)*h+k*3.4,trunk_z+(103-trunk_z)*h])
         minR=math.inf
         for index,pts in enumerate((first,second)):
             L=L1 if index==0 else L2
             spline=make_interp_spline(L*v,pts,k=3,bc_type=([(1,[1.,0,0])],[(1,[1.,0,0])]))
-            proof=extrema(spline.t,spline.c);assert proof['regular'] and proof['minimum_radius_mm']>=12.4
+            proof=extrema(spline.t,spline.c);assert proof['regular'] and proof['minimum_radius_mm']>=wire_R
             minR=min(minR,proof['minimum_radius_mm'])
             knots,mults=np.unique(spline.t,return_counts=True);curve=Part.BSplineCurve()
             curve.buildFromPolesMultsKnots([A.Vector(*p) for p in spline.c],mults.tolist(),knots.tolist(),False,3)
@@ -136,7 +138,7 @@ def positive_channel_candidates(rooted=False):
         body,path=pipe(es,1.05)
         rows.append(dict(name='HP_positive_channel:'+name,kind='head_actual_source_nominal_jacket',wire=name,shape=body,
             start_mm=start.tolist(),end_mm=finish.tolist(),radius_mm=1.05,path_length_mm=path.Length,
-            analytic_expected_volume_mm3=math.pi*1.05**2*path.Length,minimum_wire_R_mm=12.4,
+            analytic_expected_volume_mm3=math.pi*1.05**2*path.Length,minimum_wire_R_mm=wire_R,
             source_full9_mm=[(start+[0,-3,0]).tolist(),(start+[0,-12,0]).tolist()],transition_curvature=dict(minimum_radius_mm=minR),
             final_flat_pitch_mm=3.4,nominal_source_OD_unchanged=True,
             swept_piece_bounds_mm=[[[e.BoundBox.XMin-1.05001,e.BoundBox.YMin-1.05001,e.BoundBox.ZMin-1.05001],
