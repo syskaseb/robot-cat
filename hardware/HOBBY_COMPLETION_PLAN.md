@@ -2,6 +2,24 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,02:09Z: odbiór granic/własności, BEZ nowej geometrii. Dwa błędne
+założenia atlasu (jednakowy profil i36brył mankietów) odrzucone, następnie
+zmiana metody:13nazwanych istniejących prefiksów z archiwum zamiast całej
+sceny. Atlas0,172s:9wylotówFR odebranych (6tego samego profilu,3większe
+rezerwacje otaczają mniejszą wybraną żyłę);27granic kinematycznych nadal
+bez osobnego prefiksu. MAIN4capy mają1,05 przy wymaganym1,55: nie ścinać
+wybranego profilu. Pozostałe51alokacji nie są aktualnym capem izolacji.
+Mały overlay9wyjść NIE przesuwa stałej granicy nogi ani punktu elektrycznego.
+Kontrakty własnych rowków z istniejących konstruktorów:0,125s/0nowych
+zapytań BRep,11par/9końców przestaje być negatywnym dowodem; pozostaje
+30warunkowych blokad. To NIE PASS trasy. Margines1,25 do obcych części,
+oba dowody BankPier4/PiAdapter i sąsiednie pokrywy banku zachowane.
+23testy PASS0,515s; brak native/master/zakupów/zmian SKU. N01nadal0/10.
+NEXT: używać feline_adjudicated_boundaries i jawnych własnych kanałów;
+jeden wspólny plan wcześniejszych chwytów9mm po łuku oraz portali własnych
+podpór dla30blokad, a nie dalsze środkowe łuki z nieosiągalnych capów.
+Głowa6granic musi użyć własnego aktualnego układu, nie obrysu tułowia.
+
 20.10,01:53Z: CAŁY screen246końców odebrany70,641s/710zapytań:
 18końców pełnych zachowanych porcji,98bez naruszenia koniecznej bramki
 (NIE PASS trasy),39warunkowych wskazań dla obecnego cap/osi/profilu/

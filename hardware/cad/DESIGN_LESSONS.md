@@ -1,5 +1,14 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, granice PRZED obliczeniami: nie utożsamiaj punktu elektrycznego,
+wlotu istniejącego9mm odcinka i jego wylotu. Nie zakładaj, że36granic
+kinematycznych ma36brył: aktualnie nazwanych prefiksów FR jest9. Czytaj
+nazwane archiwum i producenta datumu, nie całą scenę ani najbliższy cap.
+Po dwóch błędnych założeniach zmiana tej metody dała atlas w0,172s.
+Własny rowek0,15 i obcy materiał1,25 to różne kontrakty: wyjątek przypisz
+konkretnej żyle i konstruktorowi; nie zwalniaj sąsiednich pokryw/grup.
+Zniknięcie negatywnego dowodu koniecznego NIE jest odbiorem trasy.
+
 20.10, kontrola KONIECZNA przed trasowaniem: zielony prefiks9mm i montaż
 modułu nie dowodzą, że przewód może opuścić jego cap. Dla curvature<=1/R,
 przed pierwszym przecięciem płaszczyzny odległej osiowo o L<R odchylenie
