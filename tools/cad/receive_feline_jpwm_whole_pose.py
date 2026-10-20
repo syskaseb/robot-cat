@@ -82,7 +82,7 @@ def rear_gallery_proposal(template,case,fixed,vertical_outboard=False):
         connector_pair_separation_normal_to_rear_XZ_returns=True,roots_factory_paths_and_assembly_OPEN=True)
 
 
-def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPWM-rear-gallery-whole16-static',label='JPWM_REAR_GALLERY_WHOLE16'):
+def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPWM-rear-gallery-whole16-static',label='JPWM_REAR_GALLERY_WHOLE16',own_face_mates=()):
     from feline_fore_power_pair import SolidQueries
     from feline_solid_distance import bbox_lower_bound
     from receive_feline_aux_vertical_unit import material_spacing
@@ -101,7 +101,11 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
             a=s;other=t
             if b==world.bus['name']:
                 a=s.copy();a.Placement=world.bus['inverse']*a.Placement;other=world.bus['original']
+            if (n,b) in own_face_mates:required=0.
             gap=query.distance(a,other);checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
+            if (n,b) in own_face_mates:
+                common=a.copy().common(other.copy()).Volume
+                checks[n+'|'+b].update(common_mm3=common,intended_source_face_only=True,ok=common<1e-5)
         print('REAR_GALLERY_STATIC',n,'queries',len(checks),flush=True)
     names=list(actors)
     for i,n in enumerate(names):

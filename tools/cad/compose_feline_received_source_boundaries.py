@@ -64,6 +64,14 @@ def current():
         updates[eid]={k:v for k,v in r.items() if k not in ('id','wire','portion_id','endpoint','group')}
         updates[eid].update(current_restraint_receipt=wpfile.relative_to(ROOT).as_posix())
     paths.extend((wpfile,ROOT/wp['motion_receipt']))
+    forefile=OUT/'n01-shared-fore-current-sources.json';fore=json.loads(forefile.read_text())
+    assert fore['status']=='SHARED_FORE28_ROOTED_CURRENT_SOURCES_STATIC36_RECEIVED_WHOLE123_OPEN' and not fore['failures']
+    assert sha(ROOT/fore['bundle'])==fore['bundle_sha256'] and len(fore['updates'])==10
+    for eid,r in fore['updates'].items():
+        assert r['group']=='NineWireCuffFL' or eid=='XB12/extra/start'
+        updates[eid]={k:v for k,v in r.items() if k not in ('id','wire','portion_id','endpoint','group')}
+        updates[eid]['current_restraint_receipt']=forefile.relative_to(ROOT).as_posix()
+    paths.append(forefile)
     resolved=apply_updates(rows,updates)
     assert len(base['portions'])==123 and len(resolved)==246
     assert all(a['point_mm'] is not None or b['point_mm'] is None for a,b in zip(rows,resolved))

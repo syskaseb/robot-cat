@@ -70,6 +70,8 @@ def compose(base_context=None):
     wf=OUT/wp['motion_receipt'];wr=json.loads(wf.read_text())
     assert wr['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED' and len(wr['completed'])==3
     pins[wf.relative_to(ROOT).as_posix()]=sha(wf)
+    fore=overlay('n01-shared-fore-current-sources.json')
+    assert fore['status']=='SHARED_FORE28_ROOTED_CURRENT_SOURCES_STATIC36_RECEIVED_WHOLE123_OPEN'
     for n,s in parts.items():
         b=s.BoundBox;meta.setdefault(n,{})['bounds_mm']=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
         if n in owners:meta[n]['current_geometry_owner_receipt']=owners[n]
