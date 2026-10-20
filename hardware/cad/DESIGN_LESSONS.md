@@ -1,5 +1,32 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, ważna korekta wcześniejszego wnioskuW066: rzeczywisty CADcapR1,55
+NIE oznacza poprawnego profilu wybranego przewodu. W066 pozostajeHELU23802
+4mm2 z zachowanym projektowymOD4,2/R25,2; mniejszycap był błędem modelu.
+Skorygowano tylko ten przewód i własny rowekPETG:40,469s/8kontroli/0wskazań,
+ten sam tor/first9/końce/kupne części. Kontrakt wybranego materiału PRZED CAD.
+Cała tabela elektrycznaW026 opisywała fabryczny ogon, NIE jego osobny
+odcinek /custom: rolę przedłużenia odczytać z jawnej alokacjiHELU, nie
+z początku etykiety CSV. Oba odcinki tego samego netu nie muszą mieć tego
+samego materiału/promienia. Guard ma sprawdzać fizyczną rolę przed geometrią.
+
+20.10, bramka długości to nie sama długość krzywej. Jedna wspólna propozycja
+czterech złączy skierowanych do środka zmieściła bryły w prawdziwym obrysie,
+ale97,906mm toru +11strip +10zachowanego rework przekracza100mm. Odrzucona
+na preflight6,156s, BEZ uruchamiania macierzy świata i bez cichego usuwania
+zapasów. Aktualne przednie wyjścia też mają konieczny konflikt kierunku:
+first9,25+R25,2 wymusza środekX-149,2 poza dozwolonym-136,15. Sam najbliższy
+węzeł/łuk tego nie naprawi. Następna decyzja musi objąć cały układ obu
+końców/fabrycznych długości/chwytów, nie trzeci lokalny łącznik.
+
+20.10: najbliższy węzeł nawet stycznego grafu nie jest wejściem przewodu.
+Jedna hipoteza wszystkich216dojść dała162za małe promienie i44braki
+przedniego biarc. Nie poprawiać kolejno punktów: dobierać portal wspólnie
+z kierunkiem i promieniem już na etapie alokacji. Reużycie istniejących
+biarc dało208konstrukcji bez ruszania części, lecz tylko10dodatnich dowodów
+konserwatywnej mapy. Pozostałe NIE są ani PASS, ani potwierdzoną kolizją;
+wymagają rzeczywistej bryły. Liczyć domknięte bramki, nie linie kontrolera.
+
 19.10, wspólny węzeł P_SYS: łuki dopisane do arbitralnego tipa po dodatkowych
 9mm trafiały w bank/ramę. Chwyt był JUŻ przed łukiem. Pomogła jednoczesna
 alokacja ogonów po zachowanymfirst9, pełnego rzędu chwytówFL_P, orientacji

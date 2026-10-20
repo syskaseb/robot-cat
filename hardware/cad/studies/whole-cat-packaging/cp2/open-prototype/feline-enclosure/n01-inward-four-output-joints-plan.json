@@ -1,0 +1,832 @@
+{
+  "status": "FOUR_INWARD_OUTPUT_JOINTS_LENGTH_AND_OUTER_PREFLIGHT_ONLY",
+  "existing_fore_orientation_necessary_rejection": [
+    {
+      "wire": "W026",
+      "existing_prefix_tip_mm": [
+        -123.99999389648437,
+        14.99999923706055,
+        -34.0
+      ],
+      "required_R_mm": 25.2,
+      "unavoidable_centre_X_at_or_before_first90_mm": -149.19999389648436,
+      "allowed_centre_X_lower_mm": -136.15000000000003,
+      "required_fore_bound_violation_mm": 13.049993896484324,
+      "existing_orientation_cannot_reach_interior_within_envelope": true
+    },
+    {
+      "wire": "W037",
+      "existing_prefix_tip_mm": [
+        -124.0,
+        -15.0,
+        -34.0000015258789
+      ],
+      "required_R_mm": 25.2,
+      "unavoidable_centre_X_at_or_before_first90_mm": -149.2,
+      "allowed_centre_X_lower_mm": -136.15000000000003,
+      "required_fore_bound_violation_mm": 13.049999999999955,
+      "existing_orientation_cannot_reach_interior_within_envelope": true
+    }
+  ],
+  "chosen_common_cause_change": "Turn the four complete output inline joints inward; full factory return loops instead of custom power bends through the fore wall",
+  "outputs": {
+    "W026": {
+      "joint_centre_mm": [
+        -74.9999999999993,
+        45.0,
+        -33.99999389648437
+      ],
+      "joint_rotation_delta_deg": 180,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "factory_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -57.5,
+            15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -102.00000505118118,
+            14.999998439042807,
+            -34.00000638414196
+          ],
+          "length_mm": 44.50000505118295
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -102.00000505118118,
+            14.999998439042807,
+            -34.00000638414196
+          ],
+          "mid": [
+            -110.76812926529216,
+            18.63187404476392,
+            -34.00000764712655
+          ],
+          "end": [
+            -114.40000548614513,
+            27.39999800407882,
+            -34.000005775193024
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            -114.40000548614513,
+            27.39999800407882,
+            -34.000005775193024
+          ],
+          "end": [
+            -114.40000566854965,
+            32.600000003508235,
+            -34.00000406059495
+          ],
+          "length_mm": 5.2000019994297
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -114.40000566854965,
+            32.600000003508235,
+            -34.00000406059495
+          ],
+          "mid": [
+            -110.7681300628293,
+            41.36812421761875,
+            -34.00000015029658
+          ],
+          "end": [
+            -102.0000061035146,
+            45.000000438470856,
+            -33.99999649223312
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            -102.0000061035146,
+            45.000000438470856,
+            -33.99999649223312
+          ],
+          "end": [
+            -92.75000610351495,
+            45.00000076293945,
+            -33.99999389648437
+          ],
+          "length_mm": 9.250000000000014
+        }
+      ],
+      "factory_guide_mm": 97.9057559551261,
+      "provisional100mm_factory_margin_mm": 2.0942440448739035,
+      "factory_length_not_catalogue_or_delivered_guarantee": true,
+      "retained_strip_allowance_mm": 11,
+      "retained_rework_assumption_mm": 10,
+      "factory_need_with_strip_and_rework_mm": 118.9057559551261,
+      "full_factory_budget_gate": false,
+      "factory_first_last_lands_mm": [
+        44.50000505118295,
+        9.250000000000014
+      ],
+      "custom_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -57.25000610351495,
+            45.00000076293945,
+            -33.99999389648437
+          ],
+          "end": [
+            -48.00000610351495,
+            45.00000076293945,
+            -33.99999389648437
+          ],
+          "length_mm": 9.25
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -48.00000610351495,
+            45.00000076293945,
+            -33.99999389648437
+          ],
+          "mid": [
+            -30.18091521761395,
+            39.780909877038454,
+            -28.780903010583373
+          ],
+          "end": [
+            -22.80000610351495,
+            27.180909877038456,
+            -16.180903010583375
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        }
+      ],
+      "custom_exit_mm": [
+        -22.80000610351495,
+        27.180909877038456,
+        -16.180903010583375
+      ],
+      "custom_exit_axis": [
+        6.123233995736766e-17,
+        -0.7071067811865475,
+        0.7071067811865475
+      ],
+      "selected_project_radius_mm": 2.1000000000000028,
+      "minimum_custom_bend_mm": 25.2,
+      "outer": {
+        "Ref_Material_W026_Joint_0_0": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 9.550006103515642,
+          "minimum_mm": 3.25
+        },
+        "factory": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.899992480675158,
+          "minimum_mm": 3.25
+        },
+        "custom": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.90000610351565,
+          "minimum_mm": 3.25
+        }
+      },
+      "full_seats_ties_heads_root_access_and_changed_neighbors_OPEN": true
+    },
+    "W037": {
+      "joint_centre_mm": [
+        -74.99999999999892,
+        -45.0,
+        -33.99999389648437
+      ],
+      "joint_rotation_delta_deg": 180,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "factory_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -57.5,
+            -15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -101.999999999994,
+            -15.0,
+            -34.00000950605019
+          ],
+          "length_mm": 44.49999999999674
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -101.999999999994,
+            -15.0,
+            -34.00000950605019
+          ],
+          "mid": [
+            -110.76812408670718,
+            -18.6318759132865,
+            -34.00001108478059
+          ],
+          "end": [
+            -114.39999999999503,
+            -27.399999999998947,
+            -34.00000874486462
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            -114.39999999999503,
+            -27.399999999998947,
+            -34.00000874486462
+          ],
+          "end": [
+            -114.39999999999579,
+            -32.60000000000105,
+            -34.000006601618615
+          ],
+          "length_mm": 5.2000000000025475
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -114.39999999999579,
+            -32.60000000000105,
+            -34.000006601618615
+          ],
+          "mid": [
+            -110.76812408671046,
+            -41.3681240867135,
+            -34.00000171374731
+          ],
+          "end": [
+            -101.99999999999834,
+            -45.0,
+            -33.9999971411694
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            -101.99999999999834,
+            -45.0,
+            -33.9999971411694
+          ],
+          "end": [
+            -92.74999999999892,
+            -45.0,
+            -33.99999389648437
+          ],
+          "length_mm": 9.249999999999986
+        }
+      ],
+      "factory_guide_mm": 97.9057489045127,
+      "provisional100mm_factory_margin_mm": 2.0942510954872944,
+      "factory_length_not_catalogue_or_delivered_guarantee": true,
+      "retained_strip_allowance_mm": 11,
+      "retained_rework_assumption_mm": 10,
+      "factory_need_with_strip_and_rework_mm": 118.9057489045127,
+      "full_factory_budget_gate": false,
+      "factory_first_last_lands_mm": [
+        44.49999999999674,
+        9.249999999999986
+      ],
+      "custom_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -57.24999999999892,
+            -45.0,
+            -33.99999389648437
+          ],
+          "end": [
+            -47.99999999999892,
+            -45.0,
+            -33.99999389648437
+          ],
+          "length_mm": 9.25
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -47.99999999999892,
+            -45.0,
+            -33.99999389648437
+          ],
+          "mid": [
+            -30.180909114097922,
+            -39.780909114099,
+            -28.780903010583373
+          ],
+          "end": [
+            -22.79999999999892,
+            -27.180909114099006,
+            -16.180903010583375
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        }
+      ],
+      "custom_exit_mm": [
+        -22.79999999999892,
+        -27.180909114099006,
+        -16.180903010583375
+      ],
+      "custom_exit_axis": [
+        6.123233995736766e-17,
+        0.7071067811865475,
+        0.7071067811865475
+      ],
+      "selected_project_radius_mm": 2.1,
+      "minimum_custom_bend_mm": 25.2,
+      "outer": {
+        "Ref_Material_W037_Joint_0_0": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 9.550006103515592,
+          "minimum_mm": 3.25
+        },
+        "factory": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.899989488857441,
+          "minimum_mm": 3.25
+        },
+        "custom": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.900006103515608,
+          "minimum_mm": 3.25
+        }
+      },
+      "full_seats_ties_heads_root_access_and_changed_neighbors_OPEN": true
+    },
+    "W045": {
+      "joint_centre_mm": [
+        99.99999999999864,
+        45.0,
+        -33.99999389648437
+      ],
+      "joint_rotation_delta_deg": 180,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "factory_parts": [
+        {
+          "kind": "line",
+          "start": [
+            82.5,
+            15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            127.00000469827424,
+            15.00000654473438,
+            -34.00001025832037
+          ],
+          "length_mm": 44.50000469827773
+        },
+        {
+          "kind": "arc",
+          "start": [
+            127.00000469827424,
+            15.00000654473438,
+            -34.00001025832037
+          ],
+          "mid": [
+            135.76812825083763,
+            18.631883747572207,
+            -34.00001191313355
+          ],
+          "end": [
+            139.40000287457417,
+            27.400008368434158,
+            -34.00000946044897
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            139.40000287457417,
+            27.400008368434158,
+            -34.00000946044897
+          ],
+          "end": [
+            139.40000210979835,
+            32.60000013236673,
+            -34.00000721391662
+          ],
+          "length_mm": 5.199991763933115
+        },
+        {
+          "kind": "arc",
+          "start": [
+            139.40000210979835,
+            32.60000013236673,
+            -34.00000721391662
+          ],
+          "mid": [
+            135.76812490696182,
+            41.36812368492933,
+            -34.00000209048363
+          ],
+          "end": [
+            127.00000028610022,
+            44.999998308664374,
+            -33.999997297539814
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            127.00000028610022,
+            44.999998308664374,
+            -33.999997297539814
+          ],
+          "end": [
+            117.75000028610093,
+            44.9999969482422,
+            -33.99999389648437
+          ],
+          "length_mm": 9.250000000000014
+        }
+      ],
+      "factory_guide_mm": 97.90574536672429,
+      "provisional100mm_factory_margin_mm": 2.0942546332757104,
+      "factory_length_not_catalogue_or_delivered_guarantee": true,
+      "retained_strip_allowance_mm": 11,
+      "retained_rework_assumption_mm": 10,
+      "factory_need_with_strip_and_rework_mm": 118.90574536672429,
+      "full_factory_budget_gate": false,
+      "factory_first_last_lands_mm": [
+        44.50000469827773,
+        9.250000000000014
+      ],
+      "custom_parts": [
+        {
+          "kind": "line",
+          "start": [
+            82.25000028610094,
+            44.9999969482422,
+            -33.99999389648437
+          ],
+          "end": [
+            73.00000028610094,
+            44.9999969482422,
+            -33.99999389648437
+          ],
+          "length_mm": 9.25
+        },
+        {
+          "kind": "arc",
+          "start": [
+            73.00000028610094,
+            44.9999969482422,
+            -33.99999389648437
+          ],
+          "mid": [
+            55.180909400199944,
+            39.7809060623412,
+            -28.780903010583373
+          ],
+          "end": [
+            47.80000028610094,
+            27.180906062341204,
+            -16.180903010583375
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        }
+      ],
+      "custom_exit_mm": [
+        47.80000028610094,
+        27.180906062341204,
+        -16.180903010583375
+      ],
+      "custom_exit_axis": [
+        -6.123233995736766e-17,
+        -0.7071067811865475,
+        0.7071067811865475
+      ],
+      "selected_project_radius_mm": 2.1,
+      "minimum_custom_bend_mm": 25.2,
+      "outer": {
+        "Ref_Material_W045_Joint_0_0": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 9.55000610351562,
+          "minimum_mm": 3.25
+        },
+        "factory": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.899989295426247,
+          "minimum_mm": 3.25
+        },
+        "custom": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.900006103515636,
+          "minimum_mm": 3.25
+        }
+      },
+      "full_seats_ties_heads_root_access_and_changed_neighbors_OPEN": true
+    },
+    "W053": {
+      "joint_centre_mm": [
+        99.99999999999864,
+        -45.0,
+        -33.99999389648437
+      ],
+      "joint_rotation_delta_deg": 180,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "factory_parts": [
+        {
+          "kind": "line",
+          "start": [
+            82.5,
+            -15.0,
+            -33.99999389648437
+          ],
+          "end": [
+            127.00000469827424,
+            -15.00000654473438,
+            -34.00001025832037
+          ],
+          "length_mm": 44.50000469827773
+        },
+        {
+          "kind": "arc",
+          "start": [
+            127.00000469827424,
+            -15.00000654473438,
+            -34.00001025832037
+          ],
+          "mid": [
+            135.76812825083763,
+            -18.631883747572207,
+            -34.00001191313355
+          ],
+          "end": [
+            139.40000287457417,
+            -27.400008368434158,
+            -34.00000946044897
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            139.40000287457417,
+            -27.400008368434158,
+            -34.00000946044897
+          ],
+          "end": [
+            139.40000210979835,
+            -32.60000013236673,
+            -34.00000721391662
+          ],
+          "length_mm": 5.199991763933115
+        },
+        {
+          "kind": "arc",
+          "start": [
+            139.40000210979835,
+            -32.60000013236673,
+            -34.00000721391662
+          ],
+          "mid": [
+            135.76812490696182,
+            -41.36812368492933,
+            -34.00000209048363
+          ],
+          "end": [
+            127.00000028610022,
+            -44.999998308664374,
+            -33.999997297539814
+          ],
+          "radius_mm": 12.4,
+          "length_mm": 19.477874452256717
+        },
+        {
+          "kind": "line",
+          "start": [
+            127.00000028610022,
+            -44.999998308664374,
+            -33.999997297539814
+          ],
+          "end": [
+            117.75000028610093,
+            -44.9999969482422,
+            -33.99999389648437
+          ],
+          "length_mm": 9.250000000000014
+        }
+      ],
+      "factory_guide_mm": 97.90574536672429,
+      "provisional100mm_factory_margin_mm": 2.0942546332757104,
+      "factory_length_not_catalogue_or_delivered_guarantee": true,
+      "retained_strip_allowance_mm": 11,
+      "retained_rework_assumption_mm": 10,
+      "factory_need_with_strip_and_rework_mm": 118.90574536672429,
+      "full_factory_budget_gate": false,
+      "factory_first_last_lands_mm": [
+        44.50000469827773,
+        9.250000000000014
+      ],
+      "custom_parts": [
+        {
+          "kind": "line",
+          "start": [
+            82.25000028610094,
+            -44.9999969482422,
+            -33.99999389648437
+          ],
+          "end": [
+            73.00000028610094,
+            -44.9999969482422,
+            -33.99999389648437
+          ],
+          "length_mm": 9.25
+        },
+        {
+          "kind": "arc",
+          "start": [
+            73.00000028610094,
+            -44.9999969482422,
+            -33.99999389648437
+          ],
+          "mid": [
+            55.180909400199944,
+            -39.7809060623412,
+            -28.780903010583373
+          ],
+          "end": [
+            47.80000028610094,
+            -27.180906062341204,
+            -16.180903010583375
+          ],
+          "radius_mm": 25.2,
+          "length_mm": 39.58406743523139
+        }
+      ],
+      "custom_exit_mm": [
+        47.80000028610094,
+        -27.180906062341204,
+        -16.180903010583375
+      ],
+      "custom_exit_axis": [
+        -6.123233995736766e-17,
+        0.7071067811865475,
+        0.7071067811865475
+      ],
+      "selected_project_radius_mm": 2.1,
+      "minimum_custom_bend_mm": 25.2,
+      "outer": {
+        "Ref_Material_W053_Joint_0_0": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 9.550006103515571,
+          "minimum_mm": 3.25
+        },
+        "factory": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.899989741679484,
+          "minimum_mm": 3.25
+        },
+        "custom": {
+          "ok": true,
+          "outside_mm3": 0.0,
+          "gap_mm": 11.900006103515594,
+          "minimum_mm": 3.25
+        }
+      },
+      "full_seats_ties_heads_root_access_and_changed_neighbors_OPEN": true
+    }
+  },
+  "geometry": [
+    {
+      "name": "InwardJoint:W026",
+      "entry": "0.brep",
+      "sha256": "7c0d02d9900283ab90bd3655e774a47c3512ce9746205d91a42cf8327f911468"
+    },
+    {
+      "name": "InwardFactory:W026",
+      "entry": "1.brep",
+      "sha256": "0678665ded6f997db8596d9477d8ca37df3ef018a4b34d60433a30c6f4ac5bf5"
+    },
+    {
+      "name": "InwardCustom:W026",
+      "entry": "2.brep",
+      "sha256": "4ee7de258bff959ac8cacdab0a32f58ed7aae65e951fa880fb741d956e35b36e"
+    },
+    {
+      "name": "InwardJoint:W037",
+      "entry": "3.brep",
+      "sha256": "b1b85a6c22068f76c2c792c098135683184b0e0325237bc1f1807a11f334cfa7"
+    },
+    {
+      "name": "InwardFactory:W037",
+      "entry": "4.brep",
+      "sha256": "4190a764f42dbfe34ab9397e6dbdb9728218737dbd8cd10f5387bb163fb43938"
+    },
+    {
+      "name": "InwardCustom:W037",
+      "entry": "5.brep",
+      "sha256": "74f06233a9f98f438d1e70720bde77e017cd57bcd461be0965e9fe8d9a17479e"
+    },
+    {
+      "name": "InwardJoint:W045",
+      "entry": "6.brep",
+      "sha256": "2ae2b6911db329d48a4d962f9c213ff14be1f424937ba3d716a7e50b0c9e4e70"
+    },
+    {
+      "name": "InwardFactory:W045",
+      "entry": "7.brep",
+      "sha256": "e1852d96f33a5bbf437b0e85eb4ae879d18d7ca69545034e2288c6cd91486c51"
+    },
+    {
+      "name": "InwardCustom:W045",
+      "entry": "8.brep",
+      "sha256": "a6147aad56ba778d02f315a86f06d81bfe806d9487fc248e645a61343314f035"
+    },
+    {
+      "name": "InwardJoint:W053",
+      "entry": "9.brep",
+      "sha256": "cab3b3138fba6da23bea08a40bba225734144183c6ff9a0140ecaef4d4427cef"
+    },
+    {
+      "name": "InwardFactory:W053",
+      "entry": "10.brep",
+      "sha256": "b98f8b8c6ce38bf9f149425bfa0ee9f2921c4463ca05ac8c028301bf22c10948"
+    },
+    {
+      "name": "InwardCustom:W053",
+      "entry": "11.brep",
+      "sha256": "f914b17b611c3e6738a55a05995f9b14baac4b0a30c21484b694d45ac50c5c75"
+    }
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-inward-four-output-joints-plan.breps.zip",
+  "bundle_sha256": "6ac1a4b09cfb0a18db43a484429a6238f848cff71704fe05919b1aebe3cfc896",
+  "unchanged_input_joints_and_factory_routes": [
+    "W041",
+    "W042",
+    "W044",
+    "W052"
+  ],
+  "MTA_source_bodies_not_moved": true,
+  "selected_parts_wire_lengths_and_body_envelope_not_changed": true,
+  "N01_complete": false,
+  "selected": false,
+  "physical_pass": false,
+  "all_factory_strip_rework_budgets_fit": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/central-cassette-envelope/FelineLayoutEnvelope.FCStd": "70b6d563701e7a4fbaaddff9c7fb62103aee75a53a5153eb3f2f27dad8987bdf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-lower-bay-plan-r3.json": "6dbe5b1a83bfabefa46bf23b19cb43e62eeb746bcd3794fab1e62886ddfaa08a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-whole-wire-profile-contract.json": "bc5e1363ae543c93ece0dd6307b374c1637ef673cbf09c37e9cfd768deb3b222",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-selected-wire-bend-delta.json": "bdd833e2e769838de4c0cce18fd92b24bfd5f21a02d3920b620a6068902d4c70",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-routing-boundaries.json": "3ff749aa3d78c3e80f6ebdda76e7bcb101db346ccaf376749febca8143cd8155",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/central-cassette-envelope/manifest.json": "795d17f7686a30a6364c7ec9802d160f83a5b1e395c5ca1d855e3598a6f6231c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.zip": "8d96a3bc0c1ac2496b7d96bb1a0726368cdf3aa941a7b557e6cfc64eb1ce7c6f",
+    "tools/cad/plan_feline_inward_output_joints.py": "15acdf58eaa56899edbd03645d52578175bc34efd7cb98008f0574df7c1070bc",
+    "tools/cad/feline_selected_material_contract.py": "1694a861f4167d30d94510cc8690966a5b234c291d4f451487360ffd496b9bdc",
+    "hardware/electronics/full-cat/servo-fuse-main-feeds-materials-r1/materials.json": "9f8581e55f5a5d7ab1c98c139badd756b7d3865ff0c5778cdab31cb16c345b04"
+  },
+  "worker_seconds": 6.156
+}

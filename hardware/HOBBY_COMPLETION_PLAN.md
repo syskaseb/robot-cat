@@ -2,6 +2,42 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,00:13Z: profil W066 poprawiony zgodnie z zachowanymHELU4mm2:
+OD4,2/R25,2 zamiast błędnegoCAP3,1. Tylko przewód i własny rowekPETG,
+ten samfirst9/tor/wyjście/kupne części,40,469s/8kontroli/0wskazań.
+To KORYGUJE interpretację22:43Z: cap był faktem modelu, nie właściwym
+profilem wybranego materiału. Całe216capdatums:146dopasowań/70OPEN,
+40,344s. Tabela123fizycznych odcinków +jawne role przedłużeńHELU/fixedlogic
+zastępuje dobór promienia przez ogólny prefix nazwy. OdcinekW026/custom
+nie jest jego fabrycznym ogonem z elektrycznej tabeliW026.
+Odbiór208zamrożonych portali:78,734s,61sztywneclear/147wskazań przed
+korektą kontraktów. Reużycie dokładnych odległości bez nowych zapytań:
+93clear/106holds/9wzrostów profilu wymagających nowego broadphase. Miękkie
+opaski/samokontakt/packing/ruch NIE zaliczone. Pięć konstruktywnych przekrojów
+ma certyfikat odstępów i wewnętrznego promienia łuku, nie przydział całości.
+Nowa wspólna propozycja4złączy wyjściowych do środka została ODRZUCONA
+przed światem: wszystkie12brył z marginesem3,25 w prawdziwym obrysie,
+ale97,906+11strip+10rework=118,906mm>100, preflight6,156s.
+Aktualne przednie wyjścia koniecznie naruszają granicę o13,05mm przy
+zachowaniuR25,2, niezależnie od kierunku późniejszego korytarza.
+NEXT: wspólny plan4złączy i obu końców z PEŁNYM bilansem fabrycznym;
+nie powtarzać tej pozycji ani poprzednich nearest/biarc solverów. Najpierw
+nierówności długości/obrysu i typedSKU, dopiero jedno uzgodnione CAD.
+N01 nadal0/10; historyczne100%, native/master i wybór kupnych bez zmian.
+
+23:53Z: delta15zmienionych/1208reużytych właścicieli odebrana73,454s;
+3888motion/obrys bez zmian. Nowy graf123odcinków odebrany13,187s:
+108wspólnych regionów/9całych zachowanych krzywych/6interfejsów głowy.
+Najbliższe wejścia NIE odebrane: max104,312mm. Wspólny test216biarc
+1,203s odrzucił wybór samą odległością:162promienie/44brak konstrukcji/
+10pozostałych wskazań mapy, bez twierdzenia o rzeczywistej kolizji.
+Zmiana kryterium na kierunek+promień przed odległością, bez ruchu części:
+29,484s,208konstrukcji geometrycznych, w tym10dodatnich dowodów mapy;
+198rzeczywiste odstępyOPEN,8brak portalu w ograniczonej rodzinie.
+Trwa JEDEN odbiór całych208dojść vs aktualne sztywne bryły; pojemność,
+samokontakt, ruch, pozostałe korzenie/montaż i pełneN01 nadalOPEN.
+N01=0/10; nie dopisano produkcyjnych mocowań, native/master bez zmian.
+
 23:25Z wspólny węzełP_SYS/FL_P/G2+podpora banku odebranyR2:
 136kontroli/0wskazań/0błędów,44,844s,14aktorów zachowanych bajtowo,
 109pozytywnych wyników reużytych. Nie kolejny łuk po tym samym tipie:
