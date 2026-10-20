@@ -1,0 +1,1695 @@
+{
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-source-MTA-boundary-overlay.json": "f3d4abb005a0863d6508651976bc60d0bf5c56dfbba1630b9334852317e36098",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/u1-socket-carrier-plan.json": "d1033a9322c43f4ba311dafce772d2915bdc4f24e2afe0319a558a869e1061f8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/head-supply-checkpoint/plan.json": "33e0dac829632c81972bbc2ee12e256aa6134be3d12e730f05557c8c67964872",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/tail-wiring-checkpoint/selection.json": "11d1ce89ba3a5fc092b7931ac8ea6a93ee2aea098704adc21ea692fe9068597c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/pwm-branch-checkpoint/selection.json": "470809555653fb217ad0cfa1f266402247b9e6687818f7e7857f10130e14abb0",
+    "tools/cad/plan_feline_u1_underside_escape.py": "a86fff2ad17347dfc1cf77d8d74867db635afe2c1a0db396a3e73b246be46b5b"
+  },
+  "PCB_bottom_mm": -25.03,
+  "PCB_top_mm": -23.4298,
+  "mirror_plane_Z_mm": -24.2299,
+  "selected_parts_changed": false,
+  "electrical_identities_changed": false,
+  "whole225mm_Molex_corridors_NOT_received": true,
+  "grip_common_combs_roots_tools_and_world_OPEN": true,
+  "N01_complete": false,
+  "native_changed": false,
+  "physical_pass": false,
+  "construction_worker_seconds": 0.14,
+  "status": "ONE_WHOLE14_UNDERSIDE_SOURCE_PROPOSAL_WORLD_OPEN",
+  "specs": {
+    "XL01/extra/end": {
+      "wire": "XL01",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -6.189999999999998,
+            -11.97,
+            -26.03
+          ],
+          "end": [
+            -6.189999999999998,
+            -11.97,
+            -35.03
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -6.189999999999998,
+            -11.97,
+            -21.930000000000007
+          ],
+          "end": [
+            -6.189999999999998,
+            -11.97,
+            -26.03
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius_mm": 0.7,
+      "bare_radius_mm": 0.2026375466632702,
+      "selected_carrier_pad_identity": "LOGIC3V3.in",
+      "pad_world_mm": [
+        -6.189999999999998,
+        -11.97,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XL10/extra/end": {
+      "wire": "XL10",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            29.370000000000005,
+            21.05,
+            -26.03
+          ],
+          "end": [
+            29.370000000000005,
+            21.05,
+            -35.03
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            29.370000000000005,
+            21.05,
+            -21.930000000000007
+          ],
+          "end": [
+            29.370000000000005,
+            21.05,
+            -26.03
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius_mm": 0.7,
+      "bare_radius_mm": 0.2026375466632702,
+      "selected_carrier_pad_identity": "G_LOGIC.in",
+      "pad_world_mm": [
+        29.370000000000005,
+        21.05,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XL07/extra/end": {
+      "wire": "XL07",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -1.1099999999999994,
+            8.35,
+            -26.03
+          ],
+          "end": [
+            -1.1099999999999994,
+            8.35,
+            -35.03
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -1.1099999999999994,
+            8.35,
+            -21.930000000000007
+          ],
+          "end": [
+            -1.1099999999999994,
+            8.35,
+            -26.03
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius_mm": 0.7,
+      "bare_radius_mm": 0.2026375466632702,
+      "selected_carrier_pad_identity": "OE.in",
+      "pad_world_mm": [
+        -1.1099999999999994,
+        8.35,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XL02/extra/start": {
+      "wire": "XL02",
+      "parts": [
+        {
+          "kind": "arc",
+          "start": [
+            -3.6500000000000057,
+            -11.97,
+            -26.03
+          ],
+          "mid": [
+            -3.6500000000000057,
+            -13.727359312880715,
+            -30.272640687119292
+          ],
+          "end": [
+            -3.6500000000000057,
+            -17.97,
+            -32.03
+          ],
+          "radius_mm": 6,
+          "length_mm": 9.42477796076938
+        },
+        {
+          "kind": "line",
+          "start": [
+            -3.6500000000000057,
+            -17.97,
+            -32.03
+          ],
+          "end": [
+            -3.6500000000000057,
+            -26.97,
+            -32.03
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -3.6500000000000057,
+            -11.97,
+            -21.930000000000007
+          ],
+          "end": [
+            -3.6500000000000057,
+            -11.97,
+            -26.03
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius_mm": 0.7,
+      "bare_radius_mm": 0.28209479177387814,
+      "selected_carrier_pad_identity": "PCA3V3.out",
+      "pad_world_mm": [
+        -3.6500000000000057,
+        -11.97,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XL08/extra/end": {
+      "wire": "XL08",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -3.6499999999999915,
+            21.05,
+            -26.03
+          ],
+          "end": [
+            -3.6499999999999915,
+            21.05,
+            -35.03
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -3.6499999999999915,
+            21.05,
+            -21.930000000000007
+          ],
+          "end": [
+            -3.6499999999999915,
+            21.05,
+            -26.03
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius_mm": 0.7,
+      "bare_radius_mm": 0.28209479177387814,
+      "selected_carrier_pad_identity": "G_HP.out",
+      "pad_world_mm": [
+        -3.6499999999999915,
+        21.05,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XL09/extra/start": {
+      "wire": "XL09",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -6.189999999999998,
+            21.05,
+            -26.03
+          ],
+          "end": [
+            -6.189999999999998,
+            21.05,
+            -35.03
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -6.189999999999998,
+            21.05,
+            -21.930000000000007
+          ],
+          "end": [
+            -6.189999999999998,
+            21.05,
+            -26.03
+          ],
+          "length_mm": 4.099999999999994
+        }
+      ],
+      "radius_mm": 0.7,
+      "bare_radius_mm": 0.28209479177387814,
+      "selected_carrier_pad_identity": "G_HY.out",
+      "pad_world_mm": [
+        -6.189999999999998,
+        21.05,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XS11/extra/end": {
+      "wire": "XS11",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -1.1099999999999994,
+            -1.81,
+            -25.53
+          ],
+          "end": [
+            -1.1099999999999994,
+            -1.81,
+            -30.5098
+          ],
+          "length_mm": 4.979799999999997
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -1.1099999999999994,
+            -1.8099999999999974,
+            -30.5098
+          ],
+          "end": [
+            -1.1099999999999994,
+            -2.3099999999999996,
+            -31.0098
+          ],
+          "length_mm": 0.7853981633974495,
+          "mid": [
+            -1.1099999999999994,
+            -1.9564466094067243,
+            -30.863353390593275
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            -1.1099999999999994,
+            -2.3099999999999996,
+            -31.0098
+          ],
+          "end": [
+            -1.1099999999999994,
+            -3.8499999999999996,
+            -31.0098
+          ],
+          "length_mm": 1.54
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -1.1099999999999994,
+            -3.8499999999999996,
+            -31.0098
+          ],
+          "end": [
+            -1.6099999999999994,
+            -4.350000000000002,
+            -31.0098
+          ],
+          "length_mm": 0.7853981633974499,
+          "mid": [
+            -1.2564466094067228,
+            -4.203553390593275,
+            -31.0098
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            -1.6099999999999994,
+            -4.35,
+            -31.0098
+          ],
+          "end": [
+            -22.0,
+            -4.35,
+            -31.0098
+          ],
+          "length_mm": 20.39
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            -1.1099999999999994,
+            -1.81,
+            -21.930000000000007
+          ],
+          "end": [
+            -1.1099999999999994,
+            -1.81,
+            -25.53
+          ],
+          "length_mm": 3.5999999999999943
+        }
+      ],
+      "radius_mm": 0.4,
+      "bare_radius_mm": 0.13,
+      "selected_carrier_pad_identity": "A1.in",
+      "pad_world_mm": [
+        -1.1099999999999994,
+        -1.81,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XS21/extra/end": {
+      "wire": "XS21",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            1.4300000000000068,
+            -1.81,
+            -25.53
+          ],
+          "end": [
+            1.4300000000000068,
+            -1.81,
+            -30.5098
+          ],
+          "length_mm": 4.979799999999997
+        },
+        {
+          "kind": "arc",
+          "start": [
+            1.4300000000000068,
+            -1.8099999999999974,
+            -30.5098
+          ],
+          "end": [
+            1.4300000000000068,
+            -2.3099999999999996,
+            -31.0098
+          ],
+          "length_mm": 0.7853981633974495,
+          "mid": [
+            1.4300000000000068,
+            -1.9564466094067243,
+            -30.863353390593275
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            1.4300000000000068,
+            -2.3099999999999996,
+            -31.0098
+          ],
+          "end": [
+            1.4300000000000068,
+            -5.119999999999999,
+            -31.0098
+          ],
+          "length_mm": 2.8099999999999996
+        },
+        {
+          "kind": "arc",
+          "start": [
+            1.4300000000000068,
+            -5.119999999999999,
+            -31.0098
+          ],
+          "end": [
+            0.9300000000000068,
+            -5.620000000000002,
+            -31.0098
+          ],
+          "length_mm": 0.7853981633974499,
+          "mid": [
+            1.2835533905932834,
+            -5.473553390593275,
+            -31.0098
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            0.9300000000000068,
+            -5.619999999999999,
+            -31.0098
+          ],
+          "end": [
+            -22.0,
+            -5.619999999999999,
+            -31.0098
+          ],
+          "length_mm": 22.930000000000007
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            1.4300000000000068,
+            -1.81,
+            -21.930000000000007
+          ],
+          "end": [
+            1.4300000000000068,
+            -1.81,
+            -25.53
+          ],
+          "length_mm": 3.5999999999999943
+        }
+      ],
+      "radius_mm": 0.4,
+      "bare_radius_mm": 0.13,
+      "selected_carrier_pad_identity": "A2.in",
+      "pad_world_mm": [
+        1.4300000000000068,
+        -1.81,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XS31/extra/end": {
+      "wire": "XS31",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            3.969999999999999,
+            -1.81,
+            -25.53
+          ],
+          "end": [
+            3.969999999999999,
+            -1.81,
+            -30.5098
+          ],
+          "length_mm": 4.979799999999997
+        },
+        {
+          "kind": "arc",
+          "start": [
+            3.969999999999999,
+            -1.8099999999999974,
+            -30.5098
+          ],
+          "end": [
+            3.969999999999999,
+            -2.3099999999999996,
+            -31.0098
+          ],
+          "length_mm": 0.7853981633974495,
+          "mid": [
+            3.969999999999999,
+            -1.9564466094067243,
+            -30.863353390593275
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            3.969999999999999,
+            -2.3099999999999996,
+            -31.0098
+          ],
+          "end": [
+            3.969999999999999,
+            -6.390000000000001,
+            -31.0098
+          ],
+          "length_mm": 4.080000000000001
+        },
+        {
+          "kind": "arc",
+          "start": [
+            3.969999999999999,
+            -6.390000000000001,
+            -31.0098
+          ],
+          "end": [
+            3.469999999999999,
+            -6.890000000000002,
+            -31.0098
+          ],
+          "length_mm": 0.7853981633974495,
+          "mid": [
+            3.8235533905932755,
+            -6.743553390593275,
+            -31.0098
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            3.469999999999999,
+            -6.890000000000001,
+            -31.0098
+          ],
+          "end": [
+            -22.0,
+            -6.890000000000001,
+            -31.0098
+          ],
+          "length_mm": 25.47
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "line",
+          "start": [
+            3.969999999999999,
+            -1.81,
+            -21.930000000000007
+          ],
+          "end": [
+            3.969999999999999,
+            -1.81,
+            -25.53
+          ],
+          "length_mm": 3.5999999999999943
+        }
+      ],
+      "radius_mm": 0.4,
+      "bare_radius_mm": 0.13,
+      "selected_carrier_pad_identity": "A3.in",
+      "pad_world_mm": [
+        3.969999999999999,
+        -1.81,
+        -23.4298
+      ],
+      "source_basis": "Same selected local recipe/length/R, underside of same PermaProto through-hole; copper layer16",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XS13/extra/start": {
+      "wire": "XS13",
+      "parts": [
+        {
+          "kind": "arc",
+          "start": [
+            1.4300000000000068,
+            16.97,
+            -28.549999999999997
+          ],
+          "mid": [
+            -2.260454557049499,
+            25.8795454429505,
+            -28.549999999999997
+          ],
+          "end": [
+            -11.170000000000002,
+            29.57,
+            -28.549999999999997
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            -11.170000000000002,
+            29.57,
+            -28.549999999999997
+          ],
+          "end": [
+            -20.17,
+            29.57,
+            -28.549999999999997
+          ],
+          "length_mm": 9
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "arc",
+          "start": [
+            1.4300000000000068,
+            16.97,
+            -28.549999999999997
+          ],
+          "mid": [
+            1.4300000000000068,
+            16.262893218813453,
+            -28.25710678118655
+          ],
+          "end": [
+            1.4300000000000068,
+            15.97,
+            -27.549999999999997
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            1.4300000000000068,
+            15.97,
+            -27.549999999999997
+          ],
+          "end": [
+            1.4300000000000068,
+            15.97,
+            -21.9298
+          ]
+        }
+      ],
+      "radius_mm": 1.05,
+      "bare_radius_mm": 0.3989422804014327,
+      "selected_carrier_pad_identity": "B1.out",
+      "pad_world_mm": [
+        1.4299999999999997,
+        15.97,
+        -23.4298
+      ],
+      "source_basis": "Selected local underside head/tail departure only; no old middle inherited",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XS23/extra/start": {
+      "wire": "XS23",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            3.969999999999999,
+            14.97,
+            -28.549999999999997
+          ],
+          "end": [
+            3.969999999999999,
+            5.970000000000001,
+            -28.549999999999997
+          ],
+          "length_mm": 9
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "arc",
+          "start": [
+            3.969999999999999,
+            14.97,
+            -28.549999999999997
+          ],
+          "mid": [
+            3.969999999999999,
+            15.677106781186549,
+            -28.25710678118655
+          ],
+          "end": [
+            3.969999999999999,
+            15.97,
+            -27.549999999999997
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            3.969999999999999,
+            15.97,
+            -27.549999999999997
+          ],
+          "end": [
+            3.969999999999999,
+            15.97,
+            -21.9298
+          ]
+        }
+      ],
+      "radius_mm": 1.05,
+      "bare_radius_mm": 0.3989422804014327,
+      "selected_carrier_pad_identity": "B2.out",
+      "pad_world_mm": [
+        3.9699999999999998,
+        15.97,
+        -23.4298
+      ],
+      "source_basis": "Selected local underside head/tail departure only; no old middle inherited",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XS33/extra/start": {
+      "wire": "XS33",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            6.510000000000005,
+            16.97,
+            -28.25
+          ],
+          "end": [
+            6.510000000000005,
+            25.97,
+            -28.25
+          ],
+          "length_mm": 9
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "arc",
+          "start": [
+            6.510000000000005,
+            16.97,
+            -28.25
+          ],
+          "mid": [
+            6.510000000000005,
+            16.262893218813453,
+            -27.957106781186553
+          ],
+          "end": [
+            6.510000000000005,
+            15.97,
+            -27.25
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            6.510000000000005,
+            15.97,
+            -27.25
+          ],
+          "end": [
+            6.510000000000005,
+            15.97,
+            -21.9298
+          ]
+        }
+      ],
+      "radius_mm": 1.05,
+      "bare_radius_mm": 0.3989422804014327,
+      "selected_carrier_pad_identity": "B3.out",
+      "pad_world_mm": [
+        6.51,
+        15.97,
+        -23.4298
+      ],
+      "source_basis": "Selected local underside head/tail departure only; no old middle inherited",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XP02.module/extra/end": {
+      "wire": "XP02.module",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            30.370000000000005,
+            -4.35,
+            -26.75
+          ],
+          "end": [
+            39.370000000000005,
+            -4.35,
+            -26.75
+          ],
+          "length_mm": 9
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "arc",
+          "start": [
+            30.370000000000005,
+            -4.35,
+            -26.75
+          ],
+          "mid": [
+            29.66289321881345,
+            -4.35,
+            -26.457106781186553
+          ],
+          "end": [
+            29.370000000000005,
+            -4.35,
+            -25.75
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            29.370000000000005,
+            -4.35,
+            -25.75
+          ],
+          "end": [
+            29.370000000000005,
+            -4.35,
+            -21.9298
+          ]
+        }
+      ],
+      "radius_mm": 0.925,
+      "bare_radius_mm": 0.4060597505826003,
+      "selected_carrier_pad_identity": "XP02.board",
+      "pad_world_mm": [
+        29.37,
+        -4.35,
+        -23.4298
+      ],
+      "source_basis": "Selected E2 local formed bare geometry aligned to actual XP02/03 carrier pad, not old IC pin; ground bare+1mm project budget",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    },
+    "XP03.module/extra/end": {
+      "wire": "XP03.module",
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            27.83,
+            -4.35,
+            -29.75
+          ],
+          "end": [
+            36.83,
+            -4.35,
+            -29.75
+          ],
+          "length_mm": 9
+        }
+      ],
+      "bare_parts": [
+        {
+          "kind": "arc",
+          "start": [
+            27.83,
+            -4.35,
+            -29.75
+          ],
+          "mid": [
+            27.122893218813445,
+            -4.35,
+            -29.457106781186553
+          ],
+          "end": [
+            26.83,
+            -4.35,
+            -28.75
+          ]
+        },
+        {
+          "kind": "line",
+          "start": [
+            26.83,
+            -4.35,
+            -28.75
+          ],
+          "end": [
+            26.83,
+            -4.35,
+            -21.9298
+          ]
+        }
+      ],
+      "radius_mm": 0.925,
+      "bare_radius_mm": 0.4060597505826003,
+      "selected_carrier_pad_identity": "XP03.board",
+      "pad_world_mm": [
+        26.83,
+        -4.35,
+        -23.4298
+      ],
+      "source_basis": "Selected E2 local formed bare geometry aligned to actual XP02/03 carrier pad, not old IC pin; ground bare+1mm project budget",
+      "physical_hole_and_solder_fit_phase2": true,
+      "external_U1_pinout_NOT_inferred": true
+    }
+  },
+  "updates": {
+    "XL01/extra/end": {
+      "prefix_geometry_owner": "U1Under:XL01:jacket",
+      "jacket_routing_point_mm": [
+        -6.189999999999998,
+        -11.97,
+        -26.03
+      ],
+      "routing_exit_mm": [
+        -6.189999999999998,
+        -11.97,
+        -35.03
+      ],
+      "routing_exit_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -6.189999999999998,
+          -11.97,
+          -26.03
+        ],
+        [
+          -6.189999999999998,
+          -11.97,
+          -35.03
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.7,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XL10/extra/end": {
+      "prefix_geometry_owner": "U1Under:XL10:jacket",
+      "jacket_routing_point_mm": [
+        29.370000000000005,
+        21.05,
+        -26.03
+      ],
+      "routing_exit_mm": [
+        29.370000000000005,
+        21.05,
+        -35.03
+      ],
+      "routing_exit_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          29.370000000000005,
+          21.05,
+          -26.03
+        ],
+        [
+          29.370000000000005,
+          21.05,
+          -35.03
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.7,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XL07/extra/end": {
+      "prefix_geometry_owner": "U1Under:XL07:jacket",
+      "jacket_routing_point_mm": [
+        -1.1099999999999994,
+        8.35,
+        -26.03
+      ],
+      "routing_exit_mm": [
+        -1.1099999999999994,
+        8.35,
+        -35.03
+      ],
+      "routing_exit_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -1.1099999999999994,
+          8.35,
+          -26.03
+        ],
+        [
+          -1.1099999999999994,
+          8.35,
+          -35.03
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.7,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XL02/extra/start": {
+      "prefix_geometry_owner": "U1Under:XL02:jacket",
+      "jacket_routing_point_mm": [
+        -3.6500000000000057,
+        -11.97,
+        -26.03
+      ],
+      "routing_exit_mm": [
+        -3.6500000000000057,
+        -26.97,
+        -32.03
+      ],
+      "routing_exit_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -3.6500000000000057,
+          -17.97,
+          -32.03
+        ],
+        [
+          -3.6500000000000057,
+          -26.97,
+          -32.03
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.7,
+      "source_prefix_length_mm": 18.424777960769383,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XL08/extra/end": {
+      "prefix_geometry_owner": "U1Under:XL08:jacket",
+      "jacket_routing_point_mm": [
+        -3.6499999999999915,
+        21.05,
+        -26.03
+      ],
+      "routing_exit_mm": [
+        -3.6499999999999915,
+        21.05,
+        -35.03
+      ],
+      "routing_exit_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -3.6499999999999915,
+          21.05,
+          -26.03
+        ],
+        [
+          -3.6499999999999915,
+          21.05,
+          -35.03
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.7,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XL09/extra/start": {
+      "prefix_geometry_owner": "U1Under:XL09:jacket",
+      "jacket_routing_point_mm": [
+        -6.189999999999998,
+        21.05,
+        -26.03
+      ],
+      "routing_exit_mm": [
+        -6.189999999999998,
+        21.05,
+        -35.03
+      ],
+      "routing_exit_axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -6.189999999999998,
+          21.05,
+          -26.03
+        ],
+        [
+          -6.189999999999998,
+          21.05,
+          -35.03
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.7,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XS11/extra/end": {
+      "prefix_geometry_owner": "U1Under:XS11:jacket",
+      "jacket_routing_point_mm": [
+        -1.1099999999999994,
+        -1.81,
+        -25.53
+      ],
+      "routing_exit_mm": [
+        -22.0,
+        -4.35,
+        -31.0098
+      ],
+      "routing_exit_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -13.0,
+          -4.35,
+          -31.0098
+        ],
+        [
+          -22.0,
+          -4.35,
+          -31.0098
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.4,
+      "source_prefix_length_mm": 28.480596326794902,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XS21/extra/end": {
+      "prefix_geometry_owner": "U1Under:XS21:jacket",
+      "jacket_routing_point_mm": [
+        1.4300000000000068,
+        -1.81,
+        -25.53
+      ],
+      "routing_exit_mm": [
+        -22.0,
+        -5.619999999999999,
+        -31.0098
+      ],
+      "routing_exit_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -13.0,
+          -5.619999999999999,
+          -31.0098
+        ],
+        [
+          -22.0,
+          -5.619999999999999,
+          -31.0098
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.4,
+      "source_prefix_length_mm": 32.29059632679491,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XS31/extra/end": {
+      "prefix_geometry_owner": "U1Under:XS31:jacket",
+      "jacket_routing_point_mm": [
+        3.969999999999999,
+        -1.81,
+        -25.53
+      ],
+      "routing_exit_mm": [
+        -22.0,
+        -6.890000000000001,
+        -31.0098
+      ],
+      "routing_exit_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -13.0,
+          -6.890000000000001,
+          -31.0098
+        ],
+        [
+          -22.0,
+          -6.890000000000001,
+          -31.0098
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.4,
+      "source_prefix_length_mm": 36.1005963267949,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XS13/extra/start": {
+      "prefix_geometry_owner": "U1Under:XS13:jacket",
+      "jacket_routing_point_mm": [
+        1.4300000000000068,
+        16.97,
+        -28.549999999999997
+      ],
+      "routing_exit_mm": [
+        -20.17,
+        29.57,
+        -28.549999999999997
+      ],
+      "routing_exit_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          -11.170000000000002,
+          29.57,
+          -28.549999999999997
+        ],
+        [
+          -20.17,
+          29.57,
+          -28.549999999999997
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 1.05,
+      "source_prefix_length_mm": 28.792033717615706,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XS23/extra/start": {
+      "prefix_geometry_owner": "U1Under:XS23:jacket",
+      "jacket_routing_point_mm": [
+        3.969999999999999,
+        14.97,
+        -28.549999999999997
+      ],
+      "routing_exit_mm": [
+        3.969999999999999,
+        5.970000000000001,
+        -28.549999999999997
+      ],
+      "routing_exit_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          3.969999999999999,
+          14.97,
+          -28.549999999999997
+        ],
+        [
+          3.969999999999999,
+          5.970000000000001,
+          -28.549999999999997
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 1.05,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XS33/extra/start": {
+      "prefix_geometry_owner": "U1Under:XS33:jacket",
+      "jacket_routing_point_mm": [
+        6.510000000000005,
+        16.97,
+        -28.25
+      ],
+      "routing_exit_mm": [
+        6.510000000000005,
+        25.97,
+        -28.25
+      ],
+      "routing_exit_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          6.510000000000005,
+          16.97,
+          -28.25
+        ],
+        [
+          6.510000000000005,
+          25.97,
+          -28.25
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 1.05,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XP02.module/extra/end": {
+      "prefix_geometry_owner": "U1Under:XP02.module:jacket",
+      "jacket_routing_point_mm": [
+        30.370000000000005,
+        -4.35,
+        -26.75
+      ],
+      "routing_exit_mm": [
+        39.370000000000005,
+        -4.35,
+        -26.75
+      ],
+      "routing_exit_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          30.370000000000005,
+          -4.35,
+          -26.75
+        ],
+        [
+          39.370000000000005,
+          -4.35,
+          -26.75
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.925,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    },
+    "XP03.module/extra/end": {
+      "prefix_geometry_owner": "U1Under:XP03.module:jacket",
+      "jacket_routing_point_mm": [
+        27.83,
+        -4.35,
+        -29.75
+      ],
+      "routing_exit_mm": [
+        36.83,
+        -4.35,
+        -29.75
+      ],
+      "routing_exit_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "jacket_grip9_mm": [
+        [
+          27.83,
+          -4.35,
+          -29.75
+        ],
+        [
+          36.83,
+          -4.35,
+          -29.75
+        ]
+      ],
+      "grip_length_mm": 9,
+      "nominal_profile_radius_mm": 0.925,
+      "source_prefix_length_mm": 9.0,
+      "physical_carrier_pad_identity_NOT_changed": true,
+      "independent_grip_root_and_world_OPEN": true,
+      "routing_boundary_status": "WHOLE14_U1_UNDERSIDE_SPACE_PROPOSAL_NOT_RECEIVED"
+    }
+  },
+  "geometry": [
+    {
+      "name": "U1Under:XL01:jacket",
+      "wire": "XL01",
+      "kind": "wire",
+      "entry": "0.brep",
+      "sha256": "c8994af5569524ca1d980723a3007e5f489885878a49c5fdaddb179d0f9906aa"
+    },
+    {
+      "name": "U1Under:XL01:bare",
+      "wire": "XL01",
+      "kind": "bare",
+      "entry": "1.brep",
+      "sha256": "caf76a88e2e17f9d8856ed5c45ef53100347773b1376046bfbeb6401a96f9830"
+    },
+    {
+      "name": "U1Under:XL10:jacket",
+      "wire": "XL10",
+      "kind": "wire",
+      "entry": "2.brep",
+      "sha256": "14dba0a02cce618e0447e9b6dbb29db69d555ad71ebef6277785147781a8ab50"
+    },
+    {
+      "name": "U1Under:XL10:bare",
+      "wire": "XL10",
+      "kind": "bare",
+      "entry": "3.brep",
+      "sha256": "379838b7d4d4f2d9d21a68bb1c2a88150e1f60cc6ab34e0a71533c4df834e2c0"
+    },
+    {
+      "name": "U1Under:XL07:jacket",
+      "wire": "XL07",
+      "kind": "wire",
+      "entry": "4.brep",
+      "sha256": "0b8d852bc0a0174e52a40e23fe702627f2e16e79fb1efa84b1cf9c12950b3da4"
+    },
+    {
+      "name": "U1Under:XL07:bare",
+      "wire": "XL07",
+      "kind": "bare",
+      "entry": "5.brep",
+      "sha256": "76148638ead99e3b347dee4b1359370a9f4e07ca3a28dcec8d192d3f3d77ca47"
+    },
+    {
+      "name": "U1Under:XL02:jacket",
+      "wire": "XL02",
+      "kind": "wire",
+      "entry": "6.brep",
+      "sha256": "f4f71ea8b076e0fec1ef4a4262fe05eebe4eb85a02e56bbd89afc37bbfbdd93d"
+    },
+    {
+      "name": "U1Under:XL02:bare",
+      "wire": "XL02",
+      "kind": "bare",
+      "entry": "7.brep",
+      "sha256": "8dcb3a9a2e98977fb01b746684fbd6e03f6e4fd39ab9188cfff0d903bfab758a"
+    },
+    {
+      "name": "U1Under:XL08:jacket",
+      "wire": "XL08",
+      "kind": "wire",
+      "entry": "8.brep",
+      "sha256": "bc9ea4e6c966e84b8b81230505597160728b1865859a97919f5dc3abe007cf3c"
+    },
+    {
+      "name": "U1Under:XL08:bare",
+      "wire": "XL08",
+      "kind": "bare",
+      "entry": "9.brep",
+      "sha256": "01b39e1786893273b57ee1864c9b47843e781ce72a554e9f0087b1fe106b96df"
+    },
+    {
+      "name": "U1Under:XL09:jacket",
+      "wire": "XL09",
+      "kind": "wire",
+      "entry": "10.brep",
+      "sha256": "63237491a550b3003a372f22ea58feceaec130a0115d5711c5b8be813cd7f404"
+    },
+    {
+      "name": "U1Under:XL09:bare",
+      "wire": "XL09",
+      "kind": "bare",
+      "entry": "11.brep",
+      "sha256": "c71d21944bc0b5faf556be3ad5870609bb2a7f9afe156d4e19f4d3af52bc4b98"
+    },
+    {
+      "name": "U1Under:XS11:jacket",
+      "wire": "XS11",
+      "kind": "wire",
+      "entry": "12.brep",
+      "sha256": "96c5d677df63d91c035f02113c49c7abe46191211afca52fb22ee48100217ee5"
+    },
+    {
+      "name": "U1Under:XS11:bare",
+      "wire": "XS11",
+      "kind": "bare",
+      "entry": "13.brep",
+      "sha256": "3291946d971c74a1f5ae387815b13e490184d594a8a20f7e1e4a0ebf8f134ec1"
+    },
+    {
+      "name": "U1Under:XS21:jacket",
+      "wire": "XS21",
+      "kind": "wire",
+      "entry": "14.brep",
+      "sha256": "abe36eb4ac552178c419c1ce7abf5a96d0d323047c05fe2d0a6c578c1e1b5a8c"
+    },
+    {
+      "name": "U1Under:XS21:bare",
+      "wire": "XS21",
+      "kind": "bare",
+      "entry": "15.brep",
+      "sha256": "3f6d576725a5e027c0bbcb0643ecbbe539174004903a7328b5783fa5498c0f62"
+    },
+    {
+      "name": "U1Under:XS31:jacket",
+      "wire": "XS31",
+      "kind": "wire",
+      "entry": "16.brep",
+      "sha256": "b3bc00fe8ee9306762afecff656efa4b33aa0d031bc6477029714ccc8f45d794"
+    },
+    {
+      "name": "U1Under:XS31:bare",
+      "wire": "XS31",
+      "kind": "bare",
+      "entry": "17.brep",
+      "sha256": "958fd463a079b2890febc812ea8dad6d77ccfde1e1de93f7caac36fdd38d5034"
+    },
+    {
+      "name": "U1Under:XS13:jacket",
+      "wire": "XS13",
+      "kind": "wire",
+      "entry": "18.brep",
+      "sha256": "37a323cafb1a6c35bfff3bce6ddcd8f0984442269dea66197c897849b62823f1"
+    },
+    {
+      "name": "U1Under:XS13:bare",
+      "wire": "XS13",
+      "kind": "bare",
+      "entry": "19.brep",
+      "sha256": "c3e6a0ba9cb7c18d44613c7f6099ba4a3e1196a081f0f91e0d290416d559919b"
+    },
+    {
+      "name": "U1Under:XS23:jacket",
+      "wire": "XS23",
+      "kind": "wire",
+      "entry": "20.brep",
+      "sha256": "35d10e0286c422ed214d77be87332c3cd75dcd051bf43e9094b6aaa9a2ac7a2f"
+    },
+    {
+      "name": "U1Under:XS23:bare",
+      "wire": "XS23",
+      "kind": "bare",
+      "entry": "21.brep",
+      "sha256": "e6583bd87ad1a48afc641f99b85c403d42e94d5fabd1c0a8636952b55d846711"
+    },
+    {
+      "name": "U1Under:XS33:jacket",
+      "wire": "XS33",
+      "kind": "wire",
+      "entry": "22.brep",
+      "sha256": "18f9d302db30625c760d7e01d37f11dac2b35a81603c45cb5cac543c96998449"
+    },
+    {
+      "name": "U1Under:XS33:bare",
+      "wire": "XS33",
+      "kind": "bare",
+      "entry": "23.brep",
+      "sha256": "cdb08be5a308dcb5dc6d5a29fb31fc0cc6f5f7beadb820f2d9a63c37e45b30a8"
+    },
+    {
+      "name": "U1Under:XP02.module:jacket",
+      "wire": "XP02.module",
+      "kind": "wire",
+      "entry": "24.brep",
+      "sha256": "51b6bbd0fe6ed31d53febbf36831d99689d784c647377bd912437f62beecc2c1"
+    },
+    {
+      "name": "U1Under:XP02.module:bare",
+      "wire": "XP02.module",
+      "kind": "bare",
+      "entry": "25.brep",
+      "sha256": "91373379c4b33cc15f4b3a125da7ce03cd1af4b0e656a756e8fbb851ec38fbe8"
+    },
+    {
+      "name": "U1Under:XP03.module:jacket",
+      "wire": "XP03.module",
+      "kind": "wire",
+      "entry": "26.brep",
+      "sha256": "eb86598a0842b4308ba1a361a6bab5b7f5ba14453bbbbbefdac7233f88458573"
+    },
+    {
+      "name": "U1Under:XP03.module:bare",
+      "wire": "XP03.module",
+      "kind": "bare",
+      "entry": "27.brep",
+      "sha256": "da77ec377f335ab08bb85d732c3066288d3eed91ed6bf832e0bdd265f200fa4a"
+    }
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-U1-whole14-underside-plan.breps.zip",
+  "bundle_sha256": "eca7d36868bdefe3e43c96f40ff9f7e3cff1d408a07f942a7c8aafc1bd93282d"
+}

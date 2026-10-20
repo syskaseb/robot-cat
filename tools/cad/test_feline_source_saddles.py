@@ -5,6 +5,34 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_underside_plan_keeps_all14_named_pads_and_lengths(self):
+        import json
+        from plan_feline_layout import OUT
+        from receive_feline_rrp_shared_height import load
+        r=json.loads((OUT/'n01-U1-whole14-underside-plan.json').read_text());actors=load(r)
+        self.assertEqual(len(r['specs']),14);self.assertEqual(len(actors),28)
+        self.assertFalse(r['selected_parts_changed']);self.assertFalse(r['electrical_identities_changed'])
+        old=json.loads((OUT/'n01-current-source-MTA-boundary-overlay.json').read_text())['U1_local_prefix_source_allocations']
+        for eid,source in old.items():
+            target=r['specs'][eid]
+            self.assertEqual(target['pad_world_mm'],source['pad_world_mm'])
+            self.assertEqual(target['radius_mm'],source['radius_mm'])
+            self.assertAlmostEqual(sum(__import__('feline_source_saddles').segment(p).Length for p in source['parts']),
+                                   sum(__import__('feline_source_saddles').segment(p).Length for p in target['parts']),places=6)
+        self.assertFalse(r['N01_complete'])
+
+    def test_E2_uses_actual_carrier_pads_not_old_pin_coordinates(self):
+        import json
+        from plan_feline_layout import OUT
+        r=json.loads((OUT/'n01-U1-whole14-underside-plan.json').read_text());spec=r['specs']
+        self.assertEqual(spec['XP02.module/extra/end']['selected_carrier_pad_identity'],'XP02.board')
+        self.assertAlmostEqual(spec['XP02.module/extra/end']['pad_world_mm'][0],29.37)
+        self.assertAlmostEqual(spec['XP03.module/extra/end']['pad_world_mm'][0],26.83)
+        a=r['updates']['XP02.module/extra/end']['jacket_routing_point_mm']
+        b=r['updates']['XP03.module/extra/end']['jacket_routing_point_mm']
+        self.assertAlmostEqual(abs(a[2]-b[2]),3.)
+        self.assertTrue(r['whole225mm_Molex_corridors_NOT_received'])
+
     def test_working_register_has_current_source_and_MTA_not_old_mouths(self):
         import json
         from compose_feline_source_mta_boundaries import current
