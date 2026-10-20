@@ -2,6 +2,30 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,02:44Z, lokalnyRR_P z korzeniem/montażem odebrany, NIE całeN01.
+Korzeń47,687s/21kontroli miał jedno wskazanie KONTRAKTU: stare0,25 comb/case
+pomylone z0,5 nowego klejonego backera. Rozdzielenie materiału BEZ zmiany
+geometrii:11,125s/2nowe zapytania, całe0,25/nowe0,5,0wskazań; odbiór3888
+rekordów ruchu przez dodatnią separację ich bbox,0nowych BRep ruchu.
+Stopa ma14,137mm3 dodatniego materiału do BankBedCurrent:1; chwyt10,498mm3.
+Bed+korzeń to JEDEN poprawnySolid171x45,75x46,407mm (<250 z marginesem256).
+Case ma nieoperacyjną podporę/warstwę0,5: adhezja i siła nadal bramka dostawy.
+Montaż48,484s/37kontroli/0wskazań: pełna rezerwacja5mm podniesienia pokrywy
+wobec obcych części oraz rezerwacja punktowego narzędzia od góry; własne
+połówki/4żyły sprawdzone w6pozycjach, NIE pełny ciągły ruch ani fizycznyPASS.
+Górny panel musi być zdjęty;12bocznychATO/toolbudgetów banku pozostaje wolnych.
+Aktualna wspólna scena: feline_rrp_rooted_context.compose; granice123/246:
+compose_feline_rooted_rrp_boundaries.current. Nie wracać do starych prostych
+RR_P ani historycznej diagnozy n01-source-saddles-whole-joint jako sceny.
+N01nadal0/10;4dawne dowody blokad RR_P unieważnia nowy cap,26pozostałych
+warunkowych gardeł zachowane. NEXT: jeden CAŁY profil MAIN4żył/commoncomb,
+bo wszystkie4 to ten sam wybranyK1474/18AWG, CADcap1,05 nie dowodzi poprawnej
+średnicy przy kontrakcie1,55. Najpierw źródłowe pady/izolowany first12,
+potem delta przewodów i własnych rowków; bez zmiany SKU/odrzuconych gięć.
+Pozostają też27granic mankietów/51alokacji końców/pozostałe korzenie/korytarze.
+Od02:01:11 do02:44:22 upłynęło43min11s ściennych, nie ciągłego CPU; mierzone
+czasy odbiorów powyżej. Hookaktywny, bez resetu/zakupów/natywnego mastera.
+
 20.10,02:29Z: DRUGI CAŁY modułRR_P ODEBRANY:44,594s/51kontroli/0wskazań,
 8/8statyka oraz odbiór względem36próbek ruchu (bbox tylko do pomijania
 rozłącznych par). 4bryły chwytu skopiowane bajtowo,18dodatnichpar reużytych;
