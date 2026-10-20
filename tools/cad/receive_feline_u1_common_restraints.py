@@ -18,10 +18,14 @@ def minimum(a,b,meta,plan,groups,own_module):
     ar=meta.get(a,{});br=meta.get(b,{})
     if any(a in g and b in g for g in groups.values()):return None,'same proved whole print'
     if b in plan['intended_insulation_mates'].get(a,[]) or a in plan['intended_insulation_mates'].get(b,[]):return 0.,'named9mm jacket seat or snug band'
+    for grip,source in ((a,b),(b,a)):
+        if source.endswith(':bare') and source.removesuffix(':bare')+':jacket' in plan['intended_insulation_mates'].get(grip,[]):
+            return .2,'same grip adjacent to its OWN formed bare/jacket transition, not a foreign conductor'
     if a.rsplit(':',1)[0]==b.rsplit(':',1)[0]:
         pair={a.rsplit(':',1)[-1],b.rsplit(':',1)[-1]}
         if pair in ({'band','head'},{'band','pad'}):return 0.,'same T18I or flat seat boundary'
         if pair=={'head','pad'}:return .2,'same grip, head separate from pad'
+    if ar.get('kind')==br.get('kind')=='T18I':return .2,'separate soft nylon stock envelopes, full heads retained'
     if ar.get('wire') and ar.get('wire')==br.get('wire'):return 0.,'same selected jacket/bare seam'
     if b=='Ref_Material_PWM1608NominalPCB_0_0':
         if a.startswith('U1Relief:Stand'):return 0.,'actual PCB underside bearing'
@@ -31,13 +35,22 @@ def minimum(a,b,meta,plan,groups,own_module):
     return 1.25,None
 
 
-def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources):
-    tick=time.monotonic();sf=OUT/'n01-U1-common-restraints-plan.json';plan=json.loads(sf.read_text());new=load(plan)
+def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False):
+    tick=time.monotonic();sf=OUT/('n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
     for p,h in plan['source_sha256'].items():assert sha(ROOT/p)==h,p
     carrierfile=BASE/'body-harness-checkpoint/u1-socket-carrier-plan.json';carrier=json.loads(carrierfile.read_text())
     drills=[v for g in carrier['board']['groups'] for v in g['pads']]
     assert len(plan['lands'])==5 and len(new)==26
-    dest=OUT/'n01-U1-common-restraints-received.json';assert not dest.exists()
+    dest=OUT/('n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
+    previous_policy=None
+    if dest.exists():
+        assert resume_policy,'Receive the existing worker before restarting'
+        old_policy=json.loads(dest.read_text());assert old_policy['status']=='U1_WHOLE_KIT_LOCAL_HOLD' and not old_policy['whole_prints']
+        old_rows=json.loads(gzip.decompress((ROOT/old_policy['pair_rows']).read_bytes()))
+        expected={f'U1Relief:{g}:head|U1Relief:{g}:band' for g in ('XS13','XS23','XS33','E2pair')}
+        assert set(old_policy['failures'])==expected and old_policy['source_sha256'][sf.relative_to(ROOT).as_posix()]==sha(sf)
+        previous_policy=dict(status=old_policy['status'],worker_seconds=old_policy['worker_seconds'],wrong_policy_rows={k:old_rows[k] for k in expected},
+                             all_geometry_unchanged=True,positive_local_pairs_reused=True)
     source_parts=load(source_doc);scene={**fixed,**source_parts,**upper_sources,**new}
     nm={g['name']:g for g in plan['geometry']};fm={**meta,**nm}
     fm.update({n:dict(kind='bare' if n.endswith(':bare') else 'wire',wire=n.split(':')[1]) for n in upper_sources})
@@ -50,6 +63,9 @@ def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources):
         completed_static=[],completed_motion=[],whole_prints={},failures=[],sampled_motion_not_sweep=True,
         all_five_lands=True,remaining_common123_and_assembly_OPEN=True,N01_complete=False,native_changed=False,physical_pass=False)
     checks={};query=SolidQueries();pf=dest.with_suffix('.pairs.json.gz')
+    if previous_policy:
+        checks.update({k:v for k,v in old_rows.items() if v['ok']})
+        result['prior_pure_policy_failure']=previous_policy
     oldfile=OUT/'n01-U1-remaining-five-coupled-plan-neighbors.json';old=json.loads(oldfile.read_text())
     for p,h in pins.items():assert old['source_sha256'][p]==h,p
     unchanged={n for n in new if n.startswith('U1Five:') and (n.endswith(':bare') or n.split(':')[1] in ('XS13','XS33'))}
@@ -62,6 +78,7 @@ def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources):
     for n,s in new.items():
         for b,t in new.items():
             if b>=n:continue
+            if n+'|'+b in checks:continue
             limit,mate=minimum(n,b,fm,plan,groups,own_module)
             if limit is None or bbox_lower_bound(s.BoundBox,t.BoundBox)>limit+1e-6:continue
             gap=query.distance(s,t);row=dict(ok=gap>=limit-1e-6,gap_mm=gap,minimum_mm=limit,intended_mate=mate)

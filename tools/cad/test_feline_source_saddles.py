@@ -5,6 +5,14 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_same_T18I_head_is_a_mate_not_an_independent_stock_piece(self):
+        from receive_feline_u1_common_restraints import minimum
+        head='U1Relief:XS13:head';band='U1Relief:XS13:band';other='U1Relief:XS33:band'
+        meta={n:dict(kind='T18I') for n in (head,band,other)}
+        plan=dict(intended_insulation_mates={})
+        self.assertEqual(minimum(head,band,meta,plan,{},set())[0],0.)
+        self.assertEqual(minimum(head,other,meta,plan,{},set())[0],.2)
+
     def test_U1_intrinsic_seat_policy_never_waives_foreign_or_other_wire(self):
         from map_feline_source_allocations import inherited_u1_limit
         seat='Ref_Material_U1_AnchorLeft_0_0'

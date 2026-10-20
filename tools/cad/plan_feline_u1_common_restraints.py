@@ -38,7 +38,7 @@ def open_seat(start,axis,side,radius,halfheight=None):
     return dict(pad=pad,band=band,head=head)
 
 
-def construct(fixed):
+def construct(fixed,root_clearance=False):
     src=OUT/'n01-U1-remaining-five-coupled-plan.json';r=json.loads(src.read_text());actors=load(r)
     metadata={g['name']:dict(g) for g in r['geometry']};specs=copy.deepcopy(r['specs']);updates=copy.deepcopy(r['updates'])
     pcb=fixed['Ref_Material_PWM1608NominalPCB_0_0'];pg={'fore':[],'rear':[]};mates={};lands={}
@@ -79,19 +79,27 @@ def construct(fixed):
         assert s.common(arm).Volume>1.,'No actual existing arm bearing'
         bearings[n]=dict(existing_axis_mm=[x,y],PCB_bearing_Z_mm=z1,arm_Z_mm=arm.BoundBox.ZMax,
             height_between_arm_and_PCB_mm=z1-arm.BoundBox.ZMax,shaft_clearance_radius_mm=1.2,no_new_hardware=True)
-    add('U1Relief:ForeRoot',joined([box([-7.19,2,-30],[-5.19,27.47,-28]),box([-7.19,25.47,-30],[.38,27.47,-28])]),'PETG','fore')
+    fore=joined([box([-7.19,2,-30],[-5.19,27.47,-28]),box([-7.19,25.47,-30],[.38,27.47,-28])])
+    if root_clearance:
+        # The complete left head occupies X-7.12..-2.82, not empty space
+        # next to the insulation. Root outside it, connect beyond its axial
+        # end, and touch only the outer .75mm strip of the2mm saddle wall.
+        fore=joined([box([-11.62,2,-30],[-9.62,27.47,-28]),
+                     box([-11.62,1,-30],[-7.39,3,-28]),
+                     box([-11.62,25.47,-30],[-.87,27.47,-28])])
+    add('U1Relief:ForeRoot',fore,'PETG','fore')
     add('U1Relief:RearRoot',joined([box([28.37,2,-30],[30.37,27.47,-28]),
-        box([7.56,25.47,-30],[30.37,27.47,-28]),box([5.02,1.47,-30],[30.37,3.47,-28]),
+        box([8.81 if root_clearance else 7.56,25.47,-30],[30.37,27.47,-28]),box([6.27 if root_clearance else 5.02,1.47,-30],[30.37,3.47,-28]),
         box([28.37,2,-30],[30.37,7.825,-28]),box([28.37,5.825,-30],[46.5,7.825,-28]),
         box([44.5,-1.925,-30],[46.5,7.825,-28])]),'PETG','rear')
     return actors,metadata,dict(specs=specs,updates=updates,print_groups=pg,intended_insulation_mates=mates,lands=lands,
         PCB_arm_bearings=bearings,source_file=src.relative_to(ROOT).as_posix(),source_sha256={src.relative_to(ROOT).as_posix():sha(src),Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__))},
         selected_T18I=4,printed_standoffs_not_extra_purchased_parts=2,source_wire_count=5,prefixes_not_complete225mm_Molex=True,
-        separate_land_for_each_wire=True,N01_complete=False,native_changed=False,physical_pass=False)
+        separate_land_for_each_wire=True,roots_outside_whole_heads_and_own_jackets=root_clearance,N01_complete=False,native_changed=False,physical_pass=False)
 
 
-def save(fixed):
-    tick=time.monotonic();actors,meta,r=construct(fixed);dest=OUT/'n01-U1-common-restraints-plan.json';assert not dest.exists()
+def save(fixed,root_clearance=False):
+    tick=time.monotonic();actors,meta,r=construct(fixed,root_clearance);dest=OUT/('n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
     archive=dest.with_suffix('.breps.zip');geometry=[]
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for n,s in actors.items():
