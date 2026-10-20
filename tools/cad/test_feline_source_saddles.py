@@ -144,6 +144,21 @@ class SourceSaddles(unittest.TestCase):
             for k in ('id','wire','portion_id','endpoint','group'):self.assertEqual(before[k],after[k])
             if before['point_mm'] is None:self.assertIsNone(after['point_mm'])
 
+    def test_current_HP_register_requires_selected_radius_not_legacy_receipt(self):
+        import json
+        from compose_feline_received_source_boundaries import current
+        from plan_feline_layout import OUT
+        base,rows,_=current()
+        proof=json.loads((OUT/'n01-HP-selected-R12p6-received.json').read_text())
+        for g in proof['geometry']:
+            r=next(e for e in rows if e.get('prefix_geometry_owner')==g['name'])
+            self.assertEqual(r['received_prefix_R_mm'],12.6)
+            self.assertEqual(r['source_prefix_length_mm'],g['path_length_mm'])
+            self.assertEqual(r['jacket_grip9_mm'],g['source_full9_mm'])
+            self.assertIn('HEAD_MOTION_SKIN_OPEN',r['routing_boundary_status'])
+        self.assertEqual(len(rows),246)
+        self.assertEqual(len(base['portions']),123)
+
     def test_tie_pad_contact_is_mating_not_foreign_clearance(self):
         from receive_feline_source_restraints import local_limit
         p='SourceGrip:POSTIN:'
