@@ -33,6 +33,13 @@ def solid_profile_target(shape,metadata):
     return solid
 
 
+def source_face_contact(a,b,gap):
+    """A named joint must actually meet, not merely avoid penetration."""
+    common=a.copy().common(b.copy()).Volume
+    return dict(common_mm3=common,intended_source_face_only=True,
+                ok=common<1e-5 and gap<=1e-6)
+
+
 def source_head_on_free_side(actors):
     """Close the same full T18I on+X, away from G_TAIL; no module shift."""
     import FreeCAD as A
@@ -138,8 +145,7 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
                 raise
             checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
             if (n,b) in own_face_mates:
-                common=a.copy().common(other.copy()).Volume
-                checks[n+'|'+b].update(common_mm3=common,intended_source_face_only=True,ok=common<1e-5)
+                checks[n+'|'+b].update(source_face_contact(a,other,gap))
         print('REAR_GALLERY_STATIC',n,'queries',len(checks),flush=True)
     names=list(actors)
     for i,n in enumerate(names):
@@ -151,8 +157,7 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
             if face_mate:required=0.
             gap=query.distance(actors[n],actors[b]);checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
             if face_mate:
-                common=actors[n].copy().common(actors[b].copy()).Volume
-                checks[n+'|'+b].update(common_mm3=common,intended_source_face_only=True,ok=common<1e-5)
+                checks[n+'|'+b].update(source_face_contact(actors[n],actors[b],gap))
     failures=[k for k,v in checks.items() if not v['ok']]
     result=dict(status=label+'_STATIC_'+('HOLD' if failures else 'RECEIVED'),actor_count=len(actors),
         recipe=recipe,checks=checks,failures=failures,source_sha256=pins,

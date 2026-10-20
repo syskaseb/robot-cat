@@ -2,7 +2,7 @@
 import unittest
 import FreeCAD as A
 import Part
-from receive_feline_jpwm_whole_pose import solid_profile_target
+from receive_feline_jpwm_whole_pose import solid_profile_target,source_face_contact
 from feline_fore_power_pair import SolidQueries
 
 
@@ -29,6 +29,20 @@ class ProfileTarget(unittest.TestCase):
         wire=Part.Wire([Part.makeLine(A.Vector(0,0,0),A.Vector(0,20,0))])
         with self.assertRaisesRegex(AssertionError,'invented'):
             solid_profile_target(wire,dict(kind='curve_profile_reservation'))
+
+    def test_named_face_cannot_accept_an_air_gap(self):
+        a=Part.makeBox(1,1,1)
+        b=Part.makeBox(1,1,1,A.Vector(2,0,0))
+        r=source_face_contact(a,b,SolidQueries().distance(a,b))
+        self.assertEqual(r['common_mm3'],0.)
+        self.assertFalse(r['ok'])
+
+    def test_named_face_requires_touch_without_penetration(self):
+        a=Part.makeBox(1,1,1)
+        b=Part.makeBox(1,1,1,A.Vector(1,0,0))
+        self.assertTrue(source_face_contact(a,b,SolidQueries().distance(a,b))['ok'])
+        b.translate(A.Vector(-.1,0,0))
+        self.assertFalse(source_face_contact(a,b,SolidQueries().distance(a,b))['ok'])
 
 
 if __name__=='__main__':unittest.main()
