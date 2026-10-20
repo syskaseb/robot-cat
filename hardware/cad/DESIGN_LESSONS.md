@@ -1,5 +1,14 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, wyjścia4MTA: dodatkowe9mm PRZED każdym łukiem było własnym
+ograniczeniem, nie wymiarem producenta. Pełny niezależny chwyt ZA pierwszym
+łukiem pozwolił zachować HELUR25,2, krótkie fabryczne ogony i obrys.
+Planuj korzeń RAZEM z łukiem oraz CAŁĄ opaską/główką: słupek za siodłem
+przecinał łuk i pętlę; słupek z boku +mostek przy końcu chwytu rozwiązał
+to bez ruszania kupnych części. Po odbiorze aktualizuj mały overlay
+rzeczywistychcapów, nie trasuj dalej ze starego first9. Dla delty2pokryw
+zachowano58identycznychBRep/286par; nie powtarzać całej odebranej sceny.
+
 20.10, ważna korekta wcześniejszego wnioskuW066: rzeczywisty CADcapR1,55
 NIE oznacza poprawnego profilu wybranego przewodu. W066 pozostajeHELU23802
 4mm2 z zachowanym projektowymOD4,2/R25,2; mniejszycap był błędem modelu.

@@ -39,7 +39,7 @@ def build_paths(f, centre_x, radius):
         factory_required_mm=length+21,factory_margin_mm=100-length-21)
 
 
-def main(revision=None, dest_name='n01-end-bay-outputs', extra_pins=()):
+def main(revision=None, dest_name='n01-end-bay-outputs', extra_pins=(), reuse_receipt=None, changed_actors=()):
     tick=time.monotonic();world,parts,meta,pins,docs=compose();contract,cf,df=profiles()
     lf=OUT/'n01-full-lower-bay-plan-r3.json';lower=json.loads(lf.read_text());factory={r['wire']:r for r in lower['factory_routes']}
     dest=OUT/(dest_name+'.json');pairs=dest.with_suffix('.pairs.json.gz')
@@ -92,6 +92,28 @@ def main(revision=None, dest_name='n01-end-bay-outputs', extra_pins=()):
             for i,(n,s) in enumerate(actors.items()):
                 raw=s.exportBrepToString().encode();entry=str(i)+'.brep';z.writestr(entry,raw);geometry.append(dict(name=n,entry=entry,sha256=hashlib.sha256(raw).hexdigest()))
         result.update(geometry=geometry,bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),actor_meta=ameta,actor_owner=owner,actor_original=original,recipes=recipes)
+        if reuse_receipt:
+            prior=json.loads(reuse_receipt.read_text());assert sha(ROOT/prior['pair_rows'])==prior['pair_rows_sha256']
+            # Only these constructor/receiver files changed. The distance,
+            # material margin and intentional-pair policies are unchanged.
+            constructor_files={'tools/cad/receive_feline_end_bay_outputs.py','tools/cad/receive_feline_rooted_end_bays.py'}
+            for p,h in prior['source_sha256'].items():
+                if p not in constructor_files:assert pins[p]==h and sha(ROOT/p)==h,('Changed fixed source',p)
+            previous={r['name']:r for r in prior['geometry']};changed=set(changed_actors)
+            assert changed and changed<=set(actors) and set(previous)==set(actors)
+            unchanged=[]
+            for r in geometry:
+                if r['name'] not in changed:
+                    assert r['sha256']==previous[r['name']]['sha256'],('Unexpected geometry change',r['name'])
+                    assert ameta[r['name']]==prior['actor_meta'][r['name']]
+                    unchanged.append(r['name'])
+            prior_checks=json.loads(gzip.decompress((ROOT/prior['pair_rows']).read_bytes()))
+            checks={k:v for k,v in prior_checks.items() if not changed.intersection(k.split('|'))}
+            result['completed_static']=[n for n in prior['completed_static'] if n in unchanged]
+            result['completed_motion']=[n for n in prior['completed_motion'] if n in unchanged]
+            result['reused_receipt']=dict(path=reuse_receipt.relative_to(ROOT).as_posix(),sha256=sha(reuse_receipt),
+                byte_identical_actors=unchanged,changed_actors=sorted(changed),reused_pair_count=len(checks),fixed_source_pins_verified=True,
+                original_receiver_source_preserved_commit='ab3b8aa9',pair_policies_unchanged=True)
         save();print('Saved whole construction',len(actors),flush=True)
     bounds={n:s.BoundBox for n,s in {**fixed,**actors}.items()};query=SolidQueries()
     def pair(n,s,m,t):

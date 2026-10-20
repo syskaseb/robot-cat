@@ -2,6 +2,63 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,01:04Z: lokalny układ4wyjśćODEBRANY, nie pełneN01.
+224,782s/1303sprawdzenia/0wskazań: wszystkie60aktorów w statyce i wobec
+3888odebranych rekordów pozycji ruchu;58brył bajtowo zgodnych i286par
+reużytych po korekcie wyłącznie2pokryw. Dwa planowane panele są poprawnymi
+pojedynczymiSolid,12połączeń korzeni ma dodatni materiał. Opaski/główki
+mają pełną przestrzeń, słupki obok łuków zamiast przez nie. Tylne śruby
+X137/144,Y+/-30,5; bez ruszania kupnych części/podpór brzucha/P0/banku.
+Factory36,5/52,75mm Z ZAPASAMI<=projektowe100, HELUOD4,2/R25,2 zachowane.
+Overlay12rzeczywistychcapów odebrany0,891s; wspólna scena1343aktorów
+zachowuje123odcinki/246tożsamości, nowe końce zamiast starych first9.
+Kontrakt materiałowy zamrożonych portali:90clear/96holds/13łuków za
+ciasnych dla wybranegoSKU/9powiększeń profilu;0nowych zapytań CAD.
+To NIE kwalifikuje tych portali w nowej scenie. NEXT: delta tylko62
+zmienionych właścicieli, wspólne dojścia/przekroje/pozostałe korzenie,
+głowa/narzędzia/montaż. Native/master bez zmian; N01=0/10, bez PASS fizycznego.
+
+20.10,00:47Z: jeden układ wyjść odebrany54,781s/272par/24wskazania.
+Wszystkie obrysy/długości clear, ale nie cały wynik. Przeciwne strony
+nowych podstaw śrub tylnych zajmują XT60, główki zbliżają się do F_AUX;
+przedni W037 ma rzeczywistego świadka przy siodleW068. Centra samych
+kupnych złączy nie są przyczyną. Następna zmiana konstrukcyjna: tylne
+śruby na ZEWNĘTRZNEJ stronieY+/-30,5, pozaF_AUX i istniejącymi żebrami,
+z niezmienionymi M2x12/nakrętkami. PrzedniW037 ma osobny powrót wY,
+nie tę samą płaszczyznę coW026. Własne podstawy i proste siodła łączone
+z zachowanymi panelami/żebrami dodatnią bryłą; nie obniżamy marginesu
+1,25 do1,2, żeby schować wskazanie. Każdy nowy chwyt ma konstruktywny
+korzeń przed następnym wspólnym sprawdzeniem. Pełny dostęp narzędzi/
+kolejność montażu/ruch nadal do odbioru; N01=0/10, bez fizycznegoPASS.
+
+20.10,00:41Z, zmiana topologii PRZED CAD: wariant pod płytą odebrany
+57,375s/415par/61wskazań, odrzucony wspólnie przez U1/podpory/ATO.
+Nie poprawiać jego szczeliny. Jeden następny układ: wyjścia na zewnątrzX,
+proste fabryczne ogony, HELU skręca w górę przed pełnym9mm chwytem.
+Całe korpusy/podstawy/pokrywy/śruby/nakrętki przemieścić razem, nie
+pozostawić starych uchwytów w scenie ani pominąć ich w sprawdzeniu.
+Centra wyjść przódX-90,75/tył132, Y+/-15,Z-34; kolumnyHELUX-133,95/175,2,
+powrót wewnętrzny naZ45,26. Fabryczne15,5/31,75+11strip+10rework<100.
+Najpierw prawdziwy obrys3,25 i wszystkie zmienione pary łącznie z ATO,
+podporami brzucha, pełnymi główkami opasek i starymi otworami złączy.
+Korzenie nowych siodeł pozostają jawnieOPEN; brak detali produkcyjnych,
+wyboru długości cięcia/stockN10 i punktów za samą konstrukcję łuków.
+
+20.10 kontynuacjaN01, bramka PRZED nowym CAD: aktywny blocker to oba
+przednie wyjściaHELUR25,2 za ścianą i poprzedni powrót118,906>100mm.
+Zmiana przyczyny: DWA łuki fabryczne do wspólnej szczeliny pod płytą
+baterii, zamiast nawrotu w tej samej płaszczyźnieZ-34. Poziom wyznaczyć
+z aktualnych bryłU1/płyty, nie z nazwy/bboxcałego modułu. Każdy odcinek
+fabryczny ma pełny niezależny9mm chwyt przy złączu; dodatkowa prosta9mm
+przed pierwszym łukiem NIE jest wymiarem producenta. Dla HELU chwyt9mm
+po pierwszym łuku, zgodnie z zatwierdzonym prostym siodłem/opaską.
+Zachować oba końce4MTA,11strip+10rework, wszystkie wybrane części,4wejścia
+fabryczne bez zmian. Kandydat nie dziedziczy starych mocowań ruszonych
+złączy; retencja ich korpusów/nowe korzenie pozostająOPEN aż do odbioru.
+Akceptacja tej bramki: wszystkie4pełnefactory<=100 z dodatkami, pełne8
+chwytów/opasek/główek, poprawne bryły, rzeczywisty obrys3,25 oraz wszystkie
+zmienione pary jednej sceny. Bez trzeciego solvera portali ani detaliN03.
+
 20.10,00:13Z: profil W066 poprawiony zgodnie z zachowanymHELU4mm2:
 OD4,2/R25,2 zamiast błędnegoCAP3,1. Tylko przewód i własny rowekPETG,
 ten samfirst9/tor/wyjście/kupne części,40,469s/8kontroli/0wskazań.

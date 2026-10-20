@@ -32,7 +32,9 @@ def shoe(case):
     wy0,wy1=sorted((side*18.3,side*21.5))
     base=base.fuse(box([126.5,wy0,-42.1],[129.5,wy1,-38.5]))
     bottom=b.ZMax+.25;top=bottom+2
-    sy0,sy1=(edge-1.25,edge+.75) if side>0 else (edge-.75,edge+1.25)
+    # Full2mm spine lies ABOVE the bought case, not in the fixed web gap.
+    # Web innerY20.5 - case outerY19.05 =1.45mm, without moving the case.
+    sy0,sy1=(edge-2,edge) if side>0 else (edge,edge+2)
     cap=box([b.XMin+1,sy0,bottom],[b.XMax-1,sy1,top]);hardware={}
     for a,c in ((b.XMin+2,b.XMin+4),(b.XMax-4,b.XMax-2)):
         ca=b.YMin-1.25 if side>0 else b.YMin-2.75;cb=b.YMax+2.75 if side>0 else b.YMax+1.25
@@ -128,4 +130,6 @@ def revision(actors,meta,owner,original,recipes,old,fixed,parts,worldmeta):
 
 if __name__=='__main__':
     print('WORKER_PID',os.getpid(),flush=True)
-    main(revision,'n01-rooted-end-bays-side-bridges',(Path(__file__),))
+    from plan_feline_layout import OUT
+    changed=['EndBay:CaseCap:'+w+'_Joint' for w in WIRES[2:]]
+    main(revision,'n01-rooted-end-bays-caps',(Path(__file__),),OUT/'n01-rooted-end-bays-side-bridges.json',changed)
