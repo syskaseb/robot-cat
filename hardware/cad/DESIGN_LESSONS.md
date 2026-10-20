@@ -1,5 +1,20 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, MAIN: przed chwytami przewodów sprawdź REALNE płaszczyzny PCB i
+cały stos śrub. Compounddostawcy miał komponentniżejPCB; bboxZMin niebył
+spodemPCB, a stary trzpieńnie dochodził dootworu. Własne sposoby montażu
+muszą być jawnie inne niżobcy luz1,25. Źródłowy nominalK1474OD2,1 teżnie
+jest większymbudżetemcapPiR1,55; nie kopiuj budżetu jakośrednicyprzewodu.
+
+20.10, MAIN/ATO: planuj CAŁYchwyt z przestrzenią wyjmowania bezpieczników,
+nie samą obudowąbanku. Wspólny zestaw8,3mm mieści się międzyrzeczywistymi
+korytarzami12mm. Po kontakciePi zmierz rzeczywisty normalnywitness i zatokę
+całejpłytki, nie przesuwaj końcówek. WycięciePi odrzucono zaubytekstarego
+PWMroot; podwieszonyROOT doistniejącego korzenia i środekzatoki rozwiązały
+interfejs bezcięciakupnychczęści. Zwykłyfuse jest tu poprawny1Solid, ale
+removeSplitter go psuje. Zachowuj poprawnywynikBoolean; ciągłośćmateriału
+potwierdzaj różnicami zbiorów, nie równością liczbintegracji objętości.
+
 20.10, RR_P: po usunięciu Pi z toru3żyły weszły w zachowanyUSB. Nie ruszaj
 USB ani nie przeszukuj kolejnych kątów: z jego rzeczywistego materiału i
 spodu Pi wyznacz WSPÓLNY przedział całego najgrubszego przewodu. Tu środek

@@ -2,6 +2,93 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,04:03Z: MAIN CAŁAscenai36próbek odebrane173,672s:25/25statycznie
+i25/25ruch,0wskazań,92kontrolelokalneprzyjęte,13parreużytych. 9testów
+regresji5,719s. Pozostał konstruktywnydostępM2 i wspólneuwolnienie wiązki
+razemzF_PI/splice; nie deklarować wyjęcia samegoPCB jako całegoMAIN zlutami.
+N01nadal0/10. Od04:03 nie powtarzać tych niezmienionych kontroli.
+
+20.10,03:56Z: MAIN podwieszony w obliczonej zatoce odebrany lokalnie92
+kontrole;35s geometria i3,531s odbiór unrefinedfuse. Root+staryPi daje
+poprawną1bryłę242,845x168,377x73,9, bez ubytkumateriałuwobuźródłach.
+Refine psuje tębryłę; NIE używać go jako obowiązkowejoperacji. 4rzeczywiste
+capyMAIN odebrane1,36s, oddzielonepad/jacket/grip/route; nominalnyK1474r1,05
+ze starego jawnego przepisu, nie budgetr1,55 Pi. PozostałeHELU bez zmian.
+Teraz tylko25zmienionych aktorów vs CAŁA aktualnascena/36próbekruchu;
+92lokalne kontrole reużyte. Jawne stare aliasydruku muszą być podzbiorem
+PiCarrier przed uznaniem wspólnej drogiobciążenia; obce części nadal1,25.
+Potem narzędzia/wyjęcieMAIN i resztaN01. N01nadal0/10, bez fizycznegoPASS.
+
+20.10, MAIN wspólna wnękaPi27,344s odrzucona: odjęłaby40,406mm3 starego
+PWMroot. Niepromowana. Rzeczywisty witness PCB/Pi ma tęsamąX/Z, aYkończy
+się na-67,025. Z innerY-96 i całej szerokościPCB22,86 wynika zatokaśrodka
+Y[-84,57;-79,705]; wybieramyśrodek-82,1375, nie korektępojedynczejżyły.
+Wcześniejszy słupek przyopasce odpada; JEDEN podwieszony korzeń do
+istniejącego Pi_actual_root, cały staryPi/PWMnietknięty. Zachować pola
+podparciaM2/PCB, pozytywnąfuzję/1bryłę i margines256. Przed sceną całego
+robota odbiór MAIN+wszystkieATO/obydwakorytarze/Pi. N01nadal0/10.
+
+20.10,03:45Z: MAIN obrócone jako CAŁY zestaw w szczelinę12mm pomiędzy
+korytarzamiATO: pełnaopaska8,3 daje1,85mm zapasu naobie strony. Lokalny
+odbiór120,547s: żadnych wskazańbanku/ATO; pozostały2zbytmałeluzynadrukowanym
+PiCarrier (PCB0,445 iRNF0,95 vs1,25). Nie przesuwać dalej. Jedna NOWA kopia
+PiCarrier dostaje wspólną wnękę całegoMAIN+osprzętu. Warunki: poprawna
+jednabryła/podzbiórold, całyRetainedPWMCarrier nieusunięty, brak usunięcia
+w2mm otoczeniu istniejących częściPi/ichmocowań; reużycie par MAIN bez zmian.
+Kupne części/master nietknięte. Potem całeotoczenieMAIN/narzędzia i resztaN01.
+
+20.10, MAIN component-up: wspólny obrót180Y zostawia wyjścia na zewnętrznym
+brzegu banku (obrótX przeniósłby je w bank — nie budować). KorpusPCB99,25,
+elementy do106,9248; łby100,8248..102,8248. Cztery szyjkiR2,2/odsunięcie4,
+RNF16mm tego samegoSKU/min14,4 po10%skurczu, zakład>6 i osobny9mm chwyt.
+Otwarte od wewnątrz widełki zamiast pełnych cylindrów podpierają PCB/M2;
+lokalnie79kontroli/0wskazań10,734s,6testów3,482s. Gołażyła/metal i
+gołażyła/gołażyła nadal1,25; żyła do sąsiedniej nienaruszonej izolacji
+w tym samym czteropadowym wachlarzu0,2 mechanicznie, nie ratingelektryczny.
+Następny test całego25elementowego zespołu vs aktualna scena/36póz,
+potem narzędzia/montaż. Bez punktuN01 ani zmianyhistorycznegoFCStd.
+
+20.10,03:29Z, MAIN szybki lokalny odbiór10,671s: odrzucony korzeń,
+95,34mm3 w spodnich komponentach i2przecięciaRNF. Szereg wyników zerowych
+to własne styki śruba/PCB i izolacja/wiązka: wymagają jawnych kontraktów,
+nie obcego luzu1,25. Nie przerabiać punktowo podpór/łuków. Zmiana przyczyny:
+jedna płytka elementamiDO GÓRY, obrócona wokół prawdziwego środkaPCB;
+te same otwory,8M2, żyłyodspodu, izolacja i chwyt poza komponentami.
+Wszystkie zmienione styki/korzeń/narzędzia ponownie wymagane. N01nadal0.
+
+20.10,03:23Z:6filtrów odebrane9,98s, żadnych nowych pozycji/prymitywów.
+MAIN jeden kandydat całego modułu: PCB-2Z,8osiowych M2/dystanse8,
+4formowane szyjkiR2,2 z13mmRNF i min6mm overlap po10%skurczu,
+4osobne9mm chwyty ZA izolacją, wspólny grzebień/opaska/korzeń do ujemnego
+bankbed. Sprawdzić obrys/rzeczywiste otoczenie, potem własne pasowania
+i narzędzia. Brak zielonej kwalifikacji z samego testu zewnętrznego;
+N01dalej0/10. Nie zmieniono kupnych części ani historycznego mastera.
+
+20.10,03:13Z: delta35właścicieli odebrana83,75s,1204cache reużyte;
+3888ruch/inside/obrys bez regenerowania. Teraz tylko filtr6starych grafów,
+bez nowych prymitywów/pozycji. N01niezaliczone, bo graf nie dowodzi dojść.
+MAIN: wybrany wcześniejszy przepis podaje nominalnyOD2,1 i4indywidualne
+RNF3/32 po13mm;1,55 na końcu Pi jest budżetemprzestrzeni, nie katalogowymOD.
+Odczyt poprawnego vendorBRep: spódPCB101,25/top102,8248, otwory4xR0,762
+na rzeczywistych padach, montaż2xR1,0922 naX-29,271/-10,729,Y-89,081.
+Obecne trzpienie kończą się96,25: nie dochodzą do PCB. Nie naprawiać tego
+wyjątkiem luzu śrub ani samym profilem przewodu. Następna JEDNA korektaMAIN:
+PCB obniżyć o wysokość zachowanego łba2mm; wszystkie8M2 ustawić osiowo tak,
+by łby siadły na nowym topPCB, wydrukowane dystanse8mm na dolnych podkładkach.
+Najwyższy punkt zostaje na starym102,8248. Źródłowe pady pozostają naPCB,
+oddzielić je od jacket:4formowane szyjki z izolacją, pełny9mm chwyt za
+końcem każdej13mmRNF, nie na lutach; zachować12mm alokacji przewodu.
+Wspólne wnętrze/profil/korzeń/bossy/pełneT18I i narzędzia sprawdzić razem.
+To planN01, bez detali produkcyjnychN03/zmianySKU/nowego cięcia zakupowego.
+
+20.10,03:04Z, bramka pola PRZED korytarzami: nieaktualne są tylko właściciele
+RR_P8 (zastępują7starych, jeden ma nowy korzeń) oraz27prefiksów mankietów.
+Odbiór zmieni35źródeł komórek, resztę z odebranych archiwów reużyje;
+nie odejmować starego właściciela od sumy zajętości innych części.
+Ruch3888/inside/obrys bez regenerowania. Potem tylko filtrowanie istniejących
+stycznych prymitywów6klas; nie nowy skan rdzenia ani masowe nowe trasy.
+Pole/graf pozostają danymi propozycji, nie dowodem kontaktu i nie punktemN01.
+
 20.10,02:59Z: CAŁY27pakiet mankietów odebrany52,078s (w tym receiver9,875s),
 117kontroli/0wskazań,27/27statyka i przyjęte36próbek mechaniki. Odebrano
 brakujące9mm po stałych granicach FL/RL/RR w istniejących mankietach,
