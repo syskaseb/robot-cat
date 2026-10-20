@@ -1,5 +1,15 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, MTA: wysokość koszyka od samej pokrywki pomija niższy korpus
+kupnego złącza. Najpierw domena CAŁYCH szyn względem wszystkich stałych
+części/36ruchów; dopiero potem cięcie. Dwa koszyki wymagały tylko5
+rzeczywistychclipów/57,610s do wspólnej granicyZ. Bbox pustego środka
+koszyka nie jest materiałem. Nie zastępuj brakującego kontraktu własnego
+korzenia przesuwaniem go: źródłoweRoot0+ForePanel po udowodnieniu1Solid
+to jedna planowana część, ale kupne złącze/podłoga nadal mają swój luz.
+Odbiór kompletnej krzywej WYJŚCIOWEJ do portalu nie jest odbiorem całego
+przewodu między dwoma urządzeniami ani wszystkich123odcinków.
+
 20.10: BoundBox bryły po Boolean common może nadal obejmować bieguny
 nieprzyciętej powierzchni krzywej. Konserwatywna projekcja wtedy blokuje
 nieistniejący kontakt. Do domen przekrojów używaj optimalBoundingBox(False,

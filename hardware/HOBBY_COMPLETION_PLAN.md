@@ -2,6 +2,166 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,09:18Z: CAŁYaktualny zestawMTA przestrzennie odebrany:72/72
+statyki i72/72aktorów przez36próbek ruchu,1966par/0odrzuceń. Dwa
+wykonania80226/54285 zajęły220,625+96,125=316,750s (procesy,nieCPU).
+Źródłoaktualne: n01-MTA-low-stop-cradles-scene.json/.pairs.json.gz,
+geometria n01-MTA-low-stop-cradles.json/.breps.zip; bodyVHB+lowstops,
+nie odrzucone wysokiedociski.4krzywewyjściowe zachowane z1090parami
+ruchu; pełneśrodki przewodów nadalN04/N05, nie mylić zcałąwiązką.
+N01 nadal0/10, bo otwarte narzędzia/montaż/pozostałe123odcinki246końców
+i korytarze. NEXT: wspólny F0/POST_F0/BAT/920mm oraz kolejność dostępu
+do MTA iźródła; użyć odebranegoMTA jako JAWNEJpropozycji przestrzennej,
+bez promowania natywnego mastera/canonicalendpointów przed montażem.
+RetencjaVHB wymaga realnej próby fazy2, bezfizycznegoPASS. HookON,
+bezstopu poMTA; praca nadalwyłącznieN01.
+
+20.10,09:11Z: wspólna domena wysokości2koszyków odebrana86501/57,610s.
+Uwzględniono WSZYSTKIE aktualnestałe części i36pozycji ruchu; tylko5
+rzeczywistychclipów6pełnychszyn (nie bbox pustegośrodka). Całe korpusy
+W041/W042 ograniczają góręstopów doZ-39,700002, wybrano-39,950002;
+wysokośćnadspodemMTA2,049992mm, rzeczywistyluz1,61555>=1,25mm.
+Oba koszyki tylko tracą materiał;70innychbrył/VHB/podłogi/4krzywewyjściowe
+bez zmian. Tymsamym nie powtarzaćichrestu/obrysu ani1090parprzewodów.
+Pełnyprint nadal1Solid152,325x90,1x45,8. N01=0/10, doodbiorucały72
+statyka/ruch/narzędzia/montaż i reszta123. To wniosekdo dalszejpracy:
+pełna domena CAŁEGOinterfejsu przed detalami, nie wysokość samej pokrywki.
+
+20.10,08:58Z:44782 zatrzymał brak1,20mm wobec1,25 międzyForePanel
+i kupnymW044_Joint, NIE przenikanie (common0). Sprawdzenie całejrodziny:
+W044/W052 oba1,20/common0, W041/W042 oba3,549998/common0. Nieobniżać
+progu i nie ruszać4przewodów/złączy. Jedna korekta CAŁYCH2zatok w
+drukowanymForePanel dopełnegoobrysu złączy+1,50mm, nie punktowe nacięcie
+witnessa ani seria przesunięć0,05. Po ubytku materiału: poprawny1Solid,
+wszystkiekorzenie grzebieni i butów dodatnie, pełny print<250; materiał
+kupny/RearPanel/adhesja i pozostałe71brył bez zmian. Potem brakującepary
+z cache, nie powtarzanie1090odebranychparwyjśćprzewodów. N01=0/10.
+
+20.10,08:54Z: brakujący kontraktRoot0 odbiera96611,43,172s:
+CAŁYForePanel+źródłowy drukowanyRoot0 poprawny1Solid151,075x90,1x45,8.
+72bryły identyczne, geometria bezruchu;1511dodatnichpar i62statyki
+przejęte bez powtarzania. Jedynywiersz własnejunii zawiera oryginalną
+obserwacjęgap0/prógobcy1,25; nie wymazano jej ani nie obniżono obcychluzów.
+Pozostałąstatykę/ruch odbiera44782 z n01-MTA-bonded-root-unions.json.
+Aktualna retencja = koszyki+VHB pod obudowami, nie odrzucone dociski.
+Wybranymaster nadal bez zmian;N01=0/10, chwytyżył niezależne odkleju.
+
+20.10,08:50Z: odbiorca24515 doszedł do62/72statyk,1512par/95,672s.
+Jedyny stop:ForePanel—U1CarrierRoot0,gap0,witness(-9,19;-7;-42).
+Źródłowy plan_feline_n01_common_backbone.py tworzy drukowany centralny
+korzeńU1 odZ-42; plan_feline_full_lower_bay.py jawnie przypisuje takie
+korzenieU1 do planowanych unii z dolnąpodłogą. Root1 jest już w grupie
+RearPanel, a Root0 pominięto w grupieForePanel. Nie przesuwać części.
+Najpierw rzeczywista uniaCAŁEGOwydrukuForePanel+Root0, poprawny1Solid,
+obrys<250 i aktualne źródła. Tylko wtedy jawny kontrakt tej jednej unii,
+z zachowaniem starego wierszaobcego1,25 jako oryginalnej obserwacji.
+Bez ogólnego zwalniania rezerwacji/pozostałych podpór z kontroli.
+
+20.10,08:46Z: prostywariantretencji odebrany jako nominalny model:
+72/72rest,45,703s. Po144mm2 rzeczywistej powierzchni nominalnegospodu
+MTA i podłogi dla2płatków4905 .5mm; podłoga po kieszeni1,800006mm,
+bez dodanego materiału i bez utraty korzeni przewodów. Koszyki mają
+dodatnie korzeniepo718,04mm3.67brył pozostało byte-identycznych, wtym
+4kompletne KRZYWEWYJŚCIOWE MTA; to prefiksy do portali, NIE pełne
+środkowe przewody123odcinków i NIE odbiór całej wiązki. Pełne odciążenia
+żył zachowane; klej trzyma tylko kupneobudowy.72zestaw i narzędzia/montaż
+odbiera24515 z jawnym usunięciem4geometrii2nieinstalowanychopasek;
+stary ujemnywynik nie jest przepisywany naPASS. Dociskwidłowy odrzucony
+wspólnąstatyką, nie trafia do aktualnegozestawu. N01=0/10.
+
+20.10,08:42Z: odrzucić zewnętrzny docisk, nie robić kolejnego mostu.
+RearFHAC:F_TY zajmuje X42,5..93,5/Y53,875..74,125/Z-41..-19;
+wszystkie4nowe elementyRL mają z nim gap0 (wspólna statyka77,546s).
+To nie sam pasek. Prototypowe uproszczenie: tylne2korpusyMTA trzyma
+niski koszykXY i wybrana już 3M VHB4905 .5mm pod WYŁĄCZNIE obudową.
+Po1płatku8x18x.5 na korpus, w pełnym własnym gnieździe podłogi;
+wybrana rolka12x33000mm pozostaje ta sama, planowany dodatkowy pobór36mm.
+2T18I z odrzuconej retencji przechodzą do zapasu, nie udawać instalacji.
+NIE kleić przewodów zamiast odciążeń:4pełne9mmchwyty/korzenie bez zmian.
+Brak nowychSKU/zakupów. Zależność fazy2: rzeczywisty materiał/kształtspodu,
+czyszczenie i próba odrywania/temperatury VHB; producent nie kwalifikuje
+tu naszego dostarczonego korpusu. Bez fizycznegoPASS ani zasilania.
+Pełna podłoga nadal musi być1Solid, pola podparcia144mm2 nominalnie,
+brak kontaktów obcych1,25, aktualny ruch i montaż. Nie zaliczaćN01
+samą deklaracją klejenia; najpierw konstruktywny aktualny zestaw.
+
+20.10,08:29Z: wspólne tylne koszyki/dociski odebrane w obrysie i rest:
+76/76aktorów,48,765s/0odrzuceń.68wcześniejszychbrył identyczne, wtym
+4PEŁNEprzewody i przednie2retencje. Nowe2T18I na szyjkach zamiastnad
+MTA:41,600012/100mmpętli, pełnegłówki5x4,3x5,3, 2,55mm ścianprzypasie.
+Dociski chwytają2narożakażdejobudowy z luzem.2; środek podF0 wolny.
+Rzeczywistekorzenie doRearPanel po909,56mm3, całydolnyprint1Solid
+152,325x107,9x45,8mm; beznowych kupnychczęści/poszerzaniatułowia.
+Odbiórca46062 sprawdza tylko brakujące statyki/ruch76, używając starych
+par bez4zastąpionychopasek; nie liczyponownie1090parprzewodów.
+Narzedzia: odciąć własną opaskę na zewnętrznej szyjce, wysunąć docisk+5Z;
+pełny ciągły obrys ruchu docisku i wejście narzędzia jeszcze DOODBIORU.
+Nie deklarować całegoN01/natywnegoN03 ani fizycznegoPASS. N01=0/10.
+
+20.10,08:18Z: odrzucono CAŁĄtopologię poprzecznejopaskiRR, nie tylko
+pozycję72mm. Rzeczywisty materiał F0 przecina pełną szynę górną paska;
+pozostały przedziałX[80,968908;81,25]. Wśrodku81,109454 rzeczywisty
+luz0,099381mm; granicaLipschitza+połowaprzedziału0,140546 daje maksymalnie
+0,239927mm w CAŁYMpozostałym przedziale, poniżej1,25. Poza nim jest
+rzeczywisteprzenikanie. Bez dalszych offsetów/opaski nadtym korpusem.
+Nowy wspólny plan tylnych2retencji: niskie boczne koszyki/ograniczniki
+PETG do istniejącej podłogi; wypinane widłowe dociski obejmują tylko
+narożaobudów, środek dachu podF0 zostaje wolny. Istniejące2T18I zamykają
+zewnętrzne szyjki docisków, NIE opasują już korpusówMTA podF0. Pełne
+główki/pętle/rozcięcie/wysunięcie/mocne korzenie i obrys w jednym planie;
+przednie2retencje i wszystkie4przewody pozostają identyczne. Wybrane
+kupneczęści/qty bez zmian, nowe własne printy dopiero jako planN01,
+nie produkcyjnyN03. Najpierw sprawdzić wspólny obrys podstawy i dostęp,
+potem jeden konstruktywny zestaw, bez rozbudowywania pojedynczych slotów.
+
+20.10,08:09Z: cały72zestaw zatrzymał się po44statykach/1429parach,
+74,813s, naCaseTieRL—F0:gap0,witness(56,75;2,6;-24,599994).
+NIE uruchamiać reszty odrzuconej macierzy i NIE ruszać4odebranych
+przewodów. Przyczyną jest retencja korpusu wyznaczona ze starego kołnierza,
+nie ze wspólnej przestrzeni F0 i pełnejopaski. Następna decyzja PRZEDCAD:
+ciągłe domenyCAŁEJ tylnejopaski+główki wzdłuż rzeczywistego korpusu,
+od WSZYSTKICH stałychbrył, drugiejopaski,36pozycji nóg i obrysu;
+przednie2opaski zachować z odebraną statyką. Nie próbować kolejnych
+offsetów58mm i nie wycinać kupnegoF0. Dopiero wspólna dodatnia domena
+pozwala zmienić odpowiedni kołnierz i jego własny slotpodłogi. Gdy brak
+domeny, przeplanować CAŁYtorF0/POST_F0, nie ścinać lokalnego narożnika.
+Odbiór nadal wymaga narzędzi/montażu; wynikN01=0/10, wybranymasterbez zmian.
+
+20.10,08:06Z:4/4PEŁNE przewodyMTA W041/W042/W044/W052 mają aktualną
+statykę/obrys i36próbek ruchu,1090par/0odrzuceń. Zmierzona suma6wykonań
+workerów1304,171s (czasprocesów zwczytywaniem/zapisem, NIEsamCPU ani
+czascałegoprojektu). Do całego72zestawu przejęto323niezmienionepary
+statyczne,4odebrane ruchyprzewodów,20identycznych przednichaktorów
+zodebranymruchem oraz8dawnych ujemnychinterfejsów odebranychnaNOWYCH
+butach. Nie odziedziczono zakończenia statyki żadnegoaktora; nowagłówka
+FL nadalwymaga sąsiadów. Worker68126 odbiera tylko brakującepary całego
+zestawu. CałośćMTA/narzędzia/montaż/123korytarze nadalOPEN; N01=0/10,
+wybranymasterbez zmian. Następnie narzędzia i wspólny planmontażu,
+nie powtórne liczenie4przewodów ani otwieranieN03.
+
+20.10,08:01Z:8dawnych ujemnych interfejsów tylnychbutówMTA z nogami
+odebrano na AKTUALNYCHbryłach: najmniejszy luz2,403373mm przy1,25mm,
+38,469s, bez przenoszenia geometrii. Nie przywracać starych odrzuceń,
+nie wnioskować ztego pełnego ruchu wszystkich72części. Worker69289
+nadalodbiera ostatniW052;964zapisanepary/0odrzuceń wchwiliodczytu.
+NEXT pozostałebrakującepary, potem całyzestaw i narzędzia/montaż.
+
+20.10,07:57Z: plan domknięcia od ogółu do szczegółu, bez kolejnej
+siatki pozycji. Bieżący provider246końców ma42flagi mouth-open i7PCA
+grip-only; to dług odbioru, NIE49nowychzłączy i nie dowód49brakujących
+geometrii. Po odebraniu MTA przeglądać tylko te nazwane interfejsy:
+F0/BAT/POST_F0 i920mm; F_PI+SPLICE_PI jako jeden tor; F_AUX+AUX;
+3pełne HY/HP/TY; U1/local/passives bez zgadywania pinoutu;
+obie połówkiJPWM/4wybrane225mmżyły oraz7wyjśćPCA. Dla każdej rodziny
+najpierw przypisać aktualny pełny prefiks, wybranyOD/R, niezależny chwyt,
+korzeń i narzędzie do rzeczywistego obrysu/ruchu. Reużywać odebrane
+niezmienione elementy zamiast uznawać stare flagi za potrzebę nowegoCAD.
+Potem JEDNA wspólna alokacja korytarzy123odcinków,246końców i kolejność
+montażu; bez tras produkcyjnychN04/N05 i stockN10. MTA: stare ujemne
+CaseBaseW044/W052 dotyczą układu PRZED odebranym przesunięciem CAŁYCH
+28części; nie ponawiać tego odrzuconego układu. Nadal wymagany odbiór
+zmienionych sąsiadów. Punkty dopiero po całym konstruktywnymN01.
+
 20.10,07:49Z: aktualny N01 nadal0/10. Odebrano72/72 części MTA
 w spoczynku, bez zmiany liczby fizycznych części. Odrzucona główkaFL
 NAZEWNĄTRZ kolidowała z kupnym W044; zastępuje ją pełna główkaT18I
