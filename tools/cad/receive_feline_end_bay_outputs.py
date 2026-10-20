@@ -39,11 +39,11 @@ def build_paths(f, centre_x, radius):
         factory_required_mm=length+21,factory_margin_mm=100-length-21)
 
 
-def main():
+def main(revision=None, dest_name='n01-end-bay-outputs', extra_pins=()):
     tick=time.monotonic();world,parts,meta,pins,docs=compose();contract,cf,df=profiles()
     lf=OUT/'n01-full-lower-bay-plan-r3.json';lower=json.loads(lf.read_text());factory={r['wire']:r for r in lower['factory_routes']}
-    dest=OUT/'n01-end-bay-outputs.json';pairs=dest.with_suffix('.pairs.json.gz')
-    pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (lf,cf,df,Path(__file__),ROOT/'tools/cad/receive_feline_underplate_return_gallery.py',ROOT/'tools/cad/receive_feline_positive_service_deck.py')})
+    dest=OUT/(dest_name+'.json');pairs=dest.with_suffix('.pairs.json.gz')
+    pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (lf,cf,df,Path(__file__),ROOT/'tools/cad/receive_feline_underplate_return_gallery.py',ROOT/'tools/cad/receive_feline_positive_service_deck.py',*extra_pins)})
     retired=[]
     for w in WIRES:
         for row in lower['parts']:
@@ -86,6 +86,7 @@ def main():
                 for k,s in kit.items():add('EndGrip:'+typ+':'+w+':'+k,s,w,'proposal_material' if k=='pad' else 'project_stock_reservation')
             recipes[w]={k:(v.tolist() if isinstance(v,np.ndarray) else v) for k,v in r.items()}
             recipes[w].update(held_kit_translation_mm=shift.tolist(),strip_mm=11,rework_mm=10,custom_prefix_mm=sum(x['length_mm'] for x in r['custom']),final_cut_and_stock_OPEN=True)
+        if revision:result['revision']=revision(actors,ameta,owner,original,recipes,old,fixed,parts,meta)
         archive=dest.with_suffix('.breps.zip');geometry=[]
         with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
             for i,(n,s) in enumerate(actors.items()):
@@ -97,7 +98,7 @@ def main():
         minimum=minimum_for(n,ameta[n],m,ameta.get(m,meta.get(m,{})))
         if bbox_lower_bound(bounds[n],bounds[m])>=minimum:return None
         # Complete held kits have the identical rigid transform, not new fits.
-        if n.startswith('EndBay:') and m.startswith('EndBay:') and owner[n]==owner[m]:return dict(ok=True,reused_identical_rigid_kit=True)
+        if n.startswith('EndBay:') and m.startswith('EndBay:') and owner[n]==owner[m] and not result.get('revision'):return dict(ok=True,reused_identical_rigid_kit=True)
         if m==world.bus['name']:
             a=s.copy();a.Placement=docs['inverse']*a.Placement;gap=query.distance(world.bus['original'],a)
         elif t.Solids:gap=query.distance(s,t)
@@ -108,9 +109,11 @@ def main():
             rigid=m if wire==n else n
             same_grip=n.rsplit(':',1)[0]==m.rsplit(':',1)[0] and n.startswith('EndGrip:')
             own_grip=wire and rigid.startswith('EndGrip:'+('Factory' if wire.startswith('EndFactory') else 'Custom')+':'+owner[wire]+':')
-            if wire and rigid.startswith('EndBay:'):
-                prior=query.distance(old[original[wire]],old[original[rigid]]);common=s.common(t)
-                baseline=old[original[wire]].common(old[original[rigid]])
+            if wire and rigid.startswith('EndBay:') or n.startswith('EndBay:') and m.startswith('EndBay:'):
+                left,right=(wire,rigid) if wire else (n,m)
+                prior=query.distance(old[original[left]],old[original[right]]);common=s.common(t)
+                baseline=old[original[left]].common(old[original[right]])
+                assert (common.isNull() or common.isValid()) and (baseline.isNull() or baseline.isValid())
                 r.update(ok=common.Volume<=baseline.Volume+1e-5 and gap>=min(prior,minimum)-1e-6,baseline_gap_mm=prior,common_mm3=common.Volume,baseline_common_mm3=baseline.Volume)
             elif own_grip or same_grip:
                 common=s.common(t);r.update(ok=common.Volume<1e-5,own_grip_common_mm3=common.Volume)
@@ -122,6 +125,10 @@ def main():
         if n.startswith('EndBay:CaseBase:') and m.startswith('LowerBay:'):
             common=s.common(t)
             if common.Volume>1e-5:r.update(ok=True,intended_PETG_root_overlap_mm3=common.Volume)
+        for a,b in ((n,m),(m,n)):
+            if b in result.get('revision',{}).get('root_mates',{}).get(a,[]):
+                common=s.common(t);assert common.isNull() or common.isValid()
+                r.update(ok=common.Volume>1e-5,intended_positive_PETG_root_mm3=common.Volume)
         return r
     try:
         for n,s in actors.items():
