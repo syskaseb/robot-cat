@@ -5,6 +5,14 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_tie_pad_contact_is_mating_not_foreign_clearance(self):
+        from receive_feline_source_restraints import local_limit
+        p='SourceGrip:POSTIN:'
+        meta={p+'pad':dict(kind='PETG',print_group='upper'),p+'band':dict(kind='T18I',print_group='upper'),p+'head':dict(kind='T18I',print_group='upper')}
+        self.assertEqual(local_limit(p+'band',p+'pad',meta,{}, {'POSTIN':{'wire':'factory'}},{}),0.)
+        self.assertEqual(local_limit(p+'head',p+'pad',meta,{}, {'POSTIN':{'wire':'factory'}},{}),.2)
+        self.assertEqual(local_limit(p+'band','foreign_wire',meta,{}, {'POSTIN':{'wire':'factory'}},{}),1.25)
+
     def test_full_nine_on_first_R12_arc_no_extra_length(self):
         r=path([0,0,0],[2**-.5,2**-.5,0],[('turn',[-2**-.5,2**-.5,0])],12.4)
         kit,rec=build(r['parts'][0],.3,[0,0,-1],7.)

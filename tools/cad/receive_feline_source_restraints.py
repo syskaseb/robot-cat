@@ -3,7 +3,7 @@
 Save each exact pair and each whole-print proof. Resume missing work only;
 do not replay MTA, source wire checks or successful unions after a slice.
 """
-import gzip,hashlib,json,time,zipfile
+import argparse,gzip,hashlib,json,time,zipfile
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -20,8 +20,46 @@ from plan_feline_usb_service_bight import outer_margin
 from feline_atomic_save import save_json
 
 
-def main():
-    tick=time.monotonic();dest=OUT/'n01-source-restraints-whole.json';pf=dest.with_suffix('.pairs.json.gz');archive=dest.with_suffix('.breps.zip')
+def local_limit(n,other,meta,groups,specs,bonds):
+    info=meta[n];oi=meta.get(other,{})
+    if info['kind']=='PETG' and oi.get('kind')=='PETG' and info['print_group']==oi['print_group']:return None
+    if {info['kind'],oi.get('kind')}=={'VHB4905','PETG'} and info['print_group']==oi['print_group']:return 0.
+    for bond in bonds.values():
+        if n==bond['patch'] and other in (bond['case'],bond['spine']):return 0.
+        if n==bond['spine'] and other in (bond['patch'],bond['case']):return 0. if other==bond['patch'] else .2
+    # POST's own two jackets leave this retained case at its nominal mouths.
+    # Keep .2mm physical separation to its case-retention land, not a foreign
+    # harness keepout. This NEVER applies to a different source/cable/print.
+    if n in ('SourceBody:POST:spine','SourceBody:POST:patch') and other in ('W076_factory','W076_custom_prefix'):return .2
+    if n.startswith('SourceGrip:'):
+        key=n.split(':')[1]
+        if other==specs[key]['wire']:return .2
+        if other.startswith('SourceGrip:'+key+':'):
+            suffixes={n.rsplit(':',1)[1],other.rsplit(':',1)[1]}
+            return 0. if suffixes in ({'band','pad'},{'band','head'}) else .2
+        if key=='F0OUT' and other=='Ref_Material_F0_CP2_0_0':return .2
+        if key in ('POSTIN','POSTOUT') and other=='Ref_Material_PostF0Splice_CP2_0_0':return .2
+    return 1.25
+
+
+def local_check(revision):
+    base,new,meta,groups,specs,bonds,*_=construct(revision)
+    failures=[]
+    for n,s in new.items():
+        for other,t in {**base,**new}.items():
+            if n==other or other in new and list(new).index(other)>list(new).index(n):continue
+            limit=local_limit(n,other,meta,groups,specs,bonds)
+            if limit is None:continue
+            if bbox_lower_bound(s.BoundBox,t.BoundBox)>limit+1e-6:continue
+            gap=s.distToShape(t)[0]
+            common=s.common(t).Volume if limit==0 else 0.
+            if gap<limit-1e-6 or common>1e-5:failures.append((n,other,round(gap,6),limit,round(common,6)))
+    print('LOCAL_CHANGED_SOURCE',revision,len(new),'FAILURES',failures,flush=True)
+    assert not failures
+
+
+def main(revision='r1'):
+    tick=time.monotonic();dest=OUT/('n01-source-restraints-whole'+('' if revision=='r1' else '-'+revision)+'.json');pf=dest.with_suffix('.pairs.json.gz');archive=dest.with_suffix('.breps.zip')
     world,parts,meta,pins,docs=compose();mf=OUT/'n01-MTA-low-stop-cradles.json';m=json.loads(mf.read_text())
     effective={n:s for n,s in parts.items() if n not in m['retired']};effective.update(load(m))
     sf=OUT/'n01-F0-access-stack.json';motion=OUT/'n01-F0-access-stack-motion.json'
@@ -50,7 +88,7 @@ def main():
                 s=Part.Shape();s.importBrepFromString(raw.decode());base[n]=s
         result.setdefault('previous_worker_seconds',[]).append(result['worker_seconds'])
     else:
-        base,new,nm,groups,specs,bonds,sr,_,_=construct()
+        base,new,nm,groups,specs,bonds,sr,_,_=construct(revision)
         # Keep full inherited physical print ownership, not just the nearest rail.
         lower=list(m['print_groups']['LowerBay:RearPanel'])
         # The channelled-foundation graph predates the RECEIVED portal2
@@ -96,21 +134,9 @@ def main():
         if not checks['wholeprint:'+group]['ok']:save('SOURCE_PRINT_UNION_HOLD');return
         if time.monotonic()-tick>220:save('PARTIAL_SOURCE_RESTRAINTS_SAVED');return
     def minimum(n,other):
-        info=ameta[n];oinfo=ameta.get(other,{})
         for members in result['print_groups'].values():
             if n in members and other in members:return None # proved whole valid1Solid, not foreign material
-        if {info['kind'],oinfo.get('kind')}=={'VHB4905','PETG'} and info['print_group']==oinfo['print_group']:return 0.
-        for bond in result['case_bonds'].values():
-            if n==bond['patch'] and other in (bond['case'],bond['spine']):return 0.
-            if n==bond['spine'] and other in (bond['patch'],bond['case']):return 0. if other==bond['patch'] else .2
-        if n.startswith('SourceGrip:'):
-            key=n.split(':')[1];spec=result['independent_grips'][key]
-            if other==spec['wire']:return .2
-            if other.startswith('SourceGrip:'+key+':'):
-                return 0. if {info['kind'],oinfo.get('kind')}=={'T18I'} else .2
-            if key=='F0OUT' and other=='Ref_Material_F0_CP2_0_0':return .2
-            if key in ('POSTIN','POSTOUT') and other=='Ref_Material_PostF0Splice_CP2_0_0':return .2
-        return 1.25
+        return local_limit(n,other,ameta,result['print_groups'],result['independent_grips'],result['case_bonds'])
     def check(n,s,other,t,limit):
         if limit is None:return dict(ok=True,same_proved_whole_print=True)
         bound=bbox_lower_bound(s.BoundBox,t.BoundBox)
@@ -165,4 +191,7 @@ def main():
     print(result['status'],len(checks),result['worker_seconds'],flush=True)
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--revision',choices=('r1','r2'),default='r1');parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
+    if args.local_only:local_check(args.revision)
+    else:main(args.revision)

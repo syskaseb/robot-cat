@@ -37,14 +37,15 @@ def source():
     return actors,r,sf,mf
 
 
-def construct():
+def construct(revision='r1'):
+    assert revision in ('r1','r2')
     base,r,sf,mf=source();new={};meta={};groups={'lower':[],'upper':[]};proof={};specs={}
     add=lambda n,s,kind,group: (new.__setitem__(n,s),meta.__setitem__(n,dict(kind=kind,print_group=group)),groups[group].append(n) if kind=='PETG' else None)
     rr=r['recipes'];u=A.Vector(2**-.5,2**-.5,0);b=A.Vector(-u.y,u.x,0)
     configurations=(('W075','W075_factory',rr['W075_factory']['parts'][0],3.,[0,0,-1],7.5,'lower',3.1),
         ('GROUND','W001_ground_prefix',rr['W001_ground_prefix']['parts'][0],3.,[0,0,-1],9.,'lower',4.),
-        ('F0OUT','W076_factory',rr['W076_factory']['parts'][0],.3,[0,0,-1],7.,'lower',1.5),
-        ('POSTIN','W076_factory',rr['W076_factory']['parts'][-1],1.25,[0,1,0],5.75,'upper',None),
+        ('F0OUT','W076_factory',rr['W076_factory']['parts'][0],.3,[0,0,-1],7.,'lower',3. if revision=='r2' else 1.5),
+        ('POSTIN','W076_factory',rr['W076_factory']['parts'][-1],1.25,[1,0,0] if revision=='r2' else [0,1,0],5.75,'upper',None),
         ('POSTOUT','W076_custom_prefix',rr['W076_custom_prefix']['parts'][0],3.,[-.5,3**.5/2,0],9.,'upper',None))
     for key,wire,row,start,side,band_at,group,foot_at in configurations:
         kit,rec=saddle(row,start,side,band_at)
@@ -87,7 +88,8 @@ def construct():
     proof['POST']=dict(case='Ref_Material_PostF0Splice_CP2_0_0',patch='SourceBody:POST:patch',spine='SourceBody:POST:spine',
         case_coupon=box([x,y-4,z+.5],[x+.01,y+4,z+18.5]),print_coupon=box([x-.51,y-4,z+.5],[x-.5,y+4,z+18.5]))
     xf=r['current_nominal_datums']['POST1'][0];sx=x-1.5
-    arm=joined([box([xf-1,59.6,7.5],[xf+1,63,9.5]),box([sx-1,61,7.5],[xf+1,63,9.5]),
+    if revision=='r2':xf+=3.5
+    arm=joined([box([xf-1,55.1 if revision=='r2' else 59.6,7.5],[xf+1,63,9.5]),box([sx-1,61,7.5],[xf+1,63,9.5]),
         box([sx-1,61,7.5],[sx+1,63,28.75]),box([sx-1,59.1,26.75],[sx+1,63,28.75])])
     add('SourceGrip:POSTIN:root',arm,'PETG','upper')
     add('SourceGrip:POSTOUT:root',box([x-2.5,58.5,5.75],[x-.5,60.5,12.75]),'PETG','upper')
@@ -105,5 +107,20 @@ def construct():
         bonds[key]={k:v for k,v in p.items() if k not in ('case_coupon','print_coupon')}
         bonds[key].update(actual_nominal_case_land_mm2=area,actual_print_land_mm2=land,selected_patch_mm=[8,18,.5],
             actual_case_plastic_adhesion_peel_and_tightening_fit_phase2_gate=True,body_only_NOT_wire_relief=True)
+    if revision=='r2':
+        # Both floating feet lie in the same REAL floor cutout, not above
+        # parent material. One bottom fork connects them to the witnessed
+        # Floor boundary steps from x46 to x49.167 at y-36.6. The foot
+        # extends to x52 across BOTH actual regions, not only their bbox.
+        bridge=joined([box([32.387120903,-38.734195125,-43.3],[52.,-34.734195125,-41.3]),
+                       box([37.01867032,-36.734195125,-43.3],[39.01867032,-28.981325364,-41.3])])
+        add('SourceRoot:lowerSharedFork',bridge,'PETG','lower')
+        import json
+        from receive_feline_rrp_shared_height import load
+        parent=load(json.loads((OUT/'n01-MTA-low-stop-cradles.json').read_text()))['LowerBay:RearPanel']
+        for n in ('SourceGrip:W075:root','SourceBody:XT60:bed'):
+            assert bridge.common(new[n]).Volume>1.,('Fork misses source foot',n)
+        assert bridge.common(parent).Volume>10.,'Fork misses real parent material'
+        assert new['SourceGrip:F0OUT:root'].distToShape(base['Ref_Material_F0_CP2_0_0'])[0]>=.2
     for n,s in new.items():assert s.isValid() and len(s.Solids)==1,n
     return base,new,meta,groups,specs,bonds,r,sf,mf
