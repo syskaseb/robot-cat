@@ -1,0 +1,223 @@
+{
+  "status": "FPI_SELECTED_OD4_RECONCILIATION_AND_FOUR_LAND_ALLOCATION_NOT_SHARED_RECEPTION",
+  "N01_complete": false,
+  "physical_pass": false,
+  "native_changed": false,
+  "selected_SKUs_changed": false,
+  "selected_source_nominal_OD_mm": 4.0,
+  "previous_source_OD_mm": 3.4,
+  "source_dimensions_are_project_delivery_gates": true,
+  "paths_changed": false,
+  "source_curves": {
+    "W043": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -27.45,
+            0,
+            41.1
+          ],
+          "end": [
+            -17.175502425774653,
+            0.0,
+            41.1
+          ],
+          "length_mm": 10.274497574225348
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -17.175502425774653,
+            0.0,
+            41.1
+          ],
+          "mid": [
+            -13.623341885077224,
+            0.5537349034789802,
+            42.12440957143612
+          ],
+          "end": [
+            -11.450000000000001,
+            2.0000000000000004,
+            44.800000000000004
+          ],
+          "radius_mm": 6,
+          "length_mm": 7.6028563945307965
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -11.450000000000001,
+            2.0000000000000004,
+            44.800000000000004
+          ],
+          "mid": [
+            -9.276658114922778,
+            3.446265096521021,
+            47.47559042856389
+          ],
+          "end": [
+            -5.724497574225349,
+            4.000000000000001,
+            48.50000000000001
+          ],
+          "radius_mm": 6,
+          "length_mm": 7.6028563945307965
+        },
+        {
+          "kind": "line",
+          "start": [
+            -5.724497574225349,
+            4.000000000000001,
+            48.50000000000001
+          ],
+          "end": [
+            4.55,
+            4,
+            48.5
+          ],
+          "length_mm": 10.274497574225348
+        }
+      ],
+      "length_mm": 35.75470793751229
+    },
+    "W077": {
+      "parts": [
+        {
+          "kind": "line",
+          "start": [
+            -78.45,
+            0,
+            41.1
+          ],
+          "end": [
+            -88.55,
+            0.0,
+            41.1
+          ],
+          "length_mm": 10.1
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -88.55,
+            0.0,
+            41.1
+          ],
+          "mid": [
+            -97.38883476483184,
+            -3.51471862576143,
+            42.125126265847086
+          ],
+          "end": [
+            -101.05,
+            -12.0,
+            44.6
+          ],
+          "radius_mm": 12.5,
+          "length_mm": 19.634954084936208
+        },
+        {
+          "kind": "arc",
+          "start": [
+            -101.05,
+            -12.0,
+            44.6
+          ],
+          "mid": [
+            -97.38883476483184,
+            -20.485281374238568,
+            47.074873734152916
+          ],
+          "end": [
+            -88.55,
+            -24.0,
+            48.1
+          ],
+          "radius_mm": 12.5,
+          "length_mm": 19.634954084936208
+        },
+        {
+          "kind": "line",
+          "start": [
+            -88.55,
+            -24.0,
+            48.1
+          ],
+          "end": [
+            -63.55,
+            -24.0,
+            48.1
+          ],
+          "length_mm": 25
+        }
+      ],
+      "length_mm": 74.36990816987242
+    }
+  },
+  "known_mates": {
+    "case_both_typed_wire_common_mm3": [
+      0.0,
+      0.0
+    ],
+    "old_W077_full_capacity_vs_SpliceClip_common_mm3": 113.097336,
+    "old_W077_full_capacity_vs_SpliceSleeve_common_mm3": 175.929189,
+    "reservation_overlaps_are_NOT_actual_physical_contacts": true
+  },
+  "proposed_full9_lands": {
+    "F_PI.in": {
+      "wire": "W043",
+      "part_index": 0,
+      "interval_mm": [
+        1.25,
+        10.25
+      ],
+      "straight_available_mm": 10.274497574225348,
+      "basis": "1.25 rigid-case margin plus full9 on existing straight"
+    },
+    "F_PI.out": {
+      "wire": "W077",
+      "part_index": 1,
+      "interval_mm": [
+        0.0,
+        9.0
+      ],
+      "arc_R_mm": 12.5,
+      "basis": "Use existing arc after10.1 initial straight; no extra9 after arc"
+    },
+    "SPLICE_PI.16": {
+      "wire": "W077",
+      "part_index": 3,
+      "interval_mm": [
+        0.0,
+        9.0
+      ],
+      "straight_available_mm": 25.0,
+      "sleeve_edge_gap_mm": 2.0
+    },
+    "SPLICE_PI.18": {
+      "wire": "W078",
+      "part_index": 0,
+      "interval_mm": [
+        16.0,
+        25.0
+      ],
+      "straight_available_mm": 25.0,
+      "sleeve_edge_gap_mm": 2.0
+    }
+  },
+  "open": [
+    "One common rooted four-land source/splice layout, all full T18I heads and installed-tool access",
+    "Actual selected OD4 pipes against current shared scene; old filled sleeve/clip reservations are not physical clearance proofs",
+    "W078 old middle arc R11.1 is not selected R12.4; retain received MAIN end and do not adopt old middle",
+    "No N03 production-detail or full N04 route claim"
+  ],
+  "source_sha256": {
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-central-spine-power-plan-r4.json": "1621d5b44566eeb412458dbda5bd1cb3ef0185d07dbf3e66c6dc6bfafb62c5d1",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+    "tools\\cad\\feline_current_shared_plan_context.py": "3802b3eec837fcc6da99905772ad8acf9548aac632d6e32eb3e3be15ba469b06"
+  },
+  "worker_seconds": 0.0,
+  "worker_seconds_scope": "data binding and four interval assertions only; earlier geometry-query wall time not instrumented"
+}
