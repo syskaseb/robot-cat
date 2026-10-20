@@ -2,6 +2,23 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,01:53Z: CAŁY screen246końców odebrany70,641s/710zapytań:
+18końców pełnych zachowanych porcji,98bez naruszenia koniecznej bramki
+(NIE PASS trasy),39warunkowych wskazań dla obecnego cap/osi/profilu/
+przyjętego marginesu,91capów lub profili OPEN. Dwa niezależne dowody
+RL_P/Pi powyżej pozostają ważne. Pozostałych39 nie nazywać automatycznie
+wadą kupnej części: najpierw rozstrzygnąć własny kanał/chwyt versus obcy
+materiał oraz źródło cap versus niezaalokowana granica elektryczna.
+91OPEN obejmuje m.in.36NineWireCuff,14PWM/U1,6głowy: nie91brakujących
+części ani91brakujących danych producenta. Użyte profile XS/XL JUŻ mają
+poprawne0,4/0,7 orazR0,5/6/10; nie powtarzać ich korekty w ciemno.
+NEXT PRZED NOWYM CAD: uzgodnić te91granic z istniejącymi producentami
+aktualnych prefiksów/kinematyki i przydział własności39wskazań. Nie wybierać
+końców automatycznie po najbliższej odległości i nie wymyślać pinoutuU1.
+Następnie jeden wspólny plan wczesnych chwytów/portali druku i dopiero
+zmienione kontrole. Nie wracać do odebranych4wyjść ani2800/5600pozycji.
+N01 nadal0/10, native/master/bankR47 bez zmian, hook pozostajeaktywny.
+
 20.10,01:43Z: cztery wspólne guide'y zasilające ODRZUCONE:126,125s,
 428sprawdzeń/16wskazań, bez marnowania ruchu po negatywnej statyce.
 Następnie dwa dowody gardła42,313s z POPRAWNYCH zamkniętych brył, nie bbox:
