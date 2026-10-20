@@ -57,6 +57,12 @@ def compose(base_context=None):
     overlay('n01-common-head-root-JR-neck-received.json',retire=HP_RETIRED)
     hp=overlay('n01-HP-selected-R12p6-received.json')
     assert hp['status']=='HP_SELECTED_R12p6_STATIC36_RECEIVED_HEAD_SKIN_MOTION_OPEN'
+    early=overlay('n01-U1-early-pair.json')
+    assert early['status']=='U1_EARLY_PAIR_STATIC36_RECEIVED_FULL123_OPEN'
+    ef=OUT/early['motion_receipt'];er=json.loads(ef.read_text())
+    assert er['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED' and len(er['completed'])==5
+    assert all(v['ok'] for v in er['checks'].values())
+    pins[ef.relative_to(ROOT).as_posix()]=sha(ef)
     for n,s in parts.items():
         b=s.BoundBox;meta.setdefault(n,{})['bounds_mm']=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
         if n in owners:meta[n]['current_geometry_owner_receipt']=owners[n]

@@ -3,7 +3,7 @@
 Use the resident current scene and typed123 contract. Read actual rectangular
 faces once, not bounding-box contacts; no scene reload/raster or pose search.
 """
-import collections,gzip,hashlib,itertools,json,time
+import collections,copy,gzip,hashlib,itertools,json,time
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -15,7 +15,7 @@ from check_main_p0_placement import ROOT,sha
 from plan_feline_layout import OUT
 
 
-def run(fixed,metadata,ends,contract,pins):
+def run(fixed,metadata,ends,contract,pins,previous_rows=None,changed_owner_names=(),changed_end_ids=(),stem='n01-current246-rectangular-source-escape'):
     tick=time.monotonic();faces={};rigid=[];bounds={}
     for n,s in fixed.items():
         kind=metadata.get(n,{}).get('kind')
@@ -30,8 +30,10 @@ def run(fixed,metadata,ends,contract,pins):
         p=np.asarray(p,float);d=np.asarray(d,float);axis=int(np.argmax(abs(d)))
         if abs(abs(d[axis])-1)>1e-7 or np.linalg.norm(np.delete(d,axis))>1e-7:
             rows[e['id']]=dict(status='NON_AXIAL_NO_RECT_FACE_CERTIFICATE');continue
-        transverse=[i for i in range(3) if i!=axis];blocks=[]
-        for n in rigid:
+        transverse=[i for i in range(3) if i!=axis]
+        reused=previous_rows is not None and e['id'] not in changed_end_ids
+        blocks=[copy.deepcopy(b) for b in previous_rows[e['id']].get('blocks',[]) if b['owner'] not in changed_owner_names] if reused else []
+        for n in ([n for n in rigid if n in changed_owner_names] if reused else rigid):
             box=bounds[n];ahead=(box[:,axis]-p[axis])*d[axis]
             if min(ahead)>=R or max(ahead)<=0:continue
             if any(p[i]<box[0,i]-1e-7 or p[i]>box[1,i]+1e-7 for i in transverse):continue
@@ -63,7 +65,7 @@ def run(fixed,metadata,ends,contract,pins):
         rows[e['id']]=dict(status='PROVEN_CURRENT_BOUNDARY_CLEARANCE_HOLD' if blocks else 'NO_RECT_FACE_REJECTION_NOT_ROUTE_PASS',
             wire=e['wire'],point_mm=p.tolist(),axis=d.tolist(),blocks=blocks)
     assert len(rows)==246
-    dest=OUT/'n01-current246-rectangular-source-escape.json';rf=dest.with_suffix('.rows.json.gz')
+    dest=OUT/(stem+'.json');rf=dest.with_suffix('.rows.json.gz')
     rf.write_bytes(gzip.compress(json.dumps(rows,separators=(',',':')).encode(),mtime=0))
     result=dict(status='CURRENT246_RECTANGULAR_SOURCE_NECESSITY_RECEIVED_NOT_N01',
         summary=dict(collections.Counter(r['status'] for r in rows.values())),
@@ -73,6 +75,8 @@ def run(fixed,metadata,ends,contract,pins):
             'tools/cad/feline_rectangular_escape.py':sha(Path(__file__).with_name('feline_rectangular_escape.py'))},
         current_ends_sha256=hashlib.sha256(json.dumps(ends,sort_keys=True).encode()).hexdigest(),
         actual_rectangular_faces_cached=len(faces),validated_actual_material_owners=len(valid),
+        unchanged_source_rows_reused=(len(ends)-len(changed_end_ids)) if previous_rows is not None else 0,
+        changed_source_ids=list(changed_end_ids),changed_obstacle_owners=list(changed_owner_names),
         no_rejection_NOT_a_route_or_complete_source_audit=True,other_face_types_and_motion_OPEN=True,
         N01_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
     save_json(dest,result)
@@ -80,7 +84,7 @@ def run(fixed,metadata,ends,contract,pins):
     return result,rows
 
 
-def classify_current(base,ends,result,rows):
+def classify_current(base,ends,result,rows,receipt_name='n01-current246-rectangular-source-escape.json'):
     """Reuse exact face evidence; don't invent free continuations of a
     received complete factory path or treat its own zero-depth face as a
     foreign forward barrier. Original raw evidence remains unchanged.
@@ -94,7 +98,8 @@ def classify_current(base,ends,result,rows):
             if b['axial_plane_distance_mm']<=1e-5:start.append([eid,i]);continue
             indices.append(i)
         if indices:active[eid]=indices
-    source=OUT/'n01-current246-rectangular-source-escape.json'
+    source=OUT/receipt_name
+    assert json.loads(source.read_text())['current_ends_sha256']==result['current_ends_sha256']
     view=dict(status='CURRENT_SOURCE_ESCAPE_ACTION_GATE_NOT_N01',
         raw_receipt=source.relative_to(ROOT).as_posix(),raw_receipt_sha256=sha(source),
         raw_rows=result['rows'],raw_rows_sha256=result['rows_sha256'],

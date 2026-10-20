@@ -34,6 +34,17 @@ def current():
         r.update(source_prefix_length_mm=g['path_length_mm'],received_prefix_R_mm=12.6,
             current_restraint_receipt=paths[-1].relative_to(ROOT).as_posix(),
             routing_boundary_status='CURRENT_HP_SELECTED_R12p6_SOURCE_GRIP_ROOT_OUTLET_HEAD_MOTION_SKIN_OPEN')
+    earlyfile=OUT/'n01-U1-early-pair.json';early=json.loads(earlyfile.read_text())
+    assert early['status']=='U1_EARLY_PAIR_STATIC36_RECEIVED_FULL123_OPEN' and not early['failures']
+    assert sha(ROOT/early['bundle'])==early['bundle_sha256']
+    for eid,r in early['updates'].items():
+        assert eid in updates and eid.startswith(('XP02.module/','XP03.module/'))
+        values={k:v for k,v in r.items() if k not in ('id','wire','portion_id','endpoint','group')}
+        values.update(current_restraint_receipt=earlyfile.relative_to(ROOT).as_posix(),
+            routing_boundary_status='CURRENT_U1_EARLY_PAIR_FULL9_CURVED_ROOT_STATIC36',
+            independent_grip_root_and_sampled_leg_motion_received=True)
+        updates[eid]=values
+    paths.extend((earlyfile,ROOT/early['motion_receipt']))
     resolved=apply_updates(rows,updates)
     assert len(base['portions'])==123 and len(resolved)==246
     assert all(a['point_mm'] is not None or b['point_mm'] is None for a,b in zip(rows,resolved))
