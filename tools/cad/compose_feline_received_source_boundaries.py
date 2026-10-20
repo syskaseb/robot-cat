@@ -56,6 +56,14 @@ def current():
             routing_boundary_status='CURRENT_GTAIL_WHOLE10_ROOTED_STATIC36_WHOLE_ROUTES_OPEN')
         updates[eid]=values
     paths.append(gtfile)
+    wpfile=OUT/'n01-W045-printed-pier-channel.json';wp=json.loads(wpfile.read_text())
+    assert wp['status']=='W045_WHOLE_PRINTED_PORTAL_CHANNEL_STATIC36_RECEIVED' and not wp['failures']
+    assert sha(ROOT/wp['bundle'])==wp['bundle_sha256']
+    for eid,r in wp['updates'].items():
+        assert eid=='W045/custom/end'
+        updates[eid]={k:v for k,v in r.items() if k not in ('id','wire','portion_id','endpoint','group')}
+        updates[eid].update(current_restraint_receipt=wpfile.relative_to(ROOT).as_posix())
+    paths.extend((wpfile,ROOT/wp['motion_receipt']))
     resolved=apply_updates(rows,updates)
     assert len(base['portions'])==123 and len(resolved)==246
     assert all(a['point_mm'] is not None or b['point_mm'] is None for a,b in zip(rows,resolved))

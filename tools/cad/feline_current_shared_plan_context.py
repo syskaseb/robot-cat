@@ -65,6 +65,11 @@ def compose(base_context=None):
     pins[ef.relative_to(ROOT).as_posix()]=sha(ef)
     gt=overlay('n01-GTAIL-whole10-rooted.json')
     assert gt['status']=='GTAIL_WHOLE10_ROOTED_STATIC36_RECEIVED_ROUTES_ASSEMBLY_OPEN'
+    wp=overlay('n01-W045-printed-pier-channel.json',retire=('CurrentFoundation:BankPier:4','CurrentFoundation:ClampSeat:4'))
+    assert wp['status']=='W045_WHOLE_PRINTED_PORTAL_CHANNEL_STATIC36_RECEIVED'
+    wf=OUT/wp['motion_receipt'];wr=json.loads(wf.read_text())
+    assert wr['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED' and len(wr['completed'])==3
+    pins[wf.relative_to(ROOT).as_posix()]=sha(wf)
     for n,s in parts.items():
         b=s.BoundBox;meta.setdefault(n,{})['bounds_mm']=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
         if n in owners:meta[n]['current_geometry_owner_receipt']=owners[n]
