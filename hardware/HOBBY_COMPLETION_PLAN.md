@@ -2,6 +2,48 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,07:49Z: aktualny N01 nadal0/10. Odebrano72/72 części MTA
+w spoczynku, bez zmiany liczby fizycznych części. Odrzucona główkaFL
+NAZEWNĄTRZ kolidowała z kupnym W044; zastępuje ją pełna główkaT18I
+wewnątrz, wyliczona z całej wolnej domenyZ[-28,499994;-27,249994],
+środek-27,874994. 71pozostałychaktorów identyczne, 2rzeczywisteclipy,
+45,813s. Cztery opaski nominal1,2mm, główka5x4,3x5,3, pętla82,4/100mm;
+145mm NIE jest użytecznąpętlą. Dwie podłogi zachowują1Solid i korzenie.
+Wznowiony worker14913 odbiera tylko brakujący ruch4pełnychprzewodów
+(W041/W042 jużodebrane), bez powtarzania2800/5600wariantów. Następnie
+cały72zestaw/statyka/ruch/narzędzia/montaż, potem pozostałe rodziny123/246.
+Warunek odbioru: bez obniżenia obcych1,25mm, aktualny materiał iobrys,
+pełnechwyty oraz konstruktywna kolejnośćmontażu. Nie promować częściowej
+geometrii do mastera; brakN03/stock/fizycznegoPASS. Czas jest czasem
+poszczególnychworkerów, nie ciągłąpracą przez całąnoc.
+
+20.10,07:24Z: pełna rodzina doszła do38/64statyki (299par/76,000s),
+pozostały rzeczywisty luz CaseCapW044—CaseTieFL=.95 zamiast1,25.
+NIE ścinaćtabu/nieprzesuwaćpokrywki. Wspólny planretencji4korpusówMTA:
+wybranyT18I145mm ma nominal1,2mm, stare pętle.8mm/5x5x4head to niepełny
+budżetwybranejczęści. Uzgodnić4pętle1,2+head5x4,3x5,3; qtybez zmian.
+TylkoFL przyjmuje istniejącą stację kołnierzaFR, ale główkaNAZEWNĄTRZ,
+nie obok główkiFR. Profile4wymagają pełnychwłasnychslotów2podłóg.
+Resztaprint62aktorów/purchasedcases/factory/M2/wires/P0/15napędów bez
+przemieszczeń. Overlayrośnie64->72 bo przejmuje8ISTNIEJĄCYCHaliasów
+CaseTie; globalna liczba fizycznych części się NIE zwiększa. Odebrać
+retencję/korpusy/podłogi/rest, potem wspólnąstatykę/36ruchów/dostęp.
+Warunki: pętlacenterline<=100mm projektu (145 NIEusableloop), nieprzenikanie
+body, dodatniekorzenie i1solid obuprintów, foreign1,25 bezobniżania.
+N01=0/10, bezN03/natywnegowyboru/fizycznegoPASS. NEXT body_retention.
+
+20.10,07:05Z: NEXT całe64MTA statyka/ruch po odebraniu4dokładnych
+pasowań główkaT18I—JEJWŁASNEoknopodłogi. Producentkonstruktora wycina
+pełnybudżetgłówki+.2mm; rzeczywiste4luz>=.2, Volumecommon0 (0,859s).
+Tojawnepasowanieprowizoryczne, nie obcy1,25. Oryginalny ujemny wiersz,
+geometria i algorytm zachowane wf31ba528; nie ruchgeometrii/mikroprzesunięcie.
+W052wyliczony zCAŁEGO S1:10wybranych części (wcześniejsze12było błędne),
+X=-135,792,Y=-55,26955,kąt46,71978°. DomenaY[-78,89368;-31,64542],
+3rzeczywisteclipy+trueouter, caływire/rest57,328s;63aktorówidentyczne.
+112starychpar reużyte. Wszystkie4pełneprzewody mająstatykę iobrys;
+cała rodzina/chwyty/narzędzia/ruch/123końce jeszczeOPEN, N01=0/10.
+Nie ponawiaćodebranych2800/5600 ani budować N03.
+
 20.10,06:53Z: bezaktywnego własnegoworkera; hookOTWARTY, N01=0/10.
 Aktualnyblok: tylko W052 kontra pełny S1;3pozostałeMTA przewody mają
 pełnąstatykę/obrys. NEXT zapisany wyżej i w next_after_active_worker;

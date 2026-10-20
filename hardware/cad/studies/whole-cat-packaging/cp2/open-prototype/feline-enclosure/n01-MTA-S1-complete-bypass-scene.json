@@ -1514,7 +1514,12 @@
     "CustomPrefix:W042",
     "CustomPrefix:W044",
     "CustomPrefix:W052",
-    "ArcGrip:W041:band"
+    "ArcGrip:W041:band",
+    "ArcGrip:W041:head",
+    "ArcGrip:W041:pad",
+    "ArcGrip:W042:band",
+    "ArcGrip:W042:head",
+    "ArcGrip:W042:pad"
   ],
   "completed_motion": [],
   "N01_complete": false,
@@ -2376,11 +2381,11 @@
   ],
   "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-S1-complete-bypass.breps.zip",
   "bundle_sha256": "947db4a3e133b9ad13c01782c9fc03b106a5eb49a905755495f0176e430aa7d3",
-  "checks": 162,
+  "checks": 179,
   "failures": [
-    "ArcGrip:W041:head|LowerBay:RearPanel"
+    "ArcGrip:W044:band|LowerBay:ForePanel"
   ],
-  "worker_seconds": 51.344,
+  "worker_seconds": 47.156,
   "byte_identical_rest_reused": [
     "ArcGrip:W044:band",
     "ArcGrip:W044:head",
@@ -2722,7 +2727,7 @@
   "inherited_rest_actor_count": 64,
   "inherited_rest_worker_seconds": 57.328,
   "pair_rows": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-S1-complete-bypass-scene.pairs.json.gz",
-  "pair_rows_sha256": "b1acb7566c570f53022176c7b6941de9d41087a73edebb502878734cfbd41114",
+  "pair_rows_sha256": "4ac912a6c895ddb1acd3f083e51fdd8ef660f7d1c088aeba1a21ea6a6b035cf9",
   "assembly_tools_and_common123_capacity_still_OPEN": true,
   "unchanged_pair_cache": {
     "source": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-rear-shoulders-scene.json",
@@ -2740,5 +2745,19 @@
     "rejected_changed_pairs_EXCLUDED_not_passed": [
       "CustomPrefix:W052|Ref_Material_current_S1_ring_2_0_0"
     ]
-  }
+  },
+  "interface_receipts": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-own-floor-slots.json",
+      "sha256": "bbe5a717a48c7b1fdf36b8bddc2923a4cc7f44cd85614defd7b613e7383311c3",
+      "observed_scene_before_sha256": "e121e8baeefb253302c9e9da6c2569e20a5ace27219fb2d6897f4728f72ce025",
+      "original_pair_rows_sha256": "b1acb7566c570f53022176c7b6941de9d41087a73edebb502878734cfbd41114",
+      "exact_received_pairs": [
+        "ArcGrip:W041:head|LowerBay:RearPanel",
+        "ArcGrip:W042:head|LowerBay:RearPanel",
+        "ArcGrip:W044:head|LowerBay:ForePanel",
+        "ArcGrip:W052:head|LowerBay:ForePanel"
+      ]
+    }
+  ]
 }
