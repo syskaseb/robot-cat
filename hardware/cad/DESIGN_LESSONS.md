@@ -1,5 +1,13 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10, RR_P: po usunięciu Pi z toru3żyły weszły w zachowanyUSB. Nie ruszaj
+USB ani nie przeszukuj kolejnych kątów: z jego rzeczywistego materiału i
+spodu Pi wyznacz WSPÓLNY przedział całego najgrubszego przewodu. Tu środek
+Z93,804538..94,25 dał4krzywe i cały chwyt bez wskazań. Zachowano pierwszy
+pełny9mm chwyt po łuku i4bryły grzebienia/opaski,18par reużyto. BRep po
+ponownym import/export nie musi mieć tych samych bajtów: niezmienione wpisy
+kopiuj wprost z przypiętego archiwum. Nadal potrzebny korzeń i montaż.
+
 20.10, granice PRZED obliczeniami: nie utożsamiaj punktu elektrycznego,
 wlotu istniejącego9mm odcinka i jego wylotu. Nie zakładaj, że36granic
 kinematycznych ma36brył: aktualnie nazwanych prefiksów FR jest9. Czytaj

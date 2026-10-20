@@ -2,6 +2,46 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,02:29Z: DRUGI CAŁY modułRR_P ODEBRANY:44,594s/51kontroli/0wskazań,
+8/8statyka oraz odbiór względem36próbek ruchu (bbox tylko do pomijania
+rozłącznych par). 4bryły chwytu skopiowane bajtowo,18dodatnichpar reużytych;
+4dalsze krzywe są ponadUSB/podPi naZ94,027269, nie zmieniono SKU/USB/case.
+Pierwszy eksport kontrolny nie przeszedł porównania BRep roundtrip: poprawka
+kopiuje niezmienione wpisy archiwum wprost, nie udaje identyczności ponownego
+serializowania. Root nadalOPEN, więc bez punktuN01 i bez fizycznegoPASS.
+Następny korzeń: słupek w istniejącej9mm szczelinie międzyF_L3(Xmax8,5)
+iF_L4(Xmin17,5), X13/Y60,5, dodatni materiał do BankBedCurrent:1(Z52..55).
+Cała kolumna4mm/stopa6mm oraz kanały własnych4żył, nie mikroprzesunięcie.
+Zachować osie/oprawkiR47; odbiór połączeń i wszystkich nowych sąsiadów.
+
+20.10,02:24Z: cały moduł wczesnychRR_P odebrany48,062s/51par/3wskazania:
+wszystkie4przewody omijają Pi;3przecinają USB500 (dodatnie przecięcia
+10,48/33,25/37,78mm3). Grzebień/połówki/T18I/główka bez wskazań.
+Nowa przyczyna przed drugim układem: wspólna galeria NAD USB, POD Pi.
+Z dokładnego przecięcia istniejącegoUSB z lokalnymROI, nie bbox-kolizji:
+USBmaxZ91,504538, więc przy r2,1 i odstępie0,2 dolna granica93,804538;
+PiAdapterminZ97,6 minus2,1/1,25 daje94,25. Wybrany środek94,027269.
+Zmieniają się tylko4dalsze łukiS; pierwszy pełny9mm łuku i4bryły chwytu
+pozostają identyczne bajtowo, ich pozytywne pary reużyte. Bez obniżenia
+marginesów/zmiany USB/kupnych części, bez kolejnego przeszukiwania kątów.
+Po drugim ewentualnym odrzuceniu zmienić topologię/przyczynę, nie Z/kąt.
+
+20.10,02:16Z, bramka PRZED geometrią: wspólny plan odzyskania30gardeł:
+RR_P wszystkie4żyły jeden wczesny łukS pod Pi, zamiast4nieosiągalnych
+prostychcapów; bankR47 zachowany, jego sąsiednie pokrywy wymagają wspólnego
+grzebienia, nie indywidualnych przesunięć. RL_P/P_AUX: portale/mostki
+własnychBankPier3/4 z zachowaniem osi śrub/drogi obciążenia. G1/D_RL/RL_G
+iG2/P_SYS: zmienić wcześniejszy chwyt, nie końcowy środkowy guide w FHAC/
+P0/F_PI. Nie przenosić kupnych części ani obniżać1,25 do sąsiadów.
+Pierwszy CAŁY zmieniony modułRR_P: case/mouth pozostaje; wspólneR25,2,
+wejście0,25, dwa przeciwne łuki35stopni dają wylotY40,342/Z88,885 zamiast
+Y57,25/Z98. Chwyt9 po łuku, jeden rozpinany zakrzywiony4rowkowy grzebień
+i pełnaT18I z główką z boku, nie nad obrysem. Wszystkie4profileradiusy
+z kontraktuSKU. Wycofać razem stare4prefiksy/grzebień/opaskę/główkę;
+sprawdzić nowe4prefiksy+cały4częściowychwyt wobec aktualnej CAŁEJ sceny,
+także górnegoPi, banku i ruchu, nie tylko AdapterBody. To szkieletN01,
+nie detaleN03/cutyN04/stockN10; korzeń i montaż nadal wymagają odbioru.
+
 20.10,02:09Z: odbiór granic/własności, BEZ nowej geometrii. Dwa błędne
 założenia atlasu (jednakowy profil i36brył mankietów) odrzucone, następnie
 zmiana metody:13nazwanych istniejących prefiksów z archiwum zamiast całej
