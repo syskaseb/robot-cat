@@ -2,6 +2,26 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,04:34Z: wybrane role materiałowe123/123 związane z dokładnym bazowym
+K3(blob5f84d783), bez zmianySKU/starychcięć;32kontrakty profilu skorygowane.
+Nominalny przewód nie jest większym budżetemcap. 4istniejąceprefiksy dolne
+mają9,25mm, nie założone9. MAINnarzędzia odebrane19par w0,469s po zdjęciu
+JEDNEJ opaski przed nasadką; F_PI/splice nadal blokuje pełne wyjęcie MAIN.
+Wspólny plan4pozostałychwejśćMTA R25,2 w1,172s:6/6 wzajemnych odstępów,
+minimalnydolnybound osi5,13mm. Potrzeba tor+11zakończenia:95,69mm przód,
+68,24mm tył; fabryczne100mm to nadal założenie do pomiaru, bez stockPASS.
+Pełne9mmchwyty mogą obejmować łuk; starychprostychsiodłeknie dziedziczymy.
+NEXT: tylko zmienione4tory/chwyty/podparcia względem aktualnychbrył, potem
+pozostałe rodzinne alokacje i CAŁY planN01; nie detaleN03. N01nadal0/10.
+
+20.10,04:05Z, po commicieMAINf923d0d8: plan narzędzi bez nowych detaliN03.
+Tylko F_R2ATO chwilowo wyjęte po odebranej trajektorii; 12ATOnadalserwisowalne.
+NasadkaM2 w jawnie prowizorycznymbudżecieØ6/ID5 wchodzi z boku nad bankbed,
+potem podnosi się3mm do nakrętki; driverodgóry. Bez drogi przezpłytę/
+74WAGO/nowego uchwytu nakrętki. Sprawdzić całe ścieżkibudżetówvsrzeczywiste
+materiały. Pełne wyjęcieMAIN zwolnione zF_PI/splicenadalwspólna zależnośćN01,
+nie zaliczać samego wyjęciaPCB jako całej operacji. Kable/stockN04/N10nie teraz.
+
 20.10,04:03Z: MAIN CAŁAscenai36próbek odebrane173,672s:25/25statycznie
 i25/25ruch,0wskazań,92kontrolelokalneprzyjęte,13parreużytych. 9testów
 regresji5,719s. Pozostał konstruktywnydostępM2 i wspólneuwolnienie wiązki

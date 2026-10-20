@@ -1,0 +1,92 @@
+{
+  "status": "MAIN_TWO_AXIS_FASTENER_ACCESS_RECEIVED_HARNESS_RELEASE_OPEN",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MAIN-fastener-access.json": "db94145b6996c3baa74911694f40c9ca0bb17e1ef82610d2afdf769d4cf1262b",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MAIN-fastener-access.pairs.json.gz": "4fbc68eb7b8e71c7ebf9cb6d09d4c94550134581148b4ddab2f7add4728b69e1",
+    "tools/cad/receive_feline_main_tool_sequence.py": "5f3114e67c106fc1662d0cb880ba48a63a01957ca8a865b31f1330017f767017"
+  },
+  "completed_axes": [
+    0,
+    1
+  ],
+  "recipes": [
+    {
+      "axis": 0,
+      "axis_world_mm": [
+        -15.467999999999972,
+        -91.40850000000002
+      ],
+      "actual_nut_bottom_Z_mm": 89.35,
+      "actual_shaft_tip_Z_mm": 88.8248,
+      "top_tip_radius_mm": 1.5,
+      "top_handle_radius_mm": 5,
+      "top_handle_start_Z_mm": 120.8248,
+      "socket_outer_radius_mm": 3,
+      "socket_cup_inner_radius_mm": 2.5,
+      "socket_cup_base_Z_mm": 88.2996,
+      "socket_side_entry_mm": 12,
+      "socket_upward_stroke_mm": 3,
+      "entry_above_bankbed_not_through_it": true,
+      "provisional_4mm_socket_fit_and_actual_driver_bit_phase2_gate": true
+    },
+    {
+      "axis": 1,
+      "axis_world_mm": [
+        -15.467999999999975,
+        -72.86650000000002
+      ],
+      "actual_nut_bottom_Z_mm": 89.35,
+      "actual_shaft_tip_Z_mm": 88.8248,
+      "top_tip_radius_mm": 1.5,
+      "top_handle_radius_mm": 5,
+      "top_handle_start_Z_mm": 120.8248,
+      "socket_outer_radius_mm": 3,
+      "socket_cup_inner_radius_mm": 2.5,
+      "socket_cup_base_Z_mm": 88.2996,
+      "socket_side_entry_mm": 12,
+      "socket_upward_stroke_mm": 3,
+      "entry_above_bankbed_not_through_it": true,
+      "provisional_4mm_socket_fit_and_actual_driver_bit_phase2_gate": true
+    }
+  ],
+  "temporarily_removed_actual_parts": [
+    "Ref_Material_F_R2_CP2_ATO_0_0",
+    "MainSupported:band",
+    "MainSupported:head"
+  ],
+  "not_simultaneous_other_service_tool_reservations": true,
+  "native_changed": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "full_harness_extraction_NOT_received": true,
+  "linked_service_dependencies": [
+    "F_PI holder and fixed solder splice release",
+    "future common middles/service slack",
+    "top cosmetic panel removal"
+  ],
+  "tool_dimensions_are_provisional_fit_gate": true,
+  "checks": 19,
+  "failures": [],
+  "pair_rows": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MAIN-fastener-sequence-received.pairs.json.gz",
+  "pair_rows_sha256": "f4c652e8d5e8331f756318e69676c7dd3acdd5a37ef170326e33cb7995bc9c01",
+  "worker_seconds": 0.469,
+  "sequence": [
+    "Top service panel absent; unpowered assembly only",
+    "Withdraw only F_R2 ATO using unchanged received path",
+    "Cut/remove MAIN grip nylon band+head BEFORE accessing screws; no tool-induced harness load",
+    "Enter socket sideways above bed, rise3mm; use upper driver and park two complete M2 stacks",
+    "Full F_PI/splice/harness release remains common-plan dependency",
+    "After MAIN fixed and tools withdrawn replace grip band and reinstall F_R2 ATO"
+  ],
+  "released_band_is_consumable_replaced_after_service": true,
+  "band_absent_for_initial_fastener_assembly": true,
+  "live_copper_metal_and_foreign_tool_margins_NOT_reduced": true,
+  "superseded_absent_material_rows": [
+    "axis0|socket_side_approach|MainSupported:band",
+    "axis0|socket_upward3|MainSupported:band",
+    "axis1|socket_side_approach|MainSupported:band",
+    "axis1|socket_upward3|MainSupported:band"
+  ],
+  "unchanged_passing_queries_reused": 19,
+  "adopted_worker_seconds": 49.859
+}

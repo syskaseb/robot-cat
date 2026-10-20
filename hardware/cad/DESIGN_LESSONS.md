@@ -1,5 +1,14 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10: przed geometrią powiąż WSZYSTKIE fizyczne odcinki z wybraną tabelą
+materiałów i ich rolą. Większy budżetcap nie jest średnicą żyły, materiał
+fabrycznego ogona nie opisuje jego przedłużenia, SOURCE/DONOR nie mnoży
+zakupów. Spięcie123ról z bazowymK3 ujawniło32rozbieżności profilu/promieni,
+których kolejne lokalneprzesunięcia nie rozwiążą. Dla4wejśćMTA wspólny
+plan3D zR25,2 i pełnymi9mmchwytami po łuku dał dodatnie wzajemneodstępy
+w1,172s bez zmiany kupnychczęści. To tylko bramka wzajemna: nadal trzeba
+sprawdzić obce bryły/pełne chwyty/korzenie/montaż. Nie importuj starychcięć.
+
 20.10, MAIN: przed chwytami przewodów sprawdź REALNE płaszczyzny PCB i
 cały stos śrub. Compounddostawcy miał komponentniżejPCB; bboxZMin niebył
 spodemPCB, a stary trzpieńnie dochodził dootworu. Własne sposoby montażu
