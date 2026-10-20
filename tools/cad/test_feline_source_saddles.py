@@ -38,6 +38,17 @@ class SourceSaddles(unittest.TestCase):
         self.assertGreater(r['E2_layer_pitch_mm'],lo);self.assertLess(r['E2_layer_pitch_mm'],hi)
         self.assertFalse(r['selected_parts_or_pad_identities_changed']);self.assertFalse(r['N01_complete'])
 
+    def test_source_root_whole_case_bypass_not_a_partial_or_print_PASS(self):
+        import json
+        from plan_feline_layout import OUT
+        r=json.loads((OUT/'n01-source-restraints-head-case-bypass.json').read_text())
+        self.assertFalse(r['failures']);self.assertEqual(len(r['completed_static']),27)
+        self.assertEqual(len(r['completed_motion']),27)
+        self.assertTrue(r['all14_U1_local_sources_included'])
+        self.assertEqual(r['current_lower_connectivity_proof']['solids'],1)
+        self.assertTrue(r['current_lower_connectivity_proof']['within250_margin'])
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['physical_pass']);self.assertFalse(r['native_changed'])
+
     def test_underside_plan_keeps_all14_named_pads_and_lengths(self):
         import json
         from plan_feline_layout import OUT

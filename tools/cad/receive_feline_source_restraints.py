@@ -62,6 +62,135 @@ def local_check(revision):
     assert not failures
 
 
+def receive_trimmed_fork(world,effective,meta,pins,docs,u1_sources,u1_files,case_bypass=False,head_aware=False):
+    """Remove the known PCB corner only; reuse26 actors and monotone gaps.
+
+    All14 current U1 sources enter the same gate. Preserve every original
+    positive print joint: a smaller connected fork with identical joints
+    cannot disconnect the previously proved connected whole print.
+    Native detailed reconstruction remains N03, not this N01 space gate.
+    """
+    tick=time.monotonic();src=OUT/'n01-source-restraints-whole-r5.json';old=json.loads(src.read_text())
+    name='SourceRoot:lowerSharedFork';pcbname='Ref_Material_PWM1608NominalPCB_0_0'
+    assert old['failures']==[name+'|'+pcbname] and len(old['completed_static'])==26
+    filename='n01-source-restraints-head-case-bypass.json' if head_aware else 'n01-source-restraints-case-bypass.json' if case_bypass else 'n01-source-restraints-current.json'
+    dest=OUT/filename;assert not dest.exists()
+    new=load(old);original=new[name];pcb=effective[pcbname].BoundBox;bb=original.BoundBox
+    tool=Part.makeBox(pcb.XMax+1.25-bb.XMin+1,bb.YMax-(pcb.YMin-1.25)+1,bb.ZLength+2,
+                      A.Vector(bb.XMin-1,pcb.YMin-1.25,bb.ZMin-1))
+    cut=original.copy().cut(tool)
+    if case_bypass:
+        # The former downleg went THROUGH MTA_RR, not an obsolete alias.
+        # Go ABOVE the complete cap and OUTSIDE its south face, then join
+        # the already-rooted CaseBase below it. No guessed empty floor toe.
+        from feline_source_restraint_plan import box,joined
+        body=effective['Ref_Material_MTA_RR_0_0'].BoundBox
+        cap=effective['CaseCap:W042_Joint'].BoundBox;base=effective['CaseBase:W042_Joint'].BoundBox
+        shelf=box([bb.XMin,bb.YMin,-27.5],[48,-23,-25.5]).cut(tool)
+        bodycut=box([body.XMin-1.25,body.YMin-1.25,-28.5],[54,-22,-24.5])
+        shelf=shelf.cut(bodycut)
+        innerY=cap.YMin-1.25;outerY=innerY-2;bridgeZ=cap.ZMax+1.25
+        parent_faces=[f for f in effective['CaseBase:W042_Joint'].Faces
+                      if type(f.Surface).__name__=='Plane' and abs(f.normalAt(0,0).y)>.99
+                      and abs(f.CenterOfMass.y-base.YMin)<1e-5]
+        assert len(parent_faces)==1,'Select the actual parent face, not its empty bbox corner'
+        rootx=parent_faces[0].CenterOfMass.x
+        bridgeYmax=bb.YMin+2
+        neck=[box([46,bb.YMin,-27.5],[48,bridgeYmax,bridgeZ+2])]
+        if head_aware:
+            # First leave the WHOLE ground head beneath its old clear plane;
+            # only then rise south of its full envelope. No Z-only retry.
+            head=new['SourceGrip:GROUND:head'].BoundBox
+            bridgeYmax=min(bb.YMin,head.YMin-1.25)
+            neck=[box([46,bridgeYmax-2,-27.5],[48,bb.YMin+2,-25.5]),
+                  box([46,bridgeYmax-2,-27.5],[48,bridgeYmax,bridgeZ+2])]
+        cut=joined([shelf,*neck,
+                    box([46,outerY,bridgeZ],[53,bridgeYmax,bridgeZ+2]),
+                    box([51,outerY,base.ZMin],[53,innerY,bridgeZ+2]),
+                    box([51,outerY,base.ZMin],[rootx+1,innerY,base.ZMin+2]),
+                    box([rootx-1,outerY,base.ZMin],[rootx+1,base.YMin+2,base.ZMin+2])])
+        assert cut.copy().common(effective['CaseBase:W042_Joint'].copy()).Volume>1.,'No actual bypass-root joint'
+    assert cut.isValid() and len(cut.Solids)==1
+    if not case_bypass:assert cut.copy().cut(original.copy()).Volume<1e-7
+    removed=original.copy().cut(cut.copy());assert removed.isValid() and removed.Volume>0
+    joint_proofs={}
+    for n in old['print_groups']['lower']:
+        if n==name:continue
+        s=new.get(n,effective.get(n));assert s is not None,n
+        if bbox_lower_bound(removed.BoundBox,s.BoundBox)>1e-6:continue
+        common=removed.copy().common(s.copy());assert common.isNull() or common.isValid()
+        if not case_bypass:assert common.Volume<1e-7,('Cut changes a previous print joint',n,common.Volume)
+        joint_proofs[n]=dict(removed_joint_volume_mm3=common.Volume)
+    new[name]=cut;ownmeta={r['name']:r for r in old['geometry']};query=SolidQueries()
+    prior=json.loads(gzip.decompress((ROOT/old['pair_rows']).read_bytes()))
+    checks={k:v for k,v in prior.items() if v['ok'] and (not case_bypass or name not in k.split('|'))}
+    reused=len(checks);scene={**effective,**new,**u1_sources}
+    source_inputs={**pins,**{f.relative_to(ROOT).as_posix():sha(f) for f in (src,ROOT/old['bundle'],ROOT/old['pair_rows'],Path(__file__),*u1_files)}}
+    result=dict(status='RUNNING_CURRENT_SOURCE_FORK_STATIC_MOTION',source_sha256=source_inputs,
+        completed_static=list(old['completed_static']),completed_motion=[],checks=checks,
+        failures=[],reused_prior_positive_pairs=reused,subset_of_previous_root=not case_bypass,
+        removed_free_corner_volume_mm3=removed.Volume,unchanged_previous_print_joint_proofs=joint_proofs,
+        prior_lower_connected_print_proof=old['print_union_proofs']['lower'],
+        current_lower_connectivity_proof='Whole union required below' if case_bypass else 'Connected1Solid subset fork, unchanged positive intersection regions with ALL other previously connected members',
+        unchanged_upper_print_proof=old['print_union_proofs']['upper'],
+        all14_U1_local_sources_included=len(u1_sources)==28,full_grips_common123_tools_assembly_OPEN=True,
+        N01_complete=False,native_changed=False,physical_pass=False)
+    assert result['all14_U1_local_sources_included']
+    if case_bypass:
+        members=[scene[n].copy() for n in old['print_groups']['lower']]
+        full=members[0].multiFuse(members[1:]);assert full.isValid() and len(full.Solids)==1
+        b=full.BoundBox;size=[b.XLength,b.YLength,b.ZLength];assert max(size)<250
+        result['current_lower_connectivity_proof']=dict(actual_whole_union_valid=True,solids=1,envelope_mm=size,within250_margin=True)
+        checks['wholeprint:lower']=dict(ok=True,actual_changed_whole_print_union=True)
+    archive=dest.with_suffix('.breps.zip');geometry=[]
+    with zipfile.ZipFile(ROOT/old['bundle']) as zold,zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
+        for row in old['geometry']:
+            row=dict(row);raw=cut.exportBrepToString().encode() if row['name']==name else zold.read(row['entry'])
+            row['sha256']=hashlib.sha256(raw).hexdigest();z.writestr(row['entry'],raw);geometry.append(row)
+    result.update(bundle=archive.relative_to(ROOT).as_posix(),bundle_sha256=sha(archive),geometry=geometry)
+    def save():
+        result.update(worker_seconds=round(time.monotonic()-tick,3),failures=[k for k,v in checks.items() if not v['ok']])
+        save_json(dest,result)
+    def check(n,s,other,t,limit=1.25):
+        key=n+'|'+other
+        if key in checks:return
+        if bbox_lower_bound(s.BoundBox,t.BoundBox)>=limit:return
+        a=s;b=t
+        if other==world.bus['name']:a=s.copy();a.Placement=docs['inverse']*a.Placement;b=world.bus['original']
+        if not b.Solids:
+            md=meta.get(other,{});rad=md.get('nominal_profile_radius_mm') or md.get('radius_mm')
+            row=profile_gap(a,b,rad,limit) if rad else dict(ok=False,unreceived_curve_profile=True)
+        else:gap=query.distance(a,b);row=dict(ok=gap>=limit-1e-6,gap_mm=gap,minimum_mm=limit)
+        checks[key]=row
+        if not row['ok']:print('CURRENT_SOURCE_HOLD',key,row,flush=True)
+    checks[name+'|outer']=outer_margin(cut,docs['outer']) if case_bypass else old['outline'][name]
+    save()
+    # Positive old distances survive a true subset; only the old failed pair
+    # and previously unvisited neighbours need a new exact query.
+    for other,s in scene.items():
+        if other==name or other in old['print_groups']['lower']:continue
+        limit=local_limit(name,other,ownmeta,old['print_groups'],old['independent_grips'],old['case_bonds'])
+        if limit is not None:check(name,cut,other,s,limit)
+    for n,s in new.items():
+        for other,t in u1_sources.items():check(n,s,other,t)
+    save()
+    if result['failures']:result['status']='CURRENT_SOURCE_FORK_STATIC_HOLD';save();return result
+    result['completed_static']=list(new)
+    moving=[(p,A.BoundBox(*p['bounds'][0],*p['bounds'][1])) for p in world.motion]
+    for n,s in new.items():
+        for p,b in moving:
+            if bbox_lower_bound(s.BoundBox,b)>=1.25:continue
+            key=n+'|motion:'+p['name']+':'+str(p['pose'])
+            if key in checks:continue
+            tf=placement(p['r'],p['t']);q=s.copy();q.Placement=tf.inverse()*q.Placement
+            gap=query.distance(q,world.rest[p['name']]);checks[key]=dict(ok=gap>=1.25-1e-6,gap_mm=gap,minimum_mm=1.25)
+            if gap<1.25-1e-6:result['status']='CURRENT_SOURCE_FORK_MOTION_HOLD';save();return result
+        result['completed_motion'].append(n);save();print('CURRENT_SOURCE36',n,flush=True)
+    result['status']='SOURCE_RESTRAINTS_CURRENT_STATIC36_RECEIVED_N01_SHARED123_OPEN';save()
+    print(result['status'],len(checks),result['worker_seconds'],flush=True)
+    return result
+
+
 def main(revision='r1'):
     tick=time.monotonic();dest=OUT/('n01-source-restraints-whole'+('' if revision=='r1' else '-'+revision)+'.json');pf=dest.with_suffix('.pairs.json.gz');archive=dest.with_suffix('.breps.zip')
     world,parts,meta,pins,docs=compose();mf=OUT/'n01-MTA-low-stop-cradles.json';m=json.loads(mf.read_text())
