@@ -5,6 +5,17 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_current_source_overlay_reuses_three_HP_and_five_U1_without_new_contacts(self):
+        from compose_feline_received_source_boundaries import current
+        base,rows,_=current();index={e['id']:e for e in rows}
+        self.assertEqual(len(base['portions']),123);self.assertEqual(len(rows),246)
+        for w in ('XS13','XS23','XS33'):
+            self.assertEqual(index[w+'/extra/start']['routing_exit_mm'][1],41)
+        for eid in ('XB22/extra/end','XB23/extra/start','XS23/extra/end'):
+            self.assertEqual(index[eid]['routing_exit_mm'][0],-35.)
+            self.assertEqual(index[eid]['support_owner'],'HPJR:carrier')
+            self.assertFalse(index[eid]['full_middle_route_accepted'])
+
     def test_five_U1_grips_have_whole_print_static_and36_receipt_not_N01(self):
         import json
         from plan_feline_layout import OUT
