@@ -88,7 +88,7 @@ def reconcile_existing_u1(fixed):
     return result
 
 
-def receive(world,fixed,meta,pins,docs,source_file=None):
+def receive(world,fixed,meta,pins,docs,source_file=None,own_module=(),reuse_receipt=None):
     tick=time.monotonic();sf=source_file or OUT/'n01-current-source-MTA-boundary-overlay.json';r=json.loads(sf.read_text())
     for p,h in r['source_sha256'].items():assert sha(ROOT/p)==h,p
     dest=sf.with_name(sf.stem+'-neighbors.json') if source_file else OUT/'n01-inherited-local-source-neighbor-map.json'
@@ -99,12 +99,21 @@ def receive(world,fixed,meta,pins,docs,source_file=None):
             raw=z.read(row['entry']);assert hashlib.sha256(raw).hexdigest()==row['sha256'];s=Part.Shape();s.importBrepFromString(raw.decode())
             actors[row['name']]=s;kinds[row['name']]=row
     checks={};query=SolidQueries();done=[];sources={**pins,sf.relative_to(ROOT).as_posix():sha(sf),Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__))}
+    reused=[];unchanged=set();oldchecks={}
+    if reuse_receipt:
+        old=json.loads(reuse_receipt.read_text())
+        for p,h in pins.items():assert old['source_sha256'][p]==h,p
+        oldsource=reuse_receipt.with_name(reuse_receipt.name.replace('-neighbors',''))
+        assert sha(oldsource)==old['source_sha256'][oldsource.relative_to(ROOT).as_posix()]
+        oldshapes={g['name']:g['sha256'] for g in json.loads(oldsource.read_text())['geometry']}
+        unchanged={n for n,g in kinds.items() if oldshapes.get(n)==g['sha256']};oldchecks=old['checks']
+        sources[reuse_receipt.relative_to(ROOT).as_posix()]=sha(reuse_receipt)
     def save():
         result=dict(status='INHERITED_LOCAL_SOURCE_ALL_NEIGHBORS_DIAGNOSIS_NOT_N01',source_sha256=sources,
             actual_geometry_hashes={n:hashlib.sha256(s.exportBrepToString().encode()).hexdigest() for n,s in actors.items()},
             completed=done,checks=checks,failures={k:v for k,v in checks.items() if not v['ok']},
             intended_holes_NOT_manufacturer_pinout_or_pad_fit=True,N01_complete=False,native_changed=False,
-            physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
+            physical_pass=False,reused_exact_queries=reused,unchanged_actor_names=sorted(unchanged),worker_seconds=round(time.monotonic()-tick,3))
         save_json(dest,result)
     for n,s in actors.items():
         for other,t in {**fixed,**actors}.items():
@@ -114,8 +123,15 @@ def receive(world,fixed,meta,pins,docs,source_file=None):
             elif other=='Ref_Material_PWM1608NominalPCB_0_0':
                 mate='named selected carrier solder hole in nominal PCB, physical fit open' if a['kind']=='bare' else 'own insulated pad departure'
                 minimum=0. if a['kind']=='bare' else .2
+            elif other in own_module:
+                assert n.startswith('U1Five:') and other.startswith(('Ref_Material_U1_','Ref_Material_PWM1608'))
+                minimum=.2;mate='local solder-assembly clearance only; no body contact or electrical qualification'
             elif a['kind']=='wire' and b.get('kind') in ('wire','proposal_wire','actual_wire','curve_profile_reservation'):minimum=.2
             if bbox_lower_bound(s.BoundBox,t.BoundBox)>minimum+1e-6:continue
+            key=n+'|'+other
+            if n in unchanged and (other not in actors or other in unchanged) and key in oldchecks:
+                row=oldchecks[key];assert row.get('minimum_mm')==minimum
+                checks[key]=row;reused.append(key);continue
             aa=s;bb=t
             if other==world.bus['name']:aa=s.copy();aa.Placement=docs['inverse']*aa.Placement;bb=world.bus['original']
             if not bb.Solids:
@@ -124,7 +140,7 @@ def receive(world,fixed,meta,pins,docs,source_file=None):
             else:
                 gap=query.distance(aa,bb);row=dict(ok=gap>=minimum-1e-6,gap_mm=gap,minimum_mm=minimum,intended_mate=mate)
                 if not row['ok']:row['witness_mm']=[[list(x),list(y)] for x,y in aa.distToShape(bb)[1][:1]]
-            checks[n+'|'+other]=row
+            checks[key]=row
             if not row['ok']:print('WITNESS',n,other,row,flush=True)
         done.append(n);save();print('MAPPED',n,flush=True)
     save();print('ALL_LOCAL_SOURCES_MAPPED',len(done),len(checks),round(time.monotonic()-tick,3),flush=True)

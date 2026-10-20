@@ -26,6 +26,18 @@ class SourceSaddles(unittest.TestCase):
         self.assertEqual(len(touched),9)
         self.assertTrue(all(v['actual_common_volume_mm3']==0 for v in touched))
 
+    def test_U1_remaining_five_whole_pair_accounts_for_bare_and_fixed_arm(self):
+        import json
+        from plan_feline_layout import OUT
+        r=json.loads((OUT/'n01-U1-remaining-five-coupled-plan.json').read_text())
+        gate=json.loads((OUT/'n01-U1-remaining-five-coupled-plan-neighbors.json').read_text())
+        self.assertEqual(len(r['specs']),5);self.assertEqual(len(r['geometry']),10)
+        self.assertFalse(gate['failures']);self.assertEqual(len(gate['completed']),10)
+        self.assertEqual(len(gate['reused_exact_queries']),19)
+        lo,hi=r['coupled_E2_pitch_interval_mm']
+        self.assertGreater(r['E2_layer_pitch_mm'],lo);self.assertLess(r['E2_layer_pitch_mm'],hi)
+        self.assertFalse(r['selected_parts_or_pad_identities_changed']);self.assertFalse(r['N01_complete'])
+
     def test_underside_plan_keeps_all14_named_pads_and_lengths(self):
         import json
         from plan_feline_layout import OUT
