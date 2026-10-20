@@ -5,6 +5,23 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_working_register_has_current_source_and_MTA_not_old_mouths(self):
+        import json
+        from compose_feline_source_mta_boundaries import current
+        from receive_feline_existing_lower_caps import current as old
+        from plan_feline_layout import OUT
+        base,rows,_=current();_,prior,_=old();index={r['id']:r for r in rows}
+        self.assertEqual(len(base['portions']),123)
+        self.assertEqual([r['id'] for r in rows],[r['id'] for r in prior])
+        self.assertEqual(len(rows),246)
+        src=json.loads((OUT/'n01-F0-access-stack.json').read_text())
+        self.assertEqual(index['W075/retained0/start']['point_mm'],src['recipes']['W075_factory']['parts'][0]['start'])
+        self.assertEqual(index['W041/custom/start']['routing_exit_mm'],[109.49999971389771,83.64999999999999,45.26])
+        self.assertTrue(index['W076/retained1/start']['source_restraint_shared_shelf_NOT_accepted'])
+        for before,after in zip(prior,rows):
+            for k in ('id','wire','portion_id','endpoint','group'):self.assertEqual(before[k],after[k])
+            if before['point_mm'] is None:self.assertIsNone(after['point_mm'])
+
     def test_tie_pad_contact_is_mating_not_foreign_clearance(self):
         from receive_feline_source_restraints import local_limit
         p='SourceGrip:POSTIN:'
