@@ -45,6 +45,17 @@ def current():
             independent_grip_root_and_sampled_leg_motion_received=True)
         updates[eid]=values
     paths.extend((earlyfile,ROOT/early['motion_receipt']))
+    gtfile=OUT/'n01-GTAIL-whole10-rooted.json';gt=json.loads(gtfile.read_text())
+    assert gt['status']=='GTAIL_WHOLE10_ROOTED_STATIC36_RECEIVED_ROUTES_ASSEMBLY_OPEN' and not gt['failures']
+    assert sha(ROOT/gt['bundle'])==gt['bundle_sha256']
+    for eid,r in gt['updates'].items():
+        assert r['group']=='WAGO:G_TAIL'
+        values={k:v for k,v in r.items() if k not in ('id','wire','portion_id','endpoint','group')}
+        values.update(current_restraint_receipt=gtfile.relative_to(ROOT).as_posix(),
+            independent_grip_root_and_sampled_leg_motion_received=True,
+            routing_boundary_status='CURRENT_GTAIL_WHOLE10_ROOTED_STATIC36_WHOLE_ROUTES_OPEN')
+        updates[eid]=values
+    paths.append(gtfile)
     resolved=apply_updates(rows,updates)
     assert len(base['portions'])==123 and len(resolved)==246
     assert all(a['point_mm'] is not None or b['point_mm'] is None for a,b in zip(rows,resolved))

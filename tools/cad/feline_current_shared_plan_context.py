@@ -63,6 +63,8 @@ def compose(base_context=None):
     assert er['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED' and len(er['completed'])==5
     assert all(v['ok'] for v in er['checks'].values())
     pins[ef.relative_to(ROOT).as_posix()]=sha(ef)
+    gt=overlay('n01-GTAIL-whole10-rooted.json')
+    assert gt['status']=='GTAIL_WHOLE10_ROOTED_STATIC36_RECEIVED_ROUTES_ASSEMBLY_OPEN'
     for n,s in parts.items():
         b=s.BoundBox;meta.setdefault(n,{})['bounds_mm']=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]]
         if n in owners:meta[n]['current_geometry_owner_receipt']=owners[n]
