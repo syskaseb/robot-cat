@@ -3,13 +3,13 @@
 Save each exact pair and each whole-print proof. Resume missing work only;
 do not replay MTA, source wire checks or successful unions after a slice.
 """
-import argparse,gzip,hashlib,json,time,zipfile
+import argparse,copy,gzip,hashlib,json,math,time,zipfile
 from pathlib import Path
 import FreeCAD as A
 import Part
 from check_main_p0_placement import ROOT,sha
 from plan_feline_layout import OUT
-from feline_source_restraint_plan import construct
+from feline_source_restraint_plan import construct,source
 from feline_main_hung_context import compose
 from receive_feline_rrp_shared_height import load
 from feline_fore_power_pair import SolidQueries
@@ -43,7 +43,7 @@ def local_limit(n,other,meta,groups,specs,bonds):
 
 
 def local_check(revision):
-    base,new,meta,groups,specs,bonds,*_=construct(revision)
+    base,new,meta,groups,specs,bonds,*_=construct('r2' if revision=='r3' else revision)
     failures=[]
     for n,s in new.items():
         for other,t in {**base,**new}.items():
@@ -68,6 +68,13 @@ def main(revision='r1'):
         ROOT/'tools/cad/feline_source_restraint_plan.py',ROOT/'tools/cad/feline_source_saddles.py',
         ROOT/'tools/cad/receive_feline_positive_service_deck.py',Path(__file__))
     pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in inputs})
+    parent=None
+    if revision=='r3':
+        previous=OUT/'n01-source-restraints-whole-r2.json';parent=json.loads(previous.read_text())
+        assert parent['status']=='SOURCE_PRINT_UNION_HOLD' and parent['failures']==['wholeprint:upper']
+        for p,h in parent['source_sha256'].items():
+            if p!=Path(__file__).relative_to(ROOT).as_posix():assert pins[p]==h,('Changed geometry dependency',p)
+        pins.update({p.relative_to(ROOT).as_posix():sha(p) for p in (previous,ROOT/parent['bundle'])})
     checks={};query=SolidQueries()
     if dest.exists():
         result=json.loads(dest.read_text());assert result['source_sha256']==pins
@@ -88,7 +95,11 @@ def main(revision='r1'):
                 s=Part.Shape();s.importBrepFromString(raw.decode());base[n]=s
         result.setdefault('previous_worker_seconds',[]).append(result['worker_seconds'])
     else:
-        base,new,nm,groups,specs,bonds,sr,_,_=construct(revision)
+        if parent:
+            base,sr,_,_=source();new=load(parent);nm={row['name']:dict(row) for row in parent['geometry']}
+            groups={g:[n for n in members if n in new] for g,members in parent['print_groups'].items()}
+            specs=parent['independent_grips'];bonds=parent['case_bonds']
+        else:base,new,nm,groups,specs,bonds,sr,_,_=construct(revision)
         # Keep full inherited physical print ownership, not just the nearest rail.
         lower=list(m['print_groups']['LowerBay:RearPanel'])
         # The channelled-foundation graph predates the RECEIVED portal2
@@ -118,6 +129,19 @@ def main(revision='r1'):
             new_geometry_count=len(new),five_independent_T18I_full_heads=True,
             selected_case_only_VHB_extra_draw_mm=54,selected_roll_count_NOT_changed=1,
             assembly_and_all123_common_capacity_OPEN=True,N01_complete=False,native_changed=False,physical_pass=False)
+        if parent:
+            assert pgroup==parent['print_groups'],'Only reuse identical whole-print material members'
+            result['reused_whole_print_geometry_from']=previous.relative_to(ROOT).as_posix()
+            result['print_union_proofs']=copy.deepcopy(parent['print_union_proofs'])
+            for group,proof in result['print_union_proofs'].items():
+                assert proof['valid'] and proof['solids']==1
+                x,y,z=proof['envelope_mm'];angle=45. if max(x,y)>250 else 0.
+                c=abs(math.cos(math.radians(angle)));s=abs(math.sin(math.radians(angle)))
+                envelope=[c*x+s*y,s*x+c*y,z]
+                proof.update(print_rotation_about_Z_deg=angle,conservative_rotated_print_envelope_mm=envelope,
+                             within250_margin=max(envelope)<250,union_not_requeried=True,
+                             orientation_NOT_slicer_or_strength_approval=True)
+                checks['wholeprint:'+group]=dict(ok=proof['within250_margin'],actual_whole_print_union=True,rotated_full_enclosing_box=True)
     effective.update(base);effective.update(new);ameta={row['name']:row for row in result['geometry']}
     def save(status=None):
         if status:result['status']=status
@@ -192,6 +216,6 @@ def main(revision='r1'):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--revision',choices=('r1','r2'),default='r1');parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--revision',choices=('r1','r2','r3'),default='r1');parser.add_argument('--local-only',action='store_true');args=parser.parse_args()
     if args.local_only:local_check(args.revision)
     else:main(args.revision)
