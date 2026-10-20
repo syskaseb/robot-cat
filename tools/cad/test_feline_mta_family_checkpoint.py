@@ -5,6 +5,29 @@ from plan_feline_layout import OUT
 
 
 class FamilyCheckpoint(unittest.TestCase):
+    def test_whole_scene_stops_at_first_static_cause(self):
+        r=json.loads((OUT/'n01-MTA-whole-scene.json').read_text())
+        for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)
+        self.assertEqual(r['status'],'WHOLE_MTA_SCENE_STATIC_HOLD')
+        self.assertEqual(r['inherited_rest_actor_count'],64)
+        self.assertEqual(len(r['failures']),1);self.assertEqual(r['checks'],6)
+        self.assertEqual(r['completed_motion'],[]);self.assertFalse(r['N01_complete'])
+
+    def test_complete_kit_rest_does_not_award_whole_scene(self):
+        r=json.loads((OUT/'n01-MTA-whole-corridor.json').read_text())
+        for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)
+        self.assertEqual(r['status'],'COMPLETE_MTA_KIT_REST_RECEIVED_STATIC_MOTION_ACCESS_OPEN')
+        self.assertEqual(len(r['geometry']),64);self.assertEqual(len(r['completed_rest']),64)
+        self.assertFalse(r['failures']);self.assertFalse(r['N01_complete'])
+        self.assertEqual(len(r['positive_roots']),4);self.assertEqual(len(r['print_groups']),2)
+        for root in r['positive_roots'].values():
+            self.assertGreater(root['parent_actual_overlap_mm3'],0)
+            self.assertEqual(root['full_grip_arclength_mm'],[1.25,11.25])
+        for recipe in r['factory_recipes'].values():
+            self.assertGreater(recipe['project_factory100_margin_mm'],0)
+            self.assertEqual(recipe['strip_mm'],11);self.assertEqual(recipe['rework_mm'],10)
+        self.assertEqual(r['completed_static'],[]);self.assertEqual(r['completed_motion'],[])
+
     def test_static_does_not_qualify_motion(self):
         r=json.loads((OUT/'n01-MTA-four-fans-received.json').read_text())
         for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)

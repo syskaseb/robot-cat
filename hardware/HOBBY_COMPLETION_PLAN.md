@@ -2,6 +2,32 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,06:24Z: domena4górnychłuków109,020s/56rzeczywistychprzecięć,
+87przekrojów: dodatnieX[173,9767;178,15], ujemnepuste wKONSERWATYWNYM
+modelu; niejest todowód niemożliwości/kolizji. ZwykłyBoundBox przyciętej
+krzywej wychodzi poza2mm slab, sztucznie łapie ForePanelTop-38 przy
+przewodzie wslabie[-36;-34]. Zmiana PRZEDkolejną geometrią: użyć
+optimalBoundingBox(False,False) rzeczywistegoBRep oraz przeciąć granice
+z udowodnionymi płaszczyznamiBoolean. Tani test4slabów0,265s potwierdza
+zachowanieZ. To korekta metody analizy, nie obniżenie1,25 ani nowyoffset.
+Stary konserwatywny wynik zachowany. NEXT plan_feline_mta_tight_crowns.py,
+odebrać przed nowągeometrią. N01nadal0/10. BezN03/zmianSKU/stóp/ramy.
+
+20.10,06:15Z: cały64zestaw z4korzeniami/2jednobryłowymi podłogami
+przeszedł WSZYSTKIE nogi wspoczynku w78,015s. Statyka przerwana po6parach,
+43,828s: W041—stały P0Feature107 ma0,250mm zamiast1,25, świadek
+(166,908;34,100;29,600). Nieprzenikanie bioder niekwalifikuje ramy/obrysu.
+Po2odrzuconych trasach nie kolejny offset: NEXT wspólny ciągły przedziałX
+CAŁYCH4górnychłuków, z rzeczywistymi przekrojami wszystkich stałych części
+i36ruchów, nie maksymalnymbbox całegobiodra. Rozpatruj po2mm pasachZ,
+aby końcówka biodra przyY0 nie wypychała przewoduY34 za poprzeczkęramy.
+Dolnyłącznik musi zachować oryginalne stopy/żebra: przy stopieY<=27,65,
+przy żebrzeY>=27,85; toinneX, nieglobalny zakaz. Plan2mmS R25,2:
+przy+X zacznij poX117,5(środekstopy); przy-X po istniejącymS. Pełny
+10mmchwyt pierwszegołuku i wszystkie4korzenie zachowane. Dopiero po
+wspólnejdomenie jedna geometria i aktualnepary. Odrzucone wyniki zachować,
+bez powtarzania36pozycji. N01=0/10, niepromować current/provider/N03.
+
 20.10,05:59Z: odebrano session67097:292,625s,3/6aktorów ruchowych,
 721par/252ujemne. NIEdokańczać reszty odrzuconej trasy. Świadki27,625s
 dowodzą rzeczywistego przenikania już wpozie0 z biodrami FL/FR/RL:

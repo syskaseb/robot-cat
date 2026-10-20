@@ -53,5 +53,7 @@ def construct(recipe):
     return kit,dict(full_grip_arclength_mm=[a,b],independent_wire=True,wire_length_added_mm=0,
         first_arc_R_mm=R,root_arclength_mm=[2.5,4.5],band_centre_arclength_mm=8,
         pad_thickness_mm=2,root_bottom_mm=-43.3,root_pad_common_mm3=pad.common(root).Volume,
-        nominal_T18I_head_volume_mm3=kit['head'].Volume,assembly='Install PETG floor/pad; lay jacket; pass separate tie through floor slot; tighten without conductor crush; cut tie for removal.',
+        nominal_T18I_head_volume_mm3=kit['head'].Volume,
+        actual_root_bounds_mm=[[root.BoundBox.XMin,root.BoundBox.YMin,root.BoundBox.ZMin],[root.BoundBox.XMax,root.BoundBox.YMax,root.BoundBox.ZMax]],
+        assembly='Install PETG floor/pad; lay jacket; pass separate tie through floor slot; tighten without conductor crush; cut tie for removal.',
         root_parent_and_full_scene_and_pull_test_OPEN=True)

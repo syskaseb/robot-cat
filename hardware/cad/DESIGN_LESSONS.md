@@ -1,5 +1,12 @@
 # Wnioski z projektowania 3D robot-cat
 
+20.10: BoundBox bryły po Boolean common może nadal obejmować bieguny
+nieprzyciętej powierzchni krzywej. Konserwatywna projekcja wtedy blokuje
+nieistniejący kontakt. Do domen przekrojów używaj optimalBoundingBox(False,
+False), ograniczonego do UDOWODNIONYCH płaszczyzn regionuBoolean. Testuj
+taką własność na4rzeczywistych rurach przed drogą analizą. Pusta domena
+z luźnychobwiedni nie oznacza braku miejsca ani podstawy do zmianySKU.
+
 20.10: statyczna scena przewodów pomijała ruchome nogi. Dlatego zielona
 statyka nie chroniła nawet pozy0: realne przecięcia bioder327..445mm3.
 Przed drogą całej rodziny uwzględnij WSZYSTKIE rzeczywiste części także
