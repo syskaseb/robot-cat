@@ -98,7 +98,7 @@ def construct(fixed,root_clearance=False):
         separate_land_for_each_wire=True,roots_outside_whole_heads_and_own_jackets=root_clearance,N01_complete=False,native_changed=False,physical_pass=False)
 
 
-def peripheral_construct(fixed):
+def peripheral_construct(fixed,coupled=False):
     """After two pin-field rejections, move the WHOLE three-wire grip outside.
 
     One3-way open V-comb and flat pressure lid, not three heads underneath
@@ -124,10 +124,11 @@ def peripheral_construct(fixed):
                 for key in ('start','mid','end'):
                     if key in q:q[key]=list(pad+rot.multVec(A.Vector(*q[key])-pad))
             p=pad+rot.multVec(p-pad)
-        if abs(p.z-z)>1e-6:
-            dz=z-p.z
+        sourcez=z-2 if coupled and w=='XS23' else z
+        if abs(p.z-sourcez)>1e-6:
+            dz=sourcez-p.z
             for key in ('start','mid','end'):bare[0][key][2]+=dz
-            bare[1]['start'][2]+=dz;p.z=z
+            bare[1]['start'][2]+=dz;p.z=sourcez
         parts=[];t=A.Vector(0,1,0);offset=x-p.x
         if abs(offset)>1e-6:
             n=A.Vector(1 if offset>0 else -1,0,0);angle=math.acos(1-abs(offset)/(2*R))
@@ -136,6 +137,17 @@ def peripheral_construct(fixed):
                 end=at(angle);parts.append(dict(kind='arc',start=list(q),mid=list(at(angle/2)),end=list(end),radius_mm=R));return end
             q=turn(p,t,n);d=t*math.cos(angle)+n*math.sin(angle);normal=t*math.sin(angle)-n*math.cos(angle)
             p=turn(q,d,normal)
+        if coupled and w=='XS23':
+            # Adjacent bare arcs at2.54mm pad pitch cannot share one source
+            # plane with2.1mm jackets at the retained1.25mm margin. Put the
+            # ENTIRE middle formed tail2mm below, then twoR12.6 arcs rise
+            # to the common pressure plane. No smaller bare-wire gap.
+            angle=math.acos(1-2/(2*R));n=A.Vector(0,0,1)
+            def rise(q,t,n):
+                at=lambda a:q+t*(R*math.sin(a))+n*(R*(1-math.cos(a)))
+                end=at(angle);parts.append(dict(kind='arc',start=list(q),mid=list(at(angle/2)),end=list(end),radius_mm=R));return end
+            q=rise(p,t,n);d=t*math.cos(angle)+n*math.sin(angle);normal=t*math.sin(angle)-n*math.cos(angle)
+            p=rise(q,d,normal);assert abs(p.z-z)<1e-6
         assert abs(p.x-x)<1e-6 and p.y<40
         parts.extend([dict(kind='line',start=list(p),end=[x,40,z]),dict(kind='line',start=[x,40,z],end=[x,49,z])])
         s.update(parts=parts,bare_parts=bare,source_basis='Whole3 fan to common outside-PCB V-clamp, same named pad/R12.6/profile; B2 clock/B3 project strip budget')
@@ -175,19 +187,23 @@ def peripheral_construct(fixed):
     for i,column in enumerate((joined(columns[:2]),joined(columns[2:]))):
         assert column.common(fixed['LowerBay:ForePanel']).Volume>5.,'Actual ForePanel foot missing'
         add('U1Relief:ForePost'+str(i),column,'PETG','fore')
+    if coupled:
+        r['named_grip_air_gaps']={f'U1Relief:ForePost{i}':['U1Five:'+w+':jacket' for w in ('XS13','XS23','XS33')] for i in (0,1)}
+        r['named_structural_mates']={f'U1Relief:ForePost{i}':['U1Relief:XSbundle:lid'] for i in (0,1)}
     root=joined([box([28.37,3.2,-30],[30.37,7.825,-28]),box([28.37,5.825,-30],[46.25,7.825,-28]),
                  box([44.25,-1.925,-30],[46.25,7.825,-28])])
     add('U1Relief:RearRoot',root,'PETG','rear')
     r.update(status='PERIPHERAL_THREE_V_CLAMP_PLUS_E2_PLAN_NOT_RECEIVED',selected_T18I=2,
         changed_cause='Whole3 grip outside occupied PCB pin shadow; direct ForePanel feet, no through-pin long rails',
         common_V90_nominal_wire_radius_mm=rad,V_web_top_mm=5-2*rad*math.sqrt(2),V_floor_mm=2,
-        clamp_pull_fit_and_lid_pressure_phase2=True,no_selected_bought_SKU_change=True)
+        clamp_pull_fit_and_lid_pressure_phase2=True,no_selected_bought_SKU_change=True,
+        adjacent_bare_source_plane_coupled=coupled,foreign_and_bare_wire_margin_NOT_reduced=True)
     return actors,meta,r
 
 
-def save(fixed,root_clearance=False,peripheral=False):
-    tick=time.monotonic();actors,meta,r=peripheral_construct(fixed) if peripheral else construct(fixed,root_clearance)
-    dest=OUT/('n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
+def save(fixed,root_clearance=False,peripheral=False,coupled=False):
+    tick=time.monotonic();actors,meta,r=peripheral_construct(fixed,coupled) if peripheral else construct(fixed,root_clearance)
+    dest=OUT/('n01-U1-peripheral-coupled-plan.json' if coupled else 'n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
     archive=dest.with_suffix('.breps.zip');geometry=[]
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for n,s in actors.items():

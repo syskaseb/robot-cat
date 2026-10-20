@@ -17,6 +17,9 @@ from feline_atomic_save import save_json
 def minimum(a,b,meta,plan,groups,own_module):
     ar=meta.get(a,{});br=meta.get(b,{})
     if any(a in g and b in g for g in groups.values()):return None,'same proved whole print'
+    for first,second in ((a,b),(b,a)):
+        if second in plan.get('named_structural_mates',{}).get(first,[]):return 0.,'named integral clamp lid bearing stop'
+        if second in plan.get('named_grip_air_gaps',{}).get(first,[]):return .2,'named integral printed clamp near its OWN insulated jackets, not exposed conductors'
     if b in plan['intended_insulation_mates'].get(a,[]) or a in plan['intended_insulation_mates'].get(b,[]):return 0.,'named9mm jacket seat or snug band'
     for grip,source in ((a,b),(b,a)):
         if source.endswith(':bare') and source.removesuffix(':bare')+':jacket' in plan['intended_insulation_mates'].get(grip,[]):
@@ -35,13 +38,13 @@ def minimum(a,b,meta,plan,groups,own_module):
     return 1.25,None
 
 
-def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False,peripheral=False):
-    tick=time.monotonic();sf=OUT/('n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
+def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False,peripheral=False,coupled=False):
+    tick=time.monotonic();sf=OUT/('n01-U1-peripheral-coupled-plan.json' if coupled else 'n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
     for p,h in plan['source_sha256'].items():assert sha(ROOT/p)==h,p
     carrierfile=BASE/'body-harness-checkpoint/u1-socket-carrier-plan.json';carrier=json.loads(carrierfile.read_text())
     drills=[v for g in carrier['board']['groups'] for v in g['pads']]
     assert len(plan['lands'])==5 and len(new)==(22 if peripheral else 26)
-    dest=OUT/('n01-U1-peripheral-common-received.json' if peripheral else 'n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
+    dest=OUT/('n01-U1-peripheral-coupled-received.json' if coupled else 'n01-U1-peripheral-common-received.json' if peripheral else 'n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
     previous_policy=None
     if dest.exists():
         assert resume_policy,'Receive the existing worker before restarting'
