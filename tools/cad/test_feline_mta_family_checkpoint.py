@@ -5,6 +5,20 @@ from plan_feline_layout import OUT
 
 
 class FamilyCheckpoint(unittest.TestCase):
+    def test_rear_shoulder_reuse_and_all_rest_received(self):
+        r=json.loads((OUT/'n01-MTA-rear-shoulders.json').read_text())
+        for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)
+        self.assertEqual(r['status'],'REAR_SHOULDER64_REST_RECEIVED_STATIC_MOTION_ACCESS_OPEN')
+        self.assertEqual(r['byte_identical_actors_from_prior'],63)
+        self.assertEqual(len(r['completed_rest']),64);self.assertFalse(r['failures'])
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['native_changed'])
+        for n,recipe in r['recipes'].items():
+            self.assertEqual(recipe['parts'][0]['start'],recipe['point_mm'])
+            self.assertEqual(recipe['parts'][-1]['end'],recipe['routing_exit_mm'])
+            self.assertTrue(all(abs(p['radius_mm']-25.2)<1e-6 for p in recipe['parts'] if p['kind']=='arc'))
+        self.assertAlmostEqual(r['recipes']['CustomPrefix:W044']['routing_exit_mm'][0],-127.75)
+        self.assertAlmostEqual(r['recipes']['CustomPrefix:W052']['routing_exit_mm'][0],-127.75)
+
     def test_whole_scene_stops_at_first_static_cause(self):
         r=json.loads((OUT/'n01-MTA-whole-scene.json').read_text())
         for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)

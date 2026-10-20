@@ -1,0 +1,73 @@
+{
+  "status": "LOWER_LINK_TOPOLOGY_HOLD",
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-tight-crown-domain.json": "bc7739f2c1666310a20fdb6cd225053f104487fa0bf930184f4c449aa65c3013",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-rooted-end-bays-caps.json": "82badb9e78733e6307446b46d301a0d3ced37d3577a97667383ef459b8d56f34",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-rooted-end-bays-caps.breps.zip": "8f1cd204f2ff8f4fa85d9ec5457530f1f991883f0ba1b998fafb7130f1a5b435",
+    "tools/cad/check_feline_mta_lower_link.py": "2770f722896b41ed556b77073e7305de972200e9bdb570f730569863aeb9636e"
+  },
+  "lower_links": [
+    {
+      "wire": "CustomPrefix:W041",
+      "source": "EndBay:CaseBase:W045_Joint",
+      "shortest_positive_portalX_mm": 173.95000019999998,
+      "straight_start_mm": [
+        131.55702671264447,
+        29.0,
+        -34.0000015258789
+      ],
+      "shortest_straight_length_mm": 17.192973487355516,
+      "actual_gap_mm": 0.0,
+      "actual_overlap_mm3": 140.36595439588658,
+      "witness_mm": [
+        [
+          [
+            140.16227766016706,
+            29.0,
+            -31.9000015258789
+          ],
+          [
+            140.16227766016706,
+            29.0,
+            -31.9000015258789
+          ]
+        ]
+      ],
+      "invalidates_entire_received_positive_domain": true,
+      "reason": "Every larger admissible portal contains this identical lower straight"
+    },
+    {
+      "wire": "CustomPrefix:W042",
+      "source": "EndBay:CaseBase:W053_Joint",
+      "shortest_positive_portalX_mm": 173.95000019999998,
+      "straight_start_mm": [
+        131.55702671264447,
+        -29.0,
+        -34.0000015258789
+      ],
+      "shortest_straight_length_mm": 17.192973487355516,
+      "actual_gap_mm": 0.0,
+      "actual_overlap_mm3": 140.36873031384178,
+      "witness_mm": [
+        [
+          [
+            140.16227766016706,
+            -29.0,
+            -31.9000015258789
+          ],
+          [
+            140.16227766016706,
+            -29.0,
+            -31.9000015258789
+          ]
+        ]
+      ],
+      "invalidates_entire_received_positive_domain": true,
+      "reason": "Every larger admissible portal contains this identical lower straight"
+    }
+  ],
+  "worker_seconds": 1.141,
+  "N01_complete": false,
+  "native_changed": false,
+  "global_impossibility_NOT_proved": true
+}
