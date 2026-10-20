@@ -2,6 +2,103 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,10:11Z: ruch całego źródła odebrany29,843s:7/7aktorów przez
+36pozycji;4dokładnepary, pozostałe dodatnio rozdzielone pełnymiobwiedniami.
+Źródło n01-BAT-F0-fork-motion.json/.pairs.json.gz; nie powtarzaćstatyki
+47,157s/21własnychpar aniMTA. To są nominalnekrzywe2ogonów i2prefiksów,
+nie pełne W001/W076custom i nie wszystkie123odcinki. N01=0/10.
+NEXT przed dalszymCAD: jeden plan5pełnychodciążeń z korzeniami oraz
+retencji3korpusów i dostępuF0. W075ma20mm: nie dodawać2×9mm do toru;
+chwyt w istniejącejprostej. W076custom: chwyt na wcześniejszym łuku,
+nie w ostatniejprostej nadFHAC. Zaczynać od zmontowanego kota, pokazać
+bezpieczną kolejność dostępu bez74rozłączeńWAGO; stare mocowania po
+przeniesieniuXT60/POST NIE są dowodem. Nie zaliczać całegoN01 lokalnie.
+
+20.10,10:11Z: wybrana propozycja źródła n01-BAT-F0-fork-exit ma dodatni
+odbiór OBRYSU/STATYKI zmienionychbrył,47,157s,21par własnych teżdodatnie.
+FactoryW07520mm iW07657,717mm z pełnymstrip/rework; minimumR12,4,
+customR25,2, pełne9mmodcinki. F0 nie przesunięty, XT60niżejboku,
+POST_F0 w bocznejgalerii podFundamentem, CUSTOM ku-X/-Y zamiast wRL_G
+lub incomingfactory. To NIE kompletny moduł/cała wiązka: nadal5chwytów,
+korzenie/retencjakorpusów/narzędzia/dostępF0/źródłowefabryczneBAT i
+reszta123. Teraz odbiór7aktorów przez36próbekruchu; MTA1090/1966par
+bez powtarzania. N01=0/10, żaden częściowy punkt. HookON.
+
+20.10,10:07Z: KOREKTA wpisu10:05: wyjście ku+X/-Y NIE miało21dodatnich
+par; tani test wykrył W076factory–custom common36,248mm3. Sterowanie
+narzędziami błędnie rozpoczęło odczyt świata mimo exit1 taniejbramki;
+proces zakończył się na własnejparze, BEZ odbioru świata. Nie ukrywać
+kosztu43,484s. Następny start sprzężono z twardym exitcode testu:
+brak0 => brak kosztownego startu. Rozdzielić CAŁEgałęzie: factory
+pozostajeX89,66, custom idzie ku-X/-Y (nie +X/-Y), pozaRL_G/Y58.
+Żaden punkt/procent nie zostałprzyznany. Zachować oba ujemne dowody.
+
+20.10,10:05Z: boczna galeriaF0 odebrana48,250s; POST_F0 i całyfabryczny
+W076 bezwskazań. Jedyny brak: końcowyCUSTOM minął RL_G.4 tylko0,2453mm
+zamiast1,25 (świadekX50,75/Y57,89/Z-13,85). Nie ruszać 6pozostałych
+aktorów ani fabrycznych długości. Całe wyjścieCUSTOM skierować do środka
+i ku tyłowi zamiast w lewo wRL_G: wybrane30stopni od-Y do+X; granica
+końca od stopyX108,5 daje maks40,55stopnia, ale NIE jest dowodem całej
+krzywej. PełnyR25,2/9mm zachowane, własne21par dodatnie, odbiór
+tylko tej zmiany. Odciążenie trzeba umieścić na wcześniejszym łuku,
+nie dopisać długu przed łukiem. N01 nadal0/10, mocowania/montaż/ruchOPEN.
+
+20.10,10:02Z: n01-BAT-F0-rear-gap-joint odebrany50,688s: wszystkie
+zmienione korpusy/3krzywe bezwskazań, jedynie W076_factory przecina
+Print_P0_BATTERY_PLATE_R4. Pełne21par własnych dodatnie. Zachować
+całeF0/XT60/W075/ujemnyW001, nie przeliczaćtychstatyk. Zmienić OBA
+końcegałęziW076: wyjść podramą doY56,1 i dopiero tam wznieść się do
+POST_F0 poniżej rzeczywistejFlangeZ30,52. POSTobraca się wcałości,
+pokrywą na+X, nie doP0; górakorpusu29,25, minY51,6 wobecP0Y49,3396.
+Fabrycznytor ma57,718mm zR12,4, strip11/rework10 i dodatkowym5mm
+budżetemniepewności wobec katalogowego89,5 (NIE tolerancjaproducenta).
+Niezależny pełny9mmchwytCUSTOM ma korzystać z wcześniejszego łuku,
+nie z ostatniejprostej nadFHAC. To nowa topologia przejścia poza płytą,
+nie przesuwanie punktu przebicia. Montaż/korzenie/ruch nadalOPEN,0/10.
+
+20.10,09:58Z: poprzecznygórnytor też ODRZUCONY:13wspólnychwskazań,
+52,172s;21par własnegozestawu dodatnie nie obejmowało przestrzeni.
+Odczytano rzeczywistych sprawców PRZED kolejnąpropozycją: washerP0
+X91,2..106,2/Z38,52..39,52, RearNegativeRailStubX85..108/Y-23..-17/
+Z39,72..42,72; stacjeP_AUX/RL_P Y±56,5..75,5 i ich fundamenty.
+Nie próbować kolejnego górnego przesunięcia. Zachować F0 WCAŁOŚCI
+w starej dolnej zatoce, a POST_F0 przenieść do WNĘTRZA szczeliny za
+bateriąX80,25 przed ramąX107,5, poniżej tych nowych górnych sprawców.
+XT60 pod bocznąramą/przedF0, z obrotem obu komór wXY. Pełne21par
+źródła dodatnie; factory20/55,395mm z zachowanymi strip/rework/R,
+obie polarności i POST2 dołączone przed światem. Nie dziedziczyć
+narzędzi/mocowań ze starej pozycji. Sprawdzać tylko zmienione części,
+nie przesuwać niezmienionego F0 dla numerycznych mikroróżnic starego
+stacku. Pełny odbiór/korzenie/narzędzia/ruch nadalOPEN, N01=0/10.
+
+20.10,09:49Z: dwie wspólne hipotezyBAT/F0 odebrane i ODRZUCONE:
+pionowytył17wskazań/50,297s, dolnyinline37wskazań/55,547s.
+Pierwszy koliduje z ogonem/ramą/wyjściamiMTA, drugi umieszczaPOST_F0
+w U1/PWM. W dolnym6par różnychżył dodatnie, ale nie całeźródło.
+Nie naprawiać kolejno tych par offsetami. Następna TOPOLOGIA: poprzeczny
+F0 NADtylnąkrawędziąbaterii, Xmiędzybaterią80,25 i ramą107,5;
+oba wyjścia nadZ38,52 ramy, XT60/POSTpo przeciwnychstronachY.
+Obrócić pełny korpus z pokrywą ku-X nadbaterią, nie ku ogonowi/bankowi.
+Wspólny plan obejmuje2fabryczne krzywe/polaryzację i2pełneprefiksy,
+następnie chwyty/korzenie/ruch/narzędzia. CałeMTAbez zmian.
+To bramka konstruktywnaN01, nie natywneN03 ani pełneśrodkiN04/N05.
+Nie zaliczać wyniku;0/10. Przed trzecią hipotezą zmieniono wspólną strefę
+i stronęobsługi, nie wysokość w odrzuconej rodzinie.
+
+20.10,09:35Z: NEXT F0/BAT/POST_F0: najpierw wspólny plan OBU ogonów,
+odciążeń i narzędzi z odebranym overlayMTA, bez przebudowy mastera.
+Producent dla dokładnego FHAC0002ZXJ podaje89,5mm/ogon i6,35mmstrip
+(oficjalna strona produktu odczytana20.10); ogólne102mm ze starego
+katalogu NIE jest aktualną gwarancją. Tolerancja/OD/przebieg dostawy
+pozostają jawne bramki przymiarki. Stare30/70mm to cięcia, nie podaż.
+920mm NIE jest dodatkowym kablem akumulatora: historyczna suma zastąpiona
+W064/W065/W067/W068, późniejsze1176 teżnie jest aktualną listącięcia.
+Bloker: oba ogonyF0 mają nadal CURRENT_MOUTH_PREFIX_ALLOCATION_OPEN;
+ich stare końce są przeniesionymi GUIDE, nie potwierdzonymi ustami.
+Warunek: konstruktywny wspólny tor źródła wraz z korpusami/retencją,
+obu fabrycznymi limitami, niezależnymi chwytami/korzeniami i montażem;
+nie dodawać kolejnego generycznego solvera. N01=0/10, hookON.
+
 20.10,09:18Z: CAŁYaktualny zestawMTA przestrzennie odebrany:72/72
 statyki i72/72aktorów przez36próbek ruchu,1966par/0odrzuceń. Dwa
 wykonania80226/54285 zajęły220,625+96,125=316,750s (procesy,nieCPU).
