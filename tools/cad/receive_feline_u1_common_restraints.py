@@ -23,8 +23,8 @@ def minimum(a,b,meta,plan,groups,own_module):
             return .2,'same grip adjacent to its OWN formed bare/jacket transition, not a foreign conductor'
     if a.rsplit(':',1)[0]==b.rsplit(':',1)[0]:
         pair={a.rsplit(':',1)[-1],b.rsplit(':',1)[-1]}
-        if pair in ({'band','head'},{'band','pad'}):return 0.,'same T18I or flat seat boundary'
-        if pair=={'head','pad'}:return .2,'same grip, head separate from pad'
+        if pair in ({'band','head'},{'band','pad'},{'band','lid'},{'pad','lid'}):return 0.,'same T18I or flat seat boundary'
+        if pair in ({'head','pad'},{'head','lid'}):return .2,'same grip, head separate from pad'
     if ar.get('kind')==br.get('kind')=='T18I':return .2,'separate soft nylon stock envelopes, full heads retained'
     if ar.get('wire') and ar.get('wire')==br.get('wire'):return 0.,'same selected jacket/bare seam'
     if b=='Ref_Material_PWM1608NominalPCB_0_0':
@@ -35,13 +35,13 @@ def minimum(a,b,meta,plan,groups,own_module):
     return 1.25,None
 
 
-def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False):
-    tick=time.monotonic();sf=OUT/('n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
+def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=False,resume_policy=False,peripheral=False):
+    tick=time.monotonic();sf=OUT/('n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');plan=json.loads(sf.read_text());new=load(plan)
     for p,h in plan['source_sha256'].items():assert sha(ROOT/p)==h,p
     carrierfile=BASE/'body-harness-checkpoint/u1-socket-carrier-plan.json';carrier=json.loads(carrierfile.read_text())
     drills=[v for g in carrier['board']['groups'] for v in g['pads']]
-    assert len(plan['lands'])==5 and len(new)==26
-    dest=OUT/('n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
+    assert len(plan['lands'])==5 and len(new)==(22 if peripheral else 26)
+    dest=OUT/('n01-U1-peripheral-common-received.json' if peripheral else 'n01-U1-common-restraints-rooted-received.json' if root_clearance else 'n01-U1-common-restraints-received.json')
     previous_policy=None
     if dest.exists():
         assert resume_policy,'Receive the existing worker before restarting'
@@ -68,7 +68,7 @@ def run(world,fixed,meta,pins,docs,mta,source_doc,upper_sources,root_clearance=F
         result['prior_pure_policy_failure']=previous_policy
     oldfile=OUT/'n01-U1-remaining-five-coupled-plan-neighbors.json';old=json.loads(oldfile.read_text())
     for p,h in pins.items():assert old['source_sha256'][p]==h,p
-    unchanged={n for n in new if n.startswith('U1Five:') and (n.endswith(':bare') or n.split(':')[1] in ('XS13','XS33'))}
+    unchanged={n for n in new if n.startswith('U1Five:') and ((n.endswith(':bare') and (not peripheral or n.split(':')[1] in ('XS13','XP02.module','XP03.module'))) or not peripheral and n.split(':')[1] in ('XS13','XS33'))}
     result['reused_unchanged_source_queries']=[];result['nominal_named_pad_holes']={}
     def save():
         pf.write_bytes(gzip.compress(json.dumps(checks,separators=(',',':')).encode(),mtime=0))

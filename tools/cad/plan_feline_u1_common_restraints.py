@@ -5,7 +5,7 @@ retain five separately backed9mm lands (the E2 pair has one common band).
 Hollow printed stand-offs use the current PCB/arm datums and metal hardware;
 no extra PCB holes, new purchased parts or unsupported native-N03 claims.
 """
-import copy,gzip,hashlib,json,time,zipfile
+import copy,gzip,hashlib,json,math,time,zipfile
 from pathlib import Path
 import numpy as np
 import FreeCAD as A
@@ -98,8 +98,96 @@ def construct(fixed,root_clearance=False):
         separate_land_for_each_wire=True,roots_outside_whole_heads_and_own_jackets=root_clearance,N01_complete=False,native_changed=False,physical_pass=False)
 
 
-def save(fixed,root_clearance=False):
-    tick=time.monotonic();actors,meta,r=construct(fixed,root_clearance);dest=OUT/('n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
+def peripheral_construct(fixed):
+    """After two pin-field rejections, move the WHOLE three-wire grip outside.
+
+    One3-way open V-comb and flat pressure lid, not three heads underneath
+    populated pads. Same selected HELU/R12.6; B2 bare form clocks round its
+    own through-hole, B3 strip gains .3mm to give equal clamp heights.
+    """
+    actors,meta,r=construct(fixed,True)
+    for n in list(actors):
+        if n.startswith(('U1Relief:XS13:','U1Relief:XS23:','U1Relief:XS33:')) or n in ('U1Relief:ForeRoot','U1Relief:RearRoot'):
+            actors.pop(n);meta.pop(n)
+    r['print_groups']={k:[n for n in v if n in actors] for k,v in r['print_groups'].items()}
+    r['intended_insulation_mates']={k:v for k,v in r['intended_insulation_mates'].items() if k in actors}
+    def add(n,s,kind,group):
+        assert s.isValid() and len(s.Solids)==1,n
+        actors[n]=s;meta[n]=dict(kind=kind,print_group=group)
+        if kind=='PETG':r['print_groups'][group].append(n)
+    R=12.6;z=-28.55;centres=[-1.03,3.97,8.97]
+    for w,x in zip(('XS13','XS23','XS33'),centres):
+        eid=w+'/extra/start';s=r['specs'][eid];bare=copy.deepcopy(s['bare_parts']);p=A.Vector(*s['parts'][0]['start'])
+        if w=='XS23':
+            pad=A.Vector(*s['pad_world_mm']);rot=A.Rotation(A.Vector(0,0,1),180)
+            for q in bare:
+                for key in ('start','mid','end'):
+                    if key in q:q[key]=list(pad+rot.multVec(A.Vector(*q[key])-pad))
+            p=pad+rot.multVec(p-pad)
+        if abs(p.z-z)>1e-6:
+            dz=z-p.z
+            for key in ('start','mid','end'):bare[0][key][2]+=dz
+            bare[1]['start'][2]+=dz;p.z=z
+        parts=[];t=A.Vector(0,1,0);offset=x-p.x
+        if abs(offset)>1e-6:
+            n=A.Vector(1 if offset>0 else -1,0,0);angle=math.acos(1-abs(offset)/(2*R))
+            def turn(q,t,n):
+                at=lambda a:q+t*(R*math.sin(a))+n*(R*(1-math.cos(a)))
+                end=at(angle);parts.append(dict(kind='arc',start=list(q),mid=list(at(angle/2)),end=list(end),radius_mm=R));return end
+            q=turn(p,t,n);d=t*math.cos(angle)+n*math.sin(angle);normal=t*math.sin(angle)-n*math.cos(angle)
+            p=turn(q,d,normal)
+        assert abs(p.x-x)<1e-6 and p.y<40
+        parts.extend([dict(kind='line',start=list(p),end=[x,40,z]),dict(kind='line',start=[x,40,z],end=[x,49,z])])
+        s.update(parts=parts,bare_parts=bare,source_basis='Whole3 fan to common outside-PCB V-clamp, same named pad/R12.6/profile; B2 clock/B3 project strip budget')
+        for kind,rows,rad in (('jacket',parts,1.05),('bare',bare,s['bare_radius_mm'])):
+            n='U1Five:'+w+':'+kind;actors[n]=pipe(rows,rad);assert actors[n].isValid()
+        r['updates'][eid].update(jacket_routing_point_mm=parts[0]['start'],routing_exit_mm=[x,49,z],routing_exit_axis=[0,1,0],
+            jacket_grip9_mm=[[x,40,z],[x,49,z]],source_prefix_length_mm=sum(__import__('feline_source_saddles').segment(q).Length for q in parts),
+            routing_boundary_status='WHOLE_THREE_PERIPHERAL_FAN_AND_COMMON9MM_CLAMP_NOT_RECEIVED')
+        r['lands'][w]=dict(grip9_mm=[[x,40,z],[x,49,z]],pad='U1Relief:XSbundle:pad',lid='U1Relief:XSbundle:lid',
+            band='U1Relief:XSbundle:band',individual_V9_and_equal_height_pressure_land=True)
+    rad=1.05;vertex=z-rad*math.sqrt(2);bottom=vertex-2;lidbottom=z+rad;lidtop=lidbottom+2
+    x0=centres[0]-rad*math.sqrt(2)-2;x1=centres[-1]+rad*math.sqrt(2)+2
+    pad=joined([box([x0,40,bottom],[x1,49,z]),box([x0,40,z],[x0+2,49,lidbottom]),box([x1-2,40,z],[x1,49,lidbottom])])
+    for x in centres:
+        h=rad*math.sqrt(2)+.01;points=[A.Vector(x-h,39.99,z+.01),A.Vector(x,39.99,vertex),A.Vector(x+h,39.99,z+.01)]
+        pad=pad.cut(Part.Face(Part.makePolygon(points+[points[0]])).extrude(A.Vector(0,9.02,0)))
+    add('U1Relief:XSbundle:pad',pad,'PETG','fore')
+    add('U1Relief:XSbundle:lid',box([x0,40,lidbottom],[x1,49,lidtop]),'PETG_lid','lid')
+    band=box([x0-1.2,43.25,bottom-1.2],[x1+1.2,45.75,lidtop+1.2]).cut(box([x0,43.15,bottom],[x1,45.85,lidtop]))
+    add('U1Relief:XSbundle:band',band,'T18I','fore')
+    add('U1Relief:XSbundle:head',box([x1+1.2,42,(bottom+lidtop)/2-2.65],[x1+5.5,47,(bottom+lidtop)/2+2.65]),'T18I','fore')
+    for suffix in ('pad','lid'):r['intended_insulation_mates']['U1Relief:XSbundle:'+suffix]=['U1Five:'+w+':jacket' for w in ('XS13','XS23','XS33')]
+    y0=(fixed['Factory:W041'].BoundBox.YMax+1.25+38.75)/2;assert y0>=fixed['Factory:W041'].BoundBox.YMax+1.25 and y0+2<=40.75
+    landing_faces=[f for f in fixed['LowerBay:ForePanel'].Faces if type(f.Surface).__name__=='Plane'
+                   and abs(f.normalAt(0,0).z)>.99 and abs(f.CenterOfMass.z+42)<1e-5
+                   and f.BoundBox.YMin>=28-1e-5 and f.Area>100]
+    assert len(landing_faces)==1,'Locate the actual north floor land, not ForePanel bbox'
+    landing_xmax=landing_faces[0].BoundBox.XMax
+    columns=[]
+    for a,b in ((x0,x0+2),(x1-2,x1)):
+        # The north floor ends atX7.5 here. Extend the low right foot onto
+        # that REAL face instead of leaving a post above an empty corner.
+        columns.extend([box([a,y0,-43.3],[b,y0+2,lidbottom]),box([min(a-1,landing_xmax-2),y0-2,-43.3],[b+1,y0+2,-41.3])])
+    root=joined(columns[:2]).fuse(joined(columns[2:]))
+    # Two separate posts intentionally join through the common pad AND floor;
+    # do not fake1Solid for their isolated union.
+    for i,column in enumerate((joined(columns[:2]),joined(columns[2:]))):
+        assert column.common(fixed['LowerBay:ForePanel']).Volume>5.,'Actual ForePanel foot missing'
+        add('U1Relief:ForePost'+str(i),column,'PETG','fore')
+    root=joined([box([28.37,3.2,-30],[30.37,7.825,-28]),box([28.37,5.825,-30],[46.25,7.825,-28]),
+                 box([44.25,-1.925,-30],[46.25,7.825,-28])])
+    add('U1Relief:RearRoot',root,'PETG','rear')
+    r.update(status='PERIPHERAL_THREE_V_CLAMP_PLUS_E2_PLAN_NOT_RECEIVED',selected_T18I=2,
+        changed_cause='Whole3 grip outside occupied PCB pin shadow; direct ForePanel feet, no through-pin long rails',
+        common_V90_nominal_wire_radius_mm=rad,V_web_top_mm=5-2*rad*math.sqrt(2),V_floor_mm=2,
+        clamp_pull_fit_and_lid_pressure_phase2=True,no_selected_bought_SKU_change=True)
+    return actors,meta,r
+
+
+def save(fixed,root_clearance=False,peripheral=False):
+    tick=time.monotonic();actors,meta,r=peripheral_construct(fixed) if peripheral else construct(fixed,root_clearance)
+    dest=OUT/('n01-U1-peripheral-common-plan.json' if peripheral else 'n01-U1-common-restraints-rooted-plan.json' if root_clearance else 'n01-U1-common-restraints-plan.json');assert not dest.exists()
     archive=dest.with_suffix('.breps.zip');geometry=[]
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for n,s in actors.items():
