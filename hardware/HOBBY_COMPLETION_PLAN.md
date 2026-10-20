@@ -2,6 +2,57 @@
 
 ## N01 do pełnych10%,19.10.2026
 
+20.10,06:53Z: bezaktywnego własnegoworkera; hookOTWARTY, N01=0/10.
+Aktualnyblok: tylko W052 kontra pełny S1;3pozostałeMTA przewody mają
+pełnąstatykę/obrys. NEXT zapisany wyżej i w next_after_active_worker;
+niepowtarzać3gałęzi/13kdiagnostyki. Odczytlimitu spóźniony06:42:48->
+06:52:55 (607s), przy zbyt długim planowaniu. NIEopisywaćjakozgodnyz10min;
+świeżyodczytprzednowąpracą. Znanezmierzone workery od05:50:59Z:
+1078,399s; NIEcałyCPU/aktywnyczas (błędneuruchomienia/testy/analiza osobno).
+Estymata10% nadalniewiarygodna przedostatnimMTA i pozostałymi rodzinami.
+Zakres nadalN01; nie uruchomiono N02-N10/natywnegowyboru; brakfizycznegoPASS.
+
+20.10,06:44Z: 3pełne przewody W041/W042/W044 odebrane wCAŁEJstatyce
+iobrysie. OstatniW052 dotyka S1_ring_2 w(-128;-64,972;42,193), gap0:
+136par/55,375s, bezuruchamiania36ruchów. Błądplanu: Xwyliczono zbodyS1,
+niecałego modułu zringami/śrubami. NEXT: XzminimumWSZYSTKICH wybranych
+12częściS1 (kupnebezruchu), aYzciągłego wolnego przedziału względem
+WSZYSTKICH aktualnych części/36ruchów i rzeczywistego obrysu. Dobierz
+kąt tylnegoWYJŚCIA ztegoY, zachowując cały pierwszyS/10mmchwyt/korzeń
+i2mmS przedżebrem. Tylko1przewód;63aktorów/korzenie/factoryidentyczne.
+Reużyj starych par beztego przewodu; nie dublować odebranych3tras.
+Własnyrowek: pierwotnyrzeczywisty luz0,299998474mm ==nowy, niezaokrąglone
+0,3; staraobserwacja/algorytm zachowane w306fb066, nowa reguła nie zmienia
+obcych1,25mm ani geometrii. N01=0/10, MASTER/WYBÓRbez zmian.
+
+20.10,06:36Z: OUTWARD90 ztyłu+ trafia w realne kolanoFeature056 już
+wspoczynku(gap0;51,940s/7par). Jego rzeczywistyobrysX[-118,589;-73,177],
+Y[63,146;83,456],Z[-24,254;24,886]. Nie przesuwać podpory/opaski:
+W044 przejmuje CAŁĄtopologię tylnego60stopni W052 (odbicieY), która
+ma pionowyportalX=-127,75,Y=+63,424, czyli poza tymkolanem. To zmiana
+wyjścia/drogi, nieoffsetnarożnika. Tylko1przewód zmieniony,63aktorów
+byte-identyczne;52odebrane resty reużyte,12nadalsprawdzić. Skorygowany
+tylnywyjściowyprzewód NIEjeszczeodebrany. ForeOUTWARD90/korzenie/podłogi
+zachowane. NEXT receive_feline_mta_rear_shoulders.py, przedstatyką.
+Odczytlimitu06:34 zmienił14%->100%pozostałego; ponownyodczytpotwierdził
+0%used i1dostępnyreset. ŻADNEGO resetu nie użyto/nie kupiono; przyczyny
+zmiany dostawcy nie ustalono. N01=0/10, master/wybórbez zmian.
+
+20.10,06:32Z: dokładna domena starych4górnychłuków222,922+81,766s,
+601clipów: dodatnieX[173,9500;178,15]; ujemnepuste konserwatywnie przy
+opasceW068, nieglobalna niemożliwość. PRZEDnowągeometrią najkrótszy
+dodatniłącznik z tegoCAŁEGO przedziału ma rzeczywiste przenikanie
+140,366/140,369mm3 ze starymi CaseBaseW045/53 (1,141s). Każdy dłuższy
+zawiera ten samodcinek: ODRZUCONA CAŁAtopologia X-bay, niekolejnyoffset.
+NEXT wspólne4boczne wyjścia: foreod razu OUTWARD XY90, potemUP,
+rear+ po starymS OUTWARD90/UP, rear- po starymS i2mmS OUTWARD60/UP
+ZA rzeczywistym S1.XMin-3,75. Kupneczęści/factory/M2/P0/stopy/bank bez
+ruchu, siodła tylkoobracane przy tych samych końcach. Obrys/wszystkie
+części/nogi/grupy montażowe jedna bramka. Reużyj52niezmienionerestaktorów;
+nie powtarzać przeszukiwań rdzenia ani odrzuconych4równychłuków90.
+PrzednewCAD przeczytane wszystkiełożyska/przewody/koncepcjakorzeni.
+N01=0/10, bez zaliczenia zaobliczenia; current master nie zmieniony.
+
 20.10,06:24Z: domena4górnychłuków109,020s/56rzeczywistychprzecięć,
 87przekrojów: dodatnieX[173,9767;178,15], ujemnepuste wKONSERWATYWNYM
 modelu; niejest todowód niemożliwości/kolizji. ZwykłyBoundBox przyciętej

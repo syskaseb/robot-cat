@@ -5,6 +5,19 @@ from plan_feline_layout import OUT
 
 
 class FamilyCheckpoint(unittest.TestCase):
+    def test_actual_nominal_channel_repair_keeps_foreign_hold(self):
+        r=json.loads((OUT/'n01-MTA-rear-shoulders-scene.json').read_text())
+        for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)
+        self.assertEqual(len(r['receiver_repairs']),1)
+        repair=r['receiver_repairs'][0];before=repair['original_observed_row'];after=repair['current_row']
+        self.assertFalse(before['ok']);self.assertTrue(after['ok'])
+        self.assertEqual(before['gap_mm'],after['gap_mm'])
+        self.assertEqual(after['gap_mm'],after['existing_actual_own_shoe_channel_mm'])
+        self.assertEqual(after['ordinary_foreign_margin_unchanged_mm'],1.25)
+        self.assertEqual(set(r['completed_static']),{'CustomPrefix:W041','CustomPrefix:W042','CustomPrefix:W044'})
+        self.assertEqual(r['failures'],['CustomPrefix:W052|Ref_Material_current_S1_ring_2_0_0'])
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['native_changed'])
+
     def test_rear_shoulder_reuse_and_all_rest_received(self):
         r=json.loads((OUT/'n01-MTA-rear-shoulders.json').read_text())
         for p,h in r['source_sha256'].items():self.assertEqual(sha(ROOT/p),h,p)

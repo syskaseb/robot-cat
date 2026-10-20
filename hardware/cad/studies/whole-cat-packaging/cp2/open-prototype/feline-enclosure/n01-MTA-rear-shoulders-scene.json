@@ -107,7 +107,7 @@
     "tools/cad/receive_feline_mta_rear_shoulders.py": "c86e887bc726670ba8d4fa8bd1d7e1bd60679bb533191d5ae3cf90fd9524c6fa",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-rear-shoulders.json": "06d45f66f11b6e8a53ba72ab4424b23055fceb1f1ddb14e7c25f1b85edacc951",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-rear-shoulders.breps.zip": "f571be168c52d853e469c4d5e289e700a997c444c664c013f13691a5e01dc79e",
-    "tools/cad/receive_feline_mta_family_scene.py": "3f972db26672ad6eca49c28b8292a8ff041ba21842a05a1159f97d04bf389cdb"
+    "tools/cad/receive_feline_mta_family_scene.py": "bd384e54a0676983c46427c60a646802b1f9e8fc62f1604aca53a6a714f9b3fe"
   },
   "recipes": {
     "CustomPrefix:W041": {
@@ -1505,7 +1505,11 @@
     "LowerBay:ForePanel",
     "LowerBay:RearPanel"
   ],
-  "completed_static": [],
+  "completed_static": [
+    "CustomPrefix:W041",
+    "CustomPrefix:W042",
+    "CustomPrefix:W044"
+  ],
   "completed_motion": [],
   "N01_complete": false,
   "native_changed": false,
@@ -2366,11 +2370,11 @@
   ],
   "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-rear-shoulders.breps.zip",
   "bundle_sha256": "f571be168c52d853e469c4d5e289e700a997c444c664c013f13691a5e01dc79e",
-  "checks": 27,
+  "checks": 136,
   "failures": [
-    "CaseBase:W041_Joint|CustomPrefix:W041"
+    "CustomPrefix:W052|Ref_Material_current_S1_ring_2_0_0"
   ],
-  "worker_seconds": 46.235,
+  "worker_seconds": 55.375,
   "byte_identical_rest_reused": [
     "ArcGrip:W044:band",
     "ArcGrip:W044:head",
@@ -2578,5 +2582,44 @@
   "inherited_rest_worker_seconds": 67.907,
   "assembly_tools_and_common123_capacity_still_OPEN": true,
   "pair_rows": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MTA-rear-shoulders-scene.pairs.json.gz",
-  "pair_rows_sha256": "30ca3e40ea0e833f306c6590df76b411149d5c94d2f8f6d078b8847ddde2664c"
+  "pair_rows_sha256": "40043344d0d912fd8f1488c4a5c31f2639c7611e39e1184aea45e34e0694e5e4",
+  "receiver_repairs": [
+    {
+      "original_observation_commit": "306fb066",
+      "original_receiver_sha256": "3f972db26672ad6eca49c28b8292a8ff041ba21842a05a1159f97d04bf389cdb",
+      "current_receiver_sha256": "bd384e54a0676983c46427c60a646802b1f9e8fc62f1604aca53a6a714f9b3fe",
+      "reason": "Compare same actual original own channel, not rounded0.300000 versus stored0.299998474; no geometry or foreign margin changes",
+      "pair": "CaseBase:W041_Joint|CustomPrefix:W041",
+      "original_observed_row": {
+        "ok": false,
+        "gap_mm": 0.2999984741210966,
+        "minimum_mm": 1.25,
+        "existing_own_shoe_channel_mm": 0.3,
+        "whole_common_mm3": 0.0,
+        "witness_mm": [
+          [
+            [
+              84.2999997138977,
+              33.25,
+              -36.1000015258789
+            ],
+            [
+              84.2999997138977,
+              33.25,
+              -36.4
+            ]
+          ]
+        ]
+      },
+      "current_row": {
+        "ok": true,
+        "gap_mm": 0.2999984741210966,
+        "minimum_mm": 0.2999984741210966,
+        "existing_actual_own_shoe_channel_mm": 0.2999984741210966,
+        "nominal_channel_reference_mm": 0.3,
+        "ordinary_foreign_margin_unchanged_mm": 1.25,
+        "whole_common_mm3": 0.0
+      }
+    }
+  ]
 }

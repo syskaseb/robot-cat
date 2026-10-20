@@ -5,7 +5,7 @@ Named print unions, rigid bought kits and independent wire grips have distinct
 policies. Ordinary foreign1.25 and jacket.2 remain unchanged. Stop first cause,
 save each actual pair; never finish hundreds of poses after a known rejection.
 """
-import gzip,json,time,sys
+import gzip,json,time,sys,hashlib,subprocess
 from pathlib import Path
 import FreeCAD as A
 import Part
@@ -41,11 +41,21 @@ def main():
     result=dict(prior,status='RUNNING_WHOLE_MTA_SCENE',source_sha256=pins,completed_static=[],completed_motion=[],
         inherited_rest_actor_count=64,inherited_rest_worker_seconds=prior['worker_seconds'],
         assembly_tools_and_common123_capacity_still_OPEN=True)
-    checks={};query=SolidQueries()
+    checks={};query=SolidQueries();pending_repair=None
     if dest.exists():
-        result=json.loads(dest.read_text());assert result['source_sha256']==pins
+        result=json.loads(dest.read_text())
+        if result['source_sha256']!=pins:
+            ownfile=Path(__file__).relative_to(ROOT).as_posix()
+            assert {p for p in pins if result['source_sha256'].get(p)!=pins[p]}=={ownfile}
+            assert set(result['source_sha256'])==set(pins)
+            previous_code=subprocess.run(['git','show','306fb066:'+ownfile],cwd=ROOT,check=True,stdout=subprocess.PIPE).stdout
+            assert hashlib.sha256(previous_code).hexdigest()==result['source_sha256'][ownfile]
+            assert result['status']=='WHOLE_MTA_SCENE_STATIC_HOLD'
+            assert result['failures']==['CaseBase:W041_Joint|CustomPrefix:W041']
+            pending_repair=dict(original_observation_commit='306fb066',original_receiver_sha256=result['source_sha256'][ownfile],
+                current_receiver_sha256=pins[ownfile],reason='Compare same actual original own channel, not rounded0.300000 versus stored0.299998474; no geometry or foreign margin changes')
         assert sha(pf)==result['pair_rows_sha256'];checks=json.loads(gzip.decompress(pf.read_bytes()))
-        if result['failures']:print('Existing whole-kit failure; change cause before a new geometry',result['failures'],flush=True);return
+        if result['failures'] and pending_repair is None:print('Existing whole-kit failure; change cause before a new geometry',result['failures'],flush=True);return
     def save(status=None):
         if status:result['status']=status
         pf.write_bytes(gzip.compress(json.dumps(checks,separators=(',',':')).encode(),mtime=0))
@@ -89,7 +99,10 @@ def main():
             # Same first source arc and own shoe; a remote extra straight
             # does not relax any foreign pair or allow penetration.
             c=combined[wn].common(combined[other]);assert c.isNull() or c.isValid()
-            row.update(ok=gap>=.3-1e-6 and c.Volume<1e-5,existing_own_shoe_channel_mm=.3,whole_common_mm3=c.Volume)
+            baseline=query.distance(old[wn],old[other]);assert abs(baseline-.3)<1e-5
+            row.update(ok=gap>=min(baseline,minimum)-1e-6 and c.Volume<1e-5,
+                minimum_mm=min(baseline,minimum),existing_actual_own_shoe_channel_mm=baseline,
+                nominal_channel_reference_mm=.3,ordinary_foreign_margin_unchanged_mm=1.25,whole_common_mm3=c.Volume)
         for panel,shape,name,part in ((n,s,m,t),(m,t,n,s)):
             if panel.startswith('LowerBay:') and name in ('Ref_Material_MTA_FL_0_0','Ref_Material_MTA_FR_0_0','Ref_Material_MTA_RL_0_0','Ref_Material_MTA_RR_0_0','CaseTie:FL','CaseTie:FR','CaseTie:RL','CaseTie:RR'):
                 baseline=old[panel].common(part);now=shape.common(part)
@@ -100,6 +113,13 @@ def main():
         if not row['ok'] and b.Solids:
             _,pts,_=a.distToShape(b);row['witness_mm']=[[list(x),list(y)] for x,y in pts[:1]]
         return row
+    if pending_repair:
+        key=result['failures'][0];before=dict(checks[key]);wire='CustomPrefix:W041';shoe='CaseBase:W041_Joint'
+        current=pair(wire,actors[wire],shoe,actors[shoe])
+        assert current['ok'] and abs(current['gap_mm']-before['gap_mm'])<1e-8
+        pending_repair.update(pair=key,original_observed_row=before,current_row=current)
+        checks[key]=current;result.setdefault('receiver_repairs',[]).append(pending_repair);result['source_sha256']=pins
+        save('RUNNING_WHOLE_MTA_SCENE')
     order=sorted(actors,key=lambda n:(not n.startswith('CustomPrefix:'),not n.startswith('ArcGrip:'),n))
     save()
     for n in order:
