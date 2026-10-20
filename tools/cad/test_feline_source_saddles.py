@@ -5,6 +5,27 @@ from plan_feline_battery_f0_joint import path
 
 
 class SourceSaddles(unittest.TestCase):
+    def test_U1_intrinsic_seat_policy_never_waives_foreign_or_other_wire(self):
+        from map_feline_source_allocations import inherited_u1_limit
+        seat='Ref_Material_U1_AnchorLeft_0_0'
+        self.assertEqual(inherited_u1_limit('U1Local:XL01:jacket',seat)[0],0.)
+        self.assertEqual(inherited_u1_limit('U1Local:XL01:bare',seat)[0],.2)
+        self.assertEqual(inherited_u1_limit('U1Local:XL01:jacket','FactoryW044')[0],1.25)
+        self.assertEqual(inherited_u1_limit('U1Under:XL01:jacket',seat)[0],1.25)
+        self.assertEqual(inherited_u1_limit('U1Local:XL01:jacket','Ref_Material_Pi4NominalPCB_0_0')[0],1.25)
+
+    def test_reconciled_U1_receipt_preserves_negative_and_exact_nine_touches(self):
+        import json
+        from plan_feline_layout import OUT
+        r=json.loads((OUT/'n01-U1-intrinsic-mates-reconciled.json').read_text())
+        prior=json.loads((OUT/'n01-inherited-local-source-neighbor-map.json').read_text())
+        self.assertTrue(prior['failures']);self.assertFalse(r['failures'])
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['new_wire_or_native_geometry'])
+        self.assertEqual(r['reused_queries'],len(prior['checks']))
+        touched=[v for v in r['corrected_policy_pairs'].values() if 'actual_common_volume_mm3' in v]
+        self.assertEqual(len(touched),9)
+        self.assertTrue(all(v['actual_common_volume_mm3']==0 for v in touched))
+
     def test_underside_plan_keeps_all14_named_pads_and_lengths(self):
         import json
         from plan_feline_layout import OUT
