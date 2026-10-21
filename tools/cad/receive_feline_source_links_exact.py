@@ -19,40 +19,50 @@ from receive_feline_W024_shared_body import solid
 from plan_feline_usb_service_bight import outer_margin
 
 
-def cap_owner(n,meta,end):
-    wire=end['wire'];explicit=[end.get('prefix_geometry_owner'),*end.get('prefix_geometry_owners',[]),*end.get('planned_body_capacity_path_owners',[])]
+def cap_owner(n,meta,end,station_aliases=False):
+    wire=end['wire'];explicit=[end.get('prefix_geometry_owner'),*(end.get('prefix_geometry_owners') or []),*(end.get('planned_body_capacity_path_owners') or [])]
     if n in explicit:return True
     if any(str(meta.get(k,'')).split('/')[0]==wire for k in ('wire','wire_owner')):return True
     if re.search(r'(^|[:/])'+re.escape(wire)+r'([:/]|$)',n):return True
     if str(end.get('group','')).startswith('WAGO:'):
+        if station_aliases:
+            # Exact named electrical role, never nearest coincident port/cavity.
+            aliases={'P_FRONT_new':'P_FRONT','G1_CP2':'G1','G2_CP2':'G2','W3Ref_G_AUX_case':'G_AUX'}
+            group=end['group'].split(':',1)[1];role=end.get('role') or end.get('endpoint')
+            if group in aliases and str(role).startswith(aliases[group]+'.'):
+                return n=='Station:'+aliases[group]+':wire:'+role
         return n=='Station:'+end['group'].split(':',1)[1]+':wire:'+str(end.get('role'))
     return False
 
 
-def run(world,scene,metadata,ends,outer,pins):
+def run(world,scene,metadata,ends,outer,pins,*,exact_end_ids=None,station_aliases=False,
+        destination='current-full-source-links-exact.json'):
     tick=time.monotonic();directory=OUT/'joint-corridor-space-20261021'
     pf=directory/'current-local-exact-link-proposals.json';proposal=json.loads(pf.read_text())
     assert len(proposal['ends'])==246 and proposal['status']=='CURRENT246_CURVED_SOURCE_LINK_DOMAINS_RECORDED_NOT_N01'
-    dest=directory/'current-full-source-links-exact.json';byid={e['id']:e for e in ends};bounds={n:s.BoundBox for n,s in scene.items()}
+    dest=directory/destination;byid={e['id']:e for e in ends};bounds={n:s.BoundBox for n,s in scene.items()}
+    work=proposal['ends'] if exact_end_ids is None else {eid:proposal['ends'][eid] for eid in exact_end_ids}
+    assert set(work)<=set(byid)
     sources={**pins,pf.relative_to(ROOT).as_posix():sha(pf),Path(__file__).relative_to(ROOT).as_posix():sha(Path(__file__)),
         'tools/cad/receive_feline_W024_shared_body.py':sha(ROOT/'tools/cad/receive_feline_W024_shared_body.py')}
     result=dict(status='RUNNING_FULL_LOCAL_LINK_STATIC_GATE',source_sha256=sources,ends={},
         current_actor_count=len(scene),N01_complete=False,selected=False,physical_pass=False,
         mutual_links_packing_head_tail_motion_assembly_OPEN=True,no_curve_samples_or_sources_deleted=True)
+    result.update(exact_end_ids=None if exact_end_ids is None else sorted(exact_end_ids),station_aliases=station_aliases)
     if dest.exists():
         result=json.loads(dest.read_text());assert result['source_sha256']==sources
         result.setdefault('previous_worker_seconds',[]).append(result['worker_seconds'])
     query=SolidQueries();profile_targets={};cap_cache={}
     def save():
         result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
-    for eid,row in proposal['ends'].items():
+    for eid,row in work.items():
         if eid in result['ends']:continue
         candidates=row.get('field_positive',[])+row.get('near_source_exact_required',[])
         if not candidates:
             result['ends'][eid]=dict(status='RETAINED_'+row['status']);continue
         end=byid[eid];p=A.Vector(*row['point_mm']);radius=row['radius_mm'];owners=[]
         for n,t in scene.items():
-            if not cap_owner(n,metadata[n],end) or not t.Solids or bbox_lower_bound(bounds[n],A.BoundBox(p,p))>1e-5:continue
+            if not cap_owner(n,metadata[n],end,station_aliases) or not t.Solids or bbox_lower_bound(bounds[n],A.BoundBox(p,p))>1e-5:continue
             if n not in cap_cache:
                 cap_cache[n]=[(f.CenterOfMass,f.Area) for f in t.Faces if type(f.Surface).__name__=='Plane']
             if any((c-p).Length<1e-5 and abs(area-math.pi*radius**2)<1e-5 for c,area in cap_cache[n]):owners.append(n)
@@ -90,5 +100,5 @@ def run(world,scene,metadata,ends,outer,pins):
         result['ends'][eid]=entry;save()
         if len(result['ends'])%20==0:print('EXACT_FULL_SOURCE_LINKS',len(result['ends']),'/246',flush=True)
         if time.monotonic()-tick>225:break
-    result['status']='CURRENT246_FULL_LOCAL_LINK_STATIC_GATE_RECORDED_NOT_N01' if len(result['ends'])==246 else 'PARTIAL_CURRENT_FULL_LOCAL_LINK_STATIC_GATE'
+    result['status']=('CURRENT246_FULL_LOCAL_LINK_STATIC_GATE_RECORDED_NOT_N01' if exact_end_ids is None else 'CURRENT_NAMED_SOURCE_SUBSET_STATIC_GATE_RECORDED_NOT_N01') if len(result['ends'])==len(work) else 'PARTIAL_CURRENT_FULL_LOCAL_LINK_STATIC_GATE'
     save();return result
