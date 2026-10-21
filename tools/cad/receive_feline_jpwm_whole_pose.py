@@ -56,14 +56,18 @@ def source_head_on_free_side(actors):
     return new
 
 
-def receive_sampled_motion(world,actors,stem,pins):
+def receive_sampled_motion(world,actors,stem,pins,curve_profiles=None):
     """Purchased bodies first; a body hit must not hide behind a wire hit."""
     import FreeCAD as A
     from receive_feline_global_case_candidates import placement
     from feline_fore_power_pair import SolidQueries
     from feline_solid_distance import bbox_lower_bound
+    from plan_feline_pi_root_access import profile_gap
     assert {a['pose'] for a in world.motion}==set(range(36)), '36 distinct current poses required'
-    tick=time.monotonic();q=SolidQueries();checks={};done=[]
+    tick=time.monotonic();q=SolidQueries();checks={};done=[];curve_profiles=curve_profiles or {}
+    for n,(curve,radius,digest) in curve_profiles.items():
+        assert n in actors and hashlib.sha256(actors[n].exportBrepToString().encode()).hexdigest()==digest
+        assert curve.isValid() and not curve.Solids and radius>0
     order=sorted(actors,key=lambda n:(0 if n.endswith(':case') or n=='Ref_Material_JPWM_0_0' else 2 if ':wire:' in n or n.startswith('JPWMSource:') else 1,n))
     dest=OUT/(stem+'.json')
     def save():
@@ -77,7 +81,13 @@ def receive_sampled_motion(world,actors,stem,pins):
         for a in world.motion:
             if bbox_lower_bound(s.BoundBox,A.BoundBox(*a['bounds'][0],*a['bounds'][1]))>=1.25:continue
             tf=placement(a['r'],a['t']);local=s.copy();local.Placement=tf.inverse()*local.Placement
-            gap=q.distance(local,world.rest[a['name']]);key=n+'|motion:'+a['name']+':'+str(a['pose'])
+            key=n+'|motion:'+a['name']+':'+str(a['pose'])
+            if n in curve_profiles:
+                curve,radius,_=curve_profiles[n];c=curve.copy();c.Placement=tf.inverse()*c.Placement
+                bound=profile_gap(world.rest[a['name']],c,radius,1.25)
+                if bound['ok']:
+                    checks[key]=bound;continue
+            gap=q.distance(local,world.rest[a['name']])
             checks[key]=dict(ok=gap>=1.25-1e-6,gap_mm=gap,minimum_mm=1.25)
             if not checks[key]['ok']:
                 result=save();print(result['status'],key,checks[key],result['worker_seconds'],flush=True);return result
@@ -113,7 +123,7 @@ def rear_gallery_proposal(template,case,fixed,vertical_outboard=False):
         connector_pair_separation_normal_to_rear_XZ_returns=True,roots_factory_paths_and_assembly_OPEN=True)
 
 
-def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPWM-rear-gallery-whole16-static',label='JPWM_REAR_GALLERY_WHOLE16',own_face_mates=()):
+def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPWM-rear-gallery-whole16-static',label='JPWM_REAR_GALLERY_WHOLE16',own_face_mates=(),own_clearances=None,fail_fast=False):
     from feline_fore_power_pair import SolidQueries
     from feline_solid_distance import bbox_lower_bound
     from receive_feline_aux_vertical_unit import material_spacing
@@ -122,12 +132,24 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
     localmeta={n:(dict(kind='wire',wire=n) if n.startswith('JPWMSource:') else
         dict(kind='PETG' if n.endswith(':pad') else 'T18I')) if groups[n]=='JPWM' else meta[n] for n in actors}
     localmeta['Ref_Material_JPWM_0_0']=dict(kind='purchased_case_reservation')
+    own_clearances=own_clearances or {}
+    def save_first_hold():
+        result=dict(status=label+'_STATIC_HOLD_PARTIAL',actor_count=len(actors),
+            recipe=recipe,checks=checks,failures=[k for k,v in checks.items() if not v['ok']],
+            source_sha256=pins,remaining_pairs_NOT_received=True,
+            explicit_own_clearances=[dict(pair=list(k),minimum_mm=v) for k,v in own_clearances.items()],
+            N01_complete=False,physical_pass=False,worker_seconds=round(time.monotonic()-tick,3))
+        save_json(OUT/(stem+'.json'),result)
+        print(result['status'],result['failures'],result['worker_seconds'],flush=True)
+        return result
     for n,s in actors.items():
         for b,t in targets.items():
             # First9 on the original vertical mouth is invariant under this
             # clock. Preserve that existing own-case interface, not its root.
             if n.endswith(':out_first_bend') and b=='Station:F_PWM_whole:F_PWM:case':continue
             required=material_spacing(n,localmeta[n],b,meta.get(b,{}))
+            named=tuple(sorted((n,b)))
+            required=own_clearances.get(named,required)
             reserve_radius=meta.get(b,{}).get('nominal_profile_radius_mm',0.) if not t.Solids else 0.
             if bbox_lower_bound(s.BoundBox,t.BoundBox)>=required+reserve_radius+1e-6:continue
             a=s;other=t
@@ -149,18 +171,27 @@ def screen_rear_gallery(world,fixed,meta,actors,groups,recipe,pins,stem='n01-JPW
             checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
             if (n,b) in own_face_mates:
                 checks[n+'|'+b].update(source_face_contact(a,other,gap))
+            elif named in own_clearances and required==0 and gap<1e-6:
+                common=a.copy().common(other.copy()).Volume
+                checks[n+'|'+b].update(common_mm3=common,ok=common<1e-5)
+            if fail_fast and not checks[n+'|'+b]['ok']:return save_first_hold()
         print('REAR_GALLERY_STATIC',n,'queries',len(checks),flush=True)
     names=list(actors)
     for i,n in enumerate(names):
         for b in names[i+1:]:
             if groups[n]==groups[b]:continue # rigid intrinsic kits unchanged
             required=material_spacing(n,localmeta[n],b,localmeta[b])
+            named=tuple(sorted((n,b)));required=own_clearances.get(named,required)
             if bbox_lower_bound(actors[n].BoundBox,actors[b].BoundBox)>=required+1e-6:continue
             face_mate=(n,b) in own_face_mates or (b,n) in own_face_mates
             if face_mate:required=0.
             gap=query.distance(actors[n],actors[b]);checks[n+'|'+b]=dict(ok=gap>=required-1e-6,gap_mm=gap,minimum_mm=required)
             if face_mate:
                 checks[n+'|'+b].update(source_face_contact(actors[n],actors[b],gap))
+            elif named in own_clearances and required==0 and gap<1e-6:
+                common=actors[n].copy().common(actors[b].copy()).Volume
+                checks[n+'|'+b].update(common_mm3=common,ok=common<1e-5)
+            if fail_fast and not checks[n+'|'+b]['ok']:return save_first_hold()
     failures=[k for k,v in checks.items() if not v['ok']]
     result=dict(status=label+'_STATIC_'+('HOLD' if failures else 'RECEIVED'),actor_count=len(actors),
         recipe=recipe,checks=checks,failures=failures,source_sha256=pins,
