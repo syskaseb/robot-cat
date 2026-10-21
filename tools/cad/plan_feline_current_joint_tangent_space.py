@@ -15,6 +15,20 @@ from feline_atomic_save import save_json
 from plan_feline_tangent_corridor_network import transitions
 
 
+def available_room(field):
+    """Fixed jackets occupy the shared corridor too, not only rigid parts.
+
+Keep the existing 1.2mm field/sampling allowance; jacket-to-jacket adds
+0.2mm, rigid/motion adds1.25mm and outer adds3.25mm. Exact solid checks
+and a current field including later accepted middles remain mandatory.
+Missing harness data is an error, never permission to route through it.
+"""
+    return np.minimum.reduce((field['rigid_signed_distance']-2.45,
+                              field['motion36_signed_distance']-2.45,
+                              field['outer_distance']-4.45,
+                              field['harness_signed_distance']-1.4))
+
+
 def run():
     tick=time.monotonic();directory=OUT/'joint-corridor-space-20261021'
     sf=directory/'n01-integrated-signed-space.json';space=json.loads(sf.read_text())
@@ -33,8 +47,7 @@ def run():
         result['worker_seconds']=round(time.monotonic()-tick,3);save_json(dest,result)
     with np.load(fp,allow_pickle=False) as f:
         origin=f['origin_mm'].copy();assert float(f['grid_mm'])==1
-        room=np.minimum(f['rigid_signed_distance']-2.45,f['motion36_signed_distance']-2.45)
-        room=np.minimum(room,f['outer_distance']-4.45);inside=f['inside'].copy()
+        room=available_room(f);inside=f['inside'].copy()
     for radius,bend in ((1.55,16),(2.1,28),(6.,16),(6.,28)):
         key=str(radius)+'-R'+str(bend)
         if key in result['classes']:continue
