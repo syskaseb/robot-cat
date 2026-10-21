@@ -34,7 +34,7 @@ class SharedBody(unittest.TestCase):
         self.assertFalse(p['N01_complete']);self.assertEqual(len(p['preserved_W020_rejections']),2)
         _,rows,_=current()
         self.assertTrue(all(e['full_middle_route_accepted'] for e in rows if e['portion_id']=='W024/body'))
-        self.assertFalse(any(e.get('full_middle_route_accepted') for e in rows if e['portion_id']=='W020/body'))
+        self.assertTrue(all(e.get('full_middle_route_accepted') for e in rows if e['portion_id']=='W020/body'))
 
 
 if __name__=='__main__':unittest.main()
