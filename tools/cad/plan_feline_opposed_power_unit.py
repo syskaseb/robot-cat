@@ -15,7 +15,7 @@ from plan_feline_n01_shared import pipe
 from feline_source_saddles import build as grip,segment
 
 
-def construct(fixed,ends,contract,shared_rear_interfaces=False):
+def construct(fixed,ends,contract,shared_rear_interfaces=False,fpwm_output_angle=math.pi/3,fpwm_down_exit=False,fpwm_spatial_exit=None):
     old=fixed['Station:P_REAR:case'];rot=A.Rotation(A.Vector(0,0,1),180)
     tf=A.Placement(-rot.multVec(old.BoundBox.Center),rot)
     source={e['wire']:e for e in ends if e.get('group')=='WAGO:P_REAR'}
@@ -80,11 +80,19 @@ def construct(fixed,ends,contract,shared_rear_interfaces=False):
         if w=='XP01':
             out=[];tip=forward(out,p+42*d,d,.25)
             target=np.array([0.,1.,0.]);normal=target-d*float(d@target);normal/=np.linalg.norm(normal)
-            tip,heading=bend(out,tip,d,normal,12.4,math.pi/3)
+            if fpwm_spatial_exit:
+                normal=np.array([math.sqrt(.75),math.sqrt(.75)/2,.25])
+                assert abs(normal@d)<1e-7
+            tip,heading=bend(out,tip,d,normal,12.4,math.pi/2 if fpwm_down_exit or fpwm_spatial_exit else fpwm_output_angle)
+            if fpwm_down_exit:tip,heading=bend(out,tip,heading,[1,0,0],12.4,math.pi/2)
+            if fpwm_spatial_exit:
+                extension=(fpwm_spatial_exit['maximum_local_x_mm']-tip[0])/heading[0]
+                assert extension>=0;tip=forward(out,tip,heading,extension)
             add('PowerFan:F_PWM:out9',pipe(out,.925),'wire','FPWMoutput')
             meta['PowerFan:F_PWM:out9'].update(wire='XP02.source',nominal_profile_radius_mm=.925)
             mates.append(('PowerFan:F_PWM:out9',cn))
-            kit,proof=grip(out[1],0,[1,0,0],4.5,channel_band=True)
+            side=-np.cross(d,normal) if fpwm_spatial_exit else [1,0,0]
+            kit,proof=grip(out[1],0,side,4.5,channel_band=True)
             for k,s in kit.items():add('PowerFan:grip:XP02:'+k,s,'T18I' if k!='pad' else 'PETG','grip:XP02')
             recipes[w]['whole_received_output_kit_transform']=dict(rotation=list(ft.Rotation.Q),translation=list(ft.Base))
             recipes[w].update(output_routing_exit_mm=tip.tolist(),output_routing_axis=heading.tolist(),
@@ -140,6 +148,9 @@ def construct(fixed,ends,contract,shared_rear_interfaces=False):
         explicit_same_rail_cavity_swap=['XP01','W065'],end_ids_and_materials_preserved=True,
         recipes=recipes,feeds=feeds,shared_three_trunk_comb=shared_rear_interfaces,
         common_comb_grip_rows_mm=[0.,9.,18.] if shared_rear_interfaces else [0.,15.],
+        FPWM_output_turn_rad=math.pi/2 if fpwm_down_exit or fpwm_spatial_exit else fpwm_output_angle,
+        FPWM_downward_two_quarter_exit=fpwm_down_exit,
+        FPWM_spatial_exit=fpwm_spatial_exit,
         root_access_and_four_factory_joint_world_allocation_OPEN=True,
         N01_complete=False,selected=False,physical_pass=False)
     return actors,meta,groups,mates,plan
@@ -178,12 +189,12 @@ def receive_own_grips(raw):
     return result
 
 
-def current_field_domains(actors,receipt,goal,stem):
+def current_field_domains(actors,receipt,goal,stem,fixed_overlay=None,overlay_pins=None,overlay_cache=None):
     """Reuse received fields for a WHOLE unit, never a contact acceptance."""
     import itertools,json,time
     from scipy.signal import correlate
-    from scipy.ndimage import label
-    from feline_signed_voxels import raster
+    from scipy.ndimage import label,distance_transform_edt
+    from feline_signed_voxels import raster,deposit
     from feline_atomic_save import save_json
     from check_main_p0_placement import ROOT,sha
     from plan_feline_layout import OUT
@@ -193,6 +204,23 @@ def current_field_domains(actors,receipt,goal,stem):
         clearance=np.minimum.reduce([f[k+'_signed_distance'][::2,::2,::2] for k in ('rigid','harness','motion36')])
         free=f['inside'][::2,::2,::2]&(clearance>=1.25+math.sqrt(3))&(f['outer_distance'][::2,::2,::2]>=3.25+math.sqrt(3))
         origin=f['origin_mm'].copy()
+    overlay_sources=fixed_overlay or {};overlay_pins=overlay_pins or {}
+    for p,h in overlay_pins.items():assert sha(ROOT/p)==h,p
+    if overlay_sources:
+        occupied=np.zeros(free.shape,bool)
+        for n,s in overlay_sources.items():
+            assert s.isValid() and s.Solids,n
+            private=s.copy(True,True);v,faces=private.tessellate(.5)
+            triangles=np.asarray([list(p) for p in v])[np.asarray(faces)]
+            low,mask=raster(triangles,2.,lambda p:any(q.isInside(A.Vector(*p),1e-7,True) for q in private.Solids))
+            deposit(occupied,mask,low,origin,step=2.)
+        # Both template and overlay are filled2mm voxels, not exact surfaces.
+        # Cover both half diagonals; final actual-geometry checks remain open.
+        overlay_distance=distance_transform_edt(~occupied,sampling=2.).astype(np.float32)
+        free&=overlay_distance>=1.25+2*math.sqrt(3)
+        if overlay_cache:
+            np.savez_compressed(overlay_cache,distance_mm=overlay_distance,occupied=occupied,
+                origin_mm=origin,grid_mm=2.,source_pins_json=json.dumps(overlay_pins,sort_keys=True))
     cloud=[]
     for n,original in actors.items():
         s=original.copy(True,True);v,faces=s.tessellate(.5)
@@ -219,7 +247,8 @@ def current_field_domains(actors,receipt,goal,stem):
                 minimum_penalty_centre_mm=(origin+2*(np.asarray(best)-lo)).tolist()))
             print('WHOLE_POWER_FIELD',stem,len(rows),'clear',int(zero.sum()),'minblocked',int(counts[best]),flush=True)
     result=dict(status='WHOLE_UNIT_CURRENT_FIELD_PROPOSALS_NOT_GEOMETRY_ACCEPTANCE',actors=len(actors),
-        source_sha256={receipt.relative_to(ROOT).as_posix():sha(receipt),fp.relative_to(ROOT).as_posix():sha(fp)},
+        source_sha256={receipt.relative_to(ROOT).as_posix():sha(receipt),fp.relative_to(ROOT).as_posix():sha(fp),**overlay_pins},
+        complete_fixed_overlay_actors=list(overlay_sources),overlay_voxel_uncertainty_allowance_mm=2*math.sqrt(3),
         source_pattern_cells=len(points),grid_mm=2,whole_inside_filled_sources=True,orientations=rows,
         roots_tools_four_factory_lengths_and_exact_contacts_OPEN=True,N01_complete=False,physical_pass=False,
         worker_seconds=round(time.monotonic()-tick,3))
@@ -227,7 +256,7 @@ def current_field_domains(actors,receipt,goal,stem):
     return result
 
 
-def factory_math(power_pose,e2_pose,plan,ends,specs):
+def factory_math(power_pose,e2_pose,plan,ends,specs,local_caps=None,route_filter=None):
     """Four preserved factory units; actual U1 bare lengths, no guessed pins."""
     import feline_tangent_routes as ft
     from feline_spatial_csc import spatial_csc
@@ -249,7 +278,8 @@ def factory_math(power_pose,e2_pose,plan,ends,specs):
             bare=sum(segment(r).Length for r in specs[e['id']]['bare_parts'])
             debit=e['source_prefix_length_mm']+bare+16+9
         side=-1 if w.endswith('source') else 1
-        target=er@np.array([0,side*24.3,1.5 if w.startswith('XP02') else -1.5])+ec
+        local=local_caps[w] if local_caps is not None else [0,side*24.3,1.5 if w.startswith('XP02') else -1.5]
+        target=er@np.array(local)+ec
         arrival=er@np.array([0,-side,0]);options=[]
         if np.linalg.norm(target-p)+debit>220:return None
         for ratio in (.125,.25,.5,1.,2.,4.,8.):
@@ -259,6 +289,7 @@ def factory_math(power_pose,e2_pose,plan,ends,specs):
             except (ValueError,AssertionError):pass
         try:options.append(spatial_csc(p,d,target,arrival))
         except (ValueError,AssertionError):pass
+        if route_filter is not None:options=[rows for rows in options if route_filter(w,rows)]
         if not options:return None
         rows=min(options,key=lambda r:sum(s['length_mm'] for s in r))
         need=sum(s['length_mm'] for s in rows)+debit
@@ -323,3 +354,80 @@ def xa02_corridor(start,target,arrival,trunk_bounds,usb_min_x,rr_bounds,aux_min_
         shared_high_Z_interval_mm=z_interval,gallery_Y_mm=gallery_y,gallery_Z_mm=gallery_z,
         lower_Pi_gallery_Z_mm=float(target[2]),actual_wire_length_mm=sum(r['length_mm'] for r in rows),
         electrical_stock_and_exact_full_world_gate_OPEN=True)
+
+
+def vertical_factory_plan(power_pose,power_plan,local_e2,ends,specs,plate,root,carrier):
+    """Four shared corridors split at the ACTUAL battery plate edge.
+
+    No E2 mouth coordinates rounded to24.3. Module pair stays below plate;
+    source pair descends east of it. This is a single unreceived proposal.
+    """
+    from receive_feline_global_case_candidates import placement
+    from feline_spatial_csc import spatial_csc
+    R=12.4;rot=np.array([[-1.,0,0],[0,0,-1],[0,-1,0]])
+    body=local_e2['Ref_Material_JPWM_0_0'];local_caps={}
+    for w in ('XP02.source','XP03.source','XP02.module','XP03.module'):
+        planes=[f for f in local_e2['JPWMSource:'+w].Faces if isinstance(f.Surface,Part.Plane)]
+        local_caps[w]=np.array(list(max(planes,key=lambda f:(f.CenterOfMass-body.BoundBox.Center).Length).CenterOfMass))
+    # Received whole-E2 field component above the plate, not the hip-blocked
+    # east-edge shaft. End colour order is preserved by rigid proper rotation.
+    centre=[104.,8.,68.]
+    tf=placement(rot,centre);actors={}
+    for n,s in local_e2.items():
+        a=s.copy();a.Placement=tf*a.Placement;actors[n]=a
+    caps={w:rot@p+centre for w,p in local_caps.items()};routes={}
+    side_y=max(plate.BoundBox.YMax+.925+1.25,max(caps[w][1]+2*R for w in ('XP02.module','XP03.module')))
+    for w in ('XP02.module','XP03.module'):
+        e=next(e for e in ends if e['id']==w+'/extra/end')
+        q=np.array(e['routing_exit_mm']);d=np.array(e['routing_exit_axis'],float);assert np.allclose(d,[0,1,0])
+        rows=[];q=forward(rows,q,d,max(0.,root.BoundBox.YMax-q[1]))
+        q,d=bend(rows,q,d,[1,0,0],R)
+        offset=side_y-q[1];angle=math.acos(1-abs(offset)/(2*R))
+        q,d=bend(rows,q,d,[0,np.sign(offset),0],R,angle)
+        normal=np.array([1.,0,0])-d*d[0];normal/=np.linalg.norm(normal)
+        q,d=bend(rows,q,d,normal,R,angle)
+        q=forward(rows,q,d,caps[w][0]-R-q[0]);q,d=bend(rows,q,d,[0,0,1],R)
+        dz=caps[w][2]-2*R-q[2];assert dz>=-1e-6
+        q=forward(rows,q,d,max(0.,dz));q,d=bend(rows,q,d,[0,-1,0],R)
+        travel=q[1]-(caps[w][1]+R);assert travel>=-1e-6
+        q=forward(rows,q,d,max(0.,travel));q,d=bend(rows,q,d,[0,0,1],R)
+        assert np.linalg.norm(q-caps[w])<1e-6
+        bare=sum(segment(r).Length for r in specs[e['id']]['bare_parts'])
+        debit=e['source_prefix_length_mm']+bare+16+9
+        routes[w]=dict(parts=rows,debit_mm=debit,other_end_id=e['id'])
+    pr=np.array(power_pose['rotation']);pc=np.array(power_pose['minimum_penalty_centre_mm'])
+    rec=power_plan['recipes']['XP01'];q=pr@rec['output_routing_exit_mm']+pc
+    d=pr@rec['output_routing_axis'];assert np.allclose(d,[1,0,0])
+    rows=[];q,d=bend(rows,q,d,[0,1,0],R)
+    before=caps['XP02.source']+np.array([0.,-R,R])
+    delta=before-q;lateral=delta-d*float(delta@d);D=np.linalg.norm(lateral);h=float(delta@d)
+    radius=(D*D+h*h)/(4*D);assert radius>=R and h>0
+    angle=2*math.atan2(D,h);q,d=bend(rows,q,d,lateral/D,radius,angle)
+    normal=np.array([0.,1,0])-d*d[1];normal/=np.linalg.norm(normal)
+    q,d=bend(rows,q,d,normal,radius,angle);assert np.linalg.norm(q-before)<1e-6
+    q,d=bend(rows,q,d,[0,0,-1],R);assert np.linalg.norm(q-caps['XP02.source'])<1e-6
+    routes['XP02.source']=dict(parts=rows,debit_mm=rec['output_prefix_length_mm']+40+9,
+                              other_end_id='XP02.source/extra/start')
+    e=next(e for e in ends if e['id']=='XP03.source/extra/start')
+    q=np.array(e['routing_exit_mm']);d=np.array(e['routing_exit_axis'],float)
+    assert np.allclose(d,[0,0,1]);rows=[]
+    lift=caps['XP03.source'][2]-q[2];assert lift>=0
+    q=forward(rows,q,d,lift);q,d=bend(rows,q,d,[-1,0,0],R)
+    q,d=bend(rows,q,d,[0,-1,0],R)
+    offset=caps['XP03.source'][0]-q[0];angle=math.acos(1-abs(offset)/(2*R))
+    q,d=bend(rows,q,d,[np.sign(offset),0,0],R,angle)
+    normal=np.array([0.,-1,0])-d*(-d[1]);normal/=np.linalg.norm(normal)
+    q,d=bend(rows,q,d,normal,R,angle)
+    travel=q[1]-(caps['XP03.source'][1]+R);assert travel>=0
+    q=forward(rows,q,d,travel);q,d=bend(rows,q,d,[0,0,-1],R)
+    assert np.linalg.norm(q-caps['XP03.source'])<1e-6
+    routes['XP03.source']=dict(parts=rows,debit_mm=32.25,other_end_id=e['id'])
+    for w,r in routes.items():
+        r['need_mm']=sum(s['length_mm'] for s in r['parts'])+r['debit_mm']
+        r['minimum_stock_mm']=220.;assert r['need_mm']<=220.,(w,r['need_mm'])
+    return actors,dict(status='VERTICAL_E2_FOUR_CONSTRUCTIVE_CORRIDORS_NOT_RECEIVED',
+        E2_pose=dict(rotation=rot.tolist(),centre_mm=centre),actual_caps_mm={w:p.tolist() for w,p in caps.items()},
+        routes=routes,plate_edge_X_mm=plate.BoundBox.XMax,plate_edge_Y_mm=plate.BoundBox.YMax,
+        whole_module_pair_side_gallery_Y_mm=side_y,carrier_lower_plane_Z_mm=carrier.BoundBox.ZMin,
+        selected_SKUs_changed=False,roots_tools_motion_outer_and_exact_contacts_OPEN=True,
+        N01_complete=False,selected=False,physical_pass=False)

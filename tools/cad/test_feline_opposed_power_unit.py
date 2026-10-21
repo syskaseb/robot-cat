@@ -47,6 +47,15 @@ class OpposedUnit(unittest.TestCase):
             self.assertGreaterEqual(shared['PowerFan:trunk:comb'].distToShape(shared['PowerFan:wire:'+w])[0],.2-1e-6)
         self.assertEqual(common['recipes']['XA01']['output9']['grip']['full_jacket_grip_arclength_mm'],[0,9])
         self.assertTrue(all(s.isValid() and len(s.Solids)==1 for s in shared.values()))
+        loop,_,_,_,loop_plan=construct(fixed,ends,dict(portions=portions),True,4*__import__('math').pi/3)
+        self.assertLess(A.Vector(*loop_plan['recipes']['XP01']['output_routing_axis']).distanceToPoint(A.Vector(0,-1,0)),1e-6)
+        self.assertEqual(loop_plan['recipes']['XP01']['output_grip']['full_jacket_grip_arclength_mm'],[0,9])
+        self.assertTrue(loop['PowerFan:F_PWM:out9'].isValid())
+        spatial,_,_,_,sp=construct(fixed,ends,dict(portions=portions),True,fpwm_spatial_exit=dict(maximum_local_x_mm=25.925))
+        self.assertAlmostEqual(sp['recipes']['XP01']['output_routing_exit_mm'][0],25.925)
+        self.assertEqual(sp['recipes']['XP01']['output_grip']['full_jacket_grip_arclength_mm'],[0,9])
+        self.assertLess(sp['recipes']['XP01']['output_prefix_length_mm'],23.)
+        self.assertTrue(all(s.isValid() and len(s.Solids)==1 for s in spatial.values()))
 
     def test_inside_arc_has_real_tie_channel_and_full_nine(self):
         rows=[];bend(rows,[0,0,0],[0,1,0],[0,0,-1],25.2,1.5707963267948966)
