@@ -7,6 +7,14 @@ from feline_fore_power_pair import SolidQueries
 
 
 class ProfileTarget(unittest.TestCase):
+    def test_single_edge_preserves_known_radius_and_world_placement(self):
+        edge=Part.makeLine(A.Vector(108,-48,110),A.Vector(117,-48,111))
+        s=solid_profile_target(edge,dict(kind='curve_profile_reservation',nominal_profile_radius_mm=1.05))
+        self.assertTrue(s.isValid())
+        self.assertEqual(len(s.Solids),1)
+        self.assertGreater(s.Volume,30.)
+        self.assertGreater(s.BoundBox.XMin,106.)
+
     def test_full_known_radius_not_just_centreline(self):
         wire=Part.Wire([Part.makeLine(A.Vector(0,0,0),A.Vector(0,20,0))])
         solid=solid_profile_target(wire,dict(kind='curve_profile_reservation',nominal_profile_radius_mm=2.))

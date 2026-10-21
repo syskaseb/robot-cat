@@ -21,11 +21,14 @@ def solid_profile_target(shape,metadata):
     if shape.Solids:return shape
     import FreeCAD as A
     import Part
-    assert shape.isValid() and len(shape.Wires)==1
+    assert shape.isValid()
+    assert len(shape.Wires)==1 or not shape.Wires and len(shape.Edges)==1,'Not one connected cable path'
     assert metadata.get('kind') in ('curve_profile_reservation','wire','actual_wire','bare')
     radius=metadata.get('nominal_profile_radius_mm')
     assert isinstance(radius,(int,float)) and radius>0,'No invented wire profile'
-    wire=shape.Wires[0];edge=wire.Edges[0]
+    wire=shape.Wires[0] if shape.Wires else Part.Wire(shape.Edges)
+    assert wire.isValid() and len(wire.Edges)==len(shape.Edges)
+    edge=wire.Edges[0]
     p=edge.valueAt(edge.FirstParameter);t=edge.tangentAt(edge.FirstParameter)
     profile=Part.Wire([Part.makeCircle(radius,p,t)])
     solid=wire.makePipeShell([profile],True,False)
