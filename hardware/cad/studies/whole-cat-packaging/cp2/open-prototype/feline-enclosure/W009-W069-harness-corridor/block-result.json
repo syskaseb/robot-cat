@@ -1,0 +1,69 @@
+{
+  "status": "W069_POSITIVE_SUBSET_AND_SAMPLE36_W009_UNRESOLVED_NOT_N01",
+  "N01_complete": false,
+  "physical_pass": false,
+  "new_scope_score": "0/10",
+  "complete_portions_unchanged": 23,
+  "deadline_utc": "2026-10-21T18:56:26Z",
+  "W069": {
+    "middle_length_mm": 512.9456368817513,
+    "min_R_mm": 14.54532317966522,
+    "static_queries": 260,
+    "static_seconds": 13.453,
+    "motion_actual_queries": 659,
+    "motion_seconds": 622.922,
+    "motion_min_gap_mm": 5.8924335389543785,
+    "outer_gap_mm": 5.288926455409063,
+    "whole_scene_received": false
+  },
+  "W009": {
+    "original_portal_reachable_cells": 2,
+    "rejected_portals": {
+      "heading4": "CurrentMiddle:W024",
+      "heading2": "Station:Bank:W047/body/end:wire:W047/body/end",
+      "heading0": "self-overlap"
+    },
+    "vertical_extension": {
+      "kept_original_endpoint_link": true,
+      "quarter_bend_R_mm": 16,
+      "portals_mm": [
+        [
+          -16,
+          -18,
+          54
+        ],
+        [
+          -16,
+          -2,
+          70
+        ]
+      ],
+      "connected_graph_exit_found": false,
+      "physical_infeasibility_NOT_proved": true
+    },
+    "next": "Plan the complete approach from the unchanged received D_FR cap using actual nearby assembly geometry; do not repeat rejected portal links or new global pose sweeps."
+  },
+  "recovered_scene": {
+    "actors": 1251,
+    "unresolved": 276,
+    "archive": "recovered-context.breps.zip",
+    "status": "PARTIAL_NOT_RECEIVED"
+  },
+  "source_sha256": {
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\resource.json": "8aa081bfb78ed0b4c1e76c9d31cab3a7eb49400269de1a3db358561fe0c9aba9",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\pair-preflight.json": "bbef944d5f56df85fdc2f62b62e1f3bffd0657900e28e7ae37086bb67a9624fa",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W009-disconnect.json": "c1dbe152c18a4024bca45f37d595a5f216816b7bc1110f0a884be68cac52182f",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W009-saved-portals.json": "d37150d80677525b35e952f07bcd644ba5950e07c93001715d13be1b8f6d89a0",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\portal-pair-preflight.json": "a9f2f46755cf3cddfe8615597877f3a5d7651145a518eea3d92e75bec4827351",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W069-actual-subset.json": "64b21d055327aaa9bb52c9f73ea7ff02d5ad65f73f57c6128d4bbfe6b8e0e145",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W069-subset-spacing.json": "cc9720415d8c388646d606d1f8823211633f3c94b50254ec1461fae4f6cb4d87",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W069-sampled36.json": "4caedba0e8a6004ffb10af40451cfda0dc9d266e95872a72cced5b7b7efee6ea",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W009-actual-subset.json": "039a8d724bfeab86319df97e3cc13ef2879ceb31875e8e8d045fc8bc93a7d0f4",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\W009-overhead-actual-subset.json": "36df8d5cdbba9df7f01513fd24008e801e26a4a737df4e74779e0f4bce9b80cc",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\pair-outline.json": "3cfa0cd2d361930b849480ef77e71489dfe320c5ef13e64a54af75d2a1b9b1e1",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\W009-W069-harness-corridor\\recovered-context.json": "a9cc2bc478adb5beb9d5f836dcb288d6e28419470411d0ae533d1ad16e3233c9"
+  },
+  "hook_enabled": false,
+  "tests": "4PASS fresh process0.410s",
+  "next": "Preserve W069 as a proposal; recover missing scene owners before whole acceptance. W009 requires a different complete approach, not additional portal micro-offsets."
+}
