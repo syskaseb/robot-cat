@@ -23,6 +23,12 @@ class HarnessCorridorTests(unittest.TestCase):
                 recipe=next(r for r in recipes if r['end_heading']==heading)
                 actor=solid(recipe['parts'],recipe['radius_mm'])
                 self.assertGreater(actor.common(obstacle).Volume,1e-5)
+            proof=json.loads((folder/'W009-overpass-rejection.json').read_text())
+            row=records[proof['target']];raw=z.read(row['entry'])
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),row['sha256'])
+            obstacle=Part.Shape();obstacle.importBrepFromString(raw.decode())
+            actor=solid(proof['parts'],proof['radius_mm'])
+            self.assertAlmostEqual(actor.common(obstacle).Volume,proof['common_mm3'],places=5)
 
     def test_saved_pair_reopens_as_two_valid_solids_without_claiming_N01(self):
         import FreeCAD
