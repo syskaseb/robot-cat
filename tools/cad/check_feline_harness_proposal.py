@@ -14,6 +14,16 @@ from feline_fore_power_pair import SolidQueries
 from feline_atomic_save import save_json
 
 
+def load_recovered_context():
+    """Fast restart from the saved partial scene, without archive searches."""
+    from receive_feline_rrp_shared_height import load
+    packet=json.loads((OUT/'W009-W069-harness-corridor/recovered-context.json').read_text())
+    assert packet['status']=='PARTIAL_HASH_RECOVERED_SCENE_NOT_WHOLE_RECEIPT'
+    assert not packet['N01_complete'] and packet['unrecovered']
+    scene=load(packet)
+    return scene,{r['name']:r['metadata'] for r in packet['geometry']},packet
+
+
 def classify_W069_spacing(result,metadata,source_records):
     """Classify already computed distances; never repeat unchanged CAD pairs."""
     from feline_fore_power_pair import pair_spacing

@@ -12,6 +12,7 @@ from check_feline_harness_proposal import check
 
 
 def run():
+    assert not (OUT/'W009-W069-harness-corridor/W009-actual-subset.json').exists(),'Receive saved rejection, do not rebuild its scene'
     tick=time.monotonic();world,parts,meta,pins,docs=compose()
     expected=json.loads((OUT/'joint-corridor-space-20261021/owner-source-cache-bridge.json').read_text())['source_geometry_sha256']
     prior=json.loads((OUT/'n01-W009-W069-recovered-subset-check.json').read_text())
