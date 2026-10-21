@@ -1,0 +1,104 @@
+{
+  "status": "U1_TWO_EAST_INSULATED_EXITS_FULL_CLAMP_AND_STAND1_ROOT_RECEIVED",
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-U1-east-pair-relief.breps.zip",
+  "bundle_sha256": "5ce3052666b83be6661c63abbb28d3e40ec2fe4451bb05e41a621f649ac3a12b",
+  "geometry": [
+    {
+      "name": "U1Five:XP02.module:jacket",
+      "entry": "0.brep",
+      "sha256": "e133b03cb908aa732c5ca270691ff297769dffcffb7d4d0ecf66efa5101569b1"
+    },
+    {
+      "name": "U1Five:XP03.module:jacket",
+      "entry": "1.brep",
+      "sha256": "691ddfb90ad9763a3f3ece2e4a1cc42ae7d28a6151f8ee24b39088a2219b13e9"
+    },
+    {
+      "name": "U1Relief:RearRoot",
+      "entry": "2.brep",
+      "sha256": "723f85de84a3f3f95c9c4233523504495cad6b9eb1c97c44cdf67ec1604195ac"
+    },
+    {
+      "name": "U1Relief:E2pair:band",
+      "entry": "3.brep",
+      "sha256": "cb2fa7b5b2f0db3eb353948a32d930d28ec8f300c8a3b5fc4e61be10419cd438"
+    },
+    {
+      "name": "U1Relief:E2pair:head",
+      "entry": "4.brep",
+      "sha256": "7978a492e5534f1d97bf948f5a6f9492e295f2ab00bd0c0fdb8385fce0581f8c"
+    }
+  ],
+  "coordinate_frame": "WORLD; do not apply PCB placement again",
+  "parent": "n01-coherent-U1-F0-space-fit.json",
+  "parent_bundle_sha256": "c580d91339cf4d0226354e7447d6df96761d1e69bee66e822c613c26022a4dcd",
+  "replaces": [
+    "U1Five:XP02.module:jacket",
+    "U1Five:XP03.module:jacket",
+    "U1Relief:RearRoot",
+    "U1Relief:E2pair:band",
+    "U1Relief:E2pair:head"
+  ],
+  "new_routes_boundaries": {
+    "XP02.module": {
+      "point_mm": [
+        88.75,
+        86.25483506235435,
+        41.18
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "factory_debit_mm": 49.30360584140597
+    },
+    "XP03.module": {
+      "point_mm": [
+        88.75,
+        88.89536493764564,
+        41.18
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "factory_debit_mm": 54.48413571669726
+    }
+  },
+  "plan": {
+    "same_named_bare_pads_and_other12_interfaces": true,
+    "reflection_plane_world_X_mm": 76.35,
+    "same_complete_nylon_stock_envelopes": true,
+    "mirrored_rectangular_stock_envelope_NOT_manufactured_mirrored_ratchet": true,
+    "existing_Stand1_bore_radius_mm": 1.2,
+    "named_integral_Stand1_root_joint_mm3": 17.55943770198327,
+    "printed_bridge_and_posts_provisional_not_strength_qualification": true,
+    "native_master_changed": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "own_intrinsic_policy_unchanged": true,
+  "receipt_in_bundle": "static36-received.json",
+  "reopen_actors": 5,
+  "reopen_seconds": 0.094,
+  "static_seconds": [
+    6.469,
+    1.562
+  ],
+  "motion36_seconds": 2.203,
+  "remaining": [
+    "U1 frame attachment",
+    "power30 frame attachments",
+    "E2/four full factory links",
+    "whole123 shared capacity/access/motion/assembly"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-coherent-U1-F0-space-fit.json": "2e076677a25f1630b0a6b64e96564d2811ea7f065a927021ba69774d185ef572",
+    "tools/cad/plan_feline_u1_east_pair_relief.py": "182f170f358fb3d50bd9c84fa0166d44f16c17b6398f09ce8c78240b589b596b"
+  },
+  "N01_complete": false,
+  "physical_pass": false,
+  "native_master_changed": false
+}
