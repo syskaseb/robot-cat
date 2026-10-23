@@ -79,5 +79,30 @@ class ServiceDependencies(unittest.TestCase):
         self.assertIn('turn|CurrentMiddle:W009',lift['failures'])
         self.assertTrue(lift['continuous_motion_not_checked'])
 
+    def test_removable_restraint_does_not_promote_whole_service(self):
+        w=self.r['removable_USB_planning_witness']
+        self.assertEqual(hashlib.sha256((ROOT/w['bundle']).read_bytes()).hexdigest(),w['bundle_sha256'])
+        self.assertEqual(w['additional_root_ties'],2)
+        self.assertAlmostEqual(w['arm_begin_X_mm']-w['beam_end_X_mm'],.2)
+        self.assertTrue(w['fused_artifact_not_qualified'])
+        self.assertFalse(w['whole_service_approved'])
+        self.assertFalse(w['selected_native_changed'])
+        order=self.r['shared_sequence']['dependency_order']
+        self.assertLess(order.index('release_W009'),order.index('release_USB_restraint'))
+        self.assertLess(order.index('release_USB_restraint'),order.index('lift_mated10'))
+
+    def test_continuous_bounds_include_between_samples(self):
+        e=self.r['removable_USB_planning_witness']['evidence']
+        for key in ('external_lift6','own_material_lift6','external_lift6_to30','own_material_lift6_to30'):
+            proof=e[key]
+            self.assertTrue(proof['passed'],key)
+            self.assertEqual(len(proof['samples']),proof['intervals']+1)
+            for sample in proof['samples']:
+                self.assertFalse(sample['errors']);self.assertFalse(sample['failures'])
+                for row in sample['checks'].values():
+                    self.assertAlmostEqual(row['continuous_gap_lower_bound_mm'],
+                        row['gap_mm']-proof['nearest_sample_displacement_mm'])
+                    self.assertGreaterEqual(row['continuous_gap_lower_bound_mm']+1e-6,proof['minimum_mm'])
+
 
 if __name__=='__main__':unittest.main()

@@ -237,3 +237,141 @@ def receive_comb_opening(lift, slide):
     result['sequence_source_sha256'][str(Path(__file__).relative_to(ROOT)).replace('\\','/')] = sha(Path(__file__))
     save_json(dest,result)
     return result['D_FR_comb_opening']
+
+
+def removable_usb_sleeve(kits):
+    """N01 separable restraint on the existing beam, not a new Pi position.
+
+    Keep constituents independent: a fused child's distance may disagree with
+    both its source constituents and its empty Boolean intersection. Such a
+    fused artifact is NOT automatically a qualified export.
+    """
+    from receive_feline_pi_split_service_space import independent
+    y = 28.85810963471377
+    sleeve = Part.makeBox(12,8,4.5,A.Vector(108.5,y-4,107.1)).cut(
+        Part.makeCylinder(1.7,12,A.Vector(108.4,y,107.1),A.Vector(1,0,0)))
+    parts = {k:independent(kits[k]) for k in ('arm','pad')}
+    # The old spherical nose hooks the arm during upward release. A flat
+    # beam end and explicit .2mm axial assembly gap remove that interlock.
+    # Both are subsets; unchanged external clearance evidence is reusable.
+    parts['arm']=parts['arm'].common(Part.makeBox(100,200,200,A.Vector(118.7,-80,0)))
+    parts['sleeve'] = sleeve
+    assert all(s.isValid() and len(s.Solids)==1 for s in parts.values())
+    return parts
+
+
+def usb_flat_beam(kits):
+    from receive_feline_pi_split_service_space import independent
+    result=independent(kits['retained']).cut(
+        Part.makeBox(100,200,200,A.Vector(118.5,-80,0)))
+    assert result.isValid() and len(result.Solids)==1
+    return result
+
+
+def sampled_translation_bound(scene, metadata, parts, excluded, delta,
+                              intervals=3, minimum=.5):
+    """Continuous clearance bound, not endpoints masquerading as a sweep.
+
+    Distance to fixed material is 1-Lipschitz under translation. Every point
+    of the path is within half a sample interval of a sample. Subtract this
+    displacement from each sampled gap; reject errors or insufficient bounds.
+    Union clearance is the minimum of constituent clearances, without Boolean
+    fusion of the curved pad. Intended mating contacts need separate proof.
+    """
+    import time
+    from check_feline_service_translation import check
+    from receive_feline_pi_split_service_space import independent
+    tick=time.monotonic(); vector=A.Vector(*delta)
+    penalty=vector.Length/(2*intervals)
+    samples=[]
+    for i in range(intervals+1):
+        moved={k:independent(v) for k,v in parts.items()}
+        for shape in moved.values():shape.translate(vector*(i/intervals))
+        receipt=check(scene,metadata,moved,excluded,None,None,minimum+penalty)
+        for row in receipt['checks'].values():
+            row['continuous_gap_lower_bound_mm']=row['gap_mm']-penalty
+        samples.append(dict(fraction=i/intervals,**receipt))
+    return dict(delta_mm=delta,intervals=intervals,
+        nearest_sample_displacement_mm=penalty,minimum_mm=minimum,
+        method='1-Lipschitz distance lower bound for translating constituent union',
+        samples=samples,
+        passed=all(not s['failures'] and not s['errors'] for s in samples),
+        intended_contacts_not_covered=True,partial_scene_only=True,
+        worker_seconds=round(time.monotonic()-tick,3),N01_complete=False)
+
+
+def usb_sleeve_tie_reservations():
+    """Two replaceable 2.5x1.2 ties; shape budgets, not rated retention.
+
+    A conformal band crosses under the existing beam and over the sleeve.
+    Reserve its FULL outer box: a hollow rectangular ring would omit the
+    diagonal nylon runs under the narrower round beam. This is occupied-space
+    reservation, not actual nylon material; own beam/sleeve overlap is intended.
+    No terminal or lever carries its load. Hand/jaw access is separate.
+    """
+    y=28.85810963471377; result={}
+    for index,x in enumerate((110.,115.)):
+        # The top of the actual sleeve is111.6: retain its full roof inside
+        # the band rather than intersecting it with a falsely tight loop.
+        outer=Part.makeBox(2.5,10.4,8.4,A.Vector(x,y-5.2,104.4))
+        result[f'root_tie{index}:band_budget']=outer
+        result[f'root_tie{index}:head']=Part.makeBox(5.,5.3,4.3,
+            A.Vector(x-1.25,y-2.65,112.8))
+    return result
+
+
+def receive_usb_removal(parts, fixed, ties, evidence):
+    """Save one constructive service witness without selecting production CAD."""
+    import hashlib,zipfile
+    from receive_feline_pi_split_service_space import independent
+    dest=OUT/'n01-service-dependency-decision-20261023.json'
+    result=json.loads(dest.read_text())
+    archive=OUT/'n01-service-removable-usb-20261023.brep.zip'
+    geometry=[]
+    with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
+        for index,(name,shape) in enumerate({**parts,'fixed_beam':fixed,**ties}.items()):
+            shape=independent(shape);shape.check(True)
+            raw=shape.exportBrepToString().encode();entry=f'{index:02}.brep'
+            z.writestr(entry,raw)
+            geometry.append(dict(name=name,entry=entry,sha256=hashlib.sha256(raw).hexdigest()))
+    result['removable_USB_planning_witness']=dict(
+        status='CONSTRUCTIVE_SUBSTEPS_NOT_WHOLE_SERVICE_APPROVAL',
+        geometry=geometry,bundle=str(archive.relative_to(ROOT)).replace('\\','/'),
+        bundle_sha256=sha(archive),evidence=evidence,
+        beam_end_X_mm=118.5,arm_begin_X_mm=118.7,assembly_gap_mm=.2,
+        sleeve_mm=[12,8,4.5],groove_radius_mm=1.7,
+        additional_root_ties=2,existing_USB_jacket_tie_retained=True,
+        head_budget_mm=[5,5.3,4.3],
+        restraint_load_path='USB jacket -> existing pad/arm -> removable sleeve and two ties -> existing upper beam -> Pi carrier/root',
+        axial_retention_relies_on_clamped_fit_not_tested_load_rating=True,
+        fused_artifact_not_qualified=True,
+        changed_parts_are_printed_only=True,selected_bought_parts_changed=False,
+        source_subset_external_evidence_reused=True,
+        assembly_sequence=['Disconnect source and open service access.',
+            'Qualify and park W009 first; its full parking is still OPEN.',
+            'Support cable and cap by hand; cut jacket tie and two sleeve ties.',
+            'Lift the open sleeve/arm/pad off the flat-ended beam; keep cable supported.',
+            'Park removed cap; then perform the separately conditional Pi lift and USB withdrawal.',
+            'Reverse on assembly, replacing all cut ties; verify unloaded connectors.'],
+        not_covered=['Full W009 parking and neighbouring-wire support',
+            'Continuous mated USB flex and unplugged-end parking',
+            'Final enclosure opening and human hand access',
+            'Physical tie tension/retention, print fit and strength',
+            'Production native split and reliable fused export'],
+        whole_service_approved=False,selected_native_changed=False,
+        N01_complete=False,physical_pass=False)
+    operations=result['shared_sequence']['operations']
+    if not any(op['id']=='release_USB_restraint' for op in operations):
+        operations.insert(5,dict(id='release_USB_restraint',requires=['release_W009'],
+            action='Support USB; cut jacket tie and two root ties; lift removable sleeve/arm/pad30mm before lifting Pi.',
+            status='conditional',basis='Constructive partial-scene space proof; W009 parking, hands, fit and native artifact remain OPEN.'))
+    cradle_step=next(op for op in operations if op['id']=='release_cradle')
+    if 'release_USB_restraint' not in cradle_step['requires']:
+        cradle_step['requires'].append('release_USB_restraint')
+    step=next(op for op in operations if op['id']=='unplug_USB_A')
+    step['basis']='Fixed-arm15mm rejection preserved. New removable restraint has conditional space evidence; continuous cable deformation and parking remain OPEN.'
+    result['shared_sequence']['dependency_order']=list(TopologicalSorter(
+        {op['id']:set(op['requires']) for op in operations}).static_order())
+    result['sequence_source_sha256'][str(Path(__file__).relative_to(ROOT)).replace('\\','/')]=sha(Path(__file__))
+    save_json(dest,result)
+    return result['removable_USB_planning_witness']
