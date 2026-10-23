@@ -12,13 +12,21 @@ def current():
     for filename,status in (
         ('n01-current-W022-complete-body-plan.json','CURRENT_W022_COMPLETE_STATIC_BODY_CURVE_AND_SAMPLE36_RECEIVED_NOT_N01'),
         ('n01-current-W024-shared-complete-body-plan.json','CURRENT_W024_SHARED_TRUNK_COMPLETE_BODY_AND_SAMPLE36_RECEIVED_NOT_N01'),
-        ('n01-current-W020-complete-body-plan.json','CURRENT_W020_COMPLETE_BODY_AND_SAMPLE36_RECEIVED_NOT_N01')):
+        ('n01-current-W020-complete-body-plan.json','CURRENT_W020_COMPLETE_BODY_AND_SAMPLE36_RECEIVED_NOT_N01'),
+        ('n01-current-W009-complete-body-plan.json','CURRENT_BODY_CANONICAL_SOURCES_AND_SAMPLE36_RECEIVED_NOT_N01'),
+        ('n01-current-W069-complete-body-plan.json','CURRENT_BODY_CANONICAL_SOURCES_AND_SAMPLE36_RECEIVED_NOT_N01')):
         path=OUT/filename;p=json.loads(path.read_text())
         assert p['status']==status and sha(ROOT/p['bundle'])==p['bundle_sha256']
         assert all(r['ok'] for r in p['checks'].values()) and p['outer']['ok']
         if p['portion']=='W020/body':
             assert p['motion_actors_covered']==3888 and p['sampled_poses']==36
             assert p['motion_vertical_lower_bound_mm']>=1.25-1e-6
+        if p['portion'] in ('W009/body','W069/body'):
+            assert p['motion_actors_covered']==3888 and p['sampled_poses']==36
+            motion=json.loads((ROOT/p['motion_receipt']).read_text())
+            assert motion['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED'
+            assert all(r['ok'] for r in motion['checks'].values())
+            assert p['current_named_sources_covered']==1527
         assert not p['N01_complete'] and not p['physical_pass']
         for name,h in p['source_sha256'].items():assert sha(ROOT/name)==h,name
         for r in p['current_boundaries']:

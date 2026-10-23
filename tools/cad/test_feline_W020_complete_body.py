@@ -52,7 +52,7 @@ class WholeBody(unittest.TestCase):
         self.assertTrue(all(e['whole_factory900_and_moving_portion_NOT_received'] for e in ends))
         # Earlier factory/retained receipts use full_middle_route_accepted;
         # whole_portion_received was introduced later and covers only13.
-        self.assertEqual(len({e['portion_id'] for e in rows if e.get('full_middle_route_accepted')}),23)
+        self.assertEqual(len({e['portion_id'] for e in rows if e.get('full_middle_route_accepted')}),25)
         for e,b in zip(ends,p['current_boundaries']):
             np.testing.assert_allclose(e['routing_exit_mm'],b['point_mm'],atol=1e-7,rtol=0)
 
