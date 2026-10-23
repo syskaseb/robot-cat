@@ -1,0 +1,273 @@
+{
+  "status": "CONSTRUCTIVE_OPEN_CRADLE_CANDIDATE_CABLE_RELEASE_OPEN",
+  "frame": {
+    "position": [
+      -25.974933627404138,
+      -50.83106872700384,
+      93.1255841864511
+    ],
+    "rotation": [
+      0.12768003201366332,
+      0.6004701318014787,
+      0.7721259133964662,
+      0.16417979199943455
+    ]
+  },
+  "checks": {
+    "lid_sequence": {
+      "checks": {
+        "LidNormal8|MainSupported:root": {
+          "gap_mm": 3.501562255935685,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidNormal8|HP_positive_channel:XB22": {
+          "gap_mm": 71.78128482266449,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidNormal8|HP_positive_channel:XB23": {
+          "gap_mm": 75.13260535250366,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidNormal8|HP_positive_channel:XS23": {
+          "gap_mm": 68.43474491220822,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidThenUp80|MainSupported:root": {
+          "gap_mm": 7.067945692201095,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidThenUp80|HP_positive_channel:XB22": {
+          "gap_mm": 73.14083271219971,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidThenUp80|HP_positive_channel:XB23": {
+          "gap_mm": 76.51238469355076,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "LidThenUp80|HP_positive_channel:XS23": {
+          "gap_mm": 69.77204133719479,
+          "minimum_mm": 0.5,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [
+        "SharedPi:Carrier"
+      ],
+      "worker_seconds": 2.063,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "cut_tie_tool": {
+      "checks": {
+        "-1|MainSupported:root": {
+          "gap_mm": 6.610024660874963,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "-1|HP_positive_channel:XB22": {
+          "gap_mm": 85.62572537568953,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "-1|HP_positive_channel:XB23": {
+          "gap_mm": 89.01503541364272,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "-1|HP_positive_channel:XS23": {
+          "gap_mm": 82.23728958891634,
+          "minimum_mm": 0.5,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [
+        "SharedPi:Carrier"
+      ],
+      "worker_seconds": 1.453,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "new_collar_lift": {
+      "checks": {},
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [
+        "SharedPi:Carrier"
+      ],
+      "worker_seconds": 0.828,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    }
+  },
+  "axial_stops_at_2mm": {
+    "-1": 8.761418050577031,
+    "1": 8.761418050577056
+  },
+  "twist_stops_at_15degrees": {
+    "-15": {
+      "lid": 0.23530401168547782,
+      "cradle": 0.0
+    },
+    "15": {
+      "lid": 0.0,
+      "cradle": 0.23530401168544934
+    }
+  },
+  "exact_subset_outside_mm3": {
+    "cradle": 0.0,
+    "lid": 0.0,
+    "collar": 0.0
+  },
+  "geometry": [
+    {
+      "name": "cradle",
+      "entry": "0.brep",
+      "sha256": "b1165165851a21560500c856b672ebb7a32f0b2a2e7559b7092bfa615cc3167a"
+    },
+    {
+      "name": "lid",
+      "entry": "1.brep",
+      "sha256": "2ee4a0838742132b1a271b2815eb681ae442785177272c569b1e1cd62b3d0d20"
+    },
+    {
+      "name": "collar",
+      "entry": "2.brep",
+      "sha256": "dec67494552c7d4ce340370cc408037a6af926a60121813764a6882cef727f60"
+    },
+    {
+      "name": "lid_budget",
+      "entry": "3.brep",
+      "sha256": "a9cfc5cec94fda560e03a708a46648a0cb305d9a27cee7bf80a11d257a12d9b7"
+    },
+    {
+      "name": "fixed",
+      "entry": "4.brep",
+      "sha256": "b4b1dc6bee42bffaf6f319bea3fa10ccaad90a9ee1e8a752d984963a8784eddb"
+    },
+    {
+      "name": "mobile",
+      "entry": "5.brep",
+      "sha256": "0791ee682082c3109d87f9b85ebf066e5b1d43b660c1c719cc0a1745ea81595c"
+    }
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-open-cradle-joint.breps.zip",
+  "bundle_sha256": "fffbb41e4d55246d36a6dfd986f44f5e79c5a84f488bd3984cc7293cf464a241",
+  "source_sha256": {
+    "tools/cad/plan_feline_pi_split_joint.py": "20822bfccbc89eec5c0a23c96bd98b02e2fa6af289355c7a4007f1f482913890",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-split-service-space.json": "74754c1e59057719fbea6fbb00a855ea2028f588850168b021de9d0df95c6c58",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-split-coupler-sampled36.json": "713bc7bcf5ead3ef3f30568ec95d4b3dfe6e443094b83f058e00ea7025b344a8"
+  },
+  "sequence": [
+    "Deenergized prototype; outer service panels removed; support Pi by hand",
+    "Cut two T18I heads from above; remove bands; replace ties during reassembly",
+    "Lid travels8mm normal to split, then80mm vertically to a free hand-held position",
+    "After cable releases are resolved, lift Pi+upper carrier40mm vertically"
+  ],
+  "minimum_pocket_wall_mm": 1.0,
+  "nominal_fit_clearance_mm": 0.15,
+  "split_gap_mm": 0.25,
+  "tie_head_tool_budget_mm": [
+    8,
+    25,
+    7
+  ],
+  "tool_budget_is_project_assumption": true,
+  "strength_and_fit_qualified": false,
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "open": [
+    "USB/power releases and parked cables; GPIO mated budget assumption",
+    "Actual tool and hand fit; PETG wall/load/creep and tie tightness tests",
+    "Remaining F_PI wire-group service sequence and whole N01"
+  ],
+  "extra": {
+    "original_side_split_rejected": [
+      "1|Ref_Material_PWM968520TopWasher_0_0",
+      "1|Ref_Material_PWM9685NominalPCB_0_0"
+    ],
+    "vertical_opening_before_swept_pocket_interference_mm3": 0.17955092319777322,
+    "carrier_lift_vs_fixed_mm3": 0.0,
+    "collar_lift_vs_fixed_mm3": 0.0,
+    "lid_release_vs_both_carriers_mm3": [
+      0.0,
+      0.0
+    ],
+    "key_gap_mm": 23.56382861399345,
+    "GPIO_stationary_prefix_checks": {
+      "checks": {
+        "CarrierLift|PiGPIO:PI.H1": {
+          "gap_mm": 0.14999999999922842,
+          "minimum_mm": 0.15,
+          "ok": true
+        },
+        "CarrierLift|PiGPIO:PI.H3": {
+          "gap_mm": 0.1499999999999962,
+          "minimum_mm": 0.15,
+          "ok": true
+        },
+        "CarrierLift|PiGPIO:PI.H5": {
+          "gap_mm": 0.14999999999998634,
+          "minimum_mm": 0.15,
+          "ok": true
+        },
+        "CarrierLift|PiGPIO:PI.H11": {
+          "gap_mm": 0.14999999999999086,
+          "minimum_mm": 0.15,
+          "ok": true
+        },
+        "CarrierLift|PiGPIO:PI.H6": {
+          "gap_mm": 0.1499999999990683,
+          "minimum_mm": 0.15,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [],
+      "worker_seconds": 0.797,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "GPIO_housing_project_budget_hold": {
+      "checks": {
+        "PiBudget:UnlabelledTopComponentsBudget|StationaryGPIOHousing": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.15,
+          "ok": false
+        },
+        "CarrierLift|StationaryGPIOHousing": {
+          "gap_mm": 3.59999999999998,
+          "minimum_mm": 0.15,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [
+        "PiBudget:UnlabelledTopComponentsBudget|StationaryGPIOHousing"
+      ],
+      "removal_hypotheses": [],
+      "worker_seconds": 0.39,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "USB_boot_out12_existing_pad_actual_overlap_mm3": 62.4
+  },
+  "worker_seconds": 0.281
+}
