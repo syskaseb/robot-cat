@@ -1,0 +1,72 @@
+{
+  "status": "SERVICE_DEPENDENCIES_RECORDED_NOT_ASSEMBLY_APPROVAL",
+  "S0": {
+    "actor": "Ref_Material_S0_key_CP2_0_0",
+    "geometric_type": "FULL_FAMILY_RESERVATION_NOT_EXACT_KEY_OR_OFF_POSE",
+    "radius_mm": 15,
+    "height_mm": 63.5,
+    "source_definition": "whole_cat_interior.py: S0 family model includes stud space, NOT exact HELLA SKU casing",
+    "supplier_drawing_selected_part": "002843002 on HELLA page259",
+    "confirmed_dimensions_mm": {
+      "panel_to_front_tip": 66.5,
+      "neck_diameter": 22
+    },
+    "exact_neck_axial_extent_and_key_shape_unknown": true,
+    "extraction25_is_project_assumption_not_measured_stroke": true,
+    "reservation_overlap_mm3": 1106.9193607486206,
+    "overlap_axial_interval_from_reservation_base_mm": [
+      22.888922986961507,
+      47.598017171821205
+    ],
+    "axis_to_FPI_access_mm": 9.534846528197491,
+    "sufficient_uniform_radius_with_half_mm_margin": 9.034846528197491,
+    "radius_bound_is_NOT_supplier_dimension": true,
+    "actual_collision_proved": false,
+    "removing_key_does_not_remove_fixed_neck": true
+  },
+  "routine_FPI": {
+    "prerequisites": [
+      "Isolate and physically disconnect source",
+      "Release and park complete W027/W020/W031/W033/W035 groups with terminals unloaded",
+      "Qualify actual fixed neck and key OFF position against F_PI access",
+      "Only if key removal is necessary, qualify its actual withdrawal",
+      "Open delivered cap, replace fuse, restore all restraints"
+    ],
+    "five_groups_are_NOT_five_WAGO_disconnects": true,
+    "fixed_boundaries_are_NOT_connectors": true,
+    "W027_known_terminal": "FL_P.2",
+    "other_body_boundaries": [
+      "W020:FL1/fixed_boundary",
+      "W031:FR1/fixed_boundary",
+      "W033:FR2/fixed_boundary",
+      "W035:FR3/fixed_boundary"
+    ],
+    "sequence_approved": false
+  },
+  "rare_Pi_BUS": {
+    "separate_from_routine_fuse_service": true,
+    "Pi_first": "USB gap0.430475 below project0.5; no material intersection claimed",
+    "BUS_plug_first": "Fixed pad intersects plug withdrawal70.2mm3",
+    "BUS_module_retreat": "Current TailCarrier witness68.382751mm3 suffices; secondary tail-mount witness ownership not requalified",
+    "Pi_lift_mated": "Constant452mm jacket and R>=30 end pose; W009 clearance fails, continuous motion unqualified",
+    "sequence_approved": false
+  },
+  "decision": "Do not redesign Pi again solely to clear an inaccurately classified S0 key. Resolve fixed neck/key OFF geometry first; retain real cable/printed-support blockers.",
+  "required_measurements": [
+    "Panel to fixed neck tip",
+    "Key handle thickness/width and installed OFF orientation",
+    "Actual axial withdrawal needed to release the key"
+  ],
+  "exact_manufacturer_key_geometry_received": false,
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-FPI-top-service-dependencies.json": "50ae4d137cd31b64fa51e49ae8ae6dd3c7d3570e2f95be4b0eac1babb09badc6",
+    "tools/cad/whole_cat_interior.py": "cd5d996114a133762c1947c88335cb950ed817f74a13de4e77cb9d31a7e8f998",
+    "hardware/reference/hella-s0-primary-2026-10-16/HELLA-page259.png": "09b92d197fe62a887c1b548013dd06cb24a7dce45e8a71d2613188833a617259",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-BUS-first-service-negative.json": "f5535201189f3a3af1276130f91c2587a07c738a278aca9710553f95a8c131c1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-BUS-module-service-retreat-sample.json": "ecb4f549de6b2c5b07522d3690f1a5fae86d58c80ced7b9bdd93b386b446b223",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-mated-USB-lift-service-sample.json": "9bb6f5b37fbe06f25801db55581a8e48655204ba5e3dbfa27fafca9d71bf17e7"
+  },
+  "selected_geometry_changed": false,
+  "N01_complete": false,
+  "physical_pass": false
+}
