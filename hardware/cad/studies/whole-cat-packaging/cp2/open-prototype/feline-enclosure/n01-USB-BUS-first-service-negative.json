@@ -1,0 +1,75 @@
+{
+  "status": "BUS_FIRST_PULL_REJECTED_WITH_FIXED_PAD_NOT_WHOLE_SERVICE",
+  "withdrawal_mm": [
+    -12,
+    0,
+    0
+  ],
+  "stroke_is_project_assumption": true,
+  "checks": {
+    "checks": {
+      "BUS_USB_pull12|Ref_Material_F_L6_CP2_Housing_0_0": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.5,
+        "ok": false
+      },
+      "BUS_USB_pull12|SharedBUS:TailCarrier": {
+        "gap_mm": 1.7382263962554656,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "BUS_USB_pull12|USBGrip:BUS:pad": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.5,
+        "ok": false
+      },
+      "BUS_USB_pull12|CurrentMiddle:W009": {
+        "gap_mm": 24.850757564888116,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "BUS_USB_pull12|CurrentMiddle:W069": {
+        "gap_mm": 23.46278968920784,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "BUS_USB_pull12|PiMobileRepaired": {
+        "gap_mm": 10.094720404318384,
+        "minimum_mm": 0.5,
+        "ok": true
+      }
+    },
+    "errors": {},
+    "failures": [
+      "BUS_USB_pull12|Ref_Material_F_L6_CP2_Housing_0_0",
+      "BUS_USB_pull12|USBGrip:BUS:pad"
+    ],
+    "removal_hypotheses": [
+      "CurrentBUS:USB_C_Overmould",
+      "Ref_Material_BUSsupplier46_0_0",
+      "USB500:whole",
+      "USBGrip:BUS:band",
+      "USBGrip:BUS:head"
+    ],
+    "worker_seconds": 1.266,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "common_mm3": {
+    "Ref_Material_F_L6_CP2_Housing_0_0": 0.0,
+    "USBGrip:BUS:pad": 70.19999999999807
+  },
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-release-grip-topology-repaired.json": "68538bf111197c42993347b8fc9149e55ec75a050ca5719fc87cc7b793c31391",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/W009-W069-harness-corridor/recovered-context.json": "a9cc2bc478adb5beb9d5f836dcb288d6e28419470411d0ae533d1ad16e3233c9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-Pi-carrier-r3-core-received.json": "7df0b5d504e0077754d8773e7926e976e9a0bddb5edf8ad61ff978004c3d98f2",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W009-complete-body-plan.json": "e1bc6bd6662f6ba0f3d8647541dd1f1896737fb0ccc9e6c4f3671669e56ad49f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W069-complete-body-plan.json": "d0621c476aefb0e249b451f607c58d427e05a4670fc668e0f7b76083a5aa5af0"
+  },
+  "cable_parking_not_tested": true,
+  "port46_mate_identity_not_qualified": true,
+  "decision": "No second offset. BUS-first requires removable pad/neighbor sequence; current fixed pad blocks swept plug. Pi-first also has unmet0.5margin. Plan neighbouring parts release as rare-service operation before changing cable geometry.",
+  "N01_complete": false,
+  "physical_pass": false
+}
