@@ -40,5 +40,30 @@ def current():
                 whole_factory900_and_moving_portion_NOT_received=True)
         files=(*files,path)
     resolved=apply_updates(rows,updates)
+    # The old cap overlay predates the static36 and fastener receipts. Attach
+    # their precise scopes, without promoting them to whole-current service.
+    main_world=OUT/'n01-MAIN-hung-world.json'
+    main_tools=OUT/'n01-MAIN-fastener-sequence-received.json'
+    mw=json.loads(main_world.read_text());mt=json.loads(main_tools.read_text())
+    assert mw['status']=='MAIN_WHOLE_STATIC36_RECEIVED_TOOLS_ASSEMBLY_OPEN'
+    assert not mw['failures'] and len(mw['completed_static'])==25 and len(mw['completed_motion'])==25
+    assert sha(ROOT/mw['pair_rows'])==mw['pair_rows_sha256']
+    assert mt['status']=='MAIN_TWO_AXIS_FASTENER_ACCESS_RECEIVED_HARNESS_RELEASE_OPEN'
+    assert mt['completed_axes']==[0,1]
+    for source,h in mw['source_sha256'].items():
+        if 'n01-MAIN-hung-union-received' in source:assert sha(ROOT/source)==h,source
+    main_updates={}
+    for e in resolved:
+        if e.get('routing_boundary_status')!='CURRENT_MAIN_HUNG_ACTUAL_NOMINAL_CAP_LOCAL_RECEIVED_WORLD_OPEN':continue
+        main_updates[e['id']]=dict(
+            routing_boundary_status='CURRENT_MAIN_CAP_STATIC36_AND_FASTENER_RECEIPTS_AVAILABLE_COMMON_SERVICE_OPEN',
+            static36_receipt=main_world.relative_to(ROOT).as_posix(),
+            fastener_sequence_receipt=main_tools.relative_to(ROOT).as_posix(),
+            world_and_tools_assembly_NOT_received=True,
+            whole_current_scene_delta_and_harness_release_OPEN=True,
+            whole_service_sequence_received=False)
+    assert len(main_updates)==4
+    resolved=apply_updates(resolved,main_updates)
+    files=(*files,main_world,main_tools)
     assert len(resolved)==246 and [e['id'] for e in resolved]==[e['id'] for e in rows]
     return base,resolved,files
