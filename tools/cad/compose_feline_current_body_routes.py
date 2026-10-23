@@ -14,7 +14,8 @@ def current():
         ('n01-current-W024-shared-complete-body-plan.json','CURRENT_W024_SHARED_TRUNK_COMPLETE_BODY_AND_SAMPLE36_RECEIVED_NOT_N01'),
         ('n01-current-W020-complete-body-plan.json','CURRENT_W020_COMPLETE_BODY_AND_SAMPLE36_RECEIVED_NOT_N01'),
         ('n01-current-W009-complete-body-plan.json','CURRENT_BODY_CANONICAL_SOURCES_AND_SAMPLE36_RECEIVED_NOT_N01'),
-        ('n01-current-W069-complete-body-plan.json','CURRENT_BODY_CANONICAL_SOURCES_AND_SAMPLE36_RECEIVED_NOT_N01')):
+        ('n01-current-W069-complete-body-plan.json','CURRENT_BODY_CANONICAL_SOURCES_AND_SAMPLE36_RECEIVED_NOT_N01'),
+        ('n01-current-W047-complete-body-plan.json','CURRENT_W047_BODY_CANONICAL_STATIC_AND_SAMPLE36_RECEIVED_NOT_N01')):
         path=OUT/filename;p=json.loads(path.read_text())
         assert p['status']==status and sha(ROOT/p['bundle'])==p['bundle_sha256']
         assert all(r['ok'] for r in p['checks'].values()) and p['outer']['ok']
@@ -27,6 +28,12 @@ def current():
             assert motion['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED'
             assert all(r['ok'] for r in motion['checks'].values())
             assert p['current_named_sources_covered']==1527
+        if p['portion']=='W047/body':
+            assert p['scene_actors']==1541 and p['canonical_BUS_original_used']
+            assert p['motion_actors_covered']==3888 and p['sampled_poses']==36
+            motion=json.loads((ROOT/p['motion_receipt']).read_text())
+            assert motion['status']=='SOURCE_UNIT_SAMPLE36_MOTION_RECEIVED'
+            assert all(r['ok'] for r in motion['checks'].values())
         assert not p['N01_complete'] and not p['physical_pass']
         for name,h in p['source_sha256'].items():assert sha(ROOT/name)==h,name
         for r in p['current_boundaries']:
