@@ -1,0 +1,121 @@
+{
+  "status": "LOCAL_STRICT_BOP_REBUILD_RECEIVED_EXTERNAL_SERVICE_OPEN",
+  "geometry": [
+    {
+      "name": "carrier",
+      "entry": "0.brep",
+      "sha256": "b3ac3ece798d631aee0e8365739f4d00e8403e63d3f0397a088e3b65749193d9"
+    },
+    {
+      "name": "pad",
+      "entry": "1.brep",
+      "sha256": "8abe149bb36eacc39b831be8ce9b25f3cf1cf81da01c2ebd4f8d77168d4c87db"
+    },
+    {
+      "name": "band",
+      "entry": "2.brep",
+      "sha256": "68b53b5101cb1b3c09502c4d173149462302dded33f2529e82555245362d4a56"
+    },
+    {
+      "name": "head",
+      "entry": "3.brep",
+      "sha256": "48673595600d85733d168fbc054c0a526c191b8ad3db209b003e270998b99725"
+    },
+    {
+      "name": "arm",
+      "entry": "4.brep",
+      "sha256": "ef18d993f4d9d59378d91eeb1774f2683da1ed27d5086ad63bc5794bcb5b4601"
+    },
+    {
+      "name": "retained",
+      "entry": "5.brep",
+      "sha256": "b1be2d38cf0263937f427e0731803a8d540517846e49439aa232ca92a63344ff"
+    },
+    {
+      "name": "mobile_repaired",
+      "entry": "6.brep",
+      "sha256": "31d2aee83d993c983499211eb2fbaffc519f282c0be3b2817f34ff551abf463c"
+    },
+    {
+      "name": "GPIO_recut_tool",
+      "entry": "7.brep",
+      "sha256": "58cc4d13839e46757272eb95ea0974ee7f7a708711017bd2e288d38c1438c608"
+    }
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-release-grip-topology-repaired.breps.zip",
+  "bundle_sha256": "cfd25f4872c8bd5f6c713f603bd2c1dde3d6855aaee9a3ec5e8e837d6ff7bdf9",
+  "source_sha256": {
+    "tools/cad/repair_feline_usb_grip_topology.py": "d6d79308edd96db9f0fef64373c16698842002f8da0d491fb2cd02a0e64b1d06",
+    "tools/cad/plan_feline_usb_release_grip.py": "94ea4abdf3f2cee113ba545693c7b277aea4153dc95018c60c6fdab1602b8d47",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-open-cradle-joint.json": "076b2720381f06de2ca9025b9a2d307258c22f658b82f3540f44abeb32d411b1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-open-cradle-joint.breps.zip": "fffbb41e4d55246d36a6dfd986f44f5e79c5a84f488bd3984cc7293cf464a241"
+  },
+  "recipe": {
+    "grip_length_mm": 8.999999999996792,
+    "retained_wire": true,
+    "groove_radius_mm": 2.65,
+    "wall_mm": 2.0,
+    "head_mm": [
+      4.3,
+      5.3,
+      5
+    ],
+    "midpoint_mm": [
+      129.48421431629234,
+      29.178920710849702,
+      98.64166453260681
+    ],
+    "old_straight_grip_retired": true,
+    "service_withdrawal_mm": 12,
+    "nominal_fit_and_pull_not_qualified": true,
+    "GPIO_clearance_radius_mm": 0.85,
+    "GPIO_recut_length_mm": 5,
+    "no_refine_on_carrier": true,
+    "cable_changed": false,
+    "band_single_span": true,
+    "band_external_clearance_recheck_required": true,
+    "sampled_band_centreline_deviation_mm": 3.2480996557645586e-06,
+    "sampled_deviation_is_not_a_clearance_proof": true
+  },
+  "fresh_rebuild_difference_mm3": {
+    "carrier": [
+      0.0,
+      0.0
+    ],
+    "pad": [
+      0.0,
+      0.0
+    ],
+    "band": [
+      0.0,
+      0.0
+    ],
+    "head": [
+      0.0,
+      0.0
+    ],
+    "arm": [
+      0.0,
+      0.0
+    ],
+    "retained": [
+      0.0,
+      0.0
+    ]
+  },
+  "own_overlap_mm3": {
+    "band_carrier": 0.0,
+    "head_carrier": 0.0
+  },
+  "strict_BOP_all": true,
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "complete_service_received": false,
+  "open": [
+    "Changed tie external clearance and installation",
+    "USB boot BUS gap0.430475<0.5; service sequence unresolved",
+    "Whole Pi cable parking, tools, lift and full N01"
+  ],
+  "worker_seconds": 15.484
+}
