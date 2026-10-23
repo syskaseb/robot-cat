@@ -104,16 +104,16 @@
         ],
         "action": "Support leads; release GPIO4/H1 restraints and unplug the occupied GPIO housing from Pi, preserving H1/H3/H5/H11/H6 mapping; park it with remote ends attached.",
         "status": "missing",
-        "basis": "Five pins are not five independently removable housings. Full housing extraction/parking and tool access missing."
+        "basis": "Nominal7mm -Z housing release clears received subset/current carrier, derived from6.5mm nominal engagement plus.5mm. This is not supplier engagement confirmation; -Y20 parking meets RR wire envelopes and is not selected."
       },
       {
         "id": "release_Pi_power",
         "requires": [
           "open"
         ],
-        "action": "Release Power2 restraint; unplug the SINGLE K-1474 USB-C power connector from Pi; keep W079/W080 joined to that plug and MAIN solder joints intact.",
-        "status": "missing",
-        "basis": "Plug axis/stroke, access and two-lead parking not yet received; no desoldering or invented MAIN connector."
+        "action": "Release Power2 restraint and support both leads; unplug K-1474 from the female end of Delock60047 along+X, leaving the adapter in Pi. Keep MAIN solder joints intact.",
+        "status": "conditional",
+        "basis": "Reserved15mm rigid-body sweep clears received partial scene and current carrier. Both complete wire shapes, access and parking remain OPEN."
       },
       {
         "id": "release_USB_restraint",
@@ -659,7 +659,7 @@
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W046-original-prefix-portal-body.json": "a60fc654c323e0ac2f6a5fd68f69c4e0155168549ed5eddc58aedacac065acdc",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W043-selected-profile-complete-lead.json": "e3826f309eaaaa6b082a5dc299448974d8a92bc3a29b7a383aa1a63233ec4891",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W049-joint-corridor-received.json": "8b2f25bd60043d0442d07f541150e706141f3ae5249b42ebb0d9f406f012c477",
-    "tools/cad/record_feline_service_dependencies.py": "3fe5edab11a4aced1bbcfd1528a9aa20d978bad5572dce4d5180d0eb7e88b8fb",
+    "tools/cad/record_feline_service_dependencies.py": "83ee7890e3bfae70cba7c50dbeac9aa0f2a3be29c93dec447e34f7aa331d362d",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-open-cradle-joint.json": "076b2720381f06de2ca9025b9a2d307258c22f658b82f3540f44abeb32d411b1",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-split-service-space.json": "74754c1e59057719fbea6fbb00a855ea2028f588850168b021de9d0df95c6c58",
     "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-release-grip-topology-repaired.json": "68538bf111197c42993347b8fc9149e55ec75a050ca5719fc87cc7b793c31391",
@@ -3611,7 +3611,313 @@
       "full_USB_motion_NOT_approved": true,
       "elapsed_window_start_utc": "2026-10-23T19:39:39Z",
       "received_utc": "2026-10-23T19:59:12Z",
-      "elapsed_window_seconds_to_receipt": 1173
+      "elapsed_window_seconds_to_receipt": 1173,
+      "external_side_exit_after_Z30": {
+        "delta_mm": [
+          0,
+          100,
+          0
+        ],
+        "intervals": 10,
+        "nearest_sample_displacement_mm": 5.0,
+        "minimum_mm": 0.5,
+        "method": "1-Lipschitz distance lower bound for translating constituent union",
+        "samples": [
+          {
+            "fraction": 0.0,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.922,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.1,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.922,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.2,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.969,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.3,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.938,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.4,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.922,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.5,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.938,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.6,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.938,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.7,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.938,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.8,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.938,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 0.9,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.937,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          },
+          {
+            "fraction": 1.0,
+            "checks": {},
+            "errors": {},
+            "failures": [],
+            "removal_hypotheses": [
+              "CurrentFoundation:RetainedPWMCarrier",
+              "CurrentMiddle:W009",
+              "Ref_Material_tail_TailBridge29_0_0",
+              "SharedPi:Carrier",
+              "ShelfPWM:carrier",
+              "Station:F_PWM_whole:End1:band_budget",
+              "Station:F_PWM_whole:End1:head_budget",
+              "Station:F_PWM_whole:End1:split_cap_exterior",
+              "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+              "Station:F_PWM_whole:F_PWM:out_first_bend",
+              "USB500:whole",
+              "USBGrip:Pi:band",
+              "USBGrip:Pi:head",
+              "USBGrip:Pi:pad"
+            ],
+            "worker_seconds": 1.937,
+            "complete_service_received": false,
+            "N01_complete": false,
+            "physical_pass": false
+          }
+        ],
+        "passed": true,
+        "intended_contacts_not_covered": true,
+        "partial_scene_only": true,
+        "worker_seconds": 21.515,
+        "N01_complete": false
+      },
+      "side_exit_own_material_Z_gap_bound_mm": 11.014109809411309,
+      "reopened_shapes_strict_valid": 10
     },
     "beam_end_X_mm": 118.5,
     "arm_begin_X_mm": 118.7,
@@ -3652,6 +3958,730 @@
     ],
     "whole_service_approved": false,
     "selected_native_changed": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "connector_sequence_review": {
+    "evidence": {
+      "power_adapter_plusY15": {
+        "checks": {
+          "PiBudget:AdapterBody|PiBudget:USB_C": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|PiBudget:HDMI0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|USB500:whole": {
+            "gap_mm": 6.211729092860086,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|EarlyRR:W053/custom/end": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|EarlyRR:W058/single/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|EarlyRR:W056/single/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|EarlyRR:W054/single/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|CurrentMiddle:W020": {
+            "gap_mm": 2.599999999999767,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|CurrentMiddle:W009": {
+            "gap_mm": 71.16920976500124,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:RetainedK1474Boot|Station:RR_P:case": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|USB500:whole": {
+            "gap_mm": 6.099999999999611,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:RetainedK1474Boot|CurrentMiddle:W009": {
+            "gap_mm": 51.15041217766196,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:RetainedK1474Boot|CurrentMiddle:W069": {
+            "gap_mm": 63.080406281168095,
+            "minimum_mm": 0.5,
+            "ok": true
+          }
+        },
+        "errors": {},
+        "failures": [
+          "PiBudget:AdapterBody|PiBudget:USB_C",
+          "PiBudget:AdapterBody|PiBudget:HDMI0",
+          "PiBudget:AdapterBody|EarlyRR:W053/custom/end",
+          "PiBudget:AdapterBody|EarlyRR:W058/single/start",
+          "PiBudget:AdapterBody|EarlyRR:W056/single/start",
+          "PiBudget:AdapterBody|EarlyRR:W054/single/start",
+          "PiBudget:RetainedK1474Boot|Station:RR_P:case"
+        ],
+        "removal_hypotheses": [
+          "CurrentFoundation:RetainedPWMCarrier",
+          "PiBudget:AdapterBody",
+          "PiBudget:RetainedK1474Boot",
+          "PiGrip:Power2:band",
+          "PiGrip:Power2:head",
+          "PiPower:W079",
+          "PiPower:W080",
+          "Ref_Material_tail_TailBridge29_0_0",
+          "SharedPi:Carrier",
+          "ShelfPWM:carrier",
+          "Station:F_PWM_whole:End1:band_budget",
+          "Station:F_PWM_whole:End1:head_budget",
+          "Station:F_PWM_whole:End1:split_cap_exterior",
+          "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "USBGrip:Pi:band",
+          "USBGrip:Pi:head",
+          "USBGrip:Pi:pad"
+        ],
+        "worker_seconds": 1.344,
+        "complete_service_received": false,
+        "N01_complete": false,
+        "physical_pass": false
+      },
+      "power_adapter_flip180": {
+        "checks": {
+          "PiBudget:AdapterBody|Station:FR_P:split_common_comb": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|Station:FR_P:band_budget": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|Station:FR_P:head_budget": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:AdapterBody|USB500:whole": {
+            "gap_mm": 6.2117290928600575,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|EarlyRR:W053/custom/end": {
+            "gap_mm": 1.372835702068899,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|EarlyRR:W058/single/start": {
+            "gap_mm": 1.9228357020689,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|EarlyRR:W056/single/start": {
+            "gap_mm": 2.4206690637176345,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|CurrentMiddle:W020": {
+            "gap_mm": 2.59999999999998,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:AdapterBody|CurrentMiddle:W009": {
+            "gap_mm": 71.16920976500131,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.1": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.2": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.3": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.4": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|Station:FR_P:split_common_comb": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|Station:FR_P:band_budget": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|USB500:whole": {
+            "gap_mm": 6.480266884000234,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W004/body/start": {
+            "gap_mm": 0.4961958478748152,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W005/body/start": {
+            "gap_mm": 0.4961958478748152,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W006/body/start": {
+            "gap_mm": 0.49619584787478693,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W019/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W020/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W021/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W022/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W023/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W024/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "PiBudget:RetainedK1474Boot|CurrentMiddle:W020": {
+            "gap_mm": 2.59999999999998,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "PiBudget:RetainedK1474Boot|CurrentMiddle:W009": {
+            "gap_mm": 73.42247783160687,
+            "minimum_mm": 0.5,
+            "ok": true
+          }
+        },
+        "errors": {},
+        "failures": [
+          "PiBudget:AdapterBody|Station:FR_P:split_common_comb",
+          "PiBudget:AdapterBody|Station:FR_P:band_budget",
+          "PiBudget:AdapterBody|Station:FR_P:head_budget",
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.1",
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.2",
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.3",
+          "PiBudget:RetainedK1474Boot|Station:FR_P:wire:FR_P.4",
+          "PiBudget:RetainedK1474Boot|Station:FR_P:split_common_comb",
+          "PiBudget:RetainedK1474Boot|Station:FR_P:band_budget",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W004/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W005/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W006/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W019/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W020/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W021/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W022/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W023/body/start",
+          "PiBudget:RetainedK1474Boot|FLArcCuff:W024/body/start"
+        ],
+        "removal_hypotheses": [
+          "CurrentFoundation:RetainedPWMCarrier",
+          "PiBudget:AdapterBody",
+          "PiBudget:RetainedK1474Boot",
+          "PiBudget:USB_C",
+          "PiGrip:Power2:band",
+          "PiGrip:Power2:head",
+          "PiPower:W079",
+          "PiPower:W080",
+          "Ref_Material_tail_TailBridge29_0_0",
+          "SharedPi:Carrier",
+          "ShelfPWM:carrier",
+          "Station:F_PWM_whole:End1:band_budget",
+          "Station:F_PWM_whole:End1:head_budget",
+          "Station:F_PWM_whole:End1:split_cap_exterior",
+          "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "USBGrip:Pi:band",
+          "USBGrip:Pi:head",
+          "USBGrip:Pi:pad"
+        ],
+        "worker_seconds": 1.5,
+        "complete_service_received": false,
+        "N01_complete": false,
+        "physical_pass": false
+      },
+      "K1474_only_plusX15": {
+        "checks": {
+          "K1474_from_adapter_X15|USB500:whole": {
+            "gap_mm": 6.099999999999909,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "K1474_from_adapter_X15|CurrentMiddle:W009": {
+            "gap_mm": 39.509270995877245,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "K1474_from_adapter_X15|CurrentMiddle:W069": {
+            "gap_mm": 51.26977512066843,
+            "minimum_mm": 0.5,
+            "ok": true
+          }
+        },
+        "errors": {},
+        "failures": [],
+        "removal_hypotheses": [
+          "CurrentFoundation:RetainedPWMCarrier",
+          "PiBudget:AdapterBody",
+          "PiBudget:RetainedK1474Boot",
+          "PiGrip:Power2:band",
+          "PiGrip:Power2:head",
+          "PiPower:W079",
+          "PiPower:W080",
+          "Ref_Material_tail_TailBridge29_0_0",
+          "SharedPi:Carrier",
+          "ShelfPWM:carrier",
+          "Station:F_PWM_whole:End1:band_budget",
+          "Station:F_PWM_whole:End1:head_budget",
+          "Station:F_PWM_whole:End1:split_cap_exterior",
+          "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "USBGrip:Pi:band",
+          "USBGrip:Pi:head",
+          "USBGrip:Pi:pad"
+        ],
+        "worker_seconds": 0.64,
+        "complete_service_received": false,
+        "N01_complete": false,
+        "physical_pass": false
+      },
+      "K1474_current_carrier_gap_mm": 3.8999999999997925,
+      "GPIO_minusZ7": {
+        "checks": {
+          "GPIO_nominal_release7|CurrentMiddle:W020": {
+            "gap_mm": 20.950000000000017,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "GPIO_nominal_release7|CurrentMiddle:W024": {
+            "gap_mm": 18.774876074845768,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "GPIO_nominal_release7|CurrentMiddle:W009": {
+            "gap_mm": 15.555388740905041,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "GPIO_nominal_release7|CurrentMiddle:W069": {
+            "gap_mm": 49.05874037052003,
+            "minimum_mm": 0.5,
+            "ok": true
+          }
+        },
+        "errors": {},
+        "failures": [],
+        "removal_hypotheses": [
+          "CurrentFoundation:RetainedPWMCarrier",
+          "PiBudget:GPIO1992OccupiedHousing",
+          "PiBudget:GPIO_header",
+          "PiBudget:UnlabelledTopComponentsBudget",
+          "PiGPIO:PI.H1",
+          "PiGPIO:PI.H11",
+          "PiGPIO:PI.H3",
+          "PiGPIO:PI.H5",
+          "PiGPIO:PI.H6",
+          "PiGrip:GPIO4:band",
+          "PiGrip:GPIO4:head",
+          "PiGrip:H1:band",
+          "PiGrip:H1:head",
+          "Ref_Material_tail_TailBridge29_0_0",
+          "SharedPi:Carrier",
+          "ShelfPWM:carrier",
+          "Station:F_PWM_whole:End1:band_budget",
+          "Station:F_PWM_whole:End1:head_budget",
+          "Station:F_PWM_whole:End1:split_cap_exterior",
+          "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "USBGrip:Pi:band",
+          "USBGrip:Pi:head",
+          "USBGrip:Pi:pad"
+        ],
+        "worker_seconds": 0.625,
+        "complete_service_received": false,
+        "N01_complete": false,
+        "physical_pass": false
+      },
+      "GPIO_current_carrier": {
+        "gap_mm": 3.59999999999998,
+        "common_mm3": 0.0
+      },
+      "GPIO_minusY20_parking": {
+        "checks": {
+          "GPIO_park_minusY20|RRFlatResource:W018/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "GPIO_park_minusY20|RRFlatResource:W017/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "GPIO_park_minusY20|RRFlatResource:W016/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "GPIO_park_minusY20|RRFlatResource:W055/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "GPIO_park_minusY20|RRFlatResource:W057/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "GPIO_park_minusY20|RRFlatResource:W059/body/start": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "GPIO_park_minusY20|CurrentMiddle:W020": {
+            "gap_mm": 20.950000000000045,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "GPIO_park_minusY20|CurrentMiddle:W024": {
+            "gap_mm": 18.940645419367232,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "GPIO_park_minusY20|CurrentMiddle:W009": {
+            "gap_mm": 10.249999999999986,
+            "minimum_mm": 0.5,
+            "ok": true
+          },
+          "GPIO_park_minusY20|CurrentMiddle:W069": {
+            "gap_mm": 49.05874037052003,
+            "minimum_mm": 0.5,
+            "ok": true
+          }
+        },
+        "errors": {},
+        "failures": [
+          "GPIO_park_minusY20|RRFlatResource:W018/body/start",
+          "GPIO_park_minusY20|RRFlatResource:W017/body/start",
+          "GPIO_park_minusY20|RRFlatResource:W016/body/start",
+          "GPIO_park_minusY20|RRFlatResource:W055/body/start",
+          "GPIO_park_minusY20|RRFlatResource:W057/body/start",
+          "GPIO_park_minusY20|RRFlatResource:W059/body/start"
+        ],
+        "removal_hypotheses": [
+          "CurrentFoundation:RetainedPWMCarrier",
+          "PiBudget:GPIO1992OccupiedHousing",
+          "PiBudget:GPIO_header",
+          "PiBudget:UnlabelledTopComponentsBudget",
+          "PiGPIO:PI.H1",
+          "PiGPIO:PI.H11",
+          "PiGPIO:PI.H3",
+          "PiGPIO:PI.H5",
+          "PiGPIO:PI.H6",
+          "PiGrip:GPIO4:band",
+          "PiGrip:GPIO4:head",
+          "PiGrip:H1:band",
+          "PiGrip:H1:head",
+          "Ref_Material_tail_TailBridge29_0_0",
+          "SharedPi:Carrier",
+          "ShelfPWM:carrier",
+          "Station:F_PWM_whole:End1:band_budget",
+          "Station:F_PWM_whole:End1:head_budget",
+          "Station:F_PWM_whole:End1:split_cap_exterior",
+          "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "Station:F_PWM_whole:F_PWM:out_first_bend",
+          "USBGrip:Pi:band",
+          "USBGrip:Pi:head",
+          "USBGrip:Pi:pad"
+        ],
+        "worker_seconds": 0.64,
+        "complete_service_received": false,
+        "N01_complete": false,
+        "physical_pass": false
+      },
+      "GPIO_parking_carrier_gap_mm": 4.326769056147434,
+      "GPIO15_overtravel_not_selected": true,
+      "GPIO15_not_a_preexisting_contract": true,
+      "GPIO_nominal_budget_derivation": {
+        "housing_top_Z": 101.2,
+        "header_tip_Z": 94.7,
+        "engagement_mm": 6.5,
+        "reserve_mm": 0.5
+      },
+      "D_FR_access_budget": {
+        "checks": {
+          "D_FR.3:lever_envelope|Ref_Material_F_R3_CP2_ATO_0_0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:lever_envelope|Ref_Material_F_R3_CP2_Housing_0_0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:lever_envelope|Ref_Material_F_R3_CP2_IN_0_0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:lever_envelope|Service:Ref_Material_F_R3_CP2_ATO_0_0:continuous_fuse_sweep": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:lever_envelope|CurrentFoundation:BankBedCurrent:-1": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:lever_envelope|CurrentFoundation:BankPad:Ref_Material_F_R3_CP2_Housing_0_0:0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Ref_Material_F_R3_CP2_ATO_0_0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Ref_Material_F_R3_CP2_Housing_0_0": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Station:D_RR:case": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Station:D_RR:wire:D_RR.2": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Station:D_RR:wire:D_RR.3": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Station:D_RR:wire:D_RR.4": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Station:D_RR:split_common_comb": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Station:D_RR:band_budget": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          },
+          "D_FR.3:tool_approach_budget|Service:Ref_Material_F_R3_CP2_ATO_0_0:continuous_fuse_sweep": {
+            "gap_mm": 0.0,
+            "minimum_mm": 0.5,
+            "ok": false
+          }
+        },
+        "errors": {},
+        "failures": [
+          "D_FR.3:lever_envelope|Ref_Material_F_R3_CP2_ATO_0_0",
+          "D_FR.3:lever_envelope|Ref_Material_F_R3_CP2_Housing_0_0",
+          "D_FR.3:lever_envelope|Ref_Material_F_R3_CP2_IN_0_0",
+          "D_FR.3:lever_envelope|Service:Ref_Material_F_R3_CP2_ATO_0_0:continuous_fuse_sweep",
+          "D_FR.3:lever_envelope|CurrentFoundation:BankBedCurrent:-1",
+          "D_FR.3:lever_envelope|CurrentFoundation:BankPad:Ref_Material_F_R3_CP2_Housing_0_0:0",
+          "D_FR.3:tool_approach_budget|Ref_Material_F_R3_CP2_ATO_0_0",
+          "D_FR.3:tool_approach_budget|Ref_Material_F_R3_CP2_Housing_0_0",
+          "D_FR.3:tool_approach_budget|Station:D_RR:case",
+          "D_FR.3:tool_approach_budget|Station:D_RR:wire:D_RR.2",
+          "D_FR.3:tool_approach_budget|Station:D_RR:wire:D_RR.3",
+          "D_FR.3:tool_approach_budget|Station:D_RR:wire:D_RR.4",
+          "D_FR.3:tool_approach_budget|Station:D_RR:split_common_comb",
+          "D_FR.3:tool_approach_budget|Station:D_RR:band_budget",
+          "D_FR.3:tool_approach_budget|Service:Ref_Material_F_R3_CP2_ATO_0_0:continuous_fuse_sweep"
+        ],
+        "removal_hypotheses": [
+          "CurrentFoundation:RetainedPWMCarrier",
+          "Ref_Material_tail_TailBridge29_0_0",
+          "SharedPi:Carrier",
+          "ShelfPWM:carrier",
+          "Station:D_FR:band_budget",
+          "Station:D_FR:case",
+          "Station:D_FR:head_budget",
+          "Station:D_FR:split_common_comb",
+          "Station:F_PWM_whole:End1:band_budget",
+          "Station:F_PWM_whole:End1:head_budget",
+          "Station:F_PWM_whole:End1:split_cap_exterior",
+          "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+          "Station:F_PWM_whole:F_PWM:out_first_bend"
+        ],
+        "worker_seconds": 1.172,
+        "complete_service_received": false,
+        "N01_complete": false,
+        "physical_pass": false
+      },
+      "D_FR_envelope_mm": [
+        4.75,
+        38,
+        19
+      ],
+      "D_FR_envelope_is_project_upper_reservation_not_supplier_open_geometry": true,
+      "Pi_board_only_minusX15": {
+        "common_mm3": 50.648415186576365,
+        "valid_common": true,
+        "accepted": false
+      },
+      "primary_sources": {
+        "Delock60047": "https://www.delock.com/produkt/60047/merkmale.html",
+        "Pololu1992": "https://www.pololu.com/product/1992/specs",
+        "WAGO_CAD": "https://wago-embedded.customer-domain.wago.com/3d-cad-models/221-485-splicing-connector-with-levers-for-all-conductor-types-max-4-mm-5-conductor-transparent-housing-surrounding-air-temperature-max-85-c-t85-wago?info=wago/pg07/serie221/0221-0415_0999-0962.prj"
+      },
+      "sources_do_not_confirm_open_lever_or_delivered_engagement": true,
+      "GPIO_whole_prefix_translation": {
+        "delta_mm": [
+          0,
+          0,
+          -7
+        ],
+        "sample_count": 36,
+        "worker_seconds": 137.782,
+        "passed": false,
+        "necessary_uniform_minimum_mm": 0.2,
+        "not_a_full_rigid_margin_approval": true,
+        "failed_pair_count": 24,
+        "first_hold": {
+          "fraction": 0.0,
+          "pair": "PiGPIO:PI.H3|Station:Bank:W035/body/end:head_budget",
+          "gap_mm": 0.24910704913986062,
+          "minimum_mm": 0.30000000000000004,
+          "ok": false,
+          "continuous_gap_lower_bound_mm": 0.14910704913986061
+        },
+        "worst_hold": {
+          "fraction": 0.05714285714285714,
+          "pair": "PiGPIO:PI.H3|Station:Bank:W035/body/end:head_budget",
+          "gap_mm": 0.0,
+          "minimum_mm": 0.30000000000000004,
+          "ok": false,
+          "continuous_gap_lower_bound_mm": -0.1
+        },
+        "failed_pairs": [
+          "PiGPIO:PI.H11|Station:Bank:W040/single/end:band_budget",
+          "PiGPIO:PI.H11|Station:Bank:W040/single/end:split_cap_exterior",
+          "PiGPIO:PI.H11|Station:Bank:W040/single/end:wire:W040/single/end",
+          "PiGPIO:PI.H11|Station:Bank:W055/body/end:wire:W055/body/end",
+          "PiGPIO:PI.H1|Station:Bank:W035/body/end:band_budget",
+          "PiGPIO:PI.H1|Station:Bank:W035/body/end:head_budget",
+          "PiGPIO:PI.H1|Station:Bank:W039/single/end:band_budget",
+          "PiGPIO:PI.H1|Station:Bank:W039/single/end:split_cap_exterior",
+          "PiGPIO:PI.H1|Station:Bank:W039/single/end:wire:W039/single/end",
+          "PiGPIO:PI.H3|Station:Bank:W035/body/end:band_budget",
+          "PiGPIO:PI.H3|Station:Bank:W035/body/end:head_budget",
+          "PiGPIO:PI.H3|Station:Bank:W035/body/end:split_cap_exterior",
+          "PiGPIO:PI.H3|Station:Bank:W040/single/end:head_budget",
+          "PiGPIO:PI.H3|Station:Bank:W040/single/end:wire:W040/single/end",
+          "PiGPIO:PI.H3|Station:Bank:W046/single/end:wire:W046/single/end",
+          "PiGPIO:PI.H5|Station:Bank:W035/body/end:head_budget",
+          "PiGPIO:PI.H5|Station:Bank:W040/single/end:band_budget",
+          "PiGPIO:PI.H5|Station:Bank:W040/single/end:head_budget",
+          "PiGPIO:PI.H5|Station:Bank:W040/single/end:split_cap_exterior",
+          "PiGPIO:PI.H5|Station:Bank:W040/single/end:wire:W040/single/end",
+          "PiGPIO:PI.H6|Station:Bank:W040/single/end:band_budget",
+          "PiGPIO:PI.H6|Station:Bank:W040/single/end:head_budget",
+          "PiGPIO:PI.H6|Station:Bank:W040/single/end:split_cap_exterior",
+          "PiGPIO:PI.H6|Station:Bank:W040/single/end:wire:W040/single/end"
+        ],
+        "nominal_wire_intersection": {
+          "pair": [
+            "PiGPIO:PI.H5",
+            "Station:Bank:W040/single/end:wire:W040/single/end"
+          ],
+          "at_translation_mm": [
+            0,
+            0,
+            -7
+          ],
+          "common_mm3": 13.13332359464954,
+          "valid": true
+        },
+        "body_portals_would_move_and_remote_body_not_qualified": true,
+        "whole_wire_service_approved": false
+      }
+    },
+    "chosen_power_interface": "K-1474 USB-C male from Delock60047 female; adapter stays in Pi",
+    "no_new_connector": true,
+    "source_MAIN_solder_joints_unchanged": true,
+    "power_X15_is_project_reservation_not_supplier_stroke": true,
+    "GPIO_nominal_release_mm": 7.0,
+    "GPIO_header_budget_engagement_mm": 6.5,
+    "GPIO_supplier_engagement_not_verified": true,
+    "GPIO_initial_blanket_component_overlap_is_still_a_fit_gate": true,
+    "GPIO_minusY20_parking_not_selected": true,
+    "D_FR_conservative_envelope_overlap_NOT_actual_lever_collision": true,
+    "rejected_Pi_PCB_minusX15_is_material_model_intersection": true,
+    "no_change_to_purchased_parts_or_selected_native": true,
+    "missing": [
+      "Full W079/W080 flex, temporary support and parking",
+      "Whole five-wire GPIO flex and a non-conflicting housing parking route",
+      "Actual D_FR lever envelope and full W009 service path",
+      "Full installed connector/blanket-component fit"
+    ],
+    "full_service_approved": false,
     "N01_complete": false,
     "physical_pass": false
   }

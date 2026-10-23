@@ -375,3 +375,35 @@ def receive_usb_removal(parts, fixed, ties, evidence):
     result['sequence_source_sha256'][str(Path(__file__).relative_to(ROOT)).replace('\\','/')]=sha(Path(__file__))
     save_json(dest,result)
     return result['removable_USB_planning_witness']
+
+
+def receive_connector_sequence(evidence):
+    """Record actual connector choices separately from whole-wire service."""
+    dest=OUT/'n01-service-dependency-decision-20261023.json'
+    result=json.loads(dest.read_text())
+    result['connector_sequence_review']=dict(
+        evidence=evidence,
+        chosen_power_interface='K-1474 USB-C male from Delock60047 female; adapter stays in Pi',
+        no_new_connector=True,source_MAIN_solder_joints_unchanged=True,
+        power_X15_is_project_reservation_not_supplier_stroke=True,
+        GPIO_nominal_release_mm=7.,GPIO_header_budget_engagement_mm=6.5,
+        GPIO_supplier_engagement_not_verified=True,
+        GPIO_initial_blanket_component_overlap_is_still_a_fit_gate=True,
+        GPIO_minusY20_parking_not_selected=True,
+        D_FR_conservative_envelope_overlap_NOT_actual_lever_collision=True,
+        rejected_Pi_PCB_minusX15_is_material_model_intersection=True,
+        no_change_to_purchased_parts_or_selected_native=True,
+        missing=['Full W079/W080 flex, temporary support and parking',
+                 'Whole five-wire GPIO flex and a non-conflicting housing parking route',
+                 'Actual D_FR lever envelope and full W009 service path',
+                 'Full installed connector/blanket-component fit'],
+        full_service_approved=False,N01_complete=False,physical_pass=False)
+    operations=result['shared_sequence']['operations']
+    power=next(op for op in operations if op['id']=='release_Pi_power')
+    power.update(action='Release Power2 restraint and support both leads; unplug K-1474 from the female end of Delock60047 along+X, leaving the adapter in Pi. Keep MAIN solder joints intact.',
+        status='conditional',basis='Reserved15mm rigid-body sweep clears received partial scene and current carrier. Both complete wire shapes, access and parking remain OPEN.')
+    gpio=next(op for op in operations if op['id']=='release_Pi_signals')
+    gpio['basis']='Nominal7mm -Z housing release clears received subset/current carrier, derived from6.5mm nominal engagement plus.5mm. This is not supplier engagement confirmation; -Y20 parking meets RR wire envelopes and is not selected.'
+    result['sequence_source_sha256'][str(Path(__file__).relative_to(ROOT)).replace('\\','/')]=sha(Path(__file__))
+    save_json(dest,result)
+    return result['connector_sequence_review']

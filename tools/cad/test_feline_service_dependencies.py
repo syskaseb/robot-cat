@@ -104,5 +104,39 @@ class ServiceDependencies(unittest.TestCase):
                         row['gap_mm']-proof['nearest_sample_displacement_mm'])
                     self.assertGreaterEqual(row['continuous_gap_lower_bound_mm']+1e-6,proof['minimum_mm'])
 
+    def test_power_disconnects_existing_receiver_not_MAIN(self):
+        r=self.r['connector_sequence_review'];e=r['evidence']
+        self.assertTrue(r['no_new_connector'])
+        self.assertTrue(r['source_MAIN_solder_joints_unchanged'])
+        self.assertIn('adapter stays in Pi',r['chosen_power_interface'])
+        self.assertFalse(e['K1474_only_plusX15']['failures'])
+        self.assertFalse(e['K1474_only_plusX15']['errors'])
+        self.assertGreater(e['K1474_current_carrier_gap_mm'],.5)
+        self.assertFalse(r['full_service_approved'])
+
+    def test_GPIO_nominal_release_does_not_approve_parking(self):
+        r=self.r['connector_sequence_review'];e=r['evidence']
+        d=e['GPIO_nominal_budget_derivation']
+        self.assertEqual(d['housing_top_Z']-d['header_tip_Z'],d['engagement_mm'])
+        self.assertEqual(d['engagement_mm']+d['reserve_mm'],r['GPIO_nominal_release_mm'])
+        self.assertFalse(e['GPIO_minusZ7']['failures'])
+        self.assertTrue(e['GPIO_minusY20_parking']['failures'])
+        self.assertTrue(r['GPIO_supplier_engagement_not_verified'])
+        self.assertTrue(r['D_FR_conservative_envelope_overlap_NOT_actual_lever_collision'])
+
+    def test_GPIO_housing_pass_does_not_override_whole_prefix_rejection(self):
+        e=self.r['connector_sequence_review']['evidence']['GPIO_whole_prefix_translation']
+        self.assertFalse(e['passed'])
+        self.assertEqual(e['sample_count'],36)
+        self.assertGreater(e['nominal_wire_intersection']['common_mm3'],13.)
+        self.assertTrue(e['nominal_wire_intersection']['valid'])
+        self.assertFalse(e['whole_wire_service_approved'])
+
+    def test_cap_side_exit_keeps_own_material_clear(self):
+        e=self.r['removable_USB_planning_witness']['evidence']
+        self.assertTrue(e['external_side_exit_after_Z30']['passed'])
+        self.assertGreater(e['side_exit_own_material_Z_gap_bound_mm'],.5)
+        self.assertEqual(e['reopened_shapes_strict_valid'],10)
+
 
 if __name__=='__main__':unittest.main()
