@@ -68,5 +68,794 @@
   },
   "selected_geometry_changed": false,
   "N01_complete": false,
-  "physical_pass": false
+  "physical_pass": false,
+  "shared_sequence": {
+    "status": "ONE_CONDITIONAL_SEQUENCE_NOT_EXECUTION_READY",
+    "operations": [
+      {
+        "id": "isolate",
+        "requires": [],
+        "action": "Physically disconnect source; support robot; do not energize.",
+        "status": "conditional",
+        "basis": "Physical procedure, not an executed test."
+      },
+      {
+        "id": "open",
+        "requires": [
+          "isolate"
+        ],
+        "action": "Remove service panels and expose installed grips.",
+        "status": "missing",
+        "basis": "Final enclosure opening/fastener access is not qualified."
+      },
+      {
+        "id": "release_W009",
+        "requires": [
+          "open"
+        ],
+        "action": "Label W009; support adjacent D_FR wires; release its restraint and D_FR.3; park the COMPLETE connected wire without cutting the FR2 seam.",
+        "status": "missing",
+        "basis": "D_FR.3 identity checked; lever/tool access, adjacent-wire support and full-length parking missing."
+      },
+      {
+        "id": "release_Pi_signals",
+        "requires": [
+          "open"
+        ],
+        "action": "Support leads; release GPIO4/H1 restraints and unplug the occupied GPIO housing from Pi, preserving H1/H3/H5/H11/H6 mapping; park it with remote ends attached.",
+        "status": "missing",
+        "basis": "Five pins are not five independently removable housings. Full housing extraction/parking and tool access missing."
+      },
+      {
+        "id": "release_Pi_power",
+        "requires": [
+          "open"
+        ],
+        "action": "Release Power2 restraint; unplug the SINGLE K-1474 USB-C power connector from Pi; keep W079/W080 joined to that plug and MAIN solder joints intact.",
+        "status": "missing",
+        "basis": "Plug axis/stroke, access and two-lead parking not yet received; no desoldering or invented MAIN connector."
+      },
+      {
+        "id": "release_cradle",
+        "requires": [
+          "release_W009",
+          "release_Pi_signals",
+          "release_Pi_power"
+        ],
+        "action": "Support Pi; release USB-A jacket tie and the two cradle ties; remove cradle lid normal8 then up80.",
+        "status": "conditional",
+        "basis": "Existing lid/tool geometry received for its stated subset; parked leads must be included."
+      },
+      {
+        "id": "lift_mated10",
+        "requires": [
+          "release_cradle"
+        ],
+        "action": "Lift Pi and its upper carrier10mm with data USB A-C still mated; BUS remains fixed.",
+        "status": "conditional",
+        "basis": "Saved cable end pose preserves nominal452mm/R30; W009 must be parked. Continuous deformation and moving full carrier not yet received."
+      },
+      {
+        "id": "unplug_USB_A",
+        "requires": [
+          "lift_mated10"
+        ],
+        "action": "Hold Pi; release its USB grip arm before the reserved15mm +X withdrawal; keep BUS USB-C mated; park the freed A end.",
+        "status": "missing",
+        "basis": "Only first12mm clears the carrier. The remaining3mm intersects its arm; an actually releasable arm and cable parking are required. Neither12 nor15mm is a measured supplier stroke."
+      },
+      {
+        "id": "remove_Pi",
+        "requires": [
+          "unplug_USB_A"
+        ],
+        "action": "Lift Pi/upper carrier to the previously checked40mm height, then transfer to bench with leads unloaded.",
+        "status": "conditional",
+        "basis": "Existing necessary lift-space proof is not a full cable/parking proof."
+      },
+      {
+        "id": "release_BUS_DG",
+        "requires": [
+          "remove_Pi"
+        ],
+        "action": "For BUS replacement only: release D/G split clamps; unplug the complete H5 mating housing OR release remote D_FL.1/G2.4 after qualifying access. Do not pull individual contacts from a mated housing.",
+        "status": "missing",
+        "basis": "Choice is not geometrically selected; actual housing withdrawal/remote parking and retention access missing."
+      },
+      {
+        "id": "remove_BUS",
+        "requires": [
+          "release_BUS_DG"
+        ],
+        "action": "Support BUS and release its real mounting stack before removal; carry the USB cable rather than pulling BUS+X12 into TailCarrier.",
+        "status": "missing",
+        "basis": "BUS removal path and mounting-tool access require qualification; rejected +X12 path is prohibited."
+      }
+    ],
+    "dependency_order": [
+      "isolate",
+      "open",
+      "release_W009",
+      "release_Pi_signals",
+      "release_Pi_power",
+      "release_cradle",
+      "lift_mated10",
+      "unplug_USB_A",
+      "remove_Pi",
+      "release_BUS_DG",
+      "remove_BUS"
+    ],
+    "dependency_graph_acyclic": true,
+    "acyclic_does_not_prove_geometric_feasibility": true,
+    "current_terminal_pairs": {
+      "W009/body": [
+        {
+          "id": "W009/body/start",
+          "endpoint": "FR2/fixed_boundary",
+          "group": "NineWireCuffFR",
+          "support_owner": "NineWireCuffFR",
+          "prefix_geometry_owner": "VerticalCuff:W009/body/start"
+        },
+        {
+          "id": "W009/body/end",
+          "endpoint": "D_FR.3",
+          "group": "WAGO:D_FR",
+          "support_owner": "IndependentWireGrip:WAGO:D_FR",
+          "prefix_geometry_owner": null
+        }
+      ],
+      "W027/single": [
+        {
+          "id": "W027/single/start",
+          "endpoint": "FL_P.2",
+          "group": "WAGO:FL_P",
+          "support_owner": "IndependentWireGrip:WAGO:FL_P",
+          "prefix_geometry_owner": "Station:FL_P:wire:FL_P.2"
+        },
+        {
+          "id": "W027/single/end",
+          "endpoint": "F_FL1.in",
+          "group": "BankLeft6Oprawek12Koncow",
+          "support_owner": "BankFull9mmGrip:L1",
+          "prefix_geometry_owner": null
+        }
+      ],
+      "W020/body": [
+        {
+          "id": "W020/body/start",
+          "endpoint": "FL1/fixed_boundary",
+          "group": "NineWireCuffFL",
+          "support_owner": "BundleCuff:FL",
+          "prefix_geometry_owner": "FLArcCuff:W020/body/start"
+        },
+        {
+          "id": "W020/body/end",
+          "endpoint": "F_FL1.out",
+          "group": "BankLeft6Oprawek12Koncow",
+          "support_owner": "BankFull9mmGrip:L1",
+          "prefix_geometry_owner": null
+        }
+      ],
+      "W031/body": [
+        {
+          "id": "W031/body/start",
+          "endpoint": "FR1/fixed_boundary",
+          "group": "NineWireCuffFR",
+          "support_owner": "NineWireCuffFR",
+          "prefix_geometry_owner": "VerticalCuff:W031/body/start"
+        },
+        {
+          "id": "W031/body/end",
+          "endpoint": "F_FR1.out",
+          "group": "BankRight6Oprawek12Koncow",
+          "support_owner": "BankFull9mmGrip:R1",
+          "prefix_geometry_owner": "Station:Bank:W031/body/end:wire:W031/body/end"
+        }
+      ],
+      "W033/body": [
+        {
+          "id": "W033/body/start",
+          "endpoint": "FR2/fixed_boundary",
+          "group": "NineWireCuffFR",
+          "support_owner": "NineWireCuffFR",
+          "prefix_geometry_owner": "VerticalCuff:W033/body/start"
+        },
+        {
+          "id": "W033/body/end",
+          "endpoint": "F_FR2.out",
+          "group": "BankRight6Oprawek12Koncow",
+          "support_owner": "BankFull9mmGrip:R2",
+          "prefix_geometry_owner": "Station:Bank:W033/body/end:wire:W033/body/end"
+        }
+      ],
+      "W035/body": [
+        {
+          "id": "W035/body/start",
+          "endpoint": "FR3/fixed_boundary",
+          "group": "NineWireCuffFR",
+          "support_owner": "NineWireCuffFR",
+          "prefix_geometry_owner": "VerticalCuff:W035/body/start"
+        },
+        {
+          "id": "W035/body/end",
+          "endpoint": "F_FR3.out",
+          "group": "BankRight6Oprawek12Koncow",
+          "support_owner": "BankFull9mmGrip:R3",
+          "prefix_geometry_owner": "Station:Bank:W035/body/end:wire:W035/body/end"
+        }
+      ],
+      "W002/retained0": [
+        {
+          "id": "W002/retained0/start",
+          "endpoint": "BUS.D",
+          "group": "BUS",
+          "support_owner": "UpperPCBWireRelief:BUS",
+          "prefix_geometry_owner": "CurrentBUS:BUS.D"
+        },
+        {
+          "id": "W002/retained0/end",
+          "endpoint": "D_FL.1",
+          "group": "WAGO:D_FL",
+          "support_owner": "IndependentWireGrip:WAGO:D_FL",
+          "prefix_geometry_owner": null
+        }
+      ],
+      "W003/retained0": [
+        {
+          "id": "W003/retained0/start",
+          "endpoint": "BUS.G",
+          "group": "BUS",
+          "support_owner": "UpperPCBWireRelief:BUS",
+          "prefix_geometry_owner": "CurrentBUS:BUS.G"
+        },
+        {
+          "id": "W003/retained0/end",
+          "endpoint": "G2.4",
+          "group": "WAGO:G2_CP2",
+          "support_owner": "IndependentWireGrip:WAGO:G2_CP2",
+          "prefix_geometry_owner": null
+        }
+      ],
+      "W079/retained0": [
+        {
+          "id": "W079/retained0/start",
+          "endpoint": "MAIN.VOUT",
+          "group": "MAIN",
+          "support_owner": "UpperPCBWireRelief:MAIN",
+          "prefix_geometry_owner": "MainSupported:W079/retained0/start:jacket"
+        },
+        {
+          "id": "W079/retained0/end",
+          "endpoint": "PI_USB_C.VBUS",
+          "group": "Pi4",
+          "support_owner": "UpperPCBWireRelief:Pi4",
+          "prefix_geometry_owner": "PiPower:W079"
+        }
+      ],
+      "W080/retained0": [
+        {
+          "id": "W080/retained0/start",
+          "endpoint": "MAIN.GND_OUT",
+          "group": "MAIN",
+          "support_owner": "UpperPCBWireRelief:MAIN",
+          "prefix_geometry_owner": "MainSupported:W080/retained0/start:jacket"
+        },
+        {
+          "id": "W080/retained0/end",
+          "endpoint": "PI_USB_C.GND",
+          "group": "Pi4",
+          "support_owner": "UpperPCBWireRelief:Pi4",
+          "prefix_geometry_owner": "PiPower:W080"
+        }
+      ],
+      "XL01/extra": [
+        {
+          "id": "XL01/extra/start",
+          "endpoint": "PI.H1",
+          "group": "Pi4",
+          "support_owner": null,
+          "prefix_geometry_owner": "PiGPIO:PI.H1"
+        },
+        {
+          "id": "XL01/extra/end",
+          "endpoint": "LOCAL.LOGIC3V3",
+          "group": "PWM1608_U1",
+          "support_owner": null,
+          "prefix_geometry_owner": "U1Local:XL01:jacket"
+        }
+      ],
+      "XL05/extra": [
+        {
+          "id": "XL05/extra/start",
+          "endpoint": "PI.H3",
+          "group": "Pi4",
+          "support_owner": null,
+          "prefix_geometry_owner": "PiGPIO:PI.H3"
+        },
+        {
+          "id": "XL05/extra/end",
+          "endpoint": "PCA.JP3.3",
+          "group": "PWM9685",
+          "support_owner": "ShelfPWM:XLcomb:lower",
+          "prefix_geometry_owner": "ShelfPWM:jacket:XL05"
+        }
+      ],
+      "XL06/extra": [
+        {
+          "id": "XL06/extra/start",
+          "endpoint": "PI.H5",
+          "group": "Pi4",
+          "support_owner": null,
+          "prefix_geometry_owner": "PiGPIO:PI.H5"
+        },
+        {
+          "id": "XL06/extra/end",
+          "endpoint": "PCA.JP3.4",
+          "group": "PWM9685",
+          "support_owner": "ShelfPWM:XLcomb:lower",
+          "prefix_geometry_owner": "ShelfPWM:jacket:XL06"
+        }
+      ],
+      "XL07/extra": [
+        {
+          "id": "XL07/extra/start",
+          "endpoint": "PI.H11",
+          "group": "Pi4",
+          "support_owner": null,
+          "prefix_geometry_owner": "PiGPIO:PI.H11"
+        },
+        {
+          "id": "XL07/extra/end",
+          "endpoint": "U1.22",
+          "group": "PWM1608_U1",
+          "support_owner": null,
+          "prefix_geometry_owner": "U1Local:XL07:jacket"
+        }
+      ],
+      "XL10/extra": [
+        {
+          "id": "XL10/extra/start",
+          "endpoint": "PI.H6",
+          "group": "Pi4",
+          "support_owner": null,
+          "prefix_geometry_owner": "PiGPIO:PI.H6"
+        },
+        {
+          "id": "XL10/extra/end",
+          "endpoint": "LOCAL.GND",
+          "group": "PWM1608_U1",
+          "support_owner": null,
+          "prefix_geometry_owner": "U1Local:XL10:jacket"
+        }
+      ]
+    },
+    "USB_data": {
+      "part": "LanbergCA-USBO-10CU-0005-BK",
+      "additional_to_123_portions": true,
+      "end_count": 2,
+      "same_bought_cable": true,
+      "detach_at": "Pi USB-A after lift, not BUS USB-C in place"
+    },
+    "initial_assembly_order": [
+      "Prepare fixed carriers, BUS mounting and all inaccessible fastener stacks before crossing wires.",
+      "Mount BUS with USB-C already mated and its jacket independently restrained; do not assume later axial access through its fixed pad.",
+      "Keep W009 and Pi GPIO/power disconnected/unrestrained locally; complete Pi and upper carrier on bench.",
+      "Present supported Pi with USB grip arm released, mate USB-A, restore arm and lower Pi while preserving full cable length and bend radius; releasable arm is not yet implemented.",
+      "Seat/retain cradle, then mate Pi power/GPIO and restore their individual jacket restraints.",
+      "Install W009 at D_FR.3 and restore both its restraints last; verify every wire identity and retained neighbour.",
+      "Close panels only after shared tool access and reversible cable parking are qualified."
+    ],
+    "assembly_order_is_conditional_not_received": true,
+    "routine_FPI": {
+      "independent_of_rare_Pi_sequence": true,
+      "groups": [
+        "W027/single",
+        "W020/body",
+        "W031/body",
+        "W033/body",
+        "W035/body"
+      ],
+      "must_move_complete_grips_not_just_wires": true,
+      "only_explicit_WAGO_in_these_groups": "FL_P.2 on W027",
+      "bank_ends_are_not_assumed_detachable": true,
+      "leg_fixed_boundaries_are_not_connectors": true,
+      "missing": [
+        "Actual S0 fixed neck/OFF key/withdrawal geometry",
+        "Reversible parking of all five groups including their bank grip bodies",
+        "Actual F_PI cap/tool manipulation"
+      ],
+      "remove_Pi_not_automatically_required": true,
+      "approved": false
+    },
+    "W009_connected_parking_alternative": {
+      "status": "NOT_SELECTED_WITHOUT_FULL_PATH",
+      "existing_body_length_mm": 636.4129719628785,
+      "length_is_NOT_available_service_slack": true,
+      "reason": "Length belongs to a routed path around real obstacles, not a free coil. Both endpoint tangents, R>=12.4 and the entire path must remain valid.",
+      "benefit_if_qualified": "Would eliminate the D_FR.3 disconnect prerequisite, without a new connector.",
+      "no_new_offset_family_started": true
+    },
+    "D_FR_release_constraints": {
+      "other_occupied_wires": [
+        "W007",
+        "W008",
+        "W010",
+        "W011"
+      ],
+      "common_comb_actor": "Station:D_FR:split_common_comb",
+      "current_comb_is_one_solid_reservation_for_split_construction": true,
+      "removing_tie_alone_does_not_prove_radial_wire_release": true,
+      "case_only_model_does_not_prove_lever_clearance": true,
+      "manufacturer_strip_mm": 11,
+      "strip_length_is_NOT_complete_service_stroke": true,
+      "supplier_lever_pivot_length_and_open_sweep_not_dimensioned": true,
+      "independent_neighbour_support_required": true
+    },
+    "checked": [
+      "Current terminal identities for15 affected portions from hash-checked246-end provider",
+      "Cradle and stationary/upper support evidence retained within original scope",
+      "USB-A lifted rigid withdrawal substep in stated partial scene"
+    ],
+    "missing_not_hidden": [
+      "W009 full connected parking and D_FR lever access",
+      "Pi GPIO and single power-plug withdrawal/parking",
+      "Release of USB grip arm for reserved15mm stroke, then continuous USB flex during lift and unplug",
+      "BUS hardware access and complete extraction",
+      "Final panel access and missing scene actors"
+    ],
+    "next": "Qualify D_FR.3 lever/comb release and whole W009 parking before any new USB shape. S0 only gates routine F_PI branch.",
+    "no_new_connectors_or_selected_parts": true,
+    "selected_geometry_changed": false,
+    "assembly_approved": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "lifted_USB_A_withdrawal": {
+    "checks": {
+      "USB_A_at_lift10_withdraw12|AuxEscape:XA02": {
+        "gap_mm": 18.73679656440359,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "USB_A_at_lift10_withdraw12|CurrentMiddle:W069": {
+        "gap_mm": 16.748169389163674,
+        "minimum_mm": 0.5,
+        "ok": true
+      }
+    },
+    "errors": {},
+    "failures": [],
+    "removal_hypotheses": [
+      "CurrentFoundation:RetainedPWMCarrier",
+      "CurrentMiddle:W009",
+      "PiBudget:AdapterBody",
+      "PiBudget:Audio",
+      "PiBudget:CPU",
+      "PiBudget:CSI",
+      "PiBudget:DSI",
+      "PiBudget:Ethernet",
+      "PiBudget:GPIO1992OccupiedHousing",
+      "PiBudget:GPIO_header",
+      "PiBudget:HDMI0",
+      "PiBudget:HDMI1",
+      "PiBudget:RetainedK1474Boot",
+      "PiBudget:USB_A_data_boot",
+      "PiBudget:USB_A_front",
+      "PiBudget:USB_A_rear",
+      "PiBudget:USB_C",
+      "PiBudget:UnlabelledTopComponentsBudget",
+      "PiBudget:microSDCardAndBottomBudget",
+      "PiGPIO:PI.H1",
+      "PiGPIO:PI.H11",
+      "PiGPIO:PI.H3",
+      "PiGPIO:PI.H5",
+      "PiGPIO:PI.H6",
+      "PiGrip:GPIO4:band",
+      "PiGrip:GPIO4:head",
+      "PiGrip:H1:band",
+      "PiGrip:H1:head",
+      "PiGrip:Power2:band",
+      "PiGrip:Power2:head",
+      "PiPower:W079",
+      "PiPower:W080",
+      "Ref_Material_Pi410Nut_0_0",
+      "Ref_Material_Pi410Screw_0_0",
+      "Ref_Material_Pi411Nut_0_0",
+      "Ref_Material_Pi411Screw_0_0",
+      "Ref_Material_Pi411TopWasher_0_0",
+      "Ref_Material_Pi412Nut_0_0",
+      "Ref_Material_Pi412Screw_0_0",
+      "Ref_Material_Pi49Nut_0_0",
+      "Ref_Material_Pi49Screw_0_0",
+      "Ref_Material_Pi49TopWasher_0_0",
+      "Ref_Material_Pi4NominalPCB_0_0",
+      "Ref_Material_tail_TailBridge29_0_0",
+      "SharedPi:Carrier",
+      "ShelfPWM:carrier",
+      "Station:F_PWM_whole:End1:band_budget",
+      "Station:F_PWM_whole:End1:head_budget",
+      "Station:F_PWM_whole:End1:split_cap_exterior",
+      "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+      "Station:F_PWM_whole:F_PWM:out_first_bend",
+      "USB500:whole",
+      "USBGrip:Pi:band",
+      "USBGrip:Pi:head",
+      "USBGrip:Pi:pad"
+    ],
+    "worker_seconds": 0.578,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false,
+    "recipe": {
+      "actor": "PiBudget:USB_A_data_boot",
+      "translation_before_mm": [
+        0,
+        0,
+        10
+      ],
+      "continuous_rigid_translation_mm": [
+        12,
+        0,
+        0
+      ],
+      "method": "existing sweep_convex_case over actual convex nominal boot BRep, boxes only cull",
+      "boot_and_stroke_are_project_reserves": true
+    },
+    "lifted_carrier_gap_mm": 1.5,
+    "BUSsupplier11_gap_mm": 10.430474810078096,
+    "partial_scene_only": true,
+    "scene_count": 1381,
+    "full_USB_flex_and_parked_W009_NOT_checked": true,
+    "lifted_Pi_rigid_parts_other_than_carrier_NOT_checked": true,
+    "selected_geometry_changed": false
+  },
+  "sequence_source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-routing-boundaries.json": "3ff749aa3d78c3e80f6ebdda76e7bcb101db346ccaf376749febca8143cd8155",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-integrated-upper-boundary-overlay.json": "7a8e70ac1c5223c5d2782e2380f98c281da5d4f784608f894877cd9bb4bcd6b6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-retention-layout-overlay.json": "9197c89d8bd6cee9e37358bae6eb1df1cdc3546ad398d06055fb49e30a073278",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-output-boundary-overlay.json": "754f0e3b4105af62622524b96c089e6998af0cf1ed783d77014bad0318d562f9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-prefix-atlas.json": "cc90173964e226a7e78a1c318d52236cb22b9fba3dacf1d36622ee8c60954fe7",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-RRP-boundary-overlay.json": "af72c54d89b06e2fd552b1c2071cda36a486331e65691dc25b03a02a90378fdd",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-RRP-root-contract-received.json": "c820d794347f8d6dea14176004d10ec2813aa663feeac716321fc01ba73920ce",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-RRP-assembly-access.json": "6db102187edf6be87f67a92f468abf7fe49e20e1fd91e5a4c55fee1df66ce8ba",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-fixed-cuff-boundary-overlay.json": "61f84cc8445ca00a8fde33fc0709ef6be292e1f6f1677499a150c52b98d97f99",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MAIN-hung-boundary-overlay.json": "d2eaf99f31ad174a66384eba95fa07d53af0327d31c827ab1954026fe0ef40cf",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-existing-lower-cap-overlay.json": "bb8f6667d199eaa3731c731e875b11ce4a475ba1dc7021b3a01fa917c0a2cac8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-source-MTA-boundary-overlay.json": "f3d4abb005a0863d6508651976bc60d0bf5c56dfbba1630b9334852317e36098",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-U1-frontband-common-plan.json": "996b0c52aa3f0142b063bb92647ea32c3a841f5fe687db69516cc747e5ad64e9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-U1-frontband-common-received.json": "e4a03149cc65371011b6e0e50d4b1a7c720ccf92868052136954da26d794b1a8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-existing-HP-current-delta.json": "8c50cf0ba213295d31af5b7a6af36051c98cbe5615aee50607b7739a9534152c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-HP-selected-R12p6-received.json": "43dba20cbd0e1ea831c3c6ddbcdd0c4f55d9df179e49ae3a512edc453dccfe57",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-U1-early-pair.json": "0488451bbaf7a420afc62d9c21221cd8f9b6e2c337329ae5fbe464b3bff5ca0e",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-U1-early-pair-motion.json": "0dc05a3bfc0094abb6ee39c82c88ad152346250aa3b7b885698c5cb968f7bb40",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-GTAIL-whole10-rooted.json": "521f83b2f5fe63f713afbaa1c129b81a6dc3b64d5e0ce1b1362f7bbd3e20e285",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W045-printed-pier-channel.json": "5eea53702c158eaa19395a3fd94946192464f5b4a55c57e838258ba8bca491a1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W045-portal-channel-motion.json": "a1a2ebe1ce413f5014055b5064246d10c34e1e888fa19e61160c20f714710085",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-fore-current-sources.json": "3fdf5820d4640a28df90e1b36d3644ef4a7b578d2735c9075ca649745f3071e8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-rooted-current-boundary-overlay.json": "3745f5bdb27e992624ad85adc614a07f08eccfc9ba6435166ad5ac0ba6e8b190",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-four-cuff-current-space-boundaries.json": "dc143471e428de8712309d8e09d2a3c3bfa9e5aff400d68a3ed77699bb437c38",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-RR33-current-boundary-overlay.json": "e3ac3e6fc432190a20a569275fd07c0939a4a9d306543b22fe9b528ab2889c72",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W022-complete-body-plan.json": "7956744763d8f8332b712ccfbf4087ce4502bce2cd29bfc956f5b625ec12d13a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W024-shared-complete-body-plan.json": "03f2361d559659b609c46be37bf2d2095fda39db730bd4786048cfe5d1379130",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W020-complete-body-plan.json": "ae597bfd73ae8cf1c8beabd05321738b5cd97ef029912215043c7cb305830bfa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W009-complete-body-plan.json": "e1bc6bd6662f6ba0f3d8647541dd1f1896737fb0ccc9e6c4f3671669e56ad49f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W069-complete-body-plan.json": "d0621c476aefb0e249b451f607c58d427e05a4670fc668e0f7b76083a5aa5af0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W047-complete-body-plan.json": "bfa94a199c740c9c5b6635badd27b19e5ca6b15fbb49465e69678ada39e2be42",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MAIN-hung-world.json": "4db506e7828013562ec7edd2bcc9e1876d4d9c45e9477f54cc5b792ba8c3c1e1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-MAIN-fastener-sequence-received.json": "bfae2860250a8e618feceb13ec85c961fdb7cbe7c7347117b245bd01875b00b6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-FR-W031-W033-common-body-plan.json": "491ea8f30b06a048f56f7d84496e8b1de6be274f813ea888c242d9a4a2dad033",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W035-retained-source-body-plan.json": "c25f6e7e6b762d2a32a9c5e59c1543c60e0936b624cfca9e5a23084feb8431b9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W046-original-prefix-portal-body.json": "a60fc654c323e0ac2f6a5fd68f69c4e0155168549ed5eddc58aedacac065acdc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W043-selected-profile-complete-lead.json": "e3826f309eaaaa6b082a5dc299448974d8a92bc3a29b7a383aa1a63233ec4891",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W049-joint-corridor-received.json": "8b2f25bd60043d0442d07f541150e706141f3ae5249b42ebb0d9f406f012c477",
+    "tools/cad/record_feline_service_dependencies.py": "9c4a2b7afa18a32cc2c8d7a2aaa286d2fd87748301df4084a81de8663e013bd8",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-open-cradle-joint.json": "076b2720381f06de2ca9025b9a2d307258c22f658b82f3540f44abeb32d411b1",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Pi-split-service-space.json": "74754c1e59057719fbea6fbb00a855ea2028f588850168b021de9d0df95c6c58",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-release-grip-topology-repaired.json": "68538bf111197c42993347b8fc9149e55ec75a050ca5719fc87cc7b793c31391",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-physical-cable-contract.json": "94fd48346c9268968cc59c4fbc0990dd8e4a8d775e743ca7167f83ebf2945fac",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/W009-W069-harness-corridor/recovered-context.json": "a9cc2bc478adb5beb9d5f836dcb288d6e28419470411d0ae533d1ad16e3233c9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-Pi-carrier-r3-core-received.json": "7df0b5d504e0077754d8773e7926e976e9a0bddb5edf8ad61ff978004c3d98f2",
+    "hardware/reference/wago-221415-access-2026-10-02/source.json": "61c4316a94545998f1c67f0c05fb1d29b5822c49f07057a4f70c6e4f2b5656eb",
+    "hardware/reference/wago-221415-access-2026-10-02/page6.png": "fd189419a62658f3ad2c5cca12c164bfc770f5b834674e8ed4e890cc7fe7ce4e",
+    "tools/cad/compose_feline_pi_full_port_contract.py": "fe452610a4c73132f44f29acfdf331a4bfae25d7d29ab650949eb516ca56ec90"
+  },
+  "D_FR_comb_opening": {
+    "status": "CONSTRUCTIVE_SPLIT_CAP_SUBSTEP_IN_PARTIAL_SCENE",
+    "source_actor": "Station:D_FR:split_common_comb",
+    "split_world_Z_mm": 45.26,
+    "upper_piece": "Existing comb intersect X[2.575,28.675], Y[-44.25,-35.25], Z[45.26,55.26]",
+    "motion_mm": [
+      [
+        0,
+        0,
+        1.8
+      ],
+      [
+        0,
+        9,
+        0
+      ]
+    ],
+    "continuous_lift_proof": "Upper half has open semicircular grooves and constant top48.81. Exact swept union is upper half plus its full top slab Z48.81..50.61.",
+    "continuous_slide_proof": "After lift, extrude the full planar +Y end face9mm and fuse with the lifted half; geometry is invariant along Y.",
+    "lift": {
+      "checks": {
+        "D_FR_upper_lift1p8|Station:D_FR:wire:D_FR.1": {
+          "gap_mm": 0.14999999999999714,
+          "minimum_mm": 0.14,
+          "ok": true
+        },
+        "D_FR_upper_lift1p8|Station:D_FR:wire:D_FR.2": {
+          "gap_mm": 0.14999999999999714,
+          "minimum_mm": 0.14,
+          "ok": true
+        },
+        "D_FR_upper_lift1p8|Station:D_FR:wire:D_FR.3": {
+          "gap_mm": 0.14999999999999497,
+          "minimum_mm": 0.14,
+          "ok": true
+        },
+        "D_FR_upper_lift1p8|Station:D_FR:wire:D_FR.4": {
+          "gap_mm": 0.14999999999999497,
+          "minimum_mm": 0.14,
+          "ok": true
+        },
+        "D_FR_upper_lift1p8|Station:D_FR:wire:D_FR.5": {
+          "gap_mm": 0.14999999999999722,
+          "minimum_mm": 0.14,
+          "ok": true
+        },
+        "D_FR_upper_lift1p8|SharedPi:Carrier": {
+          "gap_mm": 24.59050883979426,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "D_FR_upper_lift1p8|CurrentMiddle:W009": {
+          "gap_mm": 3.0037476591751178,
+          "minimum_mm": 0.5,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [
+        "Station:D_FR:band_budget",
+        "Station:D_FR:head_budget",
+        "Station:D_FR:split_common_comb"
+      ],
+      "worker_seconds": 1.203,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "slide": {
+      "checks": {
+        "D_FR_upper_slideY9|SharedPi:Carrier": {
+          "gap_mm": 24.59050883979426,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "D_FR_upper_slideY9|CurrentMiddle:W009": {
+          "gap_mm": 0.9136280692927996,
+          "minimum_mm": 0.5,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [
+        "Station:D_FR:band_budget",
+        "Station:D_FR:head_budget",
+        "Station:D_FR:split_common_comb"
+      ],
+      "worker_seconds": 1.218,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "own_wire_nominal_fit_mm": 0.15,
+    "external_clearance_required_mm": 0.5,
+    "requires": [
+      "Hold/support all five wires before cutting common tie",
+      "Keep lower saddle fixed; do not unload neighbouring terminals",
+      "Provide access for holding/removing cap and cutting/replacing tie"
+    ],
+    "tie_cutting_tool_and_hand_access_qualified": false,
+    "final_cap_parking_and_W009_extraction_qualified": false,
+    "current_selected_comb_still_one_piece": true,
+    "future_native_split_required": true,
+    "native_or_selected_geometry_changed": false,
+    "full_D_FR_service_approved": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "USB_reserved15_extension": {
+    "check": {
+      "checks": {
+        "USB_A_lift10_extension12to15|AuxEscape:XA02": {
+          "gap_mm": 18.861680961950942,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "USB_A_lift10_extension12to15|CurrentMiddle:W069": {
+          "gap_mm": 13.78993285410434,
+          "minimum_mm": 0.5,
+          "ok": true
+        }
+      },
+      "errors": {},
+      "failures": [],
+      "removal_hypotheses": [
+        "CurrentFoundation:RetainedPWMCarrier",
+        "CurrentMiddle:W009",
+        "PiBudget:AdapterBody",
+        "PiBudget:Audio",
+        "PiBudget:CPU",
+        "PiBudget:CSI",
+        "PiBudget:DSI",
+        "PiBudget:Ethernet",
+        "PiBudget:GPIO1992OccupiedHousing",
+        "PiBudget:GPIO_header",
+        "PiBudget:HDMI0",
+        "PiBudget:HDMI1",
+        "PiBudget:RetainedK1474Boot",
+        "PiBudget:USB_A_data_boot",
+        "PiBudget:USB_A_front",
+        "PiBudget:USB_A_rear",
+        "PiBudget:USB_C",
+        "PiBudget:UnlabelledTopComponentsBudget",
+        "PiBudget:microSDCardAndBottomBudget",
+        "PiGPIO:PI.H1",
+        "PiGPIO:PI.H11",
+        "PiGPIO:PI.H3",
+        "PiGPIO:PI.H5",
+        "PiGPIO:PI.H6",
+        "PiGrip:GPIO4:band",
+        "PiGrip:GPIO4:head",
+        "PiGrip:H1:band",
+        "PiGrip:H1:head",
+        "PiGrip:Power2:band",
+        "PiGrip:Power2:head",
+        "PiPower:W079",
+        "PiPower:W080",
+        "Ref_Material_Pi410Nut_0_0",
+        "Ref_Material_Pi410Screw_0_0",
+        "Ref_Material_Pi411Nut_0_0",
+        "Ref_Material_Pi411Screw_0_0",
+        "Ref_Material_Pi411TopWasher_0_0",
+        "Ref_Material_Pi412Nut_0_0",
+        "Ref_Material_Pi412Screw_0_0",
+        "Ref_Material_Pi49Nut_0_0",
+        "Ref_Material_Pi49Screw_0_0",
+        "Ref_Material_Pi49TopWasher_0_0",
+        "Ref_Material_Pi4NominalPCB_0_0",
+        "Ref_Material_tail_TailBridge29_0_0",
+        "SharedPi:Carrier",
+        "ShelfPWM:carrier",
+        "Station:F_PWM_whole:End1:band_budget",
+        "Station:F_PWM_whole:End1:head_budget",
+        "Station:F_PWM_whole:End1:split_cap_exterior",
+        "Station:F_PWM_whole:F_PWM:out_after_turn_grip",
+        "Station:F_PWM_whole:F_PWM:out_first_bend",
+        "USB500:whole",
+        "USBGrip:Pi:band",
+        "USBGrip:Pi:head",
+        "USBGrip:Pi:pad"
+      ],
+      "worker_seconds": 0.562,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "carrier_gap_mm": 0,
+    "carrier_common_mm3": 4.594579255875964,
+    "retained_carrier_gap_mm": 2.1403622238837965,
+    "arm_common_mm3": 4.5945792558751295,
+    "pad_gap_mm": 0,
+    "pad_common_mm3": 0,
+    "full15_with_fixed_arm_approved": false,
+    "first12_not_full_withdrawal": true,
+    "actual_supplier_stroke_unknown": true,
+    "removable_arm_NOT_implemented": true
+  }
 }
