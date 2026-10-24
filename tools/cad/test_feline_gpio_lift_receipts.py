@@ -1,11 +1,37 @@
 """Receipt integrity: failed strict geometry cannot become a service PASS."""
-import hashlib,json,unittest,zipfile
+import ast,hashlib,json,unittest,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure'
 
 class ReceiptTests(unittest.TestCase):
+    def test_continuous_translation_bound(self):
+        source=ast.parse((ROOT/'tools/cad/check_feline_current_gpio_release.py').read_text())
+        function=next(n for n in source.body if isinstance(n,ast.FunctionDef) and n.name=='certify')
+        env={};exec(compile(ast.Module(body=[function],type_ignores=[]),'certify','exec'),env)
+        clear=env['certify'](lambda z:.15)
+        self.assertTrue(clear['continuous_clear'])
+        rows=sorted(clear['certified_intervals'])
+        self.assertEqual(rows[0][0],0);self.assertEqual(rows[-1][1],40)
+        self.assertTrue(all(a[1]==b[0] for a,b in zip(rows,rows[1:])))
+        self.assertTrue(all(r[2]>0 for r in rows))
+        hit=env['certify'](lambda z:abs(z-20)-.1)
+        self.assertFalse(hit['continuous_clear'])
+
+    def test_current_gpio_receipt_not_old_invalid_carrier(self):
+        r=json.loads((OUT/'n01-current-carrier-GPIO-release-20261024.json').read_text())
+        self.assertEqual(r['current_carrier_source'],'removable_USB_planning_witness.fixed_beam')
+        self.assertEqual(len(r['checks']),12);self.assertTrue(r['continuous_changed_pairs_clear'])
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['physical_pass'])
+        self.assertFalse(r['counterhold_access_received'])
+        self.assertEqual(len(r['retained_mount_continuous_checks']),4)
+        self.assertTrue(all(v['continuous_clear'] for v in r['retained_mount_continuous_checks'].values()))
+        for row in r['checks'].values():
+            self.assertTrue(row['continuous_clear']);self.assertEqual(row['unresolved_intervals'],[])
+        for p,digest in r['source_sha256'].items():
+            self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),digest)
+
     def test_component_reconstruction_is_preserved_but_not_complete(self):
         r=json.loads((OUT/'n01-Pi-component-reconstruction-20261024.json').read_text())
         self.assertEqual(r['component_count'],33);self.assertEqual(r['strict_errors'],{})
