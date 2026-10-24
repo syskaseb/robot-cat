@@ -1,0 +1,181 @@
+{
+  "status": "CURRENT_EXTERNAL_ACCESS_SUBSTEPS_ONLY",
+  "N01_complete": false,
+  "physical_pass": false,
+  "selected_native_changed": false,
+  "scene_base_actors": 1533,
+  "obsolete_carrier_replaced_by": [
+    "CurrentRoot",
+    "NewSplit:lower",
+    "NewSplit:upper",
+    "NewSplit:front_jaw",
+    "NewSplit:screw_budget"
+  ],
+  "obsolete_carrier_strict_error": "BOP check found the following errors:\nError in Edge: BOPAlgo_InvalidCurveOnSurface\nError in Face: BOPAlgo_InvalidCurveOnSurface\nError in Edge: BOPAlgo_InvalidCurveOnSurface\nError in Face: BOPAlgo_InvalidCurveOnSurface\n",
+  "fuse_R3_external": {
+    "checks": {},
+    "errors": {},
+    "failures": [],
+    "removal_hypotheses": [
+      "Ref_Material_F_R3_CP2_ATO_0_0",
+      "Ref_Material_F_R3_CP2_Housing_0_0",
+      "Service:Ref_Material_F_L1_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_L1_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_L2_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_L2_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_L3_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_L3_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_L4_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_L4_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_L5_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_L5_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_L6_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_L6_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_R1_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_R1_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_R2_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_R2_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_R3_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_R3_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_R4_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_R4_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_R5_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_R5_CP2_ATO_0_0:tool_budget",
+      "Service:Ref_Material_F_R6_CP2_ATO_0_0:continuous_fuse_sweep",
+      "Service:Ref_Material_F_R6_CP2_ATO_0_0:tool_budget"
+    ],
+    "worker_seconds": 1.468,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "comb_cap_external": {
+    "checks": {
+      "D_FR_lift|Station:D_FR:wire:D_FR.1": {
+        "gap_mm": 0.149999999999996,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "D_FR_lift|Station:D_FR:wire:D_FR.2": {
+        "gap_mm": 0.149999999999996,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "D_FR_lift|Station:D_FR:wire:D_FR.3": {
+        "gap_mm": 0.14999999999999702,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "D_FR_lift|Station:D_FR:wire:D_FR.4": {
+        "gap_mm": 0.14999999999999858,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "D_FR_lift|Station:D_FR:wire:D_FR.5": {
+        "gap_mm": 0.1499999999999969,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "D_FR_lift|CurrentMiddle:W009": {
+        "gap_mm": 3.0037476591751178,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "D_FR_slide|CurrentMiddle:W009": {
+        "gap_mm": 0.9136280692927186,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "D_FR_slide|CurrentMiddle:W035": {
+        "gap_mm": 25.785844929758913,
+        "minimum_mm": 0.5,
+        "ok": true
+      }
+    },
+    "errors": {},
+    "failures": [],
+    "removal_hypotheses": [
+      "Station:D_FR:band_budget",
+      "Station:D_FR:head_budget",
+      "Station:D_FR:split_common_comb"
+    ],
+    "worker_seconds": 2.75,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "current_Pi_delta": {
+    "checks": {},
+    "errors": {},
+    "failures": [],
+    "removal_hypotheses": [],
+    "worker_seconds": 0.016,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "strict_other_near_actors_valid": true,
+  "nominal_cap_own_wire_fit_mm": 0.15,
+  "external_service_margin_mm": 0.5,
+  "open": [
+    "Cut common tie while supporting five neighbours",
+    "Cap hand access and final parking",
+    "Actual D_FR lever sweep and W009 release",
+    "Whole W009 path/parking with connected FR2",
+    "Native split and assembly qualification"
+  ],
+  "supplier_lookup": {
+    "url": "https://www.wago.com/us/wire-splicing-connectors/compact-splicing-connector/p/221-415",
+    "dimensioned_open_lever_received": false,
+    "local_reference": "hardware/reference/wago-221415-access-2026-10-02/221-415-WAGO-2021.pdf"
+  },
+  "reused_USB_side_bow_commit": "23b8ee33",
+  "geometry": [
+    {
+      "name": "D_FR_cap_lift",
+      "entry": "0.brep",
+      "sha256": "b7e215d67987136e29df4ac541b0d3aa3ff73267a5020337efff5585ba1995ac"
+    },
+    {
+      "name": "D_FR_cap_slide",
+      "entry": "1.brep",
+      "sha256": "cc9e6ac07726bd146a6d42039dc0e631607d5d1a701716121068354a82e9e48f"
+    },
+    {
+      "name": "Service:Ref_Material_F_R3_CP2_ATO_0_0:continuous_fuse_sweep",
+      "entry": "2.brep",
+      "sha256": "bc05ae812f7b0af6dc8f8a7b7cde7faa69391ddf62d3a3ae058018c671156645"
+    },
+    {
+      "name": "Service:Ref_Material_F_R3_CP2_ATO_0_0:tool_budget",
+      "entry": "3.brep",
+      "sha256": "2a5677f74381f59cbfd8c1c486fbeadfa65794fda44fc2929b5d340e274b6c20"
+    }
+  ],
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-D_FR-current-access-20261024.breps.zip",
+  "bundle_sha256": "831fc9ef1714fc44670a4f3597beda7d9d2126178bdaf8b00e81627c0d841972",
+  "source_sha256": {
+    "tools/cad/plan_feline_usb_release_extension.py": "48477ef0135c977b6e061f07c095ac2d6ab8b3cea180bd0b6e51c0018b4ef648",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-unplug-tail-cover-20261024.json": "dfd7796b8835229e1f590c2cd7d8b592c3eb8f284c53fbdb28c03cc9e80566ea",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-gallery.outer.brep": "12b6b7192b89c663a0ac860d35adf54ace023891d19865e941f5de37dab52a16",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W009-complete-body-plan.json": "e1bc6bd6662f6ba0f3d8647541dd1f1896737fb0ccc9e6c4f3671669e56ad49f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W020-complete-body-plan.json": "ae597bfd73ae8cf1c8beabd05321738b5cd97ef029912215043c7cb305830bfa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W022-complete-body-plan.json": "7956744763d8f8332b712ccfbf4087ce4502bce2cd29bfc956f5b625ec12d13a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W024-shared-complete-body-plan.json": "03f2361d559659b609c46be37bf2d2095fda39db730bd4786048cfe5d1379130",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W047-complete-body-plan.json": "bfa94a199c740c9c5b6635badd27b19e5ca6b15fbb49465e69678ada39e2be42",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W069-complete-body-plan.json": "d0621c476aefb0e249b451f607c58d427e05a4670fc668e0f7b76083a5aa5af0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-FR-W031-W033-common-body-plan.json": "491ea8f30b06a048f56f7d84496e8b1de6be274f813ea888c242d9a4a2dad033",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W035-retained-source-body-plan.json": "c25f6e7e6b762d2a32a9c5e59c1543c60e0936b624cfca9e5a23084feb8431b9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W046-original-prefix-portal-body.json": "a60fc654c323e0ac2f6a5fd68f69c4e0155168549ed5eddc58aedacac065acdc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-bound-actors-restored-20261024.json": "55f24f7496cb52c8378067fa8955517aba3bdc0ec7b069f28c8160c011353498",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-provider-actors-restored-20261024.json": "18fee5d982797e4f08743d0b765c462987e8ce9356c282e4fea3b0661e6ffc7c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-dependency-decision-20261023.json": "518d8b022fe964ce035dd61118c173cd55e46e0deb76d857e0c739d09cada2d6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-GPIO-distal-counterhold-20261024.json": "a4154fc719a91dca8a13bad8d1a3c8420bb51657da72f2c0d37ec043523982ec"
+  },
+  "constructive_motion": {
+    "cap_lift_mm": 1.8,
+    "cap_slide_Y_mm": 9,
+    "method": "Exact full swept solids of existing constant-section upper cap; source comb split atZ45.26; native split still required",
+    "own_housing_fuse_engagement_not_requalified": true
+  }
+}
