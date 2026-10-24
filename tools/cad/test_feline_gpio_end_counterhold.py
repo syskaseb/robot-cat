@@ -42,6 +42,21 @@ class CounterholdTests(unittest.TestCase):
         source=ROOT/'tools/cad/plan_feline_gpio_end_counterhold.py'
         self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(),r['constructor_sha256'])
 
+    def test_recovered_neighbors_do_not_claim_complete_scene(self):
+        r=json.loads((OUT/'n01-service-bound-actors-restored-20261024.json').read_text())
+        self.assertEqual(len(r['restored']),174)
+        self.assertEqual(len(r['unbound']),102)
+        self.assertFalse(r['whole_scene_received'])
+        self.assertFalse(r['N01_complete'])
+        self.assertEqual(r['clip_delta']['holds'],[])
+        self.assertEqual(r['clip_delta']['errors'],{})
+        for name,digest in r['source_sha256'].items():
+            self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),digest)
+        bad=r['invalid_TypeC_separation_only']
+        self.assertFalse(bad['raw_and_native25_strict_valid'])
+        self.assertTrue(bad['not_an_acceptance_of_invalid_BRep'])
+        self.assertGreater(bad['minimum_new_clip_gap_to_full_catalog_envelope_mm'],1.25)
+
 
 if __name__=='__main__':
     unittest.main()
