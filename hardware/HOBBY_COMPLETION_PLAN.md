@@ -1,5 +1,19 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Bieżąca zasada wykonania prototypu — 24.10.2026
+
+Przed następną próbą stosuj sekcję „Brama wykonania prototypu” na początku
+hardware/cad/DESIGN_LESSONS.md i skill cad-layout-planning. Najpierw jeden
+wspólny układ modułów/mocowań/korytarzy/montażu. Nowa dokładna trasa wymaga
+nazwania konkretnego złącza, ruchu, krawędzi lub przewężenia oraz wyjaśnienia,
+dlaczego korytarz nie wystarczy. Najpierw ustal konstruktor i funkcję przeszkody.
+Co20–30min krótko: zamknięty problem ALBO nowy fakt z konsekwencją; gdy brak obu,
+zmień przyczynę/poziom kolejnej próby, bez kolejnego audytu i bez kończenia okna.
+Recenzent ocenia jedną propozycję całości przed detalami, nie każdy parametr.
+To instrukcje pracy, nie automatyczny walidator. Kryteria/wybrane części/score
+pozostają bez zmian. Aktualnie hook OFF, worker zakończony; ta aktualizacja
+nie otwiera nowego okna CAD. Stan ostatniej próby i szczegółowy NEXT poniżej.
+
 ## N01 do pełnych10%,19.10.2026
 
 20.10,10:11Z: ruch całego źródła odebrany29,843s:7/7aktorów przez

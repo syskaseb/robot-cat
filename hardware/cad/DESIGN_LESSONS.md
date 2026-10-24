@@ -1,5 +1,32 @@
 # Wnioski z projektowania 3D robot-cat
 
+## Brama wykonania prototypu — 24.10.2026
+
+Ta sekcja określa bieżące wykonanie; historyczne dłuższe interwały niżej nie
+zastępują przeglądu20–30min. Szczegółowa procedura: cad-layout-planning.
+
+1. Najpierw wspólny układ modułów, mocowań, korytarzy wiązek i montażu.
+   Przed nową dokładną trasą wskaż konkretne złącze/ruch/krawędź/przewężenie
+   i dlaczego wspólny korytarz nie wystarczy. Bez takiej przyczyny zostań przy
+   przestrzeni całej grupy; nie generuj kolejnych pojedynczych objazdów.
+2. Przed obchodzeniem przeszkody odczytaj jej konstruktor i funkcję: dokładna
+   bryła, nominalny model/rezerwa, obsadzone złącze, stały chwyt, elastyczny środek
+   albo niepoprawna geometria. BOP-valid nie oznacza dokładnej bryły producenta.
+3. Co20–30min dopisz w istniejącej karcie zamknięty problem ALBO nowy istotny
+   fakt i jego konsekwencję. Brak obu wymaga zmiany przyczyny/poziomu próby;
+   nie kolejnego raportera, audytu, większego skanu ani zatrzymania okna.
+4. Przed detalami istniejący recenzent ocenia jedną wspólną propozycję, jej
+   montaż i niewiadome, najlepiej z widokiem/przekrojem. Recenzja tekstu nie
+   odbiera geometrii. Nie dodawaj agentów ani recenzji każdego parametru.
+
+Dowód z ostatniej próby: F_PI_new jest W.box(F_PI.casing_mm), rezerwą obudowy
+51×22×20.25mm, nie dokładnym modelem producenta. Nie zamieniaj przecięcia tej
+rezerwy w dowód realnego kontaktu ani nie pomniejszaj jej dla zielonego wyniku.
+Galeria plusY8×10 przecinała bazyU1; płaska14×4 przeszła pod nimi. Istniejące
+prefiksy/opaska nadal zajmują tę przestrzeń; kilka przekrojów nie dowodzi pełnej
+drożności. To przykład decyzji o wspólnej przestrzeni przed szczegółowymi osiami.
+Nie zmieniaj wymagań, fabrycznych długości, zakupionych części ani licznika N01.
+
 20.10, MTA: wysokość koszyka od samej pokrywki pomija niższy korpus
 kupnego złącza. Najpierw domena CAŁYCH szyn względem wszystkich stałych
 części/36ruchów; dopiero potem cięcie. Dwa koszyki wymagały tylko5
