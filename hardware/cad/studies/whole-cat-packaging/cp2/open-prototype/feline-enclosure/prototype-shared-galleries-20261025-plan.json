@@ -1,0 +1,94 @@
+{
+  "proposal_id": "GAL25-A-SIDE-STANDING",
+  "status": "WHOLE_LAYOUT_HYPOTHESIS_NOT_GEOMETRY_RECEIPT",
+  "scope": "14changed connections, full shared entry/branch/assembly feasibility only; no productionN03-N10",
+  "source_sha256": {
+    "prototype-joint-endpoints-20261024-result.json": "90d7f5fdc50d81740d33283e99c6d540d939d3a6d38388969892d03dbda36d98",
+    "prototype-joint-endpoints-20261024.breps.zip": "478cc19efa0fd25697f2304aa53cc403880551cfbb841a07fb1d5ab1b65ca6e4",
+    "n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+    "n01-shared-end-plan.json": "47d946053df03b26ae12c4405cfe09ef9e6b061bb3134432e76afe7953b411b7",
+    "n01-power-axial-saddle-20261024.json": "c229af56cf1ca46dba65f40cc1a486e4fe2acf4d1c41dc9b44f29d7dc11c092d"
+  },
+  "whole_module_plan": {
+    "fixed": "P0/R47 purchased bank/PCB/Pi/MAIN/AUX/BUS/U1/battery/RR_G and their fixed source ends retained. Old upper rack for only D_RR/G_AUX is replaced, PASupper retained.",
+    "moved": {
+      "D_RR": {
+        "case_centre_mm": [
+          55,
+          -92.5,
+          57
+        ],
+        "proper_rotations_about_received_case_centre": [
+          {
+            "axis": "Z",
+            "degrees": -90
+          },
+          {
+            "axis": "X",
+            "degrees": 90
+          }
+        ],
+        "output": "+X rear",
+        "case_allocated_dims_mm": [
+          19,
+          9,
+          30
+        ]
+      },
+      "G_AUX": {
+        "case_centre_mm": [
+          10,
+          -92.5,
+          57
+        ],
+        "proper_rotations_about_received_case_centre": [
+          {
+            "axis": "Z",
+            "degrees": 90
+          },
+          {
+            "axis": "X",
+            "degrees": 90
+          }
+        ],
+        "output": "-X front",
+        "case_allocated_dims_mm": [
+          19,
+          9,
+          30
+        ]
+      }
+    },
+    "interfaces": "Same5-port cases, exact wire/slot mapping, full9mm open common comb and one separate T18I100 per5wiregroup. Proper whole transforms; no fake rigid mirrors. Open top/levers face exterior negativeY.",
+    "support_hypothesis": "One new printed revision of negative FoundationRail with two under-case arms/toes to the standing cells; retain original rail/bolt geometry and positive union/load path, no P0/new purchased-part holes. Replace only named printed support geometry after whole-space proof; load/adhesive fit remains phase2. Case bottom42 leaves space for toe, arms below existing lower station cases. Actual branch/root clearance still OPEN."
+  },
+  "shared_bundle_allocation": {
+    "rear_RR3": "D_RR W016/17/18 short shared rising transition from stacked source rows to unchanged RRFlat9 caps; whole900mm lead includes leg/prefix/slack, not body only. Packing/radius/order jointly checked at actual ends.",
+    "distribution_two": "W011/W012 branch from D_RR through shared under-bank lane, preserving D_FR/D_RL actual receiver grips. Exact curves only at those constrained entries.",
+    "front_grounds": "G_AUX front3 XA05/XB13/XB23 via one shared front/side lane, then branch to fixed G2/head/yaw ends. Existing casing allocations S0/F_PI and front motion must be respected. No5separate long detour family.",
+    "rear_grounds": "XA04/XA06 branch through same side space toward fixed AUX/tail prefixes; retain insulation and old source relief; no inventedU1pinout.",
+    "MAIN_inputs": "W060/W078 are rerouted jointly as a two-wire lane between new case inner face and BankBed edge, keeping original MAIN full9 exit and selected2.1mm nominal OD. Derived candidate transverse allocationY[-86.15,-81.85] between case/strap inner extent about-87.75 and BankBed edge-80: not a geometryPASS. W078 source clip/relief must be received.",
+    "MAIN_outputs": "W079/W080 existing jointly received upper pair corridor and PAS4fc981a5 retained, including whole source prefixes and prior length evidence; no redraw."
+  },
+  "acceptance_gate": [
+    "Whole moved cases+all10fixed9mmgrips/comb/tiehead reservations fit allocated skin/rigid module spaces; reservation overlap not physical contact proof.",
+    "Rooted common support with actual existing frame/rail interface, installation/pull access from open side; no lever straps.",
+    "Whole continuous bundle spaces and branch inventory with counts/profiles/existing occupants; source/factory/motion/radius checks at actual risks.",
+    "Whole factory length and wire-unit budget; explicit provisional physical gates; no N01 credit from subset."
+  ],
+  "assembly_hypothesis": [
+    "Bench-thread case wires and separate100mm comb ties with exterior pull access.",
+    "Install one complete side-rail/cradle module on inherited P0/R47 support interfaces before final body looms; case levers accessible from open side.",
+    "Lay body groups in accessible shared galleries, fix common tie anchors and keep moving-joint slack from received mechanisms.",
+    "Connect retained MAIN/GPIO/USB/factory4MTA in identified accessible sequence; normal prototype partial disassembly allowed, no rapid-Pi-service requirement."
+  ],
+  "open": [
+    "Module wholepose/root/outer checks not yet received.",
+    "Existing wires/fixed grips and case budgets may block sidecells; do not delete them.",
+    "Factory900 lengths/slack and W078anchor still need proof.",
+    "Full newbody plan remainsHOLD until acceptance; no physicalPASS."
+  ],
+  "review_question": "Evaluate the whole spatial/assembly hypothesis BEFORE production detail; up to3 substantive blockers or unknowns. Text review only, no CAD/edits/commits/agents/messagesback. One review and maxone correction follow-up for this proposal.",
+  "N01_complete": false,
+  "physical_pass": false
+}
