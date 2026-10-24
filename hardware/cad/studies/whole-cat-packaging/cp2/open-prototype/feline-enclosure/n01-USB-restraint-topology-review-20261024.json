@@ -1,0 +1,65 @@
+{
+  "status": "TWO_RELEASE_TOPOLOGIES_REJECTED_NOT_SELECTED",
+  "recorded_utc": "2026-10-24T15:16:33Z",
+  "curved_pad_lift": {
+    "z_mm": 6,
+    "common_W009_mm3": 14.362609684970282,
+    "strict_valid": true,
+    "screen_seconds": 2.764,
+    "tool_gaps_mm": [
+      5.25,
+      5.25
+    ]
+  },
+  "straight_candidate": {
+    "recipe": {
+      "status": "CANDIDATE_NOT_RECEIVED",
+      "grip_length_mm": 9,
+      "cable_unchanged": true,
+      "jacket_radius_mm": 2.5,
+      "groove_radius_mm": 2.65,
+      "remove_jacket_and_root_ties_before_lift": true,
+      "existing_root_sleeve_reused": true,
+      "N01_complete": false,
+      "full_scene_motion_access_and_retention_open": true,
+      "physical_pass": false
+    },
+    "whole_scene_screen_seconds": 3.875,
+    "screen_is_not_acceptance": true,
+    "strict_valid_common_fixed_beam_mm3": 1.3759305597662546,
+    "rejected_lift_z_mm": 3,
+    "own_motion_seconds": 0.855897
+  },
+  "candidate_selected": false,
+  "prior_received_USB_side_bow_retained": true,
+  "N01_complete": false,
+  "physical_pass": false,
+  "next": "Do not retry upward removal of either pad. Whole W009 connected parking or actual D_FR release/assembly sequence remains required. Do not infer free slack from636.413mm; no whole FR2 cable proof from body alone.",
+  "source_sha256": {
+    "tools/cad/plan_feline_usb_straight_removable.py": "20ec46aa69202f1c1d9bf14635d7a483ff94d624c7dd885e1116e3a1828b0f81"
+  },
+  "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-restraint-topology-review-20261024.breps.zip",
+  "bundle_sha256": "e8918efbedf4f448eaeaa6185fa338ae051e711f403b425e936b3bb95feefa18",
+  "geometry": [
+    {
+      "name": "curved_pad_Z6",
+      "entry": "curved_pad_Z6.brep",
+      "sha256": "b8a7e79023b32a66f3c747758df4d43c3bf2e4b0d45c30bfd62db67cf386c1bd"
+    },
+    {
+      "name": "W009",
+      "entry": "W009.brep",
+      "sha256": "bdf8a6fa36e7e574efb26dabffab4fc353d2431ca2a28894b9db0d8cc427c1e1"
+    },
+    {
+      "name": "straight_body_Z3",
+      "entry": "straight_body_Z3.brep",
+      "sha256": "140bf8fedd1180830d9de33ab69bf18095c2ad14ac2fc53f7cec3c71cc5e2272"
+    },
+    {
+      "name": "fixed_beam",
+      "entry": "fixed_beam.brep",
+      "sha256": "e747bf7a7b67003b9819449f145a8310026b3ced36f1812902e0607a055c461c"
+    }
+  ]
+}
