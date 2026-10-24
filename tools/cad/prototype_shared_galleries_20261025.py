@@ -179,12 +179,16 @@ def preserve_current(out,shapes,receipt):
     import hashlib,json,time,zipfile
     import Part
     tick=time.monotonic();archive=out/'prototype-shared-galleries-20261025.breps.zip';members={}
+    prior_json={}
+    if archive.exists():
+        with zipfile.ZipFile(archive) as z:prior_json={n:z.read(n) for n in z.namelist() if n.endswith('.json')}
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for i,(name,s) in enumerate(shapes.items()):
             s.check(True);raw=s.exportBrepToString().encode();entry=str(i)+'.brep';z.writestr(entry,raw)
             t=Part.Shape();t.importBrepFromString(raw.decode());t.check(True)
             members[name]=dict(member=entry,sha256=hashlib.sha256(raw).hexdigest(),strict_reopen=True,
                 solids=len(t.Solids),volume_mm3=t.Volume,bounds_mm=[[t.BoundBox.XMin,t.BoundBox.YMin,t.BoundBox.ZMin],[t.BoundBox.XMax,t.BoundBox.YMax,t.BoundBox.ZMax]])
+        for n,raw in prior_json.items():z.writestr(n,raw)
     receipt['generator_sha256']=hashlib.sha256(__import__('pathlib').Path(__file__).read_bytes()).hexdigest()
     receipt.update(geometry_archive=dict(path=str(archive),sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),members=members),
         preserve_and_reopen_seconds=time.monotonic()-tick,selected=False,N01_complete=False,physical_pass=False)
@@ -202,3 +206,189 @@ def opposite_side_groups(scene,out):
     grips['G_AUX'].update(case_centre_mm=[10,92.5,57],additional_proper_rotation_X_degrees=180,
         levers_and_open_comb_face='positiveY exterior',source_rows='reversed Z after whole proper rotation; identities unchanged')
     return groups,grips
+
+
+def main_inputs_shared_lane(endpoints):
+    """Joint source fan and XZ folds, dimensioned from actual cap tangents."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={};R=12.4;lanes={'W060':-82.8,'W078':-85.1}
+    for w,y in lanes.items():
+        row=endpoints['rows'][w];p=row['local']['point_mm'];q=row['remote']['point_mm']
+        a=[17.6,y,96.55];b=[30,y,84.15]
+        parts=base.tr.biarc(p,(1,0,0),a,(1,0,0))+[base.tr.arc(a,(1,0,0),b)]
+        if w=='W078':
+            c=[30,y,60.5];d=[17.6,y,48.1];e=[-21.5,y,48.1]
+            f=[-33.9,y+R,48.1];g=[-33.9,-36.4,48.1]
+            parts += [base.tr.line(b,c),base.tr.arc(c,(0,0,-1),d),base.tr.line(d,e),
+                base.tr.arc(e,(-1,0,0),f),base.tr.line(f,g),base.tr.arc(g,(0,1,0),q)]
+        else:
+            qv=A.Vector(*q);h=qv-A.Vector(0,R*(1-math.cos(math.pi/6)),R*.5)
+            # Prior fixed55.5X only worked at the old Y. Derive the whole turn,
+            # keeping selected minimum R instead of reducing it for the new lane.
+            turn_x=qv.x+math.sqrt(max(0.,(2*R)**2-(h.y-y)**2))
+            c=A.Vector(turn_x,y,h.z);v=h-c;radius=v.Length/2;assert radius>=R-1e-7
+            u=v.normalize();bend=dict(kind='arc',start=list(c),end=list(h),tangent=[0,0,-1],
+                bend=list(u),radius=radius,angle=math.pi,length=math.pi*radius,end_tangent=[0,0,1])
+            f=[30,y,45]
+            parts += [base.tr.line(b,f),*base.tr.biarc(f,(0,0,-1),list(c),(0,0,-1)),
+                bend,base.tr.arc(list(h),(0,0,1),q)]
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6
+        body=base.solid(parts,row['radius_mm']);body.check(True);shapes[w]=body
+        recipes[w]=dict(parts=parts,source=row['local'],receiver=row['remote'],length_mm=base.tr.length(parts),minimum_R_mm=minimum,
+            common_lane_centres_mm=lanes,lane_occupied_Y_mm=[-86.15,-81.75],
+            previous_4p3mm_allocation_corrected_to_4p4mm_for_retained_p2mm_pair_gap=True,
+            source_grip_and_receiver_prefix_unchanged=True,W078_source_grip_not_received=w=='W078')
+    return shapes,recipes
+
+
+def gaux_shared_source_fan(endpoints):
+    """All five lanes before bifurcation, then two nested rear turns, three front."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={}
+    for w,z in [('XA05',70.),('XA04',67.),('XB23',63.),('XB13',57.),('XA06',51.)]:
+        row=endpoints['rows'][w];p=row['local']['point_mm'];a=[-35.,92.5,z]
+        parts=base.tr.biarc(p,(-1,0,0),a,(-1,0,0))
+        if w in ['XA04','XA06']:
+            R=31. if w=='XA04' else 15.;b=[-35.,92.5,z-2*R]
+            parts.append(dict(kind='arc',start=a,end=b,tangent=[-1,0,0],bend=[0,0,-1],
+                radius=R,angle=math.pi,length=math.pi*R,end_tangent=[1,0,0]))
+            phase='nested common-centre rear reversal; radial gap12mm, no translated crossing turns'
+        else:
+            R=47. if w=='XA05' else 30.
+            b=[a[0]-R,a[1]-R,z];parts.append(base.tr.arc(a,(-1,0,0),b))
+            phase='three front lanes share R30 XY turn, clear outside actual F_L1 ATO'
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        body=base.solid(parts,row['radius_mm']);body.check(True);shapes[w]=body
+        recipes[w]=dict(parts=parts,source=row['local'],end_mm=b,phase=phase,
+            length_mm=base.tr.length(parts),minimum_R_mm=minimum,radius_mm=row['radius_mm'],
+            partial_source_transition_only=True,whole_receiver_and_route_NOT_received=True)
+    return shapes,recipes
+
+
+def splice_saddle_and_root(scene,rail):
+    """Replace filled end-cuff reservations by two open jacket saddles on one rail."""
+    import Part
+    def box(lo,hi):return Part.makeBox(*(hi[i]-lo[i] for i in range(3)),A.Vector(*lo))
+    pads=[];full9={}
+    for w,x,r in [('W077',-88.55,2.),('W078',-55.55,1.05)]:
+        pad=box((x,-28.1,44.),(x+9,-19.9,48.1))
+        bore=Part.makeCylinder(r+.15,11,A.Vector(x-1,-24,48.1),A.Vector(1,0,0))
+        open_top=box((x-1,-24-r-.15,48.1),(x+10,-24+r+.15,53.2))
+        pad=pad.cut(bore).cut(open_top);pad.check(True);assert len(pad.Solids)==1;pads.append(pad)
+        full9[w]=Part.makeCylinder(r,9.25 if w=='W078' else 9,A.Vector(x,-24,48.1),A.Vector(1,0,0))
+    spine=box((-88.55,-21.4,44.),(-46.55,-18.4,46.))
+    clip=pads[0].fuse(pads[1]).fuse(spine);clip.check(True);assert len(clip.Solids)==1
+    post=box((-51.6,-57,38.52),(-46.6,-53,44.5))
+    arm=box((-51.6,-55,41.),(-46.6,-18.4,44.5))
+    root=clip.fuse(post).fuse(arm)
+    # The retained P0 mount has an inherited BOP error. Keep new PETG OUTSIDE
+    # its complete conservative bounds+1.25, without inferring a real collision.
+    mount=scene['Ref_Material_P0_MountFrontR_0_0'].optimalBoundingBox(False,False);margin=1.25
+    exclusion=box((mount.XMin-margin,mount.YMin-margin,mount.ZMin-margin),
+        (mount.XMax+margin,mount.YMax+margin,mount.ZMax+margin))
+    root=root.cut(exclusion);bands={}
+    for w,x,r in [('W077',-87.15,2.),('W078',-51.05,1.05)]:
+        top=48.1+r
+        outer=box((x-1.25,-29.3,42.6),(x+1.25,-18.7,top+1.2))
+        inner=box((x-2,-28.1,43.8),(x+2,-19.9,top))
+        band=outer.cut(inner);head=box((x-2.5,-18.9,top-2.65),(x+2.5,-14.4,top+2.65))
+        band=band.fuse(head);band.check(True);assert len(band.Solids)==1;bands[w]=band
+        clear_outer=box((x-1.4,-29.45,42.45),(x+1.4,-18.55,top+1.35))
+        clear_inner=box((x-2,-27.95,43.95),(x+2,-20.05,top-.15))
+        root=root.cut(clear_outer.cut(clear_inner))
+    root.check(True);assert len(root.Solids)==1
+    assert root.common(exclusion).Volume<1e-7
+    assert all(root.common(b).Volume<1e-7 for b in bands.values())
+    joined=rail.fuse(root);joined.check(True);assert len(joined.Solids)==1
+    assert rail.cut(joined).Volume<1e-7
+    assert all(clip.common(s).Volume<1e-6 for s in full9.values())
+    return joined,root,full9,bands,dict(replaces='SpliceClip full rectangular cuff reservations, not a purchased clamp',
+        source_constructor='check_feline_n01_coupled_pi_bus:clip_parts from n01-central-spine-power-plan-r4.json',
+        full9_jacket_lands_mm={'W077':[-88.55,-79.55],'W078':[-55.55,-46.55]},
+        channel_project_radius_mm={'W077':2.,'W078':1.05},channel_radial_assembly_clearance_mm=.15,
+        W078_reference_jacket_length_mm=9.25,full_gripped_length_mm=9.,W078_body_cap_mm=[-46.3,-24,48.1],
+        solder_sleeve_unchanged=True,sleeve_to_spine_nominal_gap_mm=.5,
+        positive_root_to_retained_rail_mm3=root.common(rail).Volume,
+        no_original_rail_material_removed_mm3=rail.cut(joined).Volume,
+        independent_T18I100_per_jacket=1,tie_quantity=2,
+        tie_nominal_budget_mm=2*(8.2+8.2)+27,
+        tie_threading_windows_mm=dict(width=2.8,centres_X=[-87.15,-51.05],lower_Z=[42.45,43.95]),
+        conservative_P0_exclusion_mm=[[mount.XMin-margin,mount.YMin-margin,mount.ZMin-margin],[mount.XMax+margin,mount.YMax+margin,mount.ZMax+margin]],
+        retained_W077_full9_jacket_to_P0_bounds_Y_gap_mm=(-26.)-mount.YMax,
+        W077_band_to_P0_bounds_X_gap_mm=mount.XMin-(-87.15+1.25),
+        side_walls_stop_at_wire_centre_for_actual_band_contact=True,
+        actual_pull_strength_and_threading_fit_phase2_OPEN=True,
+        one_revision_of_negative_foundation_print_owner=True,not_physical_strength_PASS=True)
+
+
+def complete_gaux_front(source_rec,endpoints):
+    """Critical G2/S0/HP approaches; open shared columns between interfaces."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={}
+    for w in ['XA05','XB23','XB13']:
+        row=endpoints['rows'][w];q=row['remote']['point_mm'];parts=list(source_rec[w]['parts']);p=parts[-1]['end']
+        if w=='XA05':
+            c=[p[0],43.,p[2]];d=[q[0],43.,q[2]];v=A.Vector(*d)-A.Vector(*c);R=v.Length/2
+            bend=list(v.normalize())
+            turn=dict(kind='arc',start=c,end=d,tangent=[0,-1,0],bend=bend,radius=R,
+                angle=math.pi,length=math.pi*R,end_tangent=[0,1,0])
+            parts += [base.tr.line(p,c),turn,base.tr.line(d,q)]
+            reason='One tilted half-turn outside F_PI/S0 casing, above P0 beam; G2 last full9 kept. Wider47mm source corner allocates the whole fold.'
+        elif w=='XB23':
+            c=[-80.,47.5,63.];d=[-92.6,47.5,75.6];e=[-92.6,47.5,81.];q=[-117.46,36.4,103.]
+            parts += [base.tr.arc(p,(0,-1,0),c),base.tr.arc(c,(-1,0,0),d),base.tr.line(d,e),*base.tr.biarc(e,(0,0,1),q,(-1,0,0))]
+            reason='Rise outside ForeFHAC and approach exposed +Y side of HP row; finish-35 was not a connector. Head/moving source and proper final source cylinder retained.'
+        else:
+            tier=61.+1.05+1.25
+            entry=[-65.,39.5,tier];c=[-65.,-16.35,tier];d=[-80.,-31.35,tier];k=[-120.,-31.35,q[2]]
+            parts += [*base.tr.biarc(p,(0,-1,0),entry,(0,-1,0)),base.tr.line(entry,c),base.tr.arc(c,(0,-1,0),d),
+                *base.tr.biarc(d,(-1,0,0),k,(-1,0,0)),
+                *base.tr.biarc(k,(-1,0,0),q,[-v for v in row['remote']['outward']])]
+            reason='Lower shared front column passes above F_PI and below S0 key, then whole S0/S1 gap. Final yaw approach reused from D trial.'
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        body=base.solid(parts,row['radius_mm']);body.check(True);shapes[w]=body
+        recipes[w]=dict(parts=parts,reason=reason,length_mm=base.tr.length(parts),minimum_R_mm=minimum,
+            radius_mm=row['radius_mm'],source=row['local'],receiver_nominal=row['remote'],final_mm=q,
+            source_profile_assumptions_and_motion_fit_not_supplier_certification=True)
+    return shapes,recipes
+
+
+def repack_front_middle_pair(out,vertical_transfer_mm=-5.):
+    """Constant-length shared U-fold, no source move or new factory slack."""
+    import copy,json,math
+    import prototype_layout_review_20261024 as base
+    from plan_feline_FL_three_core_shared_trunk import transport
+    a=json.loads((out/'n01-current-W022-complete-body-plan.json').read_text(encoding='utf-8'))
+    b=json.loads((out/'n01-current-W024-shared-complete-body-plan.json').read_text(encoding='utf-8'))
+    parts=copy.deepcopy(a['middle_recipe']['parts']);delta=vertical_transfer_mm
+    assert min(8-delta,8+delta)>=0.
+    # Keep both external endpoints and the full lower loop. Redistribute the
+    # two existing8mm vertical runs; all four quarter-circle radii unchanged.
+    parts[6]['end'][2]+=delta;parts[6]['length']-=delta
+    for i in [7,8,9]:
+        parts[i]['start'][2]+=delta;parts[i]['end'][2]+=delta
+    parts[10]['start'][2]+=delta;parts[10]['length']+=delta
+    shifted,_=transport(parts[:13],[0,0,2.2]);other=shifted+copy.deepcopy(b['middle_recipe']['parts'][13:])
+    shapes={};recipes={}
+    for w,new,parent in [('W022',parts,a),('W024',other,b)]:
+        old=parent['middle_recipe'];length=base.tr.length(new)
+        assert abs(length-base.tr.length(parent['middle_recipe']['parts']))<1e-7
+        assert (A.Vector(*new[0]['start'])-A.Vector(*old['parts'][0]['start'])).Length<1e-6
+        assert (A.Vector(*new[-1]['end'])-A.Vector(*old['parts'][-1]['end'])).Length<1e-6
+        minimum=min(p.get('radius',math.inf) for p in new);assert minimum>=12.4-1e-6
+        body=base.solid(new,old['radius_mm']);body.check(True);shapes[w]=body
+        recipes[w]=dict(parts=new,radius_mm=old['radius_mm'],minimum_R_mm=minimum,
+            middle_length_mm=length,previous_middle_recipe_length_mm=base.tr.length(old['parts']),
+            inherited_saved_BRep_length_mm=parent['middle_length_mm'],
+            inherited_BRep_vs_recipe_difference_mm=parent['middle_length_mm']-base.tr.length(old['parts']),
+            complete_body_length_mm=parent['complete_body_length_mm'],
+            source_prefix_owners=parent['source_prefix_owners'],current_boundaries=parent['current_boundaries'],
+            vertical_length_reallocation_mm={'before':[8,8],'after':[8-delta,8+delta]},
+            stock_length_added_mm=0.,source_and_receiver_moved=False,
+            unchanged_lower_vertical_tie_station_mm=[[-40.,-22.,43.5],[-42.2,-22.,43.5]],
+            common_simple_anchor_owner='GAL25 SpliceRoot arm; N03 shared tie eyelet/detail pending',
+            whole900_NOT_received=True,not_physical_PASS=True)
+    return shapes,recipes

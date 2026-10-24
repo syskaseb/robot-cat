@@ -1,5 +1,24 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Sprawdzony checkpoint GAL25-K2 — 24.10.2026, okno do25.10 09:00Warszawy
+
+Nowy N01 pozostaje0/10; historyczne20/20osobno. Okno aktywne, deadline08:00UTC.
+D_RR[35,-92.5,57], G_AUX[10,+92.5,57] na dwóch zdejmowanych uchwytach ze
+źródłowymi grzebieniami9mm i osobnymi opaskami mocującymi. Odebrane3RR i2MAIN
+ciała nominalne; W077/W078 ma otwartesiodła+2opaski+root40mm3 do szyny.
+WspólnyW022/W024 środek przełożony pod polem zacisków BEZ zmiany długości,
+końców lub promieni:13+3mm pionów zamiast8+8. Statyka27.641s bez kontaktów,
+para.2mm; zmienione części rozłączne z4źródłami błędnychBRep po jawnych
+zachowawczych obwiedniach. Cały ruch jeszcze nieodebrany. K1 w górę odrzucony.
+Jeden aktualny pakiet prototype-shared-galleries-20261025-result.json i jego
+archiwum37ścisłeBRep (reopen5.906s), pełne próby zachowane wewnątrz archiwum.
+Natywne historyczne źródła i wybrane części niezmienione. NiephysicalPASS.
+NEXT: wspólna obsada galerii stanroboczy+ATO, pełne900mm,2distribution i2rear,
+ruch przełożonego środka, jawnyfrontXA05/XB13gap0.083<dotąd.2. Nie kolejne
+niezależneobjazdy. RecenzentAstra medium28.914s potwierdził kierunek/do3braków;
+przyjęto wynik, nie geometryPASS. Kontynuacja bez pytania w aktywnym oknie.
+
+
 ## Bieżąca zasada wykonania prototypu — 24.10.2026
 
 Przed następną próbą stosuj sekcję „Brama wykonania prototypu” na początku
