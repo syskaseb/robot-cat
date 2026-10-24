@@ -89,22 +89,22 @@
         "basis": "Final enclosure opening/fastener access is not qualified."
       },
       {
-        "id": "release_W009",
+        "id": "keep_W009",
         "requires": [
           "open"
         ],
-        "action": "Label W009; support adjacent D_FR wires; release its restraint and D_FR.3; park the COMPLETE connected wire without cutting the FR2 seam.",
-        "status": "missing",
-        "basis": "D_FR.3 identity checked; lever/tool access, adjacent-wire support and full-length parking missing."
+        "action": "Leave W009 and D_FR connected and restrained; do not create a temporary wire parking operation for USB.",
+        "status": "conditional",
+        "basis": "30b59a39 main-run USB saddle eliminates the old removable arm dependency; 7769fe2a verifies parked USB versus Pi lift, not whole service."
       },
       {
-        "id": "release_Pi_signals",
+        "id": "retain_Pi_signals",
         "requires": [
           "open"
         ],
-        "action": "Support leads; release GPIO4/H1 restraints and unplug the occupied GPIO housing from Pi, preserving H1/H3/H5/H11/H6 mapping; park it with remote ends attached.",
-        "status": "missing",
-        "basis": "Nominal7mm -Z housing release clears received subset/current carrier, derived from6.5mm nominal engagement plus.5mm. This is not supplier engagement confirmation; -Y20 parking meets RR wire envelopes and is not selected."
+        "action": "Keep the five GPIO leads and complete housing stationary in the bench-assembled distal casing clamp; upper Pi frame separates upward. Do not lower the wires or loosen the casing clamp in place.",
+        "status": "conditional",
+        "basis": "ba89ff91 distal counterhold and received current-carrier GPIO release. Nominal pin engagement, physical clamp retention and whole assembly remain explicit fit gates."
       },
       {
         "id": "release_Pi_power",
@@ -118,48 +118,49 @@
       {
         "id": "release_USB_restraint",
         "requires": [
-          "release_W009"
+          "open"
         ],
-        "action": "Support USB; cut jacket tie and two root ties; lift removable sleeve/arm/pad30mm before lifting Pi.",
+        "action": "Support USB and cut the single main-run saddle tie. Fixed upper saddle remains in place; cable bows downward. Old near-plug removable arm/pad/sleeve and its root ties are not installed in this candidate.",
         "status": "conditional",
-        "basis": "Constructive partial-scene space proof; W009 parking, hands, fit and native artifact remain OPEN."
+        "basis": "30b59a39 current-scene body/access and continuous sidebow contact proof. Cutting-tool envelope is a project budget; physical access and native realization remain open."
       },
       {
         "id": "release_cradle",
         "requires": [
-          "release_W009",
-          "release_Pi_signals",
+          "keep_W009",
+          "retain_Pi_signals",
           "release_Pi_power",
           "release_USB_restraint"
         ],
-        "action": "Support Pi; release USB-A jacket tie and the two cradle ties; remove cradle lid normal8 then up80.",
+        "action": "Support Pi and release the upper carrier retention while leaving the stationary GPIO housing clamp closed. Reconcile original cradle ties/lid with the selected split-frame candidate before execution.",
         "status": "conditional",
         "basis": "Existing lid/tool geometry received for its stated subset; parked leads must be included."
       },
       {
-        "id": "lift_mated10",
+        "id": "lift_unplugged24",
         "requires": [
-          "release_cradle"
+          "release_cradle",
+          "unplug_USB_A"
         ],
-        "action": "Lift Pi and its upper carrier10mm with data USB A-C still mated; BUS remains fixed.",
+        "action": "Lift Pi/upper carrier24mm after USB-A is unplugged. USB, GPIO housing and their wires remain stationary and supported; BUS remains fixed.",
         "status": "conditional",
-        "basis": "Saved cable end pose preserves nominal452mm/R30; W009 must be parked. Continuous deformation and moving full carrier not yet received."
+        "basis": "7769fe2a: continuous27actor Pi delta versus full stationary USB sidebow, original boot budget and main saddle;216pairs4.234s. Does not qualify remaining power wires, retention access or later bench transfer."
       },
       {
         "id": "unplug_USB_A",
         "requires": [
-          "lift_mated10"
+          "release_USB_restraint"
         ],
-        "action": "Hold Pi; release its USB grip arm before the reserved15mm +X withdrawal; keep BUS USB-C mated; park the freed A end.",
+        "action": "With Pi still seated, support USB and withdraw USB-A along the reserved15mm +X path while its complete452mm jacket bows down; keep BUS USB-C mated. Hold the freed plug at that position during Pi lift.",
         "status": "missing",
-        "basis": "Fixed-arm15mm rejection preserved. New removable restraint has conditional space evidence; continuous cable deformation and parking remain OPEN."
+        "basis": "23b8ee33 sidebow and30b59a39 main saddle received. Original9mm project boot budget retains DC margin HOLD0.430475<0.5. USB-standard16x8 candidate clears but is not a measurement of selected Lanberg mould/metal shell/mating pose. Exact fit remains OPEN; no shortened stroke accepted."
       },
       {
         "id": "remove_Pi",
         "requires": [
-          "unplug_USB_A"
+          "lift_unplugged24"
         ],
-        "action": "Lift Pi/upper carrier to the previously checked40mm height, then transfer to bench with leads unloaded.",
+        "action": "After the qualified initial24mm segment, complete the remaining lift and bench transfer only when all current interfaces and support/access are reconciled.",
         "status": "conditional",
         "basis": "Existing necessary lift-space proof is not a full cable/parking proof."
       },
@@ -185,13 +186,13 @@
     "dependency_order": [
       "isolate",
       "open",
-      "release_W009",
-      "release_Pi_signals",
+      "keep_W009",
+      "retain_Pi_signals",
       "release_Pi_power",
       "release_USB_restraint",
       "release_cradle",
-      "lift_mated10",
       "unplug_USB_A",
+      "lift_unplugged24",
       "remove_Pi",
       "release_BUS_DG",
       "remove_BUS"
@@ -445,15 +446,15 @@
       "additional_to_123_portions": true,
       "end_count": 2,
       "same_bought_cable": true,
-      "detach_at": "Pi USB-A after lift, not BUS USB-C in place"
+      "detach_at": "Pi USB-A before lift using main saddle, not BUS USB-C in place; selected plug fit remains conditional"
     },
     "initial_assembly_order": [
       "Prepare fixed carriers, BUS mounting and all inaccessible fastener stacks before crossing wires.",
       "Mount BUS with USB-C already mated and its jacket independently restrained; do not assume later axial access through its fixed pad.",
-      "Keep W009 and Pi GPIO/power disconnected/unrestrained locally; complete Pi and upper carrier on bench.",
-      "Present supported Pi with USB grip arm released, mate USB-A, restore arm and lower Pi while preserving full cable length and bend radius; releasable arm is not yet implemented.",
-      "Seat/retain cradle, then mate Pi power/GPIO and restore their individual jacket restraints.",
-      "Install W009 at D_FR.3 and restore both its restraints last; verify every wire identity and retained neighbour.",
+      "Complete the stationary GPIO housing clamp on bench before surrounding RR/AUX harness. Keep its five wires correctly mapped and restrained; W009 may remain installed.",
+      "Lower supported Pi/upper frame onto the stationary GPIO housing using the reverse received release path; USB-A remains withdrawn and supported.",
+      "Seat/retain upper carrier, mate USB-A with the reverse sidebow path and restore one main-saddle tie; no removable near-plug arm. Selected plug dimensions remain a fit gate.",
+      "Mate Pi power using the separately qualified complete-wire sequence; this sequence is still OPEN. Verify wire identities and neighbours before closure.",
       "Close panels only after shared tool access and reversible cable parking are qualified."
     ],
     "assembly_order_is_conditional_not_received": true,

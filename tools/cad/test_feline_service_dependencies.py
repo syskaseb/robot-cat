@@ -21,9 +21,11 @@ class ServiceDependencies(unittest.TestCase):
         s=self.r['shared_sequence']; ops=s['operations']
         order=list(TopologicalSorter({r['id']:set(r['requires']) for r in ops}).static_order())
         self.assertEqual(len(order),len(ops))
-        self.assertLess(order.index('release_W009'),order.index('lift_mated10'))
-        self.assertLess(order.index('lift_mated10'),order.index('unplug_USB_A'))
-        self.assertLess(order.index('unplug_USB_A'),order.index('remove_Pi'))
+        self.assertNotIn('release_W009', order)
+        self.assertNotIn('lift_mated10', order)
+        self.assertLess(order.index('retain_Pi_signals'),order.index('lift_unplugged24'))
+        self.assertLess(order.index('unplug_USB_A'),order.index('lift_unplugged24'))
+        self.assertLess(order.index('lift_unplugged24'),order.index('remove_Pi'))
         self.assertTrue(s['routine_FPI']['leg_fixed_boundaries_are_not_connectors'])
         self.assertTrue(s['routine_FPI']['bank_ends_are_not_assumed_detachable'])
         self.assertEqual(s['current_terminal_pairs']['W009/body'][1]['endpoint'],'D_FR.3')
@@ -88,8 +90,9 @@ class ServiceDependencies(unittest.TestCase):
         self.assertFalse(w['whole_service_approved'])
         self.assertFalse(w['selected_native_changed'])
         order=self.r['shared_sequence']['dependency_order']
-        self.assertLess(order.index('release_W009'),order.index('release_USB_restraint'))
-        self.assertLess(order.index('release_USB_restraint'),order.index('lift_mated10'))
+        self.assertNotIn('release_W009', order)
+        self.assertLess(order.index('release_USB_restraint'),order.index('unplug_USB_A'))
+        self.assertLess(order.index('unplug_USB_A'),order.index('lift_unplugged24'))
 
     def test_continuous_bounds_include_between_samples(self):
         e=self.r['removable_USB_planning_witness']['evidence']
