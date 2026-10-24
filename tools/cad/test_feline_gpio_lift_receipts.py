@@ -1,11 +1,23 @@
 """Receipt integrity: failed strict geometry cannot become a service PASS."""
-import hashlib,json,unittest
+import hashlib,json,unittest,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure'
 
 class ReceiptTests(unittest.TestCase):
+    def test_component_reconstruction_is_preserved_but_not_complete(self):
+        r=json.loads((OUT/'n01-Pi-component-reconstruction-20261024.json').read_text())
+        self.assertEqual(r['component_count'],33);self.assertEqual(r['strict_errors'],{})
+        self.assertFalse(r['N01_complete']);self.assertFalse(r['equivalent_union_proven'])
+        self.assertFalse(r['load_path_proven']);self.assertTrue(r['omitted'])
+        archive=ROOT/r['bundle']
+        self.assertEqual(hashlib.sha256(archive.read_bytes()).hexdigest(),r['bundle_sha256'])
+        with zipfile.ZipFile(archive) as z:
+            for row in r['geometry']:
+                self.assertTrue(row['strict_reopen'])
+                self.assertEqual(hashlib.sha256(z.read(row['entry'])).hexdigest(),row['sha256'])
+
     def test_both_probes_explicitly_ineligible(self):
         for f in ('n01-stationary-GPIO-Pi-lift-20261024.json','n01-board-only-GPIO-lift-20261024.json'):
             r=json.loads((OUT/f).read_text())
