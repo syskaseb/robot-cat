@@ -1,0 +1,272 @@
+{
+  "status": "MOTOR_END_DEEP_SERVICE_ALTERNATIVE_PARTIAL",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "selected_native_changed": false,
+  "loom": "FR2",
+  "physical_leg": "FrontRight",
+  "cad_code": "RR",
+  "cores": {
+    "D": {
+      "wire": "W009",
+      "servo_end": "FR2.D",
+      "body_end": "D_FR.3"
+    },
+    "V": {
+      "wire": "W033",
+      "servo_end": "FR2.V",
+      "body_end": "F_FR2.out"
+    },
+    "G": {
+      "wire": "W032",
+      "servo_end": "FR2.G",
+      "body_end": "FR_G.3"
+    }
+  },
+  "actual_source_connector_not_virtual_seam": true,
+  "project_only": {
+    "connector_reach_mm": 14,
+    "hand_diameter_mm": 12,
+    "hand_depth_mm": 30,
+    "supplier_fit_and_latch_geometry_verified": false
+  },
+  "received": {
+    "checks": {},
+    "errors": {},
+    "holds": [],
+    "excluded_existing_station_parts": [
+      "Station:D_FR:band_budget",
+      "Station:D_FR:case",
+      "Station:D_FR:head_budget",
+      "Station:D_FR:split_common_comb",
+      "Station:D_FR:wire:D_FR.1",
+      "Station:D_FR:wire:D_FR.2",
+      "Station:D_FR:wire:D_FR.3",
+      "Station:D_FR:wire:D_FR.4",
+      "Station:D_FR:wire:D_FR.5"
+    ],
+    "scope": "Necessary end-pose only; no full scene, path, lever or mounting approval",
+    "worker_seconds": 0.344,
+    "N01_complete": false
+  },
+  "additional_current_leg_parts": [
+    "Ref_Material_P0_Part__Feature006_0_0",
+    "Ref_Material_P0_Part__Feature007_0_0",
+    "Ref_Material_P0_Part__Feature008_0_0",
+    "Ref_Material_P0_Part__Feature009_0_0",
+    "Ref_Material_P0_Part__Feature010_0_0",
+    "Ref_Material_P0_Part__Feature011_0_0",
+    "Ref_Material_P0_Part__Feature046_0_0",
+    "Ref_Material_P0_Part__Feature047_0_0",
+    "Ref_Material_P0_Part__Feature122_0_0",
+    "Ref_Material_P0_Part__Feature040_0_0",
+    "Ref_Material_P0_Part__Feature041_0_0",
+    "Ref_Material_P0_Part__Feature042_0_0",
+    "Ref_Material_P0_Part__Feature043_0_0",
+    "Ref_Material_P0_Part__Feature044_0_0",
+    "Ref_Material_P0_Part__Feature045_0_0",
+    "Ref_Material_P0_Part__Feature072_0_0",
+    "Ref_Material_P0_Part__Feature073_0_0",
+    "Ref_Material_P0_Part__Feature074_0_0",
+    "Ref_Material_P0_Part__Feature075_0_0",
+    "Ref_Material_P0_Part__Feature076_0_0",
+    "Ref_Material_P0_Part__Feature077_0_0",
+    "Ref_Material_P0_Part__Feature116_0_0",
+    "Ref_Material_P0_Part__Feature119_0_0",
+    "Ref_Material_P0_Part__Feature001_0_0_0",
+    "Ref_Material_P0_Part__Feature078_0_0_0",
+    "Ref_Material_P0_Part__Feature079_0_0_0",
+    "Ref_Material_P0_Part__Feature104_0_0_0"
+  ],
+  "source_pcb_bounds_same_as_current_motion_inventory": true,
+  "sequence": [
+    "Isolate source and support standing robot; open service panels",
+    "Support all nine FR wires; release common FR cuff tie without loading remote terminals",
+    "Unplug the complete FR2 factory connector at the motor; do not separate contacts",
+    "Release only FR2 D/V/G routing restraints; retain remote D_FR.3/FR_G.3/F_FR2.out connections",
+    "Park complete three-core factory cable together, with actual length and bend limits; this geometry remains OPEN",
+    "Proceed with retained Pi power/USB-restraint/upper-carrier sequence only after parking receipt",
+    "Restore three-core cable and all nine-wire restraint before reconnecting source"
+  ],
+  "supersedes_no_selected_geometry": true,
+  "alternatives_preserved": {
+    "side_DFR_commit": "069c7534",
+    "side_DFR_not_selected": true
+  },
+  "open": [
+    "Complete three-core parking including shared connector and remote ends",
+    "Actual factory connector latch/stroke and finger fit",
+    "All missing current actors and service-panel access",
+    "Factory900 continuous paths to CURRENT seams; old FR2 guide not transferable"
+  ],
+  "source_sha256": {
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/harness-interfaces-plan.json": "e61fbdf3a5885541af63fcf72b924b467b093fee70efd229427f43314bf48819",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
+    "tools/cad/plan_feline_dfr_joint_access.py": "1d010c5419854d2886e5597383440433bc6d975ce9cd6628082f47570b30cc4d"
+  },
+  "current_body_overlay": {
+    "status": "RECEIVED_BODY_OVERLAY_NOT_FULL_SCENE",
+    "owners": {
+      "CurrentMiddle:W009": {
+        "receipt": "n01-current-W009-complete-body-plan.json",
+        "sha256": "a2bf4a9eaf3abd1737560b79a87d5c0456aad97d55ceb02c93dc62f1226173c2"
+      },
+      "VerticalCuff:W009/body/start": {
+        "receipt": "n01-current-W009-complete-body-plan.json",
+        "sha256": "22185ab00e386095b75070643ab9033fb38e8deca0e81f21553d11858d39cc0f"
+      },
+      "Station:D_FR:wire:D_FR.3": {
+        "receipt": "n01-current-W009-complete-body-plan.json",
+        "sha256": "8921b9d38f23498191f22a9071246228734eef2bb8812ac080bf9f8127067f5a"
+      },
+      "CurrentMiddle:W020": {
+        "receipt": "n01-current-W020-complete-body-plan.json",
+        "sha256": "90bd209ae369bee3d436429618b272a0be905e3c4bd182ee236a9c2ce92d7dde"
+      },
+      "FLArcCuff:W020/body/start": {
+        "receipt": "n01-current-W020-complete-body-plan.json",
+        "sha256": "b631d58b8a866395f138856aec90c8f876f6ce315d846fa51e0af9b7964c3a92"
+      },
+      "Station:Bank:W020/body/end:wire:W020/body/end": {
+        "receipt": "n01-current-W020-complete-body-plan.json",
+        "sha256": "9b032a483b9f4fbe63884a2f20964bcebf70db123494830344b40ba7148d7b1c"
+      },
+      "CurrentMiddle:W022": {
+        "receipt": "n01-current-W022-complete-body-plan.json",
+        "sha256": "25d96d05d273d40d4ab489ecdb84642d6afc514e2d0031403e9d7438880c8a1b"
+      },
+      "FLArcCuff:W022/body/start": {
+        "receipt": "n01-current-W022-complete-body-plan.json",
+        "sha256": "5f366ecd34d515fbbb61aab2ad1de02afbb7528365e223153b52fb96042cd6e8"
+      },
+      "Station:Bank:W022/body/end:wire:W022/body/end": {
+        "receipt": "n01-current-W022-complete-body-plan.json",
+        "sha256": "698ab3e5d6da62d5fd561eefa35c090a5a72de868592e992166756a6db7ad0ee"
+      },
+      "CurrentMiddle:W024": {
+        "receipt": "n01-current-W024-shared-complete-body-plan.json",
+        "sha256": "dd5c660fd26b18ed91553aa004705e7f9a33e5f55feac739a3428f719e21dfb7"
+      },
+      "FLArcCuff:W024/body/start": {
+        "receipt": "n01-current-W024-shared-complete-body-plan.json",
+        "sha256": "04a8ffbbc4ecdc179adc836fe92a5ba50e1148d197e42dd331eaf427f15f0ca5"
+      },
+      "Station:Bank:W024/body/end:wire:W024/body/end": {
+        "receipt": "n01-current-W024-shared-complete-body-plan.json",
+        "sha256": "712af3763ee29be37920c13d69fea5954a501f3042f721e20d3086293f980675"
+      },
+      "CurrentMiddle:W047": {
+        "receipt": "n01-current-W047-complete-body-plan.json",
+        "sha256": "f79a5411f7899e4f53da0a192007493eeba15595a97883f87394ae6c021917b6"
+      },
+      "RLArc:W047/body/start": {
+        "receipt": "n01-current-W047-complete-body-plan.json",
+        "sha256": "3a13d202b126d07598bbe8db9cf4fe518919f34878de85e0bd211b1e01e67a6b"
+      },
+      "Station:Bank:W047/body/end:wire:W047/body/end": {
+        "receipt": "n01-current-W047-complete-body-plan.json",
+        "sha256": "c0cad4a34a62900ace2ff4834450d0c33153cf7a0b0f40952c51db65f20be704"
+      },
+      "CurrentMiddle:W069": {
+        "receipt": "n01-current-W069-complete-body-plan.json",
+        "sha256": "fe61782575e421708d51621cbb2be7c37ce9834583d32e6ed95f6e4573972a07"
+      },
+      "RLArc:W069/body/start": {
+        "receipt": "n01-current-W069-complete-body-plan.json",
+        "sha256": "755703e332367a1bd5e38786c5a1a84c8465e54076ff7c085cee0948945e745f"
+      },
+      "Station:RL_G:wire:RL_G.1": {
+        "receipt": "n01-current-W069-complete-body-plan.json",
+        "sha256": "072b3c64616eb954bef06b78dd48c466cd16e4f6f7d0a072a10a264d65fa609f"
+      },
+      "CurrentMiddle:W031": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "21c699c6413e86e4e4f285b7ffc3f0c6cf45004d997409de38427a425aaf41be"
+      },
+      "VerticalCuff:W031/body/start": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "3bf0369393e9e8dac8b4c8ff81a1e8f1f5b97840240bd4cfb61341f9d23b8cf3"
+      },
+      "Station:Bank:W031/body/end:wire:W031/body/end": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "dc66e56ddfe386d08a3078962c07a0cf1283501e1d5294d630509a52937245ed"
+      },
+      "Station:Bank:W031/body/end:split_cap_exterior": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "7ca06ef7b1e4a09dd73ff988ac0400d53eb09fa07658f1418abc738a883c01c8"
+      },
+      "CurrentMiddle:W033": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "54030dfe1451e90a7abb70a2c5a14ae037ccc6b06a48cf86ed81834b079a7ab4"
+      },
+      "VerticalCuff:W033/body/start": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "452eb7646e60c12cadfc071339f31966f6496a746c7db6717943a111f61ac1a4"
+      },
+      "Station:Bank:W033/body/end:wire:W033/body/end": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "e903f1869c1862af5d40814bb0a28156b74fe64aa24df403ba811ca1751ad459"
+      },
+      "Station:Bank:W033/body/end:split_cap_exterior": {
+        "receipt": "n01-FR-W031-W033-common-body-plan.json",
+        "sha256": "62192dfb47af60fcddb74225b703c1fef40bfcb14b32778eebbbd4d94b2a9109"
+      },
+      "CurrentMiddle:W035": {
+        "receipt": "n01-current-W035-retained-source-body-plan.json",
+        "sha256": "b8bcb7bd2174368c0c371cfe329a033fe60e024ca9de4148068426a6542e2f2c"
+      },
+      "Station:Bank:W035/body/end:wire:W035/body/end": {
+        "receipt": "n01-current-W035-retained-source-body-plan.json",
+        "sha256": "d672eef394cbf2731018112cfbbb177c95fd896db1bbc547bfd0f1265dfa999a"
+      },
+      "Station:Bank:W035/body/end:split_cap_exterior": {
+        "receipt": "n01-current-W035-retained-source-body-plan.json",
+        "sha256": "aa550c3602af140e34e2edbd541391485bb6424e9259ff68b4dda7ac040c1214"
+      },
+      "CurrentFoundation:ClampSeat:4": {
+        "receipt": "n01-W046-original-prefix-portal-body.json",
+        "sha256": "028cbc58d08e102abb3ca9c40667008fe2835f199838ffd8d50a904089cb980d"
+      },
+      "CurrentFoundation:BankPier:4": {
+        "receipt": "n01-W046-original-prefix-portal-body.json",
+        "sha256": "2b6a5e6c92d6bd304ce156441dfb4df2a0f0ae10f032b6dcf91e99100a0c1e4e"
+      },
+      "CurrentMiddle:W046": {
+        "receipt": "n01-W046-original-prefix-portal-body.json",
+        "sha256": "a5f5e90fac43e0fbd42186637a56a101c6bffecc6c4820d38b3293ce1da29cb6"
+      }
+    },
+    "source_sha256": {
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W009-complete-body-plan.json": "e1bc6bd6662f6ba0f3d8647541dd1f1896737fb0ccc9e6c4f3671669e56ad49f",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W020-complete-body-plan.json": "ae597bfd73ae8cf1c8beabd05321738b5cd97ef029912215043c7cb305830bfa",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W022-complete-body-plan.json": "7956744763d8f8332b712ccfbf4087ce4502bce2cd29bfc956f5b625ec12d13a",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W024-shared-complete-body-plan.json": "03f2361d559659b609c46be37bf2d2095fda39db730bd4786048cfe5d1379130",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W047-complete-body-plan.json": "bfa94a199c740c9c5b6635badd27b19e5ca6b15fbb49465e69678ada39e2be42",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W069-complete-body-plan.json": "d0621c476aefb0e249b451f607c58d427e05a4670fc668e0f7b76083a5aa5af0",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-FR-W031-W033-common-body-plan.json": "491ea8f30b06a048f56f7d84496e8b1de6be274f813ea888c242d9a4a2dad033",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W035-retained-source-body-plan.json": "c25f6e7e6b762d2a32a9c5e59c1543c60e0936b624cfca9e5a23084feb8431b9",
+      "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W046-original-prefix-portal-body.json": "a60fc654c323e0ac2f6a5fd68f69c4e0155168549ed5eddc58aedacac065acdc"
+    },
+    "excluded_proof_shapes": [
+      "MotionProof:Trunk",
+      "MotionProof:Branch"
+    ],
+    "added_names": [
+      "CurrentMiddle:W009",
+      "CurrentMiddle:W031",
+      "CurrentMiddle:W033",
+      "CurrentMiddle:W035",
+      "CurrentMiddle:W046",
+      "CurrentMiddle:W047",
+      "CurrentMiddle:W069"
+    ],
+    "count_before": 1251,
+    "count_after": 1258,
+    "whole_scene_received": false,
+    "N01_complete": false,
+    "physical_pass": false,
+    "canonical_BUS_and_other_missing_actors_still_required": true
+  }
+}
