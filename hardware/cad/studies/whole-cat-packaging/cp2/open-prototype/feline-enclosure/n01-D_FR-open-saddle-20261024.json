@@ -1,0 +1,329 @@
+{
+  "status": "OPEN_SADDLE_CANDIDATE_STATIC_ONLY",
+  "N01_complete": false,
+  "physical_pass": false,
+  "selected_native_changed": false,
+  "recipe": {
+    "status": "PLANNING_CANDIDATE_NOT_SELECTED",
+    "wire_centres_and_purchased_parts_changed": false,
+    "seat_length_mm": 9,
+    "nominal_radial_groove_gap_mm": 0.15,
+    "tie_crown_Z_mm": 46.81,
+    "cap_removed": true,
+    "service_intent": "Support five wires, cut nylon, release chosen wire; no PETG cap extraction.",
+    "open": [
+      "Tie cutting/support access",
+      "Whole W009 parking",
+      "Native integration",
+      "Individual pull retention after physical fitting"
+    ],
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "external_check": {
+    "checks": {
+      "open_base|Station:D_FR:wire:D_FR.1": {
+        "gap_mm": 0.14999999999999716,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "open_base|Station:D_FR:wire:D_FR.2": {
+        "gap_mm": 0.14999999999999716,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "open_base|Station:D_FR:wire:D_FR.3": {
+        "gap_mm": 0.14999999999999858,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "open_base|Station:D_FR:wire:D_FR.4": {
+        "gap_mm": 0.14999999999999858,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "open_base|Station:D_FR:wire:D_FR.5": {
+        "gap_mm": 0.14999999999999689,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "open_base|CurrentMiddle:W009": {
+        "gap_mm": 3.0037476591751164,
+        "minimum_mm": 0.5,
+        "ok": true
+      },
+      "lower_band|Station:D_FR:wire:D_FR.1": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "lower_band|Station:D_FR:wire:D_FR.2": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "lower_band|Station:D_FR:wire:D_FR.3": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "lower_band|Station:D_FR:wire:D_FR.4": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.0,
+        "ok": true
+      },
+      "lower_band|Station:D_FR:wire:D_FR.5": {
+        "gap_mm": 0.0,
+        "minimum_mm": 0.0,
+        "ok": true
+      }
+    },
+    "errors": {},
+    "failures": [],
+    "removal_hypotheses": [
+      "Station:D_FR:band_budget",
+      "Station:D_FR:head_budget",
+      "Station:D_FR:split_common_comb"
+    ],
+    "worker_seconds": 1.375,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "own_wire_checks": {
+    "Station:D_FR:wire:D_FR.1": {
+      "band_common_mm3": 0.0,
+      "band_distance_mm": 7.105427357601002e-15,
+      "base_gap_mm": 0.14999999999999716
+    },
+    "Station:D_FR:wire:D_FR.2": {
+      "band_common_mm3": 0.0,
+      "band_distance_mm": 7.105427357601002e-15,
+      "base_gap_mm": 0.14999999999999716
+    },
+    "Station:D_FR:wire:D_FR.3": {
+      "band_common_mm3": 0.0,
+      "band_distance_mm": 7.105427357601002e-15,
+      "base_gap_mm": 0.14999999999999858
+    },
+    "Station:D_FR:wire:D_FR.4": {
+      "band_common_mm3": 0.0,
+      "band_distance_mm": 7.105427357601002e-15,
+      "base_gap_mm": 0.14999999999999858
+    },
+    "Station:D_FR:wire:D_FR.5": {
+      "band_common_mm3": 0.0,
+      "band_distance_mm": 7.160723346098895e-15,
+      "base_gap_mm": 0.14999999999999689
+    }
+  },
+  "base_is_subset": true,
+  "unchanged_head_contact_gap_mm": 0,
+  "rejected_inward_tab": {
+    "checks": {
+      "checks": {
+        "tab_lift|CurrentMiddle:W024": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "tab_lift|CurrentMiddle:W009": {
+          "gap_mm": 6.131471213250751,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "tab_lift|CurrentMiddle:W047": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "tab_lift|CurrentMiddle:W035": {
+          "gap_mm": 16.599600993920586,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "tab_slide|CurrentMiddle:W024": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "tab_slide|CurrentMiddle:W009": {
+          "gap_mm": 7.007160744078608,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "tab_slide|CurrentMiddle:W047": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "tab_slide|CurrentMiddle:W035": {
+          "gap_mm": 8.589335578776401,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "hand_sweep|W043": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:P_SYS:case": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:P_SYS:band_lowY": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:P_SYS:band_lowZ": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:P_SYS:band_highZ": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:P_SYS:one_common_band_head": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:Bank:W024/body/end:wire:W024/body/end": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:Bank:W035/body/end:wire:W035/body/end": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|P_SYS_entry:W067": {
+          "gap_mm": 2.400000000000002,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "hand_sweep|P_SYS_entry:W068": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|CurrentMiddle:W020": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|CurrentMiddle:W024": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|CurrentMiddle:W009": {
+          "gap_mm": 8.388001260851777,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "hand_sweep|CurrentMiddle:W047": {
+          "gap_mm": 1.0,
+          "minimum_mm": 0.5,
+          "ok": true
+        },
+        "hand_sweep|CurrentMiddle:W035": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        },
+        "hand_sweep|Station:P_SYS:common_channelled_cap_exterior": {
+          "gap_mm": 0.0,
+          "minimum_mm": 0.5,
+          "ok": false
+        }
+      },
+      "errors": {},
+      "failures": [
+        "tab_lift|CurrentMiddle:W024",
+        "tab_lift|CurrentMiddle:W047",
+        "tab_slide|CurrentMiddle:W024",
+        "tab_slide|CurrentMiddle:W047",
+        "hand_sweep|W043",
+        "hand_sweep|Station:P_SYS:case",
+        "hand_sweep|Station:P_SYS:band_lowY",
+        "hand_sweep|Station:P_SYS:band_lowZ",
+        "hand_sweep|Station:P_SYS:band_highZ",
+        "hand_sweep|Station:P_SYS:one_common_band_head",
+        "hand_sweep|Station:Bank:W024/body/end:wire:W024/body/end",
+        "hand_sweep|Station:Bank:W035/body/end:wire:W035/body/end",
+        "hand_sweep|P_SYS_entry:W068",
+        "hand_sweep|CurrentMiddle:W020",
+        "hand_sweep|CurrentMiddle:W024",
+        "hand_sweep|CurrentMiddle:W035",
+        "hand_sweep|Station:P_SYS:common_channelled_cap_exterior"
+      ],
+      "removal_hypotheses": [
+        "Station:D_FR:band_budget",
+        "Station:D_FR:head_budget",
+        "Station:D_FR:split_common_comb"
+      ],
+      "worker_seconds": 2.047,
+      "complete_service_received": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "strict_W024_intersection_mm3": 1.7309842415229493,
+    "not_to_repeat": true
+  },
+  "geometry": [
+    {
+      "name": "base",
+      "entry": "0.brep",
+      "sha256": "48e852459ceda87c47b2b03a6a2602a758524342f38259ae42c3ef096e4e9876"
+    },
+    {
+      "name": "band",
+      "entry": "1.brep",
+      "sha256": "2fc60a9373868ea8e831b80da4a136bfbf31e890796ab2bcb2b73e6bebcb32df"
+    },
+    {
+      "name": "head",
+      "entry": "2.brep",
+      "sha256": "3d6aed7aeab2aa877353a61c65772f258f45cf65aed834b6f579fb5fdb7d89da"
+    },
+    {
+      "name": "rejected_inward_tab_lift",
+      "entry": "3.brep",
+      "sha256": "a693d8c23a2ff6b013f94e7839615f16745f86d1ec851b4e36f0147763df6658"
+    },
+    {
+      "name": "rejected_tab_W024_common",
+      "entry": "4.brep",
+      "sha256": "5e50b5d732735bf86f0c390a6c38bee126dd37faea7b7fd4563d70c6666a5d93"
+    }
+  ],
+  "bundle": "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-D_FR-open-saddle-20261024.breps.zip",
+  "bundle_sha256": "7fcf4d2206ec91b6bc130495f5cb731dcc32b4c38463550ba10724a1faa3224a",
+  "source_sha256": {
+    "tools/cad/plan_feline_usb_release_extension.py": "48477ef0135c977b6e061f07c095ac2d6ab8b3cea180bd0b6e51c0018b4ef648",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-USB-unplug-tail-cover-20261024.json": "dfd7796b8835229e1f590c2cd7d8b592c3eb8f284c53fbdb28c03cc9e80566ea",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-gallery.outer.brep": "12b6b7192b89c663a0ac860d35adf54ace023891d19865e941f5de37dab52a16",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W009-complete-body-plan.json": "e1bc6bd6662f6ba0f3d8647541dd1f1896737fb0ccc9e6c4f3671669e56ad49f",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W020-complete-body-plan.json": "ae597bfd73ae8cf1c8beabd05321738b5cd97ef029912215043c7cb305830bfa",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W022-complete-body-plan.json": "7956744763d8f8332b712ccfbf4087ce4502bce2cd29bfc956f5b625ec12d13a",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W024-shared-complete-body-plan.json": "03f2361d559659b609c46be37bf2d2095fda39db730bd4786048cfe5d1379130",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W047-complete-body-plan.json": "bfa94a199c740c9c5b6635badd27b19e5ca6b15fbb49465e69678ada39e2be42",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W069-complete-body-plan.json": "d0621c476aefb0e249b451f607c58d427e05a4670fc668e0f7b76083a5aa5af0",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-FR-W031-W033-common-body-plan.json": "491ea8f30b06a048f56f7d84496e8b1de6be274f813ea888c242d9a4a2dad033",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-current-W035-retained-source-body-plan.json": "c25f6e7e6b762d2a32a9c5e59c1543c60e0936b624cfca9e5a23084feb8431b9",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-W046-original-prefix-portal-body.json": "a60fc654c323e0ac2f6a5fd68f69c4e0155168549ed5eddc58aedacac065acdc",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-bound-actors-restored-20261024.json": "55f24f7496cb52c8378067fa8955517aba3bdc0ec7b069f28c8160c011353498",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-provider-actors-restored-20261024.json": "18fee5d982797e4f08743d0b765c462987e8ce9356c282e4fea3b0661e6ffc7c",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-dependency-decision-20261023.json": "518d8b022fe964ce035dd61118c173cd55e46e0deb76d857e0c739d09cada2d6",
+    "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-GPIO-distal-counterhold-20261024.json": "a4154fc719a91dca8a13bad8d1a3c8420bb51657da72f2c0d37ec043523982ec",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-D_FR-current-access-20261024.json": "a44b6e5d101ccb3c3bc0572d2d6b806bfa4071036408b7c01c617fa6a320914c",
+    "tools/cad/plan_feline_dfr_open_saddle.py": "83a0b07c77995a87081334319d602ee0d361512a33f88dd2305562f8109fe315"
+  },
+  "interpretation": "Common nylon bears all five equal nominal crowns. This is geometric support intent, NOT proof of individual pull retention; physical fit required. No claim of complete service or full N01."
+}
