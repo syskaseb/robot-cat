@@ -1,0 +1,38 @@
+{
+  "proposal_id": "JOINT24-F-RECEIPT",
+  "status": "HOLD_whole_14_path_trial_not_received",
+  "N01_count": 0,
+  "N01_total": 10,
+  "source_plan": "prototype-joint-endpoints-20261024-plan.json",
+  "source_plan_sha256": "1d2f0b96929fa183edcb2463ae8bed9eb5bc0f950933b7428f0d7a4b25948a5a",
+  "changes": [
+    "Removed artificial12mm tie-head lane and3mm free tip, preserving full9mm grooves and selected parts/radii.",
+    "G_AUX kept at reviewed+24Y; entire D_RR properly rotated90Z and moved20Y, case centre[15.625,-35,98], exits-X, all groove identities retained.",
+    "Moved own printed hanger behind all five exits; no P0/R47 removal. MAIN original valid one-print support retained."
+  ],
+  "local_evidence": {
+    "whole_station_pose": {
+      "pairs": 53,
+      "errors": 0,
+      "intersection_hits": 0
+    },
+    "ten_exit_corridors": {
+      "pairs": 92,
+      "errors": 0,
+      "material_intersections": 0,
+      "unresolved_packing_reservation": "XA06 packing envelope versus W057 head budget0.056262mm3; nominal gap0.349259mm. Not whole acceptance."
+    },
+    "selected_tie": "Two T18I100; conservative loops+7mm head+20mm bench pull94.5/92.1mm; individual pull/tightening remains physical fitting gate."
+  },
+  "whole_body_trial": {
+    "five_ground_paths": "Rejected as a shared candidate: XA04 F_PI108.963658mm3,F_L1terminal47.762949,P0side10.771310; XA05 F_L2terminal6.332368/BankPortal2carrier12.478693; XB13 S0body106.565056; XB23 other fixed source cuffs16.429303/1.736260/6.504216. XA06 no positive intersections against checked valid material, but invalid source neighbors prevent whole receipt.",
+    "source_invalid_actors": 52,
+    "changed_input_W060": "No positive rigid intersections in checked valid subset; ATO F_R4 access reservation0.536188mm3 still open.",
+    "changed_input_W078": "V2 rejected for P0 beam; V3 keeps48.1mm shared gallery, pending receipt.",
+    "factory_RR3": "Not received; RRFlatResource proven capacity rather than purchased material.900mm is whole factory lead, not available body length.",
+    "W078_splice_source": "Provisional boundary only, full source relief/anchor not received."
+  },
+  "decision": "Do not promote isolated clear exits or text review to N01. Stop this failed whole-body routing family. Next proposal must first allocate broad shared trunk space together with printed supports and assembly sequence; exact per-wire body splines only where a concrete constraint requires them. Do not generate another family of one-off detours. No component substitutions, root/beam cuts or physical PASS.",
+  "review_question": "Single allowed correction follow-up: identify up to3 substantive errors in this disposition and whether the local exits can be retained as an unselected reusable subresult. Text review only; no CAD, edits, agents, commits or messaging back. Read only named frozen plan, this receipt and named checks if needed. Main worker owns geometry and final decision.",
+  "physical_pass": false
+}

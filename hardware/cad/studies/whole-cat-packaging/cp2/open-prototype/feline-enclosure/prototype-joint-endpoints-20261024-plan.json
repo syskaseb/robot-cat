@@ -1,0 +1,36 @@
+{
+  "package_id": "JOINT24-F-PLAN",
+  "status": "FROZEN_PLAN_FOR_REVIEW_NOT_GEOMETRY_RECEIPT",
+  "source_sha256": {
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\feline_shared_straight_combs.py": "d62b1f9f34c9a919e91cb748fd6158f9ebce592782af8047d18848e30d06bd81",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\feline_t18i_two_lane.py": "96b930bedb6fa46e7356b4cfc569eba987e5922cb2f38ed4f40956fa309bc150",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\feline_t18i_selected_head.py": "1e1d236fdf5f11c47f9ceaf97703611445efcdb8cb3396da72d8399c0d9ddc8d",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\prototype-layout-review-20261024.json": "cec14678f5256a233cb5a12599b77f27604f4f23ebb870723bf3a7c75bca0a7b",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+  },
+  "source_excerpt": {
+    "shared_straight": "start=q+d*.25;tip=q+d*12.25; grip_length_mm=9",
+    "two_lane": "LANE_PITCH_MM=12; reason: adjacent heads; wire length12.25+LANE_PITCH; whole_extra_straight_mm=lane*12"
+  },
+  "rejected": [
+    "Top+24Y with original lane1/free3: G_AUX down arc/occupied GPIO27.8018mm3; DRR/rack36.4028",
+    "Lower+20Z architecture: case/ATO439.12275mm3 plus exits into F_R4/F_R5",
+    "Fore bay: case/retained XScomb lower101.7926 and lid200.5789, three XS wires5.5156each; MAINprint143.5167"
+  ],
+  "proposal": [
+    "Keep purchased cases, boards, battery at reviewed LAYOUT24-C poses, both D_RR/G_AUX +24Y. RR_G unchanged.",
+    "Replace lane1 extra12mm and archived free3mm extension with full9mm independent wire grooves at .25..9.25 from mouth. Preserve all physical minimum radii and selected profiles.",
+    "Two open shared5wire combs, two selected100mmT18I; heads outward, not between adjacent groups. Rotate D_RR clamp/band/head as a proper180deg rotation about wire axis, never mirror purchased head.",
+    "Open common exit in shelf only after full9mm grip, allow grouped downward bend before occupiedGPIO; do not move GPIO or add rapid service.",
+    "Assembly: attach case-only tape, place individual insulated wires into open half grooves, close snug ties from exterior, lower shared shelf with upper Pi rail; no lever straps.",
+    "Next gate whole changed14physical endpoint/length/assembly feasibility, exact local arcs only at mouths; no universal wire-by-wire air gap. W078 splice input still unreceived and factory bodies900mm must include retained legs."
+  ],
+  "assumptions_open": [
+    "Removing artificial lane12 and free3 is allowed for custom wires; lengths and downstream all remain to be received",
+    "Full9mm restraint/pull, head access and print load path must be rechecked in shared geometry",
+    "Selected nominal wire differs from old capacity cylinders for XB13/XB23/W060/W078, not SKU change"
+  ],
+  "question": "Is replacing artificial lane staggering by outward heads and early post-full9 bends a justified simpler architecture for this prototype, or is a physical constraint omitted? Maximum5 evidence-based comments; no CAD compute/edits.",
+  "N01_complete": false,
+  "physical_pass": false
+}
