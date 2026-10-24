@@ -227,12 +227,50 @@ def save_packet(out, scene, moved, shapes, recipes, evidence):
     return packet,dict(path=str(dest),sha256=digest(dest))
 
 
+def packing_fans():
+    """Four local cubic transitions; exact detail only at the changed mouths."""
+    result={}
+    for end,x,y,z,sign in [('MAIN',5.7,Y_MAIN,96.55,1),('Pi',74.7,Y_PI,101.6,-1)]:
+        for wire,sense in [('W079',sign),('W080',-sign)]:
+            c=Part.BezierCurve()
+            c.setPoles([A.Vector(x,y+sense*1.75,z),A.Vector(x+5,y+sense*1.75,z),
+                        A.Vector(x+10,y+sense*1.05,z),A.Vector(x+15,y+sense*1.05,z)])
+            spine=Part.Wire(c.toShape())
+            profile=Part.Wire(Part.makeCircle(1.05,c.value(0),A.Vector(1,0,0)))
+            shape=spine.makePipeShell([profile],True,False);shape.check(True)
+            assert shape.isValid() and len(shape.Solids)==1
+            result[f'{end}:{wire}']=shape
+    return result,dict(span_mm=15,offset_change_mm=.7,
+        curvature_upper_per_mm=6*.7/15**2,minimum_radius_bound_mm=15**2/(6*.7),
+        per_fan_length_upper_mm=15+.7,
+        derivation='Linear x and cubic smoothstep y; |y second derivative|<=6*.7/L^2; arc length<=L+total y variation',
+        nominal_wire_radius_mm=1.05,actual_OD_and_clamp_fit_phase2_gate=True)
+
+
+def pair_bounds(parts,prefix_lengths,source_bare_length):
+    turn=sum(abs(p.get('angle',0)) for p in parts)
+    normal=A.Vector(0,1,0)
+    for p in parts:
+        if p['kind']=='arc':
+            axis=A.Vector(*p['tangent']).cross(A.Vector(*p['bend']))
+            normal=A.Rotation(axis,math.degrees(p['angle'])).multVec(normal)
+    assert (normal-A.Vector(0,-1,0)).Length<1e-8
+    return dict(parallel_transport_normal_end=list(normal),total_turn_rad=turn,
+        inner_wire_min_radius_mm=min(p.get('radius',math.inf) for p in parts)-1.05,
+        derivation='Constant +/-1.05mm Bishop parallel transported offset: radius>=centre radius-1.05; length<=centre length+1.05*total absolute turning. Start+Y maps to end-Y; no polarity exchange.',
+        length_upper_with40mm_trim_terminal_allowance={w:v+9+21+source_bare_length+
+            tr.length(parts)+1.05*turn+2*(15+.7)+40 for w,v in prefix_lengths.items()},
+        existing_350mm_plan_insufficient=True,new_provisional_allocation_per_colour_mm=460,
+        red_1m_minus_existing210_and_new460_mm=330,black_1m_minus_existing220_and_new460_mm=320,
+        entire_stock_ledger_and_as_cut_physical_lengths_NOT_received=True)
+
+
 def diagram(packet):
     """Dimensioned XY/XZ planning projection, not a render or collision proof."""
     rows = packet['module_bounds_mm']
     paths = []
     for p in packet['corridor']['parts']:
-        paths.extend(tr.samples(p, 2).tolist())
+        paths.extend(list(tr.samples(p, 2)))
     out = ['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">',
            '<rect width="1200" height="850" fill="white"/>',
            '<style>text{font:14px sans-serif} .small{font-size:11px}</style>',

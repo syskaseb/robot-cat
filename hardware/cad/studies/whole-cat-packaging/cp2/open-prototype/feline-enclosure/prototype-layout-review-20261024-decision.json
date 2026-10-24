@@ -1,0 +1,392 @@
+{
+  "package_id": "LAYOUT24-C-01-DISPOSITION",
+  "reviewed_snapshot_commit": "b8958dc4",
+  "reviewed_packet_sha256": "cec14678f5256a233cb5a12599b77f27604f4f23ebb870723bf3a7c75bca0a7b",
+  "reviewed_archive_sha256": "b99b233533561b52c940b32e80c53b7a8e9b2b79b314595890494685db2645c8",
+  "current_generator_sha256": "75ea5682aeebf903d20106c73c3f6bab763c94ab64befa02a3d4bb396a0dab7d",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "reviewer_model_effort": "gpt-6-astra medium",
+  "review_turn": "01a16f70-257a-75d2-816f-6476a3c84694",
+  "review_seconds": 43.203,
+  "followup_turn": "01a16f76-498a-7a43-92c7-1867f570496e",
+  "followup_seconds": 13.019,
+  "verdict": "gotowe_do_proby",
+  "implementer_decision": "ACCEPT architecture for ONE next compilation trial; no selected native/master release",
+  "N01_complete": false,
+  "physical_pass": false,
+  "review_is_text_not_independent_geometry": true,
+  "geometry_archive": {
+    "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\prototype-layout-review-20261024-followup.breps.zip",
+    "sha256": "9471b8a6a962af41aa92fc12cb863e25b3b2c144ca299d561cb96d6b206f5ca2",
+    "members": {
+      "rack_one_print": {
+        "member": "0.brep",
+        "sha256": "4f6d7afe03025ef7b1caf4b9366ea3eedd2d799002aa86c5c144968de41b7ea3",
+        "strict_reopen": true,
+        "bounds_mm": [
+          [
+            -11.39384800098418,
+            -67.0,
+            90.0
+          ],
+          [
+            118.50000010000001,
+            37.468109634714,
+            109.4
+          ]
+        ]
+      },
+      "MAIN_one_print": {
+        "member": "1.brep",
+        "sha256": "88309246fd975de7bb41979b6bd1ac046d0618272bbbe0359c5f1f3485a9be8f",
+        "strict_reopen": true,
+        "bounds_mm": [
+          [
+            -117.84500000000004,
+            -94.90850010000001,
+            34.7
+          ],
+          [
+            5.7,
+            -39.475,
+            106.28904755831475
+          ]
+        ]
+      },
+      "MAIN:W079": {
+        "member": "2.brep",
+        "sha256": "08854100879fbe4154699c8cbd8086c9e0190255caf72f6d0dce1eb00e2df950",
+        "strict_reopen": true,
+        "bounds_mm": [
+          [
+            5.699999899999979,
+            -78.63750010000001,
+            95.4999998999997
+          ],
+          [
+            20.700000100000018,
+            -75.83749989999967,
+            97.60000010000002
+          ]
+        ]
+      },
+      "MAIN:W080": {
+        "member": "3.brep",
+        "sha256": "21da336bab866610861c558d45c572d0071e307855b9c637112179260f251aac",
+        "strict_reopen": true,
+        "bounds_mm": [
+          [
+            5.699999899999995,
+            -81.43750009999997,
+            95.4999998999997
+          ],
+          [
+            20.700000100000018,
+            -78.63749989999978,
+            97.60000010000002
+          ]
+        ]
+      },
+      "Pi:W079": {
+        "member": "4.brep",
+        "sha256": "30fcd0ef06597c98d9ec3583a582ae8b419c9b8aa6961724a0cabc83e07148a7",
+        "strict_reopen": true,
+        "bounds_mm": [
+          [
+            74.69999989999987,
+            45.56810953471373,
+            100.54999989999985
+          ],
+          [
+            89.70000010000012,
+            48.368109734713826,
+            102.65000010000001
+          ]
+        ]
+      },
+      "Pi:W080": {
+        "member": "5.brep",
+        "sha256": "a6b740c9d3fb1409a69cdce8b3da49548bcd8f7a493d1a4ef8be95549af5b060",
+        "strict_reopen": true,
+        "bounds_mm": [
+          [
+            74.69999989999987,
+            48.368109534713724,
+            100.54999989999985
+          ],
+          [
+            89.70000010000012,
+            51.16810973471383,
+            102.65000010000001
+          ]
+        ]
+      }
+    }
+  },
+  "decisions": [
+    {
+      "issue": "rack load path",
+      "decision": "One fused print with retained upper U rail and both combs; strict oneSolid, physical strength OPEN"
+    },
+    {
+      "issue": "remote leads",
+      "decision": "FIRST next gate: ten moved station remote transitions, four MAIN remote paths, factory lengths and assembly together. Not received here."
+    },
+    {
+      "issue": "pair radius and length",
+      "decision": "Conservative constructive bound plus four local strict sweeps; see pair_bounds/fans. Full stock ledger and installed geometry remain OPEN."
+    },
+    {
+      "issue": "bought-part poses",
+      "decision": "PCB/battery/other hardware fixed; explicit exceptions D_RR/G_AUX cases and their local comb/ends translate +24Y"
+    },
+    {
+      "issue": "snapshot hashes",
+      "decision": "Initial message had extra characters copied from wrapped terminal. Correct actual hashes verified by reviewer and direct file hashes; JSON/archive were unchanged."
+    }
+  ],
+  "pair_bounds": {
+    "parallel_transport_normal_end": [
+      -2.9976021664879234e-15,
+      -1.0000000000000004,
+      1.00579765415679e-29
+    ],
+    "total_turn_rad": 6.407249381796946,
+    "inner_wire_min_radius_mm": 18.18916015624996,
+    "derivation": "Constant +/-1.05mm Bishop parallel transported offset: radius>=centre radius-1.05; length<=centre length+1.05*total absolute turning. Start+Y maps to end-Y; no polarity exchange.",
+    "length_upper_with40mm_trim_terminal_allowance": {
+      "W079": 448.8006836223584,
+      "W080": 455.30289647857626
+    },
+    "existing_350mm_plan_insufficient": true,
+    "new_provisional_allocation_per_colour_mm": 460,
+    "red_1m_minus_existing210_and_new460_mm": 330,
+    "black_1m_minus_existing220_and_new460_mm": 320,
+    "entire_stock_ledger_and_as_cut_physical_lengths_NOT_received": true
+  },
+  "fan_recipe": {
+    "span_mm": 15,
+    "offset_change_mm": 0.7,
+    "curvature_upper_per_mm": 0.018666666666666665,
+    "minimum_radius_bound_mm": 53.571428571428584,
+    "per_fan_length_upper_mm": 15.7,
+    "derivation": "Linear x and cubic smoothstep y; |y second derivative|<=6*.7/L^2; arc length<=L+total y variation",
+    "nominal_wire_radius_mm": 1.05,
+    "actual_OD_and_clamp_fit_phase2_gate": true
+  },
+  "fan_nominal_checks": [
+    {
+      "fan": "MAIN:W079",
+      "part": "MAINexit",
+      "gap_mm": 0.14999999999830138,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W079",
+      "part": "PASbody",
+      "gap_mm": 126.35375173608887,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W079",
+      "part": "PASupper",
+      "gap_mm": 58.19802631300499,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W079",
+      "part": "rack",
+      "gap_mm": 8.837626421441808,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W079",
+      "part": "newMain",
+      "gap_mm": 17.875478123307527,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W080",
+      "part": "MAINexit",
+      "gap_mm": 0.14999999999830316,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W080",
+      "part": "PASbody",
+      "gap_mm": 128.11305789339355,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W080",
+      "part": "PASupper",
+      "gap_mm": 61.648903756232464,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W080",
+      "part": "rack",
+      "gap_mm": 12.039556349538062,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAIN:W080",
+      "part": "newMain",
+      "gap_mm": 18.63499638581399,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W079",
+      "part": "MAINexit",
+      "gap_mm": 138.18041004526444,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W079",
+      "part": "PASbody",
+      "gap_mm": 0.6500000000000199,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W079",
+      "part": "PASupper",
+      "gap_mm": 15.941497402749679,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W079",
+      "part": "rack",
+      "gap_mm": 67.88417670621125,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W079",
+      "part": "newMain",
+      "gap_mm": 145.3711844974881,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W080",
+      "part": "MAINexit",
+      "gap_mm": 141.22328358254026,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W080",
+      "part": "PASbody",
+      "gap_mm": 0.6499999999989828,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W080",
+      "part": "PASupper",
+      "gap_mm": 18.665832309213723,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W080",
+      "part": "rack",
+      "gap_mm": 71.34438177084252,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pi:W080",
+      "part": "newMain",
+      "gap_mm": 148.17043489041245,
+      "common_mm3": 0.0
+    }
+  ],
+  "fan_nominal_checks_seconds": 1.437000000034459,
+  "fan_loose_reservation_checks": {
+    "seconds": 0.9690000000409782,
+    "rows": [],
+    "exclusions": "retired SharedPi carrier and MAIN local root/comb/ends; remote paths OPEN"
+  },
+  "fan_loose_new_interfaces": [
+    {
+      "fan": "MAINpacking_fan",
+      "part": "rack",
+      "gap_mm": 8.337607410889916,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAINpacking_fan",
+      "part": "MAINfork",
+      "gap_mm": 17.811735382178497,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAINpacking_fan",
+      "part": "MAINexit",
+      "gap_mm": 0.0,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAINpacking_fan",
+      "part": "PASbody",
+      "gap_mm": 125.3455074940891,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "MAINpacking_fan",
+      "part": "PASupper",
+      "gap_mm": 57.68393520851087,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pipacking_fan",
+      "part": "rack",
+      "gap_mm": 67.37997009812045,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pipacking_fan",
+      "part": "MAINfork",
+      "gap_mm": 144.97336009774384,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pipacking_fan",
+      "part": "MAINexit",
+      "gap_mm": 137.74726015388478,
+      "common_mm3": 0.0
+    },
+    {
+      "fan": "Pipacking_fan",
+      "part": "PASbody",
+      "gap_mm": 0.0,
+      "common_mm3": 0.08115622287497183
+    },
+    {
+      "fan": "Pipacking_fan",
+      "part": "PASupper",
+      "gap_mm": 15.369015360379322,
+      "common_mm3": 0.0
+    }
+  ],
+  "fan_loose_reservation_caveat": "R3.3 loose envelope intersects own PAS 0.081156mm3. Actual nominal fan wires have zero common and >=.65mm gap. Do not label complete loose installation-envelope PASS; fit through open clamp before tightening remains next assembly evidence.",
+  "bearing_coplanar_face_overlap": [
+    {
+      "part": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+      "Z_mm": 99.25,
+      "coplanar_face_overlap_mm2": 36.40799045348734
+    },
+    {
+      "part": "Ref_Material_MAIN_0_lower_washer_0_0",
+      "Z_mm": 91.25,
+      "coplanar_face_overlap_mm2": 14.151584935405438
+    },
+    {
+      "part": "Ref_Material_MAIN_1_lower_washer_0_0",
+      "Z_mm": 91.25,
+      "coplanar_face_overlap_mm2": 14.151584935405591
+    }
+  ],
+  "bearing_solid_common_area_was_zero_not_used": true,
+  "root_union_check_seconds": 0.984,
+  "load_path_and_bearing_probe_seconds": 1.375,
+  "measured_primary_support_check_seconds": 5.89000000001397,
+  "next_estimate": "45-90min bounded joint endpoint/length/assembly feasibility trial; not a promise of whole N01. Stop testing this architecture if remote leads cannot fit: move one common support/topology, do not add local offsets.",
+  "selected_native_unchanged": true,
+  "selected": false
+}
