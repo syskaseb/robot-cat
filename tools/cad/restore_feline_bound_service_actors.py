@@ -34,3 +34,24 @@ def restore(scene, missing):
         restored=sorted(result),unbound=sorted(set(missing)-set(scene)-set(result)),
         source_sha256=pins,whole_scene_received=False,N01_complete=False,
         physical_pass=False)
+
+
+def restore_provider_receipt(scene, receipt):
+    """Replay explicit current-provider ownership from the saved recovery.
+
+    Superseded shared-height inner comb is not reloaded over the root contract.
+    Source pins/entries are checked, but this is not a new collision receipt.
+    """
+    groups=defaultdict(list)
+    for name,filename in receipt['owners'].items():
+        if name not in scene:groups[filename].append(name)
+    result={}
+    for filename,names in groups.items():
+        path=OUT/filename
+        assert receipt['source_sha256'][path.relative_to(ROOT).as_posix()]==sha(path)
+        doc=json.loads(path.read_text());rows=doc['geometry']
+        if isinstance(rows,dict):rows=[dict(v,name=k) for k,v in rows.items()]
+        chosen=[r for r in rows if r['name'] in names]
+        assert {r['name'] for r in chosen}==set(names)
+        result.update(load(dict(doc,geometry=chosen)))
+    return result

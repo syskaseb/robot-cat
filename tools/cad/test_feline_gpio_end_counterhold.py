@@ -57,6 +57,17 @@ class CounterholdTests(unittest.TestCase):
         self.assertTrue(bad['not_an_acceptance_of_invalid_BRep'])
         self.assertGreater(bad['minimum_new_clip_gap_to_full_catalog_envelope_mm'],1.25)
 
+    def test_current_provider_ownership_closes_missing_names_not_N01(self):
+        r=json.loads((OUT/'n01-service-provider-actors-restored-20261024.json').read_text())
+        self.assertEqual(len(r['restored']),101)
+        self.assertEqual(set(r['owners']),set(r['restored']))
+        self.assertEqual(r['remaining'],['Ref_Material_BUSsupplier25_0_0'])
+        self.assertEqual(r['owners']['EarlyRR:comb:inner'],'n01-RRP-root-contract-received.json')
+        self.assertEqual(r['owners']['LowerBay:ForePanel'],'n01-MTA-low-stop-cradles.json')
+        self.assertFalse(r['N01_complete'])
+        for name,digest in r['source_sha256'].items():
+            self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),digest)
+
 
 if __name__=='__main__':
     unittest.main()
