@@ -1,0 +1,493 @@
+{
+  "status": "BOUNDED_POWER_AXIAL_RESTRAINT_CANDIDATE_NOT_WHOLE_RELEASE",
+  "created_utc": "2026-10-24T16:29:00Z",
+  "recipe": {
+    "axis": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "start_mm": [
+      65.7,
+      46.618109634713775,
+      101.6
+    ],
+    "roof_wall_mm": 2.0,
+    "width_mm": 10.0,
+    "per_wire_full9_mm": [
+      [
+        [
+          65.7,
+          46.618109634713775,
+          101.6
+        ],
+        [
+          74.7,
+          46.618109634713775,
+          101.6
+        ]
+      ],
+      [
+        [
+          65.7,
+          50.118109634713775,
+          101.6
+        ],
+        [
+          74.7,
+          50.118109634713775,
+          101.6
+        ]
+      ]
+    ],
+    "nominal_channel_clearance_mm": 0.15,
+    "actual_OD_individual_pull_and_tightening_phase2_gate": true,
+    "retired_components": [
+      "upper_power_beam",
+      "upper_power_beam:round",
+      "power_pad_post",
+      "power_pad_post:round",
+      "Power2:pad"
+    ],
+    "protected_shared_material_mm3": {
+      "upper_USB_beam": 7.517211657812954
+    },
+    "initial_boot_exit_X_mm": 47.7,
+    "unplug_stroke_mm": 15,
+    "released_neck_mm": 3,
+    "positive_root_joint_mm3": 6.781824165752263,
+    "full_remote_leads_OPEN": true,
+    "selected": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "geometry_archive": {
+    "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-power-axial-saddle-20261024.breps.zip",
+    "sha256": "95980200ec0ab821e8a5ada732a5afdacfaa71a9fc7b46d153ef2a4d762705ce",
+    "members": {
+      "retained_upper": {
+        "member": "0.brep",
+        "sha256": "ef783bdf62e38822056f078da70c43dccae087a9979e320a234401095df2b2bd",
+        "strict_reopen": true
+      },
+      "body": {
+        "member": "1.brep",
+        "sha256": "ce5a4048dbc689d76470a9ea0dfcb1ddb2e167d62ccc8b2da643d61e427bc4ab",
+        "strict_reopen": true
+      },
+      "band": {
+        "member": "2.brep",
+        "sha256": "66cbd3cf090fc41095563ad9cc787ca74092c7cbac06a47b67a7148173d83357",
+        "strict_reopen": true
+      },
+      "head": {
+        "member": "3.brep",
+        "sha256": "83376446e3d83a617789cf3d4ed251e5b5669dea6173aaac16e729f648cd8a5f",
+        "strict_reopen": true
+      }
+    }
+  },
+  "static": {
+    "checks": {
+      "body|Ref_Material_Pi4NominalPCB_0_0": {
+        "gap_mm": 5.899999999999977,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|PiBudget:USB_A_front": {
+        "gap_mm": 6.1884588832873275,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|PiBudget:UnlabelledTopComponentsBudget": {
+        "gap_mm": 5.899999999999977,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|PiBudget:USB_A_data_boot": {
+        "gap_mm": 1.6799999999999784,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|PiPower:W079": {
+        "gap_mm": 0.14999999999997726,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "body|PiPower:W080": {
+        "gap_mm": 0.14999999999901475,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "body|USB500:whole": {
+        "gap_mm": 10.29526020097124,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|AuxEscape:XA02": {
+        "gap_mm": 19.424872111374913,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|CurrentMiddle:W009": {
+        "gap_mm": 11.801265180103064,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "body|CurrentMiddle:W069": {
+        "gap_mm": 38.61093588088455,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "band|PiPower:W079": {
+        "gap_mm": 0.1500000000000341,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "band|PiPower:W080": {
+        "gap_mm": 0.1500000000000341,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "band|USB500:whole": {
+        "gap_mm": 7.199999999999989,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "band|CurrentMiddle:W009": {
+        "gap_mm": 34.150865869213305,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "band|CurrentMiddle:W069": {
+        "gap_mm": 46.281887511380035,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "head|PiPower:W079": {
+        "gap_mm": 6.400000000000006,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "head|PiPower:W080": {
+        "gap_mm": 2.9000000000000057,
+        "minimum_mm": 0.14,
+        "ok": true
+      },
+      "head|USB500:whole": {
+        "gap_mm": 10.630689346430932,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "head|CurrentMiddle:W069": {
+        "gap_mm": 51.875063678349235,
+        "minimum_mm": 1.25,
+        "ok": true
+      }
+    },
+    "errors": {},
+    "failures": [],
+    "removal_hypotheses": [
+      "NewSplit:upper",
+      "PiGrip:Power2:band",
+      "PiGrip:Power2:head"
+    ],
+    "worker_seconds": 2.64,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "static_legacy_USB_whole_superseded_by": {
+    "body|fixed_turn": 30.856899434964184,
+    "body|main": 47.27366523976184,
+    "body|U": 77.07569569231553,
+    "body|S1": 55.433995290592755,
+    "body|S2": 34.958604276957374,
+    "body|final": 10.295260200971235,
+    "body|parked_boot": 7.108855905403449,
+    "band|fixed_turn": 52.67933127539695,
+    "band|main": 46.21130912712389,
+    "band|U": 79.61437101592057,
+    "band|S1": 57.922912017720705,
+    "band|S2": 37.160013920922694,
+    "band|final": 7.199999999999989,
+    "band|parked_boot": 28.15596917174047,
+    "head|fixed_turn": 55.77826867709781,
+    "head|main": 42.65888854044571,
+    "head|U": 81.35689281485273,
+    "head|S1": 58.98223510811848,
+    "head|S2": 36.95459944208522,
+    "head|final": 10.630689346430936,
+    "head|parked_boot": 31.98896841100068
+  },
+  "USB_main_new_parts_delta": {
+    "body|body": 25.27665638387772,
+    "body|band": 36.21649672362095,
+    "body|head": 32.4380656020053,
+    "band|body": 24.154473349270013,
+    "band|band": 35.24614095952042,
+    "band|head": 31.21749669656424,
+    "head|body": 19.844783782479283,
+    "head|band": 30.87174531422509,
+    "head|head": 26.941011488064056
+  },
+  "prefix_equivalence": {
+    "W079": {
+      "rebuilt_minus_original_mm3": 0.0,
+      "original_minus_rebuilt_mm3": 0.0,
+      "centerline_mm": 82.77566159603884
+    },
+    "W080": {
+      "rebuilt_minus_original_mm3": 0.0,
+      "original_minus_rebuilt_mm3": 0.0,
+      "centerline_mm": 89.2778744522567
+    }
+  },
+  "continuous_prefix_delta": {
+    "W079|body": {
+      "first_gap_mm": 0.1499999999999976,
+      "turn_exit_gaps_mm": [
+        4.236864895138379,
+        23.04656873997787
+      ]
+    },
+    "W079|retained_upper": {
+      "first_gap_mm": 8.143425607080086,
+      "turn_exit_gaps_mm": [
+        15.4915556000716,
+        31.041812540705084
+      ]
+    },
+    "W080|body": {
+      "first_gap_mm": 0.14999999999901475,
+      "turn_exit_gaps_mm": [
+        4.444057645898406,
+        20.262676808989355
+      ]
+    },
+    "W080|retained_upper": {
+      "first_gap_mm": 11.498467342948533,
+      "turn_exit_gaps_mm": [
+        18.858631596744665,
+        31.03350562671584
+      ]
+    }
+  },
+  "own_interfaces": {
+    "band": {
+      "body_common_mm3": 0.0,
+      "upper_gap_mm": 10.583412228575726
+    },
+    "head": {
+      "body_common_mm3": 0.0,
+      "upper_gap_mm": 19.49471287945049
+    }
+  },
+  "true_outer": {
+    "body": {
+      "gap_mm": 4.1200000000000045,
+      "outside_mm3": 0.0
+    },
+    "band": {
+      "gap_mm": 5.5,
+      "outside_mm3": 0.0
+    },
+    "head": {
+      "gap_mm": 7.75,
+      "outside_mm3": 0.0
+    }
+  },
+  "retained_upper_outside_original_mm3": 0.0,
+  "parked_USB_lift_delta": {
+    "checks": {
+      "power_saddle|cable:fixed_turn": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 30.14280165672058,
+        "minimum_required_mm": 1.25
+      },
+      "power_saddle|cable:main": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 38.046795187782685,
+        "minimum_required_mm": 1.25
+      },
+      "power_saddle|cable:U": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 75.74162092464601,
+        "minimum_required_mm": 1.25
+      },
+      "power_saddle|cable:S1": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 55.1287726592095,
+        "minimum_required_mm": 1.25
+      },
+      "power_saddle|cable:S2": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 34.943168278968194,
+        "minimum_required_mm": 1.25
+      },
+      "power_saddle|cable:final": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 10.249999999999986,
+        "minimum_required_mm": 1.25
+      },
+      "power_saddle|parked_boot": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 6.5,
+        "minimum_required_mm": 0.5
+      },
+      "power_saddle|fixed:USB_main": {
+        "continuous_clear": true,
+        "method": "whole_motion_bbox_separation",
+        "certified_lower_bound_mm": 24.394850732007104,
+        "minimum_required_mm": 1.25
+      }
+    },
+    "errors": {},
+    "failures": [],
+    "worker_seconds": 0.0,
+    "lift_mm": 24.0,
+    "delta_only": true,
+    "whole_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "rejected_old_pad_prefix_motion": {
+    "PiPower:W079": {
+      "stroke_mm": 3.75,
+      "common_mm3": 8.71597236362389,
+      "solids": 1,
+      "strict_valid": true
+    },
+    "PiPower:W080": {
+      "stroke_mm": 7.5,
+      "common_mm3": 5.867003746228486,
+      "solids": 1,
+      "strict_valid": true
+    }
+  },
+  "rejected_old_head_translation": {
+    "checks": {
+      "PiPower:W079|USB500:whole": {
+        "gap_mm": 8.565151981665801,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W079|CurrentMiddle:W009": {
+        "gap_mm": 15.073823113807302,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W079|CurrentMiddle:W069": {
+        "gap_mm": 27.94788704547132,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W079|NewSplit:upper": {
+        "gap_mm": 2.022470695653322,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W080|USB500:whole": {
+        "gap_mm": 9.205897818085461,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W080|CurrentMiddle:W009": {
+        "gap_mm": 18.48633526798219,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W080|CurrentMiddle:W069": {
+        "gap_mm": 31.4476259951972,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiPower:W080|NewSplit:upper": {
+        "gap_mm": 2.0807041427518507,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiGrip:Power2:band|USB500:whole": {
+        "gap_mm": 20.1081150452727,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiGrip:Power2:band|NewSplit:upper": {
+        "gap_mm": 3.799999999999997,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiGrip:Power2:head|USB500:whole": {
+        "gap_mm": 21.955635342390906,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiGrip:Power2:head|NewSplit:upper": {
+        "gap_mm": 0.0,
+        "minimum_mm": 1.25,
+        "ok": false
+      },
+      "PiBudget:RetainedK1474Boot|USB500:whole": {
+        "gap_mm": 6.1000000000000085,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiBudget:RetainedK1474Boot|CurrentMiddle:W009": {
+        "gap_mm": 39.50927099587726,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiBudget:RetainedK1474Boot|CurrentMiddle:W069": {
+        "gap_mm": 51.26977512066846,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiBudget:RetainedK1474Boot|CurrentMiddle:W035": {
+        "gap_mm": 24.378211809997783,
+        "minimum_mm": 1.25,
+        "ok": true
+      },
+      "PiBudget:RetainedK1474Boot|NewSplit:upper": {
+        "gap_mm": 3.8999999999997996,
+        "minimum_mm": 1.25,
+        "ok": true
+      }
+    },
+    "errors": {},
+    "failures": [
+      "PiGrip:Power2:head|NewSplit:upper"
+    ],
+    "removal_hypotheses": [
+      "PiBudget:AdapterBody",
+      "PiBudget:RetainedK1474Boot",
+      "PiGrip:Power2:band",
+      "PiGrip:Power2:head",
+      "PiPower:W079",
+      "PiPower:W080"
+    ],
+    "worker_seconds": 4.453,
+    "complete_service_received": false,
+    "N01_complete": false,
+    "physical_pass": false
+  },
+  "open": [
+    "Complete W079/W080 middle and conserved service slack to fixed MAIN ends",
+    "Tie cutting/access and all affected lift neighbours",
+    "Actual connector mould/withdrawal fit after delivery"
+  ],
+  "N01_complete": false,
+  "selected": false,
+  "physical_pass": false,
+  "source_sha256": {
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\plan_feline_power_axial_saddle.py": "5a93cfa848d08b0c7579b29281f3279485bda8ecb5f6897c12af171412510fbc",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-USB-parked-pi-lift-20261024.json": "f2baf15bf6f377d2ab8dc05efe238c5d5f30ca3caff764a4d0e60ed76b229657",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-service-dependency-decision-20261023.json": "6337d29bbd8ca309a94c3ef84f154aeb12e907c9754d5dc734e283ad0106a24f"
+  }
+}
