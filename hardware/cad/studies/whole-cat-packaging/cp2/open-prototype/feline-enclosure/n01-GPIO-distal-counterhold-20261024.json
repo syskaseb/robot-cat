@@ -1,0 +1,1465 @@
+{
+  "status": "PARTIAL_GPIO_CASING_COUNTERHOLD_NOT_SELECTED",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "recipe": {
+    "grip_casing_X_interval_mm": [
+      48,
+      54
+    ],
+    "grip_width_mm": 6,
+    "retained_original_root_from_mm": [
+      28.0,
+      3.0,
+      87.3
+    ],
+    "retained_original_root_to_mm": [
+      42.0,
+      -10.0,
+      87.3
+    ],
+    "extension_axis_start_mm": [
+      40.5,
+      -10,
+      87.3
+    ],
+    "extension_length_mm": 10.5,
+    "wire_paths_and_bought_parts_unchanged": true,
+    "replaces_previous_whole_GPIO_clip_not_added_alongside_it": true,
+    "printed_fit_friction_stiffness_and_tie_tension_not_qualified": true,
+    "selected": false,
+    "N01_complete": false,
+    "physical_pass": false,
+    "closure": "M2x12 bench assembled, replaces entire nylon closure",
+    "screw_underhead_mm": 12,
+    "screw_axis_world": [
+      51.0,
+      -20.0818903653,
+      84.5
+    ],
+    "screw_axis_direction": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "pilot_diameter_mm": 1.6,
+    "nominal_pilot_engagement_mm": 4.4,
+    "head_budget_diameter_mm": 4.4,
+    "head_budget_height_mm": 2.5,
+    "existing_family_not_inventory_allocation": true,
+    "assembly_order": [
+      "GPIO housing and five wires seated on bench",
+      "Tighten casing jaw before neighboring RR/AUX harness is installed",
+      "Install surrounding harness with this clamp already closed",
+      "Upper Pi frame mates last; clamp remains closed during Pi release"
+    ],
+    "open": [
+      "joint fit/friction and PETG thread strength",
+      "head recess wall strength",
+      "full assembly sequence and missing scene",
+      "whole Pi motion with new clip",
+      "stock allocation in N10"
+    ]
+  },
+  "evidence": {
+    "space": {
+      "checks": {
+        "back_root|PiGPIO:PI.H3": {
+          "gap_mm": 9.869049203357545,
+          "clear": true
+        },
+        "back_root|PiGPIO:PI.H5": {
+          "gap_mm": 9.494542766823303,
+          "clear": true
+        },
+        "back_root|PiGPIO:PI.H11": {
+          "gap_mm": 9.424639997825407,
+          "clear": true
+        },
+        "back_root|PiGPIO:PI.H6": {
+          "gap_mm": 9.416521985083815,
+          "clear": true
+        },
+        "back_root|PiGrip:GPIO4:head": {
+          "gap_mm": 2.65066240144208,
+          "clear": true
+        },
+        "back_root|CurrentMiddle:W009": {
+          "gap_mm": 24.121560962492502,
+          "clear": true
+        },
+        "back_root|CurrentMiddle:W035": {
+          "gap_mm": 2.799999999999997,
+          "clear": true
+        },
+        "back_root|CurrentMiddle:W069": {
+          "gap_mm": 48.85235070927125,
+          "clear": true
+        },
+        "front_jaw|CurrentMiddle:W009": {
+          "gap_mm": 18.191169565239267,
+          "clear": true
+        },
+        "screw_budget|CurrentMiddle:W009": {
+          "gap_mm": 20.874612095419373,
+          "clear": true
+        },
+        "screw_budget|CurrentMiddle:W069": {
+          "gap_mm": 51.25962381812639,
+          "clear": true
+        }
+      },
+      "errors": {},
+      "holds": [],
+      "excluded_existing_station_parts": [
+        "Station:D_FR:band_budget",
+        "Station:D_FR:case",
+        "Station:D_FR:head_budget",
+        "Station:D_FR:split_common_comb",
+        "Station:D_FR:wire:D_FR.1",
+        "Station:D_FR:wire:D_FR.2",
+        "Station:D_FR:wire:D_FR.3",
+        "Station:D_FR:wire:D_FR.4",
+        "Station:D_FR:wire:D_FR.5"
+      ],
+      "scope": "Necessary end-pose only; no full scene, path, lever or mounting approval",
+      "worker_seconds": 2.969,
+      "N01_complete": false
+    },
+    "Pi_lift_0_to_10": {
+      "checks": {
+        "PiBudget:USB_A_rear|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 7.5,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              7.5
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              12.5
+            ],
+            [
+              10,
+              13.538463723776054
+            ]
+          ]
+        },
+        "PiBudget:USB_A_rear|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 19.267055857696743,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              19.267055857696743
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              24.267055857696743
+            ],
+            [
+              10,
+              24.817937061741734
+            ]
+          ]
+        },
+        "PiBudget:USB_A_rear|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 12.459381432350678,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              12.459381432350678
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              17.45938143235068
+            ],
+            [
+              10,
+              20.36737587418448
+            ]
+          ]
+        },
+        "PiBudget:USB_A_front|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 16.635423076766227,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              16.635423076766227
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              21.635423076766227
+            ],
+            [
+              10,
+              22.251551220323243
+            ]
+          ]
+        },
+        "PiBudget:USB_A_front|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 36.35166743918664,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              36.35166743918664
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              41.35166743918664
+            ],
+            [
+              10,
+              41.67733676713387
+            ]
+          ]
+        },
+        "PiBudget:USB_A_front|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 27.720947419059044,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              27.720947419059044
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              32.720947419059044
+            ],
+            [
+              10,
+              34.3607392237249
+            ]
+          ]
+        },
+        "PiBudget:Ethernet|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 3.6500000000000057,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              3.6500000000000057
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              8.650000000000006
+            ],
+            [
+              10,
+              11.580695143211411
+            ]
+          ]
+        },
+        "PiBudget:Ethernet|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 3.7868950716417853,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              3.7868950716417853
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              8.786895071641785
+            ],
+            [
+              10,
+              11.683301117408682
+            ]
+          ]
+        },
+        "PiBudget:Ethernet|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 4.914761721796452,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              4.914761721796452
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              9.914761721796452
+            ],
+            [
+              10,
+              16.07179205938157
+            ]
+          ]
+        },
+        "PiBudget:USB_C|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 27.306434086587274,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              27.306434086587274
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              32.306434086587274
+            ],
+            [
+              10,
+              36.106864768226664
+            ]
+          ]
+        },
+        "PiBudget:USB_C|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 56.52751924953053,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              56.52751924953053
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              61.52751924953053
+            ],
+            [
+              10,
+              63.605311295530576
+            ]
+          ]
+        },
+        "PiBudget:USB_C|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 50.845103858808315,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              50.845103858808315
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              55.845103858808315
+            ],
+            [
+              10,
+              59.031141146017895
+            ]
+          ]
+        },
+        "PiBudget:GPIO_header|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 1.4504629232779167,
+          "certified_intervals": [
+            [
+              5.0,
+              10,
+              5.200162335951034
+            ],
+            [
+              2.5,
+              5.0,
+              3.9502403790592986
+            ],
+            [
+              0.0,
+              2.5,
+              1.4504629232779167
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              2.7004629232779167
+            ],
+            [
+              2.5,
+              5.200240379059299
+            ],
+            [
+              5.0,
+              7.700162335951034
+            ],
+            [
+              10,
+              12.700098424815419
+            ]
+          ]
+        },
+        "PiBudget:GPIO_header|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 1.4504629232784279,
+          "certified_intervals": [
+            [
+              5.0,
+              10,
+              5.200162335951213
+            ],
+            [
+              2.5,
+              5.0,
+              3.950240379059564
+            ],
+            [
+              0.0,
+              2.5,
+              1.4504629232784279
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              2.700462923278428
+            ],
+            [
+              2.5,
+              5.200240379059564
+            ],
+            [
+              5.0,
+              7.700162335951213
+            ],
+            [
+              10,
+              12.700098424815527
+            ]
+          ]
+        },
+        "PiBudget:GPIO_header|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 3.000000000000014,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              3.000000000000014
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              8.000000000000014
+            ],
+            [
+              10,
+              18.000000000000014
+            ]
+          ]
+        },
+        "PiBudget:HDMI0|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 23.107063270783172,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              23.107063270783172
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              28.107063270783172
+            ],
+            [
+              10,
+              32.46547405641582
+            ]
+          ]
+        },
+        "PiBudget:HDMI0|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 49.075511093297486,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              49.075511093297486
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              54.075511093297486
+            ],
+            [
+              10,
+              56.46380167860946
+            ]
+          ]
+        },
+        "PiBudget:HDMI0|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 42.36909224379413,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              42.36909224379413
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              47.36909224379413
+            ],
+            [
+              10,
+              51.125638382332966
+            ]
+          ]
+        },
+        "PiBudget:HDMI1|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 23.0731984782877,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              23.0731984782877
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              28.0731984782877
+            ],
+            [
+              10,
+              32.43615995769745
+            ]
+          ]
+        },
+        "PiBudget:HDMI1|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 45.0161064058503,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              45.0161064058503
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              50.0161064058503
+            ],
+            [
+              10,
+              52.58907586183028
+            ]
+          ]
+        },
+        "PiBudget:HDMI1|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 37.42264607495715,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              37.42264607495715
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              42.42264607495715
+            ],
+            [
+              10,
+              46.57983361929364
+            ]
+          ]
+        },
+        "PiBudget:CSI|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 7.096108510820205,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              7.096108510820205
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              12.096108510820205
+            ],
+            [
+              10,
+              18.981987280196385
+            ]
+          ]
+        },
+        "PiBudget:CSI|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 27.985034485367642,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              27.985034485367642
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              32.98503448536764
+            ],
+            [
+              10,
+              36.08341031555766
+            ]
+          ]
+        },
+        "PiBudget:CSI|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 20.642981495930435,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              20.642981495930435
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              25.642981495930435
+            ],
+            [
+              10,
+              31.2659959061059
+            ]
+          ]
+        },
+        "PiBudget:DSI|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 21.15791181951102,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              21.15791181951102
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              26.15791181951102
+            ],
+            [
+              10,
+              29.970591431556947
+            ]
+          ]
+        },
+        "PiBudget:DSI|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 44.503686731398474,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              44.503686731398474
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              49.503686731398474
+            ],
+            [
+              10,
+              51.619908949943316
+            ]
+          ]
+        },
+        "PiBudget:DSI|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 44.023922731664136,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              44.023922731664136
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              49.023922731664136
+            ],
+            [
+              10,
+              52.18567811191281
+            ]
+          ]
+        },
+        "PiBudget:Audio|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 16.507017385261342,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              16.507017385261342
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              21.507017385261342
+            ],
+            [
+              10,
+              25.817664433676683
+            ]
+          ]
+        },
+        "PiBudget:Audio|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 37.86656622591987,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              37.86656622591987
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              42.86656622591987
+            ],
+            [
+              10,
+              45.18343169792634
+            ]
+          ]
+        },
+        "PiBudget:Audio|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 29.677838744663894,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              29.677838744663894
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              34.677838744663894
+            ],
+            [
+              10,
+              38.89154792497867
+            ]
+          ]
+        },
+        "PiBudget:CPU|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 3.8000000000000114,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              3.8000000000000114
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              8.800000000000011
+            ],
+            [
+              10,
+              18.80000000000001
+            ]
+          ]
+        },
+        "PiBudget:CPU|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 18.162577576781377,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              18.162577576781377
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              23.162577576781377
+            ],
+            [
+              10,
+              28.504473333152742
+            ]
+          ]
+        },
+        "PiBudget:CPU|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 17.07294724317877,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              17.07294724317877
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              22.07294724317877
+            ],
+            [
+              10,
+              29.48245240817245
+            ]
+          ]
+        },
+        "PiBudget:AdapterBody|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 30.32905586874572,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              30.32905586874572
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              35.32905586874572
+            ],
+            [
+              10,
+              38.211806926354015
+            ]
+          ]
+        },
+        "PiBudget:AdapterBody|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 56.976931192190804,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              56.976931192190804
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              61.976931192190804
+            ],
+            [
+              10,
+              63.66427569682666
+            ]
+          ]
+        },
+        "PiBudget:AdapterBody|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 49.68326983640692,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              49.68326983640692
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              54.68326983640692
+            ],
+            [
+              10,
+              57.51747560525663
+            ]
+          ]
+        },
+        "PiBudget:UnlabelledTopComponentsBudget|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 2.200000000000017,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              2.200000000000017
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              7.200000000000017
+            ],
+            [
+              10,
+              17.200000000000017
+            ]
+          ]
+        },
+        "PiBudget:UnlabelledTopComponentsBudget|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 2.200000000000017,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              2.200000000000017
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              7.200000000000017
+            ],
+            [
+              10,
+              17.200000000000017
+            ]
+          ]
+        },
+        "PiBudget:UnlabelledTopComponentsBudget|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 7.500000000000014,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              7.500000000000014
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              12.500000000000014
+            ],
+            [
+              10,
+              22.500000000000014
+            ]
+          ]
+        },
+        "PiBudget:microSDCardAndBottomBudget|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 16.960416112934357,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              16.960416112934357
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              21.960416112934357
+            ],
+            [
+              10,
+              28.952717935510428
+            ]
+          ]
+        },
+        "PiBudget:microSDCardAndBottomBudget|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 40.9698893298709,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              40.9698893298709
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              45.9698893298709
+            ],
+            [
+              10,
+              49.691354630363804
+            ]
+          ]
+        },
+        "PiBudget:microSDCardAndBottomBudget|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 40.07798492612903,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              40.07798492612903
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              45.07798492612903
+            ],
+            [
+              10,
+              49.940211503359855
+            ]
+          ]
+        },
+        "PiBudget:USB_A_data_boot|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 29.68011388045911,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              29.68011388045911
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              34.68011388045911
+            ],
+            [
+              10,
+              36.697551672579095
+            ]
+          ]
+        },
+        "PiBudget:USB_A_data_boot|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 44.20532085050431,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              44.20532085050431
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              49.20532085050431
+            ],
+            [
+              10,
+              50.6474441605998
+            ]
+          ]
+        },
+        "PiBudget:USB_A_data_boot|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 38.26203416392729,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              38.26203416392729
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              43.26203416392729
+            ],
+            [
+              10,
+              46.06086842430147
+            ]
+          ]
+        },
+        "upper_frame|back_root": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 4.75,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              4.75
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              9.75
+            ],
+            [
+              10,
+              19.75
+            ]
+          ]
+        },
+        "upper_frame|front_jaw": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 4.75,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              4.75
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              9.75
+            ],
+            [
+              10,
+              19.75
+            ]
+          ]
+        },
+        "upper_frame|screw_budget": {
+          "continuous_clear": true,
+          "minimum_required_mm": 1.25,
+          "certified_lower_bound_mm": 10.049999999999997,
+          "certified_intervals": [
+            [
+              0.0,
+              10,
+              10.049999999999997
+            ]
+          ],
+          "unresolved_intervals": [],
+          "sampled_gaps_mm": [
+            [
+              0.0,
+              15.049999999999997
+            ],
+            [
+              10,
+              25.049999999999997
+            ]
+          ]
+        }
+      },
+      "accepted": true,
+      "invalid": {},
+      "worker_seconds": 1.235,
+      "N01_complete": false,
+      "scope": "Only new housing clip versus moving Pi/upper frame"
+    },
+    "root_overlap_mm3": 8.853248875384406,
+    "rejected_nylon_side": {
+      "checks": {
+        "back_root|PiGPIO:PI.H3": {
+          "gap_mm": 9.869049203357545,
+          "clear": true
+        },
+        "back_root|PiGPIO:PI.H5": {
+          "gap_mm": 9.494542766823303,
+          "clear": true
+        },
+        "back_root|PiGPIO:PI.H11": {
+          "gap_mm": 9.424639997825407,
+          "clear": true
+        },
+        "back_root|PiGPIO:PI.H6": {
+          "gap_mm": 9.416521985083815,
+          "clear": true
+        },
+        "back_root|PiGrip:GPIO4:head": {
+          "gap_mm": 2.65066240144208,
+          "clear": true
+        },
+        "back_root|CurrentMiddle:W009": {
+          "gap_mm": 24.121560962492502,
+          "clear": true
+        },
+        "back_root|CurrentMiddle:W035": {
+          "gap_mm": 2.799999999999997,
+          "clear": true
+        },
+        "back_root|CurrentMiddle:W069": {
+          "gap_mm": 48.85235070927125,
+          "clear": true
+        },
+        "front_jaw|CurrentMiddle:W009": {
+          "gap_mm": 18.191169565239267,
+          "clear": true
+        },
+        "tie_band_budget|CurrentMiddle:W009": {
+          "gap_mm": 21.131981053398945,
+          "clear": true
+        },
+        "tie_band_budget|CurrentMiddle:W069": {
+          "gap_mm": 47.604330668436184,
+          "clear": true
+        },
+        "tie_head_budget|AuxEscape:XA02": {
+          "gap_mm": 0.0,
+          "clear": false
+        },
+        "tie_head_budget|CurrentMiddle:W009": {
+          "gap_mm": 23.85907583798551,
+          "clear": true
+        },
+        "tie_head_budget|CurrentMiddle:W069": {
+          "gap_mm": 43.99791024404471,
+          "clear": true
+        }
+      },
+      "errors": {},
+      "holds": [
+        "tie_head_budget|AuxEscape:XA02"
+      ],
+      "excluded_existing_station_parts": [
+        "Station:D_FR:band_budget",
+        "Station:D_FR:case",
+        "Station:D_FR:head_budget",
+        "Station:D_FR:split_common_comb",
+        "Station:D_FR:wire:D_FR.1",
+        "Station:D_FR:wire:D_FR.2",
+        "Station:D_FR:wire:D_FR.3",
+        "Station:D_FR:wire:D_FR.4",
+        "Station:D_FR:wire:D_FR.5"
+      ],
+      "scope": "Necessary end-pose only; no full scene, path, lever or mounting approval",
+      "worker_seconds": 3.906,
+      "N01_complete": false
+    },
+    "rejected_nylon_front": {
+      "checks": {
+        "tie_front_head|RRFlatResource:W018/body/start": {
+          "gap_mm": 13.375,
+          "clear": true
+        },
+        "tie_front_head|RRFlatResource:W017/body/start": {
+          "gap_mm": 10.075000000000003,
+          "clear": true
+        },
+        "tie_front_head|RRFlatResource:W016/body/start": {
+          "gap_mm": 6.775000000000006,
+          "clear": true
+        },
+        "tie_front_head|RRFlatResource:W055/body/start": {
+          "gap_mm": 4.575000000000003,
+          "clear": true
+        },
+        "tie_front_head|RRFlatResource:W057/body/start": {
+          "gap_mm": 2.375,
+          "clear": true
+        },
+        "tie_front_head|RRFlatResource:W059/body/start": {
+          "gap_mm": 0.0,
+          "clear": false
+        },
+        "tie_front_head|CurrentMiddle:W009": {
+          "gap_mm": 18.35035229960336,
+          "clear": true
+        }
+      },
+      "errors": {},
+      "holds": [
+        "tie_front_head|RRFlatResource:W059/body/start"
+      ],
+      "excluded_existing_station_parts": [
+        "Station:D_FR:band_budget",
+        "Station:D_FR:case",
+        "Station:D_FR:head_budget",
+        "Station:D_FR:split_common_comb",
+        "Station:D_FR:wire:D_FR.1",
+        "Station:D_FR:wire:D_FR.2",
+        "Station:D_FR:wire:D_FR.3",
+        "Station:D_FR:wire:D_FR.4",
+        "Station:D_FR:wire:D_FR.5"
+      ],
+      "scope": "Necessary end-pose only; no full scene, path, lever or mounting approval",
+      "worker_seconds": 0.656,
+      "N01_complete": false
+    },
+    "current_scene_report": "n01-current-service-context-20261024.json",
+    "source_carrier": {
+      "receipt": "n01-service-dependency-decision-20261023.json",
+      "receipt_sha256": "518d8b022fe964ce035dd61118c173cd55e46e0deb76d857e0c739d09cada2d6",
+      "field": "removable_USB_planning_witness",
+      "bundle": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-service-removable-usb-20261023.brep.zip",
+      "bundle_sha256": "52d69489f44a0fec878cdbc1ed682336fa78cda29aac619e0852da817e64c2b7"
+    },
+    "scope": "Only changed clamp in current partial scene; canonical BUS/missing actors and whole sequence OPEN",
+    "bench_driver": {
+      "checks": {
+        "driver_before_neighbors|lower": {
+          "gap_mm": 10.100000000000001,
+          "clear": true
+        }
+      },
+      "errors": {},
+      "holds": [],
+      "excluded_existing_station_parts": [],
+      "scope": "Necessary end-pose only; no full scene, path, lever or mounting approval",
+      "worker_seconds": 0.656,
+      "N01_complete": false
+    },
+    "whole_lower_W035_gap_mm": 2.8,
+    "whole_lower_strict_valid": true,
+    "housing_screw_gap_mm": 1.45,
+    "legacy_upper_reused_without_changes": true
+  },
+  "geometry": [
+    {
+      "name": "lower",
+      "entry": "0.brep",
+      "sha256": "687ffe20b7cd2757066b8d96147ad183d1b8ad88ed8a8ecc5d04e8a600819527",
+      "strict_reopen": true
+    },
+    {
+      "name": "upper",
+      "entry": "1.brep",
+      "sha256": "f0f9a0b1e246e26c7391e20d77d7741a9f8adfaf52b841c0d256108eadd79c39",
+      "strict_reopen": true
+    },
+    {
+      "name": "front_jaw",
+      "entry": "2.brep",
+      "sha256": "5300ac3146fdbb4d2b4bd55f04fe07f6181d63f6e16544967c746d9750eb0b78",
+      "strict_reopen": true
+    },
+    {
+      "name": "screw_budget",
+      "entry": "3.brep",
+      "sha256": "566b8ea78728194bf63f49321f13aed97ca97ae718c99f367eb38afa7356aee9",
+      "strict_reopen": true
+    }
+  ],
+  "bundle": "n01-GPIO-distal-counterhold-20261024.breps.zip",
+  "bundle_sha256": "4ada198000830653071a80df05614ea9863bfd0b1902c26a6a4f6216a20c25b6",
+  "constructor_sha256": "ad2ec1553dc3b9ec2d0abaef81d62ed10967b188dbbe0fb28bb391c2310f909a"
+}
