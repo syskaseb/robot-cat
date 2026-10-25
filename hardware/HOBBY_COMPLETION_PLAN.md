@@ -1,5 +1,63 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Aktywna karta 25.10.2026 07:41:53 UTC — wspolna retencja13, nie kolejny objazd
+
+N01-N10 0/10; historyczne20/20 dokumentacji osobno. AD34 module-only zachowany,
+AV12 wspolny USB/AUX/Tail nadal niewybrany. Nie ma odbioru calego ukladu14.
+Zamkniety problem w zakresie propozycji: wspolne mocowanie13 jacketow D_FR5,
+FR_G4 i P_AUX4, bez zmiany ich geometrii ani kupnych cases. Trzy te sameT18I
+na roznych stacjach w9mm; wspolna dolna belka ma rzeczywisty dodatni styk
+173.389mm3 z Flange, trzy korzenie12.0475/7.259/10.2404mm3. Calosc wydruku
+z Flange jest1Solid. Nowe10bryl scisle odczytano po zapisie1.344s; niezalezna
+funkcja build odtwarza identyczny material (roznice0). To propozycja N01,
+nie gotowe natywne N03/mocowania do druku ani mechaniczna proba wytrzymalosci.
+
+WAZNA KOREKTA: stare D_FR/P_AUX9mm Y[-44.25,-35.25] zostawialy tylko3mm,
+nie15. Nowe9mm[-56.25,-47.25] leza na NIEZMIENIONYCH jacketach. Poprzednie
+12mm bylo celowym staggerem glowek; BI nie przyjeto. Nowy wspolny uklad
+przesuwa comb/head/opaski RAZEM, kieszen tylko poza13kanalami. Nie ucieto
+fabrycznych przewodow i nie zaktualizowano globalnych routing_exit przed
+odbiorem calej galezi. Same poprawne cztery komorki bandbudget polaczono
+bez zmiany zajetego materialu; nie zastosowano naprawy zrodel P0/BUS.
+
+Szesciu nowych aktorow root/tie i osobna dolna baza otrzymaly lokalny static;
+3zmienione printy sa scislymi podzbiorami starego materialu. Dalsze stare
+HOLDy rail/P0 pozostaja zapisane, nie zaliczone ani ponawiane. Motion49
+nowych7 1.985s; bledne natywne074 nie naprawione, konserwatywna pelna
+obwiednia dala0.313s/min13.557mm. To dowod rozdzielenia tych par, nie
+poprawnosci zrodla074. Wlasne case/retention .25 i kanaly.15 sa nazwanymi
+interfejsami montazowymi, bez obnizania foreign1.25.
+
+Jedna wspolna prosta korytarza pod bankiem X18.525..88.3,Y-35.25,Z50,
+profil1.55, foreignair1.25: rzeczywiste Pier3/Ledge3 mialy tylko1.2/.45.
+Zamiast kolejnego objazdu zmieniono WLASNE dwa drukowane wsporniki, cylinder
+R2.8. Usunieto0.562912/12.949995mm3; obie nowe bryly poprawne1Solid/podzbior.
+Zachowana cala stopa+dach1mm Pier i dach1mm Ledge; WSZYSTKIE4 rzeczywiste
+materialy stykow Seat/Neck/Pier/Ledge/Bed pozostaly:312.662762,4.5,2.846292,
+104.275644mm3. Wczesne zalozenie niezmiennej calej stopy Ledge odrzucono:
+podciecie od spodu ja zmienia celowo; geometria bez nowego offsetu, ocena
+przez dach i realne koncowe podpory. Bez deklaracji wytrzymalosci. Otrzymany
+lokalny prześwit profilu1.25mm; pozostale niezmienione pary korytarza reuzyte.
+Praca1.672s, zapis/odczyt2bryl0.516s. Pelna W011/W012 NIE zostala z tego
+wygenerowana ani zaliczona; dwa wolne odcinki nie dowodza calosci zakretow.
+
+Dowody: prototype-shared-galleries-20261025.breps.zip, members
+`gal25-stage-bl-bn-shared-thirteen-end-retention.json` oraz
+`gal25-stage-bp-common-corridor-support-relief.json`; samodzielny generator
+`tools/cad/prototype_shared_retention_20261025.py`. Odrzucone AW..BI i stare
+notatki zachowane w tym samym pakiecie. Usunieto4 wlasne odrzucone funkcje
+z aktywnego generatora; przywrocono MAIN funkcje z HEAD847701a8. Nie zmieniono
+native master/wybranych STL/kupnych czesci. Calkowity czas okna od22:08:37Z
+do07:41:53Z to9h33m16s; nie jest to ciagly czas obliczen CAD.
+
+NEXT: odebrac rezydenta13552, zachowac BL/BP/AV; przygotowac jedna wspolna
+kolejnosc montazu/obslugi wszystkich14 z korzeniami/korytarzami, fabrycznymi
+900 i4MTA(8koncow), zanim powstanie nastepna os. Nie powtarzac dachowych
+AX/AY, AZ/BA/BG objazdow ani skanow2800/5600. Korytarz musi obejmowac
+wszystkie obsadzone wyjscia i zakrety; dwie proste nie sa bramka calosci.
+Odbior recenzenta odlozony: uzytkownik spi, zakaz wiadomosci/alertow/maili.
+Okno nadal aktywne do08:00UTC, cisza; nie zmieniac terminu/modelu.
+
 ## Checkpoint 25.10.2026 06:00 UTC — Tail i wspolna przestrzen
 
 N01-N10 nadal 0/10; historyczne 20/20 dokumentacji osobno. Bez physical PASS.

@@ -977,7 +977,7 @@ def load_existing_leg_motion(start_pose=0,stop_pose=36,rest=None):
     return rest,actors,{**reader.hashes,**{p.relative_to(ROOT).as_posix():sha(p) for p in [MODEL,motionfile,axesfile]}}
 
 
-def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.,covers=None):
+def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.,covers=None,changed_axis_radii=None):
     """One bounded pass over changed owners; preserve exact-pose cache in RAM."""
     import time
     from feline_solid_distance import bbox_lower_bound,distance
@@ -987,13 +987,15 @@ def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.
     for n,s in shapes.items():
         if n in state['done']:continue
         s.check(True)
+        profile=float((changed_axis_radii or {}).get(n,0.))
+        if not s.Solids and profile<=0:raise ValueError('Changed axis requires full profile radius: '+n)
         pieces=(covers or {}).get(n,[s]);piece_bounds=[p.BoundBox for p in pieces]
         for a in actors:
             key=(n,a['name'],a['pose'])
             if any(row['key']==key for row in state['rows']):continue
             bb=A.BoundBox(*a['bounds'][0],*a['bounds'][1])
             bounds=[bbox_lower_bound(b,bb) for b in piece_bounds]
-            near=[p for p,d in zip(pieces,bounds) if d<1.25]
+            near=[p for p,d in zip(pieces,bounds) if d<1.25+profile]
             if not near:continue
             if time.monotonic()-tick>=budget_seconds:
                 state['seconds']+=time.monotonic()-tick
@@ -1017,10 +1019,11 @@ def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.
                 inv=placement(a['r'],a['t']).inverse();gaps=[]
                 for piece in near:
                     q=piece.copy();q.Placement=inv*q.Placement
-                    gaps.append(distance(q,rest[a['name']].copy()))
-                gaps.extend(d for d in bounds if d>=1.25)
+                    raw_gap=float(q.distToShape(rest[a['name']].copy())[0]) if profile>0 else distance(q,rest[a['name']].copy())
+                    gaps.append(max(0.,raw_gap-profile))
+                gaps.extend(max(0.,d-profile) for d in bounds if d>=1.25+profile)
                 state['cache'][signature]=min(gaps)
-            gap=state['cache'][signature];state['rows'].append(dict(key=key,owner=n,source=a['name'],pose=a['pose'],gap_mm=gap,minimum_mm=1.25,ok=gap>=1.25-1e-6))
+            gap=state['cache'][signature];state['rows'].append(dict(key=key,owner=n,source=a['name'],pose=a['pose'],gap_mm=gap,minimum_mm=1.25,ok=gap>=1.25-1e-6,source_profile_radius_mm=profile,conservative_axis_bound=profile>0))
         state['done'].append(n)
         print('GAL25_MOTION_PART',n,'done',len(state['done']),'of',len(shapes),'queries',len(state['rows']),'failures',sum(not r['ok'] for r in state['rows']),'errors',len(state['errors']),flush=True)
         if time.monotonic()-tick>=budget_seconds:break
@@ -1754,3 +1757,21 @@ def round_recipe_covers(recipes,prefix='FullBody:'):
             s=base.solid([p],row['radius_mm']);s.check(True);parts.append(s)
         result[prefix+wire]=parts
     return result
+
+
+def conservative_source_oriented_cover(shape,padding=.0001):
+    """Enclose the complete placed source; overlap is HOLD, never a collision.
+
+    A strict invalid source is not repaired. PCA only chooses orientation;
+    actual optimalBoundingBox of the rotated WHOLE source sets all extents.
+    """
+    import numpy as np
+    import Part
+    vertices=np.array([[v.Point.x,v.Point.y,v.Point.z] for v in shape.Vertexes])
+    _,axes=np.linalg.eigh(np.cov(vertices.T));direction=axes[:,-1]
+    rotation=A.Placement(A.Vector(),A.Rotation(A.Vector(*direction),A.Vector(0,0,1)))
+    rotated=shape.copy();rotated.Placement=rotation*rotated.Placement
+    bb=rotated.optimalBoundingBox()
+    cover=Part.makeBox(bb.XLength+2*padding,bb.YLength+2*padding,bb.ZLength+2*padding,A.Vector(bb.XMin-padding,bb.YMin-padding,bb.ZMin-padding))
+    cover.Placement=rotation.inverse()*cover.Placement;cover.check(True)
+    return cover,dict(method='Whole-source optimal bounds after PCA rotation; no source repair',axis=direction.tolist(),padding_mm=padding,dimensions_mm=[bb.XLength,bb.YLength,bb.ZLength],source_raw_sha256=__import__('hashlib').sha256(shape.exportBrepToString().encode()).hexdigest())

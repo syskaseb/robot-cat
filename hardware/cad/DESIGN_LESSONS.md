@@ -1,5 +1,20 @@
 # Wnioski z projektowania 3D robot-cat
 
+## 25.10 — przyczyna zamiast kolejnej osi
+
+Odczytaj faktyczna dlugosc chronionego chwytu: stary cap nie dowodzi wolnych
+15mm, jezeli9mm chwytu przesunieto wglab. Sprawdz CALY wspolny comb/opaski/
+glowki i droge obciazenia; pozornie arbitralny stagger12mm chronil przed
+sasiednia glowka. Rzeczywiste zajete wyjscia maja pierwszenstwo przed bbox
+samego case. Dwie dodatnie proste nie kwalifikuja reszty lukow; odbierz CALA
+bramke przed generowaniem zaleznej trasy. BD/BE naruszylo te kolejnosc i
+zostalo odrzucone. Jezeli wlasny print zweza korytarz, podciecie z dowodem
+zachowania rzeczywistych stykow moze usunac przyczyne bez objazdu przewodem.
+Usuniecie materialu (scisly podzbior) reuzywa niezmienione obce pary, lecz
+wymaga ponownego sprawdzenia korzeni i wytrzymalosci. Nie zakladaj poziomej
+pelnej stopy na podstawie bbox pochylonej polki. Zachowawczy poprawny
+axis+pelny promien daje dolna granice odstepu; HOLD nie dowodzi kontaktu.
+
 ## Brama wykonania prototypu — 24.10.2026
 
 Ta sekcja określa bieżące wykonanie; historyczne dłuższe interwały niżej nie
