@@ -2,6 +2,14 @@
 
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (25.10.2026)
 
+**OKNO ZAMKNIĘTE 2026-10-25T17:00:07Z — deadline18:00Warszawy, enabled=false, stage_completed=false.**
+Własny5767zakończonyexit0/wszystkozapisane; brakotwartychCAD. Noweprace tylko
+po nowejzgodzie. WynikN01–N100/10=0%,zmiana0pp;historyczne20/20osobno.
+Czasokna5h46min(nieciągłyCPU/CAD);ostatniodczytlimitu87.0%pozostało.
+Następnycheckpoint:CAŁY MAIN4;budżetjednejwspólnejpróby60–90min,nieobietnicaukończeniaN01.
+54ponownieodczytanerekordyBRep to37scoped+14bodyrefs+3covers, nie54noweczęści.
+
+
 N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Okno do18:00Warszawy
 (CET)=17:00UTC, nie przedłużać. Stan enabled/active_worker odczytaj w
 robot-cat/.codex/hooks/robot-cat-work-window.json. Jeden wykonawca Sol high,
@@ -83,8 +91,8 @@ MAIN9 ładuje37strictBRep. NowyOSprocesodczytał37+14bodyrefs+3motioncovers=54
 ściśle poprawnegeometry4.453s. To checkpointdanych, NIEwhole14acceptance.
 Próba upstream49 dałaPWM0near, potem przerwała na strictbłędzieMAINsupplier;
 nie deklarować całegoModule49 i nieponawiaćnaprawy.
-**active_worker:** tylko własny5767/PID10920, obecnieIDLE, bez otwartych dokumentów;
-odbierz stanokna przedpracą; przyzamknięciu normalnie zakończyć, nie dotykaćGUI8000.
+**active_worker:** EXIT0/zachowane; nie wznawiać staregoPID/session.
+StanoknaCLOSED; powyższyNEXT jest przygotowaniemdo następnejautoryzacji.
 
 **Pętla:** po2porażkach zmień POZIOM decyzji/source/module/assembly, nie samą
 nazwęstrategii. Nowy policzonybypass nie jest wholelayoutplanem. Odbierajworker,

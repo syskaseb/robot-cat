@@ -2961,7 +2961,7 @@
     "whole14_received": false,
     "N01_complete": false,
     "physical_pass": false,
-    "window_remains_active": true
+    "window_remains_active": false
   },
   "day18_USB_own_receipt": "gal25-day18-USB-first-own-halfspace-received.json",
   "day18_BUS25_space_receipt": "gal25-day18-BUS25-occupied-space-received.json",
@@ -2977,7 +2977,7 @@
     "reload_seconds": 2.4679999999934807,
     "whole14_received": false,
     "N01_complete": false,
-    "remaining_window_active": true
+    "remaining_window_active": false
   },
   "day18_current14_register": "gal25-day18-current14-owner-ends-register-v2.json",
   "day18_MAIN_current49_diagnostic": "gal25-day18-MAIN-current49-diagnostic.json",
@@ -3132,5 +3132,41 @@
     "N01_complete": false,
     "physical_pass": false
   },
-  "day18_upstream_probe_limit": "PWM board had0nearqueries for49. Probe then stopped on strict BOP errors in retained MAIN supplier reference; no whole module49 acceptance inferred, no repair/repeat."
+  "day18_upstream_probe_limit": "PWM board had0nearqueries for49. Probe then stopped on strict BOP errors in retained MAIN supplier reference; no whole module49 acceptance inferred, no repair/repeat.",
+  "day18_close": {
+    "closed_utc": "2026-10-25T17:00:07Z",
+    "deadline_utc": "2026-10-25T17:00:00Z",
+    "enabled": false,
+    "stage_completed": false,
+    "N01_score": "0/10",
+    "historical_phase1_documentation": "20/20 retained separately",
+    "window_elapsed_seconds": 20794.486778,
+    "elapsed_is_window_wall_time_NOT_continuous_CAD_compute": true,
+    "own_calculations_stopped": true,
+    "owned_worker_exit_code": 0,
+    "last_account_usage": {
+      "checked_utc": "2026-10-25T17:00:04Z",
+      "weekly_used_percent": 13.0,
+      "weekly_remaining_percent": 87.0,
+      "ordinary_usage_allowed": true,
+      "reset_action_taken": false,
+      "source": "mcp__codex_app__get_usage_limits",
+      "resets_at": 1793513509
+    },
+    "checked_local_stage_commits": [
+      "4ad74599",
+      "74754396",
+      "b55bf829",
+      "d7f2bdde",
+      "ca611908"
+    ],
+    "model": "Main Sol high per user selection; runtime setting not independently inferred; reviewer configuredgpt-6-astra/medium. No model change.",
+    "next_checkpoint": "One WHOLE MAIN4 source/root/4continuations/complete modules-IN-OUT/assembly proposal, then changed-interface trial; no isolatedW078bypass",
+    "next_trial_budget_minutes": [
+      60,
+      90
+    ],
+    "trial_budget_NOT_promised_N01_completion": true,
+    "physical_pass": false
+  }
 }
