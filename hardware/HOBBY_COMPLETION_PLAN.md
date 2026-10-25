@@ -1,5 +1,27 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Sprawdzony checkpoint GAL25-N — 25.10.2026 00:52UTC
+
+N01-N10 nadal0/10; historyczne20/20 dokumentacji osobno. Okno do08:00UTC aktywne.
+CałyG_AUX w zatoce[61.5,84,68], porty+Z, jeden9mmgrzebień i zdejmowanyshoe.
+Mapa fizycznej kolejności tego SAMEGO commonGND: XA04/XA06/XB13/XB23/XA05.
+Bez zmiany netów, zakupionych części lub pinoutu zewnętrznego. Pięć aktualnych
+wyprowadzeń jest CZĘŚCIOWYCH; stareI/L nie stanowią aktualnych pełnych tras.
+18właścicieli modułu/5wyjść/retencji rozłącznych z5292obwiedniami49póz nóg,
+0exactqueries/0niekwalifikowanych bliskich par; statyka13.094s bez błędów.
+Shoe1solid naBankBed,2T18I100 po59.8mm w kanałach w NOWEJrewizji płyty.
+Usunięte69.426mm3 poza pasem podparciahousingów, 0usunięcia podparcia.
+Własne kanały.15mm/facebearing0, bez obcych kontaktów. Nowyarm/post wycofany.
+Wspólny5coreU dlaCUSTOM ma static3.375s, wzajemne.2mm, XP03gap2.348mm,
+obrys>=4.612mm; jest NIEPODŁĄCZONĄ rezerwą serwisową, nie całym parkingiem.
+Fabrycznych900/4MTA nie wydłużono. NowyBRep-pakiet zawiera aktualne świadki,
+receptury i wcześniejsze odrzucenia; natywne historyczne źródła bez zmian.
+Jawnebraki: case/carrierY99 nie spełnia domyślnego3.25mm skin+air; pełne3front,
+2rear/2distribution, całaobsada/długości900, montaż/parking/całyN01 OPEN.
+Kolejnywspólnykrok: źródło i droga obciążenia U1Carrier:Fore:Base PRZED
+objazdem wiązki — to drukowanybeam/cross/pillar, nie pełnybbox24..44/20..95.
+BezphysicalPASS, bez zmiany modelu. Kontynuacja po commicie; raport rano.
+
 ## Sprawdzony checkpoint GAL25-K2 — 24.10.2026, okno do25.10 09:00Warszawy
 
 Nowy N01 pozostaje0/10; historyczne20/20osobno. Okno aktywne, deadline08:00UTC.

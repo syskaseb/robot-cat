@@ -323,7 +323,7 @@ def splice_saddle_and_root(scene,rail):
         one_revision_of_negative_foundation_print_owner=True,not_physical_strength_PASS=True)
 
 
-def complete_gaux_front(source_rec,endpoints):
+def complete_gaux_front(source_rec,endpoints,late_head_descent=False):
     """Critical G2/S0/HP approaches; open shared columns between interfaces."""
     import math
     import prototype_layout_review_20261024 as base
@@ -338,15 +338,19 @@ def complete_gaux_front(source_rec,endpoints):
             parts += [base.tr.line(p,c),turn,base.tr.line(d,q)]
             reason='One tilted half-turn outside F_PI/S0 casing, above P0 beam; G2 last full9 kept. Wider47mm source corner allocates the whole fold.'
         elif w=='XB23':
-            c=[-80.,47.5,63.];d=[-92.6,47.5,75.6];e=[-92.6,47.5,81.];q=[-117.46,36.4,103.]
+            z=p[2];c=[-80.,47.5,z];d=[-92.6,47.5,z+12.6];e=[-92.6,47.5,81.];q=[-117.46,36.4,103.]
             parts += [base.tr.arc(p,(0,-1,0),c),base.tr.arc(c,(-1,0,0),d),base.tr.line(d,e),*base.tr.biarc(e,(0,0,1),q,(-1,0,0))]
             reason='Rise outside ForeFHAC and approach exposed +Y side of HP row; finish-35 was not a connector. Head/moving source and proper final source cylinder retained.'
         else:
             tier=61.+1.05+1.25
             entry=[-65.,39.5,tier];c=[-65.,-16.35,tier];d=[-80.,-31.35,tier];k=[-120.,-31.35,q[2]]
-            parts += [*base.tr.biarc(p,(0,-1,0),entry,(0,-1,0)),base.tr.line(entry,c),base.tr.arc(c,(0,-1,0),d),
-                *base.tr.biarc(d,(-1,0,0),k,(-1,0,0)),
-                *base.tr.biarc(k,(-1,0,0),q,[-v for v in row['remote']['outward']])]
+            parts += [*base.tr.biarc(p,(0,-1,0),entry,(0,-1,0)),base.tr.line(entry,c),base.tr.arc(c,(0,-1,0),d)]
+            if late_head_descent:
+                late=[-128.,-31.35,tier]
+                parts += [base.tr.line(d,late),*base.tr.biarc(late,(-1,0,0),q,[-v for v in row['remote']['outward']])]
+            else:
+                parts += [*base.tr.biarc(d,(-1,0,0),k,(-1,0,0)),
+                    *base.tr.biarc(k,(-1,0,0),q,[-v for v in row['remote']['outward']])]
             reason='Lower shared front column passes above F_PI and below S0 key, then whole S0/S1 gap. Final yaw approach reused from D trial.'
         minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
         body=base.solid(parts,row['radius_mm']);body.check(True);shapes[w]=body
@@ -354,6 +358,277 @@ def complete_gaux_front(source_rec,endpoints):
             radius_mm=row['radius_mm'],source=row['local'],receiver_nominal=row['remote'],final_mm=q,
             source_profile_assumptions_and_motion_fit_not_supplier_certification=True)
     return shapes,recipes
+
+
+def regroup_common_ground(groups,endpoints,front_destination_order=False):
+    """One common-rail physical permutation, not a changed electrical pinout."""
+    import copy,Part
+    new={n:s.copy() for n,s in groups.items()};ends=copy.deepcopy(endpoints)
+    mapping=[('XA04',2),('XA06',5),('XA05',1),('XB23',3),('XB13',4)]
+    if front_destination_order:mapping=[('XA04',2),('XA06',5),('XB13',4),('XB23',3),('XA05',1)]
+    rows=[]
+    pad=Part.makeBox(9,3.25,25.5,A.Vector(-8.75,89.25,44.25))
+    for physical,(w,logical) in enumerate(mapping,1):
+        z=66.5-(physical-1)*4.75;r=ends['rows'][w]['radius_mm']
+        actor=f'Station:G_AUX:wire:G_AUX.{logical}'
+        new[actor]=Part.makeCylinder(r,9.25,A.Vector(.5,92.5,z),A.Vector(-1,0,0))
+        bore=Part.makeCylinder(r+.15,11,A.Vector(-9.75,92.5,z),A.Vector(1,0,0))
+        pad=pad.cut(bore)
+        ends['rows'][w]['local'].update(point_mm=[-8.75,92.5,z],radius_mm=r,
+            physical_slot=physical,logical_common_rail_endpoint=f'G_AUX.{logical}')
+        rows.append(dict(wire=w,logical_endpoint=f'G_AUX.{logical}',physical_slot=physical,
+            source_cap_mm=[-8.75,92.5,z],radius_mm=r))
+    pad.check(True);assert len(pad.Solids)==1
+    new['Station:G_AUX:split_common_comb']=pad
+    return new,ends,dict(common_net_unchanged=True,purchased_part_unchanged=True,
+        physical_slot_map=rows,full_grip_mm=9.,no_external_pinout_inferred=True,
+        old_contract_not_overwritten=True)
+
+
+def upper_ground_source_fan(endpoints):
+    """Ordered front/rear bifurcation above the measured folding-knee sweep."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={}
+    targets={'XA04':74.21,'XA06':69.46,'XA05':66.,'XB23':62.,'XB13':58.}
+    for w,z in targets.items():
+        row=endpoints['rows'][w];p=row['local']['point_mm'];a=[-35.,92.5,z]
+        parts=base.tr.biarc(p,(-1,0,0),a,(-1,0,0))
+        if w in ('XA04','XA06'):
+            R=15. if w=='XA04' else 19.75;b=[-35.,92.5,z+2*R]
+            parts.append(dict(kind='arc',start=a,end=b,tangent=[-1,0,0],bend=[0,0,1],
+                radius=R,angle=math.pi,length=math.pi*R,end_tangent=[1,0,0]))
+        else:
+            R=47. if w=='XA05' else 30.;b=[-35.-R,92.5-R,z]
+            parts.append(base.tr.arc(a,(-1,0,0),b))
+        minimum=min(p.get('radius',math.inf) for p in parts)
+        assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        s=base.solid(parts,row['radius_mm']);s.check(True);shapes[w]=s
+        recipes[w]=dict(parts=parts,source=row['local'],end_mm=b,
+            length_mm=base.tr.length(parts),minimum_R_mm=minimum,radius_mm=row['radius_mm'],
+            shared_upper_reverse_centre_Z_mm=89.21 if w in ('XA04','XA06') else None,
+            partial_source_transition_only=True,whole_receiver_and_route_NOT_received=True)
+    return shapes,recipes
+
+
+def top_exit_ground_station(groups,endpoints,scene):
+    """M: orient the entire common-ground station above the folded front leg."""
+    import copy,Part
+    def box(lo,hi):return Part.makeBox(*(hi[i]-lo[i] for i in range(3)),A.Vector(*lo))
+    mat=A.Matrix();mat.A11=0;mat.A12=1;mat.A13=0
+    mat.A21=0;mat.A22=0;mat.A23=-1;mat.A31=-1;mat.A32=0;mat.A33=0
+    rot=A.Rotation(mat);assert abs(rot.multVec(A.Vector(-1,0,0)).z-1)<1e-8
+    tf=A.Placement(A.Vector(10,84,61.35),rot)*A.Placement(A.Vector(-10,-92.5,-57),A.Rotation())
+    result={n:s.copy() for n,s in groups.items()};ends=copy.deepcopy(endpoints)
+    for n,s in result.items():
+        if n.startswith('Station:G_AUX:'):s.Placement=tf*s.Placement
+    band=result['Station:G_AUX:band_budget'].optimalBoundingBox(False,False)
+    result['Station:G_AUX:head_budget']=box((band.XMax,81.35,band.Center.z-2.5),
+        (band.XMax+4.3,86.65,band.Center.z+2.5))
+    for w in ('XA04','XA06','XA05','XB23','XB13'):
+        p=ends['rows'][w]['local'];p['point_mm']=list(tf.multVec(A.Vector(*p['point_mm'])))
+        p['outward']=[0,0,1]
+    foot=box((3.,68.,48.35),(15.5,99.,51.35))
+    for y in (74.,94.):foot=foot.cut(box((2.,y-1.4,48.85),(16.5,y+1.4,50.35)))
+    comb=result['Station:G_AUX:split_common_comb'];b=comb.optimalBoundingBox(False,False)
+    wall=box((3.,b.YMin,48.35),(4.25,b.YMax,b.ZMax))
+    bridge=box((3.,b.YMin,b.ZMin),(6.95,b.YMax,b.ZMin+2.))
+    carrier=foot.fuse(wall).fuse(bridge).fuse(comb);carrier.check(True);assert len(carrier.Solids)==1
+    arm=box((7.,55.,45.35),(13.,98.5,48.35));post=box((7.,55.,38.52),(13.,59.,48.35))
+    old=scene['CurrentFoundation:FoundationRail:1'];rail=old.fuse(post).fuse(arm);rail.check(True)
+    assert old.cut(rail).Volume<1e-7 and len(rail.Solids)<=len(old.Solids)
+    assert carrier.common(rail).Volume<1e-7 and carrier.distToShape(rail)[0]<1e-7
+    assert comb.cut(carrier).Volume<1e-7
+    return result,ends,rail,carrier,dict(case_centre_mm=[10,84,61.35],source_direction=[0,0,1],
+        case_bounds_mm=[[5.5,69.,51.85],[14.5,99.,70.85]],full_source_grip_mm=9.,
+        cap_Z_mm=80.10,same_common_ground_map=True,purchased_parts_unchanged=True,
+        wire_tie_head_repositioned_to_free_positive_X_side=True,
+        carrier_one_solid=True,positive_rail_original_material_removed_mm3=old.cut(rail).Volume,
+        carrier_rail_positive_post_union_mm3=old.common(post).Volume,
+        carrier_fixing_ties=2,wire_relief_tie=1,case_tape_gap_mm=.5,
+        assembly='Open side/top; place case on carrier with source comb and band on bench; lower complete carrier onto fixed arm, thread two fixing ties through horizontal windows. Free ends routed before closing skin. Parking/full factory slack OPEN.',
+        arm_and_post_bounds_mm=[[[7,55,45.35],[13,98.5,48.35]],[[7,55,38.52],[13,59,48.35]]],
+        provisional_not_strength_or_physical_PASS=True)
+
+
+def top_exit_ground_branches(endpoints,roof_lane_Z=None):
+    """All five lanes together: separate Y rows, no reversed low source fan."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={}
+    for w in ('XA04','XA06','XA05','XB23','XB13'):
+        row=endpoints['rows'][w];p=row['local']['point_mm'];y=p[1]
+        z=p[2]+15 if roof_lane_Z is None else (roof_lane_Z[w] if isinstance(roof_lane_Z,dict) else roof_lane_Z)
+        rear=w in ('XA04','XA06');sign=1 if rear else -1
+        start=[p[0],y,z-15];a=[p[0]+sign*15,y,z]
+        parts=([base.tr.line(p,start)] if start[2]>p[2]+1e-7 else [])+[base.tr.arc(start,(0,0,1),a)]
+        if roof_lane_Z is not None and not rear:
+            parts.append(base.tr.line(a,[-20.,y,z]))
+        if not rear:
+            if roof_lane_Z is not None:
+                minimum=min(p.get('radius',math.inf) for p in parts)
+                s=base.solid(parts,row['radius_mm']);s.check(True);shapes[w]=s
+                recipes[w]=dict(parts=parts,source=row['local'],end_mm=parts[-1]['end'],length_mm=base.tr.length(parts),
+                    minimum_R_mm=minimum,radius_mm=row['radius_mm'],whole_receiver_and_route_NOT_received=True)
+                continue
+            b=[-20.,y,z];c=[-35.,y,z-15];d=[-50.,y,z-30]
+            parts += [base.tr.line(a,b),base.tr.arc(b,(-1,0,0),c),base.tr.arc(c,(0,0,-1),d)]
+            R=32. if w=='XA05' else 15.;e=[d[0]-R,y-R,d[2]]
+            parts += [base.tr.arc(d,(-1,0,0),e)]
+            if w=='XB23':parts.append(base.tr.line(e,[-65.,62.5,d[2]]))
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6
+        s=base.solid(parts,row['radius_mm']);s.check(True);shapes[w]=s
+        recipes[w]=dict(parts=parts,source=row['local'],end_mm=parts[-1]['end'],
+            length_mm=base.tr.length(parts),minimum_R_mm=minimum,radius_mm=row['radius_mm'],
+            source_bifurcation='two rear +X / three front -X, separate Y rows',
+            whole_receiver_and_route_NOT_received=True)
+    return shapes,recipes
+
+
+def raised_top_station(groups,endpoints,scene,centre_X=11.8):
+    """M2: seat on the existing bank bed, independently rooted outer ledge."""
+    import copy,Part
+    dx=centre_X-11.8
+    def box(lo,hi):return Part.makeBox(*(hi[i]-lo[i] for i in range(3)),A.Vector(lo[0]+dx,lo[1],lo[2]))
+    result={n:s.copy() for n,s in groups.items()};ends=copy.deepcopy(endpoints);delta=A.Vector(1.8+dx,0,6.65)
+    for n,s in result.items():
+        if n.startswith('Station:G_AUX:'):s.translate(delta)
+    for w in ('XA04','XA06','XA05','XB23','XB13'):
+        local=ends['rows'][w]['local'];local['point_mm']=list(A.Vector(*local['point_mm'])+delta)
+    foot=box((4.8,69.,55.),(17.3,99.,58.))
+    for y in (74.,94.):foot=foot.cut(box((3.8,y-1.4,55.5),(18.3,y+1.4,57.)))
+    comb=result['Station:G_AUX:split_common_comb'];b=comb.optimalBoundingBox(False,False)
+    wall=box((4.8,b.YMin,55.),(6.05,b.YMax,b.ZMax))
+    bridge=box((4.8,b.YMin,b.ZMin),(8.75,b.YMax,b.ZMin+2))
+    carrier=foot.fuse(wall).fuse(bridge).fuse(comb);carrier.check(True);assert len(carrier.Solids)==1
+    arm=box((8.8,55.,47.75),(14.8,98.5,50.75));post=box((8.8,55.,38.52),(14.8,59.,50.75))
+    seat=box((8.8,81.25,50.5),(14.8,98.5,55.))
+    old=scene['CurrentFoundation:FoundationRail:1'];rail=old.fuse(post).fuse(arm).fuse(seat);rail.check(True)
+    assert old.cut(rail).Volume<1e-7 and len(rail.Solids)<=len(old.Solids)
+    bed=scene['CurrentFoundation:BankBedCurrent:1']
+    assert carrier.common(bed).Volume<1e-7 and carrier.distToShape(bed)[0]<1e-7
+    assert carrier.common(rail).Volume<1e-7 and carrier.distToShape(rail)[0]<1e-7
+    cells={'arm':[[8.8,55,47.75],[14.8,98.5,50.75]],'post':[[8.8,55,38.52],[14.8,59,50.75]],'seat':[[8.8,81.25,50.5],[14.8,98.5,55.]]}
+    for lo,hi in cells.values():lo[0]+=dx;hi[0]+=dx
+    return result,ends,rail,carrier,dict(case_centre_mm=[centre_X,84,68.],cap_Z_mm=86.75,
+        physical_rows_Y_mm=[74.5,79.25,84,88.75,93.5],case_tape_gap_mm=.5,
+        carrier_one_solid=True,unchanged_bed_face_bearing_Z_mm=55.,
+        carrier_rail_positive_post_union_mm3=old.common(post).Volume,
+        no_old_rail_material_removed_mm3=old.cut(rail).Volume,
+        arm_clearance_below_existing_bed_mm=1.25,outer_seat_clearance_to_bed_Y_mm=1.25,
+        fixing_ties=2,wire_relief_tie=1,assembly_method='Bench module; open top/side; lower onto retained bed face and separate rail-rooted outer seat; two fixing ties. Full attached-end assembly parking still OPEN.',
+        new_fixed_cells=cells,
+        source_common_ground_map_unchanged=True,not_physical_PASS=True)
+
+
+def bed_edge_retained_carrier(carrier,scene):
+    """Two short removable ties through the shoe, using the retained bed load path."""
+    import Part
+    def box(lo,hi):return Part.makeBox(*(hi[i]-lo[i] for i in range(3)),A.Vector(*lo))
+    body=carrier.copy();ties={};heads={};bed=scene['CurrentFoundation:BankBedCurrent:1'];revised_bed=bed.copy()
+    for i,x in enumerate((59.5,64.),1):
+        # The upper strap is recessed below the case, never over its levers.
+        top=box((x-1.4,72.65,55.65),(x+1.4,84.35,57.15))
+        slots=[box((x-1.4,y0,54.9),(x+1.4,y1,57.15)) for y0,y1 in ((72.65,74.15),(82.85,84.35))]
+        body=body.cut(top).cut(slots[0]).cut(slots[1])
+        # Two tie slots in NEW revision of the printed bed, outside all
+        # housing bearing strips (Y<=67.75); never cut purchased hardware.
+        revised_bed=revised_bed.cut(box((x-1.4,72.65,51.),(x+1.4,74.15,56.)))
+        revised_bed=revised_bed.cut(box((x-1.4,72.65,51.9),(x+1.4,80.1,53.35)))
+        outer=box((x-1.25,72.8,52.),(x+1.25,84.2,57.))
+        inner=box((x-2.,74.,53.2),(x+2.,83.,55.8))
+        ties[str(i)]=outer.cut(inner)
+        heads[str(i)]=box((x-2.5,84.2,51.95),(x+2.5,88.5,57.25))
+        ties[str(i)].check(True);heads[str(i)].check(True)
+    body.check(True);assert len(body.Solids)==1
+    revised_bed.check(True);assert len(revised_bed.Solids)==len(bed.Solids)
+    protected=box((-100,39.25,51.),(150,67.75,56.))
+    assert bed.cut(revised_bed).common(protected).Volume<1e-7
+    assert body.common(revised_bed).Volume<1e-7
+    assert body.distToShape(revised_bed)[0]<1e-7
+    for t in ties.values():
+        assert t.common(revised_bed).Volume<1e-7
+        assert t.common(body).Volume<1e-7
+    return body,ties,heads,revised_bed,dict(load_path='Case -> adhesive bearing -> PETG shoe -> BankBed face/root network -> frame; two independent shoe ties resist lift/overhang',
+        added_fixed_rail_arm_and_post_retired=True,purchased_parts_unchanged=True,
+        printed_bed_revision_two_tie_slots_only=True,bed_material_removed_mm3=bed.cut(revised_bed).Volume,
+        housing_bearing_material_removed_mm3=0.,
+        shoe_tie_centres_X_mm=[59.5,64.],shoe_slots_Y_mm=[[72.65,74.15],[82.85,84.35]],
+        upper_strap_recess_Z_mm=[55.65,57.15],case_bottom_Z_mm=58.5,
+        selected_fixing_tie_qty=2,nominal_length_budget_each_mm=2*(11.4+5.)+27.,
+        full_1p2mm_lower_strap_recessed_into_printed_bed=True,bed_understrap_recess_Z_mm=[52.,53.35],
+        minimum_remaining_bed_web_above_recess_mm=1.65,
+        source_wire_tie_separate=True,physical_pull_threading_and_strength_phase2_OPEN=True,
+        planned_lowering_with_top_side_panels_removed=True,
+        five_attached_ends_service_parking_NOT_received=True)
+
+
+def constant_torso_section_bounds(shapes):
+    """Conservative exact-parametric rounded-section check in the flat-width span.
+
+    The saved outer BRep fails strict BOP; never use its failed Boolean as
+    containment. This only uses the unchanged pinned200-wide section recipe,
+    valid for the complete X[-128,145] interval, radius12, Z[-48,112].
+    """
+    import itertools,math
+    result=[]
+    for n,s in shapes.items():
+        b=s.optimalBoundingBox(False,False)
+        if b.XMin < -128 or b.XMax>145:
+            result.append(dict(owner=n,status='OUTSIDE_CONSTANT_SECTION_DOMAIN_NOT_QUALIFIED'));continue
+        gaps=[]
+        for y,z in itertools.product((b.YMin,b.YMax),(b.ZMin,b.ZMax)):
+            qy=abs(y)-88.;qz=abs(z-32.)-68.
+            signed=math.hypot(max(qy,0),max(qz,0))+min(max(qy,qz),0)-12
+            gaps.append(-signed)
+        gap=min(gaps)
+        result.append(dict(owner=n,conservative_box_boundary_gap_mm=gap,
+            conservative_box_inside=gap>=-1e-7,default_skin_air_budget_mm=3.25,
+            conservative_default_budget_received=gap>=3.25-1e-7,
+            negative_bound_not_actual_contact=True))
+    return result
+
+
+def ground_service_bight():
+    """One nine-ish by eight bundle budget for five CUSTOM leads, no factory slack."""
+    import math
+    import prototype_layout_review_20261024 as base
+    R=20.;p=[140.,91.,55.];a=[130.,91.,55.];b=[130.,91.,95.];q=[140.,91.,95.]
+    parts=[base.tr.line(p,a),dict(kind='arc',start=a,end=b,tangent=[-1,0,0],bend=[0,0,1],
+        radius=R,angle=math.pi,length=math.pi*R,end_tangent=[1,0,0]),base.tr.line(b,q)]
+    envelope=base.solid(parts,4.);envelope.check(True)
+    return envelope,dict(parts=parts,bundle_envelope_radius_mm=4.,
+        five_custom_wires=['XA04','XA06','XA05','XB23','XB13'],
+        transverse_pack_mm={'power_row_Y':[-2.7,0,2.7],'power_radius':1.25,
+            'signal_row_Y':[-1.35,1.35],'signal_row_normal':-2.3382685902,'signal_radius':1.05},
+        maximum_nominal_packed_radius_mm=3.95,retained_wire_gap_mm=.2,
+        common_centreline_length_mm=base.tr.length(parts),minimum_possible_inner_radius_mm=16.,
+        provisional_custom_service_allowance_each_mm=100.,factory900_or_4MTA_allowance_added_mm=0.,
+        no_source_or_receiver_branches_yet=True,not_entire_length_or_parking_PASS=True)
+
+
+def packed_ground_service_bight():
+    """One transported five-core pack; the prior round envelope was overbroad."""
+    import math
+    import prototype_layout_review_20261024 as base
+    from plan_feline_FL_three_core_shared_trunk import transport
+    _,rec=ground_service_bight();parts=rec['parts']
+    for p in parts:
+        p['start'][1]=92.;p['end'][1]=92.
+    pack=[('XA04',[0,0,-2.7],1.25),('XA06',[0,0,0],1.25),('XA05',[0,0,2.7],1.25),
+          ('XB23',[0,2.3382685902,-1.35],1.05),('XB13',[0,2.3382685902,1.35],1.05)]
+    shapes={};rows={}
+    for w,offset,r in pack:
+        path,_=transport(parts,offset);s=base.solid(path,r);s.check(True);shapes[w]=s
+        minimum=min(p.get('radius',math.inf) for p in path)
+        assert minimum>=(15. if r==1.25 else 12.6)-1e-6
+        rows[w]=dict(parts=path,offset_mm=offset,radius_mm=r,minimum_R_mm=minimum,
+            bight_path_length_mm=base.tr.length(path),custom_design_allowance_mm=100.,
+            factory_allowance_added_mm=0.)
+    return shapes,dict(whole_pack=rows,nominal_Y_extent_mm=[90.75,95.3882685902],
+        source_and_receiver_branches_OPEN=True,not_full_service_parking=True,
+        same_shared_U_frame=True,round_envelope_overlap_not_actual_wire_contact=True,
+        no_manufacturer_stock_or_factory_length_change=True)
 
 
 def repack_front_middle_pair(out,vertical_transfer_mm=-5.):
@@ -392,3 +667,67 @@ def repack_front_middle_pair(out,vertical_transfer_mm=-5.):
             common_simple_anchor_owner='GAL25 SpliceRoot arm; N03 shared tie eyelet/detail pending',
             whole900_NOT_received=True,not_physical_PASS=True)
     return shapes,recipes
+
+
+def load_existing_leg_motion(start_pose=0,stop_pose=36,rest=None):
+    """Pinned original leg shapes and chosen existing poses; reuse rest shapes, no scene replay."""
+    import itertools,json,numpy as np
+    from check_main_p0_placement import ROOT,SavedShapes,sha
+    from plan_feline_layout import OUT,MODEL,STAGES,transforms
+    motionfile=OUT/'motion-layout.json';axesfile=ROOT/'hardware/simulation/p0/e6-leg-compatibility.json'
+    data=json.loads(motionfile.read_text(encoding='utf-8'));axes=json.loads(axesfile.read_text(encoding='utf-8'))['axes']
+    reader=SavedShapes();rest={} if rest is None else rest;actors=[]
+    for code,groups in data['membership'].items():
+        aa=[next(a for a in axes if a['code']==code and a['stage']==stage) for stage in STAGES]
+        pose_rows=data['poses'][start_pose:stop_pose]
+        tfs=[transforms(aa,p['legs'][code]['angles_delta_degrees']) for p in pose_rows]
+        for stage,names in groups.items():
+            for name in names:
+                source=rest[name] if name in rest else reader.shape(MODEL,name);rest[name]=source;bb=source.BoundBox
+                corners=np.array(list(itertools.product((bb.XMin,bb.XMax),(bb.YMin,bb.YMax),(bb.ZMin,bb.ZMax))))
+                for i in range(len(pose_rows)):
+                    r,t=tfs[i][STAGES.index(stage)];v=corners@r.T+t
+                    actors.append(dict(name=name,code=code,stage=stage,pose=start_pose+i,r=r,t=t,bounds=[v.min(0),v.max(0)]))
+    return rest,actors,{**reader.hashes,**{p.relative_to(ROOT).as_posix():sha(p) for p in [MODEL,motionfile,axesfile]}}
+
+
+def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.):
+    """One bounded pass over changed owners; preserve exact-pose cache in RAM."""
+    import time
+    from feline_solid_distance import bbox_lower_bound,distance
+    from receive_feline_global_case_candidates import placement
+    if state is None:state=dict(done=[],rows=[],errors=[],cache={},validated={},seconds=0.)
+    tick=time.monotonic()
+    for n,s in shapes.items():
+        if n in state['done']:continue
+        s.check(True)
+        for a in actors:
+            key=(n,a['name'],a['pose'])
+            if any(row['key']==key for row in state['rows']):continue
+            bb=A.BoundBox(*a['bounds'][0],*a['bounds'][1])
+            if bbox_lower_bound(s.BoundBox,bb)>=1.25:continue
+            if time.monotonic()-tick>=budget_seconds:
+                state['seconds']+=time.monotonic()-tick
+                return state
+            signature=(n,a['name'],tuple(a['r'].reshape(-1)),tuple(a['t']))
+            if a['name'] not in state['validated']:
+                # A complex unqualified supplier/source shape is HOLD. Do not
+                # block the entire bounded pass on another expensive BOP scan.
+                if len(rest[a['name']].Faces)>250:
+                    state['validated'][a['name']]=False
+                    state['errors'].append(dict(source=a['name'],error='Complex unqualified source; no repeated unbounded BOP validation or clearance claim'))
+                else:
+                    try:rest[a['name']].check(True);state['validated'][a['name']]=True
+                    except Exception as exc:state['validated'][a['name']]=False;state['errors'].append(dict(source=a['name'],error=str(exc).splitlines()[0]))
+            if not state['validated'][a['name']]:
+                state.setdefault('unqualified_near_pairs',[]).append(dict(owner=n,source=a['name'],pose=a['pose'],status='HOLD_invalid_or_unqualified_source_not_clearance'))
+                continue
+            if signature not in state['cache']:
+                inv=placement(a['r'],a['t']).inverse();q=s.copy();q.Placement=inv*q.Placement
+                state['cache'][signature]=distance(q,rest[a['name']].copy())
+            gap=state['cache'][signature];state['rows'].append(dict(key=key,owner=n,source=a['name'],pose=a['pose'],gap_mm=gap,minimum_mm=1.25,ok=gap>=1.25-1e-6))
+        state['done'].append(n)
+        print('GAL25_MOTION_PART',n,'done',len(state['done']),'of',len(shapes),'queries',len(state['rows']),'failures',sum(not r['ok'] for r in state['rows']),'errors',len(state['errors']),flush=True)
+        if time.monotonic()-tick>=budget_seconds:break
+    state['seconds']+=time.monotonic()-tick
+    return state
