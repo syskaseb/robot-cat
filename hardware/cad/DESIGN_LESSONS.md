@@ -1,5 +1,18 @@
 # Wnioski z projektowania 3D robot-cat
 
+## 25.10 — prawdziwy koniec i prawdziwy chwyt przed trasą
+
+Stary wolny cap po umownym wachlarzu NIE jest automatycznie stałym kupnym
+złączem. Odczytaj konstruktor: D_RL ma prawdziwe9 i wspólny cap przy case,
+a dalszy łuk30/linia9 były swobodną referencją. Dwie odrzucone trasy wokół
+niepotrzebnie zamrożonego cap nie uzasadniają trzeciej; zmień wolny wachlarz
+za zachowanym chwytem, nie pozostałe moduły. Uniwersalna opaska z otworem2.5
+nie dowodzi retencji przewodu r.925. Modeluj prostą podpórkę dla rzeczywistego
+profilu i jawne zaciskanie/zakres rezerwy, zachowując wymiary kupnej opaski.
+Dodatni styk0.259 przy rogu nie uzasadnia delikatnego podcięcia starego korzenia:
+wybierz jedną prostą drogę nowego drukowanego korzenia i zachowaj pełny rdzeń.
+Fizyczna przymiarka, pociągnięcie i pełzanie pozostają niezweryfikowane.
+
 ## 25.10 — korekta setupu po nocnym oknie
 
 Za mało było decyzji dotyczących całego układu przed zależnym modelowaniem.

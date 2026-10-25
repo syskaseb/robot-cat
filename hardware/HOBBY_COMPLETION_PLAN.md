@@ -3,8 +3,8 @@
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (25.10.2026)
 
 Stan: N01–N10 **0/10**; historyczne20/20 dokumentacji otwartego prototypu osobno.
-Nowa zgoda: użytkownik „Okej, pracuj do16”. Okno25.10 do16:00Warszawy(CET),
-**deadline15:00UTC**. Czas i enabled sprawdź w robot-cat/.codex/hooks/robot-cat-work-window.json.
+Nowa zgoda: użytkownik „Okej, pracuj do16”, następnie „Pracuj do18jednak”. Okno25.10 przedłużone do18:00Warszawy(CET),
+**deadline17:00UTC**. Czas i enabled sprawdź w robot-cat/.codex/hooks/robot-cat-work-window.json.
 Starsze karty/NEXT poniżej to historia, także gdy zawierają słowa „aktywne/ON”.
 Jeden wykonawca, istniejący recenzent Astra medium; ustawień modeli nie zmieniać.
 
@@ -19,7 +19,59 @@ NIE odebranym miejscem w robocie ani obowiązkiem prowadzenia tam wszystkich ży
 **Wejście:** commit1ec6c2e1 i istniejący prototype-shared-galleries-20261025-result.json,
 sekcja common_candidate_assembly_proposal; ten sam ZIP i oba istniejące widoki.
 Zachować odebrane BL/BP12, AV, RR3, MAIN i bankR47. W078 splice-side9 jest
-odebrane(cc48f3d8); otwarty jest MAIN-side9. Nie powtarzać zapisu/odtwarzania tych brył.
+odebrane(cc48f3d8); oba końce mają nominalną retencję; nie odtwarzać jej ponownie. Nie powtarzać zapisu/odtwarzania tych brył.
+
+**Odebrane12:05UTC:** odtworzono jawne źródła7.203s bez skanu;1526źródeł,
+jedynie nativeBUSsupplier25 nadal brak (nie uznany za poprawną bryłę). MAIN ma
+JUŻ wspólne4×9mm: nominalny saddle w całości zawarty w istniejącym MAINassembly,
+6odtworzonych jacket/band/head statyka8.562s bez błędów; własne kanały.15,
+żadnej dodatniej objętości kontaktu. Poprzednie przypisanie HOLD doMAIN było
+błędne: stary flagW078 dotyczył splice-side, zamkniętego cc48. NIE budować
+nowego uchwytuW078. Lutowanie/wytrzymałość/przymiarka/montaż nadal bramki.
+
+**Odebrane12:33UTC:** recenzent Astra medium dopuścił JEDNĄ wspólną próbę
+W011–XP02 (nie odbiór geometrii), turn01a172fa-7bbe-7f22-8629-f2ac159f0505.
+W011 ma całe przednie9 PROSTE; wewnętrzneY=-34.85 wynika z końca9+R12.4.
+PłaszczyznaX101.59245 wynika z pełnej szczeliny bank/obudowaF_PWM. Całe16
+odcinków stycznych265.548mm/Rmin12.4, statyka35pobliskich par bez błędów;
+trzeba rozstrzygnąć własne zakończenia, podpory, montaż/ruch i obrys.
+
+Wspólna próba pokazała, że REALNY przewódXP02 i stary korzeń mają3.759/3.940mm
+odW011; blokowały własny pad/opaska/główka. Cały flip uchwytu nadal blokował
+opaską: rodzina obrotów ZAMKNIĘTA. Przeniesiono całe9 na ISTNIEJĄCY łuk10..19,
+bez zmiany przewodu/obu fabrycznych225mm końców. Siodło ma jawne.15 do profilu
+.925 (stara rezerwa2.5 nie dowodziła chwytu); opaska to maksymalna rezerwa,
+przy montażu zaciskana, przymiarka/pociągnięcie/pełzanie nadal fizyczna bramka.
+Nowy jeden korzeń nad własną obudową naZ73 ma pełnyR1.4rdzeń, oba dodatnie
+styki i jedną bryłę z siodłem/istniejącym mocowaniem.4zmienione części/22pary,
+6.563s bez błędów. Główka przecina WYŁĄCZNIE projektową rezerwę narzędziaATO,
+nie wykazano kontaktu z bezpiecznikiem; kolejność montażu/serwisu otwarta.
+Nie przyjmować podciętej starej cienkiej gałęzi: zastąpiona całym nowym korzeniem.
+
+W012 zachowuje2łukiBA; nowy dolny wachlarzR57.23/26.75/12.4,176.182mm.
+Pełne5odcinków:19pobliskich par, bez błędów, ale 2rezerwyATO i bliskie przewody
+wymagają klasyfikacji na rzeczywistych częściach, nie automatycznego objazdu.
+Bieżący worker5767 jest odbierany; NIE powtarzać źródeł, flipów ani wariantów.
+Następnie jedno wspólne zamknięcie zmienionych mocowań/trasy/montażu/ruchu,
+zachowane AV/MAIN/RR. N01 nadal0/10; master ani kupne części nie zmienione.
+
+**Decyzja12:48UTC:** zamknięto rodzinę lokalnych podejść W012 do starego
+freecap. Był on końcem UMOWNEGO wachlarza po chwycie, nie kupnym złączem:
+rzeczywiste9 i wspólny cap są przy case, Z8.5..−.5. Nowa jedna korekta do
+recenzenta: zachować te9/case/cap/opaskę/inne4porty, zmienić tylko wolny
+wachlarzW012 z−Y na+X. MatematykaR25.502/13.009/12.4, bez nowego CAD przed
+odbiorem. To zmiana interfejsu, nie trzecia poprawka kąta starej trasy.
+Wspólny otwarty korytarz2×Ø3.1 przy D_RR wymaga konstruktywnego upakowania;
+nie uznawać.135nakładki referencyjnych osi za przyzwolenie na ściskanie.
+
+W011 rzeczywiście wewnątrz całego obrysu, profil→skóra5.95. OstatecznyXP02
+ma siodło3.15mm, nie luźną uniwersalną rezerwę; całykit mieści się w200mm,
+statyka22pary6.594s bez błędów, joints2.111/1.020mm³/całość1solid.
+Poprzednie49 kwalifikują poprawne źródła;124/074 zamknięto ODEBRANYMI całymi
+pokrywami konserwatywnymi/hashami, bez naprawiania źródła:22pary/min2.869,
+3.172s/error0. Ostatnia zmiana szerokości kitu wymaga jeszcze własnego49.
+7bieżących BRep zapisano i odtworzono strict0.734s; member wskazany w pakiecie.
+Odbierz recenzenta, potem cały skorygowany wachlarz z mocowaniem/montażem/ruch.
 
 **Brama, przed nową zależną geometrią:**
 1. Uzgodnić jedną całość moduły/mocowania/korytarze/montaż, z widokiem i źródłami.
@@ -42,7 +94,7 @@ Zachować kupne części/P0/E6/15napędów/MG92B/325×200×160/max200/margines25
 4MTA to4uchwyty/8końców; balanceB0..B3 poza123/246 pozostaje jawną bramką.
 Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila.
 Postęp zapisuj lokalnie, bez okresowych powiadomień; odpowiadaj na pytania użytkownika.
-O16:00 zakończ nowe prace, odbierz/zachowaj własne obliczenia i wyłącz enabled.
+O18:00 zakończ nowe prace, odbierz/zachowaj własne obliczenia i wyłącz enabled.
 Procedura instrukcyjna, nie automatyczny walidator geometrii ani fizycznyPASS.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
