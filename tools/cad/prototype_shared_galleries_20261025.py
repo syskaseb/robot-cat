@@ -962,7 +962,7 @@ def load_existing_leg_motion(start_pose=0,stop_pose=36,rest=None):
     return rest,actors,{**reader.hashes,**{p.relative_to(ROOT).as_posix():sha(p) for p in [MODEL,motionfile,axesfile]}}
 
 
-def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.):
+def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.,covers=None):
     """One bounded pass over changed owners; preserve exact-pose cache in RAM."""
     import time
     from feline_solid_distance import bbox_lower_bound,distance
@@ -972,11 +972,14 @@ def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.
     for n,s in shapes.items():
         if n in state['done']:continue
         s.check(True)
+        pieces=(covers or {}).get(n,[s]);piece_bounds=[p.BoundBox for p in pieces]
         for a in actors:
             key=(n,a['name'],a['pose'])
             if any(row['key']==key for row in state['rows']):continue
             bb=A.BoundBox(*a['bounds'][0],*a['bounds'][1])
-            if bbox_lower_bound(s.BoundBox,bb)>=1.25:continue
+            bounds=[bbox_lower_bound(b,bb) for b in piece_bounds]
+            near=[p for p,d in zip(pieces,bounds) if d<1.25]
+            if not near:continue
             if time.monotonic()-tick>=budget_seconds:
                 state['seconds']+=time.monotonic()-tick
                 return state
@@ -989,13 +992,19 @@ def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.
                     state['errors'].append(dict(source=a['name'],error='Complex unqualified source; no repeated unbounded BOP validation or clearance claim'))
                 else:
                     try:rest[a['name']].check(True);state['validated'][a['name']]=True
-                    except Exception as exc:state['validated'][a['name']]=False;state['errors'].append(dict(source=a['name'],error=str(exc).splitlines()[0]))
+                    except Exception as exc:
+                        message=str(exc).splitlines();state['validated'][a['name']]=False
+                        state['errors'].append(dict(source=a['name'],error=message[0] if message else type(exc).__name__))
             if not state['validated'][a['name']]:
                 state.setdefault('unqualified_near_pairs',[]).append(dict(owner=n,source=a['name'],pose=a['pose'],status='HOLD_invalid_or_unqualified_source_not_clearance'))
                 continue
             if signature not in state['cache']:
-                inv=placement(a['r'],a['t']).inverse();q=s.copy();q.Placement=inv*q.Placement
-                state['cache'][signature]=distance(q,rest[a['name']].copy())
+                inv=placement(a['r'],a['t']).inverse();gaps=[]
+                for piece in near:
+                    q=piece.copy();q.Placement=inv*q.Placement
+                    gaps.append(distance(q,rest[a['name']].copy()))
+                gaps.extend(d for d in bounds if d>=1.25)
+                state['cache'][signature]=min(gaps)
             gap=state['cache'][signature];state['rows'].append(dict(key=key,owner=n,source=a['name'],pose=a['pose'],gap_mm=gap,minimum_mm=1.25,ok=gap>=1.25-1e-6))
         state['done'].append(n)
         print('GAL25_MOTION_PART',n,'done',len(state['done']),'of',len(shapes),'queries',len(state['rows']),'failures',sum(not r['ok'] for r in state['rows']),'errors',len(state['errors']),flush=True)
@@ -1206,6 +1215,275 @@ def east_exit_ground_module(groups,endpoints,bed):
         assembly='Same bench-free ends and lever-up sequence as V; operate WAGO before securing adjacent power loom. Two OD-zone ties on the shared9 comb; no tie over case levers. Rare work reverses partial assembly.',
         native_N03_NOT_started=True,whole_body_routes_motion_and_stock_OPEN=True,
         selected=False,N01_complete=False,physical_pass=False)
+
+
+def low_gallery_ground_module(groups,endpoints,bed,west=False,avoid_west_max_X_mm=None,west_bay=False):
+    """Keep W46 bought-case/root; one three-zone comb frees the low front gallery.
+
+    Equal-OD zones bear on every jacket. Port permutation is inside the SAME
+    common ground rail. No manufacturer's pinout or delivered OD is inferred.
+    """
+    import copy,Part
+    def box(a,b):return Part.makeBox(*(b[i]-a[i] for i in range(3)),A.Vector(*a))
+    old,e,plan=east_exit_ground_module(groups,endpoints,bed)
+    actors={'Station:G_AUX:case':old['Station:G_AUX:case']}
+    order=('XA04','XA06','XA05','XB23','XB13') if west_bay else ('XA04','XA06','XB13','XB23','XA05')
+    pad=box([55.75,59.3,91.65],[64.75,84.2,95])
+    for slot,w in enumerate(order,1):
+        row=e['rows'][w];r=row['radius_mm'];y=62.25+(slot-1)*4.75
+        actors[row['local']['actor']]=Part.makeCylinder(r,9.25,A.Vector(55.5,y,91.5),A.Vector(1,0,0))
+        row['local'].update(point_mm=[64.75,y,91.5],full9_grip_start_mm=[55.75,y,91.5],
+            outward=[1,0,0],physical_slot=slot)
+        pad=pad.cut(Part.makeCylinder(r+.15,11,A.Vector(54.75,y,91.5),A.Vector(1,0,0)))
+    # Three2.5mm straps fit on the9mm land with .5mm axial separation.
+    # The north single-core head stays north of the neighbouring side strap.
+    zones=[('rear2',59.3,69.2,1.25,57,62.475),
+           ('front2',69.8,78.5,1.05,60,71.975),('front1',79.25,84.2,1.25,63,80)]
+    if west_bay:
+        assert west
+        zones=[('rear3',59.3,73.75,1.25,58,62.475),('front2',74.5,84.2,1.05,62.5,77.3)]
+    tie_slots=[]
+    for tag,lo,hi,r,x,hy in zones:
+        outer=box([x-1.25,lo-1.2,91.5-r-1.2],[x+1.25,hi+1.2,96.2])
+        inner=box([x-1.35,lo,91.5-r],[x+1.35,hi,95])
+        band=outer.cut(inner)
+        hx=max(55.75,x-2.5)  # entire stock head outside the case's X55.5 face
+        head=box([hx,hy,95],[hx+5,hy+4.3,100.3])
+        tie=band.fuse(head);tie.check(True);assert len(tie.Solids)==1
+        actors['Station:G_AUX:tie_'+tag]=tie
+        slot_outer=box([x-1.4,lo-1.35,91.5-r-1.35],[x+1.4,hi+1.35,96.35])
+        slot_inner=box([x-1.5,lo+.15,91.5-r+.15],[x+1.5,hi-.15,94.85])
+        tie_slots.append(slot_outer.cut(slot_inner))
+    # A broad common spine survives the rear strap window. Reusing the
+    # W46 two-mm upright here severed the comb when its real strap was cut.
+    floor=box([34.5,54.75,84.25],[58,88,86.5]);riser=box([56,54.75,84.25],[64.75,59.5,95])
+    posts=[box([x,75.25,53.5],[x+4,79.25,84.45]) for x in (33.5,38.5)]
+    stops=[box([35,58,86.5],[36,85,88.5]),box([38,54.75,86.5],[54,56.25,88.5]),box([38,87.25,86.5],[54,88,88.5])]
+    if west:
+        # Rotate the actual module/source/comb family, retaining the bank's
+        # floor, posts and stops. A west comb avoids three front U detours.
+        rot=A.Rotation(A.Vector(0,0,1),180);origin=A.Vector(46,71.75,91.5)
+        tf=A.Placement(origin-rot.multVec(origin),rot)
+        for s in [*actors.values(),pad,riser,*tie_slots]:s.Placement=tf*s.Placement
+        for w in order:
+            local=e['rows'][w]['local']
+            for key in ('point_mm','full9_grip_start_mm'):local[key]=list(tf.multVec(A.Vector(*local[key])))
+            local['outward']=[-1,0,0]
+        shift=34. if west_bay else (0. if avoid_west_max_X_mm is None else max(0.,avoid_west_max_X_mm+1.25-27.25))
+        if shift:
+            # Joint inequality from the complete RR_P case, not an offset scan:
+            # west comb Xmin >= RR_P Xmax + rigid1.25. Keep the qualified posts.
+            delta=A.Vector(shift,0,0)
+            for s in [*actors.values(),pad,riser,*tie_slots,*stops]:s.translate(delta)
+            for w in order:
+                for key in ('point_mm','full9_grip_start_mm'):e['rows'][w]['local'][key][0]+=shift
+            floor=box([34.5,54.75,84.25],[58+shift,88,86.5])
+        # The reflected upright stops at the floor's north edge. Extending
+        # it .75 further was unnecessary and infringed the retained USB gap.
+        riser=box([27.25+shift,84.,84.25],[36.+shift,88.,95.])
+        if west_bay:
+            # Ymin of the case is USB ratchet's Ymax56 + rigid1.25.
+            # Keep the two X stops and tape; no north/south lip in the USB lane.
+            delta=A.Vector(0,.5,0)
+            for s in [*actors.values(),pad,riser,*tie_slots]:s.translate(delta)
+            for w in order:
+                for key in ('point_mm','full9_grip_start_mm'):e['rows'][w]['local'][key][1]+=.5
+            riser=box([61.25,84.5,84.25],[70.,88.,95.])
+            # The complete BUS USB ratchet is at Y<=56, not just its band.
+            # Leave the south edge open; retain the case on its two X sides
+            # and north side, with tape on the broad floor and a third post.
+            # Support the case locally; the old long floor lay across the
+            # west cable egress. Both roots are between actual ATO6/7 tools.
+            floor=box([68.5,57.25,84.25],[91.5,88,86.5])
+            stops=[box([69.,58,86.5],[70.,85,88.5]),box([90.,58,86.5],[91.5,85,88.5])]
+            posts=[box([x,75.25,53.5],[x+4,79.25,84.45]) for x in (80.25,85.25)]
+    carrier=floor.multiFuse([riser,pad,*posts,*stops]).removeSplitter()
+    # Side straps also pass through the common riser, not just its pad.
+    for slot in tie_slots:carrier=carrier.cut(slot)
+    carrier.check(True);assert len(carrier.Solids)==1
+    whole=bed.fuse(carrier);whole.check(True);assert len(whole.Solids)==1
+    actual_joints=[bed.common(p).Volume for p in posts];assert min(actual_joints)>1e-6
+    actors['Carrier:G_AUX:low_gallery']=carrier
+    for s in actors.values():s.check(True)
+    plan.update(proposal_id='GAL25-X-low-gallery',port_order_low_to_high_Y=list(order),
+        selected_T18I100_wire_ties=3,equal_OD_zone_core_counts=[2,2,1],
+        unchanged_W46_case_floor_posts_not_newly_qualified=True,
+        actual_tie_threading_pull_and_delivered_fit_OPEN=True,
+        assembly='Bench install grounded bed/carrier, seat lever-up case, terminate same-net ends, lay full9 jackets into one comb and secure three equal-OD zones before closing accessible bundle gallery; reverse partial assembly for rework.')
+    if west:plan.update(proposal_id='GAL25-Z-west-exit',source_outward=[-1,0,0],
+        port_order_low_to_high_Y=list(reversed(order)),west_comb_on_same_rooted_floor=True,
+        centre_mm=[46+shift,71.75,91.5],case_bounds_mm=[[actors['Station:G_AUX:case'].BoundBox.XMin,56.75,87.],[actors['Station:G_AUX:case'].BoundBox.XMax,86.75,96.]],
+        west_RR_P_max_X_constraint_mm=avoid_west_max_X_mm,derived_whole_module_shift_X_mm=shift,
+        original_two_post_positions_unchanged=True)
+    if west_bay:plan.update(proposal_id='GAL25-AD-local-case-floor-two-roots',
+        centre_mm=[80,72.25,91.5],case_bounds_mm=[[70.5,57.25,87.],[89.5,87.25,96.]],
+        selected_T18I100_wire_ties=2,equal_OD_zone_core_counts=[2,3],
+        nominal_T18I100_wrap_plus_head_thread_allowance_mm=[75.,65.1],
+        tie_stock_mm=100,head_thread_allowance_is_project_assumption_mm=27.,
+        positive_post_bed_common_mm3=actual_joints,
+        original_two_post_positions_unchanged=False,
+        current_post_XY_bounds_mm=[[[x,75.25],[x+4,79.25]] for x in (80.25,85.25)],
+        post_constraint='Between ATO6/7; first Xmin=tool6.Xmax79+rigid1.25; second Xmax89.25<tool7.Xmin91-1.25',
+        cable_egress_west_of_local_case_floor_min_X_mm=68.5,
+        south_floor_Y_mm=57.25,complete_USB_head_max_Y_mm=56.,
+        case_south_overhang_mm=0,case_retained_two_X_sides_and_tape=True,
+        north_and_south_edges_open_for_retained_USB=True)
+    if west_bay:
+        plan.pop('unchanged_W46_case_floor_posts_not_newly_qualified',None)
+        plan['assembly']='Install local floor/two posts on the retained bank bed, tape and seat the lever-up rail between the two X stops. Terminate same-net ends, close the two equal-OD jacket ties on the shared west comb, then lay the accessible bundle corridors. North/south case edges stay open for retained USB. Reverse partial assembly for rare work; no rapid service assumption.'
+    return actors,e,plan
+
+
+def west_exit_ground_branches(endpoints,old_front_recipes,west_bay=False):
+    """Three direct front branches; only the two rear leads use the lower gallery."""
+    import math
+    import prototype_layout_review_20261024 as base
+    bodies={};recipes={}
+    for w in ('XB13','XB23','XA05','XA04','XA06'):
+        row=endpoints['rows'][w];p=row['local']['point_mm'];dest=list(row['remote']['point_mm'])
+        if w in ('XB13','XB23','XA05'):
+            d=[-35.,92.5,{'XB13':57.,'XB23':63.,'XA05':70.}[w]]
+            # Joint staged fan: first Z with source Ypitch preserved, then Y
+            # with six/seven-mm Zpitch preserved. Independent spatial biarcs
+            # collided despite separated endpoints; do not reuse that family.
+            level=[0.,92.5,{'XB13':78.45,'XB23':81.65,'XA05':84.6}[w]] if west_bay else [-3.,p[1],d[2]]
+            parts=[*base.tr.biarc(p,(-1,0,0),level,(-1,0,0)),
+                   *base.tr.biarc(level,(-1,0,0),d,(-1,0,0))]
+            old=old_front_recipes[w]['parts'];index=next(i for i,t in enumerate(old) if all(abs(t['start'][j]-d[j])<1e-7 for j in range(3)))
+            parts+=old[index:];dest=list(parts[-1]['end'])
+        else:
+            if west_bay and w=='XA06':
+                # Separate the rear return before the front convergence.
+                # One tilted half-turn starts at the full9 cap; it avoids
+                # the vertical curtain that cut Head in the two old folds.
+                finish=[p[0],92.5,50.7];delta=A.Vector(*finish)-A.Vector(*p);R=delta.Length/2
+                turn=dict(kind='arc',start=p,end=finish,tangent=[-1,0,0],bend=list(delta.normalize()),
+                    radius=R,angle=math.pi,length=math.pi*R,end_tangent=[1,0,0])
+                c=[85.,92.5,50.7];d=[113.,86.5,95.595];f=[128.,71.5,95.595]
+                # Rise immediately after the tilted turn. The unnecessary
+                # low straight crossed AUX's later XY branch at X78.5.
+                parts=[turn,*base.tr.biarc(finish,(1,0,0),d,(1,0,0)),
+                    base.tr.arc(d,(1,0,0),f),base.tr.arc(f,(0,-1,0),dest)]
+                minimum=min(t.get('radius',math.inf) for t in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+                body=base.solid(parts,row['radius_mm']);body.check(True);bodies[w]=body
+                recipes[w]=dict(parts=parts,radius_mm=row['radius_mm'],source=row['local'],actual_receiver_mm=dest,
+                    minimum_R_mm=minimum,body_length_mm=base.tr.length(parts),factory_length_added_mm=0,
+                    whole_current_clearance_motion_stock_OPEN=True)
+                continue
+            y,R={'XA04':(95.5,16.2 if west_bay else 17.),'XA06':(92.5,15.3)}[w]
+            # Branch order: finish the rear folds east of X0, BEFORE the
+            # front group descends. A fold at X-10 cut all three front lanes.
+            turn_X=20. if west_bay else -10.
+            centre_Z=65.2 if west_bay and w=='XA04' else 66.
+            a=[turn_X,y,centre_Z+R];b=[turn_X,y,centre_Z-R]
+            turn=dict(kind='arc',start=a,end=b,tangent=[-1,0,0],bend=[0,0,-1],radius=R,
+                angle=math.pi,length=math.pi*R,end_tangent=[1,0,0])
+            parts=[*base.tr.biarc(p,(-1,0,0),a,(-1,0,0)),turn]
+            if w=='XA04':
+                c=[126.43,y,b[2]];d=[146.43,y-20,b[2]];f=[146.43,-5.,97.21];dest=[146.43,-50.27,97.21]
+                if west_bay:
+                    # Restore the ACTUAL retained45-degree AUX cap, not the
+                    # provisional +Y clock that intersected P_REAR's case.
+                    dest=list(row['remote']['point_mm']);assert abs(dest[0]-135.82339828220188)<1e-6
+                    c=[68.,y,b[2]];d=[88.,y-20,b[2]];low=[88.,20.,b[2]]
+                    rise=[88.,5.,b[2]+15];up=[88.,5.,82.21];high=[88.,-10.,97.21]
+                    j=[88.,-35.27,97.21];k=[103.,-50.27,97.21]
+                    s=[dest[0]-15/math.sqrt(2),dest[1]+15*(1-1/math.sqrt(2)),dest[2]]
+                    parts += [base.tr.line(b,c),base.tr.arc(c,(1,0,0),d),base.tr.line(d,low),
+                        base.tr.arc(low,(0,-1,0),rise),base.tr.line(rise,up),base.tr.arc(up,(0,0,1),high),
+                        base.tr.line(high,j),base.tr.arc(j,(0,-1,0),k),base.tr.line(k,s),base.tr.arc(s,(1,0,0),dest)]
+                else:parts += [base.tr.line(b,c),base.tr.arc(c,(1,0,0),d),*base.tr.biarc(d,(0,-1,0),f,(0,-1,0)),base.tr.line(f,dest)]
+            else:
+                c=[80.,92.5,b[2]];d=[113.,86.5,95.595];f=[128.,71.5,95.595]
+                parts += [base.tr.line(b,c),*base.tr.biarc(c,(1,0,0),d,(1,0,0)),base.tr.arc(d,(1,0,0),f),base.tr.arc(f,(0,-1,0),dest)]
+        minimum=min(t.get('radius',math.inf) for t in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        body=base.solid(parts,row['radius_mm']);body.check(True);bodies[w]=body
+        recipes[w]=dict(parts=parts,radius_mm=row['radius_mm'],source=row['local'],actual_receiver_mm=dest,
+            minimum_R_mm=minimum,body_length_mm=base.tr.length(parts),factory_length_added_mm=0,
+            receiver_continuation_reused=w in ('XB13','XB23','XA05'),whole_current_clearance_motion_stock_OPEN=True)
+    return bodies,recipes,dict(proposal_id='GAL25-Z-west-direct-front-lower-rear',
+        direct_front_count=3,lower_rear_count=2,rear_gallery_YZ_mm=[[95.5,49.],[92.5,50.7]],
+        requires_shared_U1_printed_cross_revision=True,N01_complete=False,physical_pass=False)
+
+
+def outer_aux_gallery(row,rear_X):
+    """One exterior rear/south passage avoids the occupied electronics stack.
+
+    Same vertical full9 AUX land, larger R17 south-west escape, custom HELU
+    only. Rear_X comes from the actual retained AUX screw's outermost X plus
+    jacket1.25 and rigid1.25, not a position search. Leg/outline proof is OPEN.
+    """
+    import math
+    import prototype_layout_review_20261024 as base
+    p=row['local']['point_mm'];a=[20.,95.5,81.4];b=[20.,95.5,49.]
+    parts=[*base.tr.biarc(p,(-1,0,0),a,(-1,0,0)),
+        dict(kind='arc',start=a,end=b,tangent=[-1,0,0],bend=[0,0,-1],radius=16.2,
+             angle=math.pi,length=16.2*math.pi,end_tangent=[1,0,0])]
+    c=[rear_X-20,95.5,49.];d=[rear_X,75.5,49.];s=[rear_X,-75.,49.]
+    # R17 keeps the selected axial land, gives a south-west free cap and
+    # headroom for the body's R15 final approach without exceeding200wide.
+    axial=[146.43,-65.27,82.21];q=[138.43,-80.27,99.21]
+    direction=[8/17,15/17,0];up=[q[0]-15*direction[0],q[1]-15*direction[1],q[2]-15]
+    parts += [base.tr.line(b,c),base.tr.arc(c,(1,0,0),d),base.tr.line(d,s),
+        *base.tr.biarc(s,(0,-1,0),up,(0,0,1)),base.tr.arc(up,(0,0,1),q)]
+    escape_parts=[base.tr.arc(axial,(0,0,1),q)]
+    minimum=min(t.get('radius',math.inf) for t in parts)
+    assert minimum>=row['minimum_R_mm']-1e-6,minimum
+    body=base.solid(parts,row['radius_mm']);escape=base.solid(escape_parts,row['radius_mm'])
+    body.check(True);escape.check(True)
+    return body,dict(parts=parts,radius_mm=row['radius_mm'],source=row['local'],actual_receiver_mm=q,
+        minimum_R_mm=minimum,body_length_mm=base.tr.length(parts),factory_length_added_mm=0,
+        custom_HELU_not_factory_extension=True),escape,dict(source_axial_cap_mm=axial,
+        source_R_mm=17,source_free_cap_mm=q,source_outward=[-v for v in direction],
+        source_parts=escape_parts,rear_plane_X_mm=rear_X,
+        unchanged_axial9_grip_bare_and_electrical_lands=True,
+        whole_outline_leg_motion_stock_service_and_receiver_fit_OPEN=True,N01_complete=False,physical_pass=False)
+
+
+def low_outboard_branches(endpoints,old_front_recipes):
+    """Critical source U turns only; reuse the exact I receiver continuations.
+
+    The named risk is source/factory USB and whole front/rear mutual occupancy.
+    Concentric U turns at outboard Y92.5 replace the obstructed high return.
+    No claims about the old I service tool checks or whole motion are inherited.
+    """
+    import math
+    import prototype_layout_review_20261024 as base
+    bodies={};recipes={}
+    # The inside-USB gallery is BELOW the real ATOs/tools on the return,
+    # outside the bed's Ymax80. The earlier outboard Y92.5 vertical U cut
+    # the retained USB main tube; this changes the whole fold's topology.
+    lanes={'XB13':(92.5,23.5,57.),'XB23':(88.4,19.4,63.),'XA05':(84.3,15.3,70.)}
+    for w in ('XB13','XB23','XA05','XA04','XA06'):
+        row=endpoints['rows'][w];p=row['local']['point_mm'];dest=list(row['remote']['point_mm'])
+        if w in lanes:
+            # One jointly ordered spatial fan, not two serial planar fans.
+            # With Xrun32.25 its smallest bend is17mm; the outer U ends at
+            # X120.5, leaving4.5 to the retained USB spline's Xmin125.
+            # The old serial fan required X110 and crossed that USB surface.
+            z,R,tier=lanes[w];b=[97.,87.5,z];c=[97.,87.5,z-2*R]
+            d=[-35.,92.5,tier]
+            turn=dict(kind='arc',start=b,end=c,tangent=[1,0,0],bend=[0,0,-1],radius=R,
+                angle=math.pi,length=math.pi*R,end_tangent=[-1,0,0])
+            parts=[*base.tr.biarc(p,(1,0,0),b,(1,0,0)),turn,
+                *base.tr.biarc(c,(-1,0,0),d,(-1,0,0))]
+            old=old_front_recipes[w]['parts'];index=next(i for i,t in enumerate(old) if all(abs(t['start'][j]-d[j])<1e-7 for j in range(3)))
+            parts+=old[index:];dest=list(parts[-1]['end'])
+        elif w=='XA04':
+            a=[95.,p[1],86.5];b=[131.43,p[1],86.5];c=[146.43,p[1]-15,86.5];d=[146.43,-5.,97.21];dest=[146.43,-50.27,97.21]
+            parts=[*base.tr.biarc(p,(1,0,0),a,(1,0,0)),base.tr.line(a,b),base.tr.arc(b,(1,0,0),c),*base.tr.biarc(c,(0,-1,0),d,(0,-1,0)),base.tr.line(d,dest)]
+        else:
+            a=[113.,86.5,95.595];b=[128.,71.5,95.595]
+            parts=[*base.tr.biarc(p,(1,0,0),a,(1,0,0)),base.tr.arc(a,(1,0,0),b),base.tr.arc(b,(0,-1,0),dest)]
+        minimum=min(t.get('radius',math.inf) for t in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        body=base.solid(parts,row['radius_mm']);body.check(True);bodies[w]=body
+        recipes[w]=dict(parts=parts,radius_mm=row['radius_mm'],source=row['local'],actual_receiver_mm=dest,
+            minimum_R_mm=minimum,body_length_mm=base.tr.length(parts),factory_length_added_mm=0,
+            receiver_continuation_reused=w in lanes,whole_current_clearance_motion_stock_OPEN=True)
+    return bodies,recipes,dict(proposal_id='GAL25-Y-inner-USB-under-ATO-gallery',fold_Y_mm=87.5,
+        front_concentric_U_R_mm=[23.5,19.4,15.3],common_centre_Z_mm=69.,
+        source_joint_3D_fan=True,USB_spline_min_X_mm=125,outer_U_max_X_mm=120.5,
+        not_whole_scene_received=True,N01_complete=False,physical_pass=False)
 
 
 def saved_round_USB_cells(shape):

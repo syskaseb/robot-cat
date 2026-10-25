@@ -1,5 +1,25 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Sprawdzony checkpoint GAL25-AD — 25.10.2026 03:46UTC
+
+NowyN01 nadal0/10, historyczne20/20osobno; okno/cisza do08UTC aktywne.
+G_AUXcase[80,72.25,91.5], lever+Z, porty-X; lokalnyfloor i2posty kazdy24mm3
+doBankBed,2equalODties dla2+3zyly pelne9mm. 9strictbryl/static8.187s/0error.
+49poz:8identycznychBRepAB, carrierAB-subset+492mm3post osobno49/0query/0error.
+4.766s strictreopen jednegoaktualnegopakietu34BRep. StareN47/nieudane warianty
+zachowane wewnatrzarchiwum; historyczne natywne/R47 bez zmian. NiephysicalPASS.
+Zmienione350.4mm3 wspolnegocrossU1 statyka+49poz bezbliskichpar, rootzachowany.
+Trzyfrontsource operating bezobcychmaterialkontaktow, USBG2gap.2078; ATOserwis
+OPEN. PelnyTail materialowo clear w statyce, jedenC0SharedBUScarrierHOLD.
+AUXinner ODRZUCONY. AFouter471.129mm/minR15 i4mutual bezpenetracji: obecnie
+trzebarozstrzygnac AuxInboardCarrier/PowerMountP_REAR iXA03nylonhead, nie
+kolejne niezalezne objazdy. AFtyl/49nog/stock/realoutline nieodebrane.
+NEXT: konstruktor drukowanych przeszkod/rootow; HPodtworzyc prawidlowe
+individualtube cells z tej samej osiR12.6 zamiast ciac niepoprawnyC0sweep.
+W011/W012/full14/4MTA/factory900/montaz/parking/calyN01 pozostajaOPEN.
+Komunikaty recenzenta i raport czekaja na powrot uzytkownika.
+
+
 ## Odbior zakresu W46 — 25.10.2026
 
 FAKT03:00UTC — W46 modul9 zapisany razem ze statyka7.641s/49poz4.156s
