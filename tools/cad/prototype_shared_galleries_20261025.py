@@ -451,7 +451,7 @@ def top_exit_ground_station(groups,endpoints,scene):
         provisional_not_strength_or_physical_PASS=True)
 
 
-def top_exit_ground_branches(endpoints,roof_lane_Z=None):
+def top_exit_ground_branches(endpoints,roof_lane_Z=None,all_positive_X=False):
     """All five lanes together: separate Y rows, no reversed low source fan."""
     import math
     import prototype_layout_review_20261024 as base
@@ -459,7 +459,7 @@ def top_exit_ground_branches(endpoints,roof_lane_Z=None):
     for w in ('XA04','XA06','XA05','XB23','XB13'):
         row=endpoints['rows'][w];p=row['local']['point_mm'];y=p[1]
         z=p[2]+15 if roof_lane_Z is None else (roof_lane_Z[w] if isinstance(roof_lane_Z,dict) else roof_lane_Z)
-        rear=w in ('XA04','XA06');sign=1 if rear else -1
+        rear=w in ('XA04','XA06') or all_positive_X;sign=1 if rear else -1
         start=[p[0],y,z-15];a=[p[0]+sign*15,y,z]
         parts=([base.tr.line(p,start)] if start[2]>p[2]+1e-7 else [])+[base.tr.arc(start,(0,0,1),a)]
         if roof_lane_Z is not None and not rear:
@@ -631,6 +631,277 @@ def packed_ground_service_bight():
         no_manufacturer_stock_or_factory_length_change=True)
 
 
+def common_positive_bundle_passage(scene,carrier):
+    """Dogleg our printed U1 upper cross, instead of five cable detours.
+
+    Keep the accepted46.6mm beam tier, complete clamp and lower U1 root.
+    One shared clearance box also opens the new shoe's overhanging underside.
+    """
+    import Part
+    def box(lo,hi):return Part.makeBox(*(hi[i]-lo[i] for i in range(3)),A.Vector(*lo))
+    old=scene['U1Carrier:Fore:Base'];old.check(True)
+    passage=box((20.,89.5,46.4),(84.,96.6382685902,56.8))
+    cells={'cross':box((24.,85.5,46.6),(44.,89.5,50.6)),
+        'inner_pillar':box((40.,85.5,42.4),(44.,89.5,50.6)),
+        'lower_elbow':box((40.,85.5,42.4),(44.,95.2,46.4))}
+    revised=old.cut(passage).multiFuse(list(cells.values()));revised.check(True);assert len(revised.Solids)==1
+    revised_carrier=carrier.cut(passage);revised_carrier.check(True);assert len(revised_carrier.Solids)==1
+    # Coincident cut-plane COMMON leaves nonvolumetric BOP-error faces in
+    # this kernel. Never qualify clearance from that result. The valid full
+    # solids require actual profile/primitive-distance checks separately.
+    root=scene['U1Relief:ForeRoot'];before=old.common(root);after=revised.common(root)
+    assert before.Volume>0 and abs(before.Volume-after.Volume)<1e-7
+    whole=revised.fuse(root);whole.check(True);assert len(whole.Solids)==1
+    added=revised.cut(old);added.check(True)
+    return revised,revised_carrier,cells,dict(source_constructor='plan_feline_u1_common_carrier.construct:Fore',
+        shared_occupied_Y_mm=[90.75,95.3882685902],shared_occupied_Z_mm=[47.65,55.55],
+        rigid_clearance_mm=1.25,passage_bounds_mm=[[20,89.5,46.4],[84,96.6382685902,56.8]],
+        source_beam_lower_Z_unchanged_mm=46.6,complete_clamp_and_purchased_hardware_unchanged=True,
+        original_fore_root_union_mm3=before.Volume,new_fore_root_union_mm3=after.Volume,
+        new_U1_base_one_solid=True,new_base_and_root_one_solid=True,new_shoe_one_solid=True,
+        shoe_roof_above_shared_passage_mm=1.2,
+        removed_printed_U1_mm3=old.cut(revised).Volume,added_printed_U1_mm3=added.Volume,
+        no_purchased_part_or_P0_cut=True,physical_strength_and_print_fit_OPEN=True)
+
+
+def whole_ground_common_service(endpoints):
+    """All five custom leads use one rear U and the same lower gallery.
+
+    This ends at the shared X80 split. Neither remote branches nor factory
+    lengths are certified merely by receiving this common source assembly.
+    """
+    import math
+    import prototype_layout_review_20261024 as base
+    from plan_feline_FL_three_core_shared_trunk import transport
+    levels={w:101.75 if w=='XA05' else 107.1 for w in endpoints['rows']}
+    _,source_rec=top_exit_ground_branches(endpoints,levels,all_positive_X=True)
+    p=[110.,92.,95.];a=[120.,92.,95.];b=[120.,92.,55.];c=[110.,92.,55.];q=[80.,92.,51.6]
+    common=[base.tr.line(p,a),dict(kind='arc',start=a,end=b,tangent=[1,0,0],bend=[0,0,-1],
+        radius=20.,angle=math.pi,length=math.pi*20.,end_tangent=[-1,0,0]),base.tr.line(b,c),
+        *base.tr.biarc(c,(-1,0,0),q,(-1,0,0))]
+    offsets={'XA04':[0,0,2.7],'XA06':[0,0,0],'XA05':[0,0,-2.7],
+        'XB23':[0,2.3382685902,-1.35],'XB13':[0,2.3382685902,1.35]}
+    shapes={};recipes={}
+    for w,offset in offsets.items():
+        row=endpoints['rows'][w];shared,last_offset=transport(common,offset)
+        prefix=source_rec[w]['parts'];end=prefix[-1]['end'];target=shared[0]['start']
+        fan=base.tr.biarc(end,(1,0,0),target,(1,0,0));parts=prefix+fan+shared
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        s=base.solid(parts,row['radius_mm']);s.check(True);shapes[w]=s
+        recipes[w]=dict(parts=parts,source=row['local'],split_mm=shared[-1]['end'],split_tangent=[-1,0,0],
+            partial_length_mm=base.tr.length(parts),radius_mm=row['radius_mm'],minimum_R_mm=minimum,
+            fan_minimum_R_mm=min(p.get('radius',math.inf) for p in fan),
+            packed_offset_start_mm=offset,packed_offset_finish_mm=list(last_offset),
+            included_service_U_and_legs_mm=base.tr.length(shared[:3]),
+            source_grip_extra_to_add_mm=9.25,service_loop_already_included_not_added_twice=True,
+            factory_length_added_mm=0.,receiver_branch_NOT_received=True)
+    return shapes,recipes
+
+
+def complete_destination_ordered_front(source_rec,endpoints,fore_detour=False):
+    """Three whole constructive front branches, no added tethered-service U."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={}
+    for w in ('XA05','XB23','XB13'):
+        row=endpoints['rows'][w];q=row['remote']['point_mm'];parts=list(source_rec[w]['parts'])
+        p=parts[-1]['end'];dropR=17. if fore_detour and w=='XB13' else 15.
+        if fore_detour:
+            start=[-33.,p[1],p[2]];parts.append(base.tr.line(p,start));p=start
+        a=[p[0]-dropR,p[1],p[2]-dropR];b=[p[0]-2*dropR,p[1],p[2]-2*dropR]
+        parts += [base.tr.arc(p,(-1,0,0),a),base.tr.arc(a,(0,0,-1),b)]
+        R=12.6 if fore_detour and w=='XB23' else p[1]-69.
+        c=[b[0]-R,p[1]-R,b[2]];parts.append(base.tr.arc(b,(-1,0,0),c))
+        if w=='XA05':
+            d=[-82.,43.,c[2]];e=[q[0],43.,q[2]]
+            parts += base.tr.biarc(c,(0,-1,0),d,(0,-1,0))
+            v=A.Vector(*e)-A.Vector(*d);radius=v.Length/2
+            parts += [dict(kind='arc',start=d,end=e,tangent=[0,-1,0],bend=list(v.normalize()),
+                radius=radius,angle=math.pi,length=math.pi*radius,end_tangent=[0,1,0]),base.tr.line(e,q)]
+            boundary='Current G2 fixed full9 cap; existing printed portal received separately'
+        elif w=='XB23':
+            turnY=62.5 if fore_detour else 60.1
+            d=[c[0],turnY,c[2]];e=[c[0]-15,turnY-15,c[2]];q=[-117.46,36.4,103.]
+            parts += [base.tr.line(c,d),base.tr.arc(d,(0,-1,0),e),*base.tr.biarc(e,(-1,0,0),q,(-1,0,0))]
+            boundary='Protected head source cap at-117.46; retire only the old arbitrary straight accounting tail to-35, no purchased lead cut'
+        else:
+            if fore_detour:
+                d=[-141.,43.,c[2]];e=[-141.,-17.95,c[2]];f=[-141.,-30.55,c[2]-12.6]
+                low=[-141.,-30.55,30.];g=[-139.4,-30.55,q[2]+12.6];h=[-139.4,-43.15,q[2]]
+                parts += [*base.tr.biarc(c,(0,-1,0),d,(0,-1,0)),base.tr.line(d,e),
+                    base.tr.arc(e,(0,-1,0),f),base.tr.line(f,low),*base.tr.biarc(low,(0,0,-1),g,(0,0,-1)),
+                    base.tr.arc(g,(0,0,-1),h),base.tr.arc(h,(0,-1,0),q)]
+            else:
+                d=[-65.,-16.35,c[2]];e=[-80.,-31.35,c[2]];late=[-126.8,-30.55,c[2]]
+                f=[-139.4,-30.55,c[2]-12.6];g=[-139.4,-30.55,q[2]+12.6];h=[-139.4,-43.15,q[2]]
+                parts += [base.tr.line(c,d),base.tr.arc(d,(0,-1,0),e),
+                    *base.tr.biarc(e,(-1,0,0),late,(-1,0,0)),base.tr.arc(late,(-1,0,0),f),
+                    base.tr.line(f,g),base.tr.arc(g,(0,0,-1),h),base.tr.arc(h,(0,-1,0),q)]
+            boundary='Same SelectedYaw/JR/factory250 cap; descend beyond complete hip and S1, approach from the existing cap tangent'
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        s=base.solid(parts,row['radius_mm']);s.check(True);shapes[w]=s
+        recipes[w]=dict(parts=parts,source=row['local'],receiver_nominal=row['remote'],actual_final_mm=q,
+            body_length_mm=base.tr.length(parts),minimum_R_mm=minimum,radius_mm=row['radius_mm'],
+            receiver_boundary=boundary,nominal_source_grip_extra_mm=9.25,
+            added_factory_length_mm=0.,added_unordered_service_loop_mm=0.,
+            whole_fore_S0_detour=fore_detour,
+            assembly='Install carrier/case first, route free custom ends, terminate receiver ends afterward; rare carrier removal may disconnect its5localWAGO ends. No74routine disconnections or rapidPi repair requirement.',
+            physical_fit_motion_and_whole_N01_NOT_automatically_received=True)
+    return shapes,recipes
+
+
+def complete_destination_rear(source_rec,endpoints):
+    """Two rear receivers using their existing whole prefixes, no new U-loop."""
+    import math
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={}
+    for w in ('XA04','XA06'):
+        row=endpoints['rows'][w];parts=list(source_rec[w]['parts']);p=parts[-1]['end']
+        q=row['remote']['point_mm'];incoming=[-v for v in row['remote']['outward']]
+        if w=='XA04':
+            # Cross above the BUS from its west side. The old aft crossing
+            # approached AuxEscape against its tangent and forced R11.05.
+            a=[100.,p[1],p[2]];b=[115.,p[1]-15,p[2]];c=[115.,-25.,p[2]]
+            parts += [base.tr.line(p,a),base.tr.arc(a,(1,0,0),b),base.tr.line(b,c),
+                *base.tr.biarc(c,(0,-1,0),q,incoming)]
+        else:parts += base.tr.biarc(p,(1,0,0),q,incoming)
+        minimum=min(p.get('radius',math.inf) for p in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        s=base.solid(parts,row['radius_mm']);s.check(True);shapes[w]=s
+        recipes[w]=dict(parts=parts,source=row['local'],receiver=row['remote'],
+            body_length_mm=base.tr.length(parts),minimum_R_mm=minimum,radius_mm=row['radius_mm'],
+            unchanged_remote_prefix_owner=row['remote']['actor'],added_factory_length_mm=0.,
+            added_unordered_service_loop_mm=0.,whole_motion_and_assembly_NOT_automatically_received=True)
+    return shapes,recipes
+
+
+def load_saved_gal25(resume=None):
+    """One explicit hash-bound restart; no archive searches or source rebuild."""
+    import json,zipfile,hashlib,Part
+    from check_feline_harness_proposal import load_recovered_context
+    from restore_feline_bound_service_actors import restore,restore_provider_receipt
+    from check_main_p0_placement import ROOT
+    from plan_feline_layout import OUT
+    if resume is None:
+        scene,meta,base=load_recovered_context()
+        extra,restoration=restore(scene,base['unrecovered']);scene.update(extra)
+    else:scene,meta,base,restoration=resume
+    providers=json.loads((OUT/'n01-service-provider-actors-restored-20261024.json').read_text())
+    # Some explicit current-provider owners were added after the old pin map.
+    # Record fresh file pins honestly; the loader also verifies each selected
+    # geometry entry and its whole archive hash. This is recovery, not reuse
+    # of a nonexistent old source-validation receipt.
+    fresh_pins={};resolved=dict(providers['source_sha256'])
+    for relative in set(providers['owners'].values()):
+        path=OUT/relative;key=path.relative_to(ROOT).as_posix()
+        if key not in resolved:
+            digest=hashlib.sha256(path.read_bytes()).hexdigest();resolved[key]=digest;fresh_pins[key]=digest
+    providers=dict(providers,source_sha256=resolved)
+    scene.update(restore_provider_receipt(scene,providers))
+    # Add metadata only from the same explicitly bound provider receipts.
+    for relative in set(providers['owners'].values()):
+        doc=json.loads((OUT/relative).read_text());rows=doc.get('geometry',[])
+        if isinstance(rows,dict):rows=[dict(v,name=k) for k,v in rows.items()]
+        for row in rows:
+            if row['name'] in scene:
+                meta[row['name']]={**row,**row.get('metadata',{}),**meta.get(row['name'],{})}
+    local_sources=json.loads((OUT/'n01-selected-local-head-tail-sources.json').read_text())
+    for row in local_sources['parts']:
+        n=row['name']
+        if n in scene and not scene[n].Solids and not isinstance(meta.get(n,{}).get('nominal_profile_radius_mm'),(int,float)):
+            meta[n]={**meta.get(n,{}), 'kind':row['kind'],'nominal_profile_radius_mm':row['nominal_profile_radius_mm'],
+                'profile_basis':'Same selected physical wire/insulation identity from source builder; current geometry is independently recovered',
+                'profile_only_NOT_old_geometry_or_clearance_receipt':True}
+    def archived(packet,wanted=None):
+        spec=packet['geometry_archive'];path=__import__('pathlib').Path(spec['path'])
+        assert hashlib.sha256(path.read_bytes()).hexdigest()==spec['sha256']
+        values={}
+        with zipfile.ZipFile(path) as z:
+            for n,r in spec['members'].items():
+                if wanted is not None and n not in wanted:continue
+                raw=z.read(r['member'])
+                if 'sha256' in r:assert hashlib.sha256(raw).hexdigest()==r['sha256']
+                s=Part.Shape();s.importBrepFromString(raw.decode());values[n]=s
+        return values
+    packet=json.loads((OUT/'prototype-shared-galleries-20261025-result.json').read_text(encoding='utf-8'))
+    shapes=archived(packet)
+    prior_packet=json.loads((OUT/'prototype-joint-endpoints-20261024-result.json').read_text(encoding='utf-8'))
+    main=archived(prior_packet,{'Reference:MainSupportUnchanged'})['Reference:MainSupportUnchanged']
+    pas=archived(json.loads((OUT/'n01-power-axial-saddle-20261024.json').read_text()))
+    retired=('Station:D_RR:','Station:G_AUX:','MainSupported:')
+    current={n:s for n,s in scene.items() if not n.startswith(retired) and n not in
+        {'SharedPi:Carrier','SpliceClip','CurrentMiddle:W022','CurrentMiddle:W024','BankPortal2:Carrier',
+         *('RRFlatResource:'+w+'/body/start' for w in ('W016','W017','W018'))}}
+    current.update({n:s for n,s in shapes.items() if not n.startswith('UnconnectedServiceBight:')});current['MAINassembly']=main
+    current.update({'PAS:'+n:s for n,s in pas.items()})
+    current['BankPortal2:Carrier']=current.pop('BankPortal2:XA05_open')
+    return scene,meta,current,packet,shapes,dict(restoration=restoration,
+        missing_current=[n for n in base['unrecovered'] if n not in scene],
+        explicit_provider_replay=True,no_archive_search=True,
+        provider_file_pins_newly_recorded_NOT_old_validation=fresh_pins)
+
+
+def swap_rear_common_ports(groups,endpoints):
+    """Put the near G_TAIL return inside the far AUX return on the same GND rail."""
+    import copy
+    result={n:s.copy() for n,s in groups.items()};ends=copy.deepcopy(endpoints)
+    a=ends['rows']['XA04']['local'];b=ends['rows']['XA06']['local']
+    assert abs(a['radius_mm']-b['radius_mm'])<1e-8
+    aa,bb=a['actor'],b['actor'];result[aa],result[bb]=result[bb],result[aa]
+    a['point_mm'],b['point_mm']=b['point_mm'],a['point_mm']
+    a['physical_slot'],b['physical_slot']=b['physical_slot'],a['physical_slot']
+    return result,ends,dict(same_common_ground_rail=True,same_purchased_part=True,
+        same_physical_geometry_union_and_profiles=True,
+        near_GTAIL_XA06_physical_slot=b['physical_slot'],far_AUX_XA04_physical_slot=a['physical_slot'],
+        reason='Order two rear departures by destination; remove early Y crossing, no individual micro-offset',
+        external_pinout_unchanged=True)
+
+
+def bounded_changed_checks(changed,current,metadata,state,known_invalid=(),budget_seconds=40.,live_file=None,covers=None):
+    """Changed pairs only, robust empty errors and a saved state before source work."""
+    import time,json,os
+    from feline_solid_distance import bbox_lower_bound,distance
+    from receive_feline_jpwm_whole_pose import solid_profile_target
+    tick=time.monotonic()
+    def save():
+        if live_file is not None:
+            tmp=live_file.with_suffix('.tmp');tmp.write_text(json.dumps(state,ensure_ascii=False),encoding='utf-8');os.replace(tmp,live_file)
+    for a,s in changed.items():
+        if a in state['done']:continue
+        s.check(True)
+        for b,other in current.items():
+            if a==b or [a,b] in state['visited']:continue
+            m=metadata.get(b,{});reserve=m.get('nominal_profile_radius_mm',0) if not other.Solids else 0
+            if not isinstance(reserve,(int,float)) or reserve<0 or (not other.Solids and reserve<=0):
+                state['errors'].append(dict(new=a,actor=b,error='Unbound curve profile; no clearance inferred'))
+                state['visited'].append([a,b]);continue
+            pieces=(covers or {}).get(a,[s]);piece_bounds=[bbox_lower_bound(p.BoundBox,other.BoundBox) for p in pieces]
+            local=[p for p,d in zip(pieces,piece_bounds) if d<=1.25+reserve]
+            if not local:continue
+            if time.monotonic()-tick>=budget_seconds:
+                state['seconds']+=time.monotonic()-tick;save();return state
+            state['last_pair']=[a,b];save()
+            try:
+                if b in known_invalid:raise ValueError('Known invalid source, not revalidated or accepted')
+                if len(other.Faces)>250:raise ValueError('Complex unqualified source; bounded check does not run unbounded BOP')
+                target=other.copy() if other.Solids else solid_profile_target(other,m)
+                target.check(True)
+                exact_near=min(distance(p.copy(),target) for p in local)
+                far_bounds=[max(0.,d-reserve) for d in piece_bounds if d>1.25+reserve]
+                gap=min([exact_near,*far_bounds])
+                kind=m.get('kind','UNKNOWN_RETAINED_ACTOR')
+                if b.startswith(('Service:','ATOAccess:')):kind='access_reservation'
+                state['rows'].append(dict(new=a,existing=b,kind=kind,gap_mm=gap,
+                    volume_not_inferred_from_touch=True,recipe_segment_cover_count=len(pieces),
+                    exact_near_piece_count=len(local),gap_is_conservative_lower_bound=bool(covers) and exact_near>=1.25))
+            except Exception as exc:
+                message=str(exc).splitlines()
+                state['errors'].append(dict(new=a,actor=b,error=message[0] if message else type(exc).__name__))
+            state['visited'].append([a,b]);save()
+        state['done'].append(a);save()
+        print('GAL25_STATIC_PART',a,'rows',len(state['rows']),'errors',len(state['errors']),flush=True)
+    state['seconds']+=time.monotonic()-tick;save();return state
+
+
 def repack_front_middle_pair(out,vertical_transfer_mm=-5.):
     """Constant-length shared U-fold, no source move or new factory slack."""
     import copy,json,math
@@ -731,3 +1002,324 @@ def check_existing_motion_step(shapes,rest,actors,state=None,budget_seconds=100.
         if time.monotonic()-tick>=budget_seconds:break
     state['seconds']+=time.monotonic()-tick
     return state
+
+
+def transverse_whole_ground_plan(groups,endpoints):
+    """U: three front wires cross before the fore fuse; rear avoids the Pi strap.
+
+    Same common-GND purchased rail, no external pinout change. Only the AUX
+    custom R15 exit changes clock about its retained full9 axial cap. Factory
+    leads and module poses stay. These are nominal proposal bodies, not prints.
+    """
+    import copy,math,Part
+    import prototype_layout_review_20261024 as base
+    g={n:s.copy() for n,s in groups.items()};e=copy.deepcopy(endpoints)
+    order=('XA04','XA05','XB13','XB23','XA06')
+    originals={r['local']['physical_slot']:copy.deepcopy(r['local']) for w,r in endpoints['rows'].items() if w in order}
+    for slot,w in enumerate(order,1):
+        local=e['rows'][w]['local'];target=originals[slot]
+        assert abs(local['radius_mm']-target['radius_mm'])<1e-8,(w,slot)
+        g[local['actor']]=groups[target['actor']].copy()
+        local['point_mm']=target['point_mm'];local['physical_slot']=slot
+    levels={w:101.75 if w=='XA06' else 107.1 for w in order}
+    _,sr=top_exit_ground_branches(e,levels)
+    shapes={};recipes={}
+    # Rotate the existing complete custom exit, not its purchased pad or grip.
+    old=e['rows']['XA04']['remote'];a=A.Vector(*old['point_mm'])-A.Vector(*old['outward'])*15-A.Vector(0,0,15)
+    q=a+A.Vector(-15/math.sqrt(2),-15/math.sqrt(2),15)
+    escape=[base.tr.arc(list(a),(0,0,1),list(q))]
+    aux=base.solid(escape,1.25);aux.check(True)
+    for w in order:
+        row=e['rows'][w];parts=list(sr[w]['parts'])
+        # Discard only the uncommitted front straight continuation to X-20.
+        if w not in ('XA04','XA06'):parts=parts[:2]
+        p=parts[-1]['end'];dest=list(row['remote']['point_mm'])
+        if w in ('XA05','XB13','XB23'):
+            R={'XA05':15.,'XB13':18.,'XB23':21.}[w]
+            c=[p[0]-R,p[1]-R,p[2]];parts.append(base.tr.arc(p,(-1,0,0),c))
+            if w=='XA05':
+                d=[c[0],40.,c[2]];f=[c[0],25.,c[2]-15]
+                h=[c[0],25.,dest[2]+15];j=[c[0]-15,25.,dest[2]]
+                parts += [base.tr.line(c,d),base.tr.arc(d,(0,-1,0),f),base.tr.line(f,h),
+                    base.tr.arc(h,(0,0,-1),j),*base.tr.biarc(j,(-1,0,0),dest,tuple(-v for v in row['remote']['outward']))]
+            elif w=='XB23':
+                d=[c[0],51.4,c[2]];f=[c[0]-15,36.4,c[2]];h=[-90.46,36.4,c[2]]
+                dest=[-117.46,36.4,103.]
+                parts += [base.tr.line(c,d),base.tr.arc(d,(0,-1,0),f),base.tr.line(f,h),*base.tr.biarc(h,(-1,0,0),dest,(-1,0,0))]
+            else:
+                d=[c[0],-30.,c[2]];f=[c[0]-15,-45.,c[2]];h=[-126.,-45.,c[2]]
+                j=[-141.,-45.,c[2]-15];k=[-141.,-45.,50.]
+                m=[-139.4,-30.55,dest[2]+12.6];n=[-139.4,-43.15,dest[2]]
+                parts += [base.tr.line(c,d),base.tr.arc(d,(0,-1,0),f),base.tr.line(f,h),base.tr.arc(h,(-1,0,0),j),
+                    base.tr.line(j,k),*base.tr.biarc(k,(0,0,-1),m,(0,0,-1)),base.tr.arc(m,(0,0,-1),n),base.tr.arc(n,(0,-1,0),dest)]
+        elif w=='XA04':
+            # West of Pi/AUX, then turn below the full AUX case/carrier.
+            c=[p[0]+15,p[1]-15,p[2]];d=[c[0],40.,c[2]];f=[c[0],-10.,q.z]
+            last=[q.x-15/math.sqrt(2),q.y-15*(1-1/math.sqrt(2)),q.z]
+            h=[c[0],last[1]+15,q.z];j=[c[0]+15,last[1],q.z]
+            parts += [base.tr.arc(p,(1,0,0),c),base.tr.line(c,d),*base.tr.biarc(d,(0,-1,0),f,(0,-1,0)),
+                base.tr.line(f,h),base.tr.arc(h,(0,-1,0),j),base.tr.line(j,last),base.tr.arc(last,(1,0,0),list(q))]
+            dest=list(q)
+        else:
+            d=[100.,p[1],p[2]]
+            parts += [base.tr.line(p,d),*base.tr.biarc(d,(1,0,0),dest,(0,0,-1))]
+        minimum=min(p.get('radius',math.inf) for p in parts)
+        assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        body=base.solid(parts,row['radius_mm']);body.check(True);shapes[w]=body
+        recipes[w]=dict(parts=parts,source=row['local'],actual_receiver_mm=dest,radius_mm=row['radius_mm'],
+            minimum_R_mm=minimum,body_length_mm=base.tr.length(parts),source9_extra_mm=9.25,
+            factory_length_added_mm=0,full_wire_stock_motion_assembly_NOT_received=True)
+    return g,e,shapes,recipes,aux,dict(common_ground_order=list(order),purchased_rail_unchanged=True,
+        front_crossing_X_mm=[25.5,31.5],both_FHY97_factory_leads_and_grips_unchanged=True,
+        AUX_same_axial_cap_mm=list(a),AUX_exit_clock_change_deg=90,AUX_new_R15_parts=escape,
+        whole_layout_static_motion_and_outline_NOT_received=True)
+
+
+def horizontal_ground_module(groups,endpoints,bed):
+    """V: lever-up common rail, full inboard9 grips and one rooted open comb.
+
+    Module first. Planar body layer90 is above83 bank cases and below97.6
+    power boot. Those source bounds motivate the layer, not a clearance PASS.
+    Two equal-OD tie zones avoid a flat band bridging smaller jackets.
+    """
+    import copy,Part
+    def box(a,b):return Part.makeBox(*(b[i]-a[i] for i in range(3)),A.Vector(*a))
+    old=groups['Station:G_AUX:case'];origin=old.BoundBox.Center
+    rot=A.Rotation(A.Vector(1,0,0),90)*A.Rotation(A.Vector(0,0,1),-90)
+    tf=A.Placement(A.Vector(61.5,84,90)-rot.multVec(origin),rot)
+    case=old.copy();case.Placement=tf*case.Placement
+    actors={'Station:G_AUX:case':case};e=copy.deepcopy(endpoints)
+    order=('XB13','XB23','XA05','XA04','XA06');xs=(52.,56.75,61.5,66.25,71.)
+    for slot,(w,x) in enumerate(zip(order,xs),1):
+        row=e['rows'][w];n=row['local']['actor'];r=row['radius_mm'];start=[x,74.5,90.]
+        actors[n]=Part.makeCylinder(r,9.25,A.Vector(*start),A.Vector(0,-1,0))
+        row['local'].update(point_mm=[x,65.25,90.],outward=[0,-1,0],physical_slot=slot,
+            original_same_rail_logical_id_retained=True,full9_grip_start_mm=[x,74.25,90.])
+    pad=box([49.05,65.25,90.15],[73.95,74.25,93.4])
+    for w,x in zip(order,xs):
+        pad=pad.cut(Part.makeCylinder(e['rows'][w]['radius_mm']+.15,13,A.Vector(x,76,90),A.Vector(0,-1,0)))
+    # One carrier: broad floor, two posts inside actual bank-bed bounds and
+    # one front comb riser. Nothing passes over purchased WAGO lever tops.
+    floor=box([44,73,81.5+1.25],[82.5,95.25,85])
+    wall=box([47,73,82.75],[50,74.25,93.4])
+    lip1=box([44,77,85],[46,93,87]);lip2=box([77,77,85],[79,93,87])
+    lip3=box([48,94,85],[75,95.25,87])
+    posts=[box([x,75.25,53.5],[x+4,79.25,82.95]) for x in (56.5,61.5)]
+    carrier=floor.multiFuse([wall,pad,lip1,lip2,lip3,*posts]).removeSplitter();carrier.check(True)
+    assert len(carrier.Solids)==1
+    joints=[]
+    for p in posts:
+        common=bed.copy().common(p);common.check(True);assert common.Volume>1e-5
+        joints.append(common.Volume)
+    whole=bed.fuse(carrier);whole.check(True);assert len(whole.Solids)==1
+    actors['Carrier:G_AUX:horizontal']=carrier
+    for tag,lo,hi,r,y,side in [('front2',49.25,58.75,1.05,67.5,-1),('rear3',59.5,73.95,1.25,74.25-5/2,1)]:
+        outer=box([lo-1.2,y-1.25,90-r-1.2],[hi+1.2,y+1.25,94.6])
+        inner=box([lo,y-1.35,90-r],[hi,y+1.35,93.4])
+        band=outer.cut(inner);band.check(True)
+        head=box([lo-5.5,y-2.5,87.35],[lo-1.2,y+2.5,92.65]) if side<0 else box([hi+1.2,y-2.5,87.35],[hi+5.5,y+2.5,92.65])
+        actors['Station:G_AUX:band_'+tag]=band;actors['Station:G_AUX:head_'+tag]=head
+        # Real side straps pass through the common roof BETWEEN jackets.
+        # Axially staggered zones fit in the2.45mm inter-jacket gap. Cut only
+        # their .15-clearance CSG envelope, never a whole band bounding box.
+        slot_outer=box([lo-1.35,y-1.4,90-r-1.35],[hi+1.35,y+1.4,94.75])
+        slot_inner=box([lo+.15,y-1.5,90-r+.15],[hi-.15,y+1.5,93.25])
+        carrier=carrier.cut(slot_outer.cut(slot_inner))
+    carrier.check(True);assert len(carrier.Solids)==1
+    actors['Carrier:G_AUX:horizontal']=carrier
+    for n,a in actors.items():a.check(True)
+    c=case.BoundBox;b=carrier.BoundBox
+    return actors,e,dict(proposal_id='GAL25-V',module_first=True,centre_mm=[61.5,84,90],
+        same_purchased_common_ground_rail=True,external_pinout_unchanged=True,
+        physical_port_order=list(order),nominal_jacket_radius_mm={w:e['rows'][w]['radius_mm'] for w in order},
+        source_outward=[0,-1,0],full9_after_case_transition_mm=.25,
+        changed_common_comb_not_purchased_bores=True,tie_zone_core_counts=[2,3],
+        tie_zone_selected_T18I100_qty=2,independent_equal_OD_zone_relief=True,
+        case_bounds_mm=[[c.XMin,c.YMin,c.ZMin],[c.XMax,c.YMax,c.ZMax]],
+        lever_direction_project='+Z from retained flat case orientation; confirm delivered WAGO',
+        case_floor_tape_gap_mm=.5,lateral_case_stop_gap_mm=.5,
+        body_layer_Z_mm=90,bank_case_top_reference_mm=83,power_boot_bottom_reference_mm=97.6,
+        positive_post_bed_common_mm3=joints,bed_material_removed_mm3=0,
+        ATO_whole_fuses_point_positive_Y_not_up=True,ATO_tool_top_reference_mm=81.5,
+        floor_bottom_mm=82.75,floor_thickness_mm=2.25,posts_between_both_real_fuses_and_tool_X_budgets=True,
+        bed_carrier_union_one_solid=True,carrier_bounds_mm=[[b.XMin,b.YMin,b.ZMin],[b.XMax,b.YMax,b.ZMax]],
+        load_path='WAGO -> .5tape/floor/stops -> two PETGposts -> unchanged BankBed -> retained frame roots',
+        assembly='Install full bed/carrier, seat case, operate lever-up ends before upper cover and before securing the adjacent Pi power loom. Route free custom ends then close two equal-OD grip bands. Reverse partial assembly for rare rework; no rapid service demand.',
+        bought_parts_or_P0_cut=False,all_factory_lengths_unchanged=True,
+        source_OD_pull_fit_lever_access_strength_and_whole_routes_OPEN=True,
+        native_N03_NOT_started=True,N01_complete=False,physical_pass=False)
+
+
+def east_exit_ground_module(groups,endpoints,bed):
+    """W: same lever-up rail between the two retained USB runs; east exits.
+
+    Whole bought-case pose, full9 lands, shared comb and load path move as one
+    plan. Keep USB/Pi/FHY and both horizontal ATO extraction spaces unchanged.
+    """
+    import copy,Part
+    def box(a,b):return Part.makeBox(*(b[i]-a[i] for i in range(3)),A.Vector(*a))
+    v,e,previous=horizontal_ground_module(groups,endpoints,bed)
+    rot=A.Rotation(A.Vector(0,0,1),90)
+    tf=A.Placement(A.Vector(46,71.75,91.5)-rot.multVec(A.Vector(61.5,84,90)),rot)
+    actors={n:s.copy() for n,s in v.items() if n!='Carrier:G_AUX:horizontal'}
+    for a in actors.values():a.Placement=tf*a.Placement
+    for w in ('XA04','XA05','XA06','XB13','XB23'):
+        local=e['rows'][w]['local'];local['point_mm']=list(tf.multVec(A.Vector(*local['point_mm'])))
+        local['full9_grip_start_mm']=list(tf.multVec(A.Vector(*local['full9_grip_start_mm'])))
+        local['outward']=[1,0,0]
+    # The upper ratchet head goes ABOVE the retained USB main run, outside
+    # the case/electrical lands. Its material joins its own strap budget.
+    actors['Station:G_AUX:head_rear3']=box([55.75,84.2,95],[60.75,88.5,100.3])
+    # The smaller-zone ratchet closes ABOVE its comb, away from the retained
+    # BUS-USB side head. Full stock head dimensions5x4.3x5.3 are preserved.
+    actors['Station:G_AUX:head_front2']=box([60,62.475,95],[65,66.775,100.3])
+    comb=v['Carrier:G_AUX:horizontal'].common(box([0,0,90],[150,150,100]));comb.check(True)
+    comb.Placement=tf*comb.Placement
+    floor=box([34.5,54.75,84.25],[58,88,86.5]);riser=box([56,54.75,84.25],[58,59.5,95])
+    posts=[box([x,75.25,53.5],[x+4,79.25,84.45]) for x in (33.5,38.5)]
+    stops=[box([35,58,86.5],[36,85,88.5]),box([38,54.75,86.5],[54,56.25,88.5]),
+           box([38,87.25,86.5],[54,88,88.5])]
+    carrier=floor.multiFuse([riser,comb,*posts,*stops]).removeSplitter();carrier.check(True)
+    assert len(carrier.Solids)==1
+    whole=bed.fuse(carrier);whole.check(True);assert len(whole.Solids)==1
+    actors['Carrier:G_AUX:east']=carrier
+    joints=[]
+    for p in posts:
+        c=bed.copy().common(p);c.check(True);assert c.Volume>1e-6;joints.append(c.Volume)
+    # Head and strap are the SAME physical T18I item, not two colliding parts.
+    for zone in ('front2','rear3'):
+        tie=actors.pop('Station:G_AUX:band_'+zone).fuse(actors.pop('Station:G_AUX:head_'+zone))
+        tie.check(True);assert len(tie.Solids)==1
+        actors['Station:G_AUX:tie_'+zone]=tie
+    for a in actors.values():a.check(True)
+    cb=actors['Station:G_AUX:case'].BoundBox
+    return actors,e,dict(proposal_id='GAL25-W',same_purchased_common_ground_rail=True,
+        centre_mm=[46,71.75,91.5],case_bounds_mm=[[cb.XMin,cb.YMin,cb.ZMin],[cb.XMax,cb.YMax,cb.ZMax]],
+        port_order_low_to_high_Y=['XB13','XB23','XA05','XA04','XA06'],source_outward=[1,0,0],
+        lever_project_direction='+Z; delivered lever fit gate',full9_mm=9,case_transition_mm=.25,
+        selected_T18I100_wire_ties=2,equal_OD_zone_core_counts=[2,3],upper_head_above_retained_USB=True,
+        case_tape_gap_mm=.5,case_stop_gap_mm=.5,floor_thickness_mm=2.25,
+        positive_post_bed_common_mm3=joints,unchanged_bed_material_removed_mm3=0,
+        carrier_bed_union_one_solid=True,ATO_fuses_slide_positive_Y=True,
+        bank_case_top_reference_mm=83,ATO_tool_top_reference_mm=81.5,floor_bottom_mm=84.25,
+        USB_main_axis_YZ_mm=[91.85810963471377,89],USB_return_axis_YZ_mm=[46,89],
+        assembly='Same bench-free ends and lever-up sequence as V; operate WAGO before securing adjacent power loom. Two OD-zone ties on the shared9 comb; no tie over case levers. Rare work reverses partial assembly.',
+        native_N03_NOT_started=True,whole_body_routes_motion_and_stock_OPEN=True,
+        selected=False,N01_complete=False,physical_pass=False)
+
+
+def saved_round_USB_cells(shape):
+    """Specific9-face saved USB tube cover; never repairs the invalid full BRep.
+
+    Full cylindrical/toroidal faces yield valid isolated round-tube cells.
+    The one COMPLETE periodic circumferential spline face covers a round
+    swept section; its face bounds contain the discs' convex hulls. Keep it
+    as a conservative box, with no Boolean or source-validity claim.
+    """
+    import math,Part
+    from receive_feline_W024_shared_body import solid
+    from feline_tangent_routes import arc
+    cells={};facts=[]
+    for i,f in enumerate(shape.Faces):
+        kind=type(f.Surface).__name__;u0,u1,v0,v1=f.ParameterRange
+        if kind=='Plane':continue
+        if kind=='Cylinder':
+            assert abs((u1-u0)-2*math.pi)<1e-6
+            radius=f.Surface.Radius;assert abs(radius-2.5)<1e-6
+            a=(f.valueAt(u0,v0)+f.valueAt(u0+math.pi,v0))*.5
+            b=(f.valueAt(u0,v1)+f.valueAt(u0+math.pi,v1))*.5
+            cell=Part.makeCylinder(radius,(b-a).Length,a,b-a)
+        elif kind=='Toroid':
+            assert abs((v1-v0)-2*math.pi)<1e-6 and abs(f.Surface.MinorRadius-2.5)<1e-6
+            centre=lambda u:(f.valueAt(u,v0)+f.valueAt(u,v0+math.pi))*.5
+            a=centre(u0);b=centre((u0+u1)/2);c=centre(u1)
+            edge=Part.Arc(a,b,c).toShape();t=edge.tangentAt(edge.FirstParameter)
+            cell=solid([arc(list(a),list(t),list(c))],2.5)
+        elif kind=='BSplineSurface':
+            assert f.Surface.isUPeriodic() and abs((u1-u0)-2*math.pi)<1e-6
+            bb=f.BoundBox;cell=Part.makeBox(bb.XLength,bb.YLength,bb.ZLength,A.Vector(bb.XMin,bb.YMin,bb.ZMin))
+        else:raise ValueError('Unclassified USB face '+kind)
+        cell.check(True);cells['USB500:facecell:'+str(i)]=cell
+        facts.append(dict(face=i,surface=kind,cover='full-periodic-tube conservative box' if kind=='BSplineSurface' else 'valid isolated analytic tube cell',
+            full_source_BRep_NOT_revalidated_or_repaired=True))
+    assert len(cells)==7
+    return cells,facts
+
+
+def east_ground_whole_branches(endpoints,only_wires=None):
+    """One joint W five-body hypothesis; unchanged full9 source cylinders.
+
+    The three front U bends share XY axes with separated Z lanes; source and
+    return fans use enough perpendicular separation before flattening. Rear
+    AUX passes below them; Tail uses the north side and retained two R15 ends.
+    """
+    import math,Part
+    import prototype_layout_review_20261024 as base
+    shapes={};recipes={};target_Y={'XB13':45.6,'XB23':42.95,'XA05':40.25}
+    for w in ('XB13','XB23','XA05','XA04','XA06'):
+        if only_wires is not None and w not in only_wires:continue
+        row=endpoints['rows'][w];p=row['local']['point_mm'];dest=list(row['remote']['point_mm'])
+        if w in target_Y:
+            lane={'XB13':89.8,'XB23':93.,'XA05':96.2}[w]
+            flat_Y={'XB13':52.5,'XB23':47.75,'XA05':43.}[w]
+            level=[81.,p[1],lane];a=[106.,82.5,lane];b=[106.,52.5,lane]
+            spread=[78.,flat_Y,lane];c=[51.,flat_Y,93.2];d=[-5. if w=='XA05' else -20.,target_Y[w],93.2]
+            U=dict(kind='arc',start=a,end=b,tangent=[1,0,0],bend=[0,-1,0],radius=15.,
+                angle=math.pi,length=15*math.pi,end_tangent=[-1,0,0])
+            parts=[*base.tr.biarc(p,(1,0,0),level,(1,0,0)),*base.tr.biarc(level,(1,0,0),a,(1,0,0)),U,
+                *base.tr.biarc(b,(-1,0,0),spread,(-1,0,0)),*base.tr.biarc(spread,(-1,0,0),c,(-1,0,0)),
+                *base.tr.biarc(c,(-1,0,0),d,(-1,0,0))]
+            if w=='XA05':
+                f=[-20.,25.25,93.2];g=[-20.,-15.,93.2];h=[-20.,-30.,78.2]
+                j=[-20.,-30.,60.26];k=[-20.,-15.,45.26];m=[-37.375,30.,45.26]
+                parts += [base.tr.arc(d,(-1,0,0),f),base.tr.line(f,g),base.tr.arc(g,(0,-1,0),h),
+                    base.tr.line(h,j),base.tr.arc(j,(0,0,-1),k),*base.tr.biarc(k,(0,1,0),m,(0,1,0)),base.tr.line(m,dest)]
+            elif w=='XB23':
+                f=[-67.46,42.95,93.2];dest=[-117.46,36.4,103.]
+                parts += [base.tr.line(d,f),*base.tr.biarc(f,(-1,0,0),dest,(-1,0,0))]
+            else:
+                climb=[-60.,45.6,93.2];above=[-115.,45.6,106.2]
+                parts += [base.tr.line(d,climb),*base.tr.biarc(climb,(-1,0,0),above,(-1,0,0))]
+                d=above
+                f=[-126.,45.6,106.2];g=[-141.,30.6,106.2];h=[-141.,-17.95,106.2]
+                j=[-141.,-30.55,93.6];k=[-141.,-30.55,30.]
+                m=[-139.4,-30.55,dest[2]+12.6];n=[-139.4,-43.15,dest[2]]
+                parts += [base.tr.line(d,f),base.tr.arc(f,(-1,0,0),g),base.tr.line(g,h),base.tr.arc(h,(0,-1,0),j),
+                    base.tr.line(j,k),*base.tr.biarc(k,(0,0,-1),m,(0,0,-1)),base.tr.arc(m,(0,0,-1),n),base.tr.arc(n,(0,-1,0),dest)]
+        elif w=='XA04':
+            a=[95.,p[1],86.5];b=[131.43,p[1],86.5];c=[146.43,p[1]-15,86.5]
+            d=[146.43,-5.,97.21];dest=[146.43,-50.27,97.21]
+            parts=[*base.tr.biarc(p,(1,0,0),a,(1,0,0)),base.tr.line(a,b),base.tr.arc(b,(1,0,0),c),
+                *base.tr.biarc(c,(0,-1,0),d,(0,-1,0)),base.tr.line(d,dest)]
+        else:
+            a=[113.,86.5,95.595];b=[128.,71.5,95.595]
+            parts=[*base.tr.biarc(p,(1,0,0),a,(1,0,0)),base.tr.arc(a,(1,0,0),b),base.tr.arc(b,(0,-1,0),dest)]
+        minimum=min(t.get('radius',math.inf) for t in parts);assert minimum>=row['minimum_R_mm']-1e-6,(w,minimum)
+        body=base.solid(parts,row['radius_mm']);body.check(True);shapes[w]=body
+        recipes[w]=dict(parts=parts,source=row['local'],actual_receiver_mm=dest,radius_mm=row['radius_mm'],
+            body_length_mm=base.tr.length(parts),minimum_R_mm=minimum,factory_length_added_mm=0,
+            full_factory_OD_fit_motion_stock_and_ATO_parking_NOT_received=True)
+    # AUX quarter is rotated as a WHOLE about its retained full9 axial cap.
+    a=[146.43,-65.27,82.21];q=[146.43,-50.27,97.21]
+    aux_parts=[base.tr.arc(a,(0,0,1),q)];aux=base.solid(aux_parts,1.25);aux.check(True)
+    return shapes,recipes,aux,dict(AUX_same_axial_cap_mm=a,AUX_R15_parts=aux_parts,
+        required_changed_printed_neighbor='PowerGripRoot:XA01; inspect load path before any return-channel change',
+        front_Pi_boot_flatten_finish_X_mm=51,front_U_max_X_mm=121,front_U_Z_lanes_mm=[89.8,93,96.2],
+        rigid_case_and_factory_leads_unchanged=True,N01_complete=False,physical_pass=False)
+
+
+def round_recipe_covers(recipes,prefix='FullBody:'):
+    """Exact per-segment round sweeps for a long wire's sparse broad phase.
+
+    The union covers the same circular-profile spine as its full pipe. These
+    cells only avoid treating the wire's whole bounding box as occupied space.
+    No valid or invalid retained neighbor is omitted when its bound is near.
+    """
+    import prototype_layout_review_20261024 as base
+    result={}
+    for wire,row in recipes.items():
+        parts=[]
+        for p in row['parts']:
+            s=base.solid([p],row['radius_mm']);s.check(True);parts.append(s)
+        result[prefix+wire]=parts
+    return result
