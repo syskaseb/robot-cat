@@ -82,7 +82,6 @@ def rooted_side_cradle(scene,groups):
         geometry_positive_loadpath_NOT_physical_strength=True)
 
 
-
 def rejected_front_ground_group(endpoints):
     """Three actual cores follow one frame; cross below existing FL3 trunk."""
     import math
@@ -856,7 +855,7 @@ def swap_rear_common_ports(groups,endpoints):
         external_pinout_unchanged=True)
 
 
-def bounded_changed_checks(changed,current,metadata,state,known_invalid=(),budget_seconds=40.,live_file=None,covers=None):
+def bounded_changed_checks(changed,current,metadata,state,known_invalid=(),budget_seconds=40.,live_file=None,covers=None,changed_axis_radii=None):
     """Changed pairs only, robust empty errors and a saved state before source work."""
     import time,json,os
     from feline_solid_distance import bbox_lower_bound,distance
@@ -868,31 +867,47 @@ def bounded_changed_checks(changed,current,metadata,state,known_invalid=(),budge
     for a,s in changed.items():
         if a in state['done']:continue
         s.check(True)
+        source_radius=(changed_axis_radii or {}).get(a,0)
+        if not s.Solids and not (isinstance(source_radius,(int,float)) and source_radius>0):
+            raise ValueError('Changed axis requires an explicit bound on its entire profile: '+a)
+        pieces=(covers or {}).get(a,[s]);source_piece_bounds=[p.BoundBox for p in pieces]
         for b,other in current.items():
             if a==b or [a,b] in state['visited']:continue
             m=metadata.get(b,{});reserve=m.get('nominal_profile_radius_mm',0) if not other.Solids else 0
             if not isinstance(reserve,(int,float)) or reserve<0 or (not other.Solids and reserve<=0):
                 state['errors'].append(dict(new=a,actor=b,error='Unbound curve profile; no clearance inferred'))
                 state['visited'].append([a,b]);continue
-            pieces=(covers or {}).get(a,[s]);piece_bounds=[bbox_lower_bound(p.BoundBox,other.BoundBox) for p in pieces]
-            local=[p for p,d in zip(pieces,piece_bounds) if d<=1.25+reserve]
+            target_bounds=other.BoundBox;piece_bounds=[bbox_lower_bound(b,target_bounds) for b in source_piece_bounds]
+            local=[p for p,d in zip(pieces,piece_bounds) if d<=1.25+reserve+source_radius]
             if not local:continue
             if time.monotonic()-tick>=budget_seconds:
                 state['seconds']+=time.monotonic()-tick;save();return state
             state['last_pair']=[a,b];save()
             try:
-                if b in known_invalid:raise ValueError('Known invalid source, not revalidated or accepted')
+                if b in known_invalid and other.Solids:raise ValueError('Known invalid source solid, not revalidated or accepted')
                 if len(other.Faces)>250:raise ValueError('Complex unqualified source; bounded check does not run unbounded BOP')
-                target=other.copy() if other.Solids else solid_profile_target(other,m)
+                target=other.copy()
                 target.check(True)
-                exact_near=min(distance(p.copy(),target) for p in local)
-                far_bounds=[max(0.,d-reserve) for d in piece_bounds if d>1.25+reserve]
+                if not other.Solids:
+                    # A failed whole-sweep conversion is not an invalid axis.
+                    # The selected nominal profile lies within its known
+                    # radius of this valid axis. A positive axis-distance-r
+                    # proves a conservative gap; zero is HOLD, not collision.
+                    axis_gap=min(p.copy().distToShape(target)[0] for p in local)
+                    exact_near=max(0.,axis_gap-reserve-source_radius)
+                elif source_radius:exact_near=max(0.,min(p.copy().distToShape(target)[0] for p in local)-source_radius)
+                else:exact_near=min(distance(p.copy(),target) for p in local)
+                far_bounds=[max(0.,d-reserve-source_radius) for d in piece_bounds if d>1.25+reserve+source_radius]
                 gap=min([exact_near,*far_bounds])
                 kind=m.get('kind','UNKNOWN_RETAINED_ACTOR')
                 if b.startswith(('Service:','ATOAccess:')):kind='access_reservation'
                 state['rows'].append(dict(new=a,existing=b,kind=kind,gap_mm=gap,
                     volume_not_inferred_from_touch=True,recipe_segment_cover_count=len(pieces),
-                    exact_near_piece_count=len(local),gap_is_conservative_lower_bound=bool(covers) and exact_near>=1.25))
+                    exact_near_piece_count=len(local),
+                    curve_radius_bound=bool(source_radius) or not bool(other.Solids),
+                    new_nominal_profile_radius_mm=source_radius,
+                    valid_axis_NOT_whole_sweep_acceptance=bool(source_radius) or not bool(other.Solids),
+                    gap_is_conservative_lower_bound=bool(source_radius) or not bool(other.Solids) or (bool(covers) and exact_near>=1.25)))
             except Exception as exc:
                 message=str(exc).splitlines()
                 state['errors'].append(dict(new=a,actor=b,error=message[0] if message else type(exc).__name__))
@@ -1404,6 +1419,144 @@ def west_exit_ground_branches(endpoints,old_front_recipes,west_bay=False):
     return bodies,recipes,dict(proposal_id='GAL25-Z-west-direct-front-lower-rear',
         direct_front_count=3,lower_rear_count=2,rear_gallery_YZ_mm=[[95.5,49.],[92.5,50.7]],
         requires_shared_U1_printed_cross_revision=True,N01_complete=False,physical_pass=False)
+
+
+def selected_HP_axis_sources(out,scene):
+    """Replay the pinned centreline producer without its failing whole pipe.
+
+    Use the exact original function with an isolated axis-only pipe callback;
+    do not edit that historical producer or regenerate its invalid sweeps.
+    Only XB23's arbitrary82.46mm final straight is retired at its real spline
+    end. Other selected axes keep their complete lengths and endpoints.
+    """
+    import hashlib,json,types,Part
+    from pathlib import Path
+    import feline_integrated_head_neck as hp
+    receipt_path=out/'n01-HP-selected-R12p6-received.json'
+    selected=json.loads(receipt_path.read_text(encoding='utf8'))
+    expected=next(v for k,v in selected['source_sha256'].items() if k.replace('\\','/').endswith('tools/cad/feline_integrated_head_neck.py'))
+    actual=hashlib.sha256(Path(hp.__file__).read_bytes()).hexdigest();assert actual==expected
+    edges=[]
+    def axis_pipe(es,r):
+        assert abs(r-1.05)<1e-9
+        wire=Part.Wire(es);wire.check(True);edges.append(list(es));return wire,wire
+    globals_copy={**hp.__dict__,'pipe':axis_pipe}
+    replay=types.FunctionType(hp.positive_channel_candidates.__code__,globals_copy,'axis_only_selected_HP')
+    rows,bounds=replay(rooted=True,wire_R=12.6)
+    actors={};metadata={};facts=[]
+    for row,es in zip(rows,edges):
+        n=row['name']
+        if n not in scene:continue
+        removed=0.
+        if row['wire']=='XB23':
+            assert type(es[-1].Curve).__name__ in ('Line','LineSegment')
+            removed=es[-1].Length;assert abs(removed-82.46)<1e-6;es=es[:-1]
+        axis=Part.Wire(es);axis.check(True);actors[n]=axis
+        assert abs(axis.Length-(row['path_length_mm']-removed))<1e-6
+        metadata[n]=dict(kind='selected_head_wire_axis_radius_bound',nominal_profile_radius_mm=1.05,
+            same_selected_physical_wire=row['wire'],source_producer_sha256=actual,
+            source_rooted=True,source_wire_R_mm=12.6,trimmed_arbitrary_tail_mm=removed,
+            actual_wire_cut_mm=None,full_sweep_BRep_NOT_repaired_or_received=True)
+        facts.append(dict(owner=n,source_path_length_mm=row['path_length_mm'],new_axis_length_mm=axis.Length,
+            arbitrary_tail_removed_mm=removed,source_actual9_land_unchanged=True,
+            first_mm=list(es[0].Vertexes[0].Point),last_mm=list(es[-1].Vertexes[-1].Point),valid_axis=True))
+    return actors,metadata,dict(producer_sha256=actual,selected_receipt_sha256=hashlib.sha256(receipt_path.read_bytes()).hexdigest(),
+        same_exact_source_function_no_historical_file_edit=True,profile_radius_mm=1.05,source_facts=facts,
+        curvature_and_mutual_source_bounds_replayed=True,physical_pass=False,N01_complete=False)
+
+
+def usb_two_wire_gallery_axis():
+    """Allocate the same factory500 between its unchanged two full9 lands.
+
+    Derived from feline_service_gallery.usb_recipe; no historical source edit.
+    External axis stays452mm, with the inherited48mm connector allowance.
+    MainY91/Z89.75 opens the shared5mm-USB/2.5mm-AUX gallery without shrinking
+    either profile. A gentle final1mm drop ends before the unchanged BUS land.
+    Return a valid axis and profile, never an allegedly repaired C0 full pipe.
+    """
+    import math,numpy as np,Part
+    from scipy.interpolate import make_interp_spline
+    from feline_cubic_curvature import extrema
+    from receive_feline_positive_service_deck import circle_arc
+    q=np.array([110.,28.85810963471377,98.7]);first=q+[15,0,0]
+    # FR_P starts atZ93.5: 93.5-r2.5-rigid1.25 sets this upper limit.
+    planeZ=89.75;R=(91.-q[1])/2;drop=q[2]-planeZ
+    at=lambda u:first+np.array([R*math.sin(math.pi*u),R*(1-math.cos(math.pi*u)),-drop*(3*u*u-2*u*u*u)])
+    deriv=lambda u:np.array([R*math.pi*math.cos(math.pi*u),R*math.pi*math.sin(math.pi*u),-6*drop*u*(1-u)])
+    v=np.linspace(0,1,241)
+    spline=make_interp_spline(v,np.array([at(u) for u in v]),k=3,bc_type=([(1,deriv(0))],[(1,deriv(1))]))
+    curvature=extrema(spline.t,spline.c);assert curvature['regular'] and curvature['minimum_radius_mm']>=30
+    knots,mults=np.unique(spline.t,return_counts=True);c=Part.BSplineCurve()
+    c.buildFromPolesMultsKnots([A.Vector(*p) for p in spline.c],mults.tolist(),knots.tolist(),False,3)
+    edge=c.toShape();target=np.array([86.,46.,89.]);angle=math.acos(1-(target[1]-q[1])/60)
+    dx=60*math.sin(angle)
+    # x is linear; the0.75mm cubic drop gives R>=L^2/(6*drop)=200.
+    cubic=Part.BezierCurve();cubic.setPoles([A.Vector(36,46,planeZ),A.Vector(46,46,planeZ),A.Vector(56,46,89),A.Vector(66,46,89)])
+    dropedge=cubic.toShape();extra=dropedge.Length-30
+    main=(452-(15+edge.Length+math.pi*R+60*angle+target[0]-first[0]-dx)-extra)/2
+    a=at(1);b=a+[-main,0,0];start=b+[0,-2*R,0]
+    mid=start+[30*math.sin(angle),30*(1-math.cos(angle)),0]
+    t=np.array([math.cos(angle),math.sin(angle),0]);normal=np.array([math.sin(angle),-math.cos(angle),0])
+    end=start+[dx,target[1]-q[1],0];assert end[0]<36 and main>0
+    edges=[Part.makeLine(A.Vector(*q),A.Vector(*first)),edge,Part.makeLine(A.Vector(*a),A.Vector(*b)),
+        circle_arc(b,[-1,0,0],[0,-1,0],R,math.pi),circle_arc(start,[1,0,0],[0,1,0],30,angle),
+        circle_arc(mid,t,normal,30,angle),Part.makeLine(A.Vector(*end),A.Vector(36,46,planeZ)),dropedge,
+        Part.makeLine(A.Vector(66,46,89),A.Vector(*target))]
+    axis=Part.Wire(edges);axis.check(True);assert abs(axis.Length-452)<1e-5
+    return axis,dict(proposal_id='GAL25-AT-shared-USB-AUX-axis',nominal_profile_radius_mm=2.5,
+        external_axis_length_mm=axis.Length,unchanged_connector_allowance_mm=48,factory_total_mm=500,
+        Pi_mouth_mm=q.tolist(),BUS_mouth_mm=target.tolist(),Pi_full9_mm=[(q+[3,0,0]).tolist(),(q+[12,0,0]).tolist()],
+        BUS_full9_mm=[(target-[3,0,0]).tolist(),(target-[12,0,0]).tolist()],main_YZ_mm=[91,planeZ],
+        main_length_mm=main,first_R_mm=R,first_spline_minimum_R_mm=curvature['minimum_radius_mm'],
+        remaining_arc_R_mm=30,final_cubic_R_lower_bound_mm=200,
+        both_factory_terminations_and_their_full_lands_unchanged=True,
+        whole_world_motion_assembly_and_AUX_pair_OPEN=True,full_pipe_NOT_received=True,
+        N01_complete=False,physical_pass=False)
+
+
+def outer_aux_support_revision(scene):
+    """Lower our diagonal foot; clock the same nylon head on its same loop.
+
+    Bought case/screw/washer geometry and the carrier's real bore stay fixed.
+    The exact old three-cell constructor must match before replacing a parent.
+    """
+    import Part
+    from plan_feline_power30_common_frame import plane_at
+    case=scene['PowerFan:P_REAR:case'];old=scene['PowerMount:P_REAR:PETG']
+    face=plane_at(case,0,case.BoundBox.XMax).copy();face.translate(A.Vector(.5,0,0));shelf=face.extrude(A.Vector(2,0,0))
+    washer=scene['Ref_Material_AUX409222TopWasher_0_0'].BoundBox.Center
+    def foot(z,r):
+        a=A.Vector(151.5,-74.5,z);b=A.Vector(164.5,-48.7196985092769,z)
+        t=b-a;t.normalize();n=A.Vector(-t.y,t.x,0)*2
+        ring=Part.makePolygon([a+n,b+n,b-n,a-n,a+n])
+        return Part.Face(Part.Wire(ring.Edges)).extrude(A.Vector(0,0,2)).cut(
+            Part.makeCylinder(r,4,A.Vector(washer.x,washer.y,z-1)))
+    old_post=Part.makeBox(2,11,14,A.Vector(163.5,-49.7196985092769,49))
+    source=shelf.multiFuse([foot(49,1.1),old_post]);source.check(True);old.check(True)
+    source_delta=source.cut(old).Volume+old.cut(source).Volume
+    assert source_delta<1e-6,('Current parent differs from its named source',source_delta)
+    post=Part.makeBox(2,11,24,A.Vector(163.5,-49.7196985092769,39))
+    revised=shelf.multiFuse([foot(39,2.25),post]);revised.check(True);assert len(revised.Solids)==1
+    carrier=scene['AuxInboard:Carrier'];joint=revised.common(carrier).Volume;assert joint>1e-6
+    joined=revised.fuse(carrier);joined.check(True);assert len(joined.Solids)==1
+    retained={}
+    for n in ('PowerMount:F_AUX:PETG','PowerMount:Trunk:PETG','PowerGripRoot:XA01'):
+        if n not in scene:continue
+        before=old.common(scene[n]).Volume;after=revised.common(scene[n]).Volume
+        assert after>=before-1e-6,(n,before,after);retained[n]=dict(before_mm3=before,after_mm3=after)
+    band=scene['AuxGrip:XA03:band'];head=scene['AuxGrip:XA03:head'].copy();centre=band.BoundBox.Center
+    rotated_band=band.copy();rotated_band.rotate(centre,A.Vector(0,0,1),180);head.rotate(centre,A.Vector(0,0,1),180)
+    band_delta=band.cut(rotated_band).Volume+rotated_band.cut(band).Volume;assert band_delta<1e-6
+    tie=band.fuse(head);tie.check(True);assert len(tie.Solids)==1
+    assert abs(head.Volume-5*4.3*5.3)<1e-6
+    return {'PowerMount:P_REAR:PETG':revised,'AuxGrip:XA03:head':head},dict(
+        source_three_cell_symmetric_difference_mm3=source_delta,
+        new_foot_Z_mm=[39,41],source_foot_Z_mm=[49,51],same_bore_axis_mm=[washer.x,washer.y],
+        new_tip_clearance_R_mm=2.25,carrier_root_common_mm3=joint,carrier_root_union_one_solid=True,
+        retained_parent_joints=retained,XA03_same_loop_occupied_volume_delta_mm3=band_delta,
+        XA03_head_clock_deg=180,XA03_head_volume_mm3=head.Volume,
+        source_bare_jackets_pads_and_selected_hardware_unchanged=True,
+        actual_strength_tie_installation_and_delivery_fit_OPEN=True,N01_complete=False,physical_pass=False)
 
 
 def outer_aux_gallery(row,rear_X):

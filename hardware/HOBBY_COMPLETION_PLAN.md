@@ -1,5 +1,24 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Checkpoint 25.10.2026 06:00 UTC — Tail i wspolna przestrzen
+
+N01-N10 nadal 0/10; historyczne 20/20 dokumentacji osobno. Bez physical PASS.
+Zachowano pelny Tail XA06 z 49 pozami (.906s), poprawne osie HP ze zrodla
+i 39 scisle ponownie odczytanych BRep (.219s). Niepoprawny cached BUS
+zastapiono w DOWODZIE zachowawcza obwiednia konstruktora, nie naprawiono
+natywnej czesci; 34 komorki, minimalny odstep Tail 3.7924mm (1.032s).
+AD34 pozostaje aktualnym module-only pakietem. Nowy wspolny AV obejmuje
+USB fabryczne500 (452+48 projektowego allowance), AUX i Tail razem;
+preflight .704s, USB static 29.186s bez bledow jadra. Kandydat NIE wybrany:
+ATO access, obrys, pelny ruch i pozostale14/900mm/4MTA nadal otwarte.
+Usuniecie 55.78125mm3 wlasnych koncow scianek nie przesuwa kupnego G_AUX.
+Nie powtarzac odrzuconych dolnych AUX ani osobnych objazdow XA04. NEXT:
+odebrac AV motion; zakwalifikowac zrodla przez zachowawcze obwiednie,
+wspolny rzeczywisty obrys i kolejnosc ATO; bez detali produkcyjnych N03.
+Okno nadal aktywne do08:00UTC, cicha praca bez powiadomien/recenzenta.
+Czas okna do06:00 ~7h51min; nie jest to ciagly czas obliczen CAD.
+
+
 ## Sprawdzony checkpoint GAL25-AD — 25.10.2026 03:46UTC
 
 NowyN01 nadal0/10, historyczne20/20osobno; okno/cisza do08UTC aktywne.
