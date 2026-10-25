@@ -2,97 +2,100 @@
 
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (25.10.2026)
 
-Stan N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Zgoda do18:00
-Warszawy(CET) = **17:00UTC**; hook enabled/deadline sprawdź w
-robot-cat/.codex/hooks/robot-cat-work-window.json. Nie przedłużać. Jeden wykonawca
-Sol high i istniejący recenzent Astra medium; nie zmieniać modeli. Bez okresowych
-powiadomień/maili. Starsze karty poniżej są HISTORIĄ, także dawne „ON/NEXT”.
+N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Zgoda do18:00Warszawy
+(CET)=**17:00UTC**. Ten sam hook prototype-shared-galleries-20261025-1600 ma
+enabled=true/deadline17Z; sprawdź rzeczywisty stan, nie nazwę okna. Jeden wykonawca
+Sol high, istniejący recenzent Astra medium, bez zmiany modeli i okresowych alertów.
+Źródło: prototype-shared-galleries-20261025-result.json i ten sam breps.zip.
+Starsze karty poniżej są HISTORIĄ, także dawne „ON/NEXT”.
 
-**Wynik okna:** jeden konstruktywny wspólny układ14 aktualnych połączeń, modułów,
-mocowań, szerokich korytarzy i kolejności montażu. Pełne123odcinki/246ID i obie
-strony4MTA/fabryczne długości zachować. Nie zaczynać produkcyjnych detaliN03–N10.
-Liczyć lokalne profile, nie wciskać wszystkich14 w każdy przekrój. Szczegółowe osie
-tylko w nazwanym zagrożeniu; ich usunięcie nie daje punktów ani fizycznegoPASS.
+**Cel:** wspólny konstruktywny plan14 aktualnych połączeń/modułów/mocowań/
+montażu i szerokich korytarzy, następnie całość123odcinków/246ID i obie strony4MTA
+z fabrycznymi długościami. Nie produkcyjneN03–N10. Lokalny wynik nie daje punktu.
 
-**Zapisane:** ca611908 (setup) i d7f2bdde (MAIN9 + wspólna próbaW011/XP02).
-Główny pakiet prototype-shared-galleries-20261025-result.json i ten sam ZIP.
-MAIN4×9 JUŻ był w MAINassembly; oba końceW078 zachowane. BL/BP13retencji,
-RR3, AV5GND/USB i R47 zachować; nie odtwarzać niezmienionych dowodów.
-7bieżących BRep odtworzono strict0.734s. W01116stycznych części265.548/R12.4,
-przednie9 w całościPROSTE, Y−34.85 z końca9+R; statyka35par/error0, profil→skóra
-5.95. XP02: całe9 na tym samym łuku10..19, oba225mm końce/lead bez zmiany,
-rzeczywisty profilr.925/clearance.15/siodło3.15, nowyrootR1.5zpełnymR1.4core;
-styki2.111/1.020/całość1solid, statyka22par/error0 i całyobrys200. Ostatni kit49
-jeszcze odebrać. Stare invalid124/074 mają zapisane całe konserwatywne pokrywy
-z hashami; nie naprawiać/ponawiać BOP źródeł. NatywnyBUSsupplier25 nadalbrak.
+**Zapisane commity:** ca611908 setup, d7f2bdde MAIN9+W011/XP02,
+b55bf829 wspólna podparta rama i wykonalna sekwencjaW012. Nie odtwarzać MAIN4×9:
+były już w MAINassembly. BL/BP13retencji, RR3, AV5GND/USB iR47 zachować.
 
-**Odebrana zmiana przyczyny14:32UTC:** dolna rodzinaW012141.5 odrzucona,
-nie wracać do niej. W012/logicznyD_RL.5 używa pustego fizycznego1 tej samej
-WAGO221-415(1potencjał), fizyczny5 rezerwowy; 123/246ID bez zmian. Nowe CAŁE
-11stycznych części250.763441/Rmin12.4: nad trzemaRR, z powrotem w lewo, poza lewym
-carrierem, dolnaU nadHP. Y−94.2 wynika z2mm przyszłejskóry+.2+pełnejopaski3.6.
-Końcowe9 proste zachowane. Otwarty od+Y wspólny grzebień i jedna opaska100 mają
-kontakt z4płaszczami zanim plastik ograniczy zacisk; budżet94.2/100 nominalnie.
-To retencja nominalna, nie fizyczny test siły/przymiarki.
+**Odebrane:** ZIP gal25-day18-shared-root-received.json: jeden print605faces/
+1Solid210.036×112.277×119.35, zachowuje12rodziców/BankBed/RRGuide. Natywny
+SharedGalleryConstructivePlan.FCStd, Width3→3.25→3 z rzeczywistą zmianą4.75mm³,
+zapis/reopen11.094s. Refine odrzucony; nie ponawiać napraw starych BRep.
+W011265.5480968/R12.4 ma całe przednie9.25 od prawdziwej powierzchni;
+stary Station:D_FR:wire:D_FR.5 jest duplikatem. XP02 te same225mm, pełne9
+na istniejącym łuku10..19, dopasowanyr.925/siodło3.15/.15air i pełnyrootR1.4.
+W012250.763441/R12.4 kończy w logicznymD_RL.5/fizycznym1 tej samej221-415,
+fizyczny5spare. Y−94.2 wynika z2mm skóry+.2+całej opaski, nie mikrooffsetu.
+Rama ma pozytywne rzeczywiste strefy styku; lewy wspornik wraca za całymPAUX.
+RRGuide JUŻ łączy się14.5997mm³ zAuxGripRoot; dodatkowe długie ramię odrzucone.
+57par mocowań/error0,49 nowego materiału/51near bez ujemnych; invalid049/050
+zamknięte poprawnymi CAŁYMI pokrywami/hashami, nie naprawą. Nie ciągły sweep.
 
-Próba całych korzeni wykazała PAUX w lewym pionie i R6 w główce W011; zmieniono
-drogę obciążenia za CAŁYM PAUX i stronę CAŁEGO chwytuW011. Prawdziwy styk
-tylnego mostu zBankBed285mm³. LowMID potrzebuje3.5mm podpórki na rzeczywistej
-prostej3.8, nie fikcyjnego wymagania9 dla pośredniejopaski; szczelina.15 odebrana.
-Zachowane wszystkie9 chwytów KOŃCOWYCH. Odczyt konstruktora RRFlatGuide wykazał
-istniejący dodatni styk14.5997 doAuxGripCommonRoot: zbędne nowe ramię przecinające
-W065/RRFlatBand USUNIĘTO, zamiast kolejnego objazdu. Jeden wspólny print zachowuje
-12rodziców/rrguide/bed, rzeczywiste ścieżki i pojedynczą bryłę; gabaryt210.04×112.28×119.35.
-InvalidFrameRear20 nie naprawiano: całe poprawne konserwatywne pokrycie daje
-11.184mm do nowego materiału. Bbox-overlap nadal nie jest kontaktem.
+**Serwis:** F_R6 zwolnij tylko nylonXP02, cały przewód/root/pad mają dostęp;
+nie parkować fikcyjnego3mm prefiksu. F_R5: podeprzyj4 inne źródła, zwolnij
+wspólną opaskę i kolumnęW012, wyjmij D_RR5 osiowo11.25 z CAŁĄ9.25+11końcówką,
+pochyl górny łuk15° i przesuń długość w dolny nawrót;5pozycji+5odkładania,
+długość stała/Rmin12.4/lowtie iD_RL nieruchome. Potem retie4 i odłóż wolną
+gałąź przy zdjętym panelu. IzolowaneW017/18 podczas tego kontrolowanego serwisu
+pozostają.776/.456, bez ściskania. Aktualny CarrierD_RR JUŻ otwarty od−Y;
+nie ciąć go na podstawie historycznego szablonu. Przymiarka/siła to faza2.
 
-**Brama14:37UTC:** źródłowy11mm ruch wyjęciaW012 D_RR5 wymaga osobnej pierwszej pozycji; same późniejsze miękkie konfiguracje nie dowodzą wyjścia z zacisku. Jedna konstruktywna próba +X z zachowaniem długości przez podniesienie dolnego nawrotu lewej kolumny, bez zmiany końcowego chwytu/lowtie. Kryterium: cały przewód/korzenie/RR3 i Rmin12.4; potem powrót do wspólnego odbioru, bez skanu offsetów.
+**USB zamknięty scoped:** gal25-day18-USB-first-own-halfspace-received.json.
+240CAŁYCH kubicznych spanów/normalnych kółr2.5 ma Bernstein x≥125 iF≥0,
+regularna prędkość²≥.165419. To rozdziela pierwszy sweep od własnej opaski,
+bez naprawy C0pipe i bez zmiany500mm/obu9; headZgap3.2. Reprodukcja0delta.
+USB500:whole jest starym DUPLIKATEM tej samej500, aktualny USB500:full_axis.
 
-**Fakt14:46UTC — źródło poprawione przed cięciem:** historyczny konstruktor ma zamknięte otwory, ale aktualny odebrany CarrierD_RR JUŻ ma otwartą zewnętrzną połowę. Targetowany BRep świadek całej ujemnej połowy daje0mm³ usunięcia/dodatku; żadnego nowego cięcia ani20mm zapasu. Zachować aktualny otwarty grzebień, nie wnioskować zamknięcia z dawnego szablonu. Następnie odebrać całą końcówkę9.25+11 oraz natywny parametr belki.
+**BUS25 przestrzeń zamknięta scoped:** gal25-day18-BUS25-occupied-space-received.json.
+Nie pominięto1006faces. Cała poprawna PCApokrywa z oryginalnego źródła i DWOMA
+kolejnymi transformacjami, rama potwierdzona przezsupplier0/24 do1e−13.
+Wholeboundary148faces+wolny pryzmat daje2.242mm do starego TailCarrier;
+49źródełnogi≥14.963mm. Oryginalne strictBRep BUS25/carrier nadal NIEzatwierdzone
+do native/produkcji; nie naprawiać/nie udawać modelu producenta z pokrywy.
 
-**Odebrany milestone14:48UTC:** gal25-day18-shared-root-received.json w tym samymZIP.
-Jeden rzeczywisty print z drogąobciążenia, W011265.548 i W012250.763441/R12.4,
-pełnyD_RL9/fizyczny1 i niezależne simplemidties, nowyXP02.57zmienionych par
-mocowań/error0; własne kanały.15, VHB.5 i główka jako oparta powierzchnia0common
-sklasyfikowane osobno. Aktualne49:51bliskich par bez ujemnych,2stare invalid049/050
-zamknięto całymi poprawnymi konserwatywnymi pokrywami/hashami (8par/1.5s, beznaprawy).
-Nie udawać ciągłej symulacji kładzenia. Pełna końcówkaW0129.25+11 uwzględniona:
-5pozycji osiowego wyjęcia11.25 i5pozycji odkładania, długość stała, lowtie/D_RL
-bez ruchu.15°odchylenie GÓRNEGO łuku omija rzeczywisty RR_Groot; pierwotny płaski
-ruch odrzucony. Izolowane W017/018 pozostają w dodatnim odstępie.776/.456 podczas
-kontrolowanego ręcznego serwisu; nie są stalową przeszkodą1.25. Własne rowki.15
-i lowweb.829 nie przecinają przewodu. Rzeczywista przymiarka/siła nadal faza2.
-Nowe niemateriałowe końce/opaski rezerwują co najmniej2.2mm do zewnętrznego obrysu.
+**MTA odebrane scoped:** gal25-day18-MTA-simple-retention-received.json.
+Te same WAGO221-2411/pozy/factory4MTA i pełne9 końcowe. Dwie przednie
+osłony44/52: zamiast wysuniętych śrubowych skrzydeł ciągłe listwy+2mm płaski
+dekiel,2 przeciwne otwarte klucze XY/yaw i2 T18I100 na sztukę. Stop87.72mm²,
+pozytywny korzeń105mm³, cap/kupnycase.45, dodany materiał/case.25, żadnego
+docisku dźwigni. Budżet82.5/100 każda. Główki nad pokrywą, obie strony4MTA
+zachowane. Prethread PRZED panelem, dźwignie obsłużyć PRZED deklem; rzadki
+serwis przez przecięcie2opasek, bez wymagania szybkiej naprawy.
+Próba CAŁEGO nylonu ujawniła6.6mm³/panel: dolny tunel nie miał pionowych
+wyjść. Wyjścia otwarto przez panel; ubyło40.832mm³,12starych styków zachowane
+bez ubytku,20mutual bez niezamierzonych przecięć. Panel+2bazy1Solid146×80×16.2.
+91staticrows,16rawBOPerrors HP_XB23/XS23 zamknięto CAŁYMI źródłowymi
+segmentowymi pokrywami z.025 błędu; dolna granica108mm, nie pominięcie.
+Nowe13 części wszystkie49pozycji rozdzielone całymi bbox;0near/error0.
+0Solid.common.Area nie był dowodem braku oparcia: prawdziwe przeciwneFaces
+dają87.72; nie traktować tego błędu pomiaru jako odrzuconej topologii.
+Brak pełnych zamkniętych cylinderholes w tym panelu: NIE deklarować testu
+2mm pierścieni; native/śruby/drukN03 i pull/creep nadal otwarte.
 
-SharedGalleryConstructivePlan.FCStd: natywny tree bez Refine, poprawne bryły,
-parametr Width3→3.25→3 i zapis/odtworzenie11.094s; odtworzono23BRep4.828s.
-To edytowalny konstruktywny N01, NIE finalne produkcyjneN03. Refine dał invalid
-powierzchnie i został usunięty; próbna zmiana Height wewnątrzbed nie zmieniała
-materiału — stąd test rzeczywistej szerokości. Master/historia beznadpisania.
+**Recenzja:** całe14 miało brak_danych (rejestr14/900/BUS/sekwencja/123).
+BUS zamknięte powyżej. Jedna korekta odebrana gotowe_do_próby MTA, nie PASS
+całego14/N01. Dla tej strategii obie tury już odebrane; nie pingować parametrów.
 
-**active_worker:** własny FreeCAD5767/PID10920 IDLE po zapisie, nie duplikować.
-**NEXT:** odbierz scopedreceipt i dotychczasowe AV5/USB/MAIN4/RR3, wyłącznie otwarte
-interfejsy całych14, obu4MTA/factory900/USB own sweep. Nie ponawiać dzisiejszych
-korzeni,49, closedfamilies,8400pozycji ani źródeł. Potem cały123/246konstruktywny
-plan; nadal0/10 bez częściowych punktów. Native BUSsupplier25 jest jawniebrakujący.
+**active_worker:** własny FreeCAD5767/PID10920 IDLE po zapisie; nie duplikować.
+resume_feline_gallery_shared_receipt.py odtwarza37strictBRep z tegoZIP2.468s,
+w tym nowe13MTA iBUSpokrywę, wycofuje stareduplikaty. Najpierw warstwyAV/BL/BP/
+MAIN9, potem ten loader. Nie odpalać ponownie źródeł/8400pozycji/RRkorzeni.
+**NEXT:** jeden aktualny rejestr14 owner→oba końce→retencja→dowód/retired,
+spójna CAŁA kolejność montażu, bilans rzeczywistych900 source/donor/leg/prefix
+bez wielokrotnego liczenia tych samych3żył,8aktualnych4MTA długości. Potem
+pozostałe123/246: jawne dziedziczenie zgodnych źródeł i zmienione granice.
+Nie udawać, że stary123plan z nieaktualnymikońcami kwalifikuje nowyN01.
 
-**Serwis uproszczony na podstawie brył:** F_R6 wymaga usunięcia TYLKO nylonuXP02,
-nie parkowania/gięcia prefiksu3mm: całyprzewód4.678/pad2.220/root1.265 do rezerwy
-narzędzia już clear. F_R5 po zwolnieniu wspólnej opaski wymaga JEDNEGO rozłączenia
-końcaW012 D_RR5 i parkowania wolnego końca; wykazać drogę/miejsce/ponowny montaż.
-Nie dodawać wymagania szybkiego serwisu ani74rozłączeń. Przymiarka/siła chwytu/
-pełzanie/faktyczne dźwignie producenta pozostają fizycznymi bramkami.
-
-**Pętla:** odbierz5767/active_worker i recenzenta przed startem, nie powtarzaj źródeł.
-Co20–30min zamknięty problem ALBO fakt zmieniający decyzję; bez obu zmień poziom
-próby, nie kolejny audyt. Po2odrzuceniach tej samej przyczyny zmień faktyczny moduł/
-przydział/podporę/kolejność. Odrzucone rodziny nie resetują się po nowej turze/skrypcie.
-Reużyj niezmienione pary; bbox nie jest kolizją, HOLD osi nie jest kontaktem materiału.
-Zapisz rzeczywisty zegar/limit przed kosztowną operacją i maks10min, last_account_usage.
-Commity tylko własnych sprawdzonych etapów. Bez zakupów/resetów/zasilania/pushów/
-ROS/slicera/GUARD/BMS/schedule/WORK_HANDOFF/Claude. P0/E6/15/MG92B/R47/
-325×200×160/max200/margines256³/MAIN46.52 zachować. O18 zapisz/odbierz własne
-obliczenia, wyłączenabled i raportuj wynik/braki/czas/commity/limit/model/hook.
+**Pętla:** odbierz istniejący worker, tylko zmienione interfejsy; po2porażkach
+zmień przyczynę/topologię/kolejność, bez offsetów i audytów. Co20–30min zamknięty
+problem ALBO nowy fakt z konsekwencją. Bbox-overlap nie dowodzi kontaktu,
+dodatnia konserwatywna granica CAŁEGO obiektu może dowodzić rozdzielenia.
+Czas/limit przed kosztowną pracą i maks10min, rzeczywisty last_account_usage.
+Commity tylko własnych sprawdzonych etapów. Bez zakupów/resetów/zasilania/
+pushów/ROS/slicera/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude. Zachowaj
+P0/E6/15/MG92B/R47/325×200×160/max200/256³/MAIN46.52. Kontynuuj do18 lub
+całego wyniku; o zamknięciu zapisz/odbierz własne obliczenia, enabled=false,
+raport i ROBOT_CAT_SHARED_GALLERIES_20261025_1800_DONE. Nie przedłużaj okna.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 

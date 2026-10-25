@@ -1,0 +1,3005 @@
+{
+  "id": "DAY18-WHOLE14-CORRECTION-OPEN-MTA-RETENTION",
+  "whole_plan_parent": "DAY18-WHOLE14-READINESS",
+  "base_commit": "b55bf829",
+  "source_snapshot": {
+    "proposal_id": "GAL25-AD",
+    "status": "CURRENT_MODULE_REVISION_RECEIVED_WHOLE_ROUTES_OPEN",
+    "historical_initial_plan_sha256": "d54abb03eddde142df39041ef9100a20f20a74eecf5ae3f566cae92a6ac9f58d",
+    "current_case_centre_mm": [
+      80,
+      72.25,
+      91.5
+    ],
+    "source_caps": {
+      "status": "CURRENT_CAP_IDENTITIES_NOT_WHOLE_ROUTES",
+      "rows": {
+        "W011": {
+          "portion_id": "W011/retained0",
+          "logical_endpoint": "D_RR.1",
+          "local": {
+            "point_mm": [
+              53.75,
+              -92.5,
+              47.50000000000001
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              1.0,
+              1.2325951644078386e-32,
+              1.11022302462516e-16
+            ],
+            "actor": "Station:D_RR:wire:D_RR.1",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "remote": {
+            "point_mm": [
+              6.125,
+              -32.25,
+              45.26
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "actor": "Station:D_FR:wire:D_FR.5",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "selected_sku": "LAPP4126002S",
+          "selected_physical_unit": "W011_continuous",
+          "radius_mm": 1.55,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 76.83241975234152
+        },
+        "W012": {
+          "portion_id": "W012/retained0",
+          "logical_endpoint": "D_RR.5",
+          "local": {
+            "point_mm": [
+              53.75,
+              -92.5,
+              66.5
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              1.0,
+              1.2325951644078386e-32,
+              1.11022302462516e-16
+            ],
+            "actor": "Station:D_RR:wire:D_RR.5",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "remote": {
+            "point_mm": [
+              95.5,
+              -71.76128499307295,
+              -14.494228634059947
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              -0.0,
+              -0.5000000000000017,
+              -0.8660254037844377
+            ],
+            "actor": "Station:D_RL:wire:D_RL.5",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "selected_sku": "LAPP4126002S",
+          "selected_physical_unit": "W012_continuous",
+          "radius_mm": 1.55,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 93.45170877070638
+        },
+        "W016": {
+          "portion_id": "W016/body",
+          "logical_endpoint": "D_RR.2",
+          "local": {
+            "point_mm": [
+              53.75,
+              -92.5,
+              52.25000000000001
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              1.0,
+              1.2325951644078386e-32,
+              1.11022302462516e-16
+            ],
+            "actor": "Station:D_RR:wire:D_RR.2",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "remote": {
+            "point_mm": [
+              112.0,
+              -84.95000000000002,
+              85.8
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "actor": "RRFlat:W016/body/start",
+            "datum": "received full9 source cuff free cap"
+          },
+          "selected_sku": "SR-Cable-5264-3PIN-900mm-6PCS",
+          "selected_physical_unit": "SOURCE/RR1",
+          "radius_mm": 1.55,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 67.64368041435947
+        },
+        "W017": {
+          "portion_id": "W017/body",
+          "logical_endpoint": "D_RR.3",
+          "local": {
+            "point_mm": [
+              53.75,
+              -92.5,
+              57.00000000000001
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              1.0,
+              1.2325951644078386e-32,
+              1.11022302462516e-16
+            ],
+            "actor": "Station:D_RR:wire:D_RR.3",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "remote": {
+            "point_mm": [
+              112.0,
+              -88.25000000000001,
+              85.8
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "actor": "RRFlat:W017/body/start",
+            "datum": "received full9 source cuff free cap"
+          },
+          "selected_sku": "SR-Cable-5264-3PIN-900mm-6PCS",
+          "selected_physical_unit": "SOURCE/RR2",
+          "radius_mm": 1.55,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 65.11962069914105
+        },
+        "W018": {
+          "portion_id": "W018/body",
+          "logical_endpoint": "D_RR.4",
+          "local": {
+            "point_mm": [
+              53.75,
+              -92.5,
+              61.75000000000001
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              1.0,
+              1.2325951644078386e-32,
+              1.11022302462516e-16
+            ],
+            "actor": "Station:D_RR:wire:D_RR.4",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "remote": {
+            "point_mm": [
+              112.0,
+              -91.55000000000001,
+              85.8
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "actor": "RRFlat:W018/body/start",
+            "datum": "received full9 source cuff free cap"
+          },
+          "selected_sku": "SR-Cable-5264-3PIN-900mm-6PCS",
+          "selected_physical_unit": [
+            "SOURCE/RR3",
+            "DONOR/RR3"
+          ],
+          "radius_mm": 1.55,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 63.02672052391747
+        },
+        "XA04": {
+          "portion_id": "XA04/extra",
+          "logical_endpoint": "G_AUX.2",
+          "local": {
+            "point_mm": [
+              61.249999999999986,
+              81.75,
+              91.5
+            ],
+            "radius_mm": 1.25,
+            "outward": [
+              -1,
+              0,
+              0
+            ],
+            "actor": "Station:G_AUX:wire:G_AUX.2",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire",
+            "physical_slot": 1,
+            "logical_common_rail_endpoint": "G_AUX.2",
+            "original_same_rail_logical_id_retained": true,
+            "full9_grip_start_mm": [
+              70.25,
+              81.75,
+              91.5
+            ]
+          },
+          "remote": {
+            "point_mm": [
+              135.82339828220188,
+              -54.66339828220172,
+              97.21000000000001
+            ],
+            "radius_mm": 1.25,
+            "outward": [
+              -0.7071067811865466,
+              0.7071067811865485,
+              -5.1582770909290805e-15
+            ],
+            "actor": "AuxEscape:XA04",
+            "datum": "received actual nominal source prefix distal cap"
+          },
+          "selected_sku": "HELU23501",
+          "selected_physical_unit": "XA04_custom",
+          "radius_mm": 1.25,
+          "minimum_R_mm": 15.0,
+          "straight_lower_bound_mm": 149.38729058397666
+        },
+        "XA05": {
+          "portion_id": "XA05/extra",
+          "logical_endpoint": "G_AUX.1",
+          "local": {
+            "point_mm": [
+              61.249999999999986,
+              72.25000000000001,
+              91.5
+            ],
+            "radius_mm": 1.25,
+            "outward": [
+              -1,
+              0,
+              0
+            ],
+            "actor": "Station:G_AUX:wire:G_AUX.1",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire",
+            "physical_slot": 3,
+            "logical_common_rail_endpoint": "G_AUX.1",
+            "original_same_rail_logical_id_retained": true,
+            "full9_grip_start_mm": [
+              70.25,
+              72.25,
+              91.5
+            ]
+          },
+          "remote": {
+            "point_mm": [
+              -37.375,
+              44.25,
+              45.26
+            ],
+            "radius_mm": 1.25,
+            "outward": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "actor": "Station:G2:wire:G2.5",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "selected_sku": "HELU23501",
+          "selected_physical_unit": "XA05_custom",
+          "radius_mm": 1.25,
+          "minimum_R_mm": 15.0,
+          "straight_lower_bound_mm": 117.99681446971354
+        },
+        "XA06": {
+          "portion_id": "XA06/extra",
+          "logical_endpoint": "G_AUX.5",
+          "local": {
+            "point_mm": [
+              61.249999999999986,
+              77.00000000000001,
+              91.5
+            ],
+            "radius_mm": 1.25,
+            "outward": [
+              -1,
+              0,
+              0
+            ],
+            "actor": "Station:G_AUX:wire:G_AUX.5",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire",
+            "physical_slot": 2,
+            "logical_common_rail_endpoint": "G_AUX.5",
+            "original_same_rail_logical_id_retained": true,
+            "full9_grip_start_mm": [
+              70.25,
+              77.0,
+              91.5
+            ]
+          },
+          "remote": {
+            "point_mm": [
+              127.99999999999997,
+              56.499999999999986,
+              80.595
+            ],
+            "radius_mm": 1.25,
+            "outward": [
+              2.22044604925031e-16,
+              -4.9303806576313106e-32,
+              1.0
+            ],
+            "actor": "Station:G_TAIL:wire:G_TAIL.1",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "selected_sku": "HELU23501",
+          "selected_physical_unit": "XA06_custom",
+          "radius_mm": 1.25,
+          "minimum_R_mm": 15.0,
+          "straight_lower_bound_mm": 70.5527924677684
+        },
+        "XB13": {
+          "portion_id": "XB13/extra",
+          "logical_endpoint": "G_AUX.4",
+          "local": {
+            "point_mm": [
+              61.249999999999986,
+              62.750000000000014,
+              91.5
+            ],
+            "radius_mm": 1.05,
+            "outward": [
+              -1,
+              0,
+              0
+            ],
+            "actor": "Station:G_AUX:wire:G_AUX.4",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire",
+            "physical_slot": 5,
+            "logical_common_rail_endpoint": "G_AUX.4",
+            "original_same_rail_logical_id_retained": true,
+            "full9_grip_start_mm": [
+              70.25,
+              62.75,
+              91.5
+            ]
+          },
+          "remote": {
+            "point_mm": [
+              -152.0,
+              -55.75,
+              -5.406217782649094
+            ],
+            "outward": [
+              0.999999999999825,
+              5.120499756361618e-07,
+              -2.956321079656583e-07
+            ],
+            "actor": "SelectedYaw:W2_local_XB13_1",
+            "datum": "received placed curve endpoint and actual tangent"
+          },
+          "selected_sku": "HELU23301",
+          "selected_physical_unit": "XB13_custom",
+          "radius_mm": 1.05,
+          "minimum_R_mm": 12.6,
+          "straight_lower_bound_mm": 271.3025635264124
+        },
+        "XB23": {
+          "portion_id": "XB23/extra",
+          "logical_endpoint": "G_AUX.3",
+          "local": {
+            "point_mm": [
+              61.249999999999986,
+              67.50000000000001,
+              91.5
+            ],
+            "radius_mm": 1.05,
+            "outward": [
+              -1,
+              0,
+              0
+            ],
+            "actor": "Station:G_AUX:wire:G_AUX.3",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire",
+            "physical_slot": 4,
+            "logical_common_rail_endpoint": "G_AUX.3",
+            "original_same_rail_logical_id_retained": true,
+            "full9_grip_start_mm": [
+              70.25,
+              67.5,
+              91.5
+            ]
+          },
+          "remote": {
+            "point_mm": [
+              -35.0,
+              36.4,
+              103.0
+            ],
+            "radius_mm": 1.05,
+            "outward": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "actor": "HP_positive_channel:XB23",
+            "datum": "received actual nominal source prefix distal cap"
+          },
+          "selected_sku": "HELU23301",
+          "selected_physical_unit": "XB23_custom",
+          "radius_mm": 1.05,
+          "minimum_R_mm": 12.6,
+          "straight_lower_bound_mm": 110.98123715295301
+        },
+        "W079": {
+          "portion_id": "W079/retained0",
+          "logical_endpoint": "MAIN",
+          "local": {
+            "point_mm": [
+              5.7,
+              -76.8875,
+              96.55
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "MAINexit",
+            "datum": "reviewed full9 common source saddle free cap"
+          },
+          "remote": {
+            "point_mm": [
+              74.7,
+              46.618109634713775,
+              101.6
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "PAS",
+            "datum": "received PAS free cap; upstream factory prefix retained"
+          },
+          "selected_sku": "Joy-IT K-1474 retained18AWG",
+          "selected_physical_unit": "K1474_USB_FACTORY_PAIR",
+          "radius_mm": 1.05,
+          "minimum_R_mm": 15.9,
+          "straight_lower_bound_mm": 141.56319476206485
+        },
+        "W080": {
+          "portion_id": "W080/retained0",
+          "logical_endpoint": "MAIN",
+          "local": {
+            "point_mm": [
+              5.7,
+              -80.3875,
+              96.55
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "MAINexit",
+            "datum": "reviewed full9 common source saddle free cap"
+          },
+          "remote": {
+            "point_mm": [
+              74.7,
+              50.118109634713775,
+              101.6
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "PAS",
+            "datum": "received PAS free cap; upstream factory prefix retained"
+          },
+          "selected_sku": "Joy-IT K-1474 retained18AWG",
+          "selected_physical_unit": "K1474_USB_FACTORY_PAIR",
+          "radius_mm": 1.05,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 147.70990706830838
+        },
+        "W060": {
+          "portion_id": "W060/retained0",
+          "logical_endpoint": "MAIN",
+          "local": {
+            "point_mm": [
+              5.7,
+              -83.8875,
+              96.55
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "MAINexit",
+            "datum": "reviewed full9 common source saddle free cap"
+          },
+          "remote": {
+            "point_mm": [
+              33.0,
+              -71.76128499307295,
+              -15.99422863405995
+            ],
+            "radius_mm": 1.55,
+            "outward": [
+              -3.4150429948955433e-16,
+              -0.5000000000000012,
+              -0.8660254037844379
+            ],
+            "actor": "Station:G1:wire:G1.1",
+            "datum": "received pipe free cap; capacity radius may exceed selected wire"
+          },
+          "selected_sku": "Joy-IT K-1474 retained18AWG",
+          "selected_physical_unit": "W060_continuous",
+          "radius_mm": 1.05,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 116.44113744390246
+        },
+        "W078": {
+          "portion_id": "W078/retained0",
+          "logical_endpoint": "MAIN",
+          "local": {
+            "point_mm": [
+              5.7,
+              -87.3875,
+              96.55
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "MAINexit",
+            "datum": "reviewed full9 common source saddle free cap"
+          },
+          "remote": {
+            "point_mm": [
+              -46.3,
+              -24,
+              48.1
+            ],
+            "outward": [
+              1,
+              0,
+              0
+            ],
+            "actor": "SpliceClip",
+            "datum": "PROVISIONAL: .25mm beyond actual clip right face; replaces artificial3mm free tip; source full9 jacket/grip fit OPEN",
+            "source_grip_OPEN": true
+          },
+          "selected_sku": "Joy-IT K-1474 retained18AWG",
+          "selected_physical_unit": "W078_continuous",
+          "radius_mm": 1.05,
+          "minimum_R_mm": 12.4,
+          "straight_lower_bound_mm": 95.23328019264065
+        }
+      },
+      "source_sha256": {
+        "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-shared-end-plan.json": "47d946053df03b26ae12c4405cfe09ef9e6b061bb3134432e76afe7953b411b7",
+        "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+      },
+      "selected": false,
+      "N01_complete": false,
+      "physical_pass": false
+    },
+    "module_plan": {
+      "proposal_id": "GAL25-AD-local-case-floor-two-roots",
+      "same_purchased_common_ground_rail": true,
+      "centre_mm": [
+        80,
+        72.25,
+        91.5
+      ],
+      "case_bounds_mm": [
+        [
+          70.5,
+          57.25,
+          87.0
+        ],
+        [
+          89.5,
+          87.25,
+          96.0
+        ]
+      ],
+      "port_order_low_to_high_Y": [
+        "XB13",
+        "XB23",
+        "XA05",
+        "XA06",
+        "XA04"
+      ],
+      "source_outward": [
+        -1,
+        0,
+        0
+      ],
+      "lever_project_direction": "+Z; delivered lever fit gate",
+      "full9_mm": 9,
+      "case_transition_mm": 0.25,
+      "selected_T18I100_wire_ties": 2,
+      "equal_OD_zone_core_counts": [
+        2,
+        3
+      ],
+      "upper_head_above_retained_USB": true,
+      "case_tape_gap_mm": 0.5,
+      "case_stop_gap_mm": 0.5,
+      "floor_thickness_mm": 2.25,
+      "positive_post_bed_common_mm3": [
+        24.0,
+        24.0
+      ],
+      "unchanged_bed_material_removed_mm3": 0,
+      "carrier_bed_union_one_solid": true,
+      "ATO_fuses_slide_positive_Y": true,
+      "bank_case_top_reference_mm": 83,
+      "ATO_tool_top_reference_mm": 81.5,
+      "floor_bottom_mm": 84.25,
+      "USB_main_axis_YZ_mm": [
+        91.85810963471377,
+        89
+      ],
+      "USB_return_axis_YZ_mm": [
+        46,
+        89
+      ],
+      "assembly": "Two rooted local floor posts, two X stops plus tape, lever-up access, two equal-OD full9 jacket ties; accessible open corridors before cover; reverse partial assembly for rare work.",
+      "native_N03_NOT_started": true,
+      "whole_body_routes_motion_and_stock_OPEN": true,
+      "selected": false,
+      "N01_complete": false,
+      "physical_pass": false,
+      "unchanged_W46_case_floor_posts_not_newly_qualified": true,
+      "actual_tie_threading_pull_and_delivered_fit_OPEN": true,
+      "west_comb_on_same_rooted_floor": true,
+      "west_RR_P_max_X_constraint_mm": null,
+      "derived_whole_module_shift_X_mm": 34.0,
+      "original_two_post_positions_unchanged": false,
+      "nominal_T18I100_wrap_plus_head_thread_allowance_mm": [
+        75.0,
+        65.1
+      ],
+      "tie_stock_mm": 100,
+      "head_thread_allowance_is_project_assumption_mm": 27.0,
+      "current_post_XY_bounds_mm": [
+        [
+          [
+            80.25,
+            75.25
+          ],
+          [
+            84.25,
+            79.25
+          ]
+        ],
+        [
+          [
+            85.25,
+            75.25
+          ],
+          [
+            89.25,
+            79.25
+          ]
+        ]
+      ],
+      "post_constraint": "Between ATO6/7; first Xmin=tool6.Xmax79+rigid1.25; second Xmax89.25<tool7.Xmin91-1.25",
+      "cable_egress_west_of_local_case_floor_min_X_mm": 68.5,
+      "south_floor_Y_mm": 57.25,
+      "complete_USB_head_max_Y_mm": 56.0,
+      "case_south_overhang_mm": 0,
+      "case_retained_two_X_sides_and_tape": true,
+      "north_and_south_edges_open_for_retained_USB": true
+    },
+    "module_static_seconds": 8.187000000034459,
+    "module_static_errors": [],
+    "module_own_receipt": [
+      {
+        "a": "Station:G_AUX:case",
+        "b": "Station:G_AUX:wire:G_AUX.2",
+        "gap_mm": 2.842170943040401e-14,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:case",
+        "b": "Station:G_AUX:wire:G_AUX.5",
+        "gap_mm": 2.842170943040401e-14,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:case",
+        "b": "Station:G_AUX:wire:G_AUX.1",
+        "gap_mm": 2.842170943040401e-14,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:case",
+        "b": "Station:G_AUX:wire:G_AUX.3",
+        "gap_mm": 2.842170943040401e-14,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:case",
+        "b": "Station:G_AUX:wire:G_AUX.4",
+        "gap_mm": 2.842170943040401e-14,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.2",
+        "b": "Station:G_AUX:tie_rear3",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.2",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.14999999999890617,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.5",
+        "b": "Station:G_AUX:tie_rear3",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.5",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.14999999999970653,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.1",
+        "b": "Station:G_AUX:tie_rear3",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.1",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.1499999999991918,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.3",
+        "b": "Station:G_AUX:tie_front2",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.3",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.14999999999980315,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.4",
+        "b": "Station:G_AUX:tie_front2",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:wire:G_AUX.4",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.14999999999998537,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:tie_rear3",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      },
+      {
+        "a": "Station:G_AUX:tie_front2",
+        "b": "Carrier:G_AUX:low_gallery",
+        "gap_mm": 0.0,
+        "common_mm3": 0.0
+      }
+    ],
+    "module_motion49_reuse": "Eight identical serialized actors from AB49; AD carrier is AB subset plus separately qualified492mm3 post,49poses0nearqueries.",
+    "source_49_proof_member": "gal25-stage-ad-module-and-ae-af-proposals.json",
+    "fore_cross_changed_material": {
+      "source_constructor": "plan_feline_u1_common_carrier.construct:Fore",
+      "shared_occupied_Y_mm": [
+        90.75,
+        95.3882685902
+      ],
+      "shared_occupied_Z_mm": [
+        47.65,
+        55.55
+      ],
+      "rigid_clearance_mm": 1.25,
+      "passage_bounds_mm": [
+        [
+          20,
+          89.5,
+          46.4
+        ],
+        [
+          84,
+          96.6382685902,
+          56.8
+        ]
+      ],
+      "source_beam_lower_Z_unchanged_mm": 46.6,
+      "complete_clamp_and_purchased_hardware_unchanged": true,
+      "original_fore_root_union_mm3": 4.80079999999998,
+      "new_fore_root_union_mm3": 4.80079999999998,
+      "new_U1_base_one_solid": true,
+      "new_base_and_root_one_solid": true,
+      "new_shoe_one_solid": true,
+      "shoe_roof_above_shared_passage_mm": 1.2,
+      "removed_printed_U1_mm3": 350.40000000000003,
+      "added_printed_U1_mm3": 350.4000000000001,
+      "no_purchased_part_or_P0_cut": true,
+      "physical_strength_and_print_fit_OPEN": true
+    },
+    "retired_current_owners": [
+      "Station:G_AUX:case",
+      "Station:G_AUX:wire:G_AUX.1",
+      "Station:G_AUX:wire:G_AUX.2",
+      "Station:G_AUX:wire:G_AUX.3",
+      "Station:G_AUX:wire:G_AUX.4",
+      "Station:G_AUX:wire:G_AUX.5",
+      "Station:G_AUX:band_budget",
+      "Station:G_AUX:head_budget",
+      "Carrier:G_AUX",
+      "PartialSource:XA04",
+      "PartialSource:XA06",
+      "PartialSource:XA05",
+      "PartialSource:XB23",
+      "PartialSource:XB13",
+      "CarrierFixingBand:1",
+      "CarrierFixingBand:2",
+      "CarrierFixingHead:1",
+      "CarrierFixingHead:2",
+      "UnconnectedServiceBight:XA04",
+      "UnconnectedServiceBight:XA06",
+      "UnconnectedServiceBight:XA05",
+      "UnconnectedServiceBight:XB23",
+      "UnconnectedServiceBight:XB13"
+    ],
+    "unreceived_body_candidates_member": "gal25-stage-ad-module-and-ae-af-proposals.json",
+    "retained_K2_RR3_MAIN_and_R47_native_sources_unchanged": true,
+    "whole14_received": false,
+    "N01_completed_count": 0,
+    "N01_fixed_total": 10,
+    "N01_complete": false,
+    "physical_pass": false,
+    "selected": false,
+    "window_remains_active": false,
+    "open": [
+      "Whole14 shared bends/source fields/assembly and tool or hand access",
+      "USB first changed-body own sweep",
+      "Whole-current pose coverage of retained123; source recipe is not manufacturer mouth",
+      "Balance factory capacity/retention is additional to123/246, cavities/length require delivery gate",
+      "Production N03/N04/N05/N10 remain later gates",
+      "MAIN source9 already recovered in MAIN assembly, see day18 recovery member; only whole-current joint receipt remains"
+    ],
+    "generator_sha256": "96a82273582a41636077041222a1ca2190ab89c576587dbdb77d9f501dba5d3a",
+    "geometry_archive": {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\prototype-shared-galleries-20261025.breps.zip",
+      "sha256": "4271d40234661de9b0da182af4ab91b4f7e6141fe6184e0dca394f4d5d37d3ad",
+      "members": {
+        "CurrentFoundation:FoundationRail:-1": {
+          "member": "0.brep",
+          "sha256": "ad6f849989e58274797ea32f222e75696361714820d59de447c0a281ffe492e6",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 4948.907878951887,
+          "bounds_mm": [
+            [
+              -88.55000000000001,
+              -98.5,
+              35.5
+            ],
+            [
+              127.0,
+              -18.4,
+              48.1
+            ]
+          ]
+        },
+        "CurrentFoundation:FoundationRail:1": {
+          "member": "1.brep",
+          "sha256": "742fa26ad4c4b47d19bcd0d8c3c191acd6ef0b58eba6cae08858c9eadfa68e83",
+          "strict_reopen": true,
+          "solids": 2,
+          "volume_mm3": 3087.2091368957713,
+          "bounds_mm": [
+            [
+              -126.0,
+              50.59999999999997,
+              38.52
+            ],
+            [
+              127.0,
+              60.0,
+              41.153397080286716
+            ]
+          ]
+        },
+        "Carrier:D_RR": {
+          "member": "2.brep",
+          "sha256": "51c921ac5b14f2608f91aef1ec14a098c4e0a17a435fa2aa1e123a4a76fc30ed",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 1447.7666877002812,
+          "bounds_mm": [
+            [
+              24.5,
+              -99.0,
+              38.5
+            ],
+            [
+              54.25,
+              -87.5,
+              70.05000000000001
+            ]
+          ]
+        },
+        "Station:D_RR:case": {
+          "member": "3.brep",
+          "sha256": "442e18e37867d1ea6822c5f1a25ef65e71d722b5e57fdac3c261030d994de841",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 5130.0,
+          "bounds_mm": [
+            [
+              25.5,
+              -97.0,
+              42.0
+            ],
+            [
+              44.5,
+              -88.0,
+              72.0
+            ]
+          ]
+        },
+        "Station:D_RR:wire:D_RR.1": {
+          "member": "4.brep",
+          "sha256": "6323d79f3470412804ee657fe9286778fced7ad2e8d0e291d7fbb02a33252c4f",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 69.8160062398077,
+          "bounds_mm": [
+            [
+              44.5,
+              -94.05,
+              45.95000000000001
+            ],
+            [
+              53.75,
+              -90.95,
+              49.050000000000004
+            ]
+          ]
+        },
+        "Station:D_RR:wire:D_RR.2": {
+          "member": "5.brep",
+          "sha256": "ca24d93be4e89184fc644cb76a4c791dbddffe34c2ae28df697a3ca83f3d7cd4",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 69.8160062398077,
+          "bounds_mm": [
+            [
+              44.5,
+              -94.05,
+              50.70000000000001
+            ],
+            [
+              53.75,
+              -90.95,
+              53.800000000000004
+            ]
+          ]
+        },
+        "Station:D_RR:wire:D_RR.3": {
+          "member": "6.brep",
+          "sha256": "cfffc6676a46f3f863d8d1d4558ffa2568540bfffb874fe9b7216f7661073f04",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 69.8160062398077,
+          "bounds_mm": [
+            [
+              44.5,
+              -94.05,
+              55.45000000000001
+            ],
+            [
+              53.75,
+              -90.95,
+              58.550000000000004
+            ]
+          ]
+        },
+        "Station:D_RR:wire:D_RR.4": {
+          "member": "7.brep",
+          "sha256": "5587fcdeb1bb15d019fc21244d6b3cd2b033ce9d1e66576179ad8debada809c6",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 69.81600623980772,
+          "bounds_mm": [
+            [
+              44.5,
+              -94.05,
+              60.20000000000001
+            ],
+            [
+              53.75,
+              -90.95,
+              63.300000000000004
+            ]
+          ]
+        },
+        "Station:D_RR:wire:D_RR.5": {
+          "member": "8.brep",
+          "sha256": "70f7e5e07483cf8f79b27f8c1df07494833a206c2e8ce5fdf9a8d41287596cde",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 69.81600623980772,
+          "bounds_mm": [
+            [
+              44.5,
+              -94.05,
+              64.95
+            ],
+            [
+              53.75,
+              -90.95,
+              68.05
+            ]
+          ]
+        },
+        "Station:D_RR:band_budget": {
+          "member": "9.brep",
+          "sha256": "f879db63a82f4af748497b7215cf269044a45e7491f215738e08b6d64e1ebbb3",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 202.50000000000037,
+          "bounds_mm": [
+            [
+              48.0,
+              -95.4,
+              42.75
+            ],
+            [
+              50.5,
+              -87.75,
+              71.25
+            ]
+          ]
+        },
+        "Station:D_RR:head_budget": {
+          "member": "10.brep",
+          "sha256": "7d3984ace9fdbae4e7956dad5d0e2311f0bfd5d5fe574e4b375b2f060a1e170d",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 113.95000000000006,
+          "bounds_mm": [
+            [
+              46.74999999999999,
+              -95.15,
+              71.25
+            ],
+            [
+              51.75,
+              -89.84999999999998,
+              75.55
+            ]
+          ]
+        },
+        "Body:W016": {
+          "member": "11.brep",
+          "sha256": "bc21ccf1c5913f398cc105fa1ffd71aebf15f0ebbe0a6530493e2ddb1ee0da54",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 621.409423490429,
+          "bounds_mm": [
+            [
+              53.74999999999999,
+              -94.37161341218038,
+              49.55062880592111
+            ],
+            [
+              112.00000000000003,
+              -81.39476992247516,
+              88.49937119407889
+            ]
+          ]
+        },
+        "Body:W017": {
+          "member": "12.brep",
+          "sha256": "a6c1ab162667fbab02584050811595415ed1a8c7a156d1749e31fbf568c5f357",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 583.9082259977758,
+          "bounds_mm": [
+            [
+              53.75,
+              -96.73333581655993,
+              54.30062880592111
+            ],
+            [
+              112.00000000000001,
+              -84.96666418344006,
+              88.49937119407889
+            ]
+          ]
+        },
+        "Body:W018": {
+          "member": "13.brep",
+          "sha256": "0c178dffe2b2079e758addfb1e890b500797c7082f1a9e374e48f855b7435336",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 554.1941878853119,
+          "bounds_mm": [
+            [
+              53.75,
+              -100.30523007752484,
+              59.05062880592111
+            ],
+            [
+              112.0,
+              -88.53855844440497,
+              88.49937119407889
+            ]
+          ]
+        },
+        "BankPortal2:XA05_open": {
+          "member": "14.brep",
+          "sha256": "1df138315d1a858346138c78266dff11fc60fcc69ee172db3a35467a57be7d22",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 795.6226396172644,
+          "bounds_mm": [
+            [
+              -39.337719053090545,
+              33.5,
+              38.52
+            ],
+            [
+              -21.0,
+              45.900000000000006,
+              55.000000000000014
+            ]
+          ]
+        },
+        "Body:W060": {
+          "member": "15.brep",
+          "sha256": "3fc2ee906cf98e4954a97c0f98551404de495207c0c0d33d04cfb2d03378209f",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 657.1655801196466,
+          "bounds_mm": [
+            [
+              5.7,
+              -85.07866320269531,
+              -36.75240372799265
+            ],
+            [
+              61.21261949071135,
+              -70.85195831909928,
+              98.7081750939327
+            ]
+          ]
+        },
+        "Body:W078": {
+          "member": "16.brep",
+          "sha256": "3274f9b5538161c1884be2a53419aa88d8665c552b04f8740dca08bd49cb3cbb",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 655.1497532758755,
+          "bounds_mm": [
+            [
+              -46.30000000000006,
+              -88.75053705473897,
+              45.941824906067296
+            ],
+            [
+              32.1581750939327,
+              -21.841824906067302,
+              98.7081750939327
+            ]
+          ]
+        },
+        "SpliceJacketReference:W077": {
+          "member": "17.brep",
+          "sha256": "4f89c01e4b893c1d5f67ec86816f3089908f0f2e95f517cd011152b99caec703",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 113.0973355292327,
+          "bounds_mm": [
+            [
+              -88.55,
+              -26.0,
+              46.1
+            ],
+            [
+              -79.55,
+              -22.0,
+              50.1
+            ]
+          ]
+        },
+        "SpliceJacketReference:W078": {
+          "member": "18.brep",
+          "sha256": "7ad2cd91441b62f016f71c47c0ebeadb7fa1abde7ab5e353460187ff979d1921",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 32.03835458039046,
+          "bounds_mm": [
+            [
+              -55.55,
+              -25.05,
+              47.050000000000004
+            ],
+            [
+              -46.3,
+              -22.95,
+              49.15
+            ]
+          ]
+        },
+        "SpliceBandBudget:W077": {
+          "member": "19.brep",
+          "sha256": "e230411c03cdf12103f1ed1ad60d150b273dc95bfca5c413b3dd13749a4fb20d",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 218.72499999999994,
+          "bounds_mm": [
+            [
+              -89.65,
+              -29.3,
+              42.6
+            ],
+            [
+              -84.65,
+              -14.399999999999999,
+              52.75
+            ]
+          ]
+        },
+        "SpliceBandBudget:W078": {
+          "member": "20.brep",
+          "sha256": "48ffa3af8ad7789ee797f6ec3d37f429d49f07cd6db6251f04fe670df1f5878e",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 213.02499999999992,
+          "bounds_mm": [
+            [
+              -53.55,
+              -29.3,
+              42.6
+            ],
+            [
+              -48.55,
+              -14.399999999999999,
+              51.8
+            ]
+          ]
+        },
+        "RepackedMiddle:W022": {
+          "member": "21.brep",
+          "sha256": "db456cba346047a8d62003a11405abc0f105fd82b57be64b569cbc37adfccb48",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 911.043234184006,
+          "bounds_mm": [
+            [
+              -90.4006674049707,
+              -24.400667404970697,
+              19.5993325950293
+            ],
+            [
+              -5.599332595029306,
+              27.000000000000004,
+              104.65581999849073
+            ]
+          ]
+        },
+        "RepackedMiddle:W024": {
+          "member": "22.brep",
+          "sha256": "7a3fe2cd23a1b3ef23d8371f0ba471daac85497d040deef2d9c74f4e9a02ce22",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 951.8336792236656,
+          "bounds_mm": [
+            [
+              -92.78193024561396,
+              -24.400667404970697,
+              17.218069754386043
+            ],
+            [
+              10.389517390339678,
+              27.000000000000007,
+              106.87040288916512
+            ]
+          ]
+        },
+        "CurrentFoundation:BankBedCurrent:1": {
+          "member": "23.brep",
+          "sha256": "ba981d94433f0a379ee90b22ad76e5642cbc3c492eaa4ef22ce74cd58073e399",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 20815.808246999986,
+          "bounds_mm": [
+            [
+              -62.0,
+              39.25,
+              52.0
+            ],
+            [
+              109.0,
+              80.0,
+              55.00000000000001
+            ]
+          ]
+        },
+        "Station:G_AUX:case": {
+          "member": "24.brep",
+          "sha256": "6db2231ccf6983dd494ae4123cae0048ba72bd70a17ea4110edd611a08ab43ef",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 5130.0,
+          "bounds_mm": [
+            [
+              70.49999999999999,
+              57.24999999999997,
+              87.0
+            ],
+            [
+              89.5,
+              87.24999999999999,
+              96.0
+            ]
+          ]
+        },
+        "Station:G_AUX:wire:G_AUX.2": {
+          "member": "25.brep",
+          "sha256": "aaa95418dea1487b90de1477ffc5edae1cb62db8ca18e122e88b838959204567",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 45.40583132141505,
+          "bounds_mm": [
+            [
+              61.249999999999986,
+              80.5,
+              90.25
+            ],
+            [
+              70.5,
+              83.0,
+              92.75
+            ]
+          ]
+        },
+        "Station:G_AUX:wire:G_AUX.5": {
+          "member": "26.brep",
+          "sha256": "adc160030c321c3f0402960067378ec9c68ab1a09940a14253137982d1870775",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 45.40583132141503,
+          "bounds_mm": [
+            [
+              61.249999999999986,
+              75.75,
+              90.25
+            ],
+            [
+              70.5,
+              78.25000000000001,
+              92.75
+            ]
+          ]
+        },
+        "Station:G_AUX:wire:G_AUX.1": {
+          "member": "27.brep",
+          "sha256": "3562e065d673de69fcb43a2ada2a7688693df70cc95ae96790945d2c9b7cff99",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 45.405831321415036,
+          "bounds_mm": [
+            [
+              61.249999999999986,
+              71.0,
+              90.25
+            ],
+            [
+              70.5,
+              73.50000000000001,
+              92.75
+            ]
+          ]
+        },
+        "Station:G_AUX:wire:G_AUX.3": {
+          "member": "28.brep",
+          "sha256": "4022dafca41bf9c8435813fa8580e2befc57e2b61b1fce776430c9bbf84dc841",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 32.03835458039043,
+          "bounds_mm": [
+            [
+              61.249999999999986,
+              66.45,
+              90.45
+            ],
+            [
+              70.5,
+              68.55000000000001,
+              92.55
+            ]
+          ]
+        },
+        "Station:G_AUX:wire:G_AUX.4": {
+          "member": "29.brep",
+          "sha256": "5861e2833f3291d55cf71a34ecd9440eb59f7b12da4815587c3d530bfc5bf1fb",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 32.03835458039043,
+          "bounds_mm": [
+            [
+              61.249999999999986,
+              61.7,
+              90.45
+            ],
+            [
+              70.5,
+              63.80000000000001,
+              92.55
+            ]
+          ]
+        },
+        "Station:G_AUX:tie_rear3": {
+          "member": "30.brep",
+          "sha256": "d4465dad567e25129a8a83dec8f5c79bcd140e5f38d23c56c582c75089712fc0",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 230.6500000000002,
+          "bounds_mm": [
+            [
+              65.25,
+              69.05,
+              89.05
+            ],
+            [
+              70.25,
+              85.9,
+              100.3
+            ]
+          ]
+        },
+        "Station:G_AUX:tie_front2": {
+          "member": "31.brep",
+          "sha256": "8dae9e66fd1e7a209ccf4f1e99c57ca31abc72caf9189e8ffc91f8d5b6e16c23",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 200.95000000000024,
+          "bounds_mm": [
+            [
+              60.999999999999986,
+              58.60000000000001,
+              89.25
+            ],
+            [
+              66.0,
+              70.70000000000002,
+              100.3
+            ]
+          ]
+        },
+        "Carrier:G_AUX:low_gallery": {
+          "member": "32.brep",
+          "sha256": "4fa1fa34993d2d906d1f3ac1e5d03839c67954afa907548e600cc6129b8b6021",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 3600.2630188797893,
+          "bounds_mm": [
+            [
+              61.249999999999986,
+              57.25,
+              53.5
+            ],
+            [
+              91.5,
+              88.0,
+              95.0
+            ]
+          ]
+        },
+        "U1Carrier:Fore:Base": {
+          "member": "33.brep",
+          "sha256": "97dd3c9f58a9e03f14e12db71a5798363cbec1591ed4352217a3c7328c2a4028",
+          "strict_reopen": true,
+          "solids": 1,
+          "volume_mm3": 2799.3270628147457,
+          "bounds_mm": [
+            [
+              24.0,
+              20.0,
+              -14.84
+            ],
+            [
+              44.0,
+              95.2,
+              50.6
+            ]
+          ]
+        }
+      }
+    },
+    "preserve_and_reopen_seconds": 4.765999999945052,
+    "unreceived_followup_member": "gal25-stage-ag-ah-hp-axis-and-roof-negative.json",
+    "received_full_route_followup_member": "gal25-tail-xa06-whole-static-motion49.json",
+    "rejected_roof_and_module_followups_member": "gal25-stage-aj-ar-rejected-layouts.json",
+    "Tail_and_curve_sources_roundtrip_count": 39,
+    "checkpoint_0600_utc": {
+      "result": "OldAE full Tail geometry and HP axis provenance received; AD34 remains module-only current. AV coupled USB/AUX/Tail candidate remains unselected with service/outline/motion source HOLDs.",
+      "N01_count": 0,
+      "fixed_total": 10,
+      "physical_pass": false
+    },
+    "unselected_coupled_USB_AUX_Tail_followup_member": "gal25-stage-av-shared-USB-tail-aux-outline.json",
+    "latest_unselected_common_retention_member": "gal25-stage-bl-bn-shared-thirteen-end-retention.json",
+    "latest_retention_status": "13_END_RETENTION_AND_ONE_INNER_STRAIGHT_CORRIDOR_SCOPED_RECEIVED_WHOLE14_HOLD",
+    "latest_unselected_printed_corridor_relief_member": "gal25-stage-bp-common-corridor-support-relief.json",
+    "retention_generator_sha256": "ec64b5f1123c2bd0d1b78fc5e15f19de783d1280b5fa5f275ef2062717abbc46",
+    "common_candidate_assembly_proposal": {
+      "id": "GAL25-BT-one-common-fourteen-assembly-proposal",
+      "selected": false,
+      "N01_complete": false,
+      "physical_pass": false,
+      "baseline_module_result": "GAL25-AD",
+      "coupled_unselected_candidates": [
+        "GAL25-AV",
+        "GAL25-BL",
+        "GAL25-BP"
+      ],
+      "changed_rows": {
+        "W011": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "candidate_receiver_free_boundary_mm": [
+            6.125,
+            -47.25,
+            45.26
+          ],
+          "candidate_full9_Y_mm": [
+            -56.25,
+            -47.25
+          ],
+          "candidate_recipe_member": "gal25-stage-bl-bn-shared-thirteen-end-retention.json",
+          "boundary_reason": "Shared13-retention relocates protected9 onto SAME jacket; old source_caps remote[-32.25Y] is preserved historical module transition, not candidate start after9.",
+          "hold": "Complete transition into received common corridor and both source/receiver/assembly, no isolated body accepted",
+          "identity_and_selected_unit_ref": "source_caps.rows.W011"
+        },
+        "W012": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Complete transition into received common corridor and both source/receiver/assembly, no isolated body accepted",
+          "identity_and_selected_unit_ref": "source_caps.rows.W012"
+        },
+        "W016": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Previously received RR geometry retained; same SOURCE/DONOR units, no old cut-list or blank-length difference represented as an in-cat coil",
+          "identity_and_selected_unit_ref": "source_caps.rows.W016"
+        },
+        "W017": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Previously received RR geometry retained; same SOURCE/DONOR units, no old cut-list or blank-length difference represented as an in-cat coil",
+          "identity_and_selected_unit_ref": "source_caps.rows.W017"
+        },
+        "W018": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Previously received RR geometry retained; same SOURCE/DONOR units, no old cut-list or blank-length difference represented as an in-cat coil",
+          "identity_and_selected_unit_ref": "source_caps.rows.W018"
+        },
+        "XA04": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "candidate_source_free_boundary_mm": [
+            61.249999999999986,
+            81.75,
+            91.5
+          ],
+          "candidate_receiver_free_boundary_mm": [
+            163.43,
+            -65.27,
+            99.21
+          ],
+          "candidate_recipe_member": "gal25-stage-av-shared-USB-tail-aux-outline.json",
+          "full_coupled_assembly_received": false,
+          "boundary_reason": "Receiver side is full unchanged AUX PCB source plus prospective R17east escape, not old cap in historical source_caps.",
+          "identity_and_selected_unit_ref": "source_caps.rows.XA04"
+        },
+        "XA05": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "candidate_source_free_boundary_mm": [
+            61.249999999999986,
+            72.25000000000001,
+            91.5
+          ],
+          "candidate_receiver_free_boundary_mm": [
+            -37.375,
+            44.25,
+            45.26
+          ],
+          "candidate_recipe_member": "gal25-stage-av-shared-USB-tail-aux-outline.json",
+          "full_coupled_assembly_received": false,
+          "identity_and_selected_unit_ref": "source_caps.rows.XA05"
+        },
+        "XA06": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "candidate_source_free_boundary_mm": [
+            61.249999999999986,
+            77.00000000000001,
+            91.5
+          ],
+          "candidate_receiver_free_boundary_mm": [
+            127.99999999999997,
+            56.499999999999986,
+            80.595
+          ],
+          "candidate_recipe_member": "gal25-stage-av-shared-USB-tail-aux-outline.json",
+          "full_coupled_assembly_received": false,
+          "identity_and_selected_unit_ref": "source_caps.rows.XA06"
+        },
+        "XB13": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "candidate_source_free_boundary_mm": [
+            61.249999999999986,
+            62.750000000000014,
+            91.5
+          ],
+          "candidate_receiver_free_boundary_mm": [
+            -152.0,
+            -55.75,
+            -5.406217782649094
+          ],
+          "candidate_recipe_member": "gal25-stage-av-shared-USB-tail-aux-outline.json",
+          "full_coupled_assembly_received": false,
+          "identity_and_selected_unit_ref": "source_caps.rows.XB13"
+        },
+        "XB23": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "candidate_source_free_boundary_mm": [
+            61.249999999999986,
+            67.50000000000001,
+            91.5
+          ],
+          "candidate_receiver_free_boundary_mm": [
+            -117.46,
+            36.4,
+            103.0
+          ],
+          "candidate_recipe_member": "gal25-stage-av-shared-USB-tail-aux-outline.json",
+          "full_coupled_assembly_received": false,
+          "boundary_reason": "Old remote[-35,36.4,103] included artificial straight extension; actual retained source boundary[-117.46,36.4,103]. No physical wire cut.",
+          "identity_and_selected_unit_ref": "source_caps.rows.XB23"
+        },
+        "W079": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Current MAIN sources and selected lanes retained; complete joint assembly with ground+USB proposal not received",
+          "identity_and_selected_unit_ref": "source_caps.rows.W079"
+        },
+        "W080": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Current MAIN sources and selected lanes retained; complete joint assembly with ground+USB proposal not received",
+          "identity_and_selected_unit_ref": "source_caps.rows.W080"
+        },
+        "W060": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Current MAIN sources and selected lanes retained; complete joint assembly with ground+USB proposal not received",
+          "identity_and_selected_unit_ref": "source_caps.rows.W060"
+        },
+        "W078": {
+          "selected_endpoint_identities_unchanged": true,
+          "candidate_geometry_received_whole": false,
+          "not_a_cut_list": true,
+          "hold": "Current MAIN sources and selected lanes retained; complete joint assembly with ground+USB proposal not received",
+          "additional_hold": "MAIN-side source9 restraint unreceived. Receiver splice-side independent9 saddle/tie is already received in cc48f3d8; do not rebuild it.",
+          "splice_receiver_reused": {
+            "commit": "cc48f3d8",
+            "constructor": "prototype_shared_galleries_20261025.splice_saddle_and_root",
+            "full9_jacket_lands_X_mm": [
+              -55.55,
+              -46.55
+            ],
+            "unchanged_cap_mm": [
+              -46.3,
+              -24,
+              48.1
+            ],
+            "preserved_members": [
+              "SpliceJacketReference:W078",
+              "SpliceBandBudget:W078"
+            ],
+            "retained_members_strict_reopen": true,
+            "original_root_in_current_negative_rail": true
+          },
+          "identity_and_selected_unit_ref": "source_caps.rows.W078"
+        }
+      },
+      "all14_identity_count": 14,
+      "retained_123_portions_246_ends": {
+        "portions": 123,
+        "ends": 246,
+        "whole_current_pose_acceptance": false
+      },
+      "source_inputs_sha256": {
+        "n01-shared-end-plan.json": "47d946053df03b26ae12c4405cfe09ef9e6b061bb3134432e76afe7953b411b7",
+        "n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+        "n01-physical-cable-contract.json": "94fd48346c9268968cc59c4fbc0990dd8e4a8d775e743ca7167f83ebf2945fac"
+      },
+      "factory4MTA_both_sides_eight_nominal_receipts": {
+        "W026": {
+          "guide_mm": 21.74999389648524,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W026:factory:0",
+            "Seat:W026:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W037": {
+          "guide_mm": 21.75000000000134,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W037:factory:0",
+            "Seat:W037:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W041": {
+          "guide_mm": 88.68612450795644,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W041:factory:0",
+            "Seat:W041:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W042": {
+          "guide_mm": 88.68612537616559,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W042:factory:0",
+            "Seat:W042:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W044": {
+          "guide_mm": 60.157708552647165,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W044:factory:0",
+            "Seat:W044:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W045": {
+          "guide_mm": 20.749999713899335,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W045:factory:0",
+            "Seat:W045:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W052": {
+          "guide_mm": 60.157708552647165,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W052:factory:0",
+            "Seat:W052:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        },
+        "W053": {
+          "guide_mm": 20.749999713899335,
+          "grip_length_mm": 9,
+          "grip_owner_names": [
+            "Seat:W053:factory:0",
+            "Seat:W053:factory:1"
+          ],
+          "factory100mm_is_project_assumption": true,
+          "complete_curve_in_scope": true,
+          "additional_grip_length_added_to_guide_mm": 0,
+          "guide_is_nominal_recipe_not_supplier_mouth_measurement": true,
+          "receipt_reused_not_recomputed": true,
+          "factory_length_guaranteed": false
+        }
+      },
+      "balance_additional_contract": {
+        "branches": [
+          {
+            "tap": "BAT.B0",
+            "to": "P309.minus",
+            "physical_GTech_cavity": null,
+            "ID_must_not_be_used": true
+          },
+          {
+            "tap": "BAT.B1",
+            "to": "P309.1S",
+            "physical_GTech_cavity": null,
+            "ID_must_not_be_used": true
+          },
+          {
+            "tap": "BAT.B2",
+            "to": "P309.2S",
+            "physical_GTech_cavity": null,
+            "ID_must_not_be_used": true
+          },
+          {
+            "tap": "BAT.B3",
+            "to": "P309.3S",
+            "physical_GTech_cavity": null,
+            "ID_must_not_be_used": true
+          }
+        ],
+        "not_in_existing_123_portions_or_246_ends": true,
+        "selected_alarm_unchanged": true,
+        "physical_GTech_pinout_assigned": false,
+        "branch_length_and_connector_envelope_known": false,
+        "delivery_measurement_required": true,
+        "routing_capacity_and_retention_not_yet_accepted": true
+      },
+      "historical_source920_accounting": {
+        "historical_total_mm": 920,
+        "not_an_extra_conductor_or_stock_purchase": true,
+        "replaced_by_wire_refs": [
+          "W064",
+          "W065",
+          "W067",
+          "W068"
+        ],
+        "historical_replacement_total_mm": 1176,
+        "historical1176_NOT_current_cut_list": true,
+        "current_cut_lengths_mm": null,
+        "reason": "All four S1 sources moved in current layout; old920 and later1176 are historical totals, never add either to current stock."
+      },
+      "shared13_print_loadpath_envelope_mm": [
+        179.11178999999998,
+        9.22519508046593,
+        18.84
+      ],
+      "print256_orientation_budget": "Envelope179.112x9.226x18.84 leaves nominal size margin; no STL/N03/support/strength or slicer qualification",
+      "assembly_sequence_proposed": [
+        {
+          "step": 1,
+          "action": "Keep actual frame, leg axes and purchased modules. Fit existing flange/rail and the common13 retention base as one rooted printed assembly; preserve actual joints before wires.",
+          "status": "Rooted digital final-state evidence only; insertion/fasteners access pending"
+        },
+        {
+          "step": 2,
+          "action": "Stage three existing T18I open before placing13 jackets in open shared combs. D_FR front band station, FR_G rear, P_AUX middle. Keep purchased cases and their original carriers; close only after all13 are laid.",
+          "status": "Final-state strap clearance received; ratchet pulling/hand access and delivery fit pending"
+        },
+        {
+          "step": 3,
+          "action": "Retain original vertical D_RR and received3RR source/donor leads. Lay two distribution branches in common inner bank corridor before installing bank components that cover it.",
+          "status": "Inner straight space received after two print reliefs; full W011/W012 transitions and installation sequence unreceived"
+        },
+        {
+          "step": 4,
+          "action": "Keep received W078 splice-side9 saddle and its own tie. Qualify only MAIN-side source9 restraint before loading shared lane. Stage Pi/BUS mating and fixed factory ends before closing supports; documented ordinary partial disassembly allowed.",
+          "status": "W078 MAIN-side source9, connector insertion and whole joint sequence open; splice receiver must not be rebuilt."
+        },
+        {
+          "step": 5,
+          "action": "Fit G_AUX AD module above received bankbed roots. Lay all five ground branches and USB together using AV candidate, keep AX04newEast receiver escape and XB23real source boundary; keep tie access from open torso.",
+          "status": "AD local module and AV scoped pairs received; whole shared assembly/parking and USB own first sweep HOLD"
+        },
+        {
+          "step": 6,
+          "action": "Preserve both ends of all four MTA holders and selected900-source/donor ownership. Keep balance B0..B3 polarity names separate from unknown connector cavity numbers. Close later panels only after secure modules/battery and motion checks.",
+          "status": "Eight nominal recipes retained;100mm is project assumption, balance capacity/retention unresolved, no powering/cut/physical PASS"
+        }
+      ],
+      "review": {
+        "status": "PENDING_USER_SLEEP_DO_NOT_MESSAGE",
+        "independent_geometry_validation": false
+      },
+      "open": [
+        "Whole14 shared bends/source fields/assembly and tool or hand access",
+        "W078 MAIN-side source9 retention only; splice-side independent9 already received cc48f3d8",
+        "USB first changed-body own sweep",
+        "Whole-current pose coverage of retained123; source recipe is not manufacturer mouth",
+        "Balance factory capacity/retention is additional to123/246, cavities/length require delivery gate",
+        "Production N03/N04/N05/N10 remain later gates"
+      ],
+      "worker_seconds": 0.01600000006146729,
+      "prior_reviewer_constraints_reused": {
+        "thread_id": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+        "package": "GAL25-M3",
+        "access": "Existing final read only; no message sent",
+        "scope": "Earlier whole-module topology description; not approval of AD/AV/BL/BP",
+        "unresolved": [
+          "Entire occupied corridor including existing grips, ties and flexible middles, not case-height alone",
+          "One real carrier insertion/tie tightening route with all five leads and F_L5/F_L6 access",
+          "Full three-front-wire divergence and changed source-length accounting"
+        ]
+      },
+      "common_gallery_capacity_target": {
+        "status": "EXPLICIT_CAPACITY_TARGET_NOT_PLACED_OR_QUALIFIED_CORRIDOR",
+        "not_extra_requirements_or_accepted_geometry": true,
+        "basis": "Selected current portion conservative profiles, not guaranteed supplier OD. These are proposed open accessible trough capacities after connector fans, not substitutes for occupied-source/assembly proof.",
+        "insulated_wire_to_wire_allowance_mm": 0.2,
+        "per_side_laying_allowance_mm": 1.25,
+        "negative": {
+          "identities": [
+            "W011",
+            "W012",
+            "W016",
+            "W017",
+            "W018",
+            "W079",
+            "W080",
+            "W060",
+            "W078"
+          ],
+          "diameters_mm": [
+            3.1,
+            3.1,
+            3.1,
+            3.1,
+            3.1,
+            2.1,
+            2.1,
+            2.1,
+            2.1
+          ],
+          "two_rows_mm": [
+            [
+              3.1,
+              3.1,
+              3.1,
+              3.1,
+              3.1
+            ],
+            [
+              2.1,
+              2.1,
+              2.1,
+              2.1
+            ]
+          ],
+          "occupied_row_widths_mm": [
+            16.3,
+            9.0
+          ],
+          "occupied_rows_total_height_mm": 5.4,
+          "target_clear_width_height_mm": [
+            18.8,
+            7.9
+          ],
+          "profile_area_mm2": 51.592805353578385
+        },
+        "positive": {
+          "identities": [
+            "XB13",
+            "XB23",
+            "XA05",
+            "XA04",
+            "XA06"
+          ],
+          "diameters_mm": [
+            2.1,
+            2.1,
+            2.5,
+            2.5,
+            2.5
+          ],
+          "additional_constraint": "Existing500mm USB; not an extra14th/15th source conductor or stock unit",
+          "USB_diameter_mm": 5,
+          "ground_row_width_mm": 12.5,
+          "USB_to_ground_laying_lane_allowance_mm": 1,
+          "target_clear_width_height_mm": [
+            21,
+            7.5
+          ],
+          "profile_area_mm2": 41.28838144980386
+        },
+        "must_still_receive": [
+          "Current actual full source fans before merging; four MAIN and fiveD_RR are not already coplanar",
+          "Whole corridor placement inside actual325x200x160 with modules/roots/access and every retained crossing",
+          "MTA receiver/factory ends in lower bays plus balance4 have their own existing/additional capacity, not silently included in these fourteen",
+          "Motion/joint slack, fixed-length ownership and W078 MAIN-side retention"
+        ],
+        "no_universal_fill_factor": true,
+        "no_new_individual_axes_generated": true,
+        "side_allowance_basis": "Retain approved1.25 nominal foreign-rigid margin, not the initially drafted1mm; no geometry or clearance minimum was changed.",
+        "view": "prototype-shared-galleries-20261025-capacity.png",
+        "view_sha256": "ca6702ae3467e2373e37586170c94ffa46bf971a543105f28ad4a809eac006f1"
+      }
+    },
+    "retention_detail_view": "prototype-shared-retention-20261025-view.png",
+    "retention_frozen_fresh_process_reproduction": {
+      "status": "FROZEN_INPUTS_FRESH_PROCESS_REPRODUCED",
+      "rows": [
+        {
+          "owner": "Station:D_FR:shared_near_root",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "Station:D_FR:shared_near_tie",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "Station:FR_G:shared_near_root",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "Station:FR_G:shared_near_tie",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "Station:P_AUX:shared_near_root",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "Station:P_AUX:shared_near_tie",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "CurrentFoundation:FoundationRail:-1",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "CurrentFoundation:FoundationFlange:-1",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "CurrentFoundation:ClampNeck:3",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "SharedRetention:lower_common_flange_base",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "CurrentFoundation:BankPier:3",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        },
+        {
+          "owner": "CurrentFoundation:BankLedge:3",
+          "strict": true,
+          "symmetric_material_delta_mm3": 0.0
+        }
+      ],
+      "source_sha256": "ec64b5f1123c2bd0d1b78fc5e15f19de783d1280b5fa5f275ef2062717abbc46",
+      "archive_sha256": "df12c2b3e568d9bc09470caef0f335841dfc5b9c8ca3d0bdf5522e85b4d40e16",
+      "seconds": 8.702999999979511,
+      "physical_pass": false,
+      "N01_complete": false
+    },
+    "retention_detail_view_sha256": "bd9a0d1f1ed8d7b2e9a5bbc8cd70d3413d265c34db407dbedd5888964a2e4e7c",
+    "quiet_window_close": {
+      "window_id": "prototype-shared-galleries-20261025-0900",
+      "closed_utc": "2026-10-25T08:00:11Z",
+      "deadline_utc": "2026-10-25T08:00:00Z",
+      "reason": "deadline_reached_scope_incomplete",
+      "hook_enabled": false,
+      "stage_completed": false,
+      "current_scope": {
+        "completed": 0,
+        "total": 10,
+        "percent": 0,
+        "change_percentage_points": 0
+      },
+      "historical_open_prototype": {
+        "completed": 20,
+        "total": 20,
+        "physical_pass": false
+      },
+      "outcome": [
+        "One common13-jacket retention bank with three retained ties, rooted positive flange/base contacts and strict one-solid load path",
+        "Two printed support subsets preserve all four real bearing joints and give1.25mm nominal straight corridor clearance",
+        "Twelve shapes independently reproduced from frozen inputs in fresh FreeCAD process; strict save/reopen",
+        "One14-connection assembly proposal and two dimensioned bundle-capacity targets, both unselected; eight nominal MTA lead recipes and balance additional contract explicitly carried"
+      ],
+      "remaining": [
+        "Whole14 shared bends/source fields/assembly and tool or hand access",
+        "W078 MAIN-side source9 retention only; splice-side independent9 already received cc48f3d8",
+        "USB first changed-body own sweep",
+        "Whole-current pose coverage of retained123; source recipe is not manufacturer mouth",
+        "Balance factory capacity/retention is additional to123/246, cavities/length require delivery gate",
+        "Production N03/N04/N05/N10 remain later gates"
+      ],
+      "elapsed_window_seconds": 35494.782211,
+      "continuous_CAD_time_claimed": false,
+      "measured_selected_checks_seconds": {
+        "retention_save_reopen": 1.344,
+        "support_relief": 1.672,
+        "support_save_reopen": 0.516,
+        "frozen_fresh_process_reproduction": 8.703,
+        "retention_view_render": 1.91
+      },
+      "commits_before_close": [
+        "ce660ed6",
+        "4a90bb87",
+        "847701a8",
+        "a9964337",
+        "08282f9b",
+        "91fdf6d8",
+        "cc48f3d8",
+        "add6b613"
+      ],
+      "last_account_usage": {
+        "checked_utc": "2026-10-25T07:56:23Z",
+        "weekly_used_percent": 2,
+        "weekly_remaining_percent": 98,
+        "ordinary_usage_allowed": true,
+        "reset_action_taken": false,
+        "source": "mcp__codex_app__get_usage_limits",
+        "resets_at": 1793513509
+      },
+      "reset_or_purchase_action_taken": false,
+      "model": {
+        "user_selected_main": "Sol high",
+        "actual_runtime_model_effort_independently_verified": false,
+        "reviewer_configured": "gpt-6-astra medium",
+        "new_review_messages_sent_while_quiet": false
+      },
+      "next_checkpoint": "Receive the single frozen14 proposal. Place shared18.8x7.9 and21x7.5 capacities with actual complete source fans, mounts and assembly; qualify W011/W012 and MAIN-side W078 only. Preserve already received splice receiver, BL/BP, AV, RR3. Reviewer before production detail after user returns.",
+      "next_checkpoint_estimate": "45-90min bounded whole-gallery placement/assembly trial; this is not a promise of N01 completion. Re-estimate from its concrete result.",
+      "quiet_policy": "No chat report, email, alert or reviewer message while user sleeps; report stored locally for user return. Does not claim OS/app audio muted.",
+      "physical_pass": false,
+      "closure_marker": "ROBOT_CAT_SHARED_GALLERIES_20261025_0900_DONE"
+    },
+    "day18_main9_recovery_member": "gal25-day18-main-four9-recovery.json",
+    "day18_joint_layout_proposal": {
+      "id": "DAY18-JOINT-gap-between-bank-and-power-pod",
+      "created_utc": "2026-10-25T11:35:34Z",
+      "status": "ONE_PLACED_TOPOLOGY_PROPOSAL_BEFORE_REVIEW_NOT_GEOMETRY_ACCEPTANCE",
+      "N01_complete": false,
+      "physical_pass": false,
+      "inputs": {
+        "parent_commit": "1ec6c2e1",
+        "frozen_shared_plan_sha256": "d54abb03eddde142df39041ef9100a20f20a74eecf5ae3f566cae92a6ac9f58d",
+        "restored_source_actors": 1526,
+        "unrecovered_native_sources": [
+          "Ref_Material_BUSsupplier25_0_0"
+        ],
+        "recovered_SOURCE_coverage_not_a_collision_receipt": true,
+        "source_generator_sha256_at_load": "96a82273582a41636077041222a1ca2190ab89c576587dbdb77d9f501dba5d3a",
+        "source_json_sha256_before_day": "36b994434368a691a5d9f40bcd4d294776976020aa7f67cd56a8e2ff097edfe3",
+        "source_recovery_receipt_member": "gal25-day18-main-four9-recovery.json"
+      },
+      "modules": {
+        "G_AUX": [
+          80,
+          72.25,
+          91.5
+        ],
+        "D_RR": [
+          35,
+          -92.5,
+          57
+        ],
+        "MAIN_Pi_BUS_AUX_poses": "Unchanged purchased/current axes and reservations; original footprints retained",
+        "retention13": "BL10 + BP2 retained without rebuilding; slight sourceW011 jacket bend within existing nominal channel subject to actual check"
+      },
+      "preserved": {
+        "RR_three": "Current same three SOURCE/DONOR900 units and fixed RR receiver9; no reroute or stock blank coil",
+        "MAIN_four": "Existing current four bodies and same restored common9 band/head, not a new individualW078 mount",
+        "G_AUX_five": "Preserved AV five-ground coupled bodies and AUXeastR17; their scoped physical-fit/assembly HOLDs remain",
+        "USB": "Preserved AV factory500 axis/profile2.5 and both9 ends; own first sweep HOLD remains"
+      },
+      "local_occupancy": [
+        {
+          "region": "D_RR five occupied exits",
+          "wires": [
+            "W011",
+            "W016",
+            "W017",
+            "W018",
+            "W012"
+          ],
+          "rule": "Retain all3RR; lowW011 first shiftsY then rises past wholefuse, W012 reuses received BA source descent. No five identical elbows."
+        },
+        {
+          "region": "Source crossover plane X derived from full bank/power-pod gap;Y-74.1..-47.65,Z77.8",
+          "wires": [
+            "W011"
+          ],
+          "rule": "Stay below RRGuide82.05 and band80.85 while changingY, not through protected9 or roof"
+        },
+        {
+          "region": "Negative inner trunk Y-35.25,Z77.8,X48.2..89.19244931010296",
+          "wires": [
+            "W011"
+          ],
+          "rule": "Above nominal IN/OUT74.194 and below allocated F_AUX82; four MAIN and3RR are not here"
+        },
+        {
+          "region": "Fore source9/column/over-terminal arch",
+          "wires": [
+            "W011"
+          ],
+          "rule": "Last0.4mm of source9 follows R12.4; columnX11.8 in IN/OUT gap, local peak90, descend before signalfield"
+        },
+        {
+          "region": "Local lower outboard receiver",
+          "wires": [
+            "W012"
+          ],
+          "rule": "Two BA upstream arcs retained; one constructive local biarc R57.23/26.75 and outwardR12.4quarter, no artificial new whole downcomer"
+        },
+        {
+          "region": "Preserved positive branch gallery and upper MAIN/PAS",
+          "wires": [
+            "XB13",
+            "XB23",
+            "XA05",
+            "XA04",
+            "XA06",
+            "W079",
+            "W080",
+            "W060",
+            "W078"
+          ],
+          "additional": "USB500 only where it really overlaps.3front/2rearGND and4MAIN keep actual destinations; existing own-sweep/fit gates not claimed closed"
+        }
+      ],
+      "W011": {
+        "control_points_not_wire_polyline": [
+          [
+            53.75,
+            -92.5,
+            47.50000000000001
+          ],
+          [
+            73.75,
+            -86.5,
+            47.5
+          ],
+          [
+            89.19244931010296,
+            -86.5,
+            47.5
+          ],
+          [
+            101.59244931010296,
+            -86.5,
+            59.9
+          ],
+          [
+            101.59244931010296,
+            -86.5,
+            65.4
+          ],
+          [
+            101.59244931010296,
+            -74.1,
+            77.8
+          ],
+          [
+            101.59244931010296,
+            -47.65,
+            77.8
+          ],
+          [
+            89.19244931010296,
+            -35.25,
+            77.8
+          ],
+          [
+            48.2,
+            -35.25,
+            77.8
+          ],
+          [
+            24.2,
+            -35.25,
+            90
+          ],
+          [
+            11.8,
+            -35.25,
+            77.6
+          ],
+          [
+            11.8,
+            -35.25,
+            61.45550477756096
+          ],
+          [
+            10.860252388780482,
+            -35.25,
+            56.72025238878048
+          ],
+          [
+            6.125,
+            -47.65,
+            45.26
+          ],
+          [
+            6.125,
+            -56.5,
+            45.26
+          ]
+        ],
+        "selected_radius_mm": 1.55,
+        "minimum_R_mm": 12.4,
+        "source_early_S_R_mm": 18.166666666666668,
+        "why_new_cause": "Choose complete module-to-module gap from actual whole source enclosures BEFORE rise, not freecap or an arbitrary nextX. Cross laterally at77.8 between terminal tops74.194 and fixed field bottoms80.85/82. Source front alone arches to90 and drops before RRsignals. No purchased part, guide or wire prefix is silently removed.",
+        "front_source": {
+          "full9_start_mm": [
+            6.125,
+            -56.25,
+            45.26
+          ],
+          "straight_before_curve_mm": 9.0,
+          "first_curve_length_inside9_mm": 0.0,
+          "first_R_mm": 12.4,
+          "arc_plane_normal": [
+            0.38187519264358727,
+            0,
+            0.9242139023210065
+          ],
+          "second_turn_angle_rad": 0.39182440766467364,
+          "vertical_column": [
+            11.8,
+            -34.85,
+            61.45550477756096
+          ],
+          "reason": "Whole9 stays straight. Begin bend atY-47.25, corridorY=-47.25+12.4=-34.85; no curved-grip assumption. Entire cap-to-bend straight9.25."
+        },
+        "critical_unknowns": [
+          "Whole occupied source field at tilted front9/column/arch, four retained source fans included",
+          "Actual RR guide underside and band/head/case support at77.8; change owned printed support if needed before rerouting again",
+          "One mid anchor to bankbed front edge and one hanging anchor to existing RRGuide, positive rooted material and tie clearance pending",
+          "ATO sequence and whole49leg/skin; no new quick-service requirement"
+        ],
+        "front_return_arch": {
+          "peak_Z_mm": 90,
+          "start_of_quarter_Z_mm": 77.6,
+          "trunk_Z_mm": 77.8,
+          "drop_run_X_mm": 24,
+          "drop_mm": 12.2,
+          "two_arc_drop_R_mm": 14.85327868852459,
+          "signal_plane_85p8_crossing_before_X_mm": 35,
+          "first_signal_full_bbox_XMin_mm": 39.5380517620615
+        },
+        "whole_source_clearance_basis_not_yet_receipt": {
+          "RRGuide_min_Z_mm": 82.05,
+          "RRBand_min_Z_mm": 80.85,
+          "trunk_Z_mm": 77.8,
+          "profile_radius_mm": 1.55,
+          "conservative_trunk_to_RRGuide_mm": 2.7,
+          "conservative_trunk_to_band_mm": 1.4999999999999971,
+          "F_AUX_case_min_Z_mm": 82,
+          "conservative_trunk_to_case_mm": 2.650000000000003,
+          "IN_OUT_ZMax_mm": 74.1943,
+          "conservative_trunk_over_INOUT_mm": 2.055699999999999,
+          "only_relevant_nominal_parts_not_whole_pass": true
+        },
+        "transverse_plane_X_mm": 101.59244931010296,
+        "whole_gap_allocation": {
+          "left_owner": "Ref_Material_F_R6_CP2_IN_0_0",
+          "left_full_XMax_mm": 97.11810000000001,
+          "right_owner": "PowerFan:F_PWM:case",
+          "right_full_XMin_mm": 106.06679862020592,
+          "derived_plane_X_mm": 101.59244931010296,
+          "nominal_radius_mm": 1.55,
+          "positive_gap_lower_bound_to_each_mm": 2.9243493101029516,
+          "other_source_actors_and_all_arcs_not_received": true
+        },
+        "inner_corridor_Y_mm": -34.85
+      },
+      "W012": {
+        "selected_radius_mm": 1.55,
+        "minimum_R_mm": 12.4,
+        "preserved_BA_parts": [
+          {
+            "kind": "arc",
+            "start": [
+              53.75,
+              -92.5,
+              66.5
+            ],
+            "end": [
+              66.625,
+              -87.85,
+              56.99999999999999
+            ],
+            "tangent": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "bend": [
+              0.0,
+              0.43963400923904833,
+              -0.8981770081227864
+            ],
+            "radius": 13.124641076490535,
+            "angle": 1.3754433191287085,
+            "length": 18.05219988462113,
+            "end_tangent": [
+              0.19411284023042485,
+              0.4312718219084647,
+              -0.8810929694904113
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              66.625,
+              -87.85,
+              56.99999999999999
+            ],
+            "end": [
+              79.5,
+              -83.2,
+              47.5
+            ],
+            "tangent": [
+              0.1941128402304266,
+              0.431271821908464,
+              -0.8810929694904114
+            ],
+            "bend": [
+              0.9809792073523663,
+              -0.08533860619528123,
+              0.17434769007638126
+            ],
+            "radius": 13.124641076490542,
+            "angle": 1.3754433191287068,
+            "length": 18.052199884621114,
+            "end_tangent": [
+              1.0,
+              -4.163336342344337e-17,
+              1.6653345369377348e-16
+            ]
+          }
+        ],
+        "received_upstream_member": "gal25-stage-ba-bc-whole-source-field-and-corridor.json",
+        "new_local_bridge_parts": [
+          {
+            "kind": "arc",
+            "start": [
+              79.5,
+              -83.2,
+              47.5
+            ],
+            "end": [
+              132.8282673575217,
+              -80.58064249653648,
+              11.133528179506516
+            ],
+            "tangent": [
+              1.0,
+              -4.163336342344337e-17,
+              1.6653345369377348e-16
+            ],
+            "bend": [
+              1.9487916945047264e-16,
+              0.07184060705691037,
+              -0.9974161253848339
+            ],
+            "radius": 57.22994218522938,
+            "angle": 1.1994085019815677,
+            "length": 68.6420792248777,
+            "end_tangent": [
+              0.36290899032794277,
+              0.06694284414717375,
+              -0.9294168711383716
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              132.8282673575217,
+              -80.58064249653648,
+              11.133528179506516
+            ],
+            "end": [
+              107.9,
+              -77.96128499307297,
+              -25.232943640986974
+            ],
+            "tangent": [
+              0.36290899032794277,
+              0.06694284414717372,
+              -0.9294168711383717
+            ],
+            "bend": [
+              -0.9318245890397792,
+              0.02607160217156978,
+              -0.36197127900021864
+            ],
+            "radius": 26.752102971665106,
+            "angle": 1.9421841516082254,
+            "length": 51.95751041375928,
+            "end_tangent": [
+              -1.0,
+              -6.938893903907228e-18,
+              -1.1102230246251565e-16
+            ]
+          }
+        ],
+        "final_receiver_arc": {
+          "kind": "arc",
+          "start": [
+            107.9,
+            -77.96128499307297,
+            -25.232943640986974
+          ],
+          "end": [
+            95.5,
+            -71.76128499307295,
+            -14.494228634059947
+          ],
+          "tangent": [
+            -1,
+            0,
+            0
+          ],
+          "bend": [
+            0.0,
+            0.5000000000000017,
+            0.8660254037844377
+          ],
+          "radius": 12.4,
+          "angle": 1.5707963267948966,
+          "length": 19.477874452256717,
+          "end_tangent": [
+            0.0,
+            0.5000000000000017,
+            0.8660254037844377
+          ]
+        },
+        "mathematical_bridge_radii_mm": [
+          57.22994218522938,
+          26.752102971665106
+        ],
+        "old_first3_preservation_rejected_min_R_mm": 10.046283147837853,
+        "why": "Preserve two received source arcs and all fixed ends, replace only lower approach by outboard fan. First attempt fromthirdpart made R10.046<12.4, rejected mathematically; move handover upstream one existing flexible part, no physical cut/new connector.",
+        "new_nominal_body_length_mm": 176.18186386013593,
+        "changed_low_fan_actual_static49_skin_open": true,
+        "critical_unknowns": [
+          "Actual whole F_HPallocatedcase edge versus new outwardquarter; old0.7785 not waived",
+          "New three local curve parts against lower supports and complete rear-leg49",
+          "Small independent tie eye from existing lower F_HPcradle, not glue or fuse lever"
+        ]
+      },
+      "assembly": {
+        "order": [
+          "Keep frame/purchased modules/R47/MAIN/threeRR fixed; original cases and new13end retention remain supported. Stage existing source ties open.",
+          "Fit proposed owned shortwire anchors to actual bankbed/RRguide/lower cradle before laying flexible middles; verify all positive load paths and access.",
+          "Lay W011 low departure, rise only afterwholeATO, travel UNDERwholeRRguide before turning inboard, then negative inner77.8 corridor. Fore9curvedland and local90arch join it; do not thread a closed tight tunnel.",
+          "Lay W012 from preserved BA first2arcs to outboard localfan and unchanged D_RL9. Fixed factory8MTA and900ownership unchanged, newcustom lengths are nominal only.",
+          "Fit preserved fiveground+USB group jointly, ordinary partialdisassembly allowed; no74routineWAGOdisconnects, no fastservice claim.",
+          "Tie only jackets/printed eyes, not levers/pads. Close later panels after motion/retention/actual source fit; no powering or physicalPASS."
+        ],
+        "not_yet_geometry_or_physical_insertion_receipt": true
+      },
+      "review_question": "Czy ta jedna topologia rozwiązuje przyczynę powrotów przez bank/RR i nie dokłada zbędnego szybkiego serwisu? Max5uwag: blokada/niewiadoma/opcja. Oceń konstruktywny plan, nie potwierdzaj geometrii z opisu. Po decyzji wykonawca sprawdzi tylko te nowe korytarze/końce/ruch i realne korzenie.",
+      "next_gate": "One current read-only review; actual source-field corridor preflight before dependent full-body generation. No new generic solver.",
+      "preflight_history": [
+        {
+          "try_id": "DAY18-direct-inner90",
+          "decision": "REJECT_BEFORE_DEPENDENT_WIRE_GENERATION",
+          "cause": "PowerFan:F_AUX:case allocated purchased casing reservation, not exact supplier material",
+          "source_constructor": "plan_feline_opposed_power_unit.py:72-78; plan_feline_power30_common_frame.py nominal adhesive-land note",
+          "consequence": "Split rear and inner gallery with twoR12.4 turns around west/negativeY side; preserve whole casing, both factory exits and support; do not raise wire above it or shift case"
+        },
+        {
+          "try_id": "manual_X116_before_full_source_slab",
+          "decision": "REJECT_BEFORE_WIRE_GENERATION",
+          "cause": "PowerFan:F_PWM purchased cylinder intersects former rise; wholeRRGuide had also been omitted from freecap-based assumption",
+          "changed_decision": "No more manual plane offsets. Allocate entire connecting plane from the positive gap between full F_R6 IN bounding enclosure and full purchased F_PWM cylinder enclosure; delay lateral crossing until77.8, below full fixed field. No module moved."
+        }
+      ],
+      "planned_roots": {
+        "mid_W011": {
+          "owner": "CurrentFoundation:BankBedCurrent:-1",
+          "nominal_mid_wire_point_mm": [
+            59.8,
+            -35.25,
+            77.8
+          ],
+          "concept": "One3mm axial open saddle/tie on shortpost at IN/OUTgap, foot joins actual bed edge below housing; preserve original material and bearings. Constructive root/foot clearance must be checked before N03."
+        },
+        "rear_W011": {
+          "owner": "RRFlatGuide",
+          "nominal_mid_wire_point_mm": [
+            101.59244931010296,
+            -66.5,
+            77.8
+          ],
+          "concept": "One short westward hanging eye from printed RRFlatGuide underside, outside existing band and above F_PWMtop70.2; wire lies in allocated plane, not through RR9. Actual root and tie head clearance before N03."
+        },
+        "W012": {
+          "owner": "Existing lower F_HPprinted cradle",
+          "concept": "One small independent jacket tie eye for changed outboard lowerfan; same case/factory exits fixed. Actual root and49pending."
+        },
+        "selected_tie_SKU": "T18I100 retained; proposed+3mid ties are nominal planning consumption, no purchase or physical stock assertion",
+        "production_features_NOT_started": true
+      },
+      "source_flag_correction": "Both nominal W078 end restraints exist. Previous MAIN-side missing claim was wrong: genericsource flag referred to splice receiver laterreceived cc48. Restored four MAIN jacket/nylon budgets now included in world; no new mount.",
+      "view": "prototype-shared-galleries-20261025-day18-proposal.png",
+      "view_sha256": "b4a04412ba3fc6ce3499f1ae2b945c0428ac8003a53b5498aa57d0144c58cdcb",
+      "current_section_view": "prototype-shared-galleries-20261025-day18-section.json",
+      "review_status": "RECEIVED_READY_FOR_ONE_COUPLED_TRIAL_NOT_GEOMETRY_APPROVAL",
+      "explicit_pre_detail_interface": {
+        "owner_group": "PowerFan:grip:XP02:pad/band/head",
+        "kind_from_constructor": "PETG pad plus T18I nylon band/head; actual insulated XP02 must be included before accepting space",
+        "observed": "Visible overlap of proposed corridor with this restraint envelope on GapX section, NOT hidden or accepted.",
+        "chosen_action": "Allocate this existing fused-output XP02 restraint jointly with W011 connector corridor before full-body generation. Preserve full9 and actual end/part/length identities; prefer changing owned printed support/strap station if only they block. Do not assume the actual XP02 jacket vanishes or becomes rigid due missing metadata.",
+        "hard_rejection": "If real fixed XP02 source jacket prevents this whole coupling, reject the source connector topology and revise whole PowerFan assembly; no another scalarX trial. No geometry PASS from reviewer text."
+      },
+      "review_turn": "01a172fa-7bbe-7f22-8629-f2ac159f0505"
+    },
+    "day18_coupled_diagnostic_member": "gal25-day18-coupled-XP02-orientation-family-closed.json",
+    "day18_current_coupled_member": "gal25-day18-shared-root-received.json",
+    "day18_next_receiver_proposal": {
+      "id": "DAY18-RECEIVER-FAN-AFTER-SAME9",
+      "cause": "Two old-freecap approaches rejected. The fixed point was an unselected legacy-plane30 FAN CAP, NOT a purchased connector or protected9. Change that post-grip fan topology while keeping whole case, first9/common comb/tie and other4 ports unchanged.",
+      "first9_start": [
+        95.5,
+        -65.6,
+        8.5
+      ],
+      "first9_end": [
+        95.5,
+        -65.6,
+        -0.5
+      ],
+      "old_post_grip_bend": [
+        0,
+        -1,
+        0
+      ],
+      "new_post_grip_bend": [
+        1,
+        0,
+        0
+      ],
+      "post_grip_arc_R_mm": 12.4,
+      "angle_radians": 0.5235987755982988,
+      "unchanged_straight_after_arc_mm": 9,
+      "new_reference_cap": [
+        101.66128499307295,
+        -65.6,
+        -14.494228634059947
+      ],
+      "new_body_end_tangent": [
+        -0.5,
+        0.0,
+        0.8660254037844387
+      ],
+      "body_preserved_parts": [
+        {
+          "kind": "arc",
+          "start": [
+            53.75,
+            -92.5,
+            66.5
+          ],
+          "end": [
+            66.625,
+            -87.85,
+            56.99999999999999
+          ],
+          "tangent": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "bend": [
+            0.0,
+            0.43963400923904833,
+            -0.8981770081227864
+          ],
+          "radius": 13.124641076490535,
+          "angle": 1.3754433191287085,
+          "length": 18.05219988462113,
+          "end_tangent": [
+            0.19411284023042485,
+            0.4312718219084647,
+            -0.8810929694904113
+          ]
+        },
+        {
+          "kind": "arc",
+          "start": [
+            66.625,
+            -87.85,
+            56.99999999999999
+          ],
+          "end": [
+            79.5,
+            -83.2,
+            47.5
+          ],
+          "tangent": [
+            0.1941128402304266,
+            0.431271821908464,
+            -0.8810929694904114
+          ],
+          "bend": [
+            0.9809792073523663,
+            -0.08533860619528123,
+            0.17434769007638126
+          ],
+          "radius": 13.124641076490542,
+          "angle": 1.3754433191287068,
+          "length": 18.052199884621114,
+          "end_tangent": [
+            1.0,
+            -4.163336342344337e-17,
+            1.6653345369377348e-16
+          ]
+        },
+        {
+          "kind": "arc",
+          "start": [
+            79.5,
+            -83.2,
+            47.5
+          ],
+          "end": [
+            97.12654842027109,
+            -89.05,
+            29.229434103241115
+          ],
+          "tangent": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "bend": [
+            0.0,
+            -0.3049373831147947,
+            -0.9523724021511233
+          ],
+          "radius": 17.6897899673404,
+          "angle": 1.655379577487622,
+          "length": 29.283317041980727,
+          "end_tangent": [
+            -0.08448243073529763,
+            -0.3038472225248131,
+            -0.9489676413139767
+          ]
+        }
+      ],
+      "body_bridge_math": [
+        {
+          "kind": "arc",
+          "start": [
+            97.12654842027109,
+            -89.05,
+            29.229434103241115
+          ],
+          "end": [
+            119.5367876141257,
+            -81.86341279011226,
+            -1.6077580976329644
+          ],
+          "tangent": [
+            -0.08448243073529763,
+            -0.3038472225248131,
+            -0.9489676413139767
+          ],
+          "bend": [
+            0.8317111701722475,
+            0.5029797573217277,
+            -0.23509124427610337
+          ],
+          "radius": 25.502368721512283,
+          "angle": 1.728324194135937,
+          "length": 44.07636086916524,
+          "end_tangent": [
+            0.8346663882198034,
+            0.544418614346437,
+            -0.0833090194949718
+          ]
+        },
+        {
+          "kind": "arc",
+          "start": [
+            119.5367876141257,
+            -81.86341279011226,
+            -1.6077580976329644
+          ],
+          "end": [
+            118.6,
+            -65.6,
+            -19.032943640986986
+          ],
+          "tangent": [
+            0.8346663882198033,
+            0.5444186143464378,
+            -0.08330901949497195
+          ],
+          "bend": [
+            -0.4063069327914485,
+            0.506552227633007,
+            -0.7604732191508413
+          ],
+          "radius": 13.008825310729803,
+          "angle": 2.320180157084041,
+          "length": 30.18281835292792,
+          "end_tangent": [
+            -0.8660254037844388,
+            -2.220446049250313e-16,
+            -0.5
+          ]
+        }
+      ],
+      "body_final_math": {
+        "kind": "arc",
+        "start": [
+          118.6,
+          -65.6,
+          -19.032943640986986
+        ],
+        "end": [
+          101.66128499307295,
+          -65.6,
+          -14.494228634059947
+        ],
+        "tangent": [
+          -0.8660254037844387,
+          0.0,
+          -0.5
+        ],
+        "bend": [
+          -0.49999999999999994,
+          0.0,
+          0.8660254037844386
+        ],
+        "radius": 12.4,
+        "angle": 1.5707963267948966,
+        "length": 19.477874452256717,
+        "end_tangent": [
+          -0.5,
+          0.0,
+          0.8660254037844386
+        ]
+      },
+      "minimum_R_mm": 12.4,
+      "review_before_new_CAD": true,
+      "whole_wire_exact_validation_OPEN": true,
+      "status": "SUPERSEDED_BY_CURRENT_SHARED_ROOT_RECEIPT_NOT_A_SELECTED_OLD_FAN"
+    },
+    "day18_current_scoped_receipt": {
+      "member": "gal25-day18-shared-root-received.json",
+      "native": "SharedGalleryConstructivePlan.FCStd",
+      "whole14_received": false,
+      "N01_complete": false,
+      "physical_pass": false,
+      "window_remains_active": true
+    },
+    "day18_USB_own_receipt": "gal25-day18-USB-first-own-halfspace-received.json",
+    "day18_BUS25_space_receipt": "gal25-day18-BUS25-occupied-space-received.json",
+    "day18_retired_duplicate_reference": {
+      "USB500:whole": "USB500:full_axis, same selected factory500 cable, actual current smooth path and both9 retained"
+    }
+  },
+  "source_snapshot_sha256": "5208f8aebe99199a73e72a8799edbc78bd94c9fa7c9618533ac6707d1baf4fee",
+  "closed_since_review": [
+    "Current14 body owner map exists; frozen shared frame and W011/W012 identity binds to current23-shape receipt",
+    "USB first smooth own tie interface closed via full cubic halfspace projection without changing factory500",
+    "BUS25 whole occupied space recovered from original named source with BOTH rigid transforms and witnesses0/24; complete valid cover, all148 carrier boundary covers/free outside prism2.242mm, all49leg bounds14.963mm, no invalid BRep repair"
+  ],
+  "remaining": [
+    "900 SOURCE/DONOR whole lengths and current123 adoption still not closed",
+    "CurrentMTA49 shows conservative source074 cover HOLD0.621mm near W052 printed outboard bolt wing; no real intersection claim; source090 invalid, source074/090 original local strict invalid too"
+  ],
+  "one_shared_hypothesis": {
+    "purchased_parts": "Same WAGO221-2411 two inline connectors and same four MTA holders, case/port positions and both factory curves unchanged. Do not cut/reposition purchased parts.",
+    "change": "Replace bolted outer wings on BOTH mirrored W044/W052 printed clamshells by two selected T18I100 straps per shell. Keep existing shell cavity and positive cap/base stop so ties press PETG, never directly WAGO levers. This changes fastening topology, not another shoe-corner offset.",
+    "body_trim": "Whole base/cap subset stops at outboard Y=+/-39.05 = purchased case outer37.3+1.75mm plastic; retain inboard original boundaries. Old two outboard M2 bolt wings at+/-41.55 become unused; keep purchased screws/nuts as spares, no changed bought SKU.",
+    "tie_geometry": "Two 2.5x1.2 selected bands at X-43,-21. Through tunnels in the SAME printed panel/base, width2.9,height1.6,Z-41.8..-40.2. Bottom band centreZ-41.0, upper centreZ-26.5; outerY<=40.45; head on inboard side,5x4.3x5.3. Nominal loop+7head+20tail81.4<100.",
+    "load_path": "Retain existing floor/root material where possible; tunnel cuts must leave positive single connected ForePanel/base print, original panel mount bores and remaining load columns. CaseCap/base stop contact remains0gap and cap/purchased case gap0.25. Reject if a tunnel removes a required anchor or disconnected cradle.",
+    "assembly": "Prethread selected nylon through printed tunnels while panel loose, install bought WAGO and both wires/full9 grips, operate levers, install existing cap, tighten on PETG stops. To change wires cut only these straps and lift cap. No new quick service or keys.",
+    "stock": "Four existing selected tie-type instances; verify selected pack headroom before adoption. M2 hardware retained as stock, not repurchased.",
+    "why": "Printed enclosing shell already surrounds insulated bought WAGO; retain only useful locating/retention functions instead of old bulky M2 shoe. Avoid displacing MTA/cable or adding factory length."
+  },
+  "acceptance": [
+    "Current49 covers and affected body/nylon neighbors, complete purchased case and end grips unchanged",
+    "Positive root and cap stop contact, retained case clearance, slots do not cut purchased material or original mounting-hole load seats",
+    "Selected tie reach/stock/assembly physically accessible; no clamp on levers",
+    "0/10 remains until wholeN01; no N03 production or physical PASS"
+  ],
+  "review_question": "One allowed correction to whole14 gate: is this coherent prototype retention/load-path hypothesis worth ONE constructive receive? Max5 prerequisite comments, distinguish true blockers from later manufacturing/physical fit gates. Read-only, no CAD/edits/new agents. Do not ask for another wire-offset search."
+}
