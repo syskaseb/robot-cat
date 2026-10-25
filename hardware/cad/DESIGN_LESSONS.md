@@ -1,5 +1,24 @@
 # Wnioski z projektowania 3D robot-cat
 
+## 25.10 — korekta setupu po nocnym oknie
+
+Za mało było decyzji dotyczących całego układu przed zależnym modelowaniem.
+Przykład BD/BE: generator uruchomiono przed odbiorem wymaganej bramki; późniejsze
+notatki tego nie naprawiają. Procedura bez dowodu zastosowania nie chroni przed pętlą.
+Pierwsza krótka karta ma być jedynym bieżącym wejściem. Historia z dawnym „ON”
+nie daje zgody na pracę. Po zamknięciu nie przywracać dawnego workera ani limitu.
+
+Wspólna wiązka nie oznacza wszystkich przewodów w każdym przekroju: licz lokalną
+obsadę między rzeczywistymi rozgałęzieniami. Nie podtrzymuj arbitralnego przebiegu
+przez powiększanie wspólnego kanału. Chronić korzenie, a zmieniać drukowane podpory
+z drogą obciążenia zanim powstanie kolejny objazd. Przy dwóch porażkach zapisuj
+jedną zmianę decyzji konstrukcyjnej, nie kolejną nazwę strategii. Zachowane odbiory
+W078 splice-side/BL/BP muszą mieć stronę/zakres; ogólny HOLD powoduje ich ponawianie.
+Recenzent dostaje jeden aktualny układ z widokiem i zamrożonym wejściem, nie serię
+pojedynczych offsetów. Gdy użytkownik zakazał wiadomości, hook pomija instrukcję
+wysyłania recenzji; nie dokleja sprzecznych nakazów. Cisza nie oznacza odbioru.
+Jedyny oficjalny wynik pozostaje0/10 do pełnegoN01; lokalne wyniki opisuj rzeczowo.
+
 ## 25.10 — przyczyna zamiast kolejnej osi
 
 Odczytaj faktyczna dlugosc chronionego chwytu: stary cap nie dowodzi wolnych

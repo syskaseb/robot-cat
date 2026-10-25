@@ -1,5 +1,50 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (25.10.2026)
+
+Stan: N01–N10 **0/10**; historyczne20/20 dokumentacji otwartego prototypu osobno.
+Nowa zgoda: użytkownik „Okej, pracuj do16”. Okno25.10 do16:00Warszawy(CET),
+**deadline15:00UTC**. Czas i enabled sprawdź w robot-cat/.codex/hooks/robot-cat-work-window.json.
+Starsze karty/NEXT poniżej to historia, także gdy zawierają słowa „aktywne/ON”.
+Jeden wykonawca, istniejący recenzent Astra medium; ustawień modeli nie zmieniać.
+
+**Wynik tego bloku:** jeden umiejscowiony układ wspólnych korytarzy i lokalnych
+odgałęzień wszystkich14 połączeń, z modułami, korzeniami mocowań i kolejnością
+montażu. Kryterium: każda gałąź ma oba końce, zajęte przekroje, drogę mocowania
+oraz jawne bramki; szerokości z przewodów RZECZYWIŚCIE przechodzących danym
+odcinkiem. Nie wciskać wszystkich14 do jednego przekroju, bo mają różne cele.
+Przekroje18.8×7.9/21×7.5 z poprzedniego okna są niewybranymi celami pojemności,
+NIE odebranym miejscem w robocie ani obowiązkiem prowadzenia tam wszystkich żył.
+
+**Wejście:** commit1ec6c2e1 i istniejący prototype-shared-galleries-20261025-result.json,
+sekcja common_candidate_assembly_proposal; ten sam ZIP i oba istniejące widoki.
+Zachować odebrane BL/BP12, AV, RR3, MAIN i bankR47. W078 splice-side9 jest
+odebrane(cc48f3d8); otwarty jest MAIN-side9. Nie powtarzać zapisu/odtwarzania tych brył.
+
+**Brama, przed nową zależną geometrią:**
+1. Uzgodnić jedną całość moduły/mocowania/korytarze/montaż, z widokiem i źródłami.
+2. Recenzent ocenia aktualny pakiet raz, najwyżej jedna odpowiedź na korektę;
+   stara M3 nie zatwierdza nowych AD/AV/BL/BP. W ciszy bez wiadomości: propozycja
+   i niezależna praca, brak recenzji nie daje zgody na zależne detale.
+3. Dopiero odebrana brama uruchamia jej zależne generowanie. Wolna prosta nie
+   zatwierdza łuków ani całej trasy. Bez nowej geometrii produkcyjnej N03.
+
+**Pętla:** jedna przyczyna + kryterium + zakres przed próbą; po niej wynik i decyzja.
+Po dwóch porażkach tej samej przyczyny nazwij, CO konstrukcyjnie się zmieniło:
+moduł/podpora/topologia/kolejność. Nowy offset, plik, model i opis nie zerują prób.
+Co20–30min: zamknięty problem ALBO nowy fakt zmieniający następną decyzję.
+Po60min bez żadnego z nich: przenieś próbę na poziom całego układu/przyczyny;
+kontynuuj bezpieczną niezależną pracę w oknie, bez kolejnego lokalnego generatora.
+Raportuj wykonane rezultaty i pozostałe bramki, bez częściowych punktów i nowych
+liczników procentowych. Wzrost liczby plików/linii/testów nie jest wynikiem CAD.
+
+Zachować kupne części/P0/E6/15napędów/MG92B/325×200×160/max200/margines256³.
+4MTA to4uchwyty/8końców; balanceB0..B3 poza123/246 pozostaje jawną bramką.
+Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila.
+Postęp zapisuj lokalnie, bez okresowych powiadomień; odpowiadaj na pytania użytkownika.
+O16:00 zakończ nowe prace, odbierz/zachowaj własne obliczenia i wyłącz enabled.
+Procedura instrukcyjna, nie automatyczny walidator geometrii ani fizycznyPASS.
+
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 
 Osiagnieto termin08:00UTC/09:00Warszawy. Hook enabled=false, stage_completed=false.
@@ -62,7 +107,7 @@ lokalnych odbiorow, lecz brak calego wspolnego planu. Od tej chwili nie
 odtwarzac BL/BP od nowa; uzyc wyniku i jednego wspolnego montazu14 jako
 wejscia recenzji po powrocie uzytkownika. Obecnie nie wolno go budzic.
 
-## Aktywna karta 25.10.2026 07:41:53 UTC — wspolna retencja13, nie kolejny objazd
+## Historyczny checkpoint 25.10.2026 07:41:53 UTC — wspolna retencja13, nie kolejny objazd
 
 N01-N10 0/10; historyczne20/20 dokumentacji osobno. AD34 module-only zachowany,
 AV12 wspolny USB/AUX/Tail nadal niewybrany. Nie ma odbioru calego ukladu14.

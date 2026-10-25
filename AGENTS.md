@@ -1,5 +1,18 @@
 # robot cat — notes for Codex
 
+## Current decision entry point (25.10.2026)
+
+For current mechanical layout work, read ONLY the first Karta decyzji CAD
+section in `hardware/HOBBY_COMPLETION_PLAN.md` through the next level-two
+heading first. Older cards and NEXT blocks are history, even when they say ON.
+Use the named current packet for geometry; do not reload the whole diary.
+Local corridor occupancy comes from wires traversing that segment, not all
+logical groups assigned to a side. Receive the whole prerequisite gate before
+generating dependent geometry. After two same-cause failures record a concrete
+change of module/support/topology/assembly order; a new filename is insufficient.
+One writer and the existing read-only reviewer; no competing CAD agents.
+Fixed N01-N10 score; accepted local evidence is reused without partial points.
+
 Quadruped robot cat: ROS 2 Jazzy + Gazebo Harmonic, running **natively on
 macOS / Apple Silicon** through RoboStack (conda packages, driven by `pixi`).
 
