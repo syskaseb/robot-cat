@@ -1,0 +1,49 @@
+{
+  "id": "DAY18-MACRO-EMPTY-WAGO-SLOT-CORRECTION",
+  "status": "ONE_CORRECTION_REVIEW_BEFORE_SUPPORT_DETAIL",
+  "same14_logical_ids_and_selected_parts": true,
+  "physical_mapping": "W012 / logicalD_RL.5 -> previously empty physicalD_RL1; physical5 empty; other3 unchanged",
+  "received_whole_wire": {
+    "topology": "Rise first above the three received RR fans, return left over the source case, descend outside its left carrier, then low U above HP to the new physical1 straight9.",
+    "body_length_mm": 251.8505142463699,
+    "minimum_R_mm": 12.4,
+    "upper_Z_mm": 91.3,
+    "left_column_X_mm": 21.35,
+    "outer_gallery_Y_mm": -95.15,
+    "outer_gallery_basis": "Complete proposed tie half-width3.6 plus1.25 skin reserve inside200mm, not wire-only capacity",
+    "lower_U_Z_mm": -13.15,
+    "static_near_pairs": 16,
+    "static_errors": 0,
+    "static_seconds": 1.969,
+    "all_rigid_parts_and_three_RR_clear": true,
+    "W011_profile_pair_conservative_gap_mm": 15.899999999999993,
+    "wire_to_actual_torso_envelope_mm": 3.2999999999999945,
+    "axis_outside_torso_length_mm": 0,
+    "unresolved_service": "F_R5 full sweep/tool and F_R3 project tool reserve (gap0.8, not a real fuse collision). Same single detachable W012 branch services both."
+  },
+  "functional_shared_end_comb": {
+    "reason": "A strap outside rigid closed bores does not demonstrate clamping each insulated core. Keep9mm guided lands, open the shared face at the strap level so nylon contacts all four equal3.1mm jackets.",
+    "same_existing_cap_extension": "One4.75mm pitch to physical1; existing other3 axes/channels and case datums unchanged. No separate rigid core cylinders.",
+    "opening": "Remove +Y front wall atY>=-65.6 only belowZ6.5. Keep the upper2mm guide/seat bridge; all channels r1.70. Case entry first9 remainsZ8.5..-0.5.",
+    "strap": "Same T18I1002.5x1.2, axialZ2.75..5.25. Front innerY=-64.05 tangent to all four jackets, backY=-69.15; head unchanged6mm conservative envelope. Tension/0.15 seating/pull/creep remain physical gates.",
+    "assembly": "Bench fit the underside before mounting carrier. Feed stripped ends through short upper guide bridge, terminate WAGO with levers accessible, lay exposed jackets in shared grooves, close the one strap. No rapid-service claim."
+  },
+  "one_connected_support_layout": {
+    "actual_parent": "CurrentFoundation:BankBedCurrent:-1, strict existing8planar faces, no cylindrical holes; original material and existing bank-pier interfaces preserved",
+    "why_new_root": "Do not assume old D_RL cap or RR guide is rooted merely from its name. Named main parents are11.075/24.5mm away from D_RLcase; provide an explicit load path.",
+    "D_RL_case_hangers": "Two2.5x4mm side posts outside caseX, atX68.25..70.75 and101.25..103.75/Y-67.6..-63.6/Z7..53.5, into actual bed52..55. A lower rear ledgeZ7..8 supports case through selected0.5VHB, with the same five wire channels. Side posts act as case end stops,0.25 project fit; levers remain between them, not behind a new wall.",
+    "lower_W012_guide": "One open flat9-long side pad nearX76.5/Y-80.3/Z-13.15, strap centred on the actual straight portion; simple2mm L web from its end into the same cap above strap level. Head to-X; lowest nylonZ-16.75,2.25 above whole HPtop-19.",
+    "RR_and_W011": "Preserve whole RRFlatGuide, add a single post from bed atX106.5/Y equal midpoint of whole F_PWM and F_AUX case Y gap, centreZ52.5..81. One L beam toY-70.5, and beamX97.5..114.5/Z79.5..82.5 into actual RRguide. W011 flat9 side pad on straightY-71..-62, head to-X, strapY-66.5. Root joins atY-70.5 away from nylon. Wire guide clearance0.15 is intentional, not a foreign-body1.25 exemption.",
+    "source_W012_guide": "One flat9 side pad on actual straight left columnZ29..38, centreX21.35/Y-95.15, strapZ33.5/head+X. Small added bridge into existing Carrier:D_RR below its case. Complete tie fits the1.25 outline allowance; existing carrier/frame retention reused only after actual joint proof.",
+    "manufacturing": "Constructive BRep witness only before N03. One connected bed/RR/D_RL support intended within256cube; native/export production detail remains later. Prove all original-parent material retained, actual positive joints, complete case/nylon/tool neighbors and49poses."
+  },
+  "service_sequence": [
+    "F_R6: remove only XP02 nylon band/head. Existing whole lead4.6777, newpad2.2196 and root1.2650 clear full tool; no3mm cable parking assumption.",
+    "F_R3 or F_R5: hand-support the other four D_RR jackets in their existing open grooves, release common strap, open only W012 terminal5 and withdraw its stripped end. Immediately retie the other four before moving W012; their terminals never open.",
+    "Release only W012 left-column guide strap. Its lower-U guide and D_RL physical1 end remain fixed. Reverse the existing finalR12.4 quarter from new bodycap[76.5,-65.6,-0.75] to[76.5,-78,-13.15], then lay the free remainder straight outward-Y outside removed side panel. This preserves the anchored end and lower guide without pulling other conductors.",
+    "Parking uses the same251.8505 body length; released source jacket/bare tip continues farther outward. All parked wire lies belowZ0.8 including profile, far below the R3/R5 access tools. Check the actual remaining neighbors and service support/floor; no enclosed-body width claim for temporary external parking.",
+    "Restore the one termination and both released strain-relief straps after servicing; physical lever/hand reach, actual clamp force and delivered fit are phase2 gates. No74WAGO disconnections or new fast-service requirement."
+  ],
+  "N01_complete": false,
+  "physical_pass": false
+}

@@ -2,100 +2,97 @@
 
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (25.10.2026)
 
-Stan: N01–N10 **0/10**; historyczne20/20 dokumentacji otwartego prototypu osobno.
-Nowa zgoda: użytkownik „Okej, pracuj do16”, następnie „Pracuj do18jednak”. Okno25.10 przedłużone do18:00Warszawy(CET),
-**deadline17:00UTC**. Czas i enabled sprawdź w robot-cat/.codex/hooks/robot-cat-work-window.json.
-Starsze karty/NEXT poniżej to historia, także gdy zawierają słowa „aktywne/ON”.
-Jeden wykonawca, istniejący recenzent Astra medium; ustawień modeli nie zmieniać.
+Stan N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Zgoda do18:00
+Warszawy(CET) = **17:00UTC**; hook enabled/deadline sprawdź w
+robot-cat/.codex/hooks/robot-cat-work-window.json. Nie przedłużać. Jeden wykonawca
+Sol high i istniejący recenzent Astra medium; nie zmieniać modeli. Bez okresowych
+powiadomień/maili. Starsze karty poniżej są HISTORIĄ, także dawne „ON/NEXT”.
 
-**Wynik tego bloku:** jeden umiejscowiony układ wspólnych korytarzy i lokalnych
-odgałęzień wszystkich14 połączeń, z modułami, korzeniami mocowań i kolejnością
-montażu. Kryterium: każda gałąź ma oba końce, zajęte przekroje, drogę mocowania
-oraz jawne bramki; szerokości z przewodów RZECZYWIŚCIE przechodzących danym
-odcinkiem. Nie wciskać wszystkich14 do jednego przekroju, bo mają różne cele.
-Przekroje18.8×7.9/21×7.5 z poprzedniego okna są niewybranymi celami pojemności,
-NIE odebranym miejscem w robocie ani obowiązkiem prowadzenia tam wszystkich żył.
+**Wynik okna:** jeden konstruktywny wspólny układ14 aktualnych połączeń, modułów,
+mocowań, szerokich korytarzy i kolejności montażu. Pełne123odcinki/246ID i obie
+strony4MTA/fabryczne długości zachować. Nie zaczynać produkcyjnych detaliN03–N10.
+Liczyć lokalne profile, nie wciskać wszystkich14 w każdy przekrój. Szczegółowe osie
+tylko w nazwanym zagrożeniu; ich usunięcie nie daje punktów ani fizycznegoPASS.
 
-**Wejście:** commit1ec6c2e1 i istniejący prototype-shared-galleries-20261025-result.json,
-sekcja common_candidate_assembly_proposal; ten sam ZIP i oba istniejące widoki.
-Zachować odebrane BL/BP12, AV, RR3, MAIN i bankR47. W078 splice-side9 jest
-odebrane(cc48f3d8); oba końce mają nominalną retencję; nie odtwarzać jej ponownie. Nie powtarzać zapisu/odtwarzania tych brył.
+**Zapisane:** ca611908 (setup) i d7f2bdde (MAIN9 + wspólna próbaW011/XP02).
+Główny pakiet prototype-shared-galleries-20261025-result.json i ten sam ZIP.
+MAIN4×9 JUŻ był w MAINassembly; oba końceW078 zachowane. BL/BP13retencji,
+RR3, AV5GND/USB i R47 zachować; nie odtwarzać niezmienionych dowodów.
+7bieżących BRep odtworzono strict0.734s. W01116stycznych części265.548/R12.4,
+przednie9 w całościPROSTE, Y−34.85 z końca9+R; statyka35par/error0, profil→skóra
+5.95. XP02: całe9 na tym samym łuku10..19, oba225mm końce/lead bez zmiany,
+rzeczywisty profilr.925/clearance.15/siodło3.15, nowyrootR1.5zpełnymR1.4core;
+styki2.111/1.020/całość1solid, statyka22par/error0 i całyobrys200. Ostatni kit49
+jeszcze odebrać. Stare invalid124/074 mają zapisane całe konserwatywne pokrywy
+z hashami; nie naprawiać/ponawiać BOP źródeł. NatywnyBUSsupplier25 nadalbrak.
 
-**Odebrane12:05UTC:** odtworzono jawne źródła7.203s bez skanu;1526źródeł,
-jedynie nativeBUSsupplier25 nadal brak (nie uznany za poprawną bryłę). MAIN ma
-JUŻ wspólne4×9mm: nominalny saddle w całości zawarty w istniejącym MAINassembly,
-6odtworzonych jacket/band/head statyka8.562s bez błędów; własne kanały.15,
-żadnej dodatniej objętości kontaktu. Poprzednie przypisanie HOLD doMAIN było
-błędne: stary flagW078 dotyczył splice-side, zamkniętego cc48. NIE budować
-nowego uchwytuW078. Lutowanie/wytrzymałość/przymiarka/montaż nadal bramki.
+**Odebrana zmiana przyczyny14:32UTC:** dolna rodzinaW012141.5 odrzucona,
+nie wracać do niej. W012/logicznyD_RL.5 używa pustego fizycznego1 tej samej
+WAGO221-415(1potencjał), fizyczny5 rezerwowy; 123/246ID bez zmian. Nowe CAŁE
+11stycznych części250.763441/Rmin12.4: nad trzemaRR, z powrotem w lewo, poza lewym
+carrierem, dolnaU nadHP. Y−94.2 wynika z2mm przyszłejskóry+.2+pełnejopaski3.6.
+Końcowe9 proste zachowane. Otwarty od+Y wspólny grzebień i jedna opaska100 mają
+kontakt z4płaszczami zanim plastik ograniczy zacisk; budżet94.2/100 nominalnie.
+To retencja nominalna, nie fizyczny test siły/przymiarki.
 
-**Odebrane12:33UTC:** recenzent Astra medium dopuścił JEDNĄ wspólną próbę
-W011–XP02 (nie odbiór geometrii), turn01a172fa-7bbe-7f22-8629-f2ac159f0505.
-W011 ma całe przednie9 PROSTE; wewnętrzneY=-34.85 wynika z końca9+R12.4.
-PłaszczyznaX101.59245 wynika z pełnej szczeliny bank/obudowaF_PWM. Całe16
-odcinków stycznych265.548mm/Rmin12.4, statyka35pobliskich par bez błędów;
-trzeba rozstrzygnąć własne zakończenia, podpory, montaż/ruch i obrys.
+Próba całych korzeni wykazała PAUX w lewym pionie i R6 w główce W011; zmieniono
+drogę obciążenia za CAŁYM PAUX i stronę CAŁEGO chwytuW011. Prawdziwy styk
+tylnego mostu zBankBed285mm³. LowMID potrzebuje3.5mm podpórki na rzeczywistej
+prostej3.8, nie fikcyjnego wymagania9 dla pośredniejopaski; szczelina.15 odebrana.
+Zachowane wszystkie9 chwytów KOŃCOWYCH. Odczyt konstruktora RRFlatGuide wykazał
+istniejący dodatni styk14.5997 doAuxGripCommonRoot: zbędne nowe ramię przecinające
+W065/RRFlatBand USUNIĘTO, zamiast kolejnego objazdu. Jeden wspólny print zachowuje
+12rodziców/rrguide/bed, rzeczywiste ścieżki i pojedynczą bryłę; gabaryt210.04×112.28×119.35.
+InvalidFrameRear20 nie naprawiano: całe poprawne konserwatywne pokrycie daje
+11.184mm do nowego materiału. Bbox-overlap nadal nie jest kontaktem.
 
-Wspólna próba pokazała, że REALNY przewódXP02 i stary korzeń mają3.759/3.940mm
-odW011; blokowały własny pad/opaska/główka. Cały flip uchwytu nadal blokował
-opaską: rodzina obrotów ZAMKNIĘTA. Przeniesiono całe9 na ISTNIEJĄCY łuk10..19,
-bez zmiany przewodu/obu fabrycznych225mm końców. Siodło ma jawne.15 do profilu
-.925 (stara rezerwa2.5 nie dowodziła chwytu); opaska to maksymalna rezerwa,
-przy montażu zaciskana, przymiarka/pociągnięcie/pełzanie nadal fizyczna bramka.
-Nowy jeden korzeń nad własną obudową naZ73 ma pełnyR1.4rdzeń, oba dodatnie
-styki i jedną bryłę z siodłem/istniejącym mocowaniem.4zmienione części/22pary,
-6.563s bez błędów. Główka przecina WYŁĄCZNIE projektową rezerwę narzędziaATO,
-nie wykazano kontaktu z bezpiecznikiem; kolejność montażu/serwisu otwarta.
-Nie przyjmować podciętej starej cienkiej gałęzi: zastąpiona całym nowym korzeniem.
+**Brama14:37UTC:** źródłowy11mm ruch wyjęciaW012 D_RR5 wymaga osobnej pierwszej pozycji; same późniejsze miękkie konfiguracje nie dowodzą wyjścia z zacisku. Jedna konstruktywna próba +X z zachowaniem długości przez podniesienie dolnego nawrotu lewej kolumny, bez zmiany końcowego chwytu/lowtie. Kryterium: cały przewód/korzenie/RR3 i Rmin12.4; potem powrót do wspólnego odbioru, bez skanu offsetów.
 
-W012 zachowuje2łukiBA; nowy dolny wachlarzR57.23/26.75/12.4,176.182mm.
-Pełne5odcinków:19pobliskich par, bez błędów, ale 2rezerwyATO i bliskie przewody
-wymagają klasyfikacji na rzeczywistych częściach, nie automatycznego objazdu.
-Bieżący worker5767 jest odbierany; NIE powtarzać źródeł, flipów ani wariantów.
-Następnie jedno wspólne zamknięcie zmienionych mocowań/trasy/montażu/ruchu,
-zachowane AV/MAIN/RR. N01 nadal0/10; master ani kupne części nie zmienione.
+**Fakt14:46UTC — źródło poprawione przed cięciem:** historyczny konstruktor ma zamknięte otwory, ale aktualny odebrany CarrierD_RR JUŻ ma otwartą zewnętrzną połowę. Targetowany BRep świadek całej ujemnej połowy daje0mm³ usunięcia/dodatku; żadnego nowego cięcia ani20mm zapasu. Zachować aktualny otwarty grzebień, nie wnioskować zamknięcia z dawnego szablonu. Następnie odebrać całą końcówkę9.25+11 oraz natywny parametr belki.
 
-**Decyzja12:48UTC:** zamknięto rodzinę lokalnych podejść W012 do starego
-freecap. Był on końcem UMOWNEGO wachlarza po chwycie, nie kupnym złączem:
-rzeczywiste9 i wspólny cap są przy case, Z8.5..−.5. Nowa jedna korekta do
-recenzenta: zachować te9/case/cap/opaskę/inne4porty, zmienić tylko wolny
-wachlarzW012 z−Y na+X. MatematykaR25.502/13.009/12.4, bez nowego CAD przed
-odbiorem. To zmiana interfejsu, nie trzecia poprawka kąta starej trasy.
-Wspólny otwarty korytarz2×Ø3.1 przy D_RR wymaga konstruktywnego upakowania;
-nie uznawać.135nakładki referencyjnych osi za przyzwolenie na ściskanie.
+**Odebrany milestone14:48UTC:** gal25-day18-shared-root-received.json w tym samymZIP.
+Jeden rzeczywisty print z drogąobciążenia, W011265.548 i W012250.763441/R12.4,
+pełnyD_RL9/fizyczny1 i niezależne simplemidties, nowyXP02.57zmienionych par
+mocowań/error0; własne kanały.15, VHB.5 i główka jako oparta powierzchnia0common
+sklasyfikowane osobno. Aktualne49:51bliskich par bez ujemnych,2stare invalid049/050
+zamknięto całymi poprawnymi konserwatywnymi pokrywami/hashami (8par/1.5s, beznaprawy).
+Nie udawać ciągłej symulacji kładzenia. Pełna końcówkaW0129.25+11 uwzględniona:
+5pozycji osiowego wyjęcia11.25 i5pozycji odkładania, długość stała, lowtie/D_RL
+bez ruchu.15°odchylenie GÓRNEGO łuku omija rzeczywisty RR_Groot; pierwotny płaski
+ruch odrzucony. Izolowane W017/018 pozostają w dodatnim odstępie.776/.456 podczas
+kontrolowanego ręcznego serwisu; nie są stalową przeszkodą1.25. Własne rowki.15
+i lowweb.829 nie przecinają przewodu. Rzeczywista przymiarka/siła nadal faza2.
+Nowe niemateriałowe końce/opaski rezerwują co najmniej2.2mm do zewnętrznego obrysu.
 
-W011 rzeczywiście wewnątrz całego obrysu, profil→skóra5.95. OstatecznyXP02
-ma siodło3.15mm, nie luźną uniwersalną rezerwę; całykit mieści się w200mm,
-statyka22pary6.594s bez błędów, joints2.111/1.020mm³/całość1solid.
-Poprzednie49 kwalifikują poprawne źródła;124/074 zamknięto ODEBRANYMI całymi
-pokrywami konserwatywnymi/hashami, bez naprawiania źródła:22pary/min2.869,
-3.172s/error0. Ostatnia zmiana szerokości kitu wymaga jeszcze własnego49.
-7bieżących BRep zapisano i odtworzono strict0.734s; member wskazany w pakiecie.
-Odbierz recenzenta, potem cały skorygowany wachlarz z mocowaniem/montażem/ruch.
+SharedGalleryConstructivePlan.FCStd: natywny tree bez Refine, poprawne bryły,
+parametr Width3→3.25→3 i zapis/odtworzenie11.094s; odtworzono23BRep4.828s.
+To edytowalny konstruktywny N01, NIE finalne produkcyjneN03. Refine dał invalid
+powierzchnie i został usunięty; próbna zmiana Height wewnątrzbed nie zmieniała
+materiału — stąd test rzeczywistej szerokości. Master/historia beznadpisania.
 
-**Brama, przed nową zależną geometrią:**
-1. Uzgodnić jedną całość moduły/mocowania/korytarze/montaż, z widokiem i źródłami.
-2. Recenzent ocenia aktualny pakiet raz, najwyżej jedna odpowiedź na korektę;
-   stara M3 nie zatwierdza nowych AD/AV/BL/BP. W ciszy bez wiadomości: propozycja
-   i niezależna praca, brak recenzji nie daje zgody na zależne detale.
-3. Dopiero odebrana brama uruchamia jej zależne generowanie. Wolna prosta nie
-   zatwierdza łuków ani całej trasy. Bez nowej geometrii produkcyjnej N03.
+**active_worker:** własny FreeCAD5767/PID10920 IDLE po zapisie, nie duplikować.
+**NEXT:** odbierz scopedreceipt i dotychczasowe AV5/USB/MAIN4/RR3, wyłącznie otwarte
+interfejsy całych14, obu4MTA/factory900/USB own sweep. Nie ponawiać dzisiejszych
+korzeni,49, closedfamilies,8400pozycji ani źródeł. Potem cały123/246konstruktywny
+plan; nadal0/10 bez częściowych punktów. Native BUSsupplier25 jest jawniebrakujący.
 
-**Pętla:** jedna przyczyna + kryterium + zakres przed próbą; po niej wynik i decyzja.
-Po dwóch porażkach tej samej przyczyny nazwij, CO konstrukcyjnie się zmieniło:
-moduł/podpora/topologia/kolejność. Nowy offset, plik, model i opis nie zerują prób.
-Co20–30min: zamknięty problem ALBO nowy fakt zmieniający następną decyzję.
-Po60min bez żadnego z nich: przenieś próbę na poziom całego układu/przyczyny;
-kontynuuj bezpieczną niezależną pracę w oknie, bez kolejnego lokalnego generatora.
-Raportuj wykonane rezultaty i pozostałe bramki, bez częściowych punktów i nowych
-liczników procentowych. Wzrost liczby plików/linii/testów nie jest wynikiem CAD.
+**Serwis uproszczony na podstawie brył:** F_R6 wymaga usunięcia TYLKO nylonuXP02,
+nie parkowania/gięcia prefiksu3mm: całyprzewód4.678/pad2.220/root1.265 do rezerwy
+narzędzia już clear. F_R5 po zwolnieniu wspólnej opaski wymaga JEDNEGO rozłączenia
+końcaW012 D_RR5 i parkowania wolnego końca; wykazać drogę/miejsce/ponowny montaż.
+Nie dodawać wymagania szybkiego serwisu ani74rozłączeń. Przymiarka/siła chwytu/
+pełzanie/faktyczne dźwignie producenta pozostają fizycznymi bramkami.
 
-Zachować kupne części/P0/E6/15napędów/MG92B/325×200×160/max200/margines256³.
-4MTA to4uchwyty/8końców; balanceB0..B3 poza123/246 pozostaje jawną bramką.
-Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila.
-Postęp zapisuj lokalnie, bez okresowych powiadomień; odpowiadaj na pytania użytkownika.
-O18:00 zakończ nowe prace, odbierz/zachowaj własne obliczenia i wyłącz enabled.
-Procedura instrukcyjna, nie automatyczny walidator geometrii ani fizycznyPASS.
+**Pętla:** odbierz5767/active_worker i recenzenta przed startem, nie powtarzaj źródeł.
+Co20–30min zamknięty problem ALBO fakt zmieniający decyzję; bez obu zmień poziom
+próby, nie kolejny audyt. Po2odrzuceniach tej samej przyczyny zmień faktyczny moduł/
+przydział/podporę/kolejność. Odrzucone rodziny nie resetują się po nowej turze/skrypcie.
+Reużyj niezmienione pary; bbox nie jest kolizją, HOLD osi nie jest kontaktem materiału.
+Zapisz rzeczywisty zegar/limit przed kosztowną operacją i maks10min, last_account_usage.
+Commity tylko własnych sprawdzonych etapów. Bez zakupów/resetów/zasilania/pushów/
+ROS/slicera/GUARD/BMS/schedule/WORK_HANDOFF/Claude. P0/E6/15/MG92B/R47/
+325×200×160/max200/margines256³/MAIN46.52 zachować. O18 zapisz/odbierz własne
+obliczenia, wyłączenabled i raportuj wynik/braki/czas/commity/limit/model/hook.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 

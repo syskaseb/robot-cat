@@ -1,0 +1,42 @@
+{
+  "id": "DAY18-MACRO-EMPTY-WAGO-SLOT",
+  "status": "PROPOSAL_ONLY_REVIEW_BEFORE_CAD",
+  "reason": "After two whole lower approaches failed, change terminal occupancy and assembly sequence instead of another local curve offset.",
+  "logical_identity": "W012 / D_RL.5 retained; proposed physical position changes from slot5 to currently empty slot1",
+  "same_common_potential_WAGO": "221-415; five clamping points, one potential",
+  "primary_manufacturer_document_mirror": "https://elektra.lt/media/productattachment/w/a/wago_221-415en.pdf",
+  "manufacturer_product": "https://www.wago.com/global/installation-terminal-blocks-and-connectors/splicing-connector-with-levers/p/221-415",
+  "selected_parts_changed": false,
+  "case_other3_ports_4MTA_all_123_identities_changed": false,
+  "receiver": {
+    "old_slot": 5,
+    "proposed_slot": 1,
+    "mouth_mm": [76.5, -65.6, 8.5],
+    "protected9_end_mm": [76.5, -65.6, -0.5],
+    "reference_cap_mm": [76.5, -65.6, -0.75],
+    "axis_from_case": [0, 0, -1],
+    "old_unselected_postgrip30_fan_removed_for_W012_only": true
+  },
+  "one_existing_common_comb": {
+    "change": "Extend the same existing cap one4.75mm pitch to slot1; one1.70-radius channel. Preserve other3 occupied channels and existing root interface.",
+    "same_selected_tie": "T18I100, section2.5x1.2; extended section26.1x7.1. Conservative centreline rectangular loop2x(26.1+1.2+7.1+1.2)=71.2; head7+tail20 gives98.2 below100, only1.8 nominal spare. Physical fit/tightening gate remains; dimensions are project budgets, not supplier latch certification.",
+    "one_mid_tie_eye": "Common hanging eye to lower U atY-78/Z-13.15, rooted to the same common cap. No independent rigid clip per core."
+  },
+  "source_and_middle": {
+    "parts": "Two-arc S from[53.75,-92.5,66.5] to[73.75,-96.1,66.5]; R12.4 downward quarter to[86.15,-96.1,54.1]; two-arc S to[76.5,-96.1,25] tangent-down; descend toZ-0.75; R12.4 quarter toY-83.7/Z-13.15; straight toY-78; R12.4 quarter to receiver cap.",
+    "nominal_body_length_mm": 141.5014166537785,
+    "minimum_R_mm": 12.4,
+    "outboard_Y_derivation": "-92.5-(2x1.55+0.5 assembly gap)=-96.1; profile to200mm width envelope2.35mm",
+    "lower_U_profile_to_HP_top_nominal_mm": 4.3,
+    "whole_current_static_motion_assembly_not_received": true
+  },
+  "assembly_changes": [
+    "Modules and three other D_RL conductors remain installed. Document logicalD_RL.5 to physicalslot1 explicitly; slot5 becomes spare.",
+    "F_R6: remove only the replaceable XP02 nylon band/head. No cable parking needed: unchanged lead4.6777, newpad2.2196 and newroot1.2650mm already clear the project tool. Persistent rigid1.25mm margin remains.",
+    "F_R5 rare service: release D_RR common wire tie, open only the W012 terminal, withdraw its end and park disconnected end clear; restore termination and tie afterward. One WAGO disconnection, no74-disconnection or fast-service requirement. Parking/access remains a receiving gate."
+  ],
+  "preserved": ["R47", "P0", "E6", "15actuators", "MG92B replaceable", "325x200x160", "max200width", "256cube margin", "MAIN46.52", "all4MTA factory lengths and both sides", "W011 current16parts", "MAIN4", "RR3", "G_AUX5 and USB proposal"],
+  "N01_complete": false,
+  "selected": false,
+  "physical_pass": false
+}
