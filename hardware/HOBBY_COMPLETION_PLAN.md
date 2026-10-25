@@ -1,5 +1,31 @@
 # Domknięcie hobbystycznego robot-cat
 
+### Uzupelnienie 07:47:28UTC — jedna propozycja wszystkich14 i odbior po restarcie
+
+Pakiet wynikowy zawiera teraz JEDNA `common_candidate_assembly_proposal`:
+14tozsamosci/koncow,6krokow montazu,8niezmienionych nominalnych prowadzen
+obu stron4MTA i jawne granice dowodu. Nie wybrano go ani nie odbierano
+montazu z samego tekstu. Trzy wazne rozroznienia: candidateW011 chronione9
+konczy sieY-47.25; XB23 realny zachowany koniecX-117.46, nie stare przedluzenie
+X-35; XA04 nowy odbiornik po R17escape[163.43,-65.27,99.21]. Stare
+`source_caps` zachowane jako kontekst AD, nie podmienione po cichu.
+Factory900 stockblank minus historyczne ciecie nie jest luzem w robocie.
+100mm dla4MTA jest zalozeniem projektu, nie pomiarem producenta;9mm chwytow
+NIE dodano jeszcze raz do nominalnego guide. BalanceB0..B3 to dodatkowy
+kontrakt POZA123/246; pinow cavity, dlugosci i retencji nie wymyslono.
+To uzgodnienie znanych zrodel, nie nowe zaliczenie. W078 niezalezny chwyt
+nadal otwarty. Nie wprowadzono szybkiego serwisu ani zero-rozlaczen.
+
+Nowy proces FreeCAD odtworzyl ze ZAMROZONYCH58wejsc pakietu wszystkie
+12aktualnych bryl BL/BP: scisle BRep, symetryczna roznica materialu0,
+8.703s. Nie korzystal z rezydenta ani jego mutowalnego cache. Obraz
+`prototype-shared-retention-20261025-view.png` pokazuje oba boki rzeczywistej
+geometrii13koncow/mocowan; jawnie fragment/boxy-rezerwy/caly montaz HOLD.
+Render1.910s, obejrzany. N01-N10 nadal0/10. Punkt0 nie oznacza braku tych
+lokalnych odbiorow, lecz brak calego wspolnego planu. Od tej chwili nie
+odtwarzac BL/BP od nowa; uzyc wyniku i jednego wspolnego montazu14 jako
+wejscia recenzji po powrocie uzytkownika. Obecnie nie wolno go budzic.
+
 ## Aktywna karta 25.10.2026 07:41:53 UTC — wspolna retencja13, nie kolejny objazd
 
 N01-N10 0/10; historyczne20/20 dokumentacji osobno. AD34 module-only zachowany,
