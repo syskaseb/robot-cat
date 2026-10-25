@@ -1,5 +1,41 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
+
+Osiagnieto termin08:00UTC/09:00Warszawy. Hook enabled=false, stage_completed=false.
+N01-N10 nadal0/10=0%, zmiana0pp; historyczne20/20 dokumentacji osobno.
+Rzeczywisty wynik: wspolne mocowanie13 jacketow/trzy istniejace opaski,
+dodatnie korzenie do ramy,12 odtworzonych poprawnych bryl; jeden prosty
+korytarz ma1.25mm po podcieciu2wlasnych printow bez naruszenia4stykow.
+To lokalne odbiory, NIE caly N01. Caly montaz14/ATO i przejscia W011/W012,
+MAIN-side9 W078 oraz USBwlasny pierwszy sweep pozostaja otwarte. W078
+splice-side9 jest JUZ odebrane cc48f3d8; nie budowac go ponownie.
+
+Jedna propozycja montazu14 i przekroje z liczby/profili: -Y18.8x7.9mm,
++Y21x7.5mm zUSB, jawny zapas1.25 do scian; to NIE umiejscowione/odebrane
+korytarze. Oba rysunki sa w pakiecie. 4MTA/8nominalnych prowadzen zachowane;
+100mm to zalozenie projektu, balanceB0..B3 poza123/246 pozostaje dodatkowa
+bramka bez wymyslania pinoutu. Nie wymieniono kupnych czesci ani mastera.
+Stara recenzja M3 odczytana bez wiadomosci; nie odbiera nowych AD/AV/BL/BP.
+
+Czas okna 35495s (od22:08:37Z), nie ciagly czas CAD. Ostatni realny
+odczyt limitu: 2026-10-25T07:56:23Z, pozostalo98%.
+Nie wykonano resetu/zakupu. Wczesniej provider zmienil odczyt95used->0used,
+kredyt resetu nadal dostepny; przyczyna NIEZNANA, bez przypisywania resetu.
+Commity etapow: ce660ed6, 4a90bb87, 847701a8, a9964337, 08282f9b, 91fdf6d8, cc48f3d8, add6b613. Domkniecie jest kolejnym lokalnym commitem.
+Wlasne obliczenia odebrane, zrodla/zapisy/ponowny odczyt zachowane. Glowny
+model wedlug wyboru uzytkownika Sol high; faktyczny runtime/effort nie
+zweryfikowany niezaleznie. Recenzent skonfigurowany Astra medium, bez pingow.
+
+Nastepny checkpoint: jedno umiejscowienie obu wspolnych galerii z pelnymi
+wachlarzami/korzeniami/montazem, W011/W012 i MAIN-side W078, nie nowe lokalne
+objazdy. 45-90min to budzet jednej proby, NIE estymata ukonczeniaN01.
+Okno zamkniete; nowa praca wymaga nowej autoryzacji. Raport TYLKO lokalnie,
+czat po powrocie uzytkownika; brak maila/alertu. Nie twierdzimy, ze aplikacja
+lub system zostaly wyciszone. Bez fizycznegoPASS.
+
+ROBOT_CAT_SHARED_GALLERIES_20261025_0900_DONE
+
 ### Uzupelnienie 07:47:28UTC — jedna propozycja wszystkich14 i odbior po restarcie
 
 Pakiet wynikowy zawiera teraz JEDNA `common_candidate_assembly_proposal`:
