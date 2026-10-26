@@ -10,8 +10,8 @@ w robot-cat/.codex/hooks/robot-cat-work-window.json. Bez resetów/zakupów.
 WybranySol high + istniejącyrecenzentAstra medium; modeli nie zmieniać.
 N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Bez fizycznegoPASS.
 
-**Baza aktualna:** lokalne d3f415f8/7a9bda47, day26-current-shared-mount-and-space.json,
-ten sam breps.zip(46shape), Day26PrototypeSpacePlan.FCStd(1173objects).
+**Baza aktualna:** lokalne1ba131bb/d3f415f8/7a9bda47, day26-current-shared-mount-and-space.json,
+ten sam breps.zip(48shape), Day26PrototypeSpacePlan.FCStd(1180objects).
 To STUDIUMN01, nie produkcyjny eksport ani nowa wybrana wersja mastera.
 MAIN+12X/+24Y/Z46.52;4case PODramą, całeFR_P/RR_P/RR_G/F_HY przywrócone.
 R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³ zachować.
@@ -59,7 +59,7 @@ Pozy0/17/35:drop0/46.04/94.79; pose49/130mm był błędny, nie odbiór kładzeni
 [−145,0,−15]. Rzeczywiste ramy/U1/POST lub HeadBridge; S0 iRL_P nie ruszono.
 PróbaU1górnegomostuZ35 dała tylko2.894mm³ownjoint zamiast16; NIE wybrana.
 Nawet poprawa tego kontaktu nie naprawi kolizjiHip; nie wdrażać jej przed
-nowym wspólnym planem całej nogi. Native1173/46 nie zawiera tych odrzuconych prób.
+nowym wspólnym planem całej nogi. Native1180/48 nie zawiera tych odrzuconych prób.
 Recenzje01a17998/01a179a6:GOograniczonejpróby/HOLDN01; żadnego geometryPASS.
 
 **Bezpieczna niezależna praca teraz:** wspólna warstwa roofX−75..112,
@@ -83,10 +83,34 @@ Nowe regiony ukryte jako niematerialne, stare widoczności zachowane.
 Pełna wiązka/rozgałęzienia/promienie/długości/ruch/montaż pozostająOPEN.
 Wynik:day26-shared-roof-region-received.json; dowody w jego json.gz.
 
-**active_worker:** resident25370/PID18408 bezczynny; wynik odebrany,0dokumentów.
-**NEXT:** sprawdzić dostęp podczas instalacji do otrzymanych regionów,
-rozstrzygnąć kolejność podPi/obok opasek; nie projektować detaliN03.
-Nie wracać do4krzywychHip przed całą nogą9Hip/14Knee i bramką montażu.
+**Odebrane20:49UTC:** stały boczny regionX0..159.25/Y89.25..96.75/Z60..80
+omija całyBUS/bank/AUX;9największych nominalnych profili mieści się2×5
+w7.4×17.3 z1pustym polem. Płaski wspólny wzniosX4..36.9/R12.4 prowadzi
+do otrzymanych górnych komór:9rdzeni leży wzdłużbinormalnejX, ten samR,
+nie9osi. R12.4 jest zastanym minimum projektu9RL-body, nie danymi producenta.
+8krytycznych nativepar/0HOLD; pozostałe dodatnie bboxgap. Dolnagranica odstępu
+od wszystkich108części nóg w36pozach11.905mm; bez roszczenia ciągłego ruchu.
+Native1180/48,1strictpołączonyregion222891.864mm³; R12.4→13→12.4 zmieniaV19.793,
+zapis/reopen.1145starychshape:0zmian>1e−10, stare widoczności zachowane.
+Nativeprzygotowanie/odbiór173.203s elapsed (obejmujeorchestrację, nieCPU).
+day26-fixed-body-entry-received.json i diagramday26-fixed-body-entry-capacity.png.
+Opaski/główki wymagają szerszych stacji; płaskiego9 nie obejmować jedną100mm
+bez bilansu. Wspólne łoże/3strefytripletów to propozycja, nie otrzymane mocowania.
+
+**Montaż i noga:**9/23pełnych pionowych footprintów otwartych; Pi/PAS przesłaniają
+inne, nie dowód niemożności ręcznego układania. Wymagane układanie przed
+zamknięciem lub otwarty bok/udokumentowany demontaż; końcówki/przewlekanieOPEN.
+Nowe statyczne wyjście3core ponad całymHip jest bbox-oddzielone przy0/17/35,
+ale14port i korzeń uchwytu nadal prowizoryczne. Dalej prosty wzniosHIP9 trafia
+wBUS/ogon iR27.52..29.15<36.6:odrzucony po52/397;345zbędnych prób pominięto.
+Nie poprawiać tego kolejnymi handle/offsetami. day26-installation-and-one-leg-decision.json.
+Recenzja01a179e8:GOzmiany metody ijednej całejnogi, HOLDN01; tylko odczyt.
+
+**active_worker:** resident25370/PID18408 bezczynny; nativeotrzymany,0dokumentów.
+**NEXT:** jeden CAŁYRL-source3/source2/Knee/Hip→nowy boczny region:
+końce/fabryczne jednostki900+donor900/retencja/luz w ruchu/montaż.
+Nowe regiony stałego korpusu nie rozwiązują ruchomego przejścia ani123gałęzi.
+Po2tej samej przyczynie zmienić układ/poziompróby, bezrodziny4krzywych.
 Czas/limit/krótki wynik20–30min w tej karcie i pakiecie. Własne sprawdzone
 etapy commituj lokalnie bez cudzych zmian. Bez zakupów/resetów/zasilania/
 pushów/slicera/ROS/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude/alertów.

@@ -139,7 +139,7 @@
   },
   "geometry_archive": {
     "path": "day26-current-shared-mount-and-space.breps.zip",
-    "sha256": "f7b9bc48a9ea8ebc898e686d6835bb32056603a44e748c50fd2d1a364d83c675"
+    "sha256": "32c9a603f74529f1d9e7bafc16bf56f544a823402a7f32378e22a46c3f28dacf"
   },
   "geometry": {
     "FrameWithMAINSharedMount": {
@@ -953,29 +953,67 @@
       ]
     },
     "ConnectedHarnessSpaceStudy": {
-      "member": "shared_roof_space.brep",
-      "sha256": "6615bf03e13e024cd20bc93cced86d9434fb1f43cf42f74acba20fc2a17e7954",
+      "member": "ConnectedHarnessSpaceStudy.brep",
+      "sha256": "c1b42210640f689ed01a7816bdce11996c0b41b99b25e54758b0bcc5889044f8",
       "solids": 1,
-      "volume_mm3": 198201.3815029717,
+      "volume_mm3": 222891.86390028422,
       "bounds_mm": [
         [
           -75.0,
           -96.0,
-          84.25
+          60.0
         ],
         [
-          112.0,
-          96.0,
+          159.25,
+          96.75,
           103.5
         ]
       ],
-      "kind": "nonmaterial received local cable space; NOT STL material"
+      "kind": "nonmaterial shared SPACE, not printed material or full wire routing"
+    },
+    "LowerOuterLaneStudy": {
+      "member": "LowerOuterLaneStudy.brep",
+      "sha256": "f2e33679ec34b4af6cdce238fd4f14201e8bcdf057b804fd535a789d27c37ab7",
+      "solids": 1,
+      "volume_mm3": 23887.5,
+      "bounds_mm": [
+        [
+          0.0,
+          89.25,
+          60.0
+        ],
+        [
+          159.25,
+          96.75,
+          80.0
+        ]
+      ],
+      "kind": "nonmaterial shared SPACE, not printed material or full wire routing"
+    },
+    "FlatNineRiseStudy": {
+      "member": "FlatNineRiseStudy.brep",
+      "sha256": "baba00ecffbdf0b51094d376e6de4d349ae96dd3d2488b0df9583e874e356681",
+      "solids": 1,
+      "volume_mm3": 10815.193484864849,
+      "bounds_mm": [
+        [
+          4.0,
+          23.99999999999998,
+          70.0
+        ],
+        [
+          36.9,
+          95.05,
+          88.55000000000025
+        ]
+      ],
+      "kind": "nonmaterial shared SPACE, not printed material or full wire routing"
     }
   },
   "native": {
     "path": "Day26PrototypeSpacePlan.FCStd",
-    "sha256": "b3e2fcb5943acd3627137b52ba9c1aa0fca7fb11660f06673a695a4dae6dbd41",
-    "objects": 1173,
+    "sha256": "81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b",
+    "objects": 1180,
     "source_actor_count": 1243,
     "references": 152,
     "physical_display_group": 1014,
@@ -988,7 +1026,8 @@
     "shared_space_native_parameter_and_reopen_received": true,
     "existing_shape_count_preserved_within_tolerance": 1145,
     "existing_shape_parameter_tolerance": 1e-10,
-    "nonmaterial_space_hidden_by_default": true
+    "nonmaterial_space_hidden_by_default": true,
+    "shared_body_entry_parameter_and_reopen_received": true
   },
   "review": {
     "thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
@@ -1325,5 +1364,24 @@
     "N01_complete": false,
     "preservation_and_adoption_elapsed_seconds": 127.14099999982864,
     "timing_note": "Elapsed since preservation check began, including waiting/orchestration; NOT total kernel time. Native preparation began20:16:09UTC. Preservation check59.016s; see component receipts for individual measured operations."
+  },
+  "shared_body_entry": {
+    "receipt": "day26-fixed-body-entry-received.json",
+    "components": 1,
+    "native_added_objects": 7,
+    "total_connected_space_volume_mm3": 222891.86390028414,
+    "local_two_region_geometry_clearance_received": true,
+    "static_bend_radius_parameter_mm": [
+      12.4,
+      13,
+      12.4
+    ],
+    "parameter_volume_delta_mm3": 19.793230281502474,
+    "physical_objects_compared": 1145,
+    "physical_changes_above1e_10": 0,
+    "source_native_sha256": "b3e2fcb5943acd3627137b52ba9c1aa0fca7fb11660f06673a695a4dae6dbd41",
+    "full_moving_leg_arrival_received": false,
+    "N01_complete": false,
+    "physical_pass": false
   }
 }

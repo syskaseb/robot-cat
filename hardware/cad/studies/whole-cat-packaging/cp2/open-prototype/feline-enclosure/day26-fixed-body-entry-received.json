@@ -1,0 +1,430 @@
+{
+  "status": "LOCAL_FIXED_BODY_SPACE_RECEIVED_NOT_N01",
+  "native": {
+    "path": "Day26PrototypeSpacePlan.FCStd",
+    "sha256": "81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b",
+    "objects": 1180,
+    "source_actor_count": 1243,
+    "references": 152,
+    "physical_display_group": 1014,
+    "unchanged_neutral_leg_parts": 108,
+    "save_reopen_received": true,
+    "manufacturing_feature_tree_not_released": true,
+    "case_bonds_save_reopen_received": true,
+    "rear_duplicate_representations_removed_save_reopen_received": true,
+    "underframe17_retention_save_reopen_received": true,
+    "shared_space_native_parameter_and_reopen_received": true,
+    "existing_shape_count_preserved_within_tolerance": 1145,
+    "existing_shape_parameter_tolerance": 1e-10,
+    "nonmaterial_space_hidden_by_default": true,
+    "shared_body_entry_parameter_and_reopen_received": true
+  },
+  "geometry_archive": {
+    "path": "day26-current-shared-mount-and-space.breps.zip",
+    "sha256": "32c9a603f74529f1d9e7bafc16bf56f544a823402a7f32378e22a46c3f28dacf"
+  },
+  "regions": {
+    "status": "FIXED_BODY_ENTRY_SPACE_PREFLIGHT",
+    "scope": "Changed shared static body region only; lower outside lane avoids whole BUS/ATO/AUX supports and joins roof by one flat9core ribbon. No new individual core axes. Dynamic source/Knee/Hip arrival and whole unit lengths remain OPEN.",
+    "physical_cause": "Upper direct inward span meets BUS; intermediate side rectangle meets ATO5/6. Use OUTSIDE all bank cases at actual AUXpost edgeY88+1.25, within unchanged maxbodyY100 minus3.25skin/air.",
+    "regions": {
+      "LowerOuterLane": {
+        "bounds_mm": [
+          [
+            0.0,
+            89.25,
+            60.0
+          ],
+          [
+            159.25,
+            96.75,
+            80.0
+          ]
+        ],
+        "volume_mm3": 23887.5
+      },
+      "FlatNineRise": {
+        "bounds_mm": [
+          [
+            4.0,
+            23.999999999999986,
+            70.0
+          ],
+          [
+            36.9,
+            95.05,
+            88.55000000000025
+          ]
+        ],
+        "volume_mm3": 10815.193484864854
+      }
+    },
+    "packing": {
+      "lower_lane_mm": [
+        7.5,
+        20
+      ],
+      "nine_worst_OD_mm": 3.1,
+      "two_columns_five_rows_with_one_empty_slot_mm": [
+        7.4,
+        17.3
+      ],
+      "edge_mm": 0.5,
+      "lay_gap_mm": 0.2,
+      "flat_bend_X_width_mm": 32.9,
+      "flat_core_pitch_X_mm": 3.6,
+      "flat_region_radial_thickness_mm": 4.1,
+      "static_core_R_mm": 12.4,
+      "all_core_bend_centres_across_binormal_X_same_R": true,
+      "this_capacity_not_additional123route_release": true
+    },
+    "factory_and_dynamic_scope": "Existing9RL body contracts static minimum12.4 retained. Full same-member retention before/after bend still constructive mounting interface, not physical pull approval. Dynamic31.5 unchanged.",
+    "tasks": 8,
+    "checked": 8,
+    "rows": [],
+    "completed": true,
+    "kernel_seconds": 0.10900000017136335,
+    "physical_pass": false,
+    "N01_complete": false,
+    "selected": false,
+    "candidate_pairs": [
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L3_CP2_ATO_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L3_CP2_Housing_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L3_CP2_OUT_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L4_CP2_ATO_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L4_CP2_Housing_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L4_CP2_IN_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L4_CP2_OUT_0_0"
+      },
+      {
+        "region": "FlatNineRise",
+        "part": "Ref_Material_F_L5_CP2_IN_0_0"
+      }
+    ]
+  },
+  "strict_total_connected_space_components": 1,
+  "strict_total_connected_space_volume_mm3": 222891.86390028414,
+  "native_flat_geometry_difference_mm3": 0.0,
+  "native_union_difference_mm3": 0.0,
+  "native_parameter_test": {
+    "staticR_mm": [
+      12.4,
+      13,
+      12.4
+    ],
+    "restored_volume_verified": true,
+    "parameter_delta_mm3": 19.793230281502474,
+    "save_reopen": true
+  },
+  "preservation": {
+    "original_physical_and_reference_shape_objects": 1145,
+    "normalizations": [
+      {
+        "name": "PhysicalLayout",
+        "maximum_delta": 9.992007221626409e-16
+      },
+      {
+        "name": "ChangedLocalParts",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "Actor0345",
+        "maximum_delta": 1.6653345369377348e-16
+      },
+      {
+        "name": "Actor0346",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0348",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "Actor0349",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0354",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0355",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0358",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0360",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0361",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0492",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "Actor0496",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "Actor0544",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "Actor0613",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0628",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0653",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0656",
+        "maximum_delta": 9.992007221626409e-16
+      },
+      {
+        "name": "Actor0806",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0812",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "Actor0998",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "NeutralLeg000",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg001",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg002",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg009",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg010",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg011",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg015",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg016",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg017",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg026",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "NeutralLeg027",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg028",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg029",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg037",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg038",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg039",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg043",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg044",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg045",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg053",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "NeutralLeg054",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg055",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg056",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg063",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg064",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg065",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg069",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg070",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg071",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg080",
+        "maximum_delta": 1.1102230246251565e-16
+      },
+      {
+        "name": "NeutralLeg081",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg082",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg083",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg090",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg091",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg092",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg096",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg097",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg098",
+        "maximum_delta": 2.220446049250313e-16
+      },
+      {
+        "name": "NeutralLeg107",
+        "maximum_delta": 1.1102230246251565e-16
+      }
+    ],
+    "parameter_tolerance": 1e-10,
+    "failures": [],
+    "old_visibility_changes": [],
+    "old45physical_archive_records_byte_identical": true
+  },
+  "new_native_objects": [
+    "LowerOuterLane",
+    "FlatBendOuter",
+    "FlatBendInner",
+    "FlatBendQuarter",
+    "FlatBendLower",
+    "FlatBendUpper",
+    "FlatNineRise"
+  ],
+  "source_native_sha256": "b3e2fcb5943acd3627137b52ba9c1aa0fca7fb11660f06673a695a4dae6dbd41",
+  "native_preparation_start_utc": "2026-10-26T20:45:41Z",
+  "native_work_elapsed_seconds": 173.2029999999795,
+  "elapsed_includes_orchestration_waiting_not_cpu": true,
+  "local_core_contract_source": "n01-selected-piece-profile-contract.json; nineRL portions retain static projectR12.4, not new manufacturer data",
+  "installation": "Open side access before cosmetic shell; grouped body rise before upper covers. Terminated end threading, final retaining comb/head/root and unit length allocation still OPEN.",
+  "no_physical_material_changed": true,
+  "scope_not_accepted": [
+    "source3/source2 to Hip mechanism and usable moving slack",
+    "factory900 and donor900 unit join/cut release",
+    "all123branches and local traffic",
+    "complete body clamp/stock/install order",
+    "lying/rising plus shell"
+  ],
+  "N01_complete": false,
+  "physical_pass": false,
+  "score": {
+    "completed": 0,
+    "total": 10
+  },
+  "motion_separation": {
+    "poses": 36,
+    "parts_each_pose": 108,
+    "maximum_actual_leg_bbox_z_mm": 48.09498399326691,
+    "new_fixed_space_min_z_mm": 60,
+    "conservative_vertical_gap_mm": 11.90501600673309,
+    "only_leg_material_not_full_head_tail_motion": true
+  },
+  "preview": "day26-fixed-body-entry-capacity.png"
+}
