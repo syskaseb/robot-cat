@@ -2,64 +2,98 @@
 
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (26.10.2026 wieczór)
 
-**Okno:** n01-shared-prototype-20261026-2200, start17:26:47UTC,
-deadline21:00UTC=22:00Warszawy. Zgoda: „Pracuj do22”. Hookenabled=true.
-Start89%/ordinaryAllowed; rzeczywisty last_account_usage w hooku; bezresetów.
-Jeden wybranySol high + dotychczasowyrecenzentAstra medium; modeli nie zmieniać.
-N01–N10 **0/10**; historyczne20/20 osobno, brakfizycznegoPASS/częściowychpunktów.
+**Okno:** n01-shared-prototype-20261026-2200; start17:26:47UTC,
+deadline21:00UTC=22:00Warszawy. Zgoda „Pracuj do22”. Hookenabled=true.
+Nie kończyć po lokalnym wyniku/commicie; nie przedłużać ani nie zaczynaćN02/N03.
+Zwykły limit/czas przed kosztowną pracą i≤10min; rzeczywisty last_account_usage
+w robot-cat/.codex/hooks/robot-cat-work-window.json. Bez resetów/zakupów.
+WybranySol high + istniejącyrecenzentAstra medium; modeli nie zmieniać.
+N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Bez fizycznegoPASS.
 
-**Źródło:** feline-enclosure/day26-current-shared-mount-and-space.json,
-ten sam breps.zip, Day26PrototypeSpacePlan.FCStd; HEAD73d2ec91/89eb6417.
-38worldBRep; nie transformować drugi raz. Native1137 jest STUDIUM, nie produkcja.
-day26-current-underframe-plan stare4Bcase NIE są aktualnymi pozycjami.
-Zachować MAIN+12X/+24Y/Z46.52,4case PODramą i przywrócone całeFR_P/RR_P/RR_G/F_HY
-z ich uchwytami, bankR47/P0/E6/15napędów/MG92B/325×200×160/max200/margines256³.
+**Baza aktualna:** lokalne d3f415f8/7a9bda47, day26-current-shared-mount-and-space.json,
+ten sam breps.zip(46shape), Day26PrototypeSpacePlan.FCStd(1173objects).
+To STUDIUMN01, nie produkcyjny eksport ani nowa wybrana wersja mastera.
+MAIN+12X/+24Y/Z46.52;4case PODramą, całeFR_P/RR_P/RR_G/F_HY przywrócone.
+R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³ zachować.
+Stare4Bcase w day26-current-underframe-plan nie są aktualnymi pozycjami.
 
-**Metoda:** zamocowane moduły + połączone dostępne obszary wiązek;123/246ID,
-lokalna obsada/profile/zapas/długości/luz/rozgałęzienia/opaski i montaż.
-Nie123sztywneprzewody. Exact wymaga lokalnegozagrożenia/decyzji/dlaczegoregion
-nie odpowie. Bbox to kandydat, swobodna referencja nie jest sztywną przeszkodą.
-Skill cad-layout-planning +26.10DESIGN_LESSONS. Po2odrzuceniach zmieńprzyczynę.
-Co20–30min zamkniętyproblem albo nowyfakt+konsekwencja; inaczej zmień poziom.
-Zegar/limit przed kosztownąoperacją i≤10min; zapisuj rzeczywistyodczyt.
+**Odebrane i nie powtarzać:** MAINpodpora/9mmłoże/pełnaT18I100; nośnik4case
+89.25×76×39 i4905pady1036mm²;2wybraneM2.5×12/2nakrętki zamiast zdublowanych
+BatteryScrewRearL/R. Podramowe17nominalnych pól:4bary/4pełneopaski,
+9mmpodparcie/5mmbar,4casehash/tylneoparcia/MAIN bez zmian. Roundtrip50/native
+48.469s. Profile2.5/3.1/4.2 to rezerwy projektu, nie gwarancjaODproducenta;
+fizyczne dopasowanie/pull/pełzanie faza2. Pełną wiązkę pozostawićOPEN.
+Nowe sprawdzenie tych17części przeciw135obrysomopasek:2295bbox/8native/0HOLD,
+11.813s łącznie z dodaniem obrysów do roof. Nie135sztukopasek:band/head
+to części tej samej jednostki. Starych8budżetów4case nie liczyć drugi raz.
 
-**Odebrane:** MAINpodpora/wspólne9mmłoże/pełnaT18I100; nośnik4case
-89.25×76×39,4905pady1036mm²;38shape strictreload1.485s. IzolujBRepoperandy.
-5komórPOS to1strictsolid39606.75mm³/0.063s; lokalne44+USB+Picap mieszcząsię,
-nie pełnasieć/zakręty. KomoraG2/D_FR jużclear:odjęto0,7972.36275mm³/0.144s.
-Klej nie jest odciążeniem przewodu;17podramowych chwytów pozostaje otwarte.
-MTA8długości15.5/31.75/67.239/77.992 +11strip+10rework≤100, nie stare246guide.
+**Zmiana metody:** zamocowane moduły + połączone dostępne regiony123/246,
+lokalne profile/obsada/zapas/długości/luz/rozgałęzienia/opaski/montaż.
+Nie123sztywneprzewody. Exact: nazwane lokalne zagrożenie/decyzja/dlaczegoregion
+nie odpowie. Bbox overlap nie jest kontaktem; dodatni bboxgap jest dolnągranicą.
+Poglądowe swobodne kable nie są sztywnymi przeszkodami. Budget opaski/główki
+na robocie jest ograniczeniem przestrzeni nawet gdy nie jest materiałem lub
+nie jest rysowany. Aktualny helper installed_stock_envelope w
+tools/cad/feline_prototype_space_classification.py. Jawnie retire8starych
+obrysów wg retired_old_prints_for_these4_stations; zachować135bieżących.
+Skill cad-layout-planning i26.10DESIGN_LESSONS przedCAD. Po2tej samejprzyczynie
+zmienić topologię/kolejność/uzasadnionezałożenie; nie zerować licznika turą.
 
-**Brama śrub ZAMKNIĘTA:** w zapisanym native były4śruby w2osiach. Usunięto
-TYLKO stareBatteryScrewRearL/R;1135objects, save/reopen36.64s,2wybrane12mm
-i2nakrętki byte-identical. Bez zmianySKU/pozycji/38świadkówgeometrii. Przy
-odtwarzaniu sceny respektowaćretired_duplicate_reference_actors z bieżącegopacketu.
-**Potem:** day26-current-physical-length-budgets zawiera36oldroot/currentseam/freecap.
-W006/W010/W015 mają różne granice; nie dodawać odległości65/75/61mm jako kabla.
-Odczytaj faktycznie zachowany legfragment/kneejoin/stagger/source900, nie nowąpozę.
-Recenzja01a17918-4bfa-7513-ad1e-12c9d25b4e5a odebrana:GOcałejpróby/HOLD900;
-nie wysyłać recenzji każdego parametru. Rozdziel42allowance/strip/lap bez dublowania.
-K14741000/kolor to alokacja, nie odebrana długość; SOURCE i DONOR osobnejednostki.
+**Źródła — obecna decyzja:** Hip125/135 i nowy kwartalny~90mm NIE są wybrane.
+112naruszeń/HOLD w182nativekandydatach z108ruchomymi częściami0/17/35,
+134.811s;1HOLD dotyczy znanego invalidcover, nie dowód kontaktu.
+Wszystkie4nogi mają rzeczywiste przecięcia REGIONU z mechaniką, nie dowód,
+że żadna ręcznie ułożona wiązka nie pasuje. day26-Hip-U1-changed-motion-check.json
+i day26-leg-shared-space-rejection.png zachowują świadków.
+housing_bounds w rekordzie source1 jest tylko JEDNĄ częścią obudowy!
+Przed nowym polem źródłowym użyć CAŁYCH9Hip/14Knee i pokazać jedną całąnogę,
+źródło→Knee→Hip→stałegalerię. Najpierw region/obsada/końce/retencja/obrys,
+potem rodzina krzywych. Nie kolejne4parametry bez wspólnej bramki.
+Nie używać wąskiego zakresu0.069mm jako tolerancji ręcznego montażu.
+Source900/donor900 oddzielne; stary835mm nie jest nieuchronnym minimum.
+Source14 i statyczneR12.4 są jawneprojektowe założenia z warunkiem pełnego
+utrzymania same-member; dynamiczneR31.5 nie zostało obniżone. Brak supplierOD.
+Pozy0/17/35:drop0/46.04/94.79; pose49/130mm był błędny, nie odbiór kładzenia.
 
-**Eksperyment17odciążeń:** jedno wspólne zdejmowane siodło/bar na grupę ipełnaT18I100;4grupy17końców. Ryzyko lokalne: różneOD4.2/3.1/2.5 mogą pozostawić mniejsze żyły nieściśnięte. Dlatego tylko lokalne5mmcap-grooves i9mmpodparte pola; nie pełne osie wiązki. Nośnik→nylon→profilowanybar→każda izolacja; małe shimypodmniejszymOD. Case/pozy/porty pozostają. Kryterium:4bary+pełneopaski mieszcząsię wstarymbboxnośnika (reużycie49), brak obcych kontaktów, poprawne1solidnośnika po kanałach, policzona pełna długośćopasek. BrakfizycznegoPASS; pull/średnica/ciasnota po dostawie. Budżetpierwszejpróby do10min, po2odrzuceniach zmienić konstrukcję. SOURCE900: konstruktory jawnie zmieniły seam iN02/N05nieodebrane; nie ma dowodu istniejącego fragmentu do odzyskania. Następna decyzja to rzeczywisty wspólnyapproach/budżet, nie szukanie utraconego BRep.
+**Odrzucone, nie ponawiać:** całeS0tył[105,50,26]/RL_PZ70 oraz całeS0dolnaszyja
+[−145,0,−15]. Rzeczywiste ramy/U1/POST lub HeadBridge; S0 iRL_P nie ruszono.
+PróbaU1górnegomostuZ35 dała tylko2.894mm³ownjoint zamiast16; NIE wybrana.
+Nawet poprawa tego kontaktu nie naprawi kolizjiHip; nie wdrażać jej przed
+nowym wspólnym planem całej nogi. Native1173/46 nie zawiera tych odrzuconych prób.
+Recenzje01a17998/01a179a6:GOograniczonejpróby/HOLDN01; żadnego geometryPASS.
 
-**Próba17A odrzucona lokalnie:** profile17 siedzą międzybedem/barami bez penetracji, ale nylon pod G2/D_FR ma tylko0.8mm doFL_P (wymagane1.25), nylonFL_P ma0.25 doG2. To rzeczywiste sąsiedztwo, nieprzewody. Zmiana konstrukcji: dolnybieg2górnychopasek poprowadzićkanałem0.7mm wnaszym2mmłożu (zostaje1.3), zamiastwieszaćponiżej. FL_Potrzymuje otwartąna końcachlistwędociskową nad4środkamiżył, bezszerokichbocznychpoliczków wypychającychopaskęwG2. Pełne9mmpodparcia/profile/case/marginesybez zmian. Główce daćkanał.2 wnaszymplastiku, nieprzesuwaćkupnychczęści. To druga próba tegosamego węzła, nie resetlicznika.
+**Bezpieczna niezależna praca teraz:** wspólna warstwa roofX−75..112,
+wewnętrzny roundedobrys z3.25budżetem(2skin+1.25air), Z84.25..108.75.
+Po106ograniczeniach (w tym10z135obrysówopasek) zostaje1spójna bryła
+669084.118mm³. To RAWwolnaprzestrzeń, NIE dowód przekrojów/promieni/długości.
+Offsetzłożonejramy nie przeszedł kernela(Notconnected/Unorientable), nie kontakt.
+Użyto dokładnejmaterii ze świeżego zamrożonegoFrameSHA; repeatcut odjął0.
+Wymagane1.25odramek musi być jawnie sprawdzone dla wybieranych komór.
+Inne małe części odjęte konserwatywnymi rozdmuchanymi bbox: nieudane zawieranie
+komory odrzuca ten przydział, nie dowodzi fizycznego kontaktu przewodów.
+**Odebrane20:28UTC:**23komory tworzą1strictregion198201.382mm³.
+Aktualne135obrysówopasek zachowane,6starych samonakładających Compound
+znormalizowano dokładną sumą poprawnych składowych. Nie zmieniano materiału.
+Lokalny przekrójX22.5:48POS/46NEG mieści się z0.5brzeg/0.2układanie,
+USB5/Pi7.4 to dodatkowa rezerwa pojemności, nie nowe wybrane trasy.
+23edytowalnePart::Box +MultiFuse/VarSet;105→104.5→105 zmieniaV202.375mm³,
+save/reopen otrzymany.1145starychshape porównanych:61normalizacji1e−16,
+0zmian powyżej1e−10;45archiwalnychBRep bajtowo identycznych.
+Nowe regiony ukryte jako niematerialne, stare widoczności zachowane.
+Pełna wiązka/rozgałęzienia/promienie/długości/ruch/montaż pozostająOPEN.
+Wynik:day26-shared-roof-region-received.json; dowody w jego json.gz.
 
-**17końców ODEBRANE:**4wspólne baryPETG/4pełneT18I100,50strictBRep/zapisreopen48.469s/1147objects. Wszystkie17nominalnychprofili opierasię o9mmłoża i5mmbary,0penetracji. Profile2.5/3.1/4.2 nie są danymiODproducenta. G2/D_FRkanały0.7 wnaszymłożu:1.3mmnominalnyligament,barFL_Potwarty,główki2górnychzapięćnaZEWNĄTRZ. Casehash4/MAIN46.52/tylnepodparcia bez zmian,całośćwewnątrzstarego89.25×76×39bbox→reużycie49≥5.934. Reużyto40.234/44.031skontroli,wzajemneinterfejsy poprawione. Dwa dotknięcia shim→własnycase na granicy sourceface mającommon0 i są jawneownmates, nie obceprzecięcia. Fizycznypull/OD/pełzanie nadal faza2. PełnasiećN01nadal0/10.
-
-**Nowa decyzja źródeł:** day26-shared-joint-source-triage.json: role2i3 każdejnogi mająidentycznyKnee-owner. Mogąkorzystaćzespołem z jednejprzestrzeniprzyKnee, a3looms zjednejHip, zamiast rozsuwaćilustracyjnepętle. Dokładneneutral/mid/pose35(dropy0/46.04/94.79) źródła odczytane,odległości tylkodolnegranice. Minimalneprofile/promienie/factorybezredukcji. Role3socket→role2socket~99–103mm,nie deklarowaćstarego835mmjakonieuchronnegominimum. Potrzebnekonstruktywne wspólneregiony i budżety SOURCE/DONOR.
-
-**Recenzja wieczorna:**01a17951-4f77-7651-b2ec-24d8a6695dab GO strategii,nieodbiórgeometriiN01. Zastosować5uwag: fizycznegranice12looms;połączonaprzestrzeń+reprezentatywny ruch;górnedługościniejedynieproste;drukowanefields/joinnastatycznymczłonie dopiero po dowodzie;współistnienieMTA/montażu. Brakpendingrecenzji.
-
-**active_worker:** resident25370/PID18408 idle; poprawkaśrub odebrana,0docs.
-**NEXT:** źródłowe900, następnie wspólna sieć i17chwytów. Śrub nie poprawiać ponownie.
-Nie2800/5600/archiwaskany/pełne123osie ani produkcyjneN03–N10.
-Własne sprawdzoneetapy commituj bezcudzychzmian. Bez zakupów/resetów/zasilania/
+**active_worker:** resident25370/PID18408 bezczynny; wynik odebrany,0dokumentów.
+**NEXT:** sprawdzić dostęp podczas instalacji do otrzymanych regionów,
+rozstrzygnąć kolejność podPi/obok opasek; nie projektować detaliN03.
+Nie wracać do4krzywychHip przed całą nogą9Hip/14Knee i bramką montażu.
+Czas/limit/krótki wynik20–30min w tej karcie i pakiecie. Własne sprawdzone
+etapy commituj lokalnie bez cudzych zmian. Bez zakupów/resetów/zasilania/
 pushów/slicera/ROS/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude/alertów.
-Kontynuuj po lokalnychwynikach do21UTC albopełnegoN01. Wcześniej tylko brak/
-wyczerpanielimitu lub rzeczywistybrakbezpiecznejniezależnejpracy poalternatywach.
-Oterminie zachowajwyniki/własneobliczenia,wyłączenabled,raportuj. Nieprzedłużaj.
-ROBOT_CAT_N01_20261026_2200_DONE tylko zamykającokno.
+Kontynuuj do21UTC albopełnegoN01. Wcześniej tylko brak/wyczerpanielimitu lub
+rzeczywisty brak bezpiecznej niezależnej pracy poalternatywach. Oterminie
+zapisz/odbierz własneobliczenia, wyłączenabled, raport. Nieprzedłużaj.
+ROBOT_CAT_N01_20261026_2200_DONE tylko przy faktycznym zamknięciu.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 

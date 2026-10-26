@@ -1,0 +1,148 @@
+{
+  "status": "RECEIVED_LOCAL_CONNECTED_SPACE_NOT_N01",
+  "native": {
+    "path": "Day26PrototypeSpacePlan.FCStd",
+    "sha256": "b3e2fcb5943acd3627137b52ba9c1aa0fca7fb11660f06673a695a4dae6dbd41",
+    "objects": 1173,
+    "source_actor_count": 1243,
+    "references": 152,
+    "physical_display_group": 1014,
+    "unchanged_neutral_leg_parts": 108,
+    "save_reopen_received": true,
+    "manufacturing_feature_tree_not_released": true,
+    "case_bonds_save_reopen_received": true,
+    "rear_duplicate_representations_removed_save_reopen_received": true,
+    "underframe17_retention_save_reopen_received": true,
+    "shared_space_native_parameter_and_reopen_received": true,
+    "existing_shape_count_preserved_within_tolerance": 1145,
+    "existing_shape_parameter_tolerance": 1e-10,
+    "nonmaterial_space_hidden_by_default": true
+  },
+  "geometry_archive": {
+    "path": "day26-current-shared-mount-and-space.breps.zip",
+    "sha256": "f7b9bc48a9ea8ebc898e686d6835bb32056603a44e748c50fd2d1a364d83c675"
+  },
+  "cells": 23,
+  "components": 1,
+  "volume_mm3": 198201.38150297164,
+  "clearance_mm": 1.25,
+  "body_budget_mm": {
+    "skin": 2,
+    "air": 1.25,
+    "outer_body_width": 200
+  },
+  "packing_scope": {
+    "cross_section_x_mm": 22.5,
+    "positive_diagnostic_positions": 48,
+    "negative_diagnostic_positions": 46,
+    "unfit_positions": 0,
+    "edge_mm": 0.5,
+    "lay_gap_mm": 0.2,
+    "extra_capacity_only": [
+      "USB OD5",
+      "paired Pi OD7.4"
+    ],
+    "current_route_or_cut_release": false
+  },
+  "stock_constraints": {
+    "manifest": "day26-current-installed-tie-envelopes.json",
+    "sha256": "bd6b891b40bbae1ac030cf513f3778f8f7cd6a208070db9ccf81679dcca354e1",
+    "installed_component_envelopes": 135,
+    "retired_components": 8,
+    "component_count_is_not_tie_quantity": true
+  },
+  "preservation": {
+    "old_shape_objects": 1145,
+    "normalization_only_objects": 61,
+    "maximum_numeric_parameter_change": 9.992007221626409e-16,
+    "tolerance": 1e-10,
+    "physical_shape_failures": 0,
+    "old_visibility_changes": 0,
+    "existing45archive_records_byte_identical": true
+  },
+  "parameter_test": {
+    "length_mm": [
+      105,
+      104.5,
+      105
+    ],
+    "volume_changed_mm3": 202.3749999999709,
+    "save_reopen": true
+  },
+  "qualified_cells": [],
+  "evidence_archive": {
+    "path": "day26-shared-roof-evidence.json.gz",
+    "sha256": "56f21a7e236b0a8f911a8a73582f777173ef4299f28328c2d75651fb01888652",
+    "members": [
+      "day26-roof-free-region-check.json",
+      "day26-roof-shared-chambers-check.json",
+      "day26-roof-critical-chamber-native-check.json",
+      "day26-roof-functional-chambers-check.json",
+      "day26-functional-roof-local-packing.json",
+      "day26-functional-roof-local-packing-positions.json",
+      "day26-installed-tie-envelope-interface-check.json",
+      "day26-native-region-preservation-check.json",
+      "day26-Hip-U1-changed-motion-check.json",
+      "day26-Hip-quarter-length-fit.json",
+      "day26-S0-RLP-whole-module-preflight.json",
+      "day26-S0-neck-whole-module-preflight.json"
+    ]
+  },
+  "preview": "day26-shared-roof-capacity.png",
+  "rejected_motion_preview": "day26-leg-shared-space-rejection.png",
+  "rejected_source_strategy": {
+    "all_four_legs_real_region_contact": true,
+    "native_candidates": 182,
+    "near_or_hold_rows": 112,
+    "known_invalid_cover_hold": 1,
+    "seconds": 134.811,
+    "not_proof_no_hand_laid_harness_fits": true
+  },
+  "open": [
+    "source-to-knee-to-hip-to-gallery shared space and usable moving slack",
+    "whole123branches and local turns/crossings",
+    "all actual factory lengths/source900 and donor900 separately",
+    "installation access/order and simple retainers for these regions",
+    "full lying and rising motion with shell outline"
+  ],
+  "physical_pass": false,
+  "N01_complete": false,
+  "score": {
+    "completed": 0,
+    "total": 10
+  },
+  "timing": {
+    "native_preparation_start_utc": "2026-10-26T20:16:09Z",
+    "preservation_seconds": 59.01599999982864,
+    "preservation_and_adoption_elapsed_seconds": 127.14099999982864,
+    "elapsed_is_not_cpu_time": true
+  },
+  "chamber_evidence_keys": {
+    "shared": [
+      "scope",
+      "rows",
+      "kernel_seconds",
+      "N01_complete",
+      "physical_pass",
+      "full123_packing_branch_lengths",
+      "checked",
+      "total",
+      "completed"
+    ],
+    "functional": [
+      "scope",
+      "chambers",
+      "rows",
+      "tasks",
+      "kernel_seconds",
+      "N01_complete",
+      "physical_pass",
+      "checked",
+      "completed",
+      "prior_allocation_receipt",
+      "reused_unchanged_received_chambers",
+      "derived_z_full_precision_mm",
+      "why_changed"
+    ]
+  }
+}

@@ -139,7 +139,7 @@
   },
   "geometry_archive": {
     "path": "day26-current-shared-mount-and-space.breps.zip",
-    "sha256": "f5061913ae7737ee4425e63b336b23838aa96ac63fde03a83f41b5449c9746fe"
+    "sha256": "f7b9bc48a9ea8ebc898e686d6835bb32056603a44e748c50fd2d1a364d83c675"
   },
   "geometry": {
     "FrameWithMAINSharedMount": {
@@ -193,96 +193,6 @@
           13.0,
           -45.5,
           99.3
-        ]
-      ]
-    },
-    "POS_INBOARD_LOW": {
-      "member": "003.brep",
-      "sha256": "75e5375bd36a73e77fbd1df5af089826c378bc784f1d7ea815d5ae8b187dc001",
-      "solids": 1,
-      "volume_mm3": 7576.200000000003,
-      "bounds_mm": [
-        [
-          0.0,
-          17.0,
-          84.25
-        ],
-        [
-          45.0,
-          30.8,
-          96.45
-        ]
-      ]
-    },
-    "POS_INBOARD_NOTCH_LOW": {
-      "member": "004.brep",
-      "sha256": "2975aa9854a0c668305c6451335694777d80d84fc31834112ee7a5dab91a6c90",
-      "solids": 1,
-      "volume_mm3": 2566.8000000000006,
-      "bounds_mm": [
-        [
-          0.0,
-          30.8,
-          84.25
-        ],
-        [
-          45.0,
-          37.0,
-          93.45
-        ]
-      ]
-    },
-    "POS_MIDDLE": {
-      "member": "005.brep",
-      "sha256": "89785a52117e7fbe8610db8efa01420e459d5d77e86dfc59bfa83c1dc6d688a0",
-      "solids": 1,
-      "volume_mm3": 16200.0,
-      "bounds_mm": [
-        [
-          0.0,
-          37.0,
-          84.25
-        ],
-        [
-          45.0,
-          67.0,
-          96.25
-        ]
-      ]
-    },
-    "POS_OUTBOARD": {
-      "member": "006.brep",
-      "sha256": "d47f38d39725c113ba4bd1338d16efff0f30b78cd396e379b34d2e69fb42658c",
-      "solids": 1,
-      "volume_mm3": 6609.375,
-      "bounds_mm": [
-        [
-          0.0,
-          89.75,
-          80.0
-        ],
-        [
-          45.0,
-          96.0,
-          103.5
-        ]
-      ]
-    },
-    "POS_LINK_UNDER_RRP": {
-      "member": "007.brep",
-      "sha256": "5bd5a2ae19c6731fa72b0bc2b2fe045ca2de13c470e3bf0844f31257dd7b80fb",
-      "solids": 1,
-      "volume_mm3": 8482.499999999998,
-      "bounds_mm": [
-        [
-          0.0,
-          67.0,
-          84.25
-        ],
-        [
-          45.0,
-          96.0,
-          90.75
         ]
       ]
     },
@@ -1041,12 +951,31 @@
           -30.349999999999998
         ]
       ]
+    },
+    "ConnectedHarnessSpaceStudy": {
+      "member": "shared_roof_space.brep",
+      "sha256": "6615bf03e13e024cd20bc93cced86d9434fb1f43cf42f74acba20fc2a17e7954",
+      "solids": 1,
+      "volume_mm3": 198201.3815029717,
+      "bounds_mm": [
+        [
+          -75.0,
+          -96.0,
+          84.25
+        ],
+        [
+          112.0,
+          96.0,
+          103.5
+        ]
+      ],
+      "kind": "nonmaterial received local cable space; NOT STL material"
     }
   },
   "native": {
     "path": "Day26PrototypeSpacePlan.FCStd",
-    "sha256": "d6b565fbf81bdaaae2f9b2060e6492a8403e6c11a400fbd1215fa4f63d857efc",
-    "objects": 1147,
+    "sha256": "b3e2fcb5943acd3627137b52ba9c1aa0fca7fb11660f06673a695a4dae6dbd41",
+    "objects": 1173,
     "source_actor_count": 1243,
     "references": 152,
     "physical_display_group": 1014,
@@ -1055,7 +984,11 @@
     "manufacturing_feature_tree_not_released": true,
     "case_bonds_save_reopen_received": true,
     "rear_duplicate_representations_removed_save_reopen_received": true,
-    "underframe17_retention_save_reopen_received": true
+    "underframe17_retention_save_reopen_received": true,
+    "shared_space_native_parameter_and_reopen_received": true,
+    "existing_shape_count_preserved_within_tolerance": 1145,
+    "existing_shape_parameter_tolerance": 1e-10,
+    "nonmaterial_space_hidden_by_default": true
   },
   "review": {
     "thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
@@ -1077,7 +1010,9 @@
     "five_cell_union_one_strict_solid": true,
     "union_volume_mm3": 39606.75,
     "union_seconds": 0.063,
-    "bend_and_whole_network_capacity_still_open": true
+    "bend_and_whole_network_capacity_still_open": true,
+    "superseded_by": "day26-shared-roof-region-received.json",
+    "old_pool_clearance_not_current": true
   },
   "pending": [
     "Whole connected123region plan beyond central POSpool, local occupancy after final restored-kit routing.",
@@ -1261,5 +1196,134 @@
       "battery_plate_and_whole_robot_omitted": true,
       "physical_pass": false
     }
+  },
+  "superseded_local_POS_geometry": {
+    "source_commit": "d3f415f8",
+    "archive_sha256": "f5061913ae7737ee4425e63b336b23838aa96ac63fde03a83f41b5449c9746fe",
+    "records": {
+      "POS_INBOARD_LOW": {
+        "member": "003.brep",
+        "sha256": "75e5375bd36a73e77fbd1df5af089826c378bc784f1d7ea815d5ae8b187dc001",
+        "solids": 1,
+        "volume_mm3": 7576.200000000003,
+        "bounds_mm": [
+          [
+            0.0,
+            17.0,
+            84.25
+          ],
+          [
+            45.0,
+            30.8,
+            96.45
+          ]
+        ]
+      },
+      "POS_INBOARD_NOTCH_LOW": {
+        "member": "004.brep",
+        "sha256": "2975aa9854a0c668305c6451335694777d80d84fc31834112ee7a5dab91a6c90",
+        "solids": 1,
+        "volume_mm3": 2566.8000000000006,
+        "bounds_mm": [
+          [
+            0.0,
+            30.8,
+            84.25
+          ],
+          [
+            45.0,
+            37.0,
+            93.45
+          ]
+        ]
+      },
+      "POS_MIDDLE": {
+        "member": "005.brep",
+        "sha256": "89785a52117e7fbe8610db8efa01420e459d5d77e86dfc59bfa83c1dc6d688a0",
+        "solids": 1,
+        "volume_mm3": 16200.0,
+        "bounds_mm": [
+          [
+            0.0,
+            37.0,
+            84.25
+          ],
+          [
+            45.0,
+            67.0,
+            96.25
+          ]
+        ]
+      },
+      "POS_OUTBOARD": {
+        "member": "006.brep",
+        "sha256": "d47f38d39725c113ba4bd1338d16efff0f30b78cd396e379b34d2e69fb42658c",
+        "solids": 1,
+        "volume_mm3": 6609.375,
+        "bounds_mm": [
+          [
+            0.0,
+            89.75,
+            80.0
+          ],
+          [
+            45.0,
+            96.0,
+            103.5
+          ]
+        ]
+      },
+      "POS_LINK_UNDER_RRP": {
+        "member": "007.brep",
+        "sha256": "5bd5a2ae19c6731fa72b0bc2b2fe045ca2de13c470e3bf0844f31257dd7b80fb",
+        "solids": 1,
+        "volume_mm3": 8482.499999999998,
+        "bounds_mm": [
+          [
+            0.0,
+            67.0,
+            84.25
+          ],
+          [
+            45.0,
+            96.0,
+            90.75
+          ]
+        ]
+      }
+    },
+    "reason": "Old middle allocation intersects previously omitted installed tie/head envelopes. Replace unreceived local pool by complete received roof-cell union; no physical material removed."
+  },
+  "current_spatial_stock_constraints": {
+    "manifest": "day26-current-installed-tie-envelopes.json",
+    "sha256": "bd6b891b40bbae1ac030cf513f3778f8f7cd6a208070db9ccf81679dcca354e1",
+    "installed_component_envelopes": 135,
+    "retired_components": 8,
+    "component_count_is_not_tie_quantity": true
+  },
+  "classifier_revision_after_original_geometry": {
+    "path": "tools/cad/feline_prototype_space_classification.py",
+    "generating_code_sha256": "9183525064018573748d5f324ef36db18c82026e8bdda3237d2fcfde7de59bc2",
+    "current_sha256": "7c7f055084b128b1870a21fcc1ff9dd2e8801d1766981d9a1ac495a2bdf7e936",
+    "reason": "Add installed tie/head envelope classification; source_recipe hashes retain generating code identity. Physical shapes retained within1e-10; existing archive BRep bytes copied unchanged."
+  },
+  "shared_roof_regions": {
+    "receipt": "day26-shared-roof-region-received.json",
+    "components": 1,
+    "native_cells": 23,
+    "volume_mm3": 198201.38150297164,
+    "parameter_test_mm": [
+      105,
+      104.5,
+      105
+    ],
+    "parameter_changed_volume_mm3": 202.3749999999709,
+    "physical_parameter_preservation_receipt": "day26-native-region-preservation-check.json",
+    "source_physical_shapes_retained_within_tolerance": true,
+    "existing_visibility_unchanged": true,
+    "physical_pass": false,
+    "N01_complete": false,
+    "preservation_and_adoption_elapsed_seconds": 127.14099999982864,
+    "timing_note": "Elapsed since preservation check began, including waiting/orchestration; NOT total kernel time. Native preparation began20:16:09UTC. Preservation check59.016s; see component receipts for individual measured operations."
   }
 }

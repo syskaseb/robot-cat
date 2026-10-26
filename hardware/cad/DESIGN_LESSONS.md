@@ -1,5 +1,21 @@
 # Wnioski z projektowania 3D robot-cat
 
+### 26.10 wieczór — przestrzeń wiązki musi obejmować cały zespół
+
+- housing_bounds źródła serwa opisywał tylko połowę obudowy. Odrzucone
+  regiony Hip przecinały drugą połowę/link/Knee. Przed rodziną czterech
+  krzywych pokaż jeden CAŁY człon: wszystkie9Hip/14Knee, nie sam bbox źródła.
+- Niewidoczny budżet zamontowanej opaski/główki nadal zajmuje przestrzeń.
+  Wyklucz tylko jawnie wycofane elementy;135obrysów nie znaczy135opasek.
+  Samonakładający Compound z poprawnych pudełek zastąp ich dokładną sumą,
+  zachowując materiał. Nie wycinaj takiego ograniczenia z kontroli.
+- Native recompute może normalizować kierunki BRep o1e−16. Bajtowy hash
+  wtedy nie dowodzi ruchu. Zachowaj oryginał, porównaj wszystkie parametry
+  i topologię z jawną tolerancją, dopiero potem przyjmij zapis/reopen.
+- Jedna spójna wolna bryła i dobry przekrój nie kwalifikują całej wiązki.
+  Osobno domknij rozgałęzienia, skręty, długości, luz ruchu i montaż.
+  Zakres długości0.069mm nie jest tolerancją ręcznego prototypu.
+
 ### 26.10 — zachowaj zespoły i izoluj operandy kernela
 
 - Pełne przypisanie123połączeń ujawniło, że jednolita galeria19×7 i przejście
