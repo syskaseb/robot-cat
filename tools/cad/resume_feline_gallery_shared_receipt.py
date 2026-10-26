@@ -22,6 +22,10 @@ def load(packet_path):
         if packet.get('day18_MTA_simple_retention_receipt'):
             mta=json.loads(z.read(packet['day18_MTA_simple_retention_receipt']))
             records.update(mta['shapes']);extras['MTA']=mta
+        if packet.get('day26_restored_occupied_modules'):
+            occupied=packet['day26_restored_occupied_modules']
+            records.update({'RestoredOccupiedModule:'+n:r for n,r in occupied.items()})
+            extras['occupied_modules']=occupied
         for n,row in records.items():
             raw=z.read(row['member']);assert hashlib.sha256(raw).hexdigest()==row['sha256'],n
             s=Part.Shape();s.importBrepFromString(raw.decode());s.check(True);shapes[n]=s
@@ -48,6 +52,11 @@ def apply_to_received_world(world,metadata,shapes,receipt):
                    'Station:D_RL:wire:D_RL.5':shapes['W012ReceiverPrefix'],
                    'Body:W011':shapes['W011Axis'],'Body:W012':shapes['W012Axis']})
     for n,s in shapes.items():
+        if n.startswith('RestoredOccupiedModule:'):
+            owner=n.removeprefix('RestoredOccupiedModule:')
+            result[owner]=s
+            meta[owner]=dict(kind='purchased_case_planning_envelope',not_exact_supplier_BRep=True,
+                            source='frozen restored occupied-module receipt',not_a_new_purchased_part=True)
         if n.startswith(('MID:','D_RL:common_band','DAY18:XP02:band','DAY18:XP02:head')):result[n]=s
         if n.startswith('ConservativeSourceCover:'):
             result[n]=s;meta[n]=dict(kind='complete_supplier_space_cover',not_approved_native_BRep=True)
@@ -55,4 +64,17 @@ def apply_to_received_world(world,metadata,shapes,receipt):
             result[n]=s;meta[n]=dict(kind='received_constructive_MTA_retention_NOT_production_N03')
     for n in ['Body:W011','Body:W012']:meta[n]=dict(kind='received_nominal_wire_axis',nominal_profile_radius_mm=1.55)
     meta['Station:D_RL:wire:D_RL.5']=dict(kind='received_nominal_wire',logical_endpoint='D_RL.5',physical_slot=1,same_common_potential=True)
+    # Constructors make these cable references; absent overlay metadata must
+    # not turn the complete free span into a rigid manufactured obstacle.
+    # Actual shared guides/bands/heads remain occupied, and jacket lands still
+    # require planned retention space; this classification accepts no reroute.
+    for n in result:
+        if n.startswith(('FLArcCuff:', 'VerticalCuff:', 'AuxEscape:', 'RRDirectGround:')):
+            meta[n]={**meta.get(n,{}), 'kind':'wire',
+                     'flexible_reference_not_rigid_obstacle':True,
+                     'retained_local_jacket_land_and_connector_checks_required':True}
+        elif n=='USB500:full_axis':
+            meta[n]={**meta.get(n,{}), 'kind':'received_nominal_wire_axis',
+                     'nominal_profile_radius_mm':2.5,
+                     'occupied_plugs_and_jacket_lands_retained':True}
     return result,meta

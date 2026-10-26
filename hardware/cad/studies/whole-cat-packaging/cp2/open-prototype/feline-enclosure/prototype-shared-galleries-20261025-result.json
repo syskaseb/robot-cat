@@ -898,7 +898,7 @@
   "generator_sha256": "96a82273582a41636077041222a1ca2190ab89c576587dbdb77d9f501dba5d3a",
   "geometry_archive": {
     "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\prototype-shared-galleries-20261025.breps.zip",
-    "sha256": "9857600a5db015b2ab0550fb7de35ed694889e7db456ca1783dcbeedf28a0419",
+    "sha256": "23ccff92a0531263d39402ad083f712bd15686562acdb396f15a9e86d94a30c1",
     "members": {
       "CurrentFoundation:FoundationRail:-1": {
         "member": "0.brep",
@@ -3168,5 +3168,188 @@
     ],
     "trial_budget_NOT_promised_N01_completion": true,
     "physical_pass": false
+  },
+  "day26_reviewed_whole_proposal": {
+    "v1_path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\main4-shared-layout-20261026-proposal.json",
+    "v1_sha256": "03c39876203ff130989758393bdab7d35ff397d297fd41352e964152678a03fb",
+    "v2_path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\main4-shared-layout-20261026-proposal-v2.json",
+    "v2_sha256": "b86d46be377e37215a8048b61ba2db264011bcddf14368e1dd3af603dcfb7618",
+    "review_turns": [
+      "01a1775f-02c5-7bc3-bb3b-caa15bcf0d93",
+      "01a17762-33a1-75c2-9eac-404682be2cc8"
+    ],
+    "decision": "READY_FOR_BOUNDED_TRIAL_NOT_GEOMETRY_ACCEPTANCE"
+  },
+  "day26_first_cell_failure_member": "gal26-main4-attempt1-causal-rejection.json",
+  "day26_rejected_cell_and_fidelity_pivot_member": "gal26-rejected-cells-and-fidelity-pivot.json",
+  "day26_current_model_fidelity": {
+    "id": "prototype-bundle-corridors-20261026",
+    "updated_utc": "2026-10-26T09:13:09Z",
+    "mode": "MODULE_MOUNTS_AND_BUNDLE_REGIONS_FIRST",
+    "source": "Human26.10 questioned exact cable overmodeling and explicitly requested persistent knowledge update",
+    "knowledge_sha256": {
+      "C:\\Users\\Sysq\\.codex\\skills\\cad-layout-planning\\SKILL.md": "2e5adeb3d7de5b70da6e7820cbcb67840f9b6d261a3f2c60c669deb6364328d6",
+      "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\DESIGN_LESSONS.md": "55f79c965374410ba4e984dac14d1facd0b8924e34a25aea866b9328f5b123d1",
+      "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\AGENTS.md": "e3b0f62eb63bd78ca87301192f6321776c6466cf75572050649874e4d4c9ec21"
+    },
+    "connection_coverage": {
+      "portions": 123,
+      "ends": 246,
+      "individual_solid_sweeps_required": false,
+      "all_connection_identities_and_factory_constraints_required": true
+    },
+    "exact_test_prerequisite": [
+      "named local physical hazard",
+      "physical design decision",
+      "why a bundle region cannot answer it"
+    ],
+    "fixed_collision_scene": "Real rigid parts, occupied connectors, clamps, mechanisms and explicit reservations; illustrative free wire spans are not rigid obstacles",
+    "moving_loom": "Space and usable slack over required motion; no one immutable rigid wire sweep for all poses",
+    "score_changed": false,
+    "physical_pass": false,
+    "previous_detailed_trials": "Unselected diagnostics; actual S0 interference retained, not waived. Do not resume current exact source4/Splice cell scripts."
+  },
+  "day26_knowledge_commit": "6057d91b",
+  "day26_selected_new_geometry": false,
+  "day26_current_shared_space_plan": {
+    "id": "DAY26_MODULE_AND_CONNECTED_BUNDLE_REGION_PLAN",
+    "status": "MACRO_ALLOCATION_UNSELECTED",
+    "N01_complete": false,
+    "physical_pass": false,
+    "scene_classification_counts": {
+      "flexible_free_span_reference": 125,
+      "local_connection_or_grip_reference": 130,
+      "outline_or_layout_reservation": 5,
+      "rigid_material_or_occupied_module_reservation": 1244,
+      "routine_ATO_access": 24,
+      "assembly_access": 2
+    },
+    "all246_end_ids_unique": true,
+    "motion": {
+      "poses": 49,
+      "source_bodies": 108,
+      "source_pose_records": 5292,
+      "maximum_whole_source_box_Z_mm": 96.63469430807197,
+      "candidate_upper_region_low_Z_mm": 99,
+      "conservative_whole49_vertical_separation_mm": 2.365305691928029,
+      "not_continuous_swept_motion_proof": true,
+      "source_sha256": {
+        "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-whole-assembly/RobotCatPhase1Current.FCStd": "aff0a45bfc4bb430179e80d8e9b4267dc4727a7bb93cadb9c9083911d3d6d4ee",
+        "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/motion-layout.json": "20a5e7414d932d143f5cb4bb4d018b7eb4f9371b1e1f1ae91f8bb8fc7eb9d26c",
+        "hardware/simulation/p0/e6-leg-compatibility.json": "c3c312b8554800db316d422a66d20d46a9dc4f9ed274bd041d014f90dbc91617"
+      }
+    },
+    "module_hypothesis": {
+      "MAIN_rigid_translation_mm": [
+        12,
+        24,
+        0
+      ],
+      "reason": "Vacate complete negativeY upper gallery by moving the board and hardware into an inboard upper bay, not another individual wire detour. Z datum unchanged. Existing printed MAIN mount invalidated and must be redesigned after whole allocation review.",
+      "other_bought_modules_retained": true,
+      "old_MAINassembly_retired_ONLY_IF_new_mount_accepted": true,
+      "selected_new_geometry": false
+    },
+    "reuse": "37 received structures/USB/BUS/MTA/W011-W012/XP02 and all unchanged part data. Exact free span wire curves are not obstacles. Actual modules/occupied interfaces/routineATO remain constraints.",
+    "source_sha256": {
+      "profiles": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+      "end_identities": "865038f4152474f624cd6d857e7f5cb0aafd5886ceaee2d60b257d51c5f15d61",
+      "current_geometry_archive": "b02b8831a25fcb6c9cbb6faccd3feb8bf66f4a423353522bbff7f1d04e9b5a7a"
+    },
+    "precheck_seconds": 0.030999999959021807,
+    "occupied_G_AUX_restoration": {
+      "member": "day26-restored-occupied/G_AUX-case.brep",
+      "sha256": "e5c3dbf48a23b712cc4de41889c4cd4f6e3dcbf46e4ae05c9ce32075114a4948",
+      "owner": "Station:G_AUX:case",
+      "basis": "Frozen gal25 AV case centre80/72.25/91.5 + saved original same bought-case envelope, proper90Z, matching all5first9 starts",
+      "source_old_case_after_read_sha256": "cae8ea7638ba53489d17b2009c452e7a39af5ba1dd6f003ed23e1f93501e1b1e",
+      "rotation_Z_degrees": 90,
+      "source_centre_mm": [
+        46.875,
+        -79.0,
+        98.0
+      ],
+      "centre_mm": [
+        80,
+        72.25,
+        91.5
+      ],
+      "box_dimensions_mm": [
+        19,
+        30,
+        9
+      ],
+      "strict_valid": true,
+      "not_exact_supplier_BRep": true,
+      "not_a_new_purchased_part": true,
+      "prior_overlay_composition_omitted_case": true,
+      "previous_checks_not_relabelled_as_full20": true,
+      "recovery_seconds": 0.01600000006146729
+    },
+    "connection_register": {
+      "profiles": "n01-selected-piece-profile-contract.json",
+      "ends": "n01-current-246-end-register.json",
+      "portion_count": 123,
+      "end_count": 246,
+      "profiles_sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+      "ends_sha256": "865038f4152474f624cd6d857e7f5cb0aafd5886ceaee2d60b257d51c5f15d61",
+      "old_positions_not_current_geometry_acceptance": true
+    },
+    "diagnostic_trials": {
+      "path": "day26-shared-layout-trials.json.gz",
+      "sha256": "6afb859ba79e2d69d63ed8f33d5517a9689fa9df29d45ee14e5b7e97b9b0cdf8",
+      "uncompressed_sha256": "24b35ddce1225adb0d6e89f1c9073e1d1cf46b0562b1c491d85ab424c60f005f"
+    },
+    "local_Pi_space": {
+      "receipt": "day26-shared-bays-and-Pi-space-received.json",
+      "sha256": "0a190d68611b90f6ed221c8fd1fd595e5873e470d931591ea5c95a316576af7e",
+      "whole_common_corridor_length_mm": 217.23183811302107,
+      "actual_envelope_height_mm": 7.4,
+      "actual_under_Pi_Z_bounds_mm": [
+        84.8,
+        92.2
+      ],
+      "local_review_closed": true,
+      "physical_fit_required": true
+    },
+    "local_section_capacity": "day26-local-bundle-section-capacity.json",
+    "next": "All123/246 region/branch and local occupancy/factorylength assignment before new common supports; no repeated Pi corridor checks.",
+    "classification_and_group_edge_records": "Complete raw records in day26-shared-layout-trials.json.gz; current connection identities in canonical123/246 registers; not repeated in mainpacket."
+  },
+  "day26_restored_occupied_modules": {
+    "Station:G_AUX:case": {
+      "member": "day26-restored-occupied/G_AUX-case.brep",
+      "sha256": "e5c3dbf48a23b712cc4de41889c4cd4f6e3dcbf46e4ae05c9ce32075114a4948",
+      "owner": "Station:G_AUX:case",
+      "basis": "Frozen gal25 AV case centre80/72.25/91.5 + saved original same bought-case envelope, proper90Z, matching all5first9 starts",
+      "source_old_case_after_read_sha256": "cae8ea7638ba53489d17b2009c452e7a39af5ba1dd6f003ed23e1f93501e1b1e",
+      "rotation_Z_degrees": 90,
+      "source_centre_mm": [
+        46.875,
+        -79.0,
+        98.0
+      ],
+      "centre_mm": [
+        80,
+        72.25,
+        91.5
+      ],
+      "box_dimensions_mm": [
+        19,
+        30,
+        9
+      ],
+      "strict_valid": true,
+      "not_exact_supplier_BRep": true,
+      "not_a_new_purchased_part": true,
+      "prior_overlay_composition_omitted_case": true,
+      "previous_checks_not_relabelled_as_full20": true,
+      "recovery_seconds": 0.01600000006146729
+    }
+  },
+  "day26_scoped_bay_and_pi_space_receipt": {
+    "path": "day26-shared-bays-and-Pi-space-received.json",
+    "sha256": "0a190d68611b90f6ed221c8fd1fd595e5873e470d931591ea5c95a316576af7e",
+    "whole_N01_complete": false
   }
 }

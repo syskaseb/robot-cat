@@ -157,6 +157,76 @@ rezerwa G_AUX w świecie;0otwartychdokumentów i brak trwającychobliczeń.
 Kandydat górnego przekroju14×7mm (Y±80..94,Z99..106) jest dopiero do sprawdzenia,
 nie wybraną geometrią; zachować rzeczywisty obrysAV i miejsce na jego ścianki.
 
+**Próba N01 — cały układ grup/regionów26.10:** pytanie: czy przeniesienie
+MAIN do środka i trzech całych grup WAGO uwalnia oba górne pasma i wspólne
+połączenie wewnętrzne, zachowując rigid/moduły,12ATO i obrys? Sprawdzamy
+regiony przestrzeni, nie generujemy osi kabli. Kryterium: brak realnego kontaktu
+sztywnych części, zachowane rezerwy modułów i miejsce na ścianki obrysu; błędy
+źródła jawneHOLD. Stare mocowania przenoszonych grup nie są przyjęte dla nowych
+pozycji: plan podpór do wspólnej ramy trzeba ocenić razem z regionami i montażem.
+Jedna partia≤20s, otrzymywalny wynik; bez detali N03 przed recenzją całości.
+
+**Wynik wspólnej próby26.10:** A/25grup-regionów28.328s: proste przesunięcie
+starych uchwytów odrzucone (RR_G/Frame119.414mm³; RR_P/PiBoot30.607mm³).
+Zmiana przyczyny B: wspólne przeorganizowanie przedniego bloku z wyjściami WAGO
+skierowanymi do galerii i osobna tylna zatokaRR_G, zamiast zachowania dawnych
+spokowych uchwytów. Cztery całe obrysy modułów/1.484s: bez konfliktów kupny-kupny;
+rzeczywiste pozostałe kontakty toRR_P/FLArcGuide0.943 iFHAC/FrontSharedrib44.476,
+RRFlatHead5.038. Wymagają wspólnej nowej podpory/retencji, nie kolejnego kabelka.
+AuxEscapeXA02, FLArcCuff iUSBfull_axis to przewody/osiowe referencje według
+konstruktorów; wcześniejsze testowanie ich jako sztywnych przeszkód jest odrzuconą
+interpretacją, nie realną penetracją modułu. Zachować faktyczne zajęte złącza/chwyty.
+B nie jest jeszcze wybrany, długości/obsada/ruch/montaż pozostają do wspólnego odbioru.
+
+**Pakiet całości B w recenzji:** day26-whole-module-bundle-plan-B.json,
+SHA743dd7e71308233e8d5dad8d3c20509e010be8505a3de515e57219cc0dbc3f3f,
+widokPNG/SVG; recenzent01a16f0e… turn01a177c3-6a72-7271-a22d-9dc7a068849a.
+B: FR_P/RR_P odwrócone ku+Y wY47.5..66.5;FHACcały−8X;RR_Gcały−90Z do
+[117,−62.5,98]. To jedna wspólna architektura ze wspólnymi nowymi podporami,
+nie wybrane detale. Dwie przestrzeniePOS podcase/rise2.282s bez konfliktów;
+Pi wysoki transfer faktycznie przecinaCPU/DSI/rezerwękomponentów. Nowy wspólny
+poziomPiZ85..92 z podejściem od+Y za bootY55.37 jest dopiero propozycją.
+Przy wznowieniu odebrać recenzję; nie ponawiać25próbA,4caseB i4regionB.
+W czasie recenzji tylko niezależne pokrycie123/246, obsada i budżety długości.
+
+**Recenzja B odebrana:** gotowe_do_próby, nie odbiór N01/geometrii.
+Pi ciąg i promienie, lokalna obsada przed podporami, zachowanie funkcji starych
+mocowań,12ATO/obieMTA i123przypisań/długości — pięć warunków przyjętych.
+Poprawiono błędnie przepisanySHA w wiadomości (plik niezmieniony).
+Niższy poziom Pi oraz7regionów/2.094s: brak kontaktów z rezerwami komponentówPi;
+pozostałe styki obejmują istniejące główki/retencję docelowegoPAS iG_AUX.
+**Lokalny dokładniejszy test uzasadniony:** wspólny kanał paryPi musi zmienić
+poziom i kierunek przyCPU/boot/PAS. Sprawdzimy jedną obwiednię WIĄZKI z promieniem
+obejmującym obieżyły, nie dwie osobne osie ani całe123trasy. Decyzja: czy wspólny
+niższy kanał z wejściem od+północy jest wykonalny przed projektowaniem podpór.
+Same stykające siępudełka nie rozstrzygają gięcia; zachować źródłoweR/profil.
+
+**Zamknięty lokalny problem — wspólna przestrzeńPi:** od szybu doPAS217.232mm,
+7odcinków jednego wspólnego kanału, r3.7 obejmuje2capacityr1.55+offset1.75+.4zapasu.
+MinRosi20, minRcałejobwiedni16.3. Do obcych sztywnych/rezerwacji ≥1.601mm
+(0.875s); ujemnybound tylko we własnymPAS. Tam dwie LOKALNE ćwiartkiR21.75/18.25
+zprofilem1.55 dają rzeczywisty dolnygap0.15 dobody,2.117 doband i≥3.329dohead,
+0.031s. Nie zmieniono źródłowychpełnych9; 0.15 to własny chwyt/przymiarkaPETG,
+nie globalny nowyluz.7obwiedni/5292bounds49: min16.460mm, obrysAV≥5.319 przy
+budżecie3.25;0.016s. Bez ciągłego ruchu i bez nowych nieistniejących jeszcze podpór.
+Pakiet day26-shared-bays-and-Pi-space-received.json +11KBbreps.zip utrwala7osi
+WSPÓLNEGO kanału i4caseB; nie123żył ani nowe drukowane części.
+Lokalna obsada:9×maxOD3.1 w5+4rzędach/.2odstęp/.5krawędź:17.3×6.958.
+Dlatego galerieplanowo19×7, bez poszerzania kota; opaski w większych komorach,
+nie w minimalnym przekroju. RodzinaFR_P/RR_P4.2+3×3.1 potrzebuje15.1×5.2.
+Te przekroje nie zastępują jeszcze całych123przypisań. Jedyna korekta do recenzenta
+wysłana z nowym świadkiem; nie ponawiać niezmienionych siedmiu próbPi.
+N01 nadal0/10, reszta: wspólne nowe podpory,123regiony/obsada/długości, dolne900,
+obieMTA i cały wykonalny montaż. Następny wynik ma je łączyć, nie kolejne osie.
+
+**Korekta recenzenta odebrana:** lokalny Pi-corridor domknięty na poziomie
+planu prototypu dla sprawdzonej sceny. Przyjęto3ograniczenia: rzeczywista obwiednia
+ma7.4mmwysokości, więc używać jej Z84.8..92.2 podPi, NIE starej deklaracji85..92;
+PAS0.15 pozostaje przymiarką; nowe podpory muszą zachować ten kanał. Nie powtarzać
+geometrii ani nie zmieniać topologiiPi. Recenzent nie przeliczałCAD niezależnie.
+Identyfikatory plików kopiować programowo zhashlib; dwa błędy ręcznego przepisywania
+hashy w wiadomościach skorygowane lokalnie, pliki źródłowe były niezmienione.
+
 **NEXT:** ustalić CAŁY obsadzony układ modułów/mocowań/obu stron złączy i
 połączone dostępne regiony wiązek z rozgałęzieniami, lokalnąobsadą, długościami,
 zapasem i montażem. Swobodne poglądowe przewody wyłączyć ze sceny przeszkód
