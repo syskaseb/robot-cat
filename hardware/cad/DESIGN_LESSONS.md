@@ -1,5 +1,48 @@
 # Wnioski z projektowania 3D robot-cat
 
+## 26.10 — wiązki prototypu: obowiązujący poziom szczegółowości
+
+**Aktualizacja26.10: plan wiązki prototypu nie jest rysunkiem produkcyjnym każdej żyły.**
+Wcześniejsza ogólna rada nie wystarczyła: wykonanie nadal wracało do pełnych
+pipe/łuków i traktowało ich zapisany przebieg jako sztywną przeszkodę. Zmieniamy
+konkretną bramkę pracy, a nie tylko słownictwo w raporcie.
+
+- Domyślny wynik N01: zamocowane moduły, połączone dostępne obszary wiązek,
+  lokalna obsada/przekrój z profili i jawnego zapasu, budżety długości,
+  rozgałęzienia, proste opaski i wykonalny montaż. Zachować123tożsamości/246końców;
+  nie wymagać123indywidualnych brył ani dokładnych osi jako warunku tego planu.
+- Obszar wiązki musi mieć rzeczywistą ciągłość i miejsce na jej lokalną obsadę.
+  Sam pusty bbox albo opis „ułożyć później” nie jest odbiorem. Własne drukowane
+  mocowanie lub położenie modułu można przeprojektować wspólnie, zamiast
+  projektować ciasne przejście i dopasowywać do niego każdy kabel.
+- Przed nowym dokładnym modelem/testem zapisać w bieżącej karcie: **konkretne
+  zagrożenie lokalne, decyzję fizyczną i dlaczego korytarz jej nie rozstrzygnie**.
+  Przegub, zajęte złącze, ostra krawędź lub przygniecenie uzasadniają lokalny
+  model; nie uzasadniają automatycznie dokładnego trasowania całego przewodu.
+- Scena kontroli części sztywnych obejmuje rzeczywiste moduły, złącza, mocowania
+  i mechanizmy. Poglądowe swobodne odcinki kabli nie są nieruchomymi przeszkodami.
+  Krzyżowanie ich narysowanych osi nie dowodzi braku miejsca na ręcznie ułożoną
+  wiązkę. Zachować dowody prawdziwego kontaktu z częścią sztywną/przegubem;
+  kontakt izolacji w zamierzonej wiązce nie jest automatycznie zwarciem ani kolizją.
+- Przy ruchu ocenić przestrzeń wiązki i dostępny luz w wymaganych położeniach.
+  Nie wymagać, by jedna niezmienna sztywna bryła przewodu pasowała do każdej pozy.
+  Koniec swobodnego modelu/chwytu drukowanego nie jest automatycznie stałym
+  kupnym złączem. Mocowanie i ostatni łuk to też zmienne projektowe.
+- Fabryczne długości, izolacja, końcówki i odciążenie nadal obowiązują.
+  Średnica nominalna, rezerwa miejsca i dane producenta mają różne znaczenie;
+  nie wymyślać cieńszego kabla ani mniejszego promienia dla zielonego testu.
+  Ostateczne ręczne ułożenie/docięcie dopuszczonych odcinków i przymiarkę zapisać
+  jako czynność montażową; do druku trafiają części mechaniczne, nie przewody.
+
+Podstawa narzędziowa sprawdzona26.10: Autodesk [harness segments](https://help.autodesk.com/cloudhelp/2024/ENU/Inventor-Help/files/GUID-60FCFDE3-6170-4C7A-881B-90D4CB1733E5.htm)
+opisuje wspólne wirtualne wiązki, rezerwowane ścieżki i nieliczne punkty sterujące;
+SOLIDWORKS [cable routing](https://help.solidworks.com/2024/english/swelec/r_swelec_routing_cables.htm?id=0.35.5.5)
+rozróżnia pełne trasy od szybszego szkicu roboczego. Nasz wybór poziomu
+szczegółowości to decyzja dla ręcznie składanego prototypu, nie uniwersalny wymóg
+producenta ani deklaracja fizycznego PASS. Uproszczenie samo nie daje punktów.
+Procedura: skill cad-layout-planning, Choose and verify proportionately.
+
+
 ## 25.10 — prawdziwy koniec i prawdziwy chwyt przed trasą
 
 Stary wolny cap po umownym wachlarzu NIE jest automatycznie stałym kupnym

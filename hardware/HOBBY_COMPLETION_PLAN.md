@@ -1,23 +1,21 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (25.10.2026)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (26.10.2026)
 
-**OKNO ZAMKNIĘTE 2026-10-25T17:00:07Z — deadline18:00Warszawy, enabled=false, stage_completed=false.**
-Własny5767zakończonyexit0/wszystkozapisane; brakotwartychCAD. Noweprace tylko
-po nowejzgodzie. WynikN01–N100/10=0%,zmiana0pp;historyczne20/20osobno.
-Czasokna5h46min(nieciągłyCPU/CAD);ostatniodczytlimitu87.0%pozostało.
-Następnycheckpoint:CAŁY MAIN4;budżetjednejwspólnejpróby60–90min,nieobietnicaukończeniaN01.
-54ponownieodczytanerekordyBRep to37scoped+14bodyrefs+3covers, nie54noweczęści.
-
+**NOWE AUTORYZOWANE OKNO:** main4-shared-layout-20261026-1800,
+start08:16:17UTC, deadline17:00UTC=18:00Warszawy, enabled=true.
+Rzeczywisty odczyt konta100% pozostało/ordinaryAllowed; zapisanylast_account_usage.
+Nie wykonano resetu/zakupu. Zgodę daje dzisiejsze „Pracuj do18”.
+Poprzednie okno25.10 zamknięte/8fa2c125, jego5767nie wznawiać.
 
 N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Okno do18:00Warszawy
-(CET)=17:00UTC, nie przedłużać. Stan enabled/active_worker odczytaj w
+(CET)=17:00UTC26.10.2026, nie przedłużać. Stan enabled/active_worker odczytaj w
 robot-cat/.codex/hooks/robot-cat-work-window.json. Jeden wykonawca Sol high,
 istniejący recenzent Astra medium; bez zmiany modelu i okresowych alertów.
 Źródło: prototype-shared-galleries-20261025-result.json +ten sam breps.zip.
 Starsze karty poniżej są HISTORIĄ, także dawne „ON/NEXT”.
 
-**Odebrane w tym oknie:** ca611908 setup; d7f2bdde MAIN9/W011/XP02;
+**Odebrane w poprzednim oknie25.10 (zachowane):** ca611908 setup; d7f2bdde MAIN9/W011/XP02;
 b55bf829 wspólna podparta rama i serwisW012;74754396 USB/BUS/MTA.
 ZIP gal25-day18-shared-root-received.json:1print605faces210.036×112.277×119.35,
 12rodziców/BankBed/RRGuide zachowane, natywny SharedGalleryConstructivePlan.FCStd,
@@ -70,7 +68,8 @@ Chroniony12mmstraight/solder/sleeve/PCBkontakty pozostają, dane lutowania/przym
 to nadal projektowezakładki, niepomiarproducenta. Figura obejrzana. ŹródłoALOKACJI
 nieodebrane: brak całegoroot/nylon i4kontynuacji, nie podmieniaćwświat ani niepunktować.
 
-**NEXT:** jeden wspólny MAIN4source/4body/mocowania/montaż zWSZYSTKIMI IN+OUT
+**Historyczne NEXT sprzed uwagi26.10 — ZASTĄPIONE bramką niżej:**
+jeden wspólny MAIN4source/4body/mocowania/montaż zWSZYSTKIMI IN+OUT
 R47, PWM/S1/Pi/BUS/Splice, pozostałymi10, obecnymi49 i obrysem; określ prawdziwe
 padydatum/przewody/sleeve i co jestprowizorycznymseam. JednaCAŁApropozycja do
 recenzenta przednastępnymCAD. Nie recenzować samegosourcefield ani parametrów.
@@ -91,16 +90,55 @@ MAIN9 ładuje37strictBRep. NowyOSprocesodczytał37+14bodyrefs+3motioncovers=54
 ściśle poprawnegeometry4.453s. To checkpointdanych, NIEwhole14acceptance.
 Próba upstream49 dałaPWM0near, potem przerwała na strictbłędzieMAINsupplier;
 nie deklarować całegoModule49 i nieponawiaćnaprawy.
-**active_worker:** EXIT0/zachowane; nie wznawiać staregoPID/session.
-StanoknaCLOSED; powyższyNEXT jest przygotowaniemdo następnejautoryzacji.
+**active_worker:** poprzedniEXIT0; nowy resident22272/PID7060 gotowy. Jednorazowy
+odczyt1530aktorów/37scoped/14rejestr9.906s, bez otwartych dokumentów/skanuarchiwów.
+**26.10 — ZMIANA BRAMKI PO JAWNEJ UWADZE UŻYTKOWNIKA:**
+Tryb MODULE_MOUNTS_AND_BUNDLE_REGIONS_FIRST. Aktualna wiedza jest w skillu
+cad-layout-planning i sekcjiPoziom szczegółowości prototypu wDESIGN_LESSONS;
+AGENTS oraz faktycznie emitowana instrukcja hooka zostały zsynchronizowane.
+Nie wracać do seryjnego generowania osi source4/W078. Pełne123ID/246końców
+to pokrycie połączeń, NIE obowiązek123sztywnychbryl. N01nadal0/10.
+
+**Odebrane próby26.10, NIEWYBRANE:** jedna wspólna propozycja MAIN4/Splice
+i korekta retencji przeszły recenzję planu (Astra medium), nie geometrii.
+18poprawnychbrylkomórek powstało w5.109/6.297s; własnepary8.859/10.5s.
+Pierwsza próba: rzeczywisteprzecięcia pad/nylon/W077. Druga usuwa te przyczyny,
+lecz główki opasek nadal przecinająprint52.614/6.547mm³. Cała pionowa komórka
+ODRZUCONA: poprawneS0 przecina sleeve255.057734/root662.313502mm³.
+To prawdziwykontakt sztywnych części, nie błądpoglądowychkabli. Nie pomijaćS0.
+Nie naprawiać tego następną osią ani przesuwaniem pojedynczego przewodu.
+Wspólna rama/USB/BUS/MTA oraz wcześniejsze37odebranychgeometrii pozostają.
+
+**Nowy fakt o tożsamości:** stare PiPowerW079/W080 to zdalne referencje
+(capX47.7/112.4), nie gotowe MAIN5.7→PAS74.7. Ich dawne długości nie są
+pełnym MAIN–PAS. r1.55 to pojemność, r1.05 nominal; K1474para liczy sięraz.
+Nie usuwać prawdziwego boot/PAS9 ani wymyślać nowego pinoutu/średnicy.
+
+**active_worker:** resident22272/PID7060 bezczynny, wszystkie obliczenia odebrane;
+bez otwartych dokumentów. Nie uruchamiaćponownie robot-cat26-cells/static/own-check.
+**NEXT:** ustalić CAŁY obsadzony układ modułów/mocowań/obu stron złączy i
+połączone dostępne regiony wiązek z rozgałęzieniami, lokalnąobsadą, długościami,
+zapasem i montażem. Swobodne poglądowe przewody wyłączyć ze sceny przeszkód
+sztywnych; nadal zachować ichID, fabryczneograniczenia i ryzyka.
+Dokładnytest dopiero po wpisie: lokalnezagrożenie → decyzja → dlaczego region
+niewystarczy; nie rozszerzać go automatycznie na całyprzewód. Recenzent dostaje
+całyplan, nie osie i parametry. Stanowiska/chwytydrukowane są zmienne,
+kupneczęści i prawdziwe wyjścia nimi nie są. Nie tworzyć kolejnego ciasnego
+przejścia, żeby obronić arbitralną podporę. Wynik musi być budowalny, nie tylko
+prostszynarysowanymodel. Finalna przymiarka/luz/pull to jawnebramkifizyczne.
+
+**Czas/limit:** start08:16:17Z; zapis zmiany metodykiokoło09:12Z,
+około56minzegara łącznie z analizą/narzędziami; to nie ciągłyczasCAD.
+Ostatniodczyt sprawdźlive last_account_usage;09:11:10Z pozostało98%, bezresetu.
+Hook enabled=true, termin17Z=18Warszawy NIEZMIENIONY; ta zmiana nie zamyka okna.
 
 **Pętla:** po2porażkach zmień POZIOM decyzji/source/module/assembly, nie samą
 nazwęstrategii. Nowy policzonybypass nie jest wholelayoutplanem. Odbierajworker,
 reużyj niezmienione dowody,tylkozmienioneinterfejsy. Czas/limitprzedkosztownąpracą
 i≤10min, rzeczywistylast_account_usage. Commitytylkowłasne. Bez zakupów/resetów/
 zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude.
-P0/E6/15/MG92B/R47/325×200×160/max200/256³/MAIN46.52 zachowane. O17Z zapisz/
-zakończ własne obliczenia,wyłączenabled,raportiROBOT_CAT_SHARED_GALLERIES_20261025_1800_DONE.
+P0/E6/15/MG92B/R47/325×200×160/max200/256³/MAIN46.52 zachowane. O17Z26.10 zapisz/
+zakończ własne obliczenia,wyłączenabled,raportiROBOT_CAT_MAIN4_20261026_1800_DONE.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 

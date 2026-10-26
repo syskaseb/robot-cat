@@ -1,5 +1,18 @@
 # robot cat — notes for Codex
 
+## Prototype harness fidelity (26.10.2026)
+
+Read the current26.10 section at the top of `hardware/cad/DESIGN_LESSONS.md`
+and the `cad-layout-planning` skill. Plan stable module mounts and connected,
+accessible bundle regions with local occupancy, lengths/slack, anchors and
+assembly. Complete123/246 connection coverage does not require individual
+solid sweeps. Before an exact wire model/test, name the local physical hazard,
+the design decision, and why a bundle-space model cannot answer it. Keep that
+test local. Illustrative flexible free spans are not rigid obstacles; one
+immutable wire shape cannot represent every flexed leg pose. Preserve real
+module/connector/motion constraints, selected parts and factory lengths.
+This changes model fidelity, not the completion score or physical acceptance.
+
 ## Current decision entry point (25.10.2026)
 
 For current mechanical layout work, read ONLY the first Karta decyzji CAD
