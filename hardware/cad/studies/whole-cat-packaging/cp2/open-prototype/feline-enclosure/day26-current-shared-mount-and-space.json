@@ -829,15 +829,16 @@
   },
   "native": {
     "path": "Day26PrototypeSpacePlan.FCStd",
-    "sha256": "1b0e48df3d310a5f0be5c44a6af46180e1f8db86fd01e8b6b132cc24c89dc6e1",
-    "objects": 1137,
-    "source_actor_count": 1233,
+    "sha256": "e2be35466f568471aa33ddc612f5221b1669ff33ec57172ff1974b3b1b502f7d",
+    "objects": 1135,
+    "source_actor_count": 1231,
     "references": 152,
-    "physical_display_group": 1016,
+    "physical_display_group": 1014,
     "unchanged_neutral_leg_parts": 108,
     "save_reopen_received": true,
     "manufacturing_feature_tree_not_released": true,
-    "case_bonds_save_reopen_received": true
+    "case_bonds_save_reopen_received": true,
+    "rear_duplicate_representations_removed_save_reopen_received": true
   },
   "review": {
     "thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
@@ -860,7 +861,6 @@
     "bend_and_whole_network_capacity_still_open": true
   },
   "pending": [
-    "Remove duplicate old rear screw representations when adopting selected12mm replacements; preserve nuts and same selected SKU. Found at hard stop; native assembly not released.",
     "Whole connected123region plan beyond central POSpool, local occupancy after final restored-kit routing.",
     "Shared transition bend chambers and17underframe jacket retention assembly.",
     "Current900source/donor ledger: do not reuse source original cut159 as a body term; derive from fixed source-owned knee staggered join schedule. Three provisional donor budgets still unresolved.",
@@ -993,6 +993,33 @@
       5.2
     ],
     "finding": "Current scene retains old screw solids as well as intended selected12mm replacements. Native is a study, not a clean manufacturing assembly. Remove old screw representations on next authorized adoption; preserve nuts and same selected SKU. No CAD edit after deadline.",
-    "source_is_scene_query_not_reopened_native_independent_check": true
-  }
+    "source_is_scene_query_not_reopened_native_independent_check": true,
+    "resolved": true,
+    "resolution": "Removed only two old screw representations from study. Two selected12mm replacements and two original nuts byte-identical after save/reopen.",
+    "removed": [
+      {
+        "name": "Actor0160",
+        "label": "BatteryScrewRearL",
+        "z_mm": [
+          -3.0,
+          6.5
+        ]
+      },
+      {
+        "name": "Actor0162",
+        "label": "BatteryScrewRearR",
+        "z_mm": [
+          -3.0,
+          6.5
+        ]
+      }
+    ],
+    "source_native_sha256": "1b0e48df3d310a5f0be5c44a6af46180e1f8db86fd01e8b6b132cc24c89dc6e1",
+    "worker_seconds": 36.625
+  },
+  "retired_duplicate_reference_actors": [
+    "BatteryScrewRearL",
+    "BatteryScrewRearR"
+  ],
+  "current_recovery_rule": "Load current native or overlay current38shapes and retire retired_duplicate_reference_actors. Do not replay old native-builder intermediate scene with duplicate rear screws."
 }
