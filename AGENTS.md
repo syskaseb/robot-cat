@@ -11,6 +11,11 @@ the design decision, and why a bundle-space model cannot answer it. Keep that
 test local. Illustrative flexible free spans are not rigid obstacles; one
 immutable wire shape cannot represent every flexed leg pose. Preserve real
 module/connector/motion constraints, selected parts and factory lengths.
+For prototype acceptance, prove feasible installation and required routine
+access. Occasional repair may use documented partial disassembly. Do not add
+rapid-service requirements, individual rigid holders for every conductor, or
+a production harness drawing. Final hand-laid wire arrangement is an assembly
+check; connected bundle capacity, fixed lengths and joint slack remain planned.
 This changes model fidelity, not the completion score or physical acceptance.
 
 ## Current decision entry point (25.10.2026)

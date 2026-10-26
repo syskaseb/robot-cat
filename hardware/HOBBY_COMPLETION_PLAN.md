@@ -4,7 +4,7 @@
 
 **NOWE AUTORYZOWANE OKNO:** main4-shared-layout-20261026-1800,
 start08:16:17UTC, deadline17:00UTC=18:00Warszawy, enabled=true.
-Rzeczywisty odczyt konta100% pozostało/ordinaryAllowed; zapisanylast_account_usage.
+Odczyt przy starcie100%; bieżący patrz live last_account_usage (10:09:35Z:97%, ordinaryAllowed).
 Nie wykonano resetu/zakupu. Zgodę daje dzisiejsze „Pracuj do18”.
 Poprzednie okno25.10 zamknięte/8fa2c125, jego5767nie wznawiać.
 
@@ -14,6 +14,16 @@ robot-cat/.codex/hooks/robot-cat-work-window.json. Jeden wykonawca Sol high,
 istniejący recenzent Astra medium; bez zmiany modelu i okresowych alertów.
 Źródło: prototype-shared-galleries-20261025-result.json +ten sam breps.zip.
 Starsze karty poniżej są HISTORIĄ, także dawne „ON/NEXT”.
+
+**Metodyka po porównaniu projektów — obowiązuje przy każdym wznowieniu:**
+wynik N01 to jeden konstruktywny układ zamocowanych modułów, obu stron złączy,
+połączonych dostępnych regionów wiązek i wykonalnego montażu. Plan obejmuje
+123/246 tożsamości, lokalną obsadę, fabryczne długości i luz; nie123sztywne osie.
+Końcowe ręczne ułożenie pozostaje czynnością montażową. Rzadki serwis może użyć
+częściowego demontażu; nie dodawać szybkiej naprawy/uchwytu każdej żyły.
+Dokładny model tylko lokalnie: zagrożenie → decyzja → dlaczego region nie wystarcza.
+Recenzent ocenia cały ten wynik. Źródła: sekcja26.10 DESIGN_LESSONS; skill CAD.
+Ta aktualizacja nie zalicza N01 ani nie zmienia części, zakresu, modeli i terminu.
 
 **Odebrane w poprzednim oknie25.10 (zachowane):** ca611908 setup; d7f2bdde MAIN9/W011/XP02;
 b55bf829 wspólna podparta rama i serwisW012;74754396 USB/BUS/MTA.
@@ -116,6 +126,37 @@ Nie usuwać prawdziwego boot/PAS9 ani wymyślać nowego pinoutu/średnicy.
 
 **active_worker:** resident22272/PID7060 bezczynny, wszystkie obliczenia odebrane;
 bez otwartych dokumentów. Nie uruchamiaćponownie robot-cat26-cells/static/own-check.
+**Wcześniejsza próba przestrzeni, nadal niewybrana:** graf obejmuje123odcinki/246ID,
+79par grup (nie79nowychpołączeń).1530aktorów rozdzielono na125poglądowych
+swobodnychprzewodów,130lokalnychreferencji,1244sztywne/rezerwacje i26dostępów.
+Dawne regionygórne Y[−96,−80]/[80,96], Z[99,108] NIE są przyjęte w obrysie. Nad modelowymi
+obwiedniami49pozycji nóg konserwatywne2.365mm; maksimum96.634694. Nie jestto
+ciągła kwalifikacja ruchu ani odbiór drożności względemmodułów.
+Jeden makrowariant: CAŁA kupnaMAIN+8fastenerów przesunięta[+12,+24,0] do
+wewnętrznej górnejzatoki, Zdatumbez zmian; starydrukowanyMAINmount niewybrany,
+nowyprojekt dopiero po wspólnymplanie. Cel: uwolnić całyujemnygórnykorytarz,
+nie dopasować W078. Sprawdzić pełnąrezerwacjęPCB/osprzęt z pozostałymi modułami,
+stałymi zakończeniami i drukami (bez poglądowych swobodnychkabli). Kryterium:
+≥1.25mm do obcych sztywnychczęści; kontaktrezerwy toHOLD, nie dowódpenetracjiPCB.
+Budżet20s/odbieralnepartie, bez detali nowegomountu przedrecenzjącałości.
+
+**Ocena około90min26.10:** odchodzimy od pojedynczych przewodów: cały MAIN
+w zatoce[+12,+24,0] ma9sprawdzonychrezerwacji/osprzętów/5.062s, bez obcych
+konfliktów; jedyny0.0508dotyczy własnej starejgłówki MAIN9, która należy do
+przenoszonego źródła, nie do obcegomodułu. Nowymounti całaprzestrzeńnieodebrane.
+Odtworzono brakującą w składanejscenie rezerwację G_AUX z zamrożonejpozycjiAV:
+[70.5,57.25,87]→[89.5,87.25,96], ta sama kupna221-415, proper90Z, wszystkie5startów9
+zgodne. To naprawabrakującejprzeszkody, nie nowykomponentani punkt. Loaderzachowuje
+ją przywznowieniu. Staretesty nie są wstecznie testempełnych20WAGO.
+Kolejna wspólna alokacja: MAINdośrodka, FR_P/RR_P całe−10Y, RR_Gcałe+16.5Y,
+Zwszystkichbez zmian. Cel: oba górnepasma z dala od nóg; podpartywspólnybank
+ma miećwolne12ATO i złącza. ObudowaAVstałegoprzekroju, nie starytaper18.10.
+Nie wycinamy kanałów dla każdej żyły. Regiony i budżety dotyczą lokalnych wiązek.
+Bieżący resident potwierdzony:1531aktorów,37odebranychkształtów plus odtworzona
+rezerwa G_AUX w świecie;0otwartychdokumentów i brak trwającychobliczeń.
+Kandydat górnego przekroju14×7mm (Y±80..94,Z99..106) jest dopiero do sprawdzenia,
+nie wybraną geometrią; zachować rzeczywisty obrysAV i miejsce na jego ścianki.
+
 **NEXT:** ustalić CAŁY obsadzony układ modułów/mocowań/obu stron złączy i
 połączone dostępne regiony wiązek z rozgałęzieniami, lokalnąobsadą, długościami,
 zapasem i montażem. Swobodne poglądowe przewody wyłączyć ze sceny przeszkód
@@ -129,7 +170,7 @@ prostszynarysowanymodel. Finalna przymiarka/luz/pull to jawnebramkifizyczne.
 
 **Czas/limit:** start08:16:17Z; zapis zmiany metodykiokoło09:12Z,
 około56minzegara łącznie z analizą/narzędziami; to nie ciągłyczasCAD.
-Ostatniodczyt sprawdźlive last_account_usage;09:11:10Z pozostało98%, bezresetu.
+Ostatniodczyt sprawdźlive last_account_usage;10:09:35Z pozostało97%, bezresetu.
 Hook enabled=true, termin17Z=18Warszawy NIEZMIENIONY; ta zmiana nie zamyka okna.
 
 **Pętla:** po2porażkach zmień POZIOM decyzji/source/module/assembly, nie samą
@@ -139,6 +180,12 @@ i≤10min, rzeczywistylast_account_usage. Commitytylkowłasne. Bez zakupów/rese
 zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude.
 P0/E6/15/MG92B/R47/325×200×160/max200/256³/MAIN46.52 zachowane. O17Z26.10 zapisz/
 zakończ własne obliczenia,wyłączenabled,raportiROBOT_CAT_MAIN4_20261026_1800_DONE.
+
+**Praktyka innych robotów sprawdzona26.10:** Pupper2021 (wiązki/szczeliny/opaski), Nybble (ręczne ułożenie po montażu z kontrolą ruchu) i MiniPupper2 (zamocowane moduły, podłączenie wiązek przed osłonami). Źródła i ograniczenia w sekcji26.10 DESIGN_LESSONS. Nie twierdzimy, że ich CAD nie zawiera przewodów; przyjmujemy proporcjonalny poziom planu prototypu. Wybrane części bez zmian, N01 nadal0/10. Bieżący odcinek odczytu/porównania źródeł od10:01:11UTC do10:03:00UTC, 109.4s czasu zegarowego, nie czasu CAD; wcześniejszy rekonesans osobno.
+
+
+**Wdrożenie metodyki26.10:** skill/AGENTS/wnioski/pierwsza karta/polefidelity/hook zsynchronizowane; walidacja skilla i emisji hooka na izolowanej kopii PASS. Brak nowych obliczeń CAD. Czas 175.2s zegara od10:09:35UTC; enabled=true, termin17Z i modele bez zmian.
+
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 

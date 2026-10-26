@@ -42,6 +42,13 @@ szczegółowości to decyzja dla ręcznie składanego prototypu, nie uniwersalny
 producenta ani deklaracja fizycznego PASS. Uproszczenie samo nie daje punktów.
 Procedura: skill cad-layout-planning, Choose and verify proportionately.
 
+Przy odbiorze N01 sprawdzać wykonalną kolejność instalacji oraz wymagany dostęp
+rutynowy. Rzadka naprawa może wymagać opisanego częściowego demontażu; nie dodawać
+szybkiego serwisu, osobnego sztywnego uchwytu każdej żyły ani dokumentacji
+produkcyjnej wiązki. Końcowe ręczne ułożenie jest bramką montażową. Nadal potrzebny
+jest wykonalny plan przestrzeni, lokalnej obsady, długości i luzu, a nie samo
+założenie „zmieści się”. Recenzja dotyczy tego wyniku i nie dopisuje wymagań.
+
 
 ### Sprawdzone porównanie z działającymi projektami — 26.10
 
