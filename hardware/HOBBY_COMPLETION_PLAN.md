@@ -4,9 +4,9 @@
 
 **Okno:** main4-shared-layout-20261026-1800, do17:00UTC=18:00Warszawy.
 Zgoda: „Okej to działaj do18”, następnie „Spróbuj jeszcze raz”. Bez przedłużania.
-Hook robot-cat/.codex/hooks/robot-cat-work-window.json; enabled nadaltrue do końca.
+Hook robot-cat/.codex/hooks/robot-cat-work-window.json; **enabled=false**, okno zamknięte o terminie.
 Czas/limit przed kosztowną pracą i≤10min; rzeczywisty last_account_usage wlive.
-Ostatni odczyt16:37:39Z89%/ordinaryAllowed, bezresetów/zakupów. Nie zmieniać modelu.
+Końcowy odczyt limitu między17:00:04–17:00:40Z:89%/ordinaryAllowed; bezresetów/zakupów.
 Jeden wybrany Sol high, istniejący recenzent Astra medium. **N01-N10=0/10**;
 historyczne20/20 dokumentacji osobno. Bez fizycznegoPASS i częściowych punktów.
 
@@ -89,19 +89,48 @@ Główne prototype-shared-galleries-20261025-result.json i jego frozenzip nadal
   K1474 po1000/kolor: rezerwacje500Pi+400input+100zapas positive,
   500Pi+450input+50zapas negative; to alokacja, NIE odebrane długości tras.
 
-**active_worker:** resident22272/PID7060, jedna własna sesja. Przed nowym startem
-odbierz ostatni wynik. Nativecase-bonds zapis/reopen44.469s odebrane; brak otwartychdocs.
+**active_worker:** brak obliczeń; własny resident22272/PID7060 zakończony, exit0,
+0otwartych dokumentów. Wyniki zachowane; nie wznawiać bez nowego okna.
 RecenzentAstra: GO do całej próby, turn01a17893-4ebd-7460-9429-b5da28a1e967;
 KorektaODEBRANA turn01a17918-4bfa-7513-ad1e-12c9d25b4e5a: GOcałejpróby,
 HOLD900bez mapowania staryroot→zachowanylegprefix→currentseam→freecap. Nie
 wnioskować o brakukabla z3ujemnych naiwnego wzoru; nie przenosić source-owned
 joinu. 42mm rozbićna składniki. Nie wysyłać dalszych recenzji parametrów.
 
-**NEXT do17UTC:** zamknąć pełny plan połączeń istniejącymi szerokimi komorami,
-17podramowych odciążeń prostymi wspólnymi cap/bar/ties oraz3źródłowe budżety
-900/source-root. Nie uruchamiać2800/5600/skanówarchiwów/siatki477840 ani pełnych123osi.
-Długie rzeczy dzielić i zachować zapas na zapis. Lokalnecommity nie kończą okna.
-O17UTC zakończyć nowe prace/zapisać/wyłączyćenabled/raport tutaj. Bez maila.
+**Odczyt źródłowy po recenzji (bez nowej geometrii):** wszystkie36starych
+rootów z wybranycholdroutes są zestawione zcurrentseam/freecap w istniejącym
+physical-length-budgets. DlaW006/W010/W015 starekonce nie są obecnymi seamami
+(odległości punktów~65/75/61mm; NIE dopisywać ich jako dodatkowego kabla).
+Brakuje tożsamości faktycznie zachowanego odcinka leg→seam, nie kolejnego
+szukania pozycji. Starysource_land5 i nowe9/łuki wymagają świadomego rozgraniczenia.
+44+USB+Pi mieszczą się lokalnie;5komórPOS zfuzowane do1poprawnejbryły39606.75mm³
+w0.063s. To zamyka lokalną łączność, nie pełne przejścia/zakrętyN01.
+Checkpoint study commit89eb6417 zapisany; kontynuacja tylko do17UTC.
+
+**Zamknięcie18:00Warszawy:** N01-N10 nadal0/10, zmiana0pp. Nie jest to odbiór
+całego układu. Pełny reload38świadków strictBOP/hash/volume1.485s. Bieżąca komora
+G2/D_FR już nie przecina własnego nośnika: odjęto0mm³,1poprawny połączonywolumen
+7972.36275mm³; nominalna pierwszawarstwa zachowana,0missing,0.144s. Dawna notatka
+~142mm³ była nieaktualna; nie dokonano kolejnej zmiany geometrii.
+
+Końcowe zapytanie wykazało DUPLIKAT reprezentacji tylnych śrub: stare
+BatteryScrewRearL/R Z−3..6.5 oraz wybrane zamienniki12mm Z−8..6.5; nakrętki
+Z3.2..5.2 zachować. Ten wynik dotyczy bieżącej sceny; nie udawać osobnego
+ponownego otwarcia native. Natywny zestaw pozostaje STUDIUM/HOLD do usunięcia
+starych reprezentacji przy adopcji; brak nowej pracy CAD po terminie.
+Nie zmieniać SKU ani kupować dodatkowych śrub.
+
+Czas okna08:16:17–17:00UTC=8h43m43s WALL, NIE ciągła praca/CPU. Ostatnie
+wznowienie16:09:01–17:00=50m59s WALL; przerwa ok14:45–16:09 jawna.
+Limit start100%, koniec89%; brakresetu. Sol high/Astra medium bez zmiany.
+Commit studium89eb6417; końcowy commit stanu zapisany w historiigit.
+
+**NEXT po nowej zgodzie:** najpierw usunąć duplikaty starych tylnych śrub
+z adopcji, zachowując nakrętki/SKU; zestawić faktycznie zachowany legfragment
+między staryroot a currentseam dlaW006/W010/W015 i rozliczyć900bez podwójnego
+strip/lap. Szacunek45–90min na tę ograniczoną bramkę, NIE obietnica całegoN01.
+Następnie cała połączona sieć/długości i17prostych podramowych odciążeń;
+bez2800/5600/skanówarchiwów/pełnych123osi. HookOFF; maila nie wysłano.
 ROBOT_CAT_MAIN4_20261026_1800_DONE wyłącznie zamykając okno.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
