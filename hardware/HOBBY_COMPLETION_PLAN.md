@@ -3,14 +3,14 @@
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (26.10.2026 wieczór)
 
 **Okno:** n01-shared-prototype-20261026-2200; start17:26:47UTC,
-deadline21:00UTC=22:00Warszawy. Zgoda „Pracuj do22”. Hookenabled=true.
+deadline21:00UTC=22:00Warszawy. Zgoda „Pracuj do22”. Hookenabled=false; okno zamknięte o22:00Warszawy.
 Nie kończyć po lokalnym wyniku/commicie; nie przedłużać ani nie zaczynaćN02/N03.
 Zwykły limit/czas przed kosztowną pracą i≤10min; rzeczywisty last_account_usage
 w robot-cat/.codex/hooks/robot-cat-work-window.json. Bez resetów/zakupów.
 WybranySol high + istniejącyrecenzentAstra medium; modeli nie zmieniać.
 N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Bez fizycznegoPASS.
 
-**Baza aktualna:** lokalne1ba131bb/d3f415f8/7a9bda47, day26-current-shared-mount-and-space.json,
+**Baza aktualna:** lokalne47223e59/1ba131bb/d3f415f8/7a9bda47, day26-current-shared-mount-and-space.json,
 ten sam breps.zip(48shape), Day26PrototypeSpacePlan.FCStd(1180objects).
 To STUDIUMN01, nie produkcyjny eksport ani nowa wybrana wersja mastera.
 MAIN+12X/+24Y/Z46.52;4case PODramą, całeFR_P/RR_P/RR_G/F_HY przywrócone.
@@ -106,7 +106,8 @@ wBUS/ogon iR27.52..29.15<36.6:odrzucony po52/397;345zbędnych prób pominięto.
 Nie poprawiać tego kolejnymi handle/offsetami. day26-installation-and-one-leg-decision.json.
 Recenzja01a179e8:GOzmiany metody ijednej całejnogi, HOLDN01; tylko odczyt.
 
-**active_worker:** resident25370/PID18408 bezczynny; nativeotrzymany,0dokumentów.
+**active_worker:** resident25370/PID18408 bezczynny;0dokumentów/0obliczeń;
+RAM kontekstu zachowany, nie uruchamiać nowych prac bez nowej zgody.
 **NEXT:** jeden CAŁYRL-source3/source2/Knee/Hip→nowy boczny region:
 końce/fabryczne jednostki900+donor900/retencja/luz w ruchu/montaż.
 Nowe regiony stałego korpusu nie rozwiązują ruchomego przejścia ani123gałęzi.
@@ -118,6 +119,15 @@ Kontynuuj do21UTC albopełnegoN01. Wcześniej tylko brak/wyczerpanielimitu lub
 rzeczywisty brak bezpiecznej niezależnej pracy poalternatywach. Oterminie
 zapisz/odbierz własneobliczenia, wyłączenabled, raport. Nieprzedłużaj.
 ROBOT_CAT_N01_20261026_2200_DONE tylko przy faktycznym zamknięciu.
+
+**Zamknięcie22:00Warszawy:** N01–N10 nadal0/10 (zmiana0punktów).
+Okno17:26:47–21:00UTC:3h33min13s wall, nie czasCPU. Zwykły limit przy starcie89%
+pozostałego; końcowy odczyt wlast_account_usage; limit wspólny dla konta.
+Bez resetów/zakupów/pushów/maili/zmianmodelu/fizycznegoPASS. Własne sprawdzone
+wyniki w lokalnych commitach i day26-evening-2200-closeout.json.
+Najbliższy checkpoint:jedna całaRL z końcami/900+luzem/kotwami/montażem,
+szacunek2–4h, nie obietnica pełnegoN01 ani całej obudowy. Nowa praca dopiero
+po nowej zgodzie. Zachowano obrazCAD kontekstu/diagramy; master niewybrany.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 
