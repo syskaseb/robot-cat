@@ -43,6 +43,14 @@ producenta ani deklaracja fizycznego PASS. Uproszczenie samo nie daje punktów.
 Procedura: skill cad-layout-planning, Choose and verify proportionately.
 
 
+### Sprawdzone porównanie z działającymi projektami — 26.10
+
+- [Stanford Pupper 2021, Lab6, kroki2/4/5](https://pupper-independent-study.readthedocs.io/en/latest/course-material/lab-6-spr22.html): owinięte wiązki przez szczeliny, wspólne opaski, przykręcone Pi i złącza. To dowód sposobu montażu, nie dowód braku kabli w źródłowym CAD.
+- [Petoi Nybble, 4.4 Wiring](https://nybble.petoi.com/chapter5): końcowe ułożenie po kalibracji i złożeniu, szczeliny ramy jako organizery, dopuszczalne własne ułożenie; przewody mają nie przeszkadzać serwom.
+- [Mini Pupper2, kroki2–5 i Cover Assembly](https://mangdangroboticsclub.github.io/MiniPupperDocs/en/guide/Assembly/MiniPupper2.html): nogi/płytki mocowane śrubami, wiązki podłączane podczas montażu, przewód przez otwór, osłony później.
+
+**Zastosowanie:** najpierw stabilne moduły i fizycznie dostępne wspólne przejścia z prostymi opaskami; elastyczne ułożenie końcowe jest czynnością montażową. Precyzyjny model zachować lokalnie dla rzeczywistego ryzyka przegubu/złącza/krawędzi. Dokumentacja montażowa nie rozstrzyga, czy autorzy kiedykolwiek modelowali każdą żyłę; nie wyciągać tego z braku ilustracji. Ich zintegrowane PCB upraszczają wiązkę — nie przenosić automatycznie ich wymiarów ani liczby przewodów do naszych wybranych modułów/WAGO. Żadna z tych obserwacji nie wymaga zmiany wybranych części ani nie zalicza N01.
+
 ## 25.10 — prawdziwy koniec i prawdziwy chwyt przed trasą
 
 Stary wolny cap po umownym wachlarzu NIE jest automatycznie stałym kupnym
