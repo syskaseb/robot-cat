@@ -2,91 +2,106 @@
 
 ## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (26.10.2026)
 
-**Aktywne okno:** main4-shared-layout-20261026-1800, do17:00UTC=18:00Warszawy.
-Zgoda użytkownika: „Okej to działaj do18”. Hookenabled=true; bez przedłużania.
-Stan live: robot-cat/.codex/hooks/robot-cat-work-window.json; fresh czas/limit przed
-kosztowną pracą i≤10min, last_account_usage. Ostatnio13:29:16Z92%, bezresetu/zakupu.
-Jeden wykonawca wybrany Sol high; istniejący recenzent Astra medium, nie zmieniać.
-N01-N10 **0/10**, historyczne20/20 dokumentacji osobno; bez fizycznegoPASS.
+**Okno:** main4-shared-layout-20261026-1800, do17:00UTC=18:00Warszawy.
+Zgoda: „Okej to działaj do18”, następnie „Spróbuj jeszcze raz”. Bez przedłużania.
+Hook robot-cat/.codex/hooks/robot-cat-work-window.json; enabled nadaltrue do końca.
+Czas/limit przed kosztowną pracą i≤10min; rzeczywisty last_account_usage wlive.
+Ostatni odczyt16:37:39Z89%/ordinaryAllowed, bezresetów/zakupów. Nie zmieniać modelu.
+Jeden wybrany Sol high, istniejący recenzent Astra medium. **N01-N10=0/10**;
+historyczne20/20 dokumentacji osobno. Bez fizycznegoPASS i częściowych punktów.
 
-**Wykonanie:** zamocowane moduły + połączone dostępne regiony wiązek + montaż.
-123tożsamości/246końców NIE wymaga123brył/osi. Założenia profili, lokalnej obsady,
-długości/luzu i punktów podparcia jawne; końcowe ręczne ułożenie jest czynnością
-montażową. Dokładny model tylko lokalnie: zagrożenie → decyzja → dlaczego region
-nie wystarcza. Własny chwyt może stykać się z izolacją; do obcych części zachować
-zatwierdzone luzy. Nie dodawać szybkiego serwisu/uchwytu każdej żyły. Skill CAD i
-sekcja26.10 DESIGN_LESSONS obowiązują. Po2odrzuceniach zmienić przyczynę/układ.
+**Poziom wykonania:** jeden układ zamocowanych modułów + połączone dostępne
+regiony wiązek + montaż. 123tożsamości/246końców nie wymaga123brył/osi. Liczyć
+lokalną obsadę/wybrane profile/zapas/długości, zachować9mm i fabryczne jednostki.
+Swobodne referencje nie są sztywnymi przeszkodami. Exact tylko lokalne zagrożenie
+→ decyzja → dlaczego region nie wystarczy. Skill cad-layout-planning i26.10
+DESIGN_LESSONS. Po2odrzuceniach zmiana przyczyny/topologii, bez mikrooffsetów.
+Nie dodawać szybkiego serwisu/indywidualnych sztywnych chwytów każdej żyły.
 
-**Zachować:** wybrane części/R47/P0/E6/15napędów/wymienneMG92B,
+**Zachować:** wybrane części/bankR47/P0/E6/15napędów/wymienneMG92B,
 325×200×160/max200mm/margines256³/MAINdatum46.52. Bez zakupów/resetów/zasilania/
 pushów/slicera/ROS/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude i alertów.
-Główne źródło: feline-enclosure/prototype-shared-galleries-20261025-result.json
-+breps.zip; stare źródła/historyczne źródła nie są bieżącym NEXT.
 
-**Odebrane, NIE powtarzać:**
-- 2c7dbf60 i wcześniejsze:38namedBRep (37+G_AUX),1531aktorów; rama605faces,
-  USB/BUS/MTA/XP02 i bankR47 zachowane. Stare pozytywy reużyć.
-- KanałPi lokalnie zamknięty:7odcinków217.232mm/r3.7, obce≥1.601,
-  49poz≥16.460,obrys≥5.319mm. WłasnyPAS0.15mm to bramka przymiarki.
-- Cały przegląd44modułów/49/139zapytań31.625s+92covers6.734s odebrany.
-  FL_P/G2/P_FRONT mają prawdziwe konflikty z nogami w dawnychlokalizacjach;
-  D_FR miałHOLD. Nie przenosić innych modułów od niepełnychbbox.
-- PróbyC/D/E2 historyczne, NIE bieżący układ. Nie wznawiać starej górnej
-  kołyskiP_FRONT/retencjiPi ani bocznej pary podramą. Ostatnia recenzjaE2
-  odebrana, brak oczekiwania;5warunków zastosować do całego planu.
+**AKTUALNE źródło studium:** feline-enclosure/day26-current-shared-mount-and-space.json
++ten sam breps.zip +Day26PrototypeSpacePlan.FCStd. To bieżące studiumN01,
+NIE wybrany produkcyjny master/eksport; historyczny master/tag niezmienione.
+38świadków w paczce zawiera bieżącepozy (worldmm, NIE transformować drugi raz).
+Stary day26-current-underframe-plan.json zawiera4historyczne Bcase candidates:
+nie wczytywać ich jako bieżących! Nowa paczka je zastępuje oryginalnymi kitami.
+Główne prototype-shared-galleries-20261025-result.json i jego frozenzip nadal
+źródłem38odebranych struktur/1531aktorów, nie dawnych NEXT poniżej.
 
-**Bieżący wspólny układ: CZTERY case podcentralnąramą, brak zmiany banku/Pi.**
-FL_P[21,0,−20.5]/0Z;P_FRONT[−2.5,0,−33]/180Z;
-G2[−3,−16,−10.25]/90Z;D_FR[−3,16,−10.25]/−90Z.
-Wszystkie kupne części i stare retencje banku/Pi zostają. Retencje starych
-CZTERECH stacji WAGO zastąpi jeden nośnik i17odciążonych końców. Nie wracać
-już do poszukiwania miejsc dla case bez nowego rzeczywistego konfliktu.
-Case kupny-kupny i49 odebrane: FL_P≥34.642,P_FRONT≥32.934,
-G2≥12.940,D_FR≥12.934mm. Obrys zachowany. To nie odbiór nowych podpór.
+**Aktualny układ modułów:**
+- Cztery case PODramą bez zmiany: FL_P[21,0,−20.5]/0Z,
+  P_FRONT[−2.5,0,−33]/180Z,G2[−3,−16,−10.25]/90Z,D_FR[−3,16,−10.25]/−90Z.
+- FR_P[−15.625,79,98],RR_P[15.625,79,98],RR_G[78.125,−79,98],
+  F_HY[−86.65,62.65,97.425] wracają CAŁYMI odebranymi zespołami.
+  Bprzesunięcia służyły arbitralnej wąskiej galerii, nie oryginalnej kolizji.
+  Włączyć także aliasyEarlyRR (podpora nie nazywa sięStation:RR_P).
+  49bboxcase≥4.959/11.160/21.841/14.049mm, obrys≥4.45mm;
+  47całych kitów do odebranej paryPi r3.7≥14.26694mm/2.578s,
+  do przesuniętegoMAIN9 bbox≥69.629mm. Bez ponownej przeróbki ich podpór.
+- MAIN9 zachowuje+12X/+24Y iZ; miejscowy kanałPi217.232/r3.7 odebrany.
+  Pełne dojścieMAIN→kanałPi iinputs nadal niezatwierdzone.
 
-**Regiony źródłowe, bez123osi:** FL_P1×4.2/R25.2 i3×3.1/R12.4 oraz
-P_FRONT3×4.2/R25.2: trzy wspólne obszary wachlarzy omijają sztywne części;
-wszystkie49 sprawdzone. G2/D_FR wychodzą DOŚRODKA, nie w kolana. Ich9mm
-płaszcze mają17.15mm do49boxów; wspólna komora10żył z R20 i2rzędami5+5
-wymaga18.95×6.958mm, dostępne≥41×7. Poszerzenie tylko części środkowej,
-wycięty nieużywany narożnik przy zachowanymW075; doband≥3.098mm,
-konserwatywny49gap≥12.140mm. Bez cieńszych przewodów/zmniejszania marginesu.
-Wyniki są w day26_common_rack_shared_fans/day26_rack_inboard_ports/
-day26_refined_inboard_plenum głównego prototype-shared-galleries-20261025-result.json.
+**Zamknięte lokalnie w tym oknie:**
+- Wspólny nośnik4case89.25×76×39, 2rzeczywiste tylne otwory64/±23.5,
+  te sameM2.5×12 zR53. Brak obcych kontaktów1229/19.688s,49bbox≥5.934mm.
+  Montowaćnośnik/rearśruby PRZED dolnymiMTA. Bank/Pi stare podpory zachowane.
+- 4case mają miejsce na wybraną4905/.5mm:3pady podFL_P/G2/D_FR +tylny
+  P_FRONT(Y−11, przewodyY+11). Ścianka2mm/toe zachowująstarymateriał0loss,
+  1solid, casecommon0/obce0, zmiana1.562s, area1036mm². Podłogowy pocket
+  z podbudową odrzuconyForePanel1.0<1.25. Nie wracać do niego. Klej NIE jest
+  odciążeniem przewodu; powierzchnia/wiązanie po dostawie pozostają bramką.
+- MAIN:2M2stosy w rzeczywistych osiach[−3.468,−67.4085]/[−3.468,−48.8665],
+  shoulder91.25..99.25; dwie podpory do zachowanegobankbed, joint68mm³.
+  Obce≥1.5mm; per-piece49bbox≥13.34767 bezexact. Nominalne4×OD2.1/12mm
+  źródła mają wspólne9mmłoże/1pełnąT18I100, loop46.3+25allowance=71.3mm,
+  do plastiku.2mm; niezależny pullkażdejżyły faza2. To nominalny projekt,
+  nie gwarancja średnicy producenta. Support/tie1solid, odtworzenie0delta.
+- ScalenieMAIN+staryFrame: starycache605faces byłUnorientable. Ten samfrozenSHA
+  świeżoimportowanystrictBOP valid0.953s. Izolowane operandy dały638faces1solid
+  w1.484s, źródło pozostało poprawne. Używaćklonów przezBRepimport przedBoolean;
+  nie mielić tego samegocache ani nie ruszać części offsetami.
+- Native1137objects zapis/reopen;38świadków BRep/hash. Pełny nativeplanning,
+  produkcyjnefeatures/eksporty N03niezwolnione. Previewday26-current-shared-layout.png
+  to neutralna migawka MAIN sprzed samej małej ścianki4905 (te same pozycje),
+  bez swobodnych przewodów, NIE fizycznyPASS.
 
-**Nośnik otrzymany jako konstruktywne studium, nie N03 release:**
-Jedna poprawna bryła89.25×76×39mm; wszystkie1229pozostałe sztywne/rezerwy
-sprawdzone19.688s, brak obcych konfliktów/kernelHOLD. Własne kieszenie case
-bez dodatniejobjętości kontaktu. Całybbox nośnika do5292boxów49poz≥5.934mm.
-Dwa rzeczywiste tylne otwory płyty64/±23.5; ten sam wybranyM2.5×12
-0912A2-M025X012V już wR53 (6szt., cztery fizyczne battery+2spares, nie+4).
-Łby i płyta mają po9.299mm²pełnego podparcia; shaft−5.5..6.5 zachowuje
-nakrętki3.2..5.2 i1.3mmprotrusion. Root: nośnik→2tylneflansze→śruby/nakrętki→
-zachowanapłyta→P0. Szyny USZTYWNIAJĄ, nie twierdzić że stykają się zsideframe
-(luz.288mm). F0 zachowane+1.25; tylko własny korzeń dopasowany, całyłeb podparty.
-Montaż nośnika/rearśrub PRZED dolnymiMTA, które potem zasłaniają osiowy dostęp.
-Źródło nośnika44linie tools/cad/plan_feline_underframe_carrier.py, odtworzenie
-identycznejobjętości/jednejbryły. Brak osobnych produkcyjnych osi wiązki.
+**Cały rachunek/regiony:**
+- day26-whole123-regional-accounting.json:123/246/profile/physicalunit i diagnoza
+  sztucznego uniwersalnego objazdu. To NIE aktualnie odebrana sieć po restore.
+  Jego exactgroupinput zachowanyday26-group-bays-before-kit-restore.json.
+  Bieżącehomes:day26-current-group-bays.json (również currentMTA/F_AUX/36cuffcaps).
+- day26-current36-cuff-boundaries.json:36rzeczywistych saved source/freecaps
+  i długości stałego profilu, bez nowych osi. Stare średnie−75/117nie ich datums.
+- POScentralX0..45 ma4komory i połączenie podRR_P; case/Piscrew/ATO zachowane.
+  Obce≥1.25, obrysmin3.2679; lokalne44profile+USB5+Picap7.4 mieści się w4binach
+  przy.5edge/.2gap. Nie rozszerzać tego na zakręty/pozostałą sieć. G_AUX/USB
+  i pozostałe przejścia nadal wymagają wspólnego rozstrzygnięcia.
+- MTA8aktualne15.5/31.75/67.239/77.992mm +11strip+10rework≤100projektowe;
+  minzapas1.0079. Stare246guide21.75/88.686/60.158 historyczne.
+- day26-current-physical-length-budgets.json: pierwsza diagnoza3donorów nie jest
+  dowodem niemożliwości. SOURCEcut od plugface NIE prefix minusbody. Konstruktor
+  compose_body36_fit_contribution i leg-extension-budget-plan definiują source-owned
+  kneejoin/stagger/lap/850usable. Nie łączyć2×900 w dowolnąpulę ani przenosićjoinu
+  na swobodny kabel. Nie dublowaćstrip/lap ani dodawać2piR doManhattan.
+  K1474 po1000/kolor: rezerwacje500Pi+400input+100zapas positive,
+  500Pi+450input+50zapas negative; to alokacja, NIE odebrane długości tras.
 
-**Zamrożony aktualny pakiet:** day26-current-underframe-plan.json +breps.zip:
-26kształtów (B4case/MAIN9, aktualne4case,6regionów,nośnik,2rearśruby).
-Hashe i bieżące worldbounds w pliku. Rawpróby w29KBday26-current-underframe-diagnostics.json.gz;
-nie czytać ich od początku ani wznawiać dawnychC/D/E2/outerfan. Nowy katalog
-jest studium N01, NIE nowym wybranym eksportem/masterem ani fizycznymPASS.
-N03zostająsloty/opaski/fillety/edytowalnefeatures/weryfikacjaPETG i dostawy.
+**active_worker:** resident22272/PID7060, jedna własna sesja. Przed nowym startem
+odbierz ostatni wynik. Nativecase-bonds zapis/reopen44.469s odebrane; brak otwartychdocs.
+RecenzentAstra: GO do całej próby, turn01a17893-4ebd-7460-9429-b5da28a1e967;
+KorektaODEBRANA turn01a17918-4bfa-7513-ad1e-12c9d25b4e5a: GOcałejpróby,
+HOLD900bez mapowania staryroot→zachowanylegprefix→currentseam→freecap. Nie
+wnioskować o brakukabla z3ujemnych naiwnego wzoru; nie przenosić source-owned
+joinu. 42mm rozbićna składniki. Nie wysyłać dalszych recenzji parametrów.
 
-**active_worker:** resident22272/PID7060 bezczynny po odbiorze nośnika,
-0dokumentów; odbierz wynik pierwszego reload26kształtów, nie powtarzać go potem.
-**NEXT:** cała tabela123tożsamości/246końców→regiony/rozgałęzienia, lokalnaobsada,
-fabryczne900/1000 i długości/luz. Bez kolejnych poszukiwań miejsc dla4case,
-bez skanów2800/5600/siatki477840 i pełnych osi123przewodów. Dopiero z całej
-obsady poprowadzić wspólne połączenia od tych6obszarów do reszty układu.
-Current homes zGEOMETRII live, staremetadata bounds często historyczne:
-JPWM89..115/±6/Z44..56, MAINB−31.789..−1.309/Y−69.5675..−46.7075/Z99.25..106.925.
-B4case/MAIN9 zachowane; ich nowe podpory i3stare realne konflikty drukuB
-nadal wymagają konstruktywnej dyspozycji. 12ATO/obieMTA/9mmchwyty/ruch/droga
-obciążenia wspólnie. N01-N10 nadal0/10 do CAŁEGO planu; nie zaliczać fragmentów.
-O17UTC zakończyć noweprace/zapisać/wyłączyćenabled/raport.
+**NEXT do17UTC:** zamknąć pełny plan połączeń istniejącymi szerokimi komorami,
+17podramowych odciążeń prostymi wspólnymi cap/bar/ties oraz3źródłowe budżety
+900/source-root. Nie uruchamiać2800/5600/skanówarchiwów/siatki477840 ani pełnych123osi.
+Długie rzeczy dzielić i zachować zapas na zapis. Lokalnecommity nie kończą okna.
+O17UTC zakończyć nowe prace/zapisać/wyłączyćenabled/raport tutaj. Bez maila.
 ROBOT_CAT_MAIN4_20261026_1800_DONE wyłącznie zamykając okno.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z

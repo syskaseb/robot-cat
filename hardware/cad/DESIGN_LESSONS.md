@@ -1,5 +1,38 @@
 # Wnioski z projektowania 3D robot-cat
 
+### 26.10 — zachowaj zespoły i izoluj operandy kernela
+
+- Pełne przypisanie123połączeń ujawniło, że jednolita galeria19×7 i przejście
+  wszystkiego przez jeden węzeł tworzyły sztuczną kumulację oraz objazdy.
+  Lokalna obsada wyznacza połączone komory; nie przesuwaj kompletnych modułów
+  tylko po to, by obronić ten sam prostokątny kanał w każdym przekroju.
+- Przed podnoszeniem kolejnej bryły nazwanej „wire” sprawdź typ/proweniencję.
+  RRFlatResource/FullBody/received_nominal_wire to referencje przewodów;
+  RRFlatGuide/Band/Head i bare zostają ograniczeniami. Aktualny wspólny helper:
+  tools/cad/feline_prototype_space_classification.py. Klasyfikacja nie kwalifikuje
+  automatycznie przewodu przy porcie lub przegubie.
+- Zaobserwowano: używany w RAM Frame605faces stał się Unorientable; ten sam
+  zamrożony BRep po sprawdzeniu SHA i świeżym imporcie był strictBOP poprawny
+  (0.953s). Scalenia na starej kopii odrzucono. Na osobnych instancjach
+  zaimportowanych z BRep scalenie z MAIN dało poprawną1bryłę638faces w1.484s;
+  kanoniczna świeża kopia pozostała poprawna. To wskazuje na problem stanu
+  współdzielonej geometrii w pamięci; nie udowadnia nowej kolizji projektu.
+  Do operacji zmieniających topologię izoluj OBA operandy przez eksport/import,
+  zachowaj źródło i sprawdź wynik przed podmianą. Nie naprawiaj tego offsetami
+  rzeczywistych części ani trzecim identycznym Booleanem na tym samym cache.
+- Przy odczycie długości korzystaj z konstruktora: solid.Length sumuje krawędzie.
+  Dla potwierdzonego stałego kołowego profilu długość osi toV/(pi*r²).
+  Aktualne8MTA różnią się od dawnych wpisów246; ich rozbieżność nie jest
+  koniecznością wydłużenia zakupionych przewodów.
+- Nie dodawaj2piR do pełnej sumy odcinków prostopadłych: zaokrąglenie narożnika
+  zastępuje2R przezpiR/2. Odczytaj terminal/lap w istniejącym budżecie przed
+  ponownym dodaniem allowance. Dla źródłowych donorów odczytaj konkretny
+  source-owned staggered join; minimum starego kawałka SOURCE nie jest długością
+  całego prefiksu. Nie przemieniaj2×900 w dowolną wspólną pulę bez tej decyzji.
+- Wielominutowe rozważania bez odczytu geometrii też zużywają limit. Gdy istnieje
+  pytanie o konkretną bryłę/interfejs, najpierw wykonaj jeden krótki odczyt,
+  potem podejmij decyzję. Licznik czasu/usage dotyczy również tego czasu.
+
 ## 26.10 — wiązki prototypu: obowiązujący poziom szczegółowości
 
 **Aktualizacja26.10: plan wiązki prototypu nie jest rysunkiem produkcyjnym każdej żyły.**

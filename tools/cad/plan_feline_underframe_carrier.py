@@ -8,6 +8,11 @@ import FreeCAD as A
 import Part
 
 
+def _isolated(shape):
+ result=Part.Shape();result.importBrepFromString(shape.exportBrepToString())
+ return result
+
+
 def build_carrier(world, cases):
  piecesC26={}
  def bb(n,lo,hi):piecesC26[n]=Part.makeBox(*(b-a for a,b in zip(lo,hi)),A.Vector(*lo))
@@ -32,13 +37,32 @@ def build_carrier(world, cases):
  for sign in [-1,1]:
   y0,y1=(-28.5,-3.5) if sign<0 else(3.5,28.5);bb('UpperJacketBed'+str(sign),[6.5,y0,-13.8],[15.5,y1,-11.8]);y0,y1=(-30,-28) if sign<0 else(28,30);bb('UpperBedRoot'+str(sign),[3,y0,-17.25],[8.5,y1,-11.8])
  raw=list(piecesC26.values())[0].multiFuse(list(piecesC26.values())[1:]).removeSplitter();raw.check(True)
- f0keep=world['Ref_Material_F0_CP2_0_0'].Solids[0].makeOffsetShape(1.25,.0001);f0keep.check(True)
+ f0keep=_isolated(world['Ref_Material_F0_CP2_0_0'].Solids[0]).makeOffsetShape(1.25,.0001);f0keep.check(True)
  shaped=raw.cut(f0keep)
- for n in ['Ref_Material_P0_SideLeft22_0_0','Ref_Material_P0_SideRight22_0_0']:world[n].check(True);shaped=shaped.cut(world[n])
+ for n in ['Ref_Material_P0_SideLeft22_0_0','Ref_Material_P0_SideRight22_0_0']:world[n].check(True);shaped=shaped.cut(_isolated(world[n]))
  for sign in [-1,1]:shaped=shaped.cut(Part.makeCylinder(1.45,7,A.Vector(64,sign*23.5,-7)))
  # Pocket only our printed study around complete current case allocations.
  # Intentional base/side interfaces may touch; positive-volume penetration is forbidden.
- for case in cases.values():shaped=shaped.cut(case)
+ for case in cases.values():shaped=shaped.cut(_isolated(case))
  shaped=shaped.removeSplitter();shaped.check(True)
 
  return shaped, piecesC26
+
+
+def with_case_bonds(carrier):
+ """Same four case poses; selected .5mm4905, P_FRONT bonds on its back.
+
+ The underside-pocket alternative failed ForePanel1.25 clearance. This adds a
+ 2mm backwall/toe instead, leaving the occupied+Y wire mouths and floor intact.
+ Supplier surface fit and the actual bond remain delivery/assembly gates.
+ """
+ def bb(lo,hi):return Part.makeBox(*(b-a for a,b in zip(lo,hi)),A.Vector(*lo))
+ wall=bb([-19.5,-13.5,-40.5],[15,-11.5,-29.5])
+ toe=bb([-19.5,-16.5,-40.5],[15,-11.5,-38.5])
+ result=_isolated(carrier).multiFuse([wall,toe]).removeSplitter()
+ result.check(True);assert len(result.Solids)==1
+ pads={'G2':bb([-10.5,-26,-15.25],[2.5,-6,-14.75]),
+       'D_FR':bb([-10.5,6,-15.25],[2.5,26,-14.75]),
+       'FL_P':bb([18.5,-7.5,-25.5],[34.5,7.5,-25]),
+       'P_FRONT_backface':bb([-19.5,-11.5,-37.5],[15,-11,-29.5])}
+ return result,pads
