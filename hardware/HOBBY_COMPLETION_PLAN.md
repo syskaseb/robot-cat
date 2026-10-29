@@ -20,15 +20,23 @@ Części/R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³/
 active_worker: native FreeCAD session96178/PID10204. Nie uruchamiać drugiego.
 594/594 forki do ramy/mechanizmów oraz364/364 opaski/wzajemne interfejsy RL
 odebrane,0konfliktów. Nie powtarzać zamkniętych958par.
-NEXT: odebrać day29-U1-under-bank-receipt.json / u1under_chunk; jeden CAŁY układ
-modułów, obu galerii, wszystkich4nóg/36żył i123porcji/246końców, nie samo9RL.
-Próba U1dy-8.5 ma37wierszy (część staryRL_G wycofany); nowa wspólna hipoteza
-przesuwa cały U1[-60,-8.5,0] do przedniej przestrzeni POD bankiem.163części
-razem, źródłowe PCB/hardware/porty zachowane;2proste podpory do istniejącego
-BankBed zastępują2dodatkowe U1clampy, NIE chronione4clampyfundamentu.
-Nowe mocowania D_RL/RL_G: korzenie w prawdziwych przerwach pomiędzy zaciskami,
-case88.75/gripy9/4905niejestodciążeniem/T18I. Dół starych rootów odrzucony.
-Wspólne mocowanie nie może opierać się na nieznanym padzie elektrycznym.
+NEXT: CAŁY układ4nóg/36żył i123porcji, NIE kolejne niezależne9biarci.
+Odebrane źródłowe958par zachować. U1 pozostaje w oryginalnym położeniu;
+obie jego relokacje odrzucone. Tylko kandydat drukowanego ForeBase odebrany
+lokalnie. Dwa roof case/gripy9/T18I mają dodatni joint14.4375mm³ do rzeczywistego
+fundamentu i40obcych par bez konfliktu (nie pełny ruch/serwis).
+Wspólna9RL próba odrzucona:235+36par do mechaniki bez uwag, ALE260par
+wzajemnych daje39przecięć kurtek. NIE przedstawiać biarców jako luzu RL.
+Przejść do wspólnych6/9regionów z prawidłowymi właścicielami kotew;
+nie wymuszać jednej długości ani jednego kolektora. RecenzjaAstra odebrana,
+turn01a1899c-b894-7f82-812f-c6fcabb06774, max5uwag rozstrzygnięte poniżej.
+Bieżąca trzykołowa6-ribbon próba też NIE odebrana:14uwag doU1 i300.627mm³
+nakładania własnej rezerwy wpozie17. Dane wday29-knee-common-region-receipt.json.
+Nie kontynuować jej jako zielonego świadka i nie poprawiać osi mikrooffsetami.
+Model4Knee wTemp/robot-cat29-four-knee-regions.json jest tylko analitycznym
+rozmieszczeniem z E6, bez odbioru montażu/sąsiedztwa; żadnej symetriiBOPnieprzyjęto.
+Następna decyzja to przekroje/otwarte przestrzenie wspólnie z modułami i wejściami
+na czterech nogach. Nie generować dalszych rodzin krzywych przed tą decyzją.
 
 N01 jest JEDNYM konstruktywnym wspólnym planem: wszystkie moduły/ramy/bank,
 123porcje/246końców, obie strony4MTA/factory, pełne odciążenia/narzędzia,
@@ -74,14 +82,30 @@ sprawdzono w actual native;271par, po zmianie części reużyto108niezmienionych
 pozytywów,163nowe/ponowne,4pozostałe uwagi do tej SAMEJ nakrętki/washerU1.
 Własne kontakty przy wyjściu nominalnego chwytu są sklasyfikowane jako fit,
 bez przenikania;1.25obowiązuje wobec obcych sztywnych części.
-Nie poprawiać kolejny raz pojedynczej osi przy tej nakrętce. Zmiana przyczyny:
-cały U1 w nowej przestrzeni pod bankiem oraz jego wspólne podpory/galerie.
+Obie relokacje całego U1 odrzucone przez rzeczywiste kolizje. Zachować PCB.
+Błędne założenie keepout obejmowało tylko śrubę: nakrętka sięga do Z25.4706.
+Korekta całego poziomu komory RL2 do Z52, bez zmiany promieni ani części.
+Jeśli nadal konflikt, zmienić wspólną topologię, nie kolejne mikrooffsety.
 Rachunek starego łuk→U był za słaby: zmieniał styczne. Nowy U ma nieruchome
 oba końce/styczne i tłumaczy h na dokładną długość; nadal do odebrania wspólna
 obsada, ruch w komorach, podparcie/guard oraz stałe gałęzie do płyt.
 NIE zamykać N01 po RL. Wszystkie4nogi, obie strony4MTA/factory i wszystkie
 123tożsamości/246prawdziwych końców oraz montaż/head/tail/12ATO muszą być spójne.
 Nie dopisywać szybkiego serwisu ani produkcyjnych detali N03-N10.
+
+Wynik21:58UTC: samodzielna geometria9RL była błędnym kierunkiem mimo dobrego
+rachunku długości i obejścia ramy. Zmieniono strategię po wzajemnym teście, bez
+usuwania negatywu. Wspólna6-ribbon świadczy algebraicznie stałą długość dla
+równoległych przesunięć osiowych, lecz konkretna przestrzeń nadal koliduje zU1.
+Nie zmniejszono OD/promieni. Brak danych producenta SR900 nie uzasadnia ich
+zmniejszenia; oficjalna kartaWaveshare nadal403. Generyczne parametry innego
+kabla nie są danymi wybranegoSR900.
+Uwagi recenzenta: zachować958mocowań (tak); wykazać4nogi jednocześnie (otwarte);
+ciągły użytecznyluz zamiast samej objętości (otwarte);123/246i osobneSOURCE/DONOR900
+orazK1474 (otwarte); N08 to montaż/serwis, N09 pełna kwalifikacja ruchu (skorygowano).
+Nie dopisywać produkcyjnychN03–N10 jako warunku pierwszego planu, ale znanego
+konfliktu nie wolno zepchnąć do kolejnego etapu. Aktualnie0/10, mail dopiero po
+zweryfikowanym1/10. Okno pozostaje aktywne, bez nowego terminu.
 
 ## Historia okna RL 29.10.2026 — zamknięte
 
