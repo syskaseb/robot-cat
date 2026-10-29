@@ -5,6 +5,7 @@
 Autoryzacja użytkownika: „Pracuj aż osiągniesz1/10”. Cały N01, nie tylkoRL.
 Okno n01-one-of-ten-20261029-result, od19:04:37UTC, bez terminu godzinowego.
 Hook result_stage enabled=true; stage_completed=false; aktualnie0/10.
+Użytkownik29.10: po zweryfikowanym1/10 jeden mail na syska.seb@gmail.com; potwierdzićSENT/message_id, przy nieznanym wyniku sprawdzićWysłane przed powtórką.
 Zamknąć po zweryfikowanymN01=1/10 albo zwykłym limicie niedostępnym/wyczerpanym
 lub rzeczywistej blokadzie wymagającej nowejzgody po alternatywach. BezN02-N10.
 
@@ -16,12 +17,18 @@ RL29SourceFixtures.FCStd105cech, hashe w day29-native-source-fixture-assembly.js
 oraz day29-source-fixture-validation.json. Wszystko studium, nie wybranymaster/do druku.
 Części/R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³/MAIN46.52 zachować.
 
-active_worker: native FreeCAD session96178/PID10204, odzyskane bieżące źródła.
-594/594 zmienionych par druk→rama/mechanizmy odebrane,0konfliktów; dawne25 zachowane.
-Następne364pary wzajemne/opaski są odbierane porcjami; nie duplikować.
-next_after_active_worker: wspólny plan dwóch całych stacji i ich dojść w górnych
-odebranych regionach, następnie lokalne pojemności/pozostałe123porcje i budżety900.
-Nie ponawiać dolnych objazdów ani zamkniętej kontroli594.
+active_worker: native FreeCAD session96178/PID10204. Nie uruchamiać drugiego.
+594/594 forki do ramy/mechanizmów oraz364/364 opaski/wzajemne interfejsy RL
+odebrane,0konfliktów. Nie powtarzać zamkniętych958par.
+NEXT: odebrać day29-U1-under-bank-receipt.json / u1under_chunk; jeden CAŁY układ
+modułów, obu galerii, wszystkich4nóg/36żył i123porcji/246końców, nie samo9RL.
+Próba U1dy-8.5 ma37wierszy (część staryRL_G wycofany); nowa wspólna hipoteza
+przesuwa cały U1[-60,-8.5,0] do przedniej przestrzeni POD bankiem.163części
+razem, źródłowe PCB/hardware/porty zachowane;2proste podpory do istniejącego
+BankBed zastępują2dodatkowe U1clampy, NIE chronione4clampyfundamentu.
+Nowe mocowania D_RL/RL_G: korzenie w prawdziwych przerwach pomiędzy zaciskami,
+case88.75/gripy9/4905niejestodciążeniem/T18I. Dół starych rootów odrzucony.
+Wspólne mocowanie nie może opierać się na nieznanym padzie elektrycznym.
 
 N01 jest JEDNYM konstruktywnym wspólnym planem: wszystkie moduły/ramy/bank,
 123porcje/246końców, obie strony4MTA/factory, pełne odciążenia/narzędzia,
@@ -58,6 +65,23 @@ zespołów do odebranych wolnych pól powyżej banku; jeden wspólny plan dojś�
 nie kolejny mikrooffset drutu. Stare pozytywne regiony i dostępy zachować.
 N01 nadal0/10; zmierzony czas bieżącego okna od19:04:37UTC, bez sztucznych punktów.
 
+Wynik21:21UTC: źródłowe mocowania RL i8opasek mają958odebranych par
+(594+364), bez konfliktów. Nadal nie jest to cała noga ani punkt N01.
+Nowy fakt: stała długość9odcinków źródło→U-wyjście jest konstruktywnie
+osiągnięta dla36pozycji: styczne biarci i przesuwany U, h=7.5+(Lmax-Lpose)/2,
+z zachowaniem R>=31.5. To NIE wymaga123dokładnychosi. Skrajne i środkowe pozy
+sprawdzono w actual native;271par, po zmianie części reużyto108niezmienionych
+pozytywów,163nowe/ponowne,4pozostałe uwagi do tej SAMEJ nakrętki/washerU1.
+Własne kontakty przy wyjściu nominalnego chwytu są sklasyfikowane jako fit,
+bez przenikania;1.25obowiązuje wobec obcych sztywnych części.
+Nie poprawiać kolejny raz pojedynczej osi przy tej nakrętce. Zmiana przyczyny:
+cały U1 w nowej przestrzeni pod bankiem oraz jego wspólne podpory/galerie.
+Rachunek starego łuk→U był za słaby: zmieniał styczne. Nowy U ma nieruchome
+oba końce/styczne i tłumaczy h na dokładną długość; nadal do odebrania wspólna
+obsada, ruch w komorach, podparcie/guard oraz stałe gałęzie do płyt.
+NIE zamykać N01 po RL. Wszystkie4nogi, obie strony4MTA/factory i wszystkie
+123tożsamości/246prawdziwych końców oraz montaż/head/tail/12ATO muszą być spójne.
+Nie dopisywać szybkiego serwisu ani produkcyjnych detali N03-N10.
 
 ## Historia okna RL 29.10.2026 — zamknięte
 
