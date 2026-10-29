@@ -20,23 +20,41 @@ Części/R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³/
 active_worker: native FreeCAD session96178/PID10204. Nie uruchamiać drugiego.
 594/594 forki do ramy/mechanizmów oraz364/364 opaski/wzajemne interfejsy RL
 odebrane,0konfliktów. Nie powtarzać zamkniętych958par.
-NEXT: CAŁY układ4nóg/36żył i123porcji, NIE kolejne niezależne9biarci.
-Odebrane źródłowe958par zachować. U1 pozostaje w oryginalnym położeniu;
-obie jego relokacje odrzucone. Tylko kandydat drukowanego ForeBase odebrany
-lokalnie. Dwa roof case/gripy9/T18I mają dodatni joint14.4375mm³ do rzeczywistego
-fundamentu i40obcych par bez konfliktu (nie pełny ruch/serwis).
-Wspólna9RL próba odrzucona:235+36par do mechaniki bez uwag, ALE260par
-wzajemnych daje39przecięć kurtek. NIE przedstawiać biarców jako luzu RL.
-Przejść do wspólnych6/9regionów z prawidłowymi właścicielami kotew;
-nie wymuszać jednej długości ani jednego kolektora. RecenzjaAstra odebrana,
-turn01a1899c-b894-7f82-812f-c6fcabb06774, max5uwag rozstrzygnięte poniżej.
-Bieżąca trzykołowa6-ribbon próba też NIE odebrana:14uwag doU1 i300.627mm³
-nakładania własnej rezerwy wpozie17. Dane wday29-knee-common-region-receipt.json.
-Nie kontynuować jej jako zielonego świadka i nie poprawiać osi mikrooffsetami.
-Model4Knee wTemp/robot-cat29-four-knee-regions.json jest tylko analitycznym
-rozmieszczeniem z E6, bez odbioru montażu/sąsiedztwa; żadnej symetriiBOPnieprzyjęto.
-Następna decyzja to przekroje/otwarte przestrzenie wspólnie z modułami i wejściami
-na czterech nogach. Nie generować dalszych rodzin krzywych przed tą decyzją.
+NEXT AKTUALNY23:35UTC — brama kompletności przestrzeni przed następnym CAD.
+W Day26PrototypeSpacePlan.FCStd nie ma F_PI (potwierdzone przez celowany odczyt
+XML). Pierwsze1031material+135stock nie były kompletną sceną wymaganych rezerw.
+Przywrócono F_PI:registered_casing_reservation z oryginalnegoR5 W.box/casing
+i bieżącego, niewybranego domu[-52.95,0,41.1]: x[-78.449996,-27.450004],y+-11,
+z[30.975,51.225]. To rezerwacja projektu, NIE dokładna obudowa producenta.
+Pokrywa proponowane foreU1 PCB1521.626mm³: HOLD alokacji, nie fizyczny kontakt.
+Nie wybierać żadnego foreU1 tylko na podstawie dotychczasowych subset receiptów.
+146/151aktorowe kontrole zachowano z jawnym brakującym F_PI i brakiem odbioru sceny.
+Nowy helper tools/cad/registered_fpi_space.py oraz day30-FPI-required-reservation.json
+muszą być użyte przy wznowieniu. Resident ma już tę osobną rezerwację woccupied.
+
+Drugi nowy fakt: FoundationRail:-1 zawiera W077/W078 siodła+spine+arm z funkcji
+prototype_shared_galleries_20261025.splice_saddle_and_root. Próba pocketów podU1
+odcina293.422mm³ chwytuW077 — ODRZUCONA, fragmentu nie skasowano jako odpad.
+Nie kontynuować ogólnego podcinania tej szyny ani odsuwania samej opaskiW078.
+Następna wspólna decyzja obejmuje U1, CAŁĄ rezerwację F_PI, W043 i CAŁY splice
+W077/W078/20mm sleeve/8mm lap/oba9mm chwyty/obie opaski oraz korzenie.
+Odczytać rzeczywistą długość W043/W077 z źródła: stary blank50/limit50W043
+nie jest automatycznie długością nieciętego fabrycznego odcinka; actual_cut=None.
+Nie wydłużać jednostki fizycznej ani brać nominalnego100 jako gwarancji:
+W077 ma potwierdzoną w źródłowym planie bramkę shortest84.5 i tip8.35.
+Przed nowym położeniem jeden cały plan przestrzeni i długości, istniejący recenzent.
+
+Zachować958RLsource (594+364), strictguard55+3 dla58dotkniętychpar,900bezpowtórek.
+F_PI do tych6tipów ma zachowawczy bboxgap166.7896mm; nie powtarzać958par.
+RoofD_RL/RL_G mają tylko lokalnyjoint14.4375 i40foreignpairs, nadal kandydaci.
+9RLbiarci odrzucone39krzyżowaniami, 3circleKnee6 odrzucone14foreign+300.627self.
+Nie przywracać ich jako zielonego luzu. U1 w oryginalnym położeniu pozostaje bazą;
+fore151stosu i jego rezerwy zapisano jako HELD w day30-fore-stack-held.*.
+Recenzja FORE-STACK01a189ed-4007-7ba2-8995-314b19a1b0d1 była GO do próby,
+nie odbiór; nowy fakt F_PI unieważnia jej kompletny zakres, nie trzeba powtarzać
+tej samej recenzji parametrów. Najpierw nowy CAŁY układ modułów i regionów.
+Po domknięciu modułów:4nogi/36żył/123porcje/246końców, obie strony4MTA,
+użyteczny luz/długości/montaż/obrys. Nie N03-N10. Aktualnie0/10, mail dopiero1/10.
 
 N01 jest JEDNYM konstruktywnym wspólnym planem: wszystkie moduły/ramy/bank,
 123porcje/246końców, obie strony4MTA/factory, pełne odciążenia/narzędzia,
@@ -106,6 +124,35 @@ orazK1474 (otwarte); N08 to montaż/serwis, N09 pełna kwalifikacja ruchu (skory
 Nie dopisywać produkcyjnychN03–N10 jako warunku pierwszego planu, ale znanego
 konfliktu nie wolno zepchnąć do kolejnego etapu. Aktualnie0/10, mail dopiero po
 zweryfikowanym1/10. Okno pozostaje aktywne, bez nowego terminu.
+
+Następna decyzja wspólnego montażu22:05UTC: moduły i bank pozostają; dwa roof
+stanowiska są kandydatem przywrócenia dojść. Na każdej nodze dwa źródła Knee
+zbierają się w dostępnym statycznym polu tego samego członu; wspólne6 przechodzi
+na Hip przy rzeczywistej osi Knee, potem wrazzHip1 wspólne9 do galerii korpusu.
+Kotwa Hip NIE może leżeć na łuku kotwy Knee. Poprzednio wybrane punkty miały
+wpozie17 tylko kilka mm odległości; żadna poprawa promienia nie naprawia takiego
+planu kotew. Następna próba zmienia układ prowadzeń: punkt Hip przy projekcji
+rzeczywistej osi Knee do płaszczyzny zewnętrznej wiązki, poza orbitą punktu Knee.
+Plan obejmuje wszystkie4nogi przez aktualne E6, bez dziedziczenia symetrii.
+Wybrane moduły/12SOURCE900/4DONOR900/bank/obieMTA/12ATO i obsada123 nie znikają;
+nie ma nowego wymogu szybkiego serwisu. Rezerwy zewnętrzne nóg nie poszerzają
+325x200x160 tułowia. Po sprawdzeniu kotew decyzja o CAŁYCH regionach i montażu,
+nie produkcyjny pełny harness. Niewiadoma lokalna: czy taki6region daje ciągły
+luz i rozdzielne6profile, omijaU1/mechanikę/podłogę bez zaniżeniaR31.5.
+
+Wynik22:30UTC — LOWER-SPLIT odrzucony w dwóch orientacjach całego modułu:
+Rx-90: rzeczywiste888/092 poniżej1.25 wśrodku ruchu; Rz90*Rx-90: PCBprzecina
+MTAstock i prawidłowąbryłę118 jużwstaniu(18.198mm³), nie sam bbox. Nie kończyć
+pozostałych niepotrzebnych4857/6572par i nie dokładać trzeciegooffsetu dolnejzatoki.
+Nowyfakt: podział dolnychzatok nie usuwa przestrzeni nóg i MTA. Następna strategia
+musi opierać moduł ponad baterią wewnątrz ramy, nie ponownie w tej dolnej warstwie.
+Przebudowa4WAGO nie jest wybrana; wrócić do ich odebranego dolnego układu.
+Naprawiono guard źródeł: isValid na wznowieniu nie wykrył znanych błędów strictBOP
+090/098/125.55odległości do prawidłowych zachowawczych OBB+3rozdzielneboxy
+ponownie kwalifikują wyłącznie58dotkniętychpar;900bezpowtórek,958źródeł zachowane.
+NajmniejszysprawdzonygapdoOBB19.785mm. Nieważne090kontaktyLOWER-SPLIT wycofane,
+pozostałe prawdziwe negatywy zachowane. Receiptday29-strict-source-guard-receipt.json,
+zmierzonykernel18.032s. To korekta dowodu, nie dodatkowe punktyN01.
 
 ## Historia okna RL 29.10.2026 — zamknięte
 
