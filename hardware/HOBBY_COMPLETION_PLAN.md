@@ -1,6 +1,65 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (29.10.2026)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (29.10 wieczór)
+
+Autoryzacja użytkownika: „Pracuj aż osiągniesz1/10”. Cały N01, nie tylkoRL.
+Okno n01-one-of-ten-20261029-result, od19:04:37UTC, bez terminu godzinowego.
+Hook result_stage enabled=true; stage_completed=false; aktualnie0/10.
+Zamknąć po zweryfikowanymN01=1/10 albo zwykłym limicie niedostępnym/wyczerpanym
+lub rzeczywistej blokadzie wymagającej nowejzgody po alternatywach. BezN02-N10.
+
+Źródła:00340f3b/c7c1e876, day29-whole-RL-checkpoint.json i
+appearance-checkpoint.json/current_scope_score/N01 (mianownik10 niezmienny).
+Bazowy Day26PrototypeSpacePlan.FCStd SHA81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b;
+aktualny kandydat Day29RLSourceRestraints.FCStd1285obiektów i
+RL29SourceFixtures.FCStd105cech, hashe w day29-native-source-fixture-assembly.json
+oraz day29-source-fixture-validation.json. Wszystko studium, nie wybranymaster/do druku.
+Części/R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³/MAIN46.52 zachować.
+
+active_worker: native FreeCAD session96178/PID10204, odzyskane bieżące źródła.
+594/594 zmienionych par druk→rama/mechanizmy odebrane,0konfliktów; dawne25 zachowane.
+Następne364pary wzajemne/opaski są odbierane porcjami; nie duplikować.
+next_after_active_worker: wspólny plan dwóch całych stacji i ich dojść w górnych
+odebranych regionach, następnie lokalne pojemności/pozostałe123porcje i budżety900.
+Nie ponawiać dolnych objazdów ani zamkniętej kontroli594.
+
+N01 jest JEDNYM konstruktywnym wspólnym planem: wszystkie moduły/ramy/bank,
+123porcje/246końców, obie strony4MTA/factory, pełne odciążenia/narzędzia,
+montaż/ruch/obrys i osłony z obsadzonymi kotwami. Nie produkcyjne detaleN03,
+pełne indywidualne osieN04-N05 ani pełny stockN10. Jawne przymiarki dostawy
+pozostają bramkami fazy2, ale znane blokery planu muszą zniknąć przed punktem.
+Po sourceodbiorze decyzja o CAŁYM modulemount/regionach: prawdziwe podparcia
+D_RL/RL_G i aktualne first9/BankV/PiUSB, pojemność galerii, wspólny użytecznyluz,
+niezależne jednostki900 i wszystkie pozostałe porcje. Górny obrótD_RL/RL_G ma
+GO tylko do próby, head trafia wdruk, korzenie i górne dojście nieodebrane.
+Nie ponawiać trzech odrzuconych dolnych/aleiX96 objazdów ani dopasowywania kabla
+do przypadkowego drukowanego wspornika. Rezerwacja case nie jest dokładnym producentem;
+stały swobodny kabel referencyjny nie jest sztywną przeszkodą.
+
+Przed nową geometrią: jeden wspólny układ stabilnych modułów i połączonych regionów,
+aktualna obsada/przekroje/zapas/długości/montaż; dotychczasowy recenzentAstra medium
+ocenia całą propozycję, nie parametry. Jeden wykonawca, bez zmiany modelu.
+Skille i DESIGN_LESSONS26/29.10: własny przewód/opaska/dodatni joint/kompletność
+union przed kosztowną kontrolą reszty. Po2odrzuceniach zmiana przyczyny/układu,
+nie mikrooffset/nazwaskryptu. Czas/limit przed kosztowną pracą i maks10min,
+last_account_usage rzeczywisty. Wynik lub nowyfakt20–30min wtejkarcie.
+Commity własnych sprawdzonych etapów bez cudzych zmian; kontynuować po lokalnymwyniku.
+Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila/
+WORK_HANDOFF/Claude/okresowychalertów/fizycznegoPASS. Historyczne20/20osobno.
+
+Wynik 2026-10-29T19:52:26Z: zmienione3drukowane części RL mają594/594 aktualnych par do
+ramy/mechanizmów bez konfliktu; kernel177.498+5.031s, odzyskanie i poprzednie25
+rozliczone w receipcie. To nie odbiór luzu ani całejnogi/N01. RecenzentAstra medium
+29.10 GO dla A (dwie stacje, zachowanie reszty); B19zespołów tylko po wykazaniu przyczyny.
+Nowy fakt: dolne D/RL_G można konstruktywnie podeprzeć (joint69.957/96mm³),
+ale ich pełne wyjścia nadal przecinają U1/FL_G/AUX i rezerwę skóry. Utrzymanie
+samych case nie zamyka interfejsu. Konsekwencja: przeniesienie CAŁYCH dwóch
+zespołów do odebranych wolnych pól powyżej banku; jeden wspólny plan dojść,
+nie kolejny mikrooffset drutu. Stare pozytywne regiony i dostępy zachować.
+N01 nadal0/10; zmierzony czas bieżącego okna od19:04:37UTC, bez sztucznych punktów.
+
+
+## Historia okna RL 29.10.2026 — zamknięte
 
 **Autoryzacja:** „Okej to pracuj” po propozycji4h na jedną CAŁĄnogę.
 Okno rl-whole-leg-20261029-four-hours;11:41:41–15:41:41UTC,
