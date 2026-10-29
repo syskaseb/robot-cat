@@ -54,6 +54,97 @@ def pose(E, F, U, point):
     return A.Placement(m)
 
 
+def build_forked_roots(doc, outputs, clamps):
+    """Open belt passages by structural forks, not tiny cut grooves.
+
+    Two feet straddle each case belt; terminal pairs straddle the cap bands.
+    Wire lands, source orientation, curved guide and purchased cases stay put.
+    New material requires changed-neighbour checks; old cylindrical clearance
+    is not silently inherited for the changed supports.
+    """
+    made = []
+    def rod(name, a, b, factor=1.):
+        a, b = np.array(a), np.array(b)
+        obj = doc.addObject('Part::Cylinder', 'RL29Fork'+name)
+        obj.setExpression('Radius', 'RL29Parameters.RodRadius*'+str(factor))
+        obj.Height = float(np.linalg.norm(b-a))
+        obj.Placement = A.Placement(A.Vector(*a), A.Rotation(A.Vector(0,0,1), A.Vector(*(b-a))))
+        made.append(obj)
+        return obj
+    def terminal_pair(name, start, c, target_f):
+        centre = (np.array(c['start'])+c['end'])/2
+        E,F,U = map(np.array, [c['E'],c['F'],c['U']])
+        junction=centre+(18. if target_f>0 else -18.)*F
+        rod(name+'Stem',start,junction)
+        for i, sign in enumerate((-1,1)):
+            rod(name+str(i), junction, centre+target_f*F+sign*4.*U, .5)
+    result = dict(outputs)
+    for owner, actor, axis in [('Hip','RL29HipLeg0',[1.,0,0]),('Knee','RL29Knee2Leg0',[0,.9902680687415703,-.13917310096006663])]:
+        made.clear()
+        base = np.array(list(doc.getObject(actor).Placement.Base))
+        normal = np.array(list(doc.getObject('RL29'+owner+'Seat').Dir))
+        axis = np.array(axis)
+        pads=[]
+        if owner=='Knee':
+            # The belt and symmetric feet share the actual pad datum. Source-face lobes support both complete footprints.
+            for i,sign in enumerate((-1,1)):
+                point=base+sign*4*axis-1.5*normal
+                window=doc.addObject('Part::Cylinder','RL29ForkKneePadWindow'+str(i))
+                window.Radius,window.Height=2.2,6.
+                window.Placement=A.Placement(A.Vector(*(point-3*normal)),A.Rotation(A.Vector(0,0,1),A.Vector(*normal)))
+                patch=doc.addObject('Part::Common','RL29ForkKneePadPatch'+str(i))
+                patch.Base,patch.Tool=doc.getObject('RL29KneeSourceFace'),window
+                pad=doc.addObject('Part::Extrusion','RL29ForkKneePad'+str(i))
+                pad.Base,pad.Dir,pad.Solid,pad.LengthFwd=patch,A.Vector(*normal),True,3.
+                doc.recompute()
+                assert patch.Shape.Area>12.,patch.Shape.Area
+                pads.append(pad)
+        top = base+12*normal
+        for i,sign in enumerate((-1,1)):
+            foot = base+sign*4*axis
+            rod(owner+'Foot'+str(i),foot,foot+12*normal,.5)
+        node = doc.addObject('Part::Box','RL29Fork'+owner+'Crossbar')
+        e=normal/np.linalg.norm(normal);f=np.cross(axis,e)
+        node.setExpression('Length','2*RL29Parameters.RodRadius')
+        node.setExpression('Width','2*RL29Parameters.RodRadius')
+        node.Height=8.
+        node.Placement=pose(e,f,axis,top-3*e-3*f-4*axis)
+        for i,k in enumerate('xyz'):
+            node.setExpression('Placement.Base.'+k,str(float(top[i]-4*axis[i]))+' mm - '+str(float(e[i]+f[i]))+'*RL29Parameters.RodRadius')
+        made.append(node)
+        if owner=='Hip':
+            rod('HipUpperMain',top,[160,60,45])
+            terminal_pair('HipCapArm',[160,60,45],clamps['RL1'],4.)
+            rod('HipGuideMain',top,[144,62,45])
+            rod('HipGuideUpright',[144,62,45],[144,62,64])
+            u=np.array([-2**-.5,2**-.5,0]);f=np.array([-.5,-.5,-2**-.5]);centre=np.array([151.24385796,84.6862915,71.])
+            rod('HipGuideStem',[144,62,64],centre+18*f)
+            for i,sign in enumerate((-1,1)):
+                rod('HipGuideArm'+str(i),centre+18*f,centre+3.3*f+sign*4.*u,.5)
+            fixed=[doc.getObject(n) for n in ['RL29HipSeat','RL29HipSourceBed','RL29GuideBed']]
+        else:
+            rod('Knee2Main',top,[163,100,28]);terminal_pair('Knee2CapArm',[163,100,28],clamps['RL2'],-4.)
+            rod('Knee3Main',top,[180,112,28]);terminal_pair('Knee3CapArm',[180,112,28],clamps['RL3'],-4.)
+            fixed=[doc.getObject(n) for n in ['RL29KneeSeat','RL29Knee2SourceBed','RL29Knee3SourceBed']]
+        fuse = doc.addObject('Part::MultiFuse','RL29'+owner+'ForkedMembers')
+        fuse.Shapes, fuse.Refine = fixed[:1]+list(made)+fixed[1:]+pads, False
+        doc.recompute()
+        fuse.Shape.check(True)
+        assert fuse.Shape.isValid() and len(fuse.Shape.Solids)==1,owner
+        assert fuse.Shape.Volume>=max(o.Shape.Volume for o in fuse.Shapes)-1e-6,owner
+        for member in fuse.Shapes:
+            assert member.Shape.cut(fuse.Shape).Volume<1e-5,(owner,member.Name,'union omitted member')
+        # Normal feet remove the former slanted-strut/case penetration.
+        # Do not Boolean-cut an already disjoint case; require a real zero-
+        # volume intersection instead of accepting a failed/null Cut result.
+        case = doc.getObject('RL29'+owner+'CaseFitTool').Shape
+        assert fuse.Shape.common(case).Volume < 1e-6,owner
+        fuse.addProperty('App::PropertyString','MotionOwner').MotionOwner=owner
+        fuse.addProperty('App::PropertyString','Scope').Scope='Open belt-pass structural fork; native candidate, delivered fit/pull gate'
+        result[owner+'Root']=fuse
+    return result
+
+
 def build(doc, rest, knee_parts, source1_parts):
     made = []
     params = doc.addObject('App::FeaturePython', 'RL29Parameters')
@@ -128,8 +219,9 @@ def build(doc, rest, knee_parts, source1_parts):
         E -= np.dot(E, U)*U
         E /= np.linalg.norm(E)
         F = np.cross(U, E)
-        bed = box(name+'BedBlank', (15.3, 5.5, 9), p-7.65*E-5.5*F, E, F, U)
-        cap = box(name+'CapBlank', (15.3, 4.05, 9), p-7.65*E, E, F, U)
+        case_facing = 1. if name=='HipSource' else -1.
+        bed = box(name+'BedBlank', (15.3, 5.5, 9), p-7.65*E+(0. if case_facing>0 else -5.5)*F, E, F, U)
+        cap = box(name+'CapBlank', (15.3, 4.05, 9), p-7.65*E+(-4.05 if case_facing>0 else 0.)*F, E, F, U)
         grooves = []
         for i, offset in enumerate([-3.6, 0., 3.6]):
             cyl = add('Part::Cylinder', name+'Jacket%d' % i)
@@ -139,7 +231,7 @@ def build(doc, rest, knee_parts, source1_parts):
             grooves.append(cyl)
         holes = fuse(name+'NominalJackets', grooves)
         bed, cap = cut(name+'Bed', bed, holes), cut(name+'Cap', cap, holes)
-        return bed, cap, (p+end)/2-7*F, dict(start=p.tolist(), end=end.tolist(), E=E.tolist(), F=F.tolist(), U=U.tolist(),
+        return bed, cap, (p+end)/2+case_facing*7*F, dict(start=p.tolist(), end=end.tolist(), E=E.tolist(), F=F.tolist(), U=U.tolist(),
             nominal_project_radii_mm=[1.55,1.,1.55], delivered_OD_unknown=True, replaceable_insert_and_pull_gate=True,
             actual_source_strain_relief=True, independent_three_jacket_contact_not_three_separate_grips=True)
 

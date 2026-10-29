@@ -753,3 +753,19 @@ Następny plan obejmuje jednocześnie ramiona, opaski, dociski i całe kable.
 Sześć dodatnich domen na osiem nie jest wspólnym rozwiązaniem ani punktem.
 Długie spekulacyjne rozważania też są kosztem: ograniczać je do wyboru
 jednej sprawdzalnej zmiany przyczyny; nie zastępować nimi wyniku.
+
+
+## 29.10 — najpierw własne interfejsy mocowania
+
+Przed kontrolą mocowania do reszty robota sprawdź cały własny prefiks
+przewodów, pełne opaski/główki oraz dodatnie połączenia drukowanych elementów.
+614 zielonych par z modułami nie wykryło HipRoot→własny płaszcz34.399mm³.
+Stronę integralnego łoża wybieraj od case, a zdejmowany cap po przeciwnej;
+nie prowadź struta przez przewody. Projektuj otwarte przejścia dla opasek.
+Na pochylonym członie stopy i belt muszą używać tego samego datumu panelu;
+worldY75 nie był płaszczyzną środka case. Nie dobieraj offsetów próbami.
+BOP/isValid/1solid nie wystarczą dla union: sprawdź obecność każdego członu.
+Odebrany wariant fuses łączy od seat przez połączone człony do gripów,
+bezRefine; stary wynik potrafił zgubić ramiona mimo1solid.
+Każdy zmieniony root/cap/belt traci stare zewnętrzne potwierdzenie.
+Lokalny odbiór nie daje punktu N01 ani fizycznego PASS.

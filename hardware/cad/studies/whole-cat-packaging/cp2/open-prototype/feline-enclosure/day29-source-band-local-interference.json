@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "owner": "Hip",
+      "component": "RL29HipLeg0",
+      "band": "HipParentBand",
+      "actual_overlap_mm3": 23.868621759475296
+    },
+    {
+      "owner": "Hip",
+      "component": "RL29HipLeg1",
+      "band": "RL1CapBand",
+      "actual_overlap_mm3": 27.989163369382272
+    },
+    {
+      "owner": "Hip",
+      "component": "RL29HipBranch0",
+      "band": "HipParentBand",
+      "actual_overlap_mm3": 33.37477521366427
+    },
+    {
+      "owner": "Hip",
+      "component": "RL29HipBranch2",
+      "band": "HipSGuideBand",
+      "actual_overlap_mm3": 9.08222571801444
+    },
+    {
+      "owner": "Knee",
+      "component": "RL29Knee2Leg0",
+      "band": "KneeParentBand",
+      "actual_overlap_mm3": 18.370502437202248
+    },
+    {
+      "owner": "Knee",
+      "component": "RL29Knee2Leg1",
+      "band": "RL2CapBand",
+      "actual_overlap_mm3": 6.962245031603695
+    },
+    {
+      "owner": "Knee",
+      "component": "RL29Knee3Leg0",
+      "band": "KneeParentBand",
+      "actual_overlap_mm3": 17.050986890624163
+    },
+    {
+      "owner": "Knee",
+      "component": "RL29Knee3Leg1",
+      "band": "RL3CapBand",
+      "actual_overlap_mm3": 8.470414585269113
+    }
+  ],
+  "whole_root_cut_attempts": 2,
+  "kernel_failure": "BOPAlgo_InvalidCurveOnSurface; no cached-green or unsupported healing",
+  "next": "Distribute removal only into positively overlapping construction members, then fuse; no wire reroute/diameter reduction.",
+  "physical_pass": false,
+  "decision": "Only eight cylindrical struts overlapbands; pads, jacket beds and curved guides do not. Distribute real groove removal into those members before fusion instead of cutting the entire curved-guide union.",
+  "whole_root_attempts": "genericoffset+wholecut invalidCurveOnSurface; analyticalpolygon+wholecut same; distributedmembercuts valid, finalunrefinedunion hasTooSmallEdge pendingstandardRefine"
+}

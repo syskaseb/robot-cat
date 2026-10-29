@@ -1,0 +1,218 @@
+{
+  "status": "WHOLE_PLAN_FOR_REVIEW",
+  "source_commit": "15e2fc4c",
+  "native_sha256": "81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b",
+  "objects": 1180,
+  "material_source_actors": 1031,
+  "neutral_moving_parts": 108,
+  "current_stock_components": 135,
+  "archive_shapes": 48,
+  "datum_MAIN46_52": 46.52,
+  "open_documents": [],
+  "restore_seconds": 18.64100000000326,
+  "old_resident_absent": true,
+  "replayed_old_solver_or_archive_search": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "proposal": "day29-whole-RL-proposal.json",
+  "kinematic_contact_range": {
+    "standing_floor_mm": -168.3190155029297,
+    "four_current_belly_feet_bottom_mm": -73.52734883626302,
+    "belly_contact_drop_mm": 94.79166666666667,
+    "existing_contact_pose_index": 35,
+    "source0_17_35_subset_not130_drop": "Use through35; same current four-pad nominal contact, not force failed49/130. Existing FK only, pad load path/physical contact not newly approved."
+  },
+  "whole_review": {
+    "thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+    "turn": "01a18785-dbbe-7b83-951d-d2553425b57f",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "decision": "GO_bounded_whole_RL_trial_no_geometry_pass",
+    "donor_as_spare_allowed_if_not_physically_precut": true,
+    "comments_disposition": [
+      "Confirm oldcuts are design only; spare stays selected/allocated.",
+      "Full SOURCE900 allows proper trimming/preparation at terminals, no extra splice if complete chain fits.",
+      "Same Kneeowner does not remove opposite exit/plug installation risk.",
+      "Use0..35 belly contact; include intermediate motion/floor; keep dynamic31.5/static12.4 scopes.",
+      "Receive whole RL through all current electrical terminals and anchors; galleryalone not sufficient."
+    ],
+    "RL_received": false
+  },
+  "wire_dimension_lookup": {
+    "urls": [
+      "https://www.waveshare.com/sr-cable-5264-3pin.htm?sku=34172",
+      "https://cdn.robotshop.com/media/F/Fit/RB-Fit-155/pdf/feetech_12v_30kg_cm_magnetic_encoding_servo_sts321_specification_pdf.pdf"
+    ],
+    "product_lookup": "Exact selected SR900 SKU found; official page could not be fetched(403), no actual OD/area data confirmed. Manufacturer ST3215-C018 datasheet fetched:5264-3P interface, supplied15cmcable; NOT SR900 OD or dynamic radius.",
+    "decision": "No reduction of existing profile or bend reserves.3.1is conservative planning capacity, not claimed supplier OD.14port remains explicit project mating reserve."
+  },
+  "rejected_local_trials": [
+    {
+      "status": "ONE_TRIPLET_SAME_MEMBER_SIDE_LIFT_PREFLIGHT",
+      "whole_proposal": "day29-whole-RL-proposal.json",
+      "review_turn": "01a18785-dbbe-7b83-951d-d2553425b57f",
+      "cause": "Keep complete casing outboard first; lift outside BUSY56.4+margin, then return ABOVE complete Knee max48.095+triplet5.65+air1.25, not another low quarter or direct rise through BUS.",
+      "triplet": 3,
+      "capacity_radius_mm": 5.65,
+      "core_centres_radial_max_offset_mm": 3.6,
+      "static_mid_R_mm": 16,
+      "inner_static_core_R_lower_mm": 12.4,
+      "static_port14_project_not_supplier": true,
+      "port14_not_requalified": "Initial mating reservation retains own-case interface; this free-jacket study begins at its outer point. No new supplier hole/plug-fit claim.",
+      "parts": [
+        {
+          "kind": "arc",
+          "start": [
+            171.5575664610457,
+            30.510105063722296,
+            21.519875585313567
+          ],
+          "mid": [
+            182.87127496003046,
+            35.19639656473753,
+            21.51987558531346
+          ],
+          "end": [
+            187.5575664610457,
+            46.5101050637223,
+            21.519875585313414
+          ],
+          "radius_mm": 16.0,
+          "length_mm": 25.132741228718345
+        },
+        {
+          "kind": "line",
+          "start": [
+            187.5575664610457,
+            46.5101050637223,
+            21.519875585313414
+          ],
+          "end": [
+            187.5575664610457,
+            64.0,
+            21.519875585313414
+          ],
+          "length_mm": 17.4898949362777
+        },
+        {
+          "kind": "arc",
+          "start": [
+            187.5575664610457,
+            64.0,
+            21.519875585313414
+          ],
+          "mid": [
+            187.5575664610457,
+            75.31370849898477,
+            26.206167086328655
+          ],
+          "end": [
+            187.5575664610457,
+            80.0,
+            37.519875585313414
+          ],
+          "radius_mm": 16.0,
+          "length_mm": 25.132741228718345
+        },
+        {
+          "kind": "line",
+          "start": [
+            187.5575664610457,
+            80.0,
+            37.519875585313414
+          ],
+          "end": [
+            187.5575664610457,
+            80.0,
+            55.0
+          ],
+          "length_mm": 17.480124414686586
+        },
+        {
+          "kind": "arc",
+          "start": [
+            187.5575664610457,
+            80.0,
+            55.0
+          ],
+          "mid": [
+            182.87127496003046,
+            80.0,
+            66.31370849898477
+          ],
+          "end": [
+            171.5575664610457,
+            80.0,
+            71.0
+          ],
+          "radius_mm": 16.0,
+          "length_mm": 25.132741228718345
+        },
+        {
+          "kind": "line",
+          "start": [
+            171.5575664610457,
+            80.0,
+            71.0
+          ],
+          "end": [
+            162.5575664610457,
+            80.0,
+            71.0
+          ],
+          "length_mm": 9.0
+        }
+      ],
+      "Hip_land_rest_mm": [
+        162.5575664610457,
+        80.0,
+        71.0
+      ],
+      "length_excluding14_mm": 119.36824303711931,
+      "constraints": "All current stationary material/135stock +108actual moving parts for matching0/17/35; invalid source error/HOLD not contact. A conservative triplet cover intersection rejects this cover, not proof of wire impossibility.",
+      "tasks": 37,
+      "rows": [
+        {
+          "pose": 35,
+          "part": "Ref_Material_P0_Part__Feature114_0_0",
+          "gap_mm": 0.0,
+          "unavailable_mm3": 93.06207598975821
+        },
+        {
+          "pose": 35,
+          "part": "Ref_Material_P0_Part__Feature125_0_0_0",
+          "status": "INVALID_SOURCE_BOX_OVERLAP_HOLD_NOT_CONTACT"
+        }
+      ],
+      "kernel_seconds": 6.39100000000326,
+      "RL_complete": false,
+      "N01_complete": false,
+      "physical_pass": false,
+      "checked": 37,
+      "completed": true
+    }
+  ],
+  "closeout": {
+    "closed_utc": "2026-10-29T15:41:20Z",
+    "deadline_utc": "2026-10-29T15:41:41Z",
+    "reason": "authorized_deadline_save_buffer",
+    "elapsed_seconds_at_save": 14379,
+    "whole_RL_complete": false,
+    "N01_score": "0/10",
+    "source_local_received": true,
+    "changed_rigid_checked": 25,
+    "changed_rigid_total": 594,
+    "changed_rigid_issues_so_far": 0,
+    "mutual_motion_received": false,
+    "remaining": [
+      "new mount/stock allcurrentfixedandmutualmotion",
+      "bodyDVGandactualroots",
+      "usefulsharedslack",
+      "whole900budget"
+    ],
+    "ordinary_remaining_percent": 94,
+    "reset_used": false,
+    "next_estimate": "30-60min sourceinterfaces only; no wholeN01 ETA",
+    "physical_pass": false
+  }
+}

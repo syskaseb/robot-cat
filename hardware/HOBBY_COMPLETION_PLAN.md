@@ -4,7 +4,7 @@
 
 **Autoryzacja:** „Okej to pracuj” po propozycji4h na jedną CAŁĄnogę.
 Okno rl-whole-leg-20261029-four-hours;11:41:41–15:41:41UTC,
-czyli12:41:41–16:41:41Warszawy. Hookenabled=true. Nie przedłużać.
+czyli12:41:41–16:41:41Warszawy. Hookenabled=false przy zamknięciu. Nie przedłużać.
 30min wspólny plan; po90min rzeczywisty wynik/zmiana przyczyny; potem odbiór.
 Nie kończyć po częściowym commicie. Cały wynik jednejnogi albo termin/realny
 brak pracy poalternatywach/niedostępny lubwyczerpany zwykłylimit kończą okno.
@@ -127,6 +127,71 @@ Dwa wspólne bodyukłady (podramowy i boczny do dachu) mają rzeczywiste
 konflikty — NIE wracać do ich mikrooffsetów. BankBedCurrent:-1 zawiera
 cały złożony nośnik/Pi, nie samą płaską płytkę. Kolejna decyzja ma korzystać
 z odebranych23komór zamiast nowej arbitralnej aleiX96.
+
+
+**Wynik14:52UTC / zmiana poziomu:** trzeci lokalnyD3 wlot do starychkomór
+ma konflikt zD_RR/F_R4 i szyną. NIE poprawiać kolejną współrzędną tejkrzywej.
+Przyczyna to narzucone dolne wyjścia stacji, nie niedobór kolejnychosi.
+Odczytano konstruktory pełnych pionowychstacji i casebackerów: obrót180°Y
+zachowuje bocznykierunek dźwigni, zmienia wyjścia-Z→+Z bezzmianycasebryły.
+Recenzja01a18821 GO doJEDNEJ próby całychD_RL+RL_G; to nie odbiórgeometrii.
+Obracane ID/funkcje, nie ponowne numerowaniepoX. Do9RL dochodzą jawnie
+W012(D_RL.5) iW062(RL_G.4); historycznepełneśrodki nie były odebrane.
+Stary korzeńchwytu nie zachowujeodbioru poobrocie. Dostępdźwigni/montaż
+i górne przejście musząmieć plan, samobrótcase nie dajezielonegowyniku.
+Kopiaaktualnegobase z60cechami6źródłowychmocowań zapisana35.578s:
+Day29RLSourceRestraints.FCStd; MAIN46.52 i oryginalnySHA bez zmian.
+To kandydat wspólny, NIE wybranymaster/obudowa/do druku.
+
+
+**Wynik15:17UTC — ważna korekta zakresu dowodu:**614par dotyczyło modułów
+i mechanizmów. Brakowało testu własnych przewodów w uchwycie. HipRoot zc7
+PRZECINA własne nominalne płaszcze34.399385mm³. Ten kandydat maHOLD;
+eksporty NIE są wydaniem do druku. Sama etykieta zeroissue wrigid nie
+kwalifikuje całego mocowania. Najpierw własny przewód/opaska i drogapodparcia,
+dopiero potem zewnętrznepary. Knee2/Knee3 lokalnejpenetracji nie mają.
+267par pełnych opasek/główek do starych modułów zamkniętych0issue, aleopaski
+przecinały struty korzeni. Dwa cięcia całego rootu nie przeszłyBOP; nie
+próbować dalszych offsetów. Rozstrzygnięto fizyczną stronę: Hipbed musi
+być od stronycase(F+), cap po przeciwnej; podparcie przez rozdzielone
+ramiona obok opasek, bez grzebania w osi/OD przewodów i bez zmiany9mm.
+Nowa konstrukcja natywna wodbiorze, bez dopisywania procentów.
+
+
+**Wynik15:34UTC:** poprawiona stronaHipbed oraz otwarte rozwidlone podpory
+z dodatnimi połączeniami zamykają lokalnyproblem:9pełnych nominalnych
+prefiksów source i14obrysów8opasek do własnych druków mają0przenikań.
+Kneeparentbelt i stopy używają prawdziwego datumu panelu/tilt, nie worldY75;
+loby stóp pochodzą z rzeczywistej mechanicznej powierzchni obudowy.
+Sześć końcowych brył jestBOP-valid/1solid, suma zawiera KAŻDYelement
+(zwykłe isValid nie wychwyciło gubienia części przez starą kolejnośćfuse).
+Łączenie odseat przez połączone pręty, potemgripy, bezRefine zamyka tenbłąd.
+RodRadius3→3.25→3 i reopen/6STL+6STEP odebrane3.093s; aktualnykandydat
+NIE ma jeszcze odbioru zmienionych podpór/opasek do wszystkich ruchomych
+części. Stare614/267 nie są wynikiem tej zmienionejgeometrii.
+Pozostają: ruchowe/wzajemne interfejsy nowych mocowań, bodyD/V/G/korzenie
+górnych stacji, konstruktywny użyteczny luz i pełne budżety jednostek900.
+N01 nadal0/10; całejRL nie ogłaszać gotową.
+
+
+**Zamknięcie okna29.10 / bufor zapisu przed15:41:41UTC:** całaRL NIE
+została domknięta w4h; stage_completed=false, N01–N10 nadal0/10.
+Aktualne source6native/12eksportów z8opaskami: lokalne9profili/statyczne
+OwnStock0przenikań, parametr/reopen otrzymane. Zmienionezewnętrzne25/594
+bezproblemu odebrane; reszta oraz wzajemne ruchoweinterfejsy NIEODEBRANE.
+Stare614/267 nie kwalifikują obecnych zmienionychrootów/stockpozycji.
+CurrentNative105cech scalone do aktualnegobase;1285obiektów. Reopen34.875s,
+MAIN46.52 i SHA źródła zachowane. Kandydat, bez wybranegomastera/do druku.
+Pomiar sesji od11:41:41 do15:41:20UTC=14379s; finalizacja przyterminie.
+Zwykłylimit ostatnio94%pozostało (start100%), bez resetu/zakupów.
+Commityc7c1e876 + bieżący lokalny commit korekty. Worker kończy bez nowychzadań.
+NEXT: najpierw odebrać594zmienione pary i mutualmotion/sourcewire, bez
+ponawiania lokalnych9profili. Potem rzeczywiste mocowania D_RL/RL_G i
+całyukładbodyV/USB/regionów przed kolejnym objazdem. Brakpodparcia nie
+może być zastępowany starą nazwą casebackera. Dalej wspólnyluz i900jednostki.
+Estymata następnego odbioru samych sourceinterfejsów30–60min,
+bez obietnicy terminu całegoN01. Nie uruchamiać kolejnegookna samodzielnie.
+Przed CAD czytać lessons29.10 o własnych interfejsach i pokryciuunion.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 
