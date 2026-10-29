@@ -1,133 +1,132 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (26.10.2026 wieczór)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (29.10.2026)
 
-**Okno:** n01-shared-prototype-20261026-2200; start17:26:47UTC,
-deadline21:00UTC=22:00Warszawy. Zgoda „Pracuj do22”. Hookenabled=false; okno zamknięte o22:00Warszawy.
-Nie kończyć po lokalnym wyniku/commicie; nie przedłużać ani nie zaczynaćN02/N03.
-Zwykły limit/czas przed kosztowną pracą i≤10min; rzeczywisty last_account_usage
-w robot-cat/.codex/hooks/robot-cat-work-window.json. Bez resetów/zakupów.
-WybranySol high + istniejącyrecenzentAstra medium; modeli nie zmieniać.
-N01–N10 **0/10**; historyczne20/20 dokumentacji osobno. Bez fizycznegoPASS.
+**Autoryzacja:** „Okej to pracuj” po propozycji4h na jedną CAŁĄnogę.
+Okno rl-whole-leg-20261029-four-hours;11:41:41–15:41:41UTC,
+czyli12:41:41–16:41:41Warszawy. Hookenabled=true. Nie przedłużać.
+30min wspólny plan; po90min rzeczywisty wynik/zmiana przyczyny; potem odbiór.
+Nie kończyć po częściowym commicie. Cały wynik jednejnogi albo termin/realny
+brak pracy poalternatywach/niedostępny lubwyczerpany zwykłylimit kończą okno.
+Bez nowych fazN02/N03. N01–N10 nadal0/10; historyczne20/20 osobno.
 
-**Baza aktualna:** lokalne47223e59/1ba131bb/d3f415f8/7a9bda47, day26-current-shared-mount-and-space.json,
-ten sam breps.zip(48shape), Day26PrototypeSpacePlan.FCStd(1180objects).
-To STUDIUMN01, nie produkcyjny eksport ani nowa wybrana wersja mastera.
-MAIN+12X/+24Y/Z46.52;4case PODramą, całeFR_P/RR_P/RR_G/F_HY przywrócone.
-R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³ zachować.
-Stare4Bcase w day26-current-underframe-plan nie są aktualnymi pozycjami.
+**Otrzymana baza:**15e2fc4c/47223e59/1ba131bb; ten sam aktualny
+day26-current-shared-mount-and-space.json +breps.zip48, native1180.
+Źródło CAD:Day26PrototypeSpacePlan.FCStd; studium, nie wybrany master/do druku.
+135aktualnych obrysówopasek wday26-current-installed-tie-envelopes.json,
+nie135sztuk. MAIN46.52, podramowy nośnik4case/retencja17pól zachowane.
+23komory roof +dolny zewnętrzny region i płaski9wznios:1spójna rezerwa
+222891.864mm³. NIE przebudowywać ani ponawiać niezmienionych kontroli.
+P0/E6/15napędów/MG92B/R47/325×200×160/max200/margines256³ zachować.
 
-**Odebrane i nie powtarzać:** MAINpodpora/9mmłoże/pełnaT18I100; nośnik4case
-89.25×76×39 i4905pady1036mm²;2wybraneM2.5×12/2nakrętki zamiast zdublowanych
-BatteryScrewRearL/R. Podramowe17nominalnych pól:4bary/4pełneopaski,
-9mmpodparcie/5mmbar,4casehash/tylneoparcia/MAIN bez zmian. Roundtrip50/native
-48.469s. Profile2.5/3.1/4.2 to rezerwy projektu, nie gwarancjaODproducenta;
-fizyczne dopasowanie/pull/pełzanie faza2. Pełną wiązkę pozostawićOPEN.
-Nowe sprawdzenie tych17części przeciw135obrysomopasek:2295bbox/8native/0HOLD,
-11.813s łącznie z dodaniem obrysów do roof. Nie135sztukopasek:band/head
-to części tej samej jednostki. Starych8budżetów4case nie liczyć drugi raz.
+**Wynik okna:** jedna całaRL-source3/source2/Knee/Hip→stały region:
+9tożsamości/18końców, mocowania/kotwy/droga obciążenia, ruchomy luz,
+osobne SOURCE/RL1/RL2/RL3 iDONOR/RL3 po900, kolejność montażu.
+To nie jest jeszcze cały N01 ani pełna obudowa. Używać wszystkich9Hip/14Knee,
+nie jednej połowy obudowy. Source2/source3 mają wspólnego właścicielaKnee.
+Obrys regionalny i obsada zamiast9niezależnych krzywych w każdym miejscu.
+Dokładna geometria wymaga nazwanego lokalnego zagrożenia/decyzji/uzasadnienia.
 
-**Zmiana metody:** zamocowane moduły + połączone dostępne regiony123/246,
-lokalne profile/obsada/zapas/długości/luz/rozgałęzienia/opaski/montaż.
-Nie123sztywneprzewody. Exact: nazwane lokalne zagrożenie/decyzja/dlaczegoregion
-nie odpowie. Bbox overlap nie jest kontaktem; dodatni bboxgap jest dolnągranicą.
-Poglądowe swobodne kable nie są sztywnymi przeszkodami. Budget opaski/główki
-na robocie jest ograniczeniem przestrzeni nawet gdy nie jest materiałem lub
-nie jest rysowany. Aktualny helper installed_stock_envelope w
-tools/cad/feline_prototype_space_classification.py. Jawnie retire8starych
-obrysów wg retired_old_prints_for_these4_stations; zachować135bieżących.
-Skill cad-layout-planning i26.10DESIGN_LESSONS przedCAD. Po2tej samejprzyczynie
-zmienić topologię/kolejność/uzasadnionezałożenie; nie zerować licznika turą.
+**Odrzucone/przyczyny:** niski lateralnyHip przecina pełną obudowę/mechanizm;
+prosty wznios do środka trafia wBUS/ogon i nie spełniaR. Nie poprawiać kolejnymi
+offsetami/handle. Zakres0.069mm nie jest tolerancją ręcznego montażu.
+Dawne18końców/bodyseam i budżet−43.696 to nie dowód nowej trasy/niemożliwości.
+Przeliczyć CAŁY rzeczywistyłańcuch, zachowując jednostki i source-ownedjoin;
+nie dowolne1800pool i nie dodawać dwóch różnych granic jako podwójnej długości.
+Stały12.4 z kontraktów i dynamiczny31.5 są odrębne; nie obniżać dla zielonego.
+Braki producenta/prowizoryczny14port jawne, przymiarka faza2, bezphysicalPASS.
 
-**Źródła — obecna decyzja:** Hip125/135 i nowy kwartalny~90mm NIE są wybrane.
-112naruszeń/HOLD w182nativekandydatach z108ruchomymi częściami0/17/35,
-134.811s;1HOLD dotyczy znanego invalidcover, nie dowód kontaktu.
-Wszystkie4nogi mają rzeczywiste przecięcia REGIONU z mechaniką, nie dowód,
-że żadna ręcznie ułożona wiązka nie pasuje. day26-Hip-U1-changed-motion-check.json
-i day26-leg-shared-space-rejection.png zachowują świadków.
-housing_bounds w rekordzie source1 jest tylko JEDNĄ częścią obudowy!
-Przed nowym polem źródłowym użyć CAŁYCH9Hip/14Knee i pokazać jedną całąnogę,
-źródło→Knee→Hip→stałegalerię. Najpierw region/obsada/końce/retencja/obrys,
-potem rodzina krzywych. Nie kolejne4parametry bez wspólnej bramki.
-Nie używać wąskiego zakresu0.069mm jako tolerancji ręcznego montażu.
-Source900/donor900 oddzielne; stary835mm nie jest nieuchronnym minimum.
-Source14 i statyczneR12.4 są jawneprojektowe założenia z warunkiem pełnego
-utrzymania same-member; dynamiczneR31.5 nie zostało obniżone. Brak supplierOD.
-Pozy0/17/35:drop0/46.04/94.79; pose49/130mm był błędny, nie odbiór kładzenia.
+**Workflow:** jeden wykonawca, istniejący recenzentAstra medium tylko odczyt.
+Modelu głównego nie zmieniać. Recenzja całej propozycji przed detalami,
+max5uwag/1korekta; nie recenzować parametrów. Skilleprojektowe/DESIGN_LESSONS.
+Po2tej samejprzyczynie zmienić układ/kolejność/topologię, nie nazwęskryptu.
+Czas/limit≤10min i przed kosztowną pracą; rzeczywisty last_account_usage.
+Wynik20–30min wtej karcie/pakiecie. Bez WORK_HANDOFF/Claude/maila/alertów/
+zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule.
 
-**Odrzucone, nie ponawiać:** całeS0tył[105,50,26]/RL_PZ70 oraz całeS0dolnaszyja
-[−145,0,−15]. Rzeczywiste ramy/U1/POST lub HeadBridge; S0 iRL_P nie ruszono.
-PróbaU1górnegomostuZ35 dała tylko2.894mm³ownjoint zamiast16; NIE wybrana.
-Nawet poprawa tego kontaktu nie naprawi kolizjiHip; nie wdrażać jej przed
-nowym wspólnym planem całej nogi. Native1180/48 nie zawiera tych odrzuconych prób.
-Recenzje01a17998/01a179a6:GOograniczonejpróby/HOLDN01; żadnego geometryPASS.
+**Wynik12:08UTC:** aktualny native odtworzony18.641s,1031sztywnychaktorów,
+108ruchomych/135obrysówopasek/48archiwum;0otwartychdokumentów.
+4podpory brzucha−73.5273488363 minus floor−168.319015503 dają dokładnie
+drop94.7916666667=pose35; nie wymuszać130/pose48. To FK/kontaktplanowany,
+nie nowe potwierdzenie drogi obciążenia podpór ani fizycznegoPASS.
+Recenzja01a18785:GO3tripletów/2stref ruchu i ciągłegoSOURCE900 jeśli mieści
+całyłańcuch. Wybranydonor możezostaćzapasem, starecięcia tylko plan.
+Supplierlookup nie dał OD/R900; żadnegoobniżenia profilu/promienia.
+Próba pierwszego niskiego runHip→side→up trafiła wKneeLink114 przy35
+(93.062mm³), nie wcałąnogęwe wszystkichpozach. Druga próba zmienia PŁASZCZYZNĘ
+pierwszego wyjścia na diagonalny wznios PRZED przekroczeniemKneelinka,
+nie offsetpunktów. Po drugimodrzuceniu obowiązujezmiana przyczyny/układu.
 
-**Bezpieczna niezależna praca teraz:** wspólna warstwa roofX−75..112,
-wewnętrzny roundedobrys z3.25budżetem(2skin+1.25air), Z84.25..108.75.
-Po106ograniczeniach (w tym10z135obrysówopasek) zostaje1spójna bryła
-669084.118mm³. To RAWwolnaprzestrzeń, NIE dowód przekrojów/promieni/długości.
-Offsetzłożonejramy nie przeszedł kernela(Notconnected/Unorientable), nie kontakt.
-Użyto dokładnejmaterii ze świeżego zamrożonegoFrameSHA; repeatcut odjął0.
-Wymagane1.25odramek musi być jawnie sprawdzone dla wybieranych komór.
-Inne małe części odjęte konserwatywnymi rozdmuchanymi bbox: nieudane zawieranie
-komory odrzuca ten przydział, nie dowodzi fizycznego kontaktu przewodów.
-**Odebrane20:28UTC:**23komory tworzą1strictregion198201.382mm³.
-Aktualne135obrysówopasek zachowane,6starych samonakładających Compound
-znormalizowano dokładną sumą poprawnych składowych. Nie zmieniano materiału.
-Lokalny przekrójX22.5:48POS/46NEG mieści się z0.5brzeg/0.2układanie,
-USB5/Pi7.4 to dodatkowa rezerwa pojemności, nie nowe wybrane trasy.
-23edytowalnePart::Box +MultiFuse/VarSet;105→104.5→105 zmieniaV202.375mm³,
-save/reopen otrzymany.1145starychshape porównanych:61normalizacji1e−16,
-0zmian powyżej1e−10;45archiwalnychBRep bajtowo identycznych.
-Nowe regiony ukryte jako niematerialne, stare widoczności zachowane.
-Pełna wiązka/rozgałęzienia/promienie/długości/ruch/montaż pozostająOPEN.
-Wynik:day26-shared-roof-region-received.json; dowody w jego json.gz.
+**Wynik12:42UTC / zmiana przyczyny:** lokalny source1 odebrany jako3pełne
+profile1.55, nie wypełniony kołowycover5.65. Same osie/końce, minR13.4544,
+gaplink114 przy35 min1.45486; końcowy kierunek grzebienia[0,.707,-.707]
+musi być utrzymany. Nie zmniejszono profilu/R/air. Invalid125 zamknięty
+pozytywnym odstępem ścisłej obwiedni obróconej całej bryły, nie naprawiony.
+Source2/3 prefiksy po zewnętrznej stronie pełnego członu:73near0/17/35,
+bez rzeczywistych negatywów; invalid098 strictoutercovergap5.102.
+Bliski osi crossover source3 PRZECINA przypadki/serwa — zachować odrzucenie.
+Testowane sztywne podziały free-length i narzucone końcowe tangenty dawały
+nieodebraneR/nieodebrane długości; to wynik tych rodzin krzywych, nie dowód
+niemożliwości fizycznej. Nie kontynuować skanowania handle/offsetów.
 
-**Odebrane20:49UTC:** stały boczny regionX0..159.25/Y89.25..96.75/Z60..80
-omija całyBUS/bank/AUX;9największych nominalnych profili mieści się2×5
-w7.4×17.3 z1pustym polem. Płaski wspólny wzniosX4..36.9/R12.4 prowadzi
-do otrzymanych górnych komór:9rdzeni leży wzdłużbinormalnejX, ten samR,
-nie9osi. R12.4 jest zastanym minimum projektu9RL-body, nie danymi producenta.
-8krytycznych nativepar/0HOLD; pozostałe dodatnie bboxgap. Dolnagranica odstępu
-od wszystkich108części nóg w36pozach11.905mm; bez roszczenia ciągłego ruchu.
-Native1180/48,1strictpołączonyregion222891.864mm³; R12.4→13→12.4 zmieniaV19.793,
-zapis/reopen.1145starychshape:0zmian>1e−10, stare widoczności zachowane.
-Nativeprzygotowanie/odbiór173.203s elapsed (obejmujeorchestrację, nieCPU).
-day26-fixed-body-entry-received.json i diagramday26-fixed-body-entry-capacity.png.
-Opaski/główki wymagają szerszych stacji; płaskiego9 nie obejmować jedną100mm
-bez bilansu. Wspólne łoże/3strefytripletów to propozycja, nie otrzymane mocowania.
+**Wspólny układ ruchu:** źródłowe odciążenie i terminalowe odciążenie rzeczywiste;
+pośrednie prowadzenia OTWARTE, nie dodatkowe niezmienne złącza/zaciski osiowe.
+Trzy pola bezpośrednio do nieruchomego odbiorubody:
+RL1[102,90,70],RL2[110,90,80],RL3[118,90,90]. CałyKnee+Hip razem0..35,
+nie sztucznie zamrożony odcinek do każdego pośredniegochwytu.
+Analityczne arcfields: min coreR166.03/56.673/35.314 >=31.5;
+zakresy aktywnej długości61.155–61.924 /86.157–102.901 /76.955–114.205mm.
+To NIE daje prawa gubić/rozciągać900jednostki: zmiana długości wymaga jawnego
+przesuwającego się zapasu i dostępnego miejsca wbody. Kierunek przyjścia może
+się zmieniać; nie udawać kupnego sztywnego portu wseam. ObrysY135 na nodze
+nie jest zgodą na poszerzenie głównego tułowia200. Wciąż montaż/retencja,
+bodyD/V/G, cały budżet900 i obrys/obrzeża są nieodebrane.
 
-**Montaż i noga:**9/23pełnych pionowych footprintów otwartych; Pi/PAS przesłaniają
-inne, nie dowód niemożności ręcznego układania. Wymagane układanie przed
-zamknięciem lub otwarty bok/udokumentowany demontaż; końcówki/przewlekanieOPEN.
-Nowe statyczne wyjście3core ponad całymHip jest bbox-oddzielone przy0/17/35,
-ale14port i korzeń uchwytu nadal prowizoryczne. Dalej prosty wzniosHIP9 trafia
-wBUS/ogon iR27.52..29.15<36.6:odrzucony po52/397;345zbędnych prób pominięto.
-Nie poprawiać tego kolejnymi handle/offsetami. day26-installation-and-one-leg-decision.json.
-Recenzja01a179e8:GOzmiany metody ijednej całejnogi, HOLDN01; tylko odczyt.
+**Wynik13:05UTC:** odebrane obie dolne strefyKnee→body:36poz każda,
+bez negatywów wśród wszystkich aktualnychmodułów/opasek/ruchomychczęści.
+Górny low/high odbiór przyG_TAIL miał niewystarczający odstęp do prawdziwego
+grzebienia/opaski; płaski capsule potwierdził brak wymaganegoair, nie tylkobbox.
+ZMIANA układu: otwarta źródłowa prowadnicaS dwóch45°/R16 odchodzi na zewnątrz
+PRZED stacją; te samecase/G_TAIL/średnice/air. Nowy dock139.930/89.373/71,
+źródłowy chwyt nadal poprzednie9mm, brak nowego zacisku osiowego.
+Cały nowy freefieldS1 przez36poz/6near ma0negatywów, mincoreR34.331>=31.5.
+Pola3tripletów opisano wspólnie, nie9sztywnychosi. Odbiór36pól nie jest
+jeszcze dowodem stałej długości/ślizgu: istniejące dodatnie pola zostają,
+nie ponawiać krzywychquintic/Powell. Dokładne rodziny z narzuconymi tangentami
+i długościami odrzucone; ich porażka nie jest dowodem niewykonalności kabla.
 
-**active_worker:** resident25370/PID18408 bezczynny;0dokumentów/0obliczeń;
-RAM kontekstu zachowany, nie uruchamiać nowych prac bez nowej zgody.
-**NEXT:** jeden CAŁYRL-source3/source2/Knee/Hip→nowy boczny region:
-końce/fabryczne jednostki900+donor900/retencja/luz w ruchu/montaż.
-Nowe regiony stałego korpusu nie rozwiązują ruchomego przejścia ani123gałęzi.
-Po2tej samej przyczynie zmienić układ/poziompróby, bezrodziny4krzywych.
-Czas/limit/krótki wynik20–30min w tej karcie i pakiecie. Własne sprawdzone
-etapy commituj lokalnie bez cudzych zmian. Bez zakupów/resetów/zasilania/
-pushów/slicera/ROS/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude/alertów.
-Kontynuuj do21UTC albopełnegoN01. Wcześniej tylko brak/wyczerpanielimitu lub
-rzeczywisty brak bezpiecznej niezależnej pracy poalternatywach. Oterminie
-zapisz/odbierz własneobliczenia, wyłączenabled, raport. Nieprzedłużaj.
-ROBOT_CAT_N01_20261026_2200_DONE tylko przy faktycznym zamknięciu.
+Wspólna rezerwa nogiX105..215/Y109..141/Z−10..110:0kolizji rzeczywistych,
+4near; pojemność dwóch płaskichtripletów i luzu37.25 wymaga jeszcze konstrukcji
+ciągłego przejścia. To NIE pudełko do druku ani zgoda na tułów szerszy200.
+Recenzent01a187ad:GO dlaotwartychprowadzeń, HOLD całejRL; zachować pięćwarunków:
+odciążenia/ślizg, zachowanyzapas, wspólnaobsada, granicanoga–tułów, cały900/montaż.
+Wybrany już wcześniejT18I jest145mm/111-02370, pack100 nie długość100;
+nie zmieniaćSKU i nie powtarzać błędnego odczytu nazwy. Mocowania źródeł
+mogą użyć2połączonych istniejącychopasek z pełnymi2główkami i ogonami,
+ale rozliczenie/montaż musi być jawne. Żadnych zakupów/zmian źródeł.
 
-**Zamknięcie22:00Warszawy:** N01–N10 nadal0/10 (zmiana0punktów).
-Okno17:26:47–21:00UTC:3h33min13s wall, nie czasCPU. Zwykły limit przy starcie89%
-pozostałego; końcowy odczyt wlast_account_usage; limit wspólny dla konta.
-Bez resetów/zakupów/pushów/maili/zmianmodelu/fizycznegoPASS. Własne sprawdzone
-wyniki w lokalnych commitach i day26-evening-2200-closeout.json.
-Najbliższy checkpoint:jedna całaRL z końcami/900+luzem/kotwami/montażem,
-szacunek2–4h, nie obietnica pełnegoN01 ani całej obudowy. Nowa praca dopiero
-po nowej zgodzie. Zachowano obrazCAD kontekstu/diagramy; master niewybrany.
+**active_worker:** resident3879/PID5168 idle po odebranym6/6nowymS1.
+Pola i źródłowe prefiksy zapisane wday29-*; NEXT nie wcześniejsze próby.
+Teraz konstrukcja wspólnych wymiennych podstaw/źródłowychchwytów do rzeczywistych
+zewnętrznych powierzchni obudówmechanicznych i ich montażu. Nie rysować kolejnych
+offsetówprzewodów. N01 nadal0/10.12:58:30UTC98%, ordinarytrue, bezresetu.
+**NEXT:** odebrać pola/rzeczywiste konflikty; wspólne oparcia/odciążenia z drogą
+do struktury, przejście odbioru do9rzeczywistychterminali, wspólny zapas/
+SOURCE900, edytowalny aktualnyCAD i sprawdzony lokalnycommit. Nie kończyć
+po fragmencie. ROBOT_CAT_RL_4H_20261029_DONE tylko przy zamknięciu.
+
+
+**Wynik14:36UTC:** sześć edytowalnych części źródłowych odebranych w614/614
+zmienionych parach,0problemów. Drobna penetracja stopy walcowego wspornika
+w obudowę022 usunięta przez dopasowane wybranie WYŁĄCZNIE drukowanej stopy;
+szeroka powierzchnia oparcia/wybrane serwo bez zmian. RodRadius3→3.25→3
+zmienia obie podpory, wszystkie6brył poprawne/1solid, powrót deltaV=0;
+ponowne otwarcie i6STL+6STEP odebrane2.5s. Największa część81.83mm,
+nie wydanie do druku: pełne opaski, wspólny luz i body/900 nadal otwarte.
+Dwa wspólne bodyukłady (podramowy i boczny do dachu) mają rzeczywiste
+konflikty — NIE wracać do ich mikrooffsetów. BankBedCurrent:-1 zawiera
+cały złożony nośnik/Pi, nie samą płaską płytkę. Kolejna decyzja ma korzystać
+z odebranych23komór zamiast nowej arbitralnej aleiX96.
 
 ## Zamkniecie cichego okna — 2026-10-25T08:00:11Z
 

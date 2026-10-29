@@ -1,0 +1,91 @@
+{
+  "status": "NEW_SOURCE_FIXTURE_RIGID_INTERFACES_PREFLIGHT",
+  "native": "RL29SourceFixtures.FCStd",
+  "source_native_sha256": "81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b",
+  "native_rows": [
+    {
+      "name": "HipRoot",
+      "error": null,
+      "solids": 1,
+      "volume": 6261.863431114983,
+      "bbox": "BoundBox (139.93, 16, 28.2255, 171.558, 97.8299, 80.2985)"
+    },
+    {
+      "name": "HipSourceCap",
+      "error": null,
+      "solids": 1,
+      "volume": 475.6187459065989,
+      "bbox": "BoundBox (162.558, 71.7269, 62.7269, 171.558, 85.4094, 76.4094)"
+    },
+    {
+      "name": "HipGuideCap",
+      "error": null,
+      "solids": 1,
+      "volume": 894.0824914242986,
+      "bbox": "BoundBox (139.93, 71.5427, 68.4544, 162.558, 97.8299, 77.5956)"
+    },
+    {
+      "name": "KneeRoot",
+      "error": null,
+      "solids": 1,
+      "volume": 4725.666752776221,
+      "bbox": "BoundBox (143.884, 70, 5, 196.468, 126.557, 45.2298)"
+    },
+    {
+      "name": "Knee2Cap",
+      "error": null,
+      "solids": 1,
+      "volume": 475.61874590661097,
+      "bbox": "BoundBox (143.884, 116.972, 5.87603, 159.184, 122.235, 15.3521)"
+    },
+    {
+      "name": "Knee3Cap",
+      "error": null,
+      "solids": 1,
+      "volume": 475.6187459066108,
+      "bbox": "BoundBox (181.168, 125.305, 34.9883, 196.468, 130.568, 44.4643)"
+    }
+  ],
+  "source_kit_surface_contact_allowed_no_penetration": true,
+  "tasks": 614,
+  "checked": 614,
+  "rows": [],
+  "complete": true,
+  "kernel_seconds": 234.9079999999958,
+  "RL_complete": false,
+  "physical_pass": false,
+  "case_relief": {
+    "rows": [
+      {
+        "fixture": "HipRoot",
+        "pose": 0,
+        "part": "Ref_Material_P0_Part__Feature022_0_0",
+        "gap_mm": 0.0,
+        "unavailable_mm3": 5.8165351341178,
+        "outercover_hold_not_contact": false,
+        "seat_contact_permitted_not_overlap": true
+      },
+      {
+        "fixture": "HipRoot",
+        "pose": 0,
+        "part": "Ref_Material_P0_Part__Feature023_0_0",
+        "gap_mm": 1.0077436350114293,
+        "unavailable_mm3": null,
+        "outercover_hold_not_contact": false,
+        "seat_contact_permitted_not_overlap": true
+      },
+      {
+        "fixture": "HipRoot",
+        "pose": 0,
+        "part": "Ref_Material_P0_Part__Feature024_0_0",
+        "gap_mm": 0.15757104216111714,
+        "unavailable_mm3": null,
+        "outercover_hold_not_contact": false,
+        "seat_contact_permitted_not_overlap": true
+      }
+    ],
+    "checked": 21,
+    "tasks": 611
+  },
+  "component_outerbox_separation_pruned": 324
+}
