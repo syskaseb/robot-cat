@@ -42,6 +42,12 @@
   producenta. U1 source_basis=selected local departure wymaga odróżnienia
   actualpad/parts od przeprojektowywalnego zewnętrznego wachlarza, bez zgadywania
   pinoutu i bez dziedziczenia dowodów zmienionego interfejsu.
+- Konstruktor split_cap_exterior oraz band_budget/head_budget opisuje projektowy
+  chwyt i przestrzeń jego opaski T18I, nie trzy niezależne kupne moduły.
+  Po konflikcie wielu takich uchwytów rozważ wspólną retencję i kolejność
+  montażu, zamiast objazdów każdej żyły. Wycofanie wymaga wskazania tej samej
+  zastępczej funkcji, pełnego stocku i odciążenia. Rzeczywiste podpory obudów,
+  filary oraz stosy śrubowe zachowują funkcję i drogę obciążenia.
 - Hook wymaga jednej krótkiej aktualnej karty, a nie wielu chronologicznych
   NEXTów przed historią. Na górze: aktywny wykonawca, frozenpakiet, negatywy,
   konkretna następna decyzja, wynik i rzeczywisty czas. Starsze stany do historii.
