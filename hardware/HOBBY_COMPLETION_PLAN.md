@@ -23,11 +23,23 @@ Stare18736/70577 i20608/49151 martwe. Nie restartować żywego18120, bezRPC.
 
 KANON: hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/
 feline-enclosure/day30-four-factory-common-regions.json (jawneUTF8, limit5MB).
-NEXT: jedna recenzja current_foreign_north_spine_whole_proposal.
-Wspólny6GVnorth spine17.9x3.9, cały FL_G obrócony-90 do zachodnich
-portów podbankiem; wspólny U1fan/root/bar, pełne5D_FL i3Vgripy.
-P_SYS/W043 i boughtR47/P0/S0 bez ruchu. SHA 94b1d36e67fea225bffd176059d1047b8f6f44bf09b99ce5378ba700e05aff89.
-Przed budową: własnebare/root/stock i zachowanie rzeczywistychbearingfaces.
+NEXT: całe rzeczywiste wyjściaD_FL5/V3 i wspólne regionyGV/U1,
+z fizycznymi jednostkami/stockiem, potem head/123/246/caływidok.
+Bieżąca CAŁA hipoteza bank_retention_whole, reviewGO
+01a18ea9-9ce2-7b10-98c5-ed5b90b9e89a; korekty0/1, dawneniezerowane.
+Odebrane: bank/source12/northsupport75+83.16/root3.75/97relacji;
+printseam.12 daje1solid i nominalgap.55, nie boughtcollision.
+CałyFL_G:4porty, prefiksy24.25 (pełny9kończy21.25,+3wolne),
+pełneopaski i wspólnabaza;case92.4/100,14changedforeignbezHOLD.
+Bank6bearing/ledges/portal/G_AUX zachowane. Northfoot niecięta,
+primaryF_L3root3.75 zachowany; mniejszy dodatkowy styk z apron jawny.
+Czasybank/FLG6.203s/CPU9.359; foreign8.312s/CPU11.656.
+Pakiet day30-astra-bank-complete-retention.breps.zip
+SHA 782aa492f4cd54ce290a56947f456ad30f5939e6c1e1c9625bcb78a3f54eb5ea.
+Pakiet day30-astra-flg-complete-four-port.breps.zip
+SHA b10487fb9619cde37f5513b30f9f60690e9bba2e9d3f1397284957eb67227aaa.
+Pakiet day30-astra-north-common-support-correction1.breps.zip
+SHA 675360a03078f6e422aaf6a5189ba2a22b7c1a02c1a98f8ce0852bc849e76e92.
 ODEBRANE634/634,97rawHOLD, nie97dowiedzionychkolizji. Układ odrzucony.
 PWM160825screw/nut actualcommon1.058/2.988; V3/PCB i G3/filar/śruba
 pozostają blockerami. S0family to rezerwa, nie dokładny materiał klucza.
@@ -39,7 +51,7 @@ Skrypt Temp/robot-cat30-astra-whole-changed-foreign.py zachowuje kursorRAM;
 nie zerować/nie powtarzać odebranych par. Budżety całych jednostek,
 head on­ward/FLmoving/slack i kompletność123/246 nadalOPEN.
 
-AKTUALNY WSPÓLNY KANDYDAT, NIE SELEKCJA:
+ZACHOWANY ODRZUCONY KANDYDAT634 — NIE AKTUALNA SELEKCJA:
 current_foreign_open_side_loadpath_correction1, reviewGO
 01a18e50-7ba1-7731-ad40-ee65e10b2119, jedyna korekta wykorzystana.
 D3 doD_FL3; G3 przez górny otwarty kanał i wschodnie zejście doFL_G3;
