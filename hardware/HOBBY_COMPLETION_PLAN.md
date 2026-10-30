@@ -1,6 +1,6 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 10:39UTC)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 11:15UTC)
 
 Autoryzacja „Pracuj aż osiągniesz1/10”, okno n01-one-of-ten-20261029-result
 od29.10 19:04:37UTC, bez deadline; enabled=true, stage_completed=false.
@@ -67,21 +67,43 @@ HELU23502 nominalOD2.5, rezerwa3.1. Nie nazywać rezerwy danymi producenta
 ani odbiorem kontaktu. FHY płaskie siodła/opaski regulowane; geometria
 pojemności odebrana, rzeczywiste osadzenie/napięcie po dostawie.
 
-NEXT — jeden cały układ JPWM/4fabryczne przewody i wspólne mocowanie:
-OryginalnyJPWM[102,0,50] daje zbędne długie wyjścia do przesuniętegoU1.
-Próba całych13aktorów w[30,-30,85] zachowuje4chwyty i oba końce;
-główka opaskiCASE ma tylko0.9181 doGPIOrezerwy, poniżej1.25 — HOLD.
-Cała opaska obrócona90stopni wokółX dajeGPIO12.4181(head)/3.2181(band),
-bez penetracji case. Nie zmieniać ani usuwać rezerwyPi.
-Przed detalami rozliczyć4osobne minimum220mm (225+/-5), R>=12.4,
-pełne9mmchwyty, allowance40/11/16/16; obecne źródła i oba końce,
-nie stare współrzędne n01-shared-routing-boundaries.
-F_PWM aktualny jacketcap[96.05058,-94.11686,54.075],prefix22.25238;
-G_TAIL kanał projektu[128,66,68.595]->[128,66,77.595],niepinoutproducenta.
-Oba U1 zpoprawnego portframe; wspólne14odciążeń nadalotwarte.
-Nowe mocowanie musi mieć rzeczywisty korzeń doBankBed/ramy, nie bboxkontakt;
-rozważyć wspólny most międzyR3/R4 zamiast dawnych pojedynczych podstawek.
-Jedna recenzja całego planu przed wykonaniem, nie parametrów.
+ODEBRANE11:11UTC — stabilneJPWM + wspólnyodciąg2U1, zakreslokalny:
+day30-front-jpwm-u1-current-space.json/.breps.zip,23bryły strict-save/reopen;
+day30-jpwm-u1-current-view.png toROI, nie całyrobot/pełne4trasy.
+JPWM13 w[30,-30,85], pełnaopaskaCASE90X: GPIOgap12.418/head,3.218/band.
+Jedna wspólna podstawa obu9mm chwytów iCASE; actualroot261mm3 doBankBed.
+CałyBankBed+podstawa1strictsolid, source materiałzachowany, envelope
+210.036x112.277x119.35<246mm. Noweczęści nieblokują konserwatywnego
+25mm pionowegowyjęcia całegoobrysuR3/R4; nieodbiór dłoni/latch producenta.
+U1paraztychsamych2namedpads: formedR1 barefans, wspólna płaszczyzna
+jacket83.535 ponadCAŁYMC_IN/Adapter, pełne10mm siodło(9minimum+1debit),
+opaska wcałości nadpodpartymodcinkiem;2żyłyobok siebie, nie wiszącygórnyrząd.
+UpperC zmieniony wspólnie na-Yramię/Lelbow i otwartyprzelotpary;
+zachowaneoryginalne M2tab/foamregion, removed0. Pełne stockband/head.
+FHYlowedge zjednym wspólnymotwarciemX-90..-69.5,2zachowanekomórki,
+4narożnepodparcia/oppositefullrail/endbeams/casetie i droga18członów zachowane.
+WłasneC/metal/jacket wcześniejszeprzenikania usunięte miejscem nałebM2R2.1
+i otwartymigroovesR1.125, bezruchużył/r.925;3aktualne commonVolume0.
+Kontaktygutter/jacket/opaska/M2bearing i jawne źródłowerooty nie są obcymi
+kolizjami. U1.2.1 towiększarezerwa,1.85nominalprojektowy, niepomiarproducenta.
+Oba8mm lokalnemouth po całymC mająmiejsce; niekwalifikują całego225mm.
+4OSOBNE fabryczne minimum220: konstrukcjetangentowe zactualkońców iR12.4
+potrzebują164.632/159.186/200.368/204.957mm. Wszystkie40/11/16/16,
+actualbare/prefix9/land10/mouth8 wbilansie, bezpodwójnegoseam.
+To odbiórmożliwościdługości, NIE całychwolnychregionów. Nie noweSKU/nety.
+NegatywyJ7/earlyC_IN/Adapter/Cbare/stock zachowane wtymjednympakiecie;
+nie wracaćdo3debugplików ani dawnych9arc/9straight. Frozen23 wejściemwznowienia.
+
+NEXT — jeden wspólny plan POŁĄCZONYCH WOLNYCH REGIONÓW czterechfabrycznych
+odcinków odnowychmouth doJPWM/F_PWM/GTAIL, zlokalnąobsadą i zapasem.
+Nieprzyznawać odbioru zsamej dodatniejdługości. Zachować13–20mm zapasu
+modulepair wminimalnym220, polaryzację i4SKUs. Używaćotwartychgalerii,
+nie123nowychosi ani kolejnego skanuJPWM/U1. Własne źródła/stock/mouth
+przedobcymi. Następnie pozostałe12U1 wjednym planie5wspólnychodciążeń,
+całe14iFL9 source/dynamicznyluz. NieN02/N03. Brak całegoN01ETA.
+Wniosek tejpróby: testwłasny obejmuje NOWYdruk przeciwpełnymbarefan/stock,
+nie tylkokupnekomponenty. Wolnycap przedtylnąpłytką/C niejest wyjściem;
+planowaćcałymouth przedprojektowaniem kolejnegodetalu.
 
 OtwarteN01: wspólne14odciążeń/regionyFL9/pełne123odcinki246końców/4MTA
 obu stron/fabryczne długości, użyteczny luz4nóg, montaż/narzędzia/obrys.
@@ -91,9 +113,11 @@ Korzystać zniezmienionych dowodów. Własneprzewody/stock/root/union przedobcym
 Zachować R47/P0/E6/15napędów/wymienneMG92B/MAIN46.52/256³margines.
 Sol high wykonawca/Astra medium istniejącyrecenzent01a16f0e-ac12-7973-82ba-99579f2b681e;
 bez samodzielnejzmiany. Czas/limit≤10min i przedkosztowną pracą; last_account_usage
-rzeczywisty10:33:56UTC10%użyte/90%pozostało, zwykły dostęp tak, bez resetu.
-Wznowienie09:02→09:31 to29minwall, nie29minciągłegoCAD. CADFHY75.547s,
-motion/root3.266s+cover/joint.422s; czaspoprawkiobrysu obejmował oczekiwanie.
+rzeczywisty11:11:15UTC11%użyte/89%pozostało, zwykły dostęp tak, bez resetu.
+Wznowienie09:02→11:15 to133minwall, NIE133minciągłegoCAD.
+Zmierzony czas operacji CAD jest wpakietach; current23 save/service6.078s,
+Bankroot5.578s, newpair own12.484s, finalC8.031s, mesh9.688s.
+Nie sumować tych wartości jako całego czasu pracy ani czasu CPU.
 Następnycheckpoint: cały wspólnyfront i rozliczeniegałęzi; nie obiecywać czasuN01.
 
 ## Historia okna RL 29.10.2026 — zamknięte
