@@ -28,6 +28,11 @@
 - Zachować own→changedforeign→assembly/ATO/motion/outline;204zielonych/liczonych
   par z7HOLD nie daje punktu. Po dwóch przyczynowych odrzuceniach następna
   propozycja zmienia cały zależny interfejs, a nie przesuwa pojedynczą krzywą.
+- Uwagi recenzenta przypisuj do stałego kryterium bieżącego punktu. N01
+  wymaga wybranego konstruktywnego CAŁEGO układu i usunięcia znanych blockerów;
+  sama lista/tekst nie wystarcza. Pełna kwalifikacja serwisuN08 i trajektoriiN09
+  nie jest dodatkową bramkąN01. Nie przenoś tam rzeczywistych kolizji ani nie
+  zmieniaj akceptacji/licznika; rozdziel plan wykonalności od szczegółowego odbioru.
 - Hook wymaga jednej krótkiej aktualnej karty, a nie wielu chronologicznych
   NEXTów przed historią. Na górze: aktywny wykonawca, frozenpakiet, negatywy,
   konkretna następna decyzja, wynik i rzeczywisty czas. Starsze stany do historii.
