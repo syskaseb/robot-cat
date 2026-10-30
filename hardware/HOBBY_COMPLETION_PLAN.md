@@ -1,89 +1,101 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Bieżąca karta N01 — po odzyskaniu UTF-8, 30.10.2026
+## Bieżąca karta N01 — wspólny kanał, rzeczywiste odbiorniki, 30.10.2026
 
-CEL: cały N01=1/10=10%, bez terminu. Nadal0/10; historyczne20/20 osobno.
-Okno n01-one-of-ten-20261029-result: enabled=true, stage_completed=false.
-Lokalny wynik/commit nie zamyka pracy. Bez N02–N10, zakupów, resetów,
-zasilania, pushów, ROS, slicera, GUARD/BMS, schedule, WORK_HANDOFF/Claude.
-Jeden Gmail do syska.seb@gmail.com dopiero po zweryfikowanym całym N01;
-SENT/message_id potwierdzić, nie powtarzać przy nieznanym wyniku bez Wysłanych.
+CEL: całyN01=1/10 bez terminu. Nadal0/10; historyczne20/20 osobno.
+Okno n01-one-of-ten-20261029-result enabled=true, stage_completed=false.
+Lokalny wynik/commit nie kończy pracy. Bez N02–N10/zakupów/resetów/pushów/
+power/ROS/slicera/GUARD/BMS/schedule/maila/WORK_HANDOFF/Claude.
 
-ZAKRES: stałe kryterium N01 z appearance-checkpoint.json, bez nowej zmiany zgody:
-wybrany konstruktywny CAŁY układ ramy/banku/modułów/obu stron4MTA,
-chwytów/stocku/narzędzi/osłon/zajętych kotew i połączonych regionów wiązek
-z obsadą, długością/luzem oraz wykonalną zasadą montażu/ruchu/obrysu.
-Znane blokery muszą zniknąć; sam tekst/lista/rysunek nie daje punktu.
-Pełne detale N03, pełne trasy N04–N05 i kwalifikacja N08–N09 są osobnymi
-etapami. Nie importować ich całych jako nowej bramki N01 i nie ukrywać kolizji.
+ZAKRES: stałyrevision1 registry w appearance-checkpoint.json.
+Wybrany CAŁY układ ramy/banku/modułów/obu stron4MTA, realnych końców,
+chwytów/stocku/narzędzi/osłon/kotew i połączonych obsadzonych regionów.
+Długości/luz/izolacja/R oraz wiarygodny montaż/ruch/obrys; znane blokery
+muszą zniknąć. PełneN03/N08/N09 nie są dodatkową bramkąN01.
+Coordinator reading of existing fixed revision1 registry;
+no new human scope change/approval. Sam widok/lista/kontrole nie dają punktu.
 
 ROLE: soleexecutor Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0/Astra medium.
-Recenzent01a16f0e-ac12-7973-82ba-99579f2b681e/local/Astra medium, tylko odczyt.
-Parent wyłącznie koordynacja/integracja. Bez nowych agentów i równoległego CAD.
-ACTIVE_WORKER: native FreeCAD1.1.3 PID18120/session74948, bezpośrednio u Banacha.
-Parent potwierdził proces18:00:31UTC. Stare18736/70577 i20608/49151 martwe.
-Nie odtwarzać sceny ponownie, gdy18120 żyje. Bez starego RPC.
+Reviewer01a16f0e-ac12-7973-82ba-99579f2b681e/local/Astra medium read-only.
+Parent koordynuje/integruje; nie projektujeCAD. Bez nowych agentów.
+ACTIVE: FreeCAD1.1.3 PID18120/session74948, direct_FreeCADCmd_owner_Banach.
+Stare18736/70577 i20608/49151 martwe. Nie restartować żywego18120, bezRPC.
 
 KANON: hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/
-feline-enclosure/day30-four-factory-common-regions.json, jawne UTF-8.
-current_foreign_direct_pressure_correction1_candidate jest ODRZUCONĄ
-alokacją C1, nie wybranym N01. Odczytaj aktualny kursor/remaining_holds.
-308/308 par odebrane; zachować wszystkie dyspozycje, bez powtórek.
-3HOLD: C1print/C30UpperPair gap0.3599325<1.25; regionV3/OutSharedRoot
-common63.592672 i regionV3/PositiveFoundation33.355796mm3.
-Nakładanie regionu nie dowodzi kontaktu realnej elastycznej żyły; przestrzeń
-zajęta przez sztywną podporę nie może zostać przydzielona bez rozstrzygnięcia.
+feline-enclosure/day30-four-factory-common-regions.json (jawneUTF8, limit5MB).
+NEXT: jedna recenzja current_foreign_north_spine_whole_proposal.
+Wspólny6GVnorth spine17.9x3.9, cały FL_G obrócony-90 do zachodnich
+portów podbankiem; wspólny U1fan/root/bar, pełne5D_FL i3Vgripy.
+P_SYS/W043 i boughtR47/P0/S0 bez ruchu. SHA 94b1d36e67fea225bffd176059d1047b8f6f44bf09b99ce5378ba700e05aff89.
+Przed budową: własnebare/root/stock i zachowanie rzeczywistychbearingfaces.
+ODEBRANE634/634,97rawHOLD, nie97dowiedzionychkolizji. Układ odrzucony.
+PWM160825screw/nut actualcommon1.058/2.988; V3/PCB i G3/filar/śruba
+pozostają blockerami. S0family to rezerwa, nie dokładny materiał klucza.
+Station splitcap/band/head: projektowa retencja/pełny stock; wymiana
+możliwa wyłącznie z tą samą funkcją. Brak wycofanych aktorów na tym etapie.
+Ostatnia porcja75par8.734s/CPU15.547; pierwsza bez odebranego czasu.
+Dyspozycje: current_foreign_634_layout_resolution; liczniki bez resetu.
+Skrypt Temp/robot-cat30-astra-whole-changed-foreign.py zachowuje kursorRAM;
+nie zerować/nie powtarzać odebranych par. Budżety całych jednostek,
+head on­ward/FLmoving/slack i kompletność123/246 nadalOPEN.
 
-ŹRÓDŁA ODZYSKU (wszystkie w tym samym katalogu):
-- funkcjonalne37: day30-astra-functional-whole-root-clear.breps.zip,
-  SHAe841a2c10eaaeb5dd9e8c184e66107105176e8bbc8029e4c72d5c311181481c0;
-- odebrany nowy bankR6: day30-astra-open-support-bank.breps.zip,
-  SHAe21a7337a6d15f36f15f3c4ed09976fa30079c0459c2a91818f1abb20182180c;
-- C1: day30-astra-direct-pressure-correction1.breps.zip,
-  SHA41df656fb8d43efe27d8e5911c2f3aa59eac5e2afb655ae2a74cac73fe4c8644,
-  manifest8aktorów (7nowych +Received:OpenBank), role candidate_not_selected.
-Restauracja26.891s/CPU20.938: MAIN46.52, U1core146,37,C1,OpenBank.
-Odzyskano174/308; wznowiono tylko134, teraz308/308. Nie przeliczać ponownie
-307 poprzedniej strategii ani958/372/204/160/19 i2800/5600 starych prób.
+AKTUALNY WSPÓLNY KANDYDAT, NIE SELEKCJA:
+current_foreign_open_side_loadpath_correction1, reviewGO
+01a18e50-7ba1-7731-ad40-ee65e10b2119, jedyna korekta wykorzystana.
+D3 doD_FL3; G3 przez górny otwarty kanał i wschodnie zejście doFL_G3;
+V3 południemU1, nadP0 i na wschód od całegoS0 do3realnychF_L.out.
+Nie ma dodatkowego terminala na końcu galerii. Regionseam wymaga ciągłości,
+nie9/case. Pośrednie luźne prowadzenie nie wymaga docisku każdejżyły.
+Rzeczywisty port/splice/movingend zachowuje izolację i właściwe odciążenie.
+G3 floor103.75..104.55, Y79.65..93.5, X5.436720..93; pełneopaskiX40/88.
+Zewnętrzna szynaY93..96; dolny powrótZ98..100, pionY94..96 poza wiązką.
+Korzenie rzeczywiste: F_L1=15, G_AUX=7, U1/F_L3=13.5, HPJR=7.6mm3.
+Połączenie Fore–GGuide: web ma0.64mm3 z każdym nośnikiem, suma1solid.
+StopaF_L1 dotyka istniejącej płaszczyzny podparciaZ55, commoncase0.
+Nie jest to obniżenie foreign1.25; suroweHOLD zachowane z dyspozycją.
 
-ODEBRANE PODSTAWY: nominalny wspólny docisk9 bez sztywnegoU/hardstopu,
-pełnyT18I98/100 i zakotwienie; to zasada do reużycia, nie cały odbiórN01.
-BankR6 ma zastępcze podparcie i zachowany grzebień/chroniony materiał.
-Świadki220/230 mają2.122/5.760mm do ramy po zmianie podparcia.
-MODULE199.176/213.553mm oraz źródłowy kanał0.2mm zachowane; noweobce1.25mm.
-JointOuter37 wewnątrz325x200x160, gap>=3.25; nowy komplet wymaga integracji.
-123odcinki/246końców uzgodnione tożsamościowo, nie aktualny odbiór przestrzeni.
-12U1=6logic+3fine+3headtail, dolne3regiony>=4.65 od fundamentu.
-FL9=6DG+3V; SOURCE/DONOR i fabryczne długości nie mogą być dublowane.
+ODZYSKIWALNE NOWE PAKIETY (OUT; źródła nie nadpisane):
+- day30-astra-open-channel-own.breps.zip:45aktorów, SHA7a1f3eaa72dff9508682a20f710d9f27869a2bd3a36d2ed7237f644990c437cb;
+  build5.344s/CPU9.266, strictreopen45=.656s/CPU1.094.
+- day30-astra-open-channel-rooted.breps.zip:44aktory, SHA06770ff12de2ddd6bdc40c257b4c3852dffb53c292a43905c0a374bbba95d6f5;
+  nowa wspólna bryła strictreopen, .922s/CPU1.156;43niezmienione reużyte.
+- day30-astra-recipient-regions.breps.zip, SHA87769f1892d6dc32efbeb2e75289bbabecd1b1be7b9acf2f7e857f9c823ec0bd;
+  build+reopen2.141s/CPU6.234; own17par3.5s/CPU17.719.
+  Ownregion odebrany: portplaneX-128/common0, pozaźródłemgap>=1.4898;
+  G3fullregion ma.4 do luźnychopasek i nazwanyzapas.4 nad własnymfloor.
+- day30-astra-u1-whole-fan.breps.zip, SHAe8b58dd866ee9d169ba7c5b79ab9a5f13c47ffdfcafee35a9673ebe1021dc365;
+  cały12fan build+own/reopen8.579s/CPU14.594. Actual146core/pady bez zmian.
+  +/-Y starych prefiksów były projektowe, nie kierunkami producenta.
+- day30-astra-u1-common-fan-region.breps.zip, SHA745c44c35969be0c381f7e2742ed3d7131ace8710c6c850ebef2d4498c2b70fe;
+  lokalny8corebay=.781s/CPU1.422; potrzebne11.6x2.2, dostępne20.374x10.715.
+  5x1.4+3x.8, gap.2/edge.4, dodatkowyzapas4mm na każdąfine3.
+  RawoverlapXL01/XS31=.0233301 tylko wewnątrz wspólnego wolnego regionu.
+  Realpads/full9/fullstock zachowane, żadnego nowego stocku na granicach.
+  Nie oznacza to jeszcze odebrania regionu względem sztywnego świata.
 
-NEXT: nowa przyczyna/topologia po dwóch alokacjach, nie trzecie przesunięcie
-tej samej podłogi/gałęzi. Zachować mechanizm docisku, R6bank, kupne części,
-MODULE i rzeczywiste porty. Rozstrzygnąć pełny C30, ciągłą podłogę DG vs
-proste wspólne zaczepy oraz poziom/przejście V3 względem całego fundamentu,
-wspólnie z12U1, lokalną pojemnością i montażem. Odczytaj najnowszą całą
-propozycję/NEXT kanonu przed próbą; ta karta przypina ostatni odebrany C1.
-Następnie połącz cały bieżący plan123/246 z resztą sceny i pokaż pełny widok/
-przekrój, dokonaj jawnego wyboru dopiero po wyeliminowaniu znanych blockerów.
-Nie wracać do kasety, zdejmowania płyty,74WAGO ani123sztywnych osi.
+PEŁNY STOCK NOWY: Gguide2x61.8/100, U1=83.16/100, HP2x75.3/100.
+Head3sleeves20/OD4.8 i6realnych9lands na wspólnym nośniku, rootHPJR7.6.
+Źródło plan_fixed_head_jr_terminations.py: JEDEN istniejący JR300,
+trzy jego żyły; nie3kupneJR. Pigtail/joinbudget i jawne role15starych
+stocków przed selekcją; brak automatycznego wymazaniahistorycznychpozycji.
 
-RUCH:36pozycji kończy się na kontakcie4BellyFoot z podłożem:
-Zmin-73.5273488363, ground-168.319015503, drop94.791666667=pose35.
-Dalsze13 wciskałoby podpory w grunt; nie dodawać arbitralnie130mm.
-To konstruktywny zakres i próbki, nie pełna kwalifikacja trajektoriiN09.
+REUŻYCIE: funkcjonalne37 SHAe841a2c10eaaeb5dd9e8c184e66107105176e8bbc8029e4c72d5c311181481c0;
+OpenBank SHAe21a7337a6d15f36f15f3c4ed09976fa30079c0459c2a91818f1abb20182180c.
+Dock13[5,23,87]/yaw-30; SOURCE211.811106/160.659660;
+MODULE199.176168/213.552653; każda osobna225±5/min220. R6parking220/230
+gap2.122/5.760 i25ATO zachowane. Wymagania części/portów/stocku bez zmian.
+Direct/C1, OpenUpper, SharedNine, FixedUpper i recipient2odrzucenia zapisane.
+Nie powtarzać204/164/308/958/372/19 ani2800/5600 i nie resetować liczników.
 
-IO: przyczyną4.36GB/OOM był odczyt localeCP1252→zapisUTF8, nie rekurencja.
-current_foreign_encoding_recovery zachowuje forensics/hash; źródłaZIP ocalały.
-Jawne encoding="utf-8" przy KAŻDYM odczycie i zapisie; zapis atomowy +5MB gate.
-Zapisz geometrię/ref/SHA przed zależnym krokiem. To instrukcje i sprawdzony
-aktywny writerC1, nie automatyczny walidator wszystkich przyszłych skryptów.
-
-INWARIANTY:15napędów/P0/E6/R47/wymienneMG92B/MAIN46.52,
-325x200x160/max200/margines256cube; izolacja/R/odciążenia/wybrane SKU bez zmian.
-Źródło last_account_usage=hook. Odczyt przed kosztowną i<=10min;
-ostatni parent18:00:31UTC31used69remainingallowedtrue, bez resetu.
-Czas operacji/CPU osobno. Commitować tylko własne sprawdzone źródła.
-Zamknąć po całymN01, braku bezpiecznej niezależnej pracy po alternatywach
-albo niedostępnym/wyczerpanym zwykłym limicie; nie po częściowym wyniku.
+RUCH:36kończy na4BellyFoot: Zmin-73.5273488363, ground-168.319015503,
+drop94.791666667. Dalsze13 wciska podporywgrunt; nie arbitralne130/±15.
+To zakres konstruktywny, nie pełna kwalifikacjaN09.
+INWARIANTY:15napędów/P0/E6/R47/MG92B/MAIN46.52;
+325x200x160/max200/margines256cube, wybraneSKU/R/OD/stock/marginesy stałe.
+IO: UTF8 przy każdymread/write, zapisatomowy+5MB. Forensic4.36GB pozostaje
+przypięty; przyczynąbyłoCP1252→UTF8, nie rekurencja. Nie wczytywaćcałego.
+Źródło last_account_usage=hook, realread przedkosztowną i<=10min, bezresetu.
+Nie raportowaćwall jakoCPU; lokalny wynik niezamykaokna aniN01.
 
 ## Historia okna RL 29.10.2026
 ### Archiwum karty sprzed porządkowania po odzysku UTF-8 — nie instrukcja wznowienia
