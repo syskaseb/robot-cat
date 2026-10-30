@@ -1,5 +1,37 @@
 # Wnioski z projektowania 3D robot-cat
 
+## 30.10 — feedback z całego frontu, przed kolejną próbą
+
+- Zadziałało odczytanie funkcji geometrii: scalonyBankBed zawiera grzebień,
+  podpory i stare mocowania; S0 jest rezerwą rodziny, invalidBUS błędem źródła.
+  Pełny poprawny cover może dowieść separacji; jego overlap nie dowodzi kontaktu.
+- Cztery niezależne jednostki220mm muszą mieć równocześnie aktualne porty,
+  prefiksy, allowance i chwyt. Długość ani1solid osobno nie kwalifikują układu.
+  Prawdziwy kupny port jest stały; cap po projektowym chwycie niekoniecznie.
+  F_PWM już używa9mm po łuku, więc nie odzyskiwać fikcyjnych kolejnych9mm.
+- Rzeczywista szczelina5.120847mm odrzucała koło6.1mm, ale mieści płaski
+  przekrój6.1x2.1 dwóch pełnych profili2.1mm. Zmiana kształtu obsady jest
+  uzasadniona transportem obu żył/R/długością, nie zmniejszeniem ich średnic.
+- Przed budową podpory wskazać rzeczywistą CAŁĄ powierzchnię kotwy i drogę
+  do ramy oraz P0/GPIO/Pi/stock. Błędny root do niewłaściwego banku był
+  odsunięty49.394mm. Późniejszy dodatni root nie zastępuje kontroli sąsiadów.
+- Lista wycofanych aktorów jest częścią wspólnego planu. DAY18 XP02band/head
+  były zastąpionym chwytem tego samego wyjścia, a W044 nadal pełnym stockiem.
+  Klasyfikację opieraj na konstruktorze, nie na wygodnym wyniku testu.
+- Zachować own→changedforeign→assembly/ATO/motion/outline;204zielonych/liczonych
+  par z7HOLD nie daje punktu. Po dwóch przyczynowych odrzuceniach następna
+  propozycja zmienia cały zależny interfejs, a nie przesuwa pojedynczą krzywą.
+- Hook wymaga jednej krótkiej aktualnej karty, a nie wielu chronologicznych
+  NEXTów przed historią. Na górze: aktywny wykonawca, frozenpakiet, negatywy,
+  konkretna następna decyzja, wynik i rzeczywisty czas. Starsze stany do historii.
+- Nie uzależniać wznowienia od żywegoRAM. Przed zależną próbą zapisz aktualne
+  aktory, SHA i strict-reopen. Po przerwaniu potwierdź brak staregoPID/sesji,
+  uruchom jeden zastępczy proces i odtwórz nazwane pakiety bez ponawiania kontroli.
+  Proces należący bezpośrednio do workera upraszcza sterowanie, ale nie gwarantuje
+  przeżycia każdego przerwania. To instrukcyjny feedback loop, nie trening modelu.
+
+
+
 ### 26.10 wieczór — przestrzeń wiązki musi obejmować cały zespół
 
 - housing_bounds źródła serwa opisywał tylko połowę obudowy. Odrzucone

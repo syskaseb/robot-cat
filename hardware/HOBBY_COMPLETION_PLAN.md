@@ -1,6 +1,87 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 12:35UTC)
+## Karta decyzji CAD — jedyny bieżący punkt wejścia (2026-10-30T14:10:00+00:00)
+
+CEL I ZGODA: cały N01=1/10=10%, bez terminu; okno
+n01-one-of-ten-20261029-result, enabled=true, stage_completed=false.
+N01–N10 nadal0/10. Historyczne20/20 dokumentacji otwartego prototypu osobno.
+Nie zatrzymywać po lokalnym wyniku ani zaczynaćN02. Jeden Gmail do
+syska.seb@gmail.com dopiero po rzeczywiście zweryfikowanymN01; SENT/message_id.
+Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule,
+WORK_HANDOFF/Claude, okresowych alertów i fizycznegoPASS.
+
+WYKONAWCA: istniejący agent Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0,
+Astra medium potwierdzony w jego turn_context. Jeden wykonawca CAD.
+Recenzent01a16f0e-ac12-7973-82ba-99579f2b681e/local, Astra medium, tylko odczyt.
+Użytkownik zgłosił też zmianę głównego wątku na Astra medium; wątek główny
+koordynuje i integruje, nie dubluje CAD. Nie tworzyć nowego agenta.
+
+ACTIVE_WORKER: Astra medium/Banach, zastępczy native PID18736, session70577.
+Bezpośredni write_stdin we własnej sesji wykonawcy; bez RPC/procesu rodzica.
+Poprzedni PID20608/session49151 potwierdzone martwe. Jeden nowy resident.
+Odzysk nazwanych źródeł w toku; brak nowej geometrii/audytów.
+
+AKTUALNE ŹRÓDŁO ODZYSKU:
+hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/
+day30-four-factory-common-regions.json -> current_foreign_flat_front_candidate.
+Geometria: day30-astra-underdeck-front.breps.zip; aktualne34 wpisy flat-shared/.
+SHA256 archiwum4fbdff3a20d31d5a9571c08a6049587524e5f568956c3e0441b9e1b55b4868ed.
+strict_reopen_receipt:34 poprawne,4.531s operacji/10.484s CPU, już odebrane.
+Nie powtarzać own/204foreign ani wcześniejszych958/372/19 i2800/5600skanów.
+Dawne candidate/ i corrected/ w tym samymZIP są odrzucone; nie wybierać ich.
+HEAD53aafbf9 przechowuje wcześniejszy160foreign;39bd1b47 wcześniejsze21bryl.
+Żaden z tych kandydatów nie jest całym wybranymN01. BazaAEA820bd zachowana.
+
+CO FAKTYCZNIE DZIAŁA W BIEŻĄCYM KANDYDACIE:
+Dock JPWM[5,23,87], yaw-30, cały13aktorów; to kandydat, nie immutable pozycja.
+MODULE przez wspólny płaski przepust6.1x2.1, pełne dwa profilecapacity2.1;
+między całymi podporami pozostało5.120847mm po marginesach. Promienie zachowane.
+Bilanse osobnych220mm: XP03module199.176168, XP02module213.552653;
+XP02source200.714894, XP03source206.645327. To nie odbiór wszystkich tras.
+Prowadnik/root10.10625mm3; wspólny root banku9mm3. Człony union zachowane.
+TailCarrier: pełne obwiednie odcinków dają8.673mm separacji; native nie naprawiany.
+204/204 zmienionychforeign odebrane;7HOLD nadal jawne w pakiecie.
+
+OTWARTE7HOLD / JEDEN NASTĘPNY PAKIET:
+Podpora względem kupnegoP0/GPIO, oba SOURCE względem zajętych rezerwPi,
+ostatni odcinekMODULE względemF_L2. Odczytaj pełne7 rekordów, nie zgaduj.
+Wspólna zmiana OBU prefiksówSOURCE/chwytów wraz z podporą docka i MODULE/F_L2,
+z rutynowymATO/montażem/obrysem/ruchiem. Prawdziwe porty, części i stock stałe;
+projektowy cap/chwyt/ostatni łuk pozostają zmienne. F_PWM już ma9połuku —
+nie odejmować kolejnych9 ani nie podwajać allowance. G_TAIL cap projektowy;
+zmiana musi obejmować izolację, pełny stock, rzeczywisty port i root.
+Jedna cała propozycja do istniejącego recenzenta przed nową szczegółową geometrią.
+Po2odrzuceniach zmiana przyczyny/topologii/kolejności, nie mikrooffset.
+
+FEEDBACK30.10 — OBOWIĄZUJĄCY PRZED NASTĘPNĄ PRÓBĄ:
+Dobrze: konstruktor/funkcja przed interpretacją kolizji; całe4jednostki długości;
+pełny płaski przekrój zamiast niepotrzebnego koła; własne przed obcymi;
+wycofanie udowodnionego starego stocku; dodatnie rooty i strict-save/reopen.
+Źle: bronienie starego docka/krzywej, zamrażanie projektowych capów, niepełna
+obsada starego stocku, wybranie podpory bez całegoP0/GPIO/Pi i sprzeczny NEXT.
+Teraz: najpierw cała obsadzona przestrzeń modułów+stock+root+montaż; dopiero
+lokalny model dla nazwanej niewiadomej. Czas nie jest wynikiem, pliki nie są punktami.
+Bieżąca karta ma ten jeden stan; wcześniejsze kroki są wyłącznie historią poniżej.
+
+INWARIANTY: wybrane części/R47/P0/E6/15napędów/wymienneMG92B,
+325x200x160/max200, MAIN46.52, margines256cube. Pełne123odcinki/246końców,
+4MTA obie strony/factory,14odciążeńU1 i FL9/source/luz/ruch/montaż/obrys.
+Inne12U1/FL9 i globalna kompletność po wspólnymfroncie, nadal wN01.
+Nie produkcyjne detaleN03, nie123dokładne osie, nie odrębny chwyt każdej żyły.
+
+CZAS/LIMIT: świeży odczyt przed kosztowną operacją i maksco10min;
+last_account_usage w hooku jest źródłem najnowszego rzeczywistego odczytu.
+Ostatni odczyt rodzica14:04:19UTC:17%użyte/83%pozostało, allowed=true, bezresetu.
+Operacje i CPU zapisuj osobno; oczekiwanie nie jest obliczeniamiCAD.
+Po całymN01 albo rzeczywistym braku bezpiecznej pracy po alternatywach/
+niedostępnym lub wyczerpanym zwykłym limicie zachowaj stan, wyłącz enabled,
+raportuj i dopiero wtedy użyj completion_marker. Nie zamykać po lokalnym wyniku.
+
+## Historia okna RL 29.10.2026 — zamknięte
+### Archiwum poprzedniej karty30.10 — zapis po przerwaniu, NIE instrukcja wznowienia
+
+
+### Dawna karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 — po204foreign i źródłach SOURCE)
 
 Autoryzacja „Pracuj aż osiągniesz1/10”, okno n01-one-of-ten-20261029-result
 od29.10 19:04:37UTC, bez deadline; enabled=true, stage_completed=false.
@@ -166,7 +247,120 @@ Bankroot5.578s, newpair own12.484s, finalC8.031s, mesh9.688s.
 Nie sumować tych wartości jako całego czasu pracy ani czasu CPU.
 Następnycheckpoint: cały wspólnyfront i rozliczeniegałęzi; nie obiecywać czasuN01.
 
-## Historia okna RL 29.10.2026 — zamknięte
+
+ASTRA — odbiór zmienionego FOREIGN, bez nowej geometrii:
+Jedyna próba dostępu do49151: Unknown process id; nie uruchomiono drugiegoFreeCAD.
+Konstruktor whole_cat_interior.py:253–264: S0body R28.5/H40 i S0key R15/H63.5
+są rezerwami rodziny HELLA, nie dokładnym materiałem kupnegoSKU ani pozycjąOFF.
+Potwierdza record_feline_service_dependencies.py:34–51; stała szyjka zostaje bezklucza.
+Wspólna decyzja: zachować S0/rezerwy; trzy MODULEoverlap pozostają HOLDrezerwacji,
+nie udowodnioną kolizją materiału. Bez nowego wymagania obsługiklucza i bezMODULEwariantu.
+StrictBOP BUS pozostaje nierozstrzygnięty, niekontakt. Bez powtórek wadliwych źródeł;
+dopuszczalny dowód separacji tylko całym poprawnym cover obejmującymźródło.
+Przygotowany Temp/robot-cat30-astra-next.py odbiera resztę160 odkursoraRAM,
+budżet45s międzyparami, bez resetu/reload; zachowuje błędy i zapisuje current_foreign_*.
+Wymaga wykonania przez rodzica w istniejącej49151; tutaj NIEwykonany.
+Następnie jeden wspólny odbiórHOLD przedCAD; changedATO/obrys/ruch/montaż nadalotwarte.
+N01 nadal0/10; hook/okno aktywne. Wykonawca wskazanyprzezużytkownika Astra medium,
+rodzic tylko prowadzi narzędzia. Żadnej nowejrecenzji tego samegopakietu.
+
+
+ASTRA — FOREIGN110/160 odebrany; native49151 bezczynny według rodzica.
+Ostatnia porcja61→110:46.688s operacji,282.09375s CPUprocesu osobno; nie sumować.
+S0supplier002843002 str259 obejrzany:57/22/40/66.5 nie definiują dokładnej szyjki/OFF;
+trzyoverlap nadalHOLDrezerwacji, brak podstawy do jej zmniejszenia.
+BUS25 ma pełny zachowanycover z potwierdzonymSHA; nie obejmuje innychBUSsolidów.
+TailCarrier ma148faceboxes/freeprism dla BUS25,gap2.2420659115; nie dowód dlaXP03.
+Wspólna decyzja: zachowaćS0/U1core146/JPWM[30,-30,85]/rooty galerii i pełnekońce;
+bez nowejkrzywejMODULE. Najpierw coverźródeł+pozostałe50, potem wspólnaalokacja/montaż.
+Temp/robot-cat30-astra-source-covers.py:45s międzyparami, pełnyanalyticOBB+padding,
+bez strictpowtórek invalidBUS/TailCarrier. Separacja>=1.25 dowodziwolnejprzestrzeni;
+nakładaniecovera pozostajeHOLD, niekontakt. Skrypt NIEwykonanyprzezwykonawcę.
+Pełne fakty/proweniencja w current_foreign_joint_source_decision tego samegopakietu.
+N01 nadal0/10; finalne rozstrzygnięcieprzestrzenne po wynikunative.
+
+
+BIEŻĄCA DECYZJA ASTRA PO160/160: ODRZUCONA obecna wspólna topologia galerii/arch,
+nie cały zachowany modułowy projekt.14rawHOLD zachowane; BUScovery oddzielone.
+XP02: DAY18kit jawnie zastąpił PowerFankit, dzisiejszy up-exit zmienia TEN SAMfull9;
+przy następnym zastosowaniu sceny wycofać tylko stareDAY18band/head, nie scalonybank.
+W044stock pozostaje:3dodatniecommon odrzucają most/słup; nie kolejnyoffsetbelki.
+Cup/FLArcBand .15 nie spełnia nawet własnego kanału.2; pełnastockpętla zostaje.
+USB_C to zajęta rezerwa12x22x8; USB_A toofficialfootprint+height16, nie dokładnymetal.
+S0rezerwy iG_AUXcase zostają. Brakwholefront/motion/outline/assemblyPASS.
+Jedna hipoteza następna: dostępna górna/+Ygaleria pozaS0/USB, całyJPWMdock wspólnie
+z4fabrycznymi220mmjednostkami; jeśli[30,-30,85] nie daje wspólnego rozwiązania,
+zmienną jest CAŁYJPWM+mount, nie wydłużenieblackSOURCE/objazdMODULE.
+U1core146/FHY/F_PWM/BUS/Pi/S0 zachowane. Wspólną podporęgrzebienia planować razem
+z3pełnymiopaskami/główkami i nawlekaniem; kołyskę zpełnymkanałemFLArc irootami.
+Montaż: podstawa/moduły→nawlecstock przy otwartychprzejściach→4pełnefactory→
+ułożyć wspólne regiony/zabezpieczyćluz→zamknąć; bezrutynowego wyjmowaniaklucza.
+Przednowągeometrią jeden ograniczony bilanscałegodocku/przestrzeni/4długości;
+konkretna pozycjaJPWM iwykonalność tejhipotezy jeszcze NIEudowodnione.
+Szczegóły14dyspozycji w current_foreign_hardware_dispositions i wspólnadecyzja
+w current_foreign_whole_layout_decision tego samegopakietu. N01 nadal0/10.
+Transportbezpośredni działa: statusPID20608/cursor160/namespacepreserved;
+read-onlydump0.141soperacji/0.140625sCPU; beznowejbryły/processu/agenta.
+Ostatnicoversodbiór15.109soperacji/22.53125sCPU oddzielnie; resident/hookzostają.
+
+
+BIEŻĄCY WYNIK ASTRA — FLAT-SHARED-CROSSING-ONE: jeden nowy wspólny kandydat
+zbudowany, własne odebrane i204/204foreign odebrane; NADAL7HOLD, niewybrany.
+Cały13dock[5,23,87]/-30Z/CASEhead-down, obieSOURCE200.7148935/206.6453265,
+MODULE199.1761676/213.5526525 <220 każda; nominal1.85/rezerwa2.1 zachowane.
+Płaski6.1x2.1 przepust pomiędzy U1rootZ85.004153 aFHYplatformZ92.625;
+pełny transport przez wznios, twist dopiero poX-49. WspólnyCguide otwarty-Y,
+ownkanał.2, root10.10625mm3; cała podpora+bank+oba pady+guide1strictsolid/lost0.
+MODULE7regionów1strictunion/lost0, mincoreR13.5, twistRlower59.38067.
+Poprzednie UNDERPI dwie nieudane próby zachowane: cup71.01995, PCB11.77491,
+positivefoundation64.66292. Nowe rozwiązanie nie powtarza tej okrągłejrury.
+Recenzje nowej przyczyny01a18d0c/01a18d0f GOjednejpróby;1review+1korekta
+wykorzystane. Nie recenzować ponownie tego pakietu ani resetować dawnychporazek.
+
+PełneS0/USB/G_AUX/obieMTA zachowane. TailCarrier: wcześniejszyPCAcover0
+byłnierozstrzygnięty, NIEkontakt. Cały analyticAABB źródła vspełneobwiednie
+każdego odcinkaSOURCE daje minimum8.6729667mm; rawinvalid i cover0 zachowane.
+Bezhealingu/wycinania rezerwy i bez ponawianiainvalidBUS. Pozostałe7HOLD:
+support/P0SideLeft22 common47.6990461; support/GPIO4band common.0616665;
+red/GPIO1992occupiedhousing common43.8137798; black/Power2band gap.0193408;
+black/Audioreserved common1.4741379; black/TopComponentsbudget gap.0268184;
+MODULElastspan/F_L2Housing gap1.0403829. Są to różne rzeczywisteczęści/rezerwy,
+bez automatycznego wyłączenia. Nowa topologiaSOURCE/podpora wymaga całości.
+Nie rozpoczęto zależnegoodbioruATO/montażu/obrysu/ruchu po tychHOLD.
+
+ZMIANA DECYZJI zgodnie z instrukcją użytkownika13:52 i lekcją25.10:
+9mm chwytu może leżeć POŁUKU; cap projektowegochwytu nie jest kupnymportem.
+Odczytane aktualne konstruktory: plan_feline_opposed_power_unit.py78-102,
+feline_source_saddles.py18-50, feline_shared_straight_combs.py37-58,
+plan_feline_gtail_whole_turn.py oraz frozen n01-GTAIL-whole10-rooted.json.
+F_PWM prawdziwyprojektowy punkt[108.8380799,-86.8927655,67], G_TAIL.3
+[128,66,68.345]; native point-to-retained-case0 obydwa. To projektoweporty,
+nie twierdzenie supplier-exact. F_PWM JUŻ mapełne9nałuku; dalszycap po22.2524
+jest projektowy. G_TAIL9.25=przerwa.25+chwyt9, wolnycap77.595 niekupnyport.
+Przebudowa jegochwytu musi objąć cały wspólnycomb/fullT18I/root oraz zachować
+pozostałe3obsadzoneporty, nie tylko XP03. Debity71.2523789/29.25 zachowane
+dopóki pełny nowyprefiks i wszystkieallowances nie zostaną wykazane.
+NASTĘPNY JEDEN pakiet: obaSOURCE od rzeczywistychportów zpełnymi9połuku,
+ichgripy/rooty wspólnie znową drogąpodporydocka ponadP0top38.52 i poza
+pełnymGPIO4stock, zcałym13dock/flatMODULE/F_L2dostępem/4x220/montażem.
+KupneP0/R47/Pi/G_TAIL/F_PWM/S0/USB/MTA nieprzesuwane dla jednego kabla.
+Dockpozostajezmiennącałościjeśli konieczne. Beznowegoobjazdu odzamrożonychcapów,
+bez9osobnychuchwytów/siatkiszukania/nowegoSKU/odgadywaniaU1pinoutu.
+Pełna decyzja wcurrent_foreign_coupled_source_interface_decision; szkice
+nowegoprefiksu dopiero po wspólnymbilansieinterfejsów. Reużyć tylko niezmienione
+własnepozytywy, potem pełnyown→zmienionyforeign→montaż/ATO/obrys/ruch.
+
+Pakiet day30-four-factory-common-regions.json: current_foreign_flat_front_candidate
+i current_foreign_coupled_source_interface_decision. Geometria dopisana bez
+nadpisania dawnychmembers do day30-astra-underdeck-front.breps.zip, SHA256
+4fbdff3a20d31d5a9571c08a6049587524e5f568956c3e0441b9e1b55b4868ed.
+Budowanowego kandydata 5.453s operacji/16.468750s CPU.
+flat_whole_own_delta 5.906s operacji/8.453125s CPU; flat_changed_foreign 33.406s operacji/48.843750s CPU; targeted_source_and_tail_cover_receipt 0.093s operacji/0.093750s CPU.
+CzasCPU procesu wielowątkowego osobno odwall; nie sumować. Directnativeclient
+działa w TYM SAMYM resident49151/PID20608, terazbezczynny; rodzic bezCAD.
+N01 nadal0/10, historyczne20/20 osobno. Okno/hook aktywne; checkpoint niezamykaN01.
+
+
 
 **Autoryzacja:** „Okej to pracuj” po propozycji4h na jedną CAŁĄnogę.
 Okno rl-whole-leg-20261029-four-hours;11:41:41–15:41:41UTC,
