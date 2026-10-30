@@ -1,105 +1,99 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 01:17UTC)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 09:31UTC)
 
-Autoryzacja: „Pracuj aż osiągniesz1/10”; okno n01-one-of-ten-20261029-result
-od29.10 19:04:37UTC, bez deadline. enabled=true, stage_completed=false.
-Aktualnie N01–N10 nadal0/10. Historyczne20/20 dokumentacji osobno.
-Mail syska.seb@gmail.com TYLKO po rzeczywiście zweryfikowanym1/10, jeden,
-potwierdzićSENT/message_id; przy nieznanym wyniku sprawdzićWysłane.
-Nie zamykać po lokalnym wyniku/commicie. BezN02-N10. Zatrzymanie tylko całyN01,
-niedostępny/wyczerpany zwykły limit lub prawdziwy brak bezpiecznej pracy wymagający zgody.
+Autoryzacja „Pracuj aż osiągniesz1/10”, okno n01-one-of-ten-20261029-result
+od29.10 19:04:37UTC, bez deadline; enabled=true, stage_completed=false.
+N01–N10 nadal0/10; historyczne20/20 dokumentacji osobno. Mail na
+syska.seb@gmail.com TYLKO po rzeczywiście zweryfikowanym1/10, jeden, SENT/message_id.
+Nie kończyć po lokalnym wyniku/commicie. BezN02-N10, zakupów/resetów/pushów/
+zasilania/ROS/slicera/GUARD/BMS/schedule/WORK_HANDOFF/Claude/okresowychalertów.
 
-active_worker: native FreeCAD session96178/PID10204, jeden resident, BEZCZYNNY.
-NEXT01:40UTC: własne3druki140+35odebrane; zewnętrzne140/140 odebrane w0.937s,
-135dodatnich rozdzieleń zewnętrznych bboxów ruchu i5dokładnych par. Brak uwag
-ruchu, cztery HOLD dotyczą TEGO SAMEGO zespołuFHY: post/custom head1.1504,
-upperreturn/custom band6.975mm³/custom head29.984mm³ i upperC/CASEtie.01mm.
-To projektowe budżety zamontowanych opasek, nie fizycznyfit producenta.
-NIE przycinaćC ani przesuwać pojedynczej główki dla zielonego wyniku.
-Najpierw cały FHYcase/bodytie/oba factory i pełny custom joint/rib +FL9
-oraz WSZYSTKIE14końców U1/regiony. Case ma pozostać, retencja i proste wspólne
-comb/saddles są zmiennymi. Przed CAD odczytać istniejąceFHYporty/długości i
-lokalnąobsadę galerii; nie zakładać wyjść zsamegobbox. Własne9chwytów PCB
-BYŁY integralne ze starymiAnchorLeft/Right i NIE przeszły do nowych2C.
-Odtworzyć jawnie mapę14odciążeń, nie tylko4zewnętrzne.2T18I pierwotnejretencji
-adaptera dostępne do wspólnych grzebieni (obecnie zapas), bez nowegozakupu/SKU.
+active_worker: native FreeCAD session49151/PID20608, BEZCZYNNY.
+Stary96178/PID10204 nie istnieje. Bez dowodu aktywnej pracy pomiędzy nocnym
+zapisem a wznowieniem09:02UTC; nie zaliczać przerwy jako obliczeń.
 
-Bieżący JEDYNY pakiet3druków: day30-u1-shared-carrier.json i wskazany
-day30-u1-current-shared-mount.breps.zip, widokday30-u1-current-shared-mount-view.png.
-Nie ładować wcześniejszego lowerC z historycznegoC-foam-retention.breps.zip.
-Każdy3strict1solid. Całe3druki wewnątrz rzeczywistego BodyOuter: odległość
-do jego powierzchni7/33.3/26.25mm, seedinside, connectedshape. Nie obrys zbbox.
-Envelope185.545×185.545×54.484mm po45Z dla wspólnejramy; C16.64×7.65×16
-i16.64×7.8×18.48. To planowe dopasowanie256³, nie wydanie do druku/N03.
-Sharedcarrier224faces ma każde źródłowe/dodane ogniwo; dodatnie joints doobuM2.
-Droga obciążenia przez istniejącą+FoundationRail/Flange→ClampNeck2/4→rzeczywiste
-3mm seatsP0; dodatkowe2prywatneclampyU1 nie są potrzebne. Osprzęt/zachowane
-zewnętrzne interfejsy i montaż/dojścia wymagają pełnego uzgodnionegoplanu.
+ODEBRANE09:27UTC — FHY w ograniczonym zakresie pełnej retencji:
+day30-paired-front-retention.json/.breps.zip; current-view.png.
+Oba factory osobno70.3057489mm<84.5minimum: externaljacket58.9557489,
+inside3projektowe, baremax8.35, trim14.1942511; R12.4. Nie dawne100/97.
+Każda strona9factory/20sleeve/lap8/9custom,6mm pokrycia płaszcza obu stron.
+Pełne4T18I końców iCASEtie; średnice/grubości/marginesy nie zmniejszone.
+ObceHOLD0,0kandydatów bbox ruchu w36×108. Własne47par, potem tylko3zmienione
+pary pylonu: fork usuwa rzeczywiste12.015mm³ opaska/kolumna, stock cały.
+Droga13nowych członów→sharedFoundation→zachowaneClampNeck2/4→P0.
+InCustomPad ma jawny dodatni overlap.25 WEWNĄTRZ istniejącej platformy;
+unionmateriału nie rośnie, dawny stykface-only nie dawał commonFace.
 
-Wybrana do konstruktywnej PRÓBY przestrzeń U1: cały kupny146 zespół na zewnątrz
-PETG MountFrontL, PCB Ymin39.05=37.8+1.25; X[-87.05,-55.75],Y[39.05,89.85],
-Z[39.77,82.95]. U1/S0/F_PI/FHY/bank/MTA/Pi/PCA/BUS/AUX/monitor/bateria nie
-zmieniają wybranych części; pozaU1 pozostałe moduły zachowane w źródłowych domach.
-372/372 pary151aktorów odebrane, kernel91.094s, w tym282dodatnie rozdzielenia
-rzeczywistych obróconych zewnętrznych bboxów (nie282Booleany). Brak uwag ruchu;
-24uwagi dotyczą druków/opasek, NIE odbiór całego modułu/N01.
-Pakiet day30-outboard-U1-space.json + .breps.zip:151bryl/14końców; stare3wewnętrzne
-druki/2ties jawnie NIEodebrane. Rodziny/FHAC są rezerwami, nie dokładną bryłą producenta.
-Główne otwarte: FLArcGuide/FrontShared:custom_rib, pełny custom chwyt/band/head
-wyjściaFHY oraz4zewnętrzne końce U1. Zmienić wspólny region i podpory, nie opaskę samotnie.
+Obrys CAŁEGO barku uzgodniono zamiast przesuwania opasek: plateau200 zaczyna
+sięX-135 zamiast-128. 325×200×160, max200, końce/tył/R12 bez zmian.
+day30-paired-front-shoulder.json/.outer.brep; staryobrys⊂nowy, difference0.
+Pełneopaski mają3.25;4kandydatyruchu nowego barku (pose14/104/123) miały
+strict-invalid stare BRep, zachowane jako błędy. Poprawne zewnętrzne OBB
+obejmujące CAŁĄ analityczną bryłę wPCA dajągap46.66..151.60, nie fizycznykontakt.
+Obrys jest alokacją, NIE wybranąścianką/N06, bez continuous sweep/physicalPASS.
+Recenzje01a18c0f (wspólnyfront) i01a18c1e (korektaobrysu) GOpróby, nieodbiór.
 
-Retencja wewnętrzna: dwa przykręcone C do tychSAMYCH osiM2 i tychSAMYCH dwóch
-znanych foam pads zamiast wiszącej długiej belki.35własnych par odebrane z reużyciem; lowerC potem pomniejszony do stopniaY,
-pełne foamcontact zachowane;
-nowy gapFemale3p81 .235mm (stała reguła własnego zespołu.2, obce1.25 niezmienione).
-ŁbyM2 są zamierzonym bearingiem, rzeczywisty common0. Dwie oryginalneT18I zostają
-zapasem, bez zmianySKU/zakupów;4zewnętrzne odciążenia dalejOPEN. Pierwsze źle
-owinięte pętle odrzucone i zachowane w day30-u1-C-foam-retention-rejected-loops.json.
-Aktualne2C35par+BRep:day30-u1-C-foam-retention.json/.breps.zip;zewnętrzneOPEN.
+ZACHOWANE U1:8fbd0a0f, day30-u1-shared-carrier.json i
+day30-u1-current-shared-mount.breps.zip/3strictdruki; kupnycore146 na zewnątrz
+MountFrontL (PCB Ymin39.05=37.8+1.25); day30-outboard-U1-space.json/151bryl.
+372par odebrane91.094s,0uwagruchu;958RLsource bezpowtórki. Nie ponawiaćGFA:
+tylnaRail1763.305 zachowana, sourceRail dwusolidowa.2C utrzymują adapter na
+tychsamychM2/znanychfoam; NIE utrzymują9dawnych chwytów.14portów wpoprawnej
+ramie4asymetrycznychPCB/adapter/J5/C1, nie samej symetrycznejPCB.
+U1aktywnywRAM:Shelf/coreNames,Carrier30,Clamps30,FHYChecked30,ShoulderOuter30.
 
-Źródłowy datum14portów: sama symetryczna PCB zaakceptowała BŁĘDNY obrót.
-Nie korzystać z pierwszej niezweryfikowanej U1OutboardPorts. Poprawna rama ustalona
-4nazwanymi PCB/adapter/J5/C1; każdy bidirectional difference0. Macierz/14portów
-w day30-outboard-U1-space.json. Odziedziczone osie wyjść NIE są aktualnymi trasami.
+WYMAGANE REZERWY: F_PI:registered_casing_reservation przez registered_fpi_space;
+Pi17 przeztools/cad/registered_pi_space.py i day30-current-pi-required-space.json.
+Odtworzone PCB+3osiamiM2 na płaszczyźniePCB, nie COMśrub; residual<4.6e-14,
+boarddifference0/0.2533dodatnie separacje do146U1+3druków,min12.595847.
+To rezerwy, nie dokładne modele producenta. W043<=50 twardy; bez relaksacji.
 
-Kernel źródła: +Rail ma DWIE poprawne bryły1323.904/1763.305mm³; tylnej nie gubić.
-Dwa Compound.cut zwróciły strict-invalid faces. GFA nie mapował Compound self,
-a po spłaszczeniu pominął rozłączną tylną bryłę. Odebrano istniejące wyniki GFA,
-zachowano2strict-valid przednie cells872.410+374.410 i CAŁĄ niezmienioną tylną.
-RecoveredRail30 3010.1253766=3087.2091369−77.08376 do3.1e-7mm³.
-Nie powtarzać GFA/cut; aktualny sharedCarrier jest już poprawny i w RAM.
-Pod PCB zachowano ciągły dolny flange i nowy understep, bez odrzucania offcutów.
+NEXT — JEDEN WSPÓLNY PODZIAŁ FL9/U1, przed kolejnymi detalami:
+Pierwsze ogólnepudełka day30-paired-front-space-preflight.json ODRZUCONE:
+naruszajągórne zaokrąglenia; NIE są odebranymi trasami/pojemnością. Zachowaćnegatywy.
+FL9 rzeczywistaobsada6×OD3.1+3×OD2, R12.4stałe i oddzielny31.5dynamiczny.
+Hip/Knee cały,9tożsamości, źródłaSOURCE/DONOR900nie1800pool,850usable po50trim.
+NOWA wspólna hipoteza do recenzji:
+-6D/G przechodzi JEDNĄ warstwą nadU1, pod platformą FHY/opaskami:
+  X[-108,-33],Y[75,96.4],Z[86.25415298,90.175].21.4×3.920847 mieści
+  6×(OD3.1+0.2jawnegozapasu)+0.4na każdej krawędzi=20.6×4.1;
+  Pierwotne3.920847<4.1 ODRZUCONE przedmodelem. Przyczyna: opaska obejmowała
+  całą grubą platformę. Nowa wspólna platforma z2otwartymi poprzecznymi
+  przejściami opasek pod podniesionymi9mm mostkami siodeł; pas przechodzi
+  między platformą a siodłem, zachowuje2.5×1.2/head6 i kontakt izolacji.
+  Spód paska93.025 nie91.425. Wspólna galeria ma Z86.25415298..91.375,
+  5.120847wysokości,6×3.3 i0.4krawędzie mają20.6×4.1. R dróg min12.4
+  uwzględnić na wewnętrznej stronie profilu, nie tylko osi wspólnegosweep.
+  Słup wgalerii zastąpi wspólny wysięgnik znadkołyski, nieobwódka każdejżyły.
+-3V schodzi osobnym dostępnym dolnym regionem przedU1:
+  X[-108,-33],Y[69,78],Z[30,37.27], podPCB39.77 i gałęzią38.52.
+  Lokalne dojścia/prawdziwe źródła/luz i ruch muszą przejść wspólne odbiory.
+-14U1:6logicOD1.4/3fineOD.8/2MolexOD2.1/3singleOD2.1.
+  Wspólne pole kolektoraX[-57,-33],Y[89,96.75],Z[42,83], oddzielne odFL9.
+  SześćT18I (2uwolnioneadaptera+4zewnętrzne) na6/3/2/1/1/1, wszystkie14,
+  dostępnegrzebienie zamiast14sztywnychcylindrów. Pololu1871R10/LAPP R6,
+  XS13/23/33R12.6, każdaMolex225 osobno; starebudżety>225nie odbiór.
+-Aby6D/G miało ciągłe przejście, zastąpić pionowyFHYpylon wgalerii
+  prostym wspólnym WYSIĘGNIKIEM zkołyski: rootstub podcaseZ85.3..87.3,
+  słup poza caseXmax-61.15+1.25, Y69.65..73.65; belka nadgalerią
+  Z92.625..94.625 do platformyY82.45. Cały support/stock/tool/root razem,
+  nie lokalnyoffsetopaski. Najpierw wymiarowanyprzekrój/dostęp/recenzja.
+-Montażotwarty: foundation/kołyska, U1M2+2C, grzebienie/końce, FHY zobiema
+  izolowanymizłączami iopaskami, ręczne ułożenie, osłony ostatnie. Nie szybkiserwis.
 
-Nieobecna w1180obiektowym Day26native F_PI została jawnie przywrócona przez
-tools/cad/registered_fpi_space.py; required casing reservation woccupied.
-F_PI bbox[-78.449996,-11,30.975]→[-27.450004,11,51.225]; stare foreflatPCB1521.626
-to HOLD alokacji. W043<=50 jest limitem projektu, nie luzować przezactual_cut=None.
-FHAC89.5±5 obejmuje baretip; shortest84.5/tipmax8.35. Nie gwarantować100.
-FoundationRail:-1 zawiera całeW077/W078; odciętego293.422mm³ fragmentu nie kasować.
-
-Źródła: HEAD5e2e296d,93fc09b8/b173f322/a98a0420; Day26PrototypeSpacePlan.FCStd
-SHA81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b.
-594+364=958RLsourcepar zachowane; strictguard55+3 tylko58dotkniętychpar,900bezpowtórki.
-RL29SourceFixtures.FCStd105cech/Day29RLSourceRestraints.FCStd1285obiektów zachowane.
-9RLbiarc39skrzyżowań i3circleKnee6 14foreign+300.627self odrzucone, nie zielony luz.
-Odrzucone też LOWER-SPLIT2, CORE_STACK, lowerMonitor2, SIDEKEY81/150,
-VERTICAL_S0_UPPER81/625 oraz FOREYZupper491.547FHACalokacji; nie kończyć ich reszty.
-
-Recenzent Astra medium thread01a16f0e-ac12-7973-82ba-99579f2b681e, tylko odczyt;
-ostatnia01a18a6b GO ograniczona próba wspólnego carrier/2C, NIE geometrycznyodbiór.
-Uwagi: pełny integralny zestaw (kupnycoreodebrany, druki/opaskiOPEN);
-14portów+FL9/galeria (datumodtworzony, obsadaOPEN); root/narzędzie/montaż (shared
-rootwpróbie, zewnętrzneOPEN). Nie recenzować parametrów ani tworzyć kolejnych agentów.
-Wykonawca wybrany przez użytkownika Sol high; nie zmieniać modelu.
-
-Zachować R47/P0/E6/15napędów/MG92B/325x200x160/max200/margines256³/MAIN46.52.
-Źródła i skille/DESIGN_LESSONS26/29.10 obowiązują; po2porażkach zmiana przyczyny,
-bez mikrooffsetów. Czas/limit przed kosztowną operacją i maks10min; last_account_usage
-rzeczywisty. Ostatni odczyt01:34:38UTC8%użyte/92%pozostało, zwykły dostęp tak, bez resetu.
-Co20–30min wynik/fakt wtejkarcie. Commity tylko własnych sprawdzonych zmian,
-bez WORK_HANDOFF/Claude/zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/
-okresowychalertów/maili/fizycznegoPASS. Okno pozostaje aktywne, mail dopiero1/10.
+OtwarteN01: wspólne14odciążeń/regionyFL9/pełne123odcinki246końców/4MTA
+obu stron/fabryczne długości, użyteczny luz4nóg, montaż/narzędzia/obrys.
+Nie produkcyjne detaleN03 ani123pełne osie. Exact tylko nazwane lokalne ryzyko.
+Po2odrzuceniach ta sama przyczyna wymaga innej topologii/kolejności, nie mikrooffsetu.
+Korzystać zniezmienionych dowodów. Własneprzewody/stock/root/union przedobcymi.
+Zachować R47/P0/E6/15napędów/wymienneMG92B/MAIN46.52/256³margines.
+Sol high wykonawca/Astra medium istniejącyrecenzent01a16f0e-ac12-7973-82ba-99579f2b681e;
+bez samodzielnejzmiany. Czas/limit≤10min i przedkosztowną pracą; last_account_usage
+rzeczywisty09:25:22UTC9%użyte/91%pozostało, zwykły dostęp tak, bez resetu.
+Wznowienie09:02→09:31 to29minwall, nie29minciągłegoCAD. CADFHY75.547s,
+motion/root3.266s+cover/joint.422s; czaspoprawkiobrysu obejmował oczekiwanie.
+Następnycheckpoint: cały wspólnyfront i rozliczeniegałęzi; nie obiecywać czasuN01.
 
 ## Historia okna RL 29.10.2026 — zamknięte
 
