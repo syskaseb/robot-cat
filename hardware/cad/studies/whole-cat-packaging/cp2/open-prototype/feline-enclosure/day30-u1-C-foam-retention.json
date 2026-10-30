@@ -1,0 +1,47 @@
+{
+  "status": "TWO_BOLTED_C_FOAM_RETAINERS_OWN_INTERFACES_RECEIVED",
+  "prior_rejected": "day30-u1-C-foam-retention-rejected-loops.json",
+  "source_core_space": "day30-outboard-U1-space.json",
+  "own_retained_pairs": 35,
+  "all_unchanged_positive_distances_reused": true,
+  "actual_new_pair": {
+    "a": "C30:Lower",
+    "b": "Ref_Material_U1_Female3p81_0_0",
+    "gap_mm": 0.23500000000001364,
+    "minimum_mm": 0.2
+  },
+  "intended_actual_M2_head_bearings": [
+    {"a":"C30:Lower","b":"Ref_Material_PWM160824Screw_0_0","gap_mm":0.0,"intersection_mm3":0.0,"intended_mate":true,"minimum_mm":0,"reason":"same existing M2 head bears on PETG replacement foot, actual zero common volume"},
+    {"a":"C30:Upper","b":"Ref_Material_PWM160825Screw_0_0","gap_mm":0.0,"intersection_mm3":0.0,"intended_mate":true,"minimum_mm":0,"reason":"same existing M2 head bears on PETG replacement foot, actual zero common volume"}
+  ],
+  "source_foam_pads_unchanged": true,
+  "all_metal_parts_unchanged": true,
+  "lower_foot_only_material_removed_mm3": 1.4564999999999335,
+  "internal_retention": "Two bolted C members use original M2 axes and original two known foam pads; no strap around components/pads. Two original T18I become unused spares, SKU unchanged. Four external restraints remain OPEN.",
+  "strict_solids": 2,
+  "external_NOT_checked": true,
+  "frame_loadpath_external4ties14ports_OPEN": true,
+  "N01_complete": false,
+  "physical_pass": false,
+  "part_bounds": {
+    "C30:Lower": [[-85.39,59.05,36.27],[-68.75,66.7,52.27]],
+    "C30:Upper": [[-85.39,59.05,67.27],[-68.75,66.85,85.75]]
+  },
+  "geometry": [
+    {"name":"C30:Lower","entry":"1.brep","sha256":"278c56939e1066380f6bf9100828dfc9e5566ec9eef10c30d01cc25c12f75fa2","bounds_mm":[[-85.39,59.05,36.27],[-68.75,66.7,52.27000000000001]]},
+    {"name":"C30:Upper","entry":"2.brep","sha256":"3501cf80fb029f2b2d5123a1947972b396c0f785b2a979c82c49bad5ca52a9ec","bounds_mm":[[-85.39,59.05,67.27],[-68.75,66.85,85.75]]}
+  ],
+  "bundle": "day30-u1-current-shared-mount.breps.zip",
+  "bundle_sha256": "5bd44161049664507e06dbc164eee760b8913ef3b2b48b1562ee57804645af6d",
+  "lower_step_floor_mm": 42.403397080286716,
+  "lower_riser_Ymin_mm": 61.25,
+  "lower_shape_subset_of_prior": true,
+  "own_all_positive_receipts_preserved": true,
+  "old_lower_C_prior_retained_as_history": true,
+  "prior_geometry_before_lower_step_historical_only": {
+    "bundle": "day30-u1-C-foam-retention.breps.zip",
+    "bundle_sha256": "535644a68a92b89906e0396083577f69e5689da836b3e767213e82910e04cfb8",
+    "geometry": [{"name":"C30:Lower","entry":"0.brep","sha256":"3b5bb693c8169aec5a943bcf894b4dbd5002c5d3aa03e04fae5fec096a0e6542"},{"name":"C30:Upper","entry":"1.brep","sha256":"3501cf80fb029f2b2d5123a1947972b396c0f785b2a979c82c49bad5ca52a9ec"}]
+  },
+  "current_geometry_is_shared_mount_bundle": true
+}

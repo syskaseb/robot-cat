@@ -769,3 +769,20 @@ Odebrany wariant fuses łączy od seat przez połączone człony do gripów,
 bezRefine; stary wynik potrafił zgubić ramiona mimo1solid.
 Każdy zmieniony root/cap/belt traci stare zewnętrzne potwierdzenie.
 Lokalny odbiór nie daje punktu N01 ani fizycznego PASS.
+
+
+## 30.10 — datum symetrycznej PCB i zachowanie komórek ramy
+
+- Samo pokrycie symetrycznej płytki nie ustala kierunku portów. W tej próbie
+  błędny obrót dawał obustronne difference0 dla PCB; dopiero adapter/J5/C1
+  wskazały inną właściwą ramę. Przed transformacją końców użyj asymetrycznych
+  nazwanych świadków. Aktualny dowód: day30-outboard-U1-space.json.
+- W tej sesji GFA nie mapował Compound self ani rozłącznego tylnego solidu.
+  Nie usuwać pustego mapowania jako odpadu. Zachowano tylną1763.305mm³,
+  a przednie komórki zweryfikowano osobno i bilansem objętości. Zwykły Cut
+  zwracał strict-invalid faces mimo poprawnego źródła; nie robić tej samej próby
+  ponownie. Gdy dotyczy naszego prostego uchwytu, zmień jego przekrój wokół
+  istniejącej ramy zamiast seryjnie podcinać złożoną starą szynę.
+- Nowe dwa dociski adaptera nie dziedziczą dziewięciu chwytów przewodów ze
+  starych AnchorLeft/Right. Osobno rozlicz role14końców i dostępne opaski.
+  Retencja adaptera i odciążenie przewodów są różnymi funkcjami.

@@ -1,158 +1,105 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (29.10 wieczór)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 01:17UTC)
 
-Autoryzacja użytkownika: „Pracuj aż osiągniesz1/10”. Cały N01, nie tylkoRL.
-Okno n01-one-of-ten-20261029-result, od19:04:37UTC, bez terminu godzinowego.
-Hook result_stage enabled=true; stage_completed=false; aktualnie0/10.
-Użytkownik29.10: po zweryfikowanym1/10 jeden mail na syska.seb@gmail.com; potwierdzićSENT/message_id, przy nieznanym wyniku sprawdzićWysłane przed powtórką.
-Zamknąć po zweryfikowanymN01=1/10 albo zwykłym limicie niedostępnym/wyczerpanym
-lub rzeczywistej blokadzie wymagającej nowejzgody po alternatywach. BezN02-N10.
+Autoryzacja: „Pracuj aż osiągniesz1/10”; okno n01-one-of-ten-20261029-result
+od29.10 19:04:37UTC, bez deadline. enabled=true, stage_completed=false.
+Aktualnie N01–N10 nadal0/10. Historyczne20/20 dokumentacji osobno.
+Mail syska.seb@gmail.com TYLKO po rzeczywiście zweryfikowanym1/10, jeden,
+potwierdzićSENT/message_id; przy nieznanym wyniku sprawdzićWysłane.
+Nie zamykać po lokalnym wyniku/commicie. BezN02-N10. Zatrzymanie tylko całyN01,
+niedostępny/wyczerpany zwykły limit lub prawdziwy brak bezpiecznej pracy wymagający zgody.
 
-Źródła:00340f3b/c7c1e876, day29-whole-RL-checkpoint.json i
-appearance-checkpoint.json/current_scope_score/N01 (mianownik10 niezmienny).
-Bazowy Day26PrototypeSpacePlan.FCStd SHA81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b;
-aktualny kandydat Day29RLSourceRestraints.FCStd1285obiektów i
-RL29SourceFixtures.FCStd105cech, hashe w day29-native-source-fixture-assembly.json
-oraz day29-source-fixture-validation.json. Wszystko studium, nie wybranymaster/do druku.
-Części/R47/P0/E6/15napędów/wymienneMG92B/325×200×160/max200/margines256³/MAIN46.52 zachować.
+active_worker: native FreeCAD session96178/PID10204, jeden resident, BEZCZYNNY.
+NEXT01:40UTC: własne3druki140+35odebrane; zewnętrzne140/140 odebrane w0.937s,
+135dodatnich rozdzieleń zewnętrznych bboxów ruchu i5dokładnych par. Brak uwag
+ruchu, cztery HOLD dotyczą TEGO SAMEGO zespołuFHY: post/custom head1.1504,
+upperreturn/custom band6.975mm³/custom head29.984mm³ i upperC/CASEtie.01mm.
+To projektowe budżety zamontowanych opasek, nie fizycznyfit producenta.
+NIE przycinaćC ani przesuwać pojedynczej główki dla zielonego wyniku.
+Najpierw cały FHYcase/bodytie/oba factory i pełny custom joint/rib +FL9
+oraz WSZYSTKIE14końców U1/regiony. Case ma pozostać, retencja i proste wspólne
+comb/saddles są zmiennymi. Przed CAD odczytać istniejąceFHYporty/długości i
+lokalnąobsadę galerii; nie zakładać wyjść zsamegobbox. Własne9chwytów PCB
+BYŁY integralne ze starymiAnchorLeft/Right i NIE przeszły do nowych2C.
+Odtworzyć jawnie mapę14odciążeń, nie tylko4zewnętrzne.2T18I pierwotnejretencji
+adaptera dostępne do wspólnych grzebieni (obecnie zapas), bez nowegozakupu/SKU.
 
-active_worker: native FreeCAD session96178/PID10204. Nie uruchamiać drugiego.
-594/594 forki do ramy/mechanizmów oraz364/364 opaski/wzajemne interfejsy RL
-odebrane,0konfliktów. Nie powtarzać zamkniętych958par.
-NEXT AKTUALNY23:35UTC — brama kompletności przestrzeni przed następnym CAD.
-W Day26PrototypeSpacePlan.FCStd nie ma F_PI (potwierdzone przez celowany odczyt
-XML). Pierwsze1031material+135stock nie były kompletną sceną wymaganych rezerw.
-Przywrócono F_PI:registered_casing_reservation z oryginalnegoR5 W.box/casing
-i bieżącego, niewybranego domu[-52.95,0,41.1]: x[-78.449996,-27.450004],y+-11,
-z[30.975,51.225]. To rezerwacja projektu, NIE dokładna obudowa producenta.
-Pokrywa proponowane foreU1 PCB1521.626mm³: HOLD alokacji, nie fizyczny kontakt.
-Nie wybierać żadnego foreU1 tylko na podstawie dotychczasowych subset receiptów.
-146/151aktorowe kontrole zachowano z jawnym brakującym F_PI i brakiem odbioru sceny.
-Nowy helper tools/cad/registered_fpi_space.py oraz day30-FPI-required-reservation.json
-muszą być użyte przy wznowieniu. Resident ma już tę osobną rezerwację woccupied.
+Bieżący JEDYNY pakiet3druków: day30-u1-shared-carrier.json i wskazany
+day30-u1-current-shared-mount.breps.zip, widokday30-u1-current-shared-mount-view.png.
+Nie ładować wcześniejszego lowerC z historycznegoC-foam-retention.breps.zip.
+Każdy3strict1solid. Całe3druki wewnątrz rzeczywistego BodyOuter: odległość
+do jego powierzchni7/33.3/26.25mm, seedinside, connectedshape. Nie obrys zbbox.
+Envelope185.545×185.545×54.484mm po45Z dla wspólnejramy; C16.64×7.65×16
+i16.64×7.8×18.48. To planowe dopasowanie256³, nie wydanie do druku/N03.
+Sharedcarrier224faces ma każde źródłowe/dodane ogniwo; dodatnie joints doobuM2.
+Droga obciążenia przez istniejącą+FoundationRail/Flange→ClampNeck2/4→rzeczywiste
+3mm seatsP0; dodatkowe2prywatneclampyU1 nie są potrzebne. Osprzęt/zachowane
+zewnętrzne interfejsy i montaż/dojścia wymagają pełnego uzgodnionegoplanu.
 
-Drugi nowy fakt: FoundationRail:-1 zawiera W077/W078 siodła+spine+arm z funkcji
-prototype_shared_galleries_20261025.splice_saddle_and_root. Próba pocketów podU1
-odcina293.422mm³ chwytuW077 — ODRZUCONA, fragmentu nie skasowano jako odpad.
-Nie kontynuować ogólnego podcinania tej szyny ani odsuwania samej opaskiW078.
-Następna wspólna decyzja obejmuje U1, CAŁĄ rezerwację F_PI, W043 i CAŁY splice
-W077/W078/20mm sleeve/8mm lap/oba9mm chwyty/obie opaski oraz korzenie.
-Odczytać rzeczywistą długość W043/W077 z źródła: stary blank50/limit50W043
-nie jest automatycznie długością nieciętego fabrycznego odcinka; actual_cut=None.
-Nie wydłużać jednostki fizycznej ani brać nominalnego100 jako gwarancji:
-W077 ma potwierdzoną w źródłowym planie bramkę shortest84.5 i tip8.35.
-Przed nowym położeniem jeden cały plan przestrzeni i długości, istniejący recenzent.
+Wybrana do konstruktywnej PRÓBY przestrzeń U1: cały kupny146 zespół na zewnątrz
+PETG MountFrontL, PCB Ymin39.05=37.8+1.25; X[-87.05,-55.75],Y[39.05,89.85],
+Z[39.77,82.95]. U1/S0/F_PI/FHY/bank/MTA/Pi/PCA/BUS/AUX/monitor/bateria nie
+zmieniają wybranych części; pozaU1 pozostałe moduły zachowane w źródłowych domach.
+372/372 pary151aktorów odebrane, kernel91.094s, w tym282dodatnie rozdzielenia
+rzeczywistych obróconych zewnętrznych bboxów (nie282Booleany). Brak uwag ruchu;
+24uwagi dotyczą druków/opasek, NIE odbiór całego modułu/N01.
+Pakiet day30-outboard-U1-space.json + .breps.zip:151bryl/14końców; stare3wewnętrzne
+druki/2ties jawnie NIEodebrane. Rodziny/FHAC są rezerwami, nie dokładną bryłą producenta.
+Główne otwarte: FLArcGuide/FrontShared:custom_rib, pełny custom chwyt/band/head
+wyjściaFHY oraz4zewnętrzne końce U1. Zmienić wspólny region i podpory, nie opaskę samotnie.
 
-Zachować958RLsource (594+364), strictguard55+3 dla58dotkniętychpar,900bezpowtórek.
-F_PI do tych6tipów ma zachowawczy bboxgap166.7896mm; nie powtarzać958par.
-RoofD_RL/RL_G mają tylko lokalnyjoint14.4375 i40foreignpairs, nadal kandydaci.
-9RLbiarci odrzucone39krzyżowaniami, 3circleKnee6 odrzucone14foreign+300.627self.
-Nie przywracać ich jako zielonego luzu. U1 w oryginalnym położeniu pozostaje bazą;
-fore151stosu i jego rezerwy zapisano jako HELD w day30-fore-stack-held.*.
-Recenzja FORE-STACK01a189ed-4007-7ba2-8995-314b19a1b0d1 była GO do próby,
-nie odbiór; nowy fakt F_PI unieważnia jej kompletny zakres, nie trzeba powtarzać
-tej samej recenzji parametrów. Najpierw nowy CAŁY układ modułów i regionów.
-Po domknięciu modułów:4nogi/36żył/123porcje/246końców, obie strony4MTA,
-użyteczny luz/długości/montaż/obrys. Nie N03-N10. Aktualnie0/10, mail dopiero1/10.
+Retencja wewnętrzna: dwa przykręcone C do tychSAMYCH osiM2 i tychSAMYCH dwóch
+znanych foam pads zamiast wiszącej długiej belki.35własnych par odebrane z reużyciem; lowerC potem pomniejszony do stopniaY,
+pełne foamcontact zachowane;
+nowy gapFemale3p81 .235mm (stała reguła własnego zespołu.2, obce1.25 niezmienione).
+ŁbyM2 są zamierzonym bearingiem, rzeczywisty common0. Dwie oryginalneT18I zostają
+zapasem, bez zmianySKU/zakupów;4zewnętrzne odciążenia dalejOPEN. Pierwsze źle
+owinięte pętle odrzucone i zachowane w day30-u1-C-foam-retention-rejected-loops.json.
+Aktualne2C35par+BRep:day30-u1-C-foam-retention.json/.breps.zip;zewnętrzneOPEN.
 
-N01 jest JEDNYM konstruktywnym wspólnym planem: wszystkie moduły/ramy/bank,
-123porcje/246końców, obie strony4MTA/factory, pełne odciążenia/narzędzia,
-montaż/ruch/obrys i osłony z obsadzonymi kotwami. Nie produkcyjne detaleN03,
-pełne indywidualne osieN04-N05 ani pełny stockN10. Jawne przymiarki dostawy
-pozostają bramkami fazy2, ale znane blokery planu muszą zniknąć przed punktem.
-Po sourceodbiorze decyzja o CAŁYM modulemount/regionach: prawdziwe podparcia
-D_RL/RL_G i aktualne first9/BankV/PiUSB, pojemność galerii, wspólny użytecznyluz,
-niezależne jednostki900 i wszystkie pozostałe porcje. Górny obrótD_RL/RL_G ma
-GO tylko do próby, head trafia wdruk, korzenie i górne dojście nieodebrane.
-Nie ponawiać trzech odrzuconych dolnych/aleiX96 objazdów ani dopasowywania kabla
-do przypadkowego drukowanego wspornika. Rezerwacja case nie jest dokładnym producentem;
-stały swobodny kabel referencyjny nie jest sztywną przeszkodą.
+Źródłowy datum14portów: sama symetryczna PCB zaakceptowała BŁĘDNY obrót.
+Nie korzystać z pierwszej niezweryfikowanej U1OutboardPorts. Poprawna rama ustalona
+4nazwanymi PCB/adapter/J5/C1; każdy bidirectional difference0. Macierz/14portów
+w day30-outboard-U1-space.json. Odziedziczone osie wyjść NIE są aktualnymi trasami.
 
-Przed nową geometrią: jeden wspólny układ stabilnych modułów i połączonych regionów,
-aktualna obsada/przekroje/zapas/długości/montaż; dotychczasowy recenzentAstra medium
-ocenia całą propozycję, nie parametry. Jeden wykonawca, bez zmiany modelu.
-Skille i DESIGN_LESSONS26/29.10: własny przewód/opaska/dodatni joint/kompletność
-union przed kosztowną kontrolą reszty. Po2odrzuceniach zmiana przyczyny/układu,
-nie mikrooffset/nazwaskryptu. Czas/limit przed kosztowną pracą i maks10min,
-last_account_usage rzeczywisty. Wynik lub nowyfakt20–30min wtejkarcie.
-Commity własnych sprawdzonych etapów bez cudzych zmian; kontynuować po lokalnymwyniku.
-Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/maila/
-WORK_HANDOFF/Claude/okresowychalertów/fizycznegoPASS. Historyczne20/20osobno.
+Kernel źródła: +Rail ma DWIE poprawne bryły1323.904/1763.305mm³; tylnej nie gubić.
+Dwa Compound.cut zwróciły strict-invalid faces. GFA nie mapował Compound self,
+a po spłaszczeniu pominął rozłączną tylną bryłę. Odebrano istniejące wyniki GFA,
+zachowano2strict-valid przednie cells872.410+374.410 i CAŁĄ niezmienioną tylną.
+RecoveredRail30 3010.1253766=3087.2091369−77.08376 do3.1e-7mm³.
+Nie powtarzać GFA/cut; aktualny sharedCarrier jest już poprawny i w RAM.
+Pod PCB zachowano ciągły dolny flange i nowy understep, bez odrzucania offcutów.
 
-Wynik 2026-10-29T19:52:26Z: zmienione3drukowane części RL mają594/594 aktualnych par do
-ramy/mechanizmów bez konfliktu; kernel177.498+5.031s, odzyskanie i poprzednie25
-rozliczone w receipcie. To nie odbiór luzu ani całejnogi/N01. RecenzentAstra medium
-29.10 GO dla A (dwie stacje, zachowanie reszty); B19zespołów tylko po wykazaniu przyczyny.
-Nowy fakt: dolne D/RL_G można konstruktywnie podeprzeć (joint69.957/96mm³),
-ale ich pełne wyjścia nadal przecinają U1/FL_G/AUX i rezerwę skóry. Utrzymanie
-samych case nie zamyka interfejsu. Konsekwencja: przeniesienie CAŁYCH dwóch
-zespołów do odebranych wolnych pól powyżej banku; jeden wspólny plan dojść,
-nie kolejny mikrooffset drutu. Stare pozytywne regiony i dostępy zachować.
-N01 nadal0/10; zmierzony czas bieżącego okna od19:04:37UTC, bez sztucznych punktów.
+Nieobecna w1180obiektowym Day26native F_PI została jawnie przywrócona przez
+tools/cad/registered_fpi_space.py; required casing reservation woccupied.
+F_PI bbox[-78.449996,-11,30.975]→[-27.450004,11,51.225]; stare foreflatPCB1521.626
+to HOLD alokacji. W043<=50 jest limitem projektu, nie luzować przezactual_cut=None.
+FHAC89.5±5 obejmuje baretip; shortest84.5/tipmax8.35. Nie gwarantować100.
+FoundationRail:-1 zawiera całeW077/W078; odciętego293.422mm³ fragmentu nie kasować.
 
-Wynik21:21UTC: źródłowe mocowania RL i8opasek mają958odebranych par
-(594+364), bez konfliktów. Nadal nie jest to cała noga ani punkt N01.
-Nowy fakt: stała długość9odcinków źródło→U-wyjście jest konstruktywnie
-osiągnięta dla36pozycji: styczne biarci i przesuwany U, h=7.5+(Lmax-Lpose)/2,
-z zachowaniem R>=31.5. To NIE wymaga123dokładnychosi. Skrajne i środkowe pozy
-sprawdzono w actual native;271par, po zmianie części reużyto108niezmienionych
-pozytywów,163nowe/ponowne,4pozostałe uwagi do tej SAMEJ nakrętki/washerU1.
-Własne kontakty przy wyjściu nominalnego chwytu są sklasyfikowane jako fit,
-bez przenikania;1.25obowiązuje wobec obcych sztywnych części.
-Obie relokacje całego U1 odrzucone przez rzeczywiste kolizje. Zachować PCB.
-Błędne założenie keepout obejmowało tylko śrubę: nakrętka sięga do Z25.4706.
-Korekta całego poziomu komory RL2 do Z52, bez zmiany promieni ani części.
-Jeśli nadal konflikt, zmienić wspólną topologię, nie kolejne mikrooffsety.
-Rachunek starego łuk→U był za słaby: zmieniał styczne. Nowy U ma nieruchome
-oba końce/styczne i tłumaczy h na dokładną długość; nadal do odebrania wspólna
-obsada, ruch w komorach, podparcie/guard oraz stałe gałęzie do płyt.
-NIE zamykać N01 po RL. Wszystkie4nogi, obie strony4MTA/factory i wszystkie
-123tożsamości/246prawdziwych końców oraz montaż/head/tail/12ATO muszą być spójne.
-Nie dopisywać szybkiego serwisu ani produkcyjnych detali N03-N10.
+Źródła: HEAD5e2e296d,93fc09b8/b173f322/a98a0420; Day26PrototypeSpacePlan.FCStd
+SHA81c4582f10467da35352d710a785ed39a493de9ee37166c0b31412d60419be3b.
+594+364=958RLsourcepar zachowane; strictguard55+3 tylko58dotkniętychpar,900bezpowtórki.
+RL29SourceFixtures.FCStd105cech/Day29RLSourceRestraints.FCStd1285obiektów zachowane.
+9RLbiarc39skrzyżowań i3circleKnee6 14foreign+300.627self odrzucone, nie zielony luz.
+Odrzucone też LOWER-SPLIT2, CORE_STACK, lowerMonitor2, SIDEKEY81/150,
+VERTICAL_S0_UPPER81/625 oraz FOREYZupper491.547FHACalokacji; nie kończyć ich reszty.
 
-Wynik21:58UTC: samodzielna geometria9RL była błędnym kierunkiem mimo dobrego
-rachunku długości i obejścia ramy. Zmieniono strategię po wzajemnym teście, bez
-usuwania negatywu. Wspólna6-ribbon świadczy algebraicznie stałą długość dla
-równoległych przesunięć osiowych, lecz konkretna przestrzeń nadal koliduje zU1.
-Nie zmniejszono OD/promieni. Brak danych producenta SR900 nie uzasadnia ich
-zmniejszenia; oficjalna kartaWaveshare nadal403. Generyczne parametry innego
-kabla nie są danymi wybranegoSR900.
-Uwagi recenzenta: zachować958mocowań (tak); wykazać4nogi jednocześnie (otwarte);
-ciągły użytecznyluz zamiast samej objętości (otwarte);123/246i osobneSOURCE/DONOR900
-orazK1474 (otwarte); N08 to montaż/serwis, N09 pełna kwalifikacja ruchu (skorygowano).
-Nie dopisywać produkcyjnychN03–N10 jako warunku pierwszego planu, ale znanego
-konfliktu nie wolno zepchnąć do kolejnego etapu. Aktualnie0/10, mail dopiero po
-zweryfikowanym1/10. Okno pozostaje aktywne, bez nowego terminu.
+Recenzent Astra medium thread01a16f0e-ac12-7973-82ba-99579f2b681e, tylko odczyt;
+ostatnia01a18a6b GO ograniczona próba wspólnego carrier/2C, NIE geometrycznyodbiór.
+Uwagi: pełny integralny zestaw (kupnycoreodebrany, druki/opaskiOPEN);
+14portów+FL9/galeria (datumodtworzony, obsadaOPEN); root/narzędzie/montaż (shared
+rootwpróbie, zewnętrzneOPEN). Nie recenzować parametrów ani tworzyć kolejnych agentów.
+Wykonawca wybrany przez użytkownika Sol high; nie zmieniać modelu.
 
-Następna decyzja wspólnego montażu22:05UTC: moduły i bank pozostają; dwa roof
-stanowiska są kandydatem przywrócenia dojść. Na każdej nodze dwa źródła Knee
-zbierają się w dostępnym statycznym polu tego samego członu; wspólne6 przechodzi
-na Hip przy rzeczywistej osi Knee, potem wrazzHip1 wspólne9 do galerii korpusu.
-Kotwa Hip NIE może leżeć na łuku kotwy Knee. Poprzednio wybrane punkty miały
-wpozie17 tylko kilka mm odległości; żadna poprawa promienia nie naprawia takiego
-planu kotew. Następna próba zmienia układ prowadzeń: punkt Hip przy projekcji
-rzeczywistej osi Knee do płaszczyzny zewnętrznej wiązki, poza orbitą punktu Knee.
-Plan obejmuje wszystkie4nogi przez aktualne E6, bez dziedziczenia symetrii.
-Wybrane moduły/12SOURCE900/4DONOR900/bank/obieMTA/12ATO i obsada123 nie znikają;
-nie ma nowego wymogu szybkiego serwisu. Rezerwy zewnętrzne nóg nie poszerzają
-325x200x160 tułowia. Po sprawdzeniu kotew decyzja o CAŁYCH regionach i montażu,
-nie produkcyjny pełny harness. Niewiadoma lokalna: czy taki6region daje ciągły
-luz i rozdzielne6profile, omijaU1/mechanikę/podłogę bez zaniżeniaR31.5.
-
-Wynik22:30UTC — LOWER-SPLIT odrzucony w dwóch orientacjach całego modułu:
-Rx-90: rzeczywiste888/092 poniżej1.25 wśrodku ruchu; Rz90*Rx-90: PCBprzecina
-MTAstock i prawidłowąbryłę118 jużwstaniu(18.198mm³), nie sam bbox. Nie kończyć
-pozostałych niepotrzebnych4857/6572par i nie dokładać trzeciegooffsetu dolnejzatoki.
-Nowyfakt: podział dolnychzatok nie usuwa przestrzeni nóg i MTA. Następna strategia
-musi opierać moduł ponad baterią wewnątrz ramy, nie ponownie w tej dolnej warstwie.
-Przebudowa4WAGO nie jest wybrana; wrócić do ich odebranego dolnego układu.
-Naprawiono guard źródeł: isValid na wznowieniu nie wykrył znanych błędów strictBOP
-090/098/125.55odległości do prawidłowych zachowawczych OBB+3rozdzielneboxy
-ponownie kwalifikują wyłącznie58dotkniętychpar;900bezpowtórek,958źródeł zachowane.
-NajmniejszysprawdzonygapdoOBB19.785mm. Nieważne090kontaktyLOWER-SPLIT wycofane,
-pozostałe prawdziwe negatywy zachowane. Receiptday29-strict-source-guard-receipt.json,
-zmierzonykernel18.032s. To korekta dowodu, nie dodatkowe punktyN01.
+Zachować R47/P0/E6/15napędów/MG92B/325x200x160/max200/margines256³/MAIN46.52.
+Źródła i skille/DESIGN_LESSONS26/29.10 obowiązują; po2porażkach zmiana przyczyny,
+bez mikrooffsetów. Czas/limit przed kosztowną operacją i maks10min; last_account_usage
+rzeczywisty. Ostatni odczyt01:34:38UTC8%użyte/92%pozostało, zwykły dostęp tak, bez resetu.
+Co20–30min wynik/fakt wtejkarcie. Commity tylko własnych sprawdzonych zmian,
+bez WORK_HANDOFF/Claude/zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule/
+okresowychalertów/maili/fizycznegoPASS. Okno pozostaje aktywne, mail dopiero1/10.
 
 ## Historia okna RL 29.10.2026 — zamknięte
 
