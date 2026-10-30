@@ -9,6 +9,13 @@
   prefiksy, allowance i chwyt. Długość ani1solid osobno nie kwalifikują układu.
   Prawdziwy kupny port jest stały; cap po projektowym chwycie niekoniecznie.
   F_PWM już używa9mm po łuku, więc nie odzyskiwać fikcyjnych kolejnych9mm.
+- Rozdziel długość jednostki magazynowej, odcinek instalowany i odpad po
+  dopuszczonej przymiarce. plan_fixed_head_jr_terminations.py:41–42/62/67
+  przewiduje cięcie dalszego końca jednej przedłużki JR300 po przymiarce,
+  przy zachowaniu keyed factory plug, JR mating plug i pełnego factory250.
+  Nie wymuszaj schowania całego odpadu JR w robocie. Zachowaj prefiksy,
+  allowances i bramkę fizycznego cięcia fazy2; nie rozszerzaj tego wyjątku
+  na cztery chronione jednostki MTA ani inne fabryczne przewody.
 - Rzeczywista szczelina5.120847mm odrzucała koło6.1mm, ale mieści płaski
   przekrój6.1x2.1 dwóch pełnych profili2.1mm. Zmiana kształtu obsady jest
   uzasadniona transportem obu żył/R/długością, nie zmniejszeniem ich średnic.
