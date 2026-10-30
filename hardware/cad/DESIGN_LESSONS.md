@@ -33,6 +33,15 @@
   sama lista/tekst nie wystarcza. Pełna kwalifikacja serwisuN08 i trajektoriiN09
   nie jest dodatkową bramkąN01. Nie przenoś tam rzeczywistych kolizji ani nie
   zmieniaj akceptacji/licznika; rozdziel plan wykonalności od szczegółowego odbioru.
+- Rozróżniaj fizyczny port/splice/koniec ruchomego odcinka, pośredni zaczep
+  prowadzący i umowną granicę regionu/porcji. Ta ostatnia potrzebuje ciągłości
+  przestrzeni, nie dodatkowego terminala, 9mm prostego ani nowego chwytu.
+  Wspólny zaczep pośredni może prowadzić luźną wiązkę; właściwe odciążenia
+  rzeczywistych końców i ochrona przy przegubach/krawędziach pozostają wymagane.
+- Kierunek łuku z projektowego source_recipe nie jest automatycznie kierunkiem
+  producenta. U1 source_basis=selected local departure wymaga odróżnienia
+  actualpad/parts od przeprojektowywalnego zewnętrznego wachlarza, bez zgadywania
+  pinoutu i bez dziedziczenia dowodów zmienionego interfejsu.
 - Hook wymaga jednej krótkiej aktualnej karty, a nie wielu chronologicznych
   NEXTów przed historią. Na górze: aktywny wykonawca, frozenpakiet, negatywy,
   konkretna następna decyzja, wynik i rzeczywisty czas. Starsze stany do historii.
