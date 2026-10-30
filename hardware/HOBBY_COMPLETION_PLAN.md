@@ -1,6 +1,6 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 09:31UTC)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 10:39UTC)
 
 Autoryzacja „Pracuj aż osiągniesz1/10”, okno n01-one-of-ten-20261029-result
 od29.10 19:04:37UTC, bez deadline; enabled=true, stage_completed=false.
@@ -49,38 +49,39 @@ Odtworzone PCB+3osiamiM2 na płaszczyźniePCB, nie COMśrub; residual<4.6e-14,
 boarddifference0/0.2533dodatnie separacje do146U1+3druków,min12.595847.
 To rezerwy, nie dokładne modele producenta. W043<=50 twardy; bez relaksacji.
 
-NEXT — JEDEN WSPÓLNY PODZIAŁ FL9/U1, przed kolejnymi detalami:
-Pierwsze ogólnepudełka day30-paired-front-space-preflight.json ODRZUCONE:
-naruszajągórne zaokrąglenia; NIE są odebranymi trasami/pojemnością. Zachowaćnegatywy.
-FL9 rzeczywistaobsada6×OD3.1+3×OD2, R12.4stałe i oddzielny31.5dynamiczny.
-Hip/Knee cały,9tożsamości, źródłaSOURCE/DONOR900nie1800pool,850usable po50trim.
-NOWA wspólna hipoteza do recenzji:
--6D/G przechodzi JEDNĄ warstwą nadU1, pod platformą FHY/opaskami:
-  X[-108,-33],Y[75,96.4],Z[86.25415298,90.175].21.4×3.920847 mieści
-  6×(OD3.1+0.2jawnegozapasu)+0.4na każdej krawędzi=20.6×4.1;
-  Pierwotne3.920847<4.1 ODRZUCONE przedmodelem. Przyczyna: opaska obejmowała
-  całą grubą platformę. Nowa wspólna platforma z2otwartymi poprzecznymi
-  przejściami opasek pod podniesionymi9mm mostkami siodeł; pas przechodzi
-  między platformą a siodłem, zachowuje2.5×1.2/head6 i kontakt izolacji.
-  Spód paska93.025 nie91.425. Wspólna galeria ma Z86.25415298..91.375,
-  5.120847wysokości,6×3.3 i0.4krawędzie mają20.6×4.1. R dróg min12.4
-  uwzględnić na wewnętrznej stronie profilu, nie tylko osi wspólnegosweep.
-  Słup wgalerii zastąpi wspólny wysięgnik znadkołyski, nieobwódka każdejżyły.
--3V schodzi osobnym dostępnym dolnym regionem przedU1:
-  X[-108,-33],Y[69,78],Z[30,37.27], podPCB39.77 i gałęzią38.52.
-  Lokalne dojścia/prawdziwe źródła/luz i ruch muszą przejść wspólne odbiory.
--14U1:6logicOD1.4/3fineOD.8/2MolexOD2.1/3singleOD2.1.
-  Wspólne pole kolektoraX[-57,-33],Y[89,96.75],Z[42,83], oddzielne odFL9.
-  SześćT18I (2uwolnioneadaptera+4zewnętrzne) na6/3/2/1/1/1, wszystkie14,
-  dostępnegrzebienie zamiast14sztywnychcylindrów. Pololu1871R10/LAPP R6,
-  XS13/23/33R12.6, każdaMolex225 osobno; starebudżety>225nie odbiór.
--Aby6D/G miało ciągłe przejście, zastąpić pionowyFHYpylon wgalerii
-  prostym wspólnym WYSIĘGNIKIEM zkołyski: rootstub podcaseZ85.3..87.3,
-  słup poza caseXmax-61.15+1.25, Y69.65..73.65; belka nadgalerią
-  Z92.625..94.625 do platformyY82.45. Cały support/stock/tool/root razem,
-  nie lokalnyoffsetopaski. Najpierw wymiarowanyprzekrój/dostęp/recenzja.
--Montażotwarty: foundation/kołyska, U1M2+2C, grzebienie/końce, FHY zobiema
-  izolowanymizłączami iopaskami, ręczne ułożenie, osłony ostatnie. Nie szybkiserwis.
+ODEBRANE10:15UTC — wspólne pola FL6D/G + FL3V oraz oddzielne14U1:
+day30-split-front-regions.json/.breps.zip,39bryl. Zmienione19par odebrane
+7.515s,0HOLD; jedna poprawna spójna bryła pólFL9,19025.979mm3;
+17członów drogi drukowanego obciążenia osiąga zachowanySharedFoundation.
+Zamiast słupa wgalerii wspólny wysięgnik znadkołyski i otwarte przejścia
+opasek pod9mm siodłami. Wspólny junction zaCAŁYMI casebelt/root, potem
+góra/dół przyX-94; nie9osobnych objazdów. Pierwsze2HOLD zachowane w
+day30-split-front-first-own-holds.json; nie powtarzać19/372/958par.
+Pola mają lokalną pojemność i promień wewnętrzny>=12.4, szeroka ośY;
+to nie odbiór rzeczywistych końców, fabrycznych długości ani ruchomego luzu.
+
+KOREKTA KLASYFIKACJI PROFILI, bez zmiany kupnych części/rezerw:
+contract_selected_piece jest źródłem nominalnych profili projektowych.
+Molex4x nominalOD1.85, a2.1/3.1 wregionalaccounting to REZERWA pojemności.
+HELU23502 nominalOD2.5, rezerwa3.1. Nie nazywać rezerwy danymi producenta
+ani odbiorem kontaktu. FHY płaskie siodła/opaski regulowane; geometria
+pojemności odebrana, rzeczywiste osadzenie/napięcie po dostawie.
+
+NEXT — jeden cały układ JPWM/4fabryczne przewody i wspólne mocowanie:
+OryginalnyJPWM[102,0,50] daje zbędne długie wyjścia do przesuniętegoU1.
+Próba całych13aktorów w[30,-30,85] zachowuje4chwyty i oba końce;
+główka opaskiCASE ma tylko0.9181 doGPIOrezerwy, poniżej1.25 — HOLD.
+Cała opaska obrócona90stopni wokółX dajeGPIO12.4181(head)/3.2181(band),
+bez penetracji case. Nie zmieniać ani usuwać rezerwyPi.
+Przed detalami rozliczyć4osobne minimum220mm (225+/-5), R>=12.4,
+pełne9mmchwyty, allowance40/11/16/16; obecne źródła i oba końce,
+nie stare współrzędne n01-shared-routing-boundaries.
+F_PWM aktualny jacketcap[96.05058,-94.11686,54.075],prefix22.25238;
+G_TAIL kanał projektu[128,66,68.595]->[128,66,77.595],niepinoutproducenta.
+Oba U1 zpoprawnego portframe; wspólne14odciążeń nadalotwarte.
+Nowe mocowanie musi mieć rzeczywisty korzeń doBankBed/ramy, nie bboxkontakt;
+rozważyć wspólny most międzyR3/R4 zamiast dawnych pojedynczych podstawek.
+Jedna recenzja całego planu przed wykonaniem, nie parametrów.
 
 OtwarteN01: wspólne14odciążeń/regionyFL9/pełne123odcinki246końców/4MTA
 obu stron/fabryczne długości, użyteczny luz4nóg, montaż/narzędzia/obrys.
@@ -90,7 +91,7 @@ Korzystać zniezmienionych dowodów. Własneprzewody/stock/root/union przedobcym
 Zachować R47/P0/E6/15napędów/wymienneMG92B/MAIN46.52/256³margines.
 Sol high wykonawca/Astra medium istniejącyrecenzent01a16f0e-ac12-7973-82ba-99579f2b681e;
 bez samodzielnejzmiany. Czas/limit≤10min i przedkosztowną pracą; last_account_usage
-rzeczywisty09:25:22UTC9%użyte/91%pozostało, zwykły dostęp tak, bez resetu.
+rzeczywisty10:33:56UTC10%użyte/90%pozostało, zwykły dostęp tak, bez resetu.
 Wznowienie09:02→09:31 to29minwall, nie29minciągłegoCAD. CADFHY75.547s,
 motion/root3.266s+cover/joint.422s; czaspoprawkiobrysu obejmował oczekiwanie.
 Następnycheckpoint: cały wspólnyfront i rozliczeniegałęzi; nie obiecywać czasuN01.
