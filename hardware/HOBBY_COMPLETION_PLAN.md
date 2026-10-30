@@ -1,81 +1,70 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — jedyny bieżący punkt wejścia (2026-10-30T14:10:00+00:00)
+## Karta decyzji CAD — jedyny bieżący punkt wejścia (30.10.2026)
 
-CEL I ZGODA: cały N01=1/10=10%, bez terminu; okno
-n01-one-of-ten-20261029-result, enabled=true, stage_completed=false.
-N01–N10 nadal0/10. Historyczne20/20 dokumentacji otwartego prototypu osobno.
-Nie zatrzymywać po lokalnym wyniku ani zaczynaćN02. Jeden Gmail do
-syska.seb@gmail.com dopiero po rzeczywiście zweryfikowanymN01; SENT/message_id.
-Bez zakupów/resetów/zasilania/pushów/ROS/slicera/GUARD/BMS/schedule,
-WORK_HANDOFF/Claude, okresowych alertów i fizycznegoPASS.
+CEL: ten sam N01 do1/10, bez deadline. N01–N10 nadal0/10; historyczne20/20 osobno.
+Okno/hook enabled=true; lokalny wynik nie zamyka pracy.
+Bez N02/N03/zakupów/resetów/pushów/power/ROS/slicera/GUARD/BMS/schedule/maili,
+WORK_HANDOFF/Claude i nowych agentów. Nie mieszać cudzych zmian.
+ROLE: Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0/Astra medium soleexecutor.
+Parent tylko koordynacja/integracja; reviewer Astra medium read-only
+01a16f0e-ac12-7973-82ba-99579f2b681e/local, komunikacja autoryzowana.
+ACTIVE_WORKER PID18736/session70577, direct_FreeCADCmd_owner_Banach; bezRPC.
+Stary20608/49151 martwy. Aktualny resident działa; nie restartować.
 
-WYKONAWCA: istniejący agent Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0,
-Astra medium potwierdzony w jego turn_context. Jeden wykonawca CAD.
-Recenzent01a16f0e-ac12-7973-82ba-99579f2b681e/local, Astra medium, tylko odczyt.
-Użytkownik zgłosił też zmianę głównego wątku na Astra medium; wątek główny
-koordynuje i integruje, nie dubluje CAD. Nie tworzyć nowego agenta.
+PAKIET: hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/
+feline-enclosure/day30-four-factory-common-regions.json.
+Milestone34flat: day30-astra-underdeck-front.breps.zip,
+SHA4fbdff3a20d31d5a9571c08a6049587524e5f568956c3e0441b9e1b55b4868ed.
+34strictreopen4.531s/CPU10.484;204foreign i dawne7HOLD zachowane bez powtórki.
 
-ACTIVE_WORKER: Astra medium/Banach, zastępczy native PID18736, session70577.
-Bezpośredni write_stdin we własnej sesji wykonawcy; bez RPC/procesu rodzica.
-Poprzedni PID20608/session49151 potwierdzone martwe. Jeden nowy resident.
-Odzysk nazwanych źródeł w toku; brak nowej geometrii/audytów.
+AKTUALNY37: day30-astra-functional-whole-root-clear.breps.zip,
+SHAe841a2c10eaaeb5dd9e8c184e66107105176e8bbc8029e4c72d5c3111814481c0.
+37strict-save/reopen5.031s/CPU11.344. Całyfront nadal HOLD assembly/outline.
+current_foreign_functional_candidate zawiera geometrię, źródła i czasy operacji.
+Strategia ASTRA30-WHOLE-OBSOLETE-LEAF-REPLACEMENT:
+review GO01a18d73-dcce-7751-a9d3-748147de0790, bez resetu dawnych odrzuceń.
+Dwie porażki overbank i dwie lower-ingress zachowane w pakiecie.
+Usunięty tylko dowiedziony obsoleteXP02leaf486.351099mm3;
+zero strat6 chronionych rodziców, zero usunięcia poza wskazanym leaf.
+RRguide→AuxRoot16.8mm3 i AuxRoot→F_PWMmount2.8mm3 zachowane.
 
-AKTUALNE ŹRÓDŁO ODZYSKU:
-hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/
-day30-four-factory-common-regions.json -> current_foreign_flat_front_candidate.
-Geometria: day30-astra-underdeck-front.breps.zip; aktualne34 wpisy flat-shared/.
-SHA256 archiwum4fbdff3a20d31d5a9571c08a6049587524e5f568956c3e0441b9e1b55b4868ed.
-strict_reopen_receipt:34 poprawne,4.531s operacji/10.484s CPU, już odebrane.
-Nie powtarzać own/204foreign ani wcześniejszych958/372/19 i2800/5600skanów.
-Dawne candidate/ i corrected/ w tym samymZIP są odrzucone; nie wybierać ich.
-HEAD53aafbf9 przechowuje wcześniejszy160foreign;39bd1b47 wcześniejsze21bryl.
-Żaden z tych kandydatów nie jest całym wybranymN01. BazaAEA820bd zachowana.
+WSPÓLNY FRONT: pełny dock13[5,23,87]/yaw-30 + wspólna podpora nadP0.
+Rzeczywista kotwa positivefaceY54/common9mm3; GPIO/P0 obejście bez zmiany banków.
+F_PWM trueport stały; prefix.25+R12.4/60°=13.235249635,9połuku liczone raz.
+CałyT18I chwytu od dołu; rootpost kończy63.25, dolny powrót do rzeczywistej ramy.
+Red211.811106/black160.659660mm, każda jednostka minimum220 osobno.
+MODULE199.176168/213.552653mm, bez ruchu toru; pełnyF_L2cover>=1.389630.
+GTAIL jeden fixedback+removablecap dla4 nominalnych profili i pełnej opaski.
+Cap ukończony o deklarowany luz całego starego root.2,1solid,
+cztery kontakty nominalnych izolacji0; utrzymany fullstock i root5.4mm3.
 
-CO FAKTYCZNIE DZIAŁA W BIEŻĄCYM KANDYDACIE:
-Dock JPWM[5,23,87], yaw-30, cały13aktorów; to kandydat, nie immutable pozycja.
-MODULE przez wspólny płaski przepust6.1x2.1, pełne dwa profilecapacity2.1;
-między całymi podporami pozostało5.120847mm po marginesach. Promienie zachowane.
-Bilanse osobnych220mm: XP03module199.176168, XP02module213.552653;
-XP02source200.714894, XP03source206.645327. To nie odbiór wszystkich tras.
-Prowadnik/root10.10625mm3; wspólny root banku9mm3. Człony union zachowane.
-TailCarrier: pełne obwiednie odcinków dają8.673mm separacji; native nie naprawiany.
-204/204 zmienionychforeign odebrane;7HOLD nadal jawne w pakiecie.
+FOREIGN164/164 odebrane;12rawHOLD zachowane z osobnymi dyspozycjami.
+TailCarrier pełny addytywny cover34 członów konstruktora:
+black11.001736/back9.618713/cap11.621230mm. Invalid BRep nie był kontaktem.
+Pozostałe raw to ownport/standoff/stock/root; brak nowego kupnego przecięcia.
+ATO12/33par: tylko R6 blokowany czerwonym regionem w withdrawal i toolbudget.
+To blokada rezerwy dostępu, nie fizyczny kontakt; częściowy demontaż nadal do dowodu.
+Outline37:36wewnątrz; bank547.527697mm3 poza obrysem, wszystko odziedziczone.
+369.176280mm3 należy do Input:RRGuide, pozostałe178.351418 wymagają proweniencji.
+Dziedziczenie nie akceptuje przekroczenia; nic nie wycinać bez rozstrzygnięcia funkcji.
+Motion zmienionego frontu:36poses/108source,0zbliżeń bbox<1.25.
+Zakres36 ma podparcie: aktualne4BellyFoot Zmin-73.5273488363,
+ground-168.319015503 → contactdrop94.791666667, dokładniepose35.
+Pose36/drop97.5 zagłębiłaby podpory2.708333mm;13głębszych nie dodawać arbitralnie.
+To próbki do podpór, nie ciągły sweep/limitymechaniczne/fizycznyPASS.
 
-OTWARTE7HOLD / JEDEN NASTĘPNY PAKIET:
-Podpora względem kupnegoP0/GPIO, oba SOURCE względem zajętych rezerwPi,
-ostatni odcinekMODULE względemF_L2. Odczytaj pełne7 rekordów, nie zgaduj.
-Wspólna zmiana OBU prefiksówSOURCE/chwytów wraz z podporą docka i MODULE/F_L2,
-z rutynowymATO/montażem/obrysem/ruchiem. Prawdziwe porty, części i stock stałe;
-projektowy cap/chwyt/ostatni łuk pozostają zmienne. F_PWM już ma9połuku —
-nie odejmować kolejnych9 ani nie podwajać allowance. G_TAIL cap projektowy;
-zmiana musi obejmować izolację, pełny stock, rzeczywisty port i root.
-Jedna cała propozycja do istniejącego recenzenta przed nową szczegółową geometrią.
-Po2odrzuceniach zmiana przyczyny/topologii/kolejności, nie mikrooffset.
-
-FEEDBACK30.10 — OBOWIĄZUJĄCY PRZED NASTĘPNĄ PRÓBĄ:
-Dobrze: konstruktor/funkcja przed interpretacją kolizji; całe4jednostki długości;
-pełny płaski przekrój zamiast niepotrzebnego koła; własne przed obcymi;
-wycofanie udowodnionego starego stocku; dodatnie rooty i strict-save/reopen.
-Źle: bronienie starego docka/krzywej, zamrażanie projektowych capów, niepełna
-obsada starego stocku, wybranie podpory bez całegoP0/GPIO/Pi i sprzeczny NEXT.
-Teraz: najpierw cała obsadzona przestrzeń modułów+stock+root+montaż; dopiero
-lokalny model dla nazwanej niewiadomej. Czas nie jest wynikiem, pliki nie są punktami.
-Bieżąca karta ma ten jeden stan; wcześniejsze kroki są wyłącznie historią poniżej.
-
-INWARIANTY: wybrane części/R47/P0/E6/15napędów/wymienneMG92B,
-325x200x160/max200, MAIN46.52, margines256cube. Pełne123odcinki/246końców,
-4MTA obie strony/factory,14odciążeńU1 i FL9/source/luz/ruch/montaż/obrys.
-Inne12U1/FL9 i globalna kompletność po wspólnymfroncie, nadal wN01.
-Nie produkcyjne detaleN03, nie123dokładne osie, nie odrębny chwyt każdej żyły.
-
-CZAS/LIMIT: świeży odczyt przed kosztowną operacją i maksco10min;
-last_account_usage w hooku jest źródłem najnowszego rzeczywistego odczytu.
-Ostatni odczyt rodzica14:04:19UTC:17%użyte/83%pozostało, allowed=true, bezresetu.
-Operacje i CPU zapisuj osobno; oczekiwanie nie jest obliczeniamiCAD.
-Po całymN01 albo rzeczywistym braku bezpiecznej pracy po alternatywach/
-niedostępnym lub wyczerpanym zwykłym limicie zachowaj stan, wyłącz enabled,
-raportuj i dopiero wtedy użyj completion_marker. Nie zamykać po lokalnym wyniku.
+NEXT: źródłowo rozstrzygnąć odziedziczony bank poza obrysem i pełną procedurę
+częściowego demontażu SOURCEpair dlaR6. Jedna wspólna poprawka przed recenzją/CAD;
+bez mikrooffsetów/nowego skanu, zachować własne/164foreign/204 niezmienione.
+Następnie pełny montaż/obrys/ruch z jawnymi bramkami przymiarki;
+po front inne12U1/FL9/slack i global123/246 w tym samym N01.
+INWARIANTY:15napędów/P0/E6/R47/MG92B/MAIN46.52,325x200x160/max200/256cube.
+S0 HELLA002843002 pełna rodzina/klucz; trueports/SKU/R/factory bez zmian.
+Prototyp to stabilne moduły i połączone regiony z obsadą/stock/luzem/montażem,
+nie123sztywneprzewody. Bez powtórek958/372/19/204/160 i2800/5600.
+USAGE: parent15:51:02UTC23used77remainingordinarytrue; hook najświeższy.
+Odczyt przed kosztowną i<=10min; czas operacji i CPU osobno. Bez resetu.
 
 ## Historia okna RL 29.10.2026 — zamknięte
 ### Archiwum poprzedniej karty30.10 — zapis po przerwaniu, NIE instrukcja wznowienia
