@@ -1,6 +1,6 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 11:15UTC)
+## Karta decyzji CAD — JEDYNY bieżący punkt wejścia (30.10 12:35UTC)
 
 Autoryzacja „Pracuj aż osiągniesz1/10”, okno n01-one-of-ten-20261029-result
 od29.10 19:04:37UTC, bez deadline; enabled=true, stage_completed=false.
@@ -94,16 +94,62 @@ To odbiórmożliwościdługości, NIE całychwolnychregionów. Nie noweSKU/nety.
 NegatywyJ7/earlyC_IN/Adapter/Cbare/stock zachowane wtymjednympakiecie;
 nie wracaćdo3debugplików ani dawnych9arc/9straight. Frozen23 wejściemwznowienia.
 
-NEXT — jeden wspólny plan POŁĄCZONYCH WOLNYCH REGIONÓW czterechfabrycznych
-odcinków odnowychmouth doJPWM/F_PWM/GTAIL, zlokalnąobsadą i zapasem.
-Nieprzyznawać odbioru zsamej dodatniejdługości. Zachować13–20mm zapasu
-modulepair wminimalnym220, polaryzację i4SKUs. Używaćotwartychgalerii,
-nie123nowychosi ani kolejnego skanuJPWM/U1. Własne źródła/stock/mouth
-przedobcymi. Następnie pozostałe12U1 wjednym planie5wspólnychodciążeń,
-całe14iFL9 source/dynamicznyluz. NieN02/N03. Brak całegoN01ETA.
-Wniosek tejpróby: testwłasny obejmuje NOWYdruk przeciwpełnymbarefan/stock,
-nie tylkokupnekomponenty. Wolnycap przedtylnąpłytką/C niejest wyjściem;
-planowaćcałymouth przedprojektowaniem kolejnegodetalu.
+NEXT / ZMIANA PRZYCZYNY12:23UTC — cztery fabryczne regiony nadal HOLD.
+Dwie odebrane próby SOURCE nie dały wspólnego wyniku; nie resetować licznika.
+24 own drugiej próby odebrane10.078s. Red16.55934mm3 ma dwa składniki:
+.000166 przyY-80/Z55 i16.55918 przyX78.70..82.47/Y-49.62..-45.27/Z91.21..95.39.
+Black10.83716 przyX98.675..100.525/Y-12.33..-4.83/Z82.92..85.67.
+Obcych testów nie zaczęto. Źródło BankBed to SCALONA rama, nie płaska płyta.
+Redprzecina wspólny PowerFan:trunk:comb pełnych3x9W065/W044/W052;
+black PowerMount:F_AUX:PETG, pionowy backface do4905 Z82..104.
+Konstruktory odczytane: plan_feline_opposed_power_unit.py i
+plan_feline_power30_common_frame.py. Nie ciąć ich pod następną podobną oś.
+
+Wariant FHY4905:3coupons348mm2 jest kandydatem, NIE odebraną retencją.
+Lokalny katalog FHAC nie potwierdza spodu/polimeru; TDS4905 wymaga kontaktu
+z podłożem, nie potwierdza klejenia na dowolnym nierównym druku.
+Cup/SharedPositiveFoundationU1 common22.9014 to możliwy root druków,
+nie samowolny waiver; sprawdzić zawartość/root. Dwa tape-edge zero-volume
+są zamierzoną granicą tego samego kleju, nie fizycznym przenikaniem.
+Oba odrzucone zestawy zapisane w day30-four-factory-common-regions.json/.breps.zip.
+AEA820bd z pełną mechaniczną opaską pozostaje zachowanym wejściem.
+
+AKTUALNY plan FOUR-FACTORY-UP-EXIT-AND-OPEN-BANK-GALLERY-30 zapisany12:35UTC:
+day30-four-factory-common-regions.json/.breps.zip: current_geometry jest jedyną
+najnowszą listą, dwie poprzednie próby i trzecia przed mostem jawnie odrzucone.
+KupnyF_PWMcase bezruchu; properrotation zachowuje rzeczywisty cap/prefix22.2524
+R12.4/pełny9, mouth[96.05058,-94.11686,79.925]. Chwyt/opaska pełne po
+WEWNĘTRZNEJstronie, zamiast głowy przyY-98.3. Actualprintroot1.794935mm3.
+Red R14.2 do[74.299998,-62,86.5], potem R20 przez lukęR5/R6 doJPWMcap;
+pełne156.9714<220. BlackX90 obok całejF_AUXpłyty,187.0577<220.
+MODULE bezzmian: analityczne202.789/215.879<220. Nie zmniejszono rezerw.
+Dawny niski most kolidował z red7.756522mm3; zamiast osi zmieniono DRUK:
+nowy most77..96/Z91.25..93.25 +prawy słup. Dodatniejoints4/6.05408/5.37667mm3
+przejmują całą drogę: grzebień→most→prawysłupek→zachowanarama.
+Wycofano CAŁĄ zastąpioną lewąkolumnę/elbow i niskiodcinek70..77, zamiast
+zostawiać dwa odcięte martwe człony. Cały grzebień3x9 odX78.1118 zachowany;
+MAIN/JPWMpodpora/bankponiżej55 nieusunięte0, cała rama1strictsolid.
+
+KołyskaFHY ma mechanicznąCASEopaskę przyX-110, głowa ztyłu,4wireties bezzmian.
+Kanał+.2 przez CAŁĄ stopę iNOWYriser; riser→OutSharedRoot6mm3,
+→SharedPositiveFoundation2,→cup2.197168. Cup/riser poprawne pojedynczebryły.
+4905opcjonalnypodkład, nie wymagana retencja; realnyspód/polimer niepotwierdzony.
+34own +14tylkozmienionych par odebrane. RawHOLD zachowane z dyspozycjami:
+red/framevol0 na nazwanymJPWMcapendplaneX54.299998; POZA lokalnympołączeniem
+odstęp doCAŁEJramy1.418240mm i common0. Nieglobalnewaivermarginesu.
+Prefix/free pole mają ten sammouth i tangent, vol0; tapeedge i drukrooty
+są jawnymi własnymiinterfejsami, nie obcymi kolizjami. Nie fizycznyPASS.
+Recenzje01a18cc3/01a18cc8 GOwspólnejpróby/korektydruków, nie odbiór.
+
+NEXT: tylko zmienieniOBCY i pełne obsadzoneR5/R6/ATO/BUS/USB, wspólne
+przekroje i montaż, ruch/obrys całych7pól+nowychdruków/pełnegoosprzętu.
+Możliwe plateau200 do112/120 nadal NIEodebrane. Nie wykazano jeszcze całego
+frontu. Potem12U1/5wspólnychodciążeń iFL9source/dynamicznyluz; bezN02/N03.
+Użytkownik12:35UTC chce wykonawcę Astra medium. Żądany model zapisany;
+brak narzędzia zmiany modelu bieżącej rozmowy, przełączenie w selektorze
+nie zostało potwierdzone. RecenzentAstra medium bez zmian. Zakres/hookaktywny,
+bezdeadline; zmiana modelu NIE zamyka okna. Native49151/PID20608 zachować,
+po odbiorze zapisu bezczynny, bez nowych obliczeń przy przekazaniu.
 
 OtwarteN01: wspólne14odciążeń/regionyFL9/pełne123odcinki246końców/4MTA
 obu stron/fabryczne długości, użyteczny luz4nóg, montaż/narzędzia/obrys.
