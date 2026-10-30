@@ -23,16 +23,35 @@ Stare18736/70577 i20608/49151 martwe. Nie restartować żywego18120, bezRPC.
 
 KANON: hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/
 feline-enclosure/day30-four-factory-common-regions.json (jawneUTF8, limit5MB).
-NEXT: recenzja CALEJ hipotezy SHORT-U1-LOADPATH-CENTRAL-V,
-CORRECTION1 SHA f3a563486ad90702751ad2ac0ad7fda246582120df598b372315039794b517b7.
-Kanon current_foreign_shared_space_whole_correction1; przednowymCAD.
-Pierwszy NO_GO: W020/przecinajaca poprzeczka. Jedyna korekta: otwarty
-dolny mostY28..30, pelne3Vgaps1.6/1.4173/1.25, caleparametrywJSON.
-Krotszy U1post/return przy actualtabs zamiast polnocnegoslupka;
-wspolny peelGV i V7.2x2.8 przez X-11 miedzy F_L2/F_L3.
-Pelne stare straight9V/stock zostaja; nowe wolne odcinki i dolnyroot.
-U1bay zlicza12+2MODULE, nie podwojona pojemnosc. DFL funkcjonalny
-full9/97.8/drivercap-off; szczegolyprodukcyjnego podzialu N03 osobno.
+NEXT: całyN01, U1 wspólna wschodnia płaszczyzna zamiast indywidualnych
+powrotów na zachód. Dwustronnywidok141 obejrzany, nie146odbiór/pinout.
+J8edge140/140 odebrane4.391s/CPU8.15625:3fine/J6actualcommon.00050627443.
+XL10north/up odebrany. J8-side2porażki/reviewC1zużyte; nie kolejnyoffset.
+Nowyplan: zachowane piony po eastface wszystkichheaderów, bezpośredni
+skręt+north i wspólny region3x.8/gap.2/edges.4, bez zachodnich haków.
+Actual146targetedbounds: w tympolu tylkoJ8 iPWM screw; całe łuki doodbioru.
+G3podłoga naprawiona: regiongap.4,1solid, chronionymateriałlost0,
+0.703s/CPU1.375; ZIPday30-astra-g3-open-descent-support.breps.zip.
+Źródła: originalcriticalZIP/outerheadC1coverZIP/XL10J8edgeZIP;
+J8edge12changedstrictreopen2.2665s/CPU5.609375. Nie powtarzaćodebranych.
+HeadRmin12.743116, validfullcovers; wcześniejszeC0sweeps odrzucone.
+JR1x300/3joins, nominal120poprzymiarce/180pozarobotem; factory250osobno.
+G3/U1wholefreebay+MODULE/headguidance/bodylinks/unitbudgets/123/246OPEN.
+Samodebrane źródło niepunkt; N01zero, hookaktywny, bezN03.
+Bank–V–dock–W029 scoped odebrane, niepowtarzać240/5/own:
+240changed14.485s/CPU32.15625, ownrootbank2.266s/CPU4.171875,
+dockwhole6.172s/CPU13.453125; pozostałe5=.937s/CPU1.296875.
+W029pełnaheadclock+Zodebrana .844s/CPU2.890625, band/cap/wirebezruchu.
+ZIP day30-astra-w029-full-stock-head-clock.breps.zip; source-role wJSON.
+DockZIP day30-astra-dock-front-portal.breps.zip, nativeDockPortal30.
+CommonBankWithV30/BankVGuided30/CentralVParts30/ShortU1Carrier30 aktualne.
+ShortU1 8.531s/CPU16.4375; bank3roots4.2/caproots.219915/1solid.
+Vguide58.6/100 obejmuje istniejąceżebro, pełnyregiongap.177651,
+nominalhullgap.577651 przyedge.4; reviewerpotwierdził bezforeignwaiver.
+Dawnepoprzeczki/W066 iW029negatywy orazliczniki1review+1correction zachowane.
+Pełnyview1289aktorów day30-astra-common-v-whole-HOLD.png pokazany;
+headW029 podpis sprzedostatniejkorekty, geometriirenderniepowtarzaćteraz.
+N01ciągle0/10; hookaktywny bezdeadline; głowa/U1/123OPEN, niephysicalPASS.
 118/118,30rawHOLD: poprzedni caly bankretention/correction1 odrzucony,
 korekta1/1 zuzyta. IN/OUT=pelne rezerwyTE, F_PI=pelna rezerwa case.
 6ownport/entry osobno; negative/counter niekasowane. Gate19.875s/CPU50.03125.
