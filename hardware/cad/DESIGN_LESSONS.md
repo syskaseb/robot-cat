@@ -36,6 +36,10 @@
 - Hook wymaga jednej krótkiej aktualnej karty, a nie wielu chronologicznych
   NEXTów przed historią. Na górze: aktywny wykonawca, frozenpakiet, negatywy,
   konkretna następna decyzja, wynik i rzeczywisty czas. Starsze stany do historii.
+- Windowsowy nativeFreeCAD wymaga jawnego UTF-8 przy KAŻDYM odczycie i zapisie
+  metadanych. Odczyt locale-cp1252 i zapisUTF8 rozdymał polskie znaki do4.36GB,
+  kończąc proces brakiem pamięci. Używaj encoding="utf-8", zapisu atomowego
+  i bramki rozmiaru; geometrię zapisuj przed zależnym odczytem/zapisem stanu.
 - Nie uzależniać wznowienia od żywegoRAM. Przed zależną próbą zapisz aktualne
   aktory, SHA i strict-reopen. Po przerwaniu potwierdź brak staregoPID/sesji,
   uruchom jeden zastępczy proces i odtwórz nazwane pakiety bez ponawiania kontroli.
