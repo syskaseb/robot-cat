@@ -18,6 +18,13 @@
 - Lista wycofanych aktorów jest częścią wspólnego planu. DAY18 XP02band/head
   były zastąpionym chwytem tego samego wyjścia, a W044 nadal pełnym stockiem.
   Klasyfikację opieraj na konstruktorze, nie na wygodnym wyniku testu.
+- Scalona część nadrzędna nie jest niezależnym elementem chronionym, jeśli
+  zawiera wycofywaną gałąź. Input:PowerParent zawierał cały staryXP02;
+  ochrona jego sumy blokowała usunięcie zastąpionego chwytu. Wskaż rzeczywiste
+  pozostające podpory i ich połączenia; po usunięciu gałęzi sprawdź ich materiał
+  oraz ciągłość ramy. Nie dopasowuj przewodu do pozostałości starego mocowania.
+- Koniec ścieżki ruchu musi wynikać z aktualnego kontaktu podpór z podłożem,
+  nie z liczby pozycji w skrypcie. Zachowaj źródła i zakres takiego uzasadnienia.
 - Zachować own→changedforeign→assembly/ATO/motion/outline;204zielonych/liczonych
   par z7HOLD nie daje punktu. Po dwóch przyczynowych odrzuceniach następna
   propozycja zmienia cały zależny interfejs, a nie przesuwa pojedynczą krzywą.
@@ -29,7 +36,6 @@
   uruchom jeden zastępczy proces i odtwórz nazwane pakiety bez ponawiania kontroli.
   Proces należący bezpośrednio do workera upraszcza sterowanie, ale nie gwarantuje
   przeżycia każdego przerwania. To instrukcyjny feedback loop, nie trening modelu.
-
 
 
 ### 26.10 wieczór — przestrzeń wiązki musi obejmować cały zespół
