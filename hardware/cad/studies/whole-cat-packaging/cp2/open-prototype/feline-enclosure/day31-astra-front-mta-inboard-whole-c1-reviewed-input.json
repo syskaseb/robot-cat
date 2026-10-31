@@ -1,0 +1,300 @@
+{
+  "id": "FRONT_MTA_AND_INBOARD_REAR_WHOLE31_C1",
+  "status": "WHOLE_CORRECTION_REVIEW_BEFORE_CAD",
+  "authority": "Existing whole N01 authorization; coordinator clarification does not create new human scope. No fixed world pose found for proposed MTA_FL.",
+  "scope": "WholefourMTA membership: FLandFR repositioned withALLfourfactoryends; RL/RR retained, W044new/W052retained, oppositeW045/W053retained. Sevenfans,fullstock,commonframe,moving3triplets/36,outline/assembly.",
+  "causal_change": "Resolve full front pair of MTA modules and both sides together. FR MTA moves into upper layer released by prior proposed FL module; its W037 end rises with it, W042 boughtcase/F0 root stays put with complete new factoryS. This frees the lower FR cell for W041, rather than treating W037 oldpose as immutable and routing around each stockpiece. Front FL module and both factory kits remain one linked assembly.",
+  "prior_counts": "CentralC0/C1 exhausted; HY C1 exhausted; SIDE C0 rejected, reviewedC1 notbuilt and retained as superseded hypothesis, correction1/1. No previous negative erased.",
+  "sources": {
+    "day31-astra-front-complete-bay-occupied-read.json": "9187d351f617052796934ce4a6e570adfbc7f59caf996a2517b4c2464c2f7fd6",
+    "day31-astra-current-lowerbay-occupied-sections.json": "41e07d2364a65b8d04454bce87b41d9df595b73b71610e7dadd01d579566b7e2",
+    "day31-astra-front-open-foot-whole-c1-proposal.json": "817c019945938654ec043dc8aac257e18a8e2db2f9f9382796c55b7def784571",
+    "day31-astra-fl3-occupied-profile-w044-receipt.json": "896f29020a44ba51ac89e18dedb2908d5e672ae08f86a074f7ec9a911884ce69",
+    "day31-astra-side-compartment-current-source-faces.json": "5dc99151fbaecb60a735a45dd2dc7fced92b32663b0a1dc9f1912009fee51054"
+  },
+  "fixed": "R47/P0/E6/MAIN46.52/15drives/MG92B/SKU/R/OD/factory/325x200x160/max200/3.25 andactual36ground. Whole MTA_FL andMTA_FR worldposes are design allocations; localcase/ports rigid. MTA_RL/RR actualposes and their W045/W053 ends unchanged. W042case/F0 root unchanged.",
+  "frontMTA": {
+    "centre": [
+      -122,
+      0,
+      -25
+    ],
+    "orientation": "same transverse current properrotation; move allcase/localports rigidly",
+    "bounds": [
+      [
+        -133,
+        -17.5,
+        -33
+      ],
+      [
+        -111,
+        17.5,
+        -17
+      ]
+    ],
+    "space_basis": "Same measuredfrontcell; newfore module maxX-111 vsretained/raisedW037minX-108.5 gives2.5 beforefullstock. Actualoccupiedscene remains hardgate."
+  },
+  "front_pair": {
+    "W026": {
+      "point": [
+        -122,
+        17.5,
+        -25
+      ],
+      "u": [
+        0,
+        1,
+        0
+      ],
+      "v": [
+        0.9915932755688197,
+        0,
+        0.1293938787064471
+      ],
+      "angle_deg": 170,
+      "R_mm": 25.2,
+      "first_mm": 1.25,
+      "last_mm": 1.25,
+      "factory_entry": [
+        -72.18808960955751,
+        21.894924385941383,
+        -18.5
+      ],
+      "axis": [
+        0.17218836528930775,
+        -0.984807753012208,
+        0.022469011238630356
+      ],
+      "centre": [
+        -69.1317461256723,
+        4.41458676997469,
+        -18.10117505051431
+      ],
+      "custom_entry": [
+        -66.07540264178708,
+        -13.065750845992003,
+        -17.70235010102862
+      ],
+      "factory_guide_mm": 77.26990515543707,
+      "strip_fit_mm": 21,
+      "total_debit_mm": 98.26990515543707,
+      "project_capacity_mm": 100,
+      "full9": "Both9 lands lie on end arcs; innerR23.1; first/last1.25 are not extra9.",
+      "custom_turn": "+X planar-side fan for upperW026; +Z for lowerW041, fullR25.2/fullOD4.2/full9. Actual complete output checked against frontbody/feet/W044 before acceptance."
+    },
+    "W041": {
+      "point": [
+        -122,
+        -17.5,
+        -25
+      ],
+      "u": [
+        0,
+        -1,
+        0
+      ],
+      "v": [
+        0.9896556607271009,
+        0,
+        -0.14346314227286922
+      ],
+      "angle_deg": 140,
+      "R_mm": 25.2,
+      "first_mm": 1.25,
+      "last_mm": 1.25,
+      "factory_entry": [
+        -77.1608748225315,
+        -33.99069221020208,
+        -31.5
+      ],
+      "axis": [
+        0.636138396571526,
+        0.7660444431189779,
+        -0.09221633029969754
+      ],
+      "centre": [
+        -65.8694182833869,
+        -20.39340334484022,
+        -33.136839862819635
+      ],
+      "custom_entry": [
+        -54.57796174424232,
+        -6.796114479478362,
+        -34.77367972563926
+      ],
+      "factory_guide_mm": 64.07521601035994,
+      "strip_fit_mm": 21,
+      "total_debit_mm": 85.07521601035994,
+      "project_capacity_mm": 100,
+      "full9": "Both9 lands lie on end arcs; innerR23.1; first/last1.25 are not extra9.",
+      "custom_turn": "+X planar-side fan for upperW026; +Z for lowerW041, fullR25.2/fullOD4.2/full9. Actual complete output checked against frontbody/feet/W044 before acceptance.",
+      "allocation_reason": "Complete140degree outlet into formerlowerFRcell insteadof170fold pointed atW044. Lowercustom +Z reaches shared centre region without crossing W044Y22 first9; this mustbe geometrically received. Not clipping full9."
+    }
+  },
+  "W044": {
+    "port": [
+      47.5,
+      15,
+      -34
+    ],
+    "direction": [
+      -1,
+      0,
+      0
+    ],
+    "factory": "Two S bends with explicit full radius25.2, connected by straight segment below PFRONT. First S shifts+7Y/-5Z, second returns+5Z only; critical fullPFRONT port region remains overhead. No imposed terminal at S seam.",
+    "first_last_straight_mm": 1.25,
+    "first_S_angle_rad": 0.5929085852157319,
+    "first_S_v": [
+      0,
+      0.813733471206735,
+      -0.5812381937190965
+    ],
+    "first_S_end": [
+      18.08771339330031,
+      22,
+      -39
+    ],
+    "second_S_start": [
+      -5.5,
+      22,
+      -39
+    ],
+    "second_S_angle_rad": 0.4492026155809779,
+    "second_S_v": [
+      0,
+      0,
+      1
+    ],
+    "entry": [
+      -28.636068628239286,
+      22,
+      -34
+    ],
+    "axis": [
+      -1,
+      0,
+      0
+    ],
+    "centre": [
+      -46.386068628239286,
+      22,
+      -34
+    ],
+    "custom_entry": [
+      -64.13606862823929,
+      22,
+      -34
+    ],
+    "custom": "R25.2 -X toward+Z,fullOD4.2/full9; finalcap is design, not newconnector",
+    "factory_guide_mm": 78.61011791345447,
+    "strip_fit_mm": 21,
+    "total_debit_mm": 99.61011791345447,
+    "project_capacity_mm": 100,
+    "full9_inner_arc_lengths": [
+      13.696188318483406,
+      10.37658041992059
+    ]
+  },
+  "W052": "Reuse original current source case/factory/custom/stock and ownmount. Do not substitute rejected side or central cases. Changes only its neighbors need receiving.",
+  "seven_fans": "All7 FLP/PFRONT realports, currentfullsourcegrips/stock retained. Receive newFRcase/factory and fullW041 output againstthem; cannot call former space empty.",
+  "motion_regions": "Reuse current FL1/FL2 and FL3 source14/R35.1/inner31.5/fullprofiles/fullcap/stock and Fore9. NewW044Y22 outercaseY26.05 is inward of oldsourcewitnessY29.1739, but this is NOT a36pose proof. Receive changedwhole36 interfaces; flexible free-span region requires connected localoccupancy/length/slack, not one immutablewire throughallposes.",
+  "support": "One open forecarrier: nominal railsX[-133,-61],Y±[25,28],Z[-40,-38]; two structuralreturns nearX-75.5,Y±25 to actualupperBellyFoot1/2faces/bridges. Preserve actualgroundannuli/bolts andcurrentfixedmodules. Fullcase cradles+twoT18Ieach+complete9pressure lands carry newfrontset; W044 connects tosame carrier/underframe, W052mount retained. Check actualpositive joints andallcurrentP0/F0/stock beforedetail. Dimensions are planning volumes, not acceptedmaterial. UpperFRshelf and fullW037retention are branches of SAME fore/underframe. PreserveG2/D_FR/FLP/PFRONT loadpaths by reallocation of ownprintedcarrier only. RealCaseTieFL may retire onlywithwholeMTA_FLnewstock. ForePanel replacementrequires protectednegativeFR/sourcefunctions, neverblanketdeletion.",
+  "stock": "All selected100,closure25,heads/full9 retained. Measure fullnominalloops beforeforeign; >100 rejects. Caseorientation changes require new ownstock receipt; no spares/inventory claim.",
+  "assembly": "Attach common forecarrier to originalfrontbridge structuralmaterial with current mountingfunction; secureMTA and fullcasecradles from openunderside, factoryleads+insulation/sleeves first, laysevenfans/3tripletregions, close commontie retainers, thenpanel. No rapidservice/N08certification imported.",
+  "preflight": "All new/retained boughtcases and fullfactory/custom/full9 together, beforeprint. Hardreject actualboughtcommon; receivedown+foreignstock beforedetails. N01still0. IfC1fails change whole strategy, no scalaroffset.",
+  "N01_complete": false,
+  "review_request": "One complete source-informed allocation; GO to bounded fullmodule preflight only. Max1correction; no grid/offsetsolver.",
+  "correction_used": 1,
+  "parent_sha256": "c05f6d7c730e7068c52c68e5882759a1c7fdeb1a5b9fa08a875854ecc8f559b4",
+  "C0_received": {
+    "prefix": "day31-astra-front-mta-inboard-prefix-receipt.json",
+    "rigid_static": "day31-astra-front-mta-inboard-rigid-static-receipt.json",
+    "facts": "W041 lower case actual W037 common11.9334; MTA/W037 gap.5; W041fullcustom/W044case andcustomHOLD. Preserve all. No frame built."
+  },
+  "MTA_FR_complete_both_sides": {
+    "centre": [
+      -40.5,
+      -17,
+      -20
+    ],
+    "translation_from_original": [
+      -0.5,
+      -2,
+      13.999993896484
+    ],
+    "bounds": [
+      [
+        -58,
+        -28,
+        -28
+      ],
+      [
+        -23,
+        -6,
+        -12
+      ]
+    ],
+    "ports": {
+      "W037": [
+        -58,
+        -17,
+        -20
+      ],
+      "W042": [
+        -23,
+        -17,
+        -20
+      ]
+    },
+    "W037": {
+      "centre": [
+        -90.75,
+        -17,
+        -20
+      ],
+      "factory_entry": [
+        -73,
+        -17,
+        -20
+      ],
+      "custom_entry": [
+        -108.5,
+        -17,
+        -20
+      ],
+      "factory": "Actual straight15mm between boughtports. Preserve existing selected factory9 pad (oldX-71.75..-62.75) rigidly shiftedY-2/Z14, entire9 lies onthis15mm. Original straight15.5 also did not contain two disjoint9s. Do not invent extra independent9 clamp at MTA bought moldedexit. If two accounting9 domains are shown they overlap on samephysicaljacket, not18mm extra debit.",
+      "custom": "FullOD4.2/R25.2 -X→+Z quarter, full9 onarc; bodyoutline/head/currentstock still hardchecks. Replace whole oldcasebase/printcap/grips onlyafter samefunctionroot/stockproof.",
+      "source": "EndBay:Ref_Material_W037_Joint_0_0 rigidtranslation[0,-2,14]; named EndGrip:Factory:W037 pad/band/head shiftedtogether; samephysicalsourcefunction. Fullcustom9 mustbe receivedwith changedwholeprefix."
+    },
+    "W042": {
+      "case_entry": [
+        48.55,
+        -33.25,
+        -34
+      ],
+      "case_unchanged": true,
+      "factory_shift": [
+        0,
+        -16.25,
+        -14
+      ],
+      "S_angle_rad": 0.9588969303519026,
+      "S_v": [
+        0,
+        -0.7576086904616802,
+        -0.6527090256285245
+      ],
+      "R_mm": 25.2,
+      "guide_mm": 78.62306003674829,
+      "strip_fit_mm": 21,
+      "total_debit_mm": 99.62306003674829,
+      "capacity_mm": 100,
+      "construction": "Full +X start9 straight where possible plus twoR25.2 oppositearcs andend9; totalstraight66.05-Sdx allocated tofirst/last full9 (each at least9), no extra9 debit. Whole selected case/local endcap/F0 sharedfork retained.",
+      "straight_each_mm": 15.147327373506197
+    },
+    "retention": "Upper FR case bridge into shared underframe after verifying actual P0/G2/D_FR/FLP edges. W037 backer+both9commonretention supported by foreframe. Original W042 F0fork stays fixed; only factory path/affectedneighbors change.",
+    "allocation_derivation": "Actual G2case startsX-12.5/Z-14.75; FRrealfirst9 endsX-14, so full9 is not forced underG2. FRcase endsX-23 leaving2mm to PFRONTX-21. Wire factory Z-20 clearsG2bottom with fullOD4.2. These wholemodule/port constraints determine upper-layer allocation, not a green offset trial."
+  },
+  "review_input_correction": "Pre-review algebra fixed FRallocation against actualG2/PFRONT and preservedactualW037singlefactory9 ratherthan inventing18mm independentconstraint. No geometry produced for earlier metadata draft."
+}

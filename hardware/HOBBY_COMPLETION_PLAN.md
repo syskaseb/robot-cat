@@ -28,19 +28,10 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: CENTRAL-INLINE whole review0204b1b8...740b6913; przedGO bezCAD.
-HybridC1wyczerpany:774=614new+160reuse/41rawHOLD;50.828s/390.65625CPU.
-Validknee upperclampgap.77356<1.25; custommotioncoverHOLD zostaje.
-Outline24changed odebrane3.234s/7.796875CPU; owncommonpressurefunkcjaodebrana,
-nie wybórN01. Niepowtarzać774/own; żadnego3ciegooffsetu tego układu.
-Nowa cała topologia: obaW044/W052 central-inline Y±18.8/Z-34 zamiastkołokolan.
-S-factory R25.2/shift3.8 wynika zpełnych9INNER(9.0276 każdyłuk); caseX-9.699..25.801,
-custom-X→upR25.2 doX-34.899. MTA_RL/RR/W045/W053 i4stations/R47/P0 bezruchu.
-Wspólny openframe zastępujeoba postpaths i prowadzi obiecasecradles;
-8full100T18I i rzeczywistepressure9/root/montaż/motion/outline w całymplanie.
-Najpierw pełnyrigid+stock preflight z36orazcurrentmovingSOURCE, nie detailN03.
-Dalej7sourcefans/13obsada/Fore9/3triplets/długości/luz/U1far/head/global123.
-N01=0/10;native18120/74948 żywy/idle;hookaktywny,bezlokalnegokońca.
+NEXT: 69upper-pair prefix saved/reopen .422s/.46875CPU;2flexHOLD W042/FLP0 .109379<.2 iW042/W052 gap0. Kupne owncase bezHOLD wtymzakresie, stock/root/worldOPEN. Cała propozycja wspólnego regionu obu prawychfactory do review: W04299.9486/100 z pełnymi9, W05288.9819/100 z dwoma9połuku. Nie przesuwać case ani kasować stocku. Następnie tylko zmienione prefix/stock, przedforeign.
+PRZYCZYNA: C1wyczerpany. W037 port[-108.5,-17,-20] -X przyR25.2 naX-112 może odejść tylko0.24424mm; cztery skrajne punkty wewnątrz pełnej bryłyMTA_FL. Zmiana samego łuku tego nie naprawia. Nowy plan orientuje oba frontMTA wzdłużX, nad tylnymi wejściami, z kompletem obu stron i7fanów. Nie wybrany N01.
+U1far: aktualne3porty Pi z r3-core/H1/GPIO4; po pełnych prefiksach z600 zostaje393.651/443.811/476.178mm na transport/zapas/nieuzgodnione końcówki. Odczyt regionuPi .1438s/.140625CPU:4bboxkandydaty, nie wolna przestrzeń. Ref+SHA wkanonie; 12far/head/123 nadalOPEN.
+STAN: native18120/session74948 idle, soleAstra. Usage94used/6remaining ordinarytrue09:52:03UTC. C0/C1negatywy zachowane, brak nowej ramy. Poprzednie FRONT/SIDE/Central/HY liczniki bez resetu. Kanon<5MB.
 HISTORYCZNY zakres poniżej zachowuje negatywy; nie jestNEXT.
 C1gate12/67 stop: W044/FL_P_three_bank gap1.10753175<1.25,common0.
 To rezerwa pelnych3wyjsc, nie dowodkontaktuelastycznejzyly.55parniepowtarzac.

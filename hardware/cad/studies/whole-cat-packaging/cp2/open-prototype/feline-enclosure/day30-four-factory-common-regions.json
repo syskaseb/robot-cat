@@ -159617,7 +159617,7 @@
   "current_foreign_central_inline_whole": {
     "proposal": "day31-astra-central-inline-whole-proposal.json",
     "sha256": "0204b1b8b182b1a742ac54eccf63ddd332253bc9385ed4e2b0e34ffb740b6913",
-    "status": "C1_GO_PREFLIGHT",
+    "status": "EXHAUSTED_SOURCE_HOLD",
     "correction_used": 1,
     "max": 1,
     "N01_complete": false,
@@ -159625,6 +159625,158 @@
     "execution_sha256": "f2ab45c248d08962eaad260f343b3acbd1d1ff47a548ffa173f89c895ed81038",
     "review_turn": "01a1911e-4ec0-7e70-8c1a-3b1041d3aefa",
     "correction": "day31-astra-central-inline-c1-whole-reviewed-input.json",
-    "correction_sha256": "90b5b1c5fbd32e81a483f162d50c18be898948e98eebc2830f3ebfda53d597cc"
+    "correction_sha256": "90b5b1c5fbd32e81a483f162d50c18be898948e98eebc2830f3ebfda53d597cc",
+    "closed_prefix_refs": [
+      {
+        "file": "day31-astra-central-inline-prefix-receipt.json",
+        "sha256": "096869c0694797781162b40996b1be34c62ab20de4063793bee9b0ac576ebd03",
+        "bytes": 12045
+      },
+      {
+        "file": "day31-astra-central-underpass-prefix-receipt.json",
+        "sha256": "0df924099c0876b10ae8ca8ad674faf7043aacbb884b868299a5754ae740d63d",
+        "bytes": 12953
+      },
+      {
+        "file": "day31-astra-central-inline-prefix.breps.zip",
+        "sha256": "4e2f7b660971712d34190a0e2a293150b6121fbb8f9fbf29c8d369547dc1f0af",
+        "bytes": 15354
+      },
+      {
+        "file": "day31-astra-central-underpass-prefix.breps.zip",
+        "sha256": "a91156decb0399cc4b8096a720f38a69ad7a2bda73746a5abe8d19237b6cd232",
+        "bytes": 16197
+      }
+    ],
+    "next": "Source-informed whole side-compartment allocation: both WAGO/full factory and seven source departures, common structural supports, required36 motion and outline; no third central offset.",
+    "latest_hold_summary": {
+      "C0": "Three PFRONT source/case allocation HOLD before print",
+      "C1": "FLP0/W052 case and factory gap0; PFRONT2/W044 case1.16467653<1.25. No hanger built. Flexible-region HOLD is not proof of physical conductor contact."
+    }
+  },
+  "current_foreign_side_foot_shared_whole": {
+    "status": "C0_HOLD_SOURCE_AND_REAL_FHAC_GRIPS",
+    "review_turn": "01a19136-d40a-7c43-a624-2eac235c0312",
+    "correction_used": 1,
+    "refs": [
+      {
+        "file": "day31-astra-side-foot-shared-whole-proposal.json",
+        "sha256": "17453393b66e6943303035c5b953ff1a9807a1b87ba6af940a7af59af9a2e75d"
+      },
+      {
+        "file": "day31-astra-side-compartment-current-source-faces.json",
+        "sha256": "5dc99151fbaecb60a735a45dd2dc7fced92b32663b0a1dc9f1912009fee51054"
+      },
+      {
+        "file": "day31-astra-side-foot-shared-prefix-receipt.json",
+        "sha256": "dffc242ef8d513cd6451920e82042a415d1fa45366a07fa949fccad9b734cbcb"
+      },
+      {
+        "file": "day31-astra-side-foot-shared-prefix.breps.zip",
+        "sha256": "16507e22643418380713824caee888224604994f47672723b5cf6acd49482a9b"
+      },
+      {
+        "file": "day31-astra-side-foot-rigid-static-receipt.json",
+        "sha256": "cedf970f6770268eb51327214946992e8b35fbf8e78c3c0c7a73003f482a3d69"
+      }
+    ],
+    "decision": "No frame/detail built. Real bought cases intersect existing F_TY.in/F_HP.out custom saddles35.0301mm3 each and bands10.3396mm3. Full source constructor distinguishes purchased port from designed60deg upper exit, sleeve20/lap8 and full9 custom grip. Any correction must include those complete two interfaces and full FLP0 free-region occupancy, not delete grips.",
+    "next": "One shared correction of complete side frame plus affected FHAC source interface functions and seven fans before further geometry; no arbitrary case offset.",
+    "N01_complete": false,
+    "correction_proposal": "day31-astra-side-foot-shared-whole-c1-proposal.json",
+    "correction_sha256": "ab723bab7e420bf1bb33dbde3dc4510fa291fa177c05af74426c78db6b7bc373",
+    "correction_review_turn": "01a1913a-9b5e-70d1-98d9-ca5476ef99fd",
+    "correction_status": "REVIEW_GO_UNBUILT_PENDING_WHOLE_MTA_ALLOCATION",
+    "MTA_FL_pose_provenance": {
+      "authority": "Coordinator reading of existing whole-layout authorization; no new human scope approval",
+      "source": "day31-astra-front-open-foot-whole-c1-proposal.json + current_foreign_FL_front_open_foot_received",
+      "finding": "MTA_FL[-58,0,-15.2] is a proposed module allocation.99case/factorytasks are scoped, full870 not accepted, N01false. No separate fixed world pose constraint identified in these current sources. Preserve actual local ports/SKU and both W026/W041 complete factory budgets; moving whole module invalidates affected99 receipts.",
+      "decision": "Do not preserve this candidate pose solely to reuse99. Compare whole frontMTA/W026/W041 plus W044/W052 and7sources/frame/movingtriplets in currentoccupiedspace before another geometry variant."
+    }
+  },
+  "current_foreign_front_mta_joint_allocation": {
+    "status": "C1_EXHAUSTED_COMPLETE_PREFIX_HOLD",
+    "correction_used": 1,
+    "C0_review_turn": "01a19142-dd7a-7ee0-a024-db046425afd8",
+    "refs": [
+      {
+        "file": "day31-astra-front-mta-inboard-rear-whole-proposal.json",
+        "sha256": "c05f6d7c730e7068c52c68e5882759a1c7fdeb1a5b9fa08a875854ecc8f559b4"
+      },
+      {
+        "file": "day31-astra-front-mta-inboard-prefix-receipt.json",
+        "sha256": "e74ce6ad408ae5d5bb9ed5fd6fef4b12a033dbd2d6197fae48409d62020f6083"
+      },
+      {
+        "file": "day31-astra-front-mta-inboard-prefix.breps.zip",
+        "sha256": "984a958c16931d1c7107baaa6aa3bc29bc77c6d0bd12b6b70a6aebf52547936f"
+      },
+      {
+        "file": "day31-astra-front-mta-inboard-rigid-static-receipt.json",
+        "sha256": "543e338feecc7a1612b8ed6ce05be293524f254e03fe6fbe3779785bae4f1452"
+      },
+      {
+        "file": "day31-astra-front-mta-inboard-whole-c1-reviewed-input.json",
+        "sha256": "ad6dded63f54e2757601c886ce46d0e1bb2f8edca9bf4b22489e988f8e66173c"
+      },
+      {
+        "file": "day31-astra-front-mta-joint-c1-prefix-receipt.json",
+        "sha256": "9a983695837c3e3d78dfe3897194acaf73121ba4c60af3cd42a0fd58f29e9e24"
+      },
+      {
+        "file": "day31-astra-front-mta-joint-c1-prefix.breps.zip",
+        "sha256": "e306291e8a49a0bae8e165c5b83c9c5f96b0899c05837565ffc6ed7dd1704626"
+      }
+    ],
+    "C0_facts": "Prefix34 .156s/.140625CPU own2HOLD. Rigid13 1.719s/2.4375CPU: W041/W037 actual11.9334mm3; MTA/W037gap.5; oldForePanel/CaseTieFL andW037stock remain explicit. No frame built.",
+    "C1_scope": "Whole4MTA membership: FL/FRposes jointlynew+bothfactorysides; RL/RRposes unchanged, W044new/W052+W045/W053retained. Selectedsourceportidentities/SKU/R/margins/stock preserved.",
+    "next": "Source occupancy read of complete front upper/lower compartments before distributed module allocation; no further central/side/folded lowerbay offsets. Keep bothends/7fans/fullstock/movingregions together.",
+    "N01_complete": false,
+    "C1_review_turn": "01a1914b-d816-7fa0-92be-9cfb1864e980",
+    "C1_facts": "47prefix actors saved/reopen .407s/.484375CPU;5ownHOLD. W037custom/MTA_FLcase, W026custom/MTA_FRcase, W026case/W037factory1.085<1.25 plus2flexregionHOLD. No support built. New whole cause required, not caseoffset.",
+    "execution_text_erratum": "W042numeric71.55-Sdx controls; stale66.05-Sdx prose ignored, no numerical/geometry change."
+  },
+  "current_foreign_U1far_Pi_current_recipient_budget": {
+    "file": "day31-astra-U1far-Pi-current-recipient-budget.json",
+    "sha256": "f14aebe6acd15cc416501529a9c6a5728bff92c5e14d34e39b38bc6e7d8ffd2e",
+    "status": "CURRENT_PI_RECIPIENT_DATUM_AND_WHOLE_UNIT_BUDGET_ONLY",
+    "selected": false,
+    "N01_complete": false,
+    "decision": "Use current r3 GPIO/H1 full-prefix source; reserve three whole600 units including transport/slack. No trim inferred.",
+    "occupancy": {
+      "file": "day31-astra-Pi-slack-current-occupancy.json",
+      "sha256": "dff19defec4159e62e228f9d4377758179aa1cdd0f5526c117e6081998089d74"
+    }
+  },
+  "current_foreign_upper_front_pair_whole": {
+    "proposal": {
+      "file": "day31-astra-upper-front-pair-whole-proposal.json",
+      "sha256": "48882818fdb7a180681e588d492bf068362f7f267253c653fcaf226ae052a68b"
+    },
+    "cause": {
+      "file": "day31-astra-front-C1-port-escape-cause.json",
+      "sha256": "667f822cc7db49948dff643170f7ab9e7ab193c999009741b9d1a228ff22ffaf"
+    },
+    "status": "PREFIX69_TWO_FLEX_HOLD_SHARED_REGION_REVIEW",
+    "N01_complete": false,
+    "previous_FRONT_C1_exhausted": true,
+    "C0_review": "01a19162-8158-7051-be16-9d50ea2555dc",
+    "correction_used": 1,
+    "C1": {
+      "file": "day31-astra-upper-front-pair-whole-c1-proposal.json",
+      "sha256": "e5cf6fbc38cfd41506a0ac73335e1c62d71edf81f0c762d1b82cbf1dff95b035"
+    },
+    "source_error": "Original r3 case centre was -97, not -90.75. Its21.75 guide was wholly external at THAT pose. My accounting interpretation was wrong. Later rooted-end-bays-caps explicitly relocated cases +6.25X, retired both old Seat factory0/1 and stock, and replaced them with complete15.5 external guide and one full9 factory grip. No geometry built from erroneous input.",
+    "received": {
+      "file": "day31-astra-upper-front-pair-c1-prefix-receipt.json",
+      "sha256": "e59533f15b0b024c2156cd3dc404d1bfcded573c322a0054e2f588b666096bfb",
+      "archive": "day31-astra-upper-front-pair-c1-prefix.breps.zip",
+      "archive_sha256": "a50f055850d734ec1f8f93d2bb14e609da28e4282dd4548cd4344690b55f6ee0"
+    },
+    "next_proposal": {
+      "file": "day31-astra-upper-pair-common-factory-whole-proposal.json",
+      "sha256": "e85105fb5d5622407b356a065c32b8185f8b1a24285e93935d9488f810f9c1f5"
+    },
+    "C1_review": "01a19163-fc06-70f3-a5d3-3e89a5cf6741"
   }
 }
