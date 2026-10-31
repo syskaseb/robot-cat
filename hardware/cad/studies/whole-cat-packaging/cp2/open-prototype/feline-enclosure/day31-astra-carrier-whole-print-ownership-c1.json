@@ -1,0 +1,151 @@
+{
+  "id": "COMMON_CARRIER_FRONT_FOOT_LOADPATH_WHOLE_C1",
+  "status": "WHOLE_PRINT_OWNERSHIP_ASSEMBLY_CORRECTION_REVIEW",
+  "correction": 1,
+  "max_correction": 1,
+  "prior_proposal": "day31-astra-common-carrier-front-foot-whole-proposal.json",
+  "prior_GO_turn": "01a19198-ac6e-7133-9a24-f9b1be97eaae",
+  "current_receipts": [
+    {
+      "file": "day31-astra-panel-foot-bridges-receipt.json",
+      "sha256": "534270f4b15649b49373cdf46b28bc24ce7921059e39b68635eecb1a76bfa5e5"
+    },
+    {
+      "file": "day31-astra-common-panel-full-band-channel-receipt.json",
+      "sha256": "a04ff9b18ed0460d707a0462aac690b1322481d7d38090656b83ec282adb4194"
+    },
+    {
+      "file": "day31-astra-w052-full-stock-open-fork-receipt.json",
+      "sha256": "96612cd3cbd6ff8292e4bb53836eb5e9cdb21238bbcd3bbd499fbc6dc8b0a24c"
+    },
+    {
+      "file": "day31-astra-carrier-current-source-stock-own.json",
+      "sha256": "c44730b80e4755061c33a1e4e870a9e6d3e005eaeab22ff4a08db42249546fab"
+    },
+    {
+      "file": "day31-astra-current-carrier-foreign-0-31.json",
+      "sha256": "a0fd4480ac1c398d70a94073881d4f1beb4261d1a9e393e3f4ee88ebffb5b5a3"
+    }
+  ],
+  "raw_hold_dispositions": [
+    {
+      "part": "branch:MTA_FR_fore",
+      "other": "ArcGrip:W052:band",
+      "gap_mm": 0.34322333270509,
+      "required_mm": 1.25,
+      "common_mm3": null,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "PROPOSED_OWN_STOCK_TO_SHARED_PRINT_CHANNEL: .343223>=.2, zero common. Existing full flexible source tie, current shared MTAcarrier print; no bought case margin relaxation. Requires common-frame/assembly disposition below."
+    },
+    {
+      "part": "body:W052:band:-43.0",
+      "other": "Ref_Material_W052_Joint_0_0",
+      "gap_mm": 0.7000000000000028,
+      "required_mm": 1.25,
+      "common_mm3": null,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "NAMED_OWN_CASE_INTERFACES: fullbodybands.7/base.25/cap.4500015/sourcefork.60415; source actual case unchanged. Existing own source and current roots receipt apply, not global foreign waiver."
+    },
+    {
+      "part": "body:W052:band:-21.0",
+      "other": "Ref_Material_W052_Joint_0_0",
+      "gap_mm": 0.7000000000000028,
+      "required_mm": 1.25,
+      "common_mm3": null,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "NAMED_OWN_CASE_INTERFACES: fullbodybands.7/base.25/cap.4500015/sourcefork.60415; source actual case unchanged. Existing own source and current roots receipt apply, not global foreign waiver."
+    },
+    {
+      "part": "body:W052:base_end_supported",
+      "other": "ArcGrip:W052:pad",
+      "gap_mm": 0.0,
+      "required_mm": 1.25,
+      "common_mm3": 0.12979930328483927,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "POSITIVE_COMMON_PRINT_ROOT: current W052base/current retained custom pad.1297993, complete same-source retention. Existing pad and source curve unchanged."
+    },
+    {
+      "part": "body:W052:base_end_supported",
+      "other": "Ref_Material_W052_Joint_0_0",
+      "gap_mm": 0.2499999999999929,
+      "required_mm": 1.25,
+      "common_mm3": null,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "NAMED_OWN_CASE_INTERFACES: fullbodybands.7/base.25/cap.4500015/sourcefork.60415; source actual case unchanged. Existing own source and current roots receipt apply, not global foreign waiver."
+    },
+    {
+      "part": "body:W052:cap2",
+      "other": "Ref_Material_W052_Joint_0_0",
+      "gap_mm": 0.4500015258784984,
+      "required_mm": 1.25,
+      "common_mm3": null,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "NAMED_OWN_CASE_INTERFACES: fullbodybands.7/base.25/cap.4500015/sourcefork.60415; source actual case unchanged. Existing own source and current roots receipt apply, not global foreign waiver."
+    },
+    {
+      "part": "source:W044:factory:pad",
+      "other": "Day26:UnderframeCarrier",
+      "gap_mm": 0.0,
+      "required_mm": 1.25,
+      "common_mm3": 2.076350244526519,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "PROPOSED_ADDITIONAL_COMMON_PRINT_JOINT:2.0763502445mm3; requires explicit wholecarrier integration. Not yet selected / do not silently waive rigid print collision."
+    },
+    {
+      "part": "source_root:W052factory",
+      "other": "Ref_Material_W052_Joint_0_0",
+      "gap_mm": 0.6041509095714055,
+      "required_mm": 1.25,
+      "common_mm3": null,
+      "kind": "ACTUAL_SOURCE",
+      "error": null,
+      "hold": true,
+      "disposition": "NAMED_OWN_CASE_INTERFACES: fullbodybands.7/base.25/cap.4500015/sourcefork.60415; source actual case unchanged. Existing own source and current roots receipt apply, not global foreign waiver."
+    }
+  ],
+  "complete_fixed_print_scope": "CurrentPanelChannel + 2frontFootBridges + unchanged complete BellyFoot1/2 + received6carrierbranches/fullsourcebranches + unchanged Day26:UnderframeCarrier are ONE integral functional fixed carrier. Removablecasecaps/nylon/actualboughtcases remain separate. Do not produce costly full production union now; named positive graph and bounded contour are N01 model. No purchase cut.",
+  "underframe_source": {
+    "file": "tools/cad/plan_feline_underframe_carrier.py",
+    "sha256": "745ed279fe47fed96e7bd858feed62162654242a86864bace73c83ae2c105ab2",
+    "facts": "Constructive printed carrier with full F0+1.25 pocket, fixed case shelves/jacketbeds, P0 cuts, existing M2axes x64/y+-23.5 retained. No board/copper or purchased case inside that shape. New W044factory pad overlaps its lower OpenFloorPOS/left region, not a purchased part. Preserve full carrier unchanged."
+  },
+  "assembly": "Existing current frontfoot4 upper screws and underframe2 rear axes remain same P0 datum. Install one fixed carrier to these existing points, then boughtcases/caps and full ties. SourceW044factory pad already has independent positive4mm3 primaryroot toMTAcarrier; 2.076mm3 underframe joint is additional sameprint connection, not sole tiny load neck. Preserve case/solder/bond pockets and all wire ports. SourceW052 band fits .343223 gap to same own print with assembly before tightened tie; explicit .2 own-channel policy, not foreign1.25 reduction.",
+  "whole_print_conservative_envelope_mm": {
+    "X": [
+      -126.5,
+      68
+    ],
+    "Y": [
+      -49,
+      49
+    ],
+    "Z": [
+      -73.527348836263,
+      -1.5
+    ],
+    "size": [
+      194.5,
+      98,
+      72.027348836263
+    ],
+    "max200": true,
+    "note": "Bounds union of named current full fixed print parts; requires exact selection map confirmation. Footexposure outsideBodyOuter is retained known scope; all NEWbridges already3.7>=3.25."
+  },
+  "unchanged_constraints": "All boughtposes/localports/factory/SKU/R/OD/MAIN46.52/R47/P0/E6/15MG92B unchanged from reviewed wholeproposal. Four independent220 budgets untouched. Previous negatives/C1counters retained.",
+  "next_after_GO": "Persist current selection+own dispositions; receive only missing own-prefix cross interfaces and changedmotion36/assembly/outline, then U1far/head/global123. No redo31/oldtests. N01 still0.",
+  "N01_complete": false
+}

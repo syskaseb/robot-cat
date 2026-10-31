@@ -1,0 +1,212 @@
+{
+  "status": "FOUR_SOURCE_ROOTS_HOLD",
+  "rows": [
+    {
+      "role": "W026:custom",
+      "receiver": "W026_case_and_factory",
+      "root_pad_mm3": 0.8549760668373373,
+      "root_receiver_mm3": 11.200000000000003,
+      "branch_solids": 1,
+      "checks": [
+        {
+          "other": "own_full_wire",
+          "gap_mm": 0.591578869565573,
+          "required_mm": 0.2,
+          "hold": false
+        }
+      ],
+      "hold": false
+    },
+    {
+      "role": "W037:custom",
+      "receiver": "W037_case_and_factory",
+      "root_pad_mm3": 0.854976066837339,
+      "root_receiver_mm3": 11.200003051757147,
+      "branch_solids": 1,
+      "checks": [
+        {
+          "other": "own_full_wire",
+          "gap_mm": 0.591578869565573,
+          "required_mm": 0.2,
+          "hold": false
+        }
+      ],
+      "hold": false
+    },
+    {
+      "role": "W044:factory",
+      "receiver": "MTA_FL_aft",
+      "root_pad_mm3": 0.9999999999999998,
+      "root_receiver_mm3": 3.999999999999999,
+      "branch_solids": 1,
+      "checks": [
+        {
+          "other": "own_full_wire",
+          "gap_mm": 1.3311076928595482,
+          "required_mm": 0.2,
+          "hold": false
+        }
+      ],
+      "hold": false
+    },
+    {
+      "role": "W052:factory",
+      "receiver": "panel",
+      "root_pad_mm3": 7.74668081652608,
+      "root_receiver_mm3": 0.0,
+      "branch_solids": 1,
+      "checks": [
+        {
+          "other": "own_full_wire",
+          "gap_mm": 0.4008005519938411,
+          "required_mm": 0.2,
+          "hold": false
+        }
+      ],
+      "hold": true
+    }
+  ],
+  "geometry": [
+    {
+      "name": "W026:custom:root",
+      "entry": "0.brep",
+      "sha256": "9426fe81e531102a1d12f96442cf7485cc6d9125234faaffdee97ae420cfcec1",
+      "bounds": [
+        [
+          -111.0,
+          11.0,
+          -28.0
+        ],
+        [
+          -108.75,
+          13.0,
+          -21.8
+        ]
+      ]
+    },
+    {
+      "name": "W026:custom:branch",
+      "entry": "1.brep",
+      "sha256": "873b69aec8933677ed2cbf33a99f60cce6336cedc6026c23df633ece4506a41a",
+      "bounds": [
+        [
+          -121.12926578877241,
+          10.536530561588606,
+          -28.0
+        ],
+        [
+          -108.75,
+          15.129107898976706,
+          -17.7
+        ]
+      ]
+    },
+    {
+      "name": "W037:custom:root",
+      "entry": "2.brep",
+      "sha256": "8914dd4577efe94344a9f027f6a3310ecbf7726b73b68c8f5b28f6175115ee9d",
+      "bounds": [
+        [
+          -111.0,
+          -13.0,
+          -28.0
+        ],
+        [
+          -108.75,
+          -11.0,
+          -21.8
+        ]
+      ]
+    },
+    {
+      "name": "W037:custom:branch",
+      "entry": "3.brep",
+      "sha256": "13fa89abda82857495758d634da5f102836808d8259ec19567ec77217f672434",
+      "bounds": [
+        [
+          -121.12926578877241,
+          -15.129107898976706,
+          -28.0
+        ],
+        [
+          -108.75,
+          -10.536530561588606,
+          -17.7
+        ]
+      ]
+    },
+    {
+      "name": "W044:factory:root",
+      "entry": "4.brep",
+      "sha256": "71ba270e80bf6a2e224b3ed42bfc5520a1007aa16384701e6c8abaab25680dc5",
+      "bounds": [
+        [
+          -24.5,
+          17.5,
+          -35.0
+        ],
+        [
+          -22.5,
+          19.5,
+          -29.25
+        ]
+      ]
+    },
+    {
+      "name": "W044:factory:branch",
+      "entry": "5.brep",
+      "sha256": "85d155326723efc1c84ce5d1bad6e2365567b2c2939c92a7207abbe912abcd64",
+      "bounds": [
+        [
+          -27.38606862823929,
+          17.5,
+          -39.95
+        ],
+        [
+          -18.38606862823929,
+          19.5,
+          -29.25
+        ]
+      ]
+    },
+    {
+      "name": "W052:factory:root",
+      "entry": "6.brep",
+      "sha256": "c96cef0294d62dc05d1c48b911f99a355a8865e9bf956854a4e83c7ccedc9466",
+      "bounds": [
+        [
+          -8.0,
+          -30.75,
+          -42.5
+        ],
+        [
+          -6.0,
+          -28.75,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "name": "W052:factory:branch",
+      "entry": "7.brep",
+      "sha256": "8fd27f27379dbeec72b638ac2d1d63dd512833f8525d00bd89dd669f528143bc",
+      "bounds": [
+        [
+          -12.798166866722035,
+          -30.75,
+          -42.5
+        ],
+        [
+          -2.3528959840400994,
+          -28.749999999999932,
+          -31.700000000000006
+        ]
+      ]
+    }
+  ],
+  "N01_complete": false,
+  "archive": "day31-astra-carrier-four-source-roots.breps.zip",
+  "archive_sha256": "554b9635a2d0cb09ffdf1a110eeb949aec46da1d9714e37d5fe002adb07964b3",
+  "operation_seconds": 0.5065883999923244,
+  "process_cpu_seconds": 1.078125
+}
