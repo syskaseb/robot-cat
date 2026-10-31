@@ -159485,13 +159485,99 @@
   "current_foreign_ipsilateral_seven_source_proposal": {
     "path": "day31-astra-ipsilateral-seven-sources-whole-proposal.json",
     "sha256": "2206034ac3204c7958b30c916cd8eba392ddcb367c5c3e9f3e549fcffed45ec7",
-    "status": "WHOLE_REVIEW_PENDING",
+    "status": "GO_BOUNDED_WHOLE_PREFLIGHT_NOT_SELECTION",
     "prior_correction_exhausted": true,
     "N01_complete": false,
     "new_evidence": {
       "day31-astra-five-grip-protected-preflight.json": "3b27b77fbf20ef31945e13c00f0b9a74c2559bd3392a52a671440258bb582af5",
       "day31-astra-five-grip-actual-rigid-preflight.json": "165a22b5c9a44eb57711959873f56d3551a85de926c1d7378e0655a9d6e935bf",
       "day31-astra-common-five-grip-head-face-evidence.json": "003d9ed5abf5e716be6cd7932bdeb3a5a1afe63240da10c9f6d06da6ea482763"
+    },
+    "review_receipt": "day31-astra-ipsilateral-whole-review-receipt.json",
+    "review_receipt_sha256": "dd6b14e29740d6c6752b26197d4d4c285e6511916bf921fce5d332b05aebc338"
+  },
+  "current_foreign_ipsilateral_whole_correction1": {
+    "path": "day31-astra-ipsilateral-upper-departures-whole-c1-proposal.json",
+    "sha256": "57e9007764674cab73132c112abdd9c406579462cfa4180a6cbb51e8f351a54b",
+    "status": "CLOSED_RETENTION_OWN_HOLD_CORRECTION_EXHAUSTED",
+    "N01_complete": false,
+    "receipts": {
+      "day31-astra-ipsilateral-seven-source-preflight-geometry.json": "1f9ab244cc94c445f7c99f13115d6c6d0213e4f09cf0daeeaaddd08856048adf",
+      "day31-astra-ipsilateral-seven-source-fullstock-receipt.json": "0503691c147c23bb34f19b25ecbd54ef67460527b636e966cf33e5cbab2f780e",
+      "day31-astra-ipsilateral-seven-source-foreign-complete-receipt.json": "7cd6057e217003ffefd70755ca2f37841ae5082033085cab95588af02f82bcbc",
+      "day31-astra-ipsilateral-rear-only-receipt.json": "4a19b0b5ffe2cf54fb3d0e55df3ef23220a42cdb66eb37988a319dd7847f02ea",
+      "day31-astra-ipsilateral-fullface-source-cover-receipt.json": "4a7bd5484ebbfffe43dab005ee5d99f3eb9a6ded8752a6b2b164f4f97a8f5166"
+    },
+    "counts": "1270cursor includes838deferred source pairs;432received, not1270PASS. Rear220motiontasks scoped, pendingcovers/headgaps.",
+    "invalid_cover_flag_erratum": "First82receipt incorrectly flagged cover axis as actualcontact; corrected in complete receipt, raw retained.",
+    "review_turn": "01a190d9-d4a2-7531-a2aa-db8ecc2e29a3",
+    "new_receipts": {
+      "day31-astra-ipsilateral-c1-seven-source-preflight-geometry.json": "fec2a03212478e4fc85b9fb6c24186a60d6e4ae1210fd48771bb20eb4228cf75",
+      "day31-astra-ipsilateral-c1-full-custom-prefix-receipt.json": "652473f0d0414b96cb991397fe4098ec8099c495da0d9037ff885610688bf409",
+      "day31-astra-ipsilateral-c1-seven-source-fullstock-receipt.json": "659d7549b8ea84d0d4cdc15ff54aa7eda04539354444b91f8f864565811105f4"
     }
+  },
+  "current_foreign_open_saddle_whole_proposal": {
+    "path": "day31-astra-open-saddle-whole-proposal.json",
+    "sha256": "64cda7dd0f0f70a2befff5352bd865b64c3a22e3a00ed54f777b5de1916a0de4",
+    "status": "GO_BOUNDED_WHOLE_GEOMETRIC_RECEIPT_NOT_SELECTION",
+    "N01_complete": false,
+    "prior_closed_correction_exhausted": true,
+    "review_receipt": "day31-astra-open-saddle-whole-review-receipt.json",
+    "review_receipt_sha256": "592a5edbd971c45c50e20d6bc6fbbd90a8614408da0d4a484de1a55e88571c18",
+    "current_corrections_used": 0,
+    "wire_grip_debit_mm": 64.2
+  },
+  "current_foreign_open_saddle_whole_received": {
+    "receipts": {
+      "day31-astra-open-saddle-whole-own-receipt.json": "1349cc6d918e4442502db5e0b8f47d2adb1077e26f8023cb83b420ab9539851e",
+      "day31-astra-open-source-whole4-bar-receipt.json": "52fdfcbdab5485780380eb150dbb99a89384ead89e59fbecd2317bc870dde759",
+      "day31-astra-open-saddle-whole-foreign-receipt.json": "1a3810e3b0e3ae4d406960e2209beb80d4df06097e224c36eccc12f7d53ce2aa",
+      "day31-astra-open-saddle-protected-rest-receipt.json": "73ad594ad38225f4e3725790b6df142a9c47ff4310b8693174e872bf1c692b2b"
+    },
+    "actual_XT60_common_mm3": 363.38185325938065,
+    "status": "UPPER_LAYER_ACTUAL_OCCUPANCY_HOLD",
+    "N01_complete": false,
+    "foreign_scope": "460received+334deferredW052, not794PASS;60rawHOLD withdispositions"
+  },
+  "current_foreign_open_saddle_whole_correction1": {
+    "path": "day31-astra-open-saddle-low-layer-whole-c1-proposal.json",
+    "sha256": "7504b31692208deab560f58d9dc8d97139514e937ca065a972c1d1ec6a14013b",
+    "status": "LOW_LAYER_FULL_SOURCE_OWN_HOLD_EXHAUSTED",
+    "corrections_used": 1,
+    "N01_complete": false,
+    "review_turn": "01a190ef-c632-7e90-a3a4-edd528b643b5",
+    "receipt": {
+      "day31-astra-open-low-layer-c1-preflight-geometry.json": "f91429ee0ed6189f1e789a351ad1cb53f7bb9dbf089cde4a2ed50fdbc42006fd",
+      "day31-astra-open-low-layer-c1-custom-prefix-receipt.json": "66771fa11e6cac574a7d059c44b38a8190414e11f48e2c343254a733675f0c15",
+      "day31-astra-open-saddle-protected-rest-receipt.json": "73ad594ad38225f4e3725790b6df142a9c47ff4310b8693174e872bf1c692b2b",
+      "day31-astra-ipsilateral-c1-seven-source-preflight-geometry.json": "fec2a03212478e4fc85b9fb6c24186a60d6e4ae1210fd48771bb20eb4228cf75"
+    }
+  },
+  "current_foreign_material_classified_hybrid_proposal": {
+    "path": "day31-astra-material-classified-hybrid-whole-proposal.json",
+    "sha256": "b9a7840596a779609ff86a3a45875c468a6ff5dd4b516ba5e0171292068c5ddb",
+    "status": "REVIEW_GO_WHOLE_OWN_PENDING",
+    "source_rules": {
+      "tools/cad/receive_feline_underplate_return_gallery.py": "598adf726436fb29681b95da8bbd3bd783146397ee2e249dd6844fdf6841e96b",
+      "tools/cad/feline_fore_power_pair.py": "5e30c9a570d4655797a44b890095fae33dbfeff99a861f4a72341331793562d4",
+      "tools/cad/feline_common_space_context.py": "ce8459c42d0fe5651ef034a5f135bedb55c47aa5a0ac2be9ebe641838680e33b"
+    },
+    "N01_complete": false,
+    "review_turn": "01a190f8-0277-7572-a63a-4de2baa97f09",
+    "correction_used": 0,
+    "maximum_corrections": 1
+  },
+  "current_foreign_material_classified_hybrid_received": {
+    "receipts_sha256": {
+      "day31-astra-material-hybrid-whole-geometry.json": "d3be59cf5bbae09a75c3ffedbc33275207f01e72dcd35f4f0b758bdc7604f50e",
+      "day31-astra-material-hybrid-whole-own-receipt.json": "08faa720c04ef3bbf17f653583a4f3352c2ee9dd8dbe4bb9b895b308448a5ddb",
+      "day31-astra-material-hybrid-own-mouth-disposition.json": "d2a1b8c97a2a362d2ae7bf9444299b2b02a5401deec0565dfc53f734908a598a"
+    },
+    "archive": "day31-astra-material-hybrid-whole.breps.zip",
+    "archive_sha256": "a0e74cf0f22e6be749d1cb3d58697dc03277877d5ef34b67e57731550cfc80d0",
+    "own_disposition": "Two actual own-case mouth abutments have common0; raw ownHOLD preserved. Changedforeign pending; not fullN01.",
+    "source_case_proof": "LC full purchased case geometry reused from day31-astra-open-low-layer-c1-preflight-geometry.json; inherited foreign case_source_equivalence list was OS inclined data, not new validation of lower placement.",
+    "N01_complete": false
   }
 }
