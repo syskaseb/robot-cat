@@ -1,0 +1,89 @@
+{
+  "status": "OUTLINE_AND_OCCUPANCY_CONSTRAINTS_BEFORE_NEXT_ALLOCATION",
+  "outline": {
+    "role": "Current operating torso contour retained; rejected parking geometry not imported",
+    "archive": "day30-astra-service-whole-front.breps.zip",
+    "member": "service-whole/30.brep",
+    "member_sha256": "a6a6306d7f51ad208496609d0f1d6bf63d739e2b34c14d032421992daa28bc58",
+    "bounds_mm": [
+      [
+        -141.5000000000052,
+        -100.0000000000006,
+        -48.00000000000028
+      ],
+      [
+        183.5000000000052,
+        100.00000000000092,
+        112.00000000000101
+      ]
+    ],
+    "stations": [
+      [
+        -141.5,
+        160
+      ],
+      [
+        -135,
+        200
+      ],
+      [
+        -65,
+        200
+      ],
+      [
+        55,
+        200
+      ],
+      [
+        145,
+        200
+      ],
+      [
+        168,
+        140
+      ],
+      [
+        183.5,
+        40
+      ]
+    ],
+    "source_constructor": "tools/cad/feline_shared_fore_outline.py:section/contour",
+    "radius_mm": 12,
+    "budget_mm": 3.25,
+    "worlddatum": "current world mm, no extra placement; MAIN46.52 unchanged"
+  },
+  "old_loopbay": {
+    "bounds": [
+      [
+        -168.5,
+        28,
+        -25
+      ],
+      [
+        -138,
+        110,
+        82
+      ]
+    ],
+    "status": "UNQUALIFIED_BODY_STORAGE_REGION_OUTSIDE_TORSO_GLOBAL_BOUNDS",
+    "beyond_torso_positiveY_mm": 10,
+    "beyond_torso_minX_mm": 27,
+    "required_from_global_inner_bound_Y_mm": 13.25,
+    "required_from_global_inner_bound_X_mm": 30.25,
+    "reason": "This declared storage region cannot be treated as contained. Bounds exceed actual outer extrema; not an obstacle-contact claim and not a claim every possible wire arrangement fails. No extension of mechanical-leg exposure exemption to body storage.",
+    "loop_trial_diameter_mm": 77.4,
+    "available_Y28_to_global_inner96_75_mm": 68.75,
+    "difference_mm": 8.65,
+    "lengths": "400/350/400 and unit860/865/860 remain unselected hypotheses, not proved required free lengths. Must be recomputed with actual new bodyentry and source excursion, same fixedR/OD/factory/MAX3cores."
+  },
+  "occupied_regions": {
+    "source": "day26-current-underframe-plan.json and current newshapes",
+    "G2_DFR_plenum": "Occupied10sources; 2layer permitted only afterX17.5; region [13.95,-27.05,-13.75]..[37.25,27.05,-6.75]. Empty rigid section is not free capacity. No relocation chosen."
+  },
+  "read_refs": {
+    "day31-astra-current-lowerbay-occupied-sections.json": "41e07d2364a65b8d04454bce87b41d9df595b73b71610e7dadd01d579566b7e2",
+    "day31-astra-current-lowerbay-occupied-sections.png": "5d271c7286778c28b1e2583dd221090a579bb1e8ad8d1d019a23eec46fe72773",
+    "day31-astra-front-cell-full-occupancy-read.json": "8a83a771213621c0b5fc2071956dc867adf5d239f77f4cd151938ea65ba50112"
+  },
+  "N01_complete": false
+}

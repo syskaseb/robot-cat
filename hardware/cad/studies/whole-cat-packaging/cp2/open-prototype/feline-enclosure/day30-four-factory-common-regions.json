@@ -159022,5 +159022,144 @@
     ],
     "stock_scope_clarification": "Transformed old custom grip stock in this preflight is retained as old-kit witness, NOT the proposed rebuilt prefix stock. Its negative is not erased but cannot qualify the new prefix. BoughtW044/Ankle common independently rejects whole allocation. New rack/root/changedprefixes not built.",
     "decision": "Do not receive remaining192 of rejected allocation. No offset retry. Underpanel and whole rack failures preserved; next topology must couple full factory arcs/grips/shared support and actual complete module/motion occupation before detail. No N01 point."
+  },
+  "current_foreign_FL_G2_rack_endpoint_fact": {
+    "receipt": "day31-astra-g2-rack-end-fact.json",
+    "sha256": "caa04bd019cbb0e992b73febcfa8071040971ada32d0104b08cdf412fa4278a0",
+    "gap_mm": 0.26270734992242856,
+    "common_mm3": 0,
+    "status": "MARGIN_HOLD_NOT_CONTACT_NO_REUSE_OF_OUTBOARD_G2",
+    "operation_seconds": 0.36,
+    "process_cpu_seconds": 1.46875
+  },
+  "current_foreign_FL_crossport_curved_saddle_proposal": {
+    "id": "FL-CROSSPORT-CURVED-SADDLE-31",
+    "status": "PREFLIGHT_REJECTED_ONE_CORRECTION_AVAILABLE",
+    "proposal": "day31-astra-crossport-curved-saddle-proposal.json",
+    "sha256": "41cd242ba64f3d904c3a3cbfed4ddac8a1427ab3826b7550caff2de5acc41d9b",
+    "N01_complete": false,
+    "review_turn": "01a1903c-3c6c-7922-ad5d-9da14b14715c"
+  },
+  "current_foreign_FL_crossport_module_preflight": {
+    "status": "REJECTED_RIGID_MODULE_ALLOCATION",
+    "receipt": "day31-astra-crossport-module-receipt.json",
+    "sha256": "117654422d83f60923a27df88dfe0730246f79fe19509f92c84a853ca7afca39",
+    "geometry": "day31-astra-crossport-module-geometry.json",
+    "geometry_sha256": "ec3afef1214ee3ea38f6e63ce23f85d0fc49d78394e4a487fe486953895e4e73",
+    "archive": "day31-astra-crossport-module-preflight.breps.zip",
+    "archive_sha256": "a44ccd0c87402476f49186fa5e3bb40b91ed941193141fb061dead731cfa6faa",
+    "cursor": 17,
+    "total": 586,
+    "unreceived": 569,
+    "operations": [
+      {
+        "operation_seconds": 1.875,
+        "process_cpu_seconds": 6.3125
+      }
+    ],
+    "prep": {
+      "operation_seconds": 49.437999999994645,
+      "process_cpu_seconds": 49.296875
+    },
+    "strictreopen_operation_seconds": 0.34299999999348074,
+    "strictreopen_process_cpu_seconds": 0.625,
+    "hard_reject": [
+      {
+        "part": "Cross:EndBay:Ref_Material_W026_Joint_0_0",
+        "other": "Ref_Material_P0_Part__Feature040_0_0",
+        "phase": "motion:0",
+        "required_mm": 1.25,
+        "gap_mm": 0.0,
+        "common_mm3": 181.44405205732704,
+        "hold": true,
+        "witnesses": [
+          [
+            [
+              -101.95,
+              -65.5,
+              -9.299999999999997
+            ],
+            [
+              -101.95,
+              -65.5,
+              -9.299999999999997
+            ]
+          ]
+        ],
+        "classification": "ACTUAL_SHAPE_OR_EXPLICIT_SOURCE_CAPACITY",
+        "reject_whole_allocation_before_supports": true
+      }
+    ],
+    "N01_complete": false
+  },
+  "current_foreign_FL_crossport_c1_proposal": {
+    "id": "FL-CROSSPORT-CURVED-SADDLE-C1-31",
+    "proposal": "day31-astra-crossport-curved-saddle-c1-proposal.json",
+    "sha256": "f3b5653f920e5be8511c154f082f500dbf7a288df9ff20b519b297aa477ae131",
+    "status": "NOT_SELECTED_MARGIN_HOLD_CORRECTION_EXHAUSTED_NEXT_FULL_OCCUPANCY_READ",
+    "correction_used": true,
+    "N01_complete": false,
+    "review_turn": "01a19041-c59f-7931-9c96-2bf7a566edee"
+  },
+  "current_foreign_FL_crossport_c1_module_preflight": {
+    "status": "RECEIVED_WITH_HOLDS_NOT_SELECTED",
+    "receipt": "day31-astra-crossport-c1-module-receipt.json",
+    "sha256": "2e10acc72caec053ec070931381bff01f1742595b60d861276512db2c9c0ff2f",
+    "geometry": "day31-astra-crossport-c1-module-geometry.json",
+    "geometry_sha256": "b6c4cf426bd87c5e9b06f97f677e041fddd60e5061364cdc1b0743325963b2e0",
+    "archive": "day31-astra-crossport-c1-module-change.breps.zip",
+    "archive_sha256": "a76e47d04ca712e427f1e3edacbe54f84e76f71d1115c0d24ccfbd3dfc62c0e9",
+    "cursor": 231,
+    "total": 231,
+    "reused_rows": 16,
+    "new_holds": 9,
+    "operations": [
+      {
+        "operation_seconds": 19.312000000005355,
+        "process_cpu_seconds": 83.609375
+      }
+    ],
+    "prep": {
+      "operation_seconds": 1.0939999999827705,
+      "process_cpu_seconds": 1.078125,
+      "reused_rows": 16,
+      "unchanged_geometry_count": 7,
+      "changed_geometry_count": 5
+    },
+    "strictreopen_operation_seconds": 0.1720000000204891,
+    "strictreopen_process_cpu_seconds": 0.125,
+    "N01_complete": false
+  },
+  "current_foreign_FL_crossport_c1_factory_gate": {
+    "status": "ALLOCATION_MARGIN_HOLD_CORRECTION_EXHAUSTED",
+    "receipt": "day31-astra-crossport-c1-factory-preflight-receipt.json",
+    "sha256": "067ec5cde2b7fb75a52a34de07dcd2576a28cdfaa19103b78b3f4e7e9f5aa76f",
+    "archive": "day31-astra-crossport-c1-factory-preflight.breps.zip",
+    "archive_sha256": "187777a5a66db557108bfa8770e4f2e6bdc448484fb8c8eb9de5558e3afca587",
+    "actual_tasks": 55,
+    "bounds": 161,
+    "holds": 7,
+    "minimum_gap_mm": 0.790114144781694,
+    "common_max_mm3": 0,
+    "classification": "full capacity allocation margin HOLD; not actual flexible conductor contact or proof no hand routing exists",
+    "operation_seconds": 16.0,
+    "process_cpu_seconds": 55.453125,
+    "whole_N01_complete": false
+  },
+  "current_foreign_FL_crossport_c1_view": {
+    "image": "day31-astra-crossport-c1-current-occupancy-HOLD.png",
+    "image_sha256": "1f0af2bff4bc7a55e74ab972bc019d059712235014e3cd42671d8d179c85d657",
+    "source": "day31-astra-crossport-c1-view-source.json",
+    "source_sha256": "57a681cd84b59c486491cd9ea1e6ebb63b68ba2b6ce0597de2b019a26f17684e",
+    "render_wall_seconds": 16.672,
+    "role": "targeted currentlowerbay overview, source context not contactproof"
+  },
+  "current_foreign_FL_whole_occupied_region_outline_decision": {
+    "status": "OUTLINE_AND_OCCUPANCY_CONSTRAINTS_BEFORE_NEXT_ALLOCATION",
+    "receipt": "day31-astra-occupied-region-outline-decision.json",
+    "sha256": "518a4345745c55d26c2d384cccd125857bf60a3afec09080d623408ff0188f5b",
+    "loopbay_selected": false,
+    "current_strategy": "read complete actual occupancy before next whole allocation; no new coordinates/model yet",
+    "N01_complete": false
   }
 }

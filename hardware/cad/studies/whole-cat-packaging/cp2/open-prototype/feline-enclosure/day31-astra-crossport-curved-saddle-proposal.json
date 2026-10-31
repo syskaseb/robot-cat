@@ -1,0 +1,168 @@
+{
+  "id": "FL-CROSSPORT-CURVED-SADDLE-31",
+  "status": "WHOLE_HYPOTHESIS_REVIEW_BEFORE_MODULE_PREFLIGHT",
+  "cause": "Rotate complete F_FL to ports +/-Y above unchanged FR, keep G2 original, and replace separate end-grip straights by full9 lands on shared factory arcs. Reallocate three complete power joints with their common support. Prior underpanel and lower-rack rejection/correction counters remain exhausted; not another W044 offset.",
+  "sources": [
+    "day31-astra-lower-power-rack-preflight-receipt.json",
+    "day31-astra-fl-port14-capacity-receipt.json",
+    "day31-astra-fl3-current-mta-motion-receipt.json",
+    "day26-current-underframe-plan.json",
+    "feline_current_wire_contract.py",
+    "plan_feline_underframe_carrier.py",
+    "build_feline_belly_feet.py"
+  ],
+  "fixed": "All selected boughtparts/SKU/P0/R47/E6/MAIN46.52/15drives/MG92B/4independent220 Molex/fullsource14/OD7.2/R35.1axis-inner31.5/ground36/envelope unchanged. Four MTA bodies and both sides retained. Factory100 provisional source with21 strip/fit debit retained; no inferred pinout.",
+  "modules": {
+    "MTA_FL": {
+      "centre": [
+        -40,
+        -17.5,
+        -13.75
+      ],
+      "rotation": "Rz+90",
+      "body_bounds": [
+        [
+          -51,
+          -35,
+          -21.75
+        ],
+        [
+          -29,
+          0,
+          -5.75
+        ]
+      ],
+      "input": [
+        -40,
+        0,
+        -13.75
+      ],
+      "output": [
+        -40,
+        -35,
+        -13.75
+      ],
+      "retention": "1.5mm shared cradle bed, paired two full T18I in one closed chain, neutral85.4 split42.7+25=67.7 EACH/100. Wrap planeY-30; full heads on+X side. Preserve original boughtbody; replace original107.4/100 one-tie illustrative loop with two physical units. Verify own fit, not accepted by arithmetic."
+    },
+    "W026": {
+      "centre": [
+        -84.2,
+        -61.45,
+        -13.75
+      ],
+      "rotation": "roll180X about original centre",
+      "factory_entry": [
+        -66.45,
+        -61.45,
+        -13.75
+      ],
+      "factory_recipe": "F_FL output -Y:1.25 straight, R25.2 quarter toward-X,1.25 straight; full9 lands on both ends of arc",
+      "factory_debit": 63.08406743523139,
+      "custom_exit": [
+        -101.95,
+        -61.45,
+        -13.75
+      ],
+      "custom_region_direction": "-X quarter toward+Y; full9,OD4.2,R25.2 then shared front-body return to actual FL_P.1"
+    },
+    "W041": {
+      "centre": [
+        -84.2,
+        26.45,
+        -13.75
+      ],
+      "rotation_matrix": [
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "factory_entry": [
+        -66.45,
+        26.45,
+        -13.75
+      ],
+      "factory_recipe": "F_FL input+Y:1.25 straight,R25.2 quarter toward-X,1.25 straight; full9 at both arc ends",
+      "factory_debit": 63.08406743523139,
+      "custom_exit": [
+        -101.95,
+        26.45,
+        -13.75
+      ],
+      "custom_region_direction": "-X quarter toward-Y; full9,OD4.2,R25.2 then common fixed return to actual P_FRONT.2"
+    },
+    "W044": {
+      "centre": [
+        14.995880271554599,
+        35.8159379566434,
+        -34
+      ],
+      "rotation": "Rz-45 relative original case",
+      "factory_source": [
+        47.5,
+        15,
+        -34
+      ],
+      "factory_entry": [
+        27.547025637615818,
+        23.264792590582186,
+        -34
+      ],
+      "factory_recipe": "MTA_RL -X:1.25 straight,R25.2/45deg toward+Y,1.25 straight. Two full9 end lands on one shared curved saddle; inner23.1*angle=18.142697574 permits18 total, no extra9 straight. Actual case35.5 and full hardware retained.",
+      "factory_debit": 43.292033717615695,
+      "inner_arc_land": 18.142697574481055,
+      "custom_region_direction": "NW toward+Z, full9/OD4.2/R25.2 to actual P_REAR.3; shared guide not extra terminal"
+    },
+    "G2": {
+      "status": "UNCHANGED original current frame and complete5port source land",
+      "centre": [
+        -3,
+        -16,
+        -10.25
+      ],
+      "reason": "Rejected outboard position also gap.2627073499 to actual072 atpose35; original scoped receipt retained only unchanged"
+    }
+  },
+  "support": {
+    "negative_front": "One open shared support from existing BellyFoot1 upper bridge M2 axes(-80,-22.5),(-70,-22.5), joined to actual underframe negativeLongBearingRail Y[-38,-34] Z[-5.5,-1.5]. Supports MTA_FL/W026 using functional beams/cradle, not production halves. Original bridge and bolt bearing kept. Actual face common/load union required before details.",
+    "positive_front": "W041 shared saddle returns to original BellyFoot2 upper bridge M2 axes(-80,22.5),(-70,22.5); preserve whole upper bridge and original bottom5/groundannulus. Middlecolumn proposed outer original footprint intersectX<=-70.5 and33<=Y<=42, drainR2(-77.5,37), Z[-68.8,-4.5]. Closed continuous load path/one solid and source14 passage must be demonstrated; do not cut actualhardware.",
+    "rear": "W044 functional side post to actual positiveLongBearingRail X[-21.25,64],Y[34,38],Z[-5.5,-1.5], candidate post nearX33..35 down tocasebed. Root must be actual face/common, not bboxnearest. Existing frame axes remain.",
+    "retirement": "Only old FL case tie/root, W026/W041/W044 design factory/custom grips and roots displaced by complete replacement samefunction. Purchased cases/fasteners stay. ForePanel positive branches may retire only after replacement loadpath; retain FR/W037/P_FRONT/unnamed supports. No global parent subtraction without protectedmaterial accounting.",
+    "source": "FL1 fullquarter becomes+Y with full cap/stock/root to clear U1. FL2 received+T complete return unchanged. FL3 originalT quarter unchanged; move body obstruction instead. Hip conforming belt and full closures require own/stock. Fullsource14 retained."
+  },
+  "regions": {
+    "source": "Three full triplets within existing candidate freebay/Fore9; local3 lanes OD7.2, free400/350/400 and nominal860/865/860 remain hypotheses until shared movement/slack acceptance. Received Fore9 root/98.8tie reused.",
+    "power": "Each changed HELU branch OD4.2,R25.2; separate branch entry until common fixed front return. At overlap use three full4.2 profiles with.2 gaps and.4 exterior allowances:13.8x5.0 minimum local rectangle (explicit local count, not universalfill). Curved transitions must preserve minR and actualrecipient ends. Full custom cut demand/fit allowance still unresolved; legacy100customcuts NOT evidence.",
+    "continuity": "Computational seams are connected regions, not added terminals/9straight. Actual boughtports, splice isolation and source moving-end restraints retain full functions."
+  },
+  "assembly": [
+    "Install common supports on existing frame/foot datums before upper modules; keep actual ground contact.",
+    "Install unchanged lowerFR/W037 and current FL_P/P_FRONT/G2, then rotated upperFL and both factory arcs with open side access.",
+    "Install W026/W041/W044 complete cases and fasteners, thread paired fullT18I/heads before closing cradles; lay custom shared regions with recipient ends retained.",
+    "Install source grips/three moving triplets to existingFore9; thread/tension allowance before lying, trim only source-authorized tails afterfit. Fit uncertainty is phase2, not waiver for rigid blockers."
+  ],
+  "gate": [
+    "Review whole causal hypothesis once plus at most one correction; earlier exhausted strategy remains recorded.",
+    "Bounded whole boughtcase+hardware preflight against mutual cases/current stationary material and same36 actualmoving geometry. Include fullsource31 capacity at named FL3/MTA interface; cachedbounds, no old192. Stop on actual rigid conflict.",
+    "If viable: build complete factory arcs/full9/shared stock/functionalroots, own stock/root first, changedforeign/outline/assembly/moving bundle principle next. No detailedN03, fullN08/N09 not N01 prerequisite.",
+    "Then complete U1far/head and123/246whole integration. No score for preflight."
+  ],
+  "unknowns": [
+    "Actual new complete module clearance including W026/front legs and W041/FL3",
+    "Both fullfactory arcs and shared curved end clamps spatial acceptance",
+    "Actualroot/foot protectedmaterial and neighboring stock",
+    "Sharedcustom return length/slack/final localoccupancy and three movingtriplet continuity"
+  ],
+  "N01_complete": false
+}

@@ -28,8 +28,38 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: zmiana całej topologii retencji/racka po odrzuconym preflighcie;
-nie kończyćN01, nie korygować położeniaW044 samym offsetem.
+NEXT: odczyt pełnej obsady górnejwarstwy dolnego przedziału z aktualnych
+części/G2/D_FR/F0/ramy/foot i36motion BEFORE następny wybór całego sztywnegozestawu.
+Nie kolejny zgadnięty punkt/offset ani grid. C1korekta1/1 wyczerpana/HOLD.
+OBRYS: current JointCurrentOuter a6a6306d...daa28bc58, worldX[-141.5,183.5],
+Y±100,Z[-48,112],325x200x160/r12/margines3.25. LoopbayX[-168.5,-138],
+Y28..110 nie jest zawartym magazynem tułowia: pozaX27/Y10, bezwyjątkunóg.
+77.4średnica trialloop >68.75 dostępnegoY od28 do96.75; hipotezaunselected.
+Dolnyprzekrój40currentactors+motionbounds orazfrontcell zapisane zSHA;
+G2/D_FRplenum10sources jestobsadą, niepustką: jego funkcja pozostaje.
+
+Factory150 W026:55actual/161bounds, min.790114/040pose23,7marginHOLD,
+common0; oba9gripcover bezHOLD wtymzakresie.16s/55.453125CPU.
+To HOLD tej alokacji pełnejcapacity, niekontaktżyły/brakwszystkichręcznychułożeń.
+C1rigidgate231nowych+16reused,19.312s/83.609375CPU;9newHOLD.
+W041/Kneeprintgap.393863, screw/oldFoot2common.205681, MTA_FL/W052head25.81875,
+footboltcovers.4 oraz090coverHOLD pozostają. Geometria/receipt/SHA frozen.
+Widok day31-astra-crossport-c1-current-occupancy-HOLD.png (3panele) odebrany;
+mesh48.828s/123.09375CPU, render16.672s wall, nie CADCPU.
+Źródła: M2x12headZ[-9.3,-7.3] wynika z dodatkowejrootplate2mm; W052pełna
+T18I82.5/100 nad własnąprojektowąpokrywą, nie kupny sztywny moduł do skasowania.
+Pełnebudżety/porty/stock/R zachowane. Nowyplan musiwybraćdostępnyobszar
+razemz retencją/kotwami; N01nadal0, bezdrukowanychdetaliN03.
+Nowy fakt: W026 przecina actual040/RR_Knee wpose0 common181.444052mm3.
+Pełna obudowa040 X[-118.589,-73.176]Y[-83.456,-63.146]Z[-24.254,24.886].
+Strategia CROSSPORT zatrzymana17/586,569nieodebranych; nie budowaćpodpór.
+12kupnychcase/fasteners strictreopen.343s/.625CPU, prep49.438s/49.296875CPU,
+odbiór1.875s/6.3125CPU. ZIPa44ccd0c...31cfa6faa iimmutable receipt+SHA wkanonie.
+W044/invalid090 pełnecoverHOLDy NIEkontakt. NowyF_FL/W041/W044/G2 nieodebrane
+jako całość. G2 zostajeoryginalne; outboardfact gap.26270735/actual072pose35
+common0 (.360s/1.46875CPU) zachowany. Review01a1903c dopuściłtylkopreflight;
+historycznie korekta CROSSPORT była dostępna; obecnie1/1wykorzystana, dawnyunderpanel/rack limit wyczerpany.
+Pełne9połuku/actualports/100factory/stock/R oraz source14 bez zmian.
 FL-LOWER-POWER-RACK-COMMON-31 ODRZUCONE: actualW044/Ankle095 wpose23
 common.01649413885mm3. Odebrano125/317; pozostałe192 świadomie nieodebrane.
 45.843s/259.125CPU +3.187s/11.75CPU; pierwszychunk przekroczył20s woperacji.
@@ -67,7 +97,7 @@ Changedground36x17:612bounds/0actualtasks, min43.084377mm, .578s/.5625CPU.
 Podłoga/drop/4BellyFoot nie zmienione. Closure25=source head/pull allowance,
 trimaftertension zeźródła, pełne100/25/head i retainedstub/engagement dofit.
 Fore9:9own/root4.65mm3/union1 odebrane; stock98.8/100, pełne9profili.
-Freebay3triplet X[-168.5,-138]Y[28,110]Z[-25,82], free400/350/400,
+HISTORYCZNA nieprzyjęta Freebay3triplet X[-168.5,-138]Y[28,110]Z[-25,82], free400/350/400,
 unit860/865/860 nadal HIPOTEZA, nie przestrzenny odbiór ani selectedN01.
 Wszystkie negatywy/liczniki zachowane; żadnych nowych SKU/offsetsolverów.
 Supplier sourcecase/pinout/fit jawne; następnie U1far/head/global123/246.
