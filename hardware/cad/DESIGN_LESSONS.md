@@ -16,6 +16,13 @@
   Nie wymuszaj schowania całego odpadu JR w robocie. Zachowaj prefiksy,
   allowances i bramkę fizycznego cięcia fazy2; nie rozszerzaj tego wyjątku
   na cztery chronione jednostki MTA ani inne fabryczne przewody.
+- Rejestr compose_body36_fit_contribution.py definiuje dla jednostek900mm
+  nominalny fit_blank z20mm rezerwą i zaokrągleniem do5mm, ograniczony900.
+  Trzy żyły kabla pobierają MAX(blank), nie trzy oddzielne kable. Nie wymuszaj
+  instalacji całej niewykorzystanej reszty w robocie i nie licz jej jako nowej
+  jednostki. To wkład nominalnej przymiarki, nie wybór stockuN10 ani polecenie
+  cięcia; zachowaj źródłowe złącza, bramki fazy2 i rozlicz source-owned splices
+  wszędzie, gdzie korzystasz z ich budżetu; kandydat nie staje się stałym wymogiem.
 - Rzeczywista szczelina5.120847mm odrzucała koło6.1mm, ale mieści płaski
   przekrój6.1x2.1 dwóch pełnych profili2.1mm. Zmiana kształtu obsady jest
   uzasadniona transportem obu żył/R/długością, nie zmniejszeniem ich średnic.
