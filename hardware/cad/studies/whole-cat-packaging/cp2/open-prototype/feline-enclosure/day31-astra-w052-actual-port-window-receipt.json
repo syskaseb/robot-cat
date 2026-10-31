@@ -1,0 +1,85 @@
+{
+  "status": "ACTUAL_SOURCE_PORT_WINDOW_IMPLEMENTED",
+  "rows": [
+    {
+      "other": "W052:case",
+      "gap_mm": 0.2499999999999929,
+      "required_mm": 0.25,
+      "hold": false
+    },
+    {
+      "other": "W052:custom",
+      "gap_mm": 1.2499999986843788,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "other": "W052:factory",
+      "gap_mm": 1.2500000000000013,
+      "required_mm": 1.25,
+      "hold": false
+    }
+  ],
+  "basis": "Implement previously specified full actual prefix+1.25 port opening, not square guessed aperture. Correct nominal -34 vs actual -34.0000015258789 by actual case bounds+.25, no margin lowered. Prior1.214274 custom and.249998474case receipts retained.",
+  "source_parts": [
+    {
+      "kind": "line",
+      "start": [
+        -49.75,
+        -33.25,
+        -34.0000015258789
+      ],
+      "end": [
+        -50.0,
+        -33.25,
+        -34.0000015258789
+      ],
+      "length_mm": 0.25
+    },
+    {
+      "kind": "arc",
+      "start": [
+        -50.0,
+        -33.25,
+        -34.0000015258789
+      ],
+      "mid": [
+        -56.274950199005566,
+        -32.4562491997439,
+        -34.0000015258789
+      ],
+      "end": [
+        -62.15460303753274,
+        -30.125,
+        -34.0000015258789
+      ],
+      "radius_mm": 25.2,
+      "length_mm": 12.683349059717791
+    }
+  ],
+  "clearance_cover_radius": 3.35,
+  "base_solids": 1,
+  "new_material_mm3": 0.0,
+  "cap_gap_mm": 0.0,
+  "outline_and_foreign_subset_reuse": true,
+  "panel_root_and_allstock_own_still_OPEN": true,
+  "N01_complete": false,
+  "geometry": [
+    {
+      "name": "base_end_supported",
+      "entry": "0.brep",
+      "sha256": "e23b79235c50dd4d43399f725a3bc8a6f97828f2f6a878d4ff6af5945969037f",
+      "role": "print"
+    },
+    {
+      "name": "actual_custom_clearance_cover",
+      "entry": "1.brep",
+      "sha256": "67ed4cb1081620a0cad075e396276c7d09ff7d8ca4fb3eb7eaa3cc3d02cf83c1",
+      "role": "clearance_tool_not_installed"
+    }
+  ],
+  "archive": "day31-astra-w052-actual-port-window.breps.zip",
+  "archive_sha256": "2d88c9e0a367454a57b8629cd5a606133334f140630191e63846493bdab570bf",
+  "operation_seconds": 1.1410000000032596,
+  "process_cpu_seconds": 1.96875
+}

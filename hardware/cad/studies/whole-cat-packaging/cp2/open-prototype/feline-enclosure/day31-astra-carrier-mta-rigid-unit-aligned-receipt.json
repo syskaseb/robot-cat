@@ -1,0 +1,72 @@
+{
+  "status": "COMPLETE_MTA_UNIT_SOURCE_ALIGNMENT",
+  "translation_Z_mm": {
+    "FL": 13.999993896484,
+    "FR": 13.999993896484
+  },
+  "old_rounded_translation_Z_mm": 14,
+  "not_a_clearance_offset": "Use same exact rigid transform as purchased MTA source. Previous rounded14 versus source13.999993896484 caused6.1micron false own-HOLD; no margin tolerance weakened.",
+  "rows": [
+    {
+      "part": "CaseTie:FL",
+      "other": "CaseTie:FLHead",
+      "gap_mm": 0,
+      "required_mm": 0,
+      "hold": false,
+      "basis": "Exact changed datum pair"
+    },
+    {
+      "part": "CaseTie:FL",
+      "other": "MTA_FL:case",
+      "gap_mm": 0.1999999999999993,
+      "required_mm": 0.2,
+      "hold": false,
+      "basis": "Exact changed datum pair"
+    },
+    {
+      "part": "CaseTie:FR",
+      "other": "CaseTie:FRHead",
+      "gap_mm": 1.3322676295501878e-15,
+      "required_mm": 0,
+      "hold": false,
+      "basis": "Exact changed datum pair"
+    },
+    {
+      "part": "CaseTie:FR",
+      "other": "MTA_FR:case",
+      "gap_mm": 0.1999999999999993,
+      "required_mm": 0.2,
+      "hold": false,
+      "basis": "Exact changed datum pair"
+    }
+  ],
+  "prior_body_own_receipt": "day31-astra-carrier-c1-body-own-receipt.json",
+  "W044_band_W026_translated_root_0_5_HOLD_preserved": true,
+  "geometry": [
+    {
+      "name": "CaseTie:FL",
+      "entry": "0.brep",
+      "sha256": "8563e3e36a40bbb4f8b118c46081827778efecf663ebd5b9205c823bc683d3bb"
+    },
+    {
+      "name": "CaseTie:FLHead",
+      "entry": "1.brep",
+      "sha256": "53403c5712b5d32f2ecc27a9f02160db22a62afc4a08f6984a6c406a409f59a1"
+    },
+    {
+      "name": "CaseTie:FR",
+      "entry": "2.brep",
+      "sha256": "46ac192cbfd9e5e663ac16ef04d6eb8ea3188ada5dd1b57f67855b1ebd0c348e"
+    },
+    {
+      "name": "CaseTie:FRHead",
+      "entry": "3.brep",
+      "sha256": "9903bec47ce723a21d7a848f219c427bc3dc70c09aabc1f5f2f51b1b7f97056a"
+    }
+  ],
+  "N01_complete": false,
+  "archive": "day31-astra-carrier-mta-rigid-unit-aligned.breps.zip",
+  "archive_sha256": "56bd9e071e19d48d32afd0d87d3951b850700b5e6bdaca49b5b9c55398a3b1da",
+  "operation_seconds": 0.1409999999741558,
+  "process_cpu_seconds": 0.34375
+}

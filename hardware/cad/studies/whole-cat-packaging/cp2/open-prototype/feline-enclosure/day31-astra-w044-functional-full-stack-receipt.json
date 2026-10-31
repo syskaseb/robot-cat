@@ -1,0 +1,256 @@
+{
+  "status": "W044_FIXED_FULL_STACK_OUTLINE_SCOPED",
+  "rows": [
+    {
+      "part": "case",
+      "bounds": [
+        [
+          -64.13606862823929,
+          17.950000000000003,
+          -41.80000000000001
+        ],
+        [
+          -28.636068628239286,
+          26.049999999999997,
+          -32.900000000000034
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 6.200000000000003,
+      "required_mm": 3.25,
+      "hold": false
+    },
+    {
+      "part": "cap",
+      "bounds": [
+        [
+          -65.38606862823929,
+          16.45,
+          -32.65
+        ],
+        [
+          -27.386068628239286,
+          27.55,
+          -30.65
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 15.350000000000001,
+      "required_mm": 3.25,
+      "hold": false
+    },
+    {
+      "part": "band:-61.0",
+      "bounds": [
+        [
+          -62.25,
+          15.05,
+          -43.2
+        ],
+        [
+          -59.75,
+          28.95,
+          -29.25
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 4.799999999999997,
+      "required_mm": 3.25,
+      "hold": false
+    },
+    {
+      "part": "head:-61.0",
+      "bounds": [
+        [
+          -63.5,
+          28.95,
+          -34.3
+        ],
+        [
+          -58.5,
+          33.25,
+          -29.0
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 13.700000000000003,
+      "required_mm": 3.25,
+      "hold": false
+    },
+    {
+      "part": "band:-31.0",
+      "bounds": [
+        [
+          -32.25,
+          15.05,
+          -43.2
+        ],
+        [
+          -29.75,
+          28.95,
+          -29.25
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 4.799999999999997,
+      "required_mm": 3.25,
+      "hold": false
+    },
+    {
+      "part": "head:-31.0",
+      "bounds": [
+        [
+          -33.5,
+          28.95,
+          -34.3
+        ],
+        [
+          -28.5,
+          33.25,
+          -29.0
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 13.700000000000003,
+      "required_mm": 3.25,
+      "hold": false
+    },
+    {
+      "part": "base_open_channels",
+      "bounds": [
+        [
+          -65.38606862823929,
+          16.45,
+          -44.05
+        ],
+        [
+          -27.386068628239286,
+          27.55,
+          -32.65
+        ]
+      ],
+      "outside_mm3": 0.0,
+      "boundary_gap_mm": 3.950000000000003,
+      "required_mm": 3.25,
+      "hold": false
+    }
+  ],
+  "upper_bought_interface": [
+    {
+      "part": "band:-61.0",
+      "other": "MTA_FL:case",
+      "gap_mm": 2.57390753524675,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "part": "band:-31.0",
+      "other": "MTA_FL:case",
+      "gap_mm": 1.25,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "part": "head:-61.0",
+      "other": "MTA_FL:case",
+      "gap_mm": 3.2714675605911174,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "part": "head:-31.0",
+      "other": "MTA_FL:case",
+      "gap_mm": 3.114883625434503,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "part": "cap",
+      "other": "MTA_FL:case",
+      "gap_mm": 2.6499999999999986,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "part": "base_open_channels",
+      "other": "MTA_FL:case",
+      "gap_mm": 4.649999999999999,
+      "required_mm": 1.25,
+      "hold": false
+    }
+  ],
+  "stock": [
+    {
+      "x": -61.0,
+      "nominal_loop_centreline_mm": 50.900000000000006,
+      "closure_allowance_mm": 25,
+      "head_tangent_mm": 5.3,
+      "total_debit_mm": 81.2,
+      "working_budget_mm": 100,
+      "bottom_channel_open": true,
+      "closed_tunnel_minimum_floor_not_claimed": true
+    },
+    {
+      "x": -31.0,
+      "nominal_loop_centreline_mm": 50.900000000000006,
+      "closure_allowance_mm": 25,
+      "head_tangent_mm": 5.3,
+      "total_debit_mm": 81.2,
+      "working_budget_mm": 100,
+      "bottom_channel_open": true,
+      "closed_tunnel_minimum_floor_not_claimed": true
+    }
+  ],
+  "base_solids": 1,
+  "cap_and_base_full2mm_functional": true,
+  "no_thin_tunnel_floor": true,
+  "source_review": "01a19170-188d-75f3-bb1f-da2caf6a233e",
+  "underfloor_loop_arithmetic_rejected": {
+    "bottom_z": -45.45,
+    "margin": 2.55,
+    "required": 3.25
+  },
+  "retention_keys_endstops_panel_roots_allworld_motion_OPEN": true,
+  "N01_complete": false,
+  "geometry": [
+    {
+      "name": "case",
+      "entry": "0.brep",
+      "sha256": "af14bf7ff0648e6d4c4335cd9fba3fd80f50a09cfa9bc6b838129b6cc66001c7"
+    },
+    {
+      "name": "cap",
+      "entry": "1.brep",
+      "sha256": "bed3ca6fc69f603b295282b794f9df6814b0964540c5c38be375763dc5d334f5"
+    },
+    {
+      "name": "band:-61.0",
+      "entry": "2.brep",
+      "sha256": "9a63a71f19476176ce2ffe952f4560215ea150ffddf93c78105d45dc77c72513"
+    },
+    {
+      "name": "head:-61.0",
+      "entry": "3.brep",
+      "sha256": "020199d5adea33e8481825afbaa4f35247163c19ee7e616b3bc04e043cf34820"
+    },
+    {
+      "name": "band:-31.0",
+      "entry": "4.brep",
+      "sha256": "f2e1650656ba8a1de934dbb8513a59bd213afbdf81d59ea0dd829a8c1d615d17"
+    },
+    {
+      "name": "head:-31.0",
+      "entry": "5.brep",
+      "sha256": "d80038975b5ece158a37384dfb37d70c79e0a73c8ba7cb510592fac164bb0843"
+    },
+    {
+      "name": "base_open_channels",
+      "entry": "6.brep",
+      "sha256": "6a627303e6f769f7b600d08573baf08a8e986e040a19c14625db275eb21728fc"
+    }
+  ],
+  "archive": "day31-astra-w044-functional-full-stack.breps.zip",
+  "archive_sha256": "0aa90739a4b24a199142f618c8a1403165db72c06a57d558d70763377aeea223",
+  "operation_seconds": 0.8599999999860302,
+  "process_cpu_seconds": 1.140625
+}
