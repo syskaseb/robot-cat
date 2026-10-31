@@ -28,23 +28,19 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: odbierz HYForeignCursor31/775 w tej samej sesji;120par reużytych.
-MATERIAL-CLASSIFIED-HYBRID-WHOLE-31:60aktorów strictZIP SHAa0e74cf0...0cfc80d0.
-Build/save3.500s/7.015625CPU;own.266/.53125: tylko2ownmouth styki,common0.
-RawHOLD + jawne dyspozycje zapisane; nie oznacza odbioru podpory/całegoN01.
-GOreview01a190f8 odebrany dla SHA b9a78405...068c5ddb; korekta0/1.
-Cały zestaw: dolne rear76.3 LC + FLPinput-X LC +3UPoutput IC +PFRONT3UP,
-6otwartych siodeł9INNER/full64.2,4case73.4,FLP82.8/PFRONT90.2 pełne100.
-Źródłowe minimum_for/pair_spacing: nylon–jacket/nylon .2; foreignrigid1.25.
-Nie uchyla actualP0/XT60/F_TY ani sourceoverlap. Wszystkie niewłasne
-print-saddle/jacket oceniać1.25; własnykanał2.3−2.1=.2 jawnie przypisany.
-Low-layerC1 wyczerpany:2source/factory coveroverlap. Poprzedni inclined:
-460odebranych/334W052deferred, NIE794PASS; actualXT60common363.381853.
-Nie powtarzać niezmienionych testów. Złożenie źródeł nie jest odbiorem całości.
-Po own: funkcjonalny commoncarrier/roots/changedforeign36/outline/montaż,
-lokalna obsada13 tylko gdzie3wyjścia łączą10DG, długości/luz; potemU1far/head/123.
-N01nadal0/10; pełneN03/N08/N09/N10 poza aktualną bramką. Native18120/74948
-potwierdzonybezrestartu. Wyniki pełne immutable+SHA, kanon<5MB.
+NEXT: CENTRAL-INLINE whole review0204b1b8...740b6913; przedGO bezCAD.
+HybridC1wyczerpany:774=614new+160reuse/41rawHOLD;50.828s/390.65625CPU.
+Validknee upperclampgap.77356<1.25; custommotioncoverHOLD zostaje.
+Outline24changed odebrane3.234s/7.796875CPU; owncommonpressurefunkcjaodebrana,
+nie wybórN01. Niepowtarzać774/own; żadnego3ciegooffsetu tego układu.
+Nowa cała topologia: obaW044/W052 central-inline Y±18.8/Z-34 zamiastkołokolan.
+S-factory R25.2/shift3.8 wynika zpełnych9INNER(9.0276 każdyłuk); caseX-9.699..25.801,
+custom-X→upR25.2 doX-34.899. MTA_RL/RR/W045/W053 i4stations/R47/P0 bezruchu.
+Wspólny openframe zastępujeoba postpaths i prowadzi obiecasecradles;
+8full100T18I i rzeczywistepressure9/root/montaż/motion/outline w całymplanie.
+Najpierw pełnyrigid+stock preflight z36orazcurrentmovingSOURCE, nie detailN03.
+Dalej7sourcefans/13obsada/Fore9/3triplets/długości/luz/U1far/head/global123.
+N01=0/10;native18120/74948 żywy/idle;hookaktywny,bezlokalnegokońca.
 HISTORYCZNY zakres poniżej zachowuje negatywy; nie jestNEXT.
 C1gate12/67 stop: W044/FL_P_three_bank gap1.10753175<1.25,common0.
 To rezerwa pelnych3wyjsc, nie dowodkontaktuelastycznejzyly.55parniepowtarzac.

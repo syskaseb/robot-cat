@@ -159572,12 +159572,59 @@
     "receipts_sha256": {
       "day31-astra-material-hybrid-whole-geometry.json": "d3be59cf5bbae09a75c3ffedbc33275207f01e72dcd35f4f0b758bdc7604f50e",
       "day31-astra-material-hybrid-whole-own-receipt.json": "08faa720c04ef3bbf17f653583a4f3352c2ee9dd8dbe4bb9b895b308448a5ddb",
-      "day31-astra-material-hybrid-own-mouth-disposition.json": "d2a1b8c97a2a362d2ae7bf9444299b2b02a5401deec0565dfc53f734908a598a"
+      "day31-astra-material-hybrid-own-mouth-disposition.json": "d2a1b8c97a2a362d2ae7bf9444299b2b02a5401deec0565dfc53f734908a598a",
+      "day31-astra-material-hybrid-whole-foreign-receipt.json": "05723cd1e32689171bc183061c3f0eaa14bc9386c8f57ab2526789a7dab531e1"
     },
     "archive": "day31-astra-material-hybrid-whole.breps.zip",
     "archive_sha256": "a0e74cf0f22e6be749d1cb3d58697dc03277877d5ef34b67e57731550cfc80d0",
     "own_disposition": "Two actual own-case mouth abutments have common0; raw ownHOLD preserved. Changedforeign pending; not fullN01.",
     "source_case_proof": "LC full purchased case geometry reused from day31-astra-open-low-layer-c1-preflight-geometry.json; inherited foreign case_source_equivalence list was OS inclined data, not new validation of lower placement.",
     "N01_complete": false
+  },
+  "current_foreign_material_hybrid_correction1": {
+    "proposal": "day31-astra-material-hybrid-whole-c1-proposal.json",
+    "sha256": "329507a8aef3a3b5b722053031074e2629950a07ec26398a09ecf7b07f76b5fc",
+    "status": "EXHAUSTED_VALID_KNEE_CLEARANCE_HOLD",
+    "used": 1,
+    "max": 1,
+    "N01_complete": false,
+    "execution": "day31-astra-material-hybrid-whole-c1-execution.json",
+    "execution_sha256": "3dc50ed1a57e5c57f077dcb0f9610d52a38e403e8745da49209d412ef432139e",
+    "review": {
+      "turn": "01a19105-5f2c-7083-bb91-136f40ad5794",
+      "result": "GO_BOUNDED_WHOLE_C1",
+      "reviewed_proposal": "day31-astra-material-hybrid-whole-c1-proposal.json",
+      "reviewed_sha256": "329507a8aef3a3b5b722053031074e2629950a07ec26398a09ecf7b07f76b5fc",
+      "resolution": "Remove superseded inherited active values as required before build; no new geometry choice."
+    }
+  },
+  "current_foreign_material_hybrid_c1_received": {
+    "receipts_sha256": {
+      "day31-astra-material-hybrid-c1-prefix-receipt.json": "64b7e33da5f48e26a174bb809a672b9279e56a957e079d9afca64e5ce677d4b0",
+      "day31-astra-material-hybrid-c1-common-clamp-receipt.json": "ca223418c2d2817342e867317418cf7d4c1be68eeb3a9e951f8fadd78c7d9daf",
+      "day31-astra-material-hybrid-c1-full-own-receipt.json": "05cf476aa8c3105dc90a9d6bd55d9ba7a82c844a53d73f73bc173ea1c7ce7f9c",
+      "day31-astra-material-hybrid-c1-stock-closure-receipt.json": "f1404c587e47f6b1c4e12fab1d24caa26e92ceeb044bc081a08d57a641513a84",
+      "day31-astra-hybrid-target-fullface-source-cover-receipt.json": "b8437a5bf086e38b017b67603f84fa68d372ae53f1fa3fbea8afca5f65eef0e7",
+      "day31-astra-material-hybrid-c1-foreign-receipt.json": "b08319855e4caa9ea0070a8649900504caaab621e996dfa70699393d587b4d28",
+      "day31-astra-material-hybrid-c1-outline-receipt.json": "f2b402bbc70d324619bd963b018ac85180b765bbdf974da289ae13b87861e760"
+    },
+    "status": "EXHAUSTED_KNEE_CLEARANCE_HOLD_OUTLINE_SCOPED",
+    "actors": 52,
+    "stock_units_100mm": 8,
+    "pressure_lands": "Both full9 each purchasedcase, each half about64.77mm2 actualsurface/noinsulationpenetration, each commonhalf1solid. TwofullcaseT18I each keep73.4 including25/head. Force/pull phase2.",
+    "N01_complete": false
+  },
+  "current_foreign_central_inline_whole": {
+    "proposal": "day31-astra-central-inline-whole-proposal.json",
+    "sha256": "0204b1b8b182b1a742ac54eccf63ddd332253bc9385ed4e2b0e34ffb740b6913",
+    "status": "C1_GO_PREFLIGHT",
+    "correction_used": 1,
+    "max": 1,
+    "N01_complete": false,
+    "execution": "day31-astra-central-underpass-execution.json",
+    "execution_sha256": "f2ab45c248d08962eaad260f343b3acbd1d1ff47a548ffa173f89c895ed81038",
+    "review_turn": "01a1911e-4ec0-7e70-8c1a-3b1041d3aefa",
+    "correction": "day31-astra-central-inline-c1-whole-reviewed-input.json",
+    "correction_sha256": "90b5b1c5fbd32e81a483f162d50c18be898948e98eebc2830f3ebfda53d597cc"
   }
 }
