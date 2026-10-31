@@ -1,0 +1,33 @@
+{
+  "status": "C1_CAUSAL_REJECTED_22_OF29_REMAINING7_NOT_RUN",
+  "review_GO_turn": "01a193e7-7d73-7032-97dd-a83323e1bed0",
+  "corrections_used": 1,
+  "max_corrections": 1,
+  "raw_receipts": [
+    {
+      "file": "day31-astra-nearport-whole-c1-proposal.json",
+      "sha256": "43662c78adfd77e003f18f662242e3ab16015ed8b0980f696fa3d49a59935a07"
+    },
+    {
+      "file": "day31-astra-nearport-c1-source-supplement.json",
+      "sha256": "c77c08ed40ae0b0ff8d3f890ae9dafb006217dde7a26e658957c96918ad8ee8b"
+    },
+    {
+      "file": "day31-astra-nearport-load-source-cover-dispositions.json",
+      "sha256": "2872fccb080e461e7f5509e44f1db52fba166f83dda8a60b5fc75abd063baebe"
+    },
+    {
+      "file": "day31-astra-nearport-whole-c1-loadpath-receipt.json",
+      "sha256": "f738159a27ffc386c60bd9db3bb30d76327860a8ae3b9cd114587525b1e9b769"
+    },
+    {
+      "file": "day31-astra-nearport-c1-load-own-0-22.json",
+      "sha256": "1533e2722857971efef8718906a6ab142b2cd565b20d0a6469338e3647161572"
+    }
+  ],
+  "source_cover_supplement_SHA_clarification": "Reviewer2872... refers actual source-cover disposition; planning supplement separately pinned c77c...; no geometry substitution.",
+  "timing_clarification": "C1 loadpath receipt operation2.688s CPU9.640625 measures final union/serialization/reopen only. Initial delta construction elapsed not separately captured; do not claim as complete build time.",
+  "kernel_wrapper_clarification": "Compound-vs-compound Hip fuse raised Nullshape despite valid1solid operands/common35.342917. Reusing exact isolated Solids[0] produced strict valid1solid union, no geometry healing/change. Root bounding witness rejected for Hip because centralcube outside knownfoot, positive actualcommon retained.",
+  "new_strategy": "day31-astra-owner-facing-whole-proposal.json",
+  "N01_complete": false
+}
