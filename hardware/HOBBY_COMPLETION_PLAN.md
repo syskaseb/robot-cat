@@ -28,10 +28,22 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: najpierw odbierz G3 changed integration według aktualnego kursora
-(94 candidates, porcje20s); jeśli już odebrane, NIE powtarzaj. Potem CAŁE
-U1/FL9/physical-unit budgets, połączone bodylinks, głowa oraz123/246.
-Bieżące kotwice: U1CompleteShortCarrier30, NorthMixedC1Print31,
+NEXT: CAŁY FL9 source/joint/physical-unit ledger przed changedFORE9foreign,
+równolegle logicznie U1body/head/123integracja, bez nowego procesu lub agenta.
+NORTH-OPEN-ENTRY-31 odebrane: V3common0; strictsubset27.18mm3removed;
+1solid, actualF_L3root3.75mm3, protectedloss0, fullGV75/U1stock zachowane.
+3.203soperacji/16.3125CPU; ZIP day31-astra-north-open-entry.breps.zip,
+SHA62b3598df7562284af55193a170c27d1ffa69b340ee2b0d95f1256d1ebb7efa4.
+Stare FORE9C1allocationHOLD2.4253837034 oraz C1used zachowane, niekontaktżyły.
+WAŻNAproweniencja: RL29SourceFixtures to electricalRL/CADFL tył, X139..196,
+NIE electricalFL/CADRL przód Xujemne. Nieprzenosić594/364odbiorów naFL9.
+ActualFL1=Motion_RL_Hip; FL2/3=Motion_RL_Knee. Całe źródła/slack OPEN.
+900 to limit jednostki; źródłowe nominal_fit_blank/actual_cut=null dopuszczają
+planowane cięcie po fit, nie wymóg układania900 w środku. SOURCE/DONOR osobno.
+G3 94/94 +13 nowychregionów bezHOLD odebrane, bez powtórek. U1local12
+90.430..180.141mm do końca pełnego9, bezfarbody/slack, nie wholeunitPASS.
+N01 nadal0/10. Jedna cała hipoteza brakujących źródeł przed CAD, nie9holderów.
+Bieżące kotwice: U1CompleteShortCarrier30, NorthOpenEntry31,
 Module4JointCapsule31; BankVGuided30/CentralVParts30/DockPortal30.
 Odebrane scoped: bank–V–dock–pełnaW029; bank/FLG4 i D_FL/openPier3 z pełnymi
 prefiksami/opaskami i początkowym dojściem narzędzia. Nie odtwarzać240/5/own.
