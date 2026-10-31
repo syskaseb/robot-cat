@@ -1,0 +1,370 @@
+{
+  "id": "FL-PAIRED-REAR-INPUT-OPEN-FRAME-31",
+  "status": "WHOLE_PROPOSAL_BEFORE_CHANGED_MODULE_PREFLIGHT",
+  "prior_failures": "All underpanel/rack/CROSSPORT+C1 and front-open-foot+C1 failures remain; no correction counters reset. Front-open-foot correction1/1 exhausted. Same-axis occupied refinement still gap.50779696. New causal strategy relocates BOTH rear input modules/full factory interfaces and replaces the whole broad fore support function; source curve is unchanged.",
+  "cause": "W044 actual case in the source passage, not merely conservative round capacity: complete 3-profile capacity on same source axis still marginHOLD. Full36 FL3 capacity maxX=-6.135798; whole rear input pair can instead occupy existing bay east of X21, reached from unchanged MTA_RL/RR input ports X47.5. Paired vertical crossover avoids crossing one relocated input with the other retained old factory route. G2/D_FR ten-source plenum, FL_P, F0 and frame are retained constraints, not free space.",
+  "source_refs": {
+    "day31-astra-current-lowerbay-occupied-sections.json": "41e07d2364a65b8d04454bce87b41d9df595b73b71610e7dadd01d579566b7e2",
+    "day31-astra-front-complete-bay-occupied-read.json": "9187d351f617052796934ce4a6e570adfbc7f59caf996a2517b4c2464c2f7fd6",
+    "day31-astra-front-fan-full-occupancy.json": "06ee50d9b5b91889a84c199a435a0c429b4371c4d4141ddd87a7f990aa845a86",
+    "day31-astra-source-triplet-profile-basis.json": "6f5a333e89af230dfbb4f3630ee6eadd22aa7c314dc5a39a9bc9a81d718d51aa",
+    "day31-astra-triplet-profile-packing-basis.json": "69cde5adcfae9eb6ca8a46260779697ef4aaf22601f341b29419ebdc9c9bafac",
+    "day31-astra-crossport-c1-module-receipt.json": "2e10acc72caec053ec070931381bff01f1742595b60d861276512db2c9c0ff2f",
+    "day31-astra-crossport-c1-factory-preflight-receipt.json": "067ec5cde2b7fb75a52a34de07dcd2576a28cdfaa19103b78b3f4e7e9f5aa76f",
+    "day31-astra-fore-boundary-and-bridge-lowerbounds.json": "422366f387b448a8fb206a0b444441cd1ee8e87916761c15afd5e56bebd395a9",
+    "day31-astra-front-open-foot-preflight-receipt.json": "e008f9df59e110a5ca3699a1107d3f9b55faa1925224717a7d859b4fb47615e6",
+    "day31-astra-fl3-occupied-profile-w044-receipt.json": "896f29020a44ba51ac89e18dedb2908d5e672ae08f86a074f7ec9a911884ce69"
+  },
+  "preserved": [
+    "P0/R47/E6/MAIN46.52,15drives,MG92B,all selected SKUs and actual fixed frame datums",
+    "Current dock37,full4x220 and bank-V/G3/U1local/MODULE received interfaces",
+    "Original G2,D_FR,F0,FL_P,P_FRONT and full10source plenum; no space double use",
+    "MTA_FR/RL/RR actual cases and ports remain; W037 and other untouched ends remain. W044 and W052 selected purchased cases move together with BOTH complete factory/custom interfaces; old their cap/rails/ties are replaced by same-function shared retention, not silently removed.",
+    "Required36 path ending on original four ground annuli; original floor and all body325x200x160/max200/3.25skin budgets"
+  ],
+  "modules": {
+    "MTA_FL": {
+      "centre": [
+        -58.0,
+        0,
+        -15.2
+      ],
+      "rotation": "Rz-90; explicit ports authoritative, matching saved preflight geometry",
+      "case_bounds": [
+        [
+          -69,
+          -17.5,
+          -23.2
+        ],
+        [
+          -47,
+          17.5,
+          -7.2
+        ]
+      ],
+      "ports": {
+        "W026": [
+          -58,
+          17.5,
+          -15.2
+        ],
+        "W041": [
+          -58,
+          -17.5,
+          -15.2
+        ]
+      },
+      "retention": "Shared open cradle tied into the two existing front upper-foot bridges and current underframe carrier; retain actual M2x12 foot axes/heads/rootplate. Full MTA case and both lead exits before support detail."
+    },
+    "W026": {
+      "centre": [
+        -113.47621442382805,
+        20.39340334484022,
+        -27.0
+      ],
+      "factory_entry": [
+        -102.31639307571754,
+        33.99069221020208,
+        -24.626263917331343
+      ],
+      "custom_entry": [
+        -124.63603577193858,
+        6.796114479478362,
+        -29.37373608266866
+      ],
+      "axis": [
+        -0.6287223294710151,
+        -0.7660444431189779,
+        -0.13373161029119202
+      ],
+      "factory": {
+        "start": [
+          -58.0,
+          17.5,
+          -15.2
+        ],
+        "u": [
+          0,
+          1,
+          0
+        ],
+        "v": [
+          -0.9781183084372405,
+          0,
+          -0.20804945253441848
+        ],
+        "R_mm": 25.2,
+        "angle_deg": 140,
+        "first_straight_mm": 1.25,
+        "last_straight_mm": 1.25,
+        "guide_mm": 64.07521601035994,
+        "strip_and_fit_mm": 21,
+        "total_debit_mm": 85.07521601035994,
+        "capacity_limit_mm": 100,
+        "full_grips": "Two complete9 lands on end arcs, innerR23.1; not two additional straight9 debits"
+      },
+      "retention": "Same purchased35.5x8.1x8.9 case; underside-access open shared saddle/flat cap with two full T18I per case, lateral heads. Existing rooted cap/M2 holder topology replaced by same-function printed retention, selected case/SKU retained. Full tie loop+25 EACH<=100 must be constructed and received, not inferred from old82.5.",
+      "custom": "FullOD4.2/R25.2 external turn toward the opposite body flank with full9 on arc. Two source exits intentionally separated vertically by the joint allocation, not two intersecting coplanar illustrative leads. Connect to retained real FL_P/P_FRONT recipient prefixes through named side corridor."
+    },
+    "W041": {
+      "centre": [
+        -114.70238413681165,
+        -20.39340334484022,
+        -16.500000000000004
+      ],
+      "factory_entry": [
+        -103.29590149283803,
+        -33.99069221020208,
+        -16.238486702756845
+      ],
+      "custom_entry": [
+        -126.10886678078526,
+        -6.796114479478362,
+        -16.76151329724316
+      ],
+      "axis": [
+        -0.6426187405055561,
+        0.7660444431189779,
+        -0.014733143506656754
+      ],
+      "factory": {
+        "start": [
+          -58.0,
+          -17.5,
+          -15.2
+        ],
+        "u": [
+          0,
+          -1,
+          0
+        ],
+        "v": [
+          -0.9997372861915218,
+          0,
+          -0.022920702397859673
+        ],
+        "R_mm": 25.2,
+        "angle_deg": 140,
+        "first_straight_mm": 1.25,
+        "last_straight_mm": 1.25,
+        "guide_mm": 64.07521601035994,
+        "strip_and_fit_mm": 21,
+        "total_debit_mm": 85.07521601035994,
+        "capacity_limit_mm": 100,
+        "full_grips": "Two complete9 lands on end arcs, innerR23.1; not two additional straight9 debits"
+      },
+      "retention": "Same purchased35.5x8.1x8.9 case; underside-access open shared saddle/flat cap with two full T18I per case, lateral heads. Existing rooted cap/M2 holder topology replaced by same-function printed retention, selected case/SKU retained. Full tie loop+25 EACH<=100 must be constructed and received, not inferred from old82.5.",
+      "custom": "FullOD4.2/R25.2 external turn toward the opposite body flank with full9 on arc. Two source exits intentionally separated vertically by the joint allocation, not two intersecting coplanar illustrative leads. Connect to retained real FL_P/P_FRONT recipient prefixes through named side corridor."
+    },
+    "W044": {
+      "centre": [
+        33.92615982463214,
+        -39.25448267190433,
+        -34.0000015258785
+      ],
+      "axis": [
+        0.4999999999999998,
+        -0.8660254037844387,
+        0.0
+      ],
+      "factory_entry": [
+        25.051159824632144,
+        -23.88253175473054,
+        -34.0000015258785
+      ],
+      "custom_entry": [
+        42.80115982463214,
+        -54.62643358907812,
+        -34.0000015258785
+      ],
+      "factory": {
+        "start": [
+          47.5,
+          15.0,
+          -34.0000015258785
+        ],
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "R_mm": 25.2,
+        "angle_deg": 120,
+        "first_straight_mm": 1.25,
+        "last_straight_mm": 1.25,
+        "guide_mm": 55.27875658030852,
+        "strip_and_fit_mm": 21,
+        "total_debit_mm": 76.27875658030851,
+        "capacity_limit_mm": 100,
+        "source_limit_classification": "Existing project factory budget; NOT verified manufacturer100mm claim. actual delivered length/termination fit remains phase2 gate; no permission to trim factory.",
+        "full_grips": "Two full9 lands on the end arcs at innerR23.1, no extra straight9 deduction."
+      },
+      "case_source": "Current full selected WAGO221-2411 bought case,35.5x8.1x8.9, opposed actual entries. Preserve SKU and geometry; proper transform only.",
+      "retention": "Open common cradle with full two82.5-or-longer T18I budgets each<=100, complete25/head. Existing old flatcap/key/rail functions replaced together. New full loop computed from the actual shared saddle; no inherited stock acceptance. Place tie heads on accessible flank, not in plenum. Functional plan before N03 detail.",
+      "custom": "FullOD4.2/R25.2 turn toward +Z with complete9 once then side-region to unchanged named P_REAR receiving port/prefix. W044 negative flank / W052 positive flank; local extra occupancy1xOD4.2 each, not double use of MODULE/V channels. Full nominal length/receiver debit re-evaluated before selection."
+    },
+    "W052": {
+      "centre": [
+        33.92615982463214,
+        35.98253701134543,
+        -15.443875586373775
+      ],
+      "axis": [
+        0.4999999999999998,
+        0.8137976813493738,
+        0.29619813272602386
+      ],
+      "factory_entry": [
+        25.051159824632144,
+        21.537628167394043,
+        -20.701392442260698
+      ],
+      "custom_entry": [
+        42.80115982463214,
+        50.42744585529681,
+        -10.18635873048685
+      ],
+      "factory": {
+        "start": [
+          47.5,
+          -15.0,
+          -34.0000015258785
+        ],
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.9396926207859084,
+          0.3420201433256687
+        ],
+        "R_mm": 25.2,
+        "angle_deg": 120,
+        "first_straight_mm": 1.25,
+        "last_straight_mm": 1.25,
+        "guide_mm": 55.27875658030852,
+        "strip_and_fit_mm": 21,
+        "total_debit_mm": 76.27875658030851,
+        "capacity_limit_mm": 100,
+        "source_limit_classification": "Existing project factory budget; NOT verified manufacturer100mm claim. actual delivered length/termination fit remains phase2 gate; no permission to trim factory.",
+        "full_grips": "Two full9 lands on the end arcs at innerR23.1, no extra straight9 deduction."
+      },
+      "case_source": "Current full selected WAGO221-2411 bought case,35.5x8.1x8.9, opposed actual entries. Preserve SKU and geometry; proper transform only.",
+      "retention": "Open common cradle with full two82.5-or-longer T18I budgets each<=100, complete25/head. Existing old flatcap/key/rail functions replaced together. New full loop computed from the actual shared saddle; no inherited stock acceptance. Place tie heads on accessible flank, not in plenum. Functional plan before N03 detail.",
+      "custom": "FullOD4.2/R25.2 turn toward +Z with complete9 once then side-region to unchanged named P_REAR receiving port/prefix. W044 negative flank / W052 positive flank; local extra occupancy1xOD4.2 each, not double use of MODULE/V channels. Full nominal length/receiver debit re-evaluated before selection."
+    }
+  },
+  "supports": {
+    "front_feet": "Preserve exact lower5mm annulus, complete upper bridge/rootplate and all M2x12 hardware for Foot1/2. Replace middle annulus with open dogleg columns: nominal radius3 centreX-75.5, Y±23 between Z-35 and-5, joined to original bottom annuli belowZ-35. This opens the factory bend area around oldY±40; must be one load path with actual positive roots, full owner/motion/ground check.",
+    "fore_panel": "Replace the whole broad central/positive passage sheet by an open shared load frame; retain negative FR/W037 actual mounting patch and protected hardware/material, reconnect those functions. New W044/W052 saddles root into actual carrier rails/rear flanges (existing M2.5x12 [64,+/-23.5] to batteryplate toP0); no root into wiring/plenum. Front three modules use existing front upper-foot bridges. Original front foot lower5annuli/upperbridges/M2x12 unchanged, middle columns changed jointly. Exact source bearing faces/root commons checked before support details.",
+    "common_cradle": "One connected functional open frame with paired rear saddles and front3 cradle; no wide sheet across moving FL3. The physical source-owned cap/head clearance, negative FR/W037, actual P_FRONT/FL_P, G2/D_FR and complete ten-source plenum remain constraints. No drilling/cutting purchased boards."
+  },
+  "moving_sources": {
+    "FL1": "Retain actual selected port0,14 reservation and full current +Z source, cap/stock/own bearing. Its external extent is an explicit typed-outline question, not waived below.",
+    "FL2": "Retain current +T member return, full source14/R35.1/9/stock and accepted grounding.",
+    "FL3": {
+      "actual_port": [
+        -61.97723405265389,
+        54.819089345289825,
+        -63.60332323523676
+      ],
+      "initial_axis": [
+        0,
+        -0.9902680687415674,
+        0.1391731009600884
+      ],
+      "turn_direction": [
+        -1,
+        0,
+        0
+      ],
+      "angle_deg": 90,
+      "axis_R_mm": 35.1,
+      "capacity_radius_mm": 3.6,
+      "source_allowance_mm": 14,
+      "full9": "Existing inner31.5 land definition, full cap/tie/insulation, no profile reduction",
+      "support": "Replace the FL3 branch of shared Knee print from actual retained bearing root; preserve FL2/saddle/protected plates. This sends the complete source away from the original MTA/W044 area while opening the old sheet passage."
+    }
+  },
+  "shared_regions": {
+    "receiving_Fore9": "Move whole curved9 receiver centreXZ from[-128,47.5] to[-120,47.5], unchanged nine profiles/R/full9/98.8tie and outlet identities. Shorter common attachment to retained Fore/OutSharedRoot, verified actualroot. Incoming computational quarter is replaced by actual joined free-region entry; no extra terminal at seam. Existing full recipient legs are reconnected/rebudgeted, not silently inherited.",
+    "three_triplets": "Use the explicit5.9x7.2 project packing only on free spans, full D3.1/G3.1/V2.0 and .2/.4 allowances. Three physical units need three local occupancies, merging only with summed capacity. AxisR35.1/inner31.5 retained. Front inboard regionX[-138.25,-112],Y[30,96.75],Z[-20,90] is OCCUPIED by named FHY/root/owner parts, so its rectangular bounds are NOT a clearance proof: the next gate must establish continuous occupied corridors and full length/slack there, or reject before detailed support. The stated inboard region applies only AFTER crossing into torso. Outside portions are moving leg flex, not fixed storage, and remain unqualified until the functional geometry/length/slack proof and typed outline review succeed.",
+    "free_length_trial_mm": [
+      230,
+      230,
+      230
+    ],
+    "unit_upper_trial_with8mm_receiver_reconnection_mm": [
+      698,
+      753,
+      698
+    ],
+    "length_status": "Provisional bounds from prior860/865/860 minus changed free400/350/400 plus8receiver shift. Not new cut instructions or accepted fits. Recalculate complete current source/recipient portions and MAX3core before selection; no donor sharing or hidden shortfall.",
+    "body_custom": "Two fullOD4.2 channels toward current FL_P and P_FRONT recipient prefixes. Forward exit crossover is vertically separated by the paired case placement. Fixed side corridors aroundY±30 use the vacated front-bank area and open foot columns; they must include all actual prefix turns/R25.2, rise to upper side layer and original target fans. G2/D_FR plenum is retained occupied space, not an escape route.",
+    "rear_custom": "W044 negativeY and W052 positiveY side corridors; full OD4.2/R25.2 and real recipient prefixes. Custom rise begins at named new custom ports, preserves full9 on departure. Fore9/3source occupy front X<=-112, rear inputs X>=~21, so module allocation removes original W044 constriction without changing source axis. Side galleries must include current body occupancy; no empty-bbox claim."
+  },
+  "assembly": [
+    "Mount carrier and original frame fasteners first, with new front open feet preserving exact ground contacts.",
+    "Mount retained FR/W037/P_FRONT/FL_P and G2/D_FR first. Install rear pair W044/W052 from below into open common saddles, lay full factory portions in vertically separated crossover, join real MTA_RL/RR ports before closing ties. Latches/fullcase remain accessible with lower cover absent; occasional partial disassembly allowed.",
+    "Install paired front W026/W041 and MTA_FL from below, lay both full factory leads into open saddles, then close shared caps/ties with full pull/head stock. Latches remain accessible from below, no fast service requirement.",
+    "Install source3 replacement branch on retained shared saddle; lay all three moving triplets into connected Fore9 regions, retain full source insulation/strain relief, check slack at required36 poses, then close Fore9/common guides.",
+    "Body covers follow wiring; fit/trim only where existing source contract allows, no new MTA factory trimming approval."
+  ],
+  "review_questions": [
+    "Assess THIS whole rear-input/common-frame/source/Fore9/assembly allocation as a causal change, with explicit unresolved gates. GO only for paired rigid/fullfactory preflight before supports, or identify a concrete contradictory source/physical requirement.",
+    "Preserve prior failure counters, all full parts/ports/factory/profile/R/stock and occupied plenum. Do not reopen typed scope or import full N08/N09/N10."
+  ],
+  "bounded_gate": "Changed paired modules/factory first: chunks20s; stop at actualrigid common or unresolved physical slot before support. No grid/pose search. Use full cached bounds for separation and actual isolated BRep for candidates. No unapproved radius/OD change.",
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false,
+  "parent_proposal": {
+    "file": "day31-astra-front-open-foot-whole-c1-proposal.json",
+    "sha256": "817c019945938654ec043dc8aac257e18a8e2db2f9f9382796c55b7def784571"
+  },
+  "correction_counter": {
+    "new_causal_package_corrections_used": 0,
+    "max": 1,
+    "prior_front_open_foot_corrections_used": 1,
+    "prior_crossport_corrections_used": 1,
+    "prior_failures_preserved": true
+  },
+  "typed_outline_disposition": {
+    "authority": "Executor interpretation of existing fixed scope and actual functional ownership, submitted for review; NOT new human approval and NOT geometric acceptance.",
+    "source_sha256": {
+      "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\build_feline_body_reservation.py": "6bf335bc14198235296660a41b6767e7dd9f734177a99365c38f3b086268fd4e",
+      "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\body-harness-checkpoint\\harness-interfaces-plan.json": "e61fbdf3a5885541af63fcf72b924b467b093fee70efd229427f43314bf48819",
+      "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day31-astra-outline-fixed-end-source-read.json": "375aeef246bb5c5ae785bb82a6bcd7195b15eace62c6f4243e269548f0ff91bf"
+    },
+    "literal_existing_style": "Visible mechanical legs, concealed torso/neck wiring, curved segmented tail",
+    "scope_reading": "The existing statement expressly conceals torso/neck wiring. It does not state conceal all leg wiring or require body325 to enclose the entire mechanical leg. Classify by actual ownership and physical span, not by a convenient wire/print label.",
+    "moving_leg_assembly": {
+      "FL1": "ActualP0 PCB018/port0 -> full source14/cap9/insulation/stock on Hip-owned saddle; each source actor follows Motion_RL_Hip, root goes to actual Hip plate. No fixed body support or body storage in that assembly.",
+      "FL2_FL3": "Actual source ports/PCBs on current Motion_RL_Knee ownership; full source fixtures and moving-to-body flex spans are leg assembly functions. Complete physical stock, motion/edge/pinch and ground remain required."
+    },
+    "crossing_rule": "A flex span between moving leg and body can cross the body opening. From the inward body crossing through Fore9 to the recipients it is torso wiring and must lie within current325x200x160 contour with unchanged3.25 budget. Nothing is exempted because it is called flexible.",
+    "not_allowed": "No fixed external box, external reserve for arbitrary unused factory length, outside torso guide anchored only to body, or hidden real geometry. PreviousX[-168.5,-138]/Y28..110 loopbay remains rejected as fixed body storage.",
+    "proposed_operating_plan": "Retain source-owned external source fixtures as visible leg functions. Free230 per triplet is a trial continuous leg-flex length, NOT230 of fixed external reserve; prove distributed slack in connected occupied leg-to-body regions. Body-side portions and all fixed Fore9 supports remain inside the contour. Render all external source caps, stock and free-region bounds explicitly in the whole selected view.",
+    "alternative_contour_read": "Current fullFL1 head requires front-179.090831/rear145.909169 if enclosed by325. ActualP_REARcase reaches163, AUXPCB152.7 and retained hardware/prints farther. This alternative does not work by merely translating the current body contour. It is not a proof against every different whole allocation; do not move preserved banks to hide this fact.",
+    "decision_request": "Reuse review01a1907e typed leg-vs-torso scope without new review of that scalar. All new fixed rear pair, complete stock and galleries inside unchanged BodyOuter with3.25. No external fixed reserve."
+  },
+  "changed_interface_acceptance": [
+    "First paired fullcase/factory/full9 against retained G2/D_FR complete plenum, FL_P/P_FRONT/F0/frame and each other. Actualcase conflict rejects before supports; capacityHOLD classified not actualwirecontact.",
+    "Re-use front3+factory and FL3 unchanged positive evidence and saved negatives. Check only new W044/W052 pair vs actual36 and FL3/source-stock; no repeat219 or651 discarded old tasks.",
+    "Full shared retention stock/root/preserved frame material and accessible assembly; bothsourcefoot/panel replacement functions together.",
+    "Continuous 3source/Fore9 occupied regions, all source/receiver ends, full lengths/slack/physicalunits, typed outline, then wholeN01 U1far/head/global123; no N03/N08/N09 production gate."
+  ],
+  "known_gate_risks": [
+    "Upper W052 fullcase/full9 near current ten-source plenum and FL_P: analytical bounds do not prove gap; explicit first preflight.",
+    "Both full factory envelopes cross with only modest vertical separation; exact complete envelope clearance required before print.",
+    "New full stock/support not yet qualified, oldfoot/panel remain rawHOLD until replacement proves same functions.",
+    "Fore9 entry/current body margin and threeflex lengths still unresolved; no whole selection based on relocated modules alone."
+  ]
+}

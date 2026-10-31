@@ -1,0 +1,65 @@
+{
+  "status": "CROSS_SECTION_CAPACITY_ONLY_NOT_A_SELECTED_ROUTE",
+  "source": {
+    "path": "n01-selected-piece-profile-contract.json",
+    "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+  },
+  "profiles": [
+    {
+      "portion": "W004/body",
+      "radius_mm": 1.55,
+      "centre_mm": [
+        -1,
+        -1.65
+      ]
+    },
+    {
+      "portion": "W019/body",
+      "radius_mm": 1.55,
+      "centre_mm": [
+        -1,
+        1.65
+      ]
+    },
+    {
+      "portion": "W020/body",
+      "radius_mm": 1,
+      "centre_mm": [
+        1.55,
+        0
+      ]
+    }
+  ],
+  "full_profile_gaps_mm": [
+    0.19999999999999973,
+    0.4872685096974878,
+    0.4872685096974878
+  ],
+  "edge_allowance_each_mm": 0.4,
+  "equivalent_project_capacity_rectangle_mm": [
+    5.9,
+    7.2
+  ],
+  "rectangle_area_mm2": 42.480000000000004,
+  "old_circle_diameter_mm": 7.2,
+  "old_circle_area_mm2": 40.71504079052372,
+  "all_profiles_within_old_circle_radius_mm": 3.4793781381574735,
+  "bend": {
+    "axis_R_mm": 35.1,
+    "radial_axis": "second cross-section coordinate",
+    "lowest_core_centre_R_mm": 33.45,
+    "lowest_core_inner_edge_R_mm": 31.900000000000002,
+    "retained_old_capacity_inner_R_mm": 31.5
+  },
+  "interpretation": "An explicit alternative cross-section can retain every full project profile, at least .2 interprofile and .4 edge allowance, without reducing axisR35.1 or innerR31.5. This is a project packing calculation; neither shape is a manufacturer common-jacket dimension.",
+  "limitations": [
+    "No changed source cap/grip/port/stock is selected by this calculation",
+    "Three separate triplets require three local occupancies; do not reuse this capacity three times",
+    "Round-to-flat free transition, actual moving space, length/slack and all rigid interfaces remain to qualify in one whole plan",
+    "The scalar body-portion R12.4 is not imported as a new moving-joint radius",
+    "Supplier delivered OD and dynamic radius remain phase2 fit unknowns; no supplier guarantee inferred"
+  ],
+  "N01_complete": false,
+  "selected": false,
+  "physical_pass": false
+}

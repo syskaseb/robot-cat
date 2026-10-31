@@ -1,0 +1,80 @@
+{
+  "status": "PROJECT_CAPACITY_CLASSIFIED_NO_PROFILE_OR_RADIUS_REDUCTION",
+  "authority": "Targeted constructor and existing selected-piece contract reading; no new human scope change",
+  "source_sha256": {
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\compose_body36_fit_contribution.py": "7903dc80bec4308e6a92c590fa5e19afa33696cf521aea86dd588ddc846fdf3a",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\body-harness-checkpoint\\leg-source-near-member-plan.json": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb",
+    "C:\\Users\\Sysq\\AppData\\Local\\Temp\\robot-cat30-astra-fl-full-source-build31.py": "389e5931c64013524282f74e5a58224a6f508db6d9151cb44d30476c04ce0223"
+  },
+  "physical_unit": {
+    "sku": "SR-Cable-5264-3PIN-900mm-6PCS",
+    "factory_nominal_mm": 900,
+    "cores": 3,
+    "draw_rule": "MAX of three nominal fit blanks, not SUM; preserve named source/donor units and phase2 trim gates"
+  },
+  "grouped_roles": [
+    "W006/body",
+    "W010/body",
+    "W015/body",
+    "W018/body",
+    "W023/body",
+    "W024/body",
+    "W034/body",
+    "W035/body",
+    "W051/body",
+    "W059/body",
+    "W071/body",
+    "W074/body"
+  ],
+  "current_capacity": {
+    "diameter_mm": 7.2,
+    "axis_R_mm": 35.1,
+    "inner_capacity_R_mm": 31.5,
+    "full_grip_inner_land_mm": 9,
+    "grip_angle_rad": 0.2857142857142857,
+    "axis_grip_land_mm": 10.02857142857143,
+    "classification": "Designed full triplet capacity and curved grip; not verified manufacturer jacket OD or per-core minimum bend radius",
+    "derivation": "Constructor directly uses r3.6/R35.1 and angle9/31.5. Arithmetic35.1-3.6=31.5 explains preserved inner capacity radius; no supplier derivation is present in these sources."
+  },
+  "older_source_plan": {
+    "project_bundle_OD_mm": 6,
+    "project_minimum_R_mm": 31.5,
+    "source14": "project reservation",
+    "supplier_cable_OD": null,
+    "supplier_dynamic_R": null
+  },
+  "example_bound_portion": {
+    "status": "ONE_CURRENT_PORTION_PROFILE",
+    "wire": "W006",
+    "selected_material": "SR-Cable-5264-3PIN-900mm-6PCS",
+    "project_radius_mm": 1.55,
+    "minimum_project_R_mm": 12.4,
+    "previous_independent_budget_mm": 1.55,
+    "basis": "Conservative existing portion envelope plus actual source caps",
+    "source_cap_conflicts": [],
+    "bought_wire_or_total_length_changed": false,
+    "supplier_OD_guaranteed": false,
+    "selected_piece_id": [
+      "W006/original_source",
+      "W006/source_owned_donor"
+    ],
+    "selected_sku": "SR-Cable-5264-3PIN-900mm-6PCS",
+    "selected_physical_unit": [
+      "SOURCE/FL3",
+      "DONOR/FL3"
+    ],
+    "selected_piece_binding_status": "BASELINE_SELECTED_K3_UNIT_NO_OLD_CUT_LENGTH_IMPORTED",
+    "stock_count_is_physical_unit_group_not_each_core": true
+  },
+  "consequence": "Do not freeze the circular capacity as a purchased common jacket. A different shared cross-section/fan may be proposed only with all full core profiles, explicit packing and bends/stock/real ports. This receipt does not select a smaller R, change geometry, waive supplier fit or clear any HOLD.",
+  "whole_plan_constraints": [
+    "Keep actual bought modules and rigid conflicts including W041 screw/Foot2 and MTA_FL/W052 head",
+    "Keep source ports, insulation, all full9 restraints, all factory units and changed-interface gates",
+    "Include G2/D_FR ten-source plenum, BodyOuter325x200x160 and Fore entry/cap outline HOLD",
+    "CROSSPORT correction1/1 exhausted; next proposal changes shared support/region topology and requires existing reviewer"
+  ],
+  "selected": false,
+  "N01_complete": false,
+  "physical_pass": false
+}

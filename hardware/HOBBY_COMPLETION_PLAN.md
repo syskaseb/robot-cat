@@ -28,9 +28,33 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: odczyt pełnej obsady górnejwarstwy dolnego przedziału z aktualnych
-części/G2/D_FR/F0/ramy/foot i36motion BEFORE następny wybór całego sztywnegozestawu.
-Nie kolejny zgadnięty punkt/offset ani grid. C1korekta1/1 wyczerpana/HOLD.
+NEXT: wspolna alokacja PARy W044/W052 + otwarta rama/foot/Fore9 i3source;
+nie kolejny offset zrodla. Najpierw caly plan do istniejacego reviewera.
+OpenFront zatrzymany219/870; pozostalych651 nie odbierac w odrzuconym ukladzie.
+3case/2factory maja99 odebranych motiontasks bezHOLD (tylko ten zakres).
+FL3 roundcapacity/W044 pose14 common4.294976 NIEdowodzi kontaktu zyly.
+Pelne3profile na TEJ SAMEJ osi/R35.1/inner31.5, stock bez zmian:
+pose14 gap.50779696<1.25/common0; nadalHOLD. Korekta1/1wykorzystana.
+Przekroj nie naprawia obecnegoW044. Pelne36bounds FL3 Xmax-6.135798;
+przeniesienie pary wejsc tylnych rozpatrzyc z plenum10/G2/D_FR/F0 i obrysem.
+NoweZIPS i immutable receipts+SHA zapisane w current_foreign_FL_front_open_foot_received.
+Preflight20.094+.094s/CPU68.953125+.171875; packedbuild2.5/10.953125,
+gate.156/.640625. Oldfoot/panel/source090cover i realne marginesy zachowane.
+PID18120/session74948 zywy; nadalcalyN01=0, bez nowegoCADprocesu.
+PACKING (tylko przekrój): pełneD/G3.1+V2.0 z odstępem≥.2 i krawędzią.4
+mieszczą się w5.9x7.2 (42.48mm2), bez zmiany axisR35.1/innerR31.5.
+Nie nowy kupny wymiar/routePASS; trzytriplet wymagają trzech obsad i przejść.
+Odczyt frontfan.453s/.453125CPU: FHY/outroot/S0/U1foundation i człony
+są kandydatami ograniczeń; bboxy nie dowodzą kontaktu ani pustej komory.
+PROFILE BASIS: Ø7.2/R35.1 to projektowa capacity tripletu, nie dowód kupnego
+wspólnego płaszcza ani R pojedynczej żyły. Konstruktor: R35.1−r3.6=31.5,
+pełne9 po wewnętrznym łuku; dotychczasowe R/OD/geometria/HOLD bez zmian.
+SKU5264/900: trzy cores pobierają MAX(blank), nie SUM; fit/port/izolacja pozostają.
+Źródło day31-astra-source-triplet-profile-basis.json+SHA w kanonie.
+Fore exact: entry9 poza obrysem226.836mm3, capgap2.636<3.25; nominal9gap3.850.
+Pełny oriented090 cover nadal10/11HOLD, nie kontakt. Frontbay ceiling−10.49285
+jest konserwatywną granicą zajętości, nie odebranym pustym miejscem.
+
 OBRYS: current JointCurrentOuter a6a6306d...daa28bc58, worldX[-141.5,183.5],
 Y±100,Z[-48,112],325x200x160/r12/margines3.25. LoopbayX[-168.5,-138],
 Y28..110 nie jest zawartym magazynem tułowia: pozaX27/Y10, bezwyjątkunóg.
