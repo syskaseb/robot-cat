@@ -1,0 +1,133 @@
+{
+  "id": "DAY31_NEARPORT_WHOLE_C0",
+  "status": "PROPOSED_NOT_SELECTED_REVIEW_REQUIRED",
+  "scope": "Fixed revision1 N01; score0/10. Not production N03/full N08/N09/N10.",
+  "cause": "Remote grips inherited from ends of designed90/180deg source arcs cause long rigid arms, Knee/W026 conflict and FL3 floor/foot pinch. Replace entire retention topology by full near-port grips and connected flexible joint regions, jointly with panel/foot load path and body fan.",
+  "review": {
+    "round": 1,
+    "max_corrections": 1,
+    "old_exhausted_strategies_retained": true
+  },
+  "runtime": {
+    "pid": 15852,
+    "session": 85730,
+    "pending_native_operation": "none"
+  },
+  "sources": [
+    {
+      "file": "day31-astra-current-carrier-source-view-receipt.json",
+      "sha256": "80d1f227cf102981e6e2fcf226fbcfe805e0cc86e10618845278d4275f47b52d"
+    },
+    {
+      "file": "day31-astra-current-owned-region-composition.json",
+      "sha256": "a33be5a8ac986c4dc6023d3ee6ee196b1909437e05a5a64f28b67b08d3de7d33"
+    },
+    {
+      "file": "day31-astra-source-current-carrier-0-50.json",
+      "sha256": "caa104b9ececde019f28fcc6bc831fed707b5754796c60a4a6e58aa9a611e84e"
+    },
+    {
+      "file": "day31-astra-port14-current-carrier-0-10.json",
+      "sha256": "88422042b5dd3a98b2e77ae756a4beade93acf35686dc33bc12fd902e1c480bc"
+    },
+    {
+      "file": "day31-astra-current60-full-outline-receipt.json",
+      "sha256": "ddd594aedbc1d80c2b723a1cfe83c571879b4ebdc470010bc99ccb03babc9f39"
+    },
+    {
+      "file": "day31-astra-U1far-current-function-stock-basis.json",
+      "sha256": "5e484e798ce852b4a2031a153d414d4718ab02746d93c2aa6fb4ba808b909b27"
+    },
+    {
+      "file": "day31-astra-U1far-Pi-current-recipient-budget.json",
+      "sha256": "f14aebe6acd15cc416501529a9c6a5728bff92c5e14d34e39b38bc6e7d8ffd2e"
+    },
+    {
+      "file": "day31-astra-nearport-whole-body-region-occupancy-read.json",
+      "sha256": "eb8114159424705e5bbed69d42248f009dbbeaea055d1cd8c3d3ee0bdd2435e7"
+    }
+  ],
+  "retained": "Selected SKU/R47/P0/E6/MAIN46.52/15drives/MG92B; current60 carrier, whole JPWM13 and both SOURCE/two MODULE220each, U1outboard146, bank-V-dock and received north/G3 interfaces. Body325x200x160/max200, margin3.25, foreign1.25. No inherited acceptance for changed geometry.",
+  "fl3": {
+    "real_ports_mm": [
+      [
+        -115.557566461,
+        29.1183740541,
+        11.6171948979
+      ],
+      [
+        -99.2609015215,
+        85.0372480334,
+        -5.22941628793
+      ],
+      [
+        -61.9772340527,
+        54.8190893453,
+        -63.6033232352
+      ]
+    ],
+    "fixed": "14mm real port provision; full OD7.2/R35.1/inner31.5; 9mm minimum inner grip land; full T18I100 closure25/head and source factory debits remain.",
+    "new_retention": "Full curved grip interval a0=1.25/35.1, a1=a0+9/31.5, close to real port rather than far quarter/half arc. FL1 proposed bend toward+Y, FL2 toward member+T, FL3 toward+X. Whole source/cap/band/head/insulation preflight before support detail.",
+    "anchors": "Reuse actual Hip039/104 and Knee118/117 paired saddle bearing faces; short common load path replaces long arms. Stock linked3x100 saddle units remain fully accounted. Hip foundation conflict not waived.",
+    "flexible_regions": "Three separate moving triplets connect retained real endpoints to received Fore9 D/G/V regions. No mandatory extra terminal at region seam. Full R/profile, actual motion36 grounded on four feet, joint slack and length limits must be received. No assumed rigid90/180deg curve through every pose.",
+    "length": "900mm MAX3cores source unit fit_blank=ceil5(path+20), not three units or compulsory unused remainder inside. Source-owned splices/factory ends remain; final trim only phase2."
+  },
+  "structure": {
+    "panel": "Retire obsolete whole north paddle X[-51.25,7.5],Y[26.5,40] only after protected-material/root proof; formerly supported old W044 Y33.25, now current W044 Y22 has current branch. Keep full floor2.3mm, actual four bores, all current branch/foot roots and W044 received gallery. Not a witness notch.",
+    "foot2": "Propose closed D-shaped middle stem only Z[-68.8,-4.5], full old outerR9 clipped X<=-70.5,Y<=42, drainR2 at[-77.5,37]. Preserve bottom5mm annulus, topbridge, bosses, hardware, ground height. Verify new stem load continuity to current footbridge and both real moving ports; candidate only.",
+    "rejection": "Any lost actual mounting/bore/ground datum or unresolved real source/rigid conflict rejects whole candidate; no floor shift."
+  },
+  "u1far": {
+    "retained": "Actual pads/board/carrier and received12 north departures; no inferred supplier pinout. Designed outgoing fan remains variable.",
+    "north_trunk": "9 logic/fine:6xOD1.4+3xOD0.8+8 gaps0.2+edges0.8 =>13.2x2.2, proposed Y95.5 fullmax96.6. Head3 distinct higher lane, no double capacity.",
+    "pi3": "Peel south beyond RR_P complete case Xmax30.625, raise above U1foundation before crossing inward. Three whole600 Pololu1871 preserved. Remaining393.650682/443.810872/476.178143 per source/recipient receipt.",
+    "pi_stock_pool": {
+      "bounds_mm": [
+        [
+          25.7,
+          18.7,
+          87.977
+        ],
+        [
+          54.3,
+          57.3,
+          94.977
+        ]
+      ],
+      "construction": "Accessible hand-laid racetracks centreXY(40,38), lane radii10/11.6/13.2, two10mm straights/turn, up to4 turns at1.6 pitch, full1.4OD, gap.2, edge.4.",
+      "capacities_mm": [
+        331.327,
+        371.539,
+        411.752
+      ],
+      "qualification": "UNVERIFIED capacity hypothesis. Transport+actual remainder must close each600 separately; partial last turn allowed, no cut. Current JPWM stock/SOURCEblack/ForeD3/Pi screw geometry must be checked."
+    },
+    "other_logic": "PWM5+GTAIL1 common profile8.4x2.2. Proposed north-to-east corridor X115 above USB, turn west before RRFlatBand Y-63.5, west corridor nearY-60.5/Z90.7. Full existing PWM/GTAIL recipient grips and pad identities retained; source/transport lengths pending.",
+    "head_tail": "XS13/23 head and XS33 tail distinguished. Proposed head pair via high east peripheral lane X127.6 then south Y-77.5/Z100, full2xOD2.1 profile5.2x2.9 and R12.6. Front neck entry must join existing accepted head guide below S0 without new storage outside body taper. Tail uses actual tail receiver. These are occupancy assumptions, not qualified routes."
+  },
+  "w052": {
+    "retain": "Full purchased case/factory88.981920/100, complete fork/grip/band/head and receiver prefix66.8340674; received518 motion not static or connection acceptance.",
+    "connection": "From current free cap[-135.792,-55.26955,45.26] tangent+Z via full R25.2 up/inboard to west-east common lower-than-PWM region aboutY-55.27/Z95.2; destination[78.111818,-50.821384,99.703372], tangent-X. Keep fullOD4.2 separate occupancy from parallel logic profile.",
+    "unknowns": "Actual PCB/fasteners/S1/SOURCEred/P_REAR clearances, both transitions, full installed length/slack and contour pending. No illustrative flexible curve treated as immutable obstacle."
+  },
+  "head_stock": "Reuse current_head_ROI/source-role and active head roll13mm authority. One JR300/three solder joins, original keyed factory250 and one mating plug. Nominal120 retained/180 outside-after-fit is prior estimate, must reconcile current guide-to-lap; sleeves20/lap8/6 insulation each end/full9 and two common T18I75.3. XB23 full capacityradius2.1 retained. Fifteen stock actors carried in their shared insulated region where functional; no fifteen invented holders or silent deletion. Existing guide coordinates/connection to proposed head pair still OPEN.",
+  "assembly": [
+    "Install modified load-bearing foot/panel with existing metal/bores and verify ground datum before modules.",
+    "Install current carrier, both sides of each MTA and complete purchased cases; lay preserved factory lengths through accessible open channels before caps.",
+    "Attach near-port saddles to actual Hip/Knee faces, plug real ports, retain full insulation/9mm land and head/closure budget, then hand-lay moving triplets into connected Fore9 regions with slack over grounded36.",
+    "Install U1/JPWM/Pi retained modules, lay north fan; install three full600 Pi units with separate stock lanes and remaining custom-source logic/head/tail branches. Open shared guides do not impose new terminal9.",
+    "Place oneJR300 head stock/sleeves and real head/tail recipients, then covers. ATO access and assembly tool envelopes must remain constructive; occasional partial disassembly allowed, no rapid-service criterion."
+  ],
+  "whole_trace": "Reuse current123identities/246endIDs and unchanged received body/leg/head modules, then map each changed endpoint to real port/grip, intermediate guide or accounting seam plus connected region and physical-unit length. OPEN mapping is not selection. Full current view/section after changed qualification, no geometry hidden for appearance.",
+  "known_open": [
+    "11 source/currentcarrier HOLDS incl Kneeprint/W026 .271889; FL3port/currentpanel min.874792 and old Foot2 .968329 remain until changed proof.",
+    "Near-port complete stock/insulation/anchor own fit not built; proposed foot/panel load-path preservation unverified.",
+    "U1far stock-pool and common body lanes occupancy/length assumptions; actual J8/PWM/USB/S0/fasteners preserved.",
+    "Head actual guide connection, W052 static/length connection, 123/246 full connected trace unresolved."
+  ],
+  "bounded_execution_after_GO": [
+    "Construct only complete three near-port stock interfaces plus functional foot/panel changes; full own/source/roots first, save archive+SHA immediately.",
+    "Receive changed foreign and actual36 ground/contour; reuse all unmodified received results. Reject rigid conflicts, classify covers honestly.",
+    "Qualify common U1far/Pi stock/head/W052 region occupancy and per-unit lengths/slack, then whole assembly/123trace/view. No production details or fullN08/N09 gate."
+  ]
+}
