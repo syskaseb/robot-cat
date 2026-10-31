@@ -1,0 +1,91 @@
+{
+  "status": "OWNCROSS_HOLD",
+  "rows": [
+    {
+      "part": "body:W044:band:-31.0",
+      "other": "current_panel",
+      "required_mm": 0.2,
+      "gap_mm": 0.19999999999998863,
+      "common_mm3": 0,
+      "hold": false,
+      "role": "same_body_retention_channel"
+    },
+    {
+      "part": "body:W044:band:-31.0",
+      "other": "W044:factory",
+      "gap_lower_mm": 2.2935569987189965,
+      "full_radius_mm": 2.1,
+      "required_mm": 0.2,
+      "role": "full_nylon_vs_insulated_prefix_existing_contract",
+      "hold": false
+    },
+    {
+      "part": "body:W044:head:-31.0",
+      "other": "current_panel",
+      "required_mm": 0.2,
+      "gap_mm": 1.3999999999999915,
+      "common_mm3": 0,
+      "hold": false,
+      "role": "same_body_retention_channel"
+    },
+    {
+      "part": "body:W044:head:-31.0",
+      "other": "source:W044:factory:head",
+      "required_mm": 1.25,
+      "gap_mm": 0.41590907356209394,
+      "common_mm3": 0,
+      "hold": true,
+      "role": "other_rigid_interface",
+      "witness": [
+        [
+          [
+            -28.5,
+            15.05,
+            -34.3
+          ],
+          [
+            -28.3860686282393,
+            15.05,
+            -34.7
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "body:W044:head:-31.0",
+      "other": "bought:MTA_FL:case",
+      "required_mm": 1.25,
+      "gap_mm": 1.0,
+      "common_mm3": 0,
+      "hold": true,
+      "role": "other_rigid_interface",
+      "witness": [
+        [
+          [
+            -33.5,
+            10.75,
+            -29.0
+          ],
+          [
+            -33.5,
+            10.75,
+            -28.0
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "body:W044:head:-31.0",
+      "other": "W044:factory",
+      "gap_lower_mm": 5.489795781178833,
+      "full_radius_mm": 2.1,
+      "required_mm": 0.2,
+      "role": "full_nylon_vs_insulated_prefix_existing_contract",
+      "hold": false
+    }
+  ],
+  "scope": "Two moved stock actors vs current complete carrier and all19fullprefixes; prior own10 and removed-only print geometry reused",
+  "operation_seconds": 0.17199999999138527,
+  "process_cpu_seconds": 0.203125,
+  "N01_complete": false
+}
