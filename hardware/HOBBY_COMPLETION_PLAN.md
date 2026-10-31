@@ -28,16 +28,34 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: jedna wspólna alokacja 3source/siodeł/loopbay/Fore9 z rzeczywistą
-kasetąW026, BellyFoot2, dolnympanelem i podporąU1; nie kolejny exactwire.
-Pełne202foreign odebrane w33.704+4.781s /194.109375+15.078125CPU.
-Raw39HOLD, sklasyfikować wg funkcji; nie39dowiedzionychkolizji.
-Rzeczywiste: FL3cap/stock/prefix z EndBayW026 i LowerBay:ForePanel;
-Knee:root_chain_band/BellyFoot2 9.940284mm3; Hipband/U1foundation.432234mm3.
-Kneeprint zW026; BellyFoot2gap.706267 i FL3regiongap.911303 <1.25.
-HeadRear/FrameFront/FootHardware strictinvalid: brak kontaktu, pełne covers
-z rzeczywistych danych źródłowych do rozstrzygnięcia, bez retry/healing.
-Receipt day31-astra-fl-common-closure-static-foreign-receipt.json SHA wkanonie.
+NEXT: zmiana całej topologii retencji/racka po odrzuconym preflighcie;
+nie kończyćN01, nie korygować położeniaW044 samym offsetem.
+FL-LOWER-POWER-RACK-COMMON-31 ODRZUCONE: actualW044/Ankle095 wpose23
+common.01649413885mm3. Odebrano125/317; pozostałe192 świadomie nieodebrane.
+45.843s/259.125CPU +3.187s/11.75CPU; pierwszychunk przekroczył20s woperacji.
+47aktory strictreopen2.313s/3.65625CPU, ZIPa28eaebb...6a5f3e0 oraz immutable
+pełny preflightreceipt+SHA zachowane. Nowyrack/detail NIEzbudowany.
+Rawprinted/stock/invalidcoverHOLDy pozostają; transformed starecustomgrips
+nie są odebranym nowymprefiksem. ActualkupnyW044/Ankle sam odrzuca układ.
+Jedyna korekta po underpanelHOLD wyczerpana; nie resetować przez nową nazwę.
+Pełny immutable proposal day31-astra-lower-power-rack-whole-proposal.json,
+SHA71342b6ca76e5971a47bf5b48bbe5f6680b2989d2a3e440770ced2887219fdff.
+Cały bankFL/W026/W041+G2 iW044/foot/panel/3source/Fore9, nie wybranyN01;
+GO preflightu wykorzystane; brak zgody odbiorczej układu/stocku.
+Jedna CAŁA alokacja dolnego zasilania/mocowań i3source/Fore9;
+nie kolejny cap ani samo wycinanie panelu. Nowy fakt zamyka strategię
+panel/foot-only: aktualny FL3 quarter w36poses vs actualMTA_FL ma37actual/
+107bounds; capacitycommonmax985.215817mm3, capgapmin.714677 (commoncap0).
+8.922soperacji/17.734375CPU. Immutable fl3-current-mta-motion receipt+SHA wkanonie.
+PositiveForePanel niesie też rzeczywisty W044case/grips/stock: nie wolno
+wyciąć tej podpory bez pełnej nowej alokacji tej samej funkcji.
+Pełny14 pozostaje: źródło jawnie project_reservation/provisionaldatum, nie
+potwierdzone kupne14mm. Nie zmieniono portchoice0/R/OD/pinoutu/SKU.
+Port14:421bounds/11actual,5marginHOLD/common0;Foot2.968329,Panelmin.874792.
+Nowy wariant underpanel NIEzbudowany/HOLDdynamic; jedna korekta całości.
+Wspólny ujemny bank F_FL/W026/W041 wymaga pełnej dyspozycji G2 przy wejściu,
+W044 i rzeczywistych kotew; najpierw cała propozycja/review, nie lokalny wire.
+Stare202/39rawHOLD i wszystkie negatywy zachowane, bez powtórki.
 31source currentcomposition: fullsource base + Hip passage + memberC1 six
 + commonclosure12 overrides;Pozostałe aktory byte-reused, nie duplikować.
 C1długi powrót +T/rail8x4 zachowany; stary head/print11.5275 odrzucony.
