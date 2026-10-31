@@ -1,0 +1,196 @@
+{
+  "status": "LOADPATH_SAVED_OWNER_PREFLIGHT_PENDING_NOT_SELECTED",
+  "archive": "day31-astra-nearport-whole-c0-loadpath.breps.zip",
+  "archive_sha256": "b62436f31675e1bc014ea7cad0c44ec4cca27c712fc8f74d2e26d0ae97956bc1",
+  "geometry": [
+    {
+      "name": "FL1:delta",
+      "entry": "000.brep",
+      "sha256": "c4bbf772956b39100d448efede4669827324644d6805ac718e5910707f925b02"
+    },
+    {
+      "name": "FL2:delta",
+      "entry": "001.brep",
+      "sha256": "d8dc8fb899553b398aa85cba9df87639b443ff9afc0b73df1e7b118e4a613662"
+    },
+    {
+      "name": "FL3:delta",
+      "entry": "002.brep",
+      "sha256": "c85d660d6536648c66c186a7ee7ac9570de36ee2e751dc7efcb6e183981f2124"
+    },
+    {
+      "name": "Hip:print",
+      "entry": "003.brep",
+      "sha256": "986419808f354c49e672895bbc87b6d1a6534f4e0bb782aee90228b2cce5cf4b"
+    },
+    {
+      "name": "Knee:print",
+      "entry": "004.brep",
+      "sha256": "7c26ac1a59be6e3d894d2cda8ad5ac7dce2e81342f9e1b4e92836ea16989eedf"
+    }
+  ],
+  "recipes": {
+    "FL1": {
+      "owner": "Hip",
+      "points_local": [
+        [
+          -13.5,
+          0,
+          -3
+        ],
+        [
+          -13.5,
+          21,
+          -3
+        ],
+        [
+          -13.5,
+          21,
+          24.913072161961964
+        ],
+        [
+          -9.576669234194146,
+          31.391084326535022,
+          24.913072161961964
+        ]
+      ],
+      "points_world": [
+        [
+          -104.397566363,
+          56.77128638506377,
+          -0.8527030926914048
+        ],
+        [
+          -125.397566363,
+          56.77128638506377,
+          -0.8527030926914048
+        ],
+        [
+          -125.397566363,
+          29.12986232259361,
+          3.032045717411048
+        ],
+        [
+          -135.78865068953502,
+          29.675884431362856,
+          6.9171948978999955
+        ]
+      ],
+      "radius_mm": 1.5,
+      "saddle_root_common_mm3": 35.3429173528853,
+      "seat_common_mm3": 23.090838629440345,
+      "basis": "Whole shared saddle on actual plate faces, branch outside member normal plane then along member to full near-port grip; owner preflight required before acceptance"
+    },
+    "FL2": {
+      "owner": "Knee",
+      "points_local": [
+        [
+          -10,
+          0,
+          -36.5
+        ],
+        [
+          -10,
+          0,
+          -45
+        ],
+        [
+          -10,
+          -39.79647452008104,
+          -45
+        ],
+        [
+          10.273263354074464,
+          -39.79647452008104,
+          -48.63108422852463
+        ]
+      ],
+      "points_world": [
+        [
+          -62.10876969994598,
+          90.26820890785399,
+          -26.210097590992525
+        ],
+        [
+          -62.10876969994598,
+          98.68548749215734,
+          -27.39306894915312
+        ],
+        [
+          -87.68945043065885,
+          102.92830029970006,
+          2.7961128393774786
+        ],
+        [
+          -103.21967116693577,
+          104.71042637146112,
+          -10.613818191211877
+        ]
+      ],
+      "radius_mm": 1.5,
+      "saddle_root_common_raw_mm3": 0.0,
+      "root_positive_contained_witness_mm3": 1.0000000000000007,
+      "witness_outside_root_mm3": 0.0,
+      "witness_outside_arm_mm3": 0.0,
+      "seat_common_mm3": 13.907276020561632,
+      "basis": "Whole shared saddle on actual plate faces, branch outside member normal plane then along member to full near-port grip; owner preflight required before acceptance; raw common may fail at tangent sphere, contained positive witness and final strict one-solid union required"
+    },
+    "FL3": {
+      "owner": "Knee",
+      "points_local": [
+        [
+          -10,
+          0,
+          1.5
+        ],
+        [
+          -10,
+          0,
+          8
+        ],
+        [
+          -10,
+          36.18875111975767,
+          8
+        ],
+        [
+          19.466482014273087,
+          36.18875111975767,
+          13.631084228530419
+        ]
+      ],
+      "points_world": [
+        [
+          -62.10876969994598,
+          52.63802229567434,
+          -20.921519754509863
+        ],
+        [
+          -62.10876969994598,
+          46.20127984885413,
+          -20.01689459826941
+        ],
+        [
+          -38.84708887013704,
+          42.34309646473534,
+          -47.46929583303159
+        ],
+        [
+          -61.41972367543707,
+          34.130779063248,
+          -65.44196043041588
+        ]
+      ],
+      "radius_mm": 1.5,
+      "saddle_root_common_raw_mm3": 17.671468316039018,
+      "root_positive_contained_witness_mm3": 1.0000000000000002,
+      "witness_outside_root_mm3": 0.0,
+      "witness_outside_arm_mm3": 0.0,
+      "seat_common_mm3": 39.24820176774154,
+      "basis": "Whole shared saddle on actual plate faces, branch outside member normal plane then along member to full near-port grip; owner preflight required before acceptance; raw common may fail at tangent sphere, contained positive witness and final strict one-solid union required"
+    }
+  },
+  "operation_seconds": 3.7339999999967404,
+  "process_cpu_seconds": 12.25,
+  "N01_complete": false
+}
