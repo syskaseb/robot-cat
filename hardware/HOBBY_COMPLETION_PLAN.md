@@ -1,5 +1,90 @@
 # Domknięcie hobbystycznego robot-cat
 
+## Bieżąca karta N01 — 31.10.2026, wspólna przestrzeń
+
+CEL: zweryfikowany CAŁY N01=1/10=10%, bez terminu godzinowego. Nadal0/10;
+historyczne20/20 dokumentacji otwartego prototypu osobno. Nie zaczynaćN02.
+Okno n01-one-of-ten-20261029-result: enabled=true, stage_completed=false.
+Lokalny wynik/commit/odrzucenie nie zamyka pracy. Wcześniejsze zamknięcie tylko
+przy niedostępnym/wyczerpanym zwykłym limicie lub braku bezpiecznej niezależnej
+pracy po alternatywach wymagającej nowej zgody. Wtedy zapisz/odbierz własne
+obliczenia i wyłącz enabled. Bez zakupów/resetów/power/push/ROS/slicera/
+GUARD/BMS/schedule/WORK_HANDOFF/Claude/okresowych alertów i maili.
+WYJĄTEK: dopiero po faktycznym CAŁYM N01 jeden Gmail syska.seb@gmail.com;
+potwierdzićSENT/message_id, przy wyniku nieznanym sprawdzićWysłane przed retry.
+
+ZAKRES: stały revision1 w appearance-checkpoint.json, bez nowej zmiany zgody.
+Jeden WYBRANY konstruktywny CAŁY układ ramy/banku/modułów/obu stron4MTA,
+123odcinków/246końców, pełnej obsady chwytów/stocku/kotew/narzędzi/osłon,
+połączonych regionów z długością/luzem i wykonalnym montażem/ruchiem/obrysem.
+Znane rzeczywiste blokery usunąć; sam tekst/lista/widok/liczba testów nie daje
+punktu. N03 produkcyjne mocowania, N04–N05 pełne trasy i N08–N09 pełny odbiór
+montażu/trajektorii są osobnymi etapami. Nie importować ich całych do N01.
+
+ROLE: Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0/Astra medium = jedyny CAD.
+Reviewer01a16f0e-ac12-7973-82ba-99579f2b681e/local/Astra medium read-only.
+Parent koordynacja/integracja. Bez nowych agentów i równoległego CAD.
+ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
+Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
+
+KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
+NEXT: najpierw odbierz G3 changed integration według aktualnego kursora
+(94 candidates, porcje20s); jeśli już odebrane, NIE powtarzaj. Potem CAŁE
+U1/FL9/physical-unit budgets, połączone bodylinks, głowa oraz123/246.
+Bieżące kotwice: U1CompleteShortCarrier30, NorthMixedC1Print31,
+Module4JointCapsule31; BankVGuided30/CentralVParts30/DockPortal30.
+Odebrane scoped: bank–V–dock–pełnaW029; bank/FLG4 i D_FL/openPier3 z pełnymi
+prefiksami/opaskami i początkowym dojściem narzędzia. Nie odtwarzać240/5/own.
+North jointcapacity scoped CLOSED: pełne2xOD2.1 MODULE, centra4, kapsuła
+podzbiorem poprzedniego coveru; bez zmiany osi/stocku, Lower2gap1.801529.
+Oba końce missing/extra0; ZIP day31-astra-north-joint-module-capacity.breps.zip,
+SHA9f87ce7ff4f84a92c206d96d1d5e6b28bf3187ff15c8326f7903481029abaf3b.
+C1print zachowuje roots/1solid/83.16band i Fine3common0; poprzednie99/99,
+634/634,118/118 oraz odrzucenia/liczniki pozostają w kanonie/historii.
+Nie są aktualnymi nierozstrzygniętymi kolizjami nowego układu automatycznie.
+Historyczne UpperPlenum, SharedNine/FixedUpperBridge/old634 NIE są selekcją.
+
+HEAD3 roll: current_foreign_active_head_roll_authority wskazuje aktualny
+current_foreign_head3_shared_transport_proof.proof[-1]: smoothcosine13mm,
+Rmin15.033191. Dawne uniform12mm/roll_bounds w zamrożonych proposals ODRZUCONE.
+
+GŁOWA: 15 dawnych aktorów mają source-role mapping, nie15 nowych uchwytów.
+Jedna JR300/3żyły/3solderjoins; nie900mm wspólnej puli. Źródłowy plan dopuszcza
+trim far extension end dopiero po przymiarce fazy2; zachować keyedfactoryplug,
+JRmatingplug, pełny factory250, prefiksy/allowances. Odpad nie jest zapasem
+obowiązkowo instalowanym w kocie. Nie przenosić wyjątku na chronione4MTA.
+Widok1289 day30-astra-common-v-whole-HOLD.png nie jest wyborem N01;
+W029 w podpisie sprzed korekty, nie odtwarzać renderu teraz. DwustronnyU1
+source-only ma141 nazwanych aktorów, nie pełny146 odbiór ani nowy fan/pinout.
+
+BRAMKA: zamocowane moduły i szerokie dostępne wspólne regiony; exactwire
+wyłącznie nazwane ryzyko lokalne. Regionseam nie jest nowym portem/chwytem9.
+Swobodna krzywa nie jest sztywną przeszkodą; zachować pełne profile/obsadę,
+R/stock/fabryczne ograniczenia i rzeczywiste kolizje. Bbox nie dowodzi kontaktu.
+Po2 przyczynowych odrzuceniach zmiana topologii/kolejności/udowodnionego
+założenia, bez mikrooffsetów i resetu licznika nową turą/skryptem/modelem.
+Czytaj skillCAD i lessons26/29/30.10; własne przewody/stock/union przed obcymi.
+Co20–30min w tej karcie zamknięty problem albo nowy fakt z konsekwencją.
+
+IO: jawne UTF8 przy KAŻDYM odczycie/zapisie, atomic replace, aktualny limit5MB.
+Wzrost od poprawnych receipts nie jest starą awariąCP1252. Przy potrzebie
+przenieś pełny zamknięty receipt do nazwanego pliku w istniejącym pakiecie
+zSHA i jawnymref; zachowaj negatywy, bez nowego loggera i bez powtarzaniaCAD.
+Geometria/SHA przed zależnym krokiem. Parent1b5defdb zachowuje ostatnie nowe
+ZIPy/widoki; c2ae4231 = udokumentowany JRtrim. Historyczny build-error receipt
+ma original_container_sha256; obecny kontener zachowuje35/35 tych samych
+BRep SHA, błąd/negatywy bez zmian. Bez ponownego odzyskiwania/scanu archiwów.
+
+INWARIANTY: R47/P0/E6/15napędów/wymienneMG92B/325x200x160/max200mm/
+MAIN46.52/margines256cube, wybrane SKU i izolacja bez zmian. Bez physicalPASS.
+Czas/limit przed kosztowną operacją i<=10min; last_account_usage w runtimehook
+jest źródłem odczytu, bez resetów. Czasy operacji/CPU osobno od oczekiwania.
+Własne sprawdzone checkpointy commitować lokalnie bez cudzych zmian.
+
+## Historia okna RL 29.10.2026
+
+<details><summary>Archiwalna karta sprzed konsolidacji 31.10; SHA256 79362fb44881fa4930c0bb7bfdf0b83cc5d1c2b87b26c24a714d198cbe1c841c</summary>
+
 ## Bieżąca karta N01 — wspólny kanał, rzeczywiste odbiorniki, 30.10.2026
 
 CEL: całyN01=1/10 bez terminu. Nadal0/10; historyczne20/20 osobno.
@@ -23,21 +108,25 @@ Stare18736/70577 i20608/49151 martwe. Nie restartować żywego18120, bezRPC.
 
 KANON: hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/
 feline-enclosure/day30-four-factory-common-regions.json (jawneUTF8, limit5MB).
-NEXT: całyN01, U1 wspólna wschodnia płaszczyzna zamiast indywidualnych
-powrotów na zachód. Dwustronnywidok141 obejrzany, nie146odbiór/pinout.
-J8edge140/140 odebrane4.391s/CPU8.15625:3fine/J6actualcommon.00050627443.
-XL10north/up odebrany. J8-side2porażki/reviewC1zużyte; nie kolejnyoffset.
-Nowyplan: zachowane piony po eastface wszystkichheaderów, bezpośredni
-skręt+north i wspólny region3x.8/gap.2/edges.4, bez zachodnich haków.
-Actual146targetedbounds: w tympolu tylkoJ8 iPWM screw; całe łuki doodbioru.
-G3podłoga naprawiona: regiongap.4,1solid, chronionymateriałlost0,
-0.703s/CPU1.375; ZIPday30-astra-g3-open-descent-support.breps.zip.
-Źródła: originalcriticalZIP/outerheadC1coverZIP/XL10J8edgeZIP;
-J8edge12changedstrictreopen2.2665s/CPU5.609375. Nie powtarzaćodebranych.
-HeadRmin12.743116, validfullcovers; wcześniejszeC0sweeps odrzucone.
-JR1x300/3joins, nominal120poprzymiarce/180pozarobotem; factory250osobno.
-G3/U1wholefreebay+MODULE/headguidance/bodylinks/unitbudgets/123/246OPEN.
-Samodebrane źródło niepunkt; N01zero, hookaktywny, bezN03.
+NEXT: receive G3 changed integration94candidates (20s chunks), then wholeU1/FL9
+physical-unit lengths/connected bodylinks, headstock and123/246.
+G3 known oldfloor removed; currentwholeprint/146U1/bank/receiver source
+need actual changed receipt. Prior G3/V.2 andGVhead1.4 reused, no repeat.
+North jointcapacity scoped CLOSED, notwholeN01. MODULE4 two fullOD2.1,
+centres4 capsule replaces obsolete circularR3.05 cover ONLY; noaxis/stockchange.
+FullLower2 gap1.801529mm, addedoutsideoldcover0; bothendprofiles missing/extra0.
+0.578s/CPU1.671875 plusendpoint0.109s/CPU.09375; strictreopen received.
+ZIP day31-astra-north-joint-module-capacity.breps.zip
+SHA9f87ce7ff4f84a92c206d96d1d5e6b28bf3187ff15c8326f7903481029abaf3b.
+C1print1solid/loss0/roots8/2.44/2.44/full83.16band; Fine3common0.
+C1archive day31-astra-north-mixed-correction1.breps.zip,2.640s/CPU4.953125.
+Prior99/99 and raw2HOLD retained; resolved by C1print+jointcapacity, no repeat.
+ReviewGO01a18f5c-a453-71f0-a5f1-7ce1a03295a0; hash discrepancy only spaced
+vscompact JSON (both recomputed), read object unchanged. Oldcounts retained.
+Current carrier=U1CompleteShortCarrier30; print=NorthMixedC1Print31,
+MODULE4=Module4JointCapsule31; historical fan/UpperPlenum not current.
+Other146source/4MTA/135fine/204/634 unchanged evidence not repeated.
+N01zero/hookenabled/no deadline; notphysicalPASS, head/body/global123OPEN.
 Bank–V–dock–W029 scoped odebrane, niepowtarzać240/5/own:
 240changed14.485s/CPU32.15625, ownrootbank2.266s/CPU4.171875,
 dockwhole6.172s/CPU13.453125; pozostałe5=.937s/CPU1.296875.
@@ -135,7 +224,9 @@ przypięty; przyczynąbyłoCP1252→UTF8, nie rekurencja. Nie wczytywaćcałego.
 Źródło last_account_usage=hook, realread przedkosztowną i<=10min, bezresetu.
 Nie raportowaćwall jakoCPU; lokalny wynik niezamykaokna aniN01.
 
-## Historia okna RL 29.10.2026
+
+</details>
+
 ### Archiwum karty sprzed porządkowania po odzysku UTF-8 — nie instrukcja wznowienia
 
 # Domknięcie hobbystycznego robot-cat
