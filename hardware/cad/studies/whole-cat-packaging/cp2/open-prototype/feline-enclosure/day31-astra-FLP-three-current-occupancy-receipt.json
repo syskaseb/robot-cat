@@ -1,0 +1,224 @@
+{
+  "status": "CURRENT_THREE_PROFILE_OCCUPANCY_HOLD",
+  "source_constructor": "Temp/robot-cat26-shared-fans.py + robot-cat26-final-rack-regions.py",
+  "source_region": "day26-current-underframe-plan.json FL_P_three_bank",
+  "identity_source": "n01-shared-routing-boundaries.json FL_P.2/.3/.4=W027/W028/W029, portspacing4.75 mapped into currentcase source recipe",
+  "unchanged": {
+    "port_Y": -9.5,
+    "port_Z": -20.5,
+    "port_X": [
+      16.25,
+      21,
+      25.75
+    ],
+    "land_mm": 9,
+    "OD_mm": 3.1,
+    "R_mm": 12.4,
+    "stock": true
+  },
+  "old_continuous_cover_HOLD_preserved": true,
+  "rows": [
+    {
+      "wire": "W027",
+      "other": "PairedRearC1:W044:case",
+      "gap_mm": 3.5282722911807234,
+      "required_mm": 1.25,
+      "common_mm3": 0,
+      "hold": false,
+      "strict_subset_outside_old_mm3": 0.0,
+      "witnesses": [
+        [
+          [
+            17.025,
+            -32.242339375865875,
+            -32.9
+          ],
+          [
+            18.789136145590362,
+            -35.297912811497106,
+            -32.9
+          ]
+        ]
+      ],
+      "physical_wire_contact_NOT_proved": true
+    },
+    {
+      "wire": "W027",
+      "other": "PairedRearC1:W052:case",
+      "gap_mm": 44.00206763443006,
+      "required_mm": 1.25,
+      "common_mm3": 0,
+      "hold": false,
+      "strict_subset_outside_old_mm3": 0.0,
+      "witnesses": [
+        [
+          [
+            17.06069152824815,
+            -9.5,
+            -21.821090173313948
+          ],
+          [
+            21.803564560440506,
+            33.55753175473089,
+            -29.550001525878514
+          ]
+        ]
+      ],
+      "physical_wire_contact_NOT_proved": true
+    },
+    {
+      "wire": "W028",
+      "other": "PairedRearC1:W044:case",
+      "gap_mm": 1.226362913993246,
+      "required_mm": 1.25,
+      "common_mm3": 0,
+      "hold": true,
+      "strict_subset_outside_old_mm3": 0.0,
+      "witnesses": [
+        [
+          [
+            21.448617528495706,
+            -32.383658421984784,
+            -32.9
+          ],
+          [
+            21.80356456044051,
+            -33.55753175473052,
+            -32.9
+          ]
+        ]
+      ],
+      "physical_wire_contact_NOT_proved": true
+    },
+    {
+      "wire": "W028",
+      "other": "PairedRearC1:W052:case",
+      "gap_mm": 43.71197095300952,
+      "required_mm": 1.25,
+      "common_mm3": 0,
+      "hold": false,
+      "strict_subset_outside_old_mm3": 0.0,
+      "witnesses": [
+        [
+          [
+            21.137087720302656,
+            -9.5,
+            -22.043925826243676
+          ],
+          [
+            21.803564560440506,
+            33.55753175473089,
+            -29.550001525878514
+          ]
+        ]
+      ],
+      "physical_wire_contact_NOT_proved": true
+    },
+    {
+      "wire": "W029",
+      "other": "PairedRearC1:W044:case",
+      "gap_mm": 3.207817536015039,
+      "required_mm": 1.25,
+      "common_mm3": 0,
+      "hold": false,
+      "strict_subset_outside_old_mm3": 0.0,
+      "witnesses": [
+        [
+          [
+            24.464331752948947,
+            -31.765769691387185,
+            -32.9
+          ],
+          [
+            21.80356456044051,
+            -33.55753175473052,
+            -32.9
+          ]
+        ]
+      ],
+      "physical_wire_contact_NOT_proved": true
+    },
+    {
+      "wire": "W029",
+      "other": "PairedRearC1:W052:case",
+      "gap_mm": 43.85457790422696,
+      "required_mm": 1.25,
+      "common_mm3": 0,
+      "hold": false,
+      "strict_subset_outside_old_mm3": 0.0,
+      "witnesses": [
+        [
+          [
+            25.13043640654622,
+            -9.5,
+            -21.920788849078793
+          ],
+          [
+            21.803564560440506,
+            33.55753175473089,
+            -29.550001525878514
+          ]
+        ]
+      ],
+      "physical_wire_contact_NOT_proved": true
+    }
+  ],
+  "geometry": [
+    {
+      "name": "W027",
+      "entry": "0.brep",
+      "sha256": "9ebc9fe4f21e2ff1f2c60e7925040fef5e91ca7f087b2af369516629b3fcce54",
+      "bounds": [
+        [
+          14.7,
+          -33.599371194078884,
+          -32.90000000000004
+        ],
+        [
+          17.8,
+          -9.5,
+          -17.800628805921104
+        ]
+      ]
+    },
+    {
+      "name": "W028",
+      "entry": "1.brep",
+      "sha256": "2c61b8ecf8e504c48b64c69befa75f9cc03b113fe0acbeba22a8dcb3f375334c",
+      "bounds": [
+        [
+          19.45,
+          -33.599371194078884,
+          -32.90000000000004
+        ],
+        [
+          22.55,
+          -9.5,
+          -17.800628805921104
+        ]
+      ]
+    },
+    {
+      "name": "W029",
+      "entry": "2.brep",
+      "sha256": "56626166c29ca0648e99aa07a19a8f38e9d5292f0ebaf384b2b6c5c655bf2c79",
+      "bounds": [
+        [
+          24.2,
+          -33.599371194078884,
+          -32.90000000000004
+        ],
+        [
+          27.3,
+          -9.5,
+          -17.800628805921104
+        ]
+      ]
+    }
+  ],
+  "N01_complete": false,
+  "archive": "day31-astra-FLP-three-current-occupancy.breps.zip",
+  "archive_sha256": "bbd74a2d4ca21f1cbb90697fc0ed588af6239a0558679f29c18cdd11ff536687",
+  "operation_seconds": 0.375,
+  "process_cpu_seconds": 0.640625
+}

@@ -28,8 +28,29 @@ ACTIVE: FreeCAD1.1.3 PID18120/session74948 bezpośrednio u Banacha.
 Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: wspolna alokacja PARy W044/W052 + otwarta rama/foot/Fore9 i3source;
-nie kolejny offset zrodla. Najpierw caly plan do istniejacego reviewera.
+NEXT: wspólny otwarty carrier: rzeczywiste podparcia FL_P i obu rearcase,
+pełne retencje i połączenia do istniejących rearflanges; potem changedforeign
+i pełne3source/Fore9/foot/outline36, U1far/head/global123. N01 nadal0.
+COMMON-FIVE-GRIP-C1 reviewGO odebrany, korekta1/1 WYKORZYSTANA.
+3pełne source9INNER poR12.4 oraz factory C1 zachowane; min gap.225634.
+5pełnych T18I:80.8+4x71.4/100 EACH; casebodyretention osobnoOPEN.
+Główki skierowane na zewnątrz, bez zmiany band/source/case. Ownkontakt
+actualface12.5mm2 EACH potwierdzony; solid.common.Area0 nie był brakiem styku.
+Pełny W052curve+r4.351 oddzielony2.193794; coarseprintboxgap.187485<.2
+nadalHOLD alokacji materiału, nie kontakt żyły. Nie przesuwać główek/osi.
+Evidence.250s/.453125CPU; headbuild.360/1.640625; stock1.016/3.84375.
+Wszystkie ZIPy/receipts i SHAref zachowane, nie zależą od RAM.
+C1gate12/67 stop: W044/FL_P_three_bank gap1.10753175<1.25,common0.
+To rezerwa pelnych3wyjsc, nie dowodkontaktuelastycznejzyly.55parniepowtarzac.
+Fullpair/factory split zapisane8geometries ZIP9850c268...0b7e958;
+fullcurve+radius2.101/4.351 to jawny kompletny cover, nie sama os bez grubosci.
+92.935216/100each,Rminanal30.30265/sampled30.50136,innergrip>=9.30699.
+Gate1.672s/4.796875CPU; build/reopen.109/.078125. Unia primitives przerwana
+jednymCtrlC:848.61s/800.859375CPU, bez straty native18120/74948/RAM.
+Bledy spline sweepBOPC0 zachowane; N01nadal0, nie uznawac ich za kontakt.
+Funkcje carrier/FL_P/XT60/W075/W042 pozostajaOPEN do realnegozastepstwa.
+Niezalezny currentU1far basis zapisany:12/24IDs,5grup/fullprofiles,3Piunits600;
+nie odebrane trasy/luz. Dalejcalyfront+U1far/head/global123, bezN03.
 OpenFront zatrzymany219/870; pozostalych651 nie odbierac w odrzuconym ukladzie.
 3case/2factory maja99 odebranych motiontasks bezHOLD (tylko ten zakres).
 FL3 roundcapacity/W044 pose14 common4.294976 NIEdowodzi kontaktu zyly.

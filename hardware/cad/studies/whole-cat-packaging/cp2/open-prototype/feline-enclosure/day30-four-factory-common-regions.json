@@ -159294,8 +159294,204 @@
   "current_foreign_FL_paired_rear_input_proposal": {
     "file": "day31-astra-paired-rear-input-whole-proposal.json",
     "sha256": "f8bb396b728afcd39a0a83eaba22005166b70e6a0347ef9dadac31a4fb701fd6",
-    "status": "REVIEW_PENDING",
+    "status": "HOLD13_OF43_PLENUM_FACTORY_CARRIER",
     "selected": false,
+    "N01_complete": false,
+    "review_turn": "01a19090-35d4-7752-8f27-e3950892d059",
+    "corrections_used": 0,
+    "max_corrections": 1
+  },
+  "current_foreign_FL_paired_rear_input_received": {
+    "status": "HOLD_NOT_SELECTED",
+    "cursor": 13,
+    "total": 43,
+    "operation_seconds": 3.125,
+    "process_cpu_seconds": 8.28125,
+    "build_save_seconds": 1.187,
+    "build_save_cpu_seconds": 1.6875,
+    "artifacts": [
+      {
+        "file": "day31-astra-paired-rear-input-preflight-receipt.json",
+        "sha256": "f6829b87b0a91dfcfbfe5b7348468ebfd2a78e4c0febf4bac5b726c66d290125"
+      },
+      {
+        "file": "day31-astra-paired-rear-input-preflight-geometry.json",
+        "sha256": "d3b096132c92b890ae736d24692aa1bfe829232b73bc0c2ebf780d919df6188c"
+      },
+      {
+        "file": "day31-astra-paired-rear-input-preflight.breps.zip",
+        "sha256": "ae2b3bff48473fcb0714a620b64886ee97475e281c4d5d71ca2752d7f49e8759"
+      },
+      {
+        "file": "day31-astra-rear-side-bay-occupied-read.json",
+        "sha256": "3b4b1be2c89be81215a722c11a8e626d2089352a53e35bc23e6a0afbff2ceb42"
+      }
+    ],
     "N01_complete": false
+  },
+  "current_foreign_FL_paired_rear_input_correction1": {
+    "file": "day31-astra-paired-rear-input-whole-c1-proposal.json",
+    "sha256": "ffa950819669cd0fae7a9f6166f7c465260048bf6284108f2fd03b8741e75ed8",
+    "status": "HOLD12_OF67_FL_P_THREE_BANK_CAPACITY_MARGIN_CORRECTION_EXHAUSTED",
+    "correction_used": 1,
+    "max": 1,
+    "N01_complete": false,
+    "review_turn": "01a19095-8fb1-75c1-869b-94791013ae32",
+    "representation_status": {
+      "state": "STRICT_CURVES_PLUS_EXPLICIT_FULL_RADIUS_SAVED_REOPENED_RECEIVED",
+      "native_pid": 18120,
+      "session_id": 74948,
+      "axis_max_sample_error_mm": 1.91682886272531e-05,
+      "axis_min_sample_radius_mm": 30.501363449898175,
+      "axis_arc_length_mm": 69.43521620827849,
+      "sweep_error": "strict BOP GeomAbs_C0 for Frenet and corrected trihedron; no spatial gate ran",
+      "complete_cover_basis": "Analytic second derivative chord-deviation upper bound added to unchanged full2.1/4.35 radii. Union of cylinders/spheres encloses whole analytic curve, not healing/cutting source.",
+      "N01_complete": false,
+      "native_preserved_after_one_interrupt": true
+    },
+    "cursor": 12,
+    "total": 67,
+    "unreceived": 55,
+    "artifacts": [
+      {
+        "file": "day31-astra-paired-rear-input-c1-preflight-receipt.json",
+        "sha256": "7264610b43e1efd9dc004670c5bfa169f0915ebdb2fbd61795a0e86420107e39"
+      },
+      {
+        "file": "day31-astra-paired-rear-input-c1-preflight-geometry.json",
+        "sha256": "9aca332d445ba01163f2b8e6cf0a1ce472b109c8bc704ce9dc72acaa93fc6999"
+      },
+      {
+        "file": "day31-astra-paired-rear-input-c1-preflight.breps.zip",
+        "sha256": "9850c268bc598469d71719ffa8783f8b5239678e4307a9b289b7cf7310b7e958"
+      },
+      {
+        "file": "day31-astra-paired-c1-representation-cost.json",
+        "sha256": "40837dec520c48ceee523a7cff7f46683d3425fa43c2570c1e0abd50bd5c1eba"
+      }
+    ],
+    "operation_seconds": 1.672,
+    "process_cpu_seconds": 4.796875,
+    "build_save_seconds": 0.109,
+    "build_save_cpu_seconds": 0.078125
+  },
+  "current_foreign_U1_far_function_stock_basis": {
+    "file": "day31-astra-U1far-current-function-stock-basis.json",
+    "sha256": "5e484e798ce852b4a2031a153d414d4718ab02746d93c2aa6fb4ba808b909b27",
+    "status": "CURRENT12_FAR_FUNCTION_AND_STOCK_BASIS_NO_ROUTE_SELECTION",
+    "N01_complete": false
+  },
+  "current_foreign_FLP_current_occupancy_resolution": {
+    "status": "THREE_FULL_PROFILES_STILL_MARGIN_HOLD",
+    "W028_gap_mm": 1.2263622913993246,
+    "required_mm": 1.25,
+    "common_mm3": 0,
+    "artifacts": [
+      {
+        "file": "day31-astra-FLP-three-current-occupancy-receipt.json",
+        "sha256": "3f87e148f833e4ad5aaa6f2bc5c71eb4bd84b3f3e66ce50290fc568eb2f7439f"
+      },
+      {
+        "file": "day31-astra-FLP-three-current-occupancy.breps.zip",
+        "sha256": "bbd74a2d4ca21f1cbb90697fc0ed588af6239a0558679f29c18cdd11ff536687"
+      }
+    ],
+    "source_constructors": [
+      "Temp/robot-cat26-shared-fans.py",
+      "Temp/robot-cat26-final-rack-regions.py"
+    ],
+    "operation_seconds": 0.375,
+    "process_cpu_seconds": 0.640625,
+    "N01_complete": false
+  },
+  "current_foreign_common_lower_five_grip_proposal": {
+    "file": "day31-astra-common-lower-five-grip-whole-proposal.json",
+    "sha256": "48973c49c61796236d9da3690e3891e7a0540e0077494466d0fe32ab58ae8113",
+    "status": "FULL_PASSAGES_SCOPED_FULL_STOCK_HEAD_HOLD",
+    "N01_complete": false,
+    "review_turn": "01a190ae-d09a-7742-969c-d1978c4b807e",
+    "corrections_used": 0,
+    "max_corrections": 1
+  },
+  "current_foreign_common_five_grip_received": {
+    "status": "INSULATION_RECEIVED_HEAD_MUTUAL_HOLD_ROOT_ASSEMBLY_OPEN",
+    "artifacts": [
+      {
+        "file": "day31-astra-common-five-passages-receipt.json",
+        "sha256": "96d64b62db8713390abf8df1389148b3c9d345fb6795c72b18cd662d392202d6"
+      },
+      {
+        "file": "day31-astra-common-five-passages.breps.zip",
+        "sha256": "753ff98502b16b86b0e5ea59ae7d3ae719f440c40244cd195a6a0285d22304d4"
+      },
+      {
+        "file": "day31-astra-common-five-grip-fullstock-receipt.json",
+        "sha256": "506094c720f692a3b4ed44708c7c14c9a7a186063fca2bc039817db8f4f2bf81"
+      },
+      {
+        "file": "day31-astra-common-five-grip-fullstock.breps.zip",
+        "sha256": "b5bab51fde18929ca616549b12ae2f8e91f0e2582babfc43aefdd6021f2be4c0"
+      }
+    ],
+    "source_gate_s": 1.187,
+    "source_gate_cpu_s": 1.5625,
+    "stock_s": 1.016,
+    "stock_cpu_s": 3.84375,
+    "N01_complete": false
+  },
+  "current_foreign_common_five_grip_correction1": {
+    "file": "day31-astra-common-lower-five-grip-whole-c1-proposal.json",
+    "sha256": "aecd81212d188119c08d5f394556bc9cc93a055c77d54dd520fb3588bc7d5a79",
+    "status": "REVIEW_GO_CHANGED_HEADS_AND_WHOLE_FRAME",
+    "corrections_used": 1,
+    "max": 1,
+    "N01_complete": false,
+    "review_turn": "01a190b9-dfa1-7ae0-aca9-61d72c252f48"
+  },
+  "current_foreign_common_five_grip_source_disposition": {
+    "status": "SOURCE_PASSAGES_AND_FULL_STOCK_SCOPED_OUTER_PRINT_ROOT_FOREIGN_OPEN",
+    "receipts": [
+      {
+        "path": "day31-astra-common-five-passages-receipt.json",
+        "sha256": "96d64b62db8713390abf8df1389148b3c9d345fb6795c72b18cd662d392202d6",
+        "status": "FULL_PASSAGES_SCOPED_ONLY_CAP_STOCK_OPEN"
+      },
+      {
+        "path": "day31-astra-common-five-grip-fullstock-receipt.json",
+        "sha256": "506094c720f692a3b4ed44708c7c14c9a7a186063fca2bc039817db8f4f2bf81",
+        "status": "COMMON_FULL_STOCK_HOLD"
+      },
+      {
+        "path": "day31-astra-common-five-grip-outward-heads-receipt.json",
+        "sha256": "c78bf64451fad97b00587148bb72fbf8d294e7725974f1f6413ac2376ce3f076",
+        "status": "CORRECTED_HEAD_OWN_HOLD"
+      },
+      {
+        "path": "day31-astra-common-five-grip-head-face-evidence.json",
+        "sha256": "003d9ed5abf5e716be6cd7932bdeb3a5a1afe63240da10c9f6d06da6ea482763",
+        "status": "OWN_BAND_FACES_RECEIVED_OUTER_PRINT_ALLOCATION_OPEN"
+      }
+    ],
+    "actual_head_band_contact_mm2": [
+      12.5,
+      12.5
+    ],
+    "full_W052_curve_cover_gap_mm": 2.1937936643245157,
+    "coarse_outer_print_HOLD_mm": 0.1874850939677582,
+    "corrections_used": 1,
+    "N01_complete": false,
+    "next": "Construct one common open carrier with actual body bearings and complete case retention, preserving G2/D_FR/P_FRONT/XT60/W075/loadpath. Rounded full grip core is clear; coarse box HOLD remains until actual support envelope specified. Then changed foreign, full three-source/slack/Fore9/foot/outline36; U1far/head/global123 remain open."
+  },
+  "current_foreign_ipsilateral_seven_source_proposal": {
+    "path": "day31-astra-ipsilateral-seven-sources-whole-proposal.json",
+    "sha256": "2206034ac3204c7958b30c916cd8eba392ddcb367c5c3e9f3e549fcffed45ec7",
+    "status": "WHOLE_REVIEW_PENDING",
+    "prior_correction_exhausted": true,
+    "N01_complete": false,
+    "new_evidence": {
+      "day31-astra-five-grip-protected-preflight.json": "3b27b77fbf20ef31945e13c00f0b9a74c2559bd3392a52a671440258bb582af5",
+      "day31-astra-five-grip-actual-rigid-preflight.json": "165a22b5c9a44eb57711959873f56d3551a85de926c1d7378e0655a9d6e935bf",
+      "day31-astra-common-five-grip-head-face-evidence.json": "003d9ed5abf5e716be6cd7932bdeb3a5a1afe63240da10c9f6d06da6ea482763"
+    }
   }
 }

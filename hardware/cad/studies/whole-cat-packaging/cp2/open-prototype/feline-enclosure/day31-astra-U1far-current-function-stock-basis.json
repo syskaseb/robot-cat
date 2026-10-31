@@ -1,0 +1,415 @@
+{
+  "status": "CURRENT12_FAR_FUNCTION_AND_STOCK_BASIS_NO_ROUTE_SELECTION",
+  "source_refs": {
+    "n01-shared-routing-boundaries.json": "3ff749aa3d78c3e80f6ebdda76e7bcb101db346ccaf376749febca8143cd8155",
+    "hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\phase1-material-selection-r4.json": "8b035cb9e0f0ee8802430fb0d7a0abe43f4b71fc84adf3d3d3b222d0130651ba"
+  },
+  "current_local_source_key": "current_foreign_U1_current12_local_length_ledger",
+  "groups": {
+    "Pi4": {
+      "wires": [
+        "XL01",
+        "XL07",
+        "XL10"
+      ],
+      "nominal_OD_mm": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "one_layer_capacity_mm": [
+        5.3999999999999995,
+        2.2
+      ],
+      "edge_allowance_mm": 0.4,
+      "insulation_gap_mm": 0.2,
+      "purpose": "minimum occupied section for onward branch, not an empty region claim",
+      "end_ids": [
+        "XL01/extra/start",
+        "XL01/extra/end",
+        "XL07/extra/start",
+        "XL07/extra/end",
+        "XL10/extra/start",
+        "XL10/extra/end"
+      ]
+    },
+    "PWM9685": {
+      "wires": [
+        "XL02",
+        "XL08",
+        "XS11",
+        "XS21",
+        "XS31"
+      ],
+      "nominal_OD_mm": [
+        1.4,
+        1.4,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "one_layer_capacity_mm": [
+        6.8,
+        2.2
+      ],
+      "edge_allowance_mm": 0.4,
+      "insulation_gap_mm": 0.2,
+      "purpose": "minimum occupied section for onward branch, not an empty region claim",
+      "end_ids": [
+        "XS11/extra/start",
+        "XS11/extra/end",
+        "XS21/extra/start",
+        "XS21/extra/end",
+        "XS31/extra/start",
+        "XS31/extra/end",
+        "XL02/extra/start",
+        "XL02/extra/end",
+        "XL08/extra/start",
+        "XL08/extra/end"
+      ]
+    },
+    "G_TAIL": {
+      "wires": [
+        "XL09"
+      ],
+      "nominal_OD_mm": [
+        1.4
+      ],
+      "one_layer_capacity_mm": [
+        2.2,
+        2.2
+      ],
+      "edge_allowance_mm": 0.4,
+      "insulation_gap_mm": 0.2,
+      "purpose": "minimum occupied section for onward branch, not an empty region claim",
+      "end_ids": [
+        "XL09/extra/start",
+        "XL09/extra/end"
+      ]
+    },
+    "HeadMechanism": {
+      "wires": [
+        "XS13",
+        "XS23"
+      ],
+      "nominal_OD_mm": [
+        2.1,
+        2.1
+      ],
+      "one_layer_capacity_mm": [
+        5.2,
+        2.9000000000000004
+      ],
+      "edge_allowance_mm": 0.4,
+      "insulation_gap_mm": 0.2,
+      "purpose": "minimum occupied section for onward branch, not an empty region claim",
+      "end_ids": [
+        "XS13/extra/start",
+        "XS13/extra/end",
+        "XS23/extra/start",
+        "XS23/extra/end"
+      ]
+    },
+    "TailElectricalFixed": {
+      "wires": [
+        "XS33"
+      ],
+      "nominal_OD_mm": [
+        2.1
+      ],
+      "one_layer_capacity_mm": [
+        2.9000000000000004,
+        2.9000000000000004
+      ],
+      "edge_allowance_mm": 0.4,
+      "insulation_gap_mm": 0.2,
+      "purpose": "minimum occupied section for onward branch, not an empty region claim",
+      "end_ids": [
+        "XS33/extra/start",
+        "XS33/extra/end"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "wire": "XL01",
+      "current_jacket_to_bar_end_upper_mm": 180.14135460196414,
+      "source_jacket_length_mm": 78.69388980384693,
+      "connected_region_axis_or_exact_transport_mm": 92.44746479811721,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.05,
+        86.45
+      ],
+      "bar_end": [
+        5,
+        94.05,
+        86.45
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XL01"
+    },
+    {
+      "wire": "XL02",
+      "current_jacket_to_bar_end_upper_mm": 148.6585870737557,
+      "source_jacket_length_mm": 50.114511513692676,
+      "connected_region_axis_or_exact_transport_mm": 89.54407556006304,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.05,
+        88.05
+      ],
+      "bar_end": [
+        5,
+        94.05,
+        88.05
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XL02"
+    },
+    {
+      "wire": "XL07",
+      "current_jacket_to_bar_end_upper_mm": 129.98116443813527,
+      "source_jacket_length_mm": 58.74110708234238,
+      "connected_region_axis_or_exact_transport_mm": 62.240057355792885,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.05,
+        89.65
+      ],
+      "bar_end": [
+        5,
+        94.05,
+        89.65
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XL07"
+    },
+    {
+      "wire": "XL08",
+      "current_jacket_to_bar_end_upper_mm": 111.61826062320833,
+      "source_jacket_length_mm": 45.579555921538756,
+      "connected_region_axis_or_exact_transport_mm": 57.03870470166957,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.05,
+        84.85
+      ],
+      "bar_end": [
+        5,
+        94.05,
+        84.85
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XL08"
+    },
+    {
+      "wire": "XL09",
+      "current_jacket_to_bar_end_upper_mm": 111.4680832932674,
+      "source_jacket_length_mm": 47.96937859159782,
+      "connected_region_axis_or_exact_transport_mm": 54.498704701669574,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.05,
+        83.25
+      ],
+      "bar_end": [
+        5,
+        94.05,
+        83.25
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XL09"
+    },
+    {
+      "wire": "XL10",
+      "current_jacket_to_bar_end_upper_mm": 90.42968917143779,
+      "source_jacket_length_mm": 40.14257279586958,
+      "connected_region_axis_or_exact_transport_mm": 41.28711637556821,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.05,
+        91.25
+      ],
+      "bar_end": [
+        5,
+        94.05,
+        91.25
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XL10"
+    },
+    {
+      "wire": "XS11",
+      "current_jacket_to_bar_end_upper_mm": 122.59609230603166,
+      "source_jacket_length_mm": 54.28139174925918,
+      "connected_region_axis_or_exact_transport_mm": 58.78495675794522,
+      "offset_roll_length_upper_addition_mm": 0.5297437988272699,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        93.75,
+        79.95
+      ],
+      "bar_end": [
+        5,
+        93.75,
+        79.95
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XS11"
+    },
+    {
+      "wire": "XS21",
+      "current_jacket_to_bar_end_upper_mm": 122.14626963597263,
+      "source_jacket_length_mm": 53.831569079200136,
+      "connected_region_axis_or_exact_transport_mm": 58.78495675794522,
+      "offset_roll_length_upper_addition_mm": 0.5297437988272699,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        93.75,
+        80.95
+      ],
+      "bar_end": [
+        5,
+        93.75,
+        80.95
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XS21"
+    },
+    {
+      "wire": "XS31",
+      "current_jacket_to_bar_end_upper_mm": 121.6964469659136,
+      "source_jacket_length_mm": 53.381746409141115,
+      "connected_region_axis_or_exact_transport_mm": 58.78495675794522,
+      "offset_roll_length_upper_addition_mm": 0.5297437988272699,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        93.75,
+        81.95
+      ],
+      "bar_end": [
+        5,
+        93.75,
+        81.95
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XS31"
+    },
+    {
+      "wire": "XS13",
+      "current_jacket_to_bar_end_upper_mm": 112.01121315460846,
+      "source_jacket_length_mm": 36.71897149958957,
+      "connected_region_axis_or_exact_transport_mm": 63.778528119302834,
+      "offset_roll_length_upper_addition_mm": 2.5137135357160516,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.4,
+        98.28
+      ],
+      "bar_end": [
+        5,
+        94.4,
+        98.28
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XS13_custom"
+    },
+    {
+      "wire": "XS23",
+      "current_jacket_to_bar_end_upper_mm": 105.46619343862525,
+      "source_jacket_length_mm": 34.052033717615686,
+      "connected_region_axis_or_exact_transport_mm": 62.414159721009575,
+      "offset_roll_length_upper_addition_mm": 0.0,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.4,
+        95.74
+      ],
+      "bar_end": [
+        5,
+        94.4,
+        95.74
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XS23_custom"
+    },
+    {
+      "wire": "XS33",
+      "current_jacket_to_bar_end_upper_mm": 104.20247635802193,
+      "source_jacket_length_mm": 31.638971499589573,
+      "connected_region_axis_or_exact_transport_mm": 61.04979132271631,
+      "offset_roll_length_upper_addition_mm": 2.5137135357160516,
+      "full_final_grip_mm": 9,
+      "bar_start": [
+        -4,
+        94.4,
+        93.2
+      ],
+      "bar_end": [
+        5,
+        94.4,
+        93.2
+      ],
+      "source_bare_not_included": true,
+      "onward_body_and_far_prefix_and_slack_NOT_included": true,
+      "physical_unit": "XS33_custom"
+    }
+  ],
+  "retained_end_id_count": 24,
+  "current_pose_warning": "Shared boundaries retain old source/transfer datums. Reuse end IDs and functional targets, NOT old U1/head/GTAIL coordinates as current. Resolve named current recipient actors before geometry.",
+  "whole600_units": {
+    "sku": "Pololu1871",
+    "wires": [
+      "XL01",
+      "XL07",
+      "XL10"
+    ],
+    "source_factory_unit_mm": 600,
+    "basis": {
+      "used_whole_600mm_wires": 5,
+      "pack_contains": 5,
+      "selected_pack_count": 2,
+      "whole_wire_spares": 5,
+      "manufacturer_url": "https://www.pololu.com/product/1871"
+    },
+    "old_nominal_cut_lengths_not_imported": true,
+    "actual_cut_mm": null,
+    "complete_new_fit_length_NOT_received": true
+  },
+  "N01_complete": false,
+  "selected": false,
+  "all12_optional_common_section_mm": [
+    20.1,
+    2.9000000000000004
+  ],
+  "no_new_terminal": "Shared computational split requires connected occupied regions, no extra9/connector. Existing full bargrips counted in local lengths once."
+}
