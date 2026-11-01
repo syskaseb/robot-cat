@@ -6,7 +6,7 @@ AKTUALIZACJA31.10 20:23:22UTC: zgoda Astra medium do N01=1/10 albo remaining<=30
 
 CEL: zweryfikowany CAŁY N01=1/10=10%, nadal0/10. Historyczne20/20 osobno.
 Nowa zgoda użytkownika31.10: pracować Astrą medium do całego1/10; bez terminu.
-Okno n01-astra-medium-20261031-result: enabled=true, stage_completed=false.
+Okno n01-astra-medium-20261031-result: enabled=false, stage_completed=false.
 Limit: stop przy remaining<=30% (used>=70), ordinaryAllowed=false, rzeczywistej odmowie lub braku aktualnego odczytu. Próg30 obowiązuje także przy ordinaryAllowed=true.
 Odczyt20:24:55UTC: used0, remaining100, ordinarytrue. Handler:39regresji i3testy granicy31/30/29 PASS.
 Poprzednie zamknięcie11:08:43UTC zachowane w73c8b1e9/kanonie i historii runtime;
@@ -15,10 +15,12 @@ nie jest blokadą tej nowej autoryzacji. Nie twierdzić, że flaga była wtedyfa
 ROLE: jeden worker Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0/Astra medium.
 Reviewer01a16f0e-ac12-7973-82ba-99579f2b681e/Astra medium, tylko odczyt.
 Parent tylko koordynuje/integruje; bez równoległegoCAD i nowychagentów.
-ACTIVE: FreeCAD1.1.3 PID15852/session85730, direct_FreeCADCmd_owner_Banach.
+STOPPED: FreeCAD1.1.3 formerPID15852/session85730; exit_code0, Get-Process confirms absent.
 Jeden nowy resident po potwierdzeniu braku starego; bezRPC/duplikatu.
 
-NEXT05:25: COMMON_W041_RLG_PORT_FIXTURE_C0 wyslaneistniejacemureviewerowi, SHA767342098818c79786d47f46e88265d35240c0ec1832b441c819676d6bd89069. Nie zbudowane. Jedensharedfixture W041+fixedhalfRL_G; removablehalf/full9/stock/2M2/nuts/obaMTAfactory zachowane. Actualfoundationface54Z38.52; header/2legs/heel to funkcjonalnahipoteza z jawnymi unknownU1/metal/kanaly. Najpierw review+freshlimit, potem tylko wholepreflight. Nie3cioffset; stareC0/C1wyczerpane. Odebrane7G2/W026 actualBodyOuter>=3.7/outside0 i36motionpelnebounds; rawcompoundoverlapW026 niekontakt, pelnepodczesci lower10.80358/24.43157. Czas1.010792s/CPU1.21875, immutable456aad5a. CurrentC1own33/34 i changed13/17: brakrootaW0417.810249676 orazfullboltplatform/RL_Gcap.503657993<1.25;4zalezneW041nieodebrane. Current1288names/9strictZIP/SHA wcurrent-disposition; nie wybranycalyuklad. Commitybce3113e/054eb2c3/cbd8a4ad/456aad5a zachowuja wyniki. Native15852/session85730IDLE,pendingoperationnull,brakniespisanejgeometrii. Fresh05:25:16used69remaining31ordinarytrue;stop<=30nadrzedny. DalejU1far/head/123246/connectedregions/lengthslack/assemblywholeOPEN; N010/10.
+STOP LIMIT05:26:26UTC: actualused70remaining30ordinarytrue. Explicitthresholdreached; enabled=false/stage_completed=false; N01=0/10, history20/20separate. NoCAD/tests/review/newstrategy/reset/mail. NativePID15852/session85730 saved then gracefulSystemExit; receivedexit_code0 and Get-Processabsent. CPUprocessat_exit1938.421875s (notwall/notperCADtask); pendingoperationnull/unsavedgeometryfalse. Lateststopreceipt day31-astra-common-fixture-stop-limit.json SHA5c990ea28faf7d3b954cab99997bf425f7d79f8e87b3605f787efb3045418154.
+CURRENT: C1ninegeometry/34own (oneunrootedW041); changed13/17 withrealplatform/RL_Ggap.503657993<1.25, fourdependentunreceived. Actualfoundationrootgap7.810249676. SevenG2/W026 scopedoutline>=3.7/outside0 and36motion bounds received,1.010792s/CPU1.21875; rawcompoundoverlap resolved byfullsubpartbounds10.80358/24.43157. GeometryZIP/membermanifest and1288compositionnames sourcechain preserved. Commitsbce3113e/054eb2c3/cbd8a4ad/456aad5a/0afe9d90.
+NEXT AFTER NEW AUTHORIZATION ONLY: commonW041/RL_Gfixtureproposal SHA767342098818c79786d47f46e88265d35240c0ec1832b441c819676d6bd89069 receivedreviewGO01a19592-0092-72a1-bfda-eb29f59e8431; NOTBUILT. Functionalwholefixed/removablegrip/fullstock/root mustbeproven, noownwaiver oroldcounterreset. RemainingwholeU1far/head/123246/connectedregions/lengthslack/assemblyOPEN. No1/10/completionmail.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
 Bieżący front: common functionalcarrier6branches/16positiveedges, rzeczywiste
