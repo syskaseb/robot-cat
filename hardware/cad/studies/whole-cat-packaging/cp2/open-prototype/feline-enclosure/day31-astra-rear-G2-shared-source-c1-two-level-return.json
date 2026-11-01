@@ -1,0 +1,251 @@
+{
+  "status": "REAR_G2_C1_WHOLE_RETURN_OWN_NAMED_HAZARDS_RECEIVED",
+  "proposal_sha256": "5848cc250aa57a148104c3d8a46bcceaa16b88e93362895db90c177799bb4312",
+  "archive": "day31-astra-rear-G2-shared-source-c1-two-level-return.breps.zip",
+  "archive_sha256": "cd0cb2d7f72e5cdb01cca50e707718cb08e757366404419c465252c34c115fad",
+  "geometry": [
+    {
+      "name": "RearG2:bed_side_return",
+      "entry": "0.brep",
+      "sha256": "59e456316787b8c0933c2282f7533ffe779a5157c96cffded21f8dff2a075df6",
+      "bounds": [
+        [
+          -16.2,
+          -9.7,
+          -15.5
+        ],
+        [
+          -14.2,
+          21.0,
+          -13.5
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "RearG2:front_upright",
+      "entry": "1.brep",
+      "sha256": "161a2736a236701fc8cd089c51128466aecd356a32aad4a1ab9d2400bc418572",
+      "bounds": [
+        [
+          -16.2,
+          -9.7,
+          -15.5
+        ],
+        [
+          -14.2,
+          -7.7,
+          -10.05
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "RearG2:front_upper_crossarm",
+      "entry": "2.brep",
+      "sha256": "554266c93142a642defb4e39570cec94f791ecda915dded564cd11898d9282db",
+      "bounds": [
+        [
+          -16.2,
+          -9.7,
+          -12.05
+        ],
+        [
+          -10.65,
+          -7.7,
+          -10.05
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "rows": [
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "RearG2:post:west",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 2.2000000000000033,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "RearG2:front_upright",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999996,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "RearG2:front_upright",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.9999999999999964,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "North:G2_existing_bed_support_OPEN",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 1.079999999999996,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "Station:G2:case",
+      "kind": "own_fullG2_source_stock",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "Station:P_FRONT:case",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 3.352610922848023,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "Carrier:bought:MTA_FL:case",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 1.3000000000000007,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "W041:factory:fullsolid",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 2.38194695674,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:bed_side_return",
+      "b": "W041:MTA_source9:band",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 1.9156836472861611,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upright",
+      "b": "Day26:RetentionHead:G2",
+      "kind": "own_fullG2_source_stock",
+      "gap_mm": 0.20000000000000018,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upright",
+      "b": "Station:P_FRONT:case",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 3.352610922848023,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upright",
+      "b": "Carrier:bought:MTA_FL:case",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 6.824954212300622,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upright",
+      "b": "W041:factory:fullsolid",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 16.163104465093443,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upright",
+      "b": "W041:MTA_source9:band",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 14.34794060949141,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "Day26:RetentionHead:G2",
+      "kind": "own_fullG2_source_stock",
+      "gap_mm": 0.20000000000000018,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "G2:first9:0",
+      "kind": "own_fullG2_source_stock",
+      "gap_mm": 0.6800259065618808,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "Station:P_FRONT:case",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 4.450000000000006,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "Carrier:bought:MTA_FL:case",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 6.824954212300622,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "W041:factory:fullsolid",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 17.303439336251877,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:front_upper_crossarm",
+      "b": "W041:MTA_source9:band",
+      "kind": "named_full_foreign_hazard",
+      "gap_mm": 14.643864828898332,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    }
+  ],
+  "retired": [
+    "C1:G2_bed_return_lower",
+    "C1:G2_bed_front_pickup"
+  ],
+  "operation_seconds": 0.21419389999937266,
+  "process_cpu_seconds": 0.40625,
+  "N01_complete": false
+}

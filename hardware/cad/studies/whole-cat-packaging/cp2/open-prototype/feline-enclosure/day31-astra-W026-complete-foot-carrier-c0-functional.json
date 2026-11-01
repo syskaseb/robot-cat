@@ -1,0 +1,418 @@
+{
+  "status": "W026_FOOT_C0_COMPLETE_OWN_ROOTS_RECEIVED",
+  "review_turn": "01a19576-4410-7292-84cf-31f7b637478a",
+  "proposal_sha256": "85e0e531b5443c1a40c310993de323aa212aa999ca85ae32a4e280ec7cfb9a7d",
+  "archive": "day31-astra-W026-complete-foot-carrier-c0-functional.breps.zip",
+  "archive_sha256": "f65d562d3d429c32e11b69cb52be15587ae862635ce7be1ad57aae63a8cd4da0",
+  "geometry": [
+    {
+      "name": "W026Carrier:side_downpost",
+      "entry": "0.brep",
+      "sha256": "fa372a71433ceb552858a1458f0c0f6aa0f6cd96fe733261e491a19e907ea256",
+      "bounds": [
+        [
+          -93.0,
+          2.5,
+          -44.3
+        ],
+        [
+          -91.0,
+          4.5,
+          -15.55
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026Carrier:foot_cross",
+      "entry": "1.brep",
+      "sha256": "8ab231da4dc2d599db4f257636280a99d0f8a7fa410889f7155e5d36faa1f1a1",
+      "bounds": [
+        [
+          -93.0,
+          2.5,
+          -44.3
+        ],
+        [
+          -75.5,
+          4.5,
+          -42.3
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026Carrier:foot_north",
+      "entry": "2.brep",
+      "sha256": "86c09303b6c65b8efdf50a2f625b4b5e68d2802de1820d4354c9a73a0bfb922f",
+      "bounds": [
+        [
+          -77.5,
+          2.5,
+          -44.3
+        ],
+        [
+          -75.5,
+          30.0,
+          -42.3
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026Carrier:source_rail",
+      "entry": "3.brep",
+      "sha256": "6f783e07190e84507d8e22e0e5f1a321ac6fa66938fe0fa27bc63f3b1cbd612d",
+      "bounds": [
+        [
+          -74.0,
+          3.7,
+          -26.0
+        ],
+        [
+          -60.5,
+          5.7,
+          -24.0
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026Carrier:source_step",
+      "entry": "4.brep",
+      "sha256": "0b5eb21af41f3890c980246835ae337c453378a93f7d25c1c639cb2772800df7",
+      "bounds": [
+        [
+          -74.0,
+          3.7,
+          -26.0
+        ],
+        [
+          -72.0,
+          5.7,
+          -21.2
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026Carrier:source_neck",
+      "entry": "5.brep",
+      "sha256": "44b85fb588b05b8f3d60723ec45eb4a4edea3c126478e426c4fbc9aa48706124",
+      "bounds": [
+        [
+          -75.25,
+          3.7,
+          -23.2
+        ],
+        [
+          -72.0,
+          5.7,
+          -21.2
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "SourceRoot:W026:MTA_source9:post",
+      "entry": "6.brep",
+      "sha256": "b4525a51ad2e119aab52cab213fd8715158c9d367bfa76836ed65da0973c9cf5",
+      "bounds": [
+        [
+          -62.75,
+          5.5,
+          -26.0
+        ],
+        [
+          -60.75,
+          7.5,
+          -20.6
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "SourceRoot:W026:receiver9:post",
+      "entry": "7.brep",
+      "sha256": "aaa110e0122928b935a675d3da38dd32b5424952ef8c574b968a9396405b376f",
+      "bounds": [
+        [
+          -73.0,
+          5.5,
+          -26.0
+        ],
+        [
+          -71.0,
+          7.5,
+          -20.6
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "rows": [
+    {
+      "a": "W026Carrier:side_downpost",
+      "b": "North:W026:side_cradle",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 12.239999999999995,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:side_downpost",
+      "b": "W026Carrier:foot_cross",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999999,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:foot_cross",
+      "b": "W026Carrier:foot_north",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999999,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:foot_north",
+      "b": "Carrier:foot_bridge:north",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 12.0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "Carrier:foot_bridge:north",
+      "b": "BellyFoot2",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 17.713379277749144,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_neck",
+      "b": "North:W026:side_cradle",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 3.9999999999999996,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_neck",
+      "b": "W026Carrier:source_step",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 8.0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_step",
+      "b": "W026Carrier:source_rail",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999999,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:MTA_source9:post",
+      "b": "W026:MTA_source9:pad",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999998,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:MTA_source9:post",
+      "b": "W026Carrier:source_rail",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 0.8000000000000005,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:receiver9:post",
+      "b": "W026:receiver9:pad",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999998,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:receiver9:post",
+      "b": "W026Carrier:source_rail",
+      "kind": "positive_common_root",
+      "gap_mm": 0.0,
+      "common_mm3": 0.8000000000000005,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:side_downpost",
+      "b": "Carrier:kit:EndBay:CaseCap:W026_Joint",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 8.299999999999995,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_rail",
+      "b": "Carrier:kit:EndBay:CaseCap:W026_Joint",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 6.249999999999972,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_rail",
+      "b": "Carrier:bought:W026:case",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 0.3535533905932555,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_rail",
+      "b": "W026:MTA_source9:band",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 1.0198039027185568,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_rail",
+      "b": "W026:receiver9:band",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 0.1999999999999993,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_step",
+      "b": "Carrier:kit:EndBay:CaseCap:W026_Joint",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 6.249999999999972,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_step",
+      "b": "Carrier:bought:W026:case",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 0.3535533905932555,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_step",
+      "b": "W026:receiver9:head",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 1.0,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_neck",
+      "b": "Carrier:kit:EndBay:CaseCap:W026_Joint",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 5.0062460986251685,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_neck",
+      "b": "Carrier:bought:W026:case",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 0.25000000000000266,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:source_neck",
+      "b": "W026:receiver9:head",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 1.0,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:MTA_source9:post",
+      "b": "W026:MTA_source9:head",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 1.2000000000000002,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:MTA_source9:post",
+      "b": "W026:factory:fullsolid",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 0.470992026436488,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:receiver9:post",
+      "b": "Carrier:bought:W026:case",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 1.2499999999999716,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:receiver9:post",
+      "b": "W026:receiver9:head",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 1.2000000000000002,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W026:receiver9:post",
+      "b": "W026:factory:fullsolid",
+      "kind": "own_complete_W026_case_stock_source_fit",
+      "gap_mm": 0.470992026436488,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    }
+  ],
+  "retired": [
+    "C1:W026_frame_branch",
+    "C1:W026_cradle_post"
+  ],
+  "source_posts_replaced": [
+    "SourceRoot:W026:MTA_source9:post",
+    "SourceRoot:W026:receiver9:post"
+  ],
+  "operation_seconds": 0.47193739999784157,
+  "process_cpu_seconds": 1.09375,
+  "N01_complete": false
+}

@@ -1,0 +1,52 @@
+{
+  "status": "SCOPED_COMMON_CARRIER_OWN_INTERFACES",
+  "rows": [
+    {
+      "part": "SerialFrame:upperstrip",
+      "other": "Station:D_FR:case",
+      "kind": "owncasefloor",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "SerialFrame:upperstrip",
+      "other": "Long:Case4905:D_FR",
+      "kind": "ownbondplane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "RearG2:bed_side_return",
+      "other": "RearG2:spine",
+      "kind": "sharedprintgap",
+      "gap_mm": 0.5932203389830519,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W026Carrier:source_step",
+      "other": "W026:receiver9:pad",
+      "kind": "positiveownpadroot",
+      "gap_mm": 0.0,
+      "common_mm3": 0.2800000000000007,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W026Carrier:source_neck",
+      "other": "W026:receiver9:pad",
+      "kind": "positiveownpadroot",
+      "gap_mm": 0.0,
+      "common_mm3": 0.2800000000000007,
+      "required_mm": 0,
+      "hold": false
+    }
+  ],
+  "basis": "SameDFRcasefloor/bond, sameG2commonframegap, directW026fullpadpositiveprintroots. No otherforeignmarginwaiver.",
+  "N01_complete": false
+}

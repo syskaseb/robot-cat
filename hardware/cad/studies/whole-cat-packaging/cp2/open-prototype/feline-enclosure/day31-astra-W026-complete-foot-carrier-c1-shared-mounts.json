@@ -1,0 +1,489 @@
+{
+  "status": "SHARED_MOUNTS_C1_OWN_HOLD",
+  "review_turn": "01a19581-99fd-73a1-bd28-4fd8f7ff7b6f",
+  "proposal_sha256": "1fbd9c73570255123291f3fc2001b90e51f152761747337a4a2e21cd359f48a7",
+  "archive": "day31-astra-W026-complete-foot-carrier-c1-shared-mounts.breps.zip",
+  "archive_sha256": "bb6cb26116c74951b264fde400b6db652c9c20ca10979bc54b39c2c4d4eee01f",
+  "geometry": [
+    {
+      "name": "W026Carrier:foot_cross",
+      "entry": "0.brep",
+      "sha256": "c9048c7e5cb9153c88689eb9768fb2f13cacbcdaa86b6c15bbc1e85550c61c3f",
+      "bounds": [
+        [
+          -93.0,
+          28.0,
+          -44.3
+        ],
+        [
+          -73.5,
+          30.0,
+          -42.3
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026Carrier:foot_north",
+      "entry": "1.brep",
+      "sha256": "f36673a131beaa4d2042f520e9c995a9e0bb622841cf7e6d3aef50f5508c39be",
+      "bounds": [
+        [
+          -93.0,
+          2.5,
+          -44.3
+        ],
+        [
+          -91.0,
+          30.0,
+          -42.3
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "G2Case4905:rear130",
+      "entry": "2.brep",
+      "sha256": "822b797da7400bcd8095318272cc81016f7705214b2129a9a4ac2a6f51d4571a",
+      "bounds": [
+        [
+          -10.0,
+          18.5,
+          -12.75
+        ],
+        [
+          10.0,
+          19.0,
+          -6.25
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "G2Case4905:right130",
+      "entry": "3.brep",
+      "sha256": "e60f4096f0030936739a99478c12a6b468ebc81dbac075dcd1cd42ae33e0f59c",
+      "bounds": [
+        [
+          15.0,
+          0.875,
+          -12.5
+        ],
+        [
+          15.5,
+          17.125,
+          -4.5
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "RearG2:spine",
+      "entry": "4.brep",
+      "sha256": "e9c92be983a665c9fafe95f38e60df1fa414638b819a536a34131ea9386518f8",
+      "bounds": [
+        [
+          -14.75,
+          19.0,
+          -12.75
+        ],
+        [
+          17.5,
+          21.0,
+          -6.25
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "RearG2:right_cheek",
+      "entry": "5.brep",
+      "sha256": "7a28084d07d5a5faec41732498c48a81033e15b3a0adf1cf6eea82734216bfbd",
+      "bounds": [
+        [
+          15.5,
+          0.875,
+          -12.5
+        ],
+        [
+          17.5,
+          17.125,
+          -4.5
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "RearG2:corner_link",
+      "entry": "6.brep",
+      "sha256": "2e076309f8270a79cc743c280bfe86517aa0573cb326a7ee8bb400ca03bb3555",
+      "bounds": [
+        [
+          15.5,
+          16.0,
+          -12.5
+        ],
+        [
+          17.5,
+          21.0,
+          -6.25
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041Carrier:far_upper_post",
+      "entry": "7.brep",
+      "sha256": "82a360ccfa4431e7a42bf13a88dc6701cc58ed02ab736bafd817ae3ea086828b",
+      "bounds": [
+        [
+          69.0,
+          65.0,
+          -8.0
+        ],
+        [
+          71.0,
+          67.0,
+          32.52
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "Upper:W041_side_bearing_reservation",
+      "entry": "8.brep",
+      "sha256": "11a28825915b759b5711d94ef289f8009049e0a15622e75b0c4382d6d6c6de92",
+      "bounds": [
+        [
+          33.82604572118048,
+          54.72071067811866,
+          -15.060838738653231
+        ],
+        [
+          71.82604572118048,
+          67.6961201128918,
+          1.167261889578037
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "rows": [
+    {
+      "part": "Station:G2:case",
+      "kind": "actual130_face_coupon",
+      "area_mm2": 130.0000000000203,
+      "required_mm2": 130,
+      "hold": false
+    },
+    {
+      "part": "RearG2:spine",
+      "kind": "actual130_face_coupon",
+      "area_mm2": 130.0000000000203,
+      "required_mm2": 130,
+      "hold": false
+    },
+    {
+      "part": "Station:G2:case",
+      "kind": "actual130_face_coupon",
+      "area_mm2": 129.99999999999721,
+      "required_mm2": 130,
+      "hold": false
+    },
+    {
+      "part": "RearG2:right_cheek",
+      "kind": "actual130_face_coupon",
+      "area_mm2": 129.99999999999721,
+      "required_mm2": 130,
+      "hold": false
+    },
+    {
+      "a": "G2Case4905:rear130",
+      "b": "Station:G2:case",
+      "kind": "bond_plane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "G2Case4905:rear130",
+      "b": "RearG2:spine",
+      "kind": "bond_plane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "G2Case4905:right130",
+      "b": "Station:G2:case",
+      "kind": "bond_plane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "G2Case4905:right130",
+      "b": "RearG2:right_cheek",
+      "kind": "bond_plane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:spine",
+      "b": "RearG2:post:west",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 25.999999999999996,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:spine",
+      "b": "RearG2:post:east",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 25.999999999999996,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:spine",
+      "b": "RearG2:corner_link",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 25.0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "RearG2:corner_link",
+      "b": "RearG2:right_cheek",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 14.0625,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:foot_cross",
+      "b": "W026Carrier:foot_north",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999999,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:foot_north",
+      "b": "W026Carrier:side_downpost",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 7.999999999999999,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W026Carrier:foot_cross",
+      "b": "Carrier:foot_bridge:north",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 15.999999999999998,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W041Carrier:far_upper_post",
+      "b": "Upper:W041_side_bearing_reservation",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 8.66522848832033,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "W041Carrier:far_upper_post",
+      "b": "Underdeck:PositiveFoundation",
+      "kind": "positive_root",
+      "gap_mm": 7.810249675906654,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": true
+    },
+    {
+      "a": "RearG2:spine",
+      "b": "Station:G2:case",
+      "kind": "own_case_fit",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:right_cheek",
+      "b": "Station:G2:case",
+      "kind": "own_case_fit",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:corner_link",
+      "b": "Station:G2:case",
+      "kind": "own_case_fit",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "RearG2:right_cheek",
+      "b": "Station:D_FR:case",
+      "kind": "named_foreign_DFR",
+      "gap_mm": 1.499999999999993,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:corner_link",
+      "b": "Station:D_FR:case",
+      "kind": "named_foreign_DFR",
+      "gap_mm": 1.499999999999993,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "RearG2:spine",
+      "b": "BatteryScrewFrontL",
+      "kind": "named_foreign_screw",
+      "gap_mm": 3.253459696999488,
+      "common_mm3": 0,
+      "required_mm": 1.25,
+      "hold": false
+    },
+    {
+      "a": "Upper:W041_side_bearing_reservation",
+      "b": "Ref_Material_W041_Joint_0_0",
+      "kind": "own_full_case_cap_bolt_nut_fit",
+      "gap_mm": 2.1390168887322673e-14,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "Upper:W041_side_bearing_reservation",
+      "b": "Transverse:CaseCap:W041_Joint",
+      "kind": "own_full_case_cap_bolt_nut_fit",
+      "gap_mm": 1.7763568394002505e-15,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "Upper:W041_side_bearing_reservation",
+      "b": "CapScrew:W041_Joint:0",
+      "kind": "own_full_case_cap_bolt_nut_fit",
+      "gap_mm": 0.14999999999999228,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "Upper:W041_side_bearing_reservation",
+      "b": "CapScrew:W041_Joint:1",
+      "kind": "own_full_case_cap_bolt_nut_fit",
+      "gap_mm": 0.14999999999999858,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "Upper:W041_side_bearing_reservation",
+      "b": "CapNut:W041_Joint:0",
+      "kind": "own_full_case_cap_bolt_nut_fit",
+      "gap_mm": 0.07846190158284194,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "Upper:W041_side_bearing_reservation",
+      "b": "CapNut:W041_Joint:1",
+      "kind": "own_full_case_cap_bolt_nut_fit",
+      "gap_mm": 0.07846190158283266,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W041:receiver9:link",
+      "b": "Upper:W041_side_bearing_reservation",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 4.84827244634581,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "a": "SourceRoot:W041:custom9:link",
+      "b": "Upper:W041_side_bearing_reservation",
+      "kind": "positive_root",
+      "gap_mm": 0.0,
+      "common_mm3": 1.2117347324024474,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "Ref_Material_W041_Joint_0_0",
+      "kind": "full_half_width_case_bearing",
+      "area_mm2": 143.77499999999475,
+      "required_mm2": 143.775,
+      "hold": false
+    },
+    {
+      "part": "Upper:W041_side_bearing_reservation",
+      "kind": "full_half_width_case_bearing",
+      "area_mm2": 143.77499999999225,
+      "required_mm2": 143.775,
+      "hold": false
+    },
+    {
+      "kind": "full_existing_M2_nut_bearing_seats",
+      "seat_projected_mm2": [
+        9.701637255078083,
+        9.70163725507773
+      ],
+      "axial_takeup_assumption_mm": 0.1,
+      "shaft_radius_mm": 1,
+      "shaft_length_mm": 12,
+      "nut_height_mm": 1.6,
+      "nut_axial_interval_local": [
+        -4.2,
+        -2.6
+      ],
+      "shaft_axial_interval_local": [
+        -5.3,
+        6.7
+      ],
+      "full_nut_engagement_mm": 1.6,
+      "source_bore_radius": 1.15,
+      "source_pocket_hex_radius": 2.4,
+      "hold": false
+    }
+  ],
+  "retired": [
+    "Long:Case4905:G2",
+    "C1:W041_frame_branch",
+    "C1:W041_bearing_post"
+  ],
+  "operation_seconds": 1.2229723000200465,
+  "process_cpu_seconds": 3.3125,
+  "N01_complete": false
+}
