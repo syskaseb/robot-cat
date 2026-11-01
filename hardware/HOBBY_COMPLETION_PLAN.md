@@ -1,212 +1,56 @@
 # Domknięcie hobbystycznego robot-cat
 
-## Bieżąca karta N01 — 31.10.2026, wspólna przestrzeń
+AKTUALIZACJA31.10 20:23:22UTC: zgoda Astra medium do N01=1/10 albo remaining<=30% (used>=70). Fresh ordinary=true, used0%, remaining100%. Bez resetu wykonanego przez agenta. Próg30 ma pierwszeństwo nad wcześniejszą zasadą samego ordinaryAllowed.
 
-CEL: zweryfikowany CAŁY N01=1/10=10%, bez terminu godzinowego. Nadal0/10;
-historyczne20/20 dokumentacji otwartego prototypu osobno. Nie zaczynaćN02.
-Okno n01-one-of-ten-20261029-result: ZAMKNIĘTE: odczyt100%/0%, enabled=false potwierdzony; stage_completed=false.
-Lokalny wynik/commit/odrzucenie nie zamyka pracy. Wcześniejsze zamknięcie tylko
-przy niedostępnym/wyczerpanym zwykłym limicie lub braku bezpiecznej niezależnej
-pracy po alternatywach wymagającej nowej zgody. Wtedy zapisz/odbierz własne
-obliczenia i wyłącz enabled. Bez zakupów/resetów/power/push/ROS/slicera/
-GUARD/BMS/schedule/WORK_HANDOFF/Claude/okresowych alertów i maili.
-WYJĄTEK: dopiero po faktycznym CAŁYM N01 jeden Gmail syska.seb@gmail.com;
-potwierdzićSENT/message_id, przy wyniku nieznanym sprawdzićWysłane przed retry.
+## Bieżąca karta N01 — wznowienie31.10.2026, Astra medium
 
-ZAKRES: stały revision1 w appearance-checkpoint.json, bez nowej zmiany zgody.
-Jeden WYBRANY konstruktywny CAŁY układ ramy/banku/modułów/obu stron4MTA,
-123odcinków/246końców, pełnej obsady chwytów/stocku/kotew/narzędzi/osłon,
-połączonych regionów z długością/luzem i wykonalnym montażem/ruchiem/obrysem.
-Znane rzeczywiste blokery usunąć; sam tekst/lista/widok/liczba testów nie daje
-punktu. N03 produkcyjne mocowania, N04–N05 pełne trasy i N08–N09 pełny odbiór
-montażu/trajektorii są osobnymi etapami. Nie importować ich całych do N01.
+CEL: zweryfikowany CAŁY N01=1/10=10%, nadal0/10. Historyczne20/20 osobno.
+Nowa zgoda użytkownika31.10: pracować Astrą medium do całego1/10; bez terminu.
+Okno n01-astra-medium-20261031-result: enabled=true, stage_completed=false.
+Limit: stop przy remaining<=30% (used>=70), ordinaryAllowed=false, rzeczywistej odmowie lub braku aktualnego odczytu. Próg30 obowiązuje także przy ordinaryAllowed=true.
+Odczyt20:24:55UTC: used0, remaining100, ordinarytrue. Handler:39regresji i3testy granicy31/30/29 PASS.
+Poprzednie zamknięcie11:08:43UTC zachowane w73c8b1e9/kanonie i historii runtime;
+nie jest blokadą tej nowej autoryzacji. Nie twierdzić, że flaga była wtedyfalse.
 
-ROLE: Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0/Astra medium = jedyny CAD.
-Reviewer01a16f0e-ac12-7973-82ba-99579f2b681e/local/Astra medium read-only.
-Parent koordynacja/integracja. Bez nowych agentów i równoległego CAD.
-ACTIVE: BRAK rezydenta. Własny FreeCAD PID18120/session74948 zakończony po zapisie; Get-Process pusty11:10:20UTC. Końcowy skumulowanyCPU5273.796875s; exec exit_code1 po SystemExit(0), bez restartu.
-Nie restartować żywego procesu; stare18736/70577 i20608/49151 martwe, bezRPC.
+ROLE: jeden worker Banach01a18cd4-a6c5-7fa1-a769-3b207aa47ba0/Astra medium.
+Reviewer01a16f0e-ac12-7973-82ba-99579f2b681e/Astra medium, tylko odczyt.
+Parent tylko koordynuje/integruje; bez równoległegoCAD i nowychagentów.
+ACTIVE: FreeCAD1.1.3 PID15852/session85730, direct_FreeCADCmd_owner_Banach.
+Jeden nowy resident po potwierdzeniu braku starego; bezRPC/duplikatu.
+
+NEXT05:18: C1_SHARED_MOUNTS reviewGO1/1 odebrane9strict/34own (33bezHOLD),1.222972s/CPU3.3125. BrakrootaW041/foundation: gap7.810249676; rzeczywista krawedz Y60/Z38.52, koniecslupaY65/Z32.52. Changed8parts:13/17 odebrane, realW041fullplatform/RL_Gcap gap0.503657993<1.25/commonniebadany;4zalezne nieodebrane. Surowe4pozostaleHOLD dotycza jawnychwlasnych interfejsow BellyFoot/commonG2/bond; dyspozycje w day31-astra-W026-complete-foot-carrier-c1-current-disposition.json SHAb1919b472a5b1eb855460dbcce505ad6af0c976af3f51b37057d92f522d5799d. C0/C1wyczerpane; zadnego trzeciegooffsetu. Konsekwencja: potrzeba calejnowejdrogi W041 z rzeczywista powierzchniafoundation i pelnymRL_G/stock/F_TY, przed budowa jedna calahipoteza/review. 1288nazwaktualnegokandydata zapisane, nie wyborN01; geometri9ZIP zachowana. Native15852/session85730 IDLE, pendingoperation=null, niespisanejgeometriibrak. Ocena: zamkniete lokalne2x130G2/boltmount/W026root, ale stabilnycalyuklad nadalOPEN. NEXT: celowanykonstruktorfoundation/RL_G, potemcalyplanmocowania/regionow; U1far/head/123246/dlugosci/luz nieodebrane. Fresh05:15:15UTCused68remaining32ordinarytrue; stop<=30. N01=0/10.
+
+SOURCE05:20: actualfoundationface54 Z38.52/area527.496 orazface78 Y60/area163.943457 zpoint[70,60,38.52] odebrane; bbox30.52 niekotwa. RL_Gcap to projektowy wspolny chwytpelnychrealnychfirst9 z pelnaopaska/head (legacy_unit->vertical_build), niekupnymodul. Zmiana wymaga calejretencji/izolacji/obsady, nieusunieciaHOLD. Nastepny poziom: wspolnaalokacja W041/RL_G/foundation z OBUfactory MTA_FL, nie trzecislup/offset;97.81095584/100 nie daje swobodnejtranslacji. Source-decision SHAce7aca7a4b4b1101d8551ae8d86c9f832bf139824d80d6a0713125fec95a6ddd. Nativeidle; braknowejgeometrii. Commitbce3113e55plikow +054eb2c3sourcefact: exactHEADbytes zweryfikowane. Fresh05:18:39used69remaining31ordinarytrue.
 
 KANON: cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json.
-NEXT: STOP LIMIT100used/0remaining11:08:43UTC; ordinaryUsageAllowed=true rozbieżność zachowana. Bez nowychprac. Wszystkie56currentaktorów mają exactZIP/SHAref w day31-astra-carrier-current-selection-stop-limit.json;16post-operationserializations strictreopenPENDING, bez nowychtestów przySTOP. ReviewwholeownershipC1GO01a191a3 (1/1),31/31foreign odebrane/raw8 z nazwanymiown dyspozycjami. Po nowej autoryzacji: brakująceowncross/pełnycomposition/assembly/changed36/outline, potemU1far/head/global123. N01=0. Stopreceipt day31-astra-stop-limit-current-receipt.json. Enabled=false potwierdzony; nativezakończony11:10:20UTC po zapisie, bez ponownego startu.
-ODEBRANE: W044 pełnycase/cap2/base/2bandy/heady: actualBodyOuter min3.95>=3.25, bandy4.8, górnaMTAmin1.25 (.860s/1.140625CPU). Otwarte spodem kanały, pełne boczne szyny; bez cienkiego dna starego tunelu. W052 pełnaretencjaMTAmin1.3; actualportwindow1.25, owncase.25; old1.214274HOLD zachowany (.969s/1.578125 +1.141s/1.96875CPU).
-PAKIET: 22currentprefix/body-stock saved/reopen .391s/.53125CPU; W044factory98.997808/100, W04299.948623 iW05288.981920 zachowane. Bodyown .656s/2.21875CPU. Pełne4MTA-stock rigidtransform13.999993896484 zamiast zaokrąglonego14 usunął6.1µm own-HOLD bez obniżania progów (.141s/.34375CPU). CurrentZIP/receipts/SHA przypięte wkanonie; native18120/74948 jużzakończony; tohistorycznyreceipt. N01=0, root/fullsource-stock/world/motion/U1far/head/123 nadalOPEN.
-PRZYCZYNA: C1wyczerpany. W037 port[-108.5,-17,-20] -X przyR25.2 naX-112 może odejść tylko0.24424mm; cztery skrajne punkty wewnątrz pełnej bryłyMTA_FL. Zmiana samego łuku tego nie naprawia. Nowy plan orientuje oba frontMTA wzdłużX, nad tylnymi wejściami, z kompletem obu stron i7fanów. Nie wybrany N01.
-U1far: aktualne3porty Pi z r3-core/H1/GPIO4; po pełnych prefiksach z600 zostaje393.651/443.811/476.178mm na transport/zapas/nieuzgodnione końcówki. Odczyt regionuPi .1438s/.140625CPU:4bboxkandydaty, nie wolna przestrzeń. Ref+SHA wkanonie; 12far/head/123 nadalOPEN.
-STAN: STOP limit100used/0remaining (ordinaryUsageAllowed=true), N01=0/10. Wszystkie własne dane zapisane; native18120 nieistnieje/sesja74948zakończona, brak operacji/RAM-onlygeometry. Finalruntime:day31-astra-final-native-closed-receipt.json. Enabled=false potwierdzony przez parent; lokalny checkpoint zachowany; bez maila/resetu/nowej pracy.
-ZAMKNIĘCIE KOORDYNATORA11:11:51UTC: enabled=false sprawdzony na dysku; PID18120_ABSENT niezależnie potwierdzony. Odczyt100used/0remaining zachowuje ordinaryUsageAllowed=true — nie wpisano fałszywegoordinaryfalse. N01nadal0/10, bez maila/resetu/zakupu. Obserwowany odcinek03:07:55–11:08:43UTC to8h00m48s czasuściennego, nie całyczasprojektu aniCPU. CPU5273.796875s dotyczy całegożycia tego procesu FreeCAD. Bieżący56-partmanifest i16PENDINGstrictreopen zapisane; następnycheckpoint po nowejautoryzacji: odtworzenie16/composition/owncross/montaż/affected36/obrys (roboczo45–90min, bez gwarancji), dalejU1far/head/123. CałyN01 bez wiarygodnej estymacji przy tych brakach. Role wykonawca/recenzent Astra medium zachowane; brak zmian modeli. Runtime stare20hNEXT zastąpiono wskaźnikiem bieżącejkarty, bez twierdzenia, że sam powodował wcześniejsze błędy.
+Bieżący front: common functionalcarrier6branches/16positiveedges, rzeczywiste
+mosty doBellyFoot/panelu i current56actorcomposition zapisane w manifestach.
+WholeprintownershipC1GO01a191a3 (1/1) dopuszcza nazwane własne styki, nie całyN01.
+Odebrane31/31changedforeign/raw8 z dyspozycjami; brakująceowncross/assembly/
+changed36/outline nadalOPEN.16finalserializationstrictreopen odebrane we wznowieniu.
+W044fullcase/cap/base/2bands/heads actualBodyOuter min3.95>=3.25; MTAmin1.25.
+W052fullretention MTAmin1.3/portwindow1.25. Cały source/stock/root nadal musi
+należeć do jednego aktualnego zestawu. Nie wracać do wyczerpanych C0/C1.
+Currentfactory W04498.997808/100, W04299.948623, W05288.981920 zawierają
+źródłowe debit/allowance; nie dodawać drugi raz9ani18 na moldedexit bezsource.
+U1far/Pi current3units600: po prefiksach393.651/443.811/476.178 do transportu/
+zapasu/nieuzgodnionychkońców; to budżet, NIEodbiór tras ani luzu.
 
-HISTORYCZNY zakres poniżej zachowuje negatywy; nie jestNEXT.
-C1gate12/67 stop: W044/FL_P_three_bank gap1.10753175<1.25,common0.
-To rezerwa pelnych3wyjsc, nie dowodkontaktuelastycznejzyly.55parniepowtarzac.
-Fullpair/factory split zapisane8geometries ZIP9850c268...0b7e958;
-fullcurve+radius2.101/4.351 to jawny kompletny cover, nie sama os bez grubosci.
-92.935216/100each,Rminanal30.30265/sampled30.50136,innergrip>=9.30699.
-Gate1.672s/4.796875CPU; build/reopen.109/.078125. Unia primitives przerwana
-jednymCtrlC:848.61s/800.859375CPU, bez straty native18120/74948/RAM.
-Bledy spline sweepBOPC0 zachowane; N01nadal0, nie uznawac ich za kontakt.
-Funkcje carrier/FL_P/XT60/W075/W042 pozostajaOPEN do realnegozastepstwa.
-Niezalezny currentU1far basis zapisany:12/24IDs,5grup/fullprofiles,3Piunits600;
-nie odebrane trasy/luz. Dalejcalyfront+U1far/head/global123, bezN03.
-OpenFront zatrzymany219/870; pozostalych651 nie odbierac w odrzuconym ukladzie.
-3case/2factory maja99 odebranych motiontasks bezHOLD (tylko ten zakres).
-FL3 roundcapacity/W044 pose14 common4.294976 NIEdowodzi kontaktu zyly.
-Pelne3profile na TEJ SAMEJ osi/R35.1/inner31.5, stock bez zmian:
-pose14 gap.50779696<1.25/common0; nadalHOLD. Korekta1/1wykorzystana.
-Przekroj nie naprawia obecnegoW044. Pelne36bounds FL3 Xmax-6.135798;
-przeniesienie pary wejsc tylnych rozpatrzyc z plenum10/G2/D_FR/F0 i obrysem.
-NoweZIPS i immutable receipts+SHA zapisane w current_foreign_FL_front_open_foot_received.
-Preflight20.094+.094s/CPU68.953125+.171875; packedbuild2.5/10.953125,
-gate.156/.640625. Oldfoot/panel/source090cover i realne marginesy zachowane.
-PID18120/session74948 zywy; nadalcalyN01=0, bez nowegoCADprocesu.
-PACKING (tylko przekrój): pełneD/G3.1+V2.0 z odstępem≥.2 i krawędzią.4
-mieszczą się w5.9x7.2 (42.48mm2), bez zmiany axisR35.1/innerR31.5.
-Nie nowy kupny wymiar/routePASS; trzytriplet wymagają trzech obsad i przejść.
-Odczyt frontfan.453s/.453125CPU: FHY/outroot/S0/U1foundation i człony
-są kandydatami ograniczeń; bboxy nie dowodzą kontaktu ani pustej komory.
-PROFILE BASIS: Ø7.2/R35.1 to projektowa capacity tripletu, nie dowód kupnego
-wspólnego płaszcza ani R pojedynczej żyły. Konstruktor: R35.1−r3.6=31.5,
-pełne9 po wewnętrznym łuku; dotychczasowe R/OD/geometria/HOLD bez zmian.
-SKU5264/900: trzy cores pobierają MAX(blank), nie SUM; fit/port/izolacja pozostają.
-Źródło day31-astra-source-triplet-profile-basis.json+SHA w kanonie.
-Fore exact: entry9 poza obrysem226.836mm3, capgap2.636<3.25; nominal9gap3.850.
-Pełny oriented090 cover nadal10/11HOLD, nie kontakt. Frontbay ceiling−10.49285
-jest konserwatywną granicą zajętości, nie odebranym pustym miejscem.
-
-OBRYS: current JointCurrentOuter a6a6306d...daa28bc58, worldX[-141.5,183.5],
-Y±100,Z[-48,112],325x200x160/r12/margines3.25. LoopbayX[-168.5,-138],
-Y28..110 nie jest zawartym magazynem tułowia: pozaX27/Y10, bezwyjątkunóg.
-77.4średnica trialloop >68.75 dostępnegoY od28 do96.75; hipotezaunselected.
-Dolnyprzekrój40currentactors+motionbounds orazfrontcell zapisane zSHA;
-G2/D_FRplenum10sources jestobsadą, niepustką: jego funkcja pozostaje.
-
-Factory150 W026:55actual/161bounds, min.790114/040pose23,7marginHOLD,
-common0; oba9gripcover bezHOLD wtymzakresie.16s/55.453125CPU.
-To HOLD tej alokacji pełnejcapacity, niekontaktżyły/brakwszystkichręcznychułożeń.
-C1rigidgate231nowych+16reused,19.312s/83.609375CPU;9newHOLD.
-W041/Kneeprintgap.393863, screw/oldFoot2common.205681, MTA_FL/W052head25.81875,
-footboltcovers.4 oraz090coverHOLD pozostają. Geometria/receipt/SHA frozen.
-Widok day31-astra-crossport-c1-current-occupancy-HOLD.png (3panele) odebrany;
-mesh48.828s/123.09375CPU, render16.672s wall, nie CADCPU.
-Źródła: M2x12headZ[-9.3,-7.3] wynika z dodatkowejrootplate2mm; W052pełna
-T18I82.5/100 nad własnąprojektowąpokrywą, nie kupny sztywny moduł do skasowania.
-Pełnebudżety/porty/stock/R zachowane. Nowyplan musiwybraćdostępnyobszar
-razemz retencją/kotwami; N01nadal0, bezdrukowanychdetaliN03.
-Nowy fakt: W026 przecina actual040/RR_Knee wpose0 common181.444052mm3.
-Pełna obudowa040 X[-118.589,-73.176]Y[-83.456,-63.146]Z[-24.254,24.886].
-Strategia CROSSPORT zatrzymana17/586,569nieodebranych; nie budowaćpodpór.
-12kupnychcase/fasteners strictreopen.343s/.625CPU, prep49.438s/49.296875CPU,
-odbiór1.875s/6.3125CPU. ZIPa44ccd0c...31cfa6faa iimmutable receipt+SHA wkanonie.
-W044/invalid090 pełnecoverHOLDy NIEkontakt. NowyF_FL/W041/W044/G2 nieodebrane
-jako całość. G2 zostajeoryginalne; outboardfact gap.26270735/actual072pose35
-common0 (.360s/1.46875CPU) zachowany. Review01a1903c dopuściłtylkopreflight;
-historycznie korekta CROSSPORT była dostępna; obecnie1/1wykorzystana, dawnyunderpanel/rack limit wyczerpany.
-Pełne9połuku/actualports/100factory/stock/R oraz source14 bez zmian.
-FL-LOWER-POWER-RACK-COMMON-31 ODRZUCONE: actualW044/Ankle095 wpose23
-common.01649413885mm3. Odebrano125/317; pozostałe192 świadomie nieodebrane.
-45.843s/259.125CPU +3.187s/11.75CPU; pierwszychunk przekroczył20s woperacji.
-47aktory strictreopen2.313s/3.65625CPU, ZIPa28eaebb...6a5f3e0 oraz immutable
-pełny preflightreceipt+SHA zachowane. Nowyrack/detail NIEzbudowany.
-Rawprinted/stock/invalidcoverHOLDy pozostają; transformed starecustomgrips
-nie są odebranym nowymprefiksem. ActualkupnyW044/Ankle sam odrzuca układ.
-Jedyna korekta po underpanelHOLD wyczerpana; nie resetować przez nową nazwę.
-Pełny immutable proposal day31-astra-lower-power-rack-whole-proposal.json,
-SHA71342b6ca76e5971a47bf5b48bbe5f6680b2989d2a3e440770ced2887219fdff.
-Cały bankFL/W026/W041+G2 iW044/foot/panel/3source/Fore9, nie wybranyN01;
-GO preflightu wykorzystane; brak zgody odbiorczej układu/stocku.
-Jedna CAŁA alokacja dolnego zasilania/mocowań i3source/Fore9;
-nie kolejny cap ani samo wycinanie panelu. Nowy fakt zamyka strategię
-panel/foot-only: aktualny FL3 quarter w36poses vs actualMTA_FL ma37actual/
-107bounds; capacitycommonmax985.215817mm3, capgapmin.714677 (commoncap0).
-8.922soperacji/17.734375CPU. Immutable fl3-current-mta-motion receipt+SHA wkanonie.
-PositiveForePanel niesie też rzeczywisty W044case/grips/stock: nie wolno
-wyciąć tej podpory bez pełnej nowej alokacji tej samej funkcji.
-Pełny14 pozostaje: źródło jawnie project_reservation/provisionaldatum, nie
-potwierdzone kupne14mm. Nie zmieniono portchoice0/R/OD/pinoutu/SKU.
-Port14:421bounds/11actual,5marginHOLD/common0;Foot2.968329,Panelmin.874792.
-Nowy wariant underpanel NIEzbudowany/HOLDdynamic; jedna korekta całości.
-Wspólny ujemny bank F_FL/W026/W041 wymaga pełnej dyspozycji G2 przy wejściu,
-W044 i rzeczywistych kotew; najpierw cała propozycja/review, nie lokalny wire.
-Stare202/39rawHOLD i wszystkie negatywy zachowane, bez powtórki.
-31source currentcomposition: fullsource base + Hip passage + memberC1 six
-+ commonclosure12 overrides;Pozostałe aktory byte-reused, nie duplikować.
-C1długi powrót +T/rail8x4 zachowany; stary head/print11.5275 odrzucony.
-Nowa wspólna retencja GO01a18fe9:3zamknięcia boczne,3T18I93/45/91 EACH,
-pełna orientacja9head H5.3/E5/D4.3,12 changedactors strictreopened.
-52own9.516s/35.234375CPU;6raw ownhead/closurebudget overlap ma nazwane
-samephysicalunitdispositions,0unresolved; nie dotyczy obcego materiału.
-Changedground36x17:612bounds/0actualtasks, min43.084377mm, .578s/.5625CPU.
-Podłoga/drop/4BellyFoot nie zmienione. Closure25=source head/pull allowance,
-trimaftertension zeźródła, pełne100/25/head i retainedstub/engagement dofit.
-Fore9:9own/root4.65mm3/union1 odebrane; stock98.8/100, pełne9profili.
-HISTORYCZNA nieprzyjęta Freebay3triplet X[-168.5,-138]Y[28,110]Z[-25,82], free400/350/400,
-unit860/865/860 nadal HIPOTEZA, nie przestrzenny odbiór ani selectedN01.
-Wszystkie negatywy/liczniki zachowane; żadnych nowych SKU/offsetsolverów.
-Supplier sourcecase/pinout/fit jawne; następnie U1far/head/global123/246.
-Global143 to role/nominalne zapotrzebowanie, nie bramka finalnegoBOMN10.
-N01 nadal0, hookenabled, PID18120/session74948 bez restartu i bez N02.
-NORTH-OPEN-ENTRY-31 odebrane: V3common0; strictsubset27.18mm3removed;
-1solid, actualF_L3root3.75mm3, protectedloss0, fullGV75/U1stock zachowane.
-3.203soperacji/16.3125CPU; ZIP day31-astra-north-open-entry.breps.zip,
-SHA62b3598df7562284af55193a170c27d1ffa69b340ee2b0d95f1256d1ebb7efa4.
-Stare FORE9C1allocationHOLD2.4253837034 oraz C1used zachowane, niekontaktżyły.
-WAŻNAproweniencja: RL29SourceFixtures to electricalRL/CADFL tył, X139..196,
-NIE electricalFL/CADRL przód Xujemne. Nieprzenosić594/364odbiorów naFL9.
-ActualFL1=Motion_RL_Hip; FL2/3=Motion_RL_Knee. Całe źródła/slack OPEN.
-900 to limit jednostki; źródłowe nominal_fit_blank/actual_cut=null dopuszczają
-planowane cięcie po fit, nie wymóg układania900 w środku. SOURCE/DONOR osobno.
-G3 94/94 +13 nowychregionów bezHOLD odebrane, bez powtórek. U1local12
-90.430..180.141mm do końca pełnego9, bezfarbody/slack, nie wholeunitPASS.
-N01 nadal0/10. Jedna cała hipoteza brakujących źródeł przed CAD, nie9holderów.
-Bieżące kotwice: U1CompleteShortCarrier30, NorthOpenEntry31,
-Module4JointCapsule31; BankVGuided30/CentralVParts30/DockPortal30.
-Odebrane scoped: bank–V–dock–pełnaW029; bank/FLG4 i D_FL/openPier3 z pełnymi
-prefiksami/opaskami i początkowym dojściem narzędzia. Nie odtwarzać240/5/own.
-North jointcapacity scoped CLOSED: pełne2xOD2.1 MODULE, centra4, kapsuła
-podzbiorem poprzedniego coveru; bez zmiany osi/stocku, Lower2gap1.801529.
-Oba końce missing/extra0; ZIP day31-astra-north-joint-module-capacity.breps.zip,
-SHA9f87ce7ff4f84a92c206d96d1d5e6b28bf3187ff15c8326f7903481029abaf3b.
-C1print zachowuje roots/1solid/83.16band i Fine3common0; poprzednie99/99,
-634/634,118/118 oraz odrzucenia/liczniki pozostają w kanonie/historii.
-Nie są aktualnymi nierozstrzygniętymi kolizjami nowego układu automatycznie.
-Historyczne UpperPlenum, SharedNine/FixedUpperBridge/old634 NIE są selekcją.
-
-HEAD3 roll: current_foreign_active_head_roll_authority wskazuje aktualny
-current_foreign_head3_shared_transport_proof.proof[-1]: smoothcosine13mm,
-Rmin15.033191. Dawne uniform12mm/roll_bounds w zamrożonych proposals ODRZUCONE.
-
-GŁOWA: 15 dawnych aktorów mają source-role mapping, nie15 nowych uchwytów.
-Jedna JR300/3żyły/3solderjoins; nie900mm wspólnej puli. Źródłowy plan dopuszcza
-trim far extension end dopiero po przymiarce fazy2; zachować keyedfactoryplug,
-JRmatingplug, pełny factory250, prefiksy/allowances. Odpad nie jest zapasem
-obowiązkowo instalowanym w kocie. Nie przenosić wyjątku na chronione4MTA.
-Widok1289 day30-astra-common-v-whole-HOLD.png nie jest wyborem N01;
-W029 w podpisie sprzed korekty, nie odtwarzać renderu teraz. DwustronnyU1
-source-only ma141 nazwanych aktorów, nie pełny146 odbiór ani nowy fan/pinout.
-
-BRAMKA: zamocowane moduły i szerokie dostępne wspólne regiony; exactwire
-wyłącznie nazwane ryzyko lokalne. Regionseam nie jest nowym portem/chwytem9.
-Swobodna krzywa nie jest sztywną przeszkodą; zachować pełne profile/obsadę,
-R/stock/fabryczne ograniczenia i rzeczywiste kolizje. Bbox nie dowodzi kontaktu.
-Po2 przyczynowych odrzuceniach zmiana topologii/kolejności/udowodnionego
-założenia, bez mikrooffsetów i resetu licznika nową turą/skryptem/modelem.
-Czytaj skillCAD i lessons26/29/30.10; własne przewody/stock/union przed obcymi.
-Co20–30min w tej karcie zamknięty problem albo nowy fakt z konsekwencją.
-
-IO: jawne UTF8 przy KAŻDYM odczycie/zapisie, atomic replace, aktualny limit5MB.
-Wzrost od poprawnych receipts nie jest starą awariąCP1252. Przy potrzebie
-przenieś pełny zamknięty receipt do nazwanego pliku w istniejącym pakiecie
-zSHA i jawnymref; zachowaj negatywy, bez nowego loggera i bez powtarzaniaCAD.
-Geometria/SHA przed zależnym krokiem. Parent1b5defdb zachowuje ostatnie nowe
-ZIPy/widoki; c2ae4231 = udokumentowany JRtrim. Historyczny build-error receipt
-ma original_container_sha256; obecny kontener zachowuje35/35 tych samych
-BRep SHA, błąd/negatywy bez zmian. Bez ponownego odzyskiwania/scanu archiwów.
-
-INWARIANTY: R47/P0/E6/15napędów/wymienneMG92B/325x200x160/max200mm/
-MAIN46.52/margines256cube, wybrane SKU i izolacja bez zmian. Bez physicalPASS.
-Czas/limit przed kosztowną operacją i<=10min; last_account_usage w runtimehook
-jest źródłem odczytu, bez resetów. Czasy operacji/CPU osobno od oczekiwania.
-Własne sprawdzone checkpointy commitować lokalnie bez cudzych zmian.
+ZAKRES: stałyrev1 N01. Jeden wybrany CAŁY układ modułów/mocowań/regionów,
+pełna obsada portów/stocku/kotew/narzędzi, wykonalny montaż/ruch/obrys.
+Wybrane części/R47/P0/E6/15napędów/MG92B/325x200x160/max200/MAIN46.52/256cube.
+Proste wspólne siodła/opaski, dokładne osie tylko nazwane lokalne ryzyko.
+BBox ani invalidBRep nie dowodzi kontaktu. Kontakty izolacji we wiązce nie
+są automatyczną kolizją. Źródłowe minimum_for/pair_spacing klasyfikować;
+nie obniżać foreign1.25 ani profili/R dla zielonego wyniku. Własny kanał
+ma jawną inną funkcję. Po2przyczynowychporażkach zmiana topologii/kolejności,
+nie offset/nowa nazwa. Czytaj skillCAD i lessons26/29/30.10.
+Krótki wynik/fakt+konsekwencja20-30min wtej karcie/pakiecie, nie nowydziennik.
+Własne sprawdzone checkpointy lokalnie bez cudzych zmian; brakpushów.
+Bez zasilania/zakupów/resetów/slicera/ROS/GUARD/BMS/schedule/WORK_HANDOFF/Claude.
+Jeden Gmail syska.seb@gmail.com TYLKOpo rzeczywistymN01=1/10; potwierdzićSENT/
+message_id, sprawdzićWysłane przy nieznanym wyniku. Bez okresowych alertów.
+Nie zamykać okna po lokalnym wyniku/commicie. Nie zaczynaćN02.
 
 ## Historia okna RL 29.10.2026
 
