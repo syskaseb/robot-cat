@@ -1,0 +1,124 @@
+{
+  "status": "C1_G2_ROOT_CONSTRUCTION_RECEIVED",
+  "cause": "Originalside rail crossedactualcase by.05mm within adhesiveplane, common.1775, andfrontpickup onlytouchedbededge. RailnowonactualfloorZtop-13.5, positivepickup extendsintoexistingbedmaterial. Sameapprovedopenreturn topology; no foreignoffset/no attemptcounterreset. Original31archive andrawHOLD preserved.",
+  "geometry": [
+    {
+      "name": "C1:G2_bed_return_lower",
+      "entry": "0.brep",
+      "sha256": "5ac0c368612900f8b6116944ba8b37b4465c2abad02f1fc15d620a0ca587e67a",
+      "bounds": [
+        [
+          -14.5,
+          -9.5,
+          -15.5
+        ],
+        [
+          -10.65,
+          0.5,
+          -13.5
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "C1:G2_bed_front_pickup",
+      "entry": "1.brep",
+      "sha256": "a8f83fa2bf7ac5a3b97e39e041ab29aa1a940b8e237bd5bb27045ef39fb34703",
+      "bounds": [
+        [
+          -14.5,
+          -9.5,
+          -13.8
+        ],
+        [
+          -10.65,
+          -7.7,
+          -11.75
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "archive": "day31-astra-whole-factory-open-bearing-c1-G2-root-construction.breps.zip",
+  "archive_sha256": "2fbafa8c6955c14448306930f461182e8deaf4167963e25c742839b8c4ce24ae",
+  "rows": [
+    {
+      "a": "C1:G2_bed_return_lower",
+      "b": "Station:G2:case",
+      "kind": "own_support_case_stock_fit",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_return_lower",
+      "b": "Day26:RetentionBand:G2",
+      "kind": "own_support_case_stock_fit",
+      "gap_mm": 0.75,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_return_lower",
+      "b": "Day26:RetentionHead:G2",
+      "kind": "own_support_case_stock_fit",
+      "gap_mm": 2.3499999999999996,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_front_pickup",
+      "b": "Station:G2:case",
+      "kind": "own_support_case_stock_fit",
+      "gap_mm": 7.2,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_front_pickup",
+      "b": "Day26:RetentionBand:G2",
+      "kind": "own_support_case_stock_fit",
+      "gap_mm": 1.4500000000000002,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_front_pickup",
+      "b": "Day26:RetentionHead:G2",
+      "kind": "own_support_case_stock_fit",
+      "gap_mm": 0.6324555320336757,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_return_lower",
+      "b": "SerialFrame:G2floor",
+      "kind": "positive_intended_root",
+      "common_mm3": 7.699999999999999,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_front_pickup",
+      "b": "North:G2_existing_bed_support_OPEN",
+      "kind": "positive_intended_root",
+      "common_mm3": 0.1619999999999998,
+      "hold": false
+    },
+    {
+      "a": "C1:G2_bed_front_pickup",
+      "b": "C1:G2_bed_return_lower",
+      "kind": "positive_intended_root",
+      "common_mm3": 2.0790000000000046,
+      "hold": false
+    }
+  ],
+  "operation_seconds": 0.09853479999583215,
+  "process_cpu_seconds": 0.125,
+  "N01_complete": false
+}

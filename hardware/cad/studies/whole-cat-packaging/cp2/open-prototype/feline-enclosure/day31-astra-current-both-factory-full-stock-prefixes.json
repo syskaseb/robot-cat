@@ -1,0 +1,913 @@
+{
+  "status": "FULL_BOTH_FACTORY_OWN_HOLD",
+  "basis": {
+    "W026:MTA_source9": {
+      "land": "fullstraight9",
+      "start": [
+        -53.75,
+        10.0,
+        -20.0
+      ],
+      "extra_wire": 0,
+      "unit100": true,
+      "closure25": true
+    },
+    "W026:receiver9": {
+      "land": "fullstraight9",
+      "start": [
+        -64.0,
+        10.0,
+        -20.0
+      ],
+      "extra_wire": 0,
+      "unit100": true,
+      "closure25": true
+    },
+    "W041:MTA_source9": {
+      "arc": 1,
+      "start_arclength": 1.25,
+      "inner9": 9,
+      "centreline_land": 9.818181818181817,
+      "side": [
+        -0.0,
+        0.2081076444648586,
+        -0.9781059289848354
+      ],
+      "extra_wire": 0,
+      "unit100": true,
+      "closure25": true
+    },
+    "W041:receiver9": {
+      "arc": 2,
+      "start_arclength": 26.137080524271834,
+      "inner9": 9,
+      "centreline_land": 9.818181818181817,
+      "side": [
+        -0.4252278043357716,
+        0.885270332453067,
+        0.1883553898836313
+      ],
+      "extra_wire": 0,
+      "unit100": true,
+      "closure25": true
+    },
+    "W026:custom9": {
+      "real_port": [
+        -109.75,
+        10.0,
+        -20.0
+      ],
+      "real_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "R_mm": 25.2,
+      "whole_prefix_mm": 39.83406743523139,
+      "design_cap": [
+        -135.2,
+        10.0,
+        5.199999999999999
+      ],
+      "arc_land_start": 1.25,
+      "inner9": 9,
+      "centreline_land": 9.818181818181817,
+      "extra_wire_for_grip": 0,
+      "unit100": true,
+      "closure25": true
+    },
+    "W041:custom9": {
+      "real_port": [
+        70.57604572118048,
+        54.65,
+        -10.5
+      ],
+      "real_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "R_mm": 25.2,
+      "whole_prefix_mm": 39.834067435231375,
+      "design_cap": [
+        96.02604572118048,
+        54.65,
+        14.7
+      ],
+      "arc_land_start": 1.25,
+      "inner9": 9,
+      "centreline_land": 9.818181818181817,
+      "extra_wire_for_grip": 0,
+      "unit100": true,
+      "closure25": true
+    }
+  },
+  "factory_debit": {
+    "W041": 97.81095584044267,
+    "W026": 42.75,
+    "unit": 100,
+    "allowance_each": 21
+  },
+  "full_six_T18I_units": {
+    "unit_mm": 100,
+    "closure_allowance_each_mm": 25,
+    "fullhead": [
+      5,
+      4.3,
+      5.3
+    ],
+    "band": [
+      2.5,
+      1.2
+    ],
+    "nominal_rectangular_loop_neutral_perimeter_mm": 29.2,
+    "nominal_each_plusclosure_mm": 54.2,
+    "not_global_N10_stock_purchase": true,
+    "neutral_basis": "2*((9.4+7.0)/2+(7.6+5.2)/2)=29.2; full100unit unchanged,25closure retained."
+  },
+  "reused_W041_fullsolid": "day31-astra-current-full-W041-factory-port-preflight.json",
+  "archive": "day31-astra-current-both-factory-full-stock-prefixes.breps.zip",
+  "archive_sha256": "e8a6845ba079de04b3a8c944abb9fac8a817e983505573013c988719c0d087f0",
+  "geometry": [
+    {
+      "name": "W026:MTA_source9:pad",
+      "entry": "0.brep",
+      "sha256": "8ec0f43484648e559d994656ed9118f6133b8aafb2a0be6124dfe51fe303894e",
+      "bounds": [
+        [
+          -62.75,
+          5.5,
+          -22.6
+        ],
+        [
+          -53.75,
+          7.5,
+          -17.4
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:MTA_source9:band",
+      "entry": "1.brep",
+      "sha256": "967d1bc52aa8759eebd17fb1da9332fcc0bfccea7d8e35ae851f2e128ff6a971",
+      "bounds": [
+        [
+          -59.5,
+          4.299999999999999,
+          -23.8
+        ],
+        [
+          -57.0,
+          13.7,
+          -16.2
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:MTA_source9:head",
+      "entry": "2.brep",
+      "sha256": "d8ed6bace029cac6a86d276b6df3679477487fdabbe031c95b008647c3d30524",
+      "bounds": [
+        [
+          -60.75,
+          0.0,
+          -22.65
+        ],
+        [
+          -55.75,
+          4.3,
+          -17.349999999999998
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:receiver9:pad",
+      "entry": "3.brep",
+      "sha256": "e95366c8c9dc60a4e1d311e7ec76ca41ce3d39668a779e39162699c7b78017bf",
+      "bounds": [
+        [
+          -73.0,
+          5.5,
+          -22.6
+        ],
+        [
+          -64.0,
+          7.5,
+          -17.4
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:receiver9:band",
+      "entry": "4.brep",
+      "sha256": "c731aee3ed0ed6c27e2da63ecd0bcea6c438da65fcf94a12105616e68f229798",
+      "bounds": [
+        [
+          -69.75,
+          4.299999999999999,
+          -23.8
+        ],
+        [
+          -67.25,
+          13.7,
+          -16.2
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:receiver9:head",
+      "entry": "5.brep",
+      "sha256": "46cf1e6763048b43541e10451699aa7199bb9de5e38b3373b2b4c11df1ab80cb",
+      "bounds": [
+        [
+          -71.0,
+          0.0,
+          -22.65
+        ],
+        [
+          -66.0,
+          4.3,
+          -17.349999999999998
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:MTA_source9:pad",
+      "entry": "6.brep",
+      "sha256": "0f44ab6a9eba36823fabfea98acdd5a8b89617608cd2de1ba6e207397a84637b",
+      "bounds": [
+        [
+          -15.114553058404114,
+          8.303709510496057,
+          -24.873085106105393
+        ],
+        [
+          -4.5562353807662745,
+          15.312063197334489,
+          -21.51429061028281
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:MTA_source9:band",
+      "entry": "7.brep",
+      "sha256": "f669c11c3ba5fd61b681fa3f4cd98b276874ccaecd74fbfaf3cb53f41fe1bfa0",
+      "bounds": [
+        [
+          -12.284429187377935,
+          6.060335006413912,
+          -26.249600967355292
+        ],
+        [
+          -8.01966191224536,
+          15.8209409338353,
+          -15.394895858418744
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:MTA_source9:head",
+      "entry": "8.brep",
+      "sha256": "823ff4c98146a8b8a354827dd26eb5892e88a56327239463b4dc85b181115e5c",
+      "bounds": [
+        [
+          -13.219000343657225,
+          8.812084292735205,
+          -30.28619317936208
+        ],
+        [
+          -7.085090755966072,
+          15.920266376682568,
+          -24.758354873504206
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:receiver9:pad",
+      "entry": "9.brep",
+      "sha256": "1cd91cbd77a496fd35b3cf32a1e03d4f9733fb8a8c0ee8cb915ac31ae6b43549",
+      "bounds": [
+        [
+          21.296348776872684,
+          54.04507121626292,
+          -12.776511977402972
+        ],
+        [
+          32.552170011836985,
+          59.49439350382197,
+          -7.32147425236619
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:receiver9:band",
+      "entry": "10.brep",
+      "sha256": "0e1abcc3fc81e2d0523d738c116856a92c6253f046347d1cf4a8c851c5cfaa1a",
+      "bounds": [
+        [
+          25.23551007093183,
+          49.31936731717473,
+          -15.18272245223999
+        ],
+        [
+          29.935845521077855,
+          60.4136465620421,
+          -5.725146935160676
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:receiver9:head",
+      "entry": "11.brep",
+      "sha256": "acbe85199725de427732524911ec1239e28af541bc0e416117b5e40d8243984f",
+      "bounds": [
+        [
+          22.982135273639585,
+          58.18378597512342,
+          -12.222774066500172
+        ],
+        [
+          28.874062541878818,
+          64.55103843826747,
+          -5.91875265405495
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:custom9:pad",
+      "entry": "12.brep",
+      "sha256": "c4b540c8fb9dacdd4d1b7c6326a0dbd6f64d0fe20be566e96ed1d8847bf12a16",
+      "bounds": [
+        [
+          -121.69376461923373,
+          5.499999999999934,
+          -22.26617540593648
+        ],
+        [
+          -111.13544694159589,
+          7.5,
+          -15.5264775853225
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:custom9:band",
+      "entry": "13.brep",
+      "sha256": "c5195019f847233a60eca973f89106c589d0e0acc641b9c8af69e53386f9b531",
+      "bounds": [
+        [
+          -118.23033808775463,
+          4.299999999999997,
+          -23.24061700797159
+        ],
+        [
+          -113.96557081262208,
+          13.700000000000003,
+          -15.2615282015559
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:custom9:head",
+      "entry": "14.brep",
+      "sha256": "88482227af9fd2903f991e2dc1acdd89c7a2c12109cd9434e8c62cbb5c80f473",
+      "bounds": [
+        [
+          -119.16490924403394,
+          -3.552713678800501e-15,
+          -22.42727214952941
+        ],
+        [
+          -113.03099965634277,
+          4.299999999999997,
+          -16.074873059998076
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:custom9:pad",
+      "entry": "15.brep",
+      "sha256": "703117cb7eb4097915ac5219e5362344b4fe0adad484d8b7500d685413b3994c",
+      "bounds": [
+        [
+          71.96149266277638,
+          57.15,
+          -12.766175405936483
+        ],
+        [
+          82.51981034041421,
+          59.150000000000006,
+          -6.0264775853224855
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:custom9:band",
+      "entry": "16.brep",
+      "sha256": "245394e4a797a9ab991ead4a517f1ca1919e47ff4550817481ff405f2187a7a1",
+      "bounds": [
+        [
+          74.79161653380254,
+          50.949999999999996,
+          -13.74061700797159
+        ],
+        [
+          79.05638380893512,
+          60.35,
+          -5.761528201555901
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:custom9:head",
+      "entry": "17.brep",
+      "sha256": "d03fcaa7a1279b3f5f4619c2c2adc045877db9bb870e279e8b0978eb5d791b28",
+      "bounds": [
+        [
+          73.85704537752325,
+          60.35,
+          -12.927272149529415
+        ],
+        [
+          79.99095496521441,
+          64.65,
+          -6.574873059998076
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:factory:fullsolid",
+      "entry": "18.brep",
+      "sha256": "7e8ec97f8c60c3f68040d97d7facabc3bb628d8179bd2378e63391c2719a01a7",
+      "bounds": [
+        [
+          -74.25,
+          7.9,
+          -22.1
+        ],
+        [
+          -52.5,
+          12.1,
+          -17.9
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:factory:centreline",
+      "entry": "19.brep",
+      "sha256": "2705cf5cb2835caa5456000dd568eb8930701fd9cc495d9b9c4fb90e309ad81c",
+      "bounds": [
+        [
+          -74.25,
+          10.0,
+          -20.0
+        ],
+        [
+          -52.5,
+          10.0,
+          -20.0
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:custom:fullsolid",
+      "entry": "20.brep",
+      "sha256": "2230f2949ac877ad7e7a08aab4bbed0b1ccd082dd0e4ef6edb97921315957b8b",
+      "bounds": [
+        [
+          -139.54930706798234,
+          7.9,
+          -24.349307067982352
+        ],
+        [
+          -109.75,
+          12.1,
+          5.200000000000001
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W026:custom:centreline",
+      "entry": "21.brep",
+      "sha256": "84bb14806ceb6c4d5a031facbcd7476195e7c17600e2a82cbeaafc099e95d3f5",
+      "bounds": [
+        [
+          -135.2,
+          10.0,
+          -20.0
+        ],
+        [
+          -109.75,
+          10.0,
+          5.199999999999997
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:custom:fullsolid",
+      "entry": "22.brep",
+      "sha256": "dbc470e1b1648b9dc59569c24165f5802b457c43d27311622681c6a4ae1d7e4e",
+      "bounds": [
+        [
+          70.57604572118048,
+          52.55,
+          -14.849307067982373
+        ],
+        [
+          100.37535278916283,
+          56.75,
+          14.699999999999998
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:custom:centreline",
+      "entry": "23.brep",
+      "sha256": "2552bfff144b440a73cab0f8696a5e841ae7684c598138738f5eeec2ee968cd9",
+      "bounds": [
+        [
+          70.57604572118048,
+          54.65,
+          -10.50000000000001
+        ],
+        [
+          96.02604572118048,
+          54.65,
+          14.699999999999994
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "OpenSource:upper_bed_retained_support_OPEN",
+      "entry": "24.brep",
+      "sha256": "76a6643949ad91d535ee3c7d1f2efef1b997a1bd87da75da7839e56e86968423",
+      "bounds": [
+        [
+          -10.95,
+          -9.500000000000005,
+          -12.05
+        ],
+        [
+          45.25,
+          -0.5,
+          -8.499999999999968
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "own": [
+    {
+      "part": "W026:MTA_source9:pad",
+      "other": "W026:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.40000000000000036,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:MTA_source9:band",
+      "other": "W026:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.40000000000000036,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:MTA_source9:head",
+      "other": "W026:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 3.6000000000000005,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:MTA_source9:pad",
+      "other": "W026:MTA_source9:band",
+      "kind": "own_channel",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": true
+    },
+    {
+      "part": "W026:MTA_source9:pad",
+      "other": "W026:MTA_source9:head",
+      "kind": "own_channel",
+      "gap_mm": 1.2000000000000002,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:MTA_source9:band",
+      "other": "W026:MTA_source9:head",
+      "kind": "closureplane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W026:receiver9:pad",
+      "other": "W026:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.40000000000000036,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:receiver9:band",
+      "other": "W026:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.40000000000000036,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:receiver9:head",
+      "other": "W026:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 3.6000000000000005,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:receiver9:pad",
+      "other": "W026:receiver9:band",
+      "kind": "own_channel",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": true
+    },
+    {
+      "part": "W026:receiver9:pad",
+      "other": "W026:receiver9:head",
+      "kind": "own_channel",
+      "gap_mm": 1.2000000000000002,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:receiver9:band",
+      "other": "W026:receiver9:head",
+      "kind": "closureplane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W041:MTA_source9:pad",
+      "other": "W041:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.3999999999999942,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:MTA_source9:band",
+      "other": "W041:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.4000000000000014,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:MTA_source9:head",
+      "other": "W041:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 3.5999999999999965,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:MTA_source9:pad",
+      "other": "W041:MTA_source9:band",
+      "kind": "own_channel",
+      "gap_mm": 0.19999996848263032,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:MTA_source9:pad",
+      "other": "W041:MTA_source9:head",
+      "kind": "own_channel",
+      "gap_mm": 1.1999999999999953,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:MTA_source9:band",
+      "other": "W041:MTA_source9:head",
+      "kind": "closureplane",
+      "gap_mm": 1.7763568394002505e-15,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W041:receiver9:pad",
+      "other": "W041:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.39999999999998587,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:receiver9:band",
+      "other": "W041:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.49999999999999606,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:receiver9:head",
+      "other": "W041:factory",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 3.5999999999999845,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:receiver9:pad",
+      "other": "W041:receiver9:band",
+      "kind": "own_channel",
+      "gap_mm": 0.19999999999984538,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:receiver9:pad",
+      "other": "W041:receiver9:head",
+      "kind": "own_channel",
+      "gap_mm": 1.2352637468561178,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:receiver9:band",
+      "other": "W041:receiver9:head",
+      "kind": "closureplane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W026:custom9:pad",
+      "other": "W026:custom",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.40000000000000036,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:custom9:band",
+      "other": "W026:custom",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.40000000000000036,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:custom9:head",
+      "other": "W026:custom",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 3.600000000000003,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:custom9:pad",
+      "other": "W026:custom9:band",
+      "kind": "own_channel",
+      "gap_mm": 0.19999996848264173,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:custom9:pad",
+      "other": "W026:custom9:head",
+      "kind": "own_channel",
+      "gap_mm": 1.1999999999999993,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W026:custom9:band",
+      "other": "W026:custom9:head",
+      "kind": "closureplane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    },
+    {
+      "part": "W041:custom9:pad",
+      "other": "W041:custom",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.3999999999999986,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:custom9:band",
+      "other": "W041:custom",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 0.3999999999999986,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:custom9:head",
+      "other": "W041:custom",
+      "kind": "own_full_profile_clearance",
+      "gap_mm": 3.6000000000000014,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:custom9:pad",
+      "other": "W041:custom9:band",
+      "kind": "own_channel",
+      "gap_mm": 0.1999999684826248,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:custom9:pad",
+      "other": "W041:custom9:head",
+      "kind": "own_channel",
+      "gap_mm": 1.2000000000000028,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "W041:custom9:band",
+      "other": "W041:custom9:head",
+      "kind": "closureplane",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "required_mm": 0,
+      "hold": false
+    }
+  ],
+  "retired": "BothrejectedOpenSourcedownpostversions absent; original10bed material retained viaexplicitbase withoutwholeoldpost, supportOPEN. No purchasedactor retired. InclinedFLP retainedscoped, no supportselectionclaimed.",
+  "operation_seconds": 3.0721758999861777,
+  "process_cpu_seconds": 6.78125,
+  "N01_complete": false
+}
