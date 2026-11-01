@@ -1,0 +1,186 @@
+{
+  "status": "LONG_C1_OWN_HOLD",
+  "review_turn": "01a194bb-dd48-7033-8eeb-27602f6cdef3",
+  "proposal_sha256": "246350404466a6a511022a40a9d78b67dbf62b1f1c52b47d6bc6933727ddc38f",
+  "geometry": [
+    {
+      "name": "Day26:RetentionBand:FL_P",
+      "entry": "0.brep",
+      "sha256": "63ad5234f791236ac47ad4b1a9d414d7339fd6f46dfcbf71be3c975fc2d7f3ad",
+      "bounds": [
+        [
+          -1.0,
+          -15.25,
+          -26.0
+        ],
+        [
+          19.7,
+          -12.75,
+          -15.0
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "Day26:RetentionHead:FL_P",
+      "entry": "1.brep",
+      "sha256": "ac0218291cfa699aaec109bc6a5d9bb23ba4b6793c20095a010dd9e11e5dc96a",
+      "bounds": [
+        [
+          -5.299999999999999,
+          -16.5,
+          -23.15
+        ],
+        [
+          -0.9999999999999982,
+          -11.5,
+          -17.849999999999998
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "archive": "day31-astra-longitudinal-c1-full-loop-head.breps.zip",
+  "archive_sha256": "a04730c60dfda7e1831b0aeb870b4991521fdff6644e880657ad881b26ea3e60",
+  "reused72_archive": "day31-astra-longitudinal-c0-complete-modules-stock.breps.zip",
+  "reused72_archive_sha256": "b3b2470991da7ff2abe38f8054086fd9088f940a7a86dc723fa9e02b301eeb44",
+  "rows": [
+    {
+      "part": "Day26:RetentionBand:FL_P",
+      "other": "Day26:RetentionBar:FL_P",
+      "gap_mm": 0.19999999999999574,
+      "required_mm": 0.2,
+      "policy": "FULL4PROFILE_PRESSURE_LOOP",
+      "hold": false,
+      "witnesses": [
+        [
+          [
+            1.5,
+            -15.25,
+            -16.200000000000003
+          ],
+          [
+            1.5,
+            -15.25,
+            -16.4
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "Day26:RetentionBand:FL_P",
+      "other": "FLP:first9:0",
+      "gap_mm": 0.1999999999999999,
+      "required_mm": 0.2,
+      "policy": "FULL4PROFILE_PRESSURE_LOOP",
+      "hold": false,
+      "witnesses": [
+        [
+          [
+            0.19999999999999998,
+            -15.25,
+            -20.5
+          ],
+          [
+            0.3999999999999999,
+            -15.25,
+            -20.5
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "Day26:RetentionBand:FL_P",
+      "other": "FLP:first9:1",
+      "gap_mm": 2.7499999999999964,
+      "required_mm": 0.2,
+      "policy": "FULL4PROFILE_PRESSURE_LOOP",
+      "hold": false,
+      "witnesses": [
+        [
+          [
+            7.25,
+            -15.25,
+            -24.8
+          ],
+          [
+            7.25,
+            -15.25,
+            -22.05
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "Day26:RetentionBand:FL_P",
+      "other": "FLP:first9:2",
+      "gap_mm": 2.7499999999999964,
+      "required_mm": 0.2,
+      "policy": "FULL4PROFILE_PRESSURE_LOOP",
+      "hold": false,
+      "witnesses": [
+        [
+          [
+            12.0,
+            -15.25,
+            -24.8
+          ],
+          [
+            12.0,
+            -15.25,
+            -22.05
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "Day26:RetentionBand:FL_P",
+      "other": "FLP:first9:3",
+      "gap_mm": 0.1999999999999993,
+      "required_mm": 0.2,
+      "policy": "FULL4PROFILE_PRESSURE_LOOP",
+      "hold": false,
+      "witnesses": [
+        [
+          [
+            18.5,
+            -15.25,
+            -20.5
+          ],
+          [
+            18.3,
+            -15.25,
+            -20.5
+          ]
+        ]
+      ]
+    },
+    {
+      "part": "FLP:first9:0",
+      "other": "FLP:first9:1",
+      "gap_mm": 1.1000000000000005,
+      "required_mm": 1.25,
+      "policy": "WHOLE_CHANGED_CROSS",
+      "hold": true,
+      "witnesses": [
+        [
+          [
+            4.6,
+            -18.5,
+            -20.5
+          ],
+          [
+            5.7,
+            -18.5,
+            -20.5
+          ]
+        ]
+      ]
+    }
+  ],
+  "stock": "FullONE100 T18I;neutral58.6+combinedhead_tail25=83.6;remaining16.4;full5x4.3x5.3headgeometry.",
+  "raw_C0_HOLDs_preserved": "Bar/jacket0 sourcepressuredisposition; oldband/jacketcommon retained asreplaceddesignnegative. C0ownunreceivedunaffectedpairs handledhere. Wholeforeign/support stillpending.",
+  "operation_seconds": 0.11172730001271702,
+  "process_cpu_seconds": 0.15625,
+  "N01_complete": false
+}
