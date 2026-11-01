@@ -1,0 +1,16 @@
+{
+  "status": "OWN_ENDPOINT_PRINT_INTERFACE_PENDING_NOT_GEOMETRIC_PASS",
+  "raw_receipt": "day31-astra-central-spine-c1-foreign-0-18.json",
+  "raw_common_mm3": 0.0032963196075002556,
+  "part": "W044:MTA_source9:head",
+  "other": "MTACradle:RL",
+  "source_constructors": [
+    "tools/cad/plan_feline_mta_bonded_cradles.py:cradle",
+    "tools/cad/plan_feline_mta_shared_low_stops.py"
+  ],
+  "source_record": "n01-MTA-low-stop-cradles.json",
+  "function": "Selected MTA_RL boughtcase unchanged. Cradle is designed PETG case-only XY low-stop, not supplier fixed connector. Preserve full8x18x.5 VHB4905 footprint144mm2, .2 ownedcase gap, current2.049992 high case stop and complete rear support/load path. Wire grip independent.",
+  "frozen_native_provenance": "Day26PrototypeSpacePlan.FCStd PlanningReservations.NonMaterialSourceActors explicitly lists LowerBay:RearPanel and MTABond:RL/RR; absent from material context by design, not failed import or already qualified physical floor. Use named source geometry only as explicit reference for constructive whole support, not silently current selected material.",
+  "whole_support_completion": "Replace whole two front corner stops with one central front stop and positive bottom tongue into same complete cradle; preserve lateral/rear stops and full bond footprint. Add actual shared rear support carrying both complete rearMTAcase footprints and existing source mounts, then check actual load path/own source/full stock/outline/changedneighbors. No tiny witness notch or sourcehead/cable shift.",
+  "gate": "C1 remains1/1, no reset or new module trial. Raw print common remains HOLD until replacement is built/received. Continue only remaining current fixed-module interfaces to avoid building supports before a real bought-module blocker is ruled out. WholeN01 still0."
+}
