@@ -1,0 +1,77 @@
+{
+  "status": "CURRENT_W041_FOUNDATION_RLG_SOURCE_DECISION_NOT_NEW_CANDIDATE",
+  "N01_complete": false,
+  "foundation_faces": [
+    {
+      "face_1based": 54,
+      "area_mm2": 527.496,
+      "bounds_mm": [
+        [
+          -4.874,
+          56.0,
+          38.52
+        ],
+        [
+          127.0,
+          60.0,
+          38.52
+        ]
+      ],
+      "witness_point_mm": [
+        70,
+        60,
+        38.52
+      ],
+      "point_distance_mm": 0.0,
+      "normal": [
+        -0.0,
+        -0.0,
+        -1.0
+      ]
+    },
+    {
+      "face_1based": 78,
+      "area_mm2": 163.9434569279806,
+      "bounds_mm": [
+        [
+          -4.874,
+          60.0,
+          38.52
+        ],
+        [
+          127.0,
+          60.0,
+          40.52
+        ]
+      ],
+      "witness_point_mm": [
+        70,
+        60,
+        38.52
+      ],
+      "point_distance_mm": 0.0,
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  ],
+  "previous_disposition": {
+    "file": "day31-astra-W026-complete-foot-carrier-c1-current-disposition.json",
+    "sha256": "b1919b472a5b1eb855460dbcce505ad6af0c976af3f51b37057d92f522d5799d"
+  },
+  "sources": {
+    "tools/cad/feline_channelled_foundation.py": "57d843942a2b54422336234bbc20146cd5a1e0e8c8d689b1be2cf0538d7c8d68",
+    "tools/cad/compose_feline_shared_layout.py": "00e463d24f3fe5b8146b74dcafdb9e169a59b05559863b06e6c1f7c3aeb37552",
+    "tools/cad/feline_compact_station_fan.py": "7c5e1c9a3b38062277138554cd99b7de6aa74c389c9e98164a686ff4780bd6ac",
+    "tools/cad/feline_zone_station_templates.py": "7cd68be75637b37c775e3a9b8e11f10f38da5fd39521c3dcc275d0d9a5cb8dcc",
+    "tools/cad/feline_flat_station_templates.py": "3ee481da580f801bea8a5c358a9c3e457f0a63338ae83e41ed9b947805c86b87"
+  },
+  "RL_G_role": "Current selected n01-shared54-current chosen RL_G: legacy_compact_fan, centre[46,65.6,18], vertical departure-Z/lever-Y. compose_feline_shared_layout.station_model -> legacy_unit -> materialise/vertical_build. Cap is project common channelled retention of all real port first9, not purchased module. legacy_unit changes following30degree arcs but explicitly retains wholecase/first9/cap/band/head. Cannot erase cap or reuse its occupied stock capacity while changing mount.",
+  "foundation_role": "Actual channelled common carrier retains PWM carrier and actual bank pads/clamp seats; bbox Zmin30.52 is not the actual far-post anchor. Two actual faces incident to worldpoint[70,60,38.52] are identified above. The earlier Edge149->Edges[148] adjacency read pointed at unrelated negative-X faces and is discarded; no geometry or root decision was based on it.",
+  "decision": "C0/C1 exhausted. Next whole strategy must jointly allocate complete W041 case+cap+bolts/nuts+both factory exits, RL_G real case/all port first9/full clamp band/head and common foundation loadpath. A cap redesign is permitted only as complete equivalent port retention with all changed interfaces received; no deletion of real jackets/stock, no margin reduction. A new upper-post endpoint alone cannot resolve actual .503658 cap clearance and missing root together.",
+  "next": "Use these actual faces and complete RL_G retained kit in one shared mount/region hypothesis; preflight whole bought set/support reservations before detail, existing reviewer once/maxonecorrection. Current unchanged G2/W026/F0 scoped evidence reused. Whole U1far/head/123246/lengthslack still open.",
+  "operation_seconds": 0.013140499999281019,
+  "process_cpu_seconds": 0.015625
+}
