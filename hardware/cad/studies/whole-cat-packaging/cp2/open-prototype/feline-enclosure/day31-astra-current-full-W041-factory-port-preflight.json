@@ -1,0 +1,75 @@
+{
+  "status": "CURRENT_FULL_FACTORY_PORT_ALLOCATION_HOLD",
+  "archive": "day31-astra-current-full-W041-factory-port-preflight.breps.zip",
+  "archive_sha256": "d6a7949c5bdb7549407cc427347aa158c716b0ea09fad432a34beb2990a63fd3",
+  "geometry": [
+    {
+      "name": "W041:current_full_factory",
+      "entry": "0.brep",
+      "sha256": "2d06c2a9ae223155f4a51dc647d7d6d963b2d47e04d9c148a50154da88046ccf",
+      "bounds": [
+        [
+          -17.5,
+          5.745916969830798,
+          -22.486112908341354
+        ],
+        [
+          35.07604572118049,
+          58.90408303016919,
+          -8.013887091658638
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W041:current_factory_centreline",
+      "entry": "1.brep",
+      "sha256": "1bd36167be4244fcad665a7bf4829a6b631f7e24091e75f4e7e3a55ada3e07fe",
+      "bounds": [
+        [
+          -17.5,
+          9.999999999999996,
+          -20.0
+        ],
+        [
+          35.07604572118048,
+          54.65,
+          -10.499999999999998
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "real_ports": [
+    [
+      -17.5,
+      10.0,
+      -20.0
+    ],
+    [
+      35.07604572118048,
+      54.65,
+      -10.5
+    ]
+  ],
+  "R_mm": 25.2,
+  "full_radius_mm": 2.1,
+  "centreline_mm": 76.81095584044267,
+  "unchanged_allowances_mm": 21,
+  "total_factory_debit_mm": 97.81095584044267,
+  "unit_mm": 100,
+  "other": "Station:FL_P:case",
+  "actual_gap_mm": 0.0,
+  "actual_common_mm3": 173.97486230857274,
+  "local_escape_bound": {
+    "at_expanded_case_x": -6.35,
+    "advance_from_realport_mm": 11.15,
+    "max_R25_2_lateral_departure_on_forward_monotone_approach_mm": 2.6009402850472547,
+    "minimum_needed_to_leave_expanded_YZ_face_mm": 6.35,
+    "scope": "Necessary forward-local port escape bound, not blanket globalcurveimpossibility; loopingback isnotcovered andwould needwholefactorybudget. Existing approvedS demonstrably intersectsactualcase. No spareallowance removed."
+  },
+  "decision": "Fullcurrentfactory nowactuallypreflighted before grips/details; ifHOLD reconsider wholeF_FL/W026 allocation withbothfactoryinterfaces/commonbearing, not anotherindividualwireoffset. OldhigherFL/W026 completebought geometry+ownmotion scope exists onlyforitsoldpose, changedneighborsmustbereceived.",
+  "operation_seconds": 0.12358730001142249,
+  "process_cpu_seconds": 0.328125,
+  "N01_complete": false
+}

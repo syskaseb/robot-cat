@@ -1,0 +1,189 @@
+{
+  "status": "FULL_RETURN_PIECES_PREFLIGHT_NOT_FUSED",
+  "proposal_sha256": "451bd633d85ce9ccd4c560174127e866d9a004818b86a41d3b4be9a1bc9f2294",
+  "review_turn": "01a19530-dcf0-7ab3-b029-f8f1c1eb5964",
+  "geometry": [
+    {
+      "name": "UpperReturn:G2:toplink",
+      "entry": "0.brep",
+      "sha256": "f184567f8da586f330c4074b6fdf119fe54a62a7ed103cf84d620e186f9f7e00",
+      "bounds": [
+        [
+          -14.5,
+          -9.7,
+          -12.05
+        ],
+        [
+          -10.45,
+          -7.7,
+          -10.05
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:G2:post",
+      "entry": "1.brep",
+      "sha256": "ba3c07abad5b380d1cc879fb42cebf95771d1b9519b4ecea581d4295d5fcd188",
+      "bounds": [
+        [
+          -14.5,
+          -9.7,
+          -15.5
+        ],
+        [
+          -12.5,
+          -7.7,
+          -11.75
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:G2:arm",
+      "entry": "2.brep",
+      "sha256": "1ef5c5c009c308ad5c9181592ee32bc0b9086f936fedfa5505a8328aca5872a8",
+      "bounds": [
+        [
+          -14.5,
+          -9.7,
+          -15.5
+        ],
+        [
+          -12.5,
+          8.0,
+          -13.5
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:G2:floorlink",
+      "entry": "3.brep",
+      "sha256": "51d5907682c0ecd72b0b850db6faba6d6b405e455810b6f4248f3b2cf3392b8c",
+      "bounds": [
+        [
+          -14.5,
+          5.5,
+          -15.5
+        ],
+        [
+          -8.0,
+          8.0,
+          -13.5
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:D_FR:toplink",
+      "entry": "4.brep",
+      "sha256": "d27f9fed64ee881dd5c7a94523d5d97b2b2a44b4731404cc50b642fc9dacec70",
+      "bounds": [
+        [
+          43.5,
+          -9.7,
+          -12.05
+        ],
+        [
+          48.0,
+          -7.7,
+          -10.05
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:D_FR:post",
+      "entry": "5.brep",
+      "sha256": "f8001861154cf993e10f641c33fa90a2c0c80a8ff9517a5f969dfecdaac8075e",
+      "bounds": [
+        [
+          46.0,
+          -9.7,
+          -15.5
+        ],
+        [
+          48.0,
+          -7.7,
+          -11.75
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:D_FR:arm",
+      "entry": "6.brep",
+      "sha256": "530ac3d71409082b24eb44575fc242974d11f1ee2540662654b363f9f6b62a2e",
+      "bounds": [
+        [
+          46.0,
+          -9.7,
+          -15.5
+        ],
+        [
+          48.0,
+          8.0,
+          -13.5
+        ]
+      ]
+    },
+    {
+      "name": "UpperReturn:D_FR:floorlink",
+      "entry": "7.brep",
+      "sha256": "fb9d07fdc47854035a1dacec76b869d1312a11e5d4dd8137bb8f878c47576ca3",
+      "bounds": [
+        [
+          43.5,
+          5.5,
+          -15.5
+        ],
+        [
+          48.0,
+          8.0,
+          -13.5
+        ]
+      ]
+    }
+  ],
+  "archive": "day31-astra-upper-floor-return-c0-full8-preflight.breps.zip",
+  "archive_sha256": "7c6a90e020651152ab2ed091e193bb30de36ab18e6d4d2b64b5f237215b6b4f3",
+  "own": [
+    {
+      "part": "UpperReturn:G2:arm",
+      "other": "Station:G2:case",
+      "kind": "own_full_case_floor_level_support",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "UpperReturn:G2:floorlink",
+      "other": "Station:G2:case",
+      "kind": "own_full_case_floor_level_support",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "UpperReturn:D_FR:arm",
+      "other": "Station:D_FR:case",
+      "kind": "own_full_case_floor_level_support",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    },
+    {
+      "part": "UpperReturn:D_FR:floorlink",
+      "other": "Station:D_FR:case",
+      "kind": "own_full_case_floor_level_support",
+      "gap_mm": 0.5,
+      "common_mm3": 0,
+      "required_mm": 0.2,
+      "hold": false
+    }
+  ],
+  "retirement": "Neitheroriginal42..44norC147..49downpost retained; basefornewprint originalOpenSource minuswholeoriginalpost. InclinedWorldcommonprint entirelyremoved beforeprefight, newprint replaces sameID.",
+  "head_channel_construction": "Full2mm top/post widthY[-9.7,-7.7] derivedfrom G2headYmin-7.5 minusownchannel.2 beforefirstbuild, keeps1.8positiveoverlapwitholdcrossbarY[-9.5,-7.5]. Not acquiredforeignmargin change.",
+  "task_count": 24,
+  "operation_seconds": 6.6943831000244245,
+  "process_cpu_seconds": 6.71875,
+  "N01_complete": false
+}

@@ -1,0 +1,118 @@
+{
+  "status": "FLP_FULL4_BED_OWN_SCOPED_RECEIVED",
+  "archive": "day31-astra-common-frame-FLP-full4-source-bed.breps.zip",
+  "archive_sha256": "d2d47c556d62f73a09544dbaf5b42009d8e8a48cf9a48c59ae2313421f989de2",
+  "geometry": [
+    {
+      "name": "CommonFrame:FLP_full9_source_bed",
+      "entry": "0.brep",
+      "sha256": "6891938d27d0445b0ab2842030d1ee1c10365ad56ecccea5e16156d74e30cc60",
+      "bounds": [
+        [
+          0.19999999999999998,
+          -2.5,
+          -28.5
+        ],
+        [
+          18.500000000000004,
+          10.5,
+          -21.5
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "own": [
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "FLP:first9:0",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "FLP:first9:1",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "FLP:first9:2",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "FLP:first9:3",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "Day26:RetentionBar:FL_P",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "Day26:RetentionBand:FL_P",
+      "gap_mm": 0.1999999999999993,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "Day26:RetentionHead:FL_P",
+      "gap_mm": 1.1999999999999993,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "Station:FL_P:case",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "SerialFrame:FLPfloor",
+      "gap_mm": 0.0,
+      "common_mm3": 36.0,
+      "kind": "positive_full240floor_root",
+      "hold": false
+    },
+    {
+      "a": "CommonFrame:FLP_full9_source_bed",
+      "b": "Long:Case4905:FL_P",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_source_profile_bar_band_bond_port_interface",
+      "hold": false
+    }
+  ],
+  "supported_axial_mm": 9,
+  "full_source_radii_mm": [
+    2.1,
+    1.55,
+    1.55,
+    1.55
+  ],
+  "function": "Implement alreadyreviewed full4 sourcebed intoactual240floor via splitLpost/link. Sameactualprofiles/case/bar/full83.6of100band/easthead unchanged. Full2mmbelowlargestprofile/.2bandchannel; no independentholders. Newprintonly requireschangedforeign/motion.",
+  "operation_seconds": 0.763311300019268,
+  "process_cpu_seconds": 1.84375,
+  "N01_complete": false
+}

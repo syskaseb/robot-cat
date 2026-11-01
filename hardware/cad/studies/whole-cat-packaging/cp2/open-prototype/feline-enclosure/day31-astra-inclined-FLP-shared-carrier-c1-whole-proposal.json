@@ -1,0 +1,52 @@
+{
+  "id": "LOWER_SOUTH_FLP_FACTORY_ESCAPE_C1_INCLINED_SHARED_CARRIER",
+  "parent": "LOWER_SOUTH_FLP_FACTORY_ESCAPE_C0",
+  "correction": 1,
+  "max_corrections": 1,
+  "status": "REVIEW_PENDING_NOT_SELECTED",
+  "cause": "C0 FLPcase/InputGripW042pad actual8.639996; retained complete W042 FR factory/9/stock/root cannot be deleted. Horizontal lower-internal bounds also cross W044factory. Change shared carrier topology: inclined FLP under G2/DFR, full source fan down/south, rather than southeast case over W042input.",
+  "whole_layout": {
+    "FLP_center": [
+      29.75,
+      -9.5,
+      -24.25
+    ],
+    "FLP_rotation": "Rx45 from original at[12,16,-21.5], complete case/4fullprofiles/9/bar/full83.6of100band/head/full240bond/2mmfloor/fullsourcebed moved together",
+    "x_basis": "Pfrontwall actual xmax13.5 + fullforeign1.25 + casehalf15 =29.75; not independently adjusted wire",
+    "D_FR": "Case/5profiles/bar/full88.4band unchanged; move complete5x4.3x5.3 head from underside to west side X17.25..21.55,Y-7.5..-2.5,Z-11.15..-5.85, same closedloop perimeter and100debit. Frees FLP upper pocket.",
+    "shared_source_support": "Retain all10 contactbeds/crossbar; replace Dfr south post x42..44 with full2mm x47..49 and extend sharedcrossbar to49, sameY-9.5..-7.5. Post joins centralbeam below; actualF0 clearance required. Keep north Dfrfloor/rightpost separately unchanged.",
+    "FLP_mount": "Retain complete240 patch/2mm floor transformed; shared carrier connects floor to centralbeam/rear floor via actual positive roots after rigid preflight. Full9bed may deliberately root into rearfloor; preserve sourcechannels and own.2. No underside detail until rigid/source gate.",
+    "retired_positions": [
+      "old FLP eleven sourceparts same physical IDs",
+      "SouthFLP C0 sixlinks neverselected",
+      "old Dfr underside head position",
+      "old southpost branch only of OpenSource commonprint; allother10beds retained"
+    ],
+    "unchanged": "G2/Dfr cases, Pfront fullS/westreturn, W044fullwindows/currentheads, MTAFL/W026/W041 completecase allocations, floor13/rear6 actualscopes, R47/P0/E6/MAIN46.52/SKUs/body325x200x160/max200/3.25outline/1.25foreign"
+  },
+  "evidence": {
+    "C0_archive": "day31-astra-lower-south-FLP-c0-complete17.breps.zip",
+    "C0_changed": "day31-astra-lower-south-FLP-c0-changed-0-1.json",
+    "source_constructor": "tools/cad/receive_feline_factory_saddle_plan.py:WIRES/CASES/build InputGrip W042 FR full9+root",
+    "bounds": "day31-astra-inclined-FLP-c1-space-bounds.json",
+    "bounds_note": "At x29, actual proposal derivedx29.75; onlybounds not contact. Fullboundsno108x36mechanical candidates; current17 moving stillrequired. FullbedminZ-42.281 withinBodyOuter[-48,112]3.25margin, sourcesminZ-38.816. Sourcebed/rearfloor possible ownroot not wirecontact."
+  },
+  "preflight_before_details": [
+    "allchanged complete FLP11 and DFR fullhead/commonprint versus retained cases/fasteners/stock and BOTH full W041/W026 factory including current W044/W042 full profiles",
+    "explicitly test RestoredBank/F0/SourceRootlowerSharedFork/Pfrontwall/centralbeam/current moving17; bbox overlap never contact",
+    "W041 fullfactory97.810956/100 reuseexact savedsolid; W026 straight21.75+21=42.75/100 then both full9 source/receiver grips/stock/customprefix",
+    "no lowerbed support construction until changed bought/full source clear; stop first realHOLD, C1 exhausted if rejects"
+  ],
+  "assembly_regions": {
+    "sequence": "Open underside: mount commoncarrier/FLP bonded fullpatch, lay source4 in openfull9bed and closefulltie; G2/Dfr above with westaccessible latch; then fullMTA factory and custom leads through connected opened galleries before cover. No quickservice claim.",
+    "connected_source_region": "FLP four sourceends face down/south into underdeck between current W042 factory and rearfloor; R25.2 thick/R12.4 thin preserved. Fan to bodylinks must have full localoccupancy/length/slack before wholeN01. No new terminal at accountingseam.",
+    "whole_open": "U1far/head/123IDs246ends/lengthslack/functionalframegroundroots/currentcomposition notyetselected. Existing bounded evidence reused, no N03/N08/N09/N10 gate."
+  },
+  "unknowns": [
+    "actualBank/F0/fork shapeclearance",
+    "bothfullfactory source/receiver grips and downstreamoccupiedregion",
+    "mountroot bearing areas and current17motion",
+    "wholephysicalunit length/slack/coverage"
+  ],
+  "N01_complete": false
+}
