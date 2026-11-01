@@ -1,0 +1,169 @@
+{
+  "status": "INNER_TWO_LEVEL_C1_RETENTION_HOLD",
+  "archive": "day31-astra-inner-two-level-c1-retention.breps.zip",
+  "archive_sha256": "a8892e2dbec08b878ab50fa792db20b6c94e8b56c5efc75fd61d09482a8224d4",
+  "geometry": [
+    {
+      "name": "W044:MTA_source9:pad",
+      "entry": "0.brep",
+      "sha256": "016a9a6fb42e6fe40d90fd2d1b44ff79b244ef9c06d385201c3b7f06d3b6614f",
+      "bounds": [
+        [
+          36.597328841577976,
+          8.149750850697998,
+          -38.633466342758986
+        ],
+        [
+          45.223635297334724,
+          13.565789881354451,
+          -32.86441645926335
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W044:MTA_source9:band",
+      "entry": "1.brep",
+      "sha256": "928b00230340d2d31a3e5dba9aa759c4db828d5b5303573860c7f83809c2f63f",
+      "bounds": [
+        [
+          38.01966191224536,
+          7.458236993366781,
+          -40.06096424562365
+        ],
+        [
+          42.74419559433659,
+          18.293082911715118,
+          -30.3905266673928
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "W044:MTA_source9:head",
+      "entry": "2.brep",
+      "sha256": "e3c97fcee65e95c0b229040a4533cd23662797471a25fcd6627c76f788aace7f",
+      "bounds": [
+        [
+          39.1056431233896,
+          3.7832534885390907,
+          -40.74205448557962
+        ],
+        [
+          44.99757039162883,
+          10.803079528518582,
+          -33.76593824055159
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "Inner:MTABond:FL",
+      "entry": "3.brep",
+      "sha256": "e45cab79c6c36d1c96fd3dda52f0652413501a2c1488499c958327517e94dc97",
+      "bounds": [
+        [
+          -39.0,
+          1.0,
+          -21.0
+        ],
+        [
+          -31.0,
+          19.0,
+          -20.5
+        ]
+      ],
+      "strict_reopen": true
+    },
+    {
+      "name": "Inner:MTACradle:FL",
+      "entry": "4.brep",
+      "sha256": "d380b8e131e1153cf793ef7525b62ae898dd147a03f8dfb141aa91f18b571ca5",
+      "bounds": [
+        [
+          -55.1,
+          0.0,
+          -23.0
+        ],
+        [
+          -14.9,
+          20.0,
+          -6.5
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "rows": [
+    {
+      "part": "W044:MTA_source9:band",
+      "other": "Ref_Material_W041_Joint_0_0",
+      "gap_mm": 1.1569170882848887,
+      "minimum_mm": 1.25,
+      "common_mm3": 0,
+      "hold": true
+    },
+    {
+      "part": "W044:MTA_source9:pad",
+      "other": "W044:MTA_source9:band",
+      "gap_mm": 0.1999999999999989,
+      "minimum_mm": 0.2,
+      "common_mm3": 0,
+      "hold": false
+    },
+    {
+      "part": "W044:MTA_source9:band",
+      "other": "W044:MTA_source9:full_insulated_profile",
+      "gap_mm": 0.49999999999998007,
+      "minimum_mm": 0.2,
+      "common_mm3": 0,
+      "hold": false
+    },
+    {
+      "part": "W044:MTA_source9:pad",
+      "other": "W044:MTA_source9:full_insulated_profile",
+      "gap_mm": 0.40000000000000563,
+      "minimum_mm": 0.2,
+      "common_mm3": 0,
+      "hold": false
+    },
+    {
+      "part": "Inner:MTACradle:FL",
+      "other": "Carrier:bought:MTA_FL:case",
+      "gap_mm": 0.1999999999999993,
+      "minimum_mm": 0.2,
+      "common_mm3": 0,
+      "hold": false
+    },
+    {
+      "part": "Inner:MTABond:FL",
+      "other": "Carrier:bought:MTA_FL:case",
+      "gap_mm": 0.0,
+      "minimum_mm": 0,
+      "common_mm3": 0,
+      "hold": false
+    },
+    {
+      "part": "Inner:MTABond:FL",
+      "other": "Inner:MTACradle:FL",
+      "gap_mm": 0.0,
+      "minimum_mm": 0,
+      "common_mm3": 0,
+      "hold": false
+    }
+  ],
+  "retired": [
+    "Carrier:body:CaseTie:FL",
+    "Carrier:body:CaseTie:FLHead"
+  ],
+  "body_coupon_case_floor_mm2": [
+    144.0000000000225,
+    144.0000000000225
+  ],
+  "floor_thickness_mm": 2,
+  "full_tie_debit_mm": 56.95309649148734,
+  "root_to_commoncarrier": "PENDING_NOT_SELECTED",
+  "operation_seconds": 0.6806983000133187,
+  "process_cpu_seconds": 1.953125,
+  "N01_complete": false
+}
