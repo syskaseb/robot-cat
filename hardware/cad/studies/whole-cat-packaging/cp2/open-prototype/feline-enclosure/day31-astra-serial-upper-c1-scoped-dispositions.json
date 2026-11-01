@@ -1,0 +1,49 @@
+{
+  "status": "SERIAL_C1_EXHAUSTED_SCOPED_DISPOSITIONS_NOT_WHOLE_PASS",
+  "receipts": [
+    {
+      "file": "day31-astra-serial-upper-c1-complete-fixed-0-4.json",
+      "sha256": "55979e71dad8215105aef7749a576390a9965c9b7cfcba309f7852164a5a2a1b"
+    },
+    {
+      "file": "day31-astra-serial-upper-c1-complete-fixed-4-6.json",
+      "sha256": "000d2b250e7396acae6010f0ca6acdaf792ef324e900219e574e04fa22834fba"
+    },
+    {
+      "file": "day31-astra-serial-upper-c1-complete-fixed-6-22.json",
+      "sha256": "dbe391029bee20cf15657fd5adf1a0f37063c4cec87d9c623eb64afd029d1d4b"
+    }
+  ],
+  "cursor": 22,
+  "total": 46,
+  "unreceived": 24,
+  "own_dispositions": [
+    {
+      "pair": [
+        "Station:D_FR:case",
+        "SerialFrame:rightpost"
+      ],
+      "measured_gap_mm": 0.5,
+      "basis": "Own case-bearing post under fullselected260bond+floor, same .5adhesivegap, no materialcontact. Not foreign1.25; inherited pressure/radii unchanged."
+    },
+    {
+      "pair": [
+        "Station:P_FRONT:case",
+        "SerialFrame:lowerlink"
+      ],
+      "measured_gap_mm": 0.7071067811865576,
+      "basis": "Own L-shaped mounting corner below/along selected276bondwall, .5horizontal+.5vertical, minimum ownlocator.2; no materialcontact. This is a mount of samecase, not unrelatedobstacle."
+    }
+  ],
+  "unresolved_real_foreign": {
+    "pair": [
+      "Day26:RetentionBand:D_FR",
+      "Ref_Material_F0_CP2_0_0"
+    ],
+    "gap_mm": 0.10456351736990399,
+    "required_mm": 1.25,
+    "classification": "clearance_HOLD_not_contact"
+  },
+  "next": "Commonopen_sourcebed reviewedwholeC0, replaceprintedclosedcheeks/stocklayout accordingconstructor, unchangedallpurchasedposes. Skip retired operands inpending24; receiveonlychangedfullcommoninterfaces.",
+  "N01_complete": false
+}

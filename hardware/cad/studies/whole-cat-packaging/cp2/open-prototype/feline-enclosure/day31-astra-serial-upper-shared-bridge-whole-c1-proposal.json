@@ -1,0 +1,119 @@
+{
+  "id": "SERIAL_UPPER_SHARED_BRIDGE_C1",
+  "status": "SOLE_CORRECTION_WHOLE_REVIEW_PENDING",
+  "cause": "After exhausted sharedclosure C0/C1, replace two side-by-side opposing upper sourcebanks by one serial X rail of two complete cases and co-directional ten-source field. Split lower FLP/Pfront shelves north/south; shared upper bearing bridge and one central lower loadbeam. Not translating westC1 as a third offset. Native whole sections Z-8.5/-20 show middle X strip between F0 and westernMTA; full-height actual tests remain mandatory.",
+  "sources": {
+    "sections": "day31-astra-west-exhausted-whole-deck-sections.json",
+    "view": "day31-astra-west-exhausted-whole-deck-sections.png",
+    "inventory": "day31-astra-current-whole-bought-support-inventory-v2.json",
+    "retained_manifest": "day31-astra-shared-closure-current59-composition.json",
+    "prior_rejection": "day31-astra-west-fields-c1-full-fixed-0-1.json;39unreceived, no replay"
+  },
+  "poses": {
+    "G2": {
+      "from": [
+        31,
+        -11.5,
+        -7.7
+      ],
+      "to": [
+        0,
+        9,
+        -8.5
+      ],
+      "Rz": 0,
+      "full_case_bar_band_head_five9": true,
+      "case_bounds": [
+        [
+          -15,
+          -0.5,
+          -13
+        ],
+        [
+          15,
+          18.5,
+          -4
+        ]
+      ],
+      "full260bond": "20x13x.5 patch shifted within sameactual bottomface toX[-10,10],Y[5.5,18.5],Z[-13.5,-13]; sourcearea260 retained; edgefit phase2"
+    },
+    "D_FR": {
+      "from": [
+        31,
+        11.5,
+        -7.7
+      ],
+      "to": [
+        34,
+        9,
+        -8.5
+      ],
+      "Rz": 180,
+      "full_case_bar_band_five9": true,
+      "case_bounds": [
+        [
+          19,
+          -0.5,
+          -13
+        ],
+        [
+          49,
+          18.5,
+          -4
+        ]
+      ],
+      "head": "Re-clock fullhead to EAST outside of unchangedloop using 180deg around newsourceYaxis atX34,Z-8.5; allwidth/height/source100/25 retained. Avoid headbetween two adjacent fivefields; samephysicalclosure, not secondholder.",
+      "full260bond": "X[24,44],Y[5.5,18.5],Z[-13.5,-13]"
+    },
+    "FL_P": {
+      "from": [
+        12,
+        0,
+        -20.5
+      ],
+      "to": [
+        12,
+        16,
+        -21.5
+      ],
+      "whole": "case/bar/full83.6of100loop/easthead/four9/full240bond. Sourcefield points-Y endsY-2.5; lowernorthshelf. BandY[1.75,4.25] belowupperbondfloorYmin5.5; combinednominalgap sqrt(1.25^2+.5^2), fullactualrequired."
+    },
+    "P_FRONT": {
+      "from": [
+        -20,
+        -22,
+        -18.5
+      ],
+      "to": [
+        0,
+        -23,
+        -22
+      ],
+      "whole": "Fullcase/three9/bar/band/head/full276bond andbackwall. Case[-11,-41.5,-27.5]..[11,-4.5,-16.5]. Threeactualsourceports-X nowX-11, full9to-20; lowestsourceprofile vsFRtop-26 checked; no naked stockwaiver."
+    },
+    "MTA_FL_W026_W041": "Retain exact WEST_C1 moduleposes and full144bond/openframe:FL[-35,10,-20],W026[-92,10,-20]/Rx180, W041[52.82604572118048,54.65,-10.5]/Rx45. Boughtcase/fixed portions stillunreceived afterwestearlyreject; allcompletechangedwholepairs included.",
+    "W044": "Retain WEST_C1 fullnorthheads/unchanged100loops/case/cap. Fullsamephysicalbase open latchchannel may need designed clearance, not erase boughtwire/stock.",
+    "FR_RL_RR_and_otherbought": "Unchanged actualfloor13/rear6, all30inventorylabels and1212contextoperands. No oldfixedreceipt inheritschangedneighbors."
+  },
+  "functional_common_frame": {
+    "lower": "MTAFL144couponfloor/endrails/northcross asWEST_C1; centralbeam X[-14.9,108],Y[-2,2],Z[-30.5,-28.5] joinsnorthcross via eastlegX[-17.3,-12.9],Y[0,23]. This avoids W044bodybandX-28.61 by footprint; no globalfloorplate. Same-owncase .5bondgap and .2stops classified explicitly. Positivejoins required.",
+    "Pfront_FLP": "Full276Pfrontbackwall ONLY X[11.5,13.5],Y[-40,-5.5],Z[-30.5,-18.5], fullbond interface Y[-40,-5.5],Z[-26.5,-18.5] unchanged. L-shaped lower link instead of fullheight wall: X[11.5,13.5],Y[-6,23.5],Z[-30.5,-28.0], with .5positiveoverlap towall inY. FLP240floor X[9.5,25.5],Y[8.5,23.5],Z[-28.5,-26.5], linkpositive.5inZ. Linktop-28 vsFLPcasebottom-26 gives2; ownfloor .5bondgap explicit. Lowerlink overlapscentralbeamY[-2,2] withfull2mmZ. No fullheight print underFLPcase or4source; wallhigh endsY-5.5, fourfull9endY-2.5 =>3mm before ODside/profile classification. Sharedloadpath wall->lowerlink->centralbeam +FLPfloor; no individualholder.",
+    "upper": "Twofull260floors2mm Z[-15.5,-13.5], X[-10,10]/[24,44],Y[5.5,18.5]. SharedstripX[-10,44],Y[16,18.5],sameZ; joinedrightpost X[43.5,45.5],Y[16,18.5],Z[-30.5,-13.5] tolowerbeam by localcentralbranch. Full9sourcebeds tosharedstrip/sideframe stillneeded; do not freeze illustrative independentholders.",
+    "roots": "Centralbeam belowF0bottom-23.875 nominal4.625 atbeamtop-28.5; passes between rearMTA Y+-4 with2mm nominal. Connect currentrear6/footbridges atX~100..108 via actual fullfaces, samefourgroundannuli/loadpath. Exactrootselection requiredbeforechosenwhole; no guessedP0fasteneraxis/no new fulloldgenerator. W041sidebearing rootoutsideF_TY separately partcommonframe.",
+    "ownclassification": "Case-floor .5 is selectedadhesivebondgap notforeign1.25; MTA .2cornerstop is ownlocatingfit. Fullbondfacecoverage+supportcontinuity needs explicitreceipt; planezero/common0 alone not areaPASS."
+  },
+  "factory": {
+    "W026": "42.75/100 with21.75straight/full9+9; actualports sameWEST_C1, pad/headside-Y. customR25.2quarterup/full9/100 unchangedplanned.",
+    "W041": "97.81095584/100, R25.2, actualfullfirst/last9 onarcs+21allowance; sameWEST_C1 unchangedrealports. customquarterup/sourcefullstock stillpending."
+  },
+  "whole_regions": {
+    "ten_source_field": "Bothactualfivefields point-Y fromY-.5 to-9.5 atZ-8.5, G2centres aroundX0 /DFRaround34. FullOD2.5+4x3.1 and5x3.1 respectively. Firsttransport two17.1x3.9rows curve west withR>=15 above lowerPfronttop-16.5; localR/contact/sourceheadconstraints and merges have to be checked, no imaginary rigidseamterminal. Sharedwestjunction toFore9/head/U1far, not yetreceived.",
+    "other": "LowerPfrontthree ports-X/fullsource9, FLPfourports-Y/fullsource9, W052fullcustom, three movingtripletsR35.1, four220, headoneJR300/3joins, U1far3x600/12ends allremain samephysicalowners. Full123/246 and cut-to-fit/lengthslack phase1plan stillrequired; no finalN10stockgate."
+  },
+  "assembly": "LowerW044/W052 fullclosures first; install lowerMTA/FR and Pfront/FLP shelves, route bothfullfactory/stock then install uppertwo-casebridge and their common ten-source openbed. Thread/tighten two100loops and sourceclosures fromopenfront before covers; full25pull retained for assembly, no quickservice/fullN08gate. Sharedbed mounts mustbeaccessibleand rooted, no allrigid123wires.",
+  "preflight": "GOthen completecase/fullsourcebar/band/head/bond and fullfunctionalbearing reservations against allcurrentretainedworld/mutual BEFOREfactory/detail. Same-source rigidown transforms reuse; changedheads/bondown new. Then changed36/outline/fullwholeplan. No newgrid/solver. StopatrealrigidHOLD and retainremainingunreceived.",
+  "unknowns": "ActualDfr/F0 corner, G2newsource/Pfront/FLP/upperfloor, allcurrentW026/BellyFoot+W044northlatches, positiveframe/root/actualbondcoverage, ten-sourcebendcapacity andlengthslack remain boundedpreflight assumptions, not acceptance.",
+  "N01_complete": false,
+  "correction_used": 1,
+  "c0_review": "HOLD01a19500-3426-79d0-b079-6440ca00ccec: unsegmented Pfrontwall would occupy FLPcase allocatedspace; no CAD executed. Preserved."
+}

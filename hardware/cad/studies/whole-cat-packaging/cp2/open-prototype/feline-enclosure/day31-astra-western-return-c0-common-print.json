@@ -1,0 +1,112 @@
+{
+  "status": "WESTERN_RETURN_C0_OWN_SCOPED_RECEIVED",
+  "review_turn": "01a19510-2a8e-7f80-b34c-04348bf2bbae",
+  "proposal_sha256": "8e8d65cc5932e74d4907f6ccd2e49bee08c896b26c5cec70cce3c065af244249",
+  "archive": "day31-astra-western-return-c0-common-print.breps.zip",
+  "archive_sha256": "887bd370b278765e1c43ebedf6f620db6312ab205d9d405762359537b43bf5f9",
+  "geometry": [
+    {
+      "name": "PFCurved:common9bed_frame_bridge",
+      "entry": "0.brep",
+      "sha256": "799106702a5fcf8cda9de396f59c206f9f71498262c96a0b9c23d8b4bc210ca9",
+      "bounds": [
+        [
+          -55.0,
+          -25.300000000000008,
+          -30.5
+        ],
+        [
+          -19.108955578108272,
+          1.9999999999999991,
+          -14.329498255827012
+        ]
+      ],
+      "strict_reopen": true
+    }
+  ],
+  "own": [
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "P_FRONT:first9:10",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_fullsource_no_intrusion",
+      "hold": false
+    },
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "P_FRONT:first9:11",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_fullsource_no_intrusion",
+      "hold": false
+    },
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "P_FRONT:first9:12",
+      "gap_mm": 0.0,
+      "common_mm3": 0,
+      "kind": "own_fullsource_no_intrusion",
+      "hold": false
+    },
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "Day26:RetentionBar:P_FRONT",
+      "gap_mm": 6.978951329371364e-12,
+      "common_mm3": 0,
+      "kind": "own_fullsource_no_intrusion",
+      "hold": false
+    },
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "Day26:RetentionBand:P_FRONT",
+      "gap_mm": 0.19999999999992663,
+      "common_mm3": 0,
+      "kind": "own_fullsource_no_intrusion",
+      "hold": false
+    },
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "Day26:RetentionHead:P_FRONT",
+      "gap_mm": 1.1999999999999922,
+      "common_mm3": 0,
+      "kind": "own_fullsource_no_intrusion",
+      "hold": false
+    },
+    {
+      "a": "PFCurved:common9bed_frame_bridge",
+      "b": "SerialFrame:FLendWest",
+      "gap_mm": 0.0,
+      "common_mm3": 3.9999999999999982,
+      "kind": "positive_actual_existing_frame_root",
+      "hold": false
+    }
+  ],
+  "pieces_adjacency": [
+    {
+      "a": "beam",
+      "b": "bed",
+      "common_mm3": 0
+    },
+    {
+      "a": "beam",
+      "b": "pickup",
+      "common_mm3": 7.999999999999999
+    },
+    {
+      "a": "beam",
+      "b": "post",
+      "common_mm3": 7.999999999999999
+    },
+    {
+      "a": "post",
+      "b": "return",
+      "common_mm3": 7.999999999999999
+    }
+  ],
+  "solids": 1,
+  "reuses": "Exact6 other Pfrontfullprefix/bar/band/head fromcurvedC1; no duplicate sourcecontacts/reopen. Replacesonly failedprint; no two simultaneoussupports. G2Dfr/cases/fullbondareas unchanged.",
+  "operation_seconds": 2.2260302000213414,
+  "process_cpu_seconds": 8.65625,
+  "N01_complete": false
+}
