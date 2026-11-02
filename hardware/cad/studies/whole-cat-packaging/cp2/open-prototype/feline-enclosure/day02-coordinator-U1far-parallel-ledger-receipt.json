@@ -1,0 +1,38 @@
+{
+  "id": "N01_PARALLEL_U1FAR_LEDGER_20261102",
+  "status": "READONLY_ARITHMETIC_RECEIVED_REGIONS_OPEN",
+  "source_hashes": {
+    "day31-astra-U1far-current-function-stock-basis.json": "5e484e798ce852b4a2031a153d414d4718ab02746d93c2aa6fb4ba808b909b27",
+    "day31-astra-U1far-Pi-current-recipient-budget.json": "f14aebe6acd15cc416501529a9c6a5728bff92c5e14d34e39b38bc6e7d8ffd2e",
+    "day31-astra-Pi-slack-current-occupancy.json": "dff19defec4159e62e228f9d4377758179aa1cdd0f5526c117e6081998089d74"
+  },
+  "rows": [
+    {
+      "unit": "XL01",
+      "stock_mm": 600,
+      "recipient": "PiGPIO:PI.H1",
+      "U1_prefix_mm": 180.141355,
+      "Pi_prefix_mm": 26.207963,
+      "remaining_transport_ends_slack_mm": 393.650682
+    },
+    {
+      "unit": "XL07",
+      "stock_mm": 600,
+      "recipient": "PiGPIO:PI.H11",
+      "U1_prefix_mm": 129.981164,
+      "Pi_prefix_mm": 26.207963,
+      "remaining_transport_ends_slack_mm": 443.810872
+    },
+    {
+      "unit": "XL10",
+      "stock_mm": 600,
+      "recipient": "PiGPIO:PI.H6",
+      "U1_prefix_mm": 90.429689,
+      "Pi_prefix_mm": 33.392168,
+      "remaining_transport_ends_slack_mm": 476.178143
+    }
+  ],
+  "independent": "Three separate Pololu1871 600mm OD1.4 units; prefix arithmetic accepted on frozen inputs only; no new9mm debit at accounting seam. Source bare ends/terminal allowances unresolved; no universal21/25 addition justified. No cut authorization inferred.",
+  "geometry_dependent": "Remaining budget is not slack PASS. Continuous accessible occupied region and length with turns/end allowances plus storage of remaining units open. Region[30,17,86]..[67,48,97] old1182 occupancy includes Pi411 screw/USB_A/XP03source bboxcandidates notcontact. H11/H6 GPIO4 shared withH3/H5; no doubleallocation. Local branch section5.4x2.2 for3 profiles with.2 spacing/.4 margins only.",
+  "N01_complete": false
+}
