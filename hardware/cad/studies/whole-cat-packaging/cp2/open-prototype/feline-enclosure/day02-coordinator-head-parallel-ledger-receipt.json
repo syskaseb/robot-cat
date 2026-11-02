@@ -1,0 +1,38 @@
+{
+  "id": "N01_HEAD_STOCK_ASSEMBLY_LEDGER_20261102",
+  "status": "READONLY_UNIT_ACCOUNTING_RECEIVED_WHOLE_HEAD_PLAN_OPEN",
+  "reviewer_turn": "01a19d8e-e394-7241-86bd-74b1a73aaeaa",
+  "source": "day30-four-factory-common-regions.json",
+  "source_sha256": "6cffed04bf2a125418b13a2fb356b9046fa2bda7b5785d7c884208031f279346",
+  "keys": [
+    "current_foreign_head_shared_stock_unit_plan",
+    "current_foreign_head3_shared_transport_proof",
+    "current_foreign_active_head_roll_authority"
+  ],
+  "physical_units": "One JR300 with3cores and distinct uncut factory250; no pooled900. Three soldered lap8 joints,3x20 sleeves,2x75.3 ties/full9 fields. Notselected wholeplan; no cuts performed.",
+  "JR_rows": [
+    {
+      "id": "XB23",
+      "to_lap_end_mm": 96.315,
+      "nominal_keep_mm": 120,
+      "nominal_offcut_mm": 180
+    },
+    {
+      "id": "XB22",
+      "to_lap_end_mm": 95.905,
+      "nominal_keep_mm": 120,
+      "nominal_offcut_mm": 180
+    },
+    {
+      "id": "XS23",
+      "to_lap_end_mm": 96.315,
+      "nominal_keep_mm": 120,
+      "nominal_offcut_mm": 180
+    }
+  ],
+  "rules": "JR ceil5(L+20),HELU ceil5(L+30);lap8 counted on bothcores/subtractonce when combiningcontinuouslength. Prefit cuttinggate remains; offcut not requiredinsidebody. No newcut authorization.",
+  "identity_mismatch": "head3transportproof covers XS13/XS23/XS33; JRsplicetrio XB23/XB22/XS23. Do not debit transportproof arcs to JR300. proof[-1] roll13mm/Rmin15.033191 local only.",
+  "geometry_open": "FullHELU lengths and installedslack/currentaccessiblecontinuousregions unknown; old479-488/483 lengths obsolete. 15oldretention retirements andFactoryLandBand role unresolved; no automaticdeletion. PreserveXB23capacityradius2.1 despiteHELUnominal1.05.",
+  "phase2_only": "Physicalprefit/cutting/soldering/polarity/insulation/pull/motionchecks remain assemblyvalidation; no power work or newproductionN08gate requested.",
+  "N01_complete": false
+}
