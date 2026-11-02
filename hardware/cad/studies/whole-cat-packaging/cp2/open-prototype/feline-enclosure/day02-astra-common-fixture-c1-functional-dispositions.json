@@ -1,0 +1,109 @@
+{
+  "status": "FUNCTIONAL_INTERFACE_DISPOSITIONS_ASSEMBLY_ORDER_REQUIRED",
+  "plane_dispositions": [
+    {
+      "part": "fixed9_nominal_contact",
+      "other": "Station:RL_G:case",
+      "intersection_extent_mm": [
+        21.349999999999994,
+        3.450000000000003,
+        0.0
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "fixed9_nominal_contact",
+      "other": "Station:RL_G:band_lowY",
+      "intersection_extent_mm": [
+        0.0,
+        3.450000000000003,
+        2.5
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "fixed9_nominal_contact",
+      "other": "Station:RL_G:band_highY",
+      "intersection_extent_mm": [
+        0.0,
+        3.450000000000003,
+        2.5
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "fixed9_nominal_contact",
+      "other": "Station:RL_G:band_highZ",
+      "intersection_extent_mm": [
+        21.349999999999994,
+        0.0,
+        2.5
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "removable9_nominal_contact",
+      "other": "Station:RL_G:case",
+      "intersection_extent_mm": [
+        21.349999999999994,
+        3.450000000000003,
+        0.0
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "removable9_nominal_contact",
+      "other": "Station:RL_G:band_lowY",
+      "intersection_extent_mm": [
+        0.0,
+        3.450000000000003,
+        2.5
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "removable9_nominal_contact",
+      "other": "Station:RL_G:band_highY",
+      "intersection_extent_mm": [
+        0.0,
+        3.450000000000003,
+        2.5
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    },
+    {
+      "part": "removable9_nominal_contact",
+      "other": "Station:RL_G:band_lowZ",
+      "intersection_extent_mm": [
+        21.349999999999994,
+        1.4210854715202004e-14,
+        2.5
+      ],
+      "disposition": "FULL_VALID_EXTERNAL_BOUNDS_PROVE_NO_POSITIVE_VOLUME; own case-end plane or band-bearing plane. Invalid planar BOP result is not contact proof."
+    }
+  ],
+  "clampneck4_outside_positivefoundation_mm3": 194.41699443008633,
+  "roots": "farleg/bearing positive1.000948 is same existing printed W041 support; return/header positives to ClampNeck4 are same fixed foundation joint, not independent hardware. FLGprint remains complete fixed print with positive6.55 header joint; received FLG port/cap/band retained. No cut or metal contact waived.",
+  "pressure_half_access": [
+    {
+      "other": "Station:RL_G:case",
+      "disposition": "full_bound_plane_no_positive_volume",
+      "extent": [
+        21.349999999999994,
+        4.3999999999999915,
+        0.0
+      ]
+    },
+    {
+      "other": "Upper:W041_side_bearing_reservation",
+      "gap_mm": 3.0845977439768255,
+      "common_mm3": 0,
+      "status": "CONSERVATIVE_ENVELOPE_NOT_ACTUAL_PRESSURE_CONTACT"
+    }
+  ],
+  "screw_assembly": "Straight R3x43 drivers intersect structural SideLeft22 and BatteryStrapCurrent2 in installed scene. Thus no assembled-robot straightdriver access claim. Initial assembly must preload/tighten W041 case/cap/nuts on its common fixture BEFORE fitting the independently fastened SideLeft22 structural rail and battery strap. body_shell_scope.py identifies separate front/rear-frame-to-side fasteners (four M2.5x12 plus nuts); do not remove/alter selected rail. N08 repair sequence remains unqualified. Need verify source mount order and no required retightening after rail install, not pretend installed toolclear.",
+  "own_foreign": "Material identity of strap with same W041 bolt boss demonstrated by valid1solid and retained nut/bore/cap geometry. The1.165180 gap is own hardware positiveclearance, not a foreign1.25 failure. Full functional classification remains conditional on assembly order; all unrelated foreign1.25 retained.",
+  "operation_seconds": 0.6582079000072554,
+  "process_cpu_seconds": 0.671875,
+  "N01_complete": false
+}
