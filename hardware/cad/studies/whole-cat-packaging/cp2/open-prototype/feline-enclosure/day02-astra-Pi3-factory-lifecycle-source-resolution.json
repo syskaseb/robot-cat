@@ -1,0 +1,133 @@
+{
+  "id": "DAY02_PI3_FACTORY_LIFECYCLE_SOURCE_RESOLUTION",
+  "source": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\body-harness-checkpoint\\e1-selection.json",
+  "source_sha256": "6e2c2563ffa01806068d599802ede50b12432951cf668a30e55c0f82c767de2c",
+  "rows": [
+    {
+      "wire": "XL01",
+      "sku": "Pololu1871",
+      "nominal_fit_blank_mm": 186,
+      "actual_cut_mm": null,
+      "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+      "source_end_record": {
+        "id": "XL01",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H1",
+          "world_mm": [
+            -10.63,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "LOGIC3V3",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "LOGIC3V3.in",
+          "world_mm": [
+            73.81,
+            -13.97,
+            84.3202
+          ],
+          "net": "LOGIC3V3"
+        },
+        "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      }
+    },
+    {
+      "wire": "XL07",
+      "sku": "Pololu1871",
+      "nominal_fit_blank_mm": 166,
+      "actual_cut_mm": null,
+      "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+      "source_end_record": {
+        "id": "XL07",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H11",
+          "world_mm": [
+            2.0700000000000003,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "OE_N_3V3",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "OE.in",
+          "world_mm": [
+            78.89,
+            6.35,
+            84.3202
+          ],
+          "net": "OE_N_3V3"
+        },
+        "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      }
+    },
+    {
+      "wire": "XL10",
+      "sku": "Pololu1871",
+      "nominal_fit_blank_mm": 195,
+      "actual_cut_mm": null,
+      "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+      "source_end_record": {
+        "id": "XL10",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H6",
+          "world_mm": [
+            -5.550000000000001,
+            25.769999999999996,
+            65.32
+          ],
+          "net": "G_SYS",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "actual1608pad",
+          "ref": "G_LOGIC.in",
+          "world_mm": [
+            109.37,
+            19.05,
+            84.3202
+          ],
+          "net": "G_SYS"
+        },
+        "construction": "Preserve factory Pi female contact; trim ONLY board end after dry fit",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      }
+    }
+  ],
+  "disposition": "Existing selected source explicitly preserves factory Pi female contact and permits ONLY board-end trim after dry fit. Whole600 is the purchased physical unit, not necessarily installed length. Historical fit blanks/coordinates do not transfer to current layout. Keep actual current pads, complete received prefixes, OD1.4/R10, service reserve30 and bare/terminal allowances. No physical cut performed. Final current nominal installed length remains OPEN. No extension to protected MTA/Molex or other SKU.",
+  "storage_preflight": "day02-astra-Pi3-storage-c0-preflight.json",
+  "whole_N01_complete": false
+}

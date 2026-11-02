@@ -1,0 +1,47 @@
+{
+  "id": "PI_SOURCE_LOCAL_CROSSING_OCCUPIED_PROFILE_PROOF",
+  "hazard": "Shared capsule includes empty gap between two real spaced GPIO1.4 cores; existing SOURCE1.85 crosses this accounting region. Need local occupied-profile proof before claiming shared region, not123wiremodels.",
+  "axis_unchanged": true,
+  "R12_unchanged": true,
+  "real_GPIO_endpoints_retained": true,
+  "rows": [
+    {
+      "core": "XL07",
+      "capacity_gap_mm": 0.0,
+      "common_mm3": 5.083776006476338,
+      "full_GPIO_radius_mm": 1.1,
+      "nominal_GPIO_radius_mm": 0.7,
+      "SOURCE_radius_mm": 0.925,
+      "GPIO_outer_allowance_mm": 0.4,
+      "separated_full_profiles": false
+    },
+    {
+      "core": "XL10",
+      "capacity_gap_mm": 7.105427357601002e-15,
+      "common_mm3": 0.011002402566279759,
+      "full_GPIO_radius_mm": 1.1,
+      "nominal_GPIO_radius_mm": 0.7,
+      "SOURCE_radius_mm": 0.925,
+      "GPIO_outer_allowance_mm": 0.4,
+      "separated_full_profiles": false
+    }
+  ],
+  "archive": "day02-astra-PiGPIO2-local-crossing-full-profiles.breps.zip",
+  "archive_sha256": "ab0f513c30a729459bfdfadade61b0a988585fd386261b209192bdfe19b9ac7c",
+  "geometry": [
+    {
+      "name": "XL07:OD1p4_plus_edge0p4_local_crossing",
+      "entry": "0.brep",
+      "sha256": "7a3081868191e8758e493655233f62115f29922afd68aac0afece7a34b98e1e1"
+    },
+    {
+      "name": "XL10:OD1p4_plus_edge0p4_local_crossing",
+      "entry": "1.brep",
+      "sha256": "893959b888c20f59eea5a6bc78c303449e7c5ea63849923d206348a8df1419c5"
+    }
+  ],
+  "status": "SHARED_OCCUPANCY_UNRESOLVED_NOT_RIGID_CONTACT",
+  "operation_seconds": 0.6109167999820784,
+  "process_cpu_seconds": 1.0625,
+  "N01_complete": false
+}

@@ -1,0 +1,45 @@
+{
+  "id": "PI_GPIO2_FULL_PROFILE_SAME_AXIS_SUBSET_PROOF",
+  "added_outside_prior_full_rectangle_mm3": 0.0,
+  "full_section": {
+    "segment_mm": 3.6,
+    "radius_mm": 1.1,
+    "profiles": 2,
+    "OD_each_mm": 1.4,
+    "edge_each_mm": 0.4,
+    "endpoint_centre_separation_mm": 3.592102448427662,
+    "axis_R_unchanged_mm": 12,
+    "inner_region_R_lower_mm": 10.9
+  },
+  "rows": [
+    {
+      "other": "Station:Bank:W047/body/end:head_budget",
+      "gap_mm": 1.4737275561653913,
+      "common_mm3": 0,
+      "hold": false,
+      "meaning": "Actualhead clearance criterion retained"
+    },
+    {
+      "other": "Underdeck:SOURCE:XP03.source",
+      "gap_mm": 0.0,
+      "common_mm3": 8.252858929818572,
+      "hold": true,
+      "meaning": "Flexible SOURCE occupied region; overlap is not actual wire contact; full combined occupancy still OPEN"
+    }
+  ],
+  "archive": "day02-astra-PiGPIO2-full-profile-capsule.breps.zip",
+  "archive_sha256": "e493dbf7e296aa5015c3b18beeb2e51385ff1ec18d50fabcd76542c9b1c86cb6",
+  "geometry": [
+    {
+      "name": "PiGPIO2:full_two_profile_capsule_same_S",
+      "entry": "0.brep",
+      "sha256": "4cfa90ccdd3f7efaef1763bb4e6c84189d8db33d92343cc07e65a94c5f0bafe9"
+    }
+  ],
+  "reuse": "Only if added<=1e-6, previous positive separation/outline of rectangle remain conservative; no previousHOLD erased",
+  "empty_difference_disposition": "Difference valid with zero faces/solids/volume; strict BOP check on empty result reported error, not a material contact or invalid solid. No geometry rebuilt.",
+  "status": "SCOPED_FULL_PROFILE_PROOF_NOT_WHOLE_SELECTION",
+  "operation_seconds": 0.2092362999683246,
+  "process_cpu_seconds": 0.65625,
+  "N01_complete": false
+}
