@@ -1,0 +1,37 @@
+{
+  "id": "BALANCE_MECHANICAL_SOURCE_NOTE_20261105",
+  "status": "NOMINAL_MODULE_ENVELOPE_SOURCE_FOUND_MATING_CONNECTOR_STILL_OPEN",
+  "source_checked_utc": "2026-11-05T21:51:03Z",
+  "N01_complete": false,
+  "CAD_executed": false,
+  "alarm": {
+    "selected_sku": "MOD-05015 / P309",
+    "EAN": "5904422333270",
+    "primary_supplier_url": "https://botland.com.pl/wskazniki-rozladowania/5015-wskaznik-napiecia-li-pol-1-8s-z-buzzerem-p309-5904422333270.html",
+    "specification_dimensions_mm": [
+      41,
+      25,
+      12
+    ],
+    "specification_pin_pitch_mm": 2.54,
+    "conflicting_generic_table_dimensions_mm": [
+      30,
+      5,
+      20
+    ],
+    "interpretation": "Same product page gives contradictory generic width/height/depth table. 41x25x12 is the explicit product specification; dimensions are nominal supplier data, not delivered or assembly measurements. Do not shrink an existing larger project envelope or replace selected CAD geometry based on this note. Mating connector, approach, retention and access are additional occupied space."
+  },
+  "battery": {
+    "selected_sku": "GEA223S30X6GT",
+    "primary_manufacturer_url": "https://gensace.de/products/gens-ace-g-tech-soaring-2200mah-11-1v-30c-3s1p-lipo-battery-pack-with-xt60-plug",
+    "approx_pack_dimensions_mm": [
+      106.5,
+      35,
+      21.5
+    ],
+    "GTech_balance_connector_dimensions_mm": null,
+    "balance_factory_lead_length_mm": null,
+    "interpretation": "Pack dimensions do not establish the balance connector envelope or its factory lead length. These are separate physical inputs; no cavity or ID pin assignment inferred."
+  },
+  "mechanical_consequence": "Check current P309 module allocation against explicit nominal specification. Keep the four balance branch roles separate from the 123/246 register. Body routing needs connector/profile/length/access data; electrical cavity mapping is phase2 and is not itself a new mechanical N01 gate."
+}
