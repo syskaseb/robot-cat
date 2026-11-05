@@ -1,0 +1,207 @@
+{
+  "id": "day05-Pi45-local-preflight-scope",
+  "status": "CURRENT_T_EP_ALLOCATION_REJECTED_AND_PI_ROOT_LINEAGE_GATE_BLOCKED",
+  "N01": "0/10",
+  "document_only": true,
+  "hook_enabled": false,
+  "new_geometry": false,
+  "concept_sha256": "55d4e7d2327e737e1a4fd4b2b6c0154deaba416ece5d6c9846ef54c5f35f16a9",
+  "source_pins": {
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day05-whole-interior-concept.json": "55d4e7d2327e737e1a4fd4b2b6c0154deaba416ece5d6c9846ef54c5f35f16a9",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day02-astra-current-composition-resume.json": "9eab24374527602c30ea281c7ed2ba151b185284db7a3d72b3881efe064bbc0c",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\day02-astra-resume-source-chain.json": "cfad1041004000e588389f1af08d48a868299dc5281e836beeb22a46b2044fa0",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-Pi-root-access-plan.json": "9c8f89dac95607f4c86fef0364e1cd78083c240ae6e53068b893b73616403646",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\feline-enclosure\\n01-selected-piece-profile-contract.json": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3",
+    "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\feline_shared_pi_carrier.py": "38640aa1c982bd90f2e8888b3adb2a38af94b04122ee149a3af6282ddd5b91e1",
+    "C:\\Users\\Sysq\\AppData\\Local\\Temp\\robot-cat30-astra-build-underdeck.py": "71eade2e32d35cb996c851da267db42ce9c49623ac39e6d7b7a0c13e3f5e090b",
+    "C:\\Users\\Sysq\\AppData\\Local\\Temp\\robot-cat30-astra-save-open-bank.py": "ba8fd33c492b94ea058e2b879323b18557c0f61c7ebc42e47aabc2877be5963e",
+    "C:\\Users\\Sysq\\AppData\\Local\\Temp\\robot-cat30-astra-open-support-receive.py": "f00bdd7df0afad45c8b2ace25cee3e52ed7b2b7188bf2ca98a7b7137b1e9a63d",
+    "C:\\Users\\Sysq\\AppData\\Local\\Temp\\robot-cat30-astra-north-mixed-c1-build.py": "0714f837f4cee967d52667ed4c55925ac69c2d3f0ab0dfc5f0098d5b3b307b82"
+  },
+  "source_actors": {
+    "Underdeck:RestoredBank": {
+      "archive": "day30-astra-open-support-bank.breps.zip",
+      "archive_sha256": "e21a7337a6d15f36f15f3c4ed09976fa30079c0459c2a91818f1abb20182180c",
+      "entry": "open-bank/changed-bank.brep",
+      "member_sha256": "4a19b9f1c1a70238a19bb293e60db6ca1dfd425caab6a454a28406c88473a888",
+      "verification": "Saved bytes only; no BRep import/reopen or geometry operation."
+    },
+    "CurrentNorth:Common:print": {
+      "archive": "day31-astra-north-open-entry.breps.zip",
+      "archive_sha256": "62b3598df7562284af55193a170c27d1ffa69b340ee2b0d95f1256d1ebb7efa4",
+      "entry": "0.brep",
+      "member_sha256": "25850bd705cc467b3559baa045c3963dce66e53a97f638e6046867a26918b18e",
+      "verification": "Saved bytes only; no BRep import/reopen or geometry operation."
+    }
+  },
+  "material_lineage": {
+    "old_Pi": {
+      "actor": "CurrentFoundation:RetainedPWMCarrier",
+      "alias": "ShelfPWM:carrier",
+      "evidence": "feline_shared_pi_carrier.py:86 uses oldroot; :198 asserts symmetric volume difference <1e-5 against alias. This is source-constructor evidence, not a newly executed assertion.",
+      "historical_root": [
+        -32.678717798594846,
+        -65.88205503512881,
+        88.93904755831474
+      ],
+      "historical_joint_mm3": 18.692073880927186
+    },
+    "current_bank": {
+      "origin": "CurrentFoundation:BankBedCurrent:-1",
+      "evidence": "robot-cat30-astra-build-underdeck.py:38-39 copies BankBedCurrent:-1 into Underdeck:RestoredBank; open-support-receive cuts existing bank then fuses OpenSupport; sourcechain selects open-support-bank override.",
+      "missing": "No targeted metadata proves old Pi carrier is the same retained material, or survives inside this bank at the historical root. No new root/rail joint proof.",
+      "decision": "BLOCK BEFORE NEW BRACKETS; identify actual retained parent material and both new-rail interfaces first."
+    },
+    "North": {
+      "current_actor": "CurrentNorth:Common:print (NorthOpenEntry override)",
+      "historical_lower_bridge_bounds_mm": [
+        [
+          -7,
+          91.35,
+          76.95
+        ],
+        [
+          5,
+          93.35,
+          78.95
+        ]
+      ],
+      "negative_ROI": "X32..48/Y86..96/Z72..100 actualface-read=[]",
+      "available": "Named current archive/entry and prior lower-bridge constructor identity.",
+      "absent": "Current retained face correspondence, proposed cantilever continuity and complete strap/head/channel clearance; historical bridge bounds are not an anchor proof."
+    }
+  },
+  "static_T_EP": {
+    "basis": "Parent independent static QA of same concept and selected-profile contract; coplanar five flat profiles only. R13 denotes middle wire-centre path, not inner material boundary.",
+    "members": [
+      "XL01/extra",
+      "XL07/extra",
+      "XL10/extra",
+      "XL05/extra",
+      "XL06/extra"
+    ],
+    "radius_each_mm": 0.7,
+    "minimum_wire_centre_R_mm": 10,
+    "pitch_mm": 1.6,
+    "centre_offsets_mm": [
+      -3.2,
+      -1.6,
+      0,
+      1.6,
+      3.2
+    ],
+    "full_allocated_width_mm": 8.6,
+    "middle_centre_R_mm": 13,
+    "wire_centre_Rs_mm": [
+      9.8,
+      11.4,
+      13,
+      14.6,
+      16.2
+    ],
+    "minimum_R_shortfall_mm": 0.2,
+    "east_allocated_xmax_mm": 111.3,
+    "box_xmax_mm": 111,
+    "pi_allocated_ymin_mm": -49.3,
+    "box_ymin_mm": -49,
+    "capacity_edge_excess_each_mm": 0.3,
+    "decision": "REJECT SAME T_EP FLAT_FIVE_R13 ALLOCATION; not physical wire contact, not rejection of all Pi45 layouts. No replacement shape or offset proposed."
+  },
+  "future_local_check_inputs": [
+    "Pinned complete Pi bought assembly incl PCB, ports/USB/Ethernet/power, mating reserves, hardware and all integral supports; proposed translation [0,-45,0], yaw0 applied once to world-space actors. Exact membership must be enumerated from current source recipes before any future check.",
+    "Pinned current1292 composition with overrides/retirements; named bank and North material above; old carrier alias genealogy and actual retained parent faces unresolved.",
+    "Complete two-rail/crossbeam material and joint definition: ABSENT; no invented bracket or root; full nuts/bolts/driver insertion and initial assembly dependency operands required.",
+    "Full North12 source grips/stock/closure/head plus Pi/GPIO/SOURCE/head local occupied regions and both ends of affected cables; unchanged factory receipts reused only if their interfaces stay unchanged.",
+    "BodyOuter/world datum MAIN46.52, full local moving envelopes from saved accepted poses, endpoint/length/trim contracts; rejected T_EP retained as negative, not usable capacity."
+  ],
+  "neighbor_extraction": {
+    "criterion": "For future authorized check: union the complete moved Pi assembly envelope, candidate loadpath/rails, full connector and tool insertion sweeps, affected bundle transition envelopes. Include every current fixed actor whose full bbox lower-bound distance is <1.25mm; include equality as numerical boundary. Also include owners/fasteners/loadpath parents and all affected endpoint/stock actors regardless of bbox. Include moving actors if any saved required pose meets that criterion; do not replay unrelated accepted pairs. No truncation to PCB or selected visible pieces.",
+    "classification": "BBox overlap is only candidate selection; positive whole-bound separation may skip exact pairs. Flexible spans use full allocated occupancy; fixed cases, grips, hardware and motion remain material constraints. Invalid operands stay unresolved, not contact."
+  },
+  "acceptance_fail_thresholds": {
+    "foreign": "Actual valid full rigid geometry: common volume=0 and distance>=1.25mm; below threshold HOLD, positive common actual interference. Numerical uncertainty unresolved, no margin reduction.",
+    "outline": "Full fixed stack inside actual BodyOuter with >=3.25mm margin; preserve 325x200x160/max200.",
+    "root": "Named valid retained parent and each new rail/crossbeam joint must show actual positive material overlap (>1e-6mm3 numerical-zero gate only), connected valid solid/loadpath and nonzero full bearing section. Tiny positive volume alone is not structural acceptance; required section/load capacity currently unspecified -> HOLD.",
+    "stock_turn": "Each wire-centre R>=its selected contract (these five>=10mm); full allocated profile incl .2 gap/.4 edges fits every portal and turn. Current T_EP fails. Preserve real full9, source allowances, protected factory lengths; affected installed lengths/reserve unproven -> HOLD.",
+    "assembly": "No material obstruction along full required insertion/driver path and no dependency cycle; initial assembly before closures acceptable. No rapid-service/N08 qualification required."
+  },
+  "balance_scope": {
+    "mechanical_N01": "Separate four BAT.B0/B1/B2/B3 logical branches to selected P309; reserve actual connector/module space, retention, insulated occupied route and length. Delivery dimensions/stock unknown -> mechanical occupancy HOLD. Outside123, no added IDs.",
+    "phase2": "Physical GTech cavity/pinout mapping, polarity/electrical validation and fit are unresolved; logical IDs must not identify cavities. No power work.",
+    "source": {
+      "inside123": false,
+      "source": "hardware/electronics/kicad-current/design.json",
+      "source_sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+      "module": "P309 / Selected alarm MOD05015 / GTech map HOLD; logic section,bomtrue",
+      "branches": [
+        {
+          "role": "BAT.B0 -> P309.minus",
+          "physical_GTech_cavity": null,
+          "ID_must_not_be_used": true,
+          "selected_stock": null,
+          "diameter_mm": null,
+          "length_mm": null,
+          "slack_mm": null,
+          "proposed_region_chain": [
+            "BAT actualbalanceexit",
+            "BALANCE_BODY protected separatelane",
+            "P309 servicebay",
+            "P309 namedlogicalcontact"
+          ],
+          "status": "DELIVERY_MEASUREMENT_HOLD"
+        },
+        {
+          "role": "BAT.B1 -> P309.1S",
+          "physical_GTech_cavity": null,
+          "ID_must_not_be_used": true,
+          "selected_stock": null,
+          "diameter_mm": null,
+          "length_mm": null,
+          "slack_mm": null,
+          "proposed_region_chain": [
+            "BAT actualbalanceexit",
+            "BALANCE_BODY protected separatelane",
+            "P309 servicebay",
+            "P309 namedlogicalcontact"
+          ],
+          "status": "DELIVERY_MEASUREMENT_HOLD"
+        },
+        {
+          "role": "BAT.B2 -> P309.2S",
+          "physical_GTech_cavity": null,
+          "ID_must_not_be_used": true,
+          "selected_stock": null,
+          "diameter_mm": null,
+          "length_mm": null,
+          "slack_mm": null,
+          "proposed_region_chain": [
+            "BAT actualbalanceexit",
+            "BALANCE_BODY protected separatelane",
+            "P309 servicebay",
+            "P309 namedlogicalcontact"
+          ],
+          "status": "DELIVERY_MEASUREMENT_HOLD"
+        },
+        {
+          "role": "BAT.B3 -> P309.3S",
+          "physical_GTech_cavity": null,
+          "ID_must_not_be_used": true,
+          "selected_stock": null,
+          "diameter_mm": null,
+          "length_mm": null,
+          "slack_mm": null,
+          "proposed_region_chain": [
+            "BAT actualbalanceexit",
+            "BALANCE_BODY protected separatelane",
+            "P309 servicebay",
+            "P309 namedlogicalcontact"
+          ],
+          "status": "DELIVERY_MEASUREMENT_HOLD"
+        }
+      ],
+      "contract": "compose_feline_shared_end_plan.py balance_contract: length/connectorenvelope unknown; deliverymeasurementrequired. Fourlogicalroles do not identify physicalcavities.",
+      "impact": "Separate4branch demand excluded from123 tally but REQUIRED in body occupancy, P309mount and assembly. Unknownconnector/profile preventswholefeasibility acceptance. No inventedID/pinout."
+    }
+  },
+  "next_decision": "No CAD authorized. Current recorded T_EP allocation rejected; Pi45 root-check gate blocked on material lineage and interface operands. Parent QA/commit this bounded packet; no new strategy/review."
+}
