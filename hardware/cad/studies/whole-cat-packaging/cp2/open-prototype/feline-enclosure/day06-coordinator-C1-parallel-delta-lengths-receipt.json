@@ -1,0 +1,132 @@
+{
+  "id": "day06-coordinator-C1-parallel-delta-lengths-receipt",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "source_turn": "01a1b302-1940-7612-b5f3-e0c9f5892a48",
+  "status": "READONLY_SOURCE_DELTA_ACCOUNTING_RECEIVED_NOT_GEOMETRY_ACCEPTANCE",
+  "C1_sha256": "9ebaa72cdfb777da0af0b43c1e7ba11278972f09602784339e02761cc1574cb0",
+  "source_hashes_verified_by_reviewer": [
+    "C1",
+    "wholeconceptday05",
+    "PiPWM2lifecycle",
+    "E1selection",
+    "sharedrouting123246"
+  ],
+  "rows": [
+    {
+      "unit": "XL01",
+      "stock_mm": 600,
+      "U1_or_PWM_prefix_mm": 180.14135460196414,
+      "Pi_prefix_mm": 26.20796326794899,
+      "transport_upper_mm": 227.67352305580704,
+      "source_bare_mm": 4.1,
+      "Pi_source_reserve_mm": 30,
+      "known_nominal_sum_mm": 468.1228409257202,
+      "A_i_factory_length_reference_allowance_mm": null,
+      "nominal_installed_upper_mm": null,
+      "formula": "U1orPWMprefix + Piprefix + transportupper + sourcebare + Pi30reserveONCE + Ai",
+      "stock_residual_before_unresolved_Ai_mm": 131.8771590742798,
+      "installed_length_actual_mm": null,
+      "actual_cut_mm": null,
+      "geometry_qualified": false
+    },
+    {
+      "unit": "XL07",
+      "stock_mm": 600,
+      "U1_or_PWM_prefix_mm": 129.98116443813527,
+      "Pi_prefix_mm": 26.207963267948998,
+      "transport_upper_mm": 287.2016669815335,
+      "source_bare_mm": 4.1,
+      "Pi_source_reserve_mm": 30,
+      "known_nominal_sum_mm": 477.4907946876178,
+      "A_i_factory_length_reference_allowance_mm": null,
+      "nominal_installed_upper_mm": null,
+      "formula": "U1orPWMprefix + Piprefix + transportupper + sourcebare + Pi30reserveONCE + Ai",
+      "stock_residual_before_unresolved_Ai_mm": 122.50920531238222,
+      "installed_length_actual_mm": null,
+      "actual_cut_mm": null,
+      "geometry_qualified": false
+    },
+    {
+      "unit": "XL10",
+      "stock_mm": 600,
+      "U1_or_PWM_prefix_mm": 90.42968917143779,
+      "Pi_prefix_mm": 33.39216816480433,
+      "transport_upper_mm": 287.2016669815335,
+      "source_bare_mm": 4.1,
+      "Pi_source_reserve_mm": 30,
+      "known_nominal_sum_mm": 445.1235243177756,
+      "A_i_factory_length_reference_allowance_mm": null,
+      "nominal_installed_upper_mm": null,
+      "formula": "U1orPWMprefix + Piprefix + transportupper + sourcebare + Pi30reserveONCE + Ai",
+      "stock_residual_before_unresolved_Ai_mm": 154.8764756822244,
+      "installed_length_actual_mm": null,
+      "actual_cut_mm": null,
+      "geometry_qualified": false
+    },
+    {
+      "unit": "XL05",
+      "stock_mm": 600,
+      "U1_or_PWM_prefix_mm": 26.207963267948966,
+      "Pi_prefix_mm": 33.39216816480432,
+      "transport_upper_mm": 296.68708006347686,
+      "source_bare_mm": 4.0998,
+      "Pi_source_reserve_mm": 30,
+      "known_nominal_sum_mm": 390.3870114962302,
+      "A_i_factory_length_reference_allowance_mm": null,
+      "nominal_installed_upper_mm": null,
+      "formula": "U1orPWMprefix + Piprefix + transportupper + sourcebare + Pi30reserveONCE + Ai",
+      "stock_residual_before_unresolved_Ai_mm": 209.61298850376983,
+      "installed_length_actual_mm": null,
+      "actual_cut_mm": null,
+      "geometry_qualified": false
+    },
+    {
+      "unit": "XL06",
+      "stock_mm": 600,
+      "U1_or_PWM_prefix_mm": 26.207963267948966,
+      "Pi_prefix_mm": 31.59611694059049,
+      "transport_upper_mm": 296.68708006347686,
+      "source_bare_mm": 4.0998,
+      "Pi_source_reserve_mm": 30,
+      "known_nominal_sum_mm": 388.59096027201633,
+      "A_i_factory_length_reference_allowance_mm": null,
+      "nominal_installed_upper_mm": null,
+      "formula": "U1orPWMprefix + Piprefix + transportupper + sourcebare + Pi30reserveONCE + Ai",
+      "stock_residual_before_unresolved_Ai_mm": 211.40903972798367,
+      "installed_length_actual_mm": null,
+      "actual_cut_mm": null,
+      "geometry_qualified": false
+    }
+  ],
+  "prefix_content": {
+    "U1": "jacket+localtransport+full9included, bareexcluded; canonicalcurrent_foreign_U1_actual_source_axes.recipes.bare_parts gives4.1",
+    "Pi": "mouthstraight+R10arc+commoncombextension+full9included; see feline_shared_pi_carrier.py",
+    "PWM": "1.5+pi*10/2+9=26.207963267948966, bare4.0998 separate in n01-solder-boundary-allocation.json/feline_pwm_board_shelf.py",
+    "rule": "No additional9 or universal extra solderallowance."
+  },
+  "lifecycle": "All5 separatePololu1871 units600; sourcePi30reserveeach once; preservePifactoryfemale/boardendprep, actualcutsnull. Oldblanks notcurrentfit. Surplus beforeAi is not installedsurplus tostore or provenslack.",
+  "other_changed_chains": [
+    {
+      "ids": [
+        "W079/retained0",
+        "W080/retained0"
+      ],
+      "physical_unit": "K1474_USB_FACTORY_PAIR",
+      "prior_chain": "P_LINK:MAIN|Pi4 -> LOGIC_E -> PI_S",
+      "decision": "NeednewPi45region/actualdebit/slack, oldwholeproofnotinheritedautomatically. Do not split sharedphysicalunit."
+    },
+    {
+      "chain": "USB_Pi <-> USB_BUS",
+      "identity_rule": "Do not invent anXL/W ID",
+      "decision": "Changedreach/profile/accessnearPi, BUSendpointfixed; oldwholeUSBproofnotinherited."
+    }
+  ],
+  "minimal_mapping_delta": "Preserve123IDs246endroles/sourceunits/receivedscopes. Replace5oldTEP refs withH1_WEST/H11_H6_EAST_PAIR/PI_PWM2_WEST_RETURN; receiverPi45revision, regionowner, prefixtransportboundaries/currentbudget/assembly. SeparatelyW07980/USB. No123centerlines or identityreaudit. Northprefixcoordinatesretained.",
+  "remaining_unknowns": [
+    "Ai convention600relativecontact/mouth, candidateconservativephysicalboundmaybereconciled byowner; notpermissionforfabricatedPASS",
+    "actualW07980/USBdebit/slack",
+    "actualcurrenttransport/entryroll/reserveplacement/mountaccess pendingPi45gate; C1 currentlyheld1of96"
+  ],
+  "C1_review_cycle_reopened": false,
+  "whole_N01_complete": false
+}

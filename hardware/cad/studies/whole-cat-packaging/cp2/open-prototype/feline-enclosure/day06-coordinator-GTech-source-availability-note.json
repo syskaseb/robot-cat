@@ -1,0 +1,22 @@
+{
+  "id": "day06-coordinator-GTech-source-availability-note",
+  "checked_utc": "2026-11-06T22:44:00Z",
+  "selected_SKU": "GEA223S30X6GT",
+  "primary_sources": [
+    {
+      "url": "https://gensace.de/products/gens-ace-g-tech-soaring-2200mah-11-1v-30c-3s1p-lipo-battery-pack-with-xt60-plug",
+      "finding": "SelectedSKU listed; approximate pack106.5x35x21.5. No fullbalanceconnector dimensions/factoryleadlength stated in checkedproductdescription."
+    },
+    {
+      "url": "https://www.genstattu.com/content/instock/rc_product_brochure.pdf",
+      "sha256": "a804cb3998829cb911aca54dbc3dba9e8a9be65ffb44801ebd30bfb27fd25b65",
+      "pages_visually_read": [
+        0,
+        1
+      ],
+      "finding": "GTech connector illustration and built-in smartchip shown, no dimensioned connector drawing. Aircrafttablelists olderGEA22003S30X6, notselectedGEA223S30X6GT. No lengthtable qualifying selectedlead."
+    }
+  ],
+  "decision": "No new qualified balanceconnector/lead geometry recovered. Do not infer selectedconnectorbounds from image/packsize/olderSKU, or promote unverified retailer65/120 claim into manufacturerlengthproof. Preserve existingP309tray/headerapproach evidence; connector/leadmechanics remainsOPEN, pinout staysphase2. No newpart/purchase/powerwork.",
+  "scope": "boundedindependentprimarysource lookup while soleowner handlesPi45; notwholeN01acceptance"
+}
