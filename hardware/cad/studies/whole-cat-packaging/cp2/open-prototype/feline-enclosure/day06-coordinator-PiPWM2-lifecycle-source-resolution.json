@@ -1,0 +1,142 @@
+{
+  "id": "day06-coordinator-PiPWM2-lifecycle-source-resolution",
+  "source": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\body-harness-checkpoint\\e1-selection.json",
+  "source_sha256": "6e2c2563ffa01806068d599802ede50b12432951cf668a30e55c0f82c767de2c",
+  "rows": [
+    {
+      "wire": "XL05",
+      "sku": "Pololu1871",
+      "guide_mm": 97.40825839794155,
+      "nominal_fit_blank_mm": 134,
+      "actual_cut_mm": null,
+      "ends": [
+        {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H3",
+          "world_mm": [
+            -8.09,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "I2C_SDA",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.3",
+          "world_mm": [
+            -37.095,
+            -1.143,
+            84.32
+          ],
+          "net": "I2C_SDA"
+        }
+      ],
+      "construction": "Preserve Pi factory female; solder named PCA pad",
+      "source_end_record": {
+        "id": "XL05",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H3",
+          "world_mm": [
+            -8.09,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "I2C_SDA",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.3",
+          "world_mm": [
+            -37.095,
+            -1.143,
+            84.32
+          ],
+          "net": "I2C_SDA"
+        },
+        "construction": "Preserve Pi factory female; solder named PCA pad",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      }
+    },
+    {
+      "wire": "XL06",
+      "sku": "Pololu1871",
+      "guide_mm": 120.5849275209809,
+      "nominal_fit_blank_mm": 157,
+      "actual_cut_mm": null,
+      "ends": [
+        {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H5",
+          "world_mm": [
+            -5.550000000000001,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "I2C_SCL",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.4",
+          "world_mm": [
+            -37.095,
+            1.397,
+            84.32
+          ],
+          "net": "I2C_SCL"
+        }
+      ],
+      "construction": "Preserve Pi factory female; solder named PCA pad",
+      "source_end_record": {
+        "id": "XL06",
+        "a": {
+          "kind": "project40pin_housing_wire_exit",
+          "ref": "PI.H5",
+          "world_mm": [
+            -5.550000000000001,
+            23.229999999999997,
+            65.32
+          ],
+          "net": "I2C_SCL",
+          "evidence": "Preserved XY physical-pin datum; current PCB bottom47.72 replaces52. Connector height/exit is provisional, not a catalogue pin-tip dimension"
+        },
+        "b": {
+          "kind": "supplier815revCpad",
+          "ref": "PCA.JP3.4",
+          "world_mm": [
+            -37.095,
+            1.397,
+            84.32
+          ],
+          "net": "I2C_SCL"
+        },
+        "construction": "Preserve Pi factory female; solder named PCA pad",
+        "actual_cut_mm": null,
+        "route_qualified": false,
+        "independent_insulation_grips_required": true,
+        "sku_candidate": "Pololu1871",
+        "AWG": 26,
+        "factory_nominal_mm": 600,
+        "service_reserve_Pi_mm": 30,
+        "project_radius_mm": 10,
+        "OD_project_upper_mm": 1.4
+      }
+    }
+  ],
+  "decision": "Selected source preserves Pi factory female and specifies solder at named PCA pad with nominal fit blanks. Therefore purchased600unit is not automatically installed600 for these two either. This is source lifecycle resolution, not extension to protected MTA/Molex or another SKU. No physical cut/solder performed; actual_cut staysnull. Historical134/157blank and coordinates do not qualify currentlayout. Reconcile currentprefixes+transport+bareterminalends+Pi30reserve once and fit length before wholeN01 acceptance.",
+  "explicit_source_text": "Preserve Pi factory female; solder named PCA pad",
+  "source_selected_fit_blank_scope": "Historical nominalfitallowance evidence of intended boardend preparation only, not currentlength acceptance",
+  "new_CAD": false,
+  "N01_complete": false
+}
