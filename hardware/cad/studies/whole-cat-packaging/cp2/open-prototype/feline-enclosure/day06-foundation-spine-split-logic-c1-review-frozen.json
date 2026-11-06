@@ -1,0 +1,6531 @@
+{
+  "id": "day06-foundation-spine-split-logic-C1",
+  "status": "ONE_C1_READY_FOR_FINAL_CORRECTION_RESPONSE_NO_IMPLEMENTATION_GO",
+  "correction_used": 1,
+  "max_corrections": 1,
+  "C0_frozen_file": "day05-foundation-spine-split-logic-review-c0.json",
+  "C0_sha256": "6c3015fffa5cfacb4da906931d5cb458d9a21a20875c34027b8d3e2021760578",
+  "N01": "0/10",
+  "module_pose": "Same complete Pi[0,-45,0]/yaw0; all other bought modules remain current for this strategy.",
+  "support": {
+    "cells_proposed_mm": {
+      "root_transfer_pad": [
+        [
+          46,
+          54,
+          30.72
+        ],
+        [
+          70,
+          57.7,
+          38.72
+        ]
+      ],
+      "Pi_longitudinal_spine": [
+        [
+          55,
+          -63.0318903652862,
+          30.72
+        ],
+        [
+          61,
+          56,
+          38.72
+        ]
+      ],
+      "Pi_fore_crossbeam": [
+        [
+          -3.5,
+          -63.0318903652862,
+          30.72
+        ],
+        [
+          60.5,
+          -57.0318903652862,
+          38.72
+        ]
+      ],
+      "Pi_rear_crossbeam": [
+        [
+          -3.5,
+          -14.031890365286,
+          30.72
+        ],
+        [
+          60.5,
+          -8.031890365286,
+          38.72
+        ]
+      ],
+      "North_return_spine": [
+        [
+          55,
+          56,
+          30.72
+        ],
+        [
+          61,
+          91,
+          38.72
+        ]
+      ],
+      "North_crossbeam": [
+        [
+          -3,
+          85,
+          30.72
+        ],
+        [
+          61,
+          91,
+          38.72
+        ]
+      ],
+      "North_upright": [
+        [
+          -3,
+          85,
+          36.72
+        ],
+        [
+          3,
+          91,
+          78.95
+        ]
+      ],
+      "North_lowerbridge_link": [
+        [
+          -3,
+          88,
+          76.95
+        ],
+        [
+          3,
+          93.35,
+          78.95
+        ]
+      ],
+      "North_retention_function_region": [
+        [
+          -8,
+          84,
+          76.95
+        ],
+        [
+          8,
+          96.3,
+          104.8
+        ]
+      ],
+      "Pi_USB_support_branch": [
+        [
+          56,
+          -18.7,
+          102.9
+        ],
+        [
+          120.1,
+          -12.7,
+          108.6
+        ]
+      ],
+      "Pi_power_support_branch": [
+        [
+          56,
+          -18.6,
+          104.8
+        ],
+        [
+          112.2,
+          28.9,
+          108.6
+        ]
+      ],
+      "Pi_post_-0.5_-60.032": [
+        [
+          -3.5,
+          -63.0318903652862,
+          36.72
+        ],
+        [
+          2.5,
+          -57.0318903652862,
+          103.2
+        ]
+      ],
+      "Pi_post_-0.5_-11.032": [
+        [
+          -3.5,
+          -14.031890365286,
+          36.72
+        ],
+        [
+          2.5,
+          -8.031890365286,
+          103.2
+        ]
+      ],
+      "Pi_post_57.5_-60.032": [
+        [
+          54.5,
+          -63.0318903652862,
+          36.72
+        ],
+        [
+          60.5,
+          -57.0318903652862,
+          103.2
+        ]
+      ],
+      "Pi_post_57.5_-11.032": [
+        [
+          54.5,
+          -14.031890365286,
+          36.72
+        ],
+        [
+          60.5,
+          -8.031890365286,
+          103.2
+        ]
+      ],
+      "Pi_fore_toprail": [
+        [
+          -4,
+          -63.5318903652862,
+          104.8
+        ],
+        [
+          61,
+          -56.5318903652862,
+          106.4
+        ]
+      ],
+      "Pi_rear_toprail": [
+        [
+          -4,
+          -14.531890365286,
+          104.8
+        ],
+        [
+          61,
+          -7.531890365285999,
+          106.4
+        ]
+      ]
+    },
+    "section_basis": "Functional reservations, not production solids: main spine/crossbeams6x8, posts6x6; actual4mounts at source screwaxes. Actual PCB/hardware holes and nut/driver spaces must be excluded before acceptance.",
+    "START": {
+      "header_face": 2,
+      "source_actor": "CommonFixtureC1:top_header",
+      "tongue_mm": [
+        [
+          46,
+          57.3,
+          36.52
+        ],
+        [
+          70,
+          57.7,
+          38.72
+        ]
+      ],
+      "direct_parent_coupling": "Root transfer pad also abuts current PositiveFoundation actual front face13 y54; proposed source strip x55..61/z30.72..38.52. This is required direct load transfer, not ownership inferred from intersecting bounds. Coupon/fullmaterial proof pending; thin header alone not claimed adequate."
+    },
+    "END_Pi_rails": {
+      "fore_xy": [
+        [
+          -0.5,
+          -60.0318903652862
+        ],
+        [
+          57.5,
+          -60.0318903652862
+        ]
+      ],
+      "rear_xy": [
+        [
+          -0.5,
+          -11.031890365286
+        ],
+        [
+          57.5,
+          -11.031890365286
+        ]
+      ],
+      "PCB_bottom_mm": 103.2,
+      "toprail_z_mm": [
+        104.8,
+        106.4
+      ],
+      "functional_mount": "Printed standoffs bear below PCB, existing selectedM2 and top rails retain board; full screw/nut access and throughholes must be preserved; source relative4mount pattern unchanged."
+    },
+    "END_North": {
+      "existing_actor": "CurrentNorth:Common:print / NorthOpenEntry retainedlowerbridge",
+      "source_interval_mm": [
+        [
+          -7,
+          91.35,
+          76.95
+        ],
+        [
+          5,
+          93.35,
+          78.95
+        ]
+      ],
+      "proposed_link_interval_mm": [
+        [
+          -3,
+          88,
+          76.95
+        ],
+        [
+          3,
+          93.35,
+          78.95
+        ]
+      ],
+      "root_common_not_yet_proven": true
+    },
+    "sequence": "Rootpad -> longitudinalspine -> fore/rear crossbeams ->4PCBstandoffs/selectedhardware/toprails; rootpad -> Northreturn ->crossbeam ->upright ->existinglowerbridge. Separate fullUSB/power pad supports part of same cradle allocation.",
+    "bearing_and_load": "Credible continuous printed path and useful section required, no FEM/production-strength qualification. Existing root14.4 proof does not qualify new pad/corridor."
+  },
+  "North_source_retention_revision": {
+    "decision": "Keep current twelve full9 source fields at their current coordinates, not old document X39..48 relocation; redesign only bulky project print/closure-head parking inward -Y. This avoids silently adding43mm to every prefix.",
+    "source": "day31-astra-U1far-current-function-stock-basis.json",
+    "retained_stock": "Full100/25closure/fullhead and sourceused83.16 reference; changed closure arrangement still must fit entireunit. CurrentGV band/head independent function retained, not silently deleted.",
+    "replaced_print_roles": [
+      "CurrentNorth:U1:cap bulky intermediate project grip body",
+      "Only corresponding bulky guide portion of CurrentNorth:Common:print; retainedlowerbridge and actual roots protected"
+    ],
+    "not_removed": [
+      "Real U1 parts/pads",
+      "full12 first9 retention/insulation",
+      "any physical ties/heads",
+      "GPIO/Pi realports"
+    ]
+  },
+  "Pi_actual_GPIO_interfaces": [
+    {
+      "name": "PiGPIO:PI.H1",
+      "point_mm": [
+        4.369999999999976,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          -3.630000000000024,
+          -7.761890365286165,
+          75.7
+        ],
+        [
+          -10.830000000000023,
+          -2.3618903652861656,
+          75.7
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 26.20796326794899,
+      "independent_bend": [
+        -0.8,
+        0.6,
+        0.0
+      ],
+      "point_proposed_Pi45_mm": [
+        4.369999999999976,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          -3.630000000000024,
+          -52.76189036528616,
+          75.7
+        ],
+        [
+          -10.830000000000023,
+          -47.361890365286165,
+          75.7
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        -0.7999999999999999,
+        0.5999999999999999,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H3",
+      "point_mm": [
+        6.909999999999997,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          19.06106781186547,
+          -1.6108225534206912,
+          75.70000000000005
+        ],
+        [
+          25.4250288425444,
+          4.753138477258237,
+          75.70000000000005
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 33.39216816480432,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        6.909999999999997,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          19.06106781186547,
+          -46.61082255342069,
+          75.70000000000005
+        ],
+        [
+          25.4250288425444,
+          -40.24686152274176,
+          75.70000000000005
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865477,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H5",
+      "point_mm": [
+        9.449999999999989,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          20.331067811865466,
+          -2.8808225534206877,
+          75.70000000000005
+        ],
+        [
+          26.695028842544396,
+          3.4831384772582408,
+          75.70000000000005
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 31.59611694059049,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        9.449999999999989,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          20.331067811865466,
+          -47.880822553420685,
+          75.70000000000005
+        ],
+        [
+          26.695028842544396,
+          -41.516861522741756,
+          75.70000000000005
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865477,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H11",
+      "point_mm": [
+        17.069999999999993,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          24.14106781186547,
+          -6.69082255342069,
+          75.70000000000005
+        ],
+        [
+          30.505028842544398,
+          -0.32686152274176195,
+          75.70000000000005
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 26.207963267948998,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        17.069999999999993,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          24.14106781186547,
+          -51.69082255342069,
+          75.70000000000005
+        ],
+        [
+          30.505028842544398,
+          -45.326861522741765,
+          75.70000000000005
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865469,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H6",
+      "point_mm": [
+        9.449999999999989,
+        -16.301890365286255,
+        87.20000000000002
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          21.601067811865473,
+          -4.150822553420693,
+          75.70000000000006
+        ],
+        [
+          27.965028842544402,
+          2.2131384772582354,
+          75.70000000000006
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 33.39216816480433,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        9.449999999999989,
+        -61.301890365286255,
+        87.20000000000002
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          21.601067811865473,
+          -49.150822553420696,
+          75.70000000000006
+        ],
+        [
+          27.965028842544402,
+          -42.786861522741766,
+          75.70000000000006
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865477,
+        0.0
+      ]
+    }
+  ],
+  "logic_branch_definition": {
+    "source_north": "Actual current field bar ends from source function ledger, +X tangent; no new9 at routing seam.",
+    "Pi3": {
+      "members": [
+        "XL01",
+        "XL07",
+        "XL10"
+      ],
+      "section_mm": "H1single2.2x2.2; H11/H6 pair6.0x2.2 preserving source spread and full profiles",
+      "transport_layer": "Proposed Z90..97 east trunk from North toward south, then split before occupiedPi body to actual distinct H1 vs GPIO4 grip receivers at Z75.7.",
+      "H1_entry": "From current translated H1 full9 tip and its[-.8,.6,0] tangent; separate west/body branch, not a fictitious shared port at[86,-45,94].",
+      "GPIO4_entry": "H11/H6 branch joins full actual shared4grip receiver, source diagonal tangent[.7071,.7071,0]; occupied reception includes H3/H5.",
+      "decision": "XL01 follows H1_WEST; XL07/XL10 follow H11_H6_EAST_PAIR. Source actual independent H1 receiver and stock budget justify this C1 fork; do not reinterpret old common5flat T_EP."
+    },
+    "PiPWM2": {
+      "members": [
+        "XL05",
+        "XL06"
+      ],
+      "section_mm": [
+        4.8,
+        2.2
+      ],
+      "source_GPIO4": "Same actual shared4grip full9 receiver; separates toward interior belowPCB proposed layerZ70..81, does not use old five-flat EastPi bend.",
+      "PWM_receiver": [
+        {
+          "wire": "XL05",
+          "jacket_mouth_world_mm": [
+            -96.84500000000004,
+            -52.143,
+            93.2890475583148
+          ],
+          "departure_axis": [
+            0.0,
+            0.0,
+            1.0000000000000002
+          ],
+          "bend_unit": [
+            -1,
+            0,
+            0
+          ],
+          "first_straight_project_mm": 1.5,
+          "R_mm": 10,
+          "minimum_inherited_R_mm": 10,
+          "jacket_radius_mm": 0.7,
+          "grip_start_mm": [
+            -106.84500000000004,
+            -52.143,
+            104.7890475583148
+          ],
+          "grip_end_mm": [
+            -115.84500000000004,
+            -52.143,
+            104.7890475583148
+          ],
+          "after_arc_extra_straight_mm": 0,
+          "bare_segments_preserved": true,
+          "function": "Current actual shelf/project full9 endpoint, fixed in this strategy; PCB/pad physicalfit phase2, no inferred external pinout."
+        },
+        {
+          "wire": "XL06",
+          "jacket_mouth_world_mm": [
+            -96.84500000000004,
+            -49.603,
+            93.2890475583148
+          ],
+          "departure_axis": [
+            0.0,
+            0.0,
+            1.0000000000000002
+          ],
+          "bend_unit": [
+            -1,
+            0,
+            0
+          ],
+          "first_straight_project_mm": 1.5,
+          "R_mm": 10,
+          "minimum_inherited_R_mm": 10,
+          "jacket_radius_mm": 0.7,
+          "grip_start_mm": [
+            -106.84500000000004,
+            -49.603,
+            104.7890475583148
+          ],
+          "grip_end_mm": [
+            -115.84500000000004,
+            -49.603,
+            104.7890475583148
+          ],
+          "after_arc_extra_straight_mm": 0,
+          "bare_segments_preserved": true,
+          "function": "Current actual shelf/project full9 endpoint, fixed in this strategy; PCB/pad physicalfit phase2, no inferred external pinout."
+        }
+      ]
+    },
+    "crossing_rule": "The Z90..97 trunk and Z70..81 return are allocation layers only. Each actual entry/exit tangent and R>=selectedcontract must connect continuously without double-allocation of GPIO4, with full profiles/turn capacity. Neither layer by itself is a route.",
+    "specific_HOLD": "Exact source-to-layer transitions around whole GPIO housing and USB/power bodies unresolved; no paths invented to fill this gap.",
+    "routes": [
+      {
+        "name": "H1_WEST",
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              5,
+              94.05,
+              86.45
+            ],
+            "end": [
+              15.0,
+              94.05,
+              86.45
+            ],
+            "length_mm": 10,
+            "tangent": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              15.0,
+              94.05,
+              86.45
+            ],
+            "end": [
+              15.000000000000002,
+              68.05,
+              86.45
+            ],
+            "tangent_start": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "bend_unit": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 3.141592653589793,
+            "length_mm": 40.840704496667314
+          },
+          {
+            "kind": "line",
+            "start": [
+              15.000000000000002,
+              68.05,
+              86.45
+            ],
+            "end": [
+              -13.830000000000025,
+              68.05,
+              86.45
+            ],
+            "length_mm": 28.830000000000027,
+            "tangent": [
+              -1.0,
+              -1.2246467991473532e-16,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -13.830000000000025,
+              68.05,
+              86.45
+            ],
+            "end": [
+              -26.830000000000027,
+              55.05,
+              86.45
+            ],
+            "tangent_start": [
+              -1.0,
+              -1.2246467991473532e-16,
+              0.0
+            ],
+            "bend_unit": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "line",
+            "start": [
+              -26.830000000000027,
+              55.05,
+              86.45
+            ],
+            "end": [
+              -26.830000000000027,
+              40.0,
+              86.45
+            ],
+            "length_mm": 15.049999999999997,
+            "tangent": [
+              -6.123233995736766e-17,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -26.830000000000027,
+              40.0,
+              86.45
+            ],
+            "end": [
+              -26.830000000000027,
+              30.057194812327857,
+              91.075
+            ],
+            "tangent_start": [
+              -6.123233995736766e-17,
+              -1.0,
+              0.0
+            ],
+            "bend_unit": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.8707792224987014,
+            "length_mm": 11.320129892483118
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -26.830000000000027,
+              30.057194812327857,
+              91.075
+            ],
+            "end": [
+              -26.830000000000027,
+              20.114389624655715,
+              95.7
+            ],
+            "tangent_start": [
+              -3.944775747253493e-17,
+              -0.6442307692307692,
+              0.7648311682824723
+            ],
+            "bend_unit": [
+              -4.683240210626302e-17,
+              -0.7648311682824723,
+              -0.6442307692307692
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.8707792224987014,
+            "length_mm": 11.320129892483118
+          },
+          {
+            "kind": "line",
+            "start": [
+              -26.830000000000027,
+              20.114389624655715,
+              95.7
+            ],
+            "end": [
+              -26.83000000000003,
+              -25.361890365286165,
+              95.7
+            ],
+            "length_mm": 45.47627998994188,
+            "tangent": [
+              -6.123233995736766e-17,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -26.83000000000003,
+              -25.361890365286165,
+              95.7
+            ],
+            "end": [
+              -26.83000000000003,
+              -35.361890365286165,
+              85.7
+            ],
+            "tangent_start": [
+              -6.123233995736766e-17,
+              -1.0,
+              0.0
+            ],
+            "bend_unit": [
+              0,
+              0,
+              -1
+            ],
+            "radius_mm": 10,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 15.707963267948966
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -26.83000000000003,
+              -35.361890365286165,
+              85.7
+            ],
+            "end": [
+              -18.83000000000003,
+              -41.361890365286165,
+              75.7
+            ],
+            "tangent_start": [
+              -3.749399456654644e-33,
+              -6.123233995736766e-17,
+              -1.0
+            ],
+            "bend_unit": [
+              0.8,
+              -0.6,
+              0
+            ],
+            "radius_mm": 10,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 15.707963267948966
+          },
+          {
+            "kind": "line",
+            "start": [
+              -18.83000000000003,
+              -41.361890365286165,
+              75.7
+            ],
+            "end": [
+              -10.83000000000003,
+              -47.361890365286165,
+              75.7
+            ],
+            "length_mm": 10,
+            "tangent": [
+              0.8,
+              -0.6,
+              -6.123233995736766e-17
+            ]
+          }
+        ],
+        "end": [
+          -10.83000000000003,
+          -47.361890365286165,
+          75.7
+        ],
+        "end_tangent": [
+          0.8,
+          -0.6,
+          -6.123233995736766e-17
+        ],
+        "axis_length_mm": 224.67352305580704,
+        "full_transport_section_mm": [
+          2.2,
+          2.2
+        ],
+        "max_member_centre_offset_mm": 0,
+        "member_length_upper_mm": 227.67352305580704,
+        "extra3_basis": "Explicit proposed local fan/roll length allowance, not supplier or new terminal debit",
+        "space_and_access_received": false,
+        "interpretation": "One deterministic proposed axis sketch for a locally occupied branch, NOT selected exact wires or geometric separation proof. Pair fan/roll occupies explicit entry regions; actual radius of every member remains a preflight gate.",
+        "conservative_fullprofile_segment_bounds_mm": [
+          [
+            [
+              3.4443650813895954,
+              92.49436508138959,
+              84.8943650813896
+            ],
+            [
+              16.555634918610405,
+              95.6056349186104,
+              88.00563491861041
+            ]
+          ],
+          [
+            [
+              13.444365081389595,
+              66.49436508138959,
+              84.8943650813896
+            ],
+            [
+              29.555634918610405,
+              95.6056349186104,
+              88.00563491861041
+            ]
+          ],
+          [
+            [
+              -15.38563491861043,
+              66.49436508138959,
+              84.8943650813896
+            ],
+            [
+              16.555634918610405,
+              69.6056349186104,
+              88.00563491861041
+            ]
+          ],
+          [
+            [
+              -28.38563491861043,
+              53.494365081389596,
+              84.8943650813896
+            ],
+            [
+              -12.27436508138962,
+              69.6056349186104,
+              88.00563491861041
+            ]
+          ],
+          [
+            [
+              -28.38563491861043,
+              38.4443650813896,
+              84.8943650813896
+            ],
+            [
+              -25.27436508138962,
+              56.6056349186104,
+              88.00563491861041
+            ]
+          ],
+          [
+            [
+              -28.38563491861043,
+              28.501559893717452,
+              84.8943650813896
+            ],
+            [
+              -25.27436508138962,
+              41.5556349186104,
+              92.63063491861041
+            ]
+          ],
+          [
+            [
+              -28.38563491861043,
+              18.55875470604531,
+              89.5193650813896
+            ],
+            [
+              -25.27436508138962,
+              31.612829730938262,
+              97.25563491861041
+            ]
+          ],
+          [
+            [
+              -28.385634918610435,
+              -26.91752528389657,
+              94.1443650813896
+            ],
+            [
+              -25.27436508138962,
+              21.67002454326612,
+              97.25563491861041
+            ]
+          ],
+          [
+            [
+              -28.385634918610435,
+              -36.917525283896566,
+              84.1443650813896
+            ],
+            [
+              -25.274365081389625,
+              -23.80625544667576,
+              97.25563491861041
+            ]
+          ],
+          [
+            [
+              -28.385634918610435,
+              -42.917525283896566,
+              74.1443650813896
+            ],
+            [
+              -17.274365081389625,
+              -33.80625544667576,
+              87.25563491861041
+            ]
+          ],
+          [
+            [
+              -20.385634918610435,
+              -48.917525283896566,
+              74.1443650813896
+            ],
+            [
+              -9.274365081389625,
+              -39.80625544667576,
+              77.25563491861041
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "H11_H6_EAST_PAIR",
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              29.235028842544402,
+              -44.05686152274177,
+              75.70000000000005
+            ],
+            "end": [
+              33.477669529663686,
+              -39.814220835622486,
+              75.70000000000005
+            ],
+            "length_mm": 6,
+            "tangent": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              33.477669529663686,
+              -39.814220835622486,
+              75.70000000000005
+            ],
+            "end": [
+              42.25768946130393,
+              -31.03420090398224,
+              84.85000000000004
+            ],
+            "tangent_start": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0
+            ],
+            "bend_unit": [
+              0.0,
+              0.0,
+              0.9999999999999999
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.2701329955374072,
+            "length_mm": 16.511728941986295
+          },
+          {
+            "kind": "arc",
+            "start": [
+              42.25768946130393,
+              -31.03420090398224,
+              84.85000000000004
+            ],
+            "end": [
+              51.03770939294418,
+              -22.25418097234199,
+              94.00000000000003
+            ],
+            "tangent_start": [
+              0.20941239288986224,
+              0.20941239288986224,
+              0.9551402511716716
+            ],
+            "bend_unit": [
+              0.6753861485877113,
+              0.6753861485877113,
+              -0.2961538461538462
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.2701329955374072,
+            "length_mm": 16.511728941986295
+          },
+          {
+            "kind": "arc",
+            "start": [
+              51.03770939294418,
+              -22.25418097234199,
+              94.00000000000003
+            ],
+            "end": [
+              54.845321237519066,
+              -13.061792816916872,
+              94.00000000000003
+            ],
+            "tangent_start": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0
+            ],
+            "bend_unit": [
+              -0.7071067811865476,
+              0.7071067811865476,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.7853981633974483,
+            "length_mm": 10.210176124166829
+          },
+          {
+            "kind": "line",
+            "start": [
+              54.845321237519066,
+              -13.061792816916872,
+              94.00000000000003
+            ],
+            "end": [
+              54.845321237519066,
+              -2.9999999999999982,
+              94.00000000000003
+            ],
+            "length_mm": 10.061792816916872,
+            "tangent": [
+              0.0,
+              1.0000000000000002,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              54.845321237519066,
+              -2.9999999999999982,
+              94.00000000000003
+            ],
+            "end": [
+              67.84532123751906,
+              10.000000000000005,
+              94.00000000000003
+            ],
+            "tangent_start": [
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            "bend_unit": [
+              1,
+              0,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "line",
+            "start": [
+              67.84532123751906,
+              10.000000000000005,
+              94.00000000000003
+            ],
+            "end": [
+              81.0,
+              10.000000000000005,
+              94.00000000000003
+            ],
+            "length_mm": 13.154678762480941,
+            "tangent": [
+              1.0,
+              6.123233995736767e-17,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              81.0,
+              10.000000000000005,
+              94.00000000000003
+            ],
+            "end": [
+              94.0,
+              23.000000000000004,
+              94.00000000000003
+            ],
+            "tangent_start": [
+              1.0,
+              6.123233995736767e-17,
+              0.0
+            ],
+            "bend_unit": [
+              0,
+              1,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "line",
+            "start": [
+              94.0,
+              23.000000000000004,
+              94.00000000000003
+            ],
+            "end": [
+              94.0,
+              80.5,
+              94.00000000000003
+            ],
+            "length_mm": 57.5,
+            "tangent": [
+              6.123233995736766e-17,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              94.0,
+              80.5,
+              94.00000000000003
+            ],
+            "end": [
+              81.0,
+              93.5,
+              94.00000000000003
+            ],
+            "tangent_start": [
+              6.123233995736766e-17,
+              1.0,
+              0.0
+            ],
+            "bend_unit": [
+              -1,
+              0,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "line",
+            "start": [
+              81.0,
+              93.5,
+              94.00000000000003
+            ],
+            "end": [
+              36.0,
+              93.5,
+              94.00000000000003
+            ],
+            "length_mm": 45.0,
+            "tangent": [
+              -1.0,
+              6.123233995736766e-17,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start": [
+              36.0,
+              93.5,
+              94.00000000000003
+            ],
+            "end": [
+              27.093507326255406,
+              93.5,
+              94.00000000000003
+            ],
+            "length_mm": 8.906492673744594,
+            "tangent": [
+              -1.0,
+              6.123233995736766e-17,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              27.093507326255406,
+              93.5,
+              94.00000000000003
+            ],
+            "end": [
+              20.5,
+              93.775,
+              92.22500000000004
+            ],
+            "tangent_start": [
+              -1.0,
+              6.123233995736766e-17,
+              0.0
+            ],
+            "bend_unit": [
+              0.0,
+              0.15310299450875384,
+              -0.9882102372837739
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.5319244942390633,
+            "length_mm": 6.915018425107823
+          },
+          {
+            "kind": "arc",
+            "start": [
+              20.5,
+              93.775,
+              92.22500000000004
+            ],
+            "end": [
+              13.906492673744594,
+              94.05000000000001,
+              90.45000000000005
+            ],
+            "tangent_start": [
+              -0.8618325773331843,
+              0.07765274738193155,
+              -0.501213187647012
+            ],
+            "bend_unit": [
+              -0.5071928712504158,
+              -0.13194914835490765,
+              0.8516717757453125
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.5319244942390633,
+            "length_mm": 6.915018425107823
+          },
+          {
+            "kind": "line",
+            "start": [
+              13.906492673744594,
+              94.05000000000001,
+              90.45000000000005
+            ],
+            "end": [
+              5.0,
+              94.05000000000001,
+              90.45000000000005
+            ],
+            "length_mm": 8.906492673744594,
+            "tangent": [
+              -1.0,
+              6.938893903907228e-17,
+              0.0
+            ]
+          }
+        ],
+        "end": [
+          5.0,
+          94.05000000000001,
+          90.45000000000005
+        ],
+        "end_tangent": [
+          -1.0,
+          6.938893903907228e-17,
+          0.0
+        ],
+        "axis_length_mm": 267.85418453024306,
+        "full_transport_section_mm": [
+          6.0,
+          2.2
+        ],
+        "max_member_centre_offset_mm": 1.796051224213829,
+        "member_length_upper_mm": 287.2016669815335,
+        "extra3_basis": "Explicit proposed local fan/roll length allowance, not supplier or new terminal debit",
+        "space_and_access_received": false,
+        "interpretation": "One deterministic proposed axis sketch for a locally occupied branch, NOT selected exact wires or geometric separation proof. Pair fan/roll occupies explicit entry regions; actual radius of every member remains a preflight gate.",
+        "conservative_fullprofile_segment_bounds_mm": [
+          [
+            [
+              26.03971978081031,
+              -47.25217058447586,
+              72.50469093826595
+            ],
+            [
+              36.67297859139778,
+              -36.61891177388839,
+              78.89530906173414
+            ]
+          ],
+          [
+            [
+              30.282360467929593,
+              -43.00952989735658,
+              72.50469093826595
+            ],
+            [
+              45.452998523038026,
+              -27.838891842248145,
+              88.04530906173414
+            ]
+          ],
+          [
+            [
+              39.06238039956984,
+              -34.22950996571633,
+              81.65469093826594
+            ],
+            [
+              54.23301845467827,
+              -19.0588719106079,
+              97.19530906173414
+            ]
+          ],
+          [
+            [
+              47.84240033121009,
+              -25.449490034076085,
+              90.80469093826594
+            ],
+            [
+              58.04063029925315,
+              -9.86648375518278,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              51.65001217578497,
+              -16.257101878650964,
+              90.80469093826594
+            ],
+            [
+              58.04063029925316,
+              0.19530906173409335,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              51.65001217578498,
+              -6.19530906173409,
+              90.80469093826594
+            ],
+            [
+              71.04063029925317,
+              13.195309061734097,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              64.65001217578497,
+              6.804690938265914,
+              90.80469093826594
+            ],
+            [
+              84.1953090617341,
+              13.195309061734097,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              77.8046909382659,
+              6.8046909382659155,
+              90.80469093826594
+            ],
+            [
+              97.1953090617341,
+              26.1953090617341,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              90.8046909382659,
+              19.804690938265914,
+              90.80469093826594
+            ],
+            [
+              97.1953090617341,
+              83.6953090617341,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              77.8046909382659,
+              77.3046909382659,
+              90.80469093826594
+            ],
+            [
+              97.1953090617341,
+              96.6953090617341,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              32.80469093826591,
+              90.3046909382659,
+              90.80469093826594
+            ],
+            [
+              84.1953090617341,
+              96.6953090617341,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              23.898198264521312,
+              90.3046909382659,
+              90.80469093826594
+            ],
+            [
+              39.19530906173409,
+              96.6953090617341,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              17.304690938265907,
+              90.3046909382659,
+              89.02969093826593
+            ],
+            [
+              30.2888163879895,
+              96.97030906173408,
+              97.19530906173412
+            ]
+          ],
+          [
+            [
+              10.711183612010503,
+              90.57969093826591,
+              87.25469093826594
+            ],
+            [
+              23.695309061734093,
+              97.24530906173409,
+              95.42030906173413
+            ]
+          ],
+          [
+            [
+              1.8046909382659084,
+              90.85469093826592,
+              87.25469093826595
+            ],
+            [
+              17.101801735478688,
+              97.2453090617341,
+              93.64530906173414
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "PI_PWM2_WEST_RETURN",
+        "segments": [
+          {
+            "kind": "line",
+            "start": [
+              26.060028842544398,
+              -40.88186152274176,
+              75.70000000000005
+            ],
+            "end": [
+              30.30266952966368,
+              -36.639220835622474,
+              75.70000000000005
+            ],
+            "length_mm": 6,
+            "tangent": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              30.30266952966368,
+              -36.639220835622474,
+              75.70000000000005
+            ],
+            "end": [
+              34.6484758158268,
+              -32.29341454945936,
+              77.24452377915745
+            ],
+            "tangent_start": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0
+            ],
+            "bend_unit": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.4924218675420041,
+            "length_mm": 6.401484278046054
+          },
+          {
+            "kind": "arc",
+            "start": [
+              34.6484758158268,
+              -32.29341454945936,
+              77.24452377915745
+            ],
+            "end": [
+              38.99428210198992,
+              -27.947608263296235,
+              78.78904755831485
+            ],
+            "tangent_start": [
+              0.6230957628830035,
+              0.6230957628830035,
+              0.47276139917985666
+            ],
+            "bend_unit": [
+              0.33429279124331696,
+              0.33429279124331696,
+              -0.8811904785263537
+            ],
+            "radius_mm": 13,
+            "angle_rad": 0.4924218675420041,
+            "length_mm": 6.401484278046054
+          },
+          {
+            "kind": "arc",
+            "start": [
+              38.99428210198992,
+              -27.947608263296235,
+              78.78904755831485
+            ],
+            "end": [
+              29.8018939465648,
+              -5.755220107871114,
+              78.78904755831485
+            ],
+            "tangent_start": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0
+            ],
+            "bend_unit": [
+              -0.7071067811865476,
+              0.7071067811865476,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 2.356194490192345,
+            "length_mm": 30.630528372500482
+          },
+          {
+            "kind": "line",
+            "start": [
+              29.8018939465648,
+              -5.755220107871114,
+              78.78904755831485
+            ],
+            "end": [
+              -119.84500000000003,
+              -5.755220107871097,
+              78.78904755831485
+            ],
+            "length_mm": 149.64689394656483,
+            "tangent": [
+              -1.0,
+              1.1102230246251565e-16,
+              0.0
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -119.84500000000003,
+              -5.755220107871097,
+              78.78904755831485
+            ],
+            "end": [
+              -132.84500000000003,
+              -5.755220107871096,
+              91.78904755831485
+            ],
+            "tangent_start": [
+              -1.0,
+              1.1102230246251565e-16,
+              0.0
+            ],
+            "bend_unit": [
+              0,
+              0,
+              1
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -132.84500000000003,
+              -5.755220107871096,
+              91.78904755831485
+            ],
+            "end": [
+              -132.84500000000003,
+              -18.755220107871093,
+              104.78904755831485
+            ],
+            "tangent_start": [
+              -6.123233995736766e-17,
+              6.798155367234455e-33,
+              1.0
+            ],
+            "bend_unit": [
+              0,
+              -1,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "line",
+            "start": [
+              -132.84500000000003,
+              -18.755220107871093,
+              104.78904755831485
+            ],
+            "end": [
+              -132.84500000000003,
+              -37.873000000000005,
+              104.78904755831485
+            ],
+            "length_mm": 19.11777989212891,
+            "tangent": [
+              -3.749399456654644e-33,
+              -1.0,
+              6.123233995736766e-17
+            ]
+          },
+          {
+            "kind": "arc",
+            "start": [
+              -132.84500000000003,
+              -37.873000000000005,
+              104.78904755831485
+            ],
+            "end": [
+              -119.84500000000003,
+              -50.873000000000005,
+              104.78904755831485
+            ],
+            "tangent_start": [
+              -3.749399456654644e-33,
+              -1.0,
+              6.123233995736766e-17
+            ],
+            "bend_unit": [
+              1,
+              0,
+              0
+            ],
+            "radius_mm": 13,
+            "angle_rad": 1.5707963267948966,
+            "length_mm": 20.420352248333657
+          },
+          {
+            "kind": "line",
+            "start": [
+              -119.84500000000003,
+              -50.873000000000005,
+              104.78904755831485
+            ],
+            "end": [
+              -115.84500000000003,
+              -50.873000000000005,
+              104.78904755831485
+            ],
+            "length_mm": 4,
+            "tangent": [
+              1.0,
+              -6.123233995736766e-17,
+              3.749399456654644e-33
+            ]
+          }
+        ],
+        "end": [
+          -115.84500000000003,
+          -50.873000000000005,
+          104.78904755831485
+        ],
+        "end_tangent": [
+          1.0,
+          -6.123233995736766e-17,
+          3.749399456654644e-33
+        ],
+        "axis_length_mm": 283.4592275122873,
+        "full_transport_section_mm": [
+          4.8,
+          2.2
+        ],
+        "max_member_centre_offset_mm": 1.27,
+        "member_length_upper_mm": 296.68708006347686,
+        "extra3_basis": "Explicit proposed local fan/roll length allowance, not supplier or new terminal debit",
+        "space_and_access_received": false,
+        "interpretation": "One deterministic proposed axis sketch for a locally occupied branch, NOT selected exact wires or geometric separation proof. Pair fan/roll occupies explicit entry regions; actual radius of every member remains a preflight gate.",
+        "conservative_fullprofile_segment_bounds_mm": [
+          [
+            [
+              23.419953086055582,
+              -43.52193727923058,
+              73.05992424351123
+            ],
+            [
+              32.9427452861525,
+              -33.999145079133655,
+              78.34007575648886
+            ]
+          ],
+          [
+            [
+              27.662593773174866,
+              -39.279296592111294,
+              73.05992424351123
+            ],
+            [
+              37.28855157231562,
+              -29.65333879297054,
+              79.88459953564626
+            ]
+          ],
+          [
+            [
+              32.00840005933798,
+              -34.933490305948176,
+              74.60444802266863
+            ],
+            [
+              41.63435785847874,
+              -25.30753250680742,
+              81.42912331480366
+            ]
+          ],
+          [
+            [
+              27.16181819007598,
+              -30.587684019785055,
+              76.14897180182604
+            ],
+            [
+              45.44196970305362,
+              -3.115144351382301,
+              81.42912331480366
+            ]
+          ],
+          [
+            [
+              -122.48507575648884,
+              -8.39529586435993,
+              76.14897180182604
+            ],
+            [
+              32.441969703053616,
+              -3.1151443513822805,
+              81.42912331480366
+            ]
+          ],
+          [
+            [
+              -135.48507575648884,
+              -8.395295864359914,
+              76.14897180182604
+            ],
+            [
+              -117.20492424351121,
+              -3.1151443513822787,
+              94.42912331480366
+            ]
+          ],
+          [
+            [
+              -135.48507575648884,
+              -21.395295864359912,
+              89.14897180182604
+            ],
+            [
+              -130.20492424351121,
+              -3.1151443513822796,
+              107.42912331480366
+            ]
+          ],
+          [
+            [
+              -135.48507575648884,
+              -40.513075756488824,
+              102.14897180182604
+            ],
+            [
+              -130.20492424351121,
+              -16.115144351382277,
+              107.42912331480366
+            ]
+          ],
+          [
+            [
+              -135.48507575648884,
+              -53.513075756488824,
+              102.14897180182604
+            ],
+            [
+              -117.20492424351121,
+              -35.232924243511185,
+              107.42912331480366
+            ]
+          ],
+          [
+            [
+              -122.48507575648884,
+              -53.513075756488824,
+              102.14897180182604
+            ],
+            [
+              -113.20492424351121,
+              -48.232924243511185,
+              107.42912331480366
+            ]
+          ]
+        ]
+      }
+    ],
+    "receiver_frame_consistency": {
+      "PCB_z_mm": [
+        103.2,
+        104.8
+      ],
+      "header_z_mm": [
+        94.7,
+        103.2
+      ],
+      "housing_z_mm": [
+        86.95,
+        101.2
+      ],
+      "mouth_z_mm": 87.2,
+      "first_straight_mm": 1.5,
+      "R_mm": 10,
+      "grip_z_mm": 75.7,
+      "relation": "87.2-1.5-10=75.7; inverted assembled GPIO housing/PCB stack, not another world frame. Source planning consistency only, not physical channel/pinout PASS. Native world proof already received, not repeated."
+    },
+    "GPIO4_full_local_field": {
+      "ids": [
+        "PI.H3",
+        "PI.H5",
+        "PI.H6",
+        "PI.H11"
+      ],
+      "full9_endpoints": [
+        [
+          [
+            19.06106781186547,
+            -46.61082255342069,
+            75.70000000000005
+          ],
+          [
+            25.4250288425444,
+            -40.24686152274176,
+            75.70000000000005
+          ]
+        ],
+        [
+          [
+            20.331067811865466,
+            -47.880822553420685,
+            75.70000000000005
+          ],
+          [
+            26.695028842544396,
+            -41.516861522741756,
+            75.70000000000005
+          ]
+        ],
+        [
+          [
+            21.601067811865473,
+            -49.150822553420696,
+            75.70000000000006
+          ],
+          [
+            27.965028842544402,
+            -42.786861522741766,
+            75.70000000000006
+          ]
+        ],
+        [
+          [
+            24.14106781186547,
+            -51.69082255342069,
+            75.70000000000005
+          ],
+          [
+            30.505028842544398,
+            -45.326861522741765,
+            75.70000000000005
+          ]
+        ]
+      ],
+      "transverse_centre_spread_mm": 7.184204896855322,
+      "full_capacity_width_mm": 9.384204896855323,
+      "full_capacity_height_mm": 2.2,
+      "role": "Actual four-receiver field, not a compact5.8mm transport box; two branch fans depart after full9 along actualdiag tangent. Whole received PiGripGPIO4 band/head kept in movedPi stack."
+    },
+    "entry_fans_proposed": {
+      "North_H11_H6": {
+        "bounds_mm": [
+          [
+            5,
+            90.4,
+            88.5
+          ],
+          [
+            36,
+            96.5,
+            95.1
+          ]
+        ],
+        "occupied_profiles": 2,
+        "minimum_R_each_mm": 10,
+        "axis_R_mm": 13,
+        "transport_pair_section_mm": [
+          6,
+          2.2
+        ],
+        "role": "Source levels89.65/91.25 roll into lateral pair; no grip/allowance at fan seam."
+      },
+      "Pi_GPIO4_split": {
+        "bounds_mm": [
+          [
+            22,
+            -47,
+            73.5
+          ],
+          [
+            60,
+            -15,
+            96
+          ]
+        ],
+        "occupied_profiles": 4,
+        "function": "Realfull9 plus pair2/2 source-derived outwardtangents. Fan envelope only; full source band/head separate. Every physical crossing must be resolved before spatial acceptance."
+      },
+      "Pi_H1": {
+        "bounds_mm": [
+          [
+            -30,
+            -50,
+            73.5
+          ],
+          [
+            -8,
+            -23,
+            97.9
+          ]
+        ],
+        "occupied_profiles": 1,
+        "function": "Real outward[-.8,.6,0] -> twoR10 turnovers below/alongwestern edge."
+      }
+    },
+    "PWM_world_datum": {
+      "current_actor": "Ref_Material_PWM9685NominalPCB_0_0",
+      "bounds_mm": [
+        [
+          -98.75,
+          -63.7,
+          90.68904755831475
+        ],
+        [
+          -36.52,
+          -38.3,
+          92.28904755831475
+        ]
+      ],
+      "source": "n01-pwm-board-shelf.json actual_fixed + canonical/current-equivalence; no new pinout inference."
+    }
+  },
+  "full_neighbors": {
+    "selection": "Fullcurrent1292 exactbounds vs every proposed functional cell and every complete movedPi actor, gap<=1.25; bbox candidates ONLY, not contact. Include full owners/metal/stock/access and saved required moving envelopes even when names look like ownprint.",
+    "Pi_pairs": [
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "PowerFan:grip:W052:band",
+        "bbox_lower_gap_mm": 0.361818228198004
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.8466283881015073
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Ref_Material_MAIN_1_head_0_0",
+        "bbox_lower_gap_mm": 0.37520000000002085
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Station:RR_G:case",
+        "bbox_lower_gap_mm": 0.8420965681629964
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "other": "SharedBUS:TailCarrier",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.4000000000000057
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.40006519526847967
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R3_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R3_CP2_IN_0_0",
+        "bbox_lower_gap_mm": 0.7493741493264707
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "bbox_lower_gap_mm": 0.7493741493264707
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Ref_Material_F_R3_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.6414484040942412
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 1.0753517496843195
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:band",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:head",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "PowerFan:grip:W052:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.4055060500600476
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "other": "Day26:MAINCommonTie",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Ref_Material_MAIN_1_head_0_0",
+        "bbox_lower_gap_mm": 0.23460963471386265
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Ref_Material_MAIN_1_shaft_0_0",
+        "bbox_lower_gap_mm": 1.1346096347138612
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:CPU",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "other": "Day26:MAINCommonTie",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Day26:MAINCommonTie",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "PowerFan:grip:W052:band",
+        "bbox_lower_gap_mm": 0.361818228198004
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Ref_Material_MAIN_1_head_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Ref_Material_MAIN_1_shaft_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Station:RR_G:case",
+        "bbox_lower_gap_mm": 0.4681096347138407
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:microSDCardAndBottomBudget",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "SharedBUS:TailCarrier",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      }
+    ],
+    "support_cell_pairs": [
+      {
+        "cell": "root_transfer_pad",
+        "other": "CommonFixtureC1:top_back_return",
+        "bbox_lower_gap_mm": 1.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "CommonFixtureC1:top_header",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "CurrentFoundation:ClampNeck:4",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "FLG:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "FLG:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Ref_Material_P0_SideLeft22_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Ref_Material_P0_SideRight22_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "SharedRetention:lower_common_flange_base",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Station:P_AUX:shared_near_tie",
+        "bbox_lower_gap_mm": 1.240000000000002
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.5566952848202718
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "SharedRetention:lower_common_flange_base",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_rear_crossbeam",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "CommonFixtureC1:top_header",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "FLG:case_band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "FLG:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_crossbeam",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "CurrentNorth:Common:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "CurrentNorth:U1:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "Ref_Material_F_L3_CP2_ATO_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "CurrentNorth:Common:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "CurrentNorth:U1:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "CurrentNorth:U1:cap",
+        "bbox_lower_gap_mm": 0.82462112512353
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:Common:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:U1:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:U1:cap",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:U1:head",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Ref_Material_F_L3_CP2_ATO_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Station:FR_P:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Station:RR_P:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PAS:body",
+        "bbox_lower_gap_mm": 0.10000000000000142
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.7999999999999972
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.7999999999999261
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:BankPad:Ref_Material_F_R2_CP2_Housing_0_0:0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.5566952848202718
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Ref_Material_F_R2_CP2_IN_0_0",
+        "bbox_lower_gap_mm": 1.0881096347139998
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:band_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:head_budget",
+        "bbox_lower_gap_mm": 0.8500000000000099
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:split_cap_exterior",
+        "bbox_lower_gap_mm": 0.5000000000000071
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W039/single/end:band_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W039/single/end:split_cap_exterior",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:P_SYS:one_common_band_head",
+        "bbox_lower_gap_mm": 1.131890365285999
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W022:branch_region",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W022:nominal",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W024:branch_region",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W024:nominal",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.5566952848202718
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Ref_Material_F_R5_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "SharedRetention:lower_common_flange_base",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:shared_near_root",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:shared_near_tie",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:split_common_comb",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:DFL:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:DFL:cap",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:permanent",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:removable",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W056/single/end:head_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:band_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:head_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:split_cap_exterior",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:D_FL:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_toprail",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_toprail",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_rear_toprail",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_rear_toprail",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      }
+    ],
+    "names": [
+      "CommonFixtureC1:top_back_return",
+      "CommonFixtureC1:top_header",
+      "CurrentDFL:DFL:band",
+      "CurrentDFL:DFL:cap",
+      "CurrentDFL:permanent",
+      "CurrentDFL:removable",
+      "CurrentFoundation:BankPad:Ref_Material_F_R2_CP2_Housing_0_0:0",
+      "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+      "CurrentFoundation:ClampNeck:4",
+      "CurrentFoundation:FoundationFlange:-1",
+      "CurrentFoundation:FoundationRail:-1",
+      "CurrentNorth:Common:print",
+      "CurrentNorth:U1:band",
+      "CurrentNorth:U1:cap",
+      "CurrentNorth:U1:head",
+      "Day26:MAINCommonTie",
+      "FLG:case_band",
+      "FLG:print",
+      "PAS:body",
+      "PAS:retained_upper",
+      "PowerFan:F_AUX:case",
+      "PowerFan:grip:W052:band",
+      "PowerFan:grip:W052:head",
+      "PowerMount:F_AUX:4905",
+      "Ref_Material_F_L3_CP2_ATO_0_0",
+      "Ref_Material_F_R2_CP2_Housing_0_0",
+      "Ref_Material_F_R2_CP2_IN_0_0",
+      "Ref_Material_F_R3_CP2_Housing_0_0",
+      "Ref_Material_F_R3_CP2_IN_0_0",
+      "Ref_Material_F_R4_CP2_Housing_0_0",
+      "Ref_Material_F_R4_CP2_OUT_0_0",
+      "Ref_Material_F_R5_CP2_Housing_0_0",
+      "Ref_Material_MAIN_1_head_0_0",
+      "Ref_Material_MAIN_1_shaft_0_0",
+      "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+      "Ref_Material_P0_SideLeft22_0_0",
+      "Ref_Material_P0_SideRight22_0_0",
+      "SharedBUS:TailCarrier",
+      "SharedRetention:lower_common_flange_base",
+      "Station:Bank:W035/body/end:band_budget",
+      "Station:Bank:W035/body/end:head_budget",
+      "Station:Bank:W035/body/end:split_cap_exterior",
+      "Station:Bank:W039/single/end:band_budget",
+      "Station:Bank:W039/single/end:split_cap_exterior",
+      "Station:Bank:W056/single/end:head_budget",
+      "Station:Bank:W057/body/end:band_budget",
+      "Station:Bank:W057/body/end:head_budget",
+      "Station:Bank:W057/body/end:split_cap_exterior",
+      "Station:D_FL:case",
+      "Station:FR_G:case",
+      "Station:FR_G:shared_near_root",
+      "Station:FR_G:shared_near_tie",
+      "Station:FR_G:split_common_comb",
+      "Station:FR_P:case",
+      "Station:P_AUX:shared_near_tie",
+      "Station:P_SYS:one_common_band_head",
+      "Station:RR_G:case",
+      "Station:RR_P:case",
+      "Underdeck:PositiveFoundation",
+      "Underdeck:RestoredBank",
+      "Underdeck:SOURCE:XP02.source",
+      "W022:branch_region",
+      "W022:nominal",
+      "W024:branch_region",
+      "W024:nominal"
+    ],
+    "moving_scope": "108 saved neutral members and required36poses still must bound changed allocation; no old motion replay planned, only new envelope intersections.",
+    "C1_complete_envelope_pairs": [
+      {
+        "region": "root_transfer_pad",
+        "other": "CommonFixtureC1:top_back_return",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "root_transfer_pad",
+        "other": "CommonFixtureC1:top_header",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "root_transfer_pad",
+        "other": "CurrentFoundation:ClampNeck:4",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "root_transfer_pad",
+        "other": "FLG:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "root_transfer_pad",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "FLG:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "Ref_Material_P0_SideLeft22_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "Ref_Material_P0_SideRight22_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "SharedRetention:lower_common_flange_base",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "Station:P_AUX:shared_near_tie",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.240000000000002,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_longitudinal_spine",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_crossbeam",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.5566952848202718,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_crossbeam",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_crossbeam",
+        "other": "SharedRetention:lower_common_flange_base",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7818903652862019,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_crossbeam",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_crossbeam",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_return_spine",
+        "other": "CommonFixtureC1:top_header",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_return_spine",
+        "other": "FLG:case_band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_return_spine",
+        "other": "FLG:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_return_spine",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_crossbeam",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_upright",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_upright",
+        "other": "CurrentNorth:U1:band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_upright",
+        "other": "Ref_Material_F_L3_CP2_ATO_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_upright",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_lowerbridge_link",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_lowerbridge_link",
+        "other": "CurrentNorth:U1:band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_lowerbridge_link",
+        "other": "CurrentNorth:U1:cap",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.82462112512353,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_lowerbridge_link",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "CurrentNorth:U1:band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "CurrentNorth:U1:cap",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "CurrentNorth:U1:head",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "Ref_Material_F_L3_CP2_ATO_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "Station:FR_P:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "Station:RR_P:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_retention_function_region",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "PAS:retained_upper",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "PiBudget:USB_A_data_boot",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "PiBudget:USB_A_front",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "PiBudget:UnlabelledTopComponentsBudget",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "PowerFan:F_AUX:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "PowerMount:F_AUX:4905",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "Ref_Material_Pi411Nut_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "Ref_Material_Pi411Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "Ref_Material_Pi411TopWasher_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "USBGrip:Pi:head",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.1500000000000057,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_USB_support_branch",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "PAS:body",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.10000000000000142,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "PAS:retained_upper",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "PiGrip:Power2:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "PiGrip:Power2:head",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.5499999999999972,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "PowerFan:F_AUX:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7999999999999972,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "PowerMount:F_AUX:4905",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7999999999999261,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "Ref_Material_Pi411Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "Ref_Material_Pi411TopWasher_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_power_support_branch",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:BankPad:Ref_Material_F_R2_CP2_Housing_0_0:0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.5566952848202718,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "PiBudget:GPIO1992OccupiedHousing",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.4499999999999993,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "PiBudget:GPIO_header",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.5999999999999996,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "PiBudget:UnlabelledTopComponentsBudget",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_Pi410Nut_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_Pi410Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.4210854715202004e-14,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-60.032",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "PAS:retained_upper",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "PiBudget:USB_C",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.375,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "PiBudget:UnlabelledTopComponentsBudget",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Ref_Material_F_R2_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.0881096347139998,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Ref_Material_Pi49Nut_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Ref_Material_Pi49Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.4210854715202004e-14,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.8500000000000099,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:split_cap_exterior",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.5000000000000071,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W039/single/end:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W039/single/end:split_cap_exterior",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Station:P_SYS:one_common_band_head",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.131890365285999,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "W022:branch_region",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "W022:nominal",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "W024:branch_region",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_-0.5_-11.032",
+        "other": "W024:nominal",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.5566952848202718,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "PiBudget:GPIO1992OccupiedHousing",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.45000000000000284,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "PiBudget:GPIO_header",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.6000000000000014,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "PiBudget:UnlabelledTopComponentsBudget",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Ref_Material_F_R5_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Ref_Material_Pi412Nut_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Ref_Material_Pi412Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.4210854715202004e-14,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "SharedRetention:lower_common_flange_base",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7818903652862019,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:shared_near_root",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7818903652862019,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:shared_near_tie",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7818903652862019,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:split_common_comb",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.7818903652862019,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-60.032",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:DFL:band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:DFL:cap",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:permanent",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:removable",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "PAS:retained_upper",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "PiBudget:Audio",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "PiBudget:UnlabelledTopComponentsBudget",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Ref_Material_Pi411Nut_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Ref_Material_Pi411Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.4210854715202004e-14,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W056/single/end:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:split_cap_exterior",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Station:D_FL:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_post_57.5_-11.032",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_toprail",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_toprail",
+        "other": "Ref_Material_Pi410Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_toprail",
+        "other": "Ref_Material_Pi412Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_toprail",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_fore_toprail",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "PAS:retained_upper",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "PiBudget:AdapterBody",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.2499999999998543,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "Ref_Material_Pi411Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "Ref_Material_Pi411TopWasher_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "Ref_Material_Pi49Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "Ref_Material_Pi49TopWasher_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "Ref_Material_Pi4NominalPCB_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_rear_toprail",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:0",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:0",
+        "other": "CurrentNorth:U1:cap",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:0",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:1",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:1",
+        "other": "Underdeck:SOURCE:XP03.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:2",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:2",
+        "other": "Flat:MODULE:5",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:2",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:3",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:3",
+        "other": "Flat:MODULE:5",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:3",
+        "other": "Underdeck:CommonSupport",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.21936508138951183,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:3",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:4",
+        "other": "Flat:MODULE:5",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:4",
+        "other": "Underdeck:PositiveFoundation",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:5",
+        "other": "Flat:MODULE:5",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:7",
+        "other": "Ref_Material_S0_key_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:7",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:8",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:9",
+        "other": "Ref_Material_F_R1_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:9",
+        "other": "Ref_Material_F_R1_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:9",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:9",
+        "other": "Ref_Material_F_R2_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:9",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:10",
+        "other": "PiGrip:H1:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:10",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:10",
+        "other": "Ref_Material_F_R2_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.577787934815331,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:10",
+        "other": "Ref_Material_F_R2_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.5562554466757632,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H1_WEST:10",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "PiGrip:GPIO4:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "PiGrip:GPIO4:head",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.8546909382658612,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "Ref_Material_F_R3_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.9216197808103104,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:0",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:1",
+        "other": "PiGrip:GPIO4:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:1",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:1",
+        "other": "Ref_Material_F_R4_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:1",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:1",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:1",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:2",
+        "other": "PiBudget:Audio",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.004690938265881073,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:2",
+        "other": "PiBudget:CSI",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.5046909382658811,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:2",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:2",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:3",
+        "other": "PiBudget:Audio",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.004690938265895284,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:3",
+        "other": "Ref_Material_Pi411Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:3",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:3",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.6890805507609912,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:4",
+        "other": "PiBudget:Audio",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.004690938265895284,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:4",
+        "other": "Ref_Material_Pi411Screw_0_0",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:4",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:4",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.6890805507609912,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:5",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:5",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.6890805507609912,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:6",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:6",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.6890805507609912,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "PowerFan:F_AUX:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "PowerFan:F_AUX:out9",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "PowerFan:grip:XA02:band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.24435995230959406,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "PowerFan:grip:XA02:head",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.007835416636808645,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "PowerFan:grip:XA02:pad",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:7",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.6890805507609912,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:8",
+        "other": "Carrier:G_AUX:low_gallery",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:8",
+        "other": "CurrentBUS:USB_C_Overmould",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:8",
+        "other": "PowerFan:F_AUX:out9",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:9",
+        "other": "Carrier:G_AUX:low_gallery",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:9",
+        "other": "Station:G_AUX:case",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:14",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:14",
+        "other": "CurrentNorth:U1:band",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.05469093826590843,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "H11_H6_EAST_PAIR:14",
+        "other": "CurrentNorth:U1:cap",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:0",
+        "other": "PiGrip:GPIO4:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:0",
+        "other": "Ref_Material_F_R3_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:0",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:0",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:0",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:0",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:1",
+        "other": "PiGrip:GPIO4:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.720077557215177,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:1",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:1",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:1",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:1",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:2",
+        "other": "Ref_Material_F_R4_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.41014802266863626,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:2",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.41014802266863626,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:2",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:2",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:3",
+        "other": "Station:Bank:W055/body/end:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:3",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:3",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_body_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_key_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_neck_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_nut_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_ring_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_stud_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Ref_Material_S0_washer_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:4",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:5",
+        "other": "Ref_Material_S0_body_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:5",
+        "other": "Ref_Material_S0_nut_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:5",
+        "other": "Ref_Material_S0_ring_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:5",
+        "other": "Ref_Material_S0_stud_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:5",
+        "other": "Ref_Material_S0_washer_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:6",
+        "other": "Ref_Material_S0_body_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:7",
+        "other": "Ref_Material_S0_body_CP2_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:7",
+        "other": "W065/single/end:0:saddle",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:8",
+        "other": "W065/single/end:0:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:8",
+        "other": "W065/single/end:0:saddle",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:8",
+        "other": "W076/retained1/end:0:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:8",
+        "other": "W076/retained1/end:0:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.064778249189061,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:8",
+        "other": "W076/retained1/end:0:saddle",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:9",
+        "other": "ShelfPWM:XLcomb:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.6099242435111734,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:9",
+        "other": "ShelfPWM:XLcomb:lid",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:9",
+        "other": "ShelfPWM:XLcomb:lower",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:9",
+        "other": "W076/retained1/end:0:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "PI_PWM2_WEST_RETURN:9",
+        "other": "W076/retained1/end:0:saddle",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_H11_H6",
+        "other": "CurrentNorth:Common:print",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "North_H11_H6",
+        "other": "CurrentNorth:U1:cap",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "PiBudget:Audio",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 1.200000000000017,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "PiGrip:GPIO4:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "PiGrip:GPIO4:head",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Ref_Material_F_R3_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Ref_Material_F_R4_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Ref_Material_F_R5_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Ref_Material_F_R5_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Station:Bank:W040/single/end:split_cap_exterior",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.9500000000000028,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Station:Bank:W054/single/end:split_cap_exterior",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.9500000000000028,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Station:Bank:W055/body/end:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.1382460191013428,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Station:Bank:W055/body/end:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Station:Bank:W057/body/end:band_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 1.1382460191013428,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Station:Bank:W057/body/end:head_budget",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_GPIO4_split",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "PiGrip:H1:band",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "PiGrip:H1:head",
+        "neighbor_pose": "PROPOSED_Pi45",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "Ref_Material_F_R1_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "Ref_Material_F_R1_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "Ref_Material_F_R2_CP2_IN_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "Ref_Material_F_R2_CP2_OUT_0_0",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      },
+      {
+        "region": "Pi_H1",
+        "other": "Underdeck:RestoredBank",
+        "neighbor_pose": "CURRENT_RETAINED",
+        "bbox_lower_gap_mm": 0.0,
+        "classification": "CANDIDATE_NOT_CONTACT"
+      }
+    ],
+    "C1_complete_names": [
+      "Carrier:G_AUX:low_gallery",
+      "CommonFixtureC1:top_back_return",
+      "CommonFixtureC1:top_header",
+      "CurrentBUS:USB_C_Overmould",
+      "CurrentDFL:DFL:band",
+      "CurrentDFL:DFL:cap",
+      "CurrentDFL:permanent",
+      "CurrentDFL:removable",
+      "CurrentFoundation:BankPad:Ref_Material_F_R2_CP2_Housing_0_0:0",
+      "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+      "CurrentFoundation:ClampNeck:4",
+      "CurrentFoundation:FoundationFlange:-1",
+      "CurrentFoundation:FoundationRail:-1",
+      "CurrentNorth:Common:print",
+      "CurrentNorth:U1:band",
+      "CurrentNorth:U1:cap",
+      "CurrentNorth:U1:head",
+      "Day26:MAINCommonTie",
+      "FLG:case_band",
+      "FLG:print",
+      "Flat:MODULE:5",
+      "PAS:body",
+      "PAS:retained_upper",
+      "PiBudget:AdapterBody",
+      "PiBudget:Audio",
+      "PiBudget:CSI",
+      "PiBudget:GPIO1992OccupiedHousing",
+      "PiBudget:GPIO_header",
+      "PiBudget:USB_A_data_boot",
+      "PiBudget:USB_A_front",
+      "PiBudget:USB_C",
+      "PiBudget:UnlabelledTopComponentsBudget",
+      "PiGrip:GPIO4:band",
+      "PiGrip:GPIO4:head",
+      "PiGrip:H1:band",
+      "PiGrip:H1:head",
+      "PiGrip:Power2:band",
+      "PiGrip:Power2:head",
+      "PowerFan:F_AUX:case",
+      "PowerFan:F_AUX:out9",
+      "PowerFan:grip:W052:band",
+      "PowerFan:grip:W052:head",
+      "PowerFan:grip:XA02:band",
+      "PowerFan:grip:XA02:head",
+      "PowerFan:grip:XA02:pad",
+      "PowerMount:F_AUX:4905",
+      "Ref_Material_F_L3_CP2_ATO_0_0",
+      "Ref_Material_F_R1_CP2_Housing_0_0",
+      "Ref_Material_F_R1_CP2_IN_0_0",
+      "Ref_Material_F_R2_CP2_Housing_0_0",
+      "Ref_Material_F_R2_CP2_IN_0_0",
+      "Ref_Material_F_R2_CP2_OUT_0_0",
+      "Ref_Material_F_R3_CP2_Housing_0_0",
+      "Ref_Material_F_R3_CP2_IN_0_0",
+      "Ref_Material_F_R4_CP2_Housing_0_0",
+      "Ref_Material_F_R4_CP2_IN_0_0",
+      "Ref_Material_F_R4_CP2_OUT_0_0",
+      "Ref_Material_F_R5_CP2_Housing_0_0",
+      "Ref_Material_F_R5_CP2_OUT_0_0",
+      "Ref_Material_MAIN_1_head_0_0",
+      "Ref_Material_MAIN_1_shaft_0_0",
+      "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+      "Ref_Material_P0_SideLeft22_0_0",
+      "Ref_Material_P0_SideRight22_0_0",
+      "Ref_Material_Pi410Nut_0_0",
+      "Ref_Material_Pi410Screw_0_0",
+      "Ref_Material_Pi411Nut_0_0",
+      "Ref_Material_Pi411Screw_0_0",
+      "Ref_Material_Pi411TopWasher_0_0",
+      "Ref_Material_Pi412Nut_0_0",
+      "Ref_Material_Pi412Screw_0_0",
+      "Ref_Material_Pi49Nut_0_0",
+      "Ref_Material_Pi49Screw_0_0",
+      "Ref_Material_Pi49TopWasher_0_0",
+      "Ref_Material_Pi4NominalPCB_0_0",
+      "Ref_Material_S0_body_CP2_0_0",
+      "Ref_Material_S0_key_CP2_0_0",
+      "Ref_Material_S0_neck_CP2_0_0",
+      "Ref_Material_S0_nut_IN_0_0",
+      "Ref_Material_S0_ring_IN_0_0",
+      "Ref_Material_S0_stud_IN_0_0",
+      "Ref_Material_S0_washer_IN_0_0",
+      "SharedBUS:TailCarrier",
+      "SharedRetention:lower_common_flange_base",
+      "ShelfPWM:XLcomb:band_budget",
+      "ShelfPWM:XLcomb:lid",
+      "ShelfPWM:XLcomb:lower",
+      "Station:Bank:W035/body/end:band_budget",
+      "Station:Bank:W035/body/end:head_budget",
+      "Station:Bank:W035/body/end:split_cap_exterior",
+      "Station:Bank:W039/single/end:band_budget",
+      "Station:Bank:W039/single/end:split_cap_exterior",
+      "Station:Bank:W040/single/end:split_cap_exterior",
+      "Station:Bank:W054/single/end:split_cap_exterior",
+      "Station:Bank:W055/body/end:band_budget",
+      "Station:Bank:W055/body/end:head_budget",
+      "Station:Bank:W056/single/end:head_budget",
+      "Station:Bank:W057/body/end:band_budget",
+      "Station:Bank:W057/body/end:head_budget",
+      "Station:Bank:W057/body/end:split_cap_exterior",
+      "Station:D_FL:case",
+      "Station:FR_G:case",
+      "Station:FR_G:shared_near_root",
+      "Station:FR_G:shared_near_tie",
+      "Station:FR_G:split_common_comb",
+      "Station:FR_P:case",
+      "Station:G_AUX:case",
+      "Station:P_AUX:shared_near_tie",
+      "Station:P_SYS:one_common_band_head",
+      "Station:RR_G:case",
+      "Station:RR_P:case",
+      "USBGrip:Pi:head",
+      "Underdeck:CommonSupport",
+      "Underdeck:PositiveFoundation",
+      "Underdeck:RestoredBank",
+      "Underdeck:SOURCE:XP02.source",
+      "Underdeck:SOURCE:XP03.source",
+      "W022:branch_region",
+      "W022:nominal",
+      "W024:branch_region",
+      "W024:nominal",
+      "W065/single/end:0:head_budget",
+      "W065/single/end:0:saddle",
+      "W076/retained1/end:0:band_budget",
+      "W076/retained1/end:0:head_budget",
+      "W076/retained1/end:0:saddle"
+    ],
+    "C1_envelope_regions_mm": {
+      "root_transfer_pad": [
+        [
+          46,
+          54,
+          30.72
+        ],
+        [
+          70,
+          57.7,
+          38.72
+        ]
+      ],
+      "Pi_longitudinal_spine": [
+        [
+          55,
+          -63.0318903652862,
+          30.72
+        ],
+        [
+          61,
+          56,
+          38.72
+        ]
+      ],
+      "Pi_fore_crossbeam": [
+        [
+          -3.5,
+          -63.0318903652862,
+          30.72
+        ],
+        [
+          60.5,
+          -57.0318903652862,
+          38.72
+        ]
+      ],
+      "Pi_rear_crossbeam": [
+        [
+          -3.5,
+          -14.031890365286,
+          30.72
+        ],
+        [
+          60.5,
+          -8.031890365286,
+          38.72
+        ]
+      ],
+      "North_return_spine": [
+        [
+          55,
+          56,
+          30.72
+        ],
+        [
+          61,
+          91,
+          38.72
+        ]
+      ],
+      "North_crossbeam": [
+        [
+          -3,
+          85,
+          30.72
+        ],
+        [
+          61,
+          91,
+          38.72
+        ]
+      ],
+      "North_upright": [
+        [
+          -3,
+          85,
+          36.72
+        ],
+        [
+          3,
+          91,
+          78.95
+        ]
+      ],
+      "North_lowerbridge_link": [
+        [
+          -3,
+          88,
+          76.95
+        ],
+        [
+          3,
+          93.35,
+          78.95
+        ]
+      ],
+      "North_retention_function_region": [
+        [
+          -8,
+          84,
+          76.95
+        ],
+        [
+          8,
+          96.3,
+          104.8
+        ]
+      ],
+      "Pi_USB_support_branch": [
+        [
+          56,
+          -18.7,
+          102.9
+        ],
+        [
+          120.1,
+          -12.7,
+          108.6
+        ]
+      ],
+      "Pi_power_support_branch": [
+        [
+          56,
+          -18.6,
+          104.8
+        ],
+        [
+          112.2,
+          28.9,
+          108.6
+        ]
+      ],
+      "Pi_post_-0.5_-60.032": [
+        [
+          -3.5,
+          -63.0318903652862,
+          36.72
+        ],
+        [
+          2.5,
+          -57.0318903652862,
+          103.2
+        ]
+      ],
+      "Pi_post_-0.5_-11.032": [
+        [
+          -3.5,
+          -14.031890365286,
+          36.72
+        ],
+        [
+          2.5,
+          -8.031890365286,
+          103.2
+        ]
+      ],
+      "Pi_post_57.5_-60.032": [
+        [
+          54.5,
+          -63.0318903652862,
+          36.72
+        ],
+        [
+          60.5,
+          -57.0318903652862,
+          103.2
+        ]
+      ],
+      "Pi_post_57.5_-11.032": [
+        [
+          54.5,
+          -14.031890365286,
+          36.72
+        ],
+        [
+          60.5,
+          -8.031890365286,
+          103.2
+        ]
+      ],
+      "Pi_fore_toprail": [
+        [
+          -4,
+          -63.5318903652862,
+          104.8
+        ],
+        [
+          61,
+          -56.5318903652862,
+          106.4
+        ]
+      ],
+      "Pi_rear_toprail": [
+        [
+          -4,
+          -14.531890365286,
+          104.8
+        ],
+        [
+          61,
+          -7.531890365285999,
+          106.4
+        ]
+      ],
+      "H1_WEST:0": [
+        [
+          3.4443650813895954,
+          92.49436508138959,
+          84.8943650813896
+        ],
+        [
+          16.555634918610405,
+          95.6056349186104,
+          88.00563491861041
+        ]
+      ],
+      "H1_WEST:1": [
+        [
+          13.444365081389595,
+          66.49436508138959,
+          84.8943650813896
+        ],
+        [
+          29.555634918610405,
+          95.6056349186104,
+          88.00563491861041
+        ]
+      ],
+      "H1_WEST:2": [
+        [
+          -15.38563491861043,
+          66.49436508138959,
+          84.8943650813896
+        ],
+        [
+          16.555634918610405,
+          69.6056349186104,
+          88.00563491861041
+        ]
+      ],
+      "H1_WEST:3": [
+        [
+          -28.38563491861043,
+          53.494365081389596,
+          84.8943650813896
+        ],
+        [
+          -12.27436508138962,
+          69.6056349186104,
+          88.00563491861041
+        ]
+      ],
+      "H1_WEST:4": [
+        [
+          -28.38563491861043,
+          38.4443650813896,
+          84.8943650813896
+        ],
+        [
+          -25.27436508138962,
+          56.6056349186104,
+          88.00563491861041
+        ]
+      ],
+      "H1_WEST:5": [
+        [
+          -28.38563491861043,
+          28.501559893717452,
+          84.8943650813896
+        ],
+        [
+          -25.27436508138962,
+          41.5556349186104,
+          92.63063491861041
+        ]
+      ],
+      "H1_WEST:6": [
+        [
+          -28.38563491861043,
+          18.55875470604531,
+          89.5193650813896
+        ],
+        [
+          -25.27436508138962,
+          31.612829730938262,
+          97.25563491861041
+        ]
+      ],
+      "H1_WEST:7": [
+        [
+          -28.385634918610435,
+          -26.91752528389657,
+          94.1443650813896
+        ],
+        [
+          -25.27436508138962,
+          21.67002454326612,
+          97.25563491861041
+        ]
+      ],
+      "H1_WEST:8": [
+        [
+          -28.385634918610435,
+          -36.917525283896566,
+          84.1443650813896
+        ],
+        [
+          -25.274365081389625,
+          -23.80625544667576,
+          97.25563491861041
+        ]
+      ],
+      "H1_WEST:9": [
+        [
+          -28.385634918610435,
+          -42.917525283896566,
+          74.1443650813896
+        ],
+        [
+          -17.274365081389625,
+          -33.80625544667576,
+          87.25563491861041
+        ]
+      ],
+      "H1_WEST:10": [
+        [
+          -20.385634918610435,
+          -48.917525283896566,
+          74.1443650813896
+        ],
+        [
+          -9.274365081389625,
+          -39.80625544667576,
+          77.25563491861041
+        ]
+      ],
+      "H11_H6_EAST_PAIR:0": [
+        [
+          26.03971978081031,
+          -47.25217058447586,
+          72.50469093826595
+        ],
+        [
+          36.67297859139778,
+          -36.61891177388839,
+          78.89530906173414
+        ]
+      ],
+      "H11_H6_EAST_PAIR:1": [
+        [
+          30.282360467929593,
+          -43.00952989735658,
+          72.50469093826595
+        ],
+        [
+          45.452998523038026,
+          -27.838891842248145,
+          88.04530906173414
+        ]
+      ],
+      "H11_H6_EAST_PAIR:2": [
+        [
+          39.06238039956984,
+          -34.22950996571633,
+          81.65469093826594
+        ],
+        [
+          54.23301845467827,
+          -19.0588719106079,
+          97.19530906173414
+        ]
+      ],
+      "H11_H6_EAST_PAIR:3": [
+        [
+          47.84240033121009,
+          -25.449490034076085,
+          90.80469093826594
+        ],
+        [
+          58.04063029925315,
+          -9.86648375518278,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:4": [
+        [
+          51.65001217578497,
+          -16.257101878650964,
+          90.80469093826594
+        ],
+        [
+          58.04063029925316,
+          0.19530906173409335,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:5": [
+        [
+          51.65001217578498,
+          -6.19530906173409,
+          90.80469093826594
+        ],
+        [
+          71.04063029925317,
+          13.195309061734097,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:6": [
+        [
+          64.65001217578497,
+          6.804690938265914,
+          90.80469093826594
+        ],
+        [
+          84.1953090617341,
+          13.195309061734097,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:7": [
+        [
+          77.8046909382659,
+          6.8046909382659155,
+          90.80469093826594
+        ],
+        [
+          97.1953090617341,
+          26.1953090617341,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:8": [
+        [
+          90.8046909382659,
+          19.804690938265914,
+          90.80469093826594
+        ],
+        [
+          97.1953090617341,
+          83.6953090617341,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:9": [
+        [
+          77.8046909382659,
+          77.3046909382659,
+          90.80469093826594
+        ],
+        [
+          97.1953090617341,
+          96.6953090617341,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:10": [
+        [
+          32.80469093826591,
+          90.3046909382659,
+          90.80469093826594
+        ],
+        [
+          84.1953090617341,
+          96.6953090617341,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:11": [
+        [
+          23.898198264521312,
+          90.3046909382659,
+          90.80469093826594
+        ],
+        [
+          39.19530906173409,
+          96.6953090617341,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:12": [
+        [
+          17.304690938265907,
+          90.3046909382659,
+          89.02969093826593
+        ],
+        [
+          30.2888163879895,
+          96.97030906173408,
+          97.19530906173412
+        ]
+      ],
+      "H11_H6_EAST_PAIR:13": [
+        [
+          10.711183612010503,
+          90.57969093826591,
+          87.25469093826594
+        ],
+        [
+          23.695309061734093,
+          97.24530906173409,
+          95.42030906173413
+        ]
+      ],
+      "H11_H6_EAST_PAIR:14": [
+        [
+          1.8046909382659084,
+          90.85469093826592,
+          87.25469093826595
+        ],
+        [
+          17.101801735478688,
+          97.2453090617341,
+          93.64530906173414
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:0": [
+        [
+          23.419953086055582,
+          -43.52193727923058,
+          73.05992424351123
+        ],
+        [
+          32.9427452861525,
+          -33.999145079133655,
+          78.34007575648886
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:1": [
+        [
+          27.662593773174866,
+          -39.279296592111294,
+          73.05992424351123
+        ],
+        [
+          37.28855157231562,
+          -29.65333879297054,
+          79.88459953564626
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:2": [
+        [
+          32.00840005933798,
+          -34.933490305948176,
+          74.60444802266863
+        ],
+        [
+          41.63435785847874,
+          -25.30753250680742,
+          81.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:3": [
+        [
+          27.16181819007598,
+          -30.587684019785055,
+          76.14897180182604
+        ],
+        [
+          45.44196970305362,
+          -3.115144351382301,
+          81.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:4": [
+        [
+          -122.48507575648884,
+          -8.39529586435993,
+          76.14897180182604
+        ],
+        [
+          32.441969703053616,
+          -3.1151443513822805,
+          81.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:5": [
+        [
+          -135.48507575648884,
+          -8.395295864359914,
+          76.14897180182604
+        ],
+        [
+          -117.20492424351121,
+          -3.1151443513822787,
+          94.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:6": [
+        [
+          -135.48507575648884,
+          -21.395295864359912,
+          89.14897180182604
+        ],
+        [
+          -130.20492424351121,
+          -3.1151443513822796,
+          107.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:7": [
+        [
+          -135.48507575648884,
+          -40.513075756488824,
+          102.14897180182604
+        ],
+        [
+          -130.20492424351121,
+          -16.115144351382277,
+          107.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:8": [
+        [
+          -135.48507575648884,
+          -53.513075756488824,
+          102.14897180182604
+        ],
+        [
+          -117.20492424351121,
+          -35.232924243511185,
+          107.42912331480366
+        ]
+      ],
+      "PI_PWM2_WEST_RETURN:9": [
+        [
+          -122.48507575648884,
+          -53.513075756488824,
+          102.14897180182604
+        ],
+        [
+          -113.20492424351121,
+          -48.232924243511185,
+          107.42912331480366
+        ]
+      ],
+      "North_H11_H6": [
+        [
+          5,
+          90.4,
+          88.5
+        ],
+        [
+          36,
+          96.5,
+          95.1
+        ]
+      ],
+      "Pi_GPIO4_split": [
+        [
+          22,
+          -47,
+          73.5
+        ],
+        [
+          60,
+          -15,
+          96
+        ]
+      ],
+      "Pi_H1": [
+        [
+          -30,
+          -50,
+          73.5
+        ],
+        [
+          -8,
+          -23,
+          97.9
+        ]
+      ]
+    },
+    "frame_rule": "Current1292 source with complete36Pi proposed delta once. Full boxes/corner radius/fans/ports are candidate selection, not contact; required motion and separate access remain additional gate inputs."
+  },
+  "R6_routine_access": {
+    "source": "tools/cad/feline_ato_service.py reservation, actual currentR6 fuse; side skin removed, ATO25/projecttool12x41x25. This is existing routine source requirement, not invented rapidservice.",
+    "source_bounds_mm": {
+      "R6_withdraw25": [
+        [
+          82.45,
+          -111.55,
+          59.45
+        ],
+        [
+          87.55,
+          -67.75,
+          78.55000000000001
+        ]
+      ],
+      "R6_tool12x41x25": [
+        [
+          79.0,
+          -121.55,
+          56.5
+        ],
+        [
+          91.0,
+          -80.55,
+          81.5
+        ]
+      ]
+    },
+    "Pi36_vs_access_bounds": [
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 84.34132515122643
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 82.10856878151367
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 82.78994745572413
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 80.83813460471632
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 63.39016143649211
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 72.80982424115712
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 61.62102030901071
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 71.62826781775608
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 65.25095759587902
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 74.26689083183619
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 32.97361260561092
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 33.40384809192745
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 28.5722837680428
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 29.953363857340516
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 100.22231571334066
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 104.5335855408595
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 99.17131714323205
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 103.76998000660977
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 101.26641825985158
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 105.41618032269939
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 25.050298379270167
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 27.577274258692412
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 61.46316251906351
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 69.6264529722252
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 64.81364824637366
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 72.48128451989056
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 54.06144071860185
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 56.093212604859986
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 57.0019490677328
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 59.288468155629296
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 87.65466813867724
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 87.303968713629
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 87.2401272849503
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 86.89801444994589
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 92.34223428801799
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 103.64411145816186
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 90.50217101935415
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 101.98946791637408
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 27.37088266754506
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 39.184899191515
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 45.478304651266726
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 57.73019401147118
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 13.014927620532053
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 21.16604468521133
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 91.7268695883133
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 96.78052340796731
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 33.21375721233438
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 33.59914098319433
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 81.14266435323498
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 87.31121683375181
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 72.3286387148393
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 79.772793513769
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 56.363406129885455
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 62.85182699978643
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 85.84569548100156
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 86.14004318123787
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 58.84677550308574
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 67.52171201738923
+      },
+      {
+        "Pi_actor": "PiBudget:CPU",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 58.08549265695617
+      },
+      {
+        "Pi_actor": "PiBudget:CPU",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 60.01456543081841
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 30.06375487520517
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 31.225918142547822
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 87.8139709958797
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 94.57617093493411
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 75.37636886404906
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 84.58898030936335
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 21.126226565349196
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 24.554145384010845
+      },
+      {
+        "Pi_actor": "PiBudget:microSDCardAndBottomBudget",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 82.13590795681833
+      },
+      {
+        "Pi_actor": "PiBudget:microSDCardAndBottomBudget",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 83.29842425003973
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 46.80222041258232
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 58.308000670547884
+      }
+    ],
+    "red_parking220230": "Existing source witnesses require changed-Pi interaction check too; must import/recover their frozen per-segment full reserves, not substitute old rejected fullconnector parking. Their illustration overlap is allocationHOLD, not actualwire contact.",
+    "order_gate": "After C1 response, cheapest completePi-vsBANK_S/R6access and redparking preflight BEFORE longspine construction.",
+    "rare_repair": "Only documented side/cover partialdisassembly; removal of wholePi for ordinary fuse replacement not assumed.",
+    "existing_red_witnesses": {
+      "file": "day06-R6-existing-witness-source-bounds.json",
+      "sha256": "3076019bdfabc8316bd27eaae1373fc7f633dfab5e905119921a52d2ed233b6a",
+      "interval_source": "220/230 end witnesses plus inherited affine intermediate-cover proof; changed Pi must preserve actual source region or explicitly replan whole routine space.",
+      "not_contact": "Capacity overlap is allocation HOLD; does not prove physical flexible wire contact."
+    }
+  },
+  "whole_dependency_dispositions": {
+    "hash_delivery": "CLOSED same frozen6c3015 packet",
+    "material": "CurrentPositiveFoundation override/actualheader pinned proof received; new directpad/sourceface and useful freeface/corridor still HOLD",
+    "all_Pi_parts": "36 source actors:PCB/allselectedHW/17fullcomponent-matingbudgets/gripstocks; PiPower W079/80 realadapter exits, USB_Pi mating/powerboards and all5GPIO included; remote F_PI/USB_BUS unchanged needchangedleadlength/access checks",
+    "head_tail_SOURCE_MODULE": "All123/246 identities preserved; singleJR300/3cores+factory250, actualhead/tail corpora and flex/slack, both4MTA fullend/factoryroutes and allfour220units remain; newprint/branch intersections are changed scope not hidden",
+    "balance": "CurrentStation:Monitor:case25x41x12 matches nominalMOD05015; oldtray/root4mm3/4batterybolts/static36 proof reusable only unchanged. Full_header_access20mm +Y is separate reservedspace, include if changed arrangement intersects; GTechconnector/lead bounds unknown. Electrical mapping phase2; mechanical capacity pending."
+  },
+  "source_pins": {
+    "day05-current1292-bounds-source-read.json": "e61064d7d109860ad25836dbf6bf7ed04555aa1dad89f46777f376f853e09476",
+    "day05-Pi-world-frame-disposition.json": "91f4766cb7d15a28d306372644f2ede328781a16a649c3f0a22ffc65e5c0480f",
+    "day05-Pi45-complete-local-source-inputs.json": "2125e27c5eb2f8811c46479738d33dd27a6f67cf89cae305f4c1f4ac8bd69aa7",
+    "day05-current-header-override-root-probe.json": "1e3d8438e59792b5420d3bae16778a911f57aac8f6a9aa697b54495b8c294b9b",
+    "day31-astra-U1far-Pi-current-recipient-budget.json": "f14aebe6acd15cc416501529a9c6a5728bff92c5e14d34e39b38bc6e7d8ffd2e",
+    "day31-astra-U1far-current-function-stock-basis.json": "5e484e798ce852b4a2031a153d414d4718ab02746d93c2aa6fb4ba808b909b27",
+    "day02-astra-current-composition-resume.json": "9eab24374527602c30ea281c7ed2ba151b185284db7a3d72b3881efe064bbc0c",
+    "day05-current-foundation-functional-root-patch-read.json": "c6167219890b3e3344cc12f9f34d580ec27dded659f30dd670b16986fedd977e",
+    "day05-current-root-local-view-source.json": "09d1fd17e22d96c0d044998034b665e313aa86db8c8226923b79450fdcb3f20d",
+    "n01-pwm-board-shelf.json": "6373bda791f6a5170f985e477229b8af42a417718c3d28d9980c42fcfd0e81dc",
+    "day06-R6-existing-witness-source-bounds.json": "3076019bdfabc8316bd27eaae1373fc7f633dfab5e905119921a52d2ed233b6a",
+    "n01-Monitor-front-tray.json": "8636025ed6f242fe1715bcee44b1219cdd91f82cf80db0f11d1373c3bdda4f68",
+    "day05-whole-interior-concept.json": "55d4e7d2327e737e1a4fd4b2b6c0154deaba416ece5d6c9846ef54c5f35f16a9",
+    "day05-coordinator-balance-envelope-source-note.json": "70f289c31a6b9552868e185111e1bc74d8ebf845c6d221792c39a403b122800d",
+    "day06-current-root-saved-mesh-review-view.png": "0e70c8db612572c1fb081311debb4bb70973508ae9dbfb32ab030fe337b997a7"
+  },
+  "old_C1_draft_sha256": "2e7c76eaaf294c308475538a10fb38cabb6df54d6d64a59fff39f4d8c0916619",
+  "C1_dispositions": [
+    {
+      "comment": 1,
+      "decision": "Frozen C0delivery closed at6c3015; this is sole C1, no counter reset."
+    },
+    {
+      "comment": 2,
+      "decision": "Functional spine cells/START/2PiEND/NorthEND explicit in support. Same Pi45 rigid datum; first bought-stack/access test before any support implementation."
+    },
+    {
+      "comment": 3,
+      "decision": "Source rootpatch46.8mm2/inside9.36mm3 is available current foundation material. Root transfer pad couples directly to it as well as header; thin2.2mm header alone not asserted adequate. Full free approach/FLG/ClampNeck/metal/stock spaces still gate."
+    },
+    {
+      "comment": 4,
+      "decision": "Actual five GPIO mouths/grips and both PWM full9 receivers provided. H1 western branch avoids needless east doubleback; H11/H6 east pair and PiPWM2 west return have separate specific paths/sections/turns. Source-field spread distinguished from compact transit. No fiveflatR13 rescue."
+    },
+    {
+      "comment": 5,
+      "decision": "Full36Pi stack,5GPIO/USB/power mates, unchanged remoteF_PI/BUS, HEAD/tail, SOURCE/MODULE/fourMTA, balance/header approach and R6 withdrawal/tool/220230parking explicitly remain in changed scope. No whole layout PASS."
+    }
+  ],
+  "new_branch_length_budget": [
+    {
+      "unit": "XL01",
+      "stock_mm": 600,
+      "U1_prefix_mm": 180.14135460196414,
+      "Pi_prefix_mm": 26.20796326794899,
+      "new_transport_upper_mm": 227.67352305580704,
+      "source_Pi_reserve_mm": 30,
+      "nominal_installed_upper_before_unresolved_bare_allowances_mm": 464.0228409257202,
+      "residual_mm": 135.97715907427983,
+      "extra_bare_terminal_allowance_mm": null,
+      "cut_actual_mm": null,
+      "scope": "Nominal proposal budget, not actual slack or stock acceptance. Fixed prefixes reused only while unchanged; board-end trim after dryfit rule retained, Pi female intact."
+    },
+    {
+      "unit": "XL07",
+      "stock_mm": 600,
+      "U1_prefix_mm": 129.98116443813527,
+      "Pi_prefix_mm": 26.207963267948998,
+      "new_transport_upper_mm": 287.2016669815335,
+      "source_Pi_reserve_mm": 30,
+      "nominal_installed_upper_before_unresolved_bare_allowances_mm": 473.39079468761776,
+      "residual_mm": 126.60920531238224,
+      "extra_bare_terminal_allowance_mm": null,
+      "cut_actual_mm": null,
+      "scope": "Nominal proposal budget, not actual slack or stock acceptance. Fixed prefixes reused only while unchanged; board-end trim after dryfit rule retained, Pi female intact."
+    },
+    {
+      "unit": "XL10",
+      "stock_mm": 600,
+      "U1_prefix_mm": 90.42968917143779,
+      "Pi_prefix_mm": 33.39216816480433,
+      "new_transport_upper_mm": 287.2016669815335,
+      "source_Pi_reserve_mm": 30,
+      "nominal_installed_upper_before_unresolved_bare_allowances_mm": 441.0235243177756,
+      "residual_mm": 158.97647568222442,
+      "extra_bare_terminal_allowance_mm": null,
+      "cut_actual_mm": null,
+      "scope": "Nominal proposal budget, not actual slack or stock acceptance. Fixed prefixes reused only while unchanged; board-end trim after dryfit rule retained, Pi female intact."
+    },
+    {
+      "unit": "XL05",
+      "stock_mm": 600,
+      "Pi_prefix_mm": 33.39216816480432,
+      "PWM_prefix_mm": 26.207963267948966,
+      "new_transport_upper_mm": 296.68708006347686,
+      "nominal_proposal_reserve_mm": 30,
+      "nominal_installed_upper_before_unresolved_bare_allowances_mm": 386.28721149623016,
+      "residual_mm": 213.71278850376984,
+      "cut_actual_mm": null,
+      "scope": "Same selectedPololu1871 physical unit,600 source from selectedmaterial factory_units; no use of obsolete134/157 cut blanks. End allowances and nominalreserve reconciliation remain gates."
+    },
+    {
+      "unit": "XL06",
+      "stock_mm": 600,
+      "Pi_prefix_mm": 31.59611694059049,
+      "PWM_prefix_mm": 26.207963267948966,
+      "new_transport_upper_mm": 296.68708006347686,
+      "nominal_proposal_reserve_mm": 30,
+      "nominal_installed_upper_before_unresolved_bare_allowances_mm": 384.4911602720163,
+      "residual_mm": 215.50883972798368,
+      "cut_actual_mm": null,
+      "scope": "Same selectedPololu1871 physical unit,600 source from selectedmaterial factory_units; no use of obsolete134/157 cut blanks. End allowances and nominalreserve reconciliation remain gates."
+    }
+  ],
+  "first_actual_gate": [
+    "Complete moved36Pi+all5GPIO real receiver/USB/power access against current fixed bought bank/hardware and preserved root/material. Bbox candidate not contact; exact valid rigid operands only. Stop whole strategy before support if actual rigid blocker.",
+    "R6 actual25withdraw+12x41x25tool and existing220/230redparking/release capacities; Monitor fullheader access if relevant. Reuse full positive bbox separation, check only changed overlap candidates.",
+    "Only after that gate: proposed support/branch occupied envelopes versus complete current fixed and requiredmoving neighborhoods, root connectivity/usable section, full stock/assembly, outline3.25/foreign1.25. No production detail before functional gate."
+  ],
+  "selectedmaterial_source": {
+    "file": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\studies\\whole-cat-packaging\\cp2\\open-prototype\\phase1-material-selection-r4.json",
+    "sha256": "8b035cb9e0f0ee8802430fb0d7a0abe43f4b71fc84adf3d3d3b222d0130651ba",
+    "Pololu1871_factory_units": {
+      "used_whole_600mm_wires": 5,
+      "pack_contains": 5,
+      "selected_pack_count": 2,
+      "whole_wire_spares": 5,
+      "manufacturer_url": "https://www.pololu.com/product/1871"
+    },
+    "old_nominal_cuts_not_reused": true
+  },
+  "root_patch_source": {
+    "file": "day05-current-foundation-functional-root-patch-read.json",
+    "sha256": "c6167219890b3e3344cc12f9f34d580ec27dded659f30dd670b16986fedd977e",
+    "area_mm2": 46.8,
+    "inside_coupon_mm3": 9.36,
+    "scope": "Actual material, not proof of free neighbor space or new loadpath."
+  },
+  "available_current_view": {
+    "file": "day06-current-root-saved-mesh-review-view.png",
+    "sha256": "0e70c8db612572c1fb081311debb4bb70973508ae9dbfb32ab030fe337b997a7",
+    "scope": "Parent read-only rendering of saved19actualactors; not new support or free-corridor proof."
+  },
+  "sheet": "day06-foundation-spine-split-logic-c1-review.html",
+  "geometry_built": false,
+  "review_response_pending": true,
+  "whole_coverage_reference": {
+    "file": "day05-whole-interior-concept.json",
+    "sha256": "55d4e7d2327e737e1a4fd4b2b6c0154deaba416ece5d6c9846ef54c5f35f16a9",
+    "identities": 123,
+    "ends": 246,
+    "no_identity_reaudit": true,
+    "known_four220_whole_debits_mm": {
+      "XP02.module": 199.176168,
+      "XP03.module": 213.552653,
+      "XP02.source": 211.81110605887383,
+      "XP03.source": 160.6596600169126
+    },
+    "scope": "Changes: support/North intermediate print/Pi receiver pose/5fartransports. Other chains inherit only their received scope; all HEAD/tail/factory/stock/lengthslack remain required for wholeN01."
+  }
+}
