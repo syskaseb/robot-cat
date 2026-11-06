@@ -33,5 +33,68 @@
     "balance_factory_lead_length_mm": null,
     "interpretation": "Pack dimensions do not establish the balance connector envelope or its factory lead length. These are separate physical inputs; no cavity or ID pin assignment inferred."
   },
-  "mechanical_consequence": "Check current P309 module allocation against explicit nominal specification. Keep the four balance branch roles separate from the 123/246 register. Body routing needs connector/profile/length/access data; electrical cavity mapping is phase2 and is not itself a new mechanical N01 gate."
+  "mechanical_consequence": "Check current P309 module allocation against explicit nominal specification. Keep the four balance branch roles separate from the 123/246 register. Body routing needs connector/profile/length/access data; electrical cavity mapping is phase2 and is not itself a new mechanical N01 gate.",
+  "retained_monitor_interface": {
+    "source_receipt": "n01-Monitor-front-tray.json",
+    "source_receipt_sha256": "8636025ed6f242fe1715bcee44b1219cdd91f82cf80db0f11d1373c3bdda4f68",
+    "status": "MONITOR_FRONT_TRAY_PORT_STATIC36_RECEIVED_DELIVERED_EDGE_FIT_OPEN",
+    "current_actor_bounds_mm": {
+      "Station:Monitor:case": [
+        [
+          -68.5,
+          -20.5,
+          11.5
+        ],
+        [
+          -43.5,
+          20.5,
+          23.5
+        ]
+      ],
+      "MonitorTray:rooted_pocket": [
+        [
+          -71.5,
+          -23.5,
+          -0.5
+        ],
+        [
+          -40.5,
+          23.5,
+          23.5
+        ]
+      ]
+    },
+    "case_dimensions_current_xyz_mm": [
+      25,
+      41,
+      12
+    ],
+    "planned_header_approach_mm": 20,
+    "existing_root_common_mm3": 3.9999999999999947,
+    "geometry_archive": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-Monitor-front-tray.breps.zip",
+    "geometry_archive_sha256": "47db1ced9dd435f8959cd89165ccff26d7d0f5bd045543b540c529b77edff96e",
+    "geometry_members": [
+      {
+        "name": "Station:Monitor:case",
+        "entry": "0.brep",
+        "sha256": "84adfda81811cd38e9f0c5808eec82d2142b51d9db3d287481afe47c7c25566d",
+        "kind": "purchased_case_planning_envelope"
+      },
+      {
+        "name": "MonitorTray:rooted_pocket",
+        "entry": "1.brep",
+        "sha256": "b3099e8386c01e171799dd330412b08f370c59b69c6f715836341d6596a80b2f",
+        "kind": "PETG"
+      },
+      {
+        "name": "MonitorTray:full_header_access",
+        "entry": "2.brep",
+        "sha256": "2bddafc286598a5a0a120c40712ad5d4cd120de3309819ed807dc602d09eb3ad",
+        "kind": "service_reservation"
+      }
+    ],
+    "provenance_constructor": "tools/cad/plan_feline_monitor_front_tray.py",
+    "constructor_sha256": "626862026f2a1dfc7c2b9661b02383ef5e8b04c1ddc3d7b1f4890525f640e8f7",
+    "interpretation": "Current actor names/bounds align with the prior nominal Monitor5015 tray constructor. Reuse old interface proofs only with unchanged actors; this note does not repeat CAD tests or independently compare current BRep bytes. Full_header_access is an occupied service reservation separate from the physical1292 actor count. Adjustable PCB-edge keeper fit is explicitly N03/delivery, not invented mounting-pad geometry. Factory balance length/compatibility/retention/connected routing remain open."
+  }
 }

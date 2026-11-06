@@ -1,0 +1,211 @@
+{
+  "id": "day05-foundation-spine-split-logic-preparation",
+  "status": "WHOLE_CAUSAL_PROPOSAL_READY_FOR_SINGLE_REVIEW_LOCAL_GEOMETRY_PREREQUISITES_HOLD",
+  "N01": "0/10",
+  "native_started": false,
+  "review_dispatched": false,
+  "window": {
+    "start_utc": "2026-11-05T20:51:54Z",
+    "deadline_utc": "2026-11-06T07:00:00Z",
+    "authority": "Parent recorded overnight user authorization; no percentage threshold; stop actual refusal/ordinaryfalse/missing fresh read/deadline."
+  },
+  "falsified_premises": [
+    "Historical PWM carrier alias is not proven current RestoredBank material",
+    "Coplanar five-flat T_EP R13 violates inner wire-centre R and full capacity margin; no offset correction and old correction1/1 remains exhausted"
+  ],
+  "hypothesis": "Retain whole Pi translation[0,-45,0]/yaw0. Replace assumed old-carrier cantilever by one longitudinal common support rooted in current PositiveFoundation/existing top_header, supporting Pi cradle and North guide crossmember. Pi3 uses east corridor; PiPWM2 returns separately through interior to actual PWM combs, never sharing five-wire EastPi turn. Other selected modules/4MTA remain current pending complete interface gates.",
+  "root_candidate": {
+    "parent": "Underdeck:PositiveFoundation",
+    "existing_child": "CommonFixtureC1:top_header",
+    "child_source": {
+      "archive": "day02-astra-common-fixture-c1-pressure-and-frame.breps.zip",
+      "archive_sha256": "0c6961f956e33759ae8360c5a7e11585851dde1051875a5e8a831e810ccbc1cb",
+      "name": "top_header",
+      "entry": "2.brep",
+      "sha256": "c904f98b52f43bf0ff03c2e0e23217333b24be3dce66cf85b379cc242282506c",
+      "role": "LOCAL_FUNCTIONAL_FIXTURE_RECEIVED_NOT_WHOLE_N01"
+    },
+    "inherited_common_mm3": 14.399999999999693,
+    "inherited_full_bearing_mm2": 71.99999999998568,
+    "proof_scope": "Existing fixture header/foundation joint only; inherited scoped C1 root graph. Not new Pi support or added-load qualification.",
+    "proposed_loadpath": "Pi two-rail cradle + North guide crossmember -> proposed longitudinal support -> actual existing top_header -> PositiveFoundation",
+    "missing": "Actual usable attachment face, full continuous support corridor, new joint/bearing section and additional load capacity. Existing W041/RL_G fixture occupies this joint; do not displace it or count occupied material as free.",
+    "first_gate": "Read actual current header/foundation material and full W041/RL_G/G2/MTA/stock/fastener/tool neighbors. Reject before support detail if no attachable interface or continuous corridor. Bbox is not root proof.",
+    "foundation_source_layer": "day30-astra-u1-complete-short-upper-plenum.breps.zip",
+    "foundation_archive_sha256": "dd9faa05b61fc6b3e7143fba5018addaa90328b42fc050cc9ee2058ecc42677d",
+    "foundation_entry": "4.brep",
+    "foundation_member_sha256": "1e5831a08f7dd631ce20c93e08ef25ddb0d43b408a2b51a5eafa38c4f6d0ab02",
+    "source_lineage": "robot-cat31-astra-restore-named-context.py aliases U1:complete_short_carrier to Underdeck:PositiveFoundation. Original functional37/25.brep is historical, superseded; never use it as current material.",
+    "actual_current_header_side_face": {
+      "face_index": 2,
+      "bounds_mm": [
+        [
+          40,
+          57.5,
+          36.52
+        ],
+        [
+          76,
+          57.5,
+          38.72
+        ]
+      ],
+      "area_mm2": 79.2,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "status": "Candidate attach face, material read ONLY; accessible/free area and new joint not qualified."
+    },
+    "inherited_neighbor_facts": "Existing header contacts ClampNeck:4 common2.4 and FLG:print common6.55 in scoped source context. These cannot be ignored as free space; read scoped functional disposition and preserve their existing paths. New support envelope still requires complete changed-neighbor selection.",
+    "current_pinned_probe": {
+      "file": "day05-current-header-override-root-probe.json",
+      "sha256": "1e3d8438e59792b5420d3bae16778a911f57aac8f6a9aa697b54495b8c294b9b",
+      "gap_mm": 0.0,
+      "common_mm3": 14.399999999999693,
+      "valid_parent_child_common": true,
+      "scope": "Existing W041/RL_G fixture header to current U1 short carrier foundation. No new Pi/North support/joint/load-section/neighbor acceptance."
+    }
+  },
+  "bundle_topology": {
+    "Pi3": {
+      "ids": [
+        "XL01/extra",
+        "XL07/extra",
+        "XL10/extra"
+      ],
+      "chain": [
+        "North12 source grips",
+        "North-east transition",
+        "East dedicated lane",
+        "three-profile Pi entry",
+        "Pi actual H1/H11/H6"
+      ],
+      "profile_mm": [
+        5.4,
+        2.2
+      ],
+      "new_length_mm": null,
+      "static_entry_demand": {
+        "basis": "Three separate full OD1.4 profiles, gaps.2, edges.4; proposed axisR13 from same nominal Pi entry only. New member set does not receive a spatial route.",
+        "full_width_mm": 5.4,
+        "centre_offsets_mm": [
+          -1.6,
+          0,
+          1.6
+        ],
+        "wire_centre_Rs_mm": [
+          11.4,
+          13,
+          14.6
+        ],
+        "minimum_required_R_mm": 10,
+        "allocated_east_xmax_mm": 109.7,
+        "allocated_pi_ymin_mm": -47.7,
+        "old_box_limits": {
+          "xmax": 111,
+          "ymin": -49
+        },
+        "status": "STATIC_LOCAL_TURN_DEMAND_CONSISTENT_NO_ENVIRONMENT_OR_ENDPOINT_PROOF"
+      }
+    },
+    "PiPWM2": {
+      "ids": [
+        "XL05/extra",
+        "XL06/extra"
+      ],
+      "chain": [
+        "Pi actual GPIO H3/H5",
+        "separate interior return beside common support",
+        "actual ShelfPWM combs"
+      ],
+      "profile_mm": [
+        3.8,
+        2.2
+      ],
+      "new_length_mm": null,
+      "static_section_demand": {
+        "full_width_mm": 3.8,
+        "full_height_mm": 2.2,
+        "no_new_turn_selected": true,
+        "status": "INTERIOR_PATH_AND_PORT_TANGENTS_UNPROVEN"
+      }
+    },
+    "condition": "These are proposed branch allocations, not measured free space. Current port pinout unchanged; shared GPIO access with H11/H6 not double-allocated. Any entry crossover needs distinct occupied layers/R/assembly. No new R or exact path selected."
+  },
+  "whole_dependencies": {
+    "123246": "Use all identities/ends from pinned current concept, with dependency overrides only for support, Pi3/PiPWM2 and affected guides. No ID removal; inherited assignments do not prove global fit.",
+    "North12": "Retain twelve actual full9/stock/closure/head functions, not fourteen. PWM5/head2/tail branches remain separately occupied. New common support and changed ties require proof; no9 at accounting seams.",
+    "HEAD": "Actual HPJR/JR and HY/tail endpoints retained. SingleJR300/3cores+factory250, source trim-after-fit only; head transport not charged to JR splice pool. Current HELU/JR lengths and joint slack remain OPEN. New support must preserve their trunk/access.",
+    "other_branches": "Retain named local regions/stock/legs and accepted required motion scope. Include every branch crossed by proposed support; no accepted-pair replay.",
+    "MTA_SOURCE_MODULE": "All4MTA both ends/whole source routes retained. Four220 units keep unchanged whole debits only while full endpoints/routes remain unchanged. Entire cases/caps/bolts/nuts/bands/heads/factory spans constrain new support.",
+    "lengthslack": "Changed Pi3 uses current prefixes+transport+realends+Pi reserve30 under source lifecycle; PiPWM2 real stock and recipient ends required. New lengths null, old whole totals not transferred to changed routes.",
+    "balance": "Four BAT->P309 logical branches outside123; mechanical connector/profile/stock/length unknown; no cavity/pinout inference or power work.",
+    "invariants": "Selectedparts/R47/P0E6/15drives/MG92B/MAIN46.52/325x200x160/max200/256cube; foreign1.25 and BodyOuter3.25 remain."
+  },
+  "assembly": [
+    "Reuse bench-tightened W041/RL_G sequence before SideLeft/BatteryStrap; preserve full metal/channel/pressure halves and tool paths.",
+    "Proposed common support and complete Pi cradle before obstructing covers; joint and insertion geometry absent, no circular later tightening allowed.",
+    "Install North real grips and two separately occupied logic branches through open guides; retain GPIO/USB/power mating access.",
+    "Lay full head/tail/otherbranch stock and protected4MTA before covers; preserve jointslack. No full rapid-service/N08 requirement."
+  ],
+  "weakest_uncertainty": "Occupied current foundation/header may have no usable face or corridor to Pi45/North; old14.4/72 joint does not prove new loadpath.",
+  "gate_order": [
+    "Fresh actual budget before bounded work; one owner/native only after absence check, recordPID/session; no heavy restore with insufficient cleanup margin.",
+    "Target only current parent/header and complete intersecting neighbor sets, connector/driver sweeps and saved motion envelope; do not build support yet.",
+    "Whole causal packet reviewed once+max one correction before detail; old failure counts preserved.",
+    "If root/corridor or separate entry capacity fails, preserve counterexample; no scalar offset rescue."
+  ],
+  "views": [
+    "day05-whole-interior-concept-sheet.png: prior whole-context only, not drawing of new support",
+    "day02-astra-upper-current-regions-HOLD.png: saved occupancy context, not proof of free space"
+  ],
+  "source_pins": {
+    "day05-whole-interior-concept.json": "55d4e7d2327e737e1a4fd4b2b6c0154deaba416ece5d6c9846ef54c5f35f16a9",
+    "day05-Pi45-local-preflight-scope.json": "048beb99e572e279ead35bfcd93a0aa820bd64f0deb240a4ef50a9626c1e2cee",
+    "day02-astra-current-composition-resume.json": "9eab24374527602c30ea281c7ed2ba151b185284db7a3d72b3881efe064bbc0c",
+    "day02-astra-resume-source-chain.json": "cfad1041004000e588389f1af08d48a868299dc5281e836beeb22a46b2044fa0",
+    "day02-astra-common-fixture-c0-local-anchor.json": "3cadea0bc37230ac39645b8c2ccc365b94d4df6fb41e67ac0786dbe1de3fc303",
+    "day02-astra-common-fixture-c1-scoped-constructive-receipt.json": "3a2e7b187e38b0938548c408b4f6dbf98a75b2ae89e931a362ffc2531fb072a7",
+    "day02-astra-common-fixture-c1-pressure-and-frame.json": "786e36e38d644e00e5ff44fce57237e18f58c9ce877980d6639f21f90a7756ed",
+    "day05-current-foundation-override-material-read.json": "3b62a4953250a8894fec343c308699d435517cd459fa9b8809c6172d16a7d6a1",
+    "day05-current-foundation-header-material-read.json": "633025f94fd0204393d19dd35998488d42c2f2ff69175f7d3c6600678e6d1e79",
+    "day02-astra-common-fixture-c1-context-0-20.json": "c1cac9bcdf787b960a928f3fdbc48746763b62b07b9f4aa504a3ab1074a5ead5",
+    "day02-astra-common-fixture-c1-functional-dispositions.json": "9526ebbc1e388c380765f0d46109fb47d34634f25efc951e099b324d1387add2",
+    "day02-astra-resume-source-recipes.zip": "4bcaa7ae83cb0bfb9e2d2acc38dac75f7f64d699f51f3b0f504d04338ca8b2ca",
+    "day05-current-header-override-root-probe.json": "1e3d8438e59792b5420d3bae16778a911f57aac8f6a9aa697b54495b8c294b9b"
+  },
+  "new_evidence": {
+    "current_foundation_override_material_read": {
+      "operation_seconds": 0.125,
+      "process_cpu_seconds": 0.125
+    },
+    "initial_two_part_material_read": {
+      "operation_seconds": 0.203,
+      "process_cpu_seconds": 0.09375,
+      "limitation": "Initial foundation original source superseded by override read; header remains valid."
+    },
+    "no_new_print_or_wire_geometry": true,
+    "no_collision_replays": true
+  },
+  "review_request": {
+    "strategy": "FOUNDATION_SPINE_SPLIT_LOGIC",
+    "reviews_requested": 1,
+    "max_corrections": 1,
+    "old_strategy_counts_unchanged": true,
+    "questions": [
+      "Does the chosen present parent/header and proposed loadpath omit a real bought/stock/assembly dependency?",
+      "Is separating Pi3 east and PiPWM2 interior causally sufficient to justify a single bounded full-occupancy preflight, with exact paths/lengths still gates?",
+      "Identify at most5 critical omissions; do not accept new geometry or require productionN03/fullN08N09."
+    ],
+    "weakest_prerequisite": "Complete occupied neighborhood/corridor from current root to moved complete Pi and North, including existing fixture, FLG/ClampNeck and tool insertion. New support crosssection/joins not built.",
+    "ready_packet_sha_note": "SHA externally supplied after save; do not embed self-hash."
+  },
+  "dependency_changes": {
+    "supersede_old_Pi_support": "Concept historical PWMcarrier root path replaced only by proposed current-foundation spine; no accepted new support yet.",
+    "remove_only_logical_fivewire_seam": "Pi3 remains onEast and PiPWM2 separates before EastPi; T_EP5/T_PE2 from old document are not selected routes for this strategy. Old negative retained.",
+    "unchanged_physical": "Bought parts/pinout/stock intact; any full unit or realport moved loses corresponding interface receipt.",
+    "heads_and_factory": "No part hidden/deleted; all123 IDs+246 ends inherited from pinned baseline with changed-revision dependencies explicit, balance outside tally."
+  }
+}

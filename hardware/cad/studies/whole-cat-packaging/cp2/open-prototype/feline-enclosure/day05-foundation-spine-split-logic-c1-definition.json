@@ -1,0 +1,2037 @@
+{
+  "id": "day05-foundation-spine-split-logic-C1-definition",
+  "status": "ONE_CORRECTION_DEFINITION_SOURCE_DATA_ONLY_NOT_GEOMETRY_GO",
+  "correction_used": 1,
+  "max_corrections": 1,
+  "C0_frozen_file": "day05-foundation-spine-split-logic-review-c0.json",
+  "C0_sha256": "6c3015fffa5cfacb4da906931d5cb458d9a21a20875c34027b8d3e2021760578",
+  "N01": "0/10",
+  "module_pose": "Same complete Pi[0,-45,0]/yaw0; all other bought modules remain current for this strategy.",
+  "support": {
+    "cells_proposed_mm": {
+      "root_transfer_pad": [
+        [
+          46,
+          54,
+          30.72
+        ],
+        [
+          70,
+          57.7,
+          38.72
+        ]
+      ],
+      "Pi_longitudinal_spine": [
+        [
+          55,
+          -63.0318903652862,
+          30.72
+        ],
+        [
+          61,
+          56,
+          38.72
+        ]
+      ],
+      "Pi_fore_crossbeam": [
+        [
+          -3.5,
+          -63.0318903652862,
+          30.72
+        ],
+        [
+          60.5,
+          -57.0318903652862,
+          38.72
+        ]
+      ],
+      "Pi_rear_crossbeam": [
+        [
+          -3.5,
+          -14.031890365286,
+          30.72
+        ],
+        [
+          60.5,
+          -8.031890365286,
+          38.72
+        ]
+      ],
+      "North_return_spine": [
+        [
+          55,
+          56,
+          30.72
+        ],
+        [
+          61,
+          91,
+          38.72
+        ]
+      ],
+      "North_crossbeam": [
+        [
+          -3,
+          85,
+          30.72
+        ],
+        [
+          61,
+          91,
+          38.72
+        ]
+      ],
+      "North_upright": [
+        [
+          -3,
+          85,
+          36.72
+        ],
+        [
+          3,
+          91,
+          78.95
+        ]
+      ],
+      "North_lowerbridge_link": [
+        [
+          -3,
+          88,
+          76.95
+        ],
+        [
+          3,
+          93.35,
+          78.95
+        ]
+      ],
+      "North_retention_function_region": [
+        [
+          -8,
+          84,
+          76.95
+        ],
+        [
+          8,
+          96.3,
+          104.8
+        ]
+      ],
+      "Pi_USB_support_branch": [
+        [
+          56,
+          -18.7,
+          102.9
+        ],
+        [
+          120.1,
+          -12.7,
+          108.6
+        ]
+      ],
+      "Pi_power_support_branch": [
+        [
+          56,
+          -18.6,
+          104.8
+        ],
+        [
+          112.2,
+          28.9,
+          108.6
+        ]
+      ],
+      "Pi_post_-0.5_-60.032": [
+        [
+          -3.5,
+          -63.0318903652862,
+          36.72
+        ],
+        [
+          2.5,
+          -57.0318903652862,
+          103.2
+        ]
+      ],
+      "Pi_post_-0.5_-11.032": [
+        [
+          -3.5,
+          -14.031890365286,
+          36.72
+        ],
+        [
+          2.5,
+          -8.031890365286,
+          103.2
+        ]
+      ],
+      "Pi_post_57.5_-60.032": [
+        [
+          54.5,
+          -63.0318903652862,
+          36.72
+        ],
+        [
+          60.5,
+          -57.0318903652862,
+          103.2
+        ]
+      ],
+      "Pi_post_57.5_-11.032": [
+        [
+          54.5,
+          -14.031890365286,
+          36.72
+        ],
+        [
+          60.5,
+          -8.031890365286,
+          103.2
+        ]
+      ],
+      "Pi_fore_toprail": [
+        [
+          -4,
+          -63.5318903652862,
+          104.8
+        ],
+        [
+          61,
+          -56.5318903652862,
+          106.4
+        ]
+      ],
+      "Pi_rear_toprail": [
+        [
+          -4,
+          -14.531890365286,
+          104.8
+        ],
+        [
+          61,
+          -7.531890365285999,
+          106.4
+        ]
+      ]
+    },
+    "section_basis": "Functional reservations, not production solids: main spine/crossbeams6x8, posts6x6; actual4mounts at source screwaxes. Actual PCB/hardware holes and nut/driver spaces must be excluded before acceptance.",
+    "START": {
+      "header_face": 2,
+      "source_actor": "CommonFixtureC1:top_header",
+      "tongue_mm": [
+        [
+          46,
+          57.3,
+          36.52
+        ],
+        [
+          70,
+          57.7,
+          38.72
+        ]
+      ],
+      "direct_parent_coupling": "Root transfer pad also abuts current PositiveFoundation actual front face13 y54; proposed source strip x55..61/z30.72..38.52. This is required direct load transfer, not ownership inferred from intersecting bounds. Coupon/fullmaterial proof pending; thin header alone not claimed adequate."
+    },
+    "END_Pi_rails": {
+      "fore_xy": [
+        [
+          -0.5,
+          -60.0318903652862
+        ],
+        [
+          57.5,
+          -60.0318903652862
+        ]
+      ],
+      "rear_xy": [
+        [
+          -0.5,
+          -11.031890365286
+        ],
+        [
+          57.5,
+          -11.031890365286
+        ]
+      ],
+      "PCB_bottom_mm": 103.2,
+      "toprail_z_mm": [
+        104.8,
+        106.4
+      ],
+      "functional_mount": "Printed standoffs bear below PCB, existing selectedM2 and top rails retain board; full screw/nut access and throughholes must be preserved; source relative4mount pattern unchanged."
+    },
+    "END_North": {
+      "existing_actor": "CurrentNorth:Common:print / NorthOpenEntry retainedlowerbridge",
+      "source_interval_mm": [
+        [
+          -7,
+          91.35,
+          76.95
+        ],
+        [
+          5,
+          93.35,
+          78.95
+        ]
+      ],
+      "proposed_link_interval_mm": [
+        [
+          -3,
+          88,
+          76.95
+        ],
+        [
+          3,
+          93.35,
+          78.95
+        ]
+      ],
+      "root_common_not_yet_proven": true
+    },
+    "sequence": "Rootpad -> longitudinalspine -> fore/rear crossbeams ->4PCBstandoffs/selectedhardware/toprails; rootpad -> Northreturn ->crossbeam ->upright ->existinglowerbridge. Separate fullUSB/power pad supports part of same cradle allocation.",
+    "bearing_and_load": "Credible continuous printed path and useful section required, no FEM/production-strength qualification. Existing root14.4 proof does not qualify new pad/corridor."
+  },
+  "North_source_retention_revision": {
+    "decision": "Keep current twelve full9 source fields at their current coordinates, not old document X39..48 relocation; redesign only bulky project print/closure-head parking inward -Y. This avoids silently adding43mm to every prefix.",
+    "source": "day31-astra-U1far-current-function-stock-basis.json",
+    "retained_stock": "Full100/25closure/fullhead and sourceused83.16 reference; changed closure arrangement still must fit entireunit. CurrentGV band/head independent function retained, not silently deleted.",
+    "replaced_print_roles": [
+      "CurrentNorth:U1:cap bulky intermediate project grip body",
+      "Only corresponding bulky guide portion of CurrentNorth:Common:print; retainedlowerbridge and actual roots protected"
+    ],
+    "not_removed": [
+      "Real U1 parts/pads",
+      "full12 first9 retention/insulation",
+      "any physical ties/heads",
+      "GPIO/Pi realports"
+    ]
+  },
+  "Pi_actual_GPIO_interfaces": [
+    {
+      "name": "PiGPIO:PI.H1",
+      "point_mm": [
+        4.369999999999976,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          -3.630000000000024,
+          -7.761890365286165,
+          75.7
+        ],
+        [
+          -10.830000000000023,
+          -2.3618903652861656,
+          75.7
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 26.20796326794899,
+      "independent_bend": [
+        -0.8,
+        0.6,
+        0.0
+      ],
+      "point_proposed_Pi45_mm": [
+        4.369999999999976,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          -3.630000000000024,
+          -52.76189036528616,
+          75.7
+        ],
+        [
+          -10.830000000000023,
+          -47.361890365286165,
+          75.7
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        -0.7999999999999999,
+        0.5999999999999999,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H3",
+      "point_mm": [
+        6.909999999999997,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          19.06106781186547,
+          -1.6108225534206912,
+          75.70000000000005
+        ],
+        [
+          25.4250288425444,
+          4.753138477258237,
+          75.70000000000005
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 33.39216816480432,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        6.909999999999997,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          19.06106781186547,
+          -46.61082255342069,
+          75.70000000000005
+        ],
+        [
+          25.4250288425444,
+          -40.24686152274176,
+          75.70000000000005
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865477,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H5",
+      "point_mm": [
+        9.449999999999989,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          20.331067811865466,
+          -2.8808225534206877,
+          75.70000000000005
+        ],
+        [
+          26.695028842544396,
+          3.4831384772582408,
+          75.70000000000005
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 31.59611694059049,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        9.449999999999989,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          20.331067811865466,
+          -47.880822553420685,
+          75.70000000000005
+        ],
+        [
+          26.695028842544396,
+          -41.516861522741756,
+          75.70000000000005
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865477,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H11",
+      "point_mm": [
+        17.069999999999993,
+        -13.761890365286245,
+        87.2
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          24.14106781186547,
+          -6.69082255342069,
+          75.70000000000005
+        ],
+        [
+          30.505028842544398,
+          -0.32686152274176195,
+          75.70000000000005
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 26.207963267948998,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        17.069999999999993,
+        -58.76189036528625,
+        87.2
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          24.14106781186547,
+          -51.69082255342069,
+          75.70000000000005
+        ],
+        [
+          30.505028842544398,
+          -45.326861522741765,
+          75.70000000000005
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865469,
+        0.0
+      ]
+    },
+    {
+      "name": "PiGPIO:PI.H6",
+      "point_mm": [
+        9.449999999999989,
+        -16.301890365286255,
+        87.20000000000002
+      ],
+      "axis": [
+        8.565675762715412e-31,
+        6.994405055138485e-15,
+        -1.0
+      ],
+      "full9_mm": [
+        [
+          21.601067811865473,
+          -4.150822553420693,
+          75.70000000000006
+        ],
+        [
+          27.965028842544402,
+          2.2131384772582354,
+          75.70000000000006
+        ]
+      ],
+      "R_mm": 10.0,
+      "length_mm": 33.39216816480433,
+      "common_comb_straight_extension_only": true,
+      "point_proposed_Pi45_mm": [
+        9.449999999999989,
+        -61.301890365286255,
+        87.20000000000002
+      ],
+      "full9_proposed_Pi45_mm": [
+        [
+          21.601067811865473,
+          -49.150822553420696,
+          75.70000000000006
+        ],
+        [
+          27.965028842544402,
+          -42.786861522741766,
+          75.70000000000006
+        ]
+      ],
+      "outward_tangent_after_grip": [
+        0.7071067811865477,
+        0.7071067811865477,
+        0.0
+      ]
+    }
+  ],
+  "logic_branch_definition": {
+    "source_north": "Actual current field bar ends from source function ledger, +X tangent; no new9 at routing seam.",
+    "Pi3": {
+      "members": [
+        "XL01",
+        "XL07",
+        "XL10"
+      ],
+      "section_mm": [
+        5.4,
+        2.2
+      ],
+      "transport_layer": "Proposed Z90..97 east trunk from North toward south, then split before occupiedPi body to actual distinct H1 vs GPIO4 grip receivers at Z75.7.",
+      "H1_entry": "From current translated H1 full9 tip and its[-.8,.6,0] tangent; separate west/body branch, not a fictitious shared port at[86,-45,94].",
+      "GPIO4_entry": "H11/H6 branch joins full actual shared4grip receiver, source diagonal tangent[.7071,.7071,0]; occupied reception includes H3/H5."
+    },
+    "PiPWM2": {
+      "members": [
+        "XL05",
+        "XL06"
+      ],
+      "section_mm": [
+        3.8,
+        2.2
+      ],
+      "source_GPIO4": "Same actual shared4grip full9 receiver; separates toward interior belowPCB proposed layerZ70..81, does not use old five-flat EastPi bend.",
+      "PWM_receiver": "Actual ShelfPWM:XLcomb/XScomb complete cases/channels/heads; exact recipient pads/tangents and branch corridor still need source-datum reconciliation, hence HOLD."
+    },
+    "crossing_rule": "The Z90..97 trunk and Z70..81 return are allocation layers only. Each actual entry/exit tangent and R>=selectedcontract must connect continuously without double-allocation of GPIO4, with full profiles/turn capacity. Neither layer by itself is a route.",
+    "specific_HOLD": "Exact source-to-layer transitions around whole GPIO housing and USB/power bodies unresolved; no paths invented to fill this gap."
+  },
+  "full_neighbors": {
+    "selection": "Fullcurrent1292 exactbounds vs every proposed functional cell and every complete movedPi actor, gap<=1.25; bbox candidates ONLY, not contact. Include full owners/metal/stock/access and saved required moving envelopes even when names look like ownprint.",
+    "Pi_pairs": [
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "PowerFan:grip:W052:band",
+        "bbox_lower_gap_mm": 0.361818228198004
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.8466283881015073
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Ref_Material_MAIN_1_head_0_0",
+        "bbox_lower_gap_mm": 0.37520000000002085
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Station:RR_G:case",
+        "bbox_lower_gap_mm": 0.8420965681629964
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "other": "SharedBUS:TailCarrier",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.4000000000000057
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.40006519526847967
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R3_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R3_CP2_IN_0_0",
+        "bbox_lower_gap_mm": 0.7493741493264707
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Ref_Material_F_R4_CP2_OUT_0_0",
+        "bbox_lower_gap_mm": 0.7493741493264707
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Ref_Material_F_R3_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.6414484040942412
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Ref_Material_F_R4_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 1.0753517496843195
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:band",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:head",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "PowerFan:grip:W052:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.4055060500600476
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "other": "Day26:MAINCommonTie",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Ref_Material_MAIN_1_head_0_0",
+        "bbox_lower_gap_mm": 0.23460963471386265
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Ref_Material_MAIN_1_shaft_0_0",
+        "bbox_lower_gap_mm": 1.1346096347138612
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:CPU",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "other": "Day26:MAINCommonTie",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Day26:MAINCommonTie",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "PowerFan:grip:W052:band",
+        "bbox_lower_gap_mm": 0.361818228198004
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "PowerFan:grip:W052:head",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Ref_Material_MAIN_1_head_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Ref_Material_MAIN_1_shaft_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Station:RR_G:case",
+        "bbox_lower_gap_mm": 0.4681096347138407
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:microSDCardAndBottomBudget",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "SharedBUS:TailCarrier",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      }
+    ],
+    "support_cell_pairs": [
+      {
+        "cell": "root_transfer_pad",
+        "other": "CommonFixtureC1:top_back_return",
+        "bbox_lower_gap_mm": 1.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "CommonFixtureC1:top_header",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "CurrentFoundation:ClampNeck:4",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "FLG:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "root_transfer_pad",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "FLG:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Ref_Material_P0_SideLeft22_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Ref_Material_P0_SideRight22_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "SharedRetention:lower_common_flange_base",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Station:P_AUX:shared_near_tie",
+        "bbox_lower_gap_mm": 1.240000000000002
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_longitudinal_spine",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.5566952848202718
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "SharedRetention:lower_common_flange_base",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_fore_crossbeam",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_rear_crossbeam",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "CommonFixtureC1:top_header",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "FLG:case_band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "FLG:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_return_spine",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_crossbeam",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "CurrentNorth:Common:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "CurrentNorth:U1:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "Ref_Material_F_L3_CP2_ATO_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_upright",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "CurrentNorth:Common:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "CurrentNorth:U1:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "CurrentNorth:U1:cap",
+        "bbox_lower_gap_mm": 0.82462112512353
+      },
+      {
+        "cell": "North_lowerbridge_link",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:Common:print",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:U1:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:U1:cap",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "CurrentNorth:U1:head",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Ref_Material_F_L3_CP2_ATO_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Station:FR_P:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Station:RR_P:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "North_retention_function_region",
+        "other": "Underdeck:PositiveFoundation",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_USB_support_branch",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PAS:body",
+        "bbox_lower_gap_mm": 0.10000000000000142
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PowerFan:F_AUX:case",
+        "bbox_lower_gap_mm": 0.7999999999999972
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "PowerMount:F_AUX:4905",
+        "bbox_lower_gap_mm": 0.7999999999999261
+      },
+      {
+        "cell": "Pi_power_support_branch",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:BankPad:Ref_Material_F_R2_CP2_Housing_0_0:0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.5566952848202718
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_F_R2_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-60.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Ref_Material_F_R2_CP2_IN_0_0",
+        "bbox_lower_gap_mm": 1.0881096347139998
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:band_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:head_budget",
+        "bbox_lower_gap_mm": 0.8500000000000099
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W035/body/end:split_cap_exterior",
+        "bbox_lower_gap_mm": 0.5000000000000071
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W039/single/end:band_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:Bank:W039/single/end:split_cap_exterior",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Station:P_SYS:one_common_band_head",
+        "bbox_lower_gap_mm": 1.131890365285999
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W022:branch_region",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W022:nominal",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W024:branch_region",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_-0.5_-11.032",
+        "other": "W024:nominal",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:FoundationFlange:-1",
+        "bbox_lower_gap_mm": 0.5566952848202718
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "CurrentFoundation:FoundationRail:-1",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Ref_Material_F_R5_CP2_Housing_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "SharedRetention:lower_common_flange_base",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:shared_near_root",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:shared_near_tie",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Station:FR_G:split_common_comb",
+        "bbox_lower_gap_mm": 0.7818903652862019
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-60.032",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:DFL:band",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:DFL:cap",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:permanent",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "CurrentDFL:removable",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W056/single/end:head_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:band_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:head_budget",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:Bank:W057/body/end:split_cap_exterior",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Station:D_FL:case",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_post_57.5_-11.032",
+        "other": "Underdeck:SOURCE:XP02.source",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_toprail",
+        "other": "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_fore_toprail",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_rear_toprail",
+        "other": "PAS:retained_upper",
+        "bbox_lower_gap_mm": 0.0
+      },
+      {
+        "cell": "Pi_rear_toprail",
+        "other": "Underdeck:RestoredBank",
+        "bbox_lower_gap_mm": 0.0
+      }
+    ],
+    "names": [
+      "CommonFixtureC1:top_back_return",
+      "CommonFixtureC1:top_header",
+      "CurrentDFL:DFL:band",
+      "CurrentDFL:DFL:cap",
+      "CurrentDFL:permanent",
+      "CurrentDFL:removable",
+      "CurrentFoundation:BankPad:Ref_Material_F_R2_CP2_Housing_0_0:0",
+      "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+      "CurrentFoundation:ClampNeck:4",
+      "CurrentFoundation:FoundationFlange:-1",
+      "CurrentFoundation:FoundationRail:-1",
+      "CurrentNorth:Common:print",
+      "CurrentNorth:U1:band",
+      "CurrentNorth:U1:cap",
+      "CurrentNorth:U1:head",
+      "Day26:MAINCommonTie",
+      "FLG:case_band",
+      "FLG:print",
+      "PAS:body",
+      "PAS:retained_upper",
+      "PowerFan:F_AUX:case",
+      "PowerFan:grip:W052:band",
+      "PowerFan:grip:W052:head",
+      "PowerMount:F_AUX:4905",
+      "Ref_Material_F_L3_CP2_ATO_0_0",
+      "Ref_Material_F_R2_CP2_Housing_0_0",
+      "Ref_Material_F_R2_CP2_IN_0_0",
+      "Ref_Material_F_R3_CP2_Housing_0_0",
+      "Ref_Material_F_R3_CP2_IN_0_0",
+      "Ref_Material_F_R4_CP2_Housing_0_0",
+      "Ref_Material_F_R4_CP2_OUT_0_0",
+      "Ref_Material_F_R5_CP2_Housing_0_0",
+      "Ref_Material_MAIN_1_head_0_0",
+      "Ref_Material_MAIN_1_shaft_0_0",
+      "Ref_Material_MAIN_CurrentMainSupplierReference_0_0",
+      "Ref_Material_P0_SideLeft22_0_0",
+      "Ref_Material_P0_SideRight22_0_0",
+      "SharedBUS:TailCarrier",
+      "SharedRetention:lower_common_flange_base",
+      "Station:Bank:W035/body/end:band_budget",
+      "Station:Bank:W035/body/end:head_budget",
+      "Station:Bank:W035/body/end:split_cap_exterior",
+      "Station:Bank:W039/single/end:band_budget",
+      "Station:Bank:W039/single/end:split_cap_exterior",
+      "Station:Bank:W056/single/end:head_budget",
+      "Station:Bank:W057/body/end:band_budget",
+      "Station:Bank:W057/body/end:head_budget",
+      "Station:Bank:W057/body/end:split_cap_exterior",
+      "Station:D_FL:case",
+      "Station:FR_G:case",
+      "Station:FR_G:shared_near_root",
+      "Station:FR_G:shared_near_tie",
+      "Station:FR_G:split_common_comb",
+      "Station:FR_P:case",
+      "Station:P_AUX:shared_near_tie",
+      "Station:P_SYS:one_common_band_head",
+      "Station:RR_G:case",
+      "Station:RR_P:case",
+      "Underdeck:PositiveFoundation",
+      "Underdeck:RestoredBank",
+      "Underdeck:SOURCE:XP02.source",
+      "W022:branch_region",
+      "W022:nominal",
+      "W024:branch_region",
+      "W024:nominal"
+    ],
+    "moving_scope": "108 saved neutral members and required36poses still must bound changed allocation; no old motion replay planned, only new envelope intersections."
+  },
+  "R6_routine_access": {
+    "source": "tools/cad/feline_ato_service.py reservation, actual currentR6 fuse; side skin removed, ATO25/projecttool12x41x25. This is existing routine source requirement, not invented rapidservice.",
+    "source_bounds_mm": {
+      "R6_withdraw25": [
+        [
+          82.45,
+          -111.55,
+          59.45
+        ],
+        [
+          87.55,
+          -67.75,
+          78.55000000000001
+        ]
+      ],
+      "R6_tool12x41x25": [
+        [
+          79.0,
+          -121.55,
+          56.5
+        ],
+        [
+          91.0,
+          -80.55,
+          81.5
+        ]
+      ]
+    },
+    "Pi36_vs_access_bounds": [
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 84.34132515122643
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 82.10856878151367
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 82.78994745572413
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi410Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 80.83813460471632
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 63.39016143649211
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 72.80982424115712
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 61.62102030901071
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 71.62826781775608
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 65.25095759587902
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi411TopWasher_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 74.26689083183619
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 32.97361260561092
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 33.40384809192745
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 28.5722837680428
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi412Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 29.953363857340516
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 100.22231571334066
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Nut_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 104.5335855408595
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 99.17131714323205
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49Screw_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 103.76998000660977
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 101.26641825985158
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi49TopWasher_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 105.41618032269939
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 25.050298379270167
+      },
+      {
+        "Pi_actor": "Ref_Material_Pi4NominalPCB_0_0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 27.577274258692412
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 61.46316251906351
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 69.6264529722252
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 64.81364824637366
+      },
+      {
+        "Pi_actor": "USBGrip:Pi:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 72.48128451989056
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 54.06144071860185
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 56.093212604859986
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 57.0019490677328
+      },
+      {
+        "Pi_actor": "PiGrip:GPIO4:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 59.288468155629296
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 87.65466813867724
+      },
+      {
+        "Pi_actor": "PiGrip:H1:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 87.303968713629
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 87.2401272849503
+      },
+      {
+        "Pi_actor": "PiGrip:H1:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 86.89801444994589
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:band",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 92.34223428801799
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:band",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 103.64411145816186
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:head",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 90.50217101935415
+      },
+      {
+        "Pi_actor": "PiGrip:Power2:head",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 101.98946791637408
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 27.37088266754506
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_rear",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 39.184899191515
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 45.478304651266726
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_front",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 57.73019401147118
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 13.014927620532053
+      },
+      {
+        "Pi_actor": "PiBudget:Ethernet",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 21.16604468521133
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 91.7268695883133
+      },
+      {
+        "Pi_actor": "PiBudget:USB_C",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 96.78052340796731
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 33.21375721233438
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO_header",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 33.59914098319433
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 81.14266435323498
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI0",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 87.31121683375181
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 72.3286387148393
+      },
+      {
+        "Pi_actor": "PiBudget:HDMI1",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 79.772793513769
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 56.363406129885455
+      },
+      {
+        "Pi_actor": "PiBudget:CSI",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 62.85182699978643
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 85.84569548100156
+      },
+      {
+        "Pi_actor": "PiBudget:DSI",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 86.14004318123787
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 58.84677550308574
+      },
+      {
+        "Pi_actor": "PiBudget:Audio",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 67.52171201738923
+      },
+      {
+        "Pi_actor": "PiBudget:CPU",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 58.08549265695617
+      },
+      {
+        "Pi_actor": "PiBudget:CPU",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 60.01456543081841
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 30.06375487520517
+      },
+      {
+        "Pi_actor": "PiBudget:GPIO1992OccupiedHousing",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 31.225918142547822
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 87.8139709958797
+      },
+      {
+        "Pi_actor": "PiBudget:AdapterBody",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 94.57617093493411
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 75.37636886404906
+      },
+      {
+        "Pi_actor": "PiBudget:RetainedK1474Boot",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 84.58898030936335
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 21.126226565349196
+      },
+      {
+        "Pi_actor": "PiBudget:UnlabelledTopComponentsBudget",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 24.554145384010845
+      },
+      {
+        "Pi_actor": "PiBudget:microSDCardAndBottomBudget",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 82.13590795681833
+      },
+      {
+        "Pi_actor": "PiBudget:microSDCardAndBottomBudget",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 83.29842425003973
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "access": "R6_withdraw25",
+        "whole_bbox_gap_mm": 46.80222041258232
+      },
+      {
+        "Pi_actor": "PiBudget:USB_A_data_boot",
+        "access": "R6_tool12x41x25",
+        "whole_bbox_gap_mm": 58.308000670547884
+      }
+    ],
+    "red_parking220230": "Existing source witnesses require changed-Pi interaction check too; must import/recover their frozen per-segment full reserves, not substitute old rejected fullconnector parking. Their illustration overlap is allocationHOLD, not actualwire contact.",
+    "order_gate": "After C1 response, cheapest completePi-vsBANK_S/R6access and redparking preflight BEFORE longspine construction.",
+    "rare_repair": "Only documented side/cover partialdisassembly; removal of wholePi for ordinary fuse replacement not assumed."
+  },
+  "whole_dependency_dispositions": {
+    "hash_delivery": "CLOSED same frozen6c3015 packet",
+    "material": "CurrentPositiveFoundation override/actualheader pinned proof received; new directpad/sourceface and useful freeface/corridor still HOLD",
+    "all_Pi_parts": "36 source actors:PCB/allselectedHW/17fullcomponent-matingbudgets/gripstocks; PiPower W079/80 realadapter exits, USB_Pi mating/powerboards and all5GPIO included; remote F_PI/USB_BUS unchanged needchangedleadlength/access checks",
+    "head_tail_SOURCE_MODULE": "All123/246 identities preserved; singleJR300/3cores+factory250, actualhead/tail corpora and flex/slack, both4MTA fullend/factoryroutes and allfour220units remain; newprint/branch intersections are changed scope not hidden",
+    "balance": "Selected nominalP309 source41x25x12 only, manufacturer connector/lead unknown. Nominal source note input; physicalpinout phase2 and mechanicalunknown blockedglobal acceptance, not current localread."
+  },
+  "source_pins": {
+    "day05-current1292-bounds-source-read.json": "e61064d7d109860ad25836dbf6bf7ed04555aa1dad89f46777f376f853e09476",
+    "day05-Pi-world-frame-disposition.json": "91f4766cb7d15a28d306372644f2ede328781a16a649c3f0a22ffc65e5c0480f",
+    "day05-Pi45-complete-local-source-inputs.json": "2125e27c5eb2f8811c46479738d33dd27a6f67cf89cae305f4c1f4ac8bd69aa7",
+    "day05-current-header-override-root-probe.json": "1e3d8438e59792b5420d3bae16778a911f57aac8f6a9aa697b54495b8c294b9b",
+    "day31-astra-U1far-Pi-current-recipient-budget.json": "f14aebe6acd15cc416501529a9c6a5728bff92c5e14d34e39b38bc6e7d8ffd2e",
+    "day31-astra-U1far-current-function-stock-basis.json": "5e484e798ce852b4a2031a153d414d4718ab02746d93c2aa6fb4ba808b909b27",
+    "day02-astra-current-composition-resume.json": "9eab24374527602c30ea281c7ed2ba151b185284db7a3d72b3881efe064bbc0c",
+    "day05-coordinator-balance-envelope-source-note.json": "4787e068d528ea9d7de0a8d36dd8de29de999a9870c9d23694f9d754a1c83a37"
+  }
+}
