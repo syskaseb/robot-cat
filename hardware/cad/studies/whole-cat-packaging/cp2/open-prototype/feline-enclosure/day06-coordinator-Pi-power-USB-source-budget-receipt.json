@@ -1,0 +1,88 @@
+{
+  "id": "day06-coordinator-Pi-power-USB-source-budget-receipt",
+  "status": "READONLY_SELECTED_SOURCE_BUDGETS_RECEIVED_NOT_ROUTE_OR_STOCK_PASS",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "source_turn": "01a1b319-aa3b-7311-a11e-105e802402dd",
+  "K1474": {
+    "SKU": "Joy-IT K-1474",
+    "EAN": "4250236828305",
+    "physical_units": 1,
+    "conductors": [
+      "W079/retained0",
+      "W080/retained0"
+    ],
+    "AWG": 18,
+    "catalogue_mm_per_colour": 1000,
+    "length_reference_datum": null,
+    "selected_source": "phase1-material-selection-r4.json",
+    "selected_source_pointer": "/factory_units/K1474",
+    "selected_source_sha256": "8b035cb9e0f0ee8802430fb0d7a0abe43f4b71fc84adf3d3d3b222d0130651ba",
+    "current_prototype_capacity_mm_per_conductor": 350,
+    "allocation_not_final_cut": true,
+    "r3_source": "n01-shared-Pi-carrier-r3-core-received.json",
+    "r3_sha256": "7df0b5d504e0077754d8773e7926e976e9a0bddb5edf8ad61ff978004c3d98f2",
+    "r3_capacity_pointer": "/recipe/Pi_cut_capacity_allocation_mm",
+    "other_source_debits_mm": {
+      "red_input": 210,
+      "black_input": 220
+    },
+    "residual_stock_ifPi350_mm": [
+      440,
+      430
+    ],
+    "residual_is_not_Pi_slack": true,
+    "old190225250_limits_superseded": true,
+    "override_source": "hardware/electronics/full-cat/battery-feed-selected-r1/body-harness.json",
+    "override_source_sha256": "63effa5d67d35b313da6e09103d58ad3da6dc175e508ca7727d89a5f446c90a0",
+    "fixed_ends": [
+      "purchasedcommonK1474mould",
+      "MAIN.VOUT",
+      "MAIN.GND_OUT"
+    ],
+    "project_grips_mutable_with_recheck": true,
+    "unchanged_Pi_prefixes_length_mm": [
+      82.775662,
+      89.277874
+    ],
+    "unchanged_Pi_prefix_R_mm": [
+      15.9,
+      12.4
+    ],
+    "prefix_already_full9": true,
+    "prototype_boot_reservation_mm": [
+      25,
+      14,
+      8
+    ],
+    "boot_not_measured_supplier_geometry": true,
+    "port_contract_sha256": "78a714c8a495004bd6af6f086e6106380afec11f1d65766d0004a8a41eefb919",
+    "unselected_Delock60047_not_approved": true,
+    "actual_cut_mm": null
+  },
+  "USB": {
+    "SKU": "Lanberg CA-USBO-10CU-0005-BK",
+    "physical_units": 1,
+    "type": "USB-AtoUSB-C",
+    "outside_123246": true,
+    "catalogue_total_mm": 500,
+    "prototype_Pi_mould_mm": 26,
+    "prototype_BUS_mould_mm": 22,
+    "prototype_between_jacket_mouths_mm": 452,
+    "OD_mm": 5,
+    "minimum_R_mm": 30,
+    "source": "n01-physical-cable-contract.json",
+    "source_sha256": "94fd48346c9268968cc59c4fbc0990dd8e4a8d775e743ca7167f83ebf2945fac",
+    "source_pointer": "/usb",
+    "budget_is_project_assumption_not_manufacturer_between_mouth_spec": true,
+    "older_prefixes_mm_each": 59.12389,
+    "older_middle_budget_mm": 333.75222,
+    "old_prefixes_not_added_to_new_full_route": true,
+    "r3_old_full_curve_mm": 451.9999999999997,
+    "r3_old_full_curve_not_transferable_after_Pi_move": true,
+    "new_route_debit_mm": null,
+    "new_slack_mm": null
+  },
+  "decision": "ForonewholePi alternative use350mmperK1474colour and452mmUSB as explicitconditionalprototypebudgets. Preserveallphysicalunits andpurchasedends, no unselectedadapter/cut/purchase. Reuse unchangedprefixlengths notoldclearances. Currentfulldebit/slack/access stillmustbeplanned. Do notblockprototypeplanningonproductionlengthdatumalone.",
+  "allowance_rule": "OldW5allowance3mm and MAINstrip5mm belongdifferentrecipes; no automaticaddition/debitagainst350 allocation. Preserve source-owned bare/ends atcurrentbudgetclosure.",
+  "whole_N01_complete": false
+}
