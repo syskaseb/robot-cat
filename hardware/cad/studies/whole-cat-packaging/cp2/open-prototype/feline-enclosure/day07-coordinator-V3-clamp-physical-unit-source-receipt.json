@@ -1,0 +1,163 @@
+{
+  "id": "day07-coordinator-V3-clamp-physical-unit-source-receipt",
+  "received_utc": "2026-11-07T02:33:06.723063+00:00",
+  "status": "SOURCE_INTERFACES_AND_NOMINAL_FIT_RULE_RECEIVED_NO_GEOMETRY_GO",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "reviewer_turn": "01a1b3d1-e799-73b0-bfbf-1f9f4cd0cc0c",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "role": "Readonly source extraction while soleBanach independently works onS0. NoCAD/edits/extraagents/newdesignreview. ExistingC1review remainsclosed1/1.",
+  "source_pins": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json",
+      "sha256": "dcdbad04d93d732095dd13d9feee358aa5d8561c34c54cf934eed45ef97efe43"
+    },
+    {
+      "path": "tools/cad/feline_bank_selected_t18i.py",
+      "sha256": "fbff00a9c688525089f91fd916a544062b1780cc3ba1a9c328a57134a50f1540"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-full-material-scene.json",
+      "sha256": "a1317aab8af4fcf3d5edebc9917914fc08f7b80c2027e9b287caee35c2a9f0e8"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-current.json",
+      "sha256": "df808adf02ab2de6cae04689204a0275f7ee0e15ecc9cdd4cc88ca2e051de0d4"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/w5-nominal-material-selection.json",
+      "sha256": "16e3e840dd55431f2e5db6647d987f5d6fae13cb47f9adfb71459bbb8c201c08"
+    },
+    {
+      "path": "tools/cad/compose_body36_fit_contribution.py",
+      "sha256": "7903dc80bec4308e6a92c590fa5e19afa33696cf521aea86dd588ddc846fdf3a"
+    }
+  ],
+  "source_caps": [
+    {
+      "wire": "W020",
+      "terminal": "F_L1.OUT",
+      "source_terminal_exit_mm": [
+        -40,
+        17.152,
+        69
+      ],
+      "full_grip_free_end_mm": [
+        -40,
+        8.152,
+        69
+      ],
+      "outward": [
+        0,
+        -1,
+        0
+      ],
+      "grip_length_mm": 9,
+      "free_OD_project_mm": 2,
+      "free_Rmin_project_mm": 12.4
+    },
+    {
+      "wire": "W022",
+      "terminal": "F_L2.OUT",
+      "source_terminal_exit_mm": [
+        -16,
+        17.152,
+        69
+      ],
+      "full_grip_free_end_mm": [
+        -16,
+        8.152,
+        69
+      ],
+      "outward": [
+        0,
+        -1,
+        0
+      ],
+      "grip_length_mm": 9,
+      "free_OD_project_mm": 2,
+      "free_Rmin_project_mm": 12.4
+    },
+    {
+      "wire": "W024",
+      "terminal": "F_L3.OUT",
+      "source_terminal_exit_mm": [
+        8,
+        17.152,
+        69
+      ],
+      "full_grip_free_end_mm": [
+        8,
+        8.152,
+        69
+      ],
+      "outward": [
+        0,
+        -1,
+        0
+      ],
+      "grip_length_mm": 9,
+      "free_OD_project_mm": 2,
+      "free_Rmin_project_mm": 12.4
+    }
+  ],
+  "source_support_functions": "/V3_receivers/support declares individualfoot/riser/arm/cap-link perfull9clamp. PadsF_L1/L2/L3 Z53.5..55 sharebankbed; buildbase/supports→handlayopenclamps→closecaps/fulltie+head. V:functional_pressure_support andV:new_root_material from/current_foreign_common_bank_V_correction1_receipt. Declared60degreefreearc is proposedfreepath, not supplier-imposed direction. ActualcurrentBankBedbf0311c0 pin alreadyreceived; no repeat/baseActor0497.",
+  "F_L2_parts": {
+    "ATO_entry": "0510.brep",
+    "case_entry": "0511.brep",
+    "IN_entry": "0512.brep",
+    "OUT_entry": "0513.brep",
+    "IN_role": "W028/single/end / BankTerm1_context, departure[-30,15.120,69],-Y",
+    "OUT_role": "W022/body/end / BankTerm13_context, departure[-16,17.152,69],-Y",
+    "constraint": "IN andOUT are separate boughtmetal actors with independentprefix/clamp functions; samefuse doesnotwaiveforeign1.25 fornewsharedbar. CurrentnewmaterialINcommon6.6125852 remainshardreject."
+  },
+  "minimal_owner_missing": "A genuinelydifferentcomplete support/assembly loadpath from actualcurrentpad/BankBed to3retainedcaps, accountingfullIN/OUTmetal/case/ATO andopenwire/tie installation. No thirdsharedbar/finger/columnoffset; no geometryacceptance fromthissource read. ExistingV3regionalclearance/ports maybereused onlywithinunchanged scopes.",
+  "physical_V_units": [
+    {
+      "wire": "W020",
+      "piece": "continuous_factory",
+      "unit": "SOURCE/FL1",
+      "historical_W5_nominal_blank_mm": 470
+    },
+    {
+      "wire": "W022",
+      "piece": "continuous_factory",
+      "unit": "SOURCE/FL2",
+      "historical_W5_nominal_blank_mm": 830
+    },
+    {
+      "wire": "W024",
+      "piece": "original_source",
+      "unit": "SOURCE/FL3",
+      "historical_W5_nominal_blank_mm": 205
+    },
+    {
+      "wire": "W024",
+      "piece": "source_owned_donor",
+      "unit": "DONOR/FL3",
+      "historical_W5_nominal_blank_mm": 870
+    }
+  ],
+  "unit_contract": {
+    "sku": "SR-Cable-5264-3PIN-900mm-6PCS",
+    "nominal_each_physical_cable_mm": 900,
+    "cores_each": 3,
+    "actual_cut_mm": null,
+    "pooling": "No othercore/unit residue extends currentcore budget. SOURCEFL3 andDONORFL3 are independentphysical units, not one1800pool. Preserveownedfactoryends/continuousFL1FL2/source-ownedsplice schedule."
+  },
+  "existing_fit_contribution_rule": {
+    "basis": "DESIGN_LESSONS30Oct andpinnedcompose_body36_fit_contribution.py, existing projectnominalfit model not a newtrimexception/sourcepurchase.",
+    "minimum_for_continuous": "source_to_root=(850-capacity_before_terminal) + current_body_guide + terminal_allowance",
+    "minimum_for_donor": "850-capacity-4 + currentguide+terminal + inherited4lap; originalsource lengthfromsource-ownedstaggeredjoin",
+    "nominal_fit_blank": "5*ceil((minimum+20)/5), <=900; retain sourcecapacity/spare guards",
+    "per_physical_draw": "MAX(nominal_fit_blank of3cores), notSUM andnot3extra cables",
+    "usable850": "Projectrequirement, not supplierguarantee",
+    "scope": "Nominal contribution selectedFalse/stockSelectedFalse; not actualinstalledlength, physicalcutinstruction, wholeW5 orN10 acceptance. NewV3wholeperphysical budgets/currentreserve placement stillOPEN. Do not force unusedpurchaseoffcut inside robot. Doesnot change protected4MTAwhole220/230 units or allowcrossSKUfactorytrim."
+  },
+  "frozen_negatives": "V3C0region/oldW022arm13.2202274,1/239/238unreceived; C1newbar/newdeltaF_L2IN6.6125852,1/15/14unreceived. No oldacceptedpair replay.",
+  "N01_complete": false
+}
