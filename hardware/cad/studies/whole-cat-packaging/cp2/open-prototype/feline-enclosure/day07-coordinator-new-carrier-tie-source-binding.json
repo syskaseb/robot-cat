@@ -1,0 +1,55 @@
+{
+  "id": "day07-coordinator-new-carrier-tie-source-binding",
+  "written_utc": "2026-11-07T01:46:48.085711+00:00",
+  "status": "SELECTED_SOURCE_IDENTITIES_SCOPED_NO_JOINT_OR_STOCK_ACCEPTANCE",
+  "scope": "New removable Pi carrier two-tie role only. Parent read-only local supplier bindings; no CAD/model change/new part selection. Existing source geometry is not requalified by this packet.",
+  "source_pins": [
+    {
+      "path": "hardware/manufacturing/one-batch-prototype-r47/one-order-quantities.json",
+      "sha256": "2865460ff3eb46bae192f98d166eeb41e7122e98cc2eab450f1941d9641c8b0d"
+    },
+    {
+      "path": "hardware/manufacturing/one-batch-prototype-r49/one-order-quantities.json",
+      "sha256": "7e39339353867e10f736597287a4960382815bb45c95d930c0321b13beea58c3"
+    },
+    {
+      "path": "hardware/manufacturing/one-batch-prototype-r52/one-order-quantities.json",
+      "sha256": "9fed813b30de79876aa278cb923e4f897ea09019defbf5340c8297466a01b4b1"
+    },
+    {
+      "path": "hardware/electronics/full-cat/w5-current-order-contribution-r1/stock.json",
+      "sha256": "274708a245f85607786eb3890f6acf84e29810f4398ed1f7b4758079c6eb2f89"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/phase1-current-purchased-selection-r4.json",
+      "sha256": "8a1c4ee49d56c01472de03ca068856d2adeac0a4fbbd139244881d2c50d6b95e"
+    },
+    {
+      "path": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+      "sha256": "bfecf244a6d8c10884b21ffb99d0fd778d20ac65ed00357a6adc8c7419b280c8"
+    }
+  ],
+  "identity145": "111-02370 T18I-PA66-BK nominal145x2.5x1.2mm, head4.8x4.5x3.5. Existing100mm source geometric coupon must not be presented as a different100mm purchased SKU.",
+  "selected100_also_available_in_catalog": {
+    "sku": "111-01910 T18R-PA66-BK",
+    "existing_source": "hardware/electronics/full-cat/f-pwm-axial-r1/materials.json",
+    "source_sha256": "bfecf244a6d8c10884b21ffb99d0fd778d20ac65ed00357a6adc8c7419b280c8",
+    "R52_source_sha256": "9fed813b30de79876aa278cb923e4f897ea09019defbf5340c8297466a01b4b1",
+    "planning_quantity": 100,
+    "selection_fact": "Already selected alongside145mmT18I; not a newSKU/purchase. Bind chosen NEW2tie role explicitly rather than assuming T18I100 identity. Do not relabel all old installed ties.",
+    "manufacturer_url": "https://www.hellermanntyton.com/products/cable-ties-inside-serrated/t18r/111-01910",
+    "manufacturer_current_read": "100x2.5,thickness1.0,headlength4.8,headwidth4.45,nonreleasable. H1.0 is NOT proven fullheadheight.",
+    "head_scope": "Currentproposal5.3x4.3x5 must map axes against source4.8x4.45; one4.3 axis alone doesnotdominate4.45. A chosen5mm fullheight is projectreserve, not manufacturermeasurement. Only changednewjoint/headinterfaces need correction/proof ifneeded, not old scans/topentryreplay.",
+    "stock_scope": "Historicalplanned100 has P0/F_PWM roleallowances, not actualfree46census. Account2newinstalled and boundedrenewalroles; fullproductionK3stilloutsidecurrenttask."
+  },
+  "quantity_history": "R47 allowance95/plan100; R49 allowance104/plan200; R52 conservative104+53+49service=206/plan300, explicitlynotactualinstalled206. Unselected W5changedcontribution86 and inherited300. Historical counts overlap and do not establish current physical stock or exact current spare remainder.",
+  "limits": [
+    "Exact current material inventory and complete installed/repair tie census are not established. Historical planned totals cannot be added as a verified free stock balance.",
+    "T18I145 and T18R100 are distinct already-selected SKU identities. Bind the new proposed two-tie joint explicitly; do not rename every existing tie or transfer supplier dimensions silently.",
+    "A100mm full-tail source coupon is not automatically capacity for an untrimmed145mm unit. Any future tail treatment must be explicit; no physical cut or purchase performed.",
+    "For chosen T18R100, compare named head axes with source4.8x4.45. Supplier H1.0 is strapheight/thickness, not measured complete headheight; source projectheight5 remains a prototype reserve. Only a named changed local interface may require further owner proof.",
+    "No fullK3/N03 production census, new review round, source scan replay or extra supplier-availability loop is requested."
+  ],
+  "N01_complete": false,
+  "selected_joint": false
+}
