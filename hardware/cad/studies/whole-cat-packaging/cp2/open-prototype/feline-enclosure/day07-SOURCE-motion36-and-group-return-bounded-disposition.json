@@ -1,0 +1,495 @@
+{
+  "id": "day07-SOURCE-motion36-and-group-return-bounded-disposition",
+  "status": "NEW21_MOTION36_CLOSED_SCOPED_EXTERNAL_LOOP_FULL9_RETURN_ALLOCATED_CAPACITY_HOLD",
+  "selected": false,
+  "N01_complete": false,
+  "closed_problem": {
+    "new_operating_parts": 21,
+    "required_current_poses": 36,
+    "complete": 36,
+    "strict_pairs_total": 155,
+    "strict_pairs_NEW": 136,
+    "previous19_not_replayed": true,
+    "new_floor_properties_total": 756,
+    "previous84_not_replayed": true,
+    "ground_rest_z_mm": -168.3190155029297,
+    "minimum_conservative_ground_lower_mm": 60.58115742773536,
+    "first_physical_falsifier": null,
+    "raw_motion_receipt": "day07-SOURCE-new21-motion36-complete-scoped.json",
+    "source_same_Knee_relative_pairs_reused": true,
+    "scope": "OnlyNEWoperating21body/currentfixedincludingnewBankBedguide+posedrest108 exceptcommonKneeunchangedrelativepairs. Excludes4temporarybenchpullfieldsoperation. NOTwholeflexharness, BodyOuter, R6, orN09."
+  },
+  "whole_group_decision": {
+    "proposal": "day07-SOURCE-external-loop-south-merge9-whole-proposal.json",
+    "source_identity_rows_from_old_recipe_ONLY": true,
+    "old_core_rows_regionchains_NOT_current_pathproof": true,
+    "current_physical_portion_chains": [
+      {
+        "wire": "W004",
+        "physical_unit": "SOURCE/FL1",
+        "role": "CONTINUOUS",
+        "chain": [
+          "factory_source14",
+          "HIP3_EXTERNAL_APPROACH",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "D3_underframe",
+          "D_FL.2"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W020",
+        "physical_unit": "SOURCE/FL1",
+        "role": "CONTINUOUS",
+        "chain": [
+          "factory_source14",
+          "HIP3_EXTERNAL_APPROACH",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "V3_outerbank",
+          "F_FL1.out"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W019",
+        "physical_unit": "SOURCE/FL1",
+        "role": "CONTINUOUS",
+        "chain": [
+          "factory_source14",
+          "HIP3_EXTERNAL_APPROACH",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "G3_underbank",
+          "FL_G.2"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W005",
+        "physical_unit": "SOURCE/FL2",
+        "role": "CONTINUOUS",
+        "chain": [
+          "factory_source14",
+          "Knee_static_approach",
+          "KNEE6_EXTERNAL_LOOP",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "D3_underframe",
+          "D_FL.3"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W022",
+        "physical_unit": "SOURCE/FL2",
+        "role": "CONTINUOUS",
+        "chain": [
+          "factory_source14",
+          "Knee_static_approach",
+          "KNEE6_EXTERNAL_LOOP",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "V3_outerbank",
+          "F_FL2.out"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W021",
+        "physical_unit": "SOURCE/FL2",
+        "role": "CONTINUOUS",
+        "chain": [
+          "factory_source14",
+          "Knee_static_approach",
+          "KNEE6_EXTERNAL_LOOP",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "G3_underbank",
+          "FL_G.3"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W006",
+        "physical_unit": "SOURCE/FL3",
+        "role": "ORIGINAL",
+        "chain": [
+          "factory_source14",
+          "Knee_static_approach",
+          "received_holder_ENTRY9",
+          "source_owned_joint_D"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W006",
+        "physical_unit": "DONOR/FL3",
+        "role": "DONOR",
+        "chain": [
+          "source_owned_joint_D",
+          "received_holder_EXIT9",
+          "KNEE6_EXTERNAL_LOOP",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "D3_underframe",
+          "D_FL.4"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W024",
+        "physical_unit": "SOURCE/FL3",
+        "role": "ORIGINAL",
+        "chain": [
+          "factory_source14",
+          "Knee_static_approach",
+          "received_holder_ENTRY9",
+          "source_owned_joint_V"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W024",
+        "physical_unit": "DONOR/FL3",
+        "role": "DONOR",
+        "chain": [
+          "source_owned_joint_V",
+          "received_holder_EXIT9",
+          "KNEE6_EXTERNAL_LOOP",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "V3_outerbank",
+          "F_FL3.out"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W023",
+        "physical_unit": "SOURCE/FL3",
+        "role": "ORIGINAL",
+        "chain": [
+          "factory_source14",
+          "Knee_static_approach",
+          "received_holder_ENTRY9",
+          "source_owned_joint_G"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      },
+      {
+        "wire": "W023",
+        "physical_unit": "DONOR/FL3",
+        "role": "DONOR",
+        "chain": [
+          "source_owned_joint_G",
+          "received_holder_EXIT9",
+          "KNEE6_EXTERNAL_LOOP",
+          "SOUTH_MERGE9",
+          "FIXED_RETURN_QUARTER9",
+          "EXISTING_PASSIVE9",
+          "DGV_SPLIT",
+          "G3_underbank",
+          "FL_G.4"
+        ],
+        "minimum_mm": null,
+        "fit_blank_mm": null,
+        "actual_cut_mm": null
+      }
+    ],
+    "all_chains_unqualified_after_first_capacity_HOLD": true,
+    "fixed_turn": {
+      "centre_radius_mm": 35.1,
+      "radial_width_mm": 9.4,
+      "vertical_depth_mm": 10.5,
+      "inner_capacity_radius_mm": 30.4,
+      "outer_capacity_radius_mm": 39.8,
+      "group_neutral_axis_length_mm": 55.13495107050087,
+      "bounds_mm": [
+        [
+          -84.1,
+          27.199999999999996,
+          38.75
+        ],
+        [
+          -44.29999999999998,
+          67.0,
+          49.25
+        ]
+      ],
+      "valid": true,
+      "actual_volume_mm3": 5441.819670658444,
+      "analytic_volume_mm3": 5441.819670658434,
+      "entry_mm": [
+        -84.1,
+        31.9,
+        44
+      ],
+      "entry_tangent": [
+        1,
+        0,
+        0
+      ],
+      "exit_mm": [
+        -49,
+        67,
+        44
+      ],
+      "exit_tangent": [
+        0,
+        1,
+        0
+      ],
+      "full_existing_guide_seam_common_mm3": 0.0,
+      "no_extra9or_newterminal": true
+    },
+    "first_falsifier": {
+      "target": "FULL9_FIXED_RETURN_R35p1",
+      "other": "Underdeck:PositiveFoundation",
+      "source_valid": true,
+      "capacity_valid": true,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -54.51689671450948,
+            59.999999999999986,
+            38.75
+          ],
+          [
+            -54.51689671450947,
+            60.0,
+            38.75
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "allocated_capacity_common_mm3": 78.35082226377095,
+      "status": "FULL_GROUP_ALLOCATED_REGION_HOLD_NOT_PHYSICAL_WIRECONTACT"
+    },
+    "cursor": 1,
+    "total": 34,
+    "unreceived": 33,
+    "classification": "Fullallocated9groupregion H0 is thislayoutcapacityHOLD, NOTactualinstalledwirecontact/allmanualpathimpossibility. Do notfreezeillustrativeflexpaths. FullactualU1carrier currentmaterial/functionpreserved; NO own-by-name. IfHOLD stopbranchbeforeotherpairs/freewires/supportdetail. Root105+26.25 remainsacceptedlocalonly.",
+    "stopped_before_remaining_pairs": true,
+    "actual_A_U_minimum_fit_slack": null,
+    "unknowns": [
+      "ExternalKnee6/Hip3continuousR/roll/firstactualsourceapproach",
+      "Movingreserve+actualstoredslack",
+      "BodyDGVtransport/endfans",
+      "PerphysicalMAX3fit/minimum",
+      "Fullinitiallay/R6tool/BodyOuter3.25"
+    ]
+  },
+  "unchanged_received": "Root26.25/contact105/sourcepad15x7/9members0missing/7joints/newpartstrictreopen/source4movingties/MODULE2/unchanged4independent220/both4MTA. ProposedBankBedoverride10.brep/d42f3671 replacesoldparent/provedpadaliases; newKnee21+4tempcontext13e527c8; current1292/effective1311/rest108a9f78e06/2d1d8cfa/def3e56a unchanged. No rejectedS0cowl/V3/oldholdersadded.",
+  "source_invariants": "Selectedparts/R47/P0/E6/15drives/MG92B/MAIN46.52/325x200x160/max200/256cube/foreign1.25/BodyOuter3.25. Allnegativecounts unchanged. 850project+900/MAX3perphysicalunit,source14terminal11full9lap4once/3x8laps/3x20sleeves/stagger/2x9lands/factoryplug/actualcutNULL. No oldprefix/Gdelta/pool/purchasedoffcutasslack.",
+  "next": "SPLIT_KNEE6_HIP3_APPROACH_BEFORE_ACCOUNTING_MERGE: actualU1lowercrossbeam blocksTHISfull9southquarter lowercapacitylayer78.350822, notall3Dloops/actualwire. Retain105root/guidepose andreceivednew21motion; beforeanynewmaterial choosewholeKnee6/Hip3entry/layer/assembly order usingtwoexistingguideportals/realU1functions andcurrentfullprofiles/R35.1. Firstactualusablecrosssection/connectedturncapacity+sourceportframes andfullneighbors; no third scalar9turn/guideheight/PCBoffset/shorterR. Then explicitmovingreserve/percoreRoffsetlength/ALL9ID12portion4MAX3sourceoriginal+donor/850/ceil5(min+20)<=900, realsource14terminal11full9lap4once, no oldprefix/chordcredit/V3detail. Allfit/slackNULL until qualified.",
+  "global_open": "WholeSOURCEconnectedoccupiedregions/lengthslack/assembly/changedoutline; R6actualwithdraw/tool/parking;3USBinvalidcurrentgates;Pimates/U1far/headNorth/123246/both4MTA/four220. Newmotion36 isscopedprototypefeasibility notwholeN09, no point.",
+  "source_pins": [
+    {
+      "path": "day07-SOURCE-pad-conforming-guide-bounded-disposition.json",
+      "sha256": "1e1ac8ed8f9e9fd6be7ceddbeb6c71a1b0685f500f3cdaa3d6259c5b34168d54"
+    },
+    {
+      "path": "day07-SOURCE-body-approach-proposed-moving-context.json",
+      "sha256": "13e527c87a65b26439fdd9670bccc108cd8a389aafc369d746b4d37b03a7460f"
+    },
+    {
+      "path": "day07-SOURCE-new-moving-module-region-first-gate.json",
+      "sha256": "4529138d4d3168c4630590689fd8699e59466a962e7db5c9eb97663681209bfd"
+    },
+    {
+      "path": "day07-SOURCE-new-motion-frozen-input-projection.json",
+      "sha256": "0dcd1a96117f38ce1ee8f5c2e0c356b6d5d6824a6f81c5420ddcbf04b1c47392"
+    },
+    {
+      "path": "day07-coordinator-SOURCE-splice-layout-authority-receipt.json",
+      "sha256": "176a7ec86c6e0cb5e7e6a901334f914a98f6d063b0492cf283895b6940bc7f1c"
+    },
+    {
+      "path": "n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-SOURCE-new-motion-continuation-current.json",
+      "sha256": "ec1bea75af50b163046d4e0a4e0669ce459e61ff68b81960ab8298bd255b2747",
+      "bytes": 252673
+    },
+    {
+      "path": "day07-SOURCE-new21-motion36-complete-scoped.json",
+      "sha256": "98c7f7abae903a3e722c8842b4fb59509e25243106a775603f1cb048f667c7e9",
+      "bytes": 253041
+    },
+    {
+      "path": "day07-SOURCE-external-loop-current-neighborhood-inputs.json",
+      "sha256": "9515a2c780afe202c55ce36d19a98da12a4e7796e35e7b34719299d1c991ebcb",
+      "bytes": 116588
+    },
+    {
+      "path": "day07-SOURCE-external-loop-south-merge9-whole-proposal.json",
+      "sha256": "b513326c4a4b922a086d7a2197f1b2c47a82f1b697b549e0bf527aa8acb8b90c",
+      "bytes": 11295
+    },
+    {
+      "path": "day07-SOURCE-external-loop-return-capacity-first-gate.json",
+      "sha256": "2dadce54090da52971f3bc7578cd659b73305af3c527d89357f33c960cbae9b5",
+      "bytes": 38808
+    },
+    {
+      "path": "day07-SOURCE-external-loop-return-capacity-first-gate.breps.zip",
+      "sha256": "3c273d63739fd7ac3aabce42d71bda52397af3364c73e8128d9b959bdc03821e",
+      "bytes": 133236
+    },
+    {
+      "path": "day07-SOURCE-motion36-and-south-return-capacity-view.png",
+      "sha256": "c0c8919b0b2ab73bffe56963a1d9e2d21cbfd38f7bef51b661ee6b5707d4e170",
+      "bytes": 113581
+    },
+    {
+      "path": "day07-SOURCE-motion36-and-south-return-capacity-view.svg",
+      "sha256": "8ebfa9d71467957b331a275e3ce9b51fcd06b5ffb157c293d295b587aaabf70a",
+      "bytes": 11921
+    },
+    {
+      "path": "day07-source-new-motion-continuation.recipe.py",
+      "sha256": "a85a12b5e766767532f6fa66bf9fbde41fb67bb4f842e61a27bf56d60a29bd78",
+      "bytes": 5286
+    },
+    {
+      "path": "day07-external-loop-current-inputs.recipe.py",
+      "sha256": "652a1e3550b313c1878c6e20c9022f65656ad785bdc6d8a29a65b232a4377733",
+      "bytes": 1057
+    },
+    {
+      "path": "day07-save-external-loop-whole-proposal.recipe.py",
+      "sha256": "666150f26197b84af95b849b54b44e89989c78893bc34acd2a30ad5635ff39a5",
+      "bytes": 5294
+    },
+    {
+      "path": "day07-external-loop-capacity-first-gate.recipe.py",
+      "sha256": "f00e6b83fb28038b4b73862d422b7a10add0882d24b61905f33ed5155119ff2b",
+      "bytes": 6173
+    },
+    {
+      "path": "day07-render-close-motion-group.recipe.py",
+      "sha256": "ddcf72129f9a0a9ed0dc0125a22d677879bf5957c83e657fdd59248947541279",
+      "bytes": 11572
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-SOURCE-external-loop-return-capacity-first-gate.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 5
+    }
+  ],
+  "timings": {
+    "new_motion_chunks": [
+      {
+        "start_pose": 3,
+        "end_cursor": 11,
+        "new_pairs": 39,
+        "new_floor_properties": 168,
+        "operation_seconds": 19.43700000003446,
+        "process_cpu_seconds": 54.734375
+      },
+      {
+        "start_pose": 11,
+        "end_cursor": 19,
+        "new_pairs": 23,
+        "new_floor_properties": 168,
+        "operation_seconds": 18.094000000040978,
+        "process_cpu_seconds": 46.640625
+      },
+      {
+        "start_pose": 19,
+        "end_cursor": 28,
+        "new_pairs": 23,
+        "new_floor_properties": 189,
+        "operation_seconds": 19.030999999959022,
+        "process_cpu_seconds": 44.125
+      },
+      {
+        "start_pose": 28,
+        "end_cursor": 35,
+        "new_pairs": 37,
+        "new_floor_properties": 147,
+        "operation_seconds": 18.375,
+        "process_cpu_seconds": 64.890625
+      },
+      {
+        "start_pose": 35,
+        "end_cursor": 36,
+        "new_pairs": 14,
+        "new_floor_properties": 0,
+        "operation_seconds": 4.561999999918044,
+        "process_cpu_seconds": 28.34375
+      }
+    ],
+    "new_motion_operation_seconds": 79.4989999999525,
+    "new_motion_process_cpu_seconds": 238.734375,
+    "new_capacity_operation_seconds": 4.109000000054948,
+    "new_capacity_process_cpu_seconds": 4.453125,
+    "old_received_operation_not_added": true,
+    "wall_is_not_CPU": true
+  },
+  "view": {
+    "path": "day07-SOURCE-motion36-and-south-return-capacity-view.png",
+    "source": "day07-SOURCE-external-loop-return-capacity-first-gate.json",
+    "actual_sections_y_mm": [
+      55,
+      60
+    ],
+    "visual_inspection": "OWNER_VIEW_RECEIVED: source-derivedsectionsY55/Y60 readable, U1material/red and full9allocatedturn/orange overlapshownwithcapacityHOLDlabel; no contact inferencefromimage.",
+    "no_image_contact_inference": true
+  },
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false,
+    "identity_received": "OWNER56_FINAL_IDLE26064 36 36 155 756 None Underdeck:PositiveFoundation 1292 1311 108"
+  },
+  "written_utc": "2026-11-07T07:55:24.853176+00:00"
+}
