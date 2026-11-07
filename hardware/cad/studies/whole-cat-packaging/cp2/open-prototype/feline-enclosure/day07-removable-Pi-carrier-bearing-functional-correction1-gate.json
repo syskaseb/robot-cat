@@ -1,0 +1,538 @@
+{
+  "id": "day07-removable-Pi-carrier-bearing-functional-correction1-gate",
+  "status": "FUNCTIONAL_MOUNT_LOCAL_PROOFS_RECEIVED",
+  "roots": {
+    "receiver_to_actual_column": {
+      "common_valid": true,
+      "common_mm3": 48.0,
+      "union_valid": true,
+      "union_solids": 1
+    },
+    "foot_to_existing_return": {
+      "common_valid": true,
+      "common_mm3": 108.0,
+      "union_valid": true,
+      "union_solids": 1
+    },
+    "bearing": {
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0,
+      "face_valid": true,
+      "actual_bearing_area_mm2": 104.0
+    },
+    "guide_clearance_each_mm": 0.2,
+    "actual_foot_guide_gaps_mm": [
+      0.1999999999999993,
+      0.20000000000000018,
+      0.20000000000000284,
+      0.20000000000000284,
+      0.20000000000000284
+    ],
+    "retired_original_column_cap_mm3": 24.0
+  },
+  "geometry_validity": {
+    "receiver_delta": {
+      "valid": true,
+      "solids": 1
+    },
+    "moving_carrier_foot": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie0:band_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie0:head_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie0:full_unit_residual_capacity": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie1:band_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie1:head_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie1:full_unit_residual_capacity": {
+      "valid": true,
+      "solids": 1
+    },
+    "receiver_full": {
+      "valid": true,
+      "solids": 1
+    },
+    "foot_plus_existing_return": {
+      "valid": true,
+      "solids": 1
+    }
+  },
+  "rows": [
+    {
+      "a": "receiver_delta",
+      "b": "PAS:retained_upper",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 3.0806605437449197,
+      "witnesses": [
+        [
+          [
+            -7.0,
+            34.0,
+            104.1
+          ],
+          [
+            -3.9999578766907185,
+            33.985281163202195,
+            104.8
+          ]
+        ]
+      ],
+      "mate_function": "foreign125",
+      "status": "SEPARATED125"
+    },
+    {
+      "a": "receiver_delta",
+      "b": "C1:outside_PCB_west_return",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 0,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -13.0,
+            47.0,
+            104.1
+          ],
+          [
+            -13.0,
+            47.0,
+            104.1
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 0.0,
+      "mate_function": "removable_bearing_or_own_structural_tie_NO_INTRUSION",
+      "status": "OWN_REMOVABLE_BEARING_OR_TIE_WITHOUT_INTRUSION"
+    },
+    {
+      "a": "moving_carrier_foot",
+      "b": "PAS:retained_upper",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 4.070653718535146,
+      "witnesses": [
+        [
+          [
+            -8.0,
+            35.0,
+            106.39999999999999
+          ],
+          [
+            -3.9673359759848,
+            34.44516437962443,
+            106.39999999999999
+          ]
+        ]
+      ],
+      "mate_function": "foreign125",
+      "status": "SEPARATED125"
+    },
+    {
+      "a": "moving_carrier_foot",
+      "b": "C1:outside_PCB_west_return",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 0,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -13.0,
+            47.0,
+            104.1
+          ],
+          [
+            -13.0,
+            47.0,
+            104.1
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 108.0,
+      "mate_function": "same_moving_print_positive_joint",
+      "status": "ACTUAL_POSITIVE_SAME_MOVING_PRINT_JOINT"
+    },
+    {
+      "a": "joint_tie0:band_budget",
+      "b": "PAS:retained_upper",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 1.9528197208979003,
+      "witnesses": [
+        [
+          [
+            -5.800000000000001,
+            35.25,
+            106.39999999999999
+          ],
+          [
+            -3.901909644822337,
+            34.790916275708575,
+            106.39999999999999
+          ]
+        ]
+      ],
+      "mate_function": "foreign125",
+      "status": "SEPARATED125"
+    },
+    {
+      "a": "joint_tie0:band_budget",
+      "b": "C1:outside_PCB_west_return",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 0,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -13.0,
+            35.25,
+            107.1
+          ],
+          [
+            -13.0,
+            35.25,
+            107.1
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 0.0,
+      "mate_function": "removable_bearing_or_own_structural_tie_NO_INTRUSION",
+      "status": "OWN_REMOVABLE_BEARING_OR_TIE_WITHOUT_INTRUSION"
+    },
+    {
+      "a": "joint_tie1:band_budget",
+      "b": "C1:outside_PCB_west_return",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 0,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -13.0,
+            40.25,
+            107.1
+          ],
+          [
+            -13.0,
+            40.25,
+            107.1
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 0.0,
+      "mate_function": "removable_bearing_or_own_structural_tie_NO_INTRUSION",
+      "status": "OWN_REMOVABLE_BEARING_OR_TIE_WITHOUT_INTRUSION"
+    }
+  ],
+  "cursor": 7,
+  "total": 7,
+  "unreceived": 0,
+  "stop": null,
+  "full_neighbor_count": 1298,
+  "outline": {
+    "receiver_delta": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 5.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "moving_carrier_foot": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 4.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie0:band_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 3.700000000000003,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie0:head_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 4.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie0:full_unit_residual_capacity": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 6.799999999999997,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie1:band_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 3.700000000000003,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie1:head_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 4.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie1:full_unit_residual_capacity": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 6.799999999999997,
+      "required_mm": 3.25,
+      "ok": true
+    }
+  },
+  "ties": [
+    {
+      "unit": 0,
+      "selected": "T18I100",
+      "full_unit_mm": 100,
+      "outer_loop_upper_mm": 41.6,
+      "full_head_debit_mm": 5.3,
+      "closure_pull_allowance_mm": 25,
+      "required_upper_mm": 71.9,
+      "capacity_for_any_untrimmed_residual_mm": 100,
+      "no_additional100debit": true,
+      "no_trim_assumed": true,
+      "source_unit_availability_NOT_asserted": true
+    },
+    {
+      "unit": 1,
+      "selected": "T18I100",
+      "full_unit_mm": 100,
+      "outer_loop_upper_mm": 41.6,
+      "full_head_debit_mm": 5.3,
+      "closure_pull_allowance_mm": 25,
+      "required_upper_mm": 71.9,
+      "capacity_for_any_untrimmed_residual_mm": 100,
+      "no_additional100debit": true,
+      "no_trim_assumed": true,
+      "source_unit_availability_NOT_asserted": true
+    }
+  ],
+  "stock_classification": "Two new nominal independent selected100mm tie units are structural joint retention. Full head/band/100 residual capacity represents the SAME unit, not spare material or service sling. No physical cut; no stock availability/purchase assertion. Existing PAS power restraint is an additional source unit, not a structural parent.",
+  "assembly_access": "Thread two ties beneath bed atY36.5/41.5, outside retained columnY45..49, before lowering carrier; complete heads lateral. Removable foot has .2nominal side/end guide clearance. Pi/Card/4M2/PAS source ownrails move together; U1 soldered MODULE+SOURCE/JPWM/S0 remain installed. No PCBdrop5/left99 required.",
+  "correction_scope": "Single source-caused correction of removable mounting interface: move BOTH complete strap threading lanes IN FRONT OF fixedcolumn, enlarge bearing toward South and slot the front guide around the unchanged carrierreturn. Keep FR_P case/fullband/head untouched. C0 receiverbandcommon30.8125 retained; no thirdattempt.",
+  "proof_scope": "Prototype functional support only: actualroot/bearing/section/fullstock/neighbors/outline; not FEM, manufacturing fit or fullN08/N09. Normal printed sliding fit and final hand-tension require phase2 dryfit.",
+  "archive": "day07-removable-Pi-carrier-functional-bearing-correction1.breps.zip",
+  "archive_sha256": "3fc3888b463464ba73807f3839d8fd854be807c35ab1b4150f01178d21d3ae39",
+  "geometry": [
+    {
+      "name": "receiver_delta",
+      "entry": "0.brep",
+      "sha256": "37ab6af04a0e44e3187cd0613e0614f29d736f0907c6f61bbdb7c502a94d28a5",
+      "bounds_mm": [
+        [
+          -17.0,
+          34.0,
+          101.1
+        ],
+        [
+          -7.0,
+          49.0,
+          106.1
+        ]
+      ]
+    },
+    {
+      "name": "moving_carrier_foot",
+      "entry": "1.brep",
+      "sha256": "4f1fa431589c15ec6570e151db277a6ba05a24123bfe1f647f78c437b472bff5",
+      "bounds_mm": [
+        [
+          -16.0,
+          35.0,
+          104.1
+        ],
+        [
+          -8.0,
+          48.0,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie0:band_budget",
+      "entry": "2.brep",
+      "sha256": "f6e7e1f7038e0cedde940d734f3cf9b762e55f39cc14c063425e494c36546129",
+      "bounds_mm": [
+        [
+          -18.2,
+          35.25,
+          99.9
+        ],
+        [
+          -5.800000000000001,
+          37.75,
+          108.3
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie0:head_budget",
+      "entry": "3.brep",
+      "sha256": "be713070dacaf7b83aee54d2bdb60c7c897c5736bf34c36038c898d35b83dd05",
+      "bounds_mm": [
+        [
+          -23.5,
+          34.35,
+          102.1
+        ],
+        [
+          -18.2,
+          38.65,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie0:full_unit_residual_capacity",
+      "entry": "4.brep",
+      "sha256": "c624bfe20fafac99e9c3aecdc2f93377f712a3b06c900fc74b0a322b4da42813",
+      "bounds_mm": [
+        [
+          -123.5,
+          35.25,
+          104.0
+        ],
+        [
+          -23.5,
+          37.75,
+          105.2
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:band_budget",
+      "entry": "5.brep",
+      "sha256": "fbfddf0633c2be62f97f3660cc7d37326658d600cabeff7995f9e8055469dea4",
+      "bounds_mm": [
+        [
+          -18.2,
+          40.25,
+          99.9
+        ],
+        [
+          -5.800000000000001,
+          42.75,
+          108.3
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:head_budget",
+      "entry": "6.brep",
+      "sha256": "d868ec5195468804ed792a95c40cb9dd296819ae99c8282caad46368924c3600",
+      "bounds_mm": [
+        [
+          -23.5,
+          39.35,
+          102.1
+        ],
+        [
+          -18.2,
+          43.65,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:full_unit_residual_capacity",
+      "entry": "7.brep",
+      "sha256": "9de708db0bc4e984aacd7207d4aaa6f75f8c3afcb8aa47baa1172420fef7d9b6",
+      "bounds_mm": [
+        [
+          -123.5,
+          40.25,
+          104.0
+        ],
+        [
+          -23.5,
+          42.75,
+          105.2
+        ]
+      ]
+    },
+    {
+      "name": "receiver_with_actual_column",
+      "entry": "8.brep",
+      "sha256": "93cde9d8a5aba48b1240ffa0ab7dd495c313c644113d637687efad340c53cc3a",
+      "bounds_mm": [
+        [
+          -17.0,
+          34.0,
+          42.5
+        ],
+        [
+          -7.0,
+          49.0,
+          106.1
+        ]
+      ]
+    },
+    {
+      "name": "carrier_foot_plus_source_upper_return",
+      "entry": "9.brep",
+      "sha256": "cb7dce72e82e9deb0f4c29c37a7e3aff7c62f52665100522a42e2d1f08f8d899",
+      "bounds_mm": [
+        [
+          -16.0,
+          -7.484390365286,
+          104.1
+        ],
+        [
+          -8.0,
+          48.0,
+          107.1
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 7.109000000054948,
+  "process_cpu_seconds": 7.75,
+  "current1292_unchanged": true,
+  "new_proposal_NOT_installed": true,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}

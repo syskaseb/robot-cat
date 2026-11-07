@@ -1,0 +1,403 @@
+{
+  "id": "day07-removable-Pi-carrier-bearing-functional-gate",
+  "status": "FUNCTIONAL_MOUNT_HOLD",
+  "roots": {
+    "receiver_to_actual_column": {
+      "common_valid": true,
+      "common_mm3": 48.0,
+      "union_valid": true,
+      "union_solids": 1
+    },
+    "foot_to_existing_return": {
+      "common_valid": true,
+      "common_mm3": 45.0,
+      "union_valid": true,
+      "union_solids": 1
+    },
+    "bearing": {
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0,
+      "face_valid": true,
+      "actual_bearing_area_mm2": 96.0
+    },
+    "guide_clearance_each_mm": 0.2,
+    "retired_original_column_cap_mm3": 24.0
+  },
+  "geometry_validity": {
+    "receiver_delta": {
+      "valid": true,
+      "solids": 1
+    },
+    "moving_carrier_foot": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie0:band_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie0:head_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie0:full_unit_residual_capacity": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie1:band_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie1:head_budget": {
+      "valid": true,
+      "solids": 1
+    },
+    "joint_tie1:full_unit_residual_capacity": {
+      "valid": true,
+      "solids": 1
+    },
+    "receiver_full": {
+      "valid": true,
+      "solids": 1
+    },
+    "foot_plus_existing_return": {
+      "valid": true,
+      "solids": 1
+    }
+  },
+  "rows": [
+    {
+      "a": "receiver_delta",
+      "b": "Station:FR_P:band_budget",
+      "a_valid": true,
+      "b_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -7.0,
+            51.5,
+            101.1
+          ],
+          [
+            -7.0,
+            51.5,
+            101.1
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 30.812500000000117,
+      "status": "NEW_INTERFACE_HOLD"
+    }
+  ],
+  "cursor": 1,
+  "total": 14,
+  "unreceived": 13,
+  "stop": {
+    "a": "receiver_delta",
+    "b": "Station:FR_P:band_budget",
+    "a_valid": true,
+    "b_valid": true,
+    "required_mm": 1.25,
+    "gap_mm": 0.0,
+    "witnesses": [
+      [
+        [
+          -7.0,
+          51.5,
+          101.1
+        ],
+        [
+          -7.0,
+          51.5,
+          101.1
+        ]
+      ]
+    ],
+    "common_valid": true,
+    "common_mm3": 30.812500000000117,
+    "status": "NEW_INTERFACE_HOLD"
+  },
+  "full_neighbor_count": 1298,
+  "outline": {
+    "receiver_delta": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 5.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "moving_carrier_foot": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 4.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie0:band_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 3.700000000000003,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie0:head_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 4.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie0:full_unit_residual_capacity": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 6.799999999999997,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie1:band_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 3.700000000000003,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie1:head_budget": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 4.900000000000006,
+      "required_mm": 3.25,
+      "ok": true
+    },
+    "joint_tie1:full_unit_residual_capacity": {
+      "outside_valid": true,
+      "outside_null": false,
+      "outside_volume_mm3": 0.0,
+      "boundary_gap_mm": 6.799999999999997,
+      "required_mm": 3.25,
+      "ok": true
+    }
+  },
+  "ties": [
+    {
+      "unit": 0,
+      "selected": "T18I100",
+      "full_unit_mm": 100,
+      "outer_loop_upper_mm": 41.6,
+      "full_head_debit_mm": 5.3,
+      "closure_pull_allowance_mm": 25,
+      "required_upper_mm": 71.9,
+      "capacity_for_any_untrimmed_residual_mm": 100,
+      "no_additional100debit": true,
+      "no_trim_assumed": true,
+      "source_unit_availability_NOT_asserted": true
+    },
+    {
+      "unit": 1,
+      "selected": "T18I100",
+      "full_unit_mm": 100,
+      "outer_loop_upper_mm": 41.6,
+      "full_head_debit_mm": 5.3,
+      "closure_pull_allowance_mm": 25,
+      "required_upper_mm": 71.9,
+      "capacity_for_any_untrimmed_residual_mm": 100,
+      "no_additional100debit": true,
+      "no_trim_assumed": true,
+      "source_unit_availability_NOT_asserted": true
+    }
+  ],
+  "stock_classification": "Two new nominal independent selected100mm tie units are structural joint retention. Full head/band/100 residual capacity represents the SAME unit, not spare material or service sling. No physical cut; no stock availability/purchase assertion. Existing PAS power restraint is an additional source unit, not a structural parent.",
+  "assembly_access": "Thread two ties beneath bed atY43.5/52.5, outside retained columnY45..49, before lowering carrier; complete heads lateral. Removable foot has .2nominal side/end guide clearance. Pi/Card/4M2/PAS source ownrails move together; U1 soldered MODULE+SOURCE/JPWM/S0 remain installed. No PCBdrop5/left99 required.",
+  "proof_scope": "Prototype functional support only: actualroot/bearing/section/fullstock/neighbors/outline; not FEM, manufacturing fit or fullN08/N09. Normal printed sliding fit and final hand-tension require phase2 dryfit.",
+  "archive": "day07-removable-Pi-carrier-functional-bearing.breps.zip",
+  "archive_sha256": "016a5ecd0a3f5c99d22ce242cc18ac8ccb6b08eff0a04876c4ab3a99ad1deb59",
+  "geometry": [
+    {
+      "name": "receiver_delta",
+      "entry": "0.brep",
+      "sha256": "3e05b7a610f57a9f3996b2d65437babdc26614648c2d489d17079e21f115ce94",
+      "bounds_mm": [
+        [
+          -17.0,
+          41.0,
+          101.1
+        ],
+        [
+          -7.0,
+          55.0,
+          106.1
+        ]
+      ]
+    },
+    {
+      "name": "moving_carrier_foot",
+      "entry": "1.brep",
+      "sha256": "cffec2c6b3d08db9b358fbe96a2db65351a7eef1bc07f2c5a73fa59ac0b02d90",
+      "bounds_mm": [
+        [
+          -16.0,
+          42.0,
+          104.1
+        ],
+        [
+          -8.0,
+          54.0,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie0:band_budget",
+      "entry": "2.brep",
+      "sha256": "b7a4a831fdc0df9706142b31f78020003334e60342e8cf3070c50852f2e188ed",
+      "bounds_mm": [
+        [
+          -18.2,
+          42.25,
+          99.9
+        ],
+        [
+          -5.800000000000001,
+          44.75,
+          108.3
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie0:head_budget",
+      "entry": "3.brep",
+      "sha256": "f5e0b917be749440dae49c7bc3c3f0fb53b0ae1f2c61083f0586dac503d9a5aa",
+      "bounds_mm": [
+        [
+          -23.5,
+          41.35,
+          102.1
+        ],
+        [
+          -18.2,
+          45.65,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie0:full_unit_residual_capacity",
+      "entry": "4.brep",
+      "sha256": "ffb918560e6ea09d82d03c6702f24002bc4ba2f68fa43e4d76aab4bdb8d90d6f",
+      "bounds_mm": [
+        [
+          -123.5,
+          42.25,
+          104.0
+        ],
+        [
+          -23.5,
+          44.75,
+          105.2
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:band_budget",
+      "entry": "5.brep",
+      "sha256": "cffed348f0a5bbbb603d1382f54c3cd84077ae70dd5eae8fa080783352236ee5",
+      "bounds_mm": [
+        [
+          -18.2,
+          51.25,
+          99.9
+        ],
+        [
+          -5.800000000000001,
+          53.75,
+          108.3
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:head_budget",
+      "entry": "6.brep",
+      "sha256": "bc1efb903f5ea8f00aa12a4964745536381ce46b4e03e2c652558f4e9629fce6",
+      "bounds_mm": [
+        [
+          -23.5,
+          50.35,
+          102.1
+        ],
+        [
+          -18.2,
+          54.65,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:full_unit_residual_capacity",
+      "entry": "7.brep",
+      "sha256": "42926090a35ce47d612c2972905b87688a3c3dc52c7acc07fcb4dd10ec2bbb2a",
+      "bounds_mm": [
+        [
+          -123.5,
+          51.25,
+          104.0
+        ],
+        [
+          -23.5,
+          53.75,
+          105.2
+        ]
+      ]
+    },
+    {
+      "name": "receiver_with_actual_column",
+      "entry": "8.brep",
+      "sha256": "02d34cf4f03da59d620131fadb31b77a032f7e1fb4fce2539d54cc73389e6a4f",
+      "bounds_mm": [
+        [
+          -17.0,
+          41.0,
+          42.5
+        ],
+        [
+          -7.0,
+          55.0,
+          106.1
+        ]
+      ]
+    },
+    {
+      "name": "carrier_foot_plus_source_upper_return",
+      "entry": "9.brep",
+      "sha256": "bc0fb52fb016ffe54ff83b726f3a5e9f77af4a587d6f627a6187e7e3022a93ea",
+      "bounds_mm": [
+        [
+          -16.0,
+          -7.484390365286,
+          104.1
+        ],
+        [
+          -8.0,
+          54.0,
+          107.1
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 5.797000000020489,
+  "process_cpu_seconds": 6.28125,
+  "current1292_unchanged": true,
+  "new_proposal_NOT_installed": true,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}

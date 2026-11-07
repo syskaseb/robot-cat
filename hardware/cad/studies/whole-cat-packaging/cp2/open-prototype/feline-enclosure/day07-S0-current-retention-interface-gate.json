@@ -1,0 +1,127 @@
+{
+  "id": "day07-S0-current-retention-interface-gate",
+  "status": "CURRENT_SELECTED_S0_LATE_ASSEMBLY_NOT_ESTABLISHED",
+  "N01_complete": false,
+  "selected": false,
+  "current_case_valid": true,
+  "current_rail_valid": true,
+  "actual_case_rail_gap_mm": 9.389353749465338,
+  "actual_common_valid": null,
+  "actual_common_mm3": 0,
+  "witnesses": [
+    [
+      [
+        -89.93345525054376,
+        -15.081413205894638,
+        55.94596461066347
+      ],
+      [
+        -88.55,
+        -20.05,
+        48.1
+      ]
+    ]
+  ],
+  "full_current_neighbor_bounds_selection": {
+    "total_current": 1292,
+    "criterion": "all non-S0 actor bounds within3.25 of entire current selected S0 family case",
+    "candidates": [
+      "W068/single/end:0:head_budget",
+      "CurrentFoundation:FoundationRail:-1",
+      "SpliceBandBudget:W077"
+    ]
+  },
+  "current_S0_actor_count": 11,
+  "current_explicit_S0_M6_mount_actors": [],
+  "source_function": "Selected historical retention uses twoM6 case fixings plus separate M10 ring/stud hardware. Current11 S0 actors are body/neck/key and8terminal/stud/washer/nut actors; terminal nuts are NOT case fixings. Old Foundation panel source twoM6 axes[-96,-58],Y16,Z105 and native Deck/M2 allocation do not prove mounting of this rotated/relocated currentcase.",
+  "decision": "Cannot qualify S0-after-Pi by excluding S0 from fixed. Current usable case-fixing/panel axis and driver dependency are not established by the available current source pin. This is missing mounting evidence, not proof of a mechanically impossible late mount, nor permission to erase selected S0 or its family reserve.",
+  "causal_alternative": "Keep S0 and full U1/MODULE/SOURCE dock installed. Make the upper Pi/own-rail carrier a vertically removable bearing-and-two-tie interface at the existing west-column top; maintain the already proved lower root and all unchanged installed cable endpoints. Prove first top-entry fullcarrier space before support details. No thirdscalarpark/PCBpose.",
+  "archive": "day07-S0-current-retention-inputs.breps.zip",
+  "archive_sha256": "ae131087eceefdbf88ac9d949bc85bebe343102e195ae2c70a765eb84a68d12a",
+  "geometry": [
+    {
+      "name": "Ref_Material_S0_body_CP2_0_0",
+      "entry": "0.brep",
+      "sha256": "f022ce088118d32ff24eb2e1030287cf761c25478e5d39eb65e42382169ad5be",
+      "bounds_mm": [
+        [
+          -137.49999999999955,
+          -28.5,
+          44.92003097162687
+        ],
+        [
+          -88.20974375249615,
+          28.5,
+          107.99999999999997
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "W068/single/end:0:head_budget",
+      "entry": "1.brep",
+      "sha256": "1b46bb579b206023a993e2595d20d996f79bfc65d207dc2121b72f841bd37f08",
+      "bounds_mm": [
+        [
+          -133.81307991231608,
+          -23.561274467779207,
+          37.460629715645936
+        ],
+        [
+          -127.81307991231608,
+          -17.561274467779207,
+          43.460629715645936
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "CurrentFoundation:FoundationRail:-1",
+      "entry": "2.brep",
+      "sha256": "da33404f83b671c30b966bab5c9aebe7ae8afb36e5c639b28bed94bbde2c69a4",
+      "bounds_mm": [
+        [
+          -88.55000000000001,
+          -98.5,
+          35.5
+        ],
+        [
+          127.0,
+          -18.4,
+          48.1
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "SpliceBandBudget:W077",
+      "entry": "3.brep",
+      "sha256": "4ae6eb992164e8206c3bed116ab67ccd9296a5f4d19e81ab476b27a2b422617e",
+      "bounds_mm": [
+        [
+          -89.65,
+          -29.3,
+          42.6
+        ],
+        [
+          -84.65,
+          -14.399999999999999,
+          52.75
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    }
+  ],
+  "operation_seconds": 0.7809999999590218,
+  "process_cpu_seconds": 1.15625,
+  "pid": 26064,
+  "session_id": 46493
+}

@@ -1,0 +1,256 @@
+{
+  "id": "day07-PAS-upper-carrier-current-fixed-interface-gate",
+  "rows": [
+    {
+      "a": "PAS:retained_upper",
+      "b": "PowerFan:F_AUX:case",
+      "a_valid": true,
+      "b_valid": true,
+      "gap_mm": 16.430527424395343,
+      "witnesses": [
+        [
+          [
+            113.31871118730334,
+            27.393154115421357,
+            106.84066574340287
+          ],
+          [
+            113.27979220638981,
+            11.21009708372955,
+            104.00000000000001
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    },
+    {
+      "a": "PAS:retained_upper",
+      "b": "PowerFan:grip:XA02:head",
+      "a_valid": true,
+      "b_valid": true,
+      "gap_mm": 12.56556408168958,
+      "witnesses": [
+        [
+          [
+            101.82045587378695,
+            27.5393058478125,
+            106.4648969653198
+          ],
+          [
+            101.7930791184285,
+            16.155667764046818,
+            101.14461171148679
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    },
+    {
+      "a": "PAS:retained_upper",
+      "b": "PowerMount:F_AUX:4905",
+      "a_valid": true,
+      "b_valid": true,
+      "gap_mm": 26.49979891996832,
+      "witnesses": [
+        [
+          [
+            95.80611573164398,
+            27.42190405113921,
+            106.93392737878972
+          ],
+          [
+            95.74277777975516,
+            1.08509708372965,
+            104.00000000000003
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    },
+    {
+      "a": "PAS:retained_upper",
+      "b": "Underdeck:RestoredBank",
+      "a_valid": true,
+      "b_valid": true,
+      "gap_mm": 15.964007776073334,
+      "witnesses": [
+        [
+          [
+            96.76009347933281,
+            27.786957716290736,
+            106.10606750420092
+          ],
+          [
+            96.73133957102664,
+            15.830680160184357,
+            95.52797010964863
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    }
+  ],
+  "cursor": 4,
+  "total": 4,
+  "full_neighborhood_count": 1252,
+  "excluded_source_Pi": [
+    "PiBudget:AdapterBody",
+    "PiBudget:Audio",
+    "PiBudget:CPU",
+    "PiBudget:CSI",
+    "PiBudget:DSI",
+    "PiBudget:Ethernet",
+    "PiBudget:GPIO1992OccupiedHousing",
+    "PiBudget:GPIO_header",
+    "PiBudget:HDMI0",
+    "PiBudget:HDMI1",
+    "PiBudget:RetainedK1474Boot",
+    "PiBudget:USB_A_data_boot",
+    "PiBudget:USB_A_front",
+    "PiBudget:USB_A_rear",
+    "PiBudget:USB_C",
+    "PiBudget:UnlabelledTopComponentsBudget",
+    "PiBudget:microSDCardAndBottomBudget",
+    "PiGrip:GPIO4:band",
+    "PiGrip:GPIO4:head",
+    "PiGrip:H1:band",
+    "PiGrip:H1:head",
+    "PiGrip:Power2:band",
+    "PiGrip:Power2:head",
+    "Ref_Material_Pi410Nut_0_0",
+    "Ref_Material_Pi410Screw_0_0",
+    "Ref_Material_Pi411Nut_0_0",
+    "Ref_Material_Pi411Screw_0_0",
+    "Ref_Material_Pi411TopWasher_0_0",
+    "Ref_Material_Pi412Nut_0_0",
+    "Ref_Material_Pi412Screw_0_0",
+    "Ref_Material_Pi49Nut_0_0",
+    "Ref_Material_Pi49Screw_0_0",
+    "Ref_Material_Pi49TopWasher_0_0",
+    "Ref_Material_Pi4NominalPCB_0_0",
+    "USBGrip:Pi:band",
+    "USBGrip:Pi:head"
+  ],
+  "excluded_source_stock": {
+    "actors": [
+      "PAS:band",
+      "PAS:head"
+    ],
+    "physical_units": 1,
+    "reason": "Source plan_feline_power_axial_saddle generates complete power grip kit; one-way tie is not yet closed for initial assembly and must be renewed if disturbed in rare repair, not a permanent structural parent."
+  },
+  "PAS_body_retainedupper_actual_join": {
+    "valid": true,
+    "common_mm3": 6.781824165473824
+  },
+  "archive": "day07-PAS-upper-carrier-fixed-interface-inputs.breps.zip",
+  "archive_sha256": "2fe4125f82ca4a8794d3491f73d203c9d99d0585c5a41eaf2972f0861b02c140",
+  "geometry": [
+    {
+      "name": "PAS:retained_upper",
+      "entry": "0.brep",
+      "sha256": "097c5ab1aff3d55ddf1227a4f82a4eb7bc0776abbeee14a0ca31f019386496a7",
+      "bounds_mm": [
+        [
+          -12.310773678618656,
+          -18.531890365286205,
+          102.74211357655467
+        ],
+        [
+          118.50360737173678,
+          37.468109634714,
+          108.6
+        ]
+      ]
+    },
+    {
+      "name": "PAS:body",
+      "entry": "1.brep",
+      "sha256": "4fa6f8d5707c14d9e16655b302da9885740600751d4567b06dae6c8f9903d124",
+      "bounds_mm": [
+        [
+          65.7,
+          29.0,
+          101.75
+        ],
+        [
+          92.5,
+          53.3681096347138,
+          107.88
+        ]
+      ]
+    },
+    {
+      "name": "PowerFan:F_AUX:case",
+      "entry": "2.brep",
+      "sha256": "3986b5807d02e5b2ec9a53080bb08018e967169e109316b8e8282aa3a726e18c",
+      "bounds_mm": [
+        [
+          95.74277777975536,
+          -43.082198509276736,
+          82.0
+        ],
+        [
+          138.77979220639028,
+          11.210097083729636,
+          104.0
+        ]
+      ]
+    },
+    {
+      "name": "PowerFan:grip:XA02:head",
+      "entry": "3.brep",
+      "sha256": "e050a51bf418ed13e522a89eeb041203085b69266cdbe5bfd8956dc2953772db",
+      "bounds_mm": [
+        [
+          97.2031444783709,
+          8.268448993230226,
+          97.03666480824667
+        ],
+        [
+          104.81678878556433,
+          16.155667764046772,
+          102.62221274479347
+        ]
+      ]
+    },
+    {
+      "name": "PowerMount:F_AUX:4905",
+      "entry": "4.brep",
+      "sha256": "c8e8e83dcb0a7afabac1d9776f7cb709c923c8ae264c1658b854eb45d895d23f",
+      "bounds_mm": [
+        [
+          95.30976507786326,
+          -43.33219850927687,
+          82.0
+        ],
+        [
+          121.24277777975557,
+          1.0850970837297211,
+          104.00000000000007
+        ]
+      ]
+    },
+    {
+      "name": "Underdeck:RestoredBank",
+      "entry": "5.brep",
+      "sha256": "04bb03011e90c53407e7e01f77be5ed48eb9c8ac0466b3ed364f7fef9c1627ff",
+      "bounds_mm": [
+        [
+          -43.750000000000014,
+          -95.30000000000001,
+          -15.350000000000001
+        ],
+        [
+          166.28580032320374,
+          16.135864466260244,
+          106.6
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 5.39000000001397,
+  "process_cpu_seconds": 5.703125,
+  "selected": false,
+  "N01_complete": false
+}
