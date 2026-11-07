@@ -1,0 +1,5 @@
+import time,json,os
+st150=time.monotonic();cp150=time.process_time();plane150=Part.makePlane(180,180,A.Vector(-40,-60,-10),A.Vector(1,0,0));sec150=[]
+for n,s in [('PROPOSED_SIDE_CASE_BOX',case148),('ACTUAL_V_ROOT_MEMBER',rr149),('V_FUNCTIONAL_PRESSURE_AGGREGATE',ctx121['V:functional_pressure_support'])]:
+ q=s.section(plane150);sec150.append(dict(X_mm=-40,name=n,curves_yz=[[[p.y,p.z] for p in e.discretize(Deflection=.025)] for e in q.Edges]))
+r150=dict(id='day07-FPI-side-case-V-root-actual-YZ-section',status='EXISTING_OPERAND_SECTION_ONLY_NO_NEW_PAIR_OR_VARIANT',sections=sec150,source_receipt=p149.name,no_new_distance_common_or_geometry=True,operation_seconds=time.monotonic()-st150,process_cpu_seconds=time.process_time()-cp150,pid=os.getpid(),session_id=46493);p150=OUT/(r150['id']+'.json');assert not p150.exists();p150.write_bytes((json.dumps(r150,indent=2)+'\n').encode());print('BODY150','section curves',[len(q['curves_yz']) for q in sec150],'wall',r150['operation_seconds'],'CPU',r150['process_cpu_seconds'],'OWNER71_IDLE',os.getpid(),flush=True)
