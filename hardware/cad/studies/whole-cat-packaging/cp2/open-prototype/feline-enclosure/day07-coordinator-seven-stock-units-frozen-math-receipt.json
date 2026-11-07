@@ -1,0 +1,105 @@
+{
+  "id": "day07-coordinator-seven-stock-units-frozen-math-receipt",
+  "status": "FIVE_READONLY_ARITHMETIC_OBSERVATIONS_RECEIVED_NO_SPATIAL_OR_MOUNT_GO",
+  "written_utc": "2026-11-07T13:14:03.307982+00:00",
+  "reviewer": {
+    "thread_id": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+    "turn_id": "01a1b61d-9ecd-7b13-9ac9-93249b05a83d",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "role": "readonly_frozen_stock_math_NOT_designreview",
+    "no_CAD_edits_or_new_agents": true,
+    "designreview_reopened": false
+  },
+  "source_pins": [
+    {
+      "path": "day07-FPI-SIDE-whole-kit-V-root-interface-bounded-disposition.json",
+      "sha256": "8249073cb7a83aabc70f23d0fd4c9ead646230e996d57e3e4a21fa7d85275794"
+    },
+    {
+      "path": "day07-FPI-minusY-whole-case-stock-root-kit-proposal.json",
+      "sha256": "9dece392e7d563dcea3c7c0c51b361a1113af938eec02f102e11389c9051c7b9"
+    },
+    {
+      "path": "day07-save-SIDE-whole-kit-input.recipe.py",
+      "sha256": "0d07bb02bf2843e112b4784d88cb92d78e46ec533df3e1b81f747c743ca93e56"
+    },
+    {
+      "path": "day07-W068-top-bearing-split-crown-bounded-disposition.json",
+      "sha256": "9a3d2076072a92a850a2312253dff116f84bd275a3b3c276d32f5df232b5d366"
+    },
+    {
+      "path": "day07-W068-whole-retention-root-bounded-disposition.json",
+      "sha256": "18d2256f521d1fe5311ed78a0106b40e6714d147b2b894aadfb3ab59a7528f67"
+    }
+  ],
+  "source_field_typing_note": "SIDE W068 keys full_tail115_469029/full_tail114_950444 are BOOLEAN preservationflags, NOTnumericlengths. Parent derivesactualtail145-L frompinnedearliernumericloopreceipts; boolneverusedas1mm. Newstockdeclarations shouldcarrytypednumericL/tail/feed perunit. Priorfiguresreviewerroundedmatchwithin1e-6.",
+  "dispositions": [
+    {
+      "id": 1,
+      "decision": "ACCEPT_NOMINAL_PER_UNIT_ACCOUNTING_ONLY",
+      "rule": "EACH7unit: tail=sourceunit-loopmidline;25pull/headfeed WITHINtailONCE; entireuncuttailparks. HeadenvelopegivesSPACE, no addedlinearcapacity. No pooling/cuts/inventoryclaim."
+    },
+    {
+      "id": 2,
+      "decision": "ACCEPT_CONDITIONAL_T30L_NOMINAL_BOUND",
+      "SKU": "111-03410/T30L",
+      "closure_min_mm": 190,
+      "parking_nominal_mm": 198,
+      "delivered_upper_tolerance": null,
+      "loop_mm": 102.74955592153876,
+      "tail_nominal_mm": 95.25044407846124,
+      "lane_mm": 102.84955592153875,
+      "nominal_spare_mm": 7.599111843077509,
+      "conditions": "Connectedheadfeed/properentry/no selfoverlap/full6x6x4headspace/sourcecut-renewaccess; no physicalstock/mountPASS."
+    },
+    {
+      "id": 3,
+      "decision": "HOLD_FOUR_FPI_145_LOOPS_AND_FEEDS_UNTIL_INDIVIDUALLY_TYPED",
+      "input_loop_mm": 29.845130209103033,
+      "input_tail_mm": 115.15486979089697,
+      "input_extra_feed_required_mm": 12.305313869358216,
+      "other_units": [
+        "FPI_W077_output145",
+        "splice16_145",
+        "splice18_145"
+      ],
+      "three_other_loop_lengths_in_frozen_packet": null,
+      "formula_extra_feed_mm": "max(0,42.15044407846125-L_i)",
+      "closure_condition": "145-L_i>=25",
+      "conditions": "ActualperunitloopOD/midline anddistinctconnectedhead-to-lane feed/roll; no copyinputR4.75withoutsourceidentity."
+    },
+    {
+      "id": 4,
+      "decision": "ACCEPT_W068_SCALAR_BOUNDS_CONDITIONAL_CONNECTED_GEOMETRY",
+      "pressure_loop_mm": 29.530970943744055,
+      "pressure_tail_mm": 115.46902905625595,
+      "pressure_track_mm": 116.94955592153877,
+      "pressure_nominal_margin_mm": 1.480526865282826,
+      "root_loop_mm": 30.04955592153877,
+      "root_tail_mm": 114.95044407846123,
+      "root_race_mm": 96.84955592153875,
+      "root_extra_feed_required_mm": 18.10088815692248,
+      "root_proposed_feed_mm": 29.2247779608,
+      "root_nominal_margin_if_disjoint_connected_mm": 11.123889803877518,
+      "conditions": "Twoactualpressureturns/continuousentry; rootfeedconnectsheadtorace/rollspace/disjointcapacity. Proposedlengthnotspatialacceptance/chordcredit."
+    },
+    {
+      "id": 5,
+      "decision": "HOLD_SHARED_SPATIAL_LAY_AND_ASSEMBLY",
+      "ribbon_width_mm": 15.1,
+      "radial_mm": 2,
+      "formula": "3.5+4*2.5+4*.2+2*.4=15.1;1.2+.4+.4=2",
+      "conditions": "Onlyflatparallelparkingfitsnominalprofile. Separatehead/feed/rollregionsrequired; no exactwholefreebandaxes. No newgeometry/poseapproved."
+    }
+  ],
+  "parent_scalar_recheck": {
+    "lane_mm": 102.84955592153875,
+    "W043_loop_mm": 29.845130209103033,
+    "W043_extra_feed_mm": 12.305313869358216,
+    "source_hashes_verified": 5,
+    "scope": "Purearithmetic/text only/no CAD/3Dcontacts/actualrouteproof"
+  },
+  "N01_complete": false,
+  "global_current_A_U_minfit_slack": null
+}
