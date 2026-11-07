@@ -1,0 +1,19 @@
+import time,json,hashlib,zipfile,os
+st154=time.monotonic();cp154=time.process_time();rail154=ctx121['Ref_Material_P0_SideLeft22_0_0'];rb154=saved_bounds(rail154);sourcecomp154=[dict(index=i,volume_mm3=s.Volume,bounds_mm=saved_bounds(s)) for i,s in enumerate(oldroot153.Solids)];changed154=[]
+for i,s in enumerate(union153.Solids):
+ c=s.common(dict(members153)['floor'])
+ if c.Volume>1e-7:changed154.append((i,s,c.Volume))
+assert len(changed154)==1;chosen154=changed154[0][1];source_matches154=[]
+for i,s in enumerate(oldroot153.Solids):
+ c=s.common(chosen154)
+ if c.Volume>1e-7:source_matches154.append(dict(old_component=i,common_mm3=c.Volume,old_volume_mm3=s.Volume,old_component_missing_mm3=s.cut(chosen154).Volume))
+sec154=[];plane154=Part.Face(Part.Wire(Part.makePolygon([A.Vector(-40,y,z) for y,z in [(-20,20),(70,20),(70,80),(-20,80),(-20,20)]]).Edges))
+for n,s in [('CURRENT_SIDELEFT22',rail154),('NEW_CASE_CRADLE_COMPONENT',chosen154),('UNCHANGED_V_ROOT',oldroot153),('FIVE_TAIL_PORTAL',ribbon148),('RESERVED_FPI_CASE',case148)]:
+ q=s.section(plane154);sec154.append(dict(name=n,X_mm=-40,curves_yz=[[[p.y,p.z] for p in e.discretize(Deflection=.025)] for e in q.Edges]))
+items154=[('ACTUAL_CURRENT_SIDELEFT22',rail154),('ONLY_CHANGED_CASE_ROOT_COMPONENT',chosen154)];ar154=OUT/'day07-FPI-cradle-SideLeft-actual-component-witness.breps.zip';assert not ar154.exists();ge154=[]
+with zipfile.ZipFile(ar154,'w',zipfile.ZIP_DEFLATED) as z:
+ for i,(n,s) in enumerate(items154):
+  raw=s.exportBrepToString().encode();en=str(i)+'.brep';z.writestr(en,raw);ge154.append(dict(name=n,entry=en,sha256=hashlib.sha256(raw).hexdigest(),valid=s.isValid(),volume_mm3=s.Volume,bounds_mm=saved_bounds(s)))
+ z.writestr('manifest.json',(json.dumps(dict(geometry=ge154),indent=2)+'\n').encode())
+r154=dict(id='day07-FPI-case-cradle-SideLeft-function-and-components',status='ACTUAL_RETAINED_FRAME_INTERFERENCE_AND_SOURCE_COMPONENT_ACCOUNTING',source_old_V_root_solids=len(oldroot153.Solids),new_preserved_root_plus_cradle_solids=len(union153.Solids),source_components=sourcecomp154,case_holding_component=dict(new_component_index=changed154[0][0],solids=1,newfloor_common_mm3=changed154[0][2],matched_preserved_source_components=source_matches154),no_new_floating_component_claim=True,all_old_root_material_coverage=r153['root_unchanged_material_missing_mm3'],rail_name='Ref_Material_P0_SideLeft22_0_0',rail_bounds_mm=rb154,first_current_rail_common_mm3=r153['first_falsifier']['allocated_common_mm3'],no_frame_ownwaiver_or_cut=True,source_field_derived_inboard_window=dict(tail_region_Ymax=24.5,tail_margin=1.25,inboard_minY=25.75,rail_bbox_minY=rb154[0][1],rail_margin=1.25,inboard_maxY=rb154[0][1]-1.25,remaining_width_mm=rb154[0][1]-1.25-25.75,scope='ONLYnecessaryboundingstrip ifwholeweb+foot+stockaccessfunction replanned; notnewgeometry/clearancePASS. Do nottrim.25corneroreditrealframe.'),sections=sec154,archive=ar154.name,archive_sha256=hashlib.sha256(ar154.read_bytes()).hexdigest(),geometry=ge154,first_new_matrix_counter=dict(received=r153['cursor'],total=r153['total'],unreceived=r153['unreceived'],frozen=True),source_caps_grips_BankPads_not_moved=True,old075case_V_HOLD_functionalclassification_STILL_UNRESOLVED=True,old_casebody_capture_proofs_scoped_only=True,operation_seconds=time.monotonic()-st154,process_cpu_seconds=time.process_time()-cp154,pid=os.getpid(),session_id=46493)
+p154=OUT/(r154['id']+'.json');assert not p154.exists();p154.write_bytes((json.dumps(r154,indent=2)+'\n').encode());print('BODY154','oldsolids',len(oldroot153.Solids),'newsolids',len(union153.Solids),'changedcasepart',len(changed154),'matches',source_matches154,'rail',rb154,'strip',r154['source_field_derived_inboard_window'],'wall',r154['operation_seconds'],'CPU',r154['process_cpu_seconds'],flush=True);print('OWNER72_IDLE',os.getpid(),flush=True)

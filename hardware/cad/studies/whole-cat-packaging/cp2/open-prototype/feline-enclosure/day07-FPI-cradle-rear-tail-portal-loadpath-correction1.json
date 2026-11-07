@@ -1,0 +1,93 @@
+{
+  "id": "day07-FPI-cradle-rear-tail-portal-loadpath-correction1",
+  "status": "ONE_WHOLE_CASE_LOADPATH_CORRECTION_NOT_SCALAR_POST_TRIM",
+  "selected": false,
+  "N01_complete": false,
+  "correction_used": 1,
+  "C0_frozen": "day07-FPI-real-cradle-preserved-V-root-first-gates.json",
+  "C0_SideLeft_common_mm3": 16.500000000019206,
+  "cause": "SourceSideLeft22 bboxYmin27 andtailYmax24.5 leavezeroYwidthwithtwo1.25margins. No shifted/thinnedpost throughthiszero strip. NewREARbypass passesX<-64.55 aroundtailendX-56 andthenABOVEalltailregionsZ54.725+1.25. No V3sourcecap/wire/port changes.",
+  "source_case_and_crown_unchanged": true,
+  "source_V_allmaterial_and3caps_BankPads_unchanged": true,
+  "new_members": {
+    "rear_foot_wing": [
+      [
+        -70.8,
+        15.5,
+        35.875
+      ],
+      [
+        -62.55,
+        22.45,
+        38.375
+      ]
+    ],
+    "rear_post": [
+      [
+        -68.55,
+        16.45,
+        37.875
+      ],
+      [
+        -64.55,
+        20.45,
+        59.975
+      ]
+    ],
+    "overhead_tail_portal_beam": [
+      [
+        -68.55,
+        16.45,
+        55.975
+      ],
+      [
+        -39,
+        20.45,
+        59.975
+      ]
+    ]
+  },
+  "root_probe": [
+    [
+      -41,
+      16.45,
+      59
+    ],
+    [
+      -39,
+      20.45,
+      59.975
+    ]
+  ],
+  "unchanged_new_members_reused": [
+    "floor",
+    "left_endcapture",
+    "right_endcapture"
+  ],
+  "intentional_channel": "RemoveONLYwholeunchangedT30LbandphysicalroutefromNEWoverheadbeam; nevercase/oldVroot. Actualremainingusefulcrosssection/completeintendedmembercoverage andsourcecontactsneeded; no structuralclaimfromisValidalone.",
+  "source_constraints": {
+    "rearpost_to_T30Lfullhead_neck_X": 1.25,
+    "overhead_to_5tail_ribbon_and_neck_Z": 1.25,
+    "footwing_to_5tail_Z": 1.25,
+    "SideLeft_Y_gap_min": 4.55,
+    "W020fullhead_Y_gap": 1.298,
+    "no_head_or_case_nudge": true
+  },
+  "assembly": "Samecaseb-17.3/Rx180/openbottomcasecapture+T30L fullclosedband/3sourcecaps separate; bandthreadsgrooveinnewportalbeforecaseclose. Root/case/cradletruefunctionbeforeOWN; independent4wirestrainroots+wholeheadfeedtail/accessstillmandatory/OPEN. No virtualsolder/integralpartdetach.",
+  "first_gate": "Actualnewsourceprobe/material+membercoverage+unchangedoldVcomponents/fullcasezero material; testONLYnewaddedC1materialrelativeC0 againstcurrentfullneighbors, allforeign1.25. PreserveC0raw4/23+19unreceived/no replay3oldpositives, physicalSideLeftclearprovebynewbounding/actualdelta only. StopfirstactualHOLD/C1exhausted no C2.",
+  "source_pins": [
+    {
+      "path": "day07-FPI-cradle-preserved-V-root-functional-joint-proposal.json",
+      "sha256": "faa4a5dc8f53b3af9aacc5a0213089f22527fb6d514121325b4022f0244dd16a"
+    },
+    {
+      "path": "day07-FPI-real-cradle-preserved-V-root-first-gates.json",
+      "sha256": "348dc17814ecdb7c13547194668360a7b07bb03ba396e6fb45e1fc082a017974"
+    },
+    {
+      "path": "day07-FPI-case-cradle-SideLeft-function-and-components.json",
+      "sha256": "361b1a5c3b9fe44718a762b6be6932716e246645f1ebbd4a9bbc354824cbc33e"
+    }
+  ],
+  "written_utc": "2026-11-07T13:17:00.441459+00:00"
+}

@@ -1,0 +1,526 @@
+{
+  "id": "day07-FPI-real-cradle-V-load-interface-bounded-disposition",
+  "status": "C0_C1_REAL_FRAME_CONFLICTS_STRATEGY_EXHAUSTED_NO_NEW_CURRENT_PARENT",
+  "selected": false,
+  "N01_complete": false,
+  "closed_problem": "A nominal logical V pressure envelope cannot become FPI OWN fit by name. Actual functional cradle/whole band contact and preserved real V material were built and measured; TWO real frame conflicts reject both loadpath allocations. No third pillar/foot/case nudge and no V source geometry changed.",
+  "C0": {
+    "root_mm3": 8.399999999999991,
+    "case_floor_contact_mm2": [
+      {
+        "role": "WHOLE_T30L_TO_CASE_TOP",
+        "a": 4,
+        "b": 18,
+        "area_mm2": 76.99999999999999
+      },
+      {
+        "role": "CASE_BOTTOM_TO_NEW_FLOOR",
+        "a": 5,
+        "b": 2,
+        "area_mm2": 1121.9998321533203
+      }
+    ],
+    "member_count": 6,
+    "missing_max_mm3": 0.0,
+    "positive_junctions": 5,
+    "first_falsifier": {
+      "part": "NEW_CASE_CRADLE_ADDED_MATERIAL",
+      "other": "Ref_Material_P0_SideLeft22_0_0",
+      "source_valid": true,
+      "field_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -38.0,
+            29.75,
+            38.520000000000934
+          ],
+          [
+            -38.0,
+            29.75,
+            38.520000000000934
+          ]
+        ]
+      ],
+      "status": "NEW_DELTA_INTERFACE_HOLD",
+      "common_valid": true,
+      "allocated_common_mm3": 16.500000000019206
+    },
+    "received": 4,
+    "total": 23,
+    "unreceived": 19
+  },
+  "actual_V_component_accounting": {
+    "old_solids": 3,
+    "new_C0_solids": 3,
+    "changed_case_component": {
+      "new_component_index": 0,
+      "solids": 1,
+      "newfloor_common_mm3": 4098.871523551488,
+      "matched_preserved_source_components": [
+        {
+          "old_component": 0,
+          "common_mm3": 90.64999999999993,
+          "old_volume_mm3": 90.64999999999995,
+          "old_component_missing_mm3": 0.0
+        }
+      ]
+    },
+    "source_material_not_silently_fused": true,
+    "no_strength_claim": true
+  },
+  "C1": {
+    "root_mm3": 5.460000000000003,
+    "intended_member_count": 7,
+    "member_coverage": [
+      {
+        "name": "PRESERVED_CURRENT_V_ROOT",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -41.0,
+            15.65,
+            53.5
+          ],
+          [
+            8.4,
+            41.25,
+            66.2
+          ]
+        ]
+      },
+      {
+        "name": "floor",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -70.8,
+            -9.5,
+            35.875
+          ],
+          [
+            -10.049999999999997,
+            17.5,
+            38.375
+          ]
+        ]
+      },
+      {
+        "name": "left_endcapture",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -70.8,
+            -7.0,
+            38.175
+          ],
+          [
+            -68.3,
+            15.0,
+            42.375
+          ]
+        ]
+      },
+      {
+        "name": "right_endcapture",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -17.3,
+            -7.0,
+            38.175
+          ],
+          [
+            -14.8,
+            15.0,
+            42.375
+          ]
+        ]
+      },
+      {
+        "name": "rear_foot_wing",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -70.8,
+            15.5,
+            35.875
+          ],
+          [
+            -62.55,
+            22.45,
+            38.375
+          ]
+        ]
+      },
+      {
+        "name": "rear_post",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -68.55,
+            16.45,
+            37.875
+          ],
+          [
+            -64.55,
+            20.45,
+            59.975
+          ]
+        ]
+      },
+      {
+        "name": "overhead_tail_portal_beam",
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -68.55,
+            16.45,
+            55.975
+          ],
+          [
+            -39.0,
+            20.45,
+            59.975
+          ]
+        ]
+      }
+    ],
+    "positive_junctions": [
+      {
+        "a": "PRESERVED_CURRENT_V_ROOT",
+        "b": "overhead_tail_portal_beam",
+        "common_mm3": 5.460000000000003,
+        "valid": true
+      },
+      {
+        "a": "floor",
+        "b": "left_endcapture",
+        "common_mm3": 11.000000000000156,
+        "valid": true
+      },
+      {
+        "a": "floor",
+        "b": "right_endcapture",
+        "common_mm3": 11.000000000000158,
+        "valid": true
+      },
+      {
+        "a": "floor",
+        "b": "rear_foot_wing",
+        "common_mm3": 41.24999999999999,
+        "valid": true
+      },
+      {
+        "a": "floor",
+        "b": "rear_post",
+        "common_mm3": 2.1000000000000014,
+        "valid": true
+      },
+      {
+        "a": "rear_foot_wing",
+        "b": "rear_post",
+        "common_mm3": 7.999999999999999,
+        "valid": true
+      },
+      {
+        "a": "rear_post",
+        "b": "overhead_tail_portal_beam",
+        "common_mm3": 64.0,
+        "valid": true
+      }
+    ],
+    "old_solids": 3,
+    "new_solids": 3,
+    "own_material_checks": {
+      "case_vs_print": {
+        "valid": true,
+        "common_mm3": 0.0
+      },
+      "band_vs_print": {
+        "valid": true,
+        "common_mm3": 0.0
+      },
+      "band_vs_case": {
+        "valid": true,
+        "common_mm3": 0.0
+      }
+    },
+    "stock_portals": [
+      {
+        "part": "rear_foot_wing",
+        "other": "FIVE_TAIL_FIELD",
+        "gap_mm": 6.6682081551193315,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "rear_foot_wing",
+        "other": "T30L_FULL_HEAD",
+        "gap_mm": 6.875,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "rear_foot_wing",
+        "other": "T30L_FULL_CONNECTED_NECK",
+        "gap_mm": 8.875,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "rear_post",
+        "other": "FIVE_TAIL_FIELD",
+        "gap_mm": 8.55009960119839,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "rear_post",
+        "other": "T30L_FULL_HEAD",
+        "gap_mm": 1.25,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "rear_post",
+        "other": "T30L_FULL_CONNECTED_NECK",
+        "gap_mm": 1.25,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "overhead_tail_portal_beam",
+        "other": "FIVE_TAIL_FIELD",
+        "gap_mm": 1.25,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "overhead_tail_portal_beam",
+        "other": "T30L_FULL_HEAD",
+        "gap_mm": 6.725000000000001,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      },
+      {
+        "part": "overhead_tail_portal_beam",
+        "other": "T30L_FULL_CONNECTED_NECK",
+        "gap_mm": 1.25,
+        "common_mm3": 0.0,
+        "valid": true,
+        "required_mm": 1.25
+      }
+    ],
+    "first_falsifier": {
+      "other": "Ref_Material_P0_FrameFront20_0_0",
+      "source_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -70.8,
+            19.999999999995403,
+            35.875
+          ],
+          [
+            -70.8,
+            19.999999999995403,
+            35.875
+          ]
+        ]
+      ],
+      "status": "CHANGED_MATERIAL_HOLD",
+      "common_valid": true,
+      "common_mm3": 10.092776504840048
+    },
+    "received": 1,
+    "total": 5,
+    "unreceived": 4,
+    "two_cause_attempts_exhausted": true
+  },
+  "preserved": "Original V:new_root_material ALL material/3 full9caps/BankPads/sourceports/crown5/4; b-17.3case/Rx180 and PiSOURCE computer pose; selectedparts/R47P0E6MAIN46.52/foreign1.25/BodyOuter3.25/four independent220/both4MTA. No actual current parent replacement.",
+  "remaining_OPEN": [
+    "Original case/V raw positivegap .750416551 HOLD not reclassified OWN",
+    "Four independent wire9 strain lands/actual roots/full head feeds/stock rolls/initial assembly",
+    "W0682whole145/root pressure9/S0pair/5tail connected stock current-space acceptance",
+    "W078input210 MAINpad-full12/newdebit; currentSOURCE outsideDGV R35.1/55EACH FL2/all9ID12portion4MAX3 AUfit_slackNULL/actualcutNULL",
+    "Global123/246/headNorth/U1far/R6/invalid3/Pimates/changedmotion-outline; wholeN01 remains0"
+  ],
+  "next": "STOP this C0/C1 cradle strategy. Do not thin/shift a third foot or V bar. Before another FPI support, choose whole fore-neck/PWM/S0/case support-and-stock layer/interface using actual retained frame loadinterfaces and preserve V3 source prerequisite. Independent USB3 current-invalid operand/source-cover disposition is safe next work while whole SOURCE AU/850/MAX3 remainsOPEN; no replay accepted pairs.",
+  "view": {
+    "path": "day07-FPI-cradle-C0-C1-received-sections.png",
+    "sha256": "d66ef9994cd0ee5fb33a1115114b7baa79f01c53487e448c4e645ac9e56dcdff",
+    "source": "day07-FPI-cradle-C0-C1-actual-received-sections.json",
+    "actual_sections": true,
+    "no_projection_contact_claim": true,
+    "visually_inspected": true,
+    "inspection": "Both actual world YZ sections visually received; labels/source outlines visible. Actual common volumes from native, never inferred from projection."
+  },
+  "timings": [
+    {
+      "receipt": "day07-FPI-real-cradle-preserved-V-root-first-gates.json",
+      "operation_seconds": 2.4369999999180436,
+      "process_cpu_seconds": 3.234375
+    },
+    {
+      "receipt": "day07-FPI-case-cradle-SideLeft-function-and-components.json",
+      "operation_seconds": 0.43799999996554106,
+      "process_cpu_seconds": 0.5625
+    },
+    {
+      "receipt": "day07-FPI-rear-portal-correction1-current-material.json",
+      "operation_seconds": 2.3130000000819564,
+      "process_cpu_seconds": 2.9375
+    },
+    {
+      "receipt": "day07-FPI-cradle-C0-C1-actual-received-sections.json",
+      "operation_seconds": 0.2809999999590218,
+      "process_cpu_seconds": 0.328125
+    }
+  ],
+  "measured_native_wall_seconds": 5.468999999924563,
+  "measured_native_CPU_seconds": 7.0625,
+  "source_pins": [
+    {
+      "path": "day07-FPI-SIDE-whole-kit-V-root-interface-bounded-disposition.json",
+      "sha256": "8249073cb7a83aabc70f23d0fd4c9ead646230e996d57e3e4a21fa7d85275794"
+    },
+    {
+      "path": "day07-FPI-minusY-whole-case-stock-root-kit-proposal.json",
+      "sha256": "9dece392e7d563dcea3c7c0c51b361a1113af938eec02f102e11389c9051c7b9"
+    },
+    {
+      "path": "day07-FPI-side-case-V-root-explicit-world-YZ-section.json",
+      "sha256": "04075beddbc459611bac98807839064239197b6bd3cf54b1233e50c2a7688e82"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-FPI-cradle-preserved-V-root-functional-joint-proposal.json",
+      "sha256": "faa4a5dc8f53b3af9aacc5a0213089f22527fb6d514121325b4022f0244dd16a",
+      "bytes": 4881
+    },
+    {
+      "path": "day07-FPI-real-cradle-preserved-V-root-first-gates.json",
+      "sha256": "348dc17814ecdb7c13547194668360a7b07bb03ba396e6fb45e1fc082a017974",
+      "bytes": 14685
+    },
+    {
+      "path": "day07-FPI-real-cradle-preserved-V-root-first-gates.breps.zip",
+      "sha256": "cd3a03423a6772742b83c861e333a1c66d35836b7a152b83e5134051dc2fc6f8",
+      "bytes": 75451
+    },
+    {
+      "path": "day07-FPI-case-cradle-SideLeft-function-and-components.json",
+      "sha256": "361b1a5c3b9fe44718a762b6be6932716e246645f1ebbd4a9bbc354824cbc33e",
+      "bytes": 14962
+    },
+    {
+      "path": "day07-FPI-cradle-SideLeft-actual-component-witness.breps.zip",
+      "sha256": "32f839165f90eb644d8c9ae3a3507a7a4fc392c0a02b472007f06d75ca990e3b",
+      "bytes": 40919
+    },
+    {
+      "path": "day07-FPI-cradle-rear-tail-portal-loadpath-correction1.json",
+      "sha256": "04cb1a19f787e793b06a963d648bcccd9cb03cb00bb4b03fa81b7c61bee78d83",
+      "bytes": 3139
+    },
+    {
+      "path": "day07-FPI-rear-portal-correction1-current-material.json",
+      "sha256": "2f19651fd82303e66c2c946cfc4158b2ea324ca0565787f56bc12270328be399",
+      "bytes": 16143
+    },
+    {
+      "path": "day07-FPI-rear-portal-correction1-current-material.breps.zip",
+      "sha256": "866fe257e237c499d7621e2c2e045f09a548a1ee2b12f2ebbd1c444a6a652aa7",
+      "bytes": 140929
+    },
+    {
+      "path": "day07-FPI-cradle-C0-C1-actual-received-sections.json",
+      "sha256": "6e6f66d477b783590af497b18105ed578e9628572208cdf1e60c97b09a924bc4",
+      "bytes": 14497
+    },
+    {
+      "path": "day07-FPI-cradle-C0-C1-received-sections.png",
+      "sha256": "d66ef9994cd0ee5fb33a1115114b7baa79f01c53487e448c4e645ac9e56dcdff",
+      "bytes": 28482
+    },
+    {
+      "path": "day07-FPI-cradle-C0-C1-received-sections.svg",
+      "sha256": "1cc0af11be99991482eaadb43633edf212ff834da2866b7a5491b9e31aa82275",
+      "bytes": 10598
+    },
+    {
+      "path": "day07-save-real-case-root-interface.recipe.py",
+      "sha256": "7abeab825a5f301a261dfcf88c3601736edd217f18d475a7f12b83cad2496a6a",
+      "bytes": 5672
+    },
+    {
+      "path": "day07-real-cradle-root-stock-first-gates.recipe.py",
+      "sha256": "9ea31474474a29ab9b1da42f28aef2b988c9ea05a4e18ca57ef449414d63a6a7",
+      "bytes": 8418
+    },
+    {
+      "path": "day07-actual-frame-source-component-fact.recipe.py",
+      "sha256": "8eb420edd2b100736da25543c4fea5707acafa79bfe6de3d96f5c2fc947a0eb4",
+      "bytes": 3833
+    },
+    {
+      "path": "day07-save-one-portal-correction.recipe.py",
+      "sha256": "71b316b9dd631c01bb758a42191d4ed9308136edb59b42580a1647e19e936bf3",
+      "bytes": 3842
+    },
+    {
+      "path": "day07-native-rear-portal-correction.recipe.py",
+      "sha256": "ca9ce7278a34dd20bfb85063ada0b15ca3cc214b224e0b8d470977240dffea4e",
+      "bytes": 5658
+    },
+    {
+      "path": "day07-save-current-sections-only.recipe.py",
+      "sha256": "fd1ac38ab335cc5829599d2d7bb4b91322cbc23ff0575a42a52850c23ff61ddf",
+      "bytes": 1183
+    },
+    {
+      "path": "day07-package-received-cradle.recipe.py",
+      "sha256": "556d08d828d10ae830deab3e41d02ba59ec7f8d3964bedac3bd2ba29d36a429e",
+      "bytes": 7994
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-FPI-real-cradle-preserved-V-root-first-gates.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 16
+    },
+    {
+      "path": "day07-FPI-cradle-SideLeft-actual-component-witness.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 2
+    },
+    {
+      "path": "day07-FPI-rear-portal-correction1-current-material.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 22
+    }
+  ],
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false
+  },
+  "written_utc": "2026-11-07T13:21:06.780909+00:00"
+}

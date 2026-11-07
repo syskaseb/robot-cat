@@ -1,0 +1,761 @@
+{
+  "id": "day07-FPI-rear-portal-correction1-current-material",
+  "status": "C1_FIRST_FUNCTIONAL_INTERFACE_HOLD",
+  "proposal": "day07-FPI-cradle-rear-tail-portal-loadpath-correction1.json",
+  "proposal_sha256": "04cb1a19f787e793b06a963d648bcccd9cb03cb00bb4b03fa81b7c61bee78d83",
+  "actual_root_mm3": 5.460000000000003,
+  "coverage": [
+    {
+      "name": "PRESERVED_CURRENT_V_ROOT",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -41.0,
+          15.65,
+          53.5
+        ],
+        [
+          8.4,
+          41.25,
+          66.2
+        ]
+      ]
+    },
+    {
+      "name": "floor",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -70.8,
+          -9.5,
+          35.875
+        ],
+        [
+          -10.049999999999997,
+          17.5,
+          38.375
+        ]
+      ]
+    },
+    {
+      "name": "left_endcapture",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -70.8,
+          -7.0,
+          38.175
+        ],
+        [
+          -68.3,
+          15.0,
+          42.375
+        ]
+      ]
+    },
+    {
+      "name": "right_endcapture",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -17.3,
+          -7.0,
+          38.175
+        ],
+        [
+          -14.8,
+          15.0,
+          42.375
+        ]
+      ]
+    },
+    {
+      "name": "rear_foot_wing",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -70.8,
+          15.5,
+          35.875
+        ],
+        [
+          -62.55,
+          22.45,
+          38.375
+        ]
+      ]
+    },
+    {
+      "name": "rear_post",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -68.55,
+          16.45,
+          37.875
+        ],
+        [
+          -64.55,
+          20.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "overhead_tail_portal_beam",
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          -68.55,
+          16.45,
+          55.975
+        ],
+        [
+          -39.0,
+          20.45,
+          59.975
+        ]
+      ]
+    }
+  ],
+  "positive_joints": [
+    {
+      "a": "PRESERVED_CURRENT_V_ROOT",
+      "b": "overhead_tail_portal_beam",
+      "common_mm3": 5.460000000000003,
+      "valid": true
+    },
+    {
+      "a": "floor",
+      "b": "left_endcapture",
+      "common_mm3": 11.000000000000156,
+      "valid": true
+    },
+    {
+      "a": "floor",
+      "b": "right_endcapture",
+      "common_mm3": 11.000000000000158,
+      "valid": true
+    },
+    {
+      "a": "floor",
+      "b": "rear_foot_wing",
+      "common_mm3": 41.24999999999999,
+      "valid": true
+    },
+    {
+      "a": "floor",
+      "b": "rear_post",
+      "common_mm3": 2.1000000000000014,
+      "valid": true
+    },
+    {
+      "a": "rear_foot_wing",
+      "b": "rear_post",
+      "common_mm3": 7.999999999999999,
+      "valid": true
+    },
+    {
+      "a": "rear_post",
+      "b": "overhead_tail_portal_beam",
+      "common_mm3": 64.0,
+      "valid": true
+    }
+  ],
+  "source_old_solids": 3,
+  "new_union_solids": 3,
+  "own_material_checks": {
+    "case_vs_print": {
+      "valid": true,
+      "common_mm3": 0.0
+    },
+    "band_vs_print": {
+      "valid": true,
+      "common_mm3": 0.0
+    },
+    "band_vs_case": {
+      "valid": true,
+      "common_mm3": 0.0
+    }
+  },
+  "stock_portals": [
+    {
+      "part": "rear_foot_wing",
+      "other": "FIVE_TAIL_FIELD",
+      "gap_mm": 6.6682081551193315,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "rear_foot_wing",
+      "other": "T30L_FULL_HEAD",
+      "gap_mm": 6.875,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "rear_foot_wing",
+      "other": "T30L_FULL_CONNECTED_NECK",
+      "gap_mm": 8.875,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "rear_post",
+      "other": "FIVE_TAIL_FIELD",
+      "gap_mm": 8.55009960119839,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "rear_post",
+      "other": "T30L_FULL_HEAD",
+      "gap_mm": 1.25,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "rear_post",
+      "other": "T30L_FULL_CONNECTED_NECK",
+      "gap_mm": 1.25,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "overhead_tail_portal_beam",
+      "other": "FIVE_TAIL_FIELD",
+      "gap_mm": 1.25,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "overhead_tail_portal_beam",
+      "other": "T30L_FULL_HEAD",
+      "gap_mm": 6.725000000000001,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    },
+    {
+      "part": "overhead_tail_portal_beam",
+      "other": "T30L_FULL_CONNECTED_NECK",
+      "gap_mm": 1.25,
+      "common_mm3": 0.0,
+      "valid": true,
+      "required_mm": 1.25
+    }
+  ],
+  "rows": [
+    {
+      "other": "Ref_Material_P0_FrameFront20_0_0",
+      "source_valid": true,
+      "required_mm": 1.25,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -70.8,
+            19.999999999995403,
+            35.875
+          ],
+          [
+            -70.8,
+            19.999999999995403,
+            35.875
+          ]
+        ]
+      ],
+      "status": "CHANGED_MATERIAL_HOLD",
+      "common_valid": true,
+      "common_mm3": 10.092776504840048
+    }
+  ],
+  "cursor": 1,
+  "total": 5,
+  "unreceived": 4,
+  "first_falsifier": {
+    "other": "Ref_Material_P0_FrameFront20_0_0",
+    "source_valid": true,
+    "required_mm": 1.25,
+    "gap_mm": 0.0,
+    "witnesses": [
+      [
+        [
+          -70.8,
+          19.999999999995403,
+          35.875
+        ],
+        [
+          -70.8,
+          19.999999999995403,
+          35.875
+        ]
+      ]
+    ],
+    "status": "CHANGED_MATERIAL_HOLD",
+    "common_valid": true,
+    "common_mm3": 10.092776504840048
+  },
+  "old_case_V075_still_HOLD": true,
+  "independent4wirestrains_feed_roll_initialassembly_OPEN": true,
+  "old_C0_4of23_19unreceived_frozen": true,
+  "source_V_caps_ports_BankPads_crown_unchanged": true,
+  "currentparent_not_replaced": true,
+  "selected": false,
+  "N01_complete": false,
+  "archive": "day07-FPI-rear-portal-correction1-current-material.breps.zip",
+  "archive_sha256": "866fe257e237c499d7621e2c2e045f09a548a1ee2b12f2ebbd1c444a6a652aa7",
+  "geometry": [
+    {
+      "name": "PRESERVED_ACTUAL_V_ROOT",
+      "entry": "0.brep",
+      "sha256": "42cae8307d2d9665594e8d72f08f4bd1fa05b4fb93fe9397b6bfa5fca87fbd8a",
+      "valid": true,
+      "volume_mm3": 269.42999999999995,
+      "area_mm2": 705.0670147331806,
+      "bounds_mm": [
+        [
+          -41.0,
+          15.65,
+          53.5
+        ],
+        [
+          8.4,
+          41.25,
+          66.2
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_SOURCE_ROOT_PROBE",
+      "entry": "1.brep",
+      "sha256": "f8aab61e8f889d4fb66fa016d2cbee0ea046ad803e05cb6e5e41e69348f38382",
+      "valid": true,
+      "volume_mm3": 7.800000000000011,
+      "area_mm2": 27.700000000000017,
+      "bounds_mm": [
+        [
+          -41.0,
+          16.45,
+          59.0
+        ],
+        [
+          -39.0,
+          20.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_SOURCE_ROOT_CONTACT",
+      "entry": "2.brep",
+      "sha256": "6c50979a35fadb500700e5a7bab5b4e83054add4bb0d959415d21eefcd265326",
+      "valid": true,
+      "volume_mm3": 5.460000000000003,
+      "area_mm2": 21.73,
+      "bounds_mm": [
+        [
+          -41.0,
+          16.45,
+          59.0
+        ],
+        [
+          -39.6,
+          20.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "floor",
+      "entry": "3.brep",
+      "sha256": "09ab3e25530b62e40bf6a352af2041f327a92da721364a5f9750efb2ce458b74",
+      "valid": true,
+      "volume_mm3": 4098.871523551487,
+      "area_mm2": 3717.4086920919863,
+      "bounds_mm": [
+        [
+          -70.8,
+          -9.5,
+          35.875
+        ],
+        [
+          -10.049999999999997,
+          17.5,
+          38.375
+        ]
+      ]
+    },
+    {
+      "name": "left_endcapture",
+      "entry": "4.brep",
+      "sha256": "c3a9d177027f2015906a289c10ea1890ebdcfcf5e02a3d7771e07e363cc8dca1",
+      "valid": true,
+      "volume_mm3": 231.00000000000017,
+      "area_mm2": 315.8000000000001,
+      "bounds_mm": [
+        [
+          -70.8,
+          -7.0,
+          38.175
+        ],
+        [
+          -68.3,
+          15.0,
+          42.375
+        ]
+      ]
+    },
+    {
+      "name": "right_endcapture",
+      "entry": "5.brep",
+      "sha256": "bf9fc280766da14d10b8e5c88c55113e1a731264bd86acc355a2b3c01d70e75a",
+      "valid": true,
+      "volume_mm3": 231.00000000000017,
+      "area_mm2": 315.8000000000001,
+      "bounds_mm": [
+        [
+          -17.3,
+          -7.0,
+          38.175
+        ],
+        [
+          -14.8,
+          15.0,
+          42.375
+        ]
+      ]
+    },
+    {
+      "name": "rear_foot_wing",
+      "entry": "6.brep",
+      "sha256": "1dc8de7fb973e1784f3ccfa6dabe2b4d0daadbb5a71e987d2be723e5d033495f",
+      "valid": true,
+      "volume_mm3": 143.34374999999997,
+      "area_mm2": 190.67499999999995,
+      "bounds_mm": [
+        [
+          -70.8,
+          15.5,
+          35.875
+        ],
+        [
+          -62.55,
+          22.45,
+          38.375
+        ]
+      ]
+    },
+    {
+      "name": "rear_post",
+      "entry": "7.brep",
+      "sha256": "5f3e7efc4907838ae2c84d3882dbff13c88b4c888ba28bd8efa54d1cfe3c4e1a",
+      "valid": true,
+      "volume_mm3": 353.6,
+      "area_mm2": 385.59999999999997,
+      "bounds_mm": [
+        [
+          -68.55,
+          16.45,
+          37.875
+        ],
+        [
+          -64.55,
+          20.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "overhead_tail_portal_beam",
+      "entry": "8.brep",
+      "sha256": "bb803a404e5a54194fe63c7d7c0bb55cca7c56983efa7c6d08c6f0085f85c05c",
+      "valid": true,
+      "volume_mm3": 453.8554325838284,
+      "area_mm2": 538.748529360165,
+      "bounds_mm": [
+        [
+          -68.55,
+          16.45,
+          55.975
+        ],
+        [
+          -39.0,
+          20.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "WHOLE_CORRECTED_ROOT_AND_CRADLE",
+      "entry": "9.brep",
+      "sha256": "637a250d12c217b201782e771e19fd774d09231bf43b8dcab18d3d2f13e7d93a",
+      "valid": true,
+      "volume_mm3": 5640.390706135312,
+      "area_mm2": 5687.5192361853315,
+      "bounds_mm": [
+        [
+          -70.8,
+          -9.5,
+          35.875
+        ],
+        [
+          8.4,
+          41.25,
+          66.2
+        ]
+      ]
+    },
+    {
+      "name": "ONLY_C1_NEW_ADDED_MATERIAL",
+      "entry": "10.brep",
+      "sha256": "861bf8949a08a9ca7f14fd18bd9ba7430c03b97885ddeaf82fa428945733c513",
+      "valid": true,
+      "volume_mm3": 832.0891825838287,
+      "area_mm2": 949.493529360165,
+      "bounds_mm": [
+        [
+          -70.8,
+          16.45,
+          35.875
+        ],
+        [
+          -39.0,
+          22.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "FULL_CASE",
+      "entry": "11.brep",
+      "sha256": "af029ed90f5ed852864e507dbeb02c87452ea8a9e26e8c12b5cbc93566fdeb5d",
+      "valid": true,
+      "volume_mm3": 22720.496601104736,
+      "area_mm2": 5200.499355316162,
+      "bounds_mm": [
+        [
+          -68.29999618530273,
+          -7.000000000000002,
+          38.37499999999999
+        ],
+        [
+          -17.300003814697263,
+          15.000000000000002,
+          58.62499999999999
+        ]
+      ]
+    },
+    {
+      "name": "FULL_T30L_BAND",
+      "entry": "12.brep",
+      "sha256": "2990ba7daad62dbd7c0bbc96f16c58273eb9790471900b62fea30d0173d0b829",
+      "valid": true,
+      "volume_mm3": 431.54813487046476,
+      "area_mm2": 965.8458256624657,
+      "bounds_mm": [
+        [
+          -62.05,
+          -11.600000000000001,
+          34.675
+        ],
+        [
+          -58.55,
+          19.6,
+          59.825
+        ]
+      ]
+    },
+    {
+      "name": "FULL_HEAD",
+      "entry": "13.brep",
+      "sha256": "123ca7bd2bd418af60315941451a98e311555649ebdf10d8da24d5549f51ed11",
+      "valid": true,
+      "volume_mm3": 144.0,
+      "area_mm2": 168.0,
+      "bounds_mm": [
+        [
+          -63.3,
+          19.0,
+          45.25
+        ],
+        [
+          -57.3,
+          25.0,
+          49.25
+        ]
+      ]
+    },
+    {
+      "name": "FIVE_TAIL_FIELD",
+      "entry": "14.brep",
+      "sha256": "75d584db1dd5bd18d46d0c4e85e6310995c251b92839d19feb259a5d5a0764fb",
+      "valid": true,
+      "volume_mm3": 3106.056588830477,
+      "area_mm2": 3517.4548125166293,
+      "bounds_mm": [
+        [
+          -56.0,
+          16.5,
+          39.625
+        ],
+        [
+          -6.000000000000002,
+          24.5000000000001,
+          54.725
+        ]
+      ]
+    },
+    {
+      "name": "FULL_CONNECTED_NECK",
+      "entry": "15.brep",
+      "sha256": "377083be4f43ae4a58cecef6cb945a16d71d12713679e2219a0059ab239b28b6",
+      "valid": true,
+      "volume_mm3": 837.2,
+      "area_mm2": 552.9,
+      "bounds_mm": [
+        [
+          -63.3,
+          17.0,
+          47.25
+        ],
+        [
+          -49.3,
+          25.0,
+          54.725
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_SIDELEFT22",
+      "entry": "16.brep",
+      "sha256": "7d6b1f9d2efae1ef397579f01fc5fc58a0479976095d525b3ad2d977f76bdd3f",
+      "valid": true,
+      "volume_mm3": 32397.373175726236,
+      "area_mm2": 29474.163547077624,
+      "bounds_mm": [
+        [
+          -84.99999999999717,
+          26.999999999968995,
+          -2.0
+        ],
+        [
+          127.00000000000848,
+          49.339613845817595,
+          38.5200000000025
+        ]
+      ]
+    },
+    {
+      "name": "USEFUL_WORLD_YZ_X-66.55",
+      "entry": "17.brep",
+      "sha256": "067978c46201474e459febee26d711393d04a464c07a3efcff8ca5f956702c7c",
+      "valid": true,
+      "volume_mm3": -1.113420466936077e-12,
+      "area_mm2": 117.525,
+      "bounds_mm": [
+        [
+          -66.55,
+          10.0,
+          35.875
+        ],
+        [
+          -66.55,
+          22.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "USEFUL_WORLD_YZ_X-50",
+      "entry": "18.brep",
+      "sha256": "118376b1ac29d6e253ff17b2bd693201c79134458ac9d482315a88db587cccd5",
+      "valid": true,
+      "volume_mm3": 0.0,
+      "area_mm2": 34.75,
+      "bounds_mm": [
+        [
+          -50.0,
+          10.0,
+          35.875
+        ],
+        [
+          -50.0,
+          20.45,
+          59.975
+        ]
+      ]
+    },
+    {
+      "name": "USEFUL_WORLD_YZ_X-40",
+      "entry": "19.brep",
+      "sha256": "ffcb1f33a71abd292711c1ed29151fc1552679ca53d6ea5a9597403dfbb3d5ea",
+      "valid": true,
+      "volume_mm3": 0.0,
+      "area_mm2": 73.55,
+      "bounds_mm": [
+        [
+          -40.0,
+          10.0,
+          35.875
+        ],
+        [
+          -40.0,
+          35.0,
+          65.0
+        ]
+      ]
+    },
+    {
+      "name": "FIRST_ACTUAL_NEIGHBOR",
+      "entry": "20.brep",
+      "sha256": "8f639f9ad435fa2f44f673db8251ccd1caa9d6443cdc3f886a5c8f32e8f1be27",
+      "valid": true,
+      "volume_mm3": 5885.177014592389,
+      "area_mm2": 8923.722197530215,
+      "bounds_mm": [
+        [
+          -85.45829133749186,
+          -50.227922061371075,
+          -0.0005116054779819024
+        ],
+        [
+          -65.49999999999545,
+          50.227922061364445,
+          37.02000000000125
+        ]
+      ]
+    },
+    {
+      "name": "FIRST_ACTUAL_COMMON",
+      "entry": "21.brep",
+      "sha256": "b738721804d441850aa13acfac23c42b62258d942d0acea961c21d8fe2f0dc03",
+      "valid": true,
+      "volume_mm3": 10.092776504840048,
+      "area_mm2": 33.44064057756182,
+      "bounds_mm": [
+        [
+          -70.80000000000001,
+          19.999999999992784,
+          35.874999999999964
+        ],
+        [
+          -65.68862197931132,
+          22.450000000000063,
+          37.02000000000127
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 2.3130000000819564,
+  "process_cpu_seconds": 2.9375,
+  "pid": 26064,
+  "session_id": 46493
+}
