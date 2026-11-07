@@ -1,0 +1,147 @@
+{
+  "id": "day07-WHOLE9-conditional-Hip3-source850-necessary-material-bound",
+  "status": "SPECIFIED_OPTIONAL_HIP55_BODY_COMPLETION_FAILS850_PROJECT_CRITERION",
+  "rows": [
+    {
+      "wire": "W004",
+      "physical_unit": "SOURCE/FL1",
+      "source_nominal_free14_exit_world_mm": [
+        -129.5575664610456,
+        29.118374054145708,
+        11.617194897901673
+      ],
+      "target_chosen_entry_world_mm": [
+        -135.5,
+        77.0,
+        40.7
+      ],
+      "target_tangent": [
+        0,
+        -1,
+        0
+      ],
+      "current_strategy_R_mm": 35.1,
+      "net_north_Y_mm": 47.881625945854296,
+      "necessary_Yvariation_mm": 118.0816259458543,
+      "necessary_free_approach_lower_bound_mm": 121.75546170496081,
+      "conditional_selected_body_components_including_source14_mm": 516.2986816645353,
+      "conditional_same_body_completion_total_lower_bound_mm": 638.054143369496,
+      "source850_project_margin_upper_mm": 211.94585663050395,
+      "ceil5_total_lower_bound_plus20_mm": 660,
+      "actual_routed_minimum_mm": null,
+      "actual_fit_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W020",
+      "physical_unit": "SOURCE/FL1",
+      "source_nominal_free14_exit_world_mm": [
+        -129.5575664610456,
+        29.118374054145708,
+        11.617194897901673
+      ],
+      "target_chosen_entry_world_mm": [
+        -132.75,
+        77.0,
+        40.7
+      ],
+      "target_tangent": [
+        0,
+        -1,
+        0
+      ],
+      "current_strategy_R_mm": 35.1,
+      "net_north_Y_mm": 47.881625945854296,
+      "necessary_Yvariation_mm": 118.0816259458543,
+      "necessary_free_approach_lower_bound_mm": 121.65225674242106,
+      "conditional_selected_body_components_including_source14_mm": 749.997075567391,
+      "conditional_same_body_completion_total_lower_bound_mm": 871.649332309812,
+      "source850_project_margin_upper_mm": -21.649332309812053,
+      "ceil5_total_lower_bound_plus20_mm": 895,
+      "actual_routed_minimum_mm": null,
+      "actual_fit_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W019",
+      "physical_unit": "SOURCE/FL1",
+      "source_nominal_free14_exit_world_mm": [
+        -129.5575664610456,
+        29.118374054145708,
+        11.617194897901673
+      ],
+      "target_chosen_entry_world_mm": [
+        -130.0,
+        77.0,
+        40.7
+      ],
+      "target_tangent": [
+        0,
+        -1,
+        0
+      ],
+      "current_strategy_R_mm": 35.1,
+      "net_north_Y_mm": 47.881625945854296,
+      "necessary_Yvariation_mm": 118.0816259458543,
+      "necessary_free_approach_lower_bound_mm": 121.61116595962592,
+      "conditional_selected_body_components_including_source14_mm": 658.2090942145215,
+      "conditional_same_body_completion_total_lower_bound_mm": 779.8202601741475,
+      "source850_project_margin_upper_mm": 70.1797398258525,
+      "ceil5_total_lower_bound_plus20_mm": 800,
+      "actual_routed_minimum_mm": null,
+      "actual_fit_mm": null,
+      "actualcut": null
+    }
+  ],
+  "failing_core_rows": [
+    {
+      "wire": "W020",
+      "physical_unit": "SOURCE/FL1",
+      "source_nominal_free14_exit_world_mm": [
+        -129.5575664610456,
+        29.118374054145708,
+        11.617194897901673
+      ],
+      "target_chosen_entry_world_mm": [
+        -132.75,
+        77.0,
+        40.7
+      ],
+      "target_tangent": [
+        0,
+        -1,
+        0
+      ],
+      "current_strategy_R_mm": 35.1,
+      "net_north_Y_mm": 47.881625945854296,
+      "necessary_Yvariation_mm": 118.0816259458543,
+      "necessary_free_approach_lower_bound_mm": 121.65225674242106,
+      "conditional_selected_body_components_including_source14_mm": 749.997075567391,
+      "conditional_same_body_completion_total_lower_bound_mm": 871.649332309812,
+      "source850_project_margin_upper_mm": -21.649332309812053,
+      "ceil5_total_lower_bound_plus20_mm": 895,
+      "actual_routed_minimum_mm": null,
+      "actual_fit_mm": null,
+      "actualcut": null
+    }
+  ],
+  "proof": "For ANYsmooth3D approach withcurvature<=1/R andpositive netnorthY butchosen terminalT=-Y, thelastTy0toTy-1 intervalhasnegativeYtravel>=R: |dTy/ds|<=sqrt(1-Ty^2)/R. Thus totalvariationY>=netY+2R. Minkowski integral bound combines thattotalYvariation withnetX/Z. Thisisnecessarybound on moving-freeapproach only; source14 alreadycharged in bodycomponenttable andNOTaddedagain.",
+  "strict_scope": "The BODYcomponents are exact lengths of this specified PROPOSEDcurve family, NOT a proven globalminimum or acceptedspace route. Bound rejects ONLYcompleting THOSEunchangedbodycurves withcurrentY77/-Yentry/R35.1 within850projectrule. It doesNOTprove any purchased900shortage, globaltopologyimpossibility, or a deliveredcut. No oldprefix or chord-as-routedminimum.",
+  "why_not_physical900_shortage": "ceil5(lower+20) is onlylowerbound on eventualfit; actualMAX3/cutsNULL. Here850projectcriterioncanfailwhile900physicalcapacitynotyetruledout. All3SOURCEFL1cores stayindependent/MAX, no pooling.",
+  "causal_decision": "Optional FL1/Hip3 E55receiverU topology is ownerchoice, not source/userimmutable. A wholeHip3direct/appropriate10reserve receiver approach can replace that unnecessary U/itsloweraccountingports while preserving R>=35.1, trueports/full9/factoryunit/requiredKnee55. Do notsimplysubtract45 asif newroutequalified; itneedsnewwhole connectedbodytransport/packing/assembly/length. No change implemented here.",
+  "no_geometry_or_second_family_built": true,
+  "all_actual_A_U_fit_slack_NULL": true,
+  "N01_complete": false,
+  "source_pins": [
+    {
+      "path": "day07-WHOLE9-north-entry-vertical-before-foreturn-whole-plan.json",
+      "sha256": "98564b95a87c8135b47ec507d4fedc271fde3dc380444ae2906c1bc59fd43a4e"
+    },
+    {
+      "path": "day07-whole-physical-SOURCE-approach-Knee-link-proposal.json",
+      "sha256": "d30f8f8715684dc1a96613fe78c9838ae951d13dfb17d7d70ce026d6321ce1bd"
+    }
+  ],
+  "operation_seconds": 0.0027960999868810177,
+  "written_utc": "2026-11-07T21:21:07.636437+00:00"
+}
