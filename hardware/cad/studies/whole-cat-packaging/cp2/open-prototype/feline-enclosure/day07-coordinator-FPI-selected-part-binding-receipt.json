@@ -1,0 +1,89 @@
+{
+  "id": "day07-coordinator-FPI-selected-part-binding-receipt",
+  "status": "FROZEN_SELECTED_PART_FUNCTION_BINDING_RECEIVED_NO_GEOMETRY_GO",
+  "written_utc": "2026-11-07T11:58:49.145664+00:00",
+  "reviewer": {
+    "thread_id": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+    "turn_id": "01a1b5da-4633-7eb3-945f-62705bddbee0",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "role": "readonly_independent_selected_source_not_designreview",
+    "facts_received": 3,
+    "new_design_review_rounds": 0,
+    "CAD_or_edits": false
+  },
+  "selected_material": {
+    "F_PI_holder": "Littelfuse FHAC0001ZXJ",
+    "fuse": "Littelfuse 0287003.PXCN",
+    "nominal_rating": "3A /32VDC, frozen BOM identity only/no electrical qualification",
+    "R47_holder_total": 5,
+    "F_PI_nominal_installed": 1,
+    "purchased_or_inventory_claim": false
+  },
+  "factory_leads": {
+    "count": 2,
+    "material": "16AWG",
+    "nominal_each_mm": 89.5,
+    "tolerance_mm": 5,
+    "minimum_each_mm": 84.5,
+    "connections": [
+      {
+        "wire": "W043",
+        "source": "P_SYS.2",
+        "destination": "F_PI.in"
+      },
+      {
+        "wire": "W077",
+        "source": "F_PI.out",
+        "destination": "SPLICE_PI.16"
+      }
+    ],
+    "W078": "Red18AWG K1474 from SPLICE_PI.18 to MAIN.VIN; existing8mm lap/20mm RNF1003/16 sleeve retained",
+    "W068": "SeparateP_SYS.4 toS1.5; F_PI isneighbor, notsourceW068part",
+    "existing_source_preparation": "Older main-positive card explicitly describes prepared40/80mm nominal factory leads and trimmed tinnedtips/ends. These are source-history nominal lengths, NOT new current geometry acceptance or new trimming authorization. ActualcutsNULL/phase2; no exception extended toMTA/Molex/otherSKU. Preserveproperfactorypurchase-vs-installed accounting; no invented newcut or fictitious stored offcut."
+  },
+  "case_allocation": {
+    "whole_reserved_mm": [
+      51,
+      22,
+      20.25
+    ],
+    "exact_manufacturer_material": false,
+    "selected_pose": false,
+    "full_reserved_volume_and_foreign_1p25_kept": true,
+    "current_gap_mm": 1.150003814697257,
+    "physical_part_not_Raspberry_Pi_computer_case": true,
+    "do_not_infer_MTA_or_other_native_parts_ride_reservation": true,
+    "no_automatic_print_ownership_or_margin_waiver": true
+  },
+  "consequence": "WholeF_PI allocation must coallocate selectedinlinefuseholder+twofactoryleads/W043/W077+existingW078splice, securecasewithoutleadstrain, androutinecover/fuseaccess. Newcasehome invalidatesonlyaffectedlead/mount/assemblyproofs; oldnominal40/80/210 andsourcepositionsnotnewrouteacceptance. Actualnativebody/ports/root mappingsremainsoleBanach. No newCAD, modulemove, physicaltest, powerwork, orwholeN01point.",
+  "source_pins": [
+    {
+      "path": "hardware/manufacturing/one-batch-prototype-r47/one-order-quantities.json",
+      "sha256": "2865460ff3eb46bae192f98d166eeb41e7122e98cc2eab450f1941d9641c8b0d",
+      "bytes": 167355
+    },
+    {
+      "path": "hardware/electronics/full-cat/fuse-one-batch-r1/card.json",
+      "sha256": "41ea098da50eddfdf08454c84e5a88632a2caa7b9571ed05fa4978bd4ea2fb25",
+      "bytes": 4116
+    },
+    {
+      "path": "hardware/electronics/full-cat/main-positive-wiring-card-r1/interface.json",
+      "sha256": "eeb9d8af5f34e9400c316dfeb7246c3bb2fd28cddfbbb58a27dd5ebcf8b45535",
+      "bytes": 6217
+    },
+    {
+      "path": "tools/cad/registered_fpi_space.py",
+      "sha256": "7f4a7e2ca2f78352508d2bc657d99c21a09aaea1629f8ce57f45f044e704397e",
+      "bytes": 1610
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-W068-top-bearing-FPI-reservation-source-function.json",
+      "sha256": "71ea53f0962748953665e276f193da070341c05f61137664fa4bee5da019c372",
+      "bytes": 3339
+    }
+  ],
+  "N01_complete": false,
+  "current_A_U_minfit_slack": null
+}
