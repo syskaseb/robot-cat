@@ -1,0 +1,291 @@
+{
+  "id": "day07-five-D-south-launch-whole-stock-and-neighbors",
+  "status": "FIVE_D_WHOLE_STOCK_OR_FOREIGN_FIRST_HOLD",
+  "functional_first_gate": "day07-five-D-south-launch-functional-first-gate.json",
+  "functional_first_gate_sha256": "463a1273e26809636211870afe04ae7e6ce908c4bc21c64ceedb96eb65acc046",
+  "own_fullstock_and_removable_rows": [
+    {
+      "interface": "full_band_primary",
+      "required_mm": 0.2,
+      "gap_mm": 0.20000000000000284,
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "interface": "full_band_upper",
+      "required_mm": 0.2,
+      "gap_mm": 0.20000000000000284,
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "interface": "upper_lower_REMOVABLE_closure",
+      "required_mm": 0,
+      "gap_mm": 0.0,
+      "common_valid": true,
+      "common_mm3": 0.0
+    }
+  ],
+  "rows": [
+    {
+      "key": [
+        "NEW_D5_PERMANENT",
+        "CurrentFoundation:ClampNeck:3"
+      ],
+      "source_role": "same_actual_clamp3_root_hardware_function",
+      "required_mm": 0,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            69.0,
+            -32.5,
+            40.02
+          ],
+          [
+            69.0,
+            -32.5,
+            40.02
+          ]
+        ]
+      ],
+      "status": "OWN_ACTUAL_MATERIAL_OR_INPUT_HOLD_NOT_WAIVED",
+      "common_valid": true,
+      "common_mm3": 4.500000000000001
+    }
+  ],
+  "cursor": 1,
+  "total": 25,
+  "unreceived_keys": [
+    [
+      "NEW_D5_PERMANENT",
+      "CurrentFoundation:ClampSeat:3"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Station:Anchor:Rear:RailClamp3Screw"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Station:Anchor:Rear:RailClamp3TopWasher"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "CurrentFoundation:BankPad:Ref_Material_F_R6_CP2_Housing_0_0:0"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Ref_Material_F_R5_CP2_Housing_0_0"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Ref_Material_F_R6_CP2_Housing_0_0"
+    ],
+    [
+      "NEW_D5_FULL_HEAD",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_D5_FULL_HEAD",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_D5_FULL_LOOP",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_D5_FULL_LOOP",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_D5_FULL_TAIL_NECK_CAPACITY",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_D5_FULL_TAIL_NECK_CAPACITY",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Station:P_AUX:band_budget"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Station:P_AUX:head_budget"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Station:P_AUX:split_common_comb"
+    ],
+    [
+      "NEW_D5_PERMANENT",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_D5_REMAINING_UNCUT_TAIL_CAPACITY",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_D5_REMAINING_UNCUT_TAIL_CAPACITY",
+      "SharedBUS:TailCarrier"
+    ],
+    [
+      "NEW_D5_REMAINING_UNCUT_TAIL_CAPACITY",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_D5_UPPER",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_D5_UPPER",
+      "Station:Anchor:Rear:RailClamp3Screw"
+    ],
+    [
+      "NEW_D5_UPPER",
+      "Underdeck:RestoredBank"
+    ]
+  ],
+  "first_falsifier": {
+    "stage": "WHOLE_STOCK_OR_CURRENT_FOREIGN",
+    "row": {
+      "key": [
+        "NEW_D5_PERMANENT",
+        "CurrentFoundation:ClampNeck:3"
+      ],
+      "source_role": "same_actual_clamp3_root_hardware_function",
+      "required_mm": 0,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            69.0,
+            -32.5,
+            40.02
+          ],
+          [
+            69.0,
+            -32.5,
+            40.02
+          ]
+        ]
+      ],
+      "status": "OWN_ACTUAL_MATERIAL_OR_INPUT_HOLD_NOT_WAIVED",
+      "common_valid": true,
+      "common_mm3": 4.500000000000001
+    }
+  },
+  "exact_retirements_for_PROPOSED_context": [
+    "CurrentDFL:permanent",
+    "CurrentDFL:removable",
+    "CurrentDFL:DFL:cap",
+    "CurrentDFL:DFL:band",
+    "CurrentDFL:DFL:head",
+    "CurrentFoundation:BankPier:3",
+    "CurrentFoundation:BankLedge:3"
+  ],
+  "full_bound_separated_pairs": 8621,
+  "new_fixed_bounds": {
+    "NEW_D5_PERMANENT": [
+      [
+        57.74999999999223,
+        -45.25,
+        40.02
+      ],
+      [
+        81.36347880641055,
+        -1.885844405336318,
+        55.624979999679994
+      ]
+    ],
+    "NEW_D5_UPPER": [
+      [
+        57.74999999998636,
+        -31.53051513099274,
+        45.9795
+      ],
+      [
+        69.20889087599477,
+        -1.885844405336318,
+        52.05
+      ]
+    ],
+    "NEW_D5_FULL_LOOP": [
+      [
+        61.35,
+        -32.93051513099274,
+        43.55
+      ],
+      [
+        63.85,
+        -0.931335251172051,
+        53.449999999999996
+      ]
+    ],
+    "NEW_D5_FULL_HEAD": [
+      [
+        59.95,
+        -19.430925191082395,
+        53.45
+      ],
+      [
+        65.25,
+        -14.430925191082395,
+        57.75
+      ]
+    ],
+    "NEW_D5_FULL_TAIL_NECK_CAPACITY": [
+      [
+        61.6,
+        -14.430925191082395,
+        53.95
+      ],
+      [
+        65.60000000000001,
+        -10.430925191082386,
+        57.25
+      ]
+    ],
+    "NEW_D5_REMAINING_UNCUT_TAIL_CAPACITY": [
+      [
+        65.6,
+        -12.430925191082395,
+        53.95
+      ],
+      [
+        126.889251259974,
+        -10.430925191082395,
+        57.25
+      ]
+    ]
+  },
+  "case_and_all5_actualports_kept": true,
+  "selected": false,
+  "N01_complete": false,
+  "full_stock_unit_mm": 145,
+  "loop_Vdivwt_mm": 78.9983597596413,
+  "remaining_uncut_tail_mm": 66.0016402403587,
+  "plastic_R3_NECK_within_tail_once_mm": 4.71238898038469,
+  "remaining_straight_tail_capacity_mm": 61.28925125997401,
+  "tail_head_pull25_WITHINremaining_ONCE": true,
+  "inventory": null,
+  "additional_qty": 0,
+  "actualA_U_fit_slack": null,
+  "actualcut": null,
+  "operation_seconds": 1.562999999965541,
+  "process_cpu_seconds": 6.71875,
+  "pid": 26064,
+  "session_id": 46493
+}
