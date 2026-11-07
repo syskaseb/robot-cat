@@ -1,0 +1,426 @@
+{
+  "id": "day07-caseback-FRG-full-unit-source-and-first-stock-gate",
+  "status": "ONE_SHARED_LOAD_RETENTION_WHOLE_STOCK_FIRST_HAZARD_HOLD_NO_CHANNEL_BUILT",
+  "proposal": "day07-caseback-FRG-whole-feed-pressure-and-stock-interface-proposal.json",
+  "proposal_sha256": "3173ba25dabd2a1d15908ac3eb39ba9aec70e723c4e5184dee208e55a2a2d24c",
+  "actual_single_stock_alias_relation": {
+    "source_original_band": "Station:FR_G:band_budget",
+    "source_original_head": "Station:FR_G:head_budget",
+    "actual_retained_replacement": "Station:FR_G:shared_near_tie",
+    "source_rigid_translation_mm": [
+      0,
+      -2,
+      0
+    ],
+    "actual_original_transformed_missing_valid": true,
+    "actual_original_transformed_missing_mm3": 0.0,
+    "actual_replacement_extra_valid": true,
+    "actual_replacement_extra_mm3": 0.0,
+    "source_explicit_retired_names": true,
+    "source_qty_added": 0,
+    "classification": "SameONEphysicalclosurefunction proof bysourceclone/retirement+actualmaterialbothways; NOTdeletebyname/bbox. Oldband.2rawnegativepreservedsourcewitness, notsecondindependentstockunit."
+  },
+  "same_one_unit_alias_retirement_qualified": true,
+  "all4_actual_case_channel_port_binding": [
+    {
+      "wire": "W030",
+      "endpoint": "FR_G.2",
+      "actual_project_port_mm": [
+        51.625,
+        -56.5,
+        45.26
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "full9_grip_Y_mm": [
+        -56.25,
+        -47.25
+      ],
+      "project_radius_mm": 1.55,
+      "minimum_R_mm": 12.4,
+      "source_identity": "W030/body/end",
+      "actual_native_channel_axis_confirmed": true,
+      "reference_full9_valid": true,
+      "not_new_route_or_length_credit": true
+    },
+    {
+      "wire": "W032",
+      "endpoint": "FR_G.3",
+      "actual_project_port_mm": [
+        46.875,
+        -56.5,
+        45.26
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "full9_grip_Y_mm": [
+        -56.25,
+        -47.25
+      ],
+      "project_radius_mm": 1.55,
+      "minimum_R_mm": 12.4,
+      "source_identity": "W032/body/end",
+      "actual_native_channel_axis_confirmed": true,
+      "reference_full9_valid": true,
+      "not_new_route_or_length_credit": true
+    },
+    {
+      "wire": "W034",
+      "endpoint": "FR_G.4",
+      "actual_project_port_mm": [
+        42.125,
+        -56.5,
+        45.26
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "full9_grip_Y_mm": [
+        -56.25,
+        -47.25
+      ],
+      "project_radius_mm": 1.55,
+      "minimum_R_mm": 12.4,
+      "source_identity": "W034/body/end",
+      "actual_native_channel_axis_confirmed": true,
+      "reference_full9_valid": true,
+      "not_new_route_or_length_credit": true
+    },
+    {
+      "wire": "W036",
+      "endpoint": "FR_G.5",
+      "actual_project_port_mm": [
+        37.375,
+        -56.5,
+        45.26
+      ],
+      "departure": [
+        0,
+        1,
+        0
+      ],
+      "full9_grip_Y_mm": [
+        -56.25,
+        -47.25
+      ],
+      "project_radius_mm": 1.55,
+      "minimum_R_mm": 12.4,
+      "source_identity": "W036/retained0/start",
+      "actual_native_channel_axis_confirmed": true,
+      "reference_full9_valid": true,
+      "not_new_route_or_length_credit": true
+    }
+  ],
+  "whole_selected_145_stock": {
+    "sku": "111-02370 T18I145",
+    "quantity_one_existing_role_no_addition": true,
+    "inventory": null,
+    "loop_from_actual_V_div_WT_mm": 61.69999999999997,
+    "full_uncut_remainder_including_head_mm": 83.30000000000004,
+    "head_transit_once_mm": 5.3,
+    "remaining_free_uncut_capacity_mm": 78.00000000000004,
+    "pull25_within_remaining": true,
+    "length_check_sum_mm": 145.0,
+    "physicalcut": null
+  },
+  "first_local_capacity_quality": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 31.101767270538943,
+    "analytic_volume_mm3": 31.10176727053895,
+    "analytic_full_bounds_mm": [
+      [
+        27.475,
+        -55.4,
+        47.91
+      ],
+      [
+        31.475,
+        -52.1,
+        51.91
+      ]
+    ],
+    "actual_bounds_mm": [
+      [
+        27.475,
+        -55.4,
+        47.91
+      ],
+      [
+        31.475000000000005,
+        -52.1,
+        51.91
+      ]
+    ],
+    "centreline_R_mm": 3,
+    "full_profile_mm": [
+      3.3,
+      2
+    ],
+    "not_torus_default_BBox": true
+  },
+  "local_named_hazard": {
+    "field": "FULL_ALLOCATED_FRG_TAIL_HEAD_RISE_R3_PROFILE3p3x2",
+    "current_actor": "CurrentFoundation:BankPad:Ref_Material_F_R4_CP2_Housing_0_0:0",
+    "actual_gap_mm": 0.5638498003330545,
+    "analytic_current_corner_lower_mm": 0.5638498003330499,
+    "required_foreign_mm": 1.25,
+    "witnesses": [
+      [
+        [
+          29.249817391976595,
+          -55.4,
+          51.49469290527618
+        ],
+        [
+          29.500000000000018,
+          -55.4,
+          52.0
+        ]
+      ]
+    ],
+    "actual_current_pad_valid": true,
+    "status": "ALLOCATED_STOCK_REGION_MARGIN_HOLD_NOT_PHYSICAL_CONTACT"
+  },
+  "first_falsifier": {
+    "stage": "WHOLE_STOCK_FIRST_NAMED_LOCAL_HEAD_RISE_HAZARD",
+    "row": {
+      "field": "FULL_ALLOCATED_FRG_TAIL_HEAD_RISE_R3_PROFILE3p3x2",
+      "current_actor": "CurrentFoundation:BankPad:Ref_Material_F_R4_CP2_Housing_0_0:0",
+      "actual_gap_mm": 0.5638498003330545,
+      "analytic_current_corner_lower_mm": 0.5638498003330499,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            29.249817391976595,
+            -55.4,
+            51.49469290527618
+          ],
+          [
+            29.500000000000018,
+            -55.4,
+            52.0
+          ]
+        ]
+      ],
+      "actual_current_pad_valid": true,
+      "status": "ALLOCATED_STOCK_REGION_MARGIN_HOLD_NOT_PHYSICAL_CONTACT"
+    }
+  },
+  "new_hazard_cursor": 1,
+  "new_unreceived": [
+    "Restofconnected83.3head-feed-and-free-tailbay",
+    "Completefunctionalbottomstockfeed/root/casepressure/antirotation",
+    "CasebackD5/FRGcommonroot fullstock/currentneighbors/assembly/motionoutline"
+  ],
+  "no_new_channel_or_FRG_halves_built": true,
+  "no_newhead_tail_case_wire_pose_after_falsifier": true,
+  "oldcaseback_D_C1_M3_145_sourceunchanged": true,
+  "selected": false,
+  "N01_complete": false,
+  "actualcut": null,
+  "archive": "day07-caseback-FRG-full-unit-source-and-first-stock-gate.breps.zip",
+  "archive_sha256": "73e20f95fb36939fab8851e787f58313a167411fe0f2d8b0334d146a55009400",
+  "geometry": [
+    {
+      "name": "SOURCE_ORIGINAL_BAND_WITNESS",
+      "entry": "0.brep",
+      "sha256": "0c58a2cd968274c8c1bb268ddf945acf5f5d612ef2fe39d7cc909e04d58cf427",
+      "bounds_mm": [
+        [
+          32.625,
+          -53.0,
+          40.51
+        ],
+        [
+          56.375,
+          -50.5,
+          50.01
+        ]
+      ]
+    },
+    {
+      "name": "SOURCE_ORIGINAL_HEAD_WITNESS",
+      "entry": "1.brep",
+      "sha256": "0d1cad82836684f273b9f1bac033471ce93e15327bbd3e5e09094df421de91f2",
+      "bounds_mm": [
+        [
+          28.325,
+          -54.25,
+          42.61
+        ],
+        [
+          32.625,
+          -49.25,
+          47.91
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_RETAINED_ONE_SHARED_TIE",
+      "entry": "2.brep",
+      "sha256": "e680256ef2269f04fe4165aef2e7264d01cd23a20f6740cbb417ea07f8867531",
+      "bounds_mm": [
+        [
+          28.325,
+          -56.25,
+          40.51
+        ],
+        [
+          56.375,
+          -51.25,
+          50.01
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_CURRENT_COMB",
+      "entry": "3.brep",
+      "sha256": "4d5c60f38f51f4cc63594e65e7fbcac8523cca36041ba46515c0b59772fa51f1",
+      "bounds_mm": [
+        [
+          33.824999999999996,
+          -56.25,
+          41.71
+        ],
+        [
+          55.175,
+          -47.25,
+          48.81
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_CURRENT_FRG_CASE",
+      "entry": "4.brep",
+      "sha256": "a39ad2b34e3c8d7cf7c7f9c2e2e36634551b64aa3fe02f81d6893b6047687246",
+      "bounds_mm": [
+        [
+          31.875,
+          -75.5,
+          40.76
+        ],
+        [
+          61.875,
+          -56.5,
+          49.76
+        ]
+      ]
+    },
+    {
+      "name": "PROPOSED_FULL_TAIL_R3_HEAD_RISE_CAPACITY",
+      "entry": "5.brep",
+      "sha256": "3f4cd909f606cd2f444a9cb3b233eb07f16a4202e167fffa8069d7c8fd699bba",
+      "bounds_mm": [
+        [
+          27.475,
+          -55.4,
+          47.91
+        ],
+        [
+          31.475000000000005,
+          -52.1,
+          51.91
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_CURRENT_R4_BANK_PAD",
+      "entry": "6.brep",
+      "sha256": "a6b77b77cc1735fbdae28d4bdc36e6a5590e21abd47be70b6d7f25da0f4efa23",
+      "bounds_mm": [
+        [
+          29.5,
+          -67.75000000000001,
+          51.99999999999999
+        ],
+        [
+          44.50000000000003,
+          -39.25,
+          55.0
+        ]
+      ]
+    },
+    {
+      "name": "SOURCE_REFERENCE_NINE_W030",
+      "entry": "7.brep",
+      "sha256": "8045bed0743dd10c5dbc3a561981cfc285d70224f0892072e716bb1090d659a9",
+      "bounds_mm": [
+        [
+          50.075,
+          -56.25,
+          43.71
+        ],
+        [
+          53.175,
+          -47.25,
+          46.809999999999995
+        ]
+      ]
+    },
+    {
+      "name": "SOURCE_REFERENCE_NINE_W032",
+      "entry": "8.brep",
+      "sha256": "da3c473e92905ab2a6bc6a0bf320a604dc44c991ba393189e0dc1f853d87391d",
+      "bounds_mm": [
+        [
+          45.325,
+          -56.25,
+          43.71
+        ],
+        [
+          48.425,
+          -47.25,
+          46.809999999999995
+        ]
+      ]
+    },
+    {
+      "name": "SOURCE_REFERENCE_NINE_W034",
+      "entry": "9.brep",
+      "sha256": "4a1d59d0e304c1c93b8bea0864d8be9063050307b7e55f6bb97f226d0c39d1b6",
+      "bounds_mm": [
+        [
+          40.575,
+          -56.25,
+          43.71
+        ],
+        [
+          43.675,
+          -47.25,
+          46.809999999999995
+        ]
+      ]
+    },
+    {
+      "name": "SOURCE_REFERENCE_NINE_W036",
+      "entry": "10.brep",
+      "sha256": "625be732ba905e5bd0e9d5e53f4a0cbf6b1b9f18ab9d7a1e2e7a082ce296febc",
+      "bounds_mm": [
+        [
+          35.825,
+          -56.25,
+          43.71
+        ],
+        [
+          38.925,
+          -47.25,
+          46.809999999999995
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 0.2029999999795109,
+  "process_cpu_seconds": 0.203125,
+  "pid": 26064,
+  "session_id": 46493
+}
