@@ -1,0 +1,30 @@
+{
+  "id": "day07-final-owned-native26064-exit-observation",
+  "status": "OWN_PID_ABSENT_AND_DIRECT_TTY_SESSION_COMPLETED",
+  "process_check": {
+    "pid": 26064,
+    "exists": false,
+    "path": null,
+    "checked_utc": "2026-11-07T21:50:23.1032062Z"
+  },
+  "pid": 26064,
+  "session_id": 46493,
+  "requested_python_SystemExit_code": 0,
+  "native_stdout_exit_marker_utc": "2026-11-07T21:48:43.064249+00:00",
+  "metadata_saved_stdout_confirmed": true,
+  "saved_registry_sha256": "5d0083afc7b2c3e7c1c641064ff38873fe7d0f2ea5d06f9a7fb3050f241601a9",
+  "tool_completion": {
+    "chunk_id": "204a2d",
+    "exit_code": 1,
+    "returned_session_id": null,
+    "completion_observed_clock_utc": "2026-11-07T21:48:47Z",
+    "source": "tools.write_stdin ownsession46493 emptyreceive afterSystemExit"
+  },
+  "native_OS_exit_code": null,
+  "exit_code_discrepancy": "Python printed gracefulSystemExit0 marker; directTTY completion tool actually returned1. NativeOS exitcode was not independentlycaptured; no confirmedexit0 claim. Processabsent/sessioncompleted established; no restart/forcekill/foreignprocessoperation.",
+  "pending_operation": null,
+  "unsaved_geometry": false,
+  "active_native_pid": null,
+  "owned_compute_running": false,
+  "any_old_session_contacted": false
+}
