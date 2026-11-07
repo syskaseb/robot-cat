@@ -1,0 +1,379 @@
+{
+  "id": "day07-S0-C1-same-geometry-union-integrity-recovery",
+  "status": "FULL_FIXTURE_RECONSTRUCTED_LOCAL_GATES_RECEIVED",
+  "supersedes_invalid_whole_mount_claim": "day07-S0-current-mounted-case-correction1-receipt.json",
+  "invalid_receipt_sha256": "cb3a6f32e6584fc3666d812f0e1bf141bd720991b781dc9eba2a01dd08a85aad",
+  "invalid_archive_sha256": "5b9cd3673a6b0387a17e54186179aff191833b05fe09dcfb0599941b3cd1481f",
+  "defect": "multiFuse returned only rootfoot82.87633661995892mm3, omitting intended bridge/leg/panel. isValid+1solid did not demonstrate member coverage. Prior wholeforeign/tool/outline conclusions invalid.",
+  "same_geometry_no_C2": true,
+  "steps": [
+    {
+      "added": "sidefoot58",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 82.5,
+      "bounds_mm": [
+        [
+          -78.0,
+          -21.4,
+          44.0
+        ],
+        [
+          -72.0,
+          -16.4,
+          48.5
+        ]
+      ],
+      "old_missing_valid": true,
+      "new_missing_valid": true,
+      "old_missing_mm3": 0.0,
+      "new_missing_mm3": 0.0
+    },
+    {
+      "added": "bridge58",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 110.57472005451237,
+      "bounds_mm": [
+        [
+          -78.0,
+          -21.9,
+          43.0
+        ],
+        [
+          -72.0,
+          -15.399999999999999,
+          49.25
+        ]
+      ],
+      "old_missing_valid": true,
+      "new_missing_valid": true,
+      "old_missing_mm3": 0.0,
+      "new_missing_mm3": 0.0
+    },
+    {
+      "added": "leg58",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 378.9564930925966,
+      "bounds_mm": [
+        [
+          -89.57103023546883,
+          -21.9,
+          43.0
+        ],
+        [
+          -72.0,
+          -9.0,
+          64.64055992909968
+        ]
+      ],
+      "old_missing_valid": true,
+      "new_missing_valid": true,
+      "old_missing_mm3": 0.0,
+      "new_missing_mm3": 0.0
+    },
+    {
+      "added": "panel57",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3317.315798550841,
+      "bounds_mm": [
+        [
+          -97.84721761301124,
+          -21.9,
+          43.0
+        ],
+        [
+          -72.0,
+          16.0,
+          107.0437329034825
+        ]
+      ],
+      "old_missing_valid": true,
+      "new_missing_valid": true,
+      "old_missing_mm3": 0.0,
+      "new_missing_mm3": 0.0
+    }
+  ],
+  "coverage": [
+    {
+      "member": "topfoot58",
+      "source_volume_mm3": 54.0,
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "sidefoot58",
+      "source_volume_mm3": 30.0,
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "bridge58",
+      "source_volume_mm3": 75.77612827201233,
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "leg58",
+      "source_volume_mm3": 307.1313588751714,
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "panel57",
+      "source_volume_mm3": 2968.4766971849235,
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    }
+  ],
+  "complete_fixture_verified": true,
+  "rows": [
+    {
+      "other": "SpliceBandBudget:W077",
+      "other_valid": true,
+      "gap_mm": 1.9944575239950846,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            -83.10533050413622,
+            -15.258242065073654,
+            54.01168814037722
+          ],
+          [
+            -84.65,
+            -15.258242065073656,
+            52.75
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    },
+    {
+      "other": "F_PI:registered_casing_reservation",
+      "other_valid": true,
+      "gap_mm": 3.9742486434371576,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            -79.3961748753745,
+            -14.625837259670622,
+            52.548896647288004
+          ],
+          [
+            -78.44999618530274,
+            -11.0,
+            51.225
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    }
+  ],
+  "tools": [
+    {
+      "tool": "caseM6_0:AF5_driver_approach",
+      "other": "complete_corrected_fixture",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "tool": "caseM6_0:AF10_counterhold_approach",
+      "other": "complete_corrected_fixture",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "tool": "caseM6_1:AF5_driver_approach",
+      "other": "complete_corrected_fixture",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "tool": "caseM6_1:AF10_counterhold_approach",
+      "other": "complete_corrected_fixture",
+      "common_valid": true,
+      "common_mm3": 0.0
+    }
+  ],
+  "own_hardware": [
+    {
+      "name": "caseM6_0:DIN912x20",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_0:washer_outer",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_0:washer_inner",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_0:nut_AF10_h5",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_1:DIN912x20",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_1:washer_outer",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_1:washer_inner",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    },
+    {
+      "name": "caseM6_1:nut_AF10_h5",
+      "common_valid": true,
+      "material_intrusion_mm3": 0.0
+    }
+  ],
+  "outline": {
+    "outside_valid": true,
+    "outside_mm3": 0.0,
+    "boundary_gap_mm": 4.956267096517493,
+    "required_mm": 3.25
+  },
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493,
+  "root": {
+    "common_valid": true,
+    "common_mm3": 17.766156311022804,
+    "parent_union_valid": true,
+    "parent_union_solids": 1,
+    "source_parent_solids": 1
+  },
+  "foreign_total": 2,
+  "foreign_unreceived": 0,
+  "archive": "day07-S0-C1-union-integrity-recovery.breps.zip",
+  "archive_sha256": "6dd8e58679dba150526887353da4cc31f31d46cd8f2c094fea4b28076e23b07e",
+  "geometry": [
+    {
+      "name": "topfoot58",
+      "entry": "0.brep",
+      "sha256": "beb134d3a909f45424ffa11e93c3ac2321f3aada64bc8f6b342dcd8f2a08ba99",
+      "bounds_mm": [
+        [
+          -78.0,
+          -21.4,
+          45.5
+        ],
+        [
+          -72.0,
+          -18.4,
+          48.5
+        ]
+      ],
+      "volume_mm3": 54.0
+    },
+    {
+      "name": "sidefoot58",
+      "entry": "1.brep",
+      "sha256": "5709380c62ae551b324fc2f7ddb8712e2bb09baf1c9d68c652a3b4b31a7b0922",
+      "bounds_mm": [
+        [
+          -78.0,
+          -18.9,
+          44.0
+        ],
+        [
+          -72.0,
+          -16.4,
+          46.0
+        ]
+      ],
+      "volume_mm3": 30.0
+    },
+    {
+      "name": "bridge58",
+      "entry": "2.brep",
+      "sha256": "a29320541170a87cf33b3a00a4459379d532ed7afb708f17e83d4732675677ca",
+      "bounds_mm": [
+        [
+          -77.0,
+          -21.9,
+          43.0
+        ],
+        [
+          -73.0,
+          -15.399999999999999,
+          49.25
+        ]
+      ],
+      "volume_mm3": 75.77612827201233
+    },
+    {
+      "name": "leg58",
+      "entry": "3.brep",
+      "sha256": "e112f3ac950a56c88dfb66f064bf3062d9457f1f14a49734572f88eeb8b3309d",
+      "bounds_mm": [
+        [
+          -89.57103023546883,
+          -21.9,
+          45.25
+        ],
+        [
+          -73.0,
+          -9.0,
+          64.64055992909968
+        ]
+      ],
+      "volume_mm3": 307.1313588751714
+    },
+    {
+      "name": "panel57",
+      "entry": "4.brep",
+      "sha256": "7a7475a0fe675f7927ccbfa9e8383b3beb68730a3450fdd91e9d22adf195a309",
+      "bounds_mm": [
+        [
+          -97.84721761301124,
+          -16.000000000000004,
+          53.34316970782248
+        ],
+        [
+          -85.51579275996033,
+          16.0,
+          107.0437329034825
+        ]
+      ],
+      "volume_mm3": 2968.4766971849235
+    },
+    {
+      "name": "recovered_complete_fixture",
+      "entry": "5.brep",
+      "sha256": "57c30a90d568c19cc49393256a1be6dcef850f6400a982e8df2a2c638a8d5483",
+      "bounds_mm": [
+        [
+          -97.84721761301124,
+          -21.9,
+          43.0
+        ],
+        [
+          -72.0,
+          16.0,
+          107.0437329034825
+        ]
+      ],
+      "volume_mm3": 3317.315798550841
+    }
+  ],
+  "operation_seconds": 3.4369999999180436,
+  "process_cpu_seconds": 6.234375,
+  "source_reuse": "11sourcecontours/frame/8unchangedmetalforeign+outline; no replay. C0W0775.280364 retained. C1 prior rootonly conclusions superseded. ActualCurrent1292 unchanged.",
+  "remaining": "GlobalS0keyaccess/sourceleadlengthslack/changedmotion/wholeassembly plus V3/R6/invalid3/headNorth/123246 remain OPEN; no wholeN01 claim."
+}
