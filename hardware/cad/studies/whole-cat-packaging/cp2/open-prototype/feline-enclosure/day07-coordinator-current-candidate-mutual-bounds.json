@@ -1,0 +1,655 @@
+{
+  "id": "day07-coordinator-current-candidate-mutual-bounds",
+  "received_utc": "2026-11-07T02:56:29.579626+00:00",
+  "status": "FROZEN_BOUNDS_POSITIVE_SEPARATION_NEW_S0_VS_SELECTED_PI_MODULE_CHANGES_ONLY",
+  "parent_CAD": false,
+  "kernel_calls": 0,
+  "source_pins": [
+    {
+      "path": "day07-S0-C1-union-integrity-recovery-receipt.json",
+      "sha256": "4614c47fff71751d686131dbf87d413bd37eedf6f57c243c2e3e91f5d4f4eb6f"
+    },
+    {
+      "path": "day07-S0-current-whole-mount-first-gate.json",
+      "sha256": "97ac214a4796a807c6ee0912aa52667e4944d4b6bb5ca98e9725547e717eb6a2"
+    },
+    {
+      "path": "day07-removable-Pi-carrier-current-candidate-composition.json",
+      "sha256": "def3e56a8eca5cc84fe420299f0c4cfe08f0328d212940fb4614b372acf2ade1"
+    },
+    {
+      "path": "day07-MODULE-V3-capacity-current-candidate-composition.json",
+      "sha256": "2d1d8cfa3dfe17add2578abc31473126c39b3e86310d332383fd6365cc70b56e"
+    },
+    {
+      "path": "day07-S0-C1-current-candidate-composition.json",
+      "sha256": "a9f78e06faa1f57007fb58f4163b72af74f85a752f92713abb57d6fb7647d93a"
+    },
+    {
+      "path": "day06-retained-Pi-west-spine-c1-functional-cells.breps.zip",
+      "sha256": "2a09f2ef2058924b33ab5e0e1e287c90aad78b260b65752ee65e070816675496"
+    }
+  ],
+  "current_composition": "day07-S0-C1-current-candidate-composition",
+  "inherited_candidate": "day07-MODULE-V3-capacity-current-candidate-composition",
+  "inheritance_resolution": "S0 previous_received_scope names MODULE/V3 boundedreceipt, which pins this MODULE candidate; MODULE candidate explicitly inherits removablePi. This resolution doesnotselectwholeN01.",
+  "S0_physical_fields": [
+    {
+      "name": "recovered_complete_fixture",
+      "entry": "5.brep",
+      "sha256": "57c30a90d568c19cc49393256a1be6dcef850f6400a982e8df2a2c638a8d5483",
+      "bounds_mm": [
+        [
+          -97.84721761301124,
+          -21.9,
+          43.0
+        ],
+        [
+          -72.0,
+          16.0,
+          107.0437329034825
+        ]
+      ],
+      "volume_mm3": 3317.315798550841,
+      "role": "physical_fixture"
+    },
+    {
+      "name": "caseM6_0:DIN912x20",
+      "entry": "1.brep",
+      "sha256": "4c9aa8b8efe6cd8c4deffabc9b4e1ee5de2c881c055a5b70f5475215793f83fc",
+      "bounds_mm": [
+        [
+          -105.54638536972121,
+          -4.999999999999998,
+          55.59302653681279
+        ],
+        [
+          -78.55219837006835,
+          5.0000000000000036,
+          67.98634118025066
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_0:washer_outer",
+      "entry": "2.brep",
+      "sha256": "d43f027d93aa042359af74dd17d9f183042c9a0f1b1732d394ab5ca48ad72776",
+      "bounds_mm": [
+        [
+          -87.94686724729738,
+          -5.999999999999998,
+          55.833729746847695
+        ],
+        [
+          -84.28739671047467,
+          6.000000000000002,
+          67.92925986726128
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_0:washer_inner",
+      "entry": "3.brep",
+      "sha256": "07458e85d03d65e14fcdc3b109633cdf510441196a652b85b043aee6171d1ba1",
+      "bounds_mm": [
+        [
+          -96.41621392320236,
+          -6.0,
+          54.34035541891209
+        ],
+        [
+          -92.75674338637965,
+          6.0,
+          66.43588553932568
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_0:nut_AF10_h5",
+      "entry": "4.brep",
+      "sha256": "a5cc7abec118a07ed66662bdde71d73a84055b621aa63cafe810cd5ef80d7898",
+      "bounds_mm": [
+        [
+          -101.16660451059647,
+          -5.773502691896259,
+          54.456922283589634
+        ],
+        [
+          -94.50608396886612,
+          5.773502691896258,
+          65.17324070204637
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_1:DIN912x20",
+      "entry": "5.brep",
+      "sha256": "99e7896dc9c91054d044d94d7d75e9cfa3571aca86f2a07b29e3dffca2bb6115",
+      "bounds_mm": [
+        [
+          -112.14501612106459,
+          -5.0000000000000036,
+          93.0157211512767
+        ],
+        [
+          -85.15082912141173,
+          4.999999999999997,
+          105.40903579471457
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_1:washer_outer",
+      "entry": "6.brep",
+      "sha256": "edacca13f357226aa3e25c0179089eb59002ad9e1f9fbd068c0921863d461bb7",
+      "bounds_mm": [
+        [
+          -94.54549799864076,
+          -6.0000000000000036,
+          93.2564243613116
+        ],
+        [
+          -90.88602746181805,
+          5.9999999999999964,
+          105.35195448172519
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_1:washer_inner",
+      "entry": "7.brep",
+      "sha256": "4872702acd8e950298f38ea2358c9261f8692656ca8866ddaeed0ce3e718c748",
+      "bounds_mm": [
+        [
+          -103.01484467454574,
+          -6.000000000000005,
+          91.76305003337599
+        ],
+        [
+          -99.35537413772303,
+          5.999999999999995,
+          103.85858015378957
+        ]
+      ],
+      "role": "physical_case_fixing"
+    },
+    {
+      "name": "caseM6_1:nut_AF10_h5",
+      "entry": "8.brep",
+      "sha256": "690990bf48470ec2e4018cb75b484f9471f471f7b0b38f4e2e920013e9400f1a",
+      "bounds_mm": [
+        [
+          -107.76523526193985,
+          -5.773502691896264,
+          91.87961689805354
+        ],
+        [
+          -101.1047147202095,
+          5.773502691896253,
+          102.59593531651028
+        ]
+      ],
+      "role": "physical_case_fixing"
+    }
+  ],
+  "S0_initial_tool_fields": [
+    {
+      "name": "caseM6_0:AF5_driver_approach",
+      "entry": "9.brep",
+      "sha256": "4f3cd563ce8fc790f90b0ea0f47db0b2b9bf8d40f3991bc68c515be4574c4b8e",
+      "bounds_mm": [
+        [
+          -79.97611342693719,
+          -3.199999999999997,
+          59.91091760555055
+        ],
+        [
+          -44.39649373444154,
+          3.2000000000000104,
+          72.29137344317127
+        ]
+      ],
+      "role": "initial_tool_reservation"
+    },
+    {
+      "name": "caseM6_0:AF10_counterhold_approach",
+      "entry": "10.brep",
+      "sha256": "6de0e405ee7730841479e042e795ac8a30b1e05b8b61d2b234ba3ac6334bb23b",
+      "bounds_mm": [
+        [
+          -116.28601716111346,
+          -7.000000000000004,
+          49.88258411256126
+        ],
+        [
+          -99.0828263785933,
+          6.999999999999999,
+          66.27461531973613
+        ]
+      ],
+      "role": "initial_tool_reservation"
+    },
+    {
+      "name": "caseM6_1:AF5_driver_approach",
+      "entry": "11.brep",
+      "sha256": "326c20c53203cffca114a683e181a2a47c17bdb6a02ef9f0a8594871f98209f0",
+      "bounds_mm": [
+        [
+          -86.57474417828057,
+          -3.200000000000003,
+          97.33361222001446
+        ],
+        [
+          -50.99512448578492,
+          3.2000000000000046,
+          109.71406805763517
+        ]
+      ],
+      "role": "initial_tool_reservation"
+    },
+    {
+      "name": "caseM6_1:AF10_counterhold_approach",
+      "entry": "12.brep",
+      "sha256": "4dfd68ca9319b55e77954c2143c04f02a8ec6493866ed870f3db7494ac18b471",
+      "bounds_mm": [
+        [
+          -122.88464791245683,
+          -7.00000000000001,
+          87.30527872702517
+        ],
+        [
+          -105.68145712993666,
+          6.999999999999993,
+          103.69730993420004
+        ]
+      ],
+      "role": "initial_tool_reservation"
+    }
+  ],
+  "other_selected_fields": [
+    {
+      "other": "receiver_with_actual_column",
+      "bounds_mm": [
+        [
+          -17.0,
+          34.0,
+          42.5
+        ],
+        [
+          -7.0,
+          49.0,
+          106.1
+        ]
+      ],
+      "source_geometry_sha256": "93cde9d8a5aba48b1240ffa0ab7dd495c313c644113d637687efad340c53cc3a",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "receiver_with_actual_column",
+        "lower_bound_mm": 57.87054518492115
+      },
+      "tool_minimum": {
+        "a": "caseM6_0:AF5_driver_approach",
+        "b": "receiver_with_actual_column",
+        "lower_bound_mm": 41.22144913684251
+      }
+    },
+    {
+      "other": "carrier_foot_plus_source_upper_return",
+      "bounds_mm": [
+        [
+          -16.0,
+          -7.484390365286,
+          104.1
+        ],
+        [
+          -8.0,
+          48.0,
+          107.1
+        ]
+      ],
+      "source_geometry_sha256": "cb7dce72e82e9deb0f4c29c37a7e3aff7c62f52665100522a42e2d1f08f8d899",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "carrier_foot_plus_source_upper_return",
+        "lower_bound_mm": 56.0
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF5_driver_approach",
+        "b": "carrier_foot_plus_source_upper_return",
+        "lower_bound_mm": 34.99512448578492
+      }
+    },
+    {
+      "other": "joint_tie0:band_budget",
+      "bounds_mm": [
+        [
+          -18.2,
+          35.25,
+          99.9
+        ],
+        [
+          -5.800000000000001,
+          37.75,
+          108.3
+        ]
+      ],
+      "source_geometry_sha256": "f6e7e1f7038e0cedde940d734f3cf9b762e55f39cc14c063425e494c36546129",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "joint_tie0:band_budget",
+        "lower_bound_mm": 57.140200384667885
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF5_driver_approach",
+        "b": "joint_tie0:band_budget",
+        "lower_bound_mm": 45.85545431067202
+      }
+    },
+    {
+      "other": "joint_tie1:band_budget",
+      "bounds_mm": [
+        [
+          -18.2,
+          40.25,
+          99.9
+        ],
+        [
+          -5.800000000000001,
+          42.75,
+          108.3
+        ]
+      ],
+      "source_geometry_sha256": "fbfddf0633c2be62f97f3660cc7d37326658d600cabeff7995f9e8055469dea4",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "joint_tie1:band_budget",
+        "lower_bound_mm": 59.012731677155905
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF5_driver_approach",
+        "b": "joint_tie1:band_budget",
+        "lower_bound_mm": 49.47951788405107
+      }
+    },
+    {
+      "other": "joint_tie0:T18R100_head_width_bound",
+      "bounds_mm": [
+        [
+          -23.5,
+          34.275,
+          102.1
+        ],
+        [
+          -18.2,
+          38.725,
+          107.1
+        ]
+      ],
+      "source_geometry_sha256": "fbf2ba6f847df7495304c6ed0ac895113d5ffb06a2b77fed1c9a9971fb1076f3",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "joint_tie0:T18R100_head_width_bound",
+        "lower_bound_mm": 51.82881076196906
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF5_driver_approach",
+        "b": "joint_tie0:T18R100_head_width_bound",
+        "lower_bound_mm": 41.49261977133776
+      }
+    },
+    {
+      "other": "joint_tie1:T18R100_head_width_bound",
+      "bounds_mm": [
+        [
+          -23.5,
+          39.275,
+          102.1
+        ],
+        [
+          -18.2,
+          43.725,
+          107.1
+        ]
+      ],
+      "source_geometry_sha256": "f5a030787fa8f3596637b14b8c7b680dd0f4cde418ddbf8956d03603c7fa6487",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "joint_tie1:T18R100_head_width_bound",
+        "lower_bound_mm": 53.7956840740965
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF5_driver_approach",
+        "b": "joint_tie1:T18R100_head_width_bound",
+        "lower_bound_mm": 45.35843356520162
+      }
+    },
+    {
+      "other": "joint_tie0:full_unit_residual_capacity",
+      "bounds_mm": [
+        [
+          -123.5,
+          35.25,
+          104.0
+        ],
+        [
+          -23.5,
+          37.75,
+          105.2
+        ]
+      ],
+      "source_geometry_sha256": "c624bfe20fafac99e9c3aecdc2f93377f712a3b06c900fc74b0a322b4da42813",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "joint_tie0:full_unit_residual_capacity",
+        "lower_bound_mm": 19.25
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF10_counterhold_approach",
+        "b": "joint_tie0:full_unit_residual_capacity",
+        "lower_bound_mm": 28.251621568963692
+      }
+    },
+    {
+      "other": "joint_tie1:full_unit_residual_capacity",
+      "bounds_mm": [
+        [
+          -123.5,
+          40.25,
+          104.0
+        ],
+        [
+          -23.5,
+          42.75,
+          105.2
+        ]
+      ],
+      "source_geometry_sha256": "9de708db0bc4e984aacd7207d4aaa6f75f8c3afcb8aa47baa1172420fef7d9b6",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "joint_tie1:full_unit_residual_capacity",
+        "lower_bound_mm": 24.25
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF10_counterhold_approach",
+        "b": "joint_tie1:full_unit_residual_capacity",
+        "lower_bound_mm": 33.25137773500422
+      }
+    },
+    {
+      "other": "MODULE5:connected_full_two_profile_twist_region",
+      "bounds_mm": [
+        [
+          -37.836992794628884,
+          37.672011917738445,
+          84.39095883483252
+        ],
+        [
+          -12.845235861837118,
+          81.82259661608984,
+          90.9703258720829
+        ]
+      ],
+      "source_geometry_sha256": "51aaba4f8ad7abea09572bf47a70c10dff11e022c0069a2803362a8052ce1732",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "MODULE5:connected_full_two_profile_twist_region",
+        "lower_bound_mm": 40.45722632456204
+      },
+      "tool_minimum": {
+        "a": "caseM6_0:AF5_driver_approach",
+        "b": "MODULE5:connected_full_two_profile_twist_region",
+        "lower_bound_mm": 37.11800944132385
+      }
+    },
+    {
+      "other": "root_shoe",
+      "bounds_mm": [
+        [
+          55.0,
+          53.5,
+          30.72
+        ],
+        [
+          61.0,
+          54.2,
+          38.52
+        ]
+      ],
+      "source_geometry_sha256": "823a9016cf50c85da6664d9f850506207792b6a4db8da44de6c784a5f332a9a8",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "root_shoe",
+        "lower_bound_mm": 132.4964920290345
+      },
+      "tool_minimum": {
+        "a": "caseM6_0:AF5_driver_approach",
+        "b": "root_shoe",
+        "lower_bound_mm": 113.43422906119797
+      }
+    },
+    {
+      "other": "rise_east_of_FLG",
+      "bounds_mm": [
+        [
+          57.75,
+          52.0,
+          34.62
+        ],
+        [
+          61.75,
+          56.0,
+          44.5
+        ]
+      ],
+      "source_geometry_sha256": "c9488b981f7822b83f2f2311c228ef80bc9697fe5f1821f61e1b9c5218615f01",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "rise_east_of_FLG",
+        "lower_bound_mm": 134.65163385566476
+      },
+      "tool_minimum": {
+        "a": "caseM6_0:AF5_driver_approach",
+        "b": "rise_east_of_FLG",
+        "lower_bound_mm": 114.24903747378082
+      }
+    },
+    {
+      "other": "turn_south_of_FLG",
+      "bounds_mm": [
+        [
+          57.75,
+          45.0,
+          40.5
+        ],
+        [
+          61.75,
+          56.0,
+          44.5
+        ]
+      ],
+      "source_geometry_sha256": "c29272c012c517772c212a5e61f94c2138b70bc958627ae4e0ce9f7380db4ccd",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "turn_south_of_FLG",
+        "lower_bound_mm": 132.95135388554718
+      },
+      "tool_minimum": {
+        "a": "caseM6_0:AF5_driver_approach",
+        "b": "turn_south_of_FLG",
+        "lower_bound_mm": 111.4389634000845
+      }
+    },
+    {
+      "other": "west_under_bank",
+      "bounds_mm": [
+        [
+          -13.5,
+          45.0,
+          40.5
+        ],
+        [
+          61.75,
+          49.0,
+          44.5
+        ]
+      ],
+      "source_geometry_sha256": "ff2812d08afaa7ae2928baf3a1c128e7b57e0769d3a77fb41e5ffe2bc527f33a",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "west_under_bank",
+        "lower_bound_mm": 65.29356783022352
+      },
+      "tool_minimum": {
+        "a": "caseM6_0:AF5_driver_approach",
+        "b": "west_under_bank",
+        "lower_bound_mm": 54.215585457757925
+      }
+    },
+    {
+      "other": "actual_stem_END",
+      "bounds_mm": [
+        [
+          -13.0,
+          -7.484390365286,
+          104.1
+        ],
+        [
+          -5.8,
+          -4.484390365286,
+          107.1
+        ]
+      ],
+      "source_geometry_sha256": "582ba13d99671834a4f971933fa8d26556cec65c1c8b6c17b87950d1b357acbf",
+      "physical_minimum": {
+        "a": "recovered_complete_fixture",
+        "b": "actual_stem_END",
+        "lower_bound_mm": 59.0
+      },
+      "tool_minimum": {
+        "a": "caseM6_1:AF5_driver_approach",
+        "b": "actual_stem_END",
+        "lower_bound_mm": 38.01682710722625
+      }
+    }
+  ],
+  "physical_pair_count": 126,
+  "initial_tool_pair_count": 56,
+  "minimum_physical_lower_bound_mm": 19.25,
+  "minimum_initial_tool_lower_bound_mm": 28.251621568963692,
+  "required_foreign_mm": 1.25,
+  "interpretation": "Nonoverlap of frozen current worldbounds gives a conservative positive separation for these fields. Overlap would not prove contact and would require soleowner classification. No oldsource/static/motion/scans/strict replays or individualwire modeling. Existing validity/coverage evidence is reused fromnamedowner receipts, not independentlyretested byparent.",
+  "retained_context": "Includes five retainedW37cells, two actualPi replacementprints, two fullbandbudgets, two T18RheadOVERRIDES, two sameunit residualcapacityfields and MODULE5newallocatedregion. RejectedV3archives and oldtwoW37replacedcells/oldtwoheads excluded. FullcombinedFoundationparentbounds are notused as newS0delta: completeactualnewfixture plus8M6 used instead, preventing inheritedframe from generating falsechangedcandidates.",
+  "limits": [
+    "Only mutualspace invalidation between these saved newchanges is closed bypositivebounds. No newwholemount/assembly/length/slack/motion/root/printfit evidence.",
+    "Initialtoolbounds alsoseparated fromthese candidatechanges, but initialstage may precedePi; thisdoesnotqualifycompleteS0assembly.",
+    "Capacityfields are reservations for existingunits, notnewstock oractualnylon. Noactualcontactinference."
+  ],
+  "N01_complete": false,
+  "selected": false
+}
