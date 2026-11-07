@@ -1,0 +1,265 @@
+{
+  "id": "day07-S0-fixed-cowl-closure-and-assembly",
+  "status": "BOUNDED_FIXED_COWL_ACCESS_OR_CLOSURE_HOLD",
+  "outline_correction": {
+    "raw_receipt": "day07-S0-fixed-cowl-material-first-gate.json",
+    "raw_solid_distance_zero_not_outline_failure": true,
+    "why": "BodyOuter31isSOLID: containeddifferentmaterial has zero solid-to-solid distance. Correctboundaryshell distance isrequired; no materialposechange/retestforeignpairs.",
+    "actual_outer_boundary_gap_mm": 3.25,
+    "actual_outside_volume_mm3": 0.0,
+    "tight_bounds_mm": [
+      [
+        -96.13927659283662,
+        -21.0000001,
+        97.74634258220532
+      ],
+      [
+        -17.4999999,
+        21.0000001,
+        108.7500001
+      ]
+    ],
+    "required_mm": 3.25,
+    "scoped_received": true
+  },
+  "assembly_rows": [
+    {
+      "kind": "M6_mount_tool",
+      "source": "caseM6_0:AF5_driver_approach",
+      "bbox_lower_mm": 9.781804272805175,
+      "status": "SEPARATED125_BY_WHOLE_BOUNDS"
+    },
+    {
+      "kind": "M6_mount_tool",
+      "source": "caseM6_0:AF10_counterhold_approach",
+      "bbox_lower_mm": 16.697746940894433,
+      "status": "SEPARATED125_BY_WHOLE_BOUNDS"
+    },
+    {
+      "kind": "M6_mount_tool",
+      "source": "caseM6_1:AF5_driver_approach",
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -68.03128197843054,
+            3.4203798335263493e-15,
+            106.5
+          ],
+          [
+            -68.03128197843054,
+            3.4203798335263493e-15,
+            106.5
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 0.6768784770331737,
+      "status": "NEW_COWL_ASSEMBLY_ACCESS_HOLD_NOT_PHYSICAL_TOOL_CONTACT"
+    },
+    {
+      "kind": "M6_mount_tool",
+      "source": "caseM6_1:AF10_counterhold_approach",
+      "bbox_lower_mm": 12.00420001963056,
+      "status": "SEPARATED125_BY_WHOLE_BOUNDS"
+    }
+  ],
+  "all_affected_assembly_scopes_received": false,
+  "panel_source": "FelineTorsoPanels.FCStd",
+  "panel_source_sha256": "1055534030241b90582863b7b7055e513010c1fdadf33a8669113a7db02c1b65",
+  "panel_rows": [
+    {
+      "name": "FrontLeftPanel",
+      "source_entry": "FrontLeftPanel.Shape.brp",
+      "source_member_sha256": "c50ba2f2b236126ab71874d8745382f779b4c9884e8ceb3a385f18ba113e7663",
+      "identity_XML_NOT_applied_twice": true,
+      "source_solids": 1,
+      "result_solids": 1,
+      "added_mm3": 0.0,
+      "removed_mm3": 1239.5148654437537,
+      "full_source_R15_operator_gap_mm": 1.249999959645707,
+      "retained_2mm_radial_annulus_material_mm3": 324.99120393870186,
+      "annulus_solids": 1,
+      "old_panel_connected_preserved": true
+    },
+    {
+      "name": "FrontRightPanel",
+      "source_entry": "FrontRightPanel.Shape.brp",
+      "source_member_sha256": "b8f508250f7718438409c7f89bc0998f2beeb0728221015b737e61d69139b070",
+      "identity_XML_NOT_applied_twice": true,
+      "source_solids": 1,
+      "result_solids": 1,
+      "added_mm3": 0.0,
+      "removed_mm3": 1239.508670575681,
+      "full_source_R15_operator_gap_mm": 1.2499999596457054,
+      "retained_2mm_radial_annulus_material_mm3": 325.0103302630641,
+      "annulus_solids": 1,
+      "old_panel_connected_preserved": true
+    },
+    {
+      "name": "RearLeftPanel",
+      "source_entry": "RearLeftPanel.Shape.brp",
+      "source_member_sha256": "6fadf92cc97f69e4c38f4ce74a69812b9eec0bec3afc0395fecddbb9f08acbaa",
+      "identity_XML_NOT_applied_twice": true,
+      "source_solids": 1,
+      "result_solids": 1,
+      "added_mm3": 0.0,
+      "removed_mm3": 0.0,
+      "full_source_R15_operator_gap_mm": 39.07064771270355,
+      "retained_2mm_radial_annulus_material_mm3": 0.0,
+      "annulus_solids": 0,
+      "old_panel_connected_preserved": true
+    },
+    {
+      "name": "RearRightPanel",
+      "source_entry": "RearRightPanel.Shape.brp",
+      "source_member_sha256": "3944f0924d7cc9faec36748fd856cdb742cd40a6741b5db9d11dbaccba51d18e",
+      "identity_XML_NOT_applied_twice": true,
+      "source_solids": 1,
+      "result_solids": 1,
+      "added_mm3": 0.0,
+      "removed_mm3": 0.0,
+      "full_source_R15_operator_gap_mm": 39.07064770912016,
+      "retained_2mm_radial_annulus_material_mm3": 0.0,
+      "annulus_solids": 0,
+      "old_panel_connected_preserved": true
+    }
+  ],
+  "panel_cursor": 4,
+  "panel_total": 4,
+  "frame_disposition": "ActualcurrentE6mechanical1311frameuntouched. Source4torsoPANELSarefunctionalclosurecandidates; existingsource frame_mounts_complete=false/panel-frameanchorsandseamsOPEN. CutandretainedannulusdoNOTbythemselvesprovepanelattachment orfullstructuralclosure; cannotclaimarbitraryskin nonstructural.",
+  "terminal_protection_disposition": "Fixedfrontguard/operatorbaffle isrealmaterial butterminalshieldingmustinclude actualrear/lateralclosure aroundcurrentstuds/rings. Apertureray/totoolclearancealoneisnotcompleteinsulationorhandprotectionproof. No oldControl_S0inheritance.",
+  "archive": "day07-S0-fixed-cowl-closure-and-assembly.breps.zip",
+  "archive_sha256": "a45ed8c753a0efeb9ee0a75a7f96f14b6d4f35347875877cc2719e6aa6a1a128",
+  "geometry": [
+    {
+      "name": "FrontLeftPanel",
+      "entry": "0.brep",
+      "sha256": "77b47a7348a66dca9d7bd5804d586e12e557a00320be455b2d54f1977861bfce",
+      "bounds_mm": [
+        [
+          -144.50000000000003,
+          -86.00000000000004,
+          -48.00000000000004
+        ],
+        [
+          55.00000000000006,
+          98.00000000000003,
+          135.92577597099702
+        ]
+      ]
+    },
+    {
+      "name": "FrontRightPanel",
+      "entry": "1.brep",
+      "sha256": "5ff9db9899400df97b3da3b627479c923dc34c6d07e0eef95f4e58c0d696c97c",
+      "bounds_mm": [
+        [
+          -144.50000000000003,
+          -98.00000000000006,
+          -48.00000000000004
+        ],
+        [
+          55.00000000000006,
+          85.99999999999997,
+          135.92577594375825
+        ]
+      ]
+    },
+    {
+      "name": "RearLeftPanel",
+      "entry": "2.brep",
+      "sha256": "ad12bf54a46f32b8c6b2ea1044203a07410e112856183c09490b0dd46653d332",
+      "bounds_mm": [
+        [
+          10.0,
+          -82.00000000000009,
+          -48.00000000508767
+        ],
+        [
+          186.50000000000006,
+          93.99999999999996,
+          110.00000000000001
+        ]
+      ]
+    },
+    {
+      "name": "RearRightPanel",
+      "entry": "3.brep",
+      "sha256": "7ae8de78e3844111e10df5a5fe6265dc4e78e776cde4952d0acfb2f9b11f8a7a",
+      "bounds_mm": [
+        [
+          10.0,
+          -94.00000000000009,
+          -48.000000001257604
+        ],
+        [
+          186.50000000000006,
+          81.99999999999991,
+          110.00000000000001
+        ]
+      ]
+    },
+    {
+      "name": "FrontLeftPanel:actual_retained_aperture_annulus",
+      "entry": "4.brep",
+      "sha256": "25a63abea48adb79564c55f143da138bf0d94765beec0d5ed7806ef2b11636f5",
+      "bounds_mm": [
+        [
+          -76.96727367272962,
+          7.035802076499998e-07,
+          81.89574157392292
+        ],
+        [
+          10.0,
+          43.285649500069844,
+          138.87134779819846
+        ]
+      ]
+    },
+    {
+      "name": "FrontRightPanel:actual_retained_aperture_annulus",
+      "entry": "5.brep",
+      "sha256": "9f323cbbc91e00a0a070ef5769c7b6dcd87d0b0c71a8e0473b0584b85b7668e1",
+      "bounds_mm": [
+        [
+          -76.96727364308607,
+          -43.28564950006984,
+          81.89574154540833
+        ],
+        [
+          10.0,
+          7.6686072858e-07,
+          138.87134777095972
+        ]
+      ]
+    },
+    {
+      "name": "S0:fixed_guard_candidate",
+      "entry": "6.brep",
+      "sha256": "ee1827351532de05e00f2ddc35a5bcd3c3e17d14daf0dd16f57dc0258ef30e59",
+      "bounds_mm": [
+        [
+          -96.13927649283663,
+          -21.0,
+          82.07317771597644
+        ],
+        [
+          -17.5,
+          21.0,
+          132.68115702889082
+        ]
+      ]
+    }
+  ],
+  "current1292_and_effective1311_unchanged": true,
+  "new_guard_not_selected": true,
+  "no_hinge_or_new_purchased_hardware": true,
+  "no_old_static_or_ring_pair_replay": true,
+  "selected": false,
+  "N01_complete": false,
+  "operation_seconds": 29.45400000002701,
+  "process_cpu_seconds": 181.546875,
+  "pid": 26064,
+  "session_id": 46493
+}
