@@ -1,0 +1,268 @@
+{
+  "id": "day07-coordinator-V3-conditional-stock-delta-receipt",
+  "received_utc": "2026-11-07T03:46:36.445969+00:00",
+  "status": "CONDITIONAL_FROZEN_WIRE_ARITHMETIC_RECEIVED_PHYSICAL_ROOT_APPROACH_UNRECONCILED",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "reviewer_turn": "01a1b411-ca8d-7923-9b44-2e92bd898fd1",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "role": "Readonly numericalsourcecontribution independentofBanachstructuralCAD; noCAD/edits/newreview/agents.",
+  "source_pins": [
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-V3-interdeck-connected-capacity-proposal.json",
+      "sha256": "c821c7fec9b8432e712403ae87131a282bc6e2f820c5e12ed4e97e798d42f2fe"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day30-four-factory-common-regions.json",
+      "sha256": "dcdbad04d93d732095dd13d9feee358aa5d8561c34c54cf934eed45ef97efe43"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-coordinator-V3-clamp-physical-unit-source-receipt.json",
+      "sha256": "f2da0e4714f39d120c471093d4affb3b16155b5c573def715e3a52c88ddd2596"
+    },
+    {
+      "path": "tools/cad/compose_body36_fit_contribution.py",
+      "sha256": "7903dc80bec4308e6a92c590fa5e19afa33696cf521aea86dd588ddc846fdf3a"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-current-contract.json",
+      "sha256": "2d18aa244e505bb5ff182beaaba33183e56dbbf4505707cfa2d9ca2608d722ea"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-extension-budget-plan.json",
+      "sha256": "9cdd7b101e78dfb07c0524a9f9a751e4acbf2d0bbe117aec7dc21ab0facd0dcb"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-fit-material-contribution.json",
+      "sha256": "0290365a1e0bb5c636eb83f7eb1e0c60bb7fe56a30b5650d227146f226bb7a98"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day26-current-physical-length-budgets.json",
+      "sha256": "df94b6fa5ea7e0869b85bd75e0919de77c2aacf9680c686f0fef3cc24245a8e3"
+    }
+  ],
+  "numbers": "Reviewerreportedmmrounded6decimals; sourceformulasandpinnedinputs authoritative. No rounding ofunknowns intoacceptance.",
+  "rows": [
+    {
+      "piece": "W020/continuous_factory",
+      "physical_unit": "SOURCE/FL1",
+      "old_capacity_mm": 653.0,
+      "old_G_mm": 238.508274,
+      "new_branch_mm": 92.850123,
+      "new_common_centerline_mm": 110.483807,
+      "current_G": "203.333930 + U20",
+      "current_minimum": "411.333930 + U20",
+      "source_capacity_spare": "438.666070 - U20",
+      "U_max_for_source_850_spare_mm": 438.66607,
+      "U_max_for_fit_blank900_only_mm": 468.66607,
+      "whole_guide_delta": "U20 - 35.174344",
+      "local_branch_common_delta_mm": -2.933566,
+      "conditional_physical_unit_MAX": "max(530, 5*ceil((411.333930+U20+20)/5))"
+    },
+    {
+      "piece": "W022/continuous_factory",
+      "physical_unit": "SOURCE/FL2",
+      "old_capacity_mm": 315.814561,
+      "old_G_mm": 261.496458,
+      "new_branch_mm": 169.029467,
+      "new_common_centerline_mm": 85.983807,
+      "current_G": "255.013273 + U22",
+      "current_minimum": "800.198712 + U22",
+      "source_capacity_spare": "49.801288 - U22",
+      "U_max_for_source_850_spare_mm": 49.801288,
+      "U_max_for_fit_blank900_only_mm": 79.801288,
+      "whole_guide_delta": "U22 - 6.483184",
+      "local_branch_common_delta_mm": 43.30357,
+      "conditional_physical_unit_MAX": "max(805, 5*ceil((800.198712+U22+20)/5))"
+    },
+    {
+      "piece": "W024/original_source",
+      "physical_unit": "SOURCE/FL3",
+      "current_minimum_mm": 181.917866,
+      "nominal_piece_fit_blank_mm": 205,
+      "conditional_physical_unit_MAX_mm": 225,
+      "source_original_three_blanks_mm": [
+        180,
+        205,
+        225
+      ],
+      "independent_of_donor": true
+    },
+    {
+      "piece": "W024/source_owned_donor",
+      "physical_unit": "DONOR/FL3",
+      "old_capacity_mm": 235.082134,
+      "old_G_mm": 223.986696,
+      "new_branch_mm": 96.323881,
+      "new_common_centerline_mm": 110.483807,
+      "current_G": "206.807688 + U24",
+      "current_minimum": "832.725554 + U24",
+      "source_capacity_spare": "17.274446 - U24",
+      "U_max_for_source_850_spare_mm": 17.274446,
+      "U_max_for_fit_blank900_only_mm": 47.274446,
+      "whole_guide_delta": "U24 - 17.179008",
+      "local_branch_common_delta_mm": -0.082928,
+      "conditional_physical_unit_MAX": "max(815, 5*ceil((832.725554+U24+20)/5))"
+    }
+  ],
+  "U_definition": "Unknown wholephysicalapproach fromsourcebudgetboundarytocommonentry(-74.55,95.1,66.75), plusactualpercorelengthcorrectionrelativecommoncenterline. Fullretainedphysicalprefixsegment identity/frameisUNRECEIVED; U isnotzeroandnotjustanoldseamdistance. Differentwirebranchingchangescommonlength: W022leavesatY61, 24.5mmbeforeothers.",
+  "source_formulas": {
+    "project_usable_mm": 850,
+    "manufacturer_usable_length_claim": false,
+    "terminal_allowance_mm": 11,
+    "terminal_debit_count": 1,
+    "source_owned_donor_lap_mm": 4,
+    "continuous_minimum": "850 - C + G + 11",
+    "donor_minimum": "850 - C - 4 + G + 11 + 4",
+    "fit_blank": "5*ceil((minimum+20)/5) <= 900",
+    "physical_unit_debit": "MAX across3cores inthatphysicalunit, NOTSUM/anotherunit",
+    "required_capacity_spare": "C-G-11 >= 0; inheriteddonorlapalreadyaccounted",
+    "purchased_remainder_not_installed_slack": true
+  },
+  "conditional_MAX_scope": "530/805/815 andSOURCE/FL3original225 are frozenothercoreSOURCEcontributions/schedule, notnewcurrentgeometryacceptance. MAX formulas applyONLYifothercoresremainphysicallyqualifiedunchanged; otherwisewholeunitmustbereconciled. Actualcuts remainNULL for4pieces.",
+  "explicit_source_reconciliation": {
+    "finding": "Current cuff constructors explicitly replace project seams and mark moving900 interfaces unqualified; no source-fragment ID exists in those receipts. This is an unreceived physical approach, not a missing BRep to recover.",
+    "source_evidence": [
+      "tools/cad/plan_feline_fl_common_arc_bay.py construct",
+      "tools/cad/plan_feline_vertical_cuff_bays.py construct",
+      "tools/cad/compose_feline_current_cuff_bays.py compose"
+    ],
+    "consequence": "Do not search archived geometry or reuse the old fixed donor scalar as an accepted current prefix. Next whole approach/length plan must connect retained source-owned joints and current fixed receiving fields; may change printed guide/mount topology with selected parts preserved. No claim of measured physical cable shortage.",
+    "old_42_diagnostic": "22newends+20handlay was provisional; terminal11 and lap4 already in old fixed donor term. Decompose before evaluating new whole path.",
+    "N01_complete": false
+  },
+  "unqualified_legacy_to_project_seam_rows": [
+    {
+      "portion_id": "W020/body",
+      "old_body_route_root_world_mm": [
+        -116.79903810567666,
+        25.75,
+        -16.0
+      ],
+      "old_source_land": {
+        "kind": "line",
+        "start": [
+          -116.79903810567666,
+          25.75,
+          -16.0
+        ],
+        "end": [
+          -116.79903810567666,
+          25.75,
+          -13.598076211353316
+        ],
+        "length_mm": 2.401923788646684
+      },
+      "old_body_guide_mm": 238.50827379808112,
+      "old_fixed_support": "FrontLeftFixedCarrier",
+      "old_bundle_land": "FL1/Hip/Fixed",
+      "current_actor": "FLArcCuff:W020/body/start",
+      "current_seam_cap_mm": [
+        -68.0,
+        46.6,
+        82.4
+      ],
+      "current_free_cap_mm": [
+        -15.199999999999996,
+        27.000000000000004,
+        101.3
+      ],
+      "current_local_guide_mm": 71.56076600224473,
+      "root_to_new_seam_point_separation_mm": 111.797266,
+      "point_separation_is_NOT_added_wire_length": true,
+      "physical_retained_prefix_segment_id_between_boundaries": null,
+      "frame_and_fragment_reconciliation_received": false
+    },
+    {
+      "portion_id": "W022/body",
+      "old_body_route_root_world_mm": [
+        15.803395433279363,
+        145.7280667186704,
+        30
+      ],
+      "old_source_land": {
+        "kind": "line",
+        "start": [
+          15.803395433279363,
+          145.7280667186704,
+          30
+        ],
+        "end": [
+          15.803395433279363,
+          145.7280667186704,
+          35
+        ],
+        "length_mm": 5.0
+      },
+      "old_body_guide_mm": 261.496457380701,
+      "old_fixed_support": "FrontLeftFixedCarrier",
+      "old_bundle_land": "FL2/Hip/Fixed",
+      "current_actor": "FLArcCuff:W022/body/start",
+      "current_seam_cap_mm": [
+        -68.0,
+        46.6,
+        86.00000000000001
+      ],
+      "current_free_cap_mm": [
+        -15.199999999999996,
+        27.000000000000004,
+        103.50000000000001
+      ],
+      "current_local_guide_mm": 70.67821832867403,
+      "root_to_new_seam_point_separation_mm": 141.369667,
+      "point_separation_is_NOT_added_wire_length": true,
+      "physical_retained_prefix_segment_id_between_boundaries": null,
+      "frame_and_fragment_reconciliation_received": false
+    },
+    {
+      "portion_id": "W024/body",
+      "old_body_route_root_world_mm": [
+        -74.19660456672048,
+        104.75,
+        91
+      ],
+      "old_source_land": {
+        "kind": "line",
+        "start": [
+          -74.19660456672048,
+          104.75,
+          91
+        ],
+        "end": [
+          -74.19660456672048,
+          104.75,
+          96
+        ],
+        "length_mm": 5.0
+      },
+      "old_body_guide_mm": 223.9866959083189,
+      "old_fixed_support": "FrontLeftFixedCarrier",
+      "old_bundle_land": "FL3/Hip/Fixed",
+      "current_actor": "FLArcCuff:W024/body/start",
+      "current_seam_cap_mm": [
+        -68.0,
+        46.6,
+        89.6
+      ],
+      "current_free_cap_mm": [
+        -15.199999999999996,
+        27.000000000000004,
+        105.70000000000002
+      ],
+      "current_local_guide_mm": 69.8429720308549,
+      "root_to_new_seam_point_separation_mm": 58.495986,
+      "point_separation_is_NOT_added_wire_length": true,
+      "physical_retained_prefix_segment_id_between_boundaries": null,
+      "frame_and_fragment_reconciliation_received": false
+    }
+  ],
+  "required_next": "BeforecostlyV3supportcorrection, soleowneridentifyactualcurrentphysicalsource-ownedjoints/bodyapproach/budgetboundaries andframes, thenqualify3Ui orreplanonewholephysicalapproachwithselectedends/splices/regions/R/slack. No archivehuntfora missingretainedfragment: sourceexplicitlysaysitwasneverreceived. DoNOTinferfullshortagefrompointdistance orinheritoldGdeltaasprefix. Newarbitrarycuff/accountingseamisnotnewphysicalterminal. Ifroutecannotfit afterqualifiedphysicaldatum, rejectthatwirelayoutbeforemorebracketdetail; no waived850rule/cut/pool/physicalnewsplice.",
+  "geometry_and_stock_limits": [
+    "Root/foreign/wholeV3regionR/connectedcapacity/mutualprofiles/actualreserveplacement remainOPEN.",
+    "Old470/830/205/870 are notcurrentinstalledblanks; original205 here followsindependentpinnedschedule, notcopyinghistoricalstock.",
+    "Fourprotected220/MTA/5XL/K1474/USB/headconditions unchanged. No individual123wireaxes orfullN09 required."
+  ],
+  "N01_complete": false,
+  "geometry_pass": false,
+  "C1_review_reopened": false
+}
