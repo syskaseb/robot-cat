@@ -1,0 +1,958 @@
+{
+  "id": "day07-source-release-and-Pi-before-dock-decision",
+  "status": "INITIAL_LOWER_ENDPOINT_CLOSED_LEFT_ENTRY_REJECTED_S0_RETAINED",
+  "selected": false,
+  "N01_complete": false,
+  "N01_score": "0/10",
+  "source_roles": {
+    "P_REAR": {
+      "selected": "WAGO221-615",
+      "physical_endpoint": "P_REAR.4",
+      "attached": "XP01 upstream of F_PWM, not a new connector in XP02 factory unit",
+      "method": "Source documented spring-terminal release of actual bare endpoint after freeing insulation restraint. No factory cutting; current lever/tool access NOT received."
+    },
+    "G_TAIL": {
+      "selected": "WAGO221-415",
+      "physical_endpoint": "G_TAIL.3",
+      "attached": "XP03.source factory opposite bare end",
+      "method": "Release actual spring terminal and insulation restraint; preserve current fixed rooted comb/rail and case. Common pressurecap/T18I also restrains other named conductors; do not silently move or detach whole station. Current lever/pressurecap removal access NOT received."
+    },
+    "F_PWM": {
+      "selected": "0242.100UAT1 axial sleeved pigtail",
+      "method": "No separable holder or connector at fuse. Free its T18I retention only and handle whole fused pigtail/XP01/XP02; preserve full sleeving/isolation and all purchased source ends."
+    },
+    "MODULE": {
+      "selected": [
+        "2147632113",
+        "2147631113"
+      ],
+      "endpoints": [
+        "U_PWM.3",
+        "U_PWM.2"
+      ],
+      "actual_retained_part": "Ref_Material_U1_U_PWM_* bare/sleeved bodies and named pad geometry",
+      "method": "Board-end soldered terminals, not detachable sockets. Do not pretend unplugging U1/PWM releases these copper joints. Initial dryfit/routing precedes final named board-end solder; rare repair retains these attached MODULE leads unless a separate source-backed board/carrier removal is qualified."
+    }
+  },
+  "first_build_order": [
+    "Keep permanent support and two dock saddles; install card to Pi on bench. Keep dock case/three T18I closures and final board-end solder/restraint out of the entry operation.",
+    "SOURCE gallery is documented as laid before Pi. Provisionally prelay full flexible units in their unchanged received source regions with loose/dock ends protected and accessible; this prelay/entry coordination is OPEN, not a licence to omit wires.",
+    "Selected first attempt: enter bare14-onboard Pi from left at99mm offset, Z-5; move right99 then raise5; attach same4M2/fullmetal. Endpoint Z-5 received, left approach rejected on retained S0.",
+    "Only after actual board entry plus attached MODULE/Pi prelay is established: complete OFF-PETG bench preparation, then final unchanged4factory routing/source WAGO terminations, mate/seat dock and close full selected ties. No in-robot soldering assumed; source preparation/assembly sequence requires its dependency proof."
+  ],
+  "initial_entry": {
+    "lower_endpoint_receipt": "day07-Pi-before-dock-first-initial-entry-gate.json",
+    "lower_endpoint_status": "14 onboard objects, 10/10 actual complete-neighbor candidates separated1.25",
+    "lower_wall_seconds": 27.655999999959022,
+    "lower_CPU_seconds": 36.859375,
+    "left_path_receipt": "day07-Pi-before-dock-full-profile-passage-gate.json",
+    "left_path_status": "STOP 1/71 at S0;70 unreceived, do not count them as checked",
+    "cover_common_mm3": 1095.8334407117734,
+    "actual_left_DSI_endpoint": {
+      "translation_mm": [
+        -99,
+        0,
+        -5
+      ],
+      "moving_valid": true,
+      "fixed_valid": true,
+      "gap_mm": 0.0,
+      "required_foreign_mm": 1.25,
+      "common_validity": null,
+      "common_volume_mm3": null,
+      "decision": "Valid occupied-source distance fails margin; nominal S0 family material is retained reservation, not delivered physical-contact certification.",
+      "timing": "single direct read untimed; not inferred from chat elapsed"
+    },
+    "left_path_wall_seconds": 24.73499999998603,
+    "left_path_CPU_seconds": 24.859375
+  },
+  "source_stock": {
+    "individual_factory_min_mm": [
+      220,
+      220,
+      220,
+      220
+    ],
+    "installed_received_debits_mm": {
+      "MODULE1": 199.176168,
+      "MODULE2": 213.552653,
+      "SOURCEred": 211.81110605887,
+      "SOURCEblack": 160.65966001691
+    },
+    "new_transport_or_service_debits_mm": null,
+    "no_pool_trim_extra9": true,
+    "both_sides_all4_MTA_unchanged": true,
+    "R_and_OD": "Retain source R>=11.1 and actual selected full profiles/prefixes; MODULE shared free-region plan retains source R>=12.6/profile2.1. No drawing relaxation.",
+    "repair_ties": "3 dock one-way units must be replaced after removal; no releasable/reused tie assumption. Other source/Pi common restraint units counted separately; availability not asserted."
+  },
+  "rare_reverse": {
+    "accepted": false,
+    "plan": "Open cover; required Pi mating disconnections and source WAGO endpoints freed; handle entire fused SOURCE pigtail. Support the freed MODULE half manually with actual connected lead capacity while source U_PWM stays fixed. No permanent service sling, no factory cuts. Full current SOURCE clamp/lever access, module-half separation/space, per-lead connected storage and manual removal corridor remain unreceived.",
+    "rejected_park": "Full mated cover northwest park remains rejected by FR_P budget33.30059379; no new parking pose tested."
+  },
+  "causal_consequence": "Dock-first body is not intrinsically trapped (received side7mm), but Pi-before-Dock alone does not establish bare-board insertion with S0 retained. Do not qualify assembly by endpoint-only clearance. Next decision must address actual assembly/load interface/order for S0/upper Pi rail and complete neighbors, not a third park/column offset or omission of selected switch.",
+  "retained": [
+    "six fixed functions from d5f33aee",
+    "microSD source open-left LOST, raw82.731 retained; repair replacement NOT accepted",
+    "DSI/installed JPWM down5 gap0 retained",
+    "capacity2/FlatMODULE/V, R6 park and invalid3 USB source covers OPEN",
+    "current1292 unchanged, westC1 source cells unchanged; no C2/review/new hardware"
+  ],
+  "archive": "day07-Pi-before-dock-source-endpoint-inventory.breps.zip",
+  "archive_sha256": "8a2e87d56c989d74cd55b70ddbd416d42a3b7fd90b6ed44dfe31631a9fe49de2",
+  "geometry": [
+    {
+      "name": "GTAILRoot:case_4905",
+      "entry": "0.brep",
+      "sha256": "e82f6176e39001d93ca04ae51f1e8c175e54dfa80fb15eb49723d806637b5e7e",
+      "valid": true,
+      "bounds_mm": [
+        [
+          123.0,
+          53.6,
+          51.345
+        ],
+        [
+          123.5,
+          59.0,
+          66.345
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "GTAILRoot:rail_branch",
+      "entry": "1.brep",
+      "sha256": "46c91904496f3101cfc3e662bbf73170ad13c13826c1324bffffbc0304c28c1d",
+      "valid": true,
+      "bounds_mm": [
+        [
+          121.0,
+          53.6,
+          40.02
+        ],
+        [
+          126.6,
+          59.0,
+          70.595
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerFan:P_REAR:case",
+      "entry": "2.brep",
+      "sha256": "1a43cd5cf911b9a2799e7ae21339e9d91d7cec6dfef2ae003306a71c0dda562e",
+      "valid": true,
+      "bounds_mm": [
+        [
+          141.0,
+          -49.71969850927701,
+          61.49999999999999
+        ],
+        [
+          163.0,
+          -38.71969850927701,
+          98.5
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerFan:F_PWM:case",
+      "entry": "3.brep",
+      "sha256": "f9765b40cbbbdca6ed4d9e591b71e3d533502bab8b44853fbc16753b7f2bfa0d",
+      "valid": true,
+      "bounds_mm": [
+        [
+          106.0667986202059,
+          -88.4927654682233,
+          63.79999999999994
+        ],
+        [
+          132.6093612044263,
+          -48.919698509276884,
+          70.19999999999995
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerMount:P_REAR:4905",
+      "entry": "4.brep",
+      "sha256": "e7f3907bda641dea8e75986931a4d5a0605e9eb757778eb47b31d8c9c51143c7",
+      "valid": true,
+      "bounds_mm": [
+        [
+          163.0,
+          -49.71969850927701,
+          61.499999999999986
+        ],
+        [
+          163.5,
+          -38.719698509276895,
+          98.5
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerMount:F_PWM:Band",
+      "entry": "5.brep",
+      "sha256": "b258b15a23abeae2d45942ba87a333db57644d87d480ba111528d4247b928eeb",
+      "valid": true,
+      "bounds_mm": [
+        [
+          113.04061351752793,
+          -73.06376374348065,
+          60.449999999999996
+        ],
+        [
+          125.63554630710408,
+          -64.34870023401956,
+          71.55
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerMount:F_PWM:Head",
+      "entry": "6.brep",
+      "sha256": "2eab849d43a98c606bdd0642b579517acf98039c9ec98066b67e28f7beedb9b0",
+      "valid": true,
+      "bounds_mm": [
+        [
+          123.68554630710408,
+          -76.42619930877886,
+          66.0
+        ],
+        [
+          130.05945554337717,
+          -69.68626466872134,
+          71.0
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Station:G_TAIL:case",
+      "entry": "7.brep",
+      "sha256": "c2e40a6b04968742e538e480d1eef4bb1208e58c67974976ef91c5f79232e268",
+      "valid": true,
+      "bounds_mm": [
+        [
+          123.5,
+          51.0,
+          49.345
+        ],
+        [
+          132.5,
+          81.0,
+          68.345
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Station:G_TAIL:head_budget",
+      "entry": "8.brep",
+      "sha256": "5e5cb28553dacc81e4970edb4d60bcb148d295a3eb36097a14993304041b0d32",
+      "valid": true,
+      "bounds_mm": [
+        [
+          125.35,
+          47.75,
+          70.595
+        ],
+        [
+          130.65,
+          52.05,
+          75.595
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_2_PadBare_0_0",
+      "entry": "9.brep",
+      "sha256": "1699a8140d0107bc41a22ce1be86e8dc7575d1ccb7f7b40cca24885d0db7e12f",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -69.05000000000004,
+          50.18000000000002,
+          76.29999999999998
+        ],
+        [
+          -66.15000000000003,
+          50.780000000000015,
+          76.89999999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_2_BodyBare_0_0",
+      "entry": "10.brep",
+      "sha256": "5d9fb9ce0c400873be3d887380b0016e380b3075eb76588ebac614d282e83242",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -76.65000000000003,
+          47.64289013961991,
+          76.29999999999998
+        ],
+        [
+          -71.88926139200132,
+          49.36950732987812,
+          76.89999999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_3_BodyBare_0_0",
+      "entry": "11.brep",
+      "sha256": "20398d3123498271220baf15d3cbe37def1fc6de9d36b3c507572906e7a7ceba",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -76.65000000000003,
+          47.673993139989385,
+          77.536275527984
+        ],
+        [
+          -71.9377544202393,
+          49.31632256845839,
+          78.70057275182074
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_0_0",
+      "entry": "12.brep",
+      "sha256": "237fc67d078aa2108f1054a25f42332983ad358791c0b06f9c997cd22bf2461e",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -81.60000000000004,
+          46.08000000000002,
+          74.12499999999997
+        ],
+        [
+          -76.65000000000003,
+          50.020000000000024,
+          79.07499999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_1_Sleeved_0_0",
+      "entry": "13.brep",
+      "sha256": "bb571792c710925fcb48e1ef3a111d1515d42edc945736cfa474587644b854ad",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -72.66486945845762,
+          48.68804522987588,
+          73.43071422561948
+        ],
+        [
+          -69.05000000000004,
+          51.15899285210548,
+          75.33403572346596
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_3_PadBare_0_0",
+      "entry": "14.brep",
+      "sha256": "c73cba60d4bdc6fe32b5a18756c74a8a283f9ec2829fcf1f7afad94a7d3aaed2",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -69.05000000000004,
+          50.18000000000002,
+          78.83999999999999
+        ],
+        [
+          -66.15000000000003,
+          50.780000000000015,
+          79.43999999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_1_PadBare_0_0",
+      "entry": "15.brep",
+      "sha256": "87de5817739919fb3e34a9d649faab30d596b1fcf62c72dbd45d318805f6cfdd",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -69.05000000000004,
+          50.18000000000002,
+          73.75999999999999
+        ],
+        [
+          -66.15000000000003,
+          50.780000000000015,
+          74.35999999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_3_Sleeved_0_0",
+      "entry": "16.brep",
+      "sha256": "f28ce96ebf9fb91969ebb8be51442f43ceda5d0e05b25e1c723f1e8ae30b9ec4",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -72.66486945845762,
+          48.68804522987588,
+          77.86596427653402
+        ],
+        [
+          -69.05000000000004,
+          51.15899285210548,
+          79.76928577438049
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_2_Sleeved_0_0",
+      "entry": "17.brep",
+      "sha256": "e202e838311c559e54038471c7c8e5a3f4eafd8db70045c7a4fab9121f40536d",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -72.58416367006951,
+          48.797571298546266,
+          75.99999999999999
+        ],
+        [
+          -69.05000000000004,
+          51.21182752046785,
+          77.19999999999997
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Ref_Material_U1_U_PWM_1_BodyBare_0_0",
+      "entry": "18.brep",
+      "sha256": "40bc6e1af0e2b311e90d0c2231a52af430569d6a8f04e24af4392777a43b18ce",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -76.65000000000003,
+          47.6739931399894,
+          74.49942724817923
+        ],
+        [
+          -71.9377544202393,
+          49.31632256845839,
+          75.66372447201597
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMSource:XP02.source",
+      "entry": "19.brep",
+      "sha256": "2fadb65c37658ef120643d8e599be283f0dc7fda4fce71a81a52754cd9c80c03",
+      "valid": true,
+      "bounds_mm": [
+        [
+          17.787687356451983,
+          10.048927264438566,
+          87.57500000000029
+        ],
+        [
+          26.506915990511928,
+          16.15107426143978,
+          89.42500000000028
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMSource:XP02.module",
+      "entry": "20.brep",
+      "sha256": "84671998c873a4d77c03fe0cd87e9b761c1f5ce7423bd9c528719e8f5e8c89ed",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -15.73457019421769,
+          28.89813869856777,
+          87.57499999999999
+        ],
+        [
+          -7.787689999351803,
+          37.76391546488918,
+          89.42499999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMSource:XP03.source",
+      "entry": "21.brep",
+      "sha256": "3946525d63a5f3d3228aeb8204b1612e4c8c0c3109e95fc92d2e0bdaf218fb20",
+      "valid": true,
+      "bounds_mm": [
+        [
+          17.787687356451983,
+          10.048927264438566,
+          84.57500000000029
+        ],
+        [
+          26.506915990511928,
+          16.15107426143978,
+          86.42500000000028
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMSource:XP03.module",
+      "entry": "22.brep",
+      "sha256": "1263d2e165bfa1866c49f5e4729d05f7f735ddc7a9c602434577e9ea10799dd1",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -15.73457019421769,
+          28.89813869856777,
+          84.57499999999999
+        ],
+        [
+          -7.787689999351803,
+          37.76391546488918,
+          86.42499999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMGrip:source:pad",
+      "entry": "23.brep",
+      "sha256": "b39ff4daf40ff0d10c5a7cafb97062a5dfe2489716e5d4d8cda940325ba2c437",
+      "valid": true,
+      "bounds_mm": [
+        [
+          18.7876873564519,
+          11.780978072007766,
+          84.425
+        ],
+        [
+          27.581915990511845,
+          18.013028879576648,
+          89.575
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMGrip:source:band",
+      "entry": "24.brep",
+      "sha256": "4ff7898b2e0f9eb898ce21364e3a535803cd8a2ce1c43cf5713fa9aa3dd02085",
+      "valid": true,
+      "bounds_mm": [
+        [
+          19.927269918751406,
+          10.504792969329575,
+          83.22500000000032
+        ],
+        [
+          25.3673334282125,
+          17.42725936411765,
+          90.77500000000033
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMGrip:source:head",
+      "entry": "25.brep",
+      "sha256": "ae4b3c141915eb093e3f533627a7cdb271bcb868d6cf67d24299d530bcc5b219",
+      "valid": true,
+      "bounds_mm": [
+        [
+          22.119738164020777,
+          15.55225936411797,
+          84.35
+        ],
+        [
+          28.59986518294297,
+          21.77616860039106,
+          89.65
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMGrip:module:pad",
+      "entry": "26.brep",
+      "sha256": "2438ca2b5f3adc9a83d38ab552ba038da4f614d9786164dda8d3b0959023b1a1",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -12.795314963787362,
+          31.580978072007703,
+          84.42499999999998
+        ],
+        [
+          -6.712689999351805,
+          38.44307194904615,
+          89.57499999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMGrip:module:band",
+      "entry": "27.brep",
+      "sha256": "6f1fb5ccb294418db524989f0206e910ae53607a449111369b3db5549f736b7e",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -14.29715442163473,
+          31.015010131525667,
+          83.22499999999998
+        ],
+        [
+          -7.797140899397405,
+          36.91234392191168,
+          90.77499999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "JPWMGrip:module:head",
+      "entry": "28.brep",
+      "sha256": "7c769b95197e22d858b57587c0082a541e97db7324a2dd509a3b256555e4ea15",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -9.926286603340868,
+          34.31552575591217,
+          84.35
+        ],
+        [
+          -3.4337339157568265,
+          40.90799570803388,
+          89.65
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerFan:F_PWM:out9",
+      "entry": "29.brep",
+      "sha256": "c9518391b614b24c24a1b1505ed7305081ec5342037a44a201dd11d42a649f5c",
+      "valid": true,
+      "bounds_mm": [
+        [
+          97.97436490538908,
+          -95.33214788806553,
+          66.075
+        ],
+        [
+          110.46494197668778,
+          -86.43026546822327,
+          67.925
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerFan:grip:XP02:pad",
+      "entry": "30.brep",
+      "sha256": "6f799353f0a1647a2d1d5b5abe0a3c6855af8807916c298d2bd25c2813cadd83",
+      "valid": true,
+      "bounds_mm": [
+        [
+          101.1648209472427,
+          -94.85658634254268,
+          62.49999999999985
+        ],
+        [
+          110.70493834102031,
+          -85.95927181916937,
+          64.5
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerFan:grip:XP02:band",
+      "entry": "31.brep",
+      "sha256": "7a250ef9f5e7f8c1ac4ad66b9eb588aca6d15a2850f19827f4ddc42c39d8cd98",
+      "valid": true,
+      "bounds_mm": [
+        [
+          102.44207001009799,
+          -94.25224788821703,
+          61.3
+        ],
+        [
+          109.1833936818106,
+          -86.78295557487286,
+          70.7
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "PowerFan:grip:XP02:head",
+      "entry": "32.brep",
+      "sha256": "36015215661e3cceec29fccdee04e9ebdb866bda52445a15f39a687baec6205a",
+      "valid": true,
+      "bounds_mm": [
+        [
+          102.20043368680612,
+          -94.15131073309405,
+          57.0
+        ],
+        [
+          109.42503000510247,
+          -86.88389272999585,
+          61.3
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Station:G_TAIL:split_common_comb",
+      "entry": "33.brep",
+      "sha256": "276f6cba836f2620bbe415a59cfaaec51041b74ee36d15eed08c397b222c2df6",
+      "valid": true,
+      "bounds_mm": [
+        [
+          125.5666255231098,
+          53.25,
+          68.595
+        ],
+        [
+          131.25,
+          78.55,
+          78.86635878923785
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Station:G_TAIL:shared_pressure_cap",
+      "entry": "34.brep",
+      "sha256": "c85b3a33e25a32c799987594ee06a7044c087d306d3fa37ebaa78d61adf5ff36",
+      "valid": true,
+      "bounds_mm": [
+        [
+          123.78082920508508,
+          53.25,
+          68.595
+        ],
+        [
+          130.02287606889615,
+          78.55,
+          78.70888284726276
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "Station:G_TAIL:band_budget",
+      "entry": "35.brep",
+      "sha256": "bfe20f644d9ddd83e886b1a7f605cace0c2f33872e9edf8e61b312a839d53bba",
+      "valid": true,
+      "bounds_mm": [
+        [
+          123.55,
+          52.05,
+          71.845
+        ],
+        [
+          132.45,
+          79.75,
+          74.345
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      }
+    },
+    {
+      "name": "TRANSIENT:left_entry_DSI",
+      "entry": "36.brep",
+      "sha256": "fc1409220d94d84a58094fd374c2754d7e42db20c21bdaee7f4d857fb7321b1c",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -101.5,
+          -1.731890365286148,
+          92.70000000000002
+        ],
+        [
+          -97.55,
+          20.668109634713854,
+          98.20000000000002
+        ]
+      ],
+      "source": "explicit transient/sourcecopy"
+    },
+    {
+      "name": "CURRENT:S0_body",
+      "entry": "37.brep",
+      "sha256": "f022ce088118d32ff24eb2e1030287cf761c25478e5d39eb65e42382169ad5be",
+      "valid": true,
+      "bounds_mm": [
+        [
+          -137.49999999999955,
+          -28.5,
+          44.92003097162687
+        ],
+        [
+          -88.20974375249615,
+          28.5,
+          107.99999999999997
+        ]
+      ],
+      "source": "explicit transient/sourcecopy"
+    }
+  ],
+  "packaging_operation_seconds": 0.2339999999385327,
+  "packaging_process_cpu_seconds": 0.203125,
+  "pid": 26064,
+  "session_id": 46493,
+  "pending_operation": null,
+  "unsaved_geometry": false,
+  "source_pins": [
+    {
+      "path": "hardware/electronics/kicad-current/design.json",
+      "sha256": "7be7baa6913fdfa7fe306ef5c33cb3185efd2628ed4001a85acf352ab651ff01",
+      "scope": "Electrical identity/source function only; historical geometry and obsolete150 module allocation not current"
+    },
+    {
+      "path": "hardware/electronics/full-cat/pwm-complete-e2-r1/interface.json",
+      "sha256": "fa8b423096ae584879992ab287b0823480dcf9867908d7fb3f14904ef366e609",
+      "scope": "Electrical identity/source function only; historical geometry and obsolete150 module allocation not current"
+    },
+    {
+      "path": "tools/cad/plan_feline_jpwm_pair_exit.py",
+      "sha256": "d921c7234bb27cc96742c1ca76205af39a9d2dea107d7ac41ce164e5ec2380dc",
+      "scope": "Electrical identity/source function only; historical geometry and obsolete150 module allocation not current"
+    },
+    {
+      "path": "tools/cad/plan_feline_gtail_whole_turn.py",
+      "sha256": "2532aa4c3eafe93c4249da46e4c39298725de140f4cea52d7eb0042fb1c678e1",
+      "scope": "Electrical identity/source function only; historical geometry and obsolete150 module allocation not current"
+    },
+    {
+      "path": "tools/cad/compose_phase1_protection_overlays.py",
+      "sha256": "0facde218c49b14dc72bd242f32d0e09d208726f4a64a298f8138de1a8153616",
+      "scope": "Electrical identity/source function only; historical geometry and obsolete150 module allocation not current"
+    },
+    {
+      "path": "tools/cad/compose_phase1_purchased_set.py",
+      "sha256": "e905ebe4272dbfe75224c5f59312f2b6cc3debc5086407977e93f882cb416542",
+      "scope": "Electrical identity/source function only; historical geometry and obsolete150 module allocation not current"
+    },
+    {
+      "path": "day02-astra-resume-source-chain.json",
+      "sha256": "cfad1041004000e588389f1af08d48a868299dc5281e836beeb22a46b2044fa0"
+    },
+    {
+      "path": "day07-JPWM-release-assembly-dependency-disposition.json",
+      "sha256": "0288cead675edce5ffaf0b5b3af5d57236a49c1587f791992fa00b31f777d2ca"
+    },
+    {
+      "path": "day07-Pi-before-dock-initial-assembly-scope.json",
+      "sha256": "3041026a0ed150bbb604c32bb88ae1782aa02a8ac056ee45f86a08389e0f070e"
+    },
+    {
+      "path": "day07-Pi-before-dock-first-initial-entry-gate.json",
+      "sha256": "ed4a535575e3aacc02b299a474975a9ad35f6b032668a08090a2c8cb7281ea2c"
+    },
+    {
+      "path": "day07-Pi-before-dock-full-profile-passage-gate.json",
+      "sha256": "fccd49617a1a2b5425de50afcbfb4e8820bc2a56572576a59be083071f28f34d"
+    }
+  ],
+  "source_preparation_correction": "Any final soldering is OFF PETG on the bench after complete dryfit, not with Pi mounted in the assembled robot. The frozen trial scope suggests timing only and does not establish that current U1 plus its attached MODULE kit can be installed in that order. Never infer a removable solder joint, detach integral U1 print, or omit a connected factory housing. Actual loose-half prelay/holding remains an input gate; initial assembly remains HOLD independently of the S0 obstruction."
+}
