@@ -1,0 +1,250 @@
+{
+  "id": "day07-W068-inboard-overframe-C1-bounded-disposition",
+  "status": "C1_ACTUAL_FRAME_PRONG_INTERFERENCE_HOLD_STRATEGY_EXHAUSTED",
+  "selected": false,
+  "N01_complete": false,
+  "whole_proposal": "day07-W068-inboard-overframe-C1-whole-interface-proposal.json",
+  "correction_used": 1,
+  "C0_C1_exhausted": true,
+  "actual_current_frame": {
+    "actor": "Ref_Material_P0_FrameFront20_0_0",
+    "raw_brep_sha256": "8f639f9ad435fa2f44f673db8251ccd1caa9d6443cdc3f886a5c8f32e8f1be27",
+    "serialization": {
+      "old_export_sha256": "f4f10907a9bd4a998ce52d7be8611bf735cc77bbcc15aae1067c6436e19dce70",
+      "current_export_sha256": "8f639f9ad435fa2f44f673db8251ccd1caa9d6443cdc3f886a5c8f32e8f1be27",
+      "byte_identical": false,
+      "native_reference_identity_received": true,
+      "received_stdout": "SOURCE_IDENTITY135 True True 26064",
+      "same_actual_reference_frame132_and_ctx121": true,
+      "metrics_exactly_equal": [
+        "volume",
+        "area",
+        "bounds",
+        "validity"
+      ],
+      "text_lines": 9181,
+      "single_changed_line_1based": 9178,
+      "old_flag_line": "1100000",
+      "new_flag_line": "0100000",
+      "flag_meaning_NOT_inferred": true,
+      "actual_C1_export_is_current_source_pin": true,
+      "no_coordinate_transform": true
+    },
+    "not_new_XML_transform": true
+  },
+  "received_functional_facts": {
+    "actual_source_face99_contact_mm2": 97.70287064472345,
+    "actual_source_substrate_mm3": 9.770287064471782,
+    "root_pad_mm3": 341.96004725653154,
+    "full_native_upper_aperture_feed_mm": [
+      3.3,
+      2
+    ],
+    "full_feed_common_with_frame_mm3": 0.0,
+    "source_conforming_contact_not_strength_or_mountPASS": true
+  },
+  "first_falsifier": {
+    "part": "OVERFRAME_UPSTAND",
+    "other": "Ref_Material_P0_FrameFront20_0_0",
+    "valid": true,
+    "source_valid": true,
+    "gap_mm": 0.0,
+    "common_valid": true,
+    "common_mm3": 19.87854793358289,
+    "witnesses": [
+      [
+        [
+          -83.9475664610514,
+          -21.0688234868771,
+          37.0200000000009
+        ],
+        [
+          -83.9475664610514,
+          -21.0688234868771,
+          37.0200000000009
+        ]
+      ]
+    ],
+    "classification": "ACTUAL_NAMED_MECHANICAL_BEARING_OR_ACCESS_NOT_FOREIGN_WAIVER",
+    "status": "CURRENT_FRAME_MATERIAL_INTERFERENCE_HOLD"
+  },
+  "falsified_premise": "Inboard source-conforming bearing and a clear upper tie aperture do NOT imply a continuous rising loadpath to the above-frame layer: the planned FULL upstand crosses actual integral frame-prong material. Own mechanical contact allows boundary bearing, never positive material intersection.",
+  "counters": {
+    "source_frame_received": 3,
+    "source_frame_total": 5,
+    "source_frame_unreceived": 2,
+    "foreign_received": 0,
+    "foreign_candidate_keys": 6,
+    "foreign_unreceived": [
+      [
+        "ROOT_SOURCE_CONFORMING_PAD",
+        "Ref_Material_P0_SideRight22_0_0"
+      ],
+      [
+        "ROOT_FULL_FEED_3_3_BY_2",
+        "F_PI:registered_casing_reservation"
+      ],
+      [
+        "OVERFRAME_UPSTAND",
+        "CurrentFoundation:FoundationRail:-1"
+      ],
+      [
+        "OVERFRAME_UPSTAND",
+        "SpliceBandBudget:W077"
+      ],
+      [
+        "OVERFRAME_BRIDGE",
+        "CurrentFoundation:FoundationRail:-1"
+      ],
+      [
+        "OVERFRAME_BRIDGE",
+        "SpliceBandBudget:W077"
+      ]
+    ],
+    "first_falsifier_stop": true,
+    "rejected_branch_do_not_resume": true
+  },
+  "stock": {
+    "selected_SKU": "111-02370/T18I145",
+    "existing_pressure_nominal_roles": 1,
+    "additional_root_nominal_demand": 1,
+    "quantity_availability": null,
+    "purchased": false,
+    "root_nominal_loop_mm": 108.90540004428044,
+    "root_145_minus_loop_minus25_mm": 11.09459995571956,
+    "full_145_uncut_tails_including25_once": true,
+    "root_loop_actual_feed_head_connection_pressure_tail_storage_installation_received": false,
+    "nominal_length_NOT_physical_stock_or_mount_acceptance": true
+  },
+  "material": {
+    "only_whole_functional_root_loadpath_envelopes_exported": true,
+    "detailed_union_built": false,
+    "member_union_coverage_NOT_claimed": true,
+    "pressure_or_tail_kit_built": false,
+    "current_parent_changed": false
+  },
+  "unchanged": {
+    "W068_wire_R25_2_terminal5_ring_full9": true,
+    "SOURCE9_fixed_lanes_and_three_branches": true,
+    "SOURCE_four_ties_MODULE_two_BUS": true,
+    "four_independent_220_and_both_four_MTA": true,
+    "foreign_margin_mm": 1.25,
+    "BodyOuter_margin_mm": 3.25
+  },
+  "historical_negatives": "C0 RR33.295211/feed7.548396; W068head.915103; allSOURCE U/S/floor/oldV3/oldPi/S0 and counters preserved; no new replay.",
+  "all_global_SOURCE_A_U_fit_slack": null,
+  "global_open": "Actual outsideDGVfans/legvariation/R35.1/55EACHphysicalFL2/independentdeltaL/9IDs12portions4physicalMAX3/850project+900ceil5(min+20)/all123246/U1far/headNorth/fourMTA/four220/Pimates/R6/invalid3/motionoutline; wholeN010.",
+  "source_pins": [
+    {
+      "path": "day07-W068-whole-retention-root-bounded-disposition.json",
+      "sha256": "18d2256f521d1fe5311ed78a0106b40e6714d147b2b894aadfb3ab59a7528f67"
+    },
+    {
+      "path": "day07-W068-actual-frame-root-first-gate.json",
+      "sha256": "8046696a2418a3f0301f7a80302b0915f6f165629936d08e5d7184a4e9d822b3"
+    },
+    {
+      "path": "day07-W068-root-independent-neighbor-and-window-read.json",
+      "sha256": "b05153ad8d75a1a1e1e406b6fcbf8b28d7dcc7a3a5c114b18399311768bd3e80"
+    },
+    {
+      "path": "day07-SOURCE-ninecore-entry-lane-roll-bounded-disposition.json",
+      "sha256": "d2c593f594beed4afcd23e28974ab9290f2401ec3142f82fc348ce66ce19c8ba"
+    },
+    {
+      "path": "day07-SOURCE-ninecore-entry-physical-roles-and-W068-function.json",
+      "sha256": "e54bac077bbe69a39554aa9a9466e6584a984dfd758472d2c039d9a953de951c"
+    },
+    {
+      "path": "tools/cad/feline_s1_flexible_fans.py",
+      "sha256": "67e741e59ec53211b14125bb3ca378fb57c9c061dc6b9b07c68c9d2e6eff46f3"
+    },
+    {
+      "path": "tools/cad/feline_shared_power_backplane.py",
+      "sha256": "9d80feee3dcfc981d79131925abd4aa9814bce00ea7ea591ddba3c3762c8661e"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-W068-inboard-overframe-C1-whole-interface-proposal.json",
+      "sha256": "6837069a675b72c86aba743ea6b8c66c68051806306496947cddfad2567447b5",
+      "bytes": 5922
+    },
+    {
+      "path": "day07-W068-inboard-overframe-C1-first-functional-gate.json",
+      "sha256": "eb42705eae83578650fee27cd850d148120ba05353e3b9b2c09b8512c054a335",
+      "bytes": 8173
+    },
+    {
+      "path": "day07-W068-inboard-overframe-C1-first-functional-gate.breps.zip",
+      "sha256": "2d8f80edcf8931f0766ca2153b88f3c3fd6f99f8ec29db043f750236713bbc96",
+      "bytes": 73991
+    },
+    {
+      "path": "day07-W068-inboard-C1-source-prong-section.json",
+      "sha256": "b85d3ed7c9352168e6c144387e2c7937e8aedf56b96e76319fb2626ca8e8826c",
+      "bytes": 9931
+    },
+    {
+      "path": "day07-W068-inboard-C1-actual-prong-first-falsifier.png",
+      "sha256": "05408548260bdb590cbfee5885563a55a3d1d12f40a9b27a3466d7d293f64ffa",
+      "bytes": 90100
+    },
+    {
+      "path": "day07-W068-inboard-C1-actual-prong-first-falsifier.svg",
+      "sha256": "4969168bafed481c827b4b0c8be27d4ccf8e9130d00f0b8ae69573d5cf904e25",
+      "bytes": 6689
+    },
+    {
+      "path": "day07-C1-functional-first-gate.recipe.py",
+      "sha256": "642acbda4addcee8e543fc6ae52a8f9de76233faf2e4dc753012e780a9c7934f",
+      "bytes": 5301
+    },
+    {
+      "path": "day07-C1-source-section-and-inventory.recipe.py",
+      "sha256": "843083bfac8d13749ac3875357313b7cf359d1af3ea4fab862c641918ac13694",
+      "bytes": 1816
+    },
+    {
+      "path": "day07-render-close-C1.recipe.py",
+      "sha256": "db40b34222f2fa0f5541374db9fab1271075caa793b3ed16604db27fefaecc93",
+      "bytes": 10125
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-W068-inboard-overframe-C1-first-functional-gate.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 9
+    }
+  ],
+  "timings": [
+    {
+      "receipt": "day07-W068-inboard-overframe-C1-first-functional-gate.json",
+      "operation_seconds": 1.2189999999245629,
+      "process_cpu_seconds": 1.90625
+    },
+    {
+      "receipt": "day07-W068-inboard-C1-source-prong-section.json",
+      "operation_seconds": 0.39099999994505197,
+      "process_cpu_seconds": 0.390625
+    }
+  ],
+  "actual_native_total_wall_seconds": 1.6099999998696148,
+  "actual_native_total_process_cpu_seconds": 2.296875,
+  "view": {
+    "path": "day07-W068-inboard-C1-actual-prong-first-falsifier.png",
+    "actual_source_section": "day07-W068-inboard-C1-source-prong-section.json",
+    "not_projection_only_collision_claim": true,
+    "visual_inspection": "OWNER_VIEWED_ACTUAL_XZ_SECTION; legend separated; valid common independently measured, not inferred from image"
+  },
+  "next": "WHOLE_FRAME_CONNECTION_AND_SOURCE_ENTRY_LAYER_ASSEMBLY_DECISION: W068 C0westbearing actualRR0common33.295211/feed7.548396 rejected; C1inboard actualFace99contact97.702870/substrate9.770287/fullfeedcommon0 are scopedpositive, but FULLplannedupstand intersects retainedFrameFront20upperprong19.878548 valid. C0/C1 exhausted; NOthirdlocalupstand/head/pad/wireoffset/newreview. Needonecausallydifferentwholeload-interface/entry-layer/assemblyplan usingactualexistingframeopening/material andallfullneighbors, preservingW068wireR25.2/terminal5/full9/6head/whole145tailfunction/SOURCE9lanes andallrealframe. Do noteraseintegralprong orwaiveownpenetration; currentwholemount/root/fullstockNOTselected. All6foreignkeys and2remainingframeinterfaces/unbuiltpressure/tailsremainunreceived; doNOTresumechecksforrejectedC1. SOURCEoutsideDGVfans/usable55EACHFL2/independentdeltaL/9ID12portion4MAX3/850/900/currentAUfit_slackNULL/globalN010 remainOPEN; nooldscans/reviewreset.",
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false
+  },
+  "written_utc": "2026-11-07T11:26:51.961929+00:00"
+}
