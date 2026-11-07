@@ -1,0 +1,5 @@
+import json,hashlib
+curves82=[]
+for edge in face81.Edges:
+    curves82.append([[(p-base81).dot(axis81),(p-base81).dot(side81)] for p in edge.discretize(Deflection=.12)])
+p82=OUT/'day07-whole-SOURCE-Knee-link-proposal-view.json';assert not p82.exists();d82=dict(id=p82.stem,status='SOURCE_DERIVED_CONTACT_FACE_PROJECTION_AND_PROPOSED_HOLDER_NOT_CONTACT_PASS',proposal=p81.name,proposal_sha256=hashlib.sha256(p81.read_bytes()).hexdigest(),source_actor=stage_link81,source_owner='Motion_RL_Knee',actual_face_area_mm2=face81.Area,actual_face_curves_axis_transverse_mm=curves82,actual_world_origin_mm=list(base81),actual_world_axis=list(axis81),actual_world_transverse=list(side81),proposed_holder_axis_extent_mm=[-43,43],proposed_holder_transverse_extent_mm=[-7,7],proposed_pads_axis_centres_mm=[-15,15],proposed_pad_size_mm=[4,4],source_whole_other_regions_unreceived=True,selected=False,N01_complete=False);p82.write_bytes((json.dumps(d82,ensure_ascii=False,indent=2)+'\n').encode());print('SOURCE_VIEW82',hashlib.sha256(p82.read_bytes()).hexdigest(),flush=True)

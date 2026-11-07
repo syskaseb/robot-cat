@@ -1,0 +1,244 @@
+{
+  "id": "day07-SOURCE-Knee-link-actual-mount-first-gate",
+  "status": "ACTUAL_KNEE_LINK_CONTACT_OR_FULL_HOLDER_FIRST_GATE_HOLD",
+  "proposal": "day07-whole-physical-SOURCE-approach-Knee-link-proposal.json",
+  "proposal_sha256": "d30f8f8715684dc1a96613fe78c9838ae951d13dfb17d7d70ce026d6321ce1bd",
+  "source_face": "Ref_Material_P0_Part__Feature117_0_0",
+  "source_owner": "Motion_RL_Knee",
+  "physical_contact_not_fusion": true,
+  "patches": [
+    {
+      "name": "pad0",
+      "actual_source_actor": "Ref_Material_P0_Part__Feature117_0_0",
+      "source_coupon_valid": true,
+      "actual_available_source_volume_mm3": 7.834176514820653,
+      "expected_full_coupon_volume_mm3": 8,
+      "actual_contact_face_area_mm2": 15.668353029642192,
+      "expected_contact_area_mm2": 16,
+      "new_pad_source_common_valid": true,
+      "new_pad_material_intrusion_mm3": 0.0,
+      "new_pad_actual_source_gap_mm": 1.4210854715202004e-14,
+      "source_point_world_mm": [
+        -60.12739998583267,
+        86.28902764642172,
+        -43.7454986569711
+      ],
+      "status": "ACTUAL_LINK_CONTACT_PATCH_HOLD_NO_ROOT_ASSUMPTION"
+    },
+    {
+      "name": "pad1",
+      "actual_source_actor": "Ref_Material_P0_Part__Feature117_0_0",
+      "source_coupon_valid": true,
+      "actual_available_source_volume_mm3": 8.000000000000085,
+      "expected_full_coupon_volume_mm3": 8,
+      "actual_contact_face_area_mm2": 16.0,
+      "expected_contact_area_mm2": 16,
+      "new_pad_source_common_valid": true,
+      "new_pad_material_intrusion_mm3": 0.0,
+      "new_pad_actual_source_gap_mm": 1.4210854715202004e-14,
+      "source_point_world_mm": [
+        -79.41102827642952,
+        89.48741106508473,
+        -20.98781811924244
+      ],
+      "status": "SOURCE_CONTACT_PATCH_RECEIVED_NOT_PRINT_FUSION"
+    }
+  ],
+  "whole_holder_to_actual_owner": {
+    "common_valid": true,
+    "material_intrusion_mm3": 0.0,
+    "source_touch_intentional_withoutprintedfusion": true
+  },
+  "selected_tie_conditional_unit_bound": {
+    "structural_sku": "111-02370 T18I145",
+    "quantity": 2,
+    "one_tie_per_independent_structural_joint": true,
+    "selected_nominal_length_mm": 145,
+    "source_width_mm": 2.5,
+    "source_thickness_mm": 1.2,
+    "whole_source_face_transverse_extent_mm": 32.3273783103939,
+    "maximum_holder_plus_single_link_thickness_mm": 9.5,
+    "conservative_rectangle_centreline_bound_mm": 86.0547566207878,
+    "closure_pull_allowance_mm": 25,
+    "total_unit_required_upper_if_this_return_accessible_mm": 111.0547566207878,
+    "source_unit_residual_mm": 33.9452433792122,
+    "actual_feed_path_or_retained_tail_not_yet_received": true,
+    "manufacturer_head_mm": [
+      4.8,
+      4.5,
+      3.5
+    ],
+    "planned_head_capacity_mm": [
+      5.3,
+      5,
+      5
+    ],
+    "no_claim_freestock": true
+  },
+  "full_context_fixed_and_neutral_moving": 1419,
+  "criterion": "CompleteholderallocatedvolumeR/ends/sleeves beforedetail; broadphaseallcurrent1311+108, exactonlycandidatepairs. Ownerlinkisphysicalcontactnotforeigncollision; allotherKnee/Anklecases/metal remainforeign.",
+  "rows": [],
+  "cursor": 0,
+  "total": 10,
+  "unreceived": 10,
+  "archive": "day07-SOURCE-Knee-link-actual-mount-first-gate.breps.zip",
+  "archive_sha256": "6e2a2185863c348952959d7645caefbd1f553e4f5c75de4d93ea1d2a6299b159",
+  "geometry": [
+    {
+      "name": "Ref_Material_P0_Part__Feature117_0_0",
+      "entry": "0.brep",
+      "sha256": "6d32b29b6a17fd72bb5de25d793c25a43b738948f513b7ec3530f427d6780751",
+      "bounds_mm": [
+        [
+          -97.51296525020395,
+          82.75797462148289,
+          -58.30106128870245
+        ],
+        [
+          -45.01143500627994,
+          91.87782484769177,
+          -3.7703806150710006
+        ]
+      ],
+      "volume_mm3": 1780.7527092948433
+    },
+    {
+      "name": "SOURCE:actual_outer_contact_face",
+      "entry": "1.brep",
+      "sha256": "e5f91e18825782b057ef0e8b2590b9941a9659ec9340ffcdb6537607ab4d68a8",
+      "bounds_mm": [
+        [
+          -97.51296525020395,
+          84.24337672459525,
+          -58.30106128870245
+        ],
+        [
+          -45.01143500627994,
+          91.87782484769177,
+          -3.979140266511119
+        ]
+      ],
+      "volume_mm3": -1.177164928591937e-11
+    },
+    {
+      "name": "source_coupon_0",
+      "entry": "2.brep",
+      "sha256": "cd229a3a02aa8e12ae81885707c16c90a91d59c4e3c5ac29b5a2d3487f1584c3",
+      "bounds_mm": [
+        [
+          -62.94506409144371,
+          85.46772595187771,
+          -46.06630215058845
+        ],
+        [
+          -57.309735880221616,
+          86.68117069746349,
+          -40.88566931426517
+        ]
+      ],
+      "volume_mm3": 7.834176514820653
+    },
+    {
+      "name": "source_coupon_1",
+      "entry": "3.brep",
+      "sha256": "964f5f3ae9f553ba70d68f947028cfa3cc34ed19fc5b7c9f5892d0b4fe05cfac",
+      "bounds_mm": [
+        [
+          -82.22869238204058,
+          88.60013397967218,
+          -23.778060911468334
+        ],
+        [
+          -76.59336417081848,
+          89.8795541161265,
+          -18.127988776536515
+        ]
+      ],
+      "volume_mm3": 8.000000000000085
+    },
+    {
+      "name": "proposed_contact_pad_0",
+      "entry": "4.brep",
+      "sha256": "9183aad9ca1e140842e7897d630f7c983a1f31c03baf5a06dc613f920ce890ba",
+      "bounds_mm": [
+        [
+          -62.945064091443705,
+          85.89688459537994,
+          -46.814087651117134
+        ],
+        [
+          -57.3097358802216,
+          88.66170683494663,
+          -40.95525586474521
+        ]
+      ],
+      "volume_mm3": 32.00000000000001
+    },
+    {
+      "name": "proposed_contact_pad_1",
+      "entry": "5.brep",
+      "sha256": "8a4ad020bbb7adc817619415ca02fdbf58a6949b666234c8fa5bfe5934f1e27e",
+      "bounds_mm": [
+        [
+          -82.22869238204056,
+          89.09526801404296,
+          -24.05640711338847
+        ],
+        [
+          -76.59336417081846,
+          91.86009025360964,
+          -18.197575327016548
+        ]
+      ],
+      "volume_mm3": 32.00000000000001
+    },
+    {
+      "name": "SOURCE:86x14x8_full_holder_ALLOCATION",
+      "entry": "6.brep",
+      "sha256": "10635ad8a7f9bb11a85af98ac18a062ab8bca0b4e09afb0b07de26e1c6a5477b",
+      "bounds_mm": [
+        [
+          -102.77139244948597,
+          82.67765857471142,
+          -70.55510961385234
+        ],
+        [
+          -36.76703581277615,
+          101.02092468672758,
+          4.708408029958235
+        ]
+      ],
+      "volume_mm3": 9632.0
+    },
+    {
+      "name": "SOURCE:proposed_2mm_baseplate",
+      "entry": "7.brep",
+      "sha256": "e0cb31f1da4e149f53e34c08e79eb29f794e7425b305cc445cbd6e8f4ad407f7",
+      "bounds_mm": [
+        [
+          -102.77139244948597,
+          82.67765857471142,
+          -69.72007100809192
+        ],
+        [
+          -36.76703581277619,
+          95.07931627427817,
+          4.708408029958235
+        ]
+      ],
+      "volume_mm3": 2407.9999999999995
+    }
+  ],
+  "all9_original_and_donor_current_minimum_mm": null,
+  "actual_A_U_mm": null,
+  "current1292_effective1311_rest108_unchanged": true,
+  "new_holder_not_added_or_selected": true,
+  "no_newsplice_or_wirecut": true,
+  "no_old_238_14_37_replay": true,
+  "operation_seconds": 1.702999999979511,
+  "process_cpu_seconds": 2.765625,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}

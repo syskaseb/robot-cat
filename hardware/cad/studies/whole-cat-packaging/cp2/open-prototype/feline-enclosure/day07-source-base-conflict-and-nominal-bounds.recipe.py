@@ -1,0 +1,36 @@
+import time,json,hashlib,zipfile,os,math
+t85=time.monotonic();cpu85=time.process_time();cached_common85=co.copy();missing_from_base85=cached_common85.cut(baseplate83);assert missing_from_base85.isValid()
+local_common85=cached_common85.transformGeometry(inv85);cb85=local_common85.optimalBoundingBox();outline85=[]
+for edge in local_common85.Edges:outline85.append([[p.x,p.y] for p in edge.discretize(Deflection=.08)])
+def point_box_lower85(point,bounds):return math.sqrt(sum(max(lo-v,0,v-hi)**2 for v,lo,hi in zip(point,bounds[0],bounds[1])))
+landing85=[-50,74,52];lowerrows85=[];originalrows85=[];unitlower85={};offset85={'D':-22,'V':0,'G':22};vG85={'FL1':203.333930,'FL2':255.013273,'FL3':206.807688};endcontract85=ROOT/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/body36-current-contract.json';endrows85={q['wire']:q for q in json.loads(endcontract85.read_bytes())['rows']}
+for row in proposal81['core_rows']:
+    loom=row['loom'];core=row['core'];wire=row['wire'];source=next(q['source_outer_reservation_world_mm'] for q in origins81 if q['loom']==loom);terminal=endrows85[wire]['terminal_allowance_project_mm'];assert terminal==11
+    if core=='V':
+        bodylower=math.dist(landing85,[-74.55,95.1,66.75])+vG85[loom];basis='ConditionalunchangedC821Vcommon-entry→endguide+landing→entrychord; C821space/mountNOTqualifiedandmaychange, notunavoidablephysicalminimum.';target='existingVcommonentry+currentfullVreceiver'
+    elif core=='D':
+        bodylower=point_box_lower85(landing85,saved_bounds(effective62['Station:D_FL:case']));basis='ChordtocompleteactualcurrentreceivercaseAABB, notport/copper/cavitylocation orroutedlength.';target='Station:D_FL:case'
+    else:
+        target='CurrentFLG:wire:'+row['body_receiver'];bodylower=point_box_lower85(landing85,saved_bounds(effective62[target]));basis='ChordtocompletecurrentfixedreceiverprefixAABB, notport/cavityorqualifiedfreewirepath.'
+    if loom=='FL3':
+        original_proxy=14+math.dist(source,list(entry81))+43+offset85[core]+4
+        originalrows85.append(dict(wire=wire,core=core,physical_unit='SOURCE/FL3',factory14_once=True,source_outer_to_holder_entry_nominal_chord_mm=math.dist(source,list(entry81)),holder_entry_to_SAME_joint_mm=43+offset85[core],source_lap_half_mm=4,nominal_chord_only_minimum_proxy_mm=original_proxy,actual_minimum_mm=None,nominal_fit_blank_mm=None,actual_cut_mm=None))
+        minimum_proxy=(43-offset85[core])+math.dist(list(exit81),landing85)+bodylower+terminal+4;unit='DONOR/FL3'
+    else:
+        minimum_proxy=14+math.dist(source,landing85)+bodylower+terminal;unit='SOURCE/'+loom
+    lowerrows85.append(dict(wire=wire,core=core,physical_unit=unit,body_target=target,body_lower_proxy_mm=bodylower,body_proxy_scope=basis,terminal_source_mm=terminal,nominal_static_chord_only_total_proxy_mm=minimum_proxy,NOT_actual_minimum_or_fit_blank_or_slack=True,actual_minimum_mm=None,actual_source_A_mm=None,actual_source_U_mm=None,actual_cut_mm=None))
+    unitlower85[unit]=max(unitlower85.get(unit,0),minimum_proxy)
+unitlower85['SOURCE/FL3']=max(q['nominal_chord_only_minimum_proxy_mm'] for q in originalrows85)
+ar85=OUT/'day07-SOURCE-holder-base-casing-conflict.breps.zip';assert not ar85.exists();ge85=[]
+with zipfile.ZipFile(ar85,'w',zipfile.ZIP_DEFLATED) as z:
+    for i,(n,s) in enumerate([('SOURCE:cached_full_holder_case_common',cached_common85),('SOURCE:proposed_2mm_printed_base',baseplate83),('CURRENT:RL_Knee_outer_case058',ctx83[rows84[-1]['other']])]):
+        raw=s.exportBrepToString().encode();e=str(i)+'.brep';z.writestr(e,raw);ge85.append(dict(name=n,entry=e,sha256=hashlib.sha256(raw).hexdigest(),volume_mm3=s.Volume))
+    z.writestr('manifest.json',(json.dumps(dict(geometry=ge85,scope='Reusecachedallocation/caseintersection; proveallconflictwithinNEW2mmprintedbase, notwirechannel ornewcontactpairreplay.'),indent=2)+'\n').encode())
+r85=dict(id='day07-SOURCE-holder-base-casing-conflict-and-length-boundaries',status='PROPOSED_SOLID_BASE_VS_CURRENT_KNEE_CASE_CONFLICT_SOURCE_WIRE_SHORTAGE_NOT_ESTABLISHED',previous=p84.name,previous_sha256=hashlib.sha256(p84.read_bytes()).hexdigest(),actual_case=rows84[-1]['other'],cached_valid_common_mm3=cached_common85.Volume,common_not_in_new_base_valid=missing_from_base85.isValid(),common_not_in_new_base_mm3=missing_from_base85.Volume,all_conflict_lies_in_new_printed_base=missing_from_base85.Volume<1e-5,local_conflict_bounds_axis_transverse_normal_mm=[[cb85.XMin,cb85.YMin,cb85.ZMin],[cb85.XMax,cb85.YMax,cb85.ZMax]],base_normal_mm=[0,2],channel_normal_mm=[2,6],cap_normal_mm=[6,8],local_common_projection_curves=outline85,
+ physical_classification='ThisONEflat86base containsvalidcurrentKnee-case058material atnormal0..0.4, axis23.750..33.989. ItrejectsourPROPOSEDSOLIDPRINTEDBASEallocation, nothandlaidSOURCEwire/currentmanufacturedholder contact orallholderlocations. Sourcecaseisanactualretainedmechanicalpart, no printownershipwaiver/cuttingcase.',
+ causal_alternative='ONEOPEN_LADDERholderinterface, SAMEjoint/frame/all9sourceplan: keep2sourceconformingfeet/structuralties+2independent9lands/3sleeves/pressurecap, carryloadby2continuoussidebeams atnormal>=2 andopenbottomundermeasuredcase-lipinterval; channelstarts2 andsourcecaseintrudesonlyto.4, soNOMINALnormaldifference1.6>foreign1.25 canjustifyFIRSTnewuseful-section/root/full-casegate. Thisisnewloadpath topology/sourcecase-relief, notsourcepoint/normalposeoffset orwiretrim. DoNOTacceptitfromthisbound; fullactualdistance/rails/membercoverage/tieaccess+changedmotion/lengthstillneeded. No V3rib.',
+ same_new_joint_all3_original_portions=originalrows85,same_new_joint_all9_body_portions=lowerrows85,per_physical_unit_maximum_of_nominal_chord_proxies_mm=unitlower85,
+ length_scope='NominalstaticplanningchordsONLY: sourceactualindividualpin/cavityoffsets,currentcontinuousR35.1paths/flexslack/bareends/fullprefix/currentbodyG/Dtransportnotqualified. ConditionalVguideusedonlytoidentifybookkeepingboundary. MAX3proxiesareNOTfitblanks/minimumdebits/spare orphysicalshortage. AllactualA/U/currentminimum/fit/slack NULL aftermountfalsifier. No legacy197/534/614prefixinheritance/shiftcredit andno newcut.',
+ original850_and_fit900_MAX3_guard='EachwholeSOURCE/FL1,SOURCE/FL2,SOURCE/FL3,DONOR/FL3 qualifiesMAX3 fromrealnewminimum, phase2actualcutNULL; no SUM/pool/offcut. Fitceil5(min+20)<=900 plus850project. 3x8laps/3x20sleeves/2x9lands/sourcefactory14/fullbody11 once preserved. No4x220/MTAchange.',
+ source_terminal_only_pin=dict(path=str(endcontract85.relative_to(ROOT)).replace('\\','/'),sha256=hashlib.sha256(endcontract85.read_bytes()).hexdigest(),reused_field='terminal_allowance_project_mm=11 for9unchangedselectedbodyendroles',old_routes_and_capacities_NOT_inherited=True),archive=ar85.name,archive_sha256=hashlib.sha256(ar85.read_bytes()).hexdigest(),geometry=ge85,operation_seconds=time.monotonic()-t85,process_cpu_seconds=time.process_time()-cpu85,selected=False,N01_complete=False)
+p85=OUT/'day07-SOURCE-holder-base-casing-conflict-and-length-boundaries.json';assert not p85.exists();p85.write_bytes((json.dumps(r85,ensure_ascii=False,indent=2)+'\n').encode());print('SOURCE_BASE_FACT85',cached_common85.Volume,missing_from_base85.Volume,unitlower85,r85['operation_seconds'],r85['process_cpu_seconds'],hashlib.sha256(p85.read_bytes()).hexdigest(),flush=True)
