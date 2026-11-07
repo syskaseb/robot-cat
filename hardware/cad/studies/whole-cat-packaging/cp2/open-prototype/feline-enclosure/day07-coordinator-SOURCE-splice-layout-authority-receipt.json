@@ -1,0 +1,54 @@
+{
+  "id": "day07-coordinator-SOURCE-splice-layout-authority-receipt",
+  "status": "SOURCE_DESIGN_AUTHORITY_RESOLVED_NOT_GEOMETRY_ACCEPTANCE",
+  "selected": false,
+  "N01_complete": false,
+  "received_utc": "2026-11-07T04:30:20.905823+00:00",
+  "readonly_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "readonly_turn": "01a1b440-33bb-7632-9bdf-31b6bb80e563",
+  "new_design_review": false,
+  "parent_CAD": false,
+  "source_pins": [
+    {
+      "path": "tools/cad/plan_leg_extension_budget.py",
+      "sha256": "fdf23a7869379b8b0733ca389fbb4943ff2e6645fb979d32a3577190b8c5b6ab"
+    },
+    {
+      "path": "tools/cad/compose_body36_fit_contribution.py",
+      "sha256": "7903dc80bec4308e6a92c590fa5e19afa33696cf521aea86dd588ddc846fdf3a"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-extension-budget-plan.json",
+      "sha256": "9cdd7b101e78dfb07c0524a9f9a751e4acbf2d0bbe117aec7dc21ab0facd0dcb"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json",
+      "sha256": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb"
+    }
+  ],
+  "findings": [
+    {
+      "source": "tools/cad/plan_leg_extension_budget.py:41-63",
+      "fact": "Splicecentre chosen asmidpoint oflongeststoredstraight; D/V/G offsets -22/0/+22, landcentres +/-38.5. holder_and_material_qualified=False. Worldcoordinatesarenot immutable purchased anchors.",
+      "decision": "Newwholeholder location/orientation maybedesigned on SAME Motion_RL_Knee, withactualmaterial/loadpath andfull3joint+2land functions; oldpointgap45mmisnotrequiredstandoff/wiredebit."
+    },
+    {
+      "source": "tools/cad/plan_leg_extension_budget.py:44-63",
+      "fact": "3separate8mm laps,3individual20mm sleeveallocations,2independent9mm jacketlands, source-owned notfreeflex. Recipe22mmpitch gives64mmsleevezone,86mmfullstraight.",
+      "decision": "Preserveallthese functions/allocations innewlayout; 86mmisthisstraightrecipe, notcataloglength. Noerasingsleeves/newsplice/unspecifiedcompressedpacking or universalcapacitywaiver."
+    },
+    {
+      "source": "tools/cad/plan_leg_extension_budget.py:65-71; compose_body36_fit_contribution.py:12-15,28-47",
+      "fact": "W024original181.9178656704155=oldguide163.9178656704155+source14+lap4. Nominalfit205=ceil5(minimum+20), actualcutNULL; otheroriginalcores159.917866/203.917866 giveunitMAX225 forOLDrecipe.",
+      "decision": "Old181/205/225arecomparisonbaseline, notimmutableinstalledcut. Anynewholder/guide requiresALL3originalANDdonorcores recalculated at SAMEphysicaljoint boundary; no coordinatechange-as-lengthcredit/oldprefixzero/borrowedMAX/fictitiousoffcut."
+    },
+    {
+      "source": "leg-extension-budget-plan.json:734-807,1408-1413; currentboundary9a67df68",
+      "fact": "Original SOURCE/FL3 and DONOR/FL3 distinct physical900/MAX3units; factorysourceplug retained; joins onKnee outsidefreeflex; deliveredwire/insulation/fitunknownphase2.",
+      "decision": "Newwholemoving+bodyapproach allowedwithpreservedselectedends/owner/count/laps/lands/sleeves/850project/900MAX3/R/slack, explicitphase2fit, actualcutNULL. No physicalcut/purchase/newsplice authority needed or exercised for digitalplanning."
+    }
+  ],
+  "next": "AfterindependentS0cowl: oneWHOLEphysicalSOURCE approach fromresolvednominalorigins throughactualKnee-ownedmountedholder tobodylanding+sharedoccupiedregions. Qualifyall3D/V/G cores andactualroot/assembly/motion beforeV3bracketdetail. OldU24<=17.274446 conditional only; physicalA/U remainNULL untilnewproof. No reviewround/sourceauditreplay.",
+  "prototype_scope": "Stablemounts/accessibleconnectedregions/localprofiles/lengthslack/install+routineaccess; no123rigidaxes/fullN03/N08/N09/FEM.",
+  "physical_cut_performed": false
+}
