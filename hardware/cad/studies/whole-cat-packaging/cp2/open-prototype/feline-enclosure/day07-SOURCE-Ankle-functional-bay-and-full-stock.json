@@ -1,0 +1,1638 @@
+{
+  "id": "day07-SOURCE-Ankle-functional-bay-and-full-stock",
+  "status": "FUNCTIONAL_BAY_OR_STOCK_ALLOCATION_OPEN_NO_FORK_MATERIAL",
+  "proposal": "day07-SOURCE-Ankle-facing-open-fork-whole-proposal.json",
+  "proposal_sha256": "891ff04199efbb27c560ad9aa4c3c22c3142918010496a835750b19f66bee640",
+  "source_Foot_coaxial_radii_mm": [
+    5.399999,
+    10.5,
+    12
+  ],
+  "actual_Foot_volume_mm3": 17420.008528735874,
+  "actual_source_coverage_valid": true,
+  "actual_source_uncovered_mm3": 0.0,
+  "rigid_frame_source_volume_preserved": true,
+  "actual_remainder_volume_mm3": 15573.95515616307,
+  "source_volume_decomposition_error_mm3": -0.007501596064457772,
+  "remainder_tight_bounds_mm": [
+    [
+      -67.77615061513771,
+      -137.90477739215748,
+      -0.3000001000004775
+    ],
+    [
+      -36.984021164562854,
+      -12.638426630422249,
+      11.70000010000012
+    ]
+  ],
+  "continuous_cover_intervals": [
+    {
+      "name": "Ankle_remainder_continuous_interval_0",
+      "angle_degrees": [
+        0.0,
+        18.552853016517446
+      ],
+      "bounds_mm": [
+        [
+          -68.87584500738615,
+          -139.7468028631799,
+          -0.3000101000004775
+        ],
+        [
+          0.17372045046508727,
+          -9.869156731454108,
+          11.700010100000119
+        ]
+      ],
+      "scope": "ContinuousanalyticcornerextremaofrotatedTIGHTremainderbbox; not4sampledposes orcollisionclaim."
+    },
+    {
+      "name": "Ankle_remainder_continuous_interval_1",
+      "angle_degrees": [
+        18.552853016517446,
+        37.10570603303489
+      ],
+      "bounds_mm": [
+        [
+          -68.87534019643768,
+          -138.4229228252203,
+          -0.3000101000004775
+        ],
+        [
+          32.44790932863288,
+          -8.102716386215118,
+          11.700010100000119
+        ]
+      ],
+      "scope": "ContinuousanalyticcornerextremaofrotatedTIGHTremainderbbox; not4sampledposes orcollisionclaim."
+    },
+    {
+      "name": "Ankle_remainder_continuous_interval_2",
+      "angle_degrees": [
+        37.10570603303489,
+        55.658559049552345
+      ],
+      "bounds_mm": [
+        [
+          -67.68118134702696,
+          -126.58214315621845,
+          -0.3000101000004775
+        ],
+        [
+          56.484011855890536,
+          -7.52192423534011,
+          11.700010100000119
+        ]
+      ],
+      "scope": "ContinuousanalyticcornerextremaofrotatedTIGHTremainderbbox; not4sampledposes orcollisionclaim."
+    },
+    {
+      "name": "Ankle_remainder_continuous_interval_3",
+      "angle_degrees": [
+        55.658559049552345,
+        74.21141206606978
+      ],
+      "bounds_mm": [
+        [
+          -64.317803621314,
+          -103.6131659710831,
+          -0.3000101000004775
+        ],
+        [
+          69.7837420321209,
+          -7.522697456926824,
+          11.700010100000119
+        ]
+      ],
+      "scope": "ContinuousanalyticcornerextremaofrotatedTIGHTremainderbbox; not4sampledposes orcollisionclaim."
+    }
+  ],
+  "continuous_bay_rows": [
+    {
+      "target": "SOURCE_PROFILE:D",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 3.1173299563035677,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:D",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 5.469156731454097,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:D",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 3.702716386215121,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:D",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 3.121924235340108,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:D",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 3.1226974569268204,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:V",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 6.417329956303568,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:V",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 8.769156731454098,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:V",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 7.002716386215122,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:V",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 6.421924235340109,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:V",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 6.422697456926821,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:G",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 8.817329956303569,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:G",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 11.169156731454098,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:G",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 9.402716386215122,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:G",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 8.82192423534011,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "SOURCE_PROFILE:G",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 8.822697456926822,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 18.561034857167733,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:head",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 17.87944957931723,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 7.3691567314540976,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 5.602716386215121,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.021924235340109,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.022697456926821,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:bench_pull25",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 17.2229148906204,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 7.468338415600094,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 6.032820182305641,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.6023027207494955,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.6028578466766925,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 48.56103485716773,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 13.576279549534917,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ],
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ],
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ],
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:head",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 47.427173737103615,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 14.23257722976262,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 5.602716386215121,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.021924235340109,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:head",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.022697456926821,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:bench_pull25",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 46.64001381603159,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 13.5668967389061,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 6.032820182305641,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.6023027207494955,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.6028578466766925,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "gap_mm": 2.024546653339879,
+      "status": "CONTINUOUS_COVER_SEPARATED125",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -40.76931248458751,
+            -9.149225888875918,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 2.469156731454097,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "gap_mm": 0.7027163862151209,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -39.75,
+            -8.102716386215121,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.12192423534010821,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -39.75,
+            -7.521924235340109,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.12269745692682044,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -39.75,
+            -7.522697456926821,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:head",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 5.017329956303568,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 7.3691567314540976,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 5.602716386215121,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.021924235340109,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.022697456926821,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:bench_pull25",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 5.529822711246095,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 7.468338415600094,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 6.032820182305641,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.6023027207494955,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.6028578466766925,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 72.06103485716773,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 37.12336531245519,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 4.803189093927921,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            37.25,
+            -8.0,
+            11.6
+          ],
+          [
+            37.25,
+            -8.0,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            37.25,
+            -8.0,
+            11.6
+          ],
+          [
+            37.25,
+            -8.0,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:head",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 70.83894018812178,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 36.42940286951323,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 6.554742698273255,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.021924235340109,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:head",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.022697456926821,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:bench_pull25",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 70.0297046048782,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 35.61805477496324,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 6.550426409548717,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 5.6023027207494955,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:bench_pull25",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 5.6028578466766925,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:left_two_layer_capacity",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 2.217329956303568,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:left_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 4.569156731454098,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:left_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 2.8027163862151214,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:left_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 2.2219242353401087,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:left_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 2.222697456926821,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:right_two_layer_capacity",
+      "cover": "source_Ankle_coaxial_R12_full_normals",
+      "lower_mm": 10.317329956303567,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:right_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "lower_mm": 12.669156731454098,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:right_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "lower_mm": 10.902716386215122,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:right_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "lower_mm": 10.32192423534011,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    },
+    {
+      "target": "FULL4_TAILS:right_two_layer_capacity",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "lower_mm": 10.322697456926822,
+      "status": "CONTINUOUS_COVER_SEPARATED125_BY_BOUNDS"
+    }
+  ],
+  "continuous_bay_open_rows": [
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_0",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_0:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ],
+          [
+            -13.75,
+            -18.10175292504,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ],
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ],
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_1:structural145:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ],
+          [
+            16.25,
+            -15.423263354087442,
+            10.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_1",
+      "gap_mm": 0.7027163862151209,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -39.75,
+            -8.102716386215121,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.12192423534010821,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -39.75,
+            -7.521924235340109,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_2:source_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.12269745692682044,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            -39.75,
+            -7.4,
+            11.6
+          ],
+          [
+            -39.75,
+            -7.522697456926821,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_2",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            37.25,
+            -8.0,
+            11.6
+          ],
+          [
+            37.25,
+            -8.0,
+            11.6
+          ]
+        ]
+      ]
+    },
+    {
+      "target": "FULL_SELECTED_TIE_3:donor_land100:loop",
+      "cover": "Ankle_remainder_continuous_interval_3",
+      "gap_mm": 0.0,
+      "status": "CONSERVATIVE_BAY_COVER_OVERLAP_OR_CLEARANCE_OPEN_NOT_CONTACT",
+      "witnesses": [
+        [
+          [
+            37.25,
+            -8.0,
+            11.6
+          ],
+          [
+            37.25,
+            -8.0,
+            11.6
+          ]
+        ]
+      ]
+    }
+  ],
+  "continuous_bay_covers_NOT_actualcontact": true,
+  "all4_full_tie_units": [
+    {
+      "name": "FULL_SELECTED_TIE_0:structural145",
+      "sku": "111-02370",
+      "full_unit_length_mm": 145,
+      "width_mm": 2.5,
+      "thickness_mm": 1.2,
+      "actual_loop_capacity_length_mm": 93.75697914191772,
+      "correct_analytic_rectangle_length_mm": 93.75697914191774,
+      "closure_pull_head_once_mm": 25,
+      "wholeunit_required_mm": 118.75697914191772,
+      "remaining_after_loop_pull_mm": 26.243020858082275,
+      "full_untrimmed_tail_upper_mm": 51.243020858082275,
+      "source_length_fits": true,
+      "inner_n": [
+        -1.500000000000025,
+        10.6
+      ],
+      "inner_y": [
+        -18.10175292504,
+        14.276736645918845
+      ],
+      "tailstack_height_included_mm": 2.6,
+      "no_physicalcut_or_new_stock": true
+    },
+    {
+      "name": "FULL_SELECTED_TIE_1:structural145",
+      "sku": "111-02370",
+      "full_unit_length_mm": 145,
+      "width_mm": 2.5,
+      "thickness_mm": 1.2,
+      "actual_loop_capacity_length_mm": 88.40000000001696,
+      "correct_analytic_rectangle_length_mm": 88.40000000001687,
+      "closure_pull_head_once_mm": 25,
+      "wholeunit_required_mm": 113.40000000001696,
+      "remaining_after_loop_pull_mm": 31.59999999998304,
+      "full_untrimmed_tail_upper_mm": 56.59999999998304,
+      "source_length_fits": true,
+      "inner_n": [
+        -1.4999999999999898,
+        10.6
+      ],
+      "inner_y": [
+        -15.423263354087442,
+        14.276736645921005
+      ],
+      "tailstack_height_included_mm": 2.6,
+      "no_physicalcut_or_new_stock": true
+    },
+    {
+      "name": "FULL_SELECTED_TIE_2:source_land100",
+      "sku": "111-01910",
+      "full_unit_length_mm": 100,
+      "width_mm": 2.5,
+      "thickness_mm": 1,
+      "actual_loop_capacity_length_mm": 47.300000000000026,
+      "correct_analytic_rectangle_length_mm": 47.3,
+      "closure_pull_head_once_mm": 25,
+      "wholeunit_required_mm": 72.30000000000003,
+      "remaining_after_loop_pull_mm": 27.699999999999974,
+      "full_untrimmed_tail_upper_mm": 52.699999999999974,
+      "source_length_fits": true,
+      "inner_n": [
+        1.75,
+        10.6
+      ],
+      "inner_y": [
+        -6.4,
+        6.4
+      ],
+      "tailstack_height_included_mm": 2.6,
+      "no_physicalcut_or_new_stock": true
+    },
+    {
+      "name": "FULL_SELECTED_TIE_3:donor_land100",
+      "sku": "111-01910",
+      "full_unit_length_mm": 100,
+      "width_mm": 2.5,
+      "thickness_mm": 1,
+      "actual_loop_capacity_length_mm": 49.7,
+      "correct_analytic_rectangle_length_mm": 49.7,
+      "closure_pull_head_once_mm": 25,
+      "wholeunit_required_mm": 74.7,
+      "remaining_after_loop_pull_mm": 25.299999999999997,
+      "full_untrimmed_tail_upper_mm": 50.3,
+      "source_length_fits": true,
+      "inner_n": [
+        1.75,
+        10.6
+      ],
+      "inner_y": [
+        -7,
+        7
+      ],
+      "tailstack_height_included_mm": 2.6,
+      "no_physicalcut_or_new_stock": true
+    }
+  ],
+  "full_tail_lifecycle": "Allfull145/100uncut; L-loop includes25pull/headsegmentonce. Two2.5wideouterlanes/two1.2layers+.2gap=2.6 tailstackoncap; actualloopsinsideN10.6clampstockandcap. Headfull5at10.6..15.6andbench25feedabove. ConnectedturnR3plastic andmanualpark/cinchremainphase2prototypefit; notmanufacturerwirebendclaim.",
+  "stock_rows": [
+    {
+      "stock": "FULL_SELECTED_TIE_0:structural145:loop",
+      "other": "Ref_Material_P0_Part__Feature089_0_0",
+      "valid": true,
+      "gap_mm": 0.0,
+      "witnesses": [
+        [
+          [
+            -68.04852188887251,
+            83.96512847977723,
+            -49.502955623695584
+          ],
+          [
+            -68.04852188887251,
+            83.96512847977763,
+            -49.50295562369564
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "allocated_common_mm3": 20.020107166898054,
+      "status": "FULL_STOCK_CAPACITY_OR_HEAD_FEED_HOLD_NOT_ALL_HANDLAY_IMPOSSIBLE"
+    }
+  ],
+  "stock_cursor": 1,
+  "stock_total": 17,
+  "stock_unreceived": 16,
+  "archive": "day07-SOURCE-Ankle-functional-bay-and-full-stock.breps.zip",
+  "archive_sha256": "975267458e1705c200757e2c33eae2e23217323c64dbc774bc127fe6b966c65a",
+  "geometry": [
+    {
+      "name": "LOCAL:actual_Foot123",
+      "entry": "0.brep",
+      "sha256": "f57923b852b51658161f4fd9399aa218965e4a307a1b00ff59b16af2468e9ece",
+      "bounds_mm": [
+        [
+          -67.77615061513771,
+          -137.90477739215748,
+          -0.3000001000004775
+        ],
+        [
+          -34.81103585716733,
+          -7.517330956303603,
+          11.700000100000121
+        ]
+      ],
+      "volume_mm3": 17420.008528735874
+    },
+    {
+      "name": "LOCAL:actual_Foot_remainder",
+      "entry": "1.brep",
+      "sha256": "535b019f61938542d5cd4701e29e20826dc19c8a0f1e46971dce76e0dd60e4ca",
+      "bounds_mm": [
+        [
+          -67.77615061513771,
+          -137.90477739215748,
+          -0.3000001000004775
+        ],
+        [
+          -36.984021164562854,
+          -12.638426630422249,
+          11.70000010000012
+        ]
+      ],
+      "volume_mm3": 15573.95515616307
+    },
+    {
+      "name": "LOCAL_COVER:source_Ankle_coaxial_R12_full_normals",
+      "entry": "2.brep",
+      "sha256": "95e49a0e07cdcea852ac66e825ef44cb9728df6478987ac5c9480a2d7dc46a99",
+      "bounds_mm": [
+        [
+          -58.81103685716773,
+          -31.517331956303565,
+          -0.4000001000004775
+        ],
+        [
+          -34.81103485716773,
+          -7.517329956303568,
+          11.800000100000121
+        ]
+      ],
+      "volume_mm3": 5519.15098416307
+    },
+    {
+      "name": "LOCAL_COVER:Ankle_remainder_continuous_interval_0",
+      "entry": "3.brep",
+      "sha256": "ffeccd7661c6cc0b56b952c0660e33fe03e1d7240b82afb2cecca53af1103661",
+      "bounds_mm": [
+        [
+          -68.87584500738615,
+          -139.7468028631799,
+          -0.3000101000004775
+        ],
+        [
+          0.17372045046508333,
+          -9.869156731454098,
+          11.700010100000119
+        ]
+      ],
+      "volume_mm3": 107616.1214905158
+    },
+    {
+      "name": "LOCAL_COVER:Ankle_remainder_continuous_interval_1",
+      "entry": "4.brep",
+      "sha256": "0c268658660bd89c0c40ab9e12b5031a96384a5f6b026e4f55da4283d789ac6d",
+      "bounds_mm": [
+        [
+          -68.87534019643768,
+          -138.4229228252203,
+          -0.3000101000004775
+        ],
+        [
+          32.44790932863289,
+          -8.102716386215121,
+          11.700010100000119
+        ]
+      ],
+      "volume_mm3": 158453.86827237345
+    },
+    {
+      "name": "LOCAL_COVER:Ankle_remainder_continuous_interval_2",
+      "entry": "5.brep",
+      "sha256": "f44c9d3e5a1a9c11e22bcc21dc21a4725c5623c4b733983b7e545454128d73ba",
+      "bounds_mm": [
+        [
+          -67.68118134702696,
+          -126.58214315621845,
+          -0.3000101000004775
+        ],
+        [
+          56.48401185589053,
+          -7.521924235340109,
+          11.700010100000119
+        ]
+      ],
+      "volume_mm3": 177397.91964044765
+    },
+    {
+      "name": "LOCAL_COVER:Ankle_remainder_continuous_interval_3",
+      "entry": "6.brep",
+      "sha256": "0585638504863f8c75dc3966130a64e463b3e9237b4d0be0fcde8e9c2b977d57",
+      "bounds_mm": [
+        [
+          -64.317803621314,
+          -103.6131659710831,
+          -0.3000101000004775
+        ],
+        [
+          69.7837420321209,
+          -7.522697456926821,
+          11.700010100000119
+        ]
+      ],
+      "volume_mm3": 154630.82449852367
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:SOURCE_PROFILE:D",
+      "entry": "7.brep",
+      "sha256": "51b908a2ffc14a8449dd7e925c0d807305a591e0fd427ed28ae0e2f72340424b",
+      "bounds_mm": [
+        [
+          -43.0,
+          -4.4,
+          2.45
+        ],
+        [
+          43.0,
+          -1.3,
+          5.55
+        ]
+      ],
+      "volume_mm3": 649.100166121455
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:SOURCE_PROFILE:V",
+      "entry": "8.brep",
+      "sha256": "61f3c484314fadc4234b39166ad5d1c5c89bf9071e51cd8acf40a9c343ee75ab",
+      "bounds_mm": [
+        [
+          -43.0,
+          -1.1,
+          2.9
+        ],
+        [
+          43.0,
+          1.1,
+          5.1
+        ]
+      ],
+      "volume_mm3": 283.37165735379926
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:SOURCE_PROFILE:G",
+      "entry": "9.brep",
+      "sha256": "b8d2933daba9a4c285c70ffa6bfd86357190f463f499519279d78bbce2a69660",
+      "bounds_mm": [
+        [
+          -43.0,
+          1.3,
+          2.45
+        ],
+        [
+          43.0,
+          4.4,
+          5.55
+        ]
+      ],
+      "volume_mm3": 649.100166121455
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_0:structural145:loop",
+      "entry": "10.brep",
+      "sha256": "42ea6487b51f887d5d4054f8ebc8f41c8fc2a3e4f0e125d00ea0c815b0c8b7f8",
+      "bounds_mm": [
+        [
+          -16.25,
+          -19.30175292504,
+          -2.700000000000025
+        ],
+        [
+          -13.75,
+          15.476736645918848,
+          11.8
+        ]
+      ],
+      "volume_mm3": 281.2709374257532
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_0:structural145:head",
+      "entry": "11.brep",
+      "sha256": "ec01d1649948b3e184a36de128d2ef3af2d7367329123e3ebe5095cf0476eca7",
+      "bounds_mm": [
+        [
+          -17.65,
+          -2.5,
+          10.6
+        ],
+        [
+          -12.349999999999998,
+          2.5,
+          15.6
+        ]
+      ],
+      "volume_mm3": 132.5
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_0:structural145:bench_pull25",
+      "entry": "12.brep",
+      "sha256": "9d011451eb20f6bd12f9b1ae76e60cdd8f2a3fa3c3a5c2dacad6eef3afe5dcee",
+      "bounds_mm": [
+        [
+          -18.5,
+          -3.5,
+          15.6
+        ],
+        [
+          -11.5,
+          3.5,
+          40.6
+        ]
+      ],
+      "volume_mm3": 1225.0
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_1:structural145:loop",
+      "entry": "13.brep",
+      "sha256": "b2eec19f8ae97b8866c5d5ce96f8e530ea8d256821c618c21193d5de53dc6ece",
+      "bounds_mm": [
+        [
+          13.75,
+          -16.62326335408744,
+          -2.6999999999999895
+        ],
+        [
+          16.25,
+          15.476736645921008,
+          11.8
+        ]
+      ],
+      "volume_mm3": 265.20000000005086
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_1:structural145:head",
+      "entry": "14.brep",
+      "sha256": "76fed4342e25d7299fb7a6aa56149813461aeb00eeb43dca41d986bbe881502a",
+      "bounds_mm": [
+        [
+          12.35,
+          -2.5,
+          10.6
+        ],
+        [
+          17.65,
+          2.5,
+          15.6
+        ]
+      ],
+      "volume_mm3": 132.49999999999997
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_1:structural145:bench_pull25",
+      "entry": "15.brep",
+      "sha256": "74b28dd9cb0c297b7f004edec95833aea57dde82230d7c7ad5fe356f9e7e240e",
+      "bounds_mm": [
+        [
+          11.5,
+          -3.5,
+          15.6
+        ],
+        [
+          18.5,
+          3.5,
+          40.6
+        ]
+      ],
+      "volume_mm3": 1225.0
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_2:source_land100:loop",
+      "entry": "16.brep",
+      "sha256": "d9cc219ad00e6663b2c832487c4bf22dfff4faba6899bfe91c784c79637073d5",
+      "bounds_mm": [
+        [
+          -39.75,
+          -7.4,
+          0.75
+        ],
+        [
+          -37.25,
+          7.4,
+          11.6
+        ]
+      ],
+      "volume_mm3": 118.25000000000007
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_2:source_land100:head",
+      "entry": "17.brep",
+      "sha256": "e3d18103433e9f39d741bf7da7e54f38050447b6a6df6506b85ee0b800f2c0a6",
+      "bounds_mm": [
+        [
+          -41.15,
+          -2.5,
+          10.6
+        ],
+        [
+          -35.85,
+          2.5,
+          15.6
+        ]
+      ],
+      "volume_mm3": 132.49999999999991
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_2:source_land100:bench_pull25",
+      "entry": "18.brep",
+      "sha256": "a51369b64b46d5a8e147bcc62d3f8b1dc41737325bcaed9900fce017d614c308",
+      "bounds_mm": [
+        [
+          -42.0,
+          -3.5,
+          15.6
+        ],
+        [
+          -35.0,
+          3.5,
+          40.6
+        ]
+      ],
+      "volume_mm3": 1225.0
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_3:donor_land100:loop",
+      "entry": "19.brep",
+      "sha256": "3021ebec4e30b3c9af0b2fd4a34846701e9cadb990cfdfbea9a9019b6a3b84bd",
+      "bounds_mm": [
+        [
+          37.25,
+          -8.0,
+          0.75
+        ],
+        [
+          39.75,
+          8.0,
+          11.6
+        ]
+      ],
+      "volume_mm3": 124.25000000000001
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_3:donor_land100:head",
+      "entry": "20.brep",
+      "sha256": "fc16be67be59a0c4510702cc894e94570ec3d432196e84af7f0e3d731cc3ef07",
+      "bounds_mm": [
+        [
+          35.85,
+          -2.5,
+          10.6
+        ],
+        [
+          41.15,
+          2.5,
+          15.6
+        ]
+      ],
+      "volume_mm3": 132.49999999999991
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL_SELECTED_TIE_3:donor_land100:bench_pull25",
+      "entry": "21.brep",
+      "sha256": "b8811f4e1d43e7783777d47377dfe443fd87dbfba270d03e0d00651ca1e12875",
+      "bounds_mm": [
+        [
+          35.0,
+          -3.5,
+          15.6
+        ],
+        [
+          42.0,
+          3.5,
+          40.6
+        ]
+      ],
+      "volume_mm3": 1225.0
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL4_TAILS:left_two_layer_capacity",
+      "entry": "22.brep",
+      "sha256": "3629ff8a6f33248ea62f3794df196cf2d6e5213de4dfe16f408c0dfb64bf9ecd",
+      "bounds_mm": [
+        [
+          -43.0,
+          -5.3,
+          8.0
+        ],
+        [
+          43.0,
+          -2.8,
+          10.6
+        ]
+      ],
+      "volume_mm3": 558.9999999999999
+    },
+    {
+      "name": "LOCAL_FUNCTIONAL:FULL4_TAILS:right_two_layer_capacity",
+      "entry": "23.brep",
+      "sha256": "73d2d35948da74bb8d41d4745927970a1e9404ffb7dfcae85e0690354373ee9e",
+      "bounds_mm": [
+        [
+          -43.0,
+          2.8,
+          8.0
+        ],
+        [
+          43.0,
+          5.3,
+          10.6
+        ]
+      ],
+      "volume_mm3": 558.9999999999999
+    },
+    {
+      "name": "Ref_Material_P0_Part__Feature089_0_0",
+      "entry": "24.brep",
+      "sha256": "050cae71d5276a4e930ad9e17a157bc0661e50d6802cdeff17b5935cf4c314c3",
+      "bounds_mm": [
+        [
+          -72.45550832585715,
+          69.65457244851814,
+          -91.06576973735112
+        ],
+        [
+          -41.39537011476635,
+          85.53543784230476,
+          -43.12233562977394
+        ]
+      ],
+      "volume_mm3": 8526.552617556612
+    }
+  ],
+  "new_fork_material_built": false,
+  "current1292_effective1311_rest108_unchanged": true,
+  "new_source_A_U_minimumfit_slack": null,
+  "operation_seconds": 13.829000000027008,
+  "process_cpu_seconds": 17.984375,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}
