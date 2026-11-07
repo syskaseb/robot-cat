@@ -1,0 +1,99 @@
+{
+  "id": "day07-coordinator-FL2-body-reserve-frozen-math-receipt",
+  "created_utc": "2026-11-07T09:45:59Z",
+  "status": "SOURCE_ALGEBRA_RECEIVED_ONLY_SPATIAL_S_FAMILY_REJECTED",
+  "selected": false,
+  "N01_complete": false,
+  "reviewer": {
+    "thread_id": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+    "turn_id": "01a1b55c-b9f8-70c2-a1a2-ce7b0857fda1",
+    "status": "completed",
+    "configured_model": "gpt-6-astra",
+    "thinking": "medium",
+    "role": "Existing_readonly_independent_frozen_math_noCAD_noedits_not_new_C1_design_review",
+    "final_text": "**Rodzina S daje każdej z trzech żył od 55 do 65 mm nadmiaru długości przy stałych P, Q i stycznych.** Z tego **10 mm** jest dostępne na kompensację zmiany prowadzenia podczas ruchu, jeśli w każdej pozie ma pozostać co najmniej 55 mm rezerwy. Przydatność tej pojemności dla obecnej nogi FL2 pozostaje warunkowa.\n\n1. **Długość rodziny zgadza się na całym przedziale.** Trzy styczne łuki o zwrotach `−φ, +2φ, −φ` kończą się w kierunku +X, a ich przesunięcia poprzeczne się znoszą. Przy `R = 37,85 mm` długość łuków wynosi `4Rφ`, ich przesunięcie wzdłuż X wynosi `4R sinφ`, a końcowa prosta do Q ma `s = 150 − 4R sinφ`. Cała droga ma zatem `150 + E`, gdzie `E = 4R(φ − sinφ)`. Funkcja jest ściśle rosnąca w użytym zakresie. Dla `E = 55` otrzymuję `φ = 1,335789 rad` i `s = 2,761600 mm`; dla `E = 65` odpowiednio `1,417617 rad` i `0,372740 mm`. Prosta pozostaje dodatnia, więc także na obu granicach rodziny Q i styczna są zachowane. [Konstruktor, SHA `8b0fc43c…02c28`](C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-save-body-DGV-reserve-whole-proposal.recipe.py:5)\n\n2. **55 mm przysługuje każdej ży­le osobno.** Dla równoległej żyły o stałym odsunięciu poprzecznym `dᵢ` poprawka długości na łukach jest proporcjonalna do `dᵢ(−φ + 2φ − φ) = 0`. Stąd D/W005, V/W022 i G/W021 mają po **205–215 mm** drogi między własnymi przekrojami końcowymi oddalonymi o 150 mm. Minimalny promień osi skrajnej żyły wynosi `37,85 − 2,75 = 35,10 mm`. Wynik zakłada stałą kolejność żył i orientację przekroju na odcinku S. Długość wynikającą z ewentualnego obrotu przekroju na wejściu lub rozdziału D/G/V po Q trzeba ująć w ich własnych odcinkach. [Definicja rodziny, SHA `54d4435a…e7ca`](C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-SOURCE-FL2-body-reserve-and-DGV-whole-proposal.json:64)\n\n3. **Warunek dla 36 póz wynika ze stałej długości zainstalowanej żyły.** Niech `Lᵢ(p)` obejmuje wszystkie odcinki poza S między rzeczywistymi odciążeniami, których długość prowadzenia zmienia się z pozą. Wtedy `Eᵢ(p) = Eᵢ,ref + Lᵢ,ref − Lᵢ(p)`. Przy wyborze 55 mm w pozie największego `Lᵢ` otrzymujemy `Eᵢ(p) = 55 + max Lᵢ − Lᵢ(p)`. Warunkiem dla każdej żyły jest więc **`max Lᵢ − min Lᵢ ≤ 10 mm`**. Jest też warunek dla wiązki: jedna wspólna wartość `φ(p)` daje wszystkim trzem ten sam `E(p)`. Jeśli zmiany `Lᵢ` są różne, trzeba wykazać, gdzie poszczególne żyły mogą się względnie przesunąć i pomieścić różnicę. Zakres dawnej rodziny 258,944678–263,676960 mm dawałby warunkowo **55–59,732282 mm**; dla nowej nogi brakuje odpowiadających jej długości wejścia i rozdziału. Przejścia między pozami wymagają ciągłego prowadzenia i swobodnego przesuwu przez luźne prowadnice. [Bilans ruchu i otwarte wejście D](C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-SOURCE-FL2-body-reserve-and-DGV-whole-proposal.json:152)\n\n4. **Rozliczenie kabla nadal wymaga pełnych długości D/V/G.** Dla każdej żyły należy liczyć raz rzeczywisty odcinek `150 + Eᵢ`, źródłowe 14 mm, właściwe zakończenie 11 mm i pełne pole 9 mm we właściwym prefiksie. Udział zakładki 4 mm stosuje się tylko na odcinku, do którego należy istniejące złącze; `SOURCE/FL2` ma trzy żyły ciągłe. Każda musi spełnić warunek projektowych 850 mm oraz `Bᵢ = 5·ceil((minimumᵢ + 20)/5) ≤ 900 mm`. Pobranie jednej fizycznej jednostki wynosi `max(B_D, B_V, B_G)`. Brak pełnych odcinków nogi i rozdziału do rzeczywistych chwytów pozostawia bieżące minimum, blank, luz i `actual_cut` nieustalone. Licznik bramki przestrzennej podaje **5/127, pozostałe 122**. [Rozliczenie i warunki bramki, SHA `31f0cc5b…6589d`](C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-SOURCE-FL2-body-reserve-bounded-disposition.json)"
+  },
+  "source_pins": [
+    {
+      "path": "day07-SOURCE-FL2-body-reserve-and-DGV-whole-proposal.json",
+      "sha256": "54d4435adbeb7ee51282bb40640900be831a66d7b53c25a31a8c7f2c2866e7ca"
+    },
+    {
+      "path": "day07-save-body-DGV-reserve-whole-proposal.recipe.py",
+      "sha256": "8b0fc43c59cd088de7aa879c42912c5be588c12978043afdf12e229a26d02c28"
+    },
+    {
+      "path": "day07-SOURCE-FL2-body-reserve-bounded-disposition.json",
+      "sha256": "31f0cc5b456aac21b8eb4ad100a9fdcde14b795c074a42b1a14430ccddb6589d"
+    },
+    {
+      "path": "day07-SOURCE-constant-radius-storage-bounded-disposition.json",
+      "sha256": "11766800793c1bf8d18e14ad920f2a6ea03aa25035967f04185de0a12947b4ed"
+    },
+    {
+      "path": "day07-SOURCE-FL2-body-reserve-static-family-bounded-disposition.json",
+      "sha256": "acb047b12e1b1d9e822898fe52a278e94f050edc83fb1ab4cfea833c9d87f328"
+    }
+  ],
+  "parent_pure_math": {
+    "R_group_mm": 37.85,
+    "D_fixed_endpoint_span_mm": 150,
+    "signed_turns": "-phi,+2phi,-phi",
+    "E_function": "4*R*(phi-sin(phi))",
+    "final_straight": "D-4*R*sin(phi)",
+    "axis_length": "D+E",
+    "endpoint_results": [
+      {
+        "E_mm": 55,
+        "phi_rad": 1.3357886417153217,
+        "straight_mm": 2.7615996443002757,
+        "total_axis_length_mm": 205
+      },
+      {
+        "E_mm": 65,
+        "phi_rad": 1.4176173029822765,
+        "straight_mm": 0.3727403284833315,
+        "total_axis_length_mm": 215
+      }
+    ],
+    "offset_length_correction": "d_i*(-phi+2phi-phi)=0",
+    "max_abs_offset_mm": 2.75,
+    "min_core_R_mm": 35.1,
+    "constant_material_balance": "E_i(p)=E_i_ref+L_i_ref-L_i(p)",
+    "at_maximum_leg_demand": "E_i(p)=55+max(L_i)-L_i(p)",
+    "per_core_required_condition": "max(L_i)-min(L_i)<=10mm",
+    "shared_phi_additional_condition": "One common E(p) requires equal percore demand changes or separately qualified relative length freedom/capacity.",
+    "old_family_only": {
+      "L_min_mm": 258.94467811948823,
+      "L_max_mm": 263.6769599042302,
+      "delta_mm": 4.732281784741986,
+      "E_max_if_identity_proven_mm": 59.732281784741986,
+      "identity_to_new_leg_not_received": true
+    }
+  },
+  "dispositions": [
+    {
+      "issue": "Frozen_S_algebra",
+      "decision": "Receive only equations/fixedPQ/tangents/signedoffset cancellation/percoreE55..65 and minR35.1 for exact frozen family. New branch geometry requires its own applicable algebra/invariants."
+    },
+    {
+      "issue": "Moving_capacity",
+      "decision": "55 is minimum remaining extra at maximum leg demand; window has10mm compensating range. Qualify actual current leg+fan length variation and percore relative freedom; no inheritance of old4.732range without identity."
+    },
+    {
+      "issue": "Physical_stock",
+      "decision": "FL2 is continuous: no lap4. Lap4 applies only existing FL3 source-owned joint portions where applicable. Count source14/terminal11/full9 once in correct prefix; physical drawMAX3 ceil5((minimum_i+20)/5)<=900 plus850project, no pooling/fittrim as operating slack. No actual fit/minimum/cut accepted."
+    },
+    {
+      "issue": "Spatial_rejection",
+      "decision": "CurrentSfamily rejected by retainedP_SYScase E55common268.088478/E65common179.137867. Counter8of127/119unreceived. Do not resume119 or turn math into geometryGO; next actualDGVreceiver-side wholebranch/layer plan."
+    }
+  ],
+  "C1_design_review_closed_1of1": true,
+  "new_design_review": false,
+  "geometry_accepted": false,
+  "physical_prototype_pass": false,
+  "parent_CAD": false,
+  "actual_current_leg_fan_transfer_and_all_fit_slack": "OPEN",
+  "parent_verification": "Pure scalar arithmetic and primary SHA verification; no kernel validation."
+}
