@@ -1,0 +1,429 @@
+{
+  "id": "day07-JPWM-release-assembly-dependency-disposition",
+  "received_utc": "2026-11-07T01:10:04Z",
+  "status": "BODY_SIDE_EXIT_RECEIVED_PARK_ALLOCATION_HOLD_WIRED_REPAIR_OPEN",
+  "selected": false,
+  "N01_complete": false,
+  "N01_score": "0/10",
+  "source_pins": [
+    {
+      "file": "day07-current-BankBed1-actual-loader.brep",
+      "sha256": "bf0311c029d0caa23b28387114a5b8f0621cfd0c79ec72a25074733e5c80ff99",
+      "bytes": 28522
+    },
+    {
+      "file": "day07-current-BankBed1-actual-loader-pin.json",
+      "sha256": "4a7ce81ce5dd731c9e2ca28c285305562e8ce9aa0c2aa6f77d0201c0adca8ec1",
+      "bytes": 2056
+    },
+    {
+      "file": "day07-C1-microSD-source-access-cover.brep",
+      "sha256": "b58927b2fbedaab9d3fc08f4ace621dab68879b325dc00f4ae45c53688d12988",
+      "bytes": 3765
+    },
+    {
+      "file": "day07-west-C1-fixed-interface-function-diagnostics.json",
+      "sha256": "2d6cd0eef5b14dd348647b8e4c7687c4ecd84d9d24495e2804bbfd1586511de8",
+      "bytes": 5606
+    },
+    {
+      "file": "day07-west-C1-fixed-interface-dispositions.json",
+      "sha256": "d5f33aeeebe2b24b715181a8d0b5fcfc8af2f08623df427ae35c8ed4d547e6c3",
+      "bytes": 16624
+    },
+    {
+      "file": "day07-west-C1-fixed-function-diagnostics.recipe.py",
+      "sha256": "23b4853b0b88f58e47a16b39b4987f8768060a2076bd28d349bf70beff88c6ae",
+      "bytes": 8020
+    },
+    {
+      "file": "day07-microSD-partial-repair-probe-inputs.breps.zip",
+      "sha256": "66dede4e4b1eb1c71a665fa7cdd3f16330367bf319dd9b4a1beec71d51c6aaa1",
+      "bytes": 5494
+    },
+    {
+      "file": "day07-microSD-partial-repair-input-and-first-gate.json",
+      "sha256": "a5cd8d25e537a22796654846f5b2cbca6bd0e25c264a81e47dd5684f48bb3a39",
+      "bytes": 16462
+    },
+    {
+      "file": "day07-microSD-install-partial-repair-decision.json",
+      "sha256": "f28ceb8bd12e44e5131f6ad478b7a5b8799a3b33b82b42b0f74d40c3b1c3c530",
+      "bytes": 10489
+    },
+    {
+      "file": "day07-microSD-partial-repair-source-packaging.recipe.py",
+      "sha256": "8264be6ef4c40f7337fa48c991b858c6c4bd912c35279d4854a573bfc5f0823b",
+      "bytes": 6790
+    },
+    {
+      "file": "day07-JPWM-source13-release-and-park-proposal.json",
+      "sha256": "1294a65b5ad6e87a72bd6c63399a3b2671454a83b88c69beed5278684c2e74f6",
+      "bytes": 17906
+    },
+    {
+      "file": "day07-JPWM-side-release-source13-and-cover.breps.zip",
+      "sha256": "7f35f165670024760f48af0c98751b8226ac7cdbf455d20ecb8f45d22f2863c9",
+      "bytes": 18256
+    },
+    {
+      "file": "day07-JPWM-complete-body-side-release-first-gate.json",
+      "sha256": "c40e1e3deeb354fd240df9cf95bcaabe15abe6dcb012e4969dc2bff75e9d5d70",
+      "bytes": 3409
+    },
+    {
+      "file": "day07-JPWM-module-temporary-park-full-cover-gate.json",
+      "sha256": "ddf44fcfdc40cc2d60594ec8c6c17a413f09a536d946a7bb0a085c64535bfdb5",
+      "bytes": 2553
+    },
+    {
+      "file": "day07-JPWM-side-release-first-gate.recipe.py",
+      "sha256": "77d943230c21c1f412e58e910097d375506bcbccf91371b725f3044f862f31ec",
+      "bytes": 9962
+    },
+    {
+      "file": "day07-JPWM-park-cover-gate.recipe.py",
+      "sha256": "38c0645b789aeee0ce602dd862ca54adac380ed56e0e5e8ad86b923062330fae",
+      "bytes": 2518
+    }
+  ],
+  "roles13": [
+    {
+      "actor": "Ref_Material_JPWM_0_0",
+      "role": "purchased_mated_SOURCE430250200_MODULE430200201_envelope",
+      "bounds_mm": [
+        [
+          -9.258330249197687,
+          11.303847577293329,
+          81.00000000000006
+        ],
+        [
+          19.258330249197716,
+          34.696152422706604,
+          93.00000000000006
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMSource:XP02.source",
+      "role": "four_independent_factory225min220_fullprefix_not_rigid_middle",
+      "bounds_mm": [
+        [
+          17.787687356451983,
+          10.048927264438566,
+          87.57500000000029
+        ],
+        [
+          26.506915990511928,
+          16.15107426143978,
+          89.42500000000028
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMSource:XP03.source",
+      "role": "four_independent_factory225min220_fullprefix_not_rigid_middle",
+      "bounds_mm": [
+        [
+          17.787687356451983,
+          10.048927264438566,
+          84.57500000000029
+        ],
+        [
+          26.506915990511928,
+          16.15107426143978,
+          86.42500000000028
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMSource:XP02.module",
+      "role": "four_independent_factory225min220_fullprefix_not_rigid_middle",
+      "bounds_mm": [
+        [
+          -15.73457019421769,
+          28.89813869856777,
+          87.57499999999999
+        ],
+        [
+          -7.787689999351803,
+          37.76391546488918,
+          89.42499999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMSource:XP03.module",
+      "role": "four_independent_factory225min220_fullprefix_not_rigid_middle",
+      "bounds_mm": [
+        [
+          -15.73457019421769,
+          28.89813869856777,
+          84.57499999999999
+        ],
+        [
+          -7.787689999351803,
+          37.76391546488918,
+          86.42499999999998
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMGrip:source:pad",
+      "role": "fixed_open_backed_printed_wire_saddle_permanent_CommonSupport_join",
+      "bounds_mm": [
+        [
+          18.7876873564519,
+          11.780978072007766,
+          84.425
+        ],
+        [
+          27.581915990511845,
+          18.013028879576648,
+          89.575
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMGrip:module:pad",
+      "role": "fixed_open_backed_printed_wire_saddle_permanent_CommonSupport_join",
+      "bounds_mm": [
+        [
+          -12.795314963787362,
+          31.580978072007703,
+          84.42499999999998
+        ],
+        [
+          -6.712689999351805,
+          38.44307194904615,
+          89.57499999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "E2Tray:Band",
+      "role": "one_way_T18I100_stock_band_or_head_three_physical_units",
+      "bounds_mm": [
+        [
+          -0.6825317547308463,
+          14.407566285183158,
+          79.79999999999998
+        ],
+        [
+          9.682531754730249,
+          29.86038290724795,
+          94.19999999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "E2Tray:Head",
+      "role": "one_way_T18I100_stock_band_or_head_three_physical_units",
+      "bounds_mm": [
+        [
+          2.705032679970927,
+          21.674999999999994,
+          75.5
+        ],
+        [
+          9.794967320028451,
+          28.655127018922187,
+          79.8
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMGrip:source:band",
+      "role": "one_way_T18I100_stock_band_or_head_three_physical_units",
+      "bounds_mm": [
+        [
+          19.927269918751406,
+          10.504792969329575,
+          83.22500000000032
+        ],
+        [
+          25.3673334282125,
+          17.42725936411765,
+          90.77500000000033
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMGrip:source:head",
+      "role": "one_way_T18I100_stock_band_or_head_three_physical_units",
+      "bounds_mm": [
+        [
+          22.119738164020777,
+          15.55225936411797,
+          84.35
+        ],
+        [
+          28.59986518294297,
+          21.77616860039106,
+          89.65
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMGrip:module:band",
+      "role": "one_way_T18I100_stock_band_or_head_three_physical_units",
+      "bounds_mm": [
+        [
+          -14.29715442163473,
+          31.015010131525667,
+          83.22499999999998
+        ],
+        [
+          -7.797140899397405,
+          36.91234392191168,
+          90.77499999999999
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    },
+    {
+      "actor": "JPWMGrip:module:head",
+      "role": "one_way_T18I100_stock_band_or_head_three_physical_units",
+      "bounds_mm": [
+        [
+          -9.926286603340868,
+          34.31552575591217,
+          84.35
+        ],
+        [
+          -3.4337339157568265,
+          40.90799570803388,
+          89.65
+        ]
+      ],
+      "source": {
+        "source": "named_base_context_or_current56"
+      },
+      "moves_as_rigid13": false
+    }
+  ],
+  "permanent_not_removed": [
+    "Underdeck:CommonSupport",
+    "JPWMGrip:source:pad",
+    "JPWMGrip:module:pad",
+    "allC1sourceframecells"
+  ],
+  "functional_classification": "13 actors represent one purchased mated case envelope, four independent factory prefixes, two fixed printed open-backed saddles, and three physical one-way T18I100 tie units. This is not an indivisible rigid removal group.",
+  "one_way_retention": "Future rare repair requires removal/destruction of three dock ties, never loosening/reusing them. Reassembly needs three same-selected-SKU full100 replacement units; available stock not asserted. No physical action/cut/purchase performed. Additional previously accounted Pi ties remain separate.",
+  "source_lifecycle_scope": "pwm-complete-e2-r1/interface.json is SOURCE_BEFORE_COMPLETE_E2/selectedfalse, oldmodule150obsolete. Reuse only documentedtie/wholepigtail/benchunplugprinciple; currentselected225all4 enforced by selectedpair-exitconstructor/currentauthority.",
+  "body_exit": {
+    "translation_mm": [
+      -3.5,
+      -6.06217782649,
+      0
+    ],
+    "local_direction": "minus N, 7mm",
+    "status": "SCOPED_BODY_ONLY_CLEARANCE_RECEIVED",
+    "received_pairs": 4,
+    "unchanged_fixed_frame": true,
+    "own_bearing_gap0_valid_common0": true,
+    "foreign_pad_min_gap_mm": 2.29999847412,
+    "operation_seconds": 4.64000000001397,
+    "process_cpu_seconds": 6.671875,
+    "meaning": "No body-only Pi-before-JPWM trap demonstrated on this side-exit; attached leads, endpoint release, latch handling and parking NOT accepted."
+  },
+  "temporary_park": {
+    "frame_datum_mm": [
+      -35,
+      53.5,
+      90.5
+    ],
+    "scope": "Full mated purchased envelope is conservative for one unknown housing half; not delivered half-contact proof.",
+    "received_pairs": 3,
+    "status": "REJECT_CONSERVATIVE_PARK_ALLOCATION",
+    "witness": "Station:FR_P:band_budget",
+    "valid_cover_common_mm3": 33.30059379092648,
+    "flexible_MODULE5": "Capacity OPEN, not rigid wire contact",
+    "operation_seconds": 0.984000000054948,
+    "process_cpu_seconds": 1.546875,
+    "sling": "Nominal two-tie sling is unqualified and NOT selected with this rejected cover allocation."
+  },
+  "factory_stock": {
+    "independent_minimum_units_mm": [
+      220,
+      220,
+      220,
+      220
+    ],
+    "received_whole_debits_mm": {
+      "MODULE1": 199.176168,
+      "MODULE2": 213.552653,
+      "SOURCEred": 211.81110605887,
+      "SOURCEblack": 160.65966001691
+    },
+    "no_trim_pool_or_extra9": true,
+    "new_temporary_whole_debits_mm": null,
+    "old_debits_scope": "unchangedreceivedinstallationonly; no addition of displacement as actualnewwiredebit; no reuse of obsolete150moduleleads",
+    "module_temporary_storage": "proposed openabove-bank/aboveopenbody service space at sourceR>=12.6, full2.1profiles; continuous accessiblecapacity and perunitstock remainOPEN, not certified by lengths alone",
+    "source_bench": "only after declared sourceendpoint releases; entireunchangedsourcekit/fuse/purchasedends, no solder/copper/crimpcut"
+  },
+  "assembly_status": "microSD source open-in-place LOST; bench installation feasible in principle but replacement rare-partial-repair path NOT accepted. JPWM SOURCE endpoint liberation and MODULE connected temporary storage remain the minimum unresolved dependencies before Pi down5.",
+  "preserved_negatives": [
+    "microSD nominal passage cover common82.731; installed card gap3.735",
+    "DSI/JPWM down5 gap0<1.25, raw common validity UNKNOWN not contact proof",
+    "FlatMODULE/V capacity2, R6 parking and three invalid BUS-source covers OPEN",
+    "All previous C0/C1 failures and counters retained; no C2 or new review"
+  ],
+  "next": "Use actual source endpoint release interfaces and MODULE-half/full lead service-region inventory to choose a materially different assembly/parking ordering. First prove independent per-unit min220/R/profile storage and full neighboring tie/heads before any Pi-removal acceptance. Do not nudge this rejected park pose or west column. No all-path impossibility claim.",
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "status": "IDLE_CONFIRMED",
+    "pending_operation": null,
+    "unsaved_geometry": false,
+    "current_installed_actors": 1292,
+    "installed_geometry_changed": false
+  }
+}

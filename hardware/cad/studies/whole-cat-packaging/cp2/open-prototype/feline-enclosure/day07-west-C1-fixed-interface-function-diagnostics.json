@@ -1,0 +1,210 @@
+{
+  "id": "day07-west-C1-fixed-interface-function-diagnostics",
+  "status": "SOURCE_FUNCTION_DIAGNOSTICS_NOT_WHOLE_MOUNT",
+  "source_functions_file": "day07-coordinator-fixed-print-source-functions.json",
+  "source_functions_sha256": "95f81b2f74a9d25c98cec785cd88d34ec4b924f0225437b49c5df4fec56daf4e",
+  "C1_proposal_sha256": "c345425beba5243044bcfa8fe01a0926a902e6a14ad7d9e7ad5ac65d28097c94",
+  "C1_geometry_archive": "day06-retained-Pi-west-spine-c1-functional-cells.breps.zip",
+  "C1_geometry_archive_sha256": "2a09f2ef2058924b33ab5e0e1e287c90aad78b260b65752ee65e070816675496",
+  "current_bankbed_pin": "day07-current-BankBed1-actual-loader-pin.json",
+  "current_bankbed_pin_sha256": "4a7ce81ce5dd731c9e2ca28c285305562e8ce9aa0c2aa6f77d0201c0adca8ec1",
+  "bank_plate_void_preservation": [
+    {
+      "member": "west_bank_gap_column",
+      "in_bank_full_bbox_mm3": 48.000000000000114,
+      "existing_actual_common_mm3": 48.0,
+      "added_inside_any_existing_plate_void_mm3": 1.1368683772161603e-13
+    }
+  ],
+  "source_case_tie_cut_minimum_gap_mm": 8.049999999999997,
+  "original_dock_lower_portal_retired_cells": {
+    "LowerPost": [
+      [
+        -9,
+        17,
+        41.02
+      ],
+      [
+        -6,
+        19,
+        58
+      ]
+    ],
+    "UpperTransfer": [
+      [
+        -9,
+        17,
+        56
+      ],
+      [
+        3.5,
+        19,
+        58
+      ]
+    ],
+    "RootPost": [
+      [
+        0.5,
+        17,
+        57
+      ],
+      [
+        3.5,
+        19,
+        80
+      ]
+    ]
+  },
+  "added_material_overlap_into_original_dock_portal_mm3": 0.0,
+  "lower_portal_open_is_not_downstream_V_capacity_pass": true,
+  "FLG_complete_stock_cover_gaps": [
+    {
+      "stock": "FLG:case_band",
+      "minimum_full_bounds_gap_mm": 21.25
+    },
+    {
+      "stock": "FLG:case_head",
+      "minimum_full_bounds_gap_mm": 21.62523121263678
+    },
+    {
+      "stock": "CurrentFLG:band_budget",
+      "minimum_full_bounds_gap_mm": 7.5
+    },
+    {
+      "stock": "CurrentFLG:head_budget",
+      "minimum_full_bounds_gap_mm": 3.20000000000001
+    }
+  ],
+  "FLG_case_head_approach": "same stock XY, downward before lowercover; allnewmaterialYmax56 vsactualcaseheadYmin76; openNorthcasetie retained",
+  "Pi_power_withdraw": [
+    {
+      "actor": "PiBudget:AdapterBody",
+      "source_bounds_mm": [
+        [
+          0.6999999999999993,
+          38.718109634713855,
+          97.60000000000001
+        ],
+        [
+          22.7,
+          51.718109634713855,
+          105.60000000000002
+        ]
+      ],
+      "full_withdraw_plusX_mm": 15,
+      "withdraw_full_cover_mm": [
+        [
+          0.6999999999999993,
+          38.718109634713855,
+          97.60000000000001
+        ],
+        [
+          37.7,
+          51.718109634713855,
+          105.60000000000002
+        ]
+      ],
+      "minimum_new_material_full_cover_gap_mm": 10.2
+    },
+    {
+      "actor": "PiBudget:RetainedK1474Boot",
+      "source_bounds_mm": [
+        [
+          22.7,
+          41.36810963471385,
+          97.60000000000001
+        ],
+        [
+          47.7,
+          55.36810963471385,
+          105.60000000000002
+        ]
+      ],
+      "full_withdraw_plusX_mm": 15,
+      "withdraw_full_cover_mm": [
+        [
+          22.7,
+          41.36810963471385,
+          97.60000000000001
+        ],
+        [
+          62.7,
+          55.36810963471385,
+          105.60000000000002
+        ]
+      ],
+      "minimum_new_material_full_cover_gap_mm": 32.2
+    }
+  ],
+  "Pi_power_neck3_full_cover_mm": [
+    [
+      61.150000000000006,
+      45.06810963471378,
+      100.05
+    ],
+    [
+      67.25,
+      51.66810963471377,
+      103.14999999999999
+    ]
+  ],
+  "Pi_power_neck3_min_gap_mm": 55.55,
+  "microSD": {
+    "installed_budget_bounds_mm": [
+      [
+        -6.265000000000001,
+        3.3681096347138553,
+        104.80000000000001
+      ],
+      [
+        9.135,
+        15.358109634713855,
+        107.80000000000001
+      ]
+    ],
+    "source_requirement": "feline_shared_pi_carrier.py:4/125 topU leavesmicroSDclear; noleftbar acrossmicroSD",
+    "nominal_full_budget_stroke_minusX_mm": 15.4,
+    "stroke_basis": "conservative passage of complete sourced15.4mm budget; not deliveredmanufacturerstroke",
+    "access_cover_bounds_mm": [
+      [
+        -21.665,
+        3.3681096347138553,
+        104.80000000000001
+      ],
+      [
+        9.135000000000002,
+        15.358109634713855,
+        107.80000000000001
+      ]
+    ],
+    "access_cover_file": "day07-C1-microSD-source-access-cover.brep",
+    "access_cover_sha256": "b58927b2fbedaab9d3fc08f4ace621dab68879b325dc00f4ae45c53688d12988",
+    "actual_valid_access_cover": true,
+    "rows": [
+      {
+        "actor": "source_PAS_retained_upper",
+        "gap_mm": 6.868109634713855,
+        "common_valid": null,
+        "access_cover_common_mm3": 0,
+        "scope": "Source nominal full-budget removal approach, not deliveredcardmaterial contact or fullN08trajectory"
+      },
+      {
+        "actor": "new_outside_PCB_west_return",
+        "gap_mm": 0.0,
+        "common_valid": true,
+        "access_cover_common_mm3": 82.73099999999938,
+        "scope": "Source nominal full-budget removal approach, not deliveredcardmaterial contact or fullN08trajectory"
+      }
+    ],
+    "installed_card_to_new_return_gap_mm": 3.7349999999999994,
+    "no_claim_installed_card_contact": true
+  },
+  "new_source_or_candidate_pose": false,
+  "old26_17_2_repeated": false,
+  "operation_seconds": 0.10999999998603016,
+  "process_cpu_seconds": 0.359375,
+  "pid": 26064,
+  "session_id": 46493,
+  "N01_complete": false,
+  "selected": false
+}

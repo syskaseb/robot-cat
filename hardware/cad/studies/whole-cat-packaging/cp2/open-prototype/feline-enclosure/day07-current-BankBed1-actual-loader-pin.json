@@ -1,0 +1,64 @@
+{
+  "id": "day07-current-BankBed1-actual-loader-pin",
+  "actor": "CurrentFoundation:BankBedCurrent:1",
+  "actual_ram_file": "day07-current-BankBed1-actual-loader.brep",
+  "actual_ram_bytes": 28522,
+  "actual_ram_sha256": "bf0311c029d0caa23b28387114a5b8f0621cfd0c79ec72a25074733e5c80ff99",
+  "bounds_mm": [
+    [
+      -54.5,
+      39.25,
+      52.0
+    ],
+    [
+      109.0,
+      80.0,
+      55.00000000000001
+    ]
+  ],
+  "loader": "robot-cat31-astra-restore-named-context.py",
+  "loader_sha256": "0a6f44d575e7597bdb24c7bbf37681ae8ec438826e63b15e8af2116bf7974f35",
+  "composition_loader": "robot-cat32-astra-current-composition.py",
+  "composition_loader_sha256": "65d541a07a13092a5370a2eb2c6e96737bb9790649dbc237e172d57924155d21",
+  "source_archive": "day30-astra-bank-complete-retention.breps.zip",
+  "source_archive_sha256": "782aa492f4cd54ce290a56947f456ad30f5939e6c1e1c9625bcb78a3f54eb5ea",
+  "source_actor": "Bank:open_spine",
+  "source_entry": "00.brep",
+  "source_member_sha256": "df6fa2dab3b4160e32629db9f2b086f0231503de2aa25372339eb28c7cf8508d",
+  "derived_operations": [
+    {
+      "kind": "cut_box",
+      "lo": [
+        -14,
+        57.05,
+        51
+      ],
+      "hi": [
+        -12.4,
+        59.95,
+        56
+      ]
+    },
+    {
+      "kind": "cut_box",
+      "lo": [
+        -9.6,
+        57.05,
+        51
+      ],
+      "hi": [
+        -8,
+        59.95,
+        56
+      ]
+    }
+  ],
+  "same_actual_shape_in_named_current": true,
+  "same_actual_shape_in_Current32": true,
+  "same_as_base_native_material": false,
+  "coordinator_base_native_actor": "Actor0497.Shape.brp",
+  "coordinator_base_native_member_sha256": "8c5b03e664a050751988214f447b6d9325b74d8862e16e6060a4f673c2969bb3",
+  "base_native_is_current": false,
+  "source_chain_sha256": "cfad1041004000e588389f1af08d48a868299dc5281e836beeb22a46b2044fa0",
+  "explanation": "Named context replaces base actor with bank retention spine then two cuts; source_overrides JSON absence does not mean no named-loader replacement. No CAD equality/reopen/collision tests replayed."
+}
