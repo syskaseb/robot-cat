@@ -1,0 +1,191 @@
+{
+  "id": "day07-SOURCE-FL2-body-reserve-and-DGV-whole-proposal",
+  "status": "ONE_CONNECTED_BODY_SOURCE_FL2_RESERVE_BAY_FIRST_NO_NEW_LEG_GEOMETRY",
+  "selected": false,
+  "N01_complete": false,
+  "cause": "Twoleg-onlystorageformsfailed. Movetotal55PERCOREofSAMEphysicalSOURCEFL2upstreamofrealbodyendclampsintoONEloosebodyS-bulge, notdonor/Hip/spare/20trim. Legextra0isplanningpartitionONLY/newlegrouteNOTqualified; no thirdlegcurve/shorterR.",
+  "physical_unit": {
+    "unit": "SOURCE/FL2",
+    "cores": {
+      "D": "W005",
+      "V": "W022",
+      "G": "W021"
+    },
+    "planned_total_operating_extra_mm_EACH_CORE": 55,
+    "partition": {
+      "leg_extra_mm_EACH_CORE": 0,
+      "body_extra_min_mm_EACH_CORE": 55
+    },
+    "not_aggregate55_acrosscores": true,
+    "minimum_fit_blank_A_U_actualcut": null
+  },
+  "connected_route": {
+    "left_passage": "Closed1697b075 full9.4x10.5; SOURCEFL2 middleZ44row retained, Hiprow40.7/donortop47.3 slots notstolen. SOURCE14/actualsourcepoint unchanged.",
+    "input_straight": {
+      "P": [
+        -132.75,
+        77,
+        44
+      ],
+      "Q": [
+        -132.75,
+        54,
+        44
+      ],
+      "full_source_triplet_mm": [
+        9.4,
+        3.9
+      ],
+      "accounting_no_newgrip": true
+    },
+    "input_quarter": {
+      "P": [
+        -132.75,
+        54,
+        44
+      ],
+      "centre": [
+        -94.9,
+        54,
+        44
+      ],
+      "Q": [
+        -94.9,
+        16.15,
+        44
+      ],
+      "group_R_mm": 37.85,
+      "percore_inner_R_mm": 35.1,
+      "sector_degrees": [
+        180,
+        270
+      ]
+    },
+    "body_storage": {
+      "P": [
+        -94.9,
+        16.15,
+        44
+      ],
+      "Q": [
+        55.1,
+        16.15,
+        44
+      ],
+      "fixed_axial_span_mm": 150,
+      "full_triplet_cross_mm": [
+        9.4,
+        3.9
+      ],
+      "group_R_mm": 37.85,
+      "percore_min_R_mm": 35.1,
+      "excess_range_mm_EACH_CORE": [
+        55,
+        65
+      ],
+      "phi_range_radians": [
+        1.335788641715331,
+        1.4176173029822574
+      ],
+      "minimum_final_straight_mm": 0.37274032848378624,
+      "family": "Threearcs: -phi,+2phi,-phi plusfinalstraighttoFIXEDQ. Fourphi totallength; excess4R(phi-sinphi). FixedP/Q/tangent+X, noadded9terminal. Variablephioperatingloopcapacity55..65.",
+      "percore_length_identity": "Signedturnsum0 => offsetD/G±2.75 radialcontributionscancel; EACHcoreextra E, notaggregate. AllpercoreR>=37.85-2.75=35.1."
+    },
+    "DGV_split_after_storage": "Fixedaccountingnode[55.1,16.15,44], NOTphysicalclamp/terminal; downstreamfanspreservecurrentrealendreliefs/ports"
+  },
+  "real_strain_reliefs": {
+    "moving": "ActualservoSOURCE14factoryplug/case; SOURCE4tiesonFL3holdernotborrowed/removed. SOURCEFL2continuous notvirtualdisconnect.",
+    "D": {
+      "wire": "W005",
+      "station": "Station:D_FL:case",
+      "current_pressure": "CurrentDFL:DFL:cap+band+head/permanent/removable retained",
+      "actual_current_cap_bounds_mm": [
+        [
+          57.75,
+          -29.3,
+          43.635844405336314
+        ],
+        [
+          69.20889087599477,
+          -3.2,
+          54.28051513099274
+        ]
+      ],
+      "precise_current_freeentry_point_axis": "OPEN; oldshared54point75.157...NOTinheritedcurrentchangedgrip"
+    },
+    "V": {
+      "wire": "W022",
+      "station": "F_L2.OUT",
+      "full9field_freecap_mm": [
+        -16,
+        8.152,
+        69
+      ],
+      "actual_pressure": "Station:Bank:W022/body/end:split_cap_exterior+band/head retained",
+      "old_c821_middle_route": "Designspace/illustrative route, NOTnewfixedterminal; no oldG255wholedebitcreditifroutechanges."
+    },
+    "G": {
+      "wire": "W021",
+      "station": "FL_G.3",
+      "current_full_prefix_bounds_mm": [
+        [
+          13.125,
+          64.45,
+          43.97
+        ],
+        [
+          37.375,
+          67.55,
+          47.07
+        ]
+      ],
+      "current_pressure": "CurrentFLG:split_common_comb+band/head/full9 atX16.125..25.125 retained",
+      "full_current_prefix_mm": 24.25
+    },
+    "free_segment": "Movingfactorysource→legfreeflex→leftpassage→bodySloop→DGVfan→TRUEbodyend9pressure. No intermediatebodyclamp added; unselectedold8guideoverlaywithdrawn. BodyloopisUPSTREAMofallfixedendreliefs bywireorder. NewguidesmustLOOSELYcapture/allowlongitudinalfeed, notpress9/doubleclamp. No SOURCE4ties/bodyendreliefs removed."
+  },
+  "body_DGV_fans": {
+    "D": "StoragefixedQ→rightsideCurrentDFLtrueentry/fullactualcase/hardware, currentcapshape/tangentdefinition needs targetedcurrentrecipe/read before route qualification.",
+    "G": "StorageQ→CurrentFLG.3 freeprefix/full9 beforecase, currentcomb/head+all4occupiedends retained.",
+    "V": "StorageQ→actualW022bodycap(-16,8.152,69), fullF_L2IN/OUT/case/ATO+otherbankharness retained. Newdirectfan requiresnewR/length/foreign proof; do NOTforceoldc821accountingpoint/G255 as physicalfixedend."
+  },
+  "kinematic_transfer": {
+    "fixed_body_storage_PQ": true,
+    "real_end_clamps_retained": true,
+    "loop_unclamped_between_real_end_reliefs": true,
+    "formula": "Forconstantwholewirelength,Ebody(pose)=55+max(Lleg)-Lleg(pose), AFTERactualleg+entryfanlengthsqualified. ExistingminRfamilyDeltaleg4.732282wouldneed55..59.732282 EACHcore; bodyspace55..65 isDESIGNcapacitynotlegvariationproof.",
+    "old_leg_delta_mm": 4.732281784741981,
+    "entryfan_roll_new_variation_bound": null,
+    "whole55_stored_accepted": false,
+    "friction_pull_metrology_NOT_new_N01_gate": true
+  },
+  "bodybay_source_basis": "BatterySelectedNominalZmax27.7 belowfield42.05; actualPiPCB103.2..104.8 above; retainedP0SideLeft/Right top38.52 needs1.25; sourceS0fullcase/metalscurrentactualmusttest—notAABBcontact. LowerpositiveYcrossbeam avoidedbyroutearoundactualX-126end thenY54turn; MountFrontL protectedbyoutgoingY16.15 vsY27.5+.",
+  "retention_assembly": "Connectedsourcekit OFFPETG/preparedunpowered; layloose3 bodySloops beforeuppermodules/skin/receivercapclosure. Currenttruebodycapsclosedafterlay. Prospectivepassiveguidance rootedonlyverifiedactualU1end/frameinterfaces, no newmaterialbuilt/no loosefieldclaimedstablemounted. Keepentirekit/tools/otherharnessspace; fullguide/root/access andconnectedDGVfanassemblystillOPEN.",
+  "other_occupied_regions": "Fullctx114 current1311/rest108/newSource21+4temp minusprovedalias included; keepSOURCEFL1/DONORFL3reservedleftpassagerows, currentVcommon/W022branchasflexibleallocatedregionsnotrigidwire. Anyoverlapneedsjointlocaloccupancy, notforeignwirecontact. Preserve4MTA/four220/S0rings/head/Tail/PiMODULE/R6.",
+  "first_gate": "ONEfulladaptivebodySloop55..65plusfixedinputquarter/straight conservativeoccupiedcrosssectioncovers vsfullcurrentactorcorpus andBodyOuter3.25. Piecewiseprecisefamilycover, NOTfilledemptybaybbox. Firstactualrigid/profilecapacityHOLD stopsbeforeleggeometry/material; case/stock/routineaccess stillrequirequalification.",
+  "all9_12portion4MAX3_current_A_U_minimum_fit_slack": null,
+  "guards": "Source14terminal11full9lap4once/3x8laps3x20sleeves/stagger2x9/850/900ceil5(min+20)MAX3perphysicalunit/actualcutNULLphase2/no sourceorPCBoffset/noRshortening/55waiver/oldprefix/chordcredit/pool/20trimdouble slack.",
+  "source_pins": [
+    {
+      "path": "day07-SOURCE-constant-radius-storage-bounded-disposition.json",
+      "sha256": "11766800793c1bf8d18e14ad920f2a6ea03aa25035967f04185de0a12947b4ed"
+    },
+    {
+      "path": "day07-SOURCE-left-end-body-passage-bounded-disposition.json",
+      "sha256": "1697b075ac83f67370b169e47568aa9ac508a88f22e43a7031c02de01c9dfcce"
+    },
+    {
+      "path": "day07-coordinator-V3-clamp-physical-unit-source-receipt.json",
+      "sha256": "f2da0e4714f39d120c471093d4affb3b16155b5c573def715e3a52c88ddd2596"
+    },
+    {
+      "path": "day07-coordinator-fixed-print-source-functions.json",
+      "sha256": "95f81b2f74a9d25c98cec785cd88d34ec4b924f0225437b49c5df4fec56daf4e"
+    },
+    {
+      "path": "day07-SOURCE-slot-bearing-retention-bounded-disposition.json",
+      "sha256": "d8b15a63ecf22a20dbd72760b7aa14132a719791d45f4921a71e39ad16ce4619"
+    }
+  ],
+  "written_utc": "2026-11-07T09:23:56.360116+00:00"
+}
