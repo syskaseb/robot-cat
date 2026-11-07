@@ -1,5 +1,11 @@
 # Wnioski z projektowania 3D robot-cat
 
+- Przed przyjęciem sumy CAD sprawdzić dla KAŻDEGO zamierzonego składnika
+  poprawne A.cut(sum) i zerowy brak objętości oraz pełny zakres interfejsów.
+  S0 multiFuse zgubił panel i ramię mimo valid+1Solid; sam dodatni root
+  i puste listy par nie dowodzą całego mocowania. Błędny zapis zachować
+  jako superseded, odzyskać tę samą geometrię i sprawdzić tylko dotknięte pary.
+
 ## 30.10 — feedback z całego frontu, przed kolejną próbą
 
 - Zadziałało odczytanie funkcji geometrii: scalonyBankBed zawiera grzebień,

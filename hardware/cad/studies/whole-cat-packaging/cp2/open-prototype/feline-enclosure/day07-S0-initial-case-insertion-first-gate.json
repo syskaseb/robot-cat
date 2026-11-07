@@ -1,0 +1,334 @@
+{
+  "id": "day07-S0-initial-case-insertion-first-gate",
+  "status": "INITIAL_CASE_SEATING_PENDING_OR_HOLD",
+  "moving_case_source_roles": [
+    "Ref_Material_S0_body_CP2_0_0",
+    "Ref_Material_S0_neck_CP2_0_0",
+    "Ref_Material_S0_stud_IN_0_0",
+    "Ref_Material_S0_stud_OUT_0_0"
+  ],
+  "not_yet_installed": [
+    "Ref_Material_S0_key_CP2_0_0",
+    "Ref_Material_S0_nut_IN_0_0",
+    "Ref_Material_S0_nut_OUT_0_0",
+    "Ref_Material_S0_ring_IN_0_0",
+    "Ref_Material_S0_ring_OUT_0_0",
+    "Ref_Material_S0_washer_IN_0_0",
+    "Ref_Material_S0_washer_OUT_0_0",
+    "caseM6_0:DIN912x20",
+    "caseM6_0:washer_outer",
+    "caseM6_0:washer_inner",
+    "caseM6_0:nut_AF10_h5",
+    "caseM6_1:DIN912x20",
+    "caseM6_1:washer_outer",
+    "caseM6_1:washer_inner",
+    "caseM6_1:nut_AF10_h5"
+  ],
+  "full_effective_fixed_count": 1292,
+  "covers": [
+    {
+      "name": "Ref_Material_S0_body_CP2_0_0",
+      "radius_mm": 28.5,
+      "source_length_mm": 40.0,
+      "axial_insertion_mm": 4.0,
+      "cover_bounds_mm": [
+        [
+          -141.43923101204837,
+          -28.50000000000001,
+          44.22543826095915
+        ],
+        [
+          -88.20974375249614,
+          28.49999999999999,
+          107.99999999999997
+        ]
+      ],
+      "original_missing_mm3": 0.0,
+      "operation": "Rigidcase approaches currentneckhole alongactualN, from4mmback tofinal. Neck3mm initially0.999999mmclear ofpanel. Keyremoved; washers/rings/nuts andnewM6installedlater perselectedsource."
+    },
+    {
+      "name": "Ref_Material_S0_neck_CP2_0_0",
+      "radius_mm": 11.0,
+      "source_length_mm": 3.0000000000000058,
+      "axial_insertion_mm": 4.0,
+      "cover_bounds_mm": [
+        [
+          -99.00807778238918,
+          -11.000000000000002,
+          68.40550104535009
+        ],
+        [
+          -88.29416360263123,
+          10.999999999999998,
+          91.28680885528719
+        ]
+      ],
+      "original_missing_mm3": 0.0,
+      "operation": "Rigidcase approaches currentneckhole alongactualN, from4mmback tofinal. Neck3mm initially0.999999mmclear ofpanel. Keyremoved; washers/rings/nuts andnewM6installedlater perselectedsource."
+    },
+    {
+      "name": "Ref_Material_S0_stud_IN_0_0",
+      "radius_mm": 5.0,
+      "source_length_mm": 14.999999999999977,
+      "axial_insertion_mm": 4.0,
+      "cover_bounds_mm": [
+        [
+          -137.35849883687584,
+          -17.0,
+          67.36842045674608
+        ],
+        [
+          -116.91066975297458,
+          -7.0,
+          80.51581336253984
+        ]
+      ],
+      "original_missing_mm3": 0.0,
+      "operation": "Rigidcase approaches currentneckhole alongactualN, from4mmback tofinal. Neck3mm initially0.999999mmclear ofpanel. Keyremoved; washers/rings/nuts andnewM6installedlater perselectedsource."
+    },
+    {
+      "name": "Ref_Material_S0_stud_OUT_0_0",
+      "radius_mm": 5.0,
+      "source_length_mm": 14.999999999999977,
+      "axial_insertion_mm": 4.0,
+      "cover_bounds_mm": [
+        [
+          -137.35849883687584,
+          7.0,
+          67.36842045674608
+        ],
+        [
+          -116.91066975297458,
+          17.0,
+          80.51581336253984
+        ]
+      ],
+      "original_missing_mm3": 0.0,
+      "operation": "Rigidcase approaches currentneckhole alongactualN, from4mmback tofinal. Neck3mm initially0.999999mmclear ofpanel. Keyremoved; washers/rings/nuts andnewM6installedlater perselectedsource."
+    }
+  ],
+  "rows": [
+    {
+      "moving": "Ref_Material_S0_body_CP2_0_0",
+      "other": "W068/single/end:0:head_budget",
+      "other_valid": true,
+      "gap_mm": 5.5763786992458675,
+      "witnesses": [
+        [
+          [
+            -132.25191144859437,
+            -14.714479360690413,
+            48.25560177142044
+          ],
+          [
+            -132.25191144859437,
+            -17.561274467779207,
+            43.460629715645936
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    },
+    {
+      "moving": "Ref_Material_S0_body_CP2_0_0",
+      "other": "CurrentFoundation:FoundationRail:-1",
+      "other_valid": true,
+      "gap_mm": 4.0419827920822775e-13,
+      "witnesses": [
+        [
+          [
+            -91.24858686166743,
+            -4.795831523312167,
+            69.10009375601777
+          ],
+          [
+            -91.24858686166785,
+            -4.795831523312167,
+            69.1000937560177
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 0.0,
+      "status": "OWN_CASE_SEATING_PLANE_NO_MATERIAL_INTRUSION",
+      "actual_remaining_rail_strut_gap_mm": 1.875509874249853
+    },
+    {
+      "moving": "Ref_Material_S0_body_CP2_0_0",
+      "other": "SpliceBandBudget:W077",
+      "other_valid": true,
+      "gap_mm": 2.4351832723878317,
+      "witnesses": [
+        [
+          [
+            -90.02425825032509,
+            -13.26644799180212,
+            54.87252401091052
+          ],
+          [
+            -89.65,
+            -14.4,
+            52.75
+          ]
+        ]
+      ],
+      "status": "SEPARATED125"
+    },
+    {
+      "moving": "Ref_Material_S0_neck_CP2_0_0",
+      "other": "CurrentFoundation:FoundationRail:-1",
+      "other_valid": true,
+      "gap_mm": 0.9999999999998787,
+      "witnesses": [
+        [
+          [
+            -92.11442351130371,
+            9.17866118723926e-16,
+            91.28680885528719
+          ],
+          [
+            -92.28807168897065,
+            4.464246002733545e-16,
+            92.27161660829938
+          ]
+        ]
+      ],
+      "status": "INITIAL_CASE_FAMILY_ALLOCATION_HOLD_NOT_DELIVERED_CONTACT"
+    }
+  ],
+  "total": 4,
+  "cursor": 4,
+  "unreceived": 0,
+  "sourcebenchorder": "Casebeforekey/rings/washer/nut/M6parts; completeintegralrailpresent, noprintvirtualdetach. FullothercurrentPi/head/looms testedconservatively; anyneedtodefermustbesourceclassifiedexplicitly.",
+  "not_whole_freehandplacement_from_externalbench": true,
+  "source_current1292_unchanged": true,
+  "archive": "day07-S0-initial-case-insertion-first-gate.breps.zip",
+  "archive_sha256": "a468806aedd43095dabdb4616d22e7f89924aaa2b173f2d3bfffd17180f07262",
+  "geometry": [
+    {
+      "name": "Ref_Material_S0_body_CP2_0_0",
+      "entry": "0.brep",
+      "sha256": "5588e8a2ec30cef57951ed2abad62a8c40e66f0c44d292ef1d93a7a3b59177c4",
+      "bounds_mm": [
+        [
+          -141.43923101204837,
+          -28.50000000000001,
+          44.22543826095915
+        ],
+        [
+          -88.20974375249614,
+          28.49999999999999,
+          107.99999999999997
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_neck_CP2_0_0",
+      "entry": "1.brep",
+      "sha256": "e51d66fae623b17b37b8fb7ef71f5f950a4d245613928baa08a34ba108a344d5",
+      "bounds_mm": [
+        [
+          -99.00807778238918,
+          -11.000000000000002,
+          68.40550104535009
+        ],
+        [
+          -88.29416360263123,
+          10.999999999999998,
+          91.28680885528719
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_stud_IN_0_0",
+      "entry": "2.brep",
+      "sha256": "7e680e92dfcf567c111201b079c0330c4d691b01343b933654352f4da2771db7",
+      "bounds_mm": [
+        [
+          -137.35849883687584,
+          -17.0,
+          67.36842045674608
+        ],
+        [
+          -116.91066975297458,
+          -7.0,
+          80.51581336253984
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_stud_OUT_0_0",
+      "entry": "3.brep",
+      "sha256": "bbc00e8000b92c3f62de75e034a941063cf726b4635c873b0073482c3021f400",
+      "bounds_mm": [
+        [
+          -137.35849883687584,
+          7.0,
+          67.36842045674608
+        ],
+        [
+          -116.91066975297458,
+          17.0,
+          80.51581336253984
+        ]
+      ]
+    },
+    {
+      "name": "CurrentFoundation:FoundationRail:-1",
+      "entry": "4.brep",
+      "sha256": "8467c3faa9560ea01fecef13138f6dd3a4503f91ecb95706eea6685b7bcd1ddd",
+      "bounds_mm": [
+        [
+          -97.84721761301124,
+          -98.5,
+          35.5
+        ],
+        [
+          127.0,
+          16.0,
+          107.0437329034825
+        ]
+      ]
+    },
+    {
+      "name": "SpliceBandBudget:W077",
+      "entry": "5.brep",
+      "sha256": "4ae6eb992164e8206c3bed116ab67ccd9296a5f4d19e81ab476b27a2b422617e",
+      "bounds_mm": [
+        [
+          -89.65,
+          -29.3,
+          42.6
+        ],
+        [
+          -84.65,
+          -14.399999999999999,
+          52.75
+        ]
+      ]
+    },
+    {
+      "name": "W068/single/end:0:head_budget",
+      "entry": "6.brep",
+      "sha256": "1b46bb579b206023a993e2595d20d996f79bfc65d207dc2121b72f841bd37f08",
+      "bounds_mm": [
+        [
+          -133.81307991231608,
+          -23.561274467779207,
+          37.460629715645936
+        ],
+        [
+          -127.81307991231608,
+          -17.561274467779207,
+          43.460629715645936
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 4.172000000020489,
+  "process_cpu_seconds": 5.59375,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}

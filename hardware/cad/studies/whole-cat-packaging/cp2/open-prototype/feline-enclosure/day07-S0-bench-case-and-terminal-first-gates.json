@@ -1,0 +1,603 @@
+{
+  "id": "day07-S0-bench-case-and-terminal-first-gates",
+  "status": "BOUNDED_CASE_TERMINAL_ASSEMBLY_FACTS_RECEIVED_NO_WHOLE_PASS",
+  "case_4mm_own_neck_disposition": {
+    "raw_receipt": "day07-S0-initial-case-insertion-first-gate.json",
+    "raw_HOLD_preserved": true,
+    "selected_neck_OD_mm": 22,
+    "source_panel_hole_mm": 24,
+    "radial_clearance_mm": 1,
+    "common_valid": true,
+    "common_mm3": 0,
+    "remaining_rail_strut_gap_mm": 8.158531436625292,
+    "classification": "Actualsource-matchedownmountneck24/22 fit, requirednointrusion; notforeign1.25. Full4mmseat4/4scopedreceived withactualbodyrestgap1.8755098742/W0772.4351832724. Allotherforeign1.25kept."
+  },
+  "case_additional_approach": {
+    "travel_mm": 50,
+    "delta_only": true,
+    "member_coverage": [
+      {
+        "name": "Ref_Material_S0_body_CP2_0_0",
+        "old_4mm_cover_missing_mm3": 0.0,
+        "whole_50mm_bounds_mm": [
+          [
+            -186.74038765060993,
+            -28.50000000000001,
+            36.23762208828032
+          ],
+          [
+            -88.20974375249614,
+            28.49999999999999,
+            107.99999999999996
+          ]
+        ]
+      },
+      {
+        "name": "Ref_Material_S0_neck_CP2_0_0",
+        "old_4mm_cover_missing_mm3": 0.0,
+        "whole_50mm_bounds_mm": [
+          [
+            -144.30923442095076,
+            -11.000000000000002,
+            60.41768487267126
+          ],
+          [
+            -88.29416360263124,
+            10.999999999999998,
+            91.28680885528718
+          ]
+        ]
+      },
+      {
+        "name": "Ref_Material_S0_stud_IN_0_0",
+        "old_4mm_cover_missing_mm3": 0.0,
+        "whole_50mm_bounds_mm": [
+          [
+            -182.6596554754374,
+            -17.0,
+            59.380604284067246
+          ],
+          [
+            -116.91066975297458,
+            -7.0,
+            80.51581336253984
+          ]
+        ]
+      },
+      {
+        "name": "Ref_Material_S0_stud_OUT_0_0",
+        "old_4mm_cover_missing_mm3": 0.0,
+        "whole_50mm_bounds_mm": [
+          [
+            -182.6596554754374,
+            7.0,
+            59.380604284067246
+          ],
+          [
+            -116.91066975297458,
+            17.0,
+            80.51581336253984
+          ]
+        ]
+      }
+    ],
+    "rows": [
+      {
+        "moving": "Ref_Material_S0_body_CP2_0_0",
+        "other": "Ref_Material_head_0_0_Bearing608_0_0",
+        "other_valid": true,
+        "gap_mm": 2.225528509432442,
+        "witnesses": [
+          [
+            [
+              -178.80828226936123,
+              -5.25,
+              47.386458970008746
+            ],
+            [
+              -181.0,
+              -5.25,
+              47.0
+            ]
+          ]
+        ],
+        "status": "SEPARATED125"
+      },
+      {
+        "moving": "Ref_Material_S0_body_CP2_0_0",
+        "other": "Ref_Material_head_0_0_Bridge_0_0",
+        "other_valid": true,
+        "gap_mm": 0.0,
+        "witnesses": [
+          [
+            [
+              -176.8699360311337,
+              -3.000000000000004,
+              36.39355118902466
+            ],
+            [
+              -176.8699360311337,
+              -3.0,
+              36.39355118902466
+            ]
+          ]
+        ],
+        "common_valid": true,
+        "common_mm3": 122.21901388949941,
+        "status": "CASE_EXTERNAL_BENCH_APPROACH_ALLOCATION_HOLD"
+      }
+    ],
+    "total": 28,
+    "cursor": 2,
+    "unreceived": 26
+  },
+  "terminal_facts": [
+    {
+      "side": "IN",
+      "current_nut_outer_face_mm": [
+        -128.66103631209415,
+        -12.0,
+        73.67296223425922
+      ],
+      "tool_outer_radius_mm": 12,
+      "tool_approach_length_mm": 35,
+      "tool_source": "AF17matchesselectedM10nut; R12x35 isexplicitprototypeaccessallocation, notsupplieractualsocketmetal.",
+      "full_TE_local_bounds_mm": [
+        [
+          -42.04608336180143,
+          -17.74567147554494,
+          -34.75238095238164
+        ],
+        [
+          0.7255752861125947,
+          27.74567147554498,
+          -21.800000000000452
+        ]
+      ],
+      "ring_install_translation_mm": 18,
+      "associated_end": "W076 intactF0factorylead/TE130207 IN",
+      "other_branch": "W043 intactFHAC0001ZXJ toP_SYS.2 unchanged; no S0ring assignedtoit."
+    },
+    {
+      "side": "OUT",
+      "current_nut_outer_face_mm": [
+        -128.66103631209415,
+        12.0,
+        73.67296223425922
+      ],
+      "tool_outer_radius_mm": 12,
+      "tool_approach_length_mm": 35,
+      "tool_source": "AF17matchesselectedM10nut; R12x35 isexplicitprototypeaccessallocation, notsupplieractualsocketmetal.",
+      "full_TE_local_bounds_mm": [
+        [
+          1.9600000000000304,
+          -9.295671475544992,
+          -34.75238095238112
+        ],
+        [
+          38.671083361801415,
+          19.295671475544935,
+          -21.799999999999955
+        ]
+      ],
+      "ring_install_translation_mm": 18,
+      "associated_end": "W066 HELU23802/TE130207 OUT",
+      "other_branch": "W043 intactFHAC0001ZXJ toP_SYS.2 unchanged; no S0ring assignedtoit."
+    }
+  ],
+  "terminal_access": {
+    "rows": [
+      {
+        "operation": "TE130207_IN_18mm_install_region",
+        "other": "ShelfPWM:XLcomb:lower",
+        "other_valid": true,
+        "gap_mm": 3.3057333559870212,
+        "witnesses": [
+          [
+            [
+              -119.10051183836715,
+              -41.823,
+              101.51501298519506
+            ],
+            [
+              -115.845,
+              -41.823,
+              102.089047558315
+            ]
+          ]
+        ],
+        "status": "SEPARATED125"
+      },
+      {
+        "operation": "TE130207_IN_18mm_install_region",
+        "other": "ShelfPWM:XLcomb:band_budget",
+        "other_valid": true,
+        "gap_mm": 6.297980740076374,
+        "witnesses": [
+          [
+            [
+              -118.79730026114886,
+              -40.623,
+              99.79541467981929
+            ],
+            [
+              -112.595,
+              -40.623,
+              100.889047558315
+            ]
+          ]
+        ],
+        "status": "SEPARATED125"
+      },
+      {
+        "operation": "TE130207_IN_18mm_install_region",
+        "other": "ShelfPWM:XLcomb:head_budget",
+        "other_valid": true,
+        "gap_mm": 4.73085053220533,
+        "witnesses": [
+          [
+            [
+              -119.00397828245774,
+              -40.623,
+              100.96754398458292
+            ],
+            [
+              -114.345,
+              -40.623,
+              101.789047558315
+            ]
+          ]
+        ],
+        "status": "SEPARATED125"
+      },
+      {
+        "operation": "TE130207_IN_18mm_install_region",
+        "other": "Ref_Material_current_S1_body_CP2_0_0",
+        "other_valid": true,
+        "gap_mm": 0.6344757619783465,
+        "witnesses": [
+          [
+            [
+              -124.07849989834028,
+              -42.04608336180143,
+              56.46155998203295
+            ],
+            [
+              -124.0,
+              -42.491278408100555,
+              56.01636493573382
+            ]
+          ]
+        ],
+        "status": "TERMINAL_TOOL_OR_RING_ALLOCATION_HOLD"
+      }
+    ],
+    "total": 11,
+    "cursor": 4,
+    "unreceived": 7
+  },
+  "assembly_scope": "CurrentfullPi/head/otherparts presentforfirstfalsifier; sourcepermitsS0benchbeforehead/looms/P0BUS butnone silentlyexcluded. Headdeferralonlyafteractualfunctionclassification; integralrailalwayspresent. RingsbeforeM10washers/nuts, otherringoccupiedconservatively. CompletefreeW076/W066leads canbehandlaidonbenchbeforefinalsourceclamps; no virtualcut/solderbreak. Protected4x220MODULE/SOURCE unchanged.",
+  "length_scope": "No currentroutechange/debit/slack invented; W076factory/W066HELU/W043factory materials retained, old80/330/40notcurrentfitproof. Fullsourceprefix/endretention and currentstockremainrequired.",
+  "archive": "day07-S0-bench-case-and-terminal-first-gates.breps.zip",
+  "archive_sha256": "71e5833ca2a9da48e9002eb830599cc644a08916e65df6369ba8cf3595af5bb3",
+  "geometry": [
+    {
+      "name": "Ref_Material_S0_body_CP2_0_0",
+      "entry": "0.brep",
+      "sha256": "36d64446ba05d4525d4a23d36f81085037fd6327c3bdd6bed17320a03ba50e40",
+      "bounds_mm": [
+        [
+          -186.74038765060993,
+          -28.50000000000001,
+          36.23762208828032
+        ],
+        [
+          -88.20974375249614,
+          28.49999999999999,
+          107.99999999999996
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_neck_CP2_0_0",
+      "entry": "1.brep",
+      "sha256": "01be73eecad7c89f0854254d10d88fa3201f4d5144c89c1fb990fd74c7a646e5",
+      "bounds_mm": [
+        [
+          -144.30923442095076,
+          -11.000000000000002,
+          60.41768487267126
+        ],
+        [
+          -88.29416360263124,
+          10.999999999999998,
+          91.28680885528718
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_stud_IN_0_0",
+      "entry": "2.brep",
+      "sha256": "6fd2b998641e9fe8f73b57cce1522da2ca9a4c87e0665f17c7d4f0da0d7b5608",
+      "bounds_mm": [
+        [
+          -182.6596554754374,
+          -17.0,
+          59.380604284067246
+        ],
+        [
+          -116.91066975297458,
+          -7.0,
+          80.51581336253984
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_stud_OUT_0_0",
+      "entry": "3.brep",
+      "sha256": "06bbf024a144e09bc6a5d003e3d0ce45b833a807245d535a21efc5e546d6028c",
+      "bounds_mm": [
+        [
+          -182.6596554754374,
+          7.0,
+          59.380604284067246
+        ],
+        [
+          -116.91066975297458,
+          17.0,
+          80.51581336253984
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_body_CP2_0_0:changed_approach_only",
+      "entry": "4.brep",
+      "sha256": "10d05e4018cf24052bde72835043310f685a25f67e08cc0652896b4830bea4bf",
+      "bounds_mm": [
+        [
+          -186.74038765060993,
+          -28.50000000000001,
+          36.23762208828032
+        ],
+        [
+          -131.5412848850333,
+          28.49999999999999,
+          100.359480182655
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_neck_CP2_0_0:changed_approach_only",
+      "entry": "5.brep",
+      "sha256": "1c750212ca96dea09935d967472c9fd8350421f72041c3adb0b6e606fbc84729",
+      "bounds_mm": [
+        [
+          -144.30923442095076,
+          -11.000000000000002,
+          60.41768487267126
+        ],
+        [
+          -95.18781787371668,
+          10.999999999999998,
+          90.07127161161867
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_stud_IN_0_0:changed_approach_only",
+      "entry": "6.brep",
+      "sha256": "56af1c2504ae3d0da96948165f77ca24e50ad85fbdc456a836c16f092cb38155",
+      "bounds_mm": [
+        [
+          -182.6596554754374,
+          -17.0,
+          59.380604284067246
+        ],
+        [
+          -135.6220170602065,
+          -7.0,
+          77.21649798686816
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_S0_stud_OUT_0_0:changed_approach_only",
+      "entry": "7.brep",
+      "sha256": "a046033f2510f69307a91ef0656d2faabe8d3363b2aed2330868fc204f59065e",
+      "bounds_mm": [
+        [
+          -182.6596554754374,
+          7.0,
+          59.380604284067246
+        ],
+        [
+          -135.6220170602065,
+          17.0,
+          77.21649798686816
+        ]
+      ]
+    },
+    {
+      "name": "M10_AF17_IN_project_access",
+      "entry": "8.brep",
+      "sha256": "1571585043447d55478e15484f5bcd8e3bda9eb1f5fb69c5f3ca430f6e0f6294",
+      "bounds_mm": [
+        [
+          -165.2130857995246,
+          -24.0,
+          55.77758297977013
+        ],
+        [
+          -126.57725818009098,
+          0.0,
+          85.49065527040571
+        ]
+      ]
+    },
+    {
+      "name": "M10_AF17_OUT_project_access",
+      "entry": "9.brep",
+      "sha256": "f1a23f524b5adb4c026a4ceb7745ba45d45206cf61cab8399337cfe09b66c1e1",
+      "bounds_mm": [
+        [
+          -165.2130857995246,
+          0.0,
+          55.77758297977013
+        ],
+        [
+          -126.57725818009098,
+          24.0,
+          85.49065527040571
+        ]
+      ]
+    },
+    {
+      "name": "TE130207_IN_18mm_install_region",
+      "entry": "10.brep",
+      "sha256": "45827cac45bc76d3e92c83d05149a71713b10c8bcdec2fe41c68626db0d82c24",
+      "bounds_mm": [
+        [
+          -149.9276558576368,
+          -42.04608336180144,
+          53.29654936765506
+        ],
+        [
+          -111.54602231846626,
+          0.7255752861125907,
+          103.4716011476593
+        ]
+      ]
+    },
+    {
+      "name": "TE130207_OUT_18mm_install_region",
+      "entry": "11.brep",
+      "sha256": "ad3d24b6bc420a63c1297d09f2e435698643ef0cedeabffc9da6248ae9853446",
+      "bounds_mm": [
+        [
+          -148.46032875635072,
+          1.9600000000000153,
+          61.618174880608265
+        ],
+        [
+          -113.01334941975134,
+          38.671083361801415,
+          95.14997563470618
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_current_S1_body_CP2_0_0",
+      "entry": "12.brep",
+      "sha256": "d57a4c1ec390f1224d97437a10c5a56e10c55176398acc2084e61dee010c1e59",
+      "bounds_mm": [
+        [
+          -124.0,
+          -80.8845237791561,
+          30.770000000000042
+        ],
+        [
+          -86.99999999999999,
+          -34.21547622084393,
+          77.43904755831221
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_head_0_0_Bearing608_0_0",
+      "entry": "13.brep",
+      "sha256": "984e3b94da6857ade33c9d1d6c33ac93b4eab49ff61e41b44ea2a8b29b0841f0",
+      "bounds_mm": [
+        [
+          -203.0,
+          -16.25,
+          40.0
+        ],
+        [
+          -181.0,
+          5.75,
+          47.0
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_head_0_0_Bridge_0_0",
+      "entry": "14.brep",
+      "sha256": "fde20abf7da3258650e65f016b68c284e8de5d28e7784e38947811694ffac838",
+      "bounds_mm": [
+        [
+          -207.5,
+          -26.0,
+          -18.479999999999997
+        ],
+        [
+          -165.0,
+          26.0,
+          47.0
+        ]
+      ]
+    },
+    {
+      "name": "ShelfPWM:XLcomb:band_budget",
+      "entry": "15.brep",
+      "sha256": "de0d6242000d089268cc7def55a0c93aa56037e2db82c87b7daa8de847bede73",
+      "bounds_mm": [
+        [
+          -112.59500000000004,
+          -58.583000000000006,
+          100.8890475583148
+        ],
+        [
+          -110.09500000000004,
+          -40.62299999999998,
+          108.68904755831481
+        ]
+      ]
+    },
+    {
+      "name": "ShelfPWM:XLcomb:head_budget",
+      "entry": "16.brep",
+      "sha256": "a9d6f2519b2951b877736b9274f401387fc7b65929d6724477d4e1d7b6102a23",
+      "bounds_mm": [
+        [
+          -114.34500000000004,
+          -40.62299999999998,
+          101.7890475583148
+        ],
+        [
+          -108.34500000000004,
+          -34.62299999999998,
+          107.7890475583148
+        ]
+      ]
+    },
+    {
+      "name": "ShelfPWM:XLcomb:lower",
+      "entry": "17.brep",
+      "sha256": "9cc8bfafe50dc980e245d2e9b174aadc27c9e3934ccf9f6f1b2472898e1c79c2",
+      "bounds_mm": [
+        [
+          -115.84500000000004,
+          -57.383,
+          102.0890475583148
+        ],
+        [
+          -106.84500000000004,
+          -41.822999999999986,
+          104.7890475583148
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": null,
+  "interrupted_total_elapsed_wall_seconds": 75.59299999999348,
+  "resumed_terminal_operation_seconds": 2.4679999999934807,
+  "resumed_terminal_process_cpu_seconds": 2.546875,
+  "process_cpu_seconds": 5.71875,
+  "error_recovery_receipt": "day07-S0-case-bench-insertion-interrupted-receipt.json",
+  "error_recovery_sha256": "db6349ad76808c3b5f537bae2282f6c7bcaec7e96b2f3634cb8c34b1516978ba",
+  "case_phase_not_replayed": true,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}
