@@ -1,0 +1,943 @@
+{
+  "id": "day07-five-D-caseback-frame-bearing-first-gate",
+  "status": "CASEBACK_BEARING_WHOLE_METAL_STAGE_RECEIVED_ACCESS_CARRIER_PENDING",
+  "proposal": "day07-five-D-caseback-frame-bearing-whole-load-proposal.json",
+  "proposal_sha256": "0dea5a573646f669fc058aeeafc75bed243da6586d72ad9c4cda8116c8569558",
+  "new_axis_mm": [
+    33.75,
+    -24.5
+  ],
+  "whole8_source_copies": [
+    {
+      "name": "Hardware:Screw",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 170.23505191639703,
+      "new_volume_mm3": 170.23505191639703,
+      "bounds_mm": [
+        [
+          31.0,
+          -27.25,
+          29.22
+        ],
+        [
+          36.5,
+          -21.75,
+          46.22
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "Hardware:Nut",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 45.338644918738694,
+      "new_volume_mm3": 45.3386449187387,
+      "bounds_mm": [
+        [
+          30.57457351945706,
+          -27.25,
+          31.12
+        ],
+        [
+          36.92542648054294,
+          -21.75,
+          33.52
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "Hardware:TopWasher",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 15.221016406642573,
+      "new_volume_mm3": 15.221016406642573,
+      "bounds_mm": [
+        [
+          30.25,
+          -28.0,
+          42.72
+        ],
+        [
+          37.25,
+          -21.0,
+          43.22
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "Hardware:BottomWasher",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 15.221016406642573,
+      "new_volume_mm3": 15.221016406642573,
+      "bounds_mm": [
+        [
+          30.25,
+          -28.0,
+          33.52
+        ],
+        [
+          37.25,
+          -21.0,
+          34.02
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "LowerJaw",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 377.7623916933765,
+      "new_volume_mm3": 377.7623916933765,
+      "bounds_mm": [
+        [
+          28.75,
+          -33.5,
+          34.02
+        ],
+        [
+          38.75,
+          -20.0,
+          37.02
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "TopPad",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 151.1049566773507,
+      "new_volume_mm3": 151.1049566773507,
+      "bounds_mm": [
+        [
+          28.75,
+          -33.5,
+          38.52
+        ],
+        [
+          38.75,
+          -20.0,
+          39.720000000000006
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "Seat",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 377.06561014958976,
+      "new_volume_mm3": 377.0656101495897,
+      "bounds_mm": [
+        [
+          28.75,
+          -33.5,
+          39.72
+        ],
+        [
+          39.16998657117279,
+          -19.999999999999996,
+          43.668236347359
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    },
+    {
+      "name": "Neck",
+      "source_valid": true,
+      "new_valid": true,
+      "source_volume_mm3": 219.40262321079746,
+      "new_volume_mm3": 219.40262321079746,
+      "bounds_mm": [
+        [
+          30.749999999999993,
+          -60.0,
+          38.52
+        ],
+        [
+          36.75,
+          -31.0,
+          40.52
+        ]
+      ],
+      "relative_change_mm": [
+        -38.25,
+        0,
+        0
+      ],
+      "datum": "CURRENT bakedworld properrigidPlacement, noXML"
+    }
+  ],
+  "actual_native_bearings": [
+    {
+      "part": "LowerJaw",
+      "native_actor": "Ref_Material_P0_SideRight22_0_0",
+      "actual_plane_z_mm": 37.02,
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.0,
+      "actual_planar_bearing_mm2": 64.99999999984433,
+      "required_source_bearing_mm2": 60
+    },
+    {
+      "part": "TopPad",
+      "native_actor": "Ref_Material_P0_SideRight22_0_0",
+      "actual_plane_z_mm": 38.52,
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.0,
+      "actual_planar_bearing_mm2": 64.99999999984341,
+      "required_source_bearing_mm2": 60
+    }
+  ],
+  "actual_new_neck_current_printed_root": {
+    "name": "NEW_NECK_to_ACTUAL_CURRENT_COMMON_FOUNDATION_RAIL",
+    "common_valid": true,
+    "common_mm3": 62.105383025348495,
+    "root_actor": "CurrentFoundation:FoundationRail:-1",
+    "root_scope": "Actualnewneck joint only, not wholecasecarrier loadproof or blindwholeprintOWN"
+  },
+  "all5_fullcapacity_vs_whole4metal": [
+    {
+      "wire": "W004",
+      "new_part": "Hardware:Screw",
+      "gap_or_lower_mm": 28.188002779281934,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W004",
+      "new_part": "Hardware:Nut",
+      "gap_or_lower_mm": 30.666501045427367,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W004",
+      "new_part": "Hardware:TopWasher",
+      "gap_or_lower_mm": 27.63741836938579,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W004",
+      "new_part": "Hardware:BottomWasher",
+      "gap_or_lower_mm": 30.161878159764242,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W005",
+      "new_part": "Hardware:Screw",
+      "gap_or_lower_mm": 28.188002779281934,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W005",
+      "new_part": "Hardware:Nut",
+      "gap_or_lower_mm": 30.666501045427367,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W005",
+      "new_part": "Hardware:TopWasher",
+      "gap_or_lower_mm": 27.63741836938579,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W005",
+      "new_part": "Hardware:BottomWasher",
+      "gap_or_lower_mm": 30.161878159764242,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W006",
+      "new_part": "Hardware:Screw",
+      "gap_or_lower_mm": 28.188002779281934,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W006",
+      "new_part": "Hardware:Nut",
+      "gap_or_lower_mm": 30.666501045427367,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W006",
+      "new_part": "Hardware:TopWasher",
+      "gap_or_lower_mm": 27.63741836938579,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W006",
+      "new_part": "Hardware:BottomWasher",
+      "gap_or_lower_mm": 30.161878159764242,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W002",
+      "new_part": "Hardware:Screw",
+      "gap_or_lower_mm": 28.186564055131463,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W002",
+      "new_part": "Hardware:Nut",
+      "gap_or_lower_mm": 27.761145129810853,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W002",
+      "new_part": "Hardware:TopWasher",
+      "gap_or_lower_mm": 27.43607104022847,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W002",
+      "new_part": "Hardware:BottomWasher",
+      "gap_or_lower_mm": 27.43607104022847,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W007",
+      "new_part": "Hardware:Screw",
+      "gap_or_lower_mm": 28.18607104022847,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W007",
+      "new_part": "Hardware:Nut",
+      "gap_or_lower_mm": 29.499174193791216,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W007",
+      "new_part": "Hardware:TopWasher",
+      "gap_or_lower_mm": 27.437473055568862,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    },
+    {
+      "wire": "W007",
+      "new_part": "Hardware:BottomWasher",
+      "gap_or_lower_mm": 29.02685854328257,
+      "required_foreign_mm": 1.25,
+      "evidence": "FULL_SHAPE_BBOX_LOWER",
+      "status": "SEPARATED125"
+    }
+  ],
+  "wire_bbox_separated": 20,
+  "new_actual_fullstack_neighbor_rows": [
+    {
+      "new_part": "Hardware:BottomWasher",
+      "current_actor": "Ref_Material_P0_SideRight22_0_0",
+      "required_mm": 0,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "MatchedsameP0railclamp metal/nativeframe sourceownnonpenetration ONLY",
+      "actual_gap_mm": 3.000000000001336,
+      "witnesses": [
+        [
+          [
+            31.300510257232304,
+            -27.00000000001517,
+            34.02
+          ],
+          [
+            31.300510257232304,
+            -27.00000000001517,
+            37.02000000000134
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:Nut",
+      "current_actor": "Ref_Material_P0_SideRight22_0_0",
+      "required_mm": 0,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "MatchedsameP0railclamp metal/nativeframe sourceownnonpenetration ONLY",
+      "actual_gap_mm": 3.500000000001343,
+      "witnesses": [
+        [
+          [
+            35.3377132402715,
+            -27.25,
+            33.52
+          ],
+          [
+            35.33771324027147,
+            -27.25,
+            37.02000000000153
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:Screw",
+      "current_actor": "BatteryStrapCurrent2",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.5199999999999996,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 1.3538463723776046,
+      "witnesses": [
+        [
+          [
+            35.25,
+            -24.5,
+            29.22
+          ],
+          [
+            36.5,
+            -24.5,
+            28.7
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:Screw",
+      "current_actor": "Ref_Material_P0_SideRight22_0_0",
+      "required_mm": 0,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "MatchedsameP0railclamp metal/nativeframe sourceownnonpenetration ONLY",
+      "actual_gap_mm": 1.0000000000155644,
+      "witnesses": [
+        [
+          [
+            33.74999999999976,
+            -26.0,
+            37.02000000000136
+          ],
+          [
+            33.7499999999996,
+            -27.000000000015564,
+            37.02000000000136
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:BottomWasher",
+      "current_actor": "Underdeck:RestoredBank",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 21.209500229849827,
+      "witnesses": [
+        [
+          [
+            33.75,
+            -28.0,
+            34.02
+          ],
+          [
+            33.75,
+            -39.25,
+            52.0
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:Nut",
+      "current_actor": "Underdeck:RestoredBank",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 22.03430053348642,
+      "witnesses": [
+        [
+          [
+            35.3377132402715,
+            -27.25,
+            33.52
+          ],
+          [
+            35.3377132402715,
+            -39.25,
+            52.0
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:Screw",
+      "current_actor": "CurrentFoundation:FoundationRail:-1",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 23.61279915570389,
+      "witnesses": [
+        [
+          [
+            33.500686107559154,
+            -27.238675333630475,
+            43.22
+          ],
+          [
+            31.374,
+            -50.6,
+            40.52
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:Screw",
+      "current_actor": "Underdeck:RestoredBank",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 13.31947446410706,
+      "witnesses": [
+        [
+          [
+            33.75,
+            -27.25,
+            46.22
+          ],
+          [
+            33.75,
+            -39.25,
+            52.0
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:TopWasher",
+      "current_actor": "CurrentFoundation:FoundationRail:-1",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 22.81424763676208,
+      "witnesses": [
+        [
+          [
+            33.432691409620745,
+            -27.985586788256967,
+            42.72
+          ],
+          [
+            31.374,
+            -50.6,
+            40.52
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    },
+    {
+      "new_part": "Hardware:TopWasher",
+      "current_actor": "Underdeck:RestoredBank",
+      "required_mm": 1.25,
+      "bbox_lower_mm": 0.0,
+      "source_valid": true,
+      "function": "Otheractualcurrentfunction notOWNfromname",
+      "actual_gap_mm": 14.270630679826313,
+      "witnesses": [
+        [
+          [
+            33.75,
+            -28.0,
+            43.22
+          ],
+          [
+            33.75,
+            -39.25,
+            52.0
+          ]
+        ]
+      ],
+      "status": "NEW_FULL_STACK_SEPARATED_OR_MATCHED_NATIVE_FIT"
+    }
+  ],
+  "new_foreign_cursor": 10,
+  "new_foreign_total": 10,
+  "new_foreign_unreceived": [],
+  "whole_fullbounds_separated": 5722,
+  "first_falsifier": null,
+  "old_wholeclamp_pose_candidate_exclusions": [
+    "CurrentFoundation:ClampNeck:3",
+    "CurrentFoundation:ClampSeat:3",
+    "Station:Anchor:Rear:LowerClampJaw3",
+    "Station:Anchor:Rear:RailClamp3BottomWasher",
+    "Station:Anchor:Rear:RailClamp3Nut",
+    "Station:Anchor:Rear:RailClamp3Screw",
+    "Station:Anchor:Rear:RailClamp3TopWasher",
+    "Station:Anchor:Rear:TopClampPad3"
+  ],
+  "actual_currentbase_unchanged": true,
+  "selected": false,
+  "N01_complete": false,
+  "new_casecarrier_not_built": true,
+  "initial_tool_access_NOT_yet_qualified": true,
+  "actualcut": null,
+  "archive": "day07-five-D-caseback-frame-bearing-first-gate.breps.zip",
+  "archive_sha256": "2767fb157a152b4a64bf7673cea5e79ccb32ab807c83254fa443fd4060916a78",
+  "geometry": [
+    {
+      "name": "Hardware:Screw",
+      "entry": "00.brep",
+      "sha256": "daae4f0109934e93350925b8996e66aee2cdd025e33bdb151c484e1d81427af3",
+      "bytes": 2543,
+      "bounds_mm": [
+        [
+          31.0,
+          -27.25,
+          29.22
+        ],
+        [
+          36.5,
+          -21.75,
+          46.22
+        ]
+      ]
+    },
+    {
+      "name": "Hardware:Nut",
+      "entry": "01.brep",
+      "sha256": "099f062caa356ee11fc2c73d5628a2a14125287493ceb177cd401096baf2ad2e",
+      "bytes": 8372,
+      "bounds_mm": [
+        [
+          30.57457351945706,
+          -27.25,
+          31.12
+        ],
+        [
+          36.92542648054294,
+          -21.75,
+          33.52
+        ]
+      ]
+    },
+    {
+      "name": "Hardware:TopWasher",
+      "entry": "02.brep",
+      "sha256": "ca6e20cd97111f72dd2b07d0d5c745c3249595fea6a2bbb3f8744ba67ce54c6b",
+      "bytes": 2549,
+      "bounds_mm": [
+        [
+          30.25,
+          -28.0,
+          42.72
+        ],
+        [
+          37.25,
+          -21.0,
+          43.22
+        ]
+      ]
+    },
+    {
+      "name": "Hardware:BottomWasher",
+      "entry": "03.brep",
+      "sha256": "e245257e47e66393f169b7c0277633f10c79ebb7e27e2ffb51de40f1775f394b",
+      "bytes": 2549,
+      "bounds_mm": [
+        [
+          30.25,
+          -28.0,
+          33.52
+        ],
+        [
+          37.25,
+          -21.0,
+          34.02
+        ]
+      ]
+    },
+    {
+      "name": "LowerJaw",
+      "entry": "04.brep",
+      "sha256": "b4611777aecf264f3721046e17454443454f41447af39e18e401dd790ef9c2fd",
+      "bytes": 6274,
+      "bounds_mm": [
+        [
+          28.75,
+          -33.5,
+          34.02
+        ],
+        [
+          38.75,
+          -20.0,
+          37.02
+        ]
+      ]
+    },
+    {
+      "name": "TopPad",
+      "entry": "05.brep",
+      "sha256": "a8c1d05dcb46f614e5d60d2c615060a5cd0887bb2592dcfb9d5c08082b990c71",
+      "bytes": 6316,
+      "bounds_mm": [
+        [
+          28.75,
+          -33.5,
+          38.52
+        ],
+        [
+          38.75,
+          -20.0,
+          39.720000000000006
+        ]
+      ]
+    },
+    {
+      "name": "Seat",
+      "entry": "06.brep",
+      "sha256": "269d5efa0bfe0e41f4916e19be07aa58f2dc982caa08ac858fae1f475fe5200a",
+      "bytes": 16655,
+      "bounds_mm": [
+        [
+          28.75,
+          -33.5,
+          39.72
+        ],
+        [
+          39.16998657117279,
+          -19.999999999999996,
+          43.668236347359
+        ]
+      ]
+    },
+    {
+      "name": "Neck",
+      "entry": "07.brep",
+      "sha256": "2d1ba6c2ddf596f169aaa0ad6dd2ba81c1b3f608549357f49eaac3a3693865b0",
+      "bytes": 24637,
+      "bounds_mm": [
+        [
+          30.749999999999993,
+          -60.0,
+          38.52
+        ],
+        [
+          36.75,
+          -31.0,
+          40.52
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_P0_SIDE",
+      "entry": "08.brep",
+      "sha256": "26e9db738fe05ed6049e96b42008009be29a915ff13086ac97ae10506f1be988",
+      "bytes": 149678,
+      "bounds_mm": [
+        [
+          -85.00000000001295,
+          -49.3396138458442,
+          -2.0
+        ],
+        [
+          126.99999999999268,
+          -26.999999999995172,
+          38.52000000000261
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_CURRENT_COMMON_RAIL_ROOT",
+      "entry": "09.brep",
+      "sha256": "da33404f83b671c30b966bab5c9aebe7ae8afb36e5c639b28bed94bbde2c69a4",
+      "bytes": 158517,
+      "bounds_mm": [
+        [
+          -88.55000000000001,
+          -98.5,
+          35.5
+        ],
+        [
+          127.0,
+          -18.4,
+          48.1
+        ]
+      ]
+    },
+    {
+      "name": "FROZEN_EXIT_W004",
+      "entry": "10.brep",
+      "sha256": "267badfa7891e4360841465467248157511c2a6a849a152488f0e327b09329a3",
+      "bytes": 1879,
+      "bounds_mm": [
+        [
+          64.68607104022847,
+          -48.557155094328095,
+          46.55
+        ],
+        [
+          82.72516529379743,
+          -20.38345166968116,
+          50.45
+        ]
+      ]
+    },
+    {
+      "name": "FROZEN_EXIT_W005",
+      "entry": "11.brep",
+      "sha256": "e4a6d21589594825aa6c5e35cd8ed4dd79104415b657ea19a56c57d01e7ab3fc",
+      "bytes": 2813,
+      "bounds_mm": [
+        [
+          64.68607104022847,
+          -48.547305778827806,
+          46.55
+        ],
+        [
+          86.57656472108678,
+          -17.507112404759248,
+          50.45
+        ]
+      ]
+    },
+    {
+      "name": "FROZEN_EXIT_W006",
+      "entry": "12.brep",
+      "sha256": "acb040eed02345b12141db5418950b7f320326c18b02ced451043838fb81b687",
+      "bytes": 2813,
+      "bounds_mm": [
+        [
+          64.68607104022847,
+          -48.53911467460291,
+          46.55
+        ],
+        [
+          90.42693772945769,
+          -13.16671097511253,
+          50.45
+        ]
+      ]
+    },
+    {
+      "name": "FROZEN_EXIT_W002",
+      "entry": "13.brep",
+      "sha256": "9dd9ba10e24a9ee40f6fa53caaf05d02f0feb0c94ebbaf64899cf37f7aacdd09",
+      "bytes": 2299,
+      "bounds_mm": [
+        [
+          64.68607104022847,
+          -51.93409588572695,
+          31.375539074002223
+        ],
+        [
+          91.7172653401357,
+          -27.416710975112515,
+          53.5026310208332
+        ]
+      ]
+    },
+    {
+      "name": "FROZEN_EXIT_W007",
+      "entry": "14.brep",
+      "sha256": "ea4857e36b06e8c32f6d5954444aad4255e5aff845650d3eba827e59bbded764",
+      "bytes": 2512,
+      "bounds_mm": [
+        [
+          64.68607104022847,
+          -29.47817816022312,
+          43.4973689791668
+        ],
+        [
+          87.82280688140713,
+          -8.416710975112524,
+          60.201369999697775
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 2.64000000001397,
+  "process_cpu_seconds": 2.65625,
+  "pid": 26064,
+  "session_id": 46493
+}

@@ -1,0 +1,307 @@
+{
+  "id": "day07-five-D-caseback-explicit-frame-root-and-missing-static",
+  "status": "CASEBACK_WHOLE_FRAME_FIRST_NEW_INTERFACE_HOLD",
+  "root_function_disposition": {
+    "raw_receipt": "day07-five-D-caseback-connected-capture-current-gate.json",
+    "raw_sha256": "7db710c5b50a599ce663ec858d84364c4f76786b822137f3411fe401d4381530",
+    "raw_foreign_required125_preserved": true,
+    "actual_newNeck_to_actualDownFlange_common_mm3": 19.86429222220837,
+    "common_outside_actualNewNeck_mm3": 0.0,
+    "criterion": "Actualsource-commonframe positivefunctionaljoint LIMITED to newlydesignedNeck; wholecasecarrier+ACTUALretainedRail+Flange nowexplicitONEprintedparent withall3membercoverage andoneconnectedsolid. NotnameOWN/no generalforeignmetalwireexception.",
+    "whole_frame_parent_solids": 1,
+    "whole_frame_parent_bounds_mm": [
+      [
+        -88.55000000000001,
+        -98.5,
+        30.52
+      ],
+      [
+        127.0,
+        0.0,
+        55.624979999679994
+      ]
+    ],
+    "all3complete_parent_coverage": [
+      {
+        "member": "Newcasecarriercomplete",
+        "missing_valid": true,
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            28.75,
+            -60.0,
+            38.52
+          ],
+          [
+            82.88071162045586,
+            0.0,
+            55.624979999679994
+          ]
+        ]
+      },
+      {
+        "member": "ACTUALcurrentcommonRail",
+        "missing_valid": true,
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -88.55000000000001,
+            -98.5,
+            35.5
+          ],
+          [
+            127.0,
+            -18.4,
+            48.1
+          ]
+        ]
+      },
+      {
+        "member": "ACTUALcurrentDownFlange",
+        "missing_valid": true,
+        "missing_mm3": 0.0,
+        "bounds_mm": [
+          [
+            -52.11179,
+            -56.47519508046593,
+            30.52
+          ],
+          [
+            127.0,
+            -53.72427766184821,
+            41.41874716569115
+          ]
+        ]
+      }
+    ],
+    "print_prototype_256cube": true,
+    "unchanged_named_max200_carriers_not_redefined": true,
+    "no_virtual_detach_or_delete_retained_frame": true
+  },
+  "prior8_newmaterial_pairs_not_replayed": true,
+  "new_rows": [
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "CurrentFoundation:FoundationRail:-1",
+      "actual_gap_mm": 0.0,
+      "required_mm": 0,
+      "source_valid": true,
+      "witnesses": [
+        [
+          [
+            30.75,
+            -60.0,
+            38.52
+          ],
+          [
+            30.75,
+            -60.0,
+            38.52
+          ]
+        ]
+      ],
+      "function": "LIMITEDactualNECKjoinedcompletePRINTparent",
+      "common_valid": true,
+      "common_mm3": 62.10538302534849,
+      "extra_outside_designed_neck_mm3": 0.0,
+      "status": "NEW_CARRIER_CLEAR_OR_EXACT_DESIGNED_ROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "SharedRetention:lower_common_flange_base",
+      "actual_gap_mm": 0.0,
+      "required_mm": 1.25,
+      "source_valid": true,
+      "witnesses": [
+        [
+          [
+            30.75,
+            -56.25,
+            38.52
+          ],
+          [
+            30.75,
+            -56.25,
+            38.52
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 26.679749999999864,
+      "status": "NEW_CARRIER_ACTUAL_CURRENT_INTERFACE_HOLD"
+    }
+  ],
+  "new_missing_cursor": 2,
+  "new_missing_total": 12,
+  "new_missing_unreceived": [
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:band_budget"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:head_budget"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:shared_near_root"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:shared_near_tie"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:split_common_comb"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:P_AUX:head_budget"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:P_AUX:shared_near_tie"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_UPPER_DELTA",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_UPPER_DELTA",
+      "Underdeck:RestoredBank"
+    ]
+  ],
+  "first_falsifier": {
+    "stage": "NEW_CARRIER_MISSING_CURRENT_INTERFACE",
+    "row": {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "SharedRetention:lower_common_flange_base",
+      "actual_gap_mm": 0.0,
+      "required_mm": 1.25,
+      "source_valid": true,
+      "witnesses": [
+        [
+          [
+            30.75,
+            -56.25,
+            38.52
+          ],
+          [
+            30.75,
+            -56.25,
+            38.52
+          ]
+        ]
+      ],
+      "common_valid": true,
+      "common_mm3": 26.679749999999864,
+      "status": "NEW_CARRIER_ACTUAL_CURRENT_INTERFACE_HOLD"
+    }
+  },
+  "PROPOSED_effectivity": {
+    "replace_whole_actors": [
+      "CurrentFoundation:FoundationRail:-1",
+      "CurrentFoundation:FoundationFlange:-1",
+      "CurrentDFL:permanent"
+    ],
+    "retire_old_clamp3_pose": [
+      "Station:Anchor:Rear:RailClamp3Screw",
+      "Station:Anchor:Rear:RailClamp3Nut",
+      "Station:Anchor:Rear:RailClamp3BottomWasher",
+      "CurrentFoundation:ClampSeat:3",
+      "Station:Anchor:Rear:LowerClampJaw3",
+      "Station:Anchor:Rear:TopClampPad3",
+      "CurrentFoundation:ClampNeck:3",
+      "Station:Anchor:Rear:RailClamp3TopWasher"
+    ],
+    "retain_all_other_source_function_material": true,
+    "new_whole_permanent_archive_entry": "0.brep",
+    "removable_upper_entry": "1.brep",
+    "no_duplicate_old_frame_parents": true,
+    "currentbase_not_changed": true
+  },
+  "new_motion_and_bodyoutline_and_initial_case_lay_OPEN": true,
+  "selected": false,
+  "N01_complete": false,
+  "actualcut": null,
+  "archive": "day07-five-D-caseback-explicit-whole-frame-and-last-static.breps.zip",
+  "archive_sha256": "fcf2cfd32e3fc2271dc370372fc4fef7f9e1ae69cab095c3c685874437fb32c4",
+  "geometry": [
+    {
+      "name": "NEW_ONE_COMPLETE_FRAME_AND_CASE_CARRIER",
+      "entry": "0.brep",
+      "sha256": "789907788fbec68ca253518086db62924aed58aacd88bd0966fc8d66faf470c2",
+      "bounds_mm": [
+        [
+          -88.55000000000001,
+          -98.5,
+          30.52
+        ],
+        [
+          127.0,
+          0.0,
+          55.624979999679994
+        ]
+      ]
+    },
+    {
+      "name": "NEW_CONNECTED_REMOVABLE_UPPER",
+      "entry": "1.brep",
+      "sha256": "3cc33c65457c1339f6ab33d1da2ff9ec6ac861b75d3f7df8ee231449da5449ad",
+      "bounds_mm": [
+        [
+          57.5,
+          -32.5,
+          44.0
+        ],
+        [
+          69.20889087599475,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_NEW_NECK_TO_DOWNFLANGE_JOIN",
+      "entry": "2.brep",
+      "sha256": "a617cb4bcddbdb28ce629e5d31b4ea1497132c34ddfbd7f1ff9d1c789e5328c2",
+      "bounds_mm": [
+        [
+          30.75,
+          -56.00000000000003,
+          38.52
+        ],
+        [
+          36.75,
+          -53.724277661848234,
+          40.69342676519056
+        ]
+      ]
+    },
+    {
+      "name": "FIRST_ACTUAL_MISSING_INTERFACE_WITNESS",
+      "entry": "3.brep",
+      "sha256": "7b85325ff5c7c715ff76a07b120f6527b7afbf107f1b52b3fd98ef801465d726",
+      "bounds_mm": [
+        [
+          26.0,
+          -56.25,
+          37.5
+        ],
+        [
+          67.5,
+          -50.599999999999994,
+          41.9
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 3.797000000020489,
+  "process_cpu_seconds": 7.765625,
+  "pid": 26064,
+  "session_id": 46493
+}

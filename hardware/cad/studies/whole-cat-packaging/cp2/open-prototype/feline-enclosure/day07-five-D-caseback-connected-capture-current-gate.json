@@ -1,0 +1,533 @@
+{
+  "id": "day07-five-D-caseback-connected-capture-current-gate",
+  "status": "WHOLE_CASEBACK_CARRIER_FIRST_INTERFACE_HOLD",
+  "representation_repair_only": {
+    "raw": "day07-five-D-caseback-minimal-carrier-first-gate.json",
+    "raw_sha256": "ff591599bb416b6710630b7d4cb7ec9ffcda145068afa4c3ff676caf5fc367f7",
+    "old_upper_solids": 3,
+    "actual_disconnected_stop_gaps_mm": [
+      0.6388794991811121,
+      0.7
+    ],
+    "repair": "ONEportedcasecaptureweb connectedtosameactualpressureupper, notnewcase/wire/root/stockpose",
+    "web_bounds_mm": [
+      [
+        57.75,
+        -32.5,
+        48.5
+      ],
+      [
+        61.0,
+        0,
+        52.05
+      ]
+    ],
+    "new_upper_solids": 1,
+    "no_design_counter_reset": true
+  },
+  "upper_all4_member_coverage": [
+    {
+      "member": "UNCHANGED_C1_WHOLE_UPPER",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "RemovableSouthCaseFaceStop",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "RemovableNorthCaseFaceStop",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "member": "ActualPortedCaseCaptureWeb",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    }
+  ],
+  "upper_actual_useful_positive_connections": [
+    {
+      "member": "UNCHANGED_C1_WHOLE_UPPER",
+      "common_valid": true,
+      "positive_common_mm3": 192.4830043079056
+    },
+    {
+      "member": "RemovableSouthCaseFaceStop",
+      "common_valid": true,
+      "positive_common_mm3": 8.874999999999991
+    },
+    {
+      "member": "RemovableNorthCaseFaceStop",
+      "common_valid": true,
+      "positive_common_mm3": 8.874999999999991
+    }
+  ],
+  "old_primary_11_members_and9_joins_received_unchanged": true,
+  "case_and_source_nominal_newmaterial_nonpenetration": [
+    {
+      "new_part": "newpermanent",
+      "target": "all5held9",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newpermanent",
+      "target": "all5unchangedcontinuousexit",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newpermanent",
+      "target": "actualcase",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "target": "all5held9",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "target": "all5unchangedcontinuousexit",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "target": "actualcase",
+      "common_valid": true,
+      "common_mm3": 0.0
+    }
+  ],
+  "whole_stock_newmaterial_nonpenetration": [
+    {
+      "new_part": "newpermanent",
+      "stock": "whole145loop",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newpermanent",
+      "stock": "whole145head",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newpermanent",
+      "stock": "whole145neck",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newpermanent",
+      "stock": "whole145uncuttailcapacity",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "stock": "whole145loop",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "stock": "whole145head",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "stock": "whole145neck",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "new_part": "newupper",
+      "stock": "whole145uncuttailcapacity",
+      "common_valid": true,
+      "common_mm3": 0.0
+    }
+  ],
+  "foreign_rows": [
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "CurrentFoundation:BankPad:Ref_Material_F_R4_CP2_Housing_0_0:0",
+      "actual_gap_mm": 6.75,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            37.25,
+            -32.5,
+            54.25
+          ],
+          [
+            37.25000000000001,
+            -39.25000000000001,
+            54.25
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "CurrentFoundation:BankPad:Ref_Material_F_R5_CP2_Housing_0_0:0",
+      "actual_gap_mm": 6.75,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            57.5,
+            -32.5,
+            54.25
+          ],
+          [
+            57.50000000000001,
+            -39.25000000000001,
+            54.25
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "Ref_Material_F_R4_CP2_Housing_0_0",
+      "actual_gap_mm": 6.791538853603062,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            37.25,
+            -32.5,
+            54.25
+          ],
+          [
+            37.25,
+            -39.25,
+            55.0
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "Ref_Material_F_R5_CP2_Housing_0_0",
+      "actual_gap_mm": 6.791538853603062,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            57.5,
+            -32.5,
+            54.25
+          ],
+          [
+            57.5,
+            -39.25,
+            55.0
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "Ref_Material_P0_SideRight22_0_0",
+      "actual_gap_mm": 1.3074034608463022e-12,
+      "required_mm": 0,
+      "witnesses": [
+        [
+          [
+            38.75,
+            -33.5,
+            38.52
+          ],
+          [
+            38.75,
+            -33.5,
+            38.52000000000156
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "common_valid": true,
+      "common_mm3": 0.0,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "Station:FR_G:case",
+      "actual_gap_mm": 1.250999999999604,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            36.75,
+            -56.5,
+            39.509
+          ],
+          [
+            36.75,
+            -56.5,
+            40.76
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "Station:P_AUX:case",
+      "actual_gap_mm": 23.14931154483865,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            60.5,
+            -33.5,
+            41.0
+          ],
+          [
+            63.125,
+            -56.5,
+            41.0
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "status": "NEW_CASEBACK_CARRIER_CLEAR_OR_EXACT_NECKROOT"
+    },
+    {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "CurrentFoundation:FoundationFlange:-1",
+      "actual_gap_mm": 0.0,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            31.875,
+            -55.27223740079769,
+            40.52
+          ],
+          [
+            31.875,
+            -55.2722374007977,
+            40.52
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "common_valid": true,
+      "common_mm3": 19.86429222220837,
+      "status": "NEW_CASEBACK_CARRIER_CURRENT_INTERFACE_HOLD"
+    }
+  ],
+  "foreign_cursor": 8,
+  "foreign_total": 20,
+  "foreign_unreceived": [
+    [
+      "NEW_PRIMARY_DELTA",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "SharedRetention:lower_common_flange_base"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:band_budget"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:head_budget"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:shared_near_root"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:shared_near_tie"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:FR_G:split_common_comb"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:P_AUX:head_budget"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Station:P_AUX:shared_near_tie"
+    ],
+    [
+      "NEW_PRIMARY_DELTA",
+      "Underdeck:RestoredBank"
+    ],
+    [
+      "NEW_UPPER_DELTA",
+      "CurrentFoundation:FoundationRail:-1"
+    ],
+    [
+      "NEW_UPPER_DELTA",
+      "Underdeck:RestoredBank"
+    ]
+  ],
+  "fullbounds_separated": 2844,
+  "first_falsifier": {
+    "stage": "NEW_CASEBACK_CARRIER_CURRENT_NEIGHBOR",
+    "row": {
+      "new_part": "NEW_PRIMARY_DELTA",
+      "actor": "CurrentFoundation:FoundationFlange:-1",
+      "actual_gap_mm": 0.0,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            31.875,
+            -55.27223740079769,
+            40.52
+          ],
+          [
+            31.875,
+            -55.2722374007977,
+            40.52
+          ]
+        ]
+      ],
+      "source_valid": true,
+      "common_valid": true,
+      "common_mm3": 19.86429222220837,
+      "status": "NEW_CASEBACK_CARRIER_CURRENT_INTERFACE_HOLD"
+    }
+  },
+  "new_material_motion_outline_and_initial_lay_NOT_qualified": true,
+  "currentbase_unchanged": true,
+  "selected": false,
+  "N01_complete": false,
+  "actualcut": null,
+  "archive": "day07-five-D-caseback-connected-capture-actual-gate.breps.zip",
+  "archive_sha256": "0af3dbf309caa2ea416396a1b3e17966f958faf266cc6c46377c0d86dd6df909",
+  "geometry": [
+    {
+      "name": "NEW_WHOLE_PERMANENT",
+      "entry": "0.brep",
+      "sha256": "b14846abb476c828da2b3c6ffb7bb7c9991281490dd3e92f3e34928a22f0abf3",
+      "bounds_mm": [
+        [
+          28.75,
+          -60.0,
+          38.52
+        ],
+        [
+          82.88071162045586,
+          0.0,
+          55.624979999679994
+        ]
+      ]
+    },
+    {
+      "name": "NEW_CONNECTED_REMOVABLE_CAPTURE",
+      "entry": "1.brep",
+      "sha256": "3cc33c65457c1339f6ab33d1da2ff9ec6ac861b75d3f7df8ee231449da5449ad",
+      "bounds_mm": [
+        [
+          57.5,
+          -32.5,
+          44.0
+        ],
+        [
+          69.20889087599475,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "USEFUL_PORTED_CAPTURE_WEB",
+      "entry": "2.brep",
+      "sha256": "dffa2898b621198ca7d0b7330affb899754bbcc93c55e22bfa4cab7342f82856",
+      "bounds_mm": [
+        [
+          57.75,
+          -32.5,
+          47.293
+        ],
+        [
+          62.084208100554285,
+          0.0,
+          52.05
+        ]
+      ]
+    },
+    {
+      "name": "NEW_PRIMARY_DELTA",
+      "entry": "3.brep",
+      "sha256": "e57f615c043c8f20007fb792dbf027e4db03ca166bc507e4fce879c0cf58179d",
+      "bounds_mm": [
+        [
+          28.75,
+          -60.0,
+          38.52
+        ],
+        [
+          62.14044874094119,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "NEW_UPPER_DELTA",
+      "entry": "4.brep",
+      "sha256": "3882a5b87c0400f03c276d0c9a55c48e7f67304dd8a45a154191c578a3f84ac6",
+      "bounds_mm": [
+        [
+          57.5,
+          -32.5,
+          44.0
+        ],
+        [
+          63.3275726856231,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "FIRST_ACTUAL_CURRENT_NEIGHBOR",
+      "entry": "5.brep",
+      "sha256": "bfb938260b06f491fa6a6abdf1b9e41668ab20f09723cd299049a4cf94df842a",
+      "bounds_mm": [
+        [
+          -52.11179,
+          -56.47519508046593,
+          30.52
+        ],
+        [
+          127.0,
+          -53.72427766184821,
+          41.41874716569115
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 5.843999999924563,
+  "process_cpu_seconds": 25.375,
+  "pid": 26064,
+  "session_id": 46493
+}
