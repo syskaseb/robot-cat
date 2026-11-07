@@ -1,0 +1,19 @@
+import time,json,hashlib,zipfile,os
+st157=time.monotonic();cp157=time.process_time();names157=['PiBudget:USB_A_data_boot','SharedBUS:TailCarrier','Ref_Material_BUSsupplier11_0_0','Ref_Material_BUSsupplier16_0_0'];source157=[]
+for n in names157:
+ s=ctx121[n];q=dict(name=n,current_context_same_topology_and_location_as_current1292=s.isSame(Current35[n]),same_as_effective1311=s.isSame(effective62[n]),valid=s.isValid(),solids=len(s.Solids),bounds_mm=saved_bounds(s),placement=str(s.Placement),volume_mm3=s.Volume,current_source_binding=Sources35.get(n),brep_sha256=hashlib.sha256(s.exportBrepToString().encode()).hexdigest())
+ assert q['current_context_same_topology_and_location_as_current1292'] and q['same_as_effective1311'] and q['valid'] and q['solids']==1
+ source157.append(q)
+prior157=OUT/'day06-retained-Pi-complete-current-neighbor-gate.json';frozen157=json.loads(prior157.read_bytes());target157=[q for q in frozen157['rows'] if q.get('a')==names157[0] and q.get('b') in names157[1:]];assert len(target157)==3
+rows157=[]
+for n in names157[1:]:
+ # Exactly three missing CURRENT pairs, once. No common/cut/heal/reimport of historical invalid shapes.
+ g,w,info=ctx121[names157[0]].distToShape(ctx121[n]);assert g>=0
+ rows157.append(dict(a=names157[0],b=n,whole_current_valid_operands=True,required_mm=1.25,gap_mm=g,witnesses=[[list(a),list(b)] for a,b in w[:1]],status='CURRENT_VALID_WHOLE_SOURCE_SEPARATED125' if g>=1.25 else 'CURRENT_VALID_WHOLE_SOURCE_CLEARANCE_HOLD',not_inherited_old_R2_distance=True))
+ar157=OUT/'day07-USB-three-current-valid-whole-source-operands.breps.zip';assert not ar157.exists();ge157=[]
+with zipfile.ZipFile(ar157,'w',zipfile.ZIP_DEFLATED) as z:
+ for i,n in enumerate(names157):
+  s=ctx121[n];raw=s.exportBrepToString().encode();en=str(i)+'.brep';z.writestr(en,raw);ge157.append(dict(name=n,entry=en,sha256=hashlib.sha256(raw).hexdigest(),valid=True,volume_mm3=s.Volume,bounds_mm=saved_bounds(s)))
+ z.writestr('manifest.json',(json.dumps(dict(geometry=ge157),indent=2)+'\n').encode())
+read157=OUT/'day07-coordinator-USB-three-invalid-source-reuse-receipt.json';r157=dict(id='day07-USB-three-current-valid-source-gates',status='THREE_CURRENT_VALID_WHOLE_SOURCE_GATES_CLOSED_SCOPED' if all(q['gap_mm']>=1.25 for q in rows157) else 'CURRENT_VALID_SOURCE_GATE_HOLD',selected=False,N01_complete=False,source_operands=source157,rows=rows157,cursor=3,total=3,unreceived=0,method='Actual CURRENT valid whole original TopLoc/native sources from same1292/effective1311/ctx121; one distance for ONLYeach3previouslyUNRECEIVEDpair. No oldR2distances transferred, no invalidBoolean/heal/reimport/coverproxy/sourcecomponentretired, no module/cable/pose changed.',prior17gate=dict(path=prior157.name,sha256=hashlib.sha256(prior157.read_bytes()).hexdigest(),old14valid_separations_NOT_replayed=True,old3conservative_invalid_history_overlap_rows_preserved=target157,source_history_invalid_NOT_contact=True),readonly_source_receipt=dict(path=read157.name,sha256=hashlib.sha256(read157.read_bytes()).hexdigest()),Pi_DATA_NOT_power_boot=dict(size_mm=[26,15,9],function='SelectedLanbergUSB_Adata projectboughtmouldfamily; powerboot25x14x8distinct'),Tail_byteidentity_NOT_claimed_against_old04dc_or588b=True,Tail_full_current_native_source_NOT_generic_cover=True,allfunctions_parts_stock_poses_retained=True,old17wholemount_motion_wiring_acceptance_NOT_claimed=True,current_parent_not_replaced=True,archive=ar157.name,archive_sha256=hashlib.sha256(ar157.read_bytes()).hexdigest(),geometry=ge157,operation_seconds=time.monotonic()-st157,process_cpu_seconds=time.process_time()-cp157,pid=os.getpid(),session_id=46493)
+p157=OUT/(r157['id']+'.json');assert not p157.exists();p157.write_bytes((json.dumps(r157,indent=2)+'\n').encode());print('BODY157',r157['status'],'gaps',[q['gap_mm'] for q in rows157],'wall',r157['operation_seconds'],'CPU',r157['process_cpu_seconds'],flush=True);print('OWNER73_IDLE',os.getpid(),flush=True)

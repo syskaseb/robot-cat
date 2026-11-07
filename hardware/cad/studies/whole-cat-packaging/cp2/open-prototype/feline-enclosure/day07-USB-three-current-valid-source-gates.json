@@ -1,0 +1,346 @@
+{
+  "id": "day07-USB-three-current-valid-source-gates",
+  "status": "THREE_CURRENT_VALID_WHOLE_SOURCE_GATES_CLOSED_SCOPED",
+  "selected": false,
+  "N01_complete": false,
+  "source_operands": [
+    {
+      "name": "PiBudget:USB_A_data_boot",
+      "current_context_same_topology_and_location_as_current1292": true,
+      "same_as_effective1311": true,
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        [
+          84.0,
+          21.358109634713855,
+          94.20000000000002
+        ],
+        [
+          110.0,
+          36.358109634713855,
+          103.20000000000002
+        ]
+      ],
+      "placement": "Placement [Pos=(15,9.46811,152.52), Yaw-Pitch-Roll=(0,0,180)]",
+      "volume_mm3": 3510.0,
+      "current_source_binding": {
+        "source": "named_base_context_or_current56"
+      },
+      "brep_sha256": "08b19bc9fe6fabf9d3e2d86aa3c5fec759ebd98ca4bd1d779140e3042a0be270"
+    },
+    {
+      "name": "SharedBUS:TailCarrier",
+      "current_context_same_topology_and_location_as_current1292": true,
+      "same_as_effective1311": true,
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        [
+          108.0,
+          -27.0,
+          56.0
+        ],
+        [
+          195.0,
+          56.40203321566399,
+          97.26952518992155
+        ]
+      ],
+      "placement": "Placement [Pos=(0,0,0), Yaw-Pitch-Roll=(0,0,0)]",
+      "volume_mm3": 14465.167488107878,
+      "current_source_binding": {
+        "source": "named_base_context_or_current56"
+      },
+      "brep_sha256": "4a6411ecb2db838574f2c3b37d75de286eb301e1e3cce21537895751fb5e51d4"
+    },
+    {
+      "name": "Ref_Material_BUSsupplier11_0_0",
+      "current_context_same_topology_and_location_as_current1292": true,
+      "same_as_effective1311": true,
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        [
+          108.2981592791008,
+          19.0990154822259,
+          79.1695253713241
+        ],
+        [
+          122.29816001437385,
+          28.4990154822259,
+          93.76952518992175
+        ]
+      ],
+      "placement": "Placement [Pos=(108.298,23.599,84.6695), Yaw-Pitch-Roll=(90,3.18055e-15,-90)]",
+      "volume_mm3": 952.51906774074,
+      "current_source_binding": {
+        "source": "named_base_context_or_current56"
+      },
+      "brep_sha256": "316472bffe7c48b84bfb9c0e8829262e6dc7ef0904c58dff2e762d6db96b1594"
+    },
+    {
+      "name": "Ref_Material_BUSsupplier16_0_0",
+      "current_context_same_topology_and_location_as_current1292": true,
+      "same_as_effective1311": true,
+      "valid": true,
+      "solids": 1,
+      "bounds_mm": [
+        [
+          108.25289167542871,
+          30.73692468004137,
+          81.76952170524565
+        ],
+        [
+          115.05289289934748,
+          38.73692399814361,
+          93.5695217052459
+        ]
+      ],
+      "placement": "Placement [Pos=(111.653,34.7369,90.1695), Yaw-Pitch-Roll=(90,0,180)]",
+      "volume_mm3": 268.9300057274087,
+      "current_source_binding": {
+        "source": "named_base_context_or_current56"
+      },
+      "brep_sha256": "a353cd049b9163e3971f03783eb7f010d92096bf9bb356ec1b3096710c31bbbb"
+    }
+  ],
+  "rows": [
+    {
+      "a": "PiBudget:USB_A_data_boot",
+      "b": "SharedBUS:TailCarrier",
+      "whole_current_valid_operands": true,
+      "required_mm": 1.25,
+      "gap_mm": 2.1364126664296497,
+      "witnesses": [
+        [
+          [
+            109.99999999999997,
+            21.358109634713863,
+            94.19999999999999
+          ],
+          [
+            110.54246255449466,
+            19.291713385624107,
+            94.19999999999999
+          ]
+        ]
+      ],
+      "status": "CURRENT_VALID_WHOLE_SOURCE_SEPARATED125",
+      "not_inherited_old_R2_distance": true
+    },
+    {
+      "a": "PiBudget:USB_A_data_boot",
+      "b": "Ref_Material_BUSsupplier11_0_0",
+      "whole_current_valid_operands": true,
+      "required_mm": 1.25,
+      "gap_mm": 4.030474480057109,
+      "witnesses": [
+        [
+          [
+            109.99999999999997,
+            21.358109634713863,
+            94.19999999999999
+          ],
+          [
+            109.99999982382225,
+            21.358109634713863,
+            90.16952544555308
+          ]
+        ]
+      ],
+      "status": "CURRENT_VALID_WHOLE_SOURCE_SEPARATED125",
+      "not_inherited_old_R2_distance": true
+    },
+    {
+      "a": "PiBudget:USB_A_data_boot",
+      "b": "Ref_Material_BUSsupplier16_0_0",
+      "whole_current_valid_operands": true,
+      "required_mm": 1.25,
+      "gap_mm": 1.4025837576535227,
+      "witnesses": [
+        [
+          [
+            110.0,
+            32.986924417773025,
+            94.20000000000002
+          ],
+          [
+            111.25289198140838,
+            32.986924417773025,
+            93.5695217052459
+          ]
+        ]
+      ],
+      "status": "CURRENT_VALID_WHOLE_SOURCE_SEPARATED125",
+      "not_inherited_old_R2_distance": true
+    }
+  ],
+  "cursor": 3,
+  "total": 3,
+  "unreceived": 0,
+  "method": "Actual CURRENT valid whole original TopLoc/native sources from same1292/effective1311/ctx121; one distance for ONLYeach3previouslyUNRECEIVEDpair. No oldR2distances transferred, no invalidBoolean/heal/reimport/coverproxy/sourcecomponentretired, no module/cable/pose changed.",
+  "prior17gate": {
+    "path": "day06-retained-Pi-complete-current-neighbor-gate.json",
+    "sha256": "94b4bcb697424caf9835a1cb33b5b71c837b3f6024f48e83bcd7baf7341875cc",
+    "old14valid_separations_NOT_replayed": true,
+    "old3conservative_invalid_history_overlap_rows_preserved": [
+      {
+        "a": "PiBudget:USB_A_data_boot",
+        "b": "SharedBUS:TailCarrier",
+        "status": "SOURCE_WITH_PRIOR_INVALID_HISTORY_CONSERVATIVE_OVERLAP_UNRESOLVED_NOT_CONTACT",
+        "full_source_cover_bounds_mm": [
+          [
+            108.0,
+            -27.0,
+            56.0
+          ],
+          [
+            195.0,
+            56.40203321566399,
+            97.26952518992155
+          ]
+        ],
+        "rule": "No repeated invalid BOP; full enclosing cover overlap is no contact proof. Actual source function/shape knowledge still required."
+      },
+      {
+        "a": "PiBudget:USB_A_data_boot",
+        "b": "Ref_Material_BUSsupplier11_0_0",
+        "status": "SOURCE_WITH_PRIOR_INVALID_HISTORY_CONSERVATIVE_OVERLAP_UNRESOLVED_NOT_CONTACT",
+        "full_source_cover_bounds_mm": [
+          [
+            108.2981592791008,
+            19.0990154822259,
+            79.1695253713241
+          ],
+          [
+            122.29816001437385,
+            28.4990154822259,
+            93.76952518992175
+          ]
+        ],
+        "rule": "No repeated invalid BOP; full enclosing cover overlap is no contact proof. Actual source function/shape knowledge still required."
+      },
+      {
+        "a": "PiBudget:USB_A_data_boot",
+        "b": "Ref_Material_BUSsupplier16_0_0",
+        "status": "SOURCE_WITH_PRIOR_INVALID_HISTORY_CONSERVATIVE_OVERLAP_UNRESOLVED_NOT_CONTACT",
+        "full_source_cover_bounds_mm": [
+          [
+            108.25289167542871,
+            30.73692468004137,
+            81.76952170524565
+          ],
+          [
+            115.05289289934748,
+            38.73692399814361,
+            93.5695217052459
+          ]
+        ],
+        "rule": "No repeated invalid BOP; full enclosing cover overlap is no contact proof. Actual source function/shape knowledge still required."
+      }
+    ],
+    "source_history_invalid_NOT_contact": true
+  },
+  "readonly_source_receipt": {
+    "path": "day07-coordinator-USB-three-invalid-source-reuse-receipt.json",
+    "sha256": "125a326b5a78db75a1fb5d52fa2cd181a4a3f68e8dc81cfb023c9b86ac85d081"
+  },
+  "Pi_DATA_NOT_power_boot": {
+    "size_mm": [
+      26,
+      15,
+      9
+    ],
+    "function": "SelectedLanbergUSB_Adata projectboughtmouldfamily; powerboot25x14x8distinct"
+  },
+  "Tail_byteidentity_NOT_claimed_against_old04dc_or588b": true,
+  "Tail_full_current_native_source_NOT_generic_cover": true,
+  "allfunctions_parts_stock_poses_retained": true,
+  "old17wholemount_motion_wiring_acceptance_NOT_claimed": true,
+  "current_parent_not_replaced": true,
+  "archive": "day07-USB-three-current-valid-whole-source-operands.breps.zip",
+  "archive_sha256": "7a0eb0eef3151fbfcca07e57ac874a3207bfe7a937346d12ed0e7f31c26499dc",
+  "geometry": [
+    {
+      "name": "PiBudget:USB_A_data_boot",
+      "entry": "0.brep",
+      "sha256": "08b19bc9fe6fabf9d3e2d86aa3c5fec759ebd98ca4bd1d779140e3042a0be270",
+      "valid": true,
+      "volume_mm3": 3510.0,
+      "bounds_mm": [
+        [
+          84.0,
+          21.358109634713855,
+          94.20000000000002
+        ],
+        [
+          110.0,
+          36.358109634713855,
+          103.20000000000002
+        ]
+      ]
+    },
+    {
+      "name": "SharedBUS:TailCarrier",
+      "entry": "1.brep",
+      "sha256": "4a6411ecb2db838574f2c3b37d75de286eb301e1e3cce21537895751fb5e51d4",
+      "valid": true,
+      "volume_mm3": 14465.167488107878,
+      "bounds_mm": [
+        [
+          108.0,
+          -27.0,
+          56.0
+        ],
+        [
+          195.0,
+          56.40203321566399,
+          97.26952518992155
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_BUSsupplier11_0_0",
+      "entry": "2.brep",
+      "sha256": "316472bffe7c48b84bfb9c0e8829262e6dc7ef0904c58dff2e762d6db96b1594",
+      "valid": true,
+      "volume_mm3": 952.51906774074,
+      "bounds_mm": [
+        [
+          108.2981592791008,
+          19.0990154822259,
+          79.1695253713241
+        ],
+        [
+          122.29816001437385,
+          28.4990154822259,
+          93.76952518992175
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_BUSsupplier16_0_0",
+      "entry": "3.brep",
+      "sha256": "a353cd049b9163e3971f03783eb7f010d92096bf9bb356ec1b3096710c31bbbb",
+      "valid": true,
+      "volume_mm3": 268.9300057274087,
+      "bounds_mm": [
+        [
+          108.25289167542871,
+          30.73692468004137,
+          81.76952170524565
+        ],
+        [
+          115.05289289934748,
+          38.73692399814361,
+          93.5695217052459
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 0.8599999999860302,
+  "process_cpu_seconds": 2.03125,
+  "pid": 26064,
+  "session_id": 46493
+}
