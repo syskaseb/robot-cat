@@ -1,0 +1,214 @@
+{
+  "status": "PROPOSED_ONLY_STATIC_SCOPED_NOT_CURRENT_OR_WHOLE_N01",
+  "base": "day07-S0-C1-current-candidate-composition.json",
+  "base_sha256": "a9f78e06faa1f57007fb58f4163b72af74f85a752f92713abb57d6fb7647d93a",
+  "retire_when_selected": [
+    "Underdeck:PositiveFoundation",
+    "FLG:print",
+    "CurrentFLG:split_common_comb",
+    "CurrentFLG:band_budget",
+    "CurrentFLG:head_budget"
+  ],
+  "new_actors": [
+    {
+      "name": "G4C1:PrimaryU1CasecupAndPressure",
+      "archive": "day07-SOURCE-G4-common-closure-C1-current-geometry.breps.zip",
+      "archive_sha256": "91a552f87b52b900c9db2e8bd8d9a51ba11ca310ac9d2d4ea694a9f05ab41c04",
+      "source_geometry": {
+        "name": "NEW_PRIMARY_G_U1",
+        "entry": "8.brep",
+        "sha256": "09fff0e89ab302f706425dfd55c0581c9ff5e5f7ca745945397476b7ce52d7d2",
+        "valid": true,
+        "volume_mm3": 10582.68214084452,
+        "bounds_mm": [
+          [
+            -126.0,
+            50.59999999999997,
+            30.52
+          ],
+          [
+            127.0,
+            93.0,
+            85.00415298026313
+          ]
+        ]
+      }
+    },
+    {
+      "name": "G4C1:RemovableUpper",
+      "archive": "day07-SOURCE-G4-common-closure-C1-current-geometry.breps.zip",
+      "archive_sha256": "91a552f87b52b900c9db2e8bd8d9a51ba11ca310ac9d2d4ea694a9f05ab41c04",
+      "source_geometry": {
+        "name": "NEW_UPPER_CASEBAND_SEAT",
+        "entry": "10.brep",
+        "sha256": "9c1aac0d102c980a1279c81f498937807027ae023f8292d5cb1afba601a0163d",
+        "valid": true,
+        "volume_mm3": 501.43947320978896,
+        "bounds_mm": [
+          [
+            28.125000000000004,
+            57.699999999999996,
+            45.52
+          ],
+          [
+            37.125000000000014,
+            79.05,
+            49.07
+          ]
+        ]
+      }
+    },
+    {
+      "name": "G4C1:PressureBand",
+      "archive": "day07-SOURCE-G4-common-closure-C1-current-geometry.breps.zip",
+      "archive_sha256": "91a552f87b52b900c9db2e8bd8d9a51ba11ca310ac9d2d4ea694a9f05ab41c04",
+      "source_geometry": {
+        "name": "UNCHANGED_PRESSURE_LOOP",
+        "entry": "12.brep",
+        "sha256": "cddcbae0da05be660555805c699793d2ab320a41a59a9d95f38b6d3b3f8ad628",
+        "valid": true,
+        "volume_mm3": 185.10000000000005,
+        "bounds_mm": [
+          [
+            31.375000000000004,
+            56.5,
+            40.769999999999996
+          ],
+          [
+            33.87500000000001,
+            80.25,
+            50.269999999999996
+          ]
+        ]
+      }
+    },
+    {
+      "name": "G4C1:PressureHead",
+      "archive": "day07-SOURCE-G4-common-closure-C1-current-geometry.breps.zip",
+      "archive_sha256": "91a552f87b52b900c9db2e8bd8d9a51ba11ca310ac9d2d4ea694a9f05ab41c04",
+      "source_geometry": {
+        "name": "NEW_REAR_PRESSURE_FULL_HEAD",
+        "entry": "13.brep",
+        "sha256": "403bbcc5cbb6938154a1d72521906a2c6221167d3758ab59443c92cc8843f697",
+        "valid": true,
+        "volume_mm3": 113.9499999999999,
+        "bounds_mm": [
+          [
+            30.125000000000007,
+            80.24999999999999,
+            42.87
+          ],
+          [
+            35.12500000000001,
+            84.54999999999998,
+            48.169999999999995
+          ]
+        ]
+      }
+    }
+  ],
+  "retain_actual_bought_case_caseband_casehead_all4_leads": true,
+  "G4new_fixed_free": [
+    {
+      "wire": "W025",
+      "bought_port": [
+        37.375,
+        75.5,
+        45.519999999999996
+      ],
+      "fixed9_X_mm": [
+        28.125,
+        37.125
+      ],
+      "outward_free_end": [
+        28.125,
+        75.5,
+        45.52
+      ],
+      "outward_T": [
+        -1,
+        0,
+        0
+      ],
+      "total_source_prefix_mm": 24.25,
+      "remaining15_notextra_slack": true
+    },
+    {
+      "wire": "W019",
+      "bought_port": [
+        37.375,
+        70.75,
+        45.519999999999996
+      ],
+      "fixed9_X_mm": [
+        28.125,
+        37.125
+      ],
+      "outward_free_end": [
+        28.125,
+        70.75,
+        45.52
+      ],
+      "outward_T": [
+        -1,
+        0,
+        0
+      ],
+      "total_source_prefix_mm": 24.25,
+      "remaining15_notextra_slack": true
+    },
+    {
+      "wire": "W021",
+      "bought_port": [
+        37.375,
+        66.0,
+        45.519999999999996
+      ],
+      "fixed9_X_mm": [
+        28.125,
+        37.125
+      ],
+      "outward_free_end": [
+        28.125,
+        66.0,
+        45.52
+      ],
+      "outward_T": [
+        -1,
+        0,
+        0
+      ],
+      "total_source_prefix_mm": 24.25,
+      "remaining15_notextra_slack": true
+    },
+    {
+      "wire": "W023",
+      "bought_port": [
+        37.375,
+        61.25,
+        45.519999999999996
+      ],
+      "fixed9_X_mm": [
+        28.125,
+        37.125
+      ],
+      "outward_free_end": [
+        28.125,
+        61.25,
+        45.52
+      ],
+      "outward_T": [
+        -1,
+        0,
+        0
+      ],
+      "total_source_prefix_mm": 24.25,
+      "remaining15_notextra_slack": true
+    }
+  ],
+  "prefix_remainder15_is_free_reference_NOT_rigidobstacle_or_extra_slack": true,
+  "no_case_bought_module_or_electrical_port_moved": true,
+  "global123246_identity_unchanged": true,
+  "tail_capacity_regions_not_installed_hardware": true,
+  "motion_delta_and_whole_source_budgets_pending": true
+}
