@@ -3,7 +3,7 @@
   "status": "WHOLE_PER_PHYSICAL_BODY_RESERVE_PROPOSED_INPUT_QUARTER_RECEIVED_BODY_BAY_PENDING",
   "selected": false,
   "N01_complete": false,
-  "new_fact": "Eachcore55 can be represented by one continuous upstream bodyS-family with fixed P/Q and individually preserved signed-turn offsets, rather than a third floor-limited local legloop. Actual inputquarter separates from all4 candidate-neighbor strictpairs; whole adaptivebodybay not yet received.",
+  "new_fact": "Eachcore55 can be represented by one continuous upstream bodyS-family with fixed P/Q and individually preserved signed-turn offsets, rather than a third floor-limited local legloop. Actual inputquarter separates from all4 candidate-neighbor strictpairs; whole adaptivebodybay not yet received. First full adaptive body arc also separates from actualS0 by6.585258mm; no S0-body obstacle in these two regions. Remaining wholebay122pairs still OPEN.",
   "physical_allocation": {
     "physical": "SOURCE/FL2",
     "cores": {
@@ -43,9 +43,9 @@
     "original_input_straight_is_subset_received_leftpassage": true
   },
   "counter": {
-    "received": 4,
+    "received": 5,
     "total": 127,
-    "unreceived": 123,
+    "unreceived": 122,
     "first_falsifier": null
   },
   "received_rows": [
@@ -136,6 +136,28 @@
         ]
       ],
       "status": "BODY_RESERVE_REGION_SEPARATED125"
+    },
+    {
+      "region": "BODY_FIRST_ARC_ALLPHI",
+      "other": "Ref_Material_S0_body_CP2_0_0",
+      "gap_mm": 6.585257909665151,
+      "source_valid": true,
+      "field_valid": true,
+      "witnesses": [
+        [
+          [
+            -94.9,
+            11.450000000000003,
+            45.949999999999996
+          ],
+          [
+            -95.98091011462711,
+            9.30091495522698,
+            52.080145881725585
+          ]
+        ]
+      ],
+      "status": "BODY_RESERVE_REGION_SEPARATED125"
     }
   ],
   "BodyOuter3p25": {
@@ -162,7 +184,7 @@
   "unchanged": "current1292/effective1311/rest108/newmoving21+4temp, sourcepassage1697b075/new21motion155 no replay; oldunselectedguide8overlay withdrawn originalBankBed retained/no105roottransfer.",
   "historical_negatives": "a33floor303of324+21;117floor321of324+3;flooronly40.873522NOTavailablecapacity/no physicalshortage; alloldSOURCE/V3/S0/Pi45counts frozen.",
   "guards": "fullR35.1 profiles/foreign1.25/BodyOuter3.25;9IDs12portions4physicalMAX3/source14terminal11full9lap4once/850project/900ceil5minplus20/3x8laps3x20sleeves/stagger2x9/factoryplug/actualcutNULL;nooldprefix/chordcredit/pool/20trimdouble slack/four220/both4MTA unchanged",
-  "next": "BODY_RESERVE_STATIC_FAMILY_FIRST: continue only pending wholebodyregion keys from cursor4/127, next BODY_FIRST_ARC_ALLPHI vs actualS0, no inputquarter replay. Stop at first actual allocation falsifier; classify rigid versus coallocated flex. If bay passes, prove currentDentry/tangent and D/G/V transport/endfans, actual continuous loose lengthtransfer/root/access/packing and new legentry/movingreserve before any material/V3. E55..65 is eachSOURCEFL2core capacity proposal, not accepted storedslack or wholedebit; A/U/minfit/slackNULL. No thirdleglocalreturn/shorterR/55waiver/pooling/oldprefixcredit. Preserve old321/324+3 and303/324+21 floor negatives and unchanged passage/motion21 proofs.",
+  "next": "BODY_RESERVE_STATIC_FAMILY_FIRST: continue only pending wholebodyregion keys from cursor5/127, after BODY_FIRST_ARC_ALLPHI vs actualS0 received, no inputquarter replay. Stop at first actual allocation falsifier; classify rigid versus coallocated flex. If bay passes, prove currentDentry/tangent and D/G/V transport/endfans, actual continuous loose lengthtransfer/root/access/packing and new legentry/movingreserve before any material/V3. E55..65 is eachSOURCEFL2core capacity proposal, not accepted storedslack or wholedebit; A/U/minfit/slackNULL. No thirdleglocalreturn/shorterR/55waiver/pooling/oldprefixcredit. Preserve old321/324+3 and303/324+21 floor negatives and unchanged passage/motion21 proofs.",
   "source_pins": [
     {
       "path": "day07-SOURCE-constant-radius-storage-bounded-disposition.json",
@@ -212,13 +234,13 @@
     },
     {
       "path": "day07-SOURCE-FL2-body-reserve-received-view.png",
-      "sha256": "128d0f501f8cee3e8693b4a775e8d61fb7f0106758f5edbf0340835fb34f8b5b",
-      "bytes": 92899
+      "sha256": "2a79a14bb5d4dd25327a546ac8c88ed53ac47cff38a2ab5428741f99fd067772",
+      "bytes": 92929
     },
     {
       "path": "day07-SOURCE-FL2-body-reserve-received-view.svg",
-      "sha256": "4a54d292d7cdba543877f1ff1d40b88d85fc411a68036dd87945a036fe3a1f8e",
-      "bytes": 12998
+      "sha256": "59708daaf524f162816fa8adc1826c79487baed2a4030fb35eb2bfb3ce809f19",
+      "bytes": 13000
     },
     {
       "path": "day07-save-body-DGV-reserve-whole-proposal.recipe.py",
@@ -239,6 +261,26 @@
       "path": "day07-render-close-body-reserve.recipe.py",
       "sha256": "86616785803c671da870089643f5f8bfc4993611426f636033fc09eeb79bd085",
       "bytes": 12112
+    },
+    {
+      "path": "day07-SOURCE-FL2-body-first-arc-S0.json",
+      "sha256": "70dfdba24a7de6a073d3de1873c56bd9f7a9cc587bdb88f539f8b36798855afd",
+      "bytes": 1353
+    },
+    {
+      "path": "day07-SOURCE-FL2-body-first-arc-S0.breps.zip",
+      "sha256": "2e1814b540deaeacb62c24004a19dcb51ab269c287f2205211950efe33655000",
+      "bytes": 2102
+    },
+    {
+      "path": "day07-body-first-arc-S0.recipe.py",
+      "sha256": "3022fe4e4357fc5b539e16d72bec831d78f956bc81f27aa44a76bdedd4a2019a",
+      "bytes": 1905
+    },
+    {
+      "path": "day07-finalize-body-delta.recipe.py",
+      "sha256": "f679a733e92a5740795e58fcd8e4b3b56a56709c4a455ac382d276533afe905b",
+      "bytes": 4578
     }
   ],
   "archive_checks": [
@@ -246,6 +288,11 @@
       "path": "day07-SOURCE-FL2-body-reserve-first-gate.breps.zip",
       "crc_ok": true,
       "member_sha_verified": 1
+    },
+    {
+      "path": "day07-SOURCE-FL2-body-first-arc-S0.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 2
     }
   ],
   "timings": [
@@ -258,13 +305,18 @@
       "receipt": "day07-SOURCE-FL2-body-reserve-continuation.json",
       "operation_seconds": 0.3279999999795109,
       "process_cpu_seconds": 0.875
+    },
+    {
+      "receipt": "day07-SOURCE-FL2-body-first-arc-S0.json",
+      "operation_seconds": 0.0470000000204891,
+      "process_cpu_seconds": 0.0625
     }
   ],
   "view": {
     "path": "day07-SOURCE-FL2-body-reserve-received-view.png",
     "actual_sections_source": "day07-SOURCE-FL2-body-reserve-first-gate.json",
     "projection_not_contact_proof": true,
-    "owner_visual_check": "PENDING"
+    "owner_visual_check": "Inspected rendered actual sections and two proposed analytic lengthstates; no contact inference."
   },
   "native": {
     "pid": 26064,
@@ -273,5 +325,5 @@
     "pending_operation": null,
     "unsaved_geometry": false
   },
-  "written_utc": "2026-11-07T09:31:27.071237+00:00"
+  "written_utc": "2026-11-07T09:32:33.582618+00:00"
 }
