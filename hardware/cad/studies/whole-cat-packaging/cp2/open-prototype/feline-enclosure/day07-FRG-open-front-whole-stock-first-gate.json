@@ -1,0 +1,539 @@
+{
+  "id": "day07-FRG-open-front-whole-stock-first-gate",
+  "status": "OPEN_FRONT_WHOLE_STOCK_SCOPED_OTHER_PRINT_CHANNEL_PENDING",
+  "proposal": "day07-FRG-open-front-keyed-closure-underbank-whole-proposal.json",
+  "proposal_sha256": "48a41afb1eb1a06e7f45b25ec013cb84151643a5f7e58644b4ad90e7946f534f",
+  "whole83p3_capacity_quality": {
+    "valid": true,
+    "solids": 1,
+    "source_full_uncut_remainder_capacity_mm": 83.3,
+    "profile_mm": [
+      3.3,
+      2
+    ],
+    "plastic_centreline_R_mm": 3,
+    "lengths_mm": {
+      "first_quarter": 4.71238898038469,
+      "lower_straight": 43.225,
+      "upper_turn": 9.42477796076938,
+      "upper_straight": 25.937833058845925
+    },
+    "length_sum_mm": 83.3,
+    "full_volume_mm3": 549.7799999999997,
+    "analytic_volume_mm3": 549.78,
+    "actual_bounds_mm": [
+      [
+        -19.75,
+        -49.35,
+        38.61
+      ],
+      [
+        31.475000000000005,
+        -46.050000000000004,
+        46.61
+      ]
+    ],
+    "analytic_bounds_mm": [
+      [
+        -19.75,
+        -49.35,
+        38.61
+      ],
+      [
+        31.475,
+        -46.05,
+        46.61
+      ]
+    ],
+    "is_capacity_not_rigid_actualtail": true,
+    "no_headlength_credit": true
+  },
+  "wholeunit_fourlead_rows": [
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "wire": "W030",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "wire": "W032",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "wire": "W034",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "wire": "W036",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "wire": "W030",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "wire": "W032",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "wire": "W034",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "wire": "W036",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "wire": "W030",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "wire": "W032",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "wire": "W034",
+      "common_valid": true,
+      "common_mm3": 0.0
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "wire": "W036",
+      "common_valid": true,
+      "common_mm3": 0.0
+    }
+  ],
+  "planned_actual_own_print_channel_interfaces_NOTqualified": [
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "actor": "Station:FR_G:split_common_comb",
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.0,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "actor": "Station:FR_G:shared_near_root",
+      "actual_common_valid": true,
+      "actual_common_mm3": 16.653000000000116,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "actor": "PROPOSED_D5_C1_WHOLE_CASE_CARRIER",
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.10312500000005541,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "actor": "Station:FR_G:split_common_comb",
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.0,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "actor": "Station:FR_G:shared_near_root",
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.0,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "actor": "PROPOSED_D5_C1_WHOLE_CASE_CARRIER",
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.0,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "actor": "PROPOSED_D5_C1_WHOLE_CASE_CARRIER",
+      "actual_common_valid": true,
+      "actual_common_mm3": 0.047247836167365165,
+      "common_outside_planned_modified_material_mm3": 0.0,
+      "scope": "MATCHEDFUNCTIONALPRINT_CHANNEL_NOTBUILT_NOT_ACCEPTED; actualstock/newNeck-or-FRGroot onlyplannedmodification"
+    }
+  ],
+  "only_alias_effectivity": [
+    "Station:FR_G:band_budget",
+    "Station:FR_G:head_budget",
+    "Station:FR_G:shared_near_tie"
+  ],
+  "foreign_rows": [
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "actor": "Ref_Material_P0_SideRight22_0_0",
+      "source_valid": true,
+      "actual_gap_mm": 7.099885446881114,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            27.475,
+            -46.050000000000004,
+            38.61
+          ],
+          [
+            27.475000000000854,
+            -41.0296228548627,
+            33.58962285486267
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "actor": "CurrentFoundation:FoundationRail:-1",
+      "source_valid": true,
+      "actual_gap_mm": 2.070628165557493,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            56.375,
+            -48.95,
+            40.51
+          ],
+          [
+            57.626,
+            -50.6,
+            40.51
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_ENTIRE_SELECTED_BAND",
+      "actor": "Underdeck:RestoredBank",
+      "source_valid": true,
+      "actual_gap_mm": 1.990000000000002,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            56.375,
+            -46.45,
+            50.01
+          ],
+          [
+            56.375,
+            -46.45,
+            52.0
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "actor": "CurrentFoundation:FoundationRail:-1",
+      "source_valid": true,
+      "actual_gap_mm": 1.25,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            27.475,
+            -49.35,
+            38.61
+          ],
+          [
+            27.475,
+            -50.6,
+            38.61
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "actor": "Underdeck:RestoredBank",
+      "source_valid": true,
+      "actual_gap_mm": 5.390000000000001,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            -15.75,
+            -49.35,
+            46.61
+          ],
+          [
+            -15.75,
+            -49.35,
+            52.0
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "actor": "CurrentFoundation:FoundationRail:-1",
+      "source_valid": true,
+      "actual_gap_mm": 2.127933269630414,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            28.325,
+            -50.2,
+            42.61
+          ],
+          [
+            28.325000000000003,
+            -50.6,
+            40.52
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "actor": "SharedRetention:lower_common_flange_base",
+      "source_valid": true,
+      "actual_gap_mm": 2.4429695045169906,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            32.625,
+            -50.2,
+            42.61
+          ],
+          [
+            33.825,
+            -50.6,
+            40.52
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    },
+    {
+      "stock": "FRG_FULL_HEAD",
+      "actor": "Underdeck:RestoredBank",
+      "source_valid": true,
+      "actual_gap_mm": 4.090000000000003,
+      "required_foreign_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            28.325,
+            -50.2,
+            47.91
+          ],
+          [
+            28.325,
+            -50.2,
+            52.0
+          ]
+        ]
+      ],
+      "status": "FULL_SELECTED_STOCK_FOREIGN_SEPARATED125"
+    }
+  ],
+  "foreign_cursor": 8,
+  "foreign_total": 8,
+  "foreign_unreceived": [],
+  "fullbounds_separated": 4302,
+  "first_falsifier": null,
+  "no_newmaterial_or_pressurekeys_built": true,
+  "no_boughtcase_or_framecut": true,
+  "no_secondfamily": true,
+  "selected": false,
+  "N01_complete": false,
+  "actualcut": null,
+  "currentbase_unchanged": true,
+  "archive": "day07-FRG-open-front-whole-stock-first-gate.breps.zip",
+  "archive_sha256": "bb39354d0c223bcdffbad70d4a5d2c64ce9390834c2d546bb5d025fd31139b95",
+  "geometry": [
+    {
+      "name": "FRG_ENTIRE_SELECTED_BAND",
+      "entry": "0.brep",
+      "sha256": "5da4c7be9770b6fed878befbeeb1e488a88d7fb16b43c626f920ab4053d737e6",
+      "bounds_mm": [
+        [
+          32.625,
+          -48.95,
+          40.51
+        ],
+        [
+          56.375,
+          -46.45,
+          50.01
+        ]
+      ]
+    },
+    {
+      "name": "FRG_FULL_HEAD",
+      "entry": "1.brep",
+      "sha256": "1d2e240593add32523e6a677cb53d172b3522838fd45d89e32ab4db54b583d7a",
+      "bounds_mm": [
+        [
+          28.325,
+          -50.2,
+          42.61
+        ],
+        [
+          32.625,
+          -45.2,
+          47.91
+        ]
+      ]
+    },
+    {
+      "name": "FRG_FULL83p3_UNCUT_CAPACITY",
+      "entry": "2.brep",
+      "sha256": "b307770e27e347e0f8e456afbe14be11179ce762681c72bb288c3442b2c39d73",
+      "bounds_mm": [
+        [
+          -19.75,
+          -49.35,
+          38.61
+        ],
+        [
+          31.475000000000005,
+          -46.050000000000004,
+          46.61
+        ]
+      ]
+    },
+    {
+      "name": "FIRST_DOWN_QUARTER_CAPACITY",
+      "entry": "3.brep",
+      "sha256": "a754845db0b68b63d6692bf6f9763453d8e351f030bc05171d97512b5c747b49",
+      "bounds_mm": [
+        [
+          27.475,
+          -49.35,
+          38.61
+        ],
+        [
+          31.475000000000005,
+          -46.050000000000004,
+          42.61
+        ]
+      ]
+    },
+    {
+      "name": "OPEN_UNDERBANK_RETURN_CAPACITY",
+      "entry": "4.brep",
+      "sha256": "124044cfb51ccc83cb4e5ccaa6020d103b73417c271e20ea3a393761c2082508",
+      "bounds_mm": [
+        [
+          -19.75,
+          -49.35,
+          38.61
+        ],
+        [
+          -15.75,
+          -46.050000000000004,
+          46.61
+        ]
+      ]
+    },
+    {
+      "name": "CURRENT_FOUR_FULL9p8_REFERENCE_W030",
+      "entry": "5.brep",
+      "sha256": "f126744dcd6d84c6fa1a76c78721cc457457801d24f6d3cb835e93101d0160e0",
+      "bounds_mm": [
+        [
+          50.075,
+          -56.25,
+          43.71
+        ],
+        [
+          53.175,
+          -46.45,
+          46.809999999999995
+        ]
+      ]
+    },
+    {
+      "name": "CURRENT_FOUR_FULL9p8_REFERENCE_W032",
+      "entry": "6.brep",
+      "sha256": "76c83b596570ef3057d781f5e5e9b3bf487c0c28b44b30ba9de86ec74dffabbf",
+      "bounds_mm": [
+        [
+          45.325,
+          -56.25,
+          43.71
+        ],
+        [
+          48.425,
+          -46.45,
+          46.809999999999995
+        ]
+      ]
+    },
+    {
+      "name": "CURRENT_FOUR_FULL9p8_REFERENCE_W034",
+      "entry": "7.brep",
+      "sha256": "cdf13ad3974ed991ac58f7c339a0e2dffc984045af817a5b0cb856e4a043e4a8",
+      "bounds_mm": [
+        [
+          40.575,
+          -56.25,
+          43.71
+        ],
+        [
+          43.675,
+          -46.45,
+          46.809999999999995
+        ]
+      ]
+    },
+    {
+      "name": "CURRENT_FOUR_FULL9p8_REFERENCE_W036",
+      "entry": "8.brep",
+      "sha256": "c023152a54449905af46e981b81ef469cc027553e21879ff096ab353286309af",
+      "bounds_mm": [
+        [
+          35.825,
+          -56.25,
+          43.71
+        ],
+        [
+          38.925,
+          -46.45,
+          46.809999999999995
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 3.562000000034459,
+  "process_cpu_seconds": 6.0625,
+  "pid": 26064,
+  "session_id": 46493
+}
