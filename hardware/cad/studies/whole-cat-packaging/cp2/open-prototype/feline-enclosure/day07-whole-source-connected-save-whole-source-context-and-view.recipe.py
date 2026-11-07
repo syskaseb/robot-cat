@@ -1,0 +1,11 @@
+import time,json,hashlib,os
+t231=time.monotonic();c231=time.process_time();firstactor231=context230[first230['other']];ngap231=nomWitness230.distToShape(firstactor231)[0];picked231=[]
+for n,s in context230.items():
+    if n.startswith('F_PI:') or n.startswith('Ref_Material_S0_') or n in ['Station:D_FL:case','Station:FL_G:case','Station:P_SYS:case'] or ('_CP2_Housing_' in n) or (n.startswith('Ref_Material_P0_') and any(a in n for a in ['FrameFront20','SideLeft22','SideRight22'])) or n.startswith('PROPOSED_G4'):
+        picked231.append(dict(actor=n,bounds_mm=saved_bounds(s),meaning='Actual current operand AABB for wholeplan orientation ONLY, not contact/free-space proof',selected_FPI_unqualified_home_variable=n.startswith('F_PI:')))
+plane231=Part.makePlane(90,90,A.Vector(-160,first230['witnesses'][0][0][1],110),A.Vector(0,1,0),A.Vector(1,0,0));secs231=[]
+for n,s in [('ACTUAL_RETAINED_S0_BODY',firstactor231),('NEW_ENTRY_W005_FULL_CAPACITY',fields230[first230['wire']]),('NEW_ENTRY_W005_NOMINAL',nomWitness230)]:
+    sec=s.section(plane231);curves=[]
+    for e in sec.Edges:curves.append([[v.x,v.z] for v in e.discretize(Deflection=.1)])
+    secs231.append(dict(actor=n,curves=curves))
+p231=OUT/'day07-WHOLE_SOURCE-current-context-and-first-gap-view-data.json';assert not p231.exists();r231=dict(id=p231.stem,status='WHOLE_CURRENT_CONTEXT_ORIENTATION_AND_EXACT_NAMED_FIRST_HAZARD',current_body_bounds=picked231,first_actual_actor=first230['other'],first_allocated_gap_mm=first230['gap_mm'],first_nominal_jacket_gap_mm=ngap231,first_nominal_common_mm3=first230['nominal_profile_common_mm3'],actual_local_section_Y_mm=first230['witnesses'][0][0][1],sections=secs231,FPI_full_case_pose_UNQUALIFIED_and_NOT_deleted=True,first_falsifier_not_all_3D_paths_or_stock_shortage=True,no_second_geometry_family_or_newmaterial=True,operation_seconds=time.monotonic()-t231,process_cpu_seconds=time.process_time()-c231,pid=os.getpid(),session_id=46493);p231.write_bytes((json.dumps(r231,indent=2)+'\n').encode());print('WHOLE231_SAVED','context',len(picked231),'allocatedgap',first230['gap_mm'],'nominalgap',ngap231,'nominalcommon',first230['nominal_profile_common_mm3'],'seconds',r231['operation_seconds'],r231['process_cpu_seconds'],'OWNER92_NATIVE_IDLE',os.getpid(),flush=True)
