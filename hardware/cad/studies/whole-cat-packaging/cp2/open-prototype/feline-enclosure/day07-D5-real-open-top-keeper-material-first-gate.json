@@ -1,0 +1,331 @@
+{
+  "id": "day07-D5-real-open-top-keeper-material-first-gate",
+  "status": "REAL_KEEPER_PARTITION_AND_OPEN_TOP_CASE_FIRST_HOLD",
+  "operating_union_lost_mm3": 0.0,
+  "operating_union_added_mm3": 0.0,
+  "operating_bounds_before_mm": [
+    [
+      -88.55000000000001,
+      -98.5,
+      30.52
+    ],
+    [
+      127.0,
+      0.0,
+      55.624979999679994
+    ]
+  ],
+  "operating_bounds_after_mm": [
+    [
+      -88.55000000000001,
+      -98.5,
+      30.52
+    ],
+    [
+      127.0,
+      0.0,
+      55.6255
+    ]
+  ],
+  "retained_lower_material_missing_mm3": 16146.689728828147,
+  "member_coverage": [
+    {
+      "member": "South_complete_lip_and_supported_arm",
+      "volume_mm3": 89.0625,
+      "missing_valid": true,
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          38.5,
+          -32.5,
+          51.75
+        ],
+        [
+          57.5,
+          -30.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "member": "South_existing_upper_joint_tab",
+      "volume_mm3": 1.5624999999999998,
+      "missing_valid": true,
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          57.5,
+          -32.5,
+          51.75
+        ],
+        [
+          57.75,
+          -30.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "member": "North_complete_lip_and_supported_arm",
+      "volume_mm3": 89.06250000000001,
+      "missing_valid": true,
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          38.5,
+          -2.5,
+          51.75
+        ],
+        [
+          57.5,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "member": "North_existing_upper_joint_tab",
+      "volume_mm3": 1.5624999999999998,
+      "missing_valid": true,
+      "missing_mm3": 0.0,
+      "bounds_mm": [
+        [
+          57.5,
+          -2.5,
+          51.75
+        ],
+        [
+          57.75,
+          0.0,
+          54.25
+        ]
+      ]
+    }
+  ],
+  "positive_actual_upper_joints": [
+    {
+      "side": "South",
+      "arm_tab_union_valid": true,
+      "arm_tab_solids": 1,
+      "existing_upper_positive_joint_mm3": 1.5625000000000002,
+      "nominal_wall_support_section_mm2": 3.125,
+      "lip_plus_wall_section_mm2": 4.6875,
+      "not_strength_qualification": true
+    },
+    {
+      "side": "North",
+      "arm_tab_union_valid": true,
+      "arm_tab_solids": 1,
+      "existing_upper_positive_joint_mm3": 1.5625,
+      "nominal_wall_support_section_mm2": 3.125,
+      "lip_plus_wall_section_mm2": 4.6875,
+      "not_strength_qualification": true
+    }
+  ],
+  "new_lower_solids": 1,
+  "new_upper_solids": 1,
+  "exact_case_vertical_sweep_common_mm3": 0.0,
+  "case_vertical_sweep_mm": [
+    0,
+    12
+  ],
+  "first_falsifier": {
+    "stage": "REAL_PARTITION_MEMBER_LOADPATH_OR_OPERATING_IDENTITY",
+    "lost_mm3": 0.0,
+    "added_mm3": 0.0,
+    "joints": [
+      {
+        "side": "South",
+        "arm_tab_union_valid": true,
+        "arm_tab_solids": 1,
+        "existing_upper_positive_joint_mm3": 1.5625000000000002,
+        "nominal_wall_support_section_mm2": 3.125,
+        "lip_plus_wall_section_mm2": 4.6875,
+        "not_strength_qualification": true
+      },
+      {
+        "side": "North",
+        "arm_tab_union_valid": true,
+        "arm_tab_solids": 1,
+        "existing_upper_positive_joint_mm3": 1.5625,
+        "nominal_wall_support_section_mm2": 3.125,
+        "lip_plus_wall_section_mm2": 4.6875,
+        "not_strength_qualification": true
+      }
+    ]
+  },
+  "archive": "day07-D5-real-open-top-keeper-material-first-gate.breps.zip",
+  "archive_sha256": "dc42110331417d039a1445bc71ce579082d9f06fe614b5920b05ea6054de783d",
+  "geometry": [
+    {
+      "name": "NEW_REAL_FIXED_LOWER_WITHOUT_TRANSFERRED_KEEPER",
+      "entry": "0.brep",
+      "sha256": "93bfe966475d4746e466c24719da722b0cb2ab211bbe5ca31b2d67756c0c50ee",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 16146.689762968717,
+      "bounds_mm": [
+        [
+          -88.55000000000001,
+          -98.5,
+          30.52
+        ],
+        [
+          127.0,
+          0.0,
+          55.6255
+        ]
+      ]
+    },
+    {
+      "name": "NEW_REAL_REMOVABLE_CAPTURE_KEEPER_UPPER",
+      "entry": "1.brep",
+      "sha256": "6716e6277f7f1e4e75271a09ff9d4824f007d903e8fa93d75d60f3899c4d8879",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 837.145360672692,
+      "bounds_mm": [
+        [
+          38.5,
+          -32.5,
+          44.0
+        ],
+        [
+          69.20889087599475,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "EXACT_TRANSFERRED_SUPPORT_AND_LIPS",
+      "entry": "2.brep",
+      "sha256": "597f214eadca10db55975bcbf8ce7cc2abd360aaf73fa19ad5c1a4c6383cbac1",
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 178.12500000000003,
+      "bounds_mm": [
+        [
+          38.5,
+          -32.5,
+          51.75
+        ],
+        [
+          57.5,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_NOMINAL_CASE_FULL_VERTICAL_ENTRY12",
+      "entry": "3.brep",
+      "sha256": "d53db23fe0218cf08804b8295e3cfeb66f1f1440de588daaaf3f98e0de1c4095",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11970.0,
+      "bounds_mm": [
+        [
+          38.5,
+          -31.25,
+          44.0
+        ],
+        [
+          57.5,
+          -1.25,
+          65.0
+        ]
+      ]
+    },
+    {
+      "name": "South_complete_lip_and_supported_arm",
+      "entry": "4.brep",
+      "sha256": "1748dc295def82e4ed32f8225f939c854000a258ce4e927fb2f610f1d738b563",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 89.0625,
+      "bounds_mm": [
+        [
+          38.5,
+          -32.5,
+          51.75
+        ],
+        [
+          57.5,
+          -30.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "South_existing_upper_joint_tab",
+      "entry": "5.brep",
+      "sha256": "42fcc031b2860921709991e7672034ae545cb492a2a54198e479b49b09b30013",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.5624999999999998,
+      "bounds_mm": [
+        [
+          57.5,
+          -32.5,
+          51.75
+        ],
+        [
+          57.75,
+          -30.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "North_complete_lip_and_supported_arm",
+      "entry": "6.brep",
+      "sha256": "a39f602582cc7e0a0a0daf623e22e8f9458a29e8736b144c9d72dd19adc30f06",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 89.06250000000001,
+      "bounds_mm": [
+        [
+          38.5,
+          -2.5,
+          51.75
+        ],
+        [
+          57.5,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "North_existing_upper_joint_tab",
+      "entry": "7.brep",
+      "sha256": "7395c6d02cb40adde0f2cff999a49b05f86e0f0e26fa12fdeabcfd8df876f33a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.5624999999999998,
+      "bounds_mm": [
+        [
+          57.5,
+          -2.5,
+          51.75
+        ],
+        [
+          57.75,
+          0.0,
+          54.25
+        ]
+      ]
+    }
+  ],
+  "selected": false,
+  "N01_complete": false,
+  "old_negative_counts_preserved": true,
+  "actualcut": null,
+  "actual_A_U_fit_slack": null,
+  "upper_changed_assembly_OPEN": true,
+  "operation_seconds": 10.35999999998603,
+  "process_cpu_seconds": 54.9375,
+  "pid": 26064,
+  "session_id": 46493
+}

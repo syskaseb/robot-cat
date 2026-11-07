@@ -1,0 +1,145 @@
+{
+  "id": "day07-D5-raw-real-partition-current-open-top-first-neighbor",
+  "status": "OPEN_TOP_REAL_PARTITION_FIRST_NEIGHBOR_HOLD",
+  "same_partition_representation_repair": {
+    "source": "day07-D5-real-open-top-keeper-material-first-gate.json",
+    "source_sha256": "3c684878e551882cc1752a1e7f0171b671e7be54f6c0c7e12bd56d1159f23fd1",
+    "technical_only": true,
+    "not_design_failure": true,
+    "invalid_missing_result": true,
+    "invalid_missing_result_reported_volume_mm3": 16146.689728828147,
+    "raw_cut_volume_mm3": 16146.689728828147,
+    "removeSplitter_volume_mm3": 16146.689762968717,
+    "explanation": "The extra comparison rawCUT.cut(removeSplitter(CUT)) returned INVALID wholeoperand, not a valid material-loss witness. Do not count invalid result as loss/contact or strategyfailure. Keep raw valid CUT and raw FUSE for SAME intended real partition; no geometry offset/added material/new hypothesis."
+  },
+  "valid_union_lost_mm3": 0.0,
+  "valid_union_added_mm3": 0.0,
+  "nominal_case_continuous_lower_entry_common_mm3": 0.0,
+  "actual_new_lower_solids": 1,
+  "actual_new_upper_solids": 1,
+  "neighbor_rows": [
+    {
+      "actor": "Underdeck:RestoredBank",
+      "valid_common": true,
+      "common_mm3": 0.0,
+      "actual_gap_mm": 8.0,
+      "required_foreign_mm": 1.25,
+      "status": "CLEAR"
+    },
+    {
+      "actor": "Ref_Material_F_R4_CP2_IN_0_0",
+      "valid_common": true,
+      "common_mm3": 197.1907607357997,
+      "actual_gap_mm": 0.0,
+      "required_foreign_mm": 1.25,
+      "status": "ASSEMBLY_DEPENDENCY_HOLD"
+    }
+  ],
+  "first_falsifier": {
+    "stage": "OPEN_TOP_CASE_FULL_CURRENT_REQUIRED_NEIGHBOR_OR_LATE_INSTALL_DEPENDENCY",
+    "row": {
+      "actor": "Ref_Material_F_R4_CP2_IN_0_0",
+      "valid_common": true,
+      "common_mm3": 197.1907607357997,
+      "actual_gap_mm": 0.0,
+      "required_foreign_mm": 1.25,
+      "status": "ASSEMBLY_DEPENDENCY_HOLD"
+    },
+    "case_sweep_translation_mm": [
+      0,
+      12
+    ],
+    "not_all_paths_impossible": true
+  },
+  "archive": "day07-D5-raw-real-partition-current-open-top-first-neighbor.breps.zip",
+  "archive_sha256": "9c20a07c0d9fc685c5a95f0ee9c9463e315309d47f06422f3f6d1c5b61cc6476",
+  "geometry": [
+    {
+      "name": "RAW_VALID_NEW_FIXED_LOWER",
+      "entry": "0.brep",
+      "sha256": "6e46d09f16cf0da4c040de135f71cceed57fd307df465f6ac6bff588fb356b06",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 16146.689728828147,
+      "bounds_mm": [
+        [
+          -88.55000000000001,
+          -98.5,
+          30.52
+        ],
+        [
+          127.0,
+          0.0,
+          55.624979999679994
+        ]
+      ]
+    },
+    {
+      "name": "RAW_VALID_NEW_SEPARATE_UPPER",
+      "entry": "1.brep",
+      "sha256": "bea357309323899673aeeb69b00c278894fba6e21137bf506ae4d1bd8e4d8cf3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 837.1454291650423,
+      "bounds_mm": [
+        [
+          38.5,
+          -32.5,
+          44.0
+        ],
+        [
+          69.20889087599475,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "EXACT_CASE_VERTICAL_ENTRY12",
+      "entry": "2.brep",
+      "sha256": "05b2af20323b13331a9e29f8c84f34a24a7d1180aa7130f64be751049a4b300d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11970.0,
+      "bounds_mm": [
+        [
+          38.5,
+          -31.25,
+          44.0
+        ],
+        [
+          57.5,
+          -1.25,
+          65.0
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_F_R4_CP2_IN_0_0",
+      "entry": "3.brep",
+      "sha256": "a16f69276b1989da41ebf2973e7091d99b0420c8cbc29168fa06619d086a8657",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2565.9790680315996,
+      "bounds_mm": [
+        [
+          38.8819,
+          -39.25,
+          63.8057
+        ],
+        [
+          49.1181,
+          -15.12,
+          74.1943
+        ]
+      ]
+    }
+  ],
+  "new_upper_assembly_OPEN": true,
+  "selected": false,
+  "N01_complete": false,
+  "operation_seconds": 6.155999999959022,
+  "process_cpu_seconds": 35.328125,
+  "pid": 26064,
+  "session_id": 46493
+}

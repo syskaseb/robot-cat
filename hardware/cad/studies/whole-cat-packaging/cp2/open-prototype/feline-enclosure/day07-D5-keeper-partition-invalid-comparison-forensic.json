@@ -1,0 +1,11 @@
+{
+  "source": "day07-D5-real-open-top-keeper-material-first-gate.json",
+  "source_sha256": "3c684878e551882cc1752a1e7f0171b671e7be54f6c0c7e12bd56d1159f23fd1",
+  "technical_only": true,
+  "not_design_failure": true,
+  "invalid_missing_result": true,
+  "invalid_missing_result_reported_volume_mm3": 16146.689728828147,
+  "raw_cut_volume_mm3": 16146.689728828147,
+  "removeSplitter_volume_mm3": 16146.689762968717,
+  "explanation": "The extra comparison rawCUT.cut(removeSplitter(CUT)) returned INVALID wholeoperand, not a valid material-loss witness. Do not count invalid result as loss/contact or strategyfailure. Keep raw valid CUT and raw FUSE for SAME intended real partition; no geometry offset/added material/new hypothesis."
+}

@@ -1,0 +1,15 @@
+import time,json,hashlib,zipfile,os
+t222=time.monotonic();c222=time.process_time();n222=r221['first_falsifier']['row']['actor'];obstacle222=context210[n222];assert obstacle222.isValid() and Current35[n222].isSame(obstacle222)
+sects222=[]
+parts222=[('NEW_FIXED_LOWER',lower221),('NEW_SEPARATE_KEEPER_UPPER',upper221),('SAME_FINAL_BOUGHT_CASE',case216),('EXACT_VERTICAL_CASE_ENTRY12',drop220),('RETAINED_ACTUAL_FR4_IN_BODY',obstacle222)]
+for view,plane,proj in [('XZ_Yminus23p375',Part.makePlane(50,45,A.Vector(30,-23.375,30),A.Vector(0,1,0),A.Vector(1,0,0)),[0,2]),('YZ_X45',Part.makePlane(65,45,A.Vector(45,-45,30),A.Vector(1,0,0),A.Vector(0,1,0)),[1,2])]:
+    for n,s in parts222:
+        sc=s.section(plane);curves=[]
+        for e in sc.Edges:curves.append([[list(v)[proj[0]],list(v)[proj[1]]] for v in e.discretize(Deflection=.08)])
+        sects222.append(dict(view=view,actor=n,curves=curves))
+ar222=OUT/'day07-D5-open-top-retained-bank-first-falsifier-witness.breps.zip';ge222=[];assert not ar222.exists()
+with zipfile.ZipFile(ar222,'w',zipfile.ZIP_DEFLATED) as z:
+    for i,(n,s) in enumerate([('SAME_CURRENT_D5_CASE',case216),('ACTUAL_CURRENT_RETAINED_FR4_IN_BODY',obstacle222),('VALID_ENTRY_SWEEP_FR4_COMMON',drop220.common(obstacle222)),('UNCHANGED_INTEGRAL_RESTORED_BANK',context210['Underdeck:RestoredBank'])]):
+        assert s.isValid();f=Path('C:/Users/Sysq/AppData/Local/Temp/robot-cat89-witness-'+str(i)+'.brep');s.exportBrep(str(f));raw=f.read_bytes();en=str(i)+'.brep';z.writestr(en,raw);ge222.append(dict(name=n,entry=en,sha256=hashlib.sha256(raw).hexdigest(),valid=True,volume_mm3=s.Volume,bounds_mm=saved_bounds(s)))
+    z.writestr('manifest.json',(json.dumps(dict(geometry=ge222),indent=2)+'\n').encode())
+p222=OUT/'day07-D5-real-keeper-open-top-actual-sections-and-source-witness.json';r222=dict(id=p222.stem,status='ONE_SELECTED_OPEN_TOP_ENTRY_REJECTED_RETAINED_FR4_ASSEMBLY_DEPENDENCY',sections=sects222,actual_obstacle_actor=n222,current_operand_identity='context210[n].isSame(Current35[n]) TRUE; no placement/XML transform or alias-only equivalence',actual_obstacle_valid=True,actual_obstacle_bounds_mm=saved_bounds(obstacle222),actual_obstacle_volume_mm3=obstacle222.Volume,case_source_actor='Station:D_FL:case',exact_case_sweep=dict(direction=[0,0,1],translation_mm=[0,12],selected_nominal_case_19x30x9=True,prism_height_mm=21,prototype_case_envelope_not_delivered_certificate=True),first_actual_common_mm3=r221['first_falsifier']['row']['common_mm3'],archive=ar222.name,archive_sha256=hashlib.sha256(ar222.read_bytes()).hexdigest(),geometry=ge222,upper_changed_assembly_NOT_tested_after_falsifier=True,other_current_neighbors_NOT_claimed=True,selected=False,N01_complete=False,operation_seconds=time.monotonic()-t222,process_cpu_seconds=time.process_time()-c222,pid=os.getpid(),session_id=46493);p222.write_bytes((json.dumps(r222,indent=2)+'\n').encode());print('KEEPER222_SAVED_SECTIONS_WITNESS',p222.name,r222['first_actual_common_mm3'],r222['operation_seconds'],r222['process_cpu_seconds'],'OWNER89_NATIVE_IDLE',os.getpid(),flush=True)
