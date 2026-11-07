@@ -1,0 +1,220 @@
+{
+  "id": "day07-V3-physical-source-budget-boundary-decision",
+  "status": "NOMINAL_CURRENT_SOURCE_FRAMES_RESOLVED_PHYSICAL_PREFIX_AND_LANDING_NOT_RECEIVED_NEW_WHOLE_APPROACH_REQUIRED",
+  "selected": false,
+  "N01_complete": false,
+  "source_reference_receipt": "day07-V3-physical-source-reference-read.json",
+  "source_reference_sha256": "c958727c85c418dba4b1fafa10f907307d0ae90e870c3a5c4c4cb6893ab3de75",
+  "conditional_ledger": "day07-coordinator-V3-conditional-stock-delta-receipt.json",
+  "conditional_ledger_sha256": "a75faeee2381f6803bc690ebfd2bc7a4002136f29dd9ee8f4a8a33053a14a02a",
+  "frame_dispositions": [
+    {
+      "loom": "FL1",
+      "pcb": "Ref_Material_P0_Part__Feature018_0_0",
+      "housing": "Ref_Material_P0_Part__Feature014_0_0",
+      "source_physical_FrontLeft_CAD_RL_alias_explicit": true,
+      "nominal_socket_reference_consistent_with_actual_current_world": true,
+      "old_global_transform_NOT_needed": true,
+      "optional_old_horn_present": true,
+      "scope": "3sourcePCB/Housingpairs and6recordednominalpoints actuallyoncurrentPCBs; previousFL3flagwasoverstrictbecauseobsolete/unloadedhorn094notneededforTHISnominalPCBdatum. Doesnotqualifycurrenthorn/pivot/portpinout or deliveredconnector. BRepsalreadyworldplaced; no XML/globaltransform reapplied."
+    },
+    {
+      "loom": "FL2",
+      "pcb": "Ref_Material_P0_Part__Feature060_0_0",
+      "housing": "Ref_Material_P0_Part__Feature056_0_0",
+      "source_physical_FrontLeft_CAD_RL_alias_explicit": true,
+      "nominal_socket_reference_consistent_with_actual_current_world": true,
+      "old_global_transform_NOT_needed": true,
+      "optional_old_horn_present": true,
+      "scope": "3sourcePCB/Housingpairs and6recordednominalpoints actuallyoncurrentPCBs; previousFL3flagwasoverstrictbecauseobsolete/unloadedhorn094notneededforTHISnominalPCBdatum. Doesnotqualifycurrenthorn/pivot/portpinout or deliveredconnector. BRepsalreadyworldplaced; no XML/globaltransform reapplied."
+    },
+    {
+      "loom": "FL3",
+      "pcb": "Ref_Material_P0_Part__Feature092_0_0",
+      "housing": "Ref_Material_P0_Part__Feature088_0_0",
+      "source_physical_FrontLeft_CAD_RL_alias_explicit": true,
+      "nominal_socket_reference_consistent_with_actual_current_world": true,
+      "old_global_transform_NOT_needed": true,
+      "optional_old_horn_present": false,
+      "scope": "3sourcePCB/Housingpairs and6recordednominalpoints actuallyoncurrentPCBs; previousFL3flagwasoverstrictbecauseobsolete/unloadedhorn094notneededforTHISnominalPCBdatum. Doesnotqualifycurrenthorn/pivot/portpinout or deliveredconnector. BRepsalreadyworldplaced; no XML/globaltransform reapplied."
+    }
+  ],
+  "actual_source_selected_terms": {
+    "W020": "PhysicalFrontLeft/CAD_RL/Hip nominalPCB018→F_L1.OUT; SOURCE/FL1 continuousfactory",
+    "W022": "PhysicalFrontLeft/CAD_RL/Knee nominalPCB060→F_L2.OUT; SOURCE/FL2 continuousfactory",
+    "W024": "PhysicalFrontLeft/CAD_RL/Ankle nominalPCB092→retainedsource-ownedMotion_RL_Knee3staggeredlapjoin→F_L3.OUT; SOURCE/FL3original +independentDONOR/FL3",
+    "connector_reference_provisional_not_manufacturer_contact": true,
+    "cavity_pinout_NOT_inferred": true
+  },
+  "source_owned_join": {
+    "centre_world_mm": [
+      1.0227659473457442,
+      87.45604438518524,
+      -68.19014813868885
+    ],
+    "owner": "Motion_RL_Knee",
+    "nearest_current_declared_owner_material_mm": [
+      {
+        "name": "Ref_Material_P0_Part__Feature089_0_0",
+        "gap_mm": 45.543706974370906,
+        "witnesses": [
+          [
+            [
+              -43.17231728898034,
+              78.68199461243786,
+              -74.8264056146253
+            ],
+            [
+              1.0227659473457442,
+              87.45604438518524,
+              -68.19014813868885
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Ref_Material_P0_Part__Feature090_0_0",
+        "gap_mm": 44.872346144935,
+        "witnesses": [
+          [
+            [
+              -43.115679964796186,
+              50.4065068292327,
+              -70.84246012668157
+            ],
+            [
+              1.0227659473461743,
+              49.33072373863491,
+              -62.83198375172545
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Ref_Material_P0_Part__Feature089_0_0",
+        "gap_mm": 63.673889575286935,
+        "witnesses": [
+          [
+            [
+              -44.302722775560284,
+              80.99189733504659,
+              -70.12141068849365
+            ],
+            [
+              1.0227659473453141,
+              125.58136503173557,
+              -73.54831252565226
+            ]
+          ]
+        ]
+      }
+    ],
+    "interpretation": "CurrentKneeownedmaterial distances45.543706974/44.872346145/63.673889575 are joint/landREFERENCEtoSOLID distances, NOT addedwire, physicalshortage or automaticrequiredstandoff. They do NOT establish a mountedholder. Sourceexplicitlyholder_and_material_qualified=false, splicegeometrynotadded; no positiveholderloadpath canbe inherited.",
+    "original_W024_minimum_from_plug_face_mm": 181.9178656704155,
+    "original_nominal_fit_blank_mm": 205,
+    "source_unit_MAX_ifothercoresunchanged_mm": 225,
+    "three8mm_laps_two9lands_three20sleeves_preserved": true,
+    "actual_cut_mm": null
+  },
+  "body_landing": {
+    "current_FL_cuff_canonical_project_seams_mm": [
+      [
+        -68,
+        46.6,
+        82.4
+      ],
+      [
+        -68,
+        46.6,
+        86
+      ],
+      [
+        -68,
+        46.6,
+        89.6
+      ]
+    ],
+    "project_cuff_free_ends_mm": [
+      [
+        -15.2,
+        27,
+        101.3
+      ],
+      [
+        -15.2,
+        27,
+        103.5
+      ],
+      [
+        -15.2,
+        27,
+        105.7
+      ]
+    ],
+    "current_V3_common_entry_mm": [
+      -74.55,
+      95.1,
+      66.75
+    ],
+    "physical_wire_fragment_between_old_boundary_and_project_seam": null,
+    "physical_current_rooted_landing_and_approach_received": false,
+    "source": "compose_feline_current_cuff_bays.py explicitlyreplacesprojectseams, moving900notreceived; no recoverablephysicalfragment. Currentnativeindexread notanarchivehunt.",
+    "forbidden": "Do NOTcalloneoftheseaccountingpointsanewplug/splice/extra9; doNOTaddoldrootpointseparationaswireorapplya guessedsourceframe."
+  },
+  "budget_boundary_choice": "Before V3bracketcorrection, plan ENTIREcurrentphysicalSOURCE-to-bodyapproach from mappednominalpurchasedsourcecontactreference (withselectedsourceallowances) andretainedKnee-ownedjoins, actualmoving/fixedretention/landing. DefineA asALLsource-sideactualdebit up to currentcommonentry, withlap/sourceenddebitsonce; terminal11/full9alreadyinreceiveddownstreampieces. ThisnormalizationdoesNOTsetoldPto0 orreclaimphysicalwire; allretainedqualifiedlengthmustremaininsideA. AllA/Uremainnull untilcurrentregions/roots/R/slack/accessqualified.",
+  "algebraic_limits": [
+    {
+      "piece": "W020/continuous_factory",
+      "physical_unit": "SOURCE/FL1",
+      "received_conditional_U_max_mm": 438.66607,
+      "received_conditional_G": "203.333930 + U20",
+      "unreceived_whole_source_debit_variable": "A020",
+      "old_fixed_scalar_for_bookkeeping_only_mm": 197.0,
+      "whole_origin_to_common_entry_all_inclusive_A_max_mm": 635.66607,
+      "whole_minimum_formula": "A + 203.33393 + terminal11 (A includes every actualretainedmovingprefix/sourceenddebit/currentapproach/percorecorrection anddonorlap4whereapplicable ONCE)",
+      "source850_and_fit900_unchanged": true,
+      "current_A_mm": null,
+      "current_U_mm": null,
+      "nominal_fit_draw_mm": null,
+      "no_inferred_reclaimed_prefix": true,
+      "no_physical_shortage_claim": true
+    },
+    {
+      "piece": "W022/continuous_factory",
+      "physical_unit": "SOURCE/FL2",
+      "received_conditional_U_max_mm": 49.801288,
+      "received_conditional_G": "255.013273 + U22",
+      "unreceived_whole_source_debit_variable": "A022",
+      "old_fixed_scalar_for_bookkeeping_only_mm": 534.1854387319953,
+      "whole_origin_to_common_entry_all_inclusive_A_max_mm": 583.986727,
+      "whole_minimum_formula": "A + 255.013273 + terminal11 (A includes every actualretainedmovingprefix/sourceenddebit/currentapproach/percorecorrection anddonorlap4whereapplicable ONCE)",
+      "source850_and_fit900_unchanged": true,
+      "current_A_mm": null,
+      "current_U_mm": null,
+      "nominal_fit_draw_mm": null,
+      "no_inferred_reclaimed_prefix": true,
+      "no_physical_shortage_claim": true
+    },
+    {
+      "piece": "W024/source_owned_donor",
+      "physical_unit": "DONOR/FL3",
+      "received_conditional_U_max_mm": 17.274446,
+      "received_conditional_G": "206.807688 + U24",
+      "unreceived_whole_source_debit_variable": "A024",
+      "old_fixed_scalar_for_bookkeeping_only_mm": 614.9178656704166,
+      "whole_origin_to_common_entry_all_inclusive_A_max_mm": 632.192312,
+      "whole_minimum_formula": "A + 206.807688 + terminal11 (A includes every actualretainedmovingprefix/sourceenddebit/currentapproach/percorecorrection anddonorlap4whereapplicable ONCE)",
+      "source850_and_fit900_unchanged": true,
+      "current_A_mm": null,
+      "current_U_mm": null,
+      "nominal_fit_draw_mm": null,
+      "no_inferred_reclaimed_prefix": true,
+      "no_physical_shortage_claim": true
+    }
+  ],
+  "physical_units_rule": "Perselected900unit/MAX3cores, nominalfitceil5(minimum+20)<=900 ANDsource850projectspare. OtherD/GcorescannotinheritMAX530/805/815unlessphysicallyunchangedqualified; originalSOURCEFL3fixedplug-facepiece181.917866 remainsindependentofdonor. Fourprotected220/MTAunchanged; no pool/trim/newsplice/purchase.",
+  "practical_consequence": "The binding17.274446 isCONDITIONAL onanunreceivedretainedprefixboundary; it isnotproofcurrentphysicaldonorhas17mmofavailablebodyapproach. Actualsourceframeisnotmysteryrotation:3PCB/Housingpairs matchcurrentworld. Missingpieceis constructivephysicalSOURCEprefix+mountedKneespliceholder+fixedbodylanding/regionplan; currentcuffBReps cannotrepairthatbychanginglabels. StopV3newbracketdetails untilthatwholeapproachdefined. Sourcecannotprovideexistingqualifiedholder/fragment; this isnewlayoutwork, notexternaluserpermission/datarequest.",
+  "independent_switch": "Afterthissavedphysicalfact, boundedindependentS0operatorportal work permitted; no newV3rib/offset/foreign37resume.",
+  "preserved": "Current1292+effective1311/sourceRestMotion108 unchanged. V3C0d8a3fa84/fullW028band.282/37unreceived andold238/14 frozen. S0operatorverticalR15gap.339/rawfield1unreceived remains; no wholeN01claim.",
+  "written_utc": "2026-11-07T04:00:27.807141+00:00"
+}
