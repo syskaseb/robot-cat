@@ -1,0 +1,111 @@
+{
+  "id": "day07-coordinator-PSYS-four-wire-project-alias-receipt",
+  "status": "FOUR_WIRED_PROJECT_ALIASES_RECONCILED_BY_WIRE_ID_NO_PHYSICAL_PORT_CERTIFICATION",
+  "written_utc": "2026-11-07T12:18:16.758562+00:00",
+  "scope": "NamedlegacyP_SYS.2/currentP_SYS.5 ambiguity forW043; fourwiredcanonicalendpoints only, notnewpower/electricaldesign orwhole123audit. No filesofcircuit/routingregistry edited.",
+  "source_pins": [
+    {
+      "path": "hardware/electronics/full-cat/battery-feed-selected-r1/body-harness.json",
+      "sha256": "63effa5d67d35b313da6e09103d58ad3da6dc175e508ca7727d89a5f446c90a0"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared-routing-boundaries.json",
+      "sha256": "3ff749aa3d78c3e80f6ebdda76e7bcb101db346ccaf376749febca8143cd8155"
+    },
+    {
+      "path": "hardware/electronics/full-cat/main-positive-wiring-card-r1/interface.json",
+      "sha256": "eeb9d8af5f34e9400c316dfeb7246c3bb2fd28cddfbbb58a27dd5ebcf8b45535"
+    }
+  ],
+  "alias_map": [
+    {
+      "wire": "W043",
+      "canonical_logical_port": "P_SYS.2",
+      "current_CAD_project_port": "P_SYS.5",
+      "current_endpoint_id": "W043/single/end",
+      "same_current_point_mm": [
+        4.550000000000001,
+        4.0,
+        48.5
+      ],
+      "current_group": "WAGO:P_SYS_new",
+      "logical_net": "P_SYS",
+      "current_guide_or_mouth_verification_status": {
+        "pose_status": "CURRENT_SHARED_STATION_MOUTH_AND_FULL_GRIP",
+        "actual_port_verified": false,
+        "datum_kind": "TRANSFERRED_GUIDE_ENDPOINT_NOT_AUTOMATICALLY_ACTUAL_MOUTH",
+        "routing_boundary_status": "PROTECTED_COMPLETE_W043_SOURCE_CURVE_REUSED"
+      },
+      "no_endpoint_or_wire_move": true
+    },
+    {
+      "wire": "W066",
+      "canonical_logical_port": "P_SYS.1",
+      "current_CAD_project_port": "P_SYS.1",
+      "current_endpoint_id": "W066/retained0/end",
+      "same_current_point_mm": [
+        4.550000000000001,
+        30.0,
+        48.5
+      ],
+      "current_group": "WAGO:P_SYS_new",
+      "logical_net": "P_SYS",
+      "current_guide_or_mouth_verification_status": {
+        "pose_status": "CURRENT_SHARED_STATION_MOUTH_AND_FULL_GRIP",
+        "actual_port_verified": false,
+        "datum_kind": "TRANSFERRED_GUIDE_ENDPOINT_NOT_AUTOMATICALLY_ACTUAL_MOUTH",
+        "routing_boundary_status": "RECEIVED_COMPLETE_CURRENT_PREFIX_EXIT"
+      },
+      "no_endpoint_or_wire_move": true
+    },
+    {
+      "wire": "W067",
+      "canonical_logical_port": "P_SYS.3",
+      "current_CAD_project_port": "P_SYS.2",
+      "current_endpoint_id": "W067/single/start",
+      "same_current_point_mm": [
+        4.550000000000001,
+        23.5,
+        48.5
+      ],
+      "current_group": "WAGO:P_SYS_new",
+      "logical_net": "P_SYS",
+      "current_guide_or_mouth_verification_status": {
+        "pose_status": "CURRENT_SHARED_STATION_MOUTH_AND_FULL_GRIP",
+        "actual_port_verified": false,
+        "datum_kind": "TRANSFERRED_GUIDE_ENDPOINT_NOT_AUTOMATICALLY_ACTUAL_MOUTH",
+        "routing_boundary_status": "RECEIVED_COMPLETE_CURRENT_PREFIX_EXIT"
+      },
+      "no_endpoint_or_wire_move": true
+    },
+    {
+      "wire": "W068",
+      "canonical_logical_port": "P_SYS.4",
+      "current_CAD_project_port": "P_SYS.3",
+      "current_endpoint_id": "W068/single/start",
+      "same_current_point_mm": [
+        4.550000000000001,
+        17.0,
+        48.5
+      ],
+      "current_group": "WAGO:P_SYS_new",
+      "logical_net": "P_SYS",
+      "current_guide_or_mouth_verification_status": {
+        "pose_status": "CURRENT_SHARED_STATION_MOUTH_AND_FULL_GRIP",
+        "actual_port_verified": false,
+        "datum_kind": "TRANSFERRED_GUIDE_ENDPOINT_NOT_AUTOMATICALLY_ACTUAL_MOUTH",
+        "routing_boundary_status": "RECEIVED_COMPLETE_CURRENT_PREFIX_EXIT"
+      },
+      "no_endpoint_or_wire_move": true
+    }
+  ],
+  "closed_problem": "A unique4wire/4CADlabel/4distinctcurrentpointmapping makeslegacylogicalreferencesandcurrentCADprojectlabels explicit. UseW043 current[4.55,4,48.5] withcanonicalF_PI/P_SYS2 wireidentity; source5labelisCADalias. No newwire/rewiring/extraoccupiedcage/physicalpointshift.",
+  "limitations": [
+    "Thisis source-levelnominalalias reconciliation, notproofwhichmanufacturercagecurrentguidefaces; actual_port_verified flags retained, notsilentlyupgraded.",
+    "Do not inferunwiredorunusedphysicalportfromtheunmappedremainingprojectnumber.",
+    "DoesnotapproveW043newroute/fit/trim orfactorylength/stock/mount. No oldmiddleorworldtransform inherited.",
+    "SourcecurrentlabelsforW068P_SYS3andW067P_SYS2 differsolder4/3; samewireIDs/netretained. No arbitrarycagepermutationperformed."
+  ],
+  "N01_complete": false,
+  "geometry_or_CAD_run": false
+}
