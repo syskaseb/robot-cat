@@ -1,0 +1,150 @@
+{
+  "id": "day07-carrier-T18R100-binding-and-V3-section-gate",
+  "head_status": "SELECTED_NEW_TWO_T18R100_HEAD_EXTENT_RECEIVED",
+  "new_tie_sku": "HellermannTyton111-01910 T18R-PA66-BK",
+  "new_units_installed": 2,
+  "bounded_rare_renewal_units": 2,
+  "actual_free_stock_NOT_asserted": true,
+  "old_tie_labels_or_K3_NOT_changed": true,
+  "selected145_alternative_NOT_used": "111-02370 T18I145 stays in catalog; not assigned to these2newroles",
+  "axis_mapping": {
+    "worldX_feed_budget": 5.3,
+    "supplier_head_length": 4.8,
+    "worldY_head_budget": 4.45,
+    "supplier_head_width": 4.45,
+    "worldZ_head_project_reserve": 5.0,
+    "supplier_full_head_height": null,
+    "strap_source_thickness": 1.0,
+    "strap_budget_thickness": 1.2,
+    "full_unit_length": 100.0,
+    "complete_loop_closure_head_upper_each": 71.9,
+    "untrimmed_residual_capacity_each": 100.0,
+    "residual_capacity_not_another_stock_debit": true
+  },
+  "head_rows": [
+    {
+      "head": "joint_tie0:T18R100_head_width_bound",
+      "other": "new_receiver",
+      "bbox_lower_mm": 1.1999999999999993,
+      "gap_mm": 1.1999999999999993,
+      "required_mm": 0,
+      "common_valid": null,
+      "common_mm3": 0,
+      "status": "NAMED_STRUCTURAL_HEAD_OWNMOUNT_NO_INTRUSION"
+    },
+    {
+      "head": "joint_tie1:T18R100_head_width_bound",
+      "other": "new_receiver",
+      "bbox_lower_mm": 1.1999999999999993,
+      "gap_mm": 1.1999999999999993,
+      "required_mm": 0,
+      "common_valid": null,
+      "common_mm3": 0,
+      "status": "NAMED_STRUCTURAL_HEAD_OWNMOUNT_NO_INTRUSION"
+    }
+  ],
+  "head_outline": {
+    "joint_tie0:T18R100_head_width_bound": {
+      "previous_outline_lower_mm": 4.9,
+      "added_extent_each_side_mm": 0.075,
+      "new_outline_lower_mm": 4.825,
+      "required_mm": 3.25,
+      "method": "Distance-to-boundary is1-Lipschitz under Hausdorff .075mm width enlargement; no oldoutlineBOP replay"
+    },
+    "joint_tie1:T18R100_head_width_bound": {
+      "previous_outline_lower_mm": 4.9,
+      "added_extent_each_side_mm": 0.075,
+      "new_outline_lower_mm": 4.825,
+      "required_mm": 3.25,
+      "method": "Distance-to-boundary is1-Lipschitz under Hausdorff .075mm width enlargement; no oldoutlineBOP replay"
+    }
+  },
+  "V3_candidate": {
+    "section_bounds_mm": [
+      [
+        -19.4,
+        45.0,
+        41.66
+      ],
+      [
+        -16.6,
+        49.0,
+        48.86
+      ]
+    ],
+    "capacity_profile_XZ_mm": [
+      2.8,
+      7.2
+    ],
+    "local_cores": [
+      "W020",
+      "W022",
+      "W024"
+    ],
+    "actual_OD_each_mm": 2.0,
+    "core_spacing_mm": 0.2,
+    "outer_allowance_mm": 0.4,
+    "choice_basis": "Old9mm slot between housingmaxX-15.5/minX-6.5 is narrowed by existing4mm column[-13.5,-9.5]. West2/east3 gaps cannotfit profile2.8 plus twoforeign1.25. Choose source interdeck38.52..52 window atZ45.26, westX-18; test actual retainedrail before designing bends.",
+    "rows": [],
+    "whole_V3_transport_branch_radius_length_NOT_received": true
+  },
+  "archive": "day07-carrier-T18R100-heads-and-V3-section.breps.zip",
+  "archive_sha256": "1bd7f699baff0a10af73a7408e97f130e6ce4a74e5c81f6ccbbfd0d01c5d3729",
+  "geometry": [
+    {
+      "name": "joint_tie0:T18R100_head_width_bound",
+      "entry": "0.brep",
+      "sha256": "fbf2ba6f847df7495304c6ed0ac895113d5ffb06a2b77fed1c9a9971fb1076f3",
+      "bounds_mm": [
+        [
+          -23.5,
+          34.275,
+          102.1
+        ],
+        [
+          -18.2,
+          38.725,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "joint_tie1:T18R100_head_width_bound",
+      "entry": "1.brep",
+      "sha256": "f5a030787fa8f3596637b14b8c7b680dd0f4cde418ddbf8956d03603c7fa6487",
+      "bounds_mm": [
+        [
+          -23.5,
+          39.275,
+          102.1
+        ],
+        [
+          -18.2,
+          43.725,
+          107.1
+        ]
+      ]
+    },
+    {
+      "name": "V3:first_full_interdeck_section",
+      "entry": "2.brep",
+      "sha256": "c2df42c7ee1a51572c4d6f2b8f319f323748207b911d86cc6bf3e6594e563efe",
+      "bounds_mm": [
+        [
+          -19.4,
+          45.0,
+          41.66
+        ],
+        [
+          -16.6,
+          49.0,
+          48.86
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 2.125,
+  "process_cpu_seconds": 2.28125,
+  "N01_complete": false,
+  "selected": false
+}

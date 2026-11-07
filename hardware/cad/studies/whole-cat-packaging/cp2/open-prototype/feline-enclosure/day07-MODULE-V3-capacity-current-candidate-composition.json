@@ -1,0 +1,124 @@
+{
+  "id": "day07-MODULE-V3-capacity-current-candidate-composition",
+  "status": "MODULE_REGION_AND_NEW100_HEAD_BINDING_RECEIVED_V3_NEW_TOPOLOGY_HOLD",
+  "selected": false,
+  "N01_complete": false,
+  "inherited_current1292_and_removable_Pi": "day07-removable-Pi-carrier-current-candidate-composition.json",
+  "inherited_composition_sha256": "def3e56a8eca5cc84fe420299f0c4cfe08f0328d212940fb4614b372acf2ade1",
+  "source_Current35_unchanged": true,
+  "scoped_region_override": {
+    "role": "Flat:MODULE:5",
+    "old_role": "Allocated round3.05 twist cover only; NOT actual copper retired",
+    "new_archive": "day07-MODULE-two-profile-twist-capacity.breps.zip",
+    "new_archive_sha256": "9b2c393b570f2f14e5901679c4c719bb23152ce4220074df4d6f8720c3ba7651",
+    "new_geometry": {
+      "name": "MODULE5:connected_full_two_profile_twist_region",
+      "entry": "0.brep",
+      "sha256": "51aaba4f8ad7abea09572bf47a70c10dff11e022c0069a2803362a8052ce1732",
+      "bounds_mm": [
+        [
+          -37.836992794628884,
+          37.672011917738445,
+          84.39095883483252
+        ],
+        [
+          -12.845235861837118,
+          81.82259661608984,
+          90.9703258720829
+        ]
+      ]
+    },
+    "unchanged_independent_factory_budget_mm": [
+      199.17616758692503,
+      213.55265253548615
+    ],
+    "source_full_profile_mm": [
+      2.1,
+      2.1
+    ],
+    "whole_cap_connection": "MODULE4 and6 sourceinterfaces unchanged/continuous; no other modulemidspan changed"
+  },
+  "new_structural_tie_binding": {
+    "roles": [
+      "joint_tie0",
+      "joint_tie1"
+    ],
+    "selected_part": "111-01910 T18R-PA66-BK100",
+    "installed_units": 2,
+    "bounded_rare_renewal_units": 2,
+    "actual_free_stock": null,
+    "source_binding_receipt": "day07-coordinator-new-carrier-tie-source-binding.json",
+    "source_binding_sha256": "8593467b8cf2c020797d08ad06e285f026ab6b5c391081807361ad6c50125e05",
+    "head_override_archive": "day07-carrier-T18R100-heads-and-V3-section.breps.zip",
+    "head_override_archive_sha256": "1bd7f699baff0a10af73a7408e97f130e6ce4a74e5c81f6ccbbfd0d01c5d3729",
+    "head_overrides": [
+      {
+        "name": "joint_tie0:T18R100_head_width_bound",
+        "entry": "0.brep",
+        "sha256": "fbf2ba6f847df7495304c6ed0ac895113d5ffb06a2b77fed1c9a9971fb1076f3",
+        "bounds_mm": [
+          [
+            -23.5,
+            34.275,
+            102.1
+          ],
+          [
+            -18.2,
+            38.725,
+            107.1
+          ]
+        ]
+      },
+      {
+        "name": "joint_tie1:T18R100_head_width_bound",
+        "entry": "1.brep",
+        "sha256": "f5a030787fa8f3596637b14b8c7b680dd0f4cde418ddbf8956d03603c7fa6487",
+        "bounds_mm": [
+          [
+            -23.5,
+            39.275,
+            102.1
+          ],
+          [
+            -18.2,
+            43.725,
+            107.1
+          ]
+        ]
+      }
+    ],
+    "head_world_dimensions_mm": [
+      5.3,
+      4.45,
+      5
+    ],
+    "supplier_head_height_UNKNOWN": true,
+    "project_height_reserve_mm": 5,
+    "old_installed_ties_or_global_K3_not_relabelled": true
+  },
+  "V3_CURRENT": {
+    "original_region_role": "V:common_region",
+    "original_column_capacity_HOLD_remains": true,
+    "proposal": "day07-V3-interdeck-connected-capacity-proposal.json",
+    "proposal_sha256": "c821c7fec9b8432e712403ae87131a282bc6e2f820c5e12ed4e97e798d42f2fe",
+    "not_selected_new_region_archive": "day07-V3-interdeck-connected-capacity-first-gate.breps.zip",
+    "not_selected_new_support_archive": "day07-V3-source-clamp-shared-support-correction.breps.zip",
+    "corrected_candidate_column_gap_mm": 1.6373584168343989,
+    "hard_reject_newsupport": {
+      "other": "Ref_Material_F_L2_CP2_IN_0_0",
+      "validcommon_mm3": 6.612585200000023
+    },
+    "C0_region_first_gate_received": 1,
+    "C0_region_total": 239,
+    "C0_region_unreceived": 238,
+    "support_correction_used": 1,
+    "support_correction_max": 1,
+    "no_third_offset": true
+  },
+  "no_new_stock_pool_trim_or_factory_debit": true,
+  "unchanged_GLOBAL_OPEN": [
+    "S0actualretention/currentfixings",
+    "R6/Pi mates/invalid3",
+    "head/North/whole123246/lengthslack/motionoutline"
+  ]
+}

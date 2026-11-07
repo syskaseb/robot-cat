@@ -1,0 +1,270 @@
+{
+  "id": "day07-V3-source-clamp-shared-support-correction",
+  "status": "SHARED_V3_SUPPORT_HOLD",
+  "wire_region_interfaces": [
+    {
+      "region": "V3:common_connected_lower_region",
+      "new_support_valid": true,
+      "region_valid": true,
+      "gap_mm": 4.616603666265519,
+      "required_mm": 0.2,
+      "common_valid": null,
+      "common_mm3": 0,
+      "status": "FUNCTIONAL_GUIDE_REGION_CLEAR02",
+      "witnesses": [
+        [
+          [
+            -18.088918537077397,
+            37.55,
+            49.0136556272411
+          ],
+          [
+            -17.0,
+            37.55,
+            53.5
+          ]
+        ]
+      ]
+    },
+    {
+      "region": "W020:occupied_branch_region",
+      "new_support_valid": true,
+      "region_valid": true,
+      "gap_mm": 2.049999999999997,
+      "required_mm": 0.2,
+      "common_valid": null,
+      "common_mm3": 0,
+      "status": "FUNCTIONAL_GUIDE_REGION_CLEAR02",
+      "witnesses": [
+        [
+          [
+            -15.200000000000001,
+            13.65,
+            62.45
+          ],
+          [
+            -15.200000000000003,
+            13.65,
+            64.5
+          ]
+        ]
+      ]
+    },
+    {
+      "region": "W024:occupied_branch_region",
+      "new_support_valid": true,
+      "region_valid": true,
+      "gap_mm": 5.52820983682783,
+      "required_mm": 0.2,
+      "common_valid": null,
+      "common_mm3": 0,
+      "status": "FUNCTIONAL_GUIDE_REGION_CLEAR02",
+      "witnesses": [
+        [
+          [
+            8.0,
+            8.152,
+            67.6
+          ],
+          [
+            8.0,
+            13.5,
+            66.2
+          ]
+        ]
+      ]
+    },
+    {
+      "region": "W022:occupied_branch_region",
+      "new_support_valid": true,
+      "region_valid": true,
+      "gap_mm": 2.5839952968870152,
+      "required_mm": 0.2,
+      "common_valid": null,
+      "common_mm3": 0,
+      "status": "FUNCTIONAL_GUIDE_REGION_CLEAR02",
+      "witnesses": [
+        [
+          [
+            5.329122489676229,
+            13.68131138268668,
+            58.90271090559874
+          ],
+          [
+            7.0,
+            15.65,
+            59.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "changed_foreign_rows": [
+    {
+      "added": "V:shared_source_clamp_crossbar",
+      "other": "Ref_Material_F_L1_CP2_OUT_0_0",
+      "added_valid": true,
+      "other_valid": true,
+      "named_source_cap_print_own": false,
+      "gap_mm": 1.152000000000001,
+      "required_mm": 1.25,
+      "witnesses": [
+        [
+          [
+            -41.0,
+            16.0,
+            66.2
+          ],
+          [
+            -41.0,
+            17.152,
+            66.2
+          ]
+        ]
+      ],
+      "status": "ADDED_SHARED_SUPPORT_HOLD"
+    }
+  ],
+  "stop": {
+    "added": "V:shared_source_clamp_crossbar",
+    "other": "Ref_Material_F_L1_CP2_OUT_0_0",
+    "added_valid": true,
+    "other_valid": true,
+    "named_source_cap_print_own": false,
+    "gap_mm": 1.152000000000001,
+    "required_mm": 1.25,
+    "witnesses": [
+      [
+        [
+          -41.0,
+          16.0,
+          66.2
+        ],
+        [
+          -41.0,
+          17.152,
+          66.2
+        ]
+      ]
+    ],
+    "status": "ADDED_SHARED_SUPPORT_HOLD"
+  },
+  "source_function": "Old12-cell root carries3 original full9 bank clamps. W020 new lower regionalbody crosses old W022 arm, not bought hardware. Replace only declared W022arm/lower-tab material by one transverse shared sourcecap bar; keep W020/W024 original root paths and all three cap geometries. W022foot/riser may remain harmless unloaded material connected through BankBed; no fake physical extra part.",
+  "C0_root_witness": {
+    "file": "day07-V3-interdeck-connected-capacity-first-gate.json",
+    "sha256": "fe06eb3b8a5648f5c73858ef04241948e3424172863565bfad798225599fff10",
+    "validcommon_mm3": 13.220227399757654,
+    "not_actual_wirecontact": true
+  },
+  "correction_used": 1,
+  "correction_max": 1,
+  "no_third_support_offset": true,
+  "protected_cap_lost_mm3": 0.0,
+  "removed_outside_declared_old_W022_arm_lower_tab_mm3": 0.0,
+  "removed_measured_before_added_bar_mm3": 66.78,
+  "initial_build_interruption": "ValueError Nullshape on redundant whole-added-union loss subtraction; savedgeometry valid. Resumed only missing measurement/gates, no geometry rebuild/offset.",
+  "source_grip_interface": "Free-region radius1.4 tested against root material; original full9 nominal1.0 tube/own groove interface preserved unchanged. No foreign physical/clamp margin waived.",
+  "source_full9_and_all_stock_untouched": true,
+  "actual_print_join": {
+    "crossbar_to_retained_support_common_mm3": 4.333040908870663,
+    "corrected_support_valid": true,
+    "support_solids": 2,
+    "whole_BankBed_connection_inherited_from_unchanged_W020_W024_sourcefeet": true,
+    "not_whole_reopen_or_strengthproof": true
+  },
+  "original_V_capacity_HOLD_NOT_closed": true,
+  "remaining": "All changed V3 region foreign pairs beyond first C0 witness remain unreceived. Require current corrected whole support/region root integration, source intermediate guide lifecycle/replacement, local crossoccupancy and whole physicalunit nominalbudgets before V3 acceptance. No third wire offset or column move.",
+  "archive": "day07-V3-source-clamp-shared-support-correction.breps.zip",
+  "archive_sha256": "c2de449191fe9417003ee7dbbe933002f0b2104bd7ad31e7ddec06f28ce1205d",
+  "geometry": [
+    {
+      "name": "V:new_root_material",
+      "entry": "0.brep",
+      "sha256": "45b81fdf7a24c367e121f660ef50611247e2c85de0129838d299492e11527a6c",
+      "bounds_mm": [
+        [
+          -41.4,
+          13.5,
+          53.5
+        ],
+        [
+          9.399999999999999,
+          41.25,
+          66.2
+        ]
+      ]
+    },
+    {
+      "name": "V:functional_pressure_support",
+      "entry": "1.brep",
+      "sha256": "d5bbb00f077cb71d07226755c7e7ee84ce8aa981bfed5b1f82581f6edb5496c9",
+      "bounds_mm": [
+        [
+          -42.99999999999998,
+          8.151999999999973,
+          53.5
+        ],
+        [
+          11.000000000000014,
+          41.25,
+          72.0
+        ]
+      ]
+    },
+    {
+      "name": "V:sourceclamp_crossbar_added",
+      "entry": "2.brep",
+      "sha256": "e25f893207c9283960646d95f4fade853b0d30e30d3f177b3c6d93d28f1457d2",
+      "bounds_mm": [
+        [
+          -41.4,
+          13.5,
+          64.5
+        ],
+        [
+          9.399999999999999,
+          16.0,
+          66.2
+        ]
+      ]
+    },
+    {
+      "name": "DECLARED:old_W022_arm_lower_tab_cut",
+      "entry": "3.brep",
+      "sha256": "b68e0d5d22981465d1f9e641ec79a46a4e4aea4903e114fe65d7e25bb67596f6",
+      "bounds_mm": [
+        [
+          -17.0,
+          15.65,
+          59.0
+        ],
+        [
+          -15.6,
+          37.75,
+          64.5
+        ]
+      ]
+    },
+    {
+      "name": "Ref_Material_F_L1_CP2_OUT_0_0",
+      "entry": "4.brep",
+      "sha256": "be3950affeb25842278af8dcb0ca06f2549e53c49d94263027a711017aaf9375",
+      "bounds_mm": [
+        [
+          -42.7305,
+          17.152,
+          63.8057
+        ],
+        [
+          -37.2695,
+          39.25,
+          74.1943
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 0.640999999945052,
+  "process_cpu_seconds": 1.796875,
+  "selected": false,
+  "N01_complete": false
+}

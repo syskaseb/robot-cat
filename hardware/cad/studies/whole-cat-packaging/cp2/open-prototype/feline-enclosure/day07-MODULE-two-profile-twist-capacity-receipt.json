@@ -1,0 +1,258 @@
+{
+  "id": "day07-MODULE-two-profile-twist-capacity-receipt",
+  "status": "ORIGINAL_MODULE_CAPACITY_HOLD_CLOSED_SCOPED",
+  "selected": false,
+  "N01_complete": false,
+  "original_hold": {
+    "region": "Flat:MODULE:5",
+    "old_round_capacity_radius_mm": 3.05,
+    "old_gap_mm": 1.0257060169020848,
+    "not_physical_wirecontact": true
+  },
+  "current_region": {
+    "whole_connected": true,
+    "valid": true,
+    "solids": 1,
+    "subset_old_field_missing_volume_mm3": 0.0,
+    "column_gap_mm": 2.038765272662357,
+    "required_foreign_mm": 1.25,
+    "witnesses": [
+      [
+        [
+          -15.440294831751352,
+          44.37404488747754,
+          89.25905633330802
+        ],
+        [
+          -13.5,
+          45.0,
+          89.25905633330802
+        ]
+      ]
+    ],
+    "portal_joins": [
+      {
+        "other": "Flat:MODULE:4",
+        "gap_mm": 0.0
+      },
+      {
+        "other": "Flat:MODULE:6",
+        "gap_mm": 2.3092638912203256e-14
+      }
+    ],
+    "full_profile_diameter_each_mm": 2.1,
+    "nominal_OD_each_mm": 1.85
+  },
+  "constructive_definition": {
+    "axis_row": {
+      "kind": "line",
+      "start": [
+        -35.10228018608415,
+        80.46862131632336,
+        88.50834097802019
+      ],
+      "end": [
+        -14.341808426770463,
+        38.45582908106074,
+        87.0177553581671
+      ],
+      "length_mm": 46.885965326126296
+    },
+    "start_pair_offset_mm": [
+      -1.7921265753209015,
+      -0.8869740268337736,
+      0.039489413149075794
+    ],
+    "end_pair_offset_mm": [
+      -0.02250878978984416,
+      0.042069423563781475,
+      -1.4992409806242648
+    ],
+    "offset_law": "r=2-.5h, e=rotate(e0,t,theta*h), h=3q^2-2q^3; symmetric +- centreoffsets, full radius1.05 each",
+    "theta_rad": 1.5895240988919426,
+    "profile_containment": "Prism coordinates include full radius1.05 plus Lipschitz offset variation AND axial error from actual tilted per-core tangent; intersecting oldradius3.05 doesnot remove either tube: r<=2 and fullradius1.05, endpoints havehprime0; axialspill bound1.05*6*(.5+2abs(theta))/L²<1. Each interval centre may differ by at most dq. No sampledwire collision pass.",
+    "axial_no_end_spill_coefficient": 0.010543633535494153,
+    "intervals": [
+      {
+        "q": [
+          0.0,
+          0.125
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          3.4038383667847194,
+          1.4132562741871086
+        ]
+      },
+      {
+        "q": [
+          0.125,
+          0.25
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          3.347595377488431,
+          1.6568017275836426
+        ]
+      },
+      {
+        "q": [
+          0.25,
+          0.375
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          3.179970972816874,
+          2.0535551622999195
+        ]
+      },
+      {
+        "q": [
+          0.375,
+          0.5
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          2.8646016564283245,
+          2.463230018857557
+        ]
+      },
+      {
+        "q": [
+          0.5,
+          0.625
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          2.4369856859603383,
+          2.7680048557540906
+        ]
+      },
+      {
+        "q": [
+          0.625,
+          0.75
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          1.9933520516731071,
+          2.916247023577845
+        ]
+      },
+      {
+        "q": [
+          0.75,
+          0.875
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          1.6370201203897627,
+          2.9387616359329165
+        ]
+      },
+      {
+        "q": [
+          0.875,
+          1.0
+        ],
+        "offset_Lipschitz": 5.518572296675828,
+        "profile_axial_parameter_error_upper": 0.0026359083838735377,
+        "offset_error_upper": 0.3594572195260593,
+        "half_dimensions": [
+          1.4378805016871672,
+          2.9148041400109275
+        ]
+      }
+    ]
+  },
+  "analytic_clearance": {
+    "column_axis_xy_gap_mm": 3.653831016902068,
+    "critical_axis_q_interval": [
+      0.8334242297900527,
+      0.9465836284726712
+    ],
+    "horizontal_pair_offset_upper_mm": 0.22957032594095267,
+    "all_interval_surface_gap_lower_mm": 2.3742606909611155,
+    "method": "Outside expandedcolumnXY4.3, oldradius3.05 has>=1.25. Inside interval use exact axis-to-rectangle quadratic minimum and angular endpoint deviation bound for full2.1 profiles; no freewire pose assumption."
+  },
+  "whole_factory": {
+    "XP03_module_required_upper_mm": 199.17616758692503,
+    "XP02_module_required_upper_mm": 213.55265253548615,
+    "min_each_mm": 220,
+    "individual_residual_lower_mm": [
+      20.823832413074967,
+      6.447347464513854
+    ],
+    "source_analytic_proof_reused": {
+      "XP03.module": {
+        "required_upper_mm": 199.17616758692503,
+        "remaining_min220_mm": 20.823832413074967,
+        "arc_radii_mm": [
+          13.5,
+          15.5,
+          15.5,
+          13.501257595533062,
+          16.162605632237263
+        ],
+        "twist_extra_upper_mm": 0.2478391703424947,
+        "twist_R_lower_mm": 59.38067018007507
+      },
+      "XP02.module": {
+        "required_upper_mm": 213.55265253548615,
+        "remaining_min220_mm": 6.447347464513854,
+        "arc_radii_mm": [
+          17.5,
+          15.5,
+          15.5,
+          17.498742404466938,
+          14.837394367762736
+        ],
+        "twist_extra_upper_mm": 0.2478391703424947,
+        "twist_R_lower_mm": 59.38067018007507
+      }
+    },
+    "all_axes_bends_ends_prefixes_and_factory_debits_UNCHANGED": true,
+    "min_arc_core_R_mm": 13.5,
+    "twist_R_lower_mm": 59.38067018007507,
+    "no_pool_trim_extra9": true,
+    "other_SOURCE_units": "211.811106/160.659660 of independent220 unchanged; not borrowed."
+  },
+  "assembly": "Hand-lay both full leads through existing open shared Cguide before FHYcase/dock tying. Same received source ports/full9 and paired ends, same smoothstep witness and group lengths. New analytical occupiedregion replaces only the old oversized roundtwist field; all unchanged source foreign evidence reusable by actualsubset proof.",
+  "archive": "day07-MODULE-two-profile-twist-capacity.breps.zip",
+  "archive_sha256": "9b2c393b570f2f14e5901679c4c719bb23152ce4220074df4d6f8720c3ba7651",
+  "geometry": [
+    {
+      "name": "MODULE5:connected_full_two_profile_twist_region",
+      "entry": "0.brep",
+      "sha256": "51aaba4f8ad7abea09572bf47a70c10dff11e022c0069a2803362a8052ce1732",
+      "bounds_mm": [
+        [
+          -37.836992794628884,
+          37.672011917738445,
+          84.39095883483252
+        ],
+        [
+          -12.845235861837118,
+          81.82259661608984,
+          90.9703258720829
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 0.48499999998603016,
+  "process_cpu_seconds": 1.265625
+}
