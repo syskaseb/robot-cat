@@ -3,7 +3,7 @@ from datetime import datetime,timezone
 import json,hashlib,zipfile,subprocess,os
 root=Path('C:/Users/Sysq/PycharmProjects/robot-cat-mechanical');out=root/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure';temp=Path('C:/Users/Sysq/AppData/Local/Temp');sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 p=out/'day07-FRG-open-front-whole-interface-bounded-disposition.json';r=json.loads(p.read_bytes());assert r['new_motion_bounds_separated']==21542 and r['new_motion_later_unreceived']==1032
-r['view'].update(visually_inspected=True,inspection='ActualXZforeclosure/R3full83.3 andYZrearkey sectionsread. Separateupper/lower/four9 pressure/wholeunit/capacity distinct; no contact inferredfromprojection.');r['native']['idle_prompt_received_utc']='2026-11-07T19:25:20Z';r['partial_final_not_windowclose']=True
+r['view'].update(visually_inspected=True,inspection='ActualXZforeclosure/R3full83.3 andYZrearkey sectionsread. Separateupper/lower/four9 pressure/wholeunit/capacity distinct; no contact inferredfromprojection.');r['native']['idle_prompt_received_utc']='UNMEASURED_PROMPT_INSTANT_AFTER_19:25:02Z';r['partial_final_not_windowclose']=True
 n='day07-FRG-open-finalize-exact-open-interface.recipe.py';assert not(out/n).exists();(out/n).write_bytes(Path(__file__).read_bytes());r['packet_pins'].append(dict(path=n,sha256=sha(out/n),bytes=(out/n).stat().st_size));p.write_bytes((json.dumps(r,ensure_ascii=False,indent=2)+'\n').encode());names=[q['path'] for q in r['packet_pins']]+[p.name]
 for q in r['packet_pins']:assert sha(out/q['path'])==q['sha256']
 for q in r['source_pins']:assert sha(out/q['path'])==q['sha256']
