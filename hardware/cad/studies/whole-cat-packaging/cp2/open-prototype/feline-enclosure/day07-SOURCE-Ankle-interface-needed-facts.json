@@ -1,0 +1,308 @@
+{
+  "id": "day07-SOURCE-Ankle-interface-needed-facts",
+  "status": "NOMINAL_3PROFILE_NEUTRAL_AND_GROUNDEND_SEPARATED_CONTINUOUS_MOTION_STILL_OPEN",
+  "reason_for_exact_local_profile_check": "C1printendcornergap1.084631doesnotstate whetheractualfunctionalfullprofile/9landspace isblocked. Only3alreadydefinedlocalholderprofiles (notwholefreewireaxes) atneutralandrequiredgroundend decidewhethermoving-jointbay ispossiblewithoutwholeSOURCErepack.",
+  "print_negative": {
+    "foot": "Ref_Material_P0_Part__Feature123_0_0_0",
+    "source_stage": "Motion_RL_Ankle",
+    "closest_print_members": [
+      "lower:continuous_left_beam",
+      "upper:continuous_cap_plate"
+    ],
+    "holder_local_witness": [
+      -43,
+      -7,
+      6
+    ],
+    "gap_mm": 1.0846310064232025,
+    "no_material_common_claim": true
+  },
+  "source_motion_scope": {
+    "used_saved_pose_index": 35,
+    "angle_degrees": 74.21141206606978,
+    "total_saved_received_ground_poses": 36,
+    "source_axes": {
+      "name": "Rev_RL_Ankle",
+      "code": "RL",
+      "stage": "Ankle",
+      "physical_leg": "FrontLeft",
+      "horn": "Part__Feature094",
+      "cylinder_face": 112,
+      "pivot_mm": [
+        -54.63080320914031,
+        79.51564587853386,
+        -80.07050433164093
+      ],
+      "axis": [
+        -1.1041899389894559e-14,
+        0.9902680687415671,
+        -0.13917310096008878
+      ],
+      "connectors": [
+        {
+          "reference": "Rigid_Part__Feature118",
+          "pivot_mm": [
+            -54.63080320914031,
+            79.51564587853386,
+            -80.07050433164093
+          ],
+          "axis": [
+            -1.1021791687040371e-14,
+            0.9902680687415671,
+            -0.13917310096008884
+          ]
+        },
+        {
+          "reference": "Rigid_Part__Feature123",
+          "pivot_mm": [
+            -54.63080320914031,
+            79.51564587853386,
+            -80.07050433164093
+          ],
+          "axis": [
+            -1.1021791687040371e-14,
+            0.9902680687415671,
+            -0.13917310096008884
+          ]
+        }
+      ],
+      "errors": {
+        "horn_pivot_mm": 0.0,
+        "horn_axis_vector": 1.3877787807814457e-17,
+        "connector_pivot_mm": 0.0,
+        "connector_axis_vector": 5.90407285277874e-17
+      },
+      "compatible": true
+    },
+    "relative_transform": "CommonHip/Kneerigidtransformcancels forKneeholdervsAnklepart; applyONLYsourceAnklerotationaboutactualrestpivot toworldBRepONCE. No legsolver/XML/reopen/oldmotiontestreplay.",
+    "full_continuous_motion_NOT_accepted": true
+  },
+  "rows": [
+    {
+      "scope": "neutral",
+      "core": "D",
+      "valid": true,
+      "gap_mm": 3.590307551393307,
+      "witnesses": [
+        [
+          [
+            -45.499942464332314,
+            86.8713235864145,
+            -68.34343389338821
+          ],
+          [
+            -47.60269753665777,
+            86.46631481165464,
+            -71.22522106661403
+          ]
+        ]
+      ],
+      "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+    },
+    {
+      "scope": "neutral",
+      "core": "V",
+      "valid": true,
+      "gap_mm": 6.905436785483076,
+      "witnesses": [
+        [
+          [
+            -42.89539135772785,
+            87.17548331907038,
+            -66.1792249408801
+          ],
+          [
+            -47.18189082404894,
+            86.42200550349496,
+            -71.54049817631285
+          ]
+        ]
+      ],
+      "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+    },
+    {
+      "scope": "neutral",
+      "core": "G",
+      "valid": true,
+      "gap_mm": 9.16329989507527,
+      "witnesses": [
+        [
+          [
+            -41.133489138554246,
+            87.38123843233757,
+            -64.71520123771288
+          ],
+          [
+            -46.977565309094324,
+            86.39897958382502,
+            -71.7043361079619
+          ]
+        ]
+      ],
+      "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+    },
+    {
+      "scope": "received_ground_end_pose35_relativeKnee",
+      "core": "D",
+      "valid": true,
+      "gap_mm": 3.5903075513930958,
+      "witnesses": [
+        [
+          [
+            -45.499942464332314,
+            86.8713235864145,
+            -68.3434338933882
+          ],
+          [
+            -47.6026975366575,
+            86.46631481165464,
+            -71.22522106661395
+          ]
+        ]
+      ],
+      "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+    },
+    {
+      "scope": "received_ground_end_pose35_relativeKnee",
+      "core": "V",
+      "valid": true,
+      "gap_mm": 6.905436785482806,
+      "witnesses": [
+        [
+          [
+            -42.89539135772785,
+            87.17548331907038,
+            -66.1792249408801
+          ],
+          [
+            -47.18189082404856,
+            86.42200550349494,
+            -71.54049817631281
+          ]
+        ]
+      ],
+      "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+    },
+    {
+      "scope": "received_ground_end_pose35_relativeKnee",
+      "core": "G",
+      "valid": true,
+      "gap_mm": 9.163299895075006,
+      "witnesses": [
+        [
+          [
+            -41.133489138554246,
+            87.38123843233757,
+            -64.71520123771286
+          ],
+          [
+            -46.977565309093904,
+            86.398979583825,
+            -71.7043361079619
+          ]
+        ]
+      ],
+      "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+    }
+  ],
+  "all_tested_profiles_separated125": true,
+  "archive": "day07-SOURCE-Ankle-interface-needed-facts.breps.zip",
+  "archive_sha256": "11c046f9a0f2894b6b8f56463faad2491a7b3b82034624d4d10fcaa33130fbb2",
+  "geometry": [
+    {
+      "name": "CURRENT:Ankle_foot_neutral",
+      "entry": "0.brep",
+      "sha256": "269d0202ebbc8aec004aa97793dad7b1fe24555af09f51ca01639defa7c7882e",
+      "bounds_mm": [
+        [
+          -141.4889075165334,
+          69.07194873018706,
+          -168.3191538399982
+        ],
+        [
+          -42.63080320914075,
+          94.199022692452,
+          -68.79296884211998
+        ]
+      ],
+      "volume_mm3": 17420.00852873586
+    },
+    {
+      "name": "CURRENT:Ankle_foot_received_pose35_relativeKnee",
+      "entry": "1.brep",
+      "sha256": "17c82ac9f4b619fae51444360504f1f4e3c2887b0f4c4c4df99070dfbb956b3c",
+      "bounds_mm": [
+        [
+          -160.0397166540129,
+          79.39317074739135,
+          -93.40431126739755
+        ],
+        [
+          -42.63080320914,
+          101.10723459190116,
+          -18.153084953862137
+        ]
+      ],
+      "volume_mm3": 17420.00852873588
+    },
+    {
+      "name": "NOMINAL_FULL_SOURCE_PROFILE:D",
+      "entry": "2.brep",
+      "sha256": "f8627e6175bcb6864f4bf47ff53ffa3eb4629f855c83985c040acf8e2ceec6ce",
+      "bounds_mm": [
+        [
+          -100.77967689737666,
+          85.46881868618424,
+          -68.36674121477614
+        ],
+        [
+          -43.125204690663544,
+          97.7198497293317,
+          -1.108193024793274
+        ]
+      ],
+      "volume_mm3": 649.1001661214552
+    },
+    {
+      "name": "NOMINAL_FULL_SOURCE_PROFILE:V",
+      "entry": "3.brep",
+      "sha256": "aa9aadc81bef1aee0156e07675edec3524fdbd084f72a028b6efce1066b04eed",
+      "bounds_mm": [
+        [
+          -98.17512579077219,
+          86.27064144795408,
+          -66.19426192242072
+        ],
+        [
+          -41.36330247148994,
+          97.42794181348494,
+          0.3475603385266417
+        ]
+      ],
+      "volume_mm3": 283.3716573537993
+    },
+    {
+      "name": "NOMINAL_FULL_SOURCE_PROFILE:G",
+      "entry": "4.brep",
+      "sha256": "297aad6d9d82754dbcb66fc6c6cc04cbd2b6808243afe9a3c5f1602ecdeca909",
+      "bounds_mm": [
+        [
+          -96.41322357159858,
+          85.9787335321073,
+          -64.73850855910081
+        ],
+        [
+          -38.75875136488548,
+          98.22976457525476,
+          2.520039630882059
+        ]
+      ],
+      "volume_mm3": 649.1001661214551
+    }
+  ],
+  "next": "FirstderiveONEsourceAnkle-joint occupiedclearancebay forholderexterior fromrequiredcurrentmotion/full9end+selectedtiebudgets BEFOREnewmaterial; no staticcornertrim/normalposeoffset/C2. Ifsourcefullfunctionalprofilecapacityisblocked, choosewholeSOURCEspatialsplice/landpackagingratherthanpreservingunqualified86straightrecipe. ActualA/U/minimum/fit/slackstillNULL.",
+  "operation_seconds": 0.7190000000409782,
+  "process_cpu_seconds": 2.390625,
+  "selected": false,
+  "N01_complete": false
+}

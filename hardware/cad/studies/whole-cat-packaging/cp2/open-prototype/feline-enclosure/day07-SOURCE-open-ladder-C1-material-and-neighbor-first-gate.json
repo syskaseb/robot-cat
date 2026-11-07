@@ -1,0 +1,901 @@
+{
+  "id": "day07-SOURCE-open-ladder-C1-material-and-neighbor-first-gate",
+  "status": "C1_REAL_OPEN_LADDER_MATERIAL_OR_NEIGHBOR_HOLD",
+  "proposal": "day07-SOURCE-open-ladder-C1-whole-proposal.json",
+  "proposal_sha256": "0d247a414e4a39650a1159ae7eb2186f5c5784880b4509031c8a9a315d943dc8",
+  "material_ok": true,
+  "lower_valid": true,
+  "lower_solids": 1,
+  "upper_valid": true,
+  "upper_solids": 1,
+  "intended_member_coverage": [
+    {
+      "part": "lower",
+      "name": "foot_0",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "crosshead_0",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "foot_1",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "crosshead_1",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "continuous_left_beam",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "continuous_right_beam",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "source_land9_bearing_bed",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "D_sleeve20_bearing_bed",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "V_sleeve20_bearing_bed",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "G_sleeve20_bearing_bed",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "lower",
+      "name": "donor_land9_bearing_bed",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "upper",
+      "name": "source_land9_pressure_finger",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "upper",
+      "name": "D_sleeve20_pressure_finger",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "upper",
+      "name": "V_sleeve20_pressure_finger",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "upper",
+      "name": "G_sleeve20_pressure_finger",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "upper",
+      "name": "donor_land9_pressure_finger",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    },
+    {
+      "part": "upper",
+      "name": "continuous_cap_plate",
+      "missing_valid": true,
+      "missing_mm3": 0.0
+    }
+  ],
+  "positive_material_junctions": [
+    {
+      "a": "foot_0",
+      "b": "crosshead_0",
+      "valid": true,
+      "common_mm3": 15.668353029642104,
+      "positive": true
+    },
+    {
+      "a": "foot_1",
+      "b": "crosshead_1",
+      "valid": true,
+      "common_mm3": 16.000000000000107,
+      "positive": true
+    },
+    {
+      "a": "crosshead_0",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 1.9999999999999891,
+      "positive": true
+    },
+    {
+      "a": "crosshead_0",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 2.0000000000000018,
+      "positive": true
+    },
+    {
+      "a": "crosshead_1",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 2.000000000000003,
+      "positive": true
+    },
+    {
+      "a": "crosshead_1",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 2.0000000000000164,
+      "positive": true
+    },
+    {
+      "a": "source_land9_bearing_bed",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 3.9375000000000133,
+      "positive": true
+    },
+    {
+      "a": "source_land9_bearing_bed",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 3.937499999999899,
+      "positive": true
+    },
+    {
+      "a": "D_sleeve20_bearing_bed",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 8.750000000000007,
+      "positive": true
+    },
+    {
+      "a": "D_sleeve20_bearing_bed",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 8.749999999999785,
+      "positive": true
+    },
+    {
+      "a": "V_sleeve20_bearing_bed",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 8.750000000000075,
+      "positive": true
+    },
+    {
+      "a": "V_sleeve20_bearing_bed",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 8.749999999999684,
+      "positive": true
+    },
+    {
+      "a": "G_sleeve20_bearing_bed",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 8.750000000000034,
+      "positive": true
+    },
+    {
+      "a": "G_sleeve20_bearing_bed",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 8.749999999999703,
+      "positive": true
+    },
+    {
+      "a": "donor_land9_bearing_bed",
+      "b": "continuous_left_beam",
+      "valid": true,
+      "common_mm3": 3.937499999999978,
+      "positive": true
+    },
+    {
+      "a": "donor_land9_bearing_bed",
+      "b": "continuous_right_beam",
+      "valid": true,
+      "common_mm3": 3.9375000000000346,
+      "positive": true
+    },
+    {
+      "a": "source_land9_pressure_finger",
+      "b": "continuous_cap_plate",
+      "valid": true,
+      "common_mm3": 21.599999999999632,
+      "positive": true
+    },
+    {
+      "a": "D_sleeve20_pressure_finger",
+      "b": "continuous_cap_plate",
+      "valid": true,
+      "common_mm3": 47.9999999999983,
+      "positive": true
+    },
+    {
+      "a": "V_sleeve20_pressure_finger",
+      "b": "continuous_cap_plate",
+      "valid": true,
+      "common_mm3": 47.999999999998856,
+      "positive": true
+    },
+    {
+      "a": "G_sleeve20_pressure_finger",
+      "b": "continuous_cap_plate",
+      "valid": true,
+      "common_mm3": 47.99999999999929,
+      "positive": true
+    },
+    {
+      "a": "donor_land9_pressure_finger",
+      "b": "continuous_cap_plate",
+      "valid": true,
+      "common_mm3": 21.599999999999824,
+      "positive": true
+    }
+  ],
+  "actual_bearing_supports": [
+    {
+      "role": "source_land9",
+      "full_axial_length_mm": 9,
+      "lower_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+      "upper_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+      "actual_nominal_support_not_air": true
+    },
+    {
+      "role": "D_sleeve20",
+      "full_axial_length_mm": 20,
+      "lower_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+      "upper_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+      "actual_nominal_support_not_air": true
+    },
+    {
+      "role": "V_sleeve20",
+      "full_axial_length_mm": 20,
+      "lower_nominal_cylindrical_support_area_mm2": 202.40348943788172,
+      "upper_nominal_cylindrical_support_area_mm2": 202.4034894378817,
+      "actual_nominal_support_not_air": true
+    },
+    {
+      "role": "G_sleeve20",
+      "full_axial_length_mm": 20,
+      "lower_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+      "upper_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+      "actual_nominal_support_not_air": true
+    },
+    {
+      "role": "donor_land9",
+      "full_axial_length_mm": 9,
+      "lower_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+      "upper_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+      "actual_nominal_support_not_air": true
+    }
+  ],
+  "nominal_full_profiles": [
+    {
+      "core": "D",
+      "lower_material_common_valid": true,
+      "lower_material_common_mm3": 0.0,
+      "upper_material_common_valid": true,
+      "upper_material_common_mm3": 0.0,
+      "lower_gap_mm": 0.0,
+      "upper_gap_mm": 0.0,
+      "scope": "Exactnominalfullconservativeinsulation/sleevePROFILEwithprintedbearingfaces, notdeliveredwireOD/strainreliefpressurePASS."
+    },
+    {
+      "core": "V",
+      "lower_material_common_valid": true,
+      "lower_material_common_mm3": 0.0,
+      "upper_material_common_valid": true,
+      "upper_material_common_mm3": 0.0,
+      "lower_gap_mm": 0.0,
+      "upper_gap_mm": 0.0,
+      "scope": "Exactnominalfullconservativeinsulation/sleevePROFILEwithprintedbearingfaces, notdeliveredwireOD/strainreliefpressurePASS."
+    },
+    {
+      "core": "G",
+      "lower_material_common_valid": true,
+      "lower_material_common_mm3": 0.0,
+      "upper_material_common_valid": true,
+      "upper_material_common_mm3": 0.0,
+      "lower_gap_mm": 0.0,
+      "upper_gap_mm": 0.0,
+      "scope": "Exactnominalfullconservativeinsulation/sleevePROFILEwithprintedbearingfaces, notdeliveredwireOD/strainreliefpressurePASS."
+    }
+  ],
+  "removable_half_functional_seam": {
+    "common_valid": true,
+    "material_common_mm3": 0.0,
+    "mechanical_contact_area_mm2": 0.0,
+    "not_silent_print_fusion": true,
+    "retained_by_full4selected_ties_pending": true
+  },
+  "useful_sections": {
+    "each_long_sidebeam_mm": [
+      2,
+      4.25
+    ],
+    "area_mm2_each": 8.5,
+    "crosshead_to_sidebeam_positive_overlap_n_mm": 0.25,
+    "minimum_groove_floor_mm": 0.7,
+    "scope": "Measurednominalgeometry/prototypesection; notFEM/productionstrength/actualwirecompressioncertificate."
+  },
+  "subset_for_reuse": {
+    "lower_missing_valid": true,
+    "lower_outside_old_fullalloc_mm3": 0.0,
+    "upper_missing_valid": true,
+    "upper_outside_old_fullalloc_mm3": 0.0,
+    "reused_current056_gap_mm": 11.999999999999922,
+    "reused_only_if_both_outside_zero": true
+  },
+  "rows": [
+    {
+      "other": "Ref_Material_P0_Part__Feature058_0_0",
+      "valid": true,
+      "gap_mm": 1.3499999999996182,
+      "witnesses": [
+        [
+          [
+            -94.36015096747559,
+            92.56313904523957,
+            -11.677145310033428
+          ],
+          [
+            -94.36015096747562,
+            91.22627715243853,
+            -11.48926162373735
+          ]
+        ]
+      ],
+      "status": "C1_REAL_HOLDER_SEPARATED125"
+    },
+    {
+      "other": "Ref_Material_P0_Part__Feature059_0_0",
+      "valid": true,
+      "gap_mm": 2.3499999999988446,
+      "witnesses": [
+        [
+          [
+            -81.96092768001624,
+            93.08891963905144,
+            -7.936021992206624
+          ],
+          [
+            -81.96092768001625,
+            90.7617896775098,
+            -7.608965204950605
+          ]
+        ]
+      ],
+      "status": "C1_REAL_HOLDER_SEPARATED125"
+    },
+    {
+      "other": "Ref_Material_P0_Part__Feature060_0_0",
+      "valid": true,
+      "gap_mm": 8.349999999999891,
+      "witnesses": [
+        [
+          [
+            -88.02225397302978,
+            94.16424281478544,
+            -0.2847000258115244
+          ],
+          [
+            -88.0222539730299,
+            85.89550444079329,
+            0.8773953672050161
+          ]
+        ]
+      ],
+      "status": "C1_REAL_HOLDER_SEPARATED125"
+    },
+    {
+      "other": "Ref_Material_P0_Part__Feature063_0_0",
+      "valid": true,
+      "gap_mm": 1.4361282737558687,
+      "witnesses": [
+        [
+          [
+            -97.84822655449155,
+            94.15425462264864,
+            -0.35576970572362576
+          ],
+          [
+            -98.35536292999338,
+            93.05004660123743,
+            0.4097378127077862
+          ]
+        ]
+      ],
+      "status": "C1_REAL_HOLDER_SEPARATED125"
+    },
+    {
+      "other": "Ref_Material_P0_Part__Feature089_0_0",
+      "valid": true,
+      "gap_mm": 1.3289121766588743,
+      "witnesses": [
+        [
+          [
+            -60.77169113816534,
+            85.96285998624859,
+            -46.066302150587745
+          ],
+          [
+            -60.5613896513527,
+            85.25511426714147,
+            -47.171235114618845
+          ]
+        ]
+      ],
+      "status": "C1_REAL_HOLDER_SEPARATED125"
+    },
+    {
+      "other": "Ref_Material_P0_Part__Feature093_0_0",
+      "valid": true,
+      "gap_mm": 10.291671925585167,
+      "witnesses": [
+        [
+          [
+            -47.491658016441626,
+            84.41062769500917,
+            -69.6852777328519
+          ],
+          [
+            -52.94318612282119,
+            81.19968104658693,
+            -77.80249239985545
+          ]
+        ]
+      ],
+      "status": "C1_REAL_HOLDER_SEPARATED125"
+    }
+  ],
+  "cursor": 6,
+  "total": 9,
+  "unreceived": 3,
+  "full_original_neighbor_set": 10,
+  "unchanged056_reused": 1,
+  "source_contact_footprints_reused": [
+    15.66683530296422,
+    16
+  ],
+  "no_bought_material_fusion": true,
+  "archive": "day07-SOURCE-open-ladder-C1-material.breps.zip",
+  "archive_sha256": "9d3154d8d6408f4f3a5440540d3c6c2eaef3d205c0fea511b0f783c4b3e60553",
+  "geometry": [
+    {
+      "name": "LOWER:foot_0",
+      "entry": "0.brep",
+      "sha256": "31eb3e5d4eccc1b3f26f9f6c5e902c30d1847f3af75619b6fab7b205a70392dc",
+      "bounds_mm": [
+        [
+          -62.945064091443705,
+          85.96285998624859,
+          -46.3446483525079
+        ],
+        [
+          -57.3097358802216,
+          88.66170683494663,
+          -40.95525586474521
+        ]
+      ],
+      "volume_mm3": 31.33670605928438
+    },
+    {
+      "name": "LOWER:crosshead_0",
+      "entry": "1.brep",
+      "sha256": "96c36626b787e3063162259f1abc243c7b0f33bf27165d01535b7d3c2586d5cc",
+      "bounds_mm": [
+        [
+          -66.7752863070385,
+          86.4398589396276,
+          -49.996747875393744
+        ],
+        [
+          -53.47951366462681,
+          89.10900055944055,
+          -37.911768741428666
+        ]
+      ],
+      "volume_mm3": 56.00000000000001
+    },
+    {
+      "name": "LOWER:foot_1",
+      "entry": "2.brep",
+      "sha256": "e008698428dd718e126e7448b14492a49ac6fadeeef36e00795bda7a8ccf8350",
+      "bounds_mm": [
+        [
+          -82.22869238204056,
+          89.09526801404296,
+          -24.056407113388474
+        ],
+        [
+          -76.59336417081846,
+          91.86009025360964,
+          -18.197575327016548
+        ]
+      ],
+      "volume_mm3": 32.000000000000064
+    },
+    {
+      "name": "LOWER:crosshead_1",
+      "entry": "3.brep",
+      "sha256": "2f1220ae2764bc8e5e0ecca2f3193e9efad73974d017936d7cac3912cced19f3",
+      "bounds_mm": [
+        [
+          -86.05891459763535,
+          89.63824235829061,
+          -27.23906733766508
+        ],
+        [
+          -72.76314195522366,
+          92.30738397810356,
+          -15.154088203700006
+        ]
+      ],
+      "volume_mm3": 56.000000000000014
+    },
+    {
+      "name": "LOWER:continuous_left_beam",
+      "entry": "4.brep",
+      "sha256": "217d35e5b76b67c8e64f34d094ee8b18f921683d9e180d044b0cd54ecd0e53ba",
+      "bounds_mm": [
+        [
+          -102.77139244948596,
+          84.41062769500917,
+          -70.2767634119322
+        ],
+        [
+          -45.95956913020367,
+          97.96688361045905,
+          -3.173529434985759
+        ]
+      ],
+      "volume_mm3": 731.0
+    },
+    {
+      "name": "LOWER:continuous_right_beam",
+      "entry": "5.brep",
+      "sha256": "4ffb7e9c933207644fcab449d1ac3f7137307676a1e0e5771f62739c9357c898",
+      "bounds_mm": [
+        [
+          -93.57885913205845,
+          85.48413263379457,
+          -62.63837887366832
+        ],
+        [
+          -36.767035812776165,
+          99.04038854924445,
+          4.464855103278111
+        ]
+      ],
+      "volume_mm3": 731.0000000000001
+    },
+    {
+      "name": "LOWER:source_land9_bearing_bed",
+      "entry": "6.brep",
+      "sha256": "1560fe61754871a2e1c37447fead1b841a5b555fd06ad1de47f3b5fc99be4590",
+      "bounds_mm": [
+        [
+          -51.93616872816251,
+          84.56718049858203,
+          -68.8148995810352
+        ],
+        [
+          -38.107613588234365,
+          88.19898146591592,
+          -55.0604560220556
+        ]
+      ],
+      "volume_mm3": 119.32652983242001
+    },
+    {
+      "name": "LOWER:D_sleeve20_bearing_bed",
+      "entry": "7.brep",
+      "sha256": "4aa1e9e42372147cb61c84fc7ed2449b946570c83cbdbeafe0ebfa4426f91c97",
+      "bounds_mm": [
+        [
+          -66.07749614126686,
+          85.73992108542514,
+          -60.47041671720136
+        ],
+        [
+          -45.17827729478655,
+          90.54446263960213,
+          -38.37149029438791
+        ]
+      ],
+      "volume_mm3": 265.17006629426675
+    },
+    {
+      "name": "LOWER:V_sleeve20_bearing_bed",
+      "entry": "8.brep",
+      "sha256": "bb8dbd852c03b2f8caa245752be38e2ebdbf9a28590f3cc673d3fa2cd05a45be",
+      "bounds_mm": [
+        [
+          -80.21882355437123,
+          88.08540225911135,
+          -43.78145098953368
+        ],
+        [
+          -59.31960470789091,
+          92.88994381328834,
+          -21.68252456672023
+        ]
+      ],
+      "volume_mm3": 260.6575076052179
+    },
+    {
+      "name": "LOWER:G_sleeve20_bearing_bed",
+      "entry": "9.brep",
+      "sha256": "06ee0e5bccf94b9fcf722f0c0b6cf45d366fadd568cb4fe88a52648cf93258c6",
+      "bounds_mm": [
+        [
+          -94.36015096747559,
+          90.43088343279756,
+          -27.092485261865995
+        ],
+        [
+          -73.46093212099527,
+          95.23542498697455,
+          -4.9935588390525405
+        ]
+      ],
+      "volume_mm3": 265.1700662942667
+    },
+    {
+      "name": "LOWER:donor_land9_bearing_bed",
+      "entry": "10.brep",
+      "sha256": "111a6f0a051b51de41cee9262bec1c2e591de4f92049cf0bfa43d9d7a82fd390",
+      "bounds_mm": [
+        [
+          -101.43081467402777,
+          92.77636460648377,
+          -10.403519534198306
+        ],
+        [
+          -87.60225953409963,
+          96.40816557381766,
+          3.3509240247813006
+        ]
+      ],
+      "volume_mm3": 119.32652983242005
+    },
+    {
+      "name": "UPPER:source_land9_pressure_finger",
+      "entry": "11.brep",
+      "sha256": "488c7e19bc5062408c5ad65385afede3d65e2ff98692e06ea0b309f058ff4e39",
+      "bounds_mm": [
+        [
+          -51.591448728758955,
+          87.3306741228258,
+          -68.9111861884905
+        ],
+        [
+          -38.452333587637874,
+          90.88196221975079,
+          -55.729621469880676
+        ]
+      ],
+      "volume_mm3": 105.15152983242004
+    },
+    {
+      "name": "UPPER:D_sleeve20_pressure_finger",
+      "entry": "12.brep",
+      "sha256": "b4e22ec421f98d3960fc7585a4780404af25254f2e2ab64c377d1598ee9ee1f0",
+      "bounds_mm": [
+        [
+          -65.73277614186331,
+          88.5034147096689,
+          -60.56670332465666
+        ],
+        [
+          -45.522997294190056,
+          93.227443393437,
+          -39.040655742213005
+        ]
+      ],
+      "volume_mm3": 233.6700662942668
+    },
+    {
+      "name": "UPPER:V_sleeve20_pressure_finger",
+      "entry": "13.brep",
+      "sha256": "ebea6f0612d0dd376ce5b7ee76f4a721e5a93b2f297762e4320c6cfc6489f6de",
+      "bounds_mm": [
+        [
+          -79.87410355496768,
+          90.84889588335511,
+          -43.87773759698898
+        ],
+        [
+          -59.66432470729442,
+          95.57292456712321,
+          -22.351690014545316
+        ]
+      ],
+      "volume_mm3": 229.15750760521797
+    },
+    {
+      "name": "UPPER:G_sleeve20_pressure_finger",
+      "entry": "14.brep",
+      "sha256": "7034fc7875e0d40f8c5b5d5eeaf3d8d12aa1702b9547691511eca03571d3e8b0",
+      "bounds_mm": [
+        [
+          -94.01543096807205,
+          93.19437705704132,
+          -27.18877186932129
+        ],
+        [
+          -73.80565212039879,
+          97.91840574080942,
+          -5.662724286877629
+        ]
+      ],
+      "volume_mm3": 233.6700662942668
+    },
+    {
+      "name": "UPPER:donor_land9_pressure_finger",
+      "entry": "15.brep",
+      "sha256": "cc287b2f4848a9d3ce72417eb8a3812711eb958bc8143b441ab35d5a0003ffcb",
+      "bounds_mm": [
+        [
+          -101.08609467462423,
+          95.53985823072753,
+          -10.499806141653604
+        ],
+        [
+          -87.94697953350315,
+          99.09114632765252,
+          2.681758576956214
+        ]
+      ],
+      "volume_mm3": 105.15152983242015
+    },
+    {
+      "name": "UPPER:continuous_cap_plate",
+      "entry": "16.brep",
+      "sha256": "2c75ee13a8c7ddf1d963b5159034986270e262a13d81dc95ccd7a9e3d570c355",
+      "bounds_mm": [
+        [
+          -102.77139244948592,
+          88.61926698716084,
+          -70.55510961385234
+        ],
+        [
+          -36.76703581277615,
+          101.02092468672758,
+          3.8733694241978185
+        ]
+      ],
+      "volume_mm3": 2408.0000000000005
+    },
+    {
+      "name": "SOURCE:C1_complete_lower_ladder",
+      "entry": "17.brep",
+      "sha256": "89598444b7e95feb27fe17797bceca07a5f1b9664a54d3316be5c52402d0c219",
+      "bounds_mm": [
+        [
+          -102.77139244948596,
+          84.41062769500917,
+          -70.2767634119322
+        ],
+        [
+          -36.767035812776165,
+          99.04038854924445,
+          4.464855103278111
+        ]
+      ],
+      "volume_mm3": 2539.0690528882374
+    },
+    {
+      "name": "SOURCE:C1_removable_pressure_half",
+      "entry": "18.brep",
+      "sha256": "9ce36c5fd1453556b09ad21adbb57da5e21ec3a5ea8d9c8ab79ef4e2a7cfb14d",
+      "bounds_mm": [
+        [
+          -102.77139244948592,
+          87.3306741228258,
+          -70.55510961385234
+        ],
+        [
+          -36.76703581277615,
+          101.02092468672758,
+          3.8733694241978185
+        ]
+      ],
+      "volume_mm3": 3127.6006998585954
+    },
+    {
+      "name": "NOMINAL_OCCUPIED_PROFILE:D",
+      "entry": "19.brep",
+      "sha256": "f8627e6175bcb6864f4bf47ff53ffa3eb4629f855c83985c040acf8e2ceec6ce",
+      "bounds_mm": [
+        [
+          -100.77967689737666,
+          85.46881868618424,
+          -68.36674121477614
+        ],
+        [
+          -43.125204690663544,
+          97.7198497293317,
+          -1.1081930247932847
+        ]
+      ],
+      "volume_mm3": 649.1001661214552
+    },
+    {
+      "name": "NOMINAL_OCCUPIED_PROFILE:V",
+      "entry": "20.brep",
+      "sha256": "aa9aadc81bef1aee0156e07675edec3524fdbd084f72a028b6efce1066b04eed",
+      "bounds_mm": [
+        [
+          -98.17512579077219,
+          86.27064144795408,
+          -66.19426192242072
+        ],
+        [
+          -41.36330247148994,
+          97.42794181348494,
+          0.34756033852662394
+        ]
+      ],
+      "volume_mm3": 283.3716573537993
+    },
+    {
+      "name": "NOMINAL_OCCUPIED_PROFILE:G",
+      "entry": "21.brep",
+      "sha256": "297aad6d9d82754dbcb66fc6c6cc04cbd2b6808243afe9a3c5f1602ecdeca909",
+      "bounds_mm": [
+        [
+          -96.41322357159858,
+          85.9787335321073,
+          -64.73850855910081
+        ],
+        [
+          -38.75875136488548,
+          98.22976457525476,
+          2.520039630882052
+        ]
+      ],
+      "volume_mm3": 649.1001661214551
+    }
+  ],
+  "tie_stock_heads_feed_tail_access": "NEXT_ONLY_IF_FIRSTGATE_PASSES",
+  "current1292_effective1311_rest108_unchanged": true,
+  "no_source_joint_pose_or_profile_offset": true,
+  "no_V3_or_old_tests": true,
+  "actual_source_A_U_minimum_fit_slack": null,
+  "operation_seconds": 31.875,
+  "process_cpu_seconds": 372.453125,
+  "selected": false,
+  "N01_complete": false,
+  "pid": 26064,
+  "session_id": 46493
+}

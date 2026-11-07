@@ -1,0 +1,997 @@
+{
+  "id": "day07-SOURCE-open-ladder-C1-bounded-disposition",
+  "status": "C1_REAL_SUPPORTED_LADDER_KNEE_CASE_CLOSED_ANKLE_END_CLEARANCE_HOLD",
+  "selected": false,
+  "N01_complete": false,
+  "closed_problem": "Flat86base/case058common44.884383 removedcausallybyOPEN_LADDER, no joint/holderpose/profileoffset. Actualcompleteholder/case058gap1.35>=1.25. 2realconformingfeet/2crossheads/2continuousbeams/5supportedgroovedbeds+removablepressurehalf preserveactualmaterial/loadpath andfullprofiles, notcompressionagainstair.",
+  "actual_material": {
+    "lower_valid": true,
+    "lower_solids": 1,
+    "upper_valid": true,
+    "upper_solids": 1,
+    "intended_members": [
+      {
+        "part": "lower",
+        "name": "foot_0",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "crosshead_0",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "foot_1",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "crosshead_1",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "continuous_left_beam",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "continuous_right_beam",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "source_land9_bearing_bed",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "D_sleeve20_bearing_bed",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "V_sleeve20_bearing_bed",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "G_sleeve20_bearing_bed",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "lower",
+        "name": "donor_land9_bearing_bed",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "upper",
+        "name": "source_land9_pressure_finger",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "upper",
+        "name": "D_sleeve20_pressure_finger",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "upper",
+        "name": "V_sleeve20_pressure_finger",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "upper",
+        "name": "G_sleeve20_pressure_finger",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "upper",
+        "name": "donor_land9_pressure_finger",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      },
+      {
+        "part": "upper",
+        "name": "continuous_cap_plate",
+        "missing_valid": true,
+        "missing_mm3": 0.0
+      }
+    ],
+    "positive_junctions": [
+      {
+        "a": "foot_0",
+        "b": "crosshead_0",
+        "valid": true,
+        "common_mm3": 15.668353029642104,
+        "positive": true
+      },
+      {
+        "a": "foot_1",
+        "b": "crosshead_1",
+        "valid": true,
+        "common_mm3": 16.000000000000107,
+        "positive": true
+      },
+      {
+        "a": "crosshead_0",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 1.9999999999999891,
+        "positive": true
+      },
+      {
+        "a": "crosshead_0",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 2.0000000000000018,
+        "positive": true
+      },
+      {
+        "a": "crosshead_1",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 2.000000000000003,
+        "positive": true
+      },
+      {
+        "a": "crosshead_1",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 2.0000000000000164,
+        "positive": true
+      },
+      {
+        "a": "source_land9_bearing_bed",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 3.9375000000000133,
+        "positive": true
+      },
+      {
+        "a": "source_land9_bearing_bed",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 3.937499999999899,
+        "positive": true
+      },
+      {
+        "a": "D_sleeve20_bearing_bed",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 8.750000000000007,
+        "positive": true
+      },
+      {
+        "a": "D_sleeve20_bearing_bed",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 8.749999999999785,
+        "positive": true
+      },
+      {
+        "a": "V_sleeve20_bearing_bed",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 8.750000000000075,
+        "positive": true
+      },
+      {
+        "a": "V_sleeve20_bearing_bed",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 8.749999999999684,
+        "positive": true
+      },
+      {
+        "a": "G_sleeve20_bearing_bed",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 8.750000000000034,
+        "positive": true
+      },
+      {
+        "a": "G_sleeve20_bearing_bed",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 8.749999999999703,
+        "positive": true
+      },
+      {
+        "a": "donor_land9_bearing_bed",
+        "b": "continuous_left_beam",
+        "valid": true,
+        "common_mm3": 3.937499999999978,
+        "positive": true
+      },
+      {
+        "a": "donor_land9_bearing_bed",
+        "b": "continuous_right_beam",
+        "valid": true,
+        "common_mm3": 3.9375000000000346,
+        "positive": true
+      },
+      {
+        "a": "source_land9_pressure_finger",
+        "b": "continuous_cap_plate",
+        "valid": true,
+        "common_mm3": 21.599999999999632,
+        "positive": true
+      },
+      {
+        "a": "D_sleeve20_pressure_finger",
+        "b": "continuous_cap_plate",
+        "valid": true,
+        "common_mm3": 47.9999999999983,
+        "positive": true
+      },
+      {
+        "a": "V_sleeve20_pressure_finger",
+        "b": "continuous_cap_plate",
+        "valid": true,
+        "common_mm3": 47.999999999998856,
+        "positive": true
+      },
+      {
+        "a": "G_sleeve20_pressure_finger",
+        "b": "continuous_cap_plate",
+        "valid": true,
+        "common_mm3": 47.99999999999929,
+        "positive": true
+      },
+      {
+        "a": "donor_land9_pressure_finger",
+        "b": "continuous_cap_plate",
+        "valid": true,
+        "common_mm3": 21.599999999999824,
+        "positive": true
+      }
+    ],
+    "minimum_junction_volume_mm3": 1.9999999999999891,
+    "source_contact_areas_mm2": [
+      15.66835302964219,
+      16.000000000000032
+    ],
+    "raw_contact_square_metric_scope": "ActualcurrentconformingextrusionsVolume/2 gives15.668353/16; rawplaneintersection15.666835 isdifferentBReptrimread, notmissingroot. Preservebothrecords, no rootgeometryrerun/move/strengthclaim.",
+    "no_bought_link_fusion": true,
+    "useful_sections": {
+      "each_long_sidebeam_mm": [
+        2,
+        4.25
+      ],
+      "area_mm2_each": 8.5,
+      "crosshead_to_sidebeam_positive_overlap_n_mm": 0.25,
+      "minimum_groove_floor_mm": 0.7,
+      "scope": "Measurednominalgeometry/prototypesection; notFEM/productionstrength/actualwirecompressioncertificate."
+    },
+    "five_real_lower_upper_supports": [
+      {
+        "role": "source_land9",
+        "full_axial_length_mm": 9,
+        "lower_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+        "upper_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+        "actual_nominal_support_not_air": true
+      },
+      {
+        "role": "D_sleeve20",
+        "full_axial_length_mm": 20,
+        "lower_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+        "upper_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+        "actual_nominal_support_not_air": true
+      },
+      {
+        "role": "V_sleeve20",
+        "full_axial_length_mm": 20,
+        "lower_nominal_cylindrical_support_area_mm2": 202.40348943788172,
+        "upper_nominal_cylindrical_support_area_mm2": 202.4034894378817,
+        "actual_nominal_support_not_air": true
+      },
+      {
+        "role": "G_sleeve20",
+        "full_axial_length_mm": 20,
+        "lower_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+        "upper_nominal_cylindrical_support_area_mm2": 195.93827394707438,
+        "actual_nominal_support_not_air": true
+      },
+      {
+        "role": "donor_land9",
+        "full_axial_length_mm": 9,
+        "lower_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+        "upper_nominal_cylindrical_support_area_mm2": 88.17222327618347,
+        "actual_nominal_support_not_air": true
+      }
+    ],
+    "full_nominal_profiles": [
+      {
+        "core": "D",
+        "lower_material_common_valid": true,
+        "lower_material_common_mm3": 0.0,
+        "upper_material_common_valid": true,
+        "upper_material_common_mm3": 0.0,
+        "lower_gap_mm": 0.0,
+        "upper_gap_mm": 0.0,
+        "scope": "Exactnominalfullconservativeinsulation/sleevePROFILEwithprintedbearingfaces, notdeliveredwireOD/strainreliefpressurePASS."
+      },
+      {
+        "core": "V",
+        "lower_material_common_valid": true,
+        "lower_material_common_mm3": 0.0,
+        "upper_material_common_valid": true,
+        "upper_material_common_mm3": 0.0,
+        "lower_gap_mm": 0.0,
+        "upper_gap_mm": 0.0,
+        "scope": "Exactnominalfullconservativeinsulation/sleevePROFILEwithprintedbearingfaces, notdeliveredwireOD/strainreliefpressurePASS."
+      },
+      {
+        "core": "G",
+        "lower_material_common_valid": true,
+        "lower_material_common_mm3": 0.0,
+        "upper_material_common_valid": true,
+        "upper_material_common_mm3": 0.0,
+        "lower_gap_mm": 0.0,
+        "upper_gap_mm": 0.0,
+        "scope": "Exactnominalfullconservativeinsulation/sleevePROFILEwithprintedbearingfaces, notdeliveredwireOD/strainreliefpressurePASS."
+      }
+    ],
+    "pressure_half_own_mechanical_seam": {
+      "common_valid": true,
+      "material_common_mm3": 0.0,
+      "mechanical_contact_area_mm2": 0.0,
+      "not_silent_print_fusion": true,
+      "retained_by_full4selected_ties_pending": true
+    }
+  },
+  "neighbor_matrix": {
+    "all_new_rows": [
+      {
+        "other": "Ref_Material_P0_Part__Feature058_0_0",
+        "valid": true,
+        "gap_mm": 1.3499999999996182,
+        "witnesses": [
+          [
+            [
+              -94.36015096747559,
+              92.56313904523957,
+              -11.677145310033428
+            ],
+            [
+              -94.36015096747562,
+              91.22627715243853,
+              -11.48926162373735
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature059_0_0",
+        "valid": true,
+        "gap_mm": 2.3499999999988446,
+        "witnesses": [
+          [
+            [
+              -81.96092768001624,
+              93.08891963905144,
+              -7.936021992206624
+            ],
+            [
+              -81.96092768001625,
+              90.7617896775098,
+              -7.608965204950605
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature060_0_0",
+        "valid": true,
+        "gap_mm": 8.349999999999891,
+        "witnesses": [
+          [
+            [
+              -88.02225397302978,
+              94.16424281478544,
+              -0.2847000258115244
+            ],
+            [
+              -88.0222539730299,
+              85.89550444079329,
+              0.8773953672050161
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature063_0_0",
+        "valid": true,
+        "gap_mm": 1.4361282737558687,
+        "witnesses": [
+          [
+            [
+              -97.84822655449155,
+              94.15425462264864,
+              -0.35576970572362576
+            ],
+            [
+              -98.35536292999338,
+              93.05004660123743,
+              0.4097378127077862
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature089_0_0",
+        "valid": true,
+        "gap_mm": 1.3289121766588743,
+        "witnesses": [
+          [
+            [
+              -60.77169113816534,
+              85.96285998624859,
+              -46.066302150587745
+            ],
+            [
+              -60.5613896513527,
+              85.25511426714147,
+              -47.171235114618845
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature093_0_0",
+        "valid": true,
+        "gap_mm": 10.291671925585167,
+        "witnesses": [
+          [
+            [
+              -47.491658016441626,
+              84.41062769500917,
+              -69.6852777328519
+            ],
+            [
+              -52.94318612282119,
+              81.19968104658693,
+              -77.80249239985545
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature094_0_0_0",
+        "valid": true,
+        "gap_mm": 3.493587447156138,
+        "witnesses": [
+          [
+            [
+              -47.491658016441626,
+              84.41062769500917,
+              -69.6852777328519
+            ],
+            [
+              -49.39291810437409,
+              83.75664035190927,
+              -72.54231533918947
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature109_0_0_0",
+        "valid": true,
+        "gap_mm": 2.684631006423412,
+        "witnesses": [
+          [
+            [
+              -47.491658016441626,
+              84.41062769500917,
+              -69.6852777328519
+            ],
+            [
+              -48.95642767897695,
+              84.09751316248591,
+              -71.91320339720627
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_SEPARATED125"
+      },
+      {
+        "other": "Ref_Material_P0_Part__Feature123_0_0_0",
+        "valid": true,
+        "gap_mm": 1.0846310064232025,
+        "witnesses": [
+          [
+            [
+              -47.49165801644159,
+              88.61926698716084,
+              -70.2767634119322
+            ],
+            [
+              -48.08344682818246,
+              88.49276404142122,
+              -71.17687864184016
+            ]
+          ]
+        ],
+        "status": "C1_REAL_HOLDER_FOREIGN_HOLD"
+      }
+    ],
+    "new_rows_received": 9,
+    "new_rows_total": 9,
+    "old056_reused_by_actual_material_subset": {
+      "lower_missing_valid": true,
+      "lower_outside_old_fullalloc_mm3": 0.0,
+      "upper_missing_valid": true,
+      "upper_outside_old_fullalloc_mm3": 0.0,
+      "reused_current056_gap_mm": 11.999999999999922,
+      "reused_only_if_both_outside_zero": true
+    },
+    "complete_set_count": 10,
+    "separated_count": 9,
+    "clearance_HOLD_count": 1,
+    "unreceived_count": 0,
+    "case058_actual_gap_mm": 1.3499999999996182,
+    "not_all10PASS": true
+  },
+  "decisive_negative": {
+    "other": "Ref_Material_P0_Part__Feature123_0_0_0",
+    "valid": true,
+    "gap_mm": 1.0846310064232025,
+    "witnesses": [
+      [
+        [
+          -47.49165801644159,
+          88.61926698716084,
+          -70.2767634119322
+        ],
+        [
+          -48.08344682818246,
+          88.49276404142122,
+          -71.17687864184016
+        ]
+      ]
+    ],
+    "status": "C1_REAL_HOLDER_FOREIGN_HOLD"
+  },
+  "negative_classification": "Positiveactual3Dgap1.0846310064<foreign1.25 atactualretainedAnklepart123, NOTcontactorinvalidBRep. Sourceholderexteriorendcornerlocal[-43,-7,6] issharedlowercontinuous_left_beam/uppercontinuous_cap_plate; realwireprofilecapacitynotautomaticallyblocked.",
+  "functional_profile_facts": {
+    "receipt": "day07-SOURCE-Ankle-interface-needed-facts.json",
+    "sha256": "8100f483d19d5901818b8240f7fdaf48fb26a99f4e1f68116e1d9524f8236078",
+    "scope": "C1printendcornergap1.084631doesnotstate whetheractualfunctionalfullprofile/9landspace isblocked. Only3alreadydefinedlocalholderprofiles (notwholefreewireaxes) atneutralandrequiredgroundend decidewhethermoving-jointbay ispossiblewithoutwholeSOURCErepack.",
+    "rows": [
+      {
+        "scope": "neutral",
+        "core": "D",
+        "valid": true,
+        "gap_mm": 3.590307551393307,
+        "witnesses": [
+          [
+            [
+              -45.499942464332314,
+              86.8713235864145,
+              -68.34343389338821
+            ],
+            [
+              -47.60269753665777,
+              86.46631481165464,
+              -71.22522106661403
+            ]
+          ]
+        ],
+        "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+      },
+      {
+        "scope": "neutral",
+        "core": "V",
+        "valid": true,
+        "gap_mm": 6.905436785483076,
+        "witnesses": [
+          [
+            [
+              -42.89539135772785,
+              87.17548331907038,
+              -66.1792249408801
+            ],
+            [
+              -47.18189082404894,
+              86.42200550349496,
+              -71.54049817631285
+            ]
+          ]
+        ],
+        "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+      },
+      {
+        "scope": "neutral",
+        "core": "G",
+        "valid": true,
+        "gap_mm": 9.16329989507527,
+        "witnesses": [
+          [
+            [
+              -41.133489138554246,
+              87.38123843233757,
+              -64.71520123771288
+            ],
+            [
+              -46.977565309094324,
+              86.39897958382502,
+              -71.7043361079619
+            ]
+          ]
+        ],
+        "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+      },
+      {
+        "scope": "received_ground_end_pose35_relativeKnee",
+        "core": "D",
+        "valid": true,
+        "gap_mm": 3.5903075513930958,
+        "witnesses": [
+          [
+            [
+              -45.499942464332314,
+              86.8713235864145,
+              -68.3434338933882
+            ],
+            [
+              -47.6026975366575,
+              86.46631481165464,
+              -71.22522106661395
+            ]
+          ]
+        ],
+        "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+      },
+      {
+        "scope": "received_ground_end_pose35_relativeKnee",
+        "core": "V",
+        "valid": true,
+        "gap_mm": 6.905436785482806,
+        "witnesses": [
+          [
+            [
+              -42.89539135772785,
+              87.17548331907038,
+              -66.1792249408801
+            ],
+            [
+              -47.18189082404856,
+              86.42200550349494,
+              -71.54049817631281
+            ]
+          ]
+        ],
+        "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+      },
+      {
+        "scope": "received_ground_end_pose35_relativeKnee",
+        "core": "G",
+        "valid": true,
+        "gap_mm": 9.163299895075006,
+        "witnesses": [
+          [
+            [
+              -41.133489138554246,
+              87.38123843233757,
+              -64.71520123771286
+            ],
+            [
+              -46.977565309093904,
+              86.398979583825,
+              -71.7043361079619
+            ]
+          ]
+        ],
+        "status": "FULL_NOMINAL_PROFILE_SEPARATED125"
+      }
+    ],
+    "source_motion_scope": {
+      "used_saved_pose_index": 35,
+      "angle_degrees": 74.21141206606978,
+      "total_saved_received_ground_poses": 36,
+      "source_axes": {
+        "name": "Rev_RL_Ankle",
+        "code": "RL",
+        "stage": "Ankle",
+        "physical_leg": "FrontLeft",
+        "horn": "Part__Feature094",
+        "cylinder_face": 112,
+        "pivot_mm": [
+          -54.63080320914031,
+          79.51564587853386,
+          -80.07050433164093
+        ],
+        "axis": [
+          -1.1041899389894559e-14,
+          0.9902680687415671,
+          -0.13917310096008878
+        ],
+        "connectors": [
+          {
+            "reference": "Rigid_Part__Feature118",
+            "pivot_mm": [
+              -54.63080320914031,
+              79.51564587853386,
+              -80.07050433164093
+            ],
+            "axis": [
+              -1.1021791687040371e-14,
+              0.9902680687415671,
+              -0.13917310096008884
+            ]
+          },
+          {
+            "reference": "Rigid_Part__Feature123",
+            "pivot_mm": [
+              -54.63080320914031,
+              79.51564587853386,
+              -80.07050433164093
+            ],
+            "axis": [
+              -1.1021791687040371e-14,
+              0.9902680687415671,
+              -0.13917310096008884
+            ]
+          }
+        ],
+        "errors": {
+          "horn_pivot_mm": 0.0,
+          "horn_axis_vector": 1.3877787807814457e-17,
+          "connector_pivot_mm": 0.0,
+          "connector_axis_vector": 5.90407285277874e-17
+        },
+        "compatible": true
+      },
+      "relative_transform": "CommonHip/Kneerigidtransformcancels forKneeholdervsAnklepart; applyONLYsourceAnklerotationaboutactualrestpivot toworldBRepONCE. No legsolver/XML/reopen/oldmotiontestreplay.",
+      "full_continuous_motion_NOT_accepted": true
+    },
+    "meaning": "All3fullnominalprofilegapsneutralandreceivedgroundENDpositive>=3.59030755; thisclosesONLYthese6namedlocalpairs. Notfullcontinuous36/wholemount/N09PASS. SameendpointgapsdoNOTprovewholeAnklepart rotationalinvariance; geometryhasotherfeatures."
+  },
+  "selected_tie_scope": {
+    "structural_sku": "111-02370 T18I145",
+    "structural_quantity": 2,
+    "land_sku": "111-01910 T18R100",
+    "land_quantity": 2,
+    "full_source_units_preserved": true,
+    "heads_feed_closure25_and_untrimmed_tail": "UNRECEIVED_AFTER_STATIC_FALSIFIER_NOT_0of0PASS",
+    "native_stock_tasks_zero_mean_not_started": true,
+    "bodylanding_actual_root": "NOT_RUN_AFTER_STATIC_FALSIFIER",
+    "source_unit_formula_correction": "UseactualbandcapacityVolume/(width*thickness); old111.054757 conditionalbound countedthicknessoffsetonceinsteadtwice. No sourceunitshrink; oldrawkept. Both145sourcefitmustuseactualcurrentpersectionwidth.",
+    "no_tail_cut_or_free_inventory_claim": true,
+    "not_stable_installed_retention_acceptance": true
+  },
+  "whole_SOURCE_scope": {
+    "plan": "day07-whole-physical-SOURCE-approach-Knee-link-proposal.json",
+    "plan_sha256": "d30f8f8715684dc1a96613fe78c9838ae951d13dfb17d7d70ce026d6321ce1bd",
+    "same_joint_frame_stagger_and_all9_IDs": true,
+    "all12portions_and4physicalMAX3units_preserved": true,
+    "source14_terminal11_lap4_once": true,
+    "three8laps_three20sleeves_two9lands": true,
+    "source850_fit900_max3_rules_unchanged": true,
+    "all_actual_A_U_minimum_fit_slack_NULL": true,
+    "no_old197_534_614_or181_205_225_inheritance": true,
+    "four_independent220_both4MTA_unchanged": true
+  },
+  "counters": {
+    "SOURCE_C0": "Flat2mmbase/Kneecase058actual44.884383",
+    "SOURCE_C1": "Openladdercase058cleared1.35, actualAnkleendgap1.084631HOLD",
+    "C0C1_preserved": true,
+    "no_third86_rectangle_scalar_variant": true,
+    "raw_material86_HOLD_status": "Wasbounded6of9pending, notadditionalrejection; completionreceivesONLY3remainingwithoneactualHOLD.",
+    "old_S0_C0C1_and_V3_238_14_37_preserved": true,
+    "no_new_review": true
+  },
+  "next": "Staticendfailurebelongs toEXTERIORrectangularsource-landloadinterface, notnominal3wireprofilecapacity: fullD/V/Gneutral+sourcegroundENDgaps3.590308/6.905437/9.163300. Continuousmotion/4fulltieheads/tails stillOPEN, notPASSfrom2states. NextONEstrategy is anANKLE_FACING_OPEN_FORK_SOURCE_LAND pluspurposefuljointclearancebay: separateactual9land/sleevepressure/bearingfromouterboxcorner, carrylandthroughinboardsupportedfork/actualsidebeamjoint+selectedlandtie, preservecurrentwire/jointposes iftheFULLrequiredAnklezoneandfullstockfit. FIRSTreadactualmovingfootbayagainstfullfunctional9profiles/stock/usefulloadsections; no staticmicrocornertrim/poseoffset/C2 ofthis86rectframe. Iffunctionalcapacityfails, thenwholeSOURCEspatialsplice/landpackaging mustchange withsame selectedparts/physicalunitbudgets. No newgeometrybuiltfornextstrategy.",
+  "next_first_gate": "ONEnewANKLE_FACING_SOURCE_END/JOINT_CLEARANCE_INTERFACEdecision: useactualrequiredAnkleoccupiedbay+full9landprofiles/4selectedtieunits BEFOREnewmaterial. The14wide86rectangularouterbeam/capcornerisprojectmaterial, notboughtportorwireconstraint; sourcecoreprofileclearance3.59suggestsfunctionaljointbay/opennessmaybeavailable. Preserveusefulinboardbearing/fork/realbandloadpath ifnewlandinterfacecanfit; NOT0.165mmmicrocornertrim/holderposeoffset/C2name. No geometrybuiltfornextstrategy, no sourceprofile/R/stockwaiver. ActualconnectedKnee6+Hip3/bodylanding/DGVtransportandall3original+donorMAX3budgetsremainmandatorybeforeV3.",
+  "current_composition": {
+    "source1292": 1292,
+    "effective1311": 1311,
+    "rest_motion108": 108,
+    "base": "day07-S0-C1-current-candidate-composition.json",
+    "base_sha256": "a9f78e06faa1f57007fb58f4163b72af74f85a752f92713abb57d6fb7647d93a",
+    "new_C0_C1_holder_and_nominalprofiles_not_selected_not_added": true,
+    "old_rejectedS0cowls_andV3_not_current": true
+  },
+  "view": {
+    "path": "day07-SOURCE-open-ladder-C1-received-view.png",
+    "sha256": "95b7d968eaa7d733eb122993e0bd29b12bfaaee6ee830005f816beee5f912101",
+    "vector_path": "day07-SOURCE-open-ladder-C1-received-view.svg",
+    "source_section_json": "day07-SOURCE-open-ladder-C1-received-sections-and-next-interface.json",
+    "visually_inspected": true,
+    "threeD_negative_not_inferred_from_projection": true
+  },
+  "timings": [
+    {
+      "receipt": "day07-SOURCE-open-ladder-C1-material-and-neighbor-first-gate.json",
+      "operation_seconds": 31.875,
+      "process_cpu_seconds": 372.453125
+    },
+    {
+      "receipt": "day07-SOURCE-open-ladder-C1-full-static-and-selected-stock.json",
+      "operation_seconds": 2.109000000054948,
+      "process_cpu_seconds": 23.1875
+    },
+    {
+      "receipt": "day07-SOURCE-Ankle-interface-needed-facts.json",
+      "operation_seconds": 0.7190000000409782,
+      "process_cpu_seconds": 2.390625
+    },
+    {
+      "receipt": "day07-SOURCE-open-ladder-C1-received-sections-and-next-interface.json",
+      "operation_seconds": 1.375,
+      "process_cpu_seconds": 4.578125
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-SOURCE-open-ladder-C1-whole-proposal.json",
+      "sha256": "0d247a414e4a39650a1159ae7eb2186f5c5784880b4509031c8a9a315d943dc8",
+      "bytes": 5030
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-material-and-neighbor-first-gate.json",
+      "sha256": "8fa4eb882493ca6483302549dc4f4cca1bd88ab3fce8961022bb1ac7fd7edcdf",
+      "bytes": 23044
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-material.breps.zip",
+      "sha256": "9d3154d8d6408f4f3a5440540d3c6c2eaef3d205c0fea511b0f783c4b3e60553",
+      "bytes": 66419
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-full-static-and-selected-stock.json",
+      "sha256": "0041db554ca9fa4ea875e78882ed7bea6c84d0593aed44cc37dc5912278b25fe",
+      "bytes": 5157
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-stock-and-missing-neighbors.breps.zip",
+      "sha256": "37e20619de2f5ff837b5da42b11ecd2cb3e743f808361af4d7575ea052081bee",
+      "bytes": 107994
+    },
+    {
+      "path": "day07-SOURCE-Ankle-interface-needed-facts.json",
+      "sha256": "8100f483d19d5901818b8240f7fdaf48fb26a99f4e1f68116e1d9524f8236078",
+      "bytes": 8390
+    },
+    {
+      "path": "day07-SOURCE-Ankle-interface-needed-facts.breps.zip",
+      "sha256": "11c046f9a0f2894b6b8f56463faad2491a7b3b82034624d4d10fcaa33130fbb2",
+      "bytes": 55354
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-received-sections-and-next-interface.json",
+      "sha256": "78f75b5d1c18cb0fec1f9bc289a615b9e69707ed62d60da42e2447f9f5a55ead",
+      "bytes": 432159
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-received-view.svg",
+      "sha256": "39d21dfb534d340139da415d64be81ac1c5c4edf31730c9ec19d3bdfed59d5f6",
+      "bytes": 188760
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-received-view.png",
+      "sha256": "95b7d968eaa7d733eb122993e0bd29b12bfaaee6ee830005f816beee5f912101",
+      "bytes": 80276
+    },
+    {
+      "path": "day07-open-ladder-first-gate.recipe.py",
+      "sha256": "79a2d2f26d9849aa69317ef18e5cada3ee234dac951aecd52fc66904b4919527",
+      "bytes": 8654
+    },
+    {
+      "path": "day07-complete-neighbors-stock-and-landing.recipe.py",
+      "sha256": "fa70e66e8ee72bec145abc44b7c547f38024be9ee8fe41fc1de87fbc6cb04dc7",
+      "bytes": 9029
+    },
+    {
+      "path": "day07-source-Ankle-interface-needed-facts.recipe.py",
+      "sha256": "ee7a3551f2f9ec6a78cfff56ba758ede6b465f9bb56eda39895d80b113b349cc",
+      "bytes": 4311
+    },
+    {
+      "path": "day07-save-ladder-section-and-causal-decision.recipe.py",
+      "sha256": "f0aec7e038a1651bc0428d30fd65d15ddbcc65f5ab5bfc5ee4f340a328cf5495",
+      "bytes": 3689
+    },
+    {
+      "path": "day07-render-ladder-received.recipe.py",
+      "sha256": "b85cebf6ddc4332a9daed5ac2835f5fd4522da8164b035837d594fab14a34a94",
+      "bytes": 3151
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "day07-whole-physical-SOURCE-approach-bounded-disposition.json",
+      "sha256": "5bf93f23782a0f27ad13809941809421f7a2ddb4da38efde6f8c395ba86587dc"
+    },
+    {
+      "path": "day07-whole-physical-SOURCE-approach-Knee-link-proposal.json",
+      "sha256": "d30f8f8715684dc1a96613fe78c9838ae951d13dfb17d7d70ce026d6321ce1bd"
+    },
+    {
+      "path": "day07-SOURCE-holder-base-casing-conflict-and-length-boundaries.json",
+      "sha256": "8b67735a31fea85fb7293d16e3990fc3687531bab73cf056550b697f82f65e82"
+    },
+    {
+      "path": "day07-SOURCE-Knee-holder-current-neighbor-first-gate.json",
+      "sha256": "f385fe14a1609f32cc6967c6bef801cd51db09a8cf41a86193e90e509e011f6d"
+    },
+    {
+      "path": "day07-SOURCE-Knee-holder-contact-function-disposition.json",
+      "sha256": "ff84de7e046ba5a31721e029bfb5889978ed05a4e87afc47e877b9bc69626db4"
+    },
+    {
+      "path": "day07-coordinator-SOURCE-splice-layout-authority-receipt.json",
+      "sha256": "176a7ec86c6e0cb5e7e6a901334f914a98f6d063b0492cf283895b6940bc7f1c"
+    },
+    {
+      "path": "day07-coordinator-new-carrier-tie-source-binding.json",
+      "sha256": "8593467b8cf2c020797d08ad06e285f026ab6b5c391081807361ad6c50125e05"
+    },
+    {
+      "path": "day07-V3-physical-source-budget-boundary-decision.json",
+      "sha256": "9a67df6858396302b5107d4f45b912abbdc348e743f7627588e8b4efe49dcf07"
+    },
+    {
+      "path": "day07-V3-selected-nominal-source-origins.json",
+      "sha256": "b2f4c7d73fe0040a47f74e673e620e13366eea493f0936f6ef7cee9ad64b6602"
+    },
+    {
+      "path": "day07-S0-C1-current-candidate-composition.json",
+      "sha256": "a9f78e06faa1f57007fb58f4163b72af74f85a752f92713abb57d6fb7647d93a"
+    },
+    {
+      "path": "n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-SOURCE-open-ladder-C1-material.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 22
+    },
+    {
+      "path": "day07-SOURCE-open-ladder-C1-stock-and-missing-neighbors.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 3
+    },
+    {
+      "path": "day07-SOURCE-Ankle-interface-needed-facts.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 5
+    }
+  ],
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false
+  },
+  "written_utc": "2026-11-07T05:29:59.474359+00:00"
+}
