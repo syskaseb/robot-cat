@@ -1,0 +1,118 @@
+{
+  "id": "day07-coordinator-E6-S0-operator-source-receipt",
+  "received_utc": "2026-11-07T03:24:41.210109+00:00",
+  "status": "READONLY_OPERATOR_REQUIREMENTS_AND_HISTORICAL_APERTURE_SCOPE_RECEIVED_NOT_GEOMETRY_GO",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "reviewer_turn": "01a1b404-d0b6-7f12-9733-1ca24f393c0e",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "role": "Readonly primarylocaldocument/constructor extraction independentofsoleBanachV3CAD; noCAD/edits/newagents/designreview.",
+  "source_pins": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "72327baad72048e6baaf809bbe9577ffe74b1d2f3d6751d7bac7a17b60a6af5f",
+      "line_reference": [
+        47,
+        52
+      ]
+    },
+    {
+      "path": "hardware/electronics/full-cat/source-switch-selected-r1/interface.json",
+      "sha256": "b0843aa4acc3e2ff2a649d5099a4579c06f723508ad5a16f50b354c49a6e2f31",
+      "line_reference": [
+        46,
+        64
+      ]
+    },
+    {
+      "path": "hardware/simulation/p0/E6-LEG-COMPATIBILITY.md",
+      "sha256": "e6be50bf30b2234cfa27087e5dbaf5780d8af758adc592afe5a4c9fbbbe57ccd",
+      "line_reference": [
+        3,
+        20
+      ]
+    },
+    {
+      "path": "tools/electronics/source_switch_layout_r6.py",
+      "sha256": "d9c1ac3a3a19e7a21fac5f2e9588736df96b573cd72f15e0a46598b797acc4f0",
+      "line_reference": [
+        169,
+        169
+      ]
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/skin-access-plan.json",
+      "sha256": "982112707f3d0b4490848dde2daaa8ebc0c5bde5933fa5bca69d0d4d246825be",
+      "line_reference": [
+        668,
+        743
+      ]
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/skin-access-native.json",
+      "sha256": "505d83dddbdf08b1f216cdeaab815099ead252aed17b6878ad282e23b6e01894",
+      "line_reference": [
+        108,
+        122
+      ]
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-S0-routine-access-and-prehead-case-order.json",
+      "sha256": "1d2d6b958d6da657af99a796f02eecb0018ecb8fa91a1ad122996b2b10617bee",
+      "line_reference": [
+        266,
+        266
+      ]
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-S0-installation-operation-bounded-disposition.json",
+      "sha256": "6f3575e973df7053e056a1265a47f08a14a492ca2361a6248d0d221f4f1625c4",
+      "line_reference": null
+    }
+  ],
+  "findings": [
+    {
+      "fact": "Prototype requires feasible installation and requiredroutineaccess; rarepartialdemount isallowed foroccasionalrepair. S0source installscoverafterwires; switchremoval openscoverafterbatteryisdisconnected. E6legcompatibility report onlyqualifiesaxes/limitedsavedsourcecomparison, notS0operatorentrydirection.",
+      "source_refs": [
+        0,
+        1,
+        2
+      ],
+      "interpretation": "RoutineS0operatoruse mustbecredible inassembledproductwithoutwaivingit asrarerepair/Piremoval. Sources doNOTexplicitly specify everydaycoverhandling ormandate a newquickservicefeature. State cover/portalcondition ratherthan inventingclosedcover-onlyauthority."
+    },
+    {
+      "fact": "HistoricalR6 keyreserve reachesY161.5outsideDeckY95, and no extra lowershellcutwasestablished. SeparateoldControl_S0skinplan/native boundsX[-146.5,-97] refersto itsfrozenolderbody/keyallocation. CurrentkeytipX-27.66900124 isnotqualifiedbythatoldportal.",
+      "source_refs": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "decision": "Do not claim historicalloweraperture/Control_S0 ascurrentpreservedroutineaccess."
+    },
+    {
+      "fact": "Skinplan explicitlycallsforfunctionalcontrolaperture andcommonfore-neckcowl protectingterminals. Nativecutisselectedfalse/cowlsincomplete; panel/frameanchors/seams andmovingloom/nativebay qualification remainopen.",
+      "source_refs": [
+        4,
+        5
+      ],
+      "interpretation": "Currentportalposition/entrydirection andcoverhandling areN01designvariables, subjecttoBodyOuter, E6motion, allactualmounts/material/loadpaths/terminalprotection. Anunqualifiedcoverfragment isNOTautomaticallynonstructural. This is scopeddesignjudgment fromsources, notgeometryacceptanceorblanketpermissiontocutparts."
+    },
+    {
+      "fact": "Oneverticalupperoperatorallocationfromcurrenttip(-27.66900124,0,91.48058285), sourceR15, towardtopZ112+3.25 failedatstemENDgap.3391445116. Fouroffivecandidatesreceived/oneunreceived; sourcekeyregion28of28 isadifferentlocalcheck.",
+      "source_refs": [
+        6,
+        7
+      ],
+      "minimal_owner_proof": "Defineonecontinuousaccessibleoperatorregion throughaspecifiedfunctionalopening/currentcoverconditiontopreservedkey. KeepR15sourcekey/toolspace andprotectterminals; routinePiremoval notaccepted. Otherentrydirections areunreceived, notprovenimpossible. R15isnotameasuredhanddimension. BodyOuter3.25 appliesinstalledgeometryinitsapprovedscope; anoperatorentrycrossesplannedaccessboundaryintentionallyandisnotadditionalpermanentmaterialthatmustfitinsideit."
+    }
+  ],
+  "no_new_wire_stock_cut_or_factory_length_authority": true,
+  "source_historical_trial_lengths_not_current_debits": true,
+  "preserved_guards": "Allparts/R47/P0/E6/15drives/MG92B/325x200x160/max200namedcarrier/MAIN46.52/256cube/foreign1.25/BodyOuter3.25/wholeprintownership/allnegatives. Prototypeinstall+routineaccess, notproductionN03/fullN08N09N10/anthropometriccertification.",
+  "C1_review_reopened": false,
+  "N01_complete": false,
+  "physical_or_geometry_pass": false,
+  "consequence": "Receive this sourcebasis fornextS0operatorportal/interface choice afteractiveV3chunk. Soleownerperformsnewboundedgeometry; no queuedpromptflood/no furtherreviewloop. SafeindependentV3workcontinues."
+}
