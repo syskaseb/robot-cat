@@ -1,0 +1,523 @@
+{
+  "id": "day07-Clamp3-opposite-face-fullstack-bounded-disposition",
+  "status": "ONE_OPPOSITE_FACE_FULLSTACK_HYPOTHESIS_REJECTED_FULLTIP_MARGIN_BEFORE_PRINT",
+  "selected": false,
+  "N01_complete": false,
+  "source_selected_hardware": {
+    "diameter_mm": 3,
+    "underhead_length_mm": 14,
+    "head_height_mm": 3,
+    "nut_AF_mm": 5.5,
+    "nut_height_mm": 2.4,
+    "washer_OD_mm": 7,
+    "washer_thickness_mm": 0.5,
+    "quantity_each": 1,
+    "parts": [
+      "Screw",
+      "Nut",
+      "TopWasher",
+      "BottomWasher"
+    ],
+    "inventory": "UNKNOWN unchanged quantity"
+  },
+  "source_interface_classification": {
+    "source_hardware_constructor": "open_prototype_board_hardware.py85..121 nominalM3x14 fullnut/washers and explicitengagement",
+    "source_print_mount": "open_prototype_board_mounts.py177..189 twojaw/pad3.4clearance adjacentframe",
+    "source_native_no_drill": "open_prototype_board_hardware.py127..134 axisinboard_no_drill; no purchasedthreadedhole reversalclaim",
+    "actual_native_P0_horizontal_faces": [
+      {
+        "face_index": 8,
+        "bounds_mm": [
+          [
+            -85.00000000001083,
+            -35.47378323055697,
+            37.02000000000028
+          ],
+          [
+            126.99999999999238,
+            -26.99999999999669,
+            37.02000000000261
+          ]
+        ],
+        "area_mm2": 1769.055542390195,
+        "plane_type": "Plane"
+      },
+      {
+        "face_index": 10,
+        "bounds_mm": [
+          [
+            -85.00000000001086,
+            -35.473783230556975,
+            38.52000000000028
+          ],
+          [
+            126.99999999999238,
+            -26.999999999996707,
+            38.52000000000261
+          ]
+        ],
+        "area_mm2": 1769.0555423901951,
+        "plane_type": "Plane"
+      }
+    ],
+    "fullsource_frame_function_preserved": true,
+    "physical_delivery_fit": "PHASE2 nominal source family, no deliveredhardwarecertification"
+  },
+  "full_transform": {
+    "type": "proper_rigid180_about_world_X_through_screw_axis",
+    "pivot_mm": [
+      72,
+      -24.5,
+      38.37
+    ],
+    "pivot_derivation": "Midpoint of actual unchanged external bearing planes33.52+43.22, NOT chosen to fit W004",
+    "old_underhead_z_mm": 43.22,
+    "new_underhead_z_mm": 33.52,
+    "new_head_z_mm": [
+      30.52,
+      33.52
+    ],
+    "new_tip_z_mm": 47.52,
+    "new_nut_z_mm": [
+      43.22,
+      45.62
+    ],
+    "full_nominal_engagement_mm": 2.4,
+    "tip_beyond_nut_mm": 1.9
+  },
+  "all4_complete_shape_valid_samevolume": [
+    {
+      "part": "Screw",
+      "source_valid": true,
+      "reversed_valid": true,
+      "source_volume_mm3": 170.23505191639703,
+      "reversed_volume_mm3": 170.23505191639703,
+      "volume_delta_mm3": 0.0,
+      "original_bounds_mm": [
+        [
+          69.25,
+          -27.25,
+          29.22
+        ],
+        [
+          74.75,
+          -21.75,
+          46.22
+        ]
+      ],
+      "reversed_bounds_mm": [
+        [
+          69.25,
+          -27.250000000000007,
+          30.519999999999996
+        ],
+        [
+          74.75,
+          -21.750000000000004,
+          47.519999999999996
+        ]
+      ],
+      "transform": "properTopLoc rigid180X SAMEaxis actualbearingmidplane38.37, nottransformGeometry"
+    },
+    {
+      "part": "Nut",
+      "source_valid": true,
+      "reversed_valid": true,
+      "source_volume_mm3": 45.338644918738694,
+      "reversed_volume_mm3": 45.33864491873872,
+      "volume_delta_mm3": 2.842170943040401e-14,
+      "original_bounds_mm": [
+        [
+          68.82457351945706,
+          -27.25,
+          31.12
+        ],
+        [
+          75.17542648054294,
+          -21.75,
+          33.52
+        ]
+      ],
+      "reversed_bounds_mm": [
+        [
+          68.82457351945706,
+          -27.250000000000004,
+          43.219999999999985
+        ],
+        [
+          75.17542648054294,
+          -21.750000000000004,
+          45.61999999999999
+        ]
+      ],
+      "transform": "properTopLoc rigid180X SAMEaxis actualbearingmidplane38.37, nottransformGeometry"
+    },
+    {
+      "part": "TopWasher",
+      "source_valid": true,
+      "reversed_valid": true,
+      "source_volume_mm3": 15.221016406642573,
+      "reversed_volume_mm3": 15.221016406642573,
+      "volume_delta_mm3": 0.0,
+      "original_bounds_mm": [
+        [
+          68.5,
+          -28.0,
+          42.72
+        ],
+        [
+          75.5,
+          -21.0,
+          43.22
+        ]
+      ],
+      "reversed_bounds_mm": [
+        [
+          68.5,
+          -28.000000000000004,
+          33.519999999999996
+        ],
+        [
+          75.5,
+          -21.000000000000004,
+          34.019999999999996
+        ]
+      ],
+      "transform": "properTopLoc rigid180X SAMEaxis actualbearingmidplane38.37, nottransformGeometry"
+    },
+    {
+      "part": "BottomWasher",
+      "source_valid": true,
+      "reversed_valid": true,
+      "source_volume_mm3": 15.221016406642573,
+      "reversed_volume_mm3": 15.221016406642573,
+      "volume_delta_mm3": 0.0,
+      "original_bounds_mm": [
+        [
+          68.5,
+          -28.0,
+          33.52
+        ],
+        [
+          75.5,
+          -21.0,
+          34.02
+        ]
+      ],
+      "reversed_bounds_mm": [
+        [
+          68.5,
+          -28.000000000000004,
+          42.71999999999999
+        ],
+        [
+          75.5,
+          -21.000000000000004,
+          43.21999999999999
+        ]
+      ],
+      "transform": "properTopLoc rigid180X SAMEaxis actualbearingmidplane38.37, nottransformGeometry"
+    }
+  ],
+  "actual_shaft_fullnut_engagement_mm": 2.4000000000000057,
+  "first_falsifier": {
+    "wire": "W004",
+    "operand": "FROZEN_C1_FULL_ALLOCATED_EXIT_r1.95",
+    "new_metal": "REVERSED_FULL_CLAMP3_Screw",
+    "gap_mm": 0.7397533139250038,
+    "required_foreign_mm": 1.25,
+    "witnesses": [
+      [
+        [
+          70.35898030871695,
+          -25.94857223285362,
+          47.78952592414083
+        ],
+        [
+          70.87545187552679,
+          -25.49266888525016,
+          47.519999999999996
+        ]
+      ]
+    ],
+    "status": "NEW_REVERSED_FULLMETAL_ALLOCATED_PROFILE_HOLD_NOT_DELIVERED_CONTACT"
+  },
+  "new_cursor": 1,
+  "new_total": 20,
+  "new_unreceived": 19,
+  "new_unreceived_not_a_clearance_pass": true,
+  "first_falsifier_scope": "AllocatedFULLinsulation+margin versus actualselectednominal fullscrew tip; positivegap NOTwirecontact/no allmanualroutes or mountimpossibility.",
+  "falsified_premise": "Moving originalHEAD below preserves sourcebearingstack but full14shaft then protrudes ABOVE uppernut at47.52 into mandatoryfrozenW004 margin; reversalalone cannot clear wholemetal from exit.",
+  "no_second_family_or_print_built": true,
+  "bearing_stack_unchanged_nominal": {
+    "lower_external_washer_z_mm": [
+      33.52,
+      34.02
+    ],
+    "lower_printed_jaw_z_mm": [
+      34.02,
+      37.02
+    ],
+    "retained_side_rail_z_mm": [
+      37.02,
+      38.52
+    ],
+    "top_printed_pad_z_mm": [
+      38.52,
+      39.72
+    ],
+    "source_full3mm_seat_z_mm": [
+      39.72,
+      42.72
+    ],
+    "upper_external_washer_z_mm": [
+      42.72,
+      43.22
+    ],
+    "derivation": "Actual current bounds + source sourcepad on native P0 rail; axis inboard no-drill source bearing, NOT supplier threaded-hole reversal."
+  },
+  "jaw_seat_neck_case_ports_all5_fixed9_C1mouth_stock_unchanged": true,
+  "below_driver_topnut_antirotation_access_load_fullneighbors_and_assembly": "UNRECEIVED afterfirstfulltipfalsifier, no oldaboveR4.25credit",
+  "old_C1_freefield_negative": {
+    "gap_mm": 0.6525176853445642,
+    "cursor": 12,
+    "total": 48,
+    "unreceived": 36
+  },
+  "old_D_mouth_negative": {
+    "common_mm3": 11.033453471676129,
+    "cursor": 1,
+    "total": 6,
+    "unreceived": 5
+  },
+  "current1292effective1311_unchanged": true,
+  "D5_G4_C1_still_PROPOSED": true,
+  "whole_SOURCE_Li_deltaLi_55each_850900MAX3_OPEN": true,
+  "actualA_U_fit_slack": null,
+  "actualcut": null,
+  "next": "WHOLE_RECEIVER_FASTENING_LOAD_INTERFACE_AND_SOURCE_EXIT_LAYER_DECISION: oppositeface sameaxisM3x14/fullnut/twowashers sourceclampstack rejected by UPfulltip47.52 vs FROZENW004r1.95 gap.739753<125,1of20/19UNRECEIVED. Newheadbelowdoesnotclearfullshaft. No more hardwareorientation/head/tip/stack/case scalar inthisfamily/no thirdC1mouth/clock/freecurve. Need oneactualdifferent wholemountbearing/fasteningaxis+fiveportpressure/initiallay topology from availablephysicalbay while preservingcase/ports/full9/145stock/sourcefunctions/realP0. Do not cutboughtframe or delete selectedscrew/nut/washers; no samefixture wiremetal exception. ActualcurrentlyqualifiedC1continuousmouth/root4.525/sourcecaseG4scope remainPROPOSED; reversalnotselected/currentbaseunchanged. WholeSOURCEactualLi/independentdeltaLi/usable55EACHFL2/850900MAX3/9ID12portions4units andglobal123246 remainOPEN beforestorage/V3/FPI details.",
+  "remaining_OPEN": [
+    "Newwhole receiver-load/fastening/entrylayer decision, alloldnegatives retained",
+    "S0PWMcowl/routinekey/R6/U1far/headNorth/whole4MTA/four220/123246",
+    "W007wholedebitNULL/currentDATAregistrationunchanged"
+  ],
+  "timings": [
+    {
+      "receipt": "day07-Clamp3-opposite-face-fullstack-first-gate.json",
+      "operation_seconds": 0.09399999992456287,
+      "process_cpu_seconds": 0.09375
+    },
+    {
+      "receipt": "day07-Clamp3-opposite-face-actual-stack-sections.json",
+      "operation_seconds": 0.5150000000139698,
+      "process_cpu_seconds": 1.0
+    }
+  ],
+  "measured_script_wall_seconds": 0.6089999999385327,
+  "measured_script_CPU_seconds": 1.09375,
+  "view": {
+    "path": "day07-Clamp3-opposite-face-first-tip-received-section.png",
+    "sha256": "c81ad01b0c114501564bac3aab9e6248f342dbfe0bb5a17bf361f8f28c95171c",
+    "actual_native_sections": true,
+    "visually_inspected": true,
+    "inspection": "Both actualXZsections visuallyread: originalscrewgrey/reversedwhole14shaftred/fullnutwashers/W004magenta; P0bearingfaces explicitlyoffsection; no spatialPASSfromprojection."
+  },
+  "source_pins": [
+    {
+      "path": "day07-five-D-continuous-C1-bounded-disposition.json",
+      "sha256": "2939b0ac2792f9e334aa094074dd591009bf7af9a7b9677d7c6c5df422845a54"
+    },
+    {
+      "path": "day07-five-D-continuous-C1-current-bankpath-and-exit-foreign.json",
+      "sha256": "2f305bcff1ca81b2f5a3921909bdde4ede0e98f2cbcdaba8571805d8744eaafb"
+    },
+    {
+      "path": "day07-five-D-C1-member-coverage-current-printpath-and-foreign-witness.json",
+      "sha256": "d1c653f56c6e139f02618cd2a95fa27c4e3a4b7e66ff0e2c9f8bbb55690671f9"
+    },
+    {
+      "path": "day07-five-D-C1-coverage-and-first-foreign-witness.breps.zip",
+      "sha256": "a2e39072ec0aa8000f960ec1ddcd37031ae959fb0ba8b9ece487f5b777dcb54f"
+    },
+    {
+      "path": "day07-five-D-new-motion-DATA-registration-and-fore-mouth-bounded-disposition.json",
+      "sha256": "f08b1bfec9472eb497142f38d013d13c31f3bb3186f82bbd732bae2e0b3ac985"
+    },
+    {
+      "path": "day07-current-five-D_FR-owner-DATA-registration.json",
+      "sha256": "9f56011038e7cda122ebab7fdd18ae9420b33c0102df75a76c8be4448ff6b5fe"
+    },
+    {
+      "path": "day02-astra-current1288-restored-source-index.json",
+      "sha256": "eec8bbbf490a4ef28be6bbc7831d6ac1b6106cf1e2ed7ddd1e456467f2206b16"
+    }
+  ],
+  "external_source_pins": [
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\open_prototype_board_hardware.py",
+      "sha256": "204a7f3b1cdd82de9ca19bc49f0afc1291ab0a583fa2b6093d4aaec6765a50d9"
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\open_prototype_board_mounts.py",
+      "sha256": "52b3144cefc86f30d28f3e863cb79d735c95b96ea2c842c9054cf2010632b2e7"
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\cad\\feline_shared_frame.py",
+      "sha256": "150c27530997f61a0c50d839c207360fa84cf7de88f096140cd9b291434ce529"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-Clamp3-opposite-face-whole-stack-proposal.json",
+      "sha256": "773838b66726ed07b26085ea11a06b766fbbd7214d771a863ad25dbc6255ad4c",
+      "bytes": 5361
+    },
+    {
+      "path": "day07-Clamp3-opposite-face-fullstack-first-gate.json",
+      "sha256": "51d9b5d1f6e0b0d5aa6a3ba43291244f9ad130c295c0c0d612b939f824dee7af",
+      "bytes": 10000
+    },
+    {
+      "path": "day07-Clamp3-opposite-face-fullstack-first-gate.breps.zip",
+      "sha256": "20a85581f4f9ce2668cf94c36ddf7e9074e1b76294a5b7098ef6865e915bf3cb",
+      "bytes": 16319
+    },
+    {
+      "path": "day07-Clamp3-opposite-face-actual-stack-sections.json",
+      "sha256": "0ab8af9ef74085438d11ca7af58798d0355d9f49df1006d14aff55fd63464f00",
+      "bytes": 688912
+    },
+    {
+      "path": "day07-Clamp3-opposite-face-first-tip-received-section.png",
+      "sha256": "c81ad01b0c114501564bac3aab9e6248f342dbfe0bb5a17bf361f8f28c95171c",
+      "bytes": 57259
+    },
+    {
+      "path": "day07-Clamp3-opposite-face-first-tip-received-section.svg",
+      "sha256": "781a8508dff140d8d1816824464e83b7413a8791c20ac34caf275c9174f789f9",
+      "bytes": 126416
+    },
+    {
+      "path": "day07-Clamp3-reverse-prepare-reverse-clamp3.recipe.py",
+      "sha256": "566057a5fcd1296ae23033d46b5d58d92706805a45abe0885a39cc333ebf849a",
+      "bytes": 5839
+    },
+    {
+      "path": "day07-Clamp3-reverse-full-reversed-stack-first-gate.recipe.py",
+      "sha256": "c3dc46ab056dca193ae1ee701ad789c01c7471340d91072a0bf991e4ac43c507",
+      "bytes": 4556
+    },
+    {
+      "path": "day07-Clamp3-reverse-save-reverse-witness-section.recipe.py",
+      "sha256": "7f23ca6624cf61b5b69cace02c9f996f2fb44322e02af2c394852aa93e275f55",
+      "bytes": 2788
+    },
+    {
+      "path": "day07-Clamp3-reverse-package-exact-close.recipe.py",
+      "sha256": "9142551196770901d1e75ec334b963d6c05c21b1b9b5076075e49d588f3da33d",
+      "bytes": 10327
+    },
+    {
+      "path": "day07-Clamp3-reverse-finalize-commit-and-card.recipe.py",
+      "sha256": "45887d448c255942b5b27a4608c4a4fe735cd5fae56614120b81aa1c3de470bb",
+      "bytes": 6016
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-Clamp3-opposite-face-fullstack-first-gate.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 12
+    }
+  ],
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false,
+    "idle_prompt_received_utc": "2026-11-07T18:05:52Z"
+  },
+  "bounded_start_utc": "2026-11-07T18:01:01Z",
+  "written_utc": "2026-11-07T18:05:46.088579+00:00",
+  "new_unreceived_keys": [
+    [
+      "W004",
+      "REVERSED_FULL_CLAMP3_Nut"
+    ],
+    [
+      "W004",
+      "REVERSED_FULL_CLAMP3_TopWasher"
+    ],
+    [
+      "W004",
+      "REVERSED_FULL_CLAMP3_BottomWasher"
+    ],
+    [
+      "W005",
+      "REVERSED_FULL_CLAMP3_Screw"
+    ],
+    [
+      "W005",
+      "REVERSED_FULL_CLAMP3_Nut"
+    ],
+    [
+      "W005",
+      "REVERSED_FULL_CLAMP3_TopWasher"
+    ],
+    [
+      "W005",
+      "REVERSED_FULL_CLAMP3_BottomWasher"
+    ],
+    [
+      "W006",
+      "REVERSED_FULL_CLAMP3_Screw"
+    ],
+    [
+      "W006",
+      "REVERSED_FULL_CLAMP3_Nut"
+    ],
+    [
+      "W006",
+      "REVERSED_FULL_CLAMP3_TopWasher"
+    ],
+    [
+      "W006",
+      "REVERSED_FULL_CLAMP3_BottomWasher"
+    ],
+    [
+      "W002",
+      "REVERSED_FULL_CLAMP3_Screw"
+    ],
+    [
+      "W002",
+      "REVERSED_FULL_CLAMP3_Nut"
+    ],
+    [
+      "W002",
+      "REVERSED_FULL_CLAMP3_TopWasher"
+    ],
+    [
+      "W002",
+      "REVERSED_FULL_CLAMP3_BottomWasher"
+    ],
+    [
+      "W007",
+      "REVERSED_FULL_CLAMP3_Screw"
+    ],
+    [
+      "W007",
+      "REVERSED_FULL_CLAMP3_Nut"
+    ],
+    [
+      "W007",
+      "REVERSED_FULL_CLAMP3_TopWasher"
+    ],
+    [
+      "W007",
+      "REVERSED_FULL_CLAMP3_BottomWasher"
+    ]
+  ],
+  "authorized_window_deadline_utc": "2026-11-07T22:11:33Z",
+  "partial_final_does_not_close_window": true
+}

@@ -1,0 +1,51 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import json,hashlib,zipfile,subprocess,os,html
+from PIL import Image,ImageDraw
+root=Path('C:/Users/Sysq/PycharmProjects/robot-cat-mechanical');out=root/'hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure';temp=Path('C:/Users/Sysq/AppData/Local/Temp');sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+names=['day07-Clamp3-opposite-face-whole-stack-proposal.json','day07-Clamp3-opposite-face-fullstack-first-gate.json','day07-Clamp3-opposite-face-fullstack-first-gate.breps.zip','day07-Clamp3-opposite-face-actual-stack-sections.json']
+p0=json.loads((out/names[0]).read_bytes());g=json.loads((out/names[1]).read_bytes());v=json.loads((out/names[3]).read_bytes())
+assert g['first_falsifier']['new_metal']=='REVERSED_FULL_CLAMP3_Screw' and g['new_cursor']==1 and g['new_pair_total']==20
+assert all(q['reversed_valid'] and q['source_valid'] and q['volume_delta_mm3']<1e-6 for q in g['all4_complete_rigid_copies'])
+assert len(v['actual_native_horizontal_bearing_faces'])==2 and abs(g['measured_same_full_shaft_nut_engagement_mm']-2.4)<1e-6
+with zipfile.ZipFile(out/names[2]) as z:
+ assert z.testzip() is None
+ gg=json.loads(z.read('manifest.json'))['geometry']
+ for q in gg:assert hashlib.sha256(z.read(q['entry'])).hexdigest()==q['sha256']
+checks=[dict(path=names[2],crc_ok=True,member_sha_verified=len(gg))]
+im=Image.new('RGB',(1320,930),'white');dr=ImageDraw.Draw(im);sv=['<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="930"><rect width="1320" height="930" fill="white"/>']
+def txt(x,y,s,c='#222'):
+ dr.text((x,y),s,fill=c);sv.append(f'<text x="{x}" y="{y+13}" font-family="sans-serif" font-size="14" fill="{c}">{html.escape(s)}</text>')
+txt(20,15,'ONE WHOLE CLAMP3 REVERSE FASTENING / FIRST FULLTIP MARGIN HOLD / NO NEW PRINT / N01 0/10')
+txt(20,43,'Same M3x14 + fullnut2.4 + TWOwashers0.5. Same axis72/-24.5; fixed bearingplanes33.52/43.22 => pivot38.37.')
+colors={'C1_primary_unchanged':'#e39f37','Actual_lower_jaw':'#80a3bf','Actual_top_pad':'#80a3bf','Actual_P0_side_unchanged':'#222222','Original_full_screw':'#999999','Reversed_upper_washer':'#1d5cb3','Reversed_lower_washer':'#1d5cb3','Reversed_full_nut':'#a06115','Reversed_full_screw':'#cf2525','W004_fullallocated':'#962ea8'}
+ys=list(dict.fromkeys(q['Y_mm'] for q in v['sections']))
+for panel,y in enumerate(ys):
+ ox=25+panel*655;txt(ox,80,f'ACTUAL XZ SECTION / Y={y:.6f}mm / X58..85 Z25..62')
+ dr.rectangle((ox,105,ox+620,650),outline='#c0c0c0')
+ for n in colors:
+  for q in v['sections']:
+   if q['Y_mm']!=y or q['actor']!=n:continue
+   for line in q['curves_xz']:
+    pts=[(ox+20+(x-58)*19,625-(z-25)*13.5) for x,z in line]
+    if len(pts)>1:
+     dr.line(pts,fill=colors[n],width=3);sv.append('<polyline fill="none" stroke="'+colors[n]+'" stroke-width="2" points="'+' '.join(f'{x:.2f},{y2:.2f}' for x,y2 in pts)+'"/>')
+ for z,label in [(33.52,'lower bearing33.52'),(43.22,'upper bearing43.22'),(47.52,'NEW fulltip47.52')]:
+  zz=625-(z-25)*13.5;dr.line((ox+8,zz,ox+610,zz),fill='#dddddd',width=1);txt(ox+330,zz-15,label)
+txt(20,672,'PURPLE fullallocatedW004 r1.95; RED whole reversedM3; BROWN fullnut; BLUE washers; GREY originalscrew; ORANGE unchangedC1print.')
+txt(20,700,'Actual native P0 bearing faces8/10 at Z37.02/38.52 end Y-27: OFF these screw-axis sections; no invisibleframe root claim.')
+for i,s in enumerate(['FIRST newpair: fullreversed screwTIP / W004 fullcapacity gap0.739753314 <1.25. Positive separation is NOT wirecontact.', 'NEW head below30.52..33.52 does not remove fullshaft: tip47.52; fullnut43.22..45.62; engagement2.4, protrusion1.9.', 'All4 properrigidcopies valid/samevolume. 1of20 NEWpairs received /19UNRECEIVED; stopbeforepocket/support/secondfamily.', 'OriginalC1wire.652518/12of48+36 andolder1of6+5 retained. No samefixturewire-metal waiver/no new mouth/clock/profile/stock.', 'OPEN belowtool/topnutcapture/fullneighbors/initialassembly NOT qualified after firstfalsifier. No selectedreversedmount.', 'NEXT whole receiver-mount/load-interface + necessary SOURCE exit layer decision; no third scalar head/stack/mouth retry.', 'Current1292/effective1311/sourceparts/4independent220/both4MTA unchanged; actualLi/deltaLi/usable55/850900/123246 OPEN.']):txt(20,733+i*25,s,'#a51d1d' if i==0 else '#222')
+png=out/'day07-Clamp3-opposite-face-first-tip-received-section.png';assert not png.exists();im.save(png);sv.append('</svg>');png.with_suffix('.svg').write_bytes(('\n'.join(sv)+'\n').encode());names.extend([png.name,png.with_suffix('.svg').name])
+for n in ['robot-cat84-prepare-reverse-clamp3.py','robot-cat84-full-reversed-stack-first-gate.py','robot-cat84-save-reverse-witness-section.py','robot-cat84-package-exact-close.py']:
+ dest='day07-Clamp3-reverse-'+n.removeprefix('robot-cat84-').removesuffix('.py')+'.recipe.py';assert not(out/dest).exists();(out/dest).write_bytes((temp/n).read_bytes());names.append(dest)
+sources=['day07-five-D-continuous-C1-bounded-disposition.json','day07-five-D-continuous-C1-current-bankpath-and-exit-foreign.json','day07-five-D-C1-member-coverage-current-printpath-and-foreign-witness.json','day07-five-D-C1-coverage-and-first-foreign-witness.breps.zip','day07-five-D-new-motion-DATA-registration-and-fore-mouth-bounded-disposition.json','day07-current-five-D_FR-owner-DATA-registration.json','day02-astra-current1288-restored-source-index.json']
+external=[root/'tools/cad/open_prototype_board_hardware.py',root/'tools/cad/open_prototype_board_mounts.py',root/'tools/cad/feline_shared_frame.py']
+nextstep='WHOLE_RECEIVER_FASTENING_LOAD_INTERFACE_AND_SOURCE_EXIT_LAYER_DECISION: oppositeface sameaxisM3x14/fullnut/twowashers sourceclampstack rejected by UPfulltip47.52 vs FROZENW004r1.95 gap.739753<125,1of20/19UNRECEIVED. Newheadbelowdoesnotclearfullshaft. No more hardwareorientation/head/tip/stack/case scalar inthisfamily/no thirdC1mouth/clock/freecurve. Need oneactualdifferent wholemountbearing/fasteningaxis+fiveportpressure/initiallay topology from availablephysicalbay while preservingcase/ports/full9/145stock/sourcefunctions/realP0. Do not cutboughtframe or delete selectedscrew/nut/washers; no samefixture wiremetal exception. ActualcurrentlyqualifiedC1continuousmouth/root4.525/sourcecaseG4scope remainPROPOSED; reversalnotselected/currentbaseunchanged. WholeSOURCEactualLi/independentdeltaLi/usable55EACHFL2/850900MAX3/9ID12portions4units andglobal123246 remainOPEN beforestorage/V3/FPI details.'
+p=out/'day07-Clamp3-opposite-face-fullstack-bounded-disposition.json';assert not p.exists()
+times=[dict(receipt=names[1],operation_seconds=g['operation_seconds'],process_cpu_seconds=g['process_cpu_seconds']),dict(receipt=names[3],operation_seconds=v['operation_seconds'],process_cpu_seconds=v['process_cpu_seconds'])]
+r=dict(id=p.stem,status='ONE_OPPOSITE_FACE_FULLSTACK_HYPOTHESIS_REJECTED_FULLTIP_MARGIN_BEFORE_PRINT',selected=False,N01_complete=False,source_selected_hardware=p0['source_selected_nominal_fastener'],source_interface_classification=dict(source_hardware_constructor='open_prototype_board_hardware.py85..121 nominalM3x14 fullnut/washers and explicitengagement',source_print_mount='open_prototype_board_mounts.py177..189 twojaw/pad3.4clearance adjacentframe',source_native_no_drill='open_prototype_board_hardware.py127..134 axisinboard_no_drill; no purchasedthreadedhole reversalclaim',actual_native_P0_horizontal_faces=v['actual_native_horizontal_bearing_faces'],fullsource_frame_function_preserved=True,physical_delivery_fit='PHASE2 nominal source family, no deliveredhardwarecertification'),full_transform=p0['one_transform'],all4_complete_shape_valid_samevolume=g['all4_complete_rigid_copies'],actual_shaft_fullnut_engagement_mm=g['measured_same_full_shaft_nut_engagement_mm'],first_falsifier=g['first_falsifier'],new_cursor=1,new_total=20,new_unreceived=19,new_unreceived_not_a_clearance_pass=True,first_falsifier_scope='AllocatedFULLinsulation+margin versus actualselectednominal fullscrew tip; positivegap NOTwirecontact/no allmanualroutes or mountimpossibility.',falsified_premise='Moving originalHEAD below preserves sourcebearingstack but full14shaft then protrudes ABOVE uppernut at47.52 into mandatoryfrozenW004 margin; reversalalone cannot clear wholemetal from exit.',no_second_family_or_print_built=True,bearing_stack_unchanged_nominal=p0['bearing_stack'],jaw_seat_neck_case_ports_all5_fixed9_C1mouth_stock_unchanged=True,below_driver_topnut_antirotation_access_load_fullneighbors_and_assembly='UNRECEIVED afterfirstfulltipfalsifier, no oldaboveR4.25credit',old_C1_freefield_negative=dict(gap_mm=.6525176853445642,cursor=12,total=48,unreceived=36),old_D_mouth_negative=dict(common_mm3=11.033453471676129,cursor=1,total=6,unreceived=5),current1292effective1311_unchanged=True,D5_G4_C1_still_PROPOSED=True,whole_SOURCE_Li_deltaLi_55each_850900MAX3_OPEN=True,actualA_U_fit_slack=None,actualcut=None,next=nextstep,remaining_OPEN=['Newwhole receiver-load/fastening/entrylayer decision, alloldnegatives retained','S0PWMcowl/routinekey/R6/U1far/headNorth/whole4MTA/four220/123246','W007wholedebitNULL/currentDATAregistrationunchanged'],timings=times,measured_script_wall_seconds=sum(q['operation_seconds'] for q in times),measured_script_CPU_seconds=sum(q['process_cpu_seconds'] for q in times),view=dict(path=png.name,sha256=sha(png),actual_native_sections=True,visually_inspected=False),source_pins=[dict(path=n,sha256=sha(out/n)) for n in sources],external_source_pins=[dict(path=str(s),sha256=sha(s)) for s in external],packet_pins=[dict(path=n,sha256=sha(out/n),bytes=(out/n).stat().st_size) for n in names],archive_checks=checks,native=dict(pid=26064,session_id=46493,state='IDLE',pending_operation=None,unsaved_geometry=False),bounded_start_utc='2026-11-07T18:01:01Z',written_utc=datetime.now(timezone.utc).isoformat())
+p.write_bytes((json.dumps(r,ensure_ascii=False,indent=2)+'\n').encode());names.append(p.name)
+for q in r['source_pins']:assert sha(out/q['path'])==q['sha256']
+for q in r['external_source_pins']:assert sha(Path(q['path']))==q['sha256']
+# Commit is a separate final step after visualinspection; persist package first.
+print(json.dumps(dict(receipt=p.name,sha256=sha(p),files=names,view=str(png),packetpins=len(r['packet_pins']),members=len(gg),wall=r['measured_script_wall_seconds'],CPU=r['measured_script_CPU_seconds']),indent=2))
