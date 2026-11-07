@@ -1,0 +1,387 @@
+{
+  "id": "day07-SOURCE-adaptive-entry-storage-bounded-disposition",
+  "status": "ADAPTIVE_LONG_RETURN_RADIUS_STORAGE_FULL_RESERVED_PROFILE_FLOOR_HOLD_NO_SOURCE_SELECTION",
+  "selected": false,
+  "N01_complete": false,
+  "whole_hypothesis": {
+    "proposal": "day07-SOURCE-left-entry-adaptive-long-loop-whole-proposal.json",
+    "groups": [
+      {
+        "name": "HIP3_SOURCE_FL1",
+        "IDs": [
+          "W004",
+          "W020",
+          "W019"
+        ],
+        "full_triplet_cross_mm": [
+          9.4,
+          3.9
+        ],
+        "min_R_mm": 35.1,
+        "allocated_axial_loop_mm": 254.7589595369707,
+        "planned_extra_mm": 10
+      },
+      {
+        "name": "KNEE3_CONTINUOUS_FL2",
+        "IDs": [
+          "W005",
+          "W022",
+          "W021"
+        ],
+        "full_triplet_cross_mm": [
+          9.4,
+          3.9
+        ],
+        "min_R_mm": 35.1,
+        "allocated_axial_loop_mm": 318.6769599042302,
+        "planned_extra_mm": 55
+      },
+      {
+        "name": "KNEE3_DONOR_FL3",
+        "IDs": [
+          "W006",
+          "W024",
+          "W023"
+        ],
+        "full_triplet_cross_mm": [
+          9.4,
+          3.9
+        ],
+        "min_R_mm": 35.1,
+        "allocated_axial_loop_mm": 337.8824375881644,
+        "planned_extra_mm": 55
+      }
+    ],
+    "meaning": "Oneadaptiveregionfamily, distinctperposesameconstantloopaxialallocation; scalarinverseONLYlengthidentitynotclearancetuning/newvariant. Allsource/currentfullprofiles/factorysource14unchanged; bodyentryisaccountingnotY-terminal. Knee6branchcoallocationNOTreceived."
+  },
+  "first_falsifier": {
+    "kind": "ARC",
+    "centreline_theta": 2.753263258603136,
+    "full_profile_Zmin_mm": -79.54393118509032,
+    "offset_B_mm": 2.75,
+    "profile_radius_mm": 1.55,
+    "pose": 33,
+    "group": "KNEE3_CONTINUOUS_FL2",
+    "group_index": 1,
+    "core": "G",
+    "ground_bodyrelative_Z_mm": -78.94401550292969,
+    "full_reserved_profile_ground_lower_mm": -0.5999156821606277,
+    "route_radius_mm": 44.67842732058881,
+    "group_min_R_mm": 35.1,
+    "axial_loop_mm": 318.6769599043616,
+    "required_margin_mm": 1.25
+  },
+  "source_wire_at_first_falsifier": "W021/SOURCE_FL2/G",
+  "ground_counter": {
+    "cursor": 303,
+    "total": 324,
+    "unreceived": 21,
+    "stop_after_first_full_profile_HOLD": true
+  },
+  "native_local_proof": {
+    "profile_rows": [
+      {
+        "core": "D",
+        "full_reserved_diameter_mm": 3.1,
+        "valid": true,
+        "solids": 1,
+        "volume_mm3": 80.93239422094776,
+        "expected_arc_profile_volume_mm3": 80.93239422094767,
+        "bounds_mm": [
+          [
+            -33.23604003831108,
+            89.55421577178629,
+            -75.99245056885195
+          ],
+          [
+            -27.514832805699687,
+            100.73607290208182,
+            -72.65360510813287
+          ]
+        ],
+        "raw_default_bbox_Zmin_mm": -75.74062681483127,
+        "Zmin_mm": -75.99245056885195,
+        "full_reserved_profile_ground_lower_mm": 2.9515649340777372,
+        "witnesses": [
+          [
+            [
+              -29.014401978855933,
+              89.72613709578881,
+              -75.74062681483127
+            ],
+            [
+              -29.014401978855915,
+              89.72613709578877,
+              -78.94401550292969
+            ]
+          ]
+        ],
+        "scope": "ONLY~0.24radnamedcriticalgroundarc, NOTwholefreewirecurve orphysicaldeliveredcontact",
+        "native_distToShape_reported_gap_mm": 3.203388688098414
+      },
+      {
+        "core": "V",
+        "full_reserved_diameter_mm": 2,
+        "valid": true,
+        "solids": 1,
+        "volume_mm3": 33.68674057063381,
+        "expected_arc_profile_volume_mm3": 33.68674057063378,
+        "bounds_mm": [
+          [
+            -34.74670337308424,
+            89.1283701519238,
+            -77.21819092697115
+          ],
+          [
+            -30.086144016383596,
+            100.01232842589134,
+            -74.97704286582758
+          ]
+        ],
+        "raw_default_bbox_Zmin_mm": -76.9817619220647,
+        "Zmin_mm": -77.21819092697115,
+        "full_reserved_profile_ground_lower_mm": 1.7258245759585407,
+        "witnesses": [
+          [
+            [
+              -32.235489504813174,
+              94.5533638337599,
+              -77.21819082697107
+            ],
+            [
+              -32.23549011037312,
+              94.55336321390678,
+              -78.94401550292969
+            ]
+          ]
+        ],
+        "scope": "ONLY~0.24radnamedcriticalgroundarc, NOTwholefreewirecurve orphysicaldeliveredcontact",
+        "native_distToShape_reported_gap_mm": 1.7258246759585347
+      },
+      {
+        "core": "G",
+        "full_reserved_diameter_mm": 3.1,
+        "valid": true,
+        "solids": 1,
+        "volume_mm3": 80.93239422094774,
+        "expected_arc_profile_volume_mm3": 80.93239422094767,
+        "bounds_mm": [
+          [
+            -37.29639494740503,
+            88.4816008668071,
+            -79.54393128509034
+          ],
+          [
+            -31.575187714793632,
+            99.66345799710263,
+            -76.20508582437125
+          ]
+        ],
+        "raw_default_bbox_Zmin_mm": -79.29210753106966,
+        "Zmin_mm": -79.54393128509034,
+        "full_reserved_profile_ground_lower_mm": -0.5999157821606502,
+        "witnesses": [
+          [
+            [
+              -32.11590900546946,
+              88.86104230719405,
+              -78.94401550292966
+            ],
+            [
+              -32.11590900546946,
+              88.86104230719411,
+              -78.94401550292969
+            ]
+          ]
+        ],
+        "scope": "ONLY~0.24radnamedcriticalgroundarc, NOTwholefreewirecurve orphysicaldeliveredcontact",
+        "native_distToShape_reported_gap_mm": 4.5496934130773415e-14
+      }
+    ],
+    "below_floor_reserved_volume_mm3": 9.106753292951302,
+    "minpoint_mm": [
+      -34.26566606715252,
+      94.01705361742253,
+      -79.54393118509032
+    ],
+    "minpoint_on_BRep_gap_mm": 2.929642751054232e-14,
+    "profile_BRep_min_vs_analytic_delta_mm": -1.0000002248489182e-07,
+    "only_short_critical_arc": true
+  },
+  "classification": "Chosenstorageallocationfails FULLreservedprofile/floor1.25, NOTdeliveredwirecontact, allmanualfreefleximpossibility, actualrequiredphysicalreserve55orstockshortage. R35.1notrejected; no loweringOD/R/floor/margins. 55/10plannedreservesNOTacceptedstoredslack/minfit; groupcentreline318etcNOTwholefactorydebit.",
+  "baseline_samefamily_R35p1_ground_diagnostic": [
+    {
+      "group": "HIP3_SOURCE_FL1",
+      "minimum_full_profile_ground_lower_mm": 14.591541250919747,
+      "scope": "MinR35.1groundONLY/no otherclearance/storage/fitacceptance",
+      "moving_centreline_demand_range_mm": [
+        242.65710578199617,
+        244.7589595369707
+      ]
+    },
+    {
+      "group": "KNEE3_CONTINUOUS_FL2",
+      "minimum_full_profile_ground_lower_mm": 7.598337859841266,
+      "scope": "MinR35.1groundONLY/no otherclearance/storage/fitacceptance",
+      "moving_centreline_demand_range_mm": [
+        258.94467811948823,
+        263.6769599042302
+      ]
+    },
+    {
+      "group": "KNEE3_DONOR_FL3",
+      "minimum_full_profile_ground_lower_mm": 8.43551852937135,
+      "scope": "MinR35.1groundONLY/no otherclearance/storage/fitacceptance",
+      "moving_centreline_demand_range_mm": [
+        277.96734717681915,
+        282.8824375881644
+      ]
+    }
+  ],
+  "unreceived": {
+    "case_and_Ankle_collision_pairs": 0,
+    "context_BRep_exports_are_not_collisionproof": true,
+    "entryfan_roll": false,
+    "three_branch_coallocation": false,
+    "source_external_envelope_and_movingreserve_space": false,
+    "bodyDGVfans_and_enddebits": false,
+    "all_A_U_minimum_fit_slack": null,
+    "initial_assembly": false
+  },
+  "input_quality": {
+    "raw_default_bbox_G_Zmin_mm": -79.29210753106966,
+    "optimal_bbox_G_Zmin_mm": -79.54393128509034,
+    "actual_minpoint_Z_mm": -79.54393118509032,
+    "meaning": "NewpartialtorusdefaultBoundBoxdisagreedwithactualsurfacepoint. optimalBoundingBox(False,False)+pointonvalidBRep+belowfloorcommonagree; rawmetricrejected, geometryunchanged/notnewdesignfailure. No oldsourceboundsretest.",
+    "distance_reporting_scope": "NativeDreport3.203389 exceedsanalytic/optimalbboxminimum2.951565. ReportedasnativeoutputONLY, notminimumproof. GpointonBRep+validbelowfloorcommon isdecisive. No olderacceptedsourcechecksreplayed."
+  },
+  "geometry_metric_repair_NOT_design_failure": true,
+  "source_endpoint_function": {
+    "connector_datums_provisional": true,
+    "pin_cavity_order_known": false,
+    "factory_plugs_installed_per_source": 1,
+    "project_connector_choice": 0,
+    "current_chosen_source14_points_axes_preserved": true,
+    "source_axis_NOT_called_manufacturerimmutable": true,
+    "no_pinout_or_cut_inferred": true
+  },
+  "unchanged": "Actualleftbodypassage9.4x10.5/37.75/all1443min2.05/BodyOuter3.25/new35x129min3.163420 remainsclosedSCOPED. Current1292/effective1311/rest108a9f78e06/2d1d8cfa/def3e56a unchanged/newSource21+4tempPROPOSED. OriginalBankBedretained, oldunselectedguide8notreactivated/root105nottransferred. SOURCE4ties/MODULE2/fourindependent220/both4MTA preserved; no material/holderbuilt.",
+  "guards": "R47/P0/E6/15drives/MG92B/MAIN46.52/325x200x160/max200/256cube/foreign1.25/BodyOuter3.25. 9IDs12portions4physicalMAX3original+donor/source14terminal11full9lap4once/3x8laps3x20sleeves/stagger2x9/850project/900ceil5(min+20)perunit/no pool/oldprefix/chordcredit/actualcutNULLphase2. AlloldSOURCE/V3/S0/quarters/Pi45/vertical/reviewcounts retained.",
+  "next": "CONSTANT_RADIUS_AXIAL_OR_LATERAL_RETURN_STORAGE: leftbodypassageclosed andsourceholder21unchanged. ThisONEfamily failedbecauseentire55/10planningallowancewasstoredbyradiusgrowthdirecteddownward; R35.1ground-onlybaselinepositiveNOTwholecasefit. ChooseONEactualaccessibleexternalKnee6/Hip3returnbay withR>=35.1fixedarcs+variableSTRAIGHT/3Dreturnleglength (store55/10outsidefloor-limitedarc), fullprofiles/currentcase/Ankle/stock/movingreserve beforematerial. No loweringR/slack/margins/55waiver/sourceportpose/PCBscalarretry or allmanualpaths/shortageclaim. Sourceconnectoraxis remainsprojectprovisional, notmanufacturerimmutable; preservefullfactoryend/source14 andcurrentselectedpointuntilsource-backedwholeinterfaceproof. Actualnewentryfan/roll/bodyDGV/enddebits/all9ID12portion4MAX3/A/U/minfit/slack stillOPEN; no oldprefix/chordcredit/V3detail/newreview.",
+  "global_open": "WholeSOURCEadaptiveaccessibleR/loopstorage/entryfan/root/physicalstock/initialassembly;whole123246/U1far/headNorth/4MTA/Pimates/R6/invalid3/lengthslack/motionoutline. No N01point/fullN03N08N09N10.",
+  "source_pins": [
+    {
+      "path": "day07-SOURCE-left-end-body-passage-bounded-disposition.json",
+      "sha256": "1697b075ac83f67370b169e47568aa9ac508a88f22e43a7031c02de01c9dfcce"
+    },
+    {
+      "path": "day07-SOURCE-motion36-and-group-return-bounded-disposition.json",
+      "sha256": "4db7a4c8945a0490b75e3b91bcb1aee5316ed97060377cf760b40bd9c31102d1"
+    },
+    {
+      "path": "day07-SOURCE-new-moving-module-region-first-gate.json",
+      "sha256": "4529138d4d3168c4630590689fd8699e59466a962e7db5c9eb97663681209bfd"
+    },
+    {
+      "path": "day07-SOURCE-new-motion-frozen-input-projection.json",
+      "sha256": "0dcd1a96117f38ce1ee8f5c2e0c356b6d5d6824a6f81c5420ddcbf04b1c47392"
+    },
+    {
+      "path": "day07-SOURCE-slot-bearing-retention-bounded-disposition.json",
+      "sha256": "d8b15a63ecf22a20dbd72760b7aa14132a719791d45f4921a71e39ad16ce4619"
+    },
+    {
+      "path": "n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    },
+    {
+      "path": "day07-whole-physical-SOURCE-approach-Knee-link-proposal.json",
+      "sha256": "d30f8f8715684dc1a96613fe78c9838ae951d13dfb17d7d70ce026d6321ce1bd"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/body-harness-checkpoint/leg-source-near-member-plan.json",
+      "root": "MECH",
+      "sha256": "7ce4dde48bf2b129a47bf2cbbdedc2e343721670440002f4941005494b05cbeb"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-SOURCE-left-entry-adaptive-long-loop-whole-proposal.json",
+      "sha256": "e3f23878c079ff52d2d7d430599a79753bc3eb1287001afc23f6affd40932071",
+      "bytes": 216428
+    },
+    {
+      "path": "day07-SOURCE-adaptive-loop-ground-first-falsifier.json",
+      "sha256": "b37b08f944cda4a9d20b87049ae12f45aeb72935fe5af077798e063ff564fbd0",
+      "bytes": 170516
+    },
+    {
+      "path": "day07-SOURCE-adaptive-loop-ground-local-proof.json",
+      "sha256": "4170600c970008adbad440004962666a44c5153659ff7377698c66fc9d89b7cc",
+      "bytes": 377238
+    },
+    {
+      "path": "day07-SOURCE-adaptive-loop-ground-local-proof.breps.zip",
+      "sha256": "08331f1a9b3d2971943993654a0c26477a6fa5aa1e47e87e14fa5d406f482adf",
+      "bytes": 54619
+    },
+    {
+      "path": "day07-SOURCE-adaptive-loop-ground-received-view.png",
+      "sha256": "46bd2187ccf4b0d982d605699d6207f25bc13b34ed28098475a992118ff06271",
+      "bytes": 134699
+    },
+    {
+      "path": "day07-SOURCE-adaptive-loop-ground-received-view.svg",
+      "sha256": "76b119027f0e0f3dd79764e46dcf974e7625b4f1c9463fd1709be94abaf89291",
+      "bytes": 80569
+    },
+    {
+      "path": "day07-save-adaptive-loop-whole-proposal.recipe.py",
+      "sha256": "85fa6860d630748d1d49c599da6f38ab52426bb1aea3ad2ecaf3c446a462f1b1",
+      "bytes": 7449
+    },
+    {
+      "path": "day07-full-profile-ground-first-falsifier.recipe.py",
+      "sha256": "00970c6b6fa992725f5bb6b70da48b2dffad5be88385e6b7a34e9be3a966568f",
+      "bytes": 3958
+    },
+    {
+      "path": "day07-ground-local-profile-proof.recipe.py",
+      "sha256": "0f923c0bb30a8975fc5d5d5f78675664d721eaad3556026eb25ca8849ab5c3ff",
+      "bytes": 7705
+    },
+    {
+      "path": "day07-render-close-adaptive-ground.recipe.py",
+      "sha256": "e88d5fc9ad2fabf5f1125fd70d967320078a5f2ed2edd6afdd803841eeff6dbb",
+      "bytes": 12056
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-SOURCE-adaptive-loop-ground-local-proof.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 7
+    }
+  ],
+  "timings": {
+    "successful_native_local_proof_operation_seconds": 0.8290000000270084,
+    "successful_native_local_proof_process_CPU_seconds": 0.9375,
+    "scope": "ONLYtimedfinalnativegroundproof; notwholechunkCPU. Initialdefault-bboxdiagnosticattemptandmetadataanalyticsNOTtimed/no inventedCPU or wall-as-CPU."
+  },
+  "view": {
+    "path": "day07-SOURCE-adaptive-loop-ground-received-view.png",
+    "source": "day07-SOURCE-adaptive-loop-ground-local-proof.json",
+    "actual_section_Y_mm": 94.01705361742253,
+    "visual_inspection": "OWNER_VIEW_RECEIVED actualcriticalY94.017054section showsfullreservedGprofile/floor; actualposedcaseFootprojectioncontext labelednotcollisionproof; fullcapacityvsdeliveredwire distinction readable.",
+    "projection_not_contact_proof": true
+  },
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false,
+    "identity_received": "OWNER59_IDLE26064 1292/1311/108 pendingnull unsavedfalse"
+  },
+  "written_utc": "2026-11-07T08:47:53.249513+00:00"
+}
