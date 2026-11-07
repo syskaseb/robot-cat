@@ -1,0 +1,6 @@
+# Presentation recovery only: larger section plane includes the full case's final0.125mm; no distance/common/pose replay.
+st143=time.monotonic();cp143=time.process_time();plane143=Part.makePlane(160,160,A.Vector(-110,-50,-5),A.Vector(0,1,0));sections143=[]
+for n,s in [('PROPOSED_FULL_FHAC_CASE_BOX',case141),('ACTUAL_F_R1_HOUSING',ownerpart142),('ACTUAL_F_R1_BEARING_PAD',ctx121[padkey142]),('CASE_ALLOCATION_WITH_HOUSING_COMMON',co142)]:
+ sec=s.section(plane143);sections143.append(dict(Y_mm=-50,name=n,curves_xz=[[[p.x,p.z] for p in e.discretize(Deflection=.025)] for e in sec.Edges]))
+r143=dict(id='day07-FPI-clocked-case-full-source-section',status='FULL_SOURCE_SECTION_PRESENTATION_READ_NO_NEW_VARIANT_OR_PAIR',sections=sections143,plane_origin=[-110,-50,-5],plane_size=[160,160],old_section_plane_clipped_case_right_edge0_125mm=True,old_saved_full_case_geometry_intact=True,foreign_tasks_replayed=0,source_receipt=p142.name,source_receipt_sha256=hashlib.sha256(p142.read_bytes()).hexdigest(),operation_seconds=time.monotonic()-st143,process_cpu_seconds=time.process_time()-cp143,pid=os.getpid(),session_id=46493)
+p143=OUT/(r143['id']+'.json');assert not p143.exists();p143.write_bytes((json.dumps(r143,indent=2)+'\n').encode());print('BODY143','full section only','wall',r143['operation_seconds'],'CPU',r143['process_cpu_seconds'],'OWNER69_IDLE',os.getpid(),flush=True)
