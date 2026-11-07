@@ -1,0 +1,43 @@
+{
+  "id": "day07-coordinator-FRP-band-function-source-receipt",
+  "received_utc": "2026-11-07T01:49:52.654424+00:00",
+  "status": "READONLY_SOURCE_FUNCTION_RECEIVED_NOT_GEOMETRY_GO",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "reviewer_turn": "01a1b3ad-a0cf-7d43-b5c2-1bacfd2856f3",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "role": "Independent source extraction only; priorC1review remainsclosed1/1, no new design review or edits/CAD",
+  "source_pins": [
+    {
+      "path": "tools/cad/feline_shared_straight_combs.py",
+      "sha256": "d62b1f9f34c9a919e91cb748fd6158f9ebce592782af8047d18848e30d06bd81"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/n01-shared54-current.json",
+      "sha256": "df808adf02ab2de6cae04689204a0275f7ee0e15ecc9cdd4cc88ca2e051de0d4"
+    },
+    {
+      "path": "hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day07-removable-Pi-carrier-bearing-functional-gate.json",
+      "sha256": "47c413690eae231a25f4c02b7c1cb238dfb65e427b1c40ef5ea4c20380f62f90"
+    }
+  ],
+  "source_band_pin": {
+    "selection": "/chosen/FR_P = FR_P:straight:27:lane1",
+    "entry": "0063.brep",
+    "sha256": "2f626c02b914a272c2b8262554b2b3aecd1336bb13e9dba6860d98b1a14e11c3",
+    "type": "project_stock_reservation"
+  },
+  "facts": [
+    {
+      "function": "One T18I tie around shared straight comb of FOUR wires; actual constructor four strip rectangular frame2.5axialwidth/1.2thickness. NOT a solid boundingbox containing housinginterior. Headbudget4.3x5x5.3 is same physicalunit. Intersecting strip allocation violates its intended retention space, without certifying delivered nylon contact."
+    },
+    {
+      "location_and_assembly": "FR_Pcase center[-15.625,79,98],30x19x9 separate from grip. W037custom/W038/W039/W040 depart-Y, lane1 extends straightprefix12 and relocates wholegrip. BandY51.5..54.0, head+X. Preserve four9mmfields/loop/head/installation access; stationary case/ports/grip/source evidence reusable. Sourceopencase mount/tool access not upgraded by newreceiver."
+    },
+    {
+      "minimal_owner_decision": "Retain complete existing FR_Ploop/head/install passage or make one explicitly functional complete-interface alternative. Do not erasebandreservation, convert nylon into printedownership, treat hollow strips as mere bboxair, or retry rejectedpair. Receiver raw30.8125/1of14/13unreceived remains. EarlierJPWMpark33.300594 is differentpair. Newroot48/foot45/bearing96 are scopedpositiveevidence only."
+    }
+  ],
+  "new_CAD_by_parent_or_reviewer": false,
+  "N01_complete": false
+}
