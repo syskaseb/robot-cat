@@ -1,0 +1,65 @@
+{
+  "id": "day07-coordinator-JPWM-Molex-bounded-drawing-read",
+  "read_utc": "2026-11-07T01:19:51.116665+00:00",
+  "status": "SOURCE_DIMENSIONS_SCOPED_NO_GEOMETRY_ACCEPTANCE",
+  "selected_parts": [
+    "430250200",
+    "430200201"
+  ],
+  "purpose": "Named local risk DSI vs nominal26x12x12 mated JPWM during direct Pi-drop5. Inspect source model fidelity before interpreting nominal overlap as delivered part collision. Parent read-only PDF review only; no CAD/native/import/shape change.",
+  "source_pins": [
+    {
+      "file": "day07-source-Molex-430250000-SD-revA.pdf",
+      "sha256": "3fa78847433b382fa07609fb9f44b5e8b017804b9b491250dc493eef9e029e28",
+      "bytes": 201161,
+      "retrieval_url": "https://docs.rs-online.com/6c6c/A700000011520331.pdf"
+    },
+    {
+      "file": "day07-source-Molex-SDA43020-revG.pdf",
+      "sha256": "2b51fbd88986caed9a66a31cf876d0b8a70f83714620dbc991c81860b7fd083d",
+      "bytes": 189787,
+      "retrieval_url": "https://th.c.misumi-ec.com/en/book/MLX1_E07/pdf/0007.pdf"
+    }
+  ],
+  "official_sources": [
+    "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/430/43025/430250200_sd.pdf",
+    "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/430/43020/430200201_sd.pdf"
+  ],
+  "observations": [
+    {
+      "source": "day07-source-Molex-430250000-SD-revA.pdf",
+      "drawing": "430250000-SD PSD000 revA released2018-06-01",
+      "visually_read": true,
+      "facts": [
+        "Selected43025-0200 appears as2circuit part. A3.86 with+.35/-.25 table tolerance.",
+        "Two-circuit front body callout7.57 does NOT span the protruding latch silhouette above the shoulder; cannot use7.57 as complete outer envelope.",
+        "Note8 top pull tabs absent on2/4circuit versions; mating latch still present.",
+        "Wire-to-wire mated24.77REF;10.81/11 callouts on separate PCB-header43045 diagram must not be applied as wire-to-wire full height."
+      ]
+    },
+    {
+      "source": "day07-source-Molex-SDA43020-revG.pdf",
+      "drawing": "SDA-43020-**** revG approved2010-11-18; manufacturer-authored historical mirror",
+      "visually_read": true,
+      "facts": [
+        "Selected43020-0201 listed as2positions/freehanging/no panelmount. Do not import panel-ear bounds from0200.",
+        "Side body transverse callout6.85 +/-.13; length16.89REF; mated43020/43025 length24.77.",
+        "Table A3.86 for2circuits. Search OCR flattens separate ordering and dimension tables incorrectly (0201 appears beside4circuit dims); use actual drawing table alignment."
+      ]
+    }
+  ],
+  "conclusion": "Nominal26x12x12 remains the current source allocation. No smaller full mated envelope, release stroke, mounted datum or DSI clearance accepted. Manufacturer bare-body values alone do not authorize shrinking latch/retention/prefix cover. Use credible initial assembly ordering now; exact manufacturer CAD/complete dimension-datum qualification only if still the decision-relevant local blocker.",
+  "unreceived": [
+    "Complete selected-pair outer latch envelope in existing world pose/contact-center datum",
+    "Actual-half park envelope and wired stock/R/capacity",
+    "Any changed retention sizing after dimensional correction"
+  ],
+  "bounded_availability": "Direct selected Molex PDF download timed out; web open has no extracted lines. Historical manufacturer drawings via distributor mirrors were visually read. Selected Farnell CAD ZIP fetch timed out; no CAD imported or claimed received. No further availability loop in this portion.",
+  "preserved": [
+    "0288cead body side-exit4/4 received",
+    "old park FR_P conservative overlap33.30059379 remains scoped allocation HOLD",
+    "microSD raw82.731 and directdrop5/nominalDSIgap0 preserved",
+    "wholeN01 score0/10; no new review cycle"
+  ],
+  "N01_complete": false
+}
