@@ -1,0 +1,8 @@
+import time,json,hashlib,zipfile,os
+st146=time.monotonic();cp146=time.process_time();items146=[('CURRENT_RETAINED_S0_KEY',s0145),('MANDATORY_UPWARD_LID_CORE',lid144),('ACTUAL_S0_KEY_MANDATORY_COMMON',co145),('CURRENT_W020_FULL_SELECTED_HEAD',ctx121['Station:Bank:W020/body/end:head_budget']),('CURRENT_W020_FULL9_SPLIT_CAP',ctx121['Station:Bank:W020/body/end:split_cap_exterior']),('CURRENT_W020_FULL_BAND',ctx121['Station:Bank:W020/body/end:band_budget'])];ar146=OUT/'day07-FPI-bay-S0-lid-and-current-receiver-source-witness.breps.zip';assert not ar146.exists();ge146=[]
+with zipfile.ZipFile(ar146,'w',zipfile.ZIP_DEFLATED) as z:
+ for i,(n,s) in enumerate(items146):
+  raw=s.exportBrepToString().encode();en=str(i)+'.brep';z.writestr(en,raw);ge146.append(dict(name=n,entry=en,sha256=hashlib.sha256(raw).hexdigest(),valid=s.isValid(),volume_mm3=s.Volume,bounds_mm=saved_bounds(s)))
+ z.writestr('manifest.json',(json.dumps(dict(geometry=ge146),indent=2)+'\n').encode())
+r146=dict(id='day07-FPI-bay-S0-lid-and-current-receiver-source-export',status='EXISTING_ACTUAL_OPERAND_EXPORT_ONLY_NO_NEW_PAIR_OR_POSE',archive=ar146.name,archive_sha256=hashlib.sha256(ar146.read_bytes()).hexdigest(),geometry=ge146,source_receipts=[dict(path=p145.name,sha256=hashlib.sha256(p145.read_bytes()).hexdigest()),dict(path=p144.name,sha256=hashlib.sha256(p144.read_bytes()).hexdigest())],pair_tests=0,operation_seconds=time.monotonic()-st146,process_cpu_seconds=time.process_time()-cp146,pid=os.getpid(),session_id=46493)
+p146=OUT/(r146['id']+'.json');assert not p146.exists();p146.write_bytes((json.dumps(r146,indent=2)+'\n').encode());print('BODY146',len(ge146),'source export wall',r146['operation_seconds'],'CPU',r146['process_cpu_seconds'],'OWNER70_IDLE',os.getpid(),flush=True)
