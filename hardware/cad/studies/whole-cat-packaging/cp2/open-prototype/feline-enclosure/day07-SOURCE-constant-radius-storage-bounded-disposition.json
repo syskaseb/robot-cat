@@ -1,0 +1,379 @@
+{
+  "id": "day07-SOURCE-constant-radius-storage-bounded-disposition",
+  "status": "CONSTANT_R_AXIAL_STORAGE_FLOOR_HOLD_CONDITIONAL_CAPACITY_IDENTIFIED_NO_THIRD_LOCAL_RETURN",
+  "selected": false,
+  "N01_complete": false,
+  "whole_hypothesis": {
+    "proposal": "day07-SOURCE-constant-radius-axial-return-whole-proposal.json",
+    "R_mm": 35.1,
+    "extra_length_method": "TwoaxialSTRAIGHTlegs2d+translatedfirstsemicircle; tangentcontinuous, allR35.1, no radius/pose/sourcepointtuning.",
+    "groups": [
+      {
+        "name": "HIP3_SOURCE_FL1",
+        "ids": [
+          "W004",
+          "W020",
+          "W019"
+        ],
+        "R_mm": 35.1,
+        "loop_axial_allocation_mm": 254.7589595369707,
+        "extra_planned_mm": 10
+      },
+      {
+        "name": "KNEE3_CONTINUOUS_FL2",
+        "ids": [
+          "W005",
+          "W022",
+          "W021"
+        ],
+        "R_mm": 35.1,
+        "loop_axial_allocation_mm": 318.6769599042302,
+        "extra_planned_mm": 55
+      },
+      {
+        "name": "KNEE3_DONOR_FL3",
+        "ids": [
+          "W006",
+          "W024",
+          "W023"
+        ],
+        "R_mm": 35.1,
+        "loop_axial_allocation_mm": 337.8824375881644,
+        "extra_planned_mm": 55
+      }
+    ],
+    "three_branch_coallocation": false,
+    "source_case_stock_fullneighborhood_NOT_qualified": true
+  },
+  "first_falsifier": {
+    "pose": 35,
+    "group_index": 1,
+    "group": "KNEE3_CONTINUOUS_FL2",
+    "core": "G",
+    "profile_radius_mm": 1.55,
+    "offset_B_mm": 2.75,
+    "R_mm": 35.1,
+    "extension_mm": 27.5,
+    "ground_bodyrelative_Z_mm": -73.52734883626302,
+    "required_margin_mm": 1.25,
+    "full_profile_ground_lower_mm": -0.9440770445687008,
+    "minimum_piece": {
+      "kind": "TRANSLATED_FIRST_SEMICIRCLE",
+      "Zmin_mm": -74.47142588083172,
+      "theta": 2.723440574483494,
+      "translation_along_T_mm": 27.5
+    },
+    "all_piece_minima": [
+      {
+        "kind": "TRANSLATED_FIRST_SEMICIRCLE",
+        "Zmin_mm": -74.47142588083172,
+        "theta": 2.723440574483494,
+        "translation_along_T_mm": 27.5
+      },
+      {
+        "kind": "OUTWARD_AXIAL_STRAIGHT",
+        "Zmin_mm": -23.007258198727182
+      },
+      {
+        "kind": "RETURN_AXIAL_STRAIGHT",
+        "Zmin_mm": -72.08133626073942
+      },
+      {
+        "kind": "UNSHIFTED_REST_ARC",
+        "Zmin_mm": -63.53892135632944,
+        "theta": 3.141592653589793,
+        "translation_along_T_mm": 0
+      },
+      {
+        "kind": "FINAL_OLD_TANGENT",
+        "Zmin_mm": -27.857388638523165
+      }
+    ]
+  },
+  "first_wire": "W021/G/SOURCE_FL2 inproposedpackingnotmanufacturerpincavity",
+  "ground_counter": {
+    "cursor": 321,
+    "total": 324,
+    "unreceived": 3,
+    "first_falsifier_stop": true
+  },
+  "native_local_confirmation": {
+    "profile_rows": [
+      {
+        "core": "D",
+        "full_reserved_diameter_mm": 3.1,
+        "valid": true,
+        "solids": 1,
+        "volume_mm3": 63.58162557450176,
+        "expected_arc_profile_volume_mm3": 63.58162557450167,
+        "bounds_mm": [
+          [
+            -45.172434943330906,
+            116.90788563739952,
+            -70.9290640039895
+          ],
+          [
+            -39.88763219746547,
+            125.88362347679163,
+            -67.64248553828634
+          ]
+        ],
+        "raw_default_bbox_Zmin_mm": -70.72945954426632,
+        "Zmin_mm": -70.9290640039895,
+        "full_reserved_profile_ground_lower_mm": 2.598284832273521,
+        "witnesses": [
+          [
+            [
+              -41.378245467455216,
+              117.10841138613851,
+              -70.72945954426632
+            ],
+            [
+              -41.3782454674552,
+              117.10841138613853,
+              -73.52734883626302
+            ]
+          ]
+        ],
+        "scope": "ONLY~0.24radnamedcriticalgroundarc, NOTwholefreewirecurve orphysicaldeliveredcontact",
+        "native_distToShape_reported_gap_mm": 2.7978892919966967
+      },
+      {
+        "core": "V",
+        "full_reserved_diameter_mm": 2,
+        "valid": true,
+        "solids": 1,
+        "volume_mm3": 26.464776513840427,
+        "expected_arc_profile_volume_mm3": 26.46477651384044,
+        "bounds_mm": [
+          [
+            -46.679139041372636,
+            116.4495682852304,
+            -72.15024499241062
+          ],
+          [
+            -42.44909650132628,
+            125.10725916754231,
+            -69.96135546325229
+          ]
+        ],
+        "raw_default_bbox_Zmin_mm": -71.95295159614261,
+        "Zmin_mm": -72.15024499241062,
+        "full_reserved_profile_ground_lower_mm": 1.377103843852396,
+        "witnesses": [
+          [
+            [
+              -43.41078248196483,
+              116.57893973602975,
+              -71.95295159614261
+            ],
+            [
+              -43.410782481964816,
+              116.57893973602972,
+              -73.52734883626302
+            ]
+          ]
+        ],
+        "scope": "ONLY~0.24radnamedcriticalgroundarc, NOTwholefreewirecurve orphysicaldeliveredcontact",
+        "native_distToShape_reported_gap_mm": 1.5743972401204047
+      },
+      {
+        "core": "G",
+        "full_reserved_diameter_mm": 3.1,
+        "valid": true,
+        "solids": 1,
+        "volume_mm3": 63.581625574501714,
+        "expected_arc_profile_volume_mm3": 63.58162557450167,
+        "bounds_mm": [
+          [
+            -49.217373906836606,
+            115.75024130232259,
+            -74.47142598083174
+          ],
+          [
+            -43.932571160971186,
+            124.7259791417147,
+            -71.18484751512858
+          ]
+        ],
+        "raw_default_bbox_Zmin_mm": -74.27182152110856,
+        "Zmin_mm": -74.47142598083174,
+        "full_reserved_profile_ground_lower_mm": -0.9440771445687233,
+        "witnesses": [
+          [
+            [
+              -44.137480291140996,
+              116.28292518555727,
+              -73.527348836263
+            ],
+            [
+              -44.137480291141,
+              116.28292518555725,
+              -73.52734883626302
+            ]
+          ]
+        ],
+        "scope": "ONLY~0.24radnamedcriticalgroundarc, NOTwholefreewirecurve orphysicaldeliveredcontact",
+        "native_distToShape_reported_gap_mm": 2.1316282072803006e-14
+      }
+    ],
+    "full_reserved_G_below_floor_mm3": 15.171041937434264,
+    "point_on_BRep_gap_mm": 2.842170943040401e-14,
+    "minimum_profile_point_mm": [
+      -46.45140690390473,
+      120.17428945479703,
+      -74.47142588083172
+    ],
+    "analytic_vs_optimal_bound_delta_mm": -1.0000002248489182e-07,
+    "short_profile_span_mm": 8.424,
+    "scope": "ReservedfullprofileONLYnotdeliveredwirecontact/wholefreewiremodel."
+  },
+  "conditional_capacity": {
+    "group": "KNEE3_CONTINUOUS_FL2",
+    "limiting": {
+      "pose": 35,
+      "core": "G",
+      "source_Tz": -0.31063326925127194,
+      "max_axial_extension_ground_only_mm": 20.436760927581396,
+      "max_fixed_loop_length_ground_only_mm": 304.550481759393
+    },
+    "max_extra_above_max_base_ground_ONLY_mm": 40.87352185516278,
+    "planned_extra_mm": 55,
+    "minimum_extra_must_move_OUT_OF_THIS_BAY_mm": 14.126478144837222,
+    "scope": "Conditionalfloor-onlyupperbound, notavailablecase/coallocationstorage/physicalwirestockshortage. No reduction/waiverof55/10.",
+    "chosen_plane_and_flat_B_roll_only": true
+  },
+  "capacity_classification": "UpperboundsONLYforTHISplanaraxialreturnandchosenflat-Btripletroll/currentnominalsourceT, notuniversalbay/all3Drollcapacity. Otherplane/roll/case/branchpackingunreceived.",
+  "required_redistribution_is_not_physical_stock_shortage": true,
+  "shared_allocation_counterexample": "No capacityborrowfromDONOR_FL3/Hip/no physicalextra55minimumclaim. SOURCEFL2globalpercoreboughtstock/cut/wholeminfitunknown; groupcentreline318.67696isNOTwholeunitwiredebit.",
+  "unresolved": {
+    "current_sourcecase_and_Ankle_clearance_pairs": 0,
+    "context_export_not_contact_proof": true,
+    "fullexternalbay_and_exposure": false,
+    "entryfan_roll": false,
+    "three_branch_coallocation": false,
+    "bodyDGVregiontransport_and_ends": false,
+    "percore_upperlength_and_actualstoredslack": null,
+    "initial_assembly": false,
+    "new_U1_leading_root": false
+  },
+  "input_quality": "NEWpartialtorususesanalytic/optimalbounds+actualonshapeproof+validbelowfloorcommon, rawdefaultBBoxNOTminimum. No olderacceptedsourceboundaudit/replay.",
+  "historical_negatives": "Preservepriorradiusstoragepose33W021G/R44.678427/lower-.599916/303of324/21unreceived; priorquarters402.0793of33/30unreceived,78.3508221of34/33unreceived,Hipnorth20.05outline,shortCS22of36/alloldSOURCE/V3/S0/Pi45/reviewcounts. ThisisONEdistinctaxialfunctionalstorageplan, notC2radius/poseoffset/wholeR35impossibility.",
+  "unchanged": "Actualleftbodypassage1697b075/37.75/full9.4x10.5/BodyOuter3.25/all1443min2.05/new4515coversmin3.163420 retained. Current1292/effective1311/rest108a9f78e06/2d1d8cfa/def3e56a/newSource21+4tempunchanged. No oldrigid21motion155/sourceworld/static/root/quarterreplay/newmaterial. OriginalBankBedretained/oldunselected8guideoverlaynotreactivated/old105rootnottransferred. SOURCE4ties/MODULE2/fourindependent220/both4MTA unchanged.",
+  "guards": "R47/P0/E6/15drives/MG92B/MAIN46.52/325x200x160/max200/256cube/foreign1.25/BodyOuter3.25; source14terminal11full9lap4once/3x8laps3x20sleeves/stagger2x9/850/900ceil5(min+20)MAX3/actualcutNULLphase2/no oldprefix/chordcredit/pool/20trimdouble slack. Group35.1projectcapacitynotmanufacturerminimum, selected12.4percoreunchanged/no shorterRwaiver.",
+  "next": "WHOLE_PER_PHYSICAL_LEG_AND_BODY_DGV_RESERVE_ALLOCATION: twochosenlocalstorageforms(radiusgrowthandfixedRsource-forwardstadium)failfloorwithfull55inthisplane/flatBroll. No thirdlocalcurve/scalaroffset/shorterR/55waiver. Thisplane/roll SOURCEFL2 floor-only ceiling40.873522 extra, so >=14.126478 ofplanned55mustmoveoutsideTHISbay ifsameplane/rollretained; othercase/packingconstraints maylowerceiling. ChooseactualconnectedbodyD3/G3/V3regions+legspace andreservepercoreofSAMEphysicalSOURCEFL2, total55unchanged; no donor/Hip/spare/20fittrim pooling. Other3D/rollsolutionsnotruledoutbut requirewhole source/currentcase/Ankle/ground/space/stockproof, notthirdlegnudge. Actualleftbodypassageclosed/rigid21unchanged. Perphysical900MAX3/850/ends/source14terminal11full9lap4once/3x8/3x20/stagger2x9/fullfactory/sourceoriginal+donor/all9ID12portions actualA/U/minfit/slackNULL untilqualifiedgrouptransport/bodyDGVends. ProspectiveU1leadingroot/functions/accessbeforematerial/V3, no old105transfer/newreview.",
+  "global_open": "WholeSOURCE/bodyDGV/currentlengthslack/mount/entryfan/initialassembly;global123246/U1far/headNorth/four220/4MTA/Pimates/R6/invalid3/motionoutline/wholeN01.",
+  "source_pins": [
+    {
+      "path": "day07-SOURCE-adaptive-entry-storage-bounded-disposition.json",
+      "sha256": "a33c149d84ee6b73fa47707d7a66d6a265d2cf37a9e1f1505f754df3e242a3a4"
+    },
+    {
+      "path": "day07-SOURCE-left-end-body-passage-bounded-disposition.json",
+      "sha256": "1697b075ac83f67370b169e47568aa9ac508a88f22e43a7031c02de01c9dfcce"
+    },
+    {
+      "path": "day07-SOURCE-new-motion-frozen-input-projection.json",
+      "sha256": "0dcd1a96117f38ce1ee8f5c2e0c356b6d5d6824a6f81c5420ddcbf04b1c47392"
+    },
+    {
+      "path": "day07-SOURCE-new-moving-module-region-first-gate.json",
+      "sha256": "4529138d4d3168c4630590689fd8699e59466a962e7db5c9eb97663681209bfd"
+    },
+    {
+      "path": "day07-SOURCE-slot-bearing-retention-bounded-disposition.json",
+      "sha256": "d8b15a63ecf22a20dbd72760b7aa14132a719791d45f4921a71e39ad16ce4619"
+    },
+    {
+      "path": "n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    },
+    {
+      "path": "day07-whole-physical-SOURCE-approach-Knee-link-proposal.json",
+      "sha256": "d30f8f8715684dc1a96613fe78c9838ae951d13dfb17d7d70ce026d6321ce1bd"
+    },
+    {
+      "path": "day07-S0-C1-current-candidate-composition.json",
+      "sha256": "a9f78e06faa1f57007fb58f4163b72af74f85a752f92713abb57d6fb7647d93a"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-SOURCE-constant-radius-axial-return-whole-proposal.json",
+      "sha256": "6960313877152abc9e782aa97f362966672b63231bc5218a1f47046878a3f749",
+      "bytes": 169238
+    },
+    {
+      "path": "day07-SOURCE-constant-radius-axial-storage-ground-gate.json",
+      "sha256": "14a0cb09d6cd89b76db6c79792c0e3f5e6c15436802f3c8cfd964645ebcec8b2",
+      "bytes": 411233
+    },
+    {
+      "path": "day07-SOURCE-constant-radius-axial-ground-local-proof.json",
+      "sha256": "d8198dc9e62c1ebad032e785102eee3722ce6e077863d578473c3077bd997209",
+      "bytes": 370990
+    },
+    {
+      "path": "day07-SOURCE-constant-radius-axial-ground-local-proof.breps.zip",
+      "sha256": "64687a82a02e34d58fc15bb5cd9ade2a6b3563c654dd6952e84ab72ce8076e01",
+      "bytes": 53154
+    },
+    {
+      "path": "day07-SOURCE-constant-radius-axial-ground-received-view.png",
+      "sha256": "fe5d61564eaac590155146acc7c0342acb852cc074fe36312f8999d233e47cc1",
+      "bytes": 134719
+    },
+    {
+      "path": "day07-SOURCE-constant-radius-axial-ground-received-view.svg",
+      "sha256": "0c360e1486fd6a3eae6840295ca497baf0207f1f9f0a3982b1c5059fdcead679",
+      "bytes": 80443
+    },
+    {
+      "path": "day07-save-constant-radius-whole-proposal.recipe.py",
+      "sha256": "8b58ab73bfd10df8e95f22a9de70350cd063332e0da02cb8bd2dc947737c31d0",
+      "bytes": 4373
+    },
+    {
+      "path": "day07-constant-radius-ground-and-capacity.recipe.py",
+      "sha256": "f85eda5d44f8f181506dcf69184fd9bab1832a1e50535f8593f249445cc39150",
+      "bytes": 4617
+    },
+    {
+      "path": "day07-constant-R-local-ground-proof.recipe.py",
+      "sha256": "92adca4dc023383cdad368ba07ba584cf7b57a1dee2ce3340e284189e914112f",
+      "bytes": 7841
+    },
+    {
+      "path": "day07-render-close-constant-radius.recipe.py",
+      "sha256": "e06d1e9d4a1187d46a3f72cdd80b1379eabd9f9b742cbd0f01c75e841e4756d5",
+      "bytes": 12625
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-SOURCE-constant-radius-axial-ground-local-proof.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 7
+    }
+  ],
+  "timings": {
+    "native_local_proof_operation_seconds": 0.75,
+    "native_local_proof_process_CPU_seconds": 0.765625,
+    "scope": "Onlymeasurednativechangedlocalproof; metadataanalytics/render notCADCPU orwall-as-CPU."
+  },
+  "view": {
+    "path": "day07-SOURCE-constant-radius-axial-ground-received-view.png",
+    "source": "day07-SOURCE-constant-radius-axial-ground-local-proof.json",
+    "actual_sectionY_mm": 120.17428945479703,
+    "visual_inspection": "OWNER_VIEW_RECEIVED actualY120.174289criticalsection/fullreservedG+unchangedfloor andactualposedcaseFootprojectioncontext; selectedplane/rollconditional40.873522limit/14.126478redistributionlabels readable; no physicalwirecontactorcaseclearanceclaim.",
+    "projection_not_contact_proof": true
+  },
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false
+  },
+  "written_utc": "2026-11-07T09:05:50.277663+00:00"
+}
