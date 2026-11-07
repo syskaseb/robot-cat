@@ -1,0 +1,421 @@
+{
+  "id": "day07-SOURCE-split-Knee6-Hip3-portals-whole-proposal",
+  "status": "ONE_SPLIT6_3_FUNCTIONAL_PORTAL_LAYER_PROPOSAL_FIRST_CAPACITY_OUTLINE_GATE",
+  "selected": false,
+  "N01_complete": false,
+  "cause": "Previousall9southquarter78.350822capacityHOLD. Actualintermediate9guideisnotterminal/full9mandatoryturn/grip. Useactualtwoopenportals: upper6south/lower3north; guide/root/PCB/sourceholderposeunchanged. Firstprovefull6field/currentU1 andnorth3fixedbodyoutline beforeanydetails; ifnorthfails stopwholebranch,no scalarturnoffset.",
+  "regions": {
+    "KNEE6_EXTERNAL": {
+      "IDs": [
+        "W005",
+        "W022",
+        "W021",
+        "W006",
+        "W024",
+        "W023"
+      ],
+      "source_frames": "ActualKnee36portframes4529138d/sourceFL2nominal14+newDONOR3exit, existingsourceends/R unchanged",
+      "cross_mm": [
+        9.4,
+        7.2
+      ],
+      "group_R_mm": 35.1,
+      "external_bay_bounds_mm": [
+        [
+          -145,
+          20,
+          -18
+        ],
+        [
+          -84.1,
+          105,
+          80
+        ]
+      ],
+      "capacity_or_actual_path_qualified": false
+    },
+    "HIP3_EXTERNAL": {
+      "IDs": [
+        "W004",
+        "W020",
+        "W019"
+      ],
+      "source": "ActualHip36nominal14sourceframes; nooldprefix",
+      "cross_mm": [
+        9.4,
+        3.9
+      ],
+      "group_R_mm": 35.1,
+      "external_bay_bounds_mm": [
+        [
+          -145,
+          20,
+          -18
+        ],
+        [
+          -84.1,
+          116.8,
+          80
+        ]
+      ],
+      "capacity_or_actual_path_qualified": false
+    },
+    "KNEE6_SOUTH_UPPER_TURN": {
+      "start_mm": [
+        -84.1,
+        31.9,
+        45.65
+      ],
+      "centre_mm": [
+        -84.1,
+        67,
+        45.65
+      ],
+      "end_mm": [
+        -49,
+        67,
+        45.65
+      ],
+      "tangents": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "radial_width_mm": 9.4,
+      "depth_mm": 7.2,
+      "R_mm": 35.1,
+      "sector_degrees": [
+        -90,
+        0
+      ],
+      "Z_mm": [
+        42.05,
+        49.25
+      ],
+      "guide_rows": "Existingrows1/2 atZ44/47.3, fullD/G3.1,V2/.2gaps/.4margins; notreducedold9profile."
+    },
+    "HIP3_NORTH_LOWER_TURN": {
+      "start_mm": [
+        -84.1,
+        112.1,
+        40.7
+      ],
+      "centre_mm": [
+        -84.1,
+        77,
+        40.7
+      ],
+      "end_mm": [
+        -49,
+        77,
+        40.7
+      ],
+      "tangents": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "radial_width_mm": 9.4,
+      "depth_mm": 3.9,
+      "R_mm": 35.1,
+      "sector_geometry_degrees": [
+        0,
+        90
+      ],
+      "travel_clockwise": true,
+      "Z_mm": [
+        38.75,
+        42.65
+      ],
+      "guide_rows": "Existingrow0Z40.7/fullDGV. ThisfixedbodyturnHASpotentialY116.8 outlinefalsifier, no exposedmovinglegexception."
+    },
+    "EXISTING_PASSIVE9": {
+      "bounds_mm": [
+        [
+          -53.7,
+          67,
+          38.75
+        ],
+        [
+          -44.3,
+          77,
+          49.25
+        ]
+      ],
+      "unchanged_material": true,
+      "mouth_mm": 3.9,
+      "upper6_from_Y67": true,
+      "lower3_from_Y77": true,
+      "streams_need_not_share_one_turn": true,
+      "merge_is_accounting_NOT_terminal": true,
+      "no_extra9": true
+    },
+    "BODY_DGV_FANS": {
+      "source": "All9branchreceivers/ends inheritedidentityONLY; newbranchtransports/debitsOPEN",
+      "D": "D_FL.2/.3/.4",
+      "G": "FL_G.2/.3/.4",
+      "V": "c821commonentrythenqualifiedonlyunchangedGsegments"
+    }
+  },
+  "physical_portion_rows": [
+    {
+      "wire": "W004",
+      "physical_unit": "SOURCE/FL1",
+      "role": "CONTINUOUS",
+      "chain": [
+        "factory_source14",
+        "HIP3_EXTERNAL",
+        "HIP3_NORTH_LOWER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W004"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 10
+    },
+    {
+      "wire": "W020",
+      "physical_unit": "SOURCE/FL1",
+      "role": "CONTINUOUS",
+      "chain": [
+        "factory_source14",
+        "HIP3_EXTERNAL",
+        "HIP3_NORTH_LOWER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W020"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 10
+    },
+    {
+      "wire": "W019",
+      "physical_unit": "SOURCE/FL1",
+      "role": "CONTINUOUS",
+      "chain": [
+        "factory_source14",
+        "HIP3_EXTERNAL",
+        "HIP3_NORTH_LOWER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W019"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 10
+    },
+    {
+      "wire": "W005",
+      "physical_unit": "SOURCE/FL2",
+      "role": "CONTINUOUS",
+      "chain": [
+        "factory_source14",
+        "Knee_static_approach",
+        "KNEE6_EXTERNAL",
+        "KNEE6_SOUTH_UPPER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W005"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 55
+    },
+    {
+      "wire": "W022",
+      "physical_unit": "SOURCE/FL2",
+      "role": "CONTINUOUS",
+      "chain": [
+        "factory_source14",
+        "Knee_static_approach",
+        "KNEE6_EXTERNAL",
+        "KNEE6_SOUTH_UPPER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W022"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 55
+    },
+    {
+      "wire": "W021",
+      "physical_unit": "SOURCE/FL2",
+      "role": "CONTINUOUS",
+      "chain": [
+        "factory_source14",
+        "Knee_static_approach",
+        "KNEE6_EXTERNAL",
+        "KNEE6_SOUTH_UPPER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W021"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 55
+    },
+    {
+      "wire": "W006",
+      "physical_unit": "SOURCE/FL3",
+      "role": "ORIGINAL",
+      "chain": [
+        "factory_source14",
+        "Knee_static_approach",
+        "received_holder_ENTRY9",
+        "source_owned_joint_D"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 0
+    },
+    {
+      "wire": "W006",
+      "physical_unit": "DONOR/FL3",
+      "role": "DONOR",
+      "chain": [
+        "source_owned_joint_D",
+        "received_holder_EXIT9",
+        "KNEE6_EXTERNAL",
+        "KNEE6_SOUTH_UPPER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W006"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 55
+    },
+    {
+      "wire": "W024",
+      "physical_unit": "SOURCE/FL3",
+      "role": "ORIGINAL",
+      "chain": [
+        "factory_source14",
+        "Knee_static_approach",
+        "received_holder_ENTRY9",
+        "source_owned_joint_V"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 0
+    },
+    {
+      "wire": "W024",
+      "physical_unit": "DONOR/FL3",
+      "role": "DONOR",
+      "chain": [
+        "source_owned_joint_V",
+        "received_holder_EXIT9",
+        "KNEE6_EXTERNAL",
+        "KNEE6_SOUTH_UPPER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W024"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 55
+    },
+    {
+      "wire": "W023",
+      "physical_unit": "SOURCE/FL3",
+      "role": "ORIGINAL",
+      "chain": [
+        "factory_source14",
+        "Knee_static_approach",
+        "received_holder_ENTRY9",
+        "source_owned_joint_G"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 0
+    },
+    {
+      "wire": "W023",
+      "physical_unit": "DONOR/FL3",
+      "role": "DONOR",
+      "chain": [
+        "source_owned_joint_G",
+        "received_holder_EXIT9",
+        "KNEE6_EXTERNAL",
+        "KNEE6_SOUTH_UPPER_TURN",
+        "EXISTING_PASSIVE9",
+        "BODY_DGV_FANS",
+        "W023"
+      ],
+      "minimum_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut_mm": null,
+      "planned_moving_reserve_mm": 55
+    }
+  ],
+  "planned_motion_reserve": {
+    "method": "Explicitplanningallowance ceil5(maxportshift+(groupR+crosscircumradius)*sumabsownerjointrotations). NOTprovenroutedlengthupper/receivedstorage; mustfitactualaccessiblebayandcurrentpercorestockbeforeselection. Source20fittrimNOTcreditedasflexslack.",
+    "Knee6": {
+      "maxportshift_mm": 5.096077822012398,
+      "owner_joint_rotation_upper_degrees": 67.02497285543961,
+      "allocated_extra_mm": 55
+    },
+    "Hip3": {
+      "maxportshift_mm": 2.6082147055838054,
+      "owner_joint_rotation_upper_degrees": 10.097398371059725,
+      "allocated_extra_mm": 10
+    },
+    "original_FL3_Knee_relative_flex_allowance_mm": 0,
+    "actual_stored_slack": null
+  },
+  "first_checks": [
+    "FullKnee6south9.4x7.2R35.1region/currentU1material/wholecurrentneighbors; functionalownguideendplaneONLYifcommon0andcontactconfinedY67. PreserveBankPad/U1realfunctions.",
+    "FullHip3north9.4x3.9R35.1region fixedBodyOuter3.25; no movingexposureinherited. Firstoutlinefalsifierstopsnorthbranch/nootherbodypairs."
+  ],
+  "assembly": "BenchprepareSOURCEFL3lap/sleevesOFFPETG, moving4ties/sourceendsretained. Withcovers/receiversopen lay6upperrowsfromsouth and3lowerrowfromnorth sequentiallooseconductors through3.9mouth; thenDGVfans+receiverclosures. No rigid9thread/factorycasepass/virtualunsolder/newterminal/extra9/newholder. ExternalbayR/roll+stock+completeinstallationOPEN.",
+  "all_A_U_minimum_fit_slack": null,
+  "source_invariants": "Selectedparts/R47/P0/E6/15drives/MG92B/MAIN46.52/325x200x160/max200/256cube/foreign1.25/BodyOuter3.25. Allnegativecounts unchanged. 850project+900/MAX3perphysicalunit,source14terminal11full9lap4once/3x8laps/3x20sleeves/stagger/2x9lands/factoryplug/actualcutNULL. No oldprefix/Gdelta/pool/purchasedoffcutasslack.",
+  "source_pins": [
+    {
+      "path": "day07-SOURCE-motion36-and-group-return-bounded-disposition.json",
+      "sha256": "4db7a4c8945a0490b75e3b91bcb1aee5316ed97060377cf760b40bd9c31102d1"
+    },
+    {
+      "path": "day07-SOURCE-pad-conforming-guide-bounded-disposition.json",
+      "sha256": "1e1ac8ed8f9e9fd6be7ceddbeb6c71a1b0685f500f3cdaa3d6259c5b34168d54"
+    },
+    {
+      "path": "day07-SOURCE-new-moving-module-region-first-gate.json",
+      "sha256": "4529138d4d3168c4630590689fd8699e59466a962e7db5c9eb97663681209bfd"
+    },
+    {
+      "path": "day07-SOURCE-new-motion-frozen-input-projection.json",
+      "sha256": "0dcd1a96117f38ce1ee8f5c2e0c356b6d5d6824a6f81c5420ddcbf04b1c47392"
+    }
+  ],
+  "written_utc": "2026-11-07T08:00:12.317865+00:00"
+}
