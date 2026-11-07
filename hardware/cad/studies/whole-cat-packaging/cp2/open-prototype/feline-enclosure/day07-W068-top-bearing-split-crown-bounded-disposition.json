@@ -1,0 +1,449 @@
+{
+  "id": "day07-W068-top-bearing-split-crown-bounded-disposition",
+  "status": "ACTUAL_NEW_TOP_ROOT_SCOPED_POSITIVE_WHOLE_STOCK_FPI_ALLOCATION_HOLD",
+  "selected": false,
+  "N01_complete": false,
+  "new_strategy": "Direct source upper-horizontal bearing plus top-down open-bottom crown/capture and mechanical closed tie; no lower-face riser through integral frame. New printed root carrier is1solid; detachable connection is crown+separatetie around retained frame. W068 removable upper pressurehalf remains unbuilt, not virtually detached existing material.",
+  "old_strategy_counter": "C0westRR33.295211/feed7.548396 andC1inboardupstand19.878548 exhausted; old2source+6foreignunreceived NOT resumed; no newdocreview/reset.",
+  "new_strategy_attempts": 1,
+  "new_geometry_after_first_allocation_HOLD": false,
+  "whole_hypothesis": "day07-W068-top-bearing-split-crown-whole-proposal.json",
+  "actual_current_frame": {
+    "actor": "Ref_Material_P0_FrameFront20_0_0",
+    "archive": "day07-W068-top-bearing-whole-functional-first-gate.breps.zip",
+    "entry": "0.brep",
+    "member_sha256": "8f639f9ad435fa2f44f673db8251ccd1caa9d6443cdc3f886a5c8f32e8f1be27",
+    "new_XML_transform": false
+  },
+  "root_local": {
+    "top_contacts": [
+      {
+        "face": 22,
+        "area_mm2": 13.500000000000007
+      },
+      {
+        "face": 0,
+        "area_mm2": 12.391060637491613
+      }
+    ],
+    "side_contacts": [
+      {
+        "role": "NEW_SPLIT_CAPTURE_ANTIROTATION_SIDE",
+        "face": 16,
+        "valid": true,
+        "contact_area_mm2": 18.089999999997666
+      },
+      {
+        "role": "NEW_SPLIT_CAPTURE_ANTIROTATION_SIDE",
+        "face": 99,
+        "valid": true,
+        "contact_area_mm2": 18.089999999997666
+      }
+    ],
+    "closed_band_crown_contact": [
+      {
+        "band_face": 18,
+        "crown_face": 5,
+        "valid": true,
+        "area_mm2": 5.499999999999971
+      }
+    ],
+    "closed_band_frame_contact": [
+      {
+        "band_face": 2,
+        "frame_face": 96,
+        "valid": true,
+        "area_mm2": 3.749999999999999
+      }
+    ],
+    "own_material_nonpenetration_rows": [
+      {
+        "part": "WHOLE_CROWN_CAPTURE_LOADPATH",
+        "other": "Ref_Material_P0_FrameFront20_0_0",
+        "field_valid": true,
+        "source_valid": true,
+        "gap_mm": 6.536993168992922e-13,
+        "common_valid": true,
+        "common_mm3": 0.0,
+        "classification": "NAMED_OWN_FRAME_BEARING_CLOSED_BAND_OR_INSTALL_APERTURE",
+        "status": "OWN_MATERIAL_NONPENETRATION"
+      },
+      {
+        "part": "WHOLE_INSTALLED145_BAND_MATERIAL",
+        "other": "Ref_Material_P0_FrameFront20_0_0",
+        "field_valid": true,
+        "source_valid": true,
+        "gap_mm": 9.698908343125368e-13,
+        "common_valid": true,
+        "common_mm3": 0.0,
+        "classification": "NAMED_OWN_FRAME_BEARING_CLOSED_BAND_OR_INSTALL_APERTURE",
+        "status": "OWN_MATERIAL_NONPENETRATION"
+      },
+      {
+        "part": "ROOT_FULL6_HEAD_IN_APERTURE",
+        "other": "Ref_Material_P0_FrameFront20_0_0",
+        "field_valid": true,
+        "source_valid": true,
+        "gap_mm": 9.841016890277388e-13,
+        "common_valid": true,
+        "common_mm3": 0.0,
+        "classification": "NAMED_OWN_FRAME_BEARING_CLOSED_BAND_OR_INSTALL_APERTURE",
+        "status": "OWN_MATERIAL_NONPENETRATION"
+      },
+      {
+        "part": "FULL_INITIAL_ROOT_FEED_FIELD",
+        "other": "Ref_Material_P0_FrameFront20_0_0",
+        "field_valid": true,
+        "source_valid": true,
+        "gap_mm": 1.999999999999016,
+        "common_valid": true,
+        "common_mm3": 0.0,
+        "classification": "NAMED_OWN_FRAME_BEARING_CLOSED_BAND_OR_INSTALL_APERTURE",
+        "status": "OWN_MATERIAL_NONPENETRATION"
+      }
+    ],
+    "source_mechanical_contact_not_printed_fusion": true,
+    "not_strength_or_whole_mountPASS": true
+  },
+  "material": {
+    "union": {
+      "valid": true,
+      "solids": 1,
+      "member_coverage": [
+        {
+          "member": "CENTRAL_TOP_CROWN",
+          "missing_mm3": 0.0,
+          "bounds_mm": [
+            [
+              -85.6,
+              -4.5,
+              35.51
+            ],
+            [
+              -83.4,
+              4.5,
+              39.51
+            ]
+          ]
+        },
+        {
+          "member": "WEST_CAPTURE",
+          "missing_mm3": 0.0,
+          "bounds_mm": [
+            [
+              -87.0,
+              -4.5,
+              33.5
+            ],
+            [
+              -85.4575664610479,
+              4.5,
+              35.71
+            ]
+          ]
+        },
+        {
+          "member": "EAST_CAPTURE",
+          "missing_mm3": 0.0,
+          "bounds_mm": [
+            [
+              -83.9575664610479,
+              -4.5,
+              33.5
+            ],
+            [
+              -81.45,
+              4.5,
+              35.71
+            ]
+          ]
+        },
+        {
+          "member": "TRANSVERSE_BAR_WITH_PURPOSEFUL_BAND_CHANNEL",
+          "missing_mm3": 0.0,
+          "bounds_mm": [
+            [
+              -84.8,
+              -25.0,
+              37.02
+            ],
+            [
+              -80.8,
+              4.5,
+              41.02
+            ]
+          ]
+        },
+        {
+          "member": "WHOLE_TOP_BEARING_BEAM",
+          "missing_mm3": 0.0,
+          "bounds_mm": [
+            [
+              -127.0,
+              -25.0,
+              37.02
+            ],
+            [
+              -80.8,
+              -21.0,
+              41.02
+            ]
+          ]
+        }
+      ],
+      "positive_connections": [
+        {
+          "a": "CENTRAL_TOP_CROWN",
+          "b": "WEST_CAPTURE",
+          "positive_mm3": 0.25638037011376663
+        },
+        {
+          "a": "CENTRAL_TOP_CROWN",
+          "b": "EAST_CAPTURE",
+          "positive_mm3": 1.0036196298862308
+        },
+        {
+          "a": "CENTRAL_TOP_CROWN",
+          "b": "TRANSVERSE_BAR_WITH_PURPOSEFUL_BAND_CHANNEL",
+          "positive_mm3": 31.373999999999747
+        },
+        {
+          "a": "TRANSVERSE_BAR_WITH_PURPOSEFUL_BAND_CHANNEL",
+          "b": "WHOLE_TOP_BEARING_BEAM",
+          "positive_mm3": 64.0
+        }
+      ],
+      "extent_mm": [
+        [
+          -127.0,
+          -25.0,
+          33.5
+        ],
+        [
+          -80.8,
+          4.5,
+          41.02
+        ]
+      ],
+      "band_channel_removed_mm3": 13.361699196952884
+    },
+    "actual_union_not_rootpatch_only": true,
+    "source_frame_cut": false,
+    "root_carrier_only": true,
+    "pressure_full9_lower_upper_and_attachment_OPEN": true
+  },
+  "first_falsifier": {
+    "part": "WHOLE_INSTALLED145_BAND_MATERIAL",
+    "other": "F_PI:registered_casing_reservation",
+    "field_valid": true,
+    "source_valid": true,
+    "gap_mm": 1.150003814697257,
+    "witnesses": [
+      [
+        [
+          -79.6,
+          -1.25,
+          34.31
+        ],
+        [
+          -78.44999618530274,
+          -1.25,
+          34.31
+        ]
+      ]
+    ],
+    "status": "FOREIGN_FUNCTION_INTERFACE_HOLD"
+  },
+  "first_falsifier_function": "Project casing-box reservation of selected registered F_PI source size. Current centre inherited from central-spine plan; selected_pose=False/current_unqualified_centre; NOT exact manufacturer material. Its full allocated occupancy and1.25 requirement are preserved, not erased/shrunk/owned.",
+  "classification": "ALLOCATION_HOLD_NOT_CONTACT_NOT_PROOF_TOP_BEARING_IMPOSSIBLE; source upper-root positives stay scoped; wholeF_PI/body/sourceentry allocation needs resolution. No more dependent new material or remaining pair received after first stop.",
+  "counter": {
+    "new_foreign_received": 3,
+    "total": 4,
+    "unreceived": 1,
+    "unreceived_keys": [
+      [
+        "NEW_FULL6_PRESSURE_HEAD_PROPER_FRAME",
+        "Ref_Material_S0_body_CP2_0_0"
+      ]
+    ],
+    "stopped_no_resume": true
+  },
+  "source_nine_neighbor_bounds": {
+    "new_keys": 10,
+    "min_positive_lower_mm": 3.3769401997481054,
+    "old_field_motion_tests_replayed": 0,
+    "fullallocated_D_and_fixed9preserved": true,
+    "VG_outside_fans_OPEN": true
+  },
+  "root_stock": {
+    "SKU": "111-02370/T18I145",
+    "nominal_additional_root_demand": 1,
+    "existing_pressure_nominal_role": 1,
+    "availability": null,
+    "purchase": false,
+    "band_nominal_width_thickness_mm": [
+      2.5,
+      1.2
+    ],
+    "actual_nominal_loop_centreline_mm": 30.04955592153877,
+    "nominal_source_parameterisation_not_supplier_exact": true,
+    "nominal_145_minus_loop_mm": 114.95044407846123,
+    "head_pull25_once_WITHIN_remainder": true,
+    "root_head_full6_nominal_source_window_fit": true,
+    "physical_delivered_head_fit_phase2": true,
+    "root_and_pressure_uncut_tails_connected_capacity_installation_OPEN": true,
+    "two_units_not_pooled": true
+  },
+  "initialassembly": {
+    "proposed": "Bare retainedFrame20: fit splitcrown fromabove/outboard around existing upper material; insert roothead through actual upperwindow before RR/SideRight+uppermoduleclosure, fullhead/sourceaperture nominalfitphase2 explicit. Close mechanicalrootloop beneathheader/overcrown, no framefusion/cutting. W068samewire laid into full9lowerbed/upperhalf then fullpressure145; bothuncut tails handlay separately in connected inboardregions beforeSOURCE9/E6closure. RoutineS0/key/rings stayavailable; no rapidservice.",
+    "root_interface_top_down_on_bare_frame": true,
+    "new_root_own_part_split_not_existing_integral_frame": true,
+    "whole_sequence_NOT_received": true,
+    "required_S0_key_access_preserved_as_open_dependency": true
+  },
+  "remaining": "Properfull6pressurehead/S0pair1unreceived; wholeactualpressure9bed/upper/attachment+stockheads/closedtailfeeds/roll/parking/access/assembly/motionoutline/FPIcaseallocation. No detail after firstallocatedHOLD. Current1292/effective1311 unchanged; no newoverlayselected.",
+  "source_pins": [
+    {
+      "path": "day07-W068-inboard-overframe-C1-bounded-disposition.json",
+      "sha256": "3000c0624d72a018383f55ddea7b6422381c212324bbc081fc0ff04e3389d00b"
+    },
+    {
+      "path": "day07-W068-whole-retention-root-bounded-disposition.json",
+      "sha256": "18d2256f521d1fe5311ed78a0106b40e6714d147b2b894aadfb3ab59a7528f67"
+    },
+    {
+      "path": "day07-SOURCE-ninecore-entry-lane-roll-bounded-disposition.json",
+      "sha256": "d2c593f594beed4afcd23e28974ab9290f2401ec3142f82fc348ce66ce19c8ba"
+    },
+    {
+      "path": "n01-module-plan-r5.json",
+      "sha256": "aa9b0ccfb0f928d52be3c7d3217640147db341f5b63c790ba8d3325696aeb735"
+    },
+    {
+      "path": "n01-central-spine-power-plan-r4.json",
+      "sha256": "1621d5b44566eeb412458dbda5bd1cb3ef0185d07dbf3e66c6dc6bfafb62c5d1"
+    },
+    {
+      "path": "tools/cad/registered_fpi_space.py",
+      "sha256": "7f4a7e2ca2f78352508d2bc657d99c21a09aaea1629f8ce57f45f044e704397e"
+    },
+    {
+      "path": "tools/cad/feline_s1_flexible_fans.py",
+      "sha256": "67e741e59ec53211b14125bb3ca378fb57c9c061dc6b9b07c68c9d2e6eff46f3"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day07-W068-top-bearing-split-crown-whole-proposal.json",
+      "sha256": "ccf963f2a499678ea6661266e6f13d4e61562ce723f5a863562aa158dd718f23",
+      "bytes": 5973
+    },
+    {
+      "path": "day07-W068-top-bearing-whole-functional-first-gate.json",
+      "sha256": "a10756748a074050955975ee543a4ddeb214161bd523e28f2e1b2b58db02cc28",
+      "bytes": 13313
+    },
+    {
+      "path": "day07-W068-top-bearing-whole-functional-first-gate.breps.zip",
+      "sha256": "f9c558c78e74f7ecc7b7c9b44359b54abefe05ce5801ea16b2cb8fa62c65b859",
+      "bytes": 79516
+    },
+    {
+      "path": "day07-W068-top-bearing-functional-sections-and-own-contacts.json",
+      "sha256": "a2dcec8e439379430564dde84b46f8ce75e9660bc044cb6ee2376fb28120fab4",
+      "bytes": 25077
+    },
+    {
+      "path": "day07-W068-top-bearing-FPI-reservation-source-function.json",
+      "sha256": "71ea53f0962748953665e276f193da070341c05f61137664fa4bee5da019c372",
+      "bytes": 3339
+    },
+    {
+      "path": "day07-W068-top-bearing-new-closed-band-bearing-face-contact.json",
+      "sha256": "41d16242ee2c75ea26c21f75f5c2a46b5f90723949de0d81ee5dbee48b6b7e1e",
+      "bytes": 799
+    },
+    {
+      "path": "day07-W068-new-crown-source-nine-allocated-neighbor-bounds.json",
+      "sha256": "992a8aeb91fbc6f4b67d42a1c0cc31ef010a576e83c848c26ebd743c529e4b31",
+      "bytes": 5840
+    },
+    {
+      "path": "day07-W068-top-bearing-crown-and-FPI-allocation-received-view.png",
+      "sha256": "e375bdbfbc667779c6f942ef8760c4ebfe9125135003eda3067461692d952c48",
+      "bytes": 98995
+    },
+    {
+      "path": "day07-W068-top-bearing-crown-and-FPI-allocation-received-view.svg",
+      "sha256": "64bb0861381bc41440b445a1fee73e81a70764f519002e8b7a93b05785fed871",
+      "bytes": 12506
+    },
+    {
+      "path": "day07-top-bearing-whole-first-gate.recipe.py",
+      "sha256": "b5082e009c09826bfe6fd25c9533800c51d7bbec42e3a986ef80d3cc10c91478",
+      "bytes": 8376
+    },
+    {
+      "path": "day07-source-sections-own-functional-data.recipe.py",
+      "sha256": "cc7437a9602c6c2ec01b0424d15499692758bb13cd6bcc69357e91b61ee6a4c2",
+      "bytes": 2409
+    },
+    {
+      "path": "day07-new-closed-band-bearing-face-contact.recipe.py",
+      "sha256": "07a7decff30980da8bcb72baa06da2851fb66891f596f4496d2d005ff0dd67d2",
+      "bytes": 1508
+    },
+    {
+      "path": "day07-render-close-top-bearing.recipe.py",
+      "sha256": "de1e567813c299b4821ea35606f913bcb0f460b6c8dd69d68753bc1cdbd6abf0",
+      "bytes": 11426
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day07-W068-top-bearing-whole-functional-first-gate.breps.zip",
+      "crc_ok": true,
+      "member_sha_verified": 13
+    }
+  ],
+  "timings": [
+    {
+      "receipt": "day07-W068-top-bearing-whole-functional-first-gate.json",
+      "operation_seconds": 2.85999999998603,
+      "process_cpu_seconds": 4.96875
+    },
+    {
+      "receipt": "day07-W068-top-bearing-functional-sections-and-own-contacts.json",
+      "operation_seconds": 0.2660000000614673,
+      "process_cpu_seconds": 0.5
+    },
+    {
+      "receipt": "day07-W068-top-bearing-new-closed-band-bearing-face-contact.json",
+      "operation_seconds": 0.015999999945051968,
+      "process_cpu_seconds": 0.015625
+    },
+    {
+      "receipt": "day07-W068-new-crown-source-nine-allocated-neighbor-bounds.json",
+      "operation_seconds": 0.0,
+      "process_cpu_seconds": 0.0
+    }
+  ],
+  "actual_native_total_wall_seconds": 3.1419999999925494,
+  "actual_native_total_process_cpu_seconds": 5.484375,
+  "view": {
+    "path": "day07-W068-top-bearing-crown-and-FPI-allocation-received-view.png",
+    "actual_sections": "day07-W068-top-bearing-functional-sections-and-own-contacts.json",
+    "inspection": "OWNER_VIEWED: actualtwoXZsections/header/crown/wholeband/head/FPIallocatedboundary; labelslegible; no collision inferred from projection",
+    "projection_not_collision_proof": true
+  },
+  "next": "F_PI_FORENECK_CASE_AND_W068_ROOT_STOCK_FUNCTIONAL_ALLOCATION_BEFORE_PRESSURE_DETAIL: newdirecttopbearing/capture actualcontacts13.5/12.391061/18.09each andclosedband5.5crown/3.75frame/ownmaterial0+5members0missing/4joints receivedSCOPED; notthroughprong/crownmaterialpreserved. NominalfullrootbandF_PIregisteredcasinggap1.150003815<foreign1.25 is ALLOCATIONHOLD, no contact. ConstructorSOURCEstatesFPIcurrentcentreunqualified/selectedposeFALSE/projectfullcaseboxnotmanufacturerexact; preservewholecase/ends/root/assemblyfunction/fullstock+1.25, notdelete/shrink/ownwaiver. NeedoneWHOLEcase/stock/leading/initialassemblylayerdecision ratherthan0.1bandnudge oroldriser/C2. No morepairsforthisstoppedinput: newforeign3of4/1properpressureheadS0UNRECEIVED; fullpressure9attachment/newrootheadfeed/tailroll/whole2uncut145/access/assembly/currentmotionoutlineOPEN. OldriserC0C1exhaustedkept; newtopbearingonewholeattempt/newgeometrynotselected/no newreview. AlloutsideSOURCE_DGV/current55EACHFL2/independentdeltaL/9ID12portion4MAX3/850project+900ceil5minplus20/AUfit_slackNULL/actualcutNULL/global123246/N010remainOPEN.",
+  "native": {
+    "pid": 26064,
+    "session_id": 46493,
+    "state": "IDLE",
+    "pending_operation": null,
+    "unsaved_geometry": false
+  },
+  "global_open": "AlloutsideSOURCEfans/R35.1/currentlegvariation/usable55EACHFL2/independentpercoremath/9IDs12portions4MAX3/850+900fitceil5(min+20)/AUfit_slackNULL/actualcutNULL/whole123246/U1far/headNorth/four220/bothfourMTA/Pimates/R6/invalid3/motionoutline/wholeN010.",
+  "written_utc": "2026-11-07T11:46:17.929651+00:00"
+}

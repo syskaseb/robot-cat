@@ -1,0 +1,189 @@
+{
+  "id": "day07-W068-top-bearing-split-crown-whole-proposal",
+  "status": "ONE_NEW_LOAD_INTERFACE_TOPOLOGY_BEFORE_DETAIL",
+  "selected": false,
+  "N01_complete": false,
+  "old_strategy": "C0westRRroot/C1inboardriser exhausted, no resume old2+6; new crown takes upper horizontal bearing directly, no through-prong riser.",
+  "root": {
+    "actor": "Ref_Material_P0_FrameFront20_0_0",
+    "upper_prong_face": 0,
+    "header_face": 22,
+    "upper_prong_Z_mm": 37.02,
+    "header_Z_mm": 35.51,
+    "crown_block": [
+      [
+        -85.6,
+        -4.5,
+        35.51
+      ],
+      [
+        -83.4,
+        4.5,
+        39.51
+      ]
+    ],
+    "west_capture_cheek": [
+      [
+        -87,
+        -4.5,
+        33.5
+      ],
+      [
+        -85.4575664610479,
+        4.5,
+        35.71
+      ]
+    ],
+    "east_capture_cheek": [
+      [
+        -83.9575664610479,
+        -4.5,
+        33.5
+      ],
+      [
+        -81.45,
+        4.5,
+        35.71
+      ]
+    ],
+    "mechanical_bearing_and_antirotation_not_frame_fusion": true,
+    "actual_contact_area_not100strength_gate": true
+  },
+  "loadpath": {
+    "transverse_crown_bar": [
+      [
+        -84.8,
+        -25,
+        37.02
+      ],
+      [
+        -80.8,
+        4.5,
+        41.02
+      ]
+    ],
+    "whole_overframe_beam": [
+      [
+        -127,
+        -25,
+        37.02
+      ],
+      [
+        -80.8,
+        -21,
+        41.02
+      ]
+    ],
+    "useful_crosssections_mm": [
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "W068_lower_bed": "sameactual9axis/r2.25groove/r4.1outer withtwoaxialendcheeks+removableupper; full6head+bandstationpurposefulopenpocket, preservepositiveactualremainingloadsection before acceptance",
+    "no_frame_cut": true,
+    "no_old_riser": true,
+    "root_band_channel": "Purposefulfull3.3x2rootbandgrooveonlynewcrownbar; retainactualcentralheaderbearing/sourceframeuntouched; actualremainingusefulsection/junctions mandatory before mount acceptance"
+  },
+  "root_stock": {
+    "selected_SKU": "111-02370/T18I145",
+    "additional_nominal_demand": 1,
+    "availability": null,
+    "closed_loop_plane": "XZ Y0; through actual upper aperture, bottom band bears underheader, top above crown",
+    "centreline_extents_XZ": [
+      [
+        -89,
+        31.31
+      ],
+      [
+        -80.2,
+        40.11
+      ]
+    ],
+    "corner_R_mm": 3,
+    "plastic_R_project_assumption": true,
+    "band_width_thickness_mm": [
+      2.5,
+      1.2
+    ],
+    "full_feed_profile_mm": [
+      3.3,
+      2
+    ],
+    "initial_feed_plane_Z_mm": 28.91,
+    "installed_head_full6centre": [
+      -84.6,
+      0,
+      28.91
+    ],
+    "head_touches_own_native_aperture_not_foreign_waiver": true,
+    "nominal_closed_loop_mm": 30.04955592153876,
+    "head_pull25_once_within_uncut_remainder": true,
+    "nominal_not_stockPASS": true
+  },
+  "pressure": {
+    "existing_nominal_role": 1,
+    "SKU": "111-02370/T18I145",
+    "wire_R_mm": 25.2,
+    "land_mm": 9,
+    "terminal5_and_ring_unchanged": true,
+    "full6head": true,
+    "head_frame": "properframe normal projection(+X+Z) perpendicular actualwireaxis; lowerbed/upper/headwholefunctional replacement notsingleheadnudge",
+    "whole_unit_mm": 145,
+    "nominal_midR_mm": 4.7,
+    "whole_uncut_tail": true,
+    "head_pull25_once": true
+  },
+  "tail_capacity": {
+    "two_separate_layers_Z_mm": [
+      26.5,
+      39.5
+    ],
+    "each_flat_region": [
+      [
+        -78,
+        -22.8
+      ],
+      [
+        -31,
+        -14.8
+      ]
+    ],
+    "full_profile_mm": [
+      3.3,
+      2
+    ],
+    "racetrack_R_mm": 3,
+    "each_nominal_capacity_mm": 96.84955592153875,
+    "root_connected_feed_capacity_mm": 30,
+    "pressure_connected_feed_capacity_mm": 50,
+    "roll_field_diameter_mm": 3.9,
+    "freeends_not_fixed_endpoint": true,
+    "no_pool_or_trim": true,
+    "complete_neighbor_and_connection_check_OPEN": true
+  },
+  "source_entry": "All9 fixedpacking/3branches retained; no newSOURCEleadingmaterial/extra9/root105transfer. FullDallocatedcapacity remains neighbor, not ownW068.",
+  "initial_assembly": "Bare retainedFrame20: fit splitcrown fromabove/outboard around existing upper material; insert roothead through actual upperwindow before RR/SideRight+uppermoduleclosure, fullhead/sourceaperture nominalfitphase2 explicit. Close mechanicalrootloop beneathheader/overcrown, no framefusion/cutting. W068samewire laid into full9lowerbed/upperhalf then fullpressure145; bothuncut tails handlay separately in connected inboardregions beforeSOURCE9/E6closure. RoutineS0/key/rings stayavailable; no rapidservice.",
+  "first_falsifier": "Actual uppercontact+ownmaterialnonpenetration/full6headaperture/fullrootband, then whole plannedcrown/bridge/head/stockregions vsfullcurrentS0/S1/RR/Foundation/W077/SOURCE9 and allbbox candidates; stopfirstactualHOLD before detailedclamp/union. No space proof fromZnumbers.",
+  "guards": "foreign1.25/BodyOuter3.25/selectedparts/SOURCE4/MODULE2/BUS/four220/both4MTA/source14terminal11full9properends/whole14525once/inventoryUNKNOWN/no purchase. WholeSOURCE55each/AUfit_slackNULL/N010.",
+  "source_pins": [
+    {
+      "path": "day07-W068-inboard-overframe-C1-bounded-disposition.json",
+      "sha256": "3000c0624d72a018383f55ddea7b6422381c212324bbc081fc0ff04e3389d00b"
+    },
+    {
+      "path": "day07-W068-whole-retention-root-bounded-disposition.json",
+      "sha256": "18d2256f521d1fe5311ed78a0106b40e6714d147b2b894aadfb3ab59a7528f67"
+    },
+    {
+      "path": "day07-SOURCE-ninecore-entry-lane-roll-bounded-disposition.json",
+      "sha256": "d2c593f594beed4afcd23e28974ab9290f2401ec3142f82fc348ce66ce19c8ba"
+    }
+  ],
+  "written_utc": "2026-11-07T11:33:28.757348+00:00",
+  "pre_native_analytical_clarification": "LoopbottomstraightX[-86,-83.2]coversactual1.5headerwidth; full6headinsidenativeupperwindow; crownfootcontacttoactualhorizontalheader, strapchannelplannedinNEWbaronly. Thisisonefrozenpregateinput, no earliergeometrytest/offsettrial."
+}

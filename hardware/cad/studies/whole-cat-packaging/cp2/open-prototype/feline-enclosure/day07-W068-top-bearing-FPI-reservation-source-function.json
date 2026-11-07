@@ -1,0 +1,123 @@
+{
+  "id": "day07-W068-top-bearing-FPI-reservation-source-function",
+  "status": "SOURCE_CLASSIFICATION_ONLY_NO_CASE_CLEARANCE_WAIVER",
+  "constructor": "tools/cad/registered_fpi_space.py",
+  "constructor_sha256": "7f4a7e2ca2f78352508d2bc657d99c21a09aaea1629f8ce57f45f044e704397e",
+  "source_pins": [
+    {
+      "path": "n01-module-plan-r5.json",
+      "sha256": "aa9b0ccfb0f928d52be3c7d3217640147db341f5b63c790ba8d3325696aeb735",
+      "row": {
+        "role": "F_PI",
+        "region": "head_neck",
+        "objects": [
+          "Ref_Material_F_PI_new_0_0"
+        ],
+        "rotation_rows": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "translation_mm": [
+          -265.3999938964844,
+          -85.5,
+          -13.0
+        ],
+        "current_bounds_mm": [
+          [
+            8.875,
+            74.5,
+            97.9000015258789
+          ],
+          [
+            29.125,
+            96.5,
+            148.89999389648438
+          ]
+        ],
+        "candidate_bounds_mm": [
+          [
+            -167.49999237060547,
+            -11.0,
+            -42.125
+          ],
+          [
+            -116.5,
+            11.0,
+            -21.875
+          ]
+        ],
+        "sampled_points": 36,
+        "sampled_outside_inner_reservation": 0,
+        "outside_objects": [],
+        "outside_witnesses_mm": [],
+        "placement_datum_object": null,
+        "selected": false,
+        "rigid_internal_geometry_retained": true,
+        "new_mount_requirement": "Protected fore-neck distribution bridge; whole F_PI separated from front hip motors and MTA joints, not an accepted old mount."
+      }
+    },
+    {
+      "path": "n01-central-spine-power-plan-r4.json",
+      "sha256": "1621d5b44566eeb412458dbda5bd1cb3ef0185d07dbf3e66c6dc6bfafb62c5d1",
+      "row": {
+        "centre_mm": [
+          -52.95,
+          0,
+          41.1
+        ],
+        "rotation_relative_current": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "old_centre_mm": [
+          -141.99999389648437,
+          0,
+          -32
+        ],
+        "input_mm": [
+          -27.45,
+          0,
+          41.1
+        ],
+        "output_mm": [
+          -78.45,
+          0,
+          41.1
+        ]
+      }
+    }
+  ],
+  "source_function": "Project casing-box reservation of selected registered F_PI source size. Current centre inherited from central-spine plan; selected_pose=False/current_unqualified_centre; NOT exact manufacturer material. Its full allocated occupancy and1.25 requirement are preserved, not erased/shrunk/owned.",
+  "measured_allocated_clearance_mm": 1.150003814697257,
+  "required_foreign_mm": 1.25,
+  "deficit_mm": 0.0999961853027429,
+  "disposition": "ALLOCATION_HOLD_NOT_CONTACT_NOT_PROOF_TOP_BEARING_IMPOSSIBLE; source upper-root positives stay scoped; wholeF_PI/body/sourceentry allocation needs resolution. No more dependent new material or remaining pair received after first stop.",
+  "native_current_source_shape_valid": true,
+  "metadata_only": true
+}
