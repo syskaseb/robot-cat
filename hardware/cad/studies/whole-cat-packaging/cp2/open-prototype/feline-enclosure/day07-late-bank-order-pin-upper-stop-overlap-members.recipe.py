@@ -1,0 +1,6 @@
+import time,json,hashlib,os
+t226=time.monotonic();c226=time.process_time();o226=[]
+for n,s in uppermembers201.items():
+    q=s.common(newco225);assert q.isValid();o226.append(dict(removable_source_member=n,overlap_mm3=q.Volume,bounds_mm=saved_bounds(q) if q.Volume>1e-7 else None))
+q=web202.common(newco225);assert q.isValid();o226.append(dict(removable_source_member='ACTUAL_PORTED_CAPTURE_WEB202',overlap_mm3=q.Volume,bounds_mm=saved_bounds(q) if q.Volume>1e-7 else None))
+p226=OUT/'day07-D5-inherited-overlap-two-case-face-stop-members.json';assert not p226.exists();r226=dict(id=p226.stem,status='NAMED_CONSTRUCTION_PARTING_DEFECT_ISOLATED_NO_GEOMETRY_REPAIR',upper_source_members=o226,permanent_source='PressureLoadBeam',actual_common_total_mm3=newco225.Volume,prior_and_current_overlap_identity=[oldmiss225.Volume,newmiss225.Volume],repair_NOT_built=True,selected=False,N01_complete=False,operation_seconds=time.monotonic()-t226,process_cpu_seconds=time.process_time()-c226,pid=os.getpid(),session_id=46493);p226.write_bytes((json.dumps(r226,indent=2)+'\n').encode());print('LATEBANK226_NAMED_MEMBERS',o226,r226['operation_seconds'],r226['process_cpu_seconds'],'OWNER90_FINAL_IDLE',os.getpid(),flush=True)

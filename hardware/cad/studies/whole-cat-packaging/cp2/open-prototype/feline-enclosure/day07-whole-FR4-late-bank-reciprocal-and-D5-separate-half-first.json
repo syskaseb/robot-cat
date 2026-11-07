@@ -1,0 +1,706 @@
+{
+  "id": "day07-whole-FR4-late-bank-reciprocal-and-D5-separate-half-first",
+  "status": "WHOLE_LATE_BANK_RECIPROCAL_OR_D5_SEPARATE_ASSEMBLY_FIRST_HOLD",
+  "continuous_bank_part_guards": [
+    {
+      "part": "Housing",
+      "actual_current_name": "Ref_Material_F_R4_CP2_Housing_0_0",
+      "current_valid": true,
+      "unchanged_current_source": true,
+      "source_outside_used_bound_valid": true,
+      "source_outside_used_bound_mm3": 0.0,
+      "actual_source_bounds_mm": [
+        [
+          29.5,
+          -67.75,
+          55.0
+        ],
+        [
+          44.5,
+          -39.25,
+          83.0
+        ]
+      ],
+      "continuous_translation_mm": [
+        0,
+        12
+      ],
+      "cover_bounds_mm": [
+        [
+          29.499999,
+          -67.750001,
+          54.999999
+        ],
+        [
+          44.500001,
+          -39.249999,
+          95.000001
+        ]
+      ]
+    },
+    {
+      "part": "ATO",
+      "actual_current_name": "Ref_Material_F_R4_CP2_ATO_0_0",
+      "current_valid": true,
+      "unchanged_current_source": true,
+      "source_outside_used_bound_valid": true,
+      "source_outside_used_bound_mm3": 0.0,
+      "actual_source_bounds_mm": [
+        [
+          34.449999999999996,
+          -86.55,
+          59.45
+        ],
+        [
+          39.55,
+          -67.75,
+          78.55000000000001
+        ]
+      ],
+      "continuous_translation_mm": [
+        0,
+        12
+      ],
+      "cover_bounds_mm": [
+        [
+          34.449999,
+          -86.550001,
+          59.449999000000005
+        ],
+        [
+          39.550001,
+          -67.749999,
+          90.55000100000001
+        ]
+      ]
+    },
+    {
+      "part": "IN",
+      "actual_current_name": "Ref_Material_F_R4_CP2_IN_0_0",
+      "current_valid": true,
+      "unchanged_current_source": true,
+      "source_outside_used_bound_valid": true,
+      "source_outside_used_bound_mm3": 0.0,
+      "actual_source_bounds_mm": [
+        [
+          38.8819,
+          -39.25,
+          63.8057
+        ],
+        [
+          49.1181,
+          -15.12,
+          74.1943
+        ]
+      ],
+      "continuous_translation_mm": [
+        0,
+        12
+      ],
+      "cover_bounds_mm": [
+        [
+          38.881899000000004,
+          -39.250001,
+          63.805699000000004
+        ],
+        [
+          49.118101,
+          -15.119998999999996,
+          86.194301
+        ]
+      ]
+    },
+    {
+      "part": "OUT",
+      "actual_current_name": "Ref_Material_F_R4_CP2_OUT_0_0",
+      "current_valid": true,
+      "unchanged_current_source": true,
+      "source_outside_used_bound_valid": true,
+      "source_outside_used_bound_mm3": 0.0,
+      "actual_source_bounds_mm": [
+        [
+          27.2695,
+          -39.25,
+          63.8057
+        ],
+        [
+          32.7305,
+          -17.152,
+          74.1943
+        ]
+      ],
+      "continuous_translation_mm": [
+        0,
+        12
+      ],
+      "cover_bounds_mm": [
+        [
+          27.269499,
+          -39.250001,
+          63.805699000000004
+        ],
+        [
+          32.730501,
+          -17.151999,
+          86.194301
+        ]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_CURRENT_FIXED_LOWER",
+      "required_mm": 1.25,
+      "valid_common": true,
+      "cover_common_mm3": 0.0,
+      "actual_cover_gap_mm": 6.189999,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_CURRENT_WIDE_KEEPER_UPPER",
+      "required_mm": 1.25,
+      "lower_mm": 6.791537749287862,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_SAME_SELECTED_CASE",
+      "required_mm": 1.25,
+      "lower_mm": 8.246210038557232,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "Hardware:Screw",
+      "required_mm": 1.25,
+      "lower_mm": 14.869040266271464,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "Hardware:Nut",
+      "required_mm": 1.25,
+      "lower_mm": 24.60468112046978,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "Hardware:TopWasher",
+      "required_mm": 1.25,
+      "lower_mm": 16.288979524205995,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "Hardware:BottomWasher",
+      "required_mm": 1.25,
+      "lower_mm": 23.80594118156226,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_WHOLE145_LOOP",
+      "required_mm": 1.25,
+      "lower_mm": 18.06269192481135,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_FULL_HEAD",
+      "required_mm": 1.25,
+      "lower_mm": 25.129627051417316,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_FULL_TAIL_NECK",
+      "required_mm": 1.25,
+      "lower_mm": 30.139614969878117,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "Housing",
+      "fixture": "D5_FULL66p001640_TAIL_CAPACITY",
+      "required_mm": 1.25,
+      "lower_mm": 34.12437073072808,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_CURRENT_FIXED_LOWER",
+      "required_mm": 1.25,
+      "lower_mm": 3.8250190003200117,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_CURRENT_WIDE_KEEPER_UPPER",
+      "required_mm": 1.25,
+      "lower_mm": 35.63148073122982,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_SAME_SELECTED_CASE",
+      "required_mm": 1.25,
+      "lower_mm": 37.06551516032122,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "Hardware:Screw",
+      "required_mm": 1.25,
+      "lower_mm": 42.606135620823466,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "Hardware:Nut",
+      "required_mm": 1.25,
+      "lower_mm": 48.089653431273575,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "Hardware:TopWasher",
+      "required_mm": 1.25,
+      "lower_mm": 42.93571110439424,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "Hardware:BottomWasher",
+      "required_mm": 1.25,
+      "lower_mm": 47.18842304676013,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_WHOLE145_LOOP",
+      "required_mm": 1.25,
+      "lower_mm": 41.51670026994028,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_FULL_HEAD",
+      "required_mm": 1.25,
+      "lower_mm": 52.47649806867479,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_FULL_TAIL_NECK",
+      "required_mm": 1.25,
+      "lower_mm": 57.7405064347448,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "ATO",
+      "fixture": "D5_FULL66p001640_TAIL_CAPACITY",
+      "required_mm": 1.25,
+      "lower_mm": 61.18531172247532,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_CURRENT_FIXED_LOWER",
+      "required_mm": 1.25,
+      "lower_mm": 8.18071900032001,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_CURRENT_WIDE_KEEPER_UPPER",
+      "required_mm": 1.25,
+      "lower_mm": 9.555699000000004,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_SAME_SELECTED_CASE",
+      "required_mm": 1.25,
+      "lower_mm": 10.805699000000004,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "Hardware:Screw",
+      "required_mm": 1.25,
+      "lower_mm": 17.746274317861825,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "Hardware:Nut",
+      "required_mm": 1.25,
+      "lower_mm": 30.348827796769875,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "Hardware:TopWasher",
+      "required_mm": 1.25,
+      "lower_mm": 20.650280813219037,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "Hardware:BottomWasher",
+      "required_mm": 1.25,
+      "lower_mm": 29.83036974736991,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_WHOLE145_LOOP",
+      "required_mm": 1.25,
+      "lower_mm": 16.02684794102702,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_FULL_HEAD",
+      "required_mm": 1.25,
+      "lower_mm": 12.409735143217283,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_FULL_TAIL_NECK",
+      "required_mm": 1.25,
+      "lower_mm": 14.115587651208086,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "IN",
+      "fixture": "D5_FULL66p001640_TAIL_CAPACITY",
+      "required_mm": 1.25,
+      "lower_mm": 17.940493359286652,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_CURRENT_FIXED_LOWER",
+      "required_mm": 1.25,
+      "lower_mm": 8.18071900032001,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_CURRENT_WIDE_KEEPER_UPPER",
+      "required_mm": 1.25,
+      "lower_mm": 11.162369913669862,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_SAME_SELECTED_CASE",
+      "required_mm": 1.25,
+      "lower_mm": 12.249499973043884,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "Hardware:Screw",
+      "required_mm": 1.25,
+      "lower_mm": 17.585699000000005,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "Hardware:Nut",
+      "required_mm": 1.25,
+      "lower_mm": 30.285699,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "Hardware:TopWasher",
+      "required_mm": 1.25,
+      "lower_mm": 20.585699000000005,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "Hardware:BottomWasher",
+      "required_mm": 1.25,
+      "lower_mm": 29.785699,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_WHOLE145_LOOP",
+      "required_mm": 1.25,
+      "lower_mm": 30.43544356157147,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_FULL_HEAD",
+      "required_mm": 1.25,
+      "lower_mm": 27.8849890835482,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_FULL_TAIL_NECK",
+      "required_mm": 1.25,
+      "lower_mm": 29.729268483485757,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    },
+    {
+      "bank_part": "OUT",
+      "fixture": "D5_FULL66p001640_TAIL_CAPACITY",
+      "required_mm": 1.25,
+      "lower_mm": 33.847742787353624,
+      "status": "CONTINUOUS_CONSERVATIVE_SEPARATED"
+    }
+  ],
+  "received": 44,
+  "total": 44,
+  "remaining": 0,
+  "distinct_actual_print_halves": {
+    "actual_same_operating_parts_common_valid": true,
+    "common_mm3": 6.6732363143001265,
+    "lower_solids": 1,
+    "upper_solids": 1,
+    "not_from_union_identity_alone": true
+  },
+  "first_falsifier": {
+    "stage": "DISTINCT_NEW_LOWER_UPPER_ASSEMBLED_NONPENETRATION_REQUIRED_BEFORE_CLOSURE",
+    "row": {
+      "actual_same_operating_parts_common_valid": true,
+      "common_mm3": 6.6732363143001265,
+      "lower_solids": 1,
+      "upper_solids": 1,
+      "not_from_union_identity_alone": true
+    },
+    "not_wire_or_bought_contact": true
+  },
+  "actual_bank_case_retaining_and_full_two_stock_bindings_OPEN": true,
+  "new_wide_upper_continuous_closure_NOT_claimed": true,
+  "no_second_order_family_built": true,
+  "source_and_factory_parts_unchanged": true,
+  "selected": false,
+  "N01_complete": false,
+  "archive": "day07-whole-FR4-late-bank-reciprocal-and-D5-separate-half-first.breps.zip",
+  "archive_sha256": "bc12df1a222176c6b212edbc64327db3f662d8bb0ae2cd23d91f4bb0a35ca16e",
+  "geometry": [
+    {
+      "name": "Housing",
+      "entry": "0.brep",
+      "sha256": "cd17ff341be71ba1d033fe257f17ac26c55ba67c8a0419f0674dfa1ac5345fcf",
+      "valid": true,
+      "volume_mm3": 11970.0,
+      "bounds_mm": [
+        [
+          29.5,
+          -67.75,
+          55.0
+        ],
+        [
+          44.5,
+          -39.25,
+          83.0
+        ]
+      ]
+    },
+    {
+      "name": "ATO",
+      "entry": "1.brep",
+      "sha256": "38e9a421013aab50940769ad306eb5b7bd0f14e37db09ee923b1069f09ebb97d",
+      "valid": true,
+      "volume_mm3": 1831.3080000000004,
+      "bounds_mm": [
+        [
+          34.449999999999996,
+          -86.55,
+          59.45
+        ],
+        [
+          39.55,
+          -67.75,
+          78.55000000000001
+        ]
+      ]
+    },
+    {
+      "name": "IN",
+      "entry": "2.brep",
+      "sha256": "e18c571aae225a26c397b5b314d6366d633473bd2b6efc67b8ea9c2216026c73",
+      "valid": true,
+      "volume_mm3": 2565.9790680315996,
+      "bounds_mm": [
+        [
+          38.8819,
+          -39.25,
+          63.8057
+        ],
+        [
+          49.1181,
+          -15.12,
+          74.1943
+        ]
+      ]
+    },
+    {
+      "name": "OUT",
+      "entry": "3.brep",
+      "sha256": "ac71b146e2f8856d72872feff30a1a4ec59910c37a0efe39c008a603d26aaaba",
+      "valid": true,
+      "volume_mm3": 1253.6669313707998,
+      "bounds_mm": [
+        [
+          27.2695,
+          -39.25,
+          63.8057
+        ],
+        [
+          32.7305,
+          -17.152,
+          74.1943
+        ]
+      ]
+    },
+    {
+      "name": "FR4_Housing_CONTINUOUS_ENTRY12_COVER",
+      "entry": "4.brep",
+      "sha256": "47a347b6994ce893b58db64225ba6f9985d754d9c8254d575e863281a185d551",
+      "valid": true,
+      "volume_mm3": 17100.00433500033,
+      "bounds_mm": [
+        [
+          29.499999,
+          -67.750001,
+          54.999999
+        ],
+        [
+          44.500001,
+          -39.249999,
+          95.000001
+        ]
+      ]
+    },
+    {
+      "name": "FR4_ATO_CONTINUOUS_ENTRY12_COVER",
+      "entry": "5.brep",
+      "sha256": "cb75a79eaa6a6796c6513118883acd34b44f1b983d9290852458a2acd714ade0",
+      "valid": true,
+      "volume_mm3": 2981.869678340221,
+      "bounds_mm": [
+        [
+          34.449999,
+          -86.550001,
+          59.449999000000005
+        ],
+        [
+          39.550001,
+          -67.749999,
+          90.55000100000001
+        ]
+      ]
+    },
+    {
+      "name": "FR4_IN_CONTINUOUS_ENTRY12_COVER",
+      "entry": "6.brep",
+      "sha256": "468b282a85fbaf589f102256c7d646068c8a3cd7dba00ef76a31fe01fe97453a",
+      "valid": true,
+      "volume_mm3": 5529.975172853046,
+      "bounds_mm": [
+        [
+          38.881899000000004,
+          -39.250001,
+          63.805699000000004
+        ],
+        [
+          49.118101,
+          -15.119998999999996,
+          86.194301
+        ]
+      ]
+    },
+    {
+      "name": "FR4_OUT_CONTINUOUS_ENTRY12_COVER",
+      "entry": "7.brep",
+      "sha256": "b7911f90829d91940f16cb37ade5e4872f4fb91ad30dbcb18bb21cbb632833fd",
+      "valid": true,
+      "volume_mm3": 2701.794542740208,
+      "bounds_mm": [
+        [
+          27.269499,
+          -39.250001,
+          63.805699000000004
+        ],
+        [
+          32.730501,
+          -17.151999,
+          86.194301
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_NEW_D5_FIXED_LOWER",
+      "entry": "8.brep",
+      "sha256": "6bd07619aaec52f97c8edcfafa6a8eb9f63927902c71431d54d71717f3e5e32b",
+      "valid": true,
+      "volume_mm3": 16146.689728828147,
+      "bounds_mm": [
+        [
+          -88.55000000000001,
+          -98.5,
+          30.52
+        ],
+        [
+          127.0,
+          0.0,
+          55.624979999679994
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_NEW_D5_KEEPER_UPPER",
+      "entry": "9.brep",
+      "sha256": "bea357309323899673aeeb69b00c278894fba6e21137bf506ae4d1bd8e4d8cf3",
+      "valid": true,
+      "volume_mm3": 837.1454291650423,
+      "bounds_mm": [
+        [
+          38.5,
+          -32.5,
+          44.0
+        ],
+        [
+          69.20889087599475,
+          0.0,
+          54.25
+        ]
+      ]
+    },
+    {
+      "name": "ACTUAL_LOWER_UPPER_COMMON_WITNESS",
+      "entry": "10.brep",
+      "sha256": "5a6e815125df1a86c71d3139c594750d456eec89934aaf0e7b8b4c8c0f1f74d6",
+      "valid": true,
+      "volume_mm3": 6.6732363143001265,
+      "bounds_mm": [
+        [
+          57.749999999993136,
+          -31.53051513099,
+          44.0
+        ],
+        [
+          58.75,
+          -1.25,
+          46.4
+        ]
+      ]
+    }
+  ],
+  "operation_seconds": 2.312999999965541,
+  "process_cpu_seconds": 4.796875,
+  "pid": 26064,
+  "session_id": 46493
+}

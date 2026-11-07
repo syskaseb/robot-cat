@@ -1,5 +1,11 @@
 # Wnioski z projektowania 3D robot-cat
 
+- Przy odbiorze osobnego korpusu i zdejmowanego docisku sprawdzić
+  poprawne lower.common(upper) == 0 przed montażem; zamierzony wcisk
+  wymaga osobnego uzasadnienia. Zerowe różnice sumy i valid+1Solid
+  każdej części nie wykluczają wspólnego materiału. D5: dwa stopery
+  dzieliły 6.673236 mm3 z belką, mimo niezmienionej sumy.
+
 - Przed przyjęciem sumy CAD sprawdzić dla KAŻDEGO zamierzonego składnika
   poprawne A.cut(sum) i zerowy brak objętości oraz pełny zakres interfejsów.
   S0 multiFuse zgubił panel i ramię mimo valid+1Solid; sam dodatni root

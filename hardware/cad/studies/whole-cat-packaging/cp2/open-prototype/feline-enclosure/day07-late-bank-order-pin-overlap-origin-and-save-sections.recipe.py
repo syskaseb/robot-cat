@@ -1,0 +1,18 @@
+import time,json,hashlib,zipfile,os
+t225=time.monotonic();c225=time.process_time();assert first224 and separate224['actual_same_operating_parts_common_valid'] and separate224['common_mm3']>1e-7
+inherited225=newframe209.common(up202);assert inherited225.isValid();newco225=lower221.common(upper221);assert newco225.isValid();oldmiss225=inherited225.cut(newco225);newmiss225=newco225.cut(inherited225);assert oldmiss225.isValid() and newmiss225.isValid()
+origin225=[]
+for n in ['PressureLoadBeam','UnderCaseDeck','CaseSouthWall','CaseNorthWall','CaseBackStop']:
+    q=members201[n].common(newco225);assert q.isValid();origin225.append(dict(permanent_source_member=n,actual_overlap_mm3=q.Volume,bounds_mm=saved_bounds(q) if q.Volume>1e-7 else None))
+sects225=[]
+for view,plane,proj in [('XZ_Yminus31',Part.makePlane(45,35,A.Vector(30,-31,70),A.Vector(0,1,0),A.Vector(1,0,0)),[0,2]),('YZ_X58',Part.makePlane(50,35,A.Vector(58,-40,35),A.Vector(1,0,0),A.Vector(0,1,0)),[1,2])]:
+    for n,s in [('D5_FIXED_LOWER',lower221),('D5_SEPARATE_WIDE_UPPER',upper221),('SAME_D5_SELECTED_CASE',case216),('VALID_INTERPRINT_COMMON',newco225)]:
+        sec=s.section(plane);curves=[]
+        for e in sec.Edges:curves.append([[list(v)[proj[0]],list(v)[proj[1]]] for v in e.discretize(Deflection=.06)])
+        sects225.append(dict(view=view,actor=n,curves=curves))
+ar225=OUT/'day07-D5-distinct-half-overlap-inherited-source-witness.breps.zip';ge225=[];assert not ar225.exists()
+with zipfile.ZipFile(ar225,'w',zipfile.ZIP_DEFLATED) as z:
+    for i,(n,s) in enumerate([('PRIOR_SOURCE_NEWFRAME209_UP202_VALID_COMMON',inherited225),('CURRENT_RAW_LOWER221_UPPER221_VALID_COMMON',newco225),('ACTUAL_SOURCE_PRESSURE_LOAD_BEAM',members201['PressureLoadBeam']),('ACTUAL_SAME_CASE',case216)]):
+        f=Path('C:/Users/Sysq/AppData/Local/Temp/robot-cat90-origin-'+str(i)+'.brep');s.exportBrep(str(f));raw=f.read_bytes();en=str(i)+'.brep';z.writestr(en,raw);ge225.append(dict(name=n,entry=en,sha256=hashlib.sha256(raw).hexdigest(),valid=s.isValid(),volume_mm3=s.Volume,bounds_mm=saved_bounds(s)))
+    z.writestr('manifest.json',(json.dumps(dict(geometry=ge225),indent=2)+'\n').encode())
+p225=OUT/'day07-D5-distinct-half-overlap-source-origin-and-actual-sections.json';r225=dict(id=p225.stem,status='ACTUAL_INHERITED_PRINT_PARTING_DEFECT_NOT_NEW_ORDER_FAMILY_FAILURE',prior_actual_newframe209_up202_common_valid=True,prior_actual_common_mm3=inherited225.Volume,current_actual_lower_upper_common_mm3=newco225.Volume,prior_current_overlap_two_way_missing_mm3=[oldmiss225.Volume,newmiss225.Volume],actual_current_overlap_bounds_mm=saved_bounds(newco225),permanent_source_member_diagnosis=origin225,meaning='Actual distinct prints share the same positive material region already present before keeper-arm transfer. Operating union identity and1solid each do not prove physical separability. This is an inherited construction/parting realization defect; no sourcewire/boughtpart contact claim and no newgeometry-family failure counter. No repair/second order/geometry variant built.',actual_source_case_and_fullstock_unchanged=True,upper_lift_or_closure_not_accepted=True,sections=sects225,archive=ar225.name,archive_sha256=hashlib.sha256(ar225.read_bytes()).hexdigest(),geometry=ge225,selected=False,N01_complete=False,operation_seconds=time.monotonic()-t225,process_cpu_seconds=time.process_time()-c225,pid=os.getpid(),session_id=46493);p225.write_bytes((json.dumps(r225,indent=2)+'\n').encode());print('LATEBANK225_ORIGIN',r225['status'],'prior/current',inherited225.Volume,newco225.Volume,'overlapIdentity',oldmiss225.Volume,newmiss225.Volume,'members',origin225,'seconds',r225['operation_seconds'],r225['process_cpu_seconds'],'OWNER90_SAVED_IDLE',os.getpid(),flush=True)
