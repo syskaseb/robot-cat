@@ -1,0 +1,92 @@
+{
+  "id": "day07-coordinator-S0-mount-frame-source-receipt",
+  "received_utc": "2026-11-07T02:01:29.265053+00:00",
+  "status": "NOMINAL_SOURCE_INTERFACE_RECEIVED_CURRENT_TRANSFORM_OPEN",
+  "role": "Existing reviewer readonly source extraction; no newCAD review/cycle/edits/native operations",
+  "reviewer_thread": "01a16f0e-ac12-7973-82ba-99579f2b681e",
+  "reviewer_turn": "01a1b3b8-b6df-7391-987a-f28028e2f08f",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "selected_part": "HELLA6EK002843-002",
+  "source_pins": [
+    {
+      "path": "tools/electronics/source_switch_layout_r6.py",
+      "sha256": "d9c1ac3a3a19e7a21fac5f2e9588736df96b573cd72f15e0a46598b797acc4f0"
+    },
+    {
+      "path": "hardware/electronics/full-cat/source-switch-layout-r6/checks.json",
+      "sha256": "781945406c321fe00f9c94959af5834906063d9d9d398b2f2a5be7e28c13fb49"
+    },
+    {
+      "path": "hardware/electronics/full-cat/source-switch-selected-r1/interface.json",
+      "sha256": "b0843aa4acc3e2ff2a649d5099a4579c06f723508ad5a16f50b354c49a6e2f31"
+    }
+  ],
+  "nominal_R6_frame": {
+    "S0_axis": {
+      "centre": [
+        -61.5,
+        95,
+        43
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    "S0_rotation_deg": 45,
+    "mount_hole_centres": [
+      [
+        -74.9350288425444,
+        95.0,
+        29.564971157455595
+      ],
+      [
+        -48.064971157455595,
+        95.0,
+        56.435028842544405
+      ]
+    ],
+    "stud_centres_provisional": [
+      [
+        -53.01471862576143,
+        70.0,
+        34.51471862576143
+      ],
+      [
+        -69.98528137423857,
+        70.0,
+        51.48528137423857
+      ]
+    ],
+    "case_fixing_M6_pitch_mm": 38,
+    "panel_y_range_mm": [
+      95,
+      98
+    ],
+    "panel_neck_hole_d_mm": 24,
+    "panel_fixing_hole_d_mm": 6.5,
+    "hole_directions": [
+      0,
+      1,
+      0
+    ],
+    "flange_contact_nominal_y_mm": 98,
+    "project_assumptions_not_supplier_datum": {
+      "flange_thickness_mm": 4,
+      "ring_seat_y_mm": 70
+    }
+  },
+  "current_frame_status": "Current11actors/case0.brep named_base_context_or_current56 lack an explicit source-to-currentframe transform. Main body/neck cylinders determine axis but not rotation about it. OldFoundationM6X-96/-58,Y16,Z105 is separateconstructor, not current mapping.",
+  "minimal_owner_read": "Pin one nominal-to-currentframe transform using current neck axis/seatingface and labelled IN/OUT studdirection; then map nominal two points exactly once. Prefer sourceplacement provenance if available. Never add oldXMLworld placement again to a worldBRep. This is needed before a fixing/supportdetail, not a new production-metrology gate.",
+  "assembly_functions": [
+    "Mountcase on removedsupport with2M6x20 and fullwasher/nut access before ringends.",
+    "Mountsupport-toDeck using2M2x12 and prethreadtwoW066ties.",
+    "FitTE130207IN/OUTrings and tightenM10with access beforeDeck/P0/BUS/cover. Preserve completeactualW076F0lead,W066OUTtoP_SYS1 andW043F_PItoP_SYS2.",
+    "Historical80/330/40blanks are nominal old-layout bookkeeping, not current physicalcuts/lengthacceptance. For unchangedcase/endpose reuse qualifiedcurrent source lengths; new support must not erase fullprefix/insulation/toolspace."
+  ],
+  "prototype_scope": "Stable actualconstructivemount and credibleassembly required forN01; deliveredfit/torque/prefit stayphase2. No physicalcut/power/purchase or newSKU. Missingcurrentframe mapping doesnotprovelateinstallimpossible and cannot be waived as if case were alreadyfixed.",
+  "current_global_S0_mount_OPEN": true,
+  "N01_complete": false
+}
