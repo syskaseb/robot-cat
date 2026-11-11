@@ -1,0 +1,4926 @@
+{
+  "id": "day11-WHOLE-end-to-end-underbank-load-layer-proposal",
+  "status": "ONE_WHOLE_HYPOTHESIS_FIRST_OCCUPIED_BANK_TRUNK_GATE_PENDING",
+  "selected": false,
+  "N01": "0/10",
+  "frozen_numeric_input": {
+    "path": "day11-WHOLE-end-to-end-frozen-length-and-load-premises.json",
+    "sha256": "58e03b9c9039413d79c16a5936c519b298dc068634a959f5ffa91fe6b3fa550c"
+  },
+  "cause": "Different functional transport topology: Hip3 direct10 andKnee6 loose55 approach source side, split D/G/V across openUNDER-bank layer before fore-neck service. No oldP0helicalcrest/quarter is reused or shifted. Whole printedbank load/receiver closures carried separately ABOVE/beside SOURCE channels; fore-neck FPI/S0/PWM service above/fore is separately preserved. No new material now.",
+  "complete_architecture": {
+    "name": "SOURCE_SIDE_BRANCHING_OPEN_BANK_LOAD_AND_SERVICE_SEPARATION",
+    "selected": false,
+    "cause": "Do not carry all9 through old P0crest and then return to receivers. Separate Hip3/Knee6 source approach, branch D/G/V on source side of bank, then enter purposefully open receiver-leading layer before real fixedpressure. Structuralbankload and fore-neckservice occupy different functional layers; not a P0localtrim/anotherquarter.",
+    "nodes": [
+      {
+        "id": "HIP3",
+        "source": "FL1 source14 projectframe + actualMotion_RL_Hip",
+        "occupancy": 3,
+        "reserve_each_mm": 10,
+        "next": "PASSIVE_SOURCE_SIDE_BRANCH_BAY"
+      },
+      {
+        "id": "KNEE6",
+        "source": "Existing movingSource21 slotgrips+3ownedKnee joints; SOURCEFL2 and DONORFL3",
+        "occupancy": 6,
+        "reserve_each_mm": 55,
+        "next": "PASSIVE_SOURCE_SIDE_BRANCH_BAY"
+      },
+      {
+        "id": "PASSIVE_SOURCE_SIDE_BRANCH_BAY",
+        "occupancy": 9,
+        "role": "LOOSE adaptive connectedspace before actualreceiverclamps, Hip3 andKnee6 retain separate physicalownership, no newterminal/phantom9",
+        "next": [
+          "D3_OPEN_LAUNCH",
+          "G3_OPEN_LAUNCH",
+          "V3_OPEN_LAUNCH"
+        ],
+        "actual_available_continuous_bounds": null
+      },
+      {
+        "id": "D3_OPEN_LAUNCH",
+        "occupancy": 3,
+        "receiver": [
+          "W004",
+          "W005",
+          "W006"
+        ],
+        "other_retained": [
+          "W002 BUS.D with W003mate",
+          "W007 currentDFR ownerfield5/bothends"
+        ],
+        "interface": "All5Dcaseports/sourcecase bearing/whole145stock/fullM3+frame loadfunction retained; common printedpressure/leading order may change as complete replacement, not perwirecurve.",
+        "next": "D_TRUE_FIXED_9"
+      },
+      {
+        "id": "G3_OPEN_LAUNCH",
+        "occupancy": 3,
+        "receiver": [
+          "W019",
+          "W021",
+          "W023"
+        ],
+        "other_retained": [
+          "W025 fullfourthlead"
+        ],
+        "interface": "All4realcaseports/full24.25properprefix; free15 stays in physicalpath not extraslack. WholeG4pressure/load+stock closure retained or explicitly requalified, not erased.",
+        "next": "G_TRUE_FIXED_9"
+      },
+      {
+        "id": "V3_OPEN_LAUNCH",
+        "occupancy": 3,
+        "receiver": [
+          "W020",
+          "W022",
+          "W024"
+        ],
+        "interface": "FullboughtIN/OUT/case/ATO/true9 preserved. New commonbank loadlayer aroundSOURCE, not thirdVbar.",
+        "next": "V_TRUE_FIXED_9"
+      }
+    ],
+    "load_and_service": [
+      {
+        "region": "BANK_PRINTED_LOAD",
+        "choice": "Commonloadbackbone carries actualbankcasebearing independently of open/source-facing transport and removablepressure closure. Realframe roots/allbankfunctions must bind before material; current accepted roots do not automatically transfer.",
+        "newmaterial": false
+      },
+      {
+        "region": "FORE_NECK_SERVICE",
+        "choice": "FullFPIcase+lid+two>=84.5factory16AWG leads and W078MAINinput remain wholelayout allocation; S0obliqueoperator and terminal shielding separate from realPWMwasher/toolplane, no roof overwasher. V3source support gets commonbankloadpath rather than unsupported FPIfoot.",
+        "actual_joint_available_bay": null
+      },
+      {
+        "region": "P0_SHELL_LOAD",
+        "choice": "Preserve current frame/steel/dowel/nutfeed/shellbearing/lift. Whole separatePETGmount replacement only if end-to-end plan actually needs it; no localtrim now."
+      }
+    ],
+    "connected_links": "HIP3->source-side bay andKNEE6->same physicalbay ->3separateD/G/V fanfields ->trueheld9 are ALLUNKNOWN until actualspace/R/roll/lay proof. Dashed graph is hypothesis, not a modeled freepath.",
+    "packing": {
+      "fullD_G_OD_mm": 3.1,
+      "fullV_OD_mm": 2,
+      "nominal_gap_mm": 0.2,
+      "outermargin_mm": 0.4,
+      "local_counts": [
+        3,
+        6,
+        9,
+        3,
+        3,
+        3
+      ],
+      "R_free_mm": 35.1,
+      "old_passage_scope": "9.4x10.5 straightonly, identity/subset reuse only, no forcedYportal/tangent"
+    },
+    "assembly": "Bench connectedMODULE/MTA/FPIlap offPETG+MAINinput; sourceframe/S0fasteners before wirelay; sourcekit beforeE6; bankstructuralcarrier present but pressureclosures open. Lay each physicalcore reserve on moving side of truefixedpressure, closeD5/G4/V3 onlyafterlay; wholeF_R4late afterframeclamp/D5, FRGkey/full83.3; FPIbandbeforecase/lid/independentstrain; MAIN/Pimates/headNorth/R6 beforebatterystrap/skins. No virtualMODULEunplug/integralprintdetach."
+  },
+  "required_trunk": {
+    "axis": "+X",
+    "accounting_entry_mm": [
+      -126,
+      52,
+      32
+    ],
+    "not_terminal": true,
+    "columns_Y_mm": {
+      "D": 54.75,
+      "V": 52,
+      "G": 49.25
+    },
+    "physical_rows_Z_mm": [
+      28.7,
+      32,
+      35.3
+    ],
+    "profile_OD_mm": {
+      "D": 3.1,
+      "V": 2,
+      "G": 3.1
+    },
+    "intergap_mm": 0.2,
+    "outermargin_mm": 0.4,
+    "body_R_free_mm": 35.1,
+    "diagnostic_fullprofile_bounds_mm": [
+      [
+        -126,
+        47.3,
+        26.75
+      ],
+      [
+        65.98036180850077,
+        56.7,
+        37.25
+      ]
+    ],
+    "declining_occupancy": "Full9 until firstVbranchX-40, then8, atV-16 then7, atV8 then6, atG28.125 thenD3 only toDreceivercolumn65.98036. No universal9atoneport.",
+    "fullprofile_not_circle": true
+  },
+  "fixed_context": "ActualretainedP0 FrameFront/SideLeft/Mount/NutShoe/steel are NOT deleted or own. CurrentUnderdeck/G4/D5alternative members classified actualprintedfunctional load/pressure requiring whole replacement if overlapping; no automaticignore/acceptedvoid. Boughtcases/metal/allfactoryends/stock unchanged. No FPIhome fixedasimmutable/no fullcase deletion.",
+  "source_and_receiver_connection": "ActualSource21 Knee land/joints and movingfactoryreferences -> externaladaptiveHip3/Knee6 -> bodyaccountingentry ->D/G/Vseparatefreefans -> allactualheld9. Fullsourceground/Ankle/roll and eachreceiverfan remainUNKNOWN; this mandatorytrunk is firstnecessarylocalcomponent, neverwholeacceptance.",
+  "reserves": {
+    "Hip3": "10each, directfan appropriateS/distributedfreecapacity NOT extra55return. No claimedshapequalified.",
+    "Knee6": "Independent percore55 usable betweenactualmovingreliefs andtruebodyfixed9. Place returnstorage in openUNDERbank branch spaces so length transfers through onlyPASSIVEguides, not behindbodyclamps.",
+    "conditional_U_formula": {
+      "R_mm": 35.1,
+      "port_separation_mm": 70.2,
+      "E_mm": [
+        55,
+        65
+      ],
+      "straight_per_side_mm": [
+        7.46504892949913,
+        12.46504892949913
+      ],
+      "total_component_mm": [
+        125.2,
+        135.2
+      ],
+      "maximum_drop_below_ports_mm": 47.56504892949913,
+      "method": "FixedRsemicircle+2variableverticalstraightlegs; excessE over2R once, no extra+55. Space/packing/independentLi NOTaccepted. No newreservoirgeometry beforetrunk gate.",
+      "Li_delta_requirement": "EachindependentdeltaLi<=10 IF these55..65capacities reused; no old4.732/sharedphi."
+    },
+    "all_actual_slack": null
+  },
+  "component_lengths": [
+    {
+      "wire": "W004",
+      "physical_unit": "SOURCE/FL1",
+      "core": "D",
+      "body_straight_candidate_mm": 191.9803618085008,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": null,
+      "reserve_requested_mm": 10,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9.25,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": 14,
+      "lap4_once_mm": 0,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W020",
+      "physical_unit": "SOURCE/FL1",
+      "core": "V",
+      "body_straight_candidate_mm": 86.0,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": null,
+      "reserve_requested_mm": 10,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": 14,
+      "lap4_once_mm": 0,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W019",
+      "physical_unit": "SOURCE/FL1",
+      "core": "G",
+      "body_straight_candidate_mm": 154.125,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": null,
+      "reserve_requested_mm": 10,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9.25,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": 14,
+      "lap4_once_mm": 0,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W005",
+      "physical_unit": "SOURCE/FL2",
+      "core": "D",
+      "body_straight_candidate_mm": 191.9803618085008,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": null,
+      "reserve_requested_mm": 55,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9.25,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": 14,
+      "lap4_once_mm": 0,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W022",
+      "physical_unit": "SOURCE/FL2",
+      "core": "V",
+      "body_straight_candidate_mm": 110.0,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": null,
+      "reserve_requested_mm": 55,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": 14,
+      "lap4_once_mm": 0,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W021",
+      "physical_unit": "SOURCE/FL2",
+      "core": "G",
+      "body_straight_candidate_mm": 154.125,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": null,
+      "reserve_requested_mm": 55,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9.25,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": 14,
+      "lap4_once_mm": 0,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W006",
+      "physical_unit": "DONOR/FL3",
+      "core": "D",
+      "body_straight_candidate_mm": 191.9803618085008,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": "Needs individualcore-offset/boundary binding, no oldGdelta",
+      "reserve_requested_mm": 55,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9.25,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": null,
+      "lap4_once_mm": 4,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W024",
+      "physical_unit": "DONOR/FL3",
+      "core": "V",
+      "body_straight_candidate_mm": 134.0,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": "Needs individualcore-offset/boundary binding, no oldGdelta",
+      "reserve_requested_mm": 55,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": null,
+      "lap4_once_mm": 4,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    },
+    {
+      "wire": "W023",
+      "physical_unit": "DONOR/FL3",
+      "core": "G",
+      "body_straight_candidate_mm": 154.125,
+      "method": "Proposed+X openbank trunk from PROJECTaccountingX-126 to branchX at currentreceivercolumn. This is exact length of candidate component ONLY, not acceptedroute, prefixcredit, actualminimum or wholefit.",
+      "source_to_body_R_roll_mm": null,
+      "body_to_receiver_fan_R_roll_mm": null,
+      "source_owned_joint_to_exit_mm": "Needs individualcore-offset/boundary binding, no oldGdelta",
+      "reserve_requested_mm": 55,
+      "reserve_qualified_mm": null,
+      "receiver_prefix_once_mm": 9.25,
+      "terminal11_once_mm": 11,
+      "factory14_once_mm": null,
+      "lap4_once_mm": 4,
+      "required_installed_total_mm": null,
+      "fit_blank_mm": null,
+      "actualcut": null
+    }
+  ],
+  "original_FL3_components": [
+    {
+      "wire": "W006",
+      "core": "D",
+      "physical_unit": "SOURCE/FL3",
+      "piece_id": "W006/original_source",
+      "motion_owner": "Motion_RL_Knee",
+      "receiver_held9_frame": null,
+      "source_grip_frame_scope": "FL3 sourcecarrier actual groupentry/exit and same ownedjoint are pinned; individual core exit offset still needs binding. FL1/FL2 source14 is projectreference, not a proved true external grip or suppliercavity.",
+      "pose_frames": [
+        {
+          "pose": 0,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -61.977234052653735,
+              40.95533638290788,
+              -61.65489982179552
+            ],
+            "nominal_departure_world": [
+              1.1296519275560968e-14,
+              -0.9902680687415674,
+              0.1391731009600884
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.29973561440458,
+            90.00925236571142,
+            -46.01591046618216
+          ],
+          "from_project_reference_or_joint": [
+            -61.977234052653735,
+            40.95533638290788,
+            -61.65489982179552
+          ],
+          "to_joint_or_held9_end": [
+            -51.29973561440458,
+            90.00925236571142,
+            -46.01591046618216
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 1,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -59.86666348912812,
+              40.95349025342607,
+              -60.502572314403864
+            ],
+            "nominal_departure_world": [
+              1.070541225112187e-14,
+              -0.9899636697995255,
+              0.14132208771829263
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -49.81864471393585,
+            90.08228069113765,
+            -44.682556415785115
+          ],
+          "from_project_reference_or_joint": [
+            -59.86666348912812,
+            40.95349025342607,
+            -60.502572314403864
+          ],
+          "to_joint_or_held9_end": [
+            -49.81864471393585,
+            90.08228069113765,
+            -44.682556415785115
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 2,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -57.83314320248654,
+              40.95561413756209,
+              -59.32081901583677
+            ],
+            "nominal_departure_world": [
+              1.0111703141468809e-14,
+              -0.9896440314281868,
+              0.14354334209069547
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -48.40938891909162,
+            90.15815181084707,
+            -43.3465654831387
+          ],
+          "from_project_reference_or_joint": [
+            -57.83314320248654,
+            40.95561413756209,
+            -59.32081901583677
+          ],
+          "to_joint_or_held9_end": [
+            -48.40938891909162,
+            90.15815181084707,
+            -43.3465654831387
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 3,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -55.86908621551932,
+              40.96178462272888,
+              -58.10958295742105
+            ],
+            "nominal_departure_world": [
+              9.511488818780833e-15,
+              -0.9893078411133153,
+              0.14584236528427483
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -47.065684382769554,
+            90.23716338172474,
+            -42.0064528722362
+          ],
+          "from_project_reference_or_joint": [
+            -55.86908621551932,
+            40.96178462272888,
+            -58.10958295742105
+          ],
+          "to_joint_or_held9_end": [
+            -47.065684382769554,
+            90.23716338172474,
+            -42.0064528722362
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 4,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -53.9723773122655,
+              40.97221649630142,
+              -56.87138551149525
+            ],
+            "nominal_departure_world": [
+              8.909539772616881e-15,
+              -0.9889547108305474,
+              0.14821801484997957
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -45.78517710524107,
+            90.31952926999054,
+            -40.66379133476599
+          ],
+          "from_project_reference_or_joint": [
+            -53.9723773122655,
+            40.97221649630142,
+            -56.87138551149525
+          ],
+          "to_joint_or_held9_end": [
+            -45.78517710524107,
+            90.31952926999054,
+            -40.66379133476599
+          ],
+          "endpoint_chord_mm": 52.58206570886836,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 5,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -52.136004730984865,
+              40.98704175383843,
+              -55.60505575109593
+            ],
+            "nominal_departure_world": [
+              8.302386556024999e-15,
+              -0.9885828949807969,
+              0.15067800022361372
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -44.56234072049109,
+            90.40559741917107,
+            -39.31642156586354
+          ],
+          "from_project_reference_or_joint": [
+            -52.136004730984865,
+            40.98704175383843,
+            -55.60505575109593
+          ],
+          "to_joint_or_held9_end": [
+            -44.56234072049109,
+            90.40559741917107,
+            -39.31642156586354
+          ],
+          "endpoint_chord_mm": 52.58206570886837,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 6,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -50.35570283001276,
+              41.006480265537554,
+              -54.31044698486272
+            ],
+            "nominal_departure_world": [
+              7.695233339433116e-15,
+              -0.9881909437414189,
+              0.1532274737357644
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -43.393690176532004,
+            90.49569687139449,
+            -37.96353737591534
+          ],
+          "from_project_reference_or_joint": [
+            -50.35570283001276,
+            41.006480265537554,
+            -54.31044698486272
+          ],
+          "to_joint_or_held9_end": [
+            -43.393690176532004,
+            90.49569687139449,
+            -37.96353737591534
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 7,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -48.6302859562309,
+              41.030845230674096,
+              -52.98917336023145
+            ],
+            "nominal_departure_world": [
+              7.0811412289373266e-15,
+              -0.9877780761650042,
+              0.15586684139920068
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -42.27787410192499,
+            90.59010820668362,
+            -36.60625691901882
+          ],
+          "from_project_reference_or_joint": [
+            -48.6302859562309,
+            41.030845230674096,
+            -52.98917336023145
+          ],
+          "to_joint_or_held9_end": [
+            -42.27787410192499,
+            90.59010820668362,
+            -36.60625691901882
+          ],
+          "endpoint_chord_mm": 52.58206570886836,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 8,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -46.95582459669083,
+              41.060426649228525,
+              -51.64045179333165
+            ],
+            "nominal_departure_world": [
+              6.463579671489583e-15,
+              -0.9873424964523149,
+              0.1586026314387979
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -41.21184909289664,
+            90.6892190200676,
+            -35.243398782631616
+          ],
+          "from_project_reference_or_joint": [
+            -46.95582459669083,
+            41.060426649228525,
+            -51.64045179333165
+          ],
+          "to_joint_or_held9_end": [
+            -41.21184909289664,
+            90.6892190200676,
+            -35.243398782631616
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 9,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -45.327476267195955,
+              41.09554206118032,
+              -50.2621076615155
+            ],
+            "nominal_departure_world": [
+              5.835609773185979e-15,
+              -0.9868816453476646,
+              0.1614454027709888
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -40.192162606298595,
+            90.79350287164912,
+            -33.872633017798066
+          ],
+          "from_project_reference_or_joint": [
+            -45.327476267195955,
+            41.09554206118032,
+            -50.2621076615155
+          ],
+          "to_joint_or_held9_end": [
+            -40.192162606298595,
+            90.79350287164912,
+            -33.872633017798066
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 10,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -43.74580298817576,
+              41.136654682722984,
+              -48.85599110867203
+            ],
+            "nominal_departure_world": [
+              5.218048215738236e-15,
+              -0.98639464587377,
+              0.16439465499693182
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -39.218868674854356,
+            90.90330264342268,
+            -32.49563504010159
+          ],
+          "from_project_reference_or_joint": [
+            -43.74580298817576,
+            41.136654682722984,
+            -48.85599110867203
+          ],
+          "to_joint_or_held9_end": [
+            -39.218868674854356,
+            90.90330264342268,
+            -32.49563504010159
+          ],
+          "endpoint_chord_mm": 52.58206570886837,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 11,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -42.208616288213456,
+              41.1842237466534,
+              -47.421433548350706
+            ],
+            "nominal_departure_world": [
+              4.579669976578771e-15,
+              -0.9858794261301992,
+              0.1674567321226287
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -38.29035816832915,
+            91.01909214097194,
+            -31.111719276216377
+          ],
+          "from_project_reference_or_joint": [
+            -42.208616288213456,
+            41.1842237466534,
+            -47.421433548350706
+          ],
+          "to_joint_or_held9_end": [
+            -38.29035816832915,
+            91.01909214097194,
+            -31.111719276216377
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 12,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -40.712682136185975,
+              41.23875661157436,
+              -45.956310987150914
+            ],
+            "nominal_departure_world": [
+              3.9343528435153985e-15,
+              -0.985333014004875,
+              0.17064246690689014
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -37.40452130014492,
+            91.14145452576466,
+            -29.71899449150723
+          ],
+          "from_project_reference_or_joint": [
+            -40.712682136185975,
+            41.23875661157436,
+            -45.956310987150914
+          ],
+          "to_joint_or_held9_end": [
+            -37.40452130014492,
+            91.14145452576466,
+            -29.71899449150723
+          ],
+          "endpoint_chord_mm": 52.58206570886837,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 13,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -39.25650746033148,
+              41.30086022622808,
+              -44.45962349529692
+            ],
+            "nominal_departure_world": [
+              3.3029134982598407e-15,
+              -0.9847527681964744,
+              0.17395972387130682
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -36.560424890189,
+            91.27097576732419,
+            -28.316751204523307
+          ],
+          "from_project_reference_or_joint": [
+            -39.25650746033148,
+            41.30086022622808,
+            -44.45962349529692
+          ],
+          "to_joint_or_held9_end": [
+            -36.560424890189,
+            91.27097576732419,
+            -28.316751204523307
+          ],
+          "endpoint_chord_mm": 52.582065708868335,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 14,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -37.840124791448766,
+              41.371229636068705,
+              -42.931616549478775
+            ],
+            "nominal_departure_world": [
+              2.6298407895808396e-15,
+              -0.9841365639490428,
+              0.17741257987688522
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -35.758098150630744,
+            91.40822903160739,
+            -26.905466332738186
+          ],
+          "from_project_reference_or_joint": [
+            -37.840124791448766,
+            41.371229636068705,
+            -42.931616549478775
+          ],
+          "to_joint_or_held9_end": [
+            -35.758098150630744,
+            91.40822903160739,
+            -26.905466332738186
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 15,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -36.4623230578615,
+              41.450631218222014,
+              -41.37098741174278
+            ],
+            "nominal_departure_world": [
+              1.9984014443252818e-15,
+              -0.9834812748758383,
+              0.18100989467041975
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -34.9969293663787,
+            91.55392035934831,
+            -25.484305165867532
+          ],
+          "from_project_reference_or_joint": [
+            -36.4623230578615,
+            41.450631218222014,
+            -41.37098741174278
+          ],
+          "to_joint_or_held9_end": [
+            -34.9969293663787,
+            91.55392035934831,
+            -25.484305165867532
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 16,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -35.12172895018167,
+              41.53993800327604,
+              -39.77580001182366
+            ],
+            "nominal_departure_world": [
+              1.3322676295501878e-15,
+              -0.9827831357593124,
+              0.18476284276632404
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -34.276340714353275,
+            91.70886347338396,
+            -24.052000530870345
+          ],
+          "from_project_reference_or_joint": [
+            -35.12172895018167,
+            41.53993800327604,
+            -39.77580001182366
+          ],
+          "to_joint_or_held9_end": [
+            -34.276340714353275,
+            91.70886347338396,
+            -24.052000530870345
+          ],
+          "endpoint_chord_mm": 52.582065708868335,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 17,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -33.81641918749343,
+              41.64016317833871,
+              -38.14287513267457
+            ],
+            "nominal_departure_world": [
+              6.591949208711867e-16,
+              -0.9820372287519457,
+              0.1886872580361469
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -33.59562459785645,
+            91.87404025395544,
+            -22.606386536059098
+          ],
+          "from_project_reference_or_joint": [
+            -33.81641918749343,
+            41.64016317833871,
+            -38.14287513267457
+          ],
+          "to_joint_or_held9_end": [
+            -33.59562459785645,
+            91.87404025395544,
+            -22.606386536059098
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 18,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -32.547529261024366,
+              41.75243903620205,
+              -36.47225729363408
+            ],
+            "nominal_departure_world": [
+              -6.938893903907228e-18,
+              -0.981240367458006,
+              0.19278833281834756
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -32.95581037587153,
+            92.05032589566817,
+            -21.148109088420377
+          ],
+          "from_project_reference_or_joint": [
+            -32.547529261024366,
+            41.75243903620205,
+            -36.47225729363408
+          ],
+          "to_joint_or_held9_end": [
+            -32.95581037587153,
+            92.05032589566817,
+            -21.148109088420377
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 19,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -31.31467340937229,
+              41.87806105960417,
+              -34.761768114585806
+            ],
+            "nominal_departure_world": [
+              -7.077671781985373e-16,
+              -0.980387639356814,
+              0.19707885882654824
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -32.35723687368215,
+            92.23883346291211,
+            -19.6760364923921
+          ],
+          "from_project_reference_or_joint": [
+            -31.31467340937229,
+            41.87806105960417,
+            -34.761768114585806
+          ],
+          "to_joint_or_held9_end": [
+            -32.35723687368215,
+            92.23883346291211,
+            -19.6760364923921
+          ],
+          "endpoint_chord_mm": 52.58206570886838,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 20,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -30.117689646488316,
+              42.01851459753636,
+              -33.00894193025619
+            ],
+            "nominal_departure_world": [
+              -1.4016565685892601e-15,
+              -0.9794735058162541,
+              0.20157294313477903
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -31.80051719296126,
+            92.44082107482721,
+            -18.188930622206065
+          ],
+          "from_project_reference_or_joint": [
+            -30.117689646488316,
+            42.01851459753636,
+            -33.00894193025619
+          ],
+          "to_joint_or_held9_end": [
+            -31.80051719296126,
+            92.44082107482721,
+            -18.188930622206065
+          ],
+          "endpoint_chord_mm": 52.58206570886835,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 21,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -28.956656509847853,
+              42.175508353055086,
+              -31.210985984346166
+            ],
+            "nominal_departure_world": [
+              -2.1094237467877974e-15,
+              -0.9784917003312372,
+              0.20628619048032473
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -31.28656553781999,
+            92.65771663052377,
+            -16.685429004891134
+          ],
+          "from_project_reference_or_joint": [
+            -28.956656509847853,
+            42.175508353055086,
+            -31.210985984346166
+          ],
+          "to_joint_or_held9_end": [
+            -31.28656553781999,
+            92.65771663052377,
+            -16.685429004891134
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 22,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -27.83099618019387,
+              42.35108398127511,
+              -29.36322077634128
+            ],
+            "nominal_departure_world": [
+              -2.8171909249863347e-15,
+              -0.9774338142710536,
+              0.2112418962221742
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -30.81626069799739,
+            92.89128915688003,
+            -15.162886597940826
+          ],
+          "from_project_reference_or_joint": [
+            -27.83099618019387,
+            42.35108398127511,
+            -29.36322077634128
+          ],
+          "to_joint_or_held9_end": [
+            -30.81626069799739,
+            92.89128915688003,
+            -15.162886597940826
+          ],
+          "endpoint_chord_mm": 52.582065708868335,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 23,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -26.742179427941814,
+              42.547508407413375,
+              -27.46320133684747
+            ],
+            "nominal_departure_world": [
+              -3.566591466608315e-15,
+              -0.976292566862,
+              0.21645513135522465
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -30.391630623073073,
+            93.14331891931354,
+            -13.620546286966452
+          ],
+          "from_project_reference_or_joint": [
+            -26.742179427941814,
+            42.547508407413375,
+            -27.46320133684747
+          ],
+          "to_joint_or_held9_end": [
+            -30.391630623073073,
+            93.14331891931354,
+            -13.620546286966452
+          ],
+          "endpoint_chord_mm": 52.58206570886835,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 24,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -25.691467469342342,
+              42.7674330428371,
+              -25.507258988567088
+            ],
+            "nominal_departure_world": [
+              -4.3021142204224816e-15,
+              -0.9750590157577237,
+              0.2219457496542335
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -30.01487147129235,
+            93.41591429296656,
+            -12.056862745223313
+          ],
+          "from_project_reference_or_joint": [
+            -25.691467469342342,
+            42.7674330428371,
+            -25.507258988567088
+          ],
+          "to_joint_or_held9_end": [
+            -30.01487147129235,
+            93.41591429296656,
+            -12.056862745223313
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 25,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -24.680254699603168,
+              43.013979213575226,
+              -23.490710846825863
+            ],
+            "nominal_departure_world": [
+              -5.065392549852277e-15,
+              -0.9737224819270435,
+              0.22773784970847355
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.688587508977903,
+            93.7115559486364,
+            -10.469729705802933
+          ],
+          "from_project_reference_or_joint": [
+            -24.680254699603168,
+            43.013979213575226,
+            -23.490710846825863
+          ],
+          "to_joint_or_held9_end": [
+            -29.688587508977903,
+            93.7115559486364,
+            -10.469729705802933
+          ],
+          "endpoint_chord_mm": 52.58206570886836,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 26,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -23.71042741384587,
+              43.29081912685251,
+              -21.408183360774814
+            ],
+            "nominal_departure_world": [
+              -5.842548667089886e-15,
+              -0.9722706298405851,
+              0.23385855201251946
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.416013456851914,
+            94.03312751636778,
+            -8.856766651059047
+          ],
+          "from_project_reference_or_joint": [
+            -23.71042741384587,
+            43.29081912685251,
+            -21.408183360774814
+          ],
+          "to_joint_or_held9_end": [
+            -29.416013456851914,
+            94.03312751636778,
+            -8.856766651059047
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 27,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -22.784471671183525,
+              43.60229883548871,
+              -19.25348020083078
+            ],
+            "nominal_departure_world": [
+              -6.6058269965196814e-15,
+              -0.9706891348584002,
+              0.24033851848559573
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.201148502473192,
+            94.38400109729234,
+            -7.2152657132887725
+          ],
+          "from_project_reference_or_joint": [
+            -22.784471671183525,
+            43.60229883548871,
+            -19.25348020083078
+          ],
+          "to_joint_or_held9_end": [
+            -29.201148502473192,
+            94.38400109729234,
+            -7.2152657132887725
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 28,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -21.905618370875835,
+              43.95359532560394,
+              -17.01941862347715
+            ],
+            "nominal_departure_world": [
+              -7.438494264988549e-15,
+              -0.9689612684997,
+              0.24721258088425171
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.0489324079564,
+            94.76814527033854,
+            -5.542127449447037
+          ],
+          "from_project_reference_or_joint": [
+            -21.905618370875835,
+            43.95359532560394,
+            -17.01941862347715
+          ],
+          "to_joint_or_held9_end": [
+            -29.0489324079564,
+            94.76814527033854,
+            -5.542127449447037
+          ],
+          "endpoint_chord_mm": 52.58206570886834,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 29,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -21.078038558586076,
+              44.35091941372343,
+              -14.697622883443657
+            ],
+            "nominal_departure_world": [
+              -8.271161533457416e-15,
+              -0.9670673751115455,
+              0.2545205138979293
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -28.965478567997057,
+            95.19026307100415,
+            -3.8337809844375386
+          ],
+          "from_project_reference_or_joint": [
+            -21.078038558586076,
+            44.35091941372343,
+            -14.697622883443657
+          ],
+          "to_joint_or_held9_end": [
+            -28.965478567997057,
+            95.19026307100415,
+            -3.8337809844375386
+          ],
+          "endpoint_chord_mm": 52.582065708868335,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 30,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -20.307109211789633,
+              44.80178075615394,
+              -12.278260813931809
+            ],
+            "nominal_departure_world": [
+              -9.131584377541913e-15,
+              -0.9649842049989362,
+              0.2623079947362865
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -28.958385983806647,
+            95.65597010796034,
+            -2.086083922004917
+          ],
+          "from_project_reference_or_joint": [
+            -20.307109211789633,
+            44.80178075615394,
+            -12.278260813931809
+          ],
+          "to_joint_or_held9_end": [
+            -28.958385983806647,
+            95.65597010796034,
+            -2.086083922004917
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 31,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -19.599779714069953,
+              45.31533823307613,
+              -9.749704282882874
+            ],
+            "nominal_departure_world": [
+              -1.0005885009434223e-14,
+              -0.9626840555123968,
+              0.27062780578167744
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.037162497630703,
+            96.17202709392474,
+            -0.2941959137289132
+          ],
+          "from_project_reference_or_joint": [
+            -19.599779714069953,
+            45.31533823307613,
+            -9.749704282882874
+          ],
+          "to_joint_or_held9_end": [
+            -29.037162497630703,
+            96.17202709392474,
+            -0.2941959137289132
+          ],
+          "endpoint_chord_mm": 52.582065708868384,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 32,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -18.96508498112578,
+              45.9028694348252,
+              -7.098086355840152
+            ],
+            "nominal_departure_world": [
+              -1.0921819004749977e-14,
+              -0.9601336517564137,
+              0.2795413578791055
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.213807839129597,
+            96.74664711559683,
+            1.547582220958759
+          ],
+          "from_project_reference_or_joint": [
+            -18.96508498112578,
+            45.9028694348252,
+            -7.098086355840152
+          ],
+          "to_joint_or_held9_end": [
+            -29.213807839129597,
+            96.74664711559683,
+            1.547582220958759
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 33,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -18.41487671701466,
+              46.578409001375476,
+              -4.306716380486023
+            ],
+            "nominal_departure_world": [
+              -1.1907141939104804e-14,
+              -0.9572926690824516,
+              0.289120642156517
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.503630934473836,
+            97.38990699142667,
+            3.4460145011810965
+          ],
+          "from_project_reference_or_joint": [
+            -18.41487671701466,
+            46.578409001375476,
+            -4.306716380486023
+          ],
+          "to_joint_or_held9_end": [
+            -29.503630934473836,
+            97.38990699142667,
+            3.4460145011810965
+          ],
+          "endpoint_chord_mm": 52.58206570886836,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 34,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -17.964886707519995,
+              47.35963057790047,
+              -1.3552968692473257
+            ],
+            "nominal_departure_world": [
+              -1.289246487345963e-14,
+              -0.9541117548193467,
+              0.2994507627566628
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -29.92641838671606,
+            98.11430571240075,
+            5.409194692627608
+          ],
+          "from_project_reference_or_joint": [
+            -17.964886707519995,
+            47.35963057790047,
+            -1.3552968692473257
+          ],
+          "to_joint_or_held9_end": [
+            -29.92641838671606,
+            98.11430571240075,
+            5.409194692627608
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 35,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -17.63630869098113,
+              48.26908699292619,
+              1.781140090829993
+            ],
+            "nominal_departure_world": [
+              -1.3988810110276972e-14,
+              -0.9505298375297044,
+              0.3106332692513064
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -30.508142625029762,
+            98.93553384787971,
+            7.44688703895558
+          ],
+          "from_project_reference_or_joint": [
+            -17.63630869098113,
+            48.26908699292619,
+            1.781140090829993
+          ],
+          "to_joint_or_held9_end": [
+            -30.508142625029762,
+            98.93553384787971,
+            7.44688703895558
+          ],
+          "endpoint_chord_mm": 52.582065708868356,
+          "chord_is_not_routed_length_or_total_minimum": true
+        }
+      ],
+      "components": [
+        {
+          "id": "FACTORY_SOURCE14",
+          "account_mm": 14,
+          "method": "selected source allocation exactlyonce; source14 outerpoint direction is PROJECT frame, not deliveredmouth guarantee"
+        },
+        {
+          "id": "SOURCE_MOVING_APPROACH",
+          "routed_mm": null,
+          "method": "OriginalFL3 terminates at same ownedjoint; FL1/2 continuous movingprefix and ground/Ankle clearance not qualified. No oldprefixcredit."
+        },
+        {
+          "id": "OWNED_LAP",
+          "account_mm": 4,
+          "method": "Only proper originalFL3/donorFL3 portion. Each8lap has proper4+4 accounting; actual approach must bind lapboundary, not add4 to alreadyinclusive curve."
+        },
+        {
+          "id": "OWNED_9LANDS_AND_STAGGER",
+          "routed_mm": null,
+          "method": "Same existingSource21 carrier +/-43 axial lands, full9,3individual20sleeves,joints -22/0/+22. Account within actual physical approach once, not newterminals/extra9."
+        },
+        {
+          "id": "OPEN_SOURCE_SIDE_TRANSPORT_AND_BODY_RETURN",
+          "routed_mm": null,
+          "method": "FL1 Hip10 direct; FL2 andDONORFL3 separate continuous core reserves, real passage+receiver fans not yet proven."
+        },
+        {
+          "id": "RECEIVER_FIXED_PREFIX",
+          "account_mm": null,
+          "method": "Current held9+proper.25 wherepresent, one time. OriginalFL3 ends onKnee and does not get bodyreceiverprefix."
+        },
+        {
+          "id": "RECEIVER_TERMINAL11",
+          "account_mm": null,
+          "method": "proper bodyend once; not added to originalKnee piece."
+        },
+        {
+          "id": "USEFUL_OPERATING_RESERVE",
+          "requested_mm": 0,
+          "accepted_mm": null,
+          "method": "55eachFL2/Knee-donor where required, Hip10. Between actual moving and fixedreliefs, passiveleading only. No reserve behindreceiverclamp/no pooling."
+        },
+        {
+          "id": "PHASE2_FIT_TRIM",
+          "account_mm": 20,
+          "method": "ceil5(required+20), not operatingreserve; MAX3 per physical900unit,850project criterion separate."
+        }
+      ],
+      "endpoint_chord_range_mm": [
+        52.582065708868335,
+        52.582065708868384
+      ],
+      "actual_Li_by_pose": null,
+      "actual_deltaLi": null,
+      "A": null,
+      "U": null,
+      "installed_required_mm": null,
+      "actual_stored_slack_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut": null
+    },
+    {
+      "wire": "W024",
+      "core": "V",
+      "physical_unit": "SOURCE/FL3",
+      "piece_id": "W024/original_source",
+      "motion_owner": "Motion_RL_Knee",
+      "receiver_held9_frame": null,
+      "source_grip_frame_scope": "FL3 sourcecarrier actual groupentry/exit and same ownedjoint are pinned; individual core exit offset still needs binding. FL1/FL2 source14 is projectreference, not a proved true external grip or suppliercavity.",
+      "pose_frames": [
+        {
+          "pose": 0,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -61.977234052653735,
+              40.95533638290788,
+              -61.65489982179552
+            ],
+            "nominal_departure_world": [
+              1.1296519275560968e-14,
+              -0.9902680687415674,
+              0.1391731009600884
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -63.25783636461991,
+            92.60969096235917,
+            -27.51282841067681
+          ],
+          "from_project_reference_or_joint": [
+            -61.977234052653735,
+            40.95533638290788,
+            -61.65489982179552
+          ],
+          "to_joint_or_held9_end": [
+            -63.25783636461991,
+            92.60969096235917,
+            -27.51282841067681
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 1,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -59.86666348912812,
+              40.95349025342607,
+              -60.502572314403864
+            ],
+            "nominal_departure_world": [
+              1.070541225112187e-14,
+              -0.9899636697995255,
+              0.14132208771829263
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -62.29564661722007,
+            92.6744796106581,
+            -26.52415813104978
+          ],
+          "from_project_reference_or_joint": [
+            -59.86666348912812,
+            40.95349025342607,
+            -60.502572314403864
+          ],
+          "to_joint_or_held9_end": [
+            -62.29564661722007,
+            92.6744796106581,
+            -26.52415813104978
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 2,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -57.83314320248654,
+              40.95561413756209,
+              -59.32081901583677
+            ],
+            "nominal_departure_world": [
+              1.0111703141468809e-14,
+              -0.9896440314281868,
+              0.14354334209069547
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -61.38518442833878,
+            92.74093985723594,
+            -25.539812920988805
+          ],
+          "from_project_reference_or_joint": [
+            -57.83314320248654,
+            40.95561413756209,
+            -59.32081901583677
+          ],
+          "to_joint_or_held9_end": [
+            -61.38518442833878,
+            92.74093985723594,
+            -25.539812920988805
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 3,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -55.86908621551932,
+              40.96178462272888,
+              -58.10958295742105
+            ],
+            "nominal_departure_world": [
+              9.511488818780833e-15,
+              -0.9893078411133153,
+              0.14584236528427483
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -60.52209415778688,
+            92.80931806096586,
+            -24.55848576220083
+          ],
+          "from_project_reference_or_joint": [
+            -55.86908621551932,
+            40.96178462272888,
+            -58.10958295742105
+          ],
+          "to_joint_or_held9_end": [
+            -60.52209415778688,
+            92.80931806096586,
+            -24.55848576220083
+          ],
+          "endpoint_chord_mm": 61.93135982313824,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 4,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -53.9723773122655,
+              40.97221649630142,
+              -56.87138551149525
+            ],
+            "nominal_departure_world": [
+              8.909539772616881e-15,
+              -0.9889547108305474,
+              0.14821801484997957
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -59.70459883484187,
+            92.87976626979224,
+            -23.58112804070194
+          ],
+          "from_project_reference_or_joint": [
+            -53.9723773122655,
+            40.97221649630142,
+            -56.87138551149525
+          ],
+          "to_joint_or_held9_end": [
+            -59.70459883484187,
+            92.87976626979224,
+            -23.58112804070194
+          ],
+          "endpoint_chord_mm": 61.931359823138266,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 5,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -52.136004730984865,
+              40.98704175383843,
+              -55.60505575109593
+            ],
+            "nominal_departure_world": [
+              8.302386556024999e-15,
+              -0.9885828949807969,
+              0.15067800022361372
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -58.92893569379993,
+            92.95256131975775,
+            -22.606052815832754
+          ],
+          "from_project_reference_or_joint": [
+            -52.136004730984865,
+            40.98704175383843,
+            -55.60505575109593
+          ],
+          "to_joint_or_held9_end": [
+            -58.92893569379993,
+            92.95256131975775,
+            -22.606052815832754
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 6,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -50.35570283001276,
+              41.006480265537554,
+              -54.31044698486272
+            ],
+            "nominal_departure_world": [
+              7.695233339433116e-15,
+              -0.9881909437414189,
+              0.1532274737357644
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -58.19270064177326,
+            93.02794853518536,
+            -21.63260075975923
+          ],
+          "from_project_reference_or_joint": [
+            -50.35570283001276,
+            41.006480265537554,
+            -54.31044698486272
+          ],
+          "to_joint_or_held9_end": [
+            -58.19270064177326,
+            93.02794853518536,
+            -21.63260075975923
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 7,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -48.6302859562309,
+              41.030845230674096,
+              -52.98917336023145
+            ],
+            "nominal_departure_world": [
+              7.0811412289373266e-15,
+              -0.9877780761650042,
+              0.15586684139920068
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -57.49486784088404,
+            93.10611770100995,
+            -20.661499229642004
+          ],
+          "from_project_reference_or_joint": [
+            -48.6302859562309,
+            41.030845230674096,
+            -52.98917336023145
+          ],
+          "to_joint_or_held9_end": [
+            -57.49486784088404,
+            93.10611770100995,
+            -20.661499229642004
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 8,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -46.95582459669083,
+              41.060426649228525,
+              -51.64045179333165
+            ],
+            "nominal_departure_world": [
+              6.463579671489583e-15,
+              -0.9873424964523149,
+              0.1586026314387979
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -56.83337872288041,
+            93.18735049493806,
+            -19.691882742264337
+          ],
+          "from_project_reference_or_joint": [
+            -46.95582459669083,
+            41.060426649228525,
+            -51.64045179333165
+          ],
+          "to_joint_or_held9_end": [
+            -56.83337872288041,
+            93.18735049493806,
+            -19.691882742264337
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 9,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -45.327476267195955,
+              41.09554206118032,
+              -50.2621076615155
+            ],
+            "nominal_departure_world": [
+              5.835609773185979e-15,
+              -0.9868816453476646,
+              0.1614454027709888
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -56.205974869619105,
+            93.2719938329536,
+            -18.722141298059793
+          ],
+          "from_project_reference_or_joint": [
+            -45.327476267195955,
+            41.09554206118032,
+            -50.2621076615155
+          ],
+          "to_joint_or_held9_end": [
+            -56.205974869619105,
+            93.2719938329536,
+            -18.722141298059793
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 10,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -43.74580298817576,
+              41.136654682722984,
+              -48.85599110867203
+            ],
+            "nominal_departure_world": [
+              5.218048215738236e-15,
+              -0.98639464587377,
+              0.16439465499693182
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -55.612594439644155,
+            93.36026452876658,
+            -17.75346444541527
+          ],
+          "from_project_reference_or_joint": [
+            -43.74580298817576,
+            41.136654682722984,
+            -48.85599110867203
+          ],
+          "to_joint_or_held9_end": [
+            -55.612594439644155,
+            93.36026452876658,
+            -17.75346444541527
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 11,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -42.208616288213456,
+              41.1842237466534,
+              -47.421433548350706
+            ],
+            "nominal_departure_world": [
+              4.579669976578771e-15,
+              -0.9858794261301992,
+              0.1674567321226287
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -55.05217116434076,
+            93.45248752827007,
+            -16.78542485037785
+          ],
+          "from_project_reference_or_joint": [
+            -42.208616288213456,
+            41.1842237466534,
+            -47.421433548350706
+          ],
+          "to_joint_or_held9_end": [
+            -55.05217116434076,
+            93.45248752827007,
+            -16.78542485037785
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 12,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -40.712682136185975,
+              41.23875661157436,
+              -45.956310987150914
+            ],
+            "nominal_departure_world": [
+              3.9343528435153985e-15,
+              -0.985333014004875,
+              0.17064246690689014
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -54.52337990614775,
+            93.54906904145265,
+            -15.81681579996642
+          ],
+          "from_project_reference_or_joint": [
+            -40.712682136185975,
+            41.23875661157436,
+            -45.956310987150914
+          ],
+          "to_joint_or_held9_end": [
+            -54.52337990614775,
+            93.54906904145265,
+            -15.81681579996642
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 13,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -39.25650746033148,
+              41.30086022622808,
+              -44.45962349529692
+            ],
+            "nominal_departure_world": [
+              3.3029134982598407e-15,
+              -0.9847527681964744,
+              0.17395972387130682
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -54.025647060718434,
+            93.65040215188455,
+            -14.847272943859117
+          ],
+          "from_project_reference_or_joint": [
+            -39.25650746033148,
+            41.30086022622808,
+            -44.45962349529692
+          ],
+          "to_joint_or_held9_end": [
+            -54.025647060718434,
+            93.65040215188455,
+            -14.847272943859117
+          ],
+          "endpoint_chord_mm": 61.93135982313824,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 14,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -37.840124791448766,
+              41.371229636068705,
+              -42.931616549478775
+            ],
+            "nominal_departure_world": [
+              2.6298407895808396e-15,
+              -0.9841365639490428,
+              0.17741257987688522
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -53.55899342395003,
+            93.75685685819668,
+            -13.87724409021832
+          ],
+          "from_project_reference_or_joint": [
+            -37.840124791448766,
+            41.371229636068705,
+            -42.931616549478775
+          ],
+          "to_joint_or_held9_end": [
+            -53.55899342395003,
+            93.75685685819668,
+            -13.87724409021832
+          ],
+          "endpoint_chord_mm": 61.93135982313824,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 15,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -36.4623230578615,
+              41.450631218222014,
+              -41.37098741174278
+            ],
+            "nominal_departure_world": [
+              1.9984014443252818e-15,
+              -0.9834812748758383,
+              0.18100989467041975
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -53.123089427152514,
+            93.86890048876978,
+            -12.906320889697035
+          ],
+          "from_project_reference_or_joint": [
+            -36.4623230578615,
+            41.450631218222014,
+            -41.37098741174278
+          ],
+          "to_joint_or_held9_end": [
+            -53.123089427152514,
+            93.86890048876978,
+            -12.906320889697035
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 16,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -35.12172895018167,
+              41.53993800327604,
+              -39.77580001182366
+            ],
+            "nominal_departure_world": [
+              1.3322676295501878e-15,
+              -0.9827831357593124,
+              0.18476284276632404
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -52.7176695999798,
+            93.98707165679544,
+            -11.933846529324
+          ],
+          "from_project_reference_or_joint": [
+            -35.12172895018167,
+            41.53993800327604,
+            -39.77580001182366
+          ],
+          "to_joint_or_held9_end": [
+            -52.7176695999798,
+            93.98707165679544,
+            -11.933846529324
+          ],
+          "endpoint_chord_mm": 61.93135982313823,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 17,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -33.81641918749343,
+              41.64016317833871,
+              -38.14287513267457
+            ],
+            "nominal_departure_world": [
+              6.591949208711867e-16,
+              -0.9820372287519457,
+              0.1886872580361469
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -52.34245712747464,
+            94.11202362294817,
+            -10.9586313640716
+          ],
+          "from_project_reference_or_joint": [
+            -33.81641918749343,
+            41.64016317833871,
+            -38.14287513267457
+          ],
+          "to_joint_or_held9_end": [
+            -52.34245712747464,
+            94.11202362294817,
+            -10.9586313640716
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 18,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -32.547529261024366,
+              41.75243903620205,
+              -36.47225729363408
+            ],
+            "nominal_departure_world": [
+              -6.938893903907228e-18,
+              -0.981240367458006,
+              0.19278833281834756
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.99818696174888,
+            94.24430789434027,
+            -9.98133529510244
+          ],
+          "from_project_reference_or_joint": [
+            -32.547529261024366,
+            41.75243903620205,
+            -36.47225729363408
+          ],
+          "to_joint_or_held9_end": [
+            -51.99818696174888,
+            94.24430789434027,
+            -9.98133529510244
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 19,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -31.31467340937229,
+              41.87806105960417,
+              -34.761768114585806
+            ],
+            "nominal_departure_world": [
+              -7.077671781985373e-16,
+              -0.980387639356814,
+              0.19707885882654824
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.68525282965444,
+            94.38464396285643,
+            -9.00149685341895
+          ],
+          "from_project_reference_or_joint": [
+            -31.31467340937229,
+            41.87806105960417,
+            -34.761768114585806
+          ],
+          "to_joint_or_held9_end": [
+            -51.68525282965444,
+            94.38464396285643,
+            -9.00149685341895
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 20,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -30.117689646488316,
+              42.01851459753636,
+              -33.00894193025619
+            ],
+            "nominal_departure_world": [
+              -1.4016565685892601e-15,
+              -0.9794735058162541,
+              0.20157294313477903
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.40426003485155,
+            94.5338410565527,
+            -8.018629056119991
+          ],
+          "from_project_reference_or_joint": [
+            -30.117689646488316,
+            42.01851459753636,
+            -33.00894193025619
+          ],
+          "to_joint_or_held9_end": [
+            -51.40426003485155,
+            94.5338410565527,
+            -8.018629056119991
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 21,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -28.956656509847853,
+              42.175508353055086,
+              -31.210985984346166
+            ],
+            "nominal_departure_world": [
+              -2.1094237467877974e-15,
+              -0.9784917003312372,
+              0.20628619048032473
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.15604717848672,
+            94.69281327319092,
+            -7.032212909401906
+          ],
+          "from_project_reference_or_joint": [
+            -28.956656509847853,
+            42.175508353055086,
+            -31.210985984346166
+          ],
+          "to_joint_or_held9_end": [
+            -51.15604717848672,
+            94.69281327319092,
+            -7.032212909401906
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 22,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -27.83099618019387,
+              42.35108398127511,
+              -29.36322077634128
+            ],
+            "nominal_departure_world": [
+              -2.8171909249863347e-15,
+              -0.9774338142710536,
+              0.2112418962221742
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.941550956926434,
+            94.86270003088539,
+            -6.041004601351034
+          ],
+          "from_project_reference_or_joint": [
+            -27.83099618019387,
+            42.35108398127511,
+            -29.36322077634128
+          ],
+          "to_joint_or_held9_end": [
+            -50.941550956926434,
+            94.86270003088539,
+            -6.041004601351034
+          ],
+          "endpoint_chord_mm": 61.93135982313824,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 23,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -26.742179427941814,
+              42.547508407413375,
+              -27.46320133684747
+            ],
+            "nominal_departure_world": [
+              -3.566591466608315e-15,
+              -0.976292566862,
+              0.21645513135522465
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.76237246417052,
+            95.04462039025628,
+            -5.04497461156469
+          ],
+          "from_project_reference_or_joint": [
+            -26.742179427941814,
+            42.547508407413375,
+            -27.46320133684747
+          ],
+          "to_joint_or_held9_end": [
+            -50.76237246417052,
+            95.04462039025628,
+            -5.04497461156469
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 24,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -25.691467469342342,
+              42.7674330428371,
+              -25.507258988567088
+            ],
+            "nominal_departure_world": [
+              -4.3021142204224816e-15,
+              -0.9750590157577237,
+              0.2219457496542335
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.6203118651624,
+            95.23990230277728,
+            -4.043661517578059
+          ],
+          "from_project_reference_or_joint": [
+            -25.691467469342342,
+            42.7674330428371,
+            -25.507258988567088
+          ],
+          "to_joint_or_held9_end": [
+            -50.6203118651624,
+            95.23990230277728,
+            -4.043661517578059
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 25,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -24.680254699603168,
+              43.013979213575226,
+              -23.490710846825863
+            ],
+            "nominal_departure_world": [
+              -5.065392549852277e-15,
+              -0.9737224819270435,
+              0.22773784970847355
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.51752407162396,
+            95.45010588291218,
+            -3.036335743735819
+          ],
+          "from_project_reference_or_joint": [
+            -24.680254699603168,
+            43.013979213575226,
+            -23.490710846825863
+          ],
+          "to_joint_or_held9_end": [
+            -50.51752407162396,
+            95.45010588291218,
+            -3.036335743735819
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 26,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -23.71042741384587,
+              43.29081912685251,
+              -21.408183360774814
+            ],
+            "nominal_departure_world": [
+              -5.842548667089886e-15,
+              -0.9722706298405851,
+              0.23385855201251946
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.456654819446605,
+            95.67703688642132,
+            -2.0221874369654813
+          ],
+          "from_project_reference_or_joint": [
+            -23.71042741384587,
+            43.29081912685251,
+            -21.408183360774814
+          ],
+          "to_joint_or_held9_end": [
+            -50.456654819446605,
+            95.67703688642132,
+            -2.0221874369654813
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 27,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -22.784471671183525,
+              43.60229883548871,
+              -19.25348020083078
+            ],
+            "nominal_departure_world": [
+              -6.6058269965196814e-15,
+              -0.9706891348584002,
+              0.24033851848559573
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.44094434037518,
+            95.92279786370156,
+            -1.000309778132845
+          ],
+          "from_project_reference_or_joint": [
+            -22.784471671183525,
+            43.60229883548871,
+            -19.25348020083078
+          ],
+          "to_joint_or_held9_end": [
+            -50.44094434037518,
+            95.92279786370156,
+            -1.000309778132845
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 28,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -21.905618370875835,
+              43.95359532560394,
+              -17.01941862347715
+            ],
+            "nominal_departure_world": [
+              -7.438494264988549e-15,
+              -0.9689612684997,
+              0.24721258088425171
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.474362932838226,
+            96.18985248216929,
+            0.030320435216438568
+          ],
+          "from_project_reference_or_joint": [
+            -21.905618370875835,
+            43.95359532560394,
+            -17.01941862347715
+          ],
+          "to_joint_or_held9_end": [
+            -50.474362932838226,
+            96.18985248216929,
+            0.030320435216438568
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 29,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -21.078038558586076,
+              44.35091941372343,
+              -14.697622883443657
+            ],
+            "nominal_departure_world": [
+              -8.271161533457416e-15,
+              -0.9670673751115455,
+              0.2545205138979293
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.5617897115668,
+            96.48110733653164,
+            1.0708664108683053
+          ],
+          "from_project_reference_or_joint": [
+            -21.078038558586076,
+            44.35091941372343,
+            -14.697622883443657
+          ],
+          "to_joint_or_held9_end": [
+            -50.5617897115668,
+            96.48110733653164,
+            1.0708664108683053
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 30,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -20.307109211789633,
+              44.80178075615394,
+              -12.278260813931809
+            ],
+            "nominal_departure_world": [
+              -9.131584377541913e-15,
+              -0.9649842049989362,
+              0.2623079947362865
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.70925101499098,
+            96.80001704922654,
+            2.122660188936294
+          ],
+          "from_project_reference_or_joint": [
+            -20.307109211789633,
+            44.80178075615394,
+            -12.278260813931809
+          ],
+          "to_joint_or_held9_end": [
+            -50.70925101499098,
+            96.80001704922654,
+            2.122660188936294
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 31,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -19.599779714069953,
+              45.31533823307613,
+              -9.749704282882874
+            ],
+            "nominal_departure_world": [
+              -1.0005885009434223e-14,
+              -0.9626840555123968,
+              0.27062780578167744
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -50.92424265747143,
+            97.1507207431828,
+            3.187237816447208
+          ],
+          "from_project_reference_or_joint": [
+            -19.599779714069953,
+            45.31533823307613,
+            -9.749704282882874
+          ],
+          "to_joint_or_held9_end": [
+            -50.92424265747143,
+            97.1507207431828,
+            3.187237816447208
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 32,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -18.96508498112578,
+              45.9028694348252,
+              -7.098086355840152
+            ],
+            "nominal_departure_world": [
+              -1.0921819004749977e-14,
+              -0.9601336517564137,
+              0.2795413578791055
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.21617220941438,
+            97.53822128027792,
+            4.266382040554134
+          ],
+          "from_project_reference_or_joint": [
+            -18.96508498112578,
+            45.9028694348252,
+            -7.098086355840152
+          ],
+          "to_joint_or_held9_end": [
+            -51.21617220941438,
+            97.53822128027792,
+            4.266382040554134
+          ],
+          "endpoint_chord_mm": 61.93135982313825,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 33,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -18.41487671701466,
+              46.578409001375476,
+              -4.306716380486023
+            ],
+            "nominal_departure_world": [
+              -1.1907141939104804e-14,
+              -0.9572926690824516,
+              0.289120642156517
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -51.5969765908232,
+            97.96862351831207,
+            5.362173390881551
+          ],
+          "from_project_reference_or_joint": [
+            -18.41487671701466,
+            46.578409001375476,
+            -4.306716380486023
+          ],
+          "to_joint_or_held9_end": [
+            -51.5969765908232,
+            97.96862351831207,
+            5.362173390881551
+          ],
+          "endpoint_chord_mm": 61.931359823138244,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 34,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -17.964886707519995,
+              47.35963057790047,
+              -1.3552968692473257
+            ],
+            "nominal_departure_world": [
+              -1.289246487345963e-14,
+              -0.9541117548193467,
+              0.2994507627566628
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -52.08200145906281,
+            98.44945503070512,
+            6.477049391911152
+          ],
+          "from_project_reference_or_joint": [
+            -17.964886707519995,
+            47.35963057790047,
+            -1.3552968692473257
+          ],
+          "to_joint_or_held9_end": [
+            -52.08200145906281,
+            98.44945503070512,
+            6.477049391911152
+          ],
+          "endpoint_chord_mm": 61.93135982313823,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 35,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -17.63630869098113,
+              48.26908699292619,
+              1.781140090829993
+            ],
+            "nominal_departure_world": [
+              -1.3988810110276972e-14,
+              -0.9505298375297044,
+              0.3106332692513064
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -52.69128125202913,
+            98.99010341886671,
+            7.613868526705275
+          ],
+          "from_project_reference_or_joint": [
+            -17.63630869098113,
+            48.26908699292619,
+            1.781140090829993
+          ],
+          "to_joint_or_held9_end": [
+            -52.69128125202913,
+            98.99010341886671,
+            7.613868526705275
+          ],
+          "endpoint_chord_mm": 61.93135982313826,
+          "chord_is_not_routed_length_or_total_minimum": true
+        }
+      ],
+      "components": [
+        {
+          "id": "FACTORY_SOURCE14",
+          "account_mm": 14,
+          "method": "selected source allocation exactlyonce; source14 outerpoint direction is PROJECT frame, not deliveredmouth guarantee"
+        },
+        {
+          "id": "SOURCE_MOVING_APPROACH",
+          "routed_mm": null,
+          "method": "OriginalFL3 terminates at same ownedjoint; FL1/2 continuous movingprefix and ground/Ankle clearance not qualified. No oldprefixcredit."
+        },
+        {
+          "id": "OWNED_LAP",
+          "account_mm": 4,
+          "method": "Only proper originalFL3/donorFL3 portion. Each8lap has proper4+4 accounting; actual approach must bind lapboundary, not add4 to alreadyinclusive curve."
+        },
+        {
+          "id": "OWNED_9LANDS_AND_STAGGER",
+          "routed_mm": null,
+          "method": "Same existingSource21 carrier +/-43 axial lands, full9,3individual20sleeves,joints -22/0/+22. Account within actual physical approach once, not newterminals/extra9."
+        },
+        {
+          "id": "OPEN_SOURCE_SIDE_TRANSPORT_AND_BODY_RETURN",
+          "routed_mm": null,
+          "method": "FL1 Hip10 direct; FL2 andDONORFL3 separate continuous core reserves, real passage+receiver fans not yet proven."
+        },
+        {
+          "id": "RECEIVER_FIXED_PREFIX",
+          "account_mm": null,
+          "method": "Current held9+proper.25 wherepresent, one time. OriginalFL3 ends onKnee and does not get bodyreceiverprefix."
+        },
+        {
+          "id": "RECEIVER_TERMINAL11",
+          "account_mm": null,
+          "method": "proper bodyend once; not added to originalKnee piece."
+        },
+        {
+          "id": "USEFUL_OPERATING_RESERVE",
+          "requested_mm": 0,
+          "accepted_mm": null,
+          "method": "55eachFL2/Knee-donor where required, Hip10. Between actual moving and fixedreliefs, passiveleading only. No reserve behindreceiverclamp/no pooling."
+        },
+        {
+          "id": "PHASE2_FIT_TRIM",
+          "account_mm": 20,
+          "method": "ceil5(required+20), not operatingreserve; MAX3 per physical900unit,850project criterion separate."
+        }
+      ],
+      "endpoint_chord_range_mm": [
+        61.93135982313823,
+        61.931359823138266
+      ],
+      "actual_Li_by_pose": null,
+      "actual_deltaLi": null,
+      "A": null,
+      "U": null,
+      "installed_required_mm": null,
+      "actual_stored_slack_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut": null
+    },
+    {
+      "wire": "W023",
+      "core": "G",
+      "physical_unit": "SOURCE/FL3",
+      "piece_id": "W023/original_source",
+      "motion_owner": "Motion_RL_Knee",
+      "receiver_held9_frame": null,
+      "source_grip_frame_scope": "FL3 sourcecarrier actual groupentry/exit and same ownedjoint are pinned; individual core exit offset still needs binding. FL1/FL2 source14 is projectreference, not a proved true external grip or suppliercavity.",
+      "pose_frames": [
+        {
+          "pose": 0,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -61.977234052653735,
+              40.95533638290788,
+              -61.65489982179552
+            ],
+            "nominal_departure_world": [
+              1.1296519275560968e-14,
+              -0.9902680687415674,
+              0.1391731009600884
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -75.21593711483524,
+            95.2101295590069,
+            -9.009746355171455
+          ],
+          "from_project_reference_or_joint": [
+            -61.977234052653735,
+            40.95533638290788,
+            -61.65489982179552
+          ],
+          "to_joint_or_held9_end": [
+            -75.21593711483524,
+            95.2101295590069,
+            -9.009746355171455
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 1,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -59.86666348912812,
+              40.95349025342607,
+              -60.502572314403864
+            ],
+            "nominal_departure_world": [
+              1.070541225112187e-14,
+              -0.9899636697995255,
+              0.14132208771829263
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -74.77264852050429,
+            95.26667853017851,
+            -8.365759846314452
+          ],
+          "from_project_reference_or_joint": [
+            -59.86666348912812,
+            40.95349025342607,
+            -60.502572314403864
+          ],
+          "to_joint_or_held9_end": [
+            -74.77264852050429,
+            95.26667853017851,
+            -8.365759846314452
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 2,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -57.83314320248654,
+              40.95561413756209,
+              -59.32081901583677
+            ],
+            "nominal_departure_world": [
+              1.0111703141468809e-14,
+              -0.9896440314281868,
+              0.14354334209069547
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -74.36097993758595,
+            95.32372790362479,
+            -7.7330603588389115
+          ],
+          "from_project_reference_or_joint": [
+            -57.83314320248654,
+            40.95561413756209,
+            -59.32081901583677
+          ],
+          "to_joint_or_held9_end": [
+            -74.36097993758595,
+            95.32372790362479,
+            -7.7330603588389115
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 3,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -55.86908621551932,
+              40.96178462272888,
+              -58.10958295742105
+            ],
+            "nominal_departure_world": [
+              9.511488818780833e-15,
+              -0.9893078411133153,
+              0.14584236528427483
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -73.97850393280423,
+            95.38147274020699,
+            -7.110518652165464
+          ],
+          "from_project_reference_or_joint": [
+            -55.86908621551932,
+            40.96178462272888,
+            -58.10958295742105
+          ],
+          "to_joint_or_held9_end": [
+            -73.97850393280423,
+            95.38147274020699,
+            -7.110518652165464
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 4,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -53.9723773122655,
+              40.97221649630142,
+              -56.87138551149525
+            ],
+            "nominal_departure_world": [
+              8.909539772616881e-15,
+              -0.9889547108305474,
+              0.14821801484997957
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -73.62402056444266,
+            95.4400032695939,
+            -6.498464746637886
+          ],
+          "from_project_reference_or_joint": [
+            -53.9723773122655,
+            40.97221649630142,
+            -56.87138551149525
+          ],
+          "to_joint_or_held9_end": [
+            -73.62402056444266,
+            95.4400032695939,
+            -6.498464746637886
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 5,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -52.136004730984865,
+              40.98704175383843,
+              -55.60505575109593
+            ],
+            "nominal_departure_world": [
+              8.302386556024999e-15,
+              -0.9885828949807969,
+              0.15067800022361372
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -73.29553066710876,
+            95.49952522034444,
+            -5.895684065801966
+          ],
+          "from_project_reference_or_joint": [
+            -52.136004730984865,
+            40.98704175383843,
+            -55.60505575109593
+          ],
+          "to_joint_or_held9_end": [
+            -73.29553066710876,
+            95.49952522034444,
+            -5.895684065801966
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 6,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -50.35570283001276,
+              41.006480265537554,
+              -54.31044698486272
+            ],
+            "nominal_departure_world": [
+              7.695233339433116e-15,
+              -0.9881909437414189,
+              0.1532274737357644
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.99171110701451,
+            95.5602001989762,
+            -5.301664143603123
+          ],
+          "from_project_reference_or_joint": [
+            -50.35570283001276,
+            41.006480265537554,
+            -54.31044698486272
+          ],
+          "to_joint_or_held9_end": [
+            -72.99171110701451,
+            95.5602001989762,
+            -5.301664143603123
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 7,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -48.6302859562309,
+              41.030845230674096,
+              -52.98917336023145
+            ],
+            "nominal_departure_world": [
+              7.0811412289373266e-15,
+              -0.9877780761650042,
+              0.15586684139920068
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.71186157984306,
+            95.62212719533629,
+            -4.716741540265183
+          ],
+          "from_project_reference_or_joint": [
+            -48.6302859562309,
+            41.030845230674096,
+            -52.98917336023145
+          ],
+          "to_joint_or_held9_end": [
+            -72.71186157984306,
+            95.62212719533629,
+            -4.716741540265183
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 8,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -46.95582459669083,
+              41.060426649228525,
+              -51.64045179333165
+            ],
+            "nominal_departure_world": [
+              6.463579671489583e-15,
+              -0.9873424964523149,
+              0.1586026314387979
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.45490835286417,
+            95.6854819698085,
+            -4.1403667018970545
+          ],
+          "from_project_reference_or_joint": [
+            -46.95582459669083,
+            41.060426649228525,
+            -51.64045179333165
+          ],
+          "to_joint_or_held9_end": [
+            -72.45490835286417,
+            95.6854819698085,
+            -4.1403667018970545
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 9,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -45.327476267195955,
+              41.09554206118032,
+              -50.2621076615155
+            ],
+            "nominal_departure_world": [
+              5.835609773185979e-15,
+              -0.9868816453476646,
+              0.1614454027709888
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.21978713293962,
+            95.75048479425804,
+            -3.571649578321516
+          ],
+          "from_project_reference_or_joint": [
+            -45.327476267195955,
+            41.09554206118032,
+            -50.2621076615155
+          ],
+          "to_joint_or_held9_end": [
+            -72.21978713293962,
+            95.75048479425804,
+            -3.571649578321516
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 10,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -43.74580298817576,
+              41.136654682722984,
+              -48.85599110867203
+            ],
+            "nominal_departure_world": [
+              5.218048215738236e-15,
+              -0.98639464587377,
+              0.16439465499693182
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.00632020443396,
+            95.8172264141105,
+            -3.0112938507289435
+          ],
+          "from_project_reference_or_joint": [
+            -43.74580298817576,
+            41.136654682722984,
+            -48.85599110867203
+          ],
+          "to_joint_or_held9_end": [
+            -72.00632020443396,
+            95.8172264141105,
+            -3.0112938507289435
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 11,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -42.208616288213456,
+              41.1842237466534,
+              -47.421433548350706
+            ],
+            "nominal_departure_world": [
+              4.579669976578771e-15,
+              -0.9858794261301992,
+              0.1674567321226287
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.8139841603524,
+            95.88588291556817,
+            -2.4591304245393246
+          ],
+          "from_project_reference_or_joint": [
+            -42.208616288213456,
+            41.1842237466534,
+            -47.421433548350706
+          ],
+          "to_joint_or_held9_end": [
+            -71.8139841603524,
+            95.88588291556817,
+            -2.4591304245393246
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 12,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -40.712682136185975,
+              41.23875661157436,
+              -45.956310987150914
+            ],
+            "nominal_departure_world": [
+              3.9343528435153985e-15,
+              -0.985333014004875,
+              0.17064246690689014
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.64223851215057,
+            95.95668355714062,
+            -1.9146371084255946
+          ],
+          "from_project_reference_or_joint": [
+            -40.712682136185975,
+            41.23875661157436,
+            -45.956310987150914
+          ],
+          "to_joint_or_held9_end": [
+            -71.64223851215057,
+            95.95668355714062,
+            -1.9146371084255946
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 13,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -39.25650746033148,
+              41.30086022622808,
+              -44.45962349529692
+            ],
+            "nominal_departure_world": [
+              3.3029134982598407e-15,
+              -0.9847527681964744,
+              0.17395972387130682
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.49086923124787,
+            96.0298285364449,
+            -1.377794683194928
+          ],
+          "from_project_reference_or_joint": [
+            -39.25650746033148,
+            41.30086022622808,
+            -44.45962349529692
+          ],
+          "to_joint_or_held9_end": [
+            -71.49086923124787,
+            96.0298285364449,
+            -1.377794683194928
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 14,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -37.840124791448766,
+              41.371229636068705,
+              -42.931616549478775
+            ],
+            "nominal_departure_world": [
+              2.6298407895808396e-15,
+              -0.9841365639490428,
+              0.17741257987688522
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.35988869726933,
+            96.10548468478599,
+            -0.8490218476984381
+          ],
+          "from_project_reference_or_joint": [
+            -37.840124791448766,
+            41.371229636068705,
+            -42.931616549478775
+          ],
+          "to_joint_or_held9_end": [
+            -71.35988869726933,
+            96.10548468478599,
+            -0.8490218476984381
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 15,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -36.4623230578615,
+              41.450631218222014,
+              -41.37098741174278
+            ],
+            "nominal_departure_world": [
+              1.9984014443252818e-15,
+              -0.9834812748758383,
+              0.18100989467041975
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.24924948792632,
+            96.18388061819124,
+            -0.3283366135265453
+          ],
+          "from_project_reference_or_joint": [
+            -36.4623230578615,
+            41.450631218222014,
+            -41.37098741174278
+          ],
+          "to_joint_or_held9_end": [
+            -71.24924948792632,
+            96.18388061819124,
+            -0.3283366135265453
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 16,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -35.12172895018167,
+              41.53993800327604,
+              -39.77580001182366
+            ],
+            "nominal_departure_world": [
+              1.3322676295501878e-15,
+              -0.9827831357593124,
+              0.18476284276632404
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.15899848560635,
+            96.26527984020692,
+            0.18430747222234345
+          ],
+          "from_project_reference_or_joint": [
+            -35.12172895018167,
+            41.53993800327604,
+            -39.77580001182366
+          ],
+          "to_joint_or_held9_end": [
+            -71.15899848560635,
+            96.26527984020692,
+            0.18430747222234345
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 17,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -33.81641918749343,
+              41.64016317833871,
+              -38.14287513267457
+            ],
+            "nominal_departure_world": [
+              6.591949208711867e-16,
+              -0.9820372287519457,
+              0.1886872580361469
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.08928965709283,
+            96.35000699194086,
+            0.6891238079159052
+          ],
+          "from_project_reference_or_joint": [
+            -33.81641918749343,
+            41.64016317833871,
+            -38.14287513267457
+          ],
+          "to_joint_or_held9_end": [
+            -71.08928965709283,
+            96.35000699194086,
+            0.6891238079159052
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 18,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -32.547529261024366,
+              41.75243903620205,
+              -36.47225729363408
+            ],
+            "nominal_departure_world": [
+              -6.938893903907228e-18,
+              -0.981240367458006,
+              0.19278833281834756
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.04056354762626,
+            96.43828989301237,
+            1.1854384982154897
+          ],
+          "from_project_reference_or_joint": [
+            -32.547529261024366,
+            41.75243903620205,
+            -36.47225729363408
+          ],
+          "to_joint_or_held9_end": [
+            -71.04056354762626,
+            96.43828989301237,
+            1.1854384982154897
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 19,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -31.31467340937229,
+              41.87806105960417,
+              -34.761768114585806
+            ],
+            "nominal_departure_world": [
+              -7.077671781985373e-16,
+              -0.980387639356814,
+              0.19707885882654824
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.01326878562675,
+            96.53045446280075,
+            1.673042785554209
+          ],
+          "from_project_reference_or_joint": [
+            -31.31467340937229,
+            41.87806105960417,
+            -34.761768114585806
+          ],
+          "to_joint_or_held9_end": [
+            -71.01326878562675,
+            96.53045446280075,
+            1.673042785554209
+          ],
+          "endpoint_chord_mm": 76.74866790293039,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 20,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -30.117689646488316,
+              42.01851459753636,
+              -33.00894193025619
+            ],
+            "nominal_departure_world": [
+              -1.4016565685892601e-15,
+              -0.9794735058162541,
+              0.20157294313477903
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.00800287674186,
+            96.6268610382782,
+            2.151672509966083
+          ],
+          "from_project_reference_or_joint": [
+            -30.117689646488316,
+            42.01851459753636,
+            -33.00894193025619
+          ],
+          "to_joint_or_held9_end": [
+            -71.00800287674186,
+            96.6268610382782,
+            2.151672509966083
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 21,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -28.956656509847853,
+              42.175508353055086,
+              -31.210985984346166
+            ],
+            "nominal_departure_world": [
+              -2.1094237467877974e-15,
+              -0.9784917003312372,
+              0.20628619048032473
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.02552881915348,
+            96.72790991585802,
+            2.6210031860873215
+          ],
+          "from_project_reference_or_joint": [
+            -28.956656509847853,
+            42.175508353055086,
+            -31.210985984346166
+          ],
+          "to_joint_or_held9_end": [
+            -71.02552881915348,
+            96.72790991585802,
+            2.6210031860873215
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 22,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -27.83099618019387,
+              42.35108398127511,
+              -29.36322077634128
+            ],
+            "nominal_departure_world": [
+              -2.8171909249863347e-15,
+              -0.9774338142710536,
+              0.2112418962221742
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.06684121585548,
+            96.83411090489075,
+            3.0808773952387583
+          ],
+          "from_project_reference_or_joint": [
+            -27.83099618019387,
+            42.35108398127511,
+            -29.36322077634128
+          ],
+          "to_joint_or_held9_end": [
+            -71.06684121585548,
+            96.83411090489075,
+            3.0808773952387583
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 23,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -26.742179427941814,
+              42.547508407413375,
+              -27.46320133684747
+            ],
+            "nominal_departure_world": [
+              -3.566591466608315e-15,
+              -0.976292566862,
+              0.21645513135522465
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.13311430526795,
+            96.94592186119903,
+            3.530597063837085
+          ],
+          "from_project_reference_or_joint": [
+            -26.742179427941814,
+            42.547508407413375,
+            -27.46320133684747
+          ],
+          "to_joint_or_held9_end": [
+            -71.13311430526795,
+            96.94592186119903,
+            3.530597063837085
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 24,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -25.691467469342342,
+              42.7674330428371,
+              -25.507258988567088
+            ],
+            "nominal_departure_world": [
+              -4.3021142204224816e-15,
+              -0.9750590157577237,
+              0.2219457496542335
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.22575225903243,
+            97.06389031258799,
+            3.9695397100672167
+          ],
+          "from_project_reference_or_joint": [
+            -25.691467469342342,
+            42.7674330428371,
+            -25.507258988567088
+          ],
+          "to_joint_or_held9_end": [
+            -71.22575225903243,
+            97.06389031258799,
+            3.9695397100672167
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 25,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -24.680254699603168,
+              43.013979213575226,
+              -23.490710846825863
+            ],
+            "nominal_departure_world": [
+              -5.065392549852277e-15,
+              -0.9737224819270435,
+              0.22773784970847355
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.34646063427002,
+            97.18865581718794,
+            4.397058218331303
+          ],
+          "from_project_reference_or_joint": [
+            -24.680254699603168,
+            43.013979213575226,
+            -23.490710846825863
+          ],
+          "to_joint_or_held9_end": [
+            -71.34646063427002,
+            97.18865581718794,
+            4.397058218331303
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 26,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -23.71042741384587,
+              43.29081912685251,
+              -21.408183360774814
+            ],
+            "nominal_departure_world": [
+              -5.842548667089886e-15,
+              -0.9722706298405851,
+              0.23385855201251946
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.49729618204128,
+            97.32094625647485,
+            4.812391777128099
+          ],
+          "from_project_reference_or_joint": [
+            -23.71042741384587,
+            43.29081912685251,
+            -21.408183360774814
+          ],
+          "to_joint_or_held9_end": [
+            -71.49729618204128,
+            97.32094625647485,
+            4.812391777128099
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 27,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -22.784471671183525,
+              43.60229883548871,
+              -19.25348020083078
+            ],
+            "nominal_departure_world": [
+              -6.6058269965196814e-15,
+              -0.9706891348584002,
+              0.24033851848559573
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.68074017827718,
+            97.46159463011075,
+            5.214646157023097
+          ],
+          "from_project_reference_or_joint": [
+            -22.784471671183525,
+            43.60229883548871,
+            -19.25348020083078
+          ],
+          "to_joint_or_held9_end": [
+            -71.68074017827718,
+            97.46159463011075,
+            5.214646157023097
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 28,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -21.905618370875835,
+              43.95359532560394,
+              -17.01941862347715
+            ],
+            "nominal_departure_world": [
+              -7.438494264988549e-15,
+              -0.9689612684997,
+              0.24721258088425171
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -71.89979345772005,
+            97.61155969400002,
+            5.602768319879928
+          ],
+          "from_project_reference_or_joint": [
+            -21.905618370875835,
+            43.95359532560394,
+            -17.01941862347715
+          ],
+          "to_joint_or_held9_end": [
+            -71.89979345772005,
+            97.61155969400002,
+            5.602768319879928
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 29,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -21.078038558586076,
+              44.35091941372343,
+              -14.697622883443657
+            ],
+            "nominal_departure_world": [
+              -8.271161533457416e-15,
+              -0.9670673751115455,
+              0.2545205138979293
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.15810085513654,
+            97.77195160205912,
+            5.975513806174135
+          ],
+          "from_project_reference_or_joint": [
+            -21.078038558586076,
+            44.35091941372343,
+            -14.697622883443657
+          ],
+          "to_joint_or_held9_end": [
+            -72.15810085513654,
+            97.77195160205912,
+            5.975513806174135
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 30,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -20.307109211789633,
+              44.80178075615394,
+              -12.278260813931809
+            ],
+            "nominal_departure_world": [
+              -9.131584377541913e-15,
+              -0.9649842049989362,
+              0.2623079947362865
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.4601160461753,
+            97.94406399049271,
+            6.331404299877491
+          ],
+          "from_project_reference_or_joint": [
+            -20.307109211789633,
+            44.80178075615394,
+            -12.278260813931809
+          ],
+          "to_joint_or_held9_end": [
+            -72.4601160461753,
+            97.94406399049271,
+            6.331404299877491
+          ],
+          "endpoint_chord_mm": 76.74866790293035,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 31,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -19.599779714069953,
+              45.31533823307613,
+              -9.749704282882874
+            ],
+            "nominal_departure_world": [
+              -1.0005885009434223e-14,
+              -0.9626840555123968,
+              0.27062780578167744
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -72.81132281731217,
+            98.12941439244086,
+            6.6686715466233295
+          ],
+          "from_project_reference_or_joint": [
+            -19.599779714069953,
+            45.31533823307613,
+            -9.749704282882874
+          ],
+          "to_joint_or_held9_end": [
+            -72.81132281731217,
+            98.12941439244086,
+            6.6686715466233295
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 32,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -18.96508498112578,
+              45.9028694348252,
+              -7.098086355840152
+            ],
+            "nominal_departure_world": [
+              -1.0921819004749977e-14,
+              -0.9601336517564137,
+              0.2795413578791055
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -73.21853657969918,
+            98.32979544495899,
+            6.985181860149524
+          ],
+          "from_project_reference_or_joint": [
+            -18.96508498112578,
+            45.9028694348252,
+            -7.098086355840152
+          ],
+          "to_joint_or_held9_end": [
+            -73.21853657969918,
+            98.32979544495899,
+            6.985181860149524
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 33,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -18.41487671701466,
+              46.578409001375476,
+              -4.306716380486023
+            ],
+            "nominal_departure_world": [
+              -1.1907141939104804e-14,
+              -0.9572926690824516,
+              0.289120642156517
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -73.69032224717257,
+            98.54734004519749,
+            7.278332280582006
+          ],
+          "from_project_reference_or_joint": [
+            -18.41487671701466,
+            46.578409001375476,
+            -4.306716380486023
+          ],
+          "to_joint_or_held9_end": [
+            -73.69032224717257,
+            98.54734004519749,
+            7.278332280582006
+          ],
+          "endpoint_chord_mm": 76.74866790293038,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 34,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -17.964886707519995,
+              47.35963057790047,
+              -1.3552968692473257
+            ],
+            "nominal_departure_world": [
+              -1.289246487345963e-14,
+              -0.9541117548193467,
+              0.2994507627566628
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -74.23758453140957,
+            98.78460434900953,
+            7.544904091194709
+          ],
+          "from_project_reference_or_joint": [
+            -17.964886707519995,
+            47.35963057790047,
+            -1.3552968692473257
+          ],
+          "to_joint_or_held9_end": [
+            -74.23758453140957,
+            98.78460434900953,
+            7.544904091194709
+          ],
+          "endpoint_chord_mm": 76.74866790293036,
+          "chord_is_not_routed_length_or_total_minimum": true
+        },
+        {
+          "pose": 35,
+          "source14_reference": {
+            "loom": "FL3",
+            "owner": "Motion_RL_Knee",
+            "nominal_source14_outer_world_mm": [
+              -17.63630869098113,
+              48.26908699292619,
+              1.781140090829993
+            ],
+            "nominal_departure_world": [
+              -1.3988810110276972e-14,
+              -0.9505298375297044,
+              0.3106332692513064
+            ],
+            "not_supplier_pinout_or_received_prefix_length": true
+          },
+          "source_owned_joint_world_mm": [
+            -74.8744198790285,
+            99.0446729898537,
+            7.78085001445497
+          ],
+          "from_project_reference_or_joint": [
+            -17.63630869098113,
+            48.26908699292619,
+            1.781140090829993
+          ],
+          "to_joint_or_held9_end": [
+            -74.8744198790285,
+            99.0446729898537,
+            7.78085001445497
+          ],
+          "endpoint_chord_mm": 76.74866790293039,
+          "chord_is_not_routed_length_or_total_minimum": true
+        }
+      ],
+      "components": [
+        {
+          "id": "FACTORY_SOURCE14",
+          "account_mm": 14,
+          "method": "selected source allocation exactlyonce; source14 outerpoint direction is PROJECT frame, not deliveredmouth guarantee"
+        },
+        {
+          "id": "SOURCE_MOVING_APPROACH",
+          "routed_mm": null,
+          "method": "OriginalFL3 terminates at same ownedjoint; FL1/2 continuous movingprefix and ground/Ankle clearance not qualified. No oldprefixcredit."
+        },
+        {
+          "id": "OWNED_LAP",
+          "account_mm": 4,
+          "method": "Only proper originalFL3/donorFL3 portion. Each8lap has proper4+4 accounting; actual approach must bind lapboundary, not add4 to alreadyinclusive curve."
+        },
+        {
+          "id": "OWNED_9LANDS_AND_STAGGER",
+          "routed_mm": null,
+          "method": "Same existingSource21 carrier +/-43 axial lands, full9,3individual20sleeves,joints -22/0/+22. Account within actual physical approach once, not newterminals/extra9."
+        },
+        {
+          "id": "OPEN_SOURCE_SIDE_TRANSPORT_AND_BODY_RETURN",
+          "routed_mm": null,
+          "method": "FL1 Hip10 direct; FL2 andDONORFL3 separate continuous core reserves, real passage+receiver fans not yet proven."
+        },
+        {
+          "id": "RECEIVER_FIXED_PREFIX",
+          "account_mm": null,
+          "method": "Current held9+proper.25 wherepresent, one time. OriginalFL3 ends onKnee and does not get bodyreceiverprefix."
+        },
+        {
+          "id": "RECEIVER_TERMINAL11",
+          "account_mm": null,
+          "method": "proper bodyend once; not added to originalKnee piece."
+        },
+        {
+          "id": "USEFUL_OPERATING_RESERVE",
+          "requested_mm": 0,
+          "accepted_mm": null,
+          "method": "55eachFL2/Knee-donor where required, Hip10. Between actual moving and fixedreliefs, passiveleading only. No reserve behindreceiverclamp/no pooling."
+        },
+        {
+          "id": "PHASE2_FIT_TRIM",
+          "account_mm": 20,
+          "method": "ceil5(required+20), not operatingreserve; MAX3 per physical900unit,850project criterion separate."
+        }
+      ],
+      "endpoint_chord_range_mm": [
+        76.74866790293035,
+        76.74866790293039
+      ],
+      "actual_Li_by_pose": null,
+      "actual_deltaLi": null,
+      "A": null,
+      "U": null,
+      "installed_required_mm": null,
+      "actual_stored_slack_mm": null,
+      "fit_blank_mm": null,
+      "actual_cut": null
+    }
+  ],
+  "perphysical_units": [
+    {
+      "unit": "SOURCE/FL1",
+      "cores": [
+        "W004",
+        "W020",
+        "W019"
+      ],
+      "rule": "MAX of3 independently qualified requiredcorelengths; eachphysicalunit separately <=850project and ceil5(maxrequired+20)<=900",
+      "MAX3_required_mm": null,
+      "fit_blank_mm": null,
+      "no_crossunit_pool": true
+    },
+    {
+      "unit": "SOURCE/FL2",
+      "cores": [
+        "W005",
+        "W022",
+        "W021"
+      ],
+      "rule": "MAX of3 independently qualified requiredcorelengths; eachphysicalunit separately <=850project and ceil5(maxrequired+20)<=900",
+      "MAX3_required_mm": null,
+      "fit_blank_mm": null,
+      "no_crossunit_pool": true
+    },
+    {
+      "unit": "SOURCE/FL3",
+      "cores": [
+        "W006",
+        "W024",
+        "W023"
+      ],
+      "rule": "MAX of3 independently qualified requiredcorelengths; eachphysicalunit separately <=850project and ceil5(maxrequired+20)<=900",
+      "MAX3_required_mm": null,
+      "fit_blank_mm": null,
+      "no_crossunit_pool": true
+    },
+    {
+      "unit": "DONOR/FL3",
+      "cores": [
+        "W006",
+        "W024",
+        "W023"
+      ],
+      "rule": "MAX of3 independently qualified requiredcorelengths; eachphysicalunit separately <=850project and ceil5(maxrequired+20)<=900",
+      "MAX3_required_mm": null,
+      "fit_blank_mm": null,
+      "no_crossunit_pool": true
+    }
+  ],
+  "first_falsifier": {
+    "target": "Ref_Material_P0_SideLeft22_0_0",
+    "source": "CurrentretainedP0frame, not optionalbankprint. Cachedcurrentbounds candidate intersectsmandatoryGcolumn; only actual valid fullprofile test can decide.",
+    "hazard": "Newunderbank wholeSOURCE9 occupiedtrunk vs retainedP0 loadrail. Oldcircle/oldquarters not inputs.",
+    "why_region_insufficient": "Bounds provecandidate only; actual P0 is shaped/has openings. Exact9 nominalprofiles+.4margin over WHOLEmandatorytrunk with declaredbranchdecline necessary, no123axes. StopfirstactualHOLD withoutsecondheight/roll/family.",
+    "acceptance": "Validallocated andactualP0 operands, gap>=1.25; no marginwaiver. Clearpair alone notwholepass."
+  },
+  "source_envelope_scope_guard": [
+    {
+      "pose": 0,
+      "loom": "FL2",
+      "project_point": [
+        -99.26090152151316,
+        98.9010009957926,
+        -7.177839701370125
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 0,
+      "loom": "FL3",
+      "project_point": [
+        -61.977234052653735,
+        40.95533638290788,
+        -61.65489982179552
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 1,
+      "loom": "FL2",
+      "project_point": [
+        -98.87339953543493,
+        98.86616549619714,
+        -7.209809428990152
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 1,
+      "loom": "FL3",
+      "project_point": [
+        -59.86666348912812,
+        40.95349025342607,
+        -60.502572314403864
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 2,
+      "loom": "FL2",
+      "project_point": [
+        -98.49802475257098,
+        98.83074833837485,
+        -7.240513366989359
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 2,
+      "loom": "FL3",
+      "project_point": [
+        -57.83314320248654,
+        40.95561413756209,
+        -59.32081901583677
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 3,
+      "loom": "FL2",
+      "project_point": [
+        -98.13349328283446,
+        98.79462354294192,
+        -7.270576039515765
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 3,
+      "loom": "FL3",
+      "project_point": [
+        -55.86908621551932,
+        40.96178462272888,
+        -58.10958295742105
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 4,
+      "loom": "FL2",
+      "project_point": [
+        -97.77951561984777,
+        98.75779016358078,
+        -7.300384957082024
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 4,
+      "loom": "FL3",
+      "project_point": [
+        -53.9723773122655,
+        40.97221649630142,
+        -56.87138551149525
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 5,
+      "loom": "FL2",
+      "project_point": [
+        -97.43487326605127,
+        98.72009403696916,
+        -7.330536900692913
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 5,
+      "loom": "FL3",
+      "project_point": [
+        -52.136004730984865,
+        40.98704175383843,
+        -55.60505575109593
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 6,
+      "loom": "FL2",
+      "project_point": [
+        -97.09883892955489,
+        98.68143160197604,
+        -7.36152577637294
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 6,
+      "loom": "FL3",
+      "project_point": [
+        -50.35570283001276,
+        41.006480265537554,
+        -54.31044698486272
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 7,
+      "loom": "FL2",
+      "project_point": [
+        -96.77125395450783,
+        98.64178662362269,
+        -7.3936843429068375
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 7,
+      "loom": "FL3",
+      "project_point": [
+        -48.6302859562309,
+        41.030845230674096,
+        -52.98917336023145
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 8,
+      "loom": "FL2",
+      "project_point": [
+        -96.45142937361081,
+        98.60103774859226,
+        -7.4274992929549875
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 8,
+      "loom": "FL3",
+      "project_point": [
+        -46.95582459669083,
+        41.060426649228525,
+        -51.64045179333165
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 9,
+      "loom": "FL2",
+      "project_point": [
+        -96.13848227985669,
+        98.55899577364079,
+        -7.463566306241287
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 9,
+      "loom": "FL3",
+      "project_point": [
+        -45.327476267195955,
+        41.09554206118032,
+        -50.2621076615155
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 10,
+      "loom": "FL2",
+      "project_point": [
+        -95.83255454800995,
+        98.51566867378725,
+        -7.502139388678472
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 10,
+      "loom": "FL3",
+      "project_point": [
+        -43.74580298817576,
+        41.136654682722984,
+        -48.85599110867203
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 11,
+      "loom": "FL2",
+      "project_point": [
+        -95.5332527133141,
+        98.47094623957054,
+        -7.543663263740001
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 11,
+      "loom": "FL3",
+      "project_point": [
+        -42.208616288213456,
+        41.1842237466534,
+        -47.421433548350706
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 12,
+      "loom": "FL2",
+      "project_point": [
+        -95.23996485443661,
+        98.42464147181913,
+        -7.588720512420181
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 12,
+      "loom": "FL3",
+      "project_point": [
+        -40.712682136185975,
+        41.23875661157436,
+        -45.956310987150914
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 13,
+      "loom": "FL2",
+      "project_point": [
+        -94.95240381863367,
+        98.37662158941635,
+        -7.6378014276765285
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 14,
+      "loom": "FL2",
+      "project_point": [
+        -94.6705748529753,
+        98.32682267082609,
+        -7.691265322720511
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 15,
+      "loom": "FL2",
+      "project_point": [
+        -94.39422853433722,
+        98.27509876432758,
+        -7.749622140711217
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 16,
+      "loom": "FL2",
+      "project_point": [
+        -94.12306885956609,
+        98.22126510018602,
+        -7.813462266404748
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 17,
+      "loom": "FL2",
+      "project_point": [
+        -93.85666973307717,
+        98.1650560725712,
+        -7.8835495545833325
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 18,
+      "loom": "FL2",
+      "project_point": [
+        -93.5952132013405,
+        98.10639773702185,
+        -7.960266640727745
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 19,
+      "loom": "FL2",
+      "project_point": [
+        -93.33855915586841,
+        98.04508437924555,
+        -8.044263084394295
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 20,
+      "loom": "FL2",
+      "project_point": [
+        -93.08659524713742,
+        97.9808902227417,
+        -8.136237441965932
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 21,
+      "loom": "FL2",
+      "project_point": [
+        -92.83923824628798,
+        97.91356672981266,
+        -8.236944420048772
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 22,
+      "loom": "FL2",
+      "project_point": [
+        -92.5962360885846,
+        97.84273096677532,
+        -8.34744572122932
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 23,
+      "loom": "FL2",
+      "project_point": [
+        -92.35774561658535,
+        97.7681545656176,
+        -8.468473164641487
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 24,
+      "loom": "FL2",
+      "project_point": [
+        -92.12384936425102,
+        97.68953093699209,
+        -8.600935160019446
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 25,
+      "loom": "FL2",
+      "project_point": [
+        -91.89461855264946,
+        97.60648631906366,
+        -8.745900014219387
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 26,
+      "loom": "FL2",
+      "project_point": [
+        -91.67018229146126,
+        97.51860447773686,
+        -8.904543905212492
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 27,
+      "loom": "FL2",
+      "project_point": [
+        -91.45074075407604,
+        97.42542090858869,
+        -9.078166581004155
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 28,
+      "loom": "FL2",
+      "project_point": [
+        -91.23658336828638,
+        97.32641644167171,
+        -9.268209339635362
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 29,
+      "loom": "FL2",
+      "project_point": [
+        -91.02811376257316,
+        97.22101021073786,
+        -9.476275854769142
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 30,
+      "loom": "FL2",
+      "project_point": [
+        -90.82588430415326,
+        97.1085521352584,
+        -9.704156292242232
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 31,
+      "loom": "FL2",
+      "project_point": [
+        -90.63064450851687,
+        96.98831526836189,
+        -9.953855172378127
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    },
+    {
+      "pose": 32,
+      "loom": "FL2",
+      "project_point": [
+        -90.44340990687056,
+        96.85948873528498,
+        -10.227623382225033
+      ],
+      "BodyOuter_domain": "Moving leg/source reference outside BODYboundary is NOT automatically an outlinefailure. Do not impose fixed-body envelope at external movingfactorygrip or inventshortage. Actualmoving/ground boundary stillrequired."
+    }
+  ],
+  "source_launch_reference": "Hip14projectdirection isnot automaticallysupplierexit nor truefixedgrip. No whole R35/BodyOuterimpossibility claimed from applyingBODYbox at externalleg endpoints.",
+  "initial_lay": "Bench connectedMODULE/MTA/FPIlap offPETG+MAINinput; sourceframe/S0fasteners before wirelay; sourcekit beforeE6; bankstructuralcarrier present but pressureclosures open. Lay each physicalcore reserve on moving side of truefixedpressure, closeD5/G4/V3 onlyafterlay; wholeF_R4late afterframeclamp/D5, FRGkey/full83.3; FPIbandbeforecase/lid/independentstrain; MAIN/Pimates/headNorth/R6 beforebatterystrap/skins. No virtualMODULEunplug/integralprintdetach.",
+  "remaining": [
+    "SOURCE connectedspace/R/roll/Ankle/ground/moving stock/actualLi-range/usable55-Hip10/perphysical850900",
+    "FPI-S0PWM-V3 simultaneous fullpart access/loadservice",
+    "D5ownclosure face29technical",
+    "wholeF_R4capture+2stock",
+    "R6/Pimates/U1far/headNorth/other123246integration/lengthslack/motionoutline"
+  ],
+  "all_actual_Li_A_U_fit_slack_cut": null,
+  "all_old_negative_counts_preserved": true,
+  "new_prints": false,
+  "source_pins": [
+    {
+      "path": "day07-final-window-current-base-and-proposed-resume-manifest.json",
+      "sha256": "50b731263aa5dd24ecfba8d66d1db398bb3dcb80dcdc29686cc598e71187e20d"
+    },
+    {
+      "path": "day11-GUI-current-model-and-normal9-bounded-disposition.json",
+      "sha256": "366824a6f9ac8e0da0feaf4643b3113e1de400614d62a944988ddda4a0d6ec42"
+    },
+    {
+      "path": "day11-P0-connected-space-and-load-interface-read.json",
+      "sha256": "0c728e6fa488a4f88456d3ac7f20766648713d4ae9bbaf91eb80f7cd4ec97310"
+    },
+    {
+      "path": "day11-WHOLE_N01-layout-architecture-and-closure-plan.json",
+      "sha256": "38962b721a91f85b9a242867c1a758fbcc97a2c810c3308a1360ee5c8dfd3c7d"
+    },
+    {
+      "path": "day07-SOURCE-slot-bearing-retention-whole-proposal.json",
+      "sha256": "531dbeacbc028c184e73e3d1cee18dc412f2f20e13c74ecb8a4e8b33456059df"
+    },
+    {
+      "path": "day07-SOURCE-slot-bearing-retention-bounded-disposition.json",
+      "sha256": "d8b15a63ecf22a20dbd72760b7aa14132a719791d45f4921a71e39ad16ce4619"
+    },
+    {
+      "path": "day07-coordinator-SOURCE-splice-layout-authority-receipt.json",
+      "sha256": "176a7ec86c6e0cb5e7e6a901334f914a98f6d063b0492cf283895b6940bc7f1c"
+    },
+    {
+      "path": "day07-SOURCE-new21-motion36-complete-scoped.json",
+      "sha256": "98c7f7abae903a3e722c8842b4fb59509e25243106a775603f1cb048f667c7e9"
+    },
+    {
+      "path": "n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    },
+    {
+      "path": "day06-recovery-current1292-data-receipt.json",
+      "sha256": "1b92016067e83eb5c964f559ea104a529ead9db5fe0f90a94aa8530c81abc2b5"
+    }
+  ],
+  "created_utc": "2026-11-11T01:02:20.849901+00:00"
+}
