@@ -1,0 +1,408 @@
+{
+  "id": "day11-GUI-same-path-normal9-P0-proof",
+  "status": "CORRECTED_ACTUAL9_MARGIN_P0_HOLD_STOP",
+  "gui_pid": 26044,
+  "doc": "day11_WORKING_UNSELECTED_N01_0of10",
+  "MAIN_mm": 46.52,
+  "source_candidate_count": 1311,
+  "original_path_receipt": "day11-whole-source-group-first-gate.json",
+  "original_path_sha256": "3f32d5a52b29b6aea8b1b1ccb53838b818ae3ceab47cfd3b20f8f8542bba77d5",
+  "path_parameters_unchanged": {
+    "Rxy": 37.85,
+    "pitch": 80,
+    "rise": 20,
+    "crestR": 39.39563732174866,
+    "end": [
+      65.98036180850077,
+      39.15,
+      66.0560458769101
+    ],
+    "no_pose_height_roll_variant": true
+  },
+  "normalfield": {
+    "type": "CONTINUOUS_BISHOP_NOT_ARBITRARY_ROLL",
+    "alpha": 0.3244998328379076,
+    "beta": 0.5008244732585748,
+    "U_straight": [
+      0.0,
+      -0.8771869901280407,
+      0.4801489189304801
+    ],
+    "V_straight": [
+      0.0,
+      0.4801489189304801,
+      0.8771869901280407
+    ],
+    "derivation": "Onhelix U=(-cos\u03b8,-sin\u03b8,0), V=(-a/L sin\u03b8,a/L cos\u03b8,R/L). Rotation\u03b2=a\u03b8/L cancelsnormalspin Uprime.dot(V)=-a/L; crestplanarrotationaboutY byalpha parallel-transportsbothnormals, yieldinglistedconstantstraightframe. Samepath/worlddatumONCE.",
+    "full_entry_exit": "Bishopframes analytic over helix0..pi/2, samecrestunpitch0..alpha andconstantstraight. Nineprofilecentres uU+vV/circularnominalradii+.4 formcontinuousnormalfield. LocalBRep ONLYcriticalunchangedP0upper-wall interval, notnewterminal/length orwhole9freewireCAD.",
+    "helix_core_R_lower_mm": 37.83742460236602,
+    "crest_core_R_lower_mm": 35.1,
+    "required_R_mm": 35.1,
+    "nonlocal_overlap_NOT_qualified": "No globalprofile-selfclearance/motionpassclaim; firstlocalforeignHOLD sufficient tostopthiscorrection."
+  },
+  "rows": [
+    {
+      "wire": "W004",
+      "physical_body_unit": "SOURCE/FL1",
+      "u_mm": 2.75,
+      "v_mm": -3.3,
+      "nominal_radius_mm": 1.55,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        35.153244344677304,
+        64.48173833654639
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 90.57211620299374,
+      "actual_nominal_volume_mm3": 90.57211620299375,
+      "expected_allocated_volume_mm3": 143.3508727833023,
+      "actual_allocated_volume_mm3": 143.35087278330235,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W020",
+      "physical_body_unit": "SOURCE/FL1",
+      "u_mm": 0.0,
+      "v_mm": -3.3,
+      "nominal_radius_mm": 1.0,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        37.56550856752941,
+        63.16132880948757
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 37.69911184307752,
+      "actual_nominal_volume_mm3": 37.699111843077496,
+      "expected_allocated_volume_mm3": 73.89025921243191,
+      "actual_allocated_volume_mm3": 73.89025921243193,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W019",
+      "physical_body_unit": "SOURCE/FL1",
+      "u_mm": -2.75,
+      "v_mm": -3.3,
+      "nominal_radius_mm": 1.55,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        39.97777279038152,
+        61.84091928242876
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 90.57211620299374,
+      "actual_nominal_volume_mm3": 90.57211620299374,
+      "expected_allocated_volume_mm3": 143.3508727833023,
+      "actual_allocated_volume_mm3": 143.35087278330235,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W005",
+      "physical_body_unit": "SOURCE/FL2",
+      "u_mm": 2.75,
+      "v_mm": 0.0,
+      "nominal_radius_mm": 1.55,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        36.73773577714789,
+        67.37645540396892
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 90.57211620299374,
+      "actual_nominal_volume_mm3": 90.57211620299375,
+      "expected_allocated_volume_mm3": 143.3508727833023,
+      "actual_allocated_volume_mm3": 143.35087278330235,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W022",
+      "physical_body_unit": "SOURCE/FL2",
+      "u_mm": 0.0,
+      "v_mm": 0.0,
+      "nominal_radius_mm": 1.0,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        39.15,
+        66.0560458769101
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 37.69911184307752,
+      "actual_nominal_volume_mm3": 37.69911184307754,
+      "expected_allocated_volume_mm3": 73.89025921243191,
+      "actual_allocated_volume_mm3": 73.89025921243194,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W021",
+      "physical_body_unit": "SOURCE/FL2",
+      "u_mm": -2.75,
+      "v_mm": 0.0,
+      "nominal_radius_mm": 1.55,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        41.56226422285211,
+        64.73563634985129
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 90.57211620299374,
+      "actual_nominal_volume_mm3": 90.57211620299377,
+      "expected_allocated_volume_mm3": 143.3508727833023,
+      "actual_allocated_volume_mm3": 143.35087278330238,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W006",
+      "physical_body_unit": "DONOR/FL3",
+      "u_mm": 2.75,
+      "v_mm": 3.3,
+      "nominal_radius_mm": 1.55,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        38.322227209618475,
+        70.27117247139145
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 90.57211620299374,
+      "actual_nominal_volume_mm3": 90.57211620299377,
+      "expected_allocated_volume_mm3": 143.3508727833023,
+      "actual_allocated_volume_mm3": 143.35087278330235,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W024",
+      "physical_body_unit": "DONOR/FL3",
+      "u_mm": 0.0,
+      "v_mm": 3.3,
+      "nominal_radius_mm": 1.0,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        40.734491432470584,
+        68.95076294433264
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 37.69911184307752,
+      "actual_nominal_volume_mm3": 37.69911184307754,
+      "expected_allocated_volume_mm3": 73.89025921243191,
+      "actual_allocated_volume_mm3": 73.89025921243194,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    },
+    {
+      "wire": "W023",
+      "physical_body_unit": "DONOR/FL3",
+      "u_mm": -2.75,
+      "v_mm": 3.3,
+      "nominal_radius_mm": 1.55,
+      "margin_mm": 0.4,
+      "centre_at_start": [
+        -69.5,
+        43.14675565532269,
+        67.63035341727382
+      ],
+      "local_axis": [
+        1,
+        0,
+        0
+      ],
+      "local_interval_mm": [
+        -69.5,
+        -57.5
+      ],
+      "allocated_valid": true,
+      "nominal_valid": true,
+      "expected_nominal_volume_mm3": 90.57211620299374,
+      "actual_nominal_volume_mm3": 90.57211620299375,
+      "expected_allocated_volume_mm3": 143.3508727833023,
+      "actual_allocated_volume_mm3": 143.35087278330235,
+      "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+    }
+  ],
+  "normalpacking_min_gap_mm": 0.19999999999999973,
+  "all9_nominal_continuously_contained_by_allocated_margin": true,
+  "qualified_subset": {
+    "old_circle_outside_volume_mm3": 0.0,
+    "valid": true,
+    "previouspassedcirclepairs_maytransferONLYsubset_scope": true,
+    "failedcircleiterator152_NOT_resumed": true
+  },
+  "critical_target": "Ref_Material_P0_MountFrontL_0_0",
+  "allocated_gap_mm": 0.3844891445638857,
+  "required_foreign_mm": 1.25,
+  "allocated_common_valid": true,
+  "allocated_common_mm3": 0.0,
+  "nominal_gap_mm": 0.7844891445638899,
+  "nominal_common_valid": true,
+  "nominal_common_mm3": 0.0,
+  "witnesses": [
+    [
+      [
+        -57.5,
+        38.15867804276499,
+        61.1384989672371
+      ],
+      [
+        -57.5,
+        37.8,
+        61.0
+      ]
+    ],
+    [
+      [
+        -69.5,
+        38.15867804276499,
+        61.1384989672371
+      ],
+      [
+        -69.5,
+        37.8,
+        61.0
+      ]
+    ]
+  ],
+  "new_pair_received": 1,
+  "raw_circle_HOLD_preserved_2of154_152unreceived": true,
+  "source_metal_policy": "Existing4SOURCE_ONLYreferencekeepouts havequalifiedrelativepose fromreceivedcurrentMount+shoe0/0/source4aa. CurrentphysicalactoraliasUNKNOWN isnotabsent; no duplicatephysicalimport. IfP0HOLD stopbeforeremainingdependentneighbors; no wholepassclaims.",
+  "all_actual_Li_A_U_fit_slack_cut": null,
+  "N01": "0/10",
+  "no_new_print_support_or_secondfamily": true,
+  "archive": "day11-GUI-same-path-normal9-P0-proof.breps.zip",
+  "archive_sha256": "b4d3d735b3f9114dd4643cf9904dd9bdb96ed77ea940bbfe7eb58b8df7837a75",
+  "geometry": [
+    {
+      "name": "NORMAL9_ALLOCATED_MARGIN_UNCHANGED",
+      "entry": "0.brep",
+      "sha256": "e8a2d4922e2fb41714b6b3db0d4547cf6934633897f6eac1499b1acec42e1c56",
+      "valid": true,
+      "volume_mm3": 1081.7760143371095
+    },
+    {
+      "name": "NORMAL9_NOMINAL_ALL_MEMBERS",
+      "entry": "1.brep",
+      "sha256": "c145a964182535d089fcacfb4a01cf8bf981baf005730999635fd9ae6edca109",
+      "valid": true,
+      "volume_mm3": 656.5300327471953
+    },
+    {
+      "name": "ACTUAL_RETAINED_MOUNTFRONTL",
+      "entry": "2.brep",
+      "sha256": "41f349330ac0a99e539341e7700b407136cb8e9952a2091182d8efd57e6649a4",
+      "valid": true,
+      "volume_mm3": 2052.366406035484
+    },
+    {
+      "name": "VALID_ALLOCATED_P0_COMMON",
+      "entry": "3.brep",
+      "sha256": "74dd814faf58edcc4df49b036a85654fb29107b02326471c84a46e813e991a20",
+      "valid": true,
+      "volume_mm3": 0.0
+    },
+    {
+      "name": "VALID_NOMINAL_P0_COMMON",
+      "entry": "4.brep",
+      "sha256": "74dd814faf58edcc4df49b036a85654fb29107b02326471c84a46e813e991a20",
+      "valid": true,
+      "volume_mm3": 0.0
+    },
+    {
+      "name": "NORMAL9_OUTSIDE_OLD_CIRCLE",
+      "entry": "5.brep",
+      "sha256": "6a9cfee46f1ce608d95b9523e2f3b457fbc1db985dc3f01fc4259b39fade3902",
+      "valid": true,
+      "volume_mm3": 0.0
+    }
+  ],
+  "GUIobjects": {
+    "ActualNormal9": "ActualNormal9",
+    "NominalNormal9": "NominalNormal9",
+    "RawCircleHOLD": "RawCircleHOLD"
+  },
+  "common_object": "Normal9CommonP0",
+  "operation_seconds": 0.48400000017136335,
+  "process_cpu_seconds": 0.703125
+}

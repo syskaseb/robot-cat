@@ -1,0 +1,582 @@
+{
+  "id": "day11-GUI-current-model-and-normal9-bounded-disposition",
+  "status": "GUI_OPERATIONAL_SAVED_ACTUAL_NORMAL9_SAME_PATH_P0_HOLD_STOP_CORRECTION",
+  "N01": "0/10",
+  "selected": false,
+  "whole_feasible": false,
+  "decision": "Removing only excess circular-cover area does not close this path: actual nominalall9 still fail foreign1.25. No newroute/roll/pose/support or counterreset.",
+  "measured": {
+    "allocated_gap_mm": 0.3844891445638857,
+    "allocated_common_valid": true,
+    "allocated_common_mm3": 0,
+    "nominal_gap_mm": 0.7844891445638899,
+    "nominal_common_valid": true,
+    "nominal_common_mm3": 0,
+    "required_foreign_mm": 1.25,
+    "witnesses": [
+      [
+        [
+          -57.5,
+          38.15867804276499,
+          61.1384989672371
+        ],
+        [
+          -57.5,
+          37.8,
+          61.0
+        ]
+      ],
+      [
+        [
+          -69.5,
+          38.15867804276499,
+          61.1384989672371
+        ],
+        [
+          -69.5,
+          37.8,
+          61.0
+        ]
+      ]
+    ],
+    "new_local_pair_received": 1,
+    "meaning": "Allocated clearance HOLD, no deliveredwire contact; only exact same chosen Bishop field/path falsified, not allpacking/allspace/stock."
+  },
+  "coverage": {
+    "all9_profiles": [
+      {
+        "wire": "W004",
+        "physical_body_unit": "SOURCE/FL1",
+        "u_mm": 2.75,
+        "v_mm": -3.3,
+        "nominal_radius_mm": 1.55,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          35.153244344677304,
+          64.48173833654639
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 90.57211620299374,
+        "actual_nominal_volume_mm3": 90.57211620299375,
+        "expected_allocated_volume_mm3": 143.3508727833023,
+        "actual_allocated_volume_mm3": 143.35087278330235,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W020",
+        "physical_body_unit": "SOURCE/FL1",
+        "u_mm": 0.0,
+        "v_mm": -3.3,
+        "nominal_radius_mm": 1.0,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          37.56550856752941,
+          63.16132880948757
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 37.69911184307752,
+        "actual_nominal_volume_mm3": 37.699111843077496,
+        "expected_allocated_volume_mm3": 73.89025921243191,
+        "actual_allocated_volume_mm3": 73.89025921243193,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W019",
+        "physical_body_unit": "SOURCE/FL1",
+        "u_mm": -2.75,
+        "v_mm": -3.3,
+        "nominal_radius_mm": 1.55,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          39.97777279038152,
+          61.84091928242876
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 90.57211620299374,
+        "actual_nominal_volume_mm3": 90.57211620299374,
+        "expected_allocated_volume_mm3": 143.3508727833023,
+        "actual_allocated_volume_mm3": 143.35087278330235,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W005",
+        "physical_body_unit": "SOURCE/FL2",
+        "u_mm": 2.75,
+        "v_mm": 0.0,
+        "nominal_radius_mm": 1.55,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          36.73773577714789,
+          67.37645540396892
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 90.57211620299374,
+        "actual_nominal_volume_mm3": 90.57211620299375,
+        "expected_allocated_volume_mm3": 143.3508727833023,
+        "actual_allocated_volume_mm3": 143.35087278330235,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W022",
+        "physical_body_unit": "SOURCE/FL2",
+        "u_mm": 0.0,
+        "v_mm": 0.0,
+        "nominal_radius_mm": 1.0,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          39.15,
+          66.0560458769101
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 37.69911184307752,
+        "actual_nominal_volume_mm3": 37.69911184307754,
+        "expected_allocated_volume_mm3": 73.89025921243191,
+        "actual_allocated_volume_mm3": 73.89025921243194,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W021",
+        "physical_body_unit": "SOURCE/FL2",
+        "u_mm": -2.75,
+        "v_mm": 0.0,
+        "nominal_radius_mm": 1.55,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          41.56226422285211,
+          64.73563634985129
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 90.57211620299374,
+        "actual_nominal_volume_mm3": 90.57211620299377,
+        "expected_allocated_volume_mm3": 143.3508727833023,
+        "actual_allocated_volume_mm3": 143.35087278330238,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W006",
+        "physical_body_unit": "DONOR/FL3",
+        "u_mm": 2.75,
+        "v_mm": 3.3,
+        "nominal_radius_mm": 1.55,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          38.322227209618475,
+          70.27117247139145
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 90.57211620299374,
+        "actual_nominal_volume_mm3": 90.57211620299377,
+        "expected_allocated_volume_mm3": 143.3508727833023,
+        "actual_allocated_volume_mm3": 143.35087278330235,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W024",
+        "physical_body_unit": "DONOR/FL3",
+        "u_mm": 0.0,
+        "v_mm": 3.3,
+        "nominal_radius_mm": 1.0,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          40.734491432470584,
+          68.95076294433264
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 37.69911184307752,
+        "actual_nominal_volume_mm3": 37.69911184307754,
+        "expected_allocated_volume_mm3": 73.89025921243191,
+        "actual_allocated_volume_mm3": 73.89025921243194,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      },
+      {
+        "wire": "W023",
+        "physical_body_unit": "DONOR/FL3",
+        "u_mm": -2.75,
+        "v_mm": 3.3,
+        "nominal_radius_mm": 1.55,
+        "margin_mm": 0.4,
+        "centre_at_start": [
+          -69.5,
+          43.14675565532269,
+          67.63035341727382
+        ],
+        "local_axis": [
+          1,
+          0,
+          0
+        ],
+        "local_interval_mm": [
+          -69.5,
+          -57.5
+        ],
+        "allocated_valid": true,
+        "nominal_valid": true,
+        "expected_nominal_volume_mm3": 90.57211620299374,
+        "actual_nominal_volume_mm3": 90.57211620299375,
+        "expected_allocated_volume_mm3": 143.3508727833023,
+        "actual_allocated_volume_mm3": 143.35087278330235,
+        "nominal_coverage": "Sameaxis+interval, radius+.4 containsnominalanalytically; compoundretainsallmembers no droppedBooleanunion."
+      }
+    ],
+    "normalpacking_min_gap_mm": 0.19999999999999973,
+    "margin_mm": 0.4,
+    "nominalfullprofiles_mm": [
+      3.1,
+      2,
+      3.1
+    ],
+    "normalframe": {
+      "type": "CONTINUOUS_BISHOP_NOT_ARBITRARY_ROLL",
+      "alpha": 0.3244998328379076,
+      "beta": 0.5008244732585748,
+      "U_straight": [
+        0.0,
+        -0.8771869901280407,
+        0.4801489189304801
+      ],
+      "V_straight": [
+        0.0,
+        0.4801489189304801,
+        0.8771869901280407
+      ],
+      "derivation": "Onhelix U=(-cosθ,-sinθ,0), V=(-a/L sinθ,a/L cosθ,R/L). Rotationβ=aθ/L cancelsnormalspin Uprime.dot(V)=-a/L; crestplanarrotationaboutY byalpha parallel-transportsbothnormals, yieldinglistedconstantstraightframe. Samepath/worlddatumONCE.",
+      "full_entry_exit": "Bishopframes analytic over helix0..pi/2, samecrestunpitch0..alpha andconstantstraight. Nineprofilecentres uU+vV/circularnominalradii+.4 formcontinuousnormalfield. LocalBRep ONLYcriticalunchangedP0upper-wall interval, notnewterminal/length orwhole9freewireCAD.",
+      "helix_core_R_lower_mm": 37.83742460236602,
+      "crest_core_R_lower_mm": 35.1,
+      "required_R_mm": 35.1,
+      "nonlocal_overlap_NOT_qualified": "No globalprofile-selfclearance/motionpassclaim; firstlocalforeignHOLD sufficient tostopthiscorrection."
+    },
+    "unchanged_path": {
+      "Rxy": 37.85,
+      "pitch": 80,
+      "rise": 20,
+      "crestR": 39.39563732174866,
+      "end": [
+        65.98036180850077,
+        39.15,
+        66.0560458769101
+      ],
+      "no_pose_height_roll_variant": true
+    },
+    "old_circle_subset": {
+      "old_circle_outside_volume_mm3": 0.0,
+      "valid": true,
+      "previouspassedcirclepairs_maytransferONLYsubset_scope": true,
+      "failedcircleiterator152_NOT_resumed": true
+    },
+    "critical_scope": "Full9 over actual P0 upper-wall straight interval X[-69.5,-57.5], same analyticentry/helix/crest/exit. Local BRep is not a newterminal/debit nor fullglobal123axes. Nonlocaloverlap notaccepted; firstactualP0falsifier stopsdependentneighbors.",
+    "all_full_neighbors_NOT_accepted": true
+  },
+  "raw_frozen": {
+    "circle_common_mm3": 17.140621176002977,
+    "circle_received": 2,
+    "circle_total": 154,
+    "circle_UNRECEIVED": 152,
+    "old_iterator_NOT_resumed": true,
+    "worldZ_axes_diagnostic_min_gap_mm": 3.148785,
+    "worldZ_diagnostic_NOT_physical_counter": true,
+    "all_older_negative_counts_preserved": true
+  },
+  "GUI": {
+    "gui_pid": 26044,
+    "document": "day11_WORKING_UNSELECTED_N01_0of10",
+    "label": "WORKING_UNSELECTED_N01_0of10 / retained1311 + neutral108 + proposedSOURCE21",
+    "file": "C:/Users/Sysq/PycharmProjects/robot-cat-mechanical/hardware/cad/studies/whole-cat-packaging/cp2/open-prototype/feline-enclosure/day11-WORKING_UNSELECTED_N01_0of10.FCStd",
+    "objects": 1470,
+    "retained": 1311,
+    "moving108": 108,
+    "SOURCE21": 21,
+    "MAIN_mm": 46.52,
+    "manifest_sha": "50b731263aa5dd24ecfba8d66d1db398bb3dcb80dcdc29686cc598e71187e20d",
+    "save_returned": true,
+    "reference_alternatives_not_selected": true,
+    "visible_current": 1311,
+    "visible_moving": 108,
+    "visible_source": 21,
+    "modified": false,
+    "save_confirmation": "NativeMCP list_documents after observed-window Ctrl+S: one active document,1470objects,modified=False. No CAD code after final UI save.",
+    "confirmed_utc": "2026-11-11T00:36:53Z",
+    "GUI_left_open": true,
+    "geometry_owner": "Banach GUI_MCP PID26044",
+    "auxiliary_source_cache": {
+      "pid": 11476,
+      "session_id": 70789,
+      "state": "IDLE_NO_PENDING_NO_WRITES_AFTER_GUI_HANDOFF"
+    },
+    "snapshot_sha256": "a51c1b66e65469de3e144f978851d9faaee7a1692ca29834534e3ced1fe03bbf",
+    "connection": "ExistingFreeCADAI0.23.1-alpha nativeMCP at127.0.0.1:3000/mcp; structuredlistdocs/measurebbox/setview/zoom/capture used. Minimalexecute_code only unsupported existing-data import, namedsourcebind, normalfield geometry and documentmetadata/save.",
+    "data_snapshot_operation_seconds": 48.53099999995902,
+    "data_snapshot_process_CPU_seconds": 47.96875,
+    "source1292_unchanged": true,
+    "current_effective1311": "def->2d1->a9f",
+    "reference_effectivity": "G4/D5 alternatives hidden, not selected/not additive oldparent; SOURCE21+temp4 separately proposed; neutral108 reference not newBOM. Original1292 not recreated as duplicate visible group.",
+    "technical_errata": [
+      "First blankwhite capture and later occludedlocal screenshot rejected as visual evidence; finalwhole and isolatedP0 capture visuallyinspected.",
+      "MCP AttributeError Document.Modified occurred AFTER successfulsave; representationunchanged. Corrected by actual structuredlist_documents after ordinary UI save; finalmodifiedFalse.",
+      "An earlierMCP NoneType.success recovery changedlabel to .ai-backup; finalcorrectlabel and namedFCStd saved. No sourcegeometry/designfailure from interface errors."
+    ]
+  },
+  "source_hardware": {
+    "original4_confirmed": true,
+    "current_actor_alias": "UNKNOWN_NOT_ABSENT",
+    "source_relativepose": "CurrentMountFrontL andNutShoe two-way materialdifference0/0 from previous910ff7a1/0c728e6f; source4steel worldrelativepose qualified to those matchedparents. WorldONCE/no secondXML.",
+    "reference_only_group": "SourceSteelReference in GUI; qualifiedsourcekeepouts, NOT additivephysicalBOM/importedextra4parts.",
+    "dependent_clearance_NOT_accepted": true,
+    "no_new_hardware_binding_scan_after_first_P0_HOLD": true,
+    "Mount_function": "SeparatePETGchassis-shellmount, not boughtimmutable module. SolidR1.2indexdowel isnotfreehole. Actual M2.5anchor/M3axis/nutfeed/tool/shellbearing/lift preserved."
+  },
+  "retained": {
+    "base": 1292,
+    "effective": 1311,
+    "MAIN_mm": 46.52,
+    "base_manifest_sha256": "50b731263aa5dd24ecfba8d66d1db398bb3dcb80dcdc29686cc598e71187e20d",
+    "no_new_selected_layout": true,
+    "G4_D5_SOURCE": "PROPOSED only",
+    "source21_moving_and4temp": "data-only neutral references/currentpinnedsourcecontext",
+    "rest108": "data-only neutralreference; no oldmotionreplay"
+  },
+  "all_four_connected_links": "UNKNOWN moving->A / A->B / B->C / C->trueDGV; selected criticalpath allocation HOLD, sections notwholefreeway.",
+  "global_OPEN": [
+    "SOURCE actual connectedspace/KneeHipmovingR/actualpercoreLi-delta/usable55EACHFL2+Hip10/perunit850project900ceil5(min+20)MAX3/A-U-fit-slack-cutNULL",
+    "D5OWNcontinuousclosureface29/120 technicalinvalidderivedToroid,204validchecks preserved; not sourceinvalid/contact/newdesignfailure",
+    "F_R4housingcapture+2stockbindings",
+    "S0routineoperatorportal/cowlPWM",
+    "wholeFPIfore-neck/loadlayer+shortfactoryW043/W077/W078/MAINinputbinding+V3support",
+    "R6/Pimates/U1far/headNorth/123246/lengthslack/changedmotion-outline"
+  ],
+  "USB3": "a1422d04/96eb8a6e three gates CLOSED_SCOPED; no staleinvalid3GLOBALOPEN/no replay",
+  "physical_invariants": "9IDs/12portions/4physicalMAX3/sourceFL1FL2continuous/FL2NOlap4/FL3properexistingjoint/source14terminal11full9properprefixONCE/3laps8+3sleeves20/stagger2x9/factoryplugs/850project900ceil5(min+20)/fittrim20notoperatingslack/Knee55EACHFL2Hip10/E_i=55+maxLi-Li(p),delta<=10 IF55..65, U125..135alreadycontainsE/no pooling/no cut/newsplice/purchase. Fourindependent220/both4MTA/MODULEsoldered/selectedR47P0E6MAIN46.52/15MG92B/envelope325x200x160/max200namedcarrier/256cube/foreign1.25/BodyOuter3.25 unchanged.",
+  "initialassembly": "Reuse received partialorder only, not wholeN08: benchMODULE/MTA/FPIlap+MAINinput -> P0nuts/S0fasteners -> connectedSOURCE beforeE6 -> D5keeper+FRGkey/full83.3 -> WHOLEF_R4IN+OUT once afterclamp/D5 -> FPIcaseband/strains/DGVpressure afterlay -> MAIN/Pimates/headNorth/R6access -> batterystrap/skins. Linkedkitopening, F_R4capture2stock, simultaneousFPI-S0V3PWMaccess remainUNKNOWN.",
+  "timing": {
+    "bounded_start_UTC": "2026-11-11T00:12:29Z",
+    "correction_operation_seconds": 0.48400000017136335,
+    "correction_process_CPU_seconds": 0.703125,
+    "save_confirmed_UTC": "2026-11-11T00:36:53Z",
+    "written_utc": "2026-11-11T00:38:39.514262+00:00"
+  },
+  "views": [
+    {
+      "path": "day11-GUI-normal9-P0-local-isolated.png",
+      "sha256": "6e977061c870d94fcdb8860647be5d18bbe48722d1701bde7d107dc4337c30e3",
+      "visually_inspected": true,
+      "not_geometry_GO": true
+    },
+    {
+      "path": "day11-GUI-WORKING-1311-with-neutral108-SOURCE21.png",
+      "sha256": "06488b5a2e76222ffe97c133bd445a47144dad6d3f8cb15ff0eb5de138c2a9d2",
+      "visually_inspected": true,
+      "not_geometry_GO": true
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "day07-final-window-current-base-and-proposed-resume-manifest.json",
+      "sha256": "50b731263aa5dd24ecfba8d66d1db398bb3dcb80dcdc29686cc598e71187e20d"
+    },
+    {
+      "path": "day07-removable-Pi-carrier-current-candidate-composition.json",
+      "sha256": "def3e56a8eca5cc84fe420299f0c4cfe08f0328d212940fb4614b372acf2ade1"
+    },
+    {
+      "path": "day07-MODULE-V3-capacity-current-candidate-composition.json",
+      "sha256": "2d1d8cfa3dfe17add2578abc31473126c39b3e86310d332383fd6365cc70b56e"
+    },
+    {
+      "path": "day07-S0-C1-current-candidate-composition.json",
+      "sha256": "a9f78e06faa1f57007fb58f4163b72af74f85a752f92713abb57d6fb7647d93a"
+    },
+    {
+      "path": "day11-P0-connected-space-bounded-disposition.json",
+      "sha256": "910ff7a12fccfa5f701d3c72adfe81fbcc4d65a6adf024f8832cde9e3296d7a8"
+    },
+    {
+      "path": "day11-P0-connected-space-and-load-interface-read.json",
+      "sha256": "0c728e6fa488a4f88456d3ac7f20766648713d4ae9bbaf91eb80f7cd4ec97310"
+    },
+    {
+      "path": "day11-WHOLE_N01-architecture-bounded-disposition.json",
+      "sha256": "bda562daff6c480233561be7c0cbfd369f6ee490cb1a1ce501e3a56fbc6ce0c9"
+    },
+    {
+      "path": "day11-WHOLE_N01-layout-architecture-and-closure-plan.json",
+      "sha256": "38962b721a91f85b9a242867c1a758fbcc97a2c810c3308a1360ee5c8dfd3c7d"
+    },
+    {
+      "path": "day11-whole-source-group-first-gate.json",
+      "sha256": "3f32d5a52b29b6aea8b1b1ccb53838b818ae3ceab47cfd3b20f8f8542bba77d5"
+    },
+    {
+      "path": "day07-SOURCE-actual-frame-passage-source-inputs.json",
+      "sha256": "f51799821644af1088b724c1e785e4f980571bc3fe79d4651f28e76e43ad9acb"
+    },
+    {
+      "path": "n01-selected-piece-profile-contract.json",
+      "sha256": "a159ec38598e32e16be997019c5c0755521fcf723f347bae2595970b479566c3"
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\hardware\\cad\\assembly\\RobotCatNarrowRimEars.FCStd",
+      "sha256": "4aa7036d9a2cd993d07dd607f01cad4bdcffcb3e063bdc444fec819ca8f283db"
+    },
+    {
+      "path": "C:\\Users\\Sysq\\PycharmProjects\\robot-cat-mechanical\\tools\\freecad\\skorupa\\build20.py",
+      "sha256": "2f5143698aed66a83b27eefabbfd769158c0c57f2fd94ec26debeb51ceb1a4ea"
+    }
+  ],
+  "packet_pins": [
+    {
+      "path": "day11-WORKING_UNSELECTED_N01_0of10.FCStd",
+      "sha256": "a51c1b66e65469de3e144f978851d9faaee7a1692ca29834534e3ced1fe03bbf",
+      "bytes": 35953975
+    },
+    {
+      "path": "day11-GUI-working-snapshot-source-index.json",
+      "sha256": "33030b668f213dc73edc4620f8afae06e6b7a3131d6732348239d932291163bf",
+      "bytes": 124756
+    },
+    {
+      "path": "day11-GUI-current-model-save-observation.json",
+      "sha256": "3750d5981074d39ceaf9b2180bf1cc95fd6c9613d9c33a1fadf0c303c5dcc490",
+      "bytes": 1202
+    },
+    {
+      "path": "day11-GUI-same-path-normal9-P0-proof.json",
+      "sha256": "4f759288eba872e8b7360efce482f6f2c2a7f4811d81b2ab014cedbedfbdb07c",
+      "bytes": 12392
+    },
+    {
+      "path": "day11-GUI-same-path-normal9-P0-proof.breps.zip",
+      "sha256": "b4d3d735b3f9114dd4643cf9904dd9bdb96ed77ea940bbfe7eb58b8df7837a75",
+      "bytes": 12106
+    },
+    {
+      "path": "day11-GUI-normal9-P0-local-isolated.png",
+      "sha256": "6e977061c870d94fcdb8860647be5d18bbe48722d1701bde7d107dc4337c30e3",
+      "bytes": 12430
+    },
+    {
+      "path": "day11-GUI-WORKING-1311-with-neutral108-SOURCE21.png",
+      "sha256": "06488b5a2e76222ffe97c133bd445a47144dad6d3f8cb15ff0eb5de138c2a9d2",
+      "bytes": 97457
+    },
+    {
+      "path": "day11-GUI-data-snapshot.recipe.py",
+      "sha256": "c6015cc756f587ff2c32a420ce4653d11c170c21ce5ecc793d5bc69356494cee",
+      "bytes": 5978
+    },
+    {
+      "path": "day11-GUI-normal-field-P0-correction.recipe.py",
+      "sha256": "a3df84bb8e7eab9d19929999e43111272aac03eb76f0d712005ddadec9e5d9ca",
+      "bytes": 7730
+    },
+    {
+      "path": "day11-GUI-normal9-packet-finalize.recipe.py",
+      "sha256": "7f05829ba7ef1725e2a635764f499a9f25c117cecbcbc57ba7ff398789555ecb",
+      "bytes": 15436
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": "day11-GUI-same-path-normal9-P0-proof.breps.zip",
+      "CRC": true,
+      "exact_BRep_member_SHAs": 6
+    },
+    {
+      "path": "day11-WORKING_UNSELECTED_N01_0of10.FCStd",
+      "CRC": true,
+      "DocumentXML_sha256": "782e08de3124399fd0fb6d5aa4c4219204e5e4ef1cf50594cb58f110f969780c",
+      "scope": "NEWdisplay-snapshot file integrity; not replay of oldsource/currentgeometrytests."
+    }
+  ],
+  "next": "The same path fails even with all9 actual nominal profiles and unchanged margins. End this evidence correction; no secondroll/height/pitch/quarter/stock variant. Next whole architecture decision must replace the conflicting separate PETG chassis-shell load/entry interface OR choose a causally different connected transport/order based on actual source->A->B->C->trueDGV space. Preserve M2.5anchor/NutShoe, solid indexingdowel, M3axis/steel/nutfeed/tool/shellbearing/verticalshelllift, realframe, factoryends and fullstock. No local trim/newMount detail before wholepath/R/roll/assembly/usable55/perphysical length premise. Four links remainUNKNOWN; no geometryGO from GUI.",
+  "authorization": "Resultstage remains enabled/no deadline/no percentthreshold; partialfinal not close/newpermission.",
+  "pending_operation": null,
+  "unsaved_geometry": false
+}
